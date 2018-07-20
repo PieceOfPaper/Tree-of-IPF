@@ -1,0 +1,286 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="flaggame" useWorldChat="1" minLv="0" maxLv="0" mapName="pvp_flag">
+        <StageList>
+            <Stage Name="pcEnterWait">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="waitallpcenter">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_CHECK_ALL_PC_ENTER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="WORLDPVP_ALLPC_ENTERED"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="pcEnterWait"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="WaitStart"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="initround">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="50000" execCount="1" eventName="forcestartgame" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="WORLDPVP_ALLPC_ENTERED"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="pcEnterWait"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="WaitStart"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="checkEmptyGameRoom"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="WaitStart" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_ENT_START_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="None"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="5000" execCount="1" eventName="wait" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="WaitStart"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="start_flagging"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+                                <Str Str="{@st55_a}"/>
+                                <Str Str="다른 플레이어보다 먼저 하나밍을 포획하세요!"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="setui">
+                        <execList>
+                            <ToolScp Scp="MGAME_COUNTDOWN" Client="NO" UseSleep="YES">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Init_PVP_Team">
+                        <listSet>
+                            <ToolScp Scp="MGAME_LIST_PC_ALL" Client="NO" UseSleep="NO"/>
+                        </listSet>
+                        <listExec>
+                            <ToolScp Scp="MLIST_E_RUNSCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_FLAGGAME_PEACEFUL"/>
+                            </ToolScp>
+                        </listExec>
+                    </Event>
+                    <Event execCount="1" eventName="Init_PVP_UI">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="INIT_WORLDPVP_PCLIST"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="start_flagging" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="하나밍을 포획하라!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="401802" Pos="-100.85#148.83#38.01" angle="-68" genCount="1" genTime="20000" objectKey="0" propList="&apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; &apos;Faction&apos; &apos;Peaceful&apos; " SimpleAI="Flag_Mon"/>
+                    <Obj Type="Monster" MonType="40201" Pos="45.34#147.62#-137.79" angle="138" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;HitProof&apos; &apos;YES&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="180000" execCount="1" eventName="checkComplete" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="start_flagging"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD_MON" Client="NO" UseSleep="NO">
+                                <Str Str="Hanaming_Flag"/>
+                                <Str Str="ssn_mission"/>
+                                <Str Str="Point"/>
+                                <Num Num="1000"/>
+                                <Str Str="BROAD_POINT_ADD_MSG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="StartScript">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="RANDOM_FLAG_POS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                  <Event execCount="1" eventName="set_faction_freeforall">
+                    <execList>
+                      <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
+                        <Str Str="Battle"/>
+                        <Num Num="180"/>
+                      </ToolScp>
+                      <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                        <Str Str="RoundMaxTime"/>
+                        <Num Num="180"/>
+                      </ToolScp>
+                      <ToolScp Scp="MGAME_EVT_SCRIPT_CLIENT" Client="YES" UseSleep="NO">
+                        <Str Str="FLAGGAME_START_C"/>
+                      </ToolScp>
+                    </execList>
+                    <listSet>
+                      <ToolScp Scp="MGAME_LIST_PC_ALL" Client="NO" UseSleep="NO"/>
+                    </listSet>
+                    <listExec>
+                      <ToolScp Scp="MLIST_E_RUNSCRIPT" Client="NO" UseSleep="NO">
+                        <Str Str="MGAME_FLAGGAME_PEACEFUL"/>
+                        <Num Num="0"/>
+                      </ToolScp>
+                      <ToolScp Scp="MLIST_E_RUNSCRIPT" Client="NO" UseSleep="NO">
+                        <Str Str="MGAME_FLAGGAME_INIT_TEAM"/>
+                        <Num Num="0"/>
+                      </ToolScp>
+                    </listExec>
+                  </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="check_complete">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="3000" eventName="CheckGameEnd">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round"/>
+                                <Str Str="OVER"/>
+                                <Num Num="4"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_CLIENT" Client="YES" UseSleep="NO">
+                                <Str Str="FLAGGAME_END_C"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+                                <Str Str="{@st55_a}"/>
+                                <Str Str="게임이 끝났습니다."/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="start_flagging"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="start_flagging"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="check_complete"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="complete"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="complete" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="applyScore">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="FLAGGAME_APPLY_RESULT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="30000" execCount="1" eventName="autoReturnToZone " execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_WORLDPVP_RETURNTOZONE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="checkEmptyGameRoom" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="checkEmptyGameRoom">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="FLAGGAME_APPLY_RESULT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="INIT_FLAGGAME_SCRIPT"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="INIT_PVP_STAT"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="ssn_mission"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_CREATE_PC_SIMPLE_AI" Client="NO" UseSleep="NO">
+                <Str Str="Flag_PC"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_PC_LIST_UPDATE" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="flaggame"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EnterList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_DISABLE_DEAD_DURABILITY" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MGAME_INIT_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_VALUE_SEND" Client="NO" UseSleep="NO">
+                <Str Str="Round"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_VALUE_SEND" Client="NO" UseSleep="NO">
+                <Str Str="RoundMaxTime"/>
+            </ToolScp>
+        </WorldInitList>
+    </Game>
+</GameList>

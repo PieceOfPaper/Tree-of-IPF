@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="M_GTOWER2_ZEMINA_ROOM" minLv="0" maxLv="0" startWaitSec="-340484628">
+        <StageList>
+            <Stage Name="setting">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Start"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="진입 중"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154072" Pos="-5748.25#239.93#6803.93" angle="-89" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Dialog&apos; &apos;GT41_ZEMINA_NPC&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="event_loop3"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_summon_ground_yellow" Arg="3.5"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_ground051_loop" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Trigger" triggerName="Trigger">
+                        <Area>
+                            <Pos Value="-6072.527344 240.183365 6563.500977"/>
+                            <Pos Value="-5390.141113 240.183365 6546.672363"/>
+                            <Pos Value="-5457.603516 240.183365 6478.071777"/>
+                            <Pos Value="-6027.261230 240.183365 6497.672363"/>
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+                                <Str Str="dir"/>
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="dir" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="direction_start">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
+                                <Str Str="DIR_GT2_ZEMINA_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="lutha" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="lutha"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="lutha">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57580" Pos="-5784.69#239.93#6796.56" angle="-1" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;큐폴 루타&apos; &apos;BTree&apos; &apos;None&apos; &apos;Dialog&apos; &apos;GT41_LUTHA_NPC&apos; "/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

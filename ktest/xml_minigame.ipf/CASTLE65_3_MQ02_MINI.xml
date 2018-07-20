@@ -1,0 +1,355 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CASTLE65_3_MQ02_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="Stage01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155097" Pos="-794.00#166.00#1139.00" angle="-45" range="200" maxStackCount="1" autoGen="0" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_SET_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_01"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </DeadList>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_CORE_DEAD"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_DIALOG_ROTATE" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light019" Arg="1"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_CORE_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58289" Pos="-849.90#166.69#1171.55" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;TrackMonster&apos; &apos;Lv&apos; &apos;80&apos; &apos;PATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_CUSTOM_TARGET" Client="NO" UseSleep="NO">
+                                    <Str Str="PagEmitter"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_CUSTOM_TARGET" Client="NO" UseSleep="NO">
+                                    <Str Str="PagNurse"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_D_FAIL"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="5000"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58077" Pos="-933.12#166.69#1137.99" range="100" genCount="4" maxStackCount="1" genTime="3000" genReadyTime="2000" objectKey="2" autoDestroy="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_SUMMON"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_03"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58077" Pos="-802.46#166.69#1008.70" range="100" genCount="4" maxStackCount="1" genTime="3000" genReadyTime="2000" objectKey="3" autoDestroy="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_SUMMON"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_03"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58077" Pos="-796.51#166.69#1270.89" range="100" genCount="4" maxStackCount="1" genTime="3000" genReadyTime="3000" objectKey="4" autoDestroy="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_SUMMON"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_03"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58077" Pos="-663.03#166.69#1144.68" range="100" genCount="4" maxStackCount="1" genTime="3000" genReadyTime="10000" objectKey="5" autoDestroy="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_SUMMON"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_03"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58076" Pos="-794.00#166.00#1139.00" range="200" genCount="4" maxStackCount="1" genTime="3000" genReadyTime="2000" objectKey="6" autoDestroy="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_SUMMON"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_ADD_MGAME_V" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_03"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_01"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_02"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_03"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="CoreUnHide">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_01"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_01"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage01/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="NoMonster">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/0/Stage01/2/Stage01/3/Stage01/4/Stage01/5/Stage01/6"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_03"/>
+                                <Str Str="EQ"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage02"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage01"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_02"/>
+                                <Str Str="=="/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage01"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage02" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155097" Pos="-794.00#166.00#1139.00" angle="-45" maxStackCount="1" genTime="1000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_ADD_MGAME_V_TAKEDMG" Client="NO" UseSleep="NO">
+                                    <Str Str="castle653_02"/>
+                                    <Num Num="5"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE653_MQ_02_MINI_CORE_DEAD"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_DIALOG_ROTATE" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light019" Arg="1"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Start">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/1"/>
+                                <Str Str="SCR_CASTLE653_MQ_02_MINI_CHAT1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="castle653_02"/>
+                                <Str Str="OVER"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage02"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Clear" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Start">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage01/1"/>
+                                <Str Str="SCR_CASTLE653_MQ_02_MINI_CHAT2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="3000" execCount="1" eventName="Clear" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="SSN_CASTLE65_3_MQ02"/>
+                                <Str Str="QuestInfoValue2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

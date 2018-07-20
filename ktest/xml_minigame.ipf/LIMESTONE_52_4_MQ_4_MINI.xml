@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="LIMESTONE_52_4_MQ_4_MINI" minLv="0" maxLv="0" startWaitSec="5177402">
+		<StageList>
+			<Stage Name="1st">
+				<ObjList>
+					<Obj Type="Monster" MonType="58471" Pos="2210.50#-89.13#-241.77" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58471" Pos="2433.73#-87.08#-452.67" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="1-2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="2nd"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="1st"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="2nd" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58471" Pos="2202.69#-87.08#-222.33" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58471" Pos="2214.55#-87.08#-341.76" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
+					</ObjList>
+				<StageEvents>
+					<Event eventName="2-3">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="3rd"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="2nd"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="3rd" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58471" Pos="2237.64#-87.08#-330.66" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58471" Pos="2238.00#-91.41#-218.00" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58472" Pos="2432.09#-87.08#-559.19" genCount="1" genTime="20000" objectKey="3" searchRange="800" tendency="1"/>
+					</ObjList>
+				<StageEvents>
+					<Event eventName="3-4">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="4th"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="3rd"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="4th" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58471" Pos="2391.57#-87.08#-507.12" genCount="1" genTime="20000" objectKey="0" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58471" Pos="2337.57#-87.08#-462.45" genCount="1" genTime="20000" objectKey="1" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58472" Pos="2399.22#-87.08#-553.25" genCount="1" genTime="20000" objectKey="3" searchRange="800" tendency="1"/>
+					<Obj Type="Monster" MonType="58473" Pos="2172.45#-87.08#-231.80" genCount="1" genTime="20000" objectKey="7" searchRange="800" tendency="1"/>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

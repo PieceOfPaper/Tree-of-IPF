@@ -1,0 +1,168 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FTOWER41_MQ_03_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="147307" Pos="-582.94#1410.11#-1856.96" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;마법사의 탑 대형 이동 마법진&apos; &apos;Lv&apos; &apos;95&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;HPCount&apos; &apos;10&apos; ">
+                        <SelfAI UpdateMS="1000">
+                            <List>
+                                <ToolScp Scp="SAI_LINK_OBJ" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="DefGroup/1"/>
+                                    <Str Str="OOBE_Bg"/>
+                                    <Str Str="Bip01"/>
+                                    <Str Str="1_Bone08"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="160"/>
+                                    <Str Str="Silvertransporter_m_Quest"/>
+                                    <Str Str="FTOWER41_MQ_03_RUN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_burstup027_fire1" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_buff_fire_spread" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_burstup027_fire1" Arg="1"/>
+                                    <Num Num="0.5"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147449" Pos="-607.06#1410.11#-1906.61" genCount="1" genTime="20000" objectKey="1" propList="&apos;RunMSPD&apos; &apos;65&apos; &apos;WlkMSPD&apos; &apos;65&apos; " SimpleAI="FTOWER41_MQ_03_AI">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401621" Pos="-648.99#1410.11#-1961.24" range="60" maxStackCount="1" genTime="8000" autoGen="0" objectKey="2" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="archer_buff_skl_Recuperate_circle" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401621" Pos="-459.79#1410.11#-1795.91" range="60" maxStackCount="1" genTime="8000" autoGen="0" objectKey="3" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="archer_buff_skl_Recuperate_circle" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47397" Pos="-482.82#1410.11#-1939.51" range="60" maxStackCount="1" genTime="8000" autoGen="0" genReadyTime="3000" objectKey="4" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="archer_buff_skl_Recuperate_circle" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47397" Pos="-592.84#1410.11#-1724.96" range="60" maxStackCount="1" genTime="8000" autoGen="0" genReadyTime="3000" objectKey="5" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="archer_buff_skl_Recuperate_circle" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47397" Pos="-712.30#1410.11#-1823.41" range="60" maxStackCount="1" genTime="8000" autoGen="0" genReadyTime="3000" objectKey="6" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="archer_buff_skl_Recuperate_circle" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gen">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Gen2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

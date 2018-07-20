@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="TABLELAND_73_SUBQ5_ICE" minLv="0" maxLv="0" startWaitSec="15">
+        <StageList>
+            <Stage Name="ICE">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="1439.93#677.64#1211.13" genCount="1" genTime="20000" genReadyTime="30000" objectKey="0" SimpleAI="TABLE73_SUBQ5_ICE_AI4"/>
+                    <Obj Type="Monster" MonType="20024" Pos="1466.91#677.75#1523.52" genCount="1" genTime="20000" genReadyTime="30000" objectKey="1" SimpleAI="TABLE73_SUBQ5_ICE_AI5"/>
+                    <Obj Type="Monster" MonType="20024" Pos="1301.40#677.64#1048.56" genCount="1" genTime="20000" genReadyTime="30000" objectKey="2" SimpleAI="TABLE73_SUBQ5_ICE_AI6"/>
+                    <Obj Type="Monster" MonType="20024" Pos="1185.99#677.64#1538.79" genCount="1" genTime="20000" genReadyTime="30000" objectKey="3" SimpleAI="TABLE73_SUBQ5_ICE_AI7">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="30000" execCount="1" eventName="MSG" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="냉기 구름이 추가로 소환됐습니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

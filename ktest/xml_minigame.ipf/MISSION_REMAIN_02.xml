@@ -1,0 +1,1267 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="MISSION_REMAIN_02" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_f_remains_38" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="60초 뒤 미션이 시작됩니다"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="40110" Pos="-811.84#422.89#444.17" angle="-51" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Law&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;150&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="sec50">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="50초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="sec10">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="50"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="제미나 여신상을 지키면서{nl}키르멜리치를 처치하세요!"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="제미나 여신상을 지키면서{nl}키르멜리치를 처치하세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="15"/>
+                    </ToolScp>
+                </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="Stage1"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47368" Pos="-1957.46#336.67#677.26" genCount="1" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47368" Pos="272.73#479.00#1135.80" angle="-134" genCount="1" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47368" Pos="287.04#422.89#248.03" angle="175" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47368" Pos="-913.41#422.89#-514.20" angle="88" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47121" Pos="-1854.91#336.67#640.07" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환진&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;HPCount&apos; &apos;60&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47121" Pos="73.81#479.00#1124.55" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;소환진&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;60&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47121" Pos="85.26#422.89#293.83" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;소환진&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;60&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47121" Pos="-937.14#422.89#-370.56" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Name&apos; &apos;소환진&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HPCount&apos; &apos;60&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="-1826.08#336.67#694.93" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="-1839.62#336.67#562.67" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="-1755.45#336.67#612.18" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="58.26#479.00#1197.07" angle="178" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="35.04#479.00#1069.92" angle="157" genCount="1" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="147.59#479.00#1102.16" angle="168" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="99.64#422.89#368.74" angle="177" genCount="1" genTime="20000" autoGen="0" objectKey="14" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="50.74#422.89#240.92" angle="166" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="125.60#422.89#244.80" angle="162" genCount="1" genTime="20000" autoGen="0" objectKey="16" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="147.28#422.89#328.51" angle="177" genCount="1" genTime="20000" autoGen="0" objectKey="17" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="-1010.96#425.46#-350.06" angle="87" genCount="1" genTime="20000" autoGen="0" objectKey="18" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level2&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41285" Pos="-875.16#422.89#-379.91" angle="87" genCount="1" genTime="20000" autoGen="0" objectKey="19" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-766.26605" Y="422.88751" Z="346.58911" Random="150"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1763.35#336.67#663.88" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="20" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1770.56#336.67#577.75" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="21" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1802.65#336.67#640.73" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="22" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="15.56#479.00#1134.33" angle="160" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="23" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="103.07#479.00#1065.53" angle="164" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="24" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="130.88#479.00#1173.83" angle="-175" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="25" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="27.18#422.89#287.23" angle="-176" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="26" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="41.98#422.89#351.64" angle="-177" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="27" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-989.87#422.89#-411.86" angle="76" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="28" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-964.63#425.90#-327.99" angle="83" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="29" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-920.44#422.89#-343.27" angle="75" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="30" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-909.12#422.89#-404.87" angle="87" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="31" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="300"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-795.83398" Y="422.88751" Z="322.70844" Random="170"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41196" Pos="-1118.73#415.43#362.10" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="32" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41196" Pos="-1216.87#415.14#603.42" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="33" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1085.63#416.37#547.08" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="34" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-687.46#422.89#749.18" angle="-115" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="35" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-615.02#422.89#655.89" angle="-135" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="36" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-584.09#422.89#570.87" angle="-150" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="37" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-595.93#422.89#751.45" angle="-136" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="38" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-421.57#422.89#348.62" angle="166" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="39" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-402.32#422.89#202.88" angle="172" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="40" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-315.90#422.89#370.98" angle="173" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="41" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-334.94#422.89#187.01" angle="169" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="42" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1080.82#449.18#-39.69" angle="49" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="43" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-944.29#449.18#-68.30" angle="64" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="44" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-858.04#449.18#-22.98" angle="67" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="45" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-987.03#449.18#128.90" angle="62" range="100" genCount="2" maxStackCount="1" genTime="10000" objectKey="46" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="Stage1FailCheck1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage1SuccessCheck1" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/0/Stage1/3/Stage1/1/Stage1/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stage1ValueSet1">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE_RANDOM" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                                <Str Str="stage1BossGen"/>
+                                <Num Num="0"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGenReady"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossGen0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="stage1BossGen1"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="successCheckReady"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossGen1" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="stage1BossGen1"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="successCheckReady"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossGen2" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="stage1BossGen1"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="successCheckReady"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossGen3" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="SCR_MGAME_VALUE_CHECK_2" Client="NO" UseSleep="NO">
+                                <Str Str="stage1BossGen1"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="successCheckReady"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossGenReady" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successCheckReady" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="bossGen3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1SuccessCheck1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="15" eventName="normalGen0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="13"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/4"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/8/Stage1/10/Stage1/20/Stage1/22/Stage1/9/Stage1/21"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/8/Stage1/10/Stage1/20/Stage1/22/Stage1/9/Stage1/21"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="15" eventName="normalGen1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/5"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/11/Stage1/13/Stage1/25/Stage1/12/Stage1/24/Stage1/23"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/12/Stage1/11/Stage1/23/Stage1/13/Stage1/24/Stage1/25"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="15" eventName="normalGen2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/6"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/14/Stage1/17/Stage1/27/Stage1/15/Stage1/26/Stage1/16"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/15/Stage1/26/Stage1/27/Stage1/14/Stage1/16/Stage1/17"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="15" eventName="normalGen3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="23"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/7"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage1/19/Stage1/29/Stage1/30/Stage1/31/Stage1/18/Stage1/28"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage1/18/Stage1/29/Stage1/19/Stage1/30/Stage1/31/Stage1/28"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="scroll"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="failsec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                        <Str Str="Clear"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="successsec60">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FailCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="pcDieCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min10Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min5Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min60Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="세 개 소환진을 모두 파괴하세요!"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="세 개 소환진을 모두 파괴하세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="15"/>
+                    </ToolScp>
+                </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="Stage2"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47121" Pos="-1311.72#296.71#-998.48" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환진&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47121" Pos="-1863.21#325.35#-720.14" genCount="1" genTime="20000" objectKey="1" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환진&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47121" Pos="-834.57#260.42#-1150.02" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;소환진&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47369" Pos="-1365.38#296.71#-1105.98" angle="58" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1917.00#325.35#-740.86" angle="-31" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1877.11#325.35#-657.01" angle="-22" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1808.75#325.35#-672.50" angle="-37" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1836.01#325.35#-766.52" angle="-25" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1356.08#296.71#-949.41" angle="-34" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1359.45#296.71#-1037.27" angle="-8" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1279.69#296.71#-1050.61" angle="140" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-1253.06#296.71#-981.87" angle="146" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-833.98#260.42#-1102.93" angle="173" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-854.80#260.42#-1202.86" angle="169" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-740.06#260.42#-1101.71" angle="164" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="14" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41310" Pos="-737.53#260.42#-1180.92" angle="169" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1901.63#325.35#-705.02" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="16" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1816.46#325.35#-725.10" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="17" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1831.97#325.35#-800.75" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="18" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1841.30#325.35#-619.22" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="19" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1399.19#296.71#-994.66" angle="-9" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="20" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1203.97#296.71#-979.68" angle="156" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="21" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1252.53#296.71#-1079.62" angle="149" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="22" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1316.03#296.71#-935.08" angle="-80" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="23" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-792.55#260.42#-1209.86" angle="166" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="24" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-777.18#260.42#-1120.30" angle="-176" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="25" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-897.90#260.42#-1149.13" angle="164" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="26" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-750.05#260.42#-1146.01" angle="179" range="50" genCount="1" genTime="20000" autoGen="0" objectKey="27" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="successCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/1/Stage2/0/Stage2/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="10" eventName="normalGen0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/8/Stage2/20/Stage2/23/Stage2/11/Stage2/21/Stage2/10/Stage2/22/Stage2/9"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/8/Stage2/20/Stage2/23/Stage2/11/Stage2/21/Stage2/10/Stage2/22/Stage2/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="10" eventName="normalGen1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/5/Stage2/16/Stage2/19/Stage2/4/Stage2/18/Stage2/6/Stage2/17/Stage2/7"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/4/Stage2/5/Stage2/16/Stage2/19/Stage2/6/Stage2/17/Stage2/7/Stage2/18"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="10" eventName="normalGen2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/12/Stage2/26/Stage2/14/Stage2/15/Stage2/25/Stage2/27/Stage2/13/Stage2/24"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage2/12/Stage2/26/Stage2/14/Stage2/15/Stage2/25/Stage2/27/Stage2/13/Stage2/24"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage3" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="몬스터를 처치하면 등장하는{nl} 듀라한을 처치하세요!"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="몬스터를 처치하면 등장하는{nl} 듀라한을 처치하세요!"/>
+                        <Str Str="scroll"/>
+                        <Num Num="15"/>
+                    </ToolScp>
+                </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="Stage3"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47368" Pos="-1830.31#325.94#-1567.90" angle="-37" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47369" Pos="-1256.90#325.94#-2033.16" angle="140" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="58420" Pos="-1610.93#325.94#-1952.48" angle="58" genCount="1" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="3000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="2"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41196" Pos="-1639.80#325.94#-1881.16" angle="34" genCount="1" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1548.28#325.94#-1940.63" angle="48" genCount="1" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1702.85#325.94#-1919.61" angle="17" genCount="1" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1585.60#325.94#-1994.18" angle="79" genCount="1" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1608.27#325.94#-1844.18" angle="49" genCount="1" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41196" Pos="-1514.41#325.94#-1909.79" angle="43" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401761" Pos="-1811.25#325.94#-1502.93" angle="-44" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401761" Pos="-1742.13#325.94#-1579.12" angle="-43" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401761" Pos="-1928.40#325.94#-1525.83" angle="-47" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401761" Pos="-1800.62#325.94#-1658.89" angle="-45" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1290.03#325.94#-1909.44" angle="149" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/1"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1330.14#325.94#-2021.98" angle="144" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="14" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/1"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1295.63#325.94#-1964.21" angle="137" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/1"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47463" Pos="-1385.80#325.94#-2039.85" angle="142" range="100" genCount="1" genTime="20000" autoGen="0" objectKey="16" UseAiOutOfPc="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;solace_level1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+                                    <MGameObjPtr List="Stage3/1"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="bossGen1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/0/Stage3/1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage3/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage3/3/Stage3/5/Stage3/7/Stage3/4/Stage3/6/Stage3/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="successCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="10" eventName="normalGen1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/11/Stage3/10/Stage3/9/Stage3/12"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage3/11/Stage3/10/Stage3/9/Stage3/12"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="10" eventName="normalGen2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/13/Stage3/14/Stage3/15/Stage3/16"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage3/13/Stage3/14/Stage3/15/Stage3/16"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successCheck" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Request_Mission9"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
+</GameList>

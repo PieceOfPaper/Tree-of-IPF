@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ROKAS29_MQ3_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41433" Pos="184.74#681.78#647.18" angle="-160" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="200.74#681.78#574.92" angle="-174" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="177.60#681.78#513.26" angle="-173" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1-2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0/1st/1/1st/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47308" Pos="225.58#681.78#675.68" angle="-152" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47308" Pos="216.84#681.78#573.56" angle="165" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="2-3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3rd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3rd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47308" Pos="-239.61#681.29#636.37" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47308" Pos="-265.90#681.29#581.34" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47308" Pos="-305.15#681.29#526.61" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="3-4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3rd/0/3rd/1/3rd/2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4th"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="4th" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41433" Pos="190.55#681.78#620.32" angle="-158" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="208.61#681.78#548.08" angle="-168" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="-230.65#681.29#632.21" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="-277.32#681.29#575.11" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="4-5">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="5th"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="5th" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47308" Pos="-278.18#681.29#597.80" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47308" Pos="188.58#681.78#538.55" angle="-151" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="-314.32#681.29#534.26" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="-261.53#681.29#653.89" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="142.35#681.78#607.88" angle="-159" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="154.50#681.78#488.83" angle="162" genCount="1" genTime="20000" objectKey="5" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="5-6">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="5th/0/5th/1/5th/2/5th/3/5th/4/5th/5"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="6th"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="6th" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47308" Pos="-194.05#681.29#611.79" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47308" Pos="42.26#681.78#476.09" angle="82" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47308" Pos="166.25#681.78#613.42" angle="157" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="6-7">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="6th"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="7th" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41433" Pos="-157.88#681.29#607.77" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="-17.46#681.78#495.12" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="175.56#681.78#609.75" angle="-164" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41433" Pos="136.54#681.78#525.75" angle="-176" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

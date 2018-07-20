@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="JOB_CANNONEER_8_1_MINI" minLv="0" maxLv="0" startWaitSec="1573653439">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57914" Pos="1415.01#662.27#530.76" genCount="99" maxStackCount="3" genTime="20000" genReadyTime="5000" objectKey="0" searchRange="300" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57904" Pos="1494.81#662.20#317.47" genCount="99" maxStackCount="2" genTime="20000" genReadyTime="30000" objectKey="1" searchRange="300" propList="&apos;JEXP_Rate&apos; &apos;0&apos; &apos;EXP_Rate&apos; &apos;0&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57914" Pos="1309.32#662.18#275.35" genCount="99" maxStackCount="2" genTime="20000" genReadyTime="15000" objectKey="2" searchRange="300" propList="&apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57904" Pos="1238.09#662.17#493.53" genCount="99" maxStackCount="1" genTime="20000" genReadyTime="60000" objectKey="3" searchRange="300" propList="&apos;JEXP_Rate&apos; &apos;0&apos; &apos;EXP_Rate&apos; &apos;0&apos; " tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

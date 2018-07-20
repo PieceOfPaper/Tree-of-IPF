@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="Raid_thorn1_minigame" rankScript="RAID_RANK_SCP" mapName="gid_thorn_01" checkSecStart="800" checkSec="3600" checkScript="CHECK_MGAME_COMMON" minLv="58" maxLv="0" msgTxt="{@st41b}몬스터가 몰려나오고 있습니다. 우리가 막지 않으면 클라페다까지 몰려오고 말 것입니다." portrait="Dlg_port_owlseer">
+		<StageList>
+			<Stage Name="Stage_A_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="케파레이더에게 [이끼향]을 획득하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="[이끼향]을 사용하여 [케파치프틴]을 불러내세요"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="41420" Pos="-414.00#151.46#174.00" range="100" maxStackCount="2" genTime="1" objectKey="0" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-506.00#151.46#-60.00" range="100" maxStackCount="2" genTime="1" objectKey="1" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-522.48#151.46#-99.68" range="100" maxStackCount="2" genTime="1" objectKey="2" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-337.95#151.46#-169.75" range="100" maxStackCount="2" genTime="1" objectKey="3" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-296.43#151.46#-99.63" range="100" maxStackCount="2" genTime="1" objectKey="4" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-333.00#151.46#-50.00" range="100" maxStackCount="2" genTime="1" objectKey="5" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-278.00#151.46#90.00" range="100" maxStackCount="2" genTime="1" objectKey="6" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-545.39#151.46#-199.93" range="100" maxStackCount="2" genTime="1" objectKey="7" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-471.63#151.46#-214.30" range="100" maxStackCount="2" genTime="1" objectKey="8" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-403.00#151.46#-91.00" range="100" maxStackCount="2" genTime="1" objectKey="9" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41420" Pos="-355.00#151.46#105.00" range="100" maxStackCount="2" genTime="1" objectKey="10" searchRange="150" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'FixedLife' '600' 'FixedAttack' '40' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100.000000"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_DROP_ITEM" Client="NO" UseSleep="NO">
+									<Str Str="THORN_RAID_STAGE_A"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="47244" Pos="-185.89#151.46#8.51" angle="-17" genCount="1" genTime="20000" objectKey="11" autoDestroy="0" propList="'Name' ' ' "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="Stage_A_01_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+								<Str Str="OVER"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage_A_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="Stage_A_01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="raidEnterCheck">
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_EXEC_RAIDSSN_STARTTIME" Client="NO" UseSleep="NO">
+								<Str Str="THORN1_LASTSTART"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage_A_01_1" AutoStart="0">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="lk"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47371" Pos="-63.07#151.46#-1.06" angle="-165" genCount="1" genTime="20000" objectKey="0" searchRange="130" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
+								<ToolScp Scp="S_AI_PHASE_RMOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-395.397766" Y="151.457397" Z="-18.885834"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="47244" Pos="22.49#151.46#3.60" angle="-22" genCount="1" genTime="20000" objectKey="1" propList="'BTree' 'BasicBoss' "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="Stage_A_01_1_1ds">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_A_01_1/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="Stage_A_01_1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage_A_01_1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="PATROL_BOSS"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_B_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Final_boss"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/1"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="AFTER_CONTROL_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="SMALL_WOOD_GEN"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_A_01/11"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_TAKE_ITEM" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Num Num="4.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Final_st_01" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="400781" Pos="45.36#100.74#926.02" maxStackCount="1" genTime="10000" objectKey="0" propList="'Lv' '50' 'BTree' 'None' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'Rage' '150' " SimpleAI="Thorn_go_center01">
+						<SelfAI/>
+					</Obj>
+					<Obj Type="Monster" MonType="400781" Pos="-73.00#100.74#874.00" maxStackCount="1" genTime="10000" objectKey="1" propList="'Lv' '50' 'BTree' 'None' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'Rage' '150' " SimpleAI="Thorn_go_center01">
+						<SelfAI/>
+					</Obj>
+					<Obj Type="Monster" MonType="400781" Pos="98.00#107.76#693.00" maxStackCount="1" genTime="10000" objectKey="2" propList="'Lv' '50' 'BTree' 'None' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'Rage' '150' " SimpleAI="Thorn_go_center01">
+						<SelfAI/>
+					</Obj>
+				</ObjList>
+			</Stage>
+			<Stage Name="Final_st_02" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="400781" Pos="620.23#151.46#820.29" maxStackCount="1" genTime="10000" objectKey="0" propList="'Lv' '50' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'Rage' '150' 'BTree' 'None' " SimpleAI="Thorn_go_center01"/>
+					<Obj Type="Monster" MonType="400781" Pos="736.06#151.46#737.20" maxStackCount="1" genTime="10000" objectKey="1" propList="'Lv' '50' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'Rage' '150' 'BTree' 'None' " SimpleAI="Thorn_go_center01"/>
+					<Obj Type="Monster" MonType="400781" Pos="876.44#151.46#782.45" maxStackCount="1" genTime="10000" objectKey="2" propList="'Lv' '50' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'Rage' '150' 'BTree' 'None' " SimpleAI="Thorn_go_center01"/>
+				</ObjList>
+			</Stage>
+			<Stage Name="Final_st_03" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="400781" Pos="545.58#151.46#-736.80" maxStackCount="1" genTime="10000" objectKey="0" propList="'Lv' '50' 'KDArmor' '999' 'BTree' 'None' 'Rage' '150' 'Enter' 'THORN_DARKSLIME' " SimpleAI="Thorn_go_center01"/>
+					<Obj Type="Monster" MonType="400781" Pos="653.47#151.46#-984.87" maxStackCount="1" genTime="10000" objectKey="1" propList="'Lv' '50' 'KDArmor' '999' 'BTree' 'None' 'Rage' '150' 'Enter' 'THORN_DARKSLIME' " SimpleAI="Thorn_go_center01"/>
+					<Obj Type="Monster" MonType="400781" Pos="790.47#151.46#-879.06" maxStackCount="1" genTime="10000" objectKey="2" propList="'Lv' '50' 'KDArmor' '999' 'BTree' 'None' 'Rage' '150' 'Enter' 'THORN_DARKSLIME' " SimpleAI="Thorn_go_center01"/>
+				</ObjList>
+			</Stage>
+			<Stage Name="Final_st_04" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="400781" Pos="-3.19#112.68#-747.48" maxStackCount="1" genTime="10000" objectKey="0" propList="'Lv' '50' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'BTree' 'None' 'Rage' '150' " SimpleAI="Thorn_go_center01"/>
+					<Obj Type="Monster" MonType="400781" Pos="587.98#151.46#-953.08" maxStackCount="1" genTime="10000" objectKey="1" propList="'Lv' '50' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'BTree' 'None' 'Rage' '150' " SimpleAI="Thorn_go_center01"/>
+					<Obj Type="Monster" MonType="400781" Pos="672.87#151.46#-707.36" maxStackCount="1" genTime="10000" objectKey="2" propList="'Lv' '50' 'KDArmor' '999' 'Enter' 'THORN_DARKSLIME' 'BTree' 'None' 'Rage' '150' " SimpleAI="Thorn_go_center01"/>
+				</ObjList>
+			</Stage>
+			<Stage Name="PATROL_BOSS" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="47370" Pos="328.00#151.46#-6.00" angle="-170" genCount="1" genTime="20000" objectKey="0" searchRange="100" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'WlkMSPD' '40' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " SimpleAI="Thorn_patrol_boss" tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+									<Num Num="600.000000"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event>
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="PATROL_BOSS/0"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="PATROL_BOSS/0"/>
+								<Str Str="THORN_FINAL_BUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="5000" eventName="ITEM_EVENT_BROAD">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+								<Str Str="OVER"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_BROADCAST_PCNAME" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+								<Num Num="3.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event>
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="PATROL_BOSS/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="BUFF_MON_GEN"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage_E_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="매그버크 등장!"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="71.173805" Y="112.683197" Z="-820.382080"/>
+						<Str Str="STAGE_E"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="STAGE_E"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47369" Pos="58.67#112.68#-863.74" angle="106" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
+								<ToolScp Scp="S_AI_PHASE_RMOVE" Client="NO" UseSleep="NO"/>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="Stage_E_01_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_E_01/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage_E_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_04"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_04"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_st_01/0"/>
+								<Str Str="ADD_S_AI_PART_UNHIDE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Num Num="-1.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Str Str="Monster"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage_D_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="키르멜리치 등장!"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="680.140015" Y="151.457397" Z="-861.583496"/>
+						<Str Str="STAGE_D"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="STAGE_D"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47368" Pos="648.70#151.46#-864.96" angle="103" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
+								<ToolScp Scp="S_AI_PHASE_RMOVE" Client="NO" UseSleep="NO"/>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="Stage_D_01_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_D_01/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage_D_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_E_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_04"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/4"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_st_01/0"/>
+								<Str Str="ADD_S_AI_PART_UNHIDE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Num Num="-1.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage_C_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="허니핀 등장"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="708.793335" Y="151.457397" Z="833.576660"/>
+						<Str Str="STAGE_C"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="STAGE_C"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47367" Pos="783.06#151.46#875.55" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
+								<ToolScp Scp="S_AI_PHASE_RMOVE" Client="NO" UseSleep="NO"/>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Stage_C_01_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_C_01/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage_C_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_D_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_03"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/3"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_st_01/0"/>
+								<Str Str="ADD_S_AI_PART_UNHIDE"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Num Num="-1.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="EGG_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_C_01/1"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage_C_01/2"/>
+								<Num Num="3.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage_B_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="베브라스피온 등장!"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="-13.503204" Y="100.736603" Z="774.189392"/>
+						<Str Str="STAGE_B"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="STAGE_B"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47366" Pos="34.17#100.74#803.08" genCount="1" genTime="20000" objectKey="0" searchRange="200" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_PHASE" Client="NO" UseSleep="YES"/>
+								<ToolScp Scp="S_AI_PHASE_RMOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="SAI_SET_MGAME_V" Client="NO" UseSleep="NO">
+									<Str Str="B_BOSS"/>
+									<Num Num="1.000000"/>
+								</ToolScp>
+							</DeadList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Stage_B_01_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_B_01/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage_B_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_C_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_02"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_st_01/0"/>
+								<Str Str="ADD_S_AI_PART_UNHIDE"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/2"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Num Num="-1.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Final_boss" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41215" Pos="369.91#151.46#74.55" angle="175" genCount="1" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'BTree' 'None' 'Faction' 'Peaceful' 'ATK_BM' '@GET_MON_RANK_CUST_ATK_BOSS1' 'MHP_BM' '@GET_MON_RANK_CUST_MHP_BOSS1' 'DEF_BM' '@GET_MON_RANK_CUST_DEF_BOSS1' 'DropItemList' 'M_boss_GiantWoodGoblin_red' " SimpleAI="Thorn_f_boss_01" tendency="1">
+						<SelfAI/>
+					</Obj>
+					<Obj Type="Monster" MonType="47244" Pos="-20.43#141.86#469.29" angle="-61" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="47244" Pos="606.93#151.46#591.27" angle="-60" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="47244" Pos="582.00#151.46#-575.00" angle="-57" genCount="1" genTime="20000" objectKey="3"/>
+					<Obj Type="Monster" MonType="47244" Pos="4.00#151.46#-447.00" angle="-41" genCount="1" genTime="20000" objectKey="4">
+						<SelfAI/>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="F_BOBO">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="UNDER"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Str Str="Monster"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]가 약화되어 풀려났습니다!"/>
+								<Str Str="Clear"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Str Str="MTHORN_FBOSS_ALPHA_ON"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="F_BOSSIST">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Final_boss"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="BOSS_BUFF">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Str Str="THORN_FINAL_BUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="5000" eventName="ITEM_BORAD">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+								<Str Str="OVER"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_BROADCAST_PCNAME" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+								<Num Num="3.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="OVER"/>
+								<Num Num="10.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Str Str="Monster"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]가 [강화]상태로 봉인에서 풀려났습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 10% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_02">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="2.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 20% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_03">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="3.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 30% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_04">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="4.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 40% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_05">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 50% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_06">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="6.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 60% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_07">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="7.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 70% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_08">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="8.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 80% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="SLIME_09">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_SLIME"/>
+								<Str Str="=="/>
+								<Num Num="9.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 강화가 90% 진행되었습니다!"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="COUNT_BOSS_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="=="/>
+								<Num Num="3.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 약화가 25% 진행되었습니다!"/>
+								<Str Str="Clear"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="COUNT_BOSS_02">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="=="/>
+								<Num Num="2.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 약화가 50% 진행되었습니다!"/>
+								<Str Str="Clear"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="COUNT_BOSS_03">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="=="/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="[자이언트 레드 우드]의 약화가 75% 진행되었습니다!"/>
+								<Str Str="Clear"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="AFTER_CONTROL_01" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="AFTER_CONTROL_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="UNDER"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/1/Final_boss/2/Final_boss/3/Final_boss/4"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_B_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_C_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_D_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage_E_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Final_st_04"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="B_COME_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="UNDER"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="B_BOSS"/>
+								<Str Str="EQ"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_B_01/0"/>
+								<Str Str="THORN_AFTER_MOVE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="C_COME_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="C_BOSS"/>
+								<Str Str="EQ"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="UNDER"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_C_01/0"/>
+								<Str Str="THORN_AFTER_MOVE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="D_COME_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="D_BOSS"/>
+								<Str Str="EQ"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="UNDER"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_D_01/0"/>
+								<Str Str="THORN_AFTER_MOVE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="E_COME_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="E_BOSS"/>
+								<Str Str="EQ"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Str Str="UNDER"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage_E_01/0"/>
+								<Str Str="THORN_AFTER_MOVE"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="10000" eventName="ITEM_ADD">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+								<Str Str="OVER"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_BROADCAST_PCNAME" Client="NO" UseSleep="NO">
+								<Str Str="THORN_RAID_STAGE_A"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="SUCCESS" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+						<Str Str="30초 후에 원래존으로 돌아갑니다."/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40030" Pos="326.00#151.46#-34.00" angle="-82" genTime="20000" autoGen="0" objectKey="0" propList="'Dialog' 'RAID_THORN1_TREASUREBOX_1' 'Enter' 'None' 'Leave' 'None' "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="SetPosPc">
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+								<AbsPosRange X="391.199829" Y="151.457397" Z="-28.214355" Range="90.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="SUCCESS/0"/>
+								<Num Num="1.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_RAIDSSN_MODIFY" Client="NO" UseSleep="NO">
+								<Str Str="RAID_THORN1_REWARD1"/>
+								<Num Num="0.000000"/>
+								<Num Num="1.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="START">
+				<ObjList>
+					<Obj Type="Trigger">
+						<Area>
+							<Pos Value="-665.784729 151.457397 48.976845"/>
+							<Pos Value="-652.977234 151.457397 -114.226913"/>
+							<Pos Value="-598.260010 151.457397 -171.599335"/>
+							<Pos Value="-621.008301 151.457397 154.500061"/>
+						</Area>
+						<enterScpList>
+							<ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+								<Str Str="Stage_A_01"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_TRG_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+								<Str Str="PATROL_BOSS"/>
+							</ToolScp>
+						</enterScpList>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="SetPosPc">
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="tset" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FINAL_BOSS_COUNT"/>
+								<Num Num="4.000000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Final_boss"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="gggggggggggggggggggggg"/>
+								<Str Str="Clear"/>
+								<Num Num="5.000000"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="SMALL_WOOD_GEN" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41421" Pos="68.38#151.46#334.39" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="308.714264" Y="151.457397" Z="-27.256872" Random="90.000000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="60.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="277.668884" Y="151.457397" Z="-14.705742" Random="190.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41421" Pos="603.95#151.46#380.87" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="308.714264" Y="151.457397" Z="-27.256872" Random="90.000000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="60.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="277.668884" Y="151.457397" Z="-14.705742" Random="190.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41421" Pos="606.76#151.46#-405.99" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="308.714264" Y="151.457397" Z="-27.256872" Random="90.000000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="60.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="277.668884" Y="151.457397" Z="-14.705742" Random="190.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41421" Pos="127.13#112.68#-749.95" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="3" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="308.714264" Y="151.457397" Z="-27.256872" Random="90.000000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="60.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="277.668884" Y="151.457397" Z="-14.705742" Random="190.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41421" Pos="74.28#151.46#-310.57" range="50" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="20" propList="'FixedAttack' '15' 'FixedLife' '300' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'JEXP_Rate' '0' 'EXP_Rate' '0' " tendency="1">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="40.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="308.714264" Y="151.457397" Z="-27.256872" Random="90.000000"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="60.000000"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="277.668884" Y="151.457397" Z="-14.705742" Random="190.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="SMALL_WODD_01">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="SMALL_WOOD_GEN/0"/>
+								<Num Num="2.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="SMALL_WOOD_GEN/1"/>
+								<Num Num="2.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="SMALL_WOOD_GEN/4"/>
+								<Num Num="2.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="SMALL_WOOD_GEN/2"/>
+								<Num Num="2.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="SMALL_WOOD_GEN/3"/>
+								<Num Num="2.000000"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="SMALL_WOOD_GEN"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="BUFF_MON_GEN" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41249" Pos="237.10#151.46#-59.50" range="100" genCount="8" genTime="2000" objectKey="0" propList="'EXP_Rate' '0' 'JEXP_Rate' '0' ">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="Raid_buff_atk"/>
+									<Num Num="1.000000"/>
+									<Num Num="0.000000"/>
+									<Num Num="100000.000000"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+									<Num Num="255.000000"/>
+									<Num Num="120.000000"/>
+									<Num Num="120.000000"/>
+									<Num Num="255.000000"/>
+									<Num Num="1.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41249" Pos="326.00#151.46#-114.00" range="100" genCount="8" genTime="2000" objectKey="1" propList="'EXP_Rate' '0' 'JEXP_Rate' '0' ">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="Raid_buff_def"/>
+									<Num Num="1.000000"/>
+									<Num Num="0.000000"/>
+									<Num Num="100000.000000"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+									<Num Num="120.000000"/>
+									<Num Num="120.000000"/>
+									<Num Num="255.000000"/>
+									<Num Num="255.000000"/>
+									<Num Num="1.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41249" Pos="458.00#151.46#139.00" range="100" genCount="8" genTime="2000" objectKey="2" propList="'EXP_Rate' '0' 'JEXP_Rate' '0' ">
+						<SelfAI>
+							<List>
+								<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+							</List>
+							<DeadList>
+								<ToolScp Scp="S_AI_DEAD_ADD_BUFF" Client="NO" UseSleep="NO">
+									<Str Str="Raid_buff_spd"/>
+									<Num Num="1.000000"/>
+									<Num Num="0.000000"/>
+									<Num Num="100000.000000"/>
+									<Num Num="1.000000"/>
+									<Num Num="100.000000"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+									<Num Num="120.000000"/>
+									<Num Num="255.000000"/>
+									<Num Num="120.000000"/>
+									<Num Num="255.000000"/>
+									<Num Num="1.000000"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="BUFF_MON_01"/>
+					<Event>
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Final_boss/0"/>
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="BUFF_MON_GEN"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="BUFF_MON_GEN"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="fail">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0.000000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<WorldInitList>
+			<ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
+				<AbsPos X="-723.791321" Y="151.457397" Z="-15.552331" Random="20.000000"/>
+			</ToolScp>
+		</WorldInitList>
+	</Game>
+</GameList>

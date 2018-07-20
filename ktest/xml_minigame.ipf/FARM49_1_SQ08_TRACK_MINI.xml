@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FARM49_1_SQ08_TRACK_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57352" Pos="-465.87#188.16#771.26" genCount="1" genTime="20000" autoGen="0" objectKey="0" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57352" Pos="-492.67#188.16#804.97" genCount="1" genTime="20000" autoGen="0" objectKey="1" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="VALUE">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FARM49_1_SQ08"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="START" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1/0/1/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1/0/1/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57352" Pos="-565.27#187.95#621.08" genCount="1" genTime="20000" objectKey="0" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57352" Pos="-506.43#188.10#671.21" genCount="1" genTime="20000" objectKey="1" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57352" Pos="-566.50#187.85#587.45" genCount="1" genTime="20000" objectKey="2" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2/0/2/1/2/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57352" Pos="-480.24#188.16#824.71" genCount="1" genTime="20000" objectKey="0" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57352" Pos="-494.70#188.02#645.89" genCount="1" genTime="20000" objectKey="1" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57352" Pos="-510.05#188.13#681.79" genCount="1" genTime="20000" objectKey="2" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57352" Pos="-454.51#188.16#853.74" genCount="1" genTime="20000" objectKey="3" SimpleAI="FARM49_1_SQ08_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="END" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3/0/3/1/3/2/3/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="4" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1/0/1/1/2/0/2/1/2/2/3/0/3/1/3/2/3/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FARM49_1_SQ08"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="몬스터들을 모두 처치했습니다!{nl}{np}정체불명의 꽃을 채집하세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

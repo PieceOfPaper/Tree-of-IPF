@@ -1,0 +1,416 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CORAL_32_1_SQ_8_MINI" minLv="0" maxLv="0" startWaitSec="725491928">
+        <StageList>
+            <Stage Name="DefGroup" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="1"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="57950" Pos="1171.08#226.10#738.72" genCount="1" maxStackCount="1" objectKey="4" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="864.563416 249.119858 621.086060"/>
+                        <Pos Value="733.195374 226.104858 799.095520"/>
+                        <Pos Value="1015.375000 226.104858 1200.122192"/>
+                        <Pos Value="1160.166260 226.104858 1306.976074"/>
+                        <Pos Value="1367.831055 226.104858 1245.858765"/>
+                        <Pos Value="1480.131714 226.104858 1149.442871"/>
+                        <Pos Value="1529.713379 226.104858 1068.816406"/>
+                        <Pos Value="1540.145386 226.104858 988.679871"/>
+                        <Pos Value="1528.801514 226.104858 920.536194"/>
+                        <Pos Value="1475.210327 226.104858 833.328796"/>
+                        <Pos Value="1367.795166 226.104858 796.398499"/>
+                        <Pos Value="1360.676514 226.104858 661.484558"/>
+                        <Pos Value="1305.078979 226.104858 595.243469"/>
+                        <Pos Value="1233.497437 226.104858 557.371094"/>
+                        <Pos Value="1180.831909 226.104858 555.389832"/>
+                        <Pos Value="1068.839233 226.104858 580.596985"/>
+                        <Pos Value="879.024414 240.363739 615.152466"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="864.563416 249.119858 621.086060"/>
+                        <Pos Value="733.195374 226.104858 799.095520"/>
+                        <Pos Value="1015.375000 226.104858 1200.122192"/>
+                        <Pos Value="1160.166260 226.104858 1306.976074"/>
+                        <Pos Value="1367.831055 226.104858 1245.858765"/>
+                        <Pos Value="1480.131714 226.104858 1149.442871"/>
+                        <Pos Value="1529.713379 226.104858 1068.816406"/>
+                        <Pos Value="1540.145386 226.104858 988.679871"/>
+                        <Pos Value="1528.801514 226.104858 920.536194"/>
+                        <Pos Value="1475.210327 226.104858 833.328796"/>
+                        <Pos Value="1367.795166 226.104858 796.398499"/>
+                        <Pos Value="1360.676514 226.104858 661.484558"/>
+                        <Pos Value="1305.078979 226.104858 595.243469"/>
+                        <Pos Value="1233.497437 226.104858 557.371094"/>
+                        <Pos Value="1180.831909 226.104858 555.389832"/>
+                        <Pos Value="1068.839233 226.104858 580.596985"/>
+                        <Pos Value="879.024414 240.363739 615.152466"/>
+                        <Pos Value="868.109619 249.119858 618.667297"/>
+                    </Area>
+                    <Area/>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                        <Pos Value="809.160889 226.104858 662.362427"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="1" AutoStart="0">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="1"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="57950" Pos="1291.32#226.10#826.47" genCount="1" maxStackCount="1" objectKey="0" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1154.32#226.10#850.30" genCount="1" maxStackCount="1" objectKey="1" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="994.78#226.10#970.56" genCount="1" maxStackCount="1" objectKey="2" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1467.40#226.10#925.66" genCount="1" maxStackCount="1" objectKey="3" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1/0/1/1/1/2/1/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                        <Pos Value="809.160889 226.104858 662.362427"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57950" Pos="920.75#226.10#899.39" genCount="1" maxStackCount="1" objectKey="0" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1029.75#226.10#863.51" genCount="1" maxStackCount="1" objectKey="1" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1164.33#226.10#792.86" genCount="1" maxStackCount="1" objectKey="2" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1261.05#226.10#809.45" genCount="1" maxStackCount="1" objectKey="3" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1323.42#226.10#815.60" genCount="1" maxStackCount="1" objectKey="4" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2/0/2/1/2/2/2/3/2/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                        <Pos Value="809.160889 226.104858 662.362427"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57950" Pos="1135.52#226.10#807.93" genCount="1" maxStackCount="1" objectKey="0" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="923.66#226.10#952.87" genCount="1" maxStackCount="1" objectKey="1" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1036.14#226.10#967.40" genCount="1" maxStackCount="1" objectKey="2" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1129.93#226.10#888.51" genCount="1" maxStackCount="1" objectKey="3" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1236.82#226.10#800.00" genCount="1" maxStackCount="1" objectKey="4" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3/0/3/1/3/2/3/3/3/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                        <Pos Value="809.160889 226.104858 662.362427"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="4" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57950" Pos="1482.20#226.10#965.97" genCount="1" maxStackCount="1" objectKey="0" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1291.08#226.10#813.62" genCount="1" maxStackCount="1" objectKey="1" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1290.90#226.10#759.86" genCount="1" maxStackCount="1" objectKey="2" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1219.36#226.10#796.79" genCount="1" maxStackCount="1" objectKey="3" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1160.20#226.10#771.56" genCount="1" maxStackCount="1" objectKey="4" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="4/0/4/1/4/2/4/3/4/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                        <Pos Value="809.160889 226.104858 662.362427"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="5" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57950" Pos="1303.38#226.10#806.21" genCount="1" maxStackCount="1" objectKey="0" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1217.13#226.10#836.17" genCount="1" maxStackCount="1" objectKey="1" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1115.08#226.10#900.74" genCount="1" maxStackCount="1" objectKey="2" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1267.43#226.10#786.39" genCount="1" maxStackCount="1" objectKey="3" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="41316" Pos="1154.17#226.10#791.60" genCount="1" maxStackCount="1" objectKey="4" autoDestroy="0" searchRange="500" SimpleAI="CORAL_32_1_SQ_8_AI" tendency="1"/>
+                </ObjList>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="819.769897 249.119858 638.198547"/>
+                        <Pos Value="817.702332 249.119858 577.087891"/>
+                        <Pos Value="851.158691 249.119858 549.328857"/>
+                        <Pos Value="877.984863 249.119858 608.544861"/>
+                        <Pos Value="855.915161 249.119858 639.294434"/>
+                        <Pos Value="809.160889 226.104858 662.362427"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="setting">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="500" execCount="2" eventName="setting_event">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="mon1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="mon2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="mon3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="mon4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="mon5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Start">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area/>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="989.902100 226.104858 702.617737"/>
+                        <Pos Value="1045.808105 226.104858 739.841858"/>
+                        <Pos Value="944.048218 226.104858 730.612549"/>
+                        <Pos Value="944.406128 226.104858 697.133728"/>
+                    </Area>
+                    <Area/>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                        <Pos Value="1140.118286 226.104858 962.830200"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                        <Pos Value="1140.118286 226.104858 962.830200"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                        <Pos Value="1140.118286 226.104858 962.830200"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="1103.535767 226.104858 1150.567871"/>
+                        <Pos Value="1364.850830 226.104858 1204.928955"/>
+                        <Pos Value="1406.489746 226.104858 961.876160"/>
+                        <Pos Value="1152.844116 226.104858 898.077332"/>
+                        <Pos Value="1140.118286 226.104858 962.830200"/>
+                    </Area>
+                    <Area/>
+                    <Area/>
+                    <Area/>
+                    <Area/>
+                </ScrLockList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

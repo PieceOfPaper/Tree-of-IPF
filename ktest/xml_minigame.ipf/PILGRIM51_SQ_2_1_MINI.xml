@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PILGRIM51_SQ_2_1_MINI" minLv="0" maxLv="0" startWaitSec="605463104">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41315" Pos="-166.67#726.04#-1082.92" angle="-4" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41315" Pos="-114.00#726.04#-1151.26" angle="73" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="1-2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0/1st/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41451" Pos="-91.97#726.04#-1399.27" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41451" Pos="-84.95#726.04#-1340.22" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41451" Pos="-161.24#726.04#-1334.03" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41451" Pos="-234.97#726.04#-1359.91" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41451" Pos="-177.12#726.04#-1396.24" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="2-3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2nd/0/2nd/1/2nd/2/2nd/3/2nd/4"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3rd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3rd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41450" Pos="-159.55#726.04#-1032.32" angle="-110" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41450" Pos="-61.37#726.04#-1120.27" angle="-168" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41450" Pos="-151.30#726.04#-1419.97" angle="118" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41450" Pos="-54.18#726.04#-1264.85" angle="160" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="41450" Pos="-82.96#726.04#-1351.65" angle="103" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

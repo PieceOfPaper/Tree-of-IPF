@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="THORN20_MQ03_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41439" Pos="-882.75#517.65#898.77" genCount="1" genTime="20000" objectKey="0" SimpleAI="THORN20_MQ_MONHOLD">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="-886.15#517.65#895.38" genCount="1" genTime="20000" objectKey="3" SimpleAI="THORN20_MQ_MAGIC"/>
+                    <Obj Type="Monster" MonType="41439" Pos="-743.45#518.30#1037.93" genCount="1" genTime="20000" objectKey="1" SimpleAI="THORN20_MQ_MONHOLD">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="-744.21#518.30#1038.15" genCount="1" genTime="20000" objectKey="2" SimpleAI="THORN20_MQ_MAGIC"/>
+                    <Obj Type="Monster" MonType="41439" Pos="-911.36#518.30#1052.88" genCount="1" genTime="20000" objectKey="4" SimpleAI="THORN20_MQ_MONHOLD">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="-910.03#518.30#1052.98" genCount="1" genTime="20000" objectKey="5" SimpleAI="THORN20_MQ_MAGIC"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="MON_DIE1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="0"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/3"/>
+                                <Str Str="THORN20_MQ03"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="MON_DIE2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="0"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Str Str="THORN20_MQ03"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="MON_DIE3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4"/>
+                                <Num Num="0"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="EQ"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/5"/>
+                                <Str Str="THORN20_MQ03"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

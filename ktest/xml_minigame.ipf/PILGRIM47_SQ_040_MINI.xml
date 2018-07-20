@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PILGRIM47_SQ_040_MINI" minLv="0" maxLv="0" startWaitSec="603620984">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57492" Pos="258.88#44.52#1270.49" angle="98" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57492" Pos="381.23#44.52#1312.32" angle="120" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="Unlimited-0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1st/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Unlimited-1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1st/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

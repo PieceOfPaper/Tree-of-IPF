@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="guildtowerbattle" useWorldChat="1" minLv="0" maxLv="0" mapName="guild_mission_2_pvp">
+        <StageList>
+            <Stage Name="AutoStartBattle">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="120000" execCount="1" eventName="AutoStartBattle" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_PVP_END_ASSEMBLE_AND_STARTGAME"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="AutoStartBattle"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Battle"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SetTimer">
+                        <execList>
+                            <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
+                                <Str Str="ToStart"/>
+                                <Num Num="120"/>
+                                <Str Str="RemainTimeToStartGame"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" eventName="UpdateZonePCCount">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GUILDBATTLE_UPDATE_ZONEPC"/>
+                            </ToolScp>
+                          <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                            <Str Str="GUILDBATTLE_READY_STATE"/>
+                          </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Battle" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-112.76#0.00#-133.79" genTime="20000" autoGen="0" objectKey="Tower_1"/>
+                    <Obj Type="Monster" MonType="11120" Pos="115.69#0.00#83.86" genTime="20000" autoGen="0" objectKey="Tower_2"/>
+                    <Obj Type="Monster" MonType="20053" Pos="-332.04#39.22#318.89" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="20053" Pos="5.68#40.85#510.02" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="20053" Pos="331.66#41.12#317.65" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="20053" Pos="549.43#38.39#-14.25" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="20053" Pos="298.92#31.25#-338.85" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="20053" Pos="-6.94#32.62#-528.61" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="20053" Pos="-330.07#42.69#-345.85" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="20053" Pos="-503.39#39.82#-20.38" genCount="1" genTime="20000" objectKey="7"/>
+                </ObjList>
+                <StageEvents>
+                  <Event execMS="5000" eventName="UpdateZonePCCount">
+                    <execList>
+                      <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                        <Str Str="GUILDBATTLE_UPDATE_ZONEPC"/>
+                      </ToolScp>
+                    </execList>
+                  </Event>
+                    <Event execMS="3000" execCount="1" eventName="setui">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후에 전투가 시작됩니다. 전투를 준비하세요."/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="150000" execCount="1" eventName="setPortal" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_GUILDBATTLE_PORTALPOS_SET"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="Set_Faction">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GUILDBATTLE_START"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_COUNTDOWN" Client="NO" UseSleep="YES">
+                                <Num Num="30"/>
+                            </ToolScp>
+                          <ToolScp Scp="MGAME_SET_TIMER" Client="NO" UseSleep="NO">
+                            <Str Str="ToEndBattle"/>
+                            <Num Num="900"/>
+                            <Str Str="MGAME_OPEN_GUILDBATTLE_TIMER_UI"/>
+                          </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="HiddenWall">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Battle/0/Battle/1/Battle/7/Battle/6/Battle/5/Battle/4/Battle/2/Battle/3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="setui2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="setui2" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+                                <Str Str="{@st55_a}"/>
+                                <Str Str="전투가 시작되었습니다. 상대방의 길드타워를 파괴하세요."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Create_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="147"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="각 진영에 중앙으로 향하는 단방향 워프가 생성됩니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Notice_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="151"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="워프는 한번 사용시 90초간 비활성화 되므로 신중히 사용하세요!"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Remove_Portal">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="775"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
+								<Str Str="{@st55_a}"/>
+								<Str Str="각 팀의 워프가 이제 곧 사라집니다."/>
+								<Num Num="3"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Check_Team2_Win">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Battle/Tower_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_GUILDBATTLE_RESULT_TOWER_DESTROY"/>
+                                <Str Str="None"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Battle"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="AutoReturnToZone"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Check_Team1_Win">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Battle/Tower_2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT_ARG" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_GUILDBATTLE_RESULT_TOWER_DESTROY"/>
+                                <Str Str="None"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Battle"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="AutoReturnToZone"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="900000" execCount="1" eventName="Check_TimeOut" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="GUILD_TOWER_BATTLE_TIMEOUT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Battle"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="AutoReturnToZone"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="AutoReturnToZone" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="30000" execCount="1" eventName="returnToZone" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="MGAME_WORLDPVP_RETURNTOZONE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="ssn_mission"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+                <Str Str="GUIDLBATTLE_PC_ZONEENTER"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_CLIENT_SCRIPT" Client="YES" UseSleep="NO">
+                <Str Str="GUILDTOWER_BATTLE_INIT_UI"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="guildbattle_score"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EnterList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_DISABLE_DEAD_DURABILITY" Client="NO" UseSleep="NO"/>
+            <ToolScp Scp="MGAME_INIT_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_1"/>
+                <AbsPos X="-690.21851" Y="64.234329" Z="-716.95197"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_2"/>
+                <AbsPos X="5.7087665" Y="64.234329" Z="-1086.953"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_3"/>
+                <AbsPos X="707.30847" Y="64.234329" Z="-715.72784"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_4"/>
+                <AbsPos X="1070.7557" Y="64.234329" Z="-13.852712"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_5"/>
+                <AbsPos X="698.68134" Y="64.234329" Z="687.08533"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_6"/>
+                <AbsPos X="10.325104" Y="64.234329" Z="1054.7883"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_7"/>
+                <AbsPos X="-681.08362" Y="64.234329" Z="687.95178"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Start_8"/>
+                <AbsPos X="-1050.7677" Y="64.234329" Z="-9.8550119"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_1"/>
+                <AbsPos X="-834.22498" Y="64.234329" Z="-722.5144"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_2"/>
+                <AbsPos X="-136.09531" Y="64.234337" Z="-1097.8837"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_3"/>
+                <AbsPos X="864.53418" Y="64.234322" Z="-709.54254"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_4"/>
+                <AbsPos X="1081.8508" Y="64.234329" Z="127.23021"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_5"/>
+                <AbsPos X="716.12506" Y="64.234329" Z="814.40338"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_6"/>
+                <AbsPos X="153.62733" Y="64.234329" Z="1046.1738"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_7"/>
+                <AbsPos X="-831.70135" Y="64.234329" Z="685.99048"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Portal_8"/>
+                <AbsPos X="-1042.5153" Y="64.234329" Z="-163.11969"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_1"/>
+                <AbsPos X="-403.68555" Y="67.276466" Z="-431.11404"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_2"/>
+                <AbsPos X="11.483679" Y="67.533775" Z="-670.39008"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_3"/>
+                <AbsPos X="427.42902" Y="67.365639" Z="-439.66034"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_4"/>
+                <AbsPos X="667.37866" Y="67.069153" Z="-18.191212"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_5"/>
+                <AbsPos X="414.74506" Y="67.534966" Z="394.41745"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_6"/>
+                <AbsPos X="5.440567" Y="67.003067" Z="616.50024"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_7"/>
+                <AbsPos X="-394.672" Y="67.041161" Z="390.04025"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Object_8"/>
+                <AbsPos X="-618.50647" Y="66.976624" Z="-21.09569"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_1"/>
+                <AbsPos X="-596.76624" Y="64.234329" Z="-615.28802"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_2"/>
+                <AbsPos X="1.5957298" Y="64.234329" Z="-950.18079"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_3"/>
+                <AbsPos X="599.49054" Y="64.234329" Z="-616.88715"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_4"/>
+                <AbsPos X="929.70581" Y="63.921658" Z="-12.718966"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_5"/>
+                <AbsPos X="604.20679" Y="64.234329" Z="587.24609"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_6"/>
+                <AbsPos X="0.076164246" Y="62.778606" Z="898.10242"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_7"/>
+                <AbsPos X="-578.6344" Y="63.626274" Z="577.35791"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ARG_POS_SET" Client="NO" UseSleep="NO">
+                <Str Str="Guardian_8"/>
+                <AbsPos X="-904.44562" Y="62.93642" Z="-16.128189"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_INIT_RUN_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="MGAME_GUILDBATTLE_RANDOMPOS_SET"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ENABLE_INSTANT_PARTY" Client="NO" UseSleep="NO"/>
+        </WorldInitList>
+    </Game>
+</GameList>

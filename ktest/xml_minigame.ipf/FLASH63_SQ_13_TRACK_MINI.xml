@@ -1,0 +1,145 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FLASH63_SQ_13_TRACK_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47306" Pos="493.18#40.81#152.87" genCount="1" genTime="20000" objectKey="0" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="538.89#41.54#114.20" genCount="1" genTime="20000" objectKey="1" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="487.17#40.81#116.54" genCount="1" genTime="20000" objectKey="2" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="559.23#41.63#155.80" genCount="1" genTime="20000" objectKey="3" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="end" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1/0/1/1/1/2/1/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47306" Pos="559.27#41.63#193.30" genCount="1" genTime="20000" objectKey="0" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="600.95#41.65#174.94" genCount="1" genTime="20000" objectKey="1" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57636" Pos="529.64#41.63#79.96" genCount="1" genTime="20000" objectKey="2" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57636" Pos="535.36#41.63#45.05" genCount="1" genTime="20000" objectKey="3" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57634" Pos="573.57#41.66#62.41" genCount="1" genTime="20000" objectKey="4" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="end" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2/0/2/1/2/2/2/3/2/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="47306" Pos="621.08#41.72#84.96" genCount="1" genTime="20000" objectKey="0" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="588.51#41.66#107.89" genCount="1" genTime="20000" objectKey="1" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="635.85#41.72#119.30" genCount="1" genTime="20000" objectKey="2" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="604.25#41.67#141.35" genCount="1" genTime="20000" objectKey="3" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="515.11#41.42#203.18" genCount="1" genTime="20000" autoGen="0" objectKey="4" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="47306" Pos="540.09#41.63#236.39" genCount="1" genTime="20000" autoGen="0" objectKey="5" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57636" Pos="576.59#41.63#206.28" genCount="1" genTime="20000" autoGen="0" objectKey="6" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57636" Pos="553.59#41.63#187.08" genCount="1" genTime="20000" autoGen="0" objectKey="7" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57636" Pos="528.92#41.63#95.79" genCount="1" genTime="20000" autoGen="0" objectKey="8" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57636" Pos="505.13#41.63#56.83" genCount="1" genTime="20000" autoGen="0" objectKey="9" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57634" Pos="521.15#41.63#25.67" genCount="1" genTime="20000" autoGen="0" objectKey="10" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="57634" Pos="545.62#41.63#55.04" genCount="1" genTime="20000" autoGen="0" objectKey="11" SimpleAI="FLASH63_SQ_13_TRACK_MINI_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="0" execCount="1" eventName="last1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3/0/3/1/3/2/3/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3/4/3/5/3/6/3/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FLASH63_SQ13_TRACK_MINI"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="0" execCount="1" eventName="last2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3/0/3/1/3/2/3/3/3/4/3/5/3/6/3/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3/8/3/9/3/10/3/11"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FLASH63_SQ13_TRACK_MINI"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="end" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FLASH63_SQ13_TRACK_MINI"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3/0/3/1/3/2/3/3/3/4/3/5/3/6/3/7/3/8/3/9/3/10/3/11"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="value">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="FLASH63_SQ13_TRACK_MINI"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

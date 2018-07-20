@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<GameList>
+	<Game Name="ID_CATACOM_MINI_02" minLv="0" maxLv="0" mapName="id_catacomb2" startWaitSec="104105904">
+		<StageList>
+			<Stage Name="Ready">
+				<ObjList>
+					<Obj Type="Monster" MonType="20053" Pos="-582.49#107.76#453.36" genCount="1" genTime="20000" objectKey="0"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="10">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10초 후 시작합니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Star">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="시작!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Ready/0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage1">
+				<ObjList>
+					<Obj Type="Monster" MonType="58023" Pos="-1480.89#82.45#178.41" angle="-54" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57798" Pos="-1533.48#82.45#129.60" angle="-33" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+					<Obj Type="Monster" MonType="57798" Pos="-1532.46#82.45#224.34" angle="-33" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+					<Obj Type="Monster" MonType="57798" Pos="-1439.19#82.45#233.01" angle="-33" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+					<Obj Type="Monster" MonType="57798" Pos="-1428.85#82.45#129.94" angle="-33" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+					<Obj Type="Monster" MonType="57797" Pos="-1501.00#56.98#-194.15" angle="-51" genCount="1" genTime="20000" objectKey="5"/>
+					<Obj Type="Monster" MonType="57797" Pos="-1358.21#56.98#-110.72" angle="-51" genCount="1" genTime="20000" objectKey="6"/>
+					<Obj Type="Monster" MonType="57797" Pos="-1430.65#56.98#-258.01" angle="-51" genCount="1" genTime="20000" objectKey="7"/>
+					<Obj Type="Monster" MonType="57797" Pos="-1237.02#65.06#-136.08" angle="-51" genCount="1" genTime="20000" objectKey="8"/>
+					<Obj Type="Monster" MonType="57797" Pos="-1102.65#65.06#-67.47" angle="-51" genCount="1" genTime="20000" objectKey="9"/>
+					<Obj Type="Monster" MonType="57797" Pos="-1123.18#65.06#-200.56" angle="-51" genCount="1" genTime="20000" objectKey="10"/>
+				</ObjList>
+				<StageEvents>
+					<Event/>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage2">
+				<ObjList>
+					<Obj Type="Monster" MonType="58024" Pos="-307.81#82.45#1350.38" angle="-52" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="57796" Pos="-354.42#82.45#1307.61" angle="-63" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+					<Obj Type="Monster" MonType="57796" Pos="-228.83#82.45#1291.69" angle="-13" genCount="1" genTime="20000" objectKey="2" tendency="1"/>
+					<Obj Type="Monster" MonType="57796" Pos="-224.77#82.45#1377.41" angle="-37" genCount="1" genTime="20000" objectKey="3" tendency="1"/>
+					<Obj Type="Monster" MonType="57796" Pos="-343.02#82.45#1398.81" angle="-64" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+					<Obj Type="Monster" MonType="57799" Pos="-267.53#82.45#1357.60" angle="-51" genCount="1" genTime="20000" objectKey="5" tendency="1"/>
+					<Obj Type="Monster" MonType="57799" Pos="-303.38#82.45#1317.03" angle="-51" genCount="1" genTime="20000" objectKey="6" tendency="1"/>
+				</ObjList>
+			</Stage>
+			<Stage Name="stage3">
+				<ObjList>
+					<Obj Type="Monster" MonType="58025" Pos="-619.62#4.90#-1174.29" angle="-53" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1"/>
+				</ObjList>
+			</Stage>
+			<Stage Name="stage4">
+				<ObjList>
+					<Obj Type="Monster" MonType="58026" Pos="1063.01#4.90#488.93" angle="-51" genCount="1" genTime="20000" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1"/>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

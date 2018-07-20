@@ -1,0 +1,472 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="ABBEY39_4_MQ02_MINI" minLv="0" maxLv="0" startWaitSec="15">
+		<StageList>
+			<Stage Name="SET">
+				<ObjList>
+                    <Obj Type="Monster" MonType="58290" Pos="623.00#144.85#595.00" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;Name&apos; &apos;선임 수도사 거스&apos; &apos;Lv&apos; &apos;180&apos; &apos;CRTATK_BM&apos; &apos;-99999&apos; &apos;MATK_BM&apos; &apos;-99999&apos; &apos;PATK_BM&apos; &apos;-99999&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="50"/>
+								</ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+							</List>
+							<DeadList>
+								<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_ABBEY39_4_MQ02_D_FAIL"/>
+								</ToolScp>
+							</DeadList>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_MGAME_PC_OWNER" Client="NO" UseSleep="NO">
+									<Num Num="1"/>
+								</ToolScp>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_ABBEY394_MQ_02_F"/>
+								</ToolScp>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="5000"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+                    <Obj Type="Monster" MonType="155054" Pos="129.92#144.85#1030.99" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;BasicMonster&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                    <Obj Type="Monster" MonType="155054" Pos="-27.55#144.85#1184.40" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;BasicMonster&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+                    <Obj Type="Monster" MonType="155054" Pos="-191.37#144.85#1025.47" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;BasicMonster&apos; &apos;HPCount&apos; &apos;5&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="57665" Pos="125.28#144.85#1016.44" genCount="1" genTime="20000" objectKey="4" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/1"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57665" Pos="121.56#144.85#1032.23" genCount="1" genTime="20000" objectKey="5" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/1"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+                    <Obj Type="Monster" MonType="57676" Pos="136.46#144.85#1043.58" genCount="1" genTime="20000" objectKey="6" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/1"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57676" Pos="144.92#144.85#1018.03" genCount="1" genTime="20000" objectKey="7" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/1"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57676" Pos="150.84#144.85#1034.02" genCount="1" genTime="20000" objectKey="8" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/1"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57676" Pos="-34.36#144.85#1188.31" genCount="1" genTime="20000" objectKey="9" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/2"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+                    <Obj Type="Monster" MonType="57676" Pos="-34.61#144.85#1175.39" genCount="1" genTime="20000" objectKey="10" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/2"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57676" Pos="-19.80#144.85#1192.97" genCount="1" genTime="20000" objectKey="11" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/2"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57665" Pos="-21.81#144.85#1173.80" genCount="1" genTime="20000" objectKey="12" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/2"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57665" Pos="-14.41#144.85#1183.17" genCount="1" genTime="20000" objectKey="13" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/2"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57665" Pos="-201.00#144.00#1025.00" genCount="1" genTime="20000" objectKey="14" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/3"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57676" Pos="-187.29#144.85#1035.04" genCount="1" genTime="20000" objectKey="15" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/3"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+                    <Obj Type="Monster" MonType="57676" Pos="-196.05#144.85#1013.71" genCount="1" genTime="20000" objectKey="16" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/3"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57676" Pos="-180.43#144.85#1013.45" genCount="1" genTime="20000" objectKey="17" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/3"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57665" Pos="-175.33#144.85#1024.32" genCount="1" genTime="20000" objectKey="18" tendency="1">
+						<SelfAI UpdateMS="1500" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="100"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
+									<Num Num="100"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_SET_MGAME_OWNER" Client="NO" UseSleep="NO">
+									<MGameObjPtr List="SET/3"/>
+									<Num Num="0"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_LOOKAT" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Trigger" triggerName="Trigger">
+						<Area>
+							<Pos Value="176.550964 144.854294 1013.653137"/>
+							<Pos Value="145.459808 144.854294 928.747437"/>
+							<Pos Value="311.746704 144.854294 867.792114"/>
+							<Pos Value="364.130707 144.854294 919.195190"/>
+							<Pos Value="271.183502 144.854294 1078.440918"/>
+						</Area>
+						<condScpList>
+							<ToolScp Scp="MGAME_TRG_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="abbey394_02"/>
+								<Str Str="=="/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condScpList>
+						<enterScpList>
+							<ToolScp Scp="MGAME_TRG_MVALUE_ADD" Client="NO" UseSleep="NO">
+								<Str Str="abbey394_02"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+								<Str Str="Stage 1"/>
+							</ToolScp>
+						</enterScpList>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="Setting">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="abbey394_02"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage 1" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Start">
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="몬스터를 유인하는 냄새를 풍기는 덩어리를 파괴하세요!"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="SET/0"/>
+								<Str Str="SCR_ABBEY394_MQ_02_1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Clear">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="SET/1/SET/2/SET/3/SET/4/SET/5/SET/6/SET/7/SET/8/SET/9/SET/10/SET/11/SET/12/SET/13/SET/14/SET/15/SET/16/SET/17/SET/18"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="abbey394_02"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="End"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage 1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="End" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Step1">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="SET/0"/>
+								<Str Str="SCR_ABBEY394_MQ_02_1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

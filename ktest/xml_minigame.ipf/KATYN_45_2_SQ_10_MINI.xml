@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="KATYN_45_2_SQ_10_MINI" minLv="0" maxLv="0" startWaitSec="15">
+        <StageList>
+            <Stage Name="wave1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400542" Pos="-168.91#244.83#762.38" genCount="1" maxStackCount="1" objectKey="0" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-131.20#244.83#753.24" genCount="1" maxStackCount="1" objectKey="1" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="start/0/start/1/start/2/start/3/start/4/wave1/0/wave1/1/wave1/2/wave1/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="wave1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="wave2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="wave2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400542" Pos="-230.34#244.79#922.97" genCount="1" maxStackCount="1" genTime="500" objectKey="0" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-217.62#253.26#1046.10" genCount="1" maxStackCount="1" genTime="500" objectKey="1" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-26.00#244.83#766.00" genCount="1" maxStackCount="1" genTime="500" objectKey="2" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-117.33#244.83#744.34" genCount="1" maxStackCount="1" genTime="500" objectKey="3" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-170.57#244.83#802.18" genCount="1" maxStackCount="1" genTime="500" objectKey="4" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="wave2/0/wave2/1/wave2/2/wave2/3/wave2/4/wave2/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="wave2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="wave3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="wave3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400542" Pos="-210.60#253.28#1044.16" genCount="1" maxStackCount="1" genTime="500" objectKey="0" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-236.01#249.17#1022.68" genCount="1" maxStackCount="1" genTime="500" objectKey="1" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-129.51#244.83#782.98" genCount="1" maxStackCount="1" genTime="500" objectKey="2" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-189.76#244.75#1022.06" genCount="1" maxStackCount="1" genTime="500" objectKey="3" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-198.88#244.83#780.56" genCount="1" maxStackCount="1" genTime="500" objectKey="4" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-118.24#244.83#742.97" genCount="1" maxStackCount="1" genTime="500" objectKey="5" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="wave3/0/wave3/1/wave3/2/wave3/3/wave3/4/wave3/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="wave3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="wave4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="wave4" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400542" Pos="-141.19#244.83#760.89" genCount="1" maxStackCount="1" genTime="500" objectKey="0" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-256.20#252.52#1054.12" genCount="1" maxStackCount="1" genTime="500" objectKey="1" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-219.59#253.86#1069.40" genCount="1" maxStackCount="1" genTime="500" objectKey="2" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-218.94#244.81#1025.10" genCount="1" maxStackCount="1" genTime="500" objectKey="3" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-194.07#244.83#760.48" genCount="1" maxStackCount="1" genTime="500" objectKey="4" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-129.50#244.83#728.28" genCount="1" maxStackCount="1" genTime="500" objectKey="5" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                    <Obj Type="Monster" MonType="400542" Pos="-193.94#244.83#799.89" genCount="1" maxStackCount="1" objectKey="6" searchRange="500" SimpleAI="KATYN_45_2_SQ_10_AI" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event isOr="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="wave4/0/wave4/1/wave4/2/wave4/3/wave4/4/wave4/5/wave4/6"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="wave4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="start">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="2000" execCount="1" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="wave1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,288 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="GR_KATYN_1_S5_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="SETTING">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="INI">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="KATYN_1_S5_BOSS_SKL"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="KATYN_1_S5_BOSS_HP"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="15"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="이벤트 실패{nl}시작지점으로 돌아갑니다"/>
+                        <Str Str="raid_fail"/>
+                        <Num Num="15"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="FAIL_CNT">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_GUILD_RAID_STAGE_FAIL" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SUCCESS" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="10"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="목표 완료!{nl}다음 지역으로 이동하세요"/>
+                        <Str Str="move_to_point"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_GUILD_RAID_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Num Num="4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_1_READY">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="곧 첫 번째 목표가 시작됩니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="740004" Pos="925.71#249.36#524.26" angle="-8" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_END"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                                    <Str Str="SLEEP"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="HPLock"/>
+                                    <Num Num="90000"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="SLEEP"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="TO_PROG">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_READY"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_1_PROG" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_START_CHANGE_BGM" Client="NO" UseSleep="NO">
+                        <Str Str="m_guild_eventraid_a"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="주변 몬스터들을 이용하여 잠든 세콰이어를 괴롭히세요{nl}세콰이아가 소환하는 세콰이어의 불꽃으로 세콰이아에게 피해를 입히세요"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="750040" Pos="1207.39#249.36#589.84" maxStackCount="1" genTime="15000" genReadyTime="1500" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_CK"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="750040" Pos="999.94#249.36#878.93" maxStackCount="1" genTime="15000" genReadyTime="1500" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_CK"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="750040" Pos="566.79#249.36#498.49" maxStackCount="1" genTime="15000" genReadyTime="1500" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_CK"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="750040" Pos="948.68#249.33#233.85" maxStackCount="1" genTime="15000" genReadyTime="1500" objectKey="3" propList="&apos;Faction&apos; &apos;Neutral&apos; " tendency="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_CK"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN_1_S5_BOSS_SKL_MON_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="750007" Pos="760.39#249.36#597.21" range="140" maxStackCount="1" genTime="20000" objectKey="4" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750007" Pos="1063.25#249.36#572.86" range="140" maxStackCount="1" genTime="20000" objectKey="5" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="750007" Pos="795.18#249.36#469.78" range="140" maxStackCount="1" genTime="20000" objectKey="6" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750007" Pos="1087.30#249.35#427.03" range="140" maxStackCount="1" genTime="20000" objectKey="7" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750007" Pos="1027.92#249.31#383.10" range="140" maxStackCount="1" genTime="20000" objectKey="8" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750007" Pos="1082.96#249.36#599.69" range="140" maxStackCount="1" genTime="20000" objectKey="9" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750007" Pos="1007.67#249.33#437.45" range="140" maxStackCount="1" genTime="20000" objectKey="10" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750007" Pos="783.69#249.36#445.84" range="140" maxStackCount="1" genTime="20000" objectKey="11" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="1081.74#249.36#451.18" range="140" maxStackCount="1" genTime="20000" objectKey="12" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="890.12#249.36#398.90" range="140" maxStackCount="1" genTime="20000" objectKey="13" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="828.33#249.36#499.81" range="140" maxStackCount="1" genTime="20000" objectKey="14" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="964.71#249.36#652.90" range="140" maxStackCount="1" genTime="20000" objectKey="15" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="817.18#249.36#396.82" range="140" maxStackCount="1" genTime="20000" objectKey="16" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="1035.13#249.36#527.89" range="140" maxStackCount="1" genTime="20000" objectKey="17" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="1057.95#249.36#518.23" range="140" maxStackCount="1" genTime="20000" objectKey="18" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="834.14#249.36#660.95" range="140" maxStackCount="1" genTime="20000" objectKey="19" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="1138.20#249.36#509.10" range="140" maxStackCount="1" genTime="20000" objectKey="20" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="1081.28#249.36#545.12" range="140" maxStackCount="1" genTime="20000" objectKey="21" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="1110.83#249.35#418.59" range="140" maxStackCount="1" genTime="20000" objectKey="22" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                    <Obj Type="Monster" MonType="750006" Pos="850.52#249.36#457.76" range="140" maxStackCount="1" genTime="20000" objectKey="23" SimpleAI="SAI_RAID_BASIC_MONSTER_AI_1" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="INI"/>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="KATYN_1_S5_BOSS_HP"/>
+                                <Str Str="OVER"/>
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_END"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_1_END" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="첫 번째 목표를 완료했습니다"/>
+                        <Str Str="stage_clear"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="TO_STAGE_2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_END"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="KATYN10_SECTOR2_OWL01_MINI" minLv="0" maxLv="0" startWaitSec="80116568">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="48002" Pos="4128.00#134.00#-636.00" angle="-45" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;무덤지기 부엉이 조각상&apos; "/>
+                    <Obj Type="Monster" MonType="401721" Pos="4094.16#134.12#-652.72" genCount="1" genTime="20000" objectKey="1" propList="&apos;Lv&apos; &apos;115&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN10_SECTOR2_OWL01_AI"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="4096.2861" Y="134.1246" Z="-661.40588" Random="70" Height="1"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="401721" Pos="4139.22#134.12#-610.06" angle="-105" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;115&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="KATYN10_SECTOR2_OWL01_AI"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="250"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="4096.2861" Y="134.1246" Z="-661.40588" Random="70" Height="1"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ItemAwakeningDungeon" minLv="0" maxLv="0" mapName="d_itemdungeon_1" startWaitSec="497389056">
+      <EnterList>
+        <ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+          <Num Num="2"/>
+          <Str Str="SCP_ENTER_ALCHEMIST_MISSION"/>
+        </ToolScp>
+      </EnterList>
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-32.82#1.56#-4.11" angle="-115" range="50" genTime="20000" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-440.46603" Y="33.079102" Z="-229.02202" Random="50"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="142.61499" Y="1.5622" Z="-17.506187" Random="40"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="139.90845" Y="1.5622" Z="143.01492" Random="40"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="0" execCount="1" eventName="startFirstStage">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="INIT_ITEM_DUNGEON"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="45000" eventName="makeWave" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE_COMPARE" Client="NO" UseSleep="NO">
+                                <Str Str="CUR_WAVE_COUNT"/>
+                                <Str Str="under"/>
+                                <Str Str="MAX_WAVE_COUNT"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_BY_SCRIPT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0"/>
+                                <Str Str="ITEM_D_MON_COUNT"/>
+                                <Str Str="ITEM_D_MON_INIT"/>
+                                <Str Str="ITEM_D_MON_TYPE"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CUR_WAVE_COUNT"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="몬스터들이 생성되었습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MONSTER_MAKE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                  <Event execCount="1" eventName="checkMissionFail">
+                    <condList>
+                      <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                        <Str Str="MONSTER_MAKE"/>
+                        <Str Str="=="/>
+                        <Num Num="1"/>
+                      </ToolScp>
+                      <ToolScp Scp="CHECK_PC_EXIT" Client="NO" UseSleep="NO"/>
+                    </condList>
+                    <execList>
+                      <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                        <Str Str="MissionFail"/>
+                      </ToolScp>
+                      <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                        <Str Str="실패!!!"/>
+                        <Num Num="10"/>
+                      </ToolScp>
+                    </execList>
+                  </Event>
+                    <Event execCount="1" eventName="checkMissionComplete">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MONSTER_MAKE"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE_COMPARE" Client="NO" UseSleep="NO">
+                                <Str Str="CUR_WAVE_COUNT"/>
+                                <Str Str="=="/>
+                                <Str Str="MAX_WAVE_COUNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="MissionComplete"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="클리어!!!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="MissionComplete" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="COMPLETE_ITEMDUNGEON"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                  <Event execMS="5000" execCount="1" eventName="MissionFail" execWithStart="0" isEnabled="0">
+                    <execList>
+                      <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                        <Str Str="FAIL_ITEMDUNGEON"/>
+                      </ToolScp>
+                    </execList>
+                  </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

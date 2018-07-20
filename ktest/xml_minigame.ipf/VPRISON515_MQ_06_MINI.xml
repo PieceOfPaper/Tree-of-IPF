@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="VPRISON515_MQ_06_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57720" Pos="-105.12#26.79#-78.25" angle="-89" range="50" maxStackCount="2" genTime="20000" objectKey="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="event_born"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57718" Pos="-152.03#26.79#3.74" angle="-80" range="50" maxStackCount="2" genTime="20000" objectKey="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="event_born"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57718" Pos="-50.00#26.79#13.00" angle="-89" range="50" maxStackCount="2" genTime="20000" objectKey="2" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="event_born"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57720" Pos="-62.00#23.31#-43.00" angle="-69" range="50" maxStackCount="2" genTime="15000" objectKey="3" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="event_born"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57718" Pos="-45.00#26.79#3.00" angle="-91" range="50" maxStackCount="2" genTime="20000" objectKey="4" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="2000"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI_OP" Client="NO" UseSleep="NO">
+                                    <Str Str="event_born"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

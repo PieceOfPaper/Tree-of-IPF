@@ -1,0 +1,366 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="bcd" useTeam="1" mapName="siege_warfare">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_EXEC_SOBJ_QUEST" Client="NO" UseSleep="NO">
+                        <Str Str="quest_3" />
+                        <Str Str="ssn_mission" />
+                        <Str Str="Quest_3" />
+                        <Num Num="1.000000" />
+                        <Str Str="[선점] 건물파괴 (%d/%d){nl}보상 : 2500 코인 " />
+                        <Str Str="MCy_Treasure_Quest_2500" />
+                        <Str Str="%s님이 최초로 적의 건물을 파괴했습니다. (2500코인지급)" />
+                        <Num Num="1.000000" />
+                        <Num Num="1.000000" />
+                        <Str Str="" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EXEC_SOBJ_QUEST" Client="NO" UseSleep="NO">
+                        <Str Str="quest_4" />
+                        <Str Str="ssn_mission" />
+                        <Str Str="Quest_4" />
+                        <Num Num="1.000000" />
+                        <Str Str="[선점] 적플레이어처치 (%d/%d){nl}보상 : 2500 코인 " />
+                        <Str Str="MCy_Treasure_Quest_2500" />
+                        <Str Str="%s님이 플레이어처치! (2500코인지급)" />
+                        <Num Num="1.000000" />
+                        <Num Num="1.000000" />
+                        <Str Str="quest_5/quest_emon/quest_treasure" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EXEC_SOBJ_QUEST" Client="NO" UseSleep="NO">
+                        <Str Str="quest_5" />
+                        <Str Str="ssn_mission" />
+                        <Str Str="First_Mon" />
+                        <Num Num="7.000000" />
+                        <Str Str="케파7마리 처치 (%d/%d){nl}보상 : 2500코인 " />
+                        <Str Str="MCy_Treasure_Quest_2500" />
+                        <Str Str="%s님이 케파 7마리 처치!(2500코인지급)" />
+                        <Num Num="0.000000" />
+                        <Num Num="1.000000" />
+                        <Str Str="quest_5/quest_emon/quest_treasure" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EXEC_SOBJ_QUEST" Client="NO" UseSleep="NO">
+                        <Str Str="quest_emon" />
+                        <Str Str="ssn_mission" />
+                        <Str Str="First_EMon" />
+                        <Num Num="3.000000" />
+                        <Str Str="루다스부베처치 (%d/%d){nl}보상 : 2500코인 " />
+                        <Str Str="MCy_Treasure_Quest_2500" />
+                        <Str Str="%s님이 루다스부베 처치 (2500코인지급)" />
+                        <Num Num="0.000000" />
+                        <Num Num="1.000000" />
+                        <Str Str="quest_5/quest_emon/quest_treasure" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EXEC_SOBJ_QUEST" Client="NO" UseSleep="NO">
+                        <Str Str="quest_treasure" />
+                        <Str Str="ssn_mission" />
+                        <Str Str="First_TMon" />
+                        <Num Num="5.000000" />
+                        <Str Str="트레저부베처치 (%d/%d){nl}보상 : 2500코인 " />
+                        <Str Str="MCy_Treasure_Quest_2500" />
+                        <Str Str="%s님이 트레져 부베 처치 (2500코인지급)" />
+                        <Num Num="0.000000" />
+                        <Num Num="1.000000" />
+                        <Str Str="quest_5/quest_emon/quest_treasure" />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="40201" Pos="286.04#2.53#-240.78" angle="91" genCount="1" maxStackCount="1" genTime="30000" objectKey="0" propList="&apos;Level&apos; &apos;3&apos; &apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40201" Pos="295.28#9.47#-627.72" angle="91" genCount="1" maxStackCount="1" genTime="30000" objectKey="1" propList="&apos;Level&apos; &apos;3&apos; &apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40201" Pos="-354.02#2.53#-643.00" angle="91" genCount="1" maxStackCount="1" genTime="30000" objectKey="2" propList="&apos;Level&apos; &apos;3&apos; &apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="400001" Pos="-207.10#2.53#-762.86" angle="175" genTime="10000" objectKey="3" propList="&apos;WlkMSPD&apos; &apos;50&apos; &apos;Lv&apos; &apos;10&apos; &apos;MonSR&apos; &apos;-10&apos; " SimpleAI="mcy_onion1" tendency="1" />
+                    <Obj Type="Monster" MonType="400001" Pos="106.88#2.53#-770.01" angle="175" genTime="10000" objectKey="4" propList="&apos;WlkMSPD&apos; &apos;50&apos; &apos;Lv&apos; &apos;10&apos; &apos;MonSR&apos; &apos;-10&apos; " SimpleAI="mcy_onion2" tendency="1" />
+                    <Obj Type="Monster" MonType="40203" Pos="-17.00#2.53#-717.94" range="10" genCount="1" genTime="20000" objectKey="5" propList="&apos;Lv&apos; &apos;10&apos;" SimpleAI="mcy_golem1" tendency="1" />
+                    <Obj Type="Monster" MonType="40201" Pos="-24.52#2.53#41.74" angle="91" team="2" genCount="1" maxStackCount="1" genTime="30000" objectKey="6" propList="&apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40201" Pos="330.13#0.00#95.33" angle="91" team="2" genCount="1" maxStackCount="1" genTime="30000" objectKey="7" propList="&apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40201" Pos="318.74#2.53#387.13" angle="91" team="2" genCount="1" maxStackCount="1" genTime="30000" objectKey="8" propList="&apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40201" Pos="-336.44#2.53#356.08" angle="91" team="2" genCount="1" maxStackCount="1" genTime="20000" objectKey="9" propList="&apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="400003" Pos="39.81#2.53#582.12" angle="175" team="2" genTime="10000" objectKey="10" propList="&apos;WlkMSPD&apos; &apos;50&apos; &apos;Lv&apos; &apos;10&apos; &apos;MonSR&apos; &apos;-10&apos; " SimpleAI="mcy_onion3" tendency="1" />
+                    <Obj Type="Monster" MonType="400003" Pos="-130.04#2.53#571.09" angle="175" range="10" team="2" genTime="10000" objectKey="11" propList="&apos;WlkMSPD&apos; &apos;50&apos; &apos;Lv&apos; &apos;10&apos; &apos;MonSR&apos; &apos;-10&apos; " SimpleAI="mcy_onion4" tendency="1" />
+                    <Obj Type="Monster" MonType="40203" Pos="-26.44#2.53#471.48" range="20" team="2" genCount="1" genTime="20000" objectKey="12" propList="&apos;Lv&apos; &apos;10&apos;" SimpleAI="mcy_golem2" tendency="1" />
+                    <Obj Type="Monster" MonType="40201" Pos="-25.07#2.53#-311.18" angle="91" genCount="1" maxStackCount="1" genTime="30000" objectKey="13" propList="&apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40204" Pos="1.17#2.53#-164.05" team="0" genCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Lv&apos; &apos;10&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;BTree&apos; &apos;BT_BasicBoss&apos; " SimpleAI="mcy_elaga" tendency="0">
+                        <PosList>
+                            <Gen Pos="-308.36#0.00#14.67" range="20" />
+                            <Gen Pos="329.25#0.00#-5.96" range="20" />
+                        </PosList>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40200" Pos="289.04#2.53#-289.24" angle="91" genCount="1" genTime="20000" objectKey="15" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40201" Pos="-320.36#2.53#12.25" angle="91" team="2" genCount="1" maxStackCount="1" genTime="30000" objectKey="16" propList="&apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="40200" Pos="-21.21#2.53#-357.74" angle="91" genCount="1" genTime="20000" objectKey="17" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="-342.28#2.53#-297.69" angle="91" genCount="1" genTime="20000" objectKey="18" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="-327.29#2.53#52.73" angle="-88" team="2" genCount="1" genTime="20000" objectKey="19" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="-29.05#2.53#75.50" angle="-87" team="2" genCount="1" genTime="20000" objectKey="20" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="328.63#0.00#129.35" angle="-87" team="2" genCount="1" genTime="20000" objectKey="21" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="11119" Pos="-296.72#2.53#265.34" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="22" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-19.96#2.53#208.26" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="23" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-196.76#2.53#119.07" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="24" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="323.24#2.53#263.30" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="25" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="165.75#2.53#281.41" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="26" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="168.00#2.53#-205.00" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="27" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-314.91#2.53#-553.79" range="20" team="0" maxStackCount="3" genTime="40000" objectKey="28" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="294.23#2.53#-432.00" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="29" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-146.81#2.53#-488.49" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="30" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-17.20#2.53#-466.18" team="0" maxStackCount="3" genTime="40000" objectKey="31" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="174.31#2.53#111.79" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="32" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-316.18#2.53#120.18" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="33" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="324.73#2.53#-338.30" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="34" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="11119" Pos="-308.33#0.00#-237.39" range="30" team="0" maxStackCount="3" genTime="40000" objectKey="35" autoDestroy="0" propList="&apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Tactics&apos; &apos;None&apos; &apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;FixedLife&apos; &apos;4&apos; &apos;Lv&apos; &apos;10&apos; " SimpleAI="mcy_treasure" />
+                    <Obj Type="Monster" MonType="40200" Pos="297.56#9.47#-673.94" angle="91" genCount="1" genTime="20000" objectKey="36" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="-354.30#2.53#-688.11" angle="91" genCount="1" genTime="20000" objectKey="37" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="-340.20#2.53#421.08" angle="-88" team="2" genCount="1" genTime="20000" objectKey="38" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40200" Pos="319.66#2.53#431.18" angle="-88" team="2" genCount="1" genTime="20000" objectKey="39" propList="&apos;Lv&apos; &apos;15&apos; " SimpleAI="MCy_Turret" tendency="1" />
+                    <Obj Type="Monster" MonType="40201" Pos="-331.77#2.53#-250.30" angle="91" genCount="1" maxStackCount="1" genTime="30000" objectKey="40" propList="&apos;Level&apos; &apos;3&apos; &apos;Lv&apos; &apos;15&apos; &apos;MHP_BM&apos; &apos;600&apos; &apos;KdDead&apos; &apos;FALSE&apos; &apos;KDArmor&apos; &apos;9999&apos; &apos;KDRank&apos; &apos;9999&apos;" />
+                    <Obj Type="Monster" MonType="400003" Pos="-19.82#2.53#549.38" angle="175" range="10" team="2" genTime="10000" objectKey="41" propList="&apos;WlkMSPD&apos; &apos;50&apos; &apos;Lv&apos; &apos;10&apos; &apos;MonSR&apos; &apos;-10&apos; " SimpleAI="mcy_onion5" tendency="1" />
+                    <Obj Type="Monster" MonType="400001" Pos="-41.33#2.53#-763.78" angle="175" genTime="10000" objectKey="42" propList="&apos;WlkMSPD&apos; &apos;50&apos; &apos;Lv&apos; &apos;10&apos; &apos;MonSR&apos; &apos;-10&apos; " SimpleAI="mcy_onion6" tendency="1" />
+                    <Obj Type="Monster" MonType="40120" Pos="-18.56#5.88#-892.63" angle="86" genCount="1" genTime="20000" objectKey="43" propList="&apos;Lv&apos; &apos;15&apos;" SimpleAI="mcy_nexus_1" />
+                    <Obj Type="Monster" MonType="40120" Pos="-3.28#11.69#645.71" angle="-94" team="2" genCount="1" genTime="20000" objectKey="44" propList="&apos;Lv&apos; &apos;15&apos;" SimpleAI="mcy_nexus_2" />
+                    <Obj Type="Monster" MonType="11123" Pos="-163.80#2.53#-130.60" team="0" maxStackCount="2" genTime="40000" objectKey="45" propList="&apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;Lv&apos; &apos;15&apos; " SimpleAI="mcy_e_treasure" tendency="0" />
+                    <Obj Type="Monster" MonType="11123" Pos="17.29#2.53#-110.11" team="0" maxStackCount="2" genTime="40000" objectKey="46" propList="&apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;Lv&apos; &apos;15&apos; " SimpleAI="mcy_e_treasure" tendency="0" />
+                    <Obj Type="Monster" MonType="11123" Pos="304.59#2.53#-115.72" team="0" maxStackCount="2" genTime="40000" objectKey="47" propList="&apos;Faction&apos; &apos;MCy_Treasure&apos; &apos;Lv&apos; &apos;15&apos; " SimpleAI="mcy_e_treasure" tendency="0" />
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="180000" eventName="gen_elega" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/15" />
+                                <Num Num="1.000000" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="worldRecall">
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                    <Event eventName="check_game_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/43" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Winner" />
+                                <Num Num="1.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="game_end" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                    <Event eventName="check_team2_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/44" />
+                                <Num Num="0.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Winner" />
+                                <Num Num="2.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="game_end" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                    <Event execMS="30000" eventName="autocoin">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="ssn_mission" />
+                                <Str Str="Coin" />
+                                <Num Num="100.000000" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="game_end" AutoStart="0">
+                <ObjList />
+                <StageEvents>
+                    <Event execMS="5000" execCount="1" eventName="returntozone">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60.000000" />
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO" />
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="msg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO" CondFunc="">
+                                <Str Str="게임이 끝났습니다. 1분후 존으로 돌아갑니다." />
+                                <Num Num="5.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS_TEAM" Client="NO" UseSleep="NO">
+                                <Num Num="1.000000" />
+                                <AbsPosRange X="-142.951584" Y="2.529900" Z="-188.092133" Range="10.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS_TEAM" Client="NO" UseSleep="NO">
+                                <Num Num="2.000000" />
+                                <AbsPosRange X="11.194211" Y="2.529900" Z="-175.216064" Range="10.000000" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_TEAM_FACTION" Client="NO" UseSleep="NO">
+                                <Num Num="1.000000" />
+                                <Str Str="Law" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_TEAM_FACTION" Client="NO" UseSleep="NO">
+                                <Num Num="2.000000" />
+                                <Str Str="Law" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_TEAM_REWARD" Client="NO" UseSleep="NO">
+                                <Num Num="0.000000" UseFunc="1" FuncTxt='if cmd:GetUserValue(&quot;Winner&quot;) == 1 then&#x0D;&#x0A;return 1;&#x0D;&#x0A;else&#x0D;&#x0A;&#x0D;&#x0A;return 2;&#x0D;&#x0A;end&#x0D;&#x0A;' />
+                                <Str Str="RAID_CATACOMB1" />
+                                <Str Str="RAID_CATACOMB2" />
+                                <Str Str="RAID_CATACOMB3" />
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_TEAM_REWARD" Client="NO" UseSleep="NO">
+                                <Num Num="0.000000" UseFunc="1" FuncTxt='if cmd:GetUserValue(&quot;Winner&quot;) == 1 then&#x0D;&#x0A;return 2;&#x0D;&#x0A;else&#x0D;&#x0A;&#x0D;&#x0A;return 1;&#x0D;&#x0A;end&#x0D;&#x0A;' />
+                                <Str Str="RAID_CATACOMB1" />
+                                <Str Str="RAID_CATACOMB2" />
+                                <Str Str="RAID_CATACOMB3" />
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CRE_SOBJ" Client="NO" UseSleep="NO">
+                <Num Num="2.000000" />
+                <Str Str="ssn_mission" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_RANDOM_SET_TEAM" Client="NO" UseSleep="NO" />
+            <ToolScp Scp="MGAME_RESUR_DLG" Client="NO" UseSleep="NO">
+                <Num Num="0.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_CREATE_PC_SIMPLE_AI" Client="NO" UseSleep="NO">
+                <Str Str="mcy_pc1" UseFunc="1" FuncTxt='return &quot;mcy_pc&quot; .. GetTeamID(self);' />
+            </ToolScp>
+          <ToolScp Scp="MGAME_PC_LIST_UPDATE" Client="NO" UseSleep="NO">
+            <Num Num="1.000000" />
+          </ToolScp> 
+                     
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+              <Num Num="1.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_RESET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+                <Num Num="1.000000" />
+                <Num Num="0.000000" />
+                <Num Num="250.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Name" />
+                <Str Str="{@st42}이름{/}" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+                <Num Num="1.000000" />
+                <Num Num="1.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Kill" />
+                <Str Str="{@st42}킬" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_1" />
+                <Num Num="1.000000" />
+                <Num Num="2.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Point" />
+                <Str Str="{@st42}점수" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_2" />
+                <Num Num="2.000000" />
+                <Num Num="0.000000" />
+                <Num Num="250.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Name" />
+                <Str Str="{@st42}이름{/}" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_2" />
+                <Num Num="2.000000" />
+                <Num Num="1.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Kill" />
+                <Str Str="{@st42}킬" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_SET_ADVBOX" Client="YES" UseSleep="NO">
+                <Str Str="mission_score" />
+                <Str Str="advBox_2" />
+                <Num Num="2.000000" />
+                <Num Num="2.000000" />
+                <Num Num="100.000000" />
+                <Str Str="{@st40}%s{/}" />
+                <Str Str="Point" />
+                <Str Str="{@st42}점수" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_UPDATE_ADVBOX" Client="YES" UseSleep="NO" />
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="mcy_buyitem" />
+              <Num Num="1.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="mcy_scoreboard" />
+              <Num Num="1.000000" />
+            </ToolScp>
+        </EnterList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_INIT_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_INIT_BUY" Client="NO" UseSleep="NO">
+                <Str Str="Coin" />
+                <Str Str="Buy1" />
+                <Num Num="600.000000" />
+                <Num Num="200.000000" />
+                <Str Str="ATK_COMMON_BM" />
+                <Num Num="10.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_INIT_BUY" Client="NO" UseSleep="NO">
+                <Str Str="Coin" />
+                <Str Str="Buy2" />
+                <Num Num="600.000000" />
+                <Num Num="200.000000" />
+                <Str Str="DEF_COMMON_BM" />
+                <Num Num="10.000000" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
+                <AbsPos X="-106.687325" Y="2.529900" Z="-166.253220" />
+            </ToolScp>
+            <ToolScp Scp="MGAME_TEMPLATE_EQUIP" Client="NO" UseSleep="NO">
+                <Str Str="MCy" />
+            </ToolScp>
+        </WorldInitList>
+        <ScheduleList>
+            <Schedule maxLv="100" />
+            <Schedule hour="21" maxLv="100" />
+        </ScheduleList>
+    </Game>
+</GameList>

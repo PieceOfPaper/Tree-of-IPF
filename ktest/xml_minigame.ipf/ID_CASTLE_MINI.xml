@@ -1,0 +1,638 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ID_CASTLE_MINI" minLv="0" maxLv="0" mapName="id_castle" startWaitSec="76">
+        <StageList>
+            <Stage Name="Ready">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20053" Pos="-1389.43#0.70#-1065.13" genCount="1" genTime="20000" objectKey="0"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="10">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후 시작합니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Star">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="시작!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Ready/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58384" Pos="-651.27#93.15#-784.43" angle="-168" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-622.46#93.15#-902.71" angle="-168" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-687.79#93.15#-837.71" angle="-168" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-564.90#93.15#-827.88" angle="-168" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-626.00#93.15#-847.14" angle="-168" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-794.84#93.15#-583.53" angle="-165" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-696.45#93.15#-633.62" angle="-165" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-731.21#93.73#-507.17" angle="-165" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-645.60#93.15#-555.06" angle="-165" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-720.56#93.15#-573.05" angle="-165" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-411.70#93.15#-742.72" angle="-165" genCount="1" genTime="20000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-387.15#93.15#-804.19" angle="-165" genCount="1" genTime="20000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-308.99#93.15#-766.20" angle="-165" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-350.50#97.86#-705.20" angle="-165" genCount="1" genTime="20000" objectKey="14"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-362.03#93.15#-761.21" angle="-165" genCount="1" genTime="20000" objectKey="15"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-449.15#93.10#-574.91" angle="-168" genCount="1" genTime="20000" objectKey="16"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-364.47#91.52#-560.01" angle="-168" genCount="1" genTime="20000" objectKey="17"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-389.79#93.57#-440.67" angle="-168" genCount="1" genTime="20000" objectKey="18"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-493.19#93.73#-460.42" angle="-168" genCount="1" genTime="20000" objectKey="19"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-423.78#93.15#-508.61" angle="-168" genCount="1" genTime="20000" objectKey="20"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1054.08#142.04#-644.16" angle="11" genCount="1" genTime="20000" objectKey="21"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1062.01#142.04#-565.09" angle="24" genCount="1" genTime="20000" objectKey="22"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1025.29#133.79#-605.68" angle="-15" genCount="1" genTime="20000" objectKey="23"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1079.73#142.04#-600.09" angle="3" genCount="1" genTime="20000" objectKey="24"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1239.20#232.92#-642.69" angle="14" genCount="1" genTime="20000" objectKey="25"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1233.86#231.26#-572.38" angle="14" genCount="1" genTime="20000" objectKey="26"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1314.22#228.37#-631.30" angle="24" genCount="1" genTime="20000" objectKey="27"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1311.52#228.37#-546.09" angle="24" genCount="1" genTime="20000" objectKey="28"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1285.63#229.35#-593.93" genCount="1" genTime="20000" objectKey="29"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1496.29#228.37#-712.61" genCount="1" genTime="20000" objectKey="30"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1483.47#225.72#-633.10" genCount="1" genTime="20000" objectKey="31"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1555.58#225.72#-668.22" genCount="1" genTime="20000" objectKey="32"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1723.81#228.37#-609.21" genCount="1" genTime="20000" objectKey="33"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1676.03#228.37#-681.31" genCount="1" genTime="20000" objectKey="34"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1369.54#228.37#186.47" genCount="1" genTime="20000" objectKey="35"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1730.49#228.37#-339.64" genCount="1" genTime="20000" objectKey="36"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1653.49#228.37#-420.52" genCount="1" genTime="20000" objectKey="37"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1663.94#232.95#-302.56" genCount="1" genTime="20000" objectKey="38"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1488.49#228.37#-449.79" genCount="1" genTime="20000" objectKey="39"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1553.17#228.37#-494.55" genCount="1" genTime="20000" objectKey="40"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1469.69#228.37#-546.84" genCount="1" genTime="20000" objectKey="41"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1534.96#228.37#-286.11" genCount="1" genTime="20000" objectKey="42"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1480.26#228.37#-351.33" genCount="1" genTime="20000" objectKey="43"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1464.37#228.37#-250.49" genCount="1" genTime="20000" objectKey="44"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1315.47#228.37#-405.26" genCount="1" genTime="20000" objectKey="45"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1380.44#226.37#-387.17" genCount="1" genTime="20000" objectKey="46"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1322.64#228.37#-334.62" genCount="1" genTime="20000" objectKey="47"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1495.48#228.37#-674.09" angle="-10" genCount="1" genTime="20000" objectKey="48"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1640.81#228.37#-618.25" angle="24" genCount="1" genTime="20000" objectKey="49"/>
+                    <Obj Type="Monster" MonType="58385" Pos="1354.40#202.73#731.60" angle="-5" genCount="1" genTime="20000" objectKey="50"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1317.70#228.37#-371.16" angle="-26" genCount="1" genTime="20000" objectKey="51"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1490.48#228.37#-497.34" angle="24" genCount="1" genTime="20000" objectKey="52"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1469.98#228.37#-303.86" angle="24" genCount="1" genTime="20000" objectKey="53"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1683.88#228.37#-638.20" genCount="1" genTime="20000" objectKey="54"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1677.37#228.37#-593.67" genCount="1" genTime="20000" objectKey="55"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1684.40#228.37#-365.78" genCount="1" genTime="20000" objectKey="56"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1686.39#228.37#-309.30" genCount="1" genTime="20000" objectKey="57"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1518.53#228.37#-526.07" genCount="1" genTime="20000" objectKey="58"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1522.62#228.37#-459.16" genCount="1" genTime="20000" objectKey="59"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1535.38#228.37#-691.28" genCount="1" genTime="20000" objectKey="60"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1522.73#225.72#-641.72" genCount="1" genTime="20000" objectKey="61"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1542.26#228.37#-104.99" angle="-103" genCount="1" genTime="20000" objectKey="62"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1510.21#228.37#-101.73" angle="-89" genCount="1" genTime="20000" objectKey="63"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1560.71#228.37#-84.14" angle="-97" genCount="1" genTime="20000" objectKey="64"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1483.31#228.37#-76.82" angle="-89" genCount="1" genTime="20000" objectKey="65"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1538.17#228.37#-73.69" angle="-97" genCount="1" genTime="20000" objectKey="66"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1504.95#228.37#-74.43" angle="-106" genCount="1" genTime="20000" objectKey="67"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1673.07#228.37#57.25" angle="-90" genCount="1" genTime="20000" objectKey="68"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1627.96#228.37#12.66" angle="-93" genCount="1" genTime="20000" objectKey="69"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1581.77#228.37#51.62" angle="-80" genCount="1" genTime="20000" objectKey="70"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1402.01#228.37#37.60" angle="-90" genCount="1" genTime="20000" objectKey="71"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1369.29#228.37#-7.16" angle="-90" genCount="1" genTime="20000" objectKey="72"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1332.63#228.37#42.04" angle="-90" genCount="1" genTime="20000" objectKey="73"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1681.99#228.37#275.62" angle="-90" genCount="1" genTime="20000" objectKey="74"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1613.95#228.37#228.28" angle="-90" genCount="1" genTime="20000" objectKey="75"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1536.84#228.37#273.26" angle="-90" genCount="1" genTime="20000" objectKey="76"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1422.23#228.37#285.61" angle="-90" genCount="1" genTime="20000" objectKey="77"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1381.77#228.37#232.01" angle="-90" genCount="1" genTime="20000" objectKey="78"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1336.26#228.37#238.94" angle="-90" genCount="1" genTime="20000" objectKey="79"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1303.62#228.37#290.31" angle="-90" genCount="1" genTime="20000" objectKey="80"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-1561.93#228.37#226.90" angle="-90" genCount="1" genTime="20000" objectKey="81"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1642.57#228.37#292.82" angle="-97" genCount="1" genTime="20000" objectKey="82"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1591.36#228.37#289.03" angle="-97" genCount="1" genTime="20000" objectKey="83"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1382.63#228.37#277.36" angle="-97" genCount="1" genTime="20000" objectKey="84"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1340.03#228.37#273.75" angle="-97" genCount="1" genTime="20000" objectKey="85"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1625.72#228.37#47.66" angle="-97" genCount="1" genTime="20000" objectKey="86"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1742.01#228.37#-34.35" angle="-97" genCount="1" genTime="20000" objectKey="87"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1535.83#228.37#118.44" angle="-97" genCount="1" genTime="20000" objectKey="89"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1482.62#228.37#121.41" angle="-97" genCount="1" genTime="20000" objectKey="90"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1321.91#228.37#122.81" angle="-97" genCount="1" genTime="20000" objectKey="91"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1369.71#228.37#38.55" angle="-97" genCount="1" genTime="20000" objectKey="92"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1650.18#228.37#-39.17" angle="-97" genCount="1" genTime="20000" objectKey="93"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1363.09#228.37#-64.53" angle="-97" genCount="1" genTime="20000" objectKey="94"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1327.90#228.37#-61.18" angle="-97" genCount="1" genTime="20000" objectKey="95"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1375.60#228.37#101.15" angle="-97" genCount="1" genTime="20000" objectKey="96"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1674.87#228.37#125.73" angle="-97" genCount="1" genTime="20000" objectKey="97"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1739.42#228.37#131.61" angle="-97" genCount="1" genTime="20000" objectKey="98"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1511.09#228.37#92.02" angle="-97" genCount="1" genTime="20000" objectKey="88"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1510.43#228.37#153.06" angle="-97" genCount="1" genTime="20000" objectKey="99"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1705.00#298.23#739.72" angle="-97" genCount="1" genTime="20000" objectKey="100"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1658.93#298.23#700.50" angle="-97" genCount="1" genTime="20000" objectKey="101"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1657.03#298.23#766.24" angle="-97" genCount="1" genTime="20000" objectKey="102"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1624.53#298.23#731.49" angle="-97" genCount="1" genTime="20000" objectKey="103"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1369.04#298.23#712.54" angle="-97" genCount="1" genTime="20000" objectKey="104"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1334.06#298.23#698.01" angle="-97" genCount="1" genTime="20000" objectKey="105"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1301.78#298.23#722.86" angle="-97" genCount="1" genTime="20000" objectKey="106"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1332.48#298.23#770.56" angle="-97" genCount="1" genTime="20000" objectKey="107"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1569.10#298.23#586.57" angle="-87" genCount="1" genTime="20000" objectKey="108"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1541.17#298.23#643.83" angle="-87" genCount="1" genTime="20000" objectKey="109"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1469.21#298.23#642.02" angle="-98" genCount="1" genTime="20000" objectKey="110"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1431.40#298.23#585.69" angle="-91" genCount="1" genTime="20000" objectKey="111"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1331.03#298.23#724.49" angle="-97" genCount="1" genTime="20000" objectKey="112"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1664.95#298.23#730.13" angle="-97" genCount="1" genTime="20000" objectKey="113"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1660.55#298.23#625.54" angle="-97" genCount="1" genTime="20000" objectKey="114"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1642.59#298.23#595.52" angle="-97" genCount="1" genTime="20000" objectKey="115"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1630.81#298.23#624.09" angle="-97" genCount="1" genTime="20000" objectKey="116"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1403.48#298.23#632.77" angle="-97" genCount="1" genTime="20000" objectKey="117"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1394.01#298.23#619.96" angle="-97" genCount="1" genTime="20000" objectKey="118"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1375.24#298.23#639.40" angle="-97" genCount="1" genTime="20000" objectKey="119"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1671.43#298.23#872.58" angle="-97" genCount="1" genTime="20000" objectKey="120"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1652.76#298.23#837.29" angle="-97" genCount="1" genTime="20000" objectKey="121"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1641.56#298.23#876.14" angle="-97" genCount="1" genTime="20000" objectKey="122"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1406.05#298.23#861.03" angle="-97" genCount="1" genTime="20000" objectKey="123"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1335.33#228.37#316.44" angle="-97" genCount="1" genTime="20000" objectKey="124"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1378.92#298.23#863.57" angle="-97" genCount="1" genTime="20000" objectKey="125"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1548.83#298.23#739.28" angle="-97" genCount="1" genTime="20000" objectKey="126"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1499.83#298.23#697.67" angle="-97" genCount="1" genTime="20000" objectKey="127"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1454.19#298.23#730.47" angle="-97" genCount="1" genTime="20000" objectKey="128"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1470.33#298.23#790.19" angle="-97" genCount="1" genTime="20000" objectKey="129"/>
+                    <Obj Type="Monster" MonType="58388" Pos="-1545.19#298.23#791.49" angle="-97" genCount="1" genTime="20000" objectKey="130"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1568.10#298.23#900.95" angle="-97" genCount="1" genTime="20000" objectKey="131"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1485.57#298.23#854.26" angle="-97" genCount="1" genTime="20000" objectKey="132"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1455.92#298.23#881.28" angle="-97" genCount="1" genTime="20000" objectKey="133"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1527.01#298.23#855.22" angle="-97" genCount="1" genTime="20000" objectKey="134"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-1508.73#298.23#893.31" angle="-95" genCount="1" genTime="20000" objectKey="135"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1479.17#298.23#610.19" angle="-97" genCount="1" genTime="20000" objectKey="136"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1513.58#298.23#606.37" angle="-97" genCount="1" genTime="20000" objectKey="137"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1516.37#298.23#735.27" angle="-97" genCount="1" genTime="20000" objectKey="138"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1487.45#298.23#731.75" angle="-97" genCount="1" genTime="20000" objectKey="139"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1514.70#298.23#781.88" angle="-97" genCount="1" genTime="20000" objectKey="140"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-1484.31#298.23#776.20" angle="-97" genCount="1" genTime="20000" objectKey="141"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-621.71#95.06#31.64" angle="-71" genCount="1" genTime="20000" objectKey="142"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-623.47#95.06#213.24" angle="-64" genCount="1" genTime="20000" objectKey="143"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-527.16#95.06#27.57" angle="-83" genCount="1" genTime="20000" objectKey="144"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-571.73#95.06#-5.99" angle="-98" genCount="1" genTime="20000" objectKey="145"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-581.63#95.06#173.11" angle="-61" genCount="1" genTime="20000" objectKey="146"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-585.92#95.06#236.83" angle="-72" genCount="1" genTime="20000" objectKey="147"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-405.11#95.06#5.88" angle="-101" genCount="1" genTime="20000" objectKey="148"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-351.76#95.06#-35.61" angle="-109" genCount="1" genTime="20000" objectKey="149"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-309.02#95.06#1.37" angle="-97" genCount="1" genTime="20000" objectKey="150"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-447.49#95.06#248.27" angle="-81" genCount="1" genTime="20000" objectKey="151"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-408.00#95.06#194.67" angle="-85" genCount="1" genTime="20000" objectKey="152"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-362.65#95.06#231.19" angle="-93" genCount="1" genTime="20000" objectKey="153"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-578.24#95.06#205.42" angle="-80" genCount="1" genTime="20000" objectKey="154"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-578.78#95.06#29.66" angle="-90" genCount="1" genTime="20000" objectKey="155"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-407.62#95.06#242.66" angle="-85" genCount="1" genTime="20000" objectKey="156"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-558.27#85.56#-675.10" angle="-168" genCount="1" genTime="20000" objectKey="157"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-512.89#85.76#-713.90" angle="-168" genCount="1" genTime="20000" objectKey="158"/>
+                    <Obj Type="Monster" MonType="58384" Pos="-547.89#87.66#-624.67" angle="-168" genCount="1" genTime="20000" objectKey="159"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-485.00#85.47#-682.11" angle="-165" genCount="1" genTime="20000" objectKey="160"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-503.17#85.46#-637.19" angle="-165" genCount="1" genTime="20000" objectKey="161"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-202.74#95.06#118.43" angle="-85" genCount="1" genTime="20000" objectKey="162"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-425.57#95.06#125.91" angle="-85" genCount="1" genTime="20000" objectKey="163"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-401.97#95.06#89.21" angle="-85" genCount="1" genTime="20000" objectKey="164"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-348.68#95.06#112.56" angle="-85" genCount="1" genTime="20000" objectKey="165"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-377.04#95.06#142.72" angle="-85" genCount="1" genTime="20000" objectKey="166"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-354.32#95.06#-1.17" angle="-85" genCount="1" genTime="20000" objectKey="167"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-170.22#92.88#83.20" angle="-85" genCount="1" genTime="20000" objectKey="168"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-134.98#92.88#117.25" angle="-85" genCount="1" genTime="20000" objectKey="169"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-172.00#92.88#158.86" angle="-85" genCount="1" genTime="20000" objectKey="170"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-386.23#95.06#114.44" angle="-85" genCount="1" genTime="20000" objectKey="171"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-170.76#92.88#126.25" angle="-85" genCount="1" genTime="20000" objectKey="172"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-218.59#95.06#273.66" angle="-85" genCount="1" genTime="20000" objectKey="173"/>
+                    <Obj Type="Monster" MonType="58385" Pos="-182.57#92.88#276.43" angle="-85" genCount="1" genTime="20000" objectKey="174"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-219.23#95.06#323.44" angle="-85" genCount="1" genTime="20000" objectKey="175"/>
+                    <Obj Type="Monster" MonType="58389" Pos="-183.83#92.88#316.08" angle="-85" genCount="1" genTime="20000" objectKey="176"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58390" Pos="406.93#79.35#258.28" angle="-117" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="58391" Pos="389.57#79.35#479.00" angle="-112" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58392" Pos="549.11#93.16#839.03" angle="-104" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1194.21#209.67#322.17" angle="-178" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="58390" Pos="476.38#87.47#277.99" angle="-117" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="58390" Pos="364.61#79.35#313.67" angle="-117" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="58390" Pos="443.47#91.02#321.98" angle="-117" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="58390" Pos="580.42#80.91#236.87" angle="-117" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="58390" Pos="614.95#79.35#190.53" angle="-117" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="58390" Pos="668.31#79.35#212.75" angle="-117" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="58390" Pos="637.26#93.19#255.29" angle="-117" genCount="1" genTime="20000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="58390" Pos="415.27#88.69#296.72" angle="-117" genCount="1" genTime="20000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="58390" Pos="618.26#80.13#225.30" angle="-117" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="58390" Pos="731.72#79.35#342.23" angle="-117" genCount="1" genTime="20000" objectKey="14"/>
+                    <Obj Type="Monster" MonType="58390" Pos="704.81#80.07#391.23" angle="-117" genCount="1" genTime="20000" objectKey="15"/>
+                    <Obj Type="Monster" MonType="58390" Pos="754.36#79.35#427.16" angle="-117" genCount="1" genTime="20000" objectKey="16"/>
+                    <Obj Type="Monster" MonType="58390" Pos="778.64#79.35#379.14" angle="-117" genCount="1" genTime="20000" objectKey="17"/>
+                    <Obj Type="Monster" MonType="58390" Pos="1292.92#209.64#167.89" angle="-117" genCount="1" genTime="20000" objectKey="18"/>
+                    <Obj Type="Monster" MonType="58390" Pos="381.73#79.35#448.20" angle="-117" genCount="1" genTime="20000" objectKey="19"/>
+                    <Obj Type="Monster" MonType="58390" Pos="450.17#93.08#450.49" angle="-117" genCount="1" genTime="20000" objectKey="20"/>
+                    <Obj Type="Monster" MonType="58390" Pos="397.08#79.35#518.30" angle="-117" genCount="1" genTime="20000" objectKey="21"/>
+                    <Obj Type="Monster" MonType="58391" Pos="514.01#91.02#394.28" angle="-112" genCount="1" genTime="20000" objectKey="22"/>
+                    <Obj Type="Monster" MonType="58391" Pos="550.72#91.02#339.80" angle="-112" genCount="1" genTime="20000" objectKey="23"/>
+                    <Obj Type="Monster" MonType="58391" Pos="585.30#91.02#369.36" angle="-112" genCount="1" genTime="20000" objectKey="24"/>
+                    <Obj Type="Monster" MonType="58391" Pos="583.49#91.02#401.95" angle="-112" genCount="1" genTime="20000" objectKey="25"/>
+                    <Obj Type="Monster" MonType="58391" Pos="546.37#91.02#425.66" angle="-112" genCount="1" genTime="20000" objectKey="26"/>
+                    <Obj Type="Monster" MonType="58390" Pos="495.24#79.35#600.41" angle="-117" genCount="1" genTime="20000" objectKey="27"/>
+                    <Obj Type="Monster" MonType="58390" Pos="537.06#79.35#553.63" angle="-117" genCount="1" genTime="20000" objectKey="28"/>
+                    <Obj Type="Monster" MonType="58390" Pos="593.19#79.35#537.26" angle="-117" genCount="1" genTime="20000" objectKey="29"/>
+                    <Obj Type="Monster" MonType="58390" Pos="656.29#79.35#572.31" angle="-117" genCount="1" genTime="20000" objectKey="30"/>
+                    <Obj Type="Monster" MonType="58391" Pos="744.25#79.35#384.68" angle="-112" genCount="1" genTime="20000" objectKey="31"/>
+                    <Obj Type="Monster" MonType="58391" Pos="566.94#79.35#606.63" angle="-112" genCount="1" genTime="20000" objectKey="32"/>
+                    <Obj Type="Monster" MonType="58391" Pos="605.61#79.35#594.64" angle="-112" genCount="1" genTime="20000" objectKey="33"/>
+                    <Obj Type="Monster" MonType="58391" Pos="575.62#79.35#576.64" angle="-112" genCount="1" genTime="20000" objectKey="34"/>
+                    <Obj Type="Monster" MonType="58390" Pos="495.09#95.62#857.87" angle="-117" genCount="1" genTime="20000" objectKey="35"/>
+                    <Obj Type="Monster" MonType="58390" Pos="553.36#93.16#799.84" angle="-117" genCount="1" genTime="20000" objectKey="36"/>
+                    <Obj Type="Monster" MonType="58390" Pos="592.50#93.16#828.29" angle="-117" genCount="1" genTime="20000" objectKey="37"/>
+                    <Obj Type="Monster" MonType="58390" Pos="708.04#93.16#754.93" angle="-117" genCount="1" genTime="20000" objectKey="38"/>
+                    <Obj Type="Monster" MonType="58390" Pos="748.20#93.16#772.79" angle="-117" genCount="1" genTime="20000" objectKey="39"/>
+                    <Obj Type="Monster" MonType="58390" Pos="681.56#93.16#795.59" angle="-117" genCount="1" genTime="20000" objectKey="40"/>
+                    <Obj Type="Monster" MonType="58392" Pos="709.97#93.16#788.69" angle="-104" genCount="1" genTime="20000" objectKey="41"/>
+                    <Obj Type="Monster" MonType="58392" Pos="622.59#93.16#925.57" angle="-104" genCount="1" genTime="20000" objectKey="42"/>
+                    <Obj Type="Monster" MonType="58392" Pos="636.01#93.16#885.53" angle="-104" genCount="1" genTime="20000" objectKey="43"/>
+                    <Obj Type="Monster" MonType="58392" Pos="689.36#93.16#878.87" angle="-104" genCount="1" genTime="20000" objectKey="44"/>
+                    <Obj Type="Monster" MonType="58392" Pos="719.75#93.16#911.63" angle="-104" genCount="1" genTime="20000" objectKey="45"/>
+                    <Obj Type="Monster" MonType="58392" Pos="717.39#93.16#953.31" angle="-104" genCount="1" genTime="20000" objectKey="46"/>
+                    <Obj Type="Monster" MonType="58392" Pos="651.74#93.16#972.67" angle="-104" genCount="1" genTime="20000" objectKey="47"/>
+                    <Obj Type="Monster" MonType="58390" Pos="460.48#95.62#1020.48" angle="-117" genCount="1" genTime="20000" objectKey="48"/>
+                    <Obj Type="Monster" MonType="58390" Pos="492.73#95.62#981.18" angle="-117" genCount="1" genTime="20000" objectKey="49"/>
+                    <Obj Type="Monster" MonType="58390" Pos="534.73#95.62#996.76" angle="-117" genCount="1" genTime="20000" objectKey="50"/>
+                    <Obj Type="Monster" MonType="58390" Pos="500.34#95.62#1067.09" angle="-117" genCount="1" genTime="20000" objectKey="51"/>
+                    <Obj Type="Monster" MonType="58390" Pos="853.73#95.90#837.93" angle="-117" genCount="1" genTime="20000" objectKey="54"/>
+                    <Obj Type="Monster" MonType="58390" Pos="878.61#95.90#902.56" angle="-117" genCount="1" genTime="20000" objectKey="55"/>
+                    <Obj Type="Monster" MonType="58392" Pos="493.03#95.62#1028.57" angle="-104" genCount="1" genTime="20000" objectKey="56"/>
+                    <Obj Type="Monster" MonType="58392" Pos="912.21#93.16#851.89" angle="-104" genCount="1" genTime="20000" objectKey="57"/>
+                    <Obj Type="Monster" MonType="58390" Pos="946.20#93.16#885.62" angle="-117" genCount="1" genTime="20000" objectKey="58"/>
+                    <Obj Type="Monster" MonType="58390" Pos="926.27#93.16#821.19" angle="-117" genCount="1" genTime="20000" objectKey="59"/>
+                    <Obj Type="Monster" MonType="58392" Pos="565.07#95.62#1145.03" angle="-104" genCount="1" genTime="20000" objectKey="60"/>
+                    <Obj Type="Monster" MonType="58392" Pos="598.73#93.16#1082.11" angle="-104" genCount="1" genTime="20000" objectKey="61"/>
+                    <Obj Type="Monster" MonType="58392" Pos="791.45#93.16#1024.04" angle="-104" genCount="1" genTime="20000" objectKey="62"/>
+                    <Obj Type="Monster" MonType="58392" Pos="828.95#93.16#1062.67" angle="-104" genCount="1" genTime="20000" objectKey="63"/>
+                    <Obj Type="Monster" MonType="58391" Pos="857.21#103.73#736.70" angle="-112" genCount="1" genTime="20000" objectKey="64"/>
+                    <Obj Type="Monster" MonType="58391" Pos="837.33#95.84#770.46" angle="-112" genCount="1" genTime="20000" objectKey="65"/>
+                    <Obj Type="Monster" MonType="58391" Pos="387.43#93.16#875.09" angle="-112" genCount="1" genTime="20000" objectKey="52"/>
+                    <Obj Type="Monster" MonType="58391" Pos="425.02#95.62#928.53" angle="-112" genCount="1" genTime="20000" objectKey="53"/>
+                    <Obj Type="Monster" MonType="58391" Pos="464.03#94.98#1139.09" angle="-112" genCount="1" genTime="20000" objectKey="66"/>
+                    <Obj Type="Monster" MonType="58391" Pos="488.94#95.62#1201.13" angle="-112" genCount="1" genTime="20000" objectKey="67"/>
+                    <Obj Type="Monster" MonType="58391" Pos="932.84#95.90#983.72" angle="-112" genCount="1" genTime="20000" objectKey="68"/>
+                    <Obj Type="Monster" MonType="58391" Pos="936.07#95.90#1031.72" angle="-112" genCount="1" genTime="20000" objectKey="69"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1172.33#209.76#367.80" angle="-178" genCount="1" genTime="20000" objectKey="70"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1343.25#209.80#335.90" angle="-178" genCount="1" genTime="20000" objectKey="71"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1139.78#209.64#157.78" angle="-178" genCount="1" genTime="20000" objectKey="72"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1200.93#209.64#18.05" angle="-178" genCount="1" genTime="20000" objectKey="73"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1151.00#209.64#196.43" angle="-178" genCount="1" genTime="20000" objectKey="74"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1147.26#209.64#320.14" angle="165" genCount="1" genTime="20000" objectKey="75"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1102.84#209.64#196.15" angle="165" genCount="1" genTime="20000" objectKey="76"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1333.94#209.71#298.73" angle="165" genCount="1" genTime="20000" objectKey="77"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1292.47#209.81#354.33" angle="165" genCount="1" genTime="20000" objectKey="78"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1135.76#209.64#37.25" angle="165" genCount="1" genTime="20000" objectKey="79"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1246.67#209.64#7.56" angle="165" genCount="1" genTime="20000" objectKey="80"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1232.40#209.64#217.06" angle="165" genCount="1" genTime="20000" objectKey="81"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1271.81#209.64#176.60" angle="165" genCount="1" genTime="20000" objectKey="82"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1283.50#209.64#227.26" angle="165" genCount="1" genTime="20000" objectKey="83"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1283.41#209.64#197.40" angle="-178" genCount="1" genTime="20000" objectKey="84"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1407.27#209.64#59.42" angle="-178" genCount="1" genTime="20000" objectKey="85"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1365.46#209.64#131.63" angle="-178" genCount="1" genTime="20000" objectKey="86"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1377.77#209.64#192.64" angle="-178" genCount="1" genTime="20000" objectKey="87"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1462.52#209.66#237.35" angle="-178" genCount="1" genTime="20000" objectKey="88"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1426.64#209.64#125.00" angle="-178" genCount="1" genTime="20000" objectKey="89"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1443.80#209.64#175.86" angle="-178" genCount="1" genTime="20000" objectKey="90"/>
+                    <Obj Type="Monster" MonType="58391" Pos="693.36#79.35#254.77" angle="165" genCount="1" genTime="20000" objectKey="91"/>
+                    <Obj Type="Monster" MonType="58391" Pos="1399.71#209.81#324.69" angle="165" genCount="1" genTime="20000" objectKey="92"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1246.95#207.84#617.97" angle="168" genCount="1" genTime="20000" objectKey="93"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1312.33#211.15#792.82" angle="160" genCount="1" genTime="20000" objectKey="94"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1233.06#208.92#582.29" angle="-178" genCount="1" genTime="20000" objectKey="95"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1286.16#199.26#614.70" angle="-178" genCount="1" genTime="20000" objectKey="96"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1254.72#208.84#661.11" angle="-178" genCount="1" genTime="20000" objectKey="97"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1286.25#207.49#758.24" angle="-178" genCount="1" genTime="20000" objectKey="98"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1356.18#210.95#773.67" angle="-178" genCount="1" genTime="20000" objectKey="99"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1323.82#210.68#817.67" angle="-178" genCount="1" genTime="20000" objectKey="100"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1376.69#201.65#497.88" angle="168" genCount="1" genTime="20000" objectKey="101"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1320.33#203.58#506.23" angle="-178" genCount="1" genTime="20000" objectKey="102"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1373.29#198.74#540.60" angle="-178" genCount="1" genTime="20000" objectKey="103"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1429.33#206.61#464.04" angle="-178" genCount="1" genTime="20000" objectKey="104"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1468.17#210.00#812.39" angle="160" genCount="1" genTime="20000" objectKey="105"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1428.83#209.98#828.07" angle="-178" genCount="1" genTime="20000" objectKey="106"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1459.70#210.25#779.59" angle="-178" genCount="1" genTime="20000" objectKey="107"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1518.47#209.83#797.90" angle="-178" genCount="1" genTime="20000" objectKey="108"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1381.78#199.15#662.91" angle="168" genCount="1" genTime="20000" objectKey="109"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1411.45#198.84#615.85" angle="168" genCount="1" genTime="20000" objectKey="110"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1436.25#198.98#678.02" angle="168" genCount="1" genTime="20000" objectKey="111"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1348.18#210.81#791.30" angle="-178" genCount="1" genTime="20000" objectKey="112"/>
+                    <Obj Type="Monster" MonType="58393" Pos="1472.90#198.63#626.55" angle="-178" genCount="1" genTime="20000" objectKey="113"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1582.62#209.64#489.75" angle="168" genCount="1" genTime="20000" objectKey="114"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1544.57#209.79#545.52" angle="168" genCount="1" genTime="20000" objectKey="115"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1561.93#209.82#593.98" angle="168" genCount="1" genTime="20000" objectKey="116"/>
+                    <Obj Type="Monster" MonType="58392" Pos="1614.86#209.66#616.17" angle="168" genCount="1" genTime="20000" objectKey="117"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58387" Pos="1472.09#165.15#-1086.26" angle="167" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1552.70#165.15#-1035.37" angle="177" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-242.49#93.15#-1120.74" angle="139" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="58386" Pos="-60.29#105.32#-1222.09" angle="124" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-197.34#93.15#-1187.49" angle="139" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-253.51#93.15#-1160.40" angle="139" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-184.01#95.21#-1148.21" angle="139" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-149.48#93.15#-1024.45" angle="139" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-125.57#102.40#-1090.78" angle="139" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-86.76#99.34#-1083.96" angle="139" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-102.91#93.15#-1034.11" angle="139" genCount="1" genTime="20000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-219.10#93.15#-1315.93" angle="139" genCount="1" genTime="20000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-224.71#93.15#-1372.92" angle="139" genCount="1" genTime="20000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-159.94#95.46#-1353.53" angle="139" genCount="1" genTime="20000" objectKey="14"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-148.16#105.84#-1322.14" angle="139" genCount="1" genTime="20000" objectKey="15"/>
+                    <Obj Type="Monster" MonType="58386" Pos="-54.47#105.32#-1272.65" angle="124" genCount="1" genTime="20000" objectKey="16"/>
+                    <Obj Type="Monster" MonType="58386" Pos="5.14#105.32#-1273.21" angle="124" genCount="1" genTime="20000" objectKey="17"/>
+                    <Obj Type="Monster" MonType="58386" Pos="-4.58#105.32#-1219.36" angle="124" genCount="1" genTime="20000" objectKey="18"/>
+                    <Obj Type="Monster" MonType="58394" Pos="18.01#106.05#-1099.91" angle="139" genCount="1" genTime="20000" objectKey="19"/>
+                    <Obj Type="Monster" MonType="58394" Pos="42.43#105.32#-1162.11" angle="139" genCount="1" genTime="20000" objectKey="20"/>
+                    <Obj Type="Monster" MonType="58394" Pos="88.22#102.80#-1148.12" angle="139" genCount="1" genTime="20000" objectKey="21"/>
+                    <Obj Type="Monster" MonType="58394" Pos="78.19#106.05#-1104.25" angle="139" genCount="1" genTime="20000" objectKey="22"/>
+                    <Obj Type="Monster" MonType="58394" Pos="57.18#105.39#-1335.31" angle="139" genCount="1" genTime="20000" objectKey="23"/>
+                    <Obj Type="Monster" MonType="58394" Pos="51.38#93.15#-1375.23" angle="139" genCount="1" genTime="20000" objectKey="24"/>
+                    <Obj Type="Monster" MonType="58394" Pos="110.12#93.15#-1323.64" angle="139" genCount="1" genTime="20000" objectKey="25"/>
+                    <Obj Type="Monster" MonType="58394" Pos="91.45#101.30#-1305.58" angle="139" genCount="1" genTime="20000" objectKey="26"/>
+                    <Obj Type="Monster" MonType="58394" Pos="-33.81#105.32#-1239.61" angle="139" genCount="1" genTime="20000" objectKey="27"/>
+                    <Obj Type="Monster" MonType="58386" Pos="-74.06#93.15#-1408.51" angle="124" genCount="1" genTime="20000" objectKey="28"/>
+                    <Obj Type="Monster" MonType="58386" Pos="-258.98#95.36#-1240.13" angle="124" genCount="1" genTime="20000" objectKey="29"/>
+                    <Obj Type="Monster" MonType="58386" Pos="-28.10#93.15#-1038.98" angle="124" genCount="1" genTime="20000" objectKey="30"/>
+                    <Obj Type="Monster" MonType="58386" Pos="214.86#93.15#-1246.16" angle="-170" genCount="1" genTime="20000" objectKey="31"/>
+                    <Obj Type="Monster" MonType="58386" Pos="245.81#93.15#-1297.55" angle="-170" genCount="1" genTime="20000" objectKey="32"/>
+                    <Obj Type="Monster" MonType="58386" Pos="246.86#93.15#-1217.37" angle="-170" genCount="1" genTime="20000" objectKey="33"/>
+                    <Obj Type="Monster" MonType="58386" Pos="299.14#94.75#-1262.47" angle="-170" genCount="1" genTime="20000" objectKey="34"/>
+                    <Obj Type="Monster" MonType="58386" Pos="278.83#96.46#-1031.12" angle="-170" genCount="1" genTime="20000" objectKey="35"/>
+                    <Obj Type="Monster" MonType="58386" Pos="259.41#96.00#-1108.58" angle="-170" genCount="1" genTime="20000" objectKey="36"/>
+                    <Obj Type="Monster" MonType="58386" Pos="314.36#94.75#-1068.05" angle="-170" genCount="1" genTime="20000" objectKey="37"/>
+                    <Obj Type="Monster" MonType="58386" Pos="590.61#92.44#-1113.63" angle="-170" genCount="1" genTime="20000" objectKey="38"/>
+                    <Obj Type="Monster" MonType="58386" Pos="550.45#92.44#-1060.94" angle="-170" genCount="1" genTime="20000" objectKey="39"/>
+                    <Obj Type="Monster" MonType="58386" Pos="600.84#92.44#-1020.62" angle="-170" genCount="1" genTime="20000" objectKey="40"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1004.17#92.44#-1116.23" angle="173" genCount="1" genTime="20000" objectKey="41"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1015.28#92.44#-1028.97" angle="173" genCount="1" genTime="20000" objectKey="42"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1074.75#98.13#-1067.72" angle="173" genCount="1" genTime="20000" objectKey="43"/>
+                    <Obj Type="Monster" MonType="58386" Pos="709.66#96.53#-1225.60" angle="139" genCount="1" genTime="20000" objectKey="44"/>
+                    <Obj Type="Monster" MonType="58386" Pos="770.43#92.44#-1238.54" angle="131" genCount="1" genTime="20000" objectKey="45"/>
+                    <Obj Type="Monster" MonType="58386" Pos="701.20#92.44#-1169.15" angle="134" genCount="1" genTime="20000" objectKey="46"/>
+                    <Obj Type="Monster" MonType="58386" Pos="732.20#92.44#-1002.06" angle="152" genCount="1" genTime="20000" objectKey="47"/>
+                    <Obj Type="Monster" MonType="58386" Pos="797.74#92.44#-1022.02" angle="150" genCount="1" genTime="20000" objectKey="48"/>
+                    <Obj Type="Monster" MonType="58386" Pos="770.43#92.44#-953.30" angle="113" genCount="1" genTime="20000" objectKey="49"/>
+                    <Obj Type="Monster" MonType="58386" Pos="848.45#92.44#-1101.17" angle="150" genCount="1" genTime="20000" objectKey="50"/>
+                    <Obj Type="Monster" MonType="58386" Pos="869.46#92.44#-1144.03" angle="150" genCount="1" genTime="20000" objectKey="51"/>
+                    <Obj Type="Monster" MonType="58386" Pos="902.88#92.44#-1098.40" angle="150" genCount="1" genTime="20000" objectKey="52"/>
+                    <Obj Type="Monster" MonType="58394" Pos="423.48#91.95#-1085.25" angle="139" genCount="1" genTime="20000" objectKey="53"/>
+                    <Obj Type="Monster" MonType="58394" Pos="433.53#91.95#-1011.81" angle="139" genCount="1" genTime="20000" objectKey="54"/>
+                    <Obj Type="Monster" MonType="58394" Pos="594.20#92.44#-1071.11" angle="139" genCount="1" genTime="20000" objectKey="55"/>
+                    <Obj Type="Monster" MonType="58394" Pos="735.08#92.44#-1199.85" angle="139" genCount="1" genTime="20000" objectKey="56"/>
+                    <Obj Type="Monster" MonType="58394" Pos="763.10#92.44#-984.60" angle="139" genCount="1" genTime="20000" objectKey="57"/>
+                    <Obj Type="Monster" MonType="58394" Pos="886.44#92.44#-1120.12" angle="139" genCount="1" genTime="20000" objectKey="58"/>
+                    <Obj Type="Monster" MonType="58394" Pos="896.98#92.44#-946.26" angle="174" genCount="1" genTime="20000" objectKey="59"/>
+                    <Obj Type="Monster" MonType="58394" Pos="932.75#92.44#-940.72" angle="174" genCount="1" genTime="20000" objectKey="60"/>
+                    <Obj Type="Monster" MonType="58394" Pos="896.50#92.44#-888.02" angle="-112" genCount="1" genTime="20000" objectKey="61"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1534.78#165.15#-1126.09" angle="-173" genCount="1" genTime="20000" objectKey="62"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1262.41#165.15#-992.57" angle="179" genCount="1" genTime="20000" objectKey="63"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1236.18#165.15#-1143.92" angle="179" genCount="1" genTime="20000" objectKey="64"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1289.26#165.15#-1094.41" angle="179" genCount="1" genTime="20000" objectKey="65"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1290.23#165.15#-1044.24" angle="179" genCount="1" genTime="20000" objectKey="66"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1544.49#165.15#-1168.89" angle="167" genCount="1" genTime="20000" objectKey="67"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1602.24#165.15#-1102.07" angle="167" genCount="1" genTime="20000" objectKey="68"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1537.75#165.15#-1074.49" angle="-173" genCount="1" genTime="20000" objectKey="69"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1453.84#165.15#-1167.76" angle="179" genCount="1" genTime="20000" objectKey="70"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1446.39#165.15#-1000.69" angle="179" genCount="1" genTime="20000" objectKey="71"/>
+                    <Obj Type="Monster" MonType="58396" Pos="785.12#92.44#-1149.09" angle="179" genCount="1" genTime="20000" objectKey="72"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1615.29#165.15#-1029.79" angle="179" genCount="1" genTime="20000" objectKey="73"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1348.21#165.15#-1297.66" angle="-173" genCount="1" genTime="20000" objectKey="74"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1420.12#165.15#-1281.88" angle="-173" genCount="1" genTime="20000" objectKey="75"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1483.39#165.15#-1322.58" angle="-173" genCount="1" genTime="20000" objectKey="76"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1429.63#165.15#-1336.03" angle="167" genCount="1" genTime="20000" objectKey="77"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1489.45#165.15#-835.98" angle="177" genCount="1" genTime="20000" objectKey="78"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1421.93#165.15#-833.74" angle="-173" genCount="1" genTime="20000" objectKey="79"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1488.20#165.15#-876.15" angle="-173" genCount="1" genTime="20000" objectKey="80"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1548.96#165.15#-834.64" angle="-173" genCount="1" genTime="20000" objectKey="81"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1354.66#165.15#-1203.29" angle="179" genCount="1" genTime="20000" objectKey="82"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1703.04#165.15#-962.17" angle="179" genCount="1" genTime="20000" objectKey="83"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1728.85#165.15#-1277.05" angle="-173" genCount="1" genTime="20000" objectKey="84"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1693.55#165.15#-1227.62" angle="-173" genCount="1" genTime="20000" objectKey="85"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1747.71#165.15#-1190.67" angle="-173" genCount="1" genTime="20000" objectKey="86"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1751.44#165.15#-1059.33" angle="-173" genCount="1" genTime="20000" objectKey="87"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1357.53#165.15#-932.02" angle="-173" genCount="1" genTime="20000" objectKey="88"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1728.17#165.15#-975.27" angle="-173" genCount="1" genTime="20000" objectKey="89"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1620.19#165.15#-876.85" angle="179" genCount="1" genTime="20000" objectKey="90"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1620.17#165.15#-925.76" angle="179" genCount="1" genTime="20000" objectKey="91"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1583.86#165.15#-1299.72" angle="179" genCount="1" genTime="20000" objectKey="92"/>
+                    <Obj Type="Monster" MonType="58396" Pos="1592.81#165.15#-1254.86" angle="179" genCount="1" genTime="20000" objectKey="93"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="boss" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="보스가 등장했습니다!"/>
+                        <Str Str="Clear"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="58398" Pos="1289.15#85.52#-405.94" angle="-172" genCount="1" genTime="20000" objectKey="0">
+                        <genCondList>
+                            <ToolScp Scp="MGAME_GENCOND_MONCNT_UNDER_CLSNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Debuff_Monster1#Debuff_Monster2#Debuff_Monster3#Debuff_Monster4"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </genCondList>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58389" Pos="1102.66#92.82#-518.67" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="58389" Pos="1021.57#85.52#-436.67" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58389" Pos="1049.55#90.28#-343.68" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="58389" Pos="1108.52#92.79#-284.41" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1270.63#92.82#-516.38" angle="-177" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="58387" Pos="1284.34#92.79#-289.42" angle="-177" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1168.12#85.52#-454.99" angle="-177" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1167.06#85.52#-368.42" angle="-177" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1379.63#91.76#-479.66" angle="-177" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1380.26#85.52#-400.35" angle="-177" genCount="1" genTime="20000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1380.75#92.79#-318.47" angle="-177" genCount="1" genTime="20000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="58395" Pos="1111.63#85.52#-410.01" angle="-177" genCount="1" genTime="20000" objectKey="12"/>
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="마법진"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="마법진" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155051" Pos="325.33#187.38#-430.90" angle="-28" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;NPC_CIRCLE_TRIGGER&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="0" execCount="1" eventName="Open">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="boss/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="맵 중앙에 워프 마법진이 발동 되었습니다!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="LastBoss"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Time">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="종료 5분전">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="종료 5분 전 입니다!! "/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="제한 시간">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="인던 삭제">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3660"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="LastBoss" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58399" Pos="-371.52#378.13#1117.57" angle="-78" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="58392" Pos="-433.08#378.13#1075.56" angle="-105" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="58392" Pos="-333.53#378.13#1065.69" angle="-105" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58392" Pos="-329.22#378.13#1183.55" angle="-105" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="58392" Pos="-427.27#378.13#1172.41" angle="-105" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="58391" Pos="-484.33#378.13#1125.50" angle="-129" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="58391" Pos="-264.52#378.13#1126.34" angle="-129" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="58390" Pos="-229.28#378.13#984.99" angle="-110" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="58390" Pos="-333.42#378.13#981.28" angle="-110" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="58390" Pos="-442.14#378.13#991.04" angle="-110" genCount="1" genTime="20000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="58390" Pos="-520.25#378.13#1010.62" angle="-110" genCount="1" genTime="20000" objectKey="10"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="10000" execCount="1" eventName="완료 시">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="LastBoss/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="LastBoss"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="30초 후 입구로 돌아갑니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Door">
+                <ObjList>
+                    <Obj Type="Monster" MonType="147337" Pos="735.82#188.24#-411.24" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="20045" Pos="738.49#188.24#-407.35" genCount="1" genTime="20000" objectKey="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage1/1/stage1/2/stage1/3/stage1/4/stage1/5/stage1/6/stage1/7/stage1/8/stage1/9/stage1/10/stage1/11/stage1/12/stage1/13/stage1/14/stage1/15/stage1/16/stage1/17/stage1/18/stage1/19/stage1/20/stage1/21/stage1/22/stage1/23/stage1/24/stage1/25/stage1/26/stage1/27/stage1/28/stage1/29/stage1/31/stage1/35/stage1/36/stage1/37/stage1/38/stage1/39/stage1/40/stage1/41/stage1/42/stage1/43/stage1/44/stage1/45/stage1/46/stage1/47/stage1/50/stage1/51/stage1/52/stage1/53/stage1/56/stage1/57/stage1/58/stage1/59/stage1/61/stage1/62/stage1/63/stage1/64/stage1/65/stage1/66/stage1/67/stage1/69/stage1/70/stage1/71/stage1/72/stage1/73/stage1/77/stage1/78/stage1/79/stage1/80/stage1/84/stage1/85/stage1/86/stage1/89/stage1/90/stage1/91/stage1/92/stage1/93/stage1/94/stage1/95/stage1/96/stage1/88/stage1/99/stage1/142/stage1/143/stage1/144/stage1/145/stage1/146/stage1/147/stage1/148/stage1/149/stage1/150/stage1/151/stage1/152/stage1/153/stage1/154/stage1/155/stage1/156/stage1/157/stage1/158/stage1/159/stage1/160/stage1/161/stage1/162/stage1/163/stage1/164/stage1/165/stage1/166/stage1/167/stage1/168/stage1/169/stage1/170/stage1/171/stage1/172/stage1/173/stage1/174/stage1/175/stage1/176/stage2/1/stage2/2/stage2/3/stage2/5/stage2/6/stage2/7/stage2/8/stage2/9/stage2/10/stage2/11/stage2/12/stage2/13/stage2/14/stage2/15/stage2/16/stage2/17/stage2/19/stage2/20/stage2/21/stage2/22/stage2/23/stage2/24/stage2/25/stage2/26/stage2/27/stage2/28/stage2/29/stage2/30/stage2/31/stage2/32/stage2/33/stage2/34/stage2/35/stage2/36/stage2/37/stage2/38/stage2/39/stage2/40/stage2/41/stage2/42/stage2/43/stage2/44/stage2/45/stage2/46/stage2/47/stage2/48/stage2/49/stage2/50/stage2/51/stage2/54/stage2/55/stage2/56/stage2/57/stage2/58/stage2/59/stage2/60/stage2/61/stage2/62/stage2/63/stage2/64/stage2/65/stage2/52/stage2/53/stage2/66/stage2/67/stage2/68/stage2/69/stage2/91/stage2/93/stage2/94/stage2/95/stage2/96/stage2/97/stage2/98/stage2/99/stage2/100/stage2/105/stage2/106/stage2/107/stage2/108/stage2/112/stage1/68/stage1/74/stage1/75/stage1/76/stage1/81/stage1/82/stage1/83/stage1/87/stage1/97/stage1/98/stage1/101/stage1/103/stage1/104/stage1/105/stage1/106/stage1/107/stage1/108/stage1/109/stage1/110/stage1/111/stage1/112/stage1/113/stage1/114/stage1/115/stage1/116/stage1/117/stage1/118/stage1/119/stage1/123/stage1/124/stage1/125/stage1/126/stage1/127/stage1/128/stage1/129/stage1/130/stage1/132/stage1/133/stage1/134/stage1/135/stage1/136/stage1/137/stage1/138/stage1/139/stage1/140/stage1/141/stage1/30/stage1/32/stage1/33/stage1/48/stage1/49/stage1/54/stage1/55/stage1/60/stage1/100/stage1/102/stage1/120/stage1/121/stage1/122/stage1/131/stage3/4/stage3/5/stage3/7/stage3/9/stage3/10/stage3/16/stage3/17/stage3/18/stage3/19/stage3/20/stage3/21/stage3/22/stage3/23/stage3/24/stage3/25/stage3/26/stage3/27/stage3/29/stage3/30/stage3/31/stage3/32/stage3/33/stage3/34/stage3/35/stage3/36/stage3/37/stage3/38/stage3/39/stage3/40/stage3/44/stage3/45/stage3/46/stage3/47/stage3/48/stage3/49/stage3/50/stage3/51/stage3/52/stage3/53/stage3/54/stage3/55/stage3/56/stage3/57/stage3/58/stage3/1/stage3/2/stage3/41/stage3/42/stage3/43/stage3/60/stage3/62/stage3/63/stage3/64/stage3/65/stage3/66/stage3/67/stage3/68/stage3/69/stage3/70/stage3/71/stage3/72/stage3/73/stage3/74/stage3/75/stage3/76/stage3/77/stage3/78/stage3/79/stage3/80/stage3/81/stage3/82/stage3/83/stage3/84/stage3/85/stage3/86/stage3/87/stage3/88/stage3/89/stage3/90/stage3/91/stage3/92/stage3/93/stage2/71/stage2/77/stage2/78/stage2/88/stage2/90/stage2/92/stage2/101/stage2/102/stage2/103/stage2/104/stage2/109/stage2/110/stage2/111/stage2/113/stage2/4/stage2/18/stage2/72/stage2/74/stage2/76/stage2/81/stage2/82/stage2/83/stage2/84/stage2/85/stage2/86"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="철문이 제거 되었습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="boss"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Door/0/Door/1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="END" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="마을가기">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="Indun_castle"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
+</GameList>
