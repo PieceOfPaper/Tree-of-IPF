@@ -274,7 +274,7 @@
                       </Event>
                       <Event execCount="1" eventName="battle_end" execWithStart="0" isEnabled="0">
                         <execList>
-                          <ToolScp Scp="MLIST_ST_REMOVE_MONSTER" Client="NO" UseSleep="NO"/>
+                          <ToolScp Scp="MLIST_ST_FULLFIL_END_CONDITION" Client="NO" UseSleep="NO"/>
                           <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
                             <Str Str="Round"/>
                             <Num Num="1"/>

@@ -33,7 +33,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 43,43,1,40,-1,60000,1,1,0,0,0,0,0,"npc_PGD_master","[플레이그 닥터 마스터]{nl}필립 아우뢸루스","","","","","","","PLAGUEDOCTOR_MASTER","","","NO","YES","NO","Neutral","","","",""
 44,44,1,1,1,11,1,1,0,0,0,0,0,"npc_gt_shop","[케도라 상단]{nl}  유물 수집상","","","","","","","GT_RELICSHOP_NPC","","","NO","YES","NO","Neutral","","","",""
 45,45,1,300,1,10,3,0,0,0,0,1,0,"HiddenTrigger_CantGen300","몬젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
-46,46,1,40,1,60000,0,0,0,0,0,1,0,"id_gate_npc","대지의 탑 알림판","","","","","","","INSTANCE_GT_GROUNDTOWER_1","","","NO","YES","NO","Neutral","","","",""
+46,46,1,40,1,60000,1,0,0,0,0,1,0,"id_gate_npc","대지의 탑 알림판","","","","","","","INSTANCE_GT_GROUNDTOWER_1","","","NO","YES","NO","Neutral","","","",""
 1000,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_202:1","",""
 47,47,1,40,-1,60000,1,1,0,0,0,0,0,"npc_HAC_master","[하카펠 마스터]{nl}       플린테스","","","","","","","HACKAPELL_MASTER","HACKAPELL_MASTER_IN","","NO","YES","NO","Neutral","","","",""
 48,48,1,40,1,60000,1,1,0,0,0,0,0,"npc_MER_master","  [메르겐 마스터]{nl}뱅고몬트 보르이긴","","","","","","","MERGEN_MASTER","","","NO","YES","NO","Neutral","","","",""

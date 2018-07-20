@@ -13333,11 +13333,6 @@ if self.HP == 0 then return 1; else return 0; end;">
         </StartList>
     </AI>
     <AI Name="TEST_ICEWALL" ActiveMessageMapInBattle="1">
-        <DeadList>
-            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DROP_CRYORITE"/>
-            </ToolScp>
-        </DeadList>
         <HitList>
             <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
                 <Str Str="SCR_ICEWALL_HIT"/>
@@ -18047,8 +18042,8 @@ return IMCRandom(300, 1000) * 0.001;"/>
                 </Cond>
                 <Exec>
                     <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
-                        <Str Str="Mergen_TrickShot"/>
-                        <Num Num="4"/>
+                        <Str Str="MonPCSKill_TrickShot"/>
+                        <Num Num="1"/>
                         <Num Num="1"/>
                     </ToolScp>
                 </Exec>

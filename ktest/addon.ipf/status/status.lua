@@ -1143,7 +1143,7 @@ function STATUS_INFO()
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResDark");
 	y = y + 10;
 
-	gboxctrl:SetScrollPos(0)
+
 	frame:Invalidate();
 
 	if vpc ~= nil then

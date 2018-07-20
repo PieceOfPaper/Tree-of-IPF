@@ -584,13 +584,6 @@ function SCR_Get_MINPATK(self)
     
     local byLevel = lv * 0.5;
     
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
-    
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
@@ -609,7 +602,6 @@ function SCR_Get_MINPATK(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byStat + byItem;
     local value = defaultValue + byLevel + byStat + byItem;
     
     local leftMinAtk = 0;
@@ -652,6 +644,11 @@ function SCR_Get_MINPATK(self)
     
     value = value + byBuff + byRateBuff;
     
+    local maxPATK = TryGetProp(self, "MAXPATK");
+    if value > maxPATK then
+        value = maxPATK;
+    end
+    
     return math.floor(value);
 end
 
@@ -664,13 +661,6 @@ function SCR_Get_MAXPATK(self)
     end
     
     local byLevel = lv * 0.5;
-    
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
@@ -690,7 +680,6 @@ function SCR_Get_MAXPATK(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byStat + byItem;
     local value = defaultValue + byLevel + byStat + byItem;
     
     local leftMaxAtk = 0;
@@ -746,13 +735,6 @@ function SCR_Get_MINPATK_SUB(self)
     
     local byLevel = lv * 0.5;
     
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
-    
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
@@ -771,7 +753,6 @@ function SCR_Get_MINPATK_SUB(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byStat + byItem;
     local value = defaultValue + byLevel + byStat + byItem;
     
     local rightMinAtk = 0;
@@ -808,6 +789,11 @@ function SCR_Get_MINPATK_SUB(self)
     
     value = value + byBuff + byRateBuff;
     
+    local maxPATK_SUB = TryGetProp(self, "MAXPATK_SUB");
+    if value > maxPATK_SUB then
+        value = maxPATK_SUB;
+    end
+    
     return math.floor(value);
 end
 
@@ -820,13 +806,6 @@ function SCR_Get_MAXPATK_SUB(self)
     end
     
     local byLevel = lv * 0.5;
-    
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
@@ -846,7 +825,6 @@ function SCR_Get_MAXPATK_SUB(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byStat + byItem;
     local value = defaultValue + byLevel + byStat + byItem;
     
     local rightMaxAtk = 0;
@@ -896,13 +874,6 @@ function SCR_Get_MINMATK(self)
     
     local byLevel = lv * 0.5;
     
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
-    
     local stat = TryGetProp(self, "INT");
     if stat == nil then
         stat = 1;
@@ -921,7 +892,6 @@ function SCR_Get_MINMATK(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byStat + byItem;
     local value = defaultValue + byLevel + byStat + byItem;
     
     local throwItemMinMAtk = 0;
@@ -958,6 +928,11 @@ function SCR_Get_MINMATK(self)
     
     value = value + byBuff + byRateBuff;
     
+    local maxMATK = TryGetProp(self, "MAXMATK");
+    if value > maxMATK then
+        value = maxMATK;
+    end
+    
     return math.floor(value);
 end
 
@@ -970,13 +945,6 @@ function SCR_Get_MAXMATK(self)
     end
     
     local byLevel = lv * 0.5;
-    
---    local rank = GetTotalJobCount(self)
---    if rank == nil or rank < 1 then
---        rank = 1;
---    end
---    
---    local byRank = math.floor(byLevel * ((rank - 1) * 0.1))
     
     local stat = TryGetProp(self, "INT");
     if stat == nil then
@@ -996,7 +964,6 @@ function SCR_Get_MAXMATK(self)
         byItem = byItem + byItemTemp;
     end
     
---    local value = byLevel + byRank + byStat + byItem;
     local value = defaultValue + byLevel + byStat + byItem;
     
     local throwItemMaxMAtk = 0;

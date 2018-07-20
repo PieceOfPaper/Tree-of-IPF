@@ -193,6 +193,7 @@
         <Key Name="SkillASPD" Value="6860"/>
         <Key Name="UseOverHeat" Value="6859"/>
         <Key Name="DefaultHitDelay" Value="100829"/>
+        <Key Name="AffectedByAttackSpeedRate" Value="100894"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Item">
         <Key Name="Package" Value="34021"/>
@@ -7276,6 +7277,41 @@
         <Key Name="Reward_d_catacomb_80_2" Value="100856"/>
         <Key Name="HadVisited_4931" Value="100859"/>
         <Key Name="Kill_boss_jezebel" Value="100837"/>
+        <Key Name="Reward_ERD_Fisherman_red" Value="100905"/>
+        <Key Name="Reward_ERD_Panto_Rspear" Value="100906"/>
+        <Key Name="Reward_ERD_tree_root_mole_pink" Value="100907"/>
+        <Key Name="Reward_ERD_Melatanun" Value="100908"/>
+        <Key Name="Reward_ERD_Rudas_loxodon" Value="100909"/>
+        <Key Name="Reward_ERD_GoblinWarrior_blue" Value="100910"/>
+        <Key Name="Reward_ERD_yognome_yellow" Value="100911"/>
+        <Key Name="Reward_ERD_Triffid" Value="100902"/>
+        <Key Name="Reward_ERD_Mushroom_boy_green" Value="100935"/>
+        <Key Name="Reward_ERD_goblin2_hammer" Value="100903"/>
+        <Key Name="Reward_ERD_mirtislampa" Value="100912"/>
+        <Key Name="Reward_ERD_kowak" Value="100904"/>
+        <Key Name="Reward_ERD_NightMaiden_bow_red" Value="100913"/>
+        <Key Name="Reward_ERD_Egnome_yellow" Value="100914"/>
+        <Key Name="Reward_ERD_Wendigo_archer_blue" Value="100915"/>
+        <Key Name="Reward_ERD_Kepari_mage" Value="100916"/>
+        <Key Name="Hide_2520" Value="100895"/>
+        <Key Name="Reward_ERD_Cronewt_blue" Value="100917"/>
+        <Key Name="Reward_ERD_Wendigo_magician_blue" Value="100934"/>
+        <Key Name="Reward_ERD_Infroholder_red" Value="100919"/>
+        <Key Name="Reward_ERD_Elma" Value="100931"/>
+        <Key Name="Reward_ERD_Cronewt_bow_blue" Value="100926"/>
+        <Key Name="Reward_ERD_Hohen_gulak" Value="100921"/>
+        <Key Name="Reward_ERD_Socket_mage_green" Value="100923"/>
+        <Key Name="Reward_ERD_Siaulav_bow_blue" Value="100924"/>
+        <Key Name="Reward_ERD_Siaulav_mage_blue" Value="100928"/>
+        <Key Name="Reward_ERD_Nuka" Value="100918"/>
+        <Key Name="Reward_ERD_Gazing_Golem_yellow" Value="100929"/>
+        <Key Name="Reward_ERD_Kowak_orange" Value="100930"/>
+        <Key Name="Reward_ERD_Siaulav_blue" Value="100925"/>
+        <Key Name="Reward_ERD_Infroholder_mage_green" Value="100932"/>
+        <Key Name="Reward_ERD_Cronewt_mage_blue" Value="100920"/>
+        <Key Name="Reward_ERD_mushroom_ent_green" Value="100933"/>
+        <Key Name="Reward_ERD_Moya" Value="100927"/>
+        <Key Name="Reward_ERD_Socket_green" Value="100922"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Ability">
         <Key Name="AddSpend" Value="134"/>
@@ -8648,6 +8684,11 @@
         <Key Name="HadVisited_4920" Value="100882"/>
         <Key Name="HadVisited_4930" Value="100883"/>
         <Key Name="HadVisited_4931" Value="100884"/>
+        <Key Name="EV170427_DAYCHECK_TYPE1_DATE" Value="100896"/>
+        <Key Name="EV170427_DAYCHECK_TYPE1_COUNT" Value="100897"/>
+        <Key Name="EV170427_DAYCHECK_TYPE2_DATE" Value="100898"/>
+        <Key Name="EV170427_DAYCHECK_TYPE2_COUNT" Value="100899"/>
+        <Key Name="EV170427_LVUP_GIVE_COUNT" Value="100900"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -15276,5 +15317,6 @@
         <Key Name="Exception_MUS01_103" Value="100465"/>
         <Key Name="EVENT_REBALANCING_RESET_DATE" Value="100892"/>
         <Key Name="TUTO_ITEM_APPRAISE" Value="100893"/>
+        <Key Name="EV170427_LVUP_NEWCHARACTER" Value="100901"/>
     </KeyIDSpc>
 </ClassKey>

@@ -424,24 +424,3 @@ function GET_CHECK_OVERLAP_EQUIPPROP_LIST(propList, prop, list)
     
     return list;
 end
-
-function EXIST_ITEM(list, element)
-    if list == nil or #list < 1 then
-        return false;
-    end
-    for i = 1, #list do
-        if list[i] == element then
-            return true;
-        end
-    end
-    return false;
-end
-
-function PUSH_BACK_IF_NOT_EXIST(list, element)
-    if EXIST_ITEM(list, element) == true then
-        return list;
-    end
-
-    list[#list + 1] = element;
-    return list;
-end

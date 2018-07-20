@@ -65,11 +65,19 @@ function RBOX_START_100()
 	
 end
 
+function COSTUME_GACHA_START_1()
+    GACHA_START('costumebox');
+end
+
+function COSTUME_GACHA_START_2()
+    GACHA_START('costumebox_1');
+end
+
 function GACHA_START(type)
 
 	local cnt = 0;
 
-	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" then
+	if type == "hair1" or type == "rbox1" or type == "rbox100" or type == "hair1_1" or type == 'costumebox' or type == 'costumebox_1' then
 		cnt = 1
 	elseif type == "hair11" or type == "rbox11" then
 		cnt = 11
@@ -84,20 +92,27 @@ function GACHA_START(type)
 	local frame = ui.GetFrame("hair_gacha_start")
 	frame:ShowWindow(0)
 	frame:SetUserValue("TYPE", type);
+    
 	if type == "hair1" or type == "hair11" or type == "hair1_1" then
 		
 		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
 
 		hairbg:SetVisible(1)
 		rboxbg:SetVisible(0)
+		hairText:SetVisible(1)
+		costumeText:SetVisible(0)
 
 		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
 		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
 		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
+		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
 
 		rboxbtn:SetVisible(0)
 		rbox100btn:SetVisible(0)
+		costumebtn:SetVisible(0)
 		hairbtn:SetVisible(1)
 		hairbtn:SetTextByKey("value", cnt)
 	
@@ -105,16 +120,22 @@ function GACHA_START(type)
 
 		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+		local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
 
 		hairbg:SetVisible(0)
 		rboxbg:SetVisible(1)
+		hairText:SetVisible(1)
+		costumeText:SetVisible(0)
 
 		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
 		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
 		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
+		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
 
 		rboxbtn:SetVisible(1)
 		rboxbtn:SetTextByKey("value", cnt)
+		costumebtn:SetVisible(0)
 		hairbtn:SetVisible(0)
 		rbox100btn:SetVisible(0)
 
@@ -122,18 +143,60 @@ function GACHA_START(type)
 
 		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
 		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+		local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
 
 		hairbg:SetVisible(0)
 		rboxbg:SetVisible(1)
+		hairText:SetVisible(1)
+		costumeText:SetVisible(0)
 
 		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
 		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
 		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
+		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
 
 		rboxbtn:SetVisible(0)
 		hairbtn:SetVisible(0)
+		costumebtn:SetVisible(0)
 		rbox100btn:SetVisible(1)
+    elseif type == 'costumebox' then
+        local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
+		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+		local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
 
+		hairbg:SetVisible(1)
+		rboxbg:SetVisible(0)
+        hairText:SetVisible(0)
+        costumeText:SetVisible(1)
+
+		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
+		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
+		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
+
+		rboxbtn:SetVisible(0)
+		rbox100btn:SetVisible(0)
+		costumebtn:SetVisible(1)
+
+	elseif type == 'costumebox_1' then
+        local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
+		local rboxbg = GET_CHILD_RECURSIVELY(frame,"bg_rbox")
+        local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
+        local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
+
+		hairbg:SetVisible(1)
+		rboxbg:SetVisible(0)
+        hairText:SetVisible(0)
+        costumeText:SetVisible(1)
+
+		local costumebtn = GET_CHILD_RECURSIVELY(frame,"button_costume_box")
+		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
+		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
+
+		rboxbtn:SetVisible(0)
+		rbox100btn:SetVisible(0)
+		costumebtn:SetVisible(1)
 	else
 		return
 

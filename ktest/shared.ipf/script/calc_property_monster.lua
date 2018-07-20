@@ -170,17 +170,17 @@ function SCR_Get_MON_MHP(self)
         stat = 1;
     end
     
-    local byOwner = 0;
-    local myOwner = GetTopOwner(self);
-    if myOwner ~= nil then
-        if myOwner.ClassName == 'PC' then
-            local ownerMNA = TryGetProp(myOwner, "MNA");
-            if ownerMNA == nil then
-                ownerMNA = 1;
-            end
-            stat = stat + ownerMNA;
-        end
-    end
+--    local byOwner = 0;
+--    local myOwner = GetTopOwner(self);
+--    if myOwner ~= nil then
+--        if myOwner.ClassName == 'PC' then
+--            local ownerMNA = TryGetProp(myOwner, "MNA");
+--            if ownerMNA == nil then
+--                ownerMNA = 1;
+--            end
+--            stat = stat + ownerMNA;
+--        end
+--    end
     
     local byStat = (byLevel * (stat * 0.005)) + (byLevel * (math.floor(stat / 10) * 0.015));
     
@@ -314,17 +314,26 @@ function SCR_Get_MON_DEF(self)
     
     local byLevel = lv * 1.0;
     
-    local byItem = 20 + (lv * 3);
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank ~= nil then
-        if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.0;
-        elseif monRank == "Elite" then
-            byItem = byItem * 1.1;
-        elseif monRank == "Boss" then
-            byItem = byItem * 1.2;
+    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
+    
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local monStatType = TryGetProp(self, "StatType");
+    if monStatType ~= nil and monStatType ~= 'None' then
+        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
+        if cls ~= nil then
+            local reinforceValue = cls.ReinforceArmor;
+            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local transcendValue = cls.TranscendArmor;
+            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
         end
     end
+    
+    byItem = math.floor(byItem * basicGradeRatio);
+    byItem = math.floor(byItem * byTranscend) + byReinforce;
     
     local value = byLevel + byItem;
     
@@ -335,41 +344,9 @@ function SCR_Get_MON_DEF(self)
     
     byDEFRate = byDEFRate / 100;
     
-    local statTypeRate = 100;
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            statTypeRate = cls.DEF;
-        end
-    end
-    
-    statTypeRate = statTypeRate / 100;
-    
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DEF");
     
-    value = value * (byDEFRate * statTypeRate * raceTypeRate);
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
+    value = value * (byDEFRate * raceTypeRate);
     
     local byBuff = TryGetProp(self, "DEF_BM");
     if byBuff == nil then
@@ -385,7 +362,6 @@ function SCR_Get_MON_DEF(self)
     
 --    value = value * JAEDDURY_MON_DEF_RATE;      -- JAEDDURY
     
---    value = value + byOwner + byBuff + byRateBuff;
     value = value + byBuff + byRateBuff;
     
     if value < 0 then
@@ -410,17 +386,26 @@ function SCR_Get_MON_MDEF(self)
     
     local byLevel = lv * 1.0;
     
-    local byItem = 20 + (lv * 3);
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank ~= nil then
-        if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.0;
-        elseif monRank == "Elite" then
-            byItem = byItem * 1.1;
-        elseif monRank == "Boss" then
-            byItem = byItem * 1.2;
+    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
+    
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local monStatType = TryGetProp(self, "StatType");
+    if monStatType ~= nil and monStatType ~= 'None' then
+        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
+        if cls ~= nil then
+            local reinforceValue = cls.ReinforceArmor;
+            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local transcendValue = cls.TranscendArmor;
+            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
         end
     end
+    
+    byItem = math.floor(byItem * basicGradeRatio);
+    byItem = math.floor(byItem * byTranscend) + byReinforce;
     
     local value = byLevel + byItem;
     
@@ -431,41 +416,9 @@ function SCR_Get_MON_MDEF(self)
     
     byMDEFRate = byMDEFRate / 100;
     
-    local statTypeRate = 100;
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            statTypeRate = cls.MDEF;
-        end
-    end
-    
-    statTypeRate = statTypeRate / 100;
-    
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MDEF");
     
-    value = value * (byMDEFRate * statTypeRate * raceTypeRate);
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
+    value = value * (byMDEFRate * raceTypeRate);
     
     local byBuff = TryGetProp(self, "MDEF_BM");
     if byBuff == nil then
@@ -481,7 +434,6 @@ function SCR_Get_MON_MDEF(self)
     
 --    value = value * JAEDDURY_MON_DEF_RATE;      -- JAEDDURY
     
---    value = value + byOwner + byBuff + byRateBuff;
     value = value + byBuff + byRateBuff;
     
     if value < 0 then
@@ -657,17 +609,27 @@ function SCR_Get_MON_MINPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = 20 + (lv * 3);
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank ~= nil then
-        if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.0;
-        elseif monRank == "Elite" then
-            byItem = byItem * 1.1;
-        elseif monRank == "Boss" then
-            byItem = byItem * 1.2;
+    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
+    
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local monStatType = TryGetProp(self, "StatType");
+    if monStatType ~= nil and monStatType ~= 'None' then
+        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
+        if cls ~= nil then
+            local reinforceValue = cls.ReinforceWeapon;
+            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local transcendValue = cls.TranscendWeapon;
+            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
         end
     end
+    
+    byItem = math.floor(byItem * basicGradeRatio);
+    
+    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem;
     
@@ -680,8 +642,6 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value * (2.0 - range / 100.0);
     
-    local byStatType = SCR_Get_MON_ATKRATIO(self);
-    
     local byATKRate = TryGetProp(self, "ATKRate")
     if byATKRate == nil then
         byATKRate = 100;
@@ -691,30 +651,7 @@ function SCR_Get_MON_MINPATK(self)
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
     
-    value = value * (byStatType * byATKRate * raceTypeRate);
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
-    
---  value = value * JAEDDURY_MON_ATK_RATE;      -- JAEDDURY
+    value = value * (byATKRate * raceTypeRate);
     
     local byBuff = TryGetProp(self, "PATK_BM");
     if byBuff == nil then
@@ -728,7 +665,6 @@ function SCR_Get_MON_MINPATK(self)
     
     byRateBuff = value * byRateBuff;
     
---    value = value + byOwner + byBuff + byRateBuff;
     value = value + byBuff + byRateBuff;
     
     if value < 1 then
@@ -753,17 +689,26 @@ function SCR_Get_MON_MAXPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = 20 + (lv * 3);
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank ~= nil then
-        if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.0;
-        elseif monRank == "Elite" then
-            byItem = byItem * 1.1;
-        elseif monRank == "Boss" then
-            byItem = byItem * 1.2;
+    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
+    
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local monStatType = TryGetProp(self, "StatType");
+    if monStatType ~= nil and monStatType ~= 'None' then
+        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
+        if cls ~= nil then
+            local reinforceValue = cls.ReinforceWeapon;
+            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local transcendValue = cls.TranscendWeapon;
+            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
         end
     end
+    
+    byItem = math.floor(byItem * basicGradeRatio);
+    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem
     
@@ -776,8 +721,6 @@ function SCR_Get_MON_MAXPATK(self)
     
     value = value * (range / 100.0)
     
-    local byStatType = SCR_Get_MON_ATKRATIO(self);
-    
     local byATKRate = TryGetProp(self, "ATKRate")
     if byATKRate == nil then
         byATKRate = 100;
@@ -787,30 +730,7 @@ function SCR_Get_MON_MAXPATK(self)
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
     
-    value = value * (byStatType * byATKRate * raceTypeRate);
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
-    
---  value = value * JAEDDURY_MON_ATK_RATE;      -- JAEDDURY
+    value = value * (byATKRate * raceTypeRate);
     
     local byBuff = TryGetProp(self, "PATK_BM");
     if byBuff == nil then
@@ -824,7 +744,6 @@ function SCR_Get_MON_MAXPATK(self)
     
     byRateBuff = value * byRateBuff;
     
---    value = value + byOwner + byBuff + byRateBuff;
     value = value + byBuff + byRateBuff;
     
     if value < 1 then
@@ -849,17 +768,26 @@ function SCR_Get_MON_MINMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = 20 + (lv * 3);
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank ~= nil then
-        if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.0;
-        elseif monRank == "Elite" then
-            byItem = byItem * 1.1;
-        elseif monRank == "Boss" then
-            byItem = byItem * 1.2;
+    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
+    
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local monStatType = TryGetProp(self, "StatType");
+    if monStatType ~= nil and monStatType ~= 'None' then
+        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
+        if cls ~= nil then
+            local reinforceValue = cls.ReinforceWeapon;
+            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local transcendValue = cls.TranscendWeapon;
+            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
         end
     end
+    
+    byItem = math.floor(byItem * basicGradeRatio);
+    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem;
     
@@ -872,8 +800,6 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value * (2.0 - range / 100.0);
     
-    local byStatType = SCR_Get_MON_ATKRATIO(self);
-    
     local byATKRate = TryGetProp(self, "ATKRate")
     if byATKRate == nil then
         byATKRate = 100;
@@ -883,30 +809,7 @@ function SCR_Get_MON_MINMATK(self)
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
     
-    value = value * (byStatType * byATKRate * raceTypeRate);
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
-    
---  value = value * JAEDDURY_MON_ATK_RATE;      -- JAEDDURY
+    value = value * (byATKRate * raceTypeRate);
     
     local byBuff = TryGetProp(self, "MATK_BM");
     if byBuff == nil then
@@ -920,7 +823,6 @@ function SCR_Get_MON_MINMATK(self)
     
     byRateBuff = value * byRateBuff;
     
---    value = value + byOwner + byBuff + byRateBuff;
     value = value + byBuff + byRateBuff;
     
     if value < 1 then
@@ -945,17 +847,29 @@ function SCR_Get_MON_MAXMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
     
-    local byItem = 20 + (lv * 3);
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank ~= nil then
-        if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.0;
-        elseif monRank == "Elite" then
-            byItem = byItem * 1.1;
-        elseif monRank == "Boss" then
-            byItem = byItem * 1.2;
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local byItem = SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv);
+    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
+    
+    local byReinforce = 0;
+    local byTranscend = 1;
+    
+    local monStatType = TryGetProp(self, "StatType");
+    if monStatType ~= nil and monStatType ~= 'None' then
+        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
+        if cls ~= nil then
+            local reinforceValue = cls.ReinforceWeapon;
+            byReinforce = SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local transcendValue = cls.TranscendWeapon;
+            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
         end
     end
+    
+    byItem = math.floor(byItem * basicGradeRatio);
+    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem;
     
@@ -968,8 +882,6 @@ function SCR_Get_MON_MAXMATK(self)
     
     value = value * (range / 100.0);
     
-    local byStatType = SCR_Get_MON_ATKRATIO(self);
-    
     local byATKRate = TryGetProp(self, "ATKRate")
     if byATKRate == nil then
         byATKRate = 100;
@@ -979,30 +891,7 @@ function SCR_Get_MON_MAXMATK(self)
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
     
-    value = value * (byStatType * byATKRate * raceTypeRate);
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
-    
---  value = value * JAEDDURY_MON_ATK_RATE;      -- JAEDDURY
+    value = value * (byATKRate * raceTypeRate);
     
     local byBuff = TryGetProp(self, "MATK_BM");
     if byBuff == nil then
@@ -1016,7 +905,6 @@ function SCR_Get_MON_MAXMATK(self)
     
     byRateBuff = value * byRateBuff;
     
---    value = value + byOwner + byBuff + byRateBuff;
     value = value + byBuff + byRateBuff;
     
     if value < 1 then
@@ -1484,28 +1372,42 @@ function SCR_GET_MON_SKILLFACTORRATE(self)
         end
     end
     
-    local byOwner = 0;
-    local myOwner = GetTopOwner(self);
-    if myOwner ~= nil then
-        if myOwner.ClassName == 'PC' then
-            local ownerLv = TryGetProp(myOwner, "Lv");
-            if ownerLv == nil then
-                ownerLv = 1;
-            end
-            
-            local ownerMNA = TryGetProp(myOwner, "MNA");
-            if ownerMNA == nil then
-                ownerMNA = 1;
-            end
-            
-            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
-            if byOwner < 0 then
-                byOwner = 0;
-            end
-        end
+--    local byOwner = 0;
+--    local myOwner = GetTopOwner(self);
+--    if myOwner ~= nil then
+--        if myOwner.ClassName == 'PC' then
+--            local ownerLv = TryGetProp(myOwner, "Lv");
+--            if ownerLv == nil then
+--                ownerLv = 1;
+--            end
+--            
+--            local ownerMNA = TryGetProp(myOwner, "MNA");
+--            if ownerMNA == nil then
+--                ownerMNA = 1;
+--            end
+--            
+--            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
+--            if byOwner < 0 then
+--                byOwner = 0;
+--            end
+--        end
+--    end
+    
+    local byBuff = TryGetProp(self, "SkillFactorRate_BM");
+    if byBuff == nil then
+        byBuff = 0;
     end
     
-    value = value + byOwner;
+    local byRateBuff = TryGetProp(self, "SkillFactorRate_RATE_BM");
+    if byRateBuff == nil then
+        byRateBuff = 0;
+    end
+    
+    byRateBuff = value * byRateBuff;
+    
+--    value = value + byOwner;
+    
+    value = value + byBuff + byRateBuff;
     
     return value;
 end
@@ -1697,4 +1599,52 @@ function SCR_SIZE_TYPE_RATE(self, prop)
     end
     
     return sizeTypeRate;
+end
+
+
+
+function SCR_MON_ITEM_BASIC_VALUE_CALC(self, lv)
+    local value = 20 + (math.max(1, lv - 50) * 3);
+    return math.floor(value);
+end
+
+function SCR_MON_ITEM_GRADE_RATE(self, lv)
+    local monRank = TryGetProp(self, "MonRank");
+    if monRank == nil then
+        monRank = "Normal";
+    end
+    
+    local basicGradeRatio = 1;
+    local reinforceGradeRatio = 1;
+    
+    if monRank == "Normal" or monRank == "Material" then
+        basicGradeRatio = 0.9;  --normal
+        reinforceGradeRatio = 1.0;
+    elseif monRank == "Special" then
+        basicGradeRatio = 1.0;  --rare
+        reinforceGradeRatio = 1.2;
+    elseif monRank == "Elite" then
+        basicGradeRatio = 1.1;  --rare
+        reinforceGradeRatio = 1.5;
+    elseif monRank == "Boss" then
+        basicGradeRatio = 1.25;  --unique
+        reinforceGradeRatio = 2.0;
+    end
+    
+    return basicGradeRatio, reinforceGradeRatio;
+end
+
+function SCR_MON_ITEM_REINFORCE_CALC(self, lv, reinforceValue, reinforceGradeRatio)
+    local value = 0;
+    value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.08 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.015 ))))));
+    value = math.floor(value * reinforceGradeRatio);
+    
+    return value;
+end
+
+function SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue)
+    local value = 0;
+    value = 1 + (transcendValue * 0.2);
+    
+    return value;
 end

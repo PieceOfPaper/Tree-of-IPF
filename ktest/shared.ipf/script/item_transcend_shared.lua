@@ -1,85 +1,85 @@
 --- item_transcend_shared.lua
 
 function IS_TRANSCENDING_STATE()
-	local frame = ui.GetFrame("itemtranscend");
-	if frame ~= nil then
-		if frame:IsVisible() == 1 then
-			return true;
-		end
-	end
+    local frame = ui.GetFrame("itemtranscend");
+    if frame ~= nil then
+        if frame:IsVisible() == 1 then
+            return true;
+        end
+    end
 
-	frame = ui.GetFrame("itemtranscend_remove");
-	if frame ~= nil then
-		if frame:IsVisible() == 1 then
-			return true;
-		end
-	end
+    frame = ui.GetFrame("itemtranscend_remove");
+    if frame ~= nil then
+        if frame:IsVisible() == 1 then
+            return true;
+        end
+    end
 
-	frame = ui.GetFrame("itemtranscend_break");
-	if frame ~= nil then
-		if frame:IsVisible() == 1 then
-			return true;
-		end
-	end
+    frame = ui.GetFrame("itemtranscend_break");
+    if frame ~= nil then
+        if frame:IsVisible() == 1 then
+            return true;
+        end
+    end
 
-	return false;
+    return false;
 end
 
 function IS_TRANSCEND_ABLE_ITEM(obj)
-	if TryGetProp(obj, "Transcend") == nil then
-		return 0;
-	end
-	
-	if TryGetProp(obj, "BasicTooltipProp") == nil then
-		return 0;
-	end
+    if TryGetProp(obj, "Transcend") == nil then
+        return 0;
+    end
+    
+    if TryGetProp(obj, "BasicTooltipProp") == nil then
+        return 0;
+    end
 
-	if TryGetProp(obj, "ItemStar") == nil or TryGetProp(obj, "ItemStar") < 1 then
-		return 0;
-	end
-	
-	local afterNames, afterValues = GET_ITEM_TRANSCENDED_PROPERTY(obj);
-	if #afterNames == 0 then
-		return 0;
-	end
-	
+    if TryGetProp(obj, "ItemStar") == nil or TryGetProp(obj, "ItemStar") < 1 then
+        return 0;
+    end
+    
+    local afterNames, afterValues = GET_ITEM_TRANSCENDED_PROPERTY(obj);
+    if #afterNames == 0 then
+        return 0;
+    end
+    
     local itemCls = GetClass("Item", obj.ClassName);
     if itemCls == nil then
-		return 0;
-	end
+        return 0;
+    end
 
     local itemMaxPR = TryGetProp(itemCls, "MaxPR")
-	if itemMaxPR == nil or itemMaxPR == 0 then
-		return 0;
-	end
+    if itemMaxPR == nil or itemMaxPR == 0 then
+        return 0;
+    end
 
     local itemMPR = TryGetProp(itemCls, "PR")
-	if itemMPR == nil or itemMPR == 0 then
-		return 0;
-	end
+    if itemMPR == nil or itemMPR == 0 then
+        return 0;
+    end
 
-	return 1;
+    return 1;
 end
 
 function IS_TRANSCEND_ITEM(obj)
-	local value = TryGetProp(obj, "Transcend");
-	if value ~= nil then
-		if value ~= 0 then
-			return 1;
-		end
-	end
+    local value = TryGetProp(obj, "Transcend");
+    if value ~= nil then
+        if value ~= 0 then
+            return 1;
+        end
+    end
 
-	return 0;
+    return 0;
 end
 
 function GET_TRANSCEND_MATERIAL_ITEM(target)
 
-	local groupName = TryGetProp(target, "GroupName");
-	if groupName == nil then
-	    return 0;
-	end
-	
-	return "Premium_item_transcendence_Stone";
+    local groupName = TryGetProp(target, "GroupName");
+    if groupName == nil then
+        return 0;
+    end
+    
+    return "Premium_item_transcendence_Stone";
 end
 
 function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
@@ -90,7 +90,7 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         return 0;
     end
     
-    if  (GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
         local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(targetItem, 0);
         if kupoleItemLv ==  nil then
             lv = lv;
@@ -115,7 +115,7 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         return 0;
     end
     
-    local gradRatio = {1.0 , 1.1, 1.15, 1.25}
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "TranscendCostRatio")
     
     local needMatCount;
     
@@ -157,19 +157,19 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     end
     
     --Need Material Count --
-    needMatCount = math.floor(((1 + (transcendCount + lv ^ (0.2 + ((math.floor(transcendCount / 3) * 0.03)) + (transcendCount * 0.05))) * equipTypeRatio) * gradRatio[grade]));
-	return SyncFloor(needMatCount);
+    needMatCount = math.floor(((1 + (transcendCount + lv ^ (0.2 + ((math.floor(transcendCount / 3) * 0.03)) + (transcendCount * 0.05))) * equipTypeRatio) * gradeRatio));
+    return SyncFloor(needMatCount);
 end
 
 function GET_TRANSCEND_BREAK_ITEM()
-	return "Premium_itemDissassembleStone";
+    return "Premium_itemDissassembleStone";
 end
 
 function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
-	if 1 ~= IS_TRANSCEND_ABLE_ITEM(itemObj) then
-		return;
-	end
-	
+    if 1 ~= IS_TRANSCEND_ABLE_ITEM(itemObj) then
+        return;
+    end
+    
     local cnt = 0;
     local transcend = TryGetProp(itemObj,"Transcend");
 
@@ -184,7 +184,7 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
             return 0;
         end
         
-    	cnt = cnt + subCnt;
+        cnt = cnt + subCnt;
     end
     
     local giveCnt = cnt * 0.9;
@@ -197,45 +197,45 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
 end
 
 function GET_TRANSCEND_BREAK_SILVER(itemObj)
-	return GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj) * 10000;
+    return GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj) * 10000;
 end
 
 function GET_TRANSCEND_SUCCESS_RATIO(itemObj, cls, itemCount)
 
-	local maxItemCls = GET_TRANSCEND_MATERIAL_COUNT(itemObj, nil);
-	if maxItemCls == nil or maxItemCls == 0 then
-	
-	    return 0;
-	
-	end	
-	
-	return math.floor(itemCount * 100 / maxItemCls);
+    local maxItemCls = GET_TRANSCEND_MATERIAL_COUNT(itemObj, nil);
+    if maxItemCls == nil or maxItemCls == 0 then
+    
+        return 0;
+    
+    end 
+    
+    return math.floor(itemCount * 100 / maxItemCls);
 
 end
 
 function GET_ITEM_TRANSCENDED_PROPERTY(itemObj, ignoreTranscend)
-	if ignoreTranscend == nil then
-		ignoreTranscend = 0;
-	end
-
-	local retPropType = {};
-	local retPropValue = {};
-    local basicTooltipPropList = StringSplit(itemObj.BasicTooltipProp, ';');
-    for i = 1, #basicTooltipPropList do
-	    local baseProp = basicTooltipPropList[i];
-	    if (baseProp == "ATK" or baseProp == "MATK") and CHECK_EXIST_ELEMENT_IN_LIST(retPropType, 'ATK') == false then
-		    retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_ATK_RATIO(itemObj, ignoreTranscend);
-		    retPropType[#retPropType + 1] = "ATK";
-	    elseif baseProp == "DEF" and CHECK_EXIST_ELEMENT_IN_LIST(retPropType, 'DEF') == false then
-		    retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_DEF_RATIO(itemObj, ignoreTranscend);
-		    retPropType[#retPropType + 1] = "DEF";
-	    elseif baseProp == "MDEF" and CHECK_EXIST_ELEMENT_IN_LIST(retPropType, 'MDEF') == false then
-		    retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MDEF_RATIO(itemObj, ignoreTranscend);
-		    retPropType[#retPropType + 1] = "MDEF";
-	    end
+    if ignoreTranscend == nil then
+        ignoreTranscend = 0;
     end
 
-	return retPropType, retPropValue;
+    local retPropType = {};
+    local retPropValue = {};
+    local basicTooltipPropList = StringSplit(itemObj.BasicTooltipProp, ';');
+    for i = 1, #basicTooltipPropList do
+        local baseProp = basicTooltipPropList[i];
+        if (baseProp == "ATK" or baseProp == "MATK") and CHECK_EXIST_ELEMENT_IN_LIST(retPropType, 'ATK') == false then
+            retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_ATK_RATIO(itemObj, ignoreTranscend);
+            retPropType[#retPropType + 1] = "ATK";
+        elseif baseProp == "DEF" and CHECK_EXIST_ELEMENT_IN_LIST(retPropType, 'DEF') == false then
+            retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_DEF_RATIO(itemObj, ignoreTranscend);
+            retPropType[#retPropType + 1] = "DEF";
+        elseif baseProp == "MDEF" and CHECK_EXIST_ELEMENT_IN_LIST(retPropType, 'MDEF') == false then
+            retPropValue[#retPropValue + 1] = GET_UPGRADE_ADD_MDEF_RATIO(itemObj, ignoreTranscend);
+            retPropType[#retPropType + 1] = "MDEF";
+        end
+    end
+
+    return retPropType, retPropValue;
 end
 
 function CHECK_EXIST_ELEMENT_IN_LIST(list, element)
@@ -250,8 +250,8 @@ end
 function GET_UPGRADE_ADD_ATK_RATIO(item, ignoreTranscend)
     if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
-    	local value = class.AtkRatio;
-    	return value;
+        local value = class.AtkRatio;
+        return value;
     end
     return 0;
 end
@@ -259,8 +259,8 @@ end
 function GET_UPGRADE_ADD_DEF_RATIO(item, ignoreTranscend)
     if item.Transcend > 0  and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
-    	local value = class.DefRatio;
-    	return value;
+        local value = class.DefRatio;
+        return value;
     end
     return 0;
 end
@@ -268,13 +268,13 @@ end
 function GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreTranscend)
     if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
-    	local value = class.MdefRatio;
-    	return value;
+        local value = class.MdefRatio;
+        return value;
     end
     return 0;
 end
 
 function GET_TRANSCEND_REMOVE_ITEM()
-	return "Premium_deleteTranscendStone";
+    return "Premium_deleteTranscendStone";
 end
 

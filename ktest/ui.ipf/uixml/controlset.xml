@@ -2016,12 +2016,10 @@
 			<richtext name="level_text" rect="0 0 110 24" margin="0 35 10 0" spacey="0" updateparent="false" layout_gravity="right top" hittest="false" fontname="brown_16_b" textalign="left center" format="%s 레벨" param1="lv" param1_def="131"/>
 			<button name="viewdetailbtn" margin="0 70 5 0" skin="friend_view_btn" rect="0 0 20 20" layout_gravity="right top" caption="▼" fontname="brown_16_b" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="FRIEND_PAGE_FOCUS"/>
 			<labelline name="labelline2" margin="0 95 0 0" rect="0 0 360 4" skin="None" layout_gravity="center top"/>
-			<richtext name="memo" rect="0 0 50 30" format="메모 :%s" fontname="brown_16_b" layout_gravity="left top" hittest="false" textalign="left top" margin="20 103 0 0" param1="memo" param1_def="DefVal"/>
-			<labelline name="labelline3" margin="0 125 0 0" rect="0 0 360 4" skin="None" layout_gravity="center top"/>
-			<richtext name="relationmarks" rect="0 0 50 30" format="%s 님과의 관계 배지" spacey="0" updateparent="false" layout_gravity="center top" hittest="false" textalign="center center" margin="0 135 0 0" fontname="brown_16_b" param1="name" param1_def="DefVal"/>
+			<richtext name="memo" rect="0 0 50 30" format="메모 :%s" fontname="brown_16_b" layout_gravity="left top" hittest="false" textalign="left top" margin="20 103 0 0" param1="memo" param1_def="DefVal"/>			
 		</controls>
 	</controlset>
-	<controlset name="friend_yesorno" toggle="false" hittest="true" width="385" height="120" skin="test_skin_01" stateskin="false">
+  <controlset name="friend_yesorno" toggle="false" hittest="true" width="385" height="120" skin="test_skin_01" stateskin="false">
 		<controls>
 			<richtext name="team_name_text" rect="0 0 300 50" spacey="0" fontname="white_16_ol" layout_gravity="left top" hittest="false" textalign="left top" margin="40 15 0 0" format="{#FFFF33}%s{/} 님이 친구로 초대하였습니다{/}" param1="name" param1_def="ZZZZZZZZZZZZZZAAAAA" fixwidth="true"/>
 			<button name="accept" margin="-70 0 0 10" image="ok_button" rect="0 0 150 45" layout_gravity="center bottom" caption="{@st41b}" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="ACCEPT_FRIEND"/>

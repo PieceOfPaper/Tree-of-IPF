@@ -17,7 +17,7 @@ function REINFORCE_ABLE_131014(item)
     
     if prop ~= 'DEF' and prop ~= 'MDEF' and prop ~= 'ADD_FIRE' and prop ~= 'ADD_ICE' and prop ~= 'ADD_LIGHTNING' and prop ~= 'DEF;MDEF' and prop ~= 'ATK;MATK' and prop ~= 'MATK' and prop ~= 'ATK' then
         return 0;
-	end
+    end
 
     return 1;
 end
@@ -44,17 +44,18 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
     end
     
     local grade = TryGetProp(fromItem, "ItemGrade");
-    local gradeRatio = { 1.0, 1.5, 2.5, 4.0 };
     if grade == nil then
         return 0;
     end
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "ReinforceCostRatio");
     
     local lv = TryGetProp(fromItem, "UseLv");
     if lv == nil then
         return 0;
     end
     
-    if  (GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
         local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(fromItem, 0);
         if kupoleItemLv ==  nil then
             lv = lv;
@@ -88,14 +89,14 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
     end
 
     
-    value = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio[grade];
-    value_diamond = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount_diamond * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio[grade];
+    value = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio;
+    value_diamond = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount_diamond * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio;
 
     if moruItem.ClassName == "Moru_Platinum_Premium" then
         value = value / 2;
     end
     
-    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" then 
+    if moruItem.ClassName == "Moru_Silver" or moruItem.ClassName == "Moru_Silver_test" or moruItem.ClassName == "Moru_Silver_NoDay" or moruItem.ClassName == "Moru_Silver_TA" or moruItem.ClassName == "Moru_Silver_TA2" or moruItem.ClassName == "Moru_Silver_Event_1704" then 
         value = 0;
     end
 
