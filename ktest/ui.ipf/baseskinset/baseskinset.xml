@@ -6097,6 +6097,8 @@
 		<image name="guildbanner_slot" file="\skin\guild_skin.tga" imgrect="194 513 510 200" CMM_Caption="배너 빈 슬롯"/>
 		<image name="guild_comment_on" file="\skin\guild_skin.tga" imgrect="654 466 26 26" CMM_Caption="길드 커뮤니티 코멘트"/>
 		<image name="guild_comment_off" file="\skin\guild_skin.tga" imgrect="627 466 26 26"/>
+		<image name="impossible_red" file="\skin\market_skin.tga" imgrect="0 130 17 17" CMM_Caption="금지불가 표시 빨강"/>
+		<image name="impossible_yellow" file="\skin\market_skin.tga" imgrect="18 130 17 17" CMM_Caption="금지불가 표시 노랑"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
