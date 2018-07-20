@@ -257,21 +257,21 @@ function WIKI_ALLTROPHY_VIEW(frame)
 	HIDE_CHILD_BYNAME(frame, 'statistics');
 	HIDE_CHILD_BYNAME(frame, 'help');
 		
-	if selectName == 'Itembox1' then     -- ���
+	if selectName == 'Itembox1' then     -- 통계
 		WIKI_STATISTICS_VIEW(frame);
-	elseif selectName == 'Itembox2' then -- ������
+	elseif selectName == 'Itembox2' then -- 아이템
 		--WIKI_ITEM_TROPHY_VIEW(frame);
 		STATISTICS_ITEM_VIEW_DETAIL(frame)
-	elseif selectName == 'Itembox3' then -- ����
+	elseif selectName == 'Itembox3' then -- 제작
 		WIKI_RECIPE_TROPHY_VIEW(frame);
-	elseif selectName == 'Itembox4' then -- ����
+	elseif selectName == 'Itembox4' then -- 지역
 		STATISTICS_MAP_VIEW(frame);
 		--WIKI_MAP_TROPHY_VIEW(frame);
-	elseif selectName == 'Itembox5' then -- ����
+	elseif selectName == 'Itembox5' then -- 업적
 		WIKI_ACHIEVE_TROPHY_VIEW(frame);
-	elseif selectName == 'Itembox6' then -- ���
+	elseif selectName == 'Itembox6' then -- 사냥
 		STATISTICS_MONSTER_VIEW(frame)		
-	elseif selectName == 'Itembox7' then -- ����		
+	elseif selectName == 'Itembox7' then -- 도움말		
 		WIKI_HELP_VIEW(frame);
 	end
 	WIKI_ETC_CHILD_VIEW(frame, 0);
@@ -662,8 +662,7 @@ function GET_RECIPE_REQITEM_CNT_OLD(cls, propname)
 end
 
 function GET_RECIPE_MATERIAL_INFO(recipeCls, index)
-
-	local clsName = "Item_"..index.."_1";
+    local clsName = "Item_"..index.."_1";
 	local itemName = recipeCls[clsName];
 	if itemName == "None" then
 		return nil;
@@ -672,16 +671,28 @@ function GET_RECIPE_MATERIAL_INFO(recipeCls, index)
 	local dragRecipeItem = GetClass('Item', itemName);
 	local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName);
 
-	local invItem = nil
-	local invItemlist = nil
+	local invItem = nil;
+	local invItemlist = nil;
+    local ignoreType = false;
+    local getMaterialScript = TryGetProp(recipeCls, 'GetMaterialScript');
+    -- itemtradeshop.xml처럼 GetMaterialScript 칼럼이 추가될 필요 없는 레시피 클래스를 위해 디폴트 값 입력
+    if getMaterialScript == nil then
+        getMaterialScript = 'SCR_GET_RECIPE_ITEM';
+    end
+    local GetMaterialItemListFunc = _G[getMaterialScript];
 
 	if dragRecipeItem.MaxStack > 1 then
 		invItem = session.GetInvItemByType(dragRecipeItem.ClassID);
 	else
-		invItemlist = GET_INVITEMS_BY_TYPE_WORTH_SORTED(dragRecipeItem.ClassID)
+		invItemlist = GetMaterialItemListFunc(dragRecipeItem); -- 기간제는 스택형 ㄴㄴ라서 비스택형만 대체
+        ignoreType = true; -- 개수 셀 때 type만 검사하지 않도록 함
 	end
 
 	local invItemCnt = GET_PC_ITEM_COUNT_BY_LEVEL(dragRecipeItem.ClassID, recipeItemLv);
+    if ignoreType then
+        invItemCnt = #invItemlist;
+    end
+
 	return recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist;
 
 end

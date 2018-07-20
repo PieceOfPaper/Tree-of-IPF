@@ -458,3 +458,11 @@ function GET_WORLDMAP_POSITION(worldMapString)
 
 			return x, y, dir, index;
 end
+
+function GET_REMAIN_LIFE_TIME(lifeTime)
+    local sysTime = geTime.GetServerSystemTime();
+	local endTime = imcTime.GetSysTimeByStr(lifeTime);
+	local difSec = imcTime.GetDifSec(endTime, sysTime);
+
+    return difSec;
+end

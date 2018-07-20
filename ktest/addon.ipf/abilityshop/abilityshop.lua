@@ -196,10 +196,11 @@ function SET_ABILITY_COST_CTRL(frame, classCtrl, pc, groupClass, abilClass, coun
 	if count > 0 then
 		price, totalTime = GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, curLv + count);
 	end
+    classCtrl:SetUserValue('ABILITY_LEARN_TIME', totalTime);
 	
 	local priceCtrl = GET_CHILD(classCtrl, "abilPrice", "ui::CRichText");	
 	local maxLevelCtrl = GET_CHILD(classCtrl, "abilLevelMax", "ui::CRichText");	
-	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");		
+	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");
 
 	SET_ABILITY_PRICE_CTRL(classCtrl, priceCtrl, abilClass, price)
 	SET_ABILITY_MAX_LEVEL_CTRL(frame, maxLevelCtrl, abilGroupName, abilClass)
@@ -452,7 +453,8 @@ function ADD_ABILITY_COUNT(frame, control, abilName, abilID)
 	local classCtrl = control:GetParent();
 	local addCount = classCtrl:GetUserValue("COUNT_"..abilName);
 		
-	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+    local abilLearnTime = classCtrl:GetUserIValue('ABILITY_LEARN_TIME');
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) or abilLearnTime == 0 then
 		addCount = addCount + 1;
 	else
 		ui.SysMsg(ScpArgMsg("OnlyTokenUserAbilCount"));
@@ -471,7 +473,8 @@ function ADD_TEN_ABILITY_COUNT(frame, control, abilName, abilID)
 	local classCtrl = control:GetParent();  
 	local addCount = classCtrl:GetUserValue("COUNT_"..abilName);
 	
-	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+    local abilLearnTime = classCtrl:GetUserIValue('ABILITY_LEARN_TIME');
+	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) or abilLearnTime == 0 then
 		addCount = addCount + 10;
 	else
 		ui.SysMsg(ScpArgMsg("OnlyTokenUserAbilCount"));
@@ -585,7 +588,7 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 	local addCount = tonumber( ctrlSet:GetUserValue("COUNT_"..abilName) );
 	local price = tonumber( ctrlSet:GetUserValue("PRICE_"..abilName) );
 	s_buyAbilCount = addCount;
-	
+    
 	if GET_TOTAL_MONEY() < price then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;

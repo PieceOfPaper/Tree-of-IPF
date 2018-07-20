@@ -431,7 +431,7 @@ function UPDATE_GUILDINFO(frame)
 
 	local text_memberinfo = gbox_member:GetChild("text_memberinfo");
 	
-	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", GUILD_BASIC_MAX_MEMBER + partyObj.AbilLevel_MemberExtend, "On", connectionCount);
+	local memberStateText = ScpArgMsg("GuildMember{Cur}/{Max}People,OnLine{On}People", "Cur", count, "Max", pcparty:GetMaxGuildMemberCount(), "On", connectionCount);
 	text_memberinfo:SetTextByKey("value", memberStateText);
 	
 	local chk_showonlyconnected = GET_CHILD(gbox_member, "chk_showonlyconnected");
@@ -773,7 +773,19 @@ end
 function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)
 
 	ctrl = AUTO_CAST(ctrl);
-	
+    
+    local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	local partyObj = GetIES(pcparty:GetObject());
+
+    local isLeader = AM_I_LEADER(PARTY_GUILD);
+	if 0 == isLeader then
+		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
+        print(ctrl:IsChecked())
+        ctrl:SetCheckWhenClicked(0);
+        ctrl:SetCheck(partyObj.GuildOnlyAgit);
+		return;
+	end
+    	
 	party.ReqChangeProperty(PARTY_GUILD, "GuildOnlyAgit", ctrl:IsChecked());
 
 end

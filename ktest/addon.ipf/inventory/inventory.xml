@@ -87,7 +87,7 @@
 		<groupbox name="medalGbox" parent="bottomGbox" rect="0 0 210 38" margin="0 0 30 50" layout_gravity="right bottom" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_weight_skin"/>
 		<picture name="Pic_Medal" parent="medalGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" hittest="true" image="icon_item_tospoint" oversound="button_over" stretch="true"/>
 		<richtext name="medalt" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}TP{/}" serviceNation="KOR"/>
-		<richtext name="medalt_JPN" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}メダル{/}" serviceNation="JP"/>
+		<richtext name="medalt_JPN" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}TP{/}" serviceNation="JP"/>
 		<richtext name="medalt_GLOBAL" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}iCoin{/}" serviceNation="GLOBAL"/>
 		<richtext name="medalText" parent="medalGbox" rect="0 0 250 20" margin="0 0 10 0" layout_gravity="right center" fontname="white_20_ol" format="{@st41b}%s" hittest="false" param1="medal" param1_def="123!9" spacey="0"/>
 		<richtext name="medalFreeTime" parent="medalGbox" rect="0 0 250 20" margin="65 0 0 0" layout_gravity="left center" fontname="white_20_ol" format="{@st41b}%s" hittest="false" param1="medal" param1_def="123!9" spacey="0"/>

@@ -827,25 +827,10 @@ function WORLDPVP_READY_UI(pvpType)
 			isGuildPVP = true;
 		end
 	end
-	
-	local reject = frame:GetChild("reject");
-	if state == PVP_STATE_FINDED then
-		if isGuildPVP == true then
-			reject:ShowWindow(0);
-		else
-			reject:ShowWindow(1);
-		end
-	else
-		reject:ShowWindow(0);
-	end
 end
 
 function PVP_READY_ACCEPT(parent, ctrl)
-	worldPVP.SendReadyState(true);
-end
-
-function PVP_READY_REJECT(parnet, ctrl)
-	worldPVP.SendReadyState(false);
+	worldPVP.SendReadyState();
 end
 
 function WORLDPVP_INVITE_FROM_PARTY(inviterName, idx, pvpType, accountID)

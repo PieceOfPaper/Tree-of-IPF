@@ -1857,6 +1857,14 @@ end"/>
 						<Str Str="Schwarzereiter_WildShot"/>
 						<Num Num="-1"/>
 					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="-1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
+						<Num Num="-1"/>
+					</ToolScp>
 				</ExecList>
 			</Trigger>
 		</TriggerList>
@@ -1881,6 +1889,14 @@ end"/>
 					</ToolScp>
 					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Schwarzereiter_WildShot"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_AssaultFire"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Schwarzereiter_EvasiveAction"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
