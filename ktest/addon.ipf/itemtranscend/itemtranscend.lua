@@ -17,7 +17,7 @@ function ITEMTRASCEND_OPEN(frame)
 	slot:ClearIcon();
 	SET_TRANSCEND_RESET(frame);
 	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
-	SETTEXT_GUIDE(frame, 3, needTxt);
+--	SETTEXT_GUIDE(frame, 3, needTxt);
 
 	UPDATE_TRANSCEND_ITEM(frame);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_INV_RBTN")	
@@ -28,6 +28,13 @@ function ITEMTRASCEND_OPEN(frame)
 	slotTemp:StopActiveUIEffect();
 	slotTemp:ShowWindow(0);	
 	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
+
+	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
+	text_bg:ShowWindow(0);
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetText(0)
+
 end
 
 function ITEMTRANSCEND_CLOSE(frame)
@@ -108,13 +115,13 @@ function ITEM_TRANSCEND_NEED_GUIDE(frame, obj)
 	end		
 		
 	if obj.Transcend >= 10 then		
-		SETTEXT_GUIDE(frame, 1, string.format("{@st43b}{s16}%s{/}", ScpArgMsg("CantTrasncendMore")));
+		--SETTEXT_GUIDE(frame, 1, string.format("{@st43b}{s16}%s{/}", ScpArgMsg("CantTrasncendMore")));
 		return;
 	end
 		
 	local needTxt = "";
 	needTxt = string.format("{img %s 30 30}{/}{@st43_green}{s16}%s{/}{@st42b}{s16}%s{nl}%s{/}", mtrlCls.Icon, mtrlCls.Name, ScpArgMsg("Need_Item"), GET_TRANSCEND_MAXCOUNT_TXT(obj));			
-	SETTEXT_GUIDE(frame, 1, needTxt);
+	--SETTEXT_GUIDE(frame, 1, needTxt);
 end;
 
 -- 초월 ?�공�?100%???�요??�?�� ?�기
@@ -169,10 +176,14 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	UPDATE_TRANSCEND_ITEM(frame);
 	
 	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
-	SETTEXT_GUIDE(frame, 3, needTxt);
+	--SETTEXT_GUIDE(frame, 3, needTxt);
 	
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	popupFrame:ShowWindow(0);	
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetText(0)
+
 end
 
 -- ?�료 ?�롯�??�공�? 버튼??초기???�킴.
@@ -185,6 +196,9 @@ function SET_TRANSCEND_RESET(frame)
 		
 	local text_successratio = frame:GetChild("text_successratio");	
 	text_successratio:ShowWindow(0);
+	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
+	text_bg:ShowWindow(0);
+
 
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD(gbox, "reg");
@@ -206,6 +220,10 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 		count = count - 1;
 	end
 	
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit")
+	textEdit:SetText(tostring(count))
+
+
 	if count <= 0 then
 		local frame = ui.GetFrame("itemtranscend");
 		SET_TRANSCEND_RESET(frame);
@@ -219,7 +237,7 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	end;
 	
 		
-	local text_itemtranscend = frame:GetChild("text_itemtranscend");
+	local text_itemtranscend = GET_CHILD_RECURSIVELY(frame, "text_itemtranscend");
 	text_itemtranscend:StopColorBlend();
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(materialItem:GetIESID(), count);
 end;
@@ -236,6 +254,9 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	local text_material = frame:GetChild("text_material");
 	local text_successratio = frame:GetChild("text_successratio");	
 	text_successratio:ShowWindow(0);
+	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
+	text_bg:ShowWindow(0);
+
 	local text_itemstar = frame:GetChild("text_itemstar");
 	local text_itemtranscend = frame:GetChild("text_itemtranscend");	
 	if invItem == nil then
@@ -261,6 +282,8 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	if materialItem == nil or invItem == nil then
 		slot_material:StopActiveUIEffect();
 		text_successratio:ShowWindow(0);
+		text_bg:ShowWindow(0);
+
 	else
 		local targetObj = GetIES(invItem:GetObject());		
 		local transcend = targetObj.Transcend;
@@ -276,6 +299,7 @@ function UPDATE_TRANSCEND_ITEM(frame)
 		local color1, color2 = GET_RATIO_FONT_COLOR(successRatio)
 		text_successratio:SetTextByKey("value", ratioText);		
 		text_successratio:ShowWindow(1);		
+		text_bg:ShowWindow(1)
 		text_successratio:StopColorBlend();
 		text_successratio:SetColorBlend(2, color1, color2, true);
 	end
@@ -306,7 +330,7 @@ function GET_RATIO_FONT_COLOR(ratio)
 end
 
 -- ?�료 ?�이?�을 ?�을??
-function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
+function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID, isMax)
 
 	local invItem = GET_PC_ITEM_BY_GUID(itemID);
 	if invItem == nil then
@@ -366,7 +390,7 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 
 	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		count = count + 5;
-	elseif keyboard.IsPressed(KEY_ALT) == 1 then
+	elseif keyboard.IsPressed(KEY_ALT) == 1 or isMax == true then
 		count = maxItemCount;
 	else
 		count = count + 1;
@@ -375,6 +399,9 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 	if count >= maxItemCount then
 		count = maxItemCount;
 	end;
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit")
+	textEdit:SetText(tostring(count))
 
 	EXEC_INPUT_CNT_TRANSCEND_MATERIAL(invItem:GetIESID(), count);
 	--[[	
@@ -392,7 +419,7 @@ function DROP_TRANSCEND_MATERIAL(frame, icon, argStr, argNum)
 	
 	-- ?�레�??�롭???�벤?�리?�서�?가?�하�?
 	if FromFrame:GetName() == 'inventory' then
-		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());
+		ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID(), false);
 	end
 end
 
@@ -428,7 +455,7 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 	local tooltipFont = "{@st42b}{s16}";
 
 	local needTxt = string.format("{@st43b}{s16}%s{/}{nl}%s{/}{nl}%s{/}", ScpArgMsg("ITEMTRANSCEND_MTRL_NUM_TOOLTIP{font}", "font", tooltipFont), ScpArgMsg("ITEMTRANSCEND_GUIDE_SECOND"), GET_TRANSCEND_MAXCOUNT_TXT(targetObj));	
-	SETTEXT_GUIDE(frame, 3, needTxt);
+	--SETTEXT_GUIDE(frame, 3, needTxt);
 	
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD(gbox, "reg");
@@ -533,8 +560,11 @@ function _ITEMTRANSCEND_EXEC()
 	
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	popupFrame:ShowWindow(0);	
-	
-	SETTEXT_GUIDE(frame, 0, nil);
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
+	textEdit:SetText(0)
+
+	--SETTEXT_GUIDE(frame, 0, nil);
 end
 
 -- ?�벤?�서 ?�른�??�릭??
@@ -562,12 +592,77 @@ function ITEMTRANSCEND_INV_RBTN(itemObj, slot)
 
 	if slotInvItem ~= nil then
 		if ("Premium_item_transcendence_Stone" == obj.ClassName) then
-			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID());	-- ?�료??경우
+			ITEM_TRANSCEND_REG_MATERIAL(frame, iconInfo:GetIESID(), false);	-- ?�료??경우
 			return;
 		end;
 	end;
 	ITEM_TRANSCEND_REG_TARGETITEM(frame, iconInfo:GetIESID());  -- ?�료가 ?�닐 �? 초월 ?�하???�이??
 end
+
+function ITEMTRANSCEND_UPBTN(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
+	if frame == nil then
+		return
+	end
+		
+	local topFrame = frame:GetTopParentFrame()
+	if topFrame == nil then
+		return
+	end
+
+	local item = session.GetInvItemByType(646045);
+	
+	if item == nil then
+		return
+	end
+
+	ITEM_TRANSCEND_REG_MATERIAL(topFrame, item:GetIESID(), false)
+end
+
+function ITEMTRANSCEND_DOWNBTN(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
+	if frame == nil then
+		return
+	end
+
+	local topFrame = frame:GetTopParentFrame()
+	if topFrame == nil then
+		return
+	end
+
+	local slot = GET_CHILD_RECURSIVELY(topFrame, "slot_material")
+	REMOVE_TRANSCEND_MTRL_ITEM(topFrame, slot)
+end
+
+function ITEMTRANSCEND_MAXBTN(frame)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
+	if frame == nil then
+		return
+	end
+		
+	local topFrame = frame:GetTopParentFrame()
+	if topFrame == nil then
+		return
+	end
+
+	local item = session.GetInvItemByType(646045);
+	
+	if item == nil then
+		return
+	end
+
+	ITEM_TRANSCEND_REG_MATERIAL(topFrame, item:GetIESID(), true)
+end
+
 
 -- ?�니?�쳐???�니메이???�에 ?�른 결과 UIeffect ?�정
 function ITEMTRANSCEND_BG_ANIM_TICK(ctrl, str, tick)
@@ -692,7 +787,7 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	end
 		
-	SETTEXT_GUIDE(frame, 2, resultTxt);
+	--SETTEXT_GUIDE(frame, 2, resultTxt);
 	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true , true);
 	
 	ui.SetTopMostFrame(popupFrame);
@@ -711,7 +806,7 @@ function TIMEWAIT_STOP_ITEMTRANSCEND()
 	local slotTemp = GET_CHILD(frame, "slotTemp");
 	slotTemp:ShowWindow(0);
 	slotTemp:StopActiveUIEffect();
-		
+
 	local popupFrame = ui.GetFrame("itemtranscendresult");
 	local gbox = popupFrame:GetChild("gbox");
 	popupFrame:ShowWindow(1);	

@@ -4,10 +4,7 @@ end
 
 function INDUN_REWARD_HUD_OPEN(frame, msg, argStr, argNum)
     INDUN_REWARD_HUD_SET_POINT(frame, argNum);
-	frame:ShowWindow(1);
-	if argStr ~= 'None' then
-		frame:SetUserValue("IndunClassID", argStr)
-	end
+    frame:ShowWindow(1);
 end
 
 function INDUN_REWARD_HUD_SET_POINT(frame, point)

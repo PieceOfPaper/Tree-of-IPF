@@ -969,12 +969,10 @@ function DashRunBlend_LEAVE(actor, obj, buff)
 end
 
 function SlitheringDebuffClient_ENTER(actor, obj, buff)
-    print('enter')
     actor:GetAnimation():SetWLKAnim("RUN");
 end
 
 function SlitheringDebuffClient_LEAVE(actor, obj, buff)
-    print("leave")
     actor:GetAnimation():ResetWLKAnim();
 end
 
@@ -1006,10 +1004,27 @@ function DoubleGunStance_LEAVE(actor, obj, buff)
     ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
+function RamMuay_ENTER(actor, obj, buff)
+    actor:SetAlwaysBattleState(true);
+    actor:GetAnimation():SetChangeJumpAnim(true);
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+end
+
+function RamMuay_LEAVE(actor, obj, buff)
+    actor:SetAlwaysBattleState(false);
+    actor:GetAnimation():SetChangeJumpAnim(false);
+    actor:SetMovingShotAnimation("");
+    actor:GetAnimation():ResetTURNAnim();
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():ResetRUNAnim();
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+end
+
 function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     local buffRunningShot = actor:GetBuff():GetBuff('RunningShot_Buff');
     local buffDoubleGunStance = actor:GetBuff():GetBuff('DoubleGunStance_Buff');
     local buffLimacon = actor:GetBuff():GetBuff('Limacon_Buff');
+    local buffRamMuay = actor:GetBuff():GetBuff('RamMuay_Buff');
     
     -- RunningShot_Buff (and) DoubleGunStance_Buff
     if buffRunningShot ~= nil and buffDoubleGunStance ~= nil then
@@ -1053,6 +1068,18 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetSTDAnim("ASTD");
         actor:GetAnimation():SetTURNAnim("None");
         actor:SetMovingShotAnimation("SKL_LIMACON");
+        actor:SetAlwaysBattleState(true);
+    end
+    
+    -- RamMuay_Buff
+    if buffRamMuay ~= nil then
+        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");
+        actor:GetAnimation():SetTURNAnim("SKL_NAKMUAY_ATURN");
+        actor:GetAnimation():SetLANDAnim("SKL_NAKMUAY_ALAND");
+        actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_ARAISE");
+        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_AONAIR")
+        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_AFALL");
         actor:SetAlwaysBattleState(true);
     end
 end

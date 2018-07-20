@@ -2575,7 +2575,7 @@
 			<picture name="EventNameBG" margin="7 7 0 0" rect="0 0 520 37" hittest="false" image="test_com_namebg" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<button name="StartButton" margin="196 150 0 7" rect="0 0 110 44" layout_gravity="center top" caption="" skin="test_red_button" LBtnUpScp="ACCEPT_GUILD_EVENT"/>
 			<picture name="StartButtonImg" margin="5 0 0 0" rect="0 0 40 35" hittest="false" image="guild_event_start" stretch="true" changecursor="false" parent="StartButton" layout_gravity="center center"/>
-			<richtext name="EventName" margin="13 11 0 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="길드 이벤트" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="EventName" margin="13 11 0 0" rect="0 0 120 24" format="{@st66d}%s{/}" param1="value" param1_def="길드 퀘스트" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<picture name="UserCountImg" margin="7 45 0 0" rect="0 0 30 30" hittest="false" image="house_change_man" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<picture name="TimeLimitImg" margin="117 47 0 0" rect="0 0 30 30" hittest="false" image="test_cooltime" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="UserCount" margin="35 50 0 0" rect="0 0 150 24" format="{@st41c}%s명{/}" param1="value" param1_def="10" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
@@ -3886,8 +3886,9 @@
 	</controlset>
 	<controlset name="guild_auth" hittest="true" width="320" height="32" draw="false" hittestset="false">
 		<controls>
-			<checkbox name="inviteCheck" rect="0 0 20 20" margin="-80 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
-			<checkbox name="outCheck" rect="0 0 20 20" margin="80 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="inviteCheck" rect="0 0 20 20" margin="-105 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="outCheck" rect="0 0 20 20" margin="0 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
+			<checkbox name="eventCheck" rect="0 0 20 20" margin="110 0 0 0" layout_gravity="center center" skin="MCC_checkbox"/>
 			<picture name="line" rect="0 0 320 2" margin="0 0 0 0" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
 		</controls>
 	</controlset>

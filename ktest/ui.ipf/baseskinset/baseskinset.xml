@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3591,6 +3591,39 @@
 			<img name="bottomcore" imgrect="933 452 40 41"/>
 			<img name="bottomright" imgrect="974 452 41 41"/>
 		</skin>
+		<skin name="test_white_h_btn" texture="\skin\market_skin.tga">
+			<img name="topleft" imgrect="1689 0 9 1"/>
+			<img name="topcore" imgrect="1699 0 31 1"/>
+			<img name="topright" imgrect="1731 0 9 1"/>
+			<img name="bodyleft" imgrect="1689 1 9 34"/>
+			<img name="bodycore" imgrect="1699 1 31 34"/>
+			<img name="bodyright" imgrect="1731 1 9 34"/>
+			<img name="bottomleft" imgrect="1689 36 9 1"/>
+			<img name="bottomcore" imgrect="1699 36 31 1"/>
+			<img name="bottomright" imgrect="1731 36 9 1"/>
+		</skin>
+		<skin name="test_white_h_btn_cursoron" texture="\skin\market_skin.tga">
+			<img name="topleft" imgrect="1689 36 9 1"/>
+			<img name="topcore" imgrect="1699 36 31 1"/>
+			<img name="topright" imgrect="1731 36 9 1"/>
+			<img name="bodyleft" imgrect="1689 38 9 34"/>
+			<img name="bodycore" imgrect="1699 38 31 34"/>
+			<img name="bodyright" imgrect="1731 38 9 34"/>
+			<img name="bottomleft" imgrect="1689 72 9 1"/>
+			<img name="bottomcore" imgrect="1699 72 31 1"/>
+			<img name="bottomright" imgrect="1731 72 9 1"/>
+		</skin>
+		<skin name="test_white_h_btn_clicked" texture="\skin\market_skin.tga">
+			<img name="topleft" imgrect="1689 36 9 1"/>
+			<img name="topcore" imgrect="1699 36 31 1"/>
+			<img name="topright" imgrect="1731 36 9 1"/>
+			<img name="bodyleft" imgrect="1689 38 9 34"/>
+			<img name="bodycore" imgrect="1699 38 31 34"/>
+			<img name="bodyright" imgrect="1731 38 9 34"/>
+			<img name="bottomleft" imgrect="1689 72 9 1"/>
+			<img name="bottomcore" imgrect="1699 72 31 1"/>
+			<img name="bottomright" imgrect="1731 72 9 1"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -5375,6 +5408,9 @@
 		<image name="test_companion_15" file="\icon\companion.tga" imgrect="606 0 100 122 " CMM_Caption="크리스마스 썰매_탭버튼"/>
 		<image name="test_companion_15_cursoron" file="\icon\companion.tga" imgrect="707 0 100 122"/>
 		<image name="test_companion_15_clicked" file="\icon\companion.tga" imgrect="707 0 100 122"/>
+		<image name="test_companion_16" file="\icon\companion.tga" imgrect="606 123 100 122" CMM_Caption="아르마딜로_탭버튼"/>
+		<image name="test_companion_16_cursoron" file="\icon\companion.tga" imgrect="707 123 100 122"/>
+		<image name="test_companion_16_clicked" file="\icon\companion.tga" imgrect="707 123 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -5884,6 +5920,12 @@
 		<image name="test_indun_D" file="\skin\indun_skin2.tga" imgrect="142 142 141 141"/>
 		<image name="test_indun_E" file="\skin\indun_skin2.tga" imgrect="284 142 141 141"/>
 		<image name="test_indun_ribbon" file="\skin\indun_skin2.tga" imgrect="0 284 112 164"/>
+		<image name="test_up_w_btn" file="\skin\market_skin.tga" imgrect="1689 74 33 16" CMM_Caption="수량 화살표 버튼"/>
+		<image name="test_up_w_btn_cursoron" file="\skin\market_skin.tga" imgrect="1723 74 33 16"/>
+		<image name="test_up_w_btn_clicked" file="\skin\market_skin.tga" imgrect="1723 74 33 16"/>
+		<image name="test_down_w_btn" file="\skin\market_skin.tga" imgrect="1689 91 33 16"/>
+		<image name="test_down_w_btn_cursoron" file="\skin\market_skin.tga" imgrect="1723 91 33 16"/>
+		<image name="test_down_w_btn_clicked" file="\skin\market_skin.tga" imgrect="1723 91 33 16"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -6095,6 +6137,7 @@
 		<image name="companion_penguin_green" file="\icon\companion_Velhider.tga" imgrect="0 240 80 80"/>
 		<image name="companion_penguin_blue" file="\icon\companion_Velhider.tga" imgrect="80 240 80 80"/>
 		<image name="companion_sled" file="\icon\companion_Velhider.tga" imgrect="240 240 80 80"/>
+		<image name="companion_Armadilo" file="\icon\companion_Velhider.tga" imgrect="320 0 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -7916,6 +7959,7 @@
 		<image name="Dlg_port_Fish_Shop_Klapead" file="\npcimg\Fish_Shop_Klapead.png" imgrect="0 0 670 940" CMM_Caption="클라페다 낚시 관리인"/>
 		<image name="Dlg_port_AlizaTal" file="\npcimg\AlizaTal.png" imgrect="0 0 800 900" CMM_Caption="질럿 마스터"/>
 		<image name="Dlg_port_FlintWinterwood" file="\npcimg\FlintWinterwood.png" imgrect="0 0 800 900" CMM_Caption="불릿마커 마스터"/>
+		<image name="Dlg_port_Khanom_Caolaw" file="\npcimg\Khanom_Caolaw.png" imgrect="0 0 1000 1000" CMM_Caption="낙무아이 마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

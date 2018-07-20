@@ -42,9 +42,8 @@ function GUILD_AUTHORITY_POPUP_SET_OFFSET(frame)
 end
 
 function GUILD_AUTHORITY_POPUP_SET_MEMBER(frame)
-    local strCol = "ADD#REMOVE";	
+    local strCol = "ADD#REMOVE#EVENT";	
 	--strCol = strCol .. "#INVEN";
-	--strCol = strCol .. "#EVENT";
 	local sList = StringSplit(strCol, "#");
 
     local authBox = GET_CHILD_RECURSIVELY(frame, 'authBox');    
@@ -70,12 +69,15 @@ function GUILD_AUTHORITY_POPUP_SET_MEMBER(frame)
             
             local inviteCheck = GET_CHILD(authCtrlSet, 'inviteCheck');
             local outCheck = GET_CHILD(authCtrlSet, 'outCheck');
+            local eventCheck = GET_CHILD(authCtrlSet, 'eventCheck');
             for j = 1, #sList do            
                 local checkCtrl = nil;
                 if sList[j] == 'ADD' then
                     checkCtrl = inviteCheck;
                 elseif sList[j] == 'REMOVE' then
                     checkCtrl = outCheck;
+                elseif sList[j] == 'EVENT' then
+                    checkCtrl = eventCheck;
                 end
                     
                 if checkCtrl ~= nil then

@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="150">
+        <Effect Name="GM_MISSION_D_CASTLE_01"/>
+    </Category>
     <Category ID="204">
         <Effect Name="MISSION_EVENT_BLUEORB"/>
     </Category>
@@ -2023,6 +2026,18 @@
         <Effect Name="I_force015_yellow"/>
         <Effect Name="I_force015_blue"/>
         <Effect Name="I_rize010_orange"/>
+        <Effect Name="soul_scare"/>
+        <Effect Name="GFB_CACTUSVEL_01"/>
+        <Effect Name="GFB_KURMIS_01"/>
+        <Effect Name="GFB_RITERIS_01"/>
+        <Effect Name="GFB_ROCKTORTUGA_01"/>
+        <Effect Name="GFB_BEBRASPION_01"/>
+        <Effect Name="GFB_KIMELEECH_01"/>
+        <Effect Name="GFB_COLIMENCIA_01"/>
+        <Effect Name="GFB_PANTOREX_01"/>
+        <Effect Name="F_bg_light008_yellow"/>
+        <Effect Name="F_circle032_dark_loop"/>
+        <Effect Name="GM_MISSION_D_CASTLE_01"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>

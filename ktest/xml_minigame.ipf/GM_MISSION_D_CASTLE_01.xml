@@ -1,0 +1,512 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="GM_MISSION_D_CASTLE_01" minLv="0" maxLv="0" mapName="mission_d_castle_67_2" playerCountCheckDestroy="1" startWaitSec="-1526726657">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="30초 뒤 시작됩니다!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="20053" Pos="-62.54#162.77#-94.55" angle="50" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="154023" Pos="-52.93#105.32#-1227.33" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="154029" Pos="-99.54#105.32#-1231.40" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="154028" Pos="-291.65#95.39#-1158.45" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="154027" Pos="-6.25#105.32#-1240.20" angle="180" genCount="1" genTime="20000" objectKey="4"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="sec10">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="지하시설의 몬스터들을 처치하세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FailCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="pcDieCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min10Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min5Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min60Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="scroll"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="failsec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+                        <Str Str="Clear"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="reward">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_GUILD_REWARD" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successsec60">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SettingStage">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155105" Pos="551.33#91.02#382.35" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;GM_CASTLE_01_GIMMICK1_MATH_EXAMINATION&apos; "/>
+                    <Obj Type="Monster" MonType="155105" Pos="1497.22#85.52#-402.95" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="155105" Pos="-29.77#105.32#-1225.28" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_CHECK&apos; "/>
+                    <Obj Type="Monster" MonType="155105" Pos="1536.40#165.15#-1099.45" genCount="1" genTime="20000" objectKey="4" propList="&apos;Dialog&apos; &apos;GM_CASTLE_04_GIMMICK1_MATH_EXAMINATION&apos; "/>
+                    <Obj Type="Monster" MonType="155105" Pos="39.41#187.94#-438.08" genCount="1" genTime="20000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="155105" Pos="319.88#187.38#-156.26" genCount="1" genTime="20000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="155105" Pos="320.65#187.38#-718.55" genCount="1" genTime="20000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="155105" Pos="596.67#187.38#-437.86" genCount="1" genTime="20000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="705016" Pos="321.12#187.38#-430.59" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="monsterSet" execWithStart="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/1"/>
+                                <Str Str="event_loop"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/2"/>
+                                <Str Str="event_loop"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/3"/>
+                                <Str Str="event_loop"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/4"/>
+                                <Str Str="event_loop"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/5/SettingStage/6/SettingStage/7/SettingStage/8"/>
+                                <Str Str="event_loop"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="stageSetting"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stageSetting" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s1clear"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s2clear"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s3clear"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s4clear"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="bossCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s1clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s2clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s3clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s4clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/0"/>
+                                <Str Str="SCR_GM_CASTLE_01_BOSS_CHECK_HOOK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="bossKill">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="stageSetting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="counts1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stage1chk">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s1clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/6"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/1"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57915" Pos="1020.68#92.79#-333.42" genCount="1" genTime="20000" objectKey="0" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1408.04#95.56#-236.84" genCount="1" genTime="20000" objectKey="11" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1024.68#85.52#-444.32" genCount="1" genTime="20000" objectKey="12" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1128.59#92.79#-318.42" genCount="1" genTime="20000" objectKey="13" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1120.31#92.82#-519.67" genCount="1" genTime="20000" objectKey="1" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1182.72#85.52#-438.80" genCount="1" genTime="20000" objectKey="4" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1279.02#92.82#-523.83" genCount="1" genTime="20000" objectKey="5" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1237.32#92.79#-283.65" genCount="1" genTime="20000" objectKey="6" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="1391.21#92.82#-526.75" genCount="1" genTime="20000" objectKey="7" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57915" Pos="1106.60#85.52#-395.78" genCount="1" genTime="20000" objectKey="8" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57915" Pos="1068.23#95.35#-247.19" genCount="1" genTime="20000" objectKey="9" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57915" Pos="1320.59#95.56#-233.87" genCount="1" genTime="20000" objectKey="10" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57915" Pos="1036.01#92.96#-561.93" genCount="1" genTime="20000" objectKey="14" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57915" Pos="1236.86#85.52#-368.53" genCount="1" genTime="20000" objectKey="15" propList="&apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="705008" Pos="1393.30#85.52#-401.26" angle="180" genCount="1" genTime="20000" objectKey="2" propList="&apos;Level&apos; &apos;380&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stageSetting"/>
+                    <Event eventName="stageClear">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage2/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s2clear"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/2"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/8"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="Stage2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="stage2chk">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s2clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/6"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="12082" Pos="-160.51#106.13#-1101.46" genCount="1" genTime="20000" objectKey="0" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="81.35#105.99#-1101.73" genCount="1" genTime="20000" objectKey="1" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="-32.48#106.04#-1100.68" genCount="1" genTime="20000" objectKey="2" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="-162.56#105.58#-1221.05" genCount="1" genTime="20000" objectKey="3" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="-161.00#103.02#-1337.61" genCount="1" genTime="20000" objectKey="4" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="-32.35#103.15#-1338.92" genCount="1" genTime="20000" objectKey="5" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="81.48#105.92#-1221.97" genCount="1" genTime="20000" objectKey="6" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="12082" Pos="80.56#104.74#-1336.98" genCount="1" genTime="20000" objectKey="7" propList="&apos;SimpleAI&apos; &apos;GM_D_CASTLE_GIMMICK3_TRAP&apos; &apos;Enter&apos; &apos;GM_CASTLE_01_GIMMICK3_TRAP&apos; &apos;OnlyPCCheck&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-420.87#93.15#-490.25" genCount="1" genTime="20000" objectKey="8" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-397.81#92.92#-562.32" genCount="1" genTime="20000" objectKey="9" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-436.29#85.46#-647.71" genCount="1" genTime="20000" objectKey="10" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-547.06#93.15#-575.63" genCount="1" genTime="20000" objectKey="11" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-658.68#93.15#-553.66" genCount="1" genTime="20000" objectKey="12" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-421.19#93.15#-799.18" genCount="1" genTime="20000" objectKey="13" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-785.00#93.15#-614.71" genCount="1" genTime="20000" objectKey="14" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-725.01#89.25#-786.70" genCount="1" genTime="20000" objectKey="15" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57637" Pos="-393.03#93.15#-950.89" genCount="1" genTime="20000" objectKey="16" propList="&apos;Level&apos; &apos;375&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="-491.81#85.46#-631.01" genCount="1" genTime="20000" objectKey="17" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="-499.11#93.15#-825.64" genCount="1" genTime="20000" objectKey="18" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="-656.98#93.15#-621.49" genCount="1" genTime="20000" objectKey="19" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="-305.56#93.15#-954.05" genCount="1" genTime="20000" objectKey="20" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="-247.35#93.15#-1351.28" angle="-96" genCount="1" genTime="20000" objectKey="21" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57633" Pos="-86.76#93.15#-1400.52" genCount="1" genTime="20000" objectKey="22" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="-44.74#93.15#-1014.82" genCount="1" genTime="20000" objectKey="23" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="177.70#93.15#-1365.99" genCount="1" genTime="20000" objectKey="24" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57634" Pos="236.13#93.15#-1161.30" genCount="1" genTime="20000" objectKey="25" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57633" Pos="-237.42#93.15#-1070.21" genCount="1" genTime="20000" objectKey="26" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57633" Pos="-86.76#93.15#-1400.52" genCount="1" genTime="20000" objectKey="27" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57633" Pos="221.26#97.74#-1071.48" genCount="1" genTime="20000" objectKey="29" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57633" Pos="253.08#93.15#-1269.48" genCount="1" genTime="20000" objectKey="30" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                    <Obj Type="Monster" MonType="57633" Pos="-255.86#93.15#-1233.88" genCount="1" genTime="20000" objectKey="31" propList="&apos;StatType&apos; &apos;901&apos; &apos;Journal&apos; &apos;None&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;375&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stage3chk">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s3clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/3"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/5"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="Stage3/0/Stage3/1/Stage3/2/Stage3/3/Stage3/4/Stage3/5/Stage3/6/Stage3/7"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="monGen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage3/21/Stage3/26/Stage3/27/Stage3/29/Stage3/25/Stage3/30/Stage3/24/Stage3/23"/>
+                                <Num Num="7"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Stage3/21/Stage3/26/Stage3/27/Stage3/29/Stage3/25/Stage3/30/Stage3/24/Stage3/23"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage4">
+                <ObjList>
+                    <Obj Type="Monster" MonType="151000" Pos="1378.46#165.15#-1096.21" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;TEST_GIMMCK1&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="1522.94#165.15#-952.86" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;TEST_GIMMCK2&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="1518.87#165.15#-1250.37" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;TEST_GIMMCK3&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="1680.74#165.15#-1093.16" genCount="1" genTime="20000" objectKey="3" propList="&apos;Dialog&apos; &apos;TEST_GIMMCK4&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="456.10#91.95#-1035.53" genCount="1" genTime="20000" objectKey="4" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="770.27#92.44#-926.68" genCount="1" genTime="20000" objectKey="5" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="628.63#92.44#-1119.84" genCount="1" genTime="20000" objectKey="6" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="670.57#92.44#-1021.80" genCount="1" genTime="20000" objectKey="7" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="748.63#92.44#-1195.93" genCount="1" genTime="20000" objectKey="8" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="825.21#92.44#-1095.70" genCount="1" genTime="20000" objectKey="9" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="876.46#92.44#-901.96" genCount="1" genTime="20000" objectKey="10" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="871.89#92.44#-1210.46" genCount="1" genTime="20000" objectKey="11" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57636" Pos="939.30#92.44#-1050.11" genCount="1" genTime="20000" objectKey="12" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57635" Pos="738.64#92.44#-1055.29" genCount="1" genTime="20000" objectKey="13" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57635" Pos="781.30#92.44#-1282.66" genCount="1" genTime="20000" objectKey="14" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57635" Pos="844.61#92.44#-982.35" genCount="1" genTime="20000" objectKey="15" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57635" Pos="899.31#92.44#-1079.12" genCount="1" genTime="20000" objectKey="16" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                    <Obj Type="Monster" MonType="57635" Pos="993.43#92.44#-989.83" genCount="1" genTime="20000" objectKey="17" propList="&apos;Level&apos; &apos;375&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; &apos;StatType&apos; &apos;901&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="stage4chk">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="s4clear"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/7"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/4"/>
+                                <Str Str="STD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

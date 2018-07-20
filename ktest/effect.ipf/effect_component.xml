@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ComponentList>
+	<Particle name="light035_2" texture="light035_2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="card_shine" texture="card_shine" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="ground008" texture="ground008" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="ice005" texture="ice005" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="Ghost001" texture="Ghost001" width="5.00" height="5.00" pivot_x="0.50" pivot_y="1" texel_x="0" texel_y="0" texel_width="128" texel_height="256"/>
@@ -554,6 +556,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="warrior_fishingnet_2" model="warrior_fishingnet_2.xac" motion="warrior_fishingnet_2_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="warrior_fishingnet_1" model="warrior_fishingnet_1.xac" motion="warrior_fishingnet_1_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="warrior_fishingnet" model="warrior_fishingnet.xac" motion="warrior_fishingnet_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="warrior_net" model="warrior_net.xac" motion="warrior_net_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="hamaya_arrow" model="hamaya_arrow.xac" motion="hamaya_arrow_ani" texturepath="\item_texture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="bottom_slash001" model="bottom_slash001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
@@ -1424,6 +1429,9 @@
 	<Model name="i_boss_banshee_boss_dead" model="boss_banshee_boss_dead.xac" motion="boss_banshee_boss_dead_ani.xsm" texturepath="char_texture\monster\banshee_boss\" overlap="false" AlphaType="TEST"/>
 	<Model name="i_boss_kinghammer_dead" model="boss_kinghammer_dead.xac" motion="boss_kinghammer_dead_ani.xsm" texturepath="char_texture\monster\kinghammer\" overlap="false" AlphaType="TEST"/>
 	<Model name="i_boss_pbeta_dead" model="boss_pbeta_dead.xac" motion="boss_pbeta_dead_ani.xsm" texturepath="char_texture\monster\pbeta\" overlap="false" AlphaType="TEST"/>
+	<Model name="paper_doll_dead" model="paper_doll_dead.xac" motion="paper_doll_dead_ani.xsm" texturepath="char_texture\npc\Onmyoji_skill\" overlap="false" AlphaType="TEST"/>
+	<Model name="paper_doll_red_dead" model="paper_doll_dead.xac" motion="paper_doll_dead_ani.xsm" texturepath="char_texture\npc\Onmyoji_skill\red\" overlap="false" AlphaType="TEST"/>
+	<Model name="paper_doll_black_dead" model="paper_doll_dead.xac" motion="paper_doll_dead_ani.xsm" texturepath="char_texture\npc\Onmyoji_skill\black\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
@@ -1437,12 +1445,17 @@
 	<Digit name="Digitdamage_heal" texture="digit_damage" overkilltexture="" width="2.00" height="3.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="Digitdamage" texture="digit_damage" overkilltexture="" width="3.00" height="4.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="DigitExpup" texture="digit_expup" overkilltexture="" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="48.00" texel_height="60.00" randomangle="false"/>
+	<Screen name="UI_card_base_last" texture="card_base_last" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_card_base_crack_shine" texture="card_base_crack_shine" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_chain_base_glow" texture="chain_base_glow" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_chain_base_1" texture="chain_base_1" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_card_base_frame" texture="card_base_frame" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_card_crack_sheet" texture="card_crack_sheet" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="16" pitch="4" ticktime="0.05"/>
+	<Screen name="UI_light035_2" texture="light035_2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Screen name="UI_lock_up" texture="lock_up" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Screen name="UI_lock_bottom" texture="lock_bottom" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Screen name="UI_card_shine" texture="card_shine" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
-	<Screen name="UI_card_base_1" texture="card_base_1" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Screen name="UI_card_decal_sheet" texture="card_decal_sheet" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="16" pitch="4" ticktime="0.05"/>
-	<Screen name="UI_card_base" texture="card_base" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="16" pitch="4" ticktime="0.05"/>
 	<Screen name="UI_chain_add" texture="chain_add" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="16" pitch="4" ticktime="0.04"/>
 	<Screen name="UI_chain_multi" texture="chain_multi" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="16" pitch="4" ticktime="0.04"/>
 	<Screen name="UI_ice003" texture="ice003" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
