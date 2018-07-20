@@ -1236,6 +1236,8 @@
         <Key Name="EVENT_1802_NEWYEAR_TRADE_COUNT8" Value="102057"/>
         <Key Name="EVENT_1802_NEWYEAR_TRADE_COUNT9" Value="102067"/>
         <Key Name="EV2018_STEAM_DAYDAY_LOG" Value="102068"/>
+        <Key Name="EVENT_1802_MASTER_GIVE_DATE" Value="102146"/>
+        <Key Name="EVENT_KOR_Fortunecookie_COUNT" Value="102154"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -8546,6 +8548,40 @@
         <Key Name="LEVELINFORM_WEAPONCHANGE9" Value="102001"/>
         <Key Name="IndunWeeklyEnteredCount_400" Value="102046"/>
         <Key Name="IndunWeeklyResetTime" Value="102045"/>
+        <Key Name="AchieveStatReward_Grade" Value="102085"/>
+        <Key Name="MASTER_CRYOMANCER2_2_TRACK" Value="102089"/>
+        <Key Name="MASTER_FIREMAGE1_TRACK" Value="102091"/>
+        <Key Name="MASTER_FLETCHER1_TRACK" Value="102084"/>
+        <Key Name="MASTER_HIGHLANDER2_3_TRACK" Value="102086"/>
+        <Key Name="MASTER_HOPLITE1_TRACK" Value="102100"/>
+        <Key Name="MASTER_HUNTER1_1_TRACK" Value="102096"/>
+        <Key Name="MASTER_HUNTER1_3_TRACK" Value="102090"/>
+        <Key Name="MASTER_ICEMAGE1_TRACK" Value="102087"/>
+        <Key Name="MASTER_LANCER1_TRACK" Value="102088"/>
+        <Key Name="MASTER_PELTASTA2_3_TRACK" Value="102094"/>
+        <Key Name="MASTER_QUARRELSHOOTER1_TRACK" Value="102099"/>
+        <Key Name="MASTER_RANGER2_2_TRACK" Value="102097"/>
+        <Key Name="MASTER_SAPPER1_1_TRACK" Value="102095"/>
+        <Key Name="MASTER_SCOUT1_TRACK" Value="102083"/>
+        <Key Name="MASTER_SQUIRE1_TRACK" Value="102098"/>
+        <Key Name="MASTER_WUGUSHI1_TRACK" Value="102092"/>
+        <Key Name="SUBMASTER_LINKER1_2_TRACK" Value="102093"/>
+        <Key Name="HiddenJob_Char1_18" Value="102149"/>
+        <Key Name="HiddenJob_Char2_20" Value="102147"/>
+        <Key Name="InDunCountType_8000" Value="102148"/>
+        <Key Name="Hide_2668" Value="102169"/>
+        <Key Name="Hide_2669" Value="102170"/>
+        <Key Name="Hide_2670" Value="102175"/>
+        <Key Name="Hide_2672" Value="102166"/>
+        <Key Name="Hide_2673" Value="102171"/>
+        <Key Name="Hide_2674" Value="102176"/>
+        <Key Name="Hide_2676" Value="102167"/>
+        <Key Name="Hide_2677" Value="102172"/>
+        <Key Name="Hide_2678" Value="102177"/>
+        <Key Name="Hide_2680" Value="102168"/>
+        <Key Name="Hide_2681" Value="102173"/>
+        <Key Name="JOB_ONMYOJI_Q1_TRACK" Value="102165"/>
+        <Key Name="JOB_RETIARII1_TRACK" Value="102174"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -16029,6 +16065,65 @@
         <Key Name="JS_Quest_Reward_UNDERFORTRESS_69_MQ060" Value="102072"/>
         <Key Name="JS_Quest_Reward_VPRISON515_MQ_07" Value="102082"/>
         <Key Name="JS_Quest_Reward_ZACHA5F_MQ_05" Value="102074"/>
+        <Key Name="MASTER_ALCHEMIST1" Value="102127"/>
+        <Key Name="MASTER_CHRONO1" Value="102119"/>
+        <Key Name="MASTER_CORSAIR1" Value="102107"/>
+        <Key Name="MASTER_CRYOMANCER2_1" Value="102131"/>
+        <Key Name="MASTER_CRYOMANCER2_2" Value="102132"/>
+        <Key Name="MASTER_DRAGOON1" Value="102111"/>
+        <Key Name="MASTER_FIREMAGE1" Value="102115"/>
+        <Key Name="MASTER_FLETCHER1" Value="102137"/>
+        <Key Name="MASTER_HIGHLANDER1_1" Value="102139"/>
+        <Key Name="MASTER_HIGHLANDER1_2" Value="102142"/>
+        <Key Name="MASTER_HIGHLANDER2_1" Value="102118"/>
+        <Key Name="MASTER_HIGHLANDER2_2" Value="102109"/>
+        <Key Name="MASTER_HIGHLANDER2_3" Value="102102"/>
+        <Key Name="MASTER_HIGHLANDER2_4" Value="102120"/>
+        <Key Name="MASTER_HOPLITE1" Value="102128"/>
+        <Key Name="MASTER_HUNTER1_1" Value="102108"/>
+        <Key Name="MASTER_HUNTER1_2" Value="102144"/>
+        <Key Name="MASTER_HUNTER1_3" Value="102104"/>
+        <Key Name="MASTER_HUNTER1_4" Value="102134"/>
+        <Key Name="MASTER_ICEMAGE1" Value="102138"/>
+        <Key Name="MASTER_LANCER1" Value="102105"/>
+        <Key Name="MASTER_PELTASTA1_1" Value="102140"/>
+        <Key Name="MASTER_PELTASTA1_2" Value="102141"/>
+        <Key Name="MASTER_PELTASTA2_1" Value="102106"/>
+        <Key Name="MASTER_PELTASTA2_2" Value="102136"/>
+        <Key Name="MASTER_PELTASTA2_3" Value="102103"/>
+        <Key Name="MASTER_PELTASTA2_4" Value="102122"/>
+        <Key Name="MASTER_PSYCHOKINO1" Value="102110"/>
+        <Key Name="MASTER_QUARRELSHOOTER1" Value="102129"/>
+        <Key Name="MASTER_RANGER1" Value="102126"/>
+        <Key Name="MASTER_RANGER2_1" Value="102123"/>
+        <Key Name="MASTER_RANGER2_2" Value="102117"/>
+        <Key Name="MASTER_ROGUE1" Value="102121"/>
+        <Key Name="MASTER_SAGE1" Value="102124"/>
+        <Key Name="MASTER_SAPPER1_1" Value="102101"/>
+        <Key Name="MASTER_SAPPER1_2" Value="102135"/>
+        <Key Name="MASTER_SAPPER1_3" Value="102113"/>
+        <Key Name="MASTER_SAPPER1_4" Value="102133"/>
+        <Key Name="MASTER_SCOUT1" Value="102145"/>
+        <Key Name="MASTER_SORCERER1" Value="102125"/>
+        <Key Name="MASTER_SQUIRE1" Value="102143"/>
+        <Key Name="MASTER_SQUIRE2" Value="102116"/>
+        <Key Name="MASTER_WUGUSHI1" Value="102114"/>
+        <Key Name="SUBMASTER_LINKER1_1" Value="102130"/>
+        <Key Name="SUBMASTER_LINKER1_2" Value="102112"/>
+        <Key Name="MG_Last_EVENT_1802_MASTER_MISSION1" Value="102152"/>
+        <Key Name="MG_Last_EVENT_1802_MASTER_MISSION2" Value="102153"/>
+        <Key Name="MG_Last_EVENT_1802_MASTER_MISSION3" Value="102151"/>
+        <Key Name="MG_Last_EVENT_1802_MASTER_MISSION4" Value="102150"/>
+        <Key Name="JOB_ONMYOJI_Q1" Value="102164"/>
+        <Key Name="JOB_ONMYOJI_Q1_FC" Value="102161"/>
+        <Key Name="JOB_ONMYOJI_Q1_PI" Value="102160"/>
+        <Key Name="JOB_ONMYOJI_Q1_R" Value="102163"/>
+        <Key Name="JOB_ONMYOJI_Q1_SRL" Value="102162"/>
+        <Key Name="JOB_RETIARII1" Value="102157"/>
+        <Key Name="JOB_RETIARII1_FC" Value="102156"/>
+        <Key Name="JOB_RETIARII1_PI" Value="102158"/>
+        <Key Name="JOB_RETIARII1_R" Value="102155"/>
+        <Key Name="JOB_RETIARII1_SRL" Value="102159"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

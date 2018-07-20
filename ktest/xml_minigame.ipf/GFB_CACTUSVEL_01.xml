@@ -68,10 +68,6 @@
                             <ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="FailCheck"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Fail"/>
                             </ToolScp>
@@ -79,6 +75,9 @@
                                 <Str Str="퀘스트 실패. 모든 플레이어가 전투 불능 상태가 되었습니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
                             </ToolScp>
                         </execList>
                     </Event>

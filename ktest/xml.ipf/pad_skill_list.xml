@@ -6265,7 +6265,80 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
 			</ToolScp>
 		</leaveEvent>
 	</PadSkill>
-	<PadSkill Name="Grinender_FirePillar" CheckerType="0" Range="13">
+	<PadSkill Name="GreenwoodShikigami_Pad" CheckerType="0" AllowOverlap="1" Range="100" UpdateTerm="300" ApplyFlyMon="1">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="2500"/>
+                <Num Num="99999"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_wizard_GreenwoodShikigami_ground_loop" Arg="3"/>
+                <Pos Angle="0" Dist="3.8255448e-43"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="0.5"/>
+            </ToolScp>
+        </destroyEvent>
+        <leaveEvent>
+            <ToolScp Scp="LEAVE_PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="GreenwoodShikigami_Debuff"/>
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="5000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-250"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="GreenwoodShikigami_Pad_Effect" CheckerType="0" AllowOverlap="1" Range="100" UpdateTerm="27">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="25000"/>
+                <Num Num="99999"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="C_PAD_DESTROY_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Pos Angle="0" Dist="3.8255448e-43"/>
+                <Str_Arg Str="F_wizard_GreenwoodShikigami_ground_finish" Arg="3"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </destroyEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-250"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Grinender_FirePillar" CheckerType="0" Range="13">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="10000"/>
@@ -12162,7 +12235,47 @@ return 3 + obj.Level * 0.5"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Velo_Holdbuff" CheckerType="0" Dist="2.3241811" Angle="-0.544415" Range="77.5" EnableSearch="0">
+	<PadSkill Name="Toyou_Pad" CheckerType="0" AllowOverlap="1" Range="150" UpdateTerm="300">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="3300"/>
+                <Num Num="999999"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_ground180_soil" Arg="6"/>
+                <Pos Angle="0" Dist="3.8255448e-43" PosType="3"/>
+                <Num Num="2"/>
+                <Str_Arg Str="None" Arg="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15"/>
+            </ToolScp>
+        </createEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-300"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Velo_Holdbuff" CheckerType="0" Dist="2.3241811" Angle="-0.544415" Range="77.5" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="30000"/>

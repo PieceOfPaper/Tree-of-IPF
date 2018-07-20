@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="status" x="0" y="0" width="500" height="1080">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -10,7 +10,7 @@
 	<option closebutton="false"/>
 	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
 	<script OpenScp="STATUS_ONLOAD" CloseScp="STATUS_CLOSE"/>
-	<userconfig ADD_STAT_COLOR="{#00FF00}" BEFORE_STAT_COLOR="{#FF6600}" BTNUP_STAT_COLOR="{@st41b}" StatIconStartX="10"/>
+	<userconfig ADD_STAT_COLOR="{#00FF00}" BEFORE_STAT_COLOR="{#FF6600}" BTNUP_STAT_COLOR="{@st41b}" CHANGE_STAT_FONTNAME="orange_16_b_ol" DEFAULT_STAT_VALUE_FONTNAME="white_16_ol" DEFAULT_STAT_NAME_FONTNAME="yellow_16_ol" StatIconStartX="10"/>
 	<controls>
 		<groupbox name="equip" rect="0 0 500 990" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_top_my" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_topf1"/>
@@ -28,7 +28,7 @@
 		<groupbox name="internalstatusBox" parent="statusGbox" rect="0 0 483 415" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
 		<groupbox name="internalBox" parent="achieveGbox" rect="0 0 480 830" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>
 		<groupbox name="logoutGBox" rect="0 0 495 915" margin="10 140 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
-		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 350" margin="0 110 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="customizingGBox" parent="logoutGBox" rect="0 0 480 446" margin="0 110 0 0" layout_gravity="left top" draw="true" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
 		<!--<경험치율 총합 계산 UI>-->
 		<groupbox name="expupGBox" parent="internalstatusBox" rect="0 0 483 70" margin="0 10 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
 		<groupbox name="expupBuffBox" parent="expupGBox" rect="0 0 310 70" margin="82 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="true"/>
@@ -38,8 +38,40 @@
 		<richtext name="expUP_Static" parent="expupTextBox" rect="0 0 200 20" margin="0 2 0 0" layout_gravity="center top" caption="{@st66d_y}{s20}총{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
 		<richtext name="totalExpUpValueText" parent="expupTextBox" rect="0 0 300 20" margin="0 27 0 0" layout_gravity="center top" caption="" fontname="brown_18_b" format="{@st66d_y} {s20}%s%{/}" hittest="false" param1="value" param1_def="100" spacey="0" textalign="left center"/>
 		<!--</경험치율 총합 계산 UI>-->
-		<richtext name="hairColorStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 15 0 0" layout_gravity="left top" caption="{@st42}헤어컬러{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
-		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 115 0 0" layout_gravity="left top" caption="{@st42}장착 가능 칭호{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="hairColorStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 15 0 0" layout_gravity="left top" format="{@st42}헤어컬러{/}" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="titleListStatic" parent="customizingGBox" rect="0 0 200 20" margin="15 135 0 0" layout_gravity="left top" format="{@st42}장착 가능한 칭호 [%s]{/}" param1="value1" param1_def="value1" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<droplist name="useableTitleList" parent="customizingGBox" rect="0 0 450 20" margin="15 160 0 0" layout_gravity="left top" SelectScp="SELECT_ACHIEVE_TITLE" frametextalign="center" font="white_20_ol" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="center center" textoffset="10 0" visibleline="10"/>
+		<groupbox name="currentbuffGbox" parent="customizingGbox" rect="0 0 225 70" margin="10 200 0 0" layout_gravity="left top" draw="false" hittest="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="nextbuffGbox" parent="customizingGbox" rect="0 0 225 70" margin="10 280 0 0" layout_gravity="left top" draw="false" hittest="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="statsGbox" parent="customizingGbox" rect="0 0 225 245" margin="0 200 0 0" layout_gravity="right top" draw="false" hittest="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<richtext name="currentbuffTextTitle" parent="currentbuffGbox" rect="0 0 200 20" margin="5 0 0 0" layout_gravity="left top" format="{@st42}{#00fec5}현재 칭호 버프 단계" fontname="brown_18_b" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="nextbuffTextTitle" parent="nextbuffGbox" rect="0 0 200 20" margin="5 0 0 0" layout_gravity="left top" format="{@st42}다음단계까지 필요한 칭호{/}" hittest="false" spacey="0" textalign="left center"/>
+		<groupbox name="currentbuffTextBg" parent="currentbuffGbox" rect="0 0 210 40" margin="0 0 0 0" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="nextbuffTextBg" parent="nextbuffGbox" rect="0 0 210 40" margin="0 0 0 0" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<richtext name="currentbuffText" parent="currentbuffTextBg" rect="0 0 200 20" margin="0 0 0 0" layout_gravity="center center " format="{@st42b}%s단계{/}" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="nextbuffText" parent="nextbuffTextBg" rect="0 0 200 20" margin="0 0 0 0" layout_gravity="center center " format="{@st42b}%s개{/}" param1="value" param1_def="1" hittest="false" spacey="0" textalign="left center"/>
+		<checkbox name="showNextStatReward" rect="0 0 120 30" parent="customizingGbox" margin="10 0 0 5" layout_gravity="left bottom" LBtnUpScp="SHOW_NEXT_STATS_REWARD" caption="{@st66b}다음단계 효과 보기{/}" clicksound="button_click_big" fontname="black_18_b" oversound="button_over"/>
+		<richtext name="STR_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 0 0 0" layout_gravity="left top" format="힘" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="CON_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 22 0 0" layout_gravity="left top" format="체력" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="INT_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 44 0 0" layout_gravity="left top" format="지능" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MNA_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 66 0 0" layout_gravity="left top" format="정신" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="DEX_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 88 0 0" layout_gravity="left top" format="민첩" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="PATK_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 110 0 0" layout_gravity="left top" format="물리 공격력" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MATK_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 132 0 0" layout_gravity="left top" format="마법 공격력" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="DEF_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 154 0 0" layout_gravity="left top" format="물리 방어력" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MDEF_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 176 0 0" layout_gravity="left top" format="마법 방어력" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MSP_TEXT" parent="statsGbox" rect="0 0 50 20" margin="0 198 0 0" layout_gravity="left top" format="SP" fontname="yellow_16_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="STR_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 0 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="CON_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 22 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="INT_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 44 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MNA_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 66 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="DEX_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 88 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="PATK_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 110 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MATK_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 132 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="DEF_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 154 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MDEF_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 176 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="MSP_VALUE" parent="statsGbox" rect="0 0 50 20" margin="0 198 10 0" layout_gravity="right top" format="%s" fontname="white_16_ol" param1="value" param1_def="0" hittest="false" spacey="0" textalign="left center"/>
+		<picture name="labellineGbox" parent="customizingGbox" rect="0 0 2 225" margin="0 0 0 20" draw="true" layout_gravity="center bottom" stretch="true" image="guild_line_p"/>
 		<controlset name="logoutInternal" parent="logoutGBox" rect="0 0 485 550" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="none" type="logoutpc_config"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;status&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
 		<richtext name="LevJobText" rect="0 0 200 20" layout_gravity="center top" caption="직업 출력" fontname="white_20_ol_ds" hittest="false" spacey="0" textalign="left center" margin="0 56 0 0"/>

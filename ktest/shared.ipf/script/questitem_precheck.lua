@@ -2442,9 +2442,10 @@ end
 
 --JOB_CHRONO_6_1_ITEM
 function SCR_PRE_JOB_CHRONO_6_1_ITEM(self, argstring, argnum1, argnum2)
-    local result1 = SCR_QUEST_CHECK(self, 'JOB_CHRONO_6_1')
-    local result2 = SCR_QUEST_CHECK(self, 'JOB_ALCHEMIST_6_2')
-    if result1 == 'PROGRESS' or result2 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(self, 'JOB_CHRONO_6_1')
+    local questCheck2 = SCR_QUEST_CHECK(self, 'JOB_ALCHEMIST_6_2')
+    local questCheck3 = SCR_QUEST_CHECK(self, 'MASTER_CHRONO1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' or questCheck3 == 'PROGRESS' then
         if GetLayer(self) == 0 then
             local map_search = {};
             local all_map = 0;
@@ -2476,10 +2477,11 @@ end
 
 --JOB_ROGUE_6_1_ITEM
 function SCR_PRE_JOB_ROGUE_6_1_ITEM(self, argstring, argnum1, argnum2)
-    local result1 = SCR_QUEST_CHECK(self, 'JOB_ROGUE_6_1')
-    if result1 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(self, 'JOB_ROGUE_6_1')
+    local questCheck2 = SCR_QUEST_CHECK(self, 'MASTER_ROGUE1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         if GetZoneName(self) == 'f_orchard_34_1' then
-            if GetLayer(self) == 0 then
+            if GetLayer(self) == 0 then            
     	        local list, cnt = SelectObject(self, 30, 'ENEMY')
     	        if cnt >= 1 then
         	        for i = 1, cnt do
@@ -6706,8 +6708,9 @@ function SCR_PRE_JOB_3_DRUID_ITEM(self, argObj, argstring, arg1, arg2)
 end
 --JOB_DRAGOON_8_1_ITEM1_ITEM1
 function SCR_PRE_JOB_DRAGOON_8_1_ITEM1(self, argObj, BuffName, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self, 'JOB_DRAGOON_8_1')
-    if result == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(self, 'JOB_DRAGOON_8_1')
+    local questCheck2 = SCR_QUEST_CHECK(self, 'MASTER_DRAGOON1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         if GetZoneName(self) == 'f_tableland_11_1' then
             if GetLayer(self) == 0 then
                 return 1;
@@ -7689,4 +7692,149 @@ end
 --SCR_PRE_CHAR120_MSTEP5_5_ITEM1
 function SCR_PRE_CHAR120_MSTEP5_5_ITEM1(self, argstring, argnum1, argnum2)
     return 1
+end
+
+--SCR_PRE_CHAR121_MSTEP2_ITEM1
+function SCR_PRE_CHAR121_MSTEP2_ITEM1(self, argstring, argnum1, argnum2)
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        local training_Stamina = sObj.Step1
+        local training_Count = sObj.Step2
+        local discount
+        
+        if training_Count == 1 then
+            discount = 5
+        elseif training_Count == 2 then
+            discount = 4
+        elseif training_Count == 3 then
+            discount = 3
+        elseif training_Count == 4 then
+            discount = 2
+        elseif training_Count == 5 then
+            discount = 1
+        end
+        if (training_Stamina == 0) or (training_Stamina < discount) then
+            return 1
+        elseif (training_Stamina ~= 0) and (training_Stamina >= discount) then
+            SendAddOnMsg(self, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_STA_ENOUGH'), 5)
+            return 0
+        end
+        return 0
+    end
+    return 0
+end
+
+--SCR_PRE_CHAR118_MSTEP2_1_ITEM1
+function SCR_PRE_CHAR118_MSTEP2_1_ITEM1(self, argstring, argnum1, argnum2)
+    return 1
+end
+
+--SCR_PRE_CHAR118_MSTEP2_2_ITEM1
+function SCR_PRE_CHAR118_MSTEP2_2_ITEM1(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == "f_farm_47_1" then
+        return 1
+    end
+    return 0
+end
+
+--SCR_PRE_CHAR118_MSTEP2_2_ITEM2
+function SCR_PRE_CHAR118_MSTEP2_2_ITEM2(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_farm_47_1" then
+        return 1
+    end
+    return 0
+end
+
+
+--CHAR220_MSTEP2_6_ITEM1
+function SCR_PRE_JOB_ONMYOJI_MSTEP2_6_ITEM1(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == "f_tableland_71" then
+        if GetLayer(self) < 1 then
+            local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(self, 'Char2_20')
+            if is_unlock == "NO" then
+                local prop = SCR_GET_HIDDEN_JOB_PROP(self, 'Char2_20')
+                if prop == 10 then
+                    local sObj = GetSessionObject(self, "SSN_JOB_ONMYOJI_MISSION_LIST")
+                    if sObj ~= nil then
+                        if sObj.Goal8 == 1 then
+                            local max_cnt = 15
+                            if GetInvItemCount(self, "CHAR220_MSTEP2_6_ITEM2") < max_cnt then
+                                return 1
+                            else
+                                SendAddOnMsg(self, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_6_MSG5"),3)
+                                return 0
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+--CHAR220_MSTEP2_7_ITEM1
+function SCR_PRE_JOB_ONMYOJI_MSTEP2_7_ITEM1(self, argstring, argnum1, argnum2)
+    local obj_list = { "CHAR220_MSETP2_7_OBJ_1", 
+                        "CHAR220_MSETP2_7_OBJ_2",
+                        "CHAR220_MSETP2_7_OBJ_3",
+                        "CHAR220_MSETP2_7_OBJ_4",
+                        "CHAR220_MSETP2_7_OBJ_5",
+                        "CHAR220_MSETP2_7_OBJ_6",
+                        "CHAR220_MSETP2_7_OBJ_7",
+                        "CHAR220_MSETP2_7_OBJ_8",
+                        "CHAR220_MSETP2_7_OBJ_9" }
+    if GetZoneName(self) == "f_farm_49_1" then
+        if GetLayer(self) < 1 then
+            local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(self, 'Char2_20')
+            if is_unlock == "NO" then
+                local prop = SCR_GET_HIDDEN_JOB_PROP(self, 'Char2_20')
+                if prop == 10 then
+                    local sObj = GetSessionObject(self, "SSN_JOB_ONMYOJI_MISSION_LIST")
+                    if sObj ~= nil then
+                        local max_cnt = 21
+                        if sObj.Goal9 < max_cnt then
+                            local list, cnt = SelectObject(self, 30, "ALL", 1)
+                            if cnt >= 1 then
+                                for i = 1, cnt do
+                                    if list[i].ClassName == "farm47_sack_01" then
+                                        local num = table.find(obj_list, TryGetProp(list[i], "Enter"))
+                                        if num > 0 then
+                        	                return GetHandle(list[i])
+                        	            end
+                        	        end
+                        	    end
+                        	end
+                        	SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_7_MSG8"),3)
+                        else
+                            SendAddOnMsg(self, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_7_MSG7"),3)
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--JOB_ONMYOJI_Q1_ITEM
+function SCR_PRE_JOB_ONMYOJI_Q1_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'JOB_ONMYOJI_Q1')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_tableland_72' then
+            if GetLayer(self) ~= 0 then
+                local list, Cnt = SelectObject(self, 20, 'ALL', 1)
+                if Cnt > 0 then
+                    for i = 1, Cnt do
+                        if list[i].ClassName == 'Onmyoji_Paper_Doll_white' 
+                            or list[i].ClassName == 'Onmyoji_Paper_Doll_red' then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;   
 end

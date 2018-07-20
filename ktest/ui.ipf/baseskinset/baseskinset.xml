@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -5454,6 +5454,9 @@
 		<image name="test_companion_18" file="\icon\companion.tga" imgrect="505 369 100 122" CMM_Caption="황금고로_탭버튼"/>
 		<image name="test_companion_18_cursoron" file="\icon\companion.tga" imgrect="505 492 100 122"/>
 		<image name="test_companion_18_clicked" file="\icon\companion.tga" imgrect="505 492 100 122"/>
+		<image name="test_companion_19" file="\icon\companion.tga" imgrect="606 369 100 122" CMM_Caption="윈터펭_탭버튼"/>
+		<image name="test_companion_19_cursoron" file="\icon\companion.tga" imgrect="707 369 100 122"/>
+		<image name="test_companion_19_clicked" file="\icon\companion.tga" imgrect="707 369 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -6206,6 +6209,7 @@
 		<image name="companion_Armadilo" file="\icon\companion_Velhider.tga" imgrect="320 0 80 80"/>
 		<image name="companion_goro_suit" file="\icon\companion_Velhider.tga" imgrect="320 80 80 80"/>
 		<image name="companion_gold_goro" file="\icon\companion_Velhider.tga" imgrect="320 160 80 80"/>
+		<image name="companion_winterpeng" file="\icon\companion_Velhider.tga" imgrect="320 240 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -6446,12 +6450,18 @@
 		<image name="barrack_on_two_btn" file="\skin\barrack.tga" imgrect="1482 772 52 58" CMM_Caption="레이어2버튼"/>
 		<image name="barrack_on_two_btn_cursoron" file="\skin\barrack.tga" imgrect="1482 831 52 58"/>
 		<image name="barrack_on_two_btn_clicked" file="\skin\barrack.tga" imgrect="1482 831 52 58"/>
+		<image name="barrack_on_three_btn" file="\skin\barrack.tga" imgrect="1429 949 52 58" CMM_Caption="레이어3버튼"/>
+		<image name="barrack_on_three_btn_cursoron" file="\skin\barrack.tga" imgrect="1429 890 52 58"/>
+		<image name="barrack_on_three_btn_clicked" file="\skin\barrack.tga" imgrect="1429 890 52 58"/>
 		<image name="barrack_off_one_btn" file="\skin\barrack.tga" imgrect="1535 772 40 58" CMM_Caption="레이어1버튼_비활성"/>
 		<image name="barrack_off_one_btn_cursoron" file="\skin\barrack.tga" imgrect="1535 890 40 58"/>
 		<image name="barrack_off_one_btn_clicked" file="\skin\barrack.tga" imgrect="1535 890 40 58"/>
 		<image name="barrack_off_two_btn" file="\skin\barrack.tga" imgrect="1535 831 40 58" CMM_Caption="레이어2버튼_비활성"/>
 		<image name="barrack_off_two_btn_cursoron" file="\skin\barrack.tga" imgrect="1535 949 40 58"/>
 		<image name="barrack_off_two_btn_clicked" file="\skin\barrack.tga" imgrect="1535 949 40 58"/>
+		<image name="barrack_off_three_btn" file="\skin\barrack.tga" imgrect="1494 890 40 58" CMM_Caption="레이어3버튼_비활성"/>
+		<image name="barrack_off_three_btn_cursoron" file="\skin\barrack.tga" imgrect="1494 949 40 58"/>
+		<image name="barrack_off_three_btn_clicked" file="\skin\barrack.tga" imgrect="1494 949 40 58"/>
 		<image name="market_reset_btn" file="\skin\market_skin.tga" imgrect="374 97 49 49" CMM_Caption="마켓_새로고침버튼"/>
 		<image name="market_reset_btn_cursoron" file="\skin\market_skin.tga" imgrect="424 97 49 49"/>
 		<image name="market_reset_btn_clicked" file="\skin\market_skin.tga" imgrect="474 97 49 49"/>
@@ -7866,7 +7876,7 @@
 		<image name="npc_icon_s_Madam" file="\icon\npc_icon_s.tga" imgrect="448 128 64 64" CMM_Caption="Madam"/>
 		<image name="npc_icon_s_Raima" file="\icon\npc_icon_s.tga" imgrect="0 192 64 64" CMM_Caption="Raima"/>
 	</imagelist>
-	<imagelist category="Z">
+	<imagelist category="Dlg_portrait">
 		<image name="blank" file="\skin\login_barrack.tga" imgrect="0 366 30 30" CMM_Caption="blank img"/>
 		<image name="Dlg_port_ALCHEMIST_1" file="\npcimg\ALCHEMIST_1.png" imgrect="0 0 700 800" CMM_Caption="연금술사1"/>
 		<image name="Dlg_port_ALCHEMIST_2" file="\npcimg\ALCHEMIST_2.png" imgrect="0 0 700 800" CMM_Caption="연금술사2"/>
@@ -8034,6 +8044,8 @@
 		<image name="Dlg_port_AlizaTal" file="\npcimg\AlizaTal.png" imgrect="0 0 800 900" CMM_Caption="질럿 마스터"/>
 		<image name="Dlg_port_FlintWinterwood" file="\npcimg\FlintWinterwood.png" imgrect="0 0 800 900" CMM_Caption="불릿마커 마스터"/>
 		<image name="Dlg_port_Khanom_Caolaw" file="\npcimg\Khanom_Caolaw.png" imgrect="0 0 1000 1000" CMM_Caption="낙무아이 마스터"/>
+		<image name="Dlg_port_Caecilia" file="\npcimg\Caecilia.png" imgrect="0 0 830 1000" CMM_Caption="레티아리이 마스터"/>
+		<image name="Dlg_port_Ahiro_Seimei" file="\npcimg\Ahiro_Seimei.png" imgrect="0 0 800 1000" CMM_Caption="음양사 마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>

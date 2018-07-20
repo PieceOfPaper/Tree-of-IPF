@@ -35,6 +35,11 @@ function SCR_CHECK_GEM_MATERIAL(reinfItem, matItem)
 		return 0;
 	end
 	
+	if IS_MECHANICAL_ITEM(matItem) == true then
+	    return 0;
+	end
+	
+	
 	if TryGetProp(matItem , "ItemLifeTimeOver") == 1 then
 	    return 0;
 	end
@@ -43,7 +48,7 @@ function SCR_CHECK_GEM_MATERIAL(reinfItem, matItem)
 		return 1;
 	end
 
-	-- Ä«µåÇÕ¼º Àç·á´Â Áª¿¡ ¸ø¾²°Ô--
+	-- ì¹´ë“œí•©ì„± ì¬ë£ŒëŠ” ì ¬ì— ëª»ì“°ê²Œ--
 	if TryGetProp(matItem, "Reinforce_Type") == "Card" then
 		return 0
 	end

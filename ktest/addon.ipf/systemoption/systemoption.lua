@@ -17,7 +17,7 @@ function SYSTEMOPTION_CREATE(frame)
 	SET_SHOW_PAD_SKILL_RANGE(frame);
 	SET_SIMPLIFY_BUFF_EFFECTS(frame);
 	SET_SIMPLIFY_MODEL(frame);
-
+    SET_RENDER_SHADOW(frame);
 end
 
 function INIT_LANGUAGE_CONFIG(frame)
@@ -209,7 +209,7 @@ function APPLY_CONTROLMODE(frame)
 end
 
 function APPLY_PERFMODE(frame)
-	
+
 	local perfRadioBtn = GET_CHILD_RECURSIVELY(frame, "perftype_0");    
 	local perfType = GET_RADIOBTN_NUMBER(perfRadioBtn);
 	
@@ -217,14 +217,17 @@ function APPLY_PERFMODE(frame)
 	local highTexture = GET_CHILD_RECURSIVELY(parent, "check_highTexture", "ui::CCheckBox");
 	local softParticle = GET_CHILD_RECURSIVELY(parent, "check_SoftParticle", "ui::CCheckBox");
 	local otherPCDamage = GET_CHILD_RECURSIVELY(parent, "check_ShowOtherPCDamageEffect", "ui::CCheckBox");
+  
 	if 0 == perfType then
 		graphic.EnableHighTexture(0);
 		config.EnableOtherPCDamageEffect(0);
 		softParticle:SetCheck(0);
+        imcperfOnOff.EnableRenderShadow(0);
 	else
 		graphic.EnableHighTexture(1);
 		config.EnableOtherPCDamageEffect(1);
 		softParticle:SetCheck(1);
+        imcperfOnOff.EnableRenderShadow(1);
 	end
 	highTexture:SetCheck(config.GetHighTexture());
 	otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
@@ -445,6 +448,7 @@ end
 function ENABLE_LOW(parent, ctrl)
 	
 	local value = config.GetUseLowOption();
+
 	graphic.EnableLowOption(1-value);
 	config.SaveConfig();
 
@@ -524,4 +528,21 @@ end
 
 function CONFIG_SIMPLIFY_MODEL(frame, ctrl, str, num)
 	config.SetEnableSimplifyModel(ctrl:IsChecked());
+end
+
+function SET_RENDER_SHADOW(frame)
+    local isEnable = config.IsRenderShadow();
+
+    imcperfOnOff.EnableRenderShadow(isEnable);
+
+	local chkRenderShadow = GET_CHILD_RECURSIVELY(frame, "check_RenderShadow", "ui::CCheckBox");
+	if nil ~= chkRenderShadow then
+		chkRenderShadow:SetCheck(isEnable);
+	end
+end
+
+function CONFIG_RENDER_SHADOW(frame, ctrl, str, num)
+    local isEnable = ctrl:IsChecked();
+    config.SetRenderShadow(isEnable);
+    imcperfOnOff.EnableRenderShadow(isEnable);
 end

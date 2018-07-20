@@ -145,3 +145,53 @@ function SCR_ORCHARD_34_1_SQ_4_MON_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_1_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal7 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_2_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal7 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_3_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal7 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_4_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal7 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
+
+function SCR_CHAR220_MSETP2_5_OBJ1_5_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+    if sObj ~= nil then
+        if sObj.Goal7 == 1 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end

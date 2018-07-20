@@ -140,7 +140,7 @@ function QUEST_REWARD_TEST(frame, questID)
 	    succExp = succExp + repeat_reward_exp
 	end
 	
-	if cls.Success_Lv_Exp > 0 then
+	if cls.Success_Lv_Exp > 0 and pc.Lv < PC_MAX_LEVEL then
         local xpIES = GetClass('Xp', pc.Lv)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * cls.Success_Lv_Exp)

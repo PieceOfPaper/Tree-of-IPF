@@ -528,4 +528,5 @@
 	<Code Code="INFO_CHECK_MEMORY" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 체크"/>
 	<Code Code="DEADLOCK_FIND_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="DB_DEAD_LOCK" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 데드락 찾기 위한 로그"/>
 	<Code Code="ERROR_SMTP" Team="PROGRAM" Category="LOGIC" Logger="root" Enabled="YES" CallStack="NO" Desc="SMTP 관련 에러"/>
+	<Code Code="ERROR_VERTEX_NAN_VALUE" Team="ART" Category="DATA" SubCategory="MODEL" Logger="root" Enabled="YES" CallStack="NO" Desc="모델의 정점중에 NAN 값이 발견됨."/>
 </imcErrorCode>

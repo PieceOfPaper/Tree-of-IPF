@@ -1,4 +1,4 @@
-﻿--- calc_property_skill.lua
+--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -798,6 +798,42 @@ function SCR_GET_SKL_CoolDown_BackSlide(skill)
     local basicCoolDown = skill.BasicCoolDown;
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
     basicCoolDown = (basicCoolDown + abilAddCoolDown) - (skill.Level * 1000);
+    
+    local owner = GetSkillOwner(skill)
+    if skill.ClassName == "Cleric_Heal" then
+        if IsPVPServer(owner) == 1 then
+            basicCoolDown = basicCoolDown + 28000
+        end
+    end
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if IsBuffApplied(pc, 'SpeForceFom_Buff') == 'YES' then
+        if skill.ClassName ~= "Centurion_SpecialForceFormation" then
+            basicCoolDown = basicCoolDown * 0.5;
+        end
+    end
+    
+    local ret = math.floor(basicCoolDown) / 1000
+    ret = math.floor(ret) * 1000;
+    
+    return math.floor(ret);
+end
+
+function SCR_GET_SKL_COOLDOWN_FishingNetsDraw(skill)
+    
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    basicCoolDown = (basicCoolDown + abilAddCoolDown) - (skill.Level * 2000);
     
     local owner = GetSkillOwner(skill)
     if skill.ClassName == "Cleric_Heal" then
@@ -15045,6 +15081,17 @@ function SCR_GET_SPENDITEM_COUNT_Claymore(skill)
     return count;
 end
 
+function SCR_GET_SPENDITEM_COUNT_GreenwoodShikigami(skill)
+    local count = skill.SpendItemBaseCount;
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, 'Onmyoji16')
+    if abil ~= nil and abil.ActiveState == 1 then
+        count = count * 2;
+    end
+    
+    return count;
+end
+
 function SCR_GET_Dekatos_Ratio(skill)
     return 300
 end
@@ -15695,3 +15742,232 @@ function SCR_GET_SubweaponCancel_Ratio(skill)
     return value;
 end
 
+function SCR_Get_SkillFactor_TridentFinish(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Retiarii5")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_EquipDesrption(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Retiarii6")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_DaggerFinish(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+    local abil = GetAbility(pc, "Retiarii8")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+end
+
+
+function SCR_GET_FishingNetsDraw_Ratio(skill)
+    local value = 3;
+    return value;
+end
+
+function SCR_GET_FishingNetsDraw_Ratio2(skill)
+    local value = 8;
+    return value;
+end
+
+function SCR_GET_FishingNetsDraw_Ratio3(skill)
+    local skillLv = TryGetProp(skill, "Level");
+    local value = skillLv * 2;
+    return value;
+end
+
+function SCR_GET_ThrowingFishingNet_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 2.5 + skill.Level * 0.5
+    local abilRetiarii9 = GetAbility(pc, "Retiarii9");
+    if abilRetiarii9 ~= nil and TryGetProp(abilRetiarii9, "ActiveState") == 1 then
+        value = value * 0.5
+    end
+    
+    return value;
+end
+
+function SCR_GET_ThrowingFishingNet_Ratio2(skill)
+    return 8;
+end
+
+
+function SCR_GET_DaggerGuard_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 50;
+    local abilRetiarii3 = GetAbility(pc, "Retiarii3");
+    local abilRetiarii4 = GetAbility(pc, "Retiarii4");
+    
+    if abilRetiarii3 ~= nil and TryGetProp(abilRetiarii3, "ActiveState") == 1 then
+        value = value + TryGetProp(abilRetiarii3, "Level");
+    end
+    
+    if abilRetiarii4 ~= nil and TryGetProp(abilRetiarii4, "ActiveState") == 1 then
+        value = value * 0.5
+    end
+    
+    return value;
+end
+
+function SCR_GET_DaggerGuard_Ratio2(skill)
+    return 15;
+end
+
+function SCR_GET_DaggerGuard_Ratio3(skill)
+    local value = 10 + TryGetProp(skill, "Level");
+    return value;
+end
+
+
+function SCR_Get_SkillFactor_FireFoxShikigami(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(pc, "Onmyoji1")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_FireFoxShikigami_Summon(skill)
+    local pc = GetSkillOwner(skill);
+	local owner = GetOwner(pc)
+	local skillFireFoxShikigami = GetSkill(owner, "Onmyoji_FireFoxShikigami")
+	if skillFireFoxShikigami == nil then
+		skillFireFoxShikigami = 1
+	end
+	
+    local value = skill.SklFactor + (skillFireFoxShikigami.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(owner, "Onmyoji1")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_FireFoxShikigami2_Summon(skill)
+    local pc = GetSkillOwner(skill);
+	local owner = GetOwner(pc)
+	local skillFireFoxShikigami = GetSkill(owner, "Onmyoji_FireFoxShikigami")
+	if skillFireFoxShikigami == nil then
+		skillFireFoxShikigami = 1
+	end
+	
+    local value = skill.SklFactor + (skillFireFoxShikigami.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(owner, "Onmyoji1")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_GreenwoodShikigami(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(pc, "Onmyoji4")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_WhiteTigerHowling(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(pc, "Onmyoji6")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_WaterShikigami(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(pc, "Onmyoji9")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_Toyou(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+	
+    local abil = GetAbility(pc, "Onmyoji13")
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+	
+    return math.floor(value)
+end
+
+function SCR_GET_WhiteTigerHowling_Ratio(skill)
+	local value = 4 + skill.Level
+	
+	return value
+end
+
+function SCR_GET_GenbuArmor_Ratio(skill)
+	local pc = GetSkillOwner(skill);
+	local value = 90 - (skill.Level * 5)
+	local abil = GetAbility(pc, "Onmyoji12")
+	if abil ~= nil and abil.ActiveState == 1 then
+		value = value - abil.Level
+	end
+	
+	return value
+end
+
+function SCR_GET_GenbuArmor_Ratio2(skill)
+	local value = 60
+	
+	return value
+end
+
+function SCR_GET_VitalProtection_Ratio(skill)
+    local value = 50 + skill.Level * 20
+    return value;
+end
+
+function SCR_GET_Retiarii_EquipDesrption_Ratio(skill)
+    local value = 25;
+    return value;
+end
+
+function SCR_GET_Retiarii_EquipDesrption_Ratio2(skill)
+    local value = 4 + skill.Level;
+    return value;
+end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="barrack_charlist" x="0" y="0" width="800" height="1080">
 	<frame title="캐릭터선택" margin="0 60 0 0" layout_gravity="left top" fullheight="true" scale_align="left center" tooltipoverlap="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
@@ -14,5 +14,6 @@
 		<labelline name="LL" margin="-200 40 0 0" rect="0 0 350 4" skin="None" layout_gravity="center top"/>
 		<button name="changeLayer1" rect="0 0 48 48" margin="9 0 0 0" layout_gravity="left top" LBtnUpArgNum="1" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_on_one_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
 		<button name="changeLayer2" rect="0 0 48 48" margin="9 50 0 0" layout_gravity="left top" LBtnUpArgNum="2" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_two_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
+		<button name="changeLayer3" rect="0 0 48 48" margin="9 100 0 0" layout_gravity="left top" LBtnUpArgNum="3" LBtnUpScp="SELECT_BARRACK_LAYER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="barrack_off_three_btn" oversound="button_over" texttooltip="{@st59}숙소를 이동합니다."/>
 	</controls>
 </uiframe>

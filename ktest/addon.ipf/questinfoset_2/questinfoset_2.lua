@@ -2160,7 +2160,7 @@ function MAKE_QUESTINFO_REWARD_LVUP(ctrlset, questIES, startx, y, font)
         qRewardExp = qRewardExp + repeat_reward_exp
     end
     
-    if quest_auto.Success_Lv_Exp > 0 then
+    if quest_auto.Success_Lv_Exp > 0 and pc.Lv < PC_MAX_LEVEL then
         local xpIES = GetClass('Xp', pc.Lv)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * quest_auto.Success_Lv_Exp)

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Bip01 Spine" particleName="I_smoke_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_action_cast_1"/>
+    <Sound frame="3.00" soundFile="skl_eff_action_shot_1"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="6" type="2" intensity="4" frequency="70" duration="0.2" range="500"/>
+    <BlendOn frame="6" R="200" G="150" B="100" A="100"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="E_warrior_TridentFinish" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="7" R="150" G="130" B="100" A="100"/>
+    <BlendOn frame="8" R="130" G="130" B="70" A="100"/>
+    <BlendOn frame="9" R="100" G="80" B="50" A="100"/>
+    <Particle frame="9" attachNode="Dummy_effect_wepon_spear" particleName="I_smoke_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="10" R="70" G="50" B="30" A="100"/>
+    <BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

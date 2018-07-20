@@ -82,6 +82,12 @@ function REINFORCE_MIX_DROP(frame, icon, argStr, argNum)
 			ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
 			return;
 		end
+		
+		if IS_MECHANICAL_ITEM(obj) == true then
+		    ui.SysMsg(ClMsg("IS_MechanicalItem"));
+		    return;
+		end
+		
 		local lv = GET_ITEM_LEVEL(obj);
 		REINFORCE_BY_MIX_SETITEM(frame, invItem)
 	end
@@ -443,7 +449,7 @@ end
 function REINF_MIX_CHECK_ICON(slot, reinfItemObj, invItem, itemobj)
 	slot:EnableDrag(0);
 	slot:EnableDrop(0);
-
+    
 	local icon = slot:GetIcon();
 	if itemobj ~= nil and reinfItemObj ~= nil and TryGetProp(reinfItemObj, 'Reinforce_Type') ~= nil then
 		local reinforceCls = GetClass("Reinforce", reinfItemObj.Reinforce_Type);
@@ -486,6 +492,11 @@ function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
 	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(itemObj) == true or itemObj.ItemLifeTimeOver ~= 0 then
 		ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
 		return;
+	end
+	
+	if IS_MECHANICAL_ITEM(itemObj) == true then
+	    ui.SysMsg(ClMsg("IS_MechanicalItem"));
+	    return;
 	end
 
 	local reinfItem = GET_REINFORCE_MIX_ITEM();

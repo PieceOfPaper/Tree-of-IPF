@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -143,6 +143,8 @@
 		<Class ClassID="2081" ClassName="LegendCardReinforce_Need_LegCard" Data="강화할 레전드 카드를 먼저 등록해 주시기 바랍니다."/>
 		<Class ClassID="2082" ClassName="LegendCardReinforce_Need_Card" Data="제물로 사용될 카드를 등록해 주시기 바랍니다."/>
 		<Class ClassID="2083" ClassName="LegendReinforceCard_Not_Equip" Data="레전드 강화용 카드는 착용할 수 없습니다."/>
+		<Class ClassID="2084" ClassName="IS_MechanicalItem" Data="강화, 초월, 소켓 추가, 젬 장착 등{nl}{@st66d_y}{s19}가공된 장비{/}{/}는 합성 재료로 사용할 수 없습니다."/>
+		<Class ClassID="2085" ClassName="IS_MechanicalItem_Decompose" Data="가공된 장비를 분해할 경우 복구할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -379,6 +381,7 @@
 		<Class ClassID="4173" ClassName="OverMaxTradeCount" Data="판매 가능한 최대 개수를 초과하였습니다."/>
 		<Class ClassID="4174" ClassName="MonsterCardOptionGroupLEG" Data="{img yellow_type 19 20}"/>
 		<Class ClassID="4175" ClassName="DrugLootingChance" Data="루팅 찬스"/>
+	<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -4293,6 +4296,8 @@
 		<Class ClassID="27253" ClassName="CS_IndunReset_Nunnery_1_MSG2" Data="오늘 살러스 수녀원 미션에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
 		<Class ClassID="27254" ClassName="CS_IndunReset_GTower_1_MSG3" Data="인스턴스 지역에서는 사용 하실 수 없습니다!"/>
 		<Class ClassID="27255" ClassName="CS_IndunReset_GTower_1_MSG4" Data="살러스 수녀원 미션 완료 횟수 : 0{nl}1회 입장권을 사용할 수 없습니다"/>
+		<Class ClassID="27256" ClassName="CS_RequestEnterCount_1add_MSG1" Data="오늘 의뢰소 미션에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
+		<Class ClassID="27257" ClassName="CS_RequestEnterCount_1add_MSG2" Data="의뢰소 미션 1회 입장권이 적용되었습니다"/>
 		<Class ClassID="27260" ClassName="EV161229_DICE_MSG1" Data="취소 한다"/>
 		<Class ClassID="27261" ClassName="EV161229_DICE_MSG2" Data="{COUNT} 주사위 획득!"/>
 		<Class ClassID="27262" ClassName="EV161229_DICE_MSG3" Data="주사위 찾기에 참여한다"/>
@@ -4468,6 +4473,10 @@
 		<Class ClassID="27742" ClassName="EVENT_1710_HALLOWEEN_MSG7" Data="이번주 이벤트 상점 사탕 교환량 확인"/>
 		<Class ClassID="27743" ClassName="EVENT_1710_HALLOWEEN_MSG8" Data="이번주 이벤트 상점 사탕 교환량 : {COUNT}개"/>
 		<Class ClassID="27750" ClassName="CHANGEJOB_SERVER_MSG1" Data="해금을 완료하셔야 전직할 수 있는 클래스입니다"/>
+		<Class ClassID="27755" ClassName="JOB_RETIARII1_MSG1" Data="목표 몬스터 : {COUNT}"/>
+		<Class ClassID="27756" ClassName="JOB_RETIARII1_MSG2" Data="목표 {COUNT1} : 현재 {COUNT2}{nl}획득 점수 : {#FFFF00}{VALUE}"/>
+		<Class ClassID="27757" ClassName="JOB_RETIARII1_MSG3" Data="목표 {COUNT1} : 현재 {COUNT2}{nl}점수 획득 실패!"/>
+		<Class ClassID="27758" ClassName="JOB_RETIARII1_MSG4" Data="총 획득 {POINT} 점 획득!"/>
 		<Class ClassID="27760" ClassName="EVENT_1712_SECOND_MSG1" Data="2주년 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
 		<Class ClassID="27761" ClassName="EVENT_1712_SECOND_MSG2" Data="2주년 기념수의 축복 버프를 받는다"/>
 		<Class ClassID="27762" ClassName="EVENT_1712_SECOND_MSG3" Data="2주년 축제 교환 상점"/>
@@ -4491,6 +4500,15 @@
 		<Class ClassID="27801" ClassName="EVENT_1801_RANKRESET_MSG2" Data="위저드 1써클 이상 받기"/>
 		<Class ClassID="27810" ClassName="EVENT_1802_NEWYEAR_MSG1" Data="복주머니 받기"/>
 		<Class ClassID="27811" ClassName="EVENT_1802_NEWYEAR_MSG2" Data="현재 캐릭터가 보유하고 있는 칭호 입니다"/>
+		<Class ClassID="27820" ClassName="EVENT_1802_MASTER_MSG1" Data="시험에 참여한다"/>
+		<Class ClassID="27821" ClassName="EVENT_1802_MASTER_MSG2" Data="마스터의 시험권 받기"/>
+		<Class ClassID="27822" ClassName="EVENT_1802_MASTER_MSG3" Data="마스터의 시험에 참여한다"/>
+		<Class ClassID="27823" ClassName="EVENT_1802_MASTER_MSG4" Data="초급"/>
+		<Class ClassID="27824" ClassName="EVENT_1802_MASTER_MSG5" Data="중급"/>
+		<Class ClassID="27825" ClassName="EVENT_1802_MASTER_MSG6" Data="상급"/>
+		<Class ClassID="27826" ClassName="EVENT_1802_MASTER_MSG7" Data="최상급"/>
+		<Class ClassID="27827" ClassName="EVENT_1802_MASTER_MSG8" Data="조각을 큐브로 교환한다"/>
+		<Class ClassID="27828" ClassName="EVENT_1802_MASTER_MSG9" Data="상위 시험권을 하위 시험권으로 교환한다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5444,15 +5462,109 @@
 		<Class ClassID="50611" ClassName="HIDDEN_CHAR120_MSTEP5_FAIL4" Data="돌아가고 싶어"/>
 		<Class ClassID="50612" ClassName="HIDDEN_CHAR120_MSTEP5_FAIL5" Data="답을 듣고 싶어"/>
 		<Class ClassID="50613" ClassName="CHAR318_MSETP3_3_GETITEM1" Data="전기탄을 만들 수 있을만큼의{nl}전기가 흐르는 돌을 모았습니다"/>
+		<Class ClassID="50614" ClassName="CHAR118_MSTEP1_SEL1" Data="레티아리이에 관심이 생긴다고 한다"/>
+		<Class ClassID="50615" ClassName="CHAR118_MSTEP1_SEL2" Data="레티아리이란 검투사 직업을 알게 되어 즐거웠다고 한다"/>
+		<Class ClassID="50616" ClassName="CHAR118_MSTEP1_SEL3" Data="레티아리이가 될 수 있는지 검증 받고 싶다고 한다"/>
+		<Class ClassID="50617" ClassName="CHAR118_MSTEP1_SEL4" Data="시험까지는 부담된다고 한다"/>
+		<Class ClassID="50618" ClassName="CHAR118_MSTEP2_SEL1" Data="근력 훈련에 대해서 묻는다"/>
+		<Class ClassID="50619" ClassName="CHAR118_MSTEP2_SEL2" Data="지구력 훈련에 대해서 묻는다"/>
+		<Class ClassID="50620" ClassName="CHAR118_MSTEP2_SEL3" Data="민첩성 훈련에 대해서 묻는다"/>
+		<Class ClassID="50621" ClassName="CHAR118_MSTEP2_SEL4" Data="맷집 훈련에 대해서 묻는다"/>
+		<Class ClassID="50622" ClassName="CHAR118_MSTEP2_SEL5" Data="극적인 상황 연출 훈련에 대해서 묻는다"/>
+		<Class ClassID="50623" ClassName="CHAR118_MSTEP2_SEL6" Data="체력 충전은 어떻게 충전해야 하는지 묻는다"/>
+		<Class ClassID="50624" ClassName="CHAR118_MSTEP2_SEL7" Data="휴식이 필요하다고 한다"/>
+		<Class ClassID="50625" ClassName="CHAR118_MSTEP_STAMINA" Data="남은 체력 : {NUM}"/>
+		<Class ClassID="50626" ClassName="RETIARII_STAMINA_NOT_ENOUGH" Data="훈련에 필요한 체력이 부족합니다"/>
+		<Class ClassID="50627" ClassName="RETIARII_STAMINA_FULL_CHARGE" Data="체력을 충분히 충전했습니다"/>
 		<Class ClassID="50628" ClassName="HIDDEN_CHAR120_MSTEP5_3_COMP" Data="깨끗이 다 나은 거 같아"/>
 		<Class ClassID="50629" ClassName="HIDDEN_CHAR120_MSTEP5_4_COMP" Data="집에 돌아왔어"/>
 		<Class ClassID="50630" ClassName="CHAR318_MSETP3_3_EFFECT_BUFF1_MSG" Data="전기가 흐르는 돌이 근처 있습니다"/>
+		<Class ClassID="50631" ClassName="CHAR118_MSTEP2_1_ITEM1_TRAINING" Data="덤벨을 이용해 근력 훈련 중"/>
+		<Class ClassID="50632" ClassName="RETIARII_TRAINING_SUCC1" Data="근력 훈련을 모두 완료했습니다"/>
+		<Class ClassID="50633" ClassName="RETIARII_TRAINING_SUCC2" Data="지구력 훈련을 모두 완료했습니다"/>
+		<Class ClassID="50634" ClassName="RETIARII_TRAINING_SUCC3" Data="민첩성 훈련을 모두 완료했습니다"/>
+		<Class ClassID="50635" ClassName="RETIARII_TRAINING_SUCC4" Data="맷집 훈련을 모두 완료했습니다"/>
+		<Class ClassID="50636" ClassName="RETIARII_TRAINING_SUCC5" Data="극적인 상황 연출 훈련을 모두 완료했습니다"/>
+		<Class ClassID="50637" ClassName="RETIARII_TRAINING_COUNTING1" Data="근력 훈련을 {COUNT}회 완료했습니다"/>
+		<Class ClassID="50638" ClassName="RETIARII_TRAINING_COUNTING2" Data="지구력 훈련을 {COUNT}회 완료했습니다"/>
+		<Class ClassID="50639" ClassName="RETIARII_TRAINING_COUNTING3" Data="민첩성 훈련을 {COUNT}회 완료했습니다"/>
+		<Class ClassID="50640" ClassName="RETIARII_TRAINING_COUNTING4" Data="맷집 훈련을 {COUNT}회 완료했습니다"/>
+		<Class ClassID="50641" ClassName="RETIARII_TRAINING_COUNTING5" Data="극적인 상황 연출 훈련을 {COUNT}회 완료했습니다"/>
+		<Class ClassID="50642" ClassName="RETIARII_TRAINING_REMAIN_COUNT1" Data="{nl}앞으로 {COUNT}회 남았습니다"/>
+		<Class ClassID="50643" ClassName="CHAR121_MSTEP2_ITEM1_EAT" Data="음식을 섭취하는 중"/>
+		<Class ClassID="50644" ClassName="RETIARII_STAMINA_CHARGE" Data="음식을 섭취했습니다{nl}3분 뒤 체력이 모두 충전됩니다"/>
+		<Class ClassID="50645" ClassName="CHAR118_MSTEP2_2_ITEM1_USE" Data="훈련용 모래 주머니를 차는 중"/>
+		<Class ClassID="50646" ClassName="CHAR118_MSTEP2_2_ITEM1_FAR_MSG" Data="레티아리이 마스터 근처에서 착용하세요"/>
+		<Class ClassID="50647" ClassName="CHAR118_MSTEP2_2_STARTLINE1" Data="농장 집회소에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50648" ClassName="CHAR118_MSTEP2_2_STARTLINE2" Data="리아움 둔덕에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50649" ClassName="CHAR118_MSTEP2_2_GOALPOINT1_2" Data="기난 농장로에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50650" ClassName="CHAR118_MSTEP2_2_GOALPOINT2_2" Data="농장물 창고에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50651" ClassName="CHAR118_MSTEP2_2_GOALPOINT1_3" Data="농장 집회소에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50652" ClassName="CHAR118_MSTEP2_2_GOALPOINT2_3" Data="건조 작업장에 있는 깃발이 있는 곳까지 뛰세요"/>
+		<Class ClassID="50653" ClassName="CHAR118_MSTEP2_2_ITEM1_RETURNTOMASTER" Data="레티아리이 마스터가 있는 곳까지 뛰세요"/>
+		<Class ClassID="50654" ClassName="CHAR118_MSTEP2_2_MAPMSG1" Data="지구력 훈련 중이 아닙니다{nl}지구력 훈련을 시작하시려면 레티아리이 마스터 근처에서{nl}훈련용 모래 주머니를 사용하세요"/>
+		<Class ClassID="50655" ClassName="RETIARII_AGILITY_TRAINING1" Data="민첩성 훈련을 진행한다"/>
+		<Class ClassID="50656" ClassName="RETIARII_AGILITY_TRAINING2" Data="민첩성 훈련을 진행하지 않는다"/>
+		<Class ClassID="50657" ClassName="RETIARII_AGILITY_TRAINING3" Data="민첩성 훈련을 계속 진행한다"/>
+		<Class ClassID="50658" ClassName="RETIARII_AGILITY_TRAINING4" Data="민첩성 훈련을 그만둔다"/>
+		<Class ClassID="50659" ClassName="AGILITY_TRAINING_REMAIN1_CNT" Data="민첩성 훈련 {point}회 남았습니다"/>
+		<Class ClassID="50660" ClassName="RETIARII_TRAINING_5_MONKILL_CNT" Data="앞으로 {Count}마리를 더 처치해야{nl}극적인 상황 연출 훈련에 성공할 수 있습니다"/>
 		<Class ClassID="50661" ClassName="CHAR120_MSTEP5_2_FEMALE_SEL1" Data="상황을 설명 해준다"/>
 		<Class ClassID="50662" ClassName="CHAR120_MSTEP5_2_FEMALE_SEL2" Data="괜찮으니 걱정하지 말라고 한다"/>
 		<Class ClassID="50663" ClassName="CHAR120_FEDIMIAN_DETECTIVE_SEL1" Data="아사나에 대해 묻는다"/>
+		<Class ClassID="50664" ClassName="RETIARII_TRAINING_1_MSG1" Data="앞으로 근력 훈련을 {GOAL1}회를 해야 합니다"/>
+		<Class ClassID="50665" ClassName="RETIARII_TRAINING_1_MSG2" Data="근력 훈련을 완료했습니다"/>
+		<Class ClassID="50666" ClassName="RETIARII_TRAINING_2_MSG1" Data="앞으로 지구력 훈련을 {GOAL1}회를 해야 합니다"/>
+		<Class ClassID="50667" ClassName="RETIARII_TRAINING_2_MSG2" Data="지구력 훈련을 완료했습니다"/>
+		<Class ClassID="50668" ClassName="RETIARII_TRAINING_3_MSG1" Data="앞으로 민첩성 훈련을 {GOAL1}회를 해야 합니다"/>
+		<Class ClassID="50669" ClassName="RETIARII_TRAINING_3_MSG2" Data="민첩성 훈련을 완료했습니다"/>
+		<Class ClassID="50670" ClassName="RETIARII_TRAINING_4_MSG1" Data="앞으로 극적인 상황 연출 훈련을 {GOAL1}회를 해야 합니다"/>
+		<Class ClassID="50671" ClassName="RETIARII_TRAINING_4_MSG2" Data="극적인 상황 연출 훈련을 완료했습니다"/>
+		<Class ClassID="50672" ClassName="AGILITY_TRAINING_REMAIN1_CNT2" Data="민첩성 훈련을 {point}회 완료하여 더 이상 훈련을 진행하지 않아도 됩니다"/>
 		<Class ClassID="50673" ClassName="HIDDEN_CHAR120_MSTEP5_2_COMP2" Data="엄마에요?"/>
 		<Class ClassID="50674" ClassName="HIDDEN_CHAR120_MSTEP5_2_COMP3" Data="그래. 우리 아가 잘 자라줬구나{nl}이제 편안히 눈을 감을 수 있겠구나"/>
 		<Class ClassID="50675" ClassName="HIDDEN_CHAR120_MSTEP5_2_COMP4" Data="엄마 보고 싶었어요{nl}엄마를 보기 위해 이곳까지 올 만큼 자랐어요.{nl}아버지와 저는 걱정하지 마시고 편안히 가세요"/>
+		<Class ClassID="50676" ClassName="ACHIEVE_GRADE" Data="칭호 보유 {num} 단계"/>
+		<Class ClassID="50677" ClassName="ACHIEVE_GRADE_EXP1" Data="칭호 보유 1단계 적용 중입니다{nl}힘 1, 물리 공격력 5 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50678" ClassName="ACHIEVE_GRADE_EXP2" Data="칭호 보유 2단계 적용 중입니다{nl}힘 1, 체력 1, 물리 공격력 5, 물리 방어력 10 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50679" ClassName="ACHIEVE_GRADE_EXP3" Data="칭호 보유 3단계 적용 중입니다{nl}힘 1, 체력 1, 지능 1, 물리 공격력 5, 마법 공격력 5, 물리 방어력 10 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50680" ClassName="ACHIEVE_GRADE_EXP4" Data="칭호 보유 4단계 적용 중입니다{nl}힘 1, 체력 1, 지능 1, 정신 1, 물리 공격력 5, 마법 공격력 5, 물리 방어력 10, 마법 방어력 10 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50681" ClassName="ACHIEVE_GRADE_EXP5" Data="칭호 보유 5단계 적용 중입니다{nl}힘 1, 체력 1, 지능 1, 정신 1, 민첩 1, 물리 공격력 5, 마법 공격력 5, 물리 방어력 10, 마법 방어력 10, SP 25 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50682" ClassName="ACHIEVE_GRADE_EXP6" Data="칭호 보유 6단계 적용 중입니다{nl}힘 2, 체력 1, 지능 1, 정신 1, 민첩 1, 물리 공격력 10, 마법 공격력 5, 물리 방어력 10, 마법 방어력 10, SP 25 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50683" ClassName="ACHIEVE_GRADE_EXP7" Data="칭호 보유 7단계 적용 중입니다{nl}힘 2, 체력 2, 지능 1, 정신 1, 민첩 1, 물리 공격력 10, 마법 공격력 5, 물리 방어력 20, 마법 방어력 10, SP 25 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50684" ClassName="ACHIEVE_GRADE_EXP8" Data="칭호 보유 8단계 적용 중입니다{nl}힘 2, 체력 2, 지능 2, 정신 1, 민첩 1, 물리 공격력 10, 마법 공격력 10, 물리 방어력 20, 마법 방어력 10, SP 25 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50685" ClassName="ACHIEVE_GRADE_EXP9" Data="칭호 보유 9단계 적용 중입니다{nl}힘 2, 체력 2, 지능 2, 정신 2, 민첩 1, 물리 공격력 10, 마법 공격력 10, 물리 방어력 20, 마법 방어력 20, SP 25 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50686" ClassName="ACHIEVE_GRADE_EXP10" Data="칭호 보유 10단계 적용 중입니다{nl}힘 2, 체력 2, 지능 2, 정신 2, 민첩 2, 물리 공격력 10, 마법 공격력 10, 물리 방어력 20, 마법 방어력 20, SP 50 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50687" ClassName="ACHIEVE_GRADE_EXP11" Data="칭호 보유 11단계 적용 중입니다{nl}힘 3, 체력 2, 지능 2, 정신 2, 민첩 2, 물리 공격력 15, 마법 공격력 10, 물리 방어력 20, 마법 방어력 20, SP 50 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50688" ClassName="ACHIEVE_GRADE_EXP12" Data="칭호 보유 12단계 적용 중입니다{nl}힘 3, 체력 3, 지능 2, 정신 2, 민첩 2, 물리 공격력 15 마법 공격력 10, 물리 방어력 30, 마법 방어력 20, SP 50 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50689" ClassName="ACHIEVE_GRADE_EXP13" Data="칭호 보유 13단계 적용 중입니다{nl}힘 3, 체력 3, 지능 3, 정신 2, 민첩 2, 물리 공격력 15 마법 공격력 15, 물리 방어력 30, 마법 방어력 20, SP 50 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50690" ClassName="ACHIEVE_GRADE_EXP14" Data="칭호 보유 14단계 적용 중입니다{nl}힘 3, 체력 3, 지능 3, 정신 3, 민첩 2, 물리 공격력 15 마법 공격력 15, 물리 방어력 30, 마법 방어력 30, SP 50 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50691" ClassName="ACHIEVE_GRADE_EXP15" Data="칭호 보유 15단계 적용 중입니다{nl}힘 3, 체력 3, 지능 3, 정신 3, 민첩 3, 물리 공격력 15 마법 공격력 15, 물리 방어력 30, 마법 방어력 30, SP 75 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50692" ClassName="ACHIEVE_GRADE_EXP16" Data="칭호 보유 16단계 적용 중입니다{nl}힘 4, 체력 3, 지능 3, 정신 3, 민첩 3, 물리 공격력 20 마법 공격력 15, 물리 방어력 30, 마법 방어력 30, SP 75 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50693" ClassName="ACHIEVE_GRADE_EXP17" Data="칭호 보유 17단계 적용 중입니다{nl}힘 4, 체력 4, 지능 3, 정신 3, 민첩 3, 물리 공격력 20 마법 공격력 15, 물리 방어력 40, 마법 방어력 30, SP 75 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50694" ClassName="ACHIEVE_GRADE_EXP18" Data="칭호 보유 18단계 적용 중입니다{nl}힘 4, 체력 4, 지능 4, 정신 3, 민첩 3, 물리 공격력 20 마법 공격력 20, 물리 방어력 40, 마법 방어력 30, SP 75 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50695" ClassName="ACHIEVE_GRADE_EXP19" Data="칭호 보유 19단계 적용 중입니다{nl}힘 4, 체력 4, 지능 4, 정신 4, 민첩 3, 물리 공격력 20 마법 공격력 20, 물리 방어력 40, 마법 방어력 40, SP 75 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50696" ClassName="ACHIEVE_GRADE_EXP20" Data="칭호 보유 20단계 적용 중입니다{nl}힘 4, 체력 4, 지능 4, 정신 4, 민첩 4, 물리 공격력 20 마법 공격력 20, 물리 방어력 40, 마법 방어력 40, SP 100 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50697" ClassName="ACHIEVE_GRADE_EXP21" Data="칭호 보유 21단계 적용 중입니다{nl}힘 5, 체력 4, 지능 4, 정신 4, 민첩 4, 물리 공격력 25 마법 공격력 20, 물리 방어력 40, 마법 방어력 40, SP 100 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50698" ClassName="ACHIEVE_GRADE_EXP22" Data="칭호 보유 22단계 적용 중입니다{nl}힘 5, 체력 5, 지능 4, 정신 4, 민첩 4, 물리 공격력 25 마법 공격력 20, 물리 방어력 50, 마법 방어력 40, SP 100 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50699" ClassName="ACHIEVE_GRADE_EXP23" Data="칭호 보유 23단계 적용 중입니다{nl}힘 5, 체력 5, 지능 5, 정신 4, 민첩 4, 물리 공격력 25 마법 공격력 25, 물리 방어력 50, 마법 방어력 40, SP 100 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50700" ClassName="ACHIEVE_GRADE_EXP24" Data="칭호 보유 24단계 적용 중입니다{nl}힘 5, 체력 5, 지능 5, 정신 5, 민첩 4, 물리 공격력 25 마법 공격력 25, 물리 방어력 50, 마법 방어력 50, SP 100 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50701" ClassName="ACHIEVE_GRADE_EXP25" Data="칭호 보유 25단계 적용 중입니다{nl}힘 5, 체력 5, 지능 5, 정신 5, 민첩 5, 물리 공격력 25 마법 공격력 25, 물리 방어력 50, 마법 방어력 50, SP 125 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50702" ClassName="ACHIEVE_GRADE_EXP26" Data="칭호 보유 26단계 적용 중입니다{nl}힘 6, 체력 5, 지능 5, 정신 5, 민첩 5, 물리 공격력 30 마법 공격력 25, 물리 방어력 50, 마법 방어력 50, SP 125 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50703" ClassName="ACHIEVE_GRADE_EXP27" Data="칭호 보유 27단계 적용 중입니다{nl}힘 6, 체력 6, 지능 5, 정신 5, 민첩 5, 물리 공격력 30 마법 공격력 25, 물리 방어력 60, 마법 방어력 50, SP 125 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50704" ClassName="ACHIEVE_GRADE_EXP28" Data="칭호 보유 28단계 적용 중입니다{nl}힘 6, 체력 6, 지능 6, 정신 5, 민첩 5, 물리 공격력 30 마법 공격력 30, 물리 방어력 60, 마법 방어력 50, SP 125 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50705" ClassName="ACHIEVE_GRADE_EXP29" Data="칭호 보유 29단계 적용 중입니다{nl}힘 6, 체력 6, 지능 6, 정신 6, 민첩 5, 물리 공격력 30 마법 공격력 30, 물리 방어력 60, 마법 방어력 60, SP 125 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50706" ClassName="ACHIEVE_GRADE_EXP30" Data="칭호 보유 30단계 적용 중입니다{nl}힘 6, 체력 6, 지능 6, 정신 6, 민첩 6, 물리 공격력 30 마법 공격력 30, 물리 방어력 60, 마법 방어력 60, SP 150 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50707" ClassName="ACHIEVE_GRADE_EXP31" Data="칭호 보유 31단계 적용 중입니다{nl}힘 7, 체력 6, 지능 6, 정신 6, 민첩 6, 물리 공격력 35 마법 공격력 30, 물리 방어력 60, 마법 방어력 60, SP 150 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50708" ClassName="ACHIEVE_GRADE_EXP32" Data="칭호 보유 32단계 적용 중입니다{nl}힘 7, 체력 7, 지능 6, 정신 6, 민첩 6, 물리 공격력 35 마법 공격력 30, 물리 방어력 70, 마법 방어력 60, SP 150 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50709" ClassName="ACHIEVE_GRADE_EXP33" Data="칭호 보유 33단계 적용 중입니다{nl}힘 7, 체력 7, 지능 7, 정신 6, 민첩 6, 물리 공격력 35 마법 공격력 35, 물리 방어력 70, 마법 방어력 60, SP 150 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50710" ClassName="ACHIEVE_GRADE_EXP34" Data="칭호 보유 34단계 적용 중입니다{nl}힘 7, 체력 7, 지능 7, 정신 7, 민첩 6, 물리 공격력 35 마법 공격력 35, 물리 방어력 70, 마법 방어력 70, SP 150 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50711" ClassName="ACHIEVE_GRADE_EXP35" Data="칭호 보유 35단계 적용 중입니다{nl}힘 7, 체력 7, 지능 7, 정신 7, 민첩 7, 물리 공격력 35 마법 공격력 35, 물리 방어력 70, 마법 방어력 70, SP 175 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50712" ClassName="ACHIEVE_GRADE_EXP36" Data="칭호 보유 36단계 적용 중입니다{nl}힘 8, 체력 7, 지능 7, 정신 7, 민첩 7, 물리 공격력 40 마법 공격력 35, 물리 방어력 70, 마법 방어력 70, SP 175 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50713" ClassName="ACHIEVE_GRADE_EXP37" Data="칭호 보유 37단계 적용 중입니다{nl}힘 8, 체력 8, 지능 7, 정신 7, 민첩 7, 물리 공격력 40 마법 공격력 35, 물리 방어력 80, 마법 방어력 70, SP 175 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50714" ClassName="ACHIEVE_GRADE_EXP38" Data="칭호 보유 38단계 적용 중입니다{nl}힘 8, 체력 8, 지능 8, 정신 7, 민첩 7, 물리 공격력 40 마법 공격력 40, 물리 방어력 80, 마법 방어력 70, SP 175 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50715" ClassName="ACHIEVE_GRADE_EXP39" Data="칭호 보유 39단계 적용 중입니다{nl}힘 8, 체력 8, 지능 8, 정신 8, 민첩 7, 물리 공격력 40 마법 공격력 40, 물리 방어력 80, 마법 방어력 80, SP 175 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
+		<Class ClassID="50716" ClassName="ACHIEVE_GRADE_EXP40" Data="칭호 보유 40단계 적용 중입니다{nl}힘 8, 체력 8, 지능 8, 정신 8, 민첩 8, 물리 공격력 40 마법 공격력 40, 물리 방어력 80, 마법 방어력 80, SP 200 상승합니다{nl}새로운 칭호를 획득 시 지역을 이동하면 갱신됩니다"/>
 		<Class ClassID="50717" ClassName="CHAR120_FEDIMIAN_DETECTIVE_SEL2" Data="신경 쓰지 말라고 한다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
@@ -6092,6 +6204,14 @@
 		<Class ClassID="70207" ClassName="JOB_SHADOWMANCER_CATCH_SHADOW" Data="그림자를 잡았습니다!"/>
 		<Class ClassID="70208" ClassName="JOB_SHADOWMANCER_UNLOCK_EXPLAIN" Data="진행 방법에 대한 설명을 듣는다"/>
 		<Class ClassID="70209" ClassName="YOU_FIND_ALL_COLLECTION_ITEM_IN_THIS_ZONE" Data="이곳에 있는 모든 아이템을 찾았습니다.{nl}다른 곳으로 이동해 콜렉션 아이템을 찾아보세요."/>
+		<Class ClassID="70210" ClassName="MASTER_FIREMAGE1_BOCORS_TALK" Data="아직 악령들이 남아있으니 처리해주십시오."/>
+		<Class ClassID="70211" ClassName="MASTER_ICEMAGE1_GET_SCROLL" Data="상자 안에서 오래된 스크롤을 획득했습니다!{nl}크리오맨서 마스터에게 돌아가세요."/>
+		<Class ClassID="70212" ClassName="MASTER_ICEMAGE1_KILL_MONSTER" Data="상자가 열리지 않습니다.{nl}주변에 있는 몬스터를 전부 처치하고 시도하세요!"/>
+		<Class ClassID="70213" ClassName="MASTER_ICEMAGE1_OPEN_FAIL" Data="상자를 열려고 하자 계약의 수호자가 나타났습니다!"/>
+		<Class ClassID="70214" ClassName="SUBMASTER_LINKER1_2_IN_LAYER" Data="링커 서브 마스터가 준 열쇠를 통해 이면세계로 들어왔습니다!"/>
+		<Class ClassID="70215" ClassName="SUBMASTER_LINKER1_2_GOT_BOOK" Data="링커 서브 마스터가 찾고 있던 책을 발견했습니다!"/>
+		<Class ClassID="70216" ClassName="MASTER_CRYOMANCER2_2_NOT_YET" Data="예티의 공격으로 책을 줍기가 어렵습니다!{nl}예티를 처치한 후 다시 책을 주으러 오세요."/>
+		<Class ClassID="70217" ClassName="MASTER_CRYOMANCER2_2_GET_BOOK" Data="크리오맨서 마스터가 말한 책을 찾았습니다!"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -6346,6 +6466,74 @@
 		<Class ClassID="80761" ClassName="STARTOWER762_EVENT4_MSG7" Data="별빛의 기운을 담은 정수가 부족합니다"/>
 		<Class ClassID="80762" ClassName="STARTOWER762_EVENT4_MSG8" Data="지금은 제단을 이용할 수 없습니다"/>
 		<Class ClassID="80763" ClassName="STARTOWER762_EVENT3_MSG4" Data="주위를 맴도는 별 조각이 최대 개수에 다다라{nl}별 조각이 더 이상 맴돌지 않습니다"/>
+		<Class ClassID="80800" ClassName="CHAR220_MSETP1_PRE1_TXT1" Data="무슨 일인지 묻는다"/>
+		<Class ClassID="80801" ClassName="CHAR220_MSETP1_PRE1_TXT2" Data="대화를 나눌 시간이 없다고 한다"/>
+		<Class ClassID="80802" ClassName="CHAR220_MSETP1_PRE2_TXT1" Data="맡겨달라고 한다"/>
+		<Class ClassID="80803" ClassName="CHAR220_MSETP1_PRE2_TXT2" Data="부담감이 크다며 거절한다"/>
+		<Class ClassID="80804" ClassName="CHAR220_MSETP1_ITEM_TXT1" Data="클라페다 잡화 상인"/>
+		<Class ClassID="80805" ClassName="CHAR220_MSETP1_ITEM_TXT2" Data="드루이드 마스터"/>
+		<Class ClassID="80806" ClassName="CHAR220_MSETP1_ITEM_TXT3" Data="오르샤 영주"/>
+		<Class ClassID="80807" ClassName="CHAR220_MSETP1_ITEM_TXT4" Data="커세어 마스터"/>
+		<Class ClassID="80808" ClassName="CHAR220_MSETP1_ITEM_TXT5" Data="플레이그 닥터 마스터"/>
+		<Class ClassID="80809" ClassName="CHAR220_MSETP1_ITEM_TXT6" Data="케도라 상단 레오폴다스"/>
+		<Class ClassID="80810" ClassName="CHAR220_MSETP1_ITEM_TXT7" Data="드루이드 엘리"/>
+		<Class ClassID="80811" ClassName="CHAR220_MSETP1_ITEM_CANCLE" Data="도로 집어넣는다"/>
+		<Class ClassID="80812" ClassName="CHAR220_MSETP2_1_1_MSG1" Data="털 뭉치 만드는 중"/>
+		<Class ClassID="80813" ClassName="CHAR220_MSETP2_1_1_MSG2{cnt}" Data="털 뭉치를 만들기 위한 재료의 최소 개수가 부족합니다{nl}(최소 개수 : {cnt} 개)"/>
+		<Class ClassID="80814" ClassName="CHAR220_MSETP2_1_1_MSG3" Data="털 뭉치를 충분히 모았습니다"/>
+		<Class ClassID="80815" ClassName="CHAR220_MSETP2_1_1_MSG4{cnt1}{cnt2}" Data="살티스도터의 털가죽 {cnt1} 개를 이용해 살티스도터의 털 뭉치 {cnt2} 개를 획득했습니다"/>
+		<Class ClassID="80816" ClassName="CHAR220_MSETP2_CLEAR{NPC_NAME}" Data="음양사 본향 지원에 필요한 [{NPC_NAME}]의 임무를 해결했습니다"/>
+		<Class ClassID="80817" ClassName="CHAR220_MSETP2_1_2_OBJ_NAME" Data="쌓여있는 목재"/>
+		<Class ClassID="80818" ClassName="CHAR220_MSETP2_1_2_MSG1" Data="잘 마른 목재 찾는 중"/>
+		<Class ClassID="80819" ClassName="CHAR220_MSETP2_1_2_MSG2" Data="잘 마른 목재를 획득했습니다"/>
+		<Class ClassID="80820" ClassName="CHAR220_MSETP2_1_2_MSG3" Data="잘 마른 목재가 보이지 않습니다"/>
+		<Class ClassID="80821" ClassName="CHAR220_MSETP2_1_2_MSG4" Data="잘 마른 목재를 충분히 모았습니다"/>
+		<Class ClassID="80822" ClassName="CHAR220_MSETP2_2_1_MSG1" Data="살펴보는 중"/>
+		<Class ClassID="80823" ClassName="CHAR220_MSETP2_2_1_MSG2" Data="자세히 살펴보자, 표본으로 쓸만한 버섯 종균을 발견했습니다"/>
+		<Class ClassID="80824" ClassName="CHAR220_MSETP2_2_1_MSG3" Data="표본으로 쓸만한 버섯 종균이 보이지 않습니다"/>
+		<Class ClassID="80825" ClassName="CHAR220_MSETP2_2_1_MSG4" Data="버섯 종균 표본을 충분히 구했습니다"/>
+		<Class ClassID="80826" ClassName="CHAR220_MSETP2_2_2_MSG1" Data="자세히 살펴보자, 표본으로 쓸만한 포도 씨앗을 발견했습니다"/>
+		<Class ClassID="80827" ClassName="CHAR220_MSETP2_2_2_MSG2" Data="표본으로 쓸만한 포도 씨앗이 보이지 않습니다"/>
+		<Class ClassID="80828" ClassName="CHAR220_MSETP2_2_2_MSG3" Data="포도 씨앗 표본을 충분히 구했습니다"/>
+		<Class ClassID="80829" ClassName="CHAR220_MSETP2_3_MSG1" Data="가죽 손질하는 중"/>
+		<Class ClassID="80830" ClassName="CHAR220_MSETP2_3_MSG2{cnt}" Data="가죽을 손질하기 위한 재료의 최소 개수가 부족합니다{nl}(최소 개수 : {cnt} 개)"/>
+		<Class ClassID="80831" ClassName="CHAR220_MSETP2_3_MSG3" Data="손질된 가죽을 충분히 모았습니다"/>
+		<Class ClassID="80832" ClassName="CHAR220_MSETP2_3_MSG4{cnt1}{cnt2}" Data="더키의 생가죽 {cnt1} 개를 손질하여 손질된 더키 가죽 {cnt2} 개를 획득했습니다"/>
+		<Class ClassID="80833" ClassName="CHAR220_MSETP2_3_MSG5{cnt}" Data="{nl}(손질 중 구멍이 나서 버린 가죽 {cnt} 개 제외)"/>
+		<Class ClassID="80834" ClassName="CHAR220_MSETP2_4_MSG1" Data="상황을 얘기하는 중"/>
+		<Class ClassID="80835" ClassName="CHAR220_MSETP2_5_MSG1" Data="풀숲을 뒤져보는 중"/>
+		<Class ClassID="80836" ClassName="CHAR220_MSETP2_5_MSG2" Data="자세히 살펴보자, 억센 엉겅퀴를 발견했습니다"/>
+		<Class ClassID="80837" ClassName="CHAR220_MSETP2_5_MSG3" Data="엉겅퀴와 비슷한 꽃이 보이지 않습니다"/>
+		<Class ClassID="80838" ClassName="CHAR220_MSETP2_5_MSG4" Data="억센 엉겅퀴를 충분히 구했습니다"/>
+		<Class ClassID="80839" ClassName="CHAR220_MSETP2_5_MSG5" Data="모두 확인했다고 얘기한다"/>
+		<Class ClassID="80840" ClassName="CHAR220_MSETP2_5_MSG6" Data="기억이 안 난다고 얘기한다"/>
+		<Class ClassID="80841" ClassName="CHAR220_MSETP2_6_MSG1" Data="탐지기를 사용하는 중"/>
+		<Class ClassID="80842" ClassName="CHAR220_MSETP2_6_MSG2" Data="빛나는 곳을 확인하는 중"/>
+		<Class ClassID="80843" ClassName="CHAR220_MSETP2_6_MSG3" Data="견본용 차원석이 담긴 자루를 발견했습니다"/>
+		<Class ClassID="80844" ClassName="CHAR220_MSETP2_6_MSG4" Data="아무 반응을 보이지 않는다"/>
+		<Class ClassID="80845" ClassName="CHAR220_MSETP2_6_MSG5" Data="견본용 차원석이 담긴 자루를 모두 획득했습니다"/>
+		<Class ClassID="80846" ClassName="CHAR220_MSETP2_7_OBJ_NAME" Data="곡식 포대"/>
+		<Class ClassID="80847" ClassName="CHAR220_MSETP2_7_MSG1" Data="주문서 사용하는 중"/>
+		<Class ClassID="80848" ClassName="CHAR220_MSETP2_7_MSG2" Data="곡식 포대에 보존 마법을 걸었습니다"/>
+		<Class ClassID="80849" ClassName="CHAR220_MSETP2_7_MSG3" Data="이미 보존 마법이 걸려있습니다"/>
+		<Class ClassID="80850" ClassName="CHAR220_MSETP2_7_MSG4" Data="포대 안에 벌레가 들끓습니다"/>
+		<Class ClassID="80851" ClassName="CHAR220_MSETP2_7_MSG5" Data="포대 안에 곡식이 비어있습니다"/>
+		<Class ClassID="80852" ClassName="CHAR220_MSETP2_7_MSG6" Data="포대 안에 곡식이 충분히 쌓이지 않았습니다"/>
+		<Class ClassID="80853" ClassName="CHAR220_MSETP2_7_MSG7" Data="보존 마법을 거는 작업을 모두 완료했습니다"/>
+		<Class ClassID="80854" ClassName="CHAR220_MSETP2_7_MSG8" Data="근처에 곡식 포대가 없습니다"/>
+		<Class ClassID="80855" ClassName="CHAR220_MSETP2_COMPLETE" Data="음양사 본향 지원과 관련된 모든 임무를 완료했습니다"/>
+		<Class ClassID="80856" ClassName="CHAR220_MSETP3_PRE1_MSG1" Data="다시 한번 설명해 달라고 한다"/>
+		<Class ClassID="80857" ClassName="CHAR220_MSETP3_PRE2_MSG1" Data="모두 확인하고 오는 길이라고 얘기한다"/>
+		<Class ClassID="80858" ClassName="CHAR220_MSETP3_PRE1_MSG2" Data="아무 일도 아니라고 한다"/>
+		<Class ClassID="80859" ClassName="CHAR220_MSETP3_MSG1" Data="음양사 마스터의 위치를 다시 알려달라고 한다"/>
+		<Class ClassID="80860" ClassName="CHAR220_MSETP2_4_MSG2" Data="현재 상황을 전한다"/>
+		<Class ClassID="80861" ClassName="CHAR220_MSETP2_4_MSG3" Data="사람을 잘못 봤다고 얘기한다"/>
+		<Class ClassID="80862" ClassName="CHAR220_MSETP2_QUEST_OK_MSG" Data="알겠다고 한다."/>
+		<Class ClassID="80863" ClassName="CHAR220_MSETP2_QUEST_NO_MSG" Data="생각해 보겠다고 한다."/>
+		<Class ClassID="80864" ClassName="JOB_ONMYOJI_Q1_MON_NAME_WHITE" Data="하얀 종이 인형"/>
+		<Class ClassID="80865" ClassName="JOB_ONMYOJI_Q1_MON_NAME_RED" Data="빨간 종이 인형"/>
+		<Class ClassID="80866" ClassName="JOB_ONMYOJI_Q1_MSG1" Data="육임식반 사용 중"/>
+		<Class ClassID="80867" ClassName="JOB_ONMYOJI_Q1_MSG2{add_point}{total_point}" Data="{add_point}점 획득{nl}(현재 점수 : {total_point})"/>
 		<Class ClassID="80870" ClassName="JourneyQusetRewardAll" Data="바이보라의 날개 NPC에게 들려줄 만한 경험담이 있습니다{nl}바이보라의 날개 NPC를 찾아가셔서 경험담을 전하고 보상을 받으세요!"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
@@ -6929,6 +7117,9 @@
 		<Class ClassID="102189" ClassName="GuildEventStarted" Data="길드 퀘스트가 이미 진행 중입니다."/>
 		<Class ClassID="102192" ClassName="GuildEventZonemoveError" Data="이전 길드 퀘스트가 정상적으로 종료되지 않았습니다. {nl}길드 퀘스트 진행 상태가 초기화 됩니다."/>
 		<Class ClassID="102193" ClassName="GuildMember{Name}TakeItem{ItemName}" Data="길드원 {Name}님이 {ItemName}를 획득하셨습니다."/>
+		<Class ClassID="102297" ClassName="CS_Guild_Ticket_add1_MSG1" Data="가입된 길드가 없으면 사용할 수 없습니다."/>
+		<Class ClassID="102298" ClassName="CS_Guild_Ticket_add1_MSG2" Data="금주 길드 퀘스트에 입장한 횟수가 1 이상일 때만 사용 가능합니다"/>
+		<Class ClassID="102299" ClassName="CS_Guild_Ticket_add1_MSG3" Data="길드 퀘스트 1회 입장권이 적용되었습니다"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -7944,7 +8135,7 @@
 		<Class ClassID="136169" ClassName="Auto_JeugSeogSangJeomeSeo_BaLo_KeoLae_KaNeung" Data="즉석상점에서 바로 거래 가능"/>
 		<Class ClassID="136170" ClassName="Auto_BoKoLeu_MaMa" Data="보코르 마스터"/>
 		<Class ClassID="136171" ClassName="Auto_JaMulSoe_yeoNeun_Jung" Data="자물쇠 여는 중"/>
-		<Class ClassID="136172" ClassName="Auto_Bin_SangJa" Data="빈 상자"/>
+		<Class ClassID="136172" ClassName="Auto_Bin_SangJa" Data="빈 상자입니다."/>
 		<Class ClassID="136173" ClassName="Auto_/3_CheoChi_Pilyo" Data="/3 처치 필요"/>
 		<Class ClassID="136174" ClassName="Auto_Kyeyagui_SuHoJa_ChulHyeon!" Data="계약의 수호자가 나타났습니다!"/>
 		<Class ClassID="136175" ClassName="Auto_Kyeyagui_SuHoJa" Data="계약의 수호자"/>

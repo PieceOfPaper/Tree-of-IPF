@@ -141,6 +141,13 @@
 		<image name="icon_wizar_StormDust" file="\icon\skill\wizard\icon_wizar_StormDust.png" imgrect="0 0 128 128" CMM_Caption="스톰 더스트"/>
 		<image name="icon_wizar_HeavyGravity" file="\icon\skill\wizard\icon_wizar_HeavyGravity.png" imgrect="0 0 128 128" CMM_Caption="헤비 그라비티"/>
 		<image name="icon_wizar_SpiritShock" file="\icon\skill\wizard\icon_wizar_SpiritShock.png" imgrect="0 0 128 128" CMM_Caption="스피릿 쇼크"/>
+		<image name="icon_wizar_FireFoxShikigami" file="\icon\skill\wizard\icon_wizar_FireFoxShikigami.png" imgrect="0 0 128 128" CMM_Caption="불여우 식신령"/>
+		<image name="icon_wizar_GreenwoodShikigami" file="\icon\skill\wizard\icon_wizar_GreenwoodShikigami.png" imgrect="0 0 128 128" CMM_Caption="생목의 식신령"/>
+		<image name="icon_wizar_WaterShikigami" file="\icon\skill\wizard\icon_wizar_WaterShikigami.png" imgrect="0 0 128 128" CMM_Caption="살수의 식신령"/>
+		<image name="icon_wizar_HarmonyOfYinAndYang" file="\icon\skill\wizard\icon_wizar_HarmonyOfYinAndYang.png" imgrect="0 0 128 128" CMM_Caption="음양조화"/>
+		<image name="icon_wizar_WhiteTigerHowling" file="\icon\skill\wizard\icon_wizar_WhiteTigerHowling.png" imgrect="0 0 128 128" CMM_Caption="백호령"/>
+		<image name="icon_wizar_GenbuArmor" file="\icon\skill\wizard\icon_wizar_GenbuArmor.png" imgrect="0 0 128 128" CMM_Caption="현무갑"/>
+		<image name="icon_wizar_Toyou" file="\icon\skill\wizard\icon_wizar_Toyou.png" imgrect="0 0 128 128" CMM_Caption="토용"/>
 	</imagelist>
 	<imagelist category="archer_skillicon">
 		<image name="icon_arch_doubleShot" file="\icon\skill\archer\icon_arch_doubleShot.png" imgrect="0 0 128 128" CMM_Caption="멀티샷"/>
@@ -585,7 +592,14 @@
 		<image name="icon_warri_SokChiang" file="\icon\skill\warrior\icon_warri_SokChiang.png" imgrect="0 0 128 128" CMM_Caption="쏙콴"/>
 		<image name="icon_warri_TeKha" file="\icon\skill\warrior\icon_warri_TeKha.png" imgrect="0 0 128 128" CMM_Caption="때카"/>
 		<image name="icon_warri_TeTrong" file="\icon\skill\warrior\icon_warri_TeTrong.png" imgrect="0 0 128 128" CMM_Caption="때트롱"/>
+		<image name="icon_warri_DaggerGuard" file="\icon\skill\warrior\icon_warri_DaggerGuard.png" imgrect="0 0 128 128" CMM_Caption="대거가드"/>
+		<image name="icon_warri_DaggerFinish" file="\icon\skill\warrior\icon_warri_DaggerFinish.png" imgrect="0 0 128 128" CMM_Caption="대거 피니쉬"/>
+		<image name="icon_warri_EquipDesrption" file="\icon\skill\warrior\icon_warri_EquipDesrption.png" imgrect="0 0 128 128" CMM_Caption="이큅 디솝션"/>
+		<image name="icon_warri_FishingNetsDraw" file="\icon\skill\warrior\icon_warri_FishingNetsDraw.png" imgrect="0 0 128 128" CMM_Caption="어망끌기"/>
+		<image name="icon_warri_ThrowingFishingNet" file="\icon\skill\warrior\icon_warri_ThrowingFishingNet.png" imgrect="0 0 128 128" CMM_Caption="어망투척"/>
+		<image name="icon_warri_TridentFinish" file="\icon\skill\warrior\icon_warri_TridentFinish.png" imgrect="0 0 128 128" CMM_Caption="트라이언트 피니쉬"/>
 		<image name="icon_warri_impaleDagger" file="\icon\skill\warrior\icon_warri_impaleDagger.png" imgrect="0 0 128 128" CMM_Caption="임페일 대거"/>
+	<image name="icon_warri_VitalProtection" file="\icon\skill\warrior\icon_warri_VitalProtection.png" imgrect="0 0 128 128" CMM_Caption="급소보호"/>
 	</imagelist>
 	<imagelist category="summon_skillicon">
 		<image name="icon_summon_Common_ForcedAttack" file="\icon\skill\summon\icon_summon_Common_ForcedAttack.png" imgrect="0 0 128 128" CMM_Caption="소환수 강제 공격"/>
@@ -1005,6 +1019,16 @@
 		<image name="ability_Warrior_Peltasta32" file="\icon\icon_ability_warrior06.tga" imgrect="0 384 128 128" CMM_Caption="스워시 버클링 강력한 도발"/>
 		<image name="ability_Warrior_Peltasta31" file="\icon\icon_ability_warrior06.tga" imgrect="128 384 128 128" CMM_Caption="펠타스타 가디언"/>
 		<image name="ability_Warrior_Corsair19" file="\icon\icon_ability_warrior06.tga" imgrect="256 384 128 128" CMM_Caption="임페일 대거: 강화"/>
+	<image name="ability_Warrior_Retiarii1" file="\icon\icon_ability_warrior06.tga" imgrect="384 384 128 128" CMM_Caption="투망 끌기 : 무거운 그물"/>
+		<image name="ability_Warrior_Retiarii2" file="\icon\icon_ability_warrior06.tga" imgrect="512 384 128 128" CMM_Caption="투망 끌기 : 적용 대상 수 증가"/>
+		<image name="ability_Warrior_Retiarii3" file="\icon\icon_ability_warrior06.tga" imgrect="640 384 128 128" CMM_Caption="대거 가드: 강화"/>
+		<image name="ability_Warrior_Retiarii4" file="\icon\icon_ability_warrior06.tga" imgrect="768 384 128 128" CMM_Caption="대거 가드: 투척물 쳐내기"/>
+		<image name="ability_Warrior_Retiarii5" file="\icon\icon_ability_warrior06.tga" imgrect="896 384 128 128" CMM_Caption="트라이던트 피니쉬: 강화"/>
+		<image name="ability_Warrior_Retiarii6" file="\icon\icon_ability_warrior06.tga" imgrect="0 512 128 128" CMM_Caption="무장해제: 강화"/>
+		<image name="ability_Warrior_Retiarii7" file="\icon\icon_ability_warrior06.tga" imgrect="128 512 128 128" CMM_Caption="무장해제: 투구 벗기기"/>
+		<image name="ability_Warrior_Retiarii8" file="\icon\icon_ability_warrior06.tga" imgrect="256 512 128 128" CMM_Caption="대거 피니쉬: 강화"/>
+		<image name="ability_Warrior_Retiarii10" file="\icon\icon_ability_warrior06.tga" imgrect="384 512 128 128" CMM_Caption="급소 보호: 구사일생 "/>
+		<image name="ability_Warrior_Retiarii9" file="\icon\icon_ability_warrior06.tga" imgrect="512 512 128 128" CMM_Caption="투망 던지기: 강화 그물"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1284,6 +1308,25 @@
 		<image name="ability_Wizard_Pyromancer27" file="\icon\icon_ability_wizard05.tga" imgrect="128 256 128 128" CMM_Caption="플레임 그라운드 열기 확산"/>
 		<image name="ability_Wizard_Psychokino21" file="\icon\icon_ability_wizard05.tga" imgrect="256 256 128 128" CMM_Caption="헤비 그라비티 강화"/>
 		<image name="ability_Wizard_Psychokino22" file="\icon\icon_ability_wizard05.tga" imgrect="384 256 128 128" CMM_Caption="헤비 그라비티 이동속도 감소"/>
+		<image name="ability_Wizard_Onmyoji1" file="\icon\icon_ability_wizard05.tga" imgrect="512 256 128 128" CMM_Caption="불여우 식신 강화"/>
+		<image name="ability_Wizard_Onmyoji2" file="\icon\icon_ability_wizard05.tga" imgrect="640 256 128 128" CMM_Caption="불여우 식신 염동화"/>
+		<image name="ability_Wizard_Onmyoji3" file="\icon\icon_ability_wizard05.tga" imgrect="768 256 128 128" CMM_Caption="불여우 식신 큰 여우"/>
+		<image name="ability_Wizard_Onmyoji4" file="\icon\icon_ability_wizard05.tga" imgrect="896 256 128 128" CMM_Caption="생목의 식신 강화"/>
+		<image name="ability_Wizard_Onmyoji5" file="\icon\icon_ability_wizard05.tga" imgrect="0 384 128 128" CMM_Caption="생목의 식신 독"/>
+		<image name="ability_Wizard_Onmyoji6" file="\icon\icon_ability_wizard05.tga" imgrect="128 384 128 128" CMM_Caption="백호령 강화"/>
+		<image name="ability_Wizard_Onmyoji7" file="\icon\icon_ability_wizard05.tga" imgrect="256 384 128 128" CMM_Caption="백호령 야수의 공포"/>
+		<image name="ability_Wizard_Onmyoji8" file="\icon\icon_ability_wizard05.tga" imgrect="384 384 128 128" CMM_Caption="백호령 야수의 위엄"/>
+		<image name="ability_Wizard_Onmyoji9" file="\icon\icon_ability_wizard05.tga" imgrect="512 384 128 128" CMM_Caption="살수의 식신 강화"/>
+		<image name="ability_Wizard_Onmyoji10" file="\icon\icon_ability_wizard05.tga" imgrect="640 384 128 128" CMM_Caption="살수의 식신 급류"/>
+		<image name="ability_Wizard_Onmyoji11" file="\icon\icon_ability_wizard05.tga" imgrect="768 384 128 128" CMM_Caption="현무갑 유능제강"/>
+		<image name="ability_Wizard_Onmyoji12" file="\icon\icon_ability_wizard05.tga" imgrect="896 384 128 128" CMM_Caption="현무갑 흐르는 강"/>
+		<image name="ability_Wizard_Onmyoji13" file="\icon\icon_ability_wizard05.tga" imgrect="0 512 128 128" CMM_Caption="토용 강화"/>
+		<image name="ability_Wizard_Onmyoji14" file="\icon\icon_ability_wizard05.tga" imgrect="128 512 128 128" CMM_Caption="토용 넉다운"/>
+		<image name="ability_Wizard_Onmyoji15" file="\icon\icon_ability_wizard05.tga" imgrect="256 512 128 128" CMM_Caption="토용 돌 파편"/>
+		<image name="ability_Wizard_Onmyoji16" file="\icon\icon_ability_wizard05.tga" imgrect="384 512 128 128" CMM_Caption="음양조화 강화"/>
+		<image name="ability_Wizard_Onmyoji17" file="\icon\icon_ability_wizard05.tga" imgrect="512 512 128 128" CMM_Caption="음양조화 조율자"/>
+		<image name="ability_Wizard_Onmyoji18" file="\icon\icon_ability_wizard05.tga" imgrect="640 512 128 128" CMM_Caption="생목의 식신령 끌어당김"/>
+		<image name="ability_Wizard_Onmyoji19" file="\icon\icon_ability_wizard05.tga" imgrect="768 512 128 128" CMM_Caption="불여우 파이어볼 증가"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
