@@ -223,6 +223,11 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
     value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 ))))));
     
     local itemOwner = GetItemOwner(item)
+	
+	if itemOwner == nil then
+		return 0;
+	end
+
     local checkPvp = IsPVPServer(itemOwner)
     
     if checkPvp == nil then
@@ -714,9 +719,6 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     item.MDEF = mdef;
     item.DefRatio = defRatio;
     item.MDefRatio = mdefRatio;
-    item.ADD_FIRE = fireAtk;
-    item.ADD_ICE = iceAtk;
-    item.ADD_LIGHTNING = lightningAtk;
 
 
 

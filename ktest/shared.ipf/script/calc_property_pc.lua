@@ -3110,7 +3110,7 @@ end
 
 function GET_MAXHATE_COUNT(self)
     local owner = GetTopOwner(self);
-    if IS_PC(owner) == true then
+    if IS_PC(owner) == true and IS_PC(self) == false then
         return 100;
     end
     

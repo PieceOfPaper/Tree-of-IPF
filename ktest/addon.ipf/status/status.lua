@@ -697,10 +697,10 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
             serverExpupValue = expupValue;
         end
     else
-        serverExpupValue = JAEDDURY_MON_EXP_RATE;
+        serverExpupValue = session.world.GetServerJadduryRate();
     end
 
-    serverExpupValue = serverExpupValue * 100;
+    serverExpupValue = math.floor(serverExpupValue * 100);
     serverExpupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'ExpUpStd', serverExpupValue);
     totalExpUpValue = totalExpUpValue + serverExpupValue;
 

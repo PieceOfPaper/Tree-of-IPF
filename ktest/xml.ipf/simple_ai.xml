@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <AIList>
 	<AI Name="ABBAY643_MQ4_OBJ_EFFECT" UpdateMS="2000" ActiveMessageMapInBattle="1">
 		<List>
@@ -2920,11 +2919,6 @@
 		</StartList>
 	</AI>
 	<AI Name="CORAL_35_2_TERRA_MAKING_AI" ActiveMessageMapInBattle="1">
-		<List>
-			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-				<AbsPos X="-86.634239" Y="301.34729" Z="-772.85535"/>
-			</ToolScp>
-		</List>
 		<StartList>
 			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
@@ -6913,11 +6907,6 @@
 		<DeadList>
 			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="GELE573_MQ_04_KILL"/>
-			</ToolScp>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_magic_prison_line_white" Arg="3"/>
-				<Str Str="BOT"/>
 			</ToolScp>
 		</DeadList>
 		<StartList>
@@ -11049,11 +11038,6 @@ if self.HP == 0 then return 1; else return 0; end;">
 	</AI>
 	<AI Name="REMAINS37_3_PAGODA_AI" ActiveMessageMapInBattle="1">
 		<DeadList>
-			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-				<Num Num="0"/>
-				<Str_Arg Str="F_magic_prison_line_white" Arg="3"/>
-				<Str Str="BOT"/>
-			</ToolScp>
 			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="REMAINS37_3_PAGODA_AI_DIE_01"/>
 			</ToolScp>
