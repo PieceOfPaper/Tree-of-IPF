@@ -92,6 +92,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 110013,0,0,"BILLINGSHOP_NISMS_TEST_IGNORE_DB","BillingShop에서 DB관리 없이 Test용 내부 값 사용여부 (사용시, 아이템 지급 감사가 이루어지지 않는다.)","NO"
 110014,1,0,"USE_SHOW_BANDI_CAM_TEXT","반디캠","YES"
 110015,0,0,"INGAMESHOP_CONSUME_FORCE_RESULT","0일경우 사용하지 않음, 1일 경우 항상 실패, 2일 경우 항상 성공. 구매 요청 통신 실패 시의 정상작동 여부를 검사하기 위해 사용됩니다.","NO"
+110016,0,0,"USE_LOCAL_TIME_FOR_TEST","이 값을 1로 두면 시간을 imc 네임스페이스의 로컬 시스템 시간으로 가져옵니다. 이 값은 스크립트에서 변경 가능한 시간임","NO"
 110017,0,0,"FORCE_DB_LOGIN","이 값을 1로 두면 설정된 국가 옵션에 관계없이 무조건 DB로그인(사내서버처럼)합니다","NO"
 110018,0,0,"STEAM_INV_LIST_LOAD_BY_FILE","이 값을 1로 두면 스팀 인벤토리 리스트를 가져올 떄 스팀 서버와의 통신 대신 release\steamInvList.txt 파일을 읽어와서 사용합니다.","NO"
 110020,1,0,"USE_REAL_NGS","4.0버전NGS","NO"

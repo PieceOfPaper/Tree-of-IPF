@@ -695,8 +695,16 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
     end
     
     if IsBuffApplied(pc, "Bunshin_Debuff") == "YES" then
-    	local bunshinBuff = GetBuffByName(pc, "Bunshin_Debuff")
-    	local bunsinCount = GetBuffArg(bunshinBuff)
+		local bunshinBuff = nil
+		local bunsinCount = nil
+	    if IsServerObj(pc) == 1 then
+	    	bunshinBuff = GetBuffByName(pc, "Bunshin_Debuff")
+	    	bunsinCount = GetBuffArg(bunshinBuff)
+	    else 
+			local handle = session.GetMyHandle();
+			bunshinBuff = info.GetBuff(handle, 3049)
+			bunsinCount = bunshinBuff.arg1
+	    end
 		
     	basicCoolDown = basicCoolDown + (bunsinCount * 2000 + (basicCoolDown * (bunsinCount * 0.1)))
     end
@@ -1237,7 +1245,15 @@ function SCR_Get_SklAtkAdd_Thrust(skill)
 end
 
 function SCR_ABIL_ADD_SKILLFACTOR(abil, value)
-    return value * (1 + (abil.Level * 0.005))
+	local abilLevel = TryGetProp(abil, "Level")
+	local masterAddValue = 0
+	if abilLevel == 100 then
+		masterAddValue = 0.1
+	end
+	
+	local value = value * (1 + ((abilLevel * 0.005) + masterAddValue))
+	
+	return value
 end
 
 function SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil)
@@ -10994,13 +11010,11 @@ function SCR_Get_Haste_Bufftime(skill)
 end
 
 function SCR_Get_CreateShoggoth_Ratio(skill)
-    
     local value = 10 + (skill.Level * 5);
-    
     local pc = GetSkillOwner(skill);
-    local Necromancer5_abil = GetAbility(pc, "Necromancer5")
-    if Necromancer5_abil ~= nil then
-        value = value * (1 + (Necromancer5_abil.Level * 0.005));
+    local abil = GetAbility(pc, "Necromancer5")
+    if abil ~= nil then
+		value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
     
     return math.floor(value);
@@ -13142,7 +13156,7 @@ function SCR_GET_SwashBuckling_Ratio(skill)
 end
 
 function SCR_GET_SwashBuckling_Ratio2(skill)
-    local value = 20
+    local value = 35
     return value;
 
 end

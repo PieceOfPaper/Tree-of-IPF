@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -378,6 +378,7 @@
 		<Class ClassID="4163" ClassName="MonsterCardOptionGroupATK" Data="{img red_type}"/>
 		<Class ClassID="4173" ClassName="OverMaxTradeCount" Data="판매 가능한 최대 개수를 초과하였습니다."/>
 		<Class ClassID="4174" ClassName="MonsterCardOptionGroupLEG" Data="{img yellow_type 19 20}"/>
+		<Class ClassID="4175" ClassName="DrugLootingChance" Data="루팅 찬스"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>

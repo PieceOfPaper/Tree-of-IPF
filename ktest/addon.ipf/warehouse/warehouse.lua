@@ -210,12 +210,12 @@ end
 function CHECK_EMPTYSLOT(frame, obj)
 
 	local gbox = frame:GetChild("gbox");
-	local slotset = gbox:GetChild("slotset");
+	local slotset = GET_CHILD_RECURSIVELY(gbox, "slotset");
 	
 	if slotset == nil then
-		local gbox_warehouse = gbox:GetChild("gbox_warehouse");
+		local gbox_warehouse = GET_CHILD_RECURSIVELY(gbox, "gbox_warehouse");
 		if gbox_warehouse ~= nil then
-			slotset = gbox_warehouse:GetChild("slotset");
+			slotset = GET_CHILD_RECURSIVELY(gbox_warehouse, "slotset");
 		end
 	end
 

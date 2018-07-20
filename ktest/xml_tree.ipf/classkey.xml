@@ -394,6 +394,7 @@
         <Key Name="MROp1" Value="7472"/>
         <Key Name="Desc_Sub" Value="34029"/>
         <Key Name="LogoutSave" Value="7312"/>
+        <Key Name="ReopenDiscountRatio" Value="102047"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1205,6 +1206,15 @@
         <Key Name="EV180123_MONCOUNT" Value="102022"/>
         <Key Name="EV180123_REWARDCOUNT" Value="102021"/>
         <Key Name="LEGEND_CARD_LIFT_TEAM_COMPLETE_COUNT" Value="102027"/>
+        <Key Name="EV180123_BUFFLV" Value="102028"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_1" Value="102032"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_2" Value="102033"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_3" Value="102030"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_4" Value="102029"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_5" Value="102031"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_6" Value="102036"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_7" Value="102034"/>
+        <Key Name="EV180130_STEAM_NIGHT_MARKET_SHOP_8" Value="102035"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -8513,6 +8523,8 @@
         <Key Name="LEVELINFORM_WEAPONCHANGE7" Value="102009"/>
         <Key Name="LEVELINFORM_WEAPONCHANGE8" Value="101992"/>
         <Key Name="LEVELINFORM_WEAPONCHANGE9" Value="102001"/>
+        <Key Name="IndunWeeklyEnteredCount_400" Value="102046"/>
+        <Key Name="IndunWeeklyResetTime" Value="102045"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -9018,6 +9030,14 @@
         <Key Name="StrikeAtkFactor_PC_NT" Value="11472"/>
         <Key Name="StrikeDefFactor_PC_NT" Value="11481"/>
         <Key Name="FixedMinSDR_BM" Value="101856"/>
+        <Key Name="MAXPATK_MAIN_BM" Value="102038"/>
+        <Key Name="MAXPATK_MAIN_RATE_BM" Value="102043"/>
+        <Key Name="MINPATK_MAIN_BM" Value="102041"/>
+        <Key Name="MINPATK_MAIN_RATE_BM" Value="102039"/>
+        <Key Name="PATK_MAIN_BM" Value="102040"/>
+        <Key Name="PATK_MAIN_RATE_BM" Value="102037"/>
+        <Key Name="PATK_SUB_BM" Value="102044"/>
+        <Key Name="PATK_SUB_RATE_BM" Value="102042"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>

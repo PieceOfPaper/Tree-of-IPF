@@ -251,31 +251,30 @@ function IMC_LOG(code, stringinfo)
     imclog(code, stringinfo);
 end
 
-
 -- new logger
 function IMCLOG_FATAL(logger, code, stringinfo)
-	ImcScriptLog(logger, "FATAL",code,stringinfo)
+    ImcScriptLog(logger, "FATAL",code,stringinfo)
 end
 function IMCLOG_ALERT(logger, code, stringinfo)
-	ImcScriptLog(logger, "ALERT",code,stringinfo)
+    ImcScriptLog(logger, "ALERT",code,stringinfo)
 end
 function IMCLOG_CRITICAL(logger, code, stringinfo)
-	ImcScriptLog(logger, "CRITICAL",code,stringinfo)
+    ImcScriptLog(logger, "CRITICAL",code,stringinfo)
 end
 function IMCLOG_ERROR(logger,code, stringinfo)
-	ImcScriptLog(logger, "ERROR",code,stringinfo)
+    ImcScriptLog(logger, "ERROR",code,stringinfo)
 end
 function IMCLOG_WARN(logger,code, stringinfo)
-	ImcScriptLog(logger, "WARN",code,stringinfo)
+    ImcScriptLog(logger, "WARN",code,stringinfo)
 end
 function IMCLOG_NOTICE(logger,code, stringinfo)
-	ImcScriptLog(logger, "NOTICE",code,stringinfo)
+    ImcScriptLog(logger, "NOTICE",code,stringinfo)
 end
 function IMCLOG_INFO(logger,code, stringinfo)
-	ImcScriptLog(logger, "INFO",code,stringinfo)
+    ImcScriptLog(logger, "INFO",code,stringinfo)
 end
 function IMCLOG_DEBUG(logger,code, stringinfo)
-	ImcScriptLog(logger, "DEBUG",code,stringinfo)
+    ImcScriptLog(logger, "DEBUG",code,stringinfo)
 end
 
 function IMCLOG_CONTENT(tag, ...)

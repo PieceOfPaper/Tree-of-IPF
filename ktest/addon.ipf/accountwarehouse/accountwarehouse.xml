@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="accountwarehouse" x="0" y="0" width="650" height="1080" create="open">
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="accountwarehouse" x="0" y="0" width="670" height="1080" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame layout_gravity="left top" margin="-550 0 0 0" fullheight="true" fasthide="true" open="pip"/>
@@ -11,19 +11,20 @@
 	<script OpenScp="ACCOUNTWAREHOUSE_OPEN" CloseScp="ACCOUNTWAREHOUSE_CLOSE"/>
 	<userconfig NormalSlot="slot_greengem" CombinationSlot="belt_slot" DisabledSlot="slot_yellowgem" EXCEED_SLOT_FONT_COLOR="FF0000"/>
 	<controls>
-		<groupbox name="gbox_bg" rect="0 0 650 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="gbox_bg" rect="0 0 670 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="test_socket_top" stretch="true"/>
-		<groupbox name="gbox" rect="0 0 650 1000" margin="-8 100 0 0" layout_gravity="left top" draw="false" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="gbox" rect="0 0 664 1000" margin="-8 100 0 0" layout_gravity="left top" draw="false" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="slotgbox" rect="0 0 664 430" parent="gbox" margin="0 60 0 0" layout_gravity="left top" draw="false" scrollbar="true" skin="test_frame_low"/>
 		<groupbox name="pipwin_top" rect="0 0 650 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 63 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="팀 창고"/>
 		<button name="close" rect="0 0 44 44" margin="0 36 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}팀 창고를 닫습니다{/}"/>
-		<slotset name="slotset" parent="gbox" rect="0 0 480  276" margin="7 60 0 0" layout_gravity="center top" DropScp="PUT_ACCOUNT_ITEM_TO_WAREHOUSE" RBtnDownScp="ACCOUNT_WAREHOUSE_SLOT_RESET" col="10" row="5" cursoronresize="false" dropsound="icon_get_down" hideindrag="true" maxselect="50" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" size="60 60" skin="accountwarehouse_slot" spc="1 1" visible="true" enableselect="true" enablepop="false" selectmode="msgbox" selectedimage="socket_slot_check"/>
-		<richtext name="t_useprice" rect="0 0 600 40" margin="0 400 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st66b}%s" maxwidth="0" param1="value" param1_def="거래가 가능한 아이템을 보관할 수 있습니다.{nl}실버 보관은 토큰을 구매한 유저만 이용 가능합니다." resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false" parent="gbox"/>
+		<slotset name="slotset" parent="slotgbox" rect="0 0 480  276" margin="7 0 0 0" layout_gravity="center top" DropScp="PUT_ACCOUNT_ITEM_TO_WAREHOUSE" RBtnDownScp="ACCOUNT_WAREHOUSE_SLOT_RESET" col="10" row="7" cursoronresize="false" dropsound="icon_get_down" hideindrag="true" maxselect="70" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" size="60 60" skin="accountwarehouse_slot" spc="1 1" visible="true" enableselect="true" enablepop="false" selectmode="msgbox" selectedimage="socket_slot_check"/>
+		<richtext name="t_useprice" rect="0 0 600 40" margin="0 630 0 420" layout_gravity="center bottom" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st66b}%s" maxwidth="0" param1="value" param1_def="거래가 가능한 아이템을 보관할 수 있습니다.{nl}실버 보관은 토큰을 구매한 유저만 이용 가능합니다." resizebytext="false" slideshow="false" spacey="0" textalign="center bottom" updateparent="false" parent="logBox"/>
 		<button name="extend" rect="0 0 140 43" margin="0 12 11 0" layout_gravity="right top" LBtnUpScp="ACCOUNT_WAREHOUSE_EXTEND" caption="{@st66b}창고 확장" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}창고를 확장합니다{/}" parent="gbox"/>
-		<button name="receiveitem" rect="0 0 275 55" margin="0 450 0 0" layout_gravity="center top" LBtnUpScp="ACCOUNT_WAREHOUSE_RECEIVE_ITEM" clicksound="button_click_big" oversound="button_over" skin="test_red_button" format="{@st42b}%s" param1="value" param1_def="아이템 수령" parent="gbox"/>
+		<button name="receiveitem" rect="0 0 275 55" margin="0 680 0 350" layout_gravity="center bottom" LBtnUpScp="ACCOUNT_WAREHOUSE_RECEIVE_ITEM" clicksound="button_click_big" oversound="button_over" skin="test_red_button" format="{@st42b}%s" param1="value" param1_def="아이템 수령" parent="logBox"/>
 		<richtext name="richtext_1" margin="31 20 0 0" rect="0 0 120 24" caption="{@st42}아이템{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox"/>
 		<richtext name="itemcnt" margin="0 20 160 0" rect="0 0 200 24" format="{@st42}%s/%s{/}" param1="cnt" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="gbox" param2="slotmax"/>
-		<groupbox name="logBox" margin="9 0 0 80" rect="0 0 630 260" skin="None" layout_gravity="left bottom"/>
+		<groupbox name="logBox" margin="9 0 0 80" rect="0 0 650 260" skin="None" layout_gravity="left bottom"/>
 		<richtext name="richtext_2" margin="21 0 0 366" rect="0 0 120 24" layout_gravity="left bottom" caption="{@st42}{img silver 20 20} 보관금액{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="logBox"/>
 		<richtext name="saveMoney" margin="0 0 32 372" rect="0 0 200 24" layout_gravity="right bottom" format="{@st42}%s{/}" param1="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" parent="logBox"/>
 		<groupbox name="DepositSkin" parent="logBox" rect="0 0 400 35" margin="15 3 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
@@ -31,18 +32,18 @@
 		<button name="Deposit" rect="0 0 100 43" margin="0 0 110 0" layout_gravity="right top" LBtnUpScp="ACCOUNT_WAREHOUSE_DEPOSIT" caption="{@st66b}{img in_arrow 20 20}입금" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}입금 합니다.{/}" parent="logBox"/>
 		<button name="Withdraw" rect="0 0 100 43" margin="0 0 10 0" layout_gravity="right top" LBtnUpScp="ACCOUNT_WAREHOUSE_WITHDRAW" caption="{@st66b}{img chul_arrow 20 20}출금" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}출금 합니다.{/}" parent="logBox"/>
 		<richtext name="richtext_3" margin="17 9 0 0" rect="0 0 120 24" caption="{@st42b}{img silver 20 20} 금액{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="DepositSkin"/>
-		<groupbox name="detailgBox" scrollbar="false" margin="1 0 0 0" rect="0 0 630 210" hittestbox="false" skin="test_frame_midle" layout_gravity="left bottom" parent="logBox"/>
+		<groupbox name="detailgBox" scrollbar="false" margin="1 0 0 0" rect="0 0 650 210" hittestbox="false" skin="test_frame_midle" layout_gravity="left bottom" parent="logBox"/>
 		<groupbox name="line" scrollbar="false" margin="160 -10 0 0" rect="0 0 160 230" hittestbox="false" skin="pvp_Team_skin" layout_gravity="left top" parent="detailgBox"/>
 		<groupbox name="line2" scrollbar="false" margin="0 0 0 0" rect="0 0 160 210" hittestbox="false" skin="pvp_Team_skin" layout_gravity="right top" parent="detailgBox"/>
-		<groupbox name="detailCate" scrollbar="false" margin="2 2 0 0" rect="0 0 625 40" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="detailgBox"/>
+		<groupbox name="detailCate" scrollbar="false" margin="2 2 0 0" rect="0 0 645 40" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="detailgBox"/>
 		<labelline name="labelline_1" margin="2 0 0 67" rect="0 0 620 2" skin="None" layout_gravity="center bottom" parent="detailgBox"/>
 		<labelline name="labelline_2" margin="3 0 0 103" rect="0 0 620 2" skin="None" layout_gravity="center bottom" parent="detailgBox"/>
 		<labelline name="labelline_3" margin="2 0 0 134" rect="0 0 620 2" skin="None" layout_gravity="center bottom" parent="detailgBox"/>
 		<labelline name="labelline_4" margin="1 75 0 166" rect="0 0 620 2" skin="None" layout_gravity="center top" parent="detailgBox"/>
 		<richtext name="richtext_4" margin="50 10 0 0" rect="0 0 120 24" caption="거래일시" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailCate"/>
 		<richtext name="richtext_4_1" margin="219 10 0 0" rect="0 0 120 24" caption="입금" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailCate"/>
-		<richtext name="richtext_4_1_1" margin="0 10 210 0" rect="0 0 120 24" caption="출금" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="detailCate"/>
+		<richtext name="richtext_4_1_1" margin="0 10 220 0" rect="0 0 120 24" caption="출금" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="detailCate"/>
 		<richtext name="richtext_4_1_1_1" margin="0 10 60 0" rect="0 0 120 24" caption="잔액" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="detailCate"/>
-		<groupbox name="visgBox" margin="5 45 0 0" rect="0 0 620 200" hittestbox="false" skin="None" layout_gravity="left top" parent="detailgBox"/>
+		<groupbox name="visgBox" margin="10 45 0 10" rect="0 0 620 200" hittestbox="false" skin="None" layout_gravity="left top" parent="detailgBox"/>
 	</controls>
 </uiframe>
