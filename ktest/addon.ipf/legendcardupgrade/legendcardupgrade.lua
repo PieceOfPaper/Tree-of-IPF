@@ -3,10 +3,6 @@
 
 function LEGENDCARDUPGRADE_ON_INIT(addon, frame)
 	addon:RegisterMsg("DO_OPEN_LEGENDCARDUPGRADE_UI", "LEGENDCARDUPGRADE_FRAME_OPEN");
-	addon:RegisterMsg("DO_TEST_LEGENDCARDEFFECT", "TEST_LEGENDCARDEFFECT");
-	addon:RegisterMsg("DO_TEST_LEGENDCARD_REINFORCE_EFFECT_SUCCESS", "TEST_LEGENDCARD_REINFORCE_EFFECT_SUCCESS");
-	addon:RegisterMsg("DO_TEST_LEGENDCARD_REINFORCE_EFFECT_FAIL", "TEST_LEGENDCARD_REINFORCE_EFFECT_FAIL");
-	addon:RegisterMsg("DO_TEST_LEGENDCARD_REINFORCE_EFFECT_BROKEN", "TEST_LEGENDCARD_REINFORCE_EFFECT_BROKEN");
 end
 
 function LEGENDCARDUPGRADE_FRAME_OPEN()
@@ -317,7 +313,6 @@ function LEGENDCARD_SET_SLOT(slot, invItem)
 
 end
 
--- 몬스터 카드를 카드 슬롯에 장착 요청하기 전에 메세지 박스로 한번 더 확인
 function LEGENDCARD_MATERIAL_SET_SLOT(slot, invItem)
 	local obj = GetIES(invItem:GetObject());
 	local frame = ui.GetFrame("legendcardupgrade")
@@ -365,8 +360,8 @@ function LEGENDCARD_MATERIAL_SET_SLOT(slot, invItem)
 
 		frame:SetUserValue(slot:GetName(), itemGuid)
 		CALC_UPGRADE_PERCENTS(frame)
-
 	end;	
+
 	local resultGbox = GET_CHILD_RECURSIVELY(frame, "resultGbox")
 	resultGbox:ShowWindow(0)
 	local resultGbox2 = GET_CHILD_RECURSIVELY(frame, "resultGbox2")
@@ -379,8 +374,6 @@ function LEGENDCARD_MATERIAL_SET_SLOT(slot, invItem)
 
 	LEGENDCARD_REINFORCE_INV_RBTN(invItem, slot)
 end
-
--- 카드 정보 얻는 함수
 
 function CALC_UPGRADE_PERCENTS()
 	local frame = ui.GetFrame('legendcardupgrade');
@@ -470,7 +463,7 @@ function CALC_UPGRADE_PERCENTS()
 
 	successPercent = math.floor(givePerNeedPoint * 100 + 0.5)
 	failPercent = math.floor((1 - givePerNeedPoint) * 0.4 * 100 + 0.5)
-	brokenPercent = math.floor((1 - givePerNeedPoint) * 0.6 * 100 + 0.5)
+	brokenPercent = 100 - (successPercent + failPercent)
 
 	if successPercent > 100 then
 		successPercent = 100
@@ -649,7 +642,6 @@ function LEGENDCARD_UPGRADE_UPDATE(resultFlag, beforeLv, afterLv)
 
 	--결과에 따라 이팩트 따로 출력
 	
---	resultGbox:SetDuration(1.0);
 	local resultImage = GET_CHILD_RECURSIVELY(frame, 'resultImage')
 	local beforeLvText = GET_CHILD_RECURSIVELY(frame, 'before_lv')
 	local afterLvText = GET_CHILD_RECURSIVELY(frame, 'after_lv')
@@ -826,76 +818,3 @@ function LEGENDCARD_REINFORCE_RECOVER_ICON(slot, reinfItemObj, invItem, itemobj)
 	icon:SetColorTone("FFFFFFFF");
 end
 
-
-function TEST_LEGENDCARDEFFECT(pc)
-	ui.OpenFrame("legendcardupgrade")
-	local frame = ui.GetFrame("legendcardupgrade")
-
-	movie.PlayUIEffect(frame:GetUserConfig("LEGENDCARD_OPEN_EFFECT"), 800, 475, tonumber(frame : GetUserConfig("LEGENDCARD_OPEN_EFFECT_SCALE")))
-end
-
-function TEST_LEGENDCARD_REINFORCE_EFFECT_SUCCESS(pc)
-	ui.OpenFrame("legendcardupgrade")
-	LEGENDCARD_UPGRADE_UPDATE_TEST(1)
-end
-
-function TEST_LEGENDCARD_REINFORCE_EFFECT_FAIL(pc)
-	ui.OpenFrame("legendcardupgrade")
-	LEGENDCARD_UPGRADE_UPDATE_TEST(2)
-end
-
-function TEST_LEGENDCARD_REINFORCE_EFFECT_BROKEN(pc)
-	ui.OpenFrame("legendcardupgrade")
-	LEGENDCARD_UPGRADE_UPDATE_TEST(3)
-end
-
-function LEGENDCARD_UPGRADE_UPDATE_TEST(resultFlag)
-	local frame = ui.GetFrame("legendcardupgrade")
-	LEGENDCARD_UPGRADE_SLOT_CLEAR(frame, resultFlag)
-	local beforeLv = 1
-	local afterLv = 1
-
-	--결과에 따라 이팩트 따로 출력
-	local resultGbox = GET_CHILD_RECURSIVELY(frame, 'resultGbox')
-	resultGbox : ShowWindow(1)
-	local resultImage = GET_CHILD_RECURSIVELY(frame, 'resultImage')
-	local beforeLvText = GET_CHILD_RECURSIVELY(frame, 'before_lv')
-	local afterLvText = GET_CHILD_RECURSIVELY(frame, 'after_lv')
-	beforeLvText:SetTextByKey("value", "LV" .. beforeLv)
-
-	local needItemSlot = GET_CHILD_RECURSIVELY(frame, 'materialItem_slot')
-	local legCardGUID = frame : GetUserValue("legendCardGUID")
-	local legendCardReinforceList, cnt = GetClassList("legendCardReinforce")
-	local needItemCountText = "";
-	
-	movie.PlayUIEffect(frame:GetUserConfig("UPGRADE_RESULT_EFFECT_START"), 200, 250, tonumber(frame:GetUserConfig("UPGRADE_RESULT_EFFECT_SCALE")))
-	if resultFlag == 0 then
-		return
-	elseif resultFlag == 1 then
-		--성공
-		local legendCardSlot = GET_CHILD_RECURSIVELY(frame, 'LEGcard_slot')
-		local icon = legendCardSlot:GetIcon()
-
-		local legCardInvItem = session.GetInvItemByGuid(legCardGUID);
-		local rewardLv = 0
-
-		legendCardSlot:ClearIcon()
-		needItemSlot:SetText(needItemCountText)
-		afterLvText:SetTextByKey("value", "LV " .. afterLv)
-		movie.PlayUIEffect(frame:GetUserConfig("UPGRADE_RESULT_EFFECT_SUCCESS"), 200, 250, tonumber(frame:GetUserConfig("LEGENDCARD_OPEN_EFFECT_SCALE")))
-	elseif resultFlag == 2 then
-		--실패
-		needItemSlot:SetText(needItemCountText)
-		afterLvText:SetTextByKey("value", "LV " ..afterLv)
-		movie.PlayUIEffect(frame : GetUserConfig("UPGRADE_RESULT_EFFECT_FAIL"), 200, 250, tonumber(frame:GetUserConfig("LEGENDCARD_OPEN_EFFECT_SCALE")))
-	elseif resultFlag == 3 then
-		--파괴
-		afterLvText:SetTextByKey("value", "DESTROY")
-		movie.PlayUIEffect(frame:GetUserConfig("UPGRADE_RESULT_EFFECT_BROKEN"), 200, 250, tonumber(frame:GetUserConfig("LEGENDCARD_OPEN_EFFECT_SCALE")))
-	end
-			
-	local upgradeBtn = GET_CHILD_RECURSIVELY(frame, 'upgradeBtn')
-	upgradeBtn:SetTextByKey("value", "확인")
-	frame : SetUserValue("IsVisibleResult", 1)
-
-end

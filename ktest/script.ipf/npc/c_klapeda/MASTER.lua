@@ -282,6 +282,10 @@ function SCR_MASTER_ICEMAGE_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_FrostMage");
 end
 
+function SCR_MASTER_ICEMAGE_NORMAL_2(self, pc)
+   ShowTradeDlg(pc, 'Master_IceMage', 5);
+end
+
 function SCR_JOB_PSYCHOKINESIST2_1_NPC_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Psychokino");
 end
@@ -351,6 +355,10 @@ function SCR_JOB_SORCERER4_1_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Sorcerer");
 end
 
+function SCR_JOB_SORCERER4_1_NORMAL_2(self, pc)
+	ShowTradeDlg(pc, 'SORCERER4_1', 5);
+end
+
 function SCR_JOB_LINKER2_1_NPC_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Linker");
 end
@@ -397,6 +405,10 @@ function SCR_JOB_THAUMATURGE3_1_NPC_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Thaumaturge");
 end
 
+function SCR_JOB_THAUMATURGE3_1_NPC_NORMAL_2(self, pc)
+   ShowTradeDlg(pc, 'Master_Thaumaturge', 5);
+end
+
 function SCR_JOB_WARLOCK3_1_NPC_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Elementalist");
 end
@@ -415,6 +427,10 @@ end
 
 function SCR_SAGE_MASTER_NORMAL_2(self, pc)
     ShowTradeDlg(pc, 'Master_Sage', 5);
+end
+
+function SCR_SAGE_MASTER_NORMAL_3(self, pc)
+    SCR_BOOKCOLLECTIONGIMMICK_SAGE_DIALOG(self, pc)
 end
 
 --ARCHER CLASS
@@ -1307,6 +1323,10 @@ function SCR_MASTER_WIZARD_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Wizard");
 end
 
+function SCR_MASTER_WIZARD_NORMAL_2(self, pc)
+   ShowTradeDlg(pc, 'MASTER_WIZARD', 5);
+end
+
 function SCR_TUTO_WIZARD_SUCC(pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Wizard")
 end
@@ -1446,9 +1466,41 @@ end
 --SHADOW MANCER
 
 function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_1_PRE(pc)
-    return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char2_19')
+    local is_Unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_19') -- checking if you shadowmancer unlocked
+    if is_Unlock == "NO" then
+        local hiddenProp = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_19')
+        if hiddenProp == 2 then -- if you meet CHRONOMANCER MASTER
+            return "YES"
+        end
+    end
+    return "NO"
 end
 
 function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_1(self, pc)
+    SCR_JOB_SHADOWMANCER_MASTER_UNLOCK_DOING(self, pc)
+end
+
+
+function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_2_PRE(pc)
+    local is_Unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char2_19') -- checking if you shadowmancer unlocked
+    if is_Unlock == "NO" then
+        local hiddenProp = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_19')
+        if hiddenProp == 3 or hiddenProp == 4 then -- if you check shadowmancer's existent or if you accept shadowmancer's request
+            return "YES"
+        end
+    end
+    return "NO"
+end
+
+function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_2(self, pc)
+    SCR_JOB_SHADOWMANCER_MASTER_UNLOCK_DOING(self, pc)
+end
+
+
+function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_3_PRE(pc)
+    return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char2_19')
+end
+
+function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_3(self, pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Shadowmancer");
 end

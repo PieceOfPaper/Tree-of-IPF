@@ -147,3 +147,13 @@ function UNLOCK_PELTASTA30(pc, sklName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_WIZARD25(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_1');
+	local skillSleep = GetSkill(pc, "Wizard_Sleep")
+	if skillSleep ~= nil and skillSleep.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end

@@ -2,8 +2,7 @@ function GET_ACCOUNT_WAREHOUSE_SLOT_COUNT(pc, accountObj)
     if accountObj == nil then
         return 0;
     end
-    local slotCount = accountObj.BasicAccountWarehouseSlotCount + accountObj.MaxAccountWarehouseCount + accountObj.AccountWareHouseExtend;
-
+    local slotCount = accountObj.BasicAccountWarehouseSlotCount + accountObj.MaxAccountWarehouseCount + accountObj.AccountWareHouseExtend + accountObj.AccountWareHouseExtendByItem;
     -- token
     if IsServerObj(pc) == 1 then
         if IsPremiumState(pc, ITEM_TOKEN) == 1 then

@@ -667,7 +667,7 @@ function SCR_Get_MINPATK(self)
     value = value - leftMinAtk - throwItemMinAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MINPATK_BM" };
+    local byBuffList = { "PATK_BM", "MINPATK_BM", "PATK_MAIN_BM", "MINPATK_MAIN_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -678,7 +678,7 @@ function SCR_Get_MINPATK(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_RATE_BM", "PATK_MAIN_RATE_BM", "MINPATK_MAIN_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -749,7 +749,7 @@ function SCR_Get_MAXPATK(self)
     value = value - leftMaxAtk - throwItemMaxAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MAXPATK_BM" };
+    local byBuffList = { "PATK_BM", "MAXPATK_BM", "PATK_MAIN_BM", "MAXPATK_MAIN_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -760,7 +760,7 @@ function SCR_Get_MAXPATK(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_RATE_BM", "PATK_MAIN_RATE_BM", "MAXPATK_MAIN_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -820,7 +820,7 @@ function SCR_Get_MINPATK_SUB(self)
     value = value - rightMinAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MINPATK_SUB_BM" };
+    local byBuffList = { "PATK_BM", "MINPATK_BM", "PATK_SUB_BM", "MINPATK_SUB_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -831,7 +831,7 @@ function SCR_Get_MINPATK_SUB(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_SUB_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MINPATK_RATE_BM", "PATK_SUB_RATE_BM", "MINPATK_SUB_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then
@@ -896,7 +896,7 @@ function SCR_Get_MAXPATK_SUB(self)
     value = value - rightMaxAtk;
     
     local byBuff = 0;
-    local byBuffList = { "PATK_BM", "MAXPATK_SUB_BM" };
+    local byBuffList = { "PATK_BM", "MAXPATK_BM", "PATK_SUB_BM", "MAXPATK_SUB_BM" };
     for i = 1, #byBuffList do
         local byBuffTemp = TryGetProp(self, byBuffList[i]);
         if byBuffTemp == nil then
@@ -907,7 +907,7 @@ function SCR_Get_MAXPATK_SUB(self)
     end
     
     local byRateBuff = 0;
-    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_SUB_RATE_BM" };
+    local byRateBuffList = { "PATK_RATE_BM", "MAXPATK_RATE_BM", "PATK_SUB_RATE_BM", "MAXPATK_SUB_RATE_BM" };
     for i = 1, #byRateBuffList do
         local byRateBuffTemp = TryGetProp(self, byRateBuffList[i]);
         if byRateBuffTemp == nil then

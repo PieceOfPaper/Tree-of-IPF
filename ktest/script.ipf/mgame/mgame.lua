@@ -1323,7 +1323,7 @@ function MGAME_EVT_GIVE_ITEM(cmd, curStage, eventInst, obj, itemName, giveway)
 	end
 end
 
-function MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, preCheck, giveList, takeList, setList, addList, giveway, dungeoncount)
+function MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, preCheck, giveList, takeList, setList, addList, giveway, dungeoncount, tokenBonus)
     local func
     if preCheck ~= 'None' then
         func = _G[preCheck]
@@ -1348,12 +1348,12 @@ function MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst,
 	        result = func(list[i])
 	    end
 	    if result ~= 'NO' then
-    		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount)
+    		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount, tokenBonus)
     	end
 	end
 end
 
-function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giveList, takeList, setList, addList, giveway, dungeoncount)
+function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giveList, takeList, setList, addList, giveway, dungeoncount, tokenBonus)
     if giveList == 'None' then
         giveList = nil
     end
@@ -1369,7 +1369,7 @@ function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giv
     
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	for i = 1 , cnt do
-		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount)
+		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, nil,giveway, setList, nil, nil, dungeoncount, tokenBonus)
 	end
 end
 
@@ -1394,99 +1394,7 @@ end
 
 
 function MGAME_RETURN(cmd, curStage, eventInst, obj, x, y, z)
-	local mGameName = cmd:GetMGameName();
-	local indunCls = GET_MGAME_CLASS_BY_MGAMENAME(mGameName);
-	if indunCls == nil then
-		cmd : ReturnPlayers();
-		return;
-	end
-
-	local rewardItemName = "None";
-	rewardItemName = TryGet_Str(indunCls, "Reward_Item");
-
-	local dungeonType = TryGet_Str(indunCls, "DungeonType")
-	if dungeonType == 'Indun' then
-		local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-		for i = 1 , cnt do
-			local pc = list[i];
-			local isGetReward = cmd:GetUserValue('isGetReward_' ..GetPcCIDStr(pc))
-			if pc ~= nil and isGetReward ~= 1 then
-				local argStr = string.format("%d#", 0)
-				SCR_INDUN_CONTRIBUTION_REWARD_DEFAULT(pc, cmd, argStr)
-			end
-		end
-	end
-
 	cmd:ReturnPlayers();
-end
-
-function SCR_INDUN_CONTRIBUTION_REWARD_DEFAULT(pc, cmd, argStr)
-    if cmd == nil then
-        return;
-    end
-
-	MGAME_MON_KILL_COUNT_CALC(cmd);
-	
-	local mGameName = cmd:GetMGameName();
-	local clsIndun = GET_MGAME_CLASS_BY_MGAMENAME(mGameName);
-	if clsIndun == nil then
-		return;
-	end
-
-	-- 모험일지 포인트도 보스 잡을 때 준다
-	cmd:GiveAdventureBookClearPointToAllPlayers(clsIndun.ClassName);
-
-	cmd:SetUserValue("IsFinished", 1);
-
-	local rewardSilver = cmd:GetUserValue("RewardSilverCount");
-	local rewardExpRate = cmd:GetUserValue("RewardExpRate");
-	local rewardItemCount = 1
-	rewardItemCount = rewardItemCount + cmd:GetUserValue("RewardItemCount");
-	local rewardItemName = "None";
-	rewardItemName = TryGet_Str(clsIndun, "Reward_Item");
-	
-	local totalMonExp = cmd:GetUserValue("TotalMonExp");
-	local totalMonJobExp = cmd:GetUserValue("TotalMonJobExp");
-	local monKillPercent = cmd:GetUserValue("MonKillPercent");
-	local rewardContribution = 20;
-	rewardContribution = TryGet(clsIndun, "Reward_Contribution");
-	
-	local pcList = GetCmdPCList(cmd:GetThisPointer());
-	local pcCount = cmd:GetUserValue("pcCount")
-	local bonusRate = NORMAL_PARTY_EXP_BOUNS_RATE(pcCount);
-	local indunLevel = TryGet(clsIndun, "Level");
-		
-	local levelRatio = GET_EXP_RATIO(pc.Lv, indunLevel, 0, nil);
-	
-	if IsIndun(pc) == 1 then
-		bonusRate = INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(pcCount);
-	end
-
-	local myExp = totalMonExp * (rewardExpRate * 0.01);	-- Indun Clear rate Calc
-	myExp = myExp * bonusRate;	-- Party EXP Bonus Calc
-	myExp = myExp * levelRatio;	-- Level difference Exp rate Calc
-	myExp = myExp / pcCount;	-- EXP Per Party member
-	
-	local myJobExp = totalMonJobExp * (rewardExpRate * 0.01);	-- Indun Clear rate Calc
-	myJobExp = myJobExp * bonusRate;	-- Party EXP Bonus Calc
-	myJobExp = myJobExp * levelRatio;	-- Level difference Exp rate Calc
-	myJobExp = myJobExp / pcCount;	-- EXP Per Party member
-	
-	local pcetc = GetETCObject(pc);
-	RemoveBuff(pc, "CantTakeExperience");
-	
-	local contribution = monKillPercent;
-	local multipleRate = 0;		
-	local rank = math.ceil((100 - monKillPercent) / rewardContribution);
-
-	local calcExp_default, calcJExp_default, calcExp_bonus, calcJExp_bonus = GetIndunExp(pc, myExp, myJobExp, 0);
-
-	cmd:SetUserValue("rewardSilver", rewardSilver)
-	cmd:SetUserValue("indunClassID", clsIndun.ClassID)
-	cmd:SetUserValue("contribution", contribution)
-	cmd:SetUserValue("rank", rank)		
-
-	RunScript('SCR_TX_INDUN_CONTRIBUTION_REWARD', pc, argStr)
 end
 
 function MGAME_COUNTDOWN(zoneID, layer, curStage, eventInst, obj, sec)
@@ -1643,11 +1551,11 @@ end
 
 function RAID_END_REWARD(cmd, curStage, eventInst, obj)
 	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
-	
+
 	local pc = CHOOSE_ACTOR_TO_CHANGE_PARTY_PROPERTY(list, cnt);
 	if pc ~= nil then
 		ChangePartyProp(pc, PARTY_GUILD, "RewardBidState", 1)
-		CREATE_REWARD_BID_ITEM(pc)
+		RunScript('CREATE_REWARD_BID_ITEM', pc)
 	else
 		ErrorLog("RAID_END_REWARD() can not find guild member.");
 	end
@@ -2205,7 +2113,7 @@ function MGAME_GUILD_INDUN_EXIT(cmd, curStage, eventInst, obj)
 		local pcGuildID = GetGuildID(pc);
 		local pcGuildObj = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
 
-        GUILD_EVENT_PROPERTY_RESET(pc, pcGuildObj)
+        GUILD_EVENT_PROPERTY_RESET(pc, GuildObj)
 
 		local cls = GetClassByType("GuildEvent", pcGuildObj["GuildInDunSelectInfo"])
 		local list, cnt = GetPartyMemberList(pc, PARTY_GUILD);
@@ -2408,7 +2316,7 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 	-- ??러로그 추??????--
 		return;
 	end
-
+   
 	local pcList, pcCount = GetCmdPCList(cmd:GetThisPointer());
 	if pcList ~= nil and pcCount > 0 then
 		-- ??스??용 ??시 구현 --
@@ -2421,7 +2329,7 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 		if maxMonsterCount == nil then
 			maxMonsterCount = 0;
 		end
-			
+
 		if maxMonsterCount < aliveMonCount then
 			maxMonsterCount = aliveMonCount;
 
@@ -2435,6 +2343,7 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 					totalMonJobExp = totalMonJobExp + SCR_GET_MON_JOBEXP(mon);
 				end
 			end
+
 			cmd:SetUserValue("TotalMonExp", totalMonExp);
 			cmd:SetUserValue("TotalMonJobExp", totalMonJobExp);
 
@@ -2464,7 +2373,7 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 			if clsIndun ~= nil then
 				indunClassID = clsIndun.ClassID;
 
-				cmd:SetUserValue("IndunClassID", indunClassID);                
+				cmd:SetUserValue("IndunClassID", indunClassID);
 			end
 		else
 			clsIndun = GetClassByType("Indun", indunClassID);
@@ -2476,7 +2385,7 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 		end
 
 		local curLevel = math.floor(monKillpercent / rewardContribution);
-		local achievementLevel = cmd:GetUserValue("AchievementLevel");	   
+		local achievementLevel = cmd:GetUserValue("AchievementLevel");
 	   
 		if curLevel > achievementLevel then
 			local rewardSilverCount = 0;
@@ -2487,9 +2396,11 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 				rewardSilverCount = rewardSilverCount * (rewardContribution * 0.01);
 				rewardExpRate = TryGet(clsIndun, "Reward_Exp");
 			end
+
 			rewardSilverCount = rewardSilverCount + cmd:GetUserValue("RewardSilverCount");
 			rewardExpRate = rewardExpRate + cmd:GetUserValue("RewardExpRate");
 			rewardItemCount = 1 + cmd:GetUserValue("RewardItemCount");
+
 			cmd:SetUserValue("RewardSilverCount", rewardSilverCount);
 			cmd:SetUserValue("RewardExpRate", rewardExpRate);
 			cmd:SetUserValue("RewardItemCount", rewardItemCount);
@@ -2499,6 +2410,7 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 
 		for i = 1, pcCount do
 			local pc = pcList[i];
+
 			if isEnableRecordMonKillPercent == true then
 				CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", cmd:GetMGameName(), "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RecordContribution", "IndunContributionRate", tostring(monKillpercent));
 			end
@@ -2538,32 +2450,33 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
 
 	local rewardSilver = cmd:GetUserValue("RewardSilverCount");
 	local rewardExpRate = cmd:GetUserValue("RewardExpRate");
-	local rewardItemCount = 1
-	rewardItemCount = rewardItemCount + cmd:GetUserValue("RewardItemCount");
+	local rewardItemCount = cmd:GetUserValue("RewardItemCount");
 	local rewardItemName = "None";
+
 	rewardItemName = TryGet_Str(clsIndun, "Reward_Item");
 	
 	local totalMonExp = cmd:GetUserValue("TotalMonExp");
 	local totalMonJobExp = cmd:GetUserValue("TotalMonJobExp");
 	local monKillPercent = cmd:GetUserValue("MonKillPercent");
+	
 	local rewardContribution = 20;
 	rewardContribution = TryGet(clsIndun, "Reward_Contribution");
 	
 	local pcList, pcCount = GetCmdPCList(cmd:GetThisPointer());
-	cmd:SetUserValue("pcCount", pcCount)
-
+	
 	local bonusRate = NORMAL_PARTY_EXP_BOUNS_RATE(pcCount);
 	
 	local indunLevel = TryGet(clsIndun, "Level");
 	
 	for i = 1, pcCount do
-		
 		local pc = pcList[i];
-
+		
 		local levelRatio = GET_EXP_RATIO(pc.Lv, indunLevel, 0, nil);
+		local siverlRatio = GET_INDUN_SILVER_RATIO(pc.Lv, indunLevel);
 		if IsIndun(pc) == 1 then
 			bonusRate = INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(pcCount);
 		end
+		local mySilver = rewardSilver * siverlRatio
 		local myExp = totalMonExp * (rewardExpRate * 0.01);	-- Indun Clear rate Calc
 		myExp = myExp * bonusRate;	-- Party EXP Bonus Calc
 		myExp = myExp * levelRatio;	-- Level difference Exp rate Calc
@@ -2575,11 +2488,15 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
 		myJobExp = myJobExp / pcCount;	-- EXP Per Party member
 
         local pcetc = GetETCObject(pc);
+		local silverCount = (pcetc.IndunMultipleRate + 1) * rewardSilver;
+		local itemCount = (pcetc.IndunMultipleRate + 1) * rewardItemCount;
 
 		RemoveBuff(pc, "CantTakeExperience");
 		
 		local contribution = monKillPercent;
-		local multipleRate = 0;		
+		local silver = silverCount;
+		local cube = itemCount;
+		local multipleRate = pcetc.IndunMultipleRate;
 		local rank = math.ceil((100 - monKillPercent) / rewardContribution);
         
         --보스 몬스터 위치 받아와서 해당 위치로 PC이동
@@ -2588,117 +2505,31 @@ function SCR_INDUN_CONTRIBUTION_REWARD(bossMon)
             SetPos(pc, x, y, z);
         end
 
-		local calcExp_default, calcJExp_default, calcExp_bonus, calcJExp_bonus = GetIndunExp(pc, myExp, myJobExp, 0);
-		cmd:SetUserValue("rewardSilver", rewardSilver)
-		cmd:SetUserValue("myExp", myExp)
-		cmd:SetUserValue("myJobExp", myJobExp)
-		cmd:SetUserValue("indunClassID", clsIndun.ClassID)
-		cmd:SetUserValue("contribution", contribution)
-		cmd:SetUserValue("rank", rank)		
-
-		local argStr = string.format("%d#%d#%d#%s#%s#%s#%s#%d#%d#", contribution, rewardSilver, rewardItemCount, tostring(calcExp_default), tostring(calcJExp_default), tostring(calcExp_bonus), tostring(calcJExp_bonus), multipleRate, rank)
-		SendAddOnMsg(pc, "INDUN_REWARD_RESULT_FIRST", argStr);
+		RunScript("_SCR_INDUN_CONTRIBUTION_REWARD", pc, mySilver, myExp, myJobExp, rewardItemName, rewardItemCount, contribution, multipleRate, rank, clsIndun.ClassID, pcetc.IndunMultipleRate, mGameName);
 	end
 end
 
-function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
-	local argList = StringSplit(argStr, '#');
-	if #argList < 1 then 
-		return
-	end
-
-	local cmd = GetMGameCmd(pc);
-    if cmd == nil then
-        return;
-    end
-
-	local isGetReward = cmd:GetUserValue('isGetReward_' ..GetPcCIDStr(pc))
-	if isGetReward == 1 then
-		return
-	end
-	
-	local mGameName = cmd : GetMGameName();
-	local clsIndun = GET_MGAME_CLASS_BY_MGAMENAME(mGameName);
-	if clsIndun == nil then
-		return;
-	end
-
-	local pcList = GetCmdPCList(cmd : GetThisPointer());
-	local pcCount = cmd:GetUserValue("pcCount")
-	local bonusRate = NORMAL_PARTY_EXP_BOUNS_RATE(pcCount);
-
-	local indunLevel = TryGet(clsIndun, "Level");
-	local rewardExpRate = cmd:GetUserValue("RewardExpRate");
-	local totalMonExp = cmd:GetUserValue("TotalMonExp");
-	local totalMonJobExp = cmd:GetUserValue("TotalMonJobExp");
-
-	local levelRatio = GET_EXP_RATIO(pc.Lv, indunLevel, 0, nil);
-	if IsIndun(pc) == 1 then
-		bonusRate = INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(pcCount);
-	end
-	local myExp = totalMonExp * (rewardExpRate * 0.01);	--Indun Clear rate Calc
-	myExp = myExp * bonusRate;	--Party EXP Bonus Calc
-	myExp = myExp * levelRatio;	--Level difference Exp rate Calc
-	myExp = myExp / pcCount;	--EXP Per Party member
-
-	local myJobExp = totalMonJobExp * (rewardExpRate * 0.01);	--Indun Clear rate Calc
-	myJobExp = myJobExp * bonusRate;	--Party EXP Bonus Calc
-	myJobExp = myJobExp * levelRatio;	--Level difference Exp rate Calc
-	myJobExp = myJobExp / pcCount;	--EXP Per Party member
-
-	local silver = cmd:GetUserValue("rewardSilver")
-	local itemCount = cmd : GetUserValue("RewardItemCount") -- 인던 달성 률에 의해 받을 수 있는 추가 개수
-	local indunClassID = cmd : GetUserValue("indunClassID")
-	local multipleRate = tonumber(argList[1]);
-	local contribution = cmd : GetUserValue("contribution")
-	local rank = cmd : GetUserValue("rank")
-	local mGameName = cmd:GetMGameName();
-
-	local clsIndun = GET_MGAME_CLASS_BY_MGAMENAME(mGameName);
-	if clsIndun == nil then
-		return;
-	end
-
-	local itemName = TryGet_Str(clsIndun, "Reward_Item");
-
-	local etcObj = GetETCObject(pc);
-	if nil == etcObj then
-		return;
-	end
-
-	--multipleRate에 대한 검증을 시작하자
-	if multipleRate > 0 then
-		local dailyEnteredCnt = etcObj["InDunCountType_" .. clsIndun.PlayPerResetType]; 
-		local dailyMaxEnterableCnt = clsIndun.PlayPerReset;
-		local tokenEnterableCntBonus = clsIndun.PlayPerReset_Token;
-		if IsPremiumState(pc, ITEM_TOKEN) == 1 then -- 입장 가능 요일 있는 경우 토큰 혜택 없게 해달라고 하셨음
-			dailyMaxEnterableCnt = dailyMaxEnterableCnt + tokenEnterableCntBonus;
-		end
-
-		if dailyMaxEnterableCnt < dailyEnteredCnt + multipleRate then
-			local remaindCount = dailyMaxEnterableCnt - dailyEnteredCnt;
-			remaindCount = remaindCount - 1;
-			if remaindCount < 0 then
-				multipleRate = 0;
-			else
-				multipleRate = remaindCount;
-			end
-		end
-	end
-
+function _SCR_INDUN_CONTRIBUTION_REWARD(pc, silver, exp, jobExp, itemName, itemCount, contribution, multipleRate, rank, indunClassID, pcIndunMultipleRate, mGameName)
 	local tx = TxBegin(pc);
-	if tx ~= nil then		
+	if tx ~= nil then
+		local etcObj = GetETCObject(pc);
+		if nil == etcObj then
+			return;
+		end
+		
 		TxEnableInIntegrate(tx);
+
 		local multipleError = false;
 		if etcObj.IndunFreeTime == 'None' then
-			if multipleRate > 0 then
+			local isIndunMultipleValue = IsIndunMultiple(pc);
+			if isIndunMultipleValue == 1 and etcObj.IndunMultipleRate > 0 then 
 				local pcInvList = GetInvItemList(pc);
 				local isLockItem = false;
 				local isTakeItem = false;
 				local successTakeCnt = 0;
 				if pcInvList ~= nil and #pcInvList > 0 then
 					--기간제 아이템 카운트(논스택이기 때문에 하나씩 꺼내서 처리)
-					local takeCnt = multipleRate;
+					local takeCnt = etcObj.IndunMultipleRate;
 					local dungeonCountItemList = { };
 					for i = 1 , #pcInvList do
 						local invItem = pcInvList[i];
@@ -2778,34 +2609,41 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
 					end
 				end
 
-				if successTakeCnt ~= multipleRate then
+				if successTakeCnt ~= etcObj.IndunMultipleRate then
 					multipleError = true;
 				end
 
 				--아이템 락걸려있는 상태로 넘어오면 다 리셋 시켜준다.
 				if isLockItem == true or isTakeItem == false then
-					multipleRate = 0
+					etcObj.IndunMultipleZoneID = 0;
+					etcObj.IndunMultipleMGameName = "None"; 
+					etcObj.IndunMultipleIndunType = 0;
+					etcObj.IndunMultipleRate = 0;
+					etcObj.IndunMultipleRate_Reserve = 0;
 				end
 			end
 		end
 
+        if IsIndunMultiple(pc) == 0 then
+            multipleError = true;
+            multipleRate = 0;
+        end
+
         if silver > 0 then
         	if multipleError == false then
-        		silver = silver * (multipleRate + 1);
-				TxGiveItem(tx, "Vis", silver, "INDUN_CONTRIBUTION_REWARD");
+        		silver = silver * (etcObj.IndunMultipleRate + 1);
         	end
+            TxGiveItem(tx, "Vis", silver, "INDUN_CONTRIBUTION_REWARD");
         end
-        if itemCount >= 0 then
+
+        if itemCount > 0 then
 			-- 보스 몬스터가 기본으로 드랍하는 큐브 개수, 1
 			local payItemCount = 1;
         	if multipleError == false then
-        		itemCount = itemCount * (multipleRate + 1);        		
-				itemCount = itemCount + (payItemCount * (multipleRate + 1));
+        		itemCount = itemCount * (etcObj.IndunMultipleRate + 1);
+				itemCount = itemCount + (payItemCount * (etcObj.IndunMultipleRate + 1));
         	end
-
-        	if itemCount > 0 and multipleError == false then
-            	TxGiveItem(tx, itemName, itemCount, "INDUN_CONTRIBUTION_REWARD");
-            end
+            TxGiveItem(tx, itemName, itemCount, "INDUN_CONTRIBUTION_REWARD");
         end
 
 		local indunCount = 0;
@@ -2815,9 +2653,9 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
 			local pcetcProp = "InDunRewardCountType_" .. tostring(indunResetType);
 
 			if etcObj ~= nil then
-				indunCount = etcObj[pcetcProp] + 1;
+				indunCount = 1;
         		if multipleError == false then
-        			indunCount = indunCount * (multipleRate + 1);
+        			indunCount = indunCount * (etcObj.IndunMultipleRate + 1) + etcObj[pcetcProp];
 				end
 
 				TxSetIESProp(tx, etcObj, pcetcProp, indunCount);
@@ -2832,21 +2670,58 @@ function SCR_TX_INDUN_CONTRIBUTION_REWARD(pc, argStr)
 		end
 
 		local ret = TxCommit(tx);
-		if ret == "SUCCESS" and multipleError == false then
-			AddIndunExp(pc, myExp, myJobExp, "INDUN_CONTRIBUTION_REWARD", multipleRate);
-			local calcExp_default, calcJExp_default, calcExp_bonus, calcJExp_bonus = GetIndunExp(pc, myExp, myJobExp, multipleRate);
+		if ret == "SUCCESS" then
+			local calcExp, calcJExp = GiveExp(pc, exp, jobExp, "INDUN_CONTRIBUTION_REWARD");
+			
             IndunJoinCountMongoLog(pc, mGameName, indunCount, "IndunComplete");
 
-			local calcExp = calcExp_default + calcExp_bonus
-			local calcJExp = calcJExp_default + calcJExp_bonus
-
-			cmd:SetUserValue('isGetReward_' ..GetPcCIDStr(pc), 1)
-
-			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardSuccessed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(multipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
-			SendAddOnMsg(pc, "INDUN_REWARD_RESULT_FINAL", string.format("%d#%d#%d#%s#%s#%s#%s#%d#%d#", contribution, silver, itemCount, tostring(calcExp_default), tostring(calcJExp_default), tostring(calcExp_bonus), tostring(calcJExp_bonus), multipleRate, rank));
+			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardSuccessed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(pcIndunMultipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
+			SendAddOnMsg(pc, "INDUN_REWARD_RESULT", string.format("%d#%d#%d#%s#%s#%d#%d#", contribution, silver, itemCount, tostring(calcExp), tostring(calcJExp), multipleRate, rank));
 		else
-			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardFailed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(multipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
+			CustomMongoLog(pc, "IndunContribution", "PartyID", tostring(GetPartyID(pc)), "Channel", tostring(GetChannelID(pc)), "MissionRoomName", mGameName, "MissionRoomID", tostring(GetZoneInstID(pc)), "IndunClsID", tostring(indunClassID), "Type", "RewardFailed", "IndunRewardRate", tostring(contribution), "IndunMultipleRate", tostring(pcIndunMultipleRate), "RewardCubeName", itemName, "RewardCubeCnt", tostring(itemCount), "RewardVisCnt", tostring(silver), "RewardExpCnt", tostring(calcExp), "RewardJobExpCnt", tostring(calcJExp));
 			IMC_LOG('ERROR_TX_FAIL', 'INDUN_CONTRIBUTION_REWARD: aid['..GetPcAIDStr(pc)..']');
+
+            etcObj.IndunMultipleZoneID = 0;
+            etcObj.IndunMultipleMGameName = "None"; 
+            etcObj.IndunMultipleIndunType = 0;
+            etcObj.IndunMultipleRate = 0;
+            etcObj.IndunMultipleRate_Reserve = 0;
 		end
 	end
+end
+
+function MGAME_GUILD_MINIGAME_EXIT(cmd, curStage, eventInst, obj)
+    local partyID = cmd:GetPartyIDStr()
+    local guildObj = GetPartyObjByIESID(PARTY_GUILD, partyID)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+	if cnt ~= nil and cnt > 0 then
+	    for i = 1, cnt do
+	        local pc = list[i];
+            RunScript('SCR_GUILD_EVENT_STAYED_MONGOLOG', pc, guildObj)
+        end
+    end
+	if guildObj ~= nil then
+	    RunScript('SCR_GUILD_EVENT_FAIL_MONGOLOG', guildObj)
+    	return 1;
+	end
+	return 0;
+end
+
+function MGAME_PCLIST_LAYER_CHANGE(cmd, curStage, eventInst, obj, layer)
+    local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+    if list == nil then
+        return;
+    end
+    
+    if cnt > 0 then
+        local i
+        for i = 1, cnt  do
+            SetLayer(list[i], layer, 0)
+        end
+    end
+end
+
+function TEST_MGAME_CRASH(pc)
+	local pcGuildID = GetGuildID(nil);
+	local pcGuildObj = GetPartyObjByIESID(PARTY_GUILD, pcGuildID);
 end

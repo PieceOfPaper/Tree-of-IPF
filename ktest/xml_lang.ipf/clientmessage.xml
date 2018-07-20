@@ -4482,6 +4482,9 @@
 		<Class ClassID="27783" ClassName="EVENT_1801_ORB_MSG4" Data="인벤토리에 푸른 구슬 던전 주화가 {COUNT}개 보다 적어서 보상을 받을 수 없습니다!"/>
 		<Class ClassID="27784" ClassName="EVENT_1801_ORB_MSG5" Data="포획 성공!"/>
 		<Class ClassID="27785" ClassName="EVENT_1801_ORB_MSG6" Data="포획 실패!"/>
+		<Class ClassID="27786" ClassName="EVENT_1801_ORB_MSG7" Data="컴패니언과 함께 진행 하실 수 없습니다."/>
+		<Class ClassID="27787" ClassName="EVENT_1801_ORB_MSG8" Data="{LV}레벨 이상만 참여 가능합니다"/>
+		<Class ClassID="27788" ClassName="EVENT_1801_ORB_MSG9" Data="보물 상자는 보스 몬스터를 처치해야만 열 수 있습니다"/>
 		<Class ClassID="27790" ClassName="adventure_book_quest_prequest_MSG1" Data="{@st42}{s18}사전 퀘스트 [접속 중인 현재 캐릭터 기준]{/}"/>
 		<Class ClassID="27800" ClassName="EVENT_1801_RANKRESET_MSG1" Data="시노비 1써클 이상 받기"/>
 		<Class ClassID="27801" ClassName="EVENT_1801_RANKRESET_MSG2" Data="위저드 1써클 이상 받기"/>
@@ -6921,6 +6924,7 @@
 		<Class ClassID="102188" ClassName="GuildEventNotStarted" Data="인원 모집이 완료되고 길드 퀘스트가 시작된 후에 입장 가능합니다."/>
 		<Class ClassID="102189" ClassName="GuildEventStarted" Data="길드 퀘스트가 이미 진행 중입니다."/>
 		<Class ClassID="102192" ClassName="GuildEventZonemoveError" Data="이전 길드 퀘스트가 정상적으로 종료되지 않았습니다. {nl}길드 퀘스트 진행 상태가 초기화 됩니다."/>
+		<Class ClassID="102193" ClassName="GuildMember{Name}TakeItem{ItemName}" Data="길드원 {Name}님이 {ItemName}를 획득하셨습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -10853,10 +10857,10 @@
 		<Class ClassID="501085" ClassName="Event_Steam_Together_Master_1" Data="이벤트 미션 참가"/>
 		<Class ClassID="501091" ClassName="EVENT_SELECT_BOSSLV_SEL1" Data="육성하기"/>
 		<Class ClassID="501092" ClassName="EVENT_SELECT_BOSSLV_SEL2" Data="몬스터명 : {NAME}"/>
-		<Class ClassID="501093" ClassName="EVENT_SELECT_BOSSLV_SEL3" Data=" {nl}몬스터명 : {NAME}{nl}현재레벨 : {LV}{nl}{nl}레벨을 올리기 위해서는 '몬스터의 기운' 아이템이 필요합니다.{nl} 사용할 '몬스터의 기운' 개수를 입력해주세요."/>
+		<Class ClassID="501093" ClassName="EVENT_SELECT_BOSSLV_SEL3" Data=" {nl}몬스터명 : {NAME} / 현재레벨 : {LV}{nl}레벨을 올리기 위해서는 '몬스터의 기운' 아이템이 필요합니다. '몬스터의 기운' 개수를 입력해주세요.{nl}1레벨당 '몬스터의 기운' 1개가 필요하며, 5레벨 단위로 레벨 성장에 필요한 '몬스터의 기운'이 1개씩 증가합니다."/>
 		<Class ClassID="501094" ClassName="EVENT_SELECT_BOSSLV_SEL4" Data="방생하기"/>
 		<Class ClassID="501095" ClassName="Event_Fedimian_1" Data="습격받은 페디미안 이벤트"/>
-		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 블루 오브 이벤트"/>
+		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 푸른 구슬 이벤트"/>
 		<Class ClassID="501097" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
 		<Class ClassID="501098" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
 	</Category>

@@ -326,7 +326,8 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 		newwidth =  math.floor( pc.NowWeight * weightPicture:GetOriginalWidth() / pc.MaxWeight )
 		rate = math.floor(pc.NowWeight*100 / pc.MaxWeight)
 	end
-	local weightscptext = ScpArgMsg("Weight{All}{Max}","All", tostring(pc.NowWeight),"Max",tostring(pc.MaxWeight))
+
+	local weightscptext = ScpArgMsg("Weight{All}{Max}","All", string.format("%.1f", pc.NowWeight),"Max",string.format("%.1f", pc.MaxWeight))
 	local weightratetext = ScpArgMsg("Weight{Rate}","Rate", tostring(rate))
 
 	if newwidth > weightPicture:GetOriginalWidth() then
@@ -813,7 +814,7 @@ end
 
 function INVENTORY_UPDATE_ICONS(frame)
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	
+
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
@@ -1425,7 +1426,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		IES_MAN_IESID(invitem:GetIESID());
 		return;
 	end
-	
+
 	local itemobj = GetIES(invitem:GetObject());
 	
     -- custom
@@ -1571,6 +1572,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 
 	if moncardFrame:IsVisible() == 1 and itemobj.GroupName == "Card" then
+		imcSound.PlaySoundEvent("icon_get_down");
 		local groupNameStr = itemobj.CardGroupName
 		if groupNameStr == "REINFORCE_CARD" then
 			ui.SysMsg(ClMsg("LegendReinforceCard_Not_Equip"));
@@ -1615,6 +1617,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			ui.SysMsg(ClMsg("CantEquipMonsterCard"));
 		end;
 	elseif legendcardupgradeFrame : IsVisible() == 1 and (itemobj.GroupName == "Card" or itemobj.ItemType == 'Etc') then
+		imcSound.PlaySoundEvent("icon_get_down");
 		-- 4를 sharedconst 값으로 빼야함 . 최대 재료 카드 개수
 		if itemobj.CardGroupName ~= nil and itemobj.CardGroupName == 'LEG' then
 			local slot = GET_CHILD_RECURSIVELY(legendcardupgradeFrame, "LEGcard_slot")

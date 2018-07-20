@@ -6919,14 +6919,14 @@ function SCR_Get_SkillFactor_FireBall(skill)
 end
 
 function SCR_GET_FireBall_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Pyromancer11") 
-    local value = 0
+    local abil = GetAbility(pc, "Pyromancer29") 
+    local value = 10
     if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+		value = value + abil.Level
     end
-
+	
+	return value
 end
 
 function SCR_Get_SklAtkAdd_FireWall(skill)
@@ -7437,14 +7437,14 @@ function SCR_Get_SkillFactor_Prominence(skill)
 end
 
 function SCR_GET_Prominence_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Elementalist14") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    local abil = GetAbility(pc, "Elementalist26") 
+    local value = 4
+    if abil ~= nil and abil.ActiveState == 1 then 
+		value = value + abil.Level
     end
-
+    
+    return value
 end
 
 function SCR_Get_SklAtkAdd_Hail(skill)

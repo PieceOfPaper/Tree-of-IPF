@@ -373,19 +373,19 @@ end
 
 function SCR_Corsair_SubweaponCancel_BUFFTIME(self, from, skill)
     
-    local time = 34000 + skill.Level * 2000
+    local time = 300000
     return time;
 end
 
 function SCR_Wizard_Surespell_BUFFTIME(self, from, skill)
     
-    local time = 45000 + skill.Level * 18000
+    local time = 300000
     return time;
 end
 
 function SCR_Wizard_QuickCast_BUFFTIME(self, from, skill)
     
-    local time = 60000
+    local time = 300000
     return time;
 end
 
@@ -456,26 +456,7 @@ end
 
 -- FirePillar_Debuff
 function SCR_BUFF_ENTER_FirePillar_Debuff(self, buff, arg1, arg2, over)
-    local caster = GetBuffCaster(buff);
 
-    local skill = GET_MON_SKILL(caster, 'Pyromancer_FirePillar');   
-    local damage = GET_SKL_DAMAGE(caster, self, 'Pyromancer_FirePillar');
-
-    local divineAtkAdd = skill.SkillAtkAdd
-    local addValue = 0
-    
-    local pad = GetPadByBuff(caster, buff);
-    if pad ~= nil then
-        addValue = GetPadArgNumber(pad, 1);
-    end
-    
-    divineAtkAdd = addValue - divineAtkAdd
-    
-    if divineAtkAdd < 0 then
-        divineAtkAdd = 0;
-    end
-    
-    TakeDamage(caster, self, "Pyromancer_FirePillar", damage + divineAtkAdd)
 end
 
 function SCR_BUFF_LEAVE_FirePillar_Debuff(self, buff, arg1, arg2, over, isLastEnd)
@@ -971,6 +952,7 @@ function SCR_BUFF_LEAVE_Samsara_Buff(self, buff, arg1, arg2, over)
         local subHp = mon.MHP - monHp;
         AddHP(mon, -subHp)
         AddBuff(caster, mon, "SamsaraAfter_Buff");
+        SetExProp(mon, "CREATE_SAMSARA", 1)
     end
 end
     
@@ -994,17 +976,28 @@ function SCR_BUFF_ENTER_Quicken_Buff(self, buff, arg1, arg2, over)
     
     local caster = GetBuffCaster(buff);
     if caster ~= nil then
+        -- 정신계수 추가 --
+        local casterMNA = TryGetProp(caster, "MNA");
+        local baseLv = TryGetProp(self, "Lv");
+        
+        local addRate = casterMNA / baseLv;
+        if addRate <= 0 then
+            addRate = 0;
+        elseif addRate >= 1 then
+            addRate = 1;
+        end
+        
         local pad = GetPadByBuff(caster, buff);
         if pad ~= nil then
             lv = GetPadArgNumber(pad, 1);
         end
         
-        atkspdadd = lv * 20
+        atkspdadd = math.floor((15 + lv * 10) * (1 + addRate));
         
         local Chronomancer1_abil = GetAbility(caster, 'Chronomancer1');
         if Chronomancer1_abil ~= nil and Chronomancer1_abil.ActiveState == 1 then
-            addCri = Chronomancer1_abil.Level * 30;
-            decreaseDR = Chronomancer1_abil.Level * 40;
+            addCri = math.floor(Chronomancer1_abil.Level * 15 * (1 + addRate));
+            decreaseDR = math.floor(Chronomancer1_abil.Level * 20 * (1 + addRate));
         end
     end
     
@@ -1182,7 +1175,7 @@ end
 
 --Sabbath_Fluting
 function SCR_BUFF_ENTER_Sabbath_Fluting(self, buff, arg1, arg2, over)
-
+    
     local moveSpeed = 100;
     local adddef = 0;
     
@@ -1199,7 +1192,6 @@ function SCR_BUFF_ENTER_Sabbath_Fluting(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_Sabbath_Fluting(self, buff, arg1, arg2, RemainTime, ret, over)
-
     local beforeFixMSPD = GetExProp(buff, "BEFORE_FIXMSPD");
     self.FIXMSPD_BM = beforeFixMSPD;
 
@@ -2390,7 +2382,7 @@ function SCR_BUFF_ENTER_Drain_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_Drain_Buff(self, buff, arg1, arg2, over)
-
+     SetExProp(self, "DARKTHEURAGE_COUNT", 0)
 end
 
 
@@ -2921,15 +2913,21 @@ function SCR_BUFF_ENTER_Bewitch_Debuff(self, buff, arg1, arg2, over)
         caster = buff;
     end
     
-    local debuff = GetBuffByProp(self, 'Keyword', 'Poison')
-        
-    if debuff ~= nil and debuff.Group1 == "Debuff" then
-        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
-        RemoveBuff(self, 'Bewitch_Debuff');
-        --PlayEffect(self, 'I_sys_caution_UI', 1, 1, 'TOP');
-        PlayEffect(self, 'F_archer_wugu3_shot', 0.5, 1, 'BOT');
-        ActorVibrate(self, 1, 1, 30, 0);
-        AddBuff(caster, self, 'Confuse', arg1, 0, 10000, 1);
+    local debuffList, debuffCount = GetBuffListByProp(self, 'Keyword', 'Poison');
+	
+    if debuffList ~= nil and debuffCount >= 1 then
+    	for i = 1, debuffCount do
+    		local deBuff = debuffList[i];
+    		if deBuff.Group1 == "Debuff" and deBuff.ClassName ~= 'Bewitch_Debuff' then
+		        SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+		        RemoveBuff(self, 'Bewitch_Debuff');
+		        PlayEffect(self, 'F_archer_wugu3_shot', 0.5, 1, 'BOT');
+		        ActorVibrate(self, 1, 1, 30, 0);
+		        AddBuff(caster, self, 'Confuse', arg1, 0, 10000, 1);
+		        
+		        break;
+		    end
+		end
     end
 end
 
@@ -4006,86 +4004,39 @@ end
 
 -- Provoke
 function SCR_BUFF_ENTER_SwashBuckling_Buff(self, buff, arg1, arg2, over)
-    local Peltasta1_abil = GetAbility(self, "Peltasta1")
-    if Peltasta1_abil ~= nil then
-        local mhpadd = math.floor(self.MHP * (Peltasta1_abil.Level * 0.05))
-        self.MHP_BM = self.MHP_BM + mhpadd;
-        
-        local hp = GetExProp(self, "CURRENT_HP");
-        if self.MHP < hp then
-            local healHP = hp - self.MHP
-            Invalidate(self, "MHP");
-            AddHP(self, healHP);
-        end
-        
-        SetExProp(buff, "ADD_MHP", mhpadd);
-    end
-    
-    local hateadd = arg1 * 2
-    self.MaxHateCount_BM = self.MaxHateCount_BM + hateadd
-    SetExProp(buff, "ADD_HATE", hateadd);
-    
-    local diffuse = GetAbility(self, "Diffuse")
-    local PVRange = 300
-    if diffuse ~= nil then 
-      PVRange = PVRange + diffuse.Level * 10 
-    end
-    
-    local objList, objCount = SelectObject(self, PVRange, 'ENEMY');
-      if objCount > 1 then
-          objCount = 6 + arg1;
-      end
-      for i = 1, objCount do
-        local obj = objList[i]; 
-        
-        if obj ~= nil then
-            local Peltasta30_abil = GetAbility(self, "Peltasta30")
-            local Peltasta30_lv = TryGetProp(Peltasta30_abil, "Level")
-            local topAttacker = GetTopHatePointChar(obj)
-            local value = 6500
-            if Peltasta30_abil ~= nil then
-                value = value * (1 + (0.1 * Peltasta30_lv))
-            end
-            
-            if topAttacker ~= nil and GetObjType(topAttacker) == OT_PC then
-                if GetPartyObj(topAttacker) and IsSameObject(GetPartyObj(self), GetPartyObj(topAttacker)) == 1 then
-                    local atkerHate = GetHate(obj, topAttacker);
-                    local myHate = GetHate(obj, self);
-                    if atkerHate >= myHate then
-                        local addHate = atkerHate * 0.8 + (arg1 * value)
-                        InsertHate(obj, self, addHate);
-                        AddBuff(self, obj, 'SwashBuckling_Debuff', arg1, 0, 4000)
-                    end
-                end
-            else
-                InsertHate(obj, self, (arg1 * value));
-                AddBuff(self, obj, 'SwashBuckling_Debuff', arg1, 0, 4000)
-            end
-        end
-    end
+    local addHateCount = arg1 + 6
+    self.MaxHateCount_BM = self.MaxHateCount_BM + addHateCount;
+    SetExProp(buff, "ADD_HATE", addHateCount);
 end
 
 function SCR_BUFF_LEAVE_SwashBuckling_Buff(self, buff, arg1, arg2, over)
-    SetExProp(self, "CURRENT_HP", self.HP);
-    local hateadd = GetExProp(buff, "ADD_HATE");
-    local mhpadd = GetExProp(buff, "ADD_MHP");
-    self.MaxHateCount_BM = self.MaxHateCount_BM - hateadd
-    self.MHP_BM = self.MHP_BM - mhpadd
+    self.MaxHateCount_BM = self.MaxHateCount_BM - GetExProp(buff, "ADD_HATE");
 end
 
 
 --Warrior_Provoke_Debuff
 function SCR_BUFF_ENTER_SwashBuckling_Debuff(self, buff, arg1, arg2, over)
-    
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
-
+    
+    local buffCaster = GetBuffCaster(buff);
+    if IS_PC(self) == false then
+        SetFociblyHater(self, buffCaster);
+        AddBuff(buffCaster, self, "ProvocationImmunity_Debuff", 0, 0, 30000, 1);
+    end
 end
 
 function SCR_BUFF_LEAVE_SwashBuckling_Debuff(self, buff, arg1, arg2, over)
-
-    ObjectColorBlend(self, 255, 255, 255, 255, 1, 1)
-    
+    ObjectColorBlend(self, 255, 255, 255, 255, 1, 1);
+    local buffCaster = GetBuffCaster(buff);
+    if buffCaster ~= nil then
+        if IS_PC(self) == false then
+            local currentTarget = GetFociblyHater(self)
+            if IsSameActor(currentTarget, buffCaster) == "YES" then
+                RemoveFociblyHater(self)
+            end
+        end
+    end
 end
 
 
@@ -4355,27 +4306,31 @@ function SCR_BUFF_ENTER_Pass_Buff(self, buff, arg1, arg2, over)
                         totalSkillCooldown = totalSkillCooldown + skillCooldown;
                         
                 AddCoolDown(self, cls.ClassName, arg1 * -5000)
+                    SetExProp(skl, "PASS_COOLDOWN", 1)
                 downList[#downList + 1] = cls.ClassName;
             end
         end
     end
-        if totalSkillCooldown > 0 then
-            local myZoneName = GetZoneName(self);
-            if myZoneName == 'mission_groundtower_1' or myZoneName == 'mission_groundtower_2' then
-                local jobObj = GetJobObject(self);
-                local jobCtrlType = TryGetProp(jobObj, 'CtrlType');
-                if jobCtrlType == nil then
-                    jobCtrlType = 'None';
-                end
-                
---              print('PassSkillLevel : ' .. arg1 .. ' / JobSeries : ' .. jobCtrlType .. ' / TotalSkillCooldown : ' .. totalSkillCooldown .. ' / TotalSkillCount : ' .. #skillCooldownList)
-                IMC_LOG('INFO_SKILL_PASS_DECREASED_TIME', 'PassSkillLevel : ' .. arg1 .. ' / JobSeries : ' .. jobCtrlType .. ' / TotalSkillCooldown : ' .. totalSkillCooldown .. ' / TotalSkillCount : ' .. #skillCooldownList)
-            end
-        end
+--        if totalSkillCooldown > 0 then
+--            local myZoneName = GetZoneName(self);
+--            if myZoneName == 'mission_groundtower_1' or myZoneName == 'mission_groundtower_2' then
+--                local jobObj = GetJobObject(self);
+--                local jobCtrlType = TryGetProp(jobObj, 'CtrlType');
+--                if jobCtrlType == nil then
+--                    jobCtrlType = 'None';
+--                end
+--                
+--                IMC_LOG('INFO_SKILL_PASS_DECREASED_TIME', 'PassSkillLevel : ' .. arg1 .. ' / JobSeries : ' .. jobCtrlType .. ' / TotalSkillCooldown : ' .. totalSkillCooldown .. ' / TotalSkillCount : ' .. #skillCooldownList)
+--            end
+--        end
 end
 end
 
 function CAN_REMAINCOOL_TIME_FOR_PASS_BUFF(downList, skl)
+    if GetExProp(skl, "PASS_COOLDOWN") == 1 then
+        return "NO"
+    end
+    
     if skl.ClassName == "Chronomancer_Pass" or skl.ClassName == "Musketeer_PrimeAndLoad" then
         return "NO"
     end
@@ -4831,8 +4786,7 @@ end
 
 -- Sleep_Debuff
 function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
-SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
-    --ShowEmoticon(self, 'I_emo_sleep', 0)
+	SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local lv = arg1;
     
@@ -4846,12 +4800,18 @@ SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, 
                 lv = 5
             end
             
+            local abilWizard25 = GetAbility(caster, "Wizard25")
+            if abilWizard25 ~= nil then
+            	lv = lv * 0.2
+            end
+            
+            if lv <= 0 then
+            	lv = 1
+            end
         end
     end
     
     SetExProp(self, "TAKEDMG_COUNT", lv)
-
-
 end
 
 function SCR_BUFF_LEAVE_Sleep_Debuff(self, buff, arg1, arg2, over)
@@ -5330,9 +5290,9 @@ function SCR_BUFF_ENTER_Lethargy_Debuff(self, buff, arg1, arg2, over)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     
     local lv = arg1;
-    local patkadd = 0
-    local matkadd = 0
-    local dradd = 0
+    local patkAdd = 0
+    local matkAdd = 0
+    local drAdd = 0
     
     local caster = GetBuffCaster(buff);
     if caster ~= nil then
@@ -5341,24 +5301,13 @@ function SCR_BUFF_ENTER_Lethargy_Debuff(self, buff, arg1, arg2, over)
             lv = GetPadArgNumber(pad, 1);
         end
         
-        local defaultDebuffAtk = 5
-        local debuffAtkBySkillLv = lv * 3
-        local debuffAtkByStat = caster.INT * (lv / 15)
-        local debuffAtkValue = defaultDebuffAtk + debuffAtkBySkillLv + debuffAtkByStat
-        
-        patkadd = debuffAtkValue
-        matkadd = debuffAtkValue
-        dradd =  4 + 2 * (lv - 1)
-        
+		patkAdd = lv * 0.01
+		matkAdd = lv * 0.01
+		drAdd = lv * 5
+		
         local skill = GetSkill(caster, "Wizard_Lethargy")
         if skill == nil then
             return
-        end
-        
-        local Wizard14_abil = GetAbility(caster, "Wizard14")
-        if Wizard14_abil ~= nil and skill.Level >= 3 then
-            patkadd = patkadd * (1 + Wizard14_abil.Level * 0.01);
-            matkadd = matkadd * (1 + Wizard14_abil.Level * 0.01);
         end
         
         local Wizard7_abil = GetAbility(caster, 'Wizard7')
@@ -5367,39 +5316,27 @@ function SCR_BUFF_ENTER_Lethargy_Debuff(self, buff, arg1, arg2, over)
         end
     end
     
-    patkadd = math.floor(patkadd)
-    matkadd = math.floor(matkadd)
-    dradd = math.floor(dradd)
-    
-    if patkadd > self.MINPATK then
-        patkadd = self.MINPATK;
+    if drAdd > self.DR then
+        drAdd = self.DR;
     end
     
-    if matkadd > self.MINMATK then
-        matkadd = self.MINMATK;
-    end
+    self.PATK_RATE_BM = self.PATK_RATE_BM - patkAdd;
+    self.MATK_RATE_BM = self.MATK_RATE_BM - matkAdd;
+    self.DR_BM = self.DR_BM - drAdd;
     
-    if dradd > self.DR then
-        dradd = self.DR;
-    end
-    
-    self.PATK_BM = self.PATK_BM - patkadd;
-    self.MATK_BM = self.MATK_BM - matkadd;
-    self.DR_BM = self.DR_BM - dradd;
-    
-    SetExProp(buff, "ADD_PATK", patkadd);
-    SetExProp(buff, "ADD_MATK", matkadd);
-    SetExProp(buff, "ADD_DR", dradd);
+    SetExProp(buff, "ADD_PATK", patkAdd);
+    SetExProp(buff, "ADD_MATK", matkAdd);
+    SetExProp(buff, "ADD_DR", drAdd);
 end
 
 function SCR_BUFF_LEAVE_Lethargy_Debuff(self, buff, arg1, arg2, over)
-    local patkadd = GetExProp(buff, "ADD_PATK");
-    local matkadd = GetExProp(buff, "ADD_MATK");
-    local dradd = GetExProp(buff, "ADD_DR");
+    local patkAdd = GetExProp(buff, "ADD_PATK");
+    local matkAdd = GetExProp(buff, "ADD_MATK");
+    local drAdd = GetExProp(buff, "ADD_DR");
     
-    self.PATK_BM = self.PATK_BM + patkadd;
-    self.MATK_BM = self.MATK_BM + matkadd;
-    self.DR_BM = self.DR_BM + dradd;
+    self.PATK_RATE_BM = self.PATK_RATE_BM + patkAdd;
+    self.MATK_RATE_BM = self.MATK_RATE_BM + matkAdd;
+    self.DR_BM = self.DR_BM + drAdd;
 end
 
 
@@ -6209,10 +6146,10 @@ function SCR_BUFF_ENTER_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
             local Thaumaturge6_abil = GetAbility(caster, "Thaumaturge6");
             local Thaumaturge7_abil = GetAbility(caster, "Thaumaturge7");
             local arg3, arg4 = 0, 0;
-            if Thaumaturge6_abil ~= nil and ShrinkBodySkill.Level >= 2 then
+            if Thaumaturge6_abil ~= nil and ShrinkBodySkill ~= nil and ShrinkBodySkill.Level >= 2 then
                 arg3 = Thaumaturge6_abil.Level;
             end
-            if Thaumaturge7_abil ~= nil and SwellBodySkill.Level >= 2 then
+            if Thaumaturge7_abil ~= nil and SwellBodySkill ~= nil and SwellBodySkill.Level >= 2 then
                 arg4 = Thaumaturge7_abil.Level;
             end
             SetBuffArgs(buff, arg3, arg4, 0);
@@ -6221,7 +6158,7 @@ function SCR_BUFF_ENTER_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
         patkadd = math.floor(addValue)
         matkadd = math.floor(addValue)
         
-        self.PATK_BM = self.PATK_BM + patkadd;
+        self.PATK_MAIN_BM = self.PATK_MAIN_BM + patkadd;
         self.MATK_BM = self.MATK_BM + matkadd;
     end
     
@@ -6233,7 +6170,7 @@ function SCR_BUFF_LEAVE_SwellLeftArm_Buff(self, buff, arg1, arg2, over)
 
     local patkadd = GetExProp(buff, "ADD_PATK");
     local matkadd = GetExProp(buff, "ADD_MATK");
-    self.PATK_BM = self.PATK_BM - patkadd;
+    self.PATK_MAIN_BM = self.PATK_MAIN_BM - patkadd;
     self.MATK_BM = self.MATK_BM - matkadd;
 
 end
@@ -6302,8 +6239,7 @@ function UPDATE_USER_ADD_PROPERTY(self, buff, arg1)
             addtype = 1;
             Invalidate(self, 'DEF');
         elseif item.AttachType == 'dagger' or item.AttachType == 'Pistol' or item.AttachType == 'Sword' or item.AttachType == 'Cannon' then
-            self.PATK_BM = self.PATK_BM + addValue;
-            self.MATK_BM = self.MATK_BM + addValue;
+            self.PATK_SUB_BM  = self.PATK_SUB_BM  + addValue;
             addtype = 2;
             Invalidate(self, 'MAXPATK');
             Invalidate(self, 'MINPATK');
@@ -6342,8 +6278,7 @@ function UPDATE_USER_MINER_PROPERTY(self, buff)
         Invalidate(self, 'DEF');
 --        Invalidate(self, 'MDEF');
     elseif addtype == 2 then
-        self.PATK_BM = self.PATK_BM - addValue;
-        self.MATK_BM = self.MATK_BM - addValue;
+        self.PATK_SUB_BM  = self.PATK_SUB_BM  - addValue;
         Invalidate(self, 'MAXPATK');
         Invalidate(self, 'MINPATK');
         Invalidate(self, 'MAXMATK');
@@ -6372,7 +6307,19 @@ end
 function SCR_BUFF_UPDATE_SwellRightArm_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
     local item = GetEquipItem(self, 'LH');
     if nil == item then
-        UPDATE_USER_MINER_PROPERTY(self, buff);
+--        UPDATE_USER_MINER_PROPERTY(self, buff);
+        local caster = GetBuffCaster(buff);
+        if caster == nil then
+            return 0;
+        end
+        
+        RemainTime = RemainTime - 1000;
+        if RemainTime <= 0 then
+            return 0;
+        end
+        
+        AddBuff(caster, self, buff.ClassName, arg1, arg2, RemainTime, 1);
+        
         return 1;
     end
 
@@ -6380,9 +6327,21 @@ function SCR_BUFF_UPDATE_SwellRightArm_Buff(self, buff, arg1, arg2, RemainTime, 
     local guid = GetExProp_Str(buff, "ItemGUID");
 
     if nowGuid ~= guid then
-        UPDATE_USER_MINER_PROPERTY(self, buff);
-        -- ?????
-        UPDATE_USER_ADD_PROPERTY(self, buff, arg1);
+--        UPDATE_USER_MINER_PROPERTY(self, buff);
+--        UPDATE_USER_ADD_PROPERTY(self, buff, arg1);
+        local caster = GetBuffCaster(buff);
+        if caster == nil then
+            return 0;
+        end
+        
+        RemainTime = RemainTime - 1000;
+        if RemainTime <= 0 then
+            return 0;
+        end
+        
+        AddBuff(caster, self, buff.ClassName, arg1, arg2, RemainTime, 1);
+        
+        return 1;
     end
     return 1;
 end
@@ -6742,14 +6701,12 @@ function SCR_BUFF_ENTER_ReflectShield_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_ReflectShield_Buff(self, buff, arg1, arg2, over)
-
     local damratio = GetExProp(buff, "ADD_DAMREFLCET");
     
     self.DamReflect = self.DamReflect - damratio;
-
+	
     DetachEffect(self, 'I_sphere007_mash');
     PlayEffect(self, "F_wizard_reflect_shot_light", 1, 2, "BOT");
-
 end
 
 
@@ -8089,20 +8046,32 @@ function SCR_BUFF_ENTER_Haste_Buff(self, buff, arg1, arg2, over)
 
     local lv = arg1;
     
-    local mspdadd = 5 + lv * 1
+    local mspdAdd = 3 + lv * 0.5
     local dradd = 0;
-    
-    self.MSPD_BM = self.MSPD_BM + mspdadd;
-    SetExProp(buff, "ADD_MSPD", mspdadd);
     
     local caster = GetBuffCaster(buff);
     if caster == nil then
         caster = buff;
     end
+    local casterMNA = TryGetProp(caster, "MNA");
+    local baseLv = TryGetProp(self, "Lv");
     
-    local abil = GetAbility(caster, "Chronomancer7")
+    local addRate = casterMNA / baseLv;
+    if addRate <= 0 then
+        addRate = 0;
+    elseif addRate >= 1 then
+        addRate = 1;
+    end
+    
+    mspdAdd = math.floor(mspdAdd * (1 + addRate));
+    
+    self.MSPD_BM = self.MSPD_BM + mspdAdd;
+    SetExProp(buff, "ADD_MSPD", mspdAdd);
+    
+    local abil = GetAbility(caster, "Chronomancer7");
     if abil ~= nil then
-        dradd = dradd + abil.Level * 30
+        dradd = dradd + abil.Level * 15
+        dradd = math.floor(dradd * (1 + addRate));
     end
     
     self.DR_BM = self.DR_BM + dradd;
@@ -8118,10 +8087,10 @@ end
 
 function SCR_BUFF_LEAVE_Haste_Buff(self, buff, arg1, arg2, over)
 
-    local mspdadd = GetExProp(buff, "ADD_MSPD");
+    local mspdAdd = GetExProp(buff, "ADD_MSPD");
     local dradd = GetExProp(buff, "ADD_DR");
 
-    self.MSPD_BM = self.MSPD_BM - mspdadd;
+    self.MSPD_BM = self.MSPD_BM - mspdAdd;
     self.DR_BM = self.DR_BM - dradd;
 
 end
@@ -8352,6 +8321,29 @@ function SCR_BUFF_ENTER_Thurisaz_Buff(self, buff, arg1, arg2, over)
 --        end
 --    end
     
+    local addLimitationSkillList = {};
+    local list, cnt = GetClassList("Skill")
+    if list ~= nil then
+        for i = 1, cnt - 1 do
+            local skill = GetClassByIndexFromList(list, i)
+            if skill ~= nil then
+                if skill.ValueType == "Buff" then
+                    addLimitationSkillList[#addLimitationSkillList + 1] = skill.ClassName;
+                end
+            end
+        end
+    end
+    
+    for j = 1 , #addLimitationSkillList do
+        local skillList = addLimitationSkillList[j];
+        local addList = GetSkill(self, skillList);
+        if addList ~= nil then
+            InvalidateObjectProp(addList, "MaxR");
+            SendSkillProperty(self, addList);
+            AddLimitationSkillList(self, skillList);
+        end
+    end
+    
     AddLimitationSkillList(self, "Normal_Attack");
     AddLimitationSkillList(self, "Bow_Attack");
     AddLimitationSkillList(self, "Hammer_Attack");
@@ -8443,38 +8435,10 @@ end
 
 function SCR_BUFF_ENTER_Algiz_Buff(self, buff, arg1, arg2, over)
     
-    SetExProp(self, "ADD_ALGIZ_IMMUNE", arg1 * 1000)
-    
-    local addcrtdr = 0;
-    local addkd = 0;
-    
-    local caster = GetBuffCaster(buff)
-    if caster ~= nil then
-        local abil = GetAbility(caster, "RuneCaster6")
-        if abil ~= nil then
-            addcrtdr = math.floor(caster.MNA * 0.2 * abil.Level)
-        end
-        
-        local RuneCaster7_abil = GetAbility(caster, "RuneCaster7")
-        if RuneCaster7_abil ~= nil then
-            addkd = RuneCaster7_abil.Level * 100;
-        end
-    end
-    
-    self.CRTDR_BM = self.CRTDR_BM + addcrtdr;
-    
-    SetExProp(buff, "ADD_CRTDR", addcrtdr)
-    SetExProp(buff, "ADD_KD", addkd)
 end
 
 function SCR_BUFF_LEAVE_Algiz_Buff(self, buff, arg1, arg2, over)
 
-    DelExProp(self, "ADD_ALGIZ_IMMUNE")
-    
-    local addcrtdr = GetExProp(buff, "ADD_CRTDR")
-    
-    self.CRTDR_BM = self.CRTDR_BM - addcrtdr;
-    
 end
 
 
@@ -8508,8 +8472,10 @@ end
 
 
 function SCR_BUFF_ENTER_MagneticForce_Debuff_Hold(self, buff, arg1, arg2, over)
-        EnableControl(self, 0, "MAGNETIC_MOVE_LOCK");
+	if IS_PC(self) == true then
+    	EnableControl(self, 0, "MAGNETIC_MOVE_LOCK");
     end
+end
 
 function SCR_BUFF_LEAVE_MagneticForce_Debuff_Hold(self, buff, arg1, arg2, over)    
     local caster = GetBuffCaster(buff);    
@@ -8522,9 +8488,11 @@ function SCR_BUFF_LEAVE_MagneticForce_Debuff_Hold(self, buff, arg1, arg2, over)
             end            
         end
     end
-
-        EnableControl(self, 1, "MAGNETIC_MOVE_LOCK");
+	
+	if IS_PC(self) == true then
+    	EnableControl(self, 1, "MAGNETIC_MOVE_LOCK");
     end
+end
 
 
 function SCR_BUFF_ENTER_Camouflage_Buff(self, buff, arg1, arg2, over)
@@ -10619,15 +10587,15 @@ end
 
 function SCR_BUFF_ENTER_Stabbing_Debuff(self, buff, arg1, arg2, over)
 
-    AddLimitationSkillList(self, 'Hoplite_Stabbing');
-    AddIgnoreSkillCoolTime(self, 'Hoplite_Stabbing');
-end
+        AddLimitationSkillList(self, 'Hoplite_Stabbing');
+        AddIgnoreSkillCoolTime(self, 'Hoplite_Stabbing');
+    end
 
 function SCR_BUFF_LEAVE_Stabbing_Debuff(self, buff, arg1, arg2, over)
     
-    ClearLimitationSkillList(self);
-    ClearIgnoreSkillCoolTime(self);
-end
+        ClearLimitationSkillList(self);
+        ClearIgnoreSkillCoolTime(self);
+    end
 
 --Archer_Kneelingshot
 function SCR_BUFF_ENTER_Archer_Kneelingshot(self, buff, arg1, arg2, over)
@@ -10849,47 +10817,38 @@ end
 -- FireBall_Buff
 function SCR_BUFF_ENTER_FireBall_Buff(self, buff, arg1, arg2, over)
     ChangeScale(self, 1.3)
-    SetExProp(self, 'FIREBALL_HIT_COUNT', 1);
 end
 
 function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
-
     local caster = GetBuffCaster(buff);
     if caster == nil then
         Kill(self);
         return 1;
     end
-
-    local hitCount = GetExProp(self, 'FIREBALL_HIT_COUNT'); 
+	
     local curTime = imcTime.GetAppTime();
     local isAttack = false;
     local objList, objCount = SelectObject(self, 25, 'ALL');
     for i = 1, objCount do
         local obj = objList[i];
         if obj ~= nil and GetRelation(caster, obj) == "ENEMY" and IsSameActor(obj, self) == "NO" then
-            if obj.ClassName ~= "hidden_monster2" and hitCount > 0 then
+            if obj.ClassName ~= "hidden_monster2" then
                 local time = GetExProp(obj, 'FIREBALL_HIT_TIME');
                 if time + 1 < curTime then
                     local splashRange = 70;
                     local dmgRage = 1;
                     local sr = 15;
-
-                    isAttack = FIREBALL_SPLASH_DAMAGE(self, caster, 'Pyromancer_FireBall', splashRange, sr);
+					
+					isAttack = FIREBALL_SPLASH_DAMAGE(self, caster, 'Pyromancer_FireBall', splashRange, sr);
                     if isAttack == true then
                         PlayEffect(self, "F_wizard_fireball_hit_full_explosion", 2.0);
-                        hitCount = hitCount - 1;
-                        SetExProp(self, 'FIREBALL_HIT_COUNT', hitCount);
                         break;
                     end
                 end
             end
         end     
     end
-        
-    if hitCount <= 0 then
-        Kill(self);
-        return 1;
-    end
+	
     return 1;
 end
 
@@ -10898,22 +10857,23 @@ function SCR_BUFF_LEAVE_FireBall_Buff(self, buff, arg1, arg2, over)
 end
 
 function FIREBALL_SPLASH_DAMAGE(fireMon, caster, skillName, range, sr)
-
     local isAttack = false;
     local skill = GET_MON_SKILL(caster, 'Pyromancer_FireBall');
     if skill ~= nil then
-
-        local objList, objCount = SelectObjectNear(caster, fireMon, range, 'ENEMY');    
+        local objList, objCount = SelectObjectNear(caster, fireMon, range, 'ENEMY');
         for i = 1, objCount do
             local obj = objList[i];
-            if IsSameActor(obj, caster) == "NO" then
-
+            if obj == fireMon then
+            	return
+            end
+            if IsSameActor(obj, caster) == "NO" and GetExProp(fireMon, "FIREBALL_HIT") == 0 and IsSameActor(obj, fireMon) == "NO" then
                 local damage = GET_SKL_DAMAGE(caster, obj, 'Pyromancer_FireBall');
-                TakeDamage(caster, obj, skillName, damage, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
+				TakeDamage(caster, obj, skillName, damage, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
                 sr = sr - obj.SDR;
 
                 isAttack = true;
                 SetExProp(obj, 'FIREBALL_HIT_TIME', curTime);
+                SetExProp(fireMon, "FIREBALL_HIT", 1)
 
                 local pyromancer1_abil = GetAbility(caster, 'Pyromancer1')
                 if pyromancer1_abil ~= nil then
@@ -10923,14 +10883,14 @@ function FIREBALL_SPLASH_DAMAGE(fireMon, caster, skillName, range, sr)
                         AddBuff(caster, obj, "Fire", dot, 0, 5000, 1);
                     end
                 end
-            end
+	        end
         
             if sr <= 0 then
                 return isAttack;
             end
         end
     end
-
+	
     return isAttack;
 end
 
@@ -11139,18 +11099,26 @@ end
 
 -- GravityPole_Def_Debuff
 function SCR_BUFF_ENTER_GravityPole_Def_Debuff(self, buff, arg1, arg2, over)
-    
     local addDef = arg2 * 0.04;
+    
     self.DEF_RATE_BM = self.DEF_RATE_BM - addDef;
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - addDef;
+    
     SetExProp(buff, 'ADD_DEF_ABIL', addDef);
+    SetExProp(buff, 'ADD_MDEF_ABIL', addDef);
+    
     Invalidate(self, "DEF");
+    Invalidate(self, "MDEF");
 end
 
 function SCR_BUFF_LEAVE_GravityPole_Def_Debuff(self, buff, arg1, arg2, over)
-
     local addDef = GetExProp(buff, 'ADD_DEF_ABIL');
+    
     self.DEF_RATE_BM = self.DEF_RATE_BM + addDef;
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + addDef;
+    
     Invalidate(self, "DEF");
+    Invalidate(self, "MDEF");
 end
 
 function SCR_BUFF_ENTER_GravityPolePVP_Debuff(self, buff, arg1, arg2, over)
@@ -11184,7 +11152,7 @@ function SCR_BUFF_LEAVE_murmillo_helmet(self, buff, arg1, arg2, over)
     --RunScript('SCR_MURMILLO_HELMET_UNEQUIP', self);
 
     EquipDummyItemSpot(self, self, 0, 'HELMET', 0);
-    ChangeSkillAniName(self, 'Normal_Attack', 'None');
+        ChangeSkillAniName(self, 'Normal_Attack', 'None');
     
     local addmaspd = GetExProp(buff, "ADD_MSPD")
     
@@ -11275,6 +11243,11 @@ function SCR_BUFF_ENTER_BigHeadMode(self, buff, arg1, arg2, over)
     
     SetExProp(buff, "ADD_INT", intAdd);
     SetExProp(buff, "ADD_MATK", addValue);
+    
+    local abilThaumaturge16 = GetAbility(caster, "Thaumaturge16")
+    if abilThaumaturge16 ~= nil and abilThaumaturge16.ActiveState == 1 then
+    	AddBuff(caster, caster, "QuickCast_Buff", skill.Level, 0, abilThaumaturge16.Level * 3000, 1)
+    end
 end
 
 function SCR_BUFF_LEAVE_BigHeadMode(self, buff, arg1, arg2, over)
@@ -14826,10 +14799,6 @@ function SCR_BUFF_LEAVE_Ole_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Capote_Buff(self, buff, arg1, arg2, over, skill)
-    local hateAdd = arg1 * 5
-    self.MaxHateCount_BM = self.MaxHateCount_BM + hateAdd
-    SetExProp(buff, "CAPOTE_HATE", hateAdd);
-    
     local objList, objCount = SelectObject(self, 300, 'ENEMY');
     
     if objCount >= 1 then
@@ -14878,7 +14847,10 @@ function SCR_BUFF_ENTER_Capote_Debuff(self, buff, arg1, arg2, over)
     
     local buffCaster = GetBuffCaster(buff)
     if IS_PC(self) == false then
-        SetFociblyHater(self, buffCaster)
+        if IsBuffApplied(self, "ProvocationImmunity_Debuff") == "NO" then
+            SetFociblyHater(self, buffCaster)
+            AddBuff(buffCaster, self, "ProvocationImmunity_Debuff", 0, 0, 30000, 1);
+        end
     end
     
     local HR = TryGetProp(self, "HR")
@@ -15364,6 +15336,77 @@ function SCR_BUFF_LEAVE_BuildRoost_Buff(self, buff, arg1, arg2, over)
 end
 
 
+function SCR_BUFF_ENTER_RamMuay_Buff(self, buff, arg1, arg2, over, skill)
+    
+end
+
+function SCR_BUFF_UPDATE_RamMuay_Buff(self, buff, arg1, arg2, over, skill)
+    if IS_REAL_PC(self) == "YES" then
+        if GetExProp(self, "BUNSIN") == 0 then
+            local ridingCompanion = GetRidingCompanion(self);
+            if ridingCompanion ~= nil then
+                return 0;
+            end
+        	
+            local rammuaySkill = GetSkill(self, "NakMuay_RamMuay")
+            if rammuaySkill == nil then
+                return 0;
+            end
+            
+            local equipByLhand = GetEquipItem(self, "LH")
+            if equipByLhand.ClassName == "NoWeapon" then
+                ChangeLHandAttack(self, "None")
+            else
+                ChangeLHandAttack(self, "NakMuay_Attack")
+            end
+        end
+    end
+    
+    ChangeNormalAttack(self, "NakMuay_Attack");
+    return 1
+end
+
+function SCR_BUFF_LEAVE_RamMuay_Buff(self, buff, arg1, arg2, over)
+    ChangeNormalAttack(self, "None");
+    ChangeLHandAttack(self, "None")
+end
+
+function SCR_BUFF_ENTER_TeKha_Debuff(self, buff, arg1, arg2, over)
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    local mspdAdd = TryGetProp(self, "MSPD") * 0.5;
+    self.MSPD_BM = self.MSPD_BM - mspdAdd;
+    SetExProp(buff, "TEKHA_ADD_MSPD", mspdAdd);
+end
+
+
+function SCR_BUFF_LEAVE_TeKha_Debuff(self, buff, arg1, arg2, over)
+    local mspdAdd = GetExProp(buff, "TEKHA_ADD_MSPD");
+    self.MSPD_BM = self.MSPD_BM + mspdAdd;
+end
+
+function SCR_BUFF_ENTER_SokChiang_Debuff(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff);
+    local dmg = (caster.MINPATK + caster.MINPATK) / 10;
+    SetExProp(self, 'CriticalWound_Damage', dmg)
+end
+
+function SCR_BUFF_UPDATE_SokChiang_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        caster = self;
+    end
+    local dmg = GetExProp(self, 'CriticalWound_Damage')
+    TakeDamage(caster, self, "None", dmg, "None", "None", "TrueDamage", HIT_BLEEDING, HITRESULT_BLOW, 0, 0);   
+    return 1;
+
+end
+
+function SCR_BUFF_LEAVE_SokChiang_Debuff(self, buff, arg1, arg2, over)
+
+end
+
+
 
 function SCR_BUFF_ENTER_Muleta_Buff(self, buff, arg1, arg2, over)
 	local skillLevel = arg1;
@@ -15478,4 +15521,256 @@ function SCR_BUFF_LEAVE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
     if IS_PC(self) == false then
         self.DEF_BM = self.DEF_BM + GetExProp(buff, "EQUIPDESRPTION_DEF")
     end
+end
+
+function SCR_BUFF_ENTER_FlameGround_Debuff(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff)
+    if caster == nil then
+    	return
+    end
+    
+    local fireResist = 0
+    local abilPyromancer27 = GetAbility(caster, "Pyromancer27")
+    if abilPyromancer27 ~= nil and abilPyromancer27.ActiveState == 1 then
+	    fireResist = abilPyromancer27.Level * 50
+    end
+    
+    if IS_PC(self) == true then
+    	self.ResFire_BM = self.ResFire_BM - fireResist
+    end
+    
+    SetExProp(buff, "PYROMANCER27_FIRERESIST", fireResist)
+end
+
+function SCR_BUFF_LEAVE_FlameGround_Debuff(self, buff, arg1, arg2, over)
+    local fireResist = GetExProp(buff, "PYROMANCER27_FIRERESIST")
+    
+    if IS_PC(self) == true then
+    	self.ResFire_BM = self.ResFire_BM + fireResist
+    end
+end
+
+
+function SCR_BUFF_ENTER_HeavyGravity_Debuff(self, buff, arg1, arg2, over)
+	if IS_PC(self) == false then
+    	SetExProp_Str(self, 'HEAVYGRAVITY_CHANGE_MOVETYPE', self.MoveType)
+    	
+    	self.MoveType = "Normal"
+    end
+    
+    local abilMoveSpeed = 0
+    local caster = GetBuffCaster(buff)
+    if caster ~= nil then
+    	local abilPsychokino22 = GetAbility(caster, "Psychokino22")
+    	if abilPsychokino22 ~= nil and abilPsychokino22.ActiveState == 1 then
+    		if IS_PC(self) == true then 
+    			abilMoveSpeed = abilPsychokino22.Level * 10
+    		elseif IS_PC(self) == false and self.Size == "S" or self.Size == "M" then
+    			abilMoveSpeed = abilPsychokino22.Level * 10
+    		end
+    	end
+    end
+    
+    self.MSPD_BM = self.MSPD_BM - abilMoveSpeed
+	
+    SetExProp(buff, "HEAVYGRAVITY_MOVESPEED", abilMoveSpeed)
+end
+
+function SCR_BUFF_LEAVE_HeavyGravity_Debuff(self, buff, arg1, arg2, over)
+	if IS_PC(self) == false then
+    	local moveType = GetExProp_Str(self, 'HEAVYGRAVITY_CHANGE_MOVETYPE')
+    	
+    	self.MoveType = moveType
+    end
+    
+    local abilMoveSpeed = GetExProp(buff, "HEAVYGRAVITY_MOVESPEED")
+    
+    self.MSPD_BM = self.MSPD_BM + abilMoveSpeed
+end
+
+function SCR_BUFF_ENTER_Hagalaz_Debuff(self, buff, arg1, arg2, over)
+    local addMdef = 0;
+    local buffCaster = GetBuffCaster(buff);
+    if buffCaster ~= nil then
+        local abil = GetAbility(buffCaster, "RuneCaster8");
+        if abil ~= nil and TryGetProp(abil, "ActiveState") == 1 then
+            addMdef = TryGetProp(abil, "Level") * 0.03;
+            SetExProp(buff, "ABIL_RUNECASTER8_ADDMEDF", addMdef);
+        end
+        
+        self.MDEF_RATE_BM = self.MDEF_RATE_BM - addMdef;
+    end
+end
+
+function SCR_BUFF_LEAVE_Hagalaz_Debuff(self, buff, arg1, arg2, over)
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + GetExProp(buff, "ABIL_RUNECASTER8_ADDMEDF");
+end
+
+function SCR_BUFF_ENTER_StormDust_Debuff(self, buff, arg1, arg2, over)
+	local abilMoveSpeed = 0
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local atk = GET_SKL_DAMAGE(caster, self, "Elementalist_StormDust");
+		local abilElementalist28 = GetAbility(caster, "Elementalist28")
+		if abilElementalist28 ~= nil and abilElementalist28.ActiveState == 1 then
+			abilMoveSpeed = abilElementalist28.Level * 2
+		end
+		
+		SetBuffArgs(buff, atk, 0, 0)
+	end
+	
+	self.MSPD_BM = self.MSPD_BM - abilMoveSpeed
+	
+	SetExProp(buff, "STORMDUST_MOVESPEED", abilMoveSpeed)
+end
+
+function SCR_BUFF_UPDATE_StormDust_Debuff(self, buff, arg1, arg2, over)
+    local atk = GetBuffArgs(buff);
+    if atk <= 0 then
+        return 0;
+    end
+        
+    local from = self;
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then    
+        from = caster;
+    end
+    
+    local skill = GetSkill(caster, 'Elementalist_StormDust')
+    if skill ~= nil then
+        TakeDamage(caster, self, skill.ClassName, atk, "Earth", "Magic", "Magic");
+    end
+    
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_StormDust_Debuff(self, buff, arg1, arg2, over)
+    local abilMoveSpeed = GetExProp(buff, "STORMDUST_MOVESPEED")
+    
+    self.MSPD_BM = self.MSPD_BM + abilMoveSpeed
+end
+
+
+function SCR_BUFF_ENTER_SpiritShock_Debuff(self, buff, arg1, arg2, over)
+	local abilMdef = 0
+	local caster = GetBuffCaster(buff)
+	if caster ~= nil then
+		local atk = GET_SKL_DAMAGE(caster, self, "Linker_SpiritShock");
+		
+		SetBuffArgs(buff, atk, 0, 0)
+		
+		local abilLinker14 = GetAbility(caster, "Linker14")
+		if abilLinker14 ~= nil and IsSameActor(self, caster) == "NO" and (abilLinker14.Level * 5) > IMCRandom(1, 100) then
+			AddBuff(caster, self, "Confuse", 1, 0, 10000, 1)
+		end
+		
+		local abilLinker15 = GetAbility(caster, "Linker15")
+		if abilLinker15 ~= nil and abilLinker15.ActiveState == 1 and IsSameActor(self, caster) == "NO" then
+			abilMdef = 0.25
+		end
+	end
+	
+	self.MDEF_RATE_BM = self.MDEF_RATE_BM - abilMdef
+	
+	SetExProp(buff, "SPIRITSHOCK_MDEF", abilMdef)
+end
+
+function SCR_BUFF_UPDATE_SpiritShock_Debuff(self, buff, arg1, arg2, over)
+    local atk = GetBuffArgs(buff);
+    if atk <= 0 then
+        return 0;
+    end
+	
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+	    local skill = GetSkill(caster, 'Linker_SpiritShock')
+	    if skill ~= nil and IsSameActor(self, caster) == "NO" then
+			TakeDamage(caster, self, skill.ClassName, atk, "Soul", "Magic", "Magic", HIT_BASIC, HITRESULT_BLOW);
+	    end
+	end
+	
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_SpiritShock_Debuff(self, buff, arg1, arg2, over)
+	local abilMdef = GetExProp(buff, "SPIRITSHOCK_MDEF")
+	
+	self.MDEF_RATE_BM = self.MDEF_RATE_BM + abilMdef
+end
+
+
+function SCR_BUFF_ENTER_ProvocationImmunity_Debuff(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_UPDATE_ProvocationImmunity_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_ProvocationImmunity_Debuff(self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_ENTER_SwashBucklingReduceDamage_Buff(self, buff, arg1, arg2, over)
+    
+end
+
+function SCR_BUFF_UPDATE_SwashBucklingReduceDamage_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_SwashBucklingReduceDamage_Buff(self, buff, arg1, arg2, over)
+
+end
+
+
+function SCR_BUFF_ENTER_SwellLeftArm_Abil_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_SwellLeftArm_Abil_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+
+function SCR_BUFF_ENTER_SwellRightArm_Abil_Buff(self, buff, arg1, arg2, over)
+    local abilDefValue = 0
+    local abilMdefValue = 0
+    local caster = GetBuffCaster(buff)
+    if caster ~= nil then
+    	local abilThaumaturge18 = GetAbility(caster, "Thaumaturge18")
+    	if abilThaumaturge18 ~= nil then
+    		abilDefValue = abilThaumaturge18.Level * 0.05
+    		abilMdefValue = abilThaumaturge18.Level * 0.05
+    	end
+    end
+    
+    self.DEF_RATE_BM = self.DEF_RATE_BM + abilDefValue
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + abilMdefValue
+    
+    SetExProp(buff, "RIGHTARM_ABIL_DEF", abilDefValue)
+    SetExProp(buff, "RIGHTARM_ABIL_MDEF", abilMdefValue)
+end
+
+function SCR_BUFF_LEAVE_SwellRightArm_Abil_Buff(self, buff, arg1, arg2, over)
+    local abilDefValue = GetExProp(buff, "RIGHTARM_ABIL_DEF")
+    local abilMdefValue = GetExProp(buff, "RIGHTARM_ABIL_MDEF")
+    
+    self.DEF_RATE_BM = self.DEF_RATE_BM - abilDefValue
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - abilMdefValue
+end
+
+function SCR_BUFF_ENTER_sabath_buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_sabath_buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_ENTER_ElevateMagicSquare_Buff(self, buff, arg1, arg2, over)
+	
+end
+
+function SCR_BUFF_LEAVE_ElevateMagicSquare_Buff(self, buff, arg1, arg2, over)
+	
 end
