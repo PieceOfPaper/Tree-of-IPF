@@ -1368,9 +1368,3 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
     end
     return true;
 end
-
-function INDUN_ALREADY_PLAYING()
-    local yesScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 1);
-	local noScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 0);
-	ui.MsgBox(ClMsg("IndunAlreadyPlaying_AreYouGiveUp"), yesScp, noScp);
-end
