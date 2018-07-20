@@ -7,12 +7,11 @@
 	<Category Name="Group_1">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
 			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
 		<Category Name="Buff">
 			<Class Name="Cryomancer_Freeze" BuffID="238" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
-			<Class Name="Subzero_Buff" BuffID="277" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Cryomancer_FrostPillar" BuffID="301" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 			<Class Name="Freeze" BuffID="8" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
 		</Category>
@@ -22,7 +21,7 @@
 	<Category Name="Group_2">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
 			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
 		<Category Name="Buff">
@@ -33,7 +32,7 @@
 	<Category Name="Group_3">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
 			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
 		<Category Name="Buff">
@@ -58,7 +57,7 @@
 	<Category Name="Group_4">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
 			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
 		<Category Name="Buff">
@@ -71,7 +70,7 @@
 	<Category Name="Group_5">
 		<Category Name="Constant">
 			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
-			<Class Name="ApplyingCount" Value="5" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
 			<Class Name="Ratio" Value="0.5" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
 		</Category>
 		<Category Name="Buff">      

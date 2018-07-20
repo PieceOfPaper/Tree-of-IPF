@@ -1704,3 +1704,25 @@ function PUSH_BACK_IF_NOT_EXIST(list, element)
     list[#list + 1] = element;
     return list;
 end
+
+
+function SCR_EVENT_REINFORCE_DISCOUNT_CHECK()
+    if GetServerNation() ~= "KOR" then
+        return 'NO'
+    end
+    
+    local now_time = os.date('*t')
+--    local year = now_time['year']
+    local month = now_time['month']
+    local day = now_time['day']
+    
+    local dateList = {{7,1},{7,2},{7,8},{7,9},{7,15},{7,16},{7,22},{7,23},{7,29},{7,30}}
+    
+    for i = 1, #dateList do
+        if month == dateList[i][1] and day == dateList[i][2] then
+            return 'YES'
+        end
+    end
+    
+    return 'NO'
+end

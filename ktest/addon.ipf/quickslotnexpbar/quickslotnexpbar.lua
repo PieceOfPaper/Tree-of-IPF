@@ -641,7 +641,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 				local usable = TryGetProp(obj, "Usable")				
 				local groupName = TryGetProp(obj, "GroupName");
 
-				if usable ~= nil and groupName ~= "Premium" and groupName ~= "Material" then
+				if usable ~= nil and groupName ~= "Premium" and groupName ~= "Material" and groupName ~= "PasteBait" then
 					if usable == "NO" then
 						local itemType = TryGetProp(obj, "ItemType");
 						local classType = TryGetProp(obj, "ClassType");

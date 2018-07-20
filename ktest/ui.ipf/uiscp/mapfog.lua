@@ -28,10 +28,8 @@ function MAKE_MAP_FOG_PICTURE(mapName, mapPicture, enableFog)
 	local borderOffset = 3;
 	local offsetX = mapPicture:GetOffsetX();
 	local offsetY = mapPicture:GetOffsetY();
-	local mapZoom = math.abs((config.GetXMLConfig("MinimapSize") + 100) / 100);
-	if mapPicture:GetParent() == ui.GetFrame("map") then
-		mapZoom = 1;
-	end
+
+	local mapZoom = mapPicture:GetWidth() / 1024;
 
 	local parentFrame = mapPicture:GetParent();
 

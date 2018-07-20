@@ -565,6 +565,7 @@ function WORLDPVP_REQUEST_RANK(frame, page, findMyRanking)
 	end
 
 	worldPVP.RequestPVPRanking(pvpType, 0, -1, page, findMyRanking, input_findname:GetText());
+	worldPVP.RequestGuildBattlePrevSeasonRanking(pvpType);
 
 end
 
@@ -683,9 +684,12 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	local btnReward = bg_ranking:GetChild("btn_reward");
 
 	local cid = session.GetMySession():GetCID();
-	local myRank = session.worldPVP.GetRankInfoByCID(cid);
+	local myRank = session.worldPVP.GetPrevRankInfoByCID(cid);
 	if myRank ~= nil then
-		btnReward:SetVisible(1);
+		-- 1,2,3등만 보여준다.
+		if myRank.ranking < 3 then
+			btnReward:SetVisible(1);
+		end
 	else
 		btnReward:SetVisible(0);
 	end

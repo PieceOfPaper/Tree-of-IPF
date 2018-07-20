@@ -343,5 +343,5 @@
 		<Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
 		<Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
 		<Code Code="ERRCODE_INFO_LOGIN_PROCESS" CallStack="NO" Desc="로그인 에러 정보"/>
-	</Type>
+	<Code Code="ERRCODE_COMMANDER_SAVE_NAN_POS" CallStack="NO" Desc="커맨더 세이버에서 y 포지션에 nan 들어와서 자꾸 DB에러 나는거 잡기 위한 용도"/>	</Type>
 </imcErrorCode>

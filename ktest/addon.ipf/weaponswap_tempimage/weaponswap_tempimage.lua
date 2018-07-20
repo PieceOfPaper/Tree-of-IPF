@@ -28,7 +28,9 @@ function SHOW_WEAPON_SWAP_TEMP_IMAGE(weaponID_RH, weaponID_LH, curSwapIndex)
 	if weaponID_RH ~= nil then
 		if nil ~= Rguid then
 			local item = GET_ITEM_BY_GUID(Rguid, 1);
-			SET_SLOT_ITEM_IMAGE(RHslot, item);
+			if item ~= nil then
+				SET_SLOT_ITEM_IMAGE(RHslot, item);
+			end
 		else 
 			RHslot:ClearIcon();
 		end

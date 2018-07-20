@@ -236,7 +236,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="exec_team_2_win" execWithStart="0" isEnabled="0">
+                    <Event execCount= "1" eventName="exec_team_2_win" execWithStart="0" isEnabled="0">
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="Team2_Score"/>

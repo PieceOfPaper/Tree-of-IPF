@@ -114,7 +114,10 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
     if moruItem.StringArg == 'DIAMOND' and reinforcecount > 1 then
         value = value + (value_diamond * 2.1)
     end
-  
+    
+    if SCR_EVENT_REINFORCE_DISCOUNT_CHECK() == 'YES' then
+        value = value/2
+    end
     return SyncFloor(value);
 
 end

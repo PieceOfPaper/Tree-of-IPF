@@ -28,7 +28,9 @@ function INVENTORY_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
 	addon:RegisterMsg('TOGGLE_EQUIP_ITEM_TOOLTIP_DESC', 'ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC');
-	
+
+	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'MAKE_WEAPON_SWAP_BUTTON');
+
 	SLOTSET_NAMELIST = {};
 	GROUP_NAMELIST = {};
 	
@@ -2771,6 +2773,21 @@ function INVENTORY_ON_APPRAISER_FORGERY(frame, msg, argStr, argNum)
 	STATUS_EQUIP_SLOT_SET(frame);
 end
 
+function GET_WEAPON_SWAP_INDEX()
+	local curIndex = 0
+	for i = 0, 3 do
+		local guid = session.GetWeaponQuicSlot(i);
+		if nil ~= guid then
+			local item = session.GetEquipItemByGuid(guid);
+			if nil ~= item then
+				curIndex = i
+			end
+		end
+	end
+
+	return curIndex
+end
+
 function MAKE_WEAPON_SWAP_BUTTON()
 	
 	local frame = ui.GetFrame("inventory");
@@ -2798,30 +2815,25 @@ function MAKE_WEAPON_SWAP_BUTTON()
 
 
 	local curIndex = 0
-	for i = 0, 3 do
-		local guid = session.GetWeaponQuicSlot(i);
-		if nil ~= guid then
-			local item = session.GetEquipItemByGuid(guid);
-			if nil ~= item then
-				curIndex = i
-			end
-		end
-	end
+	curIndex = GET_WEAPON_SWAP_INDEX()
+				
+	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
+	local WEAPONSWAP_DOWN_IMAGE = frame : GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
 
 	if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 0 then
 		if curIndex == 0 or curIndex == 1 then
 			frame : SetUserValue('CURRENT_WEAPON_INDEX', 1)
-			weaponSwap1 : SetImage('weapon_swap_pageup');
-			weaponSwap2:SetImage('weapon_swap_pagedown');
+			weaponSwap1 : SetImage(WEAPONSWAP_UP_IMAGE);
+			weaponSwap2:SetImage(WEAPONSWAP_DOWN_IMAGE);
 		elseif curIndex == 2 or curIndex == 3 then
 			frame : SetUserValue('CURRENT_WEAPON_INDEX', 2)
-			weaponSwap2 : SetImage('weapon_swap_pageup');
-			weaponSwap1:SetImage('weapon_swap_pagedown');
+			weaponSwap2 : SetImage(WEAPONSWAP_UP_IMAGE);
+			weaponSwap1:SetImage(WEAPONSWAP_DOWN_IMAGE);
 		end
 	elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
-		DO_WEAPON_SWAP_1(frame)
+		DO_WEAPON_SWAP(frame, 1)
 	elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-		DO_WEAPON_SWAP_2(frame)
+		DO_WEAPON_SWAP(frame, 2)
 	end
 end
 
@@ -2846,32 +2858,29 @@ function WEAPONSWAP_HOTKEY_ENTERED()
 	end
 
 	local curIndex = 0
-	for i = 0, 3 do
-		local guid = session.GetWeaponQuicSlot(i);
-		if nil ~= guid then
-			local item = session.GetEquipItemByGuid(guid);
-			if nil ~= item then
-				curIndex = i
-			end
-		end
-	end
+	curIndex = GET_WEAPON_SWAP_INDEX()
 
 	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
-		DO_WEAPON_SWAP_2(frame)
+		DO_WEAPON_SWAP(frame, 2)
 	elseif frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-		DO_WEAPON_SWAP_1(frame)
+		DO_WEAPON_SWAP(frame, 1)
 	elseif frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 0 then
 		if curIndex == 0 or curIndex == 1 then
-			DO_WEAPON_SWAP_2(frame)
+			DO_WEAPON_SWAP(frame, 2)
 		elseif curIndex == 2 or curIndex == 3 then
-			DO_WEAPON_SWAP_1(frame)
+			DO_WEAPON_SWAP(frame, 1)
 		end
 	end
 end
 
-function DO_WEAPON_SWAP_1(frame)
+--index = 1 일때 1번창으로 스왑하는 함수. 2일때 2번창으로 스왑하는 함수
+function DO_WEAPON_SWAP(frame, index)
 	if frame == nil then
 		frame = ui.GetFrame("inventory");
+	end
+
+	if index == nil then
+		index = 1
 	end
 
 	local pc = GetMyPCObject();
@@ -2879,18 +2888,26 @@ function DO_WEAPON_SWAP_1(frame)
 		return;
 	end
 		
-	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == index then
 		return;
 	end
-		frame : SetUserValue('CURRENT_WEAPON_INDEX', 1)
-		
-		session.SetWeaponSwap(1);
+	
+	frame : SetUserValue('CURRENT_WEAPON_INDEX', index)
+	session.SetWeaponSwap(1);
+
 	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
 	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
 
+	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
+	local WEAPONSWAP_DOWN_IMAGE = frame : GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
 
-	weaponSwap1:SetImage('weapon_swap_pageup');
-	weaponSwap2:SetImage('weapon_swap_pagedown');
+	if index == 1 then
+		weaponSwap1:SetImage(WEAPONSWAP_UP_IMAGE);
+		weaponSwap2:SetImage(WEAPONSWAP_DOWN_IMAGE);
+	elseif index == 2 then
+		weaponSwap1 : SetImage(WEAPONSWAP_DOWN_IMAGE);
+		weaponSwap2:SetImage(WEAPONSWAP_UP_IMAGE);
+	end
 	
 	local abil = GetAbility(pc, "SwapWeapon");
 
@@ -2902,46 +2919,28 @@ function DO_WEAPON_SWAP_1(frame)
 		weaponSwap2 : ShowWindow(0)
 	end
 
-		SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), 0)
+	local tempIndex = 0;
+	if index == 1 then
+		tempIndex = 0
+	elseif index == 2 then
+		tempIndex = 2
+	end
+
+	SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), tempIndex)
 end
 
-function DO_WEAPON_SWAP_2(frame)
-
+function DO_WEAPON_SWAP_1(frame)
 	if frame == nil then
-		
 		frame = ui.GetFrame("inventory");
 	end
 
-
-	local pc = GetMyPCObject();
-	if pc == nil then
-		return;
-	end
-
-	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
-		return;
-	end
-		frame : SetUserValue('CURRENT_WEAPON_INDEX', 2)
-		session.SetWeaponSwap(1);
-
-	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
-	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
-
-
-	weaponSwap1 : SetImage('weapon_swap_pagedown');
-	weaponSwap2:SetImage('weapon_swap_pageup');
-
-
-	local abil = GetAbility(pc, "SwapWeapon");
-
-	if abil ~= nil then
-		weaponSwap1 : ShowWindow(1)
-		weaponSwap2 : ShowWindow(1)
-	else
-		weaponSwap1 : ShowWindow(0)
-		weaponSwap2 : ShowWindow(0)
-	end
-
-		SHOW_WEAPON_SWAP_TEMP_IMAGE(frame : GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), 2)
+	DO_WEAPON_SWAP(frame, 1)
 end
 
+function DO_WEAPON_SWAP_2(frame)
+	if frame == nil then
+		frame = ui.GetFrame("inventory");
+	end
+
+	DO_WEAPON_SWAP(frame, 2)
+end
