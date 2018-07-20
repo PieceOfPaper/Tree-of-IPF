@@ -1032,7 +1032,9 @@ function MAKE_QUEST_GROUP_INFO(gBox, questIES, msg, progVal)
 end
 
 function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
-	if GetLayer(pc) == 0 and ( (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES')) then
+    local banQuestWarpZone = {'d_prison_62_1_event'}
+    
+	if table.find(banQuestWarpZone,GetZoneName(pc)) == 0 and GetLayer(pc) == 0 and ( (result == 'POSSIBLE' and questIES.POSSI_WARP == 'YES') or (result == 'PROGRESS' and questIES.PROG_WARP == 'YES') or (result == 'SUCCESS' and questIES.SUCC_WARP == 'YES')) then
         local questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
 
         if questnpc_state ~= nil then

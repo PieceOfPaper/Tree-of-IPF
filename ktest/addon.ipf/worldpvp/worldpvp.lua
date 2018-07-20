@@ -105,9 +105,9 @@ function OPEN_WORLDPVP(frame)
 	else
 		local bg = frame:GetChild("bg");
 		local loadingtext = bg:GetChild("loadingtext");
-		local charinfo = bg:GetChild("charinfo");
+	    local charinfo = bg:GetChild("charinfo");
 		loadingtext:ShowWindow(1);
-		charinfo:ShowWindow(0);
+	    charinfo:ShowWindow(0);
 	end
 
 	UPDATE_WORLDPVP(frame);
@@ -166,8 +166,11 @@ function UPDATE_WORLDPVP(frame)
 	local bg = frame:GetChild("bg");
 	local loadingtext = bg:GetChild("loadingtext");
 	local charinfo = bg:GetChild("charinfo");
+    local gbox_playcnt = GET_CHILD(charinfo, "gbox_playcnt");
+
 	loadingtext:ShowWindow(0);
-	charinfo:ShowWindow(1);
+    charinfo:ShowWindow(1);
+	gbox_playcnt:ShowWindow(0);
 	
 	local droplist = GET_CHILD(charinfo, "droplist", "ui::CDropList");
 	local pvpType = droplist:GetSelItemKey();
@@ -178,7 +181,7 @@ function UPDATE_WORLDPVP(frame)
 	local clsName = cls.ClassName;
 
 	local pvpObj = GET_PVP_OBJECT_FOR_TYPE(cls);
-	if nullptr == pvpObj then
+	if nil == pvpObj then
 		return;
 	end
 
@@ -206,10 +209,7 @@ function UPDATE_WORLDPVP(frame)
 	local lastPointGetDateName = GetPVPPointPropName(clsName, "LastPointGetDate");
 	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
 	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
-
-	local gbox_playcnt = GET_CHILD(charinfo, "gbox_playcnt");
-	gbox_playcnt:ShowWindow(0);
-
+    
 	local gbox_pointshop = GET_CHILD(charinfo, "gbox_pointshop");
 	gbox_pointshop:ShowWindow(0);
 	if shopPointName ~= "None" then

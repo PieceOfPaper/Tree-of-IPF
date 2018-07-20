@@ -218,6 +218,7 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="Stage1/0/Stage1/1/Stage1/2"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_REVIVE" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="1단계 보상이 지급됩니다."/>
                                 <Str Str="scroll"/>

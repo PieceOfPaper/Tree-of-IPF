@@ -1368,7 +1368,7 @@ end
 
 function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	local pc = GetMyPCObject();
-	if pc == nil or IsPVPServer(pc) == 1 then
+	if pc == nil or IsPVPServer(pc) == 1 or IsBuffApplied(pc, 'Event_Penalty') == 'YES' then
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end

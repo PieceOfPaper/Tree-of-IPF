@@ -1,89 +1,89 @@
-﻿function IS_SEASON_SERVER(pc)
-	
-	if pc ~= nil then
-		if IsServerObj(pc) == 1 then
-			if IsIndun(pc) == 1 then
-				local etc = GetETCObject(pc)
-				local serverGroupID = TryGetProp(etc, "MyWorldID");
+function IS_SEASON_SERVER(pc)
+    
+    if pc ~= nil then
+        if IsServerObj(pc) == 1 then
+            if IsIndun(pc) == 1 then
+                local etc = GetETCObject(pc)
+                local serverGroupID = TryGetProp(etc, "MyWorldID");
 
-				--Test Server
-				--if GetServerNation() == "KOR" and serverGroupID == 1550 then
+                --Test Server
+                --if GetServerNation() == "KOR" and serverGroupID == 1550 then
 				--	return "NO";
-				--else
+                --else
 				--	return "YES";
-				--end
+                --end
 
-				--Live Server
-				if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
-					return "YES";
-				else
-					return "NO";
-				end
-			else
-				--Test Server
-				--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+                --Live Server
+                if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
+                    return "YES";
+                else
+                    return "NO";
+                end
+            else
+                --Test Server
+                --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
 				--	return "YES"
-				--else
+                --else
 				--	return "NO"
-				--end
+                --end
     
-				--Live Server
-				if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
-					return "YES"
-				else
-					return "NO"
-				end
-			end
-		else
-			if session.world.IsIntegrateServer() == true then
-				local pcEtc = GetMyEtcObject();
-					
-				local serverGroupID = TryGetProp(pcEtc, "MyWorldID");
+                --Live Server
+                if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+                    return "YES"
+                else
+                    return "NO"
+                end
+            end
+        else
+            if session.world.IsIntegrateServer() == true then
+                local pcEtc = GetMyEtcObject();
+                    
+                local serverGroupID = TryGetProp(pcEtc, "MyWorldID");
 
-				--Test Server
-				--if GetServerNation() == "KOR" and serverGroupID == 1550 then
+                --Test Server
+                --if GetServerNation() == "KOR" and serverGroupID == 1550 then
 				--	return "NO";
-				--else
+                --else
 				--	return "YES";
-				--end
+                --end
 
-				--Live Server
-				if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
-					return "NO";
-				else
-					return "YES";
-				end
-			else
-				--Test Server
-				--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+                --Live Server
+                if GetServerNation() == "KOR" and ( serverGroupID == 3001 or serverGroupID == 8801) then
+                    return "NO";
+                else
+                    return "YES";
+                end
+            else
+                --Test Server
+                --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
 				--	return 'YES'
-				--end
-	 
-				--Live Server
-			    if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
-					return "YES"
-				else
-					return "NO"
-				end
-			end	
-		end
-	else
-		--Test Server
-		--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+                --end
+     
+                --Live Server
+                if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+                    return "YES"
+                else
+                    return "NO"
+                end
+            end 
+        end
+    else
+        --Test Server
+        --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
 		--	return 'YES'
-		--end
+        --end
     
-		--Live Server
-		if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
-			return 'YES'
-		end			
-	end
+        --Live Server
+        if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
+            return 'YES'
+        end         
+    end
 
 
     --Test Server
-	--if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
+    --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
 	--	return 'YES'
-	--end
+    --end
     
     --Live Server
     --if (GetServerNation() == "KOR" and ( GetServerGroupID() == 3001 or GetServerGroupID() == 8801)) then
@@ -94,158 +94,158 @@
 end
 
 function IMC_FATAL(code, stringinfo)
-	imclog("Fatal",code,stringinfo)
+    imclog("Fatal",code,stringinfo)
 end
 
 function IMC_ERROR(code, stringinfo)
-	imclog("Error",code,stringinfo)
+    imclog("Error",code,stringinfo)
 end
 
 function IMC_WARNING(code, stringinfo)
-	imclog("Warning",code,stringinfo)
+    imclog("Warning",code,stringinfo)
 end
 
 function IMC_INFO(code, stringinfo)
-	imclog("Info",code,stringinfo)
+    imclog("Info",code,stringinfo)
 end
 
 function IMC_NORMAL_INFO(stringinfo)
-	imclog("Info","ERRCODE_INFO_NORMAL", stringinfo)
+    imclog("Info","ERRCODE_INFO_NORMAL", stringinfo)
 end
 
 
 function IS_REINFORCEABLE_ITEM(item)
 
-	if item.GroupName == 'Weapon' then
-		return 1;
-	end
-	if item.GroupName == 'Armor' then
-		return 1;
-	end
-	if item.GroupName == 'SubWeapon' and item.BasicTooltipProp ~= 'None' then
-	    return 1;
-	end
+    if item.GroupName == 'Weapon' then
+        return 1;
+    end
+    if item.GroupName == 'Armor' then
+        return 1;
+    end
+    if item.GroupName == 'SubWeapon' and item.BasicTooltipProp ~= 'None' then
+        return 1;
+    end
 
-	return 0;
+    return 0;
 end
 
 function GET_LAST_UI_OPEN_POS(etc)
 
-	if etc == nil then
-		return nil 
-	end
+    if etc == nil then
+        return nil 
+    end
 
-	local stringpos = etc["LastUIOpenPos"]
+    local stringpos = etc["LastUIOpenPos"]
 
-	if stringpos == 'None' then
-		return nil 
-	
-	end
+    if stringpos == 'None' then
+        return nil 
+    
+    end
 
-	local x,y,z,mapname,uiname;
-	
-	for i = 0, 5 do
+    local x,y,z,mapname,uiname;
+    
+    for i = 0, 5 do
 
-		local divStart, divEnd = string.find(stringpos, "/");
-		if divStart == nil then
-			uiname = stringpos
-			break;
-		end
+        local divStart, divEnd = string.find(stringpos, "/");
+        if divStart == nil then
+            uiname = stringpos
+            break;
+        end
 
-		local divstringpos = string.sub(stringpos, 1, divStart-1);
-		
-		if i == 0 then
-			mapname = divstringpos
-		elseif i == 1 then
-			x = divstringpos
-		elseif i == 2 then
-			y = divstringpos
-		elseif i == 3 then
-			z = divstringpos
-		end
+        local divstringpos = string.sub(stringpos, 1, divStart-1);
+        
+        if i == 0 then
+            mapname = divstringpos
+        elseif i == 1 then
+            x = divstringpos
+        elseif i == 2 then
+            y = divstringpos
+        elseif i == 3 then
+            z = divstringpos
+        end
 
-		stringpos = string.sub(stringpos, divEnd +1, string.len(stringpos));
-	end
+        stringpos = string.sub(stringpos, divEnd +1, string.len(stringpos));
+    end
 
-	return mapname,x,y,z,uiname
+    return mapname,x,y,z,uiname
 end
 
 
 function IS_NO_EQUIPITEM(equipItem) -- No_~ 시리즈 아이템인지.
 
-	local clsName = equipItem.ClassName;
+    local clsName = equipItem.ClassName;
 
-	if clsName == 'NoWeapon' or clsName == "NoHat" or clsName == "NoBody" or clsName == "NoOuter" or clsName == 'NoShirt' or clsName == 'NoArmband' or clsName == 'NoHair' then
-		return 1;
-	elseif clsName == 'NoPants' or clsName == "NoGloves" or clsName == "NoBoots" or clsName == "NoRing" or clsName == 'NoHelmet' or clsName == 'NoNeck'then
-		return 1;
-	end
+    if clsName == 'NoWeapon' or clsName == "NoHat" or clsName == "NoBody" or clsName == "NoOuter" or clsName == 'NoShirt' or clsName == 'NoArmband' or clsName == 'NoHair' then
+        return 1;
+    elseif clsName == 'NoPants' or clsName == "NoGloves" or clsName == "NoBoots" or clsName == "NoRing" or clsName == 'NoHelmet' or clsName == 'NoNeck'then
+        return 1;
+    end
 
-	return 0;
+    return 0;
 end
 
 function IS_HAVE_GEM(item)
 
-	for i = 0, item.MaxSocket - 1 do
-		
-		local nowsocketitem = item['Socket_Equip_' .. i]
+    for i = 0, item.MaxSocket - 1 do
+        
+        local nowsocketitem = item['Socket_Equip_' .. i]
 
-		if nowsocketitem ~= 0 then
-			return 1;
-		end		
-	end
+        if nowsocketitem ~= 0 then
+            return 1;
+        end     
+    end
 
-	return 0;
+    return 0;
 end
 
 function GET_MAKE_SOCKET_PRICE(itemlv, curcnt)
 
-	local clslist, cnt  = GetClassList("socketprice");
+    local clslist, cnt  = GetClassList("socketprice");
 
-	for i = 0 , cnt - 1 do
+    for i = 0 , cnt - 1 do
 
-		local cls = GetClassByIndexFromList(clslist, i);
+        local cls = GetClassByIndexFromList(clslist, i);
 
-		if cls.Lv == itemlv then
-		    local priceRatio = (curcnt + 1) * (curcnt + 1);
-			return cls.NewSocketPrice * priceRatio;
-		end
-	end
+        if cls.Lv == itemlv then
+            local priceRatio = (curcnt + 1) * (curcnt + 1);
+            return cls.NewSocketPrice * priceRatio;
+        end
+    end
 
-	return 0;
+    return 0;
 
 end
 
 function GET_REMOVE_GEM_PRICE(itemlv)
 
-	local clslist, cnt  = GetClassList("socketprice");
+    local clslist, cnt  = GetClassList("socketprice");
 
-	for i = 0 , cnt - 1 do
+    for i = 0 , cnt - 1 do
 
-		local cls = GetClassByIndexFromList(clslist, i);
+        local cls = GetClassByIndexFromList(clslist, i);
 
-		if cls.Lv == itemlv then
-			return cls.RemoveSocketPrice
-		end
-	end
+        if cls.Lv == itemlv then
+            return cls.RemoveSocketPrice
+        end
+    end
 
-	return 0;
+    return 0;
 
 end
 
 function GET_GEM_TYPE_NUMBER(GemType)
 
-	if GemType == 'Circle' then
-		return 1;
-	elseif GemType == 'Square' then
-		return 2;
-	elseif GemType == 'Diamond' then
-		return 3;
-	elseif GemType == 'Star' then
-		return 4;
-	end
+    if GemType == 'Circle' then
+        return 1;
+    elseif GemType == 'Square' then
+        return 2;
+    elseif GemType == 'Diamond' then
+        return 3;
+    elseif GemType == 'Star' then
+        return 4;
+    end
 
-	return -1;
+    return -1;
 end
 
 -- 특정 존 앵커 중 랜덤으로 1개 IES를 리턴해준다
@@ -409,21 +409,21 @@ end
 -- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     if idspace == nil then
-		return;
-	end
+        return;
+    end
 
     if GetClassByIndex(idspace, 0) == nil then
-		return;
-	end
+        return;
+    end
 
     local obj = GetClassByIndex(idspace, 0)
     if column_name == nil then
-		return;
-	end
+        return;
+    end
     
-	if GetPropType(GetClassByIndex(idspace, 0),column_name) == nil then    
-		return;
-	end
+    if GetPropType(GetClassByIndex(idspace, 0),column_name) == nil then    
+        return;
+    end
 
     local class_count = GetClassCount(idspace)
     local return_list = {}
@@ -457,23 +457,23 @@ end
 
 
 function ZERO()
-	return 0;
+    return 0;
 end
 
 function ONE()
-	return 1;
+    return 1;
 end
 
 function FIVE()
-	return 5;
+    return 5;
 end
 
 function NONECP()
-	return -1;
+    return -1;
 end
 
 function SCR_MAX_SPL()
-	return 512;
+    return 512;
 end
 
 function SCR_DUPLICATION_SOLVE_TABLE(tb)
@@ -783,11 +783,11 @@ function SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     end
 
     days= 365 * (yy-2000) + leapyears - nonleapyears + nonnonleapyears - 1
-
+    
     c=1
     while (c<mm) do
       days = days + monthdays[c]
-	c=c+1
+    c=c+1
     end
 
     days=days+dd+1
@@ -966,25 +966,25 @@ function table.count(t, ele)
 end
 
 function ADD_GQUEST_MULTIPLY(cls, propName, mul)
-	if cls[propName] == 1 then
-		return mul + 0.5;
-	end
-	
-	return mul;
+    if cls[propName] == 1 then
+        return mul + 0.5;
+    end
+    
+    return mul;
 end
 
 function GET_GQUEST_POINT(cls, arg)
 
-	local cnt = G_TOTAL_MON_CNT(cls);
-	local mul = 1.0;
-	mul = ADD_GQUEST_MULTIPLY(cls, "CheckSkill", mul);
-	mul = ADD_GQUEST_MULTIPLY(cls, "CheckOverKill", mul);
-	mul = ADD_GQUEST_MULTIPLY(cls, "OnlyOverKill", mul);
-	mul = ADD_GQUEST_MULTIPLY(cls, "FailByDamage", mul);
-	mul = ADD_GQUEST_MULTIPLY(cls, "TimeLimit", mul);
-	mul = ADD_GQUEST_MULTIPLY(cls, "OnlyOverKill", mul);
+    local cnt = G_TOTAL_MON_CNT(cls);
+    local mul = 1.0;
+    mul = ADD_GQUEST_MULTIPLY(cls, "CheckSkill", mul);
+    mul = ADD_GQUEST_MULTIPLY(cls, "CheckOverKill", mul);
+    mul = ADD_GQUEST_MULTIPLY(cls, "OnlyOverKill", mul);
+    mul = ADD_GQUEST_MULTIPLY(cls, "FailByDamage", mul);
+    mul = ADD_GQUEST_MULTIPLY(cls, "TimeLimit", mul);
+    mul = ADD_GQUEST_MULTIPLY(cls, "OnlyOverKill", mul);
 
-	return (cls.Level * 4 + cnt * 2) * mul;
+    return (cls.Level * 4 + cnt * 2) * mul;
 
 end
 
@@ -992,36 +992,36 @@ end
 
 function GET_CLS_GROUP(idSpace, groupName)
 
-	local clsList = GetClassList(idSpace);
-	local retList = {};
-	if clsList == nil then
-		return retList;
-	end
-	
-	local index = 1;
-	
-	while 1 do
+    local clsList = GetClassList(idSpace);
+    local retList = {};
+    if clsList == nil then
+        return retList;
+    end
+    
+    local index = 1;
+    
+    while 1 do
 
-		local name = groupName .. "_" .. index;
+        local name = groupName .. "_" .. index;
 		local cls =	GetClassByNameFromList(clsList, name);
-		if cls == nil then
-			return retList;
-		end
-		
-		retList[index] = cls;
-		index = index + 1;			
-	end
+        if cls == nil then
+            return retList;
+        end
+        
+        retList[index] = cls;
+        index = index + 1;          
+    end
 
 end
 
 
 function GET_MAP_ACHI_NAME(mapCls)
 
-	local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
-	local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-	local desctitle = name -- 임시. 나중에 맵 업적 달성시 보상및 칭호에 대한 데이터 세팅 이루어 지면 바꾸자.
-	local reward = "None"
-	return desc, name, desctitle, reward;
+    local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
+    local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
+    local desctitle = name -- 임시. 나중에 맵 업적 달성시 보상및 칭호에 대한 데이터 세팅 이루어 지면 바꾸자.
+    local reward = "None"
+    return desc, name, desctitle, reward;
 
 end
 
@@ -1043,43 +1043,43 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
         local lvRatio = 1 - ((monLv - pcLv - 20) * 0.033);
         value = value * lvRatio;
     end
-	
+    
     if value < 0 then
         value = 0;
     end
-
+    
     return value;
 
 end
 
 function GET_ADD_SPRAY_USE(colCnt, obj)
 
-	local curUsed = obj.RemainAmount;
-	local addUse = colCnt % MAX_COLSPRAY_PIXEL();
-	
-	local remain = MAX_COLSPRAY_PIXEL() - curUsed - addUse;
-	if remain < 0 then
-		return 0;
-	end
-	
-	if remain > GET_SPRAY_REMOVE_AMOUNT() then
-		return 0;
-	end
-	
-	return remain;
+    local curUsed = obj.RemainAmount;
+    local addUse = colCnt % MAX_COLSPRAY_PIXEL();
+    
+    local remain = MAX_COLSPRAY_PIXEL() - curUsed - addUse;
+    if remain < 0 then
+        return 0;
+    end
+    
+    if remain > GET_SPRAY_REMOVE_AMOUNT() then
+        return 0;
+    end
+    
+    return remain;
 
 end
 
 function GET_TOTAL_SPRAY_PIXEL(cnt, obj)
 
-	local curUse = obj.RemainAmount;
-	return cnt * MAX_COLSPRAY_PIXEL() - curUse;
+    local curUse = obj.RemainAmount;
+    return cnt * MAX_COLSPRAY_PIXEL() - curUse;
 
 end
 
 function GET_SPRAY_REMOVE_AMOUNT()
 
-	return 50;
+    return 50;
 
 end
 
@@ -1087,232 +1087,232 @@ end
 
 function IS_GUILDQUEST_CHECK_ITEM(sObj)
 
-	for j = 1 , GUILDQUEST_MAX_ITEM do
-		
-		local ItemID = sObj["Step".. j + 4];
-		if ItemID > 0 then
-			return 1;
-		end
-	end
+    for j = 1 , GUILDQUEST_MAX_ITEM do
+        
+        local ItemID = sObj["Step".. j + 4];
+        if ItemID > 0 then
+            return 1;
+        end
+    end
 
-	return 0;
+    return 0;
 end
 
 function IS_GULID_QUEST_ITEM(sObj, itemID)
 
-	for j = 1 , GUILDQUEST_MAX_ITEM do
-		local reqID = sObj["Step".. j + 4];
-		if reqID == itemID then
-			return 1;
-		else
-			return 0;
-		end
-		
-	end
+    for j = 1 , GUILDQUEST_MAX_ITEM do
+        local reqID = sObj["Step".. j + 4];
+        if reqID == itemID then
+            return 1;
+        else
+            return 0;
+        end
+        
+    end
 
-	return 0;
+    return 0;
 end
 
 function REGISTER_XML_CONST(propName, propValue)
 
-	_G[propName] = propValue;
-	
+    _G[propName] = propValue;
+    
 end
 
 function GET_MS_TXT(sec)
-	local appTime = imcTime.GetAppTime();
-	local m, s = GET_MS(sec);
-	local colon = ":";
-	if math.mod(math.floor(appTime * 2.0), 2) == 1 then
-		colon = " ";
-	end
-	
-	return string.format("%02d%s%02d", m, colon, s);
+    local appTime = imcTime.GetAppTime();
+    local m, s = GET_MS(sec);
+    local colon = ":";
+    if math.mod(math.floor(appTime * 2.0), 2) == 1 then
+        colon = " ";
+    end
+    
+    return string.format("%02d%s%02d", m, colon, s);
 end
 
 function GET_MS(sec)
-	if sec < 0 then
-		sec = 0;
-	end
+    if sec < 0 then
+        sec = 0;
+    end
 
-	local min = 0;
-	local s = 0;
-	if sec >= 60 then
-		min = math.floor(sec / 60);
-		s = sec % 60;
-	else
-	    s = sec
-	end
-	
-	return min, s;	
+    local min = 0;
+    local s = 0;
+    if sec >= 60 then
+        min = math.floor(sec / 60);
+        s = sec % 60;
+    else
+        s = sec
+    end
+    
+    return min, s;  
 end
 
 function GET_DHMS(sec)
 
-	local day = 0;
-	local hour = 0;
-	local min = 0;
-	local s = 0;
-	if sec >= 86400 then
-		day = math.floor(sec / 86400);
-		sec = sec % 86400;
-	end
-	
-	if sec >= 3600 then
-		hour = math.floor(sec / 3600);
-		sec = sec % 3600;
-	end
-	
-	if sec >= 60 then
-		min = math.floor(sec / 60);
-		s = sec % 60;
-	else
-	    s = sec
-	end
-	
-	return day, hour, min, s;	
+    local day = 0;
+    local hour = 0;
+    local min = 0;
+    local s = 0;
+    if sec >= 86400 then
+        day = math.floor(sec / 86400);
+        sec = sec % 86400;
+    end
+    
+    if sec >= 3600 then
+        hour = math.floor(sec / 3600);
+        sec = sec % 3600;
+    end
+    
+    if sec >= 60 then
+        min = math.floor(sec / 60);
+        s = sec % 60;
+    else
+        s = sec
+    end
+    
+    return day, hour, min, s;   
 
 end
 
 function GET_DHMS_STRING(sec)
 
-	if sec < 0 then
-		sec = 0;
-	end
+    if sec < 0 then
+        sec = 0;
+    end
 
-	local d, h, m, s = GET_DHMS(sec);
-	local ret = "";
-	if d > 0 then
-		ret = ret .. string.format("%02d:", d);
-	end
-	if h > 0 then
-		ret = ret .. string.format("%02d:", h);
-	end
-	
-	ret = ret .. string.format("%02d:", m);
-	ret = ret .. string.format("%02d", s);
-	
-	return ret;
+    local d, h, m, s = GET_DHMS(sec);
+    local ret = "";
+    if d > 0 then
+        ret = ret .. string.format("%02d:", d);
+    end
+    if h > 0 then
+        ret = ret .. string.format("%02d:", h);
+    end
+    
+    ret = ret .. string.format("%02d:", m);
+    ret = ret .. string.format("%02d", s);
+    
+    return ret;
 
 end
 
 function SCR_GET_MCY_BUY_PRICE(itemIndex, curValue)
 
-	if itemIndex > 5 then
-		return 50;
-	end
-	
-	return 100;
-	--return 600 + 200 * curValue;
+    if itemIndex > 5 then
+        return 50;
+    end
+    
+    return 100;
+    --return 600 + 200 * curValue;
 
 end
 
 function GET_WIKI_ITEM_SET_COUNT(wiki)
 
-	local setProp = geItemTable.GetSetByName( GetWikiTargetClassName(wiki) );
-	local setCnt = setProp:GetItemCount();
-	local curCnt = 0;		 
-	for j = 0 , setCnt - 1 do
-		local isGetItem = GetWikiBoolProp(wiki, "Get_" .. j);
-		if isGetItem == 1 then
-			curCnt = curCnt + 1;
-		end
-	end
-	
-	return curCnt, setCnt;
+    local setProp = geItemTable.GetSetByName( GetWikiTargetClassName(wiki) );
+    local setCnt = setProp:GetItemCount();
+    local curCnt = 0;        
+    for j = 0 , setCnt - 1 do
+        local isGetItem = GetWikiBoolProp(wiki, "Get_" .. j);
+        if isGetItem == 1 then
+            curCnt = curCnt + 1;
+        end
+    end
+    
+    return curCnt, setCnt;
 end
 
 
 function GET_ABIL_LEVEL(self, abilName)
 
-	local abil = GetAbility(self, abilName);
-	if abil == nil then
-		return 0;
-	end
-	
-	return abil.Level;
-	
+    local abil = GetAbility(self, abilName);
+    if abil == nil then
+        return 0;
+    end
+    
+    return abil.Level;
+    
 end
 
 function GET_SKILL_LEVEL(self, skillName)
 
-	local skl = GetSkill(self, skillName);
-	if skl == nil then
-		return 0;
-	end
-	
-	return skl.Level;
-	
+    local skl = GetSkill(self, skillName);
+    if skl == nil then
+        return 0;
+    end
+    
+    return skl.Level;
+    
 end
 
-function SCR_DIALOG_NPC_ANIM(animName)	
+function SCR_DIALOG_NPC_ANIM(animName)  
 
-	--control.DestTgtPlayDialogAnim(animName);
-	local handle = session.GetTargetHandle();
-	movie.PlayAnim(handle, animName, 1.0, 1);
+    --control.DestTgtPlayDialogAnim(animName);
+    local handle = session.GetTargetHandle();
+    movie.PlayAnim(handle, animName, 1.0, 1);
 
 end
 
-									-- 공용 라이브러리
+                                    -- 공용 라이브러리
 --------------------------------------------------------------------------------------
 -- 특정 문자를 기준으로 문자열을 잘라 테이블로 반환
 function StringSplit(str, delimStr)
-	local _tempStr = str;
-	local _result = {};
-	local _index = 1;
+    local _tempStr = str;
+    local _result = {};
+    local _index = 1;
 
-	while true do
-		local _temp = string.find(_tempStr, delimStr);
-		if _temp == nil then
-			_result[_index] = _tempStr;
-			break;
-		else
-			_result[_index] = string.sub(_tempStr, 0, _temp - 1);
-		end
-		
-		_tempStr = string.sub(_tempStr, string.len(_result[_index]) + string.len(delimStr)+1, string.len(_tempStr));
-		_index = _index + 1;
-		
-		if string.len(_tempStr) <= 0 then
-			break;
-		end
-	end
-	return _result;
+    while true do
+        local _temp = string.find(_tempStr, delimStr);
+        if _temp == nil then
+            _result[_index] = _tempStr;
+            break;
+        else
+            _result[_index] = string.sub(_tempStr, 0, _temp - 1);
+        end
+        
+        _tempStr = string.sub(_tempStr, string.len(_result[_index]) + string.len(delimStr)+1, string.len(_tempStr));
+        _index = _index + 1;
+        
+        if string.len(_tempStr) <= 0 then
+            break;
+        end
+    end
+    return _result;
 end
 
 
 function IS_EQUIP(item)
-	return item.ItemType == "Equip";
+    return item.ItemType == "Equip";
 end
 
 function IS_NEED_APPRAISED_ITEM(item)
-	if IS_EQUIP(item) == false then
-		return false;
-	end
+    if IS_EQUIP(item) == false then
+        return false;
+    end
 
-	local isAppraised = TryGetProp(item,'NeedAppraisal')
-	if isAppraised == nil then
-		return false;
-	end
+    local isAppraised = TryGetProp(item,'NeedAppraisal')
+    if isAppraised == nil then
+        return false;
+    end
 
-	if isAppraised == 1 then
-		return true;
-	end
+    if isAppraised == 1 then
+        return true;
+    end
 
-	return false;
+    return false;
 end
 
 function INCR_PROP(self, obj, propName, propValue)
 
-	self[propName] = self[propName] + propValue;
-	SetExProp(obj, propName, propValue);
+    self[propName] = self[propName] + propValue;
+    SetExProp(obj, propName, propValue);
 
 end
 
 function RESTORE_PROP(self, obj, propName)
 
-	local value = GetExProp(obj, propName);
-	self[propName] = self[propName] - value;
+    local value = GetExProp(obj, propName);
+    self[propName] = self[propName] - value;
 
 end
 
@@ -1320,98 +1320,98 @@ end
 function IsEnableEffigy(self, skill)
   
     if "NO" == IsBuffApplied(self, "Hexing_Buff") then
-		return 0;
-	end
+        return 0;
+    end
 
-	-- 거리 체크하는거 추가해야할듯?
-	-- 근데 그럼 성능낭비인디???
-	return 1;
+    -- 거리 체크하는거 추가해야할듯?
+    -- 근데 그럼 성능낭비인디???
+    return 1;
 end
 
 
 -- 보스 드랍 리스트 교체 바인딩 함수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
-	ChangeClassValue(self, 'EquipDropType', equipDropList);
+    ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
 
 function GET_RECIPE_REQITEM_CNT(cls, propname)
 
-	local recipeType = cls.RecipeType;
-	if recipeType == "Anvil" or recipeType == "Grill" then
-		return cls[propname .. "_Cnt"], TryGet(cls, propname .. "_Level");
-	elseif recipeType == "Drag" or recipeType == "Upgrade" then
-		return cls[propname .. "_Cnt"], TryGet(cls, propname .. "_Level");
-	end
+    local recipeType = cls.RecipeType;
+    if recipeType == "Anvil" or recipeType == "Grill" then
+        return cls[propname .. "_Cnt"], TryGet(cls, propname .. "_Level");
+    elseif recipeType == "Drag" or recipeType == "Upgrade" then
+        return cls[propname .. "_Cnt"], TryGet(cls, propname .. "_Level");
+    end
 
-	return 0;
+    return 0;
 
 end
 
 -- 전직가능 조건체크하는 함수. skilltree.lua ui애드온에서 사용하고 서버에서도 조건체크할때 사용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
-	
-	-- 이미 가지고있는 직업이면 바로 true리턴
-	for i = 0, #haveJobNameList do		
-		if haveJobNameList[i] ~= nil then
-			if haveJobNameList[i] == cls.ClassName then
-				return true;
-			end
-		end
-	end
-	
-	-- 아래는 새로운 직업에대한 조건 체크
-	local i = 1;
-	
-	while 1 do
-	
-			-- 조건체크하는 칼럼이 더 필요하면 xml에서 걍 늘리면됨. ㅇㅋ?	
-		if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
-			break;
-		end
+    
+    -- 이미 가지고있는 직업이면 바로 true리턴
+    for i = 0, #haveJobNameList do      
+        if haveJobNameList[i] ~= nil then
+            if haveJobNameList[i] == cls.ClassName then
+                return true;
+            end
+        end
+    end
+    
+    -- 아래는 새로운 직업에대한 조건 체크
+    local i = 1;
+    
+    while 1 do
+    
+            -- 조건체크하는 칼럼이 더 필요하면 xml에서 걍 늘리면됨. ㅇㅋ?   
+        if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
+            break;
+        end
 
 
-		-- ChangeJobCondition이 전부 'None'이면 퀘스트를 통해서 전직하는거임. UI에서는 안보여줌.
-		if cls["ChangeJobCondition" .. i] == 'None' then
-			return false;
-		end
-		
+        -- ChangeJobCondition이 전부 'None'이면 퀘스트를 통해서 전직하는거임. UI에서는 안보여줌.
+        if cls["ChangeJobCondition" .. i] == 'None' then
+            return false;
+        end
+        
 
-		local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
+        local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
 		local conditionCount = #sList / 2;	-- 해당직업 전직조건 체크갯수
-		
+        
 		local completeCount = 0;			-- 전직조건에 몇개나 만족하는지
-		for j = 1, conditionCount do
-			-- 직업가지고있고 요구레벨보다 높은지 체크
-			for n=0, #haveJobNameList do
-							
-				if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
-					completeCount = completeCount + 1;
-				end
-			end
-		end
+        for j = 1, conditionCount do
+            -- 직업가지고있고 요구레벨보다 높은지 체크
+            for n=0, #haveJobNameList do
+                            
+                if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
+                    completeCount = completeCount + 1;
+                end
+            end
+        end
 
-			-- 전직조건에 모두 만족하면 전직가능하다고 셋팅해줌
-		if conditionCount == completeCount then
-			return true;
-		end
+            -- 전직조건에 모두 만족하면 전직가능하다고 셋팅해줌
+        if conditionCount == completeCount then
+            return true;
+        end
 
-		i = i + 1;
-	end
+        i = i + 1;
+    end
 
-	return false;
+    return false;
 end
 
 
 function GET_2D_DIS(x1,y1,x2,y2)
 
-	if x1 == nil or y1 == nil or x2 == nil or y2 == nil then
-		return 0
-	end
+    if x1 == nil or y1 == nil or x2 == nil or y2 == nil then
+        return 0
+    end
 
-	local x = x1 - x2
-	local y = y1 - y2
-	
-	return math.sqrt(x*x+y*y);
+    local x = x1 - x2
+    local y = y1 - y2
+    
+    return math.sqrt(x*x+y*y);
 end
 
 function NUM_KILO_CHANGE(num)
@@ -1449,13 +1449,13 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount, chType)
     end
     local sobjIES = GET_MAIN_SOBJ();
     local abandonCheck = 'None';
-	local fun = _G['QUEST_ABANDON_RESTARTLIST_CHECK']
-	if nil ~= fun then
-		abandonCheck = fun(questIES, sobjIES)
-	end
+    local fun = _G['QUEST_ABANDON_RESTARTLIST_CHECK']
+    if nil ~= fun then
+        abandonCheck = fun(questIES, sobjIES)
+    end
     local result = SCR_QUEST_CHECK_C(pc,questIES.ClassName)
     
-	local zonecheckFun = _G['LINKZONECHECK'];
+    local zonecheckFun = _G['LINKZONECHECK'];
     if chType == 'Set2' then
         ret = "OPEN"
         return ret, subQuestCount
@@ -1525,8 +1525,17 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, re
 end
 
 function GET_COMMAED_STRING(num) -- unsigned long 범위내에서 가능하게 수정함
-	local retStr = GetCommaedString(num);
-	return retStr;
+    if num == nil then
+        return "0";
+    end
+    local retStr = "";
+    num = tonumber(num);
+    if num >= 0 then
+        retStr = GetCommaedString(num);
+    else
+        retStr = '-'..GetCommaedString(-num);
+    end
+    return retStr;
 end
 
 function GET_NOT_COMMAED_NUMBER(commaedString)
@@ -1556,39 +1565,39 @@ function GET_NOT_COMMAED_NUMBER(commaedString)
 end
 
 function IS_ENABLE_EQUIP_GEM(targetItem, gemType)
-	if targetItem == nil or gemType == nil then
-		return false;
-	end
+    if targetItem == nil or gemType == nil then
+        return false;
+    end
 
-	local maxSocket = TryGetProp(targetItem, 'MaxSocket');
-	if maxSocket < VALID_DUP_GEM_CNT then
-		return true;
-	end
-	
-	local curCnt = 0;
-	for i = 0, maxSocket - 1 do
-		if TryGetProp(targetItem, 'Socket_Equip_'..i) == gemType then
-			curCnt = curCnt + 1;
-		end
-	end
+    local maxSocket = TryGetProp(targetItem, 'MaxSocket');
+    if maxSocket < VALID_DUP_GEM_CNT then
+        return true;
+    end
+    
+    local curCnt = 0;
+    for i = 0, maxSocket - 1 do
+        if TryGetProp(targetItem, 'Socket_Equip_'..i) == gemType then
+            curCnt = curCnt + 1;
+        end
+    end
 
-	if curCnt + 1 > VALID_DUP_GEM_CNT then
-		return false;
-	end
+    if curCnt + 1 > VALID_DUP_GEM_CNT then
+        return false;
+    end
 
-	return true;
+    return true;
 end
 
 function IS_ITEM_IN_LIST(list, item)
-	if list == nil or item == nil or #list < 1 then
-		return false;
-	end
+    if list == nil or item == nil or #list < 1 then
+        return false;
+    end
 
-	for i = 1, #list do
-		if list[i] == item then
-			return true;
-		end
-	end
+    for i = 1, #list do
+        if list[i] == item then
+            return true;
+        end
+    end
 
-	return false;
+    return false;
 end

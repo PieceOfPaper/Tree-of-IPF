@@ -473,3 +473,13 @@ function SCR_QUEST_REASON_TXT(pc, questIES, quest_reason)
     
     return txt
 end
+
+function SCR_HIDDEN_MIKO_GENDER_CHECK(pc, questname, scriptInfo)
+    if pc.ClassName == 'PC' then
+        local pcGender = pc.Gender
+        if pcGender == 2 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end
