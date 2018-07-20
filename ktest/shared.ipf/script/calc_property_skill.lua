@@ -1705,7 +1705,7 @@ end
 function SCR_Get_SkillFactor_Seism(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = skill.SklFactor
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
     local abil = GetAbility(pc, "Barbarian26")      -- Skill Damage add
     if abil ~= nil then

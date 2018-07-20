@@ -882,7 +882,7 @@ function QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sObj_main)
     return result
 end
 
-function QUEST_CTRL_UPDATE_PARTYINFO(ctrlSet)
+function QUEST_CTRL_UPDATE_PARTYINFO(ctrlSet, questIES)
 
 	local pcparty = session.party.GetPartyInfo();
 	ctrlSet:RemoveChild("SHARE_PARTY");
@@ -916,14 +916,15 @@ function QUEST_CTRL_UPDATE_PARTYINFO(ctrlSet)
 		shareBtn:SetEventScript(ui.LBUTTONUP, "CANCEL_SHARE_QUEST_WITH_PARTY");
 
 	else
-
-		local shareBtn = ctrlSet:CreateControl("button", "SHARE_PARTY", 18, 18, ui.RIGHT, ui.TOP, 0, 15, 45, 0);
-		shareBtn:ShowWindow(1);	
-		shareBtn = tolua.cast(shareBtn, "ui::CButton");
-		shareBtn:SetImage("btn_partyshare");
-		shareBtn:SetTextTooltip(ClMsg("ClickToSharedQuestWithParty"));
-		shareBtn:SetEventScript(ui.LBUTTONUP, "SHARE_QUEST_WITH_PARTY");
-
+	    local exceptionList = {'DROPITEM_REQUEST1','DROPITEM_COLLECTINGQUEST'}
+	    if table.find(exceptionList, questIES.ClassName) == 0 then
+    		local shareBtn = ctrlSet:CreateControl("button", "SHARE_PARTY", 18, 18, ui.RIGHT, ui.TOP, 0, 15, 45, 0);
+    		shareBtn:ShowWindow(1);	
+    		shareBtn = tolua.cast(shareBtn, "ui::CButton");
+    		shareBtn:SetImage("btn_partyshare");
+    		shareBtn:SetTextTooltip(ClMsg("ClickToSharedQuestWithParty"));
+    		shareBtn:SetEventScript(ui.LBUTTONUP, "SHARE_QUEST_WITH_PARTY");
+    	end
 	end
 end
 
