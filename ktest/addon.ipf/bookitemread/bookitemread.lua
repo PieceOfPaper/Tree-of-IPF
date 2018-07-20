@@ -24,7 +24,7 @@ end
 
 function BOOKITEM_UPDATE(frame)
 	
-	if imcinput.HotKey.IsDown("Select") == true or imcinput.HotKey.IsDown("Jump") == true then
+	if imcinput.IsHotKeyDown("Select") == true or imcinput.IsHotKeyDown("Jump") == true then
 		NEXT_BOOK_PAGE(frame);
 	end
 

@@ -114,7 +114,7 @@ function SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
 
 	local shopItem	= geShopTable.GetByClassID(clsID);
 
-	if keyboard.IsKeyPressed("LSHIFT") == 1 then
+	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		local remainPrice = frame:GetUserIValue("EXPECTED_REMAIN_ZENY");
 		local maxStack = GET_SHOP_ITEM_MAXSTACK(shopItem);
 		if -1 == maxStack then

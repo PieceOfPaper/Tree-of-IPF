@@ -41,11 +41,11 @@ end
 
 function PROCESS_SUMMON_INPUT(frame)
 	
-	if imcinput.HotKey.IsDown("NormalAttack") == true then
+	if imcinput.IsHotKeyDown("NormalAttack") == true then
 		geSummonControl.UseSkill(0);
-	elseif imcinput.HotKey.IsDown("Jump") == true then
+	elseif imcinput.IsHotKeyDown("Jump") == true then
 		geSummonControl.Jump();
-	elseif imcinput.HotKey.IsDown("LHand") == true then
+	elseif imcinput.IsHotKeyDown("LHand") == true then
 		geSummonControl.Unride();
 		ui.OpenFrame("quickslotnexpbar");
 	end

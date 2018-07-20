@@ -1212,7 +1212,7 @@ function CHECK_EQP_LBTN(frame, slot, argStr, argNum)
     end
 
 
-    if keyboard.IsKeyPressed("LCTRL") == 1 then
+    if keyboard.IsPressed(KEY_CTRL) == 1 then
         local invitem = GET_ITEM_BY_GUID(iesID, 1);
         LINK_ITEM_TEXT(invitem);
         return;

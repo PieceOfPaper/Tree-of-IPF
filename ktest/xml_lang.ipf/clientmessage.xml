@@ -5354,9 +5354,9 @@
 		<Class ClassID="50520" ClassName="CHAR318_MSETP3_3_GETITEM" Data="전기가 흐르는 돌을 주웠습니다"/>
 		<Class ClassID="50521" ClassName="CHAR318_MSETP3_3_ACTION2" Data="랜턴을 키는 중"/>
 		<Class ClassID="50522" ClassName="CHAR318_MSETP3_3_ACTION3" Data="랜턴를 끄는 중"/>
-		<Class ClassID="50523" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG1" Data="냉기탄을 맞췄습니다"/>
-		<Class ClassID="50524" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG2" Data="화염탄을 맞췄습니다"/>
-		<Class ClassID="50525" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG3" Data="전기탄을 맞췄습니다"/>
+		<Class ClassID="50523" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG1" Data="냉기탄을 맞혔습니다"/>
+		<Class ClassID="50524" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG2" Data="화염탄을 맞혔습니다"/>
+		<Class ClassID="50525" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG3" Data="전기탄을 맞혔습니다"/>
 		<Class ClassID="50526" ClassName="CHAR318_MSETP4_1_TXT1" Data="의뢰를 완료했다며 감시 구슬을 준다"/>
 		<Class ClassID="50527" ClassName="CHAR318_MSETP4_1_TXT2" Data="나중에 다시 오겠다고 한다"/>
 		<Class ClassID="50528" ClassName="WTREES22_1_SUBQ3_MSG4" Data="아띠의 노란 즙액을 이미 뿌렸습니다{nl}꽃이 죽기전에 꽃가루를 채집하세요"/>
@@ -7669,9 +7669,9 @@
 		<Class ClassID="132014" ClassName="MonInfo_ArmorMaterial_Leather" Data="가죽"/>
 		<Class ClassID="132015" ClassName="MonInfo_ArmorMaterial_Iron" Data="판금"/>
 		<Class ClassID="132016" ClassName="MonInfo_ArmorMaterial_Ghost" Data="유령"/>
-		<Class ClassID="132017" ClassName="MonInfo_ArmorMaterial_None" Data="무속성"/>
+		<Class ClassID="132017" ClassName="MonInfo_ArmorMaterial_None" Data="무상성"/>
 		<Class ClassID="132018" ClassName="MonInfo_Attribute_Fire" Data="불"/>
-		<Class ClassID="132019" ClassName="MonInfo_Attribute_Ice" Data="물"/>
+		<Class ClassID="132019" ClassName="MonInfo_Attribute_Ice" Data="얼음"/>
 		<Class ClassID="132020" ClassName="MonInfo_Attribute_Lightning" Data="전기"/>
 		<Class ClassID="132021" ClassName="MonInfo_Attribute_Poison" Data="독"/>
 		<Class ClassID="132022" ClassName="MonInfo_Attribute_Dark" Data="어둠"/>
@@ -7682,7 +7682,7 @@
 		<Class ClassID="132027" ClassName="MonInfo_EffectiveAtkType_Aries" Data="찌르기"/>
 		<Class ClassID="132028" ClassName="MonInfo_EffectiveAtkType_Strike" Data="때리기"/>
 		<Class ClassID="132029" ClassName="MonInfo_ATK_ATTRIBUTE_MAGIC" Data="마법"/>
-		<Class ClassID="132030" ClassName="MonInfo_ATK_ATTRIBUTE_NONE" Data="무상성"/>
+		<Class ClassID="132030" ClassName="MonInfo_ATK_ATTRIBUTE_NONE" Data="무속성"/>
 		<Class ClassID="132031" ClassName="MonInfo_ATKTYPE_MELEE" Data="물리"/>
 		<Class ClassID="132032" ClassName="MonInfo_ATKTYPE_MAGIC" Data="마법"/>
 		<Class ClassID="132033" ClassName="MonInfo_ATKTYPE_MISSILE" Data="원거리"/>

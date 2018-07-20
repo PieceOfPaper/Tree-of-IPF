@@ -704,7 +704,7 @@ end
 
 function WORLDMAP_MOUSEWHEEL(parent, ctrl, s, n)
 	
-	if keyboard.IsKeyPressed("LCTRL") == 1 then
+	if keyboard.IsPressed(KEY_CTRL) == 1 then
 		local frame = parent:GetTopParentFrame();
 		if n > 0 then
 			WORLDMAP_CHANGESIZE(frame, nil, nil, 1);

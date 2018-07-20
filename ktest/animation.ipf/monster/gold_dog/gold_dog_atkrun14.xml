@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_move_golddog_run"/>
+	<Particle frame="3" attachNode="Dummy_feed" particleName="F_GoldDog_smoke003" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_feed" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="1" attachNode="Dummy_effect_ground_BR" particleName="F_GoldDog_ground001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_ground_BL" particleName="F_GoldDog_ground001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_effect_smoke2" particleName="F_GoldDog_smoke004" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_effect_smoke" particleName="F_GoldDog_smoke003" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_effect_smoke2" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_effect_ground_FL" particleName="F_GoldDog_ground001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_ground_FR" particleName="F_GoldDog_ground001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_move_golddog_run"/>
 </ActionDesc>

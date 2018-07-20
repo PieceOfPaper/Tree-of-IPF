@@ -110,22 +110,22 @@ function UPDATE_SNIPE_POSITION(child, totalTime, elapsedTime)
 	
 	local spd = 1000 * elapsedTime;
 	local changed = false;
-	if true == imcinput.HotKey.IsPress("MoveLeft") then
+	if true == imcinput.IsHotKeyPressed("MoveLeft") then
 			x = x - spd;
 			changed = true;
 	end
 	
-	if true  == imcinput.HotKey.IsPress("MoveRight") then
+	if true  == imcinput.IsHotKeyPressed("MoveRight") then
 			x = x + spd;
 			changed = true;
 	end
 
-	if true == imcinput.HotKey.IsPress("MoveUp") then
+	if true == imcinput.IsHotKeyPressed("MoveUp") then
 			y = y - spd;
 			changed = true;
 	end
 	
-	if true == imcinput.HotKey.IsPress("MoveDown") then
+	if true == imcinput.IsHotKeyPressed("MoveDown") then
 			y = y + spd;
 			changed = true;
 	end

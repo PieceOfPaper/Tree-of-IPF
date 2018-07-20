@@ -212,9 +212,9 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 		return;
 	end
 	local count = slot:GetUserIValue("MTRL_COUNT");		
-	if keyboard.IsKeyPressed("LSHIFT") == 1 then
+	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		count = count - 5;
-	elseif keyboard.IsKeyPressed("LALT") == 1 then
+	elseif keyboard.IsPressed(KEY_ALT) == 1 then
 		count = 0;
 	else
 		count = count - 1;
@@ -389,9 +389,9 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID, isMax)
 		return;
 	end
 
-	if keyboard.IsKeyPressed("LSHIFT") == 1 then
+	if keyboard.IsPressed(KEY_SHIFT) == 1 then
 		count = count + 5;
-	elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
+	elseif keyboard.IsPressed(KEY_ALT) == 1 or isMax == true then
 		count = maxItemCount;
 	else
 		count = count + 1;

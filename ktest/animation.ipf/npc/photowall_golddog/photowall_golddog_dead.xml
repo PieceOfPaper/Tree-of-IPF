@@ -1,5 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="12" attachNode="Dummy_dead_effect" particleName="F_spread_out057" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_photowall_golddog_close"/>
+    <Sound frame="8.00" soundFile="skl_eff_photowall_golddog_close_boom"/>
+    <Particle frame="12" attachNode="Dummy_dead_effect" particleName="F_spread_out057" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="false" targetPos="false"/>
 </ActionDesc>

@@ -1,4 +1,4 @@
-﻿--skill_buff_pc.lua
+--skill_buff_pc.lua
 
 function SCR_SKILL_BUFF(self, from, skill, splash, ret)    
     NO_HIT_RESULT(ret);
@@ -2255,7 +2255,8 @@ function SCR_BUFF_ENTER_Empowering_Buff(self, buff, arg1, arg2, over)
     end
     
     local lv = arg1;
-    local mspadd = self.MSP * (lv * 0.1)
+    local selfMSP = TryGetProp(self, "MSP") - TryGetProp(self, "MSP_BM")
+    local mspadd = selfMSP * (lv * 0.1)
     self.MSP_BM = self.MSP_BM + mspadd;
     SetExProp(buff, "ADD_MSP", mspadd); 
 end
@@ -4018,11 +4019,15 @@ end
 function SCR_BUFF_ENTER_SwashBuckling_Debuff(self, buff, arg1, arg2, over)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
-    
+    local spdAdd = 10
     local buffCaster = GetBuffCaster(buff);
     if IS_PC(self) == false then
         SetFociblyHater(self, buffCaster);
         AddBuff(buffCaster, self, "ProvocationImmunity_Debuff", 0, 0, 30000, 1);
+        if self.MonRank ~= "BOSS" then
+            self.MSPD_BM = self.MSPD_BM + spdAdd
+            SetExProp(self, "SWASHBUCKLING_SPD", spdAdd);
+        end
     end
 end
 
@@ -4031,9 +4036,15 @@ function SCR_BUFF_LEAVE_SwashBuckling_Debuff(self, buff, arg1, arg2, over)
     local buffCaster = GetBuffCaster(buff);
     if buffCaster ~= nil then
         if IS_PC(self) == false then
+            if self.MonRank ~= "BOSS" then
+                self.MSPD_BM = self.MSPD_BM - GetExProp(self, "SWASHBUCKLING_SPD")
+            end
+            
             local currentTarget = GetFociblyHater(self)
-            if IsSameActor(currentTarget, buffCaster) == "YES" then
-                RemoveFociblyHater(self)
+            if currentTarget ~= nil then
+                if IsSameActor(currentTarget, buffCaster) == "YES" then
+                    RemoveFociblyHater(self)
+                end
             end
         end
     end
@@ -4448,7 +4459,6 @@ end
 
 
 function SCR_BUFF_ENTER_Restoration_Buff(self, buff, arg1, arg2, over)
-
     local addrhp = 0;
     local addrsp = 0;
 --    local rhprate = 0;
@@ -4474,8 +4484,8 @@ function SCR_BUFF_ENTER_Restoration_Buff(self, buff, arg1, arg2, over)
     
     SetExProp(buff, "ADD_RHP", addrhp);
     SetExProp(buff, "ADD_RSP", addrsp);
-
 end
+
 
 function SCR_BUFF_LEAVE_Restoration_Buff(self, buff, arg1, arg2, over)
 
@@ -11271,9 +11281,9 @@ end
 
 
 function SCR_BUFF_ENTER_ArcaneEnergy_Buff(self, buff, arg1, arg2, over)
-
     local buffArg1, buffArg2 = GetBuffArg(buff);
-    local addsp = math.floor(self.MSP * (0.03 * buffArg1));
+    local selfMSP = TryGetProp(self, "MSP") - TryGetProp(self, "MSP_BM")
+    local addsp = math.floor(selfMSP * (0.03 * buffArg1))
     local addsta = 5 + buffArg1 * 4
     
     self.MSP_BM = self.MSP_BM + addsp;
@@ -11281,7 +11291,6 @@ function SCR_BUFF_ENTER_ArcaneEnergy_Buff(self, buff, arg1, arg2, over)
     
     SetExProp(buff, 'ADD_SP', addsp);
     SetExProp(buff, 'ADD_STA', addsta);
-
 end
 
 function SCR_BUFF_LEAVE_ArcaneEnergy_Buff(self, buff, arg1, arg2, over)
@@ -14264,6 +14273,8 @@ function SCR_BUFF_LEAVE_Firstblow_Buff(self, buff, arg1, arg2, over)
 		print("Try BuffRemoveFirstblow Lob");
 
 		CustomMongoLog(self, "FieldBoss", "Type", "BuffRemoveFirstblow", "MonClsID", fistBlowMonID, "MonClsName", fistBlowMonName);
+	else
+		CustomMongoLog(self, "FieldBoss", "Type", "BuffRemoveFirstblow");
     end
 end
 
@@ -14845,8 +14856,13 @@ function SCR_BUFF_ENTER_Capote_Debuff(self, buff, arg1, arg2, over)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     ObjectColorBlend(self, 255, 160, 150, 255, 1, 1.5)
     
-    local buffCaster = GetBuffCaster(buff)
+    local buffCaster = GetBuffCaster(buff);
+    local spdAdd = 10
     if IS_PC(self) == false then
+        if self.MonRank ~= "BOSS" then
+            self.MSPD_BM = self.MSPD_BM + spdAdd
+            SetExProp(self, "CAPOTE_SPD", spdAdd);
+        end
         if IsBuffApplied(self, "ProvocationImmunity_Debuff") == "NO" then
             SetFociblyHater(self, buffCaster)
             AddBuff(buffCaster, self, "ProvocationImmunity_Debuff", 0, 0, 30000, 1);
@@ -14882,6 +14898,10 @@ function SCR_BUFF_LEAVE_Capote_Debuff(self, buff, arg1, arg2, over)
     
     local buffCaster = GetBuffCaster(buff)
     if IS_PC(self) == false then
+        if self.MonRank ~= "BOSS" then
+            self.MSPD_BM = self.MSPD_BM - GetExProp(self, "CAPOTE_SPD")
+        end
+        
         local currentTarget = GetFociblyHater(self)
         if IsSameActor(currentTarget, buffCaster) == "YES" then
             RemoveFociblyHater(self)
@@ -14921,8 +14941,8 @@ function SCR_BUFF_UPDATE_SmashBullet_Debuff(self, buff, arg1, arg2, RemainTime, 
     local skill = GetSkill(caster, "Bulletmarker_SmashBullet")
     local atk = GET_SKL_DAMAGE(caster, self, 'Bulletmarker_SmashBullet');
     
-    TakeDamage(caster, self, skill.ClassName, atk, skill.Attribute, skill.AttackType, "TrueDamage", HIT_BLEEDING, HITRESULT_NO_HITSCP)
-    -- TakeDadak(caster, self, 'None', atk, 0.15 , skill.Attribute, skill.AttackType, "AbsoluteDamage",HIT_BLEEDING, HITRESULT_NO_HITSCP);
+--    TakeDamage(caster, self, skill.ClassName, atk, skill.Attribute, skill.AttackType, "TrueDamage", HIT_BLEEDING, HITRESULT_NO_HITSCP)
+    TakeDamage(caster, self, skill.ClassName, atk, skill.Attribute, skill.AttackType, "AbsoluteDamage",HIT_BLEEDING, HITRESULT_NO_HITSCP);
     return 1;
 end
 
@@ -15164,10 +15184,10 @@ function SCR_BUFF_UPDATE_ShadowConjuration_Debuff(self, buff, arg1, arg2, over)
         end
         
         if self.MoveType == "Normal" or self.MoveType == "Holding" then
-            TakeDamage(caster, self, skill.ClassName, damage, skill.Attribute, skill.AttackType, "TrueDamage", HIT_DARK, HITRESULT_NO_HITSCP)
+            TakeDamage(caster, self, skill.ClassName, damage, skill.Attribute, skill.AttackType, "AbsoluteDamage", HIT_DARK, HITRESULT_NO_HITSCP)
         end
     else
-        TakeDamage(caster, self, skill.ClassName, damage, skill.Attribute, skill.AttackType, "TrueDamage", HIT_DARK, HITRESULT_NO_HITSCP)
+        TakeDamage(caster, self, skill.ClassName, damage, skill.Attribute, skill.AttackType, "AbsoluteDamage", HIT_DARK, HITRESULT_NO_HITSCP)
     end
     
     return 1

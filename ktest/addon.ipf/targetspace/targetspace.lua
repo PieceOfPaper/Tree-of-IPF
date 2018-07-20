@@ -29,6 +29,8 @@ function TARGETSPACE_SET(frame, type)
 		return;
 	end
 
+	local isCompanion = COMPANION_SPACE_PRECHECK(handle, targetinfo.companionName) == 1;
+
 	local frame = ui.GetFrame("targetSpace_"..handle);
 	if frame == nil then
 		ui.CreateTargetSpace(handle);
@@ -41,26 +43,35 @@ function TARGETSPACE_SET(frame, type)
 
 		local spaceObj = GET_CHILD(frame, "space", "ui::CAnimPicture");
 		local LbtnObj  = GET_CHILD(frame, 'mouseLbtn', 'ui::CPicture');
+		local RbtnObj = GET_CHILD(frame, 'mouseRbtn', 'ui::CPicture');
 		local joyBbtn  = GET_CHILD(frame, 'joyBbtn', 'ui::CPicture');
 	
 		if type == 1 then
 			spaceObj:ShowWindow(0);
 			LbtnObj:ShowWindow(0);
+			RbtnObj:ShowWindow(0);
 			joyBbtn:ShowWindow(1);
 		elseif type == 2 then
 			spaceObj:PlayAnimation();
 			spaceObj:ShowWindow(1);
 			LbtnObj:ShowWindow(0);
+			RbtnObj:ShowWindow(0);
 			joyBbtn:ShowWindow(0);
-
 		elseif type == 3 then
 			spaceObj:ShowWindow(0);
+			if isCompanion == true then
+				LbtnObj:ShowWindow(0);
+				RbtnObj:ShowWindow(1);
+			else
 			LbtnObj:ShowWindow(1);
+				RbtnObj:ShowWindow(0);
+			end
 			joyBbtn:ShowWindow(0);
 		elseif type == 0 then -- �ڵ����
 			if IsJoyStickMode() == 1 then
 				spaceObj:ShowWindow(0);
 				LbtnObj:ShowWindow(0);
+				RbtnObj:ShowWindow(0);
 				joyBbtn:ShowWindow(1);
 			else
 				local spaceMarkHeightOffset = 0;
@@ -77,10 +88,10 @@ function TARGETSPACE_SET(frame, type)
 				spaceObj:PlayAnimation();
 				spaceObj:ShowWindow(1);
 				LbtnObj:ShowWindow(0);
+				RbtnObj:ShowWindow(0);
 				joyBbtn:ShowWindow(0);
 			end
 		end
-		
 	end	
 end
 
