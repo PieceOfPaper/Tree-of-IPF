@@ -127,7 +127,7 @@ function WEAPONSWAP_ITEM_DROP(parent, ctrl, argStr, argNum)
 		-- 양손무기를 체크하자
 		TH_WEAPON_CHECK(obj, bodyGbox, slot:GetSlotIndex());
 		session.SetWeaponQuicSlot(slot:GetSlotIndex(), invItem:GetIESID());
-		SET_SLOT_ITEM_IMANGE(slot, invItem);
+		SET_SLOT_ITEM_IMAGE(slot, invItem);
 	end
 end
 
@@ -182,7 +182,7 @@ function WEAPONSWAP_UI_UPDATE()
 		if nil ~= guid then 
 			local item = GET_ITEM_BY_GUID(guid, 1);
 			if nil ~= item then
-				SET_SLOT_ITEM_IMANGE(etcSlot, item);
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
 			else
 				etcSlot:ClearIcon();
 			end
@@ -205,7 +205,7 @@ function WEAPONSWAP_SWAP_UPDATE(frame)
 		if nil ~= guid then 
 			local item = GET_ITEM_BY_GUID(guid, 1);
 			if nil ~= item then
-				SET_SLOT_ITEM_IMANGE(etcSlot, item);
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
 			else
 				etcSlot:ClearIcon();
 			end

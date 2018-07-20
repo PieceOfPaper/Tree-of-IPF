@@ -83,7 +83,7 @@ function SET_SLOT_ITEM_INV(slot, itemCls)
 end
 
 -- ?˜ë‹¨ ?„ì´??ê°?ˆ˜ ?«ìê°€ê°€ ? ì„œ... ?´ë?ì§€ë§?ë³´ì´ê²??˜ê¸° ?„í•´
-function SET_SLOT_ITEM_IMANGE(slot, invItem)
+function SET_SLOT_ITEM_IMAGE(slot, invItem)
 	if nil == invItem then
 		return;
 	end
