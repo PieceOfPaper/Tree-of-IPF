@@ -1,26 +1,36 @@
 function SCR_EXECUTE_PREFIX_SET(pc)
     local itemList, itemCntList = GetDlgItemList(pc);
     if itemList == nil or #itemList ~= 1 then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] SCR_EXECUTE_PREFIX_SET: itemList Error');
         return;
     end
 
     local targetItem = itemList[1];
     if IS_VALID_ITEM_FOR_GIVING_PREFIX(targetItem) == false then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        SendSysMsg(pc, 'NotEnoughTarget');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] SCR_EXECUTE_PREFIX_SET: not valid prefix item['..targetItem.ClassName..']');
         return;
     end
 
     if IsFixedItem(targetItem) == 1 then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        SendSysMsg(pc, 'MaterialItemIsLock');
         return;
     end
     
     local needCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
-    local validCount = GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc);
-    
+    local validCount = GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc);    
     if needCount == 0 then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] SCR_EXECUTE_PREFIX_SET: needCount error- item['..targetItem.ClassName..']');
         return;
     end
 
     if validCount < needCount then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] SCR_EXECUTE_PREFIX_SET: Lack of valid count exporb- valid['..validCount..'], need['..needCount..']');
         return;
     end
 
@@ -55,15 +65,18 @@ function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc) -- 경험치 꽉 찬 아이�
 end
 
 function EXECUTE_GIVE_PREFIX(pc, targetItem)
-
     local npcHandle = GetExProp(pc, 'LEGEND_NPC_HANDLE');    
     if npcHandle == 0 then
         SendSysMsg(pc, 'CantUseEnchantBomb');
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: npcHandle error');
         return;
     end
     local npc = GetByHandle(pc, npcHandle);
     if npc == nil then
         SendSysMsg(pc, 'CantUseEnchantBomb');
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: npc not exist');
         return;
     end
 
@@ -83,6 +96,8 @@ function EXECUTE_GIVE_PREFIX(pc, targetItem)
 
     if #candidateList < 1 then
         SendSysMsg(pc, 'CannotGivePrefixAnymore');
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: not exist candidate set name');
         return;
     end
 
@@ -91,6 +106,8 @@ function EXECUTE_GIVE_PREFIX(pc, targetItem)
     AttachGaugeToTarget(npc, pc, aniTime, 1, "gauge");
     local result = DOTIMEACTION_ONLY_TARGET(npc, pc, ScpArgMsg("GivingBuffToWeapon"), '#LegendPrefix', aniTime, 0);    
     if result ~= 1 then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: dotimeaction error');
         return;
     end
 
@@ -100,11 +117,15 @@ function EXECUTE_GIVE_PREFIX(pc, targetItem)
     local matCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
     local materialList = GET_VALID_LEGEND_PREFIX_MATERIAL_LIST(pc);
     if #materialList < matCount then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');        
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: material count error- list['..#materialList..'], need['..matCount..']');
         return;
     end
 
     local tx = TxBegin(pc);
     if tx == nil then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: TxBegin error');
         return;
     end
 
@@ -116,12 +137,14 @@ function EXECUTE_GIVE_PREFIX(pc, targetItem)
     TxSetIESProp(tx, targetItem, 'LegendPrefix', targetPrefix);
     local ret = TxCommit(tx);
     if ret ~= 'SUCCESS' then
+        SendAddOnMsg(pc, 'FAIL_LEGEND_PREFIX');
+        IMC_LOG('ERROR_LOGIC', '[LegendPrefix] EXECUTE_GIVE_PREFIX: tx commit fail');
         return;
     end
+    SendAddOnMsg(pc, 'SUCCESS_LEGEND_PREFIX');
 
     local targetItemGuid = GetItemGuid(targetItem);
-    LegendPrefixLog(pc, targetItemGuid, legendPrefix, targetPrefix, matCount);    
-    SendAddOnMsg(pc, 'SUCCESS_LEGEND_PREFIX');
+    LegendPrefixLog(pc, targetItemGuid, legendPrefix, targetPrefix, matCount);        
 end
 
 g_legendGroupMap = {};
@@ -168,7 +191,7 @@ function TEST_SET_PREFIX_MATERIAL_EXP(pc) -- 인벤토리에 있는 모든 접�
     for i = 1, #itemList do
         local item = itemList[i];
         if item.ClassName == matName then
-            TxSetIESProp(tx, item, 'ItemExpString', matCls.NumberArg1);        
+            TxSetIESProp(tx, item, 'ItemExpString', matCls.NumberArg1);
             cheatItemList[#cheatItemList + 1] = item;
         end
     end
@@ -181,4 +204,17 @@ function TEST_SET_PREFIX_MATERIAL_EXP(pc) -- 인벤토리에 있는 모든 접�
             SendPropertyByName(pc, cheatItemList[i], 'ItemExpString');
         end
     end
+end
+
+function TEST_ITEM_LINK(pc, itemClassName, prefix)
+    local item = GetInvItemByName(pc, itemClassName);
+    if item == nil then
+        Chat(pc, '아이템이 인벤토리에 없어요');
+        return;
+    end
+
+    local tx = TxBegin(pc);
+    TxSetIESProp(tx, item, 'LegendPrefix', prefix);
+    local ret = TxCommit(tx);
+    Chat(pc,"아이템 링크 결과: "..ret);
 end

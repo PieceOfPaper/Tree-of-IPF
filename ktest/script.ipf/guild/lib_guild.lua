@@ -2,6 +2,57 @@
 AUTHORITY_GUILD_INVITE = 1
 AUTHORITY_GUILD_BAN = 2
 
+function callback_remove_guild_tower(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            RemoveGuildTower(pc)
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+
+function callback_guild_declare_war(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            local tx = TxBegin(pc);
+			TxDeclareWar(tx, argList[1]);
+			local ret = TxCommit(tx);
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+function callback_guild_declare_war_cancel(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            local tx = TxBegin(pc);
+			TxCancelGuildWar(tx, PARTY_GUILD, argList[1]);
+			local ret = TxCommit(tx);	
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+
 function REQ_MOVE_TO_GUILDHOUSE(pc)
 
 	local openedMission, alreadyJoin = OpenPartyMission(pc, pc, 0, "guildhouse", "", 1, PARTY_GUILD);  
@@ -97,9 +148,15 @@ function CREATE_GUILD_COMMON_MENU(partyObj, menuList, isLeader, isEnemyParty, is
 		end
 	end
 
+    --[[
 	if isLeader == 1 then
 		menuList[#menuList + 1] = "DiscardTower";		
 	end
+    --]]
+    
+    if isSameGuild == true then
+        menuList[#menuList + 1] = "DiscardTower";
+    end
 
 end
 
@@ -273,10 +330,12 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 					SendSysMsg(pc, "YourGuildIsNeutralityState");
 					return;
 				end
-
-				local tx = TxBegin(pc);
-				TxDeclareWar(tx, guildID);
-				local ret = TxCommit(tx);	
+                local argList = {}
+                argList[1] = tostring(guildID)
+                CheckClaim(pc, 'callback_guild_declare_war', 301, argList)  -- code:301 (전쟁선포)
+				--local tx = TxBegin(pc);
+				--TxDeclareWar(tx, guildID);
+				--local ret = TxCommit(tx);	
 			end			
 
 		elseif menuCmd == "CancelGuildWar" then
@@ -295,9 +354,12 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 			end
 
 			if select == 1 then
-				local tx = TxBegin(pc);
-				TxCancelGuildWar(tx, PARTY_GUILD, guildID);
-				local ret = TxCommit(tx);	
+                local argList = {}
+                argList[1] = tostring(guildID)
+                CheckClaim(pc, 'callback_guild_declare_war_cancel', 301, argList)  -- code:301 (전쟁선포)
+				--local tx = TxBegin(pc);
+				--TxCancelGuildWar(tx, PARTY_GUILD, guildID);
+				--local ret = TxCommit(tx);	
 			end
 		
 
@@ -316,7 +378,8 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 			end
 
 			if select == 1 then
-                RemoveGuildTower(pc)
+                local argList = {}
+                CheckClaim(pc, 'callback_remove_guild_tower', 14, argList)  -- code:14 (길드타워철거)
 			end
 		end
 	end
@@ -391,6 +454,33 @@ function SCR_AGIT_TO_YARD_ENTER(trigger, pc)
 
 end
 
+function callback_use_agit_seed(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        local partyObj = GetGuildObj(pc);
+	    SetExProp(partyObj, "NextPlantAbleTime", 0);
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+		    else
+                local tx = TxBegin(pc)                
+                TxTakeItemByGuid(tx, argList[6], 1, "");
+	            TxMakeGuildHouseObject(tx, argList[1], tonumber(argList[2]), tonumber(argList[3]), tonumber(argList[4]), argList[5], "");
+	            local ret = TxCommit(tx)
+	        end
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+
+    local partyObj = GetGuildObj(pc);
+	SetExProp(partyObj, "NextPlantAbleTime", 0);	
+end
+
 function SCR_USE_AGIT_SEED(pc, argObj, clsName, argnum1, argnum2)
 
 	if 0 == IsGuildHouseWorld(pc) then
@@ -459,8 +549,98 @@ function SCR_USE_AGIT_SEED(pc, argObj, clsName, argnum1, argnum2)
 	
 end
 
-function SCR_USE_AGIT_EGG(pc, argObj, clsName, argnum1, argnum2, itemType, itemObj)
+function SCR_USE_AGIT_SEED_CALLBACK(pc, argObj, clsName, argnum1, argnum2, itemType, itemObj)
+	if 0 == IsGuildHouseWorld(pc) then
+		return;
+	end
+    
+	if IS_GUILDTOWER_MEMBER(pc) == false then
+		SendSysMsg(pc, "CantPlantSeedBczNotOurGuild");
+		return
+	end
 
+	local surfaceType = GetSurfaceType(pc);
+	if surfaceType ~= "farm" then
+		SendSysMsg(pc, "YouCantMakeObjectOnlyInFarmArea");
+		return;
+	end
+
+	local partyObj = GetGuildObj(pc);
+	local nextPlantAbleTime = GetExProp(partyObj, "NextPlantAbleTime");
+	local currentTime = imcTime.GetAppTime();
+	if currentTime < nextPlantAbleTime then
+		SendSysMsg(pc, "DataError");
+		return;
+	end
+
+	SetExProp(partyObj, "NextPlantAbleTime", currentTime + 30);
+
+	local abilLevel = GET_GUILD_ABILITY_LEVEL(partyObj, "Farming")	;
+	local curPlantCount = GetGuildHouseObjectCountByClassProp(pc, "ObjType", "Plant");
+	if curPlantCount >= abilLevel * 3 then
+		SendSysMsg(pc, "CantCreatePlantAnymore");
+		SetExProp(partyObj, "NextPlantAbleTime", 0);
+		return;
+	end
+
+	local x, y, z = GetFrontPos(pc, 10);
+	local minDist = GetMinDistOfGuildHouseObjectByClassProp(pc, "ObjType", "Plant", x, y, z);
+	if minDist >= 0 and minDist <= 20 then
+		SendSysMsg(pc, "CantCreateObjectNearOtherObject");	
+		SetExProp(partyObj, "NextPlantAbleTime", 0);
+		return;
+	end
+
+	if GetClass("Seed", clsName) == nil then
+		SetExProp(partyObj, "NextPlantAbleTime", 0);
+		return;
+	end
+
+	if curPlantCount >= abilLevel * 3 then
+		SendSysMsg(pc, "CantCreatePlantAnymore");
+		return;
+	end
+    
+	local guid = GenerateGuid64();
+	local value = clsName;
+	
+    DisableControlForTime(pc, 3);
+	PlayAnim(pc, "STANDSPINKLE", 1, 0);
+	sleep(1500);
+
+    local argList = {}
+    argList[1] = tostring(guid)
+    argList[2] = tostring(x)
+    argList[3] = tostring(y)
+    argList[4] = tostring(z)
+    argList[5] = tostring(clsName)
+    argList[6] = tostring(itemObj)
+    CheckClaim(pc, 'callback_use_agit_seed', 403, argList)
+end
+
+function callback_use_agit_egg(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음        
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+		    else
+                local tx = TxBegin(pc);
+                TxTakeItemByGuid(tx, argList[7], 1, "");
+	            TxMakeGuildHouseObject(tx, argList[1], tonumber(argList[2]), tonumber(argList[3]), tonumber(argList[4]), argList[5], argList[6]);
+	            local ret = TxCommit(tx);
+	        end
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+function SCR_USE_AGIT_EGG(pc, argObj, clsName, argnum1, argnum2, itemType, itemObj)
 	local surfaceType = GetSurfaceType(pc);
 --	if surfaceType ~= "farm" then
 --		SendSysMsg(pc, "YouCantMakeObjectOnlyInFarmArea");
@@ -517,6 +697,69 @@ function SCR_USE_AGIT_EGG(pc, argObj, clsName, argnum1, argnum2, itemType, itemO
 	TxMakeGuildHouseObject(tx, guid, x, y, z, clsName, propString);
 	local ret = TxCommit(tx);	
 	
+end
+
+function SCR_USE_AGIT_EGG_CALLBACK(pc, argObj, clsName, argnum1, argnum2, itemType, itemObj)    
+	local surfaceType = GetSurfaceType(pc);
+
+	if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		SendSysMsg(pc, "YouCanBuildInTheOtherGuildAgit");	
+		return;
+	end
+	if 0 == IsGuildHouseWorld(pc) then
+		return;
+	end
+    
+	local partyObj = GetGuildObj(pc);
+	local abilLevel = GET_GUILD_ABILITY_LEVEL(partyObj, "Taming");
+	local curPlantCount = GetGuildHouseObjectCountByClassProp(pc, "ObjType", "Animal");
+	local petCount = abilLevel * 3
+	if curPlantCount >= petCount then
+		SendSysMsg(pc, "CantCreateAnimalAnymore");	
+		return;
+	end
+    
+	if type(itemObj) ~= type("") then
+        if itemObj.KeyWord ~= "None" then
+		    local strList = StringSplit(itemObj.KeyWord, "#");
+		    for i = 1 , #strList / 2 do
+			    local propName = strList[2 * i - 1];
+			    local propValue = strList[2 * i];
+			    if propName == "ClsName" then
+				    clsName = propValue;
+			    end
+		    end
+        end
+	end
+    
+	if GetClass("Seed", clsName) == nil then
+		return;
+	end
+    
+	local guid = GenerateGuid64();
+	
+	local x, y, z = GetFrontPos(pc, 10);
+	local value = clsName;
+    
+	local propString = "Maker#" .. GetTeamName(pc);
+	if type(itemObj) ~= type("") and itemObj.KeyWord ~= "None" then
+		propString = propString .. "#";
+		propString = propString .. itemObj.KeyWord;
+	end
+	
+    DisableControlForTime(pc, 3);
+	PlayAnim(pc, "SITGROPE", 1, 0);
+	sleep(1500);
+
+    local argList = {}
+    argList[1] = tostring(guid)
+    argList[2] = tostring(x)
+    argList[3] = tostring(y)
+    argList[4] = tostring(z)
+    argList[5] = tostring(clsName)
+    argList[6] = tostring(propString)
+    argList[7] = tostring(itemObj)
+    CheckClaim(pc, 'callback_use_agit_egg', 404, argList)
 end
 
 function SCR_USE_AGIT_ACADEMY(pc, argObj, clsName, argnum1, argnum2)
@@ -656,8 +899,56 @@ function GET_MONSTER_GUILDHOUSE_CLS(mon)
 
 end
 
-function GUILDHOUSE_OBJ_DIALOG_PLANT(obj, pc, guildHouseObj, seedCls)
+function callback_guild_obj_remove(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
 
+    if ret_json == 'True' then
+        if pc ~= nil then            
+            if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+		    else
+                DisableControlForTime(pc, 2);
+			    PlayAnim(pc, "SITGROPE", 1, 0);
+			    sleep(1500);
+			    local tx = TxBegin(pc);
+			    TxRemoveGuildHouseObject(tx, argList[1])
+			    local ret = TxCommit(tx);
+            end
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+function callback_guild_obj_harvest(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+		    else
+                DisableControlForTime(pc, 2);
+		        PlayAnim(pc, "SITGROPE", 1, 0);
+		        sleep(1200)
+		        local tx = TxBegin(pc);
+		        TxRemoveGuildHouseObject(tx, argList[1]);
+		        TxGiveItem(tx, argList[2], tonumber(argList[3]), "Harvest")
+		        local ret = TxCommit(tx)
+            end
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+function GUILDHOUSE_OBJ_DIALOG_PLANT(obj, pc, guildHouseObj, seedCls)
 	local age = guildHouseObj:GetPropIValue("Age");
 	local fullGrowMin = seedCls.FullGrowMin;
 	local itemFunc = _G[seedCls.GetModelItemScript];
@@ -705,30 +996,19 @@ function GUILDHOUSE_OBJ_DIALOG_PLANT(obj, pc, guildHouseObj, seedCls)
 		end
 
 		local menuCmd = menuList[select];
-		if menuCmd == "Remove" then
-			
-			DisableControlForTime(pc, 2);
-			PlayAnim(pc, "SITGROPE", 1, 0);
-			sleep(1500);
-			local objGuid = GetIESID(obj);
-			local tx = TxBegin(pc);
-			TxRemoveGuildHouseObject(tx, objGuid);
-			local ret = TxCommit(tx);	
-
+		if menuCmd == "Remove" then			
+            local objGuid = GetIESID(obj);
+            local argList = {}
+            argList[1] = tostring(objGuid)
+            CheckClaim(pc, 'callback_guild_obj_remove', 403, argList)  -- code:403 (아지트 농장 사용 권한)
 		end
-
 	elseif menuCmd == "Harvest" then
-
-		DisableControlForTime(pc, 2);
-		PlayAnim(pc, "SITGROPE", 1, 0);
-		sleep(1200);
-		local objGuid = GetIESID(obj);
-		local tx = TxBegin(pc);
-		TxRemoveGuildHouseObject(tx, objGuid);
-		TxGiveItem(tx, seedCls.GetItem, seedCls.GetItemCount, "Harvest");		
-		local ret = TxCommit(tx);	
-		
-
+        local objGuid = GetIESID(obj);
+        local argList = {}
+        argList[1] = tostring(objGuid)
+        argList[2] = seedCls.GetItem
+        argList[3] = tostring(seedCls.GetItemCount)
+        CheckClaim(pc, 'callback_guild_obj_harvest', 403, argList)  -- code:403 (아지트 농장 사용 권한)
 	end
 		
 end
@@ -873,6 +1153,65 @@ function GUILDHOUSE_OBJ_DIALOG_BUILDING(obj, pc, guildHouseObj, seedCls)
 	end
 end
 
+function callback_return_to_nature(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+		    else
+                local obj = GetExArgObject(pc, argList[1])                
+                Dead(obj)
+                local tx = TxBegin(pc);
+			    TxRemoveGuildHouseObject(tx, argList[1]);
+			    local ret = TxCommit(tx)                
+            end
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
+function callback_take_as_companion(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then
+            if GetGuildHouseIESID(pc) ~= GetGuildID(pc) then
+		        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+		    else
+                local obj = GetExArgObject(pc, argList[3])
+                Dead(obj)
+                local tx = TxBegin(pc);
+			    TxAdoptPet(tx, tonumber(argList[1]), argList[2]);
+			    TxRemoveGuildHouseObject(tx, argList[3]);
+			    local ret = TxCommit(tx);
+      
+			    if ret == "SUCCESS" then                    
+				    if argList[4] == "0" then
+					    if IsFullBarrackLayerSlot(pc) == 1 then
+						    ExecClientScp(pc, "PET_ADOPT_SUC_BARRACK()");
+					    else
+						    ExecClientScp(pc, "PET_ADOPT_SUC()");
+					    end
+				    else
+					    ExecClientScp(pc, "PET_ADOPT_SUC_BARRACK()");
+				    end                    
+			    end
+            end
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
 function GUILDHOUSE_OBJ_DIALOG_ANIMAL(obj, pc, guildHouseObj, seedCls)
 
 	local age = guildHouseObj:GetPropIValue("Age");
@@ -918,14 +1257,12 @@ function GUILDHOUSE_OBJ_DIALOG_ANIMAL(obj, pc, guildHouseObj, seedCls)
 		end
 
 		local nextMenuCmd = menuList[select];
-		if nextMenuCmd == menuCmd then
-			
-			local objGuid = GetIESID(obj);
-			Dead(obj);
-			local tx = TxBegin(pc);
-			TxRemoveGuildHouseObject(tx, objGuid);
-			local ret = TxCommit(tx);	
-
+		if nextMenuCmd == menuCmd then			
+			local objGuid = GetIESID(obj);            
+            local argList = {}
+            argList[1] = tostring(objGuid)
+            SetExArgObject(pc, argList[1], obj)
+			CheckClaim(pc, 'callback_return_to_nature', 404, argList)
 		end
 
 	elseif menuCmd == "TakeAsCompanion" then
@@ -939,28 +1276,20 @@ function GUILDHOUSE_OBJ_DIALOG_ANIMAL(obj, pc, guildHouseObj, seedCls)
 			local petType = petCls.ClassID;
 			local objGuid = GetIESID(obj);
 			local haveCompanion = GetSummonedPet(pc, petCls.JobID);
-			Dead(obj);
-			local tx = TxBegin(pc);
-			TxAdoptPet(tx, monCls.ClassID, input);
-			TxRemoveGuildHouseObject(tx, objGuid);
-			local ret = TxCommit(tx);
-      
-			if ret == "SUCCESS" then
-				if haveCompanion == nil then
-					if IsFullBarrackLayerSlot(pc) == 1 then
-						ExecClientScp(pc, "PET_ADOPT_SUC_BARRACK()");
-					else
-						ExecClientScp(pc, "PET_ADOPT_SUC()");
-					end
-				else
-					ExecClientScp(pc, "PET_ADOPT_SUC_BARRACK()");
-				end
-			end
+
+            local argList = {}
+            argList[1] = tostring(monCls.ClassID)
+            argList[2] = tostring(input)
+            argList[3] = tostring(objGuid)
+            if haveCompanion == nil then
+                argList[4] = "0"
+            else
+                argList[4] = "1"
+            end
+            SetExArgObject(pc, argList[3], obj)
+            CheckClaim(pc, 'callback_take_as_companion', 404, argList)
 		end
-
-
 	end
-
 end
 
 function SCR_GUILD_HOUSE_OBJECT_DIALOG(obj, pc)
@@ -1212,12 +1541,7 @@ function LEARN_GUILD_ABILITY(pc, arg1)
 	if abilCls == nil then
 		return;
 	end
-
-	local isLeader = IsPartyLeaderPc(partyObj, pc);
-	if isLeader == 0 then
-		return;
-	end
-
+    
 	local used = partyObj.UsedAbilStat;
 	local current = GET_GUILD_ABILITY_POINT(partyObj);
 	if current <= used then
@@ -1317,8 +1641,7 @@ function TX_LEARN_ABILITY_BY_WEB(pc, arg1)
 end
 
 
-function SKL_CHECK_NEAR_GUILDTOWER(self, skl)
-    
+function SKL_CHECK_NEAR_GUILDTOWER(self, skl)   
 	local partyObj = GetGuildObj(self);
 	if partyObj == nil then	
 		SendSysMsg(self, "GuildAvailable");

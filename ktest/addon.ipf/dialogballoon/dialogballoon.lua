@@ -14,23 +14,24 @@ function BALLOON_TEXT(clsName, duration)
     	text:SetTextByKey("value", cls.Text);
     end
 
+	local resizeWidth = text:GetWidth() + 100
+	local resizeHeight = text:GetHeight() + 60
 	local showBalloonSkin = cls.ShowBalloonSkin
 	if showBalloonSkin ~= nil and showBalloonSkin ~= "None" then
 		frame:SetSkinName(showBalloonSkin)
+		if resizeWidth > frame:GetWidth() then
+			frame:Resize(resizeWidth, frame:GetHeight())
+		end
+
+		if resizeHeight > frame:GetHeight() then
+			frame:Resize(frame:GetWidth(), resizeHeight)
+		end
+	else
+		frame:Resize(resizeWidth, resizeHeight);
+		frame:SetSkinName("shadow_box")
 	end
 
 	frame:ShowWindow(1);
-
-	local resizeWidth = text:GetWidth() + 100
-	local resizeHeight = text:GetHeight() + 60
-
-	if resizeWidth > frame:GetWidth() then
-		frame:Resize(resizeWidth, frame:GetHeight())
-	end
-
-	if resizeHeight > frame:GetHeight() then
-		frame:Resize(frame:GetWidth(), resizeHeight)
-	end
 
 	frame:SetDuration(duration);
 

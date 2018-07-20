@@ -109,7 +109,6 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
     		showAppraisalPic = true;
 		end
 	end
-	
 	-- 비교?�팁
 	-- ?�팁 비교??무기?� ?�비?�만 ?�당?�다. (미감???�외)
 
@@ -166,7 +165,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 			if equiptype == 'RING' then
 
-				if keyboard.IsPressed(KEY_ALT) == 1 then
+				if keyboard.IsKeyPressed("LALT") == 1 then
 					equiptype = 'RING2'
 				else
 					equiptype = 'RING1'
@@ -174,9 +173,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 			end
 
 			local equitSpot = item.GetEquipSpotNum(equiptype);
-
 			local item = session.GetEquipItemBySpot(equitSpot);
-
 			if item ~= nil then
 				local equipItem = GetIES(item:GetObject());
 
@@ -386,7 +383,7 @@ function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	
 	local height = gBox:GetHeight() + tooltip_lifeTimeinfo_CSet:GetHeight();
 	gBox:Resize(gBox:GetWidth(), height);
-	return height;
+	return tooltip_lifeTimeinfo_CSet:GetY() + tooltip_lifeTimeinfo_CSet:GetHeight()
 end;
 
 function SHOW_REMAIN_LIFE_TIME(ctrl)
@@ -442,7 +439,7 @@ function GET_ITEM_PROP_NAME_LIST(obj)
 			propNameList[#propNameList]["PropName"] = propName;
 
             local propValue = math.floor(obj[propName]);
-            if propName == 'CoolDown' and propValue == 0 then -- 인벤토리가 아닌 아이템의 경우 CP계산을 못해요
+            if propName == 'CoolDown' and propValue == 0 then -- ?�벤?�리가 ?�닌 ?�이?�의 경우 CP계산??못해?
                 propValue = obj.ItemCoolDown;
             end
 
@@ -609,7 +606,7 @@ function ICON_SET_EQUIPITEM_TOOLTIP(icon, equipitem, topParentFrameName)
 	end
 end
 
--- 옵션 추출 아이템 툴팁
+-- ?�션 추출 ?�이???�팁
 function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	local targetItem = GetClass('Item', invitem.InheritanceItemName);
 	if targetItem == nil then
@@ -620,13 +617,11 @@ function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	local mainframename = 'extract_option';
 	local ypos, commonCtrlSet = DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename);	
 	local line1 = commonCtrlSet:GetChild('line1');
-	if IS_EXIST_RANDOM_OPTION(invitem) == false then
-		line1:ShowWindow(0);
-		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename);
-	else
-		line1:ShowWindow(1);
+	if IS_EXIST_RANDOM_OPTION(invitem) == true then		
 		ypos = DRAW_EXTRACT_OPTION_RANDOM_OPTION(tooltipframe, invitem, mainframename, ypos);	
 	end
+
+	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename, nil, false);
 	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos);
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);

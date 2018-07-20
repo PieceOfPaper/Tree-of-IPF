@@ -161,7 +161,6 @@ function SCR_TX_TP_SHOP(pc, argList)
 			end
 		end
 	end
-
     -- 구매 불가능한 목록이 포함되어 있는지 검사한다.
     for i = 1, #argList do
         local tpitem = GetClassByType("TPitem", argList[i])
@@ -176,8 +175,8 @@ function SCR_TX_TP_SHOP(pc, argList)
 		end
     end
 
-	for i = 1, #argList do
-		local tpitem = GetClassByType("TPitem",argList[i])
+	for i = 1, #argList do		
+		local tpitem = GetClassByType("TPitem", argList[i]);		
 		if tpitem == nil then
 			return
 		end
@@ -203,12 +202,12 @@ function SCR_TX_TP_SHOP(pc, argList)
 		logType = logType ..tostring(itemID);
 		TxAddIESProp(tx, aobj, "Medal", -tpitem.Price, "NpcShop:"..itemcls.ClassID..":"..itemID, cmdIdx);
         
-        local limit, limitCount = GET_LIMITATION_TO_BUY(tpitem.ClassID);
+        local limit, limitCount = GET_LIMITATION_TO_BUY(tpitem.ClassID);        
 		if limit ~= 'NO' then
 			TxAddBuyLimitCount(tx, 0, tpitem.ClassID, 1, limitCount);
 		end
 
-		local ret = TxCommit(tx);
+		local ret = TxCommit(tx);		
 		if ret == "SUCCESS" then
 			CustomMongoLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			CustomMongoCashLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)

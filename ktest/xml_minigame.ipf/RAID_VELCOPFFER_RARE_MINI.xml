@@ -274,7 +274,7 @@
             </Stage>
             <Stage Name="Door" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="59052" Pos="2132.14#167.18#-456.22" angle="46" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;10&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;TargetWindow&apos; &apos;1&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MonRank&apos; &apos;Normal&apos; "/>
+                    <Obj Type="Monster" MonType="59052" Pos="2132.14#167.18#-456.22" angle="46" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;10&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;TargetWindow&apos; &apos;1&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;MonRank&apos; &apos;Normal&apos; &apos;EXP_Rate&apos; &apos;0&apos; &apos;JEXP_Rate&apos; &apos;0&apos; "/>
                     <Obj Type="Monster" MonType="20054" Pos="2166.43#180.81#-413.38" angle="50" genCount="1" genTime="20000" objectKey="1"/>
                 </ObjList>
                 <StageEvents>
@@ -334,6 +334,11 @@
                 </StageEvents>
             </Stage>
             <Stage Name="Boss_Final" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Raid_Velcoffer_guard"/>
+                    </ToolScp>
+                </StartScpList>
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="벨코퍼를 처치 하였습니다"/>

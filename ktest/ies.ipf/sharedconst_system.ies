@@ -76,6 +76,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 100066,0,0,"HEALTHCHECK_TEST","헬스체크의 테스트모드를 동작시킵니다.","NO"
 100067,0,0,"HEALTHCHECK_PACKETLOGGING","헬스체크 데이터중 패킷에 대한 정보를 로그로 남깁니다.","NO"
 100069,300000,0,"ZOMBIE_TRIGGER_TIME","pc 좀비 로깅 타임(ms)","NO"
+100070,5,0,"FIND_UNOBSTRUCTED_DISTANCE_MOVE_PATH","유효하지 않은 위치일 경우 경로 찾기에 사용할 오차 거리","NO"
 110000,21,0,"TEST_VAL_1","테스트용","NO"
 110001,0,0,"TEST_VAL_2","테스트용","NO"
 110002,1,0,"TEST_VAL_3","테스트용","NO"

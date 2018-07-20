@@ -106,16 +106,16 @@ function ON_GUILD_ASSET_LOG(frame, msg, argStr, argNum)
                 line:ShowWindow(0);
             end
 
-            local dateText = ctrlSet:GetChild('dateText');
+            local dateText = GET_CHILD_RECURSIVELY(ctrlSet, 'dateText');
             local regTime = imcTime.ImcTimeToSysTime(guildLog.registerTime);
             local dateStr = string.format('%04d/%02d/%02d', regTime.wYear, regTime.wMonth, regTime.wDay); -- yyyy/mm/dd
             dateText:SetTextByKey('date', dateStr);
 
             local DEPOSIT_IMG = ctrlSet:GetUserConfig('DEPOSIT_IMG');
             local WITHDRAW_IMG = ctrlSet:GetUserConfig('WITHDRAW_IMG');
-            local depositText = ctrlSet:GetChild('depositText');
-            local useText = ctrlSet:GetChild('useText');
-            local descText = ctrlSet:GetChild('descText');
+            local depositText =  GET_CHILD_RECURSIVELY(ctrlSet, 'depositText');
+            local useText = GET_CHILD_RECURSIVELY(ctrlSet, 'useText');
+            local descText = GET_CHILD_RECURSIVELY(ctrlSet,'descText');
             if guildLog.isDeposit == true then
                 dateText:SetTextByKey('img', DEPOSIT_IMG);
                 depositText:SetTextByKey('amount', GET_COMMAED_STRING(guildLog:GetAmount()));
@@ -134,7 +134,7 @@ function ON_GUILD_ASSET_LOG(frame, msg, argStr, argNum)
                 descText:SetText(ClMsg('GuildAssetLog_'..guildLog:GetDesc()));
             end
 
-            local balanceText = ctrlSet:GetChild('balanceText');
+            local balanceText = GET_CHILD_RECURSIVELY(ctrlSet, 'balanceText');
             balanceText:SetTextByKey('amount', GET_COMMAED_STRING(guildLog:GetTotalAmount()));
         end
     end

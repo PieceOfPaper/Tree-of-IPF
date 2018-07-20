@@ -4859,20 +4859,7 @@ return value;"/>
 				<Num Num="-800"/>
 				<Num Num="0"/>
 			</ToolScp>
-			<ToolScp Scp="PAD_SELECT_PADKILL" Client="NO" UseSleep="NO">
-				<Str Str="Pyromancer_FireWall"/>
-				<Num Num="150"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_SELECT_PADKILL" Client="NO" UseSleep="NO">
-				<Str Str="Pyromancer_FlameGround"/>
-				<Num Num="150"/>
-			</ToolScp>
-			<ToolScp Scp="PAD_SELECT_MONKILL" Client="NO" UseSleep="NO">
-				<Str Str="ALL"/>
-				<Str Str="hidden_monster2"/>
-				<Num Num="100"/>
-			</ToolScp>
-		</updateEvent>
+			</updateEvent>
 	</PadSkill>
 	<PadSkill Name="Daoshi_StormCalling_Mine" CheckerType="0" Range="15" UpdateTerm="100" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
 		<createEvent>

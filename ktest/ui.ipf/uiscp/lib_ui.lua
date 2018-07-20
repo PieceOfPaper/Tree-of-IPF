@@ -504,26 +504,25 @@ function SET_CONFIG_HUD_OFFSET(frame)
 end
 
 function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
-
-	local errName = "WebService_"
+	local errNamePrefix = 'WebService_';
+	local errName = errNamePrefix;
 	if code == nil then
 		local splitmsg = StringSplit(msg, " ");
 		code = splitmsg[1];
-		print(code, msg)
 		errName = errName .. code
-		print(errName)
 		local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
-		IMC_LOG("INFO_NORMAL", errString)
-		print(funcName)
-		ui.MsgBox(ClMsg(errName))
+		IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
+		ShowErrorInfoMsg('CannotConnectWebServer');
 		return
 	end
-	print(funcName)
 	local splitStr = StringSplit(msg, " ");
-	print(msg);
 	errName = errName .. splitStr[1];
 	local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
-	IMC_LOG("INFO_NORMAL", errString)
+	IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
 	
+	if errName == errNamePrefix then
+		ShowErrorInfoMsg('CannotConnectWebServer');
+	else
 	ui.MsgBox(ClMsg(errName));
+end
 end

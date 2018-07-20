@@ -302,7 +302,7 @@ function STATUS_UPDATE(frame)
         STAT_RESET(frame, 1);
         g_reserve_reset = 0;
     else
-        DebounceScript("STATUS_INFO", 0.1);
+        DebounceScript("STATUS_INFO", 0.2);
     end
 end
 
@@ -1211,7 +1211,7 @@ function CHECK_EQP_LBTN(frame, slot, argStr, argNum)
     end
 
 
-    if keyboard.IsPressed(KEY_CTRL) == 1 then
+    if keyboard.IsKeyPressed("LCTRL") == 1 then
         local invitem = GET_ITEM_BY_GUID(iesID, 1);
         LINK_ITEM_TEXT(invitem);
         return;

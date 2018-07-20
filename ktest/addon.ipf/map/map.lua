@@ -220,7 +220,7 @@ end
 
 function MAP_LBTN_DOWN(parent, ctrl)
 
-	if keyboard.IsPressed(KEY_CTRL) ~= 1 then
+	if keyboard.IsKeyPressed("LCTRL") ~= 1 then
 		return;
 	end
 
@@ -694,11 +694,10 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 										local WorldPos = GenList:Element(j);
 										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
 										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
-
-										MAKE_LOC_CLICK_ICON(frame, i, 'group'..roundCount, k, XC, YC, RangeX, RangeY, 30);
+										MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 										XC = m_offsetX + MapPos.x - iconW / 2;
 										YC = m_offsetY + MapPos.y - iconH / 2;
-										MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..roundCount, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
+										MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
 
 										roundCount = roundCount+1;
 									end
@@ -713,11 +712,11 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 								local MapPos = mapprop:WorldPosToMinimapPos(x, z, m_mapWidth, m_mapHeight);
 
 								local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
-								MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..roundCount, XC, YC, RangeX, RangeY, 30);
+								MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 
 								XC = m_offsetX + MapPos.x - iconW / 2;
 								YC = m_offsetY + MapPos.y - iconH / 2;
-								MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..roundCount, XC, YC, iconW, iconH, nil, statelist, questIESlist);
+								MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..k, XC, YC, iconW, iconH, nil, statelist, questIESlist);
 								roundCount = roundCount + 1;
 
 							end

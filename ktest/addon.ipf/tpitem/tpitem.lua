@@ -541,7 +541,8 @@ function TPITEM_CLOSE(frame)
 	session.ui.Clear_NISMS_CashInven_ItemList();
 	control.ResetControl();
 
-	ui.CloseFrame("recycleshop_popupmsg")
+	ui.CloseFrame("recycleshop_popupmsg");
+	ui.CloseFrame("tpitem_popupmsg");
 end
 
 -- 분류에 따라 항목의 아이템들을 그리기 설정
@@ -1797,6 +1798,9 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
     local slotset = GET_CHILD_RECURSIVELY(topFrame, 'basketslotset');
     local slotCount = slotset:GetSlotCount();
     local cannotEquip = {};
+    local needWarningItemList = {};
+    local noNeedWarning = {};
+    local itemAndTPItemIDTable = {};
 	local allPrice = 0;
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -1804,10 +1808,18 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 			local slot  = slotset:GetSlotByIndex(i);			
             local tpItemName = slot:GetUserValue('TPITEMNAME');
             local itemClassName = slot:GetUserValue('CLASSNAME');
-			local item = GetClass("Item", itemClassName);  
+			local item = GetClass("Item", itemClassName);			
             local tpitem = GetClass('TPitem', tpItemName);
 
+            itemAndTPItemIDTable[item.ClassID] = tpitem.ClassID;
+
 			allPrice = allPrice + tpitem.Price
+
+			if TryGetProp(tpitem, 'WarningMsg', 'NO') == 'YES' then
+				needWarningItemList[#needWarningItemList + 1] = item;
+			else
+				noNeedWarning[#noNeedWarning + 1] = item;
+			end
 
             if IS_EQUIP(item) == true then
 		        local lv = GETMYPCLEVEL();
@@ -1845,27 +1857,12 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
         end
     end
 
-    if #cannotEquip > 0 then
-        local clMsg = ClMsg('ExistCannotEquipItem')..'{nl}';
-        for i = 1, #cannotEquip do
-            local item = cannotEquip[i];
-            clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
-        end
-        clMsg = clMsg..ScpArgMsg("ReallyBuy?");
-		if config.GetServiceNation() == "GLOBAL" then
-			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
-        ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+    if #needWarningItemList > 0 or #cannotEquip > 0 then
+    	OPEN_TPITEM_POPUPMSG(needWarningItemList, noNeedWarning, cannotEquip, itemAndTPItemIDTable, allPrice);
     else
-				POPUP_LIMIT_PAYMENT(clMsg, parent:GetName(), allPrice)
-			end
-		else
-			ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
-		end
-    else
-		if config.GetServiceNation() == "GLOBAL" then
-			
+    	if config.GetServiceNation() == "GLOBAL" then			
 			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
-        ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+        		ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 			else
 				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
 			end			
@@ -1873,6 +1870,7 @@ function TPSHOP_ITEM_BASKET_BUY(parent, control)
 			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
 		end
     end
+
 	control:SetEnable(0);
 end
 
@@ -1938,9 +1936,16 @@ function TPSHOP_ITEM_BASKET_BUY_CANCEL()
 	local frame = ui.GetFrame("tpitem");
 	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
 	btn:SetEnable(1);
+
+	ui.CloseFrame('tpitem_popupmsg');
 end
 
-function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
+function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)	
+	local tpitem_popupmsg = ui.GetFrame('tpitem_popupmsg');
+	if tpitem_popupmsg ~= nil and tpitem_popupmsg:IsVisible() == 1 then
+		return;
+	end
+
 	g_TpShopParent = parent;
 	g_TpShopcontrol = control;
 	
@@ -1984,15 +1989,17 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
     local limit = GET_LIMITATION_TO_BUY(obj.ClassID);
 	if isHave == true then
 		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+	elseif TPITEM_IS_ALREADY_PUT_INTO_BASKET(parent:GetTopParentFrame(), obj) == true then
+		ui.MsgBox(ClMsg("AleadyPutInBasketReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
 	elseif limit == 'ACCOUNT' then
-		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID, classid);
 		if curBuyCount >= obj.AccountLimitCount then
 			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.AccountLimitCount), "")
 		else
 			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItem","Value", obj.AccountLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
 		end
     elseif limit == 'MONTH' then
-        local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+        local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID, classid);
 		if curBuyCount >= obj.MonthLimitCount then
 			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.MonthLimitCount), "")
 		else
@@ -2049,44 +2056,6 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	local slotCount = slotset:GetSlotCount();
-
-	local nodupliItems = {}
-	nodupliItems[tpitemname] = true;
-
-	for i = 0, slotCount - 1 do
-		local slotIcon	= slotset:GetIconByIndex(i);
-
-		if slotIcon ~= nil then
-
-			local slot  = slotset:GetSlotByIndex(i);
-			local classname = slot:GetUserValue("TPITEMNAME");
-			local alreadyItem = GetClass("TPitem",classname)
-
-			if alreadyItem ~= nil then
-
-				local item = GetClass("Item", alreadyItem.ItemClassName)
-				local allowDup = TryGetProp(item,'AllowDuplicate')
-				
-				if tpitem.SubCategory == "TP_Costume_Color" and  tpitemname == classname then
-					ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
-					return;
-				end
-
-				if allowDup == "NO" then
-		
-					if nodupliItems[classname] == nil then
-						nodupliItems[classname] = true
-					else
-						ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
-						return;
-					end
-				end
-			
-			end
-
-		end
-	end
-
 
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -2188,6 +2157,7 @@ function EXEC_BUY_MARKET_ITEM()
 	local slotset = GET_CHILD_RECURSIVELY(frame,slotsetname)
 	if slotset == nil then
 		btn:SetEnable(1);
+		ui.CloseFrame('tpitem_popupmsg');
 		return;
 	end
 	local slotCount = slotset:GetSlotCount();
@@ -2231,6 +2201,7 @@ function EXEC_BUY_MARKET_ITEM()
 							ui.SysMsg(ScpArgMsg("ExistSaleTimeExpiredItem"))
 							btn:SetEnable(1);
 							ui.CloseFrame(frame:GetName())
+							ui.CloseFrame('tpitem_popupmsg');
 							return
 						end
 					end
@@ -2246,6 +2217,7 @@ function EXEC_BUY_MARKET_ITEM()
 				
 			else
 				btn:SetEnable(1);
+				ui.CloseFrame('tpitem_popupmsg');
 				return
 			end
 
@@ -2254,11 +2226,12 @@ function EXEC_BUY_MARKET_ITEM()
 
 	if allprice == 0 then
 		btn:SetEnable(1);
+		ui.CloseFrame('tpitem_popupmsg');
 		return
 	end
 
 	if GET_CASH_TOTAL_POINT_C() < allprice then 
-		--ui.MsgBox_NonNested(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."), 0x00000000, frame:GetName(), "WEB_TPSHOP_OPEN_URL_NEXONCASH", "None");	
+		--ui.MsgBox_NonNested(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."), 0x000	00000, frame:GetName(), "WEB_TPSHOP_OPEN_URL_NEXONCASH", "None");	
 		ui.MsgBox_NonNested(ScpArgMsg("Auto_MeDali_BuJogHapNiDa."), 0x00000000, frame:GetName(), "None", "None");	
 		
 		local tabObj		    = GET_CHILD_RECURSIVELY(frame,"shopTab");	
@@ -2267,9 +2240,10 @@ function EXEC_BUY_MARKET_ITEM()
 		TPSHOP_TAB_VIEW(frame, 0);
 
 		btn:SetEnable(1);
+		ui.CloseFrame('tpitem_popupmsg');
 		return;
 	end
-	
+
 	pc.ReqExecuteTx_NumArgs("SCR_TX_TP_SHOP", itemListStr);	
 	btn:SetEnable(1);
 		
@@ -3128,14 +3102,42 @@ function GETBANNERURL(webUrl)
 	return urlStr;
 end
 
-function TPITEM_SET_ENABLE_BY_LIMITATION(buyBtn, itemObj)
-    local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, itemObj.ClassID);
-    local accountLimitCount = TryGetProp(itemObj, 'AccountLimitCount');
-    local monthLimitCount = TryGetProp(itemObj, 'MonthLimitCount');
+function TPITEM_SET_ENABLE_BY_LIMITATION(buyBtn, tpitemCls)
+	local itemCls = GetClass('Item', tpitemCls.ItemClassName);	
+    local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, tpitemCls.ClassID, itemCls.ClassID);    
+    local accountLimitCount = TryGetProp(tpitemCls, 'AccountLimitCount');
+    local monthLimitCount = TryGetProp(tpitemCls, 'MonthLimitCount');
 	if (accountLimitCount ~= nil and accountLimitCount > 0 and curBuyCount >= accountLimitCount)
         or (monthLimitCount ~= nil and monthLimitCount > 0 and curBuyCount >= monthLimitCount) then
 		buyBtn:SetSkinName('test_gray_button');
 		buyBtn:SetText(ClMsg('ITEM_IsPurchased0'))
 		buyBtn:EnableHitTest(0)
 	end
+end
+
+function TPITEM_IS_ALREADY_PUT_INTO_BASKET(frame, tpitem)
+	local slotset = GET_CHILD_RECURSIVELY(frame, 'basketslotset');
+	local slotCount = slotset:GetSlotCount();	
+	for i = 0, slotCount - 1 do
+		local slotIcon	= slotset:GetIconByIndex(i);
+		if slotIcon ~= nil then
+			local slot  = slotset:GetSlotByIndex(i);
+			local classname = slot:GetUserValue("TPITEMNAME");
+			if tpitem.ClassName == classname then
+				local alreadyItem = GetClass("TPitem", classname);
+				if alreadyItem ~= nil then
+					local item = GetClass("Item", alreadyItem.ItemClassName);				
+					local allowDup = TryGetProp(item, 'AllowDuplicate');				
+					if tpitem.SubCategory == "TP_Costume_Color" then
+						return true;
+					end				
+
+					if allowDup == "NO" then
+						return true;
+					end			
+				end
+			end
+		end
+	end
+	return false;
 end

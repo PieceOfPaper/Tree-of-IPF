@@ -2203,3 +2203,14 @@ function SCR_BUFF_RATETABLE_COSTUME_VELCOFFER_SET(self, from, skill, atk, ret, r
         end
     end
 end
+
+function SCR_BUFF_RATETABLE_Guardian_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Guardian_Buff") == "YES" then
+    	local abilPeltasta33 = GetAbility(self, "Peltasta33")
+    	if abilPeltasta33 ~= nil and abilPeltasta33.ActiveState == 1 then
+	        local reductionRate = 0.2
+	        
+	        AddDamageReductionRate(rateTable, reductionRate);
+	    end
+    end
+end

@@ -9,10 +9,12 @@ function GUILDEVENT_SELECT_TYPE(self, pc)
         return;
     end
 
+    --[[
 	if authority == 0 and isLeader == 0 then	
 		SendSysMsg(pc, 'OnlyGuildEventAuthority');
 		return;
 	end
+    --]]
 
     local flag = IsExistGuildEvent(guildObj); --길드에서 이벤트가 등록되어 있는지 확인 --
 	if flag == 1 then
@@ -36,8 +38,26 @@ function GUILDEVENT_SELECT_TYPE(self, pc)
 	ExecClientScp(pc, "REQ_OPEN_GUILD_EVENT_PIP()");
 end
 
+function callback_guild_event_start(pc, code, ret_json, argList)
+    if code ~= 200 then        
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        return
+    end
+
+    if ret_json == 'True' then
+        if pc ~= nil then            
+            RunScript('GUILD_EVENT_START_REQUEST', pc, tonumber(argList[1]))
+        end
+    else
+        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+    end
+end
+
 function SCR_GUILD_EVENT_START_REQUEST(pc, clsID)
-    RunScript('GUILD_EVENT_START_REQUEST', pc, tonumber(clsID))
+    local argList = {}
+    argList[1] = tostring(clsID)
+    CheckClaim(pc, 'callback_guild_event_start', 401, argList)  -- code:401 (길드 이벤트 시작)    
+    --RunScript('GUILD_EVENT_START_REQUEST', pc, tonumber(clsID))
 end
 
 function GUILD_EVENT_START_REQUEST(pc, clsID)
@@ -59,10 +79,12 @@ function GUILD_EVENT_START_REQUEST(pc, clsID)
 	local authority = IS_GUILD_AUTHORITY_SERVER(pc, AUTHORITY_GUILD_EVENT) --길드 이벤트 시작 권한 체크 --
     local isLeader = IsPartyLeaderPc(guildObj, pc);
     
+    --[[
 	if authority == 0 and isLeader == 0 then	
 		SendSysMsg(pc, 'OnlyGuildEventAuthority');
 		return;
 	end
+    --]]
 
 	local cls = GetClassByType("GuildEvent", clsID);
 	

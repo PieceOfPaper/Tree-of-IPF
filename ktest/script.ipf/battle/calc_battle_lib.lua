@@ -1129,18 +1129,36 @@ end
 function SCR_LIB_ATKCALC_RH(from, skill)
 -- RH, LH 혼용으로 사용하고 있어서 문제가 되어있었다.
 -- 스킬의 핸드타입을 체크하여, 맞는 녀석을 호출하도록 하자.
+	if TryGetProp(skill, "Job") == "Wugushi" then
+		local abilWugushi22 = GetAbility(from, "Wugushi22")
+		if abilWugushi22 ~= nil and abilWugushi22.ActiveState == 1 then
+			skill.UseSubweaponDamage = "YES"
+		else
+			skill.UseSubweaponDamage = "NO"
+		end
+	end
+	
+	if TryGetProp(skill, "Job") == "Sapper" then
+--		local owner = GetOwner()
+		local abilSapper37 = GetAbility(from, "Sapper37")
+		if abilSapper37 ~= nil and abilSapper37.ActiveState == 1 then
+			skill.UseSubweaponDamage = "YES"
+		else
+			skill.UseSubweaponDamage = "NO"
+		end
+	end
     
     if IS_PC(from) == true and skill.UseSubweaponDamage == "YES" then
         return SCR_LIB_ATKCALC_LH(from, skill)
     end
-
+	
     local minAtk, maxAtk = GetMinMaxATK(from, skill);
     
     if IS_PC(from) == true then
         minAtk = minAtk + from.BonusDmg_BM;
         maxAtk = maxAtk + from.BonusDmg_BM;
     end
-
+	
     local atk = GetFinalAtk(minAtk, maxAtk);
     return atk;
 
@@ -1166,7 +1184,7 @@ function SCR_LIB_ATKCALC_LH(from, skill)
         minAtk = minAtk + from.BonusDmg_BM;
         maxAtk = maxAtk + from.BonusDmg_BM;
     end
-
+	
     local atk = GetFinalAtk(minAtk, maxAtk);
     return atk;
 

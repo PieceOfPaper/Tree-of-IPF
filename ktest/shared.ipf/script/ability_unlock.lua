@@ -187,3 +187,23 @@ function UNLOCK_ONMYOJI18(pc, sklName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_PELTASTA33(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char1_3');
+	local skillGuardian = GetSkill(pc, "Peltasta_Guardian")
+	if skillGuardian ~= nil and skillGuardian.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
+
+function UNLOCK_PELTASTA34(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char1_3');
+	local skillGuardian = GetSkill(pc, "Peltasta_Guardian")
+	if skillGuardian ~= nil and skillGuardian.LevelByDB >= 11 and jobGrade ~= nil and jobGrade >= 3 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end

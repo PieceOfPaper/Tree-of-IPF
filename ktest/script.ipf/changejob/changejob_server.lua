@@ -174,33 +174,33 @@ function SCR_CLICK_CHANGEJOB_BUTTON(pc, jobid)
         end
     end
     
-    -- NEW CLASS ChangeJob EVENT
-    local now_time = os.date('*t')
-    local month = now_time['month']
-    local year = now_time['year']
-    local day = now_time['day']
-
-    local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
-    
-    local aObj = GetAccountObj(pc)
-    if aObj ~= nil then
-        if nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 5) then
-            if pcjobinfo.ClassName == 'Char1_18' then
-                if aObj.EVENT_1803_NEWCLASS_RTA_TEAM_COUNT == 0 and sObj.EVENT_1803_NEWCLASS_RTA_PC_COUNT == 0 then
-                    TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCLASS_RTA_TEAM_COUNT', aObj.EVENT_1803_NEWCLASS_RTA_TEAM_COUNT + 1)
-                    TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCLASS_RTA_PC_COUNT', sObj.EVENT_1803_NEWCLASS_RTA_PC_COUNT + 1)
-                    TxGiveItem(tx, 'EVENT_1803_NEWCLASS_BOX_RTA', 1, 'EVENT_1803_NEWCLASS_RTA')
-                end
-            end
-            if pcjobinfo.ClassName == 'Char2_20' then
-                if aObj.EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT == 0 and sObj.EVENT_1803_NEWCLASS_OMJ_PC_COUNT == 0 then
-                    TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT', aObj.EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT + 1)
-                    TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCLASS_OMJ_PC_COUNT', sObj.EVENT_1803_NEWCLASS_OMJ_PC_COUNT + 1)
-                    TxGiveItem(tx, 'EVENT_1803_NEWCLASS_BOX_OMJ', 1, 'EVENT_1803_NEWCLASS_OMJ')
-                end
-            end
-        end
-    end
+--    -- NEW CLASS ChangeJob EVENT
+--    local now_time = os.date('*t')
+--    local month = now_time['month']
+--    local year = now_time['year']
+--    local day = now_time['day']
+--
+--    local nowbasicyday = SCR_DATE_TO_YDAY_BASIC_2000(year, month, day)
+--    
+--    local aObj = GetAccountObj(pc)
+--    if aObj ~= nil then
+--        if nowbasicyday <= SCR_DATE_TO_YDAY_BASIC_2000(2018, 4, 5) then
+--            if pcjobinfo.ClassName == 'Char1_18' then
+--                if aObj.EVENT_1803_NEWCLASS_RTA_TEAM_COUNT == 0 and sObj.EVENT_1803_NEWCLASS_RTA_PC_COUNT == 0 then
+--                    TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCLASS_RTA_TEAM_COUNT', aObj.EVENT_1803_NEWCLASS_RTA_TEAM_COUNT + 1)
+--                    TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCLASS_RTA_PC_COUNT', sObj.EVENT_1803_NEWCLASS_RTA_PC_COUNT + 1)
+--                    TxGiveItem(tx, 'EVENT_1803_NEWCLASS_BOX_RTA', 1, 'EVENT_1803_NEWCLASS_RTA')
+--                end
+--            end
+--            if pcjobinfo.ClassName == 'Char2_20' then
+--                if aObj.EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT == 0 and sObj.EVENT_1803_NEWCLASS_OMJ_PC_COUNT == 0 then
+--                    TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT', aObj.EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT + 1)
+--                    TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCLASS_OMJ_PC_COUNT', sObj.EVENT_1803_NEWCLASS_OMJ_PC_COUNT + 1)
+--                    TxGiveItem(tx, 'EVENT_1803_NEWCLASS_BOX_OMJ', 1, 'EVENT_1803_NEWCLASS_OMJ')
+--                end
+--            end
+--        end
+--    end
     
     
     

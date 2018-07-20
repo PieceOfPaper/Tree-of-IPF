@@ -335,7 +335,7 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET_PREPROCESSOR(parent, control, itemgu
 	end
 
 	local addcnt = 1
-	if 1 == keyboard.IsPressed(KEY_SHIFT) then
+	if 1 == keyboard.IsKeyPressed("LSHIFT") then
 		addcnt = 10
 	end
 	TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)

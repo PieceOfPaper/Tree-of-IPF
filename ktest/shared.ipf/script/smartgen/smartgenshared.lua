@@ -102,6 +102,18 @@ function SCR_QUEST_LOCATION_INFO(self, zonename, questIES, posx,posy,posz)
     end
 end
 
+function SCR_LIB_ISENEMY_FACTION(self_faction, target_faction)
+	local str = GetClass('Faction', self_faction);
+
+	local words = SCR_STRING_CUT_SEMICOLON(str.HostileTo)
+	for i = 1, #words do
+		if target_faction == words[i] then
+			return RESULT_OK;
+		end
+	end
+	return RESULT_NO;
+end
+
 function SCR_GET_AROUND_MONGEN_MONLIST(self, zonename, myFaction, range, x, y, z, monList,  returnType)
     local gentype_idspace = 'GenType_'..zonename
     local anchor_idspace = 'Anchor_'..zonename
@@ -145,11 +157,11 @@ function SCR_GET_AROUND_MONGEN_MONLIST(self, zonename, myFaction, range, x, y, z
                             if classIES_anchor.GenType == gentype_list[i][2] then
                                 local distance = SCR_POINT_DISTANCE(x, z, classIES_anchor.PosX, classIES_anchor.PosZ)
                                 if range > 0 then
-                                    if distance <= range + gentype_list[i][3] then                -- ½ºÆä¼È ½º¸¶Æ®Á¨ ÀÌ ³ª¿Ã ±¸¿ª ¾ÈÂÊÀÎÁö Ã¼Å©
+                                    if distance <= range + gentype_list[i][3] then                -- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
                                         near_gentype_list[#near_gentype_list +1] = gentype_list[i]
                                     end
                                 else
-                                    if distance <= 150 + gentype_list[i][3] then                        -- PC¿Í ÀÎÁ¢ °Å¸®ÀÇ Á¨ Á¤º¸¸¸ °®°í¿À°Ô Ã¼Å©
+                                    if distance <= 150 + gentype_list[i][3] then                        -- PCï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Å¸ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
                                         if #near_gentype_list == near_gentype_list_count then
                                             near_gentype_list[#near_gentype_list +1] = gentype_list[i]
                                             near_gentype_list[#near_gentype_list][3] = distance

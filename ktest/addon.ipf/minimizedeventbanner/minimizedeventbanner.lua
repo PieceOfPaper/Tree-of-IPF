@@ -3,6 +3,12 @@ function MINIMIZEDEVENTBANNER_ON_INIT(addon, frame)
 end
 
 function MINIMIZEDEVENTBANNER_MSG(frame, msg, argStr, argNum)
+	local indun_reward_hud = ui.GetFrame('indun_reward_hud');
+	if session.DontUseMinimap() == true or (indun_reward_hud ~= nil and indun_reward_hud:IsVisible() == 1) then
+		frame:ShowWindow(0);
+		return;
+	end
+
 	if frame == nil then
 		frame = ui.GetFrame('minimizedeventbanner');
 	end	

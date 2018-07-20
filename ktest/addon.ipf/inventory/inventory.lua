@@ -1331,7 +1331,7 @@ function CHECK_INV_LBTN(frame, object, argStr, argNum)
 		end
 	end
 	
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local invitem = session.GetInvItem(argNum);
 		LINK_ITEM_TEXT(invitem);
 		return;
@@ -1418,7 +1418,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		local obj = GetIES(invitem:GetObject());
 		IES_MAN_IESID(invitem:GetIESID());
 		return;
@@ -1487,7 +1487,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsEnableShopTrade() == true then
 				if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
-					if keyboard.IsPressed(KEY_SHIFT) == 1 then
+					if keyboard.IsKeyPressed("LSHIFT") == 1 then
 						local sellableCount = invitem.count;
 						local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", sellableCount);
 						INPUT_NUMBER_BOX(invFrame, titleText, "EXEC_SHOP_SELL", 1, 1, sellableCount);
@@ -2468,6 +2468,9 @@ end
 s_dropDeleteItemIESID = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
+	if GetCraftState() == 1 then
+		return;
+	end
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
@@ -2655,7 +2658,7 @@ function EQUIP_RING(itemobj, argNum)
 		return;
 	end
 
-	if keyboard.IsPressed(KEY_ALT) == 1 then
+	if keyboard.IsKeyPressed("LALT") == 1 then
 		ITEM_EQUIP(argNum, "RING2");
 		return;
 	else

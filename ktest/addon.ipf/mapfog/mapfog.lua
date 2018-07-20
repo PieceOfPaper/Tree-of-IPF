@@ -227,7 +227,7 @@ end
 
 function GET_FOG_SET()
 	local set = 1;
-	if keyboard.IsPressed(KEY_SHIFT) == 1 then
+	if keyboard.IsKeyPressed("LSHIFT") == 1 then
 		set = 0;
 	end
 	return set;
@@ -241,7 +241,7 @@ end
 
 function END_DRAG_MAPFOG(frame, ctrl)
 
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		AUTO_FILL_INRECT_IMAGES(frame);
 	end
 

@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="guildinfo_newthread" x="-50" y="0" width="1000" height="500" create="open" version="2">
+	<frame title="{@st43}글 작성{/}" titlepos="0 -8" layout_gravity="center center"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="mainwindow3"/>
+	<layer layerlevel="93"/>
+	<option closebutton="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<script OpenScp="GUILDINFO_NEWTHREAD_OPEN"/>
+	<controls>
+		<layout name="mainLayout" margin="25 80 50 120" orientation="vertical">
+			<layoutsection name="inputSection">
+				<overlap name="inputOverlap">
+					<groupbox name="InputTxtBg" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_midle"/>
+					<edit name="input" drawbackground="true" skin="test_frame_midle" rect="0 0 450 100" layout_gravity="left top" fixwidth="true" fontname="white_20_ol" maxlen="140" typingscp="UPDATE_THREAD_LENGTH" resizeheightbytext="true" multiline="true"/>
+				</overlap>
+			</layoutsection>
+			<layoutsection name="lowerSection" size="50" spacing="5">
+				<layout name="lowerLayout">
+					<layoutsection name="spaceSection" size="50%"/>
+					<layoutsection name="stringLengthSection">
+						<richtext name="stringLen" format="%s / 140" param1="len" param1_def="0" fontname="black_18" textalign="right center" />
+					</layoutsection>
+					<layoutsection name="cancelBtnSection">
+						<button name="cancelBtn" caption="{@st41b}취소" skin="test_gray_button" LBtnUpScp="ui.CloseFrame(&quot;guildinfo_newthread&quot;);"/>
+					</layoutsection>
+					<layoutsection name="acceptBtnSection">
+						<button name="acceptBtn" caption="{@st41b}작성" skin="test_red_button" LBtnUpScp="ADD_NEW_ONELINE_BOARD"/>
+					</layoutsection>
+				</layout>
+			</layoutsection>
+		</layout>
+		<richtext name="titleName" caption="{@st43}글 작성" layout_gravity="center top" margin="0 37 0 0"/>
+		<button name="close" rect="0 0 44 44" margin="0 35 40 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&quot;guildinfo_newthread&quot;);" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+	</controls>
+</uiframe>

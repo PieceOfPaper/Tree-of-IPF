@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -718,6 +718,8 @@
 		<image name="icon_item_zealot1_m" file="\icon\equip\icon_item_zealot1_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_zealot2_f" file="\icon\equip\icon_item_zealot2_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_zealot2_m" file="\icon\equip\icon_item_zealot2_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_zealot3_f" file="\icon\equip\icon_item_zealot3_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_zealot3_m" file="\icon\equip\icon_item_zealot3_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_zealot4_f" file="\icon\equip\icon_item_zealot4_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_zealot4_m" file="\icon\equip\icon_item_zealot4_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_zealot_f" file="\icon\equip\icon_item_SpecialCostume_zealot.png" imgrect="0 0 256 256"/>
@@ -726,14 +728,18 @@
 		<image name="icon_item_warrior_matador02_m" file="\icon\equip\icon_item_warrior_matador02_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_matador03_f" file="\icon\equip\icon_item_warrior_matador03_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_matador03_m" file="\icon\equip\icon_item_warrior_matador03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_matador04_m" file="\icon\equip\icon_item_warrior_matador04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_matador04_f" file="\icon\equip\icon_item_warrior_matador04_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_matador_f" file="\icon\equip\icon_item_SpecialCostume_matador_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_matador_m" file="\icon\equip\icon_item_SpecialCostume_matador_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_shadowmancer_f" file="\icon\equip\icon_item_mage_shadowmancer_f.png" imgrect="0 0 256 256" CMM_Caption="섀도우맨서 코스튬"/>
 		<image name="icon_item_mage_shadowmancer_m" file="\icon\equip\icon_item_mage_shadowmancer_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_shadowmancer02_f" file="\icon\equip\icon_item_mage_shadowmancer02_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_shadowmancer02_m" file="\icon\equip\icon_item_mage_shadowmancer02_m.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_mage_shadowmancer03_f" file="\icon\equip\icon_item_mage_shadowmancer04_f.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_mage_shadowmancer03_m" file="\icon\equip\icon_item_mage_shadowmancer04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_shadowmancer03_f" file="\icon\equip\icon_item_mage_shadowmancer03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_shadowmancer03_m" file="\icon\equip\icon_item_mage_shadowmancer03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_shadowmancer04_f" file="\icon\equip\icon_item_mage_shadowmancer04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_shadowmancer04_m" file="\icon\equip\icon_item_mage_shadowmancer04_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_shadowmance_f" file="\icon\equip\icon_item_SpecialCostume_shadowmance.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_shadowmance_m" file="\icon\equip\icon_item_SpecialCostume_shadowmance_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bulletmarker_f" file="\icon\equip\icon_item_bulletmarker_f.png" imgrect="0 0 256 256" CMM_Caption="불릿마커 코스튬"/>
@@ -742,6 +748,8 @@
 		<image name="icon_item_bulletmarker02_m" file="\icon\equip\icon_item_bulletmarker02_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bulletmarker03_f" file="\icon\equip\icon_item_bulletmarker03_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bulletmarker03_m" file="\icon\equip\icon_item_bulletmarker03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bulletmarker04_m" file="\icon\equip\icon_item_bulletmarker04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bulletmarker04_f" file="\icon\equip\icon_item_bulletmarker04_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_bulletmarker_m" file="\icon\equip\icon_item_SpecialCostume_bulletmarker.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_bulletmarker_f" file="\icon\equip\icon_item_SpecialCostume_bulletmarker.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_nakmuay01_m" file="\icon\equip\icon_item_warrior_nakmuay01_m.png" imgrect="0 0 256 256" CMM_Caption="낙무아이 코스튬"/>
@@ -5107,6 +5115,7 @@
 		<image name="icon_item_Extractkit" file="\icon\payment\icon_item_Extractkit.png" imgrect="0 0 256 256" CMM_Caption="추출 키트"/>
 		<image name="icon_item_Extractkit_Sliver" file="\icon\payment\icon_item_Extractkit_Sliver.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Extractkit_Gold" file="\icon\payment\icon_item_Extractkit_Gold.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_recipe_box2" file="\icon\payment\icon_item_recipe_box2.png" imgrect="0 0 256 256" CMM_Caption="장인의 레시피-마시니오스"/>
 		<image name="icon_item_schooluniform_f_box" file="\icon\payment\icon_item_schooluniform_f_box.png" imgrect="0 0 256 256" CMM_Caption="스쿨 컬렉션 큐브(남자)"/>
 		<image name="icon_item_schooluniform_m_box" file="\icon\payment\icon_item_schooluniform_m_box.png" imgrect="0 0 256 256" CMM_Caption="스쿨 컬렉션 큐브(여자)"/>
 	</imagelist>

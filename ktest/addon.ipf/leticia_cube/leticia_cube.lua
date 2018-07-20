@@ -98,7 +98,7 @@ function LETICIA_CUBE_OPEN_BUTTON(frame, ctrl, argStr, argNum, _gachaClassName, 
     end    
 
     if frame:GetUserIValue('OPEN_MSG_BOX') == 0 then
-        ui.MsgBox(ScpArgMsg('LeticiaGacha{CONSUME}', 'CONSUME', clMsg), 'REQ_LETICIA_CUBE_OPEN("'..cubeName..'")', 'LETICIA_CUBE_MSG_BOX_RESET()');
+        ui.MsgBox(ScpArgMsg('LeticiaGacha{CONSUME}', 'CONSUME', clMsg)..'{nl} {nl}'..'{#85070a}'..ClMsg('ContainWarningItem'), 'REQ_LETICIA_CUBE_OPEN("'..cubeName..'")', 'LETICIA_CUBE_MSG_BOX_RESET()');
         frame:SetUserValue('OPEN_MSG_BOX', 1);
     end
 end

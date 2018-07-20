@@ -415,7 +415,7 @@ function SCR_Swordman_GungHo_BUFFTIME(self, from, skill)
 end
 
 function SCR_Peltasta_Guardian_BUFFTIME(self, from, skill)
-    local time = 60000 + skill.Level * 5000
+    local time = 17000 + skill.Level * 3000
     return time;
 end
 
@@ -2288,7 +2288,7 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
         
         local statINT = TryGetProp(caster, "INT")
         local statMNA = TryGetProp(caster, "MNA")
-
+		
         fireAtk = 30 + ((lv - 1) * 5) + ((lv / 5) * (((statINT + statMNA) * 0.6) ^ 0.9))
         
 --        local Pyromancer23_abil = GetAbility(caster, "Pyromancer23")    -- 2rank Skill Damage multiple
@@ -2303,7 +2303,7 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
         if Pyromancer16_abil ~= nil then
             fireAtk = fireAtk + Pyromancer16_abil.Level
         end
-
+		
         local casterMINMATK = TryGetProp(caster, "MINMATK");
         if casterMINMATK == nil then
             casterMINMATK = 0;
@@ -2319,14 +2319,14 @@ function SCR_BUFF_ENTER_EnchantFire_Buff(self, buff, arg1, arg2, over)
     
     fireAtk = math.floor(fireAtk)
     self.Fire_Atk_BM = self.Fire_Atk_BM + fireAtk
-
+	
     SetExProp(buff, "ADD_FIRE", fireAtk);
-
+	
     local Name = GetName(caster)
     if self.Name ~= Name then
         SkillTextEffect(nil, self, caster, "SHOW_FIRE_DETONATION", buff.ClassID, nil, Name);
     end
-
+	
     SetBuffArgs(buff, lv, casterMATK, 0);
 end
 
@@ -3511,34 +3511,14 @@ end
 
 --HIGHGUARD_Buff
 function SCR_BUFF_ENTER_HighGuard_Buff(self, buff, arg1, arg2, over)
-
     RunScript('SCR_HIGHGUARD_TEMP', self, caster)
     
---  local defrate = 0;
---  local defadd_ablLv = 0.05;
-    local blkaddLv = 30
-    local blkadd = 100 + arg1 * blkaddLv
-    local crtadd = arg1 * 10
-        if crtadd > self.CRTHR then
-            crtadd = self.CRTHR 
-        end
-    local atkrate = arg1 * 0.01 
-
+    local blkAddLv = 30
+    local blkAdd = 100 + arg1 * blkAddLv
     
---  local Peltasta2_abil = GetAbility(self, 'Peltasta2')
---  if Peltasta2_abil ~= nil then
---      defrate = defrate + Peltasta2_abil.Level * defadd_ablLv;
---  end
-    
-    self.BLK_BM = self.BLK_BM + blkadd;
-    self.CRTHR_BM = self.CRTHR_BM - crtadd;
-    self.PATK_RATE_BM = self.PATK_RATE_BM - atkrate;
---  self.DEF_RATE_BM = self.DEF_RATE_BM + defrate
-
-    SetExProp(buff, "ADD_BLK", blkadd);
-    SetExProp(buff, "ADD_CRT", crtadd);
-    SetExProp(buff, "ADD_PATK_RATE", atkrate);
---    SetExProp(buff, "ADD_DEF_RATE", defrate);
+    self.BLK_BM = self.BLK_BM + blkAdd;
+	
+    SetExProp(buff, "ADD_HIGHGUARD_BLK", blkAdd);
 end
 
 function SCR_HIGHGUARD_TEMP(self)
@@ -3548,21 +3528,12 @@ end
 
 
 function SCR_BUFF_LEAVE_HighGuard_Buff(self, buff, arg1, arg2, over)
-
     local skill = GetSkill(self, 'Normal_Attack')
     ChangeSkillAniName(self, 'Normal_Attack', 'None');
     
-    local blkadd = GetExProp(buff, "ADD_BLK")
-    local crtadd = GetExProp(buff, "ADD_CRT")
-    local atkrate = GetExProp(buff, "ADD_PATK_RATE");
---  local defrate = GetExProp(buff, "ADD_DEF_RATE");
+    local blkAdd = GetExProp(buff, "ADD_HIGHGUARD_BLK")
     
-    self.BLK_BM = self.BLK_BM - blkadd;
-    self.CRTHR_BM = self.CRTHR_BM + crtadd;
-    self.PATK_RATE_BM = self.PATK_RATE_BM + atkrate;
---  self.DEF_RATE_BM = self.DEF_RATE_BM - defrate;
-
-    --PlayAnim(self, "ASTD", 1)
+    self.BLK_BM = self.BLK_BM - blkAdd;
 end
 
 
@@ -4871,7 +4842,7 @@ function SCR_BUFF_ENTER_SoPowerful(self, buff, arg1, arg2, over)
     self.PATK_BM = self.PATK_BM + 9999999;
     self.MATK_BM = self.MATK_BM + 9999999;
     self.HR_BM = self.HR_BM + 9999999;
-
+    
 end
 
 
@@ -4940,64 +4911,34 @@ end
 
 -- Guardian_Buff
 function SCR_BUFF_ENTER_Guardian_Buff(self, buff, arg1, arg2, over)
-    
-    local atkadd = 0
-    local atkrate = arg1 * 0.01
-    local defadd = 0
-    local defrate = 0.1 + (arg1 * 0.03)
-    local dradd = 0
-    
-    local Peltasta13_abil = GetAbility(self, "Peltasta13")
-    if Peltasta13_abil ~= nil then
-        atkadd = atkadd + Peltasta13_abil.Level * 1.26;
-        defadd = defadd + Peltasta13_abil.Level;
-    end
+    local defRate = 1
+    local drAdd = 0
     
     local Peltasta23_abil = GetAbility(self, "Peltasta23")
     if Peltasta23_abil ~= nil then
-        dradd = 50 * Peltasta23_abil.Level;
+        drAdd = 50 * Peltasta23_abil.Level;
     end
-    
-    if atkadd > self.MINPATK then
-        atkadd = self.MINPATK;
-    end
-    
-    atkadd = math.floor(atkadd)
-    defadd = math.floor(defadd)
-    dradd = math.floor(dradd)
-
-    self.PATK_BM = self.PATK_BM - atkadd;
-    self.DEF_BM = self.DEF_BM + defadd;
-    self.PATK_RATE_BM = self.PATK_RATE_BM - atkrate
-    self.DEF_RATE_BM = self.DEF_RATE_BM + defrate
-
-    self.DR_BM = self.DR_BM + dradd;
-
-    SetExProp(buff, "ADD_ATK", atkadd);
-    SetExProp(buff, "ADD_DEF", defadd);
-    SetExProp(buff, "ADD_DR", dradd);
-    SetExProp(buff, "ADD_ATK2", atkrate);
-    SetExProp(buff, "ADD_DEF2", defrate);
-    
-
+	
+	local abilPeltasta34 = GetAbility(self, "Peltasta34")
+	if abilPeltasta34 ~= nil and abilPeltasta34.ActiveState == 1 then
+		defRate = 2
+	end
+	
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defRate
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + defRate
+    self.DR_BM = self.DR_BM + drAdd;
+	
+    SetExProp(buff, "ADD_GUARDIAN_DR", drAdd);
+    SetExProp(buff, "ADD_GUARDIAN_DEF", defRate);
 end
 
 function SCR_BUFF_LEAVE_Guardian_Buff(self, buff, arg1, arg2, over)
-
-    local defadd = GetExProp(buff, "ADD_DEF");
-    local atkadd = GetExProp(buff, "ADD_ATK");
-    local dradd = GetExProp(buff, "ADD_DR");
-    local atkrate = GetExProp(buff, "ADD_ATK2");
-    local defrate = GetExProp(buff, "ADD_DEF2");
-
+    local drAdd = GetExProp(buff, "ADD_GUARDIAN_DR");
+    local defRate = GetExProp(buff, "ADD_GUARDIAN_DEF");
     
-    self.DEF_BM = self.DEF_BM - defadd;
-    self.PATK_BM = self.PATK_BM + atkadd;
-    self.DR_BM = self.DR_BM - dradd;
-    self.PATK_RATE_BM = self.PATK_RATE_BM + atkrate
-    self.DEF_RATE_BM = self.DEF_RATE_BM - defrate
-    
-
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defRate
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - defRate
+    self.DR_BM = self.DR_BM - drAdd;
 end
 
 
@@ -7897,12 +7838,15 @@ function SCR_BUFF_ENTER_DivineMight_Buff(self, buff, arg1, arg2, over)
         local list, cnt = GetPCSkillList(self);
         for i = 1, cnt do
             if list[i].ClassID > 10000 and list[i].ClassName ~= "Cleric_DivineMight" then
-                list[i].Level_BM = list[i].Level_BM + 1;
-                --UpdateProperty(list[i], "Level");
-                InvalidateObjectProp(list[i], "Level");
-                InvalidateObjectProp(list[i], "SkillAtkAdd");
-                InvalidateObjectProp(list[i], "SkillFactor");
-                SendSkillProperty(self, list[i]);
+				local skillcls = GetClass("Skill", list[i].ClassName)
+				if skillcls ~= nil and TryGetProp(skillcls, 'CommonType', 'None') == "None" then
+					list[i].Level_BM = list[i].Level_BM + 1;
+					--UpdateProperty(list[i], "Level");
+					InvalidateObjectProp(list[i], "Level");
+					InvalidateObjectProp(list[i], "SkillAtkAdd");
+					InvalidateObjectProp(list[i], "SkillFactor");
+					SendSkillProperty(self, list[i]);
+				end
             end
         end
         --InvalidateStates(self);
@@ -7918,11 +7862,14 @@ function SCR_BUFF_LEAVE_DivineMight_Buff(self, buff, arg1, arg2, over)
         local list, cnt = GetPCSkillList(self);
         for i = 1, cnt do
             if list[i].ClassID > 10000 and list[i].ClassName ~= "Cleric_DivineMight" then
-                list[i].Level_BM = list[i].Level_BM - 1;
-                --UpdateProperty(list[i], "Level");
-                InvalidateObjectProp(list[i], "Level");
-                InvalidateObjectProp(list[i], "SkillAtkAdd");
-                SendSkillProperty(self, list[i]);
+                local skillcls = GetClass("Skill", list[i].ClassName)
+				if skillcls ~= nil and TryGetProp(skillcls, 'CommonType', 'None') == 'None' then
+                    list[i].Level_BM = list[i].Level_BM - 1;
+                    --UpdateProperty(list[i], "Level");
+                    InvalidateObjectProp(list[i], "Level");
+                    InvalidateObjectProp(list[i], "SkillAtkAdd");
+                    SendSkillProperty(self, list[i]);
+                end                
             end
         end
         
@@ -14111,7 +14058,6 @@ function SCR_BUFF_UPDATE_ScudInstinct_Buff(self, buff, arg1, arg2, RemainTime, r
                         return 0;
                     end
                     stoptime = 0;
---                    SetOverInit(buff, over - 1);
                     AddBuff(self, self, 'ScudInstinct_Buff', 1, 0, 0, -1)
                 end
                 SetBuffArgs(buff, stoptime, 0, timelimit)
@@ -14120,7 +14066,6 @@ function SCR_BUFF_UPDATE_ScudInstinct_Buff(self, buff, arg1, arg2, RemainTime, r
                     dashtime = dashtime + 1;
                     if dashtime >= 10 then
                         dashtime = 0;
---                        SetOverInit(buff, over + 1);
                         AddBuff(self, self, 'ScudInstinct_Buff', 1, 0, 0, 1)
                     end
                 end
@@ -14131,12 +14076,37 @@ function SCR_BUFF_UPDATE_ScudInstinct_Buff(self, buff, arg1, arg2, RemainTime, r
                 
                 SetBuffArgs(buff, stoptime, dashtime, timelimit)
             end
+            
+            if over >= 5 then
+            	local healTimeCount = GetExProp(buff, "HEAL_TIME_COUNT");
+            	if healTimeCount == nil then
+            		healTimeCount = 0;
+            	end
+            	
+            	if healTimeCount >= 20 then
+					local healValue = 0;
+					
+					if is_barbarian == 2 then
+						healValue = 50;
+					elseif is_barbarian == 3 then
+						healValue = 100;
+					end
+		            
+		            Heal(self, healValue);
+		            healTimeCount = 0;
+		        else
+		        	healTimeCount = healTimeCount + 1;
+		        end
+		        
+		        SetExProp(buff, "HEAL_TIME_COUNT", healTimeCount);
+	        end
         else
             return 0;
         end
     else
         return 0;
     end
+    
     return 1;
 end
 

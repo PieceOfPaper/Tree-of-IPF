@@ -12762,32 +12762,19 @@ end
 
 
 function SCR_GET_Guardian_Bufftime(skill)
-
-    return 60 + skill.Level * 5;
-
+	
+    return 17 + skill.Level * 3;
 end
 
 function SCR_GET_Guardian_Ratio(skill)
-
-    local pc = GetSkillOwner(skill)
---    local value = 10.2 + 1.8 * (skill.Level - 1);
-    local value = 10 + (skill.Level * 3)
-
-    local Peltasta19_abil = GetAbility(pc, "Peltasta19")    -- 2rank Skill Damage multiple
-    local Peltasta20_abil = GetAbility(pc, "Peltasta20")    -- 3rank Skill Damage multiple
-    if Peltasta20_abil ~= nil then
-        value = value * 1.44
-    elseif Peltasta20_abil == nil and Peltasta19_abil ~= nil then
-        value = value * 1.38
-    end
-
-    local Peltasta13_abil = GetAbility(pc, "Peltasta13")
-    if Peltasta13_abil ~= nil then
-        value = value + Peltasta13_abil.Level;
-    end
-
-    return math.floor(value);
-
+	local value = 100
+	local pc = GetSkillOwner(skill)
+	local abilPeltasta34 = GetAbility(pc, "Peltasta34")
+	if abilPeltasta34 ~= nil and abilPeltasta34.ActiveState == 1 then
+		value = 200
+	end
+	
+    return value;
 end
 
 function SCR_GET_Guardian_Ratio2(skill)
@@ -13812,8 +13799,7 @@ end
 
 function SCR_GET_HighGuard_Ratio(skill)
     local pc = GetSkillOwner(skill);
---  local value = 150 + (skill.Level - 1) * 10
-    local value = 100 + (skill.Level - 1) * 30
+    local value = 100 + (skill.Level * 30)
     
     return math.floor(value)
 

@@ -760,7 +760,8 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	elseif questIES.QuestMode == 'PARTY' then
 	    local sObj = GetSessionObject(pc, 'ssn_klapeda')
 	    if sObj ~= nil then
-	        questName = questIES.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", sObj.PARTY_Q_COUNT1 + 1, "Auto_2",CON_PARTYQUEST_DAYMAX1)
+	    	local curCnt = math.min(sObj.PARTY_Q_COUNT1 + 1, CON_PARTYQUEST_DAYMAX1);
+	        questName = questIES.Name..ScpArgMsg("Auto__-_BanBog({Auto_1}/{Auto_2})","Auto_1", curCnt, "Auto_2",CON_PARTYQUEST_DAYMAX1);
 	    end
 	end
 	if questName == nil then

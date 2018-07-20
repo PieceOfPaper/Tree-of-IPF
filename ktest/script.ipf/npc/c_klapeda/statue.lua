@@ -1,7 +1,7 @@
 function SCR_GOLD_FISH_STATUE_DIALOG(self, pc)
     local userLv = TryGetProp(pc, "Lv")
-    local needSilver = 10000 + (userLv * 100)
-    
+    local needSilver = 10000 + (userLv * 100)    
+
     
     local now_time = os.date('*t')
     local year = now_time['year']
@@ -15,11 +15,20 @@ function SCR_GOLD_FISH_STATUE_DIALOG(self, pc)
     end
     
     local serverBuffCount = 0;
-    if aObj.GOLD_STATUE_FIRST_DATA == nowDate then
-        serverBuffCount = 1;
-    end
+    if IsRequiredIndunDailyReset(aObj.GOLD_STATUE_FIRST_DATA) == 0 then
+		serverBuffCount = 1;
+	end
+
     -- 주인인 캐릭터와 다이얼로그 분할 하도록 --
-    local select = ShowSelDlg(pc, 0, 'FISHING_STATUE_DLG1', ScpArgMsg('FISHING_STATUE_WORSHIP', "needSilver", GET_COMMAED_STRING(needSilver)),  ScpArgMsg('FISHING_STATUE_OWNER_WORSHIP','serverBuffCount',serverBuffCount) ,ScpArgMsg("Close"));
+    local firstRankerAID = GetExProp_Str(self, 'STATUE_AID');    
+    local isFirstRanker = false;
+    local select = 0;
+    if GetPcAIDStr(pc) == firstRankerAID then -- 1등이 말 걸었을 때
+        isFirstRanker = true;
+        select = ShowSelDlg(pc, 0, 'FISHING_STATUE_DLG1', ScpArgMsg('FISHING_STATUE_WORSHIP', "needSilver", GET_COMMAED_STRING(needSilver)),  ScpArgMsg('FISHING_STATUE_OWNER_WORSHIP','serverBuffCount',serverBuffCount) ,ScpArgMsg("Close"));
+    else -- 1등도 아닌 것들
+        select = ShowSelDlg(pc, 0, 'FISHING_STATUE_DLG1', ScpArgMsg('FISHING_STATUE_WORSHIP', "needSilver", GET_COMMAED_STRING(needSilver)), ScpArgMsg("Close"));
+    end
      
     if select == 1 then       
         local haveSilver = GetInvItemCount(pc, 'Vis')
@@ -35,20 +44,35 @@ function SCR_GOLD_FISH_STATUE_DIALOG(self, pc)
             SendSysMsg(pc, "Auto_SilBeoKa_BuJogHapNiDa.");
             return;
         end
-    elseif select == 2 then --여기에 같은지 여부 체크하는 구문 추가--
+    elseif select == 2 then
+        if isFirstRanker == true then
             
-            select = ShowSelDlg(pc, 0, 'FISHING_STATUE_DLG1', ScpArgMsg('FISHING_STATUE_OWNER_WORSHIP_1'),ScpArgMsg("FISHING_STATUE_OWNER_WORSHIP_2"),ScpArgMsg("FISHING_STATUE_OWNER_WORSHIP_3"),ScpArgMsg("Close"));
+			if IsRequiredIndunDailyReset(aObj.GOLD_STATUE_FIRST_DATA) == 0 then
+				SendSysMsg(pc, "YouAlreadyUseStatueBuff");
+				return;
+			end
+		
+			select = ShowSelDlg(pc, 0, 'FISHING_STATUE_DLG2', ScpArgMsg('FISHING_STATUE_OWNER_WORSHIP_1'),ScpArgMsg("FISHING_STATUE_OWNER_WORSHIP_2"),ScpArgMsg("FISHING_STATUE_OWNER_WORSHIP_3"),ScpArgMsg("Close"));
             
+			if select == 4 then
+				return;
+			end
+
             local buffValue = 0;
-            
-            if select == 1 then
-            
-            elseif select == 2 then
-            
-            elseif select == 3 then
-            
+
+			local tx = TxBegin(pc);      
+			local nextResetTime = GetNextIndunDailyResetTime();
+		    TxSetIESProp(tx, aObj, "GOLD_STATUE_FIRST_DATA", nextResetTime);
+            local ret = TxCommit(tx);
+            if ret == "SUCCESS" then
+				if select == 1 then
+					RunFishRubbingBuff(pc, 3600, "None", 1)
+		        elseif select == 2 then
+					RunFishRubbingBuff(pc, 1800, "None", 2)
+				elseif select == 3 then
+					RunFishRubbingBuff(pc, 600, "None", 3)
+	            end
             end
-            
-            
+        end
     end
 end

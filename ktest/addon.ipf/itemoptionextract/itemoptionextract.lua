@@ -154,14 +154,14 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("NotAllowedItemOptionExtract"));
 		return;
 	end
-
+	
 	local pc = GetMyPCObject();
 	if pc == nil then
 		return;
 	end
 
 	local obj = GetIES(invItem:GetObject());
-		
+
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -322,12 +322,6 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, invitem.OptDesc, 0, inner_yPos);
 	end
 
-	if invitem.IsAwaken == 1 then
-		local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(invitem.HiddenProp));
-		local strInfo = ABILITY_DESC_PLUS(opName, invitem.HiddenPropValue);
-		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
-	end
-
 	if invitem.ReinforceRatio > 100 then
 		local opName = ClMsg("ReinforceOption");
 		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * invitem.ReinforceRatio/100));
@@ -354,7 +348,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	frame:SetUserValue('MATERIAL_ITEM_COUNT', materialItemCount)
 	
 	local bodyGbox2_2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_2")
-	local materialClsCtrl = bodyGbox2_2:CreateOrGetControlSet('eachmaterial_in_itemoptionadd', 'MATERIAL_CSET_'..i, 0, 0);
+	local materialClsCtrl = bodyGbox2_2:CreateOrGetControlSet('eachmaterial_in_itemoptionextract', 'MATERIAL_CSET_'..i, 0, 0);
 	materialClsCtrl = AUTO_CAST(materialClsCtrl)
 	local pos_y = materialClsCtrl:GetUserConfig("POS_Y")
 	local material_icon = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_icon", "ui::CPicture");
@@ -362,7 +356,8 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	local material_name = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_name", "ui::CRichText");
 	local material_count = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_count", "ui::CRichText");
 	local gradetext2 = GET_CHILD_RECURSIVELY(materialClsCtrl, "grade", "ui::CRichText");
-	
+	local labelline = GET_CHILD_RECURSIVELY(materialClsCtrl, "labelline2")
+	labelline:ShowWindow(0)
 
 	local materialItemName = ScpArgMsg('NotDecidedYet')
 

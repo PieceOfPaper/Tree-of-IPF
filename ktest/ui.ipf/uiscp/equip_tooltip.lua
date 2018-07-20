@@ -13,12 +13,9 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 	if isForgery == nil then
 		isForgery = false;
 	end
-
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
-
 	local mainframename = 'equip_main'
 	local addinfoframename = 'equip_main_addinfo'
-	
 	if usesubframe == "usesubframe" then
 		mainframename = 'equip_sub'
 		addinfoframename = 'equip_sub_addinfo'
@@ -26,7 +23,6 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 		mainframename = 'equip_sub'
 		addinfoframename = 'equip_sub_addinfo'
 	end
-    
     local ypos = 0
 
     local addinfoGBox = GET_CHILD(tooltipframe, addinfoframename,'ui::CGroupBox') -- 서브 프레임 위치 삽입
@@ -39,8 +35,6 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 		ypos = DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForgery); -- 장비라면 공통적으로 그리는 툴팁들
 		ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename) -- 타입, 무게.
 	end
-
-	
 
     local basicTooltipProp = 'None';
     if invitem.BasicTooltipProp ~= 'None' then
@@ -70,7 +64,6 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 	    local bg_height = ypos - bg_ypos		
 		RESIZE_TOOLTIP_SUB_BG(tooltipMainFrame, bg_ypos, bg_height)
 	end
-	
 	if invitem.InheritanceItemName ~= nil and invitem.InheritanceItemName ~= "None" then
 		local temp = GetClass('Item', invitem.InheritanceItemName)
 		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, temp, ypos, mainframename, invitem) -- 각종 프로퍼티
@@ -95,7 +88,6 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 
 	ypos = DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 및 내구도
 	ypos = DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, ypos, mainframename) -- 포텐셜 만 있는 애들은 여기서 그림 (그릴 아이템인지 검사는 내부에서)
-	
 	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
 	if 0 == isHaveLifeTime then
 		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
@@ -108,14 +100,11 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 
 
 	local subframeypos = 0
-    
 	--서브프레임쪽.
 	subframeypos = DRAW_EQUIP_SET(tooltipframe, invitem, subframeypos, addinfoframename) -- 세트아이템
-
 	if IS_NEED_DRAW_MAGICAMULET_TOOLTIP(invitem) == true then
 		subframeypos = DRAW_EQUIP_MAGICAMULET(tooltipframe, invitem, subframeypos, addinfoframename) -- 매직어뮬렛
 	end
-
     local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
     gBox:Resize(gBox:GetWidth(), ypos)
 end
@@ -613,7 +602,7 @@ function RESIZE_TOOLTIP_SUB_BG(gBox, bg_ypos, bg_height)
 end
 
 -- 아이템에 의한 추가 속성 정보 (광역공격 +1)
-function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem)
+function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem, drawLableline)
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_property');
 	
@@ -670,8 +659,15 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 	end
 
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_property', 'tooltip_equip_property', 0, yPos);
-	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
+    local labelline = GET_CHILD(tooltip_equip_property_CSet, 'labelline');
+    if drawLableline == false then
+        tooltip_equip_property_CSet:SetOffset(tooltip_equip_property_CSet:GetX(), tooltip_equip_property_CSet:GetY() - 20);
+        labelline:ShowWindow(0);
+    else
+        labelline:ShowWindow(1);
+    end
 
+	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox');
 	local class = GetClassByType("Item", invitem.ClassID);
 
 	local inner_yPos = 0;
@@ -992,8 +988,6 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	local set_gbox_type= GET_CHILD(tooltip_CSet,'set_gbox_type','ui::CGroupBox')
 	local set_gbox_prop= GET_CHILD(tooltip_CSet,'set_gbox_prop','ui::CGroupBox')
 
-	
-
 	local inner_yPos = 0;
 	local inner_xPos = 0;
 	local DEFAULT_POS_Y = tooltip_CSet:GetUserConfig("DEFAULT_POS_Y")
@@ -1013,12 +1007,10 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 	end
 
 	local EntireHaveCount = 0;
-
 	local setList = {'RH', 'LH', 'SHIRT', 'PANTS', 'GLOVES', 'BOOTS'}
 	local setFlagList = {RH_flag, LH_flag, SHIRT_flag, PANTS_flag, GLOVES_flag, BOOTS_flag}
 	local setItemCount = 0
 	setItemCount, setFlagList[1], setFlagList[2], setFlagList[3], setFlagList[4], setFlagList[5], setFlagList[6] = CHECK_EQUIP_SET_ITEM(invitem)
-
 	if isUseLegendSet == 1 then
 		if invitem.LegendPrefix == nil or invitem.LegendPrefix == "None" then
 			return ypos
@@ -1047,7 +1039,6 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 			inner_yPos = inner_yPos + heightMargin;
 		end
 	else
-
 		local itemProp = geItemTable.GetProp(invitem.ClassID);
 
 		local set = itemProp.setInfo;
@@ -1092,12 +1083,9 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 		end
 	end
 	set_gbox_type:Resize(set_gbox_type:GetWidth(), inner_yPos)
-
 	
 	local USE_SETOPTION_FONT = tooltip_CSet:GetUserConfig("USE_SETOPTION_FONT")
 	local NOT_USE_SETOPTION_FONT = tooltip_CSet:GetUserConfig("NOT_USE_SETOPTION_FONT")
-
-	
 
 	inner_yPos = DEFAULT_POS_Y
 
@@ -1163,14 +1151,13 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 			end
 		end
 	end
+	
 	-- 맨 아랫쪽 여백
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN");
 	set_gbox_prop:Resize( set_gbox_prop:GetWidth() ,inner_yPos  + BOTTOM_MARGIN)
 	set_gbox_prop:SetOffset(set_gbox_prop:GetX(),set_gbox_type:GetY()+set_gbox_type:GetHeight())
-
 	tooltip_CSet:Resize(tooltip_CSet:GetWidth(), set_gbox_prop:GetHeight() + set_gbox_prop:GetY() + BOTTOM_MARGIN);
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_CSet:GetHeight())
-
 	return tooltip_CSet:GetHeight() + tooltip_CSet:GetY();
 
 end
@@ -1188,14 +1175,12 @@ function CHECK_EQUIP_SET_ITEM(invitem)
 	local BOOTSflag = 0
 
 	local setItemCount = 0
-	
 	if legendGroup == nil or legendGroup == 'None' then
 		local itemProp = geItemTable.GetProp(invitem.ClassID);
 		local set = itemProp.setInfo;
---		if set == nil then
---			return 0, {}
---		end
-
+		if set == nil then
+			return 0, 0,0,0,0,0,0
+		end
 	else
 		RHflag, LHflag, SHIRTflag, PANTSflag, GLOVESflag, BOOTSflag = GET_PREFIX_SET_ITEM_FLAG(invitem)
 -- 세트아이템 수 정해야함
@@ -1206,7 +1191,12 @@ function CHECK_EQUIP_SET_ITEM(invitem)
 end
 
 function GET_PREFIX_SET_ITEM_FLAG(invitem)
+
 	local frame = ui.GetFrame("inventory");
+	if frame == nil then
+		frame = ui.GetFrame("barrack_charlist")
+	end
+
 	local prefixCls = GetClass('LegendSetItem', invitem.LegendPrefix)
 	if prefixCls == nil then
 		return 0, 0, 0, 0, 0, 0;
@@ -1220,26 +1210,30 @@ function GET_PREFIX_SET_ITEM_FLAG(invitem)
 		if slotIcon ~= nil then
 			local slotIconInfo = slotIcon:GetInfo()
 			local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
-			local obj = GetIES(slotItem:GetObject())
-			print(prefixCls.ClassName ,obj.LegendPrefix)
-			if prefixCls.ClassName == obj.LegendPrefix then		
-				returnValue[i] = 1;
-			else
-				returnValue[i] = 0;
+			if slotItem ~= nil then
+				local obj = GetIES(slotItem:GetObject())
+				if prefixCls.ClassName == obj.LegendPrefix then		
+					returnValue[i] = 1;
+				else
+					returnValue[i] = 0;
+				end
 			end
 		end
 	end
+
 	local slot = GET_CHILD_RECURSIVELY(frame, "RH")
-		local slotIcon = slot:GetIcon()
-		if slotIcon ~= nil then
-			local slotIconInfo = slotIcon:GetInfo()
-			local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
+	local slotIcon = slot:GetIcon()
+	if slotIcon ~= nil then
+		local slotIconInfo = slotIcon:GetInfo()
+		local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
+		if slotItem ~= nil then
 			local obj = GetIES(slotItem:GetObject())
 			local isDoubleHand = TryGetProp(obj, "DBLHand");
 			if isDoubleHand == "YES" then
 				returnValue[2] = 0;
 			end
 		end
+	end
 	return returnValue[1], returnValue[2], returnValue[3], returnValue[4], returnValue[5], returnValue[6]
 
 end
@@ -1505,7 +1499,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		dur_gauge:ShowWindow(0);
 		pr_gauge:SetPos(pr_gauge:GetOffsetX(), 10);
 		pr_text:SetPos(pr_text:GetOffsetX(), 20);
-		extraMarginY = 15;
+		extraMarginY = 0;
 	else
 		dur_text:ShowWindow(1);
 		dur_gauge:ShowWindow(1);
@@ -1516,7 +1510,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		pr_gauge:ShowWindow(0);
 		dur_gauge:SetPos(dur_gauge:GetOffsetX(), 10);
 		dur_text:SetPos(dur_text:GetOffsetX(), 20);
-		extraMarginY = 15;
+		extraMarginY = 0;
 	else
 		pr_text:ShowWindow(1);
 		pr_gauge:ShowWindow(1);

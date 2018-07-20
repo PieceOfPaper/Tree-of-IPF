@@ -1,11 +1,40 @@
+local json = require "json"
+
 function GUILDINFO_INFO_INIT(parent, infoBox)
     local guildObj = GET_MY_GUILD_OBJECT();
     GUILDINFO_INFO_INIT_EXP(infoBox, guildObj);
     GUILDINFO_INFO_INIT_TOWER(infoBox, guildObj);
     GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj);
     GUILDINFO_INFO_INIT_ABILITY(infoBox, guildObj);
-
+    GetGuildProfile("SET_INTRODUCE_TXT")
     ui.CloseFrame('guild_authority_popup');
+end
+
+function SET_INTRO_TXT()
+    local frame = ui.GetFrame("guildinfo")
+    local introduceText = GET_CHILD_RECURSIVELY(frame, 'regPromoteText');
+    SetGuildProfile("RECV_INTRO_TXT", introduceText:GetText())
+end
+
+function RECV_INTRO_TXT(code, ret_json)
+    if code ~= 200 then
+		SHOW_GUILD_HTTP_ERROR(code, ret_json, "RECV_INTRO_TXT");
+        return;
+    end
+    ui.SysMsg("길드 소개글 변경 완료")
+end
+
+function SET_INTRODUCE_TXT(code, ret_json)
+    if code ~= 200 then
+		SHOW_GUILD_HTTP_ERROR(code, ret_json, "SET_INTRODUCE_TXT");
+        return;
+    end
+    local frame = ui.GetFrame("guildinfo")
+    local introduceText = GET_CHILD_RECURSIVELY(frame, 'regPromoteText');
+    if introduceText:IsHaveFocus() == 0 then
+        introduceText:SetText(ret_json);
+    end
+
 end
 
 function GUILDINFO_INFO_INIT_EXP(infoBox, guildObj)
@@ -81,7 +110,7 @@ function UPDATE_TOWER_REMAIN_TIME(towerTimeText)
 end
 
 function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
-    local benefitBox = infoBox:GetChild('benefitBox');    
+    local benefitBox = GET_CHILD_RECURSIVELY(infoBox, 'benefitBox');    
     DESTROY_CHILD_BYNAME(benefitBox, 'BENEFIT_');
 
     local yPos = 40;
@@ -90,6 +119,7 @@ function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
     -- warp
     local towerCtrlSet1 = benefitBox:CreateOrGetControlSet('guild_benefit', 'BENEFIT_WARP', 0, yPos);
     towerCtrlSet1 = AUTO_CAST(towerCtrlSet1);
+    towerCtrlSet1:SetGravity(ui.CENTER_HORZ, ui.TOP)
     local WARP_IMG = towerCtrlSet1:GetUserConfig('WARP_IMG');    
     local DISABLE_COLOR = towerCtrlSet1:GetUserConfig('DISABLE_COLOR');
     local infoPic = GET_CHILD(towerCtrlSet1, 'infoPic');
@@ -105,6 +135,7 @@ function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
     -- warehouse
     local towerCtrlSet2 = benefitBox:CreateOrGetControlSet('guild_benefit', 'BENEFIT_WAREHOUSE', 0, yPos);
     towerCtrlSet2 = AUTO_CAST(towerCtrlSet2);
+    towerCtrlSet2:SetGravity(ui.CENTER_HORZ, ui.TOP)
     local WAREHOUSE_IMG = towerCtrlSet2:GetUserConfig('WAREHOUSE_IMG');    
     local infoPic = GET_CHILD(towerCtrlSet2, 'infoPic');
     local infoText = towerCtrlSet2:GetChild('infoText');
@@ -119,6 +150,7 @@ function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
     -- growth
     local towerCtrlSet3 = benefitBox:CreateOrGetControlSet('guild_benefit', 'BENEFIT_GROWTH', 0, yPos);
     towerCtrlSet3 = AUTO_CAST(towerCtrlSet3);
+    towerCtrlSet3:SetGravity(ui.CENTER_HORZ, ui.TOP)
     local GROWTH_IMG = towerCtrlSet3:GetUserConfig('GROWTH_IMG');    
     local infoPic = GET_CHILD(towerCtrlSet3, 'infoPic');
     local infoText = towerCtrlSet3:GetChild('infoText');
@@ -133,6 +165,7 @@ function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
     -- event
     local towerCtrlSet4 = benefitBox:CreateOrGetControlSet('guild_benefit', 'BENEFIT_EVENT', 0, yPos);
     towerCtrlSet4 = AUTO_CAST(towerCtrlSet4);
+    towerCtrlSet4:SetGravity(ui.CENTER_HORZ, ui.TOP)
     local EVENT_IMG = towerCtrlSet4:GetUserConfig('EVENT_IMG');    
     local infoPic = GET_CHILD(towerCtrlSet4, 'infoPic');
     local infoText = towerCtrlSet4:GetChild('infoText');
@@ -147,6 +180,7 @@ function GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj)
     -- agit
     local towerCtrlSet5 = benefitBox:CreateOrGetControlSet('guild_benefit', 'BENEFIT_AGIT', 0, yPos);
     towerCtrlSet5 = AUTO_CAST(towerCtrlSet5);
+    towerCtrlSet5:SetGravity(ui.CENTER_HORZ, ui.TOP)
     local AGIT_IMG = towerCtrlSet5:GetUserConfig('AGIT_IMG');    
     local infoPic = GET_CHILD(towerCtrlSet5, 'infoPic');
     local infoText = towerCtrlSet5:GetChild('infoText');
@@ -170,6 +204,7 @@ function GUILDINFO_INFO_INIT_ABILITY(infoBox, guildObj)
     for i = 0, cnt - 1 do
         local abilityCls = GetClassByIndexFromList(clsList, i);
         local ctrlSet = abilityBox:CreateOrGetControlSet('guild_benefit', 'ABILITY_'..abilityCls.ClassName, 0, yPos);
+        ctrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP)
         ctrlSet = AUTO_CAST(ctrlSet);
 
         local DISABLE_COLOR = ctrlSet:GetUserConfig('DISABLE_COLOR');
@@ -222,7 +257,7 @@ end
 
 function GUILDINFO_INFO_UPDATE_WAREHOUSE(frame, ctrl)
 	party.RequestReloadInventory(PARTY_GUILD);
-	DISABLE_BUTTON_DOUBLECLICK("guildwarehouse", ctrl:GetName(), 0.1);
+	DISABLE_BUTTON_DOUBLECLICK("guildinfo", ctrl:GetName(), 0.1);
 end
 
 function IS_EXIST_JOB_IN_HISTORY(jobID)
@@ -236,4 +271,32 @@ function IS_EXIST_JOB_IN_HISTORY(jobID)
         end
     end
     return false;
+end
+
+
+function save_guild_notice_call_back(code, ret_json)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "save_guild_notice_call_back")
+        return
+    end
+
+    ui.SysMsg(ClMsg("UpdateSuccess"))
+    -- 여기에서 해당 ui에 글자 채워주기
+end
+
+function SAVE_GUILD_NOTICE(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local noticeEdit = GET_CHILD_RECURSIVELY(frame, 'noticeEdit')
+	local noticeText = noticeEdit:GetText();
+	local guild = GET_MY_GUILD_INFO();
+	local nowNotice = guild.info:GetNotice();
+	local badword = IsBadString(noticeText);
+	if badword ~= nil then
+		ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
+		return;
+	end
+	if nowNotice ~= noticeText then		
+        SetGuildNotice('save_guild_notice_call_back', noticeText)
+	end
+	noticeEdit:ReleaseFocus();
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1037,6 +1037,8 @@
 		<image name="ability_Warrior_Retiarii10" file="\icon\icon_ability_warrior06.tga" imgrect="384 512 128 128" CMM_Caption="급소 보호: 구사일생 "/>
 		<image name="ability_Warrior_Retiarii9" file="\icon\icon_ability_warrior06.tga" imgrect="512 512 128 128" CMM_Caption="투망 던지기: 강화 그물"/>
 		<image name="ability_Warrior_Fencer10" file="\icon\icon_ability_warrior06.tga" imgrect="640 512 128 128" CMM_Caption="플레쉬 : 강화"/>
+		<image name="ability_Warrior_Peltasta33" file="\icon\icon_ability_warrior06.tga" imgrect="768 512 128 128" CMM_Caption="가디언 : 대미지 감소"/>
+		<image name="ability_Warrior_Peltasta34" file="\icon\icon_ability_warrior06.tga" imgrect="896 512 128 128" CMM_Caption="가디언 : 방어력 증가"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1653,6 +1655,8 @@
 		<image name="ability_archer_Musketeer28" file="\icon\icon_ability_archer05.tga" imgrect="512 768 128 128" CMM_Caption="페네트레이션 샷 총상"/>
 		<image name="ability_archer_Musketeer29" file="\icon\icon_ability_archer05.tga" imgrect="640 768 128 128" CMM_Caption="프라임 앤드 로드 고속 장전"/>
 		<image name="ability_archer_Mergen10" file="\icon\icon_ability_archer05.tga" imgrect="768 768 128 128" CMM_Caption="파르티안 샤프트 : 강화"/>
+		<image name="ability_archer_Sapper37" file="\icon\icon_ability_archer05.tga" imgrect="896 768 128 128" CMM_Caption="새퍼: 보조무기 공격력"/>
+		<image name="ability_archer_Wugushi22" file="\icon\icon_ability_archer05.tga" imgrect="0 896 128 128" CMM_Caption="무고사: 양손의 독"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

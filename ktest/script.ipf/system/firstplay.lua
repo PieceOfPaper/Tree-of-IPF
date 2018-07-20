@@ -259,11 +259,11 @@ function TX_FIRST_PLAY_EVENT_SCRIPT(pc, etcObject)
 
 	TxSetIESProp(tx, etcObject, 'FirstPlay', 7);
 	
-	TxSetIESProp(tx, sObj, 'EVENT_1706_FREE_RANKRESET_REWARD', 1);
+--	TxSetIESProp(tx, sObj, 'EVENT_1706_FREE_RANKRESET_REWARD', 1);
 	
-	if GetServerNation() == 'KOR' then
-    	TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCHARACTER_CHECK', 1)
-    end
+--	if GetServerNation() == 'KOR' then
+--    	TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCHARACTER_CHECK', 1)
+--    end
 
 	local ret = TxCommit(tx);
 	if ret == 'SUCCESS' then

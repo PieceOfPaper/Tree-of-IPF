@@ -988,13 +988,12 @@ function SCR_GUILD_COLONY_ENHANCER_SUMMON_RUN(self, zoneClsName) -- 증폭기 �
                 partyID = GetIESID(occupationGuildObj)
             end
             for i = 1, enhancerCount do
-                enhancerName = "f_3cmlake_Consensus_stone"
-                local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], 0, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
+                local obj = CREATE_MONSTER_EX(self, enhancerName, pos_list[i][1], pos_list[i][2],pos_list[i][3], -45, 'Monster', nil, SCR_GUILD_COLONY_ENHANCER_SET); --콜로니 증폭기 소환
                 SetMonsterPartyID(obj, PARTY_GUILD, partyID)
                 SetExArgObject(self, "COLONY_ENHANCER_"..i, obj)
                 SetExArgObject(obj, "COLONY_ENHANCER_"..i, self)
-                SetFixAnim(obj, 'on_loop')
-                --SetFixAnim(obj, 'on_loop_left')
+                SetFixAnim(obj, 'on_loop_left')
+                CreateEnhancerMongo(obj)
             end
         end
     end
@@ -1014,6 +1013,7 @@ function SCR_GUILD_COLONY_ENHANCER_HP_UP_RUN(self)
     if self.NumArg1 >= 10 then
         AddHP(self, 10)
         self.NumArg1 = 0
+        SetFixAnim(self, 'on_loop_left')
     else
         self.NumArg1 = self.NumArg1 + 1
     end
@@ -1027,6 +1027,7 @@ function SCR_GUILD_COLONY_ENHANCER_DEAD(self)
         local zoneClsName = GetZoneName(self)
         local guildObj = GetGuildObj(lastattacker)
         AddEnhancerDestroyGuildList(zoneClsName, guildObj) --증폭기 파괴 길드 리스트 추가 필요
+        DestroyEnhancerMongo(self, lastattacker)
         local rule = GetClass("guild_colony_rule", "GuildColony_Rule_Default"); --GuildColonyRule.xml에 저장된 콜로니전 룰 칼럼값
         local enhancerCount = TryGetProp(rule, "GuildColonyEnhancerCount") --콜로니 증폭기 개수
         local owner = nil

@@ -71,8 +71,7 @@ function ADVENTURE_BOOK_COLLECTION_LIST(frame)
     local collectionFrame = ui.GetFrame('collection');
     local SCROLL_SIZE = 20;
 	for index , v in pairs(collectionInfoList) do
-		local ctrlSet = collectListBox:CreateOrGetControlSet('collection_deck', "COLLECTION_ITEM_" .. index, 0, posY);
-        ctrlSet:Resize(collectListBox:GetWidth() - SCROLL_SIZE, ctrlSet:GetHeight());
+		local ctrlSet = collectListBox:CreateOrGetControlSet('collection_deck', "COLLECTION_ITEM_" .. index, 0, posY);        
 		ctrlSet:ShowWindow(1);
 		posY = SET_COLLECTION_SET(collectionFrame, ctrlSet, v.cls.ClassID, v.coll, posY) 
 		posY = posY -tonumber(collectionFrame:GetUserConfig("DECK_SPACE")); -- 가까이 붙이기 위해 좀더 위쪽으로땡김        

@@ -63,10 +63,9 @@ function SHOW_PC_CONTEXT_MENU_BY_NAME(familyName)
 		ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
 
 		-- invite guild
-		if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1) == 1 then
-			strScp = string.format("GUILD_INVITE(\"%s\")", familyName);
-			ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
-		end
+        strScp = string.format("GUILD_INVITE(\"%s\")", familyName);
+		ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
+
 
 		-- register friend
 		strScp = string.format("friends.RequestRegister('%s')", familyName);

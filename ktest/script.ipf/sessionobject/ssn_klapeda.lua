@@ -888,7 +888,7 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
     end
 
     -- EVENT_1802_WEEKEND
-    EVENT_1802_WEEKEND(self)
+--    EVENT_1802_WEEKEND(self)
     
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25

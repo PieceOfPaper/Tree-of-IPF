@@ -126,7 +126,7 @@ function EXECUTE_LETICIA_GACHA_BY_TP(pc, gachaDetailCls)
 		SendAddOnMsg(pc, "LETICIA_POPUP_10", rewardstring, 0);
     end
     
-    local ALLMSG = {'Gold_Socket_Box'}
+    local ALLMSG = {'Gold_Socket_Box','Recipe_350_Box'}
 
 	for i = 1, table.getn(ALLMSG) do
 	    for j = 1, #sendrewardlist do

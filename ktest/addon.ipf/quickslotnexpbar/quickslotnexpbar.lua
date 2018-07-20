@@ -27,12 +27,9 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('PET_SELECT', 'ON_PET_SELECT');
 
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_ON_MSG');
-	addon:RegisterMsg('REMOVE_SKILL', 'ON_REMOVE_SKILL');
-
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('QUICK_SLOT_LOCK_STATE', 'SET_QUICK_SLOT_LOCK_STATE');
-
 
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
@@ -138,9 +135,9 @@ function PLAY_QUICKSLOT_UIEFFECT(frame, itemID)
 				local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
 				if slot ~= nil then
 					local posX, posY = GET_SCREEN_XY(slot);
-					-- SLOT ???�성???�태?�때�?그린??
+					-- SLOT 이 활성화 상태일때만 그린다.
 					if CHECK_SLOT_ON_ACTIVEQUICKSLOTSET(frame, i) == true then
-						-- ?��??�이 ?�무 ?�게 ?��???조금 줄임. 
+						-- 스케일이 너무 크게 나와서 조금 줄임. 
 						movie.PlayUIEffect('I_sys_item_slot', posX, posY, 0.8); 
 					end
 					
@@ -312,7 +309,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		icon:ClearText();
 	elseif category == 'Skill' then
 		local skl = session.GetSkill(type);
-		if skl == nil then
+		if IS_NEED_CLEAR_SLOT(skl, type) == true then			
 			slot:ClearIcon();
 			QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
 			return;
@@ -356,7 +353,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				end
 
 				if itemIES.MaxStack > 0 or itemIES.GroupName == "Material" then
-					if itemIES.MaxStack > 1 then -- 개수???�택???�이?�만 ?�시?�주??
+					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
 						icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
 					else
 					  icon:SetText(nil, 'quickiconfont', 'right', 'bottom', -2, 1);
@@ -375,6 +372,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				end
 
 			else
+				imageName = GET_ITEM_ICON_IMAGE(itemIES);
 				icon:SetColorTone("FFFF0000");
 				icon:SetText(0, 'quickiconfont', 'right', 'bottom', -2, 1);
 			end
@@ -574,6 +572,10 @@ end
 
 function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	if GetCraftState() == 1 then
+		return;
+	end
+
+	if ui.CheckHoldedUI() == true then
 		return;
 	end
 
@@ -1098,37 +1100,25 @@ end
 	frame:SetUserValue('SKL_MAX_CNT',0)
 end
 
--- ?�재 ?�성?�된 QUICK ?�롯?�에 ?�하??SlotNumber(?�제 ?�롯 번호가 ?�어???��? ?�인
+-- 현재 활성화된 QUICK 슬롯셋에 속하는 SlotNumber(실제 슬롯 번호가 넘어옴)인지 확인
 function CHECK_SLOT_ON_ACTIVEQUICKSLOTSET(frame, slotNumber)
 	local curCnt = quickslot.GetActiveSlotCnt();
 	if curCnt < MIN_QUICKSLOT_CNT then
 		curCnt = MIN_QUICKSLOT_CNT;
 	end
 
-	-- ?�재 Active???�롯??카운?�보??SlotNumber가 ?�으�?true
+	-- 현재 Active된 슬롯의 카운터보다 SlotNumber가 작으면 true
 	if curCnt > slotNumber then
 		return true;
 	end
 
 	return false;
 end
-function ON_REMOVE_SKILL(frame, msg, argStr, removeSkillID)
-	for i = 0, MAX_QUICKSLOT_CNT - 1 do
-		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
-		local icon = slot:GetIcon();
-		if icon ~= nil then			
-			tolua.cast(icon, "ui::CIcon");			
-			local iconInfo = icon:GetInfo();
-			if iconInfo.category == 'Skill' and iconInfo.type == removeSkillID then			
-				slot:ReleaseBlink();
-				slot:ClearIcon();
 
-				-- clear overheat
-				local gauge = slot:GetSlotGauge();
-				gauge:SetPoint(0, 0);				
-
-				quickslot.SetInfo(slot:GetSlotIndex(), 'None', 0, '0');
-			end
-		end
+function IS_NEED_CLEAR_SLOT(skl, type)
+	local sklCls = GetClassByType('Skill', type);
+	if TryGetProp(sklCls, 'CommonType', 'None') == 'None' and skl == nil then
+		return true;
 	end
+	return false;
 end

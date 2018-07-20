@@ -1,5 +1,6 @@
 function LEGENDPREFIX_ON_INIT(addon, frame)
-	addon:RegisterMsg('SUCCESS_LEGEND_PREFIX', 'ON_SUCCESS_LEGEND_PREFIX')
+	addon:RegisterMsg('SUCCESS_LEGEND_PREFIX', 'ON_SUCCESS_LEGEND_PREFIX');
+	addon:RegisterMsg('FAIL_LEGEND_PREFIX', 'ON_FAIL_LEGEND_PREFIX');
 end
 
 function OPEN_LEGENDPREFIX(frame)
@@ -41,7 +42,7 @@ function LEGENDPREFIX_RESET_MATERIAL_SLOT(frame)
 	matText:ShowWindow(0);
 end
 
-function LEGENDPREFIX_SET_TARGET(parent, ctrl)		
+function LEGENDPREFIX_SET_TARGET(parent, ctrl)	
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -178,8 +179,35 @@ function LEGENDPREFIX_EXECUTE(parent, ctrl)
     	ui.SysMsg(ClMsg('NotEnoughRecipe'));
     	return;
     end
+	ui.MsgBox(ClMsg('CannotProcessUIInputDuringPrefixing'), '_LEGENDPREFIX_EXECUTE', 'None');
+end
 
-   ui.SetHoldUI(true);
+function _LEGENDPREFIX_EXECUTE()
+	local frame = ui.GetFrame('legendprefix');
+	local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+	if itemGuid == "None" then
+		return;
+	end
+
+    local invItem = session.GetInvItemByGuid(itemGuid);
+    if invItem == nil then
+        return;
+    end
+
+    if invItem.isLockState == true then
+    	ui.SysMsg(ClMsg('MaterialItemIsLock'));
+    	return;
+    end
+
+    local matText = GET_CHILD_RECURSIVELY(frame, 'matText');
+    local needCnt = tonumber(matText:GetTextByKey('need'));
+    local curCnt = tonumber(matText:GetTextByKey('cur'));
+    if needCnt > curCnt then
+    	ui.SysMsg(ClMsg('NotEnoughRecipe'));
+    	return;
+    end
+
+    ui.SetHoldUI(true);
 
     local linkButton = GET_CHILD_RECURSIVELY(frame, 'reg')
     linkButton:EnableHitTest(0)
@@ -216,9 +244,6 @@ function LEGENDPREFIX_BG_ANIM_TICK(ctrl, str, tick)
 		
 		local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
 		local str = string.format('LEGENDPREFIX_APPLY_RESULT("%s")', itemGuid);
-		
-		ui.SetHoldUI(false);
-
     	local linkButton = GET_CHILD_RECURSIVELY(frame, 'reg')
     	linkButton:EnableHitTest(1)
 		ReserveScript(str, 0.3);
@@ -226,7 +251,8 @@ function LEGENDPREFIX_BG_ANIM_TICK(ctrl, str, tick)
 end
 
 function ON_SUCCESS_LEGEND_PREFIX(frame, msg, argStr, argNum)	
-
+	ui.SetHoldUI(false);
+	
     local animpic_bg = GET_CHILD_RECURSIVELY(frame, "animpic_bg");
 	animpic_bg:ShowWindow(1);
 	animpic_bg:ForcePlayAnimation();
@@ -234,8 +260,12 @@ function ON_SUCCESS_LEGEND_PREFIX(frame, msg, argStr, argNum)
 	-- effect
 	local pic = GET_CHILD_RECURSIVELY(frame, 'pic');
 	local matPic_dummy = GET_CHILD_RECURSIVELY(frame, 'matPic_dummy');
-local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
+	local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
 	pic:PlayActiveUIEffect();
 	matPic_dummy:PlayActiveUIEffect();
 	slot:PlayActiveUIEffect();
+end
+
+function ON_FAIL_LEGEND_PREFIX(frame, msg, argStr, argNum)
+	ui.SetHoldUI(false);
 end

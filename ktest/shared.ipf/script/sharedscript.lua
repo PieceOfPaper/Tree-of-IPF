@@ -592,25 +592,25 @@ end
 
 -- xml 중 특정 컬럼의 값과 일치/유사 한 IES 리스트를 찾아줌 (option 1이면 유사 값, 아니면 일치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
+    local return_list = {}
     if idspace == nil then
-        return;
+        return return_list;
     end
 
     if GetClassByIndex(idspace, 0) == nil then
-        return;
+        return return_list;
     end
 
     local obj = GetClassByIndex(idspace, 0)
     if column_name == nil then
-        return;
+        return return_list;
     end
     
     if GetPropType(GetClassByIndex(idspace, 0),column_name) == nil then    
-        return;
+        return return_list;
     end
 
     local class_count = GetClassCount(idspace)
-    local return_list = {}
         
     for y = 0, class_count -1 do
         local classIES = GetClassByIndex(idspace, y)

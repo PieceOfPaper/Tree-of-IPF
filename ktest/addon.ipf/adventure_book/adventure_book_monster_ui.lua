@@ -190,6 +190,8 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO_SLOT(drop_item_slotset, select
 			slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, drop['item_id']);
 		else
 			slot:ClearIcon()
+			slot:SetEventScript(ui.LBUTTONDOWN, "None");
+			slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, 0);
 		end
 	end
 end
