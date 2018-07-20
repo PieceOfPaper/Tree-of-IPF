@@ -29,7 +29,15 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
         
         if select2 == 1 then
             local takeItemCount = 4
-            local maxCount = math.floor(GetInvItemCount(pc, 'EVENT_1806_NUMBER_GAMES_HINT')/takeItemCount)
+--            local invItemCount = GetInvItemCount(pc, 'EVENT_1806_NUMBER_GAMES_HINT')
+            local itemObj, invItemCount = GetInvItemByName(pc, 'EVENT_1806_NUMBER_GAMES_HINT');
+            local islock = IsFixedItem(itemObj)
+            if islock == 1 then
+                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("{Item}LockSuccess","Item",GetClassString('Item','EVENT_1806_NUMBER_GAMES_HINT','Name')), 10);
+                return
+            end
+            
+            local maxCount = math.floor(invItemCount/takeItemCount)
             if maxCount <= 0 then
                 SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1806_NUMBER_GAMES_MSG3"), 10);
                 return
@@ -57,7 +65,14 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
             local result
             
             while 1 do
-                maxCount = math.floor(GetInvItemCount(pc, 'EVENT_1806_NUMBER_GAMES_HINT')/takeItemCount)
+--                local invItemCount = GetInvItemCount(pc, 'EVENT_1806_NUMBER_GAMES_HINT')
+                local itemObj, invItemCount = GetInvItemByName(pc, 'EVENT_1806_NUMBER_GAMES_HINT');
+                local islock = IsFixedItem(itemObj)
+                if islock == 1 then
+                    SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("{Item}LockSuccess","Item",GetClassString('Item','EVENT_1806_NUMBER_GAMES_HINT','Name')), 10);
+                    return
+                end
+                maxCount = math.floor(invItemCount/takeItemCount)
                 if maxCount <= 0 then
                     SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1806_NUMBER_GAMES_MSG3"), 10);
                     return
@@ -67,6 +82,12 @@ function SCR_EVENT_1806_NUMBER_GAMES_NPC_DIALOG(self, pc, gimmickName)
                 input = nil
                 while 1 do
                     input = ShowTextInputDlg(pc, 0, txt)
+                    
+                    islock = IsFixedItem(itemObj)
+                    if islock == 1 then
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("{Item}LockSuccess","Item",GetClassString('Item','EVENT_1806_NUMBER_GAMES_HINT','Name')), 10);
+                        return
+                    end
                     if input == nil then
                         return
                     end

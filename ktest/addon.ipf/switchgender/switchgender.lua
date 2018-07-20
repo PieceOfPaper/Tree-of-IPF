@@ -1,6 +1,7 @@
 ﻿-- switchgender.lua
 
 function SWITCHGENDER_ON_INIT(addon, frame)
+	addon:RegisterMsg('UPDATE_MATERIAL_COUNT', 'ON_UPDATE_MATERIAL_COUNT');
 end
 
 function IS_OPENED_SWITCHGENDER(frame)
@@ -276,34 +277,35 @@ function SWITCHGENDER_BUFF_EXCUTE_BTN(frame, ctrl)
 		return;
 	end
 
-	local etc = GetMyEtcObject();
-	if etc.BeautyshopStartHair == 'Yes' then
-		local yesscp = string.format('_SWITCHGENDER_BUFF_EXCUTE_BTN(%d, "%s")', handle, ctrl:GetName());
-		ui.MsgBox(ClMsg('ChangeHairForcelyIfYouSwitchGender'), yesscp, 'None');
-		return;
-	end
-
 	local frame = ui.GetFrame('switchgender');
 	local skillName = frame:GetUserValue("GroupName");
 	local sklCls = GetClass('Skill', 'Oracle_SwitchGender');
 	local reqitem_slot = GET_CHILD_RECURSIVELY(frame, 'reqitem_slot');
-	local icon = reqitem_slot:GetIcon();
+	local icon = reqitem_slot:GetIcon();	
 	if icon == nil then
 		local needItemCls = GetClass('Item', GET_SWITCHGENDER_MATERIAL_ITEM_NAME());
 		ui.SysMsg(ScpArgMsg('SwitchGenderNeed{ITEM}', 'ITEM', needItemCls.Name));
 		return;
 	end
+
+	local etc = GetMyEtcObject();
+	if etc.BeautyshopStartHair == 'Yes' then
+		local yesscp = string.format('_SWITCHGENDER_BUFF_EXCUTE_BTN(%d, "%s", "%s")', handle, ctrl:GetName(), icon:GetInfo():GetIESID());
+		ui.MsgBox(ClMsg('ChangeHairForcelyIfYouSwitchGender'), yesscp, 'None');
+		return;
+	end
+
 	session.autoSeller.BuyWithMaterialItem(handle, sklCls.ClassID, AUTO_SELL_ORACLE_SWITCHGENDER, icon:GetInfo():GetIESID(), '0');
 
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrl:GetName())
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
 end
 
-function _SWITCHGENDER_BUFF_EXCUTE_BTN(handle, ctrlName)
+function _SWITCHGENDER_BUFF_EXCUTE_BTN(handle, ctrlName, matItemGuid)
 	local frame = ui.GetFrame('switchgender');
 	local skillName = frame:GetUserValue("GroupName");
 	local sklCls = GetClass('Skill', 'Oracle_SwitchGender');
-	session.autoSeller.BuyWithMaterialItem(handle, sklCls.ClassID, AUTO_SELL_ORACLE_SWITCHGENDER, icon:GetInfo():GetIESID(), '0');
+	session.autoSeller.BuyWithMaterialItem(handle, sklCls.ClassID, AUTO_SELL_ORACLE_SWITCHGENDER, matItemGuid, '0');
 
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrlName)
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
@@ -401,7 +403,7 @@ function SWITCHGENDER_UPDATE_NEED_MATERIAL_CNT(frame, isTargetMode)
 	if isTargetMode == 1 then
 		local needItemName = GET_SWITCHGENDER_MATERIAL_ITEM_NAME();		
 		local cls = GetClass('Item', needItemName);
-		local needItemCnt = session.GetInvItemCountByType(cls.ClassID);
+		local needItemCnt = session.GetInvItemCountByType(cls.ClassID);		
 		local countText = tostring(needItemCnt);
 		if needItemCnt < 1 then
 			countText = '{#FF0000}'..countText..'{/}'
@@ -442,4 +444,8 @@ function SWITCHGENDER_DROP_ITEM(parent, ctrl)
 	end
 
 	SET_SLOT_ITEM(slot, invItem, invItem.count);	
+end
+
+function ON_UPDATE_MATERIAL_COUNT(frame, msg, argStr, argNum)
+	SWITCHGENDER_UPDATE_NEED_MATERIAL_CNT(frame, 1);
 end

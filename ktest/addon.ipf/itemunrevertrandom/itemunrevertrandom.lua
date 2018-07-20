@@ -7,6 +7,10 @@ function OPEN_UNREVERT_RANDOM(invItem)
 	 local frame = ui.GetFrame('itemunrevertrandom');
 	 frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
 	 frame:ShowWindow(1);
+
+	 ui.CloseFrame('itemrandomreset');
+	 ui.CloseFrame('itemrevertrandom');
+	 ui.OpenFrame('inventory');
 end
 
 function ITEM_UNREVERT_RANDOM_OPEN(frame)	
@@ -243,6 +247,11 @@ function ITEM_UNREVERT_RANDOM_EXEC(frame)
 		return
 	end
 
+	if invItem.isLockState == true then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 	local clmsg = ScpArgMsg("DoUnrevertRandomReset")
 	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_UNREVERT_RANDOM_EXEC", "_ITEM_UNREVERT_RANDOM_CANCEL");
 end
@@ -279,6 +288,9 @@ function _ITEM_UNREVERT_RANDOM_EXEC()
 		return;
 	end
 
+	if ui.GetFrame("apps") ~= nil then
+		ui.CloseFrame("apps")
+	end
 
 
 	session.ResetItemList();
@@ -343,6 +355,9 @@ ui.SetHoldUI(false);
 	invItem = GET_SLOT_ITEM(slot);
 	local invItemGUID = invItem:GetIESID()
 	local resetInvItem = session.GetInvItemByGuid(invItemGUID)
+	if resetInvItem == nil then
+		resetInvItem = session.GetEquipItemByGuid(invItemGUID)
+	end
 	local obj = GetIES(resetInvItem:GetObject());
 
 	local refreshScp = obj.RefreshScp

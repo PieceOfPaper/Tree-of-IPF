@@ -1,5 +1,6 @@
 function ITEMDUNGEON_ON_INIT(addon, frame)
 	addon:RegisterMsg('SUCCESS_ITEM_AWAKENING', 'ITEMDUNGEON_CLEARUI');
+	addon:RegisterMsg('UPDATE_SPEND_ITEM', 'ITEMDUNGEON_INIT_NEEDITEM');
 end
 
 function UPDATE_ITEMDUNGEON_CURRENT_ITEM(frame)
@@ -101,11 +102,6 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 		return;
 	end
 
-	if itemObj.IsAwaken == 1 then
-		ui.SysMsg(ClMsg("ThisItemIsAlreadyAwaken"));
-		return;
-	end
-
 	if itemObj.ItemLifeTimeOver > 0 then
 		ui.SysMsg(ClMsg('LessThanItemLifeTime'));
 		return;
@@ -201,13 +197,13 @@ end
 
 function ITEMDUNGEON_INIT_FOR_SELLER(frame)
 	ITEMDUNGEON_INIT_TAB(frame, 1);
-	ITEMDUNGEON_SHOW_BOX(frame, 1, 0);
+	ITEMDUNGEON_SHOW_BOX(frame, 1, 0, 1);
 	ITEMDUNGEON_INIT_NEEDITEM(frame);
 	ITEMDUNGEON_SET_TITLE(frame, true);
 	ITEMDUNGEON_INIT_USER_PRICE(frame);
 end
 
-function ITEMDUNGEON_SHOW_BOX(frame, seller, buyer)	
+function ITEMDUNGEON_SHOW_BOX(frame, seller, buyer, isSeller)
 	local buyerBox = GET_CHILD_RECURSIVELY(frame, 'buyerBox');
 	local sellerBox = GET_CHILD_RECURSIVELY(frame, 'sellerBox');
 	local needBox = GET_CHILD_RECURSIVELY(frame, 'needBox');
@@ -218,7 +214,7 @@ function ITEMDUNGEON_SHOW_BOX(frame, seller, buyer)
 	local goodsInfoBox = GET_CHILD_RECURSIVELY(frame, 'goodsInfoBox');
 
 	sellerBox:ShowWindow(seller);
-	needBox:ShowWindow(seller);	
+	needBox:ShowWindow(isSeller);
 	sellerBtnBox:ShowWindow(seller);
 
 	titlepicture:ShowWindow(buyer);
@@ -255,19 +251,24 @@ function OPEN_ITEMDUNGEON_BUYER(groupName, sellType, handle)
 	local frame = ui.GetFrame('itemdungeon');
 	frame:SetUserValue('HANDLE', handle);
 
+	local sellerMode = 0;
 	if handle == session.GetMyHandle() then
+		sellerMode = 1;
     	frame:SetUserValue('SELLER_MODE', 1);
     else
     	frame:SetUserValue('SELLER_MODE', 0);
     end
-    ITEMDUNGEON_INIT_TAB(frame, sellerMode);
-	ITEMDUNGEON_INIT_FOR_BUYER(frame);
+    ITEMDUNGEON_INIT_TAB(frame, 0);
+	ITEMDUNGEON_INIT_FOR_BUYER(frame, sellerMode);
 	frame:ShowWindow(1);
 	ui.OpenFrame('inventory');
 end
 
-function ITEMDUNGEON_INIT_FOR_BUYER(frame)
-	ITEMDUNGEON_SHOW_BOX(frame, 0, 1);
+function ITEMDUNGEON_INIT_FOR_BUYER(frame, isSeller)
+	ITEMDUNGEON_SHOW_BOX(frame, 0, 1, isSeller);
+	if isSeller == 1 then
+		ITEMDUNGEON_INIT_NEEDITEM(frame);
+	end
 	ITEMDUNGEON_SET_TITLE(frame, false);
 	ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame);
 end

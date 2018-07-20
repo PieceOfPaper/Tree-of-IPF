@@ -1,7 +1,16 @@
 function SCR_RESET_RANDOM_OPTION_ITEM(pc, itemGUID, argList)
+	if IsRunningScript(pc, 'TX_REVERT_ITEM_OPTION_NORMAL') == 1 or IsRunningScript(pc, 'TX_REVERT_ITEM_OPTION_MASTER') == 1 then
+		SendSysMsg(pc, 'AlreadyResetingRandomOption');
+		return;
+	end
+
 	local item = GetInvItemByGuid(pc, itemGUID);
 	if nil == item then
 		return
+	end
+
+	if IsFixedItem(item) == 1 then
+		return;
 	end
 
 	local itemCls = GetClassByType('Item', item.ClassID)
@@ -240,7 +249,7 @@ function SCR_REVERT_ITEM_OPTION(pc, argList, strArgList)
 
 	if IsFixedItem(revertItem) == 1 or IsFixedItem(targetItem) == 1 then
 		SendSysMsg(pc, 'MaterialItemIsLock');
---		return;
+		return;
 	end
 
 	if targetItem.LifeTime > 0 then
@@ -248,7 +257,12 @@ function SCR_REVERT_ITEM_OPTION(pc, argList, strArgList)
 		return;
 	end
 
-	if revertItem.StringArg == 'Mystic_Glass' then
+	if IsRunningScript(pc, 'SCR_RESET_RANDOM_OPTION_ITEM') == 1 then
+		SendSysMsg(pc, 'AlreadyResetingRandomOption');
+		return;
+	end
+
+	if revertItem.StringArg == 'Mystic_Glass' then		
 		if IsRunningScript(pc, 'TX_REVERT_ITEM_OPTION_NORMAL') ~= 1 then
 			TX_REVERT_ITEM_OPTION_NORMAL(pc, revertItem, targetItem);
 		end

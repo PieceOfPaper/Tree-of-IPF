@@ -258,7 +258,8 @@ function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
 				if buffSklCls ~= nil then
 					argStr = buffSklCls.ClassName;
 				end
-				price = GetPriceScp(sklClassName, argStr);				
+
+				price = GetPriceScp(sklClassName, GetZoneName(), argStr, GET_PC_ABILITY_OBJECT_LIST());
 				if price < 1 then
 					IMC_LOG('ERROR_LOGIC', 'PROCESS_USER_SHOP_PRICE: price error- shop['..sklClassName..'], argStr['..argStr..']');
 				end

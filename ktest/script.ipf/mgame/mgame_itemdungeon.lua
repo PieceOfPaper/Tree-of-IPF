@@ -21,7 +21,7 @@ function EXEC_ITEM_AWAKENING(buyer, seller, skill, targetItem, stoneItem, price)
         return;
     end
 
-    if (stoneItem == nil and targetItem.PR < 1) or targetItem.IsAwaken == 1 or IsFixedItem(targetItem) == 1 then
+    if (stoneItem == nil and targetItem.PR < 1) or IsFixedItem(targetItem) == 1 then
         return;
     end
 
@@ -29,17 +29,18 @@ function EXEC_ITEM_AWAKENING(buyer, seller, skill, targetItem, stoneItem, price)
         return;
     end
 
-    local useStone = 0;
+    local useStone = 'None';
     if stoneItem ~= nil then
         if IsFixedItem(stoneItem) == 1 or IS_ITEM_AWAKENING_STONE(stoneItem) == false or stoneItem.ItemLifeTimeOver > 0 then
             return;
         end
-        useStone = 1;
+        useStone = stoneItem.ClassName;
     end
 
     -- Tx
     local sellerHandle = GetHandle(seller);
     local buyerHandle = GetHandle(buyer);
+    local _totalPrice = 0;
     if sellerHandle == buyerHandle then -- 자기가 자기거 각성할 때
         local tx = TxBegin(buyer);
         TxTakeItem(tx, needItemClsName, needCnt, skill.ClassName);
@@ -56,8 +57,10 @@ function EXEC_ITEM_AWAKENING(buyer, seller, skill, targetItem, stoneItem, price)
         end
         TxTakeItem(tx1, needItemClsName, needCnt, skill.ClassName);
         TxTakeItem(tx2, MONEY_NAME, totalPrice, skill.ClassName);
+
+        _totalPrice = totalPrice; -- for log
         
-        local giveMoney = math.floor(totalPrice * tonumber(AUTOSELLER_SILVER_FEE) / 100);
+        giveMoney = math.floor(totalPrice * tonumber(AUTOSELLER_SILVER_FEE) / 100);
         if giveMoney > 0 then
             TxGiveItem(tx1, MONEY_NAME, giveMoney, skill.ClassName);
         end
@@ -79,8 +82,9 @@ function EXEC_ITEM_AWAKENING(buyer, seller, skill, targetItem, stoneItem, price)
     end
 
     ShowItemBalloon(buyer, "{@st43}", "ItemIsAwaken", "", targetItem, 5, 1, "reward_itembox");
-    ItemAwakeningMongoLog(seller, buyer, "Alchemist", targetItem, useStone, targetItem.HiddenProp, targetItem.HiddenPropValue, giveMoney, 1);
+    ItemAwakeningMongoLog(seller, buyer, "Alchemist", targetItem, useStone, targetItem.HiddenProp, targetItem.HiddenPropValue, _totalPrice, 1, needItemClsName, needCnt);
     SendAddOnMsg(buyer, 'SUCCESS_ITEM_AWAKENING');
+    SendAddOnMsg(seller, 'UPDATE_SPEND_ITEM');
 end
 
 function TX_ITEM_AWAKENING(tx, targetItem, stoneItem)

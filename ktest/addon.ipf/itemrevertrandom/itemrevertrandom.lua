@@ -10,14 +10,22 @@ local propValueList = nil
 
 
 function OPEN_REVERT_RANDOM(invItem)
-	local frame = ui.GetFrame('itemrevertrandom');
+	local frame = ui.GetFrame('itemrevertrandom');    
+    if frame ~= nil and frame:IsVisible() == 1 then
+        ui.SysMsg(ClMsg('AlreadyProcessing'));
+        return;
+    end
+
 	frame:SetUserValue('REVERTITEM_GUID', invItem:GetIESID());
 	frame:ShowWindow(1);	
 	isCloseable = 1
+
+	ui.CloseFrame('itemrandomreset');
+	ui.CloseFrame('itemunrevertrandom');
+	ui.OpenFrame('inventory');
 end
 
 function ITEM_REVERT_RANDOM_OPEN(frame)
-
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot")
 	local icon = slot:GetIcon()
 	if icon ~= nil then
@@ -128,7 +136,7 @@ function ITEM_REVERT_RANDOM_DROP(frame, icon, argStr, argNum)
 	end;
 end;
 
-function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID)
+function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -162,7 +170,7 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 		return
 	end
 
-	if invItem.isLockState == true then
+	if invItem.isLockState == true and (reReg == nil or reReg == 0) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
@@ -243,6 +251,12 @@ function ITEM_REVERT_RANDOM_EXEC(frame)
 		ui.SysMsg(ClMsg("LackOfRevertRandomMaterial"));
 		return
 	end
+	
+	if invItem.isLockState == true then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 
 	local clmsg = ScpArgMsg("DoRevertRandomReset")
 --	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEM_REVERT_RANDOM_EXEC", "_ITEM_REVERT_RANDOM_CANCEL")
@@ -280,6 +294,11 @@ function _ITEM_REVERT_RANDOM_EXEC()
 		return;
 	end
 
+	if ui.GetFrame("apps") ~= nil then
+		ui.CloseFrame("apps")
+	end
+
+	
 	session.ResetItemList();
 	session.AddItemID(frame:GetUserValue('REVERTITEM_GUID'));
 	session.AddItemID(invItem:GetIESID());
@@ -629,8 +648,11 @@ function _SHOW_REVERT_ITEM_RESULT(itemGuid)
 	frame:EnableHide(0);
 	if frame:IsVisible() == 0 then		
 		CLEAR_ITEM_REVERT_RANDOM_UI();
-		ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemGuid);
+		ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemGuid, 1);
 		frame:ShowWindow(1);
+		ui.CloseFrame('itemrandomreset');
+		ui.CloseFrame('itemunrevertrandom');
+		ui.OpenFrame('inventory');
 	end
 
 	if itemGuid == nil or itemGuid == 0 then
@@ -656,6 +678,9 @@ function _SHOW_REVERT_ITEM_RESULT(itemGuid)
 
 	local gbox = frame:GetChild("gbox");
 	local resetInvItem = session.GetInvItemByGuid(itemGuid)
+	if resetInvItem == nil then
+		resetInvItem = session.GetEquipItemByGuid(itemGuid)
+	end
 	local obj = GetIES(resetInvItem:GetObject());
 	local refreshScp = obj.RefreshScp
 	if refreshScp ~= "None" then
@@ -755,6 +780,31 @@ function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)
 	local iconInfo = icon:GetInfo();
 	session.ResetItemList();
 	session.AddItemID(iconInfo:GetIESID());
+	
+
+	local icon = slot:GetIcon()
+	if icon == nil then
+		print('--')
+		return
+	end
+
+	local iconInfo = icon:GetInfo();
+	if iconInfo == nil then
+		print('--')
+		return
+	end
+
+	session.inventory.SendLockItem(iconInfo:GetIESID(), 0)
+
+--	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+--	controlset:SetGravity(ui.RIGHT, ui.TOP)
+--	if true == selectItem.isLockState then
+--		state = 0;
+--		controlset:ShowWindow(0);
+--	else
+--		controlset:ShowWindow(1);
+--	end
+
 	local resultlist = session.GetItemIDList();
 	local stringArgList = '';
 	local deleteGBoxName = "bodyGbox1_1"
@@ -782,7 +832,6 @@ function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)
 
 	item.DialogTransaction("ANSWER_REVERT_ITEM_OPTION", resultlist, stringArgList);
 	ui.CloseFrame("revertrandomagreebox")
-
 	isCloseable = 1
 	frame:EnableHide(1);
 end

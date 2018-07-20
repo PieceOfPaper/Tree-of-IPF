@@ -7,15 +7,17 @@ function ITEMRANDOMRESET_ON_INIT(addon, frame)
 end
 
 function ON_OPEN_DLG_ITEMRANDOMRESET(frame)
-	frame:ShowWindow(1);	
+	frame:ShowWindow(1);
 end
 
-function ITEMRANDOMRESET_OPEN(frame)
-	
+function ITEMRANDOMRESET_OPEN(frame)	
 	SET_RANDOMRESET_RESET(frame);
 	CLEAR_ITEMRANDOMRESET_UI()
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMRANDOMRESET_INV_RBTN")	
 	ui.OpenFrame("inventory");	
+
+	ui.CloseFrame('itemrevertrandom');
+	ui.CloseFrame('itemunrevertrandom');
 end
 
 function ITEMRANDOMRESET_CLOSE(frame)
@@ -439,6 +441,9 @@ ui.SetHoldUI(false);
 	invItem = GET_SLOT_ITEM(slot);
 	local invItemGUID = invItem:GetIESID()
 	local resetInvItem = session.GetInvItemByGuid(invItemGUID)
+	if resetInvItem == nil then
+		resetInvItem = session.GetEquipItemByGuid(invItemGUID)
+	end
 	local obj = GetIES(resetInvItem:GetObject());
 
 	local refreshScp = obj.RefreshScp

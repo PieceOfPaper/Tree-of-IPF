@@ -33,6 +33,9 @@ function OPEN_SIMPLE_RANKING(_titleText, nameList, startRank, totalRankCount, my
 
 		local myInfoBox = CREATE_SIMPLE_RANKING_CTRL(frame, myRankInfoBox, 'MY_RANK_INFO', myRank, myName, false);
 		myInfoBox:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+	else
+	    local myInfoBox = CREATE_SIMPLE_RANKING_CTRL(frame, myRankInfoBox, 'MY_RANK_INFO', '', '', false);
+		myInfoBox:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
 	end
 
 	frame:ShowWindow(1);
@@ -59,7 +62,7 @@ function CREATE_SIMPLE_RANKING_CTRL(frame, parent, ctrlName, rank, name, drawSki
 	rankText:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
 	rankText:SetTextAlign(ui.CENTER_HORZ, ui.CENTER_VERT);
 	rankText:SetText(rank);
-
+	
 	local nameTextBox = bgBox:CreateControl('groupbox', 'nameTextBox', RANK_CTRL_OFFSET_NAME, 0, 250, 30);
 	nameTextBox:SetSkinName('None');
 	local nameText = nameTextBox:CreateControl('richtext', 'nameText', 0, 0, 250, 30);

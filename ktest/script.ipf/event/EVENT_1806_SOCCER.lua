@@ -166,7 +166,7 @@ function EVENT_1806_MISSION_INIT(zoneObj, mGame, pcList)
                     if team1Aid == aid then
                         SetCurrentFaction(pc, 'Team_1_Soccer')
                         AddBuff(pc,pc,'EVENT_1806_SOCCER_SETTING_BUFF')
-                        AttachEffect(pc, 'F_pc_football_ground_red', 2, "BOT")
+                        AttachEffect(pc, 'F_pc_football_ground_red_triangle', 2, "BOT")
                         flag = 1
                         break
                     elseif team2Aid == aid then
@@ -186,7 +186,7 @@ function EVENT_1806_MISSION_INIT(zoneObj, mGame, pcList)
                             SetExProp_Str(zoneObj, "Team_1_"..i2, aid)
                             SetCurrentFaction(pc, 'Team_1_Soccer')
                             AddBuff(pc,pc,'EVENT_1806_SOCCER_SETTING_BUFF')
-                            AttachEffect(pc, 'F_pc_football_ground_red', 2, "BOT")
+                            AttachEffect(pc, 'F_pc_football_ground_red_triangle', 2, "BOT")
                             break
                         elseif team2Aid == nil or team2Aid == 'None' then
                             SetExProp_Str(zoneObj, "Team_2_"..i2, aid)
@@ -295,7 +295,7 @@ function SCR_EVENT_1806_SOCCER_END_MSG(cmd, curStage, eventInst, obj)
                 SaveRedisPropValue(pc, 'EVENT_1806_SOCCER', typeName, aid, value, 1)
                 SCR_EVENT_1806_SOCCER_GOAL_LOG('GAMEEND',cmd,aid,typeName,value)
             end
-            RemoveBuff(pc,'EVENT_1806_SOCCER_SETTING_BUFF')
+--            RemoveBuff(pc,'EVENT_1806_SOCCER_SETTING_BUFF')
             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1806_SOCCER_MSG2",'PCGOAL',value,'TEAM1GOAL',goal1,'TEAM2GOAL',goal2)..addMsg, 10);
             
         end

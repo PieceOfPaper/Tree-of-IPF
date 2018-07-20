@@ -539,6 +539,9 @@ function SCR_PRECHECK_IS_LAST_RANK(self)
 end
 
 function SCR_PRECHECK_TOY(self)
+	if IsJumping(self) == 1 then
+		return 0;
+	end
 
     if IsBuffApplied(self, 'Camouflage_Buff') == 'YES' or OnKnockDown(self) == 'YES' or IsBuffApplied(self, 'SitRest') == 'YES' then
         return 0;

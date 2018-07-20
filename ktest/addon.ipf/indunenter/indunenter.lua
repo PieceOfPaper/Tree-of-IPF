@@ -331,13 +331,14 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     else
         local rewardCube = TryGetProp(rewardItem, 'Reward_Item');
         local cubeList = SCR_STRING_CUT(rewardCube, '/');
-        
-        for e = 1, #cubeList do
-            local cubeCls = GetClass('Item', cubeList[e]);
-            indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+        if cubeList ~= nil then
+            for e = 1, #cubeList do
+                local cubeCls = GetClass('Item', cubeList[e]);
+                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+            end
         end
     end
-
+    
     if #indunRewardItemList[controlName] == 0 then
         local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 300, 600, 1, ui.LEFT, "INDUNENTER_DROPBOX_AFTER_BTN_DOWN",nil,nil);
             ui.AddDropListItem(ClMsg('IndunRewardItem_Empty'))

@@ -37,11 +37,12 @@ function GIVE_SOLO_DUNGEON_REWARD(pc, prevYear, prevWeekNumber)
     local myPrevRanking = GetSoloDungeonPrevRankForReward(pc);
     if myPrevRanking == nil then
         SendSysMsg(pc, "SoloDungeonRewardError");
+        IMC_LOG("ERROR_SOLO_DUNGEON", "can not get prev ranking for reward" .. "[" .. prevYear .. ":".. prevWeekNumber.."]");
         return;
     end
     
-    local myPrevScore, myPrevStage, myPrevKillCount = GetPrevSoloDungeonInfo(pc, "All");
-    myPrevScore, myPrevStage = GetSoloDungeonPrevScoreForReward(pc);
+    local myPrevScoreStr, myPrevStage, myPrevKillCount = GetPrevSoloDungeonInfo(pc, "All");
+    myPrevScoreStr, myPrevStage = GetSoloDungeonPrevScoreStrForReward(pc);
 
     local attendanceRewardList = GET_SOLO_DUNGEON_ATTENDANCE_REWARD_LIST(myPrevStage);
     local rankingRewardName = GET_SOLO_DUNGEON_RANKING_REWARD_NAME(myPrevRanking, prevYear, prevWeekNumber);
@@ -56,6 +57,13 @@ function GIVE_SOLO_DUNGEON_REWARD(pc, prevYear, prevWeekNumber)
             SendSysMsg(pc, "SoloDungeonRewardNone");
             return;
         end
+    end
+
+    local checkPrevYear, checkPrevWeek = SoloDungeonPrevSeason();
+    if checkPrevYear ~= prevYear or checkPrevWeek ~= prevWeekNumber then
+        IMC_LOG("ERROR_SOLO_DUNGEON", "season changed" .. "before[" .. prevYear .. ":".. prevWeekNumber.."] after["..checkPrevYear..":"..checkPrevWeek.."]");
+        SendSysMsg(pc, "SoloDungeonRewardError");
+        return;
     end
 
     local tx = TxBegin(pc);
@@ -78,7 +86,7 @@ function GIVE_SOLO_DUNGEON_REWARD(pc, prevYear, prevWeekNumber)
 
     local ret = TxCommit(tx);
     if ret == "SUCCESS" then
-
+        IMC_LOG("INFO_SOLO_DUNGEON", "prevYear:" .. prevYear .. "; prevWeekNumber:"..prevWeekNumber.."; myPrevRanking:"..myPrevRanking.."; myPrevScoreStr:"..myPrevScoreStr.."; myPrevStage:"..myPrevStage);
         if attendanceRewardList ~= nil and #attendanceRewardList > 0 then
             local rewardNameList = {};
             local rewardCntList = {};
@@ -87,9 +95,11 @@ function GIVE_SOLO_DUNGEON_REWARD(pc, prevYear, prevWeekNumber)
                 rewardNameList[#rewardNameList + 1] = rewardPair[1];
                 rewardCntList[#rewardCntList + 1] = rewardPair[2];
             end
-            SoloDungeonRewardMongoLog(pc, prevYear, prevWeekNumber, "StageReward", myPrevStage, myPrevKillCount, myPrevScore, rewardNameList, rewardCntList);
+            SoloDungeonRewardMongoLog(pc, prevYear, prevWeekNumber, "StageReward", myPrevStage, myPrevKillCount, myPrevScoreStr, rewardNameList, rewardCntList);
         end
-        SoloDungeonRewardMongoLog(pc, prevYear, prevWeekNumber, "RankingReward", myPrevStage, myPrevKillCount, myPrevScore, {rankingRewardName}, {rankingRewardCnt});
+        if rankingRewardName ~= nil then
+            SoloDungeonRewardMongoLog(pc, prevYear, prevWeekNumber, "RankingReward", myPrevStage, myPrevKillCount, myPrevScoreStr, {rankingRewardName}, {rankingRewardCnt});
+        end
 
         SendSysMsg(pc, "SoloDungeonRewardGive");
     end

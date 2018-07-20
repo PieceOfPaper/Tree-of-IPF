@@ -33,6 +33,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('TOGGLE_EQUIP_ITEM_TOOLTIP_DESC', 'ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC');
 
 	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'MAKE_WEAPON_SWAP_BUTTON');
+	addon:RegisterMsg('UPDATE_LOCK_STATE', 'ON_UPDATE_LOCK_STATE');
 
 	SLOTSET_NAMELIST = {};
 	GROUP_NAMELIST = {};
@@ -841,17 +842,17 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 				local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 				local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
 				if slotSet ~= nil then
-			if slotSetName ~= nil then
-				if string.find(slotSet:GetName(), slotSetName) then
-					local func = _G[funcStr];
-					APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+					if slotSetName ~= nil then
+						if string.find(slotSet:GetName(), slotSetName) then
+							local func = _G[funcStr];
+							APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+						end
+					else
+						local func = _G[funcStr];
+						APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+					end
 				end
-			else
-				local func = _G[funcStr];
-				APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
 			end
-		end
-	end
 		end
 	end
 
@@ -3307,4 +3308,25 @@ function INVENTORY_RBTN_LEGENDDECOMPOSE(invItem)
 	end
 	_LEGENDDECOMPOSE_SET_TARGET(legenddecompose, invItem:GetIESID());
 	return true;
+end
+
+g_lockItemGuid = '0';
+function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
+	g_lockItemGuid = itemGuid;	
+	SET_SLOT_APPLY_FUNC(frame, '_UPDATE_LOCK_STATE');
+end
+
+function _UPDATE_LOCK_STATE(slot)
+	local item = GET_SLOT_ITEM(slot);
+	if item == nil or item:GetIESID() ~= g_lockItemGuid then
+		return;
+	end
+
+	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	controlset:SetGravity(ui.RIGHT, ui.TOP)
+	if true == item.isLockState then		
+		controlset:ShowWindow(1);
+	else
+		controlset:ShowWindow(0);
+	end
 end

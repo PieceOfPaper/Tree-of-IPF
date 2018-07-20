@@ -1262,3 +1262,21 @@ function ON_POPULAR_SKILL_INFO(frame, msg, argStr, argNum)
 		end
 	end
 end
+
+function GET_PC_ABILITY_OBJECT_LIST()
+    local abilObjList = {};
+    local pcSession = session.GetMySession();
+	local abilList = pcSession.abilityList;
+	local abilListCnt = 0;
+	if abilList ~= nil then
+		abilListCnt = abilList:Count();
+	end
+
+	for i=0, abilListCnt - 1 do
+		local abil = abilList:Element(i);
+		if abil ~= nil and abil:GetObject() ~= nil then
+            abilObjList[#abilObjList + 1] = GetIES(abil:GetObject());
+		end
+    end
+    return abilObjList;
+end

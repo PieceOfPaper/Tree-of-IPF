@@ -1270,7 +1270,10 @@ function IS_DISABLED_TRADE(invitem, type)
 			return true;
 		end
 	elseif type == TRADE_TYPE_MARKET then
-		if invitem.MaxStack <= 1 and ((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and prCount <= 0) or 0 < blongCnt) then
+		if invitem.MaxStack <= 1 and 
+		((invitem.ItemType == 'Equip' and invitem.ClassType ~= 'Helmet' and invitem.ClassType ~= 'Armband' and prCount <= 0) 
+		or 0 < blongCnt 
+		or (invitem.ClassType == 'Armband' and invitem.MarketTrade == "NO")) then
 			return true;
 		end
 	else

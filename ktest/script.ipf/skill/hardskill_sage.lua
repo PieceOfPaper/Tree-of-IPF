@@ -393,5 +393,7 @@ function TX_SAGE_PORTAL_SHOP(target, owner, skill, price, portalValue)
         AddAdventureBookAutoSellerInfo(owner, skill.ClassID, giveMoney);
     end
 
+    SendAddOnMsg(owner, 'UPDATE_PORTAL_STONE');
+
     MoveZone(target, destZoneName, destX, destY, destZ);
 end

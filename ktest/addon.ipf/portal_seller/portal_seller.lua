@@ -1,7 +1,7 @@
 local dic_portal_price = {}
 
 function PORTAL_SELLER_ON_INIT(addon, frame)
-    
+    addon:RegisterMsg('UPDATE_PORTAL_STONE', 'ON_UPDATE_PORTAL_STONE');
 end
 
 function PORTAL_SELLER_OPEN_UI(groupName, sellType, handle)
@@ -36,7 +36,7 @@ function PORTAL_SELLER_SELLER_TAB_INIT(frame, sellerBox)
     PORTAL_SELLER_INIT_PORTAL_LIST(frame);
 
     if PORTAL_SELLER_HIDE_BY_HANDLE(frame, handle) == 1 then
-        PORTAL_SHOP_REGISTER_INIT_INGREDIENT(frame, 'Sage_PortalShop');        
+        PORTAL_SHOP_REGISTER_INIT_INGREDIENT(frame, 'Sage_PortalShop');
     end
 end
 
@@ -163,4 +163,8 @@ function PORTAL_SELLER_UPDATE_HISTORY(frame)
 	end
 
 	GBOX_AUTO_ALIGN(historyStrBox, 20, 10, 10, true, false);
+end
+
+function ON_UPDATE_PORTAL_STONE(frame, msg, argStr, argNum)
+    PORTAL_SHOP_REGISTER_INIT_INGREDIENT(frame, 'Sage_PortalShop');
 end

@@ -203,14 +203,15 @@ function MAP_UPDATE_PARTY(frame, msg, arg, type, info)
 end
 
 function MAP_UPDATE_GUILD(frame, msg, arg, type, info)
-
-	DESTROY_CHILD_BYNAME(frame, 'GM_');
+	DESTROY_CHILD_BYNAME(frame, 'GM_');        
+    if session.world.IsIntegrateServer() == true then        
+        DESTROY_GUILD_MEMBER_ICON()        
+        return
+    end
 
 	local mapprop = session.GetCurrentMapProp();
 	local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
-	
-
 	if count == 1 then
 		return;
 	end
@@ -345,7 +346,7 @@ function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcStat
 	local questclsIdStr = '';
 	local cnt = #npclist;
 	for i = 1 , cnt do
-		local name = npclist[i];
+		local name = npclist[i];        
 		if  MonProp:IsHaveDialog(name) then
 			local questIES = questIESlist[i];
 			local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);

@@ -43,7 +43,7 @@ function SCR_USE_PENALTY_SHOOT(self, pc)
         SetExArgObject(soccer_goals, 'PENALTY_PC', pc)
         CreateSessionObject(soccer_goals, 'SSN_PENALTY_GOALPOST')
         local wall1 = CREATE_NPC(pc, "npc_soccer_goals_event", -726, 241, 640, 135, "Neutral", GetLayer(pc), nil, nil, nil, 0, 1, nil)
-        local wall2 = CREATE_NPC(pc, "npc_soccer_goals_wall1", -732, 241, 583, 225, "Neutral", GetLayer(pc), nil, nil, nil, 0, 1, nil)
+        local wall2 = CREATE_NPC(pc, "npc_soccer_goals_wall1", -729, 241, 586, 225, "Neutral", GetLayer(pc), nil, nil, nil, 0, 1, nil)
         local wall3 = CREATE_NPC(pc, "npc_soccer_goals_wall1", -676, 241, 639, 225, "Neutral", GetLayer(pc), nil, nil, nil, 0, 1, nil)
 	end
 	
@@ -236,7 +236,7 @@ function PENALTY_SHOOT_END_FUNC(pc)
     
     local season, ranklist = SCR_SEASON_TIME_CHECK()
     local Goal_Count = GetExProp(layerObj, "GOAL_COUNT");
-    if Goal_Count >= 5 then
+    if Goal_Count >= 3 then
         local aObj = GetAccountObj(pc)
         local now_time = os.date('*t')
         local yday = now_time['yday'] 
@@ -246,7 +246,7 @@ function PENALTY_SHOOT_END_FUNC(pc)
         end
     end
     local aid = GetPcAIDStr(pc)
-    SaveRedisPropValue(pc, 'EventFootBall', ranklist, aid, Goal_Count, 1)
+    SaveRedisPropValue(pc, 'EventFootBall', ranklist, aid, Goal_Count, 0)
     CustomMongoLog(pc, "EVENT_1806_PENALTY_GOAL", "GOAL_COUNT", Goal_Count)
     SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg('EVENT_1806_PENALTY_MSG3', "GOAL", Goal_Count), 5)
 
@@ -269,7 +269,7 @@ function SCR_FOOTBALL_PENALTY_REWARD(pc, season, aObj, yday)
     
     local rewardList = {{{'Mic',3,750},
                         {'Drug_MSPD2_1h_NR',2,500},
-                        {'Ability_Point_Stone_500',1,1250},
+                        {'Ability_Point_Stone_500',1,1000},
                         {'Drug_RedApple20',5,1000},
                         {'Drug_BlueApple20',5,1000},
                         {'Moru_Silver',2,750},
@@ -278,10 +278,11 @@ function SCR_FOOTBALL_PENALTY_REWARD(pc, season, aObj, yday)
                         {'Get_Wet_Card_Book_14d',1,1200},
                         {'legend_reinforce_card_lv1',1,500},
                         {'EventFootBall_350Arm_1',1,500},
-                        {'EventFootBall_350Arm_2',1,250}
+                        {'EventFootBall_350Arm_2',1,250},
+                        {'artefact_trophy_soccer', 1, 250}
                     },
                     {{'Mic',3,750},
-                        {'Ability_Point_Stone_500',1,1250},
+                        {'Ability_Point_Stone_500',1,1000},
                         {'EVENT_1712_SECOND_CHALLENG_14d',1,1250},
                         {'Premium_dungeoncount_Event',1,1000},
                         {'food_022',2,1250},
@@ -290,7 +291,8 @@ function SCR_FOOTBALL_PENALTY_REWARD(pc, season, aObj, yday)
                         {'Get_Wet_Card_Book_14d',1,750},
                         {'Event_Goddess_Statue',1,1250},
                         {'EventFootBall_350Wep_1',1,500},
-                        {'EventFootBall_350Wep_2',1,250}
+                        {'EventFootBall_350Wep_2',1,250},
+                        {'artefact_trophy_soccer', 1, 250}
                     }}
     local itemList = rewardList[season]
     local maxRate = 0

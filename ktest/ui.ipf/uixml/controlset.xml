@@ -666,7 +666,7 @@
 			<picture name="material_questionmark" image="question_mark" layout_gravity="left top" rect="0 0 40 40" margin="10 10 0 0" stretch="true"/>
 			<richtext name="material_name" rect="0 0 80 30" margin="90 0 0 0" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="brown_18"/>
 			<richtext name="material_count" rect="0 0 30 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" resizebytext="true" fixwidth="false" format="%s%s{/} / %s{/}" param1="color" param2="curCount" param3="needCount" fontname="brown_18"/>
-			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
+		<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
 		</controls>
 	</controlset>
 	<controlset name="eachmaterial_in_itemoptionextract" hittest="true" width="430" height="70" skin="None" hittestset="true" draw="true" stateskin="false">
@@ -1342,7 +1342,7 @@
 		<controls>
 			<picture name="Picture" stretch="ture" rect="2 2 64 64"/>
 		</controls>
-	</controlset>
+		</controlset>
 	<controlset name="Roadmap_Line01" toggle="false" hittest="true" width="298" height="28" caption="로드맵에서 사용하는 라인">
 		<controls>
 			<picture name="Picture" rect="2 2 294 24"/>
@@ -3983,7 +3983,7 @@
 		<controls>
 			<picture name="iconPic" rect="0 0 45 45" margin="0 -5 0 0" layout_gravity="left center" image="testclose_button" stretch="true"/>
 			<richtext name="nameText" rect="0 0 150 30" margin="60 -5 0 0" layout_gravity="left center" caption="아이템 이름" fontname="black_16" fixwidth="true"/>
-			<richtext name="countText" rect="0 0 300 30" margin="0 -5 80 0" layout_gravity="right center" format="%s개" fontname="black_16" param1="count" param1_def="0" fixwidth=""/>
+	<richtext name="countText" rect="0 0 300 30" margin="0 -5 80 0" layout_gravity="right center" format="%s개" fontname="black_16" param1="count" param1_def="0" fixwidth=""/>
 		</controls>
 	</controlset>
 	<controlset name="adventure_book_reward_achieve" hittest="true" width="340" height="20" draw="true" hittestset="false">
@@ -4116,7 +4116,7 @@
 		<controls>
 			<layout name="rowLayout" spacing="10" orientation="horizontal"/>
 			<layoutsection name="column1" size="free" parent="rowLayout"/>
-			<richtext name="teamName1" parent="column1" layout_gravity="center center" fontname="black_18_b" slideshow="true" resizebytext="true"/>
+			<richtext name="teamName1" parent="column1" layout_gravity="center center" fontname="black_18_b"slideshow="true" resizebytext="true"/>
 			<layoutsection name="column3" size="free" parent="rowLayout"/>
 			<richtext name="leveltext1" parent="column3" layout_gravity="center center" fontname="black_18_b"/>
 			<layoutsection name="column4" size="free" parent="rowLayout"/>
@@ -4148,11 +4148,11 @@
 		</controls>
 	</controlset>
 	<controlset name="tooltip_extract_option_equip_limit" hittest="true" width="410" height="30">
-		<controls>
-			<labelline name="line1" rect="0 0 400 4" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def_2"/>
-			<richtext name="descText" rect="0 0 380 10" margin="0 10 0 0" layout_gravity="center top" fixwidth="true" caption="desc" fontname="brown_16"/>
-		</controls>
-	</controlset>
+    <controls>
+      <labelline name="line1" rect="0 0 400 4" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+      <richtext name="descText" rect="0 0 380 10" margin="0 10 0 0" layout_gravity="center top" fixwidth="true" caption="desc" fontname="brown_16"/>
+    </controls>
+  </controlset>
 	<controlset name="selective_richtext" hittest="true" width="340" height="30" hittestset="true" draw="false" skin="None">
 		<userconfig SELECTED_BOX_SKIN="guildbattle_win_bg" NOT_SELECTED_BOX_SKIN="chat_window_2"/>
 		<controls>

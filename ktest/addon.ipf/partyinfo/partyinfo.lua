@@ -478,7 +478,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	lvbox:Resize(levelRichText:GetWidth(), lvbox:GetHeight());
 		
 	if frame:GetName() == 'partyinfo' then
-		frame:Resize(20 + frame:GetOriginalWidth(), (count+1) * 100);
+		frame:Resize(frame:GetOriginalWidth(), (count+1) * 100);
 	else
 		frame:Resize(frame:GetOriginalWidth(),frame:GetOriginalHeight());
 	end
@@ -543,7 +543,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 			jobIcon:SetImage(jobCls.Icon);
 		end
 	end
-		
+
 	-- 파티원 레벨 표시 -- 
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
@@ -561,9 +561,8 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	hpGauge:SetColorTone(color);
 	spGauge:SetColorTone(color);
 
-	frame:Resize(20 + frame:GetWidth(), (count+1) * 100);
-	
-	
+	frame:Resize(frame:GetWidth(), (count+1) * 100);
+
 	return 1;
 end
 

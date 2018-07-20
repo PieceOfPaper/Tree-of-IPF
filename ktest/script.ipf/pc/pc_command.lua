@@ -1,7 +1,7 @@
 
 function callback_learn_guild_ability(pc, code, ret_json, argList)
     if code ~= 200 then        
-        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        SendSysMsg(pc, 'WebService_' .. tostring(code)) 
         return
     end
 
@@ -16,7 +16,7 @@ end
 
 function callback_guild_exp_up(pc, code, ret_json, argList)
     if code ~= 200 then        
-        SendSysMsg(pc, 'WebService_1') -- 권한 없음
+        SendSysMsg(pc, 'WebService_'  .. tostring(code)) 
         return
     end    
     if ret_json == 'True' then
