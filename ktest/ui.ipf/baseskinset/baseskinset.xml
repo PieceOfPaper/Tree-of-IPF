@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -4996,6 +4996,9 @@
 		<image name="test_companion_11" file="\icon\companion.tga" imgrect="0 492 100 122" CMM_Caption="락소돈_탭버튼"/>
 		<image name="test_companion_11_cursoron" file="\icon\companion.tga" imgrect="101 492 100 122"/>
 		<image name="test_companion_11_clicked" file="\icon\companion.tga" imgrect="0 492 100 122"/>
+		<image name="test_companion_12" file="\icon\companion.tga" imgrect="202 492 100 122" CMM_Caption="녹색펭귄_탭버튼"/>
+		<image name="test_companion_12_cursoron" file="\icon\companion.tga" imgrect="303 492 100 122"/>
+		<image name="test_companion_12_clicked" file="\icon\companion.tga" imgrect="202 492 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -5334,6 +5337,7 @@
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
 		<image name="clock_3" file="\skin\pip_test.tga" imgrect="1797 211 20 20" CMM_Caption="기간제 팝업창용 시계"/>
+		<image name="exp_reset" file="\skin\min_hud.tga" imgrect="13 113 755 40" CMM_Caption="경험치초기화구간"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5400,6 +5404,7 @@
 		<image name="companion_penguin" file="\icon\companion_Velhider.tga" imgrect="160 0 80 80"/>
 		<image name="companion_Rocksodon" file="\icon\companion_Velhider.tga" imgrect="240 0 80 80"/>
 		<image name="companion_parrotbil" file="\icon\companion_Velhider.tga" imgrect="240 160 80 80"/>
+		<image name="companion_penguin_green" file="\icon\companion_Velhider.tga" imgrect="0 240 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>

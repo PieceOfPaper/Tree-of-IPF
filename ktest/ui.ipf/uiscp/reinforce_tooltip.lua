@@ -89,8 +89,26 @@ function REINFORCE_ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe
 	
 	ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename) -- 타입, 무게.
 
-    if invitem.BasicTooltipProp ~= 'None' then
-        ypos = DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, ypos, mainframename, strarg) -- 공격력, 방어력, 타입 아이콘 
+    local basicTooltipProp = invitem.BasicTooltipProp;
+    if basicTooltipProp ~= 'None' then
+        local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
+        for i = 1, #basicTooltipPropList do
+            basicTooltipProp = basicTooltipPropList[i];
+            ypos = DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, ypos, mainframename, strarg, basicTooltipProp); -- 공격력, 방어력, 타입 아이콘 
+        end
+    end
+
+    if basicTooltipProp ~= 'None' then
+        local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
+	    local isEquiped = 1;
+	    if session.GetEquipItemByGuid(itemGuid) == nil then
+		    isEquiped = 0
+	    end
+        local tooltipMainFrame = GET_CHILD(tooltipframe, mainframename, 'ui::CGroupBox');
+        ypos = SET_REINFORCE_TEXT(tooltipMainFrame, invitem, ypos, isEquiped, basicTooltipProp);
+	    ypos = SET_TRANSCEND_TEXT(tooltipMainFrame, invitem, ypos, isEquiped);
+	    ypos = SET_BUFF_TEXT(tooltipMainFrame, invitem, ypos, strarg);
+	    ypos = SET_REINFORCE_BUFF_TEXT(tooltipMainFrame, invitem, ypos);
     end
 
 	local addinfoGBox = GET_CHILD(tooltipframe, addinfoframename,'ui::CGroupBox') -- 젬 툴팁 위치 삽입

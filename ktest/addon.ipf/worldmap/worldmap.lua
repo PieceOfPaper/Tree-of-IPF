@@ -161,7 +161,7 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	if cnt == 0 then
 		return;
 	end
-
+	
 	local makeWorldMapImage = session.mapFog.NeedUpdateWorldMap();
 		
 	local currentDirection = config.GetConfig("WORLDMAP_DIRECTION", "s");
@@ -248,17 +248,14 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 			local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
 			
 			if currentDirection == dir then
-			
-				local etc = GetMyEtcObject();
-            
-				if etc['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
-                
+				local accObj = GetMyAccountObj();
+				if accObj['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 				
 					if changeDirection ~= true or parentGBox:GetChild(gBoxName) == nil then
 				    
 						CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
-
+				
 					end
 				end
 			end
@@ -778,10 +775,10 @@ function GET_DUNGEON_LIST(below, above)
 	local recommendlist = {};
 	local clslist, cnt = GetClassList("Map");
 				
-	local etc = GetMyEtcObject();
+	local accObj = GetMyAccountObj();
 	for i = 0, cnt - 1 do
 		local mapCls = GetClassByIndexFromList(clslist, i);
-		if etc['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
+		if accObj['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
 			if mapCls.MapType == 'Dungeon' and mapCls.QuestLevel >= minLevel and mapCls.QuestLevel <= maxLevel then
 				recommendlist[#recommendlist + 1] = mapCls;
 			end	
@@ -886,19 +883,19 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 		return
 	end
 
-	local etc = GetMyEtcObject();    
-
+	local accObj = GetMyAccountObj();
+	
 	-- search map
 	local mapList, cnt = GetClassList('Map')
-	if etc == nil or mapList == nil or cnt < 1 then -- valid check
+	if accObj == nil or mapList == nil or cnt < 1 then -- valid check
 		return
 	end
-
+	
     local targetMap = {}
 	local targetCnt = 0
 	for i=0, cnt-1 do
 		local mapCls = GetClassByIndexFromList(mapList, i);
-		if mapCls ~= nil and mapCls.WorldMap ~= "None" and (etc['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0)then
+		if mapCls ~= nil and mapCls.WorldMap ~= "None" and (accObj['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0)then
 			local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(mapCls.Name));		
 			local tempinputtext = string.lower(searchText)
 			if tempinputtext == "" or true == ui.FindWithChosung(tempinputtext, tempname) then
@@ -907,7 +904,7 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 			end
 		end
 	end
-
+	
 	-- search npc
 	local npcStates = session.GetNPCStateMap();
 	local idx = npcStates:Head();
@@ -937,7 +934,7 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 		end
 		idx = npcStates:Next(idx);
 	end
-
+	
 	local showIdx = 0
 	if oldSearchText == searchText then
 		showIdx = tonumber(oldSearchIdx) + 1
@@ -947,6 +944,7 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 	else
 		frame:SetUserValue('SEARCH_TEXT', searchText)
 	end
+
 	frame:SetUserValue('SEARCH_IDX', tostring(showIdx))
 	local ret = LOCATE_WORLDMAP_POS(frame, targetMap[showIdx]);
 	if ret == false then
@@ -1118,9 +1116,21 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	else
 		costRichText:ShowWindow(0);
 	end
+	local camp_warp_class = GetClass('camp_warp', strarg)
+	local pc = GetMyPCObject();
+	if camp_warp_class ~= nil and (GetZoneName(pc) == 'c_Klaipe' or GetZoneName(pc) == 'c_orsha') then
+	    if GetZoneName(pc) == 'c_Klaipe' then
+	        if camp_warp_class.Zone == 'c_orsha' then
+	            strnum = 0
+	        end
+	    else
+	        if camp_warp_class.Zone == 'c_Klaipe' then
+	            strnum = 0
+	        end
+	    end
+	end
 
 	-- 여신상
-	local camp_warp_class = GetClass('camp_warp', strarg)
 	if camp_warp_class ~= nil then
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);

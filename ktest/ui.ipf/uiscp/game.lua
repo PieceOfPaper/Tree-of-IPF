@@ -1817,19 +1817,6 @@ function FIND_STRING(str, startPos, findStr)
 	return pos + startPos;
 end
 
-
- function SCR_ITEM_ABILITY_CLIENT(invitem)
-
-	item.UseByInvIndex(invitem.invIndex);
-
- end
-
- function SCR_ABILITY_SLOT_CLIENT(invitem)
-
-	item.UseByInvIndex(invitem.invIndex);
-
- end
-
 function SCR_SKILLITEM(invItem)
 
 	local obj = GetIES(invItem:GetObject());

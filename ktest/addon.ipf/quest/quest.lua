@@ -1,4 +1,4 @@
-﻿
+
 function QUEST_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'UPDATE_ALLQUEST');
 	addon:RegisterMsg('QUEST_UPDATE', 'UPDATE_ALLQUEST');
@@ -204,7 +204,7 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
 		end
 		
 		
-		local subQuestCount = 0
+		local subQuestZoneList = {}
 		for i = 0, cnt -1 do
 			local questIES = GetClassByIndexFromList(clsList, i);
 			local questAutoIES = GetClass('QuestProgressCheck_Auto',questIES.ClassName)
@@ -217,10 +217,10 @@ function UPDATE_ALLQUEST(frame, msg, isNew, questID, isNewQuest)
     					local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
     					if IS_ABOUT_JOB(questIES) == true then
     						if result ~= 'IMPOSSIBLE' and result ~= 'None' then
-    							posY, subQuestCount = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, nil, subQuestCount);
+    							posY, subQuestZoneList = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, nil, subQuestZoneList);
     						end
     					else
-    						posY, subQuestCount = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, nil, subQuestCount);
+    						posY, subQuestZoneList = SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, nil, subQuestZoneList);
     					end
     				else
     					questGbox:RemoveChild(ctrlName);
@@ -296,47 +296,47 @@ function LINKZONECHECK(fromZone, toZone)
     return result
 end
 
-function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestCount)
+function HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestZoneList)
 	local startMode = questIES.QuestStartMode;
 	local sObj = session.GetSessionObjectByName("ssn_klapeda");
 	if sObj ~= nil then
     	sObj = GetIES(sObj:GetIESObject());
     end
     local result1
-    result1, subQuestCount = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestCount)
+    
+    result1, subQuestZoneList = SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList)
     
 	if abandonResult == 'ABANDON/LIST' or questIES.PossibleUI_Notify == 'UNCOND' then
 	elseif result1 == "HIDE" then
-	    return 1, subQuestCount
+	    return 1, subQuestZoneList
 	elseif startMode == 'NPCENTER_HIDE' then
-	    return 1, subQuestCount
+	    return 1, subQuestZoneList
 	elseif startMode == "GETITEM" then
-	    return 1, subQuestCount
+	    return 1, subQuestZoneList
 	elseif startMode == "USEITEM" then
-	    return 1, subQuestCount
+	    return 1, subQuestZoneList
 	elseif IS_WORLDMAPPREOPEN(questIES.StartMap) == 'NO' then
-	    return 1, subQuestCount
+	    return 1, subQuestZoneList
 	elseif sObj ~= nil and questIES.QuestMode == 'MAIN' and pc.Lv < 100 and questIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and questIES.QStartZone ~=  sObj.QSTARTZONETYPE and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO'  then
-	    return 1, subQuestCount
+	    return 1, subQuestZoneList
 	elseif (questIES.QuestMode == 'MAIN' or questIES.QuestMode == 'REPEAT' or questIES.QuestMode == 'SUB') and LINKZONECHECK(GetZoneName(pc), questIES.StartMap) == 'NO' and QUEST_VIEWCHECK_LEVEL(pc, questIES) == 'NO' and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO'  then
-		return 1, subQuestCount
+		return 1, subQuestZoneList
 	end
 
-	return 0, subQuestCount;
+	return 0, subQuestZoneList;
 end
 
-function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestCount)
+function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, isNew, questID, abandonResult, subQuestZoneList)
 
 	questGbox:RemoveChild(ctrlName);
 	if result == 'IMPOSSIBLE' or result == 'COMPLETE' then
-		return posY, subQuestCount;
+		return posY, subQuestZoneList;
 	elseif result == 'POSSIBLE' then
 	    local pc = GetMyPCObject();
 	    local result
-	    
-	    result1, subQuestCount = HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestCount)
+	    result1, subQuestZoneList = HIDE_IN_QUEST_LIST(pc, questIES, abandonResult, subQuestZoneList)
 		if result1 == 1 then
-			return posY, subQuestCount;
+			return posY, subQuestZoneList;
 		end
 	end
 
@@ -423,7 +423,7 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 
 	QUEST_CTRL_UPDATE_PARTYINFO(Quest_Ctrl, questIES);
 	
-	return Quest_Ctrl:GetHeight() + posY + 5, subQuestCount;
+	return Quest_Ctrl:GetHeight() + posY + 5, subQuestZoneList;
 end
 
 function ADD_QUEST_DETAIL(frame, ctrl, argStr, questClassID, notUpdateRightUI)

@@ -31,8 +31,11 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 end
 
 function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame)
-	local obj = GetIES(invItem:GetObject());
-	
+    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
+        return;
+    end
+
+	local obj = GetIES(invItem:GetObject());	
 	if CHECK_EMPTYSLOT(frame, obj) == 1 then
 		return
 	end
@@ -109,6 +112,10 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE(parent, slot)
 end
 
 function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
+    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
+        return;
+    end
+
 	local frame = ui.GetFrame("accountwarehouse");	
 	if count > 1 then
 		INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", count, 1, count, nil, iesID);
@@ -118,10 +125,16 @@ function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
 end
 
 function EXEC_PUT_TO_ACCOUNT_WAREHOUSE(iesID, count, handle)
+    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
+        return;
+    end
 	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, count, handle);
 end
 
 function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
+    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
+        return;
+    end
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
 	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
@@ -132,7 +145,6 @@ function ACCOUNT_WAREHOUSE_SLOT_RESET(frame, slot)
 end
 
 function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
-
 	if frame:IsVisible() == 0 then
 		return;
 	end
@@ -144,21 +156,13 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		end
 	AUTO_CAST(slotset);
 	slotset:ClearIconAll();
-
-	local aObj = GetMyAccountObj();
-	local slotCount = aObj.MaxAccountWarehouseCount + aObj.AccountWareHouseExtend;
-	for i = 0, slotCount-1 do
-		local slot = slotset:GetSlotByIndex(i)
-		if nil ~= slot then
-			slot:SetSkinName('invenslot2')
-		end
-	end
-	
+    slotset:SetSkinName('accountwarehouse_slot');
+    	
 	local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);
 	local index = itemList:Head();
 	local itemCnt = itemList:Count();
 	local saveMoney = GET_CHILD_RECURSIVELY(frame, "saveMoney");
-	saveMoney:SetTextByKey('value',0)
+	saveMoney:SetTextByKey('value', 0)
 	local slotIndx = 0;
 	while itemList:InvalidIndex() ~= index do
 		local invItem = itemList:Element(index);
@@ -171,6 +175,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			if slot == nil then
 				slot = GET_EMPTY_SLOT(slotset);
 			end
+            slot:SetSkinName('invenslot2')
 
 			local itemCls = GetIES(invItem:GetObject());
 			local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
@@ -189,10 +194,26 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		index = itemList:Next(index);
 	end
 
+    -- 아이템이 없어도 사용가능한 슬롯이면 스킨 변경
+    local account = session.barrack.GetMyAccount();
+	local slotCount = account:GetAccountWarehouseSlotCount();
+    local availableTakeCount = math.max(slotCount, slotIndx);
+    for i = slotIndx , availableTakeCount - 1 do
+        local slot = slotset:GetSlotByIndex(i);
+        if slot ~= nil then
+            slot:SetSkinName('invenslot2');
+        end
+    end
 
 	local itemcnt = GET_CHILD_RECURSIVELY(frame, "itemcnt");
-	itemcnt:SetTextByKey('cnt',itemCnt)
-	itemcnt:SetTextByKey('slotmax',slotCount)
+    local currentItemCnt = string.format('%d', itemCnt);
+    if itemCnt > slotCount then
+        local EXCEED_SLOT_FONT_COLOR = frame:GetUserConfig('EXCEED_SLOT_FONT_COLOR');
+        currentItemCnt = '{#'..EXCEED_SLOT_FONT_COLOR..'}'..currentItemCnt..'{/}';
+    end
+
+	itemcnt:SetTextByKey('cnt', currentItemCnt);
+	itemcnt:SetTextByKey('slotmax', slotCount);
 
 	if gbox_warehouse ~= nil then
 		gbox_warehouse:UpdateData();
@@ -274,7 +295,7 @@ end
 function ACCOUNT_WAREHOUSE_WITHDRAW(frame, slot)
 	frame = frame:GetTopParentFrame();
 	local moneyInput = GET_CHILD_RECURSIVELY(frame, 'moneyInput');
-	local price = moneyInput:GetNumber();
+	local price = GET_NOT_COMMAED_NUMBER(moneyInput:GetText());
 	AUTO_CAST(moneyInput);
 	if price <= 0 then
 		moneyInput:SetText('0');
@@ -298,13 +319,13 @@ function ACCOUNT_WAREHOUSE_WITHDRAW(frame, slot)
 
 	if visItem == nil then
 		moneyInput:SetText('0');
-		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
+		ui.MsgBox(ClMsg("NotEnoughStoredMoney"));
 		return;
 	end
 
 	if visItem.count < price then
 		moneyInput:SetText('0');
-		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
+		ui.MsgBox(ClMsg("NotEnoughStoredMoney"));
 		return;
 	end
 	session.ResetItemList();
@@ -317,7 +338,7 @@ end
 function ACCOUNT_WAREHOUSE_DEPOSIT(frame, slot)
 	frame = frame:GetTopParentFrame();
 	local moneyInput = GET_CHILD_RECURSIVELY(frame, 'moneyInput');
-	local price = moneyInput:GetNumber();
+	local price = GET_NOT_COMMAED_NUMBER(moneyInput:GetText());
 	AUTO_CAST(moneyInput);
 	if price <= 0 then
 		moneyInput:SetText('0');
@@ -393,4 +414,26 @@ function ACCOUNT_WAREHOUSE_INV_RBTN(itemObj, slot)
 	if fromFrame:GetName() == "inventory" then
 		PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, nil, fromFrame)
 	end
+end
+
+function CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT()
+    local account = session.barrack.GetMyAccount();
+	local slotCount = account:GetAccountWarehouseSlotCount();
+    local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);
+	local itemCnt = 0;
+    local index = itemList:Head();
+	while itemList:InvalidIndex() ~= index do
+		local invItem = itemList:Element(index);
+		local obj = GetIES(invItem:GetObject());
+		if obj.ClassName ~= MONEY_NAME then
+            itemCnt = itemCnt + 1;
+        end
+		index = itemList:Next(index);
+	end
+
+    if slotCount <= itemCnt then
+        ui.SysMsg(ClMsg('CannotPutBecauseMasSlot'));
+        return false;
+    end
+    return true;
 end

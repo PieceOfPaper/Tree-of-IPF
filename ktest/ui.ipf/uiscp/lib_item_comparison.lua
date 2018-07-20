@@ -357,12 +357,12 @@ end
 function GET_EUQIPITEM_PROP_LIST()
 	
 	local list = {};
-	list[#list+1] = "Strike";
-	list[#list+1] = "Strike_Range";
-	list[#list+1] = "Slash_Range";
-	list[#list+1] = "Slash";
-	list[#list+1] = "Aries_Range";
-	list[#list+1] = "Aries";
+--  list[#list+1] = "Strike";
+--  list[#list+1] = "Strike_Range";
+--  list[#list+1] = "Slash_Range";
+--  list[#list+1] = "Slash";
+--  list[#list+1] = "Aries_Range";
+--  list[#list+1] = "Aries";
 	list[#list+1] = "HitCount";
 	list[#list+1] = "BackHit";
 	return list;
@@ -411,14 +411,37 @@ function GET_MAIN_PROP_LIST(itemObj)
 end
 
 
-function GET_CHECK_OVERLAP_EQUIPPROP_LIST(propList, prop)
+function GET_CHECK_OVERLAP_EQUIPPROP_LIST(propList, prop, list)
     local checkList = propList;
-    local list = {};
+    if list == nil then
+        list = {};
+    end
     for i = 1, #checkList do
         if checkList[i] ~= prop then
-            list[#list+1] = checkList[i];
+            list = PUSH_BACK_IF_NOT_EXIST(list, checkList[i]);
         end
     end
     
+    return list;
+end
+
+function EXIST_ITEM(list, element)
+    if list == nil or #list < 1 then
+        return false;
+    end
+    for i = 1, #list do
+        if list[i] == element then
+            return true;
+        end
+    end
+    return false;
+end
+
+function PUSH_BACK_IF_NOT_EXIST(list, element)
+    if EXIST_ITEM(list, element) == true then
+        return list;
+    end
+
+    list[#list + 1] = element;
     return list;
 end

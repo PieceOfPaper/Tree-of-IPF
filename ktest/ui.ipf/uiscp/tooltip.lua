@@ -839,6 +839,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
 	-- data setting
 	lvText:SetText(lvFont.."Lv."..tostring(lv));
 	spText:SetText(SP_ICON..lvFont.." "..math.floor(sp))
+    spText:SetUserValue('SPEND_SP_VALUE', math.floor(sp));
 	if coolTime == 0 then
 		coolText:SetText(lvFont..ScpArgMsg("{Sec}","Sec", 0))
 	else		
@@ -992,11 +993,13 @@ function ADD_SPEND_SKILL_LV_DESC_TOOLTIP(ctrlSet, pcAbilList, pcAbilCnt)
 	end
 
 	if addValueSP ~= 0 then
-		local addValueStr = tostring(addValueSP)
-		if addValueSP > 0 then
+        local spendSP = tonumber(spText:GetUserIValue('SPEND_SP_VALUE'));
+        local totalAddValueSP = math.floor(spendSP + spendSP * addValueSP) - spendSP;
+		local addValueStr = tostring(totalAddValueSP);
+		if totalAddValueSP > 0 then
 			addValueStr = "+"..addValueStr
+		    spText:SetText(spText:GetText()..ADD_ABILITY_STYLE.."("..addValueStr..")")
 		end
-		spText:SetText(spText:GetText()..ADD_ABILITY_STYLE.."("..addValueStr..")")
 	end
 
 	if addValueCoolTime ~= 0 then		

@@ -1,8 +1,8 @@
 ---- lib_math.lua
 
--- ¼±Çü º¸°£ °ø½Ä (Linear Interpolation)
--- ¿¹) 1Lv ÀÏ¶§ 30, 100Lv ÀÏ¶§ 100ÀÇ ¼öÄ¡·Î ·¹º§¸µÀ» ÇÏ°í ½Í´Ù.
--- set_LI(value, 30, 100, 1, 100) ¶Ç´Â set_LI(value, 30, 100) (1°ú 100Àº ±âº»°ªÀ¸·Î Á¤ÇØÁ® ÀÖ¾î¼­ »ý·« °¡´É)
+-- Â¼Â±? ÂºÂ¸Â°ï¿¡ Â°??Linear Interpolation)
+-- Â¿Â¹) 1Lv OÂ¶Â§ 30, 100Lv OÂ¶Â§ 100G Â¼???Â·Â¹ÂºÂ§Â¸Î¼; ?Â°ë ½??
+-- set_LI(value, 30, 100, 1, 100) Â¶? set_LI(value, 30, 100) (1Â°??: Â±?Â°Âª8Â·?d?n VÂ¾? â‰«ì…ƒ?Â´?
 function set_LI(value, min, max, s, e)
     
     s = s and s or 1
@@ -17,14 +17,24 @@ function set_LI(value, min, max, s, e)
 end
 
 function CLAMP(v, minv, maxv)
-	if v < minv then
-		return minv;
-	end
+    if v < minv then
+        return minv;
+    end
 
-	if v > maxv then
-		return maxv;
-	end
+    if v > maxv then
+        return maxv;
+    end
 
-	return v;
+    return v;
 end
 
+function SyncFloor(value)
+    -- ROUND --
+    value = math.floor((value*1.0)+0.5) / 1.0;
+    return(value);
+end
+
+function MinMaxCorrection(value, minVal, maxVal)
+    value = math.min(math.max(minVal, value), maxVal);
+    return(value);
+end

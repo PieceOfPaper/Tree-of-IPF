@@ -336,10 +336,6 @@ function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
     
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_sellinfo');
-
-	if ui.IsFrameVisible("shop") == 0 and invitem.SellPrice ~= 0 and itemProp:IsEnableShopTrade() == true then
-		return yPos
-	end
 	
 	local tooltip_sellinfo_CSet = gBox:CreateControlSet('tooltip_sellinfo', 'tooltip_sellinfo', 0, yPos);
 	tolua.cast(tooltip_sellinfo_CSet, "ui::CControlSet");

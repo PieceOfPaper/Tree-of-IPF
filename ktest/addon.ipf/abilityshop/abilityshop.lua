@@ -1,7 +1,7 @@
 function ABILITYSHOP_ON_INIT(addon, frame)
-
 	addon:RegisterMsg('ABILSHOP_OPEN', 'ON_ABILITYSHOP_OPEN');
 	addon:RegisterMsg('RESET_ABILITY_UP', 'ON_RESET_ABILITY_UP');
+    addon:RegisterMsg('SUCCESS_BUY_ABILITY_POINT', 'REFRESH_ABILITYSHOP');
 end
 
 function ON_ABILITYSHOP_OPEN(frame, msg, abilGroupName, argNum)
@@ -21,6 +21,7 @@ end
 function ABILITYSHOP_CLOSE(addon, frame)
 	ui.CloseFrame('skilltree');
 	ui.CloseFrame('abilityshop');
+    ui.CloseFrame('ability_point_buy');
 end
 
 function ON_RESET_ABILITY_UP(frame, msg, abilGroupName, learnAbilID)
@@ -34,11 +35,19 @@ function REFRESH_ABILITYSHOP(frame, msg)
 	local frame = ui.GetFrame("abilityshop") -- 체크박스에서도 연동해서 쓰므로
 	
 	local abilGroupName = frame:GetUserValue("ABIL_GROUP_NAME")
-
+    s_AbilShopType = abilGroupName
 	local pc = GetMyPCObject();
 	if pc == nil then
 		return;
 	end
+
+    -- ability point
+    local abilityPoint = pc.AbilityPoint;
+    if abilityPoint == 'None' then
+        abilityPoint = '0';
+    end
+    local pointValueText = GET_CHILD_RECURSIVELY(frame, 'pointValueText');
+    pointValueText:SetTextByKey('point', abilityPoint);
 
 	local gbox = GET_CHILD_RECURSIVELY(frame, 'abilityshopGBox');
 	DESTROY_CHILD_BYNAME(gbox, 'ABILSHOP_');
@@ -46,22 +55,13 @@ function REFRESH_ABILITYSHOP(frame, msg)
 
 	-- abilGroupName으로 xml에서 해당되는 구입가능한 특성리스트 가져오기
 	local abilGroupList, abilGroupListCnt = GetClassList(abilGroupName);
-
-    if session.IsGM() == 1 and abilGroupName == 'Ability_Warrior' then
-        IMC_NORMAL_INFO("GetClassList("..abilGroupName.."), count("..abilGroupListCnt..")");
-    end
-
-	for i = 0, abilGroupListCnt-1 do
+   	for i = 0, abilGroupListCnt-1 do
 		local groupClass = GetClassByIndexFromList(abilGroupList, i);
 		if groupClass ~= nil then
 			local abilClass = GetClass('Ability', groupClass.ClassName);
 			if abilClass ~= nil then
 				posY = MAKE_ABILITYSHOP_ICON(frame, pc, gbox, abilClass, groupClass, posY);
-            else
-                IMC_NORMAL_INFO("GetClass from Ability fail:className("..groupClass.ClassName..")");
 			end
-        else
-            IMC_NORMAL_INFO("GetClass from Ability_[Group] fail: abilGroupName("..abilGroupName.."), index("..i..")");
 		end
 	end
 
@@ -134,7 +134,7 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 end
 
 function SET_ABILITY_PRICE_CTRL(classCtrl, priceCtrl, abilClass, price)
-	priceCtrl:SetText("{img Silver 24 24} {@st42b}{s16}".. price);
+	priceCtrl:SetText(price);
 	classCtrl:SetUserValue("PRICE_"..abilClass.ClassName, price);
 end
 	
@@ -198,9 +198,9 @@ function SET_ABILITY_COST_CTRL(frame, classCtrl, pc, groupClass, abilClass, coun
 	end
     classCtrl:SetUserValue('ABILITY_LEARN_TIME', totalTime);
 	
-	local priceCtrl = GET_CHILD(classCtrl, "abilPrice", "ui::CRichText");	
+	local priceCtrl = GET_CHILD_RECURSIVELY(classCtrl, "abilPrice", "ui::CRichText");	
 	local maxLevelCtrl = GET_CHILD(classCtrl, "abilLevelMax", "ui::CRichText");	
-	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");
+	local timeCtrl = GET_CHILD(classCtrl, "abilTime", "ui::CRichText");		
 
 	SET_ABILITY_PRICE_CTRL(classCtrl, priceCtrl, abilClass, price)
 	SET_ABILITY_MAX_LEVEL_CTRL(frame, maxLevelCtrl, abilGroupName, abilClass)
@@ -275,7 +275,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 
 	end
 
-	local classCtrl = grid:CreateOrGetControlSet('abilityshop_set', 'ABILSHOP_'..abilClass.ClassName, 20, posY);
+	local classCtrl = grid:CreateOrGetControlSet('abilityshop_set', 'ABILSHOP_'..abilClass.ClassName, 10, posY);
 	classCtrl:ShowWindow(1);
 	
 	if maxLevel >= abilLv then
@@ -335,7 +335,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	ABILITYSHOP_SHOW_PRICE(classCtrl, isMax);
 	SET_ABILITY_COST_CTRL(frame, classCtrl, pc, groupClass, abilClass, initialCnt)
 
-	local priceCtrl = GET_CHILD(classCtrl, "abilPrice", "ui::CRichText");
+	local priceCtrl = GET_CHILD_RECURSIVELY(classCtrl, "abilPrice", "ui::CRichText");
 	for i = 0, RUN_ABIL_MAX_COUNT do
 		local prop = "None";
 		if 0 == i then
@@ -394,7 +394,7 @@ function ABILITYSHOP_SHOW_PRICE(classCtrl, isMax)
 	end
 
 	local bg2 = GET_CHILD(classCtrl, "bg2", "ui::CGroupBox");
-	local abilPrice = GET_CHILD(classCtrl, "abilPrice", "ui::CRichText");
+	local abilPrice = GET_CHILD_RECURSIVELY(classCtrl, "abilPrice", "ui::CRichText");
 	local abilAdd = GET_CHILD(classCtrl, "abilAdd", "ui::CButton");
 	local abilRevert = GET_CHILD(classCtrl, "abilRevert", "ui::CButton");
 	local abilLearn = GET_CHILD(classCtrl, "abilLearn", "ui::CButton");
@@ -521,14 +521,20 @@ end
 
 s_buyAbilName = 'None';
 s_buyAbilCount = 0;
+s_AbilShopType = 'None';
 function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)	
 	local pc = GetMyPCObject();
 	if pc == nil then
 		return;
 	end
+	if s_AbilShopType == 'None' then
+	    return;
+	end
+    
 	if CHECK_LEARNING_ABILITY(pc, abilID) == 1 then
 		return;
 	end
+
 
 	local runCnt = 0;
 	for i = 0, RUN_ABIL_MAX_COUNT do
@@ -587,25 +593,23 @@ function REQUEST_BUY_ABILITY(frame, control, abilName, abilID)
 	local addBtn = GET_CHILD(ctrlSet, "abilAdd", "ui::CButton");
 	local addCount = tonumber( ctrlSet:GetUserValue("COUNT_"..abilName) );
 	local price = tonumber( ctrlSet:GetUserValue("PRICE_"..abilName) );
-	s_buyAbilCount = addCount;
+	s_buyAbilCount = addCount;	
     
-	if GET_TOTAL_MONEY() < price then
-		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
+    local currentPoint = TryGetProp(pc, 'AbilityPoint');
+    if currentPoint == nil or currentPoint == 'None' then
+        currentPoint = 0;
+    end
+	if tonumber(currentPoint) < price then
+		ui.SysMsg(ScpArgMsg('NotEnoughAbilityPoint'));
 		return;
 	end
-
+	local msg = ''
 	local yesScp = string.format("EXEC_BUY_ABILITY()");
-	ui.MsgBox(ClMsg('ExecLearnAbility'), yesScp, "None");
+	ui.MsgBox(ScpArgMsg('ExecAbilityShopMsg1','PRICE', price)..msg , yesScp, "None");
 
 end
 
 function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
-    -- 랭크 초기화권 사용 전에 배웠던 특성은 0실버
-    if GetBeforeAbilityLevel(nil, abilClass.ClassName) >= abilLv then
-        price = 0
-        return price
-    end
-    
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
 --	else
@@ -623,4 +627,8 @@ end
 
 function EXEC_BUY_ABILITY()
 	ui.Chat("/learnpcabil " .. s_buyAbilName .. " " .. tostring(s_buyAbilCount));
+end
+
+function ABILITYSHOP_BUY_BTN_CLICK(parent, ctrl)
+    ui.OpenFrame('ability_point_buy');
 end

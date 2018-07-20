@@ -151,7 +151,7 @@
 			<richtext name="weight_text" format="무게 : %s" param1="weight" param1_def="999" layout_gravity="right top" textalign="right center" rect="0 0 140 24" margin="0 50 15 0" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<richtext name="grade" layout_gravity="left top" textalign="center center" rect="0 0 80 30" margin="10 107 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="brown_18"/>
 			<richtext name="prop_text" format="%s" param1="" param1_def="" layout_gravity="left bottom" textalign="left center" rect="0 0 170 24" margin="95 0 0 30" fixwidth="false" hittest="false" fontname="brown_18"/>
-			<richtext name="noTrade_cnt" format="{#62100c}거래불가 개수 : %s개" param1="count" param1_def="999" layout_gravity="left bottom" textalign="left center" rect="0 0 170 24" margin="95 0 0 10" fixwidth="true" hittest="false" fontname="red_18"/>
+			<richtext name="noTrade_cnt" format="{#62100c}거래불가 개수 : %s개" param1="count" param1_def="999" layout_gravity="left bottom" textalign="left center" rect="0 0 300 24" margin="95 0 0 10" fixwidth="true" hittest="false" fontname="red_18"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_gem_tradability" hittest="true" width="330" height="70">
@@ -1637,7 +1637,8 @@
 			<richtext name="abilTime" margin="160 60 0 0" rect="0 0 265 30" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" fixheight="false" hittest="false" fontname="brown_16_b"/>
 			<richtext name="abilLevelMax" margin="375 38 0 0" rect="0 0 100 30" layout_gravity="left top" resizebytext="false" textalign="left top" fixwidth="true" fixheight="true" hittest="false" fontname="brown_16_b" format="%s{/}" param1="value" param1_def="aaaaa"/>
 			<richtext name="abilDesc" margin="15 90 0 0" rect="0 0 410 70" skin="ability_deck" layout_gravity="left top" resizebytext="true" textalign="left top" fixwidth="true" hittest="false" fontname="brown_16"/>
-			<richtext name="abilPrice" margin="20 0 0 13" rect="0 0 200 30" layout_gravity="left bottom" resizebytext="false" textalign="center center" fixwidth="true" fixheight="true" hittest="false" fontname="white_16_ol"/>
+      <richtext name="abilPointText" parent="bg2" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="left center" caption="필요 포인트" fontname="black_16"/>
+			<richtext name="abilPrice" parent="bg2" rect="0 0 50 30" margin="0 0 20 0" layout_gravity="right center" hittest="false" fontname="black_16"/>
 			<button name="abilAdd" rect="0 0 45 45" margin="230 0 0 1" image="market_plus2_btn" layout_gravity="left bottom"/>
 			<button name="abilRevert" rect="0 0 45 45" margin="270 0 0 5" image="market_reset2_btn" layout_gravity="left bottom"/>
 			<button name="abilLearn" rect="0 0 120 45" margin="310 0 0 5" skin="test_pvp_btn" layout_gravity="left bottom" caption="{@st66b}배우기"/>
@@ -2593,7 +2594,7 @@
 		<controls>
 			<richtext name="userName" margin="5 3 0 0" rect="0 0 400 21" format="{@st42_yellow}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="itemName" margin="15 26 0 0" rect="0 0 299 21" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="Property" margin="15 53 0 0" rect="0 0 328 50" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="Property" margin="15 53 0 0" rect="0 0 328 50" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="squire_rpair_history" toggle="false" hittest="true" width="410" height="50" skin="none" stateskin="false">
@@ -3320,4 +3321,12 @@
 			<picture name="item_pic" layout_gravity="left top" stretch="true" hittest="true" rect="0 0 60 60" margin="5 5 0 0"/>
 		</controls>
 	</controlset>
+  <controlset name="basic_property_set" hittest="false" width="400" height="40">
+    <controls>
+      <richtext name="minPowerStr" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+      <richtext name="minPower" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+      <richtext name="maxPowerStr" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+      <richtext name="maxPower" rect="0 0 120 24" margin="0 20 0 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" param1="txt" resizebytext="true" slideshow="false" textalign="left top" updateparent="false"/>
+    </controls>
+  </controlset>
 </controlsetlist>

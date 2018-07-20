@@ -180,8 +180,35 @@ function RANKRESET_ITEM_USE_BUTTON_CLICK(frame, ctrl)
         ui.SysMsg(ClMsg("AllowedInTown"));
         return;
     end
+     
+    if CHECK_INVENTORY_HAS_RANK_CARD() == true then
+        ui.MsgBox_NonNested(ClMsg('YouHaveRankCardReallyRankReset?'), 0x00000000, frame:GetName(), 'None', 'None');
+        return;
+    end    
 
-	local itemIES = frame:GetUserValue("itemIES");
+    RANKRESET_REQUEST_RANK_RESET();
+end
+
+function CHECK_INVENTORY_HAS_RANK_CARD()
+    -- n랭크 카드
+    for i = 2, JOB_CHANGE_MAX_RANK do
+        local rankCardName = 'jexpCard_UpRank'..i;
+        if session.GetInvItemByName(rankCardName) ~= nil then
+            return true;
+        end
+    end
+    
+    -- 클래스 경험치 복구 카드
+    if session.GetInvItemByName('jexpCard_RestoreLastRank') ~= nil then
+        return true;
+    end
+
+    return false;
+end
+
+function RANKRESET_REQUEST_RANK_RESET()
+    local frame = ui.GetFrame('rankreset');
+    local itemIES = frame:GetUserValue("itemIES");
 	packet.RankResetItemUse(itemIES);
 end
 
@@ -189,4 +216,18 @@ function RANKRESET_CANCEL_BUTTON_CLICK(frame, ctrl)
 	frame = frame:GetTopParentFrame();
 	frame:SetUserValue("itemIES", 'None');
 	frame:ShowWindow(0);
+end
+
+function RANKRESET_DELETE_RANK_CARD(className)
+    local deleteItem = session.GetInvItemByName(className);
+    if deleteItem == nil then
+        return;
+    end
+    local deleteItemCls = GetClass('Item', className);
+    if deleteItemCls == nil then
+        return;
+    end
+    local yesScp = string.format('control.CustomCommand("TAKE_ITEM", %d)', deleteItemCls.ClassID);
+
+    ui.MsgBox(ClMsg('DeleteCardBecauseYourRankTooHigh'), yesScp, 'None');
 end

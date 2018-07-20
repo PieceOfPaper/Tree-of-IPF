@@ -201,7 +201,7 @@
 						<Str Str="ScullSwing_Debuff"/>
 						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
 						<Num Num="0"/>
-						<Num Num="0"/>
+						<Num Num="3000"/>
 						<Num Num="1"/>
 						<Num Num="100"/>
 						<Num Num="-1"/>
@@ -228,7 +228,7 @@
 						<Str Str="ScullSwing_Debuff"/>
 						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 						<Num Num="0"/>
-						<Num Num="0" UseFunc="1" FuncTxt="return 5000 + obj.Level * 5000;"/>
+						<Num Num="3000"/>
 						<Num Num="1"/>
 						<Num Num="100"/>
 						<Num Num="-1"/>
@@ -253,62 +253,12 @@
 						<Str Str="ScullSwing_Debuff"/>
 						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 						<Num Num="0"/>
-						<Num Num="0" UseFunc="1" FuncTxt="return 5000 + obj.Level * 5000;"/>
+						<Num Num="3000"/>
 						<Num Num="1"/>
 						<Num Num="100"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Swordman_PommelBeat">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
-						<Str Str="S"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Swordman_PommelBeat"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="local ignoreDEF = 20 +  obj.Level* 5;
-if ignoreDEF > targetObj.DEF then
-return targetObj.DEF;
-else
-return ignoreDEF;
-end"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
-						<Str Str="M"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Swordman_PommelBeat"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="local ignoreDEF = 20 +  obj.Level* 5;
-if ignoreDEF > targetObj.DEF then
-return targetObj.DEF;
-else
-return ignoreDEF;
-end"/>
-					</ToolScp>
-				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>

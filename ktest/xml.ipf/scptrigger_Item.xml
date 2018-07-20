@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SpcItemList>
 	<SpcItem Name="Default">
 		<TriggerList Act="Equip">
@@ -523,9 +523,9 @@
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Rogue_Backstab"/>
-						<Num Num="2"/>
+						<Num Num="1.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -2071,7 +2071,7 @@ end"/>
 		<TriggerList Act="BeforeAttack">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Hoplite_ThrouwingSpear"/>
 						<Num Num="0.5"/>
 					</ToolScp>
@@ -3531,9 +3531,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireBall"/>
-						<Num Num="2.8"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3544,9 +3544,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireWall"/>
-						<Num Num="2.6"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3557,9 +3557,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_Flare"/>
-						<Num Num="3.1"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3570,9 +3570,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FirePillar"/>
-						<Num Num="2.9"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3583,9 +3583,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_HellBreath"/>
-						<Num Num="2.45"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3596,9 +3596,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FlameGround"/>
-						<Num Num="1.6"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3609,9 +3609,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Meteor"/>
-						<Num Num="0.996"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3622,9 +3622,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="PlagueDoctor_Incineration"/>
-						<Num Num="1.044"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -3635,9 +3635,9 @@ return self.RSP;"/>
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Elementalist_Prominence"/>
-						<Num Num="1.86"/>
+						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

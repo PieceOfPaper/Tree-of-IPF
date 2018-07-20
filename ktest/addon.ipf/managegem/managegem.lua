@@ -225,8 +225,12 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 
 	local richtext_howmuch = GET_CHILD_RECURSIVELY(frame, 'richtext_howmuch', 'ui::CRichText')
 	local curcnt = GET_SOCKET_CNT(item);
-	richtext_howmuch:SetTextByKey("add",GET_MAKE_SOCKET_PRICE(item.ItemLv, curcnt))
-	richtext_howmuch:SetTextByKey("remove",GET_REMOVE_GEM_PRICE(item.ItemLv))
+	local lv = TryGetProp(item,"UseLv");
+	if lv == nil then
+	    return 0;
+	end
+	richtext_howmuch:SetTextByKey("add",GET_MAKE_SOCKET_PRICE(lv, curcnt))
+	richtext_howmuch:SetTextByKey("remove",GET_REMOVE_GEM_PRICE(lv))
 	richtext_howmuch:ShowWindow(1)
 	frame:SetUserValue("TEMP_IESID",id);
 	
@@ -294,8 +298,14 @@ function EXEC_REMOVE_GEM()
 			nowusesocketcount = nowusesocketcount + 1
 		end
 	end
+    
+    local lv = TryGetProp(itemobj , "UseLv");
+    
+    if lv == nil then
+        return 0;
+    end
 
-	local price = GET_REMOVE_GEM_PRICE(itemobj.ItemLv)
+	local price = GET_REMOVE_GEM_PRICE(lv)
 
 	if GET_TOTAL_MONEY() < price then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
@@ -330,7 +340,7 @@ function EXEC_MAKE_NEW_SOCKET()
 	if tempiesid == 0 then
 		return;
 	end
-
+	
 	local itemobj = GetObjectByGuid(tempiesid);
 
 	local nowusesocketcount = 0
@@ -361,7 +371,12 @@ function EXEC_MAKE_NEW_SOCKET()
 		return;
 	end
     local curcnt = GET_SOCKET_CNT(itemobj);
-	local price = GET_MAKE_SOCKET_PRICE(itemobj.ItemLv, curcnt)
+   	local lv = TryGetProp(itemobj,"UseLv");
+    	if lv == nil then
+	        return 0;
+    	end
+
+	local price = GET_MAKE_SOCKET_PRICE(lv, curcnt)
 
 	if GET_TOTAL_MONEY() < price then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))

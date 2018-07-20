@@ -11,7 +11,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 108,108,1,40,1,60000,1,2,0,0,0,0,0,"npc_fedimian_merchant","[잡화 상인]{nl}    뮤라스","","","","MON_DUMMY","","","FED_TOOL","","","NO","YES","NO","Neutral","","","",""
 109,109,1,100,1,60000,1,2,0,0,0,0,0,"npc_fedimian_merchant_1","[장비 상인]{nl}   요르기스","","","","MON_DUMMY","","","FED_EQUIP","FED_EQUIP_HQ_REINFORCE","FED_EQUIP_HQ_REINFORCE","NO","YES","NO","Neutral","","","",""
 110,110,1,20,1,60000,1,2,0,0,0,0,0,"Warp_arrow","큰아귀 길","","","","MON_DUMMY","","","","FEDMIAN_PILGRIM46","","NO","YES","NO","Neutral","","","",""
-111,111,1,30,1,1,1,2,0,0,0,0,0,"Warp_arrow","용병 의뢰소","","","","MON_DUMMY","","","","FEDIMIAN_REQUEST1","","NO","YES","NO","Neutral","","","",""
+111,111,1,30,1,1,1,2,0,0,0,0,0,"Warp_arrow","건물 내부","","","","MON_DUMMY","","","FEDIMIAN_REQUEST1","","","NO","YES","NO","Neutral","","","",""
 113,113,1,30,-1,1,1,0,0,0,0,0,0,"Board1","알림판","","","","MON_DUMMY","","","FEDIMIAN_SIGN1","","","NO","YES","NO","Neutral","","","",""
 114,114,1,40,-1,60000,1,1,0,0,0,0,0,"npc_c_sculptor","노인","","","","MON_DUMMY","","","FEDIMIAN_OLDMAN1","","","NO","YES","NO","Neutral","","","",""
 115,115,1,40,-1,60000,1,0,0,0,0,0,0,"Board1","알림판","","","","MON_DUMMY","","","FEDIMIAN_SIGN2","","","NO","YES","NO","Neutral","","","",""
@@ -40,3 +40,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 1003,1003,1,40,1,60000,1,1,0,0,0,0,0,"npc_Appraiser","[감정사 마스터]{nl}        산드라","","","","","","","FEDIMIAN_APPRAISER_NPC","","","NO","YES","NO","Neutral","","","",""
 1004,1004,1,40,1,60000,1,2,0,0,0,0,0,"Board3","서바이벌 게시판","","","","","","","STEAM_TREASURE_EVENT_SURVIVAL","","","NO","YES","NO","Neutral","","","",""
 2000,2000,1,30,1,60000,1,0,0,0,0,0,0,"Hiddennpc","UnvisibleName","","","","NPC_KUPOLE_TESTSERVER","","","","","","NO","YES","NO","Neutral","","","",""
+5050,5050,1,40,1,60000,1,2,0,0,0,0,0,"npc_kupole_4","초기화 지원 큐폴","","","","","","","EVENT_REBALANCING_RESET","","","NO","YES","NO","Neutral","","","",""

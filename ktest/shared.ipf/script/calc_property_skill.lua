@@ -46,27 +46,28 @@ function SCR_Get_SpendSP_Buff(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	if zeminaLv > 0 then
-		decsp = 2 + (zeminaLv * 2);
-	end
-		
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
 	
-	local value = basicsp + (lv - 1) * addsp + abilAddSP;
+--	local value = basicsp + (lv - 1) * addsp + abilAddSP;
+    local value = basicsp + (lv - 1) * addsp
 	
 	local GHabil =  GetAbility(pc, 'Remain')
 	if GHabil ~= nil then 
         value = value + (value * (GHabil.Level * 0.1))
 	end
 	
+	value = value + (value * abilAddSP);
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 4 + (zeminaLv * 4);
+	end
     value = value - decsp;
+
 	if value < 1 then
 		value = 1;
 	end
 	
     return math.floor(value);
-	
 end
 
 
@@ -82,19 +83,23 @@ function SCR_Get_SpendSP(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	if zeminaLv > 0 then
-		decsp = 2 + (zeminaLv * 2);
-	end
+
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
+	-- lvUpSpendSP??루아??서??float ???????? ??정??기??해 ??수 5??리??서 반올림한??
+	-- ??렇??계산??줘????라??언???? 계산 값이 맞다. ??마????수??의 10??리쯤이 ??리?? ??을??.
 	local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 	
-	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
-	value = value - decsp;
-
+--	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSpRound;
+    
+	value = value + (value * abilAddSP);
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 4 + (zeminaLv * 4);
+	end
+    value = value - decsp;
+    
 	if value < 1 then
 		value = 1;
 	end
@@ -113,16 +118,17 @@ function SCR_Get_SpendSP_Soaring(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	if zeminaLv > 0 then
-		decsp = 2 + (zeminaLv * 2);
-	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+	local value = basicsp + (lv * 10)
 	
-	value = basicsp + (lv * 10) + abilAddSP;
-	value = value - decsp;
+	value = value + (value * abilAddSP);
 	
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 4 + (zeminaLv * 4);
+	end
+    value = value - decsp;
 	if value < 1 then
 		value = 1;
 	end
@@ -142,13 +148,10 @@ function SCR_Get_SpendSP_Magic(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	if zeminaLv > 0 then
-		decsp = 2 + (zeminaLv * 2);
-	end
 
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	local value = basicsp + (lv - 1) * lvUpSpendSp + abilAddSP;
+--	local value = basicsp + (lv - 1) * lvUpSpendSp + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSp;
 	
 	if IsBuffApplied(pc, 'Wizard_Wild_buff') == 'YES' then
 	    value = value * 1.5 * spRatio;
@@ -160,6 +163,12 @@ function SCR_Get_SpendSP_Magic(skill)
 	    return math.floor(value);
     end    
     
+    value = value + (value * abilAddSP);
+    
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 4 + (zeminaLv * 4);
+	end
     value = value - decsp;
     
     if value < 1 then
@@ -167,7 +176,6 @@ function SCR_Get_SpendSP_Magic(skill)
 	end
 	
 	return math.floor(value);
-
 end
 
 function SCR_Get_SpendSP_Bow(skill)
@@ -182,20 +190,22 @@ function SCR_Get_SpendSP_Bow(skill)
 	end
 	
 	local pc = GetSkillOwner(skill);
-	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
-	if zeminaLv > 0 then
-		decsp = 2 + (zeminaLv * 2);
-	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	local value = basicsp + abilAddSP - decsp
-	
+--	local value = basicsp + abilAddSP - decsp
+    local value = basicsp + (basicsp * abilAddSP)
+    
+	local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+	if zeminaLv > 0 then
+		decsp = 4 + (zeminaLv * 4);
+	end
+    value = value - decsp;
+    
 	if value < 1 then
 		value = 1;
 	end
     
 	return math.floor(value)
-
 end
 
 
@@ -220,7 +230,6 @@ function SCR_Get_SpendPoison(skill)
 end
 
 function SCR_Skill_STA(skill)
-
 	local basicsta = skill.BasicSta;
 	if basicsta == 0 then
 		return 0;
@@ -228,11 +237,9 @@ function SCR_Skill_STA(skill)
 
 	local pc = GetSkillOwner(skill);
 	return basicsta * 1000;
-
 end
 
 function SCR_Skill_SubweaponCancel_STA(skill)
-
 	local basicsta = skill.BasicSta;
 	if basicsta == 0 then
 		return 0;
@@ -713,21 +720,20 @@ end
 
 function SCR_Get_ReinforceAtk(skill)
   
-    local ReinforceAtkAdd
+    local ReinforceAtkAdd = 0;
     local self = GetSkillOwner(skill);
     
-	  local skillOwner = GetSkillOwner(skill);
-  	  if skillOwner.ClassName == 'PC' then
-  	  local jobObj = GetJobObject(self);
-      local weapon = GetEquipItem(self, 'RH')
-      local Transcend = weapon.Transcend
-
-      ReinforceAtkAdd = skill.ReinforceAtkAdd + Transcend * skill.ReinforceAtkAddByLevel;
-      
+    if self.ClassName == 'PC' then
+--        local jobObj = GetJobObject(self);
+        local weapon = GetEquipItem(self, 'RH')
+        local Transcend = weapon.Transcend
+        
+        ReinforceAtkAdd = skill.ReinforceAtkAdd + Transcend * skill.ReinforceAtkAddByLevel;
+        
         return ReinforceAtkAdd
-      else
+    else
         return 1;
-      end
+    end
 
 end
 
@@ -763,7 +769,7 @@ function SCR_Get_SklAtkAdd_Thrust(skill)
 end
 
 function SCR_ABIL_ADD_SKILLFACTOR(abil, value)
-    return value + value * (abil.Level * 0.01)
+    return value * (1 + (abil.Level * 0.005))
 end
 
 function SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil)
@@ -774,7 +780,7 @@ end
 function SCR_Get_SkillFactor_Thrust(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 	
 	local abil = GetAbility(pc, "Swordman2")      -- Skill Damage add
     if abil ~= nil then
@@ -812,7 +818,7 @@ end
 
 function SCR_Get_SkillFactor_Bash(skill)
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 	
 	local abil = GetAbility(pc, "Swordman1")      -- Skill Damage add
     if abil ~= nil then
@@ -846,7 +852,7 @@ end
 function SCR_Get_SkillFactor_PommelBeat(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Swordman25")      -- Skill Damage add
     if abil ~= nil then
@@ -871,7 +877,7 @@ end
 
 function SCR_GET_PommelBeat_Ratio(skill)
 
-    return 20 +  skill.Level * 5
+    return skill.Level * 2;
 
 end
 
@@ -887,7 +893,7 @@ end
 function SCR_Get_SkillFactor_DoubleSlash(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Swordman27")      -- Skill Damage add
     if abil ~= nil then
@@ -922,7 +928,7 @@ end
 function SCR_Get_SkillFactor_RimBlow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Peltasta11")      -- Skill Damage add
     if abil ~= nil then
@@ -957,7 +963,7 @@ end
 function SCR_Get_SkillFactor_UmboBlow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Peltasta12")      -- Skill Damage add
     if abil ~= nil then
@@ -1002,7 +1008,7 @@ end
 function SCR_Get_SkillFactor_ShieldLob(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Peltasta14")      -- Skill Damage add
     if abil ~= nil then
@@ -1043,7 +1049,7 @@ end
 function SCR_Get_SkillFactor_ButterFly(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Peltasta22")      -- Skill Damage add
     if abil ~= nil then
@@ -1068,7 +1074,7 @@ end
 function SCR_Get_SkillFactor_UmboThrust(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Peltasta26")      -- Skill Damage add
     if abil ~= nil then
@@ -1093,7 +1099,7 @@ end
 function SCR_Get_SkillFactor_Langort(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Peltasta27")      -- Skill Damage add
     if abil ~= nil then
@@ -1134,7 +1140,7 @@ end
 function SCR_Get_SkillFactor_Moulinet(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander14")      -- Skill Damage add
     if abil ~= nil then
@@ -1168,7 +1174,7 @@ end
 function SCR_Get_SkillFactor_CartarStroke(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander11")      -- Skill Damage add
     if abil ~= nil then
@@ -1191,14 +1197,13 @@ function SCR_GET_CartarStroke_Ratio(skill)
 end
 
 function SCR_GET_CartarStroke_Ratio2(skill)
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, 'Highlander33')
-    local value = 0.2 * skill.Level;
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value / 2
-    end
+--    local pc = GetSkillOwner(skill);
+--    local abil = GetAbility(pc, 'Highlander33')
+    local value = (0.2 * skill.Level) / 2
+--    if abil ~= nil and abil.ActiveState == 1 then
+--        value = value / 2
+--    end
     return value
-
 end
 
 function SCR_Get_SklAtkAdd_WagonWheel(skill)
@@ -1213,7 +1218,7 @@ end
 function SCR_Get_SkillFactor_WagonWheel(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander13")      -- Skill Damage add
     if abil ~= nil then
@@ -1247,7 +1252,7 @@ end
 function SCR_Get_SkillFactor_Crown(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander12")      -- Skill Damage add
     if abil ~= nil then
@@ -1281,7 +1286,7 @@ end
 function SCR_Get_SkillFactor_ScullSwing(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander25")      -- Skill Damage add
     if abil ~= nil then
@@ -1306,7 +1311,7 @@ end
 function SCR_Get_SkillFactor_SkyLiner(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander29")      -- Skill Damage add
     if abil ~= nil then
@@ -1331,7 +1336,7 @@ end
 function SCR_Get_SkillFactor_CrossCut(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander30")      -- Skill Damage add
     if abil ~= nil then
@@ -1356,7 +1361,7 @@ end
 function SCR_Get_SkillFactor_VerticalSlash(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Highlander31")      -- Skill Damage add
     if abil ~= nil then
@@ -1390,7 +1395,7 @@ end
 function SCR_Get_SkillFactor_Stabbing(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Hoplite11")      -- Skill Damage add
     if abil ~= nil then
@@ -1424,7 +1429,7 @@ end
 function SCR_Get_SkillFactor_LongStride(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Hoplite12")      -- Skill Damage add
     if abil ~= nil then
@@ -1458,7 +1463,7 @@ end
 function SCR_Get_SkillFactor_SynchroThrusting(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Hoplite13")      -- Skill Damage add
     if abil ~= nil then
@@ -1492,7 +1497,7 @@ end
 function SCR_Get_SkillFactor_Pierce(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Hoplite14")      -- Skill Damage add
     if abil ~= nil then
@@ -1526,7 +1531,7 @@ end
 function SCR_Get_SkillFactor_ThrouwingSpear(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Hoplite23")      -- Skill Damage add
     if abil ~= nil then
@@ -1550,7 +1555,7 @@ end
 
 function SCR_Get_SkillFactor_SpearLunge(skill)
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Hoplite26")      -- Skill Damage add
     if abil ~= nil then
@@ -1584,7 +1589,7 @@ end
 function SCR_Get_SkillFactor_Embowel(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Barbarian17")      -- Skill Damage add
     if abil ~= nil then
@@ -1618,7 +1623,7 @@ end
 function SCR_Get_SkillFactor_StompingKick(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Barbarian20")      -- Skill Damage add
     if abil ~= nil then
@@ -1652,7 +1657,7 @@ end
 function SCR_Get_SkillFactor_Pouncing(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Barbarian24")      -- Skill Damage add
     if abil ~= nil then
@@ -1677,7 +1682,7 @@ end
 function SCR_Get_SkillFactor_HelmChopper(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Barbarian25")      -- Skill Damage add
     if abil ~= nil then
@@ -1724,10 +1729,24 @@ function SCR_GET_Seism_Ratio(skill)
 
 end
 
+function SCR_GET_Seism_Ratio2(skill)
+--	local pc = GetSkillOwner(skill)
+--	local buff = GetBuffByName(pc, "ScudInstinct_Buff")
+--	local buffOver = GetOver(buff)
+--	if buff ~=nil and buffOver >= 5 then
+--	    hitCount = hitCount + 2
+--    end
+    local hitCount = 3
+    
+    return hitCount;
+
+end
+
+
 function SCR_Get_SkillFactor_Cleave(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Barbarian27")      -- Skill Damage add
     if abil ~= nil then
@@ -1763,7 +1782,7 @@ end
 function SCR_Get_SkillFactor_ShieldCharge(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero11")      -- Skill Damage add
     if abil ~= nil then
@@ -1797,7 +1816,7 @@ end
 function SCR_Get_SkillFactor_Montano(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero14")      -- Skill Damage add
     if abil ~= nil then
@@ -1831,7 +1850,7 @@ end
 function SCR_Get_SkillFactor_TargeSmash(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero17")      -- Skill Damage add
     if abil ~= nil then
@@ -1865,7 +1884,7 @@ end
 function SCR_Get_SkillFactor_ShieldPush(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero20")      -- Skill Damage add
     if abil ~= nil then
@@ -1889,7 +1908,7 @@ end
 
 function SCR_Get_SkillFactor_ShieldShoving(skill)
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero26")      -- Skill Damage add
     if abil ~= nil then
@@ -1911,18 +1930,16 @@ function SCR_GET_ShieldShoving_Ratio(skill)
 end
 
 function SCR_GET_ShieldShoving_Bufftime(skill)
-
     local value = 1.5
-        if IsPVPServer(self) == 1 then
-	        value = 3
-	    end
+    if IsPVPServer(self) == 1 then
+        value = 3
+	end
     return value
-
 end
 
 function SCR_Get_SkillFactor_ShieldBash(skill)
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero27")      -- Skill Damage add
     if abil ~= nil then
@@ -1955,7 +1972,7 @@ end
 function SCR_Get_SkillFactor_Slithering(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero24")      -- Skill Damage add
     if abil ~= nil then
@@ -1990,7 +2007,7 @@ end
 function SCR_Get_SkillFactor_ShootingStar(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero23")      -- Skill Damage add
     if abil ~= nil then
@@ -2015,7 +2032,7 @@ end
 function SCR_Get_SkillFactor_HighKick(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Rodelero28")      -- Skill Damage add
     if abil ~= nil then
@@ -2050,7 +2067,7 @@ end
 function SCR_Get_SkillFactor_Impaler(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Cataphract14")      -- Skill Damage add
     if abil ~= nil then
@@ -2069,6 +2086,11 @@ function SCR_GET_Impaler_Ratio(skill)
 	if abil ~= nil then 
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
+
+end
+
+function SCR_GET_Impaler_Ratio2(skill)
+    return 10;
 
 end
 
@@ -2105,6 +2127,11 @@ function SCR_GET_Rush_Ratio(skill)
     end
 
 end
+function SCR_GET_Rush_Ratio3(skill)
+    local value = 33 + skill.Level *7;
+    return value;
+end
+
 
 function SCR_Get_SklAtkAdd_EarthWave(skill)
 
@@ -2118,7 +2145,7 @@ end
 function SCR_Get_SkillFactor_EarthWave(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Cataphract17")      -- Skill Damage add
     if abil ~= nil then
@@ -2152,7 +2179,7 @@ end
 function SCR_Get_SkillFactor_DoomSpike(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Cataphract23")      -- Skill Damage add
     if abil ~= nil then
@@ -2186,7 +2213,7 @@ end
 function SCR_Get_SkillFactor_SteedCharge(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Cataphract20")      -- Skill Damage add
     if abil ~= nil then
@@ -2220,7 +2247,7 @@ end
 function SCR_Get_SkillFactor_Keelhauling(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Corsair11")      -- Skill Damage add
     if abil ~= nil then
@@ -2253,7 +2280,7 @@ end
 function SCR_Get_SkillFactor_DustDevil(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Corsair12")      -- Skill Damage add
     if abil ~= nil then
@@ -2278,7 +2305,7 @@ end
 function SCR_Get_SkillFactor_HexenDropper(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Corsair13")      -- Skill Damage add
     if abil ~= nil then
@@ -2303,7 +2330,7 @@ end
 function SCR_Get_SkillFactor_PistolShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Corsair16")      -- Skill Damage add
     if abil ~= nil then
@@ -2337,7 +2364,7 @@ end
 function SCR_Get_SkillFactor_Cyclone(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner11")      -- Skill Damage add
     if abil ~= nil then
@@ -2377,7 +2404,7 @@ end
 function SCR_Get_SkillFactor_Mordschlag(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner12")      -- Skill Damage add
     if abil ~= nil then
@@ -2411,7 +2438,7 @@ end
 function SCR_Get_SkillFactor_Punish(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner13")      -- Skill Damage add
     if abil ~= nil then
@@ -2436,7 +2463,7 @@ end
 function SCR_Get_SkillFactor_Zornhau(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner14")      -- Skill Damage add
     if abil ~= nil then
@@ -2458,10 +2485,20 @@ function SCR_GET_Zornhau_Ratio(skill)
 
 end
 
+function SCR_GET_Zornhau_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, 'Doppelsoeldner22')
+    local hitCount = 1
+    if abil ~= nil and skill.Level >= 6 and abil.ActiveState == 1 then
+        hitCount = 1 + abil.Level;
+    end
+    return hitCount;
+end
+
 function SCR_Get_SkillFactor_Redel(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner15")      -- Skill Damage add
     if abil ~= nil then
@@ -2483,10 +2520,22 @@ function SCR_GET_Redel_Ratio(skill)
 
 end
 
+function SCR_GET_Redel_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, "Doppelsoeldner21")
+    local hitCount = 5
+    if abil ~= nil and skill.Level >=6 and abil.ActiveState == 1 then
+        hitCount = hitCount * 2
+    end
+    
+    return hitCount;
+
+end
+
 function SCR_Get_SkillFactor_Zucken(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner16")      -- Skill Damage add
     if abil ~= nil then
@@ -2508,11 +2557,23 @@ function SCR_GET_Zucken_Ratio(skill)
 
 end
 
+function SCR_GET_Zucken_Ratio2(skill)
+
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, "Doppelsoeldner20")
+    local hitCount = 4
+    if abil ~= nil and skill.Level >= 6 and abil.ActiveState == 1 then
+        hitCount = hitCount * 2
+    end
+    
+    return hitCount;
+
+end
 
 function SCR_Get_SkillFactor_AttaqueComposee(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Fencer2")      -- Skill Damage add
     if abil ~= nil then
@@ -2537,7 +2598,7 @@ end
 function SCR_Get_SkillFactor_Lunge(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Fencer3")      -- Skill Damage add
     if abil ~= nil then
@@ -2576,7 +2637,7 @@ end
 function SCR_Get_SkillFactor_SeptEtoiles(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Fencer4")      -- Skill Damage add
     if abil ~= nil then
@@ -2601,7 +2662,7 @@ end
 function SCR_Get_SkillFactor_AttaqueCoquille(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Fencer5")      -- Skill Damage add
     if abil ~= nil then
@@ -2650,7 +2711,7 @@ end
 function SCR_Get_SkillFactor_EsquiveToucher(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Fencer6")      -- Skill Damage add
     if abil ~= nil then
@@ -2685,7 +2746,7 @@ end
 function SCR_Get_SkillFactor_Flanconnade(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Fencer7")      -- Skill Damage add
     if abil ~= nil then
@@ -2710,7 +2771,7 @@ end
 function SCR_Get_SkillFactor_Mijin_no_jutsu(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Shinobi3")      -- Skill Damage add
     if abil ~= nil then
@@ -2806,6 +2867,12 @@ function SCR_GET_ShareBuff_Ratio(skill)
 
 end
 
+function SCR_GET_ShareBuff_Ratio2(skill)
+    local value = 90 + skill.Level*10
+    return value;
+end
+
+
 function SCR_GET_ReduceCraftTime_Ratio(skill)
 
 	local value = 5 * skill.Level
@@ -2832,7 +2899,7 @@ end
 function SCR_Get_SkillFactor_Katon_no_jutsu(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Shinobi2")      -- Skill Damage add
     if abil ~= nil then
@@ -2857,7 +2924,7 @@ end
 function SCR_Get_SkillFactor_Kunai(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Shinobi1")      -- Skill Damage add
     if abil ~= nil then
@@ -2865,18 +2932,28 @@ function SCR_Get_SkillFactor_Kunai(skill)
     end
 
     return math.floor(value)
-
 end
 
 function SCR_GET_Kunai_Ratio(skill)
-
 	local pc = GetSkillOwner(skill);
 	local abil = GetAbility(pc, "Shinobi1") 
 	local value = 0
 	if abil ~= nil then 
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
+end
 
+function SCR_Get_SkillFactor_Mokuton_no_jutsu(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+
+--	local abil = GetAbility(pc, "Shinobi1")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+
+    return math.floor(value)
 end
 
 function SCR_GET_DeadlyCombo_Ratio(skill)
@@ -2893,7 +2970,7 @@ end
 function SCR_Get_SkillFactor_DeadlyCombo(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Squire11")      -- Skill Damage add
     if abil ~= nil then
@@ -2908,7 +2985,7 @@ end
 function SCR_Get_SkillFactor_Dragontooth(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Dragoon1")      -- Skill Damage add
     if abil ~= nil then
@@ -2933,7 +3010,7 @@ end
 function SCR_Get_SkillFactor_Serpentine(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Dragoon3")      -- Skill Damage add
     if abil ~= nil then
@@ -2958,7 +3035,7 @@ end
 function SCR_Get_SkillFactor_Gae_Bulg(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Dragoon5")      -- Skill Damage add
     if abil ~= nil then
@@ -2991,7 +3068,7 @@ end
 function SCR_Get_SkillFactor_Dragon_Soar(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Dragoon8")      -- Skill Damage add
     if abil ~= nil then
@@ -3016,7 +3093,7 @@ end
 function SCR_Get_SkillFactor_Zwerchhau(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner18")      -- Skill Damage add
     if abil ~= nil then
@@ -3046,7 +3123,7 @@ end
 function SCR_Get_SkillFactor_Sturzhau(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Doppelsoeldner19")      -- Skill Damage add
     if abil ~= nil then
@@ -3068,20 +3145,34 @@ function SCR_GET_Sturzhau_Ratio(skill)
 
 end
 
-function SCR_GET_Sturzhau_Ratio2(skill)
-    local value = skill.Level * 200
-    return value
-end
+--function SCR_GET_Sturzhau_Ratio2(skill)
+--    local value = skill.Level * 200
+--    return value
+--end
 
 function SCR_GET_Sturzhau_Ratio3(skill)
     local value = skill.Level * 5
     return value
 end
 
+function SCR_Get_SkillFactor_Fleche(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
+
+--	local abil = GetAbility(pc, "Fencer8")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+
+    return math.floor(value)
+
+end
+
 function SCR_Get_SkillFactor_BalestraFente(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Fencer8")      -- Skill Damage add
     if abil ~= nil then
@@ -3106,7 +3197,7 @@ end
 function SCR_Get_SkillFactor_AttaqueAuFer(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Fencer9")      -- Skill Damage add
     if abil ~= nil then
@@ -3149,7 +3240,7 @@ end
 function SCR_Get_SkillFactor_Dethrone(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Dragoon11")      -- Skill Damage add
     if abil ~= nil then
@@ -3209,7 +3300,7 @@ end
 function SCR_Get_SkillFactor_FlowDrill(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Templar1")      -- Skill Damage add
     if abil ~= nil then
@@ -3250,7 +3341,7 @@ end
 function SCR_Get_SkillFactor_FrenziedSlash(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Murmillo2")      -- Skill Damage add
     if abil ~= nil then
@@ -3282,7 +3373,7 @@ end
 function SCR_Get_SkillFactor_EvadeThrust(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Murmillo3")      -- Skill Damage add
     if abil ~= nil then
@@ -3307,7 +3398,7 @@ end
 function SCR_Get_SkillFactor_Headbutt(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Murmillo5")      -- Skill Damage add
     if abil ~= nil then
@@ -3388,7 +3479,7 @@ end
 function SCR_Get_SkillFactor_ScutumHit(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Murmillo9")      -- Skill Damage add
     if abil ~= nil then
@@ -3413,7 +3504,7 @@ end
 function SCR_Get_SkillFactor_Crush(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Lancer2")      -- Skill Damage add
     if abil ~= nil then
@@ -3468,7 +3559,7 @@ end
 function SCR_Get_SkillFactor_Joust(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Lancer6")      -- Skill Damage add
     if abil ~= nil then
@@ -3501,7 +3592,7 @@ end
 function SCR_Get_SkillFactor_SpillAttack(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Lancer7")      -- Skill Damage add
     if abil ~= nil then
@@ -3526,7 +3617,7 @@ end
 function SCR_Get_SkillFactor_Quintain(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Lancer8")      -- Skill Damage add
     if abil ~= nil then
@@ -3571,7 +3662,7 @@ end
 
 function SCR_Get_SklAtkAdd_Multishot(skill)
 
-	local pc = GetSkillOwner(skill);
+  local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel;
 
     return math.floor(value);
@@ -3581,8 +3672,9 @@ end
 function SCR_Get_SkillFactor_Multishot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
-
+--	local value = skill.SklFactor + skill.SklFactorByLevel * math.floor((skill.Level - 1) / 2)
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1);
+	
 	local abil = GetAbility(pc, "Archer11")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
@@ -3615,7 +3707,7 @@ end
 function SCR_Get_SkillFactor_Fulldraw(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Archer12")      -- Skill Damage add
     if abil ~= nil then
@@ -3649,7 +3741,7 @@ end
 function SCR_Get_SkillFactor_ObliqueShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Archer13")      -- Skill Damage add
     if abil ~= nil then
@@ -3683,7 +3775,7 @@ end
 function SCR_Get_SkillFactor_KnockbackShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Archer26")      -- Skill Damage add
     if abil ~= nil then
@@ -3717,7 +3809,7 @@ end
 function SCR_Get_SkillFactor_DuelShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Archer28")      -- Skill Damage add
     if abil ~= nil then
@@ -3751,7 +3843,7 @@ end
 function SCR_Get_SkillFactor_Barrage(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Ranger11")      -- Skill Damage add
     if abil ~= nil then
@@ -3785,7 +3877,7 @@ end
 function SCR_Get_SkillFactor_HighAnchoring(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Ranger12")      -- Skill Damage add
     if abil ~= nil then
@@ -3819,7 +3911,7 @@ end
 function SCR_Get_SkillFactor_BounceShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Ranger13")      -- Skill Damage add
     if abil ~= nil then
@@ -3844,7 +3936,7 @@ end
 function SCR_Get_SkillFactor_SpiralArrow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Ranger30")      -- Skill Damage add
     if abil ~= nil then
@@ -3912,7 +4004,7 @@ end
 function SCR_Get_SkillFactor_CriticalShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Ranger25")      -- Skill Damage add
     if abil ~= nil then
@@ -3946,7 +4038,7 @@ end
 function SCR_Get_SkillFactor_TimeBombArrow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Ranger28")      -- Skill Damage add
     if abil ~= nil then
@@ -4014,7 +4106,7 @@ end
 function SCR_Get_SkillFactor_StoneShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "QuarrelShooter12")      -- Skill Damage add
     if abil ~= nil then
@@ -4048,7 +4140,7 @@ end
 function SCR_Get_SkillFactor_RapidFire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "QuarrelShooter13")      -- Skill Damage add
     if abil ~= nil then
@@ -4072,7 +4164,7 @@ end
 
 function SCR_Get_RunningShot_Ratio(skill)
 
-	local value = 40 * skill.Level
+	local value = 50 + 30 * skill.Level
   return value
 
 end
@@ -4089,7 +4181,7 @@ end
 function SCR_Get_SkillFactor_DestroyPavise(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "QuarrelShooter20")      -- Skill Damage add
     if abil ~= nil then
@@ -4123,7 +4215,7 @@ end
 function SCR_Get_SkillFactor_BroomTrap(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper11")      -- Skill Damage add
     if abil ~= nil then
@@ -4170,7 +4262,7 @@ end
 
 function SCR_Get_SkillFactor_StakeStockades(skill)
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper29")      -- Skill Damage add
     if abil ~= nil then
@@ -4194,7 +4286,7 @@ end
 function SCR_Get_SkillFactor_Claymore(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper12")      -- Skill Damage add
     if abil ~= nil then
@@ -4255,7 +4347,7 @@ end
 function SCR_Get_SkillFactor_PunjiStake(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper13")      -- Skill Damage add
     if abil ~= nil then
@@ -4301,7 +4393,7 @@ end
 function SCR_Get_SkillFactor_DetonateTraps(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper14")      -- Skill Damage add
     if abil ~= nil then
@@ -4335,7 +4427,7 @@ end
 function SCR_Get_SkillFactor_SpikeShooter(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper26")      -- Skill Damage add
     if abil ~= nil then
@@ -4383,7 +4475,7 @@ end
 function SCR_Get_SkillFactor_HoverBomb(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sapper27")      -- Skill Damage add
     if abil ~= nil then
@@ -4408,7 +4500,7 @@ end
 function SCR_Get_SkillFactor_Coursing(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hunter9")      -- Skill Damage add
     if abil ~= nil then
@@ -4433,7 +4525,7 @@ end
 function SCR_Get_SkillFactor_Snatching(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hunter10")      -- Skill Damage add
     if abil ~= nil then
@@ -4458,7 +4550,7 @@ end
 function SCR_Get_SkillFactor_RushDog(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hunter11")      -- Skill Damage add
     if abil ~= nil then
@@ -4483,7 +4575,7 @@ end
 function SCR_Get_SkillFactor_Retrieve(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hunter12")      -- Skill Damage add
     if abil ~= nil then
@@ -4517,7 +4609,7 @@ end
 function SCR_Get_SkillFactor_NeedleBlow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Wugushi11")      -- Skill Damage add
     if abil ~= nil then
@@ -4559,7 +4651,7 @@ end
 function SCR_Get_SkillFactor_WugongGu(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Wugushi14")      -- Skill Damage add
     if abil ~= nil then
@@ -4643,7 +4735,7 @@ end
 function SCR_Get_SkillFactor_FluFlu(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Scout11")      -- Skill Damage add
     if abil ~= nil then
@@ -4686,7 +4778,7 @@ end
 function SCR_Get_SkillFactor_FlareShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Scout14")      -- Skill Damage add
     if abil ~= nil then
@@ -4711,7 +4803,7 @@ end
 function SCR_GET_FlareShot_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 10 + skill.Level * 1
+	local value = 25
   return value;
   
 end
@@ -4719,7 +4811,7 @@ end
 function SCR_Get_SkillFactor_SplitArrow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Scout17")      -- Skill Damage add
     if abil ~= nil then
@@ -4788,7 +4880,7 @@ end
 function SCR_Get_SkillFactor_Backstab(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Rogue16")      -- Skill Damage add
     if abil ~= nil then
@@ -4822,7 +4914,7 @@ end
 function SCR_Get_SkillFactor_BroadHead(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Fletcher11")      -- Skill Damage add
     if abil ~= nil then
@@ -4846,7 +4938,7 @@ end
 
 function SCR_Get_SklAtkAdd_BodkinPoint(skill)
 
-	local pc = GetSkillOwner(skill);
+  local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel;
 
     return math.floor(value);
@@ -4856,7 +4948,7 @@ end
 function SCR_Get_SkillFactor_BodkinPoint(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Fletcher14")      -- Skill Damage add
     if abil ~= nil then
@@ -4890,7 +4982,7 @@ end
 function SCR_Get_SkillFactor_BarbedArrow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Fletcher17")      -- Skill Damage add
     if abil ~= nil then
@@ -4924,7 +5016,7 @@ end
 function SCR_Get_SkillFactor_CrossFire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Fletcher20")      -- Skill Damage add
     if abil ~= nil then
@@ -4958,7 +5050,7 @@ end
 function SCR_Get_SkillFactor_MagicArrow(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Fletcher23")      -- Skill Damage add
     if abil ~= nil then
@@ -5001,7 +5093,7 @@ end
 function SCR_Get_SkillFactor_Singijeon(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Fletcher25")      -- Skill Damage add
     if abil ~= nil then
@@ -5035,7 +5127,7 @@ end
 function SCR_Get_SkillFactor_ConcentratedFire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Schwarzereiter11")      -- Skill Damage add
     if abil ~= nil then
@@ -5057,6 +5149,11 @@ function SCR_GET_ConcentratedFire_Ratio(skill)
 
 end
 
+function SCR_GET_ConcentratedFire_Ratio2(skill)
+
+    return 2 + skill.Level
+end
+
 function SCR_Get_SklAtkAdd_Caracole(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -5069,7 +5166,7 @@ end
 function SCR_Get_SkillFactor_Caracole(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Schwarzereiter12")      -- Skill Damage add
     if abil ~= nil then
@@ -5103,7 +5200,7 @@ end
 function SCR_Get_SkillFactor_Limacon(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Schwarzereiter13")      -- Skill Damage add
     if abil ~= nil then
@@ -5142,7 +5239,7 @@ end
 function SCR_Get_SkillFactor_RetreatShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Schwarzereiter14")      -- Skill Damage add
     if abil ~= nil then
@@ -5167,7 +5264,7 @@ end
 function SCR_Get_SkillFactor_WildShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Schwarzereiter15")      -- Skill Damage add
     if abil ~= nil then
@@ -5206,7 +5303,7 @@ end
 function SCR_Get_SkillFactor_Hovering(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Falconer5")      -- Skill Damage add
     if abil ~= nil then
@@ -5231,7 +5328,7 @@ end
 function SCR_Get_SkillFactor_Pheasant(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Falconer6")      -- Skill Damage add
     if abil ~= nil then
@@ -5254,9 +5351,8 @@ function SCR_GET_Pheasant_Ratio(skill)
 end
 
 function SCR_Get_SkillFactor_BlisteringThrash(skill)
-
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Falconer8")      -- Skill Damage add
     if abil ~= nil then
@@ -5264,7 +5360,6 @@ function SCR_Get_SkillFactor_BlisteringThrash(skill)
     end
 
     return math.floor(value)
-
 end
 
 function SCR_GET_BlisteringThrash_Ratio(skill)
@@ -5281,7 +5376,7 @@ end
 function SCR_Get_SkillFactor_CannonShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cannoneer2")      -- Skill Damage add
     if abil ~= nil then
@@ -5306,7 +5401,7 @@ end
 function SCR_Get_SkillFactor_ShootDown(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cannoneer3")      -- Skill Damage add
     if abil ~= nil then
@@ -5331,7 +5426,7 @@ end
 function SCR_Get_SkillFactor_SiegeBurst(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cannoneer4")      -- Skill Damage add
     if abil ~= nil then
@@ -5356,7 +5451,7 @@ end
 function SCR_Get_SkillFactor_CannonBlast(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cannoneer5")      -- Skill Damage add
     if abil ~= nil then
@@ -5397,7 +5492,7 @@ end
 function SCR_Get_SkillFactor_CoveringFire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer2")      -- Skill Damage add
     if abil ~= nil then
@@ -5422,7 +5517,7 @@ end
 function SCR_Get_SkillFactor_HeadShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer3")      -- Skill Damage add
     if abil ~= nil then
@@ -5447,7 +5542,7 @@ end
 function SCR_Get_SkillFactor_Snipe(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer4")      -- Skill Damage add
     if abil ~= nil then
@@ -5472,7 +5567,7 @@ end
 function SCR_Get_SkillFactor_PenetrationShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer5")      -- Skill Damage add
     if abil ~= nil then
@@ -5497,7 +5592,7 @@ end
 function SCR_Get_SkillFactor_ButtStroke(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer6")      -- Skill Damage add
     if abil ~= nil then
@@ -5522,7 +5617,7 @@ end
 function SCR_Get_SkillFactor_BayonetThrust(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer7")      -- Skill Damage add
     if abil ~= nil then
@@ -5579,7 +5674,7 @@ end
 function SCR_Get_SkillFactor_CannonBarrage(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cannoneer9")      -- Skill Damage add
     if abil ~= nil then
@@ -5604,7 +5699,7 @@ end
 function SCR_Get_SkillFactor_Volleyfire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer11")      -- Skill Damage add
     if abil ~= nil then
@@ -5629,7 +5724,7 @@ end
 function SCR_Get_SkillFactor_Birdfall(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Musketeer18")      -- Skill Damage add
     if abil ~= nil then
@@ -5654,13 +5749,13 @@ end
 function SCR_Get_SkillFactor_Skarphuggning(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hackapell1")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
-
+    
     return math.floor(value)
 
 end
@@ -5719,7 +5814,7 @@ end
 function SCR_Get_SkillFactor_HackapellCharge(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hackapell3")      -- Skill Damage add
     if abil ~= nil then
@@ -5749,7 +5844,7 @@ end
 function SCR_Get_SkillFactor_LegShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Hackapell4")      -- Skill Damage add
     if abil ~= nil then
@@ -5791,7 +5886,7 @@ end
 function SCR_Get_SkillFactor_Unload(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Mergen2")      -- Skill Damage add
     if abil ~= nil then
@@ -5821,7 +5916,7 @@ end
 function SCR_Get_SkillFactor_FocusFire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Mergen3")      -- Skill Damage add
     if abil ~= nil then
@@ -5846,7 +5941,7 @@ end
 function SCR_Get_SkillFactor_QuickFire(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Mergen4")      -- Skill Damage add
     if abil ~= nil then
@@ -5871,7 +5966,7 @@ end
 function SCR_Get_SkillFactor_TrickShot(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Mergen5")      -- Skill Damage add
     if abil ~= nil then
@@ -5896,7 +5991,7 @@ end
 function SCR_Get_SkillFactor_ArrowRain(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Mergen6")      -- Skill Damage add
     if abil ~= nil then
@@ -5918,10 +6013,10 @@ function SCR_GET_ArrowRain_Ratio(skill)
 
 end
 
-function SCR_Get_SkillFactor_JumpShot(skill)
+function SCR_Get_SkillFactor_ParthianShaft(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Mergen7")      -- Skill Damage add
     if abil ~= nil then
@@ -5932,7 +6027,7 @@ function SCR_Get_SkillFactor_JumpShot(skill)
 
 end
 
-function SCR_GET_JumpShot_Ratio(skill)
+function SCR_GET_ParthianShaft_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
 	local abil = GetAbility(pc, "Mergen7") 
@@ -5943,7 +6038,7 @@ function SCR_GET_JumpShot_Ratio(skill)
 
 end
 
-function SCR_GET_JumpShot_Ratio2(skill)
+function SCR_GET_ParthianShaft_Ratio2(skill)
 	local value = skill.Level * 3;
 	return value
 end
@@ -5954,13 +6049,13 @@ function SCR_Get_SklAtkAdd_EnergyBolt(skill)
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel;
 
     return math.floor(value)
-
+    
 end
 
 function SCR_Get_SkillFactor_EnergyBolt(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Wizard11")      -- Skill Damage add
     if abil ~= nil then
@@ -5994,7 +6089,7 @@ end
 function SCR_Get_SkillFactor_EarthQuake(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Wizard13")      -- Skill Damage add
     if abil ~= nil then
@@ -6030,7 +6125,7 @@ end
 function SCR_Get_SkillFactor_MagicMissile(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Wizard12")      -- Skill Damage add
     if abil ~= nil then
@@ -6071,7 +6166,7 @@ end
 function SCR_Get_SkillFactor_FireBall(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Pyromancer11")      -- Skill Damage add
     if abil ~= nil then
@@ -6105,7 +6200,7 @@ end
 function SCR_Get_SkillFactor_FireWall(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Pyromancer12")      -- Skill Damage add
     if abil ~= nil then
@@ -6139,7 +6234,7 @@ end
 function SCR_Get_SkillFactor_Flare(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Pyromancer13")      -- Skill Damage add
     if abil ~= nil then
@@ -6164,7 +6259,7 @@ end
 function SCR_Get_SkillFactor_FlameGround(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Pyromancer26")      -- Skill Damage add
     if abil ~= nil then
@@ -6198,7 +6293,7 @@ end
 function SCR_Get_SkillFactor_FirePillar(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Pyromancer15")      -- Skill Damage add
     if abil ~= nil then
@@ -6232,7 +6327,7 @@ end
 function SCR_Get_SkillFactor_HellBreath(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Pyromancer14")      -- Skill Damage add
     if abil ~= nil then
@@ -6266,7 +6361,7 @@ end
 function SCR_Get_SkillFactor_IceBolt(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cryomancer11")      -- Skill Damage add
     if abil ~= nil then
@@ -6300,7 +6395,7 @@ end
 function SCR_Get_SkillFactor_IciclePike(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cryomancer12")      -- Skill Damage add
     if abil ~= nil then
@@ -6324,7 +6419,7 @@ end
 
 function SCR_Get_SklAtkAdd_IceBlast(skill)
 
-	local pc = GetSkillOwner(skill);
+  local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel;
 
     return math.floor(value)
@@ -6334,7 +6429,7 @@ end
 function SCR_Get_SkillFactor_IceBlast(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cryomancer13")      -- Skill Damage add
     if abil ~= nil then
@@ -6368,7 +6463,7 @@ end
 function SCR_Get_SkillFactor_SnowRolling(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Cryomancer20")      -- Skill Damage add
     if abil ~= nil then
@@ -6402,7 +6497,7 @@ end
 function SCR_Get_SkillFactor_Telekinesis(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Psychokino11")      -- Skill Damage add
     if abil ~= nil then
@@ -6436,7 +6531,7 @@ end
 function SCR_Get_SkillFactor_PsychicPressure(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Psychokino12")      -- Skill Damage add
     if abil ~= nil then
@@ -6470,7 +6565,7 @@ end
 function SCR_Get_SkillFactor_MagneticForce(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Psychokino13")      -- Skill Damage add
     if abil ~= nil then
@@ -6495,7 +6590,7 @@ end
 function SCR_Get_SkillFactor_GravityPole(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Psychokino8")      -- Skill Damage add
     if abil ~= nil then
@@ -6529,7 +6624,7 @@ end
 function SCR_Get_SkillFactor_Meteor(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Elementalist11")      -- Skill Damage add
     if abil ~= nil then
@@ -6563,7 +6658,7 @@ end
 function SCR_Get_SkillFactor_Prominence(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Elementalist14")      -- Skill Damage add
     if abil ~= nil then
@@ -6597,7 +6692,7 @@ end
 function SCR_Get_SkillFactor_Hail(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Elementalist17")      -- Skill Damage add
     if abil ~= nil then
@@ -6631,7 +6726,7 @@ end
 function SCR_Get_SkillFactor_Electrocute(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Elementalist20")      -- Skill Damage add
     if abil ~= nil then
@@ -6656,7 +6751,7 @@ end
 function SCR_Get_SkillFactor_FrostCloud(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Elementalist23")      -- Skill Damage add
     if abil ~= nil then
@@ -6687,7 +6782,7 @@ end
 function SCR_Get_SkillFactor_FreezingSphere(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Elementalist24")      -- Skill Damage add
     if abil ~= nil then
@@ -6711,9 +6806,9 @@ end
 
 function SCR_Get_SklAtkAdd_SummonFamiliar(skill)
 
-    local pc = GetSkillOwner(skill);
+  local pc = GetSkillOwner(skill);
     local value = (pc.MINMATK + pc.MAXMATK) / (3.5 - (skill.Level * 0.1))
-    
+
     return math.floor(value)
 
 end
@@ -6721,7 +6816,7 @@ end
 function SCR_Get_SkillFactor_SummonFamiliar(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sorcerer11")      -- Skill Damage add
     if abil ~= nil then
@@ -6746,7 +6841,7 @@ end
 function SCR_Get_SkillFactor_Evocation(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sorcerer12")      -- Skill Damage add
     if abil ~= nil then
@@ -6771,7 +6866,7 @@ end
 function SCR_Get_SkillFactor_Desmodus(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sorcerer14")      -- Skill Damage add
     if abil ~= nil then
@@ -6805,7 +6900,7 @@ end
 function SCR_Get_SkillFactor_GatherCorpse(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Necromancer11")      -- Skill Damage add
     if abil ~= nil then
@@ -6839,7 +6934,7 @@ end
 function SCR_Get_SkillFactor_FleshCannon(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Necromancer12")      -- Skill Damage add
     if abil ~= nil then
@@ -6873,7 +6968,7 @@ end
 function SCR_Get_SkillFactor_FleshHoop(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Necromancer15")      -- Skill Damage add
     if abil ~= nil then
@@ -7028,7 +7123,7 @@ end
 function SCR_Get_SkillFactor_Combustion(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Alchemist11")      -- Skill Damage add
     if abil ~= nil then
@@ -7053,7 +7148,7 @@ end
 function SCR_Get_SkillFactor_BloodBath(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Featherfoot3")      -- Skill Damage add
     if abil ~= nil then
@@ -7085,7 +7180,7 @@ end
 function SCR_Get_SkillFactor_BloodSucking(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Featherfoot4")      -- Skill Damage add
     if abil ~= nil then
@@ -7117,7 +7212,7 @@ end
 
 function SCR_GET_BloodSucking_Ratio3(skill)
 
-  local value = 42 + skill.Level * 7
+  local value = 82 + skill.Level * 7
   return value;
 
 end
@@ -7152,7 +7247,7 @@ function SCR_GET_Kurdaitcha_Ratio2(skill)
     
     local abil = GetAbility(pc, 'Featherfoot14')
     if abil ~= nil and 1 == abil.ActiveState then
-        value = 5
+        value = value * (1 + abil.Level * 0.01);
     end
     
     return value;
@@ -7247,7 +7342,7 @@ end
 function SCR_Get_SkillFactor_BonePointing(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Featherfoot5")      -- Skill Damage add
     if abil ~= nil then
@@ -7286,7 +7381,7 @@ end
 function SCR_Get_SkillFactor_Ngadhundi(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Featherfoot7")      -- Skill Damage add
     if abil ~= nil then
@@ -7311,7 +7406,7 @@ end
 function SCR_Get_SkillFactor_PoleofAgony(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Warlock2")      -- Skill Damage add
     if abil ~= nil then
@@ -7336,7 +7431,7 @@ end
 function SCR_Get_SkillFactor_Invocation(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Warlock4")      -- Skill Damage add
     if abil ~= nil then
@@ -7361,7 +7456,7 @@ end
 function SCR_Get_SkillFactor_DarkTheurge(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Warlock7")      -- Skill Damage add
     if abil ~= nil then
@@ -7383,10 +7478,19 @@ function SCR_GET_DarkTheurge_Ratio(skill)
 
 end
 
+function SCR_GET_DarkTheurge_Ratio2(skill)
+    local lv = TryGetProp(skill, "Level")
+    lv = math.floor((lv-1)/2)
+    local value = 10 + lv * 5
+    
+    return value;
+end
+
+
 function SCR_Get_SkillFactor_Mastema(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Warlock9")      -- Skill Damage add
     if abil ~= nil then
@@ -7426,7 +7530,7 @@ end
 function SCR_Get_SkillFactor_Hagalaz(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+  local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "RuneCaster3")      -- Skill Damage add
     if abil ~= nil then
@@ -7451,7 +7555,7 @@ end
 function SCR_Get_SkillFactor_Tiwaz(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "RuneCaster5")      -- Skill Damage add
     if abil ~= nil then
@@ -7476,7 +7580,7 @@ end
 function SCR_Get_SkillFactor_FleshStrike(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+		local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Necromancer9")      -- Skill Damage add
     if abil ~= nil then
@@ -7511,7 +7615,7 @@ end
 function SCR_Get_SkillFactor_AlchemisticMissile(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Alchemist9")      -- Skill Damage add
     if abil ~= nil then
@@ -7536,7 +7640,7 @@ end
 function SCR_Get_SkillFactor_KundelaSlash(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Featherfoot11")      -- Skill Damage add
     if abil ~= nil then
@@ -7660,7 +7764,7 @@ end
 
 function SCR_GET_Empowering_Ratio2(skill)
 
-    local value = skill.Level * 5;
+    local value = skill.Level * 10;
     return value
     
 end
@@ -7684,7 +7788,7 @@ end
 function SCR_Get_SkillFactor_MicroDimension(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sage2")      -- Skill Damage add
     if abil ~= nil then
@@ -7709,7 +7813,7 @@ end
 function SCR_Get_SkillFactor_UltimateDimension(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
 	local abil = GetAbility(pc, "Sage3")      -- Skill Damage add
     if abil ~= nil then
@@ -7796,7 +7900,7 @@ end
 function SCR_Get_SkillFactor_Heal(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Cleric12")      -- Skill Damage add
     if abil ~= nil then
@@ -7844,7 +7948,7 @@ end
 function SCR_Get_SkillFactor_Cure(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Cleric11")      -- Skill Damage add
     if abil ~= nil then
@@ -7885,7 +7989,7 @@ end
 function SCR_Get_SkillFactor_Zaibas(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Kriwi11")      -- Skill Damage add
     if abil ~= nil then
@@ -7921,7 +8025,7 @@ end
 function SCR_Get_SkillFactor_Aspersion(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Priest11")      -- Skill Damage add
     if abil ~= nil then
@@ -7940,6 +8044,20 @@ function SCR_GET_Aspersion_Ratio2(skill)
 	if abil ~= nil then 
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
+
+end
+
+function SCR_Get_SkillFactor_Resurrection(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+
+--	local abil = GetAbility(pc, "Priest11")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+
+    return math.floor(value)
 
 end
 
@@ -7966,6 +8084,14 @@ function SCR_Get_SkillFactor_Exorcise(skill)
 
 end
 
+function SCR_GET_Exorcise_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = (pc.MNA + pc.INT) * skill.Level
+    
+    return math.floor(value)
+end
+
 function SCR_GET_Exorcise_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -7989,7 +8115,7 @@ end
 function SCR_Get_SkillFactor_Effigy(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Bokor11")      -- Skill Damage add
     if abil ~= nil then
@@ -8023,7 +8149,7 @@ end
 function SCR_Get_SkillFactor_Damballa(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Bokor12")      -- Skill Damage add
     if abil ~= nil then
@@ -8065,7 +8191,7 @@ end
 function SCR_Get_SkillFactor_BwaKayiman(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Bokor18")      -- Skill Damage add
     if abil ~= nil then
@@ -8099,7 +8225,7 @@ end
 function SCR_Get_SkillFactor_Carve(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Dievdirbys11")      -- Skill Damage add
     if abil ~= nil then
@@ -8133,7 +8259,7 @@ end
 function SCR_Get_SkillFactor_CarveOwl(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Dievdirbys12")      -- Skill Damage add
     if abil ~= nil then
@@ -8181,7 +8307,7 @@ end
 function SCR_Get_SkillFactor_AstralBodyExplosion(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Sadhu11")      -- Skill Damage add
     if abil ~= nil then
@@ -8215,7 +8341,7 @@ end
 function SCR_Get_SkillFactor_Possession(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Sadhu12")      -- Skill Damage add
     if abil ~= nil then
@@ -8315,7 +8441,7 @@ end
 function SCR_Get_SkillFactor_Smite(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Paladin14")      -- Skill Damage add
     if abil ~= nil then
@@ -8337,10 +8463,24 @@ function SCR_GET_Smite_Ratio(skill)
 
 end
 
+function SCR_Get_SkillFactor_TurnUndead(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+
+--	local abil = GetAbility(pc, "Paladin14")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+
+    return math.floor(value)
+
+end
+
 function SCR_Get_SkillFactor_Conviction(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Paladin17")      -- Skill Damage add
     if abil ~= nil then
@@ -8405,7 +8545,7 @@ end
 function SCR_Get_SkillFactor_DoublePunch(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Monk12")      -- Skill Damage add
     if abil ~= nil then
@@ -8439,7 +8579,7 @@ end
 function SCR_Get_SkillFactor_PalmStrike(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Monk15")      -- Skill Damage add
     if abil ~= nil then
@@ -8473,7 +8613,7 @@ end
 function SCR_Get_SkillFactor_HandKnife(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Monk18")      -- Skill Damage add
     if abil ~= nil then
@@ -8562,7 +8702,7 @@ end
 function SCR_Get_SkillFactor_1InchPunch(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Monk21")      -- Skill Damage add
     if abil ~= nil then
@@ -8596,7 +8736,7 @@ end
 function SCR_Get_SkillFactor_EnergyBlast(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Monk23")      -- Skill Damage add
     if abil ~= nil then
@@ -8618,6 +8758,11 @@ function SCR_GET_EnergyBlast_Ratio2(skill)
 
 end
 
+function SCR_GET_EnergyBlast_Ratio3(skill)
+    local value = 62 + skill.Level *7;
+    return value;
+end
+
 function SCR_Get_SklAtkAdd_God_Finger_Flicking(skill)
 
     local pc = GetSkillOwner(skill);
@@ -8635,7 +8780,7 @@ end
 function SCR_Get_SkillFactor_God_Finger_Flicking(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Monk24")      -- Skill Damage add
     if abil ~= nil then
@@ -8683,7 +8828,7 @@ end
 function SCR_Get_SkillFactor_Indulgentia(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Pardoner1")      -- Skill Damage add
     if abil ~= nil then
@@ -8705,6 +8850,20 @@ function SCR_GET_Indulgentia_Ratio2(skill)
 
 end
 
+function SCR_Get_SkillFactor_Dekatos(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+
+--	local abil = GetAbility(pc, "Pardoner1")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+
+    return math.floor(value)
+
+end
+
 function SCR_GET_IncreaseMagicDEF_Bufftime(skill)
 	local pc = GetSkillOwner(skill);
     local value = 45
@@ -8719,12 +8878,17 @@ end
 
 
 function SCR_GET_IncreaseMagicDEF_Ratio(skill)
-
 	local pc = GetSkillOwner(skill);
-    local value = 50 + (skill.Level - 1) * 15 + pc.MNA
+    local value = 50 + (skill.Level - 1) * 15
 
 	return value
+end
 
+function SCR_GET_IncreaseMagicDEF_Ratio2(skill)
+	local pc = GetSkillOwner(skill);
+    local value = skill.Level * 3;
+
+	return value
 end
 
 function SCR_Get_SklAtkAdd_Carnivory(skill)
@@ -8739,7 +8903,7 @@ end
 function SCR_Get_SkillFactor_Carnivory(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Druid11")      -- Skill Damage add
     if abil ~= nil then
@@ -8763,9 +8927,8 @@ end
 
 
 function SCR_Get_SkillFactor_Incineration(skill)
-
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "PlagueDoctor2")      -- Skill Damage add
     if abil ~= nil then
@@ -8773,31 +8936,25 @@ function SCR_Get_SkillFactor_Incineration(skill)
     end
 
     return math.floor(value)
-
 end
 
 function SCR_GET_Incineration_Ratio(skill)
-
 	local pc = GetSkillOwner(skill);
 	local abil = GetAbility(pc, "PlagueDoctor2") 
 	local value = 0
 	if abil ~= nil then 
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
-
 end
-
-
 
 function SCR_GET_Incineration_Ratio2(skill)
+    local value = 1 * skill.Level
 
-
-	local value = 1 * skill.Level
-
-  return value
-
-
+    return value
 end
+
+
+
 function SCR_Get_SkillFactor_Nachash(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -8826,7 +8983,7 @@ end
 function SCR_Get_SkillFactor_Merkabah(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Kabbalist8")      -- Skill Damage add
     if abil ~= nil then
@@ -8882,7 +9039,7 @@ end
 function SCR_Get_SkillFactor_PlagueVapours(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "PlagueDoctor9")      -- Skill Damage add
     if abil ~= nil then
@@ -9033,15 +9190,14 @@ end
 function SCR_Get_SkillFactor_GodSmash(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
-
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
 	local abil = GetAbility(pc, "Inquisitor10")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
-
+    
     return math.floor(value)
-
 end
 
 function SCR_GET_GodSmash_Ratio(skill)
@@ -9053,7 +9209,44 @@ function SCR_GET_GodSmash_Ratio(skill)
     end
 end
 
+function SCR_Get_SkillFactor_BreakingWheel(skill)
 
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+--	local abil = GetAbility(pc, "Inquisitor10")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_MalleusMaleficarum(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+--	local abil = GetAbility(pc, "Inquisitor10")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_CreepingDeath(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+--	local abil = GetAbility(pc, "Inquisitor10")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
+    
+    return math.floor(value)
+end
 
 function SCR_Get_SkillFactor_Entrenchment(skill)
 
@@ -9108,7 +9301,7 @@ end
 function SCR_Get_SkillFactor_StormCalling(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
 	local abil = GetAbility(pc, "Daoshi7")      -- Skill Damage add
     if abil ~= nil then
@@ -9215,7 +9408,8 @@ function SCR_GET_TriDisaster_Time(skill)
 end
 
 function SCR_GET_TriDisaster_Ratio(skill)
-    local value = skill.Level * 10
+--    local value = skill.Level * 10
+    local value = 200 + skill.Level * 10
     return value;
 end
 
@@ -9225,7 +9419,8 @@ function SCR_GET_CreepingDeath_Ratio(skill)
 end
 
 function SCR_GET_CreepingDeath_Ratio2(skill)
-    local value = skill.SkillAtkAdd * (1.5 + 0.1 * skill.Level)
+--    local value = skill.SkillAtkAdd * (1.5 + 0.1 * skill.Level)
+    local value = 333
     return math.floor(value);
 end
 
@@ -9259,7 +9454,7 @@ end
 function SCR_Get_SkillFactor_Gohei(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Miko1")      -- Skill Damage add
     if abil ~= nil then
@@ -9283,7 +9478,7 @@ end
 function SCR_Get_SkillFactor_Hamaya(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Miko3")      -- Skill Damage add
     if abil ~= nil then
@@ -9329,8 +9524,8 @@ function SCR_GET_KaguraDance_Time(skill)
 end
 
 function SCR_GET_KaguraDance_Ratio(skill)
-	local value = 3
-    return math.floor(value)
+	local value = 100 + skill.Level * 10
+	return value
 end
 
 
@@ -9424,10 +9619,11 @@ function SCR_Get_SteadyAim_Ratio2(skill)
 
     local pc = GetSkillOwner(skill)
     local value = 0
-    
+    local Lv = skill.Level
+    value = Lv * 10
     local Ranger14_abil = GetAbility(pc, 'Ranger14');
     if Ranger14_abil ~= nil then
-        value = value + Ranger14_abil.Level * 2;
+        value = value + Ranger14_abil.Level * 3;
     end
     
     return value
@@ -9561,12 +9757,12 @@ function SCR_GET_Arrest_Ratio(skill)
     return value
 end
 function SCR_Get_Quicken_Ratio(skill)
-    local value = 30 * skill.Level
+    local value = 30 + (skill.Level * 20)
     return value
 end
 
 function SCR_GET_Quicken_Bufftime(skill)
-    return 30 + skill.Level * 5
+    return 20 + skill.Level * 3
 end
 
 function SCR_GET_Samsara_Bufftime(skill)
@@ -9579,7 +9775,7 @@ end
 
 function SCR_Get_Bodkin_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.Level * 5;
+    local value = skill.Level * 3
     
     local abil = GetAbility(pc, 'Fletcher2')
     if abil ~= nil and 1 == abil.ActiveState then
@@ -9726,7 +9922,7 @@ end
 
 function SCR_Get_Pointing_Ratio(skill)
     
-    return 15 + 2 * (skill.Level - 1)
+    return 10 + skill.Level * 6
     
 end
 
@@ -9812,18 +10008,17 @@ end
 function SCR_GET_Barrier_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 30 + (20 * skill.Level) + pc.MNA
-    
-    return math.floor(value)
+--    local value = 30 + (20 * skill.Level) + pc.MNA
+    local mdefrate = pc.MDEF * (0.1 * skill.Level)
+    local mdefadd = 30 + (skill.Level * 20) + pc.MNA + mdefrate
+
+    return math.floor(mdefadd)
     
 end
 
 function SCR_Get_Undistance_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-    local value = 3
-    
-    return math.floor(value)
+    local value = 55 + skill.Level *5;
+    return value
     
 end
 
@@ -9886,7 +10081,7 @@ function SCR_Get_Coursing_Bufftime(skill)
 end
 
 function SCR_Get_Coursing_Ratio(skill)
-    local value = 16 + (skill.Level - 1) * 4;
+    local value = 10 + skill.Level * 1;
     return value
 end
 
@@ -9981,6 +10176,11 @@ function SCR_GET_PsychicPressure_Ratio2(skill)
 	return 1
 end
 
+function SCR_GET_PsychicPressure_Ratio3(skill)
+    local value = 42 + skill.Level *5;
+    return value;
+end
+
 function SCR_GET_GravityPole_Ratio(skill)
     if IsPVPServer(self) == 1 then
         return skill.Level * 1
@@ -9990,12 +10190,8 @@ function SCR_GET_GravityPole_Ratio(skill)
 end
 
 function SCR_GET_GravityPole_Ratio3(skill)
-    local pc = GetSkillOwner(skill)
-    local abil = GetAbility(pc, 'Psychokino20')
-    if abil ~= nil and abil.ActiveState == 1 then
-        return 3;
-    end
-    return 2;
+    local value = 42 + skill.Level *5;
+    return value;
 end
 
 
@@ -10086,9 +10282,7 @@ function SCR_Get_FireBall_Bufftime(skill)
 end
 
 function SCR_GET_HellBreath_Ratio(skill)
-
-	local pc = GetSkillOwner(skill);
-    local value = 2
+    local value = 30 + skill.Level * 7
     return value
 end
 
@@ -10143,21 +10337,22 @@ end
 function SCR_GET_Blessing_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local statValue = math.floor((pc.MNA * 0.06 + pc.INT * 0.02) * (skill.Level-1))
-	local value = 15.5 + (skill.Level-1) * 3.9 + statValue;
+--    local statValue = math.floor((pc.MNA * 0.06 + pc.INT * 0.02) * (skill.Level-1))
+--	local value = 15.5 + (skill.Level-1) * 3.9 + statValue;
+	local statValue = math.floor((30 + (skill.Level * 3)) + (pc.MNA * (skill.Level / 5)))
+	local value = 15.5 + (skill.Level - 1) * 3.9 + statValue;
 	
-	
-	local Priest18_abil = GetAbility(pc, "Priest18")    -- 2rank Skill Damage multiple
-    local Priest19_abil = GetAbility(pc, "Priest19")    -- 3rank Skill Damage multiple
-    if Priest19_abil ~= nil then
-        value = value * 1.44
-    elseif Priest19_abil == nil and Priest18_abil ~= nil then
-        value = value * 1.38
-    end
+--	local Priest18_abil = GetAbility(pc, "Priest18")    -- 2rank Skill Damage multiple
+--    local Priest19_abil = GetAbility(pc, "Priest19")    -- 3rank Skill Damage multiple
+--    if Priest19_abil ~= nil then
+--        value = value * 1.44
+--    elseif Priest19_abil == nil and Priest18_abil ~= nil then
+--        value = value * 1.38
+--    end
         
     local Priest13_abil = GetAbility(pc, "Priest13")
 	if Priest13_abil ~= nil then
-        value = value + Priest13_abil.Level * 2;
+        value = value * (1 + Priest13_abil.Level * 0.01);
     end
     
     return math.floor(value);
@@ -10217,8 +10412,8 @@ end
 function SCR_GET_Sacrament_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 12.2 + 3.1 * (skill.Level - 1)
-	
+--	local value = 12.2 + 3.1 * (skill.Level - 1)
+	local value =(10 + (skill.Level * 2)) + pc.MNA;
 	local Priest16_abil = GetAbility(pc, "Priest16")    -- 2rank Skill Damage multiple
     local Priest17_abil = GetAbility(pc, "Priest17")    -- 3rank Skill Damage multiple
     if Priest17_abil ~= nil then
@@ -10354,7 +10549,7 @@ end
 function SCR_GET_SwiftStep_Ratio2(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 5 + skill.Level;
+    local value = 10 * skill.Level;
 	
     return value
 
@@ -10382,7 +10577,7 @@ function SCR_Get_Lethargy_Bufftime(skill)
 end
 
 function SCR_GET_SpiralArrow_Ratio(skill)
-    return skill.Level + 1;
+    return 6;
 end
 
 
@@ -10390,12 +10585,12 @@ end
 function SCR_GET_Lethargy_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 6  + 3 * (skill.Level - 1)
-    
+--    local value = ((pc.MINMATK + pc.MAXMATK) / 2) * 0.05 + ((pc.MINMATK + pc.MAXMATK) / 2) * 0.005 * (skill.Level - 1)
+    local value = 5 + (skill.Level * 3) + pc.INT * (skill.Level / 15)
 
     local Wizard14_abil = GetAbility(pc, "Wizard14")
     if Wizard14_abil ~= nil then
-        value = value + Wizard14_abil.Level;
+        value = value * (1 + Wizard14_abil.Level * 0.01);
     end
     
     return math.floor(value)
@@ -10416,20 +10611,23 @@ function SCR_GET_KneelingShot_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = 15.4 + (skill.Level - 1) * 4.1
     
-    local Archer21_abil = GetAbility(pc, "Archer21")    -- 2rank Skill Damage multiple
-    local Archer22_abil = GetAbility(pc, "Archer22")    -- 3rank Skill Damage multiple
-    if Archer22_abil ~= nil then
-        value = value * 1.44
-    elseif Archer22_abil == nil and Archer21_abil ~= nil then
-        value = value * 1.38
-    end
+--    local Archer21_abil = GetAbility(pc, "Archer21")    -- 2rank Skill Damage multiple
+--    local Archer22_abil = GetAbility(pc, "Archer22")    -- 3rank Skill Damage multiple
+--    if Archer22_abil ~= nil then
+--        value = value * 1.44
+--    elseif Archer22_abil == nil and Archer21_abil ~= nil then
+--        value = value * 1.38
+--    end
 
     local Archer14_abil = GetAbility(pc, 'Archer14')
     if Archer14_abil ~= nil then
-        value = value + Archer14_abil.Level
+        value = value * (1 + Archer14_abil.Level * 0.01);
     end
+    local DEX = TryGetProp(pc,"DEX")
+    
+    local addatk = DEX * skill.Level * 0.2
 
-    return math.floor(value + pc.DEX)
+    return math.floor(value + addatk)
 
 end
 
@@ -10443,16 +10641,16 @@ end
 
 function SCR_GET_KneelingShot_BuffTime(skill)
 
-    local value = 50 + skill.Level * 32.5
+    local value = skill.Level * 30
     
     return value
 
 end
 
 function SCR_GET_ObliqueShot_Ratio(skill)
-    local value = 80 + skill.Level
+    local value = (0.7 + skill.Level*0.01) * skill.SkillFactor
     
-    return value
+    return math.floor(value)
 end
 
 function SCR_GET_Carve_Ratio(skill)
@@ -10491,7 +10689,8 @@ end
 function SCR_GET_CrossGuard_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = 3.9 * (skill.Level * 1);    
+--    local value = 3.9 * (skill.Level * 1);
+    local value = pc.DEF * (0.005 * skill.Level)
     local Highlander22_abil = GetAbility(pc, "Highlander22")    -- 2rank Skill Damage multiple
     local Highlander23_abil = GetAbility(pc, "Highlander23")    -- 3rank Skill Damage multiple
     if Highlander23_abil ~= nil then
@@ -10512,7 +10711,8 @@ end
 function SCR_GET_CrossGuard_Ratio2(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = pc.STR + pc.Lv * 3 + (45 * (skill.Level * 1))
+--    local value = pc.STR + pc.Lv * 3 + (45 * (skill.Level * 1))
+    local value = pc.STR + (50 * skill.Level)
     
     return math.floor(value);
 
@@ -10698,6 +10898,12 @@ function SCR_GET_IceWall_Time(skill)
 
 end
 
+function SCR_Get_SkillFactor_Gust(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
+    return math.floor(value)
+
+end
 function SCR_GET_SR_LV_Gust(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -10801,35 +11007,31 @@ function SCR_GET_Barrier_Bufftime(skill)
 end
 
 function SCR_GET_Restoration_Ratio(skill)
-
-    local value = 100.7 + (skill.Level - 1) * 16.9
     local pc = GetSkillOwner(skill);
-
-    local Paladin12_abil = GetAbility(pc, "Paladin12")  -- 2rank Skill Damage multiple
-    local Paladin13_abil = GetAbility(pc, "Paladin13")  -- 3rank Skill Damage multiple
-    if Paladin13_abil ~= nil then
-        value = value * 1.44
-    elseif Paladin13_abil == nil and Paladin12_abil ~= nil then
-        value = value * 1.38
-    end
+    local value = 100.7 + (skill.Level - 1) * 16.9
+--    local Paladin12_abil = GetAbility(pc, "Paladin12")  -- 2rank Skill Damage multiple
+--    local Paladin13_abil = GetAbility(pc, "Paladin13")  -- 3rank Skill Damage multiple
+--    if Paladin13_abil ~= nil then
+--        value = value * 1.44
+--    elseif Paladin13_abil == nil and Paladin12_abil ~= nil then
+--        value = value * 1.38
+--    end
 
     local Paladin11_abil = GetAbility(pc, "Paladin11")  -- 1rank Skill Damage add
     if Paladin11_abil ~= nil then
-        value = value + Paladin11_abil.Level * 2
+        value = value * (1 + Paladin11_abil.Level * 0.01);
     end
 
     return math.floor(value)
-
 end
 
 function SCR_GET_ResistElements_Ratio(skill)
-    
     local pc = GetSkillOwner(skill);
     local value = 24 + 6.3 * (skill.Level - 1)
     
     local abil = GetAbility(pc, "Paladin18")
     if abil ~= nil and 1 == abil.ActiveState then
-        value = value + abil.Level
+        value = value * (1 + abil.Level * 0.01);
     end
     
     return math.floor(value)
@@ -10849,10 +11051,9 @@ function SCR_GET_ResistElements_Ratio2(skill)
 end
 
 function SCR_GET_ResistElements_Ratio3(skill)
-    
     local pc = GetSkillOwner(skill);
-    local value = skill.Level * 2.5;
-    
+    local value = skill.Level * 2.5
+
     return value
 end
 
@@ -11129,7 +11330,8 @@ function SCR_GET_SynchroThrusting_Ratio(skill)
 	end
 	
 	local def = equipWeapon.DEF;
-	local value = def * 5 + skill.SkillAtkAdd
+--	local value = def * 5 + skill.SkillAtkAdd
+    local value = def
 	
 	return math.floor(value);
 
@@ -11176,19 +11378,21 @@ end
 function SCR_GET_Gungho_Ratio(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 8.2 + (skill.Level - 1) * 3
+--    local value = 8.2 + (skill.Level - 1) * 3
+--    local value = ((pc.MINPATK + pc.MAXPATK) / 2) * (0.01 * skill.Level)
+    local value = 8.2 + (2 * skill.Level) + ((pc.MINPATK + pc.MAXPATK) / 2) * (0.01 * skill.Level)
     
-    local Swordman20_abil = GetAbility(pc, "Swordman20")    -- 2rank Atk multiple
-    local Swordman21_abil = GetAbility(pc, "Swordman21")    -- 3rank Atk multiple
-    if Swordman21_abil ~= nil then
-        value = value * 1.44
-    elseif Swordman21_abil == nil and Swordman20_abil ~= nil then
-        value = value * 1.38
-    end
+--    local Swordman20_abil = GetAbility(pc, "Swordman20")    -- 2rank Atk multiple
+--    local Swordman21_abil = GetAbility(pc, "Swordman21")    -- 3rank Atk multiple
+--    if Swordman21_abil ~= nil then
+--        value = value * 1.44
+--    elseif Swordman21_abil == nil and Swordman20_abil ~= nil then
+--        value = value * 1.38
+--    end
     
     local Swordman13_abil = GetAbility(pc, "Swordman13")
     if Swordman13_abil ~= nil then
-        value = value + Swordman13_abil.Level * 1;
+        value = value * (1 + Swordman13_abil.Level * 0.01);
     end
 
     return math.floor(value);
@@ -11198,7 +11402,9 @@ end
 function SCR_GET_Gungho_Ratio2(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 2.5 + (skill.Level - 1) * 0.6
+--    local value = 2.5 + (skill.Level - 1) * 0.6
+    local value = pc.DEF * (0.005 * skill.Level)
+    local value = 2.5 + (1 * skill.Level) + (pc.DEF * (0.005 * skill.Level))
     
     local Swordman20_abil = GetAbility(pc, "Swordman20")    -- 2rank Atk multiple
     local Swordman21_abil = GetAbility(pc, "Swordman21")    -- 3rank Atk multiple
@@ -11228,7 +11434,8 @@ end
 function SCR_GET_Guardian_Ratio(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 10.2 + 1.8 * (skill.Level - 1);
+--    local value = 10.2 + 1.8 * (skill.Level - 1);
+    local value = 10 + (skill.Level * 3)
 
     local Peltasta19_abil = GetAbility(pc, "Peltasta19")    -- 2rank Skill Damage multiple
     local Peltasta20_abil = GetAbility(pc, "Peltasta20")    -- 3rank Skill Damage multiple
@@ -11250,7 +11457,8 @@ end
 function SCR_GET_Guardian_Ratio2(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 2 + 0.9 * (skill.Level - 1);
+--    local value = 2 + 0.9 * (skill.Level - 1);
+    local value = skill.Level * 1
     
     local Peltasta19_abil = GetAbility(pc, "Peltasta19")    -- 2rank Skill Damage multiple
     local Peltasta20_abil = GetAbility(pc, "Peltasta20")    -- 3rank Skill Damage multiple
@@ -11287,22 +11495,24 @@ end
 function SCR_GET_Concentrate_Ratio2(skill)
 
     local pc = GetSkillOwner(skill)
-    local statValue = math.floor((pc.STR * 0.04 + pc.DEX * 0.02) * (skill.Level-1))
-    local value = 5.9 + (skill.Level - 1) * 1.5 + statValue;
+--    local statValue = math.floor((pc.STR * 0.04 + pc.DEX * 0.02) * (skill.Level-1))
+--    local value = 5.9 + (skill.Level - 1) * 1.5 + statValue;
 
-    local Swordman22_abil = GetAbility(pc, "Swordman22")    -- 2rank Skill Damage multiple
-    local Swordman23_abil = GetAbility(pc, "Swordman23")    -- 3rank Skill Damage multiple
-    if Swordman23_abil ~= nil then
-        value = value * 1.44
-    elseif Swordman23_abil == nil and Swordman22_abil ~= nil then
-        value = value * 1.38
-    end
+    local statBonus = (pc.STR * 0.1 + pc.DEX * 0.2) * skill.Level
+    local value = 5 + (skill.Level - 1) * 1.5 + statBonus
+
+--    local Swordman22_abil = GetAbility(pc, "Swordman22")    -- 2rank Skill Damage multiple
+--    local Swordman23_abil = GetAbility(pc, "Swordman23")    -- 3rank Skill Damage multiple
+--    if Swordman23_abil ~= nil then
+--        value = value * 1.44
+--    elseif Swordman23_abil == nil and Swordman22_abil ~= nil then
+--        value = value * 1.38
+--    end
     
     local Swordman14_abil = GetAbility(pc, "Swordman14")
 	if Swordman14_abil ~= nil then
-        value = value + Swordman14_abil.Level * 2;
+        value = value * (1 + Swordman14_abil.Level * 0.01);
     end
-
 	return math.floor(value);
 
 end
@@ -11325,7 +11535,7 @@ end
 function SCR_GET_ShieldPush_Ratio(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 15 * skill.Level
+    local value = skill.Level
 
 	  return value;
 
@@ -11353,7 +11563,8 @@ end
 function SCR_GET_Restrain_Ratio2(skill)
 
     local pc = GetSkillOwner(skill)
-    local value = 164.4 + (skill.Level - 1) * 41.1
+--    local value = 164.4 + (skill.Level - 1) * 41.1
+    local value = 50 + (skill.Level * 5) + (pc.MHP * 0.01 * skill.Level) 
     
     local Swordman24_abil = GetAbility(pc, "Swordman24")    -- 3rank Skill Damage multiple
     if Swordman24_abil ~= nil then
@@ -11371,12 +11582,9 @@ end
 
 
 function SCR_GET_Frenzy_Ratio(skill)
-    local pc = GetSkillOwner(skill)
-    local statValue = math.floor(pc.STR * 0.025)
-    local value = statValue + 10 + skill.Level;
+    local value = 150 + (skill.Level * 10)
 
 	return math.floor(value)
-
 end
 
 
@@ -11433,7 +11641,7 @@ end
 
 function SCR_GET_Warcry_Ratio2(skill)
 
-    local defadd = 10 + (skill.Level-1) * 2.3
+    local defadd = 10
     return math.floor(defadd);
 
 end
@@ -11587,11 +11795,11 @@ function SCR_GET_DeedsOfValor_Bufftime(skill)
 end
 
 function SCR_GET_DeedsOfValor_Ratio(skill)
-    return 10;
+    return 5 + (skill.Level - 1) * 2;
 end
 
 function SCR_GET_DeedsOfValor_Ratio2(skill)
-    return skill.Level
+    return 5 + (skill.Level - 1) * 1;
 end
 
 function SCR_GET_DeedsOfValor_Ratio3(skill)
@@ -11811,9 +12019,7 @@ end
 
 
 function SCR_Get_Multishot_Ratio(skill)
-
-    local value = 1 + skill.Level;
-    
+    local value = 10;
     return value
 end
 
@@ -11989,7 +12195,7 @@ end
 function SCR_GET_Heal_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = ((50 + skill.SkillAtkAdd) * 1.5) * 1.1
+	local value = ((50 + skill.SkillFactor) * 1.5) * 1.1
 
 	return math.floor(value);
 
@@ -11998,10 +12204,21 @@ end
 function SCR_GET_Heal_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = ((50 + skill.SkillAtkAdd) * 1.5) * 1.3
+	local value = ((50 + skill.SkillFactor) * 1.5) * 1.3
 
 	return math.floor(value);
 
+end
+
+function SCR_GET_Cure_Ratio3(skill)
+	local pc = GetSkillOwner(skill);
+	local value = 0.4;
+    local abil = GetAbility(pc, "Cleric1")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 0.2;
+    end
+
+	return value;
 end
 
 function SCR_GET_Cure_Ratio(skill)
@@ -12134,14 +12351,13 @@ end
 
 function SCR_GET_Zombify_ratio(skill)
 	local pc = GetSkillOwner(skill);
-	local value = 3 + skill.Level
-	local bookor8_abil = GetAbility(pc, 'Bokor8');
-	if bookor8_abil ~= nil and 1 == bookor8_abil.ActiveState then
-		value = value + bookor8_abil.Level;
-	end
+	local value = 4 + skill.Level
+--	local bookor8_abil = GetAbility(pc, 'Bokor8');
+--	if bookor8_abil ~= nil and 1 == bookor8_abil.ActiveState then
+--		value = value + bookor8_abil.Level;
+--	end
 	
 	return value
-
 end
 
 
@@ -12157,7 +12373,7 @@ function SCR_GET_Finestra_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
 
-	local value = 10 * skill.Level
+	local value = 50 + (10 * skill.Level)
 	return math.floor(value)
 
 end
@@ -12166,7 +12382,23 @@ function SCR_GET_Finestra_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
 	
-	local value = 8.8 + (skill.Level - 1) * 2.2
+--	local value = 8.8 + (skill.Level - 1) * 2.2
+	local value = 25 * skill.Level
+	
+	local abil = GetAbility(pc, 'Hoplite9');
+	if abil ~= nil and 1 == abil.ActiveState then
+		value = value * 2;
+	end
+	
+	return math.floor(value)
+
+end
+
+function SCR_GET_Finestra_Ratio3(skill)
+
+	local pc = GetSkillOwner(skill);
+	
+    local value = 25 + (15 * skill.Level); 
 	
 	local abil = GetAbility(pc, 'Hoplite9');
 	if abil ~= nil and 1 == abil.ActiveState then
@@ -12178,10 +12410,9 @@ function SCR_GET_Finestra_Ratio2(skill)
 end
 
 function SCR_GET_HighGuard_Ratio(skill)
-
-	local pc = GetSkillOwner(skill);
-
-	local value = 150 + (skill.Level - 1) * 10
+    local pc = GetSkillOwner(skill);
+--	local value = 150 + (skill.Level - 1) * 10
+	local value = 100 + (skill.Level - 1) * 30
 	
 	return math.floor(value)
 
@@ -12191,17 +12422,17 @@ function SCR_GET_HighGuard_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
 	
-	local value = skill.Level * 6
+--	local value = skill.Level * 6
+    local value = skill.Level * 10
 	
 	return math.floor(value)
 
 end
 
 function SCR_GET_HighGuard_AtkDown(skill)
-	
 	local pc = GetSkillOwner(skill);
 	
-	local value = 7
+	local value = skill.Level
 	
 	return math.floor(value)
 
@@ -12250,12 +12481,13 @@ end
 
 
 function SCR_GET_Aukuras_Ratio(skill)
-
-    local value = 21 + (skill.Level - 1) * 6
     local pc = GetSkillOwner(skill)
+--    local value = 21 + (skill.Level - 1) * 6
+    local rhprate = pc.RHP * 0.02 * skill.Level
+    local value = 15 + 6 * skill.Level + rhprate
     local abil = GetAbility(pc, 'Kriwi14');
 	if abil ~= nil then
-		value = value + abil.Level * 1.5;
+		value = value * (1 + abil.Level * 0.01);
 	end
 
 	return math.floor(value)
@@ -12271,7 +12503,7 @@ function SCR_GET_Aukuras_Ratio2(skill)
 end
 
 function SCR_GET_DivineStigma_Ratio(skill)
-    local value = 15 + (skill.Level - 1) * 7;
+    local value = 15 + (skill.Level - 1) * 8;
     return math.floor(value);
 end
 
@@ -12307,30 +12539,29 @@ function SCR_Get_Melstis_Ratio(skill)
 end
 
 function SCR_Get_Melstis_Ratio2(skill)
-
 	local pc = GetSkillOwner(skill);
-	local value = 10 + skill.Level * 5
+--	local value = 10 + skill.Level * 5
+    local value = skill.Level * 20
 
 	return value
-
 end
 
 function SCR_Get_Zalciai_Ratio(skill)
-
 	local pc = GetSkillOwner(skill);
-	local value = 12.5 + (skill.Level - 1) * 6.3;
+--	local value = 12.5 + (skill.Level - 1) * 6.3;
+	local statbonus = pc.MNA * (skill.Level * 0.1)
+    local value = 12 + (6 * skill.Level) + statbonus
 
-	if pc ~= nil then
-        value = value + pc.MNA
-	end
+--	if pc ~= nil then
+--        value = value + pc.MNA
+--	end
 	
 	local Kriwi17_abil = GetAbility(pc, "Kriwi17")
 	if Kriwi17_abil ~= nil then
-	    value = value + Kriwi17_abil.Level
+	    value = value * (1 + Kriwi17_abil.Level * 0.01);
 	end
 
     return math.floor(value)
-
 end
 
 function SCR_Get_Zalciai_Ratio2(skill)
@@ -12445,15 +12676,8 @@ end
 
 function SCR_Get_VashitaSiddhi_Ratio2(skill)
 
-    local value = 2;
-    local pc = GetSkillOwner(skill)
-    
-    local abil = GetAbility(pc, "Sadhu6")
-    if abil ~= nil and 1 == abil.ActiveState then
-        value = value - 0.5 * abil.Level;
-    end
-    
-    return value
+    local value = 45 + skill.Level *4;
+    return value;
 
 end
 
@@ -12497,8 +12721,7 @@ end
 
 function SCR_GET_Thurisaz_Ratio(skill)
 
-    return 100
-
+    return 20
 end
 
 function SCR_GET_Thurisaz_Ratio2(skill)
@@ -12618,7 +12841,7 @@ function SCR_GET_HoverBomb_Ratio(skill)
 end
 
 function SCR_GET_SneakHit_Ratio(skill)
-    return 60 + skill.Level * 2;
+    return 30 + skill.Level * 2;
 end
 
 function SCR_GET_SneakHit_Bufftime(skill)
@@ -12635,7 +12858,7 @@ function SCR_GET_SneakHit_Bufftime(skill)
 end
 
 function SCR_GET_Feint_Ratio(skill)
-    return 10 * skill.Level;
+    return 3 * skill.Level;
 end
 
 function SCR_GET_Feint_Ratio2(skill)
@@ -12651,7 +12874,7 @@ function SCR_GET_Spoliation_Ratio(skill)
 end
 
 function SCR_GET_Evasion_Ratio(skill)
-    return 10 * skill.Level
+    return 5 * skill.Level
 end
 
 function SCR_GET_Evasion_Bufftime(skill)
@@ -12681,7 +12904,7 @@ function SCR_GET_Lachrymator_Bufftime(skill)
 end
 
 function SCR_GET_Backstab_Ratio(skill)
-    return 50 + skill.Level * 2
+    return 30 + skill.Level * 2
 end
 
 function SCR_Get_Slow_Bufftime(skill)
@@ -12698,7 +12921,7 @@ end
 
 function SCR_GET_SplitArrow_Ratio2(skill)
 
-	return 200;
+	return skill.SkillFactor * 2;
 
 end
 
@@ -12868,19 +13091,20 @@ end
 function SCR_Get_SwellLeftArm_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 34.4 + (skill.Level -1) * 12.4 + pc.INT * 0.15;
+--	local value = 34.4 + (skill.Level - 1) * 12.4 + pc.INT * 0.15;
+    local value = 35 + (skill.Level * 12) + (pc.INT * 0.5)
 
-    local Thaumaturge12_abil = GetAbility(pc, "Thaumaturge12")  -- 2rank Skill Damage multiple
-    local Thaumaturge13_abil = GetAbility(pc, "Thaumaturge13")  -- 3rank Skill Damage multiple
-    if Thaumaturge13_abil ~= nil then
-        value = value * 1.44
-    elseif Thaumaturge13_abil == nil and Thaumaturge12_abil ~= nil then
-        value = value * 1.38
-    end
+--    local Thaumaturge12_abil = GetAbility(pc, "Thaumaturge12")  -- 2rank Skill Damage multiple
+--    local Thaumaturge13_abil = GetAbility(pc, "Thaumaturge13")  -- 3rank Skill Damage multiple
+--    if Thaumaturge13_abil ~= nil then
+--        value = value * 1.44
+--    elseif Thaumaturge13_abil == nil and Thaumaturge12_abil ~= nil then
+--        value = value * 1.38
+--    end
 
     local Thaumaturge11_abil = GetAbility(pc, "Thaumaturge11")  -- 1rank Skill Damage add
     if Thaumaturge11_abil ~= nil then
-        value = value + Thaumaturge11_abil.Level * 3    -- Temporary Value
+        value = value * (1 + Thaumaturge11_abil.Level * 0.01)    -- Temporary Value
     end
 
 	return math.floor(value)
@@ -12890,7 +13114,8 @@ end
 function SCR_Get_SwellRightArm_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 40 + (skill.Level -1) * 14.6 + pc.INT * 0.13;
+--	local value = 40 + (skill.Level -1) * 14.6 + pc.INT * 0.13;
+    local value = pc.INT * 0.5;
 	
 	local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState then
@@ -12903,11 +13128,12 @@ end
 
 function SCR_Get_SwellRightArm_Ratio2(skill)
 	local pc = GetSkillOwner(skill);
-	local value = 34.4 + (skill.Level - 1) * 12.4 + pc.INT * 0.13;
+--	local value = 34.4 + (skill.Level - 1) * 12.4 + pc.INT * 0.13;
+    local value = 35 + (skill.Level - 1) * 12 + pc.INT * 0.5
 	
 	local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil then
-        value = value + Thaumaturge14_abil.Level * 3
+        value = value * (1 + Thaumaturge14_abil.Level * 0.01)
     end
 
 	return math.floor(value)
@@ -12915,12 +13141,12 @@ end
 
 function SCR_Get_SwellBrain_Ratio(skill)
 
-    local value = 25 + (skill.Level -1) * 5
+    local value = 25 + (skill.Level - 1) * 5
     
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, 'Thaumaturge15')
     if abil ~= nil then
-        value = value + abil.Level * 2
+        value = value * (1 + abil.Level * 0.01);
     end
     
     return math.floor(value)
@@ -12929,7 +13155,7 @@ end
 
 function SCR_Get_SwellBrain_Ratio2(skill)
 
-    local value = 12.5 + (skill.Level - 1) * 2.5
+    local value = 22 + (skill.Level - 1) * 2
     
     return math.floor(value)
 
@@ -12986,12 +13212,12 @@ function SCR_Get_Transpose_Bufftime(skill)
 end
 
 function SCR_Get_Meteor_Casttime(skill)
-    local pc = GetSkillOwner(skill);
-	local value = skill.Level * 1
-    local abil = GetAbility(pc, "Elementalist25")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value * 0.5
-    end
+--    local pc = GetSkillOwner(skill);
+	local value = (skill.Level * 1) * 0.5
+--    local abil = GetAbility(pc, "Elementalist25")
+--    if abil ~= nil and abil.ActiveState == 1 then
+--        value = value * 0.5
+--    end
 
 	return value;
 end
@@ -13131,15 +13357,17 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 		leftHandAttribute = lhEquipWeapon.Attribute;
 	end
 	
-	local sklAtkAdd = skill.SkillAtkAdd;
-	if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
-	    local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
-	    sklAtkAdd = sklAtkAdd + math.floor(sklAtkAdd * abilLevel * 0.28);
-	end
+--	local sklFactor = skill.SklFactor;
+--	if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
+--	    local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
+--	    sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- 이거 무르밀로 리밸런싱 할때 다시 --
+--	end
 	
 	local def = lhEquipWeapon.DEF;
-	local strikeDamage = def * 5 + sklAtkAdd
-	local ariesDamage = rhDamage + sklAtkAdd;
+--	local strikeDamage = def * 5 + sklAtkAdd
+--	local ariesDamage = rhDamage + sklAtkAdd;
+	local strikeDamage = def
+	local ariesDamage = rhDamage
 	
 	local abil = GetAbility(from, 'Hoplite7');
 	if abil ~= nil then
@@ -13156,9 +13384,12 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 end
 
 function SCR_SYNCHROTHRUSTING_TAKEDAMAGE(self, from, skill, ariesDamage, strikeDamage, rightHandAttribute, leftHandAttribute)
-    TakeDamage(from, self, skill.ClassName, ariesDamage * skill.SkillFactor/100, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
+--  TakeDamage(from, self, skill.ClassName, ariesDamage * skill.SkillFactor/100, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
+--	sleep(200)
+--	TakeDamage(from, self, skill.ClassName, strikeDamage * skill.SkillFactor/100, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
+	TakeDamage(from, self, skill.ClassName, ariesDamage, rightHandAttribute, "Aries", "Melee", HIT_BASIC, 0);
 	sleep(200)
-	TakeDamage(from, self, skill.ClassName, strikeDamage * skill.SkillFactor/100, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
+	TakeDamage(from, self, skill.ClassName, strikeDamage, leftHandAttribute, "Strike", "Melee", HIT_BASIC, 0);
 end
 
 
@@ -13255,7 +13486,7 @@ function SCR_GET_USEOVERHEAT(skill)
 	local pc = GetSkillOwner(skill);
 	--local reduce_OH_value = SCR_GET_ADDOVERHEAT(pc, skill);
 	--skill.	
-	local skillScale = 0.4; -- ?�시 -- skill.xml?�서 ?�력	
+	local skillScale = 0.4; -- ??시 -- skill.xml??서 ??력	
 --	local byStat = math.pow(math.log(pc.MNA + 2.718282), skillScale);
 
 	local value = skill.SklUseOverHeat;	
@@ -13319,7 +13550,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
+		value = value + 1;	-- 몬스??젬 ??킬보너??는 중첩??켜??무조??+1????킨??고??
 	end
 
     if skill.LevelByDB == 0 then
@@ -13508,12 +13739,11 @@ function SCR_GET_SPENDITEM_COUNT_Blessing(skill)
 end
 
 function SCR_GET_Hexing_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
-    local value = 12.9 + (skill.Level - 1) * 3.2 + pc.MNA * 0.3
+--    local value = 12.9 + (skill.Level - 1) * 3.2 + pc.MNA * 0.3
+    local value = 1.5 * skill.Level
     
-    return math.floor(value);
-    
+    return value;
 end
 
 function SCR_GET_IronHook_Ratio(skill)
@@ -13526,7 +13756,8 @@ end
 function SCR_GET_Ogouveve_Ratio(skill)
     
     local pc = GetSkillOwner(skill);
-    local value = (pc.INT * 0.5) + 2 + 1.2 * (skill.Level - 1)
+--    local value = (pc.INT * 0.5) + 2 + 1.2 * (skill.Level - 1)
+    local value = 2 + 1.2 * (skill.Level - 1) + pc.INT * 0.5
     
     return math.floor(value);
 end
@@ -13548,8 +13779,8 @@ function SCR_GET_Ogouveve_Ratio2(skill)
 end
 
 function SCR_GET_Samdiveve_Ratio(skill)
-
-    local value = 298.6 + (skill.Level - 1) * 74.6
+    local pc = GetSkillOwner(skill)
+    local value = 298.6 + ((pc.MHP * (0.005 * skill.Level)))
     return math.floor(value)
 
 end
@@ -13593,7 +13824,7 @@ function SCR_GET_CarveVakarine_Ratio(skill)
 end
 
 function SCR_GET_CarveZemina_Ratio(skill)
-    return 2 + (skill.Level * 2);
+    return 4 + (skill.Level * 4);
 end
 
 function SCR_GET_CarveZemina_Ratio2(skill)
@@ -13609,7 +13840,9 @@ function SCR_GET_CarveLaima_Ratio2(skill)
 end
 
 function SCR_GET_CarveLaima_Ratio3(skill)
-    local value = 20
+    local pc = GetSkillOwner(skill)
+--    local value = 20
+    local value = (skill.Level * 2) + 10
         if IsPVPServer(self) == 1 then
 	        value = 10
 	    end

@@ -31,13 +31,31 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 	
 	ypos = DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, ypos, mainframename) -- 타입, 무게.
 
+    local basicTooltipProp = 'None';
     if invitem.BasicTooltipProp ~= 'None' then
-        ypos = DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, ypos, mainframename, strarg) -- 공격력, 방어력, 타입 아이콘 
+        local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
+        for i = 1, #basicTooltipPropList do
+            basicTooltipProp = basicTooltipPropList[i];
+            ypos = DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, ypos, mainframename, strarg, basicTooltipProp); -- 공격력, 방어력, 타입 아이콘 
+        end
     end
-
+    
 	local addinfoGBox = GET_CHILD(tooltipframe, addinfoframename,'ui::CGroupBox') -- 젬 툴팁 위치 삽입
 	addinfoGBox:SetOffset(addinfoGBox:GetX(),ypos)
 	addinfoGBox:Resize(addinfoGBox:GetOriginalWidth(),0)
+
+    if basicTooltipProp ~= 'None' then
+        local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
+	    local isEquiped = 1;
+	    if session.GetEquipItemByGuid(itemGuid) == nil then
+		    isEquiped = 0
+	    end
+        local tooltipMainFrame = GET_CHILD(tooltipframe, mainframename, 'ui::CGroupBox');
+        ypos = SET_REINFORCE_TEXT(tooltipMainFrame, invitem, ypos, isEquiped, basicTooltipProp);
+	    ypos = SET_TRANSCEND_TEXT(tooltipMainFrame, invitem, ypos, isEquiped);
+	    ypos = SET_BUFF_TEXT(tooltipMainFrame, invitem, ypos, strarg);
+	    ypos = SET_REINFORCE_BUFF_TEXT(tooltipMainFrame, invitem, ypos);
+    end
 	
 	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
 	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename) -- 세트아이템
@@ -174,7 +192,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	end
 
 	-- 별 그리기
-	SET_GRADE_TOOLTIP(equipCommonCSet, invitem, GRADE_FONT_SIZE);
+	--SET_GRADE_TOOLTIP(equipCommonCSet, invitem, GRADE_FONT_SIZE);
 
 	-- 아이템 이름 세팅
 	local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
@@ -224,13 +242,12 @@ function DRAW_ITEM_TYPE_N_WEIGHT(tooltipframe, invitem, yPos, mainframename)
 	return tooltip_equip_type_n_weight_Cset:GetHeight() + tooltip_equip_type_n_weight_Cset:GetY();
 end
 
-
 --공격력 및 방어력
-function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg)
+function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg, basicProp)
 	
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_atk_n_def');
-	local tooltip_equip_atk_n_def_Cset = gBox:CreateOrGetControlSet('tooltip_equip_atk_n_def', 'tooltip_equip_atk_n_def', 0, yPos);
+	local tooltip_equip_atk_n_def_Cset = gBox:CreateOrGetControlSet('tooltip_equip_atk_n_def', 'tooltip_equip_atk_n_def'..basicProp, 0, yPos);
 	
 	local typeiconname = nil
 	local typestring = nil
@@ -240,7 +257,6 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	local socketaddvalue = 0
 	
 	-- 무기 타입 아이콘
-	local basicProp = invitem.BasicTooltipProp;
 	local pc = GetMyPCObject();
 	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
 	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
@@ -249,6 +265,7 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	if session.GetEquipItemByGuid(itemGuid) == nil then
 		isEquiped = 0
 	end
+
 	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
 		bonusReinf = 0;
 	end
@@ -258,20 +275,20 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	local refreshScpStr = TryGetProp(invitem, 'RefreshScp');
 	if refreshScpStr ~= nil and refreshScpStr ~= 'None' then
 		local refreshScp = _G[refreshScpStr];
-		refreshScp(invitem, nil, ignoreReinf);
+		refreshScp(invitem, nil, ignoreReinf, bonusReinf);
 	end
-	
+    	
 	if basicProp == 'ATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Melee_Atk")
-		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf) )
-		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp) )
+		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem);
 		arg1 = invitem.MINATK - reinforceaddvalue - socketaddvalue;
 		arg2 = invitem.MAXATK - reinforceaddvalue - socketaddvalue;
 	elseif basicProp == 'MATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Magic_Atk")
-		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf) )
+		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp) )
 		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem)
 		arg1 = invitem.MATK - reinforceaddvalue - socketaddvalue;
 		arg2 = invitem.MATK - reinforceaddvalue - socketaddvalue;
@@ -290,17 +307,9 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 		arg1 = TryGetProp(invitem, basicProp) - reinforceaddvalue - socketaddvalue;
 		arg2 = TryGetProp(invitem, basicProp) - reinforceaddvalue - socketaddvalue;
 	end
-	
+        	
 	SET_DAMAGE_TEXT(tooltip_equip_atk_n_def_Cset, typestring, typeiconname, arg1, arg2, 1, reinforceaddvalue);
 	yPos = yPos + tooltip_equip_atk_n_def_Cset:GetHeight();
-	
-	yPos = SET_BUFF_TEXT(gBox, invitem, yPos, strarg);
-	
-	yPos = SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped);
-
-	yPos = SET_TRANSCEND_TEXT(gBox, invitem, yPos, ignoreReinf);
-
-	yPos = SET_REINFORCE_BUFF_TEXT(gBox, invitem, yPos);
 	
 	gBox:Resize(gBox:GetWidth(),  yPos);
 	return yPos;
@@ -313,37 +322,28 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 	gBox:RemoveChild('tooltip_equip_property');
 
 	local baseicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
-
-	local list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(baseicList, invitem.BasicTooltipProp)
+    local list = {};
+    local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
+    for i = 1, #basicTooltipPropList do
+        local basicTooltipProp = basicTooltipPropList[i];
+        list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(baseicList, basicTooltipProp, list);
+    end
 	local list2 = GET_EUQIPITEM_PROP_LIST();
 
-	local cnt = 0
+	local cnt = 0;
 	for i = 1 , #list do
+
 		local propName = list[i];
 		local propValue = invitem[propName];
 		
-		if propValue ~= 0 then 
-			if  invitem.GroupName == 'Weapon' then
-				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					cnt = cnt +1
-				end
-			elseif  invitem.GroupName == 'Armor' then
-				if invitem.ClassType == 'Gloves' then
-					if propName ~= "HR" then
-						cnt = cnt +1
-					end
-				elseif invitem.ClassType == 'Boots' then
-					if propName ~= "DR" then
-						cnt = cnt +1
-					end
-				else
-					if propName ~= "DEF" then
-						cnt = cnt +1
-					end
-				end
-			else
-				cnt = cnt +1
-			end
+		if propValue ~= 0 then
+            local checkPropName = propName;
+            if propName == 'MINATK' or propName == 'MAXATK' then
+                checkPropName = 'ATK';
+            end
+            if EXIST_ITEM(basicTooltipPropList, checkPropName) == false then
+                cnt = cnt + 1;
+            end
 		end
 	end
 
@@ -380,6 +380,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 	for i = 1 , #list do
 		local propName = list[i];
 		local propValue = invitem[propName];
+
 		if class[propName] ~= 0 then
 			if  invitem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then

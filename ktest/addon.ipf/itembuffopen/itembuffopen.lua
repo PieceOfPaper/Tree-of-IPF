@@ -59,49 +59,68 @@ function SQIORE_SLOT_DROP(parent, ctrl)
 		refreshScp(nextObj);
 	end	
 
-	local nameList, fromList, toList = ExtractDiffProperty(obj, nextObj);
 	-- 효과를 표시한다.
+	local nameList, fromList, toList = ExtractDiffProperty(obj, nextObj);
 	local effectBox = repairbox:GetChild("effectGbox");
-	local maxtextStr = effectBox:GetChild("maxpower");
-	local mintextStr = effectBox:GetChild("minpower");
-	
-	local prop1, prop2 = GET_ITEM_PROPERT_STR(obj);
-
-	maxtextStr:SetTextByKey("txt",  prop1);
-	mintextStr:SetTextByKey("txt", prop2);
-	local maxtext = effectBox:GetChild("maxpowerstr");
-	local mintext = effectBox:GetChild("minpowerstr");
 	local timestr = effectBox:GetChild("timestr");
-
-	if obj.GroupName == "Weapon" or obj.GroupName == "SubWeapon" then
-		if obj.BasicTooltipProp == "ATK" then -- 최대, 최소 공격력
-			maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
-			mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);
-		elseif obj.BasicTooltipProp == "MATK" then -- 마법공격력
-			maxtext:SetTextByKey("txt", obj.MATK .." > ".. nextObj.MATK);
-			mintext:SetTextByKey("txt", "");
-		end
-	else
-		if obj.BasicTooltipProp == "DEF" then -- 방어
-			maxtext:SetTextByKey("txt", obj.DEF .." > ".. nextObj.DEF);
-		elseif obj.BasicTooltipProp == "MDEF" then -- 악세사리
-			maxtext:SetTextByKey("txt", obj.MDEF .." > ".. nextObj.MDEF);
-		elseif  obj.BasicTooltipProp == "HR" then -- 명중
-			maxtext:SetTextByKey("txt", obj.HR .." > ".. nextObj.HR);
-		elseif  obj.BasicTooltipProp == "DR" then -- 회피
-			maxtext:SetTextByKey("txt", obj.DR .." > ".. nextObj.DR);
-		elseif  obj.BasicTooltipProp == "MHR" then -- 마법관통
-			maxtext:SetTextByKey("txt", obj.MHR .." > ".. nextObj.MHR);
-		elseif  obj.BasicTooltipProp == "ADD_FIRE" then -- 화염
-			maxtext:SetTextByKey("txt", obj.FIRE .." > ".. nextObj.FIRE);
-		elseif  obj.BasicTooltipProp == "ADD_ICE" then -- 빙한
-			maxtext:SetTextByKey("txt", obj.ICE .." > ".. nextObj.ICE);
-		elseif  obj.BasicTooltipProp == "ADD_LIGHTNING" then -- 전격
-			maxtext:SetTextByKey("txt", obj.LIGHTNING .." > ".. nextObj.LIGHTNING);
-		end
-		mintext:SetTextByKey("txt", "");
-	end
 	timestr:SetTextByKey("txt", string.format("{img %s %d %d}", "squaier_buff", 25, 25) .." ".. validSec/3600 .. ClMsg("QuestReenterTimeH"));
+
+    local basicPropBox = GET_CHILD_RECURSIVELY(frame, 'basicPropBox');
+    basicPropBox:RemoveAllChild();
+    local basicPropList = StringSplit(obj.BasicTooltipProp, ';');
+    for i = 1 , #basicPropList do
+        local basicTooltipProp = basicPropList[i];
+        local propertyCtrl = basicPropBox:CreateOrGetControlSet('basic_property_set', 'BASIC_PROP_'..i, 20, 0);
+
+	    -- 최대, 최소를 작성하고자 해당 항목의 속성을 가지고 옵니다.
+	    local mintextStr = propertyCtrl:GetChild("minPowerStr");
+	    local maxtextStr = propertyCtrl:GetChild("maxPowerStr");
+        local maxtext = propertyCtrl:GetChild("maxPower");
+	    local mintext = propertyCtrl:GetChild("minPower");
+	
+	    local prop1, prop2 = GET_ITEM_PROPERT_STR(obj, basicTooltipProp);
+
+        if  basicTooltipProp ~= "ATK" then
+            local temp = prop1;
+            prop1 = prop2;
+            prop2 = temp;
+        end
+
+	    maxtextStr:SetTextByKey("txt", prop1);
+	    mintextStr:SetTextByKey("txt", prop2);
+
+	    if obj.GroupName == "Weapon" or obj.GroupName == "SubWeapon" then
+		    if basicTooltipProp == "ATK" then -- 최대, 최소 공격력
+			    maxtext:SetTextByKey("txt", obj.MAXATK .." > ".. nextObj.MAXATK);
+			    mintext:SetTextByKey("txt", obj.MINATK .." > ".. nextObj.MINATK);
+		    elseif basicTooltipProp == "MATK" then -- 마법공격력
+			    mintext:SetTextByKey("txt", obj.MATK .." > ".. nextObj.MATK);
+			    maxtext:SetTextByKey("txt", "");
+                propertyCtrl:Resize(propertyCtrl:GetWidth(), mintext:GetHeight());
+		    end
+	    else
+		    if basicTooltipProp == "DEF" then -- 방어
+			    mintext:SetTextByKey("txt", obj.DEF .." > ".. nextObj.DEF);
+		    elseif basicTooltipProp == "MDEF" then -- 악세사리
+			    mintext:SetTextByKey("txt", obj.MDEF .." > ".. nextObj.MDEF);
+		    elseif  basicTooltipProp == "HR" then -- 명중
+			    mintext:SetTextByKey("txt", obj.HR .." > ".. nextObj.HR);
+		    elseif  basicTooltipProp == "DR" then -- 회피
+			    mintext:SetTextByKey("txt", obj.DR .." > ".. nextObj.DR);
+		    elseif  basicTooltipProp == "MHR" then -- 마법관통
+			    mintext:SetTextByKey("txt", obj.MHR .." > ".. nextObj.MHR);
+		    elseif  basicTooltipProp == "ADD_FIRE" then -- 화염
+			    mintext:SetTextByKey("txt", obj.FIRE .." > ".. nextObj.FIRE);
+		    elseif  basicTooltipProp == "ADD_ICE" then -- 빙한
+			    mintext:SetTextByKey("txt", obj.ICE .." > ".. nextObj.ICE);
+		    elseif  basicTooltipProp == "ADD_LIGHTNING" then -- 전격
+			    mintext:SetTextByKey("txt", obj.LIGHTNING .." > ".. nextObj.LIGHTNING);
+		    end
+		    maxtext:SetTextByKey("txt", "");
+            propertyCtrl:Resize(propertyCtrl:GetWidth(), mintext:GetHeight());
+	    end
+    end
+    GBOX_AUTO_ALIGN(basicPropBox, 0, 0, 0, true, false, true);
 	DestroyIES(nextObj);
 
 	SQUIRE_UPDATE_MATERIAL(frame, cnt, iconInfo:GetIESID());
@@ -156,17 +175,11 @@ function SQUTE_UI_RESET(frame)
 	slotNametext:SetTextByKey("txt", "");
 
 	local effectBox = repairbox:GetChild("effectGbox");
-	local maxtext = effectBox:GetChild("maxpowerstr");
-	local mintext = effectBox:GetChild("minpowerstr");
 	local timestr = effectBox:GetChild("timestr");
-
-	local maxtextStr = effectBox:GetChild("maxpower");
-	local mintextStr = effectBox:GetChild("minpower");
-	maxtextStr:SetTextByKey("txt",  "");
-	mintextStr:SetTextByKey("txt", "");
-	maxtext:SetTextByKey("txt", "");
-	mintext:SetTextByKey("txt", "");
 	timestr:SetTextByKey("txt", "");
+
+    local basicPropBox = GET_CHILD_RECURSIVELY(frame, 'basicPropBox');
+    basicPropBox:RemoveAllChild();
 end
 
 function SQIORE_BUFF_EXCUTE(parent, ctrl)
@@ -204,6 +217,12 @@ end
 function SQIORE_BUFF_VIEW(frame)
 	local gboxctrl = frame:GetChild("repair");
 	gboxctrl:ShowWindow(1);
+
+    local basicPropBox = GET_CHILD_RECURSIVELY(frame, 'basicPropBox');
+    if basicPropBox ~= nil then
+        basicPropBox:ShowWindow(1);
+    end
+
 	local gboxctrl = frame:GetChild("log");
 	gboxctrl:ShowWindow(0);
 end
@@ -211,6 +230,12 @@ end
 function SQIORE_LOG_VIEW(frame)
 	local gboxctrl = frame:GetChild("repair");
 	gboxctrl:ShowWindow(0);
+    
+    local basicPropBox = GET_CHILD_RECURSIVELY(frame, 'basicPropBox');
+    if basicPropBox ~= nil then
+        basicPropBox:ShowWindow(0);
+    end
+
 	local gboxctrl = frame:GetChild("log");
 	gboxctrl:ShowWindow(1);
 end
@@ -298,24 +323,31 @@ function ITEMBUFF_UPDATE_HISTORY(frame)
 		local itemname = ctrlSet:GetChild("itemName");
 		itemname:SetTextByKey("value", itemCls.Name);
 		
+	    local propValues = sList[3];
+	    local propToken = StringSplit(propValues, "@");
+        
 		local propStr = "";
-		for j = 3 , #sList do
-			local propNameValue = sList[j];
-			local propToken = StringSplit(propNameValue, "@");
-			local strBuf = string.format("%s %s -> %s", propToken[1] , propToken[2], propToken[3]);
-			if 3 < #propToken then -- 무기수리할 때 오바됨
-				strBuf = strBuf .. "{nl}" .. string.format("%s %s -> %s", propToken[4] , propToken[5], propToken[6]);
-			end
-			if j > 3 then
-				propStr = propStr .. "{nl}";
-			end
-			propStr = propStr .. strBuf;
+        local tokenIndex = 1;
+        for i = 1, #propToken do
+            if i == tokenIndex then
+                local propertyClMsg = "";
+                local token = propToken[i];
+                if token == 'MATK' then
+                    propertyClMsg = ClMsg('Magic_Atk');
+                else
+                    propertyClMsg = ClMsg(token);
+                end
+			    local strBuf = string.format("%s %s -> %s", propertyClMsg , propToken[i+1], propToken[i+2]);			
+			    if i > 3 then
+				    propStr = propStr .. "{nl}";
+			    end
+			    propStr = propStr .. strBuf;
+                tokenIndex = tokenIndex + 3;
+            end
 		end
-	
-		local property = ctrlSet:GetChild("Property");
-		property:SetTextByKey("value", propStr);
-
-	end
+	    local property = ctrlSet:GetChild("Property");
+	    property:SetTextByKey("value", propStr);
+    end
 
 	GBOX_AUTO_ALIGN(log_gbox, 20, 3, 10, true, false);
 end
