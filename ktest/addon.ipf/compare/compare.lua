@@ -143,6 +143,7 @@ function SHOW_PC_COMPARE(cid)
 
 	eqpSet = g_equip:CreateOrGetControlSet("itemslotset_compare", "EQUIPS", 40, 20);
 	eqpSet:ShowWindow(1);
+	tolua.cast(eqpSet, "ui::CControlSet")
 
 	local imagename = ui.CaptureSomeonesFullStdImage(otherpcinfo:GetAppearance())	
 	

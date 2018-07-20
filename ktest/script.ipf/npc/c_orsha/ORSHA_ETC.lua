@@ -107,6 +107,10 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_9(self,pc)
     UIOpenToPC(pc, 'itemrandomreset', 1)
 end
 
+function SCR_ORSHA_BLACKSMITH_NORMAL_10(self,pc)
+    UIOpenToPC(pc, 'briquetting', 1)
+end
+
 function SCR_ORSHA_EQUIPMENT_DEALER_DIALOG(self, pc)
     COMMON_QUEST_HANDLER(self, pc)
 end

@@ -1182,15 +1182,23 @@ end
 function REQUEST_DELETE_PET(parent, ctrl)
 	local mainBox = parent:GetParent();
 	local petGuid = mainBox:GetUserValue("PET_ID");
+	local pet = barrack.GetPet(petGuid);
+	local brkSystem = GetBarrackSystem(pet);
+
+	local petInfo = brkSystem:GetPetInfo();
+
+	if petInfo:HasItemEquipped() == true then
+		ui.MsgBox(ClMsg('CantDelCharBecauseHaveEquipItem'))
+		return
+	end
 	if IsFinalRelease() == true then
 		DELETE_WARNING_BOX_ON_INIT(11, petGuid);
 		--UPDATE_BARRACK_PET_BTN_LIST();
 		CHAR_N_PET_LIST_LOCKMANGED(0);
 		return;
 	end	
-		local pet = barrack.GetPet(petGuid);
-	local brkSystem = GetBarrackSystem(pet);
-	local petInfo = brkSystem:GetPetInfo();
+
+
 	local monCls = GetClassByType("Monster", petInfo:GetPetType());
 	
 	local nameStr = string.format("%s (%s)", petInfo:GetName(), monCls.Name);

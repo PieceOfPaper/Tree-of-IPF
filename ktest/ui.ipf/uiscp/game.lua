@@ -661,7 +661,6 @@ function GET_ITEM_BY_GUID(guid, equipfirst)
 end
 
 function UPDATE_TXT_TOOLTIP(frame, strArg, num, arg2)
-
 	local caption = frame:GetChild("caption");
 	caption:SetText(strArg);
 	if num > 0 then
@@ -2802,64 +2801,7 @@ function ITEM_ENTER_COMMON_EFFECT(invitem, equipItem, strarg)
 end
 
 function SCR_ITEM_FIELD_TOOLTIP(itemObj, handle, itemType)
-	if itemObj == nil then
-		return -1;
-	end
-
-	if itemObj.ToolTipScp ~= 'WEAPON' and itemObj.ToolTipScp ~= 'ARMOR' then
-		return -1;
-	end
-
-	local result = CHECK_EQUIPABLE(itemObj.ClassID);
-	if result == "JOB" then
-		return itemObj.ClassID;
-	end
-
-	local fieldTooltipName = 'field_tooltip_'.. handle;
-	local tooltipframe = ui.CreateFieldTooltip('itemchangevalue', fieldTooltipName);
-	if tooltipframe == nil then
-		return -1;
-	end
-
-	local isVisble = 0;
-	local ispicktooltip = 1;
-
-	local ToolTipScp = _G['ITEM_TOOLTIP_' .. itemObj.ToolTipScp..'_CHANGEVALUE'];
-
-	if itemObj.EqpType == 'SH' then
-		if itemObj.DefaultEqpSlot == 'RH' then
-			local item = session.GetEquipItemBySpot(item.GetEquipSpotNum("RH"));
-			local equipItem = GetIES(item:GetObject());
-			isVisble = ToolTipScp(tooltipframe, itemObj, equipItem, strarg, ispicktooltip);
-		elseif itemObj.DefaultEqpSlot == 'LH' then
-			local item = session.GetEquipItemBySpot(item.GetEquipSpotNum("LH"));
-			local equipItem = GetIES(item:GetObject());
-			isVisble = ToolTipScp(tooltipframe, itemObj, equipItem, strarg, ispicktooltip);
-		end
-	elseif itemObj.EqpType == 'DH' then
-		local item = session.GetEquipItemBySpot(item.GetEquipSpotNum("RH"));
-		local equipItem = GetIES(item:GetObject());
-		isVisble = ToolTipScp(tooltipframe, itemObj, equipItem, strarg, ispicktooltip);
-	else
-		local equitSpot = item.GetEquipSpotNum(itemObj.EqpType);
-		local item = session.GetEquipItemBySpot(equitSpot);
-		if item ~= nil then
-			local equipItem = GetIES(item:GetObject());
-			isVisble = ToolTipScp(tooltipframe, itemObj, equipItem, strarg, ispicktooltip);
-		end
-	end
-
-	local gbox = GET_CHILD(tooltipframe,'changevalue','ui::CGroupBox')
-	if isVisble ~= 0 and gbox:GetSkinName() ~= 'comparisonballoon_negative' then
-		tolua.cast(tooltipframe, "ui::CFrame");
-		tooltipframe:EnableCloseButton(0);
-		tooltipframe:ShowWindow(1);
-	else
-		--tooltipframe:Resize(0, 0);
-		tooltipframe:ShowWindow(0);
-	end
-	
-	return itemObj.ClassID;
+	-- »èÁ¦
 end
 
 function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
@@ -4187,7 +4129,7 @@ function JOYSTICK_INPUT()
 		quickFrame:ShowWindow(0);
 		restquickslot:ShowWindow(0);
 
-		-- ê¸°ì¡´ set ìœ ì§€.
+		-- ê¸°ì¡´ set ? ì?.
 		if Set2:IsVisible() == 1 then 
 			Set1:ShowWindow(0);
 			Set2:ShowWindow(1);

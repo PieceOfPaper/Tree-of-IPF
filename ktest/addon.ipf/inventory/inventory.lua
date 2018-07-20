@@ -1403,8 +1403,6 @@ end
 
 function IS_TEMP_LOCK(invFrame, invitem)
 	if invFrame:GetUserValue('ITEM_GUID_IN_MORU') == invitem:GetIESID()
-		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or invitem:GetIESID() == invFrame:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN")
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND")
 		or invitem:GetIESID() == invFrame:GetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL") then
 			return true;
@@ -1429,7 +1427,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local itemobj = GetIES(invitem:GetObject());
 	
     -- custom
-	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");
+	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");	
 	if customRBtnScp == "None" then
 		customRBtnScp = nil;
 	else
@@ -2830,11 +2828,6 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	end
 
 	local invframe = ui.GetFrame("inventory");
-	if selectItem:GetIESID() == invframe:GetUserValue("ITEM_GUID_IN_AWAKEN") 
-		or selectItem:GetIESID() == invframe:GetUserValue("STONE_ITEM_GUID_IN_AWAKEN") then
-			ui.SysMsg(ClMsg("selectItemUsed"));
-			return;
-	end
 	
 	--디스펠러, 오마모리 관련 처리
 	local obj = GetIES(selectItem:GetObject());
@@ -2846,6 +2839,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 			end
 		end
 	end
+
+    if TryGetProp(obj, 'DisableContents', 0) == 1 then
+        ui.SysMsg(ClMsg('CannotReleaseLockByDisableContents'));
+        return;
+    end
 
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
@@ -3272,17 +3270,16 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
 		slot = GET_CHILD(parent, slotName);
 	end
 
-    if slot ~= nil then
+    if slot ~= nil then        
         local lockPic = slot:GetChild('itemlock');
-        if lockPic ~= nil then
+        if lockPic ~= nil then            
             lockPic:ShowWindow(0);
         end
     end
 
-	invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
-    invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
-    invframe:SetUserValue('LOCK_SLOT_NAME', "None");
-
+	frame:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
+    frame:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
+    frame:SetUserValue('LOCK_SLOT_NAME', "None");
 end
 
 function INVENTORY_RBTN_LEGENDPREFIX(invItem)

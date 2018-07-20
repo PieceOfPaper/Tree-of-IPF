@@ -2,11 +2,20 @@
 
 function GET_SOLO_DUNGEON_ATTENDANCE_REWARD_LIST(stage)
     local rewardCnt = stage * 2
-    return { {"GIMMICK_Drug_HPSP3", rewardCnt} } ; --memo solo_dungeon
+    return { {"Vernike_Drug_HPSP", rewardCnt} } ; --memo solo_dungeon
 end
 
-function GET_SOLO_DUNGEON_RANKING_REWARD_NAME()
-    return "First_Grade_Buff_Stone"; --memo solo_dungeon
+function GET_SOLO_DUNGEON_RANKING_REWARD_NAME(myPrevRanking, prevYear, prevWeekNumber)
+    if prevYear == 2018 and prevWeekNumber == 23 then
+        return "First_Grade_Buff_Stone";
+    end
+
+    if myPrevRanking ~= nil and myPrevRanking ~= 0 then
+        if myPrevRanking >= 1 and myPrevRanking <= SOLO_DUNGEON_MAX_RANK then
+            return "First_Grade_Buff_Stone"; --memo solo_dungeon
+        end
+    end
+    return nil;
 end
 
 function GIVE_SOLO_DUNGEON_REWARD(pc, prevYear, prevWeekNumber)    
@@ -35,7 +44,7 @@ function GIVE_SOLO_DUNGEON_REWARD(pc, prevYear, prevWeekNumber)
     myPrevScore, myPrevStage = GetSoloDungeonPrevScoreForReward(pc);
 
     local attendanceRewardList = GET_SOLO_DUNGEON_ATTENDANCE_REWARD_LIST(myPrevStage);
-    local rankingRewardName = GET_SOLO_DUNGEON_RANKING_REWARD_NAME(myPrevRanking);
+    local rankingRewardName = GET_SOLO_DUNGEON_RANKING_REWARD_NAME(myPrevRanking, prevYear, prevWeekNumber);
 
     if myPrevStage <= 0 then
         SendSysMsg(pc, "SoloDungeonRewardNone");

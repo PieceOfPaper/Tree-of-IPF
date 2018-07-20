@@ -168,8 +168,7 @@ function HUD_SET_EMBLEM(frame, jobClassID)
     local mySession = session.GetMySession();
     local jobPic = GET_CHILD_RECURSIVELY(frame, 'jobPic');
     jobPic:SetImage(jobIcon);
-    PARTY_JOB_TOOLTIP_BY_CID(mySession:GetCID(), jobPic, jobCls);
-
+    UPDATE_MY_JOB_TOOLTIP(jobClassID, jobPic, jobCls)
     local jobStarText = GET_CHILD_RECURSIVELY(frame, 'jobStarText');
     local STAR_SIZE = frame:GetUserConfig('STAR_SIZE');
     local pcJobInfo = mySession.pcJobInfo;

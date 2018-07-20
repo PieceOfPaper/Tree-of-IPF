@@ -602,18 +602,6 @@
 			<richtext name="sellprice" format="상점 판매 가격 : %s 실버" param1="silver" param1_def="얼마" rect="0 0 340 24" margin="50 8 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
 		</controls>
 	</controlset>
-	<controlset name="mapElementZone" hittest="true" width="530" height="40" skin="market_listbase">
-		<controls>
-			<richtext name="name" rect="0 0 400 40" margin="10 0 0 0" layout_gravity="left top" textalign="left center" resizebytext="false" fixwidth="true" caption="{@st42b}샤울레이{/}"/>
-			<richtext name="rating" rect="0 0 60 40" margin="0 8000 0 0" layout_gravity="right top" textalign="right top" resizebytext="false" fixwidth="true" caption="{@st43}75%{/}"/>
-		</controls>
-	</controlset>
-	<controlset name="mapElementRegion" hittest="true" width="530" height="30">
-		<controls>
-			<richtext name="name" rect="0 0 400 40" margin="10 0 0 0" layout_gravity="left top" textalign="left center" resizebytext="false" fixwidth="true" caption="{@st42b}서쪽숲 탐사율{/}"/>
-			<richtext name="rating" rect="0 0 60 40" margin="0 0 15 0" layout_gravity="right top" textalign="right center" resizebytext="false" fixwidth="false" caption="{@st42}86%{/}"/>
-		</controls>
-	</controlset>
 	<controlset name="rankElement" hittest="true" width="400" height="70" skin="mypage_bar" hittestset="true" draw="true" stateskin="false">
 		<controls>
 			<picture name="icon" layout_gravity="left top" rect="0 0 60 60" margin="0 0 0 0"/>
@@ -714,17 +702,6 @@
 	<controlset name="draw_division_arrow" hittest="true" width="430" height="30" skin="None" hittestset="true" draw="true" stateskin="false">
 		<controls>
 			<groupbox name="division_arrow" skin="test_arow" layout_gravity="center top" rect="0 0 400 40" margin="0 0 0 0" stretch="true"/>
-		</controls>
-	</controlset>
-	<controlset name="socket_in_makesocket" hittest="true" width="90" height="100" skin="None" hittestset="true" draw="true" stateskin="false">
-		<controls>
-			<picture name="socket_icon" layout_gravity="center top" rect="0 0 55 55" margin="0 0 0 0" stretch="true"/>
-			<richtext name="socket_name" rect="0 0 80 30" margin="0 0 0 10" layout_gravity="center bottom" textalign="center center" resizebytext="false" fixwidth="true" caption="다이야" fontname="white_18"/>
-		</controls>
-	</controlset>
-	<controlset name="socket_in_removegem" hittest="true" width="80" height="80" skin="None" hittestset="true" draw="true" stateskin="false">
-		<controls>
-			<picture name="socket_icon" layout_gravity="center top" rect="0 0 70 70" margin="0 0 0 0" stretch="true"/>
 		</controls>
 	</controlset>
 	<controlset name="RankScoreAvg" hittest="true" width="420" height="70" skin="bg" hittestset="true" draw="true" stateskin="false">
@@ -1934,8 +1911,28 @@
 		</controls>
 	</controlset>
 	<controlset name="itemslotset_compare" hittest="true" hittestset="false" draw="false" width="420" height="315" skin="">
+		<userconfig EQUIPSLOT_PIC_MAGIC="invenslot_pic_magic" EQUIPSLOT_PIC_RARE="invenslot_pic_rare" EQUIPSLOT_PIC_UNIQUE="invenslot_pic_unique" EQUIPSLOT_PIC_LEGEND="invenslot_pic_legend"/>
 		<controls>
 			<picture name="shihouette" parent="equip" rect="0 0 160 283" margin="0 -10  0 0" layout_gravity="center top" image="inventory_F" hittest="true" stretch="true" oversound="button_cursor_over_3"/>
+			<slot name="HAT_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" skin="hat"/>
+			<slot name="HAT_T_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 52 0 0" movepop="false" skin="hat"/>
+			<slot name="HAT_L_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 104 0 0" movepop="false" skin="hat"/>
+			<slot name="HAIR_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 156 0 0" movepop="false" skin="wig_slot"/>
+			<slot name="OUTER_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 55 0 0" movepop="false" skin="cloths"/>
+			<slot name="RH_bg" layout_gravity="center top" rect="0 0 60 60" margin="-31 230 0 0" movepop="false" skin="rh"/>
+			<slot name="LH_bg" layout_gravity="center top" rect="0 0 60 60" margin="31 230 0 0" movepop="false" skin="lh"/>
+			<slot name="SHIRT_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 80 0 0" movepop="false" skin="shirt"/>
+			<slot name="PANTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="-100 145 0 0" movepop="false" skin="pants"/>
+			<slot name="GLOVES_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 120 0 0" movepop="false" skin="gloves"/>
+			<slot name="BOOTS_bg" layout_gravity="center top" rect="0 0 60 60" margin="100 185 0 0" movepop="false" skin="boots"/>
+			<slot name="RING1_bg" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" skin="ring"/>
+			<slot name="RING2_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 208 0 0" movepop="false" skin="ring"/>
+			<slot name="NECK_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 104 0 0" movepop="false" skin="necklace"/>
+			<slot name="ARMBAND_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 156 0 0" movepop="false" skin="armband"/>
+			<slot name="LENS_bg" layout_gravity="center top" rect="0 0 50 50" margin="-100 25 0 0" movepop="false" skin="lens_slot"/>
+			<slot name="WING_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 52 0 0" movepop="false" skin="wing_slot"/>
+			<slot name="SPECIALCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="100 0 0 0" movepop="false" skin="spcostume_slot"/>
+			<slot name="EFFECTCOSTUME_bg" layout_gravity="center top" rect="0 0 50 50" margin="175 0 0 0" movepop="false" skin="effect_slot"/>
 			<slot name="HAT" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="120 -10" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
@@ -3439,7 +3436,7 @@
 			<picture name="understaffAllowImg" rect="0 0 57 57" hittest="false" margin="0 4 0 0" image="indun_readycheck" stretch="false"/>
 		</controls>
 	</controlset>
-	<controlset name="smallIndunMember" toggle="false" hittest="true" width="40" height="40" skin="">
+	<controlset name="smallIndunMember" toggle="false" hittest="true" width="25" height="40" skin="">
 		<controls>
 			<picture name="pcImg" rect="0 0 25 40" margin="0 0 0 0" layout_gravity="center center" image="indun_people_img" stretch="true"/>
 			<picture name="understaffAllowImg" rect="0 0 40 40" margin="0 0 0 0" layout_gravity="center center" image="indun_readycheck" stretch="true"/>
@@ -3921,15 +3918,17 @@
 		</controls>
 	</controlset>
 	<!--1인던전 랭킹-->
-	<controlset name="solodungeon_page_rank" hittest="true" width="1160" height="40" draw="true" skin="None" resizebyresolution="false" hittestset="false">
-		<userconfig/>
+	<controlset name="solodungeon_page_rank" hittest="true" width="1250" height="40" draw="true" skin="None" resizebyresolution="false" hittestset="false">
+		<userconfig GUILD_EMBLEM_SLOT="guildmark_slot"/>
 		<controls>
-			<groupbox name="jobTreeGbox" rect="0 0 390 30" margin="456 0 0 0 " layout_gravity="left center" hittestbox="true" scrollbar="false" skin="None" stretch="true"/>
-			<richtext name="rankText" rect="0 0 30 25" margin="20 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="rank" param1_def="..."/>
-			<richtext name="teamNameText" rect="0 0 150 25" margin="92 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="false" fontname="white_18_ol" format="%s" param1="teamname" param1_def="..."/>
-			<richtext name="charLevelText" rect="0 0 100 25" margin="310 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="charlevel" param1_def="..."/>
-			<richtext name="maxStageText" rect="0 0 100 25" margin="880 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="maxstage" param1_def="..."/>
-			<richtext name="killMonsterText" rect="0 0 100 25" margin="1035 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="killmonster" param1_def="..."/>
+			<groupbox name="jobTreeGbox" rect="0 0 390 30" margin="585 0 0 0 " layout_gravity="left center" hittestbox="true" scrollbar="false" skin="None" stretch="true"/>
+			<richtext name="rankText" rect="0 0 30 25" margin="15 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="rank" param1_def=""/>
+			<richtext name="teamNameText" rect="0 0 150 25" margin="172 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="false" fontname="white_18_ol" format="%s" param1="teamname" param1_def=""/>
+			<picture name="guildEmblem" rect="0 0 30 30" margin="380 0 0 0" hittest="false" layout_gravity="left center" image="None" stretch="true" forceupdate="true"/>
+			<richtext name="guildNameText" rect="0 0 150 25" margin="415 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="false" fontname="white_18_ol" format="%s" param1="guildname" param1_def=""/>
+			<richtext name="charLevelText" rect="0 0 100 25" margin="54 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="charlevel" param1_def=""/>
+			<richtext name="maxStageText" rect="0 0 100 25" margin="980 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="maxstage" param1_def=""/>
+			<richtext name="killMonsterText" rect="0 0 100 25" margin="1100 0 0 0" layout_gravity="left center" textalign="center center" fixwidth="true" fontname="white_18_ol" format="%s" param1="killmonster" param1_def=""/>
 		</controls>
 	</controlset>
 	<controlset name="solodungeon_result_rank" hittest="true" width="335" height="68" hittestset="false" draw="false" skin="None" resizebyresolution="false">

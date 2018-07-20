@@ -11,6 +11,6 @@
     <sound opensound="win_open" closesound="win_close"/>
     <script OpenScp="CHAT_MEMBERLIST_OPEN"/>
     <controls>      
-      <groupbox name="mainbox" margin="0 0 0 0" rect="0 0 250 200" scrollbar="true" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false"/>
+      <groupbox name="mainbox" margin="0 0 0 0" rect="0 0 250 180" scrollbar="true" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false"/>
     </controls>
 </uiframe>

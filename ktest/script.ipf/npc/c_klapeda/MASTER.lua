@@ -1216,7 +1216,7 @@ function MASTER_ORACLE_NORMAL_2_MEDAL_TAKE_TX(pc, aobj, count, sel)
     return ret
 end
 
-function SCR_MASTER_ORACLE_NORMAL_2(self,pc)
+function SCR_MASTER_ORACLE_NORMAL_4(self,pc)
     local nxptakeList = {2, 1, 2, 1, 1, 1, 1, 1}
 
     local icon = ScpArgMsg('OraclePreMsg1')
@@ -2052,7 +2052,7 @@ function SCR_MASTER_ORACLE_NORMAL_3(self, pc)
     end
 end
 
-function SCR_MASTER_ORACLE_NORMAL_4(self,pc)
+function SCR_MASTER_ORACLE_NORMAL_2(self,pc)
     local select = ShowSelDlg(pc, 0, 'SOLO_DUNGEON_SELECT_DLG', ScpArgMsg('SoloDungeonSelectMsg_1'), ScpArgMsg('SoloDungeonSelectMsg_2'), ScpArgMsg('SoloDungeonSelectMsg_3'))
     if pc.Lv >= 300 then
         if select == 1 then

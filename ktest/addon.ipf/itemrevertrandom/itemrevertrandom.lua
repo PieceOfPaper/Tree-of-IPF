@@ -5,6 +5,9 @@ function ITEMREVERTRANDOM_ON_INIT(addon, frame)
 end
 
 local isCloseable = 1
+local propNameList = nil
+local propValueList = nil
+
 
 function OPEN_REVERT_RANDOM(invItem)
 	local frame = ui.GetFrame('itemrevertrandom');
@@ -159,10 +162,10 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 		return
 	end
 
---	if invItem.isLockState == true then
---		ui.SysMsg(ClMsg("MaterialItemIsLock"));
---		return;
---	end
+	if invItem.isLockState == true then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
 
 	local invframe = ui.GetFrame("inventory");
 
@@ -231,6 +234,13 @@ function ITEM_REVERT_RANDOM_EXEC(frame)
 	local invItem = GET_SLOT_ITEM(slot);
 
 	if invItem == nil then
+		return
+	end
+
+	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
+	local materialCnt = text_havematerial:GetTextByKey("count")
+	if materialCnt == '0' then
+		ui.SysMsg(ClMsg("LackOfRevertRandomMaterial"));
 		return
 	end
 
@@ -344,7 +354,6 @@ ui.SetHoldUI(false);
 		refreshScp(obj);
 	end
 
-
 	for i = 1 , MAX_RANDOM_OPTION_COUNT do
 	    local propGroupName = "RandomOptionGroup_"..i;
 		local propName = "RandomOption_"..i;
@@ -380,27 +389,41 @@ ui.SetHoldUI(false);
 	end
 
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
-
-	return
 end
 
 function UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
 	local itemHaveCount = 0
 	local invItemList = session.GetInvItemList()
 	local invItemCount = session.GetInvItemList():Count()
-	for i = 0, invItemCount - 1 do
-		local invItem = invItemList:Element(i)
-		if invItem ~= nil and invItem:GetObject() ~= nil then
-			local obj = GetIES(invItem:GetObject())
-			if obj ~= nil then
-				local stringArg = TryGetProp(obj, "StringArg")
-				if stringArg == "Master_Glass" then
-					local pc = GetMyPCObject();
-					itemHaveCount = itemHaveCount + GetInvItemCount(pc, obj.ClassName)
+
+	local limitLoopCount = 100000
+	local loopCount = 0
+
+	if invItemCount <= 0 then
+		itemHaveCount = 0
+	else
+		local index = invItemList:Head()
+		while invItemList:InvalidIndex() ~= index do
+			local invItem = invItemList:Element(index)
+			if invItem ~= nil and invItem:GetObject() ~= nil then
+				local obj = GetIES(invItem:GetObject())
+				if obj ~= nil then
+					local stringArg = TryGetProp(obj, "StringArg")
+					if stringArg == "Master_Glass" then
+						local pc = GetMyPCObject();
+						itemHaveCount = itemHaveCount + GetInvItemCount(pc, obj.ClassName)
+					end
 				end
+			end
+
+			index = invItemList:Next(index)
+			loopCount = loopCount + 1
+			if loopCount >= limitLoopCount then
+				return
 			end
 		end
 	end
+	
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
 	text_havematerial:SetTextByKey("count", itemHaveCount)
 end
@@ -569,9 +592,41 @@ function ITEM_OPTION_SELECT_GETNAME()
 	return obj.Name
 end
 
-function SHOW_REVERT_ITEM_RESULT(itemGuid, propNameList, propValueList)	
+function SHOW_REVERT_ITEM_RESULT(itemGuid, _propNameList, _propValueList)	
+	local frame = ui.GetFrame('itemrevertrandom');
+	if frame == nil then
+		return
+	end
+
+	local RESET_SUCCESS_EFFECT_NAME = frame:GetUserConfig('RESET_SUCCESS_EFFECT');
+	local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
+	local EFFECT_DURATION = tonumber(frame:GetUserConfig('EFFECT_DURATION'));
+	local pic_bg = GET_CHILD_RECURSIVELY(frame, 'pic_bg');
+	if pic_bg == nil then
+		return;
+	end
+	
+	if frame:GetUserIValue("IS_PLAYED_EFFECT") ~= 1 then
+		pic_bg:PlayUIEffect(RESET_SUCCESS_EFFECT_NAME, EFFECT_SCALE, 'RESET_SUCCESS_EFFECT');
+		frame:SetUserValue("IS_PLAYED_EFFECT", 1)
+	end
+
+
+	ui.SetHoldUI(true);
+	propNameList = _propNameList
+	propValueList = _propValueList
+
+	local scp = string.format("_SHOW_REVERT_ITEM_RESULT(\"%s\")", itemGuid)
+
+	ReserveScript(scp, EFFECT_DURATION)
+end
+
+function _SHOW_REVERT_ITEM_RESULT(itemGuid)
+	ui.SetHoldUI(false);
+
 	local frame = ui.GetFrame('itemrevertrandom');
 	isCloseable = 0
+	frame:EnableHide(0);
 	if frame:IsVisible() == 0 then		
 		CLEAR_ITEM_REVERT_RANDOM_UI();
 		ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemGuid);
@@ -582,6 +637,12 @@ function SHOW_REVERT_ITEM_RESULT(itemGuid, propNameList, propValueList)
 		print("itemguid == nil")
 		return
 	end
+
+	local pic_bg = GET_CHILD_RECURSIVELY(frame, 'pic_bg');
+	if pic_bg == nil then
+		return;
+	end
+	pic_bg:StopUIEffect('RESET_SUCCESS_EFFECT', true, 0.5);
 
 	local text_beforereset = GET_CHILD_RECURSIVELY(frame, "text_beforereset")
 	text_beforereset:ShowWindow(1)
@@ -603,63 +664,83 @@ function SHOW_REVERT_ITEM_RESULT(itemGuid, propNameList, propValueList)
 	end
 
 	local optionIndex = 1
-	local clientMessage = ""
-	local opName = ""
-	local strInfo = ""
-	local opValue = ""
+	local clientMessage = {}
+	local opName = {}
+	local strInfo = {}
+	local opValue = {}
+
 	for i = 1 , #propNameList do
-	    local propGroupName = "RandomOptionGroup_"..optionIndex;
-		local propName = "RandomOption_"..optionIndex;
-		local propValue = "RandomOptionValue_"..optionIndex;
-		if propNameList[i] == propGroupName then
+		local propGroupName = "RandomOptionGroup_";
+		local propName = "RandomOption_";
+		local propValue = "RandomOptionValue_";
+		
+		local startGroupName, propGroupNameIndex = string.find(propNameList[i], propGroupName)
+		local startName, propNameIndex = string.find(propNameList[i], propName)
+		local startValue, propValueIndex = string.find(propNameList[i], propValue)
+
+		if propGroupNameIndex ~= nil then
 			-- ATK, STAT 등 옵션 그룹일때
-			if propValueList[i] == 'ATK' then
-			    clientMessage = 'ItemRandomOptionGroupATK'
-			elseif propValueList[i] == 'DEF' then
-			    clientMessage = 'ItemRandomOptionGroupDEF'
-			elseif propValueList[i] == 'UTIL_WEAPON' then
-			    clientMessage = 'ItemRandomOptionGroupUTIL'
-			elseif propValueList[i] == 'UTIL_ARMOR' then
-			    clientMessage = 'ItemRandomOptionGroupUTIL'			
-			elseif propValueList[i] == 'UTIL_SHILED' then
-			    clientMessage = 'ItemRandomOptionGroupUTIL'
-			elseif propValueList[i] == 'STAT' then
-			    clientMessage = 'ItemRandomOptionGroupSTAT'
+			local propIndexStr = string.sub(propNameList[i], propGroupNameIndex + 1, propGroupNameIndex + 1)
+			local propIndex = 1
+			if propIndexStr ~= nil and propIndexStr ~= "" then
+				propIndex = tonumber(propIndexStr)
 			end
-		elseif propNameList[i] == propName then
+
+			if propValueList[i] == 'ATK' then
+			    clientMessage[propIndex] = 'ItemRandomOptionGroupATK'
+			elseif propValueList[i] == 'DEF' then
+			    clientMessage[propIndex] = 'ItemRandomOptionGroupDEF'
+			elseif propValueList[i] == 'UTIL_WEAPON' then
+			    clientMessage[propIndex] = 'ItemRandomOptionGroupUTIL'
+			elseif propValueList[i] == 'UTIL_ARMOR' then
+			    clientMessage[propIndex] = 'ItemRandomOptionGroupUTIL'			
+			elseif propValueList[i] == 'UTIL_SHILED' then
+			    clientMessage[propIndex] = 'ItemRandomOptionGroupUTIL'
+			elseif propValueList[i] == 'STAT' then
+			    clientMessage[propIndex] = 'ItemRandomOptionGroupSTAT'
+			end
+		elseif propNameIndex ~= nil then
 			-- ADD_PARAMUNE, DEX 등 옵션 명
 			if propValueList[i] ~= nil and propValueList[i] ~= "None" then
-			--	opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propValueList[i]));	
-				opName = propValueList[i];	
+				local propIndexStr = string.sub(propNameList[i], propNameIndex + 1, propNameIndex + 1)
+				local propIndex = 1
+				if propIndexStr ~= nil and propIndexStr ~= "" then
+					propIndex = tonumber(propIndexStr)
+				end
+				opName[propIndex] = propValueList[i];	
 			end
-		elseif propNameList[i] == propValue then
+		elseif propValueIndex ~= nil then
 			-- 실제 숫자 값
 			if propValueList[i] ~= nil and propValueList[i] ~= "" then
-				opValue = propValueList[i];
+				local propIndexStr = string.sub(propNameList[i], propValueIndex + 1, propValueIndex + 1)
+				local propIndex = 1
+				if propIndexStr ~= nil and propIndexStr ~= "" then
+					propIndex = tonumber(propIndexStr)
+				end
+				opValue[propIndex] = propValueList[i];
 			end
 		end
+	end
 
-		if clientMessage ~= "" and opName ~= "" and opValue ~= "" then
-			local temp = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(opName));	
-			strInfo = ABILITY_DESC_NO_PLUS(temp, tonumber(opValue), 0);
+	for i = 1 , #propNameList do
+		if clientMessage[optionIndex] ~= nil and opName[optionIndex] ~= nil and opValue[optionIndex] ~= nil then
+			local temp = string.format("%s %s", ClMsg(clientMessage[optionIndex]), ScpArgMsg(opName[optionIndex]));	
+			strInfo[optionIndex] = ABILITY_DESC_NO_PLUS(temp, tonumber(opValue[optionIndex]), 0);
 
 			local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_1")
-			local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..i, 0, 0);
+			local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..optionIndex, 0, 0);
 			itemClsCtrl = AUTO_CAST(itemClsCtrl)
 			local pos_y = itemClsCtrl:GetUserConfig("POS_Y")
 			itemClsCtrl:Move(0, optionIndex * pos_y)
 			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
-			propertyList:SetText(strInfo)	
-			clientMessage = ""
-			opName = ""
-			strInfo = ""
-			opValue = ""
+			propertyList:SetText(strInfo[optionIndex])	
 			optionIndex = optionIndex + 1
 		end
 	end
 
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
-	
+	local do_revertrandom = GET_CHILD_RECURSIVELY(frame, "do_revertrandom")
+	do_revertrandom:ShowWindow(0)
 
 end
 
@@ -696,9 +777,12 @@ function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)
 	do_revertrandom:ShowWindow(0)
 	local send_ok = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	send_ok:ShowWindow(1)
-	
+
+	frame:SetUserValue("IS_PLAYED_EFFECT", 0)
+
 	item.DialogTransaction("ANSWER_REVERT_ITEM_OPTION", resultlist, stringArgList);
 	ui.CloseFrame("revertrandomagreebox")
 
 	isCloseable = 1
+	frame:EnableHide(1);
 end

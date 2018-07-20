@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="simple_ranking" x="0" y="0" width="450" height="550" create="open">
+	<skin frameskin="None"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<frame fasthide="true" layout_gravity="center center" margin="0 -100 0 0"/>
+	<input moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<userconfig ODD_INDEX_RANK_BG_SKIN="chat_window" RANK_CTRL_HEIGHT="33" RANK_CTRL_FONTNAME="white_18_b_ol" RANK_CTRL_OFFSET_RANK="52" RANK_CTRL_OFFSET_NAME="150"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 450 525" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="false"/>
+		<groupbox name="headerBox" rect="0 0 450 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>
+		<richtext name="titleText" rect="0 0 300 30" parent="headerBox" margin="0 0 0 0" layout_gravity="center center" format="{@st43}%s" param1="title" param1_def="랭킹 이름"/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame('simple_ranking')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<groupbox name="rankingBox" rect="0 0 430 449" margin="0 65 0 0" layout_gravity="center top" skin="test_frame_midle"/>
+		<groupbox name="rankingHeaderBox" parent="rankingBox" rect="0 0 430 36" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase"/>
+		<groupbox name="rankingListBox" parent="rankingBox" rect="0 0 430 410" margin="0 34 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="rankHeaderText" rect="0 0 100 30" parent="rankingHeaderBox" margin="60 0 0 0" layout_gravity="left center" caption="순위" fontname="brown_16"/>
+		<richtext name="nameHeaderText" rect="0 0 100 30" parent="rankingHeaderBox" margin="260 0 0 0" layout_gravity="left center" caption="팀명" fontname="brown_16"/>
+		<groupbox name="myRankInfoBoxBG" rect="0 0 420 40" margin="0 0 0 42" layout_gravity="center bottom"  skin="guildbattle_win_bg"/>
+		<groupbox name="myRankInfoBox" rect="0 0 430 40" margin="0 0 0 42" layout_gravity="center bottom" draw="false"/>
+		<richtext name="dotText" rect="0 0 100 30" margin="280 0 0 94" layout_gravity="left bottom" caption=":" fontname="white_18_ol"/>
+		<richtext name="dotText2" rect="0 0 100 30" margin="82 0 0 94" layout_gravity="left bottom" caption=":" fontname="white_18_ol"/>
+	</controls>
+</uiframe>

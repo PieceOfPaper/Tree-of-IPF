@@ -620,6 +620,7 @@
 		<image name="icon_warri_impaleDagger" file="\icon\skill\warrior\icon_warri_impaleDagger.png" imgrect="0 0 128 128" CMM_Caption="임페일 대거"/>
 		<image name="icon_warri_VitalProtection" file="\icon\skill\warrior\icon_warri_VitalProtection.png" imgrect="0 0 128 128" CMM_Caption="급소보호"/>
 		<image name="icon_warri_MuayThai" file="\icon\skill\warrior\icon_warri_MuayThai.png" imgrect="0 0 128 128" CMM_Caption="무아이타이"/>
+		<image name="icon_warri_EquipmentTouchUp" file="\icon\skill\warrior\icon_warri_EquipmentTouchUp.png" imgrect="0 0 128 128" CMM_Caption="장비 손질"/>
 	</imagelist>
 	<imagelist category="summon_skillicon">
 		<image name="icon_summon_Common_ForcedAttack" file="\icon\skill\summon\icon_summon_Common_ForcedAttack.png" imgrect="0 0 128 128" CMM_Caption="소환수 강제 공격"/>
@@ -1080,6 +1081,8 @@
 		<image name="ability_Warrior_Fencer10" file="\icon\icon_ability_warrior06.tga" imgrect="640 512 128 128" CMM_Caption="플레쉬 : 강화"/>
 		<image name="ability_Warrior_Peltasta33" file="\icon\icon_ability_warrior06.tga" imgrect="768 512 128 128" CMM_Caption="가디언 : 대미지 감소"/>
 		<image name="ability_Warrior_Peltasta34" file="\icon\icon_ability_warrior06.tga" imgrect="896 512 128 128" CMM_Caption="가디언 : 방어력 증가"/>
+		<image name="ability_Warrior_Squire12" file="\icon\icon_ability_warrior06.tga" imgrect="0 640 128 128" CMM_Caption="수리: 추가 비용"/>
+		<image name="ability_Warrior_Squire13" file="\icon\icon_ability_warrior06.tga" imgrect="0 640 128 128" CMM_Caption="장비 손질: 추가 비용"/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -2024,6 +2027,7 @@
 		<image name="ability_cleric_Kabbalist25" file="\icon\icon_ability_cleric05.tga" imgrect="0 640 128 128" CMM_Caption="세피로트의 나무: 강화"/>
 		<image name="ability_cleric_Exorcist16" file="\icon\icon_ability_cleric05.tga" imgrect="128 640 128 128" CMM_Caption="코이노니아: 강화"/>
 		<image name="ability_cleric_Cleric24" file="\icon\icon_ability_cleric05.tga" imgrect="256 640 128 128" CMM_Caption="한손둔기 마스터리: 치유"/>
+		<image name="ability_cleric_Pardoner9" file="\icon\icon_ability_cleric05.tga" imgrect="384 640 128 128" CMM_Caption="주문 판매상점 개설: 추가 비용"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

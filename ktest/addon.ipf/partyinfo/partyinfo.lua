@@ -285,9 +285,6 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("GiveLeaderPermission"), string.format("GIVE_PARTY_LEADER(\"%s\")", memberInfo:GetName()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("BAN_PARTY_MEMBER(\"%s\")", memberInfo:GetName()));	
-		if myInfo:GetMapID() == memberInfo:GetMapID() and memberInfo.isAlchmist == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')", memberInfo:GetName()));	
-		end
 		
 		if session.world.IsDungeon() or session.world.IsIntegrateIndunServer() == true then
 			local aid = memberInfo:GetAID();
@@ -303,10 +300,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
 		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
-		if myInfo:GetMapID() == memberInfo:GetMapID() and memberInfo.isAlchmist == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')",memberInfo:GetName()));	
-		end
-
+		
 		if session.world.IsDungeon() or session.world.IsIntegrateIndunServer() == true then
 			local aid = memberInfo:GetAID();
 			local serverName = GetServerNameByGroupID(GetServerGroupID());
@@ -797,6 +791,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 
 	local OTHERPCJOBS = {}
 	for i = 0, jobhistory:GetJobHistoryCount()-1 do
+		
 		local tempjobinfo = jobhistory:GetJobHistory(i);
 
 		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
@@ -810,6 +805,68 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 
 	local startext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
+		-- 클래스 이름{@st41}
+		local cls = GetClassByTypeFromList(clslist, jobid);
+
+		if cls.Name == nowjobcls.Name then
+			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
+		else
+			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
+		end
+		
+		-- 클래스 레벨 (★로 표시)				
+		for i = 1 , 3 do
+			if i <= grade then
+				startext = startext ..('{img star_in_arrow 20 20}');
+			else
+				startext = startext ..('{img star_out_arrow 20 20}');
+			end
+		end
+		startext = startext ..('{nl}');
+	end
+	icon:SetTextTooltip(startext);
+	icon:EnableHitTest(1);
+	return 1;
+end
+
+
+function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName)
+	if nil == icon then 
+		return 0;
+	end		 	
+
+   	local mySession = session.GetMySession();
+	local pcJobInfo = mySession.pcJobInfo;
+    local classLv = pcJobInfo:GetJobGrade(jobClassID);
+
+	local jobhistory = mySession.jobHistory;
+    local gender = info.GetGender(session.GetMyHandle());
+	local clslist, cnt  = GetClassList("Job");
+	
+	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+	local nowjobcls;
+	if nil == nowjobinfo then
+		nowjobcls = nowJobName; 
+	else
+		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
+	end; 
+
+	local MYPCJOBS = {}
+	for i = 0, jobhistory:GetJobHistoryCount()-1 do
+		
+		local tempjobinfo = jobhistory:GetJobHistory(i);
+
+		if MYPCJOBS[tempjobinfo.jobID] == nil then
+			MYPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
+		else
+			if tempjobinfo.grade > MYPCJOBS[tempjobinfo.jobID] then
+				MYPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
+			end
+		end
+	end
+
+	local startext = ("");
+	for jobid, grade in pairs(MYPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 

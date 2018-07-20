@@ -26,7 +26,6 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
             end
         end
 	end
-    --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 
     if ability.Job == "None" then
 		LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Ability Job is None");
@@ -56,11 +55,9 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
                 return "UNLOCK"
             end
 
-
-            local unlockFuncName = abilGroupClass.UnlockScr;
-
-            if abilGroupClass.UnlockScr == "None" then
-				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
+            local unlockFuncName = TryGetProp(abilGroupClass, 'UnlockScr', 'None');
+            if unlockFuncName == 'None' then
+                LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                 return "UNLOCK"
             end
         

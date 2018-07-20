@@ -27,6 +27,8 @@ function ENCHANTARMOR_OPEN_UI_SET(frame, obj)
 	reqitemNameStr:SetTextByKey("txt", cls.Name);
 	local text = cnt .. " " .. ClMsg("CountOfThings");
 	reqitemCount:SetTextByKey("txt", text);
+
+	ENCHANTARMOR_INIT_USER_PRICE(frame);
 end
 
 function ENCHANTARMOR_BUFF_EXCUTE_BTN(frame, ctrl)
@@ -76,4 +78,8 @@ function ENCHANTARMOR_BUFF_EXCUTE_BTN(frame, ctrl)
 	end
 
 	session.autoSeller.RequestRegister(sklName, sklName, titleInput:GetText(), sklName);
+end
+
+function ENCHANTARMOR_INIT_USER_PRICE(frame)
+	PROCESS_USER_SHOP_PRICE('Enchanter_EnchantArmor', GET_CHILD_RECURSIVELY(frame, 'moneyInput'));
 end

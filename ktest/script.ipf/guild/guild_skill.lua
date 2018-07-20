@@ -29,7 +29,7 @@ function GUILD_SKILL_Templer_WarpToGuildMember(leader, memberAID, sklLevel, x, y
 
 	local mapCls = GetClassByType("Map", memberMapID);
 
-    if mapCls.ClassName == 'd_castle_agario' or mapCls.ClassName == 'pvp_Mine' then
+    if mapCls.ClassName == 'f_playground' or mapCls.ClassName == 'd_castle_agario' or mapCls.ClassName == 'pvp_Mine' then
         SendSysMsg(leader, 'CantWarpBcz');        
         return;
     end

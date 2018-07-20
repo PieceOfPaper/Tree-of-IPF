@@ -7,7 +7,7 @@ function SHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('ESCAPE_PRESSED', 'SHOP_ON_MSG');
 	addon:RegisterMsg('SOLD_ITEM_LIST', 'ON_SOLD_ITEM_LIST');
 	addon:RegisterMsg('FAIL_SHOP_BUY', 'ON_FAIL_SHOP_BUY');
-
+	addon:RegisterOpenOnlyMsg('NOTICE_Dm_invenfull', 'INVENTORY_DM_INVENFULL');
 	addon:RegisterMsg('COMMON_SHOP_ITEM_LIST_GET', 'SHOP_ON_MSG');
 
 	FINALPRICE = GET_TOTAL_MONEY();
@@ -29,6 +29,10 @@ function SHOP_UI_OPEN(frame)
 	return 1;
 end
 
+function INVENTORY_DM_INVENFULL(frame, msg, argStr, argNum)
+	FINALPRICE = GET_TOTAL_MONEY();
+	SHOP_UPDATE_BUY_PRICE(frame);
+end
 
 function HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	if frame == nil then
@@ -179,8 +183,7 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 	elseif isSellSound == true then
 		imcSound.PlaySoundEvent("market_sell");
 	end
-
-	FINALPRICE = MyMoney + TotalPrice;
+	FINALPRICE = SumForBigNumber(MyMoney, TotalPrice);
 	SHOP_UPDATE_BUY_PRICE(frame);
 
 	SHOP_SELECT_ITEM_LIST = {}

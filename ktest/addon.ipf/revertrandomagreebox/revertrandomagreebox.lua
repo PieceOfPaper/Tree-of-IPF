@@ -30,7 +30,7 @@ function REVERTRANDOM_AGREEBOX_FRAME_OPEN(clmsg, obj, yesScp, argStr)
 	end
 
 	local index = 1
-	for i = 1 , MAX_RANDOM_OPTION_COUNT do
+	for i = 1 , MAX_RANDOM_OPTION_COUNT * 3 do
 		local optionControlSet = selectGbox:GetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_'..i);
 		if optionControlSet ~= nil then
 			local msgGbox = GET_CHILD_RECURSIVELY(frame, "randomGbox")
@@ -47,7 +47,6 @@ function REVERTRANDOM_AGREEBOX_FRAME_OPEN(clmsg, obj, yesScp, argStr)
 			index = index + 1
 		end
 	end
-
 
 	local yesBtn = GET_CHILD_RECURSIVELY(frame, "yes")
 	tolua.cast(yesBtn, "ui::CButton");

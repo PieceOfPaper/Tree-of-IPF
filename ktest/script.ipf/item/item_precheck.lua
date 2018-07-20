@@ -203,6 +203,13 @@ function SCR_PRE_PopUpBook(self, argstring, argnum1, argnum2)
         Dead(popupbookNPC)
         SetExArgObject(self, 'POPUPBOOK_NPC', nil)
         SetExArgObject(popupbookNPC, 'POPUPBOOK_PC', nil)
+        
+        local popupbookNPC3 =  GetExArgObject(self, 'POPUPBOOK_NPC3')
+        if popupbookNPC3 ~= nil then
+            Dead(popupbookNPC3)
+            SetExArgObject(self, 'POPUPBOOK_NPC3', nil)
+            SetExArgObject(popupbookNPC3, 'POPUPBOOK_PC', nil)
+        end
         return 0
     end
     

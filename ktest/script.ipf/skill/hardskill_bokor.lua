@@ -245,7 +245,7 @@ function SCR_SUMMON_ZOMBIE_BY_ETC(self)
     --{º?½º?¸| º????§? ??
 
     --아가리오 던전 예외처리
-    if GetZoneName(self) == "d_castle_agario" then
+    if GetZoneName(self) == "d_castle_agario" or GetZoneName(self) == "f_playground" then
         return;
     end
 

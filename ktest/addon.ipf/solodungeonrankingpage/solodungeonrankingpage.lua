@@ -65,7 +65,16 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_LISTS(ctrlType, week)
 
 end
 
-
+function SOLODUNGEON_UPDATE_GUILD_EMBLEM_IMAGE(code, return_json)
+    if code ~= 200 then
+        if code == 400 or code == 404 then
+            return
+        else
+            SHOW_GUILD_HTTP_ERROR(code, return_json, "SOLODUNGEON_UPDATE_GUILD_EMBLEM_IMAGE")
+            return
+        end
+    end
+end
 
 function SOLODUNGEON_RANKINGPAGE_FILL_RANK_LIST(gbox, ctrlType, week)
     -- SOLODUNGEON_MAX_RANK = 10
@@ -131,6 +140,24 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_LIST(gbox, ctrlType, week)
     local charLevelText = GET_CHILD_RECURSIVELY(myrankGbox, "charLevelText")
     charLevelText:SetTextByKey("charlevel", myCharLv)
 
+    local guildNameText = GET_CHILD_RECURSIVELY(myrankGbox, "guildNameText")
+    guildNameText:SetTextByKey("guildname", myScoreInfo.guildName);
+
+    local emblemCtrl = GET_CHILD_RECURSIVELY(myrankGbox, "guildEmblem")
+    if emblemCtrl ~= nil then
+        local worldID = session.party.GetMyWorldIDStr();
+        local emblemImgName = guild.GetEmblemImageName(myScoreInfo:GetGuildIDStr(), worldID);
+        emblemCtrl:SetImage("");
+        if emblemImgName ~= 'None' then           
+            emblemCtrl:SetFileName(emblemImgName);
+            emblemCtrl:Invalidate();
+        else
+            if myScoreInfo:GetGuildIDStr() ~= "0" then
+                GetGuildEmblemImage("SOLODUNGEON_UPDATE_GUILD_EMBLEM_IMAGE", myScoreInfo:GetGuildIDStr())
+            end
+        end
+    end
+
     local jobTreeGbox = GET_CHILD_RECURSIVELY(myrankGbox, "jobTreeGbox")
     for i = 0, cnt - 1 do
         local jobID = myScoreInfo:GetJobHistoryByIndex(i)
@@ -156,6 +183,8 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_LIST(gbox, ctrlType, week)
 end
 
 function SOLODUNGEON_RANKINGPAGE_FILL_RANK_CTRL(rankGbox, ctrlType, rank, week)
+    AUTO_CAST(rankGbox)
+    local emblemSlotImageName = rankGbox:GetUserConfig("GUILD_EMBLEM_SLOT");
     local scoreInfo = nil
 
     if week == 0 then 
@@ -167,7 +196,7 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_CTRL(rankGbox, ctrlType, rank, week)
     if scoreInfo == nil then
         return
     end
-
+    
     local rankText = GET_CHILD_RECURSIVELY(rankGbox, "rankText")
     rankText:SetTextByKey("rank", rank + 1)
 
@@ -176,6 +205,24 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_CTRL(rankGbox, ctrlType, rank, week)
 
     local charLevelText = GET_CHILD_RECURSIVELY(rankGbox, "charLevelText")
     charLevelText:SetTextByKey("charlevel", scoreInfo.level)
+
+    local guildNameText = GET_CHILD_RECURSIVELY(rankGbox, "guildNameText")
+    guildNameText:SetTextByKey("guildname", scoreInfo.guildName);
+
+    local emblemCtrl = GET_CHILD_RECURSIVELY(rankGbox, "guildEmblem")
+    if emblemCtrl ~= nil then
+        local worldID = session.party.GetMyWorldIDStr();
+        local emblemImgName = guild.GetEmblemImageName(scoreInfo:GetGuildIDStr(), worldID);
+        emblemCtrl:SetImage(emblemSlotImageName);
+        if emblemImgName ~= 'None' then           
+            emblemCtrl:SetFileName(emblemImgName);
+            emblemCtrl:Invalidate();
+        else
+            if scoreInfo:GetGuildIDStr() ~= "0" then
+                GetGuildEmblemImage("SOLODUNGEON_UPDATE_GUILD_EMBLEM_IMAGE", scoreInfo:GetGuildIDStr())
+            end
+        end
+    end
 
     local cnt = scoreInfo:GetJobHistoryCount()
 

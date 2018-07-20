@@ -162,3 +162,145 @@ function SCR_ARRAY_SHUFFLE(arr_val)
     end
     return arr_val;
 end
+
+
+function SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	local shopClass = GetClass("UserShopPrice", shopClassName);
+	if shopClass == nil then
+		return 0;
+	end
+	
+	local price = TryGetProp(shopClass, "DefaultPrice", 0);
+	
+	local minPrice = TryGetProp(shopClass, "MinPrice");
+	local maxPrice = TryGetProp(shopClass, "MaxPrice");
+	
+	price = math.min(math.max(price, minPrice), maxPrice);
+	
+	return math.floor(price);
+end
+
+
+function SCR_GET_ROASTING_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	
+	return math.floor(price);
+end
+
+function SCR_GET_ITEMAWAKENING_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	
+	return math.floor(price);
+end
+
+function SCR_GET_PORTALSHOP_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	
+	return math.floor(price);
+end
+
+function SCR_GET_ENCHANTARMOR_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	
+	return math.floor(price);
+end
+
+function SCR_GET_SPELLSHOP_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+--	if buffClassName == 'Priest_Aspersion' then
+--		return 714;
+--	end
+--	
+--	if buffClassName == 'Priest_Blessing' then
+--		return 714;
+--	end
+--	
+--	if buffClassName == 'Priest_Sacrament' then
+--		return 700;
+--	end
+--	
+--	if buffClassName == 'Pardoner_IncreaseMagicDEF' then
+--		return 714;
+--	end
+--	
+--	return 100;
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	local mapClass = GetClass("Map", mapClassName);
+	if TryGetProp(mapClass, "MapType") == "Dungeon" then
+--		for i = 1, #abilList do
+--			if abilList[i].ClassName == "Pardoner8" then
+--				price = 1200
+--				
+--				break
+--			end
+--		end
+		price = 1200
+	end
+	
+	return math.floor(price);
+end
+
+function SCR_GET_SWITCHGENDER_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	
+	return math.floor(price);
+end
+
+function GET_BUFFSELLER_SPEND_ITEM_COUNT(sklClassName)
+	if sklClassName == "Priest_Aspersion" then
+		return 10;
+	end
+	
+	if sklClassName == "Priest_Blessing" then
+		return 25;
+	end
+	
+	if sklClassName == "Priest_Sacrament" then
+		return 14;
+	end
+	
+	if sklClassName == "Pardoner_IncreaseMagicDEF" then
+		return 10;
+	end
+	
+	return 0;
+end
+
+function SCR_GET_EQUIPMENTTOUCHUP_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	local mapClass = GetClass("Map", mapClassName);
+	if TryGetProp(mapClass, "MapType") == "Dungeon" then
+--		for i = 1, #abilList do
+--			if abilList[i].ClassName == "Squire13" then
+--				price = 500
+--				
+--				break
+--			end
+--		end
+		price = 500
+	end
+	
+	return math.floor(price);
+end
+
+function SCR_GET_REPAIR_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	local mapClass = GetClass("Map", mapClassName);
+	if TryGetProp(mapClass, "MapType") == "Dungeon" then
+--		for i = 1, #abilList do
+--			if abilList[i].ClassName == "Squire12" then
+--				price = 200
+--				
+--				break
+--			end
+--		end
+		price = 200
+	end
+	
+	return math.floor(price);
+end
+
+function SCR_GET_APPRISE_PRICE(shopClassName, mapClassName, buffClassName, abilList)
+	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
+	
+	return math.floor(price);
+end

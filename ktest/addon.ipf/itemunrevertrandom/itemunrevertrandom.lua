@@ -236,6 +236,13 @@ function ITEM_UNREVERT_RANDOM_EXEC(frame)
 		return
 	end
 
+	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
+	local materialCnt = text_havematerial:GetTextByKey("count")
+	if materialCnt == '0' then
+		ui.SysMsg(ClMsg("LackOfUnrevertRandomMaterial"));
+		return
+	end
+
 	local clmsg = ScpArgMsg("DoUnrevertRandomReset")
 	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEM_UNREVERT_RANDOM_EXEC", "_ITEM_UNREVERT_RANDOM_CANCEL");
 end
@@ -271,6 +278,8 @@ function _ITEM_UNREVERT_RANDOM_EXEC()
 		ui.SysMsg(ClMsg("NotAllowedRandomReset"));
 		return;
 	end
+
+
 
 	session.ResetItemList();
 	session.AddItemID(frame:GetUserValue('REVERTITEM_GUID'));
@@ -391,19 +400,34 @@ function UPDATE_REMAIN_MYSTIC_GLASS_COUNT(frame)
 	local itemHaveCount = 0
 	local invItemList = session.GetInvItemList()
 	local invItemCount = session.GetInvItemList():Count()
-	for i = 0, invItemCount - 1 do
-		local invItem = invItemList:Element(i)
-		if invItem ~= nil and invItem:GetObject() ~= nil then
-			local obj = GetIES(invItem:GetObject())
-			if obj ~= nil then
-				local stringArg = TryGetProp(obj, "StringArg")
-				if stringArg == "Mystic_Glass" then
-					local pc = GetMyPCObject();
-					itemHaveCount = itemHaveCount + GetInvItemCount(pc, obj.ClassName)
+	
+	local limitLoopCount = 100000
+	local loopCount = 0
+
+	if invItemCount <= 0 then
+		itemHaveCount = 0
+	else
+		local index = invItemList:Head()
+		while invItemList:InvalidIndex() ~= index do
+			local invItem = invItemList:Element(index)
+			if invItem ~= nil and invItem:GetObject() ~= nil then
+				local obj = GetIES(invItem:GetObject())
+				if obj ~= nil then
+					local stringArg = TryGetProp(obj, "StringArg")
+					if stringArg == "Mystic_Glass" then
+						local pc = GetMyPCObject();
+						itemHaveCount = itemHaveCount + GetInvItemCount(pc, obj.ClassName)
+					end
 				end
+			end
+			index = invItemList:Next(index)
+			loopCount = loopCount + 1
+			if loopCount >= limitLoopCount then
+				return
 			end
 		end
 	end
+
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
 	text_havematerial:SetTextByKey("count", itemHaveCount)
 end

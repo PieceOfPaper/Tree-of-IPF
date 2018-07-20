@@ -50,146 +50,121 @@ function SUMMON_KILL_SELF(self, ms)
 	Kill(self);
 end
 
-function SCR_ALCHE_BRIQUET_EXCUTE(self, main, spend, skill, index)
+function SCR_ALCHE_BRIQUET_EXCUTE(pc, itemList)
+	if pc == nil then
+		return;
+	end
 	
-	if nil == self or nil == main or nil == spend or nil == skill then
+    if itemList == nil or #itemList < 3 then -- 적어도 3개는 있어야 함(타겟, 외형 재료, 외형 재료/목각)
 		return;
 	end
 
-	if 1 == IsFixedItem(main) or 1 == IsFixedItem(spend) then
+    -- check target item
+    local targetItem = GetInvItemByGuid(pc, itemList[1]);
+    if targetItem == nil or IsFixedItem(targetItem) == 1 or targetItem.ItemLifeTimeOver > 0  or targetItem.PR < 1 then
 		return;
 	end
 
-	if index > 0 and GetAbility(self, 'Alchemist10') == nil then
+	-- check look item
+	local lookItem = GetInvItemByGuid(pc, itemList[2]);
+	if lookItem == nil or IsFixedItem(lookItem) == 1 or lookItem.ItemLifeTimeOver > 0 or lookItem.ClassType ~= targetItem.ClassType then
 		return;
 	end
-	local checkFunc = _G["ALCHEMIST_CHECK_" .. skill.ClassName];
-	if 1 ~= checkFunc(self, main) or
-	   1 ~= checkFunc(self, spend) then
-	   	SendSysMsg(self, "WrongDropItem");
+
+    -- check look material item
+    local needLookItemCnt = GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem);    
+    if #itemList ~= 2 + needLookItemCnt then
 	   return;
 	end
 
-	local potential = main.PR;
-	local waponFaceID = main.ClassID;
-	if index == 2 then
-		waponFaceID = spend.ClassID;
+    local lookMatItemList = {};    
+    for i = 3, #itemList do
+    	lookMatItemList[#lookMatItemList + 1] = GetInvItemByGuid(pc, itemList[i]);
+    	if #lookMatItemList == needLookItemCnt then
+    		break;
+    	end
 	end
 	
-	if potential <= 0 then
-		SendSysMsg(self, "NotEnoughReinforcePotential");
+    for i = 1, #lookMatItemList do
+    	local lookMatItem = lookMatItemList[i];
+		if IsFixedItem(lookMatItem) == 1 or lookMatItem.ItemLifeTimeOver > 0 then
+		return;
+	end
+	end
+
+    if IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList) == false then
 		return;
 	end
 
-	local needFunc = _G["ALCHEMIST_NEEDITEM_" .. skill.ClassName];
-	local needItem, needCnt  = needFunc(self, main);
-
-	local myNeedItem, materialCount = GetInvItemByName(self, needItem);
-	if materialCount < needCnt then
-		SendSysMsg(self, "NotEnoughRecipe");
-		return
-	end
-
-	if 1 == IsFixedItem(myNeedItem) then
-		SendSysMsg(target, "MaterialItemIsLock");
+    -- check material
+    local needItemName, needItemCnt = GET_BRIQUETTING_NEED_MATERIAL_LIST(targetItem);
+    if needItemName == 'None' or needItemCnt < 0 then
+    	IMC_LOG('ERROR_LOGIC', 'SCR_ALCHE_BRIQUET_EXCUTE: need material error- targetItem['..targetItem.ClassName..']');
 		return;
 	end
-
-	local needMaterial = CloneIES(myNeedItem);
-	local tempObj = CreateIESByID("Item", main.ClassID);
-	if nil == tempObj then
-		return;
-	end
-
-	local refreshScp = tempObj.RefreshScp;
-	if refreshScp ~= "None" then
-		refreshScp = _G[refreshScp];
-		refreshScp(tempObj);
+    local myNeedItem, myNeedItemCnt = GetInvItemByName(pc, needItemName);
+    if myNeedItem == nil or IsFixedItem(myNeedItem) == 1 or myNeedItemCnt < needItemCnt then
+    	return;
 	end	
 
-	EnableControl(self, 0, "BRIQUETTING");
-	local result = DOTIMEACTION_R(self, ScpArgMsg("ItemBriquettingProcess"), '#BriqAnimation', 60);
-
-	if 1 ~= result then
-		EnableControl(self, 1, "BRIQUETTING");
+    -- check money
+    local price = GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMatItemList);
+    local myMoneyItem, myMoney = GetInvItemByName(pc, MONEY_NAME);
+    if myMoneyItem == nil or IsFixedItem(myMoneyItem) == 1 or (price > 0 and myMoney < price) then
 		return;
 	end
 	
+    -- log vars
+    local briquettingIndex = lookItem.ClassID;
+    local materialGuidList = {};
+    local materialNameList = {};
+    local materialIDList = {};
+    local materialCntList = {};
+    local visItem, visCount = GetInvItemByName(pc, MONEY_NAME);
+    local visItemGuid = GetItemGuid(visItem);
 
-	local tx = TxBegin(self);
-	
+	-- Tx	
+	local tx = TxBegin(pc);
 	if nil == tx then
 		return;
 	end
 
-	TxTakeItem(tx, needItem, needCnt, skill.ClassName);
-	local historyStr = string.format("%s#%d#", GetTeamName(self), main.ClassID);
+	materialGuidList[#materialGuidList + 1] = GetItemGuid(lookItem);
+	materialNameList[#materialNameList + 1] = lookItem.ClassName;
+	materialIDList[#materialIDList + 1] = lookItem.ClassID;
+	materialCntList[#materialCntList + 1] = 1;
+	TxTakeItemByObject(tx, lookItem, 1, 'Briquetting');
 
-    local basicTooltipPropList = StringSplit(tempObj.BasicTooltipProp, ';');
-    for i = 1, #basicTooltipPropList do
-        local basicTooltipProp = basicTooltipPropList[i];
-	    local prop1, prop2 = GET_ITEM_PROPERT_STR(main, basicTooltipProp);	
-	    local checkValue = _G["ALCHEMIST_VALUE_" .. skill.ClassName];    
-	    if basicTooltipProp == "ATK" then
-		    local min, max = checkValue(skill.Level, tempObj.MAXATK);
-		    local maxatk  = IMCRandom(min, max);
-		    min, max = checkValue(skill.Level, tempObj.MINATK);
-		    local minatk = IMCRandom(min, max);
+	for i = 1, #lookMatItemList do
+		local lookMatItem = lookMatItemList[i];
 	
-		    maxatk = maxatk - tempObj.MAXATK;
-		    minatk = minatk - tempObj.MINATK;
-
-		    if main.MAXATK_AC ~= maxatk then
-			    TxSetIESProp(tx, main, 'MAXATK_AC', maxatk)
-		    end
-		    if main.MINATK_AC ~= minatk then
-			    TxSetIESProp(tx, main, 'MINATK_AC', minatk)
+		materialGuidList[#materialGuidList + 1] = GetItemGuid(lookMatItem);
+		materialNameList[#materialNameList + 1] = lookMatItem.ClassName;
+		materialIDList[#materialIDList + 1] = lookMatItem.ClassID;
+		materialCntList[#materialCntList + 1] = 1;
+		TxTakeItemByObject(tx, lookMatItem, 1, 'Briquetting');
 		    end
 
-		    local resultMAX = tempObj.MAXATK + maxatk;
-		    local resultMIN = tempObj.MINATK + minatk;
-		    historyStr = historyStr .. string.format("%s@%d@%d@", prop1, tempObj.MAXATK, resultMAX); 
-		    historyStr = historyStr .. string.format("%s@%d@%d@", prop2, tempObj.MINATK, resultMIN); 	
+	local needItemObj = GetInvItemByName(pc, needItemName);
+	materialGuidList[#materialGuidList + 1] = GetItemGuid(needItemObj);
+	materialNameList[#materialNameList + 1] = needItemObj.ClassName;
+	materialIDList[#materialIDList + 1] = needItemObj.ClassID;
+	materialCntList[#materialCntList + 1] = needItemCnt;
+	TxTakeItemByObject(tx, needItemObj, needItemCnt, 'Briquetting');
 
-	    elseif basicTooltipProp == "MATK" then
-		    local min, max = checkValue(skill.Level, tempObj.MATK);
-		    local maxmatk  = IMCRandom(min, max);
-		    maxmatk = maxmatk - tempObj.MATK;
-
-		    if main.MAXATK_AC ~= maxmatk then
-			    TxSetIESProp(tx, main, 'MAXATK_AC', maxmatk)
-		    end
-
-		    local resultMATK = tempObj.MATK + maxmatk;
-		    historyStr = historyStr .. string.format("%s@%d@%d@", prop1, tempObj.MATK, resultMATK); 
+	if price > 0 then
+		TxTakeItemByObject(tx, visItem, price, 'Briquetting');
 	    end
-    end
+	TxSetIESProp(tx, targetItem, 'PR', targetItem.PR - 1);
 
-	DestroyIES(tempObj);
-	local needObj = CloneIES(spend);
-	TxTakeItemByObject(tx, spend, 1, skill.ClassName);
-	TxSetIESProp(tx, main, 'PR', potential - 1);
-
-	if index == 2 and waponFaceID ~= main.BriquettingIndex then
-		TxSetIESProp(tx, main, 'BriquettingIndex', waponFaceID);
-	end
+	TxSetIESProp(tx, targetItem, 'BriquettingIndex', briquettingIndex);
 
 	local ret = TxCommit(tx);
-	EnableControl(self, 1, "BRIQUETTING");
-
 	if ret == "SUCCESS" then
-		RunUpdateItemBuffCheck(self, main);
-        local scpstr = string.format('ALCHEMIST_BRIQUE_SUCCEED("%s")', GetItemGuid(main));
-		ExecClientScp(self, scpstr);
-		InvalidateStates(self);
-		ItemBuffMongoLog(self, self, "Alchemist", skill, main, historyStr, needObj, 1, 0, needMaterial, materialCount);	
+		SendAddOnMsg(pc, 'SUCCESS_BRIQUETTING', GetItemGuid(targetItem));
+		BriquettingLog(pc, targetItem, briquettingIndex, materialGuidList, materialIDList, materialNameList, materialCntList, price, visItemGuid, visCount - price);
 	end
-
-	StopScript();
-	DestroyIES(needMaterial);
-	DestroyIES(needObj);
 end
-
 
 function ITEM_DESTRUCTION_VIS_ABIL(self, skl, eft, eftScale, hitRange, kdPower, useMoney)
     local tx = TxBegin(self);
@@ -311,7 +286,7 @@ function SCR_USE_HOMUNCULUS(pc, argObj, argStr, argnum1, argnum2, itemType, item
 end
 
 function SCR_ALCH_CRATE_HOMUNCLUS(pc)
-    if GetZoneName(pc) == 'd_castle_agario' then
+    if GetZoneName(pc) == 'd_castle_agario' or GetZoneName(pc) == 'f_playground' then
         return nil
     end
 	local iesObj = CreateGCIES('Monster', 'pcskill_Homunculus');

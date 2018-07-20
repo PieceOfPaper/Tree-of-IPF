@@ -513,3 +513,13 @@ function GET_UPHILL_MON_CHANGE_GIMMICK(self, zoneObj, arg2, zone, layer)
 	self.MDEF = math.floor(self.MDEF*0.60)
 	return UPHILL_GIMMICK_MONSTER_LIST[summonMonsterIndex]
 end
+
+function SEND_REDIS_RANKING_INFO(pc, titleText, category, typeName, startRank, totalRankCount, isCIDRank)
+    local nameList, scoreList = GetRedisRankingInfo(pc, category, typeName, isCIDRank, startRank, totalRankCount);
+    local myRank, myScore, totalRankCountInRanking = GetRankerInfo(pc, category, typeName, isCIDRank);
+    SendRedisRanking(pc, titleText, nameList, scoreList, startRank, totalRankCount, myRank, myScore, totalRankCountInRanking, isCIDRank);
+end
+
+function TEST_REDIS_RANKING_INFO(pc)
+    SEND_REDIS_RANKING_INFO(pc, 'TestRank', 'AdventureBook', 'Initialization_point', 15, 10, 0);
+end

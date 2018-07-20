@@ -826,6 +826,14 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
             UnHideNPC(self, 'BULLETMARKER_MASTER')
         end
     end
+    if argStr == 'f_siauliai_out' then
+      local jobCircle4 = GetJobGradeByName(self, 'Char2_5')
+      if jobCircle4 > 0 then
+          if isHideNPC(self, 'SIAULIAIOUT_ALCHE_A') == 'YES' then
+              UnHideNPC(self, 'SIAULIAIOUT_ALCHE_A')
+          end
+      end
+    end
     if IS_KOR_TEST_SERVER() then
         if argStr == 'c_fedimian' then
             if isHideNPC(self, 'FEDIMIAN_APPRAISER') == 'NO' then
@@ -1005,6 +1013,9 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
     -- EVENT_1805_WEEKEND
     EVENT_1805_WEEKEND(self)
     
+    
+    -- EVENT_1806_WEEKEND
+    EVENT_1806_WEEKEND(self)
     
 --     -- MISSION_SURVIVAL_EVENT2
 --    MISSION_SURVIVAL_EVENT2_ZONEENTER(self)
@@ -1648,6 +1659,9 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
         
 --        -- EVENT_1802_NEWYEAR
 --        RunScript('SCR_EVENT_1802_NEWYEAR_MONKILL',self, sObj, msg, argObj, argStr, argNum)
+
+        -- EVENT_1806_NUMBER_GAMES
+        SCR_EVENT_1806_NUMBER_GAMES_DROP(self, sObj, msg, argObj, argStr, argNum) 
     else
         print(ScpArgMsg("Auto_Jugin_MonSeuTeoui_obj_Ka_eopSeupNiDa."))
     end
@@ -1961,6 +1975,9 @@ end
 
 
 function SCR_BASIC_AttackMonster(self, sObj, msg, monster, sklName, realDamage, damage, skillResult)
+    --EVENT_1806_SOCCER
+    SCR_EVENT_1806_SOCCER_ATTACKMONSTER(self, sObj, monster, sklName)
+    
 	PC_CONSUME_ENCHANT(self, sObj, damage, skillResult);
     SCR_CITYATTACK_BOSS_EVENT_ATTACK_CHECK(self, sObj, msg, monster, sklName, realDamage, damage, skillResult)
 end
@@ -2208,8 +2225,6 @@ function MAKE_SUPER_DROP_MON(pc, groupName, minTime, maxTime)
 	local mo = CreateNearMonGen(pc);
 	if mo ~= nil then
 		AddBuff(mo, mo, "SuperDrop", 10, 5);
-		--SaveRedisPropVlaue(pc, 'monster', 'super_drop_mon', mo.Name, 1, 1);
-		--SaveRedisPropVlaue(pc, 'monster', 'super_drop_map', GetZoneName(mo), 1, 1);
 	end
 
 end
@@ -2557,6 +2572,9 @@ function SCR_SSN_KLAPEDA_SETTIME_1(self, sObj, remainTime)
     
     --EVENT_1805_WEEKEND
     EVENT_1805_WEEKEND_BUFF_REMOVE(self)
+    
+    --EVENT_1806_WEEKEND
+    EVENT_1806_WEEKEND_BUFF_REMOVE(self)
 end
 
 --function SCR_EVENT_1710_HOLIDAY(self)

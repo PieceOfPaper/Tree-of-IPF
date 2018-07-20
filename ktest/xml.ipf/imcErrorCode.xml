@@ -551,4 +551,5 @@
 	<Code Code="INFO_COLONY" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 정보 로그"/>
 	<Code Code="ERROR_SOLO_DUNGEON" Team="tos_team" Category="SYSTEM" SubCategory="SOLO_DUNGEON" Logger="root" Enabled="YES" CallStack="NO" Desc="1인 던전 에러"/>
 	<Code Code="INFO_SOLO_DUNGEON" Team="tos_team" Category="SYSTEM" SubCategory="SOLO_DUNGEON" Logger="root" Enabled="YES" CallStack="NO" Desc="1인 던전 정보"/>
+	<Code Code="ERROR_INVALID_LOOP_EFFECT" Team="ART" Category="DATA" SubCategory="EFFECT" Logger="root" Enabled="YES" CallStack="NO" Desc="잘못 사용된 루프 이펙트입니다."/>
 </imcErrorCode>

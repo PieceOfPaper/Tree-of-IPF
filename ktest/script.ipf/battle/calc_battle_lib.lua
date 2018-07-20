@@ -641,8 +641,8 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
         addCriticalATK = from.CRTATK + (from.CRTATK * rateTable.AddCrtAtkRate) + rateTable.AddCrtAtk;
         addCriticalDamageRate = 1.5 + rateTable.AddCrtDamageRate;
     end
-    
-     -- ★개편 공식 --
+
+    -- ★개편 공식 --
     -- 캐릭터의 기본 퍼뎀 공격력(스태이터스 창에 보이는 공격력) --
     local attackerPercentageATK = atk * rateTable.AddJobAtkRate;
     
@@ -2193,13 +2193,15 @@ function SCR_COMMON_POST_KILL(self, from, skill, ret, over)
     end
 
     local Inquisitor1_abil = GetAbility(from, 'Inquisitor1');
-    if Inquisitor1_abil ~= nil and IMCRandom(1,9999) < Inquisitor1_abil.Level * 100 then
-        local key = GenerateSyncKey(from)
-        StartSyncPacket(from, key);
-        local px, py, pz = GetPos(self)
-        RunPad(from, "Inquisitor_FireWall", nil, px, py, pz, 0, 1);
-        EndSyncPacket(from, key, 0.3);
-        ExecSyncPacket(from, key);
+    if TryGetProp(self, "RaceType") ~= "Item" then
+        if Inquisitor1_abil ~= nil and IMCRandom(1,9999) < Inquisitor1_abil.Level * 100 then
+            local key = GenerateSyncKey(from)
+            StartSyncPacket(from, key);
+            local px, py, pz = GetPos(self)
+            RunPad(from, "Inquisitor_FireWall", nil, px, py, pz, 0, 1);
+            EndSyncPacket(from, key, 0.3);
+            ExecSyncPacket(from, key);
+        end
     end
     
     if IsBuffApplied(self, 'GatherCorpse_Debuff') == 'YES' and IS_PC(self) == false then
@@ -3183,8 +3185,8 @@ function SCR_LIB_BUFF_IMMUNE_RATIO(self, from, buffName)
     ratio = ratio + addRatio;
     
     -- 최대 50% 확률로 면역 --
-    if ratio > 5000 then
-        ratio = 5000;
+    if ratio > 6000 then
+        ratio = 6000;
     end
     
     if ratio < 0 then
