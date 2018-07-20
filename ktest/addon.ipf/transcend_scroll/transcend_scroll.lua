@@ -25,13 +25,31 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 	local text_name = GET_CHILD(frame, "text_name")
 	local text_transcend = GET_CHILD(frame, "text_transcend")
 	local text_rate = GET_CHILD(frame, "text_rate")
-	local text_desc = GET_CHILD(frame, "text_desc")
+	local text_desc = GET_CHILD(frame, "text_desc")	
+	local text_itemtranscend = frame:GetChild("text_itemtranscend");	
+	local button_transcend = frame:GetChild("button_transcend");	
+	local button_close = frame:GetChild("button_close");	
+
+	button_close:ShowWindow(0);	
+	button_transcend:ShowWindow(1);	
 
 	slot_temp:StopActiveUIEffect();
 	slot_temp:ShowWindow(0);	
 
-	if true == invItem.isLockState then
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));--not transcendable
+	local scrollGuid = frame:GetUserValue("ScrollGuid")
+	local scrollInvItem = session.GetInvItemByGuid(scrollGuid);
+	if scrollInvItem == nil then
+		return;
+	end
+
+	if true == invItem.isLockState or true == scrollInvItem.isLockState then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
+	local invframe = ui.GetFrame("inventory");
+	if true == IS_TEMP_LOCK(invframe, invItem) or true == IS_TEMP_LOCK(invframe, scrollInvItem) then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
 
@@ -45,11 +63,6 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 		return;
 	end
 
-	local scrollGuid = frame:GetUserValue("ScrollGuid")
-	local scrollInvItem = session.GetInvItemByGuid(scrollGuid);
-	if scrollInvItem == nil then
-		return;
-	end
 	local scrollObj = GetIES(scrollInvItem:GetObject());
 	local anticipatedTranscend, percent = GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
 
@@ -57,10 +70,20 @@ function TRANSCEND_SCROLL_SET_TARGET_ITEM(invframe, invItem)
 	text_transcend:SetTextByKey("value", anticipatedTranscend)
 	text_rate:SetTextByKey("value", percent)
 	text_desc:SetTextByKey("value", anticipatedTranscend)
+	
+	local lev = itemObj.Transcend;
+	text_itemtranscend:SetTextByKey("value", string.format("{s20}%s", lev));
+	text_itemtranscend:StopColorBlend();
+	text_itemtranscend:ShowWindow(1);
 
 	TRANSCEND_SCROLL_CANCEL();
 
 	TRANSCEND_SCROLL_TARGET_ITEM_SLOT(slot, invItem, scrollObj.ClassID);
+
+	TRANSCEND_SCROLL_LOCK_ITEM(invItem:GetIESID())
+
+	frame:SetUserValue("EnableTranscendButton", 1);
+	frame:SetUserValue("BeforeTranscend", lev);
 	frame:OpenFrame(1);
 end
 
@@ -84,6 +107,12 @@ function TRANSCEND_SCROLL_TARGET_ITEM_SLOT(slot, invItem, scrollClsID)
 end
 
 function TRANSCEND_SCROLL_EXEC_ASK_AGAIN(frame, btn)
+	local scrollType = frame:GetUserValue("ScrollType")
+	local clickable = frame:GetUserValue("EnableTranscendButton")
+	if tonumber(clickable) ~= 1 then
+		return;
+	end
+
 	local buffState = IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C();
 	if buffState ~= 'YES' then
 		local buffCls = GetClass('Buff', buffState);
@@ -110,18 +139,30 @@ function TRANSCEND_SCROLL_EXEC_ASK_AGAIN(frame, btn)
 	local scrollGuid = frame:GetUserValue("ScrollGuid")
 	local scrollInvItem = session.GetInvItemByGuid(scrollGuid);
 	if scrollInvItem == nil then
+		ui.SysMsg(ScpArgMsg('TranscendScrollNotExist'));
 		return;
 	end
 	local scrollObj = GetIES(scrollInvItem:GetObject());
 
 	local transcend, rate = GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj);
 	if transcend == nil then
+		if scrollType == "transcend_Add" then
+			ui.SysMsg(ClMsg("TranscendScrollAddDisabledItem"));
+		elseif scrollType == "transcend_Set" then
+			ui.SysMsg(ClMsg("TranscendScrollSetDisabledItem"));
+		end
 		return;
 	end
 
 	local beforeTranscend = TryGetProp(itemObj, "Transcend");
 	if beforeTranscend == nil then
 		beforeTranscend = 0;
+	end
+
+	local storedBeforeTranscend = frame:GetUserValue("BeforeTranscend");
+	if beforeTranscend ~= tonumber(storedBeforeTranscend) then
+		ui.SysMsg(ScpArgMsg('ItemTranscendChanged'));
+		return;
 	end
 
 	local clmsg = ScpArgMsg("TranscendScrollWarning{Before}To{After}", "Before", beforeTranscend, "After", transcend)
@@ -135,9 +176,38 @@ function TRANSCEND_SCROLL_RESULT(isSuccess)
 		local animpic_bg = GET_CHILD_RECURSIVELY(frame, "animpic_bg");
 		animpic_bg:ShowWindow(1);
 		animpic_bg:ForcePlayAnimation();
+		ReserveScript("TRANSCEND_SCROLL_CHANGE_BUTTON()", 0.3);
 	else
 		TRANSCEND_SCROLL_RESULT_UPDATE(frame, 0);
 	end
+	
+	TRANSCEND_SCROLL_LOCK_ITEM("None")
+	
+	local slot = GET_CHILD(frame, "slot");
+	local icon = slot:GetIcon();
+	icon:SetTooltipType("None");
+	icon:SetTooltipArg("", 0, "");
+	ReserveScript("TRANSCEND_SCROLL_CHANGE_TOOLTIP()", 0.3);
+end
+
+function TRANSCEND_SCROLL_CHANGE_TOOLTIP()
+	local frame = ui.GetFrame("transcend_scroll");
+	local slot = GET_CHILD(frame, "slot");
+	local icon = slot:GetIcon();
+	local invItem = GET_SLOT_ITEM(slot);
+	if invItem ~= nil then
+		local obj = GetIES(invItem:GetObject());
+		icon:SetTooltipType("wholeitem");
+		icon:SetTooltipArg("", 0, invItem:GetIESID());
+	end
+end
+
+function TRANSCEND_SCROLL_CHANGE_BUTTON()
+	local frame = ui.GetFrame("transcend_scroll");
+	local button_transcend = frame:GetChild("button_transcend");	
+	local button_close = frame:GetChild("button_close");	
+	button_transcend:ShowWindow(0);	
+	button_close:ShowWindow(1);	
 end
 
 function TRANSCEND_SCROLL_RESULT_UPDATE(frame, isSuccess)
@@ -165,14 +235,74 @@ function TRANSCEND_SCROLL_RESULT_UPDATE(frame, isSuccess)
 		if isSuccess == 0 then
 			ui.SysMsg(ClMsg('ItemDeleted'));
 		end
-		--ui.SetHoldUI(false);
+		
 		slot:ClearIcon();
 		return;
 	end
 	
+	local obj = GetIES(invItem:GetObject());
+	local transcend = obj.Transcend;
+	local tempValue = transcend;
+	local beforetranscend;
+
+	if isSuccess == 0 then
+		beforetranscend = transcend;
+		transcend = transcend + 1;
+	else
+		beforetranscend = transcend - 1;
+	end
+
+	local transcendCls = GetClass("ItemTranscend", transcend);
+	if transcendCls == nil then
+		return;
+	end
+
+	local resultTxt = "";
+	local afterNames, afterValues = GET_ITEM_TRANSCENDED_PROPERTY(obj);
+	local upfont = "{@st43_green}{s18}";
+	local operTxt = " + ";	
+	local text_itemtranscend = frame:GetChild("text_itemtranscend");
+	local text_color1 = 0xFF1DDB16;
+	local text_color2 = 0xFF22741C;
+	if isSuccess == 0 then
+		upfont = "{@st43_red}{s18}";
+		text_color1 = 0xFFFF0000;
+		text_color2 = 0xFFFFBB00;
+	end;
+	text_itemtranscend:ShowWindow(0);
+	text_itemtranscend:SetTextByKey("value", string.format("{s20}%s", transcend));
+	text_itemtranscend:StopColorBlend();
+	text_itemtranscend:SetColorBlend((11 - beforetranscend) * 0.2, text_color1, text_color2, true);
+	text_itemtranscend:ShowWindow(1);
+	
+	local popupFrame = ui.GetFrame("transcend_scroll_result");
+	local gbox = popupFrame:GetChild("gbox");
+	gbox:RemoveAllChild();
+
+	for i = 1 , #afterNames do
+		local propName = afterNames[i];
+		local addedValue = afterValues[i];
+
+		if resultTxt ~= "" then
+			resultTxt = resultTxt .. "{nl}{/}";
+		end
+
+		resultTxt = string.format("%s%s%s%s%s", resultTxt, upfont, ScpArgMsg(propName), operTxt, addedValue);
+		resultTxt = resultTxt .. "%{/}";
+		local ctrlSet = gbox:CreateOrGetControlSet("transcend_result_text", "RV_" .. propName, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local text = ctrlSet:GetChild("text");
+		text:SetTextByKey("propname", ScpArgMsg(propName));
+		text:SetTextByKey("propoper", operTxt);
+		text:SetTextByKey("propvalue", addedValue);
+	end
+		
+	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+	
+	ui.SetTopMostFrame(popupFrame);
+	popupFrame:Resize(popupFrame:GetWidth(), gbox:GetHeight());
+
 	frame:StopUpdateScript("TIMEWAIT_STOP_TRANSCEND_SCROLL");
 	frame:RunUpdateScript("TIMEWAIT_STOP_TRANSCEND_SCROLL", timesecond);
-	frame:SetUserValue("ONANIPICTURE_PLAY", 0);
 end
 
 function TRANSCEND_SCROLL_BG_ANIM_TICK(ctrl, str, tick)
@@ -194,15 +324,20 @@ function TIMEWAIT_STOP_TRANSCEND_SCROLL()
 	local slot_temp = GET_CHILD(frame, "slot_temp");
 	slot_temp:ShowWindow(0);
 	slot_temp:StopActiveUIEffect();
+
+	local popupFrame = ui.GetFrame("transcend_scroll_result");
+	local gbox = popupFrame:GetChild("gbox");
+	popupFrame:ShowWindow(1);	
+	popupFrame:SetDuration(6.0);
 	
 	frame:StopUpdateScript("TIMEWAIT_STOP_TRANSCEND_SCROLL");
 	return 1;
 end
 
 function TRANSCEND_SCROLL_EXEC()
-	local frame = ui.GetFrame("transcend_scroll");	
-	--ui.SetHoldUI(true);
+	local frame = ui.GetFrame("transcend_scroll");		
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_EVENT_EXEC"));
+	frame:SetUserValue("EnableTranscendButton", 0);
 	
 	local slot = GET_CHILD(frame, "slot");
 	local targetItem = GET_SLOT_ITEM(slot);
@@ -214,6 +349,8 @@ function TRANSCEND_SCROLL_EXEC()
 	item.DialogTransaction("ITEM_TRANSCEND_SCROLL", resultlist);
 
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_CAST"));
+	
+
 end
 
 function TRANSCEND_SCROLL_SELECT_TARGET_ITEM(scrollItem)
@@ -288,5 +425,13 @@ function TRANSCEND_SCROLL_CLOSE()
 	local frame = ui.GetFrame("transcend_scroll");
 	frame:SetUserValue("ScrollType", "None")
 	frame:SetUserValue("ScrollGuid", "None")
+	frame:SetUserValue("BeforeTranscend", "None");
 	frame:OpenFrame(0);
+	TRANSCEND_SCROLL_LOCK_ITEM("None")
+end
+
+function TRANSCEND_SCROLL_LOCK_ITEM(guid)
+	local invframe = ui.GetFrame("inventory");
+	invframe:SetUserValue("ITEM_GUID_IN_TRANSCEND_SCROLL", guid);
+	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
 end

@@ -1,4 +1,4 @@
---skill_buff_ratetable.lua
+﻿--skill_buff_ratetable.lua
 -- FINAL_DAMAGECALC() -> SCR_BUFF_RATETABLE_UPDATE(self, from, skill, atk, ret, rateTable);
 -- must check IsBuffApplied(self or from, buffname) == 'YES' / 'NO'
 
@@ -235,7 +235,7 @@ end
 function SCR_BUFF_RATETABLE_SoulDuel_DEF(self, from, skill, atk, ret, rateTable, buff)
 
     if IsBuffApplied(self, 'SoulDuel_DEF') == 'YES' and  IsBuffApplied(from, 'SoulDuel_ATK') == 'NO' then   
-        rateTable.blkResult = 1;
+        rateTable.missResult = 1
     end
 end
 
@@ -1955,15 +1955,15 @@ end
 
 function SCR_BUFF_RATETABLE_StormDust_Debuff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "StormDust_Debuff") == "YES" then
-    	if GetBuffByProp(self, "Keyword", "Position") == nil then
-			if IS_PC(self) == false then
+    	if TryGetProp(self, "MonRank") ~= "Boss" then
+	    	if GetBuffByProp(self, "Keyword", "Position") == nil then
 				if TryGetProp(self, "MoveType") == "Flying" then
 					local reductionRate = 0.5
 					
 					AddDamageReductionRate(rateTable, reductionRate);
 				end
-	        end
-	    end
+		    end
+		end
     end
 end
 
@@ -1986,3 +1986,176 @@ function SCR_BUFF_RATETABLE_EnchantLightning_Buff(self, from, skill, atk, ret, r
     	end
     end
 end
+
+function SCR_BUFF_RATETABLE_FishingNetsDraw_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    local addDamageRate = 0
+    local abilRetiarii1 = GetAbility(from, "Retiarii1");
+    if abilRetiarii1 ~= nil and TryGetProp(abilRetiarii1, "ActiveState") == 1 then
+        rateTable.EnableDodge = 0;
+    end
+    
+    local attackType = TryGetProp(skill, "AttackType");
+    if IS_PC(from) == true and skill.ClassID < 10000 then
+        local rightHand = GetEquipItem(from, 'RH');
+        attackType = rightHand.AttackType
+    end
+    
+    local skillJob = TryGetProp(skill, "Job");
+    if IsBuffApplied(self, "FishingNetsDraw_Debuff") == "YES" then
+        if skillJob ~= "Retiarii" then
+            if attackType == "Aries" then
+                local weapon = GetEquipItem(from, "RH");
+                if TryGetProp(weapon, "ClassType") == "Spear" and TryGetProp(skill, "UseSubweaponDamage") == "NO" then
+                    addDamageRate = 1
+                end
+            end
+        end
+    end
+    
+    rateTable.DamageRate = rateTable.DamageRate + addDamageRate
+end
+
+function SCR_BUFF_RATETABLE_ThrowingFishingNet_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    local addDamageRate = 0
+    local abilRetiarii2 = GetAbility(from, "Retiarii2");
+    if abilRetiarii2 ~= nil and TryGetProp(abilRetiarii2, "ActiveState") == 1 then
+        rateTable.EnableDodge = 0;
+    end
+    
+    local attackType = TryGetProp(skill, "AttackType");
+    if IS_PC(from) == true and skill.ClassID < 10000 then
+        local rightHand = GetEquipItem(from, 'RH');
+        attackType = rightHand.AttackType
+    end
+    
+    local skillJob = TryGetProp(skill, "Job");
+    if IsBuffApplied(self, "ThrowingFishingNet_Debuff") == "YES" then
+        if skillJob ~= "Retiarii" then
+            if attackType == "Aries" then
+                local weapon = GetEquipItem(from, "RH");
+                if TryGetProp(weapon, "ClassType") == "Spear" and TryGetProp(skill, "UseSubweaponDamage") == "NO" then
+                    addDamageRate = 1
+                end
+            end
+        end
+    end
+    
+    rateTable.DamageRate = rateTable.DamageRate + addDamageRate
+end
+
+--180222 포션 버프 추가 (아이템 RateTable이 없음)--
+function SCR_BUFF_RATETABLE_Potion_Demon_DMG_DOWN_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Potion_Demon_DMG_DOWN_Buff") == "YES" then
+        if TryGetProp(from, "MonRank") == "Boss" then
+            if TryGetProp(from, "RaceType") == "Velnias" then
+                local reductionRate = 0.5
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_MIX_DMG_DOWN_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Potion_MIX_DMG_DOWN_Buff") == "YES" then
+        if TryGetProp(from, "MonRank") == "Boss" then
+            if TryGetProp(from, "RaceType") == "Paramune" then
+                local reductionRate = 0.5
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Bug_DMG_DOWN_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Potion_Bug_DMG_DOWN_Buff") == "YES" then
+        if TryGetProp(from, "MonRank") == "Boss" then
+            if TryGetProp(from, "RaceType") == "Klaida" then
+                local reductionRate = 0.5
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Plant_DMG_DOWN_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Potion_Plant_DMG_DOWN_Buff") == "YES" then
+        if TryGetProp(from, "MonRank") == "Boss" then
+            if TryGetProp(from, "RaceType") == "Forester" then
+                local reductionRate = 0.5
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Wild_DMG_DOWN_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Potion_Wild_DMG_DOWN_Buff") == "YES" then
+        if TryGetProp(from, "MonRank") == "Boss" then
+            if TryGetProp(from, "RaceType") == "Widling" then
+                local reductionRate = 0.5
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Demon_DMG_UP_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Potion_Demon_DMG_UP_Buff") == "YES" then
+        if TryGetProp(self, "MonRank") == "Boss" then
+            if TryGetProp(self, "RaceType") == "Velnias" then
+                local addDamageRate = 1
+                
+                rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_MIX_DMG_UP_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Potion_MIX_DMG_UP_Buff") == "YES" then
+        if TryGetProp(self, "MonRank") == "Boss" then
+            if TryGetProp(self, "RaceType") == "Paramune" then
+                local addDamageRate = 1
+                
+                rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Bug_DMG_UP_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Potion_Bug_DMG_UP_Buff") == "YES" then
+        if TryGetProp(self, "MonRank") == "Boss" then
+            if TryGetProp(self, "RaceType") == "Klaida" then
+                local addDamageRate = 1
+                
+                rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Plant_DMG_UP_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Potion_Plant_DMG_UP_Buff") == "YES" then
+        if TryGetProp(self, "MonRank") == "Boss" then
+            if TryGetProp(self, "RaceType") == "Forester" then
+                local addDamageRate = 1
+                
+                rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Potion_Wild_DMG_UP_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Potion_Wild_DMG_UP_Buff") == "YES" then
+        if TryGetProp(self, "MonRank") == "Boss" then
+            if TryGetProp(self, "RaceType") == "Widling" then
+                local addDamageRate = 1
+                
+                rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
+            end
+        end
+    end
+end
+--여기까지 180222 포션 버프 추가 (아이템 RateTable이 없음) 끝--

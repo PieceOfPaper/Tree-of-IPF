@@ -2,7 +2,9 @@
 
 function SKL_MAKE_LINK(self, skl, dist1, angle1, height1, height, width, tgtType, buffName, maxTime, splashRange, addCaster, linkCnt, linkName, cancelByMove, linkSecond, linkEft, linkEftScale, linkSound)
     RemoveLinkByBuffName(self, buffName);
-    RemoveLinkByBuffName(self, 'Link_Party');
+    if buffName == "Link_Physical" then
+        RemoveLinkByBuffName(self, 'Link_Party');
+    end
 
     local x, y, z = GetPos(self);
     local sx, sz = GetAroundPos(self, math.deg(angle1), dist1);

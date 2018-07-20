@@ -15,12 +15,13 @@ function ITEMTRASCEND_OPEN(frame)
 	local slot = GET_CHILD(frame, "slot");
 	slot:StopActiveUIEffect();
 	slot:ClearIcon();
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	SET_TRANSCEND_RESET(frame);
 	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
 --	SETTEXT_GUIDE(frame, 3, needTxt);
 
 	UPDATE_TRANSCEND_ITEM(frame);
-	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_INV_RBTN")	
+INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMTRANSCEND_INV_RBTN")	
 	ui.OpenFrame("inventory");	
 	frame:StopUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND");
 	
@@ -44,6 +45,7 @@ function ITEMTRANSCEND_CLOSE(frame)
 	local slot_material = GET_CHILD(frame, "slot_material");
 	slot_material:StopActiveUIEffect();
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	frame:ShowWindow(0);
 	control.DialogOk();
 	ui.CloseFrame("inventory");
@@ -98,6 +100,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 	
 	local slot = GET_CHILD(frame, "slot");
 	SET_SLOT_ITEM(slot, invItem);
+	ITEMTRANSCEND_LOCK_ITEM(invItem:GetIESID());
 	SET_TRANSCEND_RESET(frame);	
 	ITEM_TRANSCEND_NEED_GUIDE(frame, obj);
 	UPDATE_TRANSCEND_ITEM(frame);	
@@ -172,6 +175,7 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD(frame, "slot");
 	slot:ClearIcon();
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	SET_TRANSCEND_RESET(frame);
 	UPDATE_TRANSCEND_ITEM(frame);
 	
@@ -555,6 +559,7 @@ function _ITEMTRANSCEND_EXEC()
 	
 	slot_material:SetUserValue("MTRL_COUNT", 0);
 	slot_material:ClearIcon();
+	ITEMTRANSCEND_LOCK_ITEM("None");
 	slot_material:SetText("");
 	UPDATE_TRANSCEND_ITEM(frame);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_CAST"));
@@ -728,6 +733,7 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 		end
 		ui.SetHoldUI(false);
 		slot:ClearIcon();
+		ITEMTRANSCEND_LOCK_ITEM("None");
 		return;
 	end
 	local obj = GetIES(invItem:GetObject());
@@ -836,4 +842,10 @@ function IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C()
 	end
 
 	return 'YES';
+end
+
+function ITEMTRANSCEND_LOCK_ITEM(guid)
+	local invframe = ui.GetFrame("inventory");
+	invframe:SetUserValue("ITEM_GUID_IN_TRANSCEND", guid);
+	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
 end

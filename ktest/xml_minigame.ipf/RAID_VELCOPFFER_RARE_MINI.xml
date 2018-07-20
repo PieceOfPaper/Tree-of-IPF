@@ -3,15 +3,43 @@
     <Game Name="RAID_VELCOPFFER_RARE_MINI" minLv="0" maxLv="0" mapName="d_raidboss_velcoffer" playerCountCheckDestroy="1" startWaitSec="0">
         <StageList>
             <Stage Name="STAGE1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="벨코퍼를 처치하세요."/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="3600"/>
+                    </ToolScp>
+                </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="59038" Pos="-1438.88#137.14#-134.37" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE_ENTER&apos; &apos;Range&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="59038" Pos="-1288.12#137.14#-368.28" angle="40" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE_ENTER&apos; &apos;Range&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="59038" Pos="-1249.56#137.14#86.90" angle="290" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE_ENTER&apos; "/>
-                    <Obj Type="Monster" MonType="59038" Pos="-1015.53#137.14#-236.44" angle="150" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE_ENTER&apos; &apos;Range&apos; &apos;40&apos; "/>
-                    <Obj Type="Monster" MonType="59038" Pos="-1039.19#137.14#73.05" angle="240" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE_ENTER&apos; "/>
+                    <Obj Type="Monster" MonType="59038" Pos="-1426.93#137.14#-125.36" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; &apos;Range&apos; &apos;40&apos; "/>
+                    <Obj Type="Monster" MonType="59038" Pos="-1288.12#137.14#-368.28" angle="40" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; &apos;Range&apos; &apos;40&apos; "/>
+                    <Obj Type="Monster" MonType="59038" Pos="-1249.56#137.14#86.90" angle="290" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; "/>
+                    <Obj Type="Monster" MonType="59038" Pos="-1015.53#137.14#-236.44" angle="150" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; &apos;Range&apos; &apos;40&apos; "/>
+                    <Obj Type="Monster" MonType="59038" Pos="-1039.19#137.14#73.05" angle="240" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; "/>
                     <Obj Type="Monster" MonType="150015" Pos="-1213.01#137.14#-116.33" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_GIVE_BUFF_GIMMICK&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="58872" Pos="-1424.64#143.68#146.97" genCount="1" genTime="20000" objectKey="6" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Enter&apos; &apos;VELCOFFER_ENTER_NOTICE&apos; &apos;Range&apos; &apos;40&apos; &apos;SkillType&apos; &apos;None&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_Velcoffer_Riad_trap&apos; &apos;ClassID&apos; &apos;59044&apos; "/>
+                    <Obj Type="Monster" MonType="20053" Pos="-1206.06#121.35#-535.75" angle="98" genCount="1" genTime="20000" objectKey="7" propList="&apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
                 </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="문열림">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE1/0/STAGE1/1/STAGE1/2/STAGE1/3/STAGE1/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="STAGE1/7/STAGE1/5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="사악한 기운으로 가로막혀있던 길이 열렸습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
             </Stage>
             <Stage Name="STAGE2" AutoStart="0">
                 <ObjList>
@@ -138,16 +166,8 @@
                 </StageEvents>
             </Stage>
             <Stage Name="START">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="벨코퍼를 처치하세요."/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="3600"/>
-                    </ToolScp>
-                </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="20053" Pos="-1400.10#139.84#111.57" angle="31" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="20053" Pos="-1692.89#41.10#420.41" angle="50" genCount="1" genTime="20000" objectKey="0"/>
                     <Obj Type="Monster" MonType="103022" Pos="-1969.65#-17.07#636.25" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; "/>
                 </ObjList>
                 <StageEvents>

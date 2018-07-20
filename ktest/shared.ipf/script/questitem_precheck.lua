@@ -7724,6 +7724,18 @@ function SCR_PRE_CHAR121_MSTEP2_ITEM1(self, argstring, argnum1, argnum2)
     return 0
 end
 
+--SCR_PRE_CHAR121_MSTEP2_ITEM2
+function SCR_PRE_CHAR121_MSTEP2_ITEM2(self, argstring, argnum1, argnum2)
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        if SCR_GET_HIDDEN_JOB_PROP(self, 'Char1_18') <= 200 then
+            return 1
+        end
+    end
+    
+    return 0
+end
+
 --SCR_PRE_CHAR118_MSTEP2_1_ITEM1
 function SCR_PRE_CHAR118_MSTEP2_1_ITEM1(self, argstring, argnum1, argnum2)
     return 1
@@ -7757,7 +7769,7 @@ function SCR_PRE_JOB_ONMYOJI_MSTEP2_6_ITEM1(self, argstring, argnum1, argnum2)
                     local sObj = GetSessionObject(self, "SSN_JOB_ONMYOJI_MISSION_LIST")
                     if sObj ~= nil then
                         if sObj.Goal8 == 1 then
-                            local max_cnt = 15
+                            local max_cnt = 20
                             if GetInvItemCount(self, "CHAR220_MSTEP2_6_ITEM2") < max_cnt then
                                 return 1
                             else
@@ -7793,7 +7805,7 @@ function SCR_PRE_JOB_ONMYOJI_MSTEP2_7_ITEM1(self, argstring, argnum1, argnum2)
                 if prop == 10 then
                     local sObj = GetSessionObject(self, "SSN_JOB_ONMYOJI_MISSION_LIST")
                     if sObj ~= nil then
-                        local max_cnt = 21
+                        local max_cnt = 11
                         if sObj.Goal9 < max_cnt then
                             local list, cnt = SelectObject(self, 30, "ALL", 1)
                             if cnt >= 1 then

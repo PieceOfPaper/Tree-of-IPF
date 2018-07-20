@@ -6265,12 +6265,13 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
 			</ToolScp>
 		</leaveEvent>
 	</PadSkill>
-	<PadSkill Name="GreenwoodShikigami_Pad" CheckerType="0" AllowOverlap="1" Range="100" UpdateTerm="300" ApplyFlyMon="1">
+	<PadSkill Name="GreenwoodShikigami_Pad" CheckerType="0" AllowOverlap="1" Range="100" UpdateTerm="300" ApplyFlyMon="1"EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="2500"/>
                 <Num Num="99999"/>
             </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="10"/>
             </ToolScp>
@@ -6316,7 +6317,7 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="GreenwoodShikigami_Pad_Effect" CheckerType="0" AllowOverlap="1" Range="100" UpdateTerm="27">
+    <PadSkill Name="GreenwoodShikigami_Pad_Effect" CheckerType="0" AllowOverlap="1" Range="100" UpdateTerm="27" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="25000"/>
@@ -12250,21 +12251,14 @@ return 3 + obj.Level * 0.5"/>
                 <Num Num="2"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
+            <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="15"/>
             </ToolScp>
         </createEvent>
-        <enterEvent>
-            <ToolScp Scp="PAD_TGT_DAMAGE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </enterEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-300"/>
+                <Num Num="-280"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
@@ -15855,10 +15849,10 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="velcofer_curse_pad" CheckerType="0" AllowOverlap="1" Dist="13.793139" Angle="2.272738" Range="70" AutoPos="1" AutoDir="1" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="velcofer_curse_pad" CheckerType="0" AllowOverlap="1" Dist="13.793139" Angle="2.272738" Range="70" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="7000"/>
+                <Num Num="20000"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -15873,13 +15867,13 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str_Arg Str="I_force003_green" Arg="1"/>
+                <Str_Arg Str="None" Arg="1"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="ENEMY"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-300"/>
+                <Num Num="-500"/>
                 <Num Num="0"/>
             </ToolScp>
         </updateEvent>

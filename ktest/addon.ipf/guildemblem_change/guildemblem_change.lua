@@ -6,17 +6,26 @@ function GUILDEMBLEM_CHANGE_ON_INIT(addon, frame)
 end
 
 function GUILDEMBLEM_CHANGE_INIT(frame)
+   IMC_LOG("INFO_NORMAL", "GUILDEMBLEM_CHANGE_INIT ST");
     local frame = ui.GetFrame('guildemblem_change')
+    IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_INIT", " frame:", frame );
+     
     if frame ~= nil then
     
         selectPngName = nil
         emblemFolderPath = filefind.GetBinPath("UploadEmblem"):c_str()
+        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_INIT 1 : ", emblemFolderPath);
 
         GUILDEMBLEM_CHANGE_UPDATE_TITLE(frame)
+        IMC_LOG("INFO_NORMAL", "GUILDEMBLEM_CHANGE_INIT 2");
+
         GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST(frame) -- 컨테이너에 로드
-    
+        IMC_LOG("INFO_NORMAL", "GUILDEMBLEM_CHANGE_INIT 3");
+
         frame:ShowWindow(1)
     end
+    IMC_LOG("INFO_NORMAL", "GUILDEMBLEM_CHANGE_INIT");
+
 end
 
 function GUILDEMBLEM_CHANGE_UPDATE_TITLE(frame)
@@ -34,44 +43,58 @@ end
 
 function GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST(frame)
 
+IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST ST");
     -- body gbox
 	local body = GET_CHILD_RECURSIVELY(frame, "gb_body", "ui::CGroupBox")
 	if body == nil then
 		return
 	end    
-
+IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 1");
     -- 그룹박스내의 DECK_로 시작하는 항목들을 제거
 	DESTROY_CHILD_BYNAME(body, 'DECK_')
 
+IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 2");
 	local fileList = filefind.FindDirWithConstraint(emblemFolderPath, '[a-zA-Z0-9]+','png')
+	IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 3");
     local cnt = fileList:Count()
+    IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 4");
     
+
     -- 정렬
     local sortList = {};
     local sortListIndex = 1;
+    IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 5");
     for index = cnt -1 , 0, -1 do
         sortList[sortListIndex] = { fullPathName = emblemFolderPath .. '//' .. fileList:Element(index):c_str(), 
                                     fileName = fileList:Element(index):c_str()};
 		sortListIndex = sortListIndex +1;
     end
+        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 6");
     table.sort(sortList, SORT_BY_NAME);
-
+        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 7");
     -- 정렬된 리스트 중 비정상 파일 필터하고 10개 출력
     local posY = 0
     local count = 0
     for index , v in pairs(sortList) do
         -- 정상 이미지만 넣는다.
+        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 8[", index, "] ST");
         if session.party.IsValidGuildEmblemImage(v.fullPathName) == true then
+            IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 8[", index, "] 1");
             local ctrlSet = body:CreateOrGetControlSet('guild_emblem_deck', "DECK_" .. index, 0, posY)
+            IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 8[", index, "] 2");
             ctrlSet:ShowWindow(1)
+                        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 8[", index, "] 3");
             posY = SET_PRIVIEW_ITEM(frame, ctrlSet, v.fileName, posY)
+                        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 8[", index, "] 4");
             posY = posY -tonumber(frame:GetUserConfig("DECK_SPACE")) -- 가까이 붙이기 위해 좀더 위쪽으로땡김
+                        IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST 8[", index, "] 5");
             count = count + 1
             if count >= 10 then
                 break
             end
         end
     end    
+            IMCLOG_CONTENT("AAAA", "GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST ED");
 end
 
 function SORT_BY_NAME(a,b)

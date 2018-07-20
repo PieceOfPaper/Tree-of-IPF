@@ -15780,7 +15780,7 @@ end
 
 
 function SCR_GET_FishingNetsDraw_Ratio(skill)
-    local value = 3;
+    local value = 5;
     return value;
 end
 

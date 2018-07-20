@@ -6,10 +6,13 @@
 --sObj.Step6 : mission4 , sObj.Goal6 : mission4 progress check
 --sObj.Step7 : mission5 , sObj.Goal7 : mission5 progress check , sObj.Step17, sObj.Goal17  : time check
 --sObj.Step8 : mission6 , sObj.Goal8 : mission6 progress check , sObj.Step18, sObj.Goal18  : time check
---sObj.Step9 : mission7 , sObj.Goal9 : mission7 progress check , sObj.Step19, sObj.Step20, sObj.Goal19  : time check
+--sObj.Step9 : mission7 , sObj.Goal9 : mission7 progress check , sObj.Step19, sObj.Goal19  : time check
 --sObj.String1 : fake and finded obj(mission1-2)
 --sObj.String2 : fake and finded obj(mission2-1, 2-2)
---sObj.String3 : fake and finded obj(mission1-2)
+--sObj.String3 : fake and finded obj(mission5)
+--sObj.String4 : fake and finded obj(mission6)
+--sObj.String5 : fake obj(mission7)
+--sObj.String6 : finded obj(mission7)
 function ONMYOJI_TIME_CHECK(self)
   	local time = os.date('*t')
     local month = time['month']
@@ -61,7 +64,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             sObj.Goal13 = nowtime
             local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
             SCR_RANDOM_ARRANGE(obj_list)
-            for i = 1, 12 do
+            for i = 1, 9 do
                 if sObj.String2 == nil or sObj.String2 == "None" then
                     sObj.String2 = tostring(obj_list[i])
                 else
@@ -76,7 +79,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             sObj.Goal14 = nowtime
             local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
             SCR_RANDOM_ARRANGE(obj_list)
-            for i = 1, 12 do
+            for i = 1, 9 do
                 if sObj.String2 == nil or sObj.String2 == "None" then
                     sObj.String2 = tostring(obj_list[i])
                 else
@@ -110,10 +113,10 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
     if sObj.Step8 > 0 then
         if sObj.Step18 == 0 and sObj.Goal18 == 0 then
             sObj.Step18 = today
-            sObj.Goal18 = nowtime
-            local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 }
+            sObj.Goal18 = nowtime + IMCRandom(5, 10)
+            local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 }
             SCR_RANDOM_ARRANGE(obj_list)
-            for i = 1, 13 do
+            for i = 1, 10 do
                 if sObj.String4 == nil or sObj.String4 == "None" then
                     sObj.String4 = tostring(obj_list[i])
                 else
@@ -133,17 +136,17 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
             SCR_RANDOM_ARRANGE(obj_list1)
             SCR_RANDOM_ARRANGE(obj_list2)
             SCR_RANDOM_ARRANGE(obj_list3)
-            local obj_list = { }
-            for i = 1, 3 do
-                obj_list[#obj_list+1] = obj_list1[i]
-                obj_list[#obj_list+1] = obj_list2[i]
-                obj_list[#obj_list+1] = obj_list3[i]
+            local obj_list = {obj_list1, obj_list2, obj_list3 }
+            for i = 1, #obj_list do
+                table.remove(obj_list[i], 1)
             end
             for i = 1, #obj_list do
-                if sObj.String5 == nil or sObj.String5 == "None" then
-                    sObj.String5 = tostring(obj_list[i])
-                else
-                    sObj.String5 = sObj.String5.."/"..tostring(obj_list[i])
+                for j = 1, #obj_list[i] do
+                    if sObj.String5 == nil or sObj.String5 == "None" then
+                        sObj.String5 = tostring(obj_list[i][j])
+                    else
+                        sObj.String5 = sObj.String5.."/"..tostring(obj_list[i][j])
+                    end
                 end
             end
         end
@@ -195,13 +198,14 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                 sObj.String2 = "None"
                 local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
                 SCR_RANDOM_ARRANGE(obj_list)
-                for i = 1, 12 do
+                for i = 1, 9 do
                     if sObj.String2 == nil or sObj.String2 == "None" then
                         sObj.String2 = tostring(obj_list[i])
                     else
                         sObj.String2 = sObj.String2.."/"..tostring(obj_list[i])
                     end
                 end
+                SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
             end
         elseif today ~= lastday then
             if (nowtime +1440) - lasttime >= 3 then
@@ -210,13 +214,14 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                 sObj.String2 = "None"
                 local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
                 SCR_RANDOM_ARRANGE(obj_list)
-                for i = 1, 12 do
+                for i = 1, 9 do
                     if sObj.String2 == nil or sObj.String2 == "None" then
                         sObj.String2 = tostring(obj_list[i])
                     else
                         sObj.String2 = sObj.String2.."/"..tostring(obj_list[i])
                     end
                 end
+                SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
             end
         end
     end
@@ -230,7 +235,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                 sObj.String2 = "None"
                 local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
                 SCR_RANDOM_ARRANGE(obj_list)
-                for i = 1, 12 do
+                for i = 1, 9 do
                     if sObj.String2 == nil or sObj.String2 == "None" then
                         sObj.String2 = tostring(obj_list[i])
                     else
@@ -245,7 +250,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                 sObj.String2 = "None"
                 local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15 }
                 SCR_RANDOM_ARRANGE(obj_list)
-                for i = 1, 12 do
+                for i = 1, 9 do
                     if sObj.String2 == nil or sObj.String2 == "None" then
                         sObj.String2 = tostring(obj_list[i])
                     else
@@ -259,7 +264,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
         local lastday = sObj.Step17
         local lasttime = sObj.Goal17
         if today == lastday then
-            if nowtime - lasttime >= 10 then
+            if nowtime - lasttime >= 5 then
                 sObj.Step17 = today
                 sObj.Goal17 = nowtime
                 sObj.String3 = "None"
@@ -279,9 +284,10 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                         end
                     end
                 end
+                SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
             end
         elseif today ~= lastday then
-            if (nowtime +1440) - lasttime >= 10 then
+            if (nowtime +1440) - lasttime >= 5 then
                 sObj.Step17 = today
                 sObj.Goal17 = nowtime
                 sObj.String3 = "None"
@@ -301,6 +307,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                         end
                     end
                 end
+                SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
             end
         end
     end
@@ -308,34 +315,34 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
         local lastday = sObj.Step18
         local lasttime = sObj.Goal18
         if today == lastday then
-            if nowtime - lasttime >= 5 then
+            if nowtime >= lasttime then
                 sObj.Step18 = today
-                sObj.Goal18 = nowtime
+                sObj.Goal18 = nowtime + IMCRandom(5, 10)
                 sObj.String4 = "None"
-                local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 }
-                SCR_RANDOM_ARRANGE(obj_list)
-                for i = 1, 13 do
+                local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 }
+                for i = 1, 10 do
                     if sObj.String4 == nil or sObj.String4 == "None" then
                         sObj.String4 = tostring(obj_list[i])
                     else
                         sObj.String4 = sObj.String4.."/"..tostring(obj_list[i])
                     end
                 end
+                SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
             end
         elseif today ~= lastday then
-            if (nowtime +1440) - lasttime >= 5 then
+            if (nowtime +1440) >= lasttime then
                 sObj.Step18 = today
-                sObj.Goal18 = nowtime
+                sObj.Goal18 = nowtime + IMCRandom(5, 10)
                 sObj.String4 = "None"
-                local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16 }
-                SCR_RANDOM_ARRANGE(obj_list)
-                for i = 1, 13 do
+                local obj_list = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25 }
+                for i = 1, 10 do
                     if sObj.String4 == nil or sObj.String4 == "None" then
                         sObj.String4 = tostring(obj_list[i])
                     else
                         sObj.String4 = sObj.String4.."/"..tostring(obj_list[i])
                     end
                 end
+                SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
             end
         end
     end
@@ -343,8 +350,7 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
         local lastday = sObj.Step19
         local lasttime = sObj.Goal19
         if today == lastday then
-            sObj.Step20 = sObj.Step20 + 1
-            if nowtime - lasttime >= 9 then
+            if nowtime - lasttime >= 3 then
                 sObj.Step19 = today
                 sObj.Goal19 = nowtime
                 sObj.String5 = "None"
@@ -355,40 +361,22 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                 SCR_RANDOM_ARRANGE(obj_list1)
                 SCR_RANDOM_ARRANGE(obj_list2)
                 SCR_RANDOM_ARRANGE(obj_list3)
-                local obj_list = { }
-                for i = 1, 3 do
-                    obj_list[#obj_list+1] = obj_list1[i]
-                    obj_list[#obj_list+1] = obj_list2[i]
-                    obj_list[#obj_list+1] = obj_list3[i]
+                local obj_list = {obj_list1, obj_list2, obj_list3 }
+                for i = 1, #obj_list do
+                    table.remove(obj_list[i], 1)
                 end
                 for i = 1, #obj_list do
-                    if sObj.String5 == nil or sObj.String5 == "None" then
-                        sObj.String5 = tostring(obj_list[i])
-                    else
-                        sObj.String5 = sObj.String5.."/"..tostring(obj_list[i])
-                    end
-                end
-            else
-                if sObj.Step20 >= 60 then
-                    sObj.Step20 = 0
-                    local string_cut_list = SCR_STRING_CUT(sObj.String5);
-                    local temp = string_cut_list[1];
-                    table.remove(string_cut_list, 1);
-                    string_cut_list[#string_cut_list + 1] = temp;
-                    local obj_list = string_cut_list
-                    sObj.String5 = "None"
-                    sObj.String6 = "None"
-                    for i = 1, #obj_list do
+                    for j = 1, #obj_list[i] do
                         if sObj.String5 == nil or sObj.String5 == "None" then
-                            sObj.String5 = tostring(obj_list[i])
+                            sObj.String5 = tostring(obj_list[i][j])
                         else
-                            sObj.String5 = sObj.String5.."/"..tostring(obj_list[i])
+                            sObj.String5 = sObj.String5.."/"..tostring(obj_list[i][j])
                         end
                     end
                 end
             end
         elseif today ~= lastday then
-            if (nowtime +1440) - lasttime >= 9 then
+            if (nowtime +1440) - lasttime >= 3 then
                 sObj.Step19 = today
                 sObj.Goal19 = nowtime
                 sObj.String5 = "None"
@@ -399,17 +387,17 @@ function SCR_SSN_ONMYOJI_MISSION_TIME_TABLE(self, sObj)
                 SCR_RANDOM_ARRANGE(obj_list1)
                 SCR_RANDOM_ARRANGE(obj_list2)
                 SCR_RANDOM_ARRANGE(obj_list3)
-                local obj_list = { }
-                for i = 1, 3 do
-                    obj_list[#obj_list+1] = obj_list1[i]
-                    obj_list[#obj_list+1] = obj_list2[i]
-                    obj_list[#obj_list+1] = obj_list3[i]
+                local obj_list = {obj_list1, obj_list2, obj_list3 }
+                for i = 1, #obj_list do
+                    table.remove(obj_list[i], 1)
                 end
                 for i = 1, #obj_list do
-                    if sObj.String5 == nil or sObj.String5 == "None" then
-                        sObj.String5 = tostring(obj_list[i])
-                    else
-                        sObj.String5 = sObj.String5.."/"..tostring(obj_list[i])
+                    for j = 1, #obj_list[i] do
+                        if sObj.String5 == nil or sObj.String5 == "None" then
+                            sObj.String5 = tostring(obj_list[i][j])
+                        else
+                            sObj.String5 = sObj.String5.."/"..tostring(obj_list[i][j])
+                        end
                     end
                 end
             end
@@ -445,7 +433,7 @@ function CHAR220_MSETP2_KillMonsterItem(self, sObj, msg, argObj, argStr, argNum)
         or zone == "f_tableland_11_1" then
         if sObj.Step1 == 1 then
             --mission1-1
-            local max_cnt = 100
+            local max_cnt = 80
             local item1 = 'CHAR220_MSTEP2_1_1_ITEM1'
             local item2 = 'CHAR220_MSTEP2_1_1_ITEM2'
             local inv_item = GetInvItemCount(self, item2)
@@ -465,7 +453,7 @@ function CHAR220_MSETP2_KillMonsterItem(self, sObj, msg, argObj, argStr, argNum)
     elseif zone == "d_thorn_23" or zone == "f_bracken_42_2" then
         if sObj.Step5 == 1 then
             --mission3
-            local max_cnt = 100
+            local max_cnt = 50
             local item1 = 'CHAR220_MSTEP2_3_ITEM1'
             local item2 = 'CHAR220_MSTEP2_3_ITEM2'
             local inv_item = GetInvItemCount(self, item2)
@@ -483,7 +471,7 @@ function CHAR220_MSETP2_KillMonsterItem(self, sObj, msg, argObj, argStr, argNum)
         if sObj.Step6 == 1 then
             --mission4
             local cnt = 1
-            local max_cnt = 152
+            local max_cnt = 102
             local item = 'CHAR220_MSTEP2_4_ITEM1'
             local inv_item = GetInvItemCount(self, item)
             if sObj.Goal6 >= 2 and sObj.Goal6 < max_cnt and inv_item < cnt then
@@ -494,7 +482,7 @@ function CHAR220_MSETP2_KillMonsterItem(self, sObj, msg, argObj, argStr, argNum)
                     else
                         sObj.Goal6 = max_cnt
                     end
-                    local txt_cnt = { 52, 102, 132 }
+                    local txt_cnt = { 27, 52, 77 }
                     if sObj.Goal6 == txt_cnt[1] then
                         ShowBalloonText(self, "CHAR220_MSETP2_4_MON_KILL_DLG1", 7)
                     elseif sObj.Goal6 == txt_cnt[2] then
@@ -522,13 +510,13 @@ function CHAR220_MSETP2_GetItem(self, sObj, msg, argObj, giveWay, itemType, item
     local itemIES = GetClass('Item',itemname)
     if itemIES.ClassName == 'CHAR220_MSTEP2_1_1_ITEM2' then
         --mission1-1
-        local max_cnt = 100
+        local max_cnt = 80
         if GetInvItemCount(self, itemIES.ClassName) >= max_cnt then
             SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_1_1_MSG3"), 3)
         end
     elseif itemIES.ClassName == 'CHAR220_MSTEP2_1_2_ITEM1' then
         --mission1-2
-        local max_cnt = 150
+        local max_cnt = 80
         if GetInvItemCount(self, itemIES.ClassName) >= max_cnt then
             SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_1_2_MSG4"), 3)
         end
@@ -546,7 +534,7 @@ function CHAR220_MSETP2_GetItem(self, sObj, msg, argObj, giveWay, itemType, item
         end
     elseif itemIES.ClassName == 'CHAR220_MSTEP2_3_ITEM2' then
         --mission3
-        local max_cnt = 100
+        local max_cnt = 50
         if GetInvItemCount(self, itemIES.ClassName) >= max_cnt then
             SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_3_MSG3"), 3)
         end
@@ -558,9 +546,100 @@ function CHAR220_MSETP2_GetItem(self, sObj, msg, argObj, giveWay, itemType, item
         end
     elseif itemIES.ClassName == 'CHAR220_MSTEP2_6_ITEM2' then
         --mission6
-        local max_cnt = 15
+        local max_cnt = 20
         if GetInvItemCount(self, itemIES.ClassName) >= max_cnt then
             SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_6_MSG5"), 3)
+        end
+    end
+end
+
+
+function SCR_CHAR220_MSETP2_OBJ_EFFECT_RUN(self, zone, sObj)
+    if zone == "f_katyn_13" then
+        local obj_list = { "CHAR220_MSETP2_2_1_OBJ1", 
+                            "CHAR220_MSETP2_2_1_OBJ2",
+                            "CHAR220_MSETP2_2_1_OBJ3",
+                            "CHAR220_MSETP2_2_1_OBJ4",
+                            "CHAR220_MSETP2_2_1_OBJ5",
+                            "CHAR220_MSETP2_2_1_OBJ6",
+                            "CHAR220_MSETP2_2_1_OBJ7",
+                            "CHAR220_MSETP2_2_1_OBJ8",
+                            "CHAR220_MSETP2_2_1_OBJ9",
+                            "CHAR220_MSETP2_2_1_OBJ10",
+                            "CHAR220_MSETP2_2_1_OBJ11",
+                            "CHAR220_MSETP2_2_1_OBJ12",
+                            "CHAR220_MSETP2_2_1_OBJ13",
+                            "CHAR220_MSETP2_2_1_OBJ14",
+                            "CHAR220_MSETP2_2_1_OBJ15" }
+        local list, cnt = SelectObject(self, 200, "ALL", 1)
+        if cnt >= 1 then
+            for i = 1, cnt do
+                if list[i].ClassName == "noshadow_npc" then
+                    for j = 1, #obj_list do
+                        local num = 0
+                        if "CHAR220_MSETP2_2_1_OBJ"..j == TryGetProp(list[i], "Dialog") then
+                            num = j
+                        end
+                        if num ~= 0 then
+                            local max_cnt = 15
+                            if GetInvItemCount(self, 'CHAR220_MSTEP2_2_1_ITEM1') < max_cnt then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String2);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    RemoveEffectLocal(list[i], self, "F_light094_blue_loop2")
+                                    AddEffectLocal(list[i], self, "F_light094_blue_loop2", 4, 0, "MID")
+                                else
+                                    RemoveEffectLocal(list[i], self, "F_light094_blue_loop2")
+                                end
+                            else
+                                RemoveEffectLocal(list[i], self, "F_light094_blue_loop2")
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    elseif zone == "f_orchard_34_1" or zone == "f_orchard_34_3" or zone == "f_siauliai_35_1" then
+        local obj_list = { "CHAR220_MSETP2_5_OBJ1_1", 
+                            "CHAR220_MSETP2_5_OBJ1_2",
+                            "CHAR220_MSETP2_5_OBJ1_3",
+                            "CHAR220_MSETP2_5_OBJ1_4",
+                            "CHAR220_MSETP2_5_OBJ1_5",
+                            "CHAR220_MSETP2_5_OBJ1_6",
+                            "CHAR220_MSETP2_5_OBJ1_7",
+                            "CHAR220_MSETP2_5_OBJ1_8",
+                            "CHAR220_MSETP2_5_OBJ1_9",
+                            "CHAR220_MSETP2_5_OBJ1_10",
+                            "CHAR220_MSETP2_5_OBJ1_11",
+                            "CHAR220_MSETP2_5_OBJ1_12",
+                            "CHAR220_MSETP2_5_OBJ1_13",
+                            "CHAR220_MSETP2_5_OBJ1_14",
+                            "CHAR220_MSETP2_5_OBJ1_15" }
+        local list, cnt = SelectObject(self, 200, "ALL", 1)
+        if cnt >= 1 then
+            for i = 1, cnt do
+                if list[i].ClassName == "noshadow_npc" then
+                    for j = 1, #obj_list do
+                        local num = 0
+                        if "CHAR220_MSETP2_5_OBJ1_"..j == TryGetProp(list[i], "Dialog") then
+                            num = j
+                        end
+                        if num ~= 0 then
+                            local max_cnt = 15
+                            if GetInvItemCount(self, 'CHAR220_MSTEP2_5_ITEM1') < max_cnt then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String3);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    RemoveEffectLocal(list[i], self, "F_cleric_AustrasKoks_loop")
+                                    AddEffectLocal(list[i], self, "F_cleric_AustrasKoks_loop", 3, 0, "BOT")
+                                else
+                                    RemoveEffectLocal(list[i], self, "F_cleric_AustrasKoks_loop")
+                                end
+                            else
+                                RemoveEffectLocal(list[i], self, "F_cleric_AustrasKoks_loop")
+                            end
+                        end
+                    end
+                end
+            end
         end
     end
 end

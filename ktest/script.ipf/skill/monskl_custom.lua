@@ -1,4 +1,4 @@
--- monskl_custom.lua
+﻿-- monskl_custom.lua
 
 function TOOLSKILL_SLEEP(msec)
     if 0 < msec then
@@ -53,6 +53,10 @@ function SKL_BUFF_FOR_MONSTER(mon, skl, buffName, lv, arg2, applyTime, over, rat
 end
 
 function SKL_BUFF(mon, skl, buffName, lv, arg2, applyTime, over, rate, withPartyMember)
+    if IS_REAL_PC(mon) == "NO" and GetExProp(mon, "BUNSIN") == 1 then
+        return
+    end
+    
     if nil == withPartyMember then
         withPartyMember = 0;
     end
@@ -1140,7 +1144,8 @@ function CRE_MON_ATTRACT(mon, skl, x, y, z, monName, attachEffect, effectScale, 
     
 end
 
-function SCR_MON_ATTRACT_TS_BORN_UPDATE(self)    
+
+function SCR_MON_ATTRACT_TS_BORN_UPDATE(self)   
     local handle = GetHandle(self);
     local timePropName = "ATTRBY" .. handle;
     local acPropName = "ATTR_ACT_" .. handle;
@@ -1255,6 +1260,152 @@ function GET_ATTRACT_RANK(self, target, range)
     
     return 4;
 end
+
+function CRE_MON_ABIL_ATTRACT(mon, skl, abilName, x, y, z, monName, attachEffect, effectScale, lifeTime, tickDamage, tickTime, attrRange)
+	local self = GetSkillOwner(skl);
+	
+    if skl.ClassName == 'Onmyoji_GreenwoodShikigami' then
+        local now = toint(imcTime.GetAppTime())                
+        SetExProp(self, 'Onmyoji_GreenwoodShikigami_startTime', now)        
+    end
+    local x, y, z = GetSkillTargetPos(self);    
+    local mon1 = CREATE_SUMMON(self, monName, x, y, z, 0, self.Lv, "MON_ABIL_ATTRACT");
+    if mon1 == nil then
+        return;
+    end
+    
+	local range = GetExProp(self, "ATTR_RANGE");
+    PlayAnim(mon1, 'Born', 1, 1);
+	
+    SetOwner(mon1, self, 0);    
+    SetLifeTime(mon1, lifeTime);
+    if attachEffect ~= 'None' then
+        AttachEffect(mon1, attachEffect, effectScale);      
+    end
+    SetHittable(mon1, 0);
+    SetExProp(mon1, "LIFE_TIME", lifeTime);
+    BroadcastRelation(mon1);
+    
+    local abil = GetAbility(self, abilName)
+    if abil == nil then
+    	return
+    end
+    
+    SetExProp(mon1, "ATTR_RANGE", attrRange);
+    SetExProp(mon1, "TICK_TIME", tickTime); 
+    
+    local x, y, z = GetPos(mon1);
+    local objList, objCount = SelectObject(mon1, attrRange, 'ENEMY');
+    for i = 1, objCount do
+    	local obj = objList[i];
+        if obj.MonRank ~= 'Boss' then
+            local attractAccel = 0.0;
+            if TryGetProp(obj, "MoveType") == 'Holding' or TryGetProp(obj, "MonRank") == 'MISC' or TryGetProp(obj, "MonRank") == 'NPC' then
+                ActorVibrate(obj, lifeTime - 5, 1, 30, 0.1);
+            else                
+                ActorVibrate(obj, lifeTime, 1, 30, 0.1);
+                local angle = GetAngleTo(self, obj);
+                local dist = 30;
+                local x, y, z = GetActorByDirAnglePos(mon1, angle, dist);
+                SkillCancel(obj);
+                Move3D(obj, x, y + 5, z, 0, 60, 1);
+            end
+        end
+	end
+end
+
+
+
+
+function SCR_MON_ABIL_ATTRACT_TS_BORN_UPDATE(self)
+
+    local handle = GetHandle(self);
+    local timePropName = "ATTRBY" .. handle;
+    local acPropName = "ATTR_ACT_" .. handle;
+    
+    --local tickDamage = GetExProp(self, "DAMAGE");
+    local skill_Lv = GetExProp(self, "SKILL_LV");
+    local caster = GetExArgObject(self, "SKILL_OWNER");
+    
+    local range = GetExProp(self, "ATTR_RANGE");
+    local lifeTime = GetExProp(self, "LIFE_TIME");
+    local tickTime = GetExProp(self, "TICK_TIME");
+    local tickCount = lifeTime / tickTime;
+    
+    local objList, objCount = SelectObject(self, range, 'ENEMY');
+    local pvpServer = IsPVPServer(self);
+    for i = 1, objCount do
+        local obj = objList[i];
+        
+        -- 보스는 끌려들어가지 않게 처리
+        if obj.MonRank ~= 'Boss' then
+            local atRank = GET_ATTRACT_RANK(self, obj, range);
+            local sizeRank = obj.SizeRank;
+            atRank = atRank + sizeRank;
+            if atRank <= 4 then
+                local attrTime = GET_ELAPSED_TIME(obj, timePropName);
+                local attractAccel = 0.0;
+                
+                if TryGetProp(obj, "MoveType") == 'Holding' or TryGetProp(obj, "MonRank") == 'MISC' or TryGetProp(obj, "MonRank") == 'NPC' then
+                    ActorVibrate(obj, lifeTime - 5, 1, 30, 0.1);
+                else
+                    if 0 == attrTime then                    
+                        ActorVibrate(obj, lifeTime, 1, 30, 0.1);
+                        local angle = GetAngleTo(self, obj);
+                        local dist = 30;
+                        local x, y, z = GetActorByDirAnglePos(self, angle, dist);
+                        SkillCancel(obj);
+                        Move3D(obj, x, y+5, z, 0, 10, 1);
+                    end
+                    
+                    for j=1, tickCount do
+                        if 1 == WHEN_FIRST_TIME(obj, acPropName, j * tickTime) then
+                            attractAccel = 500;
+                            
+                            if j * tickTime == lifeTime - tickTime then
+                                --print(ScpArgMsg('Auto_iKe_MagTigim'))
+                                SCR_MON_ABIL_ATTRACT_DEAD(self);
+                            end
+                        end
+                    end
+                    
+                    attractAccel = attractAccel - math.max(0, atRank - 3) * 50;
+                    if attractAccel > 0 then
+                        local angle = GetAngleTo(self, obj);
+                        local dist = 30;
+                        local x, y, z = GetActorByDirAnglePos(self, angle, dist);
+                        local RT = set_LI(skill_Lv, 10, 90)
+                        Move3D(obj, x, y+5, z, 5, attractAccel, 1);
+                    end
+                end
+            end
+        end
+    end
+end
+
+function SCR_MON_ABIL_ATTRACT_DEAD(self)        
+    local handle = GetHandle(self);
+    local range = GetExProp(self, "ATTR_RANGE");
+    local objList, objCount = SelectObject(self, range, 'ENEMY');
+    for i = 1, objCount do
+        local obj = objList[i];
+        local atRank = GET_ATTRACT_RANK(self, obj, range);
+        local sizeRank = obj.SizeRank;
+        atRank = atRank + sizeRank;
+        if atRank <= 4 then
+            ActorVibrate(obj, 0.0, 0.0, 0.0, 0.0);
+        end     
+    end
+    
+    local attachEffect = GetExProp_Str(self, "ATTACK_EFFECT");
+    
+    if attachEffect ~= 'None' then      
+        DetachEffect(self, attachEffect)
+    end
+    
+    SetZombie(self);
+end
+
 
 function SKL_TOGGLE_AUTO_OFF_MON(self, skl, monName, index)
 

@@ -596,6 +596,8 @@ function SCR_PLAGUEDOCTOR_MASTER_NORMAL_2(self,pc)
                         sObj.Goal7 = 1
                         SaveSessionObject(pc, sObj)
                         ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG1_1", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
                         return
                     end
                 elseif sObj.Goal7 == 1 then
@@ -608,6 +610,8 @@ function SCR_PLAGUEDOCTOR_MASTER_NORMAL_2(self,pc)
                         ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG3", 1)
                     else
                         ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG2", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
                     end
                 elseif sObj.Goal7 == 5 then
                     ShowOkDlg(pc, "CHAR220_MSETP2_5_DLG4", 1)
@@ -1189,6 +1193,7 @@ end
 
 --JOB_ONMYOJI
 function SCR_ONMYOJI_MASTER_DIALOG(self,pc)
+    PlayMusicQueueLocal(pc, "master_Onmyoji")
     if IS_KOR_TEST_SERVER() then
         COMMON_QUEST_HANDLER(self,pc)
     else
@@ -5999,15 +6004,15 @@ function RETIARII_TRAINING_FUNC(pc, training_Stamina, training_Count, Goal_count
                     end
                 else
                     if Goal_count == "Goal1" then
-                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING1', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING1', 'COUNT', target_count - sObj[Goal_count]), 8)
                     elseif Goal_count == "Goal2" then
-                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING2', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING2', 'COUNT', target_count - sObj[Goal_count]), 8)
                     elseif Goal_count == "Goal3" then
-                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING3', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING3', 'COUNT', target_count - sObj[Goal_count]), 8)
                     elseif Goal_count == "Goal4" then
-                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING4', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING4', 'COUNT', target_count - sObj[Goal_count]), 8)
                     elseif Goal_count == "Goal5" then
-                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING5', 'COUNT', sObj[Goal_count])..ScpArgMsg('RETIARII_TRAINING_REMAIN_COUNT1', 'COUNT', target_count-sObj[Goal_count]), 8)
+                        SendAddOnMsg(pc, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_TRAINING_COUNTING5', 'COUNT', target_count - sObj[Goal_count]), 8)
                     end
                 end
             else
@@ -6091,7 +6096,7 @@ function RETIARII_ENDURANDE_TRAINING_GOAL_CHKC(pc, self, Step_num, goal_group)
                         SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR118_MSTEP2_2_ITEM1_RETURNTOMASTER"), 6)
                         TreasureMarkByMap(pc, 'f_farm_47_1', -1273, -41, -325)
                     elseif (Step_num == 3) and (sObj.Step6 == Step_num) then
-                        RETIARII_TRAINING_FUNC(pc, "Step1", "Step2", "Goal2", 15)
+                        RETIARII_TRAINING_FUNC(pc, "Step1", "Step2", "Goal2", 3)
                         if IsBuffApplied(pc, 'CHAR118_MSTEP2_2_ITEM1_BUFF1') == 'YES' then
                             RemoveBuff(pc, "CHAR118_MSTEP2_2_ITEM1_BUFF1")
                         end
@@ -6112,10 +6117,10 @@ function SCR_RETIARII_AGILITY_TRAINING_DIALOG(self, pc)
             local selDlg = ShowSelDlg(pc, 0,"CHAR118_AGILITY_TRAIN_SEL", ScpArgMsg("RETIARII_AGILITY_TRAINING1"), ScpArgMsg("RETIARII_AGILITY_TRAINING2"))
             local goal_Point = sObj.Goal3
             if selDlg == 1 then
-                if goal_Point < 40 then
-                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT','point',40 - goal_Point), 1)
+                if goal_Point < 20 then
+                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT','point',20 - goal_Point), 1)
                     PlayDirection(pc, "RETIARII_AGILITY_TRAINING_TRACK")
-                elseif goal_Point >= 40 then
+                elseif goal_Point >= 20 then
                     ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT2','point', goal_Point), 1)
                 end
             end
@@ -6131,9 +6136,9 @@ function SCR_RETIARII_AGILITY_TRAINING_TRACK_DIALOG(self, pc)
             local goal_Point = sObj.Goal3
             local selDlg = ShowSelDlg(pc, 0,"CHAR118_AGILITY_TRAIN_SEL2", ScpArgMsg("RETIARII_AGILITY_TRAINING3"), ScpArgMsg("RETIARII_AGILITY_TRAINING4"))
             if selDlg == 2 then
-                if goal_Point < 40 then
-                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT','point',40 - goal_Point), 1)
-                elseif goal_Point >= 40 then
+                if goal_Point < 20 then
+                    ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR\\"..ScpArgMsg('AGILITY_TRAINING_REMAIN1_CNT','point',20 - goal_Point), 1)
+                elseif goal_Point >= 20 then
                     ShowOkDlg(pc, "CHAR118_AGILITY_TRAIN_INFOR2", 1)
                 end
                 SetLayer(pc, 0)
@@ -6282,14 +6287,13 @@ function SCR_CHAR220_MSETP2_GEN_AI(self) --1000msec
         end
     elseif self.Enter == "CHAR220_MSETP2_6_GEN_INIT" then
         local obj_list = GetScpObjectList(self, "CHAR220_MSETP2_6_OBJ")
-        local pos = { {-890, 439, -1046}, {-805, 438, -640},
-                        {-901, 425, -153}, {-504, 370, 41},
-                        {-347, 310, -406}, {21, 318, -613},
-                        {-1638, 413, -12}, {-1242, 415, 124},
-                        {112, 534, 860}, {391, 534, 248},
-                        {401, 442, -368}, {749, 443, -115},
-                        {1156, 597, 371}, {1294, 595, 810},
-                        {1290, 650, 146}, {1299, 652, -186},
+        local pos = { {1499, 595, 638}, {1341, 595, 757}, {1150, 595, 690}, {1000, 595, 514}, 
+                        {1113, 595, 396}, {1257, 595, 554}, {1397, 595, 505},
+                        {1382, 649, 128}, {1450, 654, -47}, {1251, 650, -136}, {1083, 650, -133}, {1254, 650, 25},
+                        {610, 534, 536}, {387, 534, 483}, {338, 534, 741}, {147, 534, 744}, 
+                        {163, 534, 514}, {188, 534, 276}, {495, 530, 267},
+                        {433, 444, 19}, {747, 448, -30}, {642, 442, -298}, {503, 442, -159},
+                        {281, 442, -189}, {410, 442, -368}
                         }
         if #obj_list == 0 then
             for i = 1, #pos do
@@ -6369,7 +6373,7 @@ function SCR_CHAR220_MSETP2_1_2_OBJ_RUN(self, pc, num)
             local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
             if sObj ~= nil then
                 if sObj.Goal2 == 1 then
-                    local max_cnt = 150
+                    local max_cnt = 80
                     if GetInvItemCount(pc, "CHAR220_MSTEP2_1_2_ITEM1") < max_cnt then
                         local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_1_2_MSG1"), "SITGROPE_LOOP", 2.0)
                         if result == 1 then
@@ -6401,7 +6405,7 @@ function CHAR220_MSETP2_2_1_OBJ_SET(mon, i)
     mon.Dialog = "CHAR220_MSETP2_2_1_OBJ"..i
     mon.Name = "UnvisibleName"
     mon.Enter = "CHAR220_MSETP2_2_1_OBJ"
-    mon.Range = 200
+    mon.Range = 180
 end
 
 function SCR_CHAR220_MSETP2_2_1_OBJ1_DIALOG(self, pc)
@@ -6648,6 +6652,8 @@ function SCR_CHAR220_MSETP2_4_NPC_DIALOG(self,pc)
                                 sObj.Goal6 = 2
                                 SaveSessionObject(pc, sObj)
                                 ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG4_1", 1)
+                                sleep(500)
+                                ShowBalloonText(pc, "CHAR220_MSETP2_4_MON_KILL_DLG_before", 7)
                                 return
                             end
                         end
@@ -6661,6 +6667,8 @@ function SCR_CHAR220_MSETP2_4_NPC_DIALOG(self,pc)
                         ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG6", 1)
                     else
                         ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG5", 1)
+                        sleep(500)
+                        ShowBalloonText(pc, "CHAR220_MSETP2_4_MON_KILL_DLG_before", 7)
                     end
                 else
                     ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG7", 1)
@@ -6674,7 +6682,7 @@ function CHAR220_MSETP2_5_OBJ1_SET(mon, i)
     mon.Dialog = "CHAR220_MSETP2_5_OBJ1_"..i
     mon.Name = "UnvisibleName"
     mon.Enter = "CHAR220_MSETP2_5_OBJ1"
-    mon.Range = 200
+    mon.Range = 180
 end
 
 function SCR_CHAR220_MSETP2_5_OBJ1_1_DIALOG(self, pc)
@@ -6895,6 +6903,33 @@ function SCR_CHAR220_MSETP2_6_OBJ1_15_ENTER(self, pc)
 end
 
 function SCR_CHAR220_MSETP2_6_OBJ1_16_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_17_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_18_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_19_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_20_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_21_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_22_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_23_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_24_ENTER(self, pc)
+end
+
+function SCR_CHAR220_MSETP2_6_OBJ1_25_ENTER(self, pc)
 end
 
 function CHAR220_MSETP2_7_OBJ_SET(mon, i)

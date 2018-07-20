@@ -461,6 +461,7 @@ function SCR_PC_FireFox_Summon_ENTER(self, buff, arg1, arg2, over)
     
     Invalidate(self, "MINMATK");
     Invalidate(self, "MAXMATK");
+    Invalidate(self, "MATK");
 end
 
 function SCR_PC_FireFox_Summon_LEAVE(self, buff, arg1, arg2, over)
@@ -470,7 +471,7 @@ function SCR_PC_FireFox_Summon_LEAVE(self, buff, arg1, arg2, over)
 end
 
 function SCR_PC_FireFox_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
-    
+
 end
 
 

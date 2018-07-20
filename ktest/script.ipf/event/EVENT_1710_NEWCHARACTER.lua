@@ -337,7 +337,7 @@ function SCR_USE_EVENT_1710_NEWCHARACTER_BOX_17(pc)
     
     local tx = TxBegin(pc);
     TxGiveItem(tx, 'EVENT_1803_NEWCHARACTER_JUMPING', 1, 'EVENT_1803_NEWCHARACTER')
-    TxGiveItem(tx, 'Transcend_Scroll_Event', 1, 'EVENT_1803_NEWCHARACTER')
+    TxGiveItem(tx, 'EVENT_1803_NEWCHARACTER_ACHIEVE_BOX', 4, 'EVENT_1803_NEWCHARACTER')
     
     local ret = TxCommit(tx);
 end
@@ -522,4 +522,22 @@ function SCR_USE_EVENT_1803_NEWCHARACTER_ABILITY_BOX(pc)
             AbilityPointMongoLog(pc, 500, point, 0, 'EVENT_1803_NEWCHARACTER');
     	end
 	end
+end
+
+
+function SCR_USE_EVENT_1803_NEWCHARACTER_ACHIEVE_BOX(self,argObj,BuffName,arg1,arg2)
+    local tx = TxBegin(self);
+    TxAddAchievePoint(tx, 'EVENT_1803_NEWCHARACTER_ACHIEVE', 1)
+    local ret = TxCommit(tx);
+end
+
+function SCR_PRE_EVENT_1803_NEWCHARACTER_ACHIEVE_BOX(self)
+    local value = GetAchievePoint(self, 'EVENT_1803_NEWCHARACTER_ACHIEVE')
+    if value == 0 then
+        return 1
+    else
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1802_NEWYEAR_MSG2"), 5);
+    end
+    
+    return 0;
 end

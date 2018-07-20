@@ -81,6 +81,10 @@ function SCR_MATADOR_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char1_19')
 end
 
+function SCR_RETIARII_MASTER_NORMAL_1_PRE(pc)
+    return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char1_18')
+end
+
 --SWORDMAN ABILSHOP
 --function SCR_MASTER_SWORDMAN_NORMAL_1(self, pc)
 --   SCR_OPEN_ABILSHOP(pc, "ability_warrior");
@@ -176,6 +180,14 @@ end
 
 function SCR_CHAR120_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_NakMuay");
+end
+
+function SCR_RETIARII_MASTER_NORMAL_1(self, pc)
+    SCR_OPEN_ABILSHOP(pc, 'Ability_Retiarii')
+end
+
+function SCR_RETIARII_MASTER_NORMAL_2(self, pc)
+    ShowTradeDlg(pc, 'RETIARII_MASTER', 5);
 end
 
 --WIZARD CLASS
@@ -651,9 +663,7 @@ function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_4_PRE(pc)
     local _hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char1_20')
     if _hidden_prop == 100 then
         if sObj.Step4 == 1 then
-            if GetInvItemCount(pc, 'HIDDEN_RUNECASTER_ITEM_4') == 0 then
-                return 'YES'
-            end
+            return 'YES'
         end
     end
     return 'NO'
@@ -1503,4 +1513,176 @@ end
 
 function SCR_JOB_SHADOWMANCER_MASTER_NORMAL_3(self, pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Shadowmancer");
+end
+
+function SCR_JOB_DRUID3_1_NPC_NORMAL_2_PRE(pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop == 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            if sObj.Step3 == 1 or sObj.Step4 == 1 then
+                return 'YES'
+            end
+        end
+    end
+end
+
+function SCR_JOB_DRUID3_1_NPC_NORMAL_2(self,pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop >= 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            local npc_name = ScpArgMsg("CHAR220_MSETP1_ITEM_TXT2")
+            if sObj.Step3 == 1 then
+                if sObj.Goal3 == 0 then
+                    local sel = ShowSelDlg(pc, 1, "CHAR220_MSETP2_2_1_DLG1", ScpArgMsg("CHAR220_MSETP2_QUEST_OK_MSG"), ScpArgMsg("CHAR220_MSETP2_QUEST_NO_MSG"))
+                    if sel == 1 then
+                        sObj.Goal3 = 1
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG1_1", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
+                        return
+                    end
+                elseif sObj.Goal3 == 1 then
+                    local max_cnt = 15
+                    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_2_1_ITEM1")
+                    if cnt >= max_cnt then
+                        sObj.Goal3 = 10
+                        SaveSessionObject(pc, sObj)
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP2_2_1_ITEM1", cnt, "CHAR220_MSTEP2_2_1");
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG3", 1)
+                        sleep(500)
+                        PlayEffectLocal(self, pc, "F_light047_red", 0.8, 0, "TOP")
+                        sleep(2000)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG3_1", 1)
+                        SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    else
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG2", 1)
+                        sleep(500)
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
+                    end
+                else
+                    SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    ShowOkDlg(pc, "CHAR220_MSETP2_2_1_DLG4", 1)
+                end
+            elseif sObj.Step4 == 1 then
+                if sObj.Goal4 == 0 then
+                    local sel_dlg = "CHAR220_MSETP2_2_2_DLG1_CASE1"
+                    local result = SCR_QUEST_CHECK(pc, 'FARM49_1_MQ05')
+                    if result ~= 'COMPLETE' then
+                        sel_dlg = "CHAR220_MSETP2_2_2_DLG1_CASE2"
+                    end
+                    local sel = ShowSelDlg(pc, 1, sel_dlg, ScpArgMsg("CHAR220_MSETP2_QUEST_OK_MSG"), ScpArgMsg("CHAR220_MSETP2_QUEST_NO_MSG"))
+                    if sel == 1 then
+                        sObj.Goal4 = 1
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_2_DLG1_1", 1)
+                        return
+                    end
+                elseif sObj.Goal4 == 1 then
+                    local max_cnt = 15
+                    local cnt = GetInvItemCount(pc, "CHAR220_MSTEP2_2_2_ITEM1")
+                    if cnt >= max_cnt then
+                        sObj.Goal4 = 10
+                        SaveSessionObject(pc, sObj)
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR220_MSTEP2_2_2_ITEM1", cnt, "CHAR220_MSTEP2_2_2");
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_2_DLG3", 1)
+                        sleep(500)
+                        PlayEffectLocal(self, pc, "F_light047_red", 0.8, 0, "TOP")
+                        sleep(2000)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_2_DLG3_1", 1)
+                        SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    else
+                        ShowOkDlg(pc, "CHAR220_MSETP2_2_2_DLG2", 1)
+                    end
+                else
+                    SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    ShowOkDlg(pc, "CHAR220_MSETP2_2_2_DLG4", 1)
+                end
+            end
+        end
+    end
+end
+
+function SCR_JOB_CORSAIR4_NPC_NORMAL_2_PRE(pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop == 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            if sObj.Step6 == 1 then
+                return 'YES'
+            end
+        end
+    end
+end
+
+function SCR_JOB_CORSAIR4_NPC_NORMAL_2(self,pc)
+    --ONMYOJI_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char2_20')
+    if prop >= 10 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
+        if sObj ~= nil then
+            local npc_name = ScpArgMsg("CHAR220_MSETP1_ITEM_TXT4")
+            if sObj.Step6 == 1 then
+                if sObj.Goal6 == 0 then
+                    local tx = TxBegin(pc);
+                    if isHideNPC(pc, "CHAR220_MSETP2_4_NPC") == "YES" then
+                        TxUnHideNPC(tx, 'CHAR220_MSETP2_4_NPC')
+                    end
+                    local ret = TxCommit(tx);
+                    if ret == "SUCCESS" then
+                        sObj.Goal6 = 1
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG1", 1)
+                    end
+                    return
+                elseif sObj.Goal6 >= 1 and sObj.Goal6 < 500 then
+                    local tx = TxBegin(pc);
+                    if isHideNPC(pc, "CHAR220_MSETP2_4_NPC") == "YES" then
+                        TxUnHideNPC(tx, 'CHAR220_MSETP2_4_NPC')
+                    end
+                    local ret = TxCommit(tx);
+                    ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG2", 1)
+                elseif sObj.Goal6 == 500 then
+                    local tx = TxBegin(pc);
+                    if isHideNPC(pc, "CHAR220_MSETP2_4_NPC") == "NO" then
+                        TxHideNPC(tx, 'CHAR220_MSETP2_4_NPC')
+                    end
+                    local ret = TxCommit(tx);
+                    if ret == "SUCCESS" then
+                        sObj.Goal6 = 1000
+                        SaveSessionObject(pc, sObj)
+                        ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG8", 1)
+                        SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    end
+                else
+                    local tx = TxBegin(pc);
+                    if isHideNPC(pc, "CHAR220_MSETP2_4_NPC") == "NO" then
+                        TxHideNPC(tx, 'CHAR220_MSETP2_4_NPC')
+                    end
+                    local ret = TxCommit(tx);
+                    SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR220_MSETP2_CLEAR{NPC_NAME}", "NPC_NAME", npc_name), 7)
+                    ShowOkDlg(pc, "CHAR220_MSETP2_4_DLG9", 1)
+                end
+            end
+        end
+    end
+end
+
+--ONMYOJI_MASTER
+
+function SCR_ONMYOJI_MASTER_NORMAL_1_PRE(pc)
+    return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char2_20')
+end
+
+function SCR_ONMYOJI_MASTER_NORMAL_1(self, pc)
+    SCR_OPEN_ABILSHOP(pc, "Ability_Onmyoji");
+end
+
+function SCR_ONMYOJI_MASTER_NORMAL_2(self, pc)
+    ShowTradeDlg(pc, 'ONMYOJI_MASTER', 5);
 end

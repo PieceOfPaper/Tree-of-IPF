@@ -10827,6 +10827,7 @@ end
 -- FireBall_Buff
 function SCR_BUFF_ENTER_FireBall_Buff(self, buff, arg1, arg2, over)
     ChangeScale(self, 1.3)
+    SetExProp(self, 'FIREBALL_HIT_COUNT', 1);
 end
 
 function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
@@ -10836,13 +10837,14 @@ function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
         return 1;
     end
 	
+	local hitCount = GetExProp(self, 'FIREBALL_HIT_COUNT'); 
     local curTime = imcTime.GetAppTime();
     local isAttack = false;
     local objList, objCount = SelectObject(self, 25, 'ALL');
     for i = 1, objCount do
         local obj = objList[i];
         if obj ~= nil and GetRelation(caster, obj) == "ENEMY" and IsSameActor(obj, self) == "NO" then
-            if obj.ClassName ~= "hidden_monster2" then
+            if obj.ClassName ~= "hidden_monster2" and hitCount > 0 then
                 local time = GetExProp(obj, 'FIREBALL_HIT_TIME');
                 if time + 1 < curTime then
                     local splashRange = 70;
@@ -10852,6 +10854,8 @@ function SCR_BUFF_UPDATE_FireBall_Buff(self, buff, arg1, arg2, over)
 					isAttack = FIREBALL_SPLASH_DAMAGE(self, caster, 'Pyromancer_FireBall', splashRange, sr);
                     if isAttack == true then
                         PlayEffect(self, "F_wizard_fireball_hit_full_explosion", 2.0);
+						hitCount = hitCount - 1;
+                        SetExProp(self, 'FIREBALL_HIT_COUNT', hitCount);
                         break;
                     end
                 end
@@ -10876,15 +10880,15 @@ function FIREBALL_SPLASH_DAMAGE(fireMon, caster, skillName, range, sr)
             if obj == fireMon then
             	return
             end
-            if IsSameActor(obj, caster) == "NO" and GetExProp(fireMon, "FIREBALL_HIT") == 0 and IsSameActor(obj, fireMon) == "NO" then
+			
+            if IsSameActor(obj, caster) == "NO" and IsSameActor(obj, fireMon) == "NO" then
                 local damage = GET_SKL_DAMAGE(caster, obj, 'Pyromancer_FireBall');
 				TakeDamage(caster, obj, skillName, damage, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
                 sr = sr - obj.SDR;
-
+				
                 isAttack = true;
                 SetExProp(obj, 'FIREBALL_HIT_TIME', curTime);
-                SetExProp(fireMon, "FIREBALL_HIT", 1)
-
+				
                 local pyromancer1_abil = GetAbility(caster, 'Pyromancer1')
                 if pyromancer1_abil ~= nil then
                     local rand = pyromancer1_abil.Level * 1000;
@@ -10894,7 +10898,7 @@ function FIREBALL_SPLASH_DAMAGE(fireMon, caster, skillName, range, sr)
                     end
                 end
 	        end
-        
+        	
             if sr <= 0 then
                 return isAttack;
             end
@@ -15552,10 +15556,12 @@ function SCR_BUFF_ENTER_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
-    local DesrptionItem = GetEquipItem(self, "LH");
-    if DesrptionItem.ClassType == "Shield" then
-        UnEquipItemSpot(self, "LH")
-        EnableEquipItemBySlot(self, "LH", 0);
+    if IS_PC(self) == true then
+        local DesrptionItem = GetEquipItem(self, "LH");
+        if DesrptionItem.ClassType == "Shield" then
+            UnEquipItemSpot(self, "LH")
+            EnableEquipItemBySlot(self, "LH", 0);
+        end
     end
     
     return 1;
@@ -15563,7 +15569,9 @@ end
 
 function SCR_BUFF_LEAVE_EquipDesrption_Debeff(self, buff, arg1, arg2, over)
     self.DEF_RATE_BM = self.DEF_RATE_BM + GetExProp(buff, "EQUIPDESRPTION_ADDDEF_RATE");
-    EnableEquipItemBySlot(self, "LH", 1);
+    if IS_PC(self) == true then
+        EnableEquipItemBySlot(self, "LH", 1);
+    end
 end
 
 function SCR_BUFF_ENTER_DaggerGuard_Buff(self, buff, arg1, arg2, over)

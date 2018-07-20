@@ -189,9 +189,9 @@ function SCR_ITEM_TRANSCEND_TX(pc, argList)
     end
 
 	if itemTake == true then
-		ItemTranscendMongoLog(pc, nil, isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount, tempItemGUID, tempItemID, tempItemName);
+		ItemTranscendMongoLog(pc, nil, "Stone", isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount, tempItemGUID, tempItemID, tempItemName);
 	else
-		ItemTranscendMongoLog(pc, targetItem, isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount);
+		ItemTranscendMongoLog(pc, targetItem, "Stone", isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount);
 	end
 	InvalidateStates(pc);
 	local stringScp = string.format("TRANSCEND_UPDATE(%d)", isSuccess);
@@ -356,7 +356,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	
 	if #itemList ~= 2 then
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(1)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
@@ -364,45 +364,45 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	local scrollItem = itemList[2];
 	if targetItem == nil or scrollItem == nil then
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(2)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 
-    if IsShutDown("Item", targetItem.ClassName, targetItem) == 1 or IsShutDown("ShutDownContent", "Transcend") == 1 then
-        SendAddOnMsg(pc, "SHUTDOWN_BLOCKED", "", 0);
-        return;
-    end
+--    if IsShutDown("Item", targetItem.ClassName, targetItem) == 1 or IsShutDown("Item", scrollItem.ClassName, scrollItem) == 1 or IsShutDown("ShutDownContent", "Transcend") == 1 then
+--        SendAddOnMsg(pc, "SHUTDOWN_BLOCKED", "", 0);
+--        return;
+--    end
    
     local itemClass = GetClass("Item", targetItem.ClassName);
     if itemClass == nil then
         SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
-        ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(3)");
+        ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
         return;
     end
 	
     local isNeedAppraisal = TryGetProp(itemClass, "NeedAppraisal");
     if isNeedAppraisal ~= nil and isNeedAppraisal == 1 and ENABLE_APPRAISAL_ITEM_MOVE ~= 1 then
         SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHATHEDRAL53_MQ03_ITEM02"), 3);
-        ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(4)");
+        ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
         return;
     end
 	
 	-- locked item is not allowed
 	if 1 == IsFixedItem(targetItem) or 1 == IsFixedItem(scrollItem) then
 		SendSysMsg(pc, "MaterialItemIsLock");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(5)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
 	if IS_TRANSCEND_ABLE_ITEM(targetItem) == 0 then
 		SendSysMsg(pc, "ThisItemIsNotAbleToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(6)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
 	if IS_NEED_APPRAISED_ITEM(targetItem) == true or IS_NEED_RANDOM_OPTION_ITEM(targetItem) == true  then 
 		SendSysMsg(pc, "ThisItemIsNotAbleToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(7)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
@@ -413,14 +413,14 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 		if buffCls ~= nil then
 			SendSysMsg(pc, "CannotReinforceAndTranscendBy{BUFFNAME}", 0, "BUFFNAME", buffCls.Name);
 		end
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(8)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
 	local transcend = TryGetProp(targetItem, "Transcend");
 	if transcend == nil then
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(9)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
@@ -432,14 +432,20 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	
 	if IS_TRANSCEND_SCROLL_ITEM(scrollItem) ~= 1 then -- check valid scrollItem
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(10)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 	
+	local scrollTypeForLog = GET_TRANSCEND_SCROLL_TYPE(scrollItem);
+	if scrollTypeForLog == nil then
+		return;
+	end
+	
+	local scrollName = scrollItem.ClassName;
 	local expectedTranscend, successRatio = GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(targetItem, scrollItem)
 	if expectedTranscend == nil or successRatio == nil then
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(11)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 
@@ -447,7 +453,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	if transcendCls == nil then
 		IMC_LOG("INFO_NORMAL", "SCR_ITEM_TRANSCEND_TX: Transcend Class is nil- type(".. expectedTranscend .. ")");
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(12)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end	
 	local isSuccess = 0;
@@ -458,7 +464,7 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	local targetPR = TryGetProp(targetItem, "PR")
 	if targetPR == nil then
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(13)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
     end
 
@@ -492,14 +498,20 @@ function SCR_ITEM_TRANSCEND_SCROLL_TX(pc)
 	
 	if ret ~= "SUCCESS" then		
 		SendSysMsg(pc, "FailedToTranscend");
-		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL(14)");
+		ExecClientScp(pc, "TRANSCEND_SCROLL_ATTEMPT_FAIL()");
 		return;
 	end
 
+	if scrollTypeForLog == "transcend_Set" then
+		scrollTypeForLog = "Transcend_Set"
+	elseif scrollTypeForLog == "transcend_Add" then
+		scrollTypeForLog = "Transcend_Add"
+	end
+
 	if itemTake == true then
-	--	ItemTranscendMongoLog(pc, nil, isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount, tempItemGUID, tempItemID, tempItemName);
+		ItemTranscendMongoLog(pc, nil, scrollTypeForLog, isSuccess, lastTranscend, lastTranscend_MatCount, scrollName, 1, tempItemGUID, tempItemID, tempItemName);
 	else
-	--	ItemTranscendMongoLog(pc, targetItem, isSuccess, lastTranscend, lastTranscend_MatCount, materialName, materialCount);
+		ItemTranscendMongoLog(pc, targetItem, scrollTypeForLog, isSuccess, lastTranscend, lastTranscend_MatCount, scrollName, 1);
 	end
 	
 	InvalidateStates(pc);

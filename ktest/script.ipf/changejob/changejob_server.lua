@@ -189,14 +189,14 @@ function SCR_CLICK_CHANGEJOB_BUTTON(pc, jobid)
                 if aObj.EVENT_1803_NEWCLASS_RTA_TEAM_COUNT == 0 and sObj.EVENT_1803_NEWCLASS_RTA_PC_COUNT == 0 then
                     TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCLASS_RTA_TEAM_COUNT', aObj.EVENT_1803_NEWCLASS_RTA_TEAM_COUNT + 1)
                     TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCLASS_RTA_PC_COUNT', sObj.EVENT_1803_NEWCLASS_RTA_PC_COUNT + 1)
-                    TxGiveItem(tx, 'costume_Char1_18_4', 1, 'EVENT_1803_NEWCLASS_RTA')
+                    TxGiveItem(tx, 'EVENT_1803_NEWCLASS_BOX_RTA', 1, 'EVENT_1803_NEWCLASS_RTA')
                 end
             end
             if pcjobinfo.ClassName == 'Char2_20' then
                 if aObj.EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT == 0 and sObj.EVENT_1803_NEWCLASS_OMJ_PC_COUNT == 0 then
                     TxSetIESProp(tx, aObj, 'EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT', aObj.EVENT_1803_NEWCLASS_OMJ_TEAM_COUNT + 1)
                     TxSetIESProp(tx, sObj, 'EVENT_1803_NEWCLASS_OMJ_PC_COUNT', sObj.EVENT_1803_NEWCLASS_OMJ_PC_COUNT + 1)
-                    TxGiveItem(tx, 'costume_Char2_20_04', 1, 'EVENT_1803_NEWCLASS_OMJ')
+                    TxGiveItem(tx, 'EVENT_1803_NEWCLASS_BOX_OMJ', 1, 'EVENT_1803_NEWCLASS_OMJ')
                 end
             end
         end

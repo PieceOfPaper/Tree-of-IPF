@@ -603,7 +603,7 @@ end
 function SCR_JOB_RETIARII1_STEPREWARD_CHECK1(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_RETIARII1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 >= 300 then
+        if sObj.QuestInfoValue1 >= 250 then
             return 'YES'
         end
     end
@@ -612,7 +612,7 @@ end
 function SCR_JOB_RETIARII1_STEPREWARD_CHECK2(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_RETIARII1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 >= 450 then
+        if sObj.QuestInfoValue1 >= 330 then
             return 'YES'
         end
     end
@@ -621,7 +621,7 @@ end
 function SCR_JOB_RETIARII1_STEPREWARD_CHECK3(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_RETIARII1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 >= 550 then
+        if sObj.QuestInfoValue1 >= 450 then
             return 'YES'
         end
     end

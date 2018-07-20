@@ -1,6 +1,7 @@
 function SCR_RETIARII_MASTER_DIALOG(self, pc)
     local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(pc, "Char1_18")
     local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char1_18');
+    PlayMusicQueueLocal(pc, "master_retiarii")
     if IS_KOR_TEST_SERVER() then
         COMMON_QUEST_HANDLER(self,pc)
         return
@@ -37,6 +38,7 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
                 sObj.Step22 = 1
                 sObj.Step1 = 50
                 sObj.Step2 = 1
+                sObj.Step12 = 1
                 SaveSessionObject(pc, sObj)
                 SCR_SET_HIDDEN_JOB_PROP(pc, 'Char1_18', 100)
             end
@@ -71,7 +73,7 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
             local agility_P = sObj.Goal3
             local simulation_P = sObj.Goal5
             --print(muscular_P,endurande_P, agility_P, simulation_P)
-            if muscular_P < 40 or endurande_P < 15 or agility_P < 40 or simulation_P < 40 then
+            if muscular_P < 25 or endurande_P < 3 or agility_P < 20 or simulation_P < 20 then
                 local sel3 = ShowSelDlg(pc, 0, "CHAR118_MSTEP2_DLG1", ScpArgMsg("CHAR118_MSTEP2_SEL1"), ScpArgMsg("CHAR118_MSTEP2_SEL2"), ScpArgMsg("CHAR118_MSTEP2_SEL3"), ScpArgMsg("CHAR118_MSTEP2_SEL5"), ScpArgMsg("CHAR118_MSTEP2_SEL6"), seldlg)
                 if sel3 == 1 then
                     ShowOkDlg(pc, "CHAR118_MSTEP2_SEL1_DLG1", 1)
@@ -79,15 +81,15 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
                     if traning_Item1 < 1 then
                         RunScript("GIVE_ITEM_TX", pc, "CHAR118_MSTEP2_1_ITEM1", 1, "Quest_HIDDEN_RETIARII")
                     end
-                    if muscular_P < 40 then
-                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("RETIARII_TRAINING_1_MSG1", "GOAL1", 40-muscular_P), 7)
+                    if muscular_P < 25 then
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("RETIARII_TRAINING_1_MSG1", "GOAL1", 25-muscular_P), 7)
                     else
                         SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_1_MSG2"), 7)
                     end
                 elseif sel3 == 2 then
                     ShowOkDlg(pc, "CHAR118_MSTEP2_SEL2_DLG1", 1)
-                    if endurande_P < 15 then
-                        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_2_MSG1", "GOAL1", 15-endurande_P), 7)
+                    if endurande_P < 3 then
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_2_MSG1", "GOAL1", 3-endurande_P), 7)
                     else
                         SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_2_MSG2"), 7)
                     end
@@ -110,15 +112,15 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
                     end
                 elseif sel3 == 3 then
                     ShowOkDlg(pc, "CHAR118_MSTEP2_SEL3_DLG1",1)
-                    if agility_P < 40 then
-                        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_3_MSG1", "GOAL1", 40-agility_P), 7)
+                    if agility_P < 20 then
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_3_MSG1", "GOAL1", 20-agility_P), 7)
                     else
                         SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_3_MSG2"), 7)
                     end
                 elseif sel3 == 4 then
                     ShowOkDlg(pc, "CHAR118_MSTEP2_SEL5_DLG1", 1)
-                    if simulation_P < 40 then
-                        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_4_MSG1", "GOAL1", 40-simulation_P), 7)
+                    if simulation_P < 20 then
+                        SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_4_MSG1", "GOAL1", 20-simulation_P), 7)
                     else
                         SendAddOnMsg(pc, "NOTICE_Dm_scroll",ScpArgMsg("RETIARII_TRAINING_4_MSG2"), 7)
                     end
@@ -137,7 +139,11 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
                         ShowOkDlg(pc, "CHAR118_MSTEP2_SEL7_DLG2", 1)
                     end
                 end
-        elseif muscular_P >= 40 and endurande_P >= 15 and agility_P >= 40 and simulation_P >= 40 then
+                if GetInvItemCount(pc, "CHAR118_MSTEP2_ITEM2") < 1 then
+                    RunScript("GIVE_ITEM_TX", pc, "CHAR118_MSTEP2_ITEM2", 1, "Quest_HIDDEN_RETIARII")
+                    ShowOkDlg(pc, "CHAR118_MSTEP2_DLG2", 1)
+                end
+            elseif muscular_P >= 25 and endurande_P >= 3 and agility_P >= 20 and simulation_P >= 20 then
                 ShowOkDlg(pc, "CHAR118_MSTEP3_DLG1", 1)
                 local sObj = GetSessionObject(pc, "SSN_RETIARII_UNLOCK")
                 SCR_SET_HIDDEN_JOB_PROP(pc, 'Char1_18', 200)
@@ -153,7 +159,8 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
                                         'CHAR118_MSTEP2_ITEM1',
                                         'CHAR118_MSTEP2_1_ITEM1',
                                         'CHAR118_MSTEP2_2_ITEM1',
-                                        'CHAR118_MSTEP2_2_ITEM2'
+                                        'CHAR118_MSTEP2_2_ITEM2',
+                                        'CHAR118_MSTEP2_ITEM2'
                                     }
                 for i = 1, #retiarii_item do
                     if GetInvItemCount(pc, retiarii_item[i]) >= 1 then

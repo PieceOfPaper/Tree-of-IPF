@@ -1,4 +1,4 @@
-﻿-- lib_ts.lua
+-- lib_ts.lua
 
 function SCR_LIB_AI_BORN_ENTER(self)
     -- Initialize properties
@@ -221,138 +221,138 @@ function SCR_LIB_BOSS_DROP(self, waitMS, isFieldBoss)
         return;
     end
 
-	if isFieldBoss == 1 then
-		local isSingleBoss = TryGetProp(prop, "IsSingleBoss");
-		if isSingleBoss == 1 then
-			local attackerRankList, listCnt = GetBossDropActorInRank(self, bossDropRatio);
-			for j = 1, cnt do
-				for i = 1, listCnt do
-					local attacker = attackerRankList[i];
-					if attacker ~= nil and IS_PC(attacker) == true then
-						if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then                                
-							local ret = funcBossItemDrop(self, attacker, i, droptype, isFieldBoss);
-							if ret ~= 1 then
-								CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
-							end
-						end
-					end
-				end
-			end
+    if isFieldBoss == 1 then
+        local isSingleBoss = TryGetProp(prop, "IsSingleBoss");
+        if isSingleBoss == 1 then
+            local attackerRankList, listCnt = GetBossDropActorInRank(self, bossDropRatio);
+            for j = 1, cnt do
+                for i = 1, listCnt do
+                    local attacker = attackerRankList[i];
+                    if attacker ~= nil and IS_PC(attacker) == true then
+                        if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then                                
+                            local ret = funcBossItemDrop(self, attacker, i, droptype, isFieldBoss);
+                            if ret ~= 1 then
+                                CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
+                            end
+                        end
+                    end
+                end
+            end
 
-			BossKillMongoLog(self, bossDropRatio);
+            BossKillMongoLog(self, bossDropRatio);
     
-			local sleepTime = self.DeadTime + 1000;
-			sleep(sleepTime);
-			SCR_LIB_BOSSKILL_RANK(self, bossDropRatio, attackerRankList, listCnt, isFieldBoss);
-		else
-			local actorRankList, actorList, actorCount = GetBossDropPartyInRank(self, bossDropRatio);
-			for j = 1, cnt do
-				for i = 1, actorCount do
-					local attacker = actorList[i];
-					if attacker ~= nil and IS_PC(attacker) == true then
-						if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
-							local rewardGrade = "Normal";
-							if actorRankList[i] == 0 then
-								rewardGrade = "FirstParty";
-							end
+            local sleepTime = self.DeadTime + 1000;
+            sleep(sleepTime);
+            SCR_LIB_BOSSKILL_RANK(self, bossDropRatio, attackerRankList, listCnt, isFieldBoss);
+        else
+            local actorRankList, actorList, actorCount = GetBossDropPartyInRank(self, bossDropRatio);
+            for j = 1, cnt do
+                for i = 1, actorCount do
+                    local attacker = actorList[i];
+                    if attacker ~= nil and IS_PC(attacker) == true then
+                        if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
+                            local rewardGrade = "Normal";
+                            if actorRankList[i] == 0 then
+                                rewardGrade = "FirstParty";
+                            end
 
-							local ret = funcBossItemDrop(self, attacker, actorRankList[i] + 1, droptype, isFieldBoss, rewardGrade);
-							if ret ~= 1 then
-								CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
-							end
-						end
-					end
-				end
-			end
-			
-			local firstAttacker = GetBossDropFirstBlowActor(self);
-			local lastAttacker = GetLastAttacker(self);
+                            local ret = funcBossItemDrop(self, attacker, actorRankList[i] + 1, droptype, isFieldBoss, rewardGrade);
+                            if ret ~= 1 then
+                                CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
+                            end
+                        end
+                    end
+                end
+            end
+            
+            local firstAttacker = GetBossDropFirstBlowActor(self);
+            local lastAttacker = GetLastAttacker(self);
 
-			-- 보상을 시간차로 주고 있어서 그런지, 킬로그 남길때 남길 정보가 안남아있다. 로그를 먼저 남긴다.
-			BossKillMongoLog(self, bossDropRatio);
+            -- 보상을 시간차로 주고 있어서 그런지, 킬로그 남길때 남길 정보가 안남아있다. 로그를 먼저 남긴다.
+            BossKillMongoLog(self, bossDropRatio);
 
-			sleep(2000);
-			if firstAttacker ~= nil and IS_PC(firstAttacker) == true then
-				if CAN_DROP_CONSIDERING_PENALTY(firstAttacker) == true and IsBuffApplied(firstAttacker, "Firstblow_Buff") == "YES" then
-					PlayEffect(firstAttacker, "F_pc_FirstBlow", 1.3, 'TOP');
-					local ret = funcBossItemDrop(self, firstAttacker, 0, droptype, isFieldBoss, "FirstBlow");
-					if ret ~= 1 then
-						CustomMongoLog(firstAttacker, "RewardBossItemFailed", "Type", "FailBossFirstBlowItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
-					end
-					
-					RemoveBuff(firstAttacker, "Firstblow_Buff");
-				end
-			end
-			
-			sleep(2000);
-			if lastAttacker ~= nil and IS_PC(lastAttacker) == true then
-				if CAN_DROP_CONSIDERING_PENALTY(lastAttacker) == true then
-					PlayEffect(lastAttacker, "F_pc_LastBlow", 1.3, 'TOP');
-					local ret = funcBossItemDrop(self, lastAttacker, 0, droptype, isFieldBoss, "LastBlow");
-					if ret ~= 1 then
-						CustomMongoLog(lastAttacker, "RewardBossItemFailed", "Type", "FailBossLastBlowItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
-					end
-				end
-			end
-		end
-	else
-		if bossDropRatio < 7 then
-			bossDropRatio = bossDropRatio +  IMCRandom(0, ( 7 - bossDropRatio ));
-		end
+            sleep(2000);
+            if firstAttacker ~= nil and IS_PC(firstAttacker) == true then
+                if CAN_DROP_CONSIDERING_PENALTY(firstAttacker) == true and IsBuffApplied(firstAttacker, "Firstblow_Buff") == "YES" then
+                    PlayEffect(firstAttacker, "F_pc_FirstBlow", 1.3, 'TOP');
+                    local ret = funcBossItemDrop(self, firstAttacker, 0, droptype, isFieldBoss, "FirstBlow");
+                    if ret ~= 1 then
+                        CustomMongoLog(firstAttacker, "RewardBossItemFailed", "Type", "FailBossFirstBlowItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
+                    end
+                    
+                    RemoveBuff(firstAttacker, "Firstblow_Buff");
+                end
+            end
+            
+            sleep(2000);
+            if lastAttacker ~= nil and IS_PC(lastAttacker) == true then
+                if CAN_DROP_CONSIDERING_PENALTY(lastAttacker) == true then
+                    PlayEffect(lastAttacker, "F_pc_LastBlow", 1.3, 'TOP');
+                    local ret = funcBossItemDrop(self, lastAttacker, 0, droptype, isFieldBoss, "LastBlow");
+                    if ret ~= 1 then
+                        CustomMongoLog(lastAttacker, "RewardBossItemFailed", "Type", "FailBossLastBlowItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
+                    end
+                end
+            end
+        end
+    else
+        if bossDropRatio < 7 then
+            bossDropRatio = bossDropRatio +  IMCRandom(0, ( 7 - bossDropRatio ));
+        end
 
-		local partySaver = {};
-		local partySaverIndex = 0;
-		local partyObj = nil;
-		local partyPass = false;
-		
-		local attackerRankList, listCnt = GetBossDropActorInRank(self, bossDropRatio);
-		for j = 1, cnt do
-			for i= 1, listCnt do
-				local attacker = attackerRankList[i];
-				if attacker ~= nil and IS_PC(attacker) == true then
-					local partyMemberList, memberCount = GetPartyMemberList(attacker, PARTY_NORMAL, 0);
-					--파티에 속해있는 유저라면 파티 관련 로직을 돌려 줌.
-					if partyMemberList ~= nil then
-						partyPass = false;
-						for k = 1, partySaverIndex do
-							--이미 아이템을 먹은 파티는 또 아이템을 받으면 안됨.
-							if IsSameObject(partySaver[k], GetPartyObj(attacker)) == 1 then
-								partyPass = true;
-								break;
-							end
-						end
-						--아이템을 받기 전의 파티이면 아이템을 파티원 수 만큼 떨어트려주고, 파티오브젝트를 저장 순위에 다른 파티원이 있어도
-						--아이템을 받지 못하게 끔..     
-						if partyPass == false then                        
-							for memberIndex = 1, memberCount do
-								local partyMember = partyMemberList[memberIndex]
-								if CAN_DROP_CONSIDERING_PENALTY(partyMember) == true then                                
-									local ret = funcBossItemDrop(self, partyMember, i, droptype, isFieldBoss);
-									if ret ~= 1 then
-										CustomMongoLog(partyMember, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
-									end
-								end
-							end
-							partySaverIndex = partySaverIndex + 1;
-							partySaver[partySaverIndex] = GetPartyObj(attacker);
-						end
-					else
-						--파티가 없는 솔로 유저는 혼자만 아이템을 먹으면 된다.
-						local ret = funcBossItemDrop(self, attacker, i, droptype, isFieldBoss);
-						if ret ~= 1 then
-							CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
-						end
-					end
-				end
-			end
-		end
+        local partySaver = {};
+        local partySaverIndex = 0;
+        local partyObj = nil;
+        local partyPass = false;
+        
+        local attackerRankList, listCnt = GetBossDropActorInRank(self, bossDropRatio);
+        for j = 1, cnt do
+            for i= 1, listCnt do
+                local attacker = attackerRankList[i];
+                if attacker ~= nil and IS_PC(attacker) == true then
+                    local partyMemberList, memberCount = GetPartyMemberList(attacker, PARTY_NORMAL, 0);
+                    --파티에 속해있는 유저라면 파티 관련 로직을 돌려 줌.
+                    if partyMemberList ~= nil then
+                        partyPass = false;
+                        for k = 1, partySaverIndex do
+                            --이미 아이템을 먹은 파티는 또 아이템을 받으면 안됨.
+                            if IsSameObject(partySaver[k], GetPartyObj(attacker)) == 1 then
+                                partyPass = true;
+                                break;
+                            end
+                        end
+                        --아이템을 받기 전의 파티이면 아이템을 파티원 수 만큼 떨어트려주고, 파티오브젝트를 저장 순위에 다른 파티원이 있어도
+                        --아이템을 받지 못하게 끔..     
+                        if partyPass == false then                        
+                            for memberIndex = 1, memberCount do
+                                local partyMember = partyMemberList[memberIndex]
+                                if CAN_DROP_CONSIDERING_PENALTY(partyMember) == true then                                
+                                    local ret = funcBossItemDrop(self, partyMember, i, droptype, isFieldBoss);
+                                    if ret ~= 1 then
+                                        CustomMongoLog(partyMember, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
+                                    end
+                                end
+                            end
+                            partySaverIndex = partySaverIndex + 1;
+                            partySaver[partySaverIndex] = GetPartyObj(attacker);
+                        end
+                    else
+                        --파티가 없는 솔로 유저는 혼자만 아이템을 먹으면 된다.
+                        local ret = funcBossItemDrop(self, attacker, i, droptype, isFieldBoss);
+                        if ret ~= 1 then
+                            CustomMongoLog(attacker, "RewardBossItemFailed", "Type", "FailBossItemDrop", "MobID", self.ClassID, "MobName", self.ClassName);
+                        end
+                    end
+                end
+            end
+        end
 
-				BossKillMongoLog(self, bossDropRatio);
+                BossKillMongoLog(self, bossDropRatio);
     
-		local sleepTime = self.DeadTime + 1000;
-		sleep(sleepTime);
-		SCR_LIB_BOSSKILL_RANK(self, bossDropRatio, attackerRankList, listCnt, isFieldBoss);
-	end
+        local sleepTime = self.DeadTime + 1000;
+        sleep(sleepTime);
+        SCR_LIB_BOSSKILL_RANK(self, bossDropRatio, attackerRankList, listCnt, isFieldBoss);
+    end
 end
 
 function SCR_SET_BOSS_KILL_ETCPROP(pc, propName, monName, questName)
@@ -389,12 +389,12 @@ function SCR_LIB_QEUST_BOSS_DROP(mon, waitMS)    -- PLAY_BOSS_ITEM_DROP 에서 �
                 if monLayer > 0 then
                     questName = GetExProp_Str(pc, "LayerEventName");
                 end
-				
-				if IsBuffApplied(pc, "ChallengeMode_Player") == "NO" then
-					RunScript("SCR_SET_BOSS_KILL_ETCPROP", pc, 'Kill_' .. mon.ClassName, mon.ClassName, questName);
-				end
+                
+                if IsBuffApplied(pc, "ChallengeMode_Player") == "NO" then
+                    RunScript("SCR_SET_BOSS_KILL_ETCPROP", pc, 'Kill_' .. mon.ClassName, mon.ClassName, questName);
+                end
             end
-		end
+        end
     end
 
     sleep(waitMS);
@@ -536,97 +536,97 @@ function SEL_ITEM_DROP(self, topAttacker, dropItemList, dropItemName, dropCount,
         end -- exp > 0
     else        
         local x, y, z = GetDeadPos(self);
-		
-		local eliteBonusSilverDropFactor = 1;
-		local eliteBonusSilverDropCount = 1;
-		local isMoney = false
-		if string.find(dropType, 'Money') ~= nil and isHasEliteBuff == 1 then
-			eliteBonusSilverDropCount = 10;
-			eliteBonusSilverDropFactor = 0.5;
-			isMoney = true
-		end
-
-		for i = 1, eliteBonusSilverDropCount do
-			local itemObj = CreateGCIES('Monster', dropItemName);
-			if itemObj == nil then
-				return nil;
-			end
         
-			itemObj.ItemCount = dropCount;
+        local eliteBonusSilverDropFactor = 1;
+        local eliteBonusSilverDropCount = 1;
+        local isMoney = false
+        if string.find(dropType, 'Money') ~= nil and isHasEliteBuff == 1 then
+            eliteBonusSilverDropCount = 10;
+            eliteBonusSilverDropFactor = 0.5;
+            isMoney = true
+        end
 
-			if isMoney == false then
-				if CAN_DROP_CONSIDERING_PENALTY(topAttacker) == true then
-					local name = GetName(topAttacker);
-					local item = CREATE_ITEM(self, itemObj, topAttacker, x, y, z, 0, 5);                
-					if item ~= nil then
-						SetExProp(item, "SUPER_DROP", superDrop)
-						if drop ~= nil then
-							local itemObject = GetItemObjectOfMon(item);
-							local prop = TryGetProp(drop, "ItemProperty");
-							if prop ~= nil and prop ~= "None" then
-								local tokenList = TokenizeByChar(prop, "#");
-								for i = 1, #tokenList / 2 do
-									local propName = tokenList[2 * i - 1];
-									local propValue = tokenList[2 * i];
-									itemObject[propName] = propValue;                   
-								end
-							end
-						end
-						ItemDropMongoLog(self, topAttacker, dropItemName, dropCount, superDrop, item.UniqueName, item);            
+        for i = 1, eliteBonusSilverDropCount do
+            local itemObj = CreateGCIES('Monster', dropItemName);
+            if itemObj == nil then
+                return nil;
+            end
+        
+            itemObj.ItemCount = dropCount;
 
-							if string.find(dropType, 'Money') ~= nil then -- Money_Mid                
-								SetTacticsArgFloat(item, 0, 0, 10)
-							end
-							local self_layer = GetLayer(self);
-							if self_layer ~= nil and self_layer ~= 0 then
-								SetLayer(item, self_layer);
-							end
-						local power = 1;
-						if dropCount > 10 then
-							power = 2
-						end
-					end
-				end
-			else    -- Money 면 무조건 드랍, pickitem에서 감소시킨다.
+            if isMoney == false then
+                if CAN_DROP_CONSIDERING_PENALTY(topAttacker) == true then
+                    local name = GetName(topAttacker);
+                    local item = CREATE_ITEM(self, itemObj, topAttacker, x, y, z, 0, 5);                
+                    if item ~= nil then
+                        SetExProp(item, "SUPER_DROP", superDrop)
+                        if drop ~= nil then
+                            local itemObject = GetItemObjectOfMon(item);
+                            local prop = TryGetProp(drop, "ItemProperty");
+                            if prop ~= nil and prop ~= "None" then
+                                local tokenList = TokenizeByChar(prop, "#");
+                                for i = 1, #tokenList / 2 do
+                                    local propName = tokenList[2 * i - 1];
+                                    local propValue = tokenList[2 * i];
+                                    itemObject[propName] = propValue;                   
+                                end
+                            end
+                        end
+                        ItemDropMongoLog(self, topAttacker, dropItemName, dropCount, superDrop, item.UniqueName, item);            
 
-				itemObj.ItemCount = itemObj.ItemCount * eliteBonusSilverDropFactor;
-				if itemObj.ItemCount < 1 then
-					itemObj.ItemCount = 1;
-				end
+                            if string.find(dropType, 'Money') ~= nil then -- Money_Mid                
+                                SetTacticsArgFloat(item, 0, 0, 10)
+                            end
+                            local self_layer = GetLayer(self);
+                            if self_layer ~= nil and self_layer ~= 0 then
+                                SetLayer(item, self_layer);
+                            end
+                        local power = 1;
+                        if dropCount > 10 then
+                            power = 2
+                        end
+                    end
+                end
+            else    -- Money 면 무조건 드랍, pickitem에서 감소시킨다.
 
-				local name = GetName(topAttacker);
-				local item = CREATE_ITEM(self, itemObj, topAttacker, x, y, z, 0, 5);                
-				if item ~= nil then
-					SetExProp(item, "SUPER_DROP", superDrop)
-					if drop ~= nil then
-						local itemObject = GetItemObjectOfMon(item);
-						local prop = TryGetProp(drop, "ItemProperty");
-						if prop ~= nil and prop ~= "None" then
-							local tokenList = TokenizeByChar(prop, "#");
-							for i = 1, #tokenList / 2 do
-								local propName = tokenList[2 * i - 1];
-								local propValue = tokenList[2 * i];
-								itemObject[propName] = propValue;
+                itemObj.ItemCount = itemObj.ItemCount * eliteBonusSilverDropFactor;
+                if itemObj.ItemCount < 1 then
+                    itemObj.ItemCount = 1;
+                end
+
+                local name = GetName(topAttacker);
+                local item = CREATE_ITEM(self, itemObj, topAttacker, x, y, z, 0, 5);                
+                if item ~= nil then
+                    SetExProp(item, "SUPER_DROP", superDrop)
+                    if drop ~= nil then
+                        local itemObject = GetItemObjectOfMon(item);
+                        local prop = TryGetProp(drop, "ItemProperty");
+                        if prop ~= nil and prop ~= "None" then
+                            local tokenList = TokenizeByChar(prop, "#");
+                            for i = 1, #tokenList / 2 do
+                                local propName = tokenList[2 * i - 1];
+                                local propValue = tokenList[2 * i];
+                                itemObject[propName] = propValue;
                     
-							end
-						end
-					end
-					ItemDropMongoLog(self, topAttacker, dropItemName, dropCount, superDrop, item.UniqueName, item);            
+                            end
+                        end
+                    end
+                    ItemDropMongoLog(self, topAttacker, dropItemName, dropCount, superDrop, item.UniqueName, item);            
 
-						if string.find(dropType, 'Money') ~= nil then -- Money_Mid                
-							SetTacticsArgFloat(item, 0, 0, 10)
-						end
-						local self_layer = GetLayer(self);
-						if self_layer ~= nil and self_layer ~= 0 then
-							SetLayer(item, self_layer);
-						end
-					local power = 1;
-					if dropCount > 10 then
-						power = 2
-					end
-				end
-			end
-		end
+                        if string.find(dropType, 'Money') ~= nil then -- Money_Mid                
+                            SetTacticsArgFloat(item, 0, 0, 10)
+                        end
+                        local self_layer = GetLayer(self);
+                        if self_layer ~= nil and self_layer ~= 0 then
+                            SetLayer(item, self_layer);
+                        end
+                    local power = 1;
+                    if dropCount > 10 then
+                        power = 2
+                    end
+                end
+            end
+        end
     end
 end
 
@@ -652,15 +652,15 @@ function SCR_REAL_DROP_ITEM(self)
     local swellBody = GetBuffByName(self, "SwellBody_Debuff");
     local eliteMonsterBuff = GetBuffByName(self, "EliteMonsterBuff");
     local isDoubble = 0;
-	local isHasEliteBuff = 0;
+    local isHasEliteBuff = 0;
     if doublePay ~= nil or 1 == GetExProp(topAttacker, "DobbbleItem") 
     or nil ~= swellBody or eliteMonsterBuff ~= nil then
         isDoubble = isDoubble + 1;
         DelExProp(topAttacker, "DobbbleItem");
-		
-		if eliteMonsterBuff ~= nil then
-			isHasEliteBuff = 1;
-		end
+        
+        if eliteMonsterBuff ~= nil then
+            isHasEliteBuff = 1;
+        end
     end
 
     RunScript("DROP_ITEM", self, topAttacker, isDoubble, isHasEliteBuff);
@@ -821,14 +821,14 @@ function POST_DROP_DETERMINED(self, dropItemList, topAttacker, mulDropRate, list
             -- 현재 아이템을 받을 수 있는가?
             local dpkDropRate = IMCRandom(1, finalValue)
 
-      			local overDPK = false;
-      			if currentValue > dpkValue then
-      				overDPK = true;
-      			end
+                local overDPK = false;
+                if currentValue > dpkValue then
+                    overDPK = true;
+                end
       
-      			if overDPK == true then
-      				ClearDPKCount(dropItemList, drop.ClassID)
-      			end
+                if overDPK == true then
+                    ClearDPKCount(dropItemList, drop.ClassID)
+                end
             
             -- 아이템을 못받으면 드랍 테이블 셋팅 안함
             if dpkDropRate ~= 1 or overDPK == true then
@@ -1013,10 +1013,15 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
             return 0;
         end
     end
-
-	if rewardGrade == nil then
-		rewardGrade = "None";
-	end
+    
+    local isShowBalloon = 1;
+    if rewardGrade == "FirstBlow" or rewardGrade == "LastBlow" then
+        isShowBalloon = 0;
+    end
+    
+    if rewardGrade == nil then
+        rewardGrade = "None";
+    end
 
     local cnt, dropType, goldCount, minMoney, maxMoney, itemList, dropItemList, getCnt, payItemList, cardName, cardRatio, reinforceCardDrop = CalcBossDropItem(self, rewardGrade);
     if cnt == 0 then
@@ -1026,39 +1031,39 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
         return 0;
     end
 
-	if rewardGrade == "None" or rewardGrade == "FirstParty" or rewardGrade == "Normal" then
-		SetExProp(attacker, "BOSS_KILL_RANK", rank);
-		local x, y, z = GetPos(self);   -- 드랍위치
+    if rewardGrade == "None" or rewardGrade == "FirstParty" or rewardGrade == "Normal" then
+        SetExProp(attacker, "BOSS_KILL_RANK", rank);
+        local x, y, z = GetPos(self);   -- 드랍위치
 
-		-- 돈 드랍
-		local gold = IMCRandom(minMoney, maxMoney);     -- 금액 설정 min~max사이에서 랜덤
-		local drop_classname = 'Moneybag2'; -- 금액에따른 크기 설정
-		local mon = GetClassByStrProp("Monster", "ClassName", drop_classname);
+        -- 돈 드랍
+        local gold = IMCRandom(minMoney, maxMoney);     -- 금액 설정 min~max사이에서 랜덤
+        local drop_classname = 'Moneybag2'; -- 금액에따른 크기 설정
+        local mon = GetClassByStrProp("Monster", "ClassName", drop_classname);
     
-		if GetClassByType("Monster", mon.ClassID) ~= nil then
-			local num = 0;
-			for num = 0, goldCount-1 do
-				local rdObj = CreateGCIESByID('Monster', mon.ClassID);
-				rdObj.ItemCount = gold * JAEDDURY_GOLD_RATE;
-				local item = CREATE_ITEM(self, rdObj, attacker, x, y, z, 0, 50);
-				if item ~= nil then
-					SetExProp(item, "KD_POWER_MAX", 270);
-					SetExProp(item, "KD_POWER_MIN", 120);
-				end
-			end
-		end
+        if GetClassByType("Monster", mon.ClassID) ~= nil then
+            local num = 0;
+            for num = 0, goldCount-1 do
+                local rdObj = CreateGCIESByID('Monster', mon.ClassID);
+                rdObj.ItemCount = gold * JAEDDURY_GOLD_RATE;
+                local item = CREATE_ITEM(self, rdObj, attacker, x, y, z, 0, 50);
+                if item ~= nil then
+                    SetExProp(item, "KD_POWER_MAX", 270);
+                    SetExProp(item, "KD_POWER_MIN", 120);
+                end
+            end
+        end
     
-		-- pc에게 월급계념으로 무조건 고정으로 주는 아이템 드랍
-		for i = 1 , #payItemList do
-			local drop = payItemList[i];
-			BOSS_SEL_ITEM_DROP(self, attacker, drop, true, false);
-		end
-		
-		if cardName ~= nil then
-			BOSS_CARD_DROP(self, attacker, cardName, cardRatio, reinforceCardDrop)
-		end
-	end
-	
+        -- pc에게 월급계념으로 무조건 고정으로 주는 아이템 드랍
+        for i = 1 , #payItemList do
+            local drop = payItemList[i];
+            BOSS_SEL_ITEM_DROP(self, attacker, drop, true, false);
+        end
+        
+        if cardName ~= nil then
+            BOSS_CARD_DROP(self, attacker, cardName, cardRatio, reinforceCardDrop)
+        end
+    end
+    
     -- 아이템 드랍
     local retList = {};
     local curCnt = 1;
@@ -1072,18 +1077,18 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
         if drop == nil then
             break;
         end
-		
+        
         local pickCls = nil;
         local dpkMin = TryGet(drop, "DPK_Min");
         local epikMin = TryGet(drop, "EPIK_Min");
-		
+        
         if dpkMin > 0 then
             if GetExProp(self, "DPKSET") == 0 then
                 SetExProp(self, "DPKSET", 1);
                 if superDropArg > 0 then
                     local rate = IMCRandom(1,(dpkMin + drop.DPK_Max)/2)
                         if rate == 1 then
-                        pickCls = drop
+                            pickCls = drop
                         end
                     else
                         -- 현재 몬스터 잡힌 마리수
@@ -1097,25 +1102,25 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
                         
                         -- 현재 DPK 확률
                         local finalValue = dpkValue - currentValue
-
+                        
                         if finalValue < 1 then
                             finalValue = 1;
                         end
-
+        
                         -- 현재 아이템을 받을 수 있는가?
                         local dpkDropRate = IMCRandom(1, finalValue)
+        
+                        local overDPK = false;
+                        if currentValue > dpkValue then
+                            overDPK = true;
+                        end
 
-						local overDPK = false;
-						if currentValue > dpkValue then
-							overDPK = true;
-						end
-
-						if overDPK == true then
-							ClearDPKCount(dropItemList, drop.ClassID)
-						end
+                        if overDPK == true then
+                            ClearDPKCount(dropItemList, drop.ClassID)
+                        end
             
-				        -- 아이템을 못받으면 드랍 테이블 셋팅 안함
-					    
+                        -- 아이템을 못받으면 드랍 테이블 셋팅 안함
+                        
                         -- 아이템을 못받으면 드랍 테이블 셋팅 안함
                         if dpkDropRate ~= 1 or overDPK == true then
                             list[i][1] = "None";
@@ -1149,7 +1154,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
     if dropListCreated == 1 then    -- 미리 보기면 그 아이템만 드랍한다.
         local pre_droplist = GetPrecreatedDropList(self)
         for i = 1, #pre_droplist do            
-            BOSS_SEL_ITEM_DROP(self, attacker, pre_droplist[i], false, isFieldBoss);
+            BOSS_SEL_ITEM_DROP(self, attacker, pre_droplist[i], false, isFieldBoss, isShowBalloon);
         end
     else
         for i = 1 , #retList do
@@ -1161,7 +1166,7 @@ function PLAY_BOSS_ITEM_DROP(self, attacker, rank, superDropArg, isFieldBoss, re
             elseif epikMin > 0 then
                 RunZombieScript("EPIK_BOSS_SEL_ITEM_DROP", self, attacker, dropItemList, ldrop.ClassID, dpkMin, drop.EPIK_Max, isFieldBoss);
             else
-                BOSS_SEL_ITEM_DROP(self, attacker, drop, false, isFieldBoss);                
+                BOSS_SEL_ITEM_DROP(self, attacker, drop, false, isFieldBoss, isShowBalloon);                
             end
         end
     end
@@ -1223,10 +1228,10 @@ function PICK_DROP_CLS_INDEX(itemList)
     return nil;
 end
 
-function BOSS_SEL_ITEM_DROP(self, attacker, itemCls, isPayItem, isFieldBoss)    
+function BOSS_SEL_ITEM_DROP(self, attacker, itemCls, isPayItem, isFieldBoss, isShowBalloon)    
     --필드 보스 드랍
     if isFieldBoss == 1 or isFieldBoss == true then
-        local item = FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
+        local item = FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)
         return item;
     else
     --일반 보스 드랍
@@ -1288,6 +1293,18 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
             end
         end
 
+        local WeeklyEnteredIndun = TryGetProp(itemCls, 'WeeklyEnteredIndun', 'None');
+        if WeeklyEnteredIndun ~= 'None' then
+            local indunCls = GetClass('Indun', WeeklyEnteredIndun)
+            if indunCls ~= nil then
+                local WeeklyEnterableCount = TryGetProp(indunCls, 'WeeklyEnterableCount', 0);
+                if WeeklyEnterableCount ~= 0 then
+                    local weeklyProperty = 'IndunWeeklyEnteredCount_'..indunCls.PlayPerResetType;
+                        useTX[#useTX + 1] = {'WeeklyEnteredCount', pcetc, weeklyProperty, pcetc[weeklyProperty] + 1};
+                end
+            end
+        end
+
         local isAdmissionItemIndun = false;
         local admissionItemIndunClassName = TryGetProp(itemCls, 'AdmissionItemIndun');
         if admissionItemIndunClassName ~= nil and admissionItemIndunClassName ~= 'None' then
@@ -1331,6 +1348,8 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
                     TxTakeItem(tx, useTX[i][2], useTX[i][3], 'TAKE_ADMISSION_ITEM');
                 elseif useTX[i][1] == 'admissionEnterCount' then
                     TxSetIESProp(tx, useTX[i][2], useTX[i][3], useTX[i][4]);
+                elseif useTX[i][1] == 'WeeklyEnteredCount' then
+                    TxSetIESProp(tx, useTX[i][2], useTX[i][3], useTX[i][4]);
                 end
             end
             local ret = TxCommit(tx);
@@ -1373,39 +1392,12 @@ function NORMAL_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
     return nil
 end
 
-function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)    
+function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem, isShowBalloon)    
     if CAN_DROP_CONSIDERING_PENALTY(attacker) == true then
         local itemName = itemCls.ItemClassName;
         local itemCount = 1;
 
         local monID = geItemTable.GetItemMonsterByName(itemName);
-        --180201 필보 보상 추가 이벤트 로직 --
-        local evepropDropCheck = TryGetProp(self, "DropItemList");
-        local bossDropList, cnt = GetClassList("MonsterDropItemList_"..evepropDropCheck);
-        local evegiveItem = nil
-        local everewardItem = nil
-        
-        for i = 0, cnt-1 do
-            local cls = GetClassByIndexFromList(bossDropList,i)
-            if cls == nil then
-                return;
-            end
-            everewardItem = TryGetProp(cls , "RewardGrade")
-            
-            if everewardItem == nil then
-                return;
-            end
-            
-            if everewardItem == "Add" then
-                local eveitemCheck = TryGetProp(cls, "ItemClassName")
-                if eveitemCheck == nil then
-                    return;
-                end
-                evegiveItem = eveitemCheck
-            break;
-            end
-        end
-        --180201 필보 이벤트 로직 종료 --
 
         if GetClassByType("Monster", monID) == nil then
             return nil;
@@ -1418,25 +1410,29 @@ function FIELD_BOSS_ITEM_DROP(self, attacker, itemCls, isPayItem)
         -- 이 함수를 호출하는 부분에서는 아이템 리스트를 가지고 루프를 돌기 때문에 내부에서 tx를 여러개 사용할 수 있다고 생각할 수 있음
         -- 하지만 우리 필드보스 드랍 시스템은 무조건 큐브를 1개 주고, 그 큐브를 까서 아이템이 나오는 시스템이기 때문에
         -- 위 룰이 잘 지켜진다면 tx는 무조건 1번으로 보장이 된다.
-            
+        
         local tx = TxBegin(attacker);
         cmdIdx = TxGiveItem(tx, itemCls.ItemClassName, 1, "FieldBossReward");
-        TxGiveItem(tx, evegiveItem, 1, "FieldBossEventReward"); -- 필보 이벤트 보상 지급--
         resultGUID = TxGetGiveItemID(tx, cmdIdx);
         local ret = TxCommit(tx);
     
-		if ret == "SUCCESS" then
+        if ret == "SUCCESS" then
             item = GetInvItemByGuid(attacker, resultGUID);
 
             SetExProp_Str(item, "POST_PICK", "BOSS_ITEM_BALLOON");
             AddBossDropInfo(attacker, self, itemName, itemCount);
 
             local rank = GetExProp(attacker, "BOSS_KILL_RANK");
-            ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox");
-            return item;
+            if isShowBalloon == 0 then
+                ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox", 0);
+                return item;
+            elseif isShowBalloon == 1 then
+                ShowItemBalloon(attacker, "{@st43}", "Rank_{Number}", tostring(rank), item, 4, 2, "reward_itembox", 1);
+                return item;
+            end
         else
             local name = GetTeamName(attacker)
-            IMC_LOG("INFO_NORMAL", "[FIELD_BOSS_ITEM_DROP ERROR] UserTeamName : "..name.." ItemName : "..itemName)
+            IMC_NORMAL_INFO("[FIELD_BOSS_ITEM_DROP ERROR] UserTeamName : "..name.." ItemName : "..itemName)
             --혹시 모르니 남겨놓자
             CustomMongoLog(attacker, "RewardItemOnmission", "Type", "FieldBossReward", "ItemName", itemName, "itemCount", itemCount)
         end
@@ -1509,26 +1505,26 @@ function CalcBossDropItem(self, rewardGrade)
     for i = 0 , listCnt - 1 do
         local cls = GetClassByIndexFromList(clsList, i);
         if cls ~= nil then
-			if rewardGrade ~= "None" then
-				local clsRewardGrade = TryGet_Str(cls, "RewardGrade");
-				if clsRewardGrade ~= nil then
-					if clsRewardGrade ~= "None" then
-						if clsRewardGrade == rewardGrade then
-							if cls.DropRatio > 0 then
-								itemList[#itemList + 1] = cls;
-							else
-								payItemList[#payItemList + 1] = cls;
-							end
-						end
-					end
-				end
-			else
-				if cls.DropRatio > 0 then
-					itemList[#itemList + 1] = cls;
-				else
-					payItemList[#payItemList + 1] = cls;
-				end
-			end
+            if rewardGrade ~= "None" then
+                local clsRewardGrade = TryGet_Str(cls, "RewardGrade");
+                if clsRewardGrade ~= nil then
+                    if clsRewardGrade ~= "None" then
+                        if clsRewardGrade == rewardGrade then
+                            if cls.DropRatio > 0 then
+                                itemList[#itemList + 1] = cls;
+                            else
+                                payItemList[#payItemList + 1] = cls;
+                            end
+                        end
+                    end
+                end
+            else
+                if cls.DropRatio > 0 then
+                    itemList[#itemList + 1] = cls;
+                else
+                    payItemList[#payItemList + 1] = cls;
+                end
+            end
         end
     end
 

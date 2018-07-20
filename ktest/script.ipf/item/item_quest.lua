@@ -11198,10 +11198,10 @@ end
 
 --JOB_MATADOR1_ITEM
 function SCR_USE_JOB_MATADOR1_ITEM(self, argObj, argstring, arg1, arg2)
-    local result = DOTIMEACTION_R(self, ScpArgMsg("JOB_MATADOR1_ITEM_MSG1"), 'SKL_CAPOTE', 1)
+    local result = DOTIMEACTION_R(self, ScpArgMsg("JOB_MATADOR1_ITEM_MSG1"), 'SKL_CAPOTE', 0.8)
     if result == 1 then
         PlayAnim(self, "ASTD")
-        AddBuff(self, argObj, "JOB_MATADOR1_ITEM_BUFF1", 1, 0, 15000, 1)
+        AddBuff(self, argObj, "JOB_MATADOR1_ITEM_BUFF1", 1, 0, 25000, 1)
         argObj.StrArg1 = "JOB_MATADOR_QMONSTER"
         local bt = CreateBTree("Job_matador_mon_Btree")
 	    SetBTree(argObj, bt)
@@ -11379,6 +11379,30 @@ function SCR_USE_CHAR121_MSTEP2_ITEM1(self, argObj, argstring, arg1, arg2)
     end
 end
 
+--SCR_USE_CHAR118_MSTEP2_ITEM2
+function SCR_USE_CHAR118_MSTEP2_ITEM2(self, argObj, argstring, arg1, arg2)
+--Goal1 is traning Goal Count(muscular strength) max count : 40
+--Goal2 is traning Goal Count(endurande) max count : 15
+--Goal3 is traning Goal Count(agility) max count : 40
+--Goal5 is traning Goal Count(simulation) max count : 40
+
+--Step1 is traning stamina
+
+    local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
+    if sObj ~= nil then
+        muscular_P = sObj.Goal1
+        endurande_P = sObj.Goal2
+        agility_P = sObj.Goal3
+        simulation_P = sObj.Goal5
+        stamina_P = sObj.Step1
+        if muscular_P < 25 or endurande_P < 3 or agility_P < 20 or simulation_P < 20 then
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CHAR121_MSTEP2_ITEM2_MSG1", "muscular", muscular_P, "endurande", endurande_P, "agility", agility_P, "simulation", simulation_P, "stamina", stamina_P), 15)
+        elseif muscular_P >= 25 and endurande_P >= 3 and agility_P >= 20 and simulation_P >= 20 then
+            SendAddOnMsg(self, "NOTICE_Dm_Clear", ScpArgMsg("CHAR121_MSTEP2_ITEM2_MSG2", "muscular", muscular_P, "endurande", endurande_P, "agility", agility_P, "simulation", simulation_P), 10)
+        end
+    end
+end
+
 --SCR_USE_CHAR118_MSTEP2_1_ITEM1
 function SCR_USE_CHAR118_MSTEP2_1_ITEM1(self, argObj, argstring, arg1, arg2)
     local hidden_Prop = SCR_GET_HIDDEN_JOB_PROP(self, "Char1_18")
@@ -11402,12 +11426,16 @@ function SCR_USE_CHAR118_MSTEP2_1_ITEM1(self, argObj, argstring, arg1, arg2)
             end
             
             if (training_Stamina == 0) or (training_Stamina < discount) then
+                if GetInvItemCount(self, "CHAR118_MSTEP2_ITEM1") < 1 then
                 SendAddOnMsg(self, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_STAMINA_NOT_ENOUGH'), 5)
             else
-            local animTime, before_time = DOTIMEACTION_R_BEFORE_CHECK(self, 5, 'MAPLE23_2_SQ04')
-            local result = DOTIMEACTION_R_DUMMY_ITEM(self, ScpArgMsg("CHAR118_MSTEP2_1_ITEM1_TRAINING"), 'SKL_ASSISTATTACK_DUMBELL',5, 'SSN_HATE_AROUND', nil, 630014, "RH")
+                    SendAddOnMsg(self, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_STAMINA_NOT_ENOUGH2'), 5)
+                end
+            else
+                local animTime, before_time = DOTIMEACTION_R_BEFORE_CHECK(self, 3, 'MAPLE23_2_SQ04')
+                local result = DOTIMEACTION_R_DUMMY_ITEM(self, ScpArgMsg("CHAR118_MSTEP2_1_ITEM1_TRAINING"), 'SKL_ASSISTATTACK_DUMBELL',3, 'SSN_HATE_AROUND', nil, 630014, "RH")
             if result == 1 then
-                    RETIARII_TRAINING_FUNC(self, "Step1", "Step2", "Goal1", 40)
+                    RETIARII_TRAINING_FUNC(self, "Step1", "Step2", "Goal1", 25)
                 end
             end
         end
@@ -11416,8 +11444,10 @@ end
 
 --SCR_USE_CHAR118_MSTEP2_2_ITEM1
 function SCR_USE_CHAR118_MSTEP2_2_ITEM1(self, argObj, argstring, arg1, arg2)
+    local ridingCompanion = GetRidingCompanion(self);
     local sObj = GetSessionObject(self, "SSN_RETIARII_UNLOCK")
     local posX, posZ, posY = GetPos(self)
+    if ridingCompanion == nil then
     if sObj ~= nil then
         local training_Stamina = sObj.Step1
         local training_Count = sObj.Step2
@@ -11436,10 +11466,15 @@ function SCR_USE_CHAR118_MSTEP2_2_ITEM1(self, argObj, argstring, arg1, arg2)
         end
         
         if (training_Stamina == 0) or (training_Stamina < discount) then
+            if GetInvItemCount(self, "CHAR118_MSTEP2_ITEM1") < 1 then
             SendAddOnMsg(self, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_STAMINA_NOT_ENOUGH'), 5)
         else
+                SendAddOnMsg(self, 'NOTICE_Dm_scroll',ScpArgMsg('RETIARII_STAMINA_NOT_ENOUGH2'), 5)
+            end
+        else
         local goal_point = sObj.Goal2
-            if goal_point < 20 then
+            if goal_point < 3 then
+                if IsBuffApplied(self, "CHAR118_MSTEP2_2_ITEM1_BUFF1") == "NO" then
     local master_Dis = SCR_POINT_DISTANCE(posX, posY, -1312, -341)
     if master_Dis < 60 then
         local result = DOTIMEACTION_R(self, ScpArgMsg("CHAR118_MSTEP2_2_ITEM1_USE"), 'bury', 1)
@@ -11473,10 +11508,20 @@ function SCR_USE_CHAR118_MSTEP2_2_ITEM1(self, argObj, argstring, arg1, arg2)
                 else
                     SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CHAR118_MSTEP2_2_ITEM1_FAR_MSG"), 6)
                 end
+                elseif IsBuffApplied(self, "CHAR118_MSTEP2_2_ITEM1_BUFF1") == "YES" then
+                    local result = DOTIMEACTION_R(self, ScpArgMsg("CHAR118_MSTEP2_2_ITEM1_REMOVE_MSG1"), 'bury', 1)
+                    if result == 1 then
+                        RemoveBuff(self, "CHAR118_MSTEP2_2_ITEM1_BUFF1")
+                        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CHAR118_MSTEP2_2_ITEM1_REMOVE_MSG2"), 6)
+                    end
+                end
             else
                 SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("RETIARII_TRAINING_SUCC2"), 6)
             end
         end
+    end
+    else
+        SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("RETIARII_TRAINING_COMPANION_NOT"), 6)
     end
 end
 
@@ -11599,7 +11644,7 @@ function SCR_USE_JOB_ONMYOJI_MSTEP1_ITEM1(self, argObj, argstring, arg1, arg2)
 end
 
 function SCR_USE_JOB_ONMYOJI_MSTEP2_1_1_ITEM1(self, argObj, argstring, arg1, arg2)
-    local max_cnt = 100
+    local max_cnt = 80
     local trade_cnt = 3
     if GetInvItemCount(self, "CHAR220_MSTEP2_1_1_ITEM2") < max_cnt then
         if GetInvItemCount(self, "CHAR220_MSTEP2_1_1_ITEM1") >= trade_cnt then
@@ -11635,7 +11680,7 @@ function SCR_USE_JOB_ONMYOJI_MSTEP2_1_1_ITEM1(self, argObj, argstring, arg1, arg
 end
 
 function SCR_USE_JOB_ONMYOJI_MSTEP2_3_ITEM1(self, argObj, argstring, arg1, arg2)
-    local max_cnt = 100
+    local max_cnt = 50
     local trade_cnt = 2
     if GetInvItemCount(self, "CHAR220_MSTEP2_3_ITEM2") < max_cnt then
         if GetInvItemCount(self, "CHAR220_MSTEP2_3_ITEM1") >= trade_cnt then
@@ -11689,7 +11734,12 @@ function SCR_USE_JOB_ONMYOJI_MSTEP2_6_ITEM1(self, argObj, argstring, arg1, arg2)
                             "CHAR220_MSETP2_6_OBJ1_9", "CHAR220_MSETP2_6_OBJ1_10",
                             "CHAR220_MSETP2_6_OBJ1_11", "CHAR220_MSETP2_6_OBJ1_12",
                             "CHAR220_MSETP2_6_OBJ1_13", "CHAR220_MSETP2_6_OBJ1_14",
-                            "CHAR220_MSETP2_6_OBJ1_15", "CHAR220_MSETP2_6_OBJ1_16" }
+                            "CHAR220_MSETP2_6_OBJ1_15", "CHAR220_MSETP2_6_OBJ1_16",
+                            "CHAR220_MSETP2_6_OBJ1_17", "CHAR220_MSETP2_6_OBJ1_18",
+                            "CHAR220_MSETP2_6_OBJ1_19", "CHAR220_MSETP2_6_OBJ1_20",
+                            "CHAR220_MSETP2_6_OBJ1_21", "CHAR220_MSETP2_6_OBJ1_22",
+                            "CHAR220_MSETP2_6_OBJ1_23", "CHAR220_MSETP2_6_OBJ1_24",
+                            "CHAR220_MSETP2_6_OBJ1_25" }
         local result = DOTIMEACTION_R(self, ScpArgMsg("CHAR220_MSETP2_6_MSG1"), 'METALDETECTOR', 2)
         if result == 1 then
             PlayEffectLocal(self, self, "F_circle016_rainbow", 1.5, "MID")
@@ -11722,16 +11772,28 @@ function SCR_USE_JOB_ONMYOJI_MSTEP2_6_ITEM1(self, argObj, argstring, arg1, arg2)
                                     local x, y, z = GetPos(list[i])
                                     local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', x+10, y, z+10, -45, 'Neutral', nil, CHAR220_MSETP2_6_OBJ2_SET);
                                     local charCID = GetPcCIDStr(self)
-                                	SetLifeTime(mon, 300)
-                                    AddVisiblePC(mon, self, 1)
-                                    SetExProp_Str(mon, "JOB_ONMYOJI_MSTEP2_6", charCID)
-                                    SetExProp(mon, "JOB_ONMYOJI_MSTEP2_6_NUMBER", num)
-                                	AttachEffect(mon, "F_light071_loop", 13, "TOP")
-                                	AttachEffect(mon, "F_light104_yellow_loop", 1.5, "MID")
-                                    ShowBalloonText(self, "CHAR220_MSETP2_6_FIND_DLG1", 7)
-                                    sObj.String4 = sObj.String4.."/"..tostring(num)
-                                    SaveSessionObject(self, sObj)
-                                   return
+                                    local day, time = ONMYOJI_TIME_CHECK(self)
+                                    local today = tonumber(day)
+                                    local nowtime = tonumber(time)
+                                    local lastday = sObj.Step18
+                                    local lasttime = sObj.Goal18
+                                    local lifeTime
+                                    if today == lastday then
+                                        lifeTime = lasttime - nowtime
+                                    elseif today ~= lastday then
+                                        lifeTime = lasttime - (nowtime + 1440)
+                                    end
+                                        lifeTime = lifeTime * 60
+                                    	SetLifeTime(mon, lifeTime)
+                                        AddVisiblePC(mon, self, 1)
+                                        SetExProp_Str(mon, "JOB_ONMYOJI_MSTEP2_6", charCID)
+                                        SetExProp(mon, "JOB_ONMYOJI_MSTEP2_6_NUMBER", num)
+                                    	AttachEffect(mon, "F_light071_loop", 13, "TOP")
+                                    	AttachEffect(mon, "F_light104_yellow_loop", 1.5, "MID")
+                                        ShowBalloonText(self, "CHAR220_MSETP2_6_FIND_DLG1", 7)
+                                        sObj.String4 = sObj.String4.."/"..tostring(num)
+                                        SaveSessionObject(self, sObj)
+                                    return
                                 end
                             end
                         end
@@ -11758,10 +11820,11 @@ function SCR_CHAR220_MSETP2_6_OBJ2_DIALOG(self, pc)
             local sObj = GetSessionObject(pc, "SSN_JOB_ONMYOJI_MISSION_LIST")
             if sObj ~= nil then
                 if sObj.Goal8 == 1 then
-                    local max_cnt = 15
+                    local max_cnt = 20
                     if GetInvItemCount(pc, "CHAR220_MSTEP2_6_ITEM2") < max_cnt then
                         local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR220_MSETP2_6_MSG2"), "SITGROPE_LOOP", 2.0)
                         if result == 1 then
+                            DetachEffect(self, 'F_light104_yellow_loop')
                             DetachEffect(self, 'F_light071_loop')
                             Kill(self)
                             local cnt = 1
@@ -11803,13 +11866,24 @@ function SCR_USE_JOB_ONMYOJI_MSTEP2_7_ITEM1(self, argObj, argstring, arg1, arg2)
         if result == 1 then
             if sObj.String5 ~= "None" then
                 local num = table.find(obj_list, TryGetProp(argObj, "Enter"))
-                local string_cut_list = SCR_STRING_CUT(sObj.String5);
-                if table.find(string_cut_list, num) == 1 then
-                    if sObj.String6 == "None" then
-                        local max_cnt = 21
+                local string_cut_list1 = SCR_STRING_CUT(sObj.String5);
+                local string_cut_list2 = SCR_STRING_CUT(sObj.String6);
+                if table.find(string_cut_list1, num) <= 0 then
+                    if table.find(string_cut_list2, num) <= 0 then
+                        local max_cnt = 11
                         if sObj.Goal9 < max_cnt then
+                            if sObj.String6 == nil or sObj.String6 == "None" then
+                                sObj.String6 = tostring(num)
+                            else
+                                sObj.String6 = sObj.String6.."/"..tostring(num)
+                            end
                             sObj.Goal9 = sObj.Goal9 + 1
                         else
+                            if sObj.String6 == nil or sObj.String6 == "None" then
+                                sObj.String6 = tostring(num)
+                            else
+                                sObj.String6 = sObj.String6.."/"..tostring(num)
+                            end
                             sObj.Goal9 = max_cnt
                         end
                         PlayEffectLocal(argObj, self, "F_lineup003", 1.5, "TOP")
@@ -11820,22 +11894,20 @@ function SCR_USE_JOB_ONMYOJI_MSTEP2_7_ITEM1(self, argObj, argstring, arg1, arg2)
                         else
                             SendAddOnMsg(self, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_7_MSG7"),3)
                         end
-                        sObj.String6 = "COMPLETED"
-                        SaveSessionObject(self, sObj)
-                        return
                     else
                         SendAddOnMsg(self, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_7_MSG3"),3)
+                    end
+                    SaveSessionObject(self, sObj)
+                    return
+                else
+                    local fail_num = table.find(string_cut_list1, num)
+                    if fail_num == 1 or fail_num == 3 or fail_num == 5 then
+                        SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_7_MSG4"),3)
+                        return
+                    elseif fail_num == 2 or fail_num == 4 or fail_num == 6 then
+                        SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_7_MSG5"),3)
                         return
                     end
-                elseif table.find(string_cut_list, num) < 4 then
-                    SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_7_MSG6"),3)
-                    return
-                elseif table.find(string_cut_list, num) < 7 then
-                    SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_7_MSG5"),3)
-                    return
-                elseif table.find(string_cut_list, num) < 10 then
-                    SendAddOnMsg(self, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR220_MSETP2_7_MSG4"),3)
-                    return
                 end
             end
         end

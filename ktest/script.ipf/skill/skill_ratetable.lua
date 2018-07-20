@@ -1819,6 +1819,10 @@ function SCR_SKILL_RATETABLE_Retiari_DaggerFinish(self, from, skill, atk, ret, r
         SkillTextEffect(nil, self, from, 'SHOW_SKILL_BONUS2', textRate, nil, skill.ClassID);
         rateTable.DamageRate = rateTable.DamageRate + addDamageRate
     end
+    
+    if GetBuffByProp(self, "Keyword", "Strap") ~= nil then
+        rateTable.DamageRate = rateTable.DamageRate + 1
+    end
 end
 
 
@@ -1845,18 +1849,37 @@ function SCR_SKILL_RATETABLE_Retiarii_TridentFinish(self, from, skill, atk, ret,
 	        if ratio >= IMCRandom(1, 100) then
 	            SetExProp(self, "IS_TAKE_CRITICAL", 1);
 	        end
+	        
+	        rateTable.DamageRate = rateTable.DamageRate + 1
 	    end
 	end
 end
 
 
 function SCR_SKILL_RATETABLE_Onmyoji_Toyou(self, from, skill, atk, ret, rateTable)
-	if IsKnockDownState(self) == 1 then
+	local state = GetActionState(self);
+	if state == 'AS_KNOCKDOWN' or state == 'AS_DOWN' then
         local reductionRate = 0.5
-        
         AddDamageReductionRate(rateTable, reductionRate);
         if IMCRandom(1, 100) < 10 then
         	AddBuff(from, self, "Hold", 1, 0, 3000, 1)
         end
 	end
+end
+
+
+function SCR_SKILL_RATETABLE_Mon_pcskill_FireFoxShikigami_Skill_1(self, from, skill, atk, ret, rateTable)
+    local hitCount = 2
+	
+	rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + (hitCount - 1);
+    SetMultipleHitCount(ret, hitCount);
+end
+
+function SCR_SKILL_RATETABLE_Pyromancer_FireBall(self, from, skill, atk, ret, rateTable)
+	if IsBuffApplied(from, 'FireFoxShikigami_Onmyoji18_Buff') == 'YES' then
+	    local hitCount = 3
+		
+		rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
+	    SetMultipleHitCount(ret, hitCount);
+    end
 end

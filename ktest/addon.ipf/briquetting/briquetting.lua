@@ -376,10 +376,28 @@ function BRIQUETTING_REFRESH_MATERIAL(frame, spendUI)
 	spendCount:SetTextByKey("txt", spendUI);
 end
 
-function ALCHEMIST_BRIQUE_SUCCEED()
+function ALCHEMIST_BRIQUE_SUCCEED(mainGuid)
 	local frame = ui.GetFrame("briquetting");
 	if nil == frame then
 		return;
 	end
 	BRIQUETTING_UI_RESET(frame);
+    BRIQUETTING_REFRESH_INVENTORY_ICON(mainGuid);
+end
+
+function BRIQUETTING_REFRESH_INVENTORY_ICON(mainGuid)
+	local frame = ui.GetFrame('inventory');
+	if frame == nil or frame:IsVisible() ~= 1 then
+		return;
+	end
+
+    local invItem = session.GetInvItemByGuid(mainGuid);
+    if invItem == nil then
+    	return;
+    end
+
+    local itemSlot = INV_GET_SLOT_BY_ITEMGUID(mainGuid, frame);
+	if itemSlot ~= nil then
+		INV_SLOT_UPDATE(frame, invItem, itemSlot);
+	end
 end

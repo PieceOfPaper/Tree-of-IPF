@@ -177,3 +177,13 @@ function UNLOCK_ONMYOJI17(pc, sklName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_ONMYOJI18(pc, sklName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, 'Char2_20');
+	local skillFireFoxShikigami = GetSkill(pc, "Onmyoji_FireFoxShikigami")
+	if skillFireFoxShikigami ~= nil and skillFireFoxShikigami.LevelByDB >= 6 and jobGrade ~= nil and jobGrade >= 2 then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end
