@@ -292,7 +292,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	rcycle_basketsellslotset:ClearIconAll();
 	
 	local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
-	specialGoods:SetImage("market_default2");
+	specialGoods:SetImage("market_default4");
 		
 	local basketTP = GET_CHILD_RECURSIVELY(frame,"basketTP")
 	basketTP:SetText(tostring(0))	
@@ -3051,7 +3051,7 @@ function _TPSHOP_BANNER(parent, control, argStr, argNum)
 	local bottomBannerCount = session.ui.GetSizeTPItemBannerCategory("Bottom");
 	if bottomBannerCount <= 1 then
 		local specialGoods = GET_CHILD_RECURSIVELY(frame,"specialGoods");	
-		specialGoods:SetImage("market_default2");
+		specialGoods:SetImage("market_default4");
 	else
 		local last_Btn = nil
 		for i = 1 , bottomBannerCount  do 
