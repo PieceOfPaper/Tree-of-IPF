@@ -7740,6 +7740,9 @@ return buffTime"/>
     </PadSkill>
     <PadSkill Name="Matador_CorridaFinale" CheckerType="0" Dist="95.283997" Angle="1.4082489" Range="60" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15"/>
+            </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="4800"/>
                 <Num Num="1"/>
@@ -7810,6 +7813,9 @@ return buffTime"/>
     </PadSkill>
     <PadSkill Name="Matador_CorridaFinale_Abil" CheckerType="0" Range="50" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
+            <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
+                <Num Num="15"/>
+            </ToolScp>
             <ToolScp Scp="C_SHOCKWAVE_PAD" Client="YES" UseSleep="NO">
                 <Num Num="5"/>
                 <Num Num="3"/>
