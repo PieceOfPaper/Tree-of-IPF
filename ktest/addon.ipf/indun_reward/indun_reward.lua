@@ -1,5 +1,6 @@
 function INDUN_REWARD_ON_INIT(addon, frame)
-    addon:RegisterMsg('OPEN_INDUN_REWARD', 'INDUN_REWARD_OPEN')
+	addon:RegisterMsg('OPEN_INDUN_REWARD', 'INDUN_REWARD_OPEN')
+	addon : RegisterMsg('INDUN_REWARD_RESULT_FIRST', 'INDUN_REWARD_SET_FIRST')
 	addon:RegisterMsg('INDUN_REWARD_RESULT', 'INDUN_REWARD_SET')
 	addon:RegisterMsg('INDUN_REWARD_RESULT_FINAL', 'INDUN_REWARD_SET_FINAL')
 end
@@ -8,31 +9,48 @@ function INDUN_REWARD_OPEN(frame, msg, argStr, argNum)
     frame:ShowWindow(1);
 end
 
+function INDUN_REWARD_SET_FIRST(frame, msg, str, data)
+	local frame = ui.GetFrame("indun_reward")
+	if frame == nil then
+        return;
+    end
+	local textReturn = GET_CHILD(frame, "textReturn");
+	textReturn:SetUserValue("CHALLENGE_MODE_START_TIME", tostring(imcTime.GetAppTimeMS()));
+
+	textReturn:StopUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
+	textReturn:RunUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
+
+	INDUN_REWARD_SET(frame, msg, str, data)
+end
+
 function INDUN_REWARD_SET(frame, msg, str, data)
 	local msgList = StringSplit(str, '#');
 	if #msgList < 1 then
 		return;
 	end
 	
+	local multiEdit = GET_CHILD_RECURSIVELY(frame, "multiEdit")
+	
+	local inputMultiple = multiEdit:GetNumber()
+
+	frame:SetUserValue("IndunMultipleCount", inputMultiple);
+
+	--현재 내가 인던을 돈 횟수
+	--현재 내가 최대로 인던을 돌 수 있는 횟수
+
+	frame : SetUserValue("rewardStr", str)
     frame:ShowWindow(1);
-
 	local contribution = tonumber(msgList[1]);
-	local silver = tonumber(msgList[2]);
-	local cube = tonumber(msgList[3]);
-	local exp_default = tonumber(msgList[4]);
-	local jexp_default = tonumber(msgList[5]);
+	local silver = tonumber(msgList[2]) * (1 + inputMultiple);
+	local cube = tonumber(msgList[3]) * (1 + inputMultiple);
+	local exp_default = tonumber(msgList[4]) * (1 + inputMultiple);
+	local jexp_default = tonumber(msgList[5]) * (1 + inputMultiple);
+	local exp_bonus = tonumber(msgList[6]) * (1 + inputMultiple);
+	local jexp_bonus = tonumber(msgList[7]) * (1 + inputMultiple);
 
-	local exp_bonus = tonumber(msgList[6]);
-	local jexp_bonus = tonumber(msgList[7]);
-
-	local multipleRate = tonumber(msgList[8]);
+	local multipleRate = tonumber(msgList[8]) + inputMultiple;
 	local rank = tonumber(msgList[9]);
 
-	local rewardItemName = msgList[10];
-	local mGameName = msgList[11];
-
-	frame : SetUserValue("rewardItemName", rewardItemName)
-	frame : SetUserValue("mGameName", mGameName)
 	frame : SetUserValue("contribution", contribution)
 	frame : SetUserValue("multipleRate", multipleRate)
 	frame : SetUserValue("rank", rank)
@@ -43,6 +61,9 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 	
 	local gboxRewardList = GET_CHILD(frame, "gboxRewardList");
 	local gboxRewardList2 = GET_CHILD(gboxRewardList, "gboxRewardList2");
+
+	local textMultipleRate_value = GET_CHILD_RECURSIVELY(gboxRewardList2, "textMultipleRate_value");
+	textMultipleRate_value:SetText(string.format("{@st66d_y}%s", GET_COMMAED_STRING(multipleRate)));
 
 	local textRewardSilver_value = GET_CHILD_RECURSIVELY(gboxRewardList2, "textRewardSilver_value");
 	textRewardSilver_value:SetText(GET_COMMAED_STRING(silver));
@@ -66,9 +87,7 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 	local jexp_total = jexp_default + jexp_bonus
 	textRewardJobTotalExp_value:SetText(string.format("{@st66d_y}%s", GET_COMMAED_STRING(jexp_total)));
 	
-	local textMultipleRate_value = GET_CHILD_RECURSIVELY(gboxRewardList2, "textMultipleRate_value");
-	textMultipleRate_value:SetText(string.format("{@st66d_y}%s", GET_COMMAED_STRING(multipleRate)));
-
+	
 	local btnReturn = GET_CHILD_RECURSIVELY(frame, "btnReturn")
 	btnReturn:SetEnable(0)
 
@@ -88,12 +107,7 @@ function INDUN_REWARD_SET(frame, msg, str, data)
 	end
 	
 	picRank:SetImage(picRankName);
-	
-	local textReturn = GET_CHILD(frame, "textReturn");
-	textReturn:SetUserValue("CHALLENGE_MODE_START_TIME", tostring(imcTime.GetAppTimeMS()));
 
-	textReturn:StopUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
-	textReturn:RunUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
 end
 
 function INDUN_REWARD_SET_FINAL(frame, msg, str, data)
@@ -115,11 +129,6 @@ function INDUN_REWARD_SET_FINAL(frame, msg, str, data)
 	local multipleRate = tonumber(msgList[8]);
 	local rank = tonumber(msgList[9]);
 
-	local rewardItemName = msgList[10];
-	local mGameName = msgList[11];
-
-	frame : SetUserValue("rewardItemName", rewardItemName)
-	frame : SetUserValue("mGameName", mGameName)
 	frame : SetUserValue("contribution", contribution)
 	frame : SetUserValue("multipleRate", multipleRate)
 	frame : SetUserValue("rank", rank)
@@ -183,12 +192,6 @@ function INDUN_REWARD_SET_FINAL(frame, msg, str, data)
 
 	local btnReturn = GET_CHILD_RECURSIVELY(frame, "btnReturn")
 	btnReturn : SetEnable(1)
-	
-	local textReturn = GET_CHILD(frame, "textReturn");
-	textReturn:SetUserValue("CHALLENGE_MODE_START_TIME", tostring(imcTime.GetAppTimeMS()));
-
-	textReturn:StopUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
-	textReturn:RunUpdateScript("SCR_INDUN_REWARD_WAIT_RETURN");
 end
 
 
@@ -199,14 +202,12 @@ function SCR_INDUN_REWARD_WAIT_RETURN(textReturn)
 	end
 	
 	local nowTime = imcTime.GetAppTimeMS();
-
 	local diffTime = (nowTime - startTime) / 1000;
-	local remainTime = 180 - diffTime;
+	local remainTime = 60 - diffTime;
 	if remainTime < 0 then
 		textReturn:SetText(ScpArgMsg("Wait{Sec}ReturnOringinServer", "Sec", 0));
 		return 0;
 	end
-
 	local remainSec = math.floor(remainTime % 60);
 	
 	textReturn:SetText(ScpArgMsg("Wait{Sec}ReturnOringinServer", "Sec", remainSec));
@@ -221,15 +222,10 @@ function SCR_INDUN_GET_REWARD(frame)
     local multiEdit = GET_CHILD_RECURSIVELY(frame, 'multiEdit');
 	local indunMultipleRate = multiEdit:GetNumber();
 
-	local rewardItemName = frame : GetUserValue("rewardItemName")
-	local mGameName = frame : GetUserValue("mGameName")
-
-	local contribution = frame : GetUserIValue("contribution")
-	local multipleRate = frame : GetUserIValue("multipleRate")
-	local rank = frame : GetUserIValue("rank")
-
-	local argStr = string.format("%s#%s#%d#", rewardItemName, mGameName, indunMultipleRate)
-	pc.ReqExecuteTx("SCR_TX_INDUN_CONTRIBUTION_REWARD", argStr);
+	local argStr = string.format("%d#", indunMultipleRate)
+	local multipleCount = frame:GetUserIValue("IndunMultipleCount");
+	
+	pc.ReqExecuteTx("SCR_TX_INDUN_CONTRIBUTION_REWARD", multipleCount);
 end
 
 function SCR_INDUN_REWARD_RETURN(frame)
@@ -313,7 +309,9 @@ function INDUN_REWARD_MULTI_UP(frame, ctrl)
         return;
     end
 
-    multiEdit:SetText(tostring(nowCnt));
+	multiEdit:SetText(tostring(nowCnt));
+	local str = topFrame: GetUserValue("rewardStr")
+	INDUN_REWARD_SET(topFrame, msg, str, data)
 end
 
 function INDUN_REWARD_MULTI_DOWN(frame, ctrl)
@@ -330,5 +328,7 @@ function INDUN_REWARD_MULTI_DOWN(frame, ctrl)
         nowCnt = minCnt;
     end
 
-    multiEdit:SetText(tostring(nowCnt));
+	multiEdit:SetText(tostring(nowCnt));
+	local str = topFrame: GetUserValue("rewardStr")
+	INDUN_REWARD_SET(topFrame, msg, str, data)
 end

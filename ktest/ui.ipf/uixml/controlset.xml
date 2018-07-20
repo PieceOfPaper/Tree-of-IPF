@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
 		<controls>
@@ -623,10 +623,10 @@
 			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
 		</controls>
 	</controlset>
-	<controlset name="eachoption_in_monstercard" hittest="true" width="430" height="200" skin="None" hittestset="false" draw="true" stateskin="false">
+	<controlset name="eachoption_in_monstercard" hittest="true" width="530" height="200" skin="None" hittestset="false" draw="true" stateskin="false">
 		<userconfig POS_Y="25"/>
 		<controls>
-			<richtext name="option_name" rect="0 0 80 30" margin="8 8 0 0" layout_gravity="left top" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="white_16_ol"/>
+			<richtext name="option_name" rect="0 0 530 30" margin="8 8 0 0" layout_gravity="left top" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="white_16_ol"/>
 		</controls>
 	</controlset>
 	<controlset name="draw_division_arrow" hittest="true" width="430" height="30" skin="None" hittestset="true" draw="true" stateskin="false">

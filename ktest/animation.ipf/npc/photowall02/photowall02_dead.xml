@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_photowall_close"/>
+    <Sound frame="0.00" soundFile="skl_eff_photowall_close_s"/>
     <Particle frame="11.00" attachNode="Dummy_dead_effect" particleName="F_wizard_BRIQUETTING_DEAD" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound=""/>
     <Particle frame="14.00" attachNode="Dummy_dead_effect" particleName="F_wizard_BRIQUETTING_DEAD" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound=""/>
 </ActionDesc>

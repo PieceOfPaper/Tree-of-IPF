@@ -1608,7 +1608,15 @@ return buffTime"/>
 		</leaveEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-200"/>
+				<Num Num="-200"UseFunc="1" FuncTxt="local lifeTime = -200
+
+if IsPVPServer(self) == 1 then
+
+lifeTime = -200 * 2
+
+end
+
+return lifeTime;"/>
 				<Num Num="0"/>
 			</ToolScp>
 		</updateEvent>
@@ -6733,7 +6741,15 @@ return buffName;"/>
 				<Str Str="Ayin_sof_Buff"/>
 				<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
 				<Num Num="0"/>
-				<Num Num="0" UseFunc="1" FuncTxt="return 20000 + obj.Level * 3000"/>
+				<Num Num="0" UseFunc="1" FuncTxt="local buffTime =  20000 + obj.Level * 3000
+
+if IsPVPServer(self) == 1 then
+
+buffTime = buffTime * 0.5
+
+end
+
+return buffTime"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
 				<Num Num="0"/>
@@ -14548,7 +14564,18 @@ return 10000 + obj.Level * 1000 + GET_ABIL_LEVEL(self, &quot;Druid1&quot;)*1000;
 				<Num Num="-500"/>
 				<Num Num="0"/>
 			</ToolScp>
-		</updateEvent>
+		<ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="PlantGround_Debuff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </updateEvent>
 	</PadSkill>
 	<PadSkill Name="plant_pad_born" CheckerType="0" UpdateTerm="100">
 		<createEvent>

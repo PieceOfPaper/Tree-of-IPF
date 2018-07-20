@@ -24,12 +24,12 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Gem_Musketeer_BayonetThrust">
+	<SpcItem Name="Gem_Musketeer_GroovingMuzzle">
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_BayonetThrust"/>
+						<Str Str="Musketeer_GroovingMuzzle"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
@@ -39,29 +39,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_BayonetThrust"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Gem_Musketeer_ButtStroke">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_ButtStroke"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer_ButtStroke"/>
+						<Str Str="Musketeer_GroovingMuzzle"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>

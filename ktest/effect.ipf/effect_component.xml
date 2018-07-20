@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ComponentList>
+	<Particle name="ground008" texture="ground008" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="ice005" texture="ice005" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
 	<Particle name="Ghost001" texture="Ghost001" width="5.00" height="5.00" pivot_x="0.50" pivot_y="1" texel_x="0" texel_y="0" texel_width="128" texel_height="256"/>
 	<Particle name="emo_event_dungeon_Halloween1" texture="icon_event_dungeon_Halloween1" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="95" texel_height="90"/>
 	<Particle name="emo_event_dungeon_Halloween2" texture="icon_event_dungeon_Halloween2" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="95" texel_height="90"/>
@@ -552,6 +554,7 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="warrior_net" model="warrior_net.xac" motion="warrior_net_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="hamaya_arrow" model="hamaya_arrow.xac" motion="hamaya_arrow_ani" texturepath="\item_texture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="bottom_slash001" model="bottom_slash001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="I_slash007" model="I_slash007.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
@@ -1434,7 +1437,19 @@
 	<Digit name="Digitdamage_heal" texture="digit_damage" overkilltexture="" width="2.00" height="3.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="Digitdamage" texture="digit_damage" overkilltexture="" width="3.00" height="4.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="DigitExpup" texture="digit_expup" overkilltexture="" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="48.00" texel_height="60.00" randomangle="false"/>
+	<Screen name="UI_lock_up" texture="lock_up" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Screen name="UI_lock_bottom" texture="lock_bottom" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Screen name="UI_card_shine" texture="card_shine" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_card_base_1" texture="card_base_1" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Screen name="UI_card_decal_sheet" texture="card_decal_sheet" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="16" pitch="4" ticktime="0.05"/>
+	<Screen name="UI_card_base" texture="card_base" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="16" pitch="4" ticktime="0.05"/>
+	<Screen name="UI_chain_add" texture="chain_add" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="16" pitch="4" ticktime="0.04"/>
+	<Screen name="UI_chain_multi" texture="chain_multi" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="16" pitch="4" ticktime="0.04"/>
+	<Screen name="UI_ice003" texture="ice003" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Screen name="UI_ice005" texture="ice005" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Screen name="UI_particle002" texture="particle002" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Screen name="UI_bomb002" texture="bomb002" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Screen name="UI_candle001_blue" texture="candle001_blue" width="3.00" height="3.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="16" texel_height="32"/>
 	<Screen name="UI_candle001" texture="candle001" width="3.00" height="3.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="16" texel_height="32"/>
 	<Screen name="UI_circle008_orange" texture="circle008_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Screen name="UI_sprite024_bat3" texture="sprite024_bat3" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="true" count="2" pitch="4" ticktime="0.08"/>

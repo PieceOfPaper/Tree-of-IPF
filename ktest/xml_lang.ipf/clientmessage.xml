@@ -456,7 +456,7 @@
 		<Class ClassID="8041" ClassName="GiveFood" Data="먹이주기"/>
 		<Class ClassID="8042" ClassName="ThisCompanionDoesNotEatThisFood" Data="이 컴패니언은 이 먹이를 먹지 않습니다."/>
 		<Class ClassID="8043" ClassName="CompanionAdoptionSuccessBarrack" Data="컴패니언 분양에 성공했습니다. 숙소에서 기다리고 있습니다."/>
-		<Class ClassID="8044" ClassName="SkillUse_Vehicle" Data="스킬 사용중에는 컴패니언을 탈 수 없습니다."/>
+		<Class ClassID="8044" ClassName="SkillUse_Vehicle" Data="스킬 사용중에는 컴패니언에 탑승하거나 내릴 수 없습니다."/>
 		<Class ClassID="8045" ClassName="Pet_PATK" Data="물리 공격력"/>
 		<Class ClassID="8046" ClassName="IncreaseHROfPetBy{Value}" Data="컴패니언의 명중 {Value}추가"/>
 		<Class ClassID="8047" ClassName="CanNotRide" Data="탑승 할 수 없는 컴패니언 입니다."/>
@@ -503,7 +503,7 @@
 		<Class ClassID="8088" ClassName="ChangeModeThenDontRide" Data="변신 중엔 컴패니언탑승을 하실 수 없습니다."/>
 		<Class ClassID="8089" ClassName="SkillUse_Sit" Data="스킬 사용중에는 휴식을 취할 수 없습니다."/>
 		<Class ClassID="8090" ClassName="CantUseThisEgg" Data="해당 캐릭터는 이 컴패니언의 알을 사용할 수 있는 직업이 아닙니다."/>
-		<Class ClassID="8091" ClassName="MoveBarrackLayer" Data="숙소를 이동합니다."/>
+		<Class ClassID="8091" ClassName="MoveBarrackLayer_2" Data="숙소를 이동합니다."/>
 		<Class ClassID="8092" ClassName="Auto_{/}{nl}{s22}MoveBarrackLayer?" Data="{/}{nl}{s22}숙소를 이동하겠습니까?"/>
 		<Class ClassID="8093" ClassName="Pet_ADD_SOUL" Data="염 속성 추가 대미지"/>
 		<Class ClassID="8094" ClassName="Pet_Soul_Def" Data="염 속성 저항력"/>
@@ -512,6 +512,7 @@
 		<Class ClassID="8097" ClassName="CompanionIsNotActive" Data="컴패니언이 휴면 상태입니다."/>
 		<Class ClassID="8098" ClassName="CompanionNameIsInvalid" Data="컴패니언 이름이 너무 길거나 짧습니다."/>
 		<Class ClassID="8099" ClassName="ThisCompanionIs NotPossible" Data="스킬을 사용할 수 있는 컴패니언이 없습니다."/>
+		<Class ClassID="8100" ClassName="YouCanNotRideCompanionCoolTime" Data="아직 컴패니언에 탑승할 수 없습니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -5511,13 +5512,13 @@
 		<Class ClassID="60332" ClassName="FANTASYLIB481_MQ_PRE_4" Data="라이마 여신에 대해 묻는다"/>
 		<Class ClassID="60333" ClassName="FANTASYLIB481_MQ_PRE_5" Data="마신 길티네에 대해 묻는다"/>
 		<Class ClassID="60334" ClassName="FANTASYLIB481_MQ_PRE_PRG" Data="다시 물어본다"/>
-		<Class ClassID="60335" ClassName="FANTASYLIB481_MQ_2_GETITEM" Data="흩어진 기록지를 수집했습니다"/>
+		<Class ClassID="60335" ClassName="FANTASYLIB481_MQ_2_GETITEM" Data="흩어진 기록지를 수집했습니다!"/>
 		<Class ClassID="60336" ClassName="FANTASYLIB481_MQ_3_MSG_0" Data="큐폴 덫 파괴 중"/>
-		<Class ClassID="60337" ClassName="FANTASYLIB481_MQ_3_MSG_1" Data="마족의 큐폴 덫을 파괴했습니다"/>
+		<Class ClassID="60337" ClassName="FANTASYLIB481_MQ_3_MSG_1" Data="마족의 큐폴 덫을 파괴했습니다!"/>
 		<Class ClassID="60338" ClassName="FANTASYLIB481_MQ_4_ITEM_FIND" Data="마족 침공지점을 찾았습니다!"/>
-		<Class ClassID="60339" ClassName="FANTASYLIB481_MQ_4_ITEM_CANT" Data="아무것도 찾지 못 했습니다"/>
+		<Class ClassID="60339" ClassName="FANTASYLIB481_MQ_4_ITEM_CANT" Data="아무것도 찾지 못 했습니다."/>
 		<Class ClassID="60340" ClassName="FANTASYLIB481_MQ_4_ITEM_NAME" Data="마족 침공지점"/>
-		<Class ClassID="60341" ClassName="FANTASYLIB481_MQ_4_ITEM_DONE" Data="마족 침공지점을 제거했습니다"/>
+		<Class ClassID="60341" ClassName="FANTASYLIB481_MQ_4_ITEM_DONE" Data="마족 침공지점을 제거했습니다!"/>
 		<Class ClassID="60342" ClassName="FANTASYLIB481_MQ_4_ITEM_NOT_YOU" Data="마족 침공지점을 제거할 수 없습니다."/>
 		<Class ClassID="60343" ClassName="FANTASYLIB481_MQ_4_MSG_0" Data="침공지점 파괴 중"/>
 		<Class ClassID="60344" ClassName="FANTASYLIB482_MQ_1_MSG_0" Data="파괴 중"/>
@@ -5525,23 +5526,22 @@
 		<Class ClassID="60346" ClassName="FANTASYLIB482_MQ_3_MSG_0" Data="수집 중"/>
 		<Class ClassID="60347" ClassName="FANTASYLIB482_MQ_5_MSG_0" Data="해제 중"/>
 		<Class ClassID="60348" ClassName="FANTASYLIB482_MQ_5_FIND" Data="마력 감옥을 해체 했지만 큐폴 위다를 찾지 못 했습니다!"/>
-		<Class ClassID="60349" ClassName="FANTASYLIB482_MQ_5_NPC_DONE" Data="큐폴 위다를 찾았습니다"/>
+		<Class ClassID="60349" ClassName="FANTASYLIB482_MQ_5_NPC_DONE" Data="큐폴 위다를 찾았습니다!"/>
 		<Class ClassID="60350" ClassName="FANTASYLIB482_MQ_5_FIND_NAME" Data="큐폴 위다"/>
 		<Class ClassID="60351" ClassName="FANTASYLIB482_MQ_5_FIND_CHAT_1" Data="구해주셔서 감사합니다."/>
-		<Class ClassID="60352" ClassName="FANTASYLIB482_MQ_5_FIND_CHAT_2" Data="저를 따라오세요"/>
+		<Class ClassID="60352" ClassName="FANTASYLIB482_MQ_5_FIND_CHAT_2" Data="저를 따라오세요."/>
 		<Class ClassID="60353" ClassName="FANTASYLIB483_MQ_3_MSG_0" Data="활성화 중"/>
-		<Class ClassID="60354" ClassName="FANTASYLIB483_MQ_3_MSG_1" Data="마력장치를 활성화 했습니다"/>
+		<Class ClassID="60354" ClassName="FANTASYLIB483_MQ_3_MSG_1" Data="마력장치를 활성화 했습니다!"/>
 		<Class ClassID="60355" ClassName="FANTASYLIB483_MQ_4_MSG_0" Data="수집 중"/>
-		<Class ClassID="60356" ClassName="FANTASYLIB483_MQ_4_MSG_1" Data="노브레날 동력을 수집했습니다"/>
+		<Class ClassID="60356" ClassName="FANTASYLIB483_MQ_4_MSG_1" Data="노브레날 동력을 수집했습니다!"/>
 		<Class ClassID="60357" ClassName="FANTASYLIB483_MQ_6_MSG_0" Data="수집 중"/>
-		<Class ClassID="60358" ClassName="FANTASYLIB483_MQ_6_MSG_1" Data="차원의 정수를 수집했습니다"/>
-		<Class ClassID="60359" ClassName="FANTASYLIB483_MQ_7_NPC_CANT" Data="수호의 수정 충전이 멈췄습니다!{nl}마족들을 처치하세요"/>
+		<Class ClassID="60358" ClassName="FANTASYLIB483_MQ_6_MSG_1" Data="차원의 정수를 수집했습니다!"/>
+		<Class ClassID="60359" ClassName="FANTASYLIB483_MQ_7_NPC_CANT" Data="수호의 수정 충전이 멈췄습니다!{nl}마족들을 처치하세요."/>
 		<Class ClassID="60360" ClassName="FANTASYLIB484_MQ_1_Q_1" Data="계획을 물어본다"/>
 		<Class ClassID="60361" ClassName="FANTASYLIB484_MQ_1_Q_2" Data="계시를 미끼로 쓰는 이유를 묻는다"/>
 		<Class ClassID="60362" ClassName="FANTASYLIB484_MQ_1_Q_3" Data="발란디스 91관에 대해 물어본다"/>
 		<Class ClassID="67243" ClassName="GT_INCOUNT_COMPARE_1" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="67244" ClassName="GT_INCOUNT_COMPARE_2" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
-		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
 		<Class ClassID="67000" ClassName="JOB_SHINOBI_HIDDEN_ITEM_5_book2" Data="글자가 보이는 두루마리"/>
 		<Class ClassID="67001" ClassName="Nebulas_Book" Data="네뷸라스와 칼레이마스"/>
 		<Class ClassID="67002" ClassName="Mirtis_Book" Data="미르티스 이야기"/>
@@ -6366,8 +6366,8 @@
 		<Class ClassID="90150" ClassName="JOB_ZEALOT_SELECT2" Data="마스터와 대화한다"/>
 		<Class ClassID="90151" ClassName="JOB_ZEALOT_QUEST_COSTUME_MSG9" Data=" 개를 활성화 했습니다."/>
 		<Class ClassID="90152" ClassName="FANTASYLIB485_MQ_5_DMG" Data="길티네의 강력한 힘에 피해를 입습니다"/>
-		<Class ClassID="90153" ClassName="FANTASYLIB485_MQ_5_NERINGA_3" Data="저에게 멀어지시면 안됩니다. 지금은 길티네의 힘을 감당하실 수 없습니다."/>
-		<Class ClassID="90154" ClassName="FANTASYLIB485_MQ_5_NERINGA_4" Data="저에게 멀어지지 않게 조심해서 마족을 해치워주십시오."/>
+		<Class ClassID="90153" ClassName="FANTASYLIB485_MQ_5_NERINGA_3" Data="제게서 멀어지시면 안됩니다. 지금은 길티네의 힘을 감당하실 수 없습니다."/>
+		<Class ClassID="90154" ClassName="FANTASYLIB485_MQ_5_NERINGA_4" Data="제게서 멀어지지 않게 조심해서 마족을 해치워주십시오."/>
 		<Class ClassID="90155" ClassName="ZEALOT_MASTER_Q4_A1" Data="라이마 탐색파"/>
 		<Class ClassID="90156" ClassName="ZEALOT_MASTER_Q4_A2" Data="유라테 회복파"/>
 		<Class ClassID="90157" ClassName="ZEALOT_MASTER_Q4_A3" Data="달리아 탐색파"/>
@@ -7239,10 +7239,10 @@
 		<Class ClassID="118009" ClassName="{TP}ReqChangeFamilyName" Data="{TP}TP를 사용해 팀명을 변경하도록 하시겠습니까?"/>
 		<Class ClassID="118010" ClassName="DontHaveSlot" Data="캐릭터/컴패니언 슬롯이 부족합니다.{nl}"/>
 		<Class ClassID="118011" ClassName="{TP}ReqChangeCharName" Data="{TP}TP를 사용해 캐릭터명을 변경하도록 하시겠습니까?"/>
-		<Class ClassID="118011" ClassName="MoveBarrackLayer" Data="숙소 레이어를 변경했습니다."/>
 		<Class ClassID="118012" ClassName="ThisWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
 		<Class ClassID="118013" ClassName="KorAnotherWorldExistFamilyName" Data="이미 사용 중이거나, 사용할 수 없는 팀 이름입니다."/>
-		</Category>
+		<Class ClassID="118014" ClassName="MoveBarrackLayer" Data="숙소 레이어를 변경했습니다."/>
+	</Category>
 	<Category Name="Collection">
 		<Class ClassID="119001" ClassName="CollectionEffect" Data="콜렉션 효과"/>
 		<Class ClassID="119002" ClassName="HaveList" Data="획득 목록"/>

@@ -19,7 +19,7 @@
 		<richtext name="textContribution_percent" rect="0 0 100 30" margin="200 178 0 0" layout_gravity="left top" caption="{@st43}{s24}0%" fontname="brown_20_b"/>
 		<groupbox name="multiEditBox" parent="gboxRewardList3" rect="0 0 120 30" margin="0 0 0 0" layout_gravity="right center" draw="false" hittestbox="false"/>
 		<picture name="indunTokenImage" parent="gboxRewardList3" rect="0 0 40 40" margin="0 0 120 0" layout_gravity="right center" hittest="false" image="indunexmode_token_on"/>
-		<edit name="multiEdit" parent="multiEditBox" rect="0 0 60 30" margin="0 0 0 0" layout_gravity="center center" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="2" numbermode="true" skin="test_weight_skin" caption="1" EnterKeyScp="INDUN_MULTIPLE_CHECK_NUMBER"/>
+		<edit name="multiEdit" parent="multiEditBox" rect="0 0 60 30" margin="0 0 0 0" layout_gravity="center center" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="2" numbermode="true" skin="test_weight_skin" hittest="false" caption="1" EnterKeyScp="INDUN_MULTIPLE_CHECK_NUMBER"/>
 		<button name="downBtn" parent="multiEditBox" stretch="true" rect="0 0 60 60" margin="0 0 0 3" layout_gravity="left bottom" image="buff_sale_left" oversound="button_over" LBtnUpScp="INDUN_REWARD_MULTI_DOWN"/>
 		<button name="upBtn" parent="multiEditBox" stretch="true" rect="0 0 60 60" margin="0 0 0 3" layout_gravity="right bottom" image="buff_sale_right" oversound="button_over" LBtnUpScp="INDUN_REWARD_MULTI_UP"/>
 		<labelline name="boardLine 1" parent="gboxRewardList" rect="0 0 400 3" margin="10 80 0 0" layout_gravity="left top" skin="None" visible="true"/>
@@ -51,7 +51,7 @@
 		<richtext name="textRewardJobExp_value" parent="bg_label7" rect="0 0 100 30" margin="0 0 30 0" layout_gravity="right center" caption="0" fontname="white_18_ol"/>
 		<richtext name="textRewardJobBonusExp_value" parent="bg_label8" rect="0 0 100 30" margin="0 0 30 0" layout_gravity="right center" caption="0" fontname="white_18_ol"/>
 		<richtext name="textRewardJobTotalExp_value" parent="bg_label9" rect="0 0 100 30" margin="0 0 30 0" layout_gravity="right center" caption="{@st66d_y}0" fontname="white_18_ol"/>
-		<richtext name="textReturn" rect="0 0 100 30" margin="85 0 0 55" layout_gravity="left bottom" caption="180초 후 입구로 돌아갑니다." fontname="brown_18"/>
+		<richtext name="textReturn" rect="0 0 100 30" margin="85 0 0 55" layout_gravity="left bottom" caption="60초 후 입구로 돌아갑니다." fontname="brown_18"/>
 		<button name="btnGetReward" rect="0 0 150 42" margin="0 0 235 45" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SCR_INDUN_GET_REWARD" caption="{@st41b}보상받기" clicksound="button_click_big" skin="test_red_button" oversound="button_over" texttooltip="보상을 받습니다."/>
 		<button name="btnReturn" rect="0 0 150 42" margin="0 0 85 45" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SCR_INDUN_REWARD_RETURN" caption="{@st41b}돌아가기" clicksound="button_click_big" skin="test_red_button" oversound="button_over" texttooltip="입장 지역으로 돌아갑니다."/>
 		<picture name="picRanking" rect="0 0 141 141" margin="0 45 45 0" layout_gravity="right top" image="test_indun_S"/>

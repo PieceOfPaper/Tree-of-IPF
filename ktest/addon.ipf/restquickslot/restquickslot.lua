@@ -196,6 +196,11 @@ function REST_SLOT_USE(frame, slotIndex)
 end
 
 function REQUEST_OPEN_JORUNAL_CRAFT()
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local frame = ui.GetFrame("itemcraft");
 	if frame ~= nil then
 		SET_CRAFT_IDSPACE(frame, "Recipe");
@@ -206,6 +211,11 @@ function REQUEST_OPEN_JORUNAL_CRAFT()
 end
 
 function OPEN_ENCHENCT_CRAFT()
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local abil = session.GetAbilityByName("Enchanter_Bomb")
 	if nil == abil then
 		return;
@@ -222,6 +232,11 @@ function OPEN_ENCHENCT_CRAFT()
 end
 
 function OPEN_ARROW_CRAFT()
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local abil = session.GetAbilityByName("Fletching")
 	if abil ~= nil then
 		local obj = GetIES(abil:GetObject());
@@ -237,6 +252,11 @@ function OPEN_ARROW_CRAFT()
 end
 
 function OPEN_OMAMORI_CRAFT()
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local abil = session.GetAbilityByName("Omamori")
 	if nil == abil then
 		return;
@@ -255,6 +275,11 @@ end
 
 
 function OPEN_DISPELLER_CRAFT()
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
 	local abil = session.GetAbilityByName("Pardoner_Dispeller")
 	if abil ~= nil then
 		local obj = GetIES(abil:GetObject());
@@ -282,7 +307,12 @@ function CHECK_CAMPFIRE_ENABLE(x, y, z)
 end
 
 function REQUEST_CAMPFIRE()
-local camfireitem = session.GetInvItemByName('misc_campfireKit');
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
+    local camfireitem = session.GetInvItemByName('misc_campfireKit');
 	if camfireitem == nil then
 		ui.AlarmMsg("NotCampfireKit");
 	return

@@ -285,8 +285,14 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
                                 indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
                             end
                         elseif itemType == 'SubWeapon' then
-                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                            if itemClassType == 'Armband' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                end
+                            else 
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                end
                             end
                         elseif itemType == 'Armor' then
                             if itemClassType == 'Neck' or itemClassType == 'Ring' then

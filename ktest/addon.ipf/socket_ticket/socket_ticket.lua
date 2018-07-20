@@ -64,6 +64,9 @@ function CLIENT_SOCKET_TICKET(ticketItem)
     end
 
     local frame = ui.GetFrame("socket_ticket");
+    if 1 == frame:IsVisible() then
+        return;
+    end
     local obj = GetIES(ticketItem:GetObject());
     frame:SetUserValue('TICKET_ITEM_ID', ticketItem:GetIESID());
 

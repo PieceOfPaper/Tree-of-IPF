@@ -3837,35 +3837,25 @@ function ON_RIDING_VEHICLE(onoff)
     end
 	
 	
-	
+	local isRidingOnly = 'NO';
     local summonedCompanion = session.pet.GetSummonedPet(0);	-- Riding Companion Only / Not Hawk --
     if summonedCompanion ~= nil then
 		local companionObj = summonedCompanion:GetObject();
 		local companionIES = GetIES(companionObj);
 		local companionClassName = TryGetProp(companionIES, 'ClassName');
 		if companionClassName ~= nil then
---			local fsmActor = GetMyActor();
---			local subAction = fsmActor:GetSubActionState();
-			
 			local companionClass = GetClass('Companion', companionClassName);
-			local isRidingOnly = TryGetProp(companionClass, 'RidingOnly');
-			if isRidingOnly == 'YES' then
---				pc.ReqExecuteTx_NumArgs("SCR_TX_RIDING_ONLY_VEHICLE", onoff);
-				control.CustomCommand("RIDING_ONLY_VEHICLE", onoff);
-				return;
-			end
+			isRidingOnly = TryGetProp(companionClass, 'RidingOnly');
 		end
 	end
 	
-	
-	
-	if control.HaveNearCompanionToRide() == true then
+	if control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES' then
 		local fsmActor = GetMyActor();
 
 		local subAction = fsmActor:GetSubActionState();
 		
-		-- 42 == CSS_SKILL_USE
-		if onoff == 0 and subAction == 42 then
+		-- 41, 42 == CSS_SKILL_READY, CSS_SKILL_USE
+		if subAction == 41 or subAction == 42 then
 			ui.SysMsg(ClMsg('SkillUse_Vehicle'));
 			return;
 		end
@@ -3877,7 +3867,7 @@ function ON_RIDING_VEHICLE(onoff)
 				return
 			end
 		end
-
+		
 		local ret = control.RideCompanion(onoff);
 		if ret == false then
 			return;

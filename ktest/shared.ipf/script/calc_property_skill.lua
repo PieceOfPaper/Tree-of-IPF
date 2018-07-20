@@ -1,4 +1,4 @@
---- calc_property_skill.lua
+﻿--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -4102,6 +4102,17 @@ function SCR_GET_Capote_Ratio(skill)
     return value
 end
 
+function SCR_GET_Capote_Ratio2(skill)
+    local value = 5
+    local pc = GetSkillOwner(skill)
+    local abilMatador13 = GetAbility(pc, "Matador13")
+    if abilMatador13 ~= nil and abilMatador13.ActiveState == 1 then
+    	value = value + abilMatador13.Level
+    end
+    
+    return value
+end
+
 function SCR_GET_Faena_Ratio(skill)
     local value = (skill.Level / 2) + 2
     
@@ -7606,6 +7617,10 @@ end
 
 function SCR_GET_Ayin_sof_Time(skill)
     local value = 20 + skill.Level * 3
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
     return value
 end
 
@@ -10774,12 +10789,6 @@ end
 
 function SCR_Get_Haste_Ratio(skill)
     local value = 5 + skill.Level * 1;
-    
-    local pc = GetSkillOwner(skill)
-    if IsPVPServer(pc) == 1 then
-        value = value * 0.5
-    end
-    
     return math.floor(value);
 end
 
@@ -11861,13 +11870,7 @@ function SCR_GET_Trot_Bufftime(skill)
 end
 
 function SCR_GET_Trot_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
     local value = 5 + skill.Level * 1
-    if IsPVPServer(pc) == 1 then
-        value = value * 0.5
-    end
-    
     return math.floor(value);
     
 end
@@ -13487,7 +13490,7 @@ function SCR_GET_Mackangdal_Bufftime(skill)
     local value = 10 + skill.Level
     local pc = GetSkillOwner(skill);
     if IsPVPServer(pc) == 1 then
-        value = value * 0.3
+        value = value * 0.7
     end
     
     return math.floor(value);
@@ -14221,9 +14224,13 @@ end
 
 
 function SCR_Get_Raise_Ratio(skill)
-
     local value = 3 + skill.Level * 2
-    return value
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = value * 0.5
+    end
+    
+    return math.floor(value)
 
 end
 
@@ -15069,7 +15076,7 @@ function SCR_GET_CarveAusirine_Ratio(skill)
     local value = 8 + (skill.Level * 2)
     local pc = GetSkillOwner(skill);
     if IsPVPServer(pc) == 1 then
-        value = value * 0.3
+        value = value * 0.7
     end
     
     return math.floor(value)
@@ -15381,4 +15388,10 @@ end
 function SCR_GET_NonInvasiveArea_Ratio2(skill)
     local value = 42 + skill.Level * 2
     return value;
+end
+
+function SCR_GET_GroovingMuzzle_BuffTime(skill)
+	local value = 10 + (skill.Level - 1);
+	
+	return math.floor(value);
 end
