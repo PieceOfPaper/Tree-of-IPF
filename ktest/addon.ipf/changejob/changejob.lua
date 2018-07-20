@@ -404,150 +404,147 @@ function UPDATE_CHANGEJOB(frame)
 	
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
-
-		local ishave = IS_HAD_JOB(cls.ClassID);
-		local clsRank = cls.Rank;
-
-		local totaljobcount = session.GetPcTotalJobGrade()
-		local stringtest = 'ChangeJobQuest'..totaljobcount
-		local changejobquestname = cls[stringtest]
-		local flag = 1
-
-		
-
-		local jobCircle = session.GetJobGrade(cls.ClassID)
-
-		
-		local ChangeJobQuestCircleText = "ChangeJobQuestCircle"..jobCircle+1
-		local pc = GetMyPCObject();
-		local sObj = GetSessionObject(pc, 'ssn_klapeda')
-		
-		if sObj.QSTARTZONETYPE == "StartLine1" then
-			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_1"	
-		elseif sObj.QSTARTZONETYPE == "StartLine2" then
-			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_2"
-		end
-		
-		local nowjobID = GetClassByType("Job", cls.ClassID);
-
-
-
---		if changejobquestname ~= 'None' then
---			if CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(changejobquestname) ~= 1 then
---				flag = 0
---			end
---		else
---			flag =0
---		end
-
-		if ishave == 1 then 
-
-			local subindex = #hadjobarray + 1
-			hadjobarray[subindex] = {}
-			hadjobarray[subindex][1] = cls.ClassID
-
-			if canChangeJob == true then
-				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_CAN_UPGRADE 
-			else
-				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE 
-			end
-
-			hadjobarray[subindex][3] = cls.Name
-			hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);
-			
-			
-			if jobCircle+1 >= 4 then
-				hadjobarray[subindex][5] = "None"
-			else
-				hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]
-			end
-
-
-			if pcjobinfo.ClassID == cls.ClassID then
-				pcjobinfotype = hadjobarray[subindex][2]
-			end
-
-		else 
-
-			if cls.CtrlType == pcCtrlType then
-			
---			local totaljobcount = session.GetPcTotalJobGrade()
---				local stringtest = 'ChangeJobQuest'..totaljobcount
---				local changejobquestname = cls[stringtest]
---				local flag = 1
---				if changejobquestname ~= 'None' then
---					if CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(changejobquestname) ~= 1 then
---						flag = 0
---					end
---				end
-
-				if clsRank <= session.GetPcTotalJobGrade()+1 then
-				
-					if clsRank <= session.GetPcTotalJobGrade() then
-						if cls.HiddenJob == "NO" then 						
-						local subindex = #hadjobarray + 1
-						hadjobarray[subindex] = {}
-						hadjobarray[subindex][1] = cls.ClassID	
-						hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT 
-						hadjobarray[subindex][3] = cls.Name
-						hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);						
-							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
-						elseif cls.HiddenJob == "YES" then
-							local pcEtc = GetMyEtcObject();
-							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() then
-							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
-							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
-							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
-							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
-    								local subindex = #hadjobarray + 1
-    								hadjobarray[subindex] = {}
-    								hadjobarray[subindex][1] = cls.ClassID	
-    								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW 
-    								hadjobarray[subindex][3] = cls.Name
-    								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
-    								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+        local jobCircle = session.GetJobGrade(cls.ClassID)
+		if cls.MaxCircle > jobCircle then
+    		local ishave = IS_HAD_JOB(cls.ClassID);
+    		local clsRank = cls.Rank;
+    
+    		local totaljobcount = session.GetPcTotalJobGrade()
+    		local stringtest = 'ChangeJobQuest'..totaljobcount
+    		local changejobquestname = cls[stringtest]
+    		local flag = 1
+    
+    		local ChangeJobQuestCircleText = "ChangeJobQuestCircle"..jobCircle+1
+    		local pc = GetMyPCObject();
+    		local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    		
+    		if sObj.QSTARTZONETYPE == "StartLine1" then
+    			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_1"	
+    		elseif sObj.QSTARTZONETYPE == "StartLine2" then
+    			ChangeJobQuestCircleText = ChangeJobQuestCircleText.."_2"
+    		end
+    		
+    		local nowjobID = GetClassByType("Job", cls.ClassID);
+    
+    
+    
+    --		if changejobquestname ~= 'None' then
+    --			if CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(changejobquestname) ~= 1 then
+    --				flag = 0
+    --			end
+    --		else
+    --			flag =0
+    --		end
+    
+    		if ishave == 1 then 
+    
+    			local subindex = #hadjobarray + 1
+    			hadjobarray[subindex] = {}
+    			hadjobarray[subindex][1] = cls.ClassID
+    
+    			if canChangeJob == true then
+    				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_CAN_UPGRADE 
+    			else
+    				hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE 
+    			end
+    
+    			hadjobarray[subindex][3] = cls.Name
+    			hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);
+    			
+    			
+    			if jobCircle+1 >= 4 then
+    				hadjobarray[subindex][5] = "None"
+    			else
+    				hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]
+    			end
+    
+    
+    			if pcjobinfo.ClassID == cls.ClassID then
+    				pcjobinfotype = hadjobarray[subindex][2]
+    			end
+    
+    		else 
+    
+    			if cls.CtrlType == pcCtrlType then
+    			
+    --			local totaljobcount = session.GetPcTotalJobGrade()
+    --				local stringtest = 'ChangeJobQuest'..totaljobcount
+    --				local changejobquestname = cls[stringtest]
+    --				local flag = 1
+    --				if changejobquestname ~= 'None' then
+    --					if CHANGEJOB_CHECK_QUEST_SCP_CONDITION_IGNORE_SELECTEDJOB(changejobquestname) ~= 1 then
+    --						flag = 0
+    --					end
+    --				end
+    
+    				if clsRank <= session.GetPcTotalJobGrade()+1 then
+    				
+    					if clsRank <= session.GetPcTotalJobGrade() then
+    						if cls.HiddenJob == "NO" then 						
+    						local subindex = #hadjobarray + 1
+    						hadjobarray[subindex] = {}
+    						hadjobarray[subindex][1] = cls.ClassID	
+    						hadjobarray[subindex][2] = CHANGE_JOB_TYPE_HAVE_NOT 
+    						hadjobarray[subindex][3] = cls.Name
+    						hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);						
+    							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+    						elseif cls.HiddenJob == "YES" then
+    							local pcEtc = GetMyEtcObject();
+    							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() then
+    							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
+    							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+    							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+    							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+        								local subindex = #hadjobarray + 1
+        								hadjobarray[subindex] = {}
+        								hadjobarray[subindex][1] = cls.ClassID	
+        								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW 
+        								hadjobarray[subindex][3] = cls.Name
+        								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);	
+        								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+        							end
     							end
-							end
-						end
-					elseif cls.HiddenJob == "NO" then
-						if canChangeJob == true then
-							local subindex = #hadjobarray + 1
-							hadjobarray[subindex] = {}
-							hadjobarray[subindex][1] = cls.ClassID
-							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW 
-							hadjobarray[subindex][3] = cls.Name
-							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);							
-							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]				
-						end
-					
-					elseif cls.HiddenJob == "YES" then
-						if canChangeJob == true then
-							local pcEtc = GetMyEtcObject();
-							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() then
-							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
-							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
-							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
-							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
-    								local subindex = #hadjobarray + 1
-    								hadjobarray[subindex] = {}
-    								hadjobarray[subindex][1] = cls.ClassID
-    								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW 
-    								hadjobarray[subindex][3] = cls.Name
-    								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
-    								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+    						end
+    					elseif cls.HiddenJob == "NO" then
+    						if canChangeJob == true then
+    							local subindex = #hadjobarray + 1
+    							hadjobarray[subindex] = {}
+    							hadjobarray[subindex][1] = cls.ClassID
+    							hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW 
+    							hadjobarray[subindex][3] = cls.Name
+    							hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);							
+    							hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]				
+    						end
+    					
+    					elseif cls.HiddenJob == "YES" then
+    						if canChangeJob == true then
+    							local pcEtc = GetMyEtcObject();
+    							if pcEtc["HiddenJob_"..cls.ClassName] == 300 or IS_KOR_TEST_SERVER() then
+    							    local questIES = GetClass('QuestProgressCheck',nowjobID[ChangeJobQuestCircleText])
+    							    local req_joblvup = SCR_QUEST_CHECK_MODULE_JOBLVUP(pc, questIES)
+    							    local req_joblvdown = SCR_QUEST_CHECK_MODULE_JOBLVDOWN(pc, questIES)
+    							    if req_joblvup == 'YES' and req_joblvdown == 'YES' then
+        								local subindex = #hadjobarray + 1
+        								hadjobarray[subindex] = {}
+        								hadjobarray[subindex][1] = cls.ClassID
+        								hadjobarray[subindex][2] = CHANGE_JOB_TYPE_NEW 
+        								hadjobarray[subindex][3] = cls.Name
+        								hadjobarray[subindex][4] = session.GetChangeJobHotRank(cls.ClassName);			
+        								hadjobarray[subindex][5] = nowjobID[ChangeJobQuestCircleText]	
+        							end
     							end
-							end
-						end
-					end
-				end
-			end
-
-
-			if pcjobinfo.ClassID == cls.ClassID then
-				pcjobinfotype = hadjobarray[subindex][2]
-			end
-
-		end
+    						end
+    					end
+    				end
+    			end
+    
+    
+    			if pcjobinfo.ClassID == cls.ClassID then
+    				pcjobinfotype = hadjobarray[subindex][2]
+    			end
+    
+    		end
+    	end
 	end
 
 	
@@ -868,7 +865,7 @@ function CHANGEJOB_SHOW_RANKROLLBACK()
 	local frame = ui.GetFrame('changejob');    
     local lastJobBox = GET_CHILD_RECURSIVELY(frame, 'groupbox_sub_oldjob'..lastJobGrade);
     local rankRollBackBtn = GET_CHILD(lastJobBox, 'rankRollBackBtn');
-    rankRollBackBtn:ShowWindow(0);
+    rankRollBackBtn:ShowWindow(1);
 
 	if pc.LastRankRollbackIndex >= lastJobGrade then
 		rankRollBackBtn:SetColorTone('FF444444');
