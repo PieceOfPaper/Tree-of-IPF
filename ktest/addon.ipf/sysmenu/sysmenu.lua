@@ -532,3 +532,19 @@ function TOGGLE_GEM_REINFORCE(frame)
 	end
 end
 
+function TOGGLE_LEGEND_CARD_REINFORCE(frame)
+    if GetCraftState() == 1 then
+        ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
+        return;
+    end
+
+	local rframe = ui.GetFrame("legendcardupgrade");
+	if rframe:IsVisible() == 1 then
+		rframe:ShowWindow(0);
+	else
+		local title = rframe:GetChild("title");
+		title:SetTextByKey("value", ClMsg("LegendCardReinforce"));
+		rframe:ShowWindow(1);
+	end
+end
+

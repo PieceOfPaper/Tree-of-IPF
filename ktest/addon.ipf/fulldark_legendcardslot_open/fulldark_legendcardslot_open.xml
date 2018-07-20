@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="fulldark_legendcardslot_open" x="0" y="0" width="4096" height="2048">
+	<frame title="" snapclient="true" snapframe="true"/>
+	<draw blend="70" drawframe="false" drawtitlebar="false"/>
+	<option hideable="false" closebutton="false" autoopen="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<layer layerlevel="97"/>
+	<userconfig LEGENDCARD_OPEN_EFFECT="UI_card_lock" LEGENDCARD_OPEN_EFFECT_SCALE="12" FRAME_DURATION="6"/>
+	<animation frameCloseAnim="chat_balloon_end2"/>
+	<script OpenScp="" CloseScp=""/>
+	<controls>
+		<picture name="screenmask" rect="0 0 4096 2048" hittest="false" image="fullblack" alpha="100" stretch="true"/>
+	</controls>
+</uiframe>

@@ -39,6 +39,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event eventName="시작 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="start/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_start"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="end" AutoStart="0">
@@ -57,6 +71,14 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event eventName="종료로그">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="State/stage_end"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -216,6 +238,20 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="ID_WHITETREES1_GIMMICK1"/>
                                 <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="첫째 방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2/111"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_2nd"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -382,6 +418,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event eventName="2,3,4 방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage3/116"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_3rd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="stage4">
@@ -480,6 +530,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event eventName="6번방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/28"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_5th"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="stage6">
@@ -551,6 +615,20 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="ID_WHITETREES1_GIMMICK4"/>
                                 <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="보스방 로그">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5/28"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
+                                <Str Str="MGameState"/>
+                                <Str Str="Stage/stage_boss_start"/>
                             </ToolScp>
                         </execList>
                     </Event>

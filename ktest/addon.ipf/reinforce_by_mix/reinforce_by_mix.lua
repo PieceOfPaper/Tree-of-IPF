@@ -330,15 +330,23 @@ function REINFORCE_BY_MIX_SETITEM(frame, invItem)
 	end
 
 	CLEAR_REINFORCE_BY_MIX(frame);
-	
-    local obj = GetIES(invItem:GetObject());		
+    local obj = GetIES(invItem:GetObject());	
 	local reinforceCls = GetClass("Reinforce", obj.Reinforce_Type);
 	if reinforceCls == nil then
 		return;
 	end
+
+	if obj.Reinforce_Type == "LegendCard" then
+		ui.SysMsg(ClMsg("LegendCardReinforce_Normal_Reinforce"));
+		return
+	end
+
 	local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(obj);
-	if maxExp == 0 then
-		ui.SysMsg(ClMsg("ThisGemCantReinforce"));
+	if lv > 1 and maxExp == 0 then
+		ui.SysMsg(ClMsg("CanNotEnchantMore"));
+		return;
+	elseif maxExp == 0 then
+	    ui.SysMsg(ClMsg("ThisGemCantReinforce"));
 		return;
 	end
 
@@ -367,7 +375,7 @@ function REINFORCE_BY_MIX_SETITEM(frame, invItem)
 	matslot:SetSpc(reinforceCls.SlotSpaceX, reinforceCls.SlotSpaceY);
 	matslot:RemoveAllChild();
 	matslot:CreateSlots();
-    
+
 	INVENTORY_SET_ICON_SCRIPT("REINF_MIX_CHECK_ICON", "GET_REINFORCE_MIX_ITEM");
 	INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_INV_RBTN");
 	INVENTORY_SET_CUSTOM_RDBTNDOWN("REINFORCE_MIX_INV_RDBTN");
@@ -631,7 +639,7 @@ function _REINFORCE_BY_MIX_EXECUTE()
     local tgtItem = GET_REINFORCE_MIX_ITEM();
 	if tgtItem.GroupName == "Card" then
 		local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(tgtItem, tgtItem.ItemExp);
-		if lv == 10 then		-- 카드 합성 제한이다. 제한선을 수정할 경우 여기도 바꿔줘야한다. 카드 레벨 제한을 경험치 분할 갯수로 따지기 때문에 제함점을 따로 얻어올 방법을 못찾겠다.
+		if lv > 1 and maxExp == 0 then		-- 카드 합성 제한이다. 제한선을 수정할 경우 여기도 바꿔줘야한다. 카드 레벨 제한을 경험치 분할 갯수로 따지기 때문에 제함점을 따로 얻어올 방법을 못찾겠다.
 			ui.MsgBox(ScpArgMsg("CardLvisMax"));			
 			return;
 		end

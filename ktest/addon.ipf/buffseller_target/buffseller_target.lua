@@ -50,7 +50,10 @@ function UPDATE_BUFFSELLER_SLOT_TARGET(ctrlSet, info)
 	ctrlSet:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
 	ctrlSet:GetChild("skilllevel"):SetTextByKey("value", info.level);
 	ctrlSet:GetChild("remaincount"):SetTextByKey("value", info.remainCount);
-	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
+--	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
+	
+	local priceStr = GET_COMMA_SEPARATED_STRING(info.price);
+	ctrlSet:GetChild("price"):SetTextByKey("value", priceStr);
 
 	SET_SLOT_SKILL_BY_LEVEL(skill_slot, info.classID, info.level);
 
@@ -72,6 +75,10 @@ function BUY_BUFF_AUTOSELL(ctrlSet, btn)
 	if buycount ~= nil then
 		cnt = buycount:GetNumber();
 	end
+	
+	if cnt < 1 then
+		cnt = 1;
+	end
 
 	local totalPrice = itemInfo.price * cnt;
 	local myMoney = GET_TOTAL_MONEY();
@@ -81,7 +88,8 @@ function BUY_BUFF_AUTOSELL(ctrlSet, btn)
 	end
 	
 	local strscp = string.format( "EXEC_BUY_AUTOSELL(%d, %d, %d, %d)", frame:GetUserIValue("HANDLE"), index, cnt, sellType);
-	local msg = ClMsg("ReallyBuy?")
+--	local msg = ClMsg("ReallyBuy?")
+	local msg = ScpArgMsg("ReallyBuy?{Price}", "Price", GET_COMMAED_STRING(totalPrice));
 	ui.MsgBox(msg, strscp, "None");
 end
 

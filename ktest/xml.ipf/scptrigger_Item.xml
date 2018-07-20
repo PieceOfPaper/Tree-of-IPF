@@ -84,6 +84,26 @@
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="DAG04_113">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Corsair_ImpaleDagger"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
+						<Str Str="Corsair_ImpaleDagger"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
 		<TriggerList Act="BeforeAttack">
 			<Trigger>
 				<ExecList>

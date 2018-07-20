@@ -1430,7 +1430,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	
     -- custom
 	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");
-
 	if customRBtnScp == "None" then
 		customRBtnScp = nil;
 	else
@@ -1442,7 +1441,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		imcSound.PlaySoundEvent("icon_get_down");
 		return;
 	end
-	
     -- market sell
 	local market_sell = ui.GetFrame("market_sell");
 	if market_sell:IsVisible() == 1 then
@@ -1566,16 +1564,25 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
     -- card equip
 	-- 오른쪽 클릭으로 몬스터 카드를 인벤토리의 카드 장착 슬롯에 장착하게 함.
 	local moncardFrame = ui.GetFrame("monstercardslot");
-	
+	local legendcardupgradeFrame = ui.GetFrame("legendcardupgrade")
+
+	if moncardFrame == nil or legendcardupgradeFrame == nil then
+		return
+	end
+
 	if moncardFrame:IsVisible() == 1 and itemobj.GroupName == "Card" then
 		local groupNameStr = itemobj.CardGroupName
+		if groupNameStr == "REINFORCE_CARD" then
+			ui.SysMsg(ClMsg("LegendReinforceCard_Not_Equip"));
+			return
+		end
+
 		local moncardGbox = GET_CHILD_RECURSIVELY(moncardFrame, groupNameStr .. 'cardGbox');
-		if itemobj.GroupName ~= "Card" then		
+		if itemobj.GroupName ~= "Card" then	
 			return;
 		end;
 		
 		local card_slotset = GET_CHILD_RECURSIVELY(moncardGbox, groupNameStr .. "card_slotset");
-
 		if card_slotset ~= nil then
 			local slotIndex = 0;
 			if groupNameStr == 'ATK' then
@@ -1586,11 +1593,16 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 				slotIndex = 6
 			elseif groupNameStr == 'STAT' then
 				slotIndex = 9
+			elseif groupNameStr == 'LEG' then
+				slotIndex = 12
 			end
 
-			for i = 0, 2 do							
+			for i = 0, 2 do		
 				local slot = card_slotset:GetSlotByIndex(i);
 				if slot == nil then
+					if groupNameStr == 'LEG' then
+						ui.SysMsg(ClMsg("LegendCard_Only_One"));
+					end
 					return;
 				end	
 				local icon = slot:GetIcon();		
@@ -1599,8 +1611,88 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 					return;
 				end;				
 			end;
+			
 			ui.SysMsg(ClMsg("CantEquipMonsterCard"));
 		end;
+	elseif legendcardupgradeFrame : IsVisible() == 1 and (itemobj.GroupName == "Card" or itemobj.ItemType == 'Etc') then
+		-- 4를 sharedconst 값으로 빼야함 . 최대 재료 카드 개수
+		if itemobj.CardGroupName ~= nil and itemobj.CardGroupName == 'LEG' then
+			local slot = GET_CHILD_RECURSIVELY(legendcardupgradeFrame, "LEGcard_slot")
+			local icon = slot:GetIcon()
+			if icon == nil then
+				LEGENDCARD_SET_SLOT(slot, invitem)
+				return;
+			end
+
+			if icon ~= nil then
+				local iconInfo = icon:GetInfo()
+				if iconInfo == nil then
+					return
+				end
+
+				local slotInvItem = session.GetInvItem(iconInfo.ext);
+				if slotInvItem ~= nil and slotInvItem ~= invitem then
+					LEGENDCARD_SET_SLOT(slot, invitem)
+					return;
+				end
+			end
+		end
+
+		local slot = GET_CHILD_RECURSIVELY(legendcardupgradeFrame, "LEGcard_slot")
+		local icon = slot:GetIcon()
+		local needReinforceItem = "";
+		if itemobj.ItemType == 'Etc' then
+			if icon == nil then
+				return
+			end
+
+			local iconInfo = icon:GetInfo();
+			if iconInfo == nil then
+				return
+			end
+
+			local legendCardIconInfo = iconInfo:GetIESID()
+			if legendCardIconInfo == nil then
+				return
+			end
+
+			local legendCardInvItem = GET_ITEM_BY_GUID(legendCardIconInfo)
+			if legendCardInvItem == nil then
+				return
+			end
+
+			local legendCardObj = GetIES(legendCardInvItem : GetObject());
+			if legendCardObj == nil then
+				return
+			end
+
+			local legendCardReinforceList, cnt = GetClassList("legendCardReinforce")
+			local legendCardLv = GET_ITEM_LEVEL(legendCardObj)
+			for i = 0, cnt - 1 do
+				local cls = GetClassByIndexFromList(legendCardReinforceList,i);
+				local cardLv = TryGetProp(cls, "CardLevel");
+					
+				if cardLv == legendCardLv and legendCardObj.CardGroupName ~= nil and legendCardObj.CardGroupName == 'LEG' then
+					local needReinforceItem = TryGetProp(cls, 'NeedReinforceItem')
+					local needReinforceItemCount = TryGetProp(cls, 'NeedReinforceItemCount')
+					local needItemSlot = GET_CHILD_RECURSIVELY(legendcardupgradeFrame, "materialItem_slot")
+					local needItemCls = GetClass("Item", needReinforceItem)
+					if needItemCls ~= nil and itemobj.ClassName == needReinforceItem then
+						SET_SLOT_INVITEM_NOT_COUNT(needItemSlot, invitem)
+					end
+				end
+			end
+		end
+
+		for i = 1, 4 do
+			local slot = GET_CHILD_RECURSIVELY(legendcardupgradeFrame, "material_slot"..i)
+			local icon = slot:GetIcon()
+			if icon == nil then
+				LEGENDCARD_MATERIAL_SET_SLOT(slot, invitem);
+				return
+			end
+		end
+		--4자리가 꽉찬거니까 메세지 띄우자
 	end
 end
 
@@ -2219,9 +2311,6 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	end
 	
 	if spotName == 'RH' then
---		print("slotline :"..session.GetWeaponCurrentSlotLine())
---		print("currentWeapon :"..frame : GetUserIValue('CURRENT_WEAPON_INDEX'))
-
 		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
 			session.SetWeaponQuicSlot(0, equipItem : GetIESID());
 			

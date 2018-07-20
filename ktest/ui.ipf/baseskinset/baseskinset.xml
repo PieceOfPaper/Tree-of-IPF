@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3647,6 +3647,17 @@
 			<img name="bottomcore" imgrect="132 66 130 25"/>
 			<img name="bottomright" imgrect="263 66 130 25"/>
 		</skin>
+		<skin name="test_frame_top_r" texture="\skin\monstercard.tga">
+			<img name="topleft" imgrect="939 559 180 1"/>
+			<img name="topcore" imgrect="1120 559 40 1"/>
+			<img name="topright" imgrect="1161 559 180 1"/>
+			<img name="bodyleft" imgrect="939 561 180 59"/>
+			<img name="bodycore" imgrect="1120 561 40 59"/>
+			<img name="bodyright" imgrect="1161 561 180 59"/>
+			<img name="bottomleft" imgrect="939 621 180 1"/>
+			<img name="bottomcore" imgrect="1120 621 40 1"/>
+			<img name="bottomright" imgrect="1161 621 180 1"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -4361,7 +4372,7 @@
 			<img name="selected" imgrect="954 681 59 84"/>
 		</skin>
 		<skin name="legendopen_cardslot" texture="\skin\monstercard.tga">
-			<img name="slot" imgrect="2 202 104 169"/>
+			<img name="slot" imgrect="8 221 92 131"/>
 			<img name="mouseon" imgrect="954 681 59 84"/>
 			<img name="cooltime" imgrect="954 681 59 84"/>
 			<img name="selected" imgrect="954 681 59 84"/>
@@ -5959,6 +5970,10 @@
 		<image name="notice_br_solution" file="\skin\notice_p_skin.tga" imgrect="23 92 21 21"/>
 		<image name="notice_br_link" file="\skin\notice_p_skin.tga" imgrect="46 92 21 21"/>
 		<image name="notice_br_ydot" file="\skin\notice_p_skin.tga" imgrect="1 114 6 6"/>
+		<image name="card_reinforce_SUCCESS" file="\skin\monstercard.tga" imgrect="1 781 330 133" CMM_Caption="레전드 카드 합성 결과"/>
+		<image name="card_reinforce_FAIL" file="\skin\monstercard.tga" imgrect="332 781 330 133"/>
+		<image name="card_reinforce_DESTROY" file="\skin\monstercard.tga" imgrect="663 781 330 133"/>
+		<image name="lvup_guide_banner" file="\skin\lvup_guide_banner.jpg" imgrect="0 0 360 180" CMM_Caption="팁 레벨업 가이드 배너"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -5983,10 +5998,11 @@
 		<image name="moncard_purple" file="\skin\monstercard.tga" imgrect="884 0 384 546"/>
 		<image name="moncard_green" file="\skin\monstercard.tga" imgrect="1271 0 384 546"/>
 		<image name="moncard_yellow" file="\skin\monstercard.tga" imgrect="1657 0 384 546"/>
+		<image name="moncard_gray" file="\skin\monstercard2.tga" imgrect="0 0 384 546"/>
 		<image name="first_blow" file="\skin\mainframe_03.tga" imgrect="750 355 274 135" CMM_Caption="첫타 텍스트"/>
 		<image name="last_blow" file="\skin\mainframe_03.tga" imgrect="750 216 274 135" CMM_Caption="막타 텍스트"/>
-		<image name="legend_cardslot" file="\skin\monstercard.tga" imgrect="712 559 106 156" CMM_Caption="레젼드 카드 슬롯"/>
-		<image name="legend_cardslot1" file="\skin\monstercard.tga" imgrect="830 559 106 156" CMM_Caption="사슬"/>
+		<image name="legend_cardslot" file="\skin\monstercard.tga" imgrect="708 545 114 176" CMM_Caption="레젼드 카드 슬롯"/>
+		<image name="legend_cardslot1" file="\skin\monstercard.tga" imgrect="826 545 114 176" CMM_Caption="사슬"/>
 		<image name="btn_foothold" file="\skin\HUD.tga" imgrect="1922 651 36 37" CMM_Caption="거점이동버튼"/>
 		<image name="btn_foothold_cursoron" file="\skin\HUD.tga" imgrect="1781 709 36 37" CMM_Caption="거점이동버튼"/>
 		<image name="btn_foothold_clicked" file="\skin\HUD.tga" imgrect="1781 749 36 37" CMM_Caption="거점이동버튼"/>
@@ -6027,7 +6043,9 @@
 		<image name="purple_cardslot" file="\skin\monstercard.tga" imgrect="491 563 67 103"/>
 		<image name="green_cardslot" file="\skin\monstercard.tga" imgrect="561 563 67 103"/>
 		<image name="blue_cardslot" file="\skin\monstercard.tga" imgrect="630 563 67 103"/>
-		<image name="yellow_cardslot" file="\skin\monstercard.tga" imgrect="2 373 104 169"/>
+		<image name="legendopen_cardslot" file="\skin\monstercard.tga" imgrect="1133 625 114 176"/>
+		<image name="yellow_cardslot" file="\skin\monstercard.tga" imgrect="1018 625 114 176"/>
+		<image name="yellow_cardslot2" file="\skin\monstercard.tga" imgrect="2 373 104 169"/>
 		<image name="red_cardslot1" file="\skin\monstercard.tga" imgrect="422 671 67 103" CMM_Caption="비장착프레임"/>
 		<image name="purple_cardslot1" file="\skin\monstercard.tga" imgrect="491 671 67 103"/>
 		<image name="green_cardslot1" file="\skin\monstercard.tga" imgrect="561 671 67 103"/>
@@ -6057,6 +6075,7 @@
 		<image name="purple_type" file="\skin\monstercard.tga" imgrect="391 613 20 20" CMM_Caption=""/>
 		<image name="green_type" file="\skin\monstercard.tga" imgrect="391 634 20 20" CMM_Caption=""/>
 		<image name="mon_magicsquare" file="\skin\monstercard.tga" imgrect="1658 553 382 382" CMM_Caption="몬스터강화창마법진"/>
+		<image name="mon_legendstar" file="\skin\monstercard.tga" imgrect="386 657 32 32" CMM_Caption="레젼드카드 전용 별"/>
 		<image name="mon_legendlock" file="\skin\monstercard.tga" imgrect="386 690 32 34" CMM_Caption="레젼드카드 자물쇠"/>
 		<image name="indun_weapon" file="\skin\indun_skin.tga" imgrect="205 651 65 65" CMM_Caption="인던획득아이템종류"/>
 		<image name="indun_weapon_clicked" file="\skin\indun_skin.tga" imgrect="205 717 65 65"/>
@@ -6068,6 +6087,7 @@
 		<image name="indun_acc_clicked" file="\skin\indun_skin.tga" imgrect="403 717 65 65"/>
 		<image name="indun_material" file="\skin\indun_skin.tga" imgrect="469 651 65 65"/>
 		<image name="indun_material_clicked" file="\skin\indun_skin.tga" imgrect="469 717 65 65"/>
+		<image name="card_reinforce_legend_bg" file="\skin\card_reinforce_legend_bg.tga" imgrect="0 0 571 620" CMM_Caption="레전드 카드 합성 배경"/>
 	</imagelist>
 	<imagelist category="colony_image">
 		<image name="colony_vic_frame" file="\skin\colony.tga" imgrect="0 0 581 532" CMM_Caption="콜로니 승리 프레임"/>
@@ -8136,6 +8156,8 @@
 		<image name="icon_forest4" file="\icon\buff_icon.tga" imgrect="512 1920 128 128"/>
 		<image name="icon_evasion_back" file="\icon\buff_icon.tga" imgrect="640 1920 128 128"/>
 		<image name="icon_goldfish2" file="\icon\buff_icon.tga" imgrect="768 1920 128 128" CMM_Caption="황금 물고기 루팅찬스 버프"/>
+		<image name="icon_swashbuckling_abill_buff" file="\icon\buff_icon2.tga" imgrect="0 0 128 128" CMM_Caption="스워시 버클링: 집중 방어"/>
+		<image name="icon_Provocation_immunity" file="\icon\buff_icon2.tga" imgrect="128 0 128 128" CMM_Caption="도발 면역"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -8470,6 +8492,18 @@
 		<image name="147_boss_Rambandgad" file="\skin\bosscard\147_boss_Rambandgad.tga" imgrect="0 0 330 440"/>
 		<image name="148_boss_SwordBallista" file="\skin\bosscard\148_boss_SwordBallista.tga" imgrect="0 0 330 440"/>
 		<image name="149_boss_FrosterLord" file="\skin\bosscard\149_boss_FrosterLord.tga" imgrect="0 0 330 440"/>
+		<image name="150_boss_PantoRex" file="\skin\bosscard\150_boss_PantoRex.tga" imgrect="0 0 330 440"/>
+		<image name="151_boss_Kucarry_Balzermancer" file="\skin\bosscard\151_boss_Kucarry_Balzermancer.tga" imgrect="0 0 330 440"/>
+		<image name="boss_bg_slot" file="\skin\bosscard\boss_bg_slot.tga" imgrect="0 0 330 440"/>
+	</imagelist>
+	<imagelist category="sub_card3">
+		<image name="legend_card_fragment_lv1" file="\skin\bosscard\legend_card_fragment_lv1.tga" imgrect="0 0 330 440"/>
+		<image name="legend_card_fragment_lv2" file="\skin\bosscard\legend_card_fragment_lv2.tga" imgrect="0 0 330 440"/>
+		<image name="legend_card_fragment_lv3" file="\skin\bosscard\legend_card_fragment_lv3.tga" imgrect="0 0 330 440"/>
+		<image name="legend_card_fragment_lv4" file="\skin\bosscard\legend_card_fragment_lv4.tga" imgrect="0 0 330 440"/>
+	</imagelist>
+	<imagelist category="wing_mk">
+		<image name="market_wing_skin" file="\skin\market_wing_skin.tga" imgrect="0 0 348 840"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

@@ -87,7 +87,8 @@ function UPDATE_SQIOR_REPAIR_MONEY(frame, totalcont)
 		reqitemNeed:SetTextByKey("txt", totalcont  ..ClMsg("CountOfThings"));
 	else
 		local money = repairbox:GetChild("reqitemMoney");
-		money:SetTextByKey("txt", totalcont*repair:GetUserIValue("PRICE"));
+		local needMoneyStr = GET_COMMA_SEPARATED_STRING(totalcont*repair:GetUserIValue("PRICE"));
+		money:SetTextByKey("txt", needMoneyStr);
 	end
 end
 
@@ -210,10 +211,18 @@ function SQIORE_REPAIR_EXCUTE(parent)
 
 		session.AddItemID(iconInfo:GetIESID());
 	end
-
+	
+	local money = targetbox:GetChild("reqitemMoney");
+	
+	local price = money:GetTextByKey("txt");
+	local yesScp = string.format("SQIORE_REPAIR_EXCUTE_RUN(%d, \"%s\")", handle, skillName);
+	ui.MsgBox(ScpArgMsg("ReallyRepair", 'Price', price), yesScp, "None");
+end
+---------
+function SQIORE_REPAIR_EXCUTE_RUN(handle, skillName)
 	session.autoSeller.BuyItems(handle, AUTO_SELL_SQUIRE_BUFF, session.GetItemIDList(), skillName);
 end
-
+---------
 function ITEMBUFF_REPAIR_UPDATE_HISTORY(frame)
 	local groupName = frame:GetUserValue("GroupName");	
 	local cnt = session.autoSeller.GetHistoryCount(groupName);

@@ -385,6 +385,8 @@ function SET_CARD_EDGE_TOOLTIP(parent, invitem)
 			cardEdge : SetImage('moncard_green')
 		elseif cardGroupName == 'LEG' then
 			cardEdge : SetImage('moncard_yellow')
+		elseif cardGroupName == 'REINFORCE_CARD' then
+			cardEdge : SetImage('moncard_gray')
 		else 
 			cardEdge:SetImage('moncard_red')
 		end

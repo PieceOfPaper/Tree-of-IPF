@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -4398,6 +4398,7 @@
 		<image name="icon_item_card_def" file="\icon\item\icon_item_card_def.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 방어"/>
 		<image name="icon_item_card_util" file="\icon\item\icon_item_card_util.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 유틸"/>
 		<image name="icon_item_card_stat" file="\icon\item\icon_item_card_stat.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 고정"/>
+		<image name="icon_item_card_legend" file="\icon\item\icon_item_card_legend.png" imgrect="0 0 256 256" CMM_Caption="몬스터카드 레젼드"/>
 		<image name="icon_item_wedding02_popupbook" file="\icon\item\icon_item_wedding02_popupbook.png" imgrect="0 0 256 256" CMM_Caption="팝업북 웨딩 팝업북"/>
 		<image name="icon_item_egg_penguin_blue" file="\icon\item\icon_item_egg_penguin_blue.png" imgrect="0 0 128 128" CMM_Caption="여름용 펭귄 컴페니언알"/>
 		<image name="icon_item_reinforce_100000coupon" file="\icon\item\icon_item_reinforce_100000coupon.png" imgrect="0 0 256 256" CMM_Caption="장비 강화 포인트 "/>
@@ -4460,6 +4461,10 @@
 		<image name="icon_item_poodle01_popupbook" file="\icon\item\icon_item_poodle01_popupbook.png" imgrect="0 0 256 256" CMM_Caption="동물 팝업북"/>
 		<image name="icon_item_poporion_popupbook" file="\icon\item\icon_item_poporion_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_penguin01_popupbook" file="\icon\item\icon_item_penguin01_popupbook.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_legend_card_fragment_lv1" file="\icon\item\icon_item_legend_card_fragment_lv1.png" imgrect="0 0 256 256" CMM_Caption="레전드 카드 강화용 카드"/>
+		<image name="icon_item_legend_card_fragment_lv2" file="\icon\item\icon_item_legend_card_fragment_lv2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_legend_card_fragment_lv3" file="\icon\item\icon_item_legend_card_fragment_lv3.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_legend_card_fragment_lv4" file="\icon\item\icon_item_legend_card_fragment_lv4.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_antque_gold_coin" file="\icon\item\icon_item_antque_gold_coin.png" imgrect="0 0 256 256" CMM_Caption="젬 가챠 코인"/>
 		<image name="icon_item_misc_collect_gimk_001" file="\icon\item\icon_item_misc_collect_gimk_001.png" imgrect="0 0 128 128" CMM_Caption="책갈피"/>
 		<image name="icon_item_misc_collect_gimk_002" file="\icon\item\icon_item_misc_collect_gimk_002.png" imgrect="0 0 128 128"/>
@@ -4480,8 +4485,13 @@
 		<image name="icon_item_guild_exp_up3" file="\icon\item\icon_item_guild_exp_up3.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_egg_Armadilo" file="\icon\item\icon_item_egg_Armadilo.png" imgrect="0 0 128 128" CMM_Caption="아르마딜로 알"/>
 		<image name="icon_item_newyearcard" file="\icon\item\icon_item_newyearcard.png" imgrect="0 0 500 500" CMM_Caption="2018 연하장"/>
+		<image name="icon_item_legend_card_misc" file="\icon\item\icon_item_legend_card_misc.png" imgrect="0 0 256 256" CMM_Caption="벨로브"/>
+		<image name="icon_item_cube_gold_First" file="\icon\item\icon_item_cube_gold_First.png" imgrect="0 0 128 128" CMM_Caption="골드 큐브"/>
+		<image name="icon_item_cube_gold_Blow" file="\icon\item\icon_item_cube_gold_Blow.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_cube_gold" file="\icon\item\icon_item_cube_gold.png" imgrect="0 0 128 128"/>
 		<image name="item_icon_teraingot" file="\icon\item\item_icon_teraingot.png" imgrect="0 0 80 80" CMM_Caption="빨강 주괴"/>
 		<image name="item_icon_pideingot" file="\icon\item\item_icon_pideingot.png" imgrect="0 0 80 80" CMM_Caption="녹색 주괴"/>
+		<image name="icon_item_eventbox_blue" file="\icon\item\icon_item_eventbox_blue.png" imgrect="0 0 128 128" CMM_Caption="푸른색 큐브"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

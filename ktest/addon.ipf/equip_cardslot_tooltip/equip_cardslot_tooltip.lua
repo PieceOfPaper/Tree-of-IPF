@@ -4,7 +4,6 @@ function EQUIP_CARDSLOT_INFO_TOOLTIP_INIT(addon, frame)
 end
 
 function EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN(frame, slot, argStr, groupSlotIndex)
-	
 	if slot == nil then
 		return
 	end
@@ -24,6 +23,8 @@ function EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN(frame, slot, argStr, groupSlotIndex)
 		slotIndex = slotIndex + 6
 	elseif parentSlotSet : GetName() == 'STATcard_slotset' then
 		slotIndex = slotIndex + 9
+	elseif parentSlotSet : GetName() == 'LEGcard_slotset' then
+		slotIndex = slotIndex + 12
 	end
 
 	EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex);
@@ -34,10 +35,16 @@ function EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE(frame, slot, argStr, argNum)
 	tooltipFrame:ShowWindow(0);
 end;
 
+function EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE_TEST(frame, slot, argStr, argNum)	
+	local tooltipFrame    = ui.GetFrame("monstercardslot");	
+	tooltipFrame:ShowWindow(0);
+end;
+
 function EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex)
-	
-	local invenframe = ui.GetFrame('inventory');
+
+--	local invenframe = ui.GetFrame('inventory');
 	local frame    = ui.GetFrame("equip_cardslot_tooltip");		
+	tolua.cast(frame, "ui::CTooltipFrame");
 	if frame:IsVisible() == 1 then
 		return;
 	end	
@@ -60,14 +67,17 @@ function EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex)
 			frame:SetOffset(infoFrame : GetX() + infoFrame : GetWidth(), frame : GetY());
 		end
 	end
-		
+
 	local cardID, cardLv, cardExp = GETMYCARD_INFO(slotIndex);
+	local cls = GetClassByType("Item", cardID);
 	if cardID == 0 then
 		return;
 	end
 	local ypos = EQUIP_CARDSLOT_DRAW_TOOLTIP(frame, cardID, cardLv); -- ���� ī���� ���������� �׸��� ������
 	ypos = EQUIP_CARDSLOT_DRAW_ADDSTAT_TOOLTIP(frame, ypos, cardID);
-	ypos = EQUIP_CARDSLOT_DRAW_EXP_TOOLTIP(frame, ypos, cardID, cardExp); -- ����ġ ��
+	if cls ~= nil and cls.ToolTipScp ~= 'LEGEND_BOSSCARD' then
+		ypos = EQUIP_CARDSLOT_DRAW_EXP_TOOLTIP(frame, ypos, cardID, cardExp); -- ����ġ ��
+	end
 	frame:Resize(frame:GetWidth(), ypos);
 	frame:ShowWindow(1);
 end
@@ -95,7 +105,7 @@ function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	-- �� �׸���	
 	local gradeChild = CSet:GetChild('grade');
 	if gradeChild ~= nil then
-		local gradeString = GET_STAR_TXT_REDUCED(GRADE_FONT_SIZE, cardLv, 0);
+		local gradeString = GET_STAR_TXT_REDUCED(GRADE_FONT_SIZE, cls, cardLv, 0);
 		gradeChild:SetText(gradeString);
 	end;
 

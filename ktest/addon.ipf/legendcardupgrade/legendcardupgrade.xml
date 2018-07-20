@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="legendcardupgrade" x="0" y="0" width="600" height="1030" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame titlepos="0 0" layout_gravity="left top" open="pip" fullheight="true" fasthide="true" margin="0 0 0 0"/>
+	<input moveable="false" hittestframe="true" moveintitlebar="false"/>
+	<layer layerlevel="90"/>
+	<userconfig OPTION_BTN_TEXT_OPEN="{@st43b}{s18}적용효과{/}" OPTION_BTN_TEXT_CLOSE="{@st43b}{s18}적용효과{/}" LEGENDCARD_OPEN_EFFECT="I_gacha_end01" LEGENDCARD_OPEN_EFFECT_SCALE="4" UPGRADE_RESULT_EFFECT_SUCCESS="UI_success_logo" UPGRADE_RESULT_EFFECT_FAIL="UI_fail_logo" UPGRADE_RESULT_EFFECT_BROKEN="UI_destroy_logo" UPGRADE_RESULT_EFFECT_START="UI_card_strengthen" UPGRADE_RESULT_EFFECT_SCALE="4.2" TEXT_COLOR_LACK_OF_MATERIAL="{@st66d}{#e50002}{s20}" TEXT_COLOR_ENOUGH_OF_MATERIAL="{@st66d}{s20}"/>
+	<opencheck scp="" numarg="1"/>
+	<option closebutton="false"/>
+	<script OpenScp="OPEN_LEGENDCARD_REINFORCE" CloseScp="CLOSE_LEGENDCARD_REINFORCE"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 600 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 600 62" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" skin="test_frame_top_r"/>
+		<groupbox name="mainGbox" rect="0 0 600 700" margin="0 50 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="subGbox2" parent="mainGbox" rect="0 0 600 160" margin="0 490 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="subGbox1" parent="mainGbox" rect="0 0 600 650" margin="0 18 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="optionGbox" parent="bg" rect="0 0 580 220" margin="0 700 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="option_bg" parent="optionGbox" rect="0 0 565 220" margin="0 7 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="legendcardnameGbox" rect="0 0 300 45" margin="0 320 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" image="guildname_frame"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}레전드 카드 강화{/}" fontname="default" spacey="0" hittest="false"/>
+		<picture name="magicsquare" parent="subGbox1" rect="0 0 571 620" margin="0 0 0 0" layout_gravity="center top" enableselect="false" movepop="false" scrollbar="false" image="card_reinforce_legend_bg" hittest="false"/>
+		<picture name="LEGcard_slot_anim" parent="subGbox1" rect="0 0 106 156" margin="0 0 0 0" layout_gravity="center center" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="100 150" hittest="false"/>
+		<slot name="LEGcard_slot" parent="subGbox1" rect="0 0 105 105" margin="3 140 0 0" layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="100 150" DropScp="MATERIAL_CARD_SLOT_DROP" RBtnUpScp="MATERIAL_CARD_SLOT_RBTNUP_ITEM_INFO" skin="none"/>
+		<slot name="material_slot1" parent="subGbox1" rect="0 0 65 65" margin="161 158 0 0 " layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="75 100" DropScp="MATERIAL_CARD_SLOT_DROP" RBtnUpScp="MATERIAL_CARD_SLOT_RBTNUP_ITEM_INFO" skin="none"/>
+		<slot name="material_slot2" parent="subGbox1" rect="0 0 65 65" margin="-158 158 0 0 " layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="75 100" DropScp="MATERIAL_CARD_SLOT_DROP" RBtnUpScp="MATERIAL_CARD_SLOT_RBTNUP_ITEM_INFO" skin="none"/>
+		<slot name="material_slot3" parent="subGbox1" rect="0 0 65 65" margin="3 19 0 0 " layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="75 100" DropScp="MATERIAL_CARD_SLOT_DROP" RBtnUpScp="MATERIAL_CARD_SLOT_RBTNUP_ITEM_INFO" skin="none"/>
+		<slot name="material_slot4" parent="subGbox1" rect="0 0 65 65" margin="3 330 0 0 " layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="75 100" DropScp="MATERIAL_CARD_SLOT_DROP" RBtnUpScp="MATERIAL_CARD_SLOT_RBTNUP_ITEM_INFO" skin="none"/>
+		<slot name="materialItem_slot" parent="subGbox1" rect="0 0 90 90" margin="3 493 0 0" layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="75 100" textalign="right bottom" skin="none"/>
+		<slot name="resulteffect_position_slot" parent="subGbox1" rect="0 0 100 100" margin="-95 140 0 0" layout_gravity="center top" dropsound="icon_get_down" enableselect="false" movepop="false" scrollbar="false" picksound="icon_pick_up" size="75 100" skin="none"/>
+		<animpicture name="timer" blend="50" texelx="0" texely="0" texelwidth="1" texelheight="1" spacex="1" spacey="0" loop="false" ticktime="0.3" animcount="30" layout_gravity="center top" rect="0 0 1 1" margin="0 0 0 0" hittest="false" image="none" playanim="true" stretch="false" hideAnimEnd="true" visible="false" tickscript="LEGENDCARD_REINFORCE_TIMER"/>
+		<richtext name="success_percent" parent="option_bg" rect="0 0 400 40" margin="0 0 0 0" layout_gravity="left top" hittest="false" format="{@st43b}{#ffba00}{s20}성공확률 [%s%]{/}" param1="value" param1_def="0" stretch="true"/>
+		<richtext name="success_percent_text" parent="option_bg" rect="0 0 400 40" margin="0 30 0 0" layout_gravity="left top" hittest="false" format="{@st43b}{s17}{#ffba00}  성공 시 카드의 레벨[★]이 +1 증가합니다.{/}" stretch="true"/>
+		<richtext name="fail_percent" parent="option_bg" rect="0 0 400 40" margin="0 70 0 0" layout_gravity="left top" hittest="false" format="{@st43b}{s20}실패확률 [%s%]{/}" param1="value" param1_def="0" stretch="true"/>
+		<richtext name="fail_percent_text" parent="option_bg" rect="0 0 400 40" margin="0 100 0 0" layout_gravity="left top" hittest="false" format="{@st43b}{s17}  실패 시 제물 카드가 소멸되며, 레전드 카드의 레벨은 유지됩니다.{/}" stretch="true"/>
+		<richtext name="broken_percent" parent="option_bg" rect="0 0 400 40" margin="0 140 0 0" layout_gravity="left top" fontname="limitedsale" hittest="false" format="{@st43b}{#898989}{s20}파괴확률 [%s%]{/}" param1="value" param1_def="0" stretch="true"/>
+		<richtext name="broken_percent_text" parent="option_bg" rect="0 0 400 40" margin="0 170 0 0" layout_gravity="left top" fontname="limitedsale" hittest="false" format="{@st43b}{#898989}{s17}  파괴 시 레전드 카드와 제물 카드가 소멸됩니다.{/}" stretch="true"/>
+		<richtext name="legendcard_name_text" parent="legendcardnameGbox" rect="0 0 100 30" margin="0 -2 0 0" layout_gravity="center center " hittest="false" format="{@st66d}{#ffcc33}{s18}%s{/}" param1="value" stretch="true"/>
+		<picture name="labelline1" margin="0 60 0 0" parent="option_bg" rect="0 0 580 2" stretch="true" image="guild_line_h2" layout_gravity="center top"/>
+		<picture name="labelline2" margin="0 130 0 0" parent="option_bg" rect="0 0 580 2" stretch="true" image="guild_line_h2" layout_gravity="center top"/>
+		<button name="upgradeBtn" rect="0 0 180 50" margin="-5 0  0 70" layout_gravity="center bottom" LBtnUpScp="DO_LEGENDCARD_UPGRADE_LBTNUP" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="강화" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;legendcardupgrade&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}레전드 카드 강화 UI를 닫습니다{/}"/>
+		<groupbox name="resultGbox2" parent="subGbox1" rect="0 0 580 620" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="resultGbox" parent="subGbox1" rect="0 0 580 620" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<picture name="screenmask" rect="0 0 600 650" parent="resultGbox2" hittest="false" image="fullblack" alpha="90" stretch="true" draw="false" layout_gravity="center top"/>
+		<picture name="yellow_skin" rect="0 0 500 104" margin="0 400 0 0" parent="resultGbox" hittest="false" image="BnYellow_skin" stretch="false" layout_gravity="center top"/>
+		<picture name="white_arrow" rect="0 0 56 43" margin="0 430 0 0" parent="resultGbox" hittest="false" image="white_arrow" layout_gravity="center top" stretch="true"/>
+		<picture name="resultImage" margin="0 0 0 0" parent="resultGbox" rect="0 0 400 400" stretch="true" draw="false" layout_gravity="center top"/>
+		<richtext name="before_lv" parent="resultGbox" rect="0 0 40 40" margin="-110 437 0 0" layout_gravity="center top" hittest="false" format="{@st43}%s{/}" param1="value" stretch="true"/>
+		<richtext name="after_lv" parent="resultGbox" rect="0 0 40 40" margin="110 437 0 0" layout_gravity="center top" hittest="false" format="{@st43}{#ffcc33}%s{/}" param1="value" stretch="true"/>
+	</controls>
+</uiframe>

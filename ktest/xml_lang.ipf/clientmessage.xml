@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -132,6 +132,17 @@
 		<Class ClassID="2070" ClassName="CanNotBeUsedMaterial" Data="해당 아이템은 재료로 사용할 수 없습니다."/>
 		<Class ClassID="2071" ClassName="HethranIsMaxLv" Data="해당 아이템의 레벨이 한계치에 도달했습니다."/>
 		<Class ClassID="2072" ClassName="CannotUseInReinforceState" Data="강화 중에는 사용할 수 없습니다."/>
+		<Class ClassID="2073" ClassName="LegendCardReinforce" Data="레전드 카드 강화"/>
+		<Class ClassID="2074" ClassName="LegendCardReinforce_NeedItem" Data="벨로브가 부족합니다."/>
+		<Class ClassID="2075" ClassName="LegendCardReinforce_OK" Data="강화 시 결과와 상관없이 제물로 등록한 아이템은 소멸합니다.{nl}강화 결과에 따라 등록된{nl}레전드 카드가 파괴될 수 있습니다.{nl}{nl}정말 강화를 진행하시겠습니까?"/>
+		<Class ClassID="2076" ClassName="LegendCardReinforce_Normal_Reinforce" Data="레전드 카드는 일반 카드 합성으로 강화할 수 없습니다."/>
+		<Class ClassID="2077" ClassName="LegendCardReinforce_OnlyLegCard" Data="레전드 카드만 등록이 가능합니다."/>
+		<Class ClassID="2078" ClassName="LegendCard_Slot_NotOpen" Data="레전드 카드 장착 슬롯이 봉인되어 있습니다.{nl}봉인 해제 후 장착할 수 있습니다."/>
+		<Class ClassID="2079" ClassName="LegendCard_Only_One" Data="레전드 카드는 하나의 카드만 장착할 수 있습니다."/>
+		<Class ClassID="2080" ClassName="LegendCardReinforce_Only_Velorb" Data="해당 슬롯에는 벨로브 아이템만 등록할 수 있습니다."/>
+		<Class ClassID="2081" ClassName="LegendCardReinforce_Need_LegCard" Data="강화할 레전드 카드를 먼저 등록해 주시기 바랍니다."/>
+		<Class ClassID="2082" ClassName="LegendCardReinforce_Need_Card" Data="제물로 사용될 카드를 등록해 주시기 바랍니다."/>
+		<Class ClassID="2083" ClassName="LegendReinforceCard_Not_Equip" Data="레전드 강화용 카드는 착용할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -196,7 +207,7 @@
 	<Category Name="Item">
 		<Class ClassID="4001" ClassName="GetItem" Data="아이템 획득"/>
 		<Class ClassID="4002" ClassName="DropCartToSlot" Data="카드를 장착할 슬롯에 끌어다 놓으세요."/>
-		<Class ClassID="4003" ClassName="ReallyRepair" Data="수리 비용 : {Price}{nl}수리하시겠습니까?"/>
+		<Class ClassID="4003" ClassName="ReallyRepair" Data="수리하시겠습니까?{nl}{ol}{Price} 실버{/}"/>
 		<Class ClassID="4004" ClassName="NotDecidedYet" Data="미정"/>
 		<Class ClassID="4005" ClassName="NoMorePotential" Data="아이템에 남은 포텐셜이 부족합니다."/>
 		<Class ClassID="4006" ClassName="NoMoreSocket" Data="아이템에 남은 소켓이 부족합니다."/>
@@ -366,6 +377,7 @@
 		<Class ClassID="4162" ClassName="MonsterCardOptionGroupUTIL" Data="{img purple_type}"/>
 		<Class ClassID="4163" ClassName="MonsterCardOptionGroupATK" Data="{img red_type}"/>
 		<Class ClassID="4173" ClassName="OverMaxTradeCount" Data="판매 가능한 최대 개수를 초과하였습니다."/>
+		<Class ClassID="4174" ClassName="MonsterCardOptionGroupLEG" Data="{img yellow_type 19 20}"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -887,6 +899,7 @@
 		<Class ClassID="10485" ClassName="CannotLockUnlockWhenExchanging" Data="거래중엔 아이템을 잠금/해제 할 수 없습니다."/>
 		<Class ClassID="10486" ClassName="AlreadyProcessing" Data="이미 시도 중입니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="10487" ClassName="CannotChangeChannel" Data="채널 이동을 할 수 없습니다.{nl}캐릭터가 채널 이동을 할 수 없는 상태이거나, 채널 이동을 할 수 없는 맵입니다."/>
+		<Class ClassID="10488" ClassName="ReallyGiveItemTo{PC}NoTeamTradeItem" Data="수령 아이템 중 팀 창고로 이동할 수 없는 아이템이{#aa0000}{ol}{ItemCount}개{/}{/} 포함되어 있습니다.{nl}해당 아이템은 {#aa0000}{ol}다른 캐릭터로 이동 불가{/}{/}합니다.{nl} {nl}정말{#ffffff}{ol}{PC}{/}{/} 캐릭터로 아이템을 받으시겠습니까?"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -4463,6 +4476,15 @@
 		<Class ClassID="27770" ClassName="EVENT_1712_XMAS_MSG1" Data="크리스마스 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
 		<Class ClassID="27775" ClassName="COLLECTION_REWARD_ITEM_MSG1" Data="아이템 : 팀당 {COUNT}회 지급"/>
 		<Class ClassID="27776" ClassName="COLLECTION_REWARD_ITEM_MSG2" Data="{ITEM} {COUNT} 개"/>
+		<Class ClassID="27780" ClassName="EVENT_1801_ORB_MSG1" Data="몬스터의 기운 {COUNT} 개를 사용해 {NAME} Lv{LV} 달성"/>
+		<Class ClassID="27781" ClassName="EVENT_1801_ORB_MSG2" Data="1레벨을 올리는데 몬스터의 기운 {COUNT} 개가 필요합니다."/>
+		<Class ClassID="27782" ClassName="EVENT_1801_ORB_MSG3" Data="푸른 구슬 던전 주화 받기"/>
+		<Class ClassID="27783" ClassName="EVENT_1801_ORB_MSG4" Data="인벤토리에 푸른 구슬 던전 주화가 {COUNT}개 보다 적어서 보상을 받을 수 없습니다!"/>
+		<Class ClassID="27784" ClassName="EVENT_1801_ORB_MSG5" Data="포획 성공!"/>
+		<Class ClassID="27785" ClassName="EVENT_1801_ORB_MSG6" Data="포획 실패!"/>
+		<Class ClassID="27790" ClassName="adventure_book_quest_prequest_MSG1" Data="{@st42}{s18}사전 퀘스트 [접속 중인 현재 캐릭터 기준]{/}"/>
+		<Class ClassID="27800" ClassName="EVENT_1801_RANKRESET_MSG1" Data="시노비 1써클 이상 받기"/>
+		<Class ClassID="27801" ClassName="EVENT_1801_RANKRESET_MSG2" Data="위저드 1써클 이상 받기"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -6946,6 +6968,7 @@
 		<Class ClassID="105007" ClassName="CannotDoAction" Data="해당 액션을 할 수 있는 상태가 아닙니다."/>
 		<Class ClassID="105008" ClassName="AlearyHaveItemReallyBuy?" Data="이미 가지고 있는 아이템 입니다.{nl} 정말로 구매하시겠습니까?"/>
 		<Class ClassID="105009" ClassName="AlearyHaveItemReallyPreview?" Data="이미 가지고 있는 아이템 입니다. {nl} 미리보기를 하시겠습니까?"/>
+		<Class ClassID="105010" ClassName="ReallyBuy?{Price}" Data="구매하시겠습니까?{nl}{ol}{Price} 실버{/}"/>
 	</Category>
 	<Category Name="Market">
 		<Class ClassID="106001" ClassName="Seller" Data="판매자"/>
@@ -10827,6 +10850,15 @@
 		<Class ClassID="501057" ClassName="Moru_King_Select_5" Data="강화 15단계 상품"/>
 		<Class ClassID="501058" ClassName="Moru_King_Select_6" Data="강화 20단계 상품"/>
 		<Class ClassID="501059" ClassName="Moru_King_Select_7" Data="강화 25단계 상품"/>
+		<Class ClassID="501085" ClassName="Event_Steam_Together_Master_1" Data="이벤트 미션 참가"/>
+		<Class ClassID="501091" ClassName="EVENT_SELECT_BOSSLV_SEL1" Data="육성하기"/>
+		<Class ClassID="501092" ClassName="EVENT_SELECT_BOSSLV_SEL2" Data="몬스터명 : {NAME}"/>
+		<Class ClassID="501093" ClassName="EVENT_SELECT_BOSSLV_SEL3" Data=" {nl}몬스터명 : {NAME}{nl}현재레벨 : {LV}{nl}{nl}레벨을 올리기 위해서는 '몬스터의 기운' 아이템이 필요합니다.{nl} 사용할 '몬스터의 기운' 개수를 입력해주세요."/>
+		<Class ClassID="501094" ClassName="EVENT_SELECT_BOSSLV_SEL4" Data="방생하기"/>
+		<Class ClassID="501095" ClassName="Event_Fedimian_1" Data="습격받은 페디미안 이벤트"/>
+		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 블루 오브 이벤트"/>
+		<Class ClassID="501097" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
+		<Class ClassID="501098" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
