@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_pet_owl_dummy"/>
+    <Particle frame="17" attachNode="Dummy_emitter_center" particleName="I_hawk_hovering_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="30.00" soundFile="mon_pet_hawk_wing"/>
+    <Sound frame="43.00" soundFile="mon_pet_hawk_wing"/>
+    <Sound frame="56.00" soundFile="mon_pet_hawk_wing"/>
+</ActionDesc>

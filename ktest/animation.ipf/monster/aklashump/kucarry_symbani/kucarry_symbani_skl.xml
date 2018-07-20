@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="6" attachNode="Dummy_skl" particleName="I_dash002_orange" useAttach="ture" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="6" attachNode="Dummy_skl" particleName="I_dash002_orange" useAttach="ture" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_weapon" particleName="I_spread_in002_orange2" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="40" G="30" B="10" A="30"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<Sound frame="2.00" soundFile="mon_moglan_kdown"/>
+	<Sound frame="5.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="5.00" soundFile="m_tontulia_skl_shot"/>
+</ActionDesc>

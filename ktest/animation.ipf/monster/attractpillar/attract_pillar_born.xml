@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="None" particleName="F_spread_in017" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="None" particleName="F_ground111_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+	<Particle frame="13" attachNode="Bone004" particleName="F_explosion086_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="21" attachNode="Bone005" particleName="F_explosion086_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="26" attachNode="Bone006" particleName="F_explosion086_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Sound frame="0" soundFile="None"/>
+</ActionDesc>

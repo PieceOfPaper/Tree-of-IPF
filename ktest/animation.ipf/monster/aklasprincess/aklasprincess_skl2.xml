@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="10" attachNode="Dummy_effect_cup" particleName="F_light116_pink_bubble_spin" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_effect_cup" particleName="F_light116_pink_bubble_spin" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="83" attachNode="Dummy_effect_emitter_dog_L" particleName="F_blood007_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="83" attachNode="Dummy_effect_emitter_dog_R" particleName="F_blood007_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="108" attachNode="Dummy_effect_emitter_dog_L" particleName="F_blood007_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="108" attachNode="Dummy_effect_emitter_dog_R" particleName="F_blood007_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter003" particleName="F_ground159_water_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="10"/>
+	<Particle frame="10" attachNode="Dummy_emitter002" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="10"/>
+	<Particle frame="10" attachNode="Dummy_emitter001" particleName="F_ground159_water_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="10"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="10"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_ground159_water_pink" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="10"/>
+	<Sound frame="0.49" soundFile="mon_aklasprincess_skl2"/>
+</ActionDesc>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_metalchain"/>
+    <AfterImage frame="4" term="50" blendTime="400" r="130" g="130" b="150" a="120"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="8" R="80" G="50" B="40" A="50"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_s_8"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_s_6"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_m_6"/>
+    <Sound frame="8.00" soundFile="skl_eff_chain_shot"/>
+    <BlendOn frame="9" R="70" G="40" B="30" A="50"/>
+    <AfterImage frame="10" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

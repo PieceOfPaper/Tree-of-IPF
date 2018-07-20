@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Eui-Jin Chung (IMCGames Co., Ltd) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="ActionDesc">
+		<xs:annotation>
+			<xs:documentation>Comment describing your root element</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:choice maxOccurs="unbounded">
+				<xs:element name="OffsetRange"/>
+				<xs:element name="Attack">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="kbDist" type="xs:float" use="required"/>
+						<xs:attribute name="hitDelay" type="xs:float" use="required"/>
+						<xs:attribute name="hitDelayTarget" use="optional" default="All">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="All"/>
+									<xs:enumeration value="Attacker"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="handPos" use="optional" default="Right">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Right"/>
+									<xs:enumeration value="Left"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="damRatio" type="xs:float" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="AreaAttack">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="targetParticle" type="xs:string" use="optional" default="None"/>
+						<xs:attribute name="targetEmitter" type="xs:string" use="optional" default="None"/>
+						<xs:attribute name="hitParticle" type="xs:string" use="optional" default="None"/>
+						<xs:attribute name="hitEmitter" type="xs:string" use="optional" default="None"/>
+						<xs:attribute name="damRatio" type="xs:float" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Force">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="forceName" type="xs:string" use="required"/>
+						<xs:attribute name="attachNode" type="xs:string" use="required"/>
+						<xs:attribute name="UseSklLv" type="xs:integer" use="required"/>
+						<xs:attribute name="damRatio" type="xs:float" use="required"/>
+						<xs:attribute name="kbDist" type="xs:float" use="required"/>
+						<xs:attribute name="FAccel" type="xs:float" use="required"/>
+						<xs:attribute name="FSpeed" type="xs:float" use="required"/>
+						<xs:attribute name="HSpeed" type="xs:float" use="required"/>
+						<xs:attribute name="VSpeed" type="xs:float" use="required"/>
+						<xs:attribute name="CtrlPt" type="xs:float" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="SwordTrail">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="state" use="optional" default="Start">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Start"/>
+									<xs:enumeration value="End"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="handPos" use="optional" default="Right">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Right"/>
+									<xs:enumeration value="Left"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Particle">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="eventType" use="optional" default="Normal">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Normal"/>
+									<xs:enumeration value="Ground"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="particleName" type="xs:string" use="required"/>
+						<xs:attribute name="attachActor" type="xs:string" use="optional" default="self"/>
+						<xs:attribute name="attachNode" type="xs:string" use="required"/>
+						<xs:attribute name="attachParentNode" use="optional" default="Right">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Right"/>
+									<xs:enumeration value="Left"/>
+									<xs:enumeration value="None"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Buff">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="buffName" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Placement">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Shockwave">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="frequency" type="xs:integer" use="required"/>
+						<xs:attribute name="intensity" type="xs:float" use="required"/>
+						<xs:attribute name="duration" type="xs:float" use="required"/>
+						<xs:attribute name="range" type="xs:float" use="required"/>
+						<xs:attribute name="type" use="optional" default="0">
+							<xs:simpleType>
+								<xs:restriction base="xs:integer">
+									<xs:minInclusive value="0"/>
+									<xs:maxInclusive value="1"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Sound">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="eventType" use="optional" default="Normal">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Normal"/>
+									<xs:enumeration value="Ground"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+						<xs:attribute name="soundFile" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="HitSound">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="handPos" use="optional" default="Right">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Right"/>
+									<xs:enumeration value="Left"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="AttackSound">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="handPos" use="optional" default="Right">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Right"/>
+									<xs:enumeration value="Left"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="BlowSound">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="handPos" use="optional" default="Right">
+							<xs:simpleType>
+								<xs:restriction base="xs:string">
+									<xs:enumeration value="Right"/>
+									<xs:enumeration value="Left"/>
+									<xs:enumeration value="Monster"/>
+								</xs:restriction>
+							</xs:simpleType>
+						</xs:attribute>
+					</xs:complexType>
+				</xs:element>
+				<xs:element name="Emitter">
+					<xs:complexType>
+						<xs:attribute name="frame" type="xs:integer" use="required"/>
+						<xs:attribute name="name" type="xs:string" use="required"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:choice>
+			<xs:attribute name="moveDist" type="xs:string" use="optional"/>
+		</xs:complexType>
+	</xs:element>
+</xs:schema>

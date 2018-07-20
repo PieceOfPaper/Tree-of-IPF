@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_hydra_turn"/>
+    <BlendOn frame="2" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="3" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="4" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="5" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="6" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="8" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="9" R="50" G="15" B="30" A="100"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="F_spread_in002_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_spread_9"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+    <Sound frame="10.00" soundFile="mon_minotaurs_dead"/>
+    <BlendOn frame="11" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="12" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="13" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="14" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="15" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="16" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="17" R="70" G="30" B="50" A="100"/>
+    <Sound frame="17.00" soundFile="mon_hydra_skl_3"/>
+    <BlendOn frame="18" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="19" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="20" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="21" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="22" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="23" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="24" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="25" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="26" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="27" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="28" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="29" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="30" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="31" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="32" R="70" G="30" B="50" A="100"/>
+    <BlendOn frame="33" R="50" G="15" B="30" A="100"/>
+    <BlendOn frame="34" R="60" G="40" B="60" A="50"/>
+    <BlendOn frame="36" R="70" G="30" B="50" A="60"/>
+    <Particle frame="38" attachNode="Dummy_emitter" particleName="F_smoke062" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="38" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="39" R="50" G="15" B="30" A="70"/>
+    <BlendOn frame="42" R="80" G="25" B="60" A="80"/>
+    <BlendOn frame="43" R="85" G="30" B="65" A="100"/>
+    <BlendOn frame="45" R="170" G="110" B="150" A="200"/>
+    <BlendOn frame="46" R="50" G="15" B="30" A="70"/>
+    <Sound frame="50.00" soundFile="skl_eff_stoneunderground_2"/>
+    <Particle frame="56" attachNode="Dummy_emitter" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="56" R="220" G="130" B="180" A="200"/>
+    <BlendOn frame="57" R="170" G="110" B="150" A="200"/>
+    <BlendOn frame="58" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="73" R="220" G="130" B="180" A="200"/>
+    <BlendOn frame="74" R="170" G="110" B="150" A="200"/>
+    <BlendOff frame="75" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

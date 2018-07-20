@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_spread_out026_dark_low" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="5"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="60" G="30" B="80" A="100"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="m_new_desmodus_raiseup"/>
+	<Sound frame="5.00" soundFile="skl_eff_body_atk_6"/>
+	<Sound frame="5.00" soundFile="m_new_desmodus_hit"/>
+</ActionDesc>

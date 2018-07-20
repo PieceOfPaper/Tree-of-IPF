@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_voice_pet_owl_circling"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="F_archer_hawk_fether" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_emitter" particleName="F_archer_hawk_fether" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="44.00" soundFile="mon_pet_hawk_wing"/>
+    <Particle frame="50" attachNode="Dummy_emitter" particleName="F_archer_hawk_fether_sit" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="57.00" soundFile="mon_pet_hawk_wing"/>
+    <Particle frame="65" attachNode="Dummy_emitter" particleName="F_archer_hawk_fether_sit" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_emitter" particleName="F_archer_hawk_fether" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="100" attachNode="Dummy_emitter" particleName="F_archer_hawk_fether" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3333" soundFile="mon_voice_saltistter_9"/>
+	<Sound frame="0.00" Value="3333" soundFile="skl_eff_atk_move_l_18"/>
+	<Sound frame="0.00" soundFile="skl_eff_abomination_dead_eff"/>
+	<Particle frame="4" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_atk" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="8" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Bip001 Head" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="24" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="25" attachNode="Dummy_effect_skl1_cast_L" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="0.7" pause="true" targetPos="false"/>
+	<Particle frame="26" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="28" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+	<Particle frame="30" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_dead_1" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="32" attachNode="Bip001 Head" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_effect_atk" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="44" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="45" attachNode="Dummy_effect_skl1_cast_R" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="0.6" pause="true" targetPos="false"/>
+	<Particle frame="46" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="48" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+	<Particle frame="50" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="50" attachNode="Dummy_dead_1" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="52" attachNode="Bip001 R UpperArm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="64" attachNode="Bip001 L Forearm" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl1_shot_3" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_effect_atk" particleName="F_ground015_red" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+	<Particle frame="66" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="68" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+	<Sound frame="69.00" Value="3333" soundFile="skl_eff_bodyfall_l_2"/>
+	<Particle frame="70" attachNode="Bip001 Head" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="71" attachNode="Bip001 R Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="72" attachNode="Bip001 Head" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="72.00" Value="3333" soundFile="skl_eff_bodyfall_l_1"/>
+	<Particle frame="73" attachNode="Bip001 L Thigh" particleName="F_explosion017_red" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false"/>
+	<Shockwave frame="87" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="85" attachNode="Dummy_effect_atk" particleName="I_abomination_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="85" attachNode="Dummy_effect_atk" particleName="F_explosion016_red" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Shockwave frame="89" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="91" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="93" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="95" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="97" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="99" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="101" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="103" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="105" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>
