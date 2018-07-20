@@ -10636,7 +10636,7 @@ return obj.Level * 30000"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_TGT_BUFF_BOSS_CHECK" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -10646,6 +10646,8 @@ return obj.Level * 30000"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
@@ -10661,7 +10663,7 @@ return obj.Level * 30000"/>
                 <Num Num="-1000"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_BUFF_ENEMY_BOSSCHECK" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -10671,6 +10673,7 @@ return obj.Level * 30000"/>
                 <Num Num="100"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+                <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_CEHCK_OWNER_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="OOBE_Debuff"/>

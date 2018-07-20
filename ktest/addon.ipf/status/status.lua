@@ -1862,12 +1862,17 @@ function STATUS_ACHIEVE_INIT(frame)
 		useableTitleList:ClearItems()
 	end
 	local myAchieveCount = 0;
+	local myAchieveCount_ExceptPeriod = 0
 	local currentAchieveCls = nil
 	local nextAchieveCls = nil
 	frame:SetUserValue("ShowNextStatReward", 0)
 	local showNextStatRewardCheckBox = GET_CHILD_RECURSIVELY(frame, 'showNextStatReward')
 	showNextStatRewardCheckBox:SetCheck(0)
-	
+
+	local defaultTitleText = frame:GetUserConfig("DEFAULT_TITLE_TEXT")
+
+	useableTitleList:AddItem(0, defaultTitleText)
+
     for i = 0, clscnt - 1 do
 
         local cls = GetClassByIndexFromList(clslist, i);
@@ -1885,13 +1890,15 @@ function STATUS_ACHIEVE_INIT(frame)
         if isHasAchieve == 1 and cls.Name ~= "None" then
 			local itemString = string.format("{@st42b}%s{/}", cls.Name);
 			useableTitleList:AddItem(i, itemString);
-			myAchieveCount = myAchieveCount + 1
+			myAchieveCount = myAchieveCount + 1			
+			if cls.PeriodAchieve ~= "YES" then
+				myAchieveCount_ExceptPeriod = myAchieveCount_ExceptPeriod + 1
+			end
         end
     end
 				
 	local nextAchieveCount = 0
 	local list, cnt = GetClassList("AchieveStatReward");
-	frame:SetUserValue("myAchieveCount", myAchieveCount)
 
 	for i = 0, cnt - 1 do
 		local cls = GetClassByIndexFromList(list, i);
@@ -1900,7 +1907,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			local achieveCount = cls.AchieveCount
 			local tempNextAchieveCls = GetClassByIndexFromList(list, i + 1);
 			nextAchieveCount = tempNextAchieveCls.AchieveCount
-			if achieveCount <= myAchieveCount and myAchieveCount < nextAchieveCount then
+			if achieveCount <= myAchieveCount_ExceptPeriod and myAchieveCount_ExceptPeriod < nextAchieveCount then
 				currentAchieveCls = cls
 				nextAchieveCls = tempNextAchieveCls
 				break
@@ -1916,12 +1923,15 @@ function STATUS_ACHIEVE_INIT(frame)
 
 	local currentbuffText = GET_CHILD_RECURSIVELY(frame, "currentbuffText")
 	local nextbuffText = GET_CHILD_RECURSIVELY(frame, "nextbuffText")
-	if myAchieveCount == 0 then
+	if myAchieveCount_ExceptPeriod == 0 then
 		currentbuffText:SetTextByKey("value", 0)
 		nextbuffText:SetTextByKey("value", 1)
+    elseif myAchieveCount_ExceptPeriod >= 60 then
+        currentbuffText:SetTextByKey("value", currentAchieveCls.ClassID - 1)
+        nextbuffText:SetTextByKey("value", 0)
 	else
 		currentbuffText:SetTextByKey("value", currentAchieveCls.ClassID - 1)
-		nextbuffText:SetTextByKey("value", nextAchieveCount - myAchieveCount)
+		nextbuffText:SetTextByKey("value", nextAchieveCount - myAchieveCount_ExceptPeriod)
 	end
 					
 	frame : SetUserValue("currentAchieveClassID", currentAchieveCls.ClassID)
@@ -1990,7 +2000,6 @@ function CHANGE_STAT_FONT(frame, stat, value, isInit)
 	local currentAchieveCls = GetClassByType("AchieveStatReward", currentAchieveClassID)
 	local nextAchieveCls = GetClassByType("AchieveStatReward", nextAchieveClassID)
 	local showNextStatReward = frame:GetUserIValue("ShowNextStatReward")
-	local myAchieveCount = frame:GetUserIValue("myAchieveCount")
 
 	local text = value
 	text = '+' .. value
