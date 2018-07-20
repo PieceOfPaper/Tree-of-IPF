@@ -168,7 +168,7 @@ function REMOVE_TRANSCEND_TARGET_ITEM(frame)
 	SET_TRANSCEND_RESET(frame);
 	UPDATE_TRANSCEND_ITEM(frame);
 	
-	local needTxt = string.format("{@st43b}{s18}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
+	local needTxt = string.format("{@st43b}{s16}%s{/}", ScpArgMsg("ITEMTRANSCEND_GUIDE_FIRST"));	
 	SETTEXT_GUIDE(frame, 3, needTxt);
 	
 	local popupFrame = ui.GetFrame("itemtranscendresult");

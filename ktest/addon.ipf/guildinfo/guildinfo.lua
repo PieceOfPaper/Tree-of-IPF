@@ -17,7 +17,9 @@
     addon:RegisterMsg('COLONY_ENTER_CONFIG_FAIL', 'GUILDINFO_COLONY_INIT_RADIO');
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
     addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
-    addon:RegisterMsg("GUILD_EVENT_UPDATE", "UPDATE_GUILD_EVENT_INFO");
+    addon:RegisterMsg("GUILD_EVENT_UPDATE", "UPDATE_GUILD_EVENT_INFO");    
+
+    g_ENABLE_GUILD_MEMBER_SHOW = false;
 end
 
 function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)    
@@ -130,9 +132,9 @@ function ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum)
     GUILDINFO_INIT_PROFILE(frame);
 end
 
-function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)    
+function GUILDINFO_UPDATE_INFO(frame, msg, argStr, argNum)
     GUILDINFO_INIT_PROFILE(frame);
-    GUILDINFO_INIT_MEMBER_TAB(frame);
+    _GUILDINFO_INIT_MEMBER_TAB(frame);
 end
 
 function GUILDINFO_FORCE_CLOSE_UI()
@@ -235,6 +237,7 @@ function UI_TOGGLE_GUILD()
 	if guildinfo == nil then
 		return;
 	end
+    g_ENABLE_GUILD_MEMBER_SHOW = true;
 	ui.ToggleFrame('guildinfo');
 end
 

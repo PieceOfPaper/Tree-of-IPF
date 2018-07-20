@@ -7,7 +7,7 @@
                     <Obj Type="Monster" MonType="154067" Pos="-1576.29#-0.02#-22.35" range="90" genCount="3" maxStackCount="3" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;마족 차원문&apos; &apos;SimpleAI&apos; &apos;FANTASYLIB485_MQ_PUBLIC_WARP&apos; &apos;Dialog&apos; &apos;FANTASYLIB485_MQ_2_MGAME&apos; "/>
                     <Obj Type="Monster" MonType="154067" Pos="-1332.39#-0.04#-20.21" range="90" genCount="3" maxStackCount="3" genTime="20000" genReadyTime="10000" objectKey="1" propList="&apos;Name&apos; &apos;마족 차원문&apos; &apos;SimpleAI&apos; &apos;FANTASYLIB485_MQ_PUBLIC_WARP&apos; &apos;Dialog&apos; &apos;FANTASYLIB485_MQ_2_MGAME&apos; "/>
                     <Obj Type="Monster" MonType="154067" Pos="-1480.73#-0.02#-230.51" range="90" genCount="3" maxStackCount="3" genTime="20000" genReadyTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;마족 차원문&apos; &apos;SimpleAI&apos; &apos;FANTASYLIB485_MQ_PUBLIC_WARP&apos; &apos;Dialog&apos; &apos;FANTASYLIB485_MQ_2_MGAME&apos; "/>
-                    <Obj Type="Monster" MonType="58402" Pos="-1449.54#-0.02#-18.41" range="300" maxStackCount="3" genTime="20000" objectKey="3" tendency="1">
+                    <Obj Type="Monster" MonType="58402" Pos="-1449.54#-0.02#-18.41" range="300" genCount="5" maxStackCount="3" genTime="20000" objectKey="3" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -21,7 +21,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58402" Pos="-1491.78#-0.02#-103.22" range="300" maxStackCount="3" genTime="20000" genReadyTime="10000" objectKey="4" tendency="1">
+                    <Obj Type="Monster" MonType="58402" Pos="-1491.78#-0.02#-103.22" range="300" genCount="5" maxStackCount="3" genTime="20000" genReadyTime="10000" objectKey="4" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -35,7 +35,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58407" Pos="-1503.89#-0.02#-30.83" range="300" maxStackCount="3" genTime="20000" genReadyTime="20000" objectKey="5" tendency="1">
+                    <Obj Type="Monster" MonType="58407" Pos="-1503.89#-0.02#-30.83" range="300" genCount="5" maxStackCount="3" genTime="20000" genReadyTime="20000" objectKey="5" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -49,7 +49,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58407" Pos="-1423.63#-0.03#-68.42" range="300" maxStackCount="3" genTime="20000" genReadyTime="20000" objectKey="6" tendency="1">
+                    <Obj Type="Monster" MonType="58407" Pos="-1423.63#-0.03#-68.42" range="300" genCount="5" maxStackCount="3" genTime="20000" genReadyTime="20000" objectKey="6" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
