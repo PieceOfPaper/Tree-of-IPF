@@ -1706,7 +1706,7 @@ function PUSH_BACK_IF_NOT_EXIST(list, element)
 end
 
 
-function SCR_EVENT_REINFORCE_DISCOUNT_CHECK()
+function SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc)
     if GetServerNation() ~= "KOR" then
         return 'NO'
     end
@@ -1715,6 +1715,12 @@ function SCR_EVENT_REINFORCE_DISCOUNT_CHECK()
 --    local year = now_time['year']
     local month = now_time['month']
     local day = now_time['day']
+    
+    if IsServerSection(pc) ~= 1 then
+        local serverTime = imcTime.GetCurdateNumber()
+        month = tonumber(string.sub(serverTime,3, 4))
+        day = tonumber(string.sub(serverTime,5, 6))
+    end
     
     local dateList = {{7,1},{7,2},{7,8},{7,9},{7,15},{7,16},{7,22},{7,23},{7,29},{7,30}}
     

@@ -2,6 +2,7 @@
 
 function WEAPONSWAP_ON_INIT(addon, frame)
 
+	addon:RegisterMsg('WEAPONSWAP_ENTERED', 'WEAPONSWAP_SWAP_UPDATE_ENTERED');
 	addon:RegisterMsg('WEAPONSWAP', 'WEAPONSWAP_SWAP_UPDATE');
 	addon:RegisterMsg('WEAPONSWAP_FAIL', 'WEAPONSWAP_FAIL');
 	addon:RegisterMsg('WEAPONSWAP_SUCCESS', 'WEAPONSWAP_SLOT_SUCCESS');
@@ -170,6 +171,29 @@ end
 
 function WEAPONSWAP_UI_UPDATE()
 	local frame = ui.GetFrame("weaponswap");
+	local bodyGbox = frame:GetChild("bodyGbox");
+	for i=0, 3 do
+		local etcSlot = bodyGbox:GetChild("slot"..i);
+		if nil== etcSlot then
+			return;
+		end
+
+		etcSlot 	= tolua.cast(etcSlot, 'ui::CSlot');
+		local guid = session.GetWeaponQuicSlot(i);
+		if nil ~= guid then 
+			local item = GET_ITEM_BY_GUID(guid, 1);
+			if nil ~= item then
+				SET_SLOT_ITEM_IMAGE(etcSlot, item);
+			else
+				etcSlot:ClearIcon();
+			end
+		else
+			etcSlot:ClearIcon();
+		end;
+	end
+end
+
+function WEAPONSWAP_SWAP_UPDATE_ENTERED(frame)
 	local bodyGbox = frame:GetChild("bodyGbox");
 	for i=0, 3 do
 		local etcSlot = bodyGbox:GetChild("slot"..i);
