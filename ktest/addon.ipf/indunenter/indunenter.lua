@@ -1,5 +1,6 @@
 ﻿function INDUNENTER_ON_INIT(addon, frame)
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
+    addon:RegisterMsg('CLOSE_UI', 'INDUNENTER_CLOSE');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
 
 	g_indunMultipleItem = "Premium_dungeoncount_01";
@@ -54,10 +55,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	frame:SetUserValue('INDUN_NAME', indunCls.Name);
 	frame:SetUserValue('AUTOMATCH_MODE', 'NO');
 	frame:SetUserValue('WITHMATCH_MODE', 'NO');
-	frame:SetUserValue('MON_TOGGLE_OPEN', 'NO');
-	frame:SetUserValue('REWARD_TOGGLE_OPEN', 'NO');
 	frame:SetUserValue('AUTOMATCH_FIND', 'NO');
-
     frame:SetUserValue("multipleCount", 0);
 
 

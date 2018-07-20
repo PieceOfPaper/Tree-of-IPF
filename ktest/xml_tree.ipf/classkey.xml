@@ -194,6 +194,8 @@
         <Key Name="UseOverHeat" Value="6859"/>
         <Key Name="DefaultHitDelay" Value="100829"/>
         <Key Name="AffectedByAttackSpeedRate" Value="100894"/>
+        <Key Name="Rank" Value="100947"/>
+        <Key Name="Job" Value="100946"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Item">
         <Key Name="Package" Value="34021"/>
@@ -8694,6 +8696,14 @@
         <Key Name="EV170427_DAYCHECK_TYPE2_DATE" Value="100898"/>
         <Key Name="EV170427_DAYCHECK_TYPE2_COUNT" Value="100899"/>
         <Key Name="EV170427_LVUP_GIVE_COUNT" Value="100900"/>
+        <Key Name="EVENT_1705_CORSAIR_DIR" Value="100948"/>
+        <Key Name="EVENT_1705_CORSAIR_DATE" Value="100949"/>
+        <Key Name="EVENT_1705_CORSAIR_REWARD_DATE" Value="100950"/>
+        <Key Name="EVENT_1705_CORSAIR_REWARD_COUNT" Value="100951"/>
+        <Key Name="EV170502_KIND_DONNES" Value="100941"/>
+        <Key Name="EV170516_NRU_ALWAYS_AOBJ" Value="100943"/>
+        <Key Name="EVENT_RETURN_COUNT" Value="100944"/>
+        <Key Name="EVENT_RETURN_DAY" Value="100945"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -15323,5 +15333,8 @@
         <Key Name="EVENT_REBALANCING_RESET_DATE" Value="100892"/>
         <Key Name="TUTO_ITEM_APPRAISE" Value="100893"/>
         <Key Name="EV170427_LVUP_NEWCHARACTER" Value="100901"/>
+        <Key Name="EVENT_1705_CORSAIR2" Value="100952"/>
+        <Key Name="EVENT_1705_CORSAIR1" Value="100953"/>
+        <Key Name="EV170516_NRU_ALWAYS_SOBJ" Value="100942"/>
     </KeyIDSpc>
 </ClassKey>

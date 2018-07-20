@@ -827,17 +827,28 @@ end
 
 function RUN_QUEST_EDIT_TOOL(questID)
 	if 1 == session.IsGM() then
-	    local quest_ClassName = GetClassString('QuestProgressCheck', questID, 'ClassName')
-        local questdocument = io.open('..\\release\\questauto\\InGameEdit_Quest.txt','w')
-        questdocument:write(quest_ClassName)
-        io.close(questdocument)
-
-        local path = debug.GetR1Path();
-        path = path .. "questauto\\QuestAutoTool_v1.exe";
-
-		debug.ShellExecute(path);
+        local questIES = GetClassByType('QuestProgressCheck',questID)
+	    local yesScp = string.format("SCR_GM_QUEST_UI_QUEST_CHEAT_YES(%d)",questID);
+	    local noScp = string.format("SCR_GM_QUEST_UI_QUEST_CHEAT_NO(%d)",questID);
+    	ui.MsgBox(ScpArgMsg('QUEST_CHEAT_MSG1','QUESTNAME', questIES.Name) , yesScp, noScp);
 	end
 
+end
+
+function SCR_GM_QUEST_UI_QUEST_CHEAT_YES(questID)
+    control.CustomCommand("SCR_GM_QUEST_UI_QUEST_CHEAT", questID);
+end
+
+function SCR_GM_QUEST_UI_QUEST_CHEAT_NO(questID)
+    local quest_ClassName = GetClassString('QuestProgressCheck', questID, 'ClassName')
+    local questdocument = io.open('..\\release\\questauto\\InGameEdit_Quest.txt','w')
+    questdocument:write(quest_ClassName)
+    io.close(questdocument)
+
+    local path = debug.GetR1Path();
+    path = path .. "questauto\\QuestAutoTool_v1.exe";
+
+	debug.ShellExecute(path);
 end
 
 function SCR_QUEST_DIALOG_REPLAY(ctrlSet, ctrl)

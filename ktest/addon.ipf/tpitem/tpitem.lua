@@ -655,9 +655,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		
 		
 		if (allFlag == nil) then	
-		
 			if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-				
 				if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
 					index = index + 1
 					x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
@@ -676,9 +674,8 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 					local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
 					TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
 				end
+			end
 		end
-	end
-		
 	end
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
 	
@@ -690,242 +687,242 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 end
 
 function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
+	-- 프리미엄 아이템 확인
+	local IsPremiumCase = 0;
+	if itemobj.ItemGrade == 0 then
+		IsPremiumCase = 1;
+	end
 
-			-- 프리미엄 아이템 확인
-			local IsPremiumCase = 0;
-			if itemobj.ItemGrade == 0 then
-				IsPremiumCase = 1;
-			end				
+	-- 프리미엄 여부에 따라 분류되느 UI를 일괄적으로 받아오고
+	local title = GET_CHILD_RECURSIVELY(itemcset,"title");
+	local subtitle = GET_CHILD_RECURSIVELY(itemcset,"subtitle");
+	local nxp = GET_CHILD_RECURSIVELY(itemcset,"nxp")
+	local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
+	local pre_Line = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_1");
+	local pre_Box = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_2");
+	local pre_Text = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_3");
+	local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
+	local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
+	local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
 
-			-- 프리미엄 여부에 따라 분류되느 UI를 일괄적으로 받아오고
-			local title = GET_CHILD_RECURSIVELY(itemcset,"title");
-			local subtitle = GET_CHILD_RECURSIVELY(itemcset,"subtitle");
-			local nxp = GET_CHILD_RECURSIVELY(itemcset,"nxp")
-			local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
-			local pre_Line = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_1");
-			local pre_Box = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_2");
-			local pre_Text = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_3");
-			local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
-			local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
-			local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
+	local itemName = itemobj.Name;
+	local itemclsID = itemobj.ClassID;
+	local tpitem_clsName = obj.ClassName;
+	local tpitem_clsID = obj.ClassID;
 
-			local itemName = itemobj.Name;
-			local itemclsID = itemobj.ClassID;
-			local tpitem_clsName = obj.ClassName;
-			local tpitem_clsID = obj.ClassID;
+	if 1 == IsPremiumCase then	--프리미엄일 경우
+		local sucValue = string.format("{@st41b}%s", itemName);
+		title:SetText(sucValue);
+		pre_Line:SetVisible(1);
+		pre_Box:SetVisible(1);
+		pre_Text:SetVisible(1);
+	else						--프리미엄이 아닐 경우
+		title:SetText(itemName);
+		pre_Line:SetVisible(0);
+		pre_Box:SetVisible(0);
+		pre_Text:SetVisible(0);
+	end
 
-			if 1 == IsPremiumCase then	--프리미엄일 경우
-				local sucValue = string.format("{@st41b}%s", itemName);
-				title:SetText(sucValue);
-				pre_Line:SetVisible(1);
-				pre_Box:SetVisible(1);
-				pre_Text:SetVisible(1);
-			else						--프리미엄이 아닐 경우
-				title:SetText(itemName);
-				pre_Line:SetVisible(0);
-				pre_Box:SetVisible(0);
-				pre_Text:SetVisible(0);
-			end			
+	-- 구매 여부와 착용 여부를 검사한다.
+	itemcset:SetUserValue("TPITEM_CLSID", tpitem_clsID);
+	TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, tpitem_clsID);
 			
-			-- 구매 여부와 착용 여부를 검사한다.
-			itemcset:SetUserValue("TPITEM_CLSID", tpitem_clsID);
-			TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, tpitem_clsID);
+	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");
+	--[[
+	if obj.LimitCount ~= 0 then
+		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+		local limitText = string.format("{s13}%s{/}", ScpArgMsg("BuyLimitPerMonth_{Cur}_{Max}", "Cur", curBuyCount, "Max", obj.LimitCount));
+		subtitle:SetText(limitText);
+		subtitle:SetVisible(1);	
+	else
+	]]
+		subtitle:SetVisible(0);	
+	--end;
+
+	SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
 			
-			nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");
-			--[[
-			if obj.LimitCount ~= 0 then
-				local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
-				local limitText = string.format("{s13}%s{/}", ScpArgMsg("BuyLimitPerMonth_{Cur}_{Max}", "Cur", curBuyCount, "Max", obj.LimitCount));
-				subtitle:SetText(limitText);
-				subtitle:SetVisible(1);	
-			else
-			]]
-				subtitle:SetVisible(0);	
-			--end;
+	local icon = slot:GetIcon();
+	icon:SetTooltipType('wholeitem');
+	icon:SetTooltipArg('', itemclsID, 0);
 
-			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
-			
-			local icon = slot:GetIcon();
-			icon:SetTooltipType('wholeitem');
-			icon:SetTooltipArg('', itemclsID, 0);
+	local lv = GETMYPCLEVEL();
+	local job = GETMYPCJOB();
+	local gender = GETMYPCGENDER();
+	local prop = geItemTable.GetProp(itemclsID);
+	local result = prop:CheckEquip(lv, job, gender);
 
-			local lv = GETMYPCLEVEL();
-			local job = GETMYPCJOB();
-			local gender = GETMYPCGENDER();
-			local prop = geItemTable.GetProp(itemclsID);
-			local result = prop:CheckEquip(lv, job, gender);
+	local desc = GET_CHILD_RECURSIVELY(itemcset,"desc")
+	if result == "OK" then
+		desc:SetText(GET_USEJOB_TOOLTIP(itemobj))
+	else
+		desc:SetText("{#990000}"..GET_USEJOB_TOOLTIP(itemobj).."{/}")
+	end
 
-			local desc = GET_CHILD_RECURSIVELY(itemcset,"desc")
-			if result == "OK" then
-				desc:SetText(GET_USEJOB_TOOLTIP(itemobj))
-			else
-				desc:SetText("{#990000}"..GET_USEJOB_TOOLTIP(itemobj).."{/}")
-			end
+	local tradeable = GET_CHILD_RECURSIVELY(itemcset,"tradeable")
+	local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
+	if itemProp:IsEnableUserTrade() == true then
+		tradeable:ShowWindow(0)
+	else
+		tradeable:ShowWindow(1)
+	end
 
-			local tradeable = GET_CHILD_RECURSIVELY(itemcset,"tradeable")
-			local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
-			if itemProp:IsEnableUserTrade() == true then
-				tradeable:ShowWindow(0)
-			else
-				tradeable:ShowWindow(1)
-			end
-			
-			local buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");
-			buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);
-			buyBtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
+	local buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");
+	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);
+	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
 
-			local previewbtn = GET_CHILD_RECURSIVELY(itemcset, "previewBtn");
-			previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);		
-			previewbtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
-			
-			local sucValue = string.format("");	
-			
-			local category = obj.Category;
-			if category == nil then
-				return;
-			end		
+	local previewbtn = GET_CHILD_RECURSIVELY(itemcset, "previewBtn");
+	previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);		
+	previewbtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
 
-			local subCategory = obj.SubCategory;
-			if subCategory == nil then
-				return;
-			end
+	local sucValue = string.format("");	
 
-			local isBuyPossible = 1;
-			local isPreviewPossible = 0;
+	local category = obj.Category;
+	if category == nil then
+		return;
+	end
 
-			if session.GetEquipItemByType(itemclsID) ~= nil then		-- 사용하여 혜택을 받고 있거나, 장비하고 있을때
-				SWITCH(subCategory) {				
-				['TP_Useable'] = function() 
-					sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-					isBuyPossible = 0;
-				end,
-				['TP_Consume'] = function() 
-					sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-					isBuyPossible = 0;
-				end,
-				['TP_Petitem'] = function() 
-					sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-					isBuyPossible = 0;
-				end,
-				default = function() 
-					if itemobj.ItemType  == 'Equip' then
-						if subCategory ~= 'TP_Costume_Hairacc' then			
-							if (subCategory == 'TP_Costume_Lens') then	
-								isPreviewPossible = 1;
-							end
-							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsEquiped"));	
-							isBuyPossible = 0;	
+	local subCategory = obj.SubCategory;
+	if subCategory == nil then
+		return;
+	end
+
+	local isBuyPossible = 1;
+	local isPreviewPossible = 0;
+
+	if session.GetEquipItemByType(itemclsID) ~= nil then		-- 사용하여 혜택을 받고 있거나, 장비하고 있을때
+		SWITCH(subCategory)
+		{
+			['TP_Useable'] = function()
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
+				isBuyPossible = 0;
+			end,
+
+			['TP_Consume'] = function()
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
+				isBuyPossible = 0;
+			end,
+
+			['TP_Petitem'] = function()
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
+				isBuyPossible = 0;
+			end,
+
+			default = function()
+				if itemobj.ItemType  == 'Equip' then
+					if subCategory ~= 'TP_Costume_Hairacc' then
+						if (subCategory == 'TP_Costume_Lens') then
+							isPreviewPossible = 1;
 						end
+						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsEquiped"));	
+						isBuyPossible = 0;	
 					end
-				end,
-				}						
-			else							
-				-- 카테고리 단위
-				SWITCH(category) {
-				['TP_Character'] = function() 
-				
-					-- 서브카테고리 단위
-					SWITCH(subCategory) {		
-						['TP_Costume_Color'] = function() 	
-							local etc = GetMyEtcObject();
-							if nil ~= etc then
-								local nowAllowedColor = etc['AllowedHairColor']
-								if (string.find(nowAllowedColor, itemobj.StringArg) ~= nil) or TryGetProp(etc, "HairColor_"..itemobj.StringArg) == 1 then
-									isBuyPossible = 0;
-								else
-									isBuyPossible = 1;
-								end
-								if session.GetInvItemByType(itemclsID) ~= nil then	
-									isBuyPossible = 0;
-								end
-								isPreviewPossible = 1;	--미리보기 버그 수정 보류
-								sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-							end	
- 						end,	
-						['TP_Costume_Hairacc'] = function() 	
-							isPreviewPossible = 1;		--미리보기 버그 수정 보류
- 						end,	
-								
-						['TP_Costume_Lens'] = function() 	
+				end
+			end,
+		}
+	else
+		if result == "OK" then
+			isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
+		end
+					
+		-- 카테고리 단위
+		SWITCH(category)
+		{
+			['TP_Character'] = function() 
+				-- 서브카테고리 단위
+				SWITCH(subCategory)
+				{
+					['TP_Costume_Color'] = function() 	
+						local etc = GetMyEtcObject();
+						if nil ~= etc then
+							local nowAllowedColor = etc['AllowedHairColor']
+							if (string.find(nowAllowedColor, itemobj.StringArg) ~= nil) or TryGetProp(etc, "HairColor_"..itemobj.StringArg) == 1 then
+								isBuyPossible = 0;
+							else
+								isBuyPossible = 1;
+							end
 							if session.GetInvItemByType(itemclsID) ~= nil then	
 								isBuyPossible = 0;
-								sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased1"));
 							end
-							isPreviewPossible = 1;
- 						end,	
+							isPreviewPossible = 1;	--미리보기 버그 수정 보류
+							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
+						end	
+ 					end,
 
-						default = function()	-- / TP_Hair_M / TP_Hair_F / TP_Hair_M_Premium / TP_Hair_F_Premium
-						
-							if session.GetInvItemByType(itemclsID) ~= nil then
-								isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
-								isBuyPossible = 0;
+					['TP_Costume_Hairacc'] = function()
+						isPreviewPossible = 1;		--미리보기 버그 수정 보류
+ 					end,
+
+					['TP_Costume_Lens'] = function()
+						if session.GetInvItemByType(itemclsID) ~= nil then	
+							isBuyPossible = 0;
+							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased1"));
+						end
+						isPreviewPossible = 1;
+ 					end,
+
+					default = function()	-- / TP_Hair_M / TP_Hair_F / TP_Hair_M_Premium / TP_Hair_F_Premium
+						if session.GetInvItemByType(itemclsID) ~= nil then
+							isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
+							isBuyPossible = 0;
+							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
+						else
+							if result == "OK" then
+								isBuyPossible = isPreviewPossible;
 								sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-								
-							else
-								if result == "OK" then	
-									isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
-									isBuyPossible = isPreviewPossible;		
-									sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-								elseif session.GetInvItemByType(itemclsID) ~= nil then
-									isBuyPossible = 0;	
-								
-								end
+							elseif session.GetInvItemByType(itemclsID) ~= nil then
+								isBuyPossible = 0;	
 							end
-						end,
-						}	
-				end,
-				['TP_Costume_F'] = function() 		
-					if result == "OK" then
-						isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
-					end
+						end
+					end,
+				}
+			end,
 
-					if session.GetInvItemByType(itemclsID) ~= nil then
-						isBuyPossible = 0;
-					else
-						isBuyPossible = isPreviewPossible;
-					end
-					sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
-				end,
-				['TP_Costume_M'] = function() 				
-					if result == "OK" then
-						isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
-					end
-					if session.GetInvItemByType(itemclsID) ~= nil then
-						isBuyPossible = 0;
-					else
-						isBuyPossible = isPreviewPossible;
-					end
-					sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
-				end,
-				--[[		--미리보기 버그 수정 보류
-				['TP_Premium'] = function() 
-					SWITCH(subCategory) {				
-						['TP_Petitem'] = function() 	-- 컴페니언 알일 경우
-							local clsName = obj.ItemClassName;
-							if (string.find(clsName, "egg_") ~= nil) then
-								isPreviewPossible = 1;`
-							end
- 						end,	
-						default = function() end,
-						}	
-				end,
-				]]--
-				default = function() 					
-				end,
-				}	
-			end		
-
-			if isBuyPossible == 0 then			
-				buyBtn:SetSkinName("test_gray_button");	
-				buyBtn:EnableHitTest(0);
-				if string.len(sucValue) > 0 then
-					buyBtn:SetText(sucValue);		
+			['TP_Costume_F'] = function()
+				if session.GetInvItemByType(itemclsID) ~= nil then
+					isBuyPossible = 0;
+				else
+					isBuyPossible = isPreviewPossible;
 				end
-			else
-				buyBtn:SetSkinName("test_red_button");	
-				buyBtn:EnableHitTest(1);
-			end
-			previewbtn:ShowWindow(isPreviewPossible);
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
+			end,
+
+			['TP_Costume_M'] = function()
+				if session.GetInvItemByType(itemclsID) ~= nil then
+					isBuyPossible = 0;
+				else
+					isBuyPossible = isPreviewPossible;
+				end
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
+			end,
+
+			--[[		--미리보기 버그 수정 보류
+			['TP_Premium'] = function() 
+				SWITCH(subCategory) {
+					['TP_Petitem'] = function() 	-- 컴페니언 알일 경우
+						local clsName = obj.ItemClassName;
+						if (string.find(clsName, "egg_") ~= nil) then
+							isPreviewPossible = 1;`
+						end
+ 					end,
+					default = function() end,
+					}
+			end,
+			]]--
+		}
+	end	
+
+	if isBuyPossible == 0 then
+		buyBtn:SetSkinName("test_gray_button");	
+		buyBtn:EnableHitTest(0);
+		if string.len(sucValue) > 0 then
+			buyBtn:SetText(sucValue);
+		end
+	else
+		buyBtn:SetSkinName("test_red_button");	
+		buyBtn:EnableHitTest(1);
+	end
+
+	previewbtn:ShowWindow(isPreviewPossible);
 end
 
 function TPSHOP_ISNEW_CHECK_TIME()
@@ -980,7 +977,7 @@ function TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox, clsID)
 		end
 		bisRecom = founded_info.bRecommandNO;
 	end;
-
+	
 	if typeIndex == 1 then
 		if TPSHOP_ISNEW_CHECK(clsID) == true then
 			return true;
@@ -994,6 +991,7 @@ function TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox, clsID)
 			return true;
 		end
 	end
+
 	return false;
 end
 
@@ -1298,41 +1296,43 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
 		return;
 	end
 	
-	
-	SWITCH(category) {				
-	
-	['TP_Character'] = function() 
-		SWITCH(subCategory) {				
-
-		['TP_Costume_Color'] = function() 
-			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
-		end,
+	SWITCH (category)
+	{				
+		['TP_Character'] = function() 
+			SWITCH (subCategory)
+			{
+				['TP_Costume_Color'] = function() 
+					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 1, tpitemname, itemobj); -- 염색약	(보류시 주석처리할 곳)
+				end,
 		
-		['TP_Costume_Hairacc'] = function() 
-			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj); -- 헤어악세	(보류시 주석처리할 곳)
+				['TP_Costume_Hairacc'] = function() 
+					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj); -- 헤어악세	(보류시 주석처리할 곳)
+				end,
 
-		end,	
+				['TP_Costume_Lens'] = function() 
+					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
+				end,
 
-		['TP_Costume_Lens'] = function() 
-			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
-
-		end,		
+				default = function() 
+					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 헤어
+				end,
+			}
+		end,
+	
+		['TP_Premium'] = function() 
+			SWITCH (itemobj.EqpType)
+			{
+				['OUTER'] = function()
+					TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
+				end,
+			}
+			--TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj);	-- 컴페니언	(보류시 주석처리할 곳)
+		end,
 
 		default = function() 
-			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 헤어
-
-		end,
-		}		
-	end,
-	
-	['TP_Premium'] = function() 
-			--TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj);	-- 컴페니언	(보류시 주석처리할 곳)
-	end,			
-	default = function() 
 			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
-	end,
+		end,
 	}	
-
 end
 
 -- 미리보기에서 해당 슬롯에 장착
