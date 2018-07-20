@@ -87,6 +87,11 @@
                         <Str Str="Start"/>
                     </ToolScp>
                 </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="M_GTOWER_2"/>
+                    </ToolScp>
+                </CompleteScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="100170" Pos="-3032.04#239.64#4270.04" angle="-95" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">

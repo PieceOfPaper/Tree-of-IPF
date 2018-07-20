@@ -571,7 +571,7 @@ function UI_TOGGLE_GUILD()
 		return;
 	end
 
-	ui.ToggleFrame('guild');
+	ui.ToggleFrame('guildinfo');
 
 end
 
@@ -2282,7 +2282,7 @@ function ON_RULLET_LIST()
 end
 
 function UI_CHECK_NOT_PVP_MAP()
-	if world.IsPVPMap() then
+	if world.IsPVPMap() or session.colonywar.GetIsColonyWarMap() == true then
 		return 0;
 	end
 

@@ -42,22 +42,6 @@
 			<richtext name="itemTextval" caption="Defval" textalign="center top" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 30 20" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
 		</controls>
 	</tooltip>
-	<tooltip name="journal_recipe" x="0" y="0" fixwidth="false" width="270" height="100" moveable="true" frameskin="test_Item_tooltip_normal" blendtime="" UpdateScp="JOURNAL_UPDATE_RECIPE_TOOLTIP">
-		<controls>
-			<picture name="itemicon" layout_gravity="center top" stretch="true" rect="0 0 64 64"/>
-			<richtext name="recipename" format="{@st43}%s" param1="value" textalign="center top" layout_gravity="center top" rect="0 0 200 30" margin="0 85 0 0" fixwidth="false" hittest="false" updateparent="true"/>
-			<richtext name="difficulty" format="{@st41}난이도 : %s" param1="value" layout_gravity="center top" rect="0 0 200 30" margin="0 120 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true"/>
-			<queue name="itempic" layout_gravity="left top" rect="0 0 230 0" margin="20 165 0 0"/>
-		</controls>
-	</tooltip>
-	<tooltip name="wikidetail" x="0" y="0" fixwidth="true" width="270" height="10" moveable="true" frameskin="Item_tooltip_wiki" blendtime="" UpdateScp="UPDATE_WIKIDETAIL_TOOLTIP">
-		<controls>
-			<picture name="itempic" layout_gravity="center top" rect="0 0 64 64"/>
-			<richtext name="title" layout_gravity="center top" rect="0 95 180 20" fixwidth="true" hittest="false" updateparent="true"/>
-			<richtext name="desc" layout_gravity="center top" rect="0 120 180 20" fixwidth="true" hittest="false" updateparent="true"/>
-			<groupbox name="exinfo" rect="0 155 250 50" margin="0 155 0 0" skin="bg" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
-		</controls>
-	</tooltip>
 	<tooltip name="partylist" x="0" y="0" fixwidth="true" width="270" height="10" moveable="true" frameskin="Item_tooltip_equip2" blendtime="" UpdateScp="UPDATE_PARTYLIST_TOOLTIP">
 		<controls>
 			<richtext name="title" rect="10 10 250 20" layout_gravity="left top" fixwidth="false" updateparent="true"/>
@@ -104,13 +88,6 @@
 			<groupbox name="bosscard" margin="824 0 0 0" rect="0 0 380 0" skin="monstercard" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="gem" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
-		</controls>
-	</tooltip>
-	<tooltip name="journal_mon_item_sub" x="0" y="0" fixwidth="true" width="400" height="80" moveable="true" skin="" UpdateScp="UPDATE_JOURNAL_ITEM_SUB">
-		<controls>
-			<richtext name="name" rect="0 0 80 20" fixwidth="false" updateparent="true" margin="13 10 0 0" layout_gravity="left top" format="{@sti5}%s" param1="value" param1_def="MONSTERNAME"/>
-			<labelline name="labelline_1" margin="-1 40 0 0" rect="0 0 400 2" skin="labelline_def" layout_gravity="left top"/>
-			<richtext name="clickto" rect="0 0 80 20" fixwidth="false" updateparent="true" margin="11 47 0 0" layout_gravity="left top" format="{@st41_gray}%s" param1="value" param1_def="CLICKTOMAINPAGE"/>
 		</controls>
 	</tooltip>
 	<tooltip name="wholeitem_link" x="0" y="0" fixwidth="false" width="1640" height="0" moveable="true" frameskin="None" draw="false" blendtime="" UpdateScp="UPDATE_ITEM_TOOLTIP" CustomUpdate="UPDATE_NEW_TIP">
@@ -174,45 +151,6 @@
 			<richtext name="comment" rect="5 45 160 100" fixwidth="false" updateparent="true"/>
 		</controls>
 	</tooltip>
-	<tooltip name="monster" x="0" y="0" fixwidth="true" width="400" height="430" moveable="true" frameskin="test_Item_tooltip_normal" skin="" UpdateScp="UPDATE_MONSTER_TOOLTIP">
-		<controls>
-			<picture name="image" rect="0 0 80 80" margin="10 47 0 0" layout_gravity="left top"/>
-			<button name="complete" layout_gravity="left top" margin="7 44 0 0" rect="0 0 88 94" hittest="false" skin="journal_complete_skin"/>
-			<richtext name="name" rect="0 0 80 20" fixwidth="false" updateparent="true" margin="10 15 0 0" layout_gravity="center top" format="%s" param1="value" param1_def="Monster_Name" fontname="white_20_ol"/>
-			<richtext name="racetype" rect="0 0 120 32" margin="110 50 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
-			<richtext name="attr" rect="0 0 120 32" margin="220 50 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
-			<richtext name="t_exp" rect="0 0 80 20" fixwidth="false" updateparent="true" margin="110 90 0 0" layout_gravity="left top" format="{#16120e}Exp : {@st63_green}%s {@st42_red}(%s)" param1="exp" param1_def="0" fontname="brown_16_b" param2="jobexp" param2_def="123"/>
-			<richtext name="t_desc" rect="0 0 380 18" fixwidth="true" margin="12 135 0 0" layout_gravity="left top" format="{#16120e}%s" param1="value" param1_def="Monster_Desc" resizebytext="true"/>
-			<richtext name="t_complete" rect="0 0 70 40" margin="15 105 0 0" layout_gravity="left top" format="{#16120e}달성{/}" textalign="center center" resizebytext="false" fontname="brown_14" fixwidth="true"/>
-			<labelline name="label_1" margin="0 157 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
-			<labelline name="label_2" margin="0 240 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
-			<labelline name="label_3" margin="0 342 0 0" rect="0 0 380 4" skin="None" layout_gravity="center top"/>
-			<groupbox name="myRanking" margin="12 160 0 0" rect="0 0 380 80" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
-			<groupbox name="killRanking" margin="12 243 0 0" rect="0 0 380 100" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
-			<groupbox name="damageRanking" margin="12 345 0 0" rect="0 0 380 100" skin="bg2" hittest="false" draw="false" updateparent="false" scrollbar="false" layout_gravity="left top"/>
-			<richtext name="myTitle" parent="myRanking" rect="0 0 100 20" fixwidth="true" updateparent="true" margin="10 7 0 0" layout_gravity="left top" format="{@sti9}내 랭킹" fontname="white_16_ol"/>
-			<richtext name="myKillTitle" parent="myRanking" rect="0 0 350 20" fixwidth="true" updateparent="true" margin="10 35 0 0" layout_gravity="left top" fontname="brown_16"/>
-			<richtext name="myKillRank" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="180 35 0 0" layout_gravity="left top" format="%s 위" param1="rank" param1_def="0" fontname="brown_16"/>
-			<richtext name="myKillScore" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 35 10 0" layout_gravity="right top" fontname="brown_16"/>
-			<richtext name="myDamageTitle" parent="myRanking" rect="0 0 100 20" fixwidth="true" updateparent="true" margin="10 55 0 0" layout_gravity="left top" fontname="brown_16"/>
-			<richtext name="myDamageRank" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="180 55 0 0" layout_gravity="left top" format="%s 위" param1="rank" param1_def="0" fontname="brown_16"/>
-			<richtext name="myDamageScore" parent="myRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 55 10 0" layout_gravity="right top" format="피해량 : %s" param1="score" param1_def="0" fontname="brown_16"/>
-			<richtext name="killTitle" parent="killRanking" rect="0 0 100 20" fixwidth="true" updateparent="true" margin="10 7 0 0" layout_gravity="left top" format="{@sti9}처치 랭킹" fontname="white_16_ol"/>
-			<richtext name="killRank1" parent="killRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="10 35 0 0" layout_gravity="left top" format="{b}1.{/}  %s" param1="name" param1_def="0" fontname="brown_16"/>
-			<richtext name="killScore1" parent="killRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 35 10 0" layout_gravity="right top" format="%s" param1="score" param1_def="0" fontname="brown_16"/>
-			<richtext name="killRank2" parent="killRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="10 55 0 0" layout_gravity="left top" format="{b}2.{/}  %s" param1="name" param1_def="0" fontname="brown_16"/>
-			<richtext name="killScore2" parent="killRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 55 10 0" layout_gravity="right top" format="%s" param1="score" param1_def="0" fontname="brown_16"/>
-			<richtext name="killRank3" parent="killRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="10 75 0 0" layout_gravity="left top" format="{b}3.{/}  %s" param1="name" param1_def="0" fontname="brown_16"/>
-			<richtext name="killScore3" parent="killRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 75 10 0" layout_gravity="right top" format="%s" param1="score" param1_def="0" fontname="brown_16"/>
-			<richtext name="damageTitle" parent="damageRanking" rect="0 0 100 20" fixwidth="true" updateparent="true" margin="10 7 0 0" layout_gravity="left top" format="{@sti9}피해 랭킹" fontname="white_16_ol"/>
-			<richtext name="damageRank1" parent="damageRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="10 35 0 0" layout_gravity="left top" format="{b}1.{/}  %s" param1="name" param1_def="0" fontname="brown_16"/>
-			<richtext name="damageScore1" parent="damageRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 35 10 0" layout_gravity="right top" format="%s" param1="score" param1_def="0" fontname="brown_16"/>
-			<richtext name="damageRank2" parent="damageRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="10 55 0 0" layout_gravity="left top" format="{b}2.{/}  %s" param1="name" param1_def="0" fontname="brown_16"/>
-			<richtext name="damageScore2" parent="damageRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 55 10 0" layout_gravity="right top" format="%s" param1="score" param1_def="0" fontname="brown_16"/>
-			<richtext name="damageRank3" parent="damageRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="10 75 0 0" layout_gravity="left top" format="{b}3.{/}  %s" param1="name" param1_def="0" fontname="brown_16"/>
-			<richtext name="damageScore3" parent="damageRanking" rect="0 0 350 20" fixwidth="false" updateparent="true" margin="0 75 10 0" layout_gravity="right top" format="%s" param1="score" param1_def="0" fontname="brown_16"/>
-		</controls>
-	</tooltip>
 	<tooltip name="mon_simple" x="0" y="0" fixwidth="true" width="400" height="200" moveable="true" frameskin="test_Item_tooltip_normal" skin="" UpdateScp="UPDATE_MON_SIMPLE_TOOLTIP">
 		<controls>
 			<picture name="image" rect="0 0 80 80" margin="10 47 0 0" layout_gravity="left top"/>
@@ -248,17 +186,6 @@
 			<groupbox name="gbox" rect="0 5 200 400" hittest="false" draw="false" updateparent="true" resizebyparent="true" scrollbar="false"/>
 		</controls>
 	</tooltip>
-	<tooltip name="wikirank" x="0" y="0" marginy="10" fixwidth="true" width="250" height="300" moveable="true" blendtime="" UpdateScp="UPDATE_WIKI_TOOLTIP">
-		<controls>
-			<advlistbox name="AdvBox" rect="0 15 370 501" skin="hof" maxrowcol="100 5" scroll="false" heightperrow="25" widthpercol="100"/>
-			<advlistboxitem parent="AdvBox" row="0" col="0" datatype="richtext" name="Rank" caption="{@st56}순위{/}" rect="0 0 10 10"/>
-			<advlistboxitem parent="AdvBox" row="0" col="1" datatype="richtext" name="Type" caption="{@st56}이름{/}" rect="0 0 10 10"/>
-			<advlistboxitem parent="AdvBox" row="0" col="2" datatype="richtext" name="Point" caption="" rect="0 0 10 10"/>
-			<advlistboxsetting parent="AdvBox" row="0" col="0" colwidth="50" rowheight="25" startrow="1" rowbgcolor="#4a443f"/>
-			<advlistboxsetting parent="AdvBox" row="0" col="1" colwidth="150" rowheight="25" startrow="1" rowbgcolor="#4a443f"/>
-			<advlistboxsetting parent="AdvBox" row="0" col="2" colwidth="80" rowheight="25" startrow="1" rowbgcolor="#4a443f"/>
-		</controls>
-	</tooltip>
 	<tooltip name="partymember" x="0" y="0" width="100" height="30" moveable="true" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_MEMBER_TOOLTIP">
 		<controls>
 			<richtext name="caption" rect="10 1 256 20" textalign="left center" layout_gravity="left center" updateparent="true"/>
@@ -267,11 +194,6 @@
 	<tooltip name="partymap" x="0" y="0" width="100" height="30" moveable="true" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_MEMBER_MAP_TOOLTIP">
 		<controls>
 			<richtext name="caption" rect="10 1 256 20" textalign="left center" layout_gravity="left center" updateparent="true"/>
-		</controls>
-	</tooltip>
-	<tooltip name="journalrank" x="0" y="0" width="100" height="30" moveable="true" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_JOURNAL_RANK_TOOLTIP">
-		<controls>
-			<richtext name="caption" rect="0 0 256 20" margin="10 1 0 0" layout_gravity="left center" fixwidth="false" updateparent="true"/>
 		</controls>
 	</tooltip>
 	<tooltip name="auction_sysmenu" x="0" y="0" width="450" height="210" frameskin="comparisonballoon_positive" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_AUCTION_SYSMENU_TOOLTIP">
@@ -337,6 +259,20 @@
 			<richtext name="add_value" rect="0 0 60 30" margin="194 36 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top"/>
 			<labelline name="label" margin="0 60 0 0" rect="0 0 270 3" skin="None" layout_gravity="center top"/>
 			<richtext name="desc" rect="0 0 250 40" margin="1 0 0 17" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66}{s14}%s{/}" maxwidth="0" param1="value" param1_def="Description" resizebytext="true" slideshow="false" spacey="0" textalign="left bottom"/>
+		</controls>
+	</tooltip>
+	<tooltip name="adventure_book_job_info" x="0" y="0" fixwidth="true" width="450" height="300" moveable="false" frameskin="adventure_paper2" lifetime="90000" blendtime="1500" UpdateScp="ADVENTURE_BOOK_TOOLTIP_GROW_JOB">
+		<controls>
+			<richtext name="jobname_text" rect="0 0 250 40" margin="30 30 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="value" param1_def="jobname"/>
+			<richtext name="jobrank_text" rect="0 0 250 40" margin="0 30 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="value" param1_def="jobrank"/>
+			<groupbox name="jobtype_gb" rect="0 0 85 23" margin="30 65 0 0" layout_gravity="left top" draw="false" image="adventure_attribute"/>
+			<richtext name="jobtype_label" rect="0 0 70 40" margin="35 66 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_14_ol" format="%s" maxwidth="0" param1="value" param1_def="타입"/>
+			<richtext name="jobtype_text" rect="0 0 70 40" margin="100 70 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="black_14_b" format="%s" maxwidth="0" param1="value" param1_def="type"/>
+			<groupbox name="jobdifficulty_gb" rect="0 0 85 23" margin="30 90 0 0" layout_gravity="left top" draw="false" image="adventure_attribute"/>
+			<richtext name="jobdifficulty_label" rect="0 0 70 40" margin="35 93 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_14_ol" format="%s" maxwidth="0" param1="value" param1_def="난이도"/>
+			<richtext name="jobdifficulty_text" rect="0 0 70 40" margin="100 93 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="black_14_b" format="%s" maxwidth="0" param1="value" param1_def="difficulty"/>
+			<labelline name="label" margin="0 55 0 0" rect="0 0 400 4" skin="None" layout_gravity="center top"/>
+			<richtext name="desc_text" rect="0 0 390 100" margin="30 130 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_14" format="%s" maxwidth="0" param1="value" param1_def="Description"/>
 		</controls>
 	</tooltip>
 </tooltipset>

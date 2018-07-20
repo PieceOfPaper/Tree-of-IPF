@@ -68,13 +68,12 @@ function SHOW_PC_COMPARE(cid)
 
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 	local jobhistory = otherpcinfo.jobHistory;
-	local ranking = geServerWiki.GetWikiServRank();
 	local frame = ui.GetFrame("compare");
 	frame:ShowWindow(1);
 
-	local charName		= otherpcinfo:GetAppearance():GetName()
-	local teamName		= otherpcinfo:GetAppearance():GetFamilyName()
-	local gender		= otherpcinfo:GetAppearance():GetGender()
+	local charName = otherpcinfo:GetAppearance():GetName()
+	local teamName = otherpcinfo:GetAppearance():GetFamilyName()
+	local gender = otherpcinfo:GetAppearance():GetGender()
 	frame:SetUserValue('COMPARE_PC_GENDER', gender); -- 살펴보기할 때 살펴보기중인 캐릭의 성별 가져오기 위함
 
 	local infoGbox = frame:GetChild("groupbox_1");
@@ -106,18 +105,19 @@ function SHOW_PC_COMPARE(cid)
 	local clslist, cnt  = GetClassList("Job");
 	local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 
-	local jobRank		= nowjobinfo.grade
-	local jobName		= GET_JOB_NAME(nowjobcls, gender);
-	local level			= obj.Lv
+	local jobRank = nowjobinfo.grade
+	local jobName = GET_JOB_NAME(nowjobcls, gender);
+	local level = obj.Lv
 
-	jobInfoRTxt:SetTextByKey("rank",jobRank);
-	jobInfoRTxt:SetTextByKey("job",jobName);
-	jobInfoRTxt:SetTextByKey("lv",level);
+	jobInfoRTxt:SetTextByKey("rank", jobRank);
+	jobInfoRTxt:SetTextByKey("job", jobName);
+	jobInfoRTxt:SetTextByKey("lv", level);
 
-
-	local score			= otherpcinfo.wikiTotalScore
-	local pcranking		= otherpcinfo:GetOtherpcWikiRanking(WIKI_TOTAL) 
-	local wholeusercnt	= ranking.totalCount
+	local rankInfo = otherpcinfo:GetOtherpcAdventureBookRanking();
+    print("??", rankInfo)
+    local pcranking = rankInfo.rank;
+	local score = rankInfo.score;
+	local wholeusercnt = GetAdventureBookTotalRankCount();
 
 	local rankingInfoRTxt = GET_CHILD(infoGbox,"rankingInfo","ui::CRichText")
 	local unrankingInfoRTxt = GET_CHILD(infoGbox,"unrankingInfo","ui::CRichText")
@@ -130,12 +130,10 @@ function SHOW_PC_COMPARE(cid)
 		unrankingInfoRTxt:ShowWindow(0)
 	end
 
-	rankingInfoRTxt:SetTextByKey("journalScore",score);
-	unrankingInfoRTxt:SetTextByKey("journalScore",score);
-	rankingInfoRTxt:SetTextByKey("charRanking",pcranking);
-	rankingInfoRTxt:SetTextByKey("userCount",wholeusercnt);
-	
-
+	rankingInfoRTxt:SetTextByKey("journalScore", score);
+	unrankingInfoRTxt:SetTextByKey("journalScore", score);
+	rankingInfoRTxt:SetTextByKey("charRanking", pcranking);
+	rankingInfoRTxt:SetTextByKey("userCount", wholeusercnt);
 
 	local his_box_bg = GET_CHILD_RECURSIVELY(frame,"his_box_bg");
 	his_box_bg:ShowWindow(0)

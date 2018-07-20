@@ -10,6 +10,7 @@
 	<sound opensound="sys_map_open" closesound="sys_map_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
 	<script OpenScp="OPEN_WORLDMAP" CloseScp="CLOSE_WORLDMAP"/>
+	<userconfig COLONY_NOT_OCCUPIED_IMG="colonymap_unoccupation" COLONY_PROGRESS_IMG="colonymap_in_progress" COLONY_IMG_SIZE="74"/>
 	<controls>
 		<picture name="pic" rect="0 0 3480 7250" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="WORLDMAP_LBTNUP" LBtnDownScp="WORLDMAP_LBTNDOWN" MouseWheelScp="WORLDMAP_MOUSEWHEEL" changecursor="false" hittest="true" image="worldmap_s_bg" stretch="true"/>
 		<picture name="worldmap_mark" rect="0 0 360 300" margin="0 60 0 0" layout_gravity="right top" changecursor="false" hittest="false" image="worldmap_mark" stretch="true"/>

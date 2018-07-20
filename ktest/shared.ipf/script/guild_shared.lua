@@ -228,5 +228,17 @@ function GET_REMAIN_TICKET_COUNT(guildObj)
 	return guildLevel - guildObj.UsedTicketCount;
 end
 
+function IS_ENABLE_GUILD_NEUTRALITY(guildObj)
+    if guildObj == nil then
+        return false;
+    end    
+    if guildObj.Level < MIN_LEVEL_FOR_GUILD_NEUTRALITY then
+        return false;
+    end
+    return true;
+end
 
-
+function GET_GUILD_NEUTRALITY_COST(guildObj)
+    local guildLevel = guildObj.Level;
+    return 0; -- hs_comment: 길드 레벨에 따라 중립 선포 비용 다르게 수식 써주세요 :) 
+end

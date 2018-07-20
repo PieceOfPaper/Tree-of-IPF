@@ -3,8 +3,7 @@ first_click_y = nil
 
 
 function WORLDMAP_ON_INIT(addon, frame)
-
-
+    addon:RegisterMsg('UPDATE_OTHER_GUILD_EMBLEM', 'ON_UPDATE_OTHER_GUILD_EMBLEM');
 end
 
 
@@ -251,10 +250,10 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 				local accObj = GetMyAccountObj();
 				if accObj['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
-				
+					
 					if changeDirection ~= true or parentGBox:GetChild(gBoxName) == nil then
 				    
-						CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
+							CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
 				
 					end
 				end
@@ -481,9 +480,64 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
     if #getTypeIES > 0 then
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
-	
+    
     local totalCtrlHeight = 0;
     local maxCtrlWidth = 0;
+
+    -- colony occupation info    
+    if IS_COLONY_SPOT(mapCls.ClassName) == true then
+        local topFrame = ctrlSet:GetTopParentFrame();
+        local COLONY_IMG_SIZE = tonumber(topFrame:GetUserConfig('COLONY_IMG_SIZE'));
+
+        local colonyText = '';
+        local occupyTextTooltip = '';
+        local occupyText = ctrlSet:CreateControl('richtext', 'occupyText', 0, 0, 30, 30);        
+        local emblemSet = nil;
+        SET_WORLDMAP_RICHTEXT(occupyText, 1);        
+                
+        if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
+            local COLONY_PROGRESS_IMG = topFrame:GetUserConfig('COLONY_PROGRESS_IMG');
+            colonyText = string.format('{img %s %d %d}', COLONY_PROGRESS_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
+            occupyTextTooltip = ClMsg('ProgressColonyWar');
+        else -- 콜로니전 진행 중이 아닐 때
+            local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
+            local occupyInfo = session.colonywar.GetOccupationInfoByMapID(mapCls.ClassID);        
+            if occupyInfo == nil then
+                colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
+                occupyTextTooltip = ClMsg('NotOccupiedSpot');
+            else            
+                ctrlSet:RemoveChild('occupyText');
+                occupyText = nil;
+
+                local guildID = occupyInfo:GetGuildID();
+                emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
+                emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
+
+                -- emblem pic set
+                local emblemPic = GET_CHILD(emblemSet, 'emblemPic');                
+                local emblemImgName = guild.GetEmblemImageName(guildID);                        
+                if emblemImgName ~= 'None' then
+                    emblemPic:SetImage(emblemImgName);
+                else                
+                    guild.ReqEmblemImage(guildID);
+                end                                
+                occupyTextTooltip = occupyInfo:GetGuildName();
+            end
+        end
+
+        if occupyText ~= nil then
+            occupyText:SetTextTooltip(occupyTextTooltip);
+            occupyText:SetText(colonyText);
+            totalCtrlHeight = totalCtrlHeight + occupyText:GetHeight();
+            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, occupyText:GetWidth());
+        elseif emblemSet ~= nil then
+            emblemSet:SetTextTooltip(occupyTextTooltip);            
+            totalCtrlHeight = totalCtrlHeight + emblemSet:GetHeight();
+            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, emblemSet:GetWidth());
+        end
+    end
+	
+    -- dungeon info
 	local mapType = TryGetProp(mapCls, 'MapType');
 	local dungeonIcon = ''
     if mapType == 'Dungeon' then
@@ -614,11 +668,14 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 
 end
 
-function SET_WORLDMAP_RICHTEXT(textCtrl)
+function SET_WORLDMAP_RICHTEXT(textCtrl, hittest)
+    if hittest == nil then
+        hittest = 0;
+    end
     textCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
-    AUTO_CAST(textCtrl);
+    textCtrl = AUTO_CAST(textCtrl);
     textCtrl:EnableResizeByText(1);
-    textCtrl:EnableHitTest(0);
+    textCtrl:EnableHitTest(hittest);    
 end
 
 function GET_MAX_WIDTH(currentWidth, nextWidth)
@@ -1336,4 +1393,16 @@ function WARP_INFO_ZONE(zoneName)
 			end
 		end
 	end
+end
+
+function ON_UPDATE_OTHER_GUILD_EMBLEM(frame, msg, argStr, argNum)
+    local pic = frame:GetChild('pic');
+    local emblemSet = GET_CHILD_RECURSIVELY(pic, 'EMBELM_'..argStr);    
+    if emblemSet ~= nil then
+        local emblemPic = GET_CHILD(emblemSet, 'emblemPic');
+        local emblemImgName = guild.GetEmblemImageName(argStr);
+        if emblemImgName ~= 'None' then
+            emblemPic:SetImage(emblemImgName);
+        end
+    end
 end

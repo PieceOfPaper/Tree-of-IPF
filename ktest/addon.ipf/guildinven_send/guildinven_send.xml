@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="guildinven_send" x="0" y="0" width="670" height="500" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<layer layerlevel="81"/>
+	<option closebutton="false"/>
+	<sound opensound="inven_win_open" closesound="inven_win_close"/>
+	<opencheck scp="UI_CHECK_GUILD_UI_OPEN"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<userconfig ODD_INDEX_BG_SKIN="chat_window" SEARCH_TARGET_BG_SKIN="guildbattle_win_bg" MEMBER_SORT_IMG_ON="guild_arrow_up" MEMBER_SORT_IMG_OFF="guild_arrow_down"/>
+	<controls>
+		<groupbox name="headerBox" rect="0 0 670 60" margin="0 0 0 0" hittest="false" layout_gravity="center top" skin="test_frame_top"/>
+		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}아이템 보내기" fontname="white_16_b_ol"/>
+		<button name="closeBtn" rect="0 0 60 60" margin="0 20 27 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guildinven_send&apos;)"/>
+		<groupbox name="itemsendBox" rect="0 0 670 440" margin="0 0 0 0" layout_gravity="center bottom" draw="false"/>
+		<groupbox name="itemInfoBox" rect="0 0 260 460" parent="itemsendBox" margin="0 0 2 0" layout_gravity="right bottom" draw="false"/>
+		<groupbox name="itemInfoBox2" rect="0 0 250 165" parent="itemInfoBox" margin="-2 0 0 65" layout_gravity="center bottom" skin="test_weight_skin" draw="true" scrollbar="false"/>
+		<slot name="itemSlot" rect="0 0 70 70" parent="itemInfoBox" hittest="false" margin="0 65 0 0" layout_gravity="center top" skin="invenslot2"/>
+		<richtext name="itemNameText" rect="0 0 200 30" parent="itemInfoBox" margin="0 160 0 0" layout_gravity="center top" caption="아이템 이름" fontname="black_18_b"/>
+		<picture name="line1" rect="0 0 230 2" parent="itemInfoBox2" margin="0 0 0 57" layout_gravity="center bottom" image="guild_line_h2" stretch="true"/>
+		<richtext name="haveText2" rect="0 0 200 30" parent="itemInfoBox2" margin="10 20 0 0" layout_gravity="left top" format="보유 개수" fontname="black_18" param1_def="0"/>
+		<richtext name="haveText" rect="0 0 200 30" parent="itemInfoBox2" margin="0 20 10 0" layout_gravity="right top" format="%s" fontname="black_18" param1="count" param1_def="0"/>
+		<richtext name="sendText2" rect="0 0 200 30" parent="itemInfoBox2" margin="10 65 0 0" layout_gravity="left top" format="전달 개수" fontname="black_18" param1_def="0"/>
+		<richtext name="sendText" rect="0 0 200 30" parent="itemInfoBox2" margin="0 65 10 0" layout_gravity="right top" format="- %s" fontname="black_18" param1="count" param1_def="0"/>
+		<richtext name="remainText2" rect="0 0 200 30" parent="itemInfoBox2" margin="10 0 0 20" layout_gravity="left bottom" format="잔여 개수" fontname="black_18" param1_def="0"/>
+		<richtext name="remainText" rect="0 0 200 30" parent="itemInfoBox2" margin="0 0 10 20" layout_gravity="right bottom" format="= %s" fontname="black_18" param1="count" param1_def="0"/>
+		<groupbox name="memberBox" rect="0 0 400 430" margin="8 0 0 10" layout_gravity="left bottom" skin="test_frame_midle"/>
+		<checkbox name="allMemberCheck" rect="0 0 30 30" parent="memberBox" margin="10 5 0 0" layout_gravity="left top" LBtnUpScp="GUILDINVEN_SEND_ALL_MEMBER_CHECK"/>
+		<richtext name="nameText" rect="0 0 100 30" parent="memberBox" margin="40 10 0 0" layout_gravity="left top" format="팀명 {img %s 13 13}" fontname="white_18_b_ol" param1="arrow" param1_def="guild_arrow_down" LBtnUpScp="GUILDINVEN_SEND_SORT_BY_NAME"/>
+		<richtext name="giveText" rect="0 0 100 30" parent="memberBox" margin="300 10 0 0" layout_gravity="left top" caption="수량" fontname="white_18_b_ol"/>
+		<picture name="line2" rect="0 0 400 2" parent="memberBox" margin="0 37 0 0" layout_gravity="center top" image="guild_line_h2" stretch="true"/>
+		<groupbox name="listBox" rect="0 0 400 360" parent="memberBox" margin="0 45 0 0" layout_gravity="center top" draw="false"/>
+		<picture name="line3" rect="0 0 400 2" parent="memberBox" margin="0 0 0 44" layout_gravity="center bottom" image="guild_line_h2" stretch="true"/>
+		<edit name="searchEdit" rect="0 0 396 40" parent="memberBox" margin="0 0 0 2" layout_gravity="center bottom" skin="test_weight_skin" fontname="white_18_b_ol" OffsetForDraw="10 0" textalign="left center"/>
+		<button name="searchBtn" rect="0 0 100 40" parent="searchEdit" margin="0 0 5 0" layout_gravity="right center" image="inven_s" LBtnUpScp="GUILDINVEN_SEND_SEARCH" stretch="true"/>
+		<button name="sendBtn" rect="0 0 170 45" parent="itemInfoBox" margin="0 0 0 10" layout_gravity="center bottom" skin="test_red_button" caption="{@st41b}{nl}보내기" fontname="white_16_b_ol" LBtnUpScp="GUILDINVEN_SEND_CLICK"/>
+	</controls>
+</uiframe>

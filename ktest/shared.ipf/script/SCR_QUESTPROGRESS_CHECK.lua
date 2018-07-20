@@ -6,15 +6,27 @@ function QT(pc)
 end
 
 function QC(pc, questname)
+    if IsServerSection(pc) ~= 1 and pc == nil then
+        pc = GetMyPCObject()
+    end
     local result1, result2 = SCR_QUEST_CHECK(pc,questname, nil)
-    Chat(pc,questname..' = '..result1)
+    if IsServerSection(pc) == 1 then
+        Chat(pc,'IsServer : '..IsServerSection(pc)..' / '..questname..' = '..result1)
+    else
+        ui.Chat('Client SCR_QUEST_CHECK / '..questname..' = '..result1)
+        
+        local result3 = SCR_QUEST_CHECK_C(pc, questname)
+        ui.Chat('Client SCR_QUEST_CHECK_C / '..questname..' = '..result3)
+    end
     if result2 ~= nil then
         print('result1',result1,table.concat(result2,' : '))
     else
         print('result1',result1)
     end
     
-    
+    if IsServerSection(pc) == 1 then
+        ExecClientScp(pc, 'QC(nil,"'..questname..'")');
+    end
 end
 
 function SCR_QUESTPROGRESS_CHECK( pc, quest_list, quest_name, npcquestcount_list)
@@ -955,18 +967,18 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                                         quest_reason[#quest_reason + 1] = succCheck
                                     end
                                 elseif string.find(succCheck,'Succ_Journal_MonKillName') ~= nil then
+                                    --revisioom function--                                    
                                     local num = tonumber(string.gsub(succCheck,'Succ_Journal_MonKillName',''))
                                     if GetPropType(questIES,'Succ_Journal_MonKillName'..num) ~= nil and  questIES['Succ_Journal_MonKillName'..num] ~= 'None' and questIES['Succ_Journal_MonKillName'..num] ~= '' then
-                                        local killCount
+                                        local killCount = nil;
+                                        local monIDList = GetAdventureBookMonList(pc);
                                         if IsServerSection(pc) == 1 then
-                                            local wiki = GetWikiByName(pc, questIES['Succ_Journal_MonKillName'..num])
-                                            if wiki ~= nil then
-                                                killCount = GetWikiIntProp(wiki, "KillCount")
+                                            if table.find(monIDList, questIES['Succ_Journal_MonKillName'..num]) > 0 then
+                                                killCount = GetMonKillCount(pc, questIES['Succ_Journal_MonKillName'..num]);
                                             end
                                         else
-                                            local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..num])
-                                            if wiki ~= nil then
-                                                killCount = GetWikiIntProp(wiki, "KillCount");
+                                            if table.find(monIDList, questIES['Succ_Journal_MonKillName'..num]) > 0 then
+                                                killCount = GetMonKillCount(pc, questIES['Succ_Journal_MonKillName'..num]);
                                             end
                                         end
                                         if killCount ~= nil then
@@ -981,6 +993,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                                     else
                                         quest_reason[#quest_reason + 1] = succCheck
                                     end
+                                    --
                                 end
                             end
                             
@@ -4190,7 +4203,8 @@ function SCR_JOURNALMONKILL_SUCC_CHECK_MODULE_QUEST(pc, questIES)
                 if GetPropType(questIES, 'Succ_Journal_MonKillName'..i) ~= nil and GetPropType(questIES, 'Succ_Journal_MonKillCount'..i) ~= nil then
                     if questIES['Succ_Journal_MonKillName'..i] ~= 'None' and questIES['Succ_Journal_MonKillName'..i] ~= '' then
                         checkCount[#checkCount+1] = {i,"NO"}
-                        local killCount
+                        local killCount = nil;
+                        --[[ hs_comment: 개편될 함수로 교체해주세요~
                         if IsServerSection(pc) == 1 then
                             local wiki = GetWikiByName(pc, questIES['Succ_Journal_MonKillName'..i])
                             if wiki ~= nil then
@@ -4208,6 +4222,7 @@ function SCR_JOURNALMONKILL_SUCC_CHECK_MODULE_QUEST(pc, questIES)
                                 return 'YES', checkCount
                             end
                         end
+                        ]]--
                     end
                 end
             end
@@ -4218,6 +4233,7 @@ function SCR_JOURNALMONKILL_SUCC_CHECK_MODULE_QUEST(pc, questIES)
                     if questIES['Succ_Journal_MonKillName'..i] ~= 'None' and questIES['Succ_Journal_MonKillName'..i] ~= '' then
                         checkCount[#checkCount+1] = {i,"NO"}
                         local killCount
+                        --[[ hs_comment: 개편된 함수로 교체해주세요~
                         if IsServerSection(pc) == 1 then
                             local wiki = GetWikiByName(pc, questIES['Succ_Journal_MonKillName'..i])
                             if wiki ~= nil then
@@ -4235,6 +4251,7 @@ function SCR_JOURNALMONKILL_SUCC_CHECK_MODULE_QUEST(pc, questIES)
                                 succCount = succCount + 1
                             end
                         end
+                        ]]--
                     end
                 end
             end
@@ -4261,6 +4278,7 @@ function SCR_JOURNALMONKILL_CHECK_MODULE_QUEST(pc, questIES)
                     if questIES['Journal_MonKillName'..i] ~= 'None' and questIES['Journal_MonKillName'..i] ~= '' then
                         checkCount[#checkCount+1] = {i,"NO"}
                         local killCount
+                        --[[ hs_comment: 개편된 함수로 교체해주세요~
                         if IsServerSection(pc) == 1 then
                             local wiki = GetWikiByName(pc, questIES['Journal_MonKillName'..i])
                             if wiki ~= nil then
@@ -4278,6 +4296,7 @@ function SCR_JOURNALMONKILL_CHECK_MODULE_QUEST(pc, questIES)
                                 return 'YES', checkCount
                             end
                         end
+                        ]]--
                     end
                 end
             end
@@ -4288,6 +4307,7 @@ function SCR_JOURNALMONKILL_CHECK_MODULE_QUEST(pc, questIES)
                     if questIES['Journal_MonKillName'..i] ~= 'None' and questIES['Journal_MonKillName'..i] ~= '' then
                         checkCount[#checkCount+1] = {i,"NO"}
                         local killCount
+                        --[[ hs_comment: 개편된 함수로 교체해주세요~
                         if IsServerSection(pc) == 1 then
                             local wiki = GetWikiByName(pc, questIES['Journal_MonKillName'..i])
                             if wiki ~= nil then
@@ -4305,6 +4325,7 @@ function SCR_JOURNALMONKILL_CHECK_MODULE_QUEST(pc, questIES)
                                 succCount = succCount + 1
                             end
                         end
+                        ]]--
                     end
                 end
             end

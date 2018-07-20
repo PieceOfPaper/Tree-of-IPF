@@ -73,8 +73,6 @@ function OPEN_PROPERTY_SHOP(shopName)
 	itemlist:AddBarInfo("Name", "{@st42b}" .. ClMsg("Item"), 250);
 	itemlist:AddBarInfo("Price", "{@st42b}" .. ClMsg("Price"), 120);
 	itemlist:AddBarInfo("BuyCount", "{@st42b}" .. ClMsg("BuyCount"), 120);
-	itemlist:LoadUserSize();
-
 	itemlist:RemoveAllChild();
 
 	local itemBoxFont = frame:GetUserConfig("ItemBoxFont");
@@ -221,6 +219,9 @@ end
 function GET_PROPERTY_SHOP_MY_POINT(frame)
 	local shopName = frame:GetUserValue("SHOPNAME");
 	local shopInfo = gePropertyShop.Get(shopName);
+    if shopInfo == nil then
+        return 0;
+    end
 	local clientScp = _G[shopInfo:GetPointScript() .. "_C"];
 	return clientScp();
 end

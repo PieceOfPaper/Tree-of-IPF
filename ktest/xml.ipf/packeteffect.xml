@@ -71,16 +71,21 @@
         <Effect Name="born_event_3"/>
         <Effect Name="MISSION_THORN_02"/>
         <Effect Name="F_burstup004_dark_loop"/>
-    <Effect Name="F_CO_OP_SIAULIAI_50"/>
-		<Effect Name="FIELD_REWARD"/>
-		<Effect Name="FIELD_CO-OP"/>
-		<Effect Name="F_CO_OP_PILGRIMROAD_46"/>
-		<Effect Name="F_CO_OP_REMAINS_40"/>
-		<Effect Name="PLUS_REGEN"/>
-		<Effect Name="ID_WHITETREES_MINI_01"/>
-		<Effect Name="170628_Rain_Mission"/>
-		<Effect Name="FIELD_FAIL"/>
-	</Category>
+        <Effect Name="F_CO_OP_SIAULIAI_50"/>
+        <Effect Name="FIELD_REWARD"/>
+        <Effect Name="FIELD_CO-OP"/>
+        <Effect Name="F_CO_OP_PILGRIMROAD_46"/>
+        <Effect Name="F_CO_OP_REMAINS_40"/>
+        <Effect Name="PLUS_REGEN"/>
+        <Effect Name="ID_WHITETREES_MINI_01"/>
+        <Effect Name="170628_Rain_Mission"/>
+        <Effect Name="FIELD_FAIL"/>
+        <Effect Name="BUTTON"/>
+        <Effect Name="I_smoke013_dark3_1"/>
+        <Effect Name="I_force073_red"/>
+        <Effect Name="I_force074_violet"/>
+        <Effect Name="I_exclamation_dark"/>
+    </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
         <Effect Name="SKL_BASH"/>
@@ -96,21 +101,21 @@
         <Effect Name="I_force023_fire#Bip01 L Hand"/>
         <Effect Name="I_force023_fire#Bip01 R Hand"/>
         <Effect Name="boss_firewall_highlevel"/>
-    <Effect Name="stage6"/>
-		<Effect Name="F_ground176_violet"/>
-		<Effect Name="normalMonGen"/>
-		<Effect Name="I_force023_fire2#Bip001 Neck"/>
-		<Effect Name="마법진"/>
-		<Effect Name="stage5"/>
-		<Effect Name="ID_WHITETREES1_GIMMICK2_PAD"/>
-		<Effect Name="F_gruond158_light_green2"/>
-		<Effect Name="I_shield003"/>
-		<Effect Name="F_gruond158_light_yellow2"/>
-		<Effect Name="F_gruond158_light_blue2"/>
-		<Effect Name="F_ground158_light_yellow2"/>
-		<Effect Name="F_ground158_light_blue2"/>
-		<Effect Name="F_ground158_light_red2"/>
-	</Category>
+        <Effect Name="stage6"/>
+        <Effect Name="F_ground176_violet"/>
+        <Effect Name="normalMonGen"/>
+        <Effect Name="I_force023_fire2#Bip001 Neck"/>
+        <Effect Name="마법진"/>
+        <Effect Name="stage5"/>
+        <Effect Name="ID_WHITETREES1_GIMMICK2_PAD"/>
+        <Effect Name="F_gruond158_light_green2"/>
+        <Effect Name="I_shield003"/>
+        <Effect Name="F_gruond158_light_yellow2"/>
+        <Effect Name="F_gruond158_light_blue2"/>
+        <Effect Name="F_ground158_light_yellow2"/>
+        <Effect Name="F_ground158_light_blue2"/>
+        <Effect Name="F_ground158_light_red2"/>
+    </Category>
     <Category ID="195">
         <Effect Name="THORN39_2_SQ07_TRACK_MINI"/>
         <Effect Name="FARM49_3_SQ08_TRACK_MINI"/>
@@ -203,6 +208,40 @@
         <Effect Name="F_levitation005_dark_blue2"/>
         <Effect Name="F_light102_violet_crazy"/>
         <Effect Name="F_F_pattern015_green"/>
+    <Effect Name="F_pattern017_blue"/>
+        <Effect Name="F_levitation005_ice"/>
+        <Effect Name="F_lineup020_mint"/>
+        <Effect Name="on_loop2"/>
+        <Effect Name="skl_FatalBlow"/>
+        <Effect Name="F_pattern017_red"/>
+        <Effect Name="stage5_3"/>
+        <Effect Name="stage6_2"/>
+        <Effect Name="EVENT_SKL"/>
+        <Effect Name="stage6_3"/>
+        <Effect Name="testm"/>
+        <Effect Name="fhdfhsdfh"/>
+        <Effect Name="GUILD_COLONY_INIT"/>
+        <Effect Name="GUILD_COLONY_F_PILGRIMROAD_49"/>
+        <Effect Name="GUILD_COLONY_F_CASTLE_20_3"/>
+        <Effect Name="GUILD_COLONY_F_ROKAS_36_1"/>
+        <Effect Name="TIME_CHECK"/>
+        <Effect Name="STD3_IDLE2"/>
+        <Effect Name="batttle_start_before"/>
+        <Effect Name="skl_eff_item_shark"/>
+        <Effect Name="battle_win"/>
+        <Effect Name="battle_lose"/>
+        <Effect Name="battle_start"/>
+        <Effect Name="battle_start_before"/>
+        <Effect Name="battle_end_before_10min"/>
+        <Effect Name="battle_end_before_1min"/>
+        <Effect Name="occupation"/>
+        <Effect Name="battle_occupation"/>
+        <Effect Name="battle_end_before_30min"/>
+        <Effect Name="battle_end_before_5min"/>
+        <Effect Name="ON_LOOP2"/>
+        <Effect Name="F_common_TheEnd_loop"/>
+        <Effect Name="Guild_Colony_Invinciblation"/>
+        <Effect Name="I_archer_canon_force_forge#Dummy002"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -350,6 +389,8 @@
         <Effect Name="F_explosion126"/>
         <Effect Name="I_buff_001"/>
         <Effect Name="I_buff_002_green"/>
+        <Effect Name="F_burstup053"/>
+        <Effect Name="F_wizard_magneticforce_shot_ground2"/>
     </Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
@@ -470,11 +511,25 @@
         <Effect Name="boss_Kerberos_Reversi"/>
         <Effect Name="ID_kucarry_blazermancer_pad"/>
         <Effect Name="F_spread_out051"/>
-    <Effect Name="ID_WHITETREES_MINI_01"/>
-		<Effect Name="F_hit009_water2"/>
-		<Effect Name="I_force0082_1#Bip001 L Hand#0.50"/>
-		<Effect Name="F_burstup014_circle"/>
-	</Category>
+        <Effect Name="ID_WHITETREES_MINI_01"/>
+        <Effect Name="F_hit009_water2"/>
+        <Effect Name="I_force0082_1#Bip001 L Hand#0.50"/>
+        <Effect Name="F_burstup014_circle"/>
+        <Effect Name="F_wizard_EnchantLightning_shot_ground"/>
+        <Effect Name="I_smoke013_leaf##0.5"/>
+        <Effect Name="I_force077_violet"/>
+        <Effect Name="F_hit_star_orange"/>
+        <Effect Name="F_explosion127_green"/>
+        <Effect Name="F_explosion127_green#Dummy_eff_skl"/>
+        <Effect Name="F_explosion127_green#Bip001 Spine"/>
+        <Effect Name="F_hit001_light_green"/>
+        <Effect Name="F_hit016"/>
+        <Effect Name="I_Ferret_orange02_mash"/>
+        <Effect Name="F_rize018"/>
+        <Effect Name="F_explosion026_rize_green2"/>
+        <Effect Name="I_smoke013_leaf2##0.5"/>
+        <Effect Name="I_force071_violet3"/>
+    </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
         <Effect Name="F_burstup030_fire_1"/>
@@ -532,6 +587,8 @@
         <Effect Name="gacha"/>
         <Effect Name="skl_eff_kaguradance_ground"/>
         <Effect Name="skl_eff_houkibroom_ground"/>
+        <Effect Name="F_lineup017_red3"/>
+        <Effect Name="I_archer_canon_force_forge#Dummy002"/>
     </Category>
     <Category ID="171">
         <Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
@@ -680,8 +737,7 @@
         <Effect Name="F_ground163_blue_loop"/>
         <Effect Name="CORAL_44_2_SQ_50_MINI"/>
         <Effect Name="ID_WHITETREES_MINI_01"/>
-    <Effect Name="I_cylinder007_light_yellow"/>
-	</Category>
+    </Category>
     <Category ID="75">
         <Effect>knockdown_bounce</Effect>
         <Effect Name="f_orchard_34_2_elevator"/>
@@ -1745,6 +1801,21 @@
         <Effect Name="F_spread_out034_darkgreen"/>
         <Effect Name="indunAllKill"/>
         <Effect Name="indunTheEnd"/>
+        <Effect Name="GUILD_COLONY_F_PILGRIMROAD_49"/>
+        <Effect Name="TIME_CHECK"/>
+        <Effect Name="battle_end_before_30min"/>
+        <Effect Name="battle_end_before_10min"/>
+        <Effect Name="battle_end_before_5min"/>
+        <Effect Name="battle_end_before_1min"/>
+        <Effect Name="battle_lose"/>
+        <Effect Name="battle_end_before_30min"/>
+        <Effect Name="battle_end_before_10min"/>
+        <Effect Name="battle_end_before_5min"/>
+        <Effect Name="battle_end_before_1min"/>
+        <Effect Name="battle_lose"/>
+        <Effect Name="F_pattern017_blue"/>
+        <Effect Name="F_wizard_SummonDemon2_cast_ground"/>
+        <Effect Name="F_pc_LastBlow"/>
     </Category>
     <Category ID="35">
         <Effect Name="Ready"/>
@@ -3624,6 +3695,19 @@
         <Effect Name="musicbox_main"/>
         <Effect Name="I_smoke001_dark_loop"/>
         <Effect Name="ID_kucarry_blazermancer_pad"/>
+        <Effect Name="ID_WHITETREES_MINI_01"/>
+        <Effect Name="170628_Rain_Mission"/>
+        <Effect Name="F_pc_summon_remove"/>
+        <Effect Name="F_pc_SummonRemove_mon"/>
+        <Effect Name="I_question_arrow_mash2"/>
+        <Effect Name="Templer_BuildShieldCharger"/>
+        <Effect Name="I_archer_canon_force3#Dummy002"/>
+        <Effect Name="I_archer_canon_force3#Dummy001"/>
+        <Effect Name="F_wizard_SummonDemon2_cast_ground"/>
+        <Effect Name="F_lineup013_violet"/>
+        <Effect Name="F_burstup050_dark"/>
+        <Effect Name="F_buff_basic045"/>
+        <Effect Name="F_buff_basic046"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -4093,10 +4177,18 @@
         <Effect Name="ID_WHITETREES_MINI_01"/>
         <Effect Name="fishing_shot_fail"/>
         <Effect Name="shot_fail"/>
-    <Effect Name="fishingrod_03_set"/>
-		<Effect Name="fishingrod_flamingo_set"/>
-		<Effect Name="I_emo_angrycat"/>
-	</Category>
+        <Effect Name="fishingrod_03_set"/>
+        <Effect Name="fishingrod_flamingo_set"/>
+        <Effect Name="I_emo_angrycat"/>
+        <Effect Name="I_question_arrow_mash"/>
+        <Effect Name="F_buff_basic043"/>
+        <Effect Name="Paladin_Sanctuary_Pad"/>
+        <Effect Name="Paladin_Sanctuary_Pad"/>
+        <Effect Name="F_cleric_Golden_Bell_Shield_loop#Dummy_emitter"/>
+        <Effect Name="F_cleric_Golden_Bell_Shield_loop"/>
+        <Effect Name="GUILD_COLONY_F_PILGRIMROAD_49"/>
+        <Effect Name="PUBLIC_BUFF"/>
+    </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>
         <Effect Name="gesti_Slow"/>
@@ -4317,7 +4409,7 @@
         <Effect Name="MISSION_CATACOMB_HALLOWEEN"/>
         <Effect Name="MISSION_CASTLE_01_RN"/>
         <Effect Name="Appraise"/>
-		<Effect Name="Monster_Orgel"/>
+        <Effect Name="Monster_Orgel"/>
         <Effect Name="PC_Orgel"/>
         <Effect Name="#Monster_Orgel"/>
         <Effect Name="#PC_Orgel"/>
@@ -4334,7 +4426,7 @@
         <Effect Name="musicbox_bear"/>
         <Effect Name="GoldenFish"/>
         <Effect Name="F_spread_out051"/>
-		<Effect Name="Appraise"/>
+        <Effect Name="Appraise"/>
         <Effect Name="Appraiser_Apprise"/>
         <Effect Name="ID_WHITETREES_MINI_01"/>
         <Effect Name="170628_Rain_Mission"/>

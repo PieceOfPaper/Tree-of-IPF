@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="colony_point_info" x="0" y="0" width="331" height="650">
+	<frame layout_gravity="right top" margin="0 470 20 0" scale_align="right top"/>
+	<option visible="false" closebutton="false" hideable="false" alwaysVisible="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<draw drawframe="false" drawtitlebar="false"/>
+	<layer layerlevel="21"/>
+	<input hittestframe="false"/>
+	<script OpenScp="OPEN_COLONY_POINT_UI"/>
+	<userconfig TOTAL_STEP_COUNT="4" MY_GUILD_STEP1="300" MY_GUILD_STEP2="500" MY_GUILD_STEP3="700" MY_GUILD_STEP4="900" MY_GUILD_STEP_STYLE1="{@st43}{#ffffff}{s16}" MY_GUILD_STEP_STYLE2="{@st43}{#ecc642}{s16}" MY_GUILD_STEP_STYLE3="{@st43}{#ff7e00}{s16}" MY_GUILD_STEP_STYLE4="{@st43}{#dd0000}{s16}"/>
+	<controls>
+		<groupbox name="mapBox" rect="0 0 332 96" margin="0 0 0 0" draw="false" layout_gravity="left top" image="colony_myscore"/>
+		<richtext name="mapNameText" rect="0 0 300 30" parent="mapBox" margin="36 18 0 0" layout_gravity="left top" caption="남은 시간" fontname="white_16_b_ol"/>
+		<richtext name="remainTimeText" rect="0 0 300 30" parent="mapBox" margin="0 18 40 0" layout_gravity="right top" format="%s" param1="time" param1_def="0:00" fontname="white_16_b_ol"/>
+		<picture name="line" rect="0 0 330 23" margin="-12 83 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
+		<button name="expandBtn" rect="0 0 60 20" margin="-10 95 0 0" layout_gravity="center top" image="colonyopen_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_EXPAND_CLICK"/>
+		<!-- Expand -->
+		<groupbox name="infoBox" rect="0 0 331 400" margin="0 97 0 0" layout_gravity="cneter top" draw="false"/>
+		<groupbox name="bgBox" rect="0 0 324 311" parent="infoBox" margin="3 0 0 0" layout_gravity="left top" draw="false" image="colony_chartbg"/>
+		<groupbox name="occupyBox" rect="0 0 331 46" parent="bgBox" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
+		<richtext name="occupyText" rect="0 0 300 30" parent="occupyBox" margin="14 1 0 0" layout_gravity="left center" caption="현재 점령 중인 길드" fontname="white_16_b"/>
+		<groupbox name="occupyGuildBox" rect="0 0 340 55" parent="bgBox" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
+		<picture name="occupyGuildEmblemPic" rect="0 0 45 45" parent="occupyGuildBox" margin="5 5 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true"/>
+		<richtext name="occupyGuildNameText" rect="0 0 240 40" parent="occupyGuildBox" margin="53 7 0 0" layout_gravity="left center" caption="" fixwidth="true" resizebytext="false" fontname="white_16_ol"/>
+		<groupbox name="pointBox" rect="0 0 350 40" parent="bgBox" margin="0 101 0 0" layout_gravity="left top" skin=""/>
+		<richtext name="pointText" rect="0 0 300 30" parent="pointBox" margin="14 1 0 0" layout_gravity="left center" caption="점령 포인트 현황" fontname="white_16_b"/>
+		<!-- First Ranking -->
+		<groupbox name="rankingBox1" rect="0 0 340 60" parent="bgBox" margin="0 132 0 0" layout_gravity="center top" skin=""/>
+		<picture name="firstPic" rect="0 0 39 57" parent="rankingBox1" margin="4 0 0 0" layout_gravity="left center" image="colony_medal1" stretch="true"/>
+		<picture name="emblemPic" rect="0 0 45 45" parent="rankingBox1" margin="55 2 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true"/>
+		<richtext name="nameText" rect="0 0 190 21" fixwidth="true" resizebytext="false" parent="rankingBox1" margin="0 13 48 0" layout_gravity="right top" caption="길드 이름" fontname="white_16_ol"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox1" margin="0 0 50 4" layout_gravity="right bottom" format="{@st43}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
+		<!-- Second Ranking -->
+		<groupbox name="rankingBox2" rect="0 0 340 60" parent="bgBox" margin="0 188 0 0" layout_gravity="center top" skin=""/>
+		<picture name="secondPic" rect="0 0 39 57" parent="rankingBox2" margin="4 0 0 0" layout_gravity="left center" image="colony_medal2" stretch="true"/>
+		<picture name="emblemPic" rect="0 0 45 45" parent="rankingBox2" margin="55 2 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true"/>
+		<richtext name="nameText" rect="0 0 190 21" fixwidth="true" resizebytext="false" parent="rankingBox2" margin="0 13 48 0" layout_gravity="right top" caption="길드 이름" fontname="white_16_ol"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox2" margin="0 0 50 4" layout_gravity="right bottom" format="{@st43}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
+		<!-- Third Ranking -->
+		<groupbox name="rankingBox3" rect="0 0 340 60" parent="bgBox" margin="0 245 0 0" layout_gravity="center top" skin=""/>
+		<picture name="thirdPic" rect="0 0 39 57" parent="rankingBox3" margin="4 0 0 0" layout_gravity="left center" image="colony_medal3" stretch="true"/>
+		<picture name="emblemPic" rect="0 0 45 45" parent="rankingBox3" margin="55 2 0 0" layout_gravity="left center" image="guildmark_slot" stretch="true"/>
+		<richtext name="nameText" rect="0 0 190 21" fixwidth="true" resizebytext="false" parent="rankingBox3" margin="0 13 48 0" layout_gravity="right top" caption="길드 이름" fontname="white_16_ol"/>
+		<richtext name="pointText" rect="0 0 300 30" parent="rankingBox3" margin="0 0 50 4" layout_gravity="right bottom" format="{@st43}{#ffcc33}{s16}%s/%s" param1="cur" param1_def="0" param2="max" param2_def="1000" fontname="white_16_b_ol"/>
+		<!-- My Guild -->
+		<richtext name="myGuildName" rect="0 0 300 30" parent="mapBox" margin="15 22 0 0" layout_gravity="left center" caption="내 길드" fontname="white_16_b_ol"/>
+		<richtext name="myGuildPointText" rect="0 0 300 30" parent="mapBox" margin="0 22 35 0" layout_gravity="right center" format="%s%s/%s" param1="style" param1_def="{@st43}{#ffffff}{s16}" param2="cur" param2_def="0" param3="max" param3_def="1000"/>
+		<picture name="line1" rect="0 0 330 23" parent="infoBox" margin="-12 301 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
+		<button name="minimizeBtn" rect="0 0 60 20" parent="infoBox" margin="-10 0 0 66" layout_gravity="center bottom" image="colonyclose_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_MINIMIZE_CLICK"/>
+	</controls>
+</uiframe>

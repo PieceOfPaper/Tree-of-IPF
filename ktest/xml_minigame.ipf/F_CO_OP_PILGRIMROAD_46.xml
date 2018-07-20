@@ -1,0 +1,485 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="F_CO_OP_PILGRIMROAD_46" minLv="0" maxLv="0" playerCountCheckDestroy="0" startWaitSec="-1392508929">
+		<StageList>
+			<Stage Name="FIELD_CO-OP">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="모든 순례자 석상을 정화시켜라!"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="153020" Pos="359.00#170.74#-277.00" angle="-45" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;F_CO_OP_PILGRIMROAD_46_STATUE_1&apos; &apos;Name&apos; &apos;오염된 순례자 석상&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="SCR_F_CO_OP_PILGRIMROAD_46_STATUE_1_AI"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153020" Pos="-3.76#220.48#-1097.86" angle="-45" genCount="1" genTime="20000" objectKey="1" propList="&apos;Dialog&apos; &apos;F_CO_OP_PILGRIMROAD_46_STATUE_2&apos; &apos;Name&apos; &apos;오염된 순례자 석상&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="SCR_F_CO_OP_PILGRIMROAD_46_STATUE_2_AI"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153020" Pos="46.00#170.74#96.00" angle="-45" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;F_CO_OP_PILGRIMROAD_46_STATUE_3&apos; &apos;Name&apos; &apos;오염된 순례자 석상&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="SCR_F_CO_OP_PILGRIMROAD_46_STATUE_3_AI"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153020" Pos="192.08#220.48#-1272.42" angle="-45" genCount="1" genTime="20000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_CO_OP_PILGRIMROAD_46_STATUE_4&apos; &apos;Name&apos; &apos;오염된 순례자 석상&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="SCR_F_CO_OP_PILGRIMROAD_46_STATUE_4_AI"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153020" Pos="423.00#170.74#242.00" angle="-45" genCount="1" genTime="20000" objectKey="4" propList="&apos;Dialog&apos; &apos;F_CO_OP_PILGRIMROAD_46_STATUE_5&apos; &apos;Name&apos; &apos;오염된 순례자 석상&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="SCR_F_CO_OP_PILGRIMROAD_46_STATUE_5_AI"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="PURIFY1" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD1"/>
+								<Str Str="OVER"/>
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="오염된 순례자 석상을 정화했습니다!{nl}남아있는 오염된 순례자 석상을 계속해서 정화하세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="PURIFY2" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD2"/>
+								<Str Str="OVER"/>
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="오염된 순례자 석상을 정화했습니다!{nl}남아있는 오염된 순례자 석상을 계속해서 정화하세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="PURIFY3" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD3"/>
+								<Str Str="OVER"/>
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="오염된 순례자 석상을 정화했습니다!{nl}남아있는 오염된 순례자 석상을 계속해서 정화하세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="PURIFY4" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD4"/>
+								<Str Str="OVER"/>
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="오염된 순례자 석상을 정화했습니다!{nl}남아있는 오염된 순례자 석상을 계속해서 정화하세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="PURIFY5" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD5"/>
+								<Str Str="OVER"/>
+								<Num Num="100"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="오염된 순례자 석상을 정화했습니다!{nl}남아있는 오염된 순례자 석상을 계속해서 정화하세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="EVENT1" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="EVENT"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="정화된 순례자 석상에서 나온 성스러운 힘이 성수에 깃듭니다!{nl}1분 동안 성수의 사용 시간이 빨라지고 성수의 힘이 더 강해집니다!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="EVENT2" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="OVER"/>
+								<Num Num="3"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="EVENT"/>
+								<Num Num="2"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="정화된 순례자 석상에서 나온 성스러운 힘이 성수에 깃듭니다!{nl}90초 동안 성수의 사용 시간과 이동 속도가 빨라지고 성수의 힘이 더 강해집니다!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_FINAL_MSPD_BUFF"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="EVENT1_END" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="EVENT"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="90"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="EVENT"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="효과가 종료되었습니다."/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="EVENT2_END" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="EVENT"/>
+								<Str Str="=="/>
+								<Num Num="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="90"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="EVENT"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="효과가 종료되었습니다."/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="CLEAR">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR1"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR2"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="오염된 순례자 석상들을 모두 정화했습니다!{nl}사제에게 돌아가 보상을 받으세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="8"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_CO-OP"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_CO-OP"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_CO-OP"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="FAIL">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3600"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="UNDER"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="순례자 석상을 시간 내에 모두 정화하지 못했습니다.{nl}10분 후 사제가 사라집니다."/>
+								<Str Str="!"/>
+								<Num Num="8"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_CO-OP"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_CO-OP"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="30MIN">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="1800"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="UNDER"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="제한 시간까지 30분 남았습니다!"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10MIN">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3000"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="UNDER"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="제한 시간까지 10분 남았습니다!"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="5MIN">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3300"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="UNDER"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="제한 시간까지 5분 남았습니다!"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="1MIN">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3540"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="UNDER"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="제한 시간까지 1분 남았습니다!"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="ENTER">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_F_CO_OP_PILGRIMROAD_46_TEXT"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="CLEAR_CON1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="900"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR1"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="CLEAR_CON2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="OVER"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR2"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="START">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="큰아귀 길의 순례자 석상을 정화하러 온 사제가 도움이 필요한 듯 합니다!{nl}사제에게서 성수를 받아 주변의 순례자 석상들을 정화하세요!"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="GOAL_IN">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR1"/>
+								<Str Str="DIF"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="CLEAR2"/>
+								<Str Str="EQ"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="모든 순례자 석상을 정화했지만 아직 이곳엔 오염의 기운이 가득합니다.{nl}석상의 성스러운 기운이 오래 가도록 계속해서 정화해주세요!"/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="5S">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3595"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="F_CO_OP_GOAL"/>
+								<Str Str="UNDER"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="기믹이 곧 종료됩니다."/>
+								<Str Str="scroll"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="FIELD_REWARD" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="END" execWithStart="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="FIELD_REWARD"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

@@ -11,6 +11,9 @@ function SYSTEMOPTION_CREATE(frame)
 	INIT_GRAPHIC_CONFIG(frame);
 	INIT_CONTROL_CONFIG(frame);
 	SET_SKL_CTRL_CONFIG(frame);
+    	SET_DMG_FONT_SCALE_CONTROLLER(frame);
+	SET_SHOW_PAD_SKILL_RANGE(frame);
+
 end
 
 function INIT_LANGUAGE_CONFIG(frame)
@@ -462,3 +465,31 @@ function UPDATE_TITLE_OPTION(frame)
 
 end
 
+function SET_DMG_FONT_SCALE_CONTROLLER(frame)
+	local value = config.GetDmgFontScale();
+	local slide = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController", "ui::CSlideBar");
+	slide:SetLevel(value * 100);
+	local txt = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController_text", "ui::CRichText");
+	
+	local str = string.format("%.2f", value);
+	txt:SetTextByKey("ctrlValue", str);
+end
+
+function CONFIG_DMG_FONT_SCALE_CONTROLLER(frame, ctrl, str, num)
+	local scale = ctrl:GetLevel() * 0.01;
+	config.SetDmgFontScale(scale);
+	SET_DMG_FONT_SCALE_CONTROLLER(frame);
+end
+
+function SET_SHOW_PAD_SKILL_RANGE(frame)
+	local isEnable = config.IsEnableShowPadSkillRange();
+
+	local chkShowPadSkillRange = GET_CHILD_RECURSIVELY(frame, "chkShowPadSkillRange", "ui::CCheckBox");
+	if nil ~= chkShowPadSkillRange then
+		chkShowPadSkillRange:SetCheck(isEnable);
+	end;
+end
+
+function CONFIG_SHOW_PAD_SKILL_RANGE(frame, ctrl, str, num)
+	config.SetEnableShowPadSkillRange(ctrl:IsChecked());
+end

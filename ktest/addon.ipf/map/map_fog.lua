@@ -86,31 +86,6 @@ function UPDATE_MAP_FOG_RATE(frame, mapName)
 	if rate ~= nil then
 		rate:SetTextByKey("rate", outStr);
 	end
-
-	if recoverRate >= 100.0 then
-		CHECK_ACHIEVE_MAP(frame, mapName);
-	end
-end
-
-function CHECK_ACHIEVE_MAP(frame, mapName)
-
-	if frame:GetValue() == 1 then
-		return;
-	end
-
-	local prop = geAchieveTable.GetPropByName(mapName);
-	if prop == nil then
-		return;
-	end
-
-	local type = prop.ClassID;
-	local have = session.HaveAchieve(type);
-	if have == 0 then
-		packet.ReqGetMapRevealAchieve();
-	else
-		frame:SetValue(1);
-	end
-
 end
 
 function RUN_REVEAL_CHECKER(frame, mapName)

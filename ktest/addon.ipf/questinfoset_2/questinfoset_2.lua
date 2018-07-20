@@ -206,7 +206,10 @@ function UPDATE_QUESTINFOSET_2(frame, msg, check, updateQuestID)
 --	for i=0, QUESTWARP_MAX_BTN-1 do
 --		warpFrame:SetUserValue("QUEST_WARP_CLASSNAME_"..i, "None");
 --	end
-
+    if UI_CHECK_NOT_PVP_MAP() == 0 then
+        frame:ShowWindow(0);
+        return;
+    end
 
 	local cnt = quest.GetCheckQuestCount();
 	local customCnt = geQuest.GetCustomQuestCount();
@@ -337,10 +340,11 @@ function CHEAK_QUEST_MONSTER(questIES)
 		end
 		
 		if GetPropType(questIES, 'Succ_Journal_MonKillName'..i) ~= nil and questIES["Succ_Journal_MonKillName" .. i] ~= 'None' then
-		    local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..i])
+		    local monCls = GetClass('Monster', questIES['Succ_Journal_MonKillName'..i]);
+            local monID = TryGetProp(monCls, 'ClassID');
 		    local killCount
-            if wiki ~= nil then
-                killCount = GetWikiIntProp(wiki, "KillCount");
+            if monID ~= nil and IsExistMonsterInAdevntureBook(pc, monID) == 'YES' then
+                killCount = GetMonKillCount(pc, monID);
             end
             if killCount ~= nil and killCount < questIES["Succ_Journal_MonKillCount" .. i] then
                 ADD_QUEST_CHECK_MONSTER(questIES.ClassID, monname);
@@ -745,7 +749,7 @@ function MAKE_QUEST_INFO(GroupCtrl, questIES, msg, progVal) -- progVal이 nil이
 	if questName == nil then
 	    questName = questIES.Name
 	end
-	content:SetTextFixWidth(0);
+	content:SetTextFixWidth(1);
 	content:SetText(QUEST_TITLE_FONT..questName);
 	content:EnableHitTest(0);
 	y = y + content:GetHeight();
@@ -1507,11 +1511,12 @@ function MAKE_QUESTINFO_JOURNALMONSTER_BY_IES(ctrlset, questIES, startx, y, s_ob
     	    if GetPropType(questIES, "Succ_Journal_MonKillName" .. i) == nil or questIES["Succ_Journal_MonKillName" .. i] == 'None' or questIES["Succ_Journal_MonKillName" .. i] == '' then
     	        break
     	    end
-    		local monname = GetClassString('Monster',questIES["Succ_Journal_MonKillName" .. i], 'Name');
-            local wiki = GetWikiByName(questIES['Succ_Journal_MonKillName'..i])
+    		local monname = GetClassString('Monster',questIES["Succ_Journal_MonKillName" .. i], 'Name');            
+            local monCls = GetClass('Monster', questIES['Succ_Journal_MonKillName'..i]);
+            local monID = TryGetProp(monCls, 'ClassID');
             local curcnt = 0
-            if wiki ~= nil then
-                curcnt = GetWikiIntProp(wiki, "KillCount");
+            if monID ~= nil and IsExistMonsterInAdevntureBook(pc, monID) == 'YES' then
+                curcnt = GetMonKillCount(pc, monID);
             end
             
             if GetPropType(questIES, "Succ_Journal_MonKillCount" .. i) == nil or questIES["Succ_Journal_MonKillCount" .. i] > 0 then
@@ -2702,8 +2707,8 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 	end
 	
 	QUESTINFOSET_2_AUTO_ALIGN(groupCtrl:GetTopParentFrame(), groupCtrl);	
-	if drawCount > 0 then
-		frame:ShowWindow(1);
+	if drawCount > 0 then        
+		frame:ShowWindow(UI_CHECK_NOT_PVP_MAP());
 	end
 end
 

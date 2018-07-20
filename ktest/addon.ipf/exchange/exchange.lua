@@ -287,16 +287,7 @@ function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
 				return;
 			end
 		end
-		EXCHANGE_ADD_FROM_INV(obj, item, tradeCount)
-			
-	elseif iconParentFrame:GetName() == 'wiki' then
-		local iconInfo = liftIcon:GetInfo();
-		
-		if iconInfo.ext == 0 then
-			return;
-		end
-		
-		exchange.SendOfferWiki(iconInfo.type);				
+		EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
 	end 	
 	
 end 

@@ -24,6 +24,6 @@
 		<button name="item10Btn" rect="0 390 540 40" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" caption="Item10" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 		<button name="item11Btn" rect="0 425 540 40" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" caption="Item11" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 		<richtext name="numberHelp" rect="20 45 30 20" layout_gravity="center top" caption="텍스트 헬프" hittest="false" spacey="0"/>
-		<edit name="numberEdit" rect="0 45 70 40" layout_gravity="center top" EnterKeyScp="DIALOGSELECT_NUMBER_ENTER" OffsetForDraw="0 0" fontname="white_20_ol" maxlen="4" skin="test_weight_skin" oversound="button_over" numbermode="true" textalign="center center" typingsound="chat_typing"/>
+		<edit name="numberEdit" rect="0 45 70 40" layout_gravity="center top" EnterKeyScp="DIALOGSELECT_NUMBER_ENTER" OffsetForDraw="0 0" fontname="white_20_ol" maxlen="32" skin="test_weight_skin" oversound="button_over" numbermode="true" textalign="center center" typingsound="chat_typing"/>
 	</controls>
 </uiframe>

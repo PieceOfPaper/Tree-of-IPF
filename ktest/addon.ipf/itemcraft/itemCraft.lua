@@ -100,9 +100,6 @@ function ITEMCRAFT_CLOSE(frame)
 end
 
 function CRAFT_OPEN(frame)
-
-	INV_CRAFT_CHECK();
-	
 	local f = ui.GetFrame(g_itemCraftFrameName);
 
 	CREATE_CRAFT_ARTICLE(f)
@@ -138,7 +135,7 @@ function SET_CRAFT_IDSPACE(frame, idSpace, arg1, arg2)
 end
 
 function CRAFT_CHECK_Recipe(cls, arg1, arg2)
-	if cls.NeedWiki == 0 or GetWikiByName(cls.ClassName) ~= nil then
+	if session.GetInvItemByName(cls.ClassName) ~= nil then
 		return true;
 	end
 
@@ -1523,24 +1520,6 @@ function CRAFT_EXIT(frame, msg, argStr, argNum)
 	ui.CloseFrame(g_itemCraftFrameName);
 end
 
-function INV_CRAFT_CHECK()
-	local invItemList 		= session.GetInvItemList();
-	local index = invItemList:Head();
-	while index ~= invItemList:InvalidIndex() do
-		local invItem			= invItemList:Element(index);
-		if invItem ~= nil then
-			local recipeCls = GetClass('Recipe', invItem.ClassName);
-			if recipeCls ~= nil then
-				if GetWikiByName(invItem.ClassName) == nil then
-					packet.ReqWikiRecipeUpdate();
-					return;
-				end
-			end
-		end
-		index = invItemList:Next(index);
-	end
-end
-
 function SORT_PURE_INVITEMLIST(a,b)
 
 	-- 같은 ClassID를 가진 템일 경우 쓸모 없는 템부터 합성 하도록 정렬하는 함수. 
@@ -1838,5 +1817,196 @@ function REGISTER_EQUIP(itemObj)
 	end
 
 	return 0
+
+end
+
+function MAKE_DETAIL_REQITEMS(ctrlset)
+	local recipecls = GetClass("Recipe", ctrlset:GetName());
+	local x = 90;
+	local startY = 85;
+	local y = startY;
+
+	local labelBox = ctrlset:CreateControl("groupbox", "LABEL", 80, startY, ctrlset:GetWidth() - 95, 0);
+	JOURNAL_DETAIL_CTRL_INIT(labelBox);
+	labelBox:ShowWindow(1);
+	labelBox:SetSkinName(" ");
+	ctrlset:SetSkinName("test_skin_01");
+	y = y + 10;
+
+	local itemHeight = ui.GetControlSetAttribute("journalRecipe_detail_item", 'height');
+	for i = 1 , 5 do
+		if recipecls["Item_"..i.."_1"] ~= "None" then
+			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
+
+			local itemSet = ctrlset:CreateOrGetControlSet("journalRecipe_detail_item", "ITEM_" .. i, x, y);
+			JOURNAL_DETAIL_CTRL_INIT(itemSet);
+			local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
+			local gauge = GET_CHILD(itemSet, "gauge", "ui::CGauge");
+			SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
+			gauge:SetPoint(invItemCnt, recipeItemCnt);
+
+			y = y + itemHeight + 5;
+		end
+	end
+
+	y = y + 10;
+	local gboxHeight = y - startY;
+	labelBox:Resize(labelBox:GetWidth(), gboxHeight);
+	y = y + 0;
+
+	local targetItem = GetClass("Item", recipecls.TargetItem);
+	if IS_EQUIP(targetItem) == true then
+		local memoSet = ctrlset:CreateControlSet("journalRecipe_detail_memo", "MEMO", 20, y);
+		JOURNAL_DETAIL_CTRL_INIT(memoSet);
+		JOURNAL_INIT_MEMO_SET(memoSet);
+		y = y;
+	end
+
+
+	ctrlset:MergeControlSet("journalRecipe_makeBtn", ctrlset:GetWidth() - 320, y + 0);
+	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
+	y = y + ui.GetControlSetAttribute("journalRecipe_makeBtn", 'height') + 0;
+	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
+	
+	local myActor = GetMyActor();
+
+	if myActor:IsSit() == 1 then -- ¾?? UI°¡ ¹?? ¶§¹®¿¡(¸¸??´?½þ? [μ¿ ¾?? ¹??°¡·s??? ±??f[: ?½ĸ???§¸¸ ?¸???sª 140922.
+		--make:ShowWindow(1)
+		make:ShowWindow(0)
+	else
+		make:ShowWindow(0)
+	end
+
+	return y - startY;
+end
+
+function JOURNAL_INIT_MEMO_SET(memoSet)
+	local name = GET_CHILD(memoSet, "name", "ui::CEditControl");
+	local memo = GET_CHILD(memoSet, "memo", "ui::CEditControl");
+	name:SetMaxLen(ITEM_MEMO_LEN);
+	memo:SetMaxLen(RECIPE_ITEM_NAME_LEN);
+	local frame = memoSet:GetTopParentFrame();
+	local before_name = frame:GetUserValue("EQP_NAME");
+	local before_memo = frame:GetUserValue("EQP_MEMO");
+	if before_name ~= "None" then
+		name:SetText(before_name);
+	end
+	if before_memo ~= "None" then
+		memo:SetText(before_memo);
+	end
+
+end
+
+function JOURNAL_CRAFT_OPTION(frame, ctrl)
+	frame = frame:GetTopParentFrame();
+	JOURNAL_REMAKE_CRAFT(frame);
+end
+
+function JOURNAL_REMAKE_CRAFT(frame)
+
+	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
+	local grid = GET_CHILD_RECURSIVELY(frame, "article");
+	
+	CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, 'Recipe', ScpArgMsg('Auto_JeJag'), 'journal_craet_icon', 'JOURNAL_OPEN_CRAFT_ARTICLE');
+end
+
+function CREATE_JOURNAL_ARTICLE_CRAFT(frame, grid, key, text, iconImage, callback)
+
+
+	CREATE_JOURNAL_ARTICLE(frame, grid, key, text, iconImage, callback);
+
+	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
+
+	local ctrlset = GET_CHILD(group, "ctrlset");
+	local slotHeight = ui.GetControlSetAttribute("journalRecipe", 'height') + 5;
+
+	local tree_box = GET_CHILD(ctrlset, 'recipetree_Box','ui::CGroupBox')
+	local tree = GET_CHILD(tree_box, 'recipetree','ui::CTreeControl')
+
+	tree:Clear();
+	tree:EnableDrawTreeLine(false)
+	tree:EnableDrawFrame(false)
+	tree:SetFitToChild(true,100)
+	tree:SetFontName("white_20_ol");
+	tree:SetTabWidth(5);
+
+	
+	local clslist = GetClassList("Recipe");
+	if clslist == nil then 
+		return 
+	end
+
+	local i = 0;
+	local cls = GetClassByIndexFromList(clslist, i);
+
+	local showonlyhavemat = GET_CHILD(ctrlset, "showonlyhavemat", "ui::CCheckBox");
+	showonlyhavemat:ShowWindow(0);
+	local checkHaveMaterial = showonlyhavemat:IsChecked();
+
+	while cls ~= nil do
+		if checkHaveMaterial == 1 then
+			if JOURNAL_HAVE_MATERIAL(cls) == 1 then
+				JOURNAL_INSERT_CRAFT(cls, tree, slotHeight);
+			end
+		else
+			JOURNAL_INSERT_CRAFT(cls, tree, slotHeight);
+		end
+
+		i = i + 1;
+		cls = GetClassByIndexFromList(clslist, i);
+	end
+
+	tree:OpenNodeAll();	
+end
+
+function JOURNAL_HAVE_MATERIAL(recipecls)
+
+	for i = 1 , 5 do
+		if recipecls["Item_"..i.."_1"] ~= "None" then
+			local dragRecipeItem = GetClass('Item', recipecls["Item_"..i.."_1"]);
+			local invItem = session.GetInvItemByType(dragRecipeItem.ClassID);
+			if invItem ~= nil then
+				return 1;
+			end
+		end
+	end
+
+	return 0;
+end
+
+function JOURNAL_INSERT_CRAFT(cls, tree, slotHeight)
+
+	local item = GetClass('Item', cls.TargetItem);
+	local groupName = item.GroupName;
+	local classType = nil;
+	if GetPropType(item, "ClassType") ~= nil then
+		classType = item.ClassType;
+	end
+
+	local page = JOURNAL_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType);
+	
+	local app = page:CreateOrGetControlSet("journalRecipe", cls.ClassName, 10, 10);
+
+	local titleText = GET_CHILD(app, "name", "ui::CRichText");
+	titleText:SetText("{@st48}{s18}"..item.Name.."{/}{/}");
+
+	local difficulty = GET_CHILD(app, "difficulty", "ui::CRichText");
+	local difficultyText = GET_ITEM_GRADE_TXT(item, 24);
+	difficulty:SetText(difficultyText);
+
+	local icon = GET_CHILD(app, "icon", "ui::CPicture");
+	icon:SetImage(item.Icon);
+	icon:SetEnableStretch(1)
+
+	SET_ITEM_TOOLTIP_ALL_TYPE(icon, item, item.ClassName, '', item.ClassID, 0);
+
+	local titleText = GET_CHILD(app, "count", "ui::CRichText");
+	titleText:SetText('');
+
+	local gauge = GET_CHILD(app, 'progress', "ui::CGauge");
+	gauge:ShowWindow(0);
+
+	app:SetEventScript(ui.LBUTTONUP, 'JORNAL_RECIPE_FOCUS');
+	page:Resize(page:GetWidth(), app:GetY() + app:GetHeight() + 20);
 
 end

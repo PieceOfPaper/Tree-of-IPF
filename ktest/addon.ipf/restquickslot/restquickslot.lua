@@ -183,11 +183,6 @@ function REST_SLOT_USE(frame, slotIndex)
 	scp();
 end
 
-function REQUEST_JOURNAL_UPDATE()
-	
-	control.CustomCommand("REQUEST_JOURNAL_RANK_UPDATE", 0, 0);
-end
-
 function REQUEST_OPEN_JORUNAL_CRAFT()
 	local frame = ui.GetFrame("itemcraft");
 	if frame ~= nil then

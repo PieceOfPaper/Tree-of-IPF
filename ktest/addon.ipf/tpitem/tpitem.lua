@@ -36,7 +36,7 @@ function TPSHOP_REDRAW_TPITEMLIST()
 		
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	local typeIndex = showTypeList:GetSelItemIndex();
-	
+	session.shop.RequestLoadShopBuyLimit();
 	
 	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
 	
@@ -79,13 +79,13 @@ function TPITEM_OPEN(frame)
 	end
 
 	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
-	if 0 == IsMyPcGM_FORNISMS() then
-	local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
-	local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
-	btn1:SetEnable(0)
-	btn2:SetEnable(0)
+		if 0 == IsMyPcGM_FORNISMS() then
+			local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
+			local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
+			btn1:SetEnable(0)
+			btn2:SetEnable(0)
+		end
 	end
-end
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -148,7 +148,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
     
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
-
+	session.shop.RequestLoadShopBuyLimit();
 	frame:ShowWindow(1);
 	local leftgFrame = frame:GetChild("leftgFrame");	
 	local leftgbox = leftgFrame:GetChild("leftgbox");
@@ -921,7 +921,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 	local buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");
 	buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);
 	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
-
+	
 	local previewbtn = GET_CHILD_RECURSIVELY(itemcset, "previewBtn");
 	previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);		
 	previewbtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
@@ -1037,6 +1037,18 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 	buyBtn:SetSkinName("test_red_button");	
 	buyBtn:EnableHitTest(1);
+	
+	local obj = GetClassByType("TPitem", tpitem_clsID)
+	if obj == nil then
+		return;
+	end
+
+	local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+	if obj.AccountLimitCount ~= 0 and curBuyCount >= obj.AccountLimitCount then
+		buyBtn:SetSkinName('test_gray_button');
+		buyBtn:SetText(ClMsg('ITEM_IsPurchased0'))
+		buyBtn:EnableHitTest(0)
+	end
 
 	previewbtn:ShowWindow(isPreviewPossible);
 end
@@ -1880,7 +1892,6 @@ function TPSHOP_ITEM_BASKET_BUY_CANCEL()
 end
 
 function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
-	
 	g_TpShopParent = parent;
 	g_TpShopcontrol = control;
 	
@@ -1920,9 +1931,15 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 			isHave = true;
 		end
 	end
-	
 	if isHave == true then
 		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+	elseif obj.AccountLimitCount ~= 0 then
+		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID);
+		if curBuyCount >= obj.AccountLimitCount then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.AccountLimitCount), "")
+		else
+			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItem","Value", obj.AccountLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
+		end
 	else
 		TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 	end
@@ -2277,7 +2294,7 @@ function TPITEM_DRAW_NC_TP()
 		    buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
 		    buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
 		    buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-		    buyBtn:SetUserValue("LISTINDEX", i);
+		buyBtn:SetUserValue("LISTINDEX", i);
 		elseif (categoryNo == 806) or (categoryNo == 2349)  then				
 		    local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 		    if imgURL ~= nil then	
@@ -2291,7 +2308,7 @@ function TPITEM_DRAW_NC_TP()
 		    		local jobCountMax = 0;
 		    		for j = 0, listcnt - 1 do
 		    			local obj = GetClassByIndexFromList(clsList, j);	
-		    			retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
+						retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
 		    			if retNum > 0 then
 		    				ItemClassName = obj.Name;	
 		    				item_package = obj;

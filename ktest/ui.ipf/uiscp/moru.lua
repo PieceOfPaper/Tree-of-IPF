@@ -89,7 +89,7 @@ function CURSOR_CHECK_REINF(slot)
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR"then
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" then
 		if 1 == REINFORCE_ABLE_131014(obj) 
 			and obj.PR == 0 then
 			return 1;
@@ -140,7 +140,7 @@ function MORU_LBTN_CLICK(frame, invItem)
 
 	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(upgradeitem_2);
 	local moruObj = GetIES(fromMoru:GetObject());
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" then 
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" then 
 		if obj.PR > 0 then
 		    return;
 	    end
@@ -181,7 +181,7 @@ function _CHECK_MORU_TARGET_ITEM(slot)
 	local moruObj = GetIES(fromMoru:GetObject());
 	local obj = GetIES(item:GetObject());
 	local CanReinforceItem = 0;
-	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR"then 
+	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" then 
 		if REINFORCE_ABLE_131014(obj) == 1 and obj.PR == 0 then
 			CanReinforceItem = 1;
 		end

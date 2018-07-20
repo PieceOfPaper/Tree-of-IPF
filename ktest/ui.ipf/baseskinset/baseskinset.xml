@@ -3249,7 +3249,7 @@
 			<img name="bottomright" imgrect="1300 140 30 15"/>
 		</skin>
 	</skinlist>
-	<skinlist category="testji_frames">
+	<skinlist category="testje_frames">
 		<skin name="test_keyque_skin" texture="\skin\keynbet.tga">
 			<img name="topleft" imgrect="0 0 110 90"/>
 			<img name="topcore" imgrect="111 0 180 90"/>
@@ -3525,6 +3525,17 @@
 			<img name="bottomcore" imgrect="1348 156 18 1"/>
 			<img name="bottomright" imgrect="1367 156 43 1"/>
 		</skin>
+		<skin name="cutting_line_h" texture="\skin\guild_skin.tga">
+			<img name="topleft" imgrect="2 438 150 1"/>
+			<img name="topcore" imgrect="153 438 209 1"/>
+			<img name="topright" imgrect="363 438 139 1"/>
+			<img name="bodyleft" imgrect="2 439 150 67"/>
+			<img name="bodycore" imgrect="153 439 209 67"/>
+			<img name="bodyright" imgrect="363 439 139 67"/>
+			<img name="bottomleft" imgrect="2 506 150 1"/>
+			<img name="bottomcore" imgrect="153 506 209 1"/>
+			<img name="bottomright" imgrect="363 506 139 1"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -3537,6 +3548,86 @@
 			<img name="bottomleft" imgrect="31 692 1 48"/>
 			<img name="bottomcore" imgrect="32 692 337 48"/>
 			<img name="bottomright" imgrect="369 692 1 48"/>
+		</skin>
+		<skin name="adventure_paper" texture="\skin\adventure_diary2.tga">
+			<img name="topleft" imgrect="1 1 113 126"/>
+			<img name="topcore" imgrect="115 1 199 126"/>
+			<img name="topright" imgrect="315 1 145 126"/>
+			<img name="bodyleft" imgrect="1 128 113 72"/>
+			<img name="bodycore" imgrect="115 128 199 72"/>
+			<img name="bodyright" imgrect="315 128 145 72"/>
+			<img name="bottomleft" imgrect="1 201 113 128 "/>
+			<img name="bottomcore" imgrect="115 201 199 128"/>
+			<img name="bottomright" imgrect="315 201 145 128"/>
+		</skin>
+		<skin name="adventure_paper2" texture="\skin\adventure_diary.tga">
+			<img name="topleft" imgrect="18 310 101 113"/>
+			<img name="topcore" imgrect="120 310 199 113"/>
+			<img name="topright" imgrect="320 310 126 113"/>
+			<img name="bodyleft" imgrect="18 424 101 72"/>
+			<img name="bodycore" imgrect="120 424 199 72"/>
+			<img name="bodyright" imgrect="320 424 126 72"/>
+			<img name="bottomleft" imgrect="18 497 101 116"/>
+			<img name="bottomcore" imgrect="120 497 199 116"/>
+			<img name="bottomright" imgrect="320 497 126 116"/>
+		</skin>
+		<skin name="adventure_deco" texture="\skin\adventure_diary.tga">
+			<img name="topleft" imgrect="142 114 87 1"/>
+			<img name="topcore" imgrect="230 114 71 1"/>
+			<img name="topright" imgrect="302 114 54 1"/>
+			<img name="bodyleft" imgrect="142 115 87 67"/>
+			<img name="bodycore" imgrect="230 115 71 67"/>
+			<img name="bodyright" imgrect="302 115 54 67 "/>
+			<img name="bottomleft" imgrect="142 182 87 1"/>
+			<img name="bottomcore" imgrect="230 182 87 1"/>
+			<img name="bottomright" imgrect="302 182 54 1"/>
+		</skin>
+		<skin name="adventure_title" texture="\skin\adventure_diary.tga">
+			<img name="topleft" imgrect="71 795 217 1 "/>
+			<img name="topcore" imgrect="289 795 84 1"/>
+			<img name="topright" imgrect="374 795 204 1"/>
+			<img name="bodyleft" imgrect="71 796 217 86"/>
+			<img name="bodycore" imgrect="289 796 84 86"/>
+			<img name="bodyright" imgrect="374 796 204 86"/>
+			<img name="bottomleft" imgrect="71 882 217 1"/>
+			<img name="bottomcore" imgrect="289 882 84 1"/>
+			<img name="bottomright" imgrect="374 882 204 1"/>
+		</skin>
+		<skin name="adventure_title2" texture="\skin\adventure_diary.tga">
+			<img name="topleft" imgrect="1081 966 110 1"/>
+			<img name="topcore" imgrect="1192 966 54 1"/>
+			<img name="topright" imgrect="1247 966 114 1"/>
+			<img name="bodyleft" imgrect="1081 967 110 51 "/>
+			<img name="bodycore" imgrect="1192 967 54 51"/>
+			<img name="bodyright" imgrect="1247 967 114 51"/>
+			<img name="bottomleft" imgrect="1081 1018 110 1"/>
+			<img name="bottomcore" imgrect="1192 1018 54 1"/>
+			<img name="bottomright" imgrect="1247 1018 114 1"/>
+		</skin>
+		<skin name="adventure_tab" texture="\skin\adventure_diary.tga">
+			<img name="leftopen" imgrect="320 66 45 47"/>
+			<img name="bodyopen" imgrect="366 66 41 47"/>
+			<img name="rightopen" imgrect="408 66 47 47"/>
+			<img name="leftclose" imgrect="460 66 45 47"/>
+			<img name="bodyclose" imgrect="506 66 41 47"/>
+			<img name="rightclose" imgrect="548 66 47 47"/>
+			<img name="topopen"/>
+			<img name="centeropen"/>
+			<img name="bottomopen"/>
+			<img name="topclose"/>
+			<img name="centerclose"/>
+			<img name="bottomclose"/>
+		</skin>
+		<skin name="blackbg1" texture="\skin\HUD.tga">
+			<img name="topleft" imgrect="1900 913 36 30"/>
+			<img name="topcore" imgrect="1937 913 40 30"/>
+			<img name="topright" imgrect="1978 913 38 30"/>
+			<img name="bodyleft" imgrect="1900 944 36 30"/>
+			<img name="bodycore" imgrect="1937 944 40 30"/>
+			<img name="bodyright" imgrect="1978 944 38 30"/>
+			<img name="bottomleft" imgrect="1900 975 36 30"/>
+			<img name="bottomcore" imgrect="1937 975 40 30"/>
+			<img name="bottomright" imgrect="1978 975 38 30"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -4795,6 +4886,30 @@
 			<img name="barmiddle" imgrect="67 1 213 39"/>
 			<img name="barright" imgrect="280 1 1 39"/>
 		</skin>
+		<skin name="colony_teamgauge" texture="\skin\PVP_skin.tga">
+			<img name="bgleft" imgrect="867 187 1 18"/>
+			<img name="bgmiddle" imgrect="868 187 99 18"/>
+			<img name="bgright" imgrect="967 187 1 18"/>
+			<img name="barleft" imgrect="595 251 1 18"/>
+			<img name="barmiddle" imgrect="596 251 99 18"/>
+			<img name="barright" imgrect="695 251 1 18"/>
+		</skin>
+		<skin name="colony_enemygauge" texture="\skin\PVP_skin.tga">
+			<img name="bgleft" imgrect="867 187 1 18"/>
+			<img name="bgmiddle" imgrect="868 187 99 18"/>
+			<img name="bgright" imgrect="967 187 1 18"/>
+			<img name="barleft" imgrect="867 168 1 18"/>
+			<img name="barmiddle" imgrect="868 168 99 18"/>
+			<img name="barright" imgrect="967 168 1 18"/>
+		</skin>
+		<skin name="colony_gauge_sp" texture="\skin\PVP_skin.tga">
+			<img name="bgleft" imgrect="800 58 1 5"/>
+			<img name="bgmiddle" imgrect="801 58 99 5"/>
+			<img name="bgright" imgrect="802 58 1 5"/>
+			<img name="barleft" imgrect="800 52 1 5"/>
+			<img name="barmiddle" imgrect="801 52 99 5"/>
+			<img name="barright" imgrect="802 52 1 5"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_2" texture="\skin\tooltip_skin_3.tga">
@@ -5471,7 +5586,7 @@
 		<image name="Appariser_arrow" file="\skin\Appraiser_skin.tga" imgrect="157 0 70 60" CMM_Caption="감정사_화살표"/>
 		<image name="Appariser_item" file="\skin\Appraiser_skin.tga" imgrect="228 0 155 172" CMM_Caption="감정사"/>
 	</imagelist>
-	<imagelist category="testji_image">
+	<imagelist category="testje_image">
 		<image name="test_deathX" file="\skin\keynbet.tga" imgrect="363 272 47 47" CMM_Caption="파티 사망자표시"/>
 		<image name="test_killinfosw" file="\skin\keynbet.tga" imgrect="410 200 29 14" CMM_Caption="처치 표시"/>
 		<image name="test_betrum_timegaule" file="\skin\keynbet.tga" imgrect="411 272 25 25" CMM_Caption="배틀럼블 타임게이지 좌"/>
@@ -5578,6 +5693,7 @@
 		<image name="event_btn" file="\skin\HUD.tga" imgrect="1226 830 66 66" CMM_Caption="이벤트 버튼"/>
 		<image name="event_btn_cursoron" file="\skin\HUD.tga" imgrect="1159 898 66 66"/>
 		<image name="event_btn_clicked" file="\skin\HUD.tga" imgrect="1226 898 66 66"/>
+		<image name="tip_questionmark" file="\skin\pip_test.tga" imgrect="1583 352 25 25" CMM_Caption="툴팁 아이콘"/>
 		<image name="notice_red_btn" file="\skin\tooltip_skin_3.tga" imgrect="12 96 26 26" CMM_Caption="이벤트 노티스"/>
 		<image name="notice_red_btn_cursoron" file="\skin\tooltip_skin_3.tga" imgrect="12 123 26 26"/>
 		<image name="notice_red_btn_clicked" file="\skin\tooltip_skin_3.tga" imgrect="12 123 26 26"/>
@@ -5596,7 +5712,30 @@
 		<image name="2curveframe_up" file="\skin\Appraiser_skin.tga" imgrect="85 173 165 25" CMM_Caption="살림통 업그레이드 프레임"/>
 		<image name="2curveframe_down" file="\skin\Appraiser_skin.tga" imgrect="85 199 165 25"/>
 		<image name="white_arrow" file="\skin\Appraiser_skin.tga" imgrect="1 173 83 67" CMM_Caption="화살표"/>
+		<image name="guildmark_frame" file="\skin\guild_skin.tga" imgrect="0 0 248 255" CMM_Caption="길드 마크 프레임"/>
+		<image name="guildmark_slot" file="\skin\guild_skin.tga" imgrect="249 0 129 129" CMM_Caption=""/>
+		<image name="guildname_frame" file="\skin\guild_skin.tga" imgrect="0 255 306 42" CMM_Caption="길드명 프레임"/>
+		<image name="guild_info_1" file="\skin\guild_skin.tga" imgrect="124 339 40 40"/>
+		<image name="guild_info_2" file="\skin\guild_skin.tga" imgrect="83 339 40 40"/>
+		<image name="guild_info_3" file="\skin\guild_skin.tga" imgrect="42 339 40 40"/>
+		<image name="guild_info_4" file="\skin\guild_skin.tga" imgrect="1 339 40 40"/>
+		<image name="guild_info_5" file="\skin\guild_skin.tga" imgrect="124 298 40 40"/>
+		<image name="guild_info_6" file="\skin\guild_skin.tga" imgrect="83 298 40 40"/>
+		<image name="guild_info_7" file="\skin\guild_skin.tga" imgrect="42 298 40 40"/>
+		<image name="guild_info_8" file="\skin\guild_skin.tga" imgrect="1 298 40 40"/>
+		<image name="guild_arrow_down" file="\skin\guild_skin.tga" imgrect="487 298 13 13"/>
+		<image name="guild_arrow_up" file="\skin\guild_skin.tga" imgrect="487 312 13 13"/>
+		<image name="guild_line_h" file="\skin\guild_skin.tga" imgrect="0 508 508 2"/>
+		<image name="guild_line_h2" file="\skin\guild_skin.tga" imgrect="0 510 508 2"/>
+		<image name="guild_line_p" file="\skin\guild_skin.tga" imgrect="504 4 5 500"/>
 		<image name="equip_inven" file="\skin\pip_test.tga" imgrect="868 708 50 50" CMM_Caption="인벤 장착중 표시"/>
+		<image name="emblemslot_green" file="\skin\PVP_skin.tga" imgrect="913 6 45 45" CMM_Caption="콜로니전 아군 앰블럼 슬롯"/>
+		<image name="emblemslot_red" file="\skin\PVP_skin.tga" imgrect="963 6 45 45" CMM_Caption="콜로니전 적군 앰블럼 슬롯"/>
+		<image name="colonymy_myframe" file="\skin\PVP_skin.tga" imgrect="580 226 133 22" CMM_Caption="콜로니 hsp 장식"/>
+		<image name="charinfo_markslot" file="\skin\pip_test.tga" imgrect="1797 263 25 25" CMM_Caption="hud 길드 마크 슬롯"/>
+		<image name="colonymap_unoccupation" file="\skin\colony.tga" imgrect="1795 1 74 74" CMM_Caption="콜로니전 맵 아이콘"/>
+		<image name="colonymap_in_progress" file="\skin\colony.tga" imgrect="1870 1 74 74"/>
+		<image name="colonymap_occupation" file="\skin\colony.tga" imgrect="1945 1 74 74"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -5649,6 +5788,54 @@
 		<image name="green_cardslot1" file="\skin\monstercard.tga" imgrect="561 671 67 103"/>
 		<image name="blue_cardslot1" file="\skin\monstercard.tga" imgrect="630 671 67 103"/>
 		<image name="monsterbtn_image" file="\skin\monstercard.tga" imgrect="63 751 29 28"/>
+		<image name="adventure_book" file="\skin\adventure_diary.tga" imgrect="710 12 1331 941" CMM_Caption="모험일지책"/>
+		<image name="adventure_ranking1" file="\skin\adventure_diary.tga" imgrect="27 34 91 77" CMM_Caption="모험일지1등"/>
+		<image name="adventure_ranking2" file="\skin\adventure_diary.tga" imgrect="27 112 91 77" CMM_Caption="모험일지2등"/>
+		<image name="adventure_ranking3" file="\skin\adventure_diary.tga" imgrect="27 190 91 77" CMM_Caption="모험일지3등"/>
+		<image name="adventure_slotbg" file="\skin\adventure_diary.tga" imgrect="366 115 108 108" CMM_Caption="모험일지 슬롯 뒷배경"/>
+		<image name="adventure_arrow" file="\skin\adventure_diary.tga" imgrect="266 21 69 43" CMM_Caption="모험일지 랭킹표시화살표"/>
+		<image name="adventure_titlebar" file="\skin\adventure_diary.tga" imgrect="380 33 303 31" CMM_Caption=""/>
+		<image name="adventure_attribute" file="\skin\adventure_diary.tga" imgrect="598 70 85 23" CMM_Caption="모험일지종류기준제목"/>
+		<image name="adventure_rank1" file="\skin\adventure_diary.tga" imgrect="45 729 147 51" CMM_Caption="모험일지 주변순위"/>
+		<image name="adventure_rank2" file="\skin\adventure_diary.tga" imgrect="197 729 327 51" CMM_Caption="모험일지 주변순위"/>
+		<image name="adventure_info_title" file="\skin\adventure_diary.tga" imgrect="109 883 469 40" CMM_Caption="모험일지 툴팁 제목"/>
+		<image name="adventure_total" file="\skin\adventure_diary.tga" imgrect="1406 967 559 40" CMM_Caption="모험일지 총점수표기"/>
+		<image name="adventure_grow1" file="\skin\adventure_diary.tga" imgrect="119 190 31 37" CMM_Caption="모험일지 성장직업아이콘"/>
+		<image name="adventure_grow2" file="\skin\adventure_diary.tga" imgrect="151 190 31 37"/>
+		<image name="adventure_grow3" file="\skin\adventure_diary.tga" imgrect="183 190 31 37"/>
+		<image name="adventure_grow4" file="\skin\adventure_diary.tga" imgrect="215 190 31 37"/>
+		<image name="adventure_arrow1" file="\skin\adventure_diary.tga" imgrect="249 67 14 12"/>
+		<image name="adventure_arrow2" file="\skin\adventure_diary.tga" imgrect="264 67 14 12"/>
+		<image name="adventure_brownslot" file="\skin\adventure_diary.tga" imgrect="692 962 59 59" CMM_Caption="브라운 슬롯"/>
+		<image name="adventure_stamp" file="\skin\adventure_diary.tga" imgrect="527 727 56 56" CMM_Caption="보상완료 도장"/>
+		<image name="teambattle_emblem" file="\skin\teambattle_emblem.tga" imgrect="0 0 406 386" CMM_Caption="팀배틀리그엠블럼"/>
+	</imagelist>
+	<imagelist category="colony_image">
+		<image name="colony_vic_frame" file="\skin\colony.tga" imgrect="0 0 581 532" CMM_Caption="콜로니 승리 프레임"/>
+		<image name="colony_vic_wingL" file="\skin\colony.tga" imgrect="0 961 626 444" CMM_Caption="승리날개왼쪽"/>
+		<image name="colony_vic_wingR" file="\skin\colony.tga" imgrect="0 1413 626 444" CMM_Caption="승리날개오른쪽"/>
+		<image name="colony_vic_text" file="\skin\colony.tga" imgrect="635 961 453 142" CMM_Caption="콜로니승리한글"/>
+		<image name="colony_lose_text" file="\skin\colony.tga" imgrect="635 1109 453 142" CMM_Caption="콜로니패배한글"/>
+		<image name="colony_lose_frame" file="\skin\colony.tga" imgrect="585 0 581 532" CMM_Caption="콜로니 패배 프레임"/>
+		<image name="colony_lose_wingL" file="\skin\colony.tga" imgrect="0 536 442 422" CMM_Caption="패배날개왼쪽"/>
+		<image name="colony_lose_wingR" file="\skin\colony.tga" imgrect="448 536 442 422" CMM_Caption="패배날개오른쪽"/>
+		<image name="colony_lose_ivy" file="\skin\colony.tga" imgrect="1171 0 622 363" CMM_Caption="패배넝쿨데코"/>
+		<image name="colony_chartbg" file="\skin\colony.tga" imgrect="1273 370 324 311" CMM_Caption="콜로니알림창"/>
+		<image name="colony_medal1" file="\skin\colony.tga" imgrect="1171 366 39 57" CMM_Caption="콜로니현재1위"/>
+		<image name="colony_medal2" file="\skin\colony.tga" imgrect="1214 366 39 57" CMM_Caption="콜로니현재2위"/>
+		<image name="colony_medal3" file="\skin\colony.tga" imgrect="1171 426 39 57" CMM_Caption="콜로니현재3위"/>
+		<image name="colony_myscore" file="\skin\colony.tga" imgrect="893 561 332 96" CMM_Caption="콜로니내점수"/>
+		<image name="colonyopen_btn" file="\skin\colony.tga" imgrect="893 536 60 20" CMM_Caption="콜로니펴보기버튼"/>
+		<image name="colonyopen_btn_cursoron" file="\skin\colony.tga" imgrect="955 536 60 20"/>
+		<image name="colonyopen_btn_clicked" file="\skin\colony.tga" imgrect="1017 536 60 20"/>
+		<image name="colonyclose_btn" file="\skin\colony.tga" imgrect="1079 536 60 20" CMM_Caption="콜로니숨기기버튼"/>
+		<image name="colonyclose_btn_cursoron" file="\skin\colony.tga" imgrect="1141 536 60 20"/>
+		<image name="colonyclose_btn_clicked" file="\skin\colony.tga" imgrect="1203 536 60 20"/>
+		<image name="colonymessage" file="\skin\colony.tga" imgrect="894 689 1048 182" CMM_Caption="콜로니 메세지"/>
+		<image name="colonypicimage" file="\skin\colony.tga" imgrect="1171 485 47 47" CMM_Caption="콜로니 엠블럼이미지"/>
+		<image name="colonyline" file="\skin\colony.tga" imgrect="894 877 1048 23" CMM_Caption="콜로니 라인"/>
+		<image name="colonymonster" file="\skin\colony.tga" imgrect="1214 426 51 51" CMM_Caption="콜로니 몹등장"/>
+		<image name="colonypalace" file="\skin\colony.tga" imgrect="1795 77 78 79" CMM_Caption="콜로니 미니맵성표시"/>
 	</imagelist>
 	<imagelist category="living_image">
 		<image name="fishingbox_0" file="\skin\living\fishingbox_0.png" imgrect="0 0 256 256" CMM_Caption="살림통 1"/>
@@ -5975,6 +6162,9 @@
 		<image name="market_reset2_btn" file="\skin\market_skin.tga" imgrect="812 97 45 45" CMM_Caption="마켓_새로고침버튼2"/>
 		<image name="market_reset2_btn_cursoron" file="\skin\market_skin.tga" imgrect="858 97 45 45"/>
 		<image name="market_reset2_btn_clicked" file="\skin\market_skin.tga" imgrect="904 97 45 45"/>
+		<image name="market_reset3_btn" file="\skin\market_skin.tga" imgrect="1331 97 32 32" CMM_Caption="마켓_새로고침버튼3"/>
+		<image name="market_reset3_btn_cursoron" file="\skin\market_skin.tga" imgrect="1364 97 32 32"/>
+		<image name="market_reset3_btn_clicked" file="\skin\market_skin.tga" imgrect="1396 97 32 32"/>
 		<image name="market_plus2_btn" file="\skin\market_skin.tga" imgrect="674 97 49 49" CMM_Caption="마켓_플러스버튼2"/>
 		<image name="market_plus2_btn_cursoron" file="\skin\market_skin.tga" imgrect="720 97 49 49"/>
 		<image name="market_plus2_btn_clicked" file="\skin\market_skin.tga" imgrect="766 97 49 49"/>
@@ -6077,6 +6267,64 @@
 		<image name="chat_expand_btn" file="\skin\chat_skin.tga" imgrect="282 0 24 24" CMM_Caption="채팅펼치기"/>
 		<image name="cchat_expand_btn_cursoron" file="\skin\chat_skin.tga" imgrect="282 25 24 24"/>
 		<image name="chat_expand_btn_clicked" file="\skin\chat_skin.tga" imgrect="282 50 24 24"/>
+	</imagelist>
+	<imagelist category="je_button">
+		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
+		<image name="menu_guild_info_cursoron" file="\skin\guild_skin.tga" imgrect="165 344 45 45"/>
+		<image name="menu_guild_info_clicked" file="\skin\guild_skin.tga" imgrect="165 390 45 45"/>
+		<image name="menu_guild_member" file="\skin\guild_skin.tga" imgrect="211 298 45 45"/>
+		<image name="menu_guild_member_cursoron" file="\skin\guild_skin.tga" imgrect="211 344 45 45"/>
+		<image name="menu_guild_member_clicked" file="\skin\guild_skin.tga" imgrect="211 390 45 45"/>
+		<image name="menu_guild_warehouse" file="\skin\guild_skin.tga" imgrect="257 298 45 45"/>
+		<image name="menu_guild_warehouse_cursoron" file="\skin\guild_skin.tga" imgrect="257 344 45 45"/>
+		<image name="menu_guild_warehouse_clicked" file="\skin\guild_skin.tga" imgrect="257 390 45 45"/>
+		<image name="menu_guild_board" file="\skin\guild_skin.tga" imgrect="303 298 45 45"/>
+		<image name="menu_guild_board_cursoron" file="\skin\guild_skin.tga" imgrect="303 344 45 45"/>
+		<image name="menu_guild_board_clicked" file="\skin\guild_skin.tga" imgrect="303 390 45 45"/>
+		<image name="menu_guild_war" file="\skin\guild_skin.tga" imgrect="349 298 45 45"/>
+		<image name="menu_guild_war_cursoron" file="\skin\guild_skin.tga" imgrect="349 344 45 45"/>
+		<image name="menu_guild_war_clicked" file="\skin\guild_skin.tga" imgrect="349 390 45 45"/>
+		<image name="menu_guild_colony" file="\skin\guild_skin.tga" imgrect="395 298 45 45"/>
+		<image name="menu_guild_colony_cursoron" file="\skin\guild_skin.tga" imgrect="395 344 45 45"/>
+		<image name="menu_guild_colony_clicked" file="\skin\guild_skin.tga" imgrect="395 390 45 45"/>
+		<image name="menu_guild_set" file="\skin\guild_skin.tga" imgrect="441 298 45 45"/>
+		<image name="menu_guild_set_cursoron" file="\skin\guild_skin.tga" imgrect="441 344 45 45"/>
+		<image name="menu_guild_set_clicked" file="\skin\guild_skin.tga" imgrect="441 390 45 45"/>
+	</imagelist>
+	<imagelist category="min_button">
+		<image name="adventure_main" file="\skin\adventure_diary.tga" imgrect="579 115 100 74" CMM_Caption="메인"/>
+		<image name="adventure_main_cursoron" file="\skin\adventure_diary.tga" imgrect="589 722 100 74"/>
+		<image name="adventure_main_clicked" file="\skin\adventure_diary.tga" imgrect="477 115 100 74"/>
+		<image name="adventure_monster" file="\skin\adventure_diary.tga" imgrect="579 190 100 74" CMM_Caption="몬스터"/>
+		<image name="adventure_monster_cursoron" file="\skin\adventure_diary.tga" imgrect="589 797 100 74"/>
+		<image name="adventure_monster_clicked" file="\skin\adventure_diary.tga" imgrect="477 190 100 74"/>
+		<image name="adventure_item" file="\skin\adventure_diary.tga" imgrect="579 265 100 74" CMM_Caption="아이템"/>
+		<image name="adventure_item_cursoron" file="\skin\adventure_diary.tga" imgrect="589 872 100 74"/>
+		<image name="adventure_item_clicked" file="\skin\adventure_diary.tga" imgrect="477 265 100 74"/>
+		<image name="adventure_making" file="\skin\adventure_diary.tga" imgrect="579 340 100 74" CMM_Caption="제작"/>
+		<image name="adventure_making_cursoron" file="\skin\adventure_diary.tga" imgrect="589 947 100 74"/>
+		<image name="adventure_making_clicked" file="\skin\adventure_diary.tga" imgrect="477 340 100 74"/>
+		<image name="adventure_living" file="\skin\adventure_diary.tga" imgrect="579 415 100 74" CMM_Caption="생활"/>
+		<image name="adventure_living_cursoron" file="\skin\adventure_diary.tga" imgrect="12 639 100 74"/>
+		<image name="adventure_living_clicked" file="\skin\adventure_diary.tga" imgrect="477 415 100 74"/>
+		<image name="adventure_dungeon" file="\skin\adventure_diary.tga" imgrect="579 490 100 74" CMM_Caption="던젼"/>
+		<image name="adventure_dungeon_cursoron" file="\skin\adventure_diary.tga" imgrect="113 639 100 74"/>
+		<image name="adventure_dungeon_clicked" file="\skin\adventure_diary.tga" imgrect="477 490 100 74"/>
+		<image name="adventure_grow" file="\skin\adventure_diary.tga" imgrect="579 565 100 74" CMM_Caption="성장"/>
+		<image name="adventure_grow_cursoron" file="\skin\adventure_diary.tga" imgrect="214 639 100 74"/>
+		<image name="adventure_grow_clicked" file="\skin\adventure_diary.tga" imgrect="477 565 100 74"/>
+		<image name="adventure_explore" file="\skin\adventure_diary.tga" imgrect="579 640 100 74" CMM_Caption="탐험"/>
+		<image name="adventure_explore_cursoron" file="\skin\adventure_diary.tga" imgrect="315 639 100 74"/>
+		<image name="adventure_explore_clicked" file="\skin\adventure_diary.tga" imgrect="477 640 100 74"/>
+		<image name="adventure_rankingbtn" file="\skin\adventure_diary.tga" imgrect="5 938 116 74" CMM_Caption="모험일지랭킹"/>
+		<image name="adventure_rankingbtn_cursoron" file="\skin\adventure_diary.tga" imgrect="355 932 116 74"/>
+		<image name="adventure_rankingbtn_clicked" file="\skin\adventure_diary.tga" imgrect="121 4 116 74"/>
+		<image name="adventure_teambattle" file="\skin\adventure_diary.tga" imgrect="122 938 116 74" CMM_Caption="팀배틀리그"/>
+		<image name="adventure_teambattle_cursoron" file="\skin\adventure_diary.tga" imgrect="472 932 116 74"/>
+		<image name="adventure_teambattle_clicked" file="\skin\adventure_diary.tga" imgrect="241 228 116 74"/>
+		<image name="adventure_uphill" file="\skin\adventure_diary.tga" imgrect="239 938 116 74" CMM_Caption="업힐디펜스"/>
+		<image name="adventure_uphill_cursoron" file="\skin\adventure_diary.tga" imgrect="124 228 116 74"/>
+		<image name="adventure_uphill_clicked" file="\skin\adventure_diary.tga" imgrect="358 228 116 74"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
@@ -7691,6 +7939,10 @@
 		<image name="NOTICE_Dm_directormode2" file="\skin\dungeon_message.tga" imgrect="0 707 100 100" CMM_Caption="directormode2"/>
 		<image name="NOTICE_Dm_GMmessage" file="\skin\dungeon_message.tga" imgrect="0 808 100 100" CMM_Caption="gm message"/>
 		<image name="NOTICE_Dm_Fishing" file="\skin\dungeon_message.tga" imgrect="101 808 100 100" CMM_Caption="Fishing"/>
+		<image name="NOTICE_Dm_GuildColony" file="\skin\dungeon_message.tga" imgrect="303 808 100 100" CMM_Caption="Guild_Colony"/>
+		<image name="NOTICE_Dm_BossAppear" file="\skin\dungeon_message.tga" imgrect="202 808 100 100" CMM_Caption="BossAppear_Colony"/>
+		<image name="NOTICE_Dm_GuildColony2" file="\skin\dungeon_message.tga" imgrect="404 808 100 100" CMM_Caption="Guild_Colony2"/>
+		<image name="NOTICE_Dm_GuildColony3" file="\skin\dungeon_message.tga" imgrect="505 808 100 100" CMM_Caption="Guild_Colony3"/>
 	</imagelist>
 	<imagelist category="SkillAnimPicture">
 		<image name="skillAnim" file="\icon\warrior_m.tga" imgrect="0 0 1024 512"/>

@@ -121,8 +121,5 @@ function MSGBOX_GIVEITEM_TO_GUILDMEMBER(parent, ctrl)
 
 end
 
-function EXEC_GIVEITEM_TO_GUILDMEMBER(aid, iesID, count)
-	
-	party.ReqPartyInvItemToAccount(PARTY_GUILD, aid, iesID, count);
-	
+function EXEC_GIVEITEM_TO_GUILDMEMBER(aid, iesID, count)	
 end

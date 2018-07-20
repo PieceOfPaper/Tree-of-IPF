@@ -1430,7 +1430,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	end
 	
 	local itemobj = GetIES(invitem:GetObject());
-
+	
 	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");
 
 	if customRBtnScp == "None" then
@@ -1450,6 +1450,10 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		MARKET_SELL_RBUTTON_ITEM_CLICK(market_sell, invitem);
 		return;
 	end
+
+	local invFrame = ui.GetFrame("inventory");	
+	invFrame:SetUserValue("INVITEM_GUID", invitem:GetIESID());
+
 
 	local frame     = ui.GetFrame("shop");
 	local companionshop = ui.GetFrame('companionshop');
@@ -1521,7 +1525,13 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		else
 			ITEM_EQUIP(argNum);
 		end
-	else
+	else			
+		if itemobj.Script == 'SCR_SUMMON_MONSTER_FROM_CARDBOOK' then
+			local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("Card_Summon_check_Use"));
+			ui.MsgBox_NonNested(textmsg, itemobj.Name, "REQUEST_SUMMON_BOSS_TX", "None");
+			return
+		end
+
 		if true == RUN_CLIENT_SCP(invitem) then
             return;
         end
@@ -1539,16 +1549,13 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 				local invFrame = ui.GetFrame('inventory');
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);
 			end
-		elseif groupName == "Recipe" then
-			local yesScp = string.format("item.ItemAddWiki(\'%s\')",invitem:GetIESID());
-			ui.MsgBox(itemobj.Name .. ScpArgMsg("WannaRegWiki?"), yesScp, "None");
 		end
 	end
-	
+
 	-- 오른쪽 클릭으로 몬스터 카드를 인벤토리의 카드 장착 슬롯에 장착하게 함.
 	local moncardFrame = ui.GetFrame("monstercardslot");
 	
-	if moncardFrame:IsVisible() == 1 then
+	if moncardFrame:IsVisible() == 1 and itemobj.GroupName == "Card" then
 		local groupNameStr = itemobj.CardGroupName
 		local moncardGbox = GET_CHILD_RECURSIVELY(moncardFrame, groupNameStr .. 'cardGbox');
 		if itemobj.GroupName ~= "Card" then		
@@ -1583,6 +1590,13 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			ui.SysMsg(ClMsg("CantEquipMonsterCard"));
 		end;
 	end
+end
+
+function REQUEST_SUMMON_BOSS_TX()
+	local invFrame = ui.GetFrame("inventory");
+	local itemGuid = invFrame:GetUserValue("INVITEM_GUID");
+	local invItem = session.GetInvItemByGuid(itemGuid)
+	INV_ICON_USE(invItem)
 end
 
 --아이템의 사용
@@ -1960,11 +1974,6 @@ function GET_SLOT_PROP(slot)
 end
 
 function INVENTORY_OP_POP(frame, slot, str, num)
-	local itemProp = GET_SLOT_PROP(slot);
-	if itemProp.dragRecipe == nil or GetWiki(itemProp.dragRecipe.needWikiID) == nil then
-		return;
-	end
-
 	frame = frame:GetTopParentFrame();
 	frame:SetValue(0);
 	--INVENTORY_TOTAL_LIST_GET(frame);
@@ -2022,9 +2031,6 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	slot:EnableDrag(1)
 	slot:EnableDrop(1)
 
-	-- drag && drop recipe blink
-	UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem);
-
 	if customFunc ~= nil then
 		customFunc(slot, scriptArg, invItem, itemobj);
 	end
@@ -2054,7 +2060,7 @@ end
 function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)
 	if invItem == nil then		
 		return;
-end
+	end
 
 	local slot1 = session.GetWeaponQuicSlot(0)
 	local slot2 = session.GetWeaponQuicSlot(1)	
@@ -2062,19 +2068,6 @@ end
 	local slot4 = session.GetWeaponQuicSlot(3)
 
 	return invItem : GetIESID() == slot1 or invItem : GetIESID() == slot2 or invItem : GetIESID() == slot3 or invItem : GetIESID() == slot4
-end
-
-function UPDATE_SLOT_RECIPE_BLINK(frame, slot, invItem)
-
-	-- 원래는 DROP 스크립트가 실행되고 LIFTICON이 NULL이 되는 순서인데
-	-- 여기서는 NULL이 먼저 되야한다. 예외를 만들지 않기 위해서 GetValue를 사용
-	-- DROPSCP <-> LIFTICON = NULL 순서를 변경 하는 옵션이 있으면 예외처리가 없어도됨
-	local recipeProp = invItem.prop.dragRecipe;
-	if recipeProp ~= nil then
-		if GetWiki(recipeProp.needWikiID) == nil then
-			return;
-		end
-	end
 end
 
 function STATUS_SLOT_DROP(frame, icon, argStr, argNum)
@@ -2638,6 +2631,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
+	slot:Select(0)
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	if true == selectItem.isLockState then
 		state = 0;

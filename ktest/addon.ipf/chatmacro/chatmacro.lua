@@ -109,8 +109,7 @@ function MACRO_POSE_VIEW(poseGbox)
 	end
 end
 
-function UPDATE_CHAT_MACRO(frame)
-
+function UPDATE_CHAT_MACRO(frame)    
 	-- pose
 	local poseGbox = frame:GetChild('poseGroupbox');
 	MACRO_POSE_VIEW(poseGbox);
@@ -194,12 +193,15 @@ function LOAD_SESSION_CHAT_MACRO(frame)
 	end
 end
 
-function SAVE_CHAT_MACRO(macroGbox, isclose)
-
+function SAVE_CHAT_MACRO(macroGbox, isclose)   
 	for i = 1 , MAX_MACRO_CNT do
 		local ctrl = macroGbox:GetChild("CHAT_MACRO_" .. i);
 		local text = ctrl:GetText();
-
+        local badword = IsBadString(text);
+	    if badword ~= nil then
+		    ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
+		    return
+	    end        
 		local slot = macroGbox:GetChild("CHAT_MACRO_SLOT_" .. i);		
 		local poseID = tonumber( slot:GetUserValue('POSEID') );
 		packet.ReqSaveChatMacro(i, poseID, text);

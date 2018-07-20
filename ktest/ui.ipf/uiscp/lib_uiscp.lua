@@ -527,3 +527,27 @@ function GET_JOB_ICON(job)
 
 end
 
+
+function GET_MON_ILLUST(monCls)
+
+	if monCls == nil then
+		return "unknown_monster";
+	end
+
+	local name = monCls.Journal;
+	if ui.IsImageExist(name) == 1 then
+		return name;
+	end
+	
+	name = "mon_"..name
+	if ui.IsImageExist(name) == 1 then
+		return name;
+	end
+
+	name = monCls.Icon;
+	if ui.IsImageExist(name) == 1 then
+		return name;
+	end
+	
+	return "unknown_monster";
+end

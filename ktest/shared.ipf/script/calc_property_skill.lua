@@ -1,4 +1,4 @@
---- calc_property_skill.lua
+﻿--- calc_property_skill.lua
 function GET_SKL_VALUE(skill, startValue, maxValue)
     local maxLv = 100;
     local curLv = skill.Level;
@@ -2880,43 +2880,44 @@ end
 
 function SCR_GET_BattleOrders_Ratio(skill)
 
-    local value = 5 * skill.Level
+    local value = 4 + skill.Level
 
   return value
 
 end
 
 function SCR_GET_BattleOrders_Ratio2(skill)
-
-    local value = 60
-  return value
-
-end
-
-function SCR_GET_BuildForge_Ratio(skill)
-
-    local value = skill.Level
+    local value = math.floor(skill.Level * 1.5 + 7)
     return value
-
-end
-
-function SCR_GET_BuildForge_Ratio2(skill)
-
-    local value = 110
-    return value
-
 end
 
 function SCR_GET_BuildForge_Time(skill)
-
-    local value = 24
+    local value = 80 + (skill.Level * 20)
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = 30
+    end
     return value
 
 end
 
 function SCR_GET_BuildShieldCharger_Ratio(skill)
+    local value = 30 + (skill.Level * 7)    
+    return value
+end
 
-    local value = skill.Level
+function SCR_GET_BuildShieldCharger_Ratio2(skill)
+    local value = 3 + skill.Level;
+    return value;
+
+end
+
+function SCR_GET_BuildShieldCharger_Ratio3(skill)
+    local value = 90
+    local pc = GetSkillOwner(skill);
+    if IsPVPServer(pc) == 1 then
+        value = 30
+    end
     return value
 
 end
@@ -3702,14 +3703,14 @@ end
 
 function SCR_GET_Commence_Ratio(skill)
 
-    local value = 50 + skill.Level * 5
+    local value = 300 + skill.Level * 50
     return value
 
 end
 
 function SCR_GET_Commence_Ratio2(skill)
 
-    local value = skill.Level * 10
+    local value = 300
     return value
 
 end
@@ -14180,3 +14181,4 @@ function SCR_Get_SkillFactor_Zombify(skill)
     local value = skill.SklFactor + (ownerSkill.Level - 1) * skill.SklFactorByLevel
     return math.floor(value)
 end
+

@@ -38,7 +38,7 @@ function RANKRESET_CHECK_PLAYER_STATE(frame)
 	RANKRESET_PC_LOCATE(frame);
 	RANKRESET_PC_AUTOSELLER_STATE(frame);
 	RANKRESET_PC_TIMEACTION_STATE(frame);
-	RANKRESET_PC_GUILDMASTER_STATE(frame);
+    RANKRESET_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame);
 end
 
 function RANKRESET_PC_TIMEACTION_STATE(frame)
@@ -60,25 +60,6 @@ function RANKRESET_PC_TIMEACTION_STATE(frame)
 		timeaction:SetCheck(1);
 	else
 		timeaction:SetCheck(0);
-	end
-end
-
-function RANKRESET_PC_GUILDMASTER_STATE(frame)
-	local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if isLeader == 1 then
-		local templer = session.GetJobGrade(1016);
-		templer = tonumber(templer);
-		if templer == 0 then
-			isLeader = 0;
-		else
-			isLeader = 1;
-		end
-	end
-	local master_check = GET_CHILD(frame, 'master_check', "ui::CCheckBox");
-	if 0 == isLeader then
-		master_check:SetCheck(1);
-	else
-		master_check:SetCheck(0);
 	end
 end
 
@@ -167,7 +148,6 @@ function RANKRESET_PC_ABILITY_STATE(frame)
 end
 
 function RANKRESET_ITEM_USE_BUTTON_CLICK(frame, ctrl)
-
 	local gradeRank = session.GetPcTotalJobGrade();
 	if gradeRank <= 1 then
 		ui.SysMsg(ScpArgMsg("CantUseRankRest1Rank"));
@@ -184,7 +164,19 @@ function RANKRESET_ITEM_USE_BUTTON_CLICK(frame, ctrl)
     if CHECK_INVENTORY_HAS_RANK_CARD() == true then
         ui.MsgBox_NonNested(ClMsg('YouHaveRankCardReallyRankReset?'), 0x00000000, frame:GetName(), 'None', 'None');
         return;
-    end    
+    end
+
+    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
+        ui.SysMsg(ClMsg('CannotRankResetBecauseUniqueTemplerMaster'));
+        return;
+    end
+    
+    local templerCls = GetClass('Job', 'Char1_16');    
+    if AM_I_LEADER(PARTY_GUILD) == 1 and IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
+        local yesscp = string.format("RANKRESET_REQUEST_RANK_RESET()");
+        ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
+        return;
+    end
 
     RANKRESET_REQUEST_RANK_RESET();
 end
@@ -230,4 +222,38 @@ function RANKRESET_DELETE_RANK_CARD(className)
     local yesScp = string.format('control.CustomCommand("TAKE_ITEM", %d)', deleteItemCls.ClassID);
 
     ui.MsgBox(ClMsg('DeleteCardBecauseYourRankTooHigh'), yesScp, 'None');
+end
+
+function IS_UNIQUE_TEMPLER_GUILD_MASTER_C()
+    if AM_I_LEADER(PARTY_GUILD) == 1 then
+        local templerCls = GetClass('Job', 'Char1_16');
+        if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
+            local myHandle = session.GetMyHandle();
+            local myName = info.GetName(myHandle);
+            local charList = GetCharacterNameList();
+            for i = 1, #charList do
+                local charName = charList[i];
+                if charName ~= myName then                
+                    local jobString = GetCharacterJobHistoryString(nil, charName);                    
+                    local jobList = StringSplit(jobString, ';');
+                    for j = 1, #jobList do                    
+                        if jobList[j] == 'Char1_16' then                        
+                            return false;
+                        end
+                    end
+                end
+            end
+            return true;
+        end
+    end
+    return false;
+end
+
+function RANKRESET_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame)
+    local enable = 1;
+    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
+        enable = 0;
+    end    
+    local master_check = GET_CHILD(frame, 'master_check');
+    master_check:SetCheck(enable);
 end

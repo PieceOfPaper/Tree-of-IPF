@@ -4,14 +4,10 @@ function GUILD_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg("GUILD_PROPERTY_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterOpenOnlyMsg("GUILD_INFO_UPDATE", "ON_GUILD_INFO_UPDATE");
 	addon:RegisterMsg("GUILD_EVENT_UPDATE", "ON_GUILD_INFO_UPDATE");
-
-	addon:RegisterMsg("GUILD_NEUTRALITY_UPDATE", "ON_GUILD_NEUTRALITY_UPDATE");
-	addon:RegisterMsg("GAME_START_3SEC", "GUILD_GAME_START_3SEC");	
-	addon:RegisterMsg("MYPC_GUILD_JOIN", "ON_MYPC_GUILD_JOIN");
+    
 	addon:RegisterMsg("GUILD_ENTER", "ON_GUILD_ENTER");
 	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
-	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
-	addon:RegisterMsg("UPDATE_GUILD_ONE_SAY", "ON_GUILD_ONE_SAY");
+	addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");	
 	
 	AUTHORITY_GUILD_INVITE = 1
 	AUTHORITY_GUILD_BAN = 2
@@ -67,23 +63,6 @@ function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
 end
 
-function ON_GUILD_NEUTRALITY_UPDATE(frame, msg, strArg, numArg)
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if pcparty == nil then
-		return;
-	end
-
-	if strArg ~= nil and strArg == "Change" then
-		if true == pcparty.info:GetNeutralityState() then
-			ui.SysMsg(ScpArgMsg("ChangeGuildNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)));
-		else
-			ui.SysMsg(ScpArgMsg("ChangeGuildNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)));
-		end
-	end
-
-	ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty);
-end
-
 function SHOW_GUILD_NEUTRALTY_REMAIN_TIME(ctrl)
 local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
 	local startSec = ctrl:GetUserIValue("REMAINSEC");
@@ -123,46 +102,6 @@ function ON_GUILD_UPDATE_NEUTRALITY(frame, pcparty)
 	end
 end
 
-function ON_GUILD_SET_NEUTRALITY(frame)
-	local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if 0 == isLeader then
-		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
-		ON_GUILD_NEUTRALITY_UPDATE(ui.GetFrame("guild"));
-		return;
-	end
-
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if nil == pcparty then
-		return;
-	end
-
-	local yesScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 1);
-	local noScp = string.format("C_GUILD_SET_NEUTRALITY(%d)", 0);
-	if true == pcparty.info:GetNeutralityState() then
-		--중립상태 해제
-		ui.MsgBox(ScpArgMsg("WantTobeChangedNoneNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
-	else
-		--중립상태 원함
-		ui.MsgBox(ScpArgMsg("WantTobeChangedNeutralityState{DAY}",'DAY',GET_TIME_TXT(GUILD_NEUTRALITY_TIME,1)), yesScp, noScp);
-	end
-
-end
-
-function C_GUILD_SET_NEUTRALITY(change)
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if nil == pcparty then
-		return;
-	end
-	
-	if change == 0 then
-		local frame = ui.GetFrame("guild");
-		ON_GUILD_NEUTRALITY_UPDATE(frame);
-		return;
-	end
-
-	session.guildState.ChangeGuildNeutralityState(pcparty.info);
-end
-
 function ON_GUILD_OUT(frame)
 	frame:ShowWindow(0);
 
@@ -176,12 +115,6 @@ function ON_GUILD_ENTER(frame, msg, str, isEnter)
 	local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
 	partynamegbox:EnableHitTest(1);
 	DebounceScript("UPDATE_GUILDINFO", 0.2);	
-end
-
-function ON_MYPC_GUILD_JOIN(frame)
-
-	frame:ShowWindow(1);
-
 end
 
 function GUILD_TAB_CHANGE(parent, ctrl)
@@ -201,26 +134,6 @@ function GUILD_UI_CLOSE(frame)
 	partynamegbox:EnableHitTest(1);
 	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
 	guild_authority_popup:ShowWindow(0);
-end
-
-function GUILD_GAME_START_3SEC(frame)
-
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if pcparty == nil then
-		return;
-	end
-
-	local cnt = pcparty.info:GetEnemyPartyCount();
-	for i = 0 , cnt - 1 do
-		local enemyInfo = pcparty.info:GetEnemyPartyByIndex(i);
-		local serverTime = geTime.GetServerFileTime();
-		local remainSec = imcTime.GetIntDifSecByTime(enemyInfo:GetEndTime(), serverTime);
-		if remainSec > 0 then
-			local msg = ScpArgMsg("WarWith{Name}GuildRemain{Time}", "Name", enemyInfo:GetPartyName(), "Time", GET_TIME_TXT_DHM(remainSec));
-			ui.SysMsg(msg);
-		end
-	end
-	
 end
 
 function UPDATE_GUILD_ABILITY_INFO(frame, partyObj)
@@ -264,17 +177,6 @@ function UPDATE_GUILD_WAR_INFO(frame, pcparty, partyObj)
 	GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj);
 
 	GUILD_UPDATE_SKL_OBJ_INFO(frame, partyObj);
-end
-
-function GUILD_SAVE_ONE_SAY(frame, ctrl)
-	local edit = GET_CHILD(frame, "edit_1");
-	
-	if string.len( edit:GetText() ) == 0 then
-		ui.MsgBox(ClMsg("InputTitlePlease"));
-		return;
-	end
-
-	session.guildState.SaveGuildBoard(edit:GetText());
 end
 
 function GUILD_UPDATE_SKL_OBJ_INFO(frame, guildObj)
@@ -514,41 +416,6 @@ function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)
 	end
 	
 end
-	
-function UPDATE_TOWER_REMAIN_TIME(txt_guildtowerposition)
-
-	local builtTime = txt_guildtowerposition:GetUserValue("BUILTTIME");
-	local endTime = imcTime.GetSysTimeByStr(builtTime);
-	endTime = imcTime.AddSec(endTime, GUILD_TOWER_LIFE_MIN * 60);
-	local sysTime = geTime.GetServerSystemTime();
-	local difSec = imcTime.GetDifSec(endTime, sysTime);
-	local difSecString = GET_TIME_TXT_DHM(difSec);
-	txt_guildtowerposition:SetTextByKey("remaintime", difSecString);
-	return 1;
-
-end
-
-function UPDATE_TOWER_DESTROY_TIME(txt_guildtowerposition)
-
-	local builtTime = txt_guildtowerposition:GetUserValue("DESTROYTIME");
-	local endTime = imcTime.GetSysTimeByStr(builtTime);
-	endTime = imcTime.AddSec(endTime, GUILD_TOWER_DESTROY_REBUILD_ABLE_MIN * 60);
-	local sysTime = geTime.GetServerSystemTime();
-	local difSec = imcTime.GetDifSec(endTime, sysTime);
-	if difSec > 0 then
-		local difSecString = GET_TIME_TXT_DHM(difSec);
-		txt_guildtowerposition:SetTextByKey("remaintime", difSecString);
-	else
-		local destroyPartyName = txt_guildtowerposition:GetUserValue("PARTYNAME");
-		local positionText = "{#FF0000}" .. ScpArgMsg("DestroyedByGuild{Name}", "Name", destroyPartyName) .. "{/}";
-		txt_guildtowerposition:SetTextByKey("value", positionText);
-		txt_guildtowerposition:SetTextByKey("remaintime", ScpArgMsg("AbleToRebuild"));
-		return 0;
-	end
-
-	return 1;
-
-end
 
 function GUILD_UPDATE_ENEMY_PARTY(frame, pcparty)
 
@@ -599,63 +466,6 @@ function UPDATE_REMAIN_GUILD_ENEMY_TIME(frame)
 	return 1;
 end
 
-function POPUP_GUILD_MEMBER(parent, ctrl)
-	local aid = parent:GetUserValue("AID");
-	if aid == "None" then
-		aid = ctrl:GetUserValue("AID");
-	end
-	
-	local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid);
-	local isLeader = AM_I_LEADER(PARTY_GUILD);
-	local myAid = session.loginInfo.GetAID();
-
-	local name = memberInfo:GetName();
-
-	local contextMenuCtrlName = string.format("{@st41}%s{/}", name);
-	local context = ui.CreateContextMenu("PC_CONTEXT_MENU", name, 0, 0, 170, 100);
-	
-	if isLeader == 1 and aid ~= myAid then
-		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
-	end
-
-	if (isLeader == 1 or IS_GUILD_AUTHORITY(2) == 1) and aid ~= myAid then
-		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("GUILD_BAN('%s')", aid));
-	end
-
-	
-	if isLeader == 1 and aid ~= myAid then
-		local mapName = session.GetMapName();
-		if mapName == 'guild_agit_1' then
-			ui.AddContextMenuItem(context, ScpArgMsg("GiveGuildLeaderPermission"), string.format("SEND_REQ_GUILD_MASTER('%s')", name));
-		end
-	end
-
-	if isLeader == 1 then
-
-		local list = session.party.GetPartyMemberList(PARTY_GUILD);
-		if list:Count() == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguild')");
-		end
-	else
-		if aid == myAid then
-			ui.AddContextMenuItem(context, ScpArgMsg("GULID_OUT"), "OUT_GUILD()");
-		end
-	end
-
-	ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", name));
-	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
-	ui.OpenContextMenu(context);
-
-end
-
-function SEND_REQ_GUILD_MASTER(name)
-	ui.Chat("/guildleader " .. name)
-end
-
-function OUT_GUILD()
-	ui.Chat("/outguild");
-end
-
 function GUILD_CHANGE_DUTY(name)
 
 	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
@@ -688,20 +498,6 @@ end
 function GUILD_BAN(name)
 
 	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
-
-end
-
-function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	if pcparty == nil then
-		return 0;
-	end
-    local frame = ui.GetFrame("guild");
-    if frame ~= nil then
-        local partynamegbox = GET_CHILD_RECURSIVELY(frame, 'partynamegbox')
-	    partynamegbox:EnableHitTest(0);
-    end
-	return 1;
 
 end
 
@@ -744,30 +540,6 @@ function SAVE_GUILD_NAME_AND_MEMO(parent, ctrl)
 
 end
 
-function SAVE_GUILD_NOTICE(parent, ctrl)
-
-	local frame = parent:GetTopParentFrame();
-
-	local notice_edit = GET_CHILD_RECURSIVELY(frame, 'notice_edit')
-	local noticeText = notice_edit:GetText();
-
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	local nowNotice = pcparty.info:GetNotice();
-
-	local badword = IsBadString(nowNotice);
-	if badword ~= nil then
-		ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
-		return;
-	end
-
-	if nowNotice ~= noticeText then
-		party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_NOTICE, noticeText);
-	end
-
-	notice_edit:ReleaseFocus();
-
-end
-
 function GUILD_SHOW_ONLY_CONNECTED(parent, ctrl)
 
 	local frame = parent:GetTopParentFrame();
@@ -775,26 +547,6 @@ function GUILD_SHOW_ONLY_CONNECTED(parent, ctrl)
 
 	local guild_authority_popup = ui.GetFrame("guild_authority_popup");	
 	guild_authority_popup:ShowWindow(0);
-end
-
-function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)
-
-	ctrl = AUTO_CAST(ctrl);
-    
-    local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	local partyObj = GetIES(pcparty:GetObject());
-
-    local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if 0 == isLeader then
-		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
-        print(ctrl:IsChecked())
-        ctrl:SetCheckWhenClicked(0);
-        ctrl:SetCheck(partyObj.GuildOnlyAgit);
-		return;
-	end
-    	
-	party.ReqChangeProperty(PARTY_GUILD, "GuildOnlyAgit", ctrl:IsChecked());
-
 end
 
 
@@ -858,35 +610,3 @@ function WAR_END_MSG(partyName)
 	ui.SysMsg(msg);
 
 end
-
---[[
-function FIELD_BOSS_TEST()
-
-	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
-
-	local partyObj = GetIES(pcGuild:GetObject());
-
-	print(partyObj["GuildBossSummonLocInfo"])
-
-	local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcGuild);
-
-	if locInfo ~= nil then
-		local mapCls = GetClassByType("Map", locInfo.mapID);
-		local linkStr = string.format("{#a62300}{a @SHOW_PARTY_QUEST_MAP_UI}%s{/}{/}", mapCls.Name);
-		local descStr = ScpArgMsg("IfAllPartyMemberAssembleTo{MapName}_QuestWillBeStarted", "MapName", linkStr);
-		--desc:SetTextByKey("value", descStr);
-		--ctrlSet:SetUserValue("IS_ACCEPTED", "YES");
-	
-		local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
-		--geClientPartyQuest.RunPartyQuestAssembleCheck(true);
-		local mapprop = session.GetCurrentMapProp();
-		if locInfo.mapID == mapprop.type then
-			session.minimap.AddIconInfo("PartyQuest_", "trasuremapmark", pos, ClMsg("PartyQuestArea"), true, "None", 1.5);
-		end
-	end
-
-	print(locInfo.mapID)
-	--ui.SysMsg(ScpArgMsg(msg));
-	--ui.OpenFrame("indun");
-end
-]]--

@@ -19,8 +19,14 @@ function INPUT_STRING_BOX_CB(fromFrame, titleName, strscp, defText, numarg, stra
 	if strscp == 'EXEC_SHOP_SELL' then
 		local str_len = string.len(titleName)
 		local tilde = string.find(titleName, "~")
-		local sub_str = string.sub(titleName, tilde + 2, str_len - 1)
-		local sellMaxNum = tonumber(sub_str) 
+        local sub_str = 1
+        if config.GetServiceNation() == 'CHN' then
+            sub_str = string.sub(titleName, tilde + 1, str_len - 2)
+        else
+            sub_str = string.sub(titleName, tilde + 2, str_len - 1)
+        end		
+		local sellMaxNum = tostring(sub_str):match("^%s*(.-)%s*$")
+        
 		newframe = INPUT_STRING_BOX(titleName, strscp, defText, numarg, maxLen, nil, nil, sellMaxNum,strarg, isNumber);
 	else
 		newframe = INPUT_STRING_BOX(titleName, strscp, defText, numarg, maxLen, nil, nil, nil, strarg, isNumber);

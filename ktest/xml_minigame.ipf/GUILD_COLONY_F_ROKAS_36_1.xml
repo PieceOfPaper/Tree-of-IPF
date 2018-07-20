@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="GUILD_COLONY_F_ROKAS_36_1" minLv="0" maxLv="0" playerCountCheckDestroy="0" mapName="f_rokas_36_1" startWaitSec="0">
+		<StageList>
+			<Stage Name="START">
+				<ObjList>
+					<Obj Type="Monster" MonType="20024" Pos="631.00#-60.00#17.00" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_OCCUPATION_BUFF"/>
+					<Obj Type="Monster" MonType="20024" Pos="631.00#-60.00#17.00" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_MONSTER"/>
+					<Obj Type="Monster" MonType="156150" Pos="631.00#-60.00#17.00" angle="-70" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_TOWER"/>
+					<Obj Type="Monster" MonType="45136" Pos="-852.00#44.23#-174.00" range="100" genCount="1" genTime="30000" objectKey="3"/>
+					<Obj Type="Monster" MonType="45136" Pos="809.78#-61.08#-156.87" range="100" genCount="1" genTime="30000" objectKey="4"/>
+					<Obj Type="Monster" MonType="45136" Pos="513.53#-61.08#128.99" range="100" genCount="1" genTime="30000" objectKey="5"/>
+					<Obj Type="Monster" MonType="45136" Pos="-309.79#18.03#-418.68" range="100" genCount="1" genTime="30000" objectKey="6"/>
+					<Obj Type="Monster" MonType="45136" Pos="-652.99#27.76#209.50" range="100" genCount="1" genTime="30000" objectKey="7"/>
+					<Obj Type="Monster" MonType="45136" Pos="-1175.09#41.38#139.30" range="100" genCount="1" genTime="30000" objectKey="8"/>
+					<Obj Type="Monster" MonType="45136" Pos="-642.48#65.00#579.12" range="100" genCount="1" genTime="30000" objectKey="9"/>
+					<Obj Type="Monster" MonType="45136" Pos="-41.84#0.71#829.30" range="100" genCount="1" genTime="30000" objectKey="10"/>
+					<Obj Type="Monster" MonType="45136" Pos="813.00#33.88#1245.39" range="100" genCount="1" genTime="30000" objectKey="11"/>
+					<Obj Type="Monster" MonType="45136" Pos="1293.03#-101.98#18.82" range="100" genCount="1" genTime="30000" objectKey="12"/>
+					<Obj Type="Monster" MonType="45136" Pos="1115.14#-7.81#462.58" range="100" genCount="1" genTime="30000" objectKey="13"/>
+					<Obj Type="Monster" MonType="45136" Pos="1583.68#-25.63#369.71" range="100" genCount="1" genTime="30000" objectKey="14"/>
+					<Obj Type="Monster" MonType="45136" Pos="643.35#-61.08#-689.78" range="100" genCount="1" genTime="30000" objectKey="15"/>
+					<Obj Type="Monster" MonType="45136" Pos="688.71#7.65#645.49" range="100" genCount="1" genTime="30000" objectKey="19"/>
+					<Obj Type="Monster" MonType="45136" Pos="1257.27#-0.03#717.98" range="100" genCount="1" genTime="30000" objectKey="20"/>
+					<Obj Type="Monster" MonType="40001" Pos="55.35#0.71#1210.90" angle="78" range="-1" genCount="1" genTime="1" objectKey="16" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;파사카 협곡&apos; &apos;Enter&apos; &apos;ROKAS_36_1_TO_PILGRIM_36_2&apos; &apos;Range&apos; &apos;20&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-1459.71#51.67#-473.83" angle="-164" range="-1" genCount="1" genTime="1" objectKey="17" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;수타티스 교역로&apos; &apos;Enter&apos; &apos;ROKAS_36_1_TO_PILGRIM_31_2&apos; &apos;Range&apos; &apos;20&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="1765.16#-25.63#361.32" angle="-4" range="-1" genCount="1" genTime="1" objectKey="18" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;엘고스 수도원 본원&apos; &apos;Enter&apos; &apos;ROKAS_36_1_TO_ABBEY_35_4&apos; &apos;Range&apos; &apos;20&apos; "/>
+				</ObjList>
+			</Stage>
+			<Stage Name="END">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="colony_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_GUILD_COLONY_END_TIME_CHECK"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+								<Str Str="SCR_COLONY_END_UI_OPEN"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="START/2"/>
+								<Str Str="SCR_COLONY_TOWER_EFFECT_OFF"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

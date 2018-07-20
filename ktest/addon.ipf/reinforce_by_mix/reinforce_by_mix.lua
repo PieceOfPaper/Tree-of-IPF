@@ -78,7 +78,7 @@ function REINFORCE_MIX_DROP(frame, icon, argStr, argNum)
 		local invItem = GET_ITEM_BY_GUID(guid);
 
 		local obj = GetIES(invItem:GetObject());
-		if IS_KEY_ITEM(obj) == true or IS_KEY_MATERIAL(obj) == true then
+		if IS_KEY_ITEM(obj) == true or IS_KEY_MATERIAL(obj) == true or obj.ItemLifeTimeOver ~= 0 then
 			ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
 			return;
 		end
@@ -88,7 +88,7 @@ function REINFORCE_MIX_DROP(frame, icon, argStr, argNum)
 end
 
 function REINFORCE_MIX_RBTN(itemObj, slot)    
-	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(obj) == true then
+	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(itemObj) == true or itemObj.ItemLifeTimeOver ~= 0 then
 		ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
 		return;
 	end
@@ -443,7 +443,7 @@ function REINF_MIX_CHECK_ICON(slot, reinfItemObj, invItem, itemobj)
 		if materialScp ~= nil then
 			if 1 == _G[materialScp](reinfItemObj, itemobj) then
 				--slot:PlayUIEffect("I_sys_item_slot_loop_yellow", 1.7, "Reinforce");
-				if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") then
+				if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") and itemobj.ItemLifeTimeOver == 0 then
 						icon:SetColorTone("FFFFFFFF");
 					else
 						icon:SetColorTone("33000000");
@@ -475,7 +475,7 @@ function REINFORCE_MIX_INV_RBTN(itemObj, slot, selectall)
 		return;
 	end
 
-	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(obj) == true then
+	if IS_KEY_ITEM(itemObj) == true or IS_KEY_MATERIAL(itemObj) == true or itemObj.ItemLifeTimeOver ~= 0 then
 		ui.SysMsg(ClMsg("CanNotBeUsedMaterial"));
 		return;
 	end
@@ -569,6 +569,26 @@ function REINFORCE_BY_MIX_EXECUTE(parent)
 
 	local slots = GET_MAT_SLOT(frame);
 	local cnt = slots:GetSlotCount();
+	
+    local tgtItem = GET_REINFORCE_MIX_ITEM();
+    if tgtItem.ItemLifeTimeOver == 1 then
+        ui.SysMsg(ScpArgMsg("CannotUseLifeTimeOverItem"))
+        return
+    end
+	local slots = GET_MAT_SLOT(frame);
+	local cnt = slots:GetSlotCount();
+	for i = 0 , cnt - 1 do
+		local slot = slots:GetSlotByIndex(i);
+		local matItem, count = GET_SLOT_ITEM(slot);
+		if matItem ~= nil then
+		    local obj = GetIES(matItem:GetObject());
+		    if obj.ItemLifeTimeOver == 1 then
+                ui.SysMsg(ScpArgMsg("CannotUseLifeTimeOverItem"))
+        		return
+        	end
+		end
+	end
+
     
 	local ishavevalue = 0
     local canProcessReinforce = false

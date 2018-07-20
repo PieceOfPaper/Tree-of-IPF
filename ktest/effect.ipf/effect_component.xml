@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ComponentList>
 	<Particle name="hit001_red_side" texture="hit001_red_side" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="dash010" texture="dash010" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -1042,7 +1042,7 @@
 	<Model name="archer_bodkinpoint" model="archer_bodkinpoint.xac" motion="None" texturepath="char_texture\monster\large_crossbow\" overlap="false" AlphaType="TEST"/>
 	<Model name="ShadowGaoler_dead" model="ShadowGaoler_dead.xac" motion="ShadowGaoler_dead_ani.xsm" texturepath="char_texture\monster\boss_ShadowGaoler\" overlap="false" AlphaType="TEST"/>
 	<Model name="Stout_dead" model="Stout_dead.xac" motion="Stout_dead_ani.xsm" texturepath="char_texture\monster\Stout\" overlap="false" AlphaType="TEST"/>
-	<Model name="golem_gray_dead_1" model="golem_gray_dead_1.xac" motion="golem_gray_dead_1_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="golem_gray_dead_1" model="golem_gray_dead_1.xac" motion="golem_gray_dead_1_ani.xsm" texturepath="effect\high\modeltexture\golem_gray\" overlap="false" AlphaType="TEST"/>
 	<Model name="Chafer_dead" model="Chafer_dead.xac" motion="Chafer_dead_ani.xsm" texturepath="char_texture\monster\Chafer\" overlap="false" AlphaType="TEST"/>
 	<Model name="toadalijus_dead" model="toadalijus_dead.xac" motion="toadalijus_dead_ani.xsm" texturepath="char_texture\monster\toadalijus\" overlap="false" AlphaType="TEST"/>
 	<Model name="Rocktortuga_dead" model="Rocktortuga_dead.xac" motion="Rocktortuga_dead_ani.xsm" texturepath="char_texture\monster\Rocktortuga\" overlap="false" AlphaType="TEST"/>

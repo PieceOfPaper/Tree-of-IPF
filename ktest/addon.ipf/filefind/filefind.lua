@@ -84,7 +84,7 @@ function FILE_FIND_DIR(frame, fullPath)
 	
 		local fName = fileList:Element(i):c_str();
 		if findStr == "None" or string.find(fName, findStr) ~= nil then
-			SET_ADVBOX_ITEM(advBox, fName, 0, fName, "white_16_ol");
+			SET_ADVBOX_ITEM(advBox, fName, 0, fName, "brown_16");
 		end
 	end
 
