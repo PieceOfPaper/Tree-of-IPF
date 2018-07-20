@@ -482,7 +482,7 @@
         <Effect Name="F_explosion120_blue"/>
         <Effect Name="F_explosion98_rize_2"/>
         <Effect Name="F_explosion100_2"/>
-    <Effect Name="F_Halloween001_2"/>
+        <Effect Name="F_Halloween001_2"/>
         <Effect Name="F_Halloween001_1"/>
         <Effect Name="I_force003_green#Dummy_effect_atk_force"/>
         <Effect Name="I_force018_trail_black_800#Dummy_effect_atk_force"/>
@@ -537,7 +537,7 @@
         <Effect Name="F_bg_firetower_teleport2"/>
         <Effect Name="F_wizard_EnchantEarth_buff"/>
         <Effect Name="Templer_NonInvasiveArea"/>
-    <Effect Name="F_wizard_ShadowCondensation_dark##3000"/>
+        <Effect Name="F_wizard_ShadowCondensation_dark##3000"/>
         <Effect Name="F_wizard_ShadowCondensation_dark##3000"/>
         <Effect Name="Oracle_Prophecy"/>
         <Effect Name="F_spread_in014_circle##1"/>
@@ -548,6 +548,7 @@
         <Effect Name="SKL_DOUBLEGUN_ATK"/>
         <Effect Name="DOUBLEGUN_ATKMOVE1"/>
         <Effect Name="ATKRUN"/>
+        <Effect Name="RIDE_OBEY"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -784,10 +785,11 @@
         <Effect Name="I_archer_canon_force_forge#Dummy002"/>
         <Effect Name="MISSION_EVENT_BLUEORB"/>
         <Effect Name="skl_eff_snipersserenity_bargauge"/>
-    <Effect Name="F_wizard_ShadowPool_end"/>
+        <Effect Name="F_wizard_ShadowPool_end"/>
         <Effect Name="skl_eff_templer_nonlnvasivearea_ground"/>
         <Effect Name="skl_eff_sage_dimensioncompression_cast"/>
         <Effect Name="AGARIO_MINI"/>
+        <Effect Name="MISSION_EVENT_CURSEDOOR"/>
     </Category>
     <Category ID="171">
         <Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
@@ -959,7 +961,7 @@
         <Effect Name="I_smoke_red2_loop"/>
         <Effect Name="MISSION_EVENT_BLUEORB"/>
         <Effect Name="m_boss_scenario3"/>
-    <Effect Name="AGARIO_MINI"/>
+        <Effect Name="AGARIO_MINI"/>
         <Effect Name="F_hit_Halloween001_2"/>
         <Effect Name="F_hit_Halloween002"/>
     </Category>
@@ -2014,7 +2016,7 @@
         <Effect Name="I_force099_2"/>
         <Effect Name="I_force015_yellow"/>
         <Effect Name="I_force015_blue"/>
-      <Effect Name="I_rize010_orange"/>
+        <Effect Name="I_rize010_orange"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -3985,6 +3987,11 @@
         <Effect Name="E_wizard_ShadowCondensation_dark"/>
         <Effect Name="F_wizard_ShadowCondensation_dark2"/>
         <Effect Name="MISSION_EVENT_BLUEORB"/>
+        <Effect Name="AGARIO_MINI"/>
+        <Effect Name="MISSION_EVENT_CURSEDOOR"/>
+        <Effect Name="I_cleric_hamaya_arrow"/>
+        <Effect Name="I_cleric_hamaya_arrow#Dummy_effect_FingerFlickir"/>
+        <Effect Name="I_cleric_hamaya_arrow#Dummy_force_hamaya"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

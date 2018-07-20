@@ -68,45 +68,67 @@ function MACRO_POSE_VIEW(poseGbox)
 	local x = xmargin;
 	local y = ymargin;
 
-
-	local clslist = GetClassList("Pose");
 	local index = 0;
 	local controlIndex = 0;
 
 	local isPremiumTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
 	
-	while 1 do
-		local cls = GetClassByIndexFromList(clslist, index);
-		if cls == nil then
-			break;
-		end
+	local freeTable = {}
+    local premiumTable = {}
+    local clslist, cnt = GetClassList("Pose");
+    for i = 0 , cnt - 1 do
+        local cls = GetClassByIndexFromList(clslist, i);
+        if cls.Premium == "NO" then
+            freeTable[#freeTable + 1] = cls.ClassID;
+        else
+            premiumTable[#premiumTable + 1] = cls.ClassID
+        end
+    end
 
-		if cls.Premium == "NO" or isPremiumTokenState == true then
-			local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
+    table.sort(freeTable, POSE_TABLE_SORT);
+    table.sort(premiumTable, POSE_TABLE_SORT);
 
-			local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
-			local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
+	for i = 1, #freeTable do
+	    local cls = GetClassByType("Pose", freeTable[i]);
+	    if cls ~= nil then
+    	    local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
+            local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
+    		local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
+    		each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
+    		each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
+    		SET_SLOT_IMG(each_pose_slot, cls.Icon);
+    		each_pose_name:SetTextByKey('posename',cls.Name);
+    		each_pose_slot:SetTextByKey('posename',cls.Name);
+    		local icon = each_pose_slot:GetIcon();
+    		icon:SetUserValue('POSEID', cls.ClassID);			
+    		controlIndex = controlIndex + 1;
+    		x = xmargin + (controlIndex % 6) * csetwidth
+    		y = ymargin + math.floor(controlIndex / 6) * csetheight
+    	end
+    end
+    
+	if isPremiumTokenState == true then
+    	for i = 1, #premiumTable do
+    	    local cls = GetClassByType("Pose", premiumTable[i]);
+    	    if cls ~= nil then
+        	    local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
+                local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
+        		local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
+        		each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
+        		each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
+        		SET_SLOT_IMG(each_pose_slot, cls.Icon);
+        		each_pose_name:SetTextByKey('posename',cls.Name);
+        		each_pose_slot:SetTextByKey('posename',cls.Name);
+        		local icon = each_pose_slot:GetIcon();
+        		icon:SetUserValue('POSEID', cls.ClassID);			
+        		controlIndex = controlIndex + 1;
+        		x = xmargin + (controlIndex % 6) * csetwidth
+        		y = ymargin + math.floor(controlIndex / 6) * csetheight
+        	end
+        end 
+    end
 
-			each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
-			each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
-
-			SET_SLOT_IMG(each_pose_slot, cls.Icon);
-
-			each_pose_name:SetTextByKey('posename',cls.Name);
-			each_pose_slot:SetTextByKey('posename',cls.Name);
-
-			local icon = each_pose_slot:GetIcon();
-		
-			icon:SetUserValue('POSEID', cls.ClassID);			
-		
-			controlIndex = controlIndex + 1;
-
-			x = xmargin + (controlIndex % 6) * csetwidth
-			y = ymargin + math.floor(controlIndex / 6) * csetheight
-		end
-
-		index = index + 1;
-	end
+    index = index + 1;
 end
 
 function UPDATE_CHAT_MACRO(frame)    

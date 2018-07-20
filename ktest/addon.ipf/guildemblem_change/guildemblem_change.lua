@@ -108,53 +108,76 @@ function GUILDEMBLEM_CHANGE_PREVIEW(frame, emblemName)
     DRAW_GUILD_EMBLEM(frame, true, false, emblemName)
 end
 
-function GUILDEMBLEM_CHANGE_ACCEPT(frame)
-    if selectPngName == nil then
-        ui.SysMsg(ClMsg("NoImagesAvailable"))
-        GUILDEMBLEM_CHANGE_CANCEL(frame)
-        return
-    end
+function GUILDEMBLEM_CHANGE_EXCUTE(isNewRegist, useItem)
     
-    if session.party.IsRegisteredEmblem() == false then
+    if isNewRegist == true then
+    -- 최초 등록
         local fullPath = emblemFolderPath .. "\\" .. selectPngName        
-        local result = session.party.RegisterGuildEmblem(fullPath)
-        if result == EMBLEM_RESULT_AGNORMAL_IMAGE then
+        local result = session.party.RegisterGuildEmblem(fullPath,false)
+        if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
             ui.SysMsg(ClMsg("AbnormalImageData"))    
             ui.CloseFrame('guildemblem_change')
         end
     else
+    -- 변경
         if emblemFolderPath ~= nil and selectPngName ~= nil then
-            -- 길드이미지 변경 가능 시간 확인
-            if session.party.IsPossibleRegistGuildEmblem() == false and session.party.IsRegisteredEmblem() == true then
+            -- 아이템 사용이 아닐 때는 조건 검사.
+            if useItem == false then
+                -- 길드 자산 확인
+                local guildObj = GET_MY_GUILD_OBJECT()
+                local guildAsset = guildObj.GuildAsset  
+                if guildAsset == nil or guildAsset == 'None' then
+                    guildAsset = 0
+                end
+
+                if tonumber(GUILD_EMBLEM_COST_AMOUNT) > tonumber(guildAsset) then
+                    ui.SysMsg(ClMsg("NotEnoughGuildAsset"))
+                    ui.CloseFrame('guildemblem_change')
+                    GUILDEMBLEM_CHANGE_CANCEL(frame)
+                    return
+                end
+            end
+            
+             -- 길드이미지 변경 가능 시간 확인
+            if session.party.IsPossibleRegistGuildEmblem(useItem) == false and session.party.IsRegisteredEmblem() == true then
                 ui.SysMsg(ClMsg("NotReachToReRegisterTime"))
                 ui.CloseFrame('guildemblem_change')
                 GUILDEMBLEM_CHANGE_CANCEL(frame)
                 return
             end
 
-            -- 길드 자산 확인
-            local guildObj = GET_MY_GUILD_OBJECT()
-            local guildAsset = guildObj.GuildAsset  
-            if guildAsset == nil or guildAsset == 'None' then
-                guildAsset = 0
-            end
-
-            if tonumber(GUILD_EMBLEM_COST_AMOUNT) > tonumber(guildAsset) then
-                ui.SysMsg(ClMsg("NotEnoughGuildAsset"))
-                ui.CloseFrame('guildemblem_change')
-                GUILDEMBLEM_CHANGE_CANCEL(frame)
-                return
-            end
-
-            local fullPath = emblemFolderPath .. "\\" .. selectPngName        
-            local result = session.party.RegisterGuildEmblem(fullPath)
-            if result == EMBLEM_RESULT_AGNORMAL_IMAGE then
+            -- 등록 요청
+            local fullPath = emblemFolderPath .. "\\" .. selectPngName     
+            local result = session.party.RegisterGuildEmblem(fullPath,useItem)
+            if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
                 ui.SysMsg(ClMsg("AbnormalImageData"))    
                 ui.CloseFrame('guildemblem_change')
             end
         end
     end
-   GUILDEMBLEM_CHANGE_CANCEL(frame)
+    GUILDEMBLEM_CHANGE_CANCEL(frame)
+end
+
+function GUILDEMBLEM_CHANGE_ACCEPT(frame)
+    if selectPngName == nil then
+        ui.SysMsg(ClMsg("NoImagesAvailable"))
+        GUILDEMBLEM_CHANGE_CANCEL(frame)
+        return
+    end
+
+    -- 길드 엠블럼을 변경하는 경우(이미 등록이 되어있었다면) 인벤에 길드 엠블럼 변경권을 확인한다.
+    if session.party.IsRegisteredEmblem() == true then
+    -- 인벤에 변경권이 있으면 물어본다.
+        local invItem = session.GetInvItemByName("Premium_Change_Guild_Emblem");
+        if invItem ~= nil then 
+            local yesScp = string.format("GUILDEMBLEM_CHANGE_EXCUTE(false,true)");
+            local noScp = string.format("GUILDEMBLEM_CHANGE_EXCUTE(false,false)");
+            ui.MsgBox(ScpArgMsg("UseGuildEmblemChangeItem"), yesScp, noScp);
+            return
+        end
+    end
+    -- 최초 길드 엠블럼 등록.
+    GUILDEMBLEM_CHANGE_EXCUTE(true,false)
 end
 
 function GUILDEMBLEM_CHANGE_CANCEL(frame)

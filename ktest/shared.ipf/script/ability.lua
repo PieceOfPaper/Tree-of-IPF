@@ -1,13 +1,22 @@
-function PC_PCAA(pc)
+﻿function PC_PCAA(pc)
 local jobHistory = GetJobHistorySting(pc)
     print(jobHistory)
 end
 
 function CHECK_ABILITY_LOCK(pc, ability)
-    --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-START");
-    if 1 == 1 then
-        --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-RETURN");
-		return "UNLOCK";
+    if IsServerSection(pc) == 1 then
+        if IS_REAL_PC(pc) == 'NO' then  -- 진짜 PC가 아니네 --
+            if GetExProp(pc, "BUNSIN") == 1 then    -- 나는 분신인가? --
+                local bunsinOwner = GetExArgObject(pc, 'BUNSIN_OWNER'); -- 분신 본체가 있는가? --
+                if bunsinOwner == nil then
+                    return 'LOCK';
+                else
+                    pc = bunsinOwner;   -- 나는 본체다 --
+                end
+            else
+                return 'LOCK';
+            end
+        end
 	end
     --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 

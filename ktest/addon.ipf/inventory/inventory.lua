@@ -1551,6 +1551,15 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 				USE_ITEMTARGET_ICON(invFrame, itemobj, argNum);
 			else
 				local invItem	= session.GetInvItem(argNum);
+				local invItemAllowReopen = ''
+				if itemobj ~= nil then
+					invItemAllowReopen = TryGetProp(itemobj, 'AllowReopen')
+				end
+				local gachaCubeFrame = ui.GetFrame('gacha_cube')
+				if groupName == 'Consume' and gachaCubeFrame ~= nil and gachaCubeFrame:IsVisible() == 1 and invItemAllowReopen == 'YES' then
+					return
+				end
+
 				INV_ICON_USE(invItem);
 			end
 		elseif groupName == 'Gem' then

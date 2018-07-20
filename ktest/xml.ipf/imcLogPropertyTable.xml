@@ -9,6 +9,7 @@
 	<Property Name="ErrorCodeDesc" Type="String" Desc="에러코드설명"/>
 	<Property Name="CallStack" Type="String" Desc="콜스택정보"/>
 	<Property Name="Team" Type="String" Desc="에러코드 연관 팀"/>
+	<Property Name="Tag" Type="String" Desc="스크립트에서 사용 하는 분류 태그"/>
   <Property Name="GroupID" Type="Number" Desc="서버 그룹 아이디"/>
   <Property Name="GroupName" Type="String" Desc="서버 그룹 이름"/>
   <Property Name="MachineID" Type="Number" Desc="서버 머신 아이디"/>

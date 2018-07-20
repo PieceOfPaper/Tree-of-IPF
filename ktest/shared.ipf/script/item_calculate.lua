@@ -1056,7 +1056,7 @@ function APPLY_ENCHANTCHOP(item)
 end
 
 function APPLY_RANDOM_OPTION(item)
-    for i = 1, 4 do
+    for i = 1, 6 do
         local propName = "RandomOption_"..i;
         local propValue = "RandomOptionValue_"..i;
         local getProp = TryGetProp(item, propName);
