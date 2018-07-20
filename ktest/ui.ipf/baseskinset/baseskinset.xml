@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -2545,16 +2545,16 @@
 			<img name="bottomcore" imgrect="888 102 100 50"/>
 			<img name="bottomright" imgrect="989 102 50 50"/>
 		</skin>
-		<skin name="testbosscard_tooltip" texture="\skin\pip_test_item.tga">
-			<img name="topleft" imgrect="1039 0 1 596"/>
-			<img name="topcore" imgrect="1040 0 370 596"/>
-			<img name="topright" imgrect="1410 0 1 596"/>
-			<img name="bodyleft" imgrect="1039  597 1 50"/>
-			<img name="bodycore" imgrect="1040 597 370 50"/>
-			<img name="bodyright" imgrect="1410 597 1 50"/>
-			<img name="bottomleft" imgrect="1039 648 1 50"/>
-			<img name="bottomcore" imgrect="1040 648 370 50"/>
-			<img name="bottomright" imgrect="1410 648 1 50"/>
+		<skin name="testbosscard_tooltip" texture="\skin\PVP_skin.tga">
+			<img name="topleft" imgrect="1027 368 1 596"/>
+			<img name="topcore" imgrect="1028 368 370 596"/>
+			<img name="topright" imgrect="1398 368 1 596"/>
+			<img name="bodyleft" imgrect="1398 368 1 50"/>
+			<img name="bodycore" imgrect="1399 368 370 50"/>
+			<img name="bodyright" imgrect="1769 368 1 50"/>
+			<img name="bottomleft" imgrect="1398 419 1 50"/>
+			<img name="bottomcore" imgrect="1399 419 370 50"/>
+			<img name="bottomright" imgrect="1769 419 1 50"/>
 		</skin>
 		<skin name="test_Item_tooltip_normal" texture="\skin\pip_test_item.tga">
 			<img name="topleft" imgrect="837 345 50 60"/>
@@ -5336,11 +5336,18 @@
 		<image name="tradecondition_off" file="\skin\keynbet.tga" imgrect="130 995 130 20"/>
 		<image name="indun_readycheck" file="\skin\indun_skin.tga" imgrect="811 58 57 57" CMM_Caption="인던 4인 이하 준비표시"/>
 		<image name="tooltip_speedofatk" file="\skin\tooltip_skin_3.tga" imgrect="743 111 18 18" CMM_Caption="공격속도 아이콘"/>
+		<image name="LimitedPeriod_bg" file="\skin\pip_test_item.tga" imgrect="1040 0 243 167" CMM_Caption="한정판매"/>
+		<image name="LimitedPeriod_timebg" file="\skin\pip_test_item.tga" imgrect="1508 60 159 25"/>
+		<image name="login_test_button" file="\skin\barrack.tga" imgrect="724 1 376 174" CMM_Caption="게임시작 버튼"/>
+		<image name="login_test_button_cursoron" file="\skin\barrack.tga" imgrect="1101 1 376 174" CMM_Caption="게임시작 버튼"/>
+		<image name="login_test_button_clicked" file="\skin\barrack.tga" imgrect="1101 1 376 174" CMM_Caption="게임시작 버튼"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
 		<image name="clock_3" file="\skin\pip_test.tga" imgrect="1797 211 20 20" CMM_Caption="기간제 팝업창용 시계"/>
 		<image name="exp_reset" file="\skin\min_hud.tga" imgrect="13 113 755 40" CMM_Caption="경험치초기화구간"/>
+		<image name="first_blow" file="\skin\mainframe_03.tga" imgrect="750 355 274 135" CMM_Caption="첫타 텍스트"/>
+		<image name="last_blow" file="\skin\mainframe_03.tga" imgrect="750 216 274 135" CMM_Caption="막타 텍스트"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5372,7 +5379,6 @@
 		<image name="tutr_img_btn_down" file="\skin\mainframe_04.tga" imgrect="425 448 44 44"/>
 		<image name="tutr_img_key_cross" file="\skin\mainframe_04.tga" imgrect="479 448 44 44"/>
 		<image name="tutr_img_stick_left" file="\skin\mainframe_04.tga" imgrect="533 448 36 48"/>
-		<image name="tutr_bg" file="\skin\mainframe_03.tga" imgrect="774 201 250 320"/>
 		<image name="tutr_img_atk" file="\skin\tutor\tutr_img_atk.png" imgrect="0 0 300 300"/>
 		<image name="tutr_img_jump" file="\skin\tutor\tutr_img_jump.png" imgrect="0 0 300 300"/>
 		<image name="tutr_img_move" file="\skin\tutor\tutr_img_move.png" imgrect="0 0 300 300"/>
@@ -6073,6 +6079,7 @@
 	</imagelist>
 	<imagelist category="login_img">
 		<image name="login_bg" file="\skin\login\login_bg.tga" imgrect="0 0 1920 1080"/>
+		<image name="login_bg2" file="\skin\login_img.jpg" imgrect="0 0 1920 1080"/>
 		<image name="login_logo" file="\skin\login\login_logo.tga" imgrect="0 0 363 212"/>
 		<image name="login_window" file="\skin\login\login_window.tga" imgrect="0 0 804 308"/>
 		<image name="login_godness" file="\skin\login\login_godness.tga" imgrect="0 0 1920 1080"/>
@@ -7269,6 +7276,9 @@
 		<image name="icon_Event_WhitDay_Candy_3" file="\icon\buff_icon.tga" imgrect="256 1664 128 128" CMM_Caption="사탕3"/>
 		<image name="icon_Event_WhitDay_Candy_4" file="\icon\buff_icon.tga" imgrect="384 1664 128 128" CMM_Caption="사탕4"/>
 		<image name="icon_WeddingCake" file="\icon\buff_icon.tga" imgrect="640 1664 128 128" CMM_Caption="웨딩케이크버프"/>
+		<image name="icon_Weak_Melee" file="\icon\buff_icon.tga" imgrect="896 1664 128 128" CMM_Caption="근접 공격 약점"/>
+		<image name="icon_Weak_Missile" file="\icon\buff_icon.tga" imgrect="0 1792 128 128" CMM_Caption="원거리 공격 약점"/>
+		<image name="icon_Weak_Magic" file="\icon\buff_icon.tga" imgrect="128 1792 128 128" CMM_Caption="마법 공격 약점"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

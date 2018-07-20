@@ -655,13 +655,15 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		
 		
 		if (allFlag == nil) then	
-			if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-				if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-					index = index + 1
-					x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-					y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-					local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-					TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+			if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						index = index + 1
+						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					end
 				end
 			end
 		
@@ -686,6 +688,88 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 	frame:Invalidate()
 end
 
+
+function CHECK_TPITEM_ENABLE_VIEW(itemObj)
+
+	local startProp = TryGetProp(itemObj, "SellStartTime")
+	local endProp = TryGetProp(itemObj, "SellEndTime")
+
+	if startProp == nil or endProp == nil then
+		return true;
+	end
+
+	if startProp == "None" or endProp == "None" then
+		return true;
+	end
+
+	local startTime = tonumber(startProp);
+	local endTime = tonumber(endProp);
+	if startTime > endTime then
+		endTime = endTime + 120000000
+	end
+	
+	local curTime = geTime.GetServerSystemTime();
+	local nowTime = tonumber(string.format("%02d%01d%02d%02d%02d", curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute))
+		
+	if nowTime >= startTime and endTime > nowTime then
+		return true;
+	end
+
+	return false;
+
+end
+
+function IS_TIME_SALE_ITEM(classID)
+	local tpitemframe = ui.GetFrame("tpitem");
+	local itemObj = GetClassByType("TPitem", classID);
+
+	local startProp = TryGetProp(itemObj, "SellStartTime");
+	local endProp = TryGetProp(itemObj, "SellEndTime");
+
+	if startProp == nil or endProp == nil then
+		return false;
+	end
+
+	if startProp == "None" or endProp == "None" then
+		return false;
+	else
+		return true;
+	end
+end
+
+function SHOW_REMAIN_SALE_TIME(ctrl)
+	local curTime = geTime.GetServerSystemTime()
+	local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+	local startTime = ctrl:GetUserIValue("SELL_START_TIME")
+	local endTime = ctrl : GetUserIValue("SELL_END_TIME")
+	
+	local curYear = curTime.wYear
+	if startTime > endTime then
+		curYear = curYear + 1
+	end
+
+	local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+	local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+	local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+	local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+
+	local remainSec = difSec
+
+	if 0 > remainSec then
+		
+		ctrl:SetTextByKey("remainTime", ScpArgMsg("LessThanItemLifeTime"));
+		ctrl:SetFontName("red_18");
+		ctrl: StopUpdateScript("SHOW_REMAIN_SALE_TIME");
+	
+		return 0;
+	end
+
+	local timeTxt = GET_TIME_TXT_DHM(remainSec);
+	ctrl:SetTextByKey("remainTime", timeTxt);
+
+	return 1;
+end
+
 function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 	-- 프리미엄 아이템 확인
 	local IsPremiumCase = 0;
@@ -699,9 +783,15 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 	local nxp = GET_CHILD_RECURSIVELY(itemcset,"nxp")
 	local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
 	local pre_Line = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_1");
+	local limited_line = GET_CHILD_RECURSIVELY(itemcset, "titleLine_limited");
+	local limited_case = GET_CHILD_RECURSIVELY(itemcset, "case_limited");
+	local limited_bg = GET_CHILD_RECURSIVELY(itemcset, "bg_limited");
+	local time_limited_bg = GET_CHILD_RECURSIVELY(itemcset, "time_limited_bg");
+	local time_limited_text = GET_CHILD_RECURSIVELY(itemcset, "time_limited_text");
 	local pre_Box = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_2");
 	local pre_Text = GET_CHILD_RECURSIVELY(itemcset,"noneBtnPreSlot_3");
 	local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
+	local isLimit_mark = GET_CHILD_RECURSIVELY(itemcset,"isLimit_mark");
 	local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
 	local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
 
@@ -725,7 +815,44 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 
 	-- 구매 여부와 착용 여부를 검사한다.
 	itemcset:SetUserValue("TPITEM_CLSID", tpitem_clsID);
-	TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, tpitem_clsID);
+	TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, tpitem_clsID);
+
+	if IS_TIME_SALE_ITEM(tpitem_clsID) == true then
+
+		local curTime = geTime.GetServerSystemTime()
+		local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+		local startTime = TryGetProp(obj, "SellStartTime");
+		local endTime = TryGetProp(obj, "SellEndTime");
+	
+		local curYear = curTime.wYear
+		if startTime > endTime then
+			curYear = curYear + 1
+		end
+		
+		local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+		local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+		local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+		local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+		
+		time_limited_text:SetUserValue("REMAINMIN", difSec);
+		time_limited_text:SetUserValue("SELL_START_TIME", startTime);
+		time_limited_text:SetUserValue("SELL_END_TIME", endTime);
+		time_limited_text:RunUpdateScript("SHOW_REMAIN_SALE_TIME");
+		
+		title:SetFontName('white_18_ol')
+		limited_bg : SetVisible(1);
+		limited_case: SetVisible(1);
+		limited_line:SetVisible(1);
+		time_limited_bg:SetVisible(1);
+		time_limited_text:SetVisible(1);
+	else		
+		itemcset:SetSkinName('test_skin_01_btn')
+		limited_bg : SetVisible(0);
+		limited_case: SetVisible(0);
+		limited_line:SetVisible(0);
+		time_limited_bg:SetVisible(0);
+		time_limited_text:SetVisible(0);
+	end
 			
 	nxp:SetText("{@st43}{s18}"..obj.Price.."{/}");
 	--[[
@@ -1072,6 +1199,7 @@ function TPSHOP_SORT_LIST(a, b)
 	return false;
 end
 
+--정렬
 function TPSHOP_TPITEM_ALIGN_LIST(cnt)	
 	local srcTable = {};
 	for i = 1, cnt do
@@ -1116,20 +1244,24 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 		local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
 		local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
 		local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
+		local isLimit_mark = GET_CHILD_RECURSIVELY(itemcset,"isLimit_mark");
 		
-		TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID);
+		TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, classID);
 	end	
 	
 	DebounceScript("TPSHOP_CREATE_TOP5_CTRLSET", 1);
 end
 
-function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
+function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, classID)
 	local founded_info = session.ui.Getlistitem_TPITEM_ADDITIONAL_INFO_Map_byID(classID);
 	local bisNew = 0;
 	local bisHot = 0;
 	local bisEvent = 0;
-		
-	if TPSHOP_ISNEW_CHECK(classID) == true then
+	local bisLimit = 0;
+	
+	if IS_TIME_SALE_ITEM(classID) == true then
+	 	bisLimit = 1;
+	elseif TPSHOP_ISNEW_CHECK(classID) == true then
 		bisNew = 1;
 	end
 
@@ -1144,7 +1276,8 @@ function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
 
 	isNew_mark:SetVisible(bisNew);
 	isHot_mark:SetVisible(bisHot);		
-	isEvent_mark:SetVisible(bisEvent);	
+	isEvent_mark:SetVisible(bisEvent);
+	isLimit_mark:SetVisible(bisLimit);
 end
 
 function TPSHOP_CREATE_TOP5_CTRLSET()
@@ -1912,9 +2045,40 @@ function EXEC_BUY_MARKET_ITEM()
 			local slot  = slotset:GetSlotByIndex(i);
 			local tpitemname = slot:GetUserValue("TPITEMNAME");
 			local tpitem = GetClass("TPitem",tpitemname)
+				
 
 			if tpitem ~= nil then
 							
+				local startProp = TryGetProp(tpitem, "SellStartTime");
+				local endProp = TryGetProp(tpitem, "SellEndTime");
+
+				if startProp ~= nil and endProp ~= nil then
+					if startProp ~= "None" and endProp ~= "None" then
+						local curTime = geTime.GetServerSystemTime()
+						local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
+						local startTime = TryGetProp(tpitem, "SellStartTime")
+						local endTime = TryGetProp(tpitem, "SellEndTime");
+						
+						local curYear = curTime.wYear
+						if startTime > endTime then
+							curYear = curYear + 1
+						end
+
+						local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+
+						local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
+						local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
+
+						local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
+						if 0 >= difSec then
+							ui.SysMsg(ScpArgMsg("ExistSaleTimeExpiredItem"))
+							btn:SetEnable(1);
+							ui.CloseFrame(frame:GetName())
+							return
+						end
+					end
+				end
+
 				allprice = allprice + tpitem.Price
 
 				if itemListStr == "" then
@@ -1948,10 +2112,10 @@ function EXEC_BUY_MARKET_ITEM()
 		btn:SetEnable(1);
 		return;
 	end
-
+	
 	pc.ReqExecuteTx_NumArgs("SCR_TX_TP_SHOP", itemListStr);	
 	btn:SetEnable(1);
-	
+		
 	local frame = ui.GetFrame("tpitem");
 	frame:ShowWindow(0);
 	TPITEM_CLOSE(frame);
@@ -2007,119 +2171,119 @@ function TPITEM_DRAW_NC_TP()
 		itemClsID = iteminfo.tpItemClsId;
 		
 		if (categoryNo == 2348) or (categoryNo == 805) then
-							index = index - 1
-							x = ( (index-1) % 4) * ui.GetControlSetAttribute("tpshop_itemtp", 'width')
-							y = (math.ceil( (index / 4) ) - 1) * (ui.GetControlSetAttribute("tpshop_itemtp", 'height') * 1)
+		    index = index - 1
+		    x = ( (index-1) % 4) * ui.GetControlSetAttribute("tpshop_itemtp", 'width')
+		    y = (math.ceil( (index / 4) ) - 1) * (ui.GetControlSetAttribute("tpshop_itemtp", 'height') * 1)
 	
-							local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_itemtp', 'eachitem_'..index, x, y);
+		    local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_itemtp', 'eachitem_'..index, x, y);
 
-							local title = GET_CHILD_RECURSIVELY(itemcset,"title");
-							local staticTPbox = GET_CHILD_RECURSIVELY(itemcset,"staticTPbox")
-							local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
-										
-							local cls = GetClassByType("Item", itemClsID);
-							if cls == nil  then
-								return;
-							end
-							SET_SLOT_IMG(slot, cls.Icon);
-							
-							staticTPbox:SetText("{img Nexon_cash_mark 30 30}{/}{@st43}{s18}".. itemPrice .."{/}");
-							title:SetText(ItemClassName);
+		    local title = GET_CHILD_RECURSIVELY(itemcset,"title");
+		    local staticTPbox = GET_CHILD_RECURSIVELY(itemcset,"staticTPbox")
+		    local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
+		    			
+		    local cls = GetClassByType("Item", itemClsID);
+		    if cls == nil  then
+		    	return;
+		    end
+		    SET_SLOT_IMG(slot, cls.Icon);
+		    
+		    staticTPbox:SetText("{img Nexon_cash_mark 30 30}{/}{@st43}{s18}".. itemPrice .."{/}");
+		    title:SetText(ItemClassName);
 
-							local icon = slot:GetIcon();
+		    local icon = slot:GetIcon();
 
-							buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
-							buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
-							buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-							buyBtn:SetUserValue("LISTINDEX", i);
+		    buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
+		    buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
+		    buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
+		    buyBtn:SetUserValue("LISTINDEX", i);
 		elseif (categoryNo == 806) or (categoryNo == 2349)  then				
-							local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
-							if imgURL ~= nil then	
-								local imgAddress = string.format("%s", imgURL);
-								if string.len(imgAddress) > 0 then
-									if listcnt == 0 or clsList == nil then
-										return;
-									end	
+		    local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
+		    if imgURL ~= nil then	
+		    	local imgAddress = string.format("%s", imgURL);
+		    	if string.len(imgAddress) > 0 then
+		    		if listcnt == 0 or clsList == nil then
+		    			return;
+		    		end	
 
-									local retNum = -1;
-									local jobCountMax = 0;
-									for j = 0, listcnt - 1 do
-										local obj = GetClassByIndexFromList(clsList, j);	
-										retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
-										if retNum > 0 then
-											ItemClassName = obj.Name;	
-											item_package = obj;
-											packageClsID = obj.ClassID;
-											jobCountMax = obj.jobCount;
-											packageJobCount = packageJobCount + 1;
-											break;
-										end
-									end	
-									
-									local package_Btn = nil;														
-									local bisCaption = false; 
-									if retNum > 0 then				
-										if packageJobCount == 1 then
-											specialGoodCount = specialGoodCount + 1;
-											bisCaption = true;											
-											limitOnce = 0;
-											itemPrice = 0;
-											productNo = 0;		
-											package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);		
-											
-											tolua.cast(package_Btn, "ui::CButton");
-											package_Btn:SetImage("market_number_btn");											
-											package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
+		    		local retNum = -1;
+		    		local jobCountMax = 0;
+		    		for j = 0, listcnt - 1 do
+		    			local obj = GetClassByIndexFromList(clsList, j);	
+		    			retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
+		    			if retNum > 0 then
+		    				ItemClassName = obj.Name;	
+		    				item_package = obj;
+		    				packageClsID = obj.ClassID;
+		    				jobCountMax = obj.jobCount;
+		    				packageJobCount = packageJobCount + 1;
+		    				break;
+		    			end
+		    		end	
+		    		
+		    		local package_Btn = nil;														
+		    		local bisCaption = false; 
+		    		if retNum > 0 then				
+		    			if packageJobCount == 1 then
+		    				specialGoodCount = specialGoodCount + 1;
+		    				bisCaption = true;											
+		    				limitOnce = 0;
+		    				itemPrice = 0;
+		    				productNo = 0;		
+		    				package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);		
+		    				
+		    				tolua.cast(package_Btn, "ui::CButton");
+		    				package_Btn:SetImage("market_number_btn");											
+		    				package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
 
-											-- 직업과 성별에 따라 디폴트 패키지 를 선정하여 먼저 띄우기
-											itemClsID = packageClsID;	
-											local packageCls = GetClassByType("item_package", packageClsID);
-											local clsID = GET_PACKAGE_CLSID_BYTYPE(jobNum, packageCls);
-											if clsID == nil then
-												package_Btn:SetUserValue("DEFAULT_CLSID", iteminfo.tpItemClsId);	
-											else
-												package_Btn:SetUserValue("DEFAULT_CLSID", clsID);	
-											end
-											package_Btn:SetUserValue("jobCountMax", jobCountMax);					
-										else
-											package_Btn = tpSubgbox:GetControlSet('button', 'specialProduct_'..specialGoodCount);
-										end
-																				
-										if package_Btn == nil then
-											break;
-										end				
-										package_Btn:SetUserValue("LISTINDEX_"..retNum, i);	
-									else
-										bisCaption = true;
-										packageClsID = 0;
-										packageJobCount = 0;
-										specialGoodCount = specialGoodCount + 1;
-									end		
+		    				-- 직업과 성별에 따라 디폴트 패키지 를 선정하여 먼저 띄우기
+		    				itemClsID = packageClsID;	
+		    				local packageCls = GetClassByType("item_package", packageClsID);
+		    				local clsID = GET_PACKAGE_CLSID_BYTYPE(jobNum, packageCls);
+		    				if clsID == nil then
+		    					package_Btn:SetUserValue("DEFAULT_CLSID", iteminfo.tpItemClsId);	
+		    				else
+		    					package_Btn:SetUserValue("DEFAULT_CLSID", clsID);	
+		    				end
+		    				package_Btn:SetUserValue("jobCountMax", jobCountMax);					
+		    			else
+		    				package_Btn = tpSubgbox:GetControlSet('button', 'specialProduct_'..specialGoodCount);
+		    			end
+		    													
+		    			if package_Btn == nil then
+		    				break;
+		    			end				
+		    			package_Btn:SetUserValue("LISTINDEX_"..retNum, i);	
+		    		else
+		    			bisCaption = true;
+		    			packageClsID = 0;
+		    			packageJobCount = 0;
+		    			specialGoodCount = specialGoodCount + 1;
+		    		end		
 
-									if bisCaption == true then												
-										package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);
-										
-										tolua.cast(package_Btn, "ui::CButton");
-										package_Btn:SetImage("market_number_btn");
-										package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
-										package_Btn:EnableHitTest(1);
-										package_Btn:SetEventScript(ui.LBUTTONUP, '_TPSHOP_SELECTED_SPECIALGOODS');
-										package_Btn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
-										package_Btn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-										
-										package_Btn:SetUserValue("LISTINDEX", i);
-										package_Btn:SetUserValue("jobCountMax", jobCountMax);
-																			
-									end
-									
-									lastControlset = package_Btn;
-									if packageJobCount >= jobCountMax then
-										packageJobCount = 0;
-										packageClsID = 0;	
-									end
-									
-								end
-							end
+		    		if bisCaption == true then												
+		    			package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);
+		    			
+		    			tolua.cast(package_Btn, "ui::CButton");
+		    			package_Btn:SetImage("market_number_btn");
+		    			package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
+		    			package_Btn:EnableHitTest(1);
+		    			package_Btn:SetEventScript(ui.LBUTTONUP, '_TPSHOP_SELECTED_SPECIALGOODS');
+		    			package_Btn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
+		    			package_Btn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
+		    			
+		    			package_Btn:SetUserValue("LISTINDEX", i);
+		    			package_Btn:SetUserValue("jobCountMax", jobCountMax);
+		    												
+		    		end
+		    		
+		    		lastControlset = package_Btn;
+		    		if packageJobCount >= jobCountMax then
+		    			packageJobCount = 0;
+		    			packageClsID = 0;	
+		    		end
+		    		
+		    	end
+		    end
 		else
 							return; 
 		end

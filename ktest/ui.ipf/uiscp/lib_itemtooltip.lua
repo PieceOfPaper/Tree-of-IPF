@@ -1227,17 +1227,17 @@ function IS_ENABLED_TEAM_TRADE_ITEM(invitem)
         return false;
     else
         return true;
-    end
+	end
 end
 
 function GET_ENABLE_TRADE_MSG(itemProp)
-    if itemProp == nil then
-        return "";
-    elseif itemProp:IsEnableUserTrade() == true then
-        return ScpArgMsg("UserTradeAble");
-    elseif itemProp:IsEnableMarketTrade() == true then
-        return ScpArgMsg("MarketTradeAble");
-    else 
-        return ScpArgMsg("UserTradeUnable")
-    end
+	if itemProp == nil then
+		return "";
+	elseif itemProp : IsEnableUserTrade() == true then
+		return ScpArgMsg("UserTradeAble");
+	elseif itemProp : IsEnableMarketTrade() == true then
+		return ScpArgMsg("MarketTradeAble");
+	else
+		return ScpArgMsg("UserTradeUnable")
+	end
 end
