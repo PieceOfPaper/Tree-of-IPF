@@ -2097,6 +2097,12 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	if  spotName  ==  nil  then
 		return;
 	end
+	
+	if spotName == "HELMET" then
+		if equipItem.type ~= item.GetNoneItem(equipItem.equipSpot) then
+			spotName = "HAIR";
+		end
+	end
 
 	local child = frame:GetChild(spotName);			
 	if  child  ==  nil  then

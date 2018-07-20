@@ -4139,6 +4139,12 @@
 		<image name="icon_item_musicbox_cake" file="\icon\item\icon_item_musicbox_cake.png" imgrect="0 0 256 256" CMM_Caption="케이크 오르골"/>
 		<image name="icon_item_MusicBox_TrickBox" file="\icon\item\icon_item_MusicBox_TrickBox.png" imgrect="0 0 256 256" CMM_Caption="깜짝 오르골"/>
 		<image name="icon_item_MusicBox_Maple" file="\icon\item\icon_item_MusicBox_Maple.png" imgrect="0 0 256 256" CMM_Caption="단풍 오르골"/>
+		<image name="icon_item_weddingcake" file="\icon\item\icon_item_weddingcake.png" imgrect="0 0 256 256" CMM_Caption="웨딩 케이크"/>
+		<image name="icon_item_artifactBox" file="\icon\item\icon_item_artifactBox.png" imgrect="0 0 128 128" CMM_Caption="랜덤 장난감 상자"/>
+		<image name="icon_item_box_Sclass" file="\icon\item\icon_item_box_Sclass.png" imgrect="0 0 256 256" CMM_Caption="S상자"/>
+		<image name="icon_item_box_Aclass" file="\icon\item\icon_item_box_Aclass.png" imgrect="0 0 128 128" CMM_Caption="A상자"/>
+		<image name="icon_item_box_Bclass" file="\icon\item\icon_item_box_Bclass.png" imgrect="0 0 128 128" CMM_Caption="B상자"/>
+		<image name="icon_item_box_Cclass" file="\icon\item\icon_item_box_Cclass.png" imgrect="0 0 128 128" CMM_Caption="C상자"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -4440,7 +4446,19 @@
 		<image name="icon_item_leafcostume01_f" file="\icon\payment\icon_item_leafcostume01_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_cosair03_m" file="\icon\payment\icon_item_cosair03_m.png" imgrect="0 0 256 256" CMM_Caption="해적 코스튬"/>
 		<image name="icon_item_cosair03_f" file="\icon\payment\icon_item_cosair03_f.png" imgrect="0 0 256 256"/>
+		<image name="helmet_weddingvail" file="\icon\payment\helmet_weddingvail.png" imgrect="0 0 256 256" CMM_Caption="면사포"/>
+		<image name="icon_item_wedding01_f" file="\icon\payment\icon_item_wedding01_f.png" imgrect="0 0 256 256" CMM_Caption="웨딩코스튬"/>
+		<image name="icon_item_wedding01_m" file="\icon\payment\icon_item_wedding01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wedding02_f" file="\icon\payment\icon_item_wedding02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wedding02_m" file="\icon\payment\icon_item_wedding02_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_wedding_popupbook" file="\icon\payment\icon_item_wedding_popupbook.png" imgrect="0 0 256 256" CMM_Caption="웨딩 팝업북"/>
+		<image name="icon_item_bouquet01" file="\icon\payment\icon_item_bouquet01.png" imgrect="0 0 256 256" CMM_Caption="부케"/>
+		<image name="icon_item_bouquet02" file="\icon\payment\icon_item_bouquet02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_weddingcube1" file="\icon\payment\icon_item_weddingcube1.png" imgrect="0 0 256 256" CMM_Caption="웨딩 가챠"/>
+		<image name="icon_item_weddingcube2" file="\icon\payment\icon_item_weddingcube2.png" imgrect="0 0 256 256" CMM_Caption="웨딩 가챠+2단계"/>
+		<image name="icon_item_weddingbox" file="\icon\payment\icon_item_weddingbox.png" imgrect="0 0 256 256" CMM_Caption="웨딩 1단계 상자"/>
+		<image name="icon_item_weddingbox2" file="\icon\payment\icon_item_weddingbox2.png" imgrect="0 0 256 256" CMM_Caption="웨딩 2단계 상자"/>
+		<image name="icon_item_abilitypoint" file="\icon\payment\icon_item_abilitypoint.png" imgrect="0 0 256 256" CMM_Caption="특성 포인트 1000"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
