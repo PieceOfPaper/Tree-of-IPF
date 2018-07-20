@@ -109,10 +109,15 @@ function DRT_PLAY_EFT_C(pc, cmd, eftName, scl, x, y, z, lifeTime, delay)
 end
 
 
-function DRT_C_PLAYSOUND(actor, cmd, soundName)
+function DRT_C_PLAYSOUND(actor, cmd, soundName, enableSkip)
+	if enableSkip == nil then
+		enableSkip = 0;
+	end
 
 	movie.PlayCenterSound(soundName);
-
+	if enableSkip == 1 then
+		cmd:EnableSkipSound(soundName);
+	end
 end
 
 function DRT_C_FADEOUT(actor, cmd, isOut)

@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
+	<Particle name="pattern025" texture="pattern025" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle043" texture="circle043" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="ripple009" texture="ripple009" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="ripple008" texture="ripple008" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
@@ -467,6 +468,8 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="flowertree_skl3" model="flowertree_skl3.xac" motion="flowertree_skl3_ani.xsm" texturepath="char_texture\monster\flowertree_boss\" overlap="true" AlphaType="BLEND"/>
+	<Model name="raid_gimmick" model="raid_gimmick.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="slash_glowing_fire" model="slash_glowing_fire.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="d_raidboss_velcoffer_npc_03_dead" model="d_raidboss_velcoffer_npc_03_dead.xac" motion="d_raidboss_velcoffer_npc_03_ani.xsm" texturepath="char_texture\npc\d_raidboss_velcoffer_npc_03\" overlap="true" AlphaType="BLEND"/>
 	<Model name="I_circle012_pixel_mash" model="I_circle012_pixel_mash.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>

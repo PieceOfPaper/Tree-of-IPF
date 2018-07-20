@@ -459,6 +459,7 @@
 		<Class ClassID="8094" ClassName="Pet_Soul_Def" Data="염 속성 저항력"/>
 		<Class ClassID="8095" ClassName="HaveToPutPetAtBarrack" Data="컴패니언과 함께하는 중에는 사용할 수 없습니다."/>
 		<Class ClassID="8096" ClassName="AutoAtk" Data="자동 공격"/>
+		<Class ClassID="8097" ClassName="CompanionIsNotActive" Data="컴패니언이 휴면 상태입니다."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -4118,6 +4119,8 @@
 		<Class ClassID="27132" ClassName="CATACOMB_HALLOWEEN_MSG3" Data="3회 참여 보상을 받는다"/>
 		<Class ClassID="27133" ClassName="CATACOMB_HALLOWEEN_MSG4" Data="30회 참여 보상을 받는다"/>
 		<Class ClassID="27182" ClassName="GACHA_SITEM_GET_ALLMSG" Data="{s24}축하드립니다!{nl}{PC} 님이 레티샤의 비밀 큐브에서{nl}{ITEMNAME} 를(을) 획득하셨습니다!"/>
+		<Class ClassID="27212" ClassName="EV170119_NEWYEAR_MSG1" Data="이벤트에 참여하지 않으셨습니다"/>
+		<Class ClassID="27213" ClassName="EV170119_NEWYEAR_MSG2" Data="이벤트 참여 횟수 : {COUNT}회"/>
 		<Class ClassID="27220" ClassName="EV161124_DAYCHECK_MSG1" Data="이전에 선택하신 번호는 {nl}{NUMLIST}{nl}입니다."/>
 		<Class ClassID="27221" ClassName="EV161124_DAYCHECK_MSG2" Data="이전에 선택하신 번호가 없습니다.{nl}첫번째 선택입니다."/>
 		<Class ClassID="27222" ClassName="EV161124_DAYCHECK_MSG3" Data="선택 번호 : {NUM}{nl}보상 :"/>
@@ -4155,8 +4158,8 @@
 		<Class ClassID="27300" ClassName="KEYITEM" Data="증표"/>
 		<Class ClassID="27301" ClassName="KeyQuestShopTitle1" Data="헤스란 증표 Lv1"/>
 		<Class ClassID="27302" ClassName="KeyQuestShopTitle2" Data="헤스란 증표 Lv2"/>
-		<Class ClassID="27212" ClassName="EV170119_NEWYEAR_MSG1" Data="이벤트에 참여하지 않으셨습니다"/>
-		<Class ClassID="27213" ClassName="EV170119_NEWYEAR_MSG2" Data="이벤트 참여 횟수 : {COUNT}회"/>
+		<Class ClassID="27310" ClassName="EV170216_EVENTCOUNTING" Data="총 {MAXCOUNT}회 중 {COUNT}회 완료하셨습니다."/>
+		<Class ClassID="27311" ClassName="EV170216_MSG1" Data="왕국의 잃어버린 보물"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>

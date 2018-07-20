@@ -45,7 +45,7 @@ float		g_HDR_sunLightIntensity = 1.0f;
 float		g_farDistance = 10000.0f;
 float		g_softParticleRange = 3.0f;
 
-// ÅØ½ºÃ³ÀÌÆåÆ® ÈçµéÈçµé
+// ï¿½Ø½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 float		g_effectTime = 0.0f;
 float		g_waveSpeedX = 0.0f;
 float		g_waveStretchX = 0.0f;
@@ -69,11 +69,18 @@ float3		g_CamPos;
 
 float4		g_ModelDiffuse = 1.0f;
 
+#ifdef USE_SKINNINGMODEL
 float4x3	g_BoneTM[70];
+#endif
+
+#ifdef USE_DECAL
+float4x4	g_matWorldArr[50];
+float4x4	g_matInvWorldArr[50];
+#endif
 
 float4		g_lightDirection;
 
-// 3dÄ³¸¯ÅÍ 2d·Î ±×¸®´Â°Å
+// 3dÄ³ï¿½ï¿½ï¿½ï¿½ 2dï¿½ï¿½ ï¿½×¸ï¿½ï¿½Â°ï¿½
 float4x4 	g_billboardTM		: 	BILLBOARD_TM;
 float4x4 	g_charProjTM		:	CHARPROJ_TM;
 float4x4	g_charViewTM		:	CHARVIEW_TM;
@@ -101,20 +108,20 @@ float4 ShiftColor(float4 c)
 float4 CalcWVP( float4 Pos )
 {
 	Pos.w = 1.0f;	
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+	// Ä³ï¿½ï¿½ï¿½ï¿½ 2Dï¿½ï¿½ ï¿½ï¿½ï¿½
 	#ifdef USE_2D
 		//return mul(Pos, g_ViewProjTM);
-		// »ç½Ç ¹Ø¿¡ µÎ°³´Â ÇÕÃÄµµ ÁÁ½À´Ï´Ù. ¾îÂ÷ÇÇ ³ª´²¾µ ÀÌÀ¯°¡ ¾øÀ½
+		// ï¿½ï¿½ï¿½ ï¿½Ø¿ï¿½ ï¿½Î°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Äµï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		float4 WorldPos = mul(Pos, g_WorldTM);
 		Pos = mul(WorldPos, g_charViewTM);
 		Pos = mul(Pos, g_charProjTM);
 		Pos /= Pos.w;
-		Pos.z = 0.0f; // ºôº¸µå·Î ¸¸µë
-		Pos.y += 0.4f;  // Ä³¸¯ÅÍ ¹ß À§Ä¡ ¸ÂÃâ¶§ »ç¿ëÇÏ´Â »ó¼öÀÔ´Ï´Ù
+		Pos.z = 0.0f; // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+		Pos.y += 0.4f;  // Ä³ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½Ä¡ ï¿½ï¿½ï¿½â¶§ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½ï¿½ï¿½Ô´Ï´ï¿½
 		Pos.xy *= (Pos.y*float2(0.5,0.2)+1);
 		Pos = mul(Pos, g_billboardTM);
 		Pos = mul(Pos, g_ViewProjTM);
-		// (localz-Ä«¸Þ¶ó°Å¸®:z°ªÀ»0¾ÕµÚ·Î¸ÂÃß·Á°í) * Àû´çÈ÷ ³³ÀÛÇÏ°Ô ÇÏ±â À§ÇÑ »ó¼ö - µª½º¹ÙÀÌ¾î½º;
+		// (localz-Ä«ï¿½Þ¶ï¿½Å¸ï¿½:zï¿½ï¿½ï¿½ï¿½0ï¿½ÕµÚ·Î¸ï¿½ï¿½ß·ï¿½ï¿½ï¿½) * ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ - ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¾î½º;
 		
 		float uprate = 1.1;
 		float pivotOffset = 100;
@@ -144,6 +151,7 @@ float4 CalcWorldNormal( float3 normal )
 void CalcSkinGeom(in float4 Pos, in float3 Nml, in float4 weights, in int4 indices, 
 				  out float4 PosCS, out float3 NmlMS, out float3 localPos, in int numBones)
 {
+#ifdef USE_SKINNINGMODEL
 	localPos = 0;
 	NmlMS = 0;
 	for(int i = 0; i < numBones; ++i) {
@@ -151,6 +159,11 @@ void CalcSkinGeom(in float4 Pos, in float3 Nml, in float4 weights, in int4 indic
 		NmlMS  	 += mul(Nml, (float3x3)g_BoneTM[ indices[i] ]) * weights[i];
 	}
     PosCS = CalcWVP( float4(localPos, 1.0f) );
+#else
+	PosCS = 0.f;
+	NmlMS = 0.f;
+	localPos = 0.f;
+#endif
 }
 
 void VS_EffectInstancing_Frk(in float4 PosIn : POSITION,
@@ -281,7 +294,7 @@ double2 GetScreenTex(float4 pos)
 	scrTexOut.x		= (pos.x + 1.0f) / 2;
 	scrTexOut.y		= (2.0f - (pos.y + 1.0f)) / 2;
 	
-	// ½ºÅ©¸° ¿ÀÇÁ¼Â (¸ÅÁ÷³Ñ¹ö)
+	// ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¹ï¿½)
 	scrTexOut.x		+= 0.0005f;
 	scrTexOut.y		+= 0.0006f;
 	
@@ -302,7 +315,7 @@ float CalcAlphaWithDepth(float4 srcPos)
 	float alpha = saturate(delta);
 	return alpha;
 #else
-	return 1.0f;	//2dÀÌÆåÆ®(ex:UI)
+	return 1.0f;	//2dï¿½ï¿½ï¿½ï¿½Æ®(ex:UI)
 #endif
 }
 
@@ -316,7 +329,7 @@ float CalcAlphaWithDepthInstancing(float4 srcPos, float softParticleFactor)
 	float alpha = saturate(delta);
 	return alpha;
 #else
-	return 1.0f;	//2dÀÌÆåÆ®(ex:UI)
+	return 1.0f;	//2dï¿½ï¿½ï¿½ï¿½Æ®(ex:UI)
 #endif
 }
 
@@ -647,23 +660,30 @@ float4 PS_DistortionProcess(in float4 diffuse: COLOR0,
 	return finalColor;
 }
 
-void VS_Decal(in float4 PosIn : POSITION,
-	out float4 PosOut : POSITION,
-	out float4 ScrPos : TEXCOORD1,
-	out float3 ViewRay : TEXCOORD2)
+void VS_Decal(in float4 PosIn : POSITION, in float instID : TEXCOORD0,
+	out float4 PosOut : POSITION, out float4 ScrPos : TEXCOORD0, out float3 ViewRay : TEXCOORD1, out float out_instID : TEXCOORD2)
 {
+	int nInstID = (int)(instID + 1e-5f);
 	PosIn.w = 1.f;
+#ifdef USE_DECAL
+	PosOut = mul(PosIn, g_matWorldArr[nInstID]);
+#else
 	PosOut = mul(PosIn, g_WorldTM);
+#endif
 
 	ViewRay = PosOut - g_CamPos;
 
 	PosOut = mul(PosOut, g_ViewProjTM);
 	ScrPos = PosOut;
+	out_instID = nInstID;
 }
 
-float4 PS_Decal(in float4 ScrPos : TEXCOORD1,
-	in float3 ViewRay : TEXCOORD2) : COLOR
+float4 PS_Decal(in float4 ScrPos : TEXCOORD0,
+	in float3 ViewRay : TEXCOORD1,
+	in float instID : TEXCOORD2) : COLOR
 {
+	int nInstID = (int)(instID + 1e-5f);
+
 	float2 screeenPos;
 	screeenPos.x = ScrPos.x / ScrPos.w * 0.5f + 0.5f;
 	screeenPos.y = -ScrPos.y / ScrPos.w * 0.5f + 0.5f;
@@ -673,14 +693,18 @@ float4 PS_Decal(in float4 ScrPos : TEXCOORD1,
 	ViewRay = normalize(ViewRay);
 	float4 pos = float4(g_CamPos + ViewRay * fDepth, 1.f);
 
+#ifdef USE_DECAL
+	float3 f3DecalLocalPos = mul(pos, g_matInvWorldArr[nInstID]).xyz;
+#else
 	float3 f3DecalLocalPos = mul(pos, g_InvWorldTM).xyz;
+#endif
 	clip(0.5f - abs(f3DecalLocalPos));
 
 	float2 f2DecalUV = f3DecalLocalPos.xz + 0.5f;
 
 	float fDist = abs(f3DecalLocalPos.y);
 	float4 color = tex2D(g_sampler, f2DecalUV).rgba;
-	color *= (1.f - max((fDist - 0.25f) / 0.25f, 0.f));
+	color.a *= (1.f - max((fDist - 0.25f) / 0.25f, 0.f));
 
 	return color;
 }

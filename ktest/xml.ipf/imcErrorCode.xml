@@ -93,16 +93,16 @@
 		<Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
 		<Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
 		<Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
-		    <Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
-		
+		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
 		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
 		<Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
 		<Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
-<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
-				<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
-				<Code Code="ERRCODE_LOGIC_AUTOMATCH" CallStack="NO" Desc="매칭 관련 에러 발생"/>
+		<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
+		<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
+		<Code Code="ERRCODE_LOGIC_AUTOMATCH" CallStack="NO" Desc="매칭 관련 에러 발생"/>
 		<Code Code="ERRCODE_LOGIC_RANDOM_MISSION" CallStack="NO" Desc="살러스 수녀원 관련 에러"/>
 		<Code Code="ERRCODE_LOGIC_MISSION_ROOM_EXIT" CallStack="NO" Desc="미션룸 삭제"/>
+		<Code Code="ERRCODE_LOGIC_UNKNOWN_ACTOR_MESSAGE" CallStack="NO" Desc="정의되지 않은 메세지 입니다."/>		<Code Code="ERRCODE_LOGIC_DUPLICATE_LOGIN" CallStack="NO" Desc="중복 로그인 관련 에러"/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -138,7 +138,7 @@
 		<Code Code="ERRCODE_DATA_NOT_EXIST_SPRITE" CallStack="NO" Desc="해당 스프라이트 데이터를 찾을 수 없습니다."/>
 		<Code Code="ERRCODE_DATA_ANI_ACTOR_PART_SET_FAIL" CallStack="NO" Desc="액터 파트를 세팅하는데 실패하였습니다. 정의되지 않은 액션 카운트입니다."/>
 		<Code Code="ERRCODE_DATA_WORLDTABLE_INIT_FAIL" CallStack="NO" Desc="월드테이블 초기화를 실패했습니다."/>
-    <Code Code="ERRCODE_DATA_ITEMTABLE_INIT_FAIL" CallStack="NO" Desc="아이템 데이터가 DB 데이터와 다릅니다."/>
+		<Code Code="ERRCODE_DATA_ITEMTABLE_INIT_FAIL" CallStack="NO" Desc="아이템 데이터가 DB 데이터와 다릅니다."/>
 		<Code Code="ERRCODE_DATA_WORLD_INITOBJECT_FAIL" CallStack="NO" Desc="월드 오브젝트 초기화를 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_MAINSECTOR_INIT_FAIL" CallStack="NO" Desc="메인 섹터매니저 초기화를 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_INVALIDPOS" CallStack="NO" Desc="유효한 좌표가 아닙니다."/>
@@ -196,12 +196,16 @@
 		<Code Code="ERRCODE_DATA_ABILITY_MAX_LEVEL_GREATER_ZERO" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
 		<Code Code="ERRCODE_EQUIP_CARD_SYSTEM_DATA" CallStack="NO" Desc="카드 데이터에 문제가 있습니다. 확인해주세요."/>
 		<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
-<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
+		<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_MAP" CallStack="NO" Desc="잘못된 상품 목록 DataMap 입니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_ITEM" CallStack="NO" Desc="잘못된 상품 정보 Data 입니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_PRODUCTS" CallStack="NO" Desc="NISMS에 등록된 상품의 클래스 또는 이름이 무효합니다. 해당 계정의 캐시 인벤에 표시가 안되고 있으며, NISMS에 잘못 등록된 아이템을 구입한 계정 입니다."/>
 		<Code Code="ERRCODE_NEED_RELEASE_OBJECT_BY_REFCOUNT" CallStack="NO" Desc="Release 하였지만, 다른 곳에서 여전히 참조중인 객체입니다. 메모리릭이 발생할 수 있습니다."/>
-		</Type>
+		<Code Code="ERRCODE_DATA_INVALID_ORDERNO" CallStack="NO" Desc="NISMS 존재하지 않는 상품 번호 입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_NISMS_ITEM_COUNT" CallStack="NO" Desc="NISMS 캐시 인벤토리 정보를 가져오는데 실패하였습니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_ITEM_COUNT" CallStack="NO" Desc="NISMS 아이템 개수가 0개 입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_NISMS_ITEM_ID" CallStack="NO" Desc="NISMS 찾을 수 없는 아이템 입니다."/>
+	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
 		<Code Code="ERRCODE_SCRIPT_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트에서 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
@@ -215,7 +219,7 @@
 		<Code Code="ERRCODE_SCRIPT_CANT_USE_TX_IN_MAIN_THREAD" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_FIND_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
 		<Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
-	</Type>
+		</Type>
 	<Type Type="NETWORK">
 		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
 		<Code Code="ERRCODE_NETWORK_CREATE_NET_STREAM" CallStack="NO" Desc="NetStream을 생성하는데 실패하였습니다. 올바른 ip입니까?"/>
@@ -304,7 +308,7 @@
 		<Code Code="ERRCODE_SYSTEM_INIT_FAIL" CallStack="NO" Desc="해당 항목의 초기화에 실패했습니다."/>
 		<Code Code="ERRCODE_SYSTEM_CANT_FIND" CallStack="NO" Desc="해당 항목을 찾을 수 없습니다."/>
 		<Code Code="ERRCODE_SYSTEM_CANT_RUN_THREAD" CallStack="NO" Desc="쓰레드를 시작할 수 없습니다. 다음 정보를 확인하세요."/>
-		</Type>
+	</Type>
 	<Type Type="INFO">
 		<Code Code="ERRCODE_NOT_YET" CallStack="NO" Desc="아직 에러코드가 정의되지 않은 로그입니다."/>
 		<Code Code="ERRCODE_INFO_FRAME_DROP" CallStack="NO" Desc="프레임 드랍"/>

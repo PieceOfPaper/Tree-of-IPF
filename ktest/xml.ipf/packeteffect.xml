@@ -10,7 +10,8 @@
 		<Effect Name="SKL_POMMELBEAT"/>
 		<Effect Name="SKL_DOUBLESLASH"/>
 		<Effect Name="SKL_HIGHGUARD_SWITCH"/>
-		</Category>
+		<Effect Name="KEPA_EVENT"/>
+	</Category>
 	<Category ID="179">
 		<Effect Name="I_force023_fire#Bip01 L Hand"/>
 		<Effect Name="I_force023_fire#Bip01 R Hand"/>
@@ -53,7 +54,8 @@
 		<Effect Name="F_light094_blue_loop2"/>
 		<Effect Name="F_light062_red"/>
 		<Effect Name="f_bracken_42_1_elt2"/>
-		<Effect Name="WALK"/>
+		<Effect Name="F_bg_statu_mint"/>
+		<Effect Name="F_explosion035_violet"/>
 		<Effect Name="SitGrope_loop"/>
 	</Category>
 	<Category ID="201">
@@ -151,12 +153,29 @@
 		<Effect Name="I_force018_trail_black4#Bip001 L Finger0Nub"/>
 		<Effect Name="I_force018_trail_black4#Bip001 R Finger0Nub"/>
 		<Effect Name="F_explosion99_dark2"/>
-		</Category>
+		<Effect Name="I_force003_green#Bone_mouth2"/>
+		<Effect Name="I_force057_dark#Bip001 L Finger3"/>
+		<Effect Name="I_force018_trail_black#Bone_mouth2"/>
+		<Effect Name="I_force018_trail_black_800#Bone_mouth2"/>
+		<Effect Name="I_force018_trail_firedark#Bone_mouth2"/>
+		<Effect Name="I_force018_trail_firedark"/>
+		<Effect Name="I_force018_trail_fire#Bone_mouth2"/>
+		<Effect Name="I_force018_trail_fire_darkball#Bone_mouth2"/>
+		<Effect Name="I_force018_trail_fire_darkball"/>
+		<Effect Name="F_hit009_fire"/>
+		<Effect Name="F_hit009_fire#Bone_mouth2"/>
+		<Effect Name="I_force018_trail_fire_darkball#Bip001 L Finger3"/>
+		<Effect Name="F_hit013_burst_stone"/>
+		<Effect Name="F_hit009_fire_puple"/>
+		<Effect Name="F_hit013_burst_stone_long"/>
+		<Effect Name="F_hit014_shockwave"/>
+	</Category>
 	<Category ID="124">
 		<Effect Name="rope_pad_abil"/>
 		<Effect Name="punji_stake_abil"/>
 		<Effect Name="Archer_SpikeShooter_Abil"/>
-		</Category>
+		<Effect Name="MISSION_PRISON_EVENT2"/>
+	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
 		<Effect Name="F_burstup030_fire_1"/>
@@ -228,7 +247,10 @@
 		<Effect Name="pollution_zone"/>
 		<Effect Name="I_stone010_mash_90"/>
 		<Effect Name="F_explosion113_leaf"/>
-		</Category>
+		<Effect Name="I_force003_green#Bone_mouth2"/>
+		<Effect Name="I_force057_dark#Bip001 L Finger3"/>
+		<Effect Name="F_burstup003_2"/>
+	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
 		<Effect Name="F_burstup030_fire_1"/>
@@ -326,7 +348,9 @@
 	<Category ID="183">
 		<Effect Name="F_DCAPITAL_20_6_SQ_60_MINI"/>
 		<Effect Name="F_staup_hit"/>
-		</Category>
+		<Effect Name="MISSION_PRISON_EVENT1"/>
+		<Effect Name="stage_5"/>
+	</Category>
 	<Category ID="84">
 		<Effect Name="M_PAST_FLIBRARY_1"/>
 	</Category>
@@ -426,7 +450,11 @@
 		<Effect Name="F_light074_yellow"/>
 		<Effect Name="f_bracken_43_4_elt"/>
 		<Effect Name="f_bracken_42_1_elt"/>
-		</Category>
+		<Effect Name="CORAL_44_2_SQ_20_MINI"/>
+		<Effect Name="CORAL_44_1_SQ_70_MINI"/>
+		<Effect Name="F_ground163_blue_loop"/>
+		<Effect Name="CORAL_44_2_SQ_50_MINI"/>
+	</Category>
 	<Category ID="75">
 		<Effect>knockdown_bounce</Effect>
 		<Effect Name="f_orchard_34_2_elevator"/>
@@ -813,7 +841,6 @@
 		<Effect Name="F_cleric_BreakingWheel_hit_ground"/>
 		<Effect Name="Dummy_effect_smoke"/>
 		<Effect Name="F_cleric_Clone_shot"/>
-		<Effect Name="I_emo_Blindside"/>
 	</Category>
 	<Category ID="42">
 		<Effect Name="voice_cleric_m_vashitasiddhi_cast"/>
@@ -1037,6 +1064,8 @@
 		<Effect Name="Dummy_HideBox"/>
 		<Effect Name="F_sys_TPBOX_great_300"/>
 		<Effect Name="F_sys_TPBOX_great_200"/>
+		<Effect Name="skl_eff_gacha_box_button"/>
+        <Effect Name="skl_eff_gacha_box_result"/>
 	</Category>
 	<Category ID="50">
 		<Effect Name="F_sys_target_monster##0.2"/>
@@ -2383,7 +2412,11 @@
 		<Effect Name="Boss2"/>
 		<Effect Name="마법진2"/>
 		<Effect Name="실패조건완료"/>
-		</Category>
+		<Effect Name="RAID_VELCOFFER_MINI"/>
+		<Effect Name="boss_Raid_Gimmick"/>
+		<Effect Name="SKL8_LOOP"/>
+		<Effect Name="SKL8_END"/>
+	</Category>
 	<Category ID="45">
 		<Effect Name="Cleric_Barrier"/>
 		<Effect Name="Wizard_IceGust"/>
@@ -3314,6 +3347,8 @@
         <Effect Name="f_bracken_43_2_elt"/>
         <Effect Name="I_ground013_vine_mash"/>
         <Effect Name="boss_blackGargoyle"/>
+        <Effect Name="I_force003_green#Bone_mouth2"/>
+        <Effect Name="I_force057_dark#Bip001 L Finger3"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -4582,6 +4617,8 @@
         <Effect Name="cklaipe_sit"/>
         <Effect Name="F_spread_in005_mint"/>
         <Effect Name="BOOM"/>
+        <Effect Name="F_smoke018"/>
+        <Effect Name="F_levitation039_green"/>
     </Category>
     <Category ID="180">
         <Effect Name="I_ice005_mash###1"/>
@@ -19580,3 +19617,6 @@
         <Effect Name="DefClass123"/>
     </Category>
 </packeteffects>
+
+<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8"?>

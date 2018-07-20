@@ -1067,7 +1067,6 @@ function MAKE_QUEST_INFO_COMMON(pc, questIES, picture, result)
 end
 
 function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
-
 	if control.IsRestSit() == true then
 		ui.SysMsg(ClMsg('DontQuestWarpForSit'));
 		return;
@@ -1092,19 +1091,20 @@ function QUESTION_QUEST_WARP(frame, ctrl, argStr, questID)
 	local pc = GetMyPCObject();
 	if ctrl ~= nil then
 		local fid = ctrl:GetUserValue("PC_FID");
-		if fid ~= "None" then
-			local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, fid);	
+		if fid ~= "None" then -- 파티원 공유 퀘스트 돌아가기 누른 경우
+			local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, fid);
 			if memberInfo ~= nil then
-				pc = GetIES(memberInfo:GetPCObj());
+				local memberObj = GetIES(memberInfo:GetObject());
 				g_questCheckFunc = SCR_QUEST_CHECK;
-				local result = SCR_QUEST_CHECK_Q(pc, questIES.ClassName);
-				local questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
-				g_questCheckFunc = nil;
-				local cheat = string.format("/reqpartyquest %s %d %s", fid, questID, questnpc_state);
-				movie.QuestWarp(session.GetMyHandle(), cheat, 0);
-				packet.ClientDirect("QuestWarp");
-			
-				return;
+				local result = TryGetProp(memberObj, 'Shared_Progress');
+				local progressStr = quest.GetQuestStateString(result);
+				if progressStr == 'POSSIBLE' or progressStr == 'PROGRESS' or progressStr == 'SUCCESS' then					
+					g_questCheckFunc = nil;
+					local cheat = string.format("/reqpartyquest %s %d %s", fid, questID, memberInfo:GetName());
+					movie.QuestWarp(session.GetMyHandle(), cheat, 0);
+					packet.ClientDirect("QuestWarp");
+					return;
+				end			
 			end
 		end
 	end
@@ -2661,30 +2661,8 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 
 				if questID > 0 then
 					local questIES = GetClassByType("QuestProgressCheck", questID);
-					MAKE_QUEST_INFO_C(bg, questIES, nil, TryGetProp(memberObj, 'Shared_Progress'))
+					MAKE_QUEST_INFO_C(bg, questIES, nil, TryGetProp(memberObj, 'Shared_Progress')) --hs_comment
 				end
-
-				--[[	공유설정한 퀘스트 UI에서 이전 퀘스트 워프 안보여주게 함.
-						만약 이전 퀘스트 완료 여부를 보여주게 하고 싶으면 주석을 풀면 됨.(가장 최근의 완료된 퀘스트가 계속 떠있게됨)
-						이전 퀘스트가 보이면 혼선만 줘서 없앤다는 로그있길래 주석처리함
-				if beforeQuest > 0 then
-					local questIES = GetClassByType("QuestProgressCheck", beforeQuest);
-					local returnSet = bg:CreateOrGetControlSet("beforereturnbtn", "RETURN_CTRL", ui.LEFT, ui.TOP, 30, 0, 0, 0);
-					local name = GET_CHILD(returnSet, "name", "ui::CRichText");
-					local ctrlSetWidth = bg:GetWidth() - returnSet:GetX();
-					local textWidth = ctrlSetWidth - name:GetX();
-					name:SetMaxWidth(textWidth);
-					name:SetTextByKey("value", ClMsg("WarpToCompleteArea") .. " : " .. questIES.Name);
-					local pic = GET_CHILD(returnSet, "pic", "ui::CPicture");
-       				pic:SetEventScript(ui.LBUTTONUP, "BEFORE_QUEST_WARP");
-					pic:SetUserValue("QUEST_ID", beforeQuest);
-					pic:SetUserValue("AID", pcInfo:GetAID());
-					pic:SetUserValue("STATE_ID", memberObj.Before_Quest_State);
-        			pic:SetTextTooltip(ClMsg("QuestWarp"));
-					pic:SetAngleLoop(-3);
-					returnSet:Resize(ctrlSetWidth, name:GetY() + name:GetHeight() + 10);
-				end
-				]]--
 
 				g_currentPartyMemberInfo = nil;
 				g_questCheckPC = nil;
@@ -2712,19 +2690,6 @@ end
 
 function QUEST_PARTY_SOBJ_UPDATE(frame)
 	QUEST_PARTY_MEMBER_PROP_UPDATE(frame);
-end
-
-
-function BEFORE_QUEST_WARP(parent, pic)
-	local beforeQuest = pic:GetUserIValue("QUEST_ID");
-	local stateID = pic:GetUserIValue("STATE_ID");
-	local fid = pic:GetUserValue("AID");
-	
-	local stateStr = IntKeyToString(stateID);
-	local cheat = string.format("/reqpartyquest %s %d %s", fid, beforeQuest, stateStr);
-	movie.QuestWarp(session.GetMyHandle(), cheat, 0);
-	packet.ClientDirect("QuestWarp");
-
 end
 
 function TOGGLE_PARTY_QUEST_FOLDER(parent, ctrl)

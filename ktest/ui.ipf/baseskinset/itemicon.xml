@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -618,6 +618,8 @@
 		<image name="icon_item_Cleric_monk_m" file="\icon\equip\icon_item_Cleric_monk_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Cleric_cleric01_3_f" file="\icon\equip\icon_item_Cleric_cleric01_3_f.png" imgrect="0 0 256 256" CMM_Caption="3랭크 클레릭"/>
 		<image name="icon_item_Cleric_cleric01_3_m" file="\icon\equip\icon_item_Cleric_cleric01_3_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Mage_pyromance_m" file="\icon\equip\icon_item_Mage_pyromance_m.png" imgrect="0 0 256 256" CMM_Caption="3랭크 파이로맨서"/>
+		<image name="icon_item_Mage_pyromance_f" file="\icon\equip\icon_item_Mage_pyromance_f.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -4237,10 +4239,6 @@
 		<image name="icon_item_pumpkin_box03" file="\icon\payment\icon_item_pumpkin_box03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_pumpkin_box04" file="\icon\payment\icon_item_pumpkin_box04.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_egg_Rocksodon" file="\icon\payment\icon_item_egg_Rocksodon.png" imgrect="0 0 256 256" CMM_Caption="락소돈 상자"/>
-		<image name="icon_item_archer_bluepeacock_f" file="\icon\payment\icon_item_archer_bluepeacock_f.png" imgrect="0 0 256 256" CMM_Caption="아쳐 블루 피콕"/>
-		<image name="icon_item_archer_bluepeacock_m" file="\icon\payment\icon_item_archer_bluepeacock_m.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_mage_pinkwizard_f" file="\icon\payment\icon_item_mage_pinkwizard_f.png" imgrect="0 0 256 256" CMM_Caption="위자드 핑크"/>
-		<image name="icon_item_mage_pinkwizard_m" file="\icon\payment\icon_item_mage_pinkwizard_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_christmas_m" file="\icon\payment\icon_item_warrior_christmas_m.png" imgrect="0 0 256 256" CMM_Caption="크리스마스 코스튬"/>
 		<image name="icon_item_warrior_christmas_f" file="\icon\payment\icon_item_warrior_christmas_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_christmas_m" file="\icon\payment\icon_item_mage_christmas_m.png" imgrect="0 0 256 256"/>
@@ -4253,6 +4251,14 @@
 		<image name="icon_item_hanbok_m" file="\icon\payment\icon_item_hanbok_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_hanbokPackage_F" file="\icon\payment\icon_item_hanbokPackage_F.png" imgrect="0 0 256 256" CMM_Caption="혼례복 패키지"/>
 		<image name="icon_item_hanbokPackage_M" file="\icon\payment\icon_item_hanbokPackage_M.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Cleric_yellowPeacock_f" file="\icon\payment\icon_item_Cleric_yellowPeacock_f.png" imgrect="0 0 256 256" CMM_Caption="파티 코스튬"/>
+		<image name="icon_item_Cleric_yellowPeacock_m" file="\icon\payment\icon_item_Cleric_yellowPeacock_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Warrior_BluePeacock_f" file="\icon\payment\icon_item_Warrior_BluePeacock_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Warrior_BluePeacock_m" file="\icon\payment\icon_item_Warrior_BluePeacock_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_bluepeacock_f" file="\icon\payment\icon_item_archer_bluepeacock_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archer_bluepeacock_m" file="\icon\payment\icon_item_archer_bluepeacock_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_pinkwizard_f" file="\icon\payment\icon_item_mage_pinkwizard_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mage_pinkwizard_m" file="\icon\payment\icon_item_mage_pinkwizard_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
