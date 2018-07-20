@@ -93,6 +93,10 @@ function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)
 		return false;
 	end
 
+	if targetItem.StringArg == 'WoodCarving' then
+		return false;
+	end
+
 	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Musket', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Shield'};
 	local targetItemClassType = TryGetProp(targetItem, 'ClassType', 'None');
 	if targetItemClassType ~= 'None' then

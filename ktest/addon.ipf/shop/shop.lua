@@ -239,9 +239,20 @@ function SHOP_BUTTON_SELL(frame, slot, argStr, argNum)
 		if slotIcon ~= nil then
 			local slot  = sellslotSet:GetSlotByIndex(i);
 			local itemID = slot:GetUserValue("SLOT_ITEM_ID");
+
+			--판매된 아이템의 체크 이미지를 없앤다
+			local invItem = session.GetInvItemByGuid(itemID);
+			if invItem ~= nil then
+				local invSlot = GET_SLOT_BY_ITEMID(nil, itemID);
+				invSlot:Select(0);
+				local invSlot_All = GET_SLOT_BY_ITEMID(nil, itemID, 1);
+				invSlot_All:Select(0);
+			end
+
 			item.AddToSellList(itemID, slot:GetUserIValue("SELL_CNT"));
 			CLEAR_SELL_SLOT(slot);
 			isSound = true;
+
 		end
 	end
 	item.SellList();

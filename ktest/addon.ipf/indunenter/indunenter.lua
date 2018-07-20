@@ -987,11 +987,17 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
     local textCount = topFrame:GetUserIValue("multipleCount");
     local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
     local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(topFrame, 'understaffEnterAllowBtn');
+	
+	local enableReenter = frame:GetUserIValue('ENABLE_REENTER');
 
     if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
         ReqMoveToIndun(3, textCount);
         ctrl:SetTextTooltip(ClMsg("PartyMatchInfo_Go"));
-        understaffEnterAllowBtn:ShowWindow(1);
+		if enableReenter == trhe then
+			understaffEnterAllowBtn:ShowWindow(1);
+		else
+			understaffEnterAllowBtn:ShowWindow(0);
+		end
         INDUNENTER_SET_ENABLE(0, 0, 1, 0);
     else
         ReqRegisterToIndun(topFrame:GetUserIValue('INDUN_TYPE'));

@@ -345,14 +345,6 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			if invenItemInfo ~= nil and invenItemInfo.type == math.floor(type) then
 				itemIES = GetIES(invenItemInfo:GetObject());
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
-				local result = CHECK_EQUIPABLE(itemIES.ClassID);
-				icon:SetEnable(1);
-				icon:SetEnableUpdateScp('None');
-				if result == 'OK' then
-					icon:SetColorTone("FFFFFFFF");
-				else
-					icon:SetColorTone("FFFF0000");
-				end
 
 				if itemIES.MaxStack > 0 or itemIES.GroupName == "Material" then
 					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
@@ -410,6 +402,18 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 
 			if invItem ~= nil then
 				icon:Set(imageName, 'Item', invItem.type, invItem.invIndex, invItem:GetIESID(), invItem.count);
+
+				local result = CHECK_EQUIPABLE(invItem.type);
+				icon:SetEnable(1);
+				icon:SetEnableUpdateScp('None');
+				if result ~= "NOEQUIP" then
+					if result == 'OK' then
+						icon:SetColorTone("FFFFFFFF");
+					else
+						icon:SetColorTone("FFFF0000");
+					end
+				end
+
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "quickslot", GetIES(invItem:GetObject()));
 			else
 				icon:Set(imageName, category, type, 0, iesID);

@@ -64,7 +64,10 @@ function MOVE_TO_CAMP_WHEN_DED(frame, control, aid)
 	restart.SendRestartCampMsg(aid);
 end
 
+local cacheCommandBtnList = nil
 function AUTORESIZE_RESTART(frame)
+	
+	cacheCommandBtnList = nil
 	local maxy = 0;
 	local cnt = frame:GetChildCount();
 	local ctrly = 100;
@@ -100,16 +103,19 @@ function AUTORESIZE_RESTART(frame)
 
 	-- 파티원이 존재 할 때
 	if 0 < count then
+		local groupBoxHeight = campGroup:GetHeight()
 		local y = 0;
 		for i = 0 , count - 1 do
 			local partyMemberInfo = list:Element(i);
 			if partyMemberInfo.campMapID ~= 0 then
 				local map = GetClassByType("Map", partyMemberInfo.campMapID);
 				if nil ~= map then
+					
 					local str = string.format("%s %s", map.Name,ClMsg("MoveToCamp"));
 					local shareBtn = campGroup:CreateControl("button", "party"..i, 0, y, campGroup:GetWidth(), ctrlHight);
 					y = y + ctrlHight;
 					maxy = maxy + ctrlHight;
+					groupBoxHeight = groupBoxHeight + ctrlHight
 					shareBtn = tolua.cast(shareBtn, "ui::CButton");
 					shareBtn:SetText("{@st66b}".. str);
 					shareBtn:SetEventScript(ui.LBUTTONUP, "MOVE_TO_CAMP_WHEN_DED");
@@ -118,6 +124,7 @@ function AUTORESIZE_RESTART(frame)
 				end
 			end
 		end
+		campGroup:Resize(campGroup:GetWidth(),groupBoxHeight )
 		frame:Resize(frame:GetWidth(), maxy + 40);
 		return;
 	end
@@ -141,21 +148,55 @@ function AUTORESIZE_RESTART(frame)
 	frame:Resize(frame:GetWidth(), maxy + 40);
 end
 
-function RESTART_MOVE_INDEX(frame, isDown)
 
+function RESTART_GET_COMMAND_LIST(frame)
+
+	if cacheCommandBtnList == nil then
+		cacheCommandBtnList={}
+		-- 목록 만들기
+		local cacheCnt =0 
+		local index =1
+		while 1 do
+			local btnName = "restart" .. index .. "btn";
+			local child = frame:GetChild(btnName);
+			if child == nil then
+				break;
+			end
+			--활성화 상태인 것만 넣기
+			if child:IsVisible() == 1 then 
+				cacheCommandBtnList[cacheCnt] = btnName
+				cacheCnt = cacheCnt + 1
+			end
+			index = index +1
+		end
+
+	
+		local campGroup = frame:GetChild("campGroup");
+		if nil ~= campGroup then
+			local cnt = campGroup:GetChildCount();
+			for i = 0, cnt - 1 do
+				local btn = campGroup:GetChildByIndex(i);
+				local btnName = btn:GetName()
+				if btnName ~= "_SCR" then
+					cacheCommandBtnList[cacheCnt] = btnName
+					cacheCnt = cacheCnt + 1
+				end
+			end
+		end
+	end
+	return cacheCommandBtnList
+end
+
+
+function RESTART_MOVE_INDEX(frame, isDown)
+	local list = RESTART_GET_COMMAND_LIST(frame)
 	local restartSelect_index = frame:GetValue();
 
-	while 1 do
-		restartSelect_index = restartSelect_index + isDown;
-		local btnName = "restart" .. restartSelect_index .. "btn";
-		local child = frame:GetChild(btnName);
-		if child == nil then
-			return;
-		end
-
-		if child:IsVisible() == 1 then
-			break;
-		end
+	
+	restartSelect_index = restartSelect_index + isDown;
+	local ItemBtn = frame:GetChildRecursively(list[restartSelect_index]);
+	if ItemBtn == nil then
+		return
 	end
 
 	frame:SetValue(restartSelect_index);
@@ -213,27 +254,31 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 		RESTARTSELECT_ITEM_SELECT(frame)
 
 	elseif msg == 'RESTARTSELECT_SELECT' then
-
-		local childName = 'restart' .. frame:GetValue() .. 'btn'
-		local ItemBtn = frame:GetChild(childName);
+		local list = RESTART_GET_COMMAND_LIST(frame)
+		local restartSelect_index = frame:GetValue();
+		local ItemBtn = frame:GetChildRecursively(list[restartSelect_index]);
 		local scp = ItemBtn:GetEventScript(ui.LBUTTONUP);
+		local argString = ItemBtn:GetEventScriptArgString(ui.LBUTTONUP);
 		scp = _G[scp];
-		scp(frame, ItemBtn);
+		scp(frame, ItemBtn,argString );
 	end
 end
 
 function RESTARTSELECT_ITEM_SELECT(frame)
 
-	local childName = 'restart' .. frame:GetValue() .. 'btn'
-	local ItemBtn = frame:GetChild(childName);
+	local list = RESTART_GET_COMMAND_LIST(frame)
+	local restartSelect_index = frame:GetValue();
+	local ItemBtn = frame:GetChildRecursively(list[restartSelect_index]);
+	if ItemBtn == nil then
+		return
+	end
+
 	local x, y = GET_SCREEN_XY(ItemBtn);
 
 	mouse.SetPos(x,y);
 	mouse.SetHidable(0);
 end
 
-
---frame:RunUpdateScript("ASDAFSASD",1,0,0,1);
 function COLONY_WAR_RESTART_UPDATE(frame)
 	local btnName = "restart6btn";
 	local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');

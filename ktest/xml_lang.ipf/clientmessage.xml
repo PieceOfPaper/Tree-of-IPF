@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -67,7 +67,7 @@
 		<Class ClassID="322" ClassName="{WHO}{TYPE}ChatJoin" Data="[{TYPE}]{WHO}님이 참가했습니다."/>
 		<Class ClassID="323" ClassName="{WHO}{TYPE}ChatOut" Data="[{TYPE}]{WHO}님이 탈퇴했습니다."/>
 		<Class ClassID="324" ClassName="CantUseMicRapidly" Data="연속해서 사용하실 수 없습니다."/>
-		<Class ClassID="325" ClassName="YouResurrect" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_resurrection 24 24} 캐릭터가 부활했습니다."/>    
+		<Class ClassID="325" ClassName="YouResurrect" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_resurrection 24 24} 캐릭터가 부활했습니다."/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -483,6 +483,7 @@
 		<Class ClassID="4188" ClassName="OnlySecondOpenLegendCubeUsingCoupon" Data="첫번째 재개봉시에만 이용권을 사용할 수 있습니다."/>
 		<Class ClassID="4189" ClassName="NoCubeCoupon" Data="인벤토리에 이용권이 존재하지 않습니다."/>
 		<Class ClassID="4190" ClassName="CubeCouponIsLock" Data="이용권이 잠금 되어 있습니다. {nl}잠금 해제 후 이용해 주시기 바랍니다."/>
+		<Class ClassID="4192" ClassName="SelectHairAcc{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}아이템을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 아이템으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -726,7 +727,7 @@
 		<Class ClassID="10086" Data="결투신청을 할 수 없습니다"/>
 		<Class ClassID="10087" Data="결투신청을 받아들일 수 없습니다"/>
 		<Class ClassID="10088" Data="새로운 패치가 이루어졌습니다{nl}게임을 종료한 후에 다시 실행하여{nl}패치를 받아주세요 CODE({Auto_1})"/>
-		<Class ClassID="10089" Data="착용할 수 있는 클래스가 아닙니다"/>
+		<Class ClassID="10089" Data="착용 할 수 있는 클래스가 아닙니다"/>
 		<Class ClassID="10090" Data="이동 중에는 사용할 수 없습니다"/>
 		<Class ClassID="10091" Data="시야에서 벗어났습니다"/>
 		<Class ClassID="10092" Data="체력이 부족합니다"/>
@@ -4799,6 +4800,27 @@
 		<Class ClassID="28051" ClassName="EVENT_1806_STORY_1_MSG12" Data="전서응 안전이 확보되었습니다.{nl}응사 마스터에게 돌아가 보상을 받으세요!"/>
 		<Class ClassID="28052" ClassName="EVENT_1806_STORY_1_MSG13" Data="멀리서 도움을 요청하는 매 울음소리가 들린다{nl}응사 마스터에게 받은 '전서응 훈련 피리'를 사용해 숨어있는 매를 찾으세요!"/>
 		<Class ClassID="28053" ClassName="EVENT_1806_STORY_1_MSG14" Data="누적 보상받기 (현재 횟수 : {COUNT}회)"/>
+		<Class ClassID="28060" ClassName="EVENT_1807_STORY_2_MSG1" Data="누적 보상을 이미 받으셨습니다"/>
+		<Class ClassID="28061" ClassName="EVENT_1807_STORY_2_MSG2" Data="호위{nl}실패 인원 : {COUNT2}"/>
+		<Class ClassID="28062" ClassName="EVENT_1807_STORY_2_MSG3" Data="호위를 감사드립니다"/>
+		<Class ClassID="28063" ClassName="EVENT_1807_STORY_2_MSG4" Data="동참해주셔서 감사합니다"/>
+		<Class ClassID="28064" ClassName="EVENT_1807_STORY_2_MSG5" Data="역시 여신님이 점찍은 계시자님입니다"/>
+		<Class ClassID="28065" ClassName="EVENT_1807_STORY_2_MSG6" Data="이 모든게 계시자님 덕분입니다"/>
+		<Class ClassID="28066" ClassName="EVENT_1807_STORY_2_MSG7" Data="별의 탑까지 잘 해쳐가겠습니다."/>
+		<Class ClassID="28067" ClassName="EVENT_1807_STORY_2_MSG8" Data="누적 완료 횟수 {COUNT}회 이상부터 받으실 수 있습니다"/>
+		<Class ClassID="28075" ClassName="EVENT_1807_POOL_MSG1" Data="{SEC}초 후 '[Summer Festa] 휴식' 버프가 발동 됩니다"/>
+		<Class ClassID="28076" ClassName="EVENT_1807_POOL_MSG2" Data="맛있는 꼬치와 교환한다[누적 교환 : {COUNT}회]"/>
+		<Class ClassID="28077" ClassName="EVENT_1807_POOL_MSG3" Data="짜릿한 레몬아이스티와 교환한다[누적 교환 : {COUNT}회]"/>
+		<Class ClassID="28078" ClassName="EVENT_1807_POOL_MSG4" Data="시원한 코코넛쥬스와 교환한다[누적 교환 : {COUNT}회]"/>
+		<Class ClassID="28079" ClassName="EVENT_1807_POOL_MSG5" Data="오늘은 {MAX}개까지 교환이 가능합니다"/>
+		<Class ClassID="28080" ClassName="EVENT_1807_POOL_MSG6" Data="몇 개를 교환해드릴까요?{nl}[교환가능 개수 : 1 ~ {MAX}]"/>
+		<Class ClassID="28081" ClassName="EVENT_1807_POOL_MSG7" Data="같은 효과의 버프가 적용 중입니다"/>
+		<Class ClassID="28082" ClassName="EVENT_1807_POOL_MSG8" Data="오늘은 해당 아이템 버프를 사용하셨습니다"/>
+		<Class ClassID="28083" ClassName="EVENT_1807_POOL_MSG9" Data="누적 교환 보상 '{ITEM}' 아이템이 지급됩니다"/>
+		<Class ClassID="28084" ClassName="EVENT_1807_POOL_MSG10" Data="접속 시간 : {MIN}분{nl}[Summer Festa] 이벤트 특별한 얼음 5개를 획득했습니다"/>
+		<Class ClassID="28085" ClassName="EVENT_1807_POOL_MSG11" Data="'[Summer Festa] 휴식' 버프가 발동합니다!"/>
+		<Class ClassID="28091" ClassName="EVENT_1807_BALL_MSG1" Data="남은 이동 횟수 : {COUNT}"/>
+		<Class ClassID="28092" ClassName="EVENT_1807_BALL_MSG2" Data="미션에 도전한다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -7771,9 +7793,10 @@
 		<Class ClassID="106053" ClassName="BuySuccess" Data="구매 완료"/>
 		<Class ClassID="106054" ClassName="SellSuccess" Data="판매 완료"/>
 		<Class ClassID="106055" ClassName="SellCancel" Data="판매 취소"/>
-    <Class ClassID="106056" ClassName="InvalidMaterialSearchFormat{MSG}" Data="잘못된 재료목록 형식입니다 : {MSG}"/>
-    <Class ClassID="106057" ClassName="VeryRapidRequest" Data="너무 빠른 요청입니다. 잠시 후 다시 시도해주세요."/>
-  </Category>
+		<Class ClassID="106056" ClassName="InvalidMaterialSearchFormat{MSG}" Data="잘못된 재료목록 형식입니다 : {MSG}"/>
+		<Class ClassID="106057" ClassName="VeryRapidRequest" Data="너무 빠른 요청입니다. 잠시 후 다시 시도해주세요."/>
+		<Class ClassID="106058" ClassName="PleaseWaiting" Data="현재 대기중입니다"/>
+	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
 		<Class ClassID="107002" ClassName="OnlySkillWithSpendItemIsAble" Data="해당 스킬은 등록할 수 없습니다."/>
@@ -8508,7 +8531,7 @@
 		<Class ClassID="134043" ClassName="IndunBadPlayerReport_Reason_Trolling" Data="비성실 및 방해 플레이"/>
 		<Class ClassID="134044" ClassName="IndunBadPlayerReport_Reason_Abusive" Data="욕설 및 비매너"/>
 		<Class ClassID="134045" ClassName="IndunBadPlayerReport_Reason_Etc" Data="기타"/>
-		<Class ClassID="134046" ClassName="AlreadyReported_IndunBadPlayer" Data="하루에 한 번만 신고하실 수 있습니다. 감사합니다."/>
+		<Class ClassID="134046" ClassName="AlreadyReported_IndunBadPlayer" Data="이미 신고하셨습니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="134047" ClassName="Success_IndunBadPlayer_Report" Data="신고 접수 되었습니다. 감사합니다."/>
 		<Class ClassID="134049" ClassName="ReenterMultipleNotAllowed" Data="재입장시에는 이전에 적용한 배수모드가 적용됩니다.{nl}재입장하시겠습니까?"/>
 		<Class ClassID="134051" ClassName="HasIndunPenalty" Data="인스턴스 던전에 참여할 수 없습니다."/>
@@ -9202,7 +9225,7 @@
 		<Class ClassID="136676" ClassName="Auto_BeuLamBeul" Data="브람블"/>
 		<Class ClassID="136677" ClassName="Auto_MiNi_KeuLiBa" Data="미니 그리바"/>
 		<Class ClassID="136678" ClassName="Auto_KaemPeuKan_iDong_:_" Data="캠프간 이동 : "/>
-		<Class ClassID="136679" ClassName="Auto__HwalSeongHwa" Data="활성화"/>
+		<Class ClassID="136679" ClassName="Auto__HwalSeongHwa" Data=" 활성화"/>
 		<Class ClassID="136680" ClassName="Auto_LaengKingUI" Data="랭킹UI"/>
 		<Class ClassID="136681" ClassName="Auto_KangHwa" Data="강화"/>
 		<Class ClassID="136682" ClassName="Auto_aiTemJeongBi" Data="아이템정비"/>
@@ -11508,6 +11531,7 @@
 		<Class ClassID="300175" ClassName="Beauty_Coupon_Box" Data="뷰티샵: 바버샵 쿠폰 선물 봉투"/>
 		<Class ClassID="300176" ClassName="Premium_StatReset_30d" Data="스탯 초기화 포션 (30일)"/>
 		<Class ClassID="300177" ClassName="FAILED_PURCHASED_1001000" Data="구매 실패했습니다.{nl}해당 아이템 구매 시{nl}넥슨캐시 월 구매(사용) 한도를 초과합니다."/>
+		<Class ClassID="300180" ClassName="Hair_Acc_Box" Data="헤어 액세서리 상자"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -11998,6 +12022,7 @@
 		<Class ClassID="2000206" ClassName="WebService_43" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
 		<Class ClassID="2000207" ClassName="WebService_44" Data="[Error Code 44] 입력하신 이름으로 변경할 수 없습니다."/>
 		<Class ClassID="2000208" ClassName="WebService_TooManyRequests" Data="연속으로 실행하실 수 없는 작업입니다.{nl}잠시뒤 다시 실행해주세요."/>
+		<Class ClassID="2000209" ClassName="WebService_Unauthorized_Request" Data="[요청권한없음] 비정상적인 요청입니다."/>
 		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
 		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>

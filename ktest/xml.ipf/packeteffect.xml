@@ -739,7 +739,9 @@
         <Effect Name="F_light130"/>
         <Effect Name="F_smoke109_3"/>
         <Effect Name="F_explosion128_white2"/>
-    </Category>
+        <Effect Name="Sage_HoleOfDarkness_Loop"/>
+    <Effect Name="Sage_HoleOfDarkness_End"/>
+	</Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
         <Effect Name="punji_stake_abil"/>
@@ -2764,6 +2766,17 @@
         <Effect Name="sys_confirm"/>
         <Effect Name="skl_eff_action_cast_1"/>
         <Effect Name="skl_eff_action_shot_1"/>
+        <Effect Name="MISSION_EVENT_1807_STORY_2"/>
+        <Effect Name="Play"/>
+        <Effect Name="food_brochette"/>
+        <Effect Name="food_mojito"/>
+        <Effect Name="skl_assistattack_food_coconut"/>
+        <Effect Name="MISSION_EVENT_1807_BALL"/>
+        <Effect Name="food_grilledfish"/>
+        <Effect Name="food_paella"/>
+        <Effect Name="I_wizard_fireball_cast_fire2"/>
+        <Effect Name="I_wizard_fireball_cast_fire3"/>
+        <Effect Name="quest_count"/>
     </Category>
     <Category ID="61">
         <Effect Name="F_ground083_smoke"/>

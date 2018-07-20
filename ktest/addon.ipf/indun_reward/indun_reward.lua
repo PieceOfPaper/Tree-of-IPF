@@ -29,11 +29,12 @@ function INDUN_REWARD_SET(frame, msg, str, arg)
 	local gboxRewardList = GET_CHILD(frame, "gboxRewardList");
 	local gboxRewardList2 = GET_CHILD(gboxRewardList, "gboxRewardList2");
 
-	--EVENT_1806_WEEKEND
 	local addMsg = ''
-	if IS_DAY_EVENT_1806_WEEKEND_INDUN_SILVER() == 'YES' then
-	    addMsg = ' '..ScpArgMsg('EVENT_1806_WEEKEND_MSG1')
-	end
+--	--EVENT_1806_WEEKEND
+--	if IS_DAY_EVENT_1806_WEEKEND_INDUN_SILVER() == 'YES' then
+--	    addMsg = ' '..ScpArgMsg('EVENT_1806_WEEKEND_MSG1')
+--	end
+
 
 	local textRewardSilver_value = GET_CHILD(gboxRewardList2, "textRewardSilver_value");
 	textRewardSilver_value:SetText(GET_COMMAED_STRING(silver)..addMsg);

@@ -214,7 +214,7 @@ function REINFORCE_MIX_RBTN(itemObj, slot)
 
 end
 
-function REINFORCE_BY_MIX_UPDATE_STAT(box_item, obj, nextObj, statName)    
+function REINFORCE_BY_MIX_UPDATE_STAT(box_item, obj, nextObj, statName)  
 	local ctrlSet = box_item:GetChild("stat_" .. statName);
 	if ctrlSet ~= nil then
 		ctrlSet:ShowWindow(1);
@@ -286,7 +286,7 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS(frame, obj, nextObj)
 
 		for i = 1 , #propNameList do
 
-			local title = propNameList[i]["Title"];
+		local title = propNameList[i]["Title"];
 			local propName = propNameList[i]["PropName"];
 			local propValue = propNameList[i]["PropValue"];
 			local propOptDesc = propNameList[i]["OptDesc"];
@@ -440,6 +440,18 @@ function REINFORCE_BY_MIX_SETITEM(frame, invItem)
 	if obj.Reinforce_Type == "LegendCard" then
 		ui.SysMsg(ClMsg("LegendCardReinforce_Normal_Reinforce"));
 		return
+	end
+
+	local title = GET_CHILD_RECURSIVELY(frame, "title");
+	local titleValue = title:GetTextByKey("value");
+	if obj.Reinforce_Type == "Gem" then
+		if titleValue ~= ClMsg("GemReinforce") then
+			return;
+		end
+	elseif obj.Reinforce_Type == "Card" then
+		if titleValue ~= ClMsg("CardReinforce") then
+			return;
+		end
 	end
 
 	local lv, curExp, maxExp = GET_ITEM_LEVEL_EXP(obj);

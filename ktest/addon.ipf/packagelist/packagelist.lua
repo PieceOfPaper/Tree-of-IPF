@@ -1,12 +1,12 @@
 -- packagelist.lua
 
-function PACKAGELIST_SHOW(itemID, argStr)
+function PACKAGELIST_SHOW(itemID, argStr, selectedCtrlSetName)
 	local packageName = GET_PACKAGE_ITEM_NAME(itemID);	
 	if packageName == 'None' then	
 		return;
 	end
-	local frame = ui.GetFrame('packagelist');
-	PACKAGELIST_INIT(frame, itemID, argStr, packageName);
+	local frame = ui.GetFrame('packagelist');    
+	PACKAGELIST_INIT(frame, itemID, argStr, packageName, selectedCtrlSetName);
 	frame:ShowWindow(1);	
 end
 
@@ -129,16 +129,18 @@ function PACKAGELIST_PUT_INTO_BASKET(parent, ctrl)
 	end
 
 	local tpitem = ui.GetFrame('tpitem');
-	local frame = parent:GetTopParentFrame();
+	local frame = parent:GetTopParentFrame();	
+    local selectedCtrlSetName = frame:GetUserValue('SELECTED_CTRLSET_NAME');
 	local tpitemID = frame:GetUserIValue('TPITEM_ID');
 	local tpItemCls = GetClassByType('TPitem', tpitemID);
 
 	local mainSubGbox = GET_CHILD_RECURSIVELY(tpitem, 'mainSubGbox');	
-	local itemCtrl = GET_CHILD_RECURSIVELY(mainSubGbox, 'eachitem_'..tpitemID);
+	local itemCtrl = GET_CHILD_RECURSIVELY(mainSubGbox, selectedCtrlSetName);    	
 	if itemCtrl == nil then
 		IMC_LOG('ERROR_LOGIC', 'itemCtrl is nil'); -- UI 컨트롤을 눌러서 이 창을 띄운거라면 이게 없어서는 안됨
 		return;
-	end	
+	end
+
 	local textEdit = GET_CHILD_RECURSIVELY(frame, 'textEdit');
 	local curCnt = tonumber(textEdit:GetText());	
 	for i = 1, curCnt do
@@ -179,11 +181,11 @@ function PACKAGELIST_PUT_INTO_BEAUTYSHOP_BASKET(beautyshopFrame, parent, ctrl)
 end
 
 -- 아이템 메인
-function PACKAGELIST_INIT(frame, itemID, argStr, packageName)
-	
+function PACKAGELIST_INIT(frame, itemID, argStr, packageName, selectedCtrlSetName)	
 	local argList = StringSplit(argStr, ';');
 	frame:SetUserValue('TPITEM_ID', argList[1]); 
-	frame:SetUserValue('ITEM_ID', itemID);
+	frame:SetUserValue('ITEM_ID', itemID);	
+    frame:SetUserValue('SELECTED_CTRLSET_NAME', selectedCtrlSetName);
 
 	local itemCls = GetClassByType('Item', itemID);
 	local itemIconPic = GET_CHILD_RECURSIVELY(frame, 'itemIconPic');

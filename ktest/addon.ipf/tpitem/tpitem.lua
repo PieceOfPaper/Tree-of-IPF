@@ -36,6 +36,27 @@ function ON_SHOP_BUY_LIMIT_INFO(frame)	--해당 아이템에 대하여 월별 �
 	TPSHOP_REDRAW_TPITEMLIST();
 end
 
+function TPSHOP_REDRAW_ALIGN_LIST()
+	local frame = ui.GetFrame("tpitem");
+	if frame == nil then
+		TPSHOP_REDRAW_TPITEMLIST()
+		return
+	end
+
+	local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree");
+	if tpitemtree == nil then
+		TPSHOP_REDRAW_TPITEMLIST()
+		return
+	end
+
+	local tnode = tpitemtree:GetLastSelectedNode();
+	if tnode ~= nil then
+		TPITEM_SELECT_TREENODE(tnode);
+	else 
+		TPSHOP_REDRAW_TPITEMLIST()
+	end
+end
+
 function TPSHOP_REDRAW_TPITEMLIST()
 	local frame = ui.GetFrame("tpitem");
 	local category = frame:GetUserValue("LAST_OPEN_CATEGORY");
@@ -44,11 +65,11 @@ function TPSHOP_REDRAW_TPITEMLIST()
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	local typeIndex = showTypeList:GetSelItemIndex();
 	session.shop.RequestLoadShopBuyLimit();
-	
+
 	frame:SetUserValue("SHOWITEM_OPTION", typeIndex);	
 	
 	local tpitemtree = GET_CHILD_RECURSIVELY(frame, "tpitemtree");
-	
+
 	local tnode = tpitemtree:GetLastSelectedNode();
     local obj = nil;
     if tnode ~= nil then
@@ -61,7 +82,7 @@ function TPSHOP_REDRAW_TPITEMLIST()
 		    end
 	    end
     end
-	
+
 	if obj ~= nil then
 		local gBox = obj:GetChild("group");
 		gBox:SetSkinName("baseyellow_btn");
@@ -378,8 +399,6 @@ function SET_TOPMOST_FRAME_SHOWFRAME(show)
 end
 
 function ON_TPSHOP_BUY_SUCCESS(frame)
-	ON_TPSHOP_RESET_PREVIEWMODEL();
-
 	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	basketslotset:ClearIconAll();
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
@@ -387,7 +406,6 @@ function ON_TPSHOP_BUY_SUCCESS(frame)
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
 	rcycle_basketsellslotset:ClearIconAll();
 
-	TPSHOP_SET_PREVIEW_APC_IMAGE(frame);
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")	
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy")
@@ -764,33 +782,33 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 			  	isFounded = true;					
 			  end
 		  end
-      local itemcset = nil;
-		  if (allFlag == nil) then	
-			  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-				  if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
-					    index = index + 1
-					    x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-              itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					  end
-				  end
-			  end
-		  else
-			  if (obj.Category == category) then
-				  if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
-					  if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-						  index = index + 1
-						  x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-						  y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-						  itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-						  TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
-					  end
-				  end
-			  end
-		  end
-    end
+          local itemcset = nil;
+		      if (allFlag == nil) then	
+			      if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+				      if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					      if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then
+					        index = index + 1
+					        x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width');
+						    y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+                            itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);                            
+						    TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					      end
+				      end
+			      end
+		      else
+			      if (obj.Category == category) then
+				      if CHECK_TPITEM_ENABLE_VIEW(obj) == true then
+					      if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						      index = index + 1
+						      x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						      y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						      itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						      TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					      end
+				      end
+			      end
+		      end
+        end
 	end
 
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
@@ -802,9 +820,263 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 	frame:Invalidate()
 end
 
+function GET_DATE_FROM_NEWTIME_FORMAT(date)
+    local token = StringSplit(date, ' ')
+    if #token ~= 2 then 
+        ShowMessageBox('date and time format error')
+        return
+        -- error
+    end
 
-function CHECK_TPITEM_ENABLE_VIEW(itemObj)
+    local d = token[1]
+    local d_token = StringSplit(d, '-')
+    if #d_token ~= 3 then
+        ShowMessageBox('date format error')
+        return
+        -- error
+    end
+    local year = tonumber(d_token[1])
+    if year < 2000 then
+        ShowMessageBox('year should be larger than in 2000')
+        return
+        -- error
+    end
 
+    local month = tonumber(d_token[2])
+    if month < 1 or month > 12 then
+        ShowMessageBox('month is out of bounds')
+        return
+        -- error
+    end
+
+    local day = tonumber(d_token[3])
+    if day < 1 then
+        ShowMessageBox('day is out of bounds')
+        return
+        -- error
+    end
+
+    local pivot_day = 0
+
+    if month == 1 then
+        pivot_day = 31    
+    elseif month == 2 then
+        local is_moreday = false
+        if year % 4 == 0 then            
+            is_moreday = true
+        end
+        if year % 100 == 0 then
+            is_moreday = false
+        end
+        if year % 400 == 0 then
+            is_moreday = true
+        end
+        
+        if is_moreday == true then
+            pivot_day = 29
+        else
+            pivot_day = 28
+        end
+    elseif month == 3 then
+        pivot_day = 31
+    elseif month == 4 then
+        pivot_day = 30
+    elseif month == 5 then
+        pivot_day = 31
+    elseif month == 6 then
+        pivot_day = 30
+    elseif month == 7 then
+        pivot_day = 31
+    elseif month == 8 then
+        pivot_day = 31
+    elseif month == 9 then
+        pivot_day = 30
+    elseif month == 10 then
+        pivot_day = 31
+    elseif month == 11 then
+        pivot_day = 30
+    elseif month == 12 then
+        pivot_day = 31    
+    end
+
+    if pivot_day == 0 then
+        ShowMessageBox('month is out of bounds')
+        return
+        -- error
+    end
+    
+    if day > pivot_day then
+        ShowMessageBox('day is out of bounds')
+        return
+        -- error
+    end
+    
+    local t = token[2]
+    local t_token = StringSplit(t, ':')
+    if #t_token ~= 3 then
+        ShowMessageBox('time format error')
+        return
+        -- error
+    end
+    local hour = tonumber(t_token[1])
+    local minute = tonumber(t_token[2])
+    local seconds = tonumber(t_token[3])
+    if hour < 0 or hour > 24 then
+        ShowMessageBox('hour is out of bounds')
+        return
+        -- error
+    end
+
+    if minute < 0 or minute > 59 then
+        ShowMessageBox('minute is out of bounds')
+        return
+        -- error
+    end
+
+    if seconds < 0 or seconds > 59 then        
+        -- error
+    end
+    
+    return year, month, day, hour, minute, seconds
+end
+
+function CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(date)
+    local token = StringSplit(date, ' ')    
+    if #token ~= 2 then
+        ShowMessageBox('date and time format error')
+        return
+        -- error
+    end
+
+    local d = token[1]
+    local d_token = StringSplit(d, '-')
+    if #d_token ~= 3 then
+        ShowMessageBox('date format error')
+        return
+        -- error
+    end
+    local year = tonumber(d_token[1])
+    if year < 2000 then
+        ShowMessageBox('year should be larger than in 2000')
+        return
+        -- error
+    end
+
+    local month = tonumber(d_token[2])
+    if month < 1 or month > 12 then
+        ShowMessageBox('minute is out of bounds')
+        return
+        -- error
+    end
+
+    local day = tonumber(d_token[3])
+    if day < 1 then
+        ShowMessageBox('day is out of bounds')
+        return
+        -- error
+    end
+
+    local pivot_day = 0
+
+    if month == 1 then
+        pivot_day = 31    
+    elseif month == 2 then
+        local is_moreday = false
+        if year % 4 == 0 then            
+            is_moreday = true
+        end
+        if year % 100 == 0 then
+            is_moreday = false
+        end
+        if year % 400 == 0 then
+            is_moreday = true
+        end
+        
+        if is_moreday == true then
+            pivot_day = 29
+        else
+            pivot_day = 28
+        end
+    elseif month == 3 then
+        pivot_day = 31
+    elseif month == 4 then
+        pivot_day = 30
+    elseif month == 5 then
+        pivot_day = 31
+    elseif month == 6 then
+        pivot_day = 30
+    elseif month == 7 then
+        pivot_day = 31
+    elseif month == 8 then
+        pivot_day = 31
+    elseif month == 9 then
+        pivot_day = 30
+    elseif month == 10 then
+        pivot_day = 31
+    elseif month == 11 then
+        pivot_day = 30
+    elseif month == 12 then
+        pivot_day = 31    
+    end
+
+    if pivot_day == 0 then
+        ShowMessageBox('month is out of bounds')
+        return
+        -- error
+    end
+    
+    if day > pivot_day then
+        ShowMessageBox('day is out of bounds')
+        return
+        -- error
+    end
+    
+    local t = token[2]
+    local t_token = StringSplit(t, ':')
+    if #t_token ~= 3 then
+        ShowMessageBox('time format error')
+        return
+        -- error
+    end
+    local hour = tonumber(t_token[1])
+    local minute = tonumber(t_token[2])
+    local seconds = tonumber(t_token[3])
+    if hour < 0 or hour > 24 then
+        ShowMessageBox('hour is out of bounds')
+        return
+        -- error
+    end
+
+    if minute < 0 or minute > 59 then
+        ShowMessageBox('minute is out of bounds')
+        return
+        -- error
+    end
+
+    if seconds < 0 or seconds > 59 then
+        
+    end
+    
+    local old_format = string.format("%02d%01d%02d%02d%02d", month, 0, day, hour, minute)
+    return old_format, year
+end
+
+function IS_BETWEEN_DAY(start_date, end_date, now)    
+    local start_year, start_month, start_day, start_hour, start_minute, start_second = GET_DATE_FROM_NEWTIME_FORMAT(start_date)
+    local end_year, end_month, end_day, end_hour, end_minute, end_second = GET_DATE_FROM_NEWTIME_FORMAT(end_date)
+    
+    local pivot_start = string.format("%04d%02d%02d%02d%02d", start_year, start_month, start_day, start_hour, start_minute)
+    local pivot_end = string.format("%04d%02d%02d%02d%02d", end_year, end_month, end_day, end_hour, end_minute)
+    local now = string.format("%04d%02d%02d%02d%02d", now.wYear, now.wMonth, now.wDay, now.wHour, now.wMinute)
+    
+    if pivot_start <= now and now <= pivot_end then
+        return true
+    end
+    return false
+end
+
+
+function CHECK_TPITEM_ENABLE_VIEW(itemObj)    
 	local startProp = TryGetProp(itemObj, "SellStartTime")
 	local endProp = TryGetProp(itemObj, "SellEndTime")
 
@@ -815,22 +1087,10 @@ function CHECK_TPITEM_ENABLE_VIEW(itemObj)
 	if startProp == "None" or endProp == "None" then
 		return true;
 	end
-
-	local startTime = tonumber(startProp);
-	local endTime = tonumber(endProp);
-	if startTime > endTime then
-		endTime = endTime + 120000000
-	end
-	
-	local curTime = geTime.GetServerSystemTime();
-	local nowTime = tonumber(string.format("%02d%01d%02d%02d%02d", curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute))
-		
-	if nowTime >= startTime and endTime > nowTime then
-		return true;
-	end
-
-	return false;
-
+    local curYear = 0
+    local endYear = 0
+    local ret = IS_BETWEEN_DAY(startProp, endProp, geTime.GetServerSystemTime())    
+    return ret
 end
 
 function IS_TIME_SALE_ITEM(classID)
@@ -854,15 +1114,17 @@ end
 function SHOW_REMAIN_SALE_TIME(ctrl)
 	local curTime = geTime.GetServerSystemTime()
 	local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
-	local startTime = ctrl:GetUserIValue("SELL_START_TIME")
-	local endTime = ctrl : GetUserIValue("SELL_END_TIME")
+	local startTime = ctrl:GetUserValue("SELL_START_TIME")
+	local endTime = ctrl:GetUserValue("SELL_END_TIME")
 	
-	local curYear = curTime.wYear
-	if startTime > endTime then
-		curYear = curYear + 1
-	end
+    local curYear = curTime.wYear
+    local endYear = curTime.wYear
+    startTime, curYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(startTime)        
+    endTime, endYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(endTime)
+    startTime = tonumber(startTime)
+    endTime = tonumber(endTime)
 
-	local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+	local endSysTimeStr = string.format("%04d%09d%02d", endYear, endTime, '00')
 	local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
 	local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
 	local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
@@ -934,25 +1196,27 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 	TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, isLimit_mark, tpitem_clsID);
 
 	if IS_TIME_SALE_ITEM(tpitem_clsID) == true then
-
 		local curTime = geTime.GetServerSystemTime()
 		local curSysTimeStr = string.format("%04d%02d%01d%02d%02d%02d%02d", curTime.wYear, curTime.wMonth, '0', curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
 		local startTime = TryGetProp(obj, "SellStartTime");
 		local endTime = TryGetProp(obj, "SellEndTime");
-	
-		local curYear = curTime.wYear
-		if startTime > endTime then
-			curYear = curYear + 1
-		end
+                
+	    time_limited_text:SetUserValue("SELL_START_TIME", startTime);
+		time_limited_text:SetUserValue("SELL_END_TIME", endTime);
+
+        local curYear = curTime.wYear
+        local endYear = curTime.wYear
+        startTime, curYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(startTime)        
+        endTime, endYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(endTime)
+        startTime = tonumber(startTime)
+        endTime = tonumber(endTime)
 		
-		local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+		local endSysTimeStr = string.format("%04d%09d%02d", endYear, endTime, '00')
 		local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
 		local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
 		local difSec = imcTime.GetDifSec(endSysTime, curSysTime);
 		
 		time_limited_text:SetUserValue("REMAINMIN", difSec);
-		time_limited_text:SetUserValue("SELL_START_TIME", startTime);
-		time_limited_text:SetUserValue("SELL_END_TIME", endTime);
 		time_limited_text:RunUpdateScript("SHOW_REMAIN_SALE_TIME");
 		
 		title:SetFontName('white_18_ol')
@@ -2233,12 +2497,14 @@ function EXEC_BUY_MARKET_ITEM()
 						local startTime = TryGetProp(tpitem, "SellStartTime")
 						local endTime = TryGetProp(tpitem, "SellEndTime");
 						
-						local curYear = curTime.wYear
-						if startTime > endTime then
-							curYear = curYear + 1
-						end
-
-						local endSysTimeStr = string.format("%04d%09d%02d", curYear, endTime, '00')
+                        local curYear = curTime.wYear
+                        local endYear = curTime.wYear
+                        startTime, curYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(startTime)                        
+                        endTime, endYear = CONVERT_NEWTIME_FORMAT_TO_OLDTIME_FORMAT(endTime)                        
+                        startTime = tonumber(startTime)
+                        endTime = tonumber(endTime)
+						
+						local endSysTimeStr = string.format("%04d%09d%02d", endYear, endTime, '00')
 
 						local curSysTime = imcTime.GetSysTimeByStr(curSysTimeStr)
 						local endSysTime = imcTime.GetSysTimeByStr(endSysTimeStr)
@@ -3190,7 +3456,7 @@ function TPITEM_IS_ALREADY_PUT_INTO_BASKET(frame, tpitem)
 end
 
 function TPITEM_SHOW_PACKAGELIST(parent, ctrl, argStr, itemID)
-	PACKAGELIST_SHOW(itemID, argStr);
+	PACKAGELIST_SHOW(itemID, argStr, parent:GetName());
 end
 
 g_tpItemMap = {};

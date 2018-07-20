@@ -163,8 +163,8 @@ function PACKAGESHOP_POST_SELECT_ITEM(frame, ctrl)
 		end
 
 		-- id를 넘길 때는 idSpace='Item' 에 있는 ClassID를 넘긴다.
-		local itemCls = GetClass('Item', showItemClassName)		
-		PACKAGELIST_SHOW(itemCls.ClassID, argStr)
+		local itemCls = GetClass('Item', showItemClassName)		        
+		PACKAGELIST_SHOW(itemCls.ClassID, argStr, ctrlSet:GetName());
 	end
 end
 

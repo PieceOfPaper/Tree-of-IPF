@@ -2759,7 +2759,7 @@
 		<controls>
 			<picture name="pic" margin="0 0 0 0" rect="0 0 60 60" hittest="true" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="count" margin="5 39 0 0" rect="0 0 55 19" hittest="false" format="X %s" param1="value" param1_def="13131" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="name" margin="75 0 0 0" rect="0 0 167 45" hittest="true" format="{#000000}%s{/}" param1="value" param1_def="AAAAAAAAAAAAAAAAAAAA" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center"/>
+			<richtext name="name" margin="75 0 0 0" rect="0 0 167 55" hittest="true" format="{#000000}%s{/}" param1="value" param1_def="AAAAAAAAAAAAAAAAAAAA" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center"/>
 		</controls>
 	</controlset>
 	<controlset name="party_quest" toggle="false" hittest="true" width="420" height="260" skin="test_skin_01" stateskin="false">
