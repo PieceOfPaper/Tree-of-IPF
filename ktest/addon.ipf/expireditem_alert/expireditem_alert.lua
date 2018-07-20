@@ -32,8 +32,7 @@ function EXPIREDITEM_ALERT_OPEN(frame, argStr)
 
     local maxItemPerPage = frame:GetUserConfig("MaxItemPerPage");
     local itemHeight = frame:GetUserConfig("ItemHeight");
-    local itemlistHeight = math.min(maxItemPerPage, #list)*itemHeight;    
-    itemlist:Resize(itemlist:GetWidth(), itemlist:GetOriginalHeight()+itemlistHeight);
+    local itemlistHeight = math.min(maxItemPerPage, #list)*itemHeight;
     frame:Resize(frame:GetWidth(), frame:GetOriginalHeight()+itemlist:GetHeight());
 
 	frame:ShowWindow(1);

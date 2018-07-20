@@ -9,7 +9,7 @@
 	<userconfig NearFutureSec="86400" ItemHeight="70" MaxItemPerPage="3"/>
 	<controls>
 		<richtext name="title" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{s18}기간제 아이템 목록" fontname="brown_16_b" spacey="0"/>
-		<groupbox name="itemlist" rect="0 0 400 0" margin="0 100 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="market_listbase"/>
+		<groupbox name="itemlist" rect="0 0 400 210" margin="0 100 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="market_listbase"/>
 		<labelline name="labelline" rect="0 0 400 3" margin="0 0 0 130" skin="labelline_def_2" layout_gravity="center bottom"/>
 		<richtext name="desc" rect="0 0 200 30" margin="0 0 0 90" layout_gravity="center bottom" caption="곧 기간이 만료됩니다. 종료하시겠습니까?" fontname="brown_16_b" spacey="0"/>
 		<button name="OK" rect="0 0 124 50" margin="100 0 0 30" layout_gravity="left bottom" LBtnUpScp="EXPIREDITEM_ALERT_OK_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}확인{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>

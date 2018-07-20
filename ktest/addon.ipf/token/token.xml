@@ -20,6 +20,6 @@
 		<richtext name="forToken" margin="1 0 0 80" rect="0 0 120 24" format="캐릭터 정보창에서 잔여시간을 확인하실 수 있습니다.{/}" textalign="center bottom" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
 		<button name="button_1" margin="49 0 0 31" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}사용" LBtnUpScp="REQ_TOKEN_ITEM" parent="bg2"/>
 		<button name="button_1_1" margin="236 0 0 31" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="TOKEN_SELEC_CANCLE" parent="bg2"/>
-		<groupbox name="gBox" margin="11 187 0 0" rect="0 0 450 270" hittestbox="false" skin="None" layout_gravity="left top" parnet="bg2" fixheight="true" scrollbar="true"/>
+		<groupbox name="gBox" margin="11 187 0 0" rect="0 0 450 400" hittestbox="false" skin="None" layout_gravity="left top" parnet="bg2" fixheight="true" scrollbar="true"/>
 	</controls>
 </uiframe>

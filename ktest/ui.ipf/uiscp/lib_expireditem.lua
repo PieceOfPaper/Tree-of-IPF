@@ -144,6 +144,14 @@ function ADD_EXPIRED_ITEM(groupbox, item, i, ypos)
 
     item_pic:SetImage(item.Icon);
 
+    local timeParentCtrl = remainingTime:GetParent();
+    local amendHeight = remainingTime:GetY() + remainingTime:GetHeight();
+    if amendHeight < timeParentCtrl:GetHeight()  then
+        amendHeight = ctrlset:GetHeight();
+    else
+        local addedHeight = amendHeight - timeParentCtrl:GetHeight();
+        ctrlset:Resize(ctrlset:GetWidth(), ctrlset:GetHeight() + addedHeight);
+    end
     ypos = ypos + ctrlset:GetHeight();
     return ypos;
 end

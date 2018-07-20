@@ -4,6 +4,12 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local typeStr = "None";
 	local token_expup = tooltipframe:GetChild("token_expup");
 	local token_staup = tooltipframe:GetChild("token_staup");
+	local marketFastGet = tooltipframe:GetChild("marketFastGet");
+	local marketMinMax = tooltipframe:GetChild("marketMinMax");
+	local token_buffCountUp = tooltipframe:GetChild("token_buffCountUp");
+	local token_teamwarehouse = tooltipframe:GetChild("token_teamwarehouse");
+	
+    
 	local token_tradecount = tooltipframe:GetChild("token_tradecount");
 
 	local buffCls = GetClassByType('Buff', numarg1);
@@ -16,6 +22,11 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 
 	if ITEM_TOKEN == argNum then
 		type:SetTextByKey("value", ClMsg("tokenItem"));
+		
+        marketFastGet:ShowWindow(1);
+        marketMinMax:ShowWindow(1);
+        token_teamwarehouse:ShowWindow(1);
+        token_buffCountUp:ShowWindow(1);
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
 		local accountObj = GetMyAccountObj();
@@ -32,8 +43,14 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		token_staup:SetTextByKey("value", ClMsg("token_setup"));
 		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 		token_tradecount:ShowWindow(0);
+		token_buffCountUp:ShowWindow(0);
+        marketFastGet:ShowWindow(0);
+        marketMinMax:ShowWindow(0);
+        token_teamwarehouse:ShowWindow(0);
 	else
 		token_tradecount:ShowWindow(0);
+        marketFastGet:ShowWindow(0);
+        marketMinMax:ShowWindow(0);
 	end
 	
 	for i = 0, 3 do 

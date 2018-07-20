@@ -480,7 +480,7 @@ function UPDATE_GROUPLIST_TEXT(groupboxname)
 	local tableforsort = {}
 
 	local gbox = btn:GetParent()
-	
+	local btncnt = 0;
 	local gboxcount = gbox:GetChildCount();
 	for  i = 0, gboxcount-1 do 
 		local cset  = gbox:GetChildByIndex(i);
@@ -495,26 +495,21 @@ function UPDATE_GROUPLIST_TEXT(groupboxname)
             
 
                 if info ~= nil then
-                    for i = 0, 100 do
-                        if tableforsort[(info:GetLastestMsgTime() + i) * -1] == nil then
-                            tableforsort[(info:GetLastestMsgTime() + i) * -1] = cset:GetName()
-                            break;
-                        end 
-                    end
-
+                    tableforsort[tostring(info:GetLastestMsgTime()) .. info:GetGuid()]  = cset:GetName()
+                    btncnt = btncnt + 1
                 end
             end
         end
     end
 
-
-	local y = 0
+       
+	local y = ui.GetControlSetAttribute("chatlist", 'height') * (btncnt-1)
 	for key, value in orderedPairs(tableforsort) do
 	  
 		local child = GET_CHILD_RECURSIVELY(gbox, value)
         child:SetOffset (child:GetX (), y);
         
-        y = y + child:GetHeight()
+        y = y - child:GetHeight()
 	end
 
 
@@ -597,12 +592,12 @@ function MAKE_POPUP_CHAT_BY_XML(roomid, titleText, width, height, x, y, roomtype
 	local newFrame = ui.CreateNewFrame("chatpopup", "chatpopup_" .. roomid);
 	if popuptype == 2 then
         session.chat.SetShowPopup(roomid, 2)
+        newFrame:Resize(newFrame:GetOriginalWidth(), newFrame:GetOriginalHeight())
 		newFrame:SetOffset(foldx, foldy)
-		newFrame:Resize(newFrame:GetOriginalWidth(), newFrame:GetOriginalHeight())
 	else
         session.chat.SetShowPopup(roomid, 1)
+        newFrame:Resize(width, height)
 		newFrame:SetOffset(x, y)
-		newFrame:Resize(width, height)
 	end
 	newFrame:ShowWindow(1);
 
@@ -807,5 +802,10 @@ function GROUPCHAT_OUT(parent, ctrl)
 
     UPDATE_READ_FLAG_BY_GBOX_NAME("chatgbox_" .. roomID)
     UPDATE_ROOM_READ_CNT(roomID)
+
+    local chatframe = ui.GetFrame("chat")	    
+    if chatframe ~= nil and chatframe:GetUserValue("CHAT_TYPE_SELECTED_VALUE") == "6" then
+        ui.SetChatType(0)
+    end
 
 end

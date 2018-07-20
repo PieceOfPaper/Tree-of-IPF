@@ -1513,7 +1513,9 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			ITEM_EQUIP(argNum);
 		end
 	else
-		RUN_CLIENT_SCP(invitem);
+		if true == RUN_CLIENT_SCP(invitem) then
+            return;
+        end
 		local groupName = itemobj.ItemType;
 		if groupName == 'Consume' or groupName == 'Quest' or groupName == 'Cube' then
 			if itemobj.Usable == 'ITEMTARGET' then

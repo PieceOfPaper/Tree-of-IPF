@@ -69,12 +69,6 @@ function DRAW_GEM_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 		level_gauge:ShowWindow(0)
 	end
 
-    -- 거래 가능 여부
-	local tradabilityRichtext = GET_CHILD(CSet, "tradability_text", "ui::CRichText");
-	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-    local tradabilityMsg = GET_ENABLE_TRADE_MSG(itemProp);
-	tradabilityRichtext:SetTextByKey("isEnabled", tradabilityMsg);
-
 	-- 무게
 	local weightRichtext = GET_CHILD(CSet, "weight_text", "ui::CRichText");
 	weightRichtext:SetTextByKey("weight",invitem.Weight);

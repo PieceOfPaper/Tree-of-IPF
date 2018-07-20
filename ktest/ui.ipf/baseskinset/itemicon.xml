@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2266,6 +2266,7 @@
 		<image name="item_NECK_PILGRIM_04_INT" file="\icon\acc\item_NECK_PILGRIM_04_INT.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_PILGRIM_05_HPW" file="\icon\acc\item_NECK_PILGRIM_05_HPW.png" imgrect="0 0 256 256"/>
 		<image name="item_NECK_JEMINA01" file="\icon\acc\item_NECK_JEMINA01.png" imgrect="0 0 256 256"/>
+		<image name="item_NECK99_110" file="\icon\acc\NECK99_110.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_01" file="\icon\acc\item_bracelet_01.png" imgrect="0 0 256 256" CMM_Caption="팔찌"/>
 		<image name="item_bracelet_02" file="\icon\acc\item_bracelet_02.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_03" file="\icon\acc\item_bracelet_03.png" imgrect="0 0 256 256"/>
@@ -2292,6 +2293,8 @@
 		<image name="item_bracelet_20" file="\icon\acc\item_bracelet_20.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_eventbracelet01" file="\icon\acc\icon_item_eventbracelet01.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_eventbracelet02" file="\icon\acc\icon_item_eventbracelet02.png" imgrect="0 0 256 256"/>
+		<image name="item_BRC99_114" file="\icon\acc\BRC99_114.png" imgrect="0 0 256 256"/>
+		<image name="item_BRC99_115" file="\icon\acc\BRC99_115.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_cloth" file="\icon\acc\icon_item_armband_cloth.png" imgrect="0 0 256 256" CMM_Caption="완장"/>
 		<image name="icon_item_armband_clothlong" file="\icon\acc\icon_item_armband_clothlong.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_feather" file="\icon\acc\icon_item_armband_feather.png" imgrect="0 0 256 256"/>
@@ -2568,6 +2571,20 @@
 		<image name="Hat_628290" file="\icon\hairacc\Hat_628290.png" imgrect="0 0 256 256" CMM_Caption="붉은닭헤어머리띠"/>
 		<image name="Hat_628293" file="\icon\hairacc\Hat_628293.png" imgrect="0 0 256 256" CMM_Caption="수탉"/>
 		<image name="Hat_628294" file="\icon\hairacc\Hat_628294.png" imgrect="0 0 256 256" CMM_Caption="암닭"/>
+		<image name="icon_item_blackRabbitEar_gray" file="\icon\hairacc\icon_item_blackRabbitEar_gray.png" imgrect="0 0 256 256" CMM_Caption="강아지귀_색베리"/>
+		<image name="icon_item_blackRabbitEar_orange" file="\icon\hairacc\icon_item_blackRabbitEar_orange.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_blackRabbitEar_white" file="\icon\hairacc\icon_item_blackRabbitEar_white.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_catband_white" file="\icon\hairacc\icon_item_catband_white.png" imgrect="0 0 256 256" CMM_Caption="고양이귀_색베리"/>
+		<image name="icon_item_catband_gray" file="\icon\hairacc\icon_item_catband_gray.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_catband_orange" file="\icon\hairacc\icon_item_catband_orange.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_picnicHat" file="\icon\hairacc\icon_item_picnicHat.png" imgrect="0 0 256 256" CMM_Caption="화이트데이헤어악세"/>
+		<image name="icon_item_orangeEar" file="\icon\hairacc\icon_item_orangeEar.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_pinkHeart" file="\icon\hairacc\icon_item_pinkHeart.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_pinkHeartRibbon" file="\icon\hairacc\icon_item_pinkHeartRibbon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_redBall" file="\icon\hairacc\icon_item_redBall.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_snackhat" file="\icon\hairacc\icon_item_snackhat.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_strawberryCake" file="\icon\hairacc\icon_item_strawberryCake.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_heartNut" file="\icon\hairacc\icon_item_heartNut.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -3992,6 +4009,13 @@
 		<image name="icon_item_Rice_Soup" file="\icon\item\icon_item_Rice_Soup.png" imgrect="0 0 256 256" CMM_Caption="떡국"/>
 		<image name="icon_item_Large_RiceSoup" file="\icon\item\icon_item_Large_RiceSoup.png" imgrect="0 0 256 256" CMM_Caption="특대만두떡국"/>
 		<image name="icon_item_leather_cronewt" file="\icon\item\icon_item_leather_cronewt.png" imgrect="0 0 128 128" CMM_Caption="크로뉴트가죽"/>
+		<image name="Event_WhiteDay_Candy_Set" file="\icon\item\Event_WhiteDay_Candy_Set.png" imgrect="0 0 128 128" CMM_Caption="사탕 세트"/>
+		<image name="Event_WhiteDay_Cube_1" file="\icon\item\Event_WhiteDay_Cube_1.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 비밀 선물 상자"/>
+		<image name="Event_WhiteDay_Candy_1" file="\icon\item\Event_WhiteDay_Candy_1.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 딸기캔디"/>
+		<image name="Event_WhiteDay_Candy_2" file="\icon\item\Event_WhiteDay_Candy_2.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 소다캔디"/>
+		<image name="Event_WhiteDay_Candy_3" file="\icon\item\Event_WhiteDay_Candy_3.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 후르츠캔디"/>
+		<image name="Event_WhiteDay_Candy_4" file="\icon\item\Event_WhiteDay_Candy_4.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 레몬츠캔디"/>
+		<image name="R_WHITE_01" file="\icon\item\R_WHITE_01.png" imgrect="0 0 128 128" CMM_Caption="화이트데이 사탕제작서"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

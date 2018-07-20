@@ -5309,6 +5309,8 @@
 		<image name="test_restartjj_btn_cursoron" file="\skin\market_skin.tga" imgrect="1000 97 49 49"/>
 		<image name="test_restartjj_btn_clicked" file="\skin\market_skin.tga" imgrect="1050 97 49 49"/>
 		<image name="test_restartjjsm_btn" file="\skin\market_skin.tga" imgrect="1100 97 45 45" CMM_Caption="재시작 소"/>
+		<image name="test_restartjjsm_btn_cursoron" file="\skin\market_skin.tga" imgrect="1146 97 45 45"/>
+		<image name="test_restartjjsm_btn_clicked" file="\skin\market_skin.tga" imgrect="1192 97 45 45"/>
 		<image name="tradecondition_on" file="\skin\keynbet.tga" imgrect="0 995 130 20"/>
 		<image name="tradecondition_off" file="\skin\keynbet.tga" imgrect="130 995 130 20"/>
 	</imagelist>
@@ -7233,6 +7235,12 @@
 		<image name="icon_Event_161215_5" file="\icon\buff_icon.tga" imgrect="256 1536 128 128" CMM_Caption="새싹5"/>
 		<image name="icon_Large_RiceSoup" file="\icon\buff_icon.tga" imgrect="512 1536 128 128" CMM_Caption="특대떡국"/>
 		<image name="icon_RiceSoup" file="\icon\buff_icon.tga" imgrect="640 1536 128 128" CMM_Caption="떡국"/>
+		<image name="icon_Event_WhitDay_Buff" file="\icon\buff_icon.tga" imgrect="768 1536 128 128" CMM_Caption="화이트데이 버프"/>
+		<image name="icon_Event_WhitDay_Candy_set" file="\icon\buff_icon.tga" imgrect="896 1536 128 128" CMM_Caption="사탕 버프"/>
+		<image name="icon_Event_WhitDay_Candy_1" file="\icon\buff_icon.tga" imgrect="0 1664 128 128" CMM_Caption="사탕1"/>
+		<image name="icon_Event_WhitDay_Candy_2" file="\icon\buff_icon.tga" imgrect="128 1664 128 128" CMM_Caption="사탕2"/>
+		<image name="icon_Event_WhitDay_Candy_3" file="\icon\buff_icon.tga" imgrect="256 1664 128 128" CMM_Caption="사탕3"/>
+		<image name="icon_Event_WhitDay_Candy_4" file="\icon\buff_icon.tga" imgrect="384 1664 128 128" CMM_Caption="사탕4"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

@@ -102,7 +102,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
 
 	local arg1 = itemobj.NumberArg1;
-	if itemobj.ClassName == "PremiumToken" then
+	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" then
 		arg1 = 2592000 --30일
 	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" then
 		arg1 = 432000 -- 5일

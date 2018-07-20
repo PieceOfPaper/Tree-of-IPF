@@ -142,7 +142,7 @@ function MOVE_FRAME_MAIN_POPUP_CHAT_START(parent, ctrl)
 end
 
 
-function MOVE_FRAME_MAIN_POPUP_CHAT_END(parent, ctrl)
+function MOVE_FRAME_MAIN_POPUP_CHAT_END(parent)
 
 	local frame = parent:GetTopParentFrame();	
 	CHATGBOX_SET_SCROLLBAR(frame, 1);
@@ -158,9 +158,7 @@ end
 function _PROCESS_MOVE_MAIN_POPUPCHAT_FRAME(frame)
 
 	if mouse.IsLBtnPressed() == 0 then
-		frame:StopUpdateScript("_PROCESS_MOVE_MAIN_POPUPCHAT_FRAME");
-		CHATGBOX_SET_SCROLLBAR(frame, 1);
-		RESIZE_MAIN_POPUP_CHAT(frame);
+        MOVE_FRAME_MAIN_POPUP_CHAT_END(frame)
 		return 0;
 	end
 	

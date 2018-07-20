@@ -284,6 +284,11 @@ function CHATPOPUP_FOLD_BY_SIZE(frame)
     else
         gbox:EnableHitTest(1)
     end
+
+    local memlistframe = ui.GetFrame("chatmem_" .. roomid)
+	if memlistframe ~= nil then
+		memlistframe:SetOffset(frame:GetX() + frame:GetWidth(), frame:GetY())
+	end
 end
 
 
@@ -336,9 +341,7 @@ end
 function _PROCESS_MOVE_POPUPCHAT_FRAME(frame)
 
 	if mouse.IsLBtnPressed() == 0 then
-		frame:StopUpdateScript("_PROCESS_MOVE_POPUPCHAT_FRAME");
-		CHATGBOX_SET_SCROLLBAR(frame, 1);
-		RESIZE_POPUP_CHAT(frame);
+		MOVE_FRAME_POPUP_CHAT_END(frame)
 		return 0;
 	end
 	

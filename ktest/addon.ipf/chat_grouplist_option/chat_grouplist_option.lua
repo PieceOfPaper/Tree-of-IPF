@@ -100,7 +100,7 @@ function CHAT_GROUPLIST_OPTION_OK(frame)
 
         local chatframe = ui.GetFrame("chat")
 	    
-        if chatframe ~= nil and chatframe:GetUserValue("CHAT_TYPE_SELECTED_VALUE") == 6 then
+        if chatframe ~= nil and chatframe:GetUserValue("CHAT_TYPE_SELECTED_VALUE") == "6" then
 		    CHAT_SET_TO_TITLENAME(CT_GROUP, ui.GetGroupChatTargetID() )
         end
 	

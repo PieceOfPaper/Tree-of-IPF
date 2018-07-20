@@ -234,10 +234,12 @@ end
 function RESIZE_CHAT_CTRL(groupbox, chatCtrl, label, txt, timeBox, offsetX)
 
 	local chatWidth = groupbox:GetWidth();
+    txt:SetTextMaxWidth(groupbox:GetWidth() - 100);
+    txt:SetText(txt:GetText())
 	label:Resize(chatWidth - offsetX, txt:GetHeight());
 	chatCtrl:Resize(chatWidth, label:GetHeight());
 	
-	txt:SetTextMaxWidth(groupbox:GetWidth() - 100);
+	
 end;
 
 
@@ -381,7 +383,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		if commnderName ~= GETMYFAMILYNAME() then
 			chatCtrl:SetSkinName("")
 		end
-		commnderName = commnderName .. " : "
+		local commnderNameUIText = commnderName .. " : "
 
 		local label = chatCtrl:GetChild('bg');
 		local txt = GET_CHILD(chatCtrl, "text");	
@@ -405,28 +407,32 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 		elseif msgType ~= "System" then
 
-			chatCtrl:SetEventScript(ui.RBUTTONDOWN, 'CHAT_RBTN_POPUP');
+        
+            chatCtrl:SetEventScript(ui.RBUTTONDOWN, 'CHAT_RBTN_POPUP');
 			chatCtrl:SetUserValue("TARGET_NAME", commnderName);
+
+			txt:SetEventScript(ui.RBUTTONDOWN, 'CHAT_RBTN_POPUP');
+			txt:SetUserValue("TARGET_NAME", commnderName);
 					
 			if msgType == "Normal" then
 
 				fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_NORMAL");
-				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_1"), commnderName);	
+				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_1"), commnderNameUIText);	
 
 			elseif msgType == "Shout" then
 
 				fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SHOUT");
-				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_2"), commnderName);	
+				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_2"), commnderNameUIText);	
 
 			elseif msgType == "Party" then
 
 				fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_PARTY");
-				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_3"), commnderName);	
+				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_3"), commnderNameUIText);	
 					
 			elseif msgType == "Guild" then
 
 				fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_GUILD");
-				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_4"), commnderName);	
+				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_4"), commnderNameUIText);	
 
 			elseif msgType == "Notice" then
 
@@ -444,7 +450,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 					fontStyle = "{#"..colorCls.TextColor.."}{ol}"
 				end
 
-				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_5"), commnderName);	
+				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_5"), commnderNameUIText);	
 
 			elseif msgType == "Group" then
 
@@ -457,7 +463,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 					fontStyle = "{#"..colorCls.TextColor.."}{ol}"
 				end
 
-				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_6"), commnderName);	
+				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_6"), commnderNameUIText);	
 			else			
 
 				--팝업창에서의 귓말, 그룹 메시지
@@ -470,7 +476,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 					fontStyle = "{#"..colorCls.TextColor.."}{ol}"
 				end
 
-				msgFront = commnderName;
+				msgFront = commnderNameUIText;
 			end
 
 		elseif msgType == "System" then
@@ -558,6 +564,10 @@ function UPDATE_READ_FLAG_BY_GBOX_NAME(groupboxname)
 		end
 	end
 
+    
+
+    ui.SaveChatConfig()
+
 end
 
 
@@ -569,7 +579,7 @@ function CHAT_RBTN_POPUP(frame, chatCtrl)
 	end
 
 	local targetName = chatCtrl:GetUserValue("TARGET_NAME");
-	if targetName == "" then
+	if targetName == "" or GETMYFAMILYNAME() == targetName then
 		return;
 	end
 
@@ -1032,9 +1042,9 @@ function CHAT_ADD_MAINCHAT_POPUP_BY_XML(key, width, height, x, y, value)
 	end
 
 	local newFrame = ui.CreateNewFrame("chatpopup_main", framename);
-	newFrame:SetOffset(x, y)
 	newFrame:ShowWindow(1);
 	newFrame:Resize(width, height)
+    newFrame:SetOffset(x, y)
 
 
 	local gboxleftmargin = newFrame:GetUserConfig("GBOX_LEFT_MARGIN")
