@@ -11464,7 +11464,7 @@ function SCR_GET_Gungho_Ratio2(skill)
     
     local Swordman13_abil = GetAbility(pc, "Swordman13")
     if Swordman13_abil ~= nil then
-        value = value + Swordman13_abil.Level * 1;
+        value = value * (1 + Swordman13_abil.Level * 0.01);
     end
     
     return math.floor(value);
