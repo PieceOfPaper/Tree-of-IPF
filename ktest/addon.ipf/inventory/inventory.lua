@@ -2157,6 +2157,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetFrontImage('item_Lock');    
 	else
 		slot:SetFrontImage('None');
+		DESTROY_CHILD_BYNAME(slot, "itemlock")
 	end
 
     if invItem.hasLifeTime == true  then

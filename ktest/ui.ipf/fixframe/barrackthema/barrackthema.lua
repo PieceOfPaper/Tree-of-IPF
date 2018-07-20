@@ -54,8 +54,6 @@ function BARRACK_THEMA_UPDATE(frame)
 		skinName:SetTextByKey("value", cls.Name);
 
 		local charCntBox = ctrlSet:GetChild("charCnt");
-		local charCnt = charCntBox:GetChild("count");
-		charCnt:SetTextByKey("value", cls.BaseSlot);
 		local cashCnt = charCntBox:GetChild("cashCnt");
 		cashCnt:SetTextByKey("value", cls.MaxCashPC);
 

@@ -736,6 +736,9 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo)
     end
 
 	local memo = friendInfo:GetMemo();
+	if memo == 'None' then
+		memo = ''
+	end
 	local frame = ctrlSet:GetTopParentFrame();
 	
 	if listType == FRIEND_LIST_COMPLETE then	

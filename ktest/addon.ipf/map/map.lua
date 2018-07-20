@@ -1072,7 +1072,7 @@ function SET_PM_MAPPOS(frame, controlset, instInfo, mapprop)
 end
 
 
-function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)    
+function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
 	local mapprop = session.GetCurrentMapProp();
 	local myInfo = session.party.GetMyPartyObj(partyType);
 
@@ -1309,10 +1309,13 @@ function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
    frame:RemoveChild('colonyMonEffectPic'); 
 end
 
-function DESTROY_GUILD_MEMBER_ICON()    
+function DESTROY_GUILD_MEMBER_ICON(frame, msg, guild_member_aid)    
     local frame = ui.GetFrame('map')
     if frame == nil then return end
     local searchname = 'GM_'
+    if guild_member_aid ~= nil then
+        searchname = searchname .. tostring(guild_member_aid)        
+    end
     local index = 0;
     
     index = 0
@@ -1324,6 +1327,7 @@ function DESTROY_GUILD_MEMBER_ICON()
 		local name = childObj:GetName()
 		if string.find(name, searchname) ~= nil then            
 			frame:RemoveChildByIndex(index)
+            break
 		else
 			index = index + 1;
 		end

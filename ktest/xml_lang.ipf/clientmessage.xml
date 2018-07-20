@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -219,18 +219,19 @@
 		<Class ClassID="2242" ClassName="AlreadyEnoughLookMatItem" Data="이미 무기 외형 변환을 위한 아이템을 전부 등록한 상태입니다."/>
 		<Class ClassID="2243" ClassName="DropLookItemFirst" Data="외형에 해당하는 아이템을 먼저 등록해주세요."/>
 		<Class ClassID="2244" ClassName="WrongLookMaterialItem" Data="외형 변환의 재료로 등록할 수 없는 아이템입니다."/>
-		<Class ClassID="2245" ClassName="MustRegister{COUNT}LookMatItem" Data="목각 코어 아이템 1개 또는 외형 무기 소재를 제외한 외형 무기 소재와 동일한 아이템을 {COUNT}개 등록해야 합니다."/>
+		<Class ClassID="2245" ClassName="MustRegister{COUNT}LookMatItem" Data="무기 외형 변환 소재 아이템 1개 또는 외형 무기 소재를 제외한 외형 무기 소재와 동일한 아이템을 {COUNT}개 등록해야 합니다."/>
 		<Class ClassID="2246" ClassName="AlreadyEqualItemRegistered" Data="이미 동일한 아이템이 등록되어 있습니다."/>
 		<Class ClassID="2247" ClassName="AlreadyResetingRandomOption" Data="이미 재감정 중인 아이템입니다."/>	<Class ClassID="2248" ClassName="InvalidTargetFor{CONTENTS}" Data="{CONTENTS} 적용을 할 수 없는 대상입니다."/>
 		<Class ClassID="2249" ClassName="Briquetting" Data="무기 외형 변환"/>
 		<Class ClassID="2250" ClassName="CannotBriquettingBecauseAlready" Data="외형이 변경된 아이템은 등록할 수 없습니다."/>
-		<Class ClassID="2251" ClassName="BriquettingAlert" Data="포텐셜 소실 방지를 해제합니다.{nl}해당 기능을 해제 후 외형 변환시 포텐셜이 1 감소합니다. 하시겠습니까?"/>
-		<Class ClassID="2252" ClassName="ReallyBriquetting" Data="포텐셜 소실 방지 체크가 해제되어 있습니다.{nl}이대로 외형 변환시 {@st66d_y}포텐셜이 1 감소{/}합니다.{nl}{@st66d_y}외형 변환된 아이템은 외형 추출 무기로 사용할 수 없습니다.{/}{nl}진행 하시겠습니까?"/>
-		<Class ClassID="2253" ClassName="BriquettingResult" Data="등록한 아이템이 소모되며, {@st66d_y}[{BEFORE}]{/} 아이템의 외형이 {@st66d_y}[{AFTER}]{/} 아이템의 외형으로 변경됩니다.{nl}{@st66d_y}외형 변환된 아이템은 외형 추출 무기로 사용할 수 없습니다.{/}{nl}진행하시겠습니까?"/>
+		<Class ClassID="2251" ClassName="BriquettingAlert" Data="포텐셜 소실 방지를 해제합니다.{nl} {nl}해당 기능을 해제 후 {nl}외형 변환시 {@st66d_y}포텐셜이 1 감소{/}합니다. 하시겠습니까?"/>
+		<Class ClassID="2252" ClassName="ReallyBriquetting" Data="포텐셜 소실 방지 체크가 해제되어 있습니다.{nl}이대로 외형 변환시 {@st66d_y}포텐셜이 1 감소{/}합니다.{nl} {nl}등록한 아이템이 소모됩니다.{nl}{@st66d_y}[{BEFORE}]{/}  ▶ {@st66d_y}[{AFTER}]{/}{nl} 아이템 외형이 변경됩니다.{nl} {nl}{@st66d_y}외형 변환된 아이템은 외형 추출 무기로 사용할 수 없습니다.{/}{nl}진행하시겠습니까?"/>
+		<Class ClassID="2253" ClassName="BriquettingResult" Data="등록한 아이템이 소모됩니다.{nl}{@st66d_y}[{BEFORE}]{/}  ▶ {@st66d_y}[{AFTER}]{/}{nl} 아이템 외형이 변경됩니다.{nl} {nl}{@st66d_y}외형 변환된 아이템은 외형 추출 무기로 사용할 수 없습니다.{/}{nl}진행하시겠습니까?"/>
 		<Class ClassID="2254" ClassName="InvalidItemRegisterStep" Data="등록된 아이템을 사용할 수 없는 상태입니다. 다시 시도해주세요."/>
 		<Class ClassID="2255" ClassName="PleaseRegisterBriquettingTarget" Data="외형 변환할 무기를 올려주세요."/>
 		<Class ClassID="2256" ClassName="PleaseRegisterBriquettingLook" Data="외형 추출할 무기를 올려주세요."/>
 		<Class ClassID="2257" ClassName="CannotLock{UI}VisibleState" Data="{UI} UI가 열려 있는 상태에서는 잠금을 시도할 수 없습니다."/>
+		<Class ClassID="2258" ClassName="EnchantedItemForBriquetting" Data="{@st66d_y}강화{/} 및 {@st66d_y}초월{/}된 아이템입니다.{nl}정말 무기 외형 변환을 위해 사용하시겠습니까?"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -477,7 +478,11 @@
 		<Class ClassID="4184" ClassName="EventFootBall_350Arm_2_Title" Data="350제 프리머스 방어구 선택 상자"/>
 		<Class ClassID="4185" ClassName="EventFootBall_350Wep_1_Title" Data="350제 베르타스 무기 선택 상자"/>
 		<Class ClassID="4186" ClassName="EventFootBall_350Wep_2_Title" Data="350제 프리머스 무기 선택 상자"/>
-	</Category>
+		<Class ClassID="4187" ClassName="OnlyLegendGachaCube" Data="레전드 큐브에서만 가능합니다."/>
+		<Class ClassID="4188" ClassName="OnlySecondOpenLegendCubeUsingCoupon" Data="첫번째 재개봉시에만 이용권을 사용할 수 있습니다."/>
+		<Class ClassID="4189" ClassName="NoCubeCoupon" Data="인벤토리에 이용권이 존재하지 않습니다."/>
+    <Class ClassID="4190" ClassName="CubeCouponIsLock" Data="이용권이 잠금 되어 있습니다. {nl}잠금 해제 후 이용해 주시기 바랍니다."/>    
+  </Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -7651,6 +7656,13 @@
 		<Class ClassID="102302" ClassName="NotExistGuildEmblem" Data="길드 엠블럼이 존재하지 않습니다."/>
 		<Class ClassID="102303" ClassName="CantExecInThisArea" Data="현재 지역에서는 사용하실 수 없습니다."/>
 		<Class ClassID="102304" ClassName="GuildEvent{GuildEvent}Cancel" Data="{GuildEvent} 길드 퀘스트가 취소되었습니다."/>
+		<Class ClassID="102305" ClassName="Read" Data="읽음"/>
+		<Class ClassID="102306" ClassName="Unread" Data="읽지 않음"/>
+		<Class ClassID="102307" ClassName="Reject" Data="거절"/>
+		<Class ClassID="102308" ClassName="Accept" Data="수락"/>
+    <Class ClassID="102309" ClassName="InvalidGuildName" Data="사용할 수 없는 길드명입니다."/>
+    <Class ClassID="102310" ClassName="NotExistChangeGuildNameItem" Data="길드명 변경권이 존재하지 않습니다."/>
+    <Class ClassID="102311" ClassName="SuccessChangeGuildName" Data="길드명이 성공적으로 변경되었습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>

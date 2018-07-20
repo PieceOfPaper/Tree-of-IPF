@@ -12,7 +12,7 @@ end
 function BRIQUETTING_UI_CLOSE()
 	INVENTORY_SET_CUSTOM_RBTNDOWN('None');
 	ui.CloseFrame('inventory');
-	local inventory = ui.GetFrame('inventory');
+	local inventory = ui.GetFrame('inventory');	
 	INVENTORY_UPDATE_ICONS(inventory);	
 end
 
@@ -48,15 +48,11 @@ function BRIQUETTING_SLOT_DROP(parent, ctrl)
 		return;
 	end
 
-	local slot = tolua.cast(ctrl, 'ui::CSlot');		
+	local slot = tolua.cast(ctrl, 'ui::CSlot');
 	BRIQUETTING_SET_TARGET_SLOT(frame, invItemObj, invSlot, slot, invItem:GetIESID());
 end
 
-function BRIQUETTING_SET_TARGET_SLOT(frame, invItemObj, invSlot, targetSlot, invItemGuid)
-	if targetSlot:GetUserValue('SELECTED_INV_GUID') ~= 'None' then
-		BRIQUETTING_SELECT_INVENTORY_ITEM(targetSlot, 0);
-	end
-
+function BRIQUETTING_SET_TARGET_SLOT(frame, invItemObj, invSlot, targetSlot, invItemGuid)	
 	local invItem = session.GetInvItemByGuid(invItemGuid);
 	if invItem == nil then
 		return;
@@ -84,6 +80,10 @@ function BRIQUETTING_SET_TARGET_SLOT(frame, invItemObj, invSlot, targetSlot, inv
 	if IS_VALID_BRIQUETTING_TARGET_ITEM(invItemObj) == false then
 		ui.SysMsg(ScpArgMsg('InvalidTargetFor{CONTENTS}', 'CONTENTS', ClMsg('Briquetting')));
 		return;
+	end
+
+	if targetSlot:GetUserValue('SELECTED_INV_GUID') ~= 'None' then
+		BRIQUETTING_SELECT_INVENTORY_ITEM(targetSlot, 0);
 	end
 
 	BRIQUETTING_SELECT_INVENTORY_ITEM(invSlot, 1);
@@ -179,11 +179,8 @@ function BRIQUETTING_SPEND_DROP(parent, ctrl)
 	BRIQUETTING_SET_LOOK_ITEM(parent:GetTopParentFrame(), obj, invSlot, slot, invItem:GetIESID());
 end
 
-function BRIQUETTING_SET_LOOK_ITEM(frame, itemObj, invSlot, lookSlot, invItemGuid)		
-	if lookSlot:GetUserValue('SELECTED_INV_GUID') ~= 'None' then
-		BRIQUETTING_SELECT_INVENTORY_ITEM(lookSlot, 0);
-	end
-
+g_invSlot = nil;
+function BRIQUETTING_SET_LOOK_ITEM(frame, itemObj, invSlot, lookSlot, invItemGuid)
 	local invItem = session.GetInvItemByGuid(invItemGuid);
 	if invItem == nil then
 		return;
@@ -218,6 +215,34 @@ function BRIQUETTING_SET_LOOK_ITEM(frame, itemObj, invSlot, lookSlot, invItemGui
 		ui.SysMsg(ScpArgMsg('InvalidTargetFor{CONTENTS}', 'CONTENTS', ClMsg('Briquetting')));
 		return;
 	end
+
+	g_invSlot = invSlot;
+	if IS_ENCHANTED_ITEM(itemObj) == true then
+		local yesscp = string.format('_BRIQUETTING_SET_LOOK_ITEM("%s")', invItemGuid);
+		ui.MsgBox(ClMsg('EnchantedItemForBriquetting'), yesscp, 'None');
+		return;
+	end
+	_BRIQUETTING_SET_LOOK_ITEM(invItemGuid);
+end
+
+function _BRIQUETTING_SET_LOOK_ITEM(invItemGuid)
+	local invItem = session.GetInvItemByGuid(invItemGuid);
+	if invItem == nil or invItem:GetObject() == nil or invItem.isLockState == true then
+		return;
+	end
+
+	local itemObj = GetIES(invItem:GetObject());
+	if itemObj == nil then
+		return;
+	end
+
+	local frame = ui.GetFrame('briquetting');
+	local lookSlot = GET_CHILD_RECURSIVELY(frame, 'lookSlot');
+	if lookSlot:GetUserValue('SELECTED_INV_GUID') ~= 'None' then
+		BRIQUETTING_SELECT_INVENTORY_ITEM(lookSlot, 0);
+	end
+
+	local invSlot = g_invSlot;
 
 	-- 슬롯 박스에 이미지를 넣고
 	BRIQUETTING_SELECT_INVENTORY_ITEM(invSlot, 1);	
@@ -326,7 +351,7 @@ function BRIQUETTING_GET_LOOK_MATERIAL_LIST(frame)
 	local slotCnt = lookMatItemSlotset:GetSlotCount();	
 	for i = 0, slotCnt - 1 do
 		local slot = lookMatItemSlotset:GetSlotByIndex(i);
-		local guid = slot:GetUserValue('LOOK_MAT_ITEM_GUID');
+		local guid = slot:GetUserValue('SELECTED_INV_GUID');
 		if slot:IsVisible() == 1 and guid ~= 'None' then
 			local invItem = session.GetInvItemByGuid(guid);
 			if invItem ~= nil and invItem:GetObject() ~= nil then
@@ -354,11 +379,7 @@ function BRIQUETTING_DROP_LOOK_MATERIAL_ITEM(parent, ctrl)
 	BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(frame, invItemObj, invSlot, invItem:GetIESID(), ctrl);
 end
 
-function BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(frame, invItemObj, invSlot, invItemGuid, lookMatSlot)	
-	if lookMatSlot:GetUserValue('SELECTED_INV_GUID') ~= 'None' then
-		BRIQUETTING_SELECT_INVENTORY_ITEM(lookMatSlot, 0);
-	end
-
+function BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(frame, invItemObj, invSlot, invItemGuid, lookMatSlot)		
 	local invItem = session.GetInvItemByGuid(invItemGuid);
 	if invItem == nil then
 		return;
@@ -411,6 +432,34 @@ function BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(frame, invItemObj, invSlot, invItemG
 		return;
 	end
 
+	g_invSlot = invSlot;
+	if IS_ENCHANTED_ITEM(invItemObj) == true then
+		local yesscp = string.format('_BRIQUETTING_ADD_LOOK_MATERIAL_ITEM("%s", "%s", ', lookMatSlot:GetName(), invItemGuid, containCoreItem);
+		if containCoreItem == true then
+			yesscp = yesscp..'true)';
+		else
+			yesscp = yesscp..'false)';
+		end
+		ui.MsgBox(ClMsg('EnchantedItemForBriquetting'), yesscp, 'None');
+		return;
+	end
+	_BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(lookMatSlot:GetName(), invItemGuid, containCoreItem);
+end
+
+function _BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(lookMatSlotName, invItemGuid, containCoreItem)
+	local frame = ui.GetFrame('briquetting');
+	local lookMatItemSlotset = GET_CHILD_RECURSIVELY(frame, 'lookMatItemSlotset');
+	local lookMatSlot = GET_CHILD(lookMatItemSlotset, lookMatSlotName);
+	local invSlot = g_invSlot;
+	local invItem = session.GetInvItemByGuid(invItemGuid);
+	if invItem == nil or invItem:GetObject() == nil or invItem.isLockState == true then
+		return;
+	end
+
+	if lookMatSlot:GetUserValue('SELECTED_INV_GUID') ~= 'None' then
+		BRIQUETTING_SELECT_INVENTORY_ITEM(lookMatSlot, 0);
+	end
+
 	BRIQUETTING_SELECT_INVENTORY_ITEM(invSlot, 1);
 	lookMatSlot:SetUserValue('SELECTED_INV_GUID', invItemGuid);
 
@@ -420,29 +469,32 @@ function BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(frame, invItemObj, invSlot, invItemG
 	end
 
 	SET_SLOT_ITEM_IMAGE(lookMatSlot, invItem);
-	lookMatSlot:SetUserValue('LOOK_MAT_ITEM_GUID', invItemGuid);
+	lookMatSlot:SetUserValue('SELECTED_INV_GUID', invItemGuid);
 	BRIQUETTING_REFRESH_MATERIAL(frame);
 end
 
 function BRIQUETTING_SET_CORE_ITEM(frame, coreItem)
 	local lookMatItemSlotset = GET_CHILD_RECURSIVELY(frame, 'lookMatItemSlotset');
 	local firstSlot = lookMatItemSlotset:GetSlotByIndex(0);
+	BRIQUETTING_SELECT_INVENTORY_ITEM(firstSlot, 0);
 	SET_SLOT_ITEM_IMAGE(firstSlot, coreItem);
-	firstSlot:SetUserValue('LOOK_MAT_ITEM_GUID', coreItem:GetIESID());
+	firstSlot:SetUserValue('SELECTED_INV_GUID', coreItem:GetIESID());
 	BRIQUETTING_REFRESH_MATERIAL(frame);
 
 	local slotCnt = lookMatItemSlotset:GetSlotCount();
 	for i = 1, slotCnt - 1 do
 		local slot = lookMatItemSlotset:GetSlotByIndex(i);
+		BRIQUETTING_SELECT_INVENTORY_ITEM(slot, 0);
+		slot:SetUserValue('SELECTED_INV_GUID', 'None');
 		slot:ClearIcon();
-		slot:ShowWindow(0);
+		slot:ShowWindow(0);		
 	end
 end
 
 function BRIQUETTING_POP_LOOK_MATERIAL_ITEM(parent, ctrl)
-	ctrl:SetUserValue('LOOK_MAT_ITEM_GUID', 'None');
-	ctrl:ClearIcon();	
+	ctrl:ClearIcon();
 	BRIQUETTING_SELECT_INVENTORY_ITEM(ctrl, 0);
+	ctrl:SetUserValue('SELECTED_INV_GUID', 'None');
 
 	if parent ~= nil then
 		local frame = parent:GetTopParentFrame();
@@ -531,7 +583,7 @@ function BRIQUETTING_SKILL_EXCUTE(parent, ctrl)
 	frame:SetUserValue('BRIQUETTING_LOOK_GUID', lookItemGuid);
 	local clmsg = '';
 	if prCheck:IsChecked() == 0 then
-		clmsg = ClMsg('ReallyBriquetting');
+		clmsg = ScpArgMsg('ReallyBriquetting', 'BEFORE', targetItem.Name, 'AFTER', lookItem.Name);
 	else
 		clmsg = ScpArgMsg('BriquettingResult', 'BEFORE', targetItem.Name, 'AFTER', lookItem.Name);
 	end
@@ -648,10 +700,17 @@ function GET_BRIQUETTING_EMPTY_LOOK_MATERIAL_SLOT(frame)
 	local slotCnt = lookMatItemSlotset:GetSlotCount();
 	for i = 0, slotCnt - 1 do
 		local slot = lookMatItemSlotset:GetSlotByIndex(i);
-		local guid = slot:GetUserValue('LOOK_MAT_ITEM_GUID');
+		local guid = slot:GetUserValue('SELECTED_INV_GUID');
 		if slot:IsVisible() == 1 and guid == 'None' then
 			return slot;
 		end		
 	end
 	return nil;
+end
+
+function IS_ENCHANTED_ITEM(item)
+	if item ~= nil and (TryGetProp(item, 'Reinforce_2', 0) > 0 or TryGetProp(item, 'Transcend', 0) > 0) then
+		return true;
+	end
+	return false;
 end

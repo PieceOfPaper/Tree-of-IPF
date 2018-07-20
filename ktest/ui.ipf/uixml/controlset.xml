@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
 		<controls>
@@ -456,7 +456,7 @@
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_cannot_reinforce" hittest="true" width="410" height="30">
-		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가"/>
+		<userconfig BOTTOM_MARGIN="10" TEXT_FONT="{#62100c}" REINFORCE_TEXT="강화 불가" TRANSCEND_TEXT="초월 불가" EXTRACT_TEXT="추출 불가" SOCKET_TEXT="소켓 추출 불가" BRIQUET_TEXT="외형 변경 불가"/>
 		<controls>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<richtext name="socket_text" layout_gravity="left top" rect="0 0 390 30" margin="17 5 0 0" fixwidth="true" format="" hittest="false" textalign="left center" fontname="brown_16"/>
@@ -3119,7 +3119,7 @@
 			<groupbox name="charCnt" margin="53 30 0 0" rect="0 0 150 50" hittestbox="false" skin="" draw="false" layout_gravity="left top"/>
 			<picture name="imageMan" parent="charCnt" margin="30 15 0 0" rect="0 0 30 30" hittest="false" image="house_change_man" stretch="false" changecursor="false" layout_gravity="left top"/>
 			<labelline name="line" rect="0 0 400 2" margin="0 0 0 45" layout_gravity="center bottom" skin="None"/>
-			<richtext name="count" parent="charCnt" margin="50 20 0 0" rect="0 0 100 30" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="정원%s명{/}" param1="value"/>
+			<richtext name="count" parent="charCnt" margin="50 20 0 0" rect="0 0 100 30" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="기본{/}" />
 			<picture name="image" margin="7 7 0 0" rect="0 0 70 70" hittest="false" image="inven_lock" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<richtext name="name" margin="85 15 0 0" rect="0 0 200 30" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{#000000}%s{/}" param1="value"/>
 			<button name="preViewBtn" margin="237 80 0 0" rect="0 0 130 40" layout_gravity="left top" skin="test_gray_button" format="{@st42b}미리보기" textalign="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>

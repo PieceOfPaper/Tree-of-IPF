@@ -67,21 +67,21 @@ function UPDATE_REPAIR140731_LIST(frame)
 				end
 
 				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', equipItem.type, slotcnt, equipItem:GetIESID());
-				local class 			= GetClassByType('Item', equipItem.type);
+				local iconValue = obj.Icon;				
+				if obj.BriquettingIndex > 0 then
+					local briquettingItemCls = GetClassByType('Item', obj.BriquettingIndex);
+					iconValue = briquettingItemCls.Icon;
+				end
+				icon:Set(iconValue, 'Item', equipItem.type, slotcnt, equipItem:GetIESID());
+				local class = GetClassByType('Item', equipItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, equipItem, "repair", class);
 
 				slotcnt = slotcnt + 1
 			end
-		else
-			print('error! tempobj == nil')
 		end
-		
-
 	end
 
 	local invItemList = session.GetInvItemList();
-
 	local i = invItemList:Head();
 	while 1 do
 		if i == invItemList:InvalidIndex() then

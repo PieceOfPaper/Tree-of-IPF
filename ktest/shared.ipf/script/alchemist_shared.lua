@@ -29,6 +29,15 @@ function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
 	end
 	
 	local price = (lv * 100) +  SyncFloor((lv^1.6*grade) * (lv/(6-grade)))
+	
+	local cehckLookitem = TryGetProp(lookItem, 'StringArg')
+	if cehckLookitem == nil then
+	    return;
+	end
+	
+	if cehckLookitem == 'WoodCarving' then
+	    price = 0;
+	end
 	return price;
 end
 
@@ -59,7 +68,11 @@ function IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList)
 			if IS_BRIQUETTING_DUMMY_ITEM(lookMatItem) == false then
 				return false;
 			end
-			
+
+			if IS_NEED_APPRAISED_ITEM(lookMatItem) == true or IS_NEED_RANDOM_OPTION_ITEM(lookMatItem) == true then
+				return false;
+			end
+
 			containCoreItem = true;
 		end
 	end
@@ -67,8 +80,20 @@ function IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList)
 	return true, containDummyItem, containCoreItem;
 end
 
-function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)
-	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Musket', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon'};
+function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)	
+	if targetItem == nil then
+		return false;
+	end
+
+	if IS_NEED_APPRAISED_ITEM(targetItem) == true or IS_NEED_RANDOM_OPTION_ITEM(targetItem) == true then
+		return false;
+	end
+
+	if targetItem.LifeTime > 0 then
+		return false;
+	end
+
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Musket', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Shield'};
 	local targetItemClassType = TryGetProp(targetItem, 'ClassType', 'None');
 	if targetItemClassType ~= 'None' then
 		for i = 1, #enableClassType do
@@ -81,8 +106,22 @@ function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)
 end
 
 function IS_VALID_LOOK_ITEM(lookItem)
-	if lookItem.UseLv >= 360 and lookItem.ItemGrade >= 5 then
+	if lookItem == nil then
 		return false;
 	end
+
+	if IS_NEED_APPRAISED_ITEM(lookItem) == true or IS_NEED_RANDOM_OPTION_ITEM(lookItem) == true then
+		return false;
+	end
+
+	if lookItem.LifeTime > 0 then
+		return false;
+	end
+
+    if lookItem.BriquettingIndex ~= nil then
+    	if (lookItem.UseLv >= 360 and lookItem.ItemGrade >= 5) or lookItem.BriquettingIndex ~= 0 then
+    		return false;
+    	end
+    end
 	return true;
 end

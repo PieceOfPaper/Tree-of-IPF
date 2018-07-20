@@ -11,12 +11,12 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l"/>
 	<controls>
-		<groupbox name="bgBox" rect="0 0 1095 570" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="false"/>
+		<groupbox name="bgBox" rect="0 0 1095 570" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="true"/>
 		<groupbox name="headerBox" rect="0 0 1095 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>
 		<picture name="helpPic" rect="0 0 50 50" margin="28 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{nl}각 던전은 카테고리별로 입장 횟수가 카운트 됩니다. "/>
 		<button name="closeBtn" rect="0 0 50 50" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="INDUNINFO_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인스턴스 던전 창을 닫습니다{/}"/>
 		<richtext name="headerText" rect="0 0 600 50" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}인스턴스 던전{/}" hittest="false"/>
-		<groupbox name="contentBox" rect="0 0 1095 500" margin="0 60 0 0" layout_gravity="left top" draw="false"/>
+		<groupbox name="contentBox" rect="0 0 1095 460" margin="0 60 0 0" layout_gravity="left top" draw="false" scrollbar="false"/>
 		<groupbox name="categoryBox" rect="0 0 340 450" parent="contentBox" margin="10 0 0 0" layout_gravity="left top" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
 		<!-- Info -->
 		<groupbox name="infoBox" rect="0 0 720 500" parent="contentBox" margin="0 0 20 0" layout_gravity="right top" draw="false"/>
@@ -58,9 +58,9 @@
 		<picture name="accBtn" parent="rewardBox" rect="0 0 68 68" margin="239 25 0 0" layout_gravity="left top" image="indun_acc" oversound="button_over" stretch="true" LBtnUpScp="INDUNINFO_MAKE_DROPBOX"/>
 		<picture name="materialBtn" parent="rewardBox" rect="0 0 68 68" margin="307 25 0 0" layout_gravity="left top" image="indun_material" oversound="button_over" stretch="true" LBtnUpScp="INDUNINFO_MAKE_DROPBOX"/>
 		<!-- Bottom controls -->
-		<radiobutton name="lvAscendRadio" parent="bgBox" rect="0 0 200 30" margin="20 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 오름차순{/}" clicksound="button_click_big" oversound="button_over"/>
-		<radiobutton name="lvDescendRadio" parent="bgBox" rect="0 0 200 30" margin="200 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 내림차순{/}" clicksound="button_click_big" oversound="button_over"/>
 		<richtext name="resetInfoText" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>
 		<richtext name="resetInfoText_Week" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매주 월요일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>
+		<radiobutton name="lvAscendRadio" parent="bgBox" rect="0 0 200 30" margin="20 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 오름차순{/}" clicksound="button_click_big" oversound="button_over"/>
+		<radiobutton name="lvDescendRadio" parent="bgBox" rect="0 0 200 30" margin="200 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 내림차순{/}" clicksound="button_click_big" oversound="button_over"/>
 	</controls>
 </uiframe>

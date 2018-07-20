@@ -394,9 +394,11 @@ function INDUNINFO_DROPBOX_ITEM_LIST(parent, control)
         local rewardCube = TryGetProp(rewardItem, 'Reward_Item');
         local cubeList = SCR_STRING_CUT(rewardCube, '/');
         
-        for e = 1, #cubeList do
-            local cubeCls = GetClass('Item', cubeList[e]);
-            indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+        if cubeList ~= nil then
+            for e = 1, #cubeList do
+                local cubeCls = GetClass('Item', cubeList[e]);
+                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
+            end
         end
     end
 
