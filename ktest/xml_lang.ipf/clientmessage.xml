@@ -4431,6 +4431,9 @@
 		<Class ClassID="27682" ClassName="JOB_BULLETMARKER1_CHARGE0" Data="잘못된 공격으로 속성이 사라집니다"/>
 		<Class ClassID="27683" ClassName="JOB_ONLY_EQUIP_ITEM_MSG1" Data=" 클래스"/>
 		<Class ClassID="27684" ClassName="JOB_ONLY_EQUIP_ITEM_MSG2" Data=" 써클"/>
+		<Class ClassID="27690" ClassName="CLASSMAJORQUESTCOUNT_5ADD_MSG1" Data="도전권을 사용할 전문 퀘스트가 없습니다"/>
+		<Class ClassID="27691" ClassName="CLASSMAJORQUESTCOUNT_5ADD_MSG2" Data="{nl} {QUEST} : {COUNT}회 완료"/>
+		<Class ClassID="27692" ClassName="CLASSMAJORQUESTCOUNT_5ADD_MSG3" Data="{QUEST} : {BEFORE}회 => {COUNT}회"/>
 		<Class ClassID="27700" ClassName="EVENT_1710_NEXONCASHBOX_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}'을 획득하셨습니다."/>
 		<Class ClassID="27710" ClassName="EVENT_1710_NEWCHARACTER_MSG1" Data="{DAY}일 {HOUR}시간 {MIN}분 뒤에 아이템을 사용하실 수 있습니다"/>
 		<Class ClassID="27711" ClassName="EVENT_1710_NEWCHARACTER_MSG2" Data="'{ITEM}' 아이템에서 '{TP}TP'를 획득하셨습니다"/>
