@@ -2565,6 +2565,12 @@
 		<image name="icon_item_armband_nurse" file="\icon\acc\icon_item_armband_nurse.png" imgrect="0 0 256 256" CMM_Caption="간호사 암밴드"/>
 		<image name="icon_item_armband_g9" file="\icon\acc\icon_item_armband_g9.png" imgrect="0 0 256 256" CMM_Caption="G9 암밴드"/>
 		<image name="icon_item_armband_dinios" file="\icon\acc\icon_item_armband_dinios.png" imgrect="0 0 256 256" CMM_Caption="다이니오스 암밴드"/>
+		<image name="item_icon_urpallbrc" file="\icon\acc\item_icon_urpallbrc.png" imgrect="0 0 256 256" CMM_Caption="200/300"/>
+		<image name="item_icon_peeakobrc" file="\icon\acc\item_icon_peeakobrc.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_petaarc" file="\icon\acc\item_icon_petaarc.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_petocranto" file="\icon\acc\item_icon_petocranto.png" imgrect="0 0 256 256"/>
+		<image name="item_bracelet05_1" file="\icon\acc\item_bracelet05_1.png" imgrect="0 0 256 256"/>
+		<image name="item_bracelet05_2" file="\icon\acc\item_bracelet05_2.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -2831,6 +2837,9 @@
 		<image name="icon_item_papership" file="\icon\hairacc\icon_item_papership.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Hat_628008" file="\icon\hairacc\icon_item_Hat_628008.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_pumkin_helmet" file="\icon\hairacc\icon_item_pumkin_helmet.png" imgrect="0 0 256 256" CMM_Caption="17 할로윈 호박 모자"/>
+		<image name="icon_item_Hat_icecrown" file="\icon\hairacc\icon_item_Hat_icecrown.png" imgrect="0 0 256 256" CMM_Caption="눈꽃 헤어 악세"/>
+		<image name="icon_item_Hat_unicornhorn" file="\icon\hairacc\icon_item_Hat_unicornhorn.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Hac_iceglasses" file="\icon\hairacc\icon_item_Hac_iceglasses.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -4397,6 +4406,7 @@
 		<image name="icon_item_green_cardbook" file="\icon\item\icon_item_green_cardbook.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_purple_cardbook" file="\icon\item\icon_item_purple_cardbook.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_red_cardbook" file="\icon\item\icon_item_red_cardbook.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_curse_cardbook" file="\icon\item\icon_item_curse_cardbook.png" imgrect="0 0 128 128" CMM_Caption="저주받은 카드첩"/>
 		<image name="icon_item_copper" file="\icon\item\icon_item_copper.png" imgrect="0 0 80 80" CMM_Caption="콜로니동괴"/>
 		<image name="icon_item_get_wet_cardbook" file="\icon\item\icon_item_get_wet_cardbook.png" imgrect="0 0 128 128"/>
 		<image name="Gacha_H_010" file="\icon\item\Gacha_H_010.png" imgrect="0 0 128 128" CMM_Caption="작은 보답의 주머니"/>
@@ -4451,13 +4461,27 @@
 		<image name="icon_item_poporion_popupbook" file="\icon\item\icon_item_poporion_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_penguin01_popupbook" file="\icon\item\icon_item_penguin01_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_antque_gold_coin" file="\icon\item\icon_item_antque_gold_coin.png" imgrect="0 0 256 256" CMM_Caption="젬 가챠 코인"/>
+		<image name="icon_item_misc_collect_gimk_001" file="\icon\item\icon_item_misc_collect_gimk_001.png" imgrect="0 0 128 128" CMM_Caption="책갈피"/>
+		<image name="icon_item_misc_collect_gimk_002" file="\icon\item\icon_item_misc_collect_gimk_002.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_misc_collect_gimk_003" file="\icon\item\icon_item_misc_collect_gimk_003.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_misc_collect_gimk_004" file="\icon\item\icon_item_misc_collect_gimk_004.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_misc_collect_gimk_005" file="\icon\item\icon_item_misc_collect_gimk_005.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_misc_collect_gimk_006" file="\icon\item\icon_item_misc_collect_gimk_006.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_misc_collect_gimk_007" file="\icon\item\icon_item_misc_collect_gimk_007.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_firework_secondtime" file="\icon\item\icon_item_firework_secondtime.png" imgrect="0 0 256 256" CMM_Caption="2주년 폭죽"/>
 		<image name="icon_item_seed_secondtime" file="\icon\item\icon_item_seed_secondtime.png" imgrect="0 0 128 128" CMM_Caption="2주년 씨앗"/>
 		<image name="icon_item_challengemode_scroll" file="\icon\item\icon_item_challengemode_scroll.png" imgrect="0 0 128 128" CMM_Caption="2주년 게이트 스크롤"/>
+		<image name="icon_item_guild_mission_box" file="\icon\item\icon_item_guild_mission_box.png" imgrect="0 0 128 128" CMM_Caption="길드 이벤트 보상 상자"/>
+		<image name="icon_item_guild_raid_box" file="\icon\item\icon_item_guild_raid_box.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_Chrismas_Card" file="\icon\item\icon_item_Chrismas_Card.png" imgrect="0 0 128 128" CMM_Caption="눈덮힌 카드첩"/>
 		<image name="icon_item_Chrismas_Event_Box" file="\icon\item\icon_item_Chrismas_Event_Box.png" imgrect="0 0 128 128" CMM_Caption="17크리스마스 양말"/>
+		<image name="icon_item_guild_exp_up1" file="\icon\item\icon_item_guild_exp_up1.png" imgrect="0 0 128 128" CMM_Caption="길드 성장 아이템"/>
+		<image name="icon_item_guild_exp_up2" file="\icon\item\icon_item_guild_exp_up2.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_guild_exp_up3" file="\icon\item\icon_item_guild_exp_up3.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_egg_Armadilo" file="\icon\item\icon_item_egg_Armadilo.png" imgrect="0 0 128 128" CMM_Caption="아르마딜로 알"/>
 		<image name="icon_item_newyearcard" file="\icon\item\icon_item_newyearcard.png" imgrect="0 0 500 500" CMM_Caption="2018 연하장"/>
+		<image name="item_icon_teraingot" file="\icon\item\item_icon_teraingot.png" imgrect="0 0 80 80" CMM_Caption="빨강 주괴"/>
+		<image name="item_icon_pideingot" file="\icon\item\item_icon_pideingot.png" imgrect="0 0 80 80" CMM_Caption="녹색 주괴"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -4925,6 +4949,8 @@
 		<image name="icon_item_christmastree02_popupbook" file="\icon\payment\icon_item_christmastree02_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_gold_socket" file="\icon\payment\icon_item_gold_socket.png" imgrect="0 0 256 256" CMM_Caption="황금 소켓 추가권"/>
 		<image name="icon_item_Gold_Moru_Box_S" file="\icon\payment\icon_item_Gold_Moru_Box_S.png" imgrect="0 0 256 256" CMM_Caption="황금 모루 박스"/>
+		<image name="icon_item_snowflower_f" file="\icon\payment\icon_item_snowflower_f.png" imgrect="0 0 256 256" CMM_Caption="눈꽃 코스튬"/>
+		<image name="icon_item_snowflower_m" file="\icon\payment\icon_item_snowflower_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

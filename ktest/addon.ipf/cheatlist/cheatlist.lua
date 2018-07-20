@@ -264,6 +264,9 @@ function CHEATLIST_RUNSCRIPT(frame)
 			break;
 		else
 			local argText = eobj:GetText();
+			if string.find(argText, ' ') ~= nil then
+                argText = string.gsub(argText, ' ', '/')
+            end
 			if argText == "" then
 				argText = "None";
 			end

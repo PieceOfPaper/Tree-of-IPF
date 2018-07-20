@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="MISSION_CASTLE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2_nunnery" startWaitSec="-1526726657">
+    <Game Name="MISSION_CASTLE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_d_castle_67_2_nunnery" playerCountCheckDestroy="1" startWaitSec="-1526726657">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
@@ -497,6 +497,19 @@
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successItemGive">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+                                <Str Str="Gacha_M_Castle_1/2"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="MISSION_CASTLE_01"/>
+                                <Str Str="None"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

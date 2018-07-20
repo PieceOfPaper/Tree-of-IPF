@@ -1606,6 +1606,9 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_SPECIAL_COSTUME] = function() --ES_SPECIAL_COSTUME
 				invSlot = invframe:GetChild("SPECIAL_COSTUME");			
 		end,
+		[ES_EFFECT_COSTUME] = function() --ES_EFFECT_COSTUME
+				invSlot = invframe:GetChild("EFFECTCOSTUME");			
+		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11
 		--[ES_OUTERADD2] = function() end,	-- 12

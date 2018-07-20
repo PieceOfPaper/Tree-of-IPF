@@ -60,11 +60,12 @@
             <Stage Name="FailCheck">
                 <ObjList/>
                 <StageEvents>
-                    <Event eventName="pcDieCheck">
+                    <Event isOr="1" eventName="pcDieCheck">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>

@@ -2422,6 +2422,18 @@
 			<img name="bottomcore" imgrect="1009 423 100 50"/>
 			<img name="bottomright" imgrect="1110 423 50 50"/>
 		</skin>
+		<skin name="test_win_exclamation" texture="\skin\pip_test.tga">
+			<img name="topleft" imgrect="958 306 50 65"/>
+			<img name="topcore" imgrect="1009 306 100 65"/>
+			<img name="topmiddle" imgrect="1646 396 150 65"/>
+			<img name="topright" imgrect="1110 306 50 65"/>
+			<img name="bodyleft" imgrect="958 372 50 50"/>
+			<img name="bodycore" imgrect="1009 372 100 50"/>
+			<img name="bodyright" imgrect="1110 372 50 50"/>
+			<img name="bottomleft" imgrect="958 423 50 50"/>
+			<img name="bottomcore" imgrect="1009 423 100 50"/>
+			<img name="bottomright" imgrect="1110 423 50 50"/>
+		</skin>
 		<skin name="test_win_help" texture="\skin\pip_test.tga">
 			<img name="topleft" imgrect="958 306 50 65"/>
 			<img name="topcore" imgrect="1009 306 100 65"/>
@@ -3623,6 +3635,17 @@
 			<img name="bottomleft" imgrect="1689 72 9 1"/>
 			<img name="bottomcore" imgrect="1699 72 31 1"/>
 			<img name="bottomright" imgrect="1731 72 9 1"/>
+		</skin>
+		<skin name="notice_br_skin" texture="\skin\notice_p_skin.tga">
+			<img name="topleft" imgrect="1 1 130 40"/>
+			<img name="topcore" imgrect="132 1 130 40"/>
+			<img name="topright" imgrect="263 1 130 40"/>
+			<img name="bodyleft" imgrect="1 42 130 23"/>
+			<img name="bodycore" imgrect="132 42 130 23"/>
+			<img name="bodyright" imgrect="263 42 130 23"/>
+			<img name="bottomleft" imgrect="1 66 130 25"/>
+			<img name="bottomcore" imgrect="132 66 130 25"/>
+			<img name="bottomright" imgrect="263 66 130 25"/>
 		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
@@ -5254,6 +5277,12 @@
 			<img name="cooltime" imgrect="1565 804 54 54"/>
 			<img name="selected" imgrect="1565 804 54 54"/>
 		</skin>
+		<skin name="effect_slot" texture="\skin\pip_test_item.tga">
+			<img name="slot" imgrect="1472 813 50 51"/>
+			<img name="mouseon" imgrect="1565 804 54 54"/>
+			<img name="cooltime" imgrect="1565 804 54 54"/>
+			<img name="selected" imgrect="1565 804 54 54"/>
+		</skin>
 	</skinlist>
 	<imagelist category="wearing_weapon">
 		<image name="weapon_OHS" file="\icon\wearing_weapon.tga" imgrect="0 0 20 20" CMM_Caption="한손검"/>
@@ -5926,6 +5955,10 @@
 		<image name="test_down_w_btn" file="\skin\market_skin.tga" imgrect="1689 91 33 16"/>
 		<image name="test_down_w_btn_cursoron" file="\skin\market_skin.tga" imgrect="1723 91 33 16"/>
 		<image name="test_down_w_btn_clicked" file="\skin\market_skin.tga" imgrect="1723 91 33 16"/>
+		<image name="notice_br_reason" file="\skin\notice_p_skin.tga" imgrect="1 92 21 21" CMM_Caption="게임 오류 노티스 아이콘"/>
+		<image name="notice_br_solution" file="\skin\notice_p_skin.tga" imgrect="23 92 21 21"/>
+		<image name="notice_br_link" file="\skin\notice_p_skin.tga" imgrect="46 92 21 21"/>
+		<image name="notice_br_ydot" file="\skin\notice_p_skin.tga" imgrect="1 114 6 6"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
@@ -6693,6 +6726,12 @@
 		<image name="emoticon_0044" file="\icon\emoticon\emoticon_0044.png" imgrect="0 0 70 70"/>
 		<image name="emoticon_0045" file="\icon\emoticon\emoticon_0045.png" imgrect="0 0 70 70"/>
 		<image name="emoticon_0046" file="\icon\emoticon\emoticon_0046.png" imgrect="0 0 70 70"/>
+		<image name="kupole_emotion01" file="\icon\emoticon\kupole_emotion01.png" imgrect="0 0 128 128"/>
+		<image name="kupole_emotion02" file="\icon\emoticon\kupole_emotion02.png" imgrect="0 0 128 128"/>
+		<image name="kupole_emotion03" file="\icon\emoticon\kupole_emotion03.png" imgrect="0 0 128 128"/>
+		<image name="kupole_emotion04" file="\icon\emoticon\kupole_emotion04.png" imgrect="0 0 128 128"/>
+		<image name="kupole_emotion05" file="\icon\emoticon\kupole_emotion05.png" imgrect="0 0 128 128"/>
+		<image name="kupole_emotion06" file="\icon\emoticon\kupole_emotion06.png" imgrect="0 0 128 128"/>
 	</imagelist>
 	<imagelist category="itemtooltip_image">
 		<image name="circle_gem" file="\skin\tooltip_skin_3.tga" imgrect="805 228 30 30"/>
