@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
 		<controls>
 			<groupbox name="mainBox" margin="0 15 0 0" rect="0 0 105 105" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false" scrollbar="false"/>
 			<picture name="char_icon" layout_gravity="left top" stretch="true" mask="party_cha_slot" hittest="true" rect="0 0 80 90" margin="10 0 0 0" parent="mainBox"/>
 			<button name="detach_btn" layout_gravity="left top" rect="0 0 50 50" margin="-2 0 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox"/>
-			<richtext name="level" rect="0 0 50 24" parent="mainBox" layout_gravity="center top" margin="0 60 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42}Lv.%s" param1="value" fixwidth="false" param1_def="13"/>
-			<richtext name="name" rect="0 0 100 24" parent="mainBox" layout_gravity="center top" margin="0 75 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
+			<richtext name="level" rect="0 0 50 24" parent="mainBox" layout_gravity="center bottom" margin="-3 0 0 32" hittest="false" fontname="white_16" textalign="center center" format="{@st42}Lv.%s" param1="value" fixwidth="false" param1_def="13"/>
+			<richtext name="name" rect="0 0 100 24" parent="mainBox" layout_gravity="center bottom" margin="0 0 0 15" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
 		</controls>
 	</controlset>
 	<controlset name="enchant_stor_option" toggle="false" hittest="true" hittestset="false" width="430" height="80" skin="test_skin_01">
@@ -1712,13 +1712,13 @@
 			<slot name="OUTER" texttooltip="{@st59}코스튬{/}" layout_gravity="center top" rect="0 0 60 60" margin="175 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="cloths">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-110 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 180 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">
+			<slot name="RH" texttooltip="{@st59}왼손{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 190 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="rh">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="45 -130" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 			<slot name="LH" texttooltip="{@st59}오른손{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 180 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lh">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-45 -120" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 20 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">
+			<slot name="SHIRT" texttooltip="{@st59}상의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 60 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="shirt">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="125 -30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 			<slot name="GLOVES" texttooltip="{@st59}장갑{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 20 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="gloves">
@@ -1727,7 +1727,7 @@
 			<slot name="BOOTS" texttooltip="{@st59}신발{/}" layout_gravity="center top" rect="0 0 60 60" margin="100 100 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="boots">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="-95 90" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
-			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 100 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">
+			<slot name="PANTS" texttooltip="{@st59}하의{/}" layout_gravity="center top" rect="0 0 60 60" margin="-100 125 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="pants">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="130 -60" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
 			<slot name="RING1" texttooltip="{@st59}왼팔찌{/}" layout_gravity="center top" rect="0 0 50 50" margin="-175 208 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="ring">
@@ -1742,6 +1742,9 @@
 			<slot name="ARMBAND" texttooltip="{@st59}암밴드{/}" layout_gravity="center top" rect="0 0 50 50" margin="175 135 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="armband">
 				<uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
 			</slot>
+      <slot name="LENS" texttooltip="{@st59}렌즈{/}" layout_gravity="center top" rect="0 0 50 50" margin="-100 5 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="lens_slot">
+        <uieffect effect="I_screen_logo007_star" scale="5" overlab="Yes" sound="None" offset="60 30" playtime="1.6" duration="2" conditon="Active" event="ROLLOVER" layout_gravity="left top"/>
+      </slot>
 		</controls>
 	</controlset>
 	<controlset name="itemslotset" hittest="true" hittestset="false" draw="false" width="420" height="320">

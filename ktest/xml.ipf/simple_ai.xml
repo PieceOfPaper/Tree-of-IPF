@@ -129,7 +129,19 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="ABBEY41_6_SQ05_P" ActiveMessageMapInBattle="1">
+	<AI Name="ABBEY41_6_SQ05_MINI_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="400"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="ABBEY41_6_SQ05_P" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_PROVOKE_NEAR" Client="NO" UseSleep="NO">
 				<Num Num="250"/>
@@ -9601,7 +9613,19 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</List>
 	</AI>
-	<AI Name="PILGRIM41_3_SQ08_S" ActiveMessageMapInBattle="1">
+	<AI Name="PILGRIM41_3_SQ07_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                <Num Num="400"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PILGRIM41_3_SQ08_S" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
 				<Str Str="SCR_PILGRIM413_SQ_08_NPCMOVE"/>

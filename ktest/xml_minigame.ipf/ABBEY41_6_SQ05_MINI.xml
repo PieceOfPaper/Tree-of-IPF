@@ -4,7 +4,7 @@
         <StageList>
             <Stage Name="Wave 1">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57957" Pos="703.38#0.18#-25.39" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57957" Pos="703.38#0.18#-25.39" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -18,7 +18,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57957" Pos="775.22#0.18#-90.27" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57957" Pos="775.22#0.18#-90.27" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -32,7 +32,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57961" Pos="646.42#0.18#62.74" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57961" Pos="646.42#0.18#62.74" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -46,7 +46,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57961" Pos="847.86#0.18#-105.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57961" Pos="847.86#0.18#-105.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -82,7 +82,7 @@
             </Stage>
             <Stage Name="Wave 2" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57984" Pos="739.02#0.18#-70.46" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57984" Pos="739.02#0.18#-70.46" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -96,7 +96,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57984" Pos="658.84#0.18#75.87" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57984" Pos="658.84#0.18#75.87" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -110,7 +110,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57984" Pos="882.61#0.18#-131.37" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57984" Pos="882.61#0.18#-131.37" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -124,7 +124,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57959" Pos="657.24#0.18#27.39" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57959" Pos="657.24#0.18#27.39" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -138,7 +138,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57959" Pos="825.32#0.18#-124.53" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57959" Pos="825.32#0.18#-124.53" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="ABBEY41_6_SQ05_MINI_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

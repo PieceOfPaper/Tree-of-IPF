@@ -89,7 +89,7 @@ function SCR_Get_SpendSP(skill)
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
 	-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
+	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
 	local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 	
 	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
@@ -13319,7 +13319,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
+		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
 	end
 
     if skill.LevelByDB == 0 then
@@ -13449,6 +13449,16 @@ end
 function SCR_GET_Apprise_Ratio2(skill)
     local pc = GetSkillOwner(skill);
 	return 20 + (skill.Level * 2);
+end
+
+function SCR_GET_Devaluation_BuffTime(skill)
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Appraiser2")
+    local ratio = 50
+    if abil ~= nil and abil.ActiveState == 1 then
+        ratio = ratio + (abil.Level * 1)
+    end
+	return ratio
 end
 
 function SCR_Get_SkillFactor_Blindside(skill)

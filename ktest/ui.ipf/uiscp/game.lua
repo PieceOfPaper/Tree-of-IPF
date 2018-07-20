@@ -1356,7 +1356,7 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 	end	
 	
 	if 0 ~= isHaveLifeTime then
-		ownName = string.format("{img test_cooltime 30 30 }%s", ownName);
+		ownName = string.format("{img test_cooltime 30 30}%s{/}", ownName);
 	end
 	
 	if reinforce_2 ~= nil and reinforce_2 > 0 then

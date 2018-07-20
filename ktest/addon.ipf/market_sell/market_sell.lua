@@ -88,7 +88,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		if itemObj.ClassID == 490000 then
+		if itemObj.ClassID == 490000 or itemObj.ClassName:find('PremiumToken') then
 			 cashValue = 0;
 			 stralue = 0;
 		end

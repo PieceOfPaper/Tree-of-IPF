@@ -232,7 +232,6 @@
 					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Highlander_CartarStroke"/>
 					</ToolScp>
-					<ToolScp Scp="SPCI_COND_ISMONSTER" Client="NO" UseSleep="NO"/>
 					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
 						<Str Str="ENEMY"/>
 					</ToolScp>
@@ -419,9 +418,9 @@
 					</ToolScp>
 				</ExecList>
 				<TgtCondList>
-          <ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
-            <Num Num="1" UseFunc="1" FuncTxt="return 25"/>
-          </ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="return 25"/>
+					</ToolScp>
 					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
 						<Str Str="Murmillo1"/>
 					</ToolScp>
@@ -529,7 +528,6 @@
 					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
 						<Str Str="Peltasta_UmboBlow"/>
 					</ToolScp>
-					<ToolScp Scp="SPCI_COND_ISMONSTER" Client="NO" UseSleep="NO"/>
 					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
 						<Str Str="ENEMY"/>
 					</ToolScp>

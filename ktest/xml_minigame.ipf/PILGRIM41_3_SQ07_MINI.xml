@@ -32,6 +32,11 @@
                                 <Str Str="pilgrim413_01"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="검은 수정을 파괴하세요!"/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event eventName="Stage1">
@@ -83,7 +88,7 @@
             </Stage>
             <Stage Name="Stage1" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57921" Pos="903.38#52.28#792.19" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57921" Pos="903.38#52.28#792.19" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -101,7 +106,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57921" Pos="1007.05#52.28#782.91" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57921" Pos="1007.05#52.28#782.91" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -119,7 +124,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57921" Pos="957.71#52.28#768.90" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57921" Pos="957.71#52.28#768.90" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -155,7 +160,7 @@
             </Stage>
             <Stage Name="Stage2" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57921" Pos="874.93#52.28#792.73" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57921" Pos="874.93#52.28#792.73" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -173,7 +178,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57921" Pos="1012.87#52.28#788.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57921" Pos="1012.87#52.28#788.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -191,7 +196,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57924" Pos="919.46#52.28#750.33" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57924" Pos="919.46#52.28#750.33" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -209,7 +214,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57924" Pos="990.42#52.28#746.91" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57924" Pos="990.42#52.28#746.91" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -245,7 +250,7 @@
             </Stage>
             <Stage Name="Stage3" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="57921" Pos="958.05#52.28#780.10" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57921" Pos="958.05#52.28#780.10" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -263,7 +268,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57924" Pos="1012.87#52.28#788.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57924" Pos="1012.87#52.28#788.21" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -281,7 +286,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57924" Pos="889.35#52.28#796.17" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" tendency="1">
+                    <Obj Type="Monster" MonType="57924" Pos="889.35#52.28#796.17" genCount="1" maxStackCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -299,7 +304,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57944" Pos="991.73#52.28#752.42" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " tendency="1">
+                    <Obj Type="Monster" MonType="57944" Pos="991.73#52.28#752.42" genCount="1" maxStackCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" searchRange="300" propList="&apos;FIXMSPD_BM&apos; &apos;72&apos; " SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -317,7 +322,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="57944" Pos="929.26#52.28#753.05" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="57944" Pos="929.26#52.28#753.05" genCount="1" maxStackCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" searchRange="300" SimpleAI="PILGRIM41_3_SQ07_AI" tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="Effect">

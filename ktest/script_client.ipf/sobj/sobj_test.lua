@@ -782,6 +782,22 @@ function SSN_CLIENT_UPDATE_QUEST_SUCCESS(sObj, list)
                     control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 9);
         	    end
             end
+            
+            if GetLayer(self) > 0 and questIES.QuestEndMode ~= 'SYSTEM' then
+                local zoneLayerObj = GetClientZoneObject()
+                if zoneLayerObj ~= nil and zoneLayerObj.EventName == questIES.ClassName then
+                    local questIES_auto = GetClass('QuestProgressCheck_Auto', questIES.ClassName)
+                    if questIES_auto.Track1 ~= 'None' and questIES_auto.Track_Auto_Complete ~= 'NO' then
+                        local nowSec = math.floor(os.clock())
+                        if sObj.TRACK_AUTO_COMPLETE_LAST_QUEST == questIES.ClassName and sObj.TRACK_AUTO_COMPLETE_LAST_TIME + 15 > nowSec then
+                        else
+                            sObj.TRACK_AUTO_COMPLETE_LAST_QUEST = questIES.ClassName
+                            sObj.TRACK_AUTO_COMPLETE_LAST_TIME = nowSec
+            				control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 10);
+            			end
+                    end
+                end
+            end
 
 		end
 	end

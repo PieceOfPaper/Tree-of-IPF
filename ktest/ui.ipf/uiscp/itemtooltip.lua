@@ -90,9 +90,11 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	
 	local needAppraisal = TryGetProp(itemObj, "NeedAppraisal");
 	local drawCompare = true;
+	local showAppraisalPic = false;
 	if needAppraisal ~= nil and needAppraisal == 1 then
 		DRAW_APPRAISAL_PICTURE(tooltipframe);
-		drawCompare = false
+		drawCompare = false;
+		showAppraisalPic = true;
 	end
 	
 	-- 비교툴팁
@@ -199,14 +201,17 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		DestroyIES(itemObj);
 	end
 
-	ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe)
-	ITEMTOOLTIPFRAME_RESIZE(tooltipframe)
+	ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic);
+	ITEMTOOLTIPFRAME_RESIZE(tooltipframe);
 
 end
 
-function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe)
+function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic)
 
 	local cvalueGBox = GET_CHILD(tooltipframe, 'changevalue','ui::CGroupBox')
+	if showAppraisalPic == true then
+		cvalueGBox =  GET_CHILD(tooltipframe, 'appraisal','ui::CGroupBox');
+	end
 	local cvalueGBoxheight = cvalueGBox:GetHeight()
 	local childCnt = tooltipframe:GetChildCount();
 	local minY = option.GetClientHeight();
@@ -243,7 +248,13 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe)
 
 		-- 비교 말풍선 위치 조정
 		local changevalue = tooltipframe:GetChild('changevalue');
-		changevalue:SetOffset(changevalue:GetX(), minY - cvalueGBoxheight);
+		local appraisalOffset = 0;
+		if showAppraisalPic == true then
+			changevalue = tooltipframe:GetChild('appraisal');
+			local marginRect = changevalue:GetMargin();
+			appraisalOffset = marginRect.top;
+		end
+		changevalue:SetOffset(changevalue:GetX(), minY - cvalueGBoxheight + appraisalOffset);
 	end
 end
 

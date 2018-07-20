@@ -2984,7 +2984,7 @@
 		<Class ClassID="25889" ClassName="THORN39_1_SQ01_HERB" Data="체바스가 찾아낸 약초"/>
 		<Class ClassID="25890" ClassName="THORN39_1_SQ01_GET" Data="약초를 채집하는 중"/>
 		<Class ClassID="25891" ClassName="THORN39_1_SQ02_GET" Data="벌집 채집하는 중"/>
-		<Class ClassID="25892" ClassName="THORN39_1_SQ02_BEE" Data="성난 체이퍼러들이 튀어나왔습니다!"/>
+		<Class ClassID="25892" ClassName="THORN39_1_SQ02_BEE" Data="벌집을 수집하자 성난 체이퍼러들이 튀어나왔습니다!"/>
 		<Class ClassID="25893" ClassName="THORN39_3_SQ02_ROOT" Data="수초를 캐는 중"/>
 		<Class ClassID="25894" ClassName="THORN39_3_SQ02_FAIL" Data="줄기가 끊어져 버렸습니다!"/>
 		<Class ClassID="25895" ClassName="ABBEY39_4_MQ01_01" Data="앱바스 전당부터 돌파합시다!"/>
@@ -3014,7 +3014,7 @@
 		<Class ClassID="25919" ClassName="ABBEY39_4_CHSER_6" Data="혹시 에보니폰을 보셨습니까?"/>
 		<Class ClassID="25920" ClassName="ABBEY39_4_CHSER_7" Data="여긴 없습니다!{nl}아래쪽을 지원해 주십시오!"/>
 		<Class ClassID="25921" ClassName="ABBEY39_4_CHSER_8" Data="민츠 대장님께선 조각 회랑으로 가셨습니다!"/>
-		<Class ClassID="25922" ClassName="THORN39_3_MQ05_BOOK" Data="낡은 책이 놓여져 있었습니다"/>
+		<Class ClassID="25922" ClassName="THORN39_3_MQ05_BOOK" Data="무덤에 놓여져 있던 낡은 책을 발견했습니다"/>
 		<Class ClassID="25923" ClassName="CMINE_CHAMICAL_SETUP" Data="향로 놓는 중"/>
 		<Class ClassID="25924" ClassName="CMINE_CHAMICAL_COMPLETE" Data="향로를 잘 놓아 두었습니다"/>
 		<Class ClassID="25925" ClassName="GELE_SETUP" Data="꿰미 놓는 중"/>
@@ -5152,6 +5152,136 @@
 		<Class ClassID="80249" ClassName="FLASH29_1_SQ_100_OBJ2_MSG3" Data="글귀를 확인했습니다!"/>
 		<Class ClassID="80250" ClassName="THORN39_1_SQ06_MSG6" Data="장치들을 활성화 시키는데 실패했습니다"/>
 		<Class ClassID="80251" ClassName="KATYN_18_RE_SQ_8_MSG1" Data="제단에 구슬을 놓자 신성한 힘이 모여듭니다"/>
+		<Class ClassID="80270" ClassName="CASTLE651_MQ_05_MSG1" Data="마력이 충만한 구슬을 배치했습니다"/>
+		<Class ClassID="80271" ClassName="CASTLE651_MQ_05_MSG2" Data="마력이 충만한 구슬을 모두 배치했습니다{nl}계시자 미하일에게 보고하세요"/>
+		<Class ClassID="80272" ClassName="CASTLE65_3_MQ02_MSG1" Data="마력핵이 모습을 드러냈습니다!"/>
+		<Class ClassID="80280" ClassName="FARM49_1_SQ02_MSG1" Data="민들레를 뽑아냈습니다"/>
+		<Class ClassID="80281" ClassName="FARM49_1_SQ02_MSG2" Data="민들레를 어느정도 제거했습니다{nl}농부 다이시에게 돌아가세요"/>
+		<Class ClassID="80282" ClassName="FARM49_1_SQ04_MSG" Data="미렌의 낡은 봇짐을 발견했습니다!"/>
+		<Class ClassID="80283" ClassName="FARM49_2_SQ03_MSG1" Data="포도 넝쿨에 제초제를 뿌렸습니다"/>
+		<Class ClassID="80284" ClassName="FARM49_2_SQ03_MSG2" Data="포도 넝쿨에 제초제를 모두 뿌렸습니다{nl}소작인 샬롯에게 돌아가세요"/>
+		<Class ClassID="80290" ClassName="SIAULIAI_46_4_MQ_02_SUCCESS" Data="빈 벌집을 획득했습니다{nl}마을 청년 다렌에게 돌아가 빈 벌집을 전해주세요"/>
+		<Class ClassID="80291" ClassName="SIAULIAI_46_4_MQ_03_PROGRESS" Data="코르크마개를 제거해 기름통의 기름을 빼냈습니다!"/>
+		<Class ClassID="80292" ClassName="SIAULIAI_46_4_MQ_03_SUCCESS" Data="주변의 기름통에 들어있던 기름을 모두 빼낸 것 같습니다{nl}양조업자 도르젠을 찾아가 보세요"/>
+		<Class ClassID="80293" ClassName="SIAULIAI_46_3_MQ_01_MSG" Data="달콤한 벌통조각을 획득했습니다{nl}마라스에게 돌아가 달콤한 벌통조각을 전해주세요"/>
+		<Class ClassID="80294" ClassName="SIAULIAI_46_3_MQ_03_MSG2" Data="제단에서 마석조각을 발견했습니다{nl}마라스에게 돌아가 이 사실을 알려주세요"/>
+		<Class ClassID="80295" ClassName="SIAULIAI_46_3_SQ_03_PROGRESS" Data="벌통 조각을 획득했습니다"/>
+		<Class ClassID="80296" ClassName="SIAULIAI_46_3_SQ_03_SUCCESS" Data="벌통 조각을 모두 수집한 것 같습니다{nl}발다에게 수집한 벌통 조각을 전해주세요"/>
+		<Class ClassID="80297" ClassName="SIAULIAI_46_3_SQ_04_MSG2" Data="밭에 씨를 뿌렸습니다"/>
+		<Class ClassID="80298" ClassName="SIAULIAI_46_3_SQ_04_MSG3" Data="가지고 있던 씨를 모두 뿌렸습니다{nl}리스에게 돌아가세요"/>
+		<Class ClassID="80299" ClassName="SIAULIAI_46_2_MQ_01_MSG1" Data="벌나무 가지를 획득했습니다"/>
+		<Class ClassID="80300" ClassName="SIAULIAI_46_2_MQ_01_MSG2" Data="벌나무 가지를 제법 모았습니다{nl}사제 라엘리에에게 돌아가세요"/>
+		<Class ClassID="80301" ClassName="SIAULIAI_46_2_MQ_02_MSG1" Data="불타버린 마족의 재를 획득했습니다"/>
+		<Class ClassID="80302" ClassName="SIAULIAI_46_2_MQ_02_MSG2" Data="마족의 재를 충분히 모았습니다{nl}사제 라엘리에에게 돌아가 불타버린 마족의 재를 전해주세요"/>
+		<Class ClassID="80303" ClassName="SIAULIAI_46_2_SQ_03_MSG1" Data="손질된 목재를 획득했습니다"/>
+		<Class ClassID="80304" ClassName="SIAULIAI_46_2_SQ_03_MSG2" Data="손질된 목재를 충분히 수집했습니다.{nl}농사꾼 드루바에게 돌아가 목재를 전해주세요"/>
+		<Class ClassID="80305" ClassName="SIAULIAI_46_1_MQ_01_MSG1" Data="조각난 아우스테야의 상징을 획득했습니다"/>
+		<Class ClassID="80306" ClassName="SIAULIAI_46_1_MQ_01_MSG2" Data="조각난 아우스테야의 상징을 모두 모았습니다{nl}아우스테야 제단으로 이동해 아우스테야의 상징을 복구하세요"/>
+		<Class ClassID="80307" ClassName="SIAULIAI_46_1_SQ_03_MSG1" Data="둘케의 짐꾸러미를 찾았습니다"/>
+		<Class ClassID="80308" ClassName="SIAULIAI_46_1_SQ_03_MSG2" Data="둘케가 잃어버린 짐꾸러미를 모두 찾았습니다{nl}상인 돌케에게 돌아가세요"/>
+		<Class ClassID="80309" ClassName="SIAULIAI_46_1_SQ_05_MSG1" Data="봄볕초를 채집했습니다"/>
+		<Class ClassID="80310" ClassName="SIAULIAI_46_1_SQ_05_MSG2" Data="봄볕초를 충분히 채집했습니다{nl}약사 티아나에게 봄볕초를 전해주세요"/>
+		<Class ClassID="80320" ClassName="THORN39_2_SQ01_MSG1" Data="바닥에 떨어져 있던 경전 낱장을 주웠습니다"/>
+		<Class ClassID="80321" ClassName="THORN39_2_SQ03_MSG1" Data="템파스 버섯을 획득했습니다"/>
+		<Class ClassID="80322" ClassName="THORN39_2_SQ03_MSG2" Data="템파스 버섯을 충분히 모았습니다{nl}와일리에게 돌아가세요"/>
+		<Class ClassID="80323" ClassName="THORN39_2_SQ04_MSG1" Data="락터의 돌다리를 획득했습니다"/>
+		<Class ClassID="80324" ClassName="THORN39_2_SQ04_MSG2" Data="락터의 돌다리를 충분히 모았습니다{nl}헌터 레이나에게 돌아가세요"/>
+		<Class ClassID="80325" ClassName="THORN39_2_SQ06_MSG1" Data="코카트의 고기를 획득했습니다"/>
+		<Class ClassID="80326" ClassName="THORN39_2_SQ06_MSG2" Data="충분한 양의 고기를 획득했습니다{nl}헌터 레이나에게 돌아가세요"/>
+		<Class ClassID="80327" ClassName="THORN39_1_MQ03_MSG" Data="체이퍼러의 가시독을 획득했습니다"/>
+		<Class ClassID="80328" ClassName="THORN39_1_MQ04_MSG" Data="가시나무 밑둥의 진한 독을 획득했습니다"/>
+		<Class ClassID="80329" ClassName="THORN39_1_MQ05_MSG1" Data="샘에 고인 독액을 획득했습니다"/>
+		<Class ClassID="80330" ClassName="THORN39_1_MQ05_MSG2" Data="맹독 표본을 모두 수집했습니다{nl}헌터 나타샤에게 돌아가 수집한 맹독 표본들을 전해주세요"/>
+		<Class ClassID="80331" ClassName="THORN39_1_MQ06_MSG" Data="우르드와의 잎사귀를 획득했습니다{nl}헌터 나타샤에게 돌아가세요"/>
+		<Class ClassID="80332" ClassName="THORN39_1_SQ01_MSG1" Data="체바스가 찾아낸 약초를 획득했습니다"/>
+		<Class ClassID="80333" ClassName="THORN39_1_SQ01_MSG2" Data="약초를 충분히 수집했습니다{nl}헌터 바스틸에게 돌아가세요"/>
+		<Class ClassID="80334" ClassName="THORN39_1_SQ02_MSG1" Data="빈 벌집을 획득했습니다"/>
+		<Class ClassID="80335" ClassName="THORN39_1_SQ03_MSG1" Data="우드르와의 진액을 획득했습니다"/>
+		<Class ClassID="80336" ClassName="THORN39_1_SQ03_MSG2" Data="우드르와의 진액을 어느정도 수집한 것 같습니다{nl}수도사 채드에게 돌아가세요"/>
+		<Class ClassID="80337" ClassName="THORN39_3_MQ02_MSG1" Data="우산이끼의 갓을 획득했습니다"/>
+		<Class ClassID="80338" ClassName="THORN39_3_MQ02_MSG2" Data="스토내콘의 파편을 획득했습니다"/>
+		<Class ClassID="80339" ClassName="THORN39_3_MQ02_MSG3" Data="우산이끼와 스토내콘을 처치한 증거를 충분히 모았습니다{nl}수도사 거스에게 돌아가세요"/>
+		<Class ClassID="80340" ClassName="THORN39_3_SQ02_MSG1" Data="아실라도 수초를 획득했습니다"/>
+		<Class ClassID="80341" ClassName="THORN39_3_SQ02_MSG2" Data="아실라도 수초를 충분히 수집한 것 같습니다{nl}수도사 욘스에게 돌아가세요"/>
+		<Class ClassID="80342" ClassName="THORN39_3_SQ05_MSG1" Data="로프틀렘의 눈을 획득했습니다"/>
+		<Class ClassID="80343" ClassName="THORN39_3_SQ05_MSG2" Data="로프틀렘의 눈을 어느정도 확보했습니다{nl}수도사 욘스에게 돌아가 로프틀렘의 눈을 보여주세요"/>
+		<Class ClassID="80344" ClassName="THORN39_3_SQ06_OBJ_MSG4" Data="우산이끼의 포자를 충분히 채집했습니다{nl}수도사 욘스에게 돌아가세요"/>
+		<Class ClassID="80345" ClassName="ABBEY39_4_MQ07_MSG" Data="수정구를 발견했습니다{nl}수도사 거스에게 돌아가 수정구를 전해주세요"/>
+		<Class ClassID="80346" ClassName="ABBEY39_4_SQ01_MSG1" Data="이상한 덩어리를 제거했습니다"/>
+		<Class ClassID="80347" ClassName="ABBEY39_4_SQ01_MSG2" Data="이상한 덩어리를 대부분 제거했습니다{nl}수도사 포토스에게 돌아가 이 사실을 알려주세요"/>
+		<Class ClassID="80348" ClassName="ABBEY39_4_SQ03_MSG" Data="탈라수도원의 경전을 획득했습니다"/>
+		<Class ClassID="80360" ClassName="TABLELAND28_1_SQ07_MSG1" Data="레푸스버니 암살자의 털가죽을 획득했습니다"/>
+		<Class ClassID="80361" ClassName="TABLELAND28_1_SQ07_MSG2" Data="충분한 털가죽이 모였습니다{nl}바스케즈에게 돌아가 털가죽을 전해주세요"/>
+		<Class ClassID="80362" ClassName="TABLELAND28_1_SQ08_MSG1" Data="부싯돌을 획득했습니다"/>
+		<Class ClassID="80363" ClassName="TABLELAND28_1_SQ08_MSG2" Data="부싯돌을 어느정도 확보했습니다{nl}힉스에게 돌아가 확보한 부싯돌을 전해주세요"/>
+		<Class ClassID="80364" ClassName="TABLELAND28_2_SQ02_MSG1" Data="샤울라브 메이지의 비상식량을 획득했습니다"/>
+		<Class ClassID="80365" ClassName="TABLELAND28_2_SQ02_MSG2" Data="샤울라브 메이지의 비상식량이 충분히 모였습니다{nl}보급병 론다에게 돌아가세요"/>
+		<Class ClassID="80366" ClassName="TABLELAND28_2_SQ03_MSG1" Data="고원 감자를 캐냈습니다"/>
+		<Class ClassID="80367" ClassName="TABLELAND28_2_SQ03_MSG2" Data="고원 감자를 충분히 채집했습니다{nl}보급병 론다에게 채집한 고원 감자를 전해주세요"/>
+		<Class ClassID="80368" ClassName="TABLELAND28_2_SQ04_MSG1" Data="쓸 만한 창살조각을 획득했습니다"/>
+		<Class ClassID="80369" ClassName="TABLELAND28_2_SQ04_MSG2" Data="창살조각을 어느정도 수집했습니다{nl}보급병 론다에게 돌아가세요"/>
+		<Class ClassID="80370" ClassName="TABLELAND28_2_SQ05_MSG1" Data="푸른 라프세이프의 얼룩 버섯을 획득했습니다"/>
+		<Class ClassID="80371" ClassName="TABLELAND28_2_SQ05_MSG2" Data="푸른 라프세이프의 얼룩 버섯을 충분히 확보했습니다{nl}분대장 아데스에게 돌아가세요"/>
+		<Class ClassID="80372" ClassName="PILGRIM41_1_SQ01_MSG1" Data="티니의 빛나는 뿔을 획득했습니다"/>
+		<Class ClassID="80373" ClassName="PILGRIM41_1_SQ01_MSG2" Data="티니의 빛나는 뿔이 충분히 모였습니다{nl}타지 주민 마크에게 돌아가세요"/>
+		<Class ClassID="80374" ClassName="PILGRIM41_1_SQ02_MSG1" Data="타우마스 약초를 획득했습니다"/>
+		<Class ClassID="80375" ClassName="PILGRIM41_1_SQ02_MSG2" Data="타우마스 약초를 충분히 구했습니다{nl}순례자 필리아에게 돌아가 약초를 전해주세요"/>
+		<Class ClassID="80376" ClassName="PILGRIM41_1_SQ03_MSG" Data="제이콥의 잃어버린 짐을 찾았습니다{nl}순례자 제이콥에게 돌아가세요"/>
+		<Class ClassID="80377" ClassName="PILGRIM41_1_SQ04_MSG" Data="튼튼한 나뭇가지를 획득했습니다{nl}순례자 제이콥에게 돌아가세요"/>
+		<Class ClassID="80378" ClassName="PILGRIM41_1_SQ06_MSG1" Data="티니의 고기를 획득했습니다"/>
+		<Class ClassID="80379" ClassName="PILGRIM41_1_SQ06_MSG2" Data="티니의 고기를 충분히 획득했습니다{nl}순례자 브래드에게 돌아가 고기를 전해주세요"/>
+		<Class ClassID="80380" ClassName="PILGRIM41_2_SQ01_MSG1" Data="스피온의 털가죽을 획득했습니다"/>
+		<Class ClassID="80381" ClassName="PILGRIM41_2_SQ01_MSG2" Data="스피온의 털가죽을 충분히 획득했습니다{nl}순례자 요단에게 돌아가세요"/>
+		<Class ClassID="80382" ClassName="PILGRIM41_2_SQ02_MSG1" Data="살비야스 덤불 열매를 채집했습니다"/>
+		<Class ClassID="80383" ClassName="PILGRIM41_2_SQ02_MSG2" Data="살비야스 덤불 열매를 충분히 채집했습니다{nl}순례자 다이앤에게 돌아가세요"/>
+		<Class ClassID="80384" ClassName="PILGRIM41_2_SQ09_MSG1" Data="잘타는 나뭇잎을 획득했습니다"/>
+		<Class ClassID="80385" ClassName="PILGRIM41_2_SQ09_MSG2" Data="잘타는 나뭇잎을 충분히 모았습니다{nl}신도 클라크에게 나뭇잎을 전해주세요"/>
+		<Class ClassID="80386" ClassName="PILGRIM41_4_SQ05_SUCCESS" Data="수도사 도르마의 성수를 발견했습니다{nl}순례자 바도스에게 돌아가세요"/>
+		<Class ClassID="80387" ClassName="PILGRIM41_4_SQ09_MSG1" Data="버려진 식물 구근을 획득했습니다"/>
+		<Class ClassID="80388" ClassName="PILGRIM41_4_SQ09_MSG2" Data="버려진 식물 구근을 어느정도 확보했습니다{nl}수도사 도르마에게 돌아가세요"/>
+		<Class ClassID="80389" ClassName="PILGRIM41_4_SQ15_MSG1" Data="레푸스버니의 고기를 획득했습니다"/>
+		<Class ClassID="80390" ClassName="PILGRIM41_4_SQ15_MSG2" Data="레푸스버니의 고기를 충분히 획득했습니다{nl}순례자 조지에게 돌아가 고기를 전해주세요"/>
+		<Class ClassID="80391" ClassName="PILGRIM41_5_SQ03_SUCCESS" Data="오아쓰 나무의 수액을 채취했습니다"/>
+		<Class ClassID="80392" ClassName="PILGRIM41_5_SQ10_MSG1" Data="억제 장치의 조각을 획득했습니다"/>
+		<Class ClassID="80393" ClassName="PILGRIM41_5_SQ10_MSG2" Data="억제 장치의 조각을 모두 획득한 것 같습니다{nl}수도사 스텔라에게 돌아가세요"/>
+		<Class ClassID="80394" ClassName="PILGRIM41_4_SQ03_MSG" Data="수도사 도르마와 대화해 그가 수도원 소속임을 증명할 방법을 찾으세요"/>
+		<Class ClassID="80395" ClassName="ABBEY41_6_SQ09_MSG" Data="식량을 어느정도 확보했습니다{nl}수도사 스텔라에게 식량을 전해주세요"/>
+		<Class ClassID="80396" ClassName="ABBEY41_6_SQ10_MSG1" Data="약초를 획득했습니다"/>
+		<Class ClassID="80397" ClassName="ABBEY41_6_SQ10_MSG2" Data="약초를 어느정도 채집했습니다{nl}수도사 스텔라에게 채집한 약초를 전해주세요"/>
+		<Class ClassID="80398" ClassName="PILGRIM413_SQ_07_MSG" Data="검은 수정을 파괴하세요!"/>
+		<Class ClassID="80410" ClassName="BRACKEN42_1_SQ05_MSG" Data="인근의 떠도는 병사 영혼들이 안식을 찾은 것 같습니다{nl}빅토라스 영혼에게 돌아가 얘기해보세요"/>
+		<Class ClassID="80411" ClassName="BRACKEN42_2_SQ04_MSG1" Data="예가 고사리 포자낭을 수집했습니다"/>
+		<Class ClassID="80412" ClassName="BRACKEN42_2_SQ04_MSG2" Data="포자낭이 충분하게 모였습니다{nl}알케미스트 소피야에게 수집한 포자낭을 전해주세요"/>
+		<Class ClassID="80420" ClassName="DCAPITAL103_SQ02_MSG1" Data="양피지 고문서를 획득했습니다"/>
+		<Class ClassID="80421" ClassName="DCAPITAL103_SQ02_MSG2" Data="양피지를 충분히 회수했습니다{nl}조사대장 엘라에게 돌아가 회수한 양피지를 전해주세요"/>
+		<Class ClassID="80422" ClassName="DCAPITAL103_SQ07_MSG1" Data="상태가 양호한 서적을 획득했습니다"/>
+		<Class ClassID="80423" ClassName="DCAPITAL103_SQ07_MSG2" Data="상태가 양호한 서적들을 어느정도 획득한 것 같습니다{nl}조사원 개스퍼에게 돌아가 획득한 서적들을 전해주세요"/>
+		<Class ClassID="80424" ClassName="DCAPITAL103_SQ09_MSG1" Data="숨겨진 석판을 획득했습니다"/>
+		<Class ClassID="80425" ClassName="DCAPITAL103_SQ09_MSG2" Data="숨겨놓았던 석판들을 모두 찾아낸 것 같습니다{nl}조사원 개스퍼에게 돌아가 찾아낸 석판들을 전해주세요"/>
+		<Class ClassID="80426" ClassName="DCAPITAL103_SQ11_MSG1" Data="쓸만한 덩굴을 획득했습니다"/>
+		<Class ClassID="80427" ClassName="DCAPITAL103_SQ11_MSG2" Data="로프 대용으로 쓰일 덩굴을 충분히 모았습니다{nl}조사원 호레이쇼에게 돌아가세요"/>
+		<Class ClassID="80428" ClassName="DCAPITAL103_SQ12_MSG1" Data="고블린 주술사의 보석을 획득했습니다"/>
+		<Class ClassID="80429" ClassName="DCAPITAL103_SQ12_MSG2" Data="고블린 주술사의 보석을 충분히 모았습니다{nl}조사원 호레이쇼에게 돌아가세요"/>
+		<Class ClassID="80440" ClassName="WHITETREES23_1_SQ01_MSG1" Data="흰꼬리풀을 획득했습니다"/>
+		<Class ClassID="80441" ClassName="WHITETREES23_1_SQ01_MSG2" Data="흰꼬리풀을 충분히 채집했습니다{nl}피난민 브랜든에게 돌아가세요"/>
+		<Class ClassID="80442" ClassName="WHITETREES23_1_SQ06_MSG1" Data="자극받은 독주머니를 획득했습니다"/>
+		<Class ClassID="80443" ClassName="WHITETREES23_1_SQ06_MSG2" Data="독주머니를 어느정도 모았습니다{nl}빌헬마스에게 돌아가세요"/>
+		<Class ClassID="80444" ClassName="WHITETREES23_1_SQ08_MSG1" Data="쿠게리 마비약을 획득했습니다"/>
+		<Class ClassID="80445" ClassName="WHITETREES23_1_SQ08_MSG2" Data="쿠게리 마비약을 충분히 모았습니다{nl}빌헬마스에게 돌아가세요"/>
+		<Class ClassID="80446" ClassName="MAPLE23_2_SQ01_MSG1" Data="리프넛의 꼬리열매를 획득했습니다"/>
+		<Class ClassID="80447" ClassName="MAPLE23_2_SQ01_MSG2" Data="꼬리열매가 넉넉히 모였습니다{nl}피난민 밀리아에게 꼬리열매를 전해주세요"/>
+		<Class ClassID="80448" ClassName="MAPLE23_2_SQ02_MSG1" Data="단단한 나무막대를 획득했습니다"/>
+		<Class ClassID="80449" ClassName="MAPLE23_2_SQ02_MSG2" Data="단단한 나무막대를 충분히 모았습니다{nl}피난민 그렉에게 돌아가세요"/>
+		<Class ClassID="80450" ClassName="MAPLE23_2_SQ05_MSG1" Data="주황 그루머의 다리를 획득했습니다"/>
+		<Class ClassID="80451" ClassName="MAPLE23_2_SQ05_MSG2" Data="주황 그루머의 다리를 넉넉히 모았습니다{nl}영주 리우다스에게 돌아가세요"/>
+		<Class ClassID="80452" ClassName="MAPLE23_2_SQ09_MSG" Data="요쿠바스 가문의 방패를 발견했습니다{nl}로베르타에게 돌아가 발견한 방패를 전해주세요"/>
+		<Class ClassID="80453" ClassName="WHITETREES23_3_SQ01_MSG1" Data="실라 민들레 이슬을 획득했습니다"/>
+		<Class ClassID="80454" ClassName="WHITETREES23_3_SQ01_MSG2" Data="실라 민들레 이슬을 넉넉히 모았습니다{nl}인드라야에게 돌아가 이슬을 전해주세요"/>
+		<Class ClassID="80455" ClassName="WHITETREES23_3_SQ04_MSG1" Data="마족의 명령서를 획득했습니다"/>
+		<Class ClassID="80456" ClassName="WHITETREES23_3_SQ04_MSG2" Data="마족의 명령서를 충분히 모았습니다{nl}인드라야에게 돌아가세요"/>
+		<Class ClassID="80457" ClassName="WHITETREES23_3_SQ10_MSG1" Data="쿠게리 주술용 지팡이를 획득했습니다"/>
+		<Class ClassID="80458" ClassName="WHITETREES23_3_SQ10_MSG2" Data="쿠게리 주술용 지팡이를 충분히 모았습니다{nl}인드라야에게 돌아가세요"/>
+		<Class ClassID="80470" ClassName="TABLELAND28_2_SQ07_MSG" Data="푸른 스파나스혼이 등장했습니다!"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
 		<Class ClassID="90003" ClassName="DCAPITAL_20_5_SQ_60_ITEM_DTA" Data="신성력 감지 구슬 사용중"/>
@@ -9291,6 +9421,7 @@
 		<Class ClassID="300125" ClassName="Premium_boostToken_RemainingMsg{Sec}" Data="경험의서 효과가 {Sec}초 후에 종료됩니다."/>
 		<Class ClassID="300126" ClassName="Premium_boostToken_EndMsg" Data="경험의서 효과가 종료되었습니다."/>
 		<Class ClassID="300136" ClassName="Premium_StatReset_TA" Data="농축 스탯 초기화 포션"/>
+		<Class ClassID="300137" ClassName="Premium_indunReset_1h" Data="인스턴스 던전 입장 횟수 초기화권:1시간"/>
 		<Class ClassID="300138" ClassName="PremiumToken_1h_TC" Data="토큰:1시간[증정용]"/>
 		<Class ClassID="300139" ClassName="Premium_indunReset_1add_14d" Data="인던 입장 1회 입장권(14일)"/>
 		<Class ClassID="300140" ClassName="PremiumToken_3d_Steam" Data="토큰:3일[증정용]"/>

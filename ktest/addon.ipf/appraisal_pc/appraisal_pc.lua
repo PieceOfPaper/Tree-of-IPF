@@ -114,7 +114,7 @@ end
 
 function APPRAISAL_PC_EXECUTE(frame)
 	local frame = frame:GetTopParentFrame();
-	local handle = frame:GetUserValue("HANDLE");
+	local handle = frame:GetUserIValue("HANDLE");
 	local skillName = frame:GetUserValue("SKILLNAME");
 	local slotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
 	
@@ -127,7 +127,7 @@ function APPRAISAL_PC_EXECUTE(frame)
 	end
 
 	-- check money
-	if GET_TOTAL_MONEY() < frame:GetUserIValue('TOTAL_MONEY') then
+	if handle ~= session.GetMyHandle() and GET_TOTAL_MONEY() < frame:GetUserIValue('TOTAL_MONEY') then
 		ui.MsgBox(ScpArgMsg("Auto_SoJiKeumi_BuJogHapNiDa."));
 		return;
 	end
@@ -159,12 +159,12 @@ function APPRAISAL_PC_UPDATE_HISTORY(frame)
 	local groupName = frame:GetUserValue("GroupName");	
 	local cnt = session.autoSeller.GetHistoryCount(groupName);
 	local gboxctrl = frame:GetChild("historyBox");
-	local log_gbox = gboxctrl:GetChild("historyStrBox");
-	log_gbox:RemoveAllChild();
+	local historyStrBox = gboxctrl:GetChild("historyStrBox");
+	historyStrBox:RemoveAllChild();
 
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
-		local ctrlSet = log_gbox:CreateControlSet("squire_rpair_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local ctrlSet = historyStrBox:CreateControlSet("squire_rpair_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 
 		local sList = StringSplit(info:GetHistoryStr(), "#");
 		local userName = sList[1];
@@ -190,11 +190,11 @@ function APPRAISAL_PC_UPDATE_HISTORY(frame)
 		itemname:SetTextByKey("value", itemStr);
 		local price = ctrlSet:GetChild("Price");
 		price:SetTextByKey("value", priceStr);
-		ctrlSet:Resize(ctrlSet:GetWidth(), price:GetY() + price:GetHeight())
+		ctrlSet:Resize(historyStrBox:GetWidth() - 40, price:GetY() + price:GetHeight()); -- 40: SCROLL_WIDTH
 		ctrlSet:Invalidate();
 	end
 
-	GBOX_AUTO_ALIGN(log_gbox, 20, 3, 10, true, false);
+	GBOX_AUTO_ALIGN(historyStrBox, 20, 3, 10, true, false);
 end
 
 function APPRAISAL_PC_REFRESH(frame)

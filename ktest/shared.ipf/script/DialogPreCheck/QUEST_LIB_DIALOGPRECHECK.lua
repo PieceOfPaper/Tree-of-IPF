@@ -66,7 +66,39 @@ function QUEST_LIB_DIALOGPRECHECK(pc, dialogName, handle)
 end
 
 function QUEST_SUB_NPC_DIALOGPRECHECK(pc, dialog)
-	return QuestSubNpcDialogPreCheck(pc, dialog);
+    local main_sObj = GetSessionObject(pc, 'ssn_klapeda')
     
-	-- ���� ������ ��ƿ��� ������ ��û ������ ������ ���ε� �Լ��� ��
+    local clslist, cnt  = GetClassList("SessionObject");
+	for i = 0 , cnt - 1 do
+		local cls = GetClassByIndexFromList(clslist, i);
+		if GetPropType(cls, 'QuestName') ~= nil then
+		    if cls.QuestName ~= "None" then
+		        for x = 1, 10 do
+					if cls['QuestInfoNPCFunc'..x] ~= nil then
+		            if cls['QuestInfoNPCFunc'..x] ~= "None" then
+		                local npcFuncList = SCR_STRING_CUT(cls['QuestInfoNPCFunc'..x])
+		                local maxindex = #npcFuncList
+		                for y = 1, maxindex do
+		                    if npcFuncList[y] == dialog then
+		                        if GetPropType(main_sObj, cls.QuestName) ~= nil then
+		                            if main_sObj[cls.QuestName] > 0 and main_sObj[cls.QuestName] < 200 then
+        		                        local quset_sObj = GetSessionObject(pc, cls.ClassName)
+        		                        if quset_sObj ~= nil then
+        		                            if quset_sObj['QuestInfoMaxCount'..x] > quset_sObj['QuestInfoValue'..x] then
+        		                                return 1
+        		                            end
+        		                        end
+        		                    end
+		                        end
+		                        break
+		                    end
+		                end
+		            end
+		        end
+		    end
+		end
+	end
+	end
+	
+    return 0
 end
