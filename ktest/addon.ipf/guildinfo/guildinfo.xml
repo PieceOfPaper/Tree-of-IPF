@@ -48,7 +48,7 @@
 		<groupbox name="memberBox" rect="0 0 1140 650" margin="0 0 8 0" layout_gravity="right bottom" tabname="memberTabItem" draw="false" tabchangescp="GUILDINFO_INIT_MEMBER_TAB"/>
 		<groupbox name="memberListBox" rect="0 0 1140 595" parent="memberBox" margin="0 0 0 55" layout_gravity="center bottom" skin="test_frame_midle" fixheight="true" scrollbar="false"/>
 		<groupbox name="memberHeaderBox" rect="0 0 1140 40" parent="memberListBox" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase"/>
-		<groupbox name="memberCtrlBox" rect="0 0 1140 595" parent="memberListBox" margin="0 37 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
+		<groupbox name="memberCtrlBox" rect="0 0 1140 555" parent="memberListBox" margin="0 37 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
 		<richtext name="nameSortText" rect="0 0 100 30" parent="memberHeaderBox" margin="30 0 0 0" layout_gravity="left center" format="길드원{img %s 13 13}" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp="GUILDINFO_MEMBER_SORT_NAME"/>
 		<richtext name="jobText" rect="0 0 100 30" parent="memberHeaderBox" margin="200 0 0 0" layout_gravity="left center" caption="직업" fontname="black_18"/>
 		<richtext name="levelText" rect="0 0 100 30" parent="memberHeaderBox" margin="370 0 0 0" layout_gravity="left center" format="레벨{img %s 13 13}" param1="arrow" param1_def="guild_arrow_down" fontname="black_18" LBtnUpScp="GUILDINFO_MEMBER_SORT_LEVEL"/>

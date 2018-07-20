@@ -206,7 +206,7 @@ function MAKE_ABANDON_CTRL(frame, box, y)
     
     local curquest = session.GetUserConfig("CUR_QUEST", 0);
     local StrScript = string.format("EXEC_ABANDON_QUEST(%d)", curquest);
-    abandonBtn:SetEventScript(ui.LBUTTONUP, StrScript);
+    abandonBtn:SetEventScript(ui.LBUTTONUP, StrScript, true);
 	abandonBtn:SetOverSound('button_over');
 	abandonBtn:SetClickSound('button_click_big');
 

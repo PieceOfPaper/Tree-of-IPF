@@ -27,88 +27,88 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
 	for i = 0 , count - 1 do
-		local partyMemberInfo = list:Element(i);        
-        local aid = partyMemberInfo:GetAID();
+            		local partyMemberInfo = list:Element(i);                            
+                    local aid = partyMemberInfo:GetAID();
         local memberCtrlSet = memberCtrlBox:CreateOrGetControlSet('guild_memberinfo', 'MEMBER_'..aid, 0, 0);
-        memberCtrlSet = AUTO_CAST(memberCtrlSet);
-        memberCtrlSet:SetUserValue('AID', aid);
+                    memberCtrlSet = AUTO_CAST(memberCtrlSet);
+                    memberCtrlSet:SetUserValue('AID', aid);
 
-        local isOnline = true;
-        local pic_online = GET_CHILD(memberCtrlSet, 'pic_online');
-        local txt_location = memberCtrlSet:GetChild('txt_location');
-        local ONLINE_IMG = memberCtrlSet:GetUserConfig('ONLINE_IMG');
-        local OFFLINE_IMG = memberCtrlSet:GetUserConfig('OFFLINE_IMG');
-        local MY_CHAR_BG_SKIN = memberCtrlSet:GetUserConfig('MY_CHAR_BG_SKIN');
+                    local isOnline = true;
+                    local pic_online = GET_CHILD(memberCtrlSet, 'pic_online');
+                    local txt_location = memberCtrlSet:GetChild('txt_location');
+                    local ONLINE_IMG = memberCtrlSet:GetUserConfig('ONLINE_IMG');
+                    local OFFLINE_IMG = memberCtrlSet:GetUserConfig('OFFLINE_IMG');
+                    local MY_CHAR_BG_SKIN = memberCtrlSet:GetUserConfig('MY_CHAR_BG_SKIN');
 
-        -- bg
-        if aid == session.loginInfo.GetAID() then
-            local bg = memberCtrlSet:GetChild('bg');
-            bg:SetSkinName(MY_CHAR_BG_SKIN);
-        end
+                    -- bg
+                    if aid == session.loginInfo.GetAID() then
+                        local bg = memberCtrlSet:GetChild('bg');
+                        bg:SetSkinName(MY_CHAR_BG_SKIN);
+                    end
 
-        -- on/off & location
-        local locationText = "";
-        if partyMemberInfo:GetMapID() > 0 then
-			local mapCls = GetClassByType("Map", partyMemberInfo:GetMapID());
-			if mapCls ~= nil then
-                pic_online:SetImage(ONLINE_IMG);
-                locationText = string.format("[%s%d] %s", ScpArgMsg("Channel"), partyMemberInfo:GetChannel() + 1, mapCls.Name);
-                onlineCnt = onlineCnt + 1;
-                memberCtrlSet:SetUserValue('IS_ONLINE', 'YES');
-            end
-        else
-            isOnline = false;
-            pic_online:SetImage(OFFLINE_IMG);
-            local logoutSec = partyMemberInfo:GetLogoutSec();
-			if logoutSec >= 0 then
-				locationText = GET_DIFF_TIME_TXT(logoutSec);
-			else				
-				locationText = ScpArgMsg("Logout");
-			end
-            memberCtrlSet:SetUserValue('IS_ONLINE', 'NO');
-        end
-        txt_location:SetTextByKey("value", locationText);
-        txt_location:SetTextTooltip(locationText);
+                    -- on/off & location
+                    local locationText = "";
+                    if partyMemberInfo:GetMapID() > 0 then
+            			local mapCls = GetClassByType("Map", partyMemberInfo:GetMapID());
+            			if mapCls ~= nil then
+                            pic_online:SetImage(ONLINE_IMG);
+                            locationText = string.format("[%s%d] %s", ScpArgMsg("Channel"), partyMemberInfo:GetChannel() + 1, mapCls.Name);
+                            onlineCnt = onlineCnt + 1;
+                            memberCtrlSet:SetUserValue('IS_ONLINE', 'YES');
+                        end
+                    else
+                        isOnline = false;
+                        pic_online:SetImage(OFFLINE_IMG);
+                        local logoutSec = partyMemberInfo:GetLogoutSec();
+            			if logoutSec >= 0 then
+            				locationText = GET_DIFF_TIME_TXT(logoutSec);
+            			else				
+            				locationText = ScpArgMsg("Logout");
+            			end
+                        memberCtrlSet:SetUserValue('IS_ONLINE', 'NO');
+                    end
+                    txt_location:SetTextByKey("value", locationText);
+                    txt_location:SetTextTooltip(locationText);
 
-        -- name
-        local txt_teamname = memberCtrlSet:GetChild('txt_teamname');
-        local name = partyMemberInfo:GetName();
-        txt_teamname:SetTextByKey('value', partyMemberInfo:GetName());
-        txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
+                    -- name
+                    local txt_teamname = memberCtrlSet:GetChild('txt_teamname');
+                    local name = partyMemberInfo:GetName();
+                    txt_teamname:SetTextByKey('value', partyMemberInfo:GetName());
+                    txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
 
-        -- job
-        local jobID = partyMemberInfo:GetIconInfo().job;
-        local jobCls = GetClassByType('Job', jobID);
-        local jobName = TryGetProp(jobCls, 'Name');        
-        if jobName ~= nil then
-            local jobText = memberCtrlSet:GetChild('jobText')
-            jobText:SetTextByKey('job', jobName);
-        end
-        
-        -- level
-        if isOnline == true then
-            local levelText = memberCtrlSet:GetChild('levelText');
-            levelText:SetTextByKey('level', partyMemberInfo:GetLevel());
-        end
+                    -- job
+                    local jobID = partyMemberInfo:GetIconInfo().job;
+                    local jobCls = GetClassByType('Job', jobID);
+                    local jobName = TryGetProp(jobCls, 'Name');        
+                    if jobName ~= nil then
+                        local jobText = memberCtrlSet:GetChild('jobText')
+                        jobText:SetTextByKey('job', jobName);
+                    end
+                    
+                    -- level
+                    if isOnline == true then
+                        local levelText = memberCtrlSet:GetChild('levelText');
+                        levelText:SetTextByKey('level', partyMemberInfo:GetLevel());
+                    end
 
-        -- duty
-        local txt_duty = memberCtrlSet:GetChild('txt_duty');        
-        local grade = partyMemberInfo.grade;        
-		if leaderAID == partyMemberInfo:GetAID() then
-			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";
-			dutyName = dutyName .. " " .. guild:GetDutyName(grade);
-			txt_duty:SetTextByKey("value", dutyName);
-		else
-			local dutyName = guild:GetDutyName(grade);
-			txt_duty:SetTextByKey("value", dutyName);
-		end
+                    -- duty
+                    local txt_duty = memberCtrlSet:GetChild('txt_duty');        
+                    local grade = partyMemberInfo.grade;        
+            		if leaderAID == partyMemberInfo:GetAID() then
+            			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";
+            			dutyName = dutyName .. " " .. guild:GetDutyName(grade);
+            			txt_duty:SetTextByKey("value", dutyName);
+            		else
+            			local dutyName = guild:GetDutyName(grade);
+            			txt_duty:SetTextByKey("value", dutyName);
+            		end
 
-        -- contribution
-        local memberObj = GetIES(partyMemberInfo:GetObject());
-        local contributionText = memberCtrlSet:GetChild('contributionText');
-        contributionText:SetTextByKey('contribution', memberObj.Contribution);
+                    -- contribution
+                    local memberObj = GetIES(partyMemberInfo:GetObject());
+                    local contributionText = memberCtrlSet:GetChild('contributionText');
+                    contributionText:SetTextByKey('contribution', memberObj.Contribution);
 
-        SET_EVENT_SCRIPT_RECURSIVELY(memberCtrlSet, ui.RBUTTONDOWN, "POPUP_GUILD_MEMBER");
+                    memberCtrlSet:SetEventScript(ui.RBUTTONDOWN, 'POPUP_GUILD_MEMBER');
     end
     GUILDINFO_MEMBER_ONLINE_CLICK(frame);
     memberCtrlBox:SetEventScript(ui.SCROLL, 'SET_AUTHO_MEMBERS_SCROLL');

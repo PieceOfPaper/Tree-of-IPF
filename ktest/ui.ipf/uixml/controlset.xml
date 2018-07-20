@@ -3043,17 +3043,17 @@
 			<checkbox name="chk_agit_enter_onlyguild" margin="26 847 0 0" rect="0 0 120 24" caption="{@st45tw2}길드원만 입장{/}" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" LBtnUpScp="CHANGE_AGIT_ENTER_OPTION"/>
 		</controls>
 	</controlset>
-	<controlset name="guild_memberinfo" hittest="true" width="1110" height="34" hittestset="false" draw="false" skin="none">
+	<controlset name="guild_memberinfo" hittest="true" width="1110" height="34" hittestset="true" draw="false" skin="none">
 		<userconfig ONLINE_IMG="guild_online" OFFLINE_IMG="guild_offline" MY_CHAR_BG_SKIN="baseyellow_btn"/>
 		<controls>
 			<groupbox name="bg" margin="0 0 0 0" rect="0 0 1110 40" hittestbox="false" skin="base_btn" layout_gravity="left top"/>
 			<picture name="pic_online" margin="8 2 0 0" rect="0 0 20 20" hittest="false" image="guild_online" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="txt_teamname" rect="0 0 178 26" margin="30 2 0 0" layout_gravity="left center" fontname="white_16" format="{#000000}{s16}%s" param1="value" param1_def="" hittest="true"/>
-			<richtext name="jobText" rect="0 0 100 30" margin="200 2 0 0" layout_gravity="left center" format="%s" fontname="black_18" param1="job" param1_def=""/>
-			<richtext name="levelText" rect="0 0 100 30" margin="370 2 0 0" layout_gravity="left center" format="%s" fontname="black_18" param1="level" param1_def=""/>
-			<richtext name="txt_duty" rect="0 0 125 30" margin="480 2 0 0" layout_gravity="left center" format="{#000000}{s16}%s" param1="value" param1_def="" omitbywidth="true" fixwidth="true"/>
-			<richtext name="contributionText" rect="0 0 100 30" margin="620 2 0 0" layout_gravity="left center" format="%s" fontname="black_18" param1="contribution" param1_def=""/>
-			<richtext name="txt_location" rect="0 0 200 30" margin="820 2 0 0" layout_gravity="left center" format="{#000000}{s16}%s" param1="value" param1_def="AA"/>
+			<richtext name="jobText" rect="0 0 100 30" margin="200 2 0 0" layout_gravity="left center" format="%s" fontname="black_18" param1="job" param1_def="" hittest="false"/>
+			<richtext name="levelText" rect="0 0 100 30" margin="370 2 0 0" layout_gravity="left center" format="%s" fontname="black_18" param1="level" param1_def="" hittest="false"/>
+			<richtext name="txt_duty" rect="0 0 125 30" margin="480 2 0 0" layout_gravity="left center" format="{#000000}{s16}%s" param1="value" param1_def="" omitbywidth="true" fixwidth="true" hittest="false"/>
+			<richtext name="contributionText" rect="0 0 100 30" margin="620 2 0 0" layout_gravity="left center" format="%s" fontname="black_18" param1="contribution" param1_def="" hittest="false"/>
+			<richtext name="txt_location" rect="0 0 200 30" margin="820 2 0 0" layout_gravity="left center" format="{#000000}{s16}%s" param1="value" param1_def="AA" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="partycompetition_set" hittest="true" width="700" height="52" hittestset="false" draw="false" skin="none">
