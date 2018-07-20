@@ -29,7 +29,7 @@ function INDUNENTER_AUTOMATCH_CANCEL()
 end
 
 function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
-	IMC_LOG("INFO_NORMAL", "Test1111111111");
+	IMC_LOG("INFO_NORMAL", "1111111111111");
     -- get data and check
     local indunCls = GetClassByType('Indun', indunType);
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
@@ -43,13 +43,16 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     else
         isTokenState = 0
     end
+    IMC_LOG("INFO_NORMAL", "222222222222");
     local etc = GetMyEtcObject();
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
     local nowAdmissionItemCount = admissionItemCount + nowCount - isTokenState
+    IMC_LOG("INFO_NORMAL", "333333333333");
     if indunCls == nil then
+    IMC_LOG("INFO_NORMAL", "4444444444444");
         return;
     end
-
+    IMC_LOG("INFO_NORMAL", "555555555555");
     local frame = ui.GetFrame('indunenter');
     local bigmode = frame:GetChild('bigmode');
     local smallmode = frame:GetChild('smallmode');
@@ -58,11 +61,12 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     local withBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
     local autoMatchText = GET_CHILD_RECURSIVELY(frame, 'autoMatchText');
     local enterBtn = GET_CHILD_RECURSIVELY(frame, 'enterBtn');
-    
+    IMC_LOG("INFO_NORMAL", "666666666666666666");
     if frame:IsVisible() == 1 then
+    IMC_LOG("INFO_NORMAL", "77777777777777777777");
         return;
     end
-    
+    IMC_LOG("INFO_NORMAL", "8888888888888888");
     -- set user value
     frame:SetUserValue('INDUN_TYPE', indunType);
     frame:SetUserValue('FRAME_MODE', 'BIG');
@@ -71,14 +75,17 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     frame:SetUserValue('WITHMATCH_MODE', 'NO');
     frame:SetUserValue('AUTOMATCH_FIND', 'NO');
     frame:SetUserValue("multipleCount", 0);
-    
+    IMC_LOG("INFO_NORMAL", "99999999999999999999999");
     if admissionItemName ~= "None" and admissionItemName ~= nil then
+IMC_LOG("INFO_NORMAL", "10101010101010101010");
         if admissionItemCount  ~= 0 then
             autoMatchText:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
             enterBtn:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
+        IMC_LOG("INFO_NORMAL", "Test1111111111-11");
         end
+        IMC_LOG("INFO_NORMAL", "Test1212121212121212");
     end
-
+IMC_LOG("INFO_NORMAL", "Test1313131313131313131313");
     -- make controls
     INDUNENTER_MAKE_HEADER(frame);
     INDUNENTER_MAKE_PICTURE(frame, indunCls);
@@ -88,7 +95,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
     INDUNENTER_MAKE_MONLIST(frame, indunCls);
     INDUNENTER_MAKE_REWARDLIST(frame, indunCls);
-
+IMC_LOG("INFO_NORMAL", "Test1414141414141414");
     -- setting
     INDUNENTER_INIT_MEMBERBOX(frame);
     INDUNENTER_AUTOMATCH_TYPE(0);
@@ -96,15 +103,16 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
     INDUNENTER_SET_MEMBERCNTBOX();
     INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, isAlreadyPlaying)
     withBtn:SetTextTooltip(ClMsg("PartyMatchInfo_Req"));
-
+IMC_LOG("INFO_NORMAL", "Test1515151515151515");
     if enableAutoMatch == 0 then
         INDUNENTER_SET_ENABLE(1, 0, 0, 0);
     end
-
+IMC_LOG("INFO_NORMAL", "Test16165161616161");
     -- show
     frame:ShowWindow(1);
     bigmode:ShowWindow(1);
     smallmode:ShowWindow(0);
+    IMC_LOG("INFO_NORMAL", "Test1717171171771717");
 end
 
 function INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, enableReenter)
