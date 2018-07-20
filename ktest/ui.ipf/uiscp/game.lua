@@ -4377,7 +4377,10 @@ function UI_MODE_CHANGE(index)
 end
 
 function KEYBOARD_INPUT()
-	
+	if geClientDirection.IsMyActorPlayingClientDirection() == true then
+        return;
+    end
+
 	if GetChangeUIMode() == 1 then
 		return;
 	end
@@ -4425,6 +4428,9 @@ function KEYBOARD_INPUT()
 end
 
 function JOYSTICK_INPUT()
+    if geClientDirection.IsMyActorPlayingClientDirection() == true then
+        return;
+    end
 
 	if GetChangeUIMode() == 2 or GetChangeUIMode() == 3 then
 		return;

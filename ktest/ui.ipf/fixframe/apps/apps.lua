@@ -12,19 +12,9 @@ function APPS_LOSTFOCUS_SCP(frame, ctrl, argStr, argNum)
 		end
 	end
 	
-	ui.CloseFrame("apps");
-	
-	--[[
-	�޴� ��� Ȱ��ȭ �Ǿ��ֵ��� �ؼ� �ּ�ó��
-	local sysmenuFrame = ui.GetFrame("sysmenu");
-	if 1 == sysmenuFrame:GetUserIValue("DISABLE_L_FOCUS") then
-		return;
-	end
-	
-	sysmenuFrame:SetEffect("sysmenu_LostFocus", ui.UI_TEMP0);
-	sysmenuFrame:StartEffect(ui.UI_TEMP0);
-	]]
+	ui.CloseFrame("apps");	
 end
+
 function APPS_TRY_LEAVE(type)
     local alertFrame = ui.GetFrame('expireditem_alert');
     local nearFutureSec = alertFrame:GetUserConfig("NearFutureSec");

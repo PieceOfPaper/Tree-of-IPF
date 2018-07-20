@@ -2,11 +2,19 @@
 
 function CHAT_OPTION_ON_INIT()
 
+
+end
+
+function INIT_CHATTYPE_VISIBLE_PIC()
+
 	local frame = ui.GetFrame("chat_option")
+    if frame == nil then
+        return
+    end
 
 	for index = 1, 3 do
 
-		local value = session.chat.GetTabConfigValueByIndex(index);
+		local value = session.chat.GetTabConfigValueByIndex(index-1);
 		local tabgbox = GET_CHILD_RECURSIVELY(frame,"tabgbox"..index)
 
 		UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value)
@@ -67,25 +75,27 @@ end
 
 function CHAT_OPTION_CREATE(addon, frame)
 	local slide_opacity = GET_CHILD(frame, "slide_opacity");
-	local opacity = config.GetConfigInt("CHAT_OPACITY", 255);
+	local opacity = session.chat.GetChatUIOpacity();
+
 	slide_opacity:SetLevel(opacity);
 
 	local slide_fontsize = GET_CHILD(frame, "slide_fontsize");
-	local fontSize = config.GetConfigInt("CHAT_FONTSIZE", 100);
+    local fontSize = session.chat.GetChatUIFontSize();
 	slide_fontsize:SetLevel(fontSize);
 end
 
 function CHAT_OPTION_OPEN(frame)
-	local beforeOpacity = config.GetConfigInt("CHAT_OPACITY", 255);
+	local beforeOpacity = session.chat.GetChatUIOpacity()
 	frame:SetUserValue("BEFORE_OPACITY", beforeOpacity);	
 end
 
 function CHAT_OPTION_APPLY(frame)
 	
 	local slide_opacity = GET_CHILD(frame, "slide_opacity", "ui::CSlideBar");
-	config.SetConfig("CHAT_OPACITY", slide_opacity:GetLevel());
+    session.chat.SetChatUIOpacity(slide_opacity:GetLevel())
 	CHAT_OPTION_OPEN(frame);
 	frame:ShowWindow(0);
+    ui.SaveChatConfig()
 
 end
 
@@ -95,12 +105,14 @@ function CHAT_OPTION_CANCEL(frame)
 end
 
 function CHATOPTION_OPACITY(frame, slide, str, num)	
-	config.SetConfig("CHAT_OPACITY", num);
+    session.chat.SetChatUIOpacity(num)
+    ui.SaveChatConfig()
 	CHAT_SET_OPACITY(num);
 end
 
 function CHATOPTION_FONTSIZE(frame, slide, str, num)	
-	config.SetConfig("CHAT_FONTSIZE", num);
+    session.chat.SetChatUIFontSize(num);
+    ui.SaveChatConfig()
 	local chatFrame = ui.GetFrame("chatframe");
 	CHAT_SET_FONTSIZE_N_COLOR(chatFrame);
 
@@ -118,7 +130,7 @@ end
 
 function GET_CHAT_FONT_SIZE()
 
-	local fontSize = config.GetConfigInt("CHAT_FONTSIZE", 100);
+	local fontSize = session.chat.GetChatUIFontSize();
 
 	local size = 16
 	if fontSize < 100 then

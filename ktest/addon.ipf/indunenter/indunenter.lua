@@ -93,7 +93,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 end
 
 function INDUNENTER_INIT_MEMBERBOX(frame)
-	local pc = GetMyPCObject();
+    local pc = GetMyPCObject();
 	local aid = session.loginInfo.GetAID();
 	local mySession = session.GetMySession();
 	local jobID = TryGetProp(pc, "Job");
@@ -377,8 +377,8 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 			else -- 파티원은 아닌데 매칭된 사람
 				jobIcon:ShowWindow(0);
 				matchedIcon:ShowWindow(1);
-			end		
-		end
+                end
+			end
 	end
 end
 
@@ -730,12 +730,7 @@ function INDUNENTER_UPDATE_PC_COUNT(frame, msg, argStr, argNum) -- argNum: pcCou
 	if frame == nil then
 		return;
 	end
-	
-	-- enable auto match, with match mode; except initialize
-	if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' and frame:GetUserValue('WITHMATCH_MODE') == 'NO' and argNum > 0 then
-		return;
-	end
-
+		
 	-- update pc count
 	if argStr == nil then
 		argStr = "None";

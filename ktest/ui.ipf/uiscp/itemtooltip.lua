@@ -1,6 +1,6 @@
 -- itemtooltip.lua
 
--- tooltip.xml에 적혀있는, 툴팁 관련 가장 처음 실행되는 루아 함수. 여기서 아이템의 종류에 따라 각각 다른 전용 툴팁 함수들을 호출한다. 종류되는 함수 명은 item클래스의 CT_ToolTipScp를 따름
+-- tooltip.xml???��??�는, ?�팁 관??가??처음 ?�행?�는 루아 ?�수. ?�기???�이?�의 종류???�라 각각 ?�른 ?�용 ?�팁 ?�수?�을 ?�출?�다. 종류?�는 ?�수 명�? item?�래?�의 CT_ToolTipScp�??�름
 
 function ON_REFRESH_ITEM_TOOLTIP()
 	local wholeitem = ui.GetTooltip("wholeitem")
@@ -36,7 +36,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
         return;
 	end
 	
-	-- 모조품은 가상의 아이템 정보를 만들어서 보여주기 때문에 GUID가 없어서 strarg를 통해 정보 보내줌(forgery#ModifiedPropertyString)
+	-- 모조?��? 가?�의 ?�이???�보�?만들?�서 보여주기 ?�문??GUID가 ?�어??strarg�??�해 ?�보 보내�?forgery#ModifiedPropertyString)
 	local isForgeryItem = false;	
 	if string.find(strarg, 'forgery') ~= nil and itemObj ~= nil then
 		isForgeryItem = true;
@@ -48,7 +48,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	local recipeitemobj = nil
 
 	local recipeid = IS_RECIPE_ITEM(itemObj)
-	-- 레시피 아이템 쪽
+	-- ?�시???�이??�
 		
 	if recipeid ~= 0 then
 		
@@ -86,7 +86,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 	local recipeclass = recipeitemobj;
 
-	-- 콜렉션에서 툴팁을 띄울때는 제작서는 제작서만 보여준다. 
+	-- 콜렉?�에???�팁???�울?�는 ?�작?�는 ?�작?�만 보여준?? 
 	if recipeclass ~= nil and strarg ~= 'collection' then
 		local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. recipeclass.ToolTipScp];
 		ToolTipScp(tooltipframe, recipeclass, strarg, "usesubframe_recipe");
@@ -107,14 +107,14 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		showAppraisalPic = true;
 	end
 	
-	-- 비교툴팁
-	-- 툴팁 비교는 무기와 장비에만 해당된다. (미감정 제외)
+	-- 비교?�팁
+	-- ?�팁 비교??무기?� ?�비?�만 ?�당?�다. (미감???�외)
 
 	if drawCompare == true and ( (itemObj.ToolTipScp == 'WEAPON' or itemObj.ToolTipScp == 'ARMOR') and  (strarg == 'inven' or strarg =='sell' or isForgeryItem == true) and (string.find(itemObj.GroupName, "Pet") == nil)) then
 
 		local CompItemToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp];
 		local ChangeValueToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp..'_CHANGEVALUE'];
-		-- 한손 무기 / 방패 일 경우
+		-- ?�손 무기 / 방패 ??경우
 
 		local isVisble = nil;
 		
@@ -126,7 +126,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 				if nil ~= item then
 				local equipItem = GetIES(item:GetObject());
 				
-				local classtype = TryGetProp(equipItem, "ClassType"); -- 코스튬은 안뜨도록
+				local classtype = TryGetProp(equipItem, "ClassType"); -- 코스?��? ?�뜨?�록
 
 				if IS_NO_EQUIPITEM(equipItem) == 0 and classtype ~= "Outer" then
 					CompItemToolTipScp(tooltipframe, equipItem, strarg, "usesubframe");
@@ -146,7 +146,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 				end
 			end
 			
-		-- 양손 무기 일 경우
+		-- ?�손 무기 ??경우
 		elseif itemObj.EqpType == 'DH' then
 			
 			local item = session.GetEquipItemBySpot(item.GetEquipSpotNum("RH"));
@@ -187,8 +187,8 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 	end
 
-	-- 메인 프레임. 즉 주된 툴팁 표시.
-	if isReadObj == 1 then -- IES가 없는 아이템. 가령 제작서의 완성 아이템 표시 등
+	-- 메인 ?�레?? �?주된 ?�팁 ?�시.
+	if isReadObj == 1 then -- IES가 ?�는 ?�이?? 가???�작?�의 ?�성 ?�이???�시 ?
 			
 		local class = itemObj;
 		if class ~= nil then
@@ -245,7 +245,7 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic)
 	end
 
 	if arrange == true then
-		-- 비교 툴팁 위치 맞춰주기
+		-- 비교 ?�팁 ?�치 맞춰주기
 		local equip_main = tooltipframe:GetChild('equip_main');
 		local equip_sub = tooltipframe:GetChild('equip_sub');
 		local mainY = equip_main:GetY();
@@ -256,7 +256,7 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic)
 			equip_sub:SetOffset(equip_sub:GetX(), mainY);
 		end
 
-		-- 비교 말풍선 위치 조정
+		-- 비교 말풍???�치 조정
 		local changevalue = tooltipframe:GetChild('changevalue');
 		local appraisalOffset = 0;
 		if showAppraisalPic == true then
@@ -326,7 +326,7 @@ function ITEMTOOLTIPFRAME_RESIZE(tooltipframe)
 
 end
 
---상점에서 가격 표시
+--?�점?�서 가�??�시
 function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
     
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
@@ -347,7 +347,7 @@ function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
 	local sellprice_text = GET_CHILD(tooltip_sellinfo_CSet,'sellprice','ui::CRichText')
 	sellprice_text:SetTextByKey("silver", geItemTable.GetSellPrice(itemProp) );
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- �??�랫�??�백
 	tooltip_sellinfo_CSet:Resize(tooltip_sellinfo_CSet:GetWidth(),tooltip_sellinfo_CSet:GetHeight() + BOTTOM_MARGIN);
 
 	local height = gBox:GetHeight() + tooltip_sellinfo_CSet:GetHeight();
@@ -382,7 +382,7 @@ function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	lifeTime_text:RunUpdateScript("SHOW_REMAIN_LIFE_TIME");
 	end
 
-	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- �??�랫�??�백
 	tooltip_lifeTimeinfo_CSet:Resize(tooltip_lifeTimeinfo_CSet:GetWidth(),tooltip_lifeTimeinfo_CSet:GetHeight() + BOTTOM_MARGIN);
 	
 	local height = gBox:GetHeight() + tooltip_lifeTimeinfo_CSet:GetHeight();
@@ -423,7 +423,7 @@ function GET_ITEM_TOOLTIP_DESC(obj)
 	return invDesc;
 end
 
--- propNameList만 가져오는 함수. 만일 툴팁이나 기타 등등에 아이템의 옵션을 표시할 때 옵션값들을 하나의 통합된 string 형태가 아니라 그냥 리스트로 가져오고 싶을 때 활용.
+-- propNameList�?가?�오???�수. 만일 ?�팁?�나 기�? ?�등???�이?�의 ?�션???�시?????�션값들???�나???�합??string ?�태가 ?�니??그냥 리스?�로 가?�오�??�을 ???�용.
 function GET_ITEM_PROP_NAME_LIST(obj) 
 
 	local tooltipValue = TryGetProp(obj, "TooltipValue");
@@ -465,7 +465,7 @@ function GET_ITEM_DESC_BY_TOOLTIP_VALUE(obj)
 			resultMsg = title;
 		else
 			if propName == "CoolDown" then
-				propValue = propValue / 1000;
+				propValue = math.floor(propValue / 1000);
 				 resultMsg = ScpArgMsg("CoolDown : {Sec} Sec",'Sec', propValue);
 			else
 				if useOperator ~= nil and propValue > 0 then
@@ -515,7 +515,7 @@ function CLOSE_ITEM_TOOLTIP()
 end
 
 
--- ???�수???�크�??�이?�도 ?�시?????�용?�니??
+-- ???�수???�크�??�이?�도 ?�시?????�용?�니??
 function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
 	
 	if className == 'Scroll_SkillItem' then
@@ -561,7 +561,7 @@ function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)
 	return 1;
 end
 
--- 마켓?�에??묘사?�서 ?�킬�??�오?�록
+-- 마켓?�에??묘사?�서 ?�킬�??�오?�록
 function SET_ITEM_DESC(value, desc, item)
 	if desc == "None" then
 		desc = "";

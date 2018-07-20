@@ -15,6 +15,7 @@ function ITEM_TOOLTIP_HETHRAN(tooltipframe, invitem, num1, usesubframe)
 	ypos = DRAW_HETHRAN_PROPRTY(tooltipframe, invitem, ypos, mainframename); -- 쿨다운은 몇초입니다. 그런것들?
 	ypos = DRAW_HETHRAN_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
 	ypos = DRAW_HETHRAN_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바	
+    ypos = DRAW_HETHRAN_TRADABILITY(tooltipframe, invitem, ypos, mainframename) -- 거래 제한
 	local isHaveLifeTime = TryGetProp(invitem, "LifeTime");	
 	if 0 == isHaveLifeTime then
 		ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
@@ -66,25 +67,9 @@ function DRAW_HETHRAN_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local fullname = GET_FULL_NAME(invitem, true);
 	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
-
-	-- 아이템 유저 거래 유무 세팅
-	local trade_richtext = GET_CHILD(CSet, "trade_text", "ui::CRichText");
-	local tradeText = "";
 	local noTrade_cnt = GET_CHILD(CSet, "noTrade_cnt", "ui::CRichText");
-	local noTradeCount = TryGetProp(invitem, "BelongingCount");
-	if nil ~= noTradeCount and 0 > noTradeCount then
-		noTradeCount = 0
-	end
-	noTrade_cnt:SetTextByKey('count', noTradeCount);
+	noTrade_cnt:ShowWindow(0);
 
-	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-   	tradeText = GET_ENABLE_TRADE_MSG(itemProp);
-	if itemProp == nil or itemProp:IsEnableUserTrade() ~= true then
-		if nil ~= noTrade_cnt then
-			noTrade_cnt:ShowWindow(0);
-		end
-    end
-	trade_richtext:SetText(tradeText);
 
 	-- 아이템 종류 세팅
 	local type_richtext = GET_CHILD(CSet, "type_text", "ui::CRichText");
@@ -96,6 +81,24 @@ function DRAW_HETHRAN_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
 	return CSet:GetHeight();
+end
+
+function DRAW_HETHRAN_TRADABILITY(tooltipframe, invitem, yPos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_hethran_tradability');
+	
+	local CSet = gBox:CreateControlSet('tooltip_hethran_tradability', 'tooltip_hethran_tradability', 0, yPos);
+	tolua.cast(CSet, "ui::CControlSet");
+
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_npc', 'option_npc_text', 'ShopTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_market', 'option_market_text', 'MarketTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_teamware', 'option_teamware_text', 'TeamTrade')
+	TOGGLE_TRADE_OPTION(CSet, invitem, 'option_trade', 'option_trade_text', 'UserTrade')
+    
+    local bottomMargin = CSet:GetUserConfig("BOTTOM_MARGIN");
+	CSet:Resize(CSet:GetWidth(), CSet:GetHeight() + bottomMargin)
+	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + CSet:GetHeight())
+	return yPos + CSet:GetHeight();
 end
 
 -- 쿨타임등 표시

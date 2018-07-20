@@ -313,7 +313,7 @@
 		<Class ClassID="4133" ClassName="CannotReinforceAndTranscendBy{BUFFNAME}" Data="{BUFFNAME} 적용 중에는 강화 또는 초월할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
-		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
+		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
 		<Class ClassID="5003" ClassName="WhenEquipToSubWeapon" Data="보조 장비 장착 시 효과"/>
 		<Class ClassID="5004" ClassName="WhenEquipToShirtsOrPants" Data="상의, 하의 장착 시 효과"/>
@@ -813,6 +813,7 @@
 		<Class ClassID="10457" ClassName="OnlyTokenUserAbilCount" Data="토큰 이용자만 특성 레벨을 한번에 올릴 수 있습니다."/>
 		<Class ClassID="10458" ClassName="ShopNameMustLongerThen{ENG_LEN}{KOR_LEN}" Data="상점 이름은 최대 한글 {KOR_LEN}자,{nl}영문 {ENG_LEN}자 이내 이어야 합니다."/>
 		<Class ClassID="10459" ClassName="ApprisePriceMustLowerThan{PRICE}" Data="감정 비용은 {PRICE} 실버 이하 이어야 합니다."/>
+		<Class ClassID="10460" ClassName="TeamWarehouseEnable" Data="팀 창고 이용 가능"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -5164,7 +5165,7 @@
 		<Class ClassID="80225" ClassName="FARM49_3_SQ08_OBJ2_MSG3" Data="희귀한 꽃을 채집하였습니다!"/>
 		<Class ClassID="80226" ClassName="THORN39_2_SQ07_OBJ1_MSG1" Data="함정을 확인하는 중"/>
 		<Class ClassID="80227" ClassName="THORN39_1_SQ04_MSG1" Data="향수를 뿌리는 중"/>
-		<Class ClassID="80228" ClassName="THORN39_1_SQ04_MSG2" Data="펜드로시움이 기절했습니다!{nl}어서 꿀을 채집하세요!"/>
+		<Class ClassID="80228" ClassName="THORN39_1_SQ04_MSG2" Data="팬드로시움이 기절했습니다!{nl}어서 꿀을 채집하세요!"/>
 		<Class ClassID="80229" ClassName="THORN39_1_SQ04_MSG3" Data="꿀을 채집하는 중"/>
 		<Class ClassID="80230" ClassName="THORN39_1_SQ04_MSG4" Data="꿀 채집을 성공했습니다!"/>
 		<Class ClassID="80231" ClassName="THORN39_1_SQ04_MSG5" Data="꿀을 모두 채집했습니다!"/>
@@ -9550,6 +9551,9 @@
 		<Class ClassID="306010" ClassName="ENCHANTARMOR_BLESSING_DESC" Data="1% 확률로 적의 공격 무효"/>
 		<Class ClassID="306011" ClassName="ENCHANTARMOR_HOLY_DESC" Data="성직자의 버프 지속시간이 5% 증가(주문판매상점 제외)"/>
 		<Class ClassID="306012" ClassName="ENCHANTARMOR_VOLITIVE_DESC" Data="자신의 정신 스탯 20 당 체력 스탯 1의 포인트 획득"/>
+	</Category>
+	<Category Name="Test_Server">
+		<Class ClassID="310000" ClassName="TEST_SERVER_GM" Data="큐폴 서버 지원병"/>
 	</Category>
 	<Category Name="GLOBAL">
 		<Class ClassID="500001" ClassName="EXPCARD_COMPANION_FAIL" Data="함께하고 있는 컴패니언 레벨이 낮아 사용할 수 없습니다."/>

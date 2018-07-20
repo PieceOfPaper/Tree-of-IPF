@@ -43,9 +43,12 @@ function UPDATE_ARTICLE_Item(ctrlset)
 
 	local infoGbox = GET_CHILD(ctrlset, "infoGbox");	
 	infoGbox:SetOffset(infoGbox:GetOffsetX(), titleText:GetY() + titleText:GetHeight());
+
+    local gender = info.GetGender(session.GetMyHandle());
+    local iconImage = GET_ITEM_ICON_IMAGE(cls, gender);
 	local icon = GET_CHILD(ctrlset, "icon", "ui::CPicture");
-	icon:SetImage(cls.Icon);
-	icon:SetEnableStretch(1)
+	icon:SetImage(iconImage);
+	icon:SetEnableStretch(1);
 
 	SET_ITEM_TOOLTIP_TYPE(icon, cls.ClassID, cls);
 	icon:SetTooltipArg('', cls.ClassID, 0);

@@ -525,6 +525,8 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 
 	if mainName ~= "None" then
 		text:SetText(mapNameFont..mainName);
+        totalCtrlHeight = totalCtrlHeight + text:GetHeight();
+        maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, text:GetWidth());
 	else
 		if mapName ~= mapCls.ClassName and nowMapWorldPos[1] == x and nowMapWorldPos[2] == y then
 			local nowmapLv = nowMapIES.QuestLevel

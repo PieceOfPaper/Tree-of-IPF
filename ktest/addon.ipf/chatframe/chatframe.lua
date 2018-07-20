@@ -160,8 +160,7 @@ function _ADD_GBOX_OPTION_FOR_CHATFRAME(gbox)
 		gbox:ShowWindow(1)
 	end
 
-
-	local opacity = config.GetConfigInt("CHAT_OPACITY", 255);
+    local opacity = session.chat.GetChatUIOpacity()
 	local colorToneStr = string.format("%02X", opacity);				
 	colorToneStr = colorToneStr .. "FFFFFF";
 

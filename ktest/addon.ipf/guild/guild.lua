@@ -359,6 +359,8 @@ function UPDATE_GUILDINFO(frame)
 
 	local showOnlyConnected = config.GetXMLConfig("Guild_ShowOnlyConnected");
 
+    IMC_WARNING("ERRCODE_INFO_NORMAL", "[count:"..tostring(count));
+
 	local connectionCount = 0;
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
@@ -372,6 +374,8 @@ function UPDATE_GUILDINFO(frame)
 			local txt_location = ctrlSet:GetChild("txt_location");
 			txt_teamname:SetTextByKey("value", partyMemberInfo:GetName());
 			txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
+
+            IMC_WARNING("ERRCODE_INFO_NORMAL", "[name:"..partyMemberInfo:GetName());
 
 			local grade = partyMemberInfo.grade;
 			if leaderAID == partyMemberInfo:GetAID() then
@@ -438,6 +442,8 @@ function UPDATE_GUILDINFO(frame)
 	UPDATE_GUILD_WAR_INFO(frame, pcparty, partyObj);
 	
 	UPDATE_GUILD_EVENT_INFO(frame, pcparty, partyObj);
+
+    SendSystemLog()
 end
 
 function GUILD_UPDATE_TOWERINFO(frame, pcparty, partyObj)

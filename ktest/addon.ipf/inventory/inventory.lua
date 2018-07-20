@@ -2005,7 +2005,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	if customFunc ~= nil then
 		customFunc(slot, scriptArg, invItem, itemobj);
 	end
-    
+
 	if itemobj.GroupName == 'Quest' then		
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
@@ -2015,10 +2015,14 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
     elseif invItem.hasLifeTime == true  then
         ICON_SET_ITEM_REMAIN_LIFETIME(icon)
         slot:SetFrontImage('clock_inven');
-	elseif invItem.isNew == true  then
-		slot:SetHeaderImage('new_inventory_icon');
 	else
 		slot:SetFrontImage('None');
+	end
+	
+	if invItem.isNew == true  then
+		slot:SetHeaderImage('new_inventory_icon');
+	else
+		slot:SetHeaderImage('None');
 	end
 	
 end

@@ -97,26 +97,34 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
+local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img teamcabinet_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("TeamWarehouseEnable")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
 	ADD_2PLUS_IMAGE(gBox)
 
 	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
-
+  -- 혹시나 저처럼 고생하시는 분이 생길가 적습니다. 해당 부분은 토큰의 실제 적용 시간에 여유분을 두기 때문에 UI 상 출력시간을 보정하는 곳입니다.
+  -- 여기 작성 안하면 계속 시간이 이상하게 나올거에요
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" then
 		arg1 = 2592000 --30일
-	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" then
+	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" or itemobj.ClassName == "PremiumToken_5d_event" then
 		arg1 = 432000 -- 5일
 	elseif itemobj.ClassName == "PremiumToken_1d" or itemobj.ClassName == "PremiumToken_7d_Steam" then
 		arg1 = 604800 -- 7일
 	elseif itemobj.ClassName == "PremiumToken_24h" then
 		arg1 = 86400 -- 1일
-	elseif itemobj.ClassName == "PremiumToken_3d" or itemobj.ClassName == "PremiumToken_3d_Steam" then
+	elseif itemobj.ClassName == "PremiumToken_3d" or itemobj.ClassName == "PremiumToken_3d_Steam" or itemobj.ClassName == "PremiumToken_3d_event" then
 		arg1 = 259200 -- 3일
 	elseif itemobj.ClassName == "PremiumToken_12h" then
 		arg1 = 43200 -- 12시간
 	elseif itemobj.ClassName == "PremiumToken_6h" then
 		arg1 = 21600 -- 6시간
-	elseif itemobj.ClassName == "PremiumToken_3h" then
+	elseif itemobj.ClassName == "PremiumToken_3h" or itemobj.ClassName == "PremiumToken_3h_event" then
 		arg1 = 10800 -- 3시간
 	elseif itemobj.ClassName == "PremiumToken_15d" or itemobj.ClassName == "PremiumToken_15d_Steam" then
 		arg1 = 1296000 -- 15일
