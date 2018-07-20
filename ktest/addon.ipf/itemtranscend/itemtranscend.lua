@@ -194,15 +194,15 @@ function SET_TRANSCEND_RESET(frame)
 	slot_material:ClearIcon();
 	slot_material:SetText("");
 		
-	local text_successratio = frame:GetChild("text_successratio");	
-	text_successratio:ShowWindow(0);
+	
 	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
 	text_bg:ShowWindow(0);
-
+--	local text_successratio = GET_CHILD_RECURSIVELY(frame, "text_successratio");
+--	text_successratio:ShowWindow(0);
 
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+--	reg:ShowWindow(0);
 end;
 
 -- ?�려?�있???�료 ?�이???�릭??
@@ -252,10 +252,11 @@ function UPDATE_TRANSCEND_ITEM(frame)
 	local materialItem = GET_SLOT_ITEM(slot_material);
 
 	local text_material = frame:GetChild("text_material");
-	local text_successratio = frame:GetChild("text_successratio");	
-	text_successratio:ShowWindow(0);
+
 	local text_bg = GET_CHILD_RECURSIVELY(frame, "text_bg")
 	text_bg:ShowWindow(0);
+	local text_successratio = GET_CHILD_RECURSIVELY(frame, "text_successratio");
+	text_successratio:ShowWindow(0);
 
 	local text_itemstar = frame:GetChild("text_itemstar");
 	local text_itemtranscend = frame:GetChild("text_itemtranscend");	
@@ -458,8 +459,8 @@ function TRANSCEND_SET_MATERIAL_ITEM(frame, iesID, count)
 	--SETTEXT_GUIDE(frame, 3, needTxt);
 	
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(1);
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+--	reg:ShowWindow(1);
 end
 
 
@@ -540,8 +541,8 @@ function _ITEMTRANSCEND_EXEC()
 	end
 	
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+--	reg:ShowWindow(0);
 
 	slot_material:StopActiveUIEffect();
 	local materialCount = slot_material:GetIcon():GetInfo().count;	
@@ -717,8 +718,8 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 			
 	
 	local gbox = frame:GetChild("gbox");
-	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);	
+	local reg = GET_CHILD_RECURSIVELY(gbox, "reg");
+--	reg:ShowWindow(0);	
 	
 	local invItem = GET_SLOT_ITEM(slot);
 	if invItem == nil then

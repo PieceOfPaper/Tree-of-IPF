@@ -1016,6 +1016,14 @@ function RamMuay_ENTER(actor, obj, buff)
     actor:SetAlwaysBattleState(true);
 end
 
+function RamMuay_UPDATE(actor, obj, buff)
+    local lhItem = session.GetEquipItemBySpot(item.GetEquipSpotNum("LH"));
+    local lhObj = GetIES(lhItem:GetObject());
+    if lhObj.ClassType == "Artefact" then
+        actor:ShowModelByPart("LH", 0, 0);
+    end
+end
+
 function RamMuay_LEAVE(actor, obj, buff)
     actor:SetAlwaysBattleState(false);
     actor:GetAnimation():SetChangeJumpAnim(false);

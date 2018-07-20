@@ -98,7 +98,7 @@
 		<Class ClassID="2039" ClassName="ItemWillBeDeleted_Continue?" Data="분해한 아이템은 삭제됩니다. 계속하시겠습니까?"/>
 		<Class ClassID="2040" ClassName="ReallyBreakTransendedItem?" Data="정말 초월된 아이템을 분해하시겠습니까?"/>
 		<Class ClassID="2041" ClassName="YouCanBreakOnlyTreancendedItem" Data="초월된 아이템만 분해가 가능합니다."/>
-		<Class ClassID="2042" ClassName="IfYouRemoveTranscend_YouCannotReceieveTranscendStones_Continue?" Data="초월을 제거하면 초월에 사용된 초월석을 돌려받을 수 없습니다. 계속하시겠습니까?"/>
+		<Class ClassID="2042" ClassName="IfYouRemoveTranscend_YouCannotReceieveTranscendStones_Continue?" Data="초월을 제거하면 초월에 사용된 축복석을 돌려받을 수 없습니다. 계속하시겠습니까?"/>
 		<Class ClassID="2043" ClassName="TranscendValueWillBeZero_Continue?" Data="초월수치가 초기화 됩니다. 계속하시겠습니까?"/>
 		<Class ClassID="2044" ClassName="TranscendRemove" Data="초월이 제거되었습니다."/>
 		<Class ClassID="2045" ClassName="YouCanRemoveOnlyTreancendedItem" Data="초월된 아이템만 제거가 가능합니다."/>
@@ -4459,7 +4459,7 @@
 		<Class ClassID="27760" ClassName="EVENT_1712_SECOND_MSG1" Data="2주년 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
 		<Class ClassID="27761" ClassName="EVENT_1712_SECOND_MSG2" Data="2주년 기념수의 축복 버프를 받는다"/>
 		<Class ClassID="27762" ClassName="EVENT_1712_SECOND_MSG3" Data="2주년 축제 교환 상점"/>
-		<Class ClassID="27765" ClassName="EVENT_1712_MORUKING_MSG1" Data="+{COUNT}강 네잎 클로버를 교환 하실 건가요?"/>
+		<Class ClassID="27765" ClassName="EVENT_1712_MORUKING_MSG1" Data="+{COUNT}강화 포텐셜: {PR} 네잎 클로버를 교환 하실 건가요?"/>
 		<Class ClassID="27766" ClassName="EVENT_1712_MORUKING_MSG2" Data="교환한다"/>
 		<Class ClassID="27767" ClassName="EVENT_1712_MORUKING_MSG3" Data="교환 안 한다"/>
 		<Class ClassID="27770" ClassName="EVENT_1712_XMAS_MSG1" Data="크리스마스 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
@@ -5358,14 +5358,14 @@
 		<Class ClassID="50553" ClassName="HIDDEN_CHAR120_MSTEP5_FAIL3" Data="너무 괴로워"/>
 		<Class ClassID="50554" ClassName="CHAR120_MSTEP5_5_FLOWER_NAME" Data="기린초"/>
 		<Class ClassID="50555" ClassName="CHAR120_MSTEP5_5_FLOWER2_NAME" Data="스타티스"/>
-		<Class ClassID="50556" ClassName="HIDDEN_CHAR120_MSTEP5_SEL1" Data="딸기 파이를 제단에 놓는다"/>
-		<Class ClassID="50557" ClassName="HIDDEN_CHAR120_MSTEP5_SEL2" Data="이사나를 제단 앞으로 부른다"/>
+		<Class ClassID="50556" ClassName="HIDDEN_CHAR120_MSTEP5_SEL1" Data="딸기 과자를 제단에 놓는다"/>
+		<Class ClassID="50557" ClassName="HIDDEN_CHAR120_MSTEP5_SEL2" Data="아사나를 제단 앞으로 부른다"/>
 		<Class ClassID="50558" ClassName="HIDDEN_CHAR120_MSTEP5_SEL3" Data="약을 제단에 놓는다"/>
-		<Class ClassID="50559" ClassName="HIDDEN_CHAR120_MSTEP5_SEL4" Data="나무 집을 제단에 놓는다"/>
-		<Class ClassID="50560" ClassName="HIDDEN_CHAR120_MSTEP5_SEL5" Data="선물을 제단에 놓는다"/>
+		<Class ClassID="50559" ClassName="HIDDEN_CHAR120_MSTEP5_SEL4" Data="집 조각상을 제단에 놓는다"/>
+		<Class ClassID="50560" ClassName="HIDDEN_CHAR120_MSTEP5_SEL5" Data="이오나가 준 상자를 제단에 놓는다"/>
 		<Class ClassID="50561" ClassName="CHAR120_MSTEP5_SEL1" Data="상태를 확인해본다"/>
 		<Class ClassID="50562" ClassName="CHAR120_MSTEP5_SEL2" Data="그냥 간다"/>
-		<Class ClassID="50563" ClassName="CHAR120_MSETP5_CHAT1" Data="도탁스에게 상황을 전달하기"/>
+		<Class ClassID="50563" ClassName="CHAR120_MSETP5_CHAT1" Data="에이만타스에게 상황을 전달하기"/>
 		<Class ClassID="50564" ClassName="CHAR120_MSTEP5_SEL3" Data="가만히 눈을 감고 따스함을 느껴본다"/>
 		<Class ClassID="50565" ClassName="CHAR120_MSTEP5_SEL4" Data="상황을 좀 더 파악을 해본다"/>
 		<Class ClassID="50566" ClassName="CHAR120_MSTEP5_1_SEL1" Data="재료를 전달한다"/>
@@ -5422,6 +5422,9 @@
 		<Class ClassID="50661" ClassName="CHAR120_MSTEP5_2_FEMALE_SEL1" Data="상황을 설명 해준다"/>
 		<Class ClassID="50662" ClassName="CHAR120_MSTEP5_2_FEMALE_SEL2" Data="괜찮으니 걱정하지 말라고 한다"/>
 		<Class ClassID="50663" ClassName="CHAR120_FEDIMIAN_DETECTIVE_SEL1" Data="아사나에 대해 묻는다"/>
+		<Class ClassID="50673" ClassName="HIDDEN_CHAR120_MSTEP5_2_COMP2" Data="엄마에요?"/>
+		<Class ClassID="50674" ClassName="HIDDEN_CHAR120_MSTEP5_2_COMP3" Data="그래. 우리 아가 잘 자라줬구나{nl}이제 편안히 눈을 감을 수 있겠구나"/>
+		<Class ClassID="50675" ClassName="HIDDEN_CHAR120_MSTEP5_2_COMP4" Data="엄마 보고 싶었어요{nl}엄마를 보기 위해 이곳까지 올 만큼 자랐어요.{nl}아버지와 저는 걱정하지 마시고 편안히 가세요"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
