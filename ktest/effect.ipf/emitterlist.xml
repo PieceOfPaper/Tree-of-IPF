@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <EmitterList>
+	<battle name="E_daggerFinish" filename="E_daggerFinish" loop="false" nodecount="2" xml="E_daggerFinish.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_wizard_refrigerwaves_shot_ground_new" filename="E_wizard_refrigerwaves_shot_ground_new" loop="false" nodecount="6" xml="E_wizard_refrigerwaves_shot_ground_new.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_Khaoloi_hit" filename="E_warrior_Khaoloi_hit" loop="false" nodecount="2" xml="E_warrior_Khaoloi_hit.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_Khaoloi_dash" filename="E_warrior_Khaoloi_dash" loop="false" nodecount="2" xml="E_warrior_Khaoloi_dash.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_warrior_TridentFinish" filename="E_warrior_TridentFinish" loop="false" nodecount="2" xml="E_warrior_TridentFinish.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

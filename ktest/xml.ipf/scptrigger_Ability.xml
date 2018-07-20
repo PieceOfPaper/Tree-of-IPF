@@ -425,8 +425,15 @@
 					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
 						<Str Str="S"/>
 					</ToolScp>
+					<ToolScp Scp="SPCI_COND_CHECK_BY_SCRIPT" Client="NO" UseSleep="NO">
+						<Str Str="SCR_MUSKETEER_ABIL_Musketeer1_ZONE_CHECK"/>
+					</ToolScp>
 				</CondList>
 				<ExecList>
+					<ToolScp Scp="SPCI_TARGET_SET_EXPROP_NUM" Client="NO" UseSleep="NO">
+						<Str Str="UNLIMIT_MAX_DAMAGE"/>
+						<Num Num="1"/>
+					</ToolScp>
 					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
 						<Num Num="1" UseFunc="1" FuncTxt="return targetObj.HP"/>
 					</ToolScp>

@@ -31,11 +31,11 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 end
 
 function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame)
-    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
+	local obj = GetIES(invItem:GetObject());	
+    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(obj) == false then
         return;
     end
 
-	local obj = GetIES(invItem:GetObject());	
 	if CHECK_EMPTYSLOT(frame, obj) == 1 then
 		return
 	end
@@ -132,11 +132,12 @@ function EXEC_PUT_TO_ACCOUNT_WAREHOUSE(iesID, count, handle)
 end
 
 function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
-    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
-        return;
-    end
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
+	local insertItem = GetObjectByGuid(iesid);
+    if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(insertItem) == false then
+        return;
+    end
 	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
 end
 
@@ -416,7 +417,7 @@ function ACCOUNT_WAREHOUSE_INV_RBTN(itemObj, slot)
 	end
 end
 
-function CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT()
+function CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(insertItem)
     local account = session.barrack.GetMyAccount();
 	local slotCount = account:GetAccountWarehouseSlotCount();
     local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);
@@ -425,9 +426,15 @@ function CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT()
 	while itemList:InvalidIndex() ~= index do
 		local invItem = itemList:Element(index);
 		local obj = GetIES(invItem:GetObject());
-		if obj.ClassName ~= MONEY_NAME then
-            itemCnt = itemCnt + 1;
-        end
+		if insertItem == nil then
+		    if obj.ClassName ~= MONEY_NAME then
+                itemCnt = itemCnt + 1;
+		    end
+		else
+		    if obj.ClassName ~= MONEY_NAME and insertItem.ClassName ~= obj.ClassName then
+                itemCnt = itemCnt + 1;
+		    end
+		end
 		index = itemList:Next(index);
 	end
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by josungkwan (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
 	<Code Code="FATAL_ASSERT_EX" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다. 다음 정보를 참조하세요."/>
@@ -522,4 +522,5 @@
 	<Code Code="ERROR_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 에러"/>
 	<Code Code="WARNING_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 경고"/>
 	<Code Code="INFO_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="NO" CallStack="NO" Desc="길드 이벤트 정보"/>
+	<Code Code="ANYONE_SKILL" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="AnyoneSkill 로 없는 스킬을 배워버리는 문제 확인용 로그"/>	<Code Code="WARNING_PACKET_LEN" Team="PROGRAM" Category="SYSTEM" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 길이 관련 예외처리함"/>
 </imcErrorCode>

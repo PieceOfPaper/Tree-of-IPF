@@ -10,10 +10,10 @@
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="20053" Pos="-62.54#162.77#-94.55" angle="50" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="154023" Pos="-52.93#105.32#-1227.33" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="154029" Pos="-99.54#105.32#-1231.40" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="154028" Pos="-291.65#95.39#-1158.45" genCount="1" genTime="20000" objectKey="3"/>
-                    <Obj Type="Monster" MonType="154027" Pos="-6.25#105.32#-1240.20" angle="180" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="154023" Pos="-52.93#105.32#-1227.33" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="154029" Pos="-99.54#105.32#-1231.40" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="154028" Pos="-291.65#95.39#-1158.45" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="154027" Pos="-6.25#105.32#-1240.20" angle="180" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="sec10">
@@ -197,7 +197,7 @@
                     <Obj Type="Monster" MonType="155105" Pos="319.88#187.38#-156.26" genCount="1" genTime="20000" objectKey="6"/>
                     <Obj Type="Monster" MonType="155105" Pos="320.65#187.38#-718.55" genCount="1" genTime="20000" objectKey="7"/>
                     <Obj Type="Monster" MonType="155105" Pos="596.67#187.38#-437.86" genCount="1" genTime="20000" objectKey="8"/>
-                    <Obj Type="Monster" MonType="705016" Pos="321.12#187.38#-430.59" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; ">
+                    <Obj Type="Monster" MonType="705016" Pos="321.12#187.38#-430.59" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;Neutral&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
                 </ObjList>
@@ -249,7 +249,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="bossCheck">
+                    <Event execCount="1" eventName="bossCheck">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="s1clear"/>
@@ -276,6 +276,10 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="SettingStage/0"/>
                                 <Str Str="SCR_GM_CASTLE_01_BOSS_CHECK_HOOK"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_BTREE" Client="NO" UseSleep="NO">
+                                <MGameObj List="SettingStage/0"/>
+                                <Str Str="GMB_boss_Torment"/>
                             </ToolScp>
                         </execList>
                     </Event>

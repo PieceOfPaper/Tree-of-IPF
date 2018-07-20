@@ -94,6 +94,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 110015,0,0,"INGAMESHOP_CONSUME_FORCE_RESULT","0일경우 사용하지 않음, 1일 경우 항상 실패, 2일 경우 항상 성공. 구매 요청 통신 실패 시의 정상작동 여부를 검사하기 위해 사용됩니다.","NO"
 110017,0,0,"FORCE_DB_LOGIN","이 값을 1로 두면 설정된 국가 옵션에 관계없이 무조건 DB로그인(사내서버처럼)합니다","NO"
 110018,0,0,"STEAM_INV_LIST_LOAD_BY_FILE","이 값을 1로 두면 스팀 인벤토리 리스트를 가져올 떄 스팀 서버와의 통신 대신 release\steamInvList.txt 파일을 읽어와서 사용합니다.","NO"
+110020,1,0,"USE_REAL_NGS","4.0버전NGS","NO"
 120000,0.700000,0,"HITDELAY_COLOR","히트시에PC몸체컬러 (0~1.0)","NO"
 120001,10,0,"SHADOW_DOFFSET","그림자, 스킬 이펙트 * offset","NO"
 130000,0,0,"Color_Friend","{#33FF33}","NO"

@@ -68,3 +68,14 @@ function SCR_3CMLAKE_BOMB_DEVICE_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+
+function SCR_F_3CMLAKE_26_1_COLLECTION_OBJ_PRE_DIALOG(pc, dialog)
+    local sObj = GetSessionObject(pc, 'SSN_COLLECT_312')
+    if sObj ~= nil then
+        if sObj.Goal1 == 0 or sObj.Goal2 == 0 or sObj.Goal3 == 0 then
+            return 'YES'
+        end
+    end
+    return 'NO'
+end

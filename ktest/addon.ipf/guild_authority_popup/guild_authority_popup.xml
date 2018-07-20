@@ -16,7 +16,7 @@
 		<groupbox name="headerBox" rect="0 0 320 40" margin="0 10 0 0" layout_gravity="center top" skin="market_listbase"/>
 		<richtext name="inviteText" rect="0 0 100 30" parent="headerBox" margin="35 0 0 0" layout_gravity="left center" caption="가입" fontname="black_18"/>
 		<richtext name="outText" rect="0 0 100 30" parent="headerBox" margin="0 0 0 0" layout_gravity="center center" caption="추방" fontname="black_18"/>
-		<richtext name="eventText" rect="0 0 100 30" parent="headerBox" margin="0 0 25 0" layout_gravity="right center" caption="이벤트" fontname="black_18"/>
+		<richtext name="eventText" rect="0 0 100 30" parent="headerBox" margin="0 0 25 0" layout_gravity="right center" caption="퀘스트" fontname="black_18"/>
 		<groupbox name="authBox" rect="0 0 320 555" margin="0 50 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
 	</controls>
 </uiframe>

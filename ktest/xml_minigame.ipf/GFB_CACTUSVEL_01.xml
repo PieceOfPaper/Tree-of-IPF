@@ -164,7 +164,9 @@
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -182,7 +184,7 @@
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
-                    <Event eventName="reward">
+                    <Event execCount="1" eventName="reward">
                         <execList>
                             <ToolScp Scp="MGAME_GUILD_REWARD" Client="NO" UseSleep="NO"/>
                         </execList>
@@ -197,7 +199,9 @@
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

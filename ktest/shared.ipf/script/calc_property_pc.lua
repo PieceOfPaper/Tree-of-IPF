@@ -697,6 +697,10 @@ function SCR_Get_MINPATK(self)
         value = maxPATK;
     end
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -770,6 +774,10 @@ function SCR_Get_MAXPATK(self)
     
     value = value + byBuff + byRateBuff;
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -842,6 +850,10 @@ function SCR_Get_MINPATK_SUB(self)
         value = maxPATK_SUB;
     end
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -908,6 +920,10 @@ function SCR_Get_MAXPATK_SUB(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+    
+    if value < 1 then
+    	value = 1;
+    end
     
     return math.floor(value);
 end
@@ -981,6 +997,10 @@ function SCR_Get_MINMATK(self)
         value = maxMATK;
     end
     
+    if value < 1 then
+    	value = 1;
+    end
+    
     return math.floor(value);
 end
 
@@ -1047,6 +1067,10 @@ function SCR_Get_MAXMATK(self)
     byRateBuff = math.floor(value * byRateBuff);
     
     value = value + byBuff + byRateBuff;
+    
+    if value < 1 then
+    	value = 1;
+    end
     
     return math.floor(value);
 end

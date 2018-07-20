@@ -281,12 +281,6 @@
                 </StageEvents>
             </Stage>
             <Stage Name="START" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="426.61548" Y="135.0515" Z="-758.69824" Random="30"/>
-                        <Str Str="STAGE_1"/>
-                    </ToolScp>
-                </StartScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event eventName="pcCheck">
@@ -322,18 +316,10 @@
                         <Str Str="stage_start"/>
                         <Num Num="10"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="120.62758" Y="135.45151" Z="-124.49043" Random="40"/>
-                        <Str Str="STAGE_2"/>
-                    </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_1"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="109.66655" Y="135.45151" Z="217.99942" Random="40"/>
-                        <Str Str="STAGE_2"/>
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
@@ -473,9 +459,6 @@
             </Stage>
             <Stage Name="STAGE_2" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_2"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="판토를 불러들이는 [판토 토템]을 파괴하세요!"/>
                         <Str Str="stage_start"/>
@@ -488,10 +471,6 @@
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_2"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="556.41785" Y="135.45151" Z="330.53259" Random="30"/>
-                        <Str Str="STAGE_3"/>
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
@@ -760,9 +739,6 @@
             </Stage>
             <Stage Name="STAGE_3" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_3"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="맹공의 비테레지나 처치"/>
                     </ToolScp>
@@ -773,13 +749,6 @@
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="838.01373" Y="154.83601" Z="454.00595" Random="40"/>
-                        <Str Str="STAGE_4"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_3"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_3"/>
                     </ToolScp>
@@ -839,9 +808,6 @@
             </Stage>
             <Stage Name="STAGE_4" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_4"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="소름끼치는 채퍼리션 처치"/>
                     </ToolScp>
@@ -854,10 +820,6 @@
                 <CompleteScpList>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_4"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="521.97467" Y="233.61458" Z="973.62524" Random="30"/>
-                        <Str Str="STAGE_5"/>
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
@@ -1125,9 +1087,6 @@
             </Stage>
             <Stage Name="STAGE_5" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_5"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="판토 토템 모두 파괴"/>
                     </ToolScp>
@@ -1138,10 +1097,6 @@
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="-697.04358" Y="338.02151" Z="481.93127" Random="30"/>
-                        <Str Str="STAGE_6"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_5"/>
                     </ToolScp>
@@ -1507,9 +1462,6 @@
             </Stage>
             <Stage Name="STAGE_6" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_6"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="위태로운 클라이멘 처치"/>
                     </ToolScp>
@@ -1520,17 +1472,13 @@
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="-774.0423" Y="338.02151" Z="-258.8978" Random="30"/>
-                        <Str Str="STAGE_7"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_6"/>
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="147377" Pos="-676.76#338.02#501.02" angle="-133" genCount="1" maxStackCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
-                    <Obj Type="Monster" MonType="147377" Pos="-875.17#338.02#-31.17" angle="110" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="147377" Pos="-869.13#338.02#-11.70" angle="110" genCount="1" maxStackCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
                     <Obj Type="Monster" MonType="705004" Pos="-914.11#338.02#139.24" angle="53" genCount="1" maxStackCount="1" genTime="10000" objectKey="2" propList="&apos;StatType&apos; &apos;906&apos; " tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
@@ -1586,9 +1534,6 @@
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="120"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_7"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="판토들로부터 나모트 결계를  지켜내세요!"/>
                         <Str Str="stage_start"/>
@@ -1599,10 +1544,6 @@
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="122.63274" Y="135.05151" Z="-670.14478" Random="40"/>
-                        <Str Str="STAGE_8"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
                         <Str Str="STAGE_7"/>
                     </ToolScp>
@@ -1842,6 +1783,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="obstacle"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_7"/>
                             </ToolScp>
@@ -1867,9 +1811,6 @@
             </Stage>
             <Stage Name="STAGE_8" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="STAGE_8"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="음산한 초록 우드스피릿을 처치하세요!"/>
                         <Str Str="stage_start"/>
@@ -2099,6 +2040,11 @@
                         </execList>
                     </Event>
                 </StageEvents>
+            </Stage>
+            <Stage Name="obstacle" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="147377" Pos="525.39#135.45#343.69" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                </ObjList>
             </Stage>
         </StageList>
         <WorldInitList>

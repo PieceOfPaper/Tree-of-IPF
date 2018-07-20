@@ -179,6 +179,7 @@ function GUILD_EVENT_POPUP_UI_RELOCATION(frame)
 	local backG = GET_CHILD(frame, "bg");
 	backG:SetPos(backG:GetX(), nHeight);
 	backG:Resize(backG:GetWidth(), frame:GetHeight() - nHeight - 20);
+	backG:SetScrollBar(backG:GetHeight());
 end;
 function GUILDEVENTPOPUP_SET_PARTICIPANTS(frame)
 	local participantCount = 0;
@@ -190,20 +191,15 @@ function GUILDEVENTPOPUP_SET_PARTICIPANTS(frame)
 	local groupbox_1 = GET_CHILD(frame, "groupbox_1");
 	local txt_joined_member = GET_CHILD(backG, "txt_joined_member");
 	local bgAccept = GET_CHILD(backG, "bgAccept");
-	local nHeight = txt_joined_member:GetY();
 	local memberCount = GET_CHILD(groupbox_1, "memberCount");
 	memberCount:SetTextByKey("value", participantCount)
 	memberCount:SetTextByKey("value2", session.party.GetAliveMemberCount(PARTY_GUILD))
 	local strMember = string.format("%s/%s{/}", participantCount, session.party.GetAliveMemberCount(PARTY_GUILD));	
 	txt_joined_member:SetTextByKey("value", strMember);
-	nHeight = nHeight + txt_joined_member:GetHeight();
+	local nHeight = txt_joined_member:GetY() + txt_joined_member:GetHeight();
 	bgAccept:SetPos(bgAccept:GetX(), nHeight);
 
 	GUILD_EVENT_POPUP_SET_UICONTROLSET(bgAccept, frame:GetUserConfig("AGREE_MEMBER_FACE_COLORTONE"), frame:GetUserConfig("AGREE_MEMBER_NAME_FONT_COLORTAG"));
-
-	nHeight = nHeight + bgAccept:GetHeight() + 15;
-	backG:SetScrollBar(backG:GetHeight());
-	
 	GUILD_EVENT_POPUP_UI_RELOCATION(frame);
 end;
 
