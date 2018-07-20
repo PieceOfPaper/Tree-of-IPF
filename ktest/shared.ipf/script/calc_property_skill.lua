@@ -4079,7 +4079,7 @@ end
 function SCR_Get_SkillFactor_ScatterCaltrop(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = skill.SklFactor
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
     local abil = GetAbility(pc, "QuarrelShooter11")      -- Skill Damage add
     if abil ~= nil then
@@ -4122,6 +4122,10 @@ function SCR_Get_SkillFactor_StoneShot(skill)
 
     return math.floor(value)
 
+end
+function SCR_GET_StonePicking_Ratio(skill)
+    local value = skill.Level
+    return value
 end
 
 function SCR_GET_StoneShot_Ratio(skill)
@@ -5232,9 +5236,12 @@ end
 function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Schwarzereiter13");
-    local value = 30 + (skill.Level -1) * 5 + abil.Level * 0.5
-
-    return value ;
+    local value = 30 + (skill.Level -1) * 5;
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level * 0.5
+    end
+    
+    return value;
 end
 
 
@@ -6553,7 +6560,7 @@ function SCR_Get_SkillFactor_PsychicPressure(skill)
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
-
+    
     return math.floor(value)
 
 end
@@ -9026,7 +9033,7 @@ end
 function SCR_Get_SkillFactor_MagnusExorcismus(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = skill.SklFactor
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
 
     local abil = GetAbility(pc, "Chaplain3")      -- Skill Damage add
     if abil ~= nil then
@@ -12269,7 +12276,7 @@ function SCR_GET_Heal_Ratio(skill)
     end
     
     local value = (pcINT + pcMNA) * 2;
-
+    
     return math.floor(value);
 end
 
@@ -12286,7 +12293,12 @@ function SCR_GET_Heal_Ratio2(skill)
     end
     
     local value = (pcINT + pcMNA) * 3;
+    
+    return math.floor(value);
+end
 
+function SCR_GET_Heal_Ratio3(skill)
+    local value = skill.Level
     return math.floor(value);
 end
 
@@ -13197,7 +13209,7 @@ function SCR_Get_SwellRightArm_Ratio(skill)
     
     local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState then
-        value = value + Thaumaturge14_abil.Level * 3
+        value = value * (1 + (Thaumaturge14_abil.Level * 0.01))
     end
     
     return math.floor(value)
@@ -13425,7 +13437,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --  local sklFactor = skill.SklFactor;
 --  if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --      local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??거 무르밀??리밸??싱 ??때 ??시 --
+--      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
 --  end
     
     local def = lhEquipWeapon.DEF;
@@ -13615,7 +13627,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
     if skill.GemLevel_BM > 0 then
-        value = value + 1;  -- 몬스????????보?????중첩?????무조??+1??????????
+        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
     end
 
     if skill.LevelByDB == 0 then

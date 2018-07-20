@@ -1,4 +1,4 @@
-g_reserve_reset = 0;
+﻿g_reserve_reset = 0;
 MAX_INV_COUNT = 4999;
 
 function STATUS_ON_INIT(addon, frame)
@@ -694,8 +694,8 @@ function SETEXP_SLOT(gbox)
     else
         serverExpupValue = JAEDDURY_MON_EXP_RATE;
     end
+
     serverExpupValue = serverExpupValue * 100;
-    serverExpupValue = serverExpupValue - 100;
     serverExpupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, 'ExpUpStd', serverExpupValue);
     totalExpUpValue = totalExpUpValue + serverExpupValue;
 

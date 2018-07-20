@@ -175,7 +175,7 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
         return 0;
     end
     
-    local useMatCount = TryGetProp(itemObj,"Transcend_MatCount");
+    local useMatCount = TryGetProp(itemObj,"Transcend_SucessCount");
     if useMatCount == nil then
         return 0;
     end
