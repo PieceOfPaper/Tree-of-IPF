@@ -13772,7 +13772,7 @@ end
 function SCR_Get_SkillFactor_Blindside(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = skill.SklFactor
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
     local abil = GetAbility(pc, "Appraiser4")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
