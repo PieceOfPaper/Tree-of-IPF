@@ -236,7 +236,8 @@ function INVENTORY_OPEN(frame)
 	local minimapFrame = ui.GetFrame('minimap');
 	minimapFrame:ShowWindow(0);
 
-	INV_HAT_VISIBLE_STATE(frame);	
+	INV_HAT_VISIBLE_STATE(frame);
+	INV_HAIR_WIG_VISIBLE_STATE(frame);
 end
 
 function INVENTORY_CLOSE()
@@ -834,7 +835,6 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName)
 	local funcStr = frame:GetUserValue("SLOT_APPLY_FUNC");
 	if funcStr ~= "None" then
 		for i = 1 , #SLOTSET_NAMELIST do
-
 			local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 			for typeNo = 1, #g_invenTypeStrList do
 				local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
@@ -866,7 +866,6 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 		slot:SetText('', 'count', 'right', 'bottom', -2, 1);
 		slot:SetOverSound('button_cursor_over_3');
 		slot:ClearIcon()
-		
 	end
 end
 
@@ -1067,7 +1066,7 @@ function INIT_INVEN_SLOT(slot)
 	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
-	
+
 	slot:EnableHideInDrag(true)
 	slot:SetPickSound(picksound)
 	slot:SetDropSound(dropsound)
@@ -1773,7 +1772,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 			-- 상점 Sell Slot으로 다 넘긴다.
 			SHOP_SELL(invitem, invitem.count, frame);
 			return;
-		end
+        end
 	end
 
 	ui.SysMsg(ClMsg("CannoTradeToNPC"));
@@ -2120,7 +2119,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 			icon:SetColorTone("FFFF0000");		
 		end
 	end	
-	
+
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
 	
 	--아이템이 선택되었을 때의 스크립트를 선택한다
@@ -2152,14 +2151,16 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	elseif true == IS_TEMP_LOCK(frame, invItem) then
-		slot:SetFrontImage('item_Lock');
-    elseif invItem.hasLifeTime == true  then
-        ICON_SET_ITEM_REMAIN_LIFETIME(icon)
-        slot:SetFrontImage('clock_inven');
+		slot:SetFrontImage('item_Lock');    
 	else
 		slot:SetFrontImage('None');
 	end
-	
+
+    if invItem.hasLifeTime == true  then
+        ICON_SET_ITEM_REMAIN_LIFETIME(icon)
+        slot:SetFrontImage('clock_inven');
+    end
+			
 	if invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
 	elseif IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem) then
@@ -2168,7 +2169,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetHeaderImage('None');
 	end
 end
-	
+
 function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)
 	if invItem == nil then		
 		return;
@@ -2941,6 +2942,65 @@ function INV_HAT_VISIBLE_STEATE_SET(frame)
 	end
 
 	control.CustomCommand("HAT_VISIBLE_STATE", index);
+end
+
+
+function INV_HAIR_WIG_VISIBLE_STATE(frame)
+	if frame == nil then
+		frame = ui.GetFrame("inventory");
+	end
+	
+	local myPCetc = GetMyEtcObject();
+
+	local hairWig_Visible = myPCetc.HAIR_WIG_Visible
+	local hairWig = GET_CHILD_RECURSIVELY(frame, 'HAIR_WIG_Visible')
+
+	if hairWig_Visible == 1 then
+		hairWig:SetImage("inven_hat_layer_on");
+		hairWig:SetTextTooltip(ScpArgMsg('HAT_ON'))
+	else
+		hairWig:SetImage("inventory_hat_layer_off");
+		hairWig:SetTextTooltip(ScpArgMsg('HAT_OFF'))
+	end
+
+	local equipgroup = GET_CHILD(frame, 'equip', 'ui::CGroupBox')
+	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
+	local shihouette_imgname = ui.CaptureMyFullStdImage();
+	shihouette:SetImage(shihouette_imgname);
+
+	frame:Invalidate()
+end
+
+function INV_HAIR_WIG_VISIBLE_STATE_SET(frame)
+	if frame:GetUserIValue("CLICK_COOL_TIME") > imcTime.GetAppTime() then
+		return;	
+	end
+
+	frame:SetUserValue("CLICK_COOL_TIME", imcTime.GetAppTime() + 1);
+
+	local slotName = frame:GetName()
+	local topFrame = frame:GetTopParentFrame()
+
+	local myPCetc = GetMyEtcObject();
+
+	local visibleState = myPCetc["HAIR_WIG_Visible"]
+	if visibleState == 1 then
+		myPCetc["HAIR_WIG_Visible"] = 0;
+	else
+		myPCetc["HAIR_WIG_Visible"] = 1
+	end
+
+	local visibleBtnInfo = GET_CHILD_RECURSIVELY(frame, "HAIR_WIG_Visible")
+
+	if visibleState == 1 then
+		visibleBtnInfo:SetImage("inven_hat_layer_on");
+		ui.ChangeTooltipText(ScpArgMsg('HAT_OFF'))
+	else
+		visibleBtnInfo:SetImage("inventory_hat_layer_off");
+		ui.ChangeTooltipText(ScpArgMsg('HAT_ON'))
+	end
+
+	control.CustomCommand("HAIR_WIG_VISIBLE_STATE",0);
 end
 
 -- 기간제 아이템 판별 함수

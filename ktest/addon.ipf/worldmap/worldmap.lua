@@ -282,7 +282,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 		return;
 	end
 	
-	local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic" ,"ui::CPicture");
 	local type = frame:GetUserValue('Type');
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
@@ -315,14 +315,18 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 						picX = 0
 					end
 
-					local set = pic:CreateOrGetControlSet('warpAreaName', gBoxName, picX, picY);
+					local set = pic:GetControlSet('warpAreaName', gBoxName);
+					if set == nil then
+						set = pic:CreateControlSet('warpAreaName', gBoxName, picX, picY);
 					set = tolua.cast(set, "ui::CControlSet");
 					set:SetEnableSelect(1);
-					local nameRichText = GET_CHILD(set, "areaname", "ui::CRichText");
+
+						local nameRichText = GET_CHILD_RECURSIVELY(set, "areaname", "ui::CRichText");
 					nameRichText:SetTextByKey("mapname",mapCls.Name);
 				end
 			end
 		end
+	end
 	end
 
 	-- draw lobby map

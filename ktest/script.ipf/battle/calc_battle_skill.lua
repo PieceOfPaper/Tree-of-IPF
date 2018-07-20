@@ -149,7 +149,7 @@ function SCR_CALC_HATE_POINT(attacker, AddHatePoint, skill)
     if cardHateRate == nil then
         cardHateRate = 0;
     end
-    local buffHateRate = GetExProp(attacker, "BUFF_HATE_RATE");.
+    local buffHateRate = GetExProp(attacker, "BUFF_HATE_RATE");
     if buffHateRate == nil then
         buffHateRate = 0;
     end

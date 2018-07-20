@@ -22,7 +22,7 @@
 		<richtext name="tpText" rect="0 0 300 30" margin="0 140 60 0" layout_gravity="right top" format="{@st43}{s18}%s" param1="tp" param1_def="0"/>
 		<richtext name="enableTradeText" rect="0 0 300 30" margin="183 170 0 0" layout_gravity="left top" caption="거래 불가" fontname="brown_16"/>
 		<richtext name="countStaticText" rect="0 0 300 30" margin="183 195 0 0" layout_gravity="left top" caption="구매 수량" fontname="brown_16"/>
-		<edit name="textEdit" rect="0 0 100 30" margin="280 190 0 0" layout_gravity="left top" textalign="center center" fontname="white_18_ol" minnumber="0" numbermode="true" skin="test_weight_skin" caption="0"/>
+		<edit name="textEdit" rect="0 0 100 30" margin="280 190 0 0" layout_gravity="left top" textalign="center center" fontname="white_18_ol" minnumber="0" numbermode="true" skin="test_weight_skin" caption="0" typingscp="PACKAGELIST_EDIT_ON_TYPING"/>
 		<button name="upBtn" stretch="true" rect="0 0 60 60" margin="370 190 0 0" layout_gravity="left top" image="test_up_w_btn" oversound="button_over" LBtnUpScp="PACKAGELIST_UP_BTN_CLICK"/>
 		<button name="downBtn" stretch="true" rect="0 0 60 60" margin="370 205 0 0" layout_gravity="left top" image="test_down_w_btn" oversound="button_over" LBtnUpScp="PACKAGELIST_DOWN_BTN_CLICK"/>
 		<button name="basketBtn" rect="0 0 90 36" margin="0 188 46 0" layout_gravity="right top" skin="test_red_button" caption="{@st41b}{s16}{nl}담기" LBtnUpScp="PACKAGELIST_PUT_INTO_BASKET"/>

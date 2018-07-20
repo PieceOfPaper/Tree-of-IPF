@@ -2331,7 +2331,7 @@ function SCR_TEXT_HIGHLIGHT(dialogClassName, text)
 end
 
 function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-ddThh:mm:ss
-    local tIndex = string.find(dateString, 'T');
+    local tIndex = string.find(dateString, ' ');
     if tIndex == nil then
         return -1;
     end

@@ -121,7 +121,8 @@ function MGAME_QUEST_UPDATE(ctrlset)
 
 	for j = 0 , stageCnt - 1 do
 		local stageInfo = stageList:at(j);
-		local stageInstInfo = session.mgame.GetStageInst(stageInfo:GetStageName());
+		local stageName = stageInfo:GetStageName();
+		local stageInstInfo = session.mgame.GetStageInst(stageName);
 		if stageInstInfo ~= nil and 0 == stageInstInfo.isCompleted then
 			local monList = stageInfo:GetMonsterList();
 			local timeOut = stageInfo.timeOut;

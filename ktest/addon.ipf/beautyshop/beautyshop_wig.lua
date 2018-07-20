@@ -116,8 +116,7 @@ function WIGSHOP_GET_ITEM_EQUIPTYPE(Gender, ItemClassName)
     return nil
 end
 
-function WIGSHOP_POST_SELECT_ITEM(frame, ctrl)
-	
+function WIGSHOP_POST_SELECT_ITEM(frame, ctrl)	
 	local ctrlSet = ctrl:GetParent()
 	local gender = ctrlSet:GetUserIValue("GENDER")
 	local itemClassName = ctrlSet:GetUserValue("ITEM_CLASS_NAME")
@@ -128,12 +127,12 @@ function WIGSHOP_POST_SELECT_ITEM(frame, ctrl)
 	end
 	
 	--  자신의 apc와 아이템의 성별이 맞을 것.
-	local allowGender = BEAUTYSHOP_CHECK_MY_GENDER(gender)
+	local allowGender = BEAUTYSHOP_CHECK_MY_GENDER(gender)    
 	if allowGender == false then
 		return 
 	end
 	
-	local equipType = WIGSHOP_GET_ITEM_EQUIPTYPE(gender, itemClassName)	-- itemClassName을 가지고 equipType을 가져옴.
+	local equipType = WIGSHOP_GET_ITEM_EQUIPTYPE(gender, itemClassName)	-- itemClassName을 가지고 equipType을 가져옴.    
 	if equipType == nil then
 		return 
 	end
@@ -156,8 +155,7 @@ function WIGSHOP_POST_SELECT_ITEM(frame, ctrl)
 	end
 
 	-- slot에 정보 넣기	
-	slot:SetUserValue("TYPE", equipType)
-	
+	slot:SetUserValue("TYPE", equipType)	
 
 	-- 미리보기 슬롯에 넣기. (default 선택)
 	BEAUTYSHOP_PREVIEWSLOT_EQUIP(topFrame, slot, itemobj )

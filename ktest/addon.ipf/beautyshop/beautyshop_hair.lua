@@ -286,7 +286,9 @@ function HAIRSHOP_SET_HAIR_DYE(ctrlSet, hairInfo)
 	ctrlSet:SetUserValue("SUB_ITEM_GENDER", hairInfo.dye_gender)
 	ctrlSet:SetUserValue('IDSPACE', 'Hair_Dye_List');
 	ctrlSet:SetUserValue('SHOP_CLASSNAME', hairInfo.ClassName);
-    ctrlSet:SetUserValue('COLOR_CLASS_NAME', hairInfo.ColorClassName);
+	ctrlSet:SetUserValue('COLOR_CLASS_NAME', hairInfo.ColorClassName);
+	ctrlSet:SetUserValue('GENDER', hairInfo.dye_gender);
+
     
 	-- 가격 설정
 	local nxp = GET_CHILD_RECURSIVELY(ctrlSet,"nxp")
@@ -295,14 +297,14 @@ function HAIRSHOP_SET_HAIR_DYE(ctrlSet, hairInfo)
 		local beautyShopCls = GetClass('Hair_Dye_List', hairInfo.ColorClassName);
 		local style = '';
 		local originPrice = price;
-		local isSale_mark = GET_CHILD_RECURSIVELY(ctrlSet, 'isSale_mark');
+		local isSale_mark = GET_CHILD_RECURSIVELY(ctrlSet, 'isSale_mark');		
 		if beautyShopCls.PriceRatio > 0 then			
 			price = math.floor(price * (100 - beautyShopCls.PriceRatio) / 100);
-			style = parent:GetUserConfig('DISCOUNT_COLOR');
+			style = parent:GetUserConfig('DISCOUNT_COLOR')..'{cl}'..originPrice..'{/}{/} ';
 		else
 			isSale_mark:ShowWindow(0);
 		end
-		nxp:SetTextByKey("value", style..'{cl}'..originPrice..'{/}{/} {@st43}{s16}'..price);
+		nxp:SetTextByKey("value", style..'{@st43}{s16}'..price);
 	end
 	-- 장바구니 버튼에 컬러 이름 기록.
 	local btnToBasket = GET_CHILD_RECURSIVELY(ctrlSet, "btnToBasket");
@@ -717,10 +719,15 @@ function HAIRSHOP_DRAW_ITEM_DETAIL(obj, itemobj, ctrlset)
 	buyBtn:SetEventScriptArgString(ui.LBUTTONUP, itemClassName); --ItemClassName	
 end
 
-function BEAUTYSHOP_GET_HAIR_FULLNAME(name, itemClassName, colorName)
+function BEAUTYSHOP_GET_HAIR_FULLNAME(name, itemClassName, colorName, Gender)
+	local genderValue = Gender
+	if Gender == nil then
+		genderValue = beautyShopInfo.gender
+	end
+
     local ret = name;
     if colorName ~= nil and colorName ~= 'None' then
-        ret = ret..' + '..HAIRSHOP_GET_TRANSLATE_DYE_NAME(beautyShopInfo.gender, itemClassName, colorName);
+        ret = ret..' + '..HAIRSHOP_GET_TRANSLATE_DYE_NAME(genderValue, itemClassName, colorName);
     end
     return ret;
 end
@@ -738,7 +745,7 @@ function HAIRSHOP_POST_ITEM_TO_BASKET(ItemClassName, ItemClassID, slot, SubItemS
 
 	local name = TryGetProp(item, 'Name');
 	local icon = slot:GetIcon();
-    local hairFullName = BEAUTYSHOP_GET_HAIR_FULLNAME(name, ItemClassName, colorName);
+    local hairFullName = BEAUTYSHOP_GET_HAIR_FULLNAME(name, ItemClassName, colorName, nil);
 	icon:SetTextTooltip(hairFullName);
 	
 	slot:SetUserValue("COLOR_NAME",colorName )

@@ -32,7 +32,12 @@ end
 function CLIENT_GACHA_SCP(invItem)
 	local itemobj = GetIES(invItem:GetObject());
 	local gachaDetail = GetClass("GachaDetail", itemobj.ClassName);
-
+--    local zoneCheck = GetZoneName(pc)
+--    
+--    if zoneCheck == "c_barber_dress" then
+--        return 0;
+--    end
+    
 	if gachaDetail.PreCheckScp ~= "None" then
 		local scp = _G[gachaDetail.PreCheckScp];
 		if scp() == "NO" then

@@ -40,7 +40,7 @@ function BEAUTYSHOP_SIMPLELIST_UPDATE_SMALLMODE(frame, list)
             BEAUTYSHOP_CLEAR_SLOT(child)
         end
     end
-
+    
     for i = 1, #list do
         local itemCls = GetClass('Item', list[i]['ItemClassName']);
         local slot = GET_CHILD_RECURSIVELY(frame, 'slotPreview_'..list[i]['equipType']);
@@ -54,7 +54,8 @@ function BEAUTYSHOP_SIMPLELIST_UPDATE_SMALLMODE(frame, list)
         if colorName ~= nil and colorName ~= "None" and colorName ~= "default" then   
           BEAUTYSHOP_ADD_PALLETE_IMAGE(slot);
         end
-        local fullName = BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName);
+        local gender = list[i]['Gender']; 
+        local fullName = BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName,gender );
         icon:SetTextTooltip(fullName);
     end
 end
@@ -74,6 +75,7 @@ function BEAUTYSHOP_SIMPLELIST_TRANS_PURCHASE_ITEM_LIST(originList)
         -- ItemClassName을 ClassName으로 바꿔서 하나로 만든다.
         -- copy해야함.
         packageItemSet[v.ClassName] = {
+          Gender = v.Gender,
           IDSpace = v.IDSpace,
           ColorName = v.ColorName,
           ClassName= v.ClassName,
@@ -86,6 +88,7 @@ function BEAUTYSHOP_SIMPLELIST_TRANS_PURCHASE_ITEM_LIST(originList)
     else -- 아니면 그대로 list에 넣기(복사해야 원본 리스트를 변형 하지 않음.)
 
        local data = {
+        Gender = v.Gender,
          IDSpace = v.IDSpace,
          ColorName = v.ColorName,
          ClassName= v.ClassName,
@@ -188,7 +191,7 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
 
     local rtTitle = GET_CHILD(ctrlSet, 'rtTitle');
     local colorName = info['ColorName'];
-    rtTitle:SetText(BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName));
+    rtTitle:SetText(BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName, info.Gender));
   
     local pc = GetMyPCObject();
     local rtNxp = GET_CHILD(ctrlSet, 'rtNxp');
@@ -210,6 +213,11 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
     else
       rtNxp:SetText(price..' TP');
       totalPrice = price;
+    end
+
+    local dupText = GET_CHILD(ctrlSet, 'dupText');
+    if GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemCls.ClassName) == '' then
+      dupText:ShowWindow(0);
     end
 
     ctrlset:SetUserValue('TOTAL_PRICE', totalPrice);
@@ -310,6 +318,13 @@ end
 function SHOW_BEAUTYSHOP_SIMPLELIST(isTryMode, list, shopName)  
     local frame = ui.GetFrame('beautyshop_simplelist');
     frame:SetUserValue('CURRENT_SHOP', shopName);
+
+    -- 구매와 입어보기일 때 위치를 바꿔주세요.
+    if isTryMode == true then
+      frame:SetGravity(ui.RIGHT, ui.TOP);
+    else
+      frame:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+    end
 
     local rtTitle = GET_CHILD_RECURSIVELY(frame, 'rtTitle');
     local minimizeBtn = GET_CHILD_RECURSIVELY(frame, 'minimizeBtn');
@@ -514,6 +529,7 @@ function _BEAUTYSHOP_LIST_PREVIEW_BUY()
   BEAUTYSHOP_EXEC_BUY_PURCHASE_ITEM(idSpaceList, classNameList, colorList, hairCouponSlotset:GetUserValue('USE_COUPON_GUID'), dyeCouponSlotset:GetUserValue('USE_COUPON_GUID'));
   ui.CloseFrame('beautyshop_simplelist');
   ui.CloseFrame('beautyshop');  
+  ui.CloseFrame('packagelist');
 end
 
 function BEAUTYSHOP_SIMPLELIST_ENABLE_COUPON_BTN(frame, hairExist, dyeExist)  

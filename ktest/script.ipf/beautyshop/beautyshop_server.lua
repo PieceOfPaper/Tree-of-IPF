@@ -8,7 +8,7 @@ local DRT_TYPE =  {
 
 local DRT_DELAY = {
 	COSTUME = 5000,
-	-- HAIR = 0,				-- 미사용
+	 HAIR = 3000,
 }
 
 local DRT_POS = {
@@ -345,10 +345,13 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 		end
 
 		PlayDirection(pc, directionName);
-
+		SendAddOnMsg(pc, "BEAUTYSHOP_DIRECTION_START", "", 0);
 		-- 코스튬일 경우 TX 돌기전에 딜레이를 준다.
 		if directionType == DRT_TYPE.COSTUME then
 			sleep(DRT_DELAY.COSTUME); 
+		elseif directionType == DRT_TYPE.HAIR then 
+			-- 더미 아이템 벗겨서 양머리 없어짐. 여기도 딜레이를 준다.
+			sleep(DRT_DELAY.HAIR); 
 		end
 	end
 
@@ -419,6 +422,7 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 		end
 
 		WRITE_BEAUTY_SHOP_LOG(pc, productList, stampCnt, preHairName, preDyeName, hairCouponItem, dyeCouponItem);
+		BEAUTYSHOP_EQUIP_DUMMY_ITEM_CLEAR(pc);
 	end
 
 	-- 구매 후처리. 
@@ -429,14 +433,17 @@ end
 function BEAUTYSHOP_PURCHASE_POST_ACTION(pc, directionType )
 
 	-- 연출을 확인하고 연출이 끝난뒤에 위치를 변경해준다. (1층 미용실만 이상하므로 여기만 땜빵 처리한다 - 진씨의 요청!)
-	if directionType == DRT_TYPE.HAIR then
+	if directionType ~= DRT_TYPE.NONE then
 		-- 최대 20초 기다려줌. 
 		local maxLoop = 2000
 		for i=0, maxLoop-1 do
 			
 			sleep(10)
 			if IsPlayingDirection(pc) == 0 then
-				SetPos(pc, DRT_POS.HAIR.x,DRT_POS.HAIR.y,DRT_POS.HAIR.z)
+				if  directionType == DRT_TYPE.HAIR then
+					SetPos(pc, DRT_POS.HAIR.x,DRT_POS.HAIR.y,DRT_POS.HAIR.z)	
+				end
+				SendAddOnMsg(pc, "BEAUTYSHOP_DIRECTION_END", "", 0);
 				break
 			end
 		end
@@ -652,17 +659,24 @@ function SCR_TRY_IT_ON(pc, classNameList, hairColorList, equipTypeList, visibleL
 				hairColorName = hairChangelist["wig"].hairColorName
 			end
 		else 
+			-- 가발만 보냈는데 보이기 OFF상태로 보냈으면 "hair"가 nil이다.
+			if hairChangelist["hair"] == nil then
+				isHairChange = false
+			end	
 			hairClassName = hairChangelist["hair"].hairClassName
 			hairColorName = hairChangelist["hair"].hairColorName
 		end
-
-		local data ={
-			className = hairClassName,
-			equipSpotName = "HAIR",
-			optionColor = hairColorName
-		}
-
-		table.insert(dummyEquipList, data)
+	
+		-- 한번 더 헤어 변경인지 검사한다 (중간에 바뀔 수 있음)
+		if isHairChange == true then
+			local data ={
+				className = hairClassName,
+				equipSpotName = "HAIR",
+				optionColor = hairColorName
+			}
+			
+			table.insert(dummyEquipList, data)
+		end
 	end
 
 	-- 더미 아이템 장착전에 모두 제거
@@ -784,6 +798,6 @@ end
 -- 여기부터 테스트
 function TEST_GET_HAIR_STATE(pc)
 	local etc = GetETCObject(pc);
-	local chatmsg = 'StartHair['..etc.StartHairName..'], CurHairName['..etc.CurHairName..'] 컬러['..etc.StartHairColorName..']';
+	local chatmsg = 'StartHair['..etc.StartHairName..'], CurHairName['..etc.CurHairName..'] 컬러['..etc.StartHairColorName..'], 가발보이기['..etc.HAIR_WIG_Visible..']';
 	Chat(pc, chatmsg);
 end

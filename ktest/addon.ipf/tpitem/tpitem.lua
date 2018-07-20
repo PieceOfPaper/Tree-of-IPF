@@ -298,8 +298,9 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	input:ClearText();
 	editDiff:SetVisible(1);
 		
-	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
-	basketslotset:ClearIconAll();
+	local basketslotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")	
+	TPITEM_CLEAR_SLOTSET(basketslotset);
+
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
 	rcycle_basketbuyslotset:ClearIconAll();
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
@@ -356,6 +357,15 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 
 	control.EnableControl(0);
 	ui.SetUILock(true);
+end
+
+function TPITEM_CLEAR_SLOTSET(slotset)
+	local slotCount = slotset:GetSlotCount();
+	for i = 0, slotCount - 1 do
+		local slot = slotset:GetSlotByIndex(i);
+		slot:SetUserValue('TPITEMNAME', 'None');
+	end
+	slotset:ClearIconAll();
 end
 
 function SET_TOPMOST_FRAME_SHOWFRAME(show)
@@ -1566,6 +1576,15 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	local apc = pcSession:GetPCDummyApc();
 	local invframe = ui.GetFrame("inventory");
 	local invSlot = nil;
+
+	-- 내 캐릭터의 가발 보이기/안보이기 설정에 따라 APC도 보이기/안보이기 설정을 해야 한다.
+	local myPCetc = GetMyEtcObject();
+	local hairWig_Visible = myPCetc.HAIR_WIG_Visible
+	if hairWig_Visible == 1 then
+		apc:SetHairWigVisible(true);
+	else
+		apc:SetHairWigVisible(false);
+	end
 	
 	-- 장착 슬롯에 따라 리셋
 	for i = 0, ES_LAST do	--  EQUIP_SPOT만이 아닌 ES_LENS 포함
@@ -2009,9 +2028,7 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
     local limit = GET_LIMITATION_TO_BUY(obj.ClassID);
 	if isHave == true then
 		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
-	elseif TPITEM_IS_ALREADY_PUT_INTO_BASKET(parent:GetTopParentFrame(), obj) == true then
-		ui.MsgBox(ClMsg("AleadyPutInBasketReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
-	elseif limit == 'ACCOUNT' then
+    elseif limit == 'ACCOUNT' then
 		local curBuyCount = session.shop.GetCurrentBuyLimitCount(0, obj.ClassID, classid);
 		if curBuyCount >= obj.AccountLimitCount then
 			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded","Value", obj.AccountLimitCount), "")
@@ -2027,6 +2044,8 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 		else
 			ui.MsgBox(ScpArgMsg("SelectPurchaseRestrictedItemByMonth","Value", obj.MonthLimitCount), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");
 		end
+	elseif TPITEM_IS_ALREADY_PUT_INTO_BASKET(parent:GetTopParentFrame(), obj) == true then
+		ui.MsgBox(ClMsg("AleadyPutInBasketReallyBuy?"), string.format("TPSHOP_ITEM_TO_BASKET('%s', %d)", tpitemname, classid), "None");	
 	else
 		TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 	end
@@ -2057,6 +2076,12 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 		return
 	end
 
+	local frame = parent:GetTopParentFrame();
+	if CHECK_ALREADY_IN_LIMIT_ITEM(frame, tpitem) == false then
+		ui.SysMsg(ClMsg('AleadyPutInBasket'));
+		return;
+	end
+
 	if tpitem.SubCategory == "TP_Costume_Color" then
 		local etc = GetMyEtcObject();
 		if nil == etc then
@@ -2076,7 +2101,6 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
         end
 	end
 
-	local frame = parent:GetTopParentFrame()
 	local slotset = GET_CHILD_RECURSIVELY(frame,"basketslotset")
 	local slotCount = slotset:GetSlotCount();
 
@@ -3179,4 +3203,21 @@ function GET_TPITEMID_BY_ITEM_NAME(itemName)
 		end
 	end
 	return g_tpItemMap[itemID];
+end
+
+function CHECK_ALREADY_IN_LIMIT_ITEM(frame, tpItem)
+	local limit = GET_LIMITATION_TO_BUY(tpItem.ClassID);
+	if limit == 'NO' then
+		return true;
+	end
+
+	local basketslotset = GET_CHILD_RECURSIVELY(frame, 'basketslotset');
+	local slotCnt = basketslotset:GetSlotCount();
+	for i = 0, slotCnt - 1 do
+		local slot = basketslotset:GetSlotByIndex(i);
+		if slot:GetUserValue('TPITEMNAME') == tpItem.ClassName then
+			return false;		
+		end	
+	end
+	return true;
 end

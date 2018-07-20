@@ -918,7 +918,7 @@ function RECYCLE_MAKE_TREE(frame)
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiz_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Arc_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');
-	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Drug');
+	--RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Drug');
 	recycleCateTree:OpenNodeAll();
 end
 

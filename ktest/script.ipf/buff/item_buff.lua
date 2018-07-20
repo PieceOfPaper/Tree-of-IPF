@@ -3433,6 +3433,7 @@ end
 
 function SCR_BUFF_ENTER_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
         AddLimitationSkillList(self, "Normal_Attack");
+    EnableItemUse(self, 0)
 end
 
 function SCR_BUFF_UPDATE_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
@@ -3446,6 +3447,7 @@ end
 
 function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
     ClearLimitationSkillList(self)
+    EnableItemUse(self, 1)
 end
 
 function SCR_BUFF_ENTER_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)

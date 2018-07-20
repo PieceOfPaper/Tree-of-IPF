@@ -250,7 +250,11 @@ function MGAME_CHECK_INDUN(pc, cmd, indunName)
         local didit = GetExProp(pc, "MovedIndun");
         if didit ~= 1 and indunCls.AdmissionItemName == 'None' then
             if WeeklyEnterableCountPropName ~= 'InDunCountType_400' then
-                TxAddIESProp(tx, etcObj, "IndunWeeklyEnteredCount_"..indunCls.PlayPerResetType, count);
+                if WeeklyEnterableCountPropName == 'InDunCountType_500' then
+                    TxAddIESProp(tx, etcObj, "IndunWeeklyEnteredCount_"..indunCls.PlayPerResetType, count);
+                else
+                    TxAddIESProp(tx, etcObj, WeeklyEnterableCountPropName, count)
+                end
             end
         end
         

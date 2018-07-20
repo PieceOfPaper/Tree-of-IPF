@@ -7,7 +7,7 @@
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<option closebutton="false" hideable="false" useimageitem="true"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
-	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>	
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
 	<!-- <userconfig hairShopName_male="헤어 샵(남)" hairShopName_female="헤어 샵(여)" costumeShopName_male ="코스튬 샵(남)" costumeShopName_female ="코스튬 샵(여)"/> -->
 	<controls>
 		<!-- default frame -->
@@ -65,7 +65,7 @@
 		<slot name="slotPreview_hair_costume_3" parent="slotBox" rect="0 0 56 57" margin="290 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_3" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬3{/}"/>
 		<slot name="slotPreview_lens" parent="slotBox" rect="0 0 56 57" margin="0 58 0 0" layout_gravity="left top" hittest="true" skin="lens_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}렌즈{/}"/>
 		<slot name="slotPreview_costume" parent="slotBox" rect="0 0 56 57" margin="58 58 5 0" layout_gravity="left top" hittest="true" skin="market_costume" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}코스튬{/}"/>
-		<slot name="slotPreview_wing" parent="slotBox" rect="0 0 56 57" margin="116 58 0 0" layout_gravity="left top" hittest="true" skin="wing_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}날개{/}"/>
+		<slot name="slotPreview_wing" parent="slotBox" rect="0 0 56 57" margin="116 58 0 0" layout_gravity="left top" hittest="true" skin="wing_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}등 코스튬{/}"/>
 		<slot name="slotPreview_effect_costume" parent="slotBox" rect="0 0 56 57" margin="174 58 0 0" layout_gravity="left top" hittest="true" skin="effect_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}이펙트 코스튬{/}"/>
 		<slot name="slotPreview_armband" parent="slotBox" rect="0 0 56 57" margin="232 58 0 0" layout_gravity="left top" hittest="true" skin="armband" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}암밴드{/}"/>
 		<slot name="slotPreview_toy" parent="slotBox" rect="0 0 56 57" margin="290 58 0 0" layout_gravity="left top" hittest="true" skin="market_artefact" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}장난감{/}"/>

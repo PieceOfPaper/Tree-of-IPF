@@ -1,12 +1,12 @@
 -- packagelist.lua
 
 function PACKAGELIST_SHOW(itemID, argStr)
-	if IS_PACKAGE_ITEM(itemID) == false then
-	
+	local packageName = GET_PACKAGE_ITEM_NAME(itemID);	
+	if packageName == 'None' then	
 		return;
 	end
 	local frame = ui.GetFrame('packagelist');
-	PACKAGELIST_INIT(frame, itemID, argStr);
+	PACKAGELIST_INIT(frame, itemID, argStr, packageName);
 	frame:ShowWindow(1);	
 end
 
@@ -17,7 +17,7 @@ function GET_PACKAGE_CACHE_MAP()
 		local clslist, cnt = GetClassList('Package_Item_List');	
 		for i = 0, cnt - 1 do
 			local cls = GetClassByIndexFromList(clslist, i);
-			local itemInfo = g_packageList[cls.Group];			
+			local itemInfo = g_packageList[cls.Group];            
 			if itemInfo == nil then
 				g_packageList[cls.Group] = {};
 				itemInfo = g_packageList[cls.Group];
@@ -31,13 +31,47 @@ function GET_PACKAGE_CACHE_MAP()
 	return g_packageList;
 end
 
-function IS_PACKAGE_ITEM(itemID)
+function GET_PACKAGE_ITEM_NAME(itemID)
 	local packageItemMap = GET_PACKAGE_CACHE_MAP();	
 	local itemCls = GetClassByType('Item', itemID);
 	if packageItemMap[itemCls.ClassName] ~= nil then
-		return true;
+		return itemCls.ClassName;
 	end
-	return false;
+
+    -- 패키지를 공유하는 아이템이 있을 수 있음
+    local packageCls = GetClass('Beauty_Shop_Package_Cube', itemCls.ClassName);    
+    if packageCls ~= nil and packageItemMap[packageCls.PackageList] ~= nil then
+        return packageCls.PackageList;
+    end
+
+	return 'None';
+end
+
+function PACKAGELIST_EDIT_ON_TYPING(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local textEdit = GET_CHILD_RECURSIVELY(frame, 'textEdit');
+	local curCount = 0;
+	local countStr = textEdit:GetText();
+	if countStr ~= nil and countStr ~= '' then
+		curCount = tonumber(countStr);
+	end
+
+	local tpItemID = frame:GetUserIValue('TPITEM_ID');
+	local tpItemCls = GetClassByType('TPitem', tpItemID);	
+	if tpItemCls ~= nil then
+		local limit = GET_LIMITATION_TO_BUY(tpItemID);
+		if limit == 'ACCOUNT' and curCount + 1 > tpItemCls.AccountLimitCount then
+			textEdit:SetText(tpItemCls.AccountLimitCount);
+			ui.SysMsg(ScpArgMsg("PurchaseItemExceeded", "Value", tpItemCls.AccountLimitCount));			
+			return;
+		elseif limit == 'MONTH' and curCount + 1 > tpItemCls.MonthLimitCount then
+			textEdit:SetText(tpItemCls.MonthLimitCount);
+			ui.SysMsg(ScpArgMsg("PurchaseItemExceeded", "Value", tpItemCls.MonthLimitCount));
+			return;
+		end
+	end
+	local resCnt = math.min(20, curCount + 1); -- 장바구니 개수까지만 
+	textEdit:SetText(resCnt);
 end
 
 function PACKAGELIST_UP_BTN_CLICK(parent, ctrl)
@@ -55,16 +89,17 @@ function PACKAGELIST_UP_BTN_CLICK(parent, ctrl)
 		local limit = GET_LIMITATION_TO_BUY(tpItemID);
 		if limit == 'ACCOUNT' and curCount + 1 > tpItemCls.AccountLimitCount then
 			textEdit:SetText(tpItemCls.AccountLimitCount);
-			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded", "Value", tpItemCls.AccountLimitCount), "");			
+			ui.SysMsg(ScpArgMsg("PurchaseItemExceeded", "Value", tpItemCls.AccountLimitCount));			
 			return;
 		elseif limit == 'MONTH' and curCount + 1 > tpItemCls.MonthLimitCount then
 			textEdit:SetText(tpItemCls.MonthLimitCount);
-			ui.MsgBox_OneBtnScp(ScpArgMsg("PurchaseItemExceeded", "Value", tpItemCls.MonthLimitCount), "");
+			ui.SysMsg(ScpArgMsg("PurchaseItemExceeded", "Value", tpItemCls.MonthLimitCount));
 			return;
 		end
 	end
 
-	textEdit:SetText(curCount + 1);
+	local resCnt = math.min(20, curCount + 1); -- 장바구니 개수까지만 
+	textEdit:SetText(resCnt);
 end
 
 function PACKAGELIST_DOWN_BTN_CLICK(parent, ctrl)
@@ -144,7 +179,7 @@ function PACKAGELIST_PUT_INTO_BEAUTYSHOP_BASKET(beautyshopFrame, parent, ctrl)
 end
 
 -- 아이템 메인
-function PACKAGELIST_INIT(frame, itemID, argStr)
+function PACKAGELIST_INIT(frame, itemID, argStr, packageName)
 	
 	local argList = StringSplit(argStr, ';');
 	frame:SetUserValue('TPITEM_ID', argList[1]); 
@@ -171,18 +206,21 @@ function PACKAGELIST_INIT(frame, itemID, argStr)
 	if indexName ~= nil then
 		frame:SetUserValue('INDEX_NAME', indexName);
 	end
+
+	local textEdit = GET_CHILD_RECURSIVELY(frame, 'textEdit');
+	textEdit:SetText('0');
 	
-	PACKAGELIST_INIT_ITEMLIST(frame, itemCls);
+	PACKAGELIST_INIT_ITEMLIST(frame, itemCls, packageName);
 end
 
 -- 아이템 패키지 목록
-function PACKAGELIST_INIT_ITEMLIST(frame, itemCls)
+function PACKAGELIST_INIT_ITEMLIST(frame, itemCls, packageName)
 	local itemListBox = GET_CHILD_RECURSIVELY(frame, 'itemListBox');
 	itemListBox:RemoveAllChild();
 
 	local tpitem = ui.GetFrame('tpitem');
 	local infoMap = GET_PACKAGE_CACHE_MAP();
-	local packageList = infoMap[itemCls.ClassName];
+	local packageList = infoMap[packageName];
 	for i = 1, #packageList do
 		local packageItemCls = GetClass('Item', packageList[i].ItemName);
 		local ctrlset = itemListBox:CreateOrGetControlSet('packagelist_item', 'ITEM_'..packageItemCls.ClassName, 0, 0);
