@@ -4706,7 +4706,7 @@ end
 function SCR_Get_SkillFactor_ThrowGuPot(skill)
 
     local pc = GetSkillOwner(skill);
-    local value = skill.SklFactor
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
 
     local abil = GetAbility(pc, "Wugushi17")      -- Skill Damage add
     if abil ~= nil then
@@ -13437,7 +13437,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --  local sklFactor = skill.SklFactor;
 --  if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --      local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
+--      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
 --  end
     
     local def = lhEquipWeapon.DEF;
@@ -13627,7 +13627,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
     if skill.GemLevel_BM > 0 then
-        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
+        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
     end
 
     if skill.LevelByDB == 0 then

@@ -732,7 +732,8 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 
 	--소켓제한 표시
-	if invitem.MaxSocket <= 0 then
+    local maxSocket = SCR_GET_MAX_SOKET(invitem);
+	if maxSocket <= 0 then
 		maxSocekt_text:SetText(ScpArgMsg("CantAddSocket"))
 	else
 		if itemClass.NeedAppraisal == 1 then
@@ -740,10 +741,10 @@ function DRAW_AVAILABLE_PROPERTY(tooltipframe, invitem, yPos,mainframename)
 			if nil ~= needAppraisal and needAppraisal == 1 then
 				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}????{/}");
 			else
-				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}"..invitem.MaxSocket.."{/}");
+				maxSocekt_text:SetTextByKey("socketcount","{@st66d_y}"..maxSocket.."{/}");
 			end
 		else
-			maxSocekt_text:SetTextByKey("socketcount",invitem.MaxSocket);
+			maxSocekt_text:SetTextByKey("socketcount",maxSocket);
 		end
 	end
 
