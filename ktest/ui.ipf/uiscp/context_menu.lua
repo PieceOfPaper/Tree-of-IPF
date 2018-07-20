@@ -2,14 +2,11 @@
 
 
 function MONSTER_CONTEXT(handle, type)
-
-	if keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyPressed("LCTRL") == 1 then
 		if 1 == IsMyPcGM() then
 			POPUP_MONSTER_CONTEXT(handle, type);
 		end
-
 	end
-
 end
 
 function POPUP_MONSTER_CONTEXT(handle, type)

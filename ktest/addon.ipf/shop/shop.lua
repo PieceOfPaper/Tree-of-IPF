@@ -114,7 +114,7 @@ function SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
 
 	local shopItem	= geShopTable.GetByClassID(clsID);
 
-	if keyboard.IsPressed(KEY_SHIFT) == 1 then
+	if keyboard.IsKeyPressed("LSHIFT") == 1 then
 		local remainPrice = frame:GetUserIValue("EXPECTED_REMAIN_ZENY");
 		local maxStack = GET_SHOP_ITEM_MAXSTACK(shopItem);
 		if -1 == maxStack then
@@ -1030,7 +1030,7 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 
 	-- 컴패상점인 경우에는 먹는 컴패니언도 표시해주자	
 	if frame:GetName() == 'foodBox' then
-		COMPANIONSHOP_ADD_COMPANION_INFO(ShopItemCountCtrl, tostring(class.NumberArg2));
+		--COMPANIONSHOP_ADD_COMPANION_INFO(ShopItemCountCtrl, tostring(class.NumberArg2));
 		foodInfoBox:ShowWindow(1);
 	else
 		foodInfoBox:ShowWindow(0);

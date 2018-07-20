@@ -106,15 +106,14 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 	end
 
     -- birth buff
-    local birth_buff_skin, birth_buff_img = TARGETINFO_GET_BIRTH_SKIN_ANG_IMG(frame, targetinfo, targetHandle);
-	local birthBuffImgName = GET_BIRTH_BUFF_IMG_NAME(targetHandle);
-	if birthBuffImgName == "None" then
-		birth_buff_skin:ShowWindow(0)
-		birth_buff_img:ShowWindow(0)
+    local mon_attribute_img = TARGETINFO_GET_ATTRIBUTE_SKIN_ANG_IMG(frame, targetinfo, targetHandle);
+    local attribute = targetinfo.attribute
+    local attributeImgName = "attribute_"..attribute
+	if attributeImgName == "None" then
+		mon_attribute_img:ShowWindow(0)
 	else
-		birth_buff_skin:ShowWindow(1)
-		birth_buff_img:ShowWindow(1)
-		birth_buff_img:SetImage(birthBuffImgName)
+		mon_attribute_img:ShowWindow(1)
+		mon_attribute_img:SetImage(attributeImgName)
 	end
 
 	if mypclevel + 10 < targetinfo.level then
@@ -256,22 +255,19 @@ function TARGETINFO_ON_MSG(frame, msg, argStr, argNum)
     return raceCtrl;
  end
 
-  function TARGETINFO_GET_BIRTH_SKIN_ANG_IMG(frame, targetinfo, targetHandle)
-    local birthSkin, birthImg;
+  function TARGETINFO_GET_ATTRIBUTE_SKIN_ANG_IMG(frame, targetinfo, targetHandle)
+    local attributeSkin;
     local targetMonRank = info.GetMonRankbyHandle(targetHandle);
     local normalGaugeBox = frame:GetChild('normalGaugeBox');
     local specialGaugeBox = frame:GetChild('specialGaugeBox');
     local eliteGaugeBox = frame:GetChild('eliteGaugeBox');
         
 	if targetinfo.isElite == 1 or targetinfo.isEliteBuff == 1 then
-		birthSkin = GET_CHILD(eliteGaugeBox, "elite_birth_buff_skin");
-        birthImg = GET_CHILD(eliteGaugeBox, 'elite_birth_buff_img');
+		attributeSkin = GET_CHILD(eliteGaugeBox, "elite_attribute_img");
 	elseif targetMonRank == 'Special' then
-		birthSkin = GET_CHILD(specialGaugeBox, "special_birth_buff_skin");
-        birthImg = GET_CHILD(specialGaugeBox, 'special_birth_buff_img');
+		attributeSkin = GET_CHILD(specialGaugeBox, "special_attribute_img");
     else
-        birthSkin = GET_CHILD(normalGaugeBox, "normal_birth_buff_skin");
-        birthImg = GET_CHILD(normalGaugeBox, 'normal_birth_buff_img');
+        attributeSkin = GET_CHILD(normalGaugeBox, "normal_attribute_img");
 	end	
-    return birthSkin, birthImg;
+    return attributeSkin;
  end

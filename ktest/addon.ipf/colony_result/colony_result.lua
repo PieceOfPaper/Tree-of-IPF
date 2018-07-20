@@ -28,7 +28,11 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         winBox:ShowWindow(1);
         loseBox:ShowWindow(0);
 
-        imcSound.PlaySoundEvent('battle_win');
+        if config.GetServiceNation() == 'GLOBAL' then
+            imcSound.PlayMusicQueueLocal('colonywar_win')
+        elseif config.GetServiceNation() == 'KOR' then
+            imcSound.PlaySoundEvent('battle_win');
+        end
         winBox:PlayUIEffect(WIN_EFFECT_NAME, EFFECT_SCALE, 'COLONY_WIN');
     else
         local winnerInfoBox = GET_CHILD_RECURSIVELY(loseBox, 'winnerInfoBox');
@@ -54,7 +58,11 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         winBox:ShowWindow(0);
         loseBox:ShowWindow(1);
 
-        imcSound.PlaySoundEvent('battle_lose');        
+        if config.GetServiceNation() == 'GLOBAL' then
+            imcSound.PlayMusicQueueLocal('colonywar_lose')
+        elseif config.GetServiceNation() == 'KOR' then
+            imcSound.PlaySoundEvent('battle_lose');
+        end
         loseBox:PlayUIEffect(LOSE_EFFECT_NAME, EFFECT_SCALE, 'COLONY_LOSE');
     end
 end

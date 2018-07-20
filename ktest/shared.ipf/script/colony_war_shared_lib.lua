@@ -1,24 +1,20 @@
 function GET_COLONY_MAP_GRADE_AND_PERCENTAGE(mapLevel)
---정식에서는 해당 로직 이용
---    if mapLevel < 200 then
---        return 'B', 4;
---    elseif mapLevel < 300 then
---        return 'A', 5;
---    end
---    return 'S', 6;
 
 --Beta에서는 해당 로직 이용
     if mapLevel < 200 then
-        return 'B', 0;
+        return 'B', 8;
     elseif mapLevel < 300 then
-        return 'A', 0;
+        return 'A', 9;
     end
-    return 'S', 0;
+    return 'S', 10;
 end
 
 function GET_COLONY_WAR_DAY_OF_WEEK()
     local guild_colony_rule = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
     local dayOfWeek = TryGetProp(guild_colony_rule, 'ColonyStartDayOfWeek');    
+    if dayOfWeek ~= nil then
+        dayOfWeek = dayOfWeek - 1
+    end
     return dayOfWeek;
 end
 

@@ -18,7 +18,6 @@
 		<richtext name="name" rect="0 0 300 15" margin="130 -6 0 0" layout_gravity="left center" format="{@st41}%sLv.%s %s{/}{/}" param1="color" param1_def="{#FFFFFF}" param2="lv" param2_def="1" param3="name" param3_def="몬스터"/>
 		<controlset name="race" type="monsterRaceSet" rect="0 0 55 55" margin="45 -3 0 0" layout_gravity="left center"/>
 		<timer name="addontimer" rect="0 0 10 10"/>
-		<picture name="birth_buff_skin" rect="0 0 35 35" margin="91 8 0 0" layout_gravity="left center" image="birth_attribute_skin"/>
-		<picture name="birth_buff_img" rect="0 0 27 27" margin="95 8 0 0" layout_gravity="left center" image="birth_attribute_berserker"/>
+		<picture name="boss_attribute_img" rect="0 0 35 35" margin="82 -30 0 0" layout_gravity="left center" image="boss_attribute_img"/>
 	</controls>
 </uiframe>

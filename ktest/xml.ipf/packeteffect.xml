@@ -3,9 +3,9 @@
 <packeteffects>
 	<Category ID="144">
 <Effect Name="F_pc_CardBook_ground_dark"/>
-        <Effect Name="I_smoke013_dark3_yellow"/>
-    </Category>
-    <Category ID="204">
+		<Effect Name="I_smoke013_dark3_yellow"/>
+	</Category>
+	<Category ID="204">
 		<Effect Name="MISSION_EVENT_BLUEORB"/>
 	</Category>
 	<Category ID="142">
@@ -320,6 +320,34 @@
 		<Effect Name="F_common_TheEnd_loop"/>
 		<Effect Name="Guild_Colony_Invinciblation"/>
 		<Effect Name="I_archer_canon_force_forge#Dummy002"/>
+		<Effect Name="S1_battle_bossmonster_appear"/>
+		<Effect Name="S1_battle_bossmonster_summon"/>
+		<Effect Name="S1_battle_cannot_enter_now"/>
+		<Effect Name="battle_colony"/>
+		<Effect Name="S1_battle_end"/>
+		<Effect Name="S1_battle_end_before_10min"/>
+		<Effect Name="S1_battle_end_before_1min"/>
+		<Effect Name="S1_battle_end_before_20min"/>
+		<Effect Name="S1_battle_end_before_30min"/>
+		<Effect Name="S1_battle_end_before_30sec"/>
+		<Effect Name="S1_battle_end_before_3min"/>
+		<Effect Name="S1_battle_end_before_5min"/>
+		<Effect Name="S1_battle_impossible_enter"/>
+		<Effect Name="S1_battle_lose"/>
+		<Effect Name="S1_battle_lose_occupation"/>
+		<Effect Name="S1_battle_occupation"/>
+		<Effect Name="S1_battle_occupied"/>
+		<Effect Name="S1_battle_restrict_enter"/>
+		<Effect Name="S1_battle_start"/>
+		<Effect Name="S1_battle_start_before_1"/>
+		<Effect Name="S1_battle_start_before_2"/>
+		<Effect Name="S1_battle_win"/>
+		<Effect Name="colonywar_win"/>
+		<Effect Name="colonywar_lose"/>
+		<Effect Name="S1_battle_occuoied"/>
+		<Effect Name="battle_end"/>
+		<Effect Name="batttle_start"/>
+		<Effect Name="F_pattern017_green"/>
 	</Category>
 	<Category ID="201">
 		<Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -559,11 +587,11 @@
 		<Effect Name="RIDE_OBEY"/>
 		<Effect Name="buildRoost_pad"/>
 		<Effect Name="HeavyGravity_PAD"/>
-        <Effect Name="PercentUI"/>
-        <Effect Name="StormDust_Pad"/>
-        <Effect Name="Cryomancer_FrostPillar"/>
-        <Effect Name="F_archer_bodkinpoint_finish#Bip01 Head"/>
-        <Effect Name="Linker_blue"/>
+		<Effect Name="PercentUI"/>
+		<Effect Name="StormDust_Pad"/>
+		<Effect Name="Cryomancer_FrostPillar"/>
+		<Effect Name="F_archer_bodkinpoint_finish#Bip01 Head"/>
+		<Effect Name="Linker_blue"/>
 	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
@@ -738,21 +766,21 @@
 		<Effect Name="F_cleric_blindfaith_buff_loop"/>
 		<Effect Name="F_cleric_blindfaith_buff"/>
 		<Effect Name="F_ground170_dark3"/>
-	<Effect Name="MISSION_EVENT_CURSEDOOR"/>
-        <Effect Name="GFB_KURMIS_01"/>
-        <Effect Name="GFB_BEBRASPION_01"/>
-        <Effect Name="GFB_KIMELEECH_01"/>
-        <Effect Name="GFB_CACTUSVEL_01"/>
-        <Effect Name="GFB_PANTOREX_01"/>
-        <Effect Name="I_warrior_FishingNets_Throwing_2#Dummy_force_hamaya"/>
-        <Effect Name="I_warrior_FishingNets_Throwing_2#Dummy_force_hamaya"/>
-        <Effect Name="I_warrior_FishingNets_Throwing_2"/>
-        <Effect Name="F_ground071_smoke2"/>
-        <Effect Name="F_ground081_smoke"/>
-        <Effect Name="F_smoke174"/>
-        <Effect Name="E_wizard_refrigerwaves_shot_ground_new"/>
+		<Effect Name="MISSION_EVENT_CURSEDOOR"/>
+		<Effect Name="GFB_KURMIS_01"/>
+		<Effect Name="GFB_BEBRASPION_01"/>
+		<Effect Name="GFB_KIMELEECH_01"/>
+		<Effect Name="GFB_CACTUSVEL_01"/>
+		<Effect Name="GFB_PANTOREX_01"/>
+		<Effect Name="I_warrior_FishingNets_Throwing_2#Dummy_force_hamaya"/>
+		<Effect Name="I_warrior_FishingNets_Throwing_2#Dummy_force_hamaya"/>
+		<Effect Name="I_warrior_FishingNets_Throwing_2"/>
+		<Effect Name="F_ground071_smoke2"/>
+		<Effect Name="F_ground081_smoke"/>
+		<Effect Name="F_smoke174"/>
+		<Effect Name="E_wizard_refrigerwaves_shot_ground_new"/>
 <Effect Name="I_warrior_netdraw_1"/>
-    </Category>
+	</Category>
 	<Category ID="197">
 		<Effect Name="F_burstup030_fire1"/>
 		<Effect Name="F_burstup030_fire_1"/>
@@ -4038,11 +4066,11 @@
 		<Effect Name="I_cleric_hamaya_arrow"/>
 		<Effect Name="I_cleric_hamaya_arrow#Dummy_effect_FingerFlickir"/>
 		<Effect Name="I_cleric_hamaya_arrow#Dummy_force_hamaya"/>
-	<Effect Name="F_pc_CardBook_ground_red"/>
-        <Effect Name="F_pc_CardBook_ground_blue"/>
-        <Effect Name="F_pc_CardBook_ground_green"/>
-        <Effect Name="F_pc_CardBook_ground_violet"/>
-    </Category>
+		<Effect Name="F_pc_CardBook_ground_red"/>
+		<Effect Name="F_pc_CardBook_ground_blue"/>
+		<Effect Name="F_pc_CardBook_ground_green"/>
+		<Effect Name="F_pc_CardBook_ground_violet"/>
+	</Category>
 	<Category ID="27">
 		<Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
 		<Effect Name="I_laser005_blue"/>

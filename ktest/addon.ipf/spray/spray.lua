@@ -50,12 +50,12 @@ function UPDATE_SPRAY(frame)
 	end
 
 
-	if keyboard.IsKeyDown("Z") == 1 and keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyDown("Z") == 1 and keyboard.IsKeyPressed("LCTRL") == 1 then
 		local draw_pad = GET_CHILD(frame, "draw_pad", "ui::CPicture");
 		itemutil.RedoTexture(draw_pad, -1); 
 	end
 	
-	if keyboard.IsKeyDown("Y") == 1 and keyboard.IsPressed(KEY_CTRL) == 1 then
+	if keyboard.IsKeyDown("Y") == 1 and keyboard.IsKeyPressed("LCTRL") == 1 then
 		local draw_pad = GET_CHILD(frame, "draw_pad", "ui::CPicture");
 		itemutil.RedoTexture(draw_pad, 1); 
 	end

@@ -220,7 +220,7 @@ end
 
 function MAP_LBTN_DOWN(parent, ctrl)
 
-	if keyboard.IsPressed(KEY_CTRL) ~= 1 then
+	if keyboard.IsKeyPressed("LCTRL") ~= 1 then
 		return;
 	end
 

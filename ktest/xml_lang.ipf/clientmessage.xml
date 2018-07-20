@@ -2919,7 +2919,7 @@
 		<Class ClassID="25676" ClassName="PRISON_81_MQ_7_MSG1" Data="이미 조각을 사용한 방향입니다"/>
 		<Class ClassID="25677" ClassName="PRISON_81_MQ_7_list1" Data="불의 조각"/>
 		<Class ClassID="25678" ClassName="PRISON_81_MQ_7_list2" Data="얼음의 조각"/>
-		<Class ClassID="25679" ClassName="PRISON_81_MQ_7_list3" Data="번개의 조각"/>
+		<Class ClassID="25679" ClassName="PRISON_81_MQ_7_list3" Data="전기의 조각"/>
 		<Class ClassID="25680" ClassName="PRISON_81_MQ_7_list4" Data="독의 조각"/>
 		<Class ClassID="25681" ClassName="PRISON_81_MQ_7_MSG2" Data="이미 사용한 조각입니다"/>
 		<Class ClassID="25682" ClassName="PRISON_81_MQ_8_MSG1" Data="비밀 장치 활성화 중"/>
@@ -4489,6 +4489,8 @@
 		<Class ClassID="27790" ClassName="adventure_book_quest_prequest_MSG1" Data="{@st42}{s18}사전 퀘스트 [접속 중인 현재 캐릭터 기준]{/}"/>
 		<Class ClassID="27800" ClassName="EVENT_1801_RANKRESET_MSG1" Data="시노비 1써클 이상 받기"/>
 		<Class ClassID="27801" ClassName="EVENT_1801_RANKRESET_MSG2" Data="위저드 1써클 이상 받기"/>
+		<Class ClassID="27810" ClassName="EVENT_1802_NEWYEAR_MSG1" Data="복주머니 받기"/>
+		<Class ClassID="27811" ClassName="EVENT_1802_NEWYEAR_MSG2" Data="현재 캐릭터가 보유하고 있는 칭호 입니다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5353,7 +5355,7 @@
 		<Class ClassID="50521" ClassName="CHAR318_MSETP3_3_ACTION2" Data="랜턴을 키는 중"/>
 		<Class ClassID="50522" ClassName="CHAR318_MSETP3_3_ACTION3" Data="랜턴를 끄는 중"/>
 		<Class ClassID="50523" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG1" Data="냉기탄을 맞췄습니다"/>
-		<Class ClassID="50524" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG2" Data="화염탐을 맞췄습니다"/>
+		<Class ClassID="50524" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG2" Data="화염탄을 맞췄습니다"/>
 		<Class ClassID="50525" ClassName="HIDDEN_CHAR318_MSETP3_3_MSG3" Data="전기탄을 맞췄습니다"/>
 		<Class ClassID="50526" ClassName="CHAR318_MSETP4_1_TXT1" Data="의뢰를 완료했다며 감시 구슬을 준다"/>
 		<Class ClassID="50527" ClassName="CHAR318_MSETP4_1_TXT2" Data="나중에 다시 오겠다고 한다"/>
@@ -6344,6 +6346,7 @@
 		<Class ClassID="80761" ClassName="STARTOWER762_EVENT4_MSG7" Data="별빛의 기운을 담은 정수가 부족합니다"/>
 		<Class ClassID="80762" ClassName="STARTOWER762_EVENT4_MSG8" Data="지금은 제단을 이용할 수 없습니다"/>
 		<Class ClassID="80763" ClassName="STARTOWER762_EVENT3_MSG4" Data="주위를 맴도는 별 조각이 최대 개수에 다다라{nl}별 조각이 더 이상 맴돌지 않습니다"/>
+		<Class ClassID="80870" ClassName="JourneyQusetRewardAll" Data="바이보라의 날개 NPC에게 들려줄 만한 경험담이 있습니다{nl}바이보라의 날개 NPC를 찾아가셔서 경험담을 전하고 보상을 받으세요!"/>
 		<Class ClassID="90001" ClassName="CORAL_32_2_SQ_6_FAIL2" Data="퀘스트를 포기했습니다"/>
 		<Class ClassID="90002" ClassName="DCAPITAL_20_5_SQ_30" Data="작은 돌 파편을 얻었습니다"/>
 		<Class ClassID="90003" ClassName="DCAPITAL_20_5_SQ_60_ITEM_DTA" Data="신성력 감지 구슬 사용중"/>
@@ -7349,8 +7352,8 @@
 		<Class ClassID="115004" ClassName="Attr_Earth" Data="땅속성"/>
 		<Class ClassID="115005" ClassName="Attr_Melee" Data="무속성"/>
 		<Class ClassID="115006" ClassName="Attr_Ice" Data="얼음속성"/>
-		<Class ClassID="115007" ClassName="Attr_Dark" Data="암흑속성"/>
-		<Class ClassID="115008" ClassName="Attr_Holy" Data="성속성"/>
+		<Class ClassID="115007" ClassName="Attr_Dark" Data="어둠속성"/>
+		<Class ClassID="115008" ClassName="Attr_Holy" Data="신성속성"/>
 		<Class ClassID="115009" ClassName="Attr_Soul" Data="염속성"/>
 	</Category>
 	<Category Name="ArmorMaterial">
@@ -8483,7 +8486,7 @@
 		<Class ClassID="136711" ClassName="Auto_KiLyeog_+5_JeungKa" Data="기력 +5 증가"/>
 		<Class ClassID="136712" ClassName="Auto_KiLyeog_+10_JeungKa" Data="기력 +10 증가"/>
 		<Class ClassID="136713" ClassName="Auto_KiLyeog_+20_JeungKa" Data="기력 +20 증가"/>
-		<Class ClassID="136714" ClassName="Auto_amHeug_KongKyeogLyeog_+10_JeungKa" Data="암흑 공격력 +10 증가"/>
+		<Class ClassID="136714" ClassName="Auto_amHeug_KongKyeogLyeog_+10_JeungKa" Data="어둠 공격력 +10 증가"/>
 		<Class ClassID="136715" ClassName="Auto_DongMulHyeongeKe_KongKyeogLyeog_+5_JeungKa,_Koyangi_Maleul_Deuleul_Su_issDa.." Data="야수형에게 공격력 +5 증가, 고양이 말을 들을 수 있다.."/>
 		<Class ClassID="136716" ClassName="Auto_SP_HoeBogLyang_+2_JeungKa" Data="SP 회복량 +2 증가"/>
 		<Class ClassID="136717" ClassName="Auto_waenJi_JangBiaiTemeul_HoegDeugHal_HwagLyuli_JeungKaHal_Keos_KatDa." Data="왠지 장비아이템을 획득할 확률이 증가할 것 같다."/>

@@ -166,7 +166,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 			if equiptype == 'RING' then
 
-				if keyboard.IsPressed(KEY_ALT) == 1 then
+				if keyboard.IsKeyPressed("LALT") == 1 then
 					equiptype = 'RING2'
 				else
 					equiptype = 'RING1'

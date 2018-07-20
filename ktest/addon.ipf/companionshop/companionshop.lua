@@ -152,31 +152,32 @@ function ON_COMPANIONSHOP_DIALOG_CLOSE(frame, msg, argStr, argNum)
 	frame:ShowWindow(0);
 end
 
-function COMPANIONSHOP_ADD_COMPANION_INFO(ctrlset, foodGroup) -- foodGroup은 string
-	local compaList, cnt = GetClassList('Companion');
-	if compaList == nil or cnt < 1 then
-		return;
-	end
-	local numCompa = 1;
-	local foodInfoBox = ctrlset:GetChild('foodInfoBox');
-	local ICON_SIZE = 38;
-	local width = foodInfoBox:GetWidth();
-	for i = 0, cnt -1 do
-		local compaCls = GetClassByIndexFromList(compaList, i);
-		local monCls = GetClass('Monster', compaCls.ClassName);
-		if TryGetProp(compaCls, 'FoodGroup') ~= nil and TryGetProp(monCls, 'Icon') ~= nil then
-			if compaCls.FoodGroup ~= 'None' and compaCls.FoodGroup == foodGroup and string.find(compaCls.ClassName, 'dummy') == nil and string.find(compaCls.ClassName, 'baby') == nil then
-				local compaPic = foodInfoBox:CreateControl('picture', 'COMPA_INFO_'..foodGroup..numCompa, width - ICON_SIZE * numCompa - 5 * numCompa, 0, ICON_SIZE, ICON_SIZE);
-				compaPic = tolua.cast(compaPic, 'ui::CPicture');
-				compaPic:SetImage(monCls.Icon);
-				compaPic:SetEnableStretch(1);
-				numCompa = numCompa + 1;
-			end
-		end
-	end
-
-	local MARKET_ARROW_IMG = ctrlset:GetUserConfig('MARKET_ARROW_IMG');
-	local arrowPic = foodInfoBox:CreateControl('picture', 'COMPA_INFO_'..foodGroup..numCompa, width - ICON_SIZE * numCompa - 5 * numCompa + 10, 7, 30, 20);
-	arrowPic = tolua.cast(arrowPic, 'ui::CPicture');
-	arrowPic:SetImage(MARKET_ARROW_IMG);
+function COMPANIONSHOP_ADD_COMPANION_INFO(ctrlset, foodGroup) 
+---- foodGroup은 string
+--	local compaList, cnt = GetClassList('Companion');
+--	if compaList == nil or cnt < 1 then
+--		return;
+--	end
+--	local numCompa = 1;
+--	local foodInfoBox = ctrlset:GetChild('foodInfoBox');
+--	local ICON_SIZE = 38;
+--	local width = foodInfoBox:GetWidth();
+--	for i = 0, cnt -1 do
+--		local compaCls = GetClassByIndexFromList(compaList, i);
+--		local monCls = GetClass('Monster', compaCls.ClassName);
+--		if TryGetProp(compaCls, 'FoodGroup') ~= nil and TryGetProp(monCls, 'Icon') ~= nil then
+--			if compaCls.FoodGroup ~= 'None' and compaCls.FoodGroup == foodGroup and string.find(compaCls.ClassName, 'dummy') == nil and string.find(compaCls.ClassName, 'baby') == nil then
+--				local compaPic = foodInfoBox:CreateControl('picture', 'COMPA_INFO_'..foodGroup..numCompa, width - ICON_SIZE * numCompa - 5 * numCompa, 0, ICON_SIZE, ICON_SIZE);
+--				compaPic = tolua.cast(compaPic, 'ui::CPicture');
+--				compaPic:SetImage(monCls.Icon);
+--				compaPic:SetEnableStretch(1);
+--				numCompa = numCompa + 1;
+--			end
+--		end
+--	end
+--
+--	local MARKET_ARROW_IMG = ctrlset:GetUserConfig('MARKET_ARROW_IMG');
+--	local arrowPic = foodInfoBox:CreateControl('picture', 'COMPA_INFO_'..foodGroup..numCompa, width - ICON_SIZE * numCompa - 5 * numCompa + 10, 7, 30, 20);
+--	arrowPic = tolua.cast(arrowPic, 'ui::CPicture');
+--	arrowPic:SetImage(MARKET_ARROW_IMG);
 end
