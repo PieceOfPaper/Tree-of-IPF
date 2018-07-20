@@ -258,21 +258,30 @@ function GUILDEMBLEM_LIST_UPDATE(frame)
 end
 
 function SET_PRIVIEW_ITEM(frame, ctrlSet, fileName, posY)
+ local test = nil;
+  IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM ST : ",test);
     local pngFullPath =  emblemFolderPath .. "\\" .. fileName
+  IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 1 :", pngFullPath );
     -- 아이콘을 설정한다
 	local gb_items = GET_CHILD(ctrlSet, "gb_items", "ui::CGroupBox") 
+	IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 2 :", gb_items );
     local rich_fileName = GET_CHILD(gb_items, "file_name", "ui::CRichText")
+    IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 3 :", rich_fileName );
 	local pic_icon = GET_CHILD(gb_items, "preview_icon", "ui::CPicture")
+	IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 4 :", pic_icon );
 
     -- 선택 이벤트에 사용할 파일 이름 설정
     gb_items:SetUserValue("FILE_NAME",fileName)
-        
+    IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 5 :", fileName );
+    
     -- 이미지 로드 
     pic_icon:SetImage("") -- clear clone image
+    IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 6");
     pic_icon:SetFileName(pngFullPath)
-
+    IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM 7:",pngFullPath );
     -- 텍스트 설정
     rich_fileName:SetTextByKey("value", fileName)
+    IMCLOG_CONTENT("AAAA", "SET_PRIVIEW_ITEM ED:",fileName );
 	
     return posY + ctrlSet:GetHeight()
 end

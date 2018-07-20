@@ -379,3 +379,9 @@ function SCR_VELCOFFER_STATUE_NOTICE_ENTER(self, pc)
     AddScpObjectList(self, "ENTER_PC_LIST", pc)
     ShowBalloonText(pc, "Raid_VELCOFFER_SHOWBALLOON_MSG14", 5)
 end
+
+function SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE(self)
+    RemoveBuff(self, 'Raid_Velcofer_Cnt_Debuff')
+    RemoveBuff(self, 'Raid_Velcofer_Last_Curse_Debuff')
+    RemoveBuff(self, 'Raid_Velcofer_Curse_Debuff')
+end
