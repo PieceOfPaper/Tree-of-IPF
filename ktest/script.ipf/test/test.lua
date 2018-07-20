@@ -10,6 +10,14 @@ function TEST_CANCEL_FIXCAMERA(pc)
     CancelFixCamera(pc)
 end
 
+function TEST_CUSTOM_WHEEL_ZOOM(pc, minDist, maxDist, zoomUnit)
+
+    CustomWheelZoom(pc, 1,minDist, maxDist, zoomUnit )
+end
+
+function TEST_CANCEL_CUSTOM_WHEEL_ZOOM(pc)
+    CustomWheelZoom(pc, 0)
+end
 
 -- 은둔자의 통로가서 무녀 마스터 앞에서 테스트.
 -- TxHide 테스트
@@ -7770,4 +7778,105 @@ function TEST_PLAY_FLUTING(pc)
     PlayFluting(pc, 'C', octave, isSharp);
     sleep(300)
     StopFluting(pc, 'C', octave, isSharp);
+end
+
+function TEST_REGISTER_SOLO_DUNGEON(pc)
+    local score = 1000;
+    local stage = 20;
+    local killCount = 123;
+
+    RegisterSoloDungeonRanking(pc, score, stage, killCount)
+end
+
+function TEST_VELCOFFER_SUMAZIN(pc)
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" and invItemList[i].UseLv == 360 then
+            if invItemList[i].LegendGroup == "Velcoffer" then
+            TxSetIESProp(tx, invItemList[i], "LegendPrefix", "Set_Sumazin");
+            end
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+function TEST_VELCOFFER_TIKSLINE(pc)
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" and invItemList[i].UseLv == 360 then
+            if invItemList[i].LegendGroup == "Velcoffer" then
+            TxSetIESProp(tx, invItemList[i], "LegendPrefix", "Set_Tiksline");
+            end
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+function TEST_VELCOFFER_KRAUJAS(pc)
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" and invItemList[i].UseLv == 360 then
+            if invItemList[i].LegendGroup == "Velcoffer" then
+            TxSetIESProp(tx, invItemList[i], "LegendPrefix", "Set_Kraujas");
+            end
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+function TEST_VELCOFFER_MERGAITE(pc)
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" and invItemList[i].UseLv == 360 then
+            if invItemList[i].LegendGroup == "Velcoffer" then
+            TxSetIESProp(tx, invItemList[i], "LegendPrefix", "Set_Mergaite");
+            end
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+
+function TEST_VELCOFFER_GYVENIMAS(pc)
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" and invItemList[i].UseLv == 360 then
+            if invItemList[i].LegendGroup == "Velcoffer" then
+            TxSetIESProp(tx, invItemList[i], "LegendPrefix", "Set_Gyvenimas");
+            end
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+function TEST_REG_SOLO_DUNGEON_PREV_WEEK(pc)
+    local score = IMCRandom(1, 10000);
+    local stage = IMCRandom(1, 100);
+    local killCount = IMCRandom(1, 100);
+    local lastScore = GetPrevSoloDungeonInfo(pc, "All")
+    print('prev', score, stage, killCount, lastScore)
+    RegisterSoloDungeonRankingPrevForTest(pc, score, stage, killCount, lastScore)
+end
+
+function TEST_REG_SOLO_DUNGEON_NEXT_WEEK(pc)
+    local score = IMCRandom(1, 10000);
+    local stage = IMCRandom(1, 100);
+    local killCount = IMCRandom(1, 100);
+    local lastScore = GetCurrentSoloDungeonInfo(pc, "All");
+    print('next', score, stage, killCount, lastScore)
+    local ret = RegisterSoloDungeonRanking(pc, score, stage, killCount, lastScore)
+end
+
+
+function TEST_SOLO_DUNGEON_PLAY_LOG(pc)
+    local year, weekNumber = SoloDungeonSeason();
+    SoloDungeonMongoLog(pc, year, weekNumber, "Start", stage, 0);
+    SoloDungeonMongoLog(pc, year, weekNumber, "Success", stage, 0, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score);
+    SoloDungeonMongoLog(pc, year, weekNumber, "Fail", stage, 0, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score);
+    SoloDungeonMongoLog(pc, year, weekNumber, "End", stage, 1, "MonKillCnt", monKillCnt, "PlayTime", playTime, "Score", score, "Rank", rank);
 end

@@ -1,16 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="itemmsgqueue" x="0" y="0" width="420" height="30" create="open">
+<uiframe name="itemmsgqueue" x="0" y="0" width="420" height="90" create="open">
 	<frame title="itemmsg" layout_gravity="right bottom" margin="0 0 0 60" fasthide="true"/>
-    <sound opensound="win_open" closesound="win_close"/>
-    <layer layerlevel="50"/>
-    <skin frameskin="bg"/>
-    <input moveable="false" hittestframe="false"/>
-    <draw drawtitlebar="false" drawframe="false"/>
-    <option hideable="false" closebutton="false"/>
-    <userconfig HEAD_FONT="{@sti9}" ITEM_FONT="{@st41b}"/>
-    <script CloseScp="CLOSE_ITEMMSG_QUEUE"/>
-    <controls>
-        <richtext name="text" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center"/>
-    </controls>
+	<sound opensound="win_open" closesound="win_close"/>
+	<layer layerlevel="50"/>
+	<skin frameskin="bg"/>
+	<input moveable="false" hittestframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<option hideable="false" closebutton="false"/>
+	<userconfig HEAD_FONT="{@sti9}" ITEM_FONT="{@st41b}"/>
+	<script CloseScp="CLOSE_ITEMMSG_QUEUE"/>
+	<controls>
+		<richtext name="textVis" rect="0 0 400 20" margin="0 26 0 0" layout_gravity="left top" format="{@st41d}{b}{ol}{s14}{img icon_item_silver 22 22}실버를 획득했습니다 : %s%s" param1="curVis" param1_def="0 / " param2="totalVis" param2_def="0" resizebytext="false" textalign="right center"/>
+		<richtext name="textExp" rect="0 0 400 20" margin="0 46 0 0" layout_gravity="left top" format="{#fde43f}{b}{ol}{s14}캐릭터 경험치를 획득했습니다 : %s" param1="Exp" param1_def="0" resizebytext="false" textalign="right center"/>
+		<richtext name="textJobExp" rect="0 0 400 20" margin="0 66 0 0" layout_gravity="left top" format="{#9def5a}{b}{ol}{s14}클래스 경험치를 획득했습니다 : %s" param1="jobExp" param1_def="0" resizebytext="false" textalign="right center"/>
+	</controls>
 </uiframe>

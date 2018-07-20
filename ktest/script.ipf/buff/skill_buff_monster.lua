@@ -3076,3 +3076,32 @@ end
 function SCR_BUFF_LEAVE_UC_UnrecoverableHP(self, buff, arg1, arg2, over)
 
 end
+
+function SCR_BUFF_ENTER_Monster_Stop_Debuff(self, buff, arg1, arg2, over)
+
+    local defencedBM = 0;
+    
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        defencedBM = 1;
+    end
+    
+    SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
+    
+    SetExProp(buff, 'DEFENCED_BM', defencedBM);
+    self.MaxDefenced_BM = self.MaxDefenced_BM + defencedBM;
+
+end
+
+function SCR_BUFF_UPDATE_Monster_Stop_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
+
+    return 1;
+
+end
+
+function SCR_BUFF_LEAVE_Monster_Stop_Debuff(self, buff, arg1, arg2, over)
+
+    local defencedBM = GetExProp(buff, 'DEFENCED_BM');
+    self.MaxDefenced_BM = self.MaxDefenced_BM - defencedBM;
+    
+end

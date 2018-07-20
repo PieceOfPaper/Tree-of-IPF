@@ -457,8 +457,15 @@ function BEAUTYSHOP_PURCHASE_POST_ACTION(pc, directionType )
 			
 			sleep(10)
 			if IsPlayingDirection(pc) == 0 then
-				if  directionType == DRT_TYPE.HAIR then
-					SetPos(pc, DRT_POS.HAIR.x,DRT_POS.HAIR.y,DRT_POS.HAIR.z)	
+				if  directionType == DRT_TYPE.HAIR then 
+					SetPos(pc, DRT_POS.HAIR.x,DRT_POS.HAIR.y,DRT_POS.HAIR.z)
+
+					-- 연출이 끝나면 어차피 줌 인/아웃이 초기화 되므로 카메라 위치와 줌 인/아웃도 다시 설정한다.
+					FixCamera(pc, -7.83 , 4.81, 13.42, 240);
+					CustomWheelZoom(pc, 1, 80, 240, 50)
+				elseif directionType == DRT_TYPE.COSTUME then 
+					FixCamera(pc, 34.79, 6.98, 1098.98, 240);
+					CustomWheelZoom(pc, 1, 80, 240, 50)
 				end
 				SendAddOnMsg(pc, "BEAUTYSHOP_DIRECTION_END", "", 0);
 				break

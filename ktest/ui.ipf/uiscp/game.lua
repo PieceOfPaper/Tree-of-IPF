@@ -4008,6 +4008,10 @@ function UI_MODE_CHANGE(index)
 	if monQuickslot:IsVisible() == 1 then
 		return;
 	end
+	
+	if flutingFrame:IsVisible() == 1 then
+		return;
+	end
 
 	local Set1 = GET_CHILD(joystickQuickFrame,'Set1','ui::CGroupBox');
 	local Set2 = GET_CHILD(joystickQuickFrame,'Set2','ui::CGroupBox');

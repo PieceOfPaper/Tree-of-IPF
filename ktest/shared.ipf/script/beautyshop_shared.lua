@@ -62,7 +62,7 @@ function IS_BEAUTYSHOP_MAP(mapCls)
 		return false;
 	end
 	local mapName = mapCls.ClassName;	
-	if mapName == 'c_fedimian' or mapName == 'c_Klaipe' or mapName == 'c_orsha' then
+	if mapName == 'c_fedimian' or mapName == 'c_Klaipe' or mapName == 'c_orsha' or mapName == 'c_barber_dress' then
 		return true;
 	end
 	return false;

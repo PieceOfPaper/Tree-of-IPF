@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="barrack_move_popup" x="0" y="0" width="500" height="250" create="open">
+	<frame fullheight="false" fasthide="true" drawtitlebar="false" layout_gravity="center center " margin="0 -80 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<userconfig DROPBOX_TEXT="{@st41d}숙소"/>
+	<layer layerlevel="80"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 478 196" margin="0 42 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="richtext_1" rect="0 0 469 49" margin="0 25 0 0" layout_gravity="center top" parent="bg" format="{@st66d}{s20}%s {@st66d_y}{s20}%s{@st66b}{s18}의{nl}숙소를 이동하겠습니까?" param1="JobName" param1_def="wizard" param2="CharName" param2_def="kkk" textalign="center center" fixwidth="true"/>
+		<button name="button_1" rect="0 0 145 46" margin="-73 0 0 5" layout_gravity="center bottom" parent="bg" skin="test_pvp_btn" caption="{@st66b}예"/>
+		<button name="button_2" rect="0 0 145 46" margin="73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" parent="bg" caption="{@st66b}아니오"/>
+		<droplist name="droplist_new" rect="0 0 200 20" margin="0 100 0 0" layout_gravity="center top" font="white_20_ol" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="center center" textoffset="0" visibleline="3" SelectScp="" frametextalign="center center" parent="bg"/>
+	</controls>
+</uiframe>

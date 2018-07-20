@@ -36,6 +36,10 @@ function UPDATE_CONTROL_MODE()
 		local restquickslot = ui.GetFrame('restquickslot')
 		RESTQUICKSLOT_UPDATE_HOTKEYNAME(restquickslot);
 		restquickslot:Invalidate();
+
+		local fluting_keyboard = ui.GetFrame('fluting_keyboard')
+		FLUTING_KEYBOARD_UPDATE_HOTKEYNAME(fluting_keyboard);
+		fluting_keyboard:Invalidate();
 	end
 end
 

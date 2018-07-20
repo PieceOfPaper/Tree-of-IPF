@@ -1427,7 +1427,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local itemobj = GetIES(invitem:GetObject());
 	
     -- custom
-	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");
+	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");	
 	if customRBtnScp == "None" then
 		customRBtnScp = nil;
 	else
@@ -2803,6 +2803,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 		end
 	end
 
+    if TryGetProp(obj, 'DisableContents', 0) == 1 then
+        ui.SysMsg(ClMsg('CannotReleaseLockByDisableContents'));
+        return;
+    end
+
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
     local parent = slot:GetParent();
@@ -3227,17 +3232,16 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
 		slot = GET_CHILD(parent, slotName);
 	end
 
-    if slot ~= nil then
+    if slot ~= nil then        
         local lockPic = slot:GetChild('itemlock');
-        if lockPic ~= nil then
+        if lockPic ~= nil then            
             lockPic:ShowWindow(0);
         end
     end
 
-	invframe:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
-    invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
-    invframe:SetUserValue('LOCK_SLOT_NAME', "None");
-
+	frame:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
+    frame:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
+    frame:SetUserValue('LOCK_SLOT_NAME', "None");
 end
 
 function INVENTORY_RBTN_LEGENDPREFIX(invItem)

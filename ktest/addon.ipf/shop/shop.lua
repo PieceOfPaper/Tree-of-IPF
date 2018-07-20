@@ -709,8 +709,7 @@ function SHOP_UPDATE_BUY_PRICE(frame)
 
 	local invenZeny = FINALPRICE;
 	local totaltext = frame:GetChild("finalprice");
-	local totalprice = invenZeny + price;
-
+	local totalprice = SumForBigNumber(invenZeny, price);
 	totaltext:SetTextByKey("text", totalprice);
 	frame:SetUserValue("EXPECTED_REMAIN_ZENY", totalprice);
 

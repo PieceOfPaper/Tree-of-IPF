@@ -50,7 +50,6 @@ function UPDATE_BARRACK_COMPANION_INFO(actor)
 end
 
 function SEL_COMPANION_WITH_PC(parent, ctrl)
-
 	ui.SysMsg(ClMsg("SelectPCToBringTheCompanion"));
 
 	parent:ShowWindow(0);
@@ -58,8 +57,7 @@ function SEL_COMPANION_WITH_PC(parent, ctrl)
 	
 end
 
-function COMPANION_SELECT_PC(selActor)
-	
+function COMPANION_SELECT_PC(selActor)	
 	local frame = ui.GetFrame("selectcompanioninfo");
 	local petGuid = frame:GetUserValue("PET_GUID");
 	local pet = barrack.GetPet(petGuid);
@@ -74,14 +72,29 @@ function COMPANION_SELECT_PC(selActor)
 	selActor = tolua.cast(selActor, "CFSMActor");
 	brkSystem:SetPetPC(selActor);
 	frame:ShowWindow(0);
-
 end
 
 function SEL_COMPANION_MOVE_BARRACK_LAYER(parent, ctrl)
-		
-	local frame = ui.GetFrame("selectcompanioninfo");
+    local titleText = ScpArgMsg("InputCount");    
+	local charName = barrack.GetSelectedCharacterName();
+	local frame = ui.GetFrame("barrack_charlist")
+	if frame == nil then
+		return
+	end
+
+    INPUT_DROPLIST_BOX(frame, "SELECT_CHARINFO_CHANGE_TARGET_LAYER_COMPANION", charName, "", 1, 3) 
+end
+
+function EXEC_MOVE_LAYER_COMPANION(frame, ret, inputframe)
+    inputframe:ShowWindow(0);
+    ret = tonumber(ret)    
+    if ret < 1 or ret > 3 then 
+        return
+    end
+    
+    local frame = ui.GetFrame("selectcompanioninfo");
 	local petGuid = frame:GetUserValue("PET_GUID");
-	barrack.ChangeBarrackLayer(petGuid)
-	parent:ShowWindow(0);
+	barrack.ChangeBarrackTargetLayer(petGuid, tonumber(ret))
+	--parent:ShowWindow(0);
 	ui.SysMsg(ClMsg("MoveBarrackLayer"));
 end

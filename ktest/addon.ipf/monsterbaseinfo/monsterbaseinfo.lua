@@ -150,10 +150,28 @@ function ON_SHOW_TARGET_UI(frame, msg, argStr, handle)
 end
 
 function OPEN_MONB_FRAME(frame, handle) 
+    if handle == nil then
+        return
+    end
+
+    if frame == nil then
+        frame = ui.GetFrame("monb_" .. handle)
+    end
+    
+    if frame == nil then
+        return
+    end
+
+	local isPartySummonMon = frame:GetUserValue("IS_PARTY_SUMMON_MON")
+	local isShowPartySummonMon = config.GetXMLConfig("ShowSummonedMonName")
     if frame ~= nil and frame:IsVisible() == 0 and session.world.IsDirectionMode() == false and IS_IN_EVENT_MAP() == false then
-        frame:ShowWindow(1);
+		frame:ShowWindow(1);
         ui.UpdateCharBasePos(handle);
-    end 
+	end 
+
+	if isPartySummonMon == "YES" and isShowPartySummonMon == 0 then
+		frame:ShowWindow(0);
+	end
 end
 
 function ON_MONB_TARGET_SET(msgFrame, msg, argStr)
@@ -185,7 +203,11 @@ end
 
 function UPDATE_MONB_HP(frame, handle)
     if frame == nil then
-        return;
+        frame = ui.GetFrame("monb_" .. handle)
+    end
+
+    if frame == nil then
+        return
     end
 
     -- 보스는 보스HP UI에서 따로 보여줌. 이거땜시 빨간hp, name 깜빡거림

@@ -29,6 +29,43 @@ function BEAUTYSHOP_SIMPLELIST_INIT_COUPON(frame, list)
   rtColorcouponTP:SetTextByKey('value', 0);
 end
 
+function BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(slot)
+	slot:ClearText();
+  slot:ClearIcon();
+  slot:RemoveChild('HAIR_DYE_PALETTE');
+end
+
+function BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE(parent, control, argStr, argNum)	
+
+  local beautyshop_frame = ui.GetFrame('beautyshop');
+  if beautyshop_frame == nil then
+    return 
+  end
+  
+  local previewSlotName = "slotPreview_"..argStr
+
+  -- Small Mode의 실롯에 내용을 정리한다.
+  BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(control)
+
+  -- 뷰티샵 미리보기 슬롯을 정리한다.
+	local slot = GET_CHILD_RECURSIVELY(beautyshop_frame, previewSlotName);
+	BEAUTYSHOP_CLEAR_SLOT(slot);
+	
+  -- 뷰티샵에서 입어볼 목록이 없으면 이 프레임을 종료하고 뷰티샵 UI를 연다.
+  local isEmpty = BEAUTYSHOP_IS_PREIVEW_EMPTY(beautyshop_frame)
+  if isEmpty == true then
+    ui.CloseFrame('beautyshop_simplelist');
+    session.beautyshop.SendCancelTryItOn();
+    return
+	end
+    
+  -- 갱신 함수 호출
+  local beautyshop_gbPreview = GET_CHILD_RECURSIVELY(beautyshop_frame, 'gbPreview');
+  if beautyshop_gbPreview ~= nil then
+     BEAUTYSHOP_TRY_IT_ON(beautyshop_gbPreview, nil)
+  end
+end
+
 function BEAUTYSHOP_SIMPLELIST_UPDATE_SMALLMODE(frame, list)
     local slotBox = GET_CHILD_RECURSIVELY(frame, 'slotBox');
     local childCnt = slotBox:GetChildCount();
@@ -49,6 +86,10 @@ function BEAUTYSHOP_SIMPLELIST_UPDATE_SMALLMODE(frame, list)
             icon = CreateIcon(slot);
         end
         icon:SetImage(itemCls.Icon);
+
+        -- 제거를 위한 우클릭 등록
+       slot:SetEventScript(ui.RBUTTONDOWN, 'BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE');
+       slot:SetEventScriptArgString(ui.RBUTTONDOWN, list[i]['equipType']);
 
         local colorName = list[i]['ColorName'];        
         if colorName ~= nil and colorName ~= "None" and colorName ~= "default" then   

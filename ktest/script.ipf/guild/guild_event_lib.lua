@@ -22,7 +22,10 @@ function GUILDEVENT_SELECT_TYPE(self, pc)
 		if select == 1 then
 		    local eventState = GetGuildEventState(guildObj)
 		    if eventState == 'Started' then
-			    SendSysMsg(pc, 'GuildEventStateStartedErrorMsg');
+		        local eventID = GetGuildEventID(guildObj)
+                local eventCls = GetClassByType("GuildEvent", eventID);
+                local eventName = TryGetProp(eventCls, "Name");
+			    SendSysMsg(pc, "GuildEventStateStartedErrorMsg{EVENT_NAME}", 0, "EVENT_NAME", eventName);
 			    return;
 			elseif eventState == 'Recruiting' or eventState == 'Waiting' then
 			    local eventID = GetGuildEventID(guildObj)
@@ -192,10 +195,10 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
         return;
     end
     
-    local GuildEventParticipant = IsGuildEventParticipant(pc)   --PC가 길드 이벤트 참가중인지 체크 --
-    if GuildEventParticipant ~= 1 then
-        return;
-    end
+    -- local GuildEventParticipant = IsGuildEventParticipant(pc)   --PC가 길드 이벤트 참가중인지 체크 --
+    -- if GuildEventParticipant ~= 1 then
+    --     return;
+    -- end
     
     local eventID = GetGuildEventID(guildObj)
     local zoneInst = GetZoneInstID(pc);
@@ -204,15 +207,21 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
     local eventType = TryGetProp(eventCls, "EventType");
     local GuildEventTicketCount = guildObj.GuildEventTicketCount;
     local UsedTicketCount = guildObj.UsedTicketCount;
-    
+    local authority = IS_GUILD_AUTHORITY_SERVER(pc, AUTHORITY_GUILD_EVENT ) -- 길드 입장 권한이 있는지 체크 --
+    local isLeader = IsPartyLeaderPc(guildObj, pc);
+    local eventName = TryGetProp(eventCls, "Name");
+    local guildID = GetIESID(guildObj) -- 길드 아이디도 받아두자--
+    local GuildEventParticipant = IsGuildEventParticipant(pc)   --PC가 길드 이벤트 참가중인지 체크 --
+
     if GetGuildEventState(guildObj) == "Recruiting" then
         SendSysMsg(pc, 'GuildEventNotStarted');
     end
 
     if GetGuildEventState(guildObj) == "Waiting" then
-        local authority = IS_GUILD_AUTHORITY_SERVER(pc, AUTHORITY_GUILD_EVENT ) --길드 입장 권한이 있는지 체크 --
-        local isLeader = IsPartyLeaderPc(guildObj, pc);
-        if authority == 0 and isLeader == 0 then
+        if GuildEventParticipant ~= 1 and isLeader == 0 then -- 참가 중인지 체크 --
+            SendSysMsg(pc, 'doNotJoinGuildEvent');
+            return;
+        elseif authority == 0 and isLeader == 0 then
             SendSysMsg(pc, 'GuildEventNotStarted');
             return;
         end
@@ -221,7 +230,7 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
         if select == 2 or select == nil then
 		    return;
 	    elseif select == 1 then
-	        if GetGuildEventState(guildObj) == "Started" then
+	        if GetGuildEventState(guildObj) == "Started" then -- 동시에 시작하는 일을 막기 위해 한번 더 State 를 확인 --
 	            SendSysMsg(pc, 'GuildEventStarted');
 	            return;
 	        end
@@ -245,7 +254,20 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
             end
 	    end
     elseif GetGuildEventState(guildObj) == "Started" then
-        local select = ShowSelDlg(pc,0, 'GUILD_EVENT_START_SELECT_1', ScpArgMsg("Yes"), ScpArgMsg("No"))
+        if GuildEventParticipant ~= 1 and isLeader == 0 then -- 참가 중인지 체크 --
+            local select = ShowSelDlg(pc, 0, 'GUILD_EVENT_START_SELECT_2', ScpArgMsg("Yes"), ScpArgMsg("No")) -- 참가 중이 아니면 취소만 할수 있슴 --
+            if select == 2 or select == nil then
+                return
+            elseif select == 1 then
+                FailGuildEvent(guildObj)
+                local cancelMsg = ScpArgMsg("GuildEvent{GuildEvent}Cancel", "GuildEvent", eventName);
+    	        BroadcastToPartyMember(PARTY_GUILD, guildID, cancelMsg, "");
+                GuildEventMongoLog(pc, eventID, "Error", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
+                return
+            end
+        end
+
+        local select = ShowSelDlg(pc, 0, 'GUILD_EVENT_START_SELECT_1', ScpArgMsg("Yes"), ScpArgMsg("No"))
         if select == 2 or select == nil then
 		    return;
 	    elseif select == 1 then
@@ -255,28 +277,37 @@ function SCR_GUILD_EVENT_ENTER_CHECK(self, pc)
 	        if eventType == 'FBOSS' then
                 local fbossInstStr, layer = GetGuildEventBossHuntingLayer(pc)
                 fbossInst = tonumber(fbossInstStr);
-                if zoneInst == fbossInst then
-                    SetLayer(pc, layer, 0)
-                    GuildEventMongoLog(pc, eventID, "Enter")
-                    if IsPlayingMGame(pc, minigame) == 0 then
-                        SendSysMsg(pc, 'GuildEventZonemoveError')
+                if SCR_GUILD_EVENT_FBOSS_VERITFY(pc) ~= 1 then
+                    local selectCancel = ShowSelDlg(pc, 0, 'GUILD_EVENT_START_SELECT_3', ScpArgMsg("Yes"), ScpArgMsg("No"))
+                    if selectCancel == 2 or selectCancel == nil then
+                        return;
+                    else
                         FailGuildEvent(guildObj)
-			            GuildEventMongoLog(pc, eventID, "Error", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
-                        SetLayer(pc, 0, 0)
+                        local cancelMsg = ScpArgMsg("GuildEvent{GuildEvent}Cancel", "GuildEvent", eventName);
+                        BroadcastToPartyMember(PARTY_GUILD, guildID, cancelMsg, "");
+                        GuildEventMongoLog(pc, eventID, "Error", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
+                        return
                     end
-                else 
+                end
+                
+                if zoneInst == fbossInst then
+                    if GuildEventParticipant ~= 1 and isLeader == 0 then
+                        SendSysMsg(pc, 'doNotJoinGuildEvent');
+                        return;
+                    end
+                    GuildEventMongoLog(pc, eventID, "Enter")
+                    SetLayer(pc, layer, 0)
+                else -- 만약 다른 채널에서 입장을 시도할 경우 --
                     local channel = GetMyChannel(fbossInst)
                     local x, y, z = GetPos(pc)
                     local mapName = TryGetProp(eventCls, "StartMap");
-                    MoveZone(pc, mapName, x, y, z, nil, channel)
-                    SetLayer(pc, layer, 0)
-                    GuildEventMongoLog(pc, eventID, "Enter")
-                    if IsPlayingMGame(pc, minigame) == 0 then
-                        SendSysMsg(pc, 'GuildEventZonemoveError')
-                        FailGuildEvent(guildObj)
-			            GuildEventMongoLog(pc, eventID, "Error", "GuildEventTicket", GuildEventTicketCount, "UsedTicketCount", UsedTicketCount)
-                        SetLayer(pc, 0, 0)
+                    if GuildEventParticipant ~= 1 and isLeader == 0 then
+                        SendSysMsg(pc, 'doNotJoinGuildEvent');
+                        return;
                     end
+                    MoveZone(pc, mapName, x, y, z, nil, channel)
+                    GuildEventMongoLog(pc, eventID, "Enter")
+                    SetLayer(pc, layer, 0)
                 end
             elseif eventType == 'MISSION' then
             	local missionInstID = GetGuildEventMissionInstID(pc)
@@ -296,7 +327,6 @@ function GET_GUILD_EVENT_WAITING_POSITION_STR(mapID, genType, genListIndex)
 end
 
 function SCR_GUILD_EVENT_GIVE_ITEM_LIST(pc, eventCls)
-
 
     local itemlist = {}
     local itemcount = {}
@@ -374,4 +404,32 @@ function SCR_GUILD_EVENT_REWARD_CHECK_MONGOLOG(guildObj, pc)
     end
     
     GuildEventMongoLog(pc, eventID, "REWARD_CHECK_PC")
+end
+
+function SCR_GUILD_EVENT_FBOSS_VERITFY(pc)
+    local fbossInstStr, layer = GetGuildEventBossHuntingLayer(pc)
+    local guildObj = GetGuildObj(pc)
+    fbossInst = tonumber(fbossInstStr);
+    if zoneInst == fbossInst then
+        local list, cnt = GetLayerPCList(fbossInst, layer)
+        local guildMember  = 0;
+        if cnt <= 0 or cnt == nil then
+            return 0;
+        else
+            for i = 1, cnt do
+                local targetGuild = GetGuildObj(list[i])
+                if guildObj == targetGuild then
+                    guildMember = guildMember + 1
+                end
+            end
+            if guildMember >= 1 then
+                local monList, monCnt = GetLayerMonList(fbossInst, layer)
+                if monCnt >= 1 or monCnt ~= nil then
+                    return 1;
+                end
+            end
+            return 0;
+        end
+    end
+    return 0;
 end

@@ -635,6 +635,9 @@ end
 function BT_COND_SELF_MOVE_CHECK(self, state, btree, prop)
     local numArg = GetLeafNumArg(prop);
     local target = GetReservedTarget(btree);
+    if target == nil then
+        return BT_FAILED;
+    end
     local targetMissingCheck = IsEnableMoveCloseToTarget(self, target, 100)
     local nowSec = math.floor(os.clock())
     local propSave = GetExProp(self, 'firsttime')

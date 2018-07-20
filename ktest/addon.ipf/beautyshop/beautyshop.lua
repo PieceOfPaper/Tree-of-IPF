@@ -252,7 +252,6 @@ function IS_ENABLE_EQUIP_AT_BEAUTYSHOP(item, beautyShopCls)
 		elseif beautyShopCls.Gender == 'F' and gender ~= 2 then			
 			return false, 'Gender', 'FemaleOnly';
 		end
-
 		local jobOnly = beautyShopCls.JobOnly;
 		local jobCls = GetClass('Job', jobOnly);		
 		if jobOnly ~= 'None' and IS_EXIST_JOB_IN_HISTORY(jobCls.ClassID) == false then			
@@ -300,27 +299,23 @@ function _BEAUTYSHOP_SELECT_ITEM(parentName, ctrlName)
 	BEAUTYSHOP_SELECT_ITEM(parent, ctrl, 'NoCheckDup');
 end
 
--- 판매 아이템을 클릭 했을 때 동작.
-function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)	
-	local ctrlSet = control:GetParent()
-	local name = ctrlSet:GetName()
-	local frame = control:GetTopParentFrame(); -- beautyShop frame
+function BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parentName, controlName)
 
 	-- 프리뷰 슬롯의 정보 초기화.
 	local gender = ctrlSet:GetUserIValue("GENDER");
 	local itemClassName = ctrlSet:GetUserValue("ITEM_CLASS_NAME");
 	local equipType = GET_BEAUTYSHOP_EQUIP_TYPE(frame, gender, itemClassName);
 	if equipType == nil then		
-		return;
+		return false;
 	end
 
 	-- package 일 때는 장착 미리보기 슬롯 처리 안함.
 	if equipType ~= "package"  then
 		local buyCaseClMsg, previewCaseClMsg = GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemClassName);
 		if argStr ~= 'NoCheckDup' and previewCaseClMsg ~= '' then
-			local yesscp = string.format('_BEAUTYSHOP_SELECT_ITEM("%s", "%s")', parent:GetName(), control:GetName());
+		local yesscp = string.format('_BEAUTYSHOP_SELECT_ITEM("%s", "%s")', parentName, controlName);
 			ui.MsgBox(ClMsg(previewCaseClMsg), yesscp, 'None');
-			return;
+			return false;
 		end
 
 		local slot = BEAUTYSHOP_GET_PREIVEW_SLOT(equipType)		
@@ -334,13 +329,28 @@ function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)
 				elseif reason == 'JOB' then
 					ui.SysMsg(ClMsg('BEAUTY_SHOP_CLASS_CHECK'));
 				end
-				return;
+				return false;
 			end
 
 			BEAUTYSHOP_CLEAR_SLOT(slot);
 		end
 	end
 
+	return true
+end
+
+-- 판매 아이템을 클릭 했을 때 동작.
+function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)	
+	local ctrlSet = control:GetParent()
+	local name = ctrlSet:GetName()
+	local frame = control:GetTopParentFrame(); -- beautyShop frame
+
+	-- 선행 처리
+	if BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parent:GetName(), control:GetName()) == false then
+		return
+	end
+
+	-- 선택 처리
 	local select = frame:GetUserValue("SELECT");
 	frame:SetUserValue('CLICKED_ITEM_CTRLSET_NAME', ctrlSet:GetName());    
 	
@@ -500,6 +510,31 @@ function BEAUTYSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)
 	BEAUTYSHOP_UPDATE_ITEM_LIST_BY_SHOP(frame);
 end
 
+-- 미리보기 버튼을 누를 때
+function BEAUTYSHOP_ITEM_PREVIEW(parent, control, strArg, numArg)
+	local ctrlSet = control:GetParent()
+	local name = ctrlSet:GetName()
+	local frame = control:GetTopParentFrame(); -- beautyShop frame
+
+	-- 선행 처리
+	if BEAUTYSHOP_PRE_SELECT_ITEM(frame, ctrlSet, parent:GetName(), control:GetName()) == false then
+		return
+	end
+
+	-- 선택 처리 : 미리보기 버튼이기 때문에 UserValue만 설정하고 실제 UI에는 나타내지 않음.
+	local select = frame:GetUserValue("SELECT");
+	frame:SetUserValue('CLICKED_ITEM_CTRLSET_NAME', ctrlSet:GetName());    
+	
+	-- 새로 선택된 항목 적용.
+	frame:SetUserValue("SELECT", name);
+	frame:SetUserValue("SUB_SELECT", "None") -- subitem 선택을 초기화 해줌.
+	
+	-- 처리
+	if beautyShopInfo.functionMap["POST_SELECT_ITEM"]  ~= nil then
+		beautyShopInfo.functionMap.POST_SELECT_ITEM(frame, control)
+	end
+end
+
 -- 메인아이템에서 담기 버튼 누를때
 function BEAUTYSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, strArg, numArg)
 	local itemClassName = strArg
@@ -522,7 +557,7 @@ function BEAUTYSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, strArg, numArg)
 	local beautyShopCls = GetClass(idSpace, shopClassName);
 	local ret, reason, argStr = IS_ENABLE_EQUIP_AT_BEAUTYSHOP(item, beautyShopCls);    
 	if ret == false then
-		if idSapce == 'Beauty_Shop_Hair' or idSpace == 'Hair_Dye_List' then
+		if idSpace == 'Beauty_Shop_Hair' or idSpace == 'Hair_Dye_List' then
 			return;
 		end
 
@@ -740,7 +775,7 @@ function BEAUTYSHOP_UPDATE_ITEM_LIST(itemList, itemCount)
 	local gbItemList = GET_CHILD_RECURSIVELY(topFrame,"gbItemList");	
 	if gbItemList == nil then
 		return;
-	end
+	end    
 
 	local itemPrefix = "shopitem_"
 	-- 그룹박스내의 "shopitem_"로 시작하는 항목들을 제거
@@ -754,23 +789,68 @@ function BEAUTYSHOP_UPDATE_ITEM_LIST(itemList, itemCount)
 	local index = 0
 	local width = ui.GetControlSetAttribute("beautyshop_item", "width");
 	local height = ui.GetControlSetAttribute("beautyshop_item", "height")
-	
+		
+	--착용 가능한 장비 보기 옵션 관련
+	local showEnalbeEquip = false;
+	local showOnlyEnableEquipCheck = GET_CHILD_RECURSIVELY(topFrame, "showOnlyEnableEquipCheck");
+	if showOnlyEnableEquipCheck:IsVisible() == 1 and showOnlyEnableEquipCheck:IsChecked() == 1 then
+		showEnalbeEquip = true;
+	end   
+
 	-- 목록 채우기
 	for i = 1, itemCount  do
 		local itemInfo = itemList[i]
-		local itemObj = GetClass("Item", itemInfo.ItemClassName);		        
-		if itemObj ~= nil and IS_NEED_TO_SHOW_BEAUTYSHOP_ITEM(topFrame, itemObj, itemInfo) == true then			
-			index = index + 1
-			x = ( (index-1) % 2) * width
-			y = (math.ceil( (index / 2) ) - 1) * (height * 1)
-			ctrlSet = gbItemList:CreateOrGetControlSet("beautyshop_item", itemPrefix..index, x, y);
-			ctrlSet:SetUserValue("INDEX_NAME", itemPrefix..index);
-			ctrlSet:SetUserValue("ITEM_CLASS_NAME", itemInfo.ItemClassName);
-            ctrlSet:SetUserValue('IDSPACE', itemInfo.IDSpace);
-			ctrlSet:SetUserValue('SHOP_CLASSNAME', itemInfo.ClassName);
-			ctrlSet:SetUserValue('GENDER', beautyShopInfo.gender);
-			BEAUTYSHOP_DRAW_ITEM_DETAIL(itemInfo ,itemObj, ctrlSet);
-			
+		local itemObj = GetClass("Item", itemInfo.ItemClassName);
+		if itemObj ~= nil and IS_NEED_TO_SHOW_BEAUTYSHOP_ITEM(topFrame, itemObj, itemInfo) == true then
+			if showEnalbeEquip == false then
+				--모두 보기
+				index = index + 1
+				x = ( (index-1) % 2) * width
+				y = (math.ceil( (index / 2) ) - 1) * (height * 1)
+				ctrlSet = gbItemList:CreateOrGetControlSet("beautyshop_item", itemPrefix..index, x, y);
+				ctrlSet:SetUserValue("INDEX_NAME", itemPrefix..index);
+				ctrlSet:SetUserValue("ITEM_CLASS_NAME", itemInfo.ItemClassName);
+			    ctrlSet:SetUserValue('IDSPACE', itemInfo.IDSpace);
+				ctrlSet:SetUserValue('SHOP_CLASSNAME', itemInfo.ClassName);
+				ctrlSet:SetUserValue('GENDER', beautyShopInfo.gender);
+				
+				-- 패키지일 경우 미리보기 버튼이 살펴보기로 바껴야함
+				if itemInfo.IDSpace == 'Beauty_Shop_Package_Cube' then
+					if ctrlSet ~= nil then
+						local previewBtn = ctrlSet:GetChild('previewBtn');
+						if previewBtn ~= nil then
+							previewBtn:SetTextByKey("name", ClMsg('PreviewBtn_Text_Discover'));
+						end
+					end
+				end
+
+				BEAUTYSHOP_DRAW_ITEM_DETAIL(itemInfo ,itemObj, ctrlSet);
+			else
+				--착용 가능한 것만 보이기
+				local beautyShopCls = GetClass(itemInfo.IDSpace, itemObj.ClassName);
+				local ret, reason = IS_ENABLE_EQUIP_AT_BEAUTYSHOP(itemObj, beautyShopCls);
+				if ret == true then
+					index = index + 1
+					x = ( (index-1) % 2) * width
+					y = (math.ceil( (index / 2) ) - 1) * (height * 1)
+					ctrlSet = gbItemList:CreateOrGetControlSet("beautyshop_item", itemPrefix..index, x, y);
+					ctrlSet:SetUserValue("INDEX_NAME", itemPrefix..index);
+					ctrlSet:SetUserValue("ITEM_CLASS_NAME", itemInfo.ItemClassName);
+				    ctrlSet:SetUserValue('IDSPACE', itemInfo.IDSpace);
+					ctrlSet:SetUserValue('SHOP_CLASSNAME', itemInfo.ClassName);
+					ctrlSet:SetUserValue('GENDER', beautyShopInfo.gender);
+                                -- 패키지일 경우 미리보기 버튼이 살펴보기로 바껴야함
+				if itemInfo.IDSpace == 'Beauty_Shop_Package_Cube' then
+					if ctrlSet ~= nil then
+						local previewBtn = ctrlSet:GetChild('previewBtn');
+						if previewBtn ~= nil then
+							previewBtn:SetTextByKey("name", ClMsg('PreviewBtn_Text_Discover'));
+						end
+					end
+				end
+					BEAUTYSHOP_DRAW_ITEM_DETAIL(itemInfo ,itemObj, ctrlSet);
+				end
+			end
 		end
 	end
 
@@ -1304,6 +1384,11 @@ end
 function BEAUTYSHOP_SELECT_DROPLIST(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	frame:SetUserValue('SELECTED_CATEGORY', ctrl:GetSelItemKey());
+	BEAUTYSHOP_UPDATE_ITEM_LIST_BY_SHOP(frame);
+end
+
+function BEAUTYSHOP_CLICK_CHECKBOX(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
 	BEAUTYSHOP_UPDATE_ITEM_LIST_BY_SHOP(frame);
 end
 

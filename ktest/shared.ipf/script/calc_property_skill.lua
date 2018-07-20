@@ -2610,8 +2610,13 @@ function SCR_GET_Impaler_Ratio(skill)
 end
 
 function SCR_GET_Impaler_Ratio2(skill)
-    return 10;
-
+    local pc = GetSkillOwner(skill);
+    local value = 10;
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+        value = 6;
+    end
+    return value;
 end
 
 function SCR_Get_SklAtkAdd_Rush(skill)
@@ -4228,11 +4233,14 @@ function SCR_GET_Joust_Ratio(skill)
 end
 
 function SCR_GET_Joust_Ratio2(skill)
-
-    local value = 10 + skill.Level * 1
-
-    return value
-
+    local pc = GetSkillOwner(skill);
+    local value = 10 + skill.Level * 1;
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+        value = 6;
+    end
+    
+    return value;
 end
 
 function SCR_Get_SkillFactor_SpillAttack(skill)
@@ -5970,7 +5978,7 @@ function SCR_Get_SkillFactor_Limacon(skill)
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
     end
-
+    
     return math.floor(value)
 
 end
@@ -6000,7 +6008,12 @@ function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 50 + (skill.Level - 1) * 10;
     
-    return value;
+    local abil = GetAbility(pc, "Schwarzereiter13")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
 end
 
 
@@ -11066,7 +11079,8 @@ end
 function SCR_GET_Stop_Time(skill)
     local pc = GetSkillOwner(skill)
     local value = 5 + skill.Level * 1
-    if IsPVPServer(pc) == 1 then
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
         value = value * 0.5
     end
     
@@ -11287,7 +11301,8 @@ function SCR_Get_StoneShot_Bufftime(skill)
     
     local value = 4 + skill.Level * 0.4
     
-    if IsPVPServer(pc) == 1 then
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
         value = value / 2
     end
     
@@ -11565,14 +11580,14 @@ end
 function SCR_GET_Telekinesis_Holdtime(skill)
     local pc = GetSkillOwner(skill)
     local value = 3 + skill.Level * 1;
-    if IsPVPServer(pc) == 1 then
-        value = value * 0.5
-    end
+    local zone = GetZoneName(pc);
+	if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+	    value = value * 0.5;
+	end
     
     return math.floor(value);
 
 end
-
 
 --[Wizard_MagicMissile]--
 
@@ -12681,10 +12696,11 @@ end
 
 function SCR_GET_Sleep_Ratio(skill)
     local value = skill.Level
-        if IsPVPServer(self) == 1 and value > 5 then
-            value = 5
-        end
-    return value
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+        value = 1;
+    end
+    return value;
 
 end
 
@@ -13049,22 +13065,29 @@ function SCR_Get_Zhendu_Bufftime(skill)
 end
 
 function SCR_Get_Zhendu_Ratio(skill)
-    
+
+    local value = 0 
     local pc = GetSkillOwner(skill)
     if pc ~= nil then
         local minPATK = TryGetProp(pc, "MINPATK")
         local maxPATK = TryGetProp(pc, "MAXPATK")
-        return math.floor(((minPATK + maxPATK) / 2) * 0.1)
+        value = math.floor(((minPATK + maxPATK) / 2) * 0.1)
     end
+    
+    return value
 end
 
 function SCR_Get_Zhendu_Ratio2(skill)
 
-    local pc = GetSkillOwner(skill)
+    local pc = GetSkillOwner(skill);
+    local skillLv = skill.Level;
+    local value = 40 + (skillLv -1) * 7;
     if pc ~= nil then
         local STR = TryGetProp(pc, "STR")
-        return math.floor(40 + (skill.Level * 5) * ((STR * 0.6) ^ 0.9))
+        value = math.floor(value + ((skillLv / 4)* ((STR * 0.6) ^ 0.9)));
     end
+    
+    return value
 end
 
 function SCR_GET_JollyRoger_Bufftime(skill)
@@ -14534,21 +14557,21 @@ end
 
 
 function SCR_Get_Raise_Ratio(skill)
-    local value = 3 + skill.Level * 2
-    local pc = GetSkillOwner(skill);
-    if IsPVPServer(pc) == 1 then
-        value = value * 0.5
-    end
-    
+    local value = 3 + skill.Level * 2;
     return math.floor(value)
 
 end
 
 
 function SCR_Get_Raise_Ratio2(skill)
-
-    local value = 5 + skill.Level * 1
-    return value
+    local pc = GetSkillOwner(skill);
+    local value = 5 + skill.Level * 1;
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+        value = value * 0.5;
+    end
+    
+    return value;
 
 end
 
@@ -15287,9 +15310,10 @@ end
 function SCR_GET_IronHook_Ratio(skill)
     
     local pc = GetSkillOwner(skill);
-    local value = 4 + skill.Level * 1
-    if IsPVPServer(pc) == 1 and value >= 10 then
-        value = 10
+    local value = 4 + skill.Level * 1;
+    local zone = GetZoneName(pc);
+    if IsPVPServer(pc) == 1 or zone == 'pvp_Mine' then
+        value = value * 0.5;
     end
     
     return value;

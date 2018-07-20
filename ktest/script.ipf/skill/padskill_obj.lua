@@ -261,23 +261,25 @@ function PAD_TGT_BUFF_HEAL(self, skl, pad, target, tgtRelation, consumeLife, use
 	
 	local abilCleric20 = GetAbility(self, "Cleric20");
 	local abilCleric21 = GetAbility(self, "Cleric21");
-	local isSummon = 1;
-	local topOwner = GetTopOwner(target)
-	if IsSameActor(topOwner, self) == "YES" then
-	    isSummon = 0
-    end
-    
-	if abilCleric21 ~= nil and TryGetProp(abilCleric21, "ActiveState") == 1 then
-	    if IS_PC(target) == false and GetRelation(self, target) ~= "ENEMY" then
-	        isSummon = 1;
-	    end
-	end
+	local isSummon = 0;
 	
 	if abilCleric20 ~= nil and TryGetProp(abilCleric20, "ActiveState") == 1 then
 	    tgtRelation = "FRIEND"
 	end
 	
-    if IS_APPLY_RELATION(self, target, tgtRelation) or isSummon == 0 then
+	if IS_PC(target) == false and GetRelation(self, target) ~= "ENEMY" then
+        local targetOwner = GetOwner(target);
+        local relation = GetRelation(self, targetOwner)
+        if IS_APPLY_RELATION(self, targetOwner, tgtRelation) then
+            isSummon = 1;
+        end
+    end
+    
+	if abilCleric21 ~= nil and TryGetProp(abilCleric21, "ActiveState") == 1 then
+        isSummon = 0;
+	end
+	
+    if IS_APPLY_RELATION(self, target, tgtRelation) or isSummon == 1 then
 		if over == 0 and GetBuffByName(target, buffName) ~= nil then
 			return;
 		end

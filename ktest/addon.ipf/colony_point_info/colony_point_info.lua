@@ -222,8 +222,8 @@ function COLONY_POINT_INFO_INIT_TIMER(frame)
 end
 
 function COLONY_POINT_INFO_UPDATE_TIMER(remainTimeText)
-    local ruleCls = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
-    local remainTime = -1 * imcTime.GetDiffSecFromNow(ruleCls.ColonyEndHour, ruleCls.ColonyEndMin, 0);
+    local endTime = session.colonywar.GetEndTime();
+    local remainTime = -1 * imcTime.GetDiffSecFromNow(endTime.wHour, endTime.wMinute, 0);
     if remainTime <= 0 then
         return 0;
     end

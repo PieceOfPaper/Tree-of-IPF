@@ -1145,10 +1145,10 @@ end
 -- Fluting_Buff
 function SCR_BUFF_ENTER_Fluting_Buff(self, buff, arg1, arg2, over)
     local lv = arg1;
-    local mspdadd = self.MSPD * 0.6;
+    local mspdadd = (self.MSPD - self.MSPD_BM) * 0.6;
     local abilPiedPiper4 = GetAbility(self, "PiedPiper4")
     if abilPiedPiper4 ~= nil and abilPiedPiper4.ActiveState == 1 then
-    	mspdadd = self.MSPD * (0.6 - (abilPiedPiper4.Level * 0.01))
+    	mspdadd = (self.MSPD - self.MSPD_BM) * (0.6 - (abilPiedPiper4.Level * 0.01))
     end
     
     self.MSPD_BM = self.MSPD_BM - mspdadd;
@@ -2854,12 +2854,13 @@ function SCR_BUFF_ENTER_Zhendu_Buff(self, buff, arg1, arg2, over)
         local minPATK = TryGetProp(caster, "MINPATK")
         local maxPATK = TryGetProp(caster, "MAXPATK")
         local PATK = (((minPATK + maxPATK) / 2) * 0.1)
-        PoisonATK = math.floor(40 + (skl.Level * 5) * ((STR * 0.6) ^ 0.9))
+        local skillLv = skl.Level;
+        PoisonATK = math.floor(40 + (skillLv - 1) * 7) + ((skillLv/4)* ((STR * 0.6) ^ 0.9))
         SetExProp(buff, "PoisonDadak", PATK)
-
+	
         self.Poison_Atk_BM = self.Poison_Atk_BM + PoisonATK
         SetExProp(self, "add_Zhendu", PoisonATK)
-    end
+end
 end
 
 function SCR_BUFF_LEAVE_Zhendu_Buff(self, buff, arg1, arg2, over)
@@ -3038,21 +3039,16 @@ function SCR_BUFF_ENTER_DiscernEvil_Buff(self, buff, arg1, arg2, over)
         caster = buff;
     end
     
-    local buff_list, buff_cnt = GetBuffList(self)
-        if buff_cnt >= 1 then
-            for i = 1, buff_cnt do
-                if TryGetProp(buff_list[i], "Keyword") == "IgnoreImmune;DiscernEvil" then
-                    return 0
-                end
-            end
-        end
-    
     local list, cnt = GetBuffList(self);
     for i = 1, cnt do
         local debuff = list[i]
         if debuff.Group1 == "Debuff" then
             if GetExProp(debuff, "DISCERNEVIL_DEBUFFTIME") == 1 then
                 return
+            end
+            
+            if TryGetProp(debuff, "Keyword") == "Poison;DiscernEvil" then
+                break
             end
             
             local remainTime = GetBuffRemainTime(debuff);
@@ -3861,14 +3857,15 @@ function SCR_BUFF_LEAVE_JincanGu_Debuff(self, buff, arg1, arg2, over)
             local skl = GetSkill(caster, "Wugushi_JincanGu");
             if skl ~= nil then
                 local x, y, z = GetPos(self)
-                local createCount = GetExProp(buff, "Wugushi_JincanGu_COUNT");
-                local loopCount = skl.Level - createCount;
-                if loopCount > 5 then
-                    loopCount = 5
-                    if loopCount >= 1 then
-                        for i = 1, loopCount do
-                            RunScript("SCR_WUGUSHI_JINCANGU", self, sklID, damage, caster, x, y, z);
-                        end
+                local createCount = GetExProp(buff, "Wugushi_JincanGu_COUNT")
+                local maxcount = skl.Level
+                if maxcount >= 5 then
+                    maxcount = 5
+                end
+                local loopCount = maxcount - createCount;
+                if loopCount >= 1 then
+                    for i = 1, loopCount do
+                        RunScript("SCR_WUGUSHI_JINCANGU", self, sklID, damage, caster, x, y, z);
                     end
                 end
             end
@@ -4790,12 +4787,6 @@ function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
         if pad ~= nil then
             lv = GetPadArgNumber(pad, 1);
             
-            if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
-                if lv > 5 then
-                    lv = 5
-                end
-            end
-            
             local abilWizard25 = GetAbility(caster, "Wizard25")
             if abilWizard25 ~= nil then
             	lv = lv * 0.2
@@ -4805,6 +4796,11 @@ function SCR_BUFF_ENTER_Sleep_Debuff(self, buff, arg1, arg2, over)
             	lv = 1
             end
         end
+    end
+    
+    local zone = GetZoneName(self);
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
+        lv = 1;
     end
     
     SetExProp(self, "TAKEDMG_COUNT", lv)
@@ -7408,6 +7404,21 @@ function SCR_BUFF_LEAVE_Moldy_skill_buff(self, buff, arg1, arg2, over)
 
 end
 
+function IS_CONTAIN_KEYWORD_BUFF(buff, _keyword)
+	-- 키워드가 하나 이상 있을 경우 해당 함수 사용 --
+	local keyword = TryGetProp(buff, 'Keyword', 'None');
+	if keyword ~= 'None' then
+		local keywordList = StringSplit(keyword, ';');
+		for j = 1, #keywordList do
+			if keywordList[j] == _keyword then
+				return true;
+			end
+		end
+	end
+	
+	return false;
+end
+
 -- Melstis_Buff
 function SCR_BUFF_ENTER_Melstis_Buff(self, buff, arg1, arg2, over)
     local caster = GetBuffCaster(buff);
@@ -7417,18 +7428,15 @@ function SCR_BUFF_ENTER_Melstis_Buff(self, buff, arg1, arg2, over)
         if buff_cnt >= 1 then
             for i = 1, buff_cnt do
                 if TryGetProp(buff_list[i], "Premium") ~= "PC" then
-                	local invincibilityBuff = GetBuffListByProp(self, "Keyword", "Invincibility");
-                	if invincibilityBuff == nil then
-	                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and TryGetProp(buff_list[i], "Keyword") ~= "IgnoreImmune" and TryGetProp(buff_list[i], "Keyword") ~= "Invincibility" then
-	                    local buff = buff_list[i];
-		                    local buffTime = GetBuffRemainTime(buff)
-		                    local timeValue = buffTime * (skill.Level * 0.2)
-		                    if timeValue > 20000 then
-		                        timeValue = 20000
-		                    end
-		                    
-		                    SetBuffRemainTime(self, buff.ClassName, buffTime + timeValue);
-		                end
+                    if TryGetProp(buff_list[i], "Group1") == 'Buff' and IS_CONTAIN_KEYWORD_BUFF(buff_list[i], "IgnoreImmune") == false and IS_CONTAIN_KEYWORD_BUFF(buff_list[i], "Invincibility") == false then
+                    	local buff = buff_list[i];
+	                    local buffTime = GetBuffRemainTime(buff)
+	                    local timeValue = buffTime * (skill.Level * 0.2)
+	                    if timeValue > 20000 then
+	                        timeValue = 20000
+	                    end
+						
+	                    SetBuffRemainTime(self, buff.ClassName, buffTime + timeValue);
 		            end
                 end
             end

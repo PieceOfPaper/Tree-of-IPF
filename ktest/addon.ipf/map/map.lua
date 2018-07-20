@@ -379,12 +379,8 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 	if mapprop.mongens == nil then
 		return;
 	end
-
-	local npclist = {};
-	local statelist = {};
-	local questIESlist  = {};
-	local questPropList = {};
-	GET_QUEST_NPC_NAMES(mapname, npclist, statelist, questIESlist, questPropList);
+	
+	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);
@@ -599,11 +595,11 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 	local mapname = mapprop:GetClassName();
 	local cnt = #questPropList;
 	for i = 1 , cnt do
-		local questprop = questPropList[i];
+		local questprop = geQuestTable.GetPropByIndex(questPropList[i]);
 		local cls = questIESlist[i];
 		local stateidx = STATE_NUMBER(statelist[i]);
 
-		if stateidx ~= -1 then
+		if questprop ~= nil and stateidx ~= -1 then
 			local locationlist = questprop:GetLocation(stateidx);
 			if locationlist ~= nil then
 				local loccnt = locationlist:Count();
@@ -1233,7 +1229,7 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	local myctrl = GET_CHILD_RECURSIVELY(newframe, 'my');
 	myctrl:ShowWindow(0);
 
-	world.PreloadMinimap(zoneClassName);
+	world.PreloadMinimap(zoneClassName, 1024);
 	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture');
 
 	local width = 0;

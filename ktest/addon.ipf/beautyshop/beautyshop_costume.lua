@@ -17,6 +17,11 @@ function COSTUMESHOP_OPEN()
 	BEAUTYSHOP_SET_TITLE(shopName)
 	topFrame:ShowWindow(1) -- 이것만해도 BEAUTYSHOP_OPEN() 함수가 호출 됨.
 
+	-- 코스튬 샵에서는 체크박스를 보이자
+	local showOnlyEnableEquipCheck = GET_CHILD_RECURSIVELY(topFrame, "showOnlyEnableEquipCheck");
+	showOnlyEnableEquipCheck:ShowWindow(1)
+	showOnlyEnableEquipCheck:SetCheck(0)
+
 	-- 뷰티샵이 열리고나서 이 함수가 호출 되어야함.
 	COSTUMESHOP_INIT_FUNCTIONMAP()
 	

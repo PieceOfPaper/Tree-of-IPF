@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="pvp_mine_result" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true" resizebyresolution="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
@@ -11,15 +11,42 @@
 	<controls>
 		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
 		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('pvp_mine_result')" texttooltip="닫기"/>
-		<richtext name="GetPoint_Desc" rect="0 250 500 30" margin="0 0 0 0" layout_gravity="center center" format="증표 [ %s 개] 획득" param1="point" param1_def="0" fontname="area_name"/>
 		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
 		<button name="returnBtn" rect="0 0 220 60" margin="0 0 20 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st66d}귀환{/}" fontname="white_18_b_ol" LBtnUpScp="PVP_MINE_RESULT_REQ_RETURN_CITY"/>
 		<!-- Win -->
-		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="winUIBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
+		<picture name="winWingLeft" rect="0 0 626 444" parent="winUIBox" margin="-320 60 0 0" layout_gravity="center top" image="colony_vic_wingL"/>
+		<picture name="winWingRight" rect="0 0 626 444" parent="winUIBox" margin="320 60 0 0" layout_gravity="center top" image="colony_vic_wingR"/>
+		<picture name="winPic" rect="0 0 581 532" parent="winUIBox" margin="0 0 0 0" layout_gravity="center top" image="colony_vic_frame"/>
+		<richtext name="winText" rect="0 0 423 142" parent="winPic" margin="0 75 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}승리" fontname="white_24_b_ol"/>
 		<!-- Lose -->
-		<groupbox name="loseBox" rect="0 0 1300 900" margin="0 -75 0 0" layout_gravity="center center" draw="false"/>
-		<groupbox name="winnerInfoBox" rect="0 0 800 230" parent="loseBox" margin="0 30 0 0" layout_gravity="center bottom" draw="false"/>
+		<groupbox name="loseBox" rect="0 0 1300 900" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="loseUIBox" rect="0 0 1300 900" margin="0 -75 0 0" layout_gravity="center center" draw="false"/>
+		<picture name="loseWingLeft" rect="0 0 442 422" parent="loseUIBox" margin="-400 155 0 0" layout_gravity="center top" image="colony_lose_wingL"/>
+		<picture name="loseWingRight" rect="0 0 442 422" parent="loseUIBox" margin="400 155 0 0" layout_gravity="center top" image="colony_lose_wingR"/>
+		<picture name="losePic" rect="0 0 581 532" parent="loseUIBox" margin="0 80 0 0" layout_gravity="center top" image="colony_lose_frame"/>
+		<richtext name="loseText" rect="0 0 423 142" parent="losePic" margin="0 75 0 0" layout_gravity="center center" caption="{@st41_yellow}{s70}패배" fontname="white_24_b_ol"/>
+		<groupbox name="winnerInfoBox" rect="0 0 800 230" parent="loseBox" margin="0 30 0 0" layout_gravity="center bottom" draw="false"/>				
 		<!-- Draw-->
-		<groupbox name="drawBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="drawBox" rect="0 0 1300 700" margin="0 -150 0 0" layout_gravity="center center" draw="false"/>
+		<!-- MVP-->
+		<groupbox name="mvpBox2" rect="0 0 805 200" margin="0 250 0 0" hittestbox="false" skin="guildbattle_win_bg" layout_gravity="center center"/>
+		<groupbox name="mvpBox" rect="0 0 805 200" margin="0 250 0 0" hittestbox="false" skin="guildbattle_win_bg" layout_gravity="center center"/>
+		<groupbox name="grayBox_3" rect="0 0 744 45" margin="0 -26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
+		<groupbox name="grayBox_4" rect="0 0 744 45" margin="0 26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
+		<groupbox name="grayBox_1" rect="0 0 744 45" margin="0 -26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
+		<groupbox name="grayBox_2" rect="0 0 744 45" margin="0 26 0 0" parent="mvpBox" hittestbox="false" skin="graybox_op_45" layout_gravity="center center"/>
+		<picture name="pic_1" rect="0 0 510 120" margin="0 106 0 0" layout_gravity="center center" hittest="false" image="test_pvp_reslut_center" stretch="true"/>
+		<richtext name="MVP_Title" rect="0 -80 0 0" margin="0 5 0 0" parent="mvpBox" layout_gravity="center center" format="{@st42}{s32}MVP{/}" fontname="white_24_b_gr2"/>
+		<richtext name="Kill_MVP_Desc" rect="0 0 0 0" margin="0 0 0 0" parent="grayBox_1" layout_gravity="center center" format="{s22}%s" param1="KillName" param1_def="0" fontname="white_24_b_ol"/>
+		<richtext name="Kill_MVP_Point" rect="-20 0 0 0" margin="0 0 0 0" parent="grayBox_1" layout_gravity="right center" format="{s22}%s 처치" param1="KillCount" param1_def="0" fontname="white_24_b_ol"/>
+		<richtext name="Point_MVP_Desc" rect="0 0 0 0" margin="0 0 0 0" parent="grayBox_2" layout_gravity="center center" format="{s22}%s" param1="PointName" param1_def="0" fontname="white_24_b_ol"/>
+		<richtext name="Point_MVP_Point" rect="-20 0 0 0" margin="0 0 0 0" parent="grayBox_2" layout_gravity="right center" format="{s22}%s 점" param1="PointCount" param1_def="0" fontname="white_24_b_ol"/>
+		<richtext name="GetPoint_Desc" rect="0 70 0 0" margin="0 2 0 0" parent="mvpBox" layout_gravity="center center" format="{s26}증표 [ %s 개] 획득" param1="point" param1_def="0" fontname="orange_32_b_ol_ds"/>
+		<richtext name="killmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_1" layout_gravity="left center" format="{@st42}{b}{s20}KILL MVP" param1="point" fontname="orange_32_b_ol_ds"/>
+		<richtext name="pointmvp" rect="0 0 0 0" margin="42 0 0 0" parent="grayBox_2" layout_gravity="left center" format="{@st42}{b}{s20}SCORE MVP" param1="point" fontname="orange_32_b_ol_ds"/>
+		<picture name="pic_2" rect="0 0 100 100" margin="20 -2 0 0" layout_gravity="left center" hittest="false" image="mine_pvp_killmvp_emblem" stretch="false" parent="mvpBox"/>
+		<picture name="pic_3" rect="0 0 100 100" margin="20 50 0 0" layout_gravity="left center" hittest="false" image="mine_pvp_scoremvp_emblem" stretch="false" parent="mvpBox"/>
 	</controls>
 </uiframe>

@@ -1,8 +1,4 @@
-
-
 function CHAT_OPTION_ON_INIT()
-
-
 end
 
 function INIT_CHATTYPE_VISIBLE_PIC()
@@ -173,6 +169,25 @@ function CHAT_SET_OPACITY(num)
 			CHAT_SET_CHAT_FRAME_OPACITY(chatframe, colorToneStr)
 		end
 	end
+end
 
-
+function CHAT_OPTION_UPDATE_CHECKBOX(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local name = ctrl:GetName();
+	if name == 'damageCheck' then
+		local damageCheck_others = GET_CHILD_RECURSIVELY(frame, 'damageCheck_others');
+		local damageCheck_my = GET_CHILD_RECURSIVELY(frame, 'damageCheck_my');
+		if ctrl:IsChecked() == 0 then			
+			damageCheck_others:SetCheck(0);
+			damageCheck_my:SetCheck(0);
+		else
+			damageCheck_others:SetCheck(1);
+			damageCheck_my:SetCheck(1);
+		end
+	elseif name == 'resurrectCheck' then
+		local resurrectCheck_party = GET_CHILD_RECURSIVELY(frame, 'resurrectCheck_party');
+		if ctrl:IsChecked() == 0 then
+			resurrectCheck_party:SetCheck(0);
+		end		
+	end
 end

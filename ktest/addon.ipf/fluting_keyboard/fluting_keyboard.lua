@@ -10,9 +10,11 @@ end
 function FLUTING_KEYBOARD_UPDATE_HOTKEYNAME(frame)
 	for i = 0, MAX_FLUTING_KEYBORAD_CNT-1 do
 		local slot 			= GET_CHILD(frame, "slot"..i+1);
+		if slot ~= nil then
 		local slotString 	= 'QuickSlotExecute'..(i+1);
 		local text 			= hotKeyTable.GetHotKeyString(slotString);
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		end
 	end
 end
 
@@ -56,7 +58,7 @@ function ON_FLUTING_KEYBOARD_OPEN(frame, msg, argStr, argNum)
 end
 
 function ON_FLUTING_KEYBOARD_CLOSE(frame, msg, argStr, argNum)
-	Piedpiper.ReqReadyFluting(0);	
+		Piedpiper.ReqReadyFluting(0);
 	frame:ShowWindow(0);
 end
 

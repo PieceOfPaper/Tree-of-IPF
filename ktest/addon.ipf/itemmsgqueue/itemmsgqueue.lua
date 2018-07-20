@@ -5,8 +5,8 @@ function ITEMMSGQUEUE_ON_INIT(addon, frame)
 end
 
 function ITEMMSG_POP_QUEUE(frame)
-
 	local msgInfo = session.bindFunc.PopItemMsgQueue();
+	--msgInfo.cnt ë¡œ ì‹¤ë²„ ì „ì²´ê°’ ë“¤ì–´ì˜¤ëŠ”ê²½ìš°ë„ ìžˆëŠ”ë“¯
 	ITEMMSG_SHOW_GET_ITEM(frame, msgInfo.itemType, msgInfo.cnt);
 
 end
@@ -16,16 +16,14 @@ function ITEMMSG_QUEUE(frame, itemType, cnt)
 end
 
 function FORCE_GET_ITEM(itemType, cnt)
-
 	local frame = ui.GetFrame("itemmsgqueue");
 	if frame:IsVisible() == 1 then
 		local beforeItemType = frame:GetUserIValue("ITEMTYPE");
 		if beforeItemType ~= itemType then
 			ITEMMSG_QUEUE(frame, itemType, cnt);
-			return;
+--			return;
 		end
 	end
-
 	ITEMMSG_SHOW_GET_ITEM(frame, itemType, cnt);
 end
 
@@ -35,57 +33,73 @@ function CLOSE_ITEMMSG_QUEUE(frame)
 end
 
 function ITEMMSG_SHOW_GET_ITEM(frame, itemType, count)
-
 	local item = session.GetInvItemByType(itemType);
 	if item == nil then
-		frame:ShowWindow(0);
 		return;
 	end
 
-	local fromCnt = 0;	
 	local itemCls = GetClassByType("Item", itemType);
-	local text = GET_CHILD(frame, "text", "ui::CRichText");
-	local curValue = text:GetCurrentTextChangeEventValue();
-	fromCnt = item.count - count;
-	if curValue > 0 then
-		if curValue > fromCnt then
-			return;
-		end
-
-		fromCnt = curValue;
+	if itemCls.ClassName ~= "Vis" then
+		return;
 	end
 		
-	local toCnt = item.count;
+	local textVis = GET_CHILD_RECURSIVELY(frame, "textVis", "ui::CRichText");
+	textVis:DestroyUICommand(ui.UI_CMD_TEXTCHANGE, false);
 
+	local fromCnt = 0;	
+		
+	local curValue = textVis:GetCurrentTextChangeEventValue();
+	fromCnt = item.count - count;
+--	if curValue > 0 then
+--		if curValue > fromCnt then
+--			return;
+--		end
+
+--		fromCnt = curValue;
+--	end
+		
+	local toCnt = item.count;
 	local prevToCnt = frame:GetUserIValue("ITEMCOUNT");
 	local prevType = frame:GetUserIValue("ITEMTYPE");
-	if prevType == itemType and toCnt == prevToCnt then
-		return;
-	end
-
 	frame = tolua.cast(frame, "ui::CFrame");
-	local txt;
-	if itemCls.ClassName == "Vis" then
-		txt = frame:GetUserConfig("HEAD_FONT") .. ClMsg("GetItem") .. " : " .. GET_ITEM_IMG_BY_CLS(itemCls, 22) .. frame:GetUserConfig("ITEM_FONT");
-	else
-		txt = frame:GetUserConfig("HEAD_FONT") .. ClMsg("GetItem") .. " : ".. string.format("{img %s 26 26}", itemCls.Icon) .. " " .. frame:GetUserConfig("ITEM_FONT") .. itemCls.Name;
-	end
-
-	text:DestroyUICommand(ui.UI_CMD_TEXTCHANGE, false);
+	
 	if itemCls.MaxStack > 1 then
 		local playTime = (toCnt - fromCnt) * 0.1;
 		playTime = math.min(playTime, 2);
+		
 		local updateTime = playTime / (toCnt - fromCnt);
-		txt = txt .. " %s";
-		text:ResetParamInfo();
-		text:SetFormat(txt);		
-		text:AddParamInfo("value", "0");
-		text:PlayTextChangeEvent(updateTime, "value", fromCnt, toCnt, "", 1);
+		local isShowCurVis = config.GetXMLConfig("ShowCurrentGetVis")
+		if isShowCurVis == 1 then
+			textVis:SetTextByKey("curVis", count .. " / ")
+		else
+			textVis:SetTextByKey("curVis", "")
+		end		
+
+		local tempFromCnt = math.max(fromCnt, toCnt - 200)
+		textVis:PlayTextChangeEvent(updateTime, "totalVis", tempFromCnt, toCnt, "", 1);
+		textVis:SetTextByKey("totalVis", toCnt);
 	else
-		text:ResetParamInfo();
-		text:SetText(txt);
+		textVis:SetTextByKey("totalVis", toCnt);
 	end
 	
+	local textExp = GET_CHILD_RECURSIVELY(frame, "textExp", "ui::CRichText");
+	local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
+	
+	if frame:IsVisible() ~= 1 then
+		textExp:SetTextByKey("Exp", "0")
+		textJobExp:SetTextByKey("jobExp", "0")
+
+	end
+
+	local isShowCurExp = config.GetXMLConfig("ShowCurrentGetExp")
+	if isShowCurExp == 0 then
+		textExp:ShowWindow(0)
+		textJobExp:ShowWindow(0)
+	else
+		textExp:ShowWindow(1)
+		textJobExp:ShowWindow(1)
+	end
+
 	frame:ShowWindow(1);
 	frame:SetUserValue("ITEMTYPE", itemType);
 	frame:SetUserValue("ITEMCOUNT", toCnt);
@@ -116,28 +130,152 @@ end
 function ITEMMSG_ITEM_COUNT(frame, msg, itemType, itemCount)
 
 	itemType = tonumber(itemType);
+	local itemCls = GetClassByType("Item", itemType);
+	if itemCls.ClassName ~= "Vis" then
+		return
+	end
+
 	local frame = ui.GetFrame("itemmsgqueue");
+	local textVis = GET_CHILD_RECURSIVELY(frame, "textVis", "ui::CRichText");
 	if frame:IsVisible() == 1 then
 		local beforeItemType = frame:GetUserIValue("ITEMTYPE");
-		if beforeItemType == itemType then
+--		if beforeItemType == itemType then
 			ITEMMSG_SHOW_GET_ITEM(frame, itemType, itemCount);
-		elseif beforeItemType > 0 then
-			local itemCls = GetClassByType("Item", beforeItemType);
-			if itemCls.ClassName == "Vis" then -- µ·¸Ô´Â°Å Ç¥±âÇÏ´Ù°¡ Àá±ñ È¦µùÇÏ°í ´Ù¸¥ ¾ÆÀÌÅÛ ¸ÕÀú º¸¿©ÁÖÀÚ
-				local text = GET_CHILD(frame, "text", "ui::CRichText");
-				local curValue = text:GetCurrentTextChangeEventValue();
-				session.bindFunc.PushItemMsgQueue(itemCls.ClassID, curValue);
-				text:DestroyUICommand(ui.UI_CMD_TEXTCHANGE, false);
-				ITEMMSG_SHOW_GET_ITEM(frame, itemType, itemCount);
-			end			
-		end
+--		elseif beforeItemType > 0 then
+--			local itemCls = GetClassByType("Item", beforeItemType);
+--			if itemCls.ClassName == "Vis" then
+--				local curValue = textVis:GetCurrentTextChangeEventValue();
+--				session.bindFunc.PushItemMsgQueue(itemCls.ClassID, curValue);
+--				textVis:DestroyUICommand(ui.UI_CMD_TEXTCHANGE, false);
+--				ITEMMSG_SHOW_GET_ITEM(frame, itemType, itemCount);
+--			end			
+--		end
 	else 
+		local textExp = GET_CHILD_RECURSIVELY(frame, "textExp", "ui::CRichText");
+		local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
+		textExp:SetTextByKey("Exp", "0")
+		textJobExp:SetTextByKey("jobExp", "0")
 		ITEMMSG_SHOW_GET_ITEM(frame, itemType, itemCount);
 	end
 
 end
 
 
+function SHOW_GET_EXP(frame, exp)
+
+	local frame = ui.GetFrame("itemmsgqueue");
+
+
+	if frame:IsVisible() == 1 then
+		SET_TEXT_GET_EXP(frame, exp);
+	else 
+		local visCls = GetClass("Item", "Vis");
+		local visCount = session.GetInvItemCountByType(visCls.ClassID);
+
+		local textVis = GET_CHILD_RECURSIVELY(frame, "textVis", "ui::CRichText");
+		local textExp = GET_CHILD_RECURSIVELY(frame, "textExp", "ui::CRichText");
+		local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
+		local isShowCurVis = config.GetXMLConfig("ShowCurrentGetVis")
+		if isShowCurVis == 1 then
+			textVis:SetTextByKey("curVis", "0 / ")
+		else
+			textVis:SetTextByKey("curVis", "")
+		end
+		textVis:SetTextByKey("totalVis", visCount)
+
+		local isShowCurExp = config.GetXMLConfig("ShowCurrentGetExp")
+		if isShowCurExp == 0 then
+			textExp:ShowWindow(0)
+			textJobExp:ShowWindow(0)
+		else
+			textExp:ShowWindow(1)
+			textJobExp:ShowWindow(1)
+		end
+
+		textJobExp:SetTextByKey("jobExp", "0")
+		SET_TEXT_GET_EXP(frame, exp);
+	end
+
+end
 
 
 
+function SET_TEXT_GET_EXP(frame, exp)
+	local frame = ui.GetFrame("itemmsgqueue");
+	if frame:IsVisible() ~= 1 then
+		frame:ShowWindow(1)
+	end
+
+	local textExp = GET_CHILD_RECURSIVELY(frame, "textExp", "ui::CRichText");
+	
+	local curValue = textExp:GetCurrentTextChangeEventValue();
+		
+	frame = tolua.cast(frame, "ui::CFrame");
+	textExp:SetTextByKey("Exp", exp);
+	
+	frame:ShowWindow(1);
+	frame:RunUpdateScript("ITEM_MSG_CHECK_HIDE", 0.01, 0.0, 0);
+end
+
+
+
+function SHOW_GET_JOBEXP(frame, jobExp)
+
+	local frame = ui.GetFrame("itemmsgqueue");
+	if jobExp == nil or jobExp == '' or jobExp == '0' then
+		local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
+		textJobExp:SetText("0")
+		return
+	end
+
+	if frame:IsVisible() == 1 then
+		SET_TEXT_GET_JOBEXP(frame, jobExp);
+	else 
+		local visCls = GetClass("Item", "Vis");
+		local visCount = session.GetInvItemCountByType(visCls.ClassID);
+
+		local textVis = GET_CHILD_RECURSIVELY(frame, "textVis", "ui::CRichText");
+		local textExp = GET_CHILD_RECURSIVELY(frame, "textExp", "ui::CRichText");
+		local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
+		local isShowCurVis = config.GetXMLConfig("ShowCurrentGetVis")
+		if isShowCurVis == 1 then
+			textVis:SetTextByKey("curVis", "0 / ")
+		else
+			textVis:SetTextByKey("curVis", "")
+		end
+
+		textVis:SetTextByKey("totalVis", visCount)
+
+		local isShowCurExp = config.GetXMLConfig("ShowCurrentGetExp")
+		if isShowCurExp == 0 then
+			textExp:ShowWindow(0)
+			textJobExp:ShowWindow(0)
+		else
+			textExp:ShowWindow(1)
+			textJobExp:ShowWindow(1)
+		end
+
+		textExp:SetTextByKey("Exp", exp);
+		SET_TEXT_GET_EXP(frame, jobExp);
+	end
+
+end
+
+
+
+function SET_TEXT_GET_JOBEXP(frame, jobExp)
+	local frame = ui.GetFrame("itemmsgqueue");
+	if frame:IsVisible() ~= 1 then
+		frame:ShowWindow(1)
+	end
+
+	local textJobExp = GET_CHILD_RECURSIVELY(frame, "textJobExp", "ui::CRichText");
+	
+	local curValue = textJobExp:GetCurrentTextChangeEventValue();
+		
+	frame = tolua.cast(frame, "ui::CFrame");
+	textJobExp:SetTextByKey("jobExp", jobExp);
+	
+	frame:ShowWindow(1);
+	frame:RunUpdateScript("ITEM_MSG_CHECK_HIDE", 0.01, 0.0, 0);
+end

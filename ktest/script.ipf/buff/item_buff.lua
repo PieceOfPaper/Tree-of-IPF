@@ -3432,7 +3432,7 @@ function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE_3(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
-        AddLimitationSkillList(self, "Normal_Attack");
+    AddLimitationSkillList(self, "Normal_Attack");
     EnableItemUse(self, 0)
 end
 
@@ -3465,11 +3465,41 @@ function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)
     self.LootingChance_BM = self.LootingChance_BM - 50;
 end
 
-
-function SCR_BUFF_ENTER_PET_WEDDING_BIRD_BUFF(self, buff, arg1, arg2, over)
-    self.Fire_Atk_BM = self.Fire_Atk_BM + 120;
+function SCR_BUFF_ENTER_ALONE_DUNGEON_FIRST_BUFF_PRE(self, buff, arg1, arg2, over)
+    if IsBuffApplied(self,'ALONE_DUNGEON_FIRST_BUFF') == true then
+        RemoveBuff(self, 'ALONE_DUNGEON_FIRST_BUFF_PRE')
+    end
 end
 
-function SCR_BUFF_LEAVE_PET_WEDDING_BIRD_BUFF(self, buff, arg1, arg2, over)
-    self.Fire_Atk_BM = self.Fire_Atk_BM - 120;
+function SCR_BUFF_LEAVE_ALONE_DUNGEON_FIRST_BUFF_PRE(self, buff, arg1, arg2, over)
+    local caster = GetBuffCaster(buff)
+    if caster ~= nil then
+        local pad = GetPadByBuff(caster, buff);
+        if pad ~= nil then
+            local checkList,cnt = GetPadObjectList(pad)
+            for i = 1, cnt do
+                if checkList[i].Name == self.Name and GetBuffRemainTime(buff) <= 1 then
+                    AddBuff(self, self, 'ALONE_DUNGEON_FIRST_BUFF', 1, 0, 3600000, 1);
+                    break;
+                end
+            end
+
+        end
+    end
+end
+
+function SCR_BUFF_ENTER_ALONE_DUNGEON_FIRST_BUFF(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 100;
+    self.MHP_BM = self.MHP_BM + 5000
+    self.MSP_BM = self.MSP_BM + 1000
+    self.RHP_BM = self.RHP_BM + 500
+    self.RSP_BM = self.RSP_BM + 300
+end
+
+function SCR_BUFF_LEAVE_ALONE_DUNGEON_FIRST_BUFF(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 100;
+    self.MHP_BM = self.MHP_BM - 5000
+    self.MSP_BM = self.MSP_BM - 1000
+    self.RHP_BM = self.RHP_BM - 500
+    self.RSP_BM = self.RSP_BM - 300
 end

@@ -560,7 +560,7 @@ function SCR_QUEST_POSSIBLE_AGREE_PROP_CHANGE(pc, questname, self)
 	    before_data = 'RANKRESET'
     end
     
-    if sObj[questIES.QuestPropertyName] == CON_QUESTPROPERTY_END and IsGM(pc) ~= 1 then
+    if sObj[questIES.QuestPropertyName] == CON_QUESTPROPERTY_END and IsGM(pc) ~= 1 and questIES.QuestMode ~= 'KEYITEM' then
         IMC_LOG("ERROR_IS_NOT_GM_QUEST_RESET : ","Team:"..GetTeamName(pc)..", AID:"..GetPcAIDStr(pc)..", QuestName:"..questname)
         return before_data
     end
@@ -3213,7 +3213,9 @@ function SCR_TRACK_START(pc, questname, track_txt, quest_state, selfname)
     				if sObj.TRACK_QUEST_NAME ~= 'None' or IsPlayingDirection(pc) > 0 or GetLayer(pc) ~= 0 then
     				    return false
     				end
-    				
+    				local pcNoticeMsgReward = ''
+    				local pcNoticeMsgShop = ''
+    				local pcNoticeMsgBefore = ''
     				if cnt ~= nil and cnt > 0 then
 						if questIES_auto.Track_PartyPlay == 'YES' then
             				for i = 1, cnt do
@@ -3227,20 +3229,27 @@ function SCR_TRACK_START(pc, questname, track_txt, quest_state, selfname)
                     				        elseif ret == -1 then
                     				            local processingQuestList = SCR_PROCESSING_QUEST_LIST_NAME_CONCAT(partyPlayerList[i])
                     				            if processingQuestList ~= '' then
+                    				                pcNoticeMsgReward = pcNoticeMsgReward..partyPlayerList[i].Name..','
+    		    							        SysMsg(partyPlayerList[i], 'Instant',ScpArgMsg('PARTY_PLAYER_QUEST_REWARD_PROGRESS','BEFORE_QUEST',processingQuestList,'NEXT_QUEST',questIES.Name))
                     				                SendAddOnMsg(partyPlayerList[i], "NOTICE_Dm_Bell",ScpArgMsg('PARTY_PLAYER_QUEST_REWARD_PROGRESS','BEFORE_QUEST',processingQuestList,'NEXT_QUEST',questIES.Name), 10)
                     				            end
                     				        elseif ret == -2 then
+                				                pcNoticeMsgShop = pcNoticeMsgShop..partyPlayerList[i].Name..','
+    		    							    SysMsg(partyPlayerList[i], 'Instant',ScpArgMsg('PARTY_PLAYER_SHOP_PROGRESS','NEXT_QUEST',questIES.Name))
                     				            SendAddOnMsg(partyPlayerList[i], "NOTICE_Dm_Bell",ScpArgMsg('PARTY_PLAYER_SHOP_PROGRESS','NEXT_QUEST',questIES.Name), 10)
                     				        else
                     				            if quest_reason ~= nil then
         		    							    if type(quest_reason) == 'string' then
         		    							        quest_reason = {quest_reason}
         		    							    end
+                    				                pcNoticeMsgBefore = pcNoticeMsgBefore..partyPlayerList[i].Name..','
         		    							    local txt = SCR_QUEST_REASON_TXT(partyPlayerList[i],questIES, quest_reason)
         		    							    if txt ~= nil and type(txt) == 'string' and txt ~= '' then
+        		    							        SysMsg(partyPlayerList[i], 'Instant',ScpArgMsg('QuestReasonBeforeTxt')..txt..ScpArgMsg('QuestReasonBeforeTxt3'))
             		    							    SendAddOnMsg(partyPlayerList[i], "NOTICE_Dm_Bell",ScpArgMsg('QuestReasonBeforeTxt')..txt..ScpArgMsg('QuestReasonBeforeTxt3'), 10)
             		    							else
-            		    							    SendAddOnMsg(partyPlayerList[i], "NOTICE_Dm_Bell",ScpArgMsg('QuestReasonBeforeTxt2'), 8)
+        		    							        SysMsg(partyPlayerList[i], 'Instant',ScpArgMsg('QuestReasonBeforeTxt2'))
+            		    							    SendAddOnMsg(partyPlayerList[i], "NOTICE_Dm_Bell",ScpArgMsg('QuestReasonBeforeTxt2'), 10)
             		    							end
         		    							end
     		    							end
@@ -3249,6 +3258,29 @@ function SCR_TRACK_START(pc, questname, track_txt, quest_state, selfname)
                 				else
                 				    sObj.TRACK_QUEST_NAME = questname
                 				end
+            				end
+            				if pcNoticeMsgReward ~= '' or pcNoticeMsgShop ~= '' or pcNoticeMsgBefore ~= '' then
+            				    if pcNoticeMsgReward ~= '' then
+            				        pcNoticeMsgReward = string.sub(pcNoticeMsgReward, 1, string.len(pcNoticeMsgReward) - 1)
+            				    end
+            				    if pcNoticeMsgShop ~= '' then
+            				        pcNoticeMsgShop = string.sub(pcNoticeMsgShop, 1, string.len(pcNoticeMsgShop) - 1)
+            				    end
+            				    if pcNoticeMsgBefore ~= '' then
+            				        pcNoticeMsgBefore = string.sub(pcNoticeMsgBefore, 1, string.len(pcNoticeMsgBefore) - 1)
+            				    end
+            				    
+            				    local msg = ScpArgMsg('PARTY_PLAYER_QUEST_REWARD_SHOP_MSG1')
+            				    if pcNoticeMsgReward ~= '' then
+            				        msg = msg..ScpArgMsg('PARTY_PLAYER_QUEST_REWARD_SHOP_MSG2','REWARD',pcNoticeMsgReward)
+            				    end
+            				    if pcNoticeMsgShop ~= '' then
+            				        msg = msg..ScpArgMsg('PARTY_PLAYER_QUEST_REWARD_SHOP_MSG3','SHOP',pcNoticeMsgShop)
+            				    end
+            				    if pcNoticeMsgBefore ~= '' then
+            				        msg = msg..ScpArgMsg('PARTY_PLAYER_QUEST_REWARD_SHOP_MSG4','BEFORE',pcNoticeMsgBefore)
+            				    end
+            				    SysMsg(pc, 'Instant',msg)
             				end
             			end
         			end
@@ -3359,7 +3391,7 @@ function SCR_TRACK_START(pc, questname, track_txt, quest_state, selfname)
             		    print(questIES.Name,'SCR_TRACK_START Transaction FAIL')
             		else
             		    if questIES.Quest_SSN ~= 'None' and questIES.Quest_SSN ~= '' then
-            		        quest_sObj = GetSessionObject(pc, questIES.Quest_SSN)
+            		        local quest_sObj = GetSessionObject(pc, questIES.Quest_SSN)
                     		if GetPropType(quest_sObj,'Countdown_StartType') ~= nil and GetPropType(quest_sObj,'Countdown_Time') ~= nil then
                                 if quest_sObj.Countdown_StartType == 'TrackStart' and quest_sObj.Countdown_Time > 0  then
                                     SCR_QUEST_COUNTDOWN_FUNC(pc, quest_sObj)

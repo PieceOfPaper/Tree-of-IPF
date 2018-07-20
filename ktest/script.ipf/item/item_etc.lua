@@ -728,6 +728,7 @@ function SCR_USE_ITEM_EXPCARD(self, argObj, argStr, arg1, arg2)
 		local jexp = math.floor(exp * 0.77);
 		GiveJobExp(self, jexp, "ExpCard");
 		UserExpCardMongoLog(self, exp, jexp, "ExpCard");
+        SendHistorySysMsg(self, 'GetExp{CHAR}{JOB}', 1, '', 'CHAR', exp, 'JOB', jexp);
 	end
 end
 
@@ -3683,4 +3684,38 @@ function SCR_USE_2018_WEDDING_GIVE_ITEM(pc, string1, arg1, arg2)
     TxGiveItem(tx, 'Gacha_TP_114_11', 2, '2018WEDDING_COSTUME_CUBE_22EA');
     TxGiveItem(tx, 'Select_2018wedding_costume_C', 1, '2018WEDDING_COSTUME_CUBE_22EA');
     local ret = TxCommit(tx);
+end
+
+function SCR_USE_FIRST_GRADE_BUFF_STONE(pc, argObj, StringArg, Numarg1, Numarg2)
+
+    local x, y, z = GetPos(pc);
+    local pad = RunPad(pc, 'first_grade_pad', nil, x, y, z, 0, 1);
+    if pad ~= nil then
+--        AddPadEffect(pad, 'F_buff_ground_incenseburner', 50.5)
+--        AddPadEffect(pad, 'F_buff_ground_incenseburner_loop', 100.2)
+--        AddPadEffect(pad, 'F_buff_ground_incenseburner_cast', 200.5)
+--        AttachEffect(pad, 'F_buff_ground_incenseburner', 10.0, 'BOT')
+--        AttachEffect(pad, 'F_buff_ground_incenseburner_loop', 200.0, 'BOT')
+--        AttachEffect(pad, 'F_buff_ground_incenseburner_cast', 500.0, 'BOT')
+    end
+    
+    local curZone = GetZoneName(pc);
+	local mapCls = GetClass('Map', curZone);
+	
+	local channel = GetChannelID(pc)
+	
+    ToAll(ScpArgMsg("StandAloneDungeonFirsGrade","ZONE",mapCls.Name,"CHANNEL", channel,"PC",GetTeamName(pc)))
+    AddBuff(pc, pc, 'ALONE_DUNGEON_FIRST_BUFF', 1, 0, 3600000, 1);
+end
+
+function SCR_FIRST_GRADE_PAD_ADD_EFFECT(pc, skill, pad)
+    AttachEffect(pc, 'F_buff_ground_incenseburner', 6.0, 'BOT')
+    AttachEffect(pc, 'F_buff_ground_incenseburner_loop', 2.0, 'BOT')
+    AttachEffect(pc, 'F_buff_ground_incenseburner_cast', 3.5, 'BOT')
+end
+
+function SCR_FIRST_GRADE_PAD_REMOVE_EFFECT(pc, skill, pad)
+    RemoveEffect(pc, 'F_buff_ground_incenseburner')
+    RemoveEffect(pc, 'F_buff_ground_incenseburner_loop')
+    RemoveEffect(pc, 'F_buff_ground_incenseburner_cast')
 end

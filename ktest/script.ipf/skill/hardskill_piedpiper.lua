@@ -194,7 +194,7 @@ end
 
 function SCR_HYPNOTISCHEFLOTE_MON_LIMITATION(self, pad, target)
     if IS_PC(target) == false then
-    	if TryGetProp(target, "MonRank") == "Special" or TryGetProp(target, "MonRank") == "Normal" then
+    	if TryGetProp(target, "MoveType") ~= "Holding" and TryGetProp(target, "MonRank") == "Special" or TryGetProp(target, "MonRank") == "Normal" then
     		return 1;
     	end
     	

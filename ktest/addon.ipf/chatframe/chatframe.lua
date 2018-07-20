@@ -1,13 +1,14 @@
-
-
 CHAT_TAB_TYPE_NORMAL = 1
 CHAT_TAB_TYPE_SHOUT = 2
 CHAT_TAB_TYPE_PARTY = 4
 CHAT_TAB_TYPE_GUILD = 8
 CHAT_TAB_TYPE_WHISPER = 16
 CHAT_TAB_TYPE_GROUP = 32
-CHAT_TAB_TYPE_COUNT = 6 
+CHAT_TAB_TYPE_SYSTEM = 64
+CHAT_TAB_TYPE_BATTLE = 128
+CHAT_TAB_TYPE_COUNT = 8
 
+MAX_CHAT_CONFIG_VALUE = 2^CHAT_TAB_TYPE_COUNT - 1;
 
 function CHATFRAME_ON_INIT(addon, frame)
 
@@ -320,11 +321,9 @@ end
 
 
 function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
-
-	local mainchatFrame = ui.GetFrame("chatframe")
+	local mainchatFrame = ui.GetFrame("chatframe");
 	local groupbox = GET_CHILD(chatframe, groupboxname);
-	local size = session.ui.GetMsgInfoSize(groupboxname)
-	
+	local size = session.ui.GetMsgInfoSize(groupboxname);	
 	if groupbox == nil then
 		return 1;
 	end
@@ -337,13 +336,10 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		DESTROY_CHILD_BYNAME(groupbox, "cluster_");
 	end
 
-
 	local marginLeft = 20;
 	local marginRight = 0;	
 	local ypos = 0;
-
 	for i = startindex , size - 1 do
-
 		if i ~= 0 then
 			local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i-1)
 			if clusterinfo ~= nil then
@@ -358,7 +354,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 			end
 		end
 		
-		local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i)
+		local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i);
 		if clusterinfo == nil then
 			return 0;
 		end
@@ -371,12 +367,11 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 		local fontSize = GET_CHAT_FONT_SIZE();	
 		local tempfontSize = string.format("{s%s}", fontSize);
-		local offsetX = chatframe:GetUserConfig("CTRLSET_OFFSETX");
-		
-		local chatCtrl = groupbox:CreateOrGetControlSet('chatTextVer', clustername, ui.LEFT, ui.TOP, marginLeft, ypos , marginRight, 1);						
+		local offsetX = chatframe:GetUserConfig("CTRLSET_OFFSETX");		
+        
+		local chatCtrl = groupbox:CreateOrGetControlSet('chatTextVer', clustername, ui.LEFT, ui.TOP, marginLeft, ypos , marginRight, 1);
 		chatCtrl:EnableHitTest(1);
 		chatCtrl:EnableAutoResize(true,false);
-
 		
 		if commnderName ~= GETMYFAMILYNAME() then
 			chatCtrl:SetSkinName("")
@@ -402,7 +397,8 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 			fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
 			msgFront = "#A566FF";
-
+		elseif msgType == "Battle" then
+			fontStyle = '';			
 		elseif msgType ~= "System" then
 
         
@@ -462,9 +458,7 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 				end
 
 				msgFront = string.format("[%s]%s", ScpArgMsg("ChatType_6"), commnderNameUIText);	
-			else			
-
-				--∆Àæ˜√¢ø°º≠¿« ±”∏ª, ±◊∑Ï ∏ﬁΩ√¡ˆ
+			else
 				chatCtrl:SetEventScript(ui.LBUTTONDOWN, 'CHAT_GBOX_LBTN_DOWN');
 				chatCtrl:SetEventScriptArgString(ui.LBUTTONDOWN, clusterinfo:GetRoomID());
 
@@ -478,17 +472,21 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 			end
 
 		elseif msgType == "System" then
-
 			fontStyle = mainchatFrame:GetUserConfig("TEXTCHAT_FONTSTYLE_SYSTEM");
-			msgFront = string.format("[%s]", ScpArgMsg("ChatType_7"));	
+			local colorOverride = clusterinfo:GetColor();
+			if colorOverride ~= '' then
+				fontStyle = string.gsub(fontStyle, '{#%x+}', '{#'..colorOverride..'}');				
+			end
+
+			msgFront = string.format("[%s]", ScpArgMsg("ChatType_7"));			
 		end	
 
 		local tempMsg = clusterinfo:GetMsg()
 		if msgType == "friendmem" or  msgType == "guildmem" then
 			msgString = string.format("{%s}%s{nl}",msgFront, tempMsg);		
-		else
+		else			
 			msgString = string.format("%s%s{nl}", msgFront, tempMsg);		
-		end																									
+		end
 
 		msgString = string.format("%s{/}", msgString);	
 		txt:SetTextByKey("font", fontStyle);				
@@ -527,23 +525,15 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 		groupbox:SetScrollPos(curLine + changedLineCount);
 	end
 
-
-    --1. ¿Ã∑∏∞‘ √≥∏Æ«œ∏È ∏ﬁ¿Œ √§∆√ √¢ø°º≠ ±◊∑Ï, ±”∏ª ∏ﬁΩ√¡ˆ ƒ´øÓ∆Æ∏¶ ∞ªΩ≈ ∞°¥…
-	--UPDATE_READ_FLAG_BY_GBOX_NAME(groupboxname)
-
-    --2. ¿Ã∑∏∞‘ √≥∏Æ«œ∏È ∏ﬁ¿Œ √§∆√ √¢ø°º≠ ±◊∑Ï, ±”∏ª ∏ﬁΩ√¡ˆ ƒ´øÓ∆Æ∏¶ ∞ªΩ≈«œ¡ˆ æ ¿Ω
-    --1¿Ã ¥ı ∆Ì∏Æ«œ≥™, 2∞° ¥ı ¡˜∞¸¿˚.
 	local gboxtype = string.sub(groupboxname,string.len("chatgbox_") + 1)
 	local tonumberret = tonumber(gboxtype)
 
-    if tonumberret ~= nil and tonumberret > (2^CHAT_TAB_TYPE_COUNT) - 1 then
+    if tonumberret ~= nil and tonumberret > MAX_CHAT_CONFIG_VALUE then
 		UPDATE_READ_FLAG_BY_GBOX_NAME("chatgbox_" .. gboxtype)
 	end
 
-	return 1
+	return 1;
 end
-
-
 
 function UPDATE_READ_FLAG_BY_GBOX_NAME(groupboxname)
 
@@ -700,7 +690,7 @@ end
 
 
 
---Ω∫≈©∑—πŸ ∞≠¡¶ «œ¥‹ ¿Ãµø ∞¸∑√ º≥¡§ »Æ¿Œ «‘ºˆ
+--Ïä§ÌÅ¨Î°§Î∞î Í∞ïÏ†ú ÌïòÎã® Ïù¥Îèô Í¥ÄÎ†® ÏÑ§Ï†ï ÌôïÏù∏ Ìï®Ïàò
 function TOGGLE_BOTTOM_CHAT()
 	local IsBottomChat = config.GetXMLConfig("ToggleBottomChat")
 
@@ -718,7 +708,7 @@ end
 
 
 
---∏ﬁºº¡ˆ¿« ∆˘∆Æ ≈©±‚ ∫Ø∞Ê«‘ºˆ (∏ﬁºº¡ˆø° ∆˘∆Æ≈©±‚∫Ø∞Ê≈‰≈´¿Ã ¿÷æÓæﬂ «—¥Ÿ.)
+--Î©îÏÑ∏ÏßÄÏùò Ìè∞Ìä∏ ÌÅ¨Í∏∞ Î≥ÄÍ≤ΩÌï®Ïàò (Î©îÏÑ∏ÏßÄÏóê Ìè∞Ìä∏ÌÅ¨Í∏∞Î≥ÄÍ≤ΩÌÜ†ÌÅ∞Ïù¥ ÏûàÏñ¥Ïïº ÌïúÎã§.)
 function CHAT_TEXT_CHAR_RESIZE(msg, fontSize)
 	if msg == nil then 
 		return;
@@ -814,8 +804,7 @@ function UPDATE_CHATTYPE_VISIBLE_PIC(parent, value)
 end
 
 
-function UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value)
-	
+function UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value)	
 	local groupboxname = "chatgbox_TOTAL"
 	if value > 0 then
 		groupboxname = "chatgbox_" ..tostring(value)
@@ -843,33 +832,28 @@ end
 
 
 function CHAT_TABSET_SELECT(index)
-
-
 	local frame = ui.GetFrame("chatframe")
 	if frame == nil then
 		return
 	end
 
-	-- º±≈√«— ≈«¿∏∑Œ πˆ∆∞ Ω∫≈≤ ∫Ø∞Ê«“ 
 	frame:SetUserValue("BTN_INDEX", index);
 
 	local tabbtn = GET_CHILD_RECURSIVELY(frame, "tabsetbtn")
 	tabbtn:SetText(tostring(index + 1))
-
 
 	session.chat.SetTabIndex(index)
 	ui.SaveChatConfig()
 	
 	local value = session.chat.GetTabConfigValueByIndex(index);
 	
-	UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value)
+	UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, value);
 
 
 	local optionframe = ui.GetFrame("chat_option")
 	local tabgbox = GET_CHILD_RECURSIVELY(optionframe,"tabgbox"..(index + 1))
 
-	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value)
-
+	UPDATE_CHATTYPE_VISIBLE_PIC(tabgbox, value);
 end
 
 
@@ -879,41 +863,47 @@ function CHAT_FRAME_GET_NOW_SELECT_VALUE(frame)
 		return 0;
 	end
 	
-	local check_1 = GET_CHILD_RECURSIVELY(frame,"btn_general_pic")
-	local check_2 = GET_CHILD_RECURSIVELY(frame,"btn_shout_pic")
-	local check_3 = GET_CHILD_RECURSIVELY(frame,"btn_party_pic")
-	local check_4 = GET_CHILD_RECURSIVELY(frame,"btn_guild_pic")
-	local check_5 = GET_CHILD_RECURSIVELY(frame,"btn_whisper_pic")
-	local check_6 = GET_CHILD_RECURSIVELY(frame,"btn_group_pic")
+	local check_1 = GET_CHILD_RECURSIVELY(frame, "btn_general_pic");
+	local check_2 = GET_CHILD_RECURSIVELY(frame, "btn_shout_pic");
+	local check_3 = GET_CHILD_RECURSIVELY(frame, "btn_party_pic");
+	local check_4 = GET_CHILD_RECURSIVELY(frame, "btn_guild_pic");
+	local check_5 = GET_CHILD_RECURSIVELY(frame, "btn_whisper_pic");
+	local check_6 = GET_CHILD_RECURSIVELY(frame, "btn_group_pic");
+	local check_7 = GET_CHILD_RECURSIVELY(frame, "btn_system_pic");
+	local check_8 = GET_CHILD_RECURSIVELY(frame, "btn_battle_pic");
 
-	local retbit = 0
+	local retbit = 0;
 
 	if check_1:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_NORMAL
+		retbit = retbit + CHAT_TAB_TYPE_NORMAL;
 	end
 	if check_2:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_SHOUT
+		retbit = retbit + CHAT_TAB_TYPE_SHOUT;
 	end
 	if check_3:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_PARTY
+		retbit = retbit + CHAT_TAB_TYPE_PARTY;
 	end
 	if check_4:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_GUILD
+		retbit = retbit + CHAT_TAB_TYPE_GUILD;
 	end
 	if check_5:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_WHISPER
+		retbit = retbit + CHAT_TAB_TYPE_WHISPER;
 	end
 	if check_6:IsVisible() == 1 then
-		retbit = retbit + CHAT_TAB_TYPE_GROUP
+		retbit = retbit + CHAT_TAB_TYPE_GROUP;
+	end
+	if check_7:IsVisible() == 1 then
+		retbit = retbit + CHAT_TAB_TYPE_SYSTEM;
+	end
+	if check_8:IsVisible() == 1 then
+		retbit = retbit + CHAT_TAB_TYPE_BATTLE;
 	end
 
-	return retbit
+	return retbit;
 
 end
 
-
 function CHAT_TAB_OPTION_SAVE(frame)
-
 	if frame == nil then
 		return;
 	end
@@ -931,24 +921,20 @@ function CHAT_TAB_OPTION_SAVE(frame)
 		end
 	end
 
-	if retbit == 63 then
+	if retbit == MAX_CHAT_CONFIG_VALUE then
 		retbit = 0
 	end
-
-	
 
 	if frame:GetName() == "chatframe" then
 		session.chat.SetTabConfigByIndex(index, retbit)
 		CHAT_TABSET_SELECT(index)
 	else
-
 		local key = tonumber(string.sub(frame:GetName(), 11))
 		session.chat.UpdateMainFramePopupConfig(key, frame:GetWidth(), frame:GetHeight(), frame:GetX(), frame:GetY(), retbit)
 		UPDATE_CHAT_FRAME_SELECT_CHATTYPE(frame, retbit)
 	end
 
-	ui.SaveChatConfig()
-
+	ui.SaveChatConfig();
 end
 
 

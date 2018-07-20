@@ -3004,17 +3004,27 @@ function SCR_TX_TRADE_SELECT_ITEM(pc, argStr)
 end
 
 function SCR_IS_ENABLE_ITEM_LOCK(pc, item, isIndunPlaying)
+    if TryGetProp(item, 'DisableContents', 0) == 1 then
+        return 0;
+    end
+
 	if isIndunPlaying == 1 and item ~= nil then
 		if IS_INDUN_MULTIPLE_ITEM(item.ClassName) == 1 then
+            SendSysMsg(pc, 'CannotLockInIndun');
+            SendAddOnMsg(pc, 'LOCK_FAIL');
 			return 0;
 		end
 	end
 
     if (IsIndun(pc) == 1 or IsPVPServer(pc) == 1) and item ~= nil then
+        SendSysMsg(pc, 'CannotLockInIndun');
+        SendAddOnMsg(pc, 'LOCK_FAIL');
         return 0;
     end
 	
 	if IS_ENABLE_GTOWER_TICKET_LOCK(pc, item) == false then
+        SendSysMsg(pc, 'CannotLockInIndun');
+        SendAddOnMsg(pc, 'LOCK_FAIL');
 		return 0;
 	end
 

@@ -18,8 +18,7 @@
 		<richtext name="title" rect="0 0 100 30" margin="0 63 0 0" layout_gravity="center top" caption="{@st43}개인 창고{/}"/>
 		<button name="close" rect="0 0 44 44" margin="0 38 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}개인 창고를 닫습니다{/}"/>
 		<slotset name="slotset" parent="gbox" rect="0 0 480  276" margin="7 60 0 0" layout_gravity="center top" DropScp="PUT_ITEM_TO_WAREHOUSE" RBtnUpScp="PUT_ITEM_TO_INV" col="10" row="6" dropsound="icon_get_down" enableselect="false" hideindrag="true" maxselect="8" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" size="60 60" skin="invenslot2" spc="1 1"/>
-		<richtext name="t_useprice" rect="0 0 600 90" margin="0 0 0 20" layout_gravity="center bottom" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st66b}창고에 물품을 보관하고 찾을시에 %s실버가 소모됩니다.{/}" maxwidth="0" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
-		<button name="sort" rect="0 0 45 45" margin="0 110 160 0" layout_gravity="right top" LBtnUpScp="WAREHOUSE_SORT" clicksound="button_click_big" oversound="button_over" image="inven_piece_btn" texttooltip="{@st59}아이템을 정렬합니다.{/}"/>
+		<richtext name="t_useprice" rect="0 0 600 90" margin="0 0 0 20" layout_gravity="center bottom" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st66b}창고에 물품을 보관하고 찾을시에 %s실버가 소모됩니다.{/}" maxwidth="0" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>		
 		<button name="extend" rect="0 0 140 46" margin="0 110 20 0" layout_gravity="right top" LBtnUpScp="WAREHOUSE_EXTEND" caption="{@st66b}창고 확장" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" texttooltip="{@st59}창고를 확장합니다{/}"/>
 	</controls>
 </uiframe>

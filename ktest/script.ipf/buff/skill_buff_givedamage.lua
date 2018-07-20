@@ -788,3 +788,15 @@ function SCR_BUFF_GIVEDMG_WideMiasma_Buff(self, buff, sklID, damage, target, ret
         return 0
     end
 end
+
+function SCR_BUFF_GIVEDMG_PvP_Mine_Crossbow(self, buff, sklID, damage, target, ret)
+    local arg1, arg2 = GetBuffArg(buff);
+    local duration = 10000;
+
+    if IsBuffApplied(target, "PvP_Mine_Crossbow_Debuff") == "NO" then
+        if GetRelation(self, target) == "ENEMY" and target.MonRank ~= "MISC" then 
+            AddBuff(self, target, 'PvP_Mine_Crossbow_Debuff', 1, 0, duration, 1);
+        end
+    end
+    return 1;
+end

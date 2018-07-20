@@ -20,7 +20,6 @@ end
 
 
 function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
-
 	local curExp = exp - tableinfo.startExp;
 	local maxExp = tableinfo.endExp - tableinfo.startExp;
 	if tableinfo.isLastLevel == true then
@@ -33,7 +32,6 @@ function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 
 	local expObject = GET_CHILD(frame, 'skillexp', "ui::CGauge");
 	expObject:SetPoint(curExp, maxExp);
-	--expObject:SetTextTooltip(string.format("{@st42b}%d / %d{/}", curExp, maxExp));
 
 
 	local skillLevelObject = GET_CHILD(frame, 'joblevel', "ui::CRichText");
@@ -48,6 +46,9 @@ function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 	
 	local levelPercentObject    = GET_CHILD(frame, 'skillexppercent', 'ui::CRichText');
 	levelPercentObject:SetText('{@st42b}{s14}'..string.format('%.1f',percent)..'{s14}%{/}');
+	if str ~= nil and str ~= "None" and str ~= "" then
+		SHOW_GET_JOBEXP(frame, str)
+	end
 end
 
 function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
@@ -71,6 +72,10 @@ function CHARBASEINFO_ON_MSG(frame, msg, argStr, argNum)
 		local levelTextObject		= GET_CHILD(frame, "levelexp", "ui::CRichText");
 		local level 				= info.GetLevel(session.GetMyHandle());
 		levelTextObject:SetText('{@sti7}{s16}'..level);
+		if argNum ~= nil and argNum ~= 0 then
+			SHOW_GET_EXP(frame, argNum)
+		end
+
 	end
 
 end

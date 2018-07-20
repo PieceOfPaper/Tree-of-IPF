@@ -477,9 +477,16 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
     		InvalidateStates(pc);
     		ShowItemBalloon(pc, "{@st43}","SucessReinforce!!!", "", invItem, 5, delaySec, "enchant_itembox");
             PlayAnim(monster, "success", 1, 1, 0, 1);
+            SendHistorySysMsg(pc, 'Reinforce{ISSUCCESS}{ITEM}{LEVEL}', 1, '', 'ISSUCCESS', ClMsg('SUCCESS'), 'ITEM', invItem.Name, 'LEVEL', '+'..tostring(itemReinCount + 1));
     	else
     		ShowItemBalloon(pc, "{@st43_red}", "SucessFail!!!", "", invItem, 5, delaySec, "enchant_itembox");
             PlayAnim(monster, "fail", 1, 1, 0, 1);
+
+            local reinfStr = '';
+            if itemReinCount > 0 then
+            	reinfStr = '+'..tostring(itemReinCount);
+            end
+            SendHistorySysMsg(pc, 'Reinforce{ISSUCCESS}{ITEM}{LEVEL}', 1, 'FF00FF', 'ISSUCCESS', ClMsg('Fail'), 'ITEM', invItem.Name, 'LEVEL', reinfStr);
     	end
 			if result == 1 then
 				ItemEnchantMongoLog(pc, guid, itemName, result, isBreakItem, isWeapon, itemReinCount+1, spentSilver, moruName);

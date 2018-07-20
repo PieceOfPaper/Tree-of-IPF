@@ -608,17 +608,16 @@ function GUILD_EVENT_POPUP(pc)
         
         local str, mapID = GUILD_EVENT_START_MAP_ON_LOCATION(pc, guildObj)
         BroadcastAddOnMsgToParty(guildObj, "GUILD_EVENT_WAITING_LOCATION", str, mapID, 0);
+        GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, guildEventID)
          if isParticipant == 1 then
-            GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, guildEventID)
             SendAddOnMsg(pc, "GUILD_EVENT_RECRUITING_IN", "", 0);
         end
     elseif guildEventState == "Waiting" or guildEventState == "Started" then
-        if isParticipant == 1 then
-            local guildEventCls = GetClassByType("GuildEvent", guildEventID);
-            local mapCls = GetClass("Map", guildEventCls.StartMap);
+        local guildEventCls = GetClassByType("GuildEvent", guildEventID);
+        local mapCls = GetClass("Map", guildEventCls.StartMap);
 
-            GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, guildEventID)
-            
+        GUILD_EVENT_IN_START_MAP_ON_WAITING(pc, guildEventID)
+        if isParticipant == 1 then           
             local str, mapID = GUILD_EVENT_START_MAP_ON_LOCATION(pc, guildObj)
             BroadcastAddOnMsgToParty(guildObj, "GUILD_EVENT_WAITING_LOCATION", str, mapID, 0);
         end

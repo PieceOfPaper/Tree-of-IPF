@@ -717,23 +717,14 @@ function SCR_PLAGUEDOCTOR_MASTER_NORMAL_4(self,pc)
                     local tx = TxBegin(pc)
                     if GetInvItemCount(pc, "CHAR312_MSTEP1_ITEM2") < 1 then
                         TxGiveItem(tx,"CHAR312_MSTEP1_ITEM2", 1, 'Quest_HIDDEN_PIED_PIPER');
-                    else
-                        RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt, "CHAR312_MSTEP1");
-                        if sObj.Step1 ~= 10 then
-                            sObj.Step1 = 10
-                            SaveSessionObject(pc, sObj)
-                        end
+                        TxTakeItem(tx, "CHAR312_MSTEP1_ITEM1", cnt, "CHAR312_MSTEP1");
+                        TxSetIESProp(tx, sObj, 'Step1', 10);
                         ShowOkDlg(pc, "CHAR312_MSTEP1_DLG4_1", 1)
                         sleep(500)
                         ShowBalloonText(pc, 'CHAR312_MSTEP1_DLG6', 7)
                     end
                     local ret = TxCommit(tx)
                     if ret == "SUCCESS" then
-                        RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt, "CHAR312_MSTEP1");
-                        if sObj.Step1 ~= 10 then
-                            sObj.Step1 = 10
-                            SaveSessionObject(pc, sObj)
-                        end
                         ShowOkDlg(pc, "CHAR312_MSTEP1_DLG4_1", 1)
                         sleep(500)
                         ShowBalloonText(pc, 'CHAR312_MSTEP1_DLG6', 7)
@@ -1347,6 +1338,19 @@ function SCR_PIED_PIPER_MASTER_DIALOG(self,pc)
             COMMON_QUEST_HANDLER(self, pc)
         elseif is_unlock == "NO" then
             local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+
+            if GetInvItemCount(pc, "CHAR312_MSTEP3_ITEM") >=  1 then
+                local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+                if sObj ~= nil then
+                    if sObj.Step3 ~= 10 then
+                        sObj.Step3 = 10
+                        SaveSessionObject(pc, sObj)
+                    end
+                end
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 200)
+            end
+            prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+
             if prop >= 40 and prop < 200 then
                 if prop == 40 then
                     local sel1 = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG1", ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT1"), ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT2"))
