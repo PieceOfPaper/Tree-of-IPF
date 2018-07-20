@@ -6,7 +6,6 @@
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
-	<sound opensound="skilltreeOpen" closesound="skilltreeClose"/>
 	<script OpenScp="ITEMDECOMPOSE_UI_OPEN" CloseScp="ITEMDECOMPOSE_UI_CLOSE"/>
 	<controls>
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" image="test_socket_top" stretch="true"/>

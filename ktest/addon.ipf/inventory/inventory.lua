@@ -1435,6 +1435,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	
 	local itemobj = GetIES(invitem:GetObject());
 	
+    -- custom
 	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");
 
 	if customRBtnScp == "None" then
@@ -1449,7 +1450,8 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	local market_sell     = ui.GetFrame("market_sell");
+    -- market sell
+	local market_sell = ui.GetFrame("market_sell");
 	if market_sell:IsVisible() == 1 then
 		MARKET_SELL_RBUTTON_ITEM_CLICK(market_sell, invitem);
 		return;
@@ -1458,8 +1460,8 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	local invFrame = ui.GetFrame("inventory");	
 	invFrame:SetUserValue("INVITEM_GUID", invitem:GetIESID());
 
-
-	local frame     = ui.GetFrame("shop");
+    -- shop
+	local frame = ui.GetFrame("shop");
 	local companionshop = ui.GetFrame('companionshop');
 	if companionshop:IsVisible() == 1 then
 		frame = companionshop:GetChild('foodBox');
@@ -1470,22 +1472,22 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 			return;
 		end
 		
-		local invFrame     	= ui.GetFrame("inventory");
-		local invGbox		= invFrame:GetChild('inventoryGbox');
+		local invFrame = ui.GetFrame("inventory");
+		local invGbox = invFrame:GetChild('inventoryGbox');
 		if true == IS_TEMP_LOCK(invFrame, invitem) then
 			return;
 		end
-		local Itemclass		= GetClassByType("Item", invitem.type);
-		local ItemType		= Itemclass.ItemType;
+		local Itemclass = GetClassByType("Item", invitem.type);
+		local ItemType = Itemclass.ItemType;
 		local typeStr = "Item"	
 		if Itemclass.ItemType == "Equip" then
 			typeStr = Itemclass.ItemType; 
 		end		
 		
-		local tree_box 		= invGbox:GetChild('treeGbox_'.. typeStr);
-		local tree		    = tree_box:GetChild('inventree_'.. typeStr);
-		local slotsetname	= GET_SLOTSET_NAME(argNum)
-		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+		local tree_box = invGbox:GetChild('treeGbox_'.. typeStr);
+		local tree = tree_box:GetChild('inventree_'.. typeStr);
+		local slotsetname = GET_SLOTSET_NAME(argNum)
+		local slotSet = GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsEnableShopTrade() == true then
@@ -1507,19 +1509,22 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end	
 
+    -- mixer
 	local mixerFrame = ui.GetFrame("mixer");
 	if mixerFrame:IsVisible() == 1 then
 
-		local slotSet			= INV_GET_SLOTSET_BY_INVINDEX(argNum-1)
-		local slot		        = slotSet:GetSlotByIndex(argNum-1);
+		local slotSet = INV_GET_SLOTSET_BY_INVINDEX(argNum-1)
+		local slot = slotSet:GetSlotByIndex(argNum-1);
 		MIXER_INVEN_RBOTTUNDOWN(itemobj, argNum);
 		return;
 	end
 
+    -- warp
 	if TRY_TO_USE_WARP_ITEM(invitem, itemobj) == 1 then
 		return;
 	end
 
+    -- equip
 	local equip = IS_EQUIP(itemobj);
 	if equip == true then
 		ui.SetHideToolTip();
@@ -1529,14 +1534,14 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		else
 			ITEM_EQUIP(argNum);
 		end
-	else			
+	else -- non-equip item use        
 		if itemobj.Script == 'SCR_SUMMON_MONSTER_FROM_CARDBOOK' then
 			local textmsg = string.format("[ %s ]{nl}%s", itemobj.Name, ScpArgMsg("Card_Summon_check_Use"));
 			ui.MsgBox_NonNested(textmsg, itemobj.Name, "REQUEST_SUMMON_BOSS_TX", "None");
 			return
 		end
 
-		if true == RUN_CLIENT_SCP(invitem) then
+		if true == RUN_CLIENT_SCP(invitem) then        
             return;
         end
 		local groupName = itemobj.ItemType;
@@ -1556,6 +1561,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		end
 	end
 
+    -- card equip
 	-- 오른쪽 클릭으로 몬스터 카드를 인벤토리의 카드 장착 슬롯에 장착하게 함.
 	local moncardFrame = ui.GetFrame("monstercardslot");
 	
@@ -1638,27 +1644,26 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 		return;
 	end
 
-	local invFrame     	= ui.GetFrame("inventory");
+	local invFrame = ui.GetFrame("inventory");
 
 	if true == IS_TEMP_LOCK(invFrame, invitem) then
 		return;
 	end
 
-	local Itemclass		= GetClassByType("Item", invitem.type);
-	local ItemType		= Itemclass.ItemType;
+	local Itemclass = GetClassByType("Item", invitem.type);
+	local ItemType = Itemclass.ItemType;
 	
 	local typeStr = "Item"	
 	if Itemclass.ItemType == "Equip" then
 		typeStr = Itemclass.ItemType; 
 	end
 
-	local invGbox		= invFrame:GetChild('inventoryGbox');
-	local tree_box 		= invGbox:GetChild('treeGbox_'..typeStr);
-	local tree		    = tree_box:GetChild('inventree_'..typeStr);
-	local slotsetname	= GET_SLOTSET_NAME(argNum)
-	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
-
-	local slot		    = slotSet:GetSlotByIndex(argNum-1);
+	local invGbox = invFrame:GetChild('inventoryGbox');
+	local tree_box = invGbox:GetChild('treeGbox_'..typeStr);
+	local tree = tree_box:GetChild('inventree_'..typeStr);
+	local slotsetname = GET_SLOTSET_NAME(argNum)
+	local slotSet = GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+	local slot = slotSet:GetSlotByIndex(argNum-1);
 	
 	local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 	if itemProp:IsEnableShopTrade() == true then
@@ -1690,20 +1695,20 @@ function DRAW_TOTAL_VIS(frame, childname, remove)
 		Cron = 0;
 	end
 	
-	local bottomGbox				= frame:GetChild('bottomGbox');
-	local moneyGbox				= bottomGbox:GetChild('moneyGbox');
-	local INVENTORY_CronCheck	= GET_CHILD(moneyGbox, childname, 'ui::CRichText');
+	local bottomGbox = frame:GetChild('bottomGbox');
+	local moneyGbox = bottomGbox:GetChild('moneyGbox');
+	local INVENTORY_CronCheck = GET_CHILD(moneyGbox, childname, 'ui::CRichText');
     INVENTORY_CronCheck:SetText('{@st41b}'.. GetCommaedText(Cron))
 
 end
 
 function DRAW_MEDAL_COUNT(frame)
-	local bottomGbox			= frame:GetChild('bottomGbox');
-	local medalGbox				= bottomGbox:GetChild('medalGbox');
-	local medalText				= GET_CHILD(medalGbox, 'medalText', 'ui::CRichText');
-	local medalFreeTime			= GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
-	local medalGbox_2				= bottomGbox:GetChild('medalGbox_2');
-	local premiumTP			= GET_CHILD(medalGbox_2, 'premiumTP', 'ui::CRichText');
+	local bottomGbox = frame:GetChild('bottomGbox');
+	local medalGbox = bottomGbox:GetChild('medalGbox');
+	local medalText = GET_CHILD(medalGbox, 'medalText', 'ui::CRichText');
+	local medalFreeTime = GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
+	local medalGbox_2 = bottomGbox:GetChild('medalGbox_2');
+	local premiumTP = GET_CHILD(medalGbox_2, 'premiumTP', 'ui::CRichText');
 	
 	local accountObj = GetMyAccountObj();
     medalText:SetTextByKey("medal", tostring(accountObj.Medal));

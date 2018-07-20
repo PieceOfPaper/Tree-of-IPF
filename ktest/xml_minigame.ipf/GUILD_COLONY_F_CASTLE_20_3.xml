@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-	<Game Name="GUILD_COLONY_F_CASTLE_20_3" minLv="0" maxLv="0" playerCountCheckDestroy="0" mapName="f_castle_20_3" startWaitSec="0">
-		<StageList>
-			<Stage Name="START">
-				<ObjList>
-					<Obj Type="Monster" MonType="20024" Pos="-177.00#102.00#-95.00" angle="-70" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_OCCUPATION_BUFF"/>
-					<Obj Type="Monster" MonType="20024" Pos="-177.00#102.00#-95.00" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_MONSTER"/>
-					<Obj Type="Monster" MonType="156150" Pos="-177.00#102.00#-95.00" angle="-70" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_TOWER"/>
-					<Obj Type="Monster" MonType="45132" Pos="-1186.50#134.91#-1025.80" range="100" genCount="1" genTime="30000" objectKey="3"/>
-					<Obj Type="Monster" MonType="45132" Pos="-1187.92#134.91#-499.32" range="100" genCount="1" genTime="30000" objectKey="4"/>
-					<Obj Type="Monster" MonType="45132" Pos="406.13#152.37#-682.37" range="100" genCount="1" genTime="30000" objectKey="5"/>
-					<Obj Type="Monster" MonType="45132" Pos="-128.51#102.40#-159.83" range="100" genCount="1" genTime="30000" objectKey="6"/>
-					<Obj Type="Monster" MonType="45132" Pos="-1136.98#93.36#-165.60" range="100" genCount="1" genTime="30000" objectKey="7"/>
-					<Obj Type="Monster" MonType="45132" Pos="-670.59#214.91#1071.32" range="100" genCount="1" genTime="30000" objectKey="8"/>
-					<Obj Type="Monster" MonType="45132" Pos="336.49#165.00#-100.47" range="100" genCount="1" genTime="30000" objectKey="9"/>
-					<Obj Type="Monster" MonType="45132" Pos="-178.79#138.50#599.80" range="100" genCount="1" genTime="30000" objectKey="10"/>
-					<Obj Type="Monster" MonType="45132" Pos="242.95#138.50#378.02" range="100" genCount="1" genTime="30000" objectKey="11"/>
-					<Obj Type="Monster" MonType="45132" Pos="926.27#138.63#-274.53" range="100" genCount="1" genTime="30000" objectKey="12"/>
-					<Obj Type="Monster" MonType="45132" Pos="-1527.83#363.40#-529.27" range="100" genCount="1" genTime="30000" objectKey="13"/>
-					<Obj Type="Monster" MonType="45132" Pos="-693.20#182.84#270.54" range="100" genCount="1" genTime="30000" objectKey="14"/>
-					<Obj Type="Monster" MonType="40001" Pos="-243.10#137.91#1310.29" angle="87" range="-1" genCount="1" genTime="1" objectKey="16" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;도심성벽 제 8구역&apos; &apos;Enter&apos; &apos;CASTLE_20_3_CASTLE_20_4&apos; &apos;Range&apos; &apos;20&apos; "/>
-					<Obj Type="Monster" MonType="40001" Pos="-671.64#214.91#1386.28" angle="89" range="-1" genCount="1" genTime="1" objectKey="17" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;타니엘 1세 기념구&apos; &apos;Enter&apos; &apos;CASTLE_20_3_DCAPITAL_103&apos; &apos;Range&apos; &apos;20&apos; "/>
-					<Obj Type="Monster" MonType="40001" Pos="-1832.73#363.40#-520.00" angle="-179" range="-1" genCount="1" genTime="1" objectKey="18" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;네토 숲&apos; &apos;Enter&apos; &apos;CASTLE_20_3_MAPLE_25_1&apos; &apos;Range&apos; &apos;20&apos; "/>
-					<Obj Type="Monster" MonType="40001" Pos="1338.13#121.72#-355.08" range="-1" genCount="1" genTime="1" objectKey="19" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;내성벽 제 9구역&apos; &apos;Enter&apos; &apos;CASTLE_20_3_CASTLE_20_2&apos; &apos;Range&apos; &apos;20&apos; "/>
-					<Obj Type="Monster" MonType="40001" Pos="330.60#98.13#-881.72" angle="-92" range="-1" genCount="1" genTime="1" objectKey="20" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" propList="&apos;Name&apos; &apos;강철 고원&apos; &apos;Enter&apos; &apos;CASTLE_20_3_TABLELAND74&apos; &apos;Range&apos; &apos;20&apos; "/>
-				</ObjList>
-			</Stage>
-			<Stage Name="END">
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="colony_end">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
-								<Str Str="SCR_GUILD_COLONY_END_TIME_CHECK"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-								<Str Str="SCR_COLONY_END_UI_OPEN"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-								<MGameObj List="START/2"/>
-								<Str Str="SCR_COLONY_TOWER_EFFECT_OFF"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="START"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="START"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-	</Game>
+    <Game Name="GUILD_COLONY_F_CASTLE_20_3" minLv="0" maxLv="0" playerCountCheckDestroy="0" mapName="f_castle_20_3" startWaitSec="0">
+        <StageList>
+            <Stage Name="START">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20024" Pos="-177.00#102.00#-95.00" angle="-70" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_OCCUPATION_BUFF"/>
+                    <Obj Type="Monster" MonType="20024" Pos="-177.00#102.00#-95.00" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_SUMMON_MONSTER"/>
+                    <Obj Type="Monster" MonType="156150" Pos="-177.00#102.00#-95.00" angle="-70" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" SimpleAI="GUILD_COLONY_TOWER"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-1186.50#134.91#-1025.80" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-1187.92#134.91#-499.32" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="45132" Pos="406.13#152.37#-682.37" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="5"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-128.51#102.40#-159.83" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="6"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-1136.98#93.36#-165.60" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="7"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-670.59#214.91#1071.32" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="8"/>
+                    <Obj Type="Monster" MonType="45132" Pos="336.49#165.00#-100.47" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="9"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-178.79#138.50#599.80" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="10"/>
+                    <Obj Type="Monster" MonType="45132" Pos="242.95#138.50#378.02" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="11"/>
+                    <Obj Type="Monster" MonType="45132" Pos="926.27#138.63#-274.53" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="12"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-1527.83#363.40#-529.27" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="13"/>
+                    <Obj Type="Monster" MonType="45132" Pos="-693.20#182.84#270.54" range="100" genCount="9999" maxStackCount="1" genTime="30000" objectKey="14"/>
+                    <Obj Type="Monster" MonType="40001" Pos="-243.10#137.91#1310.29" angle="87" range="-1" genCount="1" genTime="1" objectKey="16" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;도심성벽 제 8구역&apos; &apos;Enter&apos; &apos;CASTLE_20_3_CASTLE_20_4&apos; &apos;Range&apos; &apos;20&apos; " SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF"/>
+                    <Obj Type="Monster" MonType="40001" Pos="-671.64#214.91#1386.28" angle="89" range="-1" genCount="1" genTime="1" objectKey="17" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;타니엘 1세 기념구&apos; &apos;Enter&apos; &apos;CASTLE_20_3_DCAPITAL_103&apos; &apos;Range&apos; &apos;20&apos; " SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF"/>
+                    <Obj Type="Monster" MonType="40001" Pos="-1832.73#363.40#-520.00" angle="-179" range="-1" genCount="1" genTime="1" objectKey="18" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;네토 숲&apos; &apos;Enter&apos; &apos;CASTLE_20_3_MAPLE_25_1&apos; &apos;Range&apos; &apos;20&apos; " SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF"/>
+                    <Obj Type="Monster" MonType="40001" Pos="1338.13#121.72#-355.08" range="-1" genCount="1" genTime="1" objectKey="19" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;내성벽 제 9구역&apos; &apos;Enter&apos; &apos;CASTLE_20_3_CASTLE_20_2&apos; &apos;Range&apos; &apos;20&apos; " SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF"/>
+                    <Obj Type="Monster" MonType="40001" Pos="330.60#98.13#-881.72" angle="-92" range="-1" genCount="1" genTime="1" objectKey="20" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;강철 고원&apos; &apos;Enter&apos; &apos;CASTLE_20_3_TABLELAND74&apos; &apos;Range&apos; &apos;20&apos; " SimpleAI="GUILD_COLONY_ENTER_INVINCIBLE_BUFF"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="END">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="colony_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_GUILD_COLONY_END_TIME_CHECK"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_COLONY_END_UI_OPEN"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="START/2"/>
+                                <Str Str="SCR_COLONY_TOWER_EFFECT_OFF"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="START"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="START"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
 </GameList>

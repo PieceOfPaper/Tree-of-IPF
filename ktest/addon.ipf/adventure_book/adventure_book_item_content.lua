@@ -158,6 +158,7 @@ function ADVENTURE_BOOK_ITEM_CONTENT.ITEM_INFO(itemClsID)
 
 	local itemCls = GetClassByType("Item", itemClsID);
 	local needAppraisal = TryGetProp(itemCls, "NeedAppraisal");
+	local needRandomOption = TryGetProp(itemCls, "NeedRandomOption")
 	local grade = TryGetProp(itemCls, "ItemGrade");
 	local retTable = {}
 	retTable['class_id'] = itemClsID
@@ -174,7 +175,7 @@ function ADVENTURE_BOOK_ITEM_CONTENT.ITEM_INFO(itemClsID)
 	retTable['consumed_count'] = consumeCount
 	retTable['is_found'] = ADVENTURE_BOOK_ITEM_CONTENT.EXIST_IN_HISTORY(itemClsID)	
 	if retTable['type'] == 'Equip' then
-		retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal)
+		retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal, needRandomOption)
 	end
 
 	retTable['trade_shop'] = 0

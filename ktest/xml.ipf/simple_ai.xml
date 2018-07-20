@@ -4099,7 +4099,7 @@
 	</AI>
 	<AI Name="FANTASYLIB484_MQ_8_BOSS_AI" ActiveMessageMapInBattle="1">
 		<List>
-			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+			<ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
 				<Num Num="300"/>
 			</ToolScp>
 		</List>
@@ -4114,9 +4114,6 @@
 			</ToolScp>
 		</HitList>
 		<StartList>
-			<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-				<Str Str="Attack"/>
-			</ToolScp>
 			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
 				<Num Num="0"/>
 				<Str Str="HPLock"/>
@@ -4126,7 +4123,38 @@
 				<Num Num="1"/>
 				<Num Num="100"/>
 			</ToolScp>
-		</StartList>
+		<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="2"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="FANTASYLIB485_MQ_5_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="FANTASYLIB485_MQ_5_NERINGA_AI_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="FANTASYLIB485_MQ_5_MON_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_SET_TENDENCY_RANGE" Client="NO" UseSleep="NO">
+                <Num Num="300"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                <Num Num="4"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                <Str Str="Attack"/>
+            </ToolScp>
+        </StartList>
 	</AI>
 	<AI Name="FANTASYLIB485_MQ_PUBLIC_WARP" ActiveMessageMapInBattle="1">
 		<StartList>

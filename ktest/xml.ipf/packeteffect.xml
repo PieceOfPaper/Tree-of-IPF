@@ -112,6 +112,9 @@
         <Effect Name="1ST"/>
         <Effect Name="PAUSE1"/>
         <Effect Name="2ND"/>
+    <Effect Name="PAUSE2"/>
+        <Effect Name="3RD"/>
+        <Effect Name="F_circle25_blue"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -165,6 +168,8 @@
         <Effect Name="boss_warpulis_windpad"/>
         <Effect Name="I_archer_canon_force2#Bip001 R Toe0"/>
         <Effect Name="F_levitation008_alpha2"/>
+    <Effect Name="singing_forest_distortion1"/>
+        <Effect Name="PlayEffect"/>
     </Category>
     <Category ID="195">
         <Effect Name="THORN39_2_SQ07_TRACK_MINI"/>
@@ -460,6 +465,8 @@
         <Effect Name="I_force018_trail_psychokinesis#Bip001 R Hand"/>
         <Effect Name="boss_warpulis_windpad"/>
         <Effect Name="F_explosion120_blue"/>
+    <Effect Name="F_explosion98_rize_2"/>
+        <Effect Name="F_explosion100_2"/>
     </Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
@@ -491,6 +498,14 @@
         <Effect Name="I_archer_canon_force3#Bip001 R Toe0"/>
         <Effect Name="boss_warpulis_windpad"/>
         <Effect Name="I_archer_canon_force2#Bip001 R Toe0"/>
+    
+<Effect Name="I_circle003_spin_loop_dark"/>
+        <Effect Name="I_circle003_spin_loop_dark"/>
+        <Effect Name="I_chain004_mash_loop2"/>
+        <Effect Name="F_arcehr_Spoliation_spread_in2"/>
+        <Effect Name="F_archer_caracol_hit"/>
+        <Effect Name="SKL_CHARGE2_RIDE"/>
+        <Effect Name="F_bg_firetower_teleport2"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -660,6 +675,9 @@
         <Effect Name="F_ground078_smoke2"/>
         <Effect Name="F_spread_in030_holy_loop##0.2"/>
         <Effect Name="F_spread_in030_holy_loop#Dummy_emitter"/>
+    <Effect Name="F_rize015_1_drop"/>
+        <Effect Name="F_levitation044_dark_TOP"/>
+        <Effect Name="F_ground170_dark3"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -884,6 +902,13 @@
         <Effect Name="F_light119_yellow#Dummy_emitter"/>
         <Effect Name="F_spread_in030_dark2"/>
         <Effect Name="F_spread_in030_dark"/>
+        <Effect Name="F_pattern013_ground2_white"/>
+        <Effect Name="F_pattern013_ground2_green"/>
+        <Effect Name="F_pattern013_ground2_red"/>
+        <Effect Name="PlayEffect"/>
+        <Effect Name="I_smoke_red2_loop"/>
+        <Effect Name="MISSION_EVENT_BLUEORB"/>
+        <Effect Name="m_boss_scenario3"/>
     </Category>
     <Category ID="75">
         <Effect>knockdown_bounce</Effect>
@@ -1921,7 +1946,19 @@
         <Effect Name="I_light004_red4"/>
         <Effect Name="I_light004_red4"/>
         <Effect Name="F_bufBf_basic033_orange_line"/>
+        <Effect Name="F_bg_butterfly001_red"/>
+        <Effect Name="F_spread_in032_rize_loop"/>
+        <Effect Name="F_haste_buff_green"/>
+        <Effect Name="Trap1"/>
+        <Effect Name="Trap_Setting"/>
+        <Effect Name="Trap_Setting"/>
+        <Effect Name="Trap3"/>
+        <Effect Name="Trap2"/>
+        <Effect Name="Advantage1"/>
         <Effect Name="I_light004_violet2"/>
+        <Effect Name="I_force099_2"/>
+        <Effect Name="I_force015_yellow"/>
+        <Effect Name="I_force015_blue"/>
     </Category>
     <Category ID="26">
         <Effect Name="I_warrior_ironhook_hook2"/>
@@ -2062,6 +2099,13 @@
         <Effect Name="artefact_balloon_o"/>
         <Effect Name="I_force071_dark2"/>
         <Effect Name="MISSION_EVENT_1708_JURATE"/>
+    <Effect Name="I_force020_lightning"/>
+        <Effect Name="I_spin002"/>
+        <Effect Name="I_force018_trail_ice2"/>
+        <Effect Name="I_force018_trail_ice3"/>
+        <Effect Name="F_spread_in032_ice_loop"/>
+        <Effect Name="F_spread_in032_fire_loop"/>
+        <Effect Name="skl_eff_tinkly_force"/>
     </Category>
     <Category ID="61">
         <Effect Name="F_ground083_smoke"/>
@@ -3874,6 +3918,9 @@
         <Effect Name="F_ground171_dark"/>
         <Effect Name="F_wizard_ShadowThorn_ground_dark2"/>
         <Effect Name="F_spread_out040_ice"/>
+        <Effect Name="F_bg_firetower_teleport2"/>
+        <Effect Name="I_ground007_water"/>
+        <Effect Name="F_ground116_circle_dark"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

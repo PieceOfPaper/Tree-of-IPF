@@ -7302,7 +7302,7 @@ function SCR_PRE_FANTASYLIB485_MQ_ITEM(self, argObj, argstring, arg1, arg2)
     return 0
 end
 
---3CMLAKE261_SQ01_ITEM 
+--3CMLAKE261_SQ11_ITEM 
 
 function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
     local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ11')
@@ -7311,7 +7311,7 @@ function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
             if GetLayer(self) == 0 then
                 local list, cnt = SelectObjectByFaction(self,30,"Neutral")
                 for i = 1, cnt do
-                    if list[i].ClassName == "cart_spp" then
+                    if list[i].ClassName == "cart_spp_3cm" then
                         if IsBuffApplied(list[i], '3CMLAKE261_SQ11_BUFF') == 'NO' then
                             return GetHandle(list[i])
                         end
@@ -7323,75 +7323,6 @@ function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
     return 0
 end
 
---3CMLAKE261_SQ10_ITEM
-
-function SCR_PRE_3CMLAKE261_SQ10_ITEM01(self, argObj, argstring, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ10')
-    if result == "PROGRESS" then
-        if GetZoneName(self) == 'f_3cmlake_26_1' then
-            if GetLayer(self) == 0 then
-                local list, cnt = SelectObjectByFaction(self,100,"Neutral")
-                for i = 1, cnt do
-                    if list[i].ClassName == "HiddenTrigger6" then
-                        if IsServerSection(self) == 1 then
-                            if IsDead(list[i]) == 0 then
-                                return GetHandle(list[i])
-                            end
-                        else
-                            return 1;
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
-
---3CMLAKE262_SQ10_ITEM02 (USE_SQ11)
-function SCR_PRE_3CMLAKE262_SQ10_ITEM02(self, argObj, argstring, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self,'F_3CMLAKE262_SQ11')
-    if result == "PROGRESS" then
-        if GetZoneName(self) == 'f_3cmlake_26_2' then
-            if GetLayer(self) == 0 then
-                local list, cnt = SelectObjectByFaction(self,100,"Monster")
-                for i = 1, cnt do
-                    if list[i].ClassName == "flamme_mage_green" or list[i].ClassName == "flask_green" or list[i].ClassName == "flamme_priest_green" then
-                        if IsBuffApplied(list[i], '3CMLAKE262_SQ11_BUFF') == 'NO' then
-                            if IsServerSection(self) == 1 then
-                                if IsDead(list[i]) == 0 then
-                                    return GetHandle(list[i])
-                                end
-                            else
-                                return 1;
-                            end
-                        end
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
-
---3CMLAKE261_SQ11_ITEM 
-
-function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
-    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE261_SQ11')
-    if result == "PROGRESS" then
-        if GetZoneName(self) == 'f_3cmlake_26_1' then
-            if GetLayer(self) == 0 then
-                local list, cnt = SelectObjectByFaction(self,30,"Neutral")
-                for i = 1, cnt do
-                    if list[i].ClassName == "cart_spp" then
-                        return GetHandle(list[i])
-                    end
-                end
-            end
-        end
-    end
-    return 0
-end
 
 --3CMLAKE261_SQ10_ITEM
 
@@ -7419,6 +7350,7 @@ function SCR_PRE_3CMLAKE261_SQ10_ITEM01(self, argObj, argstring, arg1, arg2)
     return 0
     end
 end
+
 
 --3CMLAKE262_SQ10_ITEM02 (USE_SQ11)
 function SCR_PRE_3CMLAKE262_SQ10_ITEM02(self, argObj, argstring, arg1, arg2)
@@ -7633,8 +7565,10 @@ function SCR_PRE_ABBEY22_5_SUBQ9_ITEM2(self, argstring, argnum1, argnum2)
             if GetLayer(self) < 1 then
                 return 1
             end
+            return 0
         end
     end
+    return 0
 end
 
 --ABBEY22_5_SUBQ7_ITEM1

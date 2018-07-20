@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_dead_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_waterburstup"/>
+    <Sound frame="20.00" soundFile="skl_eff_atk_move_l_4"/>
+    <Sound frame="20.00" soundFile="skl_archer_crossarrow_badak"/>
+    <Sound frame="20.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+    <Sound frame="24.00" soundFile="skl_eff_atk_move_s12"/>
+    <Sound frame="25.00" soundFile="skl_eff_atk_move_s_10"/>
+    <Sound frame="26.00" soundFile="skl_eff_atk_move_s_11"/>
+    <BlendOn frame="30" R="100" G="100" B="150" A="50"/>
+    <Shockwave frame="30" type="2" intensity="10" frequency="50" duration="0.4" range="1000"/>
+    <BlendOn frame="32" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="34" R="100" G="100" B="150" A="50"/>
+    <BlendOff frame="36" R="0" G="0" B="0" A="0"/>
+    <Sound frame="55.00" soundFile="skl_eff_atk_move_l_13"/>
+    <Sound frame="72.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+    <Sound frame="93.00" soundFile="skl_eff_mon_water_splash"/>
+    <Sound frame="114.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+    <Sound frame="130.00" soundFile="skl_eff_waterburstup"/>
+    <Sound frame="130.00" soundFile="skl_eff_mon_water_splash"/>
+    <Sound frame="163.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+    <Sound frame="163.00" soundFile="skl_eff_mon_water_splash"/>
+    <Sound frame="203.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="205.00" soundFile="skl_eff_gaebulg_ground"/>
+    <Sound frame="205.00" soundFile="skl_eff_waterburstup"/>
+    <Sound frame="222.00" soundFile="skl_eff_waterspell_2"/>
+    <Sound frame="222.44" soundFile="mon_big_footstep_6"/>
+</ActionDesc>

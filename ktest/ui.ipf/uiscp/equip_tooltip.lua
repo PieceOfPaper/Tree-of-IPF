@@ -111,11 +111,12 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
 	local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
-	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal)
+	local neddRandomOption = TryGetProp(invitem, "NeedRandomOption")
+	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal, neddRandomOption)
 	item_bg:SetImage(gradeBGName);
 	-- 아이템 이미지
 	local itemPicture = GET_CHILD(equipCommonCSet, "itempic", "ui::CPicture");
-	if needAppraisal ~= nil and needAppraisal == 1 then
+	if (needAppraisal ~= nil and needAppraisal == 1) or (neddRandomOption ~= nil and neddRandomOption == 1) then
 		itemPicture:SetColorTone("FF111111");
 	end
 
@@ -420,7 +421,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		end
 	end
 	
-	for i = 1 , 4 do
+	for i = 1 , 6 do
 	    local propGroupName = "RandomOptionGroup_"..i;
 		local propName = "RandomOption_"..i;
 		local propValue = "RandomOptionValue_"..i;
@@ -433,6 +434,8 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
 		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		    clientMessage = 'ItemRandomOptionGroupUTIL'
+		elseif invitem[propGroupName] == 'UTIL_SHILED' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
 		elseif invitem[propGroupName] == 'STAT' then
 		    clientMessage = 'ItemRandomOptionGroupSTAT'

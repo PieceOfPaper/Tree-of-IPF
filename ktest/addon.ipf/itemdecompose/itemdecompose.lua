@@ -76,7 +76,6 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
     local itemCount = session.GetInvItemList():Count();
     
     local index = invItemList:Head();
-    
 	for i = 0, itemCount - 1 do
     	local invItem = invItemList:Element(index);
     	if invItem ~= nil then
@@ -85,8 +84,17 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
             if itemGrade == nil then
                 itemGrade = 0;
             end
-            
-    		if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemGradeList[itemGrade] == 1 then
+
+            local needToShow = true;
+            for j = 1, #itemGradeList do
+            	if itemGradeList[j] == 0 and itemGrade == j then
+            		needToShow = false;
+            		break;
+            	end
+            end
+
+            if needToShow == true then
+    		if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false  and itemGrade <= 4 then
     			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
     			if itemSlot == nil then
     				break;
@@ -99,6 +107,7 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
                 
     			itemSlotCnt = itemSlotCnt + 1;
             end
+    	end
     	end
     	index = invItemList:Next(index);
 	end

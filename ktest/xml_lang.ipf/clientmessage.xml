@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -858,6 +858,8 @@
 		<Class ClassID="10474" ClassName="ToEquipSameCardGroup" Data="동일한 카드 그룹에 카드를 장착해야 합니다."/>
 		<Class ClassID="10475" ClassName="AlreadyEquippedThatCardSlot" Data="해당 슬롯에 이미 카드가 장착되어 있습니다."/>
 		<Class ClassID="10476" ClassName="NGSKick" Data="불법 프로그램이 감지되었습니다.{nl}접속이 차단됩니다."/>
+		<Class ClassID="10477" ClassName="BlockTitleText" Data="머리말 차단"/>
+		<Class ClassID="10478" ClassName="UnblockTitleText" Data="머리말 차단해제"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1130,6 +1132,7 @@
 		<Class ClassID="21265" ClassName="Helmet_F_Category" Data="[프리미엄]여자 헬멧"/>
 		<Class ClassID="21266" ClassName="StatusTooltipMsgLootingChance" Data="미감정 장비 아이템의 드롭 확률 보너스"/>
 		<Class ClassID="21267" ClassName="MaxInputLen{Local}{Eng}" Data="최대 한글 {Local}글자, 영문 {Eng}글자 까지 입력이 가능합니다."/>
+		<Class ClassID="21270" ClassName="ClassSolution" Data="해금권 선택 상자"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4365,6 +4368,22 @@
 		<Class ClassID="27596" ClassName="EVENT_1709_NEWFIELD_MSG7" Data="{nl}최근 큐브 교환일 : {DATE2} {COUNT}회"/>
 		<Class ClassID="27597" ClassName="EVENT_1709_NEWFIELD_MSG8" Data="{nl}누적 큐브 교환 횟수 : {COUNT}"/>
 		<Class ClassID="27598" ClassName="EVENT_1709_NEWFIELD_MSG9" Data="초대 이벤트에 참여하시지 않았습니다."/>
+		<Class ClassID="27650" ClassName="EVENT_1710_THANKSGIVING_MSG1" Data="인스턴스 지역과 연출 상태에서는 사용하실 수 없습니다."/>
+		<Class ClassID="27651" ClassName="EVENT_1710_THANKSGIVING_MSG2" Data="캐릭터 정면에 투호를 생성 할 수 없습니다."/>
+		<Class ClassID="27652" ClassName="EVENT_1710_THANKSGIVING_MSG3" Data="{NAME}의 투호"/>
+		<Class ClassID="27653" ClassName="EVENT_1710_THANKSGIVING_MSG4" Data="던지기 파워 조절"/>
+		<Class ClassID="27654" ClassName="EVENT_1710_THANKSGIVING_MSG5" Data="투호를 생성하지 못했습니다.{nl}위치를 이동해 다시 시도해주세요."/>
+		<Class ClassID="27655" ClassName="EVENT_1710_THANKSGIVING_MSG6" Data="동전 투호 최종 포인트 : {#FFF200}{POINT}{/}점"/>
+		<Class ClassID="27656" ClassName="EVENT_1710_THANKSGIVING_MSG7" Data="투호와 거리가 가까워 사용 하실 수 없습니다.{nl}현재 거리 : {DISTANCE}"/>
+		<Class ClassID="27657" ClassName="EVENT_1710_THANKSGIVING_MSG8" Data="정확도 {#FFF200}+{POINT}{/}점{nl}거리 가중 {#FFF200}+{VPOINT}{/}{nl}누적 점수 : {#FFF200}{CURRPOINT}{/}"/>
+		<Class ClassID="27658" ClassName="EVENT_1710_THANKSGIVING_MSG9" Data="캐릭터 정면에 다른 투호가 있어서 투호를 생성 할 수 없습니다."/>
+		<Class ClassID="27659" ClassName="EVENT_1710_THANKSGIVING_MSG10" Data="투호 생성 위치에 충돌 상자가 있어서 생성할 수 없습니다."/>
+		<Class ClassID="27660" ClassName="EVENT_1710_THANKSGIVING_MSG11" Data="이미 투호가 생성되어 있습니다."/>
+		<Class ClassID="27661" ClassName="EVENT_1710_THANKSGIVING_MSG12" Data="{nl}{RANK}위 : {#FF9600}{NAME}{/} ({#FFF200}{POINT}{/} 점)"/>
+		<Class ClassID="27662" ClassName="EVENT_1710_THANKSGIVING_MSG13" Data="{nl}{ZONE}존 {CHANNEL}채널 현재까지 랭킹"/>
+		<Class ClassID="27663" ClassName="EVENT_1710_THANKSGIVING_MSG14" Data="투호 유지시간이 {SEC}초가 남아서 게임을 시작하실 수 없습니다."/>
+		<Class ClassID="27664" ClassName="EVENT_1710_THANKSGIVING_MSG15" Data="동전 투호 게임이 시작됩니다!"/>
+		<Class ClassID="27665" ClassName="EVENT_1710_THANKSGIVING_MSG16" Data="동전 투호 게임 남은 시간 : {SEC}초"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5036,12 +5055,12 @@
 		<Class ClassID="50325" ClassName="WTREES22_1_SUBQ3_MSG2" Data="꽃이 만개하지 않았습니다"/>
 		<Class ClassID="50326" ClassName="WTREES22_1_SUBQ2_ITEM1_USING" Data="아띠의 노란 즙액을 뿌리는 중"/>
 		<Class ClassID="50327" ClassName="WTREES22_1_SUBQ3_MSG3" Data="꽃이 만개하기 시작했습니다{nl}꽃이 죽기전에 꽃가루를 채집하세요"/>
-		<Class ClassID="50328" ClassName="WTREES22_1_SUBQ5_MSG1" Data="라즈배리를 빻는 중"/>
-		<Class ClassID="50329" ClassName="WTREES22_1_SUBQ5_MSG2" Data="라즈배리즙을 획득했습니다"/>
+		<Class ClassID="50328" ClassName="WTREES22_1_SUBQ5_MSG1" Data="라즈베리를 빻는 중"/>
+		<Class ClassID="50329" ClassName="WTREES22_1_SUBQ5_MSG2" Data="라즈베리즙을 획득했습니다"/>
 		<Class ClassID="50330" ClassName="WTREES22_1_SUBQ2_ITEM1_USING2" Data="테레쉬 꽃가루를 채집 중"/>
-		<Class ClassID="50331" ClassName="WTREES22_1_SUBQ5_MSG3" Data="라즈배리 채집 중"/>
-		<Class ClassID="50332" ClassName="WTREES22_1_SUBQ5_MSG4" Data="라즈배리 채집했습니다{nl}라즈배리를 빻아 라즈배리 즙을 만드세요"/>
-		<Class ClassID="50333" ClassName="WTREES22_1_SUBQ6_MSG1" Data="라즈배리 향이 진한 나무가지를 흔드는 중"/>
+		<Class ClassID="50331" ClassName="WTREES22_1_SUBQ5_MSG3" Data="라즈베리 채집 중"/>
+		<Class ClassID="50332" ClassName="WTREES22_1_SUBQ5_MSG4" Data="라즈베리 채집했습니다{nl}라즈베리를 빻아 라즈베리 즙을 만드세요"/>
+		<Class ClassID="50333" ClassName="WTREES22_1_SUBQ6_MSG1" Data="라즈베리 향이 진한 나무가지를 흔드는 중"/>
 		<Class ClassID="50334" ClassName="WTREES22_1_SUBQ6_MSG2" Data="별 반딧불이가 모여들었습니다{nl}노래하는 나무가 있는 곳까지 별 반딧불이를 유인하세요"/>
 		<Class ClassID="50335" ClassName="WTREES22_1_SUBQ6_MSG3" Data="별 반딧불이를 노래하는 나무에 유인했습니다"/>
 		<Class ClassID="50336" ClassName="WTREES22_1_SUBQ8_CHAT1" Data="그대여 내 손 잡아주오 그대에게 내 반쪽 마음 드리리 라고 외친다"/>
@@ -5078,7 +5097,7 @@
 		<Class ClassID="50367" ClassName="ABBEY22_4_SUBQ7_MSG2" Data="마력 결정 수집 중"/>
 		<Class ClassID="50368" ClassName="ABBEY22_4_SUBQ7_MSG3" Data="마력 결정을 획득했습니다"/>
 		<Class ClassID="50369" ClassName="ABBEY22_4_SUBQ8_MSG1" Data="환영 재생구를 획득했습니다"/>
-		<Class ClassID="50370" ClassName="ABBEY22_4_SUBQ8_MSG2" Data="비밀번호가 들렸습니다"/>
+		<Class ClassID="50370" ClassName="ABBEY22_4_SUBQ8_MSG2" Data="비밀번호가 틀렸습니다"/>
 		<Class ClassID="50371" ClassName="ABBEY22_4_SUBQ8_MSG3" Data="환영이 나타났습니다"/>
 		<Class ClassID="50372" ClassName="ABBEY22_5_SUBQ1_MSG1" Data="부하로 받아달라고 거짓말을 한다"/>
 		<Class ClassID="50373" ClassName="ABBEY22_5_SUBQ1_MSG2" Data="야망의 하우벅과 의심의 하우벅을 제압하는데 도와주겠다고 한다"/>
@@ -5550,7 +5569,7 @@
 		<Class ClassID="67154" ClassName="Book9_1" Data="클라페다의 내기꾼(2)"/>
 		<Class ClassID="67155" ClassName="PILGRIM311_BOOK_01" Data="록소나 내전 1장"/>
 		<Class ClassID="67156" ClassName="PILGRIM311_BOOK_02" Data="록소나 내전 2장"/>
-		<Class ClassID="67157" ClassName="Book2" Data="가"/>
+		<Class ClassID="67157" ClassName="Book2" Data="리디아 샤펜과 플레쳐"/>
 		<Class ClassID="67158" ClassName="Book4" Data="리디아 샤펜의 교차선"/>
 		<Class ClassID="67159" ClassName="Book5" Data="리디아 샤펜의 오늬"/>
 		<Class ClassID="67160" ClassName="Book6" Data="리디아 샤펜과 럼펠스틸스킨"/>
@@ -6157,6 +6176,9 @@
 		<Class ClassID="90134" ClassName="FANTASYLIB485_MQ_5_NERINGA_0" Data="길티네가 마족을 불렀습니다. 해치우고 추적을 계속해야 합니다."/>
 		<Class ClassID="90135" ClassName="FANTASYLIB485_MQ_5_NERINGA_1" Data="마족을 해치우고 길티네를 추적하기만 하면 됩니다."/>
 		<Class ClassID="90136" ClassName="FANTASYLIB485_MQ_5_NERINGA_2" Data="마족을 해치우고 길티네를 추적하기만 하면 됩니다."/>
+		<Class ClassID="90152" ClassName="FANTASYLIB485_MQ_5_DMG" Data="길티네의 강력한 힘에 피해를 입습니다"/>
+		<Class ClassID="90153" ClassName="FANTASYLIB485_MQ_5_NERINGA_3" Data="저에게 멀어지시면 안됩니다. 지금은 길티네의 힘을 감당하실 수 없습니다."/>
+		<Class ClassID="90154" ClassName="FANTASYLIB485_MQ_5_NERINGA_4" Data="저에게 멀어지지 않게 조심해서 마족을 해치워주십시오."/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -6450,8 +6472,8 @@
 		<Class ClassID="102088" ClassName="Enemy" Data="적대"/>
 		<Class ClassID="102089" ClassName="ToRebuildableTime" Data="재건 가능까지 남은시간"/>
 		<Class ClassID="102090" ClassName="CantRebuildYet" Data="아직 재건이 불가능합니다."/>
-		<Class ClassID="102091" ClassName="GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="길드원 {Name}이 {FromGuild}의 {From}에게 당했습니다."/>
-		<Class ClassID="102092" ClassName="GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="길드원 {Name}이 {TargetGuild}의 {Target}을 처치했습니다."/>
+		<Class ClassID="102091" ClassName="GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}" Data="길드원 {Name}님이 {FromGuild}의 {From}에게 당했습니다."/>
+		<Class ClassID="102092" ClassName="GuildMember{Name}Killed{Target}OfGuild{TargetGuild}" Data="길드원 {Name}님이 {TargetGuild}의 {Target}을 처치했습니다."/>
 		<Class ClassID="102093" ClassName="CantCancelWarWhenWarIsResting" Data="휴전중엔 전쟁취소가 불가능합니다."/>
 		<Class ClassID="102094" ClassName="GetItemToGuildWareHouse" Data="길드 보관함에 아이템을 획득했습니다."/>
 		<Class ClassID="102095" ClassName="SelectGuildMemberToGetItem" Data="아이템을 수령할 길드원을 선택하세요."/>
@@ -6661,7 +6683,7 @@
 		<Class ClassID="107016" ClassName="AppraisedItemFor" Data=" 님의 아이템을 감정하였습니다."/>
 		<Class ClassID="107017" ClassName="InputPriceBetween{MIN}{MAX}" Data="{MIN}~{MAX} 사이의 값을 입력해주세요"/>
 		<Class ClassID="107018" ClassName="QuestItemIsLocked" Data="전직 퀘스트 아이템이 잠금 상태에 있습니다."/>
-	</Category>
+		</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="108001" ClassName="GetOut!WeMustTransportStones!" Data="비켜주십시오! 빨리 돌을 운반해야 합니다."/>
 	</Category>
@@ -7170,7 +7192,7 @@
 		<Class ClassID="124041" ClassName="AlertDuplicatedKeys{Key1}And{Key2}Are{Key}" Data="[{Key1}]키와 [{Key2}]키가 동일한 키 [{Key}]로 설정되었습니다."/>
 		<Class ClassID="124042" ClassName="NotClearChar" Data="대지의 탑을 클리어 하지 않은 캐릭터는 보상을 받을 수 없습니다."/>
 		<Class ClassID="124043" ClassName="OnlyOnePcJoin" Data="해당 미션은 다른 캐릭터로 입장할 수 없습니다."/>
-	</Category>
+		</Category>
 	<Category Name="Quest">
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
 		<Class ClassID="130002" ClassName="ThisQuestIsSharedToParty" Data="{@st59}파티원에게 현재 노출되는 퀘스트입니다."/>
@@ -7341,7 +7363,7 @@
 		<Class ClassID="134029" ClassName="YouCanMorePlayIndunWithToken" Data="토큰 혜택이 있으면 {COUNT}회 추가 입장할 수 있습니다{nl}현재 상태: 토큰 {TOKEN_STATE}"/>
 		<Class ClassID="134030" ClassName="NotApplied" Data="비활성"/>
 		<Class ClassID="134031" ClassName="CannotCraftInIndun" Data="인던이나 미션에선 아이템을 제작하거나 강화할 수 없습니다."/>
-    <Class ClassID="134034" ClassName="PersonCountUnit" Data="명"/>
+		<Class ClassID="134034" ClassName="PersonCountUnit" Data="명"/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -10322,7 +10344,7 @@
 		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 		<Class ClassID="300165" ClassName="GachaMsg" Data="{Name} 열기"/>
 		<Class ClassID="300166" ClassName="PurchaseItemExceeded" Data="구매 개수를 {Value}개를 초과했습니다."/>
-		<Class ClassID="300167" ClassName="SelectPurchaseRestrictedItem" Data="해당 아이템은 계정당 {Value}개만 구매할 수 있습니다.{/}구매하시겠습니까?"/>
+		<Class ClassID="300167" ClassName="SelectPurchaseRestrictedItem" Data="해당 아이템은 팀당 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -10482,16 +10504,16 @@
 		<Class ClassID="510609" ClassName="FishRubbingMSG10" Data="살려줘.."/>
 	</Category>
 	<Category Name="Cyou">
-		<Class ClassID="600000" ClassName="CyouDelibarationMsg1" Data="您累计在线时间已满1小时"/>
-		<Class ClassID="600001" ClassName="CyouDelibarationMsg2" Data="您累计在线时间已满2小时"/>
-		<Class ClassID="600002" ClassName="CyouDelibarationMsg3" Data="您累计在线时间已满3小时，请您下线休息，做适当身体活动"/>
-		<Class ClassID="600003" ClassName="CyouDelibarationMsg4" Data="您已经进入疲劳游戏时间，您的游戏收益将降为正常值的50%，为了您的健康，请尽快下线休息，做适当身体活动，合理安排学习生活"/>
-		<Class ClassID="600004" ClassName="CyouDelibarationMsg5" Data="您已进入不健康游戏时间，为了您的健康，请您立即下线休息。如不下线，您的身体将受到损害，您的收益已降为零，直到您的累计下线时间满5小时后，才能恢复正常"/>
+		<Class ClassID="600000" ClassName="CyouDelibarationMsg1" Data="?累?在???已?1小?"/>
+		<Class ClassID="600001" ClassName="CyouDelibarationMsg2" Data="?累?在???已?2小?"/>
+		<Class ClassID="600002" ClassName="CyouDelibarationMsg3" Data="?累?在???已?3小?，??下?休息，做适?身?活?"/>
+		<Class ClassID="600003" ClassName="CyouDelibarationMsg4" Data="?已??入疲?游???，?的游?收益?降?正常?的50%，?了?的健康，??快下?休息，做适?身?活?，合理安排??生活"/>
+		<Class ClassID="600004" ClassName="CyouDelibarationMsg5" Data="?已?入不健康游???，?了?的健康，??立?下?休息。如不下?，?的身??受到?害，?的收益已降?零，直到?的累?下????5小?后，才能恢?正常"/>
 		<Class ClassID="600005" ClassName="CyouPointLookupFailMessage" Data="서버가 혼잡하여 Cyou Point 조회에 실패했습니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="600006" ClassName="CyouAuthenticationFailed" Data="창유] 계정인증에 실패하였습니다.."/>
 		<Class ClassID="600007" ClassName="CyouServerAuthenticationFailed" Data="Cyou] Server Authentication has failed. Please restart the login launcher to re-attempt the login process."/>
-		<Class ClassID="600008" ClassName="CyouDoubleLoginKick" Data="一个未成年身份证两个账号同时在线，将玩家踢下线 。"/>
-		<Class ClassID="600009" ClassName="CyouCantCompleteQuest" Data="疲劳状态下无法完成任务，请您下线休息满5小时解除疲劳状态再进行游戏"/>
+		<Class ClassID="600008" ClassName="CyouDoubleLoginKick" Data="一?未成年身??????同?在?，?玩家?下? 。"/>
+		<Class ClassID="600009" ClassName="CyouCantCompleteQuest" Data="疲???下无法完成任?，??下?休息?5小?解除疲???再?行游?"/>
 	</Category>
 	<Category Name="AdventureBook">
 		<Class ClassID="700000" ClassName="Complete" Data="완성"/>
@@ -10568,7 +10590,7 @@
 		<Class ClassID="801041" ClassName="CololnywarInsideCannotRideHasnotAbility" Data="컴패니언 탑승가능한 직업이 아닙니다."/>
 		<Class ClassID="801042" ClassName="CanNotActiveByColonyWarJoin" Data="콜로니전 진행 중에는 해당 기능을 이용하실 수 없습니다."/>
 		<Class ClassID="801043" ClassName="CannotUseInPVPZone" Data="PVP 지역에서는 사용 하실 수 없습니다."/>
-	</Category>
+    </Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>

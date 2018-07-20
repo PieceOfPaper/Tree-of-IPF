@@ -229,8 +229,12 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	if lv == nil then
 	    return 0;
 	end
-	richtext_howmuch:SetTextByKey("add",GET_MAKE_SOCKET_PRICE(lv, curcnt))
-	richtext_howmuch:SetTextByKey("remove",GET_REMOVE_GEM_PRICE(lv))
+	local grade = TryGetProp(item,"ItemGrade");
+	if grade == nil then
+	    return 0;
+	end
+richtext_howmuch:SetTextByKey("add",GET_COMMAED_STRING(GET_MAKE_SOCKET_PRICE(lv,grade ,curcnt)));
+	richtext_howmuch:SetTextByKey("remove",GET_COMMAED_STRING(GET_REMOVE_GEM_PRICE(lv)));
 	richtext_howmuch:ShowWindow(1)
 	frame:SetUserValue("TEMP_IESID",id);
 	
@@ -372,11 +376,16 @@ function EXEC_MAKE_NEW_SOCKET()
 	end
     local curcnt = GET_SOCKET_CNT(itemobj);
    	local lv = TryGetProp(itemobj,"UseLv");
-    	if lv == nil then
-	        return 0;
-    	end
+	if lv == nil then
+		return 0;
+	end
 
-	local price = GET_MAKE_SOCKET_PRICE(lv, curcnt)
+	local grade = TryGetProp(itemobj,"ItemGrade");
+	if grade == nil then
+		return 0;
+	end
+
+	local price = GET_MAKE_SOCKET_PRICE(lv, grade, curcnt)
 
 	if GET_TOTAL_MONEY() < price then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))

@@ -116,7 +116,6 @@
 	
 <Code Code="ERROR_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 에러"/>
 	<Code Code="INFO_NXA_BILLING" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 정보"/>
-
 	<Code Code="INFO_NXA_BILLING_REQUEST" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 요청 데이터"/>
 	<Code Code="INFO_NXA_BILLING_RESPONSE" Team="PROGRAM" Category="LOGIC" SubCategory="NXA" Logger="root" Enabled="YES" CallStack="NO" Desc="NXA 빌링 응답 데이터"/>
 	<Code Code="FATAL_INVALID_IES" Team="tos_team" Category="DATA" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="존재하지 않는 IES입니다. 해당하는 ipspace를 담고 있는 xml이 존재하는지, 정상적으로 불러왔는지 확인하세요."/>
@@ -518,4 +517,5 @@ Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" CallStack="NO" Desc
 <Code Code="INFO_FISH_RUBBING" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 정보 로그"/>
 	<Code Code="ERROR_FISH_RUBBING_SCORE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 점수 에러"/>
 	<Code Code="ERROR_FISH_RUBBING_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="FISHING" Logger="root" Enabled="YES" CallStack="NO" Desc="탁본 동상 에러 "/>
+	<Code Code="INFO_DB_INIT" Team="PROGRAM" Category="INFO" Logger="root" Enabled="YES" CallStack="NO" Desc="DB 초기화 관련 정보"/>
 </imcErrorCode>

@@ -74,7 +74,7 @@ function StatueCaption_FishRubbingStatue(handle, funcArg, familyName, pcName)
 	local nameText = string.format("%s (%s)", familyName, pcName);
 	title:SetTextByKey("name", nameText);
 
-	FRAME_AUTO_POS_TO_OBJ(frame, handle, - frame:GetWidth() * 0.35, 20, 0, 1, 1);
+	FRAME_AUTO_POS_TO_OBJ(frame, handle, - frame:GetWidth() * 0.50, 20, 0, 1, 1);
 	
 	local result = 1.8 - ranking * 0.1;
 	return aniName, shaderName, result;
