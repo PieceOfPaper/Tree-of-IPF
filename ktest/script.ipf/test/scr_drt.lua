@@ -96,8 +96,10 @@ end
 
 
 -- Caution :: only value1 
-function DOTIMEACTION_CHARGE(pc, target, msg, anim, second, quest_sObj, add_value, sObj_name)
+function DOTIMEACTION_CHARGE(pc, target, msg, anim, second, quest_sObj, add_value, sObj_name, ridingAnim)
     CancelMouseMove(pc)
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
+    
     if IsBuffApplied(target, 'DOCHARGE_ACTION_RESTRAIN') == 'YES' then
         SendAddOnMsg(pc, "NOTICE_Dm_!", ScpArgMsg("TryLater"), 1);
         return 0
@@ -249,8 +251,9 @@ end
 
 
 -- Caution :: only value1 
-function DOTIMEACTION_CHARGE_RNDCNT_ITEM(pc, target, msg, anim, second, quest_sObj, quest_item, add_value, chance_rate, delay_time, sObj_name)
+function DOTIMEACTION_CHARGE_RNDCNT_ITEM(pc, target, msg, anim, second, quest_sObj, quest_item, add_value, chance_rate, delay_time, sObj_name, ridingAnim)
     CancelMouseMove(pc)
+    anim = DOTIMEACTION_RIDING_ANIM_CHANGE(pc,anim, ridingAnim)
    
     if chance_rate > 0 and chance_rate <= 100 then
     else

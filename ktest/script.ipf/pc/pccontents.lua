@@ -138,7 +138,11 @@ function PC_WIKI_GETITEM(pc, itemType, giveWay, itemCnt)
 end
 
 function SCR_COMMON_SHOP_LIST(pc)
-	  ShowTradeDlg(pc, 'PC_Shop', 5);
+    if true then
+        IMC_LOG('ERROR_LOGIC', 'SCR_COMMON_SHOP_LIST: Some Bad guy try to open PC_Shop! cid['..GetPcCIDStr(pc)..']');
+        return;
+    end
+	  --ShowTradeDlg(pc, 'PC_Shop', 5);
 --    local main_sObj = GetSessionObject(pc, 'ssn_klapeda')
 --	if main_sObj.SHOP_Klapeda_Misc == 300 then		
 --	    ShowTradeDlg(pc, 'Klapeda_Misc', 5);

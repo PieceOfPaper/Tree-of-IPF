@@ -200,3 +200,8 @@ function IS_ENABLE_ENTER_COLONY_WAR_MAP_RESULT(pc)
 
     return 1;
 end
+
+-- 테스트
+function TEST_COLONY_RESULT(pc)
+    ExecClientScp(pc, 'COLONY_RESULT_OPEN(0, "None")');
+end

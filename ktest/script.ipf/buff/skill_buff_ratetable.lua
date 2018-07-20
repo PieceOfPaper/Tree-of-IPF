@@ -449,7 +449,7 @@ function SCR_BUFF_RATETABLE_SteadyAim_Buff(self, from, skill, atk, ret, rateTabl
     if IsBuffApplied(from, 'SteadyAim_Buff') == 'YES' then
         local SteadyAim = GetSkill(from, "Ranger_SteadyAim")
         if SteadyAim ~= nil then
-            addrate = 0.05 + 0.01 * SteadyAim.Level
+            addrate = 0.01 * SteadyAim.Level
         end
         
         local addDamage = 0
@@ -460,8 +460,18 @@ function SCR_BUFF_RATETABLE_SteadyAim_Buff(self, from, skill, atk, ret, rateTabl
         end
         
         if skill.ClassType == 'Missile' then
+            local abilRanger32 = GetAbility(from, "Ranger32");
+            if GetEquipItem(from, "LH") == "THBow" and abilRanger32 ~= nil and TryGetProp(from, "ActiveState") == 1 then
+                addrate = addrate * 1.5
+            end
+            
             rateTable.DamageRate = rateTable.DamageRate + addrate
             rateTable.AddTrueDamage = rateTable.AddTrueDamage + (addDamage + addDamageByLevel);
+        end
+        
+        local abilRanger33 = GetAbility(from, "Ranger33");
+        if TryGetProp(skill, "Job") == "Ranger" and abilRanger32 ~= nil and TryGetProp(from, "ActiveState") == 1 then
+            rateTable.DamageRate = rateTable.DamageRate + 0.5
         end
     end
 end
@@ -712,16 +722,17 @@ end
 function SCR_BUFF_RATETABLE_SwellLeftArm_Buff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(from, 'SwellLeftArm_Buff') == 'YES' then
         local caster = GetBuffCaster(buff);
-        local Thaumaturge6_abilLv,  Thaumaturge7_abilLv = GetBuffArgs(buff);
-        if Thaumaturge6_abilLv > 0 and IsBuffApplied(self, 'ShrinkBody_Debuff') == 'YES' then
+        local Thaumaturge6 = GetAbility(caster, "Thaumaturge6")
+        local Thaumaturge7 = GetAbility(caster, "Thaumaturge7")
+        if Thaumaturge6 ~= nil and IsBuffApplied(self, 'ShrinkBody_Debuff') == 'YES' then
             local MINMATK = TryGetProp(caster, "MINMATK")
-            local addDamage = MINMATK * Thaumaturge6_abilLv * 0.3
+            local addDamage = MINMATK * (Thaumaturge6.Level * 0.3)
             
             rateTable.AddAtkDamage = rateTable.AddAtkDamage + addDamage;
         end
-        
-        if Thaumaturge7_abilLv > 0 and IsBuffApplied(self, 'SwellBody_Debuff') == 'YES' then
-            AddBuff(from, self, 'UC_debrave', 1, 0, 8000 * Thaumaturge7_abilLv, 1);
+
+        if Thaumaturge7 ~= nil and IsBuffApplied(self, 'SwellBody_Debuff') == 'YES' then
+            AddBuff(from, self, 'UC_debrave', 1, 0, 8000 * Thaumaturge7.Level, 1);
         end
         
         if skill.ClassName == "Wizard_MagicMissile" then
@@ -2042,7 +2053,7 @@ function SCR_BUFF_RATETABLE_ThrowingFishingNet_Debuff(self, from, skill, atk, re
     rateTable.DamageRate = rateTable.DamageRate + addDamageRate
 end
 
---180222 포션 버프 추가 (아이템 RateTable이 없음)--
+--180222 ?�션 버프 추�? (?�이??RateTable???�음)--
 function SCR_BUFF_RATETABLE_Potion_Demon_DMG_DOWN_Buff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "Potion_Demon_DMG_DOWN_Buff") == "YES" then
         if TryGetProp(from, "MonRank") == "Boss" then
@@ -2182,8 +2193,8 @@ function SCR_BUFF_RATETABLE_Potion_Wild_DMG_UP_Buff(self, from, skill, atk, ret,
         end
     end
 end
---여기까지 180222 포션 버프 추가 (아이템 RateTable이 없음) 끝--
---180308 카드 효과 추가 (카드는 RateTable을 받아올 수 없음)--
+--?�기까�? 180222 ?�션 버프 추�? (?�이??RateTable???�음) ??-
+--180308 카드 ?�과 추�? (카드??RateTable??받아?????�음)--
 function SCR_BUFF_RATETABLE_CARD_MON_DMG_Rate_Down_Buff(self, from, skill, atk, ret, rateTable, buff)
     if IsBuffApplied(self, "CARD_MON_DMG_Rate_Down_Buff") == "YES" then
         if IS_PC(from) == false then
@@ -2194,7 +2205,7 @@ function SCR_BUFF_RATETABLE_CARD_MON_DMG_Rate_Down_Buff(self, from, skill, atk, 
         end
     end
 end
---180308 카드 효과 끝--
+--180308 카드 ?�과 ??-
 function SCR_BUFF_RATETABLE_Tiksline_Debuff(self, from, skill, atk, ret, rateTable, buff)
     local buffCaster = GetBuffCaster(buff)
     local topOwner = GetTopOwner(from);
@@ -2237,5 +2248,107 @@ function SCR_BUFF_RATETABLE_Guardian_Buff(self, from, skill, atk, ret, rateTable
 	        
 	        AddDamageReductionRate(rateTable, reductionRate);
 	    end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Lullaby_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Lullaby_Debuff") == "YES" then
+		rateTable.EnableDodge = 0
+		rateTable.EnableBlock = 0
+    end
+end
+
+function SCR_BUFF_RATETABLE_Engkrateia_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, 'Engkrateia_Buff') == 'YES' then
+        local skillLv = GetBuffArg(buff);
+        local reductionRate = skillLv * 0.05;
+        if TryGetProp(skill, "Attribute") == "Dark" or  TryGetProp(from, "RaceType") == "Velnias" then
+            reductionRate = reductionRate * 1.5
+        end
+        
+        if reductionRate >= 1 then
+            reductionRate = 0.99;
+        end
+        
+        AddDamageReductionRate(rateTable, reductionRate);
+    end
+end
+
+function SCR_BUFF_RATETABLE_Fluting_DeBuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Fluting_DeBuff") == "YES" then
+		rateTable.EnableDodge = 0
+		rateTable.EnableBlock = 0
+    end
+end
+
+function SCR_BUFF_RATETABLE_LatentVenom_Debuff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "LatentVenom_Debuff") == "YES" then
+        if TryGetProp(skill, "ClassName") == "Wugushi_LatentVenom" then
+            local cnt = GetExProp(buff, "LatentVenom_Debuff_OVER")
+            local addDamageRate = cnt * 0.03
+            rateTable.DamageRate = rateTable.DamageRate + addDamageRate
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_Gregorate_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Gregorate_Buff") == "YES" then
+        local addDamageRate = GetExProp(buff, "REMOVE_BUFF_COUNT_BY_GREGORATE");
+        rateTable.DamageRate = rateTable.DamageRate + (addDamageRate * 0.5);
+    end
+end
+
+function SCR_BUFF_RATETABLE_Engkrateia_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Engkrateia_Buff") == "YES" then
+        local buffCaster = GetBuffCaster(buff);
+        local reductionRate = 0;
+        if buffCaster ~= nil then
+            local engkrateia = GetSkill(buffCaster, "Exorcist_Engkrateia");
+            if engkrateia ~= nil then
+                reductionRate = engkrateia.Level * 0.05;
+            end
+            if TryGetProp(from, "RaceType") == "Velnias" or TryGetProp(from, "Attribute") == "Dark" then
+                reductionRate = reductionRate + 0.5;
+            end
+        end
+        
+        AddDamageReductionRate(rateTable, reductionRate);
+    end
+end
+
+function SCR_BUFF_RATETABLE_Engkrateia_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "Engkrateia_Buff") == "YES" then
+        local buffCaster = GetBuffCaster(buff);
+        if buffCaster ~= nil then
+            local skillEngkrateia = GetSkill(buffCaster, "Exorcist_Engkrateia");
+            if skillEngkrateia ~= nil then
+                local reductionRate = skillEngkrateia.Level * 0.05;
+                if TryGetProp(from, "RaceType") == "Velnias" then
+                    reductionRate = reductionRate * 1.5
+                end
+                
+                AddDamageReductionRate(rateTable, reductionRate);
+            end
+        end
+    end
+end
+
+function SCR_BUFF_RATETABLE_TheTreeOfSepiroth_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(self, "TheTreeofSepiroth") == "YES" then
+        AddDamageReductionRate(rateTable, 0.5);
+    end
+end
+
+function SCR_BUFF_RATETABLE_Lycanthropy_Half_Buff(self, from, skill, atk, ret, rateTable, buff)
+    if IsBuffApplied(from, "Lycanthropy_Half_Buff") == "YES" then
+        local addDamageRate = 0;
+        local buffLv = GetBuffArg(buff);
+        if skill.ClassType == "Magic" then
+            addDamageRate = buffLv * 0.06
+        elseif skill.ClassType == "Melee" or skill.ClassType == "Missile" then
+            addDamageRate = buffLv * 0.04
+        end
+        
+        rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
     end
 end

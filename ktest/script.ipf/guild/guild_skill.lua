@@ -4,6 +4,10 @@ function GUILD_SKILL_USABLE_STATE_Templer_WarpToGuildMember(pc)
 	local mapName = GetZoneName(pc);
 	local mapCls = GetMapProperty(pc);
 	
+	if IsJoinColonyWarMap(pc) == 1 then
+		return 1;
+	end
+	
 	if mapName == 'mission_groundtower_1' or mapName == 'mission_groundtower_2' then
 		SendSysMsg(pc, "DisableWarpToGuildMemberSkill")
 		return 0;

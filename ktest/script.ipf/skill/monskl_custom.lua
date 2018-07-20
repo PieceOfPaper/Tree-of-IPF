@@ -1668,6 +1668,25 @@ function  SKL_CHANGE_SKLSUBANIM(self, skl, skillName, changeAnim)
     ChangeSkillAniName(self, skillName, changeAnim);
 end
 
+function  SKL_CHANGE_SKLSUBANIM_BY_JOB_HISTORY(self, skl, skillName, jobName, changeAnim)
+    local jobCls = GetClass("Job", jobName);
+    if jobCls == nil then
+        return;
+    end
+
+    local jobExist = false;
+	local jobHistoryList = GetJobHistoryList(self);
+    for i = 1, #jobHistoryList do
+        if jobHistoryList[i] == jobCls.ClassID then
+            jobExist = true;
+        end
+    end
+
+    if jobExist == true then
+        ChangeSkillAniName(self, skillName, changeAnim);
+    end
+end
+
 function SKL_EFFECT_POS(self, skl, eftName, eftScale, x, y, z, lifeTime)
     PlayEffectToGround(self, eftName, x, y, z, eftScale, lifeTime);
 end

@@ -7853,6 +7853,149 @@ function SCR_PRE_JOB_ONMYOJI_Q1_ITEM(self, argObj, argstring, arg1, arg2)
     return 0;   
 end
 
+
+--SCR_PRE_EXORCIST_MSTEP323_ITEM1
+function SCR_PRE_EXORCIST_MSTEP323_ITEM1(self, argObj, argstring, arg1, arg2)
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 120 then
+        local list, cnt = SelectObject(self, 30, "ALL", 1)
+        if cnt >= 1 then
+            for i = 1, cnt do
+                if list[i].ClassName == "CHAR420_STEP323_NPC1" then
+                    return 1
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_EXORCIST_MSTEP321_ITEM1
+function SCR_PRE_EXORCIST_MSTEP321_ITEM1(self, argObj, argstring, arg1, arg2)
+	local fndList, fndCount = SelectObject(self, 70, 'ALL', 1);
+	local i
+	
+	if fndCount > 0 then
+    	for i = 1, fndCount do
+    	    if fndList[i].ClassName == 'statue_zemina' or fndList[i].ClassName == 'statue_vakarine' then
+    		    return GetHandle(fndList[i])
+        	end
+    	end
+    end
+	
+	if IsServerSection(self) == 1 then
+        SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("Auto_yeoSinSangi_JuByeone_eopSeupNiDa!"), 5);
+    end
+	return 0
+end
+
+--SCR_PRE_EXORCIST_MSTEP33_ITEM2
+function SCR_PRE_EXORCIST_MSTEP33_ITEM2(self, argObj, argstring, arg1, arg2)
+	if GetZoneName(self) == "f_remains_40" then
+    	local fndList, fndCount = SelectObject(self, 100, 'ALL', 1);
+    	local i
+    	if fndCount > 0 then
+    	    for i = 1, fndCount do
+    	        if fndList[i].ClassName == 'magictrap_core_gimmick' then
+    	            return GetHandle(fndList[i])
+    	        end
+    	    end
+    	end
+	end
+	return 0
+end
+
+--SCR_USE_EXORCIST_JOB_QUEST_ITEM1
+function SCR_PRE_EXORCIST_JOB_QUEST_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "id_catacomb_01" then
+        if GetLayer(self) >= 1 then
+            local mon_list = GetScpObjectList(self, "EXORCIST_JOB_QUEST_OBJ")
+        	if #mon_list > 0 then
+    	        if mon_list[1].ClassName == 'Velwriggler_blue' or mon_list[1].ClassName == 'Spector_gh_red' or mon_list[1].ClassName == 'Sec_Spector_Gh' or mon_list[1].ClassName == 'Hallowventor' or mon_list[1].ClassName == 'Altarcrystal_N1' then
+    	            return GetHandle(mon_list[1])
+    	        end
+        	else
+        	    
+        	end
+        end
+    end
+end
+
+--SCR_PRE_EXORCIST_JOB_HIDDEN_ITEM
+function SCR_PRE_EXORCIST_JOB_HIDDEN_ITEM(self, argObj, argstring, arg1, arg2)
+    if SCR_GET_HIDDEN_JOB_PROP(self, 'Char4_20') >= 10 then
+        local sObj = GetSessionObject(self, "SSN_EXORCIST_UNLOCK")
+        if sObj ~= nil then
+            return 1
+        end
+    end
+end
+
+
+--PIED_PIPER_HIDDEN_ITEM
+function SCR_PRE_JOB_PIED_PIPER_MSTEP2_ITEM1(self, argObj, argstring, arg1, arg2)
+    local obj_list = { "CHAR312_MSTEP2_OBJ1", 
+                        "CHAR312_MSTEP2_OBJ2",
+                        "CHAR312_MSTEP2_OBJ3",
+                        "CHAR312_MSTEP2_OBJ4",
+                        "CHAR312_MSTEP2_OBJ5",
+                        "CHAR312_MSTEP2_OBJ6",
+                        "CHAR312_MSTEP2_OBJ7",
+                        "CHAR312_MSTEP2_OBJ8",
+                        "CHAR312_MSTEP2_OBJ9",
+                        "CHAR312_MSTEP2_OBJ10",
+                        "CHAR312_MSTEP2_OBJ11",
+                        "CHAR312_MSTEP2_OBJ12",
+                        "CHAR312_MSTEP2_OBJ13",
+                        "CHAR312_MSTEP2_OBJ14" }
+    if GetZoneName(self) == "f_coral_32_2" then
+        if GetLayer(self) < 1 then
+            local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(self, 'Char3_12')
+            if is_unlock == "NO" then
+                local prop = SCR_GET_HIDDEN_JOB_PROP(self, 'Char3_12')
+                if prop == 100 then
+                    local sObj = GetSessionObject(self, "SSN_JOB_PIED_PIPER_UNLOCK")
+                    if sObj ~= nil then
+                        if sObj.Step2 == 1 then
+                            local max_cnt = 1000
+                            if sObj.Goal2 < max_cnt then
+                                local list, cnt = SelectObject(self, 30, "ALL", 1)
+                                if cnt >= 1 then
+                                    for i = 1, cnt do
+                                        if list[i].ClassName == "noshadow_npc" then
+                                            local num = table.find(obj_list, TryGetProp(list[i], "Enter"))
+                                            if num > 0 then
+                            	                return GetHandle(list[i])
+                            	            end
+                            	        end
+                            	    end
+                            	end
+                            	return 1
+                            else
+                                SendAddOnMsg(self, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR220_MSETP2_6_MSG5"),3)
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+--JOB_PIED_PIPER_Q1_ITEM
+function SCR_PRE_JOB_PIED_PIPER_Q1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_pilgrimroad_50' then
+        if GetLayer(self) == 0 then
+            local x, y, z = GetPos(self)
+            if SCR_POINT_DISTANCE(x,z,588,77) <= 150 then
+                return 1
+            end
+        end
+    end
+    return 0;   
+end
+
 --GM_WHITETREES_OBJ_ITEM2
 function SCR_PRE_GM_WHITETREES_OBJ_ITEM2(self, argObj, argstring, arg1, arg2)
     if GetZoneName(self) == "mission_whitetrees_56_1" then

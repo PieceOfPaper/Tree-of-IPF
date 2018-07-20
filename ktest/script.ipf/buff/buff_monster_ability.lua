@@ -84,6 +84,14 @@ function MON_BORN_FIREFOX_PC_Summon(self)
     AddBuff(self, self, 'Ability_buff_PC_FireFox_Summon');
 end
 
+function MON_BORN_PIEDPIPER_PC_Summon(self)
+    AddBuff(self, self, 'Ability_buff_PC_PiedPiper_Summon');
+end
+
+function MON_BORN_PIEDPIPER_WHITE_PC_Summon(self)
+    AddBuff(self, self, 'Ability_buff_PC_PiedPiper_WHITE_Summon');
+end
+
 function MON_BORN_ATTRIBUTE_Weakness_Melee(self)
     AddBuff(self, self, 'Ability_Weakness_Melee');
 end
@@ -489,6 +497,75 @@ function SCR_PC_FireFox_Summon_RATETABLE(self, from, skill, atk, ret, rateTable,
 end
 
 
+function SCR_PC_PiedPiper_Summon_ENTER(self, buff, arg1, arg2, over)
+    local myOwner = nil;
+    for i = 1, 10 do
+        sleep(100)
+        if GetOwner(self) ~= nil then
+            myOwner = GetOwner(self)
+        end
+    end
+    
+    local selfPATK = (TryGetProp(self, "MINPATK") + TryGetProp(self, "MAXPATK")) / 2
+    local ownerPATK = SCR_GET_PC_ATK(myOwner, "Melee") - selfPATK
+    
+    self.PATK_BM = self.PATK_BM + ownerPATK
+    
+    SetExProp(buff, "PIEDPIPER_MOUSE_PATK", ownerPATK)
+    
+    Invalidate(self, "MINPATK");
+    Invalidate(self, "MAXPATK");
+    Invalidate(self, "PATK");
+end
+
+function SCR_PC_PiedPiper_Summon_LEAVE(self, buff, arg1, arg2, over)
+    local ownerPATK = GetExProp(buff, "PIEDPIPER_MOUSE_PATK")
+    
+    self.PATK_BM = self.PATK_BM - ownerPATK
+end
+
+function SCR_PC_PiedPiper_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
+	
+end
+
+
+
+function SCR_PC_PiedPiper_WHITE_Summon_ENTER(self, buff, arg1, arg2, over)
+    local myOwner = nil;
+    for i = 1, 10 do
+        sleep(100)
+        if GetOwner(self) ~= nil then
+            myOwner = GetOwner(self)
+        end
+    end
+    
+    local selfPATK = (TryGetProp(self, "MINPATK") + TryGetProp(self, "MAXPATK")) / 2
+    local ownerPATK = SCR_GET_PC_ATK(myOwner, "Melee") - selfPATK
+    
+    self.PATK_BM = self.PATK_BM + ownerPATK
+    
+    SetExProp(buff, "PIEDPIPER_WHITE_MOUSE_PATK", ownerPATK)
+    
+    Invalidate(self, "MINPATK");
+    Invalidate(self, "MAXPATK");
+    Invalidate(self, "PATK");
+end
+
+function SCR_PC_PiedPiper_WHITE_Summon_LEAVE(self, buff, arg1, arg2, over)
+    local ownerPATK = GetExProp(buff, "PIEDPIPER_WHITE_MOUSE_PATK")
+    
+    self.PATK_BM = self.PATK_BM - ownerPATK
+end
+
+function SCR_PC_PiedPiper_WHITE_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
+	rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
+	SetMultipleHitCount(ret, 2)
+end
+
+
+
+
+
 function SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over)
     local myOwner = nil;
     for i = 1, 10 do
@@ -600,6 +677,35 @@ end
 
 function SCR_BUFF_RATETABLE_Ability_buff_PC_FireFox_Summon(self, from, skill, atk, ret, rateTable, buff)
     SCR_PC_FireFox_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
+end
+
+
+
+function SCR_BUFF_ENTER_Ability_buff_PC_PiedPiper_Summon(self, buff, arg1, arg2, over)
+--    SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over);
+    RunScript("SCR_PC_PiedPiper_Summon_ENTER", self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_LEAVE_Ability_buff_PC_PiedPiper_Summon(self, buff, arg1, arg2, over)
+    SCR_PC_PiedPiper_Summon_LEAVE(self, buff, arg1, arg2, over);
+end
+
+function SCR_BUFF_RATETABLE_Ability_buff_PC_PiedPiper_Summon(self, from, skill, atk, ret, rateTable, buff)
+    SCR_PC_PiedPiper_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
+end
+
+
+function SCR_BUFF_ENTER_Ability_buff_PC_PiedPiper_WHITE_Summon(self, buff, arg1, arg2, over)
+--    SCR_PC_Summon_ENTER(self, buff, arg1, arg2, over);
+    RunScript("SCR_PC_PiedPiper_WHITE_Summon_ENTER", self, buff, arg1, arg2, over)
+end
+
+function SCR_BUFF_LEAVE_Ability_buff_PC_PiedPiper_WHITE_Summon(self, buff, arg1, arg2, over)
+    SCR_PC_PiedPiper_WHITE_Summon_LEAVE(self, buff, arg1, arg2, over);
+end
+
+function SCR_BUFF_RATETABLE_Ability_buff_PC_PiedPiper_WHITE_Summon(self, from, skill, atk, ret, rateTable, buff)
+    SCR_PC_PiedPiper_WHITE_Summon_RATETABLE(self, from, skill, atk, ret, rateTable, buff)
 end
 
 

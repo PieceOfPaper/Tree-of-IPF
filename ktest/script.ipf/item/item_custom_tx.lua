@@ -2623,7 +2623,7 @@ function TAKE_GUILD_EVENT_REWARD(pc)
     GuildEventMongoLog(pc, eventID, "ItemList", "itemListStr", itemListStr, "itemCountStr", itemCountStr)
     
     local tx = TxBegin(pc);
-
+    
 	TxSetPartyProp(tx, PARTY_GUILD, "Exp", nextExp);
 	if curLevel ~= nextLevel then
 		TxSetPartyProp(tx, PARTY_GUILD, "Level", nextLevel);
@@ -2641,6 +2641,12 @@ function TAKE_GUILD_EVENT_REWARD(pc)
 	    IMC_LOG("ERROR_GUILD_EVENT", "ret ~= SUCCESS")
 		return;
 	end
+	
+	
+    --EVENT_1805_GUILD
+    if ret == "SUCCESS" then
+        EVENT_1805_GUILD_QUEST_SUCCESS_REWARD(pc)
+    end
     
     local guildID = GetGuildID(pc)
     local GuildEventTicketCount = guildObj.GuildEventTicketCount;

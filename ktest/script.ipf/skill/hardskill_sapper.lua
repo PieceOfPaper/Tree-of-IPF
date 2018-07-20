@@ -12,7 +12,7 @@ function  INIT_SAPPER_TRAP(self, parent, skl)
     local item_need_cnt = skl.SpendItemBaseCount;
     local Sapper33_ratio = 0;
     if abil ~= nil then
-        item_need_cnt = item_need_cnt + 1;
+        item_need_cnt = item_need_cnt * 2;
         Sapper33_ratio = 2.5;
     end
     

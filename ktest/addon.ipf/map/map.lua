@@ -1234,17 +1234,26 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 	myctrl:ShowWindow(0);
 
 	world.PreloadMinimap(zoneClassName);
-	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture')	
+	local mappicturetemp = GET_CHILD_RECURSIVELY(newframe,'map','ui::CPicture');
+
+	local width = 0;
+	local height = 0;
 	if useMapFog == true then
 		mappicturetemp:SetImage(zoneClassName .. "_fog");
+
+		width = ui.GetImageWidth(zoneClassName .. "_fog");
+		height = ui.GetImageHeight(zoneClassName .. "_fog");
 	else
 		mappicturetemp:SetImage(zoneClassName);
-	end
 
+		width = ui.GetImageWidth(zoneClassName);
+		height = ui.GetImageHeight(zoneClassName);
+	end
+	
 	local treasureMarkPic = newframe:CreateOrGetControl('picture', 'treasuremark', 0, 0, 64, 64);
 	tolua.cast(treasureMarkPic, "ui::CPicture");
 	treasureMarkPic:SetImage('trasuremapmark');
-	local MapPos = mapprop:WorldPosToMinimapPos(showX, showZ, 1024, 1024);
+	local MapPos = mapprop:WorldPosToMinimapPos(showX, showZ, width, height);
 	treasureMarkPic:SetEnableStretch(1);
 	
 	local offsetX = mappicturetemp:GetX();
@@ -1283,10 +1292,14 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     local colonyMonPic = frame:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
     colonyMonPic = AUTO_CAST(colonyMonPic);    
     colonyMonPic:SetImage(COLONY_MON_IMG);
-
+	
     local zoneClassName = GetZoneName();
     local mapprop = geMapTable.GetMapProp(zoneClassName);
-    local MapPos = mapprop:WorldPosToMinimapPos(x, z, 1024, 1024);
+
+	local width = ui.GetImageWidth(zoneClassName .. "_fog");
+	local height = ui.GetImageHeight(zoneClassName .. "_fog");
+
+    local MapPos = mapprop:WorldPosToMinimapPos(x, z, width, height);
     local mappicturetemp = GET_CHILD_RECURSIVELY(frame, 'map', 'ui::CPicture');
     local offsetX = mappicturetemp:GetX();
 	local offsetY = mappicturetemp:GetY();

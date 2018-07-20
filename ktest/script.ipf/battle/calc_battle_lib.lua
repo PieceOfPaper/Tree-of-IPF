@@ -455,10 +455,10 @@ function GetMinMaxATK(self, skill)
 end
 
 function SCR_LIB_CHECK_MISS(self, from, ret, skill, rateTable)
-    -- MISSION_SURVIVAL_EVENT2
-    if GetZoneName(self) == 'f_pilgrimroad_41_1_event' then
-        return 0
-    end
+--    -- MISSION_SURVIVAL_EVENT2
+--    if GetZoneName(self) == 'f_pilgrimroad_41_1_event' then
+--        return 0
+--    end
     
     if GetObjType(self) == OT_PC then
         local enchantcnt = CountEnchantItemEquip(self, 'ENCHANTARMOR_BLESSING');
@@ -903,7 +903,7 @@ function CALC_FINAL_DAMAGE(atk, def, skill, self, from, crtResult, rateTable, re
         ret.HitType = HIT_NOMOTION; 
         ret.ResultType = HITRESULT_MISS;
     end
-     
+    
     if rateTable.NoneDamage == 1 then
         finalDamage = 0;
         ret.Damage = 0;
@@ -2270,20 +2270,6 @@ function SCR_CASTLE_BATTLE_CALC(self, from, ret, skill)
 end
 
 function SCR_ATTRIBUTE_DAMAGE_CALC(self, from, ret, skill, rateTable)
-    if IS_PC(from) == true then
-        local jobObj = GetJobObject(from);
-        if jobObj.CtrlType == 'Archer' and IsBuffApplied(from, 'DEVALUATION_DEBUFF') ~= 'YES' then
-            local weapon = GetEquipItem(from, 'RH')
-            local reinforceLv = weapon.Reinforce_2
-            if self.Size == 'M' and skill.ClassType == 'Missile' then
-                rateTable.DamageRate = rateTable.DamageRate + math.min(0.1, (reinforceLv * 0.02))
-            end
-            if self.Size == 'L' or self.Size == 'XL' and skill.ClassType == 'Missile' then
-                rateTable.DamageRate = rateTable.DamageRate + math.min(0.1, (reinforceLv * 0.02))
-            end
-        end
-    end
-    
     local armorMaterial = 'None';
     if IS_PC(self) == false then
         armorMaterial = self.ArmorMaterial;
@@ -3096,10 +3082,10 @@ function GET_SKILL_ATTACKTYPE(skill)
 end
 
 function SCR_LIB_BUFF_IMMUNE_RATIO(self, from, buffName)
-    -- MISSION_SURVIVAL_EVENT2
-    if GetZoneName(self) == 'f_pilgrimroad_41_1_event' then
-        return 0
-    end
+--    -- MISSION_SURVIVAL_EVENT2
+--    if GetZoneName(self) == 'f_pilgrimroad_41_1_event' then
+--        return 0
+--    end
     
     if self == nil or from == nil then
         return 0;
@@ -3257,45 +3243,47 @@ function SCR_LIB_CALC_HP_HEAL_RATIO(self, value, skillName)
         return;
     end
     
-    local stat = TryGetProp(self, "CON");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local conRate = 0.005
-    
-    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
-        if skillName ~= nil then
-            conRate = conRate * 0.5
+    if skillName ~= "TheTreeOfSepiroth_Buff" then
+        local stat = TryGetProp(self, "CON");
+        if stat == nil then
+            stat = 1;
         end
-    end
-    
-    local byStat = 1 + (stat * conRate);
-    
-    value = value * byStat;
-    
-    -- Increase --
-    local ratio = 1;
-    
-    local Featherfoot10_abil = GetAbility(self, "Featherfoot10")
-    if Featherfoot10_abil ~= nil then
-        ratio = ratio + Featherfoot10_abil.Level * 0.005;
-    end
-    
-    local Ayin_sof_buff = GetBuffByName(self, 'Ayin_sof_Buff');
-    if Ayin_sof_buff ~= nil then
-        local healBonus = GetBuffArgs(Ayin_sof_buff);
-        ratio = ratio + healBonus;
-        if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) ==  1 then
-            ratio = ratio * 0.7
+        
+        local conRate = 0.005
+        
+        if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+            if skillName ~= nil then
+                conRate = conRate * 0.5
+            end
         end
-    end
-    
-    value = value * ratio;
-    
-    -- Decrease --
-    if IsBuffApplied(self, "BayonetThrust_Debuff") == 'YES' then
-        value = value / 3;
+        
+        local byStat = 1 + (stat * conRate);
+        
+        value = value * byStat;
+        
+        -- Increase --
+        local ratio = 1;
+        
+        local Featherfoot10_abil = GetAbility(self, "Featherfoot10")
+        if Featherfoot10_abil ~= nil then
+            ratio = ratio + Featherfoot10_abil.Level * 0.005;
+        end
+        
+        local Ayin_sof_buff = GetBuffByName(self, 'Ayin_sof_Buff');
+        if Ayin_sof_buff ~= nil then
+            local healBonus = GetBuffArgs(Ayin_sof_buff);
+            ratio = ratio + healBonus;
+            if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) ==  1 then
+                ratio = ratio * 0.7
+            end
+        end
+        
+        value = value * ratio;
+        
+        -- Decrease --
+        if IsBuffApplied(self, "BayonetThrust_Debuff") == 'YES' then
+            value = value / 3;
+        end
     end
     
     return math.floor(value);
@@ -3387,7 +3375,7 @@ function SCR_CONDITION_RATE_CALC(self, form, skill)
     local attackType = GET_SKILL_ATTACKTYPE(skill);
     local attribute = TryGetProp(skill, 'Attribute');
     
-    if GetBuffByProp(self, 'Keyword', 'Freeze') ~= nil then
+    if GetBuffByProp(self, 'Keyword', 'Freeze') ~= nil or GetBuffByProp(self, 'Keyword', 'Frostbite') ~= nil then
         if attribute == 'Lightning' then
             conditionRate = conditionRate + 0.5;
         end

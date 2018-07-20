@@ -538,7 +538,7 @@ function CHALLENGE_MODE_REWARD(pc, level)
        		local rewardCubeName = GetClassByNameFromList(clsList, "RewardCubeName300")
                 TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level, "CHALLENGE_MODE_REWARD");
     	end
-        if level >= 6 then
+        if 300 <= mapCls.QuestLevel and level >= 6 then
             local rewardCubeName = GetClassByNameFromList(clsList, "AddRewardCubeName")
                 TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level-5, "CHALLENGE_MODE_REWARD");
         end

@@ -7,6 +7,9 @@ function SCR_CREATE_SSN_KLAPEDA(self, sObj)
 end
 
 function SCR_REENTER_SSN_KLAPEDA(self, sObj)
+    --EVENT_1805_NEWUSER
+	RegisterHookMsg(self, sObj, "PartyMemberOut", "SCR_SSN_KLAPEDA_EVENT_1805_NEWUSER", "YES");
+	
 	RegisterHookMsg(self, sObj, "ZoneEnter", "SCR_SSN_KLAPEDA_ZoneEner", "YES");
 	RegisterHookMsg(self, sObj, "GetItem", "SCR_SSN_KLAPEDA_GetItem", "YES");
 	RegisterHookMsg(self, sObj, "KillMonster", "SCR_SSN_KLAPEDA_KillMonster", "YES");
@@ -922,12 +925,16 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         end
     end
 
---    -- EVENT_1804_WEEKEND
---    EVENT_1804_WEEKEND(self)
+    -- EVENT_1805_WEEKEND
+    EVENT_1805_WEEKEND(self)
     
     
-     -- MISSION_SURVIVAL_EVENT2
-    MISSION_SURVIVAL_EVENT2_ZONEENTER(self)
+--     -- MISSION_SURVIVAL_EVENT2
+--    MISSION_SURVIVAL_EVENT2_ZONEENTER(self)
+    
+    
+    -- EVENT_1805_WEDDING2
+    EVENT_1805_WEDDING2_INDUN_COUNT_SET(self)
     
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25
@@ -1552,8 +1559,8 @@ function SCR_SSN_KLAPEDA_KillMonster_Sub(self, sObj, msg, argObj, argStr, argNum
             end
         end
         
-        -- EVENT_1805_WEDDING1
-        SCR_EVENT_1805_WEDDING1_DROP(self, sObj, msg, argObj, argStr, argNum) 
+--        -- EVENT_1805_WEDDING1
+--        SCR_EVENT_1805_WEDDING1_DROP(self, sObj, msg, argObj, argStr, argNum) 
 
 --        -- EVENT_1804_ARBOR
 --        SCR_EVENT_1804_ARBOR_DROP(self, sObj, msg, argObj, argStr, argNum) 
@@ -2471,8 +2478,8 @@ function SCR_SSN_KLAPEDA_SETTIME_1(self, sObj, remainTime)
 --    -- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event --
 --    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
     
---    --EVENT_1804_WEEKEND
---    EVENT_1804_WEEKEND_BUFF_REMOVE(self)
+    --EVENT_1805_WEEKEND
+    EVENT_1805_WEEKEND_BUFF_REMOVE(self)
 end
 
 --function SCR_EVENT_1710_HOLIDAY(self)

@@ -410,11 +410,14 @@ end
 function SCR_BUFF_TAKEDMG_JincanGu_Debuff(self, buff, sklID, damage, target, ret)
     local sklCls = GetClassByType("Skill", sklID);
     local caster = GetBuffCaster(buff);
-    if sklCls ~= nil and sklCls.ClassName ~= "Wugushi_JincanGu" then
+    if sklCls ~= nil and sklCls.ClassName ~= "Wugushi_JincanGu" then 
         local skl = GetSkill(caster, "Wugushi_JincanGu");
         if skl ~= nil then
             if IMCRandom(1, 100) <= 10 then
                 local count = GetExProp(buff, "Wugushi_JincanGu_COUNT");
+                if count > 4 then
+                    return 0
+                end
                 if count < skl.Level then
                     SetExProp(buff, "Wugushi_JincanGu_COUNT", count + 1)
                     RunScript("SCR_WUGUSHI_JINCANGU", self, sklID, damage, caster, nil, nil, nil);
@@ -567,3 +570,67 @@ function SCR_BUFF_TAKEDMG_Tiksline_Debuff(self, buff, sklID, damage, attacker, r
     return 1;
 end
 
+function SCR_BUFF_TAKEDMG_Seedbomb_Buff(self, buff, sklID, damage, attacker)
+    if damage <= 0 then
+        return 1;
+    end
+    
+    if IsBuffApplied(self, 'Seedbomb_Buff') == 'YES' and IsSameActor(self, attacker) == "NO" then
+        local attackedCount = tonumber(GetExProp(buff, "SEEDBOMB_COUNT") );
+        if attackedCount == 1 then
+            return 0;
+        end
+    end
+	
+    return 1;
+end
+
+function SCR_BUFF_TAKEDMG_Lullaby_Debuff(self, buff, sklID, damage, attacker)
+	local skill = GetClassByType("Skill", sklID);
+	local wiegenlied = GetSkill(attacker, "PiedPiper_Wiegenlied")
+	local buffTime = 5000 + (wiegenlied.Level * 1000)
+	if IsPVPServer(self) == 1 then
+		buffTime = buffTime / 2
+	end
+	
+	local count = GetExProp(buff, "TAKEDMG_LULLABY_COUNT")
+    if count < 2 then
+    	AddBuff(attacker, self, "Wiegenlied_Debuff", 1, 0, buffTime, 1)
+        return 0;
+    end
+    
+    SetExProp(buff, "TAKEDMG_LULLABY_COUNT", count - 1)
+    
+    return 1;
+end
+
+function SCR_BUFF_TAKEDMG_Marschierendeslied_Buff(self, buff, sklID, damage, attacker)
+	local count = GetExProp(buff, "MARSCHIERN_COUNT")
+    if count < 1 then
+        return 0;
+    end
+    
+    SetExProp(buff, "MARSCHIERN_COUNT", count - 1)
+    
+    return 1;
+end
+
+function SCR_BUFF_TAKEDMG_LatentVenom_Debuff(self, buff, sklID, damage, attacker)
+    if damage <= 0 then
+        return 1;
+    end
+    
+    local skill = GetClassByType("Skill", sklID);
+    if skill ~= nil then
+        if skill.ClassName == "Wugushi_LatentVenom" then
+            local cnt = GetExProp(buff, "LatentVenom_Debuff_OVER")
+            if cnt >= 99 then
+                return 0;
+            end
+            
+            SetExProp(buff, "LatentVenom_Debuff_OVER", cnt + 1);
+        end
+    end
+    
+    return 1;    
+end

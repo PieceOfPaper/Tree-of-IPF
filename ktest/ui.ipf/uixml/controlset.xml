@@ -4254,4 +4254,19 @@
 			<labelline name="line" rect="0 0 360 2" margin="-4 0 0 0" layout_gravity="center bottom" skin="labelline_def_2"/>
 		</controls>
 	</controlset>
+	<controlset name="itemslot_transcend_styleset" hittest="false" width="60" height="60" hittestset="false">
+		<controls>
+			<picture name="starIcon" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" stretch="false" draw="false" image="itemslot_star_icon"/>
+		</controls>
+	</controlset>
+	<controlset name="itemslot_appraisal_styleset" hittest="false" width="60" height="60" hittestset="false">
+		<controls>
+			<picture name="appraisalMark" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="right bottom" stretch="false" draw="false" image="itemslot_unconceded_icon"/>
+		</controls>
+	</controlset>
+	<controlset name="itemslot_reinforce_styleset" hittest="false" width="60" height="60" hittestset="false">
+		<controls>
+			<richtext name="levelText" parent="starIcon" rect="0 0 30 20" margin="0 0 4 4" layout_gravity="right bottom" textalign="center center" format="+%s" param1="level" param1_def="0" fontname="white_14_b_ds_ol"/>
+		</controls>
+	</controlset>
 </controlsetlist>

@@ -4,8 +4,16 @@
 function SCR_SKILL_RATETABLE_Ranger_SpiralArrow(self, from, skill, atk, ret, rateTable)
 
     local hitCount = 6
-    rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 5;
+    if IsBuffApplied(self, "SpiralArrow_Debuff") == "YES" then
+        local buffOver = GetBuffOver(self, "SpiralArrow_Debuff");
+        hitCount = 6 + buffOver;
+    end
+    
+    local addDamageRate = hitCount - 1;
+    rateTable.AddIgnoreDefensesRate = rateTable.AddIgnoreDefensesRate + 0.2
+    rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + addDamageRate;
     SetMultipleHitCount(ret, hitCount);
+    
 end
 
 function SCR_SKILL_RATETABLE_Hoplite_Pierce(self, from, skill, atk, ret, rateTable)
@@ -18,6 +26,7 @@ function SCR_SKILL_RATETABLE_Hoplite_Pierce(self, from, skill, atk, ret, rateTab
 		local abil_Hoplite29 = GetAbility(from, "Hoplite29")
 		if abil_Hoplite29 ~= nil and abil_Hoplite29.ActiveState == 1 then
 			hitCount = hitCount + 2
+			rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 2;
 		end
 	end
 	
@@ -56,10 +65,10 @@ end
 function SCR_SKILL_RATETABLE_Fletcher_BarbedArrow(self, from, skill, atk, ret, rateTable)
     local hitCount = 0;
     if self.ArmorMaterial == 'Cloth' then
-        hitCount = 3
+        hitCount = 5
         rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 2;        
     elseif self.ArmorMaterial == 'Leather' then
-        hitCount = 2
+        hitCount = 3
         rateTable.DamageRate = (hitCount * rateTable.MultipleHitDamageRate) + 1;        
     elseif self.ArmorMaterial == 'Iron' then
         hitCount = 1        
@@ -387,7 +396,7 @@ function SCR_SKILL_RATETABLE_Fletcher_BodkinPoint(self, from, skill, atk, ret, r
             bodkinrate = 70
         end
     if bodkinrate >= IMCRandom(1, 100) and GetBuffByProp(self, 'Group2', 'Shield') ~= nil then
-        RemoveBuffGroup(self, 'Buff', 'Shield', 1, 1);
+        RemoveBuffGroup(self, 'Buff', 'Shield', 3, 1);
         SkillTextEffect(nil, self, from, "SHOW_BODKIN_BREAK_SHIELD", nil);
     end
 end
@@ -778,7 +787,12 @@ end
 
 function SCR_SKILL_RATETABLE_Kabbalist_Merkabah(self, from, skill, atk, ret, rateTable)
     local riderCount = GetExProp(skill, "RIDERCOUNT");
-    rateTable.DamageRate = rateTable.DamageRate + riderCount
+    local addDamageRate = riderCount;
+    if self.RaceType == "Velnias" then
+        addDamageRate = addDamageRate + 1
+    end
+    
+    rateTable.DamageRate = rateTable.DamageRate + addDamageRate;
 end
 
 function SCR_SKILL_RATETABLE_Bokor_Hexing(self, from, skill, atk, ret, rateTable)
@@ -1057,21 +1071,6 @@ function SCR_SKILL_RATETABLE_PlagueDoctor_Incineration(self, from, skill, atk, r
     if IsBuffApplied(self, "PlagueVapours_Debuff") == 'YES' and skill.ClassName == "PlagueDoctor_Incineration" then
         rateTable.DamageRate = rateTable.DamageRate + 0.3;
     end
-
-end
-
-function SCR_SKILL_RATETABLE_Kabbalist_Nachash(self, from, skill, atk, ret, rateTable)
-
-    local key = GetSkillSyncKey(from, ret);
-    StartSyncPacket(from, key);
-    
-    local objList, objCount = SelectObjectNear(self, self, 80, 'ENEMY');
-    for i = 1 , objCount do
-        local obj = objList[i]
-        AddBuff(from, obj, "Prophecy_Buff", 1, 0, 10000, 1);
-    end
-    
-    EndSyncPacket(from, key);
 
 end
 
@@ -1892,5 +1891,89 @@ function SCR_SKILL_RATETABLE_Pyromancer_FireBall(self, from, skill, atk, ret, ra
 		
 		rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
 	    SetMultipleHitCount(ret, hitCount);
+    end
+end
+
+
+function SCR_SKILL_RATETABLE_Wugushi_LatentVenom(self, from, skill, atk, ret, rateTable)
+    if skill.ClassName == "Wugushi_LatentVenom" then
+        rateTable.EnableCritical = 0
+        rateTable.EnableDodge = 0
+        rateTable.EnableBlock = 0
+    end
+end
+
+
+function SCR_SKILL_RATETABLE_Wugushi_Zhendu(self, from, skill, atk, ret, rateTable)
+    if skill.ClassName == "Wugushi_Zhendu" then
+        rateTable.EnableCritical = 0
+        rateTable.EnableDodge = 0
+        rateTable.EnableBlock = 0
+    end
+end
+
+function SCR_SKILL_RATETABLE_Mon_piedpiper_mouse_White_Skill_1(self, from, skill, atk, ret, rateTable)
+    local hitCount = 2
+	
+	rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + (hitCount - 1);
+    SetMultipleHitCount(ret, hitCount);
+end
+
+function SCR_SKILL_RATETABLE_Exorcist_Gregorate(self, from, skill, atk, ret, rateTable)
+    if skill.ClassName == "Exorcist_Gregorate" then
+        local buffList = GetBuffList(from);
+        local buff;
+        for i = 1, #buffList do
+            if buffList[i].ClassName == "Gregorate_Buff" then
+                buff = buffList[i]
+            end
+        end
+        local addRate = GetExProp(buff, "REMOVE_BUFF_COUNT") * 0.3
+        rateTable.DamageRate = rateTable.DamageRate + addRate
+    end
+end
+
+function SCR_SKILL_RATETABLE_Ranger_TimeBombArrow(self, from, skill, atk, ret, rateTable)
+    local abilRanger36 = GetAbility(from, "Ranger36");
+    if abilRanger36 ~= nil and TryGetProp(abilRanger36, "ActiveState") == 1 then
+        rateTable.DamageRate = rateTable.DamageRate + 2
+    end
+end
+
+function SCR_SKILL_RATETABLE_Wugushi_WideMiasma(self, from, skill, atk, ret, rateTable)
+    if skill.ClassName == "Wugushi_WideMiasma" then
+        rateTable.EnableCritical = 0
+        rateTable.EnableDodge = 0
+        rateTable.EnableBlock = 0
+    end
+end
+
+function SCR_SKILL_RATETABLE_Exorcist_Rubric(self, from, skill, atk, ret, rateTable)
+    if TryGetProp(self, "RaceType") == "Velnias" then
+        rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1;
+        SetMultipleHitCount(ret, 2);
+    end
+end
+
+function SCR_SKILL_RATETABLE_Exorcist_Entity(self, from, skill, atk, ret, rateTable)
+    if GetExProp(self, "AbilExorcist5Lv") ~= 0 then
+        local abilExorcist5Lv = GetExProp(self, "AbilExorcist5Lv")
+        local reductionRate = 1 - (abilExorcist5Lv * 0.1);
+        AddDamageReductionRate(rateTable, reductionRate);
+        DelExProp(self, "AbilExorcist5Lv");
+    end
+end
+
+function SCR_SKILL_RATETABLE_Exorcist_Koinonia(self, from, skill, atk, ret, rateTable)
+    if GetExProp(from, "Koinonia_Condition_Satisfied") == 1 then
+        rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + 1
+        SetMultipleHitCount(ret, 2);
+    end
+end
+
+function SCR_SKILL_RATETABLE_Fletcher_MagicArrow(self, from, skill, atk, ret, rateTable)
+    if IsBuffApplied(self, "MagicArrow_Debuff") == "YES" then
+        local reductionRate = 0.5;
+        AddDamageReductionRate(rateTable, reductionRate);
     end
 end

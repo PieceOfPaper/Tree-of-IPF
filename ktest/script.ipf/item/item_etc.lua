@@ -1,3 +1,9 @@
+function SCR_USE_ACHIEVE_BOX(self,argObj,argstr,arg1,arg2)
+    local tx = TxBegin(self);
+    TxAddAchievePoint(tx, argstr, 1)
+    local ret = TxCommit(tx);
+end
+
 function SCR_ITEM_CHECK(pc, itemList)
 	local haveItemList = {};
 	for i = 1, #itemList do
@@ -3669,5 +3675,12 @@ end
 function SCR_USE_GIVE_UPHILL_STORE_POINT(self, argObj, StringArg, Numarg1, Numarg2)
     local tx = TxBegin(self);
     TxAddWorldPVPProp(tx, "ShopPoint", Numarg1);
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_2018_WEDDING_GIVE_ITEM(pc, string1, arg1, arg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Gacha_TP_114_11', 2, '2018WEDDING_COSTUME_CUBE_22EA');
+    TxGiveItem(tx, 'Select_2018wedding_costume_C', 1, '2018WEDDING_COSTUME_CUBE_22EA');
     local ret = TxCommit(tx);
 end

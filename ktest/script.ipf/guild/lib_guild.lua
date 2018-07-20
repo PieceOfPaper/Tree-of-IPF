@@ -283,6 +283,11 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 				SendSysMsg(pc, "ConfigedToUseGuildMemberOnly");
 				return;
 			end
+			
+			--EVENT_1805_GUILD
+			if sameGuild == true then
+			    EVENT_1805_GUILD_DAY_MIC_REWARD(pc)
+			end
 
 			-- 길드아지트 미션타입
 			--local openedMission, alreadyJoin = OpenPartyMission(pc, pc, 0, "guildhouse", "", 1, PARTY_GUILD, guildID);
@@ -932,7 +937,11 @@ function callback_guild_obj_harvest(pc, code, ret_json, argList)
 		        sleep(1200)
 		        local tx = TxBegin(pc);
 		        TxRemoveGuildHouseObject(tx, argList[1]);
-		        TxGiveItem(tx, argList[2], tonumber(argList[3]), "Harvest")
+		        --EVENT_1805_GUILD
+		        TxGiveItem(tx, argList[2], tonumber(argList[3])*2, "Harvest")
+		        
+--		        TxGiveItem(tx, argList[2], tonumber(argList[3]), "Harvest")
+		        
 		        local ret = TxCommit(tx)
             end
         end
@@ -1484,6 +1493,9 @@ function GUILD_EXP_UP(pc, iesID, count)
 	local expPerItem = TryGetProp(item, "NumberArg1")
 	local curExp = partyObj.Exp;
 	local addExp = count * expPerItem;
+	--EVENT_1805_GUILD
+	addExp =  math.floor(addExp * 1.2)
+	
 	local nextExp = curExp + addExp;
 	local curLevel = partyObj.Level;
 	local nextLevel = GET_GUILD_LEVEL_BY_EXP(nextExp);
@@ -2201,4 +2213,26 @@ end
 function _GUILD_EXP_UP(pc, argList, currentCount)
     CheckClaim(pc, 'callback_guild_exp_up', 12, argList) -- code:12 (길드성장)
 	--RunScript("GUILD_EXP_UP", pc, argList[1], currentCount);    
+end
+
+-- plz nil check param(pc, guild_obj)
+function CREATE_GUILD_SUCCESS_FOR_EVENT(pc, guild_obj)
+
+    if pc ~= nil and guild_obj ~= nil then
+        -- to do     
+        local aObj = GetAccountObj(pc)
+        if aObj ~= nil then
+            if aObj.EVENT_1805_GUILD_CARD_COUNT == 0 then
+                local tx = TxBegin(pc)
+                TxSetIESProp(tx, aObj, 'EVENT_1805_GUILD_CARD_COUNT', 1)
+                TxGiveItem(tx, 'EVENT_1805_GUILD_CARD_LV4', 1, 'EVENT_1805_GUILD_CARD')
+                local ret = TxCommit(tx)
+            end
+        end
+    end
+end
+
+-- 길드를 생성했지만, 길드를 생성한 pc의 정보를 얻어오지 못해, CREATE_GUILD_SUCCESS_FOR_EVENT 를 실행할 수 없을 경우,
+-- 아래 function 이 실행됩니다. 이벤트 아이템 지급이 실패한 경우이기 때문에, 여기서 로그를 남겨서 운영팀에서 대응할 수 있게 해주세요.
+function CREATE_GUILD_NOTICE_FAIL_FOR_EVENT(pc_aid)
 end

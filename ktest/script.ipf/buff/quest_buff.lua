@@ -7867,6 +7867,55 @@ function SCR_BUFF_LEAVE_CHAR118_AGILITY_TRAINING_BUFF(self, buff, arg1, arg2, ov
     SetEmoticon(self, 'None')
 end
 
+--EXORCIST_QUEST_ADVENTAGE_BUFF1
+function SCR_BUFF_ENTER_EXORCIST_QUEST_ADVENTAGE_BUFF1(self, buff, arg1, arg2, over)
+    AttachEffect(self, "F_item_drop_line_loop_blue", 1, 1, "BOT", 5) 
+end
+
+function SCR_BUFF_UPDATE_EXORCIST_QUEST_ADVENTAGE_BUFF1(self, buff, arg1, arg2, over)
+    if GetLayer(self) < 1 then
+        DetachEffect(self, "F_item_drop_line_loop_blue")
+        return 0
+    else
+        return 1
+    end
+end
+
+function SCR_BUFF_LEAVE_EXORCIST_QUEST_ADVENTAGE_BUFF1(self, buff, arg1, arg2, over)
+    DetachEffect(self, "F_item_drop_line_loop_blue")
+    local sObj = GetSessionObject(self, "SSN_JOB_EXORCIST1")
+    if sObj ~= nil then
+        sObj.Goal2 = 0
+    end
+end
+
+--EXORCIST_QUEST_ADVENTAGE_BUFF2
+function SCR_BUFF_ENTER_EXORCIST_QUEST_ADVENTAGE_BUFF2(self, buff, arg1, arg2, over)
+    AttachEffect(self, "F_item_drop_line_loop_green", 1, 1, "BOT", 5) 
+end
+
+function SCR_BUFF_UPDATE_EXORCIST_QUEST_ADVENTAGE_BUFF2(self, buff, arg1, arg2, over)
+    if GetLayer(self) < 1 then
+        DetachEffect(self, "F_item_drop_line_loop_green")
+        return 0
+    else
+        return 1
+    end
+end
+
+function SCR_BUFF_LEAVE_EXORCIST_QUEST_ADVENTAGE_BUFF2(self, buff, arg1, arg2, over)
+    DetachEffect(self, "F_item_drop_line_loop_green")
+end
+
+--EXORCIST_MSTEP33_PENALTY_BUFF
+function SCR_BUFF_ENTER_EXORCIST_MSTEP33_PENALTY_BUFF(self, buff, arg1, arg2, over)
+    AttachEffect(self, "I_smoke063_ball_dark_red_loop_mesh",1 ,"TOP")
+end
+
+function SCR_BUFF_LEAVE_EXORCIST_MSTEP33_PENALTY_BUFF(self, buff, arg1, arg2, over)
+    DetachEffect(self, "I_smoke063_ball_dark_red_loop_mesh")
+end
+
 --GM_WHITETREES_MON_BUFF1
 function SCR_BUFF_ENTER_GM_WHITETREES_MON_BUFF1(self, buff, arg1, arg2, over)
 

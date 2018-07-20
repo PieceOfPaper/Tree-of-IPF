@@ -104,8 +104,13 @@ function INIT_SOUND_CONFIG(frame)
 
 	SET_SLIDE_VAL(frame, "soundVol", "soundVol_text", config.GetSoundVolume());
 	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
-	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());
-
+	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
+	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());	
+	local isOtherFlutingEnable = config.IsEnableOtherFluting();
+	local chkOtherFlutingEnable = GET_CHILD_RECURSIVELY(frame, "check_fluting");
+	if nil ~= chkOtherFlutingEnable then
+		chkOtherFlutingEnable:SetCheck(isOtherFlutingEnable);
+	end
 end
 
 function INIT_GRAPHIC_CONFIG(frame)
@@ -182,14 +187,6 @@ end
 function SEL_CONFIG_GRAPHIC(frame)
 
 	UPDATE_SCREEN_CONFIG(frame);
-
-end
-
-function INIT_SOUND_CONFIG(frame)
-
-	SET_SLIDE_VAL(frame, "soundVol", "soundVol_text", config.GetSoundVolume());
-	SET_SLIDE_VAL(frame, "musicVol", "musicVol_text", config.GetMusicVolume());
-	SET_SLIDE_VAL(frame, "totalVol", "totalVol_text", config.GetTotalVolume());
 
 end
 
@@ -363,7 +360,14 @@ function CONFIG_TOTALVOL(frame, ctrl, str, num)
 
 end
 
+function CONFIG_FLUTINGVOL(frame, ctrl, str, num)
 
+	tolua.cast(ctrl, "ui::CSlideBar");
+	config.SetFlutingVolume(ctrl:GetLevel());
+
+	SET_SLIDE_VAL(frame, "flutingVol", "flutingVol_text", config.GetFlutingVolume());
+
+end
 
 function UPDATE_OPERATOR_CONFIG(frame)
 
@@ -480,6 +484,13 @@ function ENABEL_VSYNC(frame)
 	local resIndex = resCtrl:GetSelItemIndex();
 	option.SetDisplayMode(scrType, resIndex, syncType);
 
+end
+
+function ENABLE_OTHER_FLUTING(parent, ctrl)
+	local value = config.IsEnableOtherFluting();
+
+	config.EnableOtherFluting(1-value);
+	config.SaveConfig();
 end
 
 function UPDATE_TITLE_OPTION(frame)

@@ -19,7 +19,7 @@
                     <Obj Type="Monster" MonType="59038" Pos="-1039.19#137.14#73.05" angle="240" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_STATUE_SUMMON&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Range&apos; &apos;40&apos; &apos;Enter&apos; &apos;VELCOFFER_STATUE_NOTICE&apos; "/>
                     <Obj Type="Monster" MonType="150015" Pos="-1213.01#137.14#-116.33" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;STAGE_ONE_GIVE_BUFF_GIMMICK&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="58872" Pos="-1424.64#143.68#146.97" genCount="1" genTime="20000" objectKey="6" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Enter&apos; &apos;VELCOFFER_ENTER_NOTICE&apos; &apos;Range&apos; &apos;40&apos; &apos;SkillType&apos; &apos;None&apos; &apos;ClassName&apos; &apos;HiddenTrigger6_Velcoffer_Riad_trap&apos; &apos;ClassID&apos; &apos;59044&apos; "/>
-                    <Obj Type="Monster" MonType="20053" Pos="-1206.06#121.35#-535.75" angle="98" genCount="1" genTime="20000" objectKey="7" propList="&apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
+                    <Obj Type="Monster" MonType="20053" Pos="-1207.34#125.53#-529.12" angle="98" genCount="1" genTime="20000" objectKey="7" propList="&apos;SimpleAI&apos; &apos;Hidden_door_Effect&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="문열림">
@@ -36,6 +36,19 @@
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="사악한 기운으로 가로막혀있던 길이 열렸습니다."/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2번방실행">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE1/7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE2"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -208,9 +221,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="STAGE2"/>
                             </ToolScp>
                         </execList>
                     </Event>

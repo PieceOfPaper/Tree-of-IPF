@@ -319,6 +319,27 @@ function SCR_PLAGUEDOCTOR_MASTER_NORMAL_2_PRE(pc)
     end
 end
 
+function SCR_PLAGUEDOCTOR_MASTER_NORMAL_3_PRE(pc)
+    --EXORCIST_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20', 114)
+    if prop == 115 then
+        if GetInvItemCount(pc, "EXORCIST_MSTEP322_ITEM1") < 1 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_PLAGUEDOCTOR_MASTER_NORMAL_4_PRE(pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop == 100 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+        if sObj ~= nil then
+            return 'YES'
+        end
+    end
+end
+
 function SCR_KABBALIST_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_15')
 end
@@ -656,8 +677,92 @@ function SCR_PLAGUEDOCTOR_MASTER_NORMAL_2(self,pc)
     end
 end
 
+function SCR_PLAGUEDOCTOR_MASTER_NORMAL_3(self,pc)
+    --EXORCIST_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
+    if prop == 115 then
+        if GetInvItemCount(pc, "EXORCIST_MSTEP322_ITEM1") < 1 then
+            if GetInvItemCount(pc, "R_EXORCIST_MSTEP322_ITEM1") < 1 then
+                ShowOkDlg(pc, 'EXORCIST_MASTER_STEP322_DLG18', 1)
+                local tx1 = TxBegin(pc);
+                TxGiveItem(tx1, "R_EXORCIST_MSTEP322_ITEM", 1, 'Quest_HIDDEN_EXORCIST');
+                local ret = TxCommit(tx1);
+            end
+        end
+    end
+end
+
+function SCR_PLAGUEDOCTOR_MASTER_NORMAL_4(self,pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 100 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+        if sObj ~= nil then
+            if sObj.Step1 == 0 then
+                local sel = ShowSelDlg(pc, 1, 'CHAR312_MSTEP1_DLG1', ScpArgMsg("CHAR312_MSTEP1_TXT1"), ScpArgMsg("CHAR312_MSTEP1_TXT2"))
+                if sel == 1 then
+                    sObj.Step1 = 1
+                    SaveSessionObject(pc, sObj)
+                    ShowOkDlg(pc, "CHAR312_MSTEP1_DLG2", 1)
+                    return
+                end
+            elseif sObj.Step1 == 1 then
+                local max_cnt = 30
+                local cnt = GetInvItemCount(pc, "CHAR312_MSTEP1_ITEM1")
+                if cnt >= max_cnt then
+                    ShowOkDlg(pc, "CHAR312_MSTEP1_DLG4", 1)
+                    sleep(500)
+                    PlayEffectLocal(self, pc, "F_light047_red", 0.8, 0, "TOP")
+                    sleep(2000)
+                    local tx = TxBegin(pc)
+                    if GetInvItemCount(pc, "CHAR312_MSTEP1_ITEM2") < 1 then
+                        TxGiveItem(tx,"CHAR312_MSTEP1_ITEM2", 1, 'Quest_HIDDEN_PIED_PIPER');
+                    else
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt, "CHAR312_MSTEP1");
+                        if sObj.Step1 ~= 10 then
+                            sObj.Step1 = 10
+                            SaveSessionObject(pc, sObj)
+                        end
+                        ShowOkDlg(pc, "CHAR312_MSTEP1_DLG4_1", 1)
+                        sleep(500)
+                        ShowBalloonText(pc, 'CHAR312_MSTEP1_DLG6', 7)
+                    end
+                    local ret = TxCommit(tx)
+                    if ret == "SUCCESS" then
+                        RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt, "CHAR312_MSTEP1");
+                        if sObj.Step1 ~= 10 then
+                            sObj.Step1 = 10
+                            SaveSessionObject(pc, sObj)
+                        end
+                        ShowOkDlg(pc, "CHAR312_MSTEP1_DLG4_1", 1)
+                        sleep(500)
+                        ShowBalloonText(pc, 'CHAR312_MSTEP1_DLG6', 7)
+                    end
+                else
+                    ShowOkDlg(pc, "CHAR312_MSTEP1_DLG3", 1)
+                end
+            elseif sObj.Step1 == 10 then
+                if sObj.Step2 < 1 then
+                    local tx = TxBegin(pc)
+                    if GetInvItemCount(pc, "CHAR312_MSTEP1_ITEM2") < 1 then
+                        TxGiveItem(tx,"CHAR312_MSTEP1_ITEM2", 1, 'Quest_HIDDEN_PIED_PIPER');
+                    end
+                    local ret = TxCommit(tx)
+                    ShowOkDlg(pc, "CHAR312_MSTEP1_DLG5", 1)
+                    sleep(500)
+                    ShowBalloonText(pc, 'CHAR312_MSTEP1_DLG6', 7)
+                end
+            end
+        end
+    end
+end
+
 function SCR_KABBALIST_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Kabbalist")
+end
+
+function SCR_KABBALIST_MASTER_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_Kabbalist', 5);
 end
 
 function SCR_MURMILO_MASTER_NORMAL_1(self,pc)
@@ -1228,7 +1333,90 @@ function SCR_ONMYOJI_MASTER_DIALOG(self,pc)
 end
 
 
-
+--JOB_PIED_PIPER
+function SCR_PIED_PIPER_MASTER_DIALOG(self,pc)
+    if IS_KOR_TEST_SERVER() then
+        COMMON_QUEST_HANDLER(self,pc)
+    else
+        local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char3_12')
+        local arc_rank1 = GetJobGradeByName(pc, 'Char3_12')
+        if is_unlock == "YES" then
+            COMMON_QUEST_HANDLER(self, pc)
+        elseif arc_rank1 >= 1 then
+            COMMON_QUEST_HANDLER(self, pc)
+        elseif is_unlock == "NO" then
+            local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+            if prop >= 40 and prop < 200 then
+                if prop == 40 then
+                    local sel1 = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG1", ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT1"), ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT2"))
+                    if sel1 == 1 then
+                        local result1 = DOTIMEACTION_R(pc, ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT3"), 'TALK', 3)
+                        if result1 == 1 then
+                            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 50)
+                            local result2 = SCR_QUEST_CHECK(pc, "MAPLE_25_2_SQ_70")
+                            if result2 ~= "COMPLETE" then
+                                ShowOkDlg(pc, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG2_1", 1)
+                            else
+                                ShowOkDlg(pc, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG2_2", 1)
+                            end
+                            sleep(500)
+                            ShowBalloonText(pc, 'CHAR312_PRE_MSTEP4_PIED_PIPER_DLG3', 7)
+                            return
+                        end
+                    end
+                elseif prop == 50 then
+                    local sel1 = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG4", ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT4"), ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT5"))
+                    if sel1 == 1 then
+                        local sel1 = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG5", ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT6"), ScpArgMsg("CHAR312_PRE_MSTEP4_PIED_PIPER_TXT7"))
+                        if sel1 == 1 then
+                            local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+                            if sObj == nil then
+                                CreateSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+                            end
+                            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 100)
+                            ShowOkDlg(pc, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG6", 1)
+                            sleep(500)
+                            ShowBalloonText(pc, 'CHAR312_PRE_MSTEP4_PIED_PIPER_DLG8', 7)
+                        end
+                    end
+                elseif prop == 100 then
+                    local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+                    if sObj == nil then
+                        CreateSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+                    end
+                    ShowOkDlg(pc, "CHAR312_PRE_MSTEP4_PIED_PIPER_DLG7", 1)
+                    sleep(500)
+                    ShowBalloonText(pc, 'CHAR312_PRE_MSTEP4_PIED_PIPER_DLG8', 7)
+                end
+            elseif prop >= 200 and prop < 300 then
+                local take_cnt1 = GetInvItemCount(pc, "CHAR312_MSTEP3_ITEM")
+                if take_cnt1 >= 1 then
+                    local job_unlock = SCR_HIDDEN_JOB_UNLOCK(pc, 'Char3_12')
+                    if job_unlock == "FAIL" then
+                        print("tx FAIL_JOB_UNLOCK FAIL!")
+                    elseif job_unlock == "SUCCESS" then
+                        RunScript('TAKE_ITEM_TX', pc, 'CHAR312_MSTEP3_ITEM', take_cnt1, "Quest_HIDDEN_PIED_PIPER");
+                        local take_cnt2 = GetInvItemCount(pc, "CHAR312_PRE_MSTEP_ITEM")
+                        if take_cnt2 >= 1 then
+                            RunScript('TAKE_ITEM_TX', pc, 'CHAR312_PRE_MSTEP_ITEM', take_cnt2, "Quest_HIDDEN_PIED_PIPER");
+                        end
+                        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+                        if sObj ~= nil then
+                            DestroySessionObject(pc, sObj)
+                        end
+                        ShowOkDlg(pc, 'CHAR312_MSTEP3_DLG6', 1)
+                        local arc_rank2 = GetJobGradeByName(pc, 'Char3_1')
+                        if arc_rank2 >= 1 then
+                            ShowOkDlg(pc, 'CHAR312_MSTEP3_DLG7', 1)
+                        end
+                    end
+                end
+            else
+                COMMON_QUEST_HANDLER(self,pc)
+            end
+        end
+    end
+end
 
 
 
@@ -6974,4 +7162,778 @@ function SCR_CHAR220_MSETP2_7_OBJ_8_ENTER(self, pc)
 end
 
 function SCR_CHAR220_MSETP2_7_OBJ_9_ENTER(self, pc)
+end
+
+-- EXORCIST_UNLOCK --
+function SCR_CHAR420_STEP321_NPC_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') <= 100 then 
+        local selbutton1
+        local selbutton2
+        local selbutton3
+        local selbutton4
+        if sObj.Step2 < 1 then
+            selbutton1 = ScpArgMsg("EXORCIST_MASTER_STEP321_SEL1")
+        end
+        if sObj.Step3 < 1 then
+            selbutton2 = ScpArgMsg("EXORCIST_MASTER_STEP321_SEL2")
+        end
+        if sObj.Step4 < 1 then
+            selbutton3 = ScpArgMsg("EXORCIST_MASTER_STEP321_SEL3")
+        end
+        if sObj.Step2 + sObj.Step3 + sObj.Step4 >= 3 then
+            selbutton4 = ScpArgMsg("EXORCIST_MASTER_STEP321_SEL4")
+        end
+        
+        local sel1 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP321_DLG3", selbutton1, selbutton2, selbutton3, selbutton4, ScpArgMsg("EXORCIST_MASTER_STEP321_SEL5"))
+        if sel1 == 1 then
+            if sObj.Step2 < 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP321_DLG4", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP321_TXT1", 5)
+                sObj.Step2 = sObj.Step2 + 1
+            end
+        elseif sel1 == 2 then
+            local sel2 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP321_DLG5", ScpArgMsg("EXORCIST_MASTER_STEP321_SEL6"))
+            if sel2 == 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP321_DLG5_1", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP321_TXT2", 5)
+                if sObj.Step3 < 1 then
+                    sObj.Step3 = sObj.Step3 + 1
+                end
+            end
+        elseif sel1 == 3 then
+            local sel3 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP321_DLG6", ScpArgMsg("EXORCIST_MASTER_STEP321_SEL7"))
+            if sel3 == 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP321_DLG6_1", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP321_TXT3", 5)
+                if sObj.Step4 < 1 then
+                    sObj.Step4 = sObj.Step4 + 1
+                end
+            end
+        elseif sel1 == 4 then
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP321_DLG7", 1)
+            local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_STEP33_MSG1"), 'EVENT_HOLY', 1)
+            if result == 1 then
+                PlayAnim(self, "event_idle2",1)
+                local sel4 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP321_DLG7_1", ScpArgMsg("EXORCIST_MASTER_STEP321_SEL8"))
+                if sel4 == 1 then
+                    PlayAnim(self, "std",1)
+                    ShowOkDlg(pc, "EXORCIST_MASTER_STEP321_DLG7_2", 1)
+                    ShowBalloonText(pc, "EXORCIST_MASTER_STEP321_TXT4", 5)
+                    if sObj.Step5 < 1 then
+                        sObj.Step5 = sObj.Step5 + 1
+                    end
+                end
+            end
+        elseif sel1 == 5 then
+            return
+        end
+        if sObj.Step2 + sObj.Step3 + sObj.Step4 + sObj.Step5 >= 4 then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 101)
+        end
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 101 then 
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP321_DLG7_3", 1)
+        ShowBalloonText(pc, "EXORCIST_MASTER_STEP321_DLG9", 5)
+    end
+end
+
+function SCR_CHAR420_STEP322_NPC1_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') <= 111 then 
+        local selbutton1
+        local selbutton2
+        local selbutton3
+        local selbutton4
+        if sObj.Step6 < 1 then
+            selbutton1 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL1")
+        end
+        if sObj.Step7 < 1 then
+            selbutton2 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL2")
+        end
+        if sObj.Step8 < 1 then
+            selbutton3 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL3")
+        end
+        if sObj.Step6 + sObj.Step7 + sObj.Step8 >= 3 then
+            selbutton4 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL4")
+        end
+        if sObj.Step9 < 1 then
+            local sel1 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP322_DLG3", selbutton1, selbutton2, selbutton3, selbutton4)
+            if sel1 == 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG4", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT4", 5)
+                sObj.Step6 = 1
+            elseif sel1 == 2 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG5", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT5", 5)
+                sObj.Step7 = 1
+            elseif sel1 == 3 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG6", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT6", 5)
+                sObj.Step8 = 1
+            elseif sel1 == 4 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_ITEM_USE"), 'EVENT_HOLY', 1)
+                    if result == 1 then
+                    ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG7", 1)
+                    ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT7", 5)
+                    sObj.Step9 = 1
+                end
+            end
+        else
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG3", 1)
+            ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT7_1", 5)
+        end
+        
+        if sObj.Step6 + sObj.Step7 + sObj.Step8 + sObj.Step9 + sObj.Step10 + sObj.Step11 + sObj.Step12 >= 7 then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 112)
+            ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT14", 5)
+        end
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 112 then
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG1", 1)
+        ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT14", 5)
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 120 then
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG4", 1)
+    else
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG1", 1)
+    end
+end
+
+function SCR_CHAR420_STEP322_NPC2_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') <= 111 then
+        local selbutton1
+        local selbutton2
+        local selbutton3
+        local selbutton4
+        if sObj.Step10 < 1 then
+            selbutton1 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL1")
+        end
+        if sObj.Step11 < 1 then
+            selbutton2 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL2")
+        end
+        if sObj.Step12 < 1 then
+            selbutton3 = ScpArgMsg("EXORCIST_MASTER_STEP322_SEL3")
+        end
+        
+        if sObj.Step10 + sObj.Step11 + sObj.Step12 < 3 then
+            local sel1 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP322_DLG8", selbutton1, selbutton2, selbutton3)
+            if sel1 == 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG9", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT9", 5)
+                sObj.Step10 = 1
+            elseif sel1 == 2 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG10", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT10", 5)
+                sObj.Step11 = 1
+            elseif sel1 == 3 then
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT11", 5)
+                local sel2 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP322_DLG12", ScpArgMsg("EXORCIST_MASTER_STEP322_NPC1_SEL4"))
+                if sel2 == 1 then
+                    ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG13", 1)
+                    ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT13", 5)
+                    sObj.Step12 = 1
+                end
+            end
+        else
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG8", 1)
+            ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT7_1", 5)
+        end
+        
+        if sObj.Step6 + sObj.Step7 + sObj.Step8 + sObj.Step9 + sObj.Step10 + sObj.Step11 + sObj.Step12 >= 7 then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 112)
+            ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT14", 5)
+        end
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 112 then
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG2", 1)
+        ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT14", 5)
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 113 then
+        local sel1 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP322_DLG14", ScpArgMsg("EXORCIST_MASTER_STEP322_SEL5"), ScpArgMsg("EXORCIST_MASTER_STEP322_SEL6"))
+        if sel1 == 1 then
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG15", 1)
+            local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_TALK"), 'talk', 3)
+            if result == 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG16", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT15", 5)
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 114)
+            end
+        else
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG6", 1)
+        end
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 115 then
+        if GetInvItemCount(pc, "EXORCIST_MSTEP322_ITEM1") >= 1 then
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_DLG19", 1)
+            local tx1 = TxBegin(pc);
+            TxTakeItem(tx1, "EXORCIST_MSTEP322_ITEM1", 1, "Quest_EXORCIST_HIDDEN");
+            local ret = TxCommit(tx1);
+            if ret == "SUCCESS" then
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 120)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP322_TXT16", 5)
+            end
+        end
+    elseif SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 120 then
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG3", 1)
+    else
+        ShowOkDlg(pc, "EXORCIST_MASTER_STEP322_basic_DLG2", 1)
+    end
+end
+
+function SCR_CHAR420_STEP322_NPC3_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 112 then 
+        local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_SEARCH1"), 'SITGROPE', 3)
+        if result == 1 then
+            PlayEffectLocal(self, pc, "F_smoke020_green", 0.2, "TOP")
+            ShowBalloonText(pc, "EXORCIST_MASTER_SEARCH1_TXT1", 5)
+            if sObj.Step13 < 1 then
+                sObj.Step13 = 1
+            end
+            if sObj.Step13 + sObj.Step14 + sObj.Step15  >= 3 then
+                ShowBalloonText(pc, "EXORCIST_MASTER_SEARCH3_TXT4", 5)
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 113)
+            end
+        end
+    end
+end
+
+function SCR_CHAR420_STEP322_NPC4_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 112 then 
+        local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_SEARCH2"), 'SITGROPE', 3)
+        if result == 1 then
+            PlayEffectLocal(self, pc, "F_smoke020_green", 0.3, "TOP")
+            ShowBalloonText(pc, "EXORCIST_MASTER_SEARCH2_TXT1", 5)
+            if sObj.Step14 < 1 then
+                sObj.Step14 = 1
+            end
+            if sObj.Step13 + sObj.Step14 + sObj.Step15  >= 3 then
+                ShowBalloonText(pc, "EXORCIST_MASTER_SEARCH3_TXT4", 5)
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 113)
+            end
+        end
+    end
+end
+
+function SCR_CHAR420_STEP322_NPC5_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 112 then 
+        local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_SEARCH3"), 'SITGROPE', 3)
+        if result == 1 then
+            PlayEffectLocal(self, pc, "F_smoke015_green", 0.4, "TOP")
+            ShowBalloonText(pc, "EXORCIST_MASTER_SEARCH3_TXT1", 5)
+            if sObj.Step15 < 1 then
+                sObj.Step15 = 1
+            end
+            if sObj.Step13 + sObj.Step14 + sObj.Step15  >= 3 then
+                ShowBalloonText(pc, "EXORCIST_MASTER_SEARCH3_TXT4", 5)
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 113)
+            end
+        end
+    end
+end
+
+function SCR_CHAR420_STEP323_NPC1_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') == 120 then 
+        local selbutton1
+        local selbutton2
+        local selbutton3
+        local selbutton4
+        if sObj.Step16 < 1 then
+            selbutton1 = ScpArgMsg("EXORCIST_MASTER_STEP323_SEL1")
+        end
+        if sObj.Step17 < 1 then
+            selbutton2 = ScpArgMsg("EXORCIST_MASTER_STEP323_SEL2")
+        end
+        if sObj.Step18 < 1 then
+            selbutton3 = ScpArgMsg("EXORCIST_MASTER_STEP323_SEL3")
+        end
+        if sObj.Step16 + sObj.Step17 + sObj.Step18 >= 3 then
+            selbutton4 = ScpArgMsg("EXORCIST_MASTER_STEP323_SEL4")
+        end
+        if sObj.Step19 < 1 then
+            local sel1 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP323_NPCDLG1", selbutton1, selbutton2, selbutton3, selbutton4)
+            if sel1 == 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP323_NPCDLG2", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP323_TXT2", 5)
+                if sObj.Step16 < 1 then
+                    sObj.Step16 = 1
+                end
+            elseif sel1 == 2 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP323_NPCDLG3", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP323_TXT3", 5)
+                if sObj.Step17 < 1 then
+                    sObj.Step17 = 1
+                end
+            elseif sel1 == 3 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP323_NPCDLG4", 1)
+                ShowBalloonText(pc, "EXORCIST_MASTER_STEP323_TXT4", 5)
+                if sObj.Step18 < 1 then
+                    sObj.Step18 = 1
+                end
+            elseif sel1 == 4 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_ITEM_USE"), 'EVENT_HOLY', 1)
+                if result == 1 then
+                    PlayAnim(self, "event_idle",1)
+                    PlayEffectLocal(self, pc, "I_smoke008_red_noloop",0.7 , nil, "BOT")
+                    ShowOkDlg(pc, "EXORCIST_MASTER_STEP323_NPCDLG5", 1)
+                    ShowBalloonText(pc, "EXORCIST_MASTER_STEP323_TXT5", 5)
+                    if sObj.Step19 < 1 then
+                        sObj.Step19 = 1
+                    end
+                end
+            end
+        end
+    end
+    if sObj.Step16 + sObj.Step17 + sObj.Step18 + sObj.Step19 >= 4 then
+        if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') < 121 then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 121)
+        end
+        ShowBalloonText(pc, "EXORCIST_MASTER_STEP323_TXT6", 5)
+    end
+end
+
+function SCR_CHAR420_STEP323_NPC2_DIALOG(self, pc)
+    
+end
+
+function SCR_EXORCIST_MASTER_STEP33_NPC1_DIALOG(self, pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
+    if IsBuffApplied(pc, 'EXORCIST_MSTEP33_PENALTY_BUFF') == 'NO' then
+        if hidden_prop <= 134 then
+            local sel_Button1 = nil
+            local sel_Button2 = nil
+            local sel_Button3 = nil
+            if hidden_prop < 134 then
+                if GetInvItemCount(pc, "Drug_holywater") >= 1 then
+                    sel_Button1 = ScpArgMsg("EXORCIST_MASTER_STEP33_SEL1")
+                end
+                
+                if GetInvItemCount(pc, "food_007") >= 1 then
+                    sel_Button2 = ScpArgMsg("EXORCIST_MASTER_STEP33_SEL2")
+                end
+            end
+            if hidden_prop == 134 then
+                sel_Button3 = ScpArgMsg("EXORCIST_MASTER_STEP33_SEL3")
+            end
+            
+            local sel1 = ShowSelDlg(pc, 0, "EXORCIST_MASTER_STEP33_DLG5", sel_Button1, sel_Button2, sel_Button3, ScpArgMsg("EXORCIST_MASTER_STEP33_SEL4"))
+            if sel1 == 1 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_STEP33_MSG1"), 'EVENT_HOLY', 1)
+                if result == 1 then
+                    PlayEffectLocal(self, pc, "F_smoke010_blue", 1, 1, "BOT")
+                    if sObj.Goal5 == 0 then
+                        sObj.Goal5 = 1
+                        sObj.Goal6 = sObj.Goal6 + 1
+                    else
+                        sObj.Goal6 = sObj.Goal6 + 1
+                    end
+                end
+            elseif sel1 == 2 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_STEP33_MSG2"), 'FIRE', 3)
+                if result == 1 then
+                    PlayEffectLocal(self, pc, "F_smoke014_firesteam_dead2", 1, 1, "BOT")
+                    if sObj.Goal5 == 1 then
+                        sObj.Goal5 = 2
+                        sObj.Goal6 = sObj.Goal6 + 1
+                    else
+                       sObj.Goal6 = sObj.Goal6 + 1
+                    end
+                end
+            elseif sel1 == 3 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("EXORCIST_MASTER_STEP33_MSG4"), 'WORSHIP', 3)
+                if result == 1 then
+                    PlayDirection(pc, "EXORCIST_UNLOCK_TRACK")
+                end
+            end
+            
+            if sObj.Goal5 >= 3 then --exorcism success
+                ShowBalloonText(pc, "EXORCIST_MSTEP33_TXT1", 5)
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 134)
+                sObj.Goal5 = 0
+                sObj.Goal6 = 0
+            elseif sObj.Goal6 >= 3 then --exorcism fail
+                AddBuff(self, pc, "EXORCIST_MSTEP33_PENALTY_BUFF", 1, 0, 30000, 1)
+                ShowBalloonText(pc, "EXORCIST_MSTEP33_TXT2", 5)
+                sObj.Goal5 = 0
+                sObj.Goal6 = 0
+                sObj.Goal7 = 1
+            end
+        end
+    else
+        ShowBalloonText(pc, "EXORCIST_MSTEP33_TXT2_1", 5)
+    end
+end
+
+function SCR_EXORCIST_MASTER_STEP33_NPC1_IN_ENTER(self, pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
+    if hidden_prop >= 130 then
+        ShowBalloonText(pc, "CHAR420_MSTEP33_BALLOON_TEXT2", 5)
+    end
+end
+
+function SCR_EXORCIST_MASTER_STEP33_TRACK_FUNC(pc)
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if sObj ~= nil then
+        x = sObj.Goal8
+        y = sObj.Goal9
+        z = sObj.Goal10
+        local npc = CREATE_NPC_EX(pc, "farm47_statue_zemina_small", x, y, z, -45, "Neutral", ScpArgMsg("EXORCIST_MSTEP321_ITEM1_NAME"), 1)
+    end
+    
+    --layer event 
+    local obj = GetLayerObject(GetZoneInstID(pc), GetLayer(pc));
+    if obj ~= nil then
+    	obj.EventName = "EXORCIST_UNLOCK_TRACK"
+        BroadLayerObjectProp(pc, 'EventName')
+    end
+end
+
+--PIED_PIPER_HIDDEN
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER1_DIALOG(self, pc)
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 10 then
+        local clMsgList = {};
+        clMsgList[#clMsgList+1] = ClMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT1")
+        clMsgList[#clMsgList+1] = ClMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT3")
+        clMsgList[#clMsgList+1] = ClMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT5")
+        if prop == 10 then
+            RunScript("SCR_CHAR312_PRE_MSTEP1_SOLDIER_ANSWER_RUN", self, pc, 0)
+        elseif prop == 11 then
+            local sel = ShowSelDlg_List(pc, 1, "CHAR312_PRE_MSTEP1_SOLDIER_DLG6", clMsgList, 1, 0)
+            local time = 1.5
+            if sel == 1 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT2"), 'TALK', time)
+                if result == 1 then
+                    RunScript("SCR_CHAR312_PRE_MSTEP1_SOLDIER_ANSWER_RUN", self, pc, sel)
+                end
+            elseif sel == 2 then
+                ActorVibrate(self, time, 0.5, 5, 0)
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT4"), 'STANDSHAKE_RIDE', time)
+                if result == 1 then
+                    RunScript("SCR_CHAR312_PRE_MSTEP1_SOLDIER_ANSWER_RUN", self, pc, sel)
+                else
+                    ActorVibrate(self, 0, 0, 0, 0)
+                end
+            end
+        elseif prop == 20 then
+            local ran = IMCRandom(1, 5)
+            if ran > 1 then
+                ShowOkDlg(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG4', 1)
+                sleep(500)
+                ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG5', 7)
+            else
+                local chat_list = { ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_BASIC1"), 
+                                    ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_BASIC2") }
+                Chat(self, chat_list[IMCRandom(1,2)], 3)
+                sleep(1000)
+                ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG5', 7)
+            end
+        end
+    end
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER2_ENTER(self, pc)
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop == 10 then
+        ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_FIND', 7)
+    end
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_ANSWER_RUN(self, pc, num)
+    local chat_list = { ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_BASIC1"), 
+                        ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_BASIC2") }
+    if num == nil or num == "" then
+        num = 0
+    end
+    if num == 0 then
+        SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 11)
+        Chat(self, chat_list[1], 3)
+        sleep(1000)
+        ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG1', 5)
+    elseif num == 1 then
+        sleep(500)
+        Chat(self, chat_list[2], 3)
+        sleep(1000)
+        ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG2', 5)
+    elseif num == 2 then
+        sleep(500)
+        local sel = ShowSelDlg(pc, 1, "CHAR312_PRE_MSTEP1_SOLDIER_DLG3", ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT6"), ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_TXT7"))
+        if sel == 1 then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 20)
+            ShowOkDlg(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG7', 1)
+            sleep(500)
+            ShowBalloonText(pc, 'CHAR312_PRE_MSTEP1_SOLDIER_DLG5', 7)
+        end
+    end
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_TACTICS_TS_BORN_ENTER(self)
+    SCR_MON_DUMMY_TS_BORN_ENTER(self)
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_TACTICS_TS_BORN_UPDATE(self)
+    local chat_list = { ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_BASIC1"), 
+                        ScpArgMsg("CHAR312_PRE_MSTEP1_SOLDIER_BASIC2") }
+    local num1 = self.NumArg1
+    local num2 = 40
+    local ran = IMCRandom(num1+1, num1+100)
+    ran = ran - num1
+    if num1 >= num2 then
+        self.NumArg1 = 0
+        Chat(self, chat_list[IMCRandom(1,2)], 3)
+        HOLD_MON_SCP(self, 20000)
+        return
+    end
+    if ran <= 10 then
+        self.NumArg1 = 0
+        Chat(self, chat_list[IMCRandom(1,2)], 3)
+        HOLD_MON_SCP(self, 20000)
+    else
+        self.NumArg1 = self.NumArg1 + 1
+    end
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_TACTICS_TS_BORN_LEAVE(self)
+    SCR_MON_DUMMY_TS_BORN_LEAVE(self)
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_TACTICS_TS_DEAD_ENTER(self)
+    SCR_MON_DUMMY_TS_DEAD_ENTER(self)
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_TACTICS_TS_DEAD_UPDATE(self)
+    SCR_MON_DUMMY_TS_DEAD_UPDATE(self)
+end
+
+function SCR_CHAR312_PRE_MSTEP1_SOLDIER_TACTICS_TS_DEAD_LEAVE(self)
+    SCR_MON_DUMMY_TS_DEAD_LEAVE(self)
+end
+
+function SCR_CHAR312_MSTEP1_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR312_MSTEP2_GEN_INIT_ENTER(self, pc)
+end
+
+function SCR_CHAR312_MSTEP_GEN_AI(self) --1000msec
+    local zone = GetZoneName(self)
+    if self.Enter == "CHAR312_MSTEP1_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR312_MSTEP1_OBJ")
+        local pos = {{1595, 134, 864}, {1085, 134, 1136}, {1048, 134, 761},
+                        {2019, 134, 518}, {2202, 134, 825}, {1999, 134, 1298}, {2270, 134, 1219}, {1864, 134, 732},
+                        {2098, 202, -214}, {2222, 202, 159}, {1832, 202, 28},
+                        {3271, 210, 1272}, {3674, 210, 1007}, {2665, 134, 983}}
+        if #obj_list == 0 then
+            for i = 1, #pos do
+                local mon = CREATE_MONSTER_EX(self, 'siauliai_grass_3', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR312_MSTEP1_OBJ_SET, i)
+                AddScpObjectList(self, "CHAR312_MSTEP1_OBJ", mon)
+            end
+        elseif #obj_list ~= #pos then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR312_MSTEP1_OBJ", obj_list[i])
+            end
+        end
+    elseif self.Enter == "CHAR312_MSTEP2_GEN_INIT" then
+        local obj_list = GetScpObjectList(self, "CHAR312_MSTEP2_OBJ")
+        local pos = {{-259, -33, -617}, {-14, -33, -462}, {108, -33, -707}, {-95, -33, -791},
+                        {615, -93, 45}, {848, -93, 485}, {1080, -93, 94}, {565, -92, -299}, {1095, -93, 379},
+                        {1070, 29, -608}, {1378, 29, -645}, {1262, 34, -845}, {1056, 29, -784}}
+        if #obj_list == 0 then
+            for i = 1, #pos do
+                local mon = CREATE_MONSTER_EX(self, 'noshadow_npc', pos[i][1], pos[i][2], pos[i][3], 0, 'Neutral', 1, CHAR312_MSTEP2_OBJ_SET, i)
+                AddScpObjectList(self, "CHAR312_MSTEP2_OBJ", mon)
+            end
+        elseif #obj_list ~= #pos then
+            for i = 1, #obj_list do
+                Kill(obj_list[i])
+                RemoveScpObjectList(self, "CHAR312_MSTEP2_OBJ", obj_list[i])
+            end
+        end
+    end
+end
+
+function CHAR312_MSTEP1_OBJ_SET(mon, i)
+    mon.Dialog = "CHAR312_MSTEP1_OBJ"..i
+    mon.Name = ScpArgMsg("CHAR312_MSTEP1_OBJ_NAME")
+end
+
+function SCR_CHAR312_MSTEP1_OBJ1_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 1)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ2_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 2)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ3_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 3)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ4_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 4)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ5_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 5)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ6_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 6)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ7_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 7)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ8_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 8)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ9_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 9)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ10_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 10)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ11_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 11)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ12_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 12)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ13_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 13)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ14_DIALOG(self, pc)
+    SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, 14)
+end
+
+function SCR_CHAR312_MSTEP1_OBJ_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char3_12')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+        if prop == 100 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+            if sObj ~= nil then
+                if sObj.Step1 == 1 then
+                    local item = 'CHAR312_MSTEP1_ITEM1'
+                    local max_cnt = 30
+                    local now_cnt = GetInvItemCount(pc, item)
+                    if now_cnt < max_cnt then
+                        local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR312_MSTEP1_MSG1"), "SITGROPE_LOOP", 2.0)
+                        if result == 1 then
+                            if sObj.String1 ~= "None" then
+                                local string_cut_list = SCR_STRING_CUT(sObj.String1);
+                                if table.find(string_cut_list, num) <= 0 then
+                                    local cnt = 1
+                                    local item = 'CHAR312_MSTEP1_ITEM1'
+                                    RunScript('GIVE_ITEM_TX', pc, item, cnt, "CHAR312_MSTEP1");
+                                    sObj.String1 = sObj.String1.."/"..tostring(num)
+                                    SaveSessionObject(pc, sObj)
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_GetItem', ScpArgMsg("CHAR312_MSTEP1_MSG2{now_cnt}{max_cnt}", "now_cnt", now_cnt+1, "max_cnt", max_cnt), 3)
+                                    PlayEffectLocal(self, pc, "F_pc_making_finish_white", 1.5, 0, "TOP")
+                                else
+                                    SendAddOnMsg(pc, 'NOTICE_Dm_scroll', ScpArgMsg("CHAR312_MSTEP1_MSG3"),3)
+                                end
+                            end
+                        end
+                    else
+                        SendAddOnMsg(pc, 'NOTICE_Dm_Clear', ScpArgMsg("CHAR312_MSTEP1_MSG4"),3)
+                    end
+                end
+            end
+        end
+    end
+end
+
+function CHAR312_MSTEP2_OBJ_SET(mon, i)
+    mon.Enter = "CHAR312_MSTEP2_OBJ"..i
+    mon.Name = "UnvisibleName"
+    mon.Range = 180
+end
+
+function SCR_CHAR312_MSTEP2_OBJ1_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 1)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ2_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 2)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ3_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 3)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ4_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 4)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ5_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 5)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ6_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 6)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ7_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 7)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ8_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 8)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ9_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 9)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ10_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 10)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ11_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 11)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ12_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 12)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ13_ENTER(self, pc)
+    SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, 13)
+end
+
+function SCR_CHAR312_MSTEP2_OBJ_RUN(self, pc, num)
+    local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char3_12')
+    if is_unlock == "NO" then
+        local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+        if prop == 100 then
+            local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+            if sObj ~= nil then
+                if sObj.Step2 == 1 then
+                    if sObj.String2 ~= "None" then
+                        if sObj.Goal2 < 1000 then
+                            local string_cut_list = SCR_STRING_CUT(sObj.String2);
+                            if table.find(string_cut_list, num) <= 0 then
+                                RemoveEffectLocal(self, pc, "F_ground163_blue_loop")
+                                AddEffectLocal(self, pc, "F_ground163_blue_loop", 3, 0, "BOT")
+                                return
+                            else
+                                RemoveEffectLocal(self, pc, "F_ground163_blue_loop")
+                                return
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
 end

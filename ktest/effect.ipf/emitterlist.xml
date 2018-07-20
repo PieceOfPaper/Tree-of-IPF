@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <EmitterList>
+	<battle name="E_pc_pose_wedding03" filename="E_pc_pose_wedding03" loop="false" nodecount="2" xml="E_pc_pose_wedding03.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_archer_HamelnNagetier" filename="E_archer_HamelnNagetier" loop="false" nodecount="2" xml="E_archer_HamelnNagetier.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_cleric_Rubric_shot" filename="E_cleric_Rubric_shot" loop="true" nodecount="2" xml="E_cleric_Rubric_shot.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_Wiegenlied" filename="E_Wiegenlied" loop="false" nodecount="2" xml="E_Wiegenlied.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_Dissonanz" filename="E_Dissonanz" loop="false" nodecount="2" xml="E_Dissonanz.xml" paused="NO" is2D="TRUE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
@@ -41,8 +43,8 @@
 	<battle name="E_GRINDCUTTE" filename="E_GRINDCUTTE" loop="false" nodecount="2" xml="E_GRINDCUTTE.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_FULLMETALJACKET" filename="E_FULLMETALJACKET" loop="false" nodecount="2" xml="E_FULLMETALJACKET.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_NAPALMBULLET" filename="E_NAPALMBULLET" loop="false" nodecount="2" xml="E_NAPALMBULLET.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
-	<battle name="E_Mozambiquedrill" filename="E_Mozambiquedrill" loop="true" nodecount="2" xml="E_Mozambiquedrill.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
-	<battle name="E_RIP" filename="E_RIP" loop="true" nodecount="2" xml="E_RIP.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_Mozambiquedrill" filename="E_Mozambiquedrill" loop="false" nodecount="2" xml="E_Mozambiquedrill.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
+	<battle name="E_RIP" filename="E_RIP" loop="false" nodecount="2" xml="E_RIP.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_BloodyOverdrive" filename="E_BloodyOverdrive" loop="true" nodecount="2" xml="E_BloodyOverdrive.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_prevent_shield001" filename="E_shield001" loop="true" nodecount="2" xml="E_prevent_shield001.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="TRUE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>
 	<battle name="E_rapidfire" filename="E_rapidfire" loop="false" nodecount="2" xml="E_rapidfire.xml" paused="NO" is2D="FALSE" softParticleFactor="20" useReverse="0" preScale="1" useAttach="FALSE" preScaleXYZ="1.0/1.0/1.0" attachNodeName="None"/>

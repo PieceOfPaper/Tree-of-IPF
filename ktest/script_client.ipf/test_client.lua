@@ -115,3 +115,10 @@ function JOB_ABIL_LIST_CLIENT(jobClassName)
     file:write(headText, text, bottonText);
     io.close(file);
 end
+
+function TEST_SOUND_EFFECT_FADE_OUT()
+    local soundName = "piedpiper_1octave_do";
+    local actor = GetMyActor();
+    actor:GetEffect():SetSoundFadeOut(soundName);
+end
+

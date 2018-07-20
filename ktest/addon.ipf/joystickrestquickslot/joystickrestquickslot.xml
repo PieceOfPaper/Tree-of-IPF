@@ -8,7 +8,7 @@
     <option visible="false" hideable="false" closebutton="false"/>
     <input hittestframe="false"/>
     <animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
-    <script CloseScp="CLOSE_JOYSTICK_QUICKSLOT"/>
+    <script OpenScp="OPEN_JOYSTICK_REST_QUICKSLOT" CloseScp="CLOSE_JOYSTICK_REST_QUICKSLOT"/>
     <userconfig PADSLOT_ONSKIN="padslot_onskin" PADSLOT_OFFSKIN="padslot_offskin" SET_BUTTON_ONSKIN="padslot_onskin2" SET_BUTTON_OFFSKIN="padslot_offskin2"/>
     <controls>
         <picture name="rest_R2" rect="0 0 150 110" margin="280 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_R2"/>

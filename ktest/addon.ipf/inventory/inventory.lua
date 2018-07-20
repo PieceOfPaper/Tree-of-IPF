@@ -2120,6 +2120,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		end
 	end	
 
+	SET_SLOT_STYLESET(slot, itemobj)
 	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
 	
 	--아이템이 선택되었을 때의 스크립트를 선택한다
@@ -2520,7 +2521,8 @@ function INVENTORY_DELETE(itemIESID, itemType)
 		s_dropDeleteItemName = cls.Name;
 		local yesScp = string.format("EXEC_DELETE_ITEMDROP");
         local clmsg = ScpArgMsg('ReallyDestroy{ITEM}', 'ITEM', s_dropDeleteItemName);
-		ui.MsgBox(clmsg, yesScp, "None");
+	--	ui.MsgBox(clmsg, yesScp, "None");
+		WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, "None")
 	end
 	--end
 end
@@ -2529,7 +2531,8 @@ function CHECK_EXEC_DELETE_ITEMDROP(count)
 	s_dropDeleteItemCount = tonumber(count);
 	local yesScp = string.format("EXEC_DELETE_ITEMDROP");
     local clmsg = ScpArgMsg('ReallyDestroy{ITEM}{COUNT}', 'ITEM', s_dropDeleteItemName, 'COUNT', s_dropDeleteItemCount);
-	ui.MsgBox(clmsg, yesScp, "None");
+	--ui.MsgBox(clmsg, yesScp, "None");
+	WARNINGMSGBOX_FRAME_OPEN(clmsg, yesScp, "None")
 end
 
 function EXEC_DELETE_ITEMDROP()

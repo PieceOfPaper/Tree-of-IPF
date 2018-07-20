@@ -132,7 +132,8 @@ function REINFORCE_131014_MSGBOX(frame)
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
-    		ui.MsgBox(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    	--	ui.MsgBox(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    		WARNINGMSGBOX_FRAME_OPEN(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None")
     		return;
     	end
         	end
@@ -142,7 +143,8 @@ function REINFORCE_131014_MSGBOX(frame)
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
-    		ui.MsgBox(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    	--	ui.MsgBox(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
+    		WARNINGMSGBOX_FRAME_OPEN(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 5), "REINFORCE_131014_EXEC", "None")
     		return;
     	end
     end

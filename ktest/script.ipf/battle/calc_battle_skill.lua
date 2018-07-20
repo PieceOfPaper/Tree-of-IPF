@@ -145,6 +145,10 @@ function SCR_CALC_HATE_POINT(attacker, AddHatePoint, skill)
         skillHateRate = skillHateRate + addHateRateByPeltastaSkill;
     end
     
+    if IsBuffApplied(attacker, "Lycanthropy_Buff") == "YES" then
+    	skillHateRate = skillHateRate + 30
+    end
+    
     local cardHateRate = GetExProp(attacker, "CARD_HATE_RATE");
     if cardHateRate == nil then
         cardHateRate = 0;

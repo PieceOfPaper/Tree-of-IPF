@@ -308,8 +308,9 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 	-- for log T_T	
 	local appliedHairDiscount = false;
 	local appliedDyeDiscount = false;
-	local medalLog = 'BeautyShop';
 	local preHairName = etc.StartHairName;
+	local hairEngName = 'None';
+	local targetColorEngName = 'None';
 	for i = 1, #productList do
 		local info = productList[i];
 		if info.HairDiscountValue > 0 then
@@ -319,16 +320,10 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 			appliedDyeDiscount = true;
 		end
 
-		if info.IDSpace == 'Beauty_Shop_Hair' then
-			local itemCls = GetClass('Item', info.ClassName);			
-			if info.ColorClassName ~= 'None' then
-				medalLog = 'HairTotal';
-				if itemCls.StringArg == preHairName then
-					medalLog = 'HairDye';
-				end
-			else
-				medalLog = 'HairChange';
-			end
+		local itemObj = GetClass("Item", info.ClassName)
+		if itemObj == nil then
+			IMC_LOG("ERROR_LOGIC", "SCR_TX_BEAUTYSHOP_PURCHASE: item Obj nil - aid["..GetPcAIDStr(pc).."]");
+			return 
 		end
 	end
 
@@ -355,35 +350,40 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 		end
 	end
 
-	-- 구매 처리 TX	
-	local tx = TxBegin(pc);
-	local preDyeName = 'None';
-	TxAddIESProp(tx, aobj, "Medal", -totalPrice, medalLog);
-
-	if appliedHairDiscount == true then
-		TxTakeItemByObject(tx, hairCouponItem, 1, 'BeautyShop');
-	end
-
-	if appliedDyeDiscount == true then
-		TxTakeItemByObject(tx, dyeCouponItem, 1, 'BeautyShop');
-	end
-
-	local costumeItemGuid = nil;
+	-- 구매 처리 TX
+	local success = true;
 	for k,v in pairs(productList) do
-		local itemObj = GetClass("Item", v.ClassName)
-		if itemObj == nil then
-			IMC_LOG("ERROR_LOGIC", "SCR_TX_BEAUTYSHOP_PURCHASE: item Obj nil - aid["..GetPcAIDStr(pc).."]");
-			return 
+		local tx = TxBegin(pc);
+		local preDyeName = 'None';
+
+		if appliedHairDiscount == true then
+			TxTakeItemByObject(tx, hairCouponItem, 1, 'BeautyShop');
 		end
-		
+
+		if appliedDyeDiscount == true then
+			TxTakeItemByObject(tx, dyeCouponItem, 1, 'BeautyShop');
+		end
+
+		local costumeItemGuid = nil;
+		local medalLog = 'BeautyShop';
+		local cmdIdx = 0;
 		if v.IDSpace == "Beauty_Shop_Hair" then
-			local hairEngName =  itemObj.StringArg;
-			if v.ColorClassName ~= 'None' then
+			local itemCls = GetClass('Item', v.ClassName);
+			hairEngName = itemCls.StringArg;
+			if v.ColorClassName ~= 'None' then				
+				medalLog = 'HairTotal';
+				if itemCls.StringArg == preHairName then
+					medalLog = 'HairDye';
+				end
 				preDyeName = etc.StartHairColorName;
 				if preDyeName == 'None' then
 					preDyeName = 'default';
 				end
+				targetColorEngName = v.ColorEngName;
+			else				
+				medalLog = 'HairChange';
 			end
+
 			TxChangeDefaultHair(tx, hairEngName, v.ColorEngName, 1);
 
 			if IS_ALREADY_PURCHASED_HAIR(pc, v.ClassName, v.ColorEngName) == false then				
@@ -396,20 +396,36 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 		else
 			-- Beauty_Shop_Costume, Beauty_Shop_Lens, Beauty_Shop_Package_Cube Beauty_Shop_Wig
 			local itemCls = GetClass('Item', v.ClassName);			
-			local cmdIdx = TxGiveItem(tx, v.ClassName, 1, "BeautyShop");
+			cmdIdx = TxGiveItem(tx, v.ClassName, 1, "BeautyShop");
+
 			local classType = TryGetProp(itemCls, 'ClassType', 'None');
+			local giveItemGuid = TxGetGiveItemID(tx, cmdIdx);
 			if classType == 'Outer' then
-				costumeItemGuid = TxGetGiveItemID(tx, cmdIdx);
+				costumeItemGuid = giveItemGuid;
 			end
+			medalLog = medalLog..':'..itemCls.ClassID..':'..giveItemGuid;
+		end
+
+		local _productList = {};
+		_productList[1] = v;
+		local _price = GET_PRICE_INFO_BY_LIST(pc, _productList, hairCouponItem, dyeCouponItem);
+
+		TxAddIESProp(tx, aobj, "Medal", -_price, medalLog, cmdIdx, hairEngName, targetColorEngName);
+
+		local _stampCnt = GET_TOTAL_STAMP_COUNT(pc, _productList);
+		if _stampCnt > 0 then
+			TxAddBeautyShopStamp(tx, _stampCnt);
+		end
+		
+		local ret = TxCommit(tx);
+		if ret == "SUCCESS" then		
+			WRITE_BEAUTY_SHOP_LOG(pc, _productList, _stampCnt, preHairName, preDyeName, hairCouponItem, dyeCouponItem);
+		else
+			success = false;
 		end
 	end
 
-	if stampCnt > 0 then
-		TxAddBeautyShopStamp(tx, stampCnt);
-	end
-	
-	local ret = TxCommit(tx);
-	if ret == "SUCCESS" then		
+	if success == true then
 		InvalidateStates(pc); -- 이거해야 머리바뀜
 		AddBuff(pc, pc, 'BEAUTY_HAIR_BUY_BUFF'); -- tx 성공후 버프 걸어줌.
 
@@ -421,7 +437,6 @@ function SCR_TX_BEAUTYSHOP_PURCHASE(pc, idSpaceList, classNameList, colorClassNa
 			PlayPose(pc, poseCls.ClassID);
 		end
 
-		WRITE_BEAUTY_SHOP_LOG(pc, productList, stampCnt, preHairName, preDyeName, hairCouponItem, dyeCouponItem);
 		BEAUTYSHOP_EQUIP_DUMMY_ITEM_CLEAR(pc);
 	end
 

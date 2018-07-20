@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<Sound frame="4.00" Value="0" soundFile="voice_war_atk_medium"/>
 	<Particle frame="6" attachNode="Dummy_emitter" particleName="E_warrior_inferiorasalto" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
-	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_warrior_inferiorasalto_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="25" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_emitter_pet" particleName="F_warrior_inferiorasalto_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="25" pause="true" use2DEffect="false" targetPos="false"/>
 </ActionDesc>

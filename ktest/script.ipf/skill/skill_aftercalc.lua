@@ -1,4 +1,4 @@
-﻿-- skill_aftercalc.lua
+-- skill_aftercalc.lua
 -- CALC_FINAL_DAMAGE() -> SCR_SKILL_AFTERCALC_UPDATE(self, from, skill, atk, ret, rateTable, buff);
 
 function SCR_SKILL_AFTERCALC_HIT_Paladin_Smite(self, from, skill, atk, ret)
@@ -34,6 +34,16 @@ function SCR_SKILL_AFTERCALC_HIT_Musketeer_Snipe(self, from, skill, atk, ret)
 end
 
 function SCR_SKILL_AFTERCALC_HIT_Ranger_HighAnchoring(self, from, skill, atk, ret)
+    local abilRanger34 = GetAbility(from, "Ranger34");
+        if abilRanger34 ~= nil and TryGetProp(abilRanger34, "ActiveState") == 1 then
+        local skillList = {"Ranger_SpiralArrow", "Ranger_BounceShot", "Ranger_TimeBombArrow"}
+    	
+    	for i = 1, #skillList do
+    		local skill = GetSkill(from, skillList[i])
+    		AddCoolDown(from, skill.CoolDownGroup, -1000)
+    	end
+    end
+    
     local abil = GetAbility(from, 'Ranger31');
     if abil ~= nil then
         RunScript('ADD_BUFF_DELAY', self, from, 'HighAnchoring_Debuff', abil.Level, 0, 5000, 1, 200);
@@ -387,4 +397,16 @@ function SCR_SKILL_AFTERCALC_HIT_Dragoon_Dragontooth(self, from, skill, atk, ret
 	        ret.Damage = ret.Damage + math.floor(ret.Damage * 0.1);
 	    end
 	end
+end
+
+function SCR_SKILL_AFTERCALC_HIT_Fletcher_CrossFire(self, from, skill, atk, ret)
+    local Fletcher5_abil = GetAbility(from, 'Fletcher5');
+    if IsBuffApplied(self, "CrossFire_Debuff") == "NO" then
+        if Fletcher5_abil ~= nil then
+            local damage = ret.Damage * 0.2
+            if IMCRandom(0, 9999) < Fletcher5_abil.Level * 1000 then
+                AddBuff(from, self, 'CrossFire_Debuff', damage, 0, 6000, 0);
+            end
+        end
+    end
 end

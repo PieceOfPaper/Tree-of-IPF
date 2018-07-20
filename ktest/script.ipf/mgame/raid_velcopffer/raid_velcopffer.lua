@@ -391,7 +391,7 @@ function SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE(self)
 end
 
 function SCR_VELLCOFFER_SOUND_ENTER(self, pc)
-    PlayMusicQueueLocal(pc, "raid_velcoffer")
+    PlayMusicQueueLocal(pc, "boss_velcoffer")
 end
 
 

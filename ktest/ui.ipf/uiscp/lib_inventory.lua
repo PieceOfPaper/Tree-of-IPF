@@ -530,10 +530,22 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 	local iconImg = itemCls.Icon;
 		
 	-- costume icon is decided by PC's gender
-    if itemCls.ItemType == 'Equip' and (itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume') then    
-    	local tempiconname = string.sub(itemCls.Icon, string.len(itemCls.Icon) - 1 );
-    
-    	if tempiconname ~= "_m" and tempiconname ~= "_f" then
+    if itemCls.ItemType == 'Equip' and (itemCls.ClassType == 'Outer' or  itemCls.ClassType  == 'SpecialCostume') then
+    	local tempiconname =  ' ';
+    	local origin = itemCls.TooltipImage;
+    	local reverseIconName = origin:reverse();
+    	local underBarIndex = string.find(reverseIconName, '_');
+    	
+    	if underBarIndex ~= nil then
+            tempiconname = string.sub(reverseIconName, 0, underBarIndex-1);
+    		tempiconname = tempiconname:reverse();
+    	end
+
+        if tempiconname == "both" then
+                local bothIndex = string.find(origin, '_both');
+                iconImg = string.sub(itemCls.TooltipImage, 0, bothIndex - 1);
+
+    	elseif tempiconname ~= "m" and tempiconname ~= "f" then
     		if gender == nil then
     			gender = GETMYPCGENDER();
     		end

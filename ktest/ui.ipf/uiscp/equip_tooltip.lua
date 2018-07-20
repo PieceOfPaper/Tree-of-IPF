@@ -161,9 +161,21 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 				gender = compare:GetUserIValue('COMPARE_PC_GENDER');
 			end
 
-			local tempiconname = string.sub(invitem.TooltipImage,string.len(invitem.TooltipImage)-1);
+			local tempiconname = ''
+			local origin = invitem.TooltipImage;
+			local reverseIconName = origin:reverse();
 
-			if tempiconname ~= "_m" and tempiconname ~= "_f" then
+			local underBarIndex = string.find(reverseIconName, '_');
+			if underBarIndex ~= nil then
+                tempiconname = string.sub(reverseIconName, 0, underBarIndex-1);
+    			tempiconname = tempiconname:reverse();
+    		end
+			
+            if tempiconname == "both" then
+                local bothIndex = string.find(origin, '_both');
+                tooltipImg = string.sub(invitem.TooltipImage, 0, bothIndex - 1);
+        		itemPicture:SetImage(tooltipImg);
+			elseif tempiconname ~= "m" and tempiconname ~= "f" then
 				if gender == 1 then
         			tooltipImg = invitem.TooltipImage.."_m"
         			itemPicture:SetImage(tooltipImg);

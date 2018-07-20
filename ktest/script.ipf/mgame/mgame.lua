@@ -2453,6 +2453,14 @@ function MGAME_MON_KILL_COUNT_CALC(cmd)
 		local monKillpercent = math.floor(killMonCount / maxMonsterCount * 100);
 		-- ??기까?? ??시 구현 --
 		
+        -- 미니맵에 몬스터 표시(95% 이상)
+        if monKillpercent >= 95 and cmd:GetUserValue("MonRevealMiniMap") == 0 then
+            cmd:SetUserValue("MonRevealMiniMap", 1)
+            for i = 1, #aliveMonList do
+                EnableMonMinimap(aliveMonList[i], 1)
+            end
+        end
+        
 		cmd:SetUserValue("MonKillPercent", monKillpercent);
        
 		local isEnableRecordMonKillPercent = false;

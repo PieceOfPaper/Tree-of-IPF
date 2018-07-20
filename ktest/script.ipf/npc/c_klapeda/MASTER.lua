@@ -85,6 +85,10 @@ function SCR_RETIARII_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char1_18')
 end
 
+function SCR_PIED_PIPER_MASTER_NORMAL_1_PRE(pc)
+    return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char3_12')
+end
+
 --SWORDMAN ABILSHOP
 --function SCR_MASTER_SWORDMAN_NORMAL_1(self, pc)
 --   SCR_OPEN_ABILSHOP(pc, "ability_warrior");
@@ -190,6 +194,10 @@ function SCR_RETIARII_MASTER_NORMAL_2(self, pc)
     ShowTradeDlg(pc, 'RETIARII_MASTER', 5);
 end
 
+function SCR_PIED_PIPER_MASTER_NORMAL_1(self, pc)
+    SCR_OPEN_ABILSHOP(pc, 'Ability_PiedPiper')
+end
+
 --WIZARD CLASS
 function SCR_MASTER_WIZARD_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char2_1')
@@ -263,6 +271,19 @@ function SCR_MASTER_CHRONO_NORMAL_3_PRE(pc)
         end
     end
     return 'NO'
+end
+
+function SCR_MASTER_CHRONO_NORMAL_4_PRE(pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 100 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+        if sObj ~= nil then
+            if sObj.Step1 >= 10 then
+                return 'YES'
+            end
+        end
+    end
 end
 
 function SCR_JOB_NECRO4_NPC_NORMAL_1_PRE(pc)
@@ -405,6 +426,98 @@ function SCR_MASTER_CHRONO_NORMAL_3(self, pc)
     end
 end
 
+
+function SCR_MASTER_CHRONO_NORMAL_4(self,pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 100 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+        if sObj ~= nil then
+            if sObj.Step2 == 0 then
+                local item = GetInvItemCount(pc, "CHAR312_MSTEP1_ITEM2")
+                if item > 0 then
+                    local sel = ShowSelDlg(pc, 1, "CHAR312_MSTEP2_DLG1", ScpArgMsg("CHAR312_MSTEP2_TXT1"), ScpArgMsg("CHAR312_MSTEP2_TXT2"))
+                    if sel == 1 then
+                        local tx = TxBegin(pc)
+                        if GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM1") < 1 then
+                            TxGiveItem(tx,"CHAR312_MSTEP2_ITEM1", 1, 'Quest_HIDDEN_PIED_PIPER');
+                        end
+                        local ret = TxCommit(tx)
+                        if ret == "SUCCESS" then
+                            sObj.Step2 = 1
+                            SaveSessionObject(pc, sObj)
+                            ShowOkDlg(pc, "CHAR312_MSTEP2_DLG2", 1)
+                            sleep(500)
+                            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
+                        end
+                        return
+                    end
+                end
+            elseif sObj.Step2 == 1 then
+                local cnt1 = GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM2")
+                if cnt1 > 0 then
+                    local cnt2 = GetInvItemCount(pc, "CHAR312_MSTEP1_ITEM2")
+                    if cnt2 > 0 then
+                        ShowOkDlg(pc, "CHAR312_MSTEP2_DLG4", 1)
+                        sleep(500)
+                        PlayEffectLocal(self, pc, "F_light047_red", 0.8, 0, "TOP")
+                        sleep(2000)
+                        local tx = TxBegin(pc)
+                        if GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM3") < 1 then
+                            TxGiveItem(tx,"CHAR312_MSTEP2_ITEM3", 1, 'Quest_HIDDEN_PIED_PIPER');
+                        else
+                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP2_ITEM2", cnt1, "CHAR312_MSTEP2");
+                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM2", cnt2, "CHAR312_MSTEP2");
+                            local cnt3 = GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM1")
+                            if cnt3 > 0 then
+                                RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt3, "CHAR312_MSTEP2");
+                            end
+                            if sObj.Step2 ~= 10 then
+                                sObj.Step2 = 10
+                                SaveSessionObject(pc, sObj)
+                            end
+                            ShowOkDlg(pc, "CHAR312_MSTEP2_DLG4_1", 1)
+                            sleep(500)
+                            ShowBalloonText(pc, 'CHAR312_MSTEP2_DLG6', 7)
+                        end
+                        local ret = TxCommit(tx)
+                        if ret == "SUCCESS" then
+                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP2_ITEM2", cnt1, "CHAR312_MSTEP2");
+                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM2", cnt2, "CHAR312_MSTEP2");
+                            local cnt3 = GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM1")
+                            if cnt3 > 0 then
+                                RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP1_ITEM1", cnt3, "CHAR312_MSTEP2");
+                            end
+                            if sObj.Step2 ~= 10 then
+                                sObj.Step2 = 10
+                                SaveSessionObject(pc, sObj)
+                            end
+                            ShowOkDlg(pc, "CHAR312_MSTEP2_DLG4_1", 1)
+                            sleep(500)
+                            ShowBalloonText(pc, 'CHAR312_MSTEP2_DLG6', 7)
+                        end
+                    end
+                else
+                    ShowOkDlg(pc, "CHAR312_MSTEP2_DLG3", 1)
+                    sleep(500)
+                    SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("CHAR220_MSETP2_EFFECT_SET_MSG"), 10)
+                end
+            elseif sObj.Step2 == 10 then
+                if sObj.Step3 < 1 then
+                    local tx = TxBegin(pc)
+                    if GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM3") < 1 then
+                        TxGiveItem(tx,"CHAR312_MSTEP2_ITEM3", 1, 'Quest_HIDDEN_PIED_PIPER');
+                    end
+                    local ret = TxCommit(tx)
+                    ShowOkDlg(pc, "CHAR312_MSTEP2_DLG5", 1)
+                    sleep(500)
+                    ShowBalloonText(pc, 'CHAR312_MSTEP2_DLG6', 7)
+                end
+            end
+        end
+    end
+end
+
 function SCR_JOB_NECRO4_NPC_NORMAL_1(self, pc)
    SCR_OPEN_ABILSHOP(pc, "Ability_Necromancer");
 end
@@ -527,6 +640,10 @@ function SCR_MASTER_QU_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_QuarrelShooter");
 end
 
+function SCR_MASTER_QU_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_QuarrelShooter', 5);
+end
+
 function SCR_MASTER_RANGER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Ranger");
 end
@@ -633,8 +750,35 @@ function SCR_MASTER_PRIEST_NORMAL_4_PRE(pc)
 	return 'NO'
 end
 
+function SCR_MASTER_PRIEST_NORMAL_5_PRE(pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
+    if hidden_prop >= 60 and hidden_prop < 70 then
+        return 'YES'
+    end
+end
+
+function SCR_MASTER_PRIEST_NORMAL_6_PRE(pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 100 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+        if sObj ~= nil then
+            if sObj.Step2 >= 10 then
+                return 'YES'
+            end
+        end
+    end
+end
+
 function SCR_MASTER_KRIWI_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_3')
+end
+
+function SCR_MASTER_KRIWI_NORMAL_2_PRE(pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
+    if hidden_prop >= 10 and hidden_prop < 60 then
+        return 'YES'
+    end
 end
 
 function SCR_MASTER_BOCORS_NORMAL_1_PRE(pc)
@@ -664,6 +808,16 @@ function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_4_PRE(pc)
         if sObj.Step4 == 1 then
             return 'YES'
         end
+    end
+    return 'NO'
+end
+
+--EXORCIST
+function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_5_PRE(pc)
+    local sObj = GetSessionObject(pc, "SSN_NAKMUAY_UNLOCK")
+    local _hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20')
+    if _hidden_prop <= 133 then
+        return 'YES'
     end
     return 'NO'
 end
@@ -700,8 +854,19 @@ function SCR_INQUISITOR_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_16')
 end
 
+function SCR_INQUISITOR_MASTER_NORMAL_3_PRE(pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
+    if hidden_prop == 70 then
+        return "YES"
+    end
+end
+
 function SCR_ZEALOT_MASTER_NORMAL_1_PRE(pc)
     return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_19')
+end
+
+function SCR_EXORCIST_MASTER_NORMAL_1_PRE(pc)
+    return SCR_MASTER_PROPERTY_PRECHECK(pc, 'Char4_20')
 end
 
 --CLERIC CLASS
@@ -781,8 +946,119 @@ function SCR_MASTER_PRIEST_NORMAL_4(self,pc)
 	end
 end
 
-function SCR_MASTER_KRIWI_NORMAL_1(self,pc)
+function SCR_MASTER_PRIEST_NORMAL_5(self,pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
+    if hidden_prop == 60 then
+        if GetInvItemCount(pc, "R_CHAR4_20_STEP2_2") < 1 then
+            if GetInvItemCount(pc, "CHAR4_20_STEP2_2")< 1 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_2_DLG1")
+                RunScript("GIVE_ITEM_TX", pc, "R_CHAR4_20_STEP2_2", 1, "Quest_HIDDEN_EXORCIST")
+            else
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_2_DLG2")
+            end
+        else
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_2_DLG2")
+        end
+    elseif hidden_prop == 61 then
+        if GetInvItemCount(pc, "CHAR4_20_STEP2_2") <= 1 then
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_2_DLG3")
+            local hidden_item = {
+                                    "R_CHAR4_20_STEP2_2",
+                                    "CHAR4_20_STEP2_2"
+                                }
+            local tx = TxBegin(pc)
+            for i = 1, #hidden_item do
+                if GetInvItemCount(pc, hidden_item[i]) > 0 then
+                    TxTakeItem(tx, hidden_item[i], 1, 'Quest_HIDDEN_EXORCIST');
+                end
+            end
+            local ret = TxCommit(tx);
+            if ret == "SUCCESS" then
+                SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 70)
+            else
+        		if isLockState == 1 then
+        			SendSysMsg(pc, 'QuestItemIsLocked');
+        		end
+                print("tx FAIL!")
+            end
+        end
+    end
+end
+
+function SCR_MASTER_PRIEST_NORMAL_6(self,pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 100 then
+        local sObj = GetSessionObject(pc, "SSN_JOB_PIED_PIPER_UNLOCK")
+        if sObj ~= nil then
+            if sObj.Step3 == 0 then
+                local sel = ShowSelDlg(pc, 1, "CHAR312_MSTEP3_DLG1", ScpArgMsg("CHAR312_MSTEP3_MSG1"), ScpArgMsg("CHAR312_MSTEP3_MSG2"))
+                if sel == 1 then
+                    local item = GetInvItemCount(pc, "CHAR312_MSTEP2_ITEM3")
+                    if item > 0 then
+                        ShowOkDlg(pc, "CHAR312_MSTEP3_DLG2", 1)
+                        sleep(500)
+                        PlayEffectLocal(self, pc, "F_light047_red", 0.8, 0, "TOP")
+                        sleep(2000)
+                        local tx = TxBegin(pc)
+                        if GetInvItemCount(pc, "CHAR312_MSTEP3_ITEM") < 1 then
+                            TxGiveItem(tx,"CHAR312_MSTEP3_ITEM", 1, 'Quest_HIDDEN_PIED_PIPER');
+                        end
+                        local ret = TxCommit(tx)
+                        if ret == "SUCCESS" then
+                            RunScript('TAKE_ITEM_TX', pc, "CHAR312_MSTEP2_ITEM3", item, "CHAR312_MSTEP3");
+                            if sObj.Step3 ~= 10 then
+                                sObj.Step3 = 10
+                                SaveSessionObject(pc, sObj)
+                            end
+                            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 200)
+                            ShowOkDlg(pc, "CHAR312_MSTEP3_DLG3", 1)
+                            sleep(500)
+                            ShowBalloonText(pc, 'CHAR312_MSTEP3_DLG5', 7)
+                        end
+                    end
+                end
+            else
+                ShowOkDlg(pc, "CHAR312_MSTEP3_DLG4", 1)
+                sleep(500)
+                ShowBalloonText(pc, 'CHAR312_MSTEP3_DLG5', 7)
+            end
+        end
+    end
+end
+
+function SCR_MASTER_KRIWI_NORMAL_1(self, pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Kriwi");
+end
+
+function SCR_MASTER_KRIWI_NORMAL_3(self,pc)
+    ShowTradeDlg(pc, 'Master_Kriwi', 5);
+end
+
+--EXORCIST
+function SCR_MASTER_KRIWI_NORMAL_2(self,pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
+    local sObj = GetSessionObject(pc, "SSN_EXORCIST_UNLOCK")
+    if hidden_prop == 10 then
+        if GetInvItemCount(pc, "EXORCIST_MSTEP321_ITEM1") < 1 then
+            ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_1_DLG1")
+            RunScript("GIVE_ITEM_TX", pc, "EXORCIST_MSTEP321_ITEM1", 1, "Quest_HIDDEN_EXORCIST")
+        elseif GetInvItemCount(pc, "EXORCIST_MSTEP321_ITEM1") >= 1 then
+            if sObj.Goal11 + sObj.Goal12 + sObj.Goal13 + sObj.Goal14 + sObj.Goal15 < 5 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_1_DLG2")
+            elseif sObj.Goal11 + sObj.Goal12 + sObj.Goal13 + sObj.Goal14 + sObj.Goal15 >= 5 then
+                ShowOkDlg(pc, "EXORCIST_MASTER_STEP2_1_DLG3")
+                local tx = TxBegin(pc)
+                TxTakeItem(tx, "EXORCIST_MSTEP321_ITEM1", 1, 'Quest_HIDDEN_EXORCIST');
+                local ret = TxCommit(tx);
+                if ret == "SUCCESS" then
+                    SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 60)
+                else
+                    print("tx FAIL!")
+                end
+            end
+        end
+    end
 end
 
 function SCR_MASTER_BOCORS_NORMAL_1(self,pc)
@@ -846,12 +1122,39 @@ function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_4(self,pc)
 	end
 end
 
+--EXORCIST
+function SCR_JOB_DIEVDIRBYS2_NPC_NORMAL_5(self,pc)
+    if GetInvItemCount(pc, 'EXORCIST_MSTEP33_ITEM1') < 12 then
+        ShowOkDlg(pc, 'EXORCIST_MASTER_STEP33_DLG2', 1)
+        if SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20') < 132 then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 132)
+        end
+    else
+        ShowOkDlg(pc, 'EXORCIST_MASTER_STEP33_DLG3', 1)
+        UIOpenToPC(pc,'fullblack',1)
+        sleep(500)
+        UIOpenToPC(pc,'fullblack',0)
+        ShowOkDlg(pc, 'EXORCIST_MASTER_STEP33_DLG4', 1)
+        local tx1 = TxBegin(pc)
+        TxTakeItem(tx1, "EXORCIST_MSTEP33_ITEM1", GetInvItemCount(pc, 'EXORCIST_MSTEP33_ITEM1'), 'Quest_HIDDEN_EXORCIST');
+        TxGiveItem(tx1, "EXORCIST_MSTEP33_ITEM2", 1, 'Quest_HIDDEN_EXORCIST');
+        local ret = TxCommit(tx1);
+        if ret == "SUCCESS" then
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 133)
+        end
+    end
+end
+
 function SCR_JOB_SADU3_1_NPC_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Sadhu");
 end
 
 function SCR_GELE573_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Paladin");
+end
+
+function SCR_GELE573_MASTER_NORMAL_2(self,pc)
+    ShowTradeDlg(pc, 'Master_Paladin', 5);
 end
 
 function SCR_JOB_PARDONER4_1_NORMAL_1(self,pc)
@@ -888,6 +1191,20 @@ end
 
 function SCR_INQUISITOR_MASTER_NORMAL_2(self, pc)
     ShowTradeDlg(pc, 'Master_Inquisitor', 5);
+end
+
+function SCR_INQUISITOR_MASTER_NORMAL_3(self, pc)
+    local hidden_prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char4_20');
+    if hidden_prop == 70 then
+        local sel = ShowSelDlg(pc, 0, "CHAR4_20_STEP2_3_DLG1", ScpArgMsg("CHAR4_20_STEP2_3_SEL1"), ScpArgMsg("CHAR4_20_STEP2_3_SEL2"))
+        if sel == 1 then
+            ShowOkDlg(pc, "CHAR4_20_STEP2_3_DLG2", 1)
+            SCR_SET_HIDDEN_JOB_PROP(pc, 'Char4_20', 80);
+            SendAddOnMsg(pc, "NOTICE_Dm_Clear", ScpArgMsg("CHAR4_20_STEP2_3_MSG1"), 5)
+        else
+            ShowOkDlg(pc, "CHAR4_20_STEP2_3_DLG3", 1)
+        end
+    end
 end
 
 function MASTER_ORACLE_NORMAL_2_MEDAL_TAKE_TX(pc, aobj, count, sel)
@@ -1176,6 +1493,11 @@ end
 function SCR_ZEALOT_MASTER_NORMAL_1(self,pc)
     SCR_OPEN_ABILSHOP(pc, "Ability_Zealot");
 end
+
+function SCR_EXORCIST_MASTER_NORMAL_1(self,pc)
+    SCR_OPEN_ABILSHOP(pc, "Ability_Exorcist");
+end
+
 
 function SCR_OPEN_ABILSHOP(pc, shopName)
 
@@ -1693,4 +2015,42 @@ end
 
 function SCR_SIAULIAIOUT_ALCHE_A_NORMAL_6(self,pc)
     UIOpenToPC(pc, 'legenddecompose',1)
+end
+
+function SCR_MASTER_ORACLE_NORMAL_3_PRE(pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 30 then
+        return 'YES'
+    end
+end
+
+function SCR_MASTER_ORACLE_NORMAL_3(self, pc)
+    --PIED_PIPER_HIDDEN
+    local prop = SCR_GET_HIDDEN_JOB_PROP(pc, 'Char3_12')
+    if prop >= 30 then
+        if prop < 40 then
+            local select = ShowSelDlg(pc, 0, 'CHAR312_PRE_MSTEP3_ORACLE_DLG1', ScpArgMsg("CHAR312_PRE_MSTEP3_ORACLE_TXT1"), ScpArgMsg("CHAR312_PRE_MSTEP3_ORACLE_TXT2"))
+            if select == 1 then
+                local result = DOTIMEACTION_R(pc, ScpArgMsg("CHAR312_PRE_MSTEP3_ORACLE_TXT3"), 'TALK', 3)
+                if result == 1 then
+                    ShowOkDlg(pc, 'CHAR312_PRE_MSTEP3_ORACLE_DLG2', 1)
+                    local tx = TxBegin(pc)
+                    if GetInvItemCount(pc, "CHAR312_PRE_MSTEP_ITEM") < 1 then
+                        TxGiveItem(tx,"CHAR312_PRE_MSTEP_ITEM", 1, 'Quest_HIDDEN_PIED_PIPER');
+                    end
+                    if isHideNPC(pc, "PIED_PIPER_MASTER") == "YES" then
+                        TxUnHideNPC(tx, 'PIED_PIPER_MASTER')
+                    end
+                    local ret = TxCommit(tx)
+                    if ret == "SUCCESS" then
+                        SCR_SET_HIDDEN_JOB_PROP(pc, 'Char3_12', 40)
+                        ShowOkDlg(pc, "CHAR312_PRE_MSTEP3_ORACLE_DLG3", 1)
+                    end
+                end
+            end
+        else
+            ShowOkDlg(pc, "CHAR312_PRE_MSTEP3_ORACLE_DLG4", 1)
+        end
+    end
 end

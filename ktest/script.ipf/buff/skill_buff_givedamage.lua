@@ -143,13 +143,15 @@ function SCR_BUFF_GIVEDMG_Zhendu_Buff(self, buff, sklID, damage, target, ret)
         return 1;
     end
 
-    local ZhenduskillLv = GetBuffArgs(buff);
-    if ZhenduskillLv > 0 and GetRelation(self, target) == "ENEMY" then
-        AddBuff(self, target, 'Zhendu_Debuff', ZhenduskillLv, 0, 5000 + ZhenduskillLv * 2000, 1);
-        return 0;
+    if sklID < DEFAULT_SKILL_CLASSID then
+        local PoisonATK = GetExProp(buff, "PoisonDadak")
+        local key = GetSkillSyncKey(self, ret)
+        StartSyncPacket(self, key)
+        TakeDadak(self, target, "None", PoisonATK, 0.01 , "Poison", "Melee", "TrueDamage", HIT_POISON, HITRESULT_BLOW)
+        EndSyncPacket(self, key, 0)
     end
     
-    return 1;
+   return 1
 end
 
 

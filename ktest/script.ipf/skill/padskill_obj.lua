@@ -193,7 +193,7 @@ function PAD_TGT_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount
     if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
 		return
 	end
-
+    
 	local buff = nil;
 	if 1 == GetExProp(skl, "FromBuffSeller") then
 		local addtime = 0;
@@ -240,7 +240,7 @@ function PAD_TGT_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount
                 SetExProp(target, "Psychokino_Raise_startTime", now)
             end
         end
-
+        
 		buff = ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);
 		if tgtRelation == "PARTY" and IS_PC(self) == true and IS_PC(target) == true then
 			PartyBuffAdd(target, buffName)
@@ -251,6 +251,56 @@ function PAD_TGT_BUFF(self, skl, pad, target, tgtRelation, consumeLife, useCount
 
 	if buff ~= nil  then
 		CHECK_SHAREBUFF_BUFF(target, buff, lv, arg2, applyTime, over, rate);
+	end
+end
+
+function PAD_TGT_BUFF_HEAL(self, skl, pad, target, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate, saveHandle)
+    if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
+		return
+	end
+	
+	local abilCleric20 = GetAbility(self, "Cleric20");
+	local abilCleric21 = GetAbility(self, "Cleric21");
+	if abilCleric21 ~= nil and TryGetProp(abilCleric21, "ActiveState") == 1 then
+	    if IS_PC(target) == false and GetRelation(self, target) ~= "ENEMY" then
+	        return;
+	    end
+	end
+	
+	if abilCleric20 ~= nil and TryGetProp(abilCleric20, "ActiveState") == 1 then
+	    tgtRelation = "FRIEND"
+	end
+	
+    if IS_APPLY_RELATION(self, target, tgtRelation) then
+		if over == 0 and GetBuffByName(target, buffName) ~= nil then
+			return;
+		end
+
+		if 1 == saveHandle then
+			SetExArgObject(self, "SaveOwner", GetOwner(self));
+		end
+
+		-- Concurrent Use Count 사용하는 경우에 대한 처리
+		if CHECK_CONCURRENT_USE_COUNT(pad, buffName) == false then
+			return;
+		end
+        
+        if IS_PC(target) then
+            local remainingTime = GetPadLife(pad)        
+            if skl.ClassName == "Psychokino_Raise" then                
+                local now = toint(imcTime.GetAppTimeMS())
+                SetExProp(target, "Psychokino_Raise_remainingTime", remainingTime)
+                SetExProp(target, "Psychokino_Raise_startTime", now)
+            end
+        end
+        
+        AddPadActiveCount(pad, 1);
+		buff = ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);
+		if tgtRelation == "PARTY" and IS_PC(self) == true and IS_PC(target) == true then
+			PartyBuffAdd(target, buffName)
+		end	
+		AddPadLife(pad, consumeLife);        
+		AddPadUseCount(pad, useCount);
 	end
 end
 
@@ -303,25 +353,28 @@ function LEAVE_PAD_TGT_ABIL_BUFF(self, skl, pad, target, abilname, tgtRelation, 
 		return;
 	end
 	
-	if IS_APPLY_RELATION(self, target, tgtRelation) then
-		if over == 0 and GetBuffByName(target, buffName) ~= nil then
-			return;
-		end
-		
-		if skl.ClassName == "Sapper_Cover" and target.ClassName == "PC" then
-			return;
-		end
-	
-		if 1 == saveHandle then
-			SetExArgObject(self, "SaveOwner", GetOwner(self));
-		end
-		ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);
-		if tgtRelation == "PARTY" and IS_PC(self) == true and IS_PC(target) == true then
-			PartyBuffAdd(target, buffName)
-		end	
-		AddPadLife(pad, consumeLife);
-		AddPadUseCount(pad, useCount);
-	end
+	local padLifeTime = GetPadLife(pad);
+	if padLifeTime == 0 then
+    	if IS_APPLY_RELATION(self, target, tgtRelation) then
+    		if over == 0 and GetBuffByName(target, buffName) ~= nil then
+    			return;
+    		end
+    		
+    		if skl.ClassName == "Sapper_Cover" and target.ClassName == "PC" then
+    			return;
+    		end
+    	
+    		if 1 == saveHandle then
+    			SetExArgObject(self, "SaveOwner", GetOwner(self));
+    		end
+    		ADDPADBUFF(self, target, pad, buffName, lv, arg2, applyTime, over, rate);
+    		if tgtRelation == "PARTY" and IS_PC(self) == true and IS_PC(target) == true then
+    			PartyBuffAdd(target, buffName)
+    		end	
+    		AddPadLife(pad, consumeLife);
+    		AddPadUseCount(pad, useCount);
+    	end
+    end
 end
 
 
@@ -467,6 +520,28 @@ function PAD_TGT_DAMAGE_ABIL_OFF(self, skl, pad, target, tgtRelation, abilName, 
 	end
 end
 
+function PAD_TGT_SET_BUFFUPDATETIME_BY_ABIL(self, skl, pad, target, tgtRelation, buffName, updateTime, abilName, consumeLife, useCount)
+	if GetPadLife(pad) <= 0 or GetPadUseCount(pad) <= 0 then
+		return;
+	end
+	
+	local abil = GetAbility(self, abilName);
+	if abil ~= nil and TryGetProp(abil, "ActiveState") == 1 then
+		if IS_APPLY_RELATION(self, target, tgtRelation) then
+			local buffList = GetBuffList(target);
+			for i = 1, #buffList do
+			    local buff = buffList[i]
+			    if buff ~= nil then
+			        if buff.ClassName == buffName then
+			            SetBuffUpdateTime(buff, updateTime);
+                		AddPadLife(pad, consumeLife);
+                		AddPadUseCount(pad, useCount);
+			        end
+			    end
+			end
+		end
+	end
+end
 
 function PAD_TGT_BUFF_ONLYPC(self, skl, pad, target, tgtRelation, consumeLife, useCount, buffName, lv, arg2, applyTime, over, rate)
 
@@ -767,7 +842,7 @@ end
 
 function PAD_ACTIVATE(self, skl, pad, target, tgtRelation)
 	if IS_APPLY_RELATION(self, target, tgtRelation) then
-		AddPadActiveCount(pad, 1);
+	    AddPadActiveCount(pad, 1);
 	end
 end
 
