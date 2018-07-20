@@ -253,9 +253,9 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 					
 					if changeDirection ~= true or parentGBox:GetChild(gBoxName) == nil then
-				    
+						if index == '0' or index == '1' then
 							CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
-				
+						end
 					end
 				end
 			end

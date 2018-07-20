@@ -540,14 +540,23 @@ function SCR_Get_MHP(self)
         byItem = 0;
     end
     
+    local rewardProperty = GET_REWARD_PROPERTY(self, "MHP");
+    
+    local value = byLevel + byStat + byBonus + byItemRatio + byItem + rewardProperty;
+    
     local byBuff = TryGetProp(self, "MHP_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    local rewardProperty = GET_REWARD_PROPERTY(self, "MHP");
+    local byRateBuff = TryGetProp(self, "MHP_RATE_BM");
+    if byRateBuff == nil then
+        byRateBuff = 0;
+    end
     
-    local value = byLevel + byStat + byBonus + byItemRatio + byItem + byBuff + rewardProperty;
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
     
     if value < 1 then
         value = 1;
@@ -588,14 +597,23 @@ function SCR_Get_MSP(self)
         byItem = 0;
     end
     
+    local rewardProperty = GET_REWARD_PROPERTY(self, "MSP");
+    
+    local value = byLevel + byStat + byBonus + byItem + rewardProperty;
+    
     local byBuff = TryGetProp(self, "MSP_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    local rewardProperty = GET_REWARD_PROPERTY(self, "MSP");
+    local byRateBuff = TryGetProp(self, "MSP_RATE_BM");
+    if byRateBuff == nil then
+        byRateBuff = 0;
+    end
     
-    local value = byLevel + byStat + byBonus + byItem + byBuff + rewardProperty;
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
         value = 0;
@@ -1435,8 +1453,11 @@ function SCR_Get_CRTDEF(self)
 end
 
 function SCR_Get_RHP(self)
-    if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
-        return 0;
+    local buffKeywordList = { "Curse", "UnrecoverableHP" };
+    for i = 1, #buffKeywordList do
+        if GetBuffByProp(self, 'Keyword', buffKeywordList[i]) ~= nil then
+            return 0;
+        end
     end
     
     local jobObj = GetJobObject(self);
@@ -1504,7 +1525,7 @@ function SCR_GET_RHPTIME(self)
 end
 
 function SCR_Get_RSP(self)
-    local buffKeywordList = { "Curse", "Formation", "SpDrain" };
+    local buffKeywordList = { "Curse", "Formation", "SpDrain", "UnrecoverableSP" };
     for i = 1, #buffKeywordList do
         if GetBuffByProp(self, 'Keyword', buffKeywordList[i]) ~= nil then
             return 0;
@@ -2175,7 +2196,18 @@ function SCR_Get_Sta_RunStart(self)
 end
 
 function SCR_Get_Sta_Run(self)
-    local consumptionSTA = 50;
+    local consumptionSTA = 0;
+    
+    -- 기본 스태미너 소모량 --
+    local defaultConsumptionSTA = 50;
+    
+    -- 추가하는 스태미너 소모량 --
+    local addRateConsumptionSTA = 0.0;
+    
+    local byRateBuff = TryGetProp(self, 'MOVESTA_RATE_BM');
+    if byRateBuff == nil then
+        byRateBuff = 0;
+    end
     
     local isDashRun = TryGetProp(self, "DashRun");
     if isDashRun == nil then
@@ -2184,13 +2216,25 @@ function SCR_Get_Sta_Run(self)
     
     if isDashRun > 0 then
         local dashAmount = 500;
-        if isDashRun == 2 then
-            dashAmount = dashAmount * 0.9;  -- 인보 특성 있는 중에는 추가량 10% 감소
-        end
         consumptionSTA = consumptionSTA + dashAmount;
+        
+        if isDashRun == 2 then
+            addRateConsumptionSTA = addRateConsumptionSTA - 0.1;  -- 인보 특성 있는 중에는 추가량 10% 감소
+        end
+        
+        local byRateBuffDash = TryGetProp(self, 'DASHSTA_RATE_BM');
+        if byRateBuffDash == nil then
+            byRateBuffDash = 0;
+        end
+        
+        byRateBuff = byRateBuff + byRateBuffDash;
     end
     
     local value = (250 * consumptionSTA / 100);
+    
+    addRateConsumptionSTA = addRateConsumptionSTA + byRateBuff;
+    
+    value = value + (value * addRateConsumptionSTA);
     
     return math.floor(value);
 end
@@ -3133,9 +3177,9 @@ function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
 --    count = count + byAbil + byBuff + byToken;
 --    
 --    return count;
-	
-	-- 2017/9/13 --
-	return 999;
+    
+    -- 2017/9/13 --
+    return 999;
 end
 
 function GET_MAXHATE_COUNT(self)
@@ -3152,7 +3196,7 @@ function GET_MAXHATE_COUNT(self)
     local cls = GetClassByType('Map', mapID);
     if cls ~= nil then
         local defaultMaxHateCount = cls.MaxHateCount;
-		
+        
         if defaultMaxHateCount == nil then
             defaultMaxHateCount = 100;
         end
@@ -3163,7 +3207,7 @@ function GET_MAXHATE_COUNT(self)
         end
         
         local value = defaultMaxHateCount + byBuff;
-		
+        
         return math.floor(value);
     end
     

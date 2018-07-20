@@ -3,8 +3,9 @@
 <uiframe name="indun_reward" x="0" y="0" width="600" height="500">
 	<skin frameskin="test_pvp_skin"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<frame layout_gravity="center center" keyboardselectframe="false" margin="0 0 20 0"/>
+	<frame layout_gravity="left center" keyboardselectframe="false" margin="230 0 20 0"/>
 	<layer layerlevel="60"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<option hideable="false" closebutton="false" alwaysVisible="false" autoopen="false"/>
 	<sound opensound="window_open" closesound="window_close"/>
 	<userconfig DISABLE_REWARD_STYLE="{@st42}" ENABLE_REWARD_STYLE="{@st66d_y}"/>

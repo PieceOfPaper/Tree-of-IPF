@@ -70,6 +70,49 @@ function SCR_Get_SpendSP_Buff(skill)
     return math.floor(value);
 end
 
+function SCR_Get_SpendSP_HakkaPalle(skill)
+
+    local basicsp = skill.BasicSP;
+    local lv = skill.Level;
+    local addsp = skill.LvUpSpendSp;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+--  local value = basicsp + (lv - 1) * addsp + abilAddSP;
+    local value = basicsp + (lv - 1) * addsp
+    
+    local GHabil =  GetAbility(pc, 'Remain')
+    if GHabil ~= nil then 
+        value = value + (value * (GHabil.Level * 0.1))
+    end
+    
+    value = value + (value * abilAddSP);
+    
+    local hakkaPalleSkill = GetSkill(pc, "Hackapell_HakkaPalle")
+    if IsBuffApplied(pc, 'HakkaPalle_Buff') == 'YES' and skill.Job == 'Hackapell' then
+        value = value - (value * (hakkaPalleSkill.Level * 0.05))
+    end
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
+end
 
 function SCR_Get_SpendSP(skill)
 
@@ -212,6 +255,50 @@ function SCR_Get_SpendSP_Bow(skill)
     end
     
     return math.floor(value)
+end
+
+function SCR_Get_SpendSP_FanaticIllusion(skill)
+
+    local basicsp = 40;
+    local lv = skill.Level;
+    local lvUpSpendSp = 4;
+    local decsp = 0;
+    
+    if basicsp == 0 then
+        return 0;
+    end
+    
+    local pc = GetSkillOwner(skill);
+
+    local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
+    abilAddSP = abilAddSP / 100;
+    
+--  local value = basicsp + (lv - 1) * lvUpSpendSp + abilAddSP;
+    local value = basicsp + (lv - 1) * lvUpSpendSp;
+    
+    if IsBuffApplied(pc, 'Wizard_Wild_buff') == 'YES' then
+        value = value * 1.5 * spRatio;
+        return math.floor(value);
+    end
+    
+    if IsBuffApplied(pc, 'MalleusMaleficarum_Debuff') == 'YES' then
+        value = value * 2
+        return math.floor(value);
+    end    
+    
+    value = value + (value * abilAddSP);
+    
+    local zeminaLv = GetExProp(pc, "ZEMINA_BUFF_LV");
+    if zeminaLv > 0 then
+        decsp = 4 + (zeminaLv * 4);
+    end
+    value = value - decsp;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
 end
 
 function SCR_Get_SpendSP_DoublePunch(skill)
@@ -6229,18 +6316,6 @@ end
 
 function SCR_GET_HakkaPalle_BuffTime(skill)
     local value = 45
-    return value
-end
-
-function SCR_GET_HakkaPalle_Ratio(skill)
-    local value = 2 + skill.Level
-    
-    return value
-end
-
-function SCR_GET_HakkaPalle_Ratio2(skill)
-    local value = 10 + skill.Level * 2
-    
     return value
 end
 
@@ -15128,12 +15203,20 @@ function SCR_GET_HakkaPalle_BuffTime(skill)
 end
 
 function SCR_GET_HakkaPalle_Ratio(skill)
-    local value = 10
+    local value = 10 + skill.Level
+    
     return value;
 end
 
 function SCR_GET_HakkaPalle_Ratio2(skill)
     local value = 10 + skill.Level * 2
+    
+    return value
+end
+
+function SCR_GET_HakkaPalle_Ratio3(skill)
+    local value = skill.Level * 5
+    
     return value
 end
 
