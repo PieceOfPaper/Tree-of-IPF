@@ -32,7 +32,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 		elseif str =="abilityMax" then
 			local img = string.format("{img paid_immed_image %d %d}", 55, 45) 
 			prop:SetTextByKey("value", img..ClMsg(str)); 
-			txt = string.format("{img 2plus_image2 %d %d}", 100, 45) 
+			txt = string.format("", 100, 45) 
 		elseif str == "speedUp"then
 			local img = string.format("{img 3plus_image %d %d}", 55, 45) 
 			prop:SetTextByKey("value",img.. ClMsg(str)); 
@@ -43,7 +43,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 			txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
 		end
 
-		local value = ctrlSet:GetChild("value");
+		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		value:SetTextByKey("value", txt); 
 	end
 
@@ -51,7 +51,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	local prop = ctrlSet:GetChild("prop");
 	local imag = string.format(TOKEN_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
-	local value = ctrlSet:GetChild("value");
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	imag = string.format(TOKEN_GET_IMGNAME2(), 100, 45) 
 	value:SetTextByKey("value", imag); 
 	
@@ -59,7 +59,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
 	if itemobj.NumberArg2 > 0 then
 		local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_TOKEN_TRADECOUNT",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 		local prop = GET_CHILD(ctrlSet, "prop");
-		local value = GET_CHILD(ctrlSet, "value");
+		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
 
@@ -73,19 +73,33 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 7,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img paid_pose_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("CanGetMoneyByMarketImmediately")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img MarketLimitedRM_image %d %d}", 55, 45)
+    prop:SetTextByKey("value", imag..ClMsg("CanRegisterMarketRegradlessOfLimit")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	ADD_2PLUS_IMAGE(gBox)
 
-	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, true);
+	GBOX_AUTO_ALIGN(gBox, 0, 2, 0, true, false);
 
 	local arg1 = itemobj.NumberArg1;
 	if itemobj.ClassName == "PremiumToken" then
@@ -189,7 +203,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
         imag = string.format("{img 30percent_image %d %d}", 55, 45);
     end
 	prop:SetTextByKey("value", imag .. ClMsg("token_expup")); 
-	local value = ctrlSet:GetChild("value");
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
     	value:SetTextByKey("value", string.format("{img 150percent_image2 %d %d}", 100, 45) );
@@ -210,7 +224,7 @@ function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)
     	imag = string.format("{img 2multiply_image %d %d}", 55, 45) 
     end	
 	prop:SetTextByKey("value",imag .. ClMsg("token_staup")); 
-	local value = ctrlSet:GetChild("value");
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	local itemobj = GetIES(invItem:GetObject());
 	if itemobj.ClassName == "Premium_boostToken02" or itemobj.ClassName == "Premium_boostToken02_event01" or itemobj.ClassName == "Event_160908_6_14d" or itemobj.ClassName == "Premium_boostToken02_1d" then
     	value:SetTextByKey("value", string.format("{img 4plus_image2 %d %d}", 100, 45) );
@@ -287,7 +301,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	    prop:SetTextByKey("value", ClMsg('IndunRestText'));
 	end
 	
-	local value = ctrlSet:GetChild("value");
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	value:ShowWindow(0);
 	
 
@@ -339,7 +353,7 @@ function BEFORE_APPLIED_INDUNFREE_OPEN(invItem)
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
 	prop:SetTextByKey("value", ClMsg('IndunFreeTImeText'));
-	local value = ctrlSet:GetChild("value");
+	local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	value:ShowWindow(0);
 	
 

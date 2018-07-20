@@ -43,7 +43,7 @@ function SOCIAL_SELL_CTRL_SET(invIndex, itemType, itemCount)
 	local sellGbox	  = GET_CHILD(socialFrame, "sellGbox", "ui::CGroupBox");
 	local itemGbox	  = GET_CHILD(sellGbox, "sellItemGbox", "ui::CGroupBox");
 	
-	local searchCount = GET_CHILD_BYNAME(itemGbox, "sellItem_");
+	local searchCount = GET_CHILD_CNT_BYNAME(itemGbox, "sellItem_");
 	local yPos = searchCount * 70;
 	local sellItemCtrlSet = itemGbox:CreateOrGetControlSet("socialitemset_Type", "sellItem_"..searchCount, 5, 5+yPos);
 

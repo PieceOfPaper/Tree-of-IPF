@@ -432,7 +432,7 @@ function DROP_PET_EQUIP(parent, slot, str, num)
 		blongCnt = tonumber(blongProp);
 	end
 
-	if itemProp:IsExchangeable() == false or GetTradeLockByProperty(itemObj) ~= "None" or 0 <  blongCnt then
+	if itemProp:IsEnableUserTrade() == false or GetTradeLockByProperty(itemObj) ~= "None" or 0 <  blongCnt then
 		ui.SysMsg(ClMsg("CantEquipItem"));
 		return;
 	end

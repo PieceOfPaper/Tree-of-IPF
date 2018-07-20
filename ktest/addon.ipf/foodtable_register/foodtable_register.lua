@@ -1,8 +1,5 @@
 
 function FOODTABLE_REGISTER_ON_INIT(addon, frame)
-
-
-
 end
 
 function FOODTABLE_UI_CLOSE()
@@ -83,8 +80,30 @@ function _FOODTABLE_REG_EXEC()
 	local frame = ui.GetFrame("foodtable_register");
 	local skillName = frame:GetUserValue("SKILL_NAME");
 	local sklCls = GetClass("Skill", skillName);
-	control.CustomCommand("BUILD_FOODTABLE", sklCls.ClassID);	
-	frame:SetUserValue("SKILL_NAME", "");
-	frame:ShowWindow(0);	
+	local tableInfo = session.camp.GetCurrentTableInfo();
+    local shared = tableInfo:GetSharedFood();
+	local titleEdit = GET_CHILD_RECURSIVELY(frame, 'TitleInput');
+    local title = titleEdit:GetText();
+
+    session.camp.RequestBuildFoodTable(sklCls.ClassID, shared, title);
 end
 
+function OPEN_FOODTABLE_REGISTER(frame)
+	local optionBox = GET_CHILD_RECURSIVELY(frame, 'optionBox');
+	local ctrlSet = optionBox:CreateOrGetControlSet('food_check_party', "check_Party", 15 , 0);
+	local checkBox = GET_CHILD(ctrlSet, "check_party", "ui::CCheckBox");
+	local titleBox = ctrlSet:GetChild('gBox');
+
+	checkBox:SetCheck(0);
+	checkBox:ShowWindow(1);
+    FOODTABLE_CHECK_BOX(ctrlSet, checkBox);
+end
+
+function FOODTABLE_CHECK_BOX(parent, ctrl)
+	local tableInfo = session.camp.GetCurrentTableInfo();
+	local share = ctrl:IsChecked();
+	tableInfo:SetSharedFood(share);
+
+	local titleBox = GET_CHILD(parent, "gBox", "ui::CGroupBox");
+	titleBox:SetVisible(share);
+end

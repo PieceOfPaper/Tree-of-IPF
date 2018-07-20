@@ -462,11 +462,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 	gbox:EnableScrollBar(0);
 	local ctrlSet = gbox:CreateOrGetControlSet('worldmap_zone', "ZONE_CTRL_" .. mapCls.ClassID, ui.LEFT, ui.TOP, 0, 0, 0, 0);
 	ctrlSet:ShowWindow(1);
-	local text = ctrlSet:GetChild("text");
-	if mapName == mapCls.ClassName then
-		text:SetTextByKey("font", "{@st57}");
-	end
-			        
+        
 	local mainName = mapCls.MainName;
 	local mapLv = mapCls.QuestLevel
 	local nowGetTypeIES = SCR_GET_XML_IES('camp_warp','Zone', nowMapIES.ClassName)
@@ -489,10 +485,17 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 		warpGoddessIcon = '{img minimap_goddess 24 24}'
 	end
 	
+    local totalCtrlHeight = 0;
+    local maxCtrlWidth = 0;
 	local mapType = TryGetProp(mapCls, 'MapType');
 	local dungeonIcon = ''
     if mapType == 'Dungeon' then
 		dungeonIcon = '{img minimap_dungeon 30 30}'
+        local dungeonText = ctrlSet:CreateControl('richtext', 'dungeonText', 0, 0, 30, 30);
+        SET_WORLDMAP_RICHTEXT(dungeonText);
+        dungeonText:SetText(dungeonIcon);
+        totalCtrlHeight = totalCtrlHeight + dungeonText:GetHeight();
+        maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, dungeonText:GetWidth());
 	end
 	
 	local mapLvValue = mapLv
@@ -513,10 +516,15 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 		mapratebadge = "{img minimap_complete 24 24}"
 	end
 	
-	local mapNameFont = MAPNAME_FONT_CHECK(mapLvValue)
+	local mapNameFont = MAPNAME_FONT_CHECK(mapLvValue);
+    local text = ctrlSet:CreateControl('richtext', 'text', 0, 0, 30, 30);
+    SET_WORLDMAP_RICHTEXT(text);
+
+    local infoText = ctrlSet:CreateControl('richtext', 'infoText', 0, 0, 30, 30);
+    SET_WORLDMAP_RICHTEXT(infoText);
 
 	if mainName ~= "None" then
-		text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mainName..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{/}{nl}'..GET_STAR_TXT(20,mapCls.MapRank));
+		text:SetText(mapNameFont..mainName);
 	else
 		if mapName ~= mapCls.ClassName and nowMapWorldPos[1] == x and nowMapWorldPos[2] == y then
 			local nowmapLv = nowMapIES.QuestLevel
@@ -525,14 +533,30 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
         	else
         		nowmapLv = '{nl}Lv.'..nowmapLv
         	end
-			text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}'.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank))
+			text:SetText(mapNameFont..mapCls.Name);
+            totalCtrlHeight = totalCtrlHeight + text:GetHeight();
+            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, text:GetWidth());
+
+            infoText:SetText(warpGoddessIcon..questPossibleIcon..mapNameFont..mapLv..'{/}'..mapratebadge..'{nl}'..warpGoddessIcon_now..questPossibleIcon..'{@st57}'..nowMapIES.Name..nowmapLv..'{/}');            
+            totalCtrlHeight = totalCtrlHeight + infoText:GetHeight();
+            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, infoText:GetWidth());
 		else
-    		text:SetTextByKey("value", dungeonIcon..'{nl}'..mapNameFont..mapCls.Name..'{nl}'..warpGoddessIcon..questPossibleIcon..mapLv..mapratebadge.."{nl}"..GET_STAR_TXT(20,mapCls.MapRank));						
+    		text:SetText(mapNameFont..mapCls.Name);
+            totalCtrlHeight = totalCtrlHeight + text:GetHeight();
+            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, text:GetWidth());
+
+            infoText:SetText(warpGoddessIcon..questPossibleIcon..mapNameFont..mapLv..'{/}'..mapratebadge);
+            totalCtrlHeight = totalCtrlHeight + infoText:GetHeight();
+            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, infoText:GetWidth());
     	end
 	end
+
+    local starText = ctrlSet:CreateControl('richtext', 'starText', 0, 0, 30, 30);
+    SET_WORLDMAP_RICHTEXT(starText);
+    starText:SetText(GET_STAR_TXT(20,mapCls.MapRank));
+    totalCtrlHeight = totalCtrlHeight + starText:GetHeight();
+    maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, starText:GetWidth());
 					
---	local gbox_bg = ctrlSet:GetChild("gbox_bg");
---	gbox_bg:Resize(text:GetWidth() + 10, text:GetHeight() + 10);
 	ctrlSet:SetEventScript(ui.LBUTTONDOWN, "WORLDMAP_LBTNDOWN");
 	ctrlSet:SetEventScript(ui.LBUTTONUP, "WORLDMAP_LBTNUP");
 	ctrlSet:SetEventScript(ui.MOUSEWHEEL, "WORLDMAP_MOUSEWHEEL");
@@ -576,9 +600,33 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 
 		ui.AddBrushArea(brushX + ctrlSet:GetWidth() / 2, brushY + ctrlSet:GetHeight() / 2, ctrlSet:GetWidth() + WORLDMAP_ADD_SPACE);
 	end
-	 
-	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, false);
+	
+    GBOX_AUTO_ALIGN(ctrlSet, 0, 0, 0, true, false);
+	GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, false); 
+    
+    -- 사이즈를 최대한 fit하게 해야지
+    ctrlSet:Resize(maxCtrlWidth, totalCtrlHeight);
+    gbox:Resize(ctrlSet:GetWidth(), ctrlSet:GetHeight());
+    
+    -- 위치를 보정하자, picX, picY는 200, 120 기준으로 left top 앵커 포인트
+    local amendOffsetX = math.floor((200 - maxCtrlWidth) / 2);
+    local amendOffsetY = math.floor((120 - totalCtrlHeight) / 2);
+    gbox:SetOffset(picX + amendOffsetX, picY + amendOffsetY);
 
+end
+
+function SET_WORLDMAP_RICHTEXT(textCtrl)
+    textCtrl:SetGravity(ui.CENTER_HORZ, ui.TOP);
+    AUTO_CAST(textCtrl);
+    textCtrl:EnableResizeByText(1);
+    textCtrl:EnableHitTest(0);
+end
+
+function GET_MAX_WIDTH(currentWidth, nextWidth)
+    if currentWidth > nextWidth then
+        return currentWidth;
+    end
+    return nextWidth;
 end
 
 function WORLDMAP_SETOFFSET(frame, x, y)

@@ -106,7 +106,7 @@ function SET_CHILD_TEXT_BY_KEY(frame, childName, key, value)
 	end
 end
 
-function GET_CHILD_BYNAME(frame, searchname)
+function GET_CHILD_CNT_BYNAME(frame, searchname)
 	local searchCount = 0;
 	local cnt = frame:GetChildCount();
 	for  i = 0, cnt -1 do

@@ -88,10 +88,6 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		if itemObj.ClassID == 490000 or itemObj.ClassName:find('PremiumToken') then
-			 cashValue = 0;
-			 stralue = 0;
-		end
 		priceStr = string.format("{img icon_item_silver %d %d}%d[%d%%]", 20, 20, marketItem.sellPrice * marketItem.count * cashValue, stralue) 
 		local silverFee = ctrlSet:GetChild("silverFee");
 		silverFee:SetTextByKey("value", priceStr);
@@ -188,7 +184,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
+	if itemProp:IsEnableMarketTrade() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -422,7 +418,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
     	return;
 	end
 	if obj.ClassName == "PremiumToken" and iPrice > tonumber(TOKEN_MARKET_REG_MAX_PRICE) then
-    	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_TOKEN_MARKET_REG_MAX_PRICELIMIT_PRICE));
+    	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_MAX_PRICE));
     	return;
 	end
 
@@ -458,7 +454,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
+	if itemProp:IsEnableMarketTrade() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end

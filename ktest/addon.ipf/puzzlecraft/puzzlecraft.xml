@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="puzzlecraft" x="0" y="0" width="550" height="1920">
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
-    <skin frameskin=" "/>
-    <frame title="{@st43}아이템 제작{/}" layout_gravity="left top" margin="-550 0 0 0" fullheight="true" fasthide="true" open="pip"/>
-    <input moveable="false" maxwidth="1280"/>
-    <layer layerlevel="80"/>
-    <option closebutton="false"/>
-    <sound opensound="window_mohum_open" closesound="window_mohum_close"/>
-    <script OpenScp="PUZZLECRAFT_OPEN" CloseScp="PUZZLECRAFT_CLOSE"/>
-    <userconfig NormalSlot="slot_greengem" CombinationSlot="belt_slot" DisabledSlot="slot_yellowgem"/>
-    <controls>
-        <groupbox name="bg2" rect="0 0 550 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
-        <groupbox name="pipwin_top" rect="0 0 550 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
-        <richtext name="title" rect="0 0 100 30" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}마그눔 오푸스{/}"/>
-        <groupbox name="bg" rect="0 0 550 957" margin="0 60 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
-        <button name="close" rect="0 0 44 44" margin="0 12 12 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}아이템 제작을 닫습니다{/}"/>
-        <slotset name="slotset" parent="bg" rect="0 0 480  276" margin="1 73 0 0" layout_gravity="center top" DropScp="PUZZLECRAFT_DROP" RBtnUpScp="PUZZLECRAFT_SLOT_RBTN" col="8" cursoronresize="true" dropsound="icon_get_down" enableselect="false" hideindrag="true" maxselect="8" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" row="8" size="60 60" skin="slot" spc="0 0"/>
-        <button name="button_1" parent="bg" rect="0 0 200 50" margin="0 13 19 0" layout_gravity="right top" LBtnUpScp="PUZZLECRAFT_CLEAR_ALL_SLOT" caption="{@st41}전체 삭제" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn"/>
-        <richtext name="needlisttxt" parent="bg" rect="0 0 200 80" margin="21 28 0 0" layout_gravity="left top" caption="{@st41}연금 재료" textalign="left top"/>
-        <richtext name="richtext_1" parent="bg" rect="0 0 120 24" margin="37 692 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41}연금 대상 {@stx1}(%s 소요){/}" maxwidth="0" param1="value" param1_def="7:30" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-        <groupbox name="results" parent="bg" rect="0 0 509 136" margin="22 720 0 0" layout_gravity="left top" hittestbox="false" skin="test_frame_midle"/>
-        <button name="button_1_1" parent="bg" rect="0 0 200 55" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="PUZZLECRAFT_EXEC" caption="{@st41}조합" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_red_button"/>
-        <slotset name="slots" parent="results" rect="0 0 477 314" margin="0 -1 0 0" layout_gravity="center center" col="0" cursoronresize="true" dropsound="icon_get_down" enableselect="true" hideindrag="true" maxselect="8" movepop="false" picksound="icon_pick_up" row="2" size="55 55" skin="none" spc="5 5"/>
-    </controls>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="{@st43}아이템 제작{/}" layout_gravity="left top" margin="-550 0 0 0" fullheight="true" fasthide="true" open="pip"/>
+	<input moveable="false" maxwidth="1280"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_mohum_open" closesound="window_mohum_close"/>
+	<script OpenScp="PUZZLECRAFT_OPEN" CloseScp="PUZZLECRAFT_CLOSE"/>
+	<userconfig NormalSlot="slot_greengem" CombinationSlot="belt_slot" DisabledSlot="slot_yellowgem"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 550 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 550 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}마그눔 오푸스{/}"/>
+		<groupbox name="bg" rect="0 0 550 957" margin="0 60 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<button name="close" rect="0 0 44 44" margin="0 12 12 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}아이템 제작을 닫습니다{/}"/>
+		<slotset name="slotset" parent="bg" rect="0 0 480  276" margin="1 73 0 0" layout_gravity="center top" DropScp="PUZZLECRAFT_DROP" RBtnUpScp="PUZZLECRAFT_SLOT_RBTN" col="8" cursoronresize="true" dropsound="icon_get_down" enableselect="false" hideindrag="true" maxselect="8" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" row="8" size="60 60" skin="slot" spc="0 0"/>
+		<button name="button_1" parent="bg" rect="0 0 200 50" margin="0 13 19 0" layout_gravity="right top" LBtnUpScp="PUZZLECRAFT_CLEAR_ALL_SLOT" caption="{@st41}전체 삭제" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn"/>
+		<richtext name="needlisttxt" parent="bg" rect="0 0 200 80" margin="21 28 0 0" layout_gravity="left top" caption="{@st41}연금 재료" textalign="left top"/>
+		<richtext name="richtext_1" parent="bg" rect="0 0 120 24" margin="37 692 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41}연금 대상 {@stx1}(%s 소요){/}" maxwidth="0" param1="value" param1_def="0:00" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="results" parent="bg" rect="0 0 509 136" margin="22 720 0 0" layout_gravity="left top" hittestbox="false" skin="test_frame_midle"/>
+		<button name="button_1_1" parent="bg" rect="0 0 200 55" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="PUZZLECRAFT_EXEC" caption="{@st41}조합" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<slotset name="slots" parent="results" rect="0 0 477 314" margin="0 -1 0 0" layout_gravity="center center" col="0" cursoronresize="true" dropsound="icon_get_down" enableselect="true" hideindrag="true" maxselect="8" movepop="false" picksound="icon_pick_up" row="2" size="55 55" skin="none" spc="5 5"/>
+	</controls>
 </uiframe>

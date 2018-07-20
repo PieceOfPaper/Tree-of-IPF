@@ -3,7 +3,6 @@ function QUIT_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('PC_MACRO_UPDATE', 'QUIT_UPDATE_MACROLIST');
  	
 	addon:RegisterMsg("RULLET_LIST", "ON_RULLET_LIST");
-	addon:RegisterMsg("UI_INFO_GET", "ON_UI_INFO_GET");
 	addon:RegisterMsg("OPEN_DLG_WAREHOUSE", "ON_OPEN_WAREHOUSE");
 		
 		
@@ -144,34 +143,6 @@ function NEW_PC_MACRO(frame)
 
 end
 
-
---[[
-class UI_FRAME_INFO
-{
-	int		groupID;
-	int		uiindex;
-	int		x;
-	int		y;
-	int		width;
-	int		height;
-	const char * title;
-	int		numArg1;
-	int		numArg2;
-};
-
-]]
-
-
-function ON_UI_INFO_GET(frame)
-	local cnt = session.GetUIInfoCount();
-	for i = 0 , cnt - 1 do
-		local info = session.GetUIInfoByIndex(i);
-		if info ~= nil then
-			print(info.groupID .. " " .. info.uiindex .. " " .. info.title);		
-		end	
-	end	
-
-end
 
 function DDDD1D(handle)
 

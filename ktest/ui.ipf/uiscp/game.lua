@@ -3732,10 +3732,6 @@ function SHOW_RIGHTBASE_UI()
 
 end
 
-function CHATFRAMESET_CLOSE(frame)
-	ui.CloseChatFrame(frame:GetName());
-end
-
 function CHATFRAME_LEFTPIC_LBTNUP(frame, ctrl, argStr, argNum)
 	tolua.cast(frame, "ui::CChatFrame");
 	local pageIndex = frame:GetPageIndex();

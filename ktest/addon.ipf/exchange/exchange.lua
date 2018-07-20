@@ -176,7 +176,7 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 	end
 
 	local itemProp = geItemTable.GetPropByName(obj.ClassName);
-	if itemProp:IsExchangeable() == false then
+	if itemProp:IsEnableUserTrade() == false then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return;
 	end
@@ -229,7 +229,13 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 		else
 			ui.AlarmMsg("ItemOverCount"); -- 등록수가 소비개수보다 큼
 		end
-	end
+	else
+        local noTrade = TryGetProp(obj, "BelongingCount");
+        if 0 < noTrade then
+            ui.SysMsg(ClMsg("ItemIsNotTradable"));	
+            return;
+        end
+    end
 
 	exchange.SendOfferItem(tostring(item:GetIESID()), 1);				
 end

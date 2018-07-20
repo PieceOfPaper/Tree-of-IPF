@@ -125,7 +125,7 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 		QUEST_PARTY_MEMBER_PROP_UPDATE(questinfo2frame)
 		useineedparty:SetEnable(1)
 
-		--ÆÄÆ¼º¸½º ¼ÒÈ¯°ü·ÃÇØ¼­ ³²¾ÆÀÖÀ¸¸é Áö¿öº¸ÀÚ.
+		--íŒŒí‹°ë³´ìŠ¤ ì†Œí™˜ê´€ë ¨í•´ì„œ ë‚¨ì•„ìˆìœ¼ë©´ ì§€ì›Œë³´ì.
 		session.minimap.RemoveIconInfo("PartyQuest_FieldBossRaid");
 
 		return;
@@ -136,6 +136,7 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 	end
 
 	local partyInfo = pcparty.info;
+    local partyID = partyInfo:GetPartyID();
 
 	local memberIndex = 0;
 	local count = list:Count();
@@ -144,12 +145,12 @@ function ON_PARTY_UPDATE(frame, msg, str, num)
 		local partyMemberInfo = list:Element(i);
 		local ret = nil;
 		local iconinfo = partyMemberInfo:GetIconInfo();		
-		-- Á¢¼ÓÁß ÆÄÆ¼¿ø
+		-- ì ‘ì†ì¤‘ íŒŒí‹°ì›
 		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
-			ret = SET_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true);
-		-- Á¢¼Ó¾ÈÇÑ ÆÄÆ¼¿ø
+			ret = SET_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true, partyID);
+		-- ì ‘ì†ì•ˆí•œ íŒŒí‹°ì›
 		else
-			ret = SET_LOGOUT_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true);
+			ret = SET_LOGOUT_PARTYINFO_ITEM(memberlist, msg, partyMemberInfo, memberIndex, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, true, partyID);
 		end
 		if ret ~= nil then
 			memberIndex = memberIndex + 1;
@@ -223,7 +224,7 @@ function CREATE_PARTY_BTN(control)
 end
 
 function HIDE_PARTY_CREATE_BTN()
-	local partyframe = ui.GetFrame('party') -- ÀÏ´Ü ¹öÆ°À» ¾ø¿¡°í ³ªÁß¿¡ ¾÷µ¥ÀÌÆ®
+	local partyframe = ui.GetFrame('party') -- ì¼ë‹¨ ë²„íŠ¼ì„ ì—†ì—ê³  ë‚˜ì¤‘ì— ì—…ë°ì´íŠ¸
 	local createPartyBtn = GET_CHILD_RECURSIVELY(partyframe, 'createPartyBtn', 'ui::CButton')
 	createPartyBtn:ShowWindow(0)
 end
@@ -386,7 +387,7 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 	isPrivate_checkbox:SetEnable(isLeader)
 
 
-	-- ÆÄÆ¼¸ÅÄ¡ ¿É¼Ç ¼³Á¤ °ü·Ã ÄÚµå
+	-- íŒŒí‹°ë§¤ì¹˜ ì˜µì…˜ ì„¤ì • ê´€ë ¨ ì½”ë“œ
 	local usePartyMatch = partyObj["UsePartyMatch"];
 	local isUseMemberRecommend_checkbox = GET_CHILD_RECURSIVELY(frame,"isUseMemberRecommend")
 	if usePartyMatch == 1 then
@@ -456,7 +457,7 @@ function ON_PARTY_PROPERTY_UPDATE(frame, msg, str, num)
 	end
 
 	PM_ETC_checkbox:SetEnable(isLeader)
-	-- ÆÄÆ¼¸ÅÄ¡ °ü·Ã ÄÚµå ³¡
+	-- íŒŒí‹°ë§¤ì¹˜ ê´€ë ¨ ì½”ë“œ ë
 
 end
 
@@ -758,7 +759,7 @@ function UPDATE_PARTY_TICKET(frame, msg, propName, propValue)
 			end
 
 		elseif cls.ViewProp ~= "None" then
-			--ÀÌ ¹Ø¿¡´Â ±¸¹öÀü È£È¯¿ë ÀÔ´Ï´Ù. °¹¼ö°¡ ¸¹¾ÆÁö¸é µû·Î °ü¸®ÇÏ°Ô ²û ÇØºÁ¾ßÇÔ.
+			--ì´ ë°‘ì—ëŠ” êµ¬ë²„ì „ í˜¸í™˜ìš© ì…ë‹ˆë‹¤. ê°¯ìˆ˜ê°€ ë§ì•„ì§€ë©´ ë”°ë¡œ ê´€ë¦¬í•˜ê²Œ ë” í•´ë´ì•¼í•¨.
 			if cls.ClassName == "FieldBossRaid" then
 				if partyObj.FieldBossSummon == 1 then
 					local ctrlSet = quest_gbox:CreateControlSet("party_ticket", cls.ClassName, ui.LEFT, ui.TOP, 0, 0, 0, 0);
@@ -905,7 +906,7 @@ function ACCEPT_PARTY_EVENT(parent, ctrl)
 	end
 	
 	--local desc = GET_CHILD(parent, "desc");
-	--desc:SetTextByKey("value", "¹Ì¼Ç½ÃÀÛ?");
+	--desc:SetTextByKey("value", "ë¯¸ì…˜ì‹œì‘?");
 	--parent:GetChild("btn_start"):ShowWindow(0);
 end
 
@@ -1078,7 +1079,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 			useineedparty_checkbox:SetCheck(1)
 		end
 
-		-- 001 : Äù½ºÆ® / 010 : ´Ú»ç / 100 : ÆÄÆ¼ÀÌº¥Æ®
+		-- 001 : í€˜ìŠ¤íŠ¸ / 010 : ë‹¥ì‚¬ / 100 : íŒŒí‹°ì´ë²¤íŠ¸
 		if math.floor(myplaystyle % 10) == 1 then
 			playstyle_quest_checkbox:SetCheck(1)
 		else
@@ -1105,7 +1106,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 			need_lv_minmax_edit:SetEnable(1)
 		end
 
-		-- 0001 : ¼Òµå¸Ç / 0010 : À§ÀÚµå / 0100 : ¾ÆÃ³ / 1000 : Å¬·¹¸¯
+		-- 0001 : ì†Œë“œë§¨ / 0010 : ìœ„ìë“œ / 0100 : ì•„ì²˜ / 1000 : í´ë ˆë¦­
 		if math.floor(myneedctrltype % 10) == 1 then
 			inp_classlimite_war_checkbox:SetCheck(1)
 		else
@@ -1142,7 +1143,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 			SET_I_NEED_PARTY()
 		end
 
-	elseif pcparty ~= nil and isLeader == 0 then -- ¸®´õ ¾Æ´Ñ ÀÏ¹İ ÆÄÆ¼¿øÀÌ¶ó¸é ¸®´õÀÇ ¼³Á¤ µû¶ó°¨
+	elseif pcparty ~= nil and isLeader == 0 then -- ë¦¬ë” ì•„ë‹Œ ì¼ë°˜ íŒŒí‹°ì›ì´ë¼ë©´ ë¦¬ë”ì˜ ì„¤ì • ë”°ë¼ê°
 	
 		local partyObj = GetIES(pcparty:GetObject());
 
@@ -1167,7 +1168,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 		local calcresult={}
 		local i = 0
 	
-		while num > 0 do -- 2Áø¼ö º¯È¯. ¼³¸¶ ºñÆ®¿¬»êÀÌ ¾ÈµÉ ÁÙÀÌ¾ß,,
+		while num > 0 do -- 2ì§„ìˆ˜ ë³€í™˜. ì„¤ë§ˆ ë¹„íŠ¸ì—°ì‚°ì´ ì•ˆë  ì¤„ì´ì•¼,,
 		
 			calcresult[i] = num%2
 			num = math.floor(num/2)
@@ -1177,22 +1178,22 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 			end
 		end
 
-		if calcresult[0] == 1 then -- Àü»ç
+		if calcresult[0] == 1 then -- ì „ì‚¬
 			inp_classlimite_war_checkbox:SetCheck(1)
 		else
 			inp_classlimite_war_checkbox:SetCheck(0)
 		end
-		if calcresult[1] == 1 then -- ¹ı»ç
+		if calcresult[1] == 1 then -- ë²•ì‚¬
 			inp_classlimite_wiz_checkbox:SetCheck(1)
 		else
 			inp_classlimite_wiz_checkbox:SetCheck(0)
 		end
-		if calcresult[2] == 1 then -- ±Ã¼ö
+		if calcresult[2] == 1 then -- ê¶ìˆ˜
 			inp_classlimite_arc_checkbox:SetCheck(1)
 		else
 			inp_classlimite_arc_checkbox:SetCheck(0)
 		end
-		if calcresult[3] == 1 then -- ¼ºÁ÷ÀÚ
+		if calcresult[3] == 1 then -- ì„±ì§ì
 			inp_classlimite_cle_checkbox:SetCheck(1)
 		else
 			inp_classlimite_cle_checkbox:SetCheck(0)
@@ -1253,7 +1254,7 @@ function UPDATE_I_NEED_PARTY(frame, msg, str, num)
 
 end
 
--- ÆÄÆ¼¿ø Ã£±â ±â´É
+-- íŒŒí‹°ì› ì°¾ê¸° ê¸°ëŠ¥
 function SET_I_NEED_PARTY()
 
 	local pcparty = session.party.GetPartyInfo();
@@ -1280,7 +1281,7 @@ function SET_I_NEED_PARTY()
 
 	local playstyle = 0
 
-	-- 001 : Äù½ºÆ® / 010 : ´Ú»ç / 100 : ÆÄÆ¼ÀÌº¥Æ®
+	-- 001 : í€˜ìŠ¤íŠ¸ / 010 : ë‹¥ì‚¬ / 100 : íŒŒí‹°ì´ë²¤íŠ¸
 	if playstyle_quest_checkbox:IsChecked() == 1 then
 		playstyle = playstyle + 1
 	end
@@ -1295,7 +1296,7 @@ function SET_I_NEED_PARTY()
 
 	if uselevellimit_checkbox:IsChecked() == 1 then
 		need_lv_minmax_edit:SetEnable(0)	
-		levellimit = -1 -- Á¦ÇÑ¾øÀ½
+		levellimit = -1 -- ì œí•œì—†ìŒ
 	else
 		need_lv_minmax_edit:SetEnable(1)	
 		levellimit = tonumber(need_lv_minmax_edit:GetText());
@@ -1304,7 +1305,7 @@ function SET_I_NEED_PARTY()
 
 	local needtype = 0
 	
-	-- 0001 : ¼Òµå¸Ç / 0010 : À§ÀÚµå / 0100 : ¾ÆÃ³ / 1000 : Å¬·¹¸¯
+	-- 0001 : ì†Œë“œë§¨ / 0010 : ìœ„ìë“œ / 0100 : ì•„ì²˜ / 1000 : í´ë ˆë¦­
 	if inp_classlimite_war_checkbox:IsChecked() == 1 then
 		needtype = needtype + 1
 	end
@@ -1318,7 +1319,7 @@ function SET_I_NEED_PARTY()
 		needtype = needtype + 1000
 	end
 
-	if pcparty == nil then -- ÆÄÆ¼ ¼ÓÇØÀÖÁö ¾Ê´Ù¸é ±×³É Àû¿ë
+	if pcparty == nil then -- íŒŒí‹° ì†í•´ìˆì§€ ì•Šë‹¤ë©´ ê·¸ëƒ¥ ì ìš©
 
 		config.ChangeXMLConfig("UseINeedParty",tostring(useineedparty))
 		local temp = config.GetXMLConfig("UseINeedParty")
@@ -1341,7 +1342,7 @@ function SET_I_NEED_PARTY()
 			isLeader = 1;
 		end
 
-		if isLeader == 1 then -- ¸®´õ¶ó¸é ineedparty¿Í ÆÄÆ¼ ÇÁ·ÎÆÛÆ¼ µ¿½Ã Àû¿ë. ¾Æ´Ï¸é ÇÒÀÏ ¾ø´Ù.
+		if isLeader == 1 then -- ë¦¬ë”ë¼ë©´ ineedpartyì™€ íŒŒí‹° í”„ë¡œí¼í‹° ë™ì‹œ ì ìš©. ì•„ë‹ˆë©´ í• ì¼ ì—†ë‹¤.
 
 			config.ChangeXMLConfig("UseINeedParty",tostring(useineedparty))
 			local temp = config.GetXMLConfig("UseINeedParty")
@@ -1357,7 +1358,7 @@ function SET_I_NEED_PARTY()
 
 			party.ReqINeepParty(requseineedparty, playstyle, levellimit, needtype)	
 
-			-- ÆÄÆ¼ ÇÁ·ÎÆÛÆ¼
+			-- íŒŒí‹° í”„ë¡œí¼í‹°
 			local war_val = "0"
 			local wiz_val = "0"
 			local arc_val = "0"
@@ -1381,7 +1382,7 @@ function SET_I_NEED_PARTY()
 
 			party.ReqChangeProperty(PARTY_NORMAL, "RecruitClassType", calcvalue);
 
-			-- ·¹º§
+			-- ë ˆë²¨
 			if levellimit == -1 then
 				party.ReqChangeProperty(PARTY_NORMAL, "UseLevelLimit", 0);
 			else

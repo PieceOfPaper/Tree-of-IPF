@@ -103,7 +103,34 @@ function UPDATE_MONB(handle)
 	local frame= ui.GetFrame("monb_"..handle);	
 	if frame ~= nil then
 		UPDATE_MONB_HP(frame, handle);
-	end			
+	end
+	if #ZONENAME_LIST == 0 then
+	    local mapClassCount = GetClassCount('Map')
+	    for i = 0 , mapClassCount-1 do
+	        local zoneLv = GetClassNumberByIndex('Map', i, 'QuestLevel')
+	        local preOpen = GetClassStringByIndex('Map', i, 'WorldMapPreOpen')
+	        local zoneType = GetClassStringByIndex('Map', i, 'MapType')
+	        if zoneLv > 0 and preOpen == 'YES' and (zoneType == 'Field' or zoneType == 'Dungeon') then
+                ZONENAME_LIST[#ZONENAME_LIST + 1] = GetClassStringByIndex('Map', i, 'Name')
+                ZONENAME_LIST_LV[#ZONENAME_LIST_LV + 1] = zoneLv
+            end
+        end
+	end
+	if #ZONENAME_LIST > 0 and handle ~= nil and world ~= nil and world.GetActor(handle) ~= nil then
+	    local npcName = world.GetActor(handle):GetName()
+	    local findTableIndex = table.find(ZONENAME_LIST, npcName)
+	    if findTableIndex > 0 then
+	        local npcNameText = frame:GetChild("name"):GetText()
+	        local npcNameTextTable = SCR_STRING_CUT(npcNameText,'}')
+	        if npcNameTextTable[#npcNameTextTable] == npcName then
+    	        local zoneLv = ZONENAME_LIST_LV[findTableIndex]
+    	        if zoneLv > 0 then
+        	        local changeName = string.gsub(npcNameText, npcName, npcName..'['..ScpArgMsg("Level")..':'..zoneLv..']')
+        	        frame:GetChild("name"):SetText(changeName)
+        	    end
+        	end
+	    end
+	end
 end
 
 function SHOW_MONB_TARGET(handle, duration)

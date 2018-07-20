@@ -7,6 +7,12 @@ function ON_REFRESH_ITEM_TOOLTIP()
 	if wholeitem ~= nil then
 		wholeitem:RefreshTooltip();
 	end
+
+    local wholeitem_link = ui.GetFrame("wholeitem_link")
+	tolua.cast(wholeitem_link, "ui::CTooltipFrame");
+	if wholeitem_link ~= nil then
+		wholeitem_link:RefreshTooltip();
+	end
 end
 
 function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)
@@ -19,6 +25,10 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		isReadObj = 0;
 	else
 		itemObj, isReadObj = GET_TOOLTIP_ITEM_OBJECT(strarg, numarg2, numarg1);	
+	end
+    
+	if itemObj == nil then
+		return;
 	end
 
 	if nil ~= itemObj and itemObj.GroupName == "Unused" then
@@ -309,7 +319,7 @@ function ITEMTOOLTIPFRAME_RESIZE(tooltipframe)
 	local childCnt = tooltipframe:GetChildCount();
 	for i = 0 , childCnt - 1 do
 		local chld = tooltipframe:GetChildByIndex(i);
-		chld:SetOffset(chld:GetX() - min_x, chld:GetY() - min_y)
+		    chld:SetOffset(chld:GetX() - min_x, chld:GetY() - min_y)
 	end
 
 	tooltipframe:Resize(max_x-min_x, max_y-min_y);
@@ -320,14 +330,14 @@ end
 function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
     
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-    if itemProp:IsTradable() == false then
+    if itemProp:IsEnableShopTrade() == false then
         return yPos
     end
     
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_sellinfo');
 
-	if ui.IsFrameVisible("shop") == 0 and invitem.SellPrice ~= 0 and itemProp:IsTradable() == true then
+	if ui.IsFrameVisible("shop") == 0 and invitem.SellPrice ~= 0 and itemProp:IsEnableShopTrade() == true then
 		return yPos
 	end
 	
@@ -348,7 +358,7 @@ end
 function DRAW_REMAIN_LIFE_TIME(tooltipframe, invitem, yPos, mainframename)
 	
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-    if itemProp:IsTradable() == false and itemProp.LifeTime == 0 then
+    if itemProp:IsEnableShopTrade() == false and itemProp.LifeTime == 0 then
         return yPos
     end
     
@@ -528,11 +538,6 @@ function SET_ITEM_TOOLTIP_TYPE(prop, itemID, itemCls, tooltipType)
 		prop:SetTooltipType('wholeitem');
 	end	
 	
-end
-
-function GET_ITEM_TOOLTIP_TYPE(itemID, itemCls)
-
-	return 'wholeitem'
 end
 
 function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)

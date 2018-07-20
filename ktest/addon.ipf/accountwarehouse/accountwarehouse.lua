@@ -31,7 +31,6 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 end
 
 function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame)
-
 	local obj = GetIES(invItem:GetObject());
 	
 	if CHECK_EMPTYSLOT(frame, obj) == 1 then
@@ -46,6 +45,12 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 	local itemCls = GetClassByType("Item", invItem.type);
 	if itemCls.ItemType == 'Quest' then
 		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"));
+		return;
+	end
+
+	local enableTeamTrade = TryGetProp(itemCls, "TeamTrade");
+	if enableTeamTrade ~= nil and enableTeamTrade == "NO" then
+		ui.SysMsg(ClMsg("ItemIsNotTradable"));	
 		return;
 	end
 	

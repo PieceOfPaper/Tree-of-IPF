@@ -15,7 +15,7 @@ function APPS_LOSTFOCUS_SCP(frame, ctrl, argStr, argNum)
 	ui.CloseFrame("apps");
 	
 	--[[
-	¸Þ´º °è¼Ó È°¼ºÈ­ µÇ¾îÀÖµµ·Ï ÇØ¼­ ÁÖ¼®Ã³¸®
+	ï¿½Þ´ï¿½ ï¿½ï¿½ï¿½ È°ï¿½ï¿½È­ ï¿½Ç¾ï¿½ï¿½Öµï¿½ï¿½ï¿½ ï¿½Ø¼ï¿½ ï¿½Ö¼ï¿½Ã³ï¿½ï¿½
 	local sysmenuFrame = ui.GetFrame("sysmenu");
 	if 1 == sysmenuFrame:GetUserIValue("DISABLE_L_FOCUS") then
 		return;
@@ -25,15 +25,29 @@ function APPS_LOSTFOCUS_SCP(frame, ctrl, argStr, argNum)
 	sysmenuFrame:StartEffect(ui.UI_TEMP0);
 	]]
 end
+function APPS_TRY_LEAVE(type)
+    local alertFrame = ui.GetFrame('expireditem_alert');
+    local nearFutureSec = alertFrame:GetUserConfig("NearFutureSec");
+    if nearFutureSec ~= nil and nearFutureSec ~= "None" then
+        if 1 == EnableExpiredItemAlert() then
+            local list = GET_SCHEDULED_TO_EXPIRED_ITEM_LIST(nearFutureSec);
+            if list ~= nil and #list > 0 then
+                addon.BroadMsg("EXPIREDITEM_ALERT_OPEN", type, 0);
+               return;
+            end
+        end
+    end
+    RUN_GAMEEXIT_TIMER(type)
+end
 
 function APPS_TRY_MOVE_BARRACK()
-	RUN_GAMEEXIT_TIMER("Barrack");
+    APPS_TRY_LEAVE("Barrack");
 end
 
 function APPS_TRY_LOGOUT()
-	RUN_GAMEEXIT_TIMER("Logout");
+    APPS_TRY_LEAVE("Logout");
 end
 
 function APPS_TRY_EXIT()
-	RUN_GAMEEXIT_TIMER("Exit");
+    APPS_TRY_LEAVE("Exit");
 end

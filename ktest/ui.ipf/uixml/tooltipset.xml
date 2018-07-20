@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <tooltipset>
 	<tooltip name="partyinfotooltipNormal" x="0" y="0" fixwidth="false" width="412" height="370" moveable="true" frameskin="partylist_tooltip_skin" blendtime="" UpdateScp="PARTY_INFO_UPDATE_TOOLTIP_NORMAL">
 		<controls>
@@ -102,7 +102,7 @@
 			<groupbox name="equip_sub_addinfo" margin="0 0 0 0" rect="0 0 410 0" skin="test_Item_tooltip_equip_sub" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="bosscard" margin="820 0 0 0" rect="0 0 370 0" skin="testbosscard_tooltip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="gem" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
-      <groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
+			<groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
 		</controls>
 	</tooltip>
 	<tooltip name="journal_mon_item_sub" x="0" y="0" fixwidth="true" width="400" height="80" moveable="true" skin="" UpdateScp="UPDATE_JOURNAL_ITEM_SUB">
@@ -125,7 +125,7 @@
 			<groupbox name="equip_sub_addinfo" margin="0 0 0 0" rect="0 0 410 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="bosscard" margin="820 0 0 0" rect="0 0 370 0" skin="testbosscard_tooltip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="gem" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
-      <groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
+			<groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
 			<button name="closebtn" image="testclose_button" margin="825 5 0 0" rect="0 0 44 44" layout_gravity="left top" caption="" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="CLOSE_LINK_TOOLTIP"/>
 		</controls>
 	</tooltip>
@@ -281,9 +281,9 @@
 			<richtext name="remaintime" margin="179 154 0 0" rect="0 0 190 136" format="{@st42}남은 시간 : %s" param1="text" param1_def="18:20" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</tooltip>
-  <tooltip name="worldmap" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_WORLDMAP_TOOLTIP" skin="socket_gem_titlebar_baseskin">
-    <controls/>
-  </tooltip>
+	<tooltip name="worldmap" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_WORLDMAP_TOOLTIP" skin="socket_gem_titlebar_baseskin">
+		<controls/>
+	</tooltip>
 	<tooltip name="indun_tooltip" x="0" y="0" width="512" height="512" frameskin="none" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_INDUN_TOOLTIP" skin="socket_gem_titlebar_baseskin">
 		<controls/>
 	</tooltip>
@@ -300,6 +300,8 @@
 			<richtext name="richtext_1" margin="9 10 0 0" rect="0 0 120 24" format="{@st42}%s 혜택적용{/}" param1="value" param1_def="혜택" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="marketSellCom" margin="10 70 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="marketUpMax" margin="10 95 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="marketFastGet" margin="10 95 0 0" rect="0 0 120 24" format="마켓 판매금 즉시 수령" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="marketMinMax" margin="10 95 0 0" rect="0 0 120 24" format="마켓 상/하한가 관계없이 물품 등록 가능" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="abilityMax" margin="10 45 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="speedUp" margin="10 120 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="token_expup" margin="10 145 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

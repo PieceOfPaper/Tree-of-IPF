@@ -70,7 +70,7 @@ function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	local bossCls = GetClassByType('Monster', cls.NumberArg1);
 	local typeRichtext = GET_CHILD(CSet, "type_text");
 	typeRichtext:SetText(ScpArgMsg(bossCls.RaceType));
-
+    
 	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- �� �Ʒ��� ����
 	CSet:Resize(CSet:GetWidth(), 0);
 	CSet:Resize(CSet:GetWidth(),typeRichtext:GetY() + typeRichtext:GetHeight() + BOTTOM_MARGIN);

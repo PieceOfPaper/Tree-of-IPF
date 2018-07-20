@@ -6170,6 +6170,7 @@
         <Key Name="TRACK_AUTO_COMPLETE_LAST_TIME" Value="100386"/>
         <Key Name="EV_DAILYBOX1" Value="100393"/>
         <Key Name="MG_Last_MISSION_PRISON_EVENT2" Value="100392"/>
+        <Key Name="LowPCHighLvZoneEnterMsgCount" Value="100401"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -13752,6 +13753,14 @@
         <Key Name="MoveToGuildAgit" Value="100398"/>
         <Key Name="BeforeGuildAgitPosZ" Value="100399"/>
         <Key Name="StartFemaleHairType" Value="100400"/>
+        <Key Name="EquipCardBelongingCount_Slot1" Value="100402"/>
+        <Key Name="EquipCardBelongingCount_Slot2" Value="100403"/>
+        <Key Name="EquipCardBelongingCount_Slot3" Value="100404"/>
+        <Key Name="EquipCardBelongingCount_Slot4" Value="100405"/>
+        <Key Name="EquipCardBelongingCount_Slot5" Value="100406"/>
+        <Key Name="EquipCardBelongingCount_Slot6" Value="100407"/>
+        <Key Name="EquipCardBelongingCount_Slot7" Value="100408"/>
+        <Key Name="EquipCardBelongingCount_Slot8" Value="100409"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Account">
         <Key Name="BarrackLayer1_11" Value="32276"/>
@@ -13889,6 +13898,9 @@
         <Key Name="EV170216_REWARD_COUNT" Value="100389"/>
         <Key Name="EVENT_VALEN_R1" Value="100390"/>
         <Key Name="EVENT_VALEN_R2" Value="100391"/>
+        <Key Name="TESTSERVER_DAY_REWARD_DATE" Value="100424"/>
+        <Key Name="EVENT_WHITE_R1" Value="100422"/>
+        <Key Name="EVENT_WHITE_R2" Value="100423"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="BattleField_Map" Value="30"/>
@@ -14600,6 +14612,18 @@
         <Key Name="LifeTime_Limitcheck" Value="100131"/>
         <Key Name="CardLevel" Value="100130"/>
         <Key Name="GemLevel" Value="100129"/>
+        <Key Name="Socket_GemBelongingCount_0" Value="100410"/>
+        <Key Name="Socket_GemBelongingCount_1" Value="100411"/>
+        <Key Name="Socket_GemBelongingCount_2" Value="100412"/>
+        <Key Name="Socket_GemBelongingCount_3" Value="100413"/>
+        <Key Name="Socket_GemBelongingCount_4" Value="100414"/>
+        <Key Name="Socket_GemBelongingCount_6" Value="100415"/>
+        <Key Name="Socket_GemBelongingCount_7" Value="100416"/>
+        <Key Name="Socket_GemBelongingCount_8" Value="100417"/>
+        <Key Name="Socket_GemBelongingCount_9" Value="100418"/>
+        <Key Name="Socket_GemBelongingCount_5" Value="100419"/>
+        <Key Name="TeamTrade" Value="100420"/>
+        <Key Name="MarketTrade" Value="100421"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="ReadyMoveFileName" Value="6742"/>

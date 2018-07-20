@@ -78,21 +78,12 @@ function DRAW_HETHRAN_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	noTrade_cnt:SetTextByKey('count', noTradeCount);
 
 	local itemProp = geItemTable.GetPropByName(invitem.ClassName);
-	if itemProp ~= nil then
-		if itemProp:IsExchangeable() == true then
-			tradeText = ScpArgMsg("UserTradeAble")
-		else
-			tradeText = ScpArgMsg("UserTradeUnable")
-			if nil ~= noTrade_cnt then
-				noTrade_cnt:ShowWindow(0);
-			end
-		end
-	else
+   	tradeText = GET_ENABLE_TRADE_MSG(itemProp);
+	if itemProp == nil or itemProp:IsEnableUserTrade() ~= true then
 		if nil ~= noTrade_cnt then
 			noTrade_cnt:ShowWindow(0);
 		end
-	end
-
+    end
 	trade_richtext:SetText(tradeText);
 
 	-- 아이템 종류 세팅

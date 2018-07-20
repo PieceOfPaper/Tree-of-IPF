@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
-<uitile name="chattypelist" x="0" y="0" width="66" height="144">
+<uitile name="chattypelist" x="0" y="0" width="66" height="180">
 	<frame margin="0 0 0 0" layout_gravity="center bottom"/>
 	<draw drawnotitlebar="false" drawframe="false" drawtitlebar="false"/>
 	<skin frameskin="None"/>
@@ -13,5 +13,6 @@
 		<button name="button_type2" rect="0 0 66 36" margin="0 36 0 0" caption="2" layout_gravity="left top" LBtnUpScp="CHAT_TYPE_SELECTION" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_kind" oversound="button_cursor_over_2"/>
 		<button name="button_type3" rect="0 0 66 36" margin="0 72 0 0" caption="3" layout_gravity="left top" LBtnUpScp="CHAT_TYPE_SELECTION" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_kind" oversound="button_cursor_over_2"/>
 		<button name="button_type4" rect="0 0 66 36" margin="0 108 0 0 " caption="4" layout_gravity="left top" LBtnUpScp="CHAT_TYPE_SELECTION" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_kind" oversound="button_cursor_over_2"/>
+    <button name="button_type5" rect="0 0 66 36" margin="0 144 0 0 " caption="5" layout_gravity="left top" LBtnUpScp="CHAT_TYPE_SELECTION" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="button_chat_kind" oversound="button_cursor_over_2"/>
 	</controls>
 </uitile>

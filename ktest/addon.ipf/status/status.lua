@@ -102,7 +102,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 				txt = string.format("{img 9plus_image2 %d %d}", 100, 45) 
 			end
 
-			local value = ctrlSet:GetChild("value");
+			local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 			if str =="abilityMax" then
 				value:ShowWindow(0);
 			else
@@ -117,7 +117,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 	local prop = ctrlSet:GetChild("prop");
     local imag = string.format(STATUS_OVERRIDE_GET_IMGNAME1(), 55, 45) 
 	prop:SetTextByKey("value", imag.. ScpArgMsg("Token_ExpUp{PER}", "PER", " ")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 	imag = string.format(STATUS_OVERRIDE_GET_IMGNAME2(), 100, 45) 
     value:SetTextByKey("value", imag);
 
@@ -131,7 +131,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
 		local img = string.format("{img dealok_image %d %d}", 55, 45) 
 		prop:SetTextByKey("value", img .. ScpArgMsg("AllowTradeByCount"));
 
-		local value = ctrlSet:GetChild("value");
+		local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
 		img = string.format("{img dealok30_image2 %d %d}", 100, 45) 
 		value:SetTextByKey("value", img);
 	end
@@ -140,14 +140,28 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img 1plus_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("CanGetMoreBuff")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
     prop:SetTextByKey("value", imag..ClMsg("AllowPremiumPose")); 
-    local value = ctrlSet:GetChild("value");
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img paid_pose_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("CanGetMoneyByMarketImmediately")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+    value:ShowWindow(0);
+
+	local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local prop = ctrlSet:GetChild("prop");
+    local imag = string.format("{img MarketLimitedRM_image %d %d}", 55, 45) 
+    prop:SetTextByKey("value", imag..ClMsg("CanRegisterMarketRegradlessOfLimit")); 
+    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
 	STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)

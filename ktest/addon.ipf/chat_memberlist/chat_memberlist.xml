@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="chat_memberlist" x="0" y="0" width="200" height="180" create="open">
+    <skin frameskin="test_frame_low"/>
+    <frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <layer layerlevel="79"/>
+    <input moveable="true"/>
+    <option closebutton="false" hideable="true" useimageitem="true"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script OpenScp="CHAT_MEMBERLIST_OPEN"/>
+    <controls>      
+      <groupbox name="mainbox" margin="0 0 0 0" rect="0 0 250 200" scrollbar="true" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false"/>
+    </controls>
+</uiframe>

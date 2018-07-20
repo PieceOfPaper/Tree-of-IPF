@@ -249,7 +249,7 @@ function MAKE_ABILITYSHOP_ICON(frame, pc, grid, abilClass, groupClass, posY)
 	local isMax = IS_ABILITY_MAX(pc, groupClass, abilClass);	
 	local onlyShowLearnable = GET_CHILD_RECURSIVELY(frame,"onlyShowLearnable")
 
-	-- 배울 ???�는 ?�성�??�시
+	-- 배울 ????는 ??성????시
 	if onlyShowLearnable:IsChecked() == 1 then
 	
 		if isMax == 1 and runCnt + 1 > maxCount then
@@ -610,7 +610,7 @@ function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
 	end
 	
   if (GetServerNation() == "KOR" and GetServerGroupID() == 9001) then --큐폴 서버
-    price = price - (price * 0.5)
+    price = price - (price * 0.8)
   end
   
 	price = math.floor(price);

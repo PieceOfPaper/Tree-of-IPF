@@ -26,6 +26,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('APPRAISER_FORGERY', 'INVENTORY_ON_APPRAISER_FORGERY');
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
+	addon:RegisterMsg('TOGGLE_EQUIP_ITEM_TOOLTIP_DESC', 'ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC');
 	
 	SLOTSET_NAMELIST = {};
 	GROUP_NAMELIST = {};
@@ -1085,6 +1086,15 @@ function SEARCH_ITEM_INVENTORY_KEY()
 	frame:ReserveScript("SEARCH_ITEM_INVENTORY", 0.3, 1);
 end
 
+function REMOVE_ITEM_INVENTORY()
+    local list = GET_EXPIRED_ITEM_LIST();
+    if list ~= nil and #list > 0 then
+        addon.BroadMsg("EXPIREDITEM_REMOVE_OPEN", "", 0);
+    else
+        ui.SysMsg(ScpArgMsg("NoTimeExpiredItem"));
+    end
+end
+
 function SEARCH_ITEM_INVENTORY(a,b,c)
 	local frame = ui.GetFrame('inventory')
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
@@ -1461,7 +1471,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
-		if itemProp:IsTradable() == true then
+		if itemProp:IsEnableShopTrade() == true then
 				if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
 					if keyboard.IsPressed(KEY_SHIFT) == 1 then
 						local sellableCount = invitem.count;
@@ -1608,7 +1618,7 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local slot		    = slotSet:GetSlotByIndex(argNum-1);
 	
 	local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
-	if itemProp:IsTradable() == true then
+	if itemProp:IsEnableShopTrade() == true then
 		if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
 			-- 상점 Sell Slot으로 다 넘긴다.
 			SHOP_SELL(invitem, invitem.count, frame);
@@ -1993,13 +2003,16 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	if customFunc ~= nil then
 		customFunc(slot, scriptArg, invItem, itemobj);
 	end
-	
+    
 	if itemobj.GroupName == 'Quest' then		
 		slot:SetFrontImage('quest_indi_icon');
 	elseif invItem.isLockState == true then
 		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", -5, slot:GetWidth() - 35);
 	elseif true == IS_TEMP_LOCK(frame, invItem) then
 		slot:SetFrontImage('item_Lock');
+    elseif invItem.hasLifeTime == true  then
+        ICON_SET_ITEM_REMAIN_LIFETIME(icon)
+        slot:SetFrontImage('clock_inven');
 	elseif invItem.isNew == true  then
 		slot:SetHeaderImage('new_inventory_icon');
 	else

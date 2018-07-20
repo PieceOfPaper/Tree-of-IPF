@@ -1059,15 +1059,15 @@
 			<img name="bottomright" imgrect="469 812 17 13"/>
 		</skin>
 		<skin name="chat_window_2" texture="\skin\HUD.tga">
-			<img name="topleft" imgrect="767 315 50 26"/>
-			<img name="topcore" imgrect="818 315 88 26"/>
-			<img name="topright" imgrect="907 315 50 26"/>
-			<img name="bodyleft" imgrect="767 341 50 1"/>
-			<img name="bodycore" imgrect="818 341 88 1"/>
-			<img name="bodyright" imgrect="907 341 50 1"/>
-			<img name="bottomleft" imgrect="767 341 50 1"/>
-			<img name="bottomcore" imgrect="818 341 88 1"/>
-			<img name="bottomright" imgrect="907 341 50 1"/>
+			<img name="topleft" imgrect="767 315 50 5"/>
+			<img name="topcore" imgrect="818 315 88 5"/>
+			<img name="topright" imgrect="907 315 50 5"/>
+			<img name="bodyleft" imgrect="767 320 50 16"/>
+			<img name="bodycore" imgrect="818 320 88 16"/>
+			<img name="bodyright" imgrect="907 320 50 16"/>
+			<img name="bottomleft" imgrect="767 336 50 5"/>
+			<img name="bottomcore" imgrect="818 336 88 5"/>
+			<img name="bottomright" imgrect="907 336 50 5"/>
 		</skin>
 		<skin name="chat_win_Emoticons" texture="\skin\HUD.tga">
 			<img name="topleft" imgrect="581 296 25 60"/>
@@ -2183,6 +2183,39 @@
 			<img name="bottomright" imgrect="96 48 35 5"/>
 		</skin>
 		<skin name="chat_tab_btn_clicked" texture="\skin\chat_skin.tga">
+			<img name="topleft" imgrect="48 54 32 5"/>
+			<img name="topcore" imgrect="81 54 14 5"/>
+			<img name="topright" imgrect="96 54 35 5"/>
+			<img name="bodyleft" imgrect="48 60 32 14"/>
+			<img name="bodycore" imgrect="81 60 14 14"/>
+			<img name="bodyright" imgrect="96 60 35 14"/>
+			<img name="bottomleft" imgrect="48 75 32 5"/>
+			<img name="bottomcore" imgrect="81 75 14 5"/>
+			<img name="bottomright" imgrect="96 75 35 5"/>
+		</skin>
+		<skin name="chat_tab_btn2" texture="\skin\chat_skin.tga">
+			<img name="topleft" imgrect="48 27 32 5"/>
+			<img name="topcore" imgrect="81 27 14 5"/>
+			<img name="topright" imgrect="96 27 35 5"/>
+			<img name="bodyleft" imgrect="48 33 32 14"/>
+			<img name="bodycore" imgrect="81 33 14 14"/>
+			<img name="bodyright" imgrect="96 33 35 14"/>
+			<img name="bottomleft" imgrect="48 48 32 5"/>
+			<img name="bottomcore" imgrect="81 48 14 5"/>
+			<img name="bottomright" imgrect="96 48 35 5"/>
+		</skin>
+		<skin name="chat_tab_btn2_cursoron" texture="\skin\chat_skin.tga">
+			<img name="topleft" imgrect="48 27 32 5"/>
+			<img name="topcore" imgrect="81 27 14 5"/>
+			<img name="topright" imgrect="96 27 35 5"/>
+			<img name="bodyleft" imgrect="48 33 32 14"/>
+			<img name="bodycore" imgrect="81 33 14 14"/>
+			<img name="bodyright" imgrect="96 33 35 14"/>
+			<img name="bottomleft" imgrect="48 48 32 5"/>
+			<img name="bottomcore" imgrect="81 48 14 5"/>
+			<img name="bottomright" imgrect="96 48 35 5"/>
+		</skin>
+		<skin name="chat_tab_btn2_clicked" texture="\skin\chat_skin.tga">
 			<img name="topleft" imgrect="48 54 32 5"/>
 			<img name="topcore" imgrect="81 54 14 5"/>
 			<img name="topright" imgrect="96 54 35 5"/>
@@ -3426,6 +3459,17 @@
 			<img name="bottomcore" imgrect="28 968 118 27"/>
 			<img name="bottomright" imgrect="147 968 75 27"/>
 		</skin>
+		<skin name="test_tooltip_showinfo" texture="\skin\keynbet.tga">
+			<img name="topleft" imgrect="260 978 50 8"/>
+			<img name="topcore" imgrect="311 978 100 8"/>
+			<img name="topright" imgrect="412 978 50 8"/>
+			<img name="bodyleft" imgrect="260 986 50 19"/>
+			<img name="bodycore" imgrect="311 986 100 19"/>
+			<img name="bodyright" imgrect="412 986 50 19"/>
+			<img name="bottomleft" imgrect="260 1005 50 12"/>
+			<img name="bottomcore" imgrect="311 1005 100 12"/>
+			<img name="bottomright" imgrect="412 1005 50 12"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -3714,6 +3758,10 @@
 		<skin name="MCC_checkbox" texture="\skin\MCC_skin.tga">
 			<img name="on" imgrect="439 28 25 27"/>
 			<img name="off" imgrect="439 0 25 27"/>
+		</skin>
+		<skin name="tradecondition_checkbox" texture="\skin\pip_test.tga">
+			<img name="on" imgrect="0 995 130 20"/>
+			<img name="off" imgrect="130 995 130 20"/>
 		</skin>
 		<skin name="rankreset_checkbox" texture="\skin\pip_test_item.tga">
 			<img name="on" imgrect="1902 0 57 28"/>
@@ -5047,6 +5095,9 @@
 		<image name="quest_giveup_btn" file="\skin\button.tga" imgrect="325 670 46 46" CMM_Caption="포기버튼"/>
 		<image name="quest_giveup_btn_cursoron" file="\skin\button.tga" imgrect="372 670 46 46"/>
 		<image name="quest_giveup_btn_clicked" file="\skin\button.tga" imgrect="419 670 46 46"/>
+		<image name="inven_remove_btn" file="\skin\pip_test.tga" imgrect="1644 788 46 46" CMM_Caption="기간제아이템삭제버튼"/>
+		<image name="inven_remove_btn_cursoron" file="\skin\pip_test.tga" imgrect="1692 788 46 46"/>
+		<image name="inven_remove_btn_clicked" file="\skin\pip_test.tga" imgrect="1740 788 46 46"/>
 		<image name="inven_lock" file="\skin\pip_test.tga" imgrect="560 888 35 35" CMM_Caption="인벤자물쇠"/>
 		<image name="guild_online" file="\skin\pip_test.tga" imgrect="1799 610 20 20" CMM_Caption="길드_온라인"/>
 		<image name="guild_offline" file="\skin\pip_test.tga" imgrect="1799 589 20 20" CMM_Caption="길드_오프라인"/>
@@ -5076,6 +5127,7 @@
 		<image name="150percent_image" file="\skin\paid_skin.tga" imgrect="587 968 55 45" CMM_Caption="150%"/>
 		<image name="300percent_image" file="\skin\paid_skin.tga" imgrect="531 968 55 45" CMM_Caption="300%"/>
 		<image name="5multiply_image" file="\skin\paid_skin.tga" imgrect="643 968 55 45" CMM_Caption="x5"/>
+		<image name="MarketLimitedRM_image" file="\skin\paid_skin.tga" imgrect="867 968 55 45" CMM_Caption="마켓 상한가 무시"/>
 		<image name="67percent_image2" file="\skin\paid_skin.tga" imgrect="187 0 100 45"/>
 		<image name="50percent_image2" file="\skin\paid_skin.tga" imgrect="187 46 100 45"/>
 		<image name="4plus_image2" file="\skin\paid_skin.tga" imgrect="187 92 100 45"/>
@@ -5203,6 +5255,7 @@
 		<image name="chat_close" file="\skin\chat_skin.tga" imgrect="27 101 18 18" CMM_Caption="귓속말_채팅닫기"/>
 		<image name="chat_close2" file="\skin\chat_skin.tga" imgrect="30 83 12 14" CMM_Caption="귓속말_닫기"/>
 		<image name="chat_login" file="\skin\chat_skin.tga" imgrect="0 81 25 40" CMM_Caption="귓속말_로그인상태"/>
+		<image name="chat_color" file="\skin\chat_skin.tga" imgrect="31 171 24 24" CMM_Caption="채팅컬러값"/>
 		<image name="rank_reset_armor" file="\skin\pip_test_item.tga" imgrect="1482 0 59 59" CMM_Caption="랭크리셋_아머"/>
 		<image name="rank_reset_ability" file="\skin\pip_test_item.tga" imgrect="1542 0 59 59" CMM_Caption="특성"/>
 		<image name="rank_reset_com" file="\skin\pip_test_item.tga" imgrect="1602 0 59 59" CMM_Caption="컴패니언"/>
@@ -5217,9 +5270,18 @@
 		<image name="collection_tooltip1" file="\skin\pip_test.tga" imgrect="939 542 18 18" CMM_Caption="콜렉션완성한것"/>
 		<image name="collection_tooltip2" file="\skin\pip_test.tga" imgrect="939 561 18 18" CMM_Caption="콜렉션미완성된것"/>
 		<image name="collection_tooltip3" file="\skin\pip_test.tga" imgrect="939 580 18 18" CMM_Caption="레시피재료가능"/>
+		<image name="friend_new_ar" file="\skin\chat_skin.tga" imgrect="0 160 30 22" CMM_Caption="친구 귓속말알림"/>
+		<image name="friend_onoff" file="\skin\chat_skin.tga" imgrect="237 81 14 14" CMM_Caption="접속했나안했나"/>
+		<image name="member_count" file="\skin\chat_skin.tga" imgrect="237 96 14 17" CMM_Caption="멤버 카운트"/>
+		<image name="chat_grouptitle" file="\skin\chat_skin.tga" imgrect="156 131 100 26" CMM_Caption="그룹새창제목"/>
+		<image name="chat_smalltitle" file="\skin\chat_skin.tga" imgrect="156 108 75 22" CMM_Caption="그룹작은 소제목"/>
 		<image name="map_complet_img" file="\skin\mainframe_03.tga" imgrect="0 864 340 160" CMM_Caption="맵완료나오는이미지"/>
-		<image name="event_img_box" file="\skin\missionFail_skin.tga" imgrect="0 300 170 100" CMM_Caption="이벤트_박스"/>
 		<image name="combo_light" file="\skin\mainframe_03.tga" imgrect="251 821 149 30" CMM_Caption="콤보_라이트"/>
+		<image name="event_img_box" file="\skin\missionFail_skin.tga" imgrect="0 300 170 100" CMM_Caption="이벤트_박스"/>
+		<image name="chat_arlam_new" file="\skin\chat_skin.tga" imgrect="109 142 20 18" CMM_Caption="채팅귓속말 알람"/>
+		<image name="chat_tab_number" file="\skin\chat_skin.tga" imgrect="110 169 26 26" CMM_Caption="탭숫자"/>
+		<image name="chat_grouparlam" file="\skin\chat_skin.tga" imgrect="56 171 20 18" CMM_Caption=""/>
+		<image name="chat_arlam" file="\skin\chat_skin.tga" imgrect="77 171 14 14" CMM_Caption=""/>
 		<image name="Appariser_my" file="\skin\Appraiser_skin.tga" imgrect="0 0 155 172" CMM_Caption="내아이템"/>
 		<image name="Appariser_arrow" file="\skin\Appraiser_skin.tga" imgrect="157 0 70 60" CMM_Caption="감정사_화살표"/>
 		<image name="Appariser_item" file="\skin\Appraiser_skin.tga" imgrect="228 0 155 172" CMM_Caption="감정사"/>
@@ -5247,8 +5309,12 @@
 		<image name="test_restartjj_btn_cursoron" file="\skin\market_skin.tga" imgrect="1000 97 49 49"/>
 		<image name="test_restartjj_btn_clicked" file="\skin\market_skin.tga" imgrect="1050 97 49 49"/>
 		<image name="test_restartjjsm_btn" file="\skin\market_skin.tga" imgrect="1100 97 45 45" CMM_Caption="재시작 소"/>
-		<image name="test_restartjjsm_btn_cursoron" file="\skin\market_skin.tga" imgrect="1146 97 45 45"/>
-		<image name="test_restartjjsm_btn_clicked" file="\skin\market_skin.tga" imgrect="1192 97 45 45"/>
+		<image name="tradecondition_on" file="\skin\keynbet.tga" imgrect="0 995 130 20"/>
+		<image name="tradecondition_off" file="\skin\keynbet.tga" imgrect="130 995 130 20"/>
+	</imagelist>
+	<imagelist category="testmin_image">
+		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
+		<image name="clock_3" file="\skin\pip_test.tga" imgrect="1797 211 20 20" CMM_Caption="기간제 팝업창용 시계"/>
 	</imagelist>
 	<imagelist category="MCC_image">
 		<image name="MCC_one" file="\skin\MCC_skin.tga" imgrect="237 0 50 50"/>
@@ -5622,12 +5688,27 @@
 		<image name="chat_lock_btn" file="\skin\chat_skin.tga" imgrect="0 0 22 26" CMM_Caption="채팅_잠금"/>
 		<image name="chat_lock_btn_cursoron" file="\skin\chat_skin.tga" imgrect="0 27 22 26"/>
 		<image name="chat_lock_btn_clicked" file="\skin\chat_skin.tga" imgrect="0 54 22 26"/>
+		<image name="chat_lock_btn2" file="\skin\chat_skin.tga" imgrect="0 27 22 26"/>
+		<image name="chat_lock_btn2_cursoron" file="\skin\chat_skin.tga" imgrect="0 27 22 26"/>
+		<image name="chat_lock_btn2_clicked" file="\skin\chat_skin.tga" imgrect="0 54 22 26"/>
 		<image name="chat_down_btn" file="\skin\chat_skin.tga" imgrect="25 0 22 26" CMM_Caption="채팅_밑으로"/>
 		<image name="chat_down_btn_cursoron" file="\skin\chat_skin.tga" imgrect="25 27 22 26"/>
 		<image name="chat_down_btn_clicked" file="\skin\chat_skin.tga" imgrect="25 54 22 26"/>
-		<image name="chat_newtab_btn" file="\skin\chat_skin.tga" imgrect="156 81 26 26" CMM_Caption="채팅_새탭"/>
-		<image name="chat_newtab_btn_cursoron" file="\skin\chat_skin.tga" imgrect="183 81 26 26"/>
-		<image name="chat_newtab_btn_clicked" file="\skin\chat_skin.tga" imgrect="210 81 26 26"/>
+		<image name="chat_down_btn2" file="\skin\chat_skin.tga" imgrect="25 27 22 26" CMM_Caption="채팅_밑으로"/>
+		<image name="chat_down_btn2_cursoron" file="\skin\chat_skin.tga" imgrect="25 27 22 26"/>
+		<image name="chat_down_btn2_clicked" file="\skin\chat_skin.tga" imgrect="25 54 22 26"/>
+		<image name="chat_newtab_btn" file="\skin\chat_skin.tga" imgrect="305 194 20 20" CMM_Caption="채팅_디폴트_새탭"/>
+		<image name="chat_newtab_btn_cursoron" file="\skin\chat_skin.tga" imgrect="305 215 20 20"/>
+		<image name="chat_newtab_btn_clicked" file="\skin\chat_skin.tga" imgrect="305 236 20 20"/>
+		<image name="chat_option2_btn" file="\skin\chat_skin.tga" imgrect="284 194 20 20" CMM_Caption="채팅_디폴트_옵션"/>
+		<image name="chat_option2_btn_cursoron" file="\skin\chat_skin.tga" imgrect="284 215 20 20"/>
+		<image name="chat_option2_btn_clicked" file="\skin\chat_skin.tga" imgrect="284 236 20 20"/>
+		<image name="chat_list_btn" file="\skin\chat_skin.tga" imgrect="263 194 20 20" CMM_Caption="채팅_디폴트_목록"/>
+		<image name="chat_list_btn_cursoron" file="\skin\chat_skin.tga" imgrect="263 215 20 20"/>
+		<image name="chat_list_btn_clicked" file="\skin\chat_skin.tga" imgrect="263 236 20 20"/>
+		<image name="chat_close_btn" file="\skin\chat_skin.tga" imgrect="242 170 20 20" CMM_Caption="채팅_새탭닫기"/>
+		<image name="chat_close_btn_cursoron" file="\skin\chat_skin.tga" imgrect="242 191 20 20"/>
+		<image name="chat_close_btn_clicked" file="\skin\chat_skin.tga" imgrect="242 212 20 20"/>
 		<image name="chat_option_btn" file="\skin\chat_skin.tga" imgrect="132 0 24 24" CMM_Caption="채팅_옵션"/>
 		<image name="chat_option_btn_cursoron" file="\skin\chat_skin.tga" imgrect="132 25 24 24"/>
 		<image name="chat_option_btn_clicked" file="\skin\chat_skin.tga" imgrect="132 50 24 24"/>
@@ -5637,12 +5718,21 @@
 		<image name="chat_friend_btn" file="\skin\chat_skin.tga" imgrect="182 0 24 24" CMM_Caption="채팅_친구추가"/>
 		<image name="chat_friend_btn_cursoron" file="\skin\chat_skin.tga" imgrect="182 25 24 24"/>
 		<image name="chat_friend_btn_clicked" file="\skin\chat_skin.tga" imgrect="182 50 24 24"/>
-		<image name="chat_newwindow_btn" file="\skin\chat_skin.tga" imgrect="207 0 24 24" CMM_Caption="채팅_새창으로보기"/>
-		<image name="chat_newwindow_btn_cursoron" file="\skin\chat_skin.tga" imgrect="207 25 24 24"/>
-		<image name="chat_newwindow_btn_clicked" file="\skin\chat_skin.tga" imgrect="207 50 24 24"/>
-		<image name="chat_back_btn" file="\skin\chat_skin.tga" imgrect="232 0 24 24" CMM_Caption="채팅_뒤로가기"/>
-		<image name="chat_back_btn_cursoron" file="\skin\chat_skin.tga" imgrect="232 25 24 24"/>
+		<image name="chat_memberlist_btn" file="\skin\chat_skin.tga" imgrect="207 0 24 24" CMM_Caption="채팅_친구목록보기"/>
+		<image name="chat_memberlist_btn_cursoron" file="\skin\chat_skin.tga" imgrect="207 25 24 24"/>
+		<image name="chat_memberlist_btn_clicked" file="\skin\chat_skin.tga" imgrect="207 50 24 24"/>
+		<image name="chat_export_btn" file="\skin\chat_skin.tga" imgrect="232 0 24 24" CMM_Caption="채팅_내보내기"/>
+		<image name="chat_export_btn_cursoron" file="\skin\chat_skin.tga" imgrect="232 25 24 24"/>
+		<image name="chat_export_btn_clicked" file="\skin\chat_skin.tga" imgrect="232 50 24 24"/>
+		<image name="chat_fold_btn" file="\skin\chat_skin.tga" imgrect="307 0 24 24" CMM_Caption="채팅_접어두기"/>
+		<image name="chat_fold_btn_cursoron" file="\skin\chat_skin.tga" imgrect="307 25 24 24"/>
+		<image name="chat_fold_btn_clicked" file="\skin\chat_skin.tga" imgrect="307 50 24 24"/>
+		<image name="chat_Increase_btn" file="\skin\chat_skin.tga" imgrect="232 0 24 24" CMM_Caption="채팅늘리기"/>
+		<image name="chat_Increase_btn_cursoron" file="\skin\chat_skin.tga" imgrect="232 25 24 24"/>
 		<image name="chat_back_btn_clicked" file="\skin\chat_skin.tga" imgrect="232 50 24 24"/>
+		<image name="chat_expand_btn" file="\skin\chat_skin.tga" imgrect="282 0 24 24" CMM_Caption="채팅펼치기"/>
+		<image name="cchat_expand_btn_cursoron" file="\skin\chat_skin.tga" imgrect="282 25 24 24"/>
+		<image name="chat_expand_btn_clicked" file="\skin\chat_skin.tga" imgrect="282 50 24 24"/>
 	</imagelist>
 	<imagelist category="hair_color">
 		<image name="basic_color" file="\skin\barrack.tga" imgrect="949 492 35 35" CMM_Caption="기본컬러"/>
@@ -6533,6 +6623,7 @@
 		<image name="questinfo_3_PARTY" file="\icon\minimap_icon3.tga" imgrect="73 809 72 72"/>
 		<image name="link_map" file="\icon\minimap_icon3.tga" imgrect="0 672 50 50"/>
 		<image name="link_party" file="\icon\minimap_icon3.tga" imgrect="51 672 50 50"/>
+		<image name="link_whisper" file="\icon\minimap_icon3.tga" imgrect="296 462 50 50"/>
 		<image name="comehere_party" file="\icon\minimap_icon3.tga" imgrect="268 327 36 36"/>
 		<image name="Wizard_party" file="\icon\minimap_icon3.tga" imgrect="102 672 30 30"/>
 		<image name="Cleric_party" file="\icon\minimap_icon3.tga" imgrect="133 672 30 30"/>
@@ -6733,6 +6824,12 @@
 		<image name="button_chat_Guild" file="\skin\HUD.tga" imgrect="853 441 40 36" CMM_Caption="chat_Guild길드"/>
 		<image name="button_chat_Guild_cursoron" file="\skin\HUD.tga" imgrect="894 441 40 36"/>
 		<image name="button_chat_Guild_clicked" file="\skin\HUD.tga" imgrect="935 441 40 36"/>
+		<image name="button_chat_group_w" file="\skin\HUD.tga" imgrect="1674 792 40 36" CMM_Caption="chat_group_w"/>
+		<image name="button_chat_group_w_cursoron" file="\skin\HUD.tga" imgrect="1715 792 40 36"/>
+		<image name="button_chat_group_w_clicked" file="\skin\HUD.tga" imgrect="1756 792 40 36"/>
+		<image name="button_chat_system" file="\skin\HUD.tga" imgrect="1674 829 40 36" CMM_Caption="chat_system"/>
+		<image name="button_chat_system_cursoron" file="\skin\HUD.tga" imgrect="1715 829 40 36"/>
+		<image name="button_chat_system_clicked" file="\skin\HUD.tga" imgrect="1756 829 40 36"/>
 		<image name="button_chat_scale" file="\skin\HUD.tga" imgrect="908 418 20 20" CMM_Caption="chat_scale 스케일"/>
 		<image name="button_chat_scale_cursoron" file="\skin\HUD.tga" imgrect="929 418 20 20"/>
 		<image name="button_chat_scale_clicked" file="\skin\HUD.tga" imgrect="950 418 20 20"/>
