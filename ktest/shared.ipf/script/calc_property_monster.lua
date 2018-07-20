@@ -1294,7 +1294,7 @@ function SCR_Get_MON_SDR(self)
     	monSize = 'S';
     end
     
-    if monSDR <= 1 then
+    if monSDR < 1 then
         value = 1;
     elseif monSize == 'S' then
         value = 1;

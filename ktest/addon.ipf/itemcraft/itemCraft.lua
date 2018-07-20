@@ -784,11 +784,9 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		end
 	end
 	
+
     local flag, cnt = CHECK_MATERIAL_COUNT(recipecls, totalCount)
-    if flag == false then        
-	    local updown = GET_CHILD_RECURSIVELY(frame, "upDown", "ui::CNumUpDown");
-        updown:SetNumberValue(cnt)
-        SET_REQITEM_CERTAIN_NUMBER()
+    if flag == false then
         ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
 		return
     end
@@ -840,6 +838,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	if TryGetProp(recipecls, "UseQueue") == "YES" then
 		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
+		CLEAR_CRAFT_QUEUE(queueFrame);
 		for i = 1, totalCount do
 			ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, 1);
 		end
@@ -855,7 +854,6 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	local resultlist = session.GetItemIDList();
 	local cntText = string.format("%s %s", recipecls.ClassID, 1);
 	frame:SetUserValue("IDSPACE", idSpace);
-
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);    
 end
 
@@ -952,7 +950,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_FAIL(mainFrame, msg, str, time)
 	SetCraftState(0)
 end
 
-function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)    
+function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 	imcSound.PlaySoundEvent('sys_item_jackpot_get');
 
 	frame = ui.GetFrame(frame:GetUserValue("UI_NAME"))
@@ -997,8 +995,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
     local ordered_list = {}
     local ordered_cnt = 1
     
-    for i = 1, item_count do -- 제작에 필요한 아이템을 인벤에서 가져온다.
-        print('index = ' , i)
+    for i = 1, item_count do -- 제작에 필요한 아이템을 인벤에서 가져온다.        
         local classname = map_classname[i]    -- item ClassName
         
         local start, e = string.find(classname, 'R_')

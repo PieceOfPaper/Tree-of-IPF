@@ -34,7 +34,7 @@ function SCR_GET_SKL_CoolDown(skill)
 end
 
 function SCR_Get_SpendSP_Buff(skill)
-
+    
     local basicsp = skill.BasicSP;
     local lv = skill.Level;
     local addsp = skill.LvUpSpendSp;
@@ -62,7 +62,7 @@ function SCR_Get_SpendSP_Buff(skill)
         decsp = 4 + (zeminaLv * 4);
     end
     value = value - decsp;
-
+    
     if value < 1 then
         value = 1;
     end
@@ -142,6 +142,15 @@ function SCR_Get_SpendSP(skill)
         decsp = 4 + (zeminaLv * 4);
     end
     value = value - decsp;
+    if IsBuffApplied(pc, "AcrobaticMount_Buff") == "YES" then
+        if TryGetProp(skill, "EnableCompanion") == "YES" then
+            local acrobaticBuff = GetBuffByName(pc, "AcrobaticMount_Buff")
+            local acrobaticBuffLevel = GetBuffArg(acrobaticBuff)
+            local acrobaticAddSPRate = acrobaticBuffLevel * 0.1
+            value = value *(1 + acrobaticAddSPRate)
+            SetExProp(acrobaticBuff, "ACROBATICMOUNT_SPENDSP", math.floor(value))
+        end
+    end
     
     if value < 1 then
         value = 1;
@@ -13110,7 +13119,7 @@ function SCR_Get_Hovering_Ratio(skill)
 end
 
 function SCR_Get_Circling_Ratio(skill)
-	local value = 15 + skill.Level
+	local value = 10 + skill.Level
 	
     return value
 end

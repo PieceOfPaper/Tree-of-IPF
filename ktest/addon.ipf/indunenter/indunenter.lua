@@ -125,6 +125,12 @@ function INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, enableReenter)
     frame:SetUserValue('ENABLE_REENTER', enableReenter);
 end
 
+function REFRESH_REENTER_UNDERSTAFF_BUTTON(isEnableReEnter)
+    local frame = ui.GetFrame('indunenter');
+
+	INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, isEnableReEnter);
+end
+
 function INDUNENTER_INIT_MEMBERBOX(frame)
     INDUNENTER_INIT_MY_INFO(frame, 'NO');
     INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
@@ -1444,4 +1450,10 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         end
     end
     return true;
+end
+
+function INDUN_ALREADY_PLAYING()
+    local yesScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 1);
+	local noScp = string.format("AnsGiveUpPrevPlayingIndun(%d)", 0);
+	ui.MsgBox(ClMsg("IndunAlreadyPlaying_AreYouGiveUp"), yesScp, noScp);
 end

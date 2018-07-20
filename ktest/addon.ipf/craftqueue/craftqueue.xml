@@ -11,6 +11,6 @@
 	<script/>
 	<controls>
 		<groupbox name="bg" rect="0 0 80 80" margin="0 10 0 0" layout_gravity="center top" draw="false" hittestbox="false" skin="test_weight_skin"/>
-		<richtext name="count" rect="0 0 120 24" margin="35 90 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}X %s{/}" maxwidth="0" param1="value" param1_def="10" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="count" rect="0 0 120 24" margin="0 90 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}X %s{/}" maxwidth="0" param1="value" param1_def="10" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 	</controls>
 </uiframe>

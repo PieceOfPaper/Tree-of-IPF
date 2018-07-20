@@ -698,7 +698,7 @@ ClassID,ActiveState,Level,ClassName,Name,Icon,Job,SkillCategory,AddSpend,Desc,Bu
 310008,1,1,"Falconer8","음속타: 강화","ability_archer_Falconer8","Char3_14","Falconer_BlisteringThrash","","* 적에게 입히는 [음속타]의 대미지가 특성 레벨당 0.5% 증가","","","YES","","SCR_ABIL_NONE","NO",""
 310009,1,1,"Falconer9","콤비네이션: 강화","ability_archer_Falconer11","Char3_14","Falconer_Combination","","* 적에게 입히는 [콤비네이션]의 대미지가 특성 레벨당 0.5% 증가","","","YES","","SCR_ABIL_NONE","NO",""
 310010,1,1,"Falconer10","음속타: 혼란","ability_archer_Falconer10","Char3_14","Falconer_BlisteringThrash","SP/10","* [음속타]효과로 암흑에 걸린 적이 피격당하면 확률적으로{nl}    [혼란] 디버프{nl}* [혼란]에 빠진 적은 물리 방어력이 특성 레벨당 2% 감소하고{nl}    물리 공격력이 특성 레벨당 2% 증가{nl}* SP 소모 10%증가","","","NO","","SCR_ABIL_NONE","NO",""
-310011,1,1,"Falconer11","서클링: 광역화","ability_archer_Falconer11","Char3_14","Falconer_Circling","SP/10","* 스킬 [서클링] 범위 내에 있는 적이 물리 공격 및 미사일 공격을{nl}    당했을 때 특성 레벨당 5%의 확률로 다른 한명의 적도{nl}    함께 피해를 받음{nl}* SP 소모 10%증가","","","NO","","SCR_ABIL_NONE","NO",""
+310011,1,1,"Falconer11","서클링: 광역화","ability_archer_Falconer11","Char3_14","Falconer_Circling","SP/10","* 스킬 [서클링] 시전 시, 11초 동안 시전자의 광역공격 비율 3증가{nl}   2레벨 부터 지속시간이 특성 레벨당 1초씩 증가{nl}* SP 소모 10%증가","","","NO","","SCR_ABIL_NONE","NO",""
 310012,1,1,"Falconer12","멍텅구: 스턴","ability_archer_Falconer12","Char3_14","Falconer_Pheasant","","* 스킬 [멍텅구]에 피격된 적이  특성 레벨당 10% 확률로{nl}    [스턴] 디버프","","","NO","","SCR_ABIL_NONE","NO",""
 310013,1,1,"Falconer13","선제 공격: 호버링 제거","ability_archer_Falconer13","Char3_14","Falconer_FirstStrike","","* [선제 공격] 시 매가 호버링을 사용하지 않게 됩니다.","","","NO","","SCR_ABIL_NONE","NO",""
 310014,1,1,"Falconer14","선제 공격: 음속타 제거","ability_archer_Falconer14","Char3_14","Falconer_FirstStrike","","* [선제 공격] 시 매가 음속타를 사용하지 않게 됩니다.","","","NO","","SCR_ABIL_NONE","NO",""

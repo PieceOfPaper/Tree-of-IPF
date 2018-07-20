@@ -5783,6 +5783,7 @@
 		<image name="monster_devil" file="\skin\tooltip_skin_3.tga" imgrect="470 1 55 55" CMM_Caption="몬스터 속성 악마"/>
 		<image name="monster_plant" file="\skin\tooltip_skin_3.tga" imgrect="414 1 55 55" CMM_Caption="몬스터 속성 식물"/>
 		<image name="monster_variation" file="\skin\tooltip_skin_3.tga" imgrect="358 1 55 55" CMM_Caption="몬스터 속성 변이"/>
+		<image name="monster_melee" file="\skin\tooltip_skin_3.tga" imgrect="638 1 55 55" CMM_Caption="몬스터 속성 무속성"/>
 		<image name="boss_FrameLeft" file="\skin\tooltip_skin_3.tga" imgrect="1 435 107 104" CMM_Caption="보스HP 왼쪽"/>
 		<image name="boss_FrameRight" file="\skin\tooltip_skin_3.tga" imgrect="714 464 56 82" CMM_Caption="보스HP 오른쪽"/>
 		<image name="elite_FrameLeft" file="\skin\tooltip_skin_3.tga" imgrect="1 304 78 84" CMM_Caption="엘리트HP 왼쪽"/>
@@ -5801,6 +5802,7 @@
 		<image name="event_btn" file="\skin\HUD.tga" imgrect="1226 830 66 66" CMM_Caption="이벤트 버튼"/>
 		<image name="event_btn_cursoron" file="\skin\HUD.tga" imgrect="1159 898 66 66"/>
 		<image name="event_btn_clicked" file="\skin\HUD.tga" imgrect="1226 898 66 66"/>
+		<image name="gemston_randombg" file="\skin\pip_test_item.tga" imgrect="1040 167 200 169" CMM_Caption="젬 뽑기 배경"/>
 		<image name="tip_questionmark" file="\skin\pip_test.tga" imgrect="1583 352 25 25" CMM_Caption="툴팁 아이콘"/>
 		<image name="notice_red_btn" file="\skin\tooltip_skin_3.tga" imgrect="12 96 26 26" CMM_Caption="이벤트 노티스"/>
 		<image name="notice_red_btn_cursoron" file="\skin\tooltip_skin_3.tga" imgrect="12 123 26 26"/>
@@ -5878,7 +5880,6 @@
 		<image name="test_indun_D" file="\skin\indun_skin2.tga" imgrect="142 142 141 141"/>
 		<image name="test_indun_E" file="\skin\indun_skin2.tga" imgrect="284 142 141 141"/>
 		<image name="test_indun_ribbon" file="\skin\indun_skin2.tga" imgrect="0 284 112 164"/>
-		<image name="gemston_randombg" file="\skin\pip_test_item.tga" imgrect="1040 167 200 169" CMM_Caption="젬 뽑기 배경"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>

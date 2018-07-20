@@ -182,7 +182,7 @@ function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
     
     local templerCls = GetClass('Job', 'Char1_16');    
     if AM_I_LEADER(PARTY_GUILD) == 1 and IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-        local yesscp = string.format("RANKRESET_REQUEST_RANK_RESET()");
+        local yesscp = string.format("RANKROLLBACK_REQUEST_RANK_RESET()");
         ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
         return;
     end
@@ -231,31 +231,6 @@ function RANKROLLBACK_DELETE_RANK_CARD(className)
     local yesScp = string.format('control.CustomCommand("TAKE_ITEM", %d)', deleteItemCls.ClassID);
 
     ui.MsgBox(ClMsg('DeleteCardBecauseYourRankTooHigh'), yesScp, 'None');
-end
-
-function IS_UNIQUE_TEMPLER_GUILD_MASTER_C()
-    if AM_I_LEADER(PARTY_GUILD) == 1 then
-        local templerCls = GetClass('Job', 'Char1_16');
-        if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-            local myHandle = session.GetMyHandle();
-            local myName = info.GetName(myHandle);
-            local charList = GetCharacterNameList();
-            for i = 1, #charList do
-                local charName = charList[i];
-                if charName ~= myName then                
-                    local jobString = GetCharacterJobHistoryString(nil, charName);                    
-                    local jobList = StringSplit(jobString, ';');
-                    for j = 1, #jobList do                    
-                        if jobList[j] == 'Char1_16' then                        
-                            return false;
-                        end
-                    end
-                end
-            end
-            return true;
-        end
-    end
-    return false;
 end
 
 function RANKROLLBACK_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame)

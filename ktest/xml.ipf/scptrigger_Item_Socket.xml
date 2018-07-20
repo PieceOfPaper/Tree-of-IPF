@@ -30,7 +30,7 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Musketeer_BayonetThrust"/>
-						<Num Num="1"/>
+						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -750,28 +750,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Gem_Pardoner_Dekatos">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Pardoner_Dekatos"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Pardoner_Dekatos"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="Gem_Paladin_Demolition">
 		<TriggerList Act="UnEquip">
 			<Trigger>
@@ -788,28 +766,6 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Paladin_Demolition"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Gem_Paladin_Conversion">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Paladin_Sanctuary"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Paladin_Sanctuary"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
@@ -964,28 +920,6 @@
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Corsair_PistolShot"/>
-						<Num Num="1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Gem_Squire_DeadlyCombo">
-		<TriggerList Act="UnEquip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Squire_DeadlyCombo"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-		<TriggerList Act="Equip">
-			<Trigger>
-				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Squire_DeadlyCombo"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
@@ -7455,7 +7389,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Paladin_Conversion"/>
+						<Str Str="Paladin_Sanctuary"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
@@ -7465,7 +7399,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Paladin_Conversion"/>
+						<Str Str="Paladin_Sanctuary"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
