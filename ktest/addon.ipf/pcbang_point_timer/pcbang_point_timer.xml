@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pcbang_point_timer" x="0" y="0" width="180" height="100">
+	<frame fullheight="false" fasthide="true" layout_gravity="right bottom" margin="0 0 355 25" draw="false"/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="false" closebutton="false" moveable="false" alwaysVisible="false"/>
+	<layer layerlevel="10"/>
+	<script OpenScp="ON_PCBANG_POINT_TIMER_OPEN"/>
+	<userconfig TIMER_RIGHT_MARGIN_OFFSET="120"/>
+	<controls>
+		<groupbox name="background" rect="0 0 180 100" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="false" scrollbar="false" image="pcbang_timer_bg"/>
+		<richtext name="title" parent="background" rect="0 0 200 30" margin="-12 11 0 0" layout_gravity="center top" caption="{ds}{b}{#ffefd6}30분:{#fe7e00}100 POINT" fontname="white_14_ol" spacey="0"/>
+		<gauge name="time_gauge" parent="background" rect="0 0 104 26" margin="0 30 39 0" layout_gravity="right top" inverse="false" point="0" maxpoint="1" text1="{ds}{b}%p%" textfont1="white_14_ol" textalign1="center center" skin="pcbang_point_gauge_s"/>
+		<picture name="clock_pic" parent="background" rect="0 0 27 27" margin="8 30 0 0" layout_gravity="left top" image="pcbang_clock_icon_s" stretch="true"/>
+		<picture name="gauge_pic_L" parent="background" rect="0 0 6 26" margin="32 30 0 0" layout_gravity="left top" image="pcbang_point_gauge_s_left" stretch="true"/>
+		<picture name="gauge_pic_R" parent="background" rect="0 0 6 26" margin="0 30 34 0" layout_gravity="right top" image="pcbang_point_gauge_s_right" stretch="true"/>
+		<timer name="addontimer" rect="0 0 10 10"/>
+	</controls>
+</uiframe>

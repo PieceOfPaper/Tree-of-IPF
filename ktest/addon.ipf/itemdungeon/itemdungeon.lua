@@ -51,10 +51,8 @@ function ITEMDUNGEN_UI_CLOSE(frame)
 end
 
 function ITEMDUNGEON_CLEARUI(frame)
-	ITEMDUNGEON_CLEAR_TARGET(frame);	
-
-	local stoneSlot = GET_CHILD_RECURSIVELY(frame, "stoneSlot");
-	CLEAR_SLOT_ITEM_INFO(stoneSlot);
+	ITEMDUNGEON_CLEAR_TARGET(frame);
+	ITEMDUNGEON_RESET_STONE(frame);
 
 	local slotName = GET_CHILD_RECURSIVELY(frame, "slotName");
 	slotName:SetTextByKey("value", "");
@@ -64,6 +62,12 @@ function ITEMDUNGEON_CLEARUI(frame)
 	goodsInfoBox:RemoveChild('tooltip_only_pr');
 
 	ITEMDUNGEON_UPDATE_PRICE(frame);
+end
+
+function ITEMDUNGEON_RESET_STONE(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local stoneSlot = GET_CHILD_RECURSIVELY(frame, "stoneSlot");
+	CLEAR_SLOT_ITEM_INFO(stoneSlot);
 end
 
 function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
@@ -145,6 +149,12 @@ end
 
 function EXEC_ITEM_DUNGEON(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
+	local titleInput = GET_CHILD_RECURSIVELY(frame, 'titleInput');	
+	if titleInput:GetText() == nil or titleInput:GetText() == '' then
+		ui.SysMsg(ClMsg('InputTitlePlease'));
+		return;
+	end
+
 	local mapCls = GetClass("Map", session.GetMapName());
 	if nil == mapCls then
 		return;
@@ -182,8 +192,6 @@ function EXEC_ITEM_DUNGEON(parent, ctrl)
 	local priceInfo = session.autoSeller.CreateToGroup("Awakening");
 	priceInfo.classID = GetClass("Skill", 'Alchemist_ItemAwakening').ClassID;
 	priceInfo.price = price;
-
-	local titleInput = GET_CHILD_RECURSIVELY(frame, 'titleInput');
 	session.autoSeller.RequestRegister('Awakening', 'Awakening', titleInput:GetText(), 'Alchemist_ItemAwakening');    
 end
 

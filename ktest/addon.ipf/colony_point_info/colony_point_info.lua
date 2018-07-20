@@ -246,8 +246,10 @@ function COLONY_POINT_INFO_SET_SAVED_OFFSET(frame, msg, argStr, argNum)
     if session.colonywar.GetIsColonyWarMap() == false then
         return;
     end
-    local oriMargin = frame:GetOriginalMargin(); 
-    local savedX, savedY = GET_CONFIG_HUD_OFFSET(frame, option.GetClientWidth() - oriMargin.right, frame:GetOriginalY());    
-    savedX, savedY = GET_OFFSET_IN_SCREEN(savedX, savedY, frame:GetWidth(), frame:GetHeight());    
+
+    local channel = ui.GetFrame('channel');
+    local defaultX = channel:GetGlobalX();
+    local savedX, savedY = GET_CONFIG_HUD_OFFSET(frame, defaultX, frame:GetOriginalY());    
+    savedX, savedY = GET_OFFSET_IN_SCREEN(savedX, savedY, frame:GetWidth(), frame:GetHeight());
     frame:SetOffset(savedX, savedY);
 end

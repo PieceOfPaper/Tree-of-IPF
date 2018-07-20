@@ -1633,6 +1633,10 @@ function SCR_RACE_TYPE_RATE(self, prop)
     
     for i = 1, #raceList do
         local raceType = TryGetProp(self, "RaceType");
+        if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+            raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
+        end
+        
         if raceType == raceList[i] then
             if raceRateList[i] ~= nil and raceRateList[i] > 0 then
                 raceTypeRate = raceRateList[i];
@@ -1667,6 +1671,10 @@ function SCR_SIZE_TYPE_RATE(self, prop)
     
     for i = 1, #sizeList do
         local sizeType = TryGetProp(self, "Size");
+        if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+            sizeType = GetExProp_Str(self, "SHADOW_INFERNAL_SIZE");
+        end
+        
         if sizeType == sizeList[i] then
             if sizeRateList[i] ~= nil and sizeRateList[i] > 0 then
                 sizeTypeRate = sizeRateList[i];
@@ -1701,6 +1709,9 @@ function SCR_MON_ITEM_GRADE_RATE(self, lv)
     
     local basicGradeRatio = 1;
     local reinforceGradeRatio = 1;
+    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+        monRank = GetExProp_Str(self, "SHADOW_INFERNAL_MONRANK");
+    end
     
     if monRank == "Normal" or monRank == "Material" then
         basicGradeRatio = 0.9;  --normal

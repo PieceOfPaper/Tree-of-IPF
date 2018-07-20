@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="20" attachNode="Dummy_effect_craft" particleName="F_smoke005_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="I_smoke013_dark2_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="20" attachNode="Dummy_effect_body2" particleName="I_smoke013_dark2_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<BlendOn frame="19" R="100" G="50" B="50" A="25"/>
+	<BlendOn frame="20" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="21" R="100" G="50" B="50" A="25"/>
+	<BlendOn frame="22" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="23" R="255" G="100" B="100" A="200"/>
+	<BlendOff frame="25" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="22" type="2" intensity="5" frequency="55" duration="0.3" range="1000"/>
+</ActionDesc>

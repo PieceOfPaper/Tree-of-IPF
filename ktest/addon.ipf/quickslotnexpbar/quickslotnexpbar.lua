@@ -8,16 +8,16 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(frame);
 	
 	QUICKSLOTNEXPBAR_Frame = frame;
-
+	
 	addon:RegisterMsg('GAME_START', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('QUICKSLOT_LIST_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
-
+	
 	addon:RegisterMsg('KEYBOARD_INPUT', 'KEYBOARD_INPUT');
 	
 	addon:RegisterMsg('SKILL_LIST_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('REGISTER_QUICK_SKILL', 'QUICKSLOT_REGISTER_Skill');
 	addon:RegisterMsg('REGISTER_QUICK_ITEM', 'QUICKSLOT_REGISTER_Item');
-
+	
 	addon:RegisterMsg('INV_ITEM_ADD', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_POST_REMOVE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_CHANGE_COUNT', 'QUICKSLOTNEXPBAR_ON_MSG');
@@ -25,19 +25,24 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('EQUIP_ITEM_LIST_GET', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('PC_PROPERTY_UPDATE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('PET_SELECT', 'ON_PET_SELECT');
-
+	
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_ON_MSG');
+	
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'TOGGLE_ITEM_SLOT_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'TOGGLE_ITEM_SLOT_ON_MSG');
+	
 	addon:RegisterMsg('QUICK_SLOT_LOCK_STATE', 'SET_QUICK_SLOT_LOCK_STATE');
 	addon:RegisterMsg('QUICKSLOT_MONSTER_RESET_COOLDOWN', 'QUICKSLOTNEXPBAR_MY_MONSTER_SKILL_RESET_COOLDOWN');
 	
-
+	
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
 	timer:Start(0.3);
-
-
+	
+	QUICKSLOT_TOGGLE_ITEM_LIST={}
+	
 end
 
 function QUICKSLOT_MAKE_GAUGE(slot)
@@ -73,6 +78,36 @@ function EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
 		imcSound.PlaySoundEvent('sys_atk_booster_on');
 	end
 	DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1);
+end
+
+--토글
+function TOGGLE_ITEM_SLOT_ON_MSG(frame, msg, argstr, argnum)
+	if msg == "TOGGLE_ITEM_SLOT_ON" then
+		QUICKSLOT_TOGGLE_ITEM_LIST[argnum] = 1;
+		imcSound.PlaySoundEvent('sys_atk_booster_on');
+	elseif msg == "TOGGLE_ITEM_SLOT_OFF" then
+		QUICKSLOT_TOGGLE_ITEM_LIST[argnum] = nil;
+		imcSound.PlaySoundEvent('sys_booster_off');
+	end
+
+	local cnt = 0;
+	for k, v in pairs(QUICKSLOT_TOGGLE_ITEM_LIST) do
+		cnt = cnt + 1;
+	end
+	
+	if cnt > 0 then
+		frame:RunUpdateScript("UPDATE_QUICKSLOT_TOGGLE_ITEM", 1.0);
+	else
+		frame:StopUpdateScript("UPDATE_QUICKSLOT_TOGGLE_ITEM");
+	end
+end
+
+--업데이트
+function UPDATE_QUICKSLOT_TOGGLE_ITEM(frame)
+	for k, v in pairs(QUICKSLOT_TOGGLE_ITEM_LIST) do
+		PLAY_QUICKSLOT_UIEFFECT(frame, k);
+	end
+	return 1;
 end
 
 function JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
@@ -311,7 +346,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		icon:ClearText();
 	elseif category == 'Skill' then
 		local skl = session.GetSkill(type);
-		if IS_NEED_CLEAR_SLOT(skl, type) == true then			
+		if IS_NEED_CLEAR_SLOT(skl, type) == true then	
 			slot:ClearIcon();
 			QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
 			return;
@@ -323,6 +358,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		icon:ClearText();
 		quickslot.OnSetSkillIcon(slot, type);
 	elseif category == 'Item' then
+		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);	--퀵슬롯에 놓는 것이 아이템이면 게이지를 무조건 안보이게 함
 		local itemIES = GetClassByType('Item', type);
 		if itemIES ~= nil then			
 			imageName = itemIES.Icon;
@@ -345,6 +381,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			if invenItemInfo ~= nil and invenItemInfo.type == math.floor(type) then
 				itemIES = GetIES(invenItemInfo:GetObject());
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
+				icon:SetEnableUpdateScp('None');
 
 				if itemIES.MaxStack > 0 or itemIES.GroupName == "Material" then
 					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
@@ -369,12 +406,13 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
 				icon:SetColorTone("FFFF0000");
 				icon:SetText(0, 'quickiconfont', 'right', 'bottom', -2, 1);
+				icon:SetEnableUpdateScp('None');
 			end
 
 			ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES);
 		end
 	end
-
+				
 	if imageName ~= "" then
 		if iesID == nil then
 			iesID = ""
@@ -706,6 +744,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 			if sklCnt > 0 and sklCnt >= slot:GetSlotIndex() then
 				return;
 			end
+			--옛날거 등록
 			QUICKSLOTNEXPBAR_SETICON(popSlot, oldIcon, 1, false);
 		end
 	elseif iconParentFrame:GetName() == 'status' then
@@ -713,6 +752,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 		return;
 	end
 
+	--새거 등록
 	QUICKSLOTNEXPBAR_NEW_SETICON(slot, iconCategory, iconType, iconGUID);
 end
 

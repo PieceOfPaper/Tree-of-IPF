@@ -20,7 +20,7 @@ function QUESTITEMUSE_ON_MSG(frame, msg, argStr, argNum)
 		if itemClass ~= nil and itemClass.PreCheckScp ~= 'None' and invItem ~= nil then			
 			local result = _G[itemClass.PreCheckScp](GetMyPCObject(), itemClass.StringArg, itemClass.NumberArg1, itemClass.NumberArg2);
 			if result ~= 0 then
-				local xPos = QUEST_CHECK_COUNT * 80 + 15;
+				local xPos = 15;
 				local slot = itemCtrl:CreateOrGetControl('slot', 'itemslot_', xPos, 10, 80, 80);
 				tolua.cast(slot, 'ui::CSlot');
 				local beforeIcon = slot:GetIcon();
@@ -63,7 +63,8 @@ function QUESTITEMUSE_ON_MSG(frame, msg, argStr, argNum)
 			frame:StopAlphaBlend();
 			frame:SetAlpha(100);
 		else
-			local width = QUEST_CHECK_COUNT * 80 + 30;
+		--	local width = QUEST_CHECK_COUNT * 80 + 30;
+			local width = 110;
 			frame:Resize(width, frame:GetHeight());
 		end
 	end

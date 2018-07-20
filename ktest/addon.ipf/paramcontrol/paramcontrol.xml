@@ -45,5 +45,8 @@
 		<richtext name="TOKEN_MARKET_REG_MAX_PRICE_text" rect="0 0 120 24" margin="55 671 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
 		<edit name="TOKEN_MARKET_REG_MAX_PRICE_edit" rect="0 0 120 24" margin="202 671 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
 		<slidebar name="TOKEN_MARKET_REG_MAX_PRICE" rect="0 0 350 20" margin="55 696 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SILVER_RESET" SlideScp="PARAM_CONTROL_SILVER_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_NEXON_PC_PARTY_EXP_RATE_text" rect="0 0 120 24" margin="55 730 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_NEXON_PC_PARTY_EXP_RATE_edit" rect="0 0 120 24" margin="201 730 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_NEXON_PC_PARTY_EXP_RATE" rect="0 0 350 20" margin="51 755 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
     </controls>
 </uiframe>

@@ -97,11 +97,10 @@ function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	
 	SET_CARD_EDGE_TOOLTIP(CSet, cls);
 
-
 	-- ������ �̹���
-	local itemPicture = GET_CHILD(CSet, "itempic");
-	itemPicture:SetImage(cls.TooltipImage);
-	
+	local spineItemPicture = GET_CHILD(CSet, "itempic");
+	SET_SPINE_TOOLTIP_IMAGE(spineItemPicture, cls);
+
 	-- �� �׸���	
 	local gradeChild = CSet:GetChild('grade');
 	if gradeChild ~= nil then

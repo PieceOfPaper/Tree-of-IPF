@@ -653,13 +653,6 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         countItemData:ShowWindow(0)
         cycleImage:ShowWindow(1);
     else
-        local nexonPCDiscount = 0;
-        if session.loginInfo.IsPremiumState(NEXON_PC) == true then
-            if TryGetProp(indunCls, "PlayPerReset_NexonPC") ~= nil then
-                nexonPCDiscount = indunCls.PlayPerReset_NexonPC ;
-            end
-        end
-        
         -- if isTokenState == true then
         --     isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
         --     tokenStatePic:SetImage(TOKEN_STATE_IMAGE);
@@ -669,8 +662,8 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         --     tokenStatePic:SetImage(NOT_TOKEN_STATE_IMAGE);
         --     tokenStatePic:SetTextTooltip(ScpArgMsg('YouCanLittleIndunAdmissionItemWithToken', 'COUNT', indunCls.PlayPerReset_Token, 'TOKEN_STATE', ClMsg('NotApplied')));
         -- end
-        --local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState - nexonPCDiscount;
-        local nowAdmissionItemCount = admissionItemCount + addCount - nexonPCDiscount;
+        --local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
+        local nowAdmissionItemCount = admissionItemCount + addCount
         countItemData:SetTextByKey('admissionitem', '  {img '..indunAdmissionItemImage..' 30 30}  '..nowAdmissionItemCount..'')
         local countBox = GET_CHILD_RECURSIVELY(frame, 'countBox');
         local countText = GET_CHILD_RECURSIVELY(countBox, 'countText');

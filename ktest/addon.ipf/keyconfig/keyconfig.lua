@@ -462,6 +462,12 @@ function KEYCONFIG_RESTORE_DEFAULT(parent)
 
 	
 	
+
+	local fileName = frame:GetUserValue("FILENAME");
+	local categoryName = frame:GetUserValue("CATEGORY");
+	KEYCONFIG_OPEN_CATEGORY(frame, fileName, categoryName);
+
+	ui.SysMsg(ClMsg("ResetKeyConfig"));
 end
 
 

@@ -838,6 +838,10 @@ function IS_ENABLE_BUFF_STATE_TO_REINFORCE_OR_TRANSCEND_C()
 	if info.GetBuffByName(myHandle, 'OverEstimate_Buff') ~= nil then
 		return 'OverEstimate_Buff';
 	end
+	
+	if info.GetBuffByName(myHandle, 'OverReinforce_Buff') ~= nil then
+		return 'OverReinforce_Buff';
+	end
 
 	if info.GetBuffByName(myHandle, 'Devaluation_Debuff') ~= nil then
 		return 'Devaluation_Debuff';

@@ -1,4 +1,4 @@
-﻿function PC_PCAA(pc)
+function PC_PCAA(pc)
 local jobHistory = GetJobHistorySting(pc)
     print(jobHistory)
 end
@@ -25,8 +25,8 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
                 return 'LOCK';
             end
         end
-	end
-
+    end
+    
     if ability.Job == "None" then
 		LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Ability Job is None");
         return "UNLOCK";
@@ -591,22 +591,26 @@ function SCR_ABIL_SCHWARZEREITER1_ACTIVE(self, ability)
     local lItem  = GetEquipItem(self, 'LH');
     local addhr = 0;
     
-    if rItem.ClassType2 == "Gun" or lItem.ClassType2 == "Gun" then
+    if rItem.ClassType == "Musket" then
         addhr = ability.Level * 500
+        SetExProp(self, "MUSKET_HR_ADD", addhr)
+    elseif lItem.ClassType == "Pistol" then
+        addhr = ability.Level * 500
+        SetExProp(self, "PISTOL_HR_ADD", addhr)
     end
     
     --self.HR_BM = self.HR_BM + addhr;
     
     --SetExProp(ability, "ADD_HR", addhr);
-    SetExProp(self, "ABIL_HR_ADD", addhr)
+    --SetExProp(self, "ABIL_HR_ADD", addhr)
 end
 
 function SCR_ABIL_SCHWARZEREITER1_INACTIVE(self, ability)
     --local addhr = GetExProp(ability, "ADD_HR");
     
     --self.HR_BM = self.HR_BM - addhr;
-    
-    DelExProp(self, "ABIL_HR_ADD")
+    DelExProp(self, "MUSKET_HR_ADD")
+    DelExProp(self, "PISTOL_HR_ADD")
 end
 
 function SCR_ABIL_CATAPHRACT31_ACTIVE(self, ability)
@@ -701,44 +705,45 @@ function SCR_ABIL_INQUISITOR9_INACTIVE(self, ability)
     self.ResDark_BM = self.ResDark_BM - addresdark
 end
 
-
-
-function SCR_GET_SwordMastery_Bonus(ability)
-    
-    return 5 + ability.Level;
-    
-end
-
-function SCR_ABIL_SWORDMASTERY_ACTIVE(self, ability)  
+function SCR_ABIL_SWORDMASTERY_ACTIVE(self, ability)
+    local addDEF = 0;
+    local addSpeed = 0;
 
     local rItem  = GetEquipItem(self, 'RH');
-    
     if rItem.ClassType == "Sword" then
-        local addValue = self.MAXPATK * (SCR_GET_SwordMastery_Bonus(ability) / 100)
-        self.PATK_BM = self.PATK_BM + addValue;
-        SetExProp(ability, "ADD", addValue);
-    else
-        SetExProp(ability, "ADD", 0);
+        local lItem  = GetEquipItem(self, 'LH');
+        if lItem.ClassType == "Shield" then
+            local akt = (rItem.MINATK + rItem.MAXATK) / 2
+            addDEF = math.floor(akt * 0.2);
+        else
+            addSpeed = 200;
+        end
     end
+    
+    self.DEF_BM = self.DEF_BM + addDEF;
+    
+    SetExProp(ability, "ABIL_ADD_DEF", addDEF);
+    SetExProp(self, "ABIL_ADD_ATKSPD", addSpeed);
 end
 
 function SCR_ABIL_SWORDMASTERY_INACTIVE(self, ability)
-
-    local addValue = GetExProp(ability, "ADD");
-    self.PATK_BM = self.PATK_BM - addValue;
-    
+    local addDEF = GetExProp(ability, "ABIL_ADD_DEF");
+    DelExProp(self, "ABIL_ADD_ATKSPD");
+    self.DEF_BM = self.DEF_BM - addDEF;
 end
 
+function SCR_ABIL_SCHWARZEREITER2_ACTIVE(self, ability)
+    local lItem  = GetEquipItem(self, 'LH');
+    local value = 0;
+    if lItem.ClassType == "Pistol" then
+        value = 1;
+    end
+    SetExProp(self, "ABIL_ADD_HIT", value)
+end
 
-
-
-
-
-
-
-
-
-
+function SCR_ABIL_SCHWARZEREITER2_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_ADD_HIT")
+end
 
 
 function SCR_GET_DustDevil_Bonus(ability)
@@ -918,6 +923,20 @@ function SCR_ABIL_THMACE_INACTIVE(self, ability)
     DelExProp(self, "ABIL_THMACE_BLKBLEAK")
 end
 
+function SCR_ABIL_THMACE_SR_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addSR = 0
+    if rItem.ClassType == "THMace" then
+        addSR = 5
+    end
+    
+    SetExProp(self, "ABIL_THMACE_SR", addSR)
+end
+
+function SCR_ABIL_THMACE_SR_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THMACE_SR")
+end
+
 function SCR_ABIL_SPEAR_ACTIVE(self, ability)
     local rItem  = GetEquipItem(self, 'RH');
     local addSkillRange = 0
@@ -1020,4 +1039,28 @@ end
 
 function SCR_ABIL_MACE_INACTIVE(self, ability)
     DelExProp(self, "ABIL_MACE_ADDHEAL");
+end
+
+
+function SCR_ABIL_PELTASTA5_ACTIVE(self, ability)
+    
+    local lItem  = GetEquipItem(self, 'LH');
+    local addValue = 0;
+    
+    if lItem.ClassType == "Shield" then
+        addValue = ability.Level;
+    end
+    
+    self.MaxHateCount_BM = self.MaxHateCount_BM + addValue;
+    SetExProp(ability, "ADD_MaxHateCount", addValue);
+    
+    Invalidate(self, "MaxHateCount");
+end
+
+function SCR_ABIL_PELTASTA_INACTIVE(self, ability)
+    
+    local addValue = GetExProp(ability, "ADD_MaxHateCount");  
+    self.MaxHateCount_BM = self.MaxHateCount_BM - addValue;
+
+    Invalidate(self, "MaxHateCount");
 end

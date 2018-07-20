@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="1" attachNode="None" particleName="E_RIP" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="1" attachNode="None" particleName="E_RIP2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="1" attachNode="None" particleName="E_RIP3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="E_RIP" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="E_RIP2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="false" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="E_RIP3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="false" use2DEffect="false" soft2DValue="20"/>
 	<BlendOn frame="2" R="100" G="100" B="100" A="50"/>
 	<BlendOn frame="4" R="0" G="0" B="0" A="0"/>
 	<BlendOn frame="6" R="100" G="100" B="100" A="50"/>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_minivern_atk"/>
+    <Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.3" range="300"/>
+    <BlendOn frame="6" R="30" G="50" B="60" A="100"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_ground068_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_effect01" particleName="I_swordtrail046_alpha_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="7" R="20" G="40" B="40" A="100"/>
+    <BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_pc_jump_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke166_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Shockwave frame="10" type="2" intensity="1" frequency="70" duration="0.3" range="500"/>
+    <BlendOn frame="10" R="30" G="50" B="60" A="100"/>
+    <Particle frame="10" attachNode="Dummy_effect02" particleName="I_swordtrail046_alpha_reverse" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="11" R="20" G="40" B="40" A="100"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="F_pc_jump_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="14" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+    <Particle frame="12" attachNode="Dummy_emitter" particleName="F_ground068_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

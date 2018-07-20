@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_3CMLAKE_85_MQ_05_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="1994354001">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59070" Pos="-1344.89#163.68#46.70" genCount="1" genTime="20000" objectKey="0" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-1313.19#163.68#40.56" genCount="1" genTime="20000" objectKey="1" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-1297.59#163.68#12.72" genCount="1" genTime="20000" objectKey="2" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-1257.29#163.68#27.82" genCount="1" genTime="20000" objectKey="3" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="156132" Pos="-1272.31#163.68#59.35" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;저항군 부관 베른&apos; &apos;SimpleAI&apos; &apos;F_3CMLAKE_85_MQ_05_NPC_AI&apos; &apos;RunMSPD&apos; &apos;72&apos; " SimpleAI="F_3CMLAKE_85_MQ_05_NPC_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-1023.33#164.87#302.48" genCount="1" genTime="20000" autoGen="0" objectKey="6" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-949.64#164.87#369.73" genCount="1" genTime="20000" autoGen="0" objectKey="7" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-1061.98#163.16#686.65" genCount="1" genTime="20000" autoGen="0" objectKey="8" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-975.30#164.46#654.87" genCount="1" genTime="20000" autoGen="0" objectKey="9" SimpleAI="F_3CMLAKE_85_MQ_05_AI"/>
+                    <Obj Type="Monster" MonType="59070" Pos="-1757.06#159.41#65.84" genCount="1" genTime="20000" objectKey="10"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="0" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/0/DefGroup/1/DefGroup/3/DefGroup/2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족들이 몰려오고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/8/DefGroup/9/DefGroup/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족들이 몰려오고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/6/DefGroup/7/DefGroup/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="4" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/8/DefGroup/6/DefGroup/7/DefGroup/9"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Str Str="=="/>
+                                <Num Num="4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="저 멀리서 누군가 달려오고 있습니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="value">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9/DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족들이 몰려오고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/6/DefGroup/7/DefGroup/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="3" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/9"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족들이 몰려오고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/6/DefGroup/7/DefGroup/8/DefGroup/0/DefGroup/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_3CMLAKE_85_MQ_05_VALUE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

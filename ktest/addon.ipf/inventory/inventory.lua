@@ -22,6 +22,8 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('JUNGTAN_SLOT_UPDATE', 'JUNGTAN_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_ON', 'EXP_ORB_SLOT_INVEN_ON_MSG');
 	addon:RegisterMsg('EXP_ORB_ITEM_OFF', 'EXP_ORB_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_ON', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
+	addon:RegisterMsg('TOGGLE_ITEM_SLOT_OFF', 'TOGGLE_ITEM_SLOT_INVEN_ON_MSG');
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
@@ -40,6 +42,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	GROUP_NAMELIST = {};
 	
 	SHOP_SELECT_ITEM_LIST = {};
+	INVENTORY_TOGGLE_ITEM_LIST = {};
 
 	--검색 용 변수
 	searchEnterCount = 1
@@ -636,7 +639,6 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 end
 
 function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
-	
 	local itemSlot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
@@ -757,7 +759,6 @@ function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem)
 	end
 
 	return nil;
-
 end
 
 function INVENTORY_UPDATE_ICON_BY_INVITEM(frame, changeTargetItem)
@@ -803,7 +804,7 @@ function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 		if invItem ~= nil then
 			local itemCls = GetIES(invItem:GetObject());
 			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-			INV_SLOT_UPDATE(frame, invItem, slot); 
+			INV_SLOT_UPDATE(frame, invItem, slot);
 		end
 	end
 end
@@ -879,11 +880,9 @@ end
 function CHECK_EXCHANGE_ITEM_LIST(invItem, remaincount)
 
 	local itemCount = exchange.GetExchangeItemCount(0);	
-	
 	for  i = 0, itemCount-1 do 		
 		local itemData = exchange.GetExchangeItemInfo(0,i);
 		if itemData ~= nil then
-
 			if tostring(itemData:GetGUID() ) == tostring(invItem:GetIESID()) then
 				return remaincount - itemData.count;
 			end
@@ -1068,7 +1067,9 @@ function INIT_INVEN_SLOT(slot)
 	local shopframe = ui.GetFrame("shop");
 	local exchangeframe  = ui.GetFrame("exchange");
 	local companionshop = ui.GetFrame('companionshop');	
-	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 then
+	local oblationSell = ui.GetFrame("oblation_sell");
+
+	if shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1 or companionshop:IsVisible() == 1 or oblationSell:IsVisible() == 1 then
 		slot:SetSelectedImage('socket_slot_check')  -- 거래시에만 체크 셀렉 아이콘 사용	
 	end
 
@@ -1512,7 +1513,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
     -- mixer
 	local mixerFrame = ui.GetFrame("mixer");
 	if mixerFrame:IsVisible() == 1 then
-
 		local slotSet = INV_GET_SLOTSET_BY_INVINDEX(argNum-1)
 		local slot = slotSet:GetSlotByIndex(argNum-1);
 		MIXER_INVEN_RBOTTUNDOWN(itemobj, argNum);
@@ -1913,7 +1913,6 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 	local toFrame				= frame:GetTopParentFrame();
 	
 	toFrame:SetValue(1);
-		
 	if	FromFrame == toFrame then
 		local parentSlot = liftIcon:GetParent();
 		local parentSlotSet = parentSlot:GetParent();
@@ -2624,6 +2623,53 @@ function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 	end
 end
 
+--토글.
+function TOGGLE_ITEM_SLOT_INVEN_ON_MSG(frame, msg, argstr, argnum)
+	if msg == "TOGGLE_ITEM_SLOT_ON" then
+		INVENTORY_TOGGLE_ITEM_LIST[argnum] = 1;
+	elseif msg == "TOGGLE_ITEM_SLOT_OFF" then
+		INVENTORY_TOGGLE_ITEM_LIST[argnum] = nil;
+	end
+
+	local cnt = 0;
+	for k, v in pairs(INVENTORY_TOGGLE_ITEM_LIST) do
+		cnt = cnt + 1;
+end
+
+	if cnt > 0 then
+		frame:RunUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM", 1.0);
+	else
+		frame:StopUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM");
+	end
+end
+	
+--업데이트.
+function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return;
+	end
+	
+	local tabIndex = invenTab:GetSelectItemIndex()
+	for type, v in pairs(INVENTORY_TOGGLE_ITEM_LIST) do
+		local slot = INV_GET_SLOT_BY_TYPE(type);
+		if tabIndex == 0 then
+			slot = INV_GET_SLOT_BY_TYPE(type, nil, 1)
+		end	
+		if slot ~= nil and slot:IsVisible() == 1 then
+	if slot:IsVisibleRecursively() == true then
+		local size = frame:GetUserConfig("TOGGLE_ITEM_EFFECT_SIZE");	
+		slot:PlayOnceUIEffect('I_sys_item_slot', size);
+		slot:Invalidate();
+	end
+		end
+	end
+	return 1;
+end
+
 function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, num)
 	if str == 'JUNGTAN_OFF' then
 
@@ -2669,8 +2715,6 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	if slot == nil then
 		return;
 	end
-	local posX, posY = GET_SCREEN_XY(slot);
-
 	if slot:IsVisibleRecursively() == true then
 		local size = frame:GetUserConfig("EXP_ORB_EFFECT_SIZE");	
 		slot:PlayOnceUIEffect('I_sys_item_slot', size);

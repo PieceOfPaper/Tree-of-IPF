@@ -1338,9 +1338,15 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 	local pc = GetMyPCObject();
 	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
 	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
+	local overReinf = TryGetProp(pc, 'OverReinforce');
 	if bonusReinf ~= nil then
 		if TryGetProp(item, 'EquipGroup') == 'SubWeapon' and isEquiped > 0 then
 			reinforce_2 = reinforce_2 + bonusReinf;
+		end
+	end
+	if overReinf ~= nil then
+		if TryGetProp(item, 'GroupName') == 'Weapon' and isEquiped > 0 then
+			reinforce_2 = reinforce_2 + overReinf;
 		end
 	end
 	if isEquiped > 0 and ignoreReinf == 1 then
@@ -2038,7 +2044,9 @@ function CHECK_EQUIPABLE(type)
 			return 'ABIL'
 		end
 	else
-		if 0 ~= haveAbil then
+		if ret == 'LV' or ret == 'GENDER' then
+			return ret;
+		elseif 0 ~= haveAbil then
 			return 'OK'
 		end
 	end
@@ -2115,9 +2123,9 @@ function ITEM_REASON_MSG(msg)
 	elseif msg == "GENDER" then
 		local gender = GETMYPCGENDER();
 		if gender == 1 then
-			return ScpArgMsg("Auto_yeoSeongeun_ChagyongHal_Su_eopSeupNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_SeongByeolKwa_LeBeleul_HwaginHaSeyo");
-		else
 			return ScpArgMsg("Auto_NamSeongeun_ChagyongHal_Su_eopSeupNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_SeongByeolKwa_LeBeleul_HwaginHaSeyo");
+		else
+			return ScpArgMsg("Auto_yeoSeongeun_ChagyongHal_Su_eopSeupNiDa._aiTem_SeolMyeongeSeo_JangChag_KaNeungHan_SeongByeolKwa_LeBeleul_HwaginHaSeyo");
 		end
 	elseif msg == "ABIL" then
 		return ScpArgMsg("EquipWeaponNeedAbility");
@@ -2806,7 +2814,7 @@ function ITEM_ENTER_COMMON_EFFECT(invitem, equipItem, strarg)
 end
 
 function SCR_ITEM_FIELD_TOOLTIP(itemObj, handle, itemType)
-	-- ����
+	-- ????
 end
 
 function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
@@ -4134,7 +4142,7 @@ function JOYSTICK_INPUT()
 		quickFrame:ShowWindow(0);
 		restquickslot:ShowWindow(0);
 
-		-- 기존 set ?��?.
+		-- 기존 set ????.
 		if Set2:IsVisible() == 1 then 
 			Set1:ShowWindow(0);
 			Set2:ShowWindow(1);

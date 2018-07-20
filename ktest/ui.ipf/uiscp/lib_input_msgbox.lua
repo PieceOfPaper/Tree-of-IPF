@@ -210,7 +210,12 @@ function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
 	for i = 0, count - 1 do
 		local cabinetItem = session.market.GetCabinetItemByIndex(i);
 		local whereFrom = cabinetItem:GetWhereFrom();
-		if whereFrom == 'market_sell' then
+
+		-- Time
+		local registerTime = cabinetItem:GetRegSysTime();
+		local difSec = imcTime.GetDifSec(registerTime, sysTime);
+		
+		if whereFrom == 'market_sell' and (difSec <= 0 or difSec == nil) then
 			--Draw ControlSet
 			local soldItemCtrl = gBox:CreateControlSet('market_cabinet_item_sold', 'Item_GetAll_Ctrl_'..i, 0, inner_yPos)
 			inner_yPos = inner_yPos + soldItemCtrl:GetHeight()
@@ -241,7 +246,8 @@ function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
 				--fessPercent = 30;		
 			--end
 
-		else --Draw ControlSet
+		elseif whereFrom ~= 'market_sell' and (difSec <= 0 or difSec == nil)  then 
+			--Draw ControlSet
 			local buyItemCtrl = gBox:CreateControlSet('market_cabinet_item_etc', 'Item_GetAll_Ctrl_'..i, 0, inner_yPos)
 			inner_yPos = inner_yPos + buyItemCtrl:GetHeight()
 
@@ -304,7 +310,7 @@ function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, ma
 	end
 
 	--아이템 이름 & 갯수 ( & 가격 ) 
-	local itemReinforce_Level = TryGetProp(cabinetItem_Obj, "Reinforce_2");
+	local itemReinforce_Level = TryGetProp(cabinetItem_Obj, "Reinforce_2", 0);
 	local richText_1 = GET_CHILD_RECURSIVELY(frame, "richtext_1");
 	richText_1:SetTextByKey("itemName", cabinetItem_Obj.Name);	
 	
@@ -320,8 +326,11 @@ function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, ma
 			--fees = cabinetItem.count * 0.3   			
 			--fessPercent = 30;
 		--end
-		if cabinetItem_Obj.MaxStack <= 1 and itemReinforce_Level > 0 then
-			local levelStr = string.format("+%s ", itemReinforce_Level);
+		if cabinetItem_Obj.MaxStack <= 1 then
+			local levelStr = "";
+			if itemReinforce_Level > 0 then
+				levelStr = string.format("+%s ", itemReinforce_Level);
+			end
 			richText_1:SetTextByKey("item_reinforce_level", levelStr);
 		end
 		richText_1:SetTextByKey("itemCount", cabinetItem.sellItemAmount);
@@ -336,8 +345,16 @@ function INPUT_TEXTMSG_BOX(marketFrame, strscp, charName, jobName, minNumber, ma
     else 
 		richText_1:SetTextByKey("itemCount", cabinetItem.count);
 		--Reinforce Level Setting
-		if cabinetItem_Obj.MaxStack <= 1 and itemReinforce_Level > 0 then
-			local levelStr = string.format("+%s ", itemReinforce_Level);
+		local maxStack = cabinetItem_Obj.MaxStack;
+		if maxStack == nil then	
+			maxStack = 1;
+		end
+
+		if maxStack <= 1 then
+			local levelStr = "";
+			if itemReinforce_Level > 0 then
+				levelStr = string.format("+%s ", itemReinforce_Level);
+			end
 			richText_1:SetTextByKey("item_reinforce_level", levelStr);
 		end
 

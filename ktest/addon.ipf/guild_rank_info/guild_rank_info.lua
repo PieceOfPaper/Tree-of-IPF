@@ -200,7 +200,11 @@ end
 function GUILD_RANK_INFO_TOGGLE()
     if app.IsBarrackMode() == true then
 		return;
-	end
+    end
+    if session.world.IsIntegrateServer() == true then
+        ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
+        return;
+    end
 
     local frame = ui.GetFrame('guild_rank_info');
     if frame ~= nil and frame:IsVisible() == 1 then

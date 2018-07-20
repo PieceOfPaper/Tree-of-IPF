@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pcbang_shop" x="0" y="0" width="1250" height="800">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="false"/>
+	<skin frameskin="None"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="100"/>
+	<opencheck scp="PCBANG_SHOP_CHECK_OPEN" strarg="" numarg=""/>
+	<script OpenScp="ON_PCBANG_SHOP_OPEN" CloseScp="ON_PCBANG_SHOP_CLOSE"/>
+	<userconfig POINTSHOP_PRODUCT_WIDTH="284" POINTSHOP_PRODUCT_HEIGHT="340" POINTSHOP_PRODUCT_DIVISOR="3" RENTAL_PRODUCT_WIDTH="284" RENTAL_PRODUCT_HEIGHT="340" RENTAL_PRODUCT_DIVISOR="3" COLOR_ENABLE_RECV="FFFFFFFF" COLOR_DISABLE_RECV="FF000000"/>
+	<controls>
+		<groupbox name="background" rect="0 0 1250 800" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="titlebg" rect="0 0 1250 70" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="TPshop_title"/>
+		<richtext name="title" rect="0 0 300 30" margin="0 0 0 0" fontname="white_24_b_ol" layout_gravity="center center " caption="{@st42}{s22}PC방" parent="titlebg"/>
+		<button name="close_btn" image="testclose_button" margin="0 20 50 0" rect="0 0 44 44" layout_gravity="right top" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="ON_PCBANG_SHOP_CLOSE_BTN"/>
+		<button name="refresh_btn" image="market_reset2_btn" margin="0 90 10 0" rect="0 0 0 0" layout_gravity="right top" LBtnUpScp="ON_PCBANG_SHOP_REFRESH_BTN" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" stretch="true"/>
+		<groupbox name="point_gb" rect="0 0 300 40" margin="0 92 60 0" layout_gravity="right top" draw="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<picture name="computer_pic" rect="0 0 38 30" margin="5 2 0 0" parent="point_gb" layout_gravity="left center" image="pcbang_point_icon" stretch="true"/>
+		<richtext name="point_text" parent="point_gb" rect="0 0 64 30" margin="0 0 5 0" layout_gravity="right center" format="{s18}%s" param1="value" param1_def="None" fontname="white_24_b_ol"/>
+		<richtext name="point_timer_text" rect="0 0 300 30" margin="0 0 15 20" layout_gravity="right bottom" format="{img test_cooltime 25 25}{s18}포인트 초기화까지 %s일 %s시간 %s분 남았습니다.{/}" param1="day" param1_def="None" param2="hour" param2_def="None" param3="min" param3_def="None" fontname="limitedsale"/>
+		<!--메뉴 탭-->
+		<tab name="tab" rect="0 0 600 45" margin="15 90 0 0" layout_gravity="left top" clicksound="inven_arrange" imagetype="false" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="main_tab" parent="tab" layout_gravity="left top" caption="{@st66b}메인{/}" width="140"/>
+		<tabitem name="pointshop_tab" parent="tab" layout_gravity="left top" caption="{@st66b}포인트 샵{/}" width="140"/>
+		<tabitem name="rental_tab" parent="tab" layout_gravity="left top" caption="{@st66b}PC방 장비 대여{/}" width="140"/>
+		<tabitem name="guide_tab" parent="tab" layout_gravity="left top" caption="{@st66b}안내{/}" width="140"/>
+		<groupbox name="main_gb" rect="0 0 1230 610" margin="0 40 0 0" layout_gravity="center center" tabname="main_tab" scrollbar="false" draw="false" skin="test_frame_midle" tabchangescp="ON_PCBANG_SHOP_TAB_MAIN"/>
+		<groupbox name="pointshop_gb" rect="0 0 1230 610" margin="0 40 0 0" layout_gravity="center center" tabname="pointshop_tab" scrollbar="false" draw="false" skin="test_frame_midle" tabchangescp="ON_PCBANG_SHOP_TAB_POINTSHOP"/>
+		<groupbox name="rental_gb" rect="0 0 1230 610" margin="0 40 0 0" layout_gravity="center center" tabname="rental_tab" scrollbar="false" draw="false" skin="bg2" tabchangescp="ON_PCBANG_SHOP_TAB_RENTAL"/>
+		<groupbox name="guide_gb" rect="0 0 1230 596" margin="0 40 0 0" layout_gravity="center center" tabname="guide_tab" scrollbar="false" draw="true" skin="test_frame_midle" tabchangescp="ON_PCBANG_SHOP_TAB_GUIDE"/>
+		<!--메인 탭-->
+		<groupbox name="main_gb2" parent="main_gb" rect="0 0 875 596" margin="0 0 0 0" layout_gravity="right center " draw="true" resizebyparent="false" scrollbar="false" skin="test_frame_midle"/>
+		<picture name="banner_left_pic" parent="main_gb" rect="0 0 348 596" margin="0 5 0 0" layout_gravity="left top" image="pcbang_banner" stretch="true"/>
+		<groupbox name="point_title_gb" parent="main_gb2" rect="0 0 875 40" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" scrollbar="false" skin="market_listbase"/>
+		<richtext name="point_title_text" parent="point_title_gb" rect="0 0 850 20" margin="10 0 0 0" layout_gravity="left center" caption="누적 포인트" fontname="black_16_b" textalign="left top" fixwidth="true"/>
+		<picture name="clock_pic" parent="main_gb2" rect="0 0 37 38" margin="14 47 0 0" layout_gravity="left top" image="pcbang_clock_icon_l" stretch="true"/>
+		<picture name="gauge_pic_l" parent="main_gb2" rect="0 0 8 36" margin="50 48 0 0" layout_gravity="left top" image="pcbang_point_gauge_L_left" stretch="true"/>
+		<picture name="gauge_pic_r" parent="main_gb2" rect="0 0 8 36" margin="0 48 23 0" layout_gravity="right top" image="pcbang_point_gauge_L_right" stretch="true"/>
+		<gauge name="point_gauge" parent="main_gb2" rect="0 0 798 36" margin="0 48 30 0" layout_gravity="right top" inverse="false" point="0" maxpoint="100" text1="{s16}{b}{ds}%v / %m" textfont1="white_14_ol" textalign1="center center" skin="pcbang_point_gauge_L"/>
+		<richtext name="point_gauge_text" parent="main_gb2" rect="0 0 300 30" margin="0 95 22 0" layout_gravity="right top" caption="{s14}※최대 20000포인트까지 누적되며, 매 분기(1,4,7,10월 1일 06시)마다 초기화 됩니다." fontname="brown_16_b"/>
+		<richtext name="today_point_text" parent="main_gb2" rect="0 0 300 30" margin="20 93 0 0" layout_gravity="left top" format="{s14}{@st42}오늘 획득한 포인트: %s" param1="value" param1_def="0" fontname="brown_16_b"/>
+		<groupbox name="reward_title_gb" parent="main_gb2" rect="0 0 875 40" margin="0 120 10 0" layout_gravity="left top" scrollbar="false" draw="true" resizebyparent="false" skin="market_listbase"/>
+		<richtext name="reward_title_text" parent="reward_title_gb" rect="0 0 850 30" margin="10 0 0 0" layout_gravity="left center" caption="접속 보상" fontname="black_16_b" textalign="left top" fixwidth="true"/>
+		<groupbox name="reward_gb" parent="main_gb2" rect="0 0 880 230" margin="5 160 0 0" layout_gravity="left top" draw="true" resizebyparent="false" scrollbar="false" skin=""/>
+		<controlset name="reward_daily" type="pcbang_shop_connect_reward" parent="reward_gb" margin="0 0 0 0" rect="0 0 290 230" hittest="true" layout_gravity="left top" draw="false"/>
+		<controlset name="reward_monthly" type="pcbang_shop_connect_reward" parent="reward_gb" margin="288 0 0 0" rect="0 0 290 230" hittest="true" layout_gravity="left top" draw="false"/>
+		<controlset name="reward_total" type="pcbang_shop_total_reward" parent="reward_gb" margin="0 0 14 0" rect="0 0 290 230" hittest="true" layout_gravity="right top" draw="false"/>
+		<groupbox name="event_title_gb" parent="main_gb2" rect="0 0 875 40" margin="0 360 10 0" layout_gravity="left top" draw="true" resizebyparent="false" scrollbar="false" skin="market_listbase"/>
+		<groupbox name="event_gb" parent="main_gb2" rect="0 0 865 190" margin="0 0 15 5" layout_gravity="right bottom" draw="false" resizebyparent="false" scrollbar="false" skin="brownbox_is"/>
+		<richtext name="event_empty_text" parent="event_gb" rect="0 0 500 30" margin="0 0 0 0" layout_gravity="center center" caption="진행중인 이벤트가 없습니다" fontname="brown_18_b" textalign="left top" fixwidth="false"/>
+		<richtext name="event_title_text" parent="event_title_gb" rect="0 0 850 30" margin="10 0 0 0" layout_gravity="left center" caption="이벤트" fontname="black_16_b" textalign="left top" fixwidth="false"/>
+		<!--포인트샵 탭-->
+		<groupbox name="pointshop_category_gb" parent="pointshop_gb" rect="0 0 348 596" margin="0 0 0 0" layout_gravity="left center " draw="true" resizebyparent="false" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="pointshop_category_title_gb" parent="pointshop_category_gb" rect="0 0 348 40" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" skin="market_listbase"/>
+		<richtext name="pointshop_category_title_text" parent="pointshop_category_title_gb" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" caption="카테고리" fontname="black_16_b" textalign="left center" fixwidth="false"/>
+		<button name="pointshop_category_common_btn" parent="pointshop_category_gb" rect="0 0 348 60" margin="0 40 0 0" layout_gravity="left top" LBtnUpScp="ON_PCBANG_SHOP_POINTSHOP_CATEGORY_BTN" LBtnUpArgStr="Common" MouseOffAnim="" MouseOnAnim="" caption="{@st66b}   일반 상품{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="base_btn" textalign="left center"/>
+		<button name="pointshop_category_rotation_btn" parent="pointshop_category_gb" rect="0 0 348 60" margin="0 92 0 0" layout_gravity="left top" LBtnUpScp="ON_PCBANG_SHOP_POINTSHOP_CATEGORY_BTN" LBtnUpArgStr="Rotation" MouseOffAnim="" MouseOnAnim="" caption="{@st66b}   로테이션 상품{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="base_btn" textalign="left center"/>
+		<button name="pointshop_category_event_btn" parent="pointshop_category_gb" rect="0 0 348 60" margin="0 145 0 0" layout_gravity="left top" LBtnUpScp="ON_PCBANG_SHOP_POINTSHOP_CATEGORY_BTN" LBtnUpArgStr="Event" MouseOffAnim="" MouseOnAnim="" caption="{@st66b}   이벤트 상품{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="base_btn" textalign="left center"/>
+		<groupbox name="pointshop_list_gb" parent="pointshop_gb" rect="0 0 875 596" margin="0 0 0 0" layout_gravity="right center " draw="true" resizebyparent="false" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="pointshop_list_title_gb" parent="pointshop_list_gb" rect="0 0 875 40" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" skin="market_listbase"/>
+		<richtext name="pointshop_list_title_text" parent="pointshop_list_title_gb" rect="0 0 98 21" margin="10 0 0 0" layout_gravity="left center" caption="구입가능 목록" fontname="black_16_b" textalign="left center" fixwidth="false"/>
+		<richtext name="pointshop_list_info_text" parent="pointshop_list_title_gb" rect="0 0 340 30" margin="0 0 10 0" layout_gravity="right center" caption="※매 분기마다(1,4,7,10월 1일) 상품이 갱신됩니다." fontname="brown_16_b" textalign="left center" fixwidth="false"/>
+		<groupbox name="pointshop_list_products_gb" parent="pointshop_list_gb" rect="0 0 875 555" margin="0 40 0 0" layout_gravity="left top" draw="false" resizebyparent="false" scrollbar="true" skin="test_weight_skin"/>
+		<!--장비 대여 탭-->
+		<groupbox name="rental_category_gb" parent="rental_gb" rect="0 0 348 596" margin="0 0 0 0" layout_gravity="left center " draw="true" resizebyparent="false" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="rental_category_title_gb" parent="rental_category_gb" rect="0 0 348 40" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" skin="market_listbase"/>
+		<richtext name="rental_category_title_text" parent="rental_category_title_gb" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" caption="카테고리" fontname="black_16_b" textalign="left center" fixwidth="false"/>
+		<button name="rental_category_weapon_btn" parent="rental_category_gb" rect="0 0 348 60" margin="0 40 0 0" layout_gravity="left top" LBtnUpScp="ON_PCBANG_SHOP_RENTAL_CATEGORY_BTN" LBtnUpArgStr="Weapon" MouseOffAnim="" MouseOnAnim="" caption="{@st66b}   무기{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="base_btn" textalign="left center"/>
+		<button name="rental_category_armor_btn" parent="rental_category_gb" rect="0 0 348 60" margin="0 92 0 0" layout_gravity="left top" LBtnUpScp="ON_PCBANG_SHOP_RENTAL_CATEGORY_BTN" LBtnUpArgStr="Armor" MouseOffAnim="" MouseOnAnim="" caption="{@st66b}   방어구{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="base_btn" textalign="left center"/>
+		<groupbox name="rental_list_gb" parent="rental_gb" rect="0 0 875 596" margin="0 0 0 0" layout_gravity="right center " draw="true" resizebyparent="false" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="rental_list_title_gb" parent="rental_list_gb" rect="0 0 875 40" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" skin="market_listbase"/>
+		<richtext name="rental_list_title_text" parent="rental_list_title_gb" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" caption="대여가능 목록" fontname="black_16_b" textalign="left center" fixwidth="false"/>
+		<groupbox name="rental_list_products_gb" parent="rental_list_gb" rect="0 0 875 555" margin="0 40 0 0" layout_gravity="left top" draw="true" resizebyparent="false" scrollbar="true" skin=""/>
+		<!--안내 탭-->
+		<richtext name="guide_text" parent="guide_gb" rect="0 0 1100 500" margin="0 0 0 0" layout_gravity="center center" caption="약관 안내" fontname="brown_16_b" textalign="center center" fixwidth="true"/>
+		<!--타이머 체크박스-->
+		<checkbox name="show_timer_checkbox" rect="0 0 200 30" margin="20 0 0 20" layout_gravity="left bottom" caption="{s18}메인화면에서 타이머 표시하기" checked="true" clicksound="button_click" fontname="black_16_b" LBtnUpScp="ON_PCBANG_SHOP_CHECK_SHOW_TIMER"/>
+		<picture name="banner_bottom_pic" parent="event_gb" rect="0 0 865 190" margin="0 0 0 0" layout_gravity="center center " draw="false" image="" stretch=""/>
+	</controls>
+</uiframe>

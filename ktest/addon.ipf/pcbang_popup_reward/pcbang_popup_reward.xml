@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pcbang_popup_reward" x="0" y="0" width="380  " height="480">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<skin frameskin="mainwindow3"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<controls>
+		<richtext name="title" rect="0 0 200 30" margin="0 40 0 0" layout_gravity="center top" format="{@st42}{s20}PC방 %s" param1="value" fontname="brown_16_b" spacey="0"/>
+		<richtext name="item_name" rect="0 0 200 30" margin="0 90 0 0" layout_gravity="center top" caption="{s18}item name" fontname="black_18_b" spacey="0"/>
+		<picture name="item_pic" rect="0 0 140 140" margin="0 140 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="None" stretch="true"/>
+		<labelline name="labelline4" rect="0 0 290 3" margin="0 310 0 0" skin="labelline4" layout_gravity="center top"/>
+		<richtext name="desc" rect="0 0 200 100" margin="0 0 0 105" layout_gravity="center bottom" caption="{@st66b}PC 방 일일 접속보상이{nl}인벤토리로 지급됩니다." fontname="black_20_b" spacey="0" textalign="center top"/>
+		<button name="ok_btn" rect="0 0 130 40" margin="-65 0 0 25" layout_gravity="center bottom" LBtnUpScp="ON_PCBANG_POPUP_REWARD_REQ" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st42b}{s16}받기{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_red_button" textalign="center center"/>
+		<button name="cancel_btn" rect="0 0 130 40" margin="65 0 0 25" layout_gravity="center bottom" LBtnUpScp="ON_PCBANG_POPUP_REWARD_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st42b}{s16}취소{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_gray_button" textalign="center center"/>
+	</controls>
+</uiframe>

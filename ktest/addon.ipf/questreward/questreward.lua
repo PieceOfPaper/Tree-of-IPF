@@ -140,21 +140,26 @@ function QUEST_REWARD_TEST(frame, questID)
 	    succExp = succExp + repeat_reward_exp
 	end
 	
-	if cls.Success_Lv_Exp > 0 and pc.Lv < PC_MAX_LEVEL then
+    if succExp > 0 then
+        succJobExp = succJobExp + math.floor(succExp * 77 /100)
+    end
+    
+	if cls.Success_Lv_Exp > 0 then
         local xpIES = GetClass('Xp', pc.Lv)
         if xpIES ~= nil then
             local lvexpvalue =  math.floor(xpIES.QuestStandardExp * cls.Success_Lv_Exp)
-            if lvexpvalue ~= nil and lvexpvalue > 0 then
+            if lvexpvalue ~= nil and lvexpvalue > 0 and pc.Lv < PC_MAX_LEVEL then
 	            succExp = succExp + lvexpvalue
             end
             local lvjobexpvalue =  math.floor(xpIES.QuestStandardJobExp * cls.Success_Lv_Exp)
-            if lvjobexpvalue ~= nil and lvjobexpvalue > 0 then
+            if lvjobexpvalue ~= nil and lvjobexpvalue > 0 and GetJobLv(pc) < 15 then
 	            succJobExp = succJobExp + lvjobexpvalue
             end
         end
     end
     
 	if succExp > 0 then
+	    succExp = GET_COMMAED_STRING(succExp)
 	    y = y + 5;
 		y = BOX_CREATE_RICHTEXT(box, "t_successExp", y, 20, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s20}{ol}{#FFFF00}"..succExp.."{/}", 10);	
 		local tempY = y
@@ -164,6 +169,7 @@ function QUEST_REWARD_TEST(frame, questID)
 		end
 	end
 	if succJobExp > 0 then
+	    succJobExp = GET_COMMAED_STRING(succJobExp)
 		y = BOX_CREATE_RICHTEXT(box, "t_successJobExp", y, 20, ScpArgMsg("SuccessJobExpGiveMSG1") .."{s20}{#FFFF00}"..  succJobExp.."{/}", 10);
 		y = y + 10;
 	end
@@ -979,12 +985,14 @@ function ON_QUEST_ITEM_SELECT(frame, msg, str, num)
 	end
 
 	local expamount = cls.ExpAmount;
-	if expamount > 0 then
+	
+    local pc = GetMyPCObject();
+    
+	if pc.Lv < PC_MAX_LEVEL and expamount > 0 then
 		local fixexp  = math.floor(expamount * ( 100 + obj.Step24 ) / 100);
 		y = BOX_CREATE_RICHTEXT(box, "t_successExp", y, 20, ScpArgMsg("Auto_{@st41}KyeongHeomChi_:_") .."{s20}{ol}{#FFFF00}"..  fixexp.."{/}");
 		
 		if session.GetMaxEXP() - session.GetEXP() - fixexp <= 0 then
-		    local pc = GetMyPCObject();
             local content = box:CreateOrGetControl('richtext', 'QUESTINFOREWARDLVUP', 10, y, box:GetWidth() , 10);
         	content:EnableHitTest(0);
         	content:SetTextFixWidth(0);

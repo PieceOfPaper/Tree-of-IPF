@@ -709,6 +709,26 @@ function Impaler_Astd_LEAVE(actor, obj, buff)
     actor:SetAlwaysBattleState(false);
 end
 
+function EmperorsBane_Astd_ENTER(actor, obj, buff, rps, dir)
+    actor:GetAnimation():SetSTDAnim("SKL_MURMILLO_EMPEROR'SBANE_ASTD");
+    actor:SetAlwaysBattleState(true);
+end
+
+function EmperorsBane_Astd_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+    actor:SetAlwaysBattleState(false);
+end
+
+function EMPERORSBANE_STUN_ANI_ENTER(actor, obj, buff, rps, dir)
+    actor:GetAnimation():SetSTDAnim("stun");
+    actor:GetAnimation():PlayFixAnim('stun', 1, 1);
+end
+
+function EMPERORSBANE_STUN_ANI_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():PlayFixAnim("ASTD", 1.0, 0);
+end
+
 
 function KneelingShot_ENTER(actor, obj, buff)
     --actor:SetLimitMinTargetRange(50);
@@ -758,6 +778,28 @@ function AssaultFireScp_LEAVE(actor, obj, buff)
     actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
     ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
+
+
+
+
+
+
+function OutrageScp_ENTER(actor, obj, buff)
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+end
+
+function OutrageScp_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():ResetRUNAnim();
+    actor:GetAnimation():ResetWLKAnim();
+    actor:GetAnimation():ResetTURNAnim();
+    actor:SetAlwaysBattleState(false);
+    actor:GetAnimation():PlayFixAnim("ASTD", 1, 1);
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+end
+
+
+
 
 function WebFlyObject_ENTER(actor, obj, buff)
   actor:GetEffect():SetColorBlink(0.1,0.1,0.1,0.1,0.3,0.3,0.3,0.3, 1.5, 1);
@@ -1022,9 +1064,10 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     local buffLimacon = actor:GetBuff():GetBuff('Limacon_Buff');
     local RetreatShot = actor:GetBuff():GetBuff('RetreatShot');
     local AssaultFire = actor:GetBuff():GetBuff('AssaultFire_Buff');
+    local Outrage = actor:GetBuff():GetBuff('Outrage_Buff');
     
     -- RunningShot_Buff (and) DoubleGunStance_Buff
-    if buffRunningShot ~= nil and buffDoubleGunStance ~= nil then
+    if buffRunningShot ~= nil and buffDoubleGunStance ~= nil and Outrage == nil then
         actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         actor:SetAlwaysBattleState(true);
@@ -1037,6 +1080,15 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
 --        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_AONAIR")
         actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
+    -- Outrage_Buff
+    elseif Outrage ~= nil and buffDoubleGunStance ~= nil then
+        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+        actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
+        actor:SetAlwaysBattleState(true);
+        actor:GetAnimation():SetSTDAnim("SKL_OUTRAGE_ATK");
+        actor:GetAnimation():SetRUNAnim("SKL_OUTRAGE_MOVEATK");
+        actor:GetAnimation():SetTURNAnim("None");
+        actor:GetAnimation():PlayFixAnim("SKL_OUTRAGE_ATK", 1, 1);
     else
         -- RunningShot_Buff
         if buffRunningShot ~= nil then

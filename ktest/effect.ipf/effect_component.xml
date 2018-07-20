@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
 	<Particle name="pattern004_blue" texture="pattern004_blue" width="1" height="1" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
 	<Particle name="light046_violet" texture="light046_violet" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
@@ -617,6 +617,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="key01" model="key01.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="demon_bull_run" model="demon_bull_run.xac" motion="demon_bull_run.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="wind_twirl" model="wind_twirl.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="breast_ripper_loop" model="breast_ripper01.xac" motion="breast_ripper_loop.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="breast_ripper_ready" model="breast_ripper01.xac" motion="breast_ripper_ready.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="katadikazo" model="katadikazo.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
@@ -718,6 +721,11 @@
 	<Model name="skullarcher_dead" model="skullarcher_dead.xac" motion="skullarcher_dead_ani.xsm" texturepath="char_texture\monster\skullarcher\" overlap="false" AlphaType="TEST"/>
 	<Model name="effect_spear_13_hexa" model="effect_spear_13_hexa.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
 	<Model name="monster_froster_lord_dead" model="monster_froster_lord_dead.xac" motion="monster_froster_lord_dead_ani.xsm" texturepath="char_texture\monster\froster_lord\" overlap="false" AlphaType="TEST"/>
+	<Model name="boss_TealSpecter_dead" model="boss_TealSpecter_dead.xac" motion="boss_TealSpecter_dead_ani.xsm" texturepath="char_texture\monster\boss_TealSpecter\" overlap="false" AlphaType="TEST"/>
+	<Model name="boss_pbeta_dead" model="boss_pbeta_dead.xac" motion="boss_pbeta_dead_ani.xsm" texturepath="char_texture\monster\pbeta\" overlap="false" AlphaType="TEST"/>
+	<Model name="boss_PervadingQueen_dead" model="boss_PervadingQueen_dead.xac" motion="boss_PervadingQueen_dead_ani.xsm" texturepath="char_texture\monster\boss_PervadingQueen\" overlap="false" AlphaType="TEST"/>
+	<Model name="boss_Quipmage_dead" model="boss_Quipmage_dead.xac" motion="boss_Quipmage_dead_ani.xsm" texturepath="char_texture\monster\Quipmage\" overlap="false" AlphaType="TEST"/>
+	<Model name="boss_solcomm_dead" model="boss_solcomm_dead.xac" motion="boss_solcomm_dead_ani.xsm" texturepath="char_texture\monster\solcomm\" overlap="false" AlphaType="TEST"/>
 	<Model name="headfish_dead" model="headfish_dead.xac" motion="headfish_dead_ani.xsm" texturepath="char_texture\npc\NPC_Cart1\" overlap="false" AlphaType="TEST"/>
 	<Model name="honeyspider_dead" model="honeyspider_dead.xac" motion="honeyspider_dead_ani.xsm" texturepath="char_texture\monster\honeyspider\" overlap="false" AlphaType="TEST"/>
 	<Model name="sphere001" model="sphere001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="TEST"/>
@@ -1515,7 +1523,6 @@
 	<Model name="i_boss_trampler_dead" model="boss_trampler_dead.xac" motion="boss_trampler_dead_ani.xsm" texturepath="char_texture\monster\trampler\" overlap="false" AlphaType="TEST"/>
 	<Model name="i_boss_banshee_boss_dead" model="boss_banshee_boss_dead.xac" motion="boss_banshee_boss_dead_ani.xsm" texturepath="char_texture\monster\banshee_boss\" overlap="false" AlphaType="TEST"/>
 	<Model name="i_boss_kinghammer_dead" model="boss_kinghammer_dead.xac" motion="boss_kinghammer_dead_ani.xsm" texturepath="char_texture\monster\kinghammer\" overlap="false" AlphaType="TEST"/>
-	<Model name="i_boss_pbeta_dead" model="boss_pbeta_dead.xac" motion="boss_pbeta_dead_ani.xsm" texturepath="char_texture\monster\pbeta\" overlap="false" AlphaType="TEST"/>
 	<Model name="paper_doll_dead" model="paper_doll_dead.xac" motion="paper_doll_dead_ani.xsm" texturepath="char_texture\npc\Onmyoji_skill\" overlap="false" AlphaType="TEST"/>
 	<Model name="paper_doll_red_dead" model="paper_doll_dead.xac" motion="paper_doll_dead_ani.xsm" texturepath="char_texture\npc\Onmyoji_skill\red\" overlap="false" AlphaType="TEST"/>
 	<Model name="paper_doll_black_dead" model="paper_doll_dead.xac" motion="paper_doll_dead_ani.xsm" texturepath="char_texture\npc\Onmyoji_skill\black\" overlap="false" AlphaType="TEST"/>
@@ -1523,6 +1530,8 @@
 	<Model name="wugushi_poison_dead" model="wugushi_poison_dead.xac" motion="wugushi_poison_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="f_nicopolis_npc_02_dead" model="f_nicopolis_npc_02_dead.xac" motion="f_nicopolis_npc_02_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="f_nicopolis_npc_01_dead" model="f_nicopolis_npc_01_dead.xac" motion="f_nicopolis_npc_01_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_wastrel_dead" model="boss_wastrel_dead.xac" motion="boss_wastrel_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="i_boss_wastrel_red_dead" model="boss_wastrel_red_dead.xac" motion="boss_wastrel_red_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
@@ -1651,6 +1660,7 @@
 	<Screen name="UI_magic_decal_UI" texture="magic_decal_UI" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.5" texel_x="0" texel_y="0" texel_width="256" texel_height="256" loop="false" count="0" pitch="4" ticktime="0.00"/>
 	<Screen name="UI_circle041_bule" texture="circle041_bule" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="0" pitch="4" ticktime="0.00"/>
 	<Screen name="UI_circle041_orange" texture="circle041_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="0" pitch="4" ticktime="0.00"/>
+	<Screen name="UI_sprite034_1" texture="sprite034" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" pitch="4" ticktime="0.02"/>
 	<Screen name="UI_sprite034" texture="sprite034" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="16" pitch="4" ticktime="0.04"/>
 	<Screen name="UI_circle041_red" texture="circle041_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="0" pitch="4" ticktime="0.00"/>
 	<Screen name="UI_light004" texture="light004" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="4" ticktime="0.00"/>

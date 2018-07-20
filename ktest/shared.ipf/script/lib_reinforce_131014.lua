@@ -11,11 +11,15 @@ function IS_MORU_FREE_PRICE(moruItem)
         or moruItem.ClassName == "Moru_Silver_TA2" 
         or moruItem.ClassName == "Moru_Silver_Event_1704" 
         or moruItem.ClassName == 'Moru_Silver_TA_Recycle' 
-        or moruItem.ClassName == "Moru_Gold_TA"
+        or moruItem.ClassName == 'Moru_Silver_TA_V2' 
+        or moruItem.ClassName == "Moru_Gold_TA"        
+        or moruItem.ClassName == "Moru_Gold_TA_NR"
+        or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER"
         or moruItem.ClassName == "Moru_Event160609" 
         or moruItem.ClassName == "Moru_Event160929_14d" 
         or moruItem.ClassName == "Moru_Potential" 
-        or moruItem.ClassName == "Moru_Potential14d" then
+        or moruItem.ClassName == "Moru_Potential14d"
+        or moruItem.StringArg == 'SILVER' then
         return true;
     end
 
@@ -114,6 +118,11 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
         elseif kupoleItemLv > 0 then
             lv = kupoleItemLv;
         end
+    end
+    
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(fromItem);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
     end
     
     local value, value_diamond = 0, 0;

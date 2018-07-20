@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<List>
+	<Spine>
+		<Element Name="Marnoks" root="Marnoks" atlas="Marnoks" json="Marnoks" scale="0.2" offsetX="-10" offsetY="0" animation="animation">
+			<uieffect effect="I_screen_bosscard_Marnoks_fireSmoke" attachSpineBone="bone112" scale="4" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_fireSmoke" attachSpineBone="bone24" scale="4" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_fireSmoke" attachSpineBone="bone107" scale="4" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_fireSmoke" attachSpineBone="bone12" scale="4" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_smoke" attachSpineBone="bone28" scale="2" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_fire" attachSpineBone="bone28" scale="3" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_fire" attachSpineBone="bone16" scale="3" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_smoke" attachSpineBone="bone16" scale="2" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_light" attachSpineBone="bone38" scale="5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_light2" attachSpineBone="bone111" scale="5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Marnoks_light2" attachSpineBone="bone107" scale="5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="blud" root="blud" atlas="blud" json="blud" scale="0.3" offsetX="0" offsetY="-80" animation="animation">
+			<uieffect effect="I_screen_bosscard_blud_drop" attachSpineBone="bone54" scale="3" overlab="No" sound="None" offset="-15 90" playtime="2" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_blud_bubble" attachSpineBone="bone54" scale="3" overlab="No" sound="None" offset="-15 90" playtime="2" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="Zawra" root="Zawra" atlas="Zawra" json="Zawra" scale="0.14" offsetX="10" offsetY="-80" animation="animation">
+			<uieffect effect="I_screen_bosscard_zawra_rize_long" attachSpineBone="bone36" scale="2" overlab="No" sound="None" offset="-15 90" playtime="2" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_zawra_rize" attachSpineBone="bone11" scale="2" overlab="No" sound="None" offset="-15 90" playtime="2" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_zawra_glow" attachSpineBone="bone9" scale="1" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_zawra_glow" attachSpineBone="bone23" scale="1.2" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_zawra_glow" attachSpineBone="bone88" scale="1.2" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_zawra_glow" attachSpineBone="bone83" scale="1" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_zawra_glow_eye" attachSpineBone="bone45" scale="0.3" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="Nuaele" root="Nuaele" atlas="Nuaele" json="Nuaele" scale="0.14" offsetX="-10" offsetY="-30" animation="animation">
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone64" scale="0.5" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone59" scale="0.5" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone71" scale="0.35" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone88" scale="0.35" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone28" scale="0.2" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone25" scale="0.2" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone32" scale="0.15" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone117" scale="0.2" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone9" scale="0.15" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone76" scale="0.3" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone47" scale="0.15" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_smoke064_drop_dust" attachSpineBone="bone102" scale="0.15" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="Helgasercle" root="Helgasercle" atlas="Helgasercle" json="Helgasercle" scale="0.4" offsetX="0" offsetY="10" animation="animation">
+			<uieffect effect="I_screen_bosscard_Helgasercle_aura2" attachSpineBone="bone8" scale="1" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Helgasercle_aura2" attachSpineBone="bone20" scale="1" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Helgasercle_aura2" attachSpineBone="bone41" scale="4" overlab="No" sound="None" offset="-15 0" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Helgasercle_aura" attachSpineBone="bone11" scale="0.5" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Helgasercle_aura" attachSpineBone="bone23" scale="0.5" overlab="No" sound="None" offset="-15 90" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="lecifer" root="lecifer" atlas="lecifer" json="lecifer" scale="1.1" offsetX="-10" offsetY="-20" animation="animation">
+			<uieffect effect="I_screen_bosscard_rexioher_glow_eye" attachSpineBone="bone122" scale="0.15" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_light2" attachSpineBone="bone23" scale="1" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_light" attachSpineBone="bone80" scale="1" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_light" attachSpineBone="bone92" scale="1" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_aura" attachSpineBone="wing r13" scale="8" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_aura" attachSpineBone="bone105" scale="8" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_aura" attachSpineBone="bone8" scale="15" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_rexioher_aura" attachSpineBone="rob9" scale="5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="mirtis" root="mirtis" atlas="mirtis" json="mirtis" scale="1" offsetX="0" offsetY="-20" animation="animation">
+			<uieffect effect="I_screen_bosscard_mirtis" attachSpineBone="M body45" scale="1.5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="1" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="kucarry_balzermancer" root="kucarry_balzermancer" atlas="kucarry_balzermancer" json="kucarry_balzermancer" scale="0.25" offsetX="0" offsetY="-40" animation="animation">
+			<uieffect effect="I_screen_bosscard_kucarry" attachSpineBone="bone88" scale="6" overlab="No" sound="None" offset="-15 90" playtime="3" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_kucarry2" attachSpineBone="bone57" scale="6" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_kucarry2" attachSpineBone="bone59" scale="8" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_kucarry2" attachSpineBone="bone133" scale="6" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_kucarry2" attachSpineBone="bone135" scale="8" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="PantoRex" root="PantoRex" atlas="PantoRex" json="PantoRex" scale="0.12" offsetX="-5" offsetY="-20" animation="animation">
+			<uieffect effect="I_screen_bosscard_PantoRex" attachSpineBone="bone41" scale="4.5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_PantoRex" attachSpineBone="bone29" scale="4.5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_PantoRex2_L" attachSpineBone="bone54" scale="3.5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_PantoRex2_R" attachSpineBone="bone55" scale="3.5" overlab="No" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="Velcoffer" root="Velcoffer" atlas="Velcoffer" json="Velcoffer" scale="0.5" offsetX="0" offsetY="-80" animation="animation">
+			<uieffect effect="I_screen_bosscard_Velcoffer" attachSpineBone="bone10" scale="12" overlab="YES" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Velcoffer" attachSpineBone="bone22" scale="7" overlab="YES" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_Velcoffer" attachSpineBone="bone28" scale="10" overlab="YES" sound="None" offset="-15 90" playtime="3.25" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="FrosterLord" root="FrosterLord" atlas="FrosterLord" json="FrosterLord" scale="0.6" offsetX="0" offsetY="-20" animation="animation"/>
+	</Spine>
+</List>

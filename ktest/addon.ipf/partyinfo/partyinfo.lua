@@ -286,7 +286,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("GiveLeaderPermission"), string.format("GIVE_PARTY_LEADER(\"%s\")", memberInfo:GetName()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("BAN_PARTY_MEMBER(\"%s\")", memberInfo:GetName()));	
 		
-		if session.world.IsDungeon() or session.world.IsIntegrateIndunServer() == true then
+		if session.world.IsDungeon() and session.world.IsIntegrateIndunServer() == true then
 			local aid = memberInfo:GetAID();
 			local serverName = GetServerNameByGroupID(GetServerGroupID());
 			local playerName = memberInfo:GetName();

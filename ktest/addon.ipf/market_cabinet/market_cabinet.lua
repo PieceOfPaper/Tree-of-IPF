@@ -216,6 +216,7 @@ function CABINET_GET_ALL_LIST(frame, control, strarg, now)
         return;
     end 
     
+    local weightflag = 0;
     local sysTime = geTime.GetServerSystemTime();		
 	for i = 0 , session.market.GetCabinetItemCount() - 1 do
 		local cabinetItem = session.market.GetCabinetItemByIndex(i);
@@ -228,23 +229,9 @@ function CABINET_GET_ALL_LIST(frame, control, strarg, now)
         --end
 
         if 0 >= difSec then
-		    local itemObj = GetIES(cabinetItem:GetObject());
-            local itemWeight = itemObj.Weight;
-            if cabinetItem:GetWhereFrom() == 'market_sell' then
-                itemWeight = moneyItem.Weight;
-            end
-		    if pc.MaxWeight < now + (itemWeight * cabinetItem.count) then
-		        flag = 1
-		    else
-		        market.ReqGetCabinetItem(cabinetItem:GetItemID());
-		        now  = now + (itemWeight * cabinetItem.count)
-		    end
+	        market.ReqGetCabinetItem(cabinetItem:GetItemID());
         end
-	end
-    
-	if flag == 1 then
-	    addon.BroadMsg("NOTICE_Dm_!", ScpArgMsg("MAXWEIGHTMSG"), 10);
-	end
+    end
 
     local frame = ui.GetFrame("market_cabinet_soldlist")
 	if frame ~= nil then

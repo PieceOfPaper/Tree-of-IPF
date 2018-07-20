@@ -131,7 +131,6 @@ function SET_SLOT_ITEM(slot, invItem, count)
 	SET_SLOT_IMG(slot, img);
 	SET_SLOT_COUNT(slot, count);
 	SET_SLOT_IESID(slot, invItem:GetIESID());
-	slot:SetTooltipArg('inven', type, invItem:GetIESID());
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	iconInfo.type = type;

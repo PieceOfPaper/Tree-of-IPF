@@ -110,7 +110,7 @@ function APPRAISAL_UPDATE_MONEY(frame)
 		return;
 	end
 
-	local mymoney = GET_COMMAED_STRING(GET_TOTAL_MONEY()-totalprice);
+	local mymoney = GET_COMMAED_STRING(SumForBigNumber(GET_TOTAL_MONEY(), -1 * totalprice));
 	calcprice:SetText(mymoney)
 
 	frame:SetUserValue('TOTAL_MONEY', totalprice);

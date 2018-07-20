@@ -471,8 +471,8 @@ function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 
 	-- 카드 이미지 적용
 	local card_img = GET_CHILD(frame, "card_img");
-	card_img:SetImage(cls.TooltipImage);	
-		
+	card_img:SetImage(TryGetProp(cls, "TooltipImage"));
+
 	local multiValue = 64;	-- 꽉 찬 카드 이미지를 하고 싶다면 90 으로. (단, 카드레벨 하락 정보가 잘 안보일 수 있음.)
 	local star_bg = GET_CHILD(frame, "star_bg");
 	local cardStar_Before = GET_CHILD(star_bg, "cardStar_Before");

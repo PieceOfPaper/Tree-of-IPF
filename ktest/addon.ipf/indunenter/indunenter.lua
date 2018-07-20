@@ -1170,7 +1170,7 @@ end
 function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
     local frame = ui.GetFrame('indunenter');
     local enterBtn = GET_CHILD_RECURSIVELY(frame, 'enterBtn');
-    local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
+local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
     local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
     local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
     local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');

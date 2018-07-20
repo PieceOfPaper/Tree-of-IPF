@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Bip01 L Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Bip01 R Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_cleric_breastRipper_loop" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_breastripper_scissors"/>
+    <BlendOn frame="1" R="40" G="20" B="50" A="100"/>
+    <Shockwave frame="1" type="2" intensity="3" frequency="10" duration="0.05" range="1000"/>
+    <BlendOff frame="3" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

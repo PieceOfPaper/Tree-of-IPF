@@ -15,11 +15,15 @@
 		<groupbox name="market_material_bg" rect="0 0 1067 400" margin="348 0 0 60" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
 		<groupbox name="market_title" rect="0 0 1425 99" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_title"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-		<pagecontroller name="pagecontrol" rect="0 0 1020 40" margin="165 0 0 20" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MARKET_PAGE_SELECT_NEXT" prevScp="MARKET_PAGE_SELECT_PREV" selectScp="MARKET_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext"movebyone="true">
+		<pagecontroller name="pagecontrol" rect="0 0 1020 40" margin="165 0 0 20" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MARKET_PAGE_SELECT_NEXT" prevScp="MARKET_PAGE_SELECT_PREV" selectScp="MARKET_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext" movebyone="true">
 			<prev size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
 			<next size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
 		</pagecontroller>
-		<pagecontroller name="pagecontrol_material" rect="0 0 1020 40" margin="165 0 0 15" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="RECIPE_SEARCH_PAGE_SELECT_NEXT" prevScp="RECIPE_SEARCH_SELECT_PREV" selectScp="RECIPE_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext"movebyone="true">
+		<pagecontroller name="pagecontrol_recipe" rect="0 0 1020 40" margin="165 0 0 495" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="RECIPE_SEARCH_PAGE_SELECT_NEXT" prevScp="RECIPE_SEARCH_SELECT_PREV" selectScp="RECIPE_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext" movebyone="true">
+			<prev size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<next size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+		</pagecontroller>
+		<pagecontroller name="pagecontrol_material" rect="0 0 1020 40" margin="165 0 0 15" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MATERIAL_SEARCH_PAGE_SELECT_NEXT" prevScp="MATERIAL_SEARCH_SELECT_PREV" selectScp="MATERIAL_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext" movebyone="true">
 			<prev size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
 			<next size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
 		</pagecontroller>
@@ -29,7 +33,6 @@
 		<button name="marketBuy" rect="0 0 200 45" margin="10 105 0 0" layout_gravity="left top" caption="{@st66b18}구매" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
 		<groupbox name="categoryList" rect="0 0 344 598" margin="4 190 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
 		<button name="category" margin="0 0 0 0" rect="0 0 335 40" parent="market_midle2" layout_gravity="left top" caption="{@st66b}{s18}카테고리" hittest="false" skin="market_listbase" Enable="false"/>
-		<detaillist name="itemlist" rect="0 0 1067 730 " margin="376 185 0 0" layout_gravity="left top" rowheight="70" skin=""/>
 		<groupbox name="itemListGbox" rect="0 0 1167 730 " margin="348 188 0 0" hittestbox="false" skin="" layout_gravity="left top"/>
 		<groupbox name="defaultTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<groupbox name="recipeSearchGbox" rect="0 0 1167 370" margin="348 569 0 0" hittestbox="false" skin="" layout_gravity="left top"/>

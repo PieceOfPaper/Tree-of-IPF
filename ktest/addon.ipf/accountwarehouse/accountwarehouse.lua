@@ -220,12 +220,7 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
             end
 
 			SET_SLOT_IMG(slot, iconImg)
-		--	SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade, index)
-
-			if itemCls.ItemType ~= "Equip" then
 				SET_SLOT_COUNT(slot, invItem.count)
-				SET_SLOT_COUNT_TEXT(slot, invItem.count);
-			end
 
 			SET_SLOT_STYLESET(slot, itemCls)
 			SET_SLOT_IESID(slot, invItem:GetIESID())

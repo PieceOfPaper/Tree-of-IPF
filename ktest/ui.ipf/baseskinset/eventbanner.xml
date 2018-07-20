@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="eventbanner">
@@ -17,5 +17,10 @@
 		<image name="event1806support" file="\event_banner\event1806support.jpg" imgrect="0 0 480 180"/>
 		<image name="event1806weekend" file="\event_banner\event1806weekend.jpg" imgrect="0 0 480 180"/>
 		<image name="event1711vakarine" file="\event_banner\event1711vakarine.jpg" imgrect="0 0 480 180"/>
+	</imagelist>
+	<imagelist category="pcbang">
+		<image name="pcbang_test2" file="\event_banner\event1711vakarine.jpg" imgrect="0 0 480 180"/>
+		<image name="pcbang_test" file="\skin\pcbang_banner.tga" imgrect="0 0 348 596"/>
+		<image name="pcbang_banner2" file="\skin\pcbang_banner2.tga" imgrect="0 0 865 190"/>
 	</imagelist>
 </skinset>

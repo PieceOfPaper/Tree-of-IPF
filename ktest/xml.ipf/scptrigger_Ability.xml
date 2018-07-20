@@ -366,7 +366,7 @@
 				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="Warrior_EnableMovingShot_Buff"/>
+						<Str Str="Cyclone_EnableMovingShot_Buff"/>
 						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
 						<Num Num="0"/>
 						<Num Num="5500"/>
@@ -403,41 +403,6 @@
 						<Num Num="3"/>
 					</ToolScp>
 				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Musketeer1">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
-						<Str Str="Musket"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Musketeer1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="return 0.25 * obj.Level"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
-						<Str Str="S"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_COND_CHECK_BY_SCRIPT" Client="NO" UseSleep="NO">
-						<Str Str="SCR_MUSKETEER_ABIL_Musketeer1_ZONE_CHECK"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_TARGET_SET_EXPROP_NUM" Client="NO" UseSleep="NO">
-						<Str Str="UNLIMIT_MAX_DAMAGE"/>
-						<Num Num="1"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="return targetObj.HP"/>
-					</ToolScp>
-				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
@@ -617,8 +582,8 @@
 					</ToolScp>
 				</CondList>
 				<ExecList>
-					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="local ignoreDEF = math.floor(targetObj.DEF * obj.Level * 0.05);return ignoreDEF;"/>
+					<ToolScp Scp="SPCI_IGNORE_DEFENCE_RATE" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="local ignoreDEF = obj.Level * 0.02;return ignoreDEF;"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>
@@ -911,27 +876,6 @@
 						<Str Str="Cloth"/>
 					</ToolScp>
 				</TgtCondList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="DaggerMastery">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_BACK_OF_THE_HEAD" Client="NO" UseSleep="NO"/>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_IS_DAGGER_ATTACK" Client="NO" UseSleep="NO"/>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="DaggerMastery"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level * 0.025"/>
-					</ToolScp>
-				</ExecList>
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
