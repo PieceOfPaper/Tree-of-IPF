@@ -96,7 +96,7 @@ function ON_CABINET_ITEM_LIST(frame)
 		-- etc box
 		local etcBox = GET_CHILD_RECURSIVELY(ctrlSet, 'etcBox');
 		local etcShow = false;
-		if whereFrom ~= 'market_sell' and whereFrom ~= 'market_buy' then
+		if whereFrom ~= 'market_sell' and whereFrom ~= 'market_buy' and itemObj.ClassName ~= MONEY_NAME then
 			local etcText = etcBox:GetChild('etcText');
 			etcText:SetTextByKey('count', cabinetItem.count);
 			etcBox:ShowWindow(1);
@@ -127,7 +127,7 @@ function ON_CABINET_ITEM_LIST(frame)
         -- time
         local timeBox = GET_CHILD_RECURSIVELY(ctrlSet, 'timeBox');
         local endTime = timeBox:GetChild("endTime");
-        if etcShow == true then
+        if etcShow == true and difSec <= 0 then
         	timeBox:ShowWindow(0);
         else
         	endTime:SetTextByKey("value", timeString);
@@ -143,7 +143,7 @@ function ON_CABINET_ITEM_LIST(frame)
 
         -- price
 		local totalPrice = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice");
-        if whereFrom == 'market_sell' and etcShow == false then
+        if itemObj.ClassName == MONEY_NAME or (whereFrom == 'market_sell' and etcShow == false) then
 		    totalPrice:SetTextByKey("value", GetCommaedText(cabinetItem.count));
         else
             totalPrice:ShowWindow(0);
@@ -156,6 +156,7 @@ function ON_CABINET_ITEM_LIST(frame)
 		btn:UseOrifaceRectTextpack(true)
 		btn:SetEventScript(ui.LBUTTONUP, "CABINET_ITEM_BUY");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,cabinetItem:GetItemID());
+
 		if 0 >= difSec then
 			btn:SetEnable(1);
 		else
