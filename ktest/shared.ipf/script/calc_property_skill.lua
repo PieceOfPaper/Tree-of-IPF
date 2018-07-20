@@ -11166,8 +11166,8 @@ end
 
 function SCR_GET_Restoration_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 300 + ((skill.Level - 1) * 20);
-    
+--    local value = 100.7 + (skill.Level - 1) * 16.9;
+    local value = 100 + ((skill.Level - 1) * 10);
     local Paladin11_abil = GetAbility(pc, "Paladin11")  -- 1rank Skill Damage add
     if Paladin11_abil ~= nil then
         value = value * (1 + Paladin11_abil.Level * 0.01);
@@ -13572,7 +13572,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --  local sklFactor = skill.SklFactor;
 --  if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --      local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
+--      sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ??�?무르밀??리밸????????????--
 --  end
     
     local def = lhEquipWeapon.DEF;
@@ -13694,12 +13694,12 @@ function SCR_Get_SkillASPD(skill)
     return stc.SkillASPD;
 end
 
-function SCR_GET_USEOVERHEAT(skill)	
-	local pc = GetSkillOwner(skill);
-	--local reduce_OH_value = SCR_GET_ADDOVERHEAT(pc, skill);
-	--skill.	
-	local skillScale = 0.4; -- ????-- skill.xml????????
---	local byStat = math.pow(math.log(pc.MNA + 2.718282), skillScale);
+function SCR_GET_USEOVERHEAT(skill) 
+    local pc = GetSkillOwner(skill);
+    --local reduce_OH_value = SCR_GET_ADDOVERHEAT(pc, skill);
+    --skill.    
+    local skillScale = 0.4; -- ????-- skill.xml????????
+--  local byStat = math.pow(math.log(pc.MNA + 2.718282), skillScale);
 
     local value = skill.SklUseOverHeat; 
     value = value * ((100 + pc.OverHeat_BM) / 100);
@@ -13762,7 +13762,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
     if skill.GemLevel_BM > 0 then
-        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
+        value = value + 1;  -- 몬스????????�?????중첩?????무조??+1??????????
     end
 
     if skill.LevelByDB == 0 then
