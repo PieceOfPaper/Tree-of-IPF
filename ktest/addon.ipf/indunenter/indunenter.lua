@@ -363,10 +363,16 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         -- max play count
         local maxCount = TryGetProp(indunCls, 'PlayPerReset');
         if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
-            maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token')
+            local playPerResetToken = TryGetProp(indunCls, 'PlayPerReset_Token');
+            if playPerResetToken ~= nil then
+                maxCount = maxCount + playPerResetToken;
+            end
         end
         if session.loginInfo.IsPremiumState(NEXON_PC) == true then
-            maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC')
+            local playPerResetNexonPC = TryGetProp(indunCls, 'PlayPerReset_NexonPC')
+            if playPerResetNexonPC ~= nil then
+                maxCount = maxCount + playPerResetNexonPC;
+            end
         end
         countData:SetTextByKey("max", maxCount);
     
