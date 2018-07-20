@@ -388,9 +388,9 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="47357" Pos="786.34#200.37#898.50" angle="315" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47361" Pos="752.12#200.37#737.83" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="47365" Pos="906.03#200.37#988.09" angle="315" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47534" Pos="786.34#200.37#898.50" angle="315" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47535" Pos="752.12#200.37#737.83" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47536" Pos="906.03#200.37#988.09" angle="315" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="bossGen1">

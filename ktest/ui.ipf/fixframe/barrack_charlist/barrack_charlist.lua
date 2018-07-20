@@ -330,8 +330,10 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 		if eqpObj ~= nil then
 			local obj = GetIES(eqpObj);
 			local eqpType = TryGet_Str(obj, "EqpType");
-			if eqpType == "HELMET" then
-				esName = "HAIR";
+			if eqpType == "HELMET" then 
+				if item.IsNoneItem(obj.ClassID) == 0 then
+					esName = "HAIR";
+				end
 			end
 		end
 		

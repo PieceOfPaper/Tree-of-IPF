@@ -661,7 +661,7 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 		local itemobj = GetClass("Item", obj.ItemClassName)
 		local isFounded = false;
     if itemobj == nil then
-      IMC_NORMAL_INFO("ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
+      IMC_LOG("INFO_NORMAL", "ItemClassName not found in item.xml:TPITEM_DRAW_ITEM_WITH_CATEGORY. obj.ItemClassName:" ..obj.ItemClassName);
     else
 		  if filter ~= nil then
 			  local targetItemName = itemobj.Name;			
@@ -1393,7 +1393,6 @@ end
 
 --///////////////////////////////////////////////////////////////////////////////////////////미리보기 Code start
 function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_clsID)
-	
 	local frame = ui.GetFrame("tpitem");
 	local slotset = nil;
 	
@@ -1435,7 +1434,7 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
                 TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 2, tpitemname, itemobj); -- 렌즈
             end,
             default = function() 
-                IMC_NORMAL_INFO("EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
+                IMC_LOG("INFO_NORMAL", "EqpType not defined in tpitem.lua:TPSHOP_ITEM_PREVIEW_PREPROCESSOR. item.EqpType:" .. itemobj.EqpType);
 			    TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 0, tpitemname, itemobj); -- 디폴트 헤어
             end,
 	    }
@@ -1517,10 +1516,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				invSlot = invframe:GetChild("BOOTS");	
 		end,
 		[ES_HELMET] = function()
-			local helmet = apc:GetEquipItem(i);
-			if helmet ~= nil then
 				invSlot = invframe:GetChild("HAIR");	
-			end
 		end,
 		[ES_ARMBAND] = function() 
 				invSlot = invframe:GetChild("ARMBAND");	
@@ -1568,7 +1564,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				if invIteminfo ~= nil then
 					local obj = GetIES(invIteminfo:GetObject());
 					if obj ~= nil then
-						apc:SetEquipItem(i, obj.ClassID);	
+						local spotName = item.GetEquipSpotName(i);
+						if spotName == obj.EqpType then
+							apc:SetEquipItem(i, obj.ClassID);
+						else
+							apc:SetEquipItem(i, 0);	
+						end
 					else
 						apc:SetEquipItem(i, 0);	
 					end
@@ -1577,7 +1578,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 				end			
 			else	
 				apc:SetEquipItem(i, 0);							
-			end	
+			end		
 		end	
 	end
 	
@@ -1633,10 +1634,12 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		if hairslotset ~= nil then
 			local hairslot = hairslotset:GetSlotByIndex(0);
 			if hairslot ~= nil then
+				
 				local classname = hairslot:GetUserValue("CLASSNAME");
 		
-				local itemobj = GetClass("Item", classname)
+				local itemobj = GetClass("Item", classname);
 				if itemobj ~= nil then
+					apc:SetEquipItem(ES_HELMET , 0);
 					hairName = itemobj.StringArg;
 				end
 			end
