@@ -10331,7 +10331,7 @@ function SCR_GET_Fanaticism_Ratio(skill)
 end
 
 function SCR_GET_BlindFaith_Ratio(skill)
-    local value = skill.Level * 10
+    local value = 2 + ((skill.Level - 1) * 0.2)
 
     return value
 end

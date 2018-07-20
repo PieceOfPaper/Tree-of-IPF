@@ -5515,7 +5515,7 @@ return obj.Level;"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="FanaticIllusion_pad" CheckerType="0" AllowOverlap="1" Dist="1.1135938" Angle="-1.3444525" Range="60" AutoPos="1" ApplyFlyMon="1">
+	<PadSkill Name="FanaticIllusion_pad" CheckerType="0" AllowOverlap="1" Dist="1.1135938" Angle="-1.3444525" Range="60" AutoPos="1" ApplyFlyMon="1"EnableSearch="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="999999"/>

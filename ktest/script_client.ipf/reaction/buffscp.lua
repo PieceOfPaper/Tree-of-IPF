@@ -356,15 +356,13 @@ function Proliferation_ENTER(actor, obj, buff)
         return;
     end
 
-    actor:SetNodeScale("Bip01 L Hand", 2.0)
-    actor:SetNodeScale("Dummy_L_HAND", 1.25)
+    actor:PushNodeScale("Proliferation1", "Bip01 L Hand", 1.0);
+    actor:PushNodeScale("Proliferation2", "Dummy_L_HAND", 0.25);
 end
 
 function Proliferation_LEAVE(actor, obj, buff)
-
-    actor:SetNodeScale("Bip01 L Hand", 1.0)
-    actor:SetNodeScale("Dummy_L_HAND", 1.0)
-
+	actor:PopNodeScale("Proliferation1");
+	actor:PopNodeScale("Proliferation2");
 end
 
 function ProliferationRH_ENTER(actor, obj, buff)
@@ -372,22 +370,22 @@ function ProliferationRH_ENTER(actor, obj, buff)
     if pc.IsBuffApplied(actor, "Thurisaz_Buff") == 1 then
         return;
     end
-        
-    actor:SetNodeScale("Bip01 R Hand", 2.0)
-    actor:SetNodeScale("Dummy_R_HAND", 1.25)
-    actor:SetNodeScale("Dummy_R_dagger", 1.25)
-    actor:SetNodeScale("Dummy_R_allebell", 1.25)
-    actor:SetNodeScale("Dummy_R_umbrella", 1.25)
-    actor:SetNodeScale("Dummy_Shield", 1.25)    
+
+    actor:PushNodeScale("ProliferationRH1", "Bip01 R Hand", 1.0)
+    actor:PushNodeScale("ProliferationRH2", "Dummy_R_HAND", 0.25)
+    actor:PushNodeScale("ProliferationRH3", "Dummy_R_dagger", 0.25)
+    actor:PushNodeScale("ProliferationRH4", "Dummy_R_allebell", 0.25)
+    actor:PushNodeScale("ProliferationRH5", "Dummy_R_umbrella", 0.25)
+    actor:PushNodeScale("ProliferationRH6", "Dummy_Shield", 0.25)    
 end
 
 function ProliferationRH_LEAVE(actor, obj, buff)
-    actor:SetNodeScale("Bip01 R Hand", 1.0)
-    actor:SetNodeScale("Dummy_R_HAND", 1.0)
-    actor:SetNodeScale("Dummy_R_dagger", 1.0)
-    actor:SetNodeScale("Dummy_R_allebell", 1.0)
-    actor:SetNodeScale("Dummy_R_umbrella", 1.0)
-    actor:SetNodeScale("Dummy_Shield", 1.0)
+	actor:PopNodeScale("ProliferationRH1");
+	actor:PopNodeScale("ProliferationRH2");
+	actor:PopNodeScale("ProliferationRH3");
+	actor:PopNodeScale("ProliferationRH4");
+	actor:PopNodeScale("ProliferationRH5");
+	actor:PopNodeScale("ProliferationRH6");
 end
 
 

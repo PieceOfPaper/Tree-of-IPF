@@ -10,7 +10,12 @@ function CHECK_ABILITY_LOCK(pc, ability)
         return "UNLOCK";
     end
 
-    local jobHistory = GetJobHistoryString(pc)
+    local jobHistory = '';
+    if IsServerObj(pc) == 1 then
+        jobHistory = GetJobHistoryString(pc);
+    else
+        jobHistory = GetMyJobHistoryString();
+    end
     
     if string.find(ability.Job, ";") == nil then
         
@@ -834,7 +839,7 @@ end
 function TX_SCR_SET_ABIL_HEADSHOT_OPTION(pc, tx, active)
     local skl = GetSkill(pc, 'Musketeer_HeadShot')
     if nil == skl then
-        return true;
+        return true -- 스킬이 없어도 true를 반환하여, tx가 롤백되지 않도록 한다.
     end
 
     local sklValue, overValue = 0, 0;

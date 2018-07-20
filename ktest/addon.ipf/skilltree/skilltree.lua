@@ -7,7 +7,8 @@ function SKILLTREE_ON_INIT(addon, frame)
 
 	addon:RegisterMsg('JOB_CHANGE', 'SKILLTREE_ON_JOB_CHANGE');
 	addon:RegisterMsg('UPDATE_SKILLMAP', 'UPDATE_SKILLTREE');
-	addon:RegisterMsg('SKILL_LIST_GET', 'UPDATE_SKILLTREE');
+	addon:RegisterMsg('SKILL_LIST_GET', 'UPDATE_SKILLTREE');    -- 과연 스킬 리셋때만 오는건지...
+    addon:RegisterMsg('SKILL_LIST_GET_RESET_SKILL', 'UPDATE_SKILLTREE_RESET_SKILL');
 	addon:RegisterMsg('ABILITY_LIST_GET', 'UPDATE_SKILLTREE');
 	addon:RegisterMsg('SKILL_PROP_UPDATE', 'UPDATE_SKILLTREE');
 
@@ -229,8 +230,7 @@ function CLASS_PTS_UP(frame, control, clsID, level)
 
 end
 
-function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
-
+function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack, skillResetPotion)            
 	frame = frame:GetTopParentFrame();	
 	local cid = frame:GetUserValue("TARGET_CID");
 	local pc = GetPCObjectByCID(cid);
@@ -322,6 +322,19 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 			if abil ~= nil then
 				local cls = GetIES(abil:GetObject());
 				local ableJobList = StringSplit(cls.Job, ';');
+
+                if cls.AlwaysActive == 'NO' then
+                    local ret = false
+                    if cls.SkillCategory ~= 'None' then
+                        if CHECK_ABILITY_LOCK(pc, cls) == 'UNLOCK' then
+                            ret = true;
+                        end
+                    end                
+                    if ret == true and skillResetPotion ~= nil and skillResetPotion == true then                        
+                        TOGGLE_ABILITY_ACTIVE(nil, nil, cls.ClassName, nil)
+                    end
+                end
+                
 				for j=1, #ableJobList do
 					local ableJobName = ableJobList[j];
 					if ableJobName == jobName then
@@ -354,8 +367,8 @@ function OPEN_SKILL_INFO(frame, control, jobName, jobID, isSkillInfoRollBack)
 	parentFrame:Invalidate();
 end
 
-function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 
+function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	local row = (listindex-1) % 1; -- 예전에는 한줄에 두개씩 보여줬다. /1을 2로 바꾸면 다시 복구됨
 	local col = math.floor((listindex-1) / 1);
 
@@ -373,6 +386,15 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 		-- 특성 활성화 버튼
 		local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
 	    activeImg:EnableHitTest(1);
+
+        local ret = true
+        if abilClass.SkillCategory ~= 'None' then
+            if CHECK_ABILITY_LOCK(pc, abilClass) ~= 'UNLOCK' then
+                ret = false;
+            end
+        end
+        
+        if ret == true then
 	    activeImg:SetEventScript(ui.LBUTTONUP, "TOGGLE_ABILITY_ACTIVE");
 	    activeImg:SetEventScriptArgString(ui.LBUTTONUP, abilClass.ClassName);
 	    activeImg:SetEventScriptArgNumber(ui.LBUTTONUP, abilClass.ClassID);
@@ -384,6 +406,10 @@ function MAKE_ABILITY_ICON(frame, pc, detail, abilClass, posY, listindex)
 	    else
 		    activeImg:SetImage("ability_off");
 	    end
+        else  -- 특정 배움 조건을 만족시키지 못한다면 off 로 자동 설정해줘야 한다.
+           activeImg:SetImage("ability_off")  
+        end    	
+        
 	    activeImg:ShowWindow(1);
 	end
 	
@@ -434,8 +460,12 @@ function TOGGLE_ABILITY_ACTIVE(frame, control, abilName, abilID)
 	local topFrame = ui.GetFrame('skilltree')
 	local prevClickTime = tonumber( topFrame:GetUserValue("CLICK_ABIL_ACTIVE_TIME") );
 
-	if prevClickTime + 0.1 > curTime then
-		return;
+    if prevClickTime == nil then
+        return
+    end
+
+    if prevClickTime + 0.5 > curTime then        
+		return
 	end
 
 	-- 이특성에 해당 스킬을 시전중이면 on/off를 하지 못하게 한다.
@@ -859,13 +889,21 @@ end
 function UPDATE_SKILLTREE(frame)
 	local reservereset = session.GetUserConfig("SKL_RESET", 0);
 	if reservereset == 1 then
-		ROLLBACK_SKILL(frame);
+        local skillResetPotion = true
+		ROLLBACK_SKILL(frame, skillResetPotion);
 		session.SetUserConfig("SKL_RESET", 0);
 	else
 		REFRESH_SKILL_TREE(frame);
 	end
 	frame:Invalidate();
 end
+
+function UPDATE_SKILLTREE_RESET_SKILL(frame)    	
+    ROLLBACK_SKILL(frame, true);
+	session.SetUserConfig("SKL_RESET", 0);
+	frame:Invalidate();
+end
+
 
 function RESERVE_SKLUP_RESET(frame)
 	session.SetUserConfig("SKL_RESET", 1);
@@ -938,8 +976,7 @@ function GET_SKILL_TREE_NAME(frame)
 	return cls.ClassName;
 end
 
-function ROLLBACK_SKILL(frame)
-
+function ROLLBACK_SKILL(frame, skillResetPotion)    
 	frame = frame:GetTopParentFrame();
 	local treename = GET_SKILL_TREE_NAME(frame);
 	if treename == 'None' then
@@ -969,8 +1006,7 @@ function ROLLBACK_SKILL(frame)
 	local pc = GetMyPCObject();
 	local bonusstat = GET_REMAIN_SKILLTREE_PTS(treelist);
 	session.SetUserConfig("SKL_REMAIN", bonusstat);
-
-	REFRESH_SKILL_TREE(frame);
+	REFRESH_SKILL_TREE(frame, skillResetPotion);
 
 end
 
@@ -1025,8 +1061,7 @@ function REFRESH_STAT_TEXT(frame, treelist)
 	frame:GetChild("CANCEL"):ShowWindow(1);
 end
 
-function REFRESH_SKILL_TREE(frame)
-
+function REFRESH_SKILL_TREE(frame, skillResetPotion)            
 	HIDE_CHILD_BYNAME(frame, 'skillCtrl_');
 	MAKE_CLASS_INFO_LIST(frame);
 
@@ -1039,7 +1074,7 @@ function REFRESH_SKILL_TREE(frame)
 	local cls = GetClassByTypeFromList(clslist, selectJobID);
 	
 	if cls ~= nil then
-		OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 0)
+		OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 0, skillResetPotion)
 	end
 
 	UPDATE_LEARING_ABIL_INFO(frame)
