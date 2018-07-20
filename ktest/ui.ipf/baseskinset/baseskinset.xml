@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -4995,6 +4995,12 @@
 			<img name="cooltime" imgrect="1163 801 100 100"/>
 			<img name="selected" imgrect="1163 801 100 100"/>
 		</skin>
+		<skin name="wing_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="1576 297 50 51"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
 		<skin name="decal_slot" texture="\skin\pip_test.tga">
 			<img name="slot" imgrect="1569 245 50 51"/>
 			<img name="mouseon" imgrect="1163 801 100 100"/>
@@ -5106,6 +5112,7 @@
 		<image name="four_star_item_bg2" file="\skin\USsentiment.tga" imgrect="0 273 417 272" CMM_Caption="보라색아이템_미감정"/>
 		<image name="five_item_bg2" file="\skin\USsentiment.tga" imgrect="418 273 412 272" CMM_Caption="붉은색아이템_미감정"/>
 		<image name="six_item_bg2" file="\skin\tooltip_skin_3.tga" imgrect="0 778 417 272" CMM_Caption="노란색아이템_미감정"/>
+		<image name="cube_item_bg" file="\skin\tooltip_skin_3.tga" imgrect="550 877 474 345" CMM_Caption="레티샤큐브아이템배경"/>
 		<image name="USsentiment_message" file="\skin\USsentiment.tga" imgrect="0 546 481 46" CMM_Caption="미감정입니다"/>
 		<image name="USsentiment_top" file="\skin\USsentiment.tga" imgrect="482 546 160 54" CMM_Caption="미감정_탑"/>
 		<image name="test_socket_top" file="\skin\pip_test_item.tga" imgrect="0 645 453 70" CMM_Caption="소켓_탑"/>
@@ -5591,8 +5598,6 @@
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
 		<image name="clock_3" file="\skin\pip_test.tga" imgrect="1797 211 20 20" CMM_Caption="기간제 팝업창용 시계"/>
 		<image name="exp_reset" file="\skin\min_hud.tga" imgrect="13 113 755 40" CMM_Caption="경험치초기화구간"/>
-		<image name="first_blow" file="\skin\mainframe_03.tga" imgrect="750 355 274 135" CMM_Caption="첫타 텍스트"/>
-		<image name="last_blow" file="\skin\mainframe_03.tga" imgrect="750 216 274 135" CMM_Caption="막타 텍스트"/>
 		<image name="btn_lv3" file="\skin\button.tga" imgrect="3 506 226 78" CMM_Caption="클래스 버튼"/>
 		<image name="btn_lv3_cursoron" file="\skin\button.tga" imgrect="3 591 226 78" CMM_Caption="클래스 버튼"/>
 		<image name="btn_lv3_clicked" file="\skin\button.tga" imgrect="3 674 226 78" CMM_Caption="클래스 버튼"/>
@@ -5624,7 +5629,6 @@
 		<image name="moncard_rare" file="\skin\monstercard.tga" imgrect="719 12 353 523"/>
 		<image name="moncard_unique" file="\skin\monstercard.tga" imgrect="1073 12 353 523"/>
 		<image name="moncard_legend" file="\skin\monstercard.tga" imgrect="1427 12 353 523"/>
-		<image name="legend_cardslot" file="\skin\HUD.tga" imgrect="1588 923 53 82" CMM_Caption="레전드 카드 슬롯"/>
 		<image name="unique_cardslot" file="\skin\HUD.tga" imgrect="1642 923 53 82" CMM_Caption="유니크 카드 슬롯"/>
 		<image name="rare_cardslot" file="\skin\HUD.tga" imgrect="1696 923 53 82" CMM_Caption="레어 카드 슬롯"/>
 		<image name="magic_cardslot" file="\skin\HUD.tga" imgrect="1750 923 53 82" CMM_Caption="매직 카드 슬롯"/>
@@ -7909,6 +7913,13 @@
 		<image name="133_boss_simorph" file="\skin\bosscard\133_boss_simorph.png" imgrect="0 0 330 440"/>
 		<image name="134_boss_graygolem" file="\skin\bosscard\134_boss_graygolem.png" imgrect="0 0 330 440"/>
 		<image name="135_boss_nepenthes" file="\skin\bosscard\135_boss_nepenthes.png" imgrect="0 0 330 440"/>
+		<image name="137_boss_molich" file="\skin\bosscard\137_boss_molich.tga" imgrect="0 0 330 440"/>
+		<image name="138_boss_succubus" file="\skin\bosscard\138_boss_succubus.tga" imgrect="0 0 330 440"/>
+		<image name="139_boss_Marnoks" file="\skin\bosscard\139_boss_Marnoks.tga" imgrect="0 0 330 440"/>
+		<image name="140_boss_Zawra" file="\skin\bosscard\140_boss_Zawra.tga" imgrect="0 0 330 440"/>
+		<image name="141_boss_FerretMarauder" file="\skin\bosscard\141_boss_FerretMarauder.tga" imgrect="0 0 330 440"/>
+		<image name="142_boss_Velniamonkey" file="\skin\bosscard\142_boss_Velniamonkey.tga" imgrect="0 0 330 440"/>
+		<image name="143_boss_Prisoncutter" file="\skin\bosscard\143_boss_Prisoncutter.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

@@ -3828,7 +3828,7 @@ return 60000 + obj.Level * 10000"/>
     <PadSkill Name="Cleric_Zaibas" CheckerType="0" Range="35" UpdateTerm="150" ApplyFlyMon="1" Relation="2">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="30000"/>
+                <Num Num="60000"/>
                 <Num Num="10" UseFunc="1" FuncTxt="return 4 + obj.Level * 1"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

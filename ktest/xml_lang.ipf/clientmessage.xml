@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -322,10 +322,11 @@
 		<Class ClassID="4138" ClassName="{Item}LockSuccess" Data="{Item} 아이템의 잠금이 설정되었습니다."/>
 		<Class ClassID="4139" ClassName="{Item}UnlockSuccess" Data="{Item} 아이템의 잠금이 해제되었습니다."/>
 		<Class ClassID="4140" ClassName="YouDontHaveEquipAbility" Data="착용할 수 있는 특성이 없습니다."/>
-    <Class ClassID="4141" ClassName="ThisIsEndedEvent" Data="종료 기한이 지난 이벤트입니다."/>
-	<Class ClassID="4142" ClassName="THMace" Data="양손둔기"/>
+		<Class ClassID="4141" ClassName="ThisIsEndedEvent" Data="종료 기한이 지난 이벤트입니다."/>
+		<Class ClassID="4142" ClassName="THMace" Data="양손둔기"/>
 		<Class ClassID="4143" ClassName="Event_Select_Acc_Box_Title" Data="슈페리어 브레이슬릿(15일) 상자"/>
-		</Category>
+		<Class ClassID="4144" ClassName="LeticiaGacha{CONSUME}" Data="큐브 개봉시{nl}{CONSUME}{nl}소모됩니다.{nl}정말 개봉하시겠습니까?"/>
+	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -533,7 +534,7 @@
 		<Class ClassID="10049" ClassName="PartyIsFull" Data="현재 가입 가능한 인원이 초과되었습니다"/>
 		<Class ClassID="10050" Data="현재 존의 웨이 포인트를 선택하였습니다"/>
 		<Class ClassID="10051" Data="해당 게임에서 설정한 레벨제한에 맞지 않아 방을 만들 수 없습니다"/>
-		<Class ClassID="10052" ClassName="DoyouBuySlotInBarrack" Data="해당 배럭에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}캐릭터 슬롯을 구입하시겠습니까?"/>
+		<Class ClassID="10052" ClassName="DoyouBuySlotInBarrack" Data="숙소에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}캐릭터 슬롯을 구입하시겠습니까?"/>
 		<Class ClassID="10053" Data="캐릭터 포인트가 부족합니다{nl}퀘스트 수행이나 미션에서 캐릭터 포인트를 얻을 수 있습니다"/>
 		<Class ClassID="10054" Data="리더가 배울 수 없는 스탠스입니다{nl}스탠스 비전서의 설명을 보고 해당 스탠스 습득이 가능한 직업을 확인하세요"/>
 		<Class ClassID="10055" Data="이미 획득한 스탠스입니다"/>
@@ -778,7 +779,7 @@
 		<Class ClassID="10397" ClassName="CantDelCharBecauseHaveEquipItem" Data="착용중인 장비가 있어 캐릭터 삭제가 불가능합니다."/>
 		<Class ClassID="10398" ClassName="ExtendWarehouseSlot{TP}{SLOT}" Data="{TP}TP를 소모해 {SLOT}칸을 확장하시겠습니까?"/>
 		<Class ClassID="10399" ClassName="NeedMoreSkillLevel" Data="스킬 레벨이 부족합니다."/>
-		<Class ClassID="10400" ClassName="CanCreateCharCuzMaxSlot" Data="해당 배럭에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}기존 캐릭터를 삭제해주시고 시도해주세요."/>
+		<Class ClassID="10400" ClassName="CanCreateCharCuzMaxSlot" Data="숙소에서 최대 생성 가능한 캐릭터 수에 도달하였습니다{nl}기존 캐릭터를 삭제해주시고 시도해주세요."/>
 		<Class ClassID="10401" ClassName="LoadingOpeningData" Data="오프닝 데이터를 로딩 중 입니다."/>
 		<Class ClassID="10402" ClassName="WillYouSeeOpeningAgain?" Data="오프닝을 다시 보시겠습니까?"/>
 		<Class ClassID="10403" ClassName="ThatCurrentPosition" Data="현재 위치 입니다."/>
@@ -1111,6 +1112,8 @@
 		<Class ClassID="21261" ClassName="TP_Sale_Half" Data="[프리미엄]반값 할인[50% 할인]"/>
 		<Class ClassID="21262" ClassName="TP_Sale_Shocking" Data="[프리미엄]파격 할인[70% 할인]"/>
 		<Class ClassID="21263" ClassName="DungeonInfo" Data="던전 정보"/>
+		<Class ClassID="21264" ClassName="Helmet_M_Category" Data="[프리미엄]남자 헬멧"/>
+		<Class ClassID="21265" ClassName="Helmet_F_Category" Data="[프리미엄]여자 헬멧"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4279,6 +4282,7 @@
 		<Class ClassID="27430" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG1" Data="축제용 장난감을 선택한다"/>
 		<Class ClassID="27431" ClassName="EVENT_1706_FISHING_ARTEFACT_MSG2" Data="축제용 코스튬을 선택한다"/>
 		<Class ClassID="27440" ClassName="MGAME_MSG_LIVE_MON_COUNT" Data="목표 몬스터 수 : {COUNT}"/>
+		<Class ClassID="27450" ClassName="FREE_COMPANION_MSG1" Data="{JOB} 클래스 해택 : {COMPANION} 분양 받기"/>
 		<Class ClassID="27460" ClassName="EVENT_1706_DOPPELSOELDNER_MSG1" Data="오늘은 용병의 증표를 모두 받으셨습니다"/>
 		<Class ClassID="27461" ClassName="EVENT_1706_DOPPELSOELDNER_MSG2" Data="용병의 증표를 획득하셨습니다"/>
 		<Class ClassID="27462" ClassName="EVENT_1706_DOPPELSOELDNER_MSG3" Data="용병의 증표를 보상과 교환 한다"/>
@@ -6593,7 +6597,7 @@
 		<Class ClassID="131067" ClassName="{Num}OrMore" Data="{Num}회 이상"/>
 		<Class ClassID="131068" ClassName="AskPVPEnterCancel" Data="참가 신청을 취소하시겠습니까?"/>
 		<Class ClassID="131069" ClassName="CanNotJoinPVPFromMission" Data="해당 지역에서는 참가하실 수 없습니다."/>
-			<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
+		<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
 		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
 	</Category>
 	<Category Name="MonInfo">
@@ -9663,6 +9667,7 @@
 		<Class ClassID="300162" ClassName="Costume_Box" Data="코스튬 상자"/>
 		<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
+		<Class ClassID="300165" ClassName="GachaMsg" Data="{Name} 열기"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -9699,6 +9704,7 @@
 		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용."/>
 		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
 		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
+				<Class ClassID="302035" ClassName="Leticia_Cube" Data="레티샤의 시크릿 큐브"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>

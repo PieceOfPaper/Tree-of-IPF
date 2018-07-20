@@ -1713,7 +1713,7 @@
 			<ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
 				<Num Num="4"/>
 			</ToolScp>
-		</StartList>
+			</StartList>
 	</AI>
 	<AI Name="CATACOMB_80_1_MON_AI2" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
@@ -8313,6 +8313,24 @@
 				<Num Num="300"/>
 			</ToolScp>
 		</List>
+	</AI>
+	<AI Name="LETICIA_CUBE_AI" UpdateMS="60000" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_LETICIA_CUBE_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+		<DeadList>
+			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_LETICIA_CUBE_AI_AI_LEAVE"/>
+			</ToolScp>
+		</DeadList>
+		<StartList>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_LETICIA_CUBE_AI_BORN"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+		</StartList>
 	</AI>
 	<AI Name="LIMESOTNE_52_5_WALL_AI" ActiveMessageMapInBattle="1">
 		<StartList>

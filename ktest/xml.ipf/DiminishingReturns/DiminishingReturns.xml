@@ -80,6 +80,16 @@
 			<Class Name="KnockBack" SkillID="900001" Desc="넉백은 스킬이 아니기 때문에, 900001번으로 할당하기로 정한다."/>
 		</Category>
 	</Category>
+	<Category Name="Group_6">
+		<Category Name="Constant">
+			<Class Name="RefleshTime" Value="45.0" Desc="(float)최초 디버프가 걸리고 점감이 적용되는 시간을 의미(단위 sec), 이 시간이 지난후에는 새로 100%의 시간이 적용된다."/>
+			<Class Name="ApplyingCount" Value="4" Desc="(int)점감을 적용하는 횟수, 이 카운트 이후부터는 면역상태가 된다.(최초 걸리는 것도 포함한다)"/>
+			<Class Name="Ratio" Value="0.3" Desc="(float)점감 한번 적용시에 감소시킬 지속시간 비율, (ex Ratio=0.5, 첨에 100% 다음엔 50% 다음엔 25%...)"/>
+		</Category>
+		<Category Name="Buff">
+			<Class Name="Sleep_Debuff" BuffID="152" Desc="BuffID에 buff.xml에 있는 buff의 ClassID가 들어간다."/>
+		</Category>
+	</Category>
 	<!-- ############################################################################################################################################################### -->
 	<!-- 아래에 그룹이 아닌 별도의 값을 관리할 내용을 넣으세요 -->
 	<!-- 아래에 그룹이 아닌 별도의 값을 관리할 내용을 넣으세요 -->

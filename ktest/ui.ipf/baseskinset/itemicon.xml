@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -480,6 +480,10 @@
 		<image name="icon_item_pants_kryzius" file="\icon\equip\icon_item_pants_kryzius.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_gloves_kryzius" file="\icon\equip\icon_item_gloves_kryzius.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_boots_kryzius" file="\icon\equip\icon_item_boots_kryzius.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_wing_angel" file="\icon\equip\icon_item_wing_angel.png" imgrect="0 0 256 256" CMM_Caption="천사 날개"/>
+		<image name="icon_item_wing_balloon" file="\icon\equip\icon_item_wing_balloon.png" imgrect="0 0 256 256" CMM_Caption="풍선 날개"/>
+		<image name="icon_item_wing_falcon" file="\icon\equip\icon_item_wing_falcon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_heart" file="\icon\equip\icon_item_wing_heart.png" imgrect="0 0 256 256" CMM_Caption="하트날개"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -2318,6 +2322,8 @@
 		<image name="icon_item_artefact_shark" file="\icon\weapon\icon_item_artefact_shark.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_artefact_surfingboard" file="\icon\weapon\icon_item_artefact_surfingboard.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_artefact_watermelon" file="\icon\weapon\icon_item_artefact_watermelon.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="item_icon_mace_maul_twohand" file="\icon\weapon\item_icon_mace_maul_twohand.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="item_icon_mace_rune_mace_twohand" file="\icon\weapon\item_icon_mace_rune_mace_twohand.png" imgrect="0 0 256 256" CMM_Caption=""/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -4587,10 +4593,12 @@
 		<image name="icon_item_poporion_body_m" file="\icon\payment\icon_item_poporion_body_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_tiecat_f" file="\icon\payment\icon_item_helmet_tiecat_f.png" imgrect="0 0 256 256" CMM_Caption="턱시도냥이 코스튬"/>
 		<image name="icon_item_helmet_tiecat_m" file="\icon\payment\icon_item_helmet_tiecat_m.png" imgrect="0 0 256 256"/>
-		<image name="warrior_m_tiecat01" file="\icon\payment\warrior_m_tiecat01.png" imgrect="0 0 256 256"/>
-		<image name="warrior_f_tiecat01" file="\icon\payment\warrior_f_tiecat01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_tiecat_body_m" file="\icon\payment\icon_item_tiecat_body.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_tiecat_body_f" file="\icon\payment\icon_item_tiecat_body.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_poodle_f" file="\icon\payment\icon_item_helmet_poodle_f.png" imgrect="0 0 256 256" CMM_Caption="푸들 코스튬"/>
 		<image name="icon_item_helmet_poodle_m" file="\icon\payment\icon_item_helmet_poodle_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_poodle_body_m" file="\icon\payment\icon_item_poodle_body.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_poodle_body_f" file="\icon\payment\icon_item_poodle_body.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_penguin_f" file="\icon\payment\icon_item_helmet_penguin_f.png" imgrect="0 0 256 256" CMM_Caption="펭귄 코스튬"/>
 		<image name="icon_item_helmet_penguin_m" file="\icon\payment\icon_item_helmet_penguin_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Spread_Bait_Premium_1" file="\icon\payment\icon_item_Spread_Bait_Premium_1.png" imgrect="0 0 256 256" CMM_Caption="고급떡밥"/>
@@ -4641,6 +4649,18 @@
 		<image name="icon_item_swimsuite_f_cube" file="\icon\payment\icon_item_swimsuite_f_cube.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_diver" file="\icon\payment\icon_item_helmet_diver.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_helmet_fishbowl" file="\icon\payment\icon_item_helmet_fishbowl.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Poporion_Costume_Box" file="\icon\payment\icon_item_Poporion_Costume_Box.png" imgrect="0 0 256 256" CMM_Caption="동물코스튬"/>
+		<image name="icon_item_Poodle_Costume_Box" file="\icon\payment\icon_item_Poodle_Costume_Box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Tiecat_Costume_Box" file="\icon\payment\icon_item_Tiecat_Costume_Box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Hanaming_Costume_Box" file="\icon\payment\icon_item_Hanaming_Costume_Box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Keppa_Costume_Box" file="\icon\payment\icon_item_Keppa_Costume_Box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_kepa_f" file="\icon\payment\icon_item_helmet_kepa_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_kepa_m" file="\icon\payment\icon_item_helmet_kepa_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_hanaming_f" file="\icon\payment\icon_item_helmet_hanaming_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_hanaming_m" file="\icon\payment\icon_item_helmet_hanaming_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_randombox_2" file="\icon\payment\icon_item_randombox_2.png" imgrect="0 0 256 256" CMM_Caption="레티샤큐브모둠"/>
+		<image name="icon_item_Wing_Box" file="\icon\payment\icon_item_Wing_Box.png" imgrect="0 0 256 256" CMM_Caption="날개 상자"/>
+		<image name="icon_item_reinforcecard" file="\icon\payment\icon_item_reinforcecard.png" imgrect="0 0 256 256" CMM_Caption="강화용 카드"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

@@ -8926,8 +8926,8 @@ end
 
 function SCR_GET_IncreaseMagicDEF_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = 30 + ((skill.Level - 1) * 3) + ((skill.Level / 5) * ((pc.MNA * 0.8) ^ 0.7))
-
+    local value = 60 + ((skill.Level - 1) * 6) + ((skill.Level / 5) * ((pc.MNA * 0.8) ^ 0.9))
+    
     return math.floor(value)
 end
 
@@ -12784,7 +12784,7 @@ end
 
 function SCR_Get_Aspersion_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = 20 + ((skill.Level - 1) * 2) + ((skill.Level / 5) * ((pc.MNA * 0.6) ^ 0.7))
+    local value = 40 + ((skill.Level - 1) * 4) + ((skill.Level / 5) * ((pc.MNA * 0.8) ^ 0.9))
 
     return math.floor(value);
 
