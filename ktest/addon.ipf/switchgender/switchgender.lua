@@ -111,12 +111,16 @@ function SWITCHGENDER_DRAW_CHANGE_STATE(frame)
 	local pcjobinfo = GetClass('Job', pc.JobName)
 
     local changeHeadIndex = headIndex;
+    local etc = GetMyEtcObject();
     if changeGender == 2 then -- 여자로 바꾸는 경우는, 기본헤어가 다를 수도 있어
-        local etc = GetMyEtcObject();
         local startFemaleHairType = TryGetProp(etc, 'StartFemaleHairType');
         if startFemaleHairType ~= nil and startFemaleHairType > 0 then
             changeHeadIndex = startFemaleHairType + 1;
         end
+    end
+
+    if etc.BeautyshopStartHair == 'Yes' then
+    	changeHeadIndex = 1; -- ShortCut
     end
 
 	local charimgName = ui.CaptureFullStdImage(pcjobinfo.ClassID, changeGender, changeHeadIndex, 1);
@@ -263,9 +267,25 @@ function SWITCHGENDER_BUFF_EXCUTE_BTN(frame, ctrl)
 		return;
 	end
 
+	local etc = GetMyEtcObject();
+	if etc.BeautyshopStartHair == 'Yes' then
+		local yesscp = string.format('_SWITCHGENDER_BUFF_EXCUTE_BTN(%d, "%s")', handle, ctrl:GetName());
+		ui.MsgBox(ClMsg('ChangeHairForcelyIfYouSwitchGender'), yesscp, 'None');
+		return;
+	end
+
+	local frame = ui.GetFrame('switchgender');
 	local skillName = frame:GetUserValue("GroupName");
 	session.autoSeller.Buy(handle, 1, 1, AUTO_SELL_ORACLE_SWITCHGENDER);
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrl:GetName())
+	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
+end
+
+function _SWITCHGENDER_BUFF_EXCUTE_BTN(handle, ctrlName)
+	local frame = ui.GetFrame('switchgender');
+	local skillName = frame:GetUserValue("GroupName");
+	session.autoSeller.Buy(handle, 1, 1, AUTO_SELL_ORACLE_SWITCHGENDER);
+	DISABLE_BUTTON_DOUBLECLICK("switchgender", ctrlName)
 	DISABLE_BUTTON_DOUBLECLICK("switchgender", 'btn_cencel')
 end
 

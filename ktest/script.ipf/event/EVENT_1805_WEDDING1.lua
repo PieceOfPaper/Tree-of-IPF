@@ -61,6 +61,12 @@ function SCR_EVENT_1805_WEDDING1_NPC_DIALOG(self, pc)
         local select = ShowSelDlg(pc, 0, 'EVENT_1805_WEDDING1_DLG1\\'..ScpArgMsg('EVENT_1805_WEDDING1_MSG1','DAYCOUNT',nowIndex,'ITEM',GetClassString('Item', rewardList[nowIndex][1],'Name'),'COUNT',rewardList[nowIndex][2])..addMsg, ScpArgMsg('EVENT_1805_WEDDING1_MSG2'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
         if select == 1 then
             if aObj.EVENT_1805_WEDDING1_DATE ~= nowday then
+                if addMsg ~= '' then
+                    local select2 = ShowSelDlg(pc, 0, 'EVENT_1805_WEDDING1_DLG1\\'..ScpArgMsg('EVENT_1805_WEDDING1_MSG6'),ScpArgMsg('EVENT_1707_USERWEDDING_MSG1'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
+                    if select2 == 2 then
+                        return
+                    end
+                end
                 local takeCount = 50
                 if GetInvItemCount(pc, 'EVENT_1805_WEDDING1_PIECE') < takeCount then
                     SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1805_WEDDING1_MSG4"), 10)

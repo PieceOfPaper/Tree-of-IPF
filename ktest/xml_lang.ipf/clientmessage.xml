@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by josungkwan (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -53,7 +53,7 @@
 		<Class ClassID="308" ClassName="CHNCLIENTTITLE" Data="救世之树"/>
 		<Class ClassID="309" ClassName="FailToWhisper" Data="귓속말에 실패했습니다. 다시 시도해주세요."/>
 		<Class ClassID="310" ClassName="FailToInviteGroupChat" Data="그룹 채팅 초대에 실패했습니다. 다시 시도해주세요."/>
-		</Category>
+	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
 		<Class ClassID="1101" ClassName="Caster" Data="시전자"/>
@@ -150,8 +150,8 @@
 		<Class ClassID="2085" ClassName="IS_MechanicalItem_Decompose" Data="{@st47}{s18}강화, 초월, 젬 장착, 소켓 추가, 각성{/}{/}된 장비 아이템이 분해될 수 있습니다."/>
 		<Class ClassID="2086" ClassName="LegendItemCannotBreakOrRemove" Data="현재 장비는 초월 후 개인 거래가 불가능합니다.{nl}초월 실패시 포텐셜이 소모됩니다.{nl}초월을 진행하시겠습니까?"/>
 		<Class ClassID="2087" ClassName="CannotGivePrefixAnymore" Data="이미 링크되어 있습니다."/>
-    <Class ClassID="2088" ClassName="ArriveInMaxLevel" Data="강화 한계에 도달하였습니다."/>
-    <Class ClassID="2089" ClassName="ExceedExpOverMaxLevel{EXCEED_EXP}" Data="현재 재료로 {#62100c}[ {EXCEED_EXP} ]{/}{/}의 잉여 경험치가 발생합니다. 계속 진행하시겠습니까?"/>
+		<Class ClassID="2088" ClassName="ArriveInMaxLevel" Data="강화 한계에 도달하였습니다."/>
+		<Class ClassID="2089" ClassName="ExceedExpOverMaxLevel{EXCEED_EXP}" Data="현재 재료로 {#62100c}[ {EXCEED_EXP} ]{/}{/}의 잉여 경험치가 발생합니다. 계속 진행하시겠습니까?"/>
 	</Category>
 	<Category Name="ItemContents">
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
@@ -178,7 +178,9 @@
 		<Class ClassID="2221" ClassName="ItemDeletedByOptionExtractSuccess" Data="옵션 추출 성공으로 장비가 소멸되었습니다."/>
 		<Class ClassID="2222" ClassName="ItemDeletedByOptionExtractDestroy" Data="옵션 추출 실패로 장비가 파괴되었습니다."/>
 		<Class ClassID="2223" ClassName="CannotProcessUIInputDuringPrefixing" Data="세트 옵션 부여 중에는 UI 이용이 불가능합니다.{nl}계속하시겠습니까?"/>
-		</Category>
+		<Class ClassID="2233" ClassName="TryItOnList" Data="입어보기 목록"/>
+		<Class ClassID="2234" ClassName="ShoppingBag" Data="구매 목록"/>
+	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
 		<Class ClassID="3002" ClassName="RecipeResult" Data="{@st42)제작 시"/>
@@ -415,7 +417,8 @@
 		<Class ClassID="4175" ClassName="DrugLootingChance" Data="루팅 찬스"/>
 		<Class ClassID="4176" ClassName="DoYouAgreeExchangeFinally?" Data="거래를 최종적으로 승인하시겠습니까?"/>
 		<Class ClassID="4177" ClassName="SelectRecipe{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}레시피를 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 레시피로{nl}교환할 수 없습니다."/>
-		</Category>
+		<Class ClassID="4178" ClassName="SelectCoupon{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}쿠폰을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 쿠폰으로{nl}교환할 수 없습니다."/>
+	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -1228,7 +1231,25 @@
 		<Class ClassID="21275" ClassName="IndunEnterNeedPCRank" Data="{NEED_RANK} 랭크 부터 입장이 가능합니다."/>
 		<Class ClassID="21276" ClassName="Common" Data="공용"/>
 		<Class ClassID="21277" ClassName="IndunRewardItem_Empty" Data="없음"/>
-		</Category>
+		<Class ClassID="21278" ClassName="TP_Hair" Data="헤어"/>
+		<Class ClassID="21279" ClassName="TP_New_Hair_M" Data="헤어(남)"/>
+		<Class ClassID="21280" ClassName="TP_New_Hair_F" Data="헤어(여)"/>
+		<Class ClassID="21281" ClassName="TP_Wig" Data="가발"/>
+		<Class ClassID="21282" ClassName="TP_Wig_M" Data="가발(남)"/>
+		<Class ClassID="21283" ClassName="TP_Wig_F" Data="가발(여)"/>
+		<Class ClassID="21284" ClassName="TP_Helmet" Data="헬멧"/>
+		<Class ClassID="21285" ClassName="TP_Helmet_M" Data="헬멧(남)"/>
+		<Class ClassID="21286" ClassName="TP_Helmet_F" Data="헬멧(여)"/>
+		<Class ClassID="21287" ClassName="TP_Color" Data="염색약"/>
+		<Class ClassID="21288" ClassName="TP_Wig_Color" Data="가발 염색약"/>
+		<Class ClassID="21289" ClassName="TP_Lens" Data="렌즈"/>
+		<Class ClassID="21290" ClassName="TP_Costume" Data="코스튬"/>
+		<Class ClassID="21291" ClassName="Status_Wig_Dye" Data="가발 염색"/>
+		<Class ClassID="21292" ClassName="Status_Hair_Color" Data="머리 색상"/>
+		<Class ClassID="21293" ClassName="pcbang_shop" Data="PC방 상점"/>
+		<Class ClassID="21294" ClassName="PCBangPointShopPurchasePleaseRetry" Data="이미 구매중인 상품이 있습니다. 재시도 버튼을 클릭해주세요"/>
+		<Class ClassID="21295" ClassName="PCBangPointShopNoFailedProduct" Data="구매에 실패한 상품이 없습니다."/>
+	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
 		<Class ClassID="22002" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -1263,7 +1284,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
-		</Category>
+	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -4601,6 +4622,7 @@
 		<Class ClassID="27912" ClassName="EVENT_1805_WEDDING1_MSG3" Data="오늘은 조각을 모두 건네주셨습니다{nl}내일 다시 건네주세요!"/>
 		<Class ClassID="27913" ClassName="EVENT_1805_WEDDING1_MSG4" Data="'잃어버린 청첩장 조각' 아이템 50개가 필요합니다"/>
 		<Class ClassID="27914" ClassName="EVENT_1805_WEDDING1_MSG5" Data="{#003399}[팀창고 이동 불가]{/}"/>
+		<Class ClassID="27915" ClassName="EVENT_1805_WEDDING1_MSG6" Data="팀창고로 이동할 수 없는 아이템을 받게 됩니다.{nl}진행하시겠습니까?"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -7989,7 +8011,7 @@
 		<Class ClassID="131069" ClassName="CanNotJoinPVPFromMission" Data="해당 지역에서는 참가하실 수 없습니다."/>
 		<Class ClassID="131071" ClassName="RewardSeason" Data="이전 시즌의 팀배틀리그 보상을  이미 받으셨습니다."/>
 		<Class ClassID="131072" ClassName="PVPReward" Data="보상 받기"/>
-		</Category>
+	</Category>
 	<Category Name="MonInfo">
 		<Class ClassID="132001" ClassName="MonInfo_Size" Data="크기"/>
 		<Class ClassID="132002" ClassName="MonInfo_RaceType" Data="종족"/>
@@ -10608,7 +10630,7 @@
 		<Class ClassID="201065" ClassName="ChatFrameType" Data="채팅 탭 전환"/>
 		<Class ClassID="201066" ClassName="FishingBag" Data="살림통"/>
 		<Class ClassID="201067" ClassName="guildinfo" Data="길드 정보"/>
-		</Category>
+	</Category>
 	<Category Name="QuestAutoTool">
 		<Class ClassID="202001" Data="퀘스트 툴 파일 복사"/>
 		<Class ClassID="202002" Data="사냥 시 퀘스트 시작 아이템"/>
@@ -11082,12 +11104,13 @@
 		<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 		<Class ClassID="300165" ClassName="GachaMsg" Data="{Name} 열기"/>
-		<Class ClassID="300166" ClassName="PurchaseItemExceeded" Data="구매 개수를 {Value}개를 초과했습니다."/>
+		<Class ClassID="300166" ClassName="PurchaseItemExceeded" Data="{Value}개 까지 구매 가능한 아이템입니다."/>
 		<Class ClassID="300167" ClassName="SelectPurchaseRestrictedItem" Data="해당 아이템은 팀당 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
 		<Class ClassID="300171" ClassName="attendance" Data="출석 보상 확인"/>
 		<Class ClassID="300172" ClassName="PremiumToken_15d_vk" Data="토큰:15일[바카리네]"/>
 		<Class ClassID="300173" ClassName="SelectPurchaseRestrictedItemByMonth" Data="해당 아이템은 한 달에 {Value}개만 구매할 수 있습니다.{nl}구매하시겠습니까?"/>
-		</Category>
+		<Class ClassID="300175" ClassName="Beauty_Coupon_Box" Data="뷰티샵: 미용실 쿠폰 상자"/>
+	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
 		<Class ClassID="301002" ClassName="hirePC" Data="용병 고용"/>
@@ -11187,8 +11210,8 @@
 		<Class ClassID="501015" ClassName="Steam_VerUP_Select03" Data="목표레벨 확인"/>
 		<Class ClassID="501016" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
 		<Class ClassID="501017" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
-		</Category>
-		<Category Name="Npc_Equip_Shop_270_315">
+	</Category>
+	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
 		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
@@ -11262,7 +11285,7 @@
 		<Class ClassID="510335" ClassName="FISHING_STATUE_OWNER_WORSHIP_2" Data="서버 전체 루팅 찬스 300 증가(40분)"/>
 		<Class ClassID="510336" ClassName="FISHING_STATUE_OWNER_WORSHIP_3" Data="서버 전체 루팅 찬스 500 증가(20분)"/>
 		<Class ClassID="510337" ClassName="{Name}FishRubbingBuff" Data="{Name}님이 황금 동상 버프를 사용하셨습니다.!{nl}{Time}분동안 루팅 찬스 {LootingChance} 증가됩니다"/>
-<Class ClassID="510338" ClassName="YouAlreadyUseStatueBuff" Data="오늘은 더 이상 사용 할 수 없습니다."/>
+		<Class ClassID="510338" ClassName="YouAlreadyUseStatueBuff" Data="오늘은 더 이상 사용 할 수 없습니다."/>
 	</Category>
 	<Category Name="FieldBossMessage">
 		<Class ClassID="510500" ClassName="FieldBoss{Name}WillAppear" Data="잠시 후 필드 보스가 등장합니다 : {Name}"/>
@@ -11298,10 +11321,14 @@
 		<Class ClassID="510716" ClassName="pvp_mine_plunder_1" Data="A 팀의 포인트가 {POINT} 만큼 감소하였습니다."/>
 		<Class ClassID="510717" ClassName="pvp_mine_plunder_2" Data="B 팀의 포인트가 {POINT} 만큼 감소하였습니다."/>
 		<Class ClassID="510718" ClassName="pvp_mine_get_crystal" Data="{COUNT} 획득!"/>
-	<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 시작 30분 전입니다."/>
-	<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 시작 10분 전입니다."/>
+		<Class ClassID="510719" ClassName="pvp_mine_before_30m" Data="자원 쟁탈전 시작 30분 전입니다."/>
+		<Class ClassID="510720" ClassName="pvp_mine_before_10m" Data="자원 쟁탈전 시작 10분 전입니다."/>
 		<Class ClassID="510721" ClassName="pvp_mine_before_5m" Data="자원 쟁탈전 시작 5분 전입니다.{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
 		<Class ClassID="510722" ClassName="pvp_mine_before_start" Data="자원 쟁탈전 시작되었습니다!{nl}샤울레이 광산 마을 북쪽 끝에서 입장할 수 있습니다."/>
+	</Category>
+	<Category Name="Beauty_Shop">
+		<Class ClassID="510801" ClassName="Beauty_Shop_IN" Data="뷰티샵 입장"/>
+		<Class ClassID="510802" ClassName="Beauty_Shop_OUT" Data="클라페다로 이동"/>
 	</Category>
 	<Category Name="Cyou">
 		<Class ClassID="600000" ClassName="CyouDelibarationMsg1" Data="?累?在???已?1小?"/>
@@ -11334,7 +11361,7 @@
 		<Class ClassID="700015" ClassName="TopRanking" Data="상위 랭킹"/>
 		<Class ClassID="700016" ClassName="{CtrlType}Type{RankNum}Rank" Data="{CtrlType} {RankNum}랭크"/>
 		<Class ClassID="700017" ClassName="Score" Data="점수"/>
-		</Category>
+	</Category>
 	<Category Name="LegendTrade">
 		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
@@ -11440,10 +11467,43 @@
 		<Class ClassID="1000017" ClassName="CantReJoin_DifferentLevel_ChallengeMode" Data="도전을 중지한 단계와 현재 파티원이 도전중인 단계가 달라 재입장할 수 없습니다."/>
 		<Class ClassID="1000018" ClassName="AcceptChallengeMode_ReJoin" Data="도전중인 챌린지 단계가 있습니다. 재입장 하시겠습니까?"/>
 		<Class ClassID="1000019" ClassName="ChallengeModeReJoinPossibleTimeOut" Data="도전 중인 챌린지 모드의 재입장 가능한 시간을 초과하여 재입장 하실 수 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
 		<Class ClassID="1001001" ClassName="CannotBecauseMoru" Data="모루가 설치되어 있는 상태에서는 사용할 수 없습니다."/>
+	</Category>
+	<Category Name="BeautyShop">
+		<Class ClassID="1002000" ClassName="BEAUTY_SHOP_HAIR_M2" Data="남자 헤어 스타일 변경"/>
+		<Class ClassID="1002001" ClassName="BEAUTY_SHOP_HAIR_M3" Data="남자 가발 및 가발 염색약 구매"/>
+		<Class ClassID="1002002" ClassName="BEAUTY_SHOP_HAIR_F2" Data="여자 헤어 스타일 변경"/>
+		<Class ClassID="1002003" ClassName="BEAUTY_SHOP_HAIR_F3" Data="여자 가발 및 가발 염색약 구매"/>
+		<Class ClassID="1002004" ClassName="BEAUTY_SHOP_HAIR_ETC" Data="렌즈 구매"/>
+		<Class ClassID="1002005" ClassName="BEAUTY_SHOP_FASHION_1" Data="남자 코스튬 구매"/>
+		<Class ClassID="1002006" ClassName="BEAUTY_SHOP_FASHION_2" Data="여자 코스튬 구매"/>
+		<Class ClassID="1002007" ClassName="BEAUTY_SHOP_FASHION_3" Data="패키지 및 큐브 구매"/>
+		<Class ClassID="1002008" ClassName="BEAUTY_SHOP_ONLY_MEN" Data="해당 상품은 여성 전용 상품입니다.{nl}그래도 구매하시겠습니까?"/>
+		<Class ClassID="1002009" ClassName="BEAUTY_SHOP_ONLY_GIRL" Data="해당 상품은 남성 전용 상품입니다.{nl}그래도 구매하시겠습니까?"/>
+		<Class ClassID="1002010" ClassName="BEAUTY_SHOP_CLASS_CHECK" Data="해당 캐릭터의 클래스는 착용할 수 없는 상품입니다."/>
+		<Class ClassID="1002011" ClassName="BEAUTY_SHOP_BUY_CLASS_CHECK" Data="해당 캐릭터의 클래스는 착용할 수 없는 상품입니다.{nl}그래도 구매하시겠습니까?"/>
+		<Class ClassID="1002012" ClassName="BEAUTY_SHOP_ONLY_ONE_HAIR" Data="헤어는 한 번에 하나의 헤어만 구매할 수 있습니다.{nl}선택하신 헤어로 변경하시겠습니까?"/>
+		<Class ClassID="1002013" ClassName="EmptyPreviewSlot" Data="입어볼 아이템이 없습니다."/>
+		<Class ClassID="1002015" ClassName="Wig" Data="가발"/>
+		<Class ClassID="1002016" ClassName="Wig_Dye" Data="염색약"/>
+		<Class ClassID="1002017" ClassName="WAR" Data="소드맨"/>
+		<Class ClassID="1002018" ClassName="WIZ" Data="위저드"/>
+		<Class ClassID="1002019" ClassName="ARC" Data="아처"/>
+		<Class ClassID="1002020" ClassName="CLR" Data="클레릭"/>
+		<Class ClassID="1002021" ClassName="COM" Data="공용"/>
+		<Class ClassID="1002022" ClassName="GachaTP" Data="확률형 아이템"/>
+		<Class ClassID="1002023" ClassName="Lens" Data="렌즈"/>
+		<Class ClassID="1002024" ClassName="LackOfStampCount" Data="스탬프가 모자라서 아이템을 교환할 수 없습니다."/>
+		<Class ClassID="1002025" ClassName="BEAUTY_SHOP_HAIR_COUPON" Data="쿠폰북 확인"/>
+		<Class ClassID="1002026" ClassName="NotExistApplyTargetTP" Data="쿠폰을 적용할 금액이 없습니다."/>
+		<Class ClassID="1002027" ClassName="EmptyBasket" Data="구매할 아이템이 없습니다."/>
+		<Class ClassID="1002028" ClassName="Beauty_Event_Reward" Data="헤어 구매 이벤트 보상 받기"/>
+		<Class ClassID="1002029" ClassName="Hair_Dye_Check" Data="동일한 헤어와 염색은 구매 및 입어보기를 할 수 없습니다."/>
+		<Class ClassID="1002030" ClassName="ChangeHairForcelyIfYouSwitchGender" Data="스위치 젠더를 하면 적용된 신규 헤어가 사라지며, {@st66d_y}숏 컷 헤어{/}로 변경됩니다.{nl}정말 계속하시겠습니까?"/>
+		<Class ClassID="1002031" ClassName="ContainProbabilityItem" Data="확률형 아이템이 포함되어 있습니다."/>
 	</Category>
 	<Category Name="WebService">
 		<Class ClassID="1999998" ClassName="WebService_" Data="서버에 접속이 원활하지 않습니다."/>

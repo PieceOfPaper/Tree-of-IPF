@@ -246,9 +246,12 @@ function SCR_PC_CMD(pc, cmd, arg1, arg2, arg3, arg4)
 
 	elseif cmd == "/guildexpup" then
 		
-		local currentCount = tonumber(arg2);
-		local item, cnt = GetInvItemByGuid(pc, arg1);
+		local currentCount = math.floor(tonumber(arg2));
+        if currentCount < 1 then
+            return 0;
+        end
 
+		local item, cnt = GetInvItemByGuid(pc, arg1);
 		if item == nil or cnt == nil then
 			SendSysMsg(pc, "REQUEST_TAKE_ITEM");
 			return 0;
@@ -259,17 +262,20 @@ function SCR_PC_CMD(pc, cmd, arg1, arg2, arg3, arg4)
 			return 0;
 		end
 
-        local argList = {}
-        argList[1] = tostring(arg1)
-        argList[2] = tostring(currentCount)        
-        CheckClaim(pc, 'callback_guild_exp_up', 12, argList) -- code:12 (길드성장)		
-		return 1;
+        if IsRunningScript(pc, '_GUILD_EXP_UP') == 1 then
+            return 0;
+        end
 
+        local argList = {};
+        argList[1] = tostring(arg1)
+        argList[2] = tostring(currentCount);
+        _GUILD_EXP_UP(pc, argList, currentCount);
+		return 1;
 	elseif cmd == "/learnguildabil" then
-		
+
         local argList = {}
         argList[1] = tostring(arg1)
-        CheckClaim(pc, 'callback_learn_guild_ability', 13, argList) -- code:13 (길드특성설정)	
+        CheckClaim(pc, 'callback_learn_guild_ability', 13, argList) -- code:13 (길드특성설정)
 		return 1;
 
 	elseif cmd == "/learnguildskl" then

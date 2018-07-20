@@ -671,6 +671,23 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
                 AddHelpByName(self, 'TUTO_GEM_ROASTING')
             end
         end
+    elseif argStr == 'c_barber_dress' then
+        local bufflist, buffcount = GetBuffListByProp(self, 'Keyword', 'Helmet')
+        for i = 1, buffcount do
+            local buff = bufflist[i]
+            if buff.TooltipType ~= "Premium" then
+                RemoveBuff(self, buff.ClassName);
+            end
+        end
+        
+        
+        if IS_PC_BEAUTYSHOP_FIRST_FLOOR(self) == true then
+            FixCamera(self, -7.83 , 4.81, 13.42, 240);
+        else -- second floor
+            FixCamera(self, 34.79, 6.98, 1098.98, 240);
+        end
+        AddBuff(self, self, "BEAUTY_HAIR_BUFF")
+        
     elseif argStr == 'f_pilgrimroad_31_2' then
         PILGRIM312_SQ_04_01_ADD(self, sObj, msg, argObj, argStr, argNum)
     elseif argStr == 'f_bracken_63_1' then

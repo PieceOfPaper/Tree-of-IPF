@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="beauty_coupon" x="0" y="0" width="953" height="430" create="open">
+	<frame fasthide="true" layout_gravity="center center" margin="0 -100 0 0"/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false" closebuttonpos="0 20"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<userconfig STAMP_INTERVAL_X="10" STAMP_INTERVAL_Y="0"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 910 380" margin="0 6 0 0" layout_gravity="center top" skin="barbershop_couponbook_skin" draw="true"/>
+		<picture name="bgPic" rect="0 0 681 281" parent="bg" margin="0 70 0 0" layout_gravity="center top" image="barbershop_image" draw="false" hittest="false"/>
+		<picture name="ribbonPic1" rect="0 0 312 166" margin="0 0 0 0" layout_gravity="left top" image="couponbook_ribbon_l" stretch="false" hittest="false"/>
+		<picture name="ribbonPic2" rect="0 0 154 216" margin="0 0 0 0" layout_gravity="right bottom" image="couponbook_ribbon_r" stretch="false" hittest="false"/>
+		<richtext name="titleText" rect="0 0 100 30" margin="0 20 0 0" layout_gravity="center top" parent="bg" caption="{@st43}바버샵 쿠폰북" fontname="white_18_b_ol"/>
+		<button name="closeBtn" rect="0 0 50 50" parent="bg" margin="0 18 22 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('beauty_coupon')"/>
+		<groupbox name="stampBox" rect="0 0 500 280" margin="60 75 0 0" parent="bg" layout_gravity="left top" draw="false"/>
+		<groupbox name="exchangeBox2" rect="0 0 380 210" margin="0 75 25 0" parent="bg" layout_gravity="right top" draw="false" skin="test_weight_skin"/>
+		<richtext name="infoText1" rect="0 0 300 30" margin="0 0 0 0" parent="exchangeBox2" layout_gravity="left top" caption="스탬프로 아이템 교환" fontname="brown_18_b"/>
+		<groupbox name="exchangeBox" rect="0 0 377 178" margin="0 0 0 0" parent="exchangeBox2" layout_gravity="right bottom" skin="test_weight_skin" scrollbar="false"/>
+		<richtext name="infoText2" rect="0 0 500 50" margin="0 0 0 25" layout_gravity="center bottom" parent="bg" caption="※{b}{ol}{#c21917}아이템 교환 시 스탬프가 소모{/}{/}{/}되며,{nl}소모되는 스탬프의 개수는 아이템에 따라 다르게 소모됩니다." fontname="brown_18_b" textalign="center center"/>
+		<richtext name="countText" rect="0 0 100 30" parent="bg" margin="30 0 0 22" layout_gravity="left bottom" format="{img barbershop_couponbook_stamp 30 30} %s 개 소지" param1="cur" param1_def="0" fontname="brown_18_b"/>
+	</controls>
+</uiframe>

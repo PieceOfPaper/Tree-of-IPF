@@ -7979,7 +7979,7 @@ function SCR_BUFF_UPDATE_GM_WHITETREES_MON_BUFF1_1(self, buff, arg1, arg2, over)
             caster = GetByHandle(zoneInst, casterHandler)
         end
         
-        TakeDamage(caster, self, "None", (casterMINMATK + casterMAXMATK) / IMCRandom(7, 10), "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW, 0, 0, 1);
+        TakeDamage(caster, self, "None", (casterMINMATK + casterMAXMATK) / IMCRandom(7, 10), "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW, 0, 0, 0);
         
         return 1;
     end

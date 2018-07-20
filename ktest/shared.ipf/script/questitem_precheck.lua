@@ -5452,6 +5452,10 @@ function SCR_PRE_ITEM_Escape(self, argObj, BuffName, arg1, arg2)
         local cls = GetClassList('Map');
         local zone = GetZoneName(self);
         local obj = GetClassByNameFromList(cls, zone);
+        if zone == "c_barber_dress" then
+            SendSysMsg(self, "ThisLocalUseNot");
+            return 0;
+        end
         if obj.Type == "MISSION" then
             SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EscapeDisabled"), 5);
             return 0

@@ -15,7 +15,7 @@ function MAPNAME_FIRST_OPEN(frame)
 	local bg = GET_CHILD(frame, "bg", "ui::CPicture");
 	local imgName = mapName .. "_mapname_bg";
 	
-	if ui.IsImageExist(imgName) == 0 then
+	if ui.IsImageExist(imgName) == false then
 		imgName = "localbackground";
 	end
 

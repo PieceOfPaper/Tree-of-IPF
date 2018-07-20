@@ -1,3 +1,19 @@
+function SCR_BUFF_ENTER_EVENT_1805_CHILDREN(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM + 4;
+	self.SR_BM = self.SR_BM + 1;
+end
+
+function SCR_BUFF_UPDATE_EVENT_1805_CHILDREN(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 1800000 then
+        SetBuffRemainTime(self, buff.ClassName, 1800000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_EVENT_1805_CHILDREN(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM - 4;
+    self.SR_BM = self.SR_BM - 1;
+end
 
 function SCR_BUFF_UPDATE_REMAINTIME_IES_APPLYTIME_SET(self, buff, RemainTime)
     local buffIES = GetClass('Buff', buff.ClassName)
@@ -3414,3 +3430,36 @@ end
 function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE_3(self, buff, arg1, arg2, over)
     self.LootingChance_BM = self.LootingChance_BM - 500;
 end
+
+function SCR_BUFF_ENTER_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
+        AddLimitationSkillList(self, "Normal_Attack");
+end
+
+function SCR_BUFF_UPDATE_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
+    local zoneCheck = GetZoneName(self)
+    if zoneCheck == "c_barber_dress" then
+        return 1;
+    else
+        RemoveBuff(self, "BEAUTY_HAIR_BUFF")
+    end
+end
+
+function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUFF(self, buff, arg1, arg2, over)
+    ClearLimitationSkillList(self)
+end
+
+function SCR_BUFF_ENTER_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)
+    self.MSPD_BM = self.MSPD_BM + 1;
+    self.LootingChance_BM = self.LootingChance_BM + 50;
+end
+
+function SCR_BUFF_UPDATE_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, RemainTime, over)
+    return 1;
+end
+
+function SCR_BUFF_LEAVE_BEAUTY_HAIR_BUY_BUFF(self, buff, arg1, arg2, over)
+    ClearLimitationSkillList(self)
+    self.MSPD_BM = self.MSPD_BM - 1;
+    self.LootingChance_BM = self.LootingChance_BM - 50;
+end
+

@@ -442,9 +442,20 @@ function DRT_MOVETOTGT(self, obj, range)
     MoveToTarget(self, obj, range);
 end
 
+function DRT_FAKE_EQUIP_ITEM(self, SpotName, maleItemClassName, femaleItemClassName )
+    
+    local classname = maleItemClassName
+    if self.Gender == 2 then
+        classname = femaleItemClassName
+    end
+    
+    -- 장비될타겟, 보여질타겟,  ItemClassName, SoptName, 보여질 타겟에만 보낼지, 원래모양을 숨길지.        
+    EquipDummyItemSpotByName(self,self, classname, SpotName, 0, 0); 
+end
 
-
-
+function DRT_FAKE_UNEQUIP_ITEM(self, SpotName)
+    EquipDummyItemSpotByName(self,self, "", SpotName, 0, 0); 
+end
 
 function DRT_PC_TO_SAVE(self, ssn_name)
     local zoneInst = GetZoneInstID(self);

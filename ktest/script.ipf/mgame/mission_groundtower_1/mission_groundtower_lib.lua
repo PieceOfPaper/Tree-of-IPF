@@ -682,7 +682,7 @@ function TX_REWARD_EARTH_TOWER(pc, mGameName)
 					if cls.ItemName2 ~= nil and cls.ItemName2 ~= 'None' and cls.Count2 > 0 then
 						TxGiveItem(tx, cls.ItemName2, cls.Count2, "Earth_Tower_Reward");
 					end
-					local ishavetoll = GetInvItemCount(pc, 'misc_earthTower20_toll')
+					local ishavetoll = GetInvItemCount(obj, 'misc_earthTower20_toll')
 
 					if cls.ItemName3 == 'misc_earthTower20_toll' then
             			if cls.ItemName3 ~= nil and cls.ItemName3 ~= 'None' and cls.Count3 > 0 and ishavetoll == 0 then

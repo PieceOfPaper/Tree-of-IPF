@@ -1761,6 +1761,17 @@ function SCR_SKILL_RATETABLE_Shinobi_Kunai(self, from, skill, atk, ret, rateTabl
     end
 end
 
+function SCR_SKILL_RATETABLE_Swordman_Thrust(self, from, skill, atk, ret, rateTable)
+	local abil_Repeat = GetAbility(from, "Repeat")
+	if abil_Repeat ~= nil and abil_Repeat.ActiveState == 1 then
+		if TryGetProp(abil_Repeat, 'Level', 0) >= IMCRandom(1, 100) then
+		    local hitCount = 2;
+		    rateTable.MultipleHitDamageRate = rateTable.MultipleHitDamageRate + (hitCount - 1);
+		    SetMultipleHitCount(ret, hitCount);
+		end
+	end
+end
+
 function SCR_SKILL_RATETABLE_Rodelero_Slithering(self, from, skill, atk, ret, rateTable)
     local addRate = 0.3;
     SCR_ADD_ATK_BY_SHIELD(self, from, skill, atk, ret, rateTable, addRate);

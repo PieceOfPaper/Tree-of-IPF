@@ -1007,7 +1007,7 @@ function IS_ENABLE_ENTER_TO_INDUN_WEEKLY(pc, indunCls, isOnlyCheckLimitCount)
 	-- 여기서 추가로 재료 소진하여 추가 입장 가능한 부분 구현해주시면 됩니다
 	-- 재료 소진을 제외한 순수 입장 횟수만 체크해야하는 경우, 아래에 넣어주세요
 	if isOnlyCheckLimitCount == false then
-		if indunCls.ClassName == "M_GTOWER_1" then
+		if indunCls.ClassName == "M_GTOWER_1" or indunCls.ClassName == "M_GTOWER_2" then
 			return GET_AVAILABLE_GTOWER_ADMISSION_TICKET_ITEM(pc) ~= nil;
 		end
 	end

@@ -108,7 +108,6 @@ function REINFORCE_131014_IS_ABLE(frame)
 end
 
 function REINFORCE_131014_MSGBOX(frame)
-	
 	local fromItem, fromMoru = UPGRADE2_GET_ITEM(frame);
 	local fromItemObj = GetIES(fromItem:GetObject());
 	local curReinforce = fromItemObj.Reinforce_2;
@@ -125,7 +124,7 @@ function REINFORCE_131014_MSGBOX(frame)
 	end
 	
 	local classType = TryGetProp(fromItemObj,"ClassType");
-    
+    DISABLE_BUTTON_DOUBLECLICK("reinforce_131014","exec", 1)
     --if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
     if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~='Shield') then
     	if curReinforce >= 5 then

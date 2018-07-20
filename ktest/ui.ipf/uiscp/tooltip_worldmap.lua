@@ -38,7 +38,7 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 
 		local drawMapName = drawCls.ClassName;
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "map", "ui::CPicture");
-		local isValid = ui.IsValidImage(drawMapName .. "_fog");
+		local isValid = ui.IsImageExist(drawMapName .. "_fog");
 		if isValid == false then
 			world.PreloadMinimap(drawMapName);
 		end

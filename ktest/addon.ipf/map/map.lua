@@ -269,8 +269,9 @@ function UI_TOGGLE_MAP()
 	end
 
 	local curmapname = session.GetMapName();
-	if ui.IsImageExist(curmapname) == 0 then
-		return;
+	if ui.IsImageExist(curmapname) == false then
+		local frame = ui.GetFrame("map");
+		UPDATE_MAP(frame);
 	end
 
 	ui.ToggleFrame('map');

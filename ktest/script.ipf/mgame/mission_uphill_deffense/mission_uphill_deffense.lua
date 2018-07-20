@@ -36,11 +36,11 @@ function SCR_MISSION_UPHILL_STEP_REWARD_DIALOG(self, pc)
                         {{{'Drug_Looting_Potion_100',1}}},
                         {{{'Uphill_Store_Point_10',1}}},
                         {{{'Gacha_G_014',1}}},
-                        {{{'GIMMICK_Drug_HPSP1',3},{'expCard8',2},{'expCard7',1}}},
+                        {{{'GIMMICK_Drug_HPSP1',3},{'expCard8',1},{'expCard7',1}}},
                         {{{'misc_gemExpStone_randomQuest3',1}}},
                         {{{'GIMMICK_Drug_HPSP2',2}}},
                         {{{'card_Xpupkit01_100',1}}},
-                        {{{'GIMMICK_Drug_HPSP2',2},{'Gacha_G_014',1}}},
+                        {{{'GIMMICK_Drug_HPSP2',3},{'Gacha_G_014',1}}},
                         {{{'Drug_Looting_Potion_100',1},{'expCard8',2},{'expCard7',2}}},
                         {{{'GIMMICK_Drug_PMATK2',1},{'GIMMICK_Drug_HPSP3',1}},{{'GIMMICK_Drug_Restore01',1},{'GIMMICK_Drug_HPSP3',1}},{{'GIMMICK_Drug_PMDEF2',1},{'GIMMICK_Drug_HPSP3',1}}},
                         {{{'Uphill_Store_Point_10',1}}},
@@ -771,11 +771,8 @@ function SCR_UPHILL_GIMMICK_MONSTER_AI(self)
         
     elseif gimmickSetting == "Lapflammer_uphill" then -- if that monster is long distance attack monster then
 
-        if self.NumArg3 ~= 2 then -- if that monster's attack stat isn't change then
-            self.ATK_BM = self.ATK_BM + math.floor(self.ATK_BM*2.0)
-            self.MATK_BM = self.MATK_BM + math.floor(self.MATK_BM*2.0)
-            self.PATK_BM = self.PATK_BM + math.floor(self.PATK_BM*2.0)
-            self.NumArg3 = 2
+        if self.ATKRate == 100 then
+            self.ATKRate = 300
         end
         
         local targetList, targetCount = GetWorldObjectList(self, "MON", 150) -- search devine torches
@@ -806,30 +803,30 @@ function SCR_UPHILL_DEFFENSE_SCRIPT_SETTING(self) -- Setting Boss and Monster's 
     	self.Boss_UseZone = "None"
     end
     
-    if difficultyLevel > 350 then
-    	self.MHP = math.floor(self.MHP*1.10)
-    	self.DEF = math.floor(self.DEF*1.20)
-    	self.MDEF = math.floor(self.MDEF*1.20)
-    elseif difficultyLevel <= 350 then
-    	self.MHP = math.floor(self.MHP*1.05)
-    	self.DEF = math.floor(self.DEF*1.10)
-    	self.MDEF = math.floor(self.MDEF*1.10)
---    elseif difficultyLevel >= 315 then
---    	self.MHP = math.floor(self.MHP*1.00)
---    	self.DEF = math.floor(self.DEF*1.00)
---    	self.MDEF = math.floor(self.MDEF*1.00)
-    elseif difficultyLevel <= 270 then
-    	self.MHP = math.floor(self.MHP*0.975)
-    	self.DEF = math.floor(self.DEF*0.90)
-    	self.MDEF = math.floor(self.MDEF*0.90)
+    if difficultyLevel <= 170 then
+    	self.MHP = math.floor(self.MHP*0.925)
+    	self.DEF = math.floor(self.DEF*0.70)
+    	self.MDEF = math.floor(self.MDEF*0.70)
     elseif difficultyLevel <= 220 then
     	self.MHP = math.floor(self.MHP*0.95)
     	self.DEF = math.floor(self.DEF*0.80)
     	self.MDEF = math.floor(self.MDEF*0.80)
-    elseif difficultyLevel <= 170 then
-    	self.MHP = math.floor(self.MHP*0.925)
-    	self.DEF = math.floor(self.DEF*0.70)
-    	self.MDEF = math.floor(self.MDEF*0.70)
+    elseif difficultyLevel <= 270 then
+    	self.MHP = math.floor(self.MHP*0.975)
+    	self.DEF = math.floor(self.DEF*0.90)
+    	self.MDEF = math.floor(self.MDEF*0.90)
+    elseif difficultyLevel >= 315 then
+    	self.MHP = math.floor(self.MHP*1.00)
+    	self.DEF = math.floor(self.DEF*1.00)
+    	self.MDEF = math.floor(self.MDEF*1.00)
+    elseif difficultyLevel <= 350 then
+    	self.MHP = math.floor(self.MHP*1.05)
+    	self.DEF = math.floor(self.DEF*1.10)
+    	self.MDEF = math.floor(self.MDEF*1.10)
+    elseif difficultyLevel > 350 then
+    	self.MHP = math.floor(self.MHP*1.10)
+    	self.DEF = math.floor(self.DEF*1.20)
+    	self.MDEF = math.floor(self.MDEF*1.20)
     end
 end
 
@@ -859,4 +856,13 @@ function SCR_UPHILL_END_GIVE_ACHIEVE(self)
     if IsDummyPC(self) == 0 then
         AddAchievePoint(self, 'UPHILL_DEFFENSE_PROGRESS', 1)
     end
+end
+
+
+
+function CHEAT_TIME_BONUS_CHECK(self)
+    local timeBonusCheck = GetMGameValue(self, "RANKING_BONUS")
+    local bossBonusCheck = GetMGameValue(self, "bossKillBonus")
+    local totalBonusCheck = timeBonusCheck + bossBonusCheck
+    SendAddOnMsg(self, 'NOTICE_Dm_Clear',"Time Attack Bonus : "..timeBonusCheck.." / ".."Boss Kill Bouns : "..bossBonusCheck.." / ".."Total Bonus : "..totalBonusCheck, 5)
 end

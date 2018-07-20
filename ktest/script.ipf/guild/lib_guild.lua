@@ -1,4 +1,4 @@
-﻿
+
 AUTHORITY_GUILD_INVITE = 1
 AUTHORITY_GUILD_BAN = 2
 
@@ -122,7 +122,6 @@ function GUILD_LEVEL_RELOAD(pc, partyObj)
 end
 
 function CREATE_GUILD_COMMON_MENU(partyObj, menuList, isLeader, isEnemyParty, isSameGuild)
-
 	local currentLevel = partyObj.TowerLevel;
 	if isSameGuild == true then
 		if currentLevel >= 1 then
@@ -150,7 +149,7 @@ function CREATE_GUILD_COMMON_MENU(partyObj, menuList, isLeader, isEnemyParty, is
 
     --[[
 	if isLeader == 1 then
-		menuList[#menuList + 1] = "DiscardTower";		
+		menuList[#menuList + 1] = "DiscardTower";
 	end
     --]]
     
@@ -221,8 +220,6 @@ function RESET_GUILD_TICKET(pc)
 end
 
 function SCR_GUILD_TOWER_DIALOG(tower, pc)
-
-
 	local guildID = GetIESID(tower);
 	local pcGuildID = GetGuildID(pc);
 
@@ -259,13 +256,13 @@ function SCR_GUILD_TOWER_DIALOG(tower, pc)
 
 	if sameGuild ~= true then
 		if pcGuildID ~= "0" then
-				if isEnemyParty == 0 then
-					menuList[#menuList + 1] = "DeclareWar";
-				else
-					menuList[#menuList + 1] = "CancelGuildWar";
-				end
+			if isEnemyParty == 0 then
+				menuList[#menuList + 1] = "DeclareWar";
+			else
+				menuList[#menuList + 1] = "CancelGuildWar";
 			end
 		end
+	end
 
 	menuList[#menuList + 1] = "Close";
 
@@ -1466,7 +1463,7 @@ function TEST_GUILDOBJ(pc, propName, destValue)
 
 end
 
-function GUILD_EXP_UP(pc, iesID, count)
+function GUILD_EXP_UP(pc, iesID, count)	
 	
 	local partyObj = GetGuildObj(pc);
 	if partyObj == nil then
@@ -1537,7 +1534,7 @@ function LEARN_GUILD_ABILITY(pc, arg1)
 	if abilCls == nil then
 		return;
 	end
-    
+
 	local used = partyObj.UsedAbilStat;
 	local current = GET_GUILD_ABILITY_POINT(partyObj);
 	if current <= used then
@@ -2199,4 +2196,9 @@ function IS_UNIQUE_TEMPLER_GUILD_MASTER(pc)
         return true;
     end
     return false;
+end
+
+function _GUILD_EXP_UP(pc, argList, currentCount)
+    CheckClaim(pc, 'callback_guild_exp_up', 12, argList) -- code:12 (길드성장)
+	--RunScript("GUILD_EXP_UP", pc, argList[1], currentCount);    
 end

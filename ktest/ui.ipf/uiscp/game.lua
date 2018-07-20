@@ -4211,3 +4211,24 @@ function UI_CHECK_NOT_EVENT_MAP()
     end
     return 1;
 end
+
+function TEST_CLIENT_SCRIPT()
+
+	local frame = ui.GetFrame("beautyshop_test");
+	if frame ~= nil then
+		if frame:IsVisible() == 1 then
+			frame:ShowWindow(0)
+		else
+			frame:ShowWindow(1)
+		end
+	end 
+	
+
+	--[[
+	local pc = GetMyActor();
+	local pos = pc:GetPos();
+ 
+  	print("TEST_CLIENT_SCRIPT xyz", pos.x, pos.y, pos.z);
+	TEST_CAMERA_CHANGE(pc, 1, pos.x , pos.y, pos.z, 180)
+	]]
+end

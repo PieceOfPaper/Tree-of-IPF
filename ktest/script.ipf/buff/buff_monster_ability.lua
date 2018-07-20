@@ -112,6 +112,11 @@ function MON_BORN_ATTRIBUTE_TOWER_SET(self)
     AddBuff(self, self, 'GM_Tower_Setting_Buff');
 end
 
+function MON_BORN_UNRECOVERABLE_HP(self)
+    AddBuff(self, self, "UC_UnrecoverableHP")
+    print(IsBuffApplied(self, "UC_UnrecoverableHP"))
+end
+
 -- Field Boss --
 function SCR_FIELD_BOSS_NEAR_ENTER(self, pc)
     AddBuff(self, pc, 'Ability_SoulCrystal_Debuff', 1, 0, 0, 1)

@@ -169,7 +169,7 @@
                     <Event execCount="1" eventName="unrecoverSet">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
-                                <MGameObj List="DefGroup/12"/>
+                                <MGameObj List="DefGroup/30"/>
                                 <Num Num="1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">

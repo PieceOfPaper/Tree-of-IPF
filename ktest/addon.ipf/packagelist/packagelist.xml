@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="packagelist" x="0" y="0" width="540" height="760">
+	<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center"/>
+	<skin frameskin="test_pvp_skin"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="1000"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<userconfig LIMIT_EQUIP_ICON="impossible_red" LIMIT_COUNT_ICON="impossible_yellow" ICON_SIZE="17" MAX_ITEM_BOX_HEIGHT="300"/>
+	<controls>
+		<richtext name="title" margin="0 10 0 0" rect="0 0 300 50" caption="{@st43}패키지 리스트{/}" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<button name="closeBtn" rect="0 0 50 50" margin="0 20 40 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('packagelist')"/>
+		<groupbox name="itemFramePic" rect="0 0 120 120" margin="50 100 0 0" layout_gravity="left top" skin="test_frame_midle" stretch="true"/>
+		<picture name="itemIconPic" rect="0 0 100 100" parent="itemFramePic" margin="0 0 0 0" layout_gravity="center center" image="testclose_button" stretch="true"/>
+		<groupbox name="nameBgBox" rect="0 0 330 50" margin="165 92 0 0" layout_gravity="left top" skin="premium_title_line"/>
+		<groupbox name="tpStaticBgBox" rect="0 0 320 30" margin="170 136 0 0" layout_gravity="left top" skin="categoryselect_skin"/>
+		<groupbox name="itemFramePic2" rect="0 0 125 125" margin="48 97 0 0" layout_gravity="left top" skin="premium_case_skin" stretch="true"/>
+		<richtext name="itemNameText" rect="0 0 300 30" parent="nameBgBox" margin="15 0 0 0" layout_gravity="left center" caption="아이템 이름" fontname="white_18_ol"/>
+		<richtext name="tpStaticText" rect="0 0 300 30" margin="185 135 0 0" layout_gravity="left top" caption="{@st43}{s18}TP{img icon_item_tpBox_30 30 30}"/>
+		<richtext name="tpText" rect="0 0 300 30" margin="0 140 60 0" layout_gravity="right top" format="{@st43}{s18}%s" param1="tp" param1_def="0"/>
+		<richtext name="enableTradeText" rect="0 0 300 30" margin="183 170 0 0" layout_gravity="left top" caption="거래 불가" fontname="brown_16"/>
+		<richtext name="countStaticText" rect="0 0 300 30" margin="183 195 0 0" layout_gravity="left top" caption="구매 수량" fontname="brown_16"/>
+		<edit name="textEdit" rect="0 0 100 30" margin="280 190 0 0" layout_gravity="left top" textalign="center center" fontname="white_18_ol" minnumber="0" numbermode="true" skin="test_weight_skin" caption="0"/>
+		<button name="upBtn" stretch="true" rect="0 0 60 60" margin="370 190 0 0" layout_gravity="left top" image="test_up_w_btn" oversound="button_over" LBtnUpScp="PACKAGELIST_UP_BTN_CLICK"/>
+		<button name="downBtn" stretch="true" rect="0 0 60 60" margin="370 205 0 0" layout_gravity="left top" image="test_down_w_btn" oversound="button_over" LBtnUpScp="PACKAGELIST_DOWN_BTN_CLICK"/>
+		<button name="basketBtn" rect="0 0 90 36" margin="0 188 46 0" layout_gravity="right top" skin="test_red_button" caption="{@st41b}{s16}{nl}담기" LBtnUpScp="PACKAGELIST_PUT_INTO_BASKET"/>
+		<groupbox name="itemListBox" rect="0 0 450 455" margin="0 0 0 75" layout_gravity="center bottom" skin="test_frame_midle" fixheigth="true" scrollbar="true"/>
+	</controls>
+</uiframe>

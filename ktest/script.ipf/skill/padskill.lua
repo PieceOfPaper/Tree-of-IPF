@@ -564,37 +564,38 @@ function IS_APPLY_RELATION(self, target, tgtRelation)
     end
 
     if tgtRelation == "GUILD" then
-        local owner = GetOwner(self);
-        local partyMember = self;
-        if owner ~= nil then
-             partyMember = owner;
-        else
-            local saveObj = GetExArgObject(self, "SaveOwner");
-            if nil ~= saveObj then
-                partyMember = saveObj;
+        if GetRelation(self, target) ~= "ENEMY" then
+            local owner = GetOwner(self);
+            local partyMember = self;
+            if owner ~= nil then
+                 partyMember = owner;
+            else
+                local saveObj = GetExArgObject(self, "SaveOwner");
+                if nil ~= saveObj then
+                    partyMember = saveObj;
+                end
             end
-        end
-        if IsPVPServer(self) == 1 then  
-            local partyMemberEtc = GetETCObject(partyMember);
-            local targetEtc = GetETCObject(target);
-            if nil ~= partyMemberEtc and nil ~= targetEtc and partyMemberEtc.Team_Mission == targetEtc.Team_Mission then
-                return true;
-            end
-        end
-
-        local list, cnt = GET_GUILD_ACTOR_BY_SKILL(partyMember, 0)
-        local index;
-                
-        if cnt > 0 then
-            for index = 1, cnt do
-                if IsSameActor(target,list[index]) == 'YES' then
+            if IsPVPServer(self) == 1 then  
+                local partyMemberEtc = GetETCObject(partyMember);
+                local targetEtc = GetETCObject(target);
+                if nil ~= partyMemberEtc and nil ~= targetEtc and partyMemberEtc.Team_Mission == targetEtc.Team_Mission then
                     return true;
                 end
             end
+    
+            local list, cnt = GET_GUILD_ACTOR_BY_SKILL(partyMember, 0)
+            local index;
+                    
+            if cnt > 0 then
+                for index = 1, cnt do
+                    if IsSameActor(target,list[index]) == 'YES' then
+                        return true;
+                    end
+                end
+            end
+    
+            return false;
         end
-
-        return false;
-
     end
 
     if tgtRelation == "ENEMY" and GetObjType(self) == OT_PC and GetObjType(target) == OT_PC and GetRelation(self, target) == tgtRelation then

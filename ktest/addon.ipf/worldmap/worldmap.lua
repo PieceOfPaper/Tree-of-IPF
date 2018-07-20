@@ -168,7 +168,7 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	local currentDirection = config.GetConfig("WORLDMAP_DIRECTION", "s");
 	currentDirection = "s";
 
-	if changeDirection == true or ui.IsValidImage("worldmap_" .. currentDirection .. "_current") == false then
+	if changeDirection == true or ui.IsImageExist("worldmap_" .. currentDirection .. "_current") == false then
 		makeWorldMapImage = true;
 	end
 

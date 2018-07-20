@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by josungkwan (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -4605,6 +4605,7 @@
 		<image name="icon_item_1804_arbor_1" file="\icon\item\icon_item_1804_arbor_1.png" imgrect="0 0 128 128" CMM_Caption="묘목 성장의 수정"/>
 		<image name="icon_item_1804_arbor_2" file="\icon\item\icon_item_1804_arbor_2.png" imgrect="0 0 128 128" CMM_Caption="성목 성장의 수정"/>
 		<image name="icon_item_1804_arbor_3" file="\icon\item\icon_item_1804_arbor_3.png" imgrect="0 0 128 128" CMM_Caption="풍성한 성목 성장의 수정"/>
+		<image name="icon_item_egg_mrdodo" file="\icon\item\icon_item_egg_mrdodo.png" imgrect="0 0 128 128" CMM_Caption="도도새 알"/>
 		<image name="icon_item_pvpmine_1" file="\icon\item\icon_item_pvpmine_1.png" imgrect="0 0 128 128" CMM_Caption="수정원석"/>
 		<image name="icon_item_pvpmine_2" file="\icon\item\icon_item_pvpmine_2.png" imgrect="0 0 128 128" CMM_Caption="용병단토큰"/>
 		<image name="icon_item_stake_stockades" file="\icon\item\icon_item_stake_stockades.png" imgrect="0 0 128 128" CMM_Caption="방책"/>
@@ -4622,7 +4623,7 @@
 		<image name="icon_item_low_ability_up_potion5" file="\icon\item\icon_item_low_ability_up_potion5.png" imgrect="0 0 128 128" CMM_Caption="능력치 업포션_하위_5"/>
 		<image name="icon_item_low_ability_down_potion5" file="\icon\item\icon_item_low_ability_down_potion5.png" imgrect="0 0 128 128" CMM_Caption="능력치 다운포션_하위_5"/>
 		<image name="icon_item_key_earthtower" file="\icon\item\icon_item_key_earthtower.png" imgrect="0 0 128 128" CMM_Caption="대지의 탑 입장권"/>
-		<image name="icon_item_egg_mrdodo" file="\icon\item\icon_item_egg_mrdodo.png" imgrect="0 0 128 128" CMM_Caption="도도새 알"/>
+		<image name="icon_item_event_beauty_chair" file="\icon\item\icon_item_event_beauty_chair.png" imgrect="0 0 256 256" CMM_Caption="미용실 의자"/>
 		<image name="icon_item_event_invitationpiece1" file="\icon\item\icon_item_event_invitationpiece1.png" imgrect="0 0 128 128" CMM_Caption="찢어진 청첩장"/>
 	</imagelist>
 	<imagelist category="payment">
@@ -5141,11 +5142,72 @@
 		<image name="icon_item_recipe_box2" file="\icon\payment\icon_item_recipe_box2.png" imgrect="0 0 256 256" CMM_Caption="장인의 레시피-마시니오스"/>
 		<image name="icon_item_schooluniform_f_box" file="\icon\payment\icon_item_schooluniform_f_box.png" imgrect="0 0 256 256" CMM_Caption="스쿨 컬렉션 큐브(남자)"/>
 		<image name="icon_item_schooluniform_m_box" file="\icon\payment\icon_item_schooluniform_m_box.png" imgrect="0 0 256 256" CMM_Caption="스쿨 컬렉션 큐브(여자)"/>
+		<image name="hair_pinkgradation" file="\icon\payment\hair_pinkgradation.png" imgrect="0 0 256 256" CMM_Caption="핑크 그라데이션"/>
+		<image name="hair_waveponytail" file="\icon\payment\hair_waveponytail.png" imgrect="0 0 256 256" CMM_Caption="웨이브 포니테일"/>
+		<image name="hair_gothloli" file="\icon\payment\hair_gothloli.png" imgrect="0 0 256 256" CMM_Caption="고스로리"/>
+		<image name="hair_gothloli_test" file="\icon\payment\hair_gothloli_test.png" imgrect="0 0 256 256" CMM_Caption="고스로리"/>
+		<image name="hair_redbridge" file="\icon\payment\hair_redbridge.png" imgrect="0 0 256 256" CMM_Caption="레드 브릿지"/>
+		<image name="hair_mintpink" file="\icon\payment\hair_mintpink.png" imgrect="0 0 256 256" CMM_Caption="민트핑크"/>
+		<image name="hair_bunnyboy" file="\icon\payment\hair_bunnyboy.png" imgrect="0 0 256 256" CMM_Caption="바니보이"/>
 		<image name="icon_item_Wing_Farmerhat" file="\icon\payment\icon_item_Wing_Farmerhat.png" imgrect="0 0 256 256" CMM_Caption="4월 농부 코스튬"/>
 		<image name="icon_item_farmerCostume_f" file="\icon\payment\icon_item_farmerCostume_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_farmerCostume_m" file="\icon\payment\icon_item_farmerCostume_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_farmerCostume_f_box" file="\icon\payment\icon_item_farmerCostume_f_box.png" imgrect="0 0 256 256" CMM_Caption="4월 농부 코스튬 박스_여"/>
 		<image name="icon_item_farmerCostume_m_box" file="\icon\payment\icon_item_farmerCostume_m_box.png" imgrect="0 0 256 256" CMM_Caption="4월 농부 코스튬 박스_여"/>
+		<image name="Dye_bunnyboy" file="\icon\payment\Dye_bunnyboy.png" imgrect="0 0 128 128" CMM_Caption="신규 헤어 염색약 "/>
+		<image name="Dye_bunnyboy_black" file="\icon\payment\Dye_bunnyboy_black.png" imgrect="0 0 128 128"/>
+		<image name="Dye_bunnyboy_red" file="\icon\payment\Dye_bunnyboy_red.png" imgrect="0 0 128 128"/>
+		<image name="Dye_gothloli" file="\icon\payment\Dye_gothloli.png" imgrect="0 0 128 128"/>
+		<image name="Dye_gothloli_purple" file="\icon\payment\Dye_gothloli_purple.png" imgrect="0 0 128 128"/>
+		<image name="Dye_gothloli_red" file="\icon\payment\Dye_gothloli_red.png" imgrect="0 0 128 128"/>
+		<image name="Dye_mintpink" file="\icon\payment\Dye_mintpink.png" imgrect="0 0 128 128"/>
+		<image name="Dye_mintpink_black" file="\icon\payment\Dye_mintpink_black.png" imgrect="0 0 128 128"/>
+		<image name="Dye_mintpink_white" file="\icon\payment\Dye_mintpink_white.png" imgrect="0 0 128 128"/>
+		<image name="Dye_pinkgradation" file="\icon\payment\Dye_pinkgradation.png" imgrect="0 0 128 128"/>
+		<image name="Dye_pinkgradation_black" file="\icon\payment\Dye_pinkgradation_black.png" imgrect="0 0 128 128"/>
+		<image name="Dye_pinkgradation_white" file="\icon\payment\Dye_pinkgradation_white.png" imgrect="0 0 128 128"/>
+		<image name="Dye_redbridge" file="\icon\payment\Dye_redbridge.png" imgrect="0 0 128 128"/>
+		<image name="Dye_redbridge_black" file="\icon\payment\Dye_redbridge_black.png" imgrect="0 0 128 128"/>
+		<image name="Dye_redbridge_purple" file="\icon\payment\Dye_redbridge_purple.png" imgrect="0 0 128 128"/>
+		<image name="Dye_waveponytail" file="\icon\payment\Dye_waveponytail.png" imgrect="0 0 128 128"/>
+		<image name="Dye_waveponytail_midnightblue" file="\icon\payment\Dye_waveponytail_midnightblue.png" imgrect="0 0 128 128"/>
+		<image name="Dye_waveponytail_purple" file="\icon\payment\Dye_waveponytail_purple.png" imgrect="0 0 128 128"/>
+		<image name="Dye_bunnyboy_blue" file="\icon\payment\Dye_bunnyboy_blue.png" imgrect="0 0 128 128"/>
+		<image name="Dye_bunnyboy_pink" file="\icon\payment\Dye_bunnyboy_pink.png" imgrect="0 0 128 128"/>
+		<image name="Dye_gothloli_blue" file="\icon\payment\Dye_gothloli_blue.png" imgrect="0 0 128 128"/>
+		<image name="Dye_gothloli_gray" file="\icon\payment\Dye_gothloli_gray.png" imgrect="0 0 128 128"/>
+		<image name="Dye_mintpink_blue" file="\icon\payment\Dye_mintpink_blue.png" imgrect="0 0 128 128"/>
+		<image name="Dye_mintpink_gray" file="\icon\payment\Dye_mintpink_gray.png" imgrect="0 0 128 128"/>
+		<image name="Dye_pinkgradation_gray" file="\icon\payment\Dye_pinkgradation_gray.png" imgrect="0 0 128 128"/>
+		<image name="Dye_pinkgradation_red" file="\icon\payment\Dye_pinkgradation_red.png" imgrect="0 0 128 128"/>
+		<image name="Dye_redbridge_gray" file="\icon\payment\Dye_redbridge_gray.png" imgrect="0 0 128 128"/>
+		<image name="Dye_redbridge_white" file="\icon\payment\Dye_redbridge_white.png" imgrect="0 0 128 128"/>
+		<image name="Dye_waveponytail_blond" file="\icon\payment\Dye_waveponytail_blond.png" imgrect="0 0 128 128"/>
+		<image name="Dye_waveponytail_gray" file="\icon\payment\Dye_waveponytail_gray.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_HairCoupon_10" file="\icon\payment\icon_item_HairCoupon_10.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰10"/>
+		<image name="icon_item_HairCoupon_20" file="\icon\payment\icon_item_HairCoupon_20.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰20"/>
+		<image name="icon_item_HairCoupon_30" file="\icon\payment\icon_item_HairCoupon_30.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰30"/>
+		<image name="icon_item_HairCoupon_40" file="\icon\payment\icon_item_HairCoupon_40.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰40"/>
+		<image name="icon_item_HairCoupon_50" file="\icon\payment\icon_item_HairCoupon_50.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰50"/>
+		<image name="icon_item_HairCoupon_60" file="\icon\payment\icon_item_HairCoupon_60.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰60"/>
+		<image name="icon_item_HairCoupon_70" file="\icon\payment\icon_item_HairCoupon_70.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰70"/>
+		<image name="icon_item_HairCoupon_80" file="\icon\payment\icon_item_HairCoupon_80.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰80"/>
+		<image name="icon_item_HairCoupon_90" file="\icon\payment\icon_item_HairCoupon_90.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰90"/>
+		<image name="icon_item_HairCoupon_100" file="\icon\payment\icon_item_HairCoupon_100.png" imgrect="0 0 256 256" CMM_Caption="헤어 할인 쿠폰100"/>
+		<image name="icon_item_DyeCoupon_10" file="\icon\payment\icon_item_DyeCoupon_10.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰10"/>
+		<image name="icon_item_DyeCoupon_20" file="\icon\payment\icon_item_DyeCoupon_20.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰20"/>
+		<image name="icon_item_DyeCoupon_30" file="\icon\payment\icon_item_DyeCoupon_30.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰30"/>
+		<image name="icon_item_DyeCoupon_40" file="\icon\payment\icon_item_DyeCoupon_40.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰40"/>
+		<image name="icon_item_DyeCoupon_50" file="\icon\payment\icon_item_DyeCoupon_50.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰50"/>
+		<image name="icon_item_DyeCoupon_60" file="\icon\payment\icon_item_DyeCoupon_60.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰60"/>
+		<image name="icon_item_DyeCoupon_70" file="\icon\payment\icon_item_DyeCoupon_70.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰70"/>
+		<image name="icon_item_DyeCoupon_80" file="\icon\payment\icon_item_DyeCoupon_80.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰80"/>
+		<image name="icon_item_DyeCoupon_90" file="\icon\payment\icon_item_DyeCoupon_90.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰90"/>
+		<image name="icon_item_DyeCoupon_100" file="\icon\payment\icon_item_DyeCoupon_100.png" imgrect="0 0 256 256" CMM_Caption="염색 할인 쿠폰100"/>
+		<image name="icon_item_BeautyCoupon_Free" file="\icon\payment\icon_item_BeautyCoupon_Free.png" imgrect="0 0 256 256" CMM_Caption="헤어염색 무료쿠폰"/>
+		<image name="icon_item_Beauty_30_CouponBox" file="\icon\payment\icon_item_Beauty_30_CouponBox.png" imgrect="0 0 256 256" CMM_Caption="쿠폰박스30"/>
+		<image name="icon_item_Beauty_50_CouponBox" file="\icon\payment\icon_item_Beauty_50_CouponBox.png" imgrect="0 0 256 256" CMM_Caption="쿠폰박스50"/>
+		<image name="icon_item_Beauty_100_CouponBox" file="\icon\payment\icon_item_Beauty_100_CouponBox.png" imgrect="0 0 256 256" CMM_Caption="쿠폰박스100"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
