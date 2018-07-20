@@ -1,0 +1,278 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Formations>
+    <Formation Name="Centurion_Conscript" PadName="Centurion_Conscript" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_CoolDown" PadName="Centurion_CoolDown" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <selfLeaveScp>
+            <ToolScp Scp="FORMATION_POSE_AND_BUFF" Client="NO" UseSleep="YES">
+                <Num Num="1000"/>
+                <Str Str="None"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Str Str="SpeForceFom_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="30000" UseFunc="1" FuncTxt="
+
+return 30000 + obj.Level * 5000"/>
+            </ToolScp>
+        </selfLeaveScp>
+        <Cells>
+            <Cells Row="0" Col="-2" Angle="-1"/>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="2" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_PhalanxFomation" PadName="Centurion_phalanx_formation" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="PHALANX_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="PHALANX_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_SchiltronFormation" PadName="Centurion_schiltron_formation" AttachPad="Centurion_Schiltron_Active" AttackScript="None" NormalAttackType="0" UpdateScript="None" AutoBattleIndex="7">
+        <enterScp>
+            <ToolScp Scp="FORM_ADD_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+                <Str Str="SchiltronFormation_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="
+
+local objList = GetFormationObjects(userData, 10);
+return #objList;"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORM_REMOVE_BUFF" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+                <Str Str="SchiltronFormation_Buff"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="2" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="-2" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_TercioFormation" PadName="Centurion_tercio_formation" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None" SortIndex="7#8#6#3#5#1#2#0">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="TERCIO_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="TERCIO_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_TercioFormation_abil" PadName="Centurion_tercio_formation" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None" SortIndex="7#8#6#3#5#1#2#0">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="TERCIO_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="TERCIO_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-2" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="2" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_Testudo" PadName="Centurion_Testudo" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="TESTUDO_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="TESTUDO_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_WedgeFormation" PadName="Centurion_wedge_formation" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="WEDGE_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="WEDGE_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="-1" Col="-2" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="2" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_WingedFormation" PadName="Centurion_Winged_Formation" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="WINGED_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="WINGED_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <selfEnterScp>
+            <ToolScp Scp="FORMATION_SELF_CRE_PAD" Client="NO" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Angle Angle="0"/>
+                <Str Str="Centurion_Winged_Formation_Debuff"/>
+            </ToolScp>
+        </selfEnterScp>
+        <selfLeaveScp>
+            <ToolScp Scp="FORMATION_SELFL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Centurion_Winged_Formation_Debuff"/>
+            </ToolScp>
+        </selfLeaveScp>
+        <Cells>
+            <Cells Row="1" Col="-2" Angle="-1"/>
+            <Cells Row="3" Col="4" Angle="-1"/>
+            <Cells Row="1" Col="2" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="2" Col="-3" Angle="-1"/>
+            <Cells Row="3" Col="-4" Angle="-1"/>
+            <Cells Row="2" Col="3" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_WingedFormation_abil" PadName="Centurion_Winged_Formation" AttachPad="None" AttackScript="None" NormalAttackType="0" UpdateScript="None">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="WINGED_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="WINGED_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <selfEnterScp>
+            <ToolScp Scp="FORMATION_SELF_CRE_PAD" Client="NO" UseSleep="NO">
+                <Pos Angle="0" Dist="0"/>
+                <Angle Angle="0"/>
+                <Str Str="Centurion_Winged_Formation_Debuff"/>
+            </ToolScp>
+        </selfEnterScp>
+        <selfLeaveScp>
+            <ToolScp Scp="FORMATION_SELFL_REMOVE_PAD" Client="NO" UseSleep="NO">
+                <Str Str="Centurion_Winged_Formation_Debuff"/>
+            </ToolScp>
+        </selfLeaveScp>
+        <Cells>
+            <Cells Row="2" Col="-2" Angle="-1"/>
+            <Cells Row="4" Col="2" Angle="-1"/>
+            <Cells Row="2" Col="2" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+            <Cells Row="3" Col="-2" Angle="-1"/>
+            <Cells Row="4" Col="-2" Angle="-1"/>
+            <Cells Row="3" Col="2" Angle="-1"/>
+        </Cells>
+    </Formation>
+    <Formation Name="Centurion_skirmishers_formation" PadName="Centurion_skirmishers_formation" AttachPad="None" AttackScript="FORMATION_ROTATE" NormalAttackType="1" UpdateScript="None">
+        <enterScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="SKIRMISHERS_ENTER"/>
+            </ToolScp>
+        </enterScp>
+        <leaveScp>
+            <ToolScp Scp="FORMATION_SCP" Client="NO" UseSleep="NO">
+                <Str Str="SKIRMISHERS_LEAVE"/>
+            </ToolScp>
+        </leaveScp>
+        <Cells>
+            <Cells Row="-1" Col="-1" Angle="-1"/>
+            <Cells Row="-1" Col="0" Angle="-1"/>
+            <Cells Row="-1" Col="1" Angle="-1"/>
+            <Cells Row="0" Col="-1" Angle="-1"/>
+            <Cells Row="0" Col="0" Angle="-1"/>
+            <Cells Row="0" Col="1" Angle="-1"/>
+            <Cells Row="1" Col="-1" Angle="-1"/>
+            <Cells Row="1" Col="0" Angle="-1"/>
+            <Cells Row="1" Col="1" Angle="-1"/>
+        </Cells>
+    </Formation>
+</Formations>

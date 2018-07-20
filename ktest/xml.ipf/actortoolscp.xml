@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<ScpList>
+    <Scp Name="Flag_Buff_On" />
+    <Scp Name="Flag_Pos_1">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="100.463417" Y="148.825104" Z="77.729271" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_2">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="29.564491" Y="148.832535" Z="371.953888" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_3">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="-554.629272" Y="148.665710" Z="-167.206207" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_4">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="-823.611023" Y="240.387802" Z="174.709702" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_5">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="-635.493347" Y="240.387802" Z="561.224060" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_6">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="-351.365692" Y="240.387802" Z="719.144775" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_7">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="-248.211929" Y="148.823746" Z="-41.650440" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Pos_8">
+        <List>
+            <ToolScp Scp="ACTORSCP_REVIVE" Client="NO" UseSleep="YES">
+                <AbsPos X="-26.608940" Y="148.825104" Z="-58.339592" Random="30.000000" />
+                <Num Num="15.000000" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Random_SetPos" />
+    <Scp Name="Flag_Team_Pos_1">
+        <List>
+            <ToolScp Scp="ACTORSCP_SETPOS" Client="NO" UseSleep="NO">
+                <AbsPos X="-348.532623" Y="148.818710" Z="-30.695612" Random="60.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="Flag_Team_Pos_2">
+        <List>
+            <ToolScp Scp="ACTORSCP_SETPOS" Client="NO" UseSleep="NO">
+                <AbsPos X="-88.107239" Y="148.825104" Z="231.933105" Random="60.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="MCy_Treasure_Quest">
+        <List>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Point" />
+                <Num Num="1000.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Coin" />
+                <Num Num="1000.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_UI_FORCE" Client="NO" UseSleep="NO">
+                <Str Str="coin_force" />
+                <Str Str="icon_item_gold" />
+                <Num Num="0.500000" />
+                <Str Str="mcy_buyitem" />
+                <Str Str="COIN_icon" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="MCy_Treasure_Quest_2000">
+        <List>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Point" />
+                <Num Num="2000.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Coin" />
+                <Num Num="2000.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_UI_FORCE" Client="NO" UseSleep="NO">
+                <Str Str="coin_force" />
+                <Str Str="icon_item_gold" />
+                <Num Num="0.500000" />
+                <Str Str="mcy_buyitem" />
+                <Str Str="COIN_icon" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="MCy_Treasure_Quest_2500">
+        <List>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Point" />
+                <Num Num="2500.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Coin" />
+                <Num Num="2500.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_UI_FORCE" Client="NO" UseSleep="NO">
+                <Str Str="coin_force" />
+                <Str Str="icon_item_gold" />
+                <Num Num="0.500000" />
+                <Str Str="mcy_buyitem" />
+                <Str Str="COIN_icon" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="MCy_Treasure_Quest_500">
+        <List>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Point" />
+                <Num Num="500.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Coin" />
+                <Num Num="500.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_UI_FORCE" Client="NO" UseSleep="NO">
+                <Str Str="coin_force" />
+                <Str Str="icon_item_gold" />
+                <Num Num="0.500000" />
+                <Str Str="mcy_buyitem" />
+                <Str Str="COIN_icon" />
+                <Num Num="5.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="abcd">
+        <List>
+            <ToolScp Scp="ACTORSCP_SOBJ" Client="NO" UseSleep="NO">
+                <Str Str="ssn_mission" />
+                <Str Str="Kill" />
+                <Num Num="0.000000" />
+            </ToolScp>
+            <ToolScp Scp="ACTORSCP_UI_FORCE" Client="NO" UseSleep="NO">
+                <Str Str="coin_force" />
+                <Str Str="icon_item_gold" />
+                <Num Num="1.000000" />
+                <Str Str="mcy_buyitem" />
+                <Str Str="COIN_icon" />
+                <Num Num="1.000000" />
+            </ToolScp>
+        </List>
+    </Scp>
+    <Scp Name="asdasd" />
+</ScpList>

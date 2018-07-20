@@ -1,0 +1,968 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
+<SpcItemList>
+	<SpcItem Name="HPPOSIONBOOST">
+		<TriggerList Act="Consume">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ITEM_COOLDOWN" Client="NO" UseSleep="NO">
+						<Str Str="HPPOTION"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_REDUCE_ITEM_COOLTIME" Client="NO" UseSleep="NO">
+						<Str Str="HPPOTION"/>
+						<Num Num="0.000000" UseFunc="1" FuncTxt="return 1000 * obj.Level"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Cataphract27">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Cataphract_SteedCharge"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Cataphract27"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRITICAL" Client="NO" UseSleep="NO"/>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Slow_Debuff"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Cataphract_SteedCharge"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRITICAL" Client="NO" UseSleep="NO"/>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="UC_slowdown"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Archer6">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="SwiftStep_Buff"/>
+						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Archer_ObliqueShot"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Archer6"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Monster_Slow"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="7000"/>
+						<Num Num="1"/>
+						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 5;"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Barbarian6">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Savagery_Buff"/>
+						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ATTACKTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Slash"/>
+						<Str Str="NotCheck"/>
+						<Str Str="NotCheck"/>
+						<Str Str="None"/>
+						<Str Str="NotCheck"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Barbarian6"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_MULTIPLE_HIT" Client="NO" UseSleep="NO">
+						<Num Num="2"/>
+						<Num Num="0"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Barbarian5">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Savagery_Buff"/>
+						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Barbarian5"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
+						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 5;"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Archer7">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Archer_Multishot"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_DAMTYPE" Client="NO" UseSleep="NO">
+						<Num Num="3"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Archer7"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_MP_HEAL" Client="NO" UseSleep="NO">
+						<Num Num="0.1" UseFunc="1" FuncTxt="local healValue = self.MSP * 0.05; return healValue"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Dievdirbys6">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Mace"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Dievdirbys6"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_DAM_RATE" Client="NO" UseSleep="NO">
+						<Str Str="Forester"/>
+						<Num Num="0.89999998" UseFunc="1" FuncTxt="return obj.Level * 0.1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Highlander5">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Highlander_WagonWheel"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_ISMONSTER" Client="NO" UseSleep="NO"/>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Highlander5"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_TGT_KD_COLL_DAMAGE" Client="NO" UseSleep="NO">
+						<Num Num="100" UseFunc="1" FuncTxt="return IMCRandom(self.MINPATK, self.MAXPATK)/2"/>
+						<Num Num="0"/>
+						<Num Num="3"/>
+						<Num Num="15"/>
+						<Num Num="0.80000001"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Highlander2">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Highlander_CartarStroke"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_ISMONSTER" Client="NO" UseSleep="NO"/>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Highlander2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY_OFF" Client="NO" UseSleep="NO">
+						<Str Str="Highlander28"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_TGT_KB_COLL_DAMAGE" Client="NO" UseSleep="NO">
+						<Num Num="100" UseFunc="1" FuncTxt="return IMCRandom(self.MINPATK, self.MAXPATK)/2"/>
+						<Num Num="0"/>
+						<Num Num="3"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Dievdirbys2">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Dievdirbys_Carve"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Dievdirbys2"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_HIT_DAM_RATE" Client="NO" UseSleep="NO">
+						<Str Str="Forester"/>
+						<Num Num="0.89999998" UseFunc="1" FuncTxt="return obj.Level * 0.05"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Highlander10">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Highlander_Moulinet"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Highlander10"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
+						<Num Num="7" UseFunc="1" FuncTxt="return GET_ABIL_LEVEL(self, 'Highlander10') * 12;"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Hoplite1">
+		<TriggerList Act="SkillUsed">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Hoplite_Stabbing"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ALL"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Hoplite1"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Avoid"/>
+						<Num Num="1" UseFunc="1" FuncTxt="return GET_ABIL_LEVEL(self, &quot;Hoplite1&quot;);"/>
+						<Num Num="0"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="DustDevil">
+		<TriggerList Act="SkillUsed">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Doppelsoeldner_Cyclone"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ALL"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="DustDevil"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Warrior_EnableMovingShot_Buff"/>
+						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
+						<Num Num="0"/>
+						<Num Num="3000" UseFunc="1" FuncTxt="local sklLevel = GET_SKILL_LEVEL(self, 'Doppelsoeldner_Cyclone');return 2000 + sklLevel * 500"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Blow">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Swordman_Bash"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Blow"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_TGT_KB" Client="NO" UseSleep="NO">
+						<Num Num="4"/>
+						<Num Num="2"/>
+						<Num Num="150" UseFunc="1" FuncTxt="return 150 + obj.Level * 30"/>
+						<Num Num="70"/>
+						<Num Num="0"/>
+						<Num Num="3"/>
+						<Num Num="3"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Musketeer1">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Musket"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Musketeer1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="return 0.25 * obj.Level"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="S"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="return targetObj.HP"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Murmillo1">
+		<TriggerList Act="BeforeAttacked">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="0" UseFunc="1" FuncTxt="return -(obj.Level * 10)"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+          <ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+            <Num Num="1" UseFunc="1" FuncTxt="return 25"/>
+          </ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Murmillo1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Peltasta8">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_UmboBlow"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta8"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_TGT_KB" Client="NO" UseSleep="NO">
+						<Num Num="4"/>
+						<Num Num="2"/>
+						<Num Num="180" UseFunc="1" FuncTxt="return 160 + obj.Level * 40"/>
+						<Num Num="59"/>
+						<Num Num="0"/>
+						<Num Num="2"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Priest10">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Mace"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Hammer_Attack"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Priest10"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Stun"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="2000"/>
+						<Num Num="1"/>
+						<Num Num="100" UseFunc="1" FuncTxt="return obj.Level * 2;"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Pyromancer4">
+		<TriggerList Act="AfterHitScript_Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Pyromancer_HellBreath"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="50" UseFunc="1" FuncTxt="return obj.Level * 10;"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Pyromancer4"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_TGT_KB" Client="NO" UseSleep="NO">
+						<Num Num="3"/>
+						<Num Num="0"/>
+						<Num Num="100" UseFunc="1" FuncTxt="local addKd = GetExProp(targetObj, &quot;KD_BM&quot;); return 100 + addKd;"/>
+						<Num Num="10"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="2"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Impact">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Peltasta_UmboBlow"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_ISMONSTER" Client="NO" UseSleep="NO"/>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Impact"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Stun"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="3000"/>
+						<Num Num="1"/>
+						<Num Num="100" UseFunc="1" FuncTxt="return obj.Level * 5"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Ranger6">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Ranger_SpiralArrow"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Ranger6"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
+						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 13;"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Sapper3">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Sapper_PunjiStake"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_DAM_OVER" Client="NO" UseSleep="NO">
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Sapper3"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_TGT_KD_COLL_DAMAGE" Client="NO" UseSleep="NO">
+						<Num Num="100" UseFunc="1" FuncTxt="return IMCRandom(self.MINPATK, self.MAXPATK)/2;"/>
+						<Num Num="0"/>
+						<Num Num="3"/>
+						<Num Num="22"/>
+						<Num Num="0.80000001"/>
+						<Num Num="3"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Archer30">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Archer30"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Bow"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="local ignoreDEF = math.floor(targetObj.DEF * obj.Level * 0.05);return ignoreDEF;"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Rodelero2">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="S"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero2"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Slow_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0" UseFunc="1" FuncTxt="local abil = GetAbility(targetObj, 'Rodelero2'); return 7000 + abil.Level * 3000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="M"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero2"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Slow_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0" UseFunc="1" FuncTxt="local abil = GetAbility(targetObj, 'Rodelero2'); return 8000 + abil.Level * 2000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero_Montano"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_MON_SIZE_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="L"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Rodelero2"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Slow_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0" UseFunc="1" FuncTxt="local abil = GetAbility(targetObj, 'Rodelero2'); return 9000 + abil.Level * 1000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Sadhu5">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Sadhu_EctoplasmAttack"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Sadhu5"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Cleric_Collision_Debuff"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="100" UseFunc="1" FuncTxt="return 10 * obj.Level;"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Repeat">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Swordman_Thrust"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="50" UseFunc="1" FuncTxt="return obj.Level"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Repeat"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_REPEATLY_HIT" Client="NO" UseSleep="NO">
+						<Str Str="Thrust_Repeat"/>
+						<Num Num="1" UseFunc="1" FuncTxt="return math.floor(obj.Level/5 + 1)"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
+						<Num Num="1.1" UseFunc="1" FuncTxt="return math.floor(obj.Level/5 + 1)*0.1 + 1;"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SPPOSIONBOOST">
+		<TriggerList Act="Consume">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ITEM_COOLDOWN" Client="NO" UseSleep="NO">
+						<Str Str="SPPOTION"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_REDUCE_ITEM_COOLTIME" Client="NO" UseSleep="NO">
+						<Str Str="SPPOTION"/>
+						<Num Num="0.000000" UseFunc="1" FuncTxt="return 1000 * obj.Level;"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Shock">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Hoplite_SynchroThrusting"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</CondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Stun"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="1000"/>
+						<Num Num="1"/>
+						<Num Num="100" UseFunc="1" FuncTxt="return obj.Level * 5"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="TendonRupture">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Mace"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="1.000000" UseFunc="1" FuncTxt="return self.MINATK*(obj.Level*0.1)"/>
+					</ToolScp>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_ARMORMATERIAL_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Chain"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Swordman3">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Swordman_Thrust"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Swordman3"/>
+					</ToolScp>
+				</CondList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Stun"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</TgtCondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="UC_bleed"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Swordman_Thrust"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Swordman3"/>
+					</ToolScp>
+				</CondList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="UC_stun"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</TgtCondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="UC_bleed"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="5000"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Swordman10">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Swordman_DoubleSlash"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Swordman10"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
+						<Num Num="0" UseFunc="1" FuncTxt="return obj.Level * 7"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Doppelsoeldner2">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="Doppelsoeldner2"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Doppelsoeldner_Mordschlag"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRITICAL" Client="NO" UseSleep="NO"/>
+				</ExecList>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_COND_MON_ARMORMATERIAL_CHECK" Client="NO" UseSleep="NO">
+						<Str Str="Cloth"/>
+					</ToolScp>
+				</TgtCondList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="DaggerMastery">
+		<TriggerList Act="BeforeAttack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_BACK_OF_THE_HEAD" Client="NO" UseSleep="NO"/>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_IS_DAGGER_ATTACK" Client="NO" UseSleep="NO"/>
+					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
+						<Str Str="DaggerMastery"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
+						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level * 0.025"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+</SpcItemList>

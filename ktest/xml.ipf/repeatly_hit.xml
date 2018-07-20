@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by rottenapple (IMCGames Co., Ltd) -->
+<repeatlyHits>
+	<Skill Name="Sadhu_EctoplasmAttack">
+		<Timing Level="1">
+			<KeyFrame Time="0.1" Ratio="50" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.15" Ratio="50" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.2" Ratio="50" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+	<Skill Name="Schwarzereiter_Caracole">
+		<Timing Level="1">
+			<KeyFrame Time="0.1" Ratio="50" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.15" Ratio="50" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+	<Skill Name="Rogue_Backstab">
+		<Timing Level="1">
+			<KeyFrame Time="0.1" Ratio="50" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.15" Ratio="50" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+	<Skill Name="Barbarian_Embowel">
+		<Timing Level="1">
+			<KeyFrame Time="0.2" Ratio="20" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.88" Ratio="80" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+	<Skill Name="Repeatly_hit_Type1">
+		<Timing Level="1">
+			<KeyFrame Time="0" Ratio="50" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.1" Ratio="50" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+	<Skill Name="WedgeFormation_buff">
+		<Timing Level="1">
+			<KeyFrame Time="0" Ratio="25" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.1" Ratio="25" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.2" Ratio="25" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.3" Ratio="25" HitDelayRatio="25" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+	<Skill Name="Thrust_Repeat">
+		<Timing Level="1">
+			<KeyFrame Time="0" Ratio="90" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.1" Ratio="10" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+		</Timing>
+		<Timing Level="2">
+			<KeyFrame Time="0" Ratio="80" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.1" Ratio="10" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+			<KeyFrame Time="0.15" Ratio="10" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
+		</Timing>
+	</Skill>
+</repeatlyHits>

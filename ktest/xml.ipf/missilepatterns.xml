@@ -1,0 +1,218 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<MissilePatterns>
+	<Set Name="Missile_1" Level="1" MinRepeatTime="0.7" MaxRepeatTime="2.0" RepeatAngle="20">
+		<Missile Name="Pattern_1" Angle="0" Time="0"/>
+		<Missile Name="Pattern_1" Angle="40" Time="0"/>
+		<Missile Name="Pattern_1" Angle="160" Time="0"/>
+		<Missile Name="Pattern_1" Angle="200" Time="0"/>
+		<Missile Name="Pattern_1" Angle="240" Time="0"/>
+		<Missile Name="Pattern_1" Angle="280" Time="0"/>
+		<Missile Name="Pattern_1" Angle="320" Time="0"/>
+	</Set>
+	<Set Name="Missile_2" Level="1" MinRepeatTime="0.7" MaxRepeatTime="2.0" RepeatAngle="15">
+		<Missile Name="Pattern_2" Angle="0" Time="0"/>
+		<Missile Name="Pattern_2" Angle="45" Time="0.7"/>
+		<Missile Name="Pattern_2" Angle="90" Time="0"/>
+		<Missile Name="Pattern_2" Angle="135" Time="0.7"/>
+		<Missile Name="Pattern_2" Angle="180" Time="0"/>
+		<Missile Name="Pattern_2" Angle="225" Time="0.7"/>
+		<Missile Name="Pattern_2" Angle="270" Time="0"/>
+		<Missile Name="Pattern_2" Angle="315" Time="0.7"/>
+	</Set>
+	<Set Name="Missile_3" Level="1" MinRepeatTime="0.7" MaxRepeatTime="2.0" RepeatAngle="7">
+		<Missile Name="Pattern_3" Angle="0" Time="0"/>
+		<Missile Name="Pattern_3" Angle="30" Time="0"/>
+		<Missile Name="Pattern_3" Angle="60" Time="0"/>
+		<Missile Name="Pattern_3" Angle="90" Time="0"/>
+		<Missile Name="Pattern_3" Angle="120" Time="0"/>
+		<Missile Name="Pattern_3" Angle="150" Time="0"/>
+		<Missile Name="Pattern_3" Angle="180" Time="0"/>
+		<Missile Name="Pattern_3" Angle="210" Time="0"/>
+		<Missile Name="Pattern_3" Angle="240" Time="0"/>
+		<Missile Name="Pattern_3" Angle="270" Time="0"/>
+		<Missile Name="Pattern_3" Angle="300" Time="0"/>
+		<Missile Name="Pattern_3" Angle="330" Time="0"/>
+	</Set>
+	<Set Name="Missile_4" Level="1" MinRepeatTime="0.7" MaxRepeatTime="2.0" RepeatAngle="40">
+		<Missile Name="Pattern_4" Angle="0" Time="0"/>
+		<Missile Name="Pattern_4" Angle="30" Time="0"/>
+		<Missile Name="Pattern_4" Angle="60" Time="0"/>
+		<Missile Name="Pattern_4" Angle="90" Time="0"/>
+		<Missile Name="Pattern_4" Angle="120" Time="0"/>
+		<Missile Name="Pattern_4" Angle="150" Time="0"/>
+		<Missile Name="Pattern_4" Angle="180" Time="0"/>
+		<Missile Name="Pattern_4" Angle="210" Time="0"/>
+		<Missile Name="Pattern_4" Angle="240" Time="0"/>
+		<Missile Name="Pattern_4" Angle="270" Time="0"/>
+		<Missile Name="Pattern_4" Angle="300" Time="0"/>
+		<Missile Name="Pattern_4" Angle="330" Time="0"/>
+	</Set>
+	<Set Name="Missile_Hard_2" Level="2" MinRepeatTime="0.7" MaxRepeatTime="1.4" RepeatAngle="40">
+		<Missile Name="Pattern_3_3" Angle="0" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="40" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="80" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="120" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="160" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="200" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="240" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="280" Time="0"/>
+		<Missile Name="Pattern_3_3" Angle="320" Time="0"/>
+		<Missile Name="Pattern_3_2" Angle="0" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="40" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="80" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="120" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="160" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="200" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="240" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="280" Time="1.2"/>
+		<Missile Name="Pattern_3_2" Angle="320" Time="1.2"/>
+		<Missile Name="Pattern_3_3" Angle="0" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="40" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="80" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="120" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="160" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="200" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="240" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="280" Time="2.4"/>
+		<Missile Name="Pattern_3_3" Angle="320" Time="2.4"/>
+	</Set>
+	<Set Name="Missile_Hard_1" Level="2" MinRepeatTime="2" MaxRepeatTime="2" RepeatAngle="40">
+		<Missile Name="Pattern_Hard_1" Angle="0" Time="0"/>
+		<Missile Name="Pattern_Hard_1" Angle="3" Time="0.5"/>
+		<Missile Name="Pattern_Hard_1" Angle="6" Time="1.0"/>
+		<Missile Name="Pattern_Hard_1" Angle="9" Time="1.5"/>
+		<Missile Name="Pattern_Hard_1" Angle="12" Time="2.0"/>
+		<Missile Name="Pattern_Hard_1" Angle="0" Time="2.5"/>
+	</Set>
+	<Pattern Name="Pattern_1">
+		<Missile Name="MS1" Angle="0" Time="0"/>
+		<Missile Name="MS1" Angle="3" Time="0.05"/>
+		<Missile Name="MS1" Angle="6" Time="0.1"/>
+		<Missile Name="MS1" Angle="9" Time="0.15"/>
+		<Missile Name="MS1" Angle="12" Time="0.2"/>
+		<Missile Name="MS1" Angle="15" Time="0.25"/>
+	</Pattern>
+	<Pattern Name="Pattern_2">
+		<Missile Name="MS2" Angle="0" Time="0"/>
+		<Missile Name="MS2" Angle="0" Time="0.1"/>
+		<Missile Name="MS2" Angle="0" Time="0.2"/>
+		<Missile Name="MS2" Angle="0" Time="0.3"/>
+		<Missile Name="MS2" Angle="0" Time="0.4"/>
+		<Missile Name="MS2" Angle="0" Time="0.5"/>
+	</Pattern>
+	<Pattern Name="Pattern_3">
+		<Missile Name="MS3" Angle="0" Time="0"/>
+		<Missile Name="MS3" Angle="20" Time="0.2"/>
+		<Missile Name="MS3" Angle="-20" Time="0.4"/>
+	</Pattern>
+	<Pattern Name="Pattern_3_2">
+		<Missile Name="MS3" Angle="-4" Time="0.1"/>
+		<Missile Name="MS3" Angle="-8" Time="0.2"/>
+		<Missile Name="MS3" Angle="-12" Time="0.3"/>
+		<Missile Name="MS3" Angle="-16" Time="0.4"/>
+		<Missile Name="MS3" Angle="-20" Time="0.5"/>
+		<Missile Name="MS3" Angle="-24" Time="0.6"/>
+		<Missile Name="MS3" Angle="-28" Time="0.7"/>
+		<Missile Name="MS3" Angle="-32" Time="0.8"/>
+		<Missile Name="MS3" Angle="-36" Time="0.9"/>
+	</Pattern>
+	<Pattern Name="Pattern_3_3">
+		<Missile Name="MS3" Angle="4" Time="0.1"/>
+		<Missile Name="MS3" Angle="8" Time="0.2"/>
+		<Missile Name="MS3" Angle="12" Time="0.3"/>
+		<Missile Name="MS3" Angle="16" Time="0.4"/>
+		<Missile Name="MS3" Angle="20" Time="0.5"/>
+		<Missile Name="MS3" Angle="24" Time="0.6"/>
+		<Missile Name="MS3" Angle="28" Time="0.7"/>
+		<Missile Name="MS3" Angle="32" Time="0.8"/>
+		<Missile Name="MS3" Angle="36" Time="0.9"/>
+	</Pattern>
+	<Pattern Name="Pattern_4">
+		<Missile Name="MS3" Angle="0" Time="0"/>
+		<Missile Name="MS3" Angle="10" Time="0.05"/>
+		<Missile Name="MS3" Angle="0" Time="0.1"/>
+		<Missile Name="MS3" Angle="10" Time="0.15"/>
+		<Missile Name="MS3" Angle="0" Time="0.2"/>
+		<Missile Name="MS3" Angle="10" Time="0.25"/>
+		<Missile Name="MS3" Angle="0" Time="0.3"/>
+		<Missile Name="MS3" Angle="10" Time="0.35"/>
+		<Missile Name="MS3" Angle="0" Time="0.40"/>
+		<Missile Name="MS3" Angle="10" Time="0.45"/>
+		<Missile Name="MS3" Angle="0" Time="0.5"/>
+	</Pattern>
+	<Pattern Name="Pattern_Hard_1">
+		<Missile Name="MS2" Angle="0" Time="0"/>
+		<Missile Name="MS2" Angle="15" Time="0"/>
+		<Missile Name="MS2" Angle="30" Time="0"/>
+		<Missile Name="MS2" Angle="45" Time="0"/>
+		<Missile Name="MS2" Angle="60" Time="0"/>
+		<Missile Name="MS2" Angle="75" Time="0"/>
+		<Missile Name="MS2" Angle="90" Time="0"/>
+		<Missile Name="MS2" Angle="105" Time="0"/>
+		<Missile Name="MS2" Angle="120" Time="0"/>
+		<Missile Name="MS2" Angle="135" Time="0"/>
+		<Missile Name="MS2" Angle="150" Time="0"/>
+		<Missile Name="MS2" Angle="165" Time="0"/>
+		<Missile Name="MS2" Angle="180" Time="0"/>
+		<Missile Name="MS2" Angle="195" Time="0"/>
+		<Missile Name="MS2" Angle="210" Time="0"/>
+		<Missile Name="MS2" Angle="225" Time="0"/>
+		<Missile Name="MS2" Angle="240" Time="0"/>
+		<Missile Name="MS2" Angle="255" Time="0"/>
+		<Missile Name="MS2" Angle="270" Time="0"/>
+		<Missile Name="MS2" Angle="285" Time="0"/>
+		<Missile Name="MS2" Angle="300" Time="0"/>
+		<Missile Name="MS2" Angle="315" Time="0"/>
+		<Missile Name="MS2" Angle="330" Time="0"/>
+		<Missile Name="MS2" Angle="345" Time="0"/>
+		<Missile Name="MS2" Angle="0" Time="0.1"/>
+		<Missile Name="MS2" Angle="15" Time="0.1"/>
+		<Missile Name="MS2" Angle="30" Time="0.1"/>
+		<Missile Name="MS2" Angle="45" Time="0.1"/>
+		<Missile Name="MS2" Angle="60" Time="0.1"/>
+		<Missile Name="MS2" Angle="75" Time="0.1"/>
+		<Missile Name="MS2" Angle="90" Time="0.1"/>
+		<Missile Name="MS2" Angle="105" Time="0.1"/>
+		<Missile Name="MS2" Angle="120" Time="0.1"/>
+		<Missile Name="MS2" Angle="135" Time="0.1"/>
+		<Missile Name="MS2" Angle="150" Time="0.1"/>
+		<Missile Name="MS2" Angle="165" Time="0.1"/>
+		<Missile Name="MS2" Angle="180" Time="0.1"/>
+		<Missile Name="MS2" Angle="195" Time="0.1"/>
+		<Missile Name="MS2" Angle="210" Time="0.1"/>
+		<Missile Name="MS2" Angle="225" Time="0.1"/>
+		<Missile Name="MS2" Angle="240" Time="0.1"/>
+		<Missile Name="MS2" Angle="255" Time="0.1"/>
+		<Missile Name="MS2" Angle="270" Time="0.1"/>
+		<Missile Name="MS2" Angle="285" Time="0.1"/>
+		<Missile Name="MS2" Angle="300" Time="0.1"/>
+		<Missile Name="MS2" Angle="315" Time="0.1"/>
+		<Missile Name="MS2" Angle="330" Time="0.1"/>
+		<Missile Name="MS2" Angle="345" Time="0.1"/>
+		<Missile Name="MS2" Angle="0" Time="0.2"/>
+		<Missile Name="MS2" Angle="15" Time="0.2"/>
+		<Missile Name="MS2" Angle="30" Time="0.2"/>
+		<Missile Name="MS2" Angle="45" Time="0.2"/>
+		<Missile Name="MS2" Angle="60" Time="0.2"/>
+		<Missile Name="MS2" Angle="75" Time="0.2"/>
+		<Missile Name="MS2" Angle="90" Time="0.2"/>
+		<Missile Name="MS2" Angle="105" Time="0.2"/>
+		<Missile Name="MS2" Angle="120" Time="0.2"/>
+		<Missile Name="MS2" Angle="135" Time="0.2"/>
+		<Missile Name="MS2" Angle="150" Time="0.2"/>
+		<Missile Name="MS2" Angle="165" Time="0.2"/>
+		<Missile Name="MS2" Angle="180" Time="0.2"/>
+		<Missile Name="MS2" Angle="195" Time="0.2"/>
+		<Missile Name="MS2" Angle="210" Time="0.2"/>
+		<Missile Name="MS2" Angle="225" Time="0.2"/>
+		<Missile Name="MS2" Angle="240" Time="0.2"/>
+		<Missile Name="MS2" Angle="255" Time="0.2"/>
+		<Missile Name="MS2" Angle="270" Time="0.2"/>
+		<Missile Name="MS2" Angle="285" Time="0.2"/>
+		<Missile Name="MS2" Angle="300" Time="0.2"/>
+		<Missile Name="MS2" Angle="315" Time="0.2"/>
+		<Missile Name="MS2" Angle="330" Time="0.2"/>
+		<Missile Name="MS2" Angle="345" Time="0.2"/>
+	</Pattern>
+</MissilePatterns>

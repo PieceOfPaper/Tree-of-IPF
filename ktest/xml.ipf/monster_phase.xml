@@ -1,0 +1,1572 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MonPhase>
+    <Monster Name="F_boss_BiteRegina">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="0#1#2#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="1#2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#2#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="F_boss_Chafer">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="3#4#5#6">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="3#4#5#0#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="F_boss_Chapparition">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="3#4#0#1#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="0#1#2#3#5#-2@field_Chaperition@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="F_boss_Deathweaver">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="5#4#3#2#-2@field_deathweaver@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="1#3#4#2#-2@field_deathweaver@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="F_boss_Kerberos">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="4#5#6#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="1#2#4#0#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="F_boss_Kerberos_summon">
+        <PhaseList>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3#4#5#6#7">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="F_boss_mineloader">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="GRB_boss_nuodai">
+        <PhaseList>
+            <Phase PhaseNumber="1">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="4">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="6">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="8">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="1"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_in026_violet_ice_loop##8" Arg="1"/>
+                        <Pos Angle="0" Dist="0" Height="40"/>
+                        <Num Num="9000"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="8000"/>
+                    </ToolScp>
+                    <ToolScp Scp="PlayAnim" Client="NO" UseSleep="NO">
+                        <Str Str="skl3"/>
+                        <Num Num="0"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_SLEEP" Client="NO" UseSleep="YES">
+                        <Num Num="2000"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_EFT" Client="NO" UseSleep="NO">
+                        <Str_Arg Str="F_spread_out034_violet_ice" Arg="2"/>
+                        <Pos Angle="0" Dist="0"/>
+                        <Num Num="0"/>
+                        <Num Num="0"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_BUFF_TO_PC" Client="NO" UseSleep="NO">
+                        <Num Num="450"/>
+                        <Str Str="Nuodai_Poison_Debuff"/>
+                        <Num Num="1"/>
+                        <Num Num="0"/>
+                        <Num Num="10000"/>
+                        <Num Num="1"/>
+                        <Num Num="100"/>
+                    </ToolScp>
+                    <ToolScp Scp="MONPHASE_INVIN" Client="NO" UseSleep="NO">
+                        <Num Num="0"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="M_boss_Denoptic">
+        <PhaseList>
+            <Phase PhaseNumber="2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Denoptic_Skill_4"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="4">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Denoptic_Skill_4"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="6">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Denoptic_Skill_4"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="M_boss_Glass_mole">
+        <PhaseList>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="M_boss_Golem_gray">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="4#1#5#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="2" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="0#1#2#5#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="M_boss_molich">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="0#-2@buff_2@3#4#-2@Range_1@3#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="2#3#-2@Range_1@2#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="1#0#-2@guard_2@3#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="M_boss_poata">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_BiteRegina">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="2#-2@Debuff_1@3#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@guard_2@3#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_BiteRegina_Q4">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#4#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Blud">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="3#0#1#2#-2@guard_1@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Carapace">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Carnivore">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#5#4#3#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#4#5">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Chapparition">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="1#4#-2@Atk_1@1#-2@Debuff_1@1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="-2@Atk_3@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="3#-2@Atk_1@1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Clymen">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#-2@guard_1@2#3#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@buff_2@2#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Colimencia">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#2#-2@Atk_Ice@2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#2#-2@guard_2@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Confinedion">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="4#3#2#-2@Debuff_3@3#-2@buff_2@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="4#1#-2@Range_1@3#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Drapeliun">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="1#2#3#4#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Fallen_Statue">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="3#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Fireload">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#-2@Debuff_1@2#-2@Range_Fire@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#-2@Debuff_1@1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Gaigalas">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="3#-2@Atk_3@2#2#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@buff_1@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Genmagnus">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_GiantWoodGoblin_red">
+        <PhaseList>
+            <Phase PhaseNumber="5" SkillList="1#-2@buff_2@3#3#-2@Atk_2@2#0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#3#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Glackuman">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="3#1#2#4#-2@guard_1@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Goblin_Warrior">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="2#3#0#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Goblin_Warrior_red">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Golem">
+        <PhaseList>
+            <Phase PhaseNumber="9" SkillList="0#2#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Golem_Q1">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="3#4#1#-2@guard_1@2#0#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#5">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Grinender">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="3#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Harpeia">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="1#2#-2@Range_1@1#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#2#-2@Debuff_4@1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Iltiswort">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#2#-2@buff_2@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#3#2#-2@guard_2@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Ironbaum">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Lithorex">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="3#2#1#0#-2@Debuff_4@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Malletwyvern">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#2#-2@guard_1@1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="0#3#2#-2@guard_2@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Manticen_Q1">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#-2@Atk_3@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Merge">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="2#3#-2@buff_1@2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#2#3#-2@Debuff_1@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Minotaurs">
+        <PhaseList>
+            <Phase PhaseNumber="1">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Minotaurs_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="2" SkillList="3#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="3#-2@Atk_2@1#1#0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Minotaurs_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="2#0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Moldyhorn">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#-2@Range_1@1#2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@Atk_3@1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Mothstem">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="1#2#-2@Debuff_1@1#3#-2@Atk_1@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#2#-2@guard_2@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Moyabruka">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="1#2#-2@guard_1@1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@Debuff_2@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Mummyghast">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Mushcaria_Q2">
+        <PhaseList>
+            <Phase PhaseNumber="5" SkillList="1#0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Mushwort_Q2">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#2#4#5#6">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3#5">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_NetherBovine">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="3#1#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="2" SkillList="2#0#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="1#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Nuaelle">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#4#-2@Atk_2@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3#-2@guard_1@2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Pyroego">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#2#3#4#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Rajapearl">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Ravinepede">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="2#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#0#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_RingCrawler">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#4#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Rocktortuga">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_RytaSwort">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="1" SkillList="3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Sequoia">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_ShadowGaoler">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="1">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_ShadowGaoler_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="3">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_ShadowGaoler_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="1#2#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="2#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Shnayim">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="4#3#2#-2@Atk_1@3#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#-2@Debuff_2@3#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Sparnanman">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="1#-2@buff_2@1#3#-2@Range_1@1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@Atk_3@1#1#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Spector_F">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="3#0#2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Spector_F_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="0#3#2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="3#0">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Spector_F_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Spector_F_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Spector_m">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="3#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Strongholder">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="4#0#1#2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Strongholder_Skill_4"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="1#2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Strongholder_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="0#2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_Strongholder_Skill_4"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Teraox">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="3#1#2#-2@Range_1@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Throneweaver">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="2#-2@Atk_3@1#1#0#-2@Debuff_4@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="2#3#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Throneweaver_Q1">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_TombLord">
+        <PhaseList>
+            <Phase PhaseNumber="5" SkillList="2#4#-2@guard_2@3#1#3#-2@Atk_2@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@Debuff_4@3#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_Unknocker">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#1#-2@guard_1@1#3#-2@buff_2@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_archon">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="2#-2@Atk_1@2#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#2#1#-2@Debuff_2@1#3#-2@Atk_2@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_bearkaras">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="5#0#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2#1#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_bebraspion">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="5#-2@Atk_1@4#-2@Debuff_4@3#0#4#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@guard_2@3#4#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_bramble">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="3#2#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_bramble_TEST">
+        <PhaseList>
+            <Phase PhaseNumber="1">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="3">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="4">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="5">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="6">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="7">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="8">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_bramble_TEST_Skill_6"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_capria">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_capria_Skill_3"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_chafer">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="0#2#-2@Debuff_1@2#4#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#2#-2@Atk_3@2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_dionia">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="5#4#3#2#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_ginklas">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="1#3#-2@Atk_fire@3#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="3#1#2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_ginklas_Skill_1"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#2#-2@Debuff_4@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_glutton">
+        <PhaseList>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_helgasercle">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="4#3#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="0#1#3#2">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_helgasercle_Skill_5"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_honeypin">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="1#0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_honeypin_Q1">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3#-2@Debuff_4@2#-2@Atk_3@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_lecifer">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="2#-2@buff_1@4#3#-2@Atk_fire@3#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="0#2#-2@Range_1@2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@Atk_1@3#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_merregina">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="1#2#-2@Atk_Ice@2#0#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@Atk_1@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_mineloader">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="3#0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="0#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_mirtis">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="5#6#-2@guard_2@1#2#-2@Atk_2@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="-2@Debuff_1@1#1#6#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="0#1#2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_molich">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="2#3#-2@guard_2@2#1#-2@Atk_1@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@Atk_2@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_mushcaria">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="1#2#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_mushwort">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="4#5#6#0#2#-2@Debuff_4@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@guard_2@2#5#6">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_necrovanter">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="3#-2@Atk_2@1#2#-2@buff_1@1#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#-2@Debuff_2@1#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_poata">
+        <PhaseList>
+            <Phase PhaseNumber="7" SkillList="0#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_salamander">
+        <PhaseList>
+            <Phase PhaseNumber="5" SkillList="0#1#2#3#4#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="0#1#2#3#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="0#1#2#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#5">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_simorph">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="3#-2@Debuff_1@2#0#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="3#1#0#-2@Atk_fire@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="-2@Atk_fire@2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_sparnas">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="4" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_sparnas_Q1">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#1#4#3#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_spector_gh">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="-2@guard_2@2#1#2#4#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@Atk_fire@2#2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_stone_whale">
+        <PhaseList>
+            <Phase PhaseNumber="1" SkillList="4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="2" SkillList="0#1#2#3#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="3" SkillList="3#0#2#1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="7" SkillList="2#1#5#0">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#5">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_succubus">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#2#3#4#5">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_tutu">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="2#3#1#4#5">
+                <ActList>
+                    <ToolScp Scp="MONPHASE_USE_SKILL" Client="NO" UseSleep="NO">
+                        <Str Str="Mon_boss_tutu_Skill_2"/>
+                    </ToolScp>
+                </ActList>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2#5">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_werewolf">
+        <PhaseList>
+            <Phase PhaseNumber="2" SkillList="0#1#2#3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="5" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="1#0">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_woodhoungan">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="1#0#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#2#3">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_woodspirit_green">
+        <PhaseList>
+            <Phase PhaseNumber="3" SkillList="2#3#-2@guard_1@1#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="8" SkillList="0#1#-2@guard_2@1#4#-2@Range_1@1">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_yekub">
+        <PhaseList>
+            <Phase PhaseNumber="0" SkillList="0#1#2#3#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="2" SkillList="0#1#2#4">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="6" SkillList="3#0#1#2">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#2">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+    <Monster Name="boss_yonazolem">
+        <PhaseList>
+            <Phase PhaseNumber="4" SkillList="0#3#-2@Debuff_4@3#5#4#-2@Range_1@3">
+                <ActList/>
+            </Phase>
+            <Phase PhaseNumber="9" SkillList="0#1#-2@Atk_3@3#2#4">
+                <ActList/>
+            </Phase>
+        </PhaseList>
+    </Monster>
+</MonPhase>

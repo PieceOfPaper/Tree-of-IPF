@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
+<SpcItemList>
+	<SpcItem Name="SoPowerful">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="100"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_SKILL_RANGE" Client="NO" UseSleep="NO">
+						<Num Num="300"/>
+						<Num Num="100"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Coursing_Debuff">
+		<TriggerList Act="BeforeAttacked">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
+						<Num Num="40"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Growling_Return_Debuff">
+		<TriggerList Act="Attacked">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_ATTACKTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Aries"/>
+						<Str Str="NotCheck"/>
+						<Str Str="NotCheck"/>
+						<Str Str="None"/>
+						<Str Str="NotCheck"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
+						<Str Str="ENEMY"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_MULTIPLE_HIT" Client="NO" UseSleep="NO">
+						<Num Num="2"/>
+						<Num Num="0"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_DAM_RATE" Client="NO" UseSleep="NO">
+						<Num Num="2"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="plantguard">
+		<TriggerList Act="AfterHitScript_Attacked">
+			<Trigger>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_TARGET_RUNSCP" Client="NO" UseSleep="NO">
+						<Str Str="TAKE_DAMAGE_PLANTGUARD"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Warcry_Buff">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Normal_Attack"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
+						<Str Str="Normal_Attack_TH"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
+						<Num Num="1000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="SwellRightArm_Buff">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_SKILL_RANGE" Client="NO" UseSleep="NO">
+						<Num Num="5"/>
+						<Num Num="5"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+</SpcItemList>

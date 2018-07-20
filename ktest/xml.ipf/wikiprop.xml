@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shin Sang Hyup (IMCGames Co., Ltd) -->
+<WikiProp>
+	<Category Name="Monster">
+		<CountProp>
+			<Prop Type="2" PropName="TopAtk_1"/>
+			<Prop Type="3" PropName="TopAtk_2"/>
+			<Prop Type="4" PropName="TopAtk_3"/>
+			<Prop Type="5" PropName="DropItem_1"/>
+			<Prop Type="6" PropName="DropItem_2"/>
+			<Prop Type="7" PropName="DropItem_3"/>
+			<Prop Type="8" PropName="DropItem_4"/>
+			<Prop Type="9" PropName="DropItem_5"/>
+			<Prop Type="10" PropName="DropItem_6"/>
+			<Prop Type="11" PropName="DropItem_7"/>
+			<Prop Type="12" PropName="DropItem_8"/>
+			<Prop Type="13" PropName="DropItem_9"/>
+			<Prop Type="14" PropName="DropItem_10"/>
+			<Prop Type="15" PropName="DropItem_11"/>
+			<Prop Type="16" PropName="DropItem_12"/>
+			<Prop Type="17" PropName="DropItem_13"/>
+			<Prop Type="18" PropName="DropItem_14"/>
+			<Prop Type="19" PropName="DropItem_15"/>
+			<Prop Type="30" PropName="Map_1"/>
+			<Prop Type="31" PropName="Map_2"/>
+			<Prop Type="32" PropName="Map_3"/>
+			<Prop Type="33" PropName="Map_4"/>
+			<Prop Type="34" PropName="Map_5"/>
+			<Prop Type="35" PropName="Map_6"/>
+			<Prop Type="36" PropName="Map_7"/>
+			<Prop Type="37" PropName="Map_8"/>
+			<Prop Type="38" PropName="Map_9"/>
+			<Prop Type="39" PropName="Map_10"/>
+			<Prop Type="40" PropName="MonSkl_1"/>
+			<Prop Type="41" PropName="MonSkl_2"/>
+			<Prop Type="42" PropName="MonSkl_3"/>
+		</CountProp>
+		<CountRank>
+			<Prop NameHead="TopAtk_"/>
+		</CountRank>
+		<IntProp>
+			<Prop Type="1" PropName="KillCount"/>
+			<Prop Type="2" PropName="Exp"/>
+			<Prop Type="3" PropName="MHP"/>
+			<Prop Type="4" PropName="Lv"/>
+			<Prop Type="5" PropName="JobExp"/>
+      <Prop Type="6" PropName="TopDamage"/>
+		</IntProp>
+		<IntRank>
+			<Prop Name="KillCount"/>
+		</IntRank>
+		<BoolProp>
+			<Prop Type="1" PropName="MakePet"/>
+		</BoolProp>
+	</Category>
+	<Category Name="Item">
+		<CountProp>
+			<Prop Type="1" PropName="Mon_1"/>
+			<Prop Type="2" PropName="Mon_2"/>
+			<Prop Type="3" PropName="Mon_3"/>
+			<Prop Type="4" PropName="Mon_4"/>
+			<Prop Type="5" PropName="Mon_5"/>
+			<Prop Type="6" PropName="Mon_6"/>
+			<Prop Type="7" PropName="Mon_7"/>
+			<Prop Type="8" PropName="Mon_8"/>
+			<Prop Type="9" PropName="Mon_9"/>
+			<Prop Type="10" PropName="Mon_10"/>
+			<Prop Type="11" PropName="Mon_11"/>
+			<Prop Type="12" PropName="Mon_12"/>
+			<Prop Type="13" PropName="Mon_13"/>
+			<Prop Type="14" PropName="Mon_14"/>
+			<Prop Type="15" PropName="Mon_15"/>
+			<Prop Type="16" PropName="Q_1"/>
+			<Prop Type="17" PropName="Q_2"/>
+			<Prop Type="18" PropName="Q_3"/>
+			<Prop Type="19" PropName="Q_4"/>
+			<Prop Type="20" PropName="Q_5"/>
+			<Prop Type="21" PropName="Q_6"/>
+			<Prop Type="22" PropName="Q_7"/>
+			<Prop Type="23" PropName="Q_8"/>
+			<Prop Type="24" PropName="Q_9"/>
+			<Prop Type="25" PropName="Q_10"/>
+			<Prop Type="26" PropName="Q_11"/>
+			<Prop Type="27" PropName="Q_12"/>
+			<Prop Type="28" PropName="Q_13"/>
+			<Prop Type="29" PropName="Q_14"/>
+			<Prop Type="30" PropName="Q_15"/>
+		</CountProp>
+		<IntProp>
+			<Prop Type="1" PropName="Total"/>
+			<Prop Type="2" PropName="Buy"/>
+			<Prop Type="3" PropName="Sell"/>
+			<Prop Type="4" PropName="Cheat"/>
+			<Prop Type="5" PropName="Exchange"/>
+			<Prop Type="6" PropName="EquipChange"/>
+			<Prop Type="7" PropName="Recipe"/>
+			<Prop Type="8" PropName="Quest"/>
+			<Prop Type="9" PropName="Bag"/>
+			<Prop Type="10" PropName="Package"/>
+			<Prop Type="11" PropName="GuildQuest"/>
+			<Prop Type="12" PropName="Inn"/>
+			<Prop Type="13" PropName="Rullet"/>
+			<Prop Type="14" PropName="MaxReinforce"/>
+			<Prop Type="15" PropName="MaxLevel"/>
+		</IntProp>
+		<IntRank>
+			<Prop Name="Total"/>
+			<Prop Name="GuildQuest"/>
+			<Prop Name="Recipe"/>
+			<Prop Name="Buy"/>
+		</IntRank>
+		<BoolProp>
+			<Prop Type="1" PropName="MakePet"/>
+		</BoolProp>
+	</Category>
+	<Category Name="SetItem">
+		<CountProp>
+		</CountProp>
+		<CountRank>
+		</CountRank>
+		<IntProp>
+		</IntProp>
+		<IntRank>
+		</IntRank>
+		<BoolProp>
+			<Prop Type="1" PropName="Get_0"/>
+			<Prop Type="2" PropName="Get_1"/>
+			<Prop Type="3" PropName="Get_2"/>
+			<Prop Type="4" PropName="Get_3"/>
+			<Prop Type="5" PropName="Get_4"/>
+			<Prop Type="6" PropName="Get_5"/>
+			<Prop Type="7" PropName="Get_6"/>
+			<Prop Type="8" PropName="Get_7"/>
+			<Prop Type="9" PropName="Get_8"/>
+			<Prop Type="10" PropName="Get_9"/>
+			<Prop Type="11" PropName="Get_10"/>
+			<Prop Type="13" PropName="Complete"/>
+		</BoolProp>
+	</Category>
+	<Category Name="Recipe">
+		<CountProp>
+		</CountProp>
+		<CountRank>
+		</CountRank>
+		<IntProp>
+			<Prop Type="1" PropName="TeachPoint"/>
+			<Prop Type="2" PropName="MakeCount"/>
+		</IntProp>
+		<IntRank>
+		</IntRank>
+		<BoolProp>
+		</BoolProp>
+	</Category>
+	<Category Name="Map">
+		<CountProp>
+		</CountProp>
+		<CountRank>
+		</CountRank>
+		<IntProp>
+			<Prop Type="1" PropName="RevealRate"/>
+		</IntProp>
+		<IntRank>
+		</IntRank>
+		<BoolProp>
+		</BoolProp>
+	</Category>
+	<Category Name="MGame">
+		<CountProp>
+		</CountProp>
+		<CountRank>
+		</CountRank>
+		<IntProp>
+			<Prop Type="1" PropName="ClearCount"/>
+		</IntProp>
+		<IntRank>
+		</IntRank>
+		<BoolProp>
+		</BoolProp>
+	</Category>
+</WikiProp>

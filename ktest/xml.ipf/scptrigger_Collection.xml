@@ -1,0 +1,91 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<SpcItemList>
+	<SpcItem Name="collection_06002">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="2.000000"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_ADD_DAM" Client="NO" UseSleep="NO">
+						<Num Num="300.000000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="collection_06003">
+		<TriggerList Act="Attacked">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="3.000000"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="collection_06003_debuff"/>
+						<Num Num="1.000000"/>
+						<Num Num="0.000000"/>
+						<Num Num="10000.000000"/>
+						<Num Num="1.000000"/>
+						<Num Num="100.000000"/>
+						<Num Num="-1.000000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="collection_06004">
+		<TriggerList Act="Attacked">
+			<Trigger>
+				<TgtCondList>
+					<ToolScp Scp="SPCI_CHECK_SKL_CLASSTYPE" Client="NO" UseSleep="NO">
+						<Str Str="Magic"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_COND_RANDOM" Client="NO" UseSleep="NO">
+						<Num Num="4.000000"/>
+					</ToolScp>
+				</TgtCondList>
+				<TgtExecList>
+					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="collection_06004_buff"/>
+						<Num Num="1.000000"/>
+						<Num Num="0.000000"/>
+						<Num Num="30000.000000"/>
+						<Num Num="1.000000"/>
+						<Num Num="100.000000"/>
+						<Num Num="-1.000000"/>
+					</ToolScp>
+				</TgtExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="collection_1">
+		<TriggerList Act="Attack">
+			<Trigger>
+				<CondList>
+					<ToolScp Scp="SPCI_COND_DAM_OVER" Client="NO" UseSleep="NO">
+						<Num Num="1.000000"/>
+					</ToolScp>
+				</CondList>
+				<ExecList>
+					<ToolScp Scp="SPCI_VAMP" Client="NO" UseSleep="NO">
+						<Num Num="0.100000"/>
+					</ToolScp>
+					<ToolScp Scp="SPCI_SELF_BUFF" Client="NO" UseSleep="NO">
+						<Str Str="Stun"/>
+						<Num Num="1.000000"/>
+						<Num Num="0.000000"/>
+						<Num Num="0.000000"/>
+						<Num Num="1.000000"/>
+						<Num Num="100.000000"/>
+						<Num Num="-1.000000"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+</SpcItemList>

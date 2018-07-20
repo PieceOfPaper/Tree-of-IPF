@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<Map_materials>
+	<Material ID="1" Name="grass" KorName="풀밭" MaterialItem="misc_grass">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke_grass" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_grass_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke_grass" Scale="0.8"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke_grass" Scale="1"/>
+			<Sound From="walk_left" To="step_grass"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke_grass" Scale="1"/>
+			<Sound From="walk_left" To="step_grass"/>
+		</Anim>
+	</Material>
+	<Material ID="2" Name="soil" KorName="마른땅(흙)" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1.3"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
+	<Material ID="3" Name="mud" KorName="마른땅(진흙)" MaterialItem="misc_mud">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_mud" Scale="0.55"/>
+			<Sound From="pc_war_jump_2" To="step_mud_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_mud2" Scale="0.5"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_mud" Scale="1"/>
+			<Sound From="walk_left" To="step_mud"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_mud" Scale="1"/>
+			<Sound From="walk_left" To="step_mud"/>
+		</Anim>
+	</Material>
+	<Material ID="4" Name="wood" KorName="나무" MaterialItem="misc_twig">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke2" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_wood_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke3" Scale="0.8"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_wood"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_wood"/>
+		</Anim>
+	</Material>
+	<Material ID="5" Name="stone" KorName="석재" MaterialItem="misc_stone">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke2" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_marble_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke3" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_stone"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_stone"/>
+		</Anim>
+	</Material>
+	<Material ID="6" Name="gravel" KorName="자갈" MaterialItem="misc_pebble">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke2" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_gravel_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke3" Scale="0.8"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_gravel"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_gravel"/>
+		</Anim>
+	</Material>
+	<Material ID="7" Name="marble" KorName="대리석" MaterialItem="misc_marblepiece">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke_marble" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_marble_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="0.8"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_marble"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_marble"/>
+		</Anim>
+	</Material>
+	<Material ID="8" Name="carpet" KorName="양탄자" MaterialItem="misc_clothpiece">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke3" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_carpet_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke2" Scale="0.3"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_carpet"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke2" Scale="1"/>
+			<Sound From="walk_left" To="step_carpet"/>
+		</Anim>
+	</Material>
+	<Material ID="9" Name="iron" KorName="철재" MaterialItem="misc_oldIron">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_iron_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_iron"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_iron"/>
+		</Anim>
+	</Material>
+	<Material ID="10" Name="water" KorName="얕은물" MaterialItem="misc_moss">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_water" Scale="0.5"/>
+			<Sound From="pc_war_jump_2" To="step_water_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_water2" Scale="0.4"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_water" Scale="1"/>
+			<Sound From="walk_left" To="step_water"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_water" Scale="1"/>
+			<Sound From="walk_left" To="step_water"/>
+		</Anim>
+	</Material>
+	<Material ID="11" Name="swampyPoison" KorName="독늪지" MaterialItem="misc_dirtywater">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_swampyPoison" Scale="0.6"/>
+			<Sound From="pc_war_jump_2" To="step_mud_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_swampyPoison2" Scale="0.5"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_swampyPoison" Scale="1"/>
+			<Sound From="walk_left" To="step_mud"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_swampyPoison" Scale="1"/>
+			<Sound From="walk_left" To="step_mud"/>
+		</Anim>
+	</Material>
+	<Material ID="12" Name="gold" KorName="금화" MaterialItem="misc_scrapiron">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_gold_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_gold"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_gold"/>
+		</Anim>
+	</Material>
+	<Material ID="13" Name="swampy" KorName="늪지대" MaterialItem="misc_mud">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_swampy" Scale="0.6"/>
+			<Sound From="pc_war_jump_2" To="step_mud_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_swampy2" Scale="0.5"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_swampy" Scale="1"/>
+			<Sound From="walk_left" To="step_mud"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_swampy" Scale="1"/>
+			<Sound From="walk_left" To="step_mud"/>
+		</Anim>
+	</Material>
+	<Material ID="14" Name="dry" KorName="마른땅" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke2" Scale="1.2"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke3" Scale="0.8"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1"/>
+			<Sound From="walk_left" To="step_dry"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1"/>
+			<Sound From="walk_left" To="step_dry"/>
+		</Anim>
+	</Material>
+	<Material ID="15" Name="snow" KorName="눈" MaterialItem="misc_icepiece">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_snow" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_snow_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_snow" Scale="0.2"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_snow" Scale="1"/>
+			<Sound From="walk_left" To="step_snow"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_snow" Scale="1"/>
+			<Sound From="walk_left" To="step_snow"/>
+		</Anim>
+	</Material>
+	<Material ID="16" Name="ice" KorName="얼음" MaterialItem="misc_icepiece">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_ice" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_ice_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_ice" Scale="0.25"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_ice" Scale="1"/>
+			<Sound From="walk_left" To="step_ice"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_ice" Scale="1"/>
+			<Sound From="walk_left" To="step_ice"/>
+		</Anim>
+	</Material>
+	<Material ID="17" Name="glass" KorName="유리" MaterialItem="misc_0121">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_marble_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_stone"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="None" Scale="1"/>
+			<Sound From="walk_left" To="step_stone"/>
+		</Anim>
+	</Material>
+	<Material ID="18" Name="longGrass" KorName="긴풀" MaterialItem="misc_grass">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke_longgrass" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_grass_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke_longgrass" Scale="0.8"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke_longgrass" Scale="1"/>
+			<Sound From="walk_left" To="step_longgrass"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke_longgrass" Scale="1"/>
+			<Sound From="walk_left" To="step_longgrass"/>
+		</Anim>
+	</Material>
+	<Material ID="19" Name="frozensoil" KorName="얼은땅" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_ice_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="smoke" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1"/>
+			<Sound From="walk_left" To="step_ice"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="smoke" Scale="1"/>
+			<Sound From="walk_left" To="step_ice"/>
+		</Anim>
+	</Material>
+	<Material ID="20" Name="farm" KorName="밭(흙)" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1.3"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
+</Map_materials>

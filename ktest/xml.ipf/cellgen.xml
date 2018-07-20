@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<CellGens>
+	<CellGen Name="Basic1">
+		<Cell X="-1" Y="9"/>
+		<Cell X="1" Y="9"/>
+		<Cell X="-2" Y="7"/>
+		<Cell X="2" Y="7"/>
+	</CellGen>
+	<CellGen Name="Basic2">
+		<Cell X="0" Y="9"/>
+		<Cell X="-1" Y="9"/>
+		<Cell X="1" Y="9"/>
+		<Cell X="-2" Y="9"/>
+		<Cell X="2" Y="9"/>
+	</CellGen>
+	<CellGen Name="Basic3">
+		<Cell X="0" Y="9"/>
+		<Cell X="-1" Y="11"/>
+		<Cell X="1" Y="11"/>
+		<Cell X="-2" Y="13"/>
+		<Cell X="2" Y="13"/>
+	</CellGen>
+	<CellGen Name="Siege1">
+		<Cell X="0" Y="3"/>
+		<Cell X="2" Y="2"/>
+		<Cell X="3" Y="0"/>
+		<Cell X="2" Y="-2"/>
+		<Cell X="0" Y="-3"/>
+		<Cell X="-2" Y="-2"/>
+		<Cell X="-3" Y="0"/>
+		<Cell X="-2" Y="2"/>
+		<Cell X="4" Y="4"/>
+		<Cell X="4" Y="-4"/>
+		<Cell X="-4" Y="-4"/>
+		<Cell X="-4" Y="4"/>
+	</CellGen>
+	<CellGen Name="Siege2">
+		<Cell X="0" Y="10"/>
+		<Cell X="5" Y="5"/>
+		<Cell X="10" Y="0"/>
+		<Cell X="5" Y="-5"/>
+		<Cell X="0" Y="-10"/>
+		<Cell X="-5" Y="-5"/>
+		<Cell X="-10" Y="0"/>
+		<Cell X="-5" Y="5"/>
+	</CellGen>
+	<CellGen Name="Front1">
+		<Cell X="0" Y="8"/>
+	</CellGen>
+	<CellGen Name="Front2">
+		<Cell X="0" Y="3"/>
+	</CellGen>
+	<CellGen Name="Front3">
+		<Cell X="0" Y="15"/>
+	</CellGen>
+	<CellGen Name="Basic4">
+		<Cell X="0" Y="15"/>
+		<Cell X="-2" Y="15"/>
+		<Cell X="2" Y="15"/>
+		<Cell X="-5" Y="15"/>
+		<Cell X="5" Y="15"/>
+	</CellGen>
+	<CellGen Name="HalfCircle1">
+		<Cell X="0" Y="-4"/>
+		<Cell X="-1" Y="-4"/>
+		<Cell X="1" Y="-4"/>
+		<Cell X="-2" Y="-3"/>
+		<Cell X="2" Y="-3"/>
+		<Cell X="-3" Y="-2"/>
+		<Cell X="3" Y="-2"/>
+		<Cell X="-4" Y="-1"/>
+		<Cell X="4" Y="-1"/>
+		<Cell X="-4" Y="0"/>
+		<Cell X="4" Y="0"/>
+	</CellGen>
+	<CellGen Name="Basic5">
+		<Cell X="0" Y="-2"/>
+		<Cell X="-1" Y="-1"/>
+		<Cell X="1" Y="-1"/>
+		<Cell X="-2" Y="0"/>
+		<Cell X="2" Y="0"/>
+		<Cell X="-1" Y="1"/>
+		<Cell X="1" Y="1"/>
+		<Cell X="0" Y="2"/>
+	</CellGen>
+	<CellGen Name="Basic6">
+		<Cell X="0" Y="8"/>
+		<Cell X="0" Y="0"/>
+		<Cell X="0" Y="10"/>
+		<Cell X="0" Y="11"/>
+	</CellGen>
+	<CellGen Name="BackHemisphere2">
+		<Cell X="-1" Y="9"/>
+		<Cell X="1" Y="9"/>
+		<Cell X="-2" Y="9"/>
+		<Cell X="2" Y="9"/>
+		<Cell X="0" Y="10"/>
+		<Cell X="-1" Y="10"/>
+		<Cell X="1" Y="10"/>
+		<Cell X="-2" Y="10"/>
+		<Cell X="2" Y="10"/>
+		<Cell X="0" Y="9"/>
+		<Cell X="0" Y="6"/>
+		<Cell X="-1" Y="5"/>
+	</CellGen>
+	<CellGen Name="Back1">
+		<Cell X="-3" Y="-4"/>
+		<Cell X="-2" Y="-4"/>
+		<Cell X="-1" Y="-4"/>
+		<Cell X="0" Y="-4"/>
+		<Cell X="1" Y="-4"/>
+		<Cell X="-3" Y="-3"/>
+		<Cell X="-1" Y="-3"/>
+		<Cell X="1" Y="-3"/>
+	</CellGen>
+	<CellGen Name="FrontBack">
+		<Cell X="-2" Y="-5"/>
+		<Cell X="0" Y="-5"/>
+		<Cell X="2" Y="-5"/>
+		<Cell X="-3" Y="-3"/>
+		<Cell X="3" Y="-3"/>
+		<Cell X="-3" Y="5"/>
+		<Cell X="-1" Y="6"/>
+		<Cell X="1" Y="5"/>
+		<Cell X="0" Y="6"/>
+	</CellGen>
+	<CellGen Name="Back2">
+		<Cell X="-4" Y="-2"/>
+		<Cell X="-2" Y="-4"/>
+		<Cell X="0" Y="-5"/>
+		<Cell X="2" Y="-5"/>
+		<Cell X="4" Y="-3"/>
+		<Cell X="6" Y="-1"/>
+		<Cell X="6" Y="1"/>
+	</CellGen>
+	<CellGen Name="Siege3">
+		<Cell X="-2" Y="0"/>
+		<Cell X="-2" Y="-2"/>
+		<Cell X="2" Y="-2"/>
+		<Cell X="3" Y="-2"/>
+		<Cell X="-3" Y="-2"/>
+		<Cell X="-2" Y="1"/>
+		<Cell X="2" Y="0"/>
+		<Cell X="2" Y="1"/>
+		<Cell X="-2" Y="2"/>
+		<Cell X="3" Y="2"/>
+		<Cell X="2" Y="2"/>
+		<Cell X="-3" Y="2"/>
+		<Cell X="-1" Y="-2"/>
+		<Cell X="1" Y="-2"/>
+		<Cell X="-1" Y="2"/>
+		<Cell X="1" Y="2"/>
+	</CellGen>
+	<CellGen Name="cardinal">
+		<Cell X="0" Y="5"/>
+		<Cell X="5" Y="0"/>
+		<Cell X="0" Y="-5"/>
+		<Cell X="-5" Y="0"/>
+	</CellGen>
+	<CellGen Name="cardinal_far">
+		<Cell X="0" Y="15"/>
+		<Cell X="15" Y="0"/>
+		<Cell X="0" Y="-15"/>
+		<Cell X="-15" Y="0"/>
+	</CellGen>
+	<CellGen Name="Hexa">
+		<Cell X="0" Y="8"/>
+		<Cell X="8" Y="0"/>
+		<Cell X="0" Y="-8"/>
+		<Cell X="-8" Y="0"/>
+		<Cell X="-7" Y="7"/>
+		<Cell X="7" Y="-7"/>
+	</CellGen>
+	<CellGen Name="Spread1">
+		<Cell X="-7" Y="8"/>
+		<Cell X="8" Y="-7"/>
+		<Cell X="4" Y="1"/>
+		<Cell X="14" Y="-3"/>
+		<Cell X="-10" Y="20"/>
+	</CellGen>
+	<CellGen Name="Spread2">
+		<Cell X="-15" Y="0"/>
+		<Cell X="-14" Y="7"/>
+		<Cell X="-13" Y="8"/>
+		<Cell X="-8" Y="11"/>
+		<Cell X="8" Y="11"/>
+		<Cell X="13" Y="8"/>
+		<Cell X="14" Y="7"/>
+		<Cell X="15" Y="0"/>
+		<Cell X="14" Y="-7"/>
+		<Cell X="13" Y="-8"/>
+		<Cell X="8" Y="-11"/>
+		<Cell X="-8" Y="-11"/>
+		<Cell X="0" Y="13"/>
+		<Cell X="0" Y="13"/>
+	</CellGen>
+	<CellGen Name="Spread3">
+		<Cell X="-15" Y="-12"/>
+		<Cell X="-15" Y="12"/>
+		<Cell X="15" Y="12"/>
+		<Cell X="15" Y="-12"/>
+		<Cell X="17" Y="0"/>
+		<Cell X="-17" Y="0"/>
+	</CellGen>
+	<CellGen Name="Square">
+		<Cell X="4" Y="0"/>
+		<Cell X="0" Y="4"/>
+		<Cell X="-4" Y="0"/>
+		<Cell X="0" Y="-4"/>
+		<Cell X="4" Y="8"/>
+		<Cell X="8" Y="4"/>
+		<Cell X="-4" Y="-8"/>
+		<Cell X="-8" Y="-4"/>
+		<Cell X="4" Y="-8"/>
+		<Cell X="-8" Y="4"/>
+		<Cell X="-4" Y="8"/>
+		<Cell X="8" Y="-4"/>
+		<Cell X="12" Y="0"/>
+		<Cell X="0" Y="12"/>
+		<Cell X="-12" Y="0"/>
+		<Cell X="0" Y="-12"/>
+	</CellGen>
+	<CellGen Name="OneLine1">
+		<Cell X="-6" Y="0"/>
+		<Cell X="0" Y="0"/>
+		<Cell X="6" Y="0"/>
+	</CellGen>
+</CellGens>

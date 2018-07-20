@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<PCSkillGroup>
+	<Group Name="Atk_fire_2" CoolDown="30000">
+		<Skill Name="Pyromancer_FirePillar" Ratio="50" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireBall" Ratio="80" DefUseCount="1" UseCountPerLevel="1" CoolDown="30000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireWall" Ratio="20" DefUseCount="3" UseCountPerLevel="0" CoolDown="60000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Elementalist_Meteor" Ratio="5" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Elementalist_Prominence" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Atk_fire" CoolDown="30000">
+		<Skill Name="Pyromancer_FirePillar" Ratio="50" DefUseCount="2" UseCountPerLevel="0" CoolDown="30000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireBall" Ratio="30" DefUseCount="1" UseCountPerLevel="1" CoolDown="24000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireWall" Ratio="10" DefUseCount="3" UseCountPerLevel="0" CoolDown="60000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Atk_Ice" CoolDown="30000">
+		<Skill Name="Cryomancer_IceBolt" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Wizard_MagicMissile" Ratio="50" DefUseCount="3" UseCountPerLevel="0" CoolDown="30000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cryomancer_Gust" Ratio="40" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cryomancer_IciclePike" Ratio="30" DefUseCount="3" UseCountPerLevel="0" CoolDown="60000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Atk_1" CoolDown="30000">
+		<Skill Name="Psychokino_Raise" Ratio="3" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cryomancer_IciclePike" Ratio="50" DefUseCount="3" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Psychokino_PsychicPressure" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Kriwi_Zaibas" Ratio="10" DefUseCount="1" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Atk_2" CoolDown="30000">
+		<Skill Name="Pyromancer_FireBall" Ratio="60" DefUseCount="3" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Chronomancer_Slow" Ratio="80" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Kriwi_Zaibas" Ratio="60" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Atk_3" CoolDown="30000">
+		<Skill Name="Wizard_EarthQuake" Ratio="60" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Chronomancer_Slow" Ratio="80" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Wugushi_ThrowGuPot" Ratio="40" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Debuff_1" CoolDown="30000">
+		<Skill Name="Wizard_Sleep" Ratio="30" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Psychokino_Teleportation" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Wizard_Lethargy" Ratio="40" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Barbarian_Warcry" Ratio="60" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cleric_DeprotectedZone" Ratio="60" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Debuff_2" CoolDown="30000">
+		<Skill Name="Psychokino_Swap" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Priest_Monstrance" Ratio="40" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Dievdirbys_CarveAustrasKoks" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Debuff_3" CoolDown="30000">
+		<Skill Name="Chronomancer_Slow" Ratio="70" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Wizard_Lethargy" Ratio="40" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cleric_DeprotectedZone" Ratio="60" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Psychokino_Swap" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Priest_Monstrance" Ratio="40" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Dievdirbys_CarveAustrasKoks" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Debuff_4" CoolDown="30000">
+		<Skill Name="Wizard_Sleep" Ratio="30" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cleric_DeprotectedZone" Ratio="60" DefUseCount="1" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Thaumaturge_Transpose" Ratio="20" DefUseCount="1" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Priest_Monstrance" Ratio="40" DefUseCount="1" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="buff_1" CoolDown="30000">
+		<Skill Name="Cleric_Heal" Ratio="50" DefUseCount="3" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Psychokino_Teleportation" Ratio="40" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Priest_Aspersion" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Chronomancer_Haste" Ratio="40" DefUseCount="3" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cleric_Cure" Ratio="5" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="buff_2" CoolDown="30000">
+		<Skill Name="Cleric_Heal" Ratio="50" DefUseCount="3" UseCountPerLevel="1" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Priest_Aspersion" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Thaumaturge_SwellLeftArm" Ratio="5" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="guard_1" CoolDown="30000">
+		<Skill Name="Wizard_ReflectShield" Ratio="50" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cleric_SafetyZone" Ratio="30" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Paladin_Barrier" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="guard_2" CoolDown="30000">
+		<Skill Name="Peltasta_Guardian" Ratio="50" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cryomancer_IceWall" Ratio="30" DefUseCount="3" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="QuarrelShooter_DeployPavise" Ratio="30" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cryomancer_SubzeroShield" Ratio="10" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="guard_magic" CoolDown="30000">
+		<Skill Name="Wizard_ReflectShield" Ratio="50" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cleric_SafetyZone" Ratio="30" DefUseCount="3" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Cryomancer_SubzeroShield" Ratio="30" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Range_1" CoolDown="30000">
+		<Skill Name="Sapper_BroomTrap" Ratio="10" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="QuarrelShooter_ScatterCaltrop" Ratio="60" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Range_Lighting" CoolDown="30000">
+		<Skill Name="Kriwi_Zaibas" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Elementalist_Electrocute" Ratio="50" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="Range_Fire" CoolDown="30000">
+		<Skill Name="Pyromancer_FireWall" Ratio="50" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Elementalist_Meteor" Ratio="80" DefUseCount="1" UseCountPerLevel="1" CoolDown="30000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireBall" Ratio="80" DefUseCount="1" UseCountPerLevel="1" CoolDown="30000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="field_deathweaver" CoolDown="30000">
+		<Skill Name="Cleric_DeprotectedZone" Ratio="5" DefUseCount="1" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Kriwi_Zaibas" Ratio="20" DefUseCount="1" UseCountPerLevel="0" CoolDown="40000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Chronomancer_Slow" Ratio="50" DefUseCount="1" UseCountPerLevel="2" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+	<Group Name="field_Chaperition" CoolDown="30000">
+		<Skill Name="Pyromancer_FirePillar" Ratio="50" DefUseCount="2" UseCountPerLevel="0" CoolDown="10000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Psychokino_Teleportation" Ratio="30" DefUseCount="1" UseCountPerLevel="0" CoolDown="60000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireBall" Ratio="80" DefUseCount="1" UseCountPerLevel="2" CoolDown="30000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+		<Skill Name="Pyromancer_FireWall" Ratio="20" DefUseCount="3" UseCountPerLevel="0" CoolDown="100000" StartCastTime="1000" EndCastTime="0" CastMove="1"/>
+	</Group>
+</PCSkillGroup>
