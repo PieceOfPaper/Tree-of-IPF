@@ -60,7 +60,7 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
             level1:SetText(memberListJson[memberIndex]['lv']);
             memberIndex = memberIndex + 1;
 
-            if memberIndex < #memberListJson then
+            if memberIndex <= #memberListJson then
                 local teamName2 = GET_CHILD_RECURSIVELY(row, "teamName2");
                 teamName2:SetText(memberListJson[memberIndex]['name']);
                 local level2 = GET_CHILD_RECURSIVELY(row, "leveltext2");

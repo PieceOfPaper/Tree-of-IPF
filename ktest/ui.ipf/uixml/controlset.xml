@@ -381,7 +381,7 @@
 			<richtext name="weight_text" format="무게 : %s" param1="weight" param1_def="" rect="0 0 140 24" margin="0 280 20 0" fixwidth="true" hittest="false" fontname="brown_18" layout_gravity="right top" textalign="right center"/>
 			<labelline name="labelline_1" margin="0 311 0 0" rect="0 0 300 3" skin="labelline_def_2" layout_gravity="center top"/>
 			<richtext name="level_text" caption="경험치" rect="0 0 100 24" margin="20 320 0 0" fixwidth="true" hittest="false" fontname="brown_18" layout_gravity="left top" textalign="left center"/>
-			<gauge name="level_gauge" margin="80 312 0 0" rect="0 0 220 40" skin="gauge_itemtooltip_poten" inverse="false" point="5" layout_gravity="left top" text1="%v / %m" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center"/>
+			<gauge name="level_gauge" margin="80 312 0 0" rect="0 0 220 40" skin="gauge_itemtooltip_poten" inverse="false" point="5" layout_gravity="left top" text1="%.2p %" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center"/>
 			<labelline name="labelline_2" margin="0 353 0 0" rect="0 0 300 3" skin="labelline_def_2" layout_gravity="center top"/>
 		</controls>
 	</controlset>

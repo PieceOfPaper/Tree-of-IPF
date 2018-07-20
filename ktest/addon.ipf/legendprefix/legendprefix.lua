@@ -81,7 +81,11 @@ function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid)
 end
 
 function _LEGENDPREFIX_SET_TARGET(frame, itemGuid)
-	LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid);
+	local targetItem = LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid);
+	local targetObject = nil;
+	if targetItem ~= nil then
+		targetObject = GetIES(targetItem:GetObject());
+	end
 
 	local needItemClsName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
 	local needItemCls = GetClass('Item', needItemClsName);
@@ -92,7 +96,7 @@ function _LEGENDPREFIX_SET_TARGET(frame, itemGuid)
 	SET_ITEM_TOOLTIP_BY_NAME(matPic, needItemClsName);
 
 	local matText = GET_CHILD_RECURSIVELY(frame, 'matText');
-	local needCnt = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(needItemCls);
+	local needCnt = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetObject);
 	local curCnt = GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C();
 	matText:SetTextByKey('need', needCnt);
 	matText:SetTextByKey('cur', curCnt);

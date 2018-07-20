@@ -2565,7 +2565,10 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 	end
 	local posX, posY = GET_SCREEN_XY(slot);
 
-	movie.PlayUIEffect('I_sys_item_slot', posX, posY, 1.0);
+	if slot:IsVisibleRecursively() == true then
+		local size = frame:GetUserConfig("EXP_ORB_EFFECT_SIZE");	
+		slot:PlayOnceUIEffect('I_sys_item_slot', size);
+	end
 end
 
 function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
