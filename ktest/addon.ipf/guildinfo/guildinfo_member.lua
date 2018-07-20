@@ -412,3 +412,7 @@ function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
 	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
 	frame:ShowWindow(0);
 end
+
+function GUILD_BAN(name)
+	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	
+end

@@ -6598,8 +6598,7 @@
 		<Class ClassID="124041" ClassName="AlertDuplicatedKeys{Key1}And{Key2}Are{Key}" Data="[{Key1}]키와 [{Key2}]키가 동일한 키 [{Key}]로 설정되었습니다."/>
 		<Class ClassID="124042" ClassName="NotClearChar" Data="대지의 탑을 클리어 하지 않은 캐릭터는 보상을 받을 수 없습니다."/>
 		<Class ClassID="124043" ClassName="OnlyOnePcJoin" Data="해당 미션은 다른 캐릭터로 입장할 수 없습니다."/>
-		<Class ClassID="124044" ClassName="By{Key}{Target}Be{Done}" Data="{Key}키로 {Target}가 {Done}됩니다."/>
-	</Category>
+		</Category>
 	<Category Name="Quest">
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
 		<Class ClassID="130002" ClassName="ThisQuestIsSharedToParty" Data="{@st59}파티원에게 현재 노출되는 퀘스트입니다."/>

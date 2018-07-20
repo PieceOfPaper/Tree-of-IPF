@@ -10,12 +10,14 @@
     addon:RegisterMsg('GUILD_ASSET_LOG_UPDATE', 'ON_GUILD_ASSET_LOG');
     addon:RegisterMsg('GUILD_INFO_UPDATE', 'GUILDINFO_UPDATE_INFO');
 	addon:RegisterMsg("GUILD_ENTER", "GUILDINFO_UPDATE_INFO");
-	addon:RegisterMsg("GUILD_OUT", "GUILDINFO_CLOSE_UI");
+	addon:RegisterMsg("GUILD_OUT", "ON_GUILD_OUT");
     addon:RegisterMsg('MYPC_GUILD_JOIN', 'GUILDINFO_OPEN_UI');
     addon:RegisterMsg('GUILD_PROPERTY_UPDATE', 'GUILDINFO_UPDATE_PROPERTY');    
     addon:RegisterMsg("GUILD_EMBLEM_UPDATE", 'ON_UPDATE_GUILD_EMBLEM');
     addon:RegisterMsg('COLONY_ENTER_CONFIG_FAIL', 'GUILDINFO_COLONY_INIT_RADIO');
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
+    addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
+    addon:RegisterMsg("GUILD_EVENT_UPDATE", "UPDATE_GUILD_EVENT_INFO");
 end
 
 function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)    
@@ -143,6 +145,14 @@ function GUILDINFO_FORCE_CLOSE_UI()
     end
 end
 
+function ON_GUILD_OUT(frame)
+	frame:ShowWindow(0);
+    ui.CloseFrame('guildinfo');
+
+	local sysMenuFrame = ui.GetFrame("sysmenu");
+	SYSMENU_CHECK_HIDE_VAR_ICONS(sysMenuFrame);
+end
+
 function GUILDINFO_CLOSE_UI(frame)    
     ui.CloseFrame('guildinven_send');
     ui.CloseFrame('guild_authority_popup');
@@ -226,4 +236,77 @@ function UI_TOGGLE_GUILD()
 		return;
 	end
 	ui.ToggleFrame('guildinfo');
+end
+
+function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	if nil ==pcparty then
+		return;
+	end
+	local leaderAID = pcparty.info:GetLeaderAID();
+	local list = session.party.GetPartyMemberList(PARTY_GUILD);
+	local count = list:Count();
+	local leaderName = 'None'
+	for i = 0 , count - 1 do
+		local partyMemberInfo = list:Element(i);
+		if leaderAID == partyMemberInfo:GetAID() then
+			leaderName = partyMemberInfo:GetName();
+		end
+	end
+
+	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
+	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
+	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
+end
+
+function UPDATE_GUILD_EVENT_INFO(frame)
+    local pcparty = GET_MY_GUILD_INFO();
+    local partyObj = GET_MY_GUILD_OBJECT();
+    if pcparty == nil or partyObj == nil then
+        return;
+    end
+
+	local pcAcc = GetMyAccountObj();
+	if partyObj["GuildBossSummonFlag"] ~= 1 then
+		session.minimap.RemoveIconInfo("GuildBossSummon");
+	end
+	if partyObj["GuildInDunFlag"] ~= 1 then
+		session.minimap.RemoveIconInfo("GuildIndun");
+	end
+
+	if partyObj["GuildBossSummonFlag"] == 1 and pcAcc.GuildEventSeq == partyObj.GuildEventSeq then
+		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildBossSummonLocInfo");
+		if locInfo ~= nil then
+			local mapCls = GetClassByType("Map", locInfo.mapID);
+			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
+			local mapprop = session.GetCurrentMapProp();
+			if locInfo.mapID == mapprop.type then
+				session.minimap.AddIconInfo("GuildBossSummon", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
+			end
+		end
+	elseif partyObj["GuildInDunFlag"] == 1 then
+		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildInDunLocInfo");
+		if locInfo ~= nil then
+			local mapCls = GetClassByType("Map", locInfo.mapID);
+			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
+			local mapprop = session.GetCurrentMapProp();
+			if locInfo.mapID == mapprop.type then
+				session.minimap.AddIconInfo("GuildIndun", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
+			end
+		end
+	end
+
+	if partyObj["GuildRaidFlag"] == 1 then
+		if partyObj["GuildRaidStage"] > 1 then
+			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"] - 1);
+			session.minimap.RemoveIconInfo(raidStage);
+		end
+		local stageMapID = geClientGuildEvent.GetStageMapID(pcparty)
+		local mapprop = session.GetCurrentMapProp();
+		if mapprop.type == stageMapID then
+			local pos = geClientGuildEvent.GetStagePos(pcparty)
+			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"]);
+			session.minimap.AddIconInfo(raidStage, "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
+		end
+	end
 end

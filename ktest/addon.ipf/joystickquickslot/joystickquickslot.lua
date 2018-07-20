@@ -288,7 +288,6 @@ end
 
 
 function JOYSTICK_QUICKSLOT_EXECUTE(slotIndex)
-	
 	local quickFrame = ui.GetFrame('joystickquickslot')
 	local Set1 = GET_CHILD_RECURSIVELY(quickFrame,'Set1','ui::CGroupBox');
 	local Set2 = GET_CHILD_RECURSIVELY(quickFrame,'Set2','ui::CGroupBox');

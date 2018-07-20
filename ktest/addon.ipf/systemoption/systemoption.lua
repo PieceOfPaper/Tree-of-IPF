@@ -5,6 +5,8 @@ end
 
 function SYSTEMOPTION_CREATE(frame)
 
+	local bg2 = GET_CHILD_RECURSIVELY(frame, "bg2", "ui::CGroupBox")
+	bg2:SetScrollPos(0)
 	INIT_SCREEN_CONFIG(frame);
 	INIT_SOUND_CONFIG(frame);
 	INIT_LANGUAGE_CONFIG(frame);
