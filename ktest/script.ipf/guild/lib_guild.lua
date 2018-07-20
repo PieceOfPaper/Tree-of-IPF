@@ -2044,7 +2044,7 @@ function TX_DEPOSIT_GUILD_ASSET(pc, money)
 
 	--맥시멈값 못넣어요
     local sumStr = SumForBigNumber(money, currentAsset);
-	if IsGreaterThanForBigNumber(sumStr, MONEY_MAX_STACK) == 1 then
+	if IsGreaterThanForBigNumber(sumStr, MAX_GUILD_ASSET_DEPOSIT_AMOUNT) == 1 then
 		return;
 	end
 
@@ -2087,7 +2087,7 @@ function TX_DEPOSIT_GUILD_ASSET_BY_WEB(pc, money)
 
 	--맥시멈값 못넣어요
     local sumStr = SumForBigNumber(money, currentAsset);
-	if IsGreaterThanForBigNumber(sumStr, MONEY_MAX_STACK) == 1 then    
+	if IsGreaterThanForBigNumber(sumStr, MAX_GUILD_ASSET_DEPOSIT_AMOUNT) == 1 then    
 		return;
 	end
     

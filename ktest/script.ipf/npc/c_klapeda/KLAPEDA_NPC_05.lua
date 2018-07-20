@@ -1000,7 +1000,7 @@ function SCR_ADVENTURE_BOOK_COMPENIAN_TRADE(self, pc, txt1, txt2, txt3)
         elseif self.ClassName == "npc_racia" then
             msg = ScpArgMsg("RACIA_Adventure_Companion_YET", "COMPANION", companion_arr[3])
         end
-        SCR_ADVENTURE_BOOK_COMPENIAN_TRADE_CHECK(pc, txt2, txt3, msg, "Companion_Exchange_Ticket3", nil, nil, "Companion_Trade_Take")
+        SCR_ADVENTURE_BOOK_COMPENIAN_TRADE_CHECK(pc, txt2, txt3, msg, "Companion_Exchange_Ticket3", "egg_022", "AdventureBook_egg_022_Give", "Companion_Trade_Take")
     elseif sel == 4 then
         if self.ClassName == "npc_rena" then
             msg = ScpArgMsg("RENA_Adventure_Companion_YET", "COMPANION", companion_arr[4])

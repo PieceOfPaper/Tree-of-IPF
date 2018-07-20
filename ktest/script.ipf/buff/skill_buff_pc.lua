@@ -4621,7 +4621,8 @@ end
 
 --Cloaking
 function SCR_BUFF_ENTER_Cloaking_Buff(self, buff, arg1, arg2, over)
-    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+    local zone = GetZoneName(self)
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
         SetCoolDown(self, "Cloaking", 0);
     end
 
@@ -4637,13 +4638,13 @@ function SCR_BUFF_ENTER_Cloaking_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_LEAVE_Cloaking_Buff(self, buff, arg1, arg2, over)
-
+    local zone = GetZoneName(self)
     local addmspd = GetExProp(buff, "ADD_MSPD")
     self.MSPD_BM = self.MSPD_BM - addmspd
 
     SetExProp(buffOwner, "ACT_TIME", actTime)
     
-    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
         StartCoolTimeAndSpendSP(self, "Scout_Cloaking");
     end
 end

@@ -18,13 +18,22 @@ function MARKET_SELL_OPEN(frame)
 
 	local defaultTime = 0;
 	local cnt = GetMarketTimeCount();
+	local timeTable = {};
+	local timeVec = {};	
 	for i = 0 , cnt - 1 do
 		local time, free = GetMarketTimeAndTP(i);
-		local day = 0;
-		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
+		timeTable[time] = free;
+		timeVec[#timeVec + 1] = time;		
+	end
+
+	table.sort(timeVec);
+	for i = 1, #timeVec do
+		local time = timeVec[i];
+		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", timeTable[time]);
 		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
 		defaultTime = time; -- 7일을 기본으로 해달래여
 	end
+
 	droplist:SelectItem(cnt - 1);
 	droplist:SelectItemByKey(defaultTime);
 
@@ -104,12 +113,6 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 	itemlist:RealignItems();
 	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, false, true);
---local maxPage = math.ceil(session.market.GetTotalCount() / MARKET_SELL_ITEM_PER_PAGE);
---local curPage = session.market.GetCurPage();
---local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
---pagecontrol:SetMaxPage(maxPage);
---pagecontrol:SetCurPage(curPage);
-
 end
 
 function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
@@ -149,12 +152,6 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
 
 	local obj = GetIES(invItem:GetObject());
-	local reason = GetTradeLockByProperty(obj);
-	if reason ~= "None" then
-		ui.SysMsg(ScpArgMsg(reason));
-		return;
-	end
-
 	if obj.ClassName == "PremiumToken" then
 		edit_count:SetText("1");
 		edit_count:SetMaxNumber(1);
@@ -162,7 +159,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
 		edit_price:SetMaxNumber(2147483647);
-		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- , 텍스트로 변환		
+		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- 3: , 텍스트로 변환		
 	end
 
 	local itemProp = geItemTable.GetProp(obj.ClassID);
@@ -485,45 +482,21 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 end
 
-function MARKET_SELL_SELECT_NEXT(pageControl, numCtrl)
---pageControl = tolua.cast(pageControl, "ui::CPageController");
---local page = pageControl:GetCurPage();
---local frame = pageControl:GetTopParentFrame();
---local MaxPage = pageControl:GetMaxPage();
---local nexPage = page + 1;
---if nexPage >= MaxPage then
---	nexPage = MaxPage - 1;
---end
---
---market.ReqMySellList(nexPage);
-end
-
-function MARKET_SELL_SELECT_PREV(pageControl, numCtrl)
---pageControl = tolua.cast(pageControl, "ui::CPageController");
---local page = pageControl:GetCurPage();
---local frame = pageControl:GetTopParentFrame();
---local prePage = page - 1;
---if prePage <= 0 then
---	prePage = 0;
---end
---market.ReqMySellList(prePage);
-end
-
-function MARKET_SELL_SELECT(pageControl, numCtrl)
---pageControl = tolua.cast(pageControl, "ui::CPageController");
---local page = pageControl:GetCurPage();
---local frame = pageControl:GetTopParentFrame();
---market.ReqMySellList(page);
-end
-
-function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
+function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)	
     local moneyText = ctrl:GetText();    
     if moneyText == "" then
         moneyText = 0;
     end
-    if tonumber(moneyText) > MONEY_MAX_STACK then
-        moneyText = tostring(MONEY_MAX_STACK);
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(MONEY_MAX_STACK)));
+
+    local frame = parent:GetTopParentFrame();
+    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
+    if frame:GetName() == 'accountwarehouse' then
+    	limitMoney = ACCOUNT_WAREHOUSE_MAX_STORE_SILVER;
+    end
+
+    if tonumber(moneyText) > limitMoney then
+        moneyText = tostring(limitMoney);
+        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
     end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 end

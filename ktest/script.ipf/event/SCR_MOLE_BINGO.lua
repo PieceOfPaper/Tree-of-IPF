@@ -47,49 +47,65 @@ function SCR_MOLE_BINGO_START(pc)
 end
 
 function SCR_MOLE_BINGO_END(pc,sObj)
-    local succPoint = GetExProp(pc,'MBG_SUCC_POINT')
-    local nowPoint = GetExProp(pc,'MBG_NOW_POINT')
-    if nowPoint >= succPoint then
-        EVENT_1804_ARBOR_NPC_GIMMICK_REWARD_2(pc)
-    end
-    
-    local cellMax = GetExProp(pc,'MBG_CELL')
-    for i = 1, cellMax do
-        for i2 = 1, cellMax do
-            local obj = GetExArgObject(pc, 'MBG_MON_'..i..'_'..i2)
-            if obj ~= nil then
-                SetExArgObject(pc, 'MBG_MON_'..i..'_'..i2, nil)
-                ClearEffect(obj)
-                Kill(obj)
+    if sObj ~= nil then
+        local succPoint = GetExProp(pc,'MBG_SUCC_POINT')
+        local nowPoint = GetExProp(pc,'MBG_NOW_POINT')
+        if nowPoint >= succPoint then
+            EVENT_1804_ARBOR_NPC_GIMMICK_REWARD_2(pc)
+            local aobj = GetAccountObj(pc);
+            local maxPoint = aobj.MOLE_BINGO_MAX_POINT
+            PlaySound(pc, 'quest_success_3')
+            PlayEffect(pc, 'F_explosion015_anvil_success', 0.5, 'TOP')
+            if maxPoint < nowPoint then
+                maxPoint = nowPoint
+                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint)..ScpArgMsg("MOLE_BINGO_MSG6"), 10);
+                RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX',pc, nil, nil, nil, nil, "MOLE_BINGO", 'ACCOUNT/MOLE_BINGO_MAX_POINT/'..nowPoint)
+            else
+                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
+            end
+        else
+            PlaySound(pc, 'reinforce_fail')
+            PlayEffect(pc, 'F_explosion015_anvil_fail', 3, 'TOP')
+        end
+        
+        local cellMax = GetExProp(pc,'MBG_CELL')
+        for i = 1, cellMax do
+            for i2 = 1, cellMax do
+                local obj = GetExArgObject(pc, 'MBG_MON_'..i..'_'..i2)
+                if obj ~= nil then
+                    SetExArgObject(pc, 'MBG_MON_'..i..'_'..i2, nil)
+                    ClearEffect(obj)
+                    Kill(obj)
+                end
             end
         end
-    end
-    
-    SetExProp(pc,'MBG_CELL',nil)
-    SetExProp(pc,'MBG_TIC_TIME',nil)
-    SetExProp(pc,'MBG_TIC_TIME_ADD', nil)
-    SetExProp(pc,'MBG_TIC_TIME_MIN',nil)
-    SetExProp(pc,'MBG_TIC_NEXT_TIME',nil)
-    SetExProp(pc,'MBG_TIC_MON_COUNT_MIN',nil)
-    SetExProp(pc,'MBG_TIC_MON_COUNT_MAX',nil)
-    SetExProp(pc,'MBG_SUCC_POINT',nil)
-    SetExProp(pc,'MBG_NOW_POINT',nil)
-    SetExProp(pc,'MBG_L1_POINT',nil)
-    SetExProp(pc,'MBG_L1_POINT_ADD',nil)
-    SetExProp(pc,'MBG_REWARD_ITEM_FLAG',nil)
-    SetExProp(pc,'MBG_PLAY_TIME_MAX', nil)
-    SetExProp(pc,'MBG_CENTER_X', nil)
-    SetExProp(pc,'MBG_CENTER_Y', nil)
-    SetExProp(pc,'MBG_CENTER_Z', nil)
-    SetExProp(pc,'MBG_START_TIME', nil)
-    
-    DestroySessionObject(pc, sObj)
-    
-    SetTitle(pc, '')
-    SetLayer(pc, 0)
-    local companion = GetMyCompanion(pc)
-    if companion ~= nil then
-        SetLayer(companion, 0)
+        
+        SetExProp(pc,'MBG_CELL',nil)
+        SetExProp(pc,'MBG_TIC_TIME',nil)
+        SetExProp(pc,'MBG_TIC_TIME_ADD', nil)
+        SetExProp(pc,'MBG_TIC_TIME_MIN',nil)
+        SetExProp(pc,'MBG_TIC_NEXT_TIME',nil)
+        SetExProp(pc,'MBG_TIC_MON_COUNT_MIN',nil)
+        SetExProp(pc,'MBG_TIC_MON_COUNT_MAX',nil)
+        SetExProp(pc,'MBG_SUCC_POINT',nil)
+        SetExProp(pc,'MBG_NOW_POINT',nil)
+        SetExProp(pc,'MBG_L1_POINT',nil)
+        SetExProp(pc,'MBG_L1_POINT_ADD',nil)
+        SetExProp(pc,'MBG_REWARD_ITEM_FLAG',nil)
+        SetExProp(pc,'MBG_PLAY_TIME_MAX', nil)
+        SetExProp(pc,'MBG_CENTER_X', nil)
+        SetExProp(pc,'MBG_CENTER_Y', nil)
+        SetExProp(pc,'MBG_CENTER_Z', nil)
+        SetExProp(pc,'MBG_START_TIME', nil)
+        
+        DestroySessionObject(pc, sObj)
+        
+        SetTitle(pc, '')
+        SetLayer(pc, 0)
+        local companion = GetMyCompanion(pc)
+        if companion ~= nil then
+            SetLayer(companion, 0)
+        end
     end
 end
 
@@ -101,8 +117,19 @@ function SCR_SSN_MOLE_BINGO_BASIC_HOOK(pc, sObj)
     SetTimeSessionObject(pc, sObj, 1, 5000, 'SSN_MOLE_BINGO_TIME1')
 	RegisterHookMsg(pc, sObj, "ZoneEnter", "SSN_MOLE_BINGO_ZoneEner", "YES");
     RegisterHookMsg(pc, sObj, "SetLayer", "SSN_MOLE_BINGO_SetLayer", "YES");
+    
+    local startnpcIES = SCR_GET_XML_IES('GenType_c_Klaipe', 'Tactics', 'EVENT_1804_ARBOR_NPC_GEN')
+    local startnpc = CREATE_NPC(pc, 'NPC_GM2', -433, 241, 602, 315, nil, GetLayer(pc), startnpcIES.Name, 'EVENT_1804_ARBOR_NPC_IN_GIMMICK_5_6', nil, 30, nil, nil, nil)
 end
 
+function SCR_EVENT_1804_ARBOR_NPC_IN_GIMMICK_5_6_DIALOG(self, pc)
+    local select = ShowSelDlg(pc, 0, 'EVENT_1804_ARBOR_DLG16', ScpArgMsg('EVENT_1804_ARBOR_MSG19'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
+    if select == 1 then
+        local sObj = GetSessionObject(pc,'SSN_MOLE_BINGO')
+        SCR_MOLE_BINGO_END(pc,sObj)
+    end
+    
+end
 
 function SCR_CREATE_SSN_MOLE_BINGO(pc, sObj)
 	SCR_SSN_MOLE_BINGO_BASIC_HOOK(pc, sObj)
@@ -151,15 +178,6 @@ function SSN_MOLE_BINGO_TIME2(pc, sObj, remainTime)
 --    end
 --    print('XXXXXXXXXXXXXXXX',startTime + playTimeMax/100, nowTime)
     if startTime + playTimeMax/100 < nowTime then
-        local aobj = GetAccountObj(pc);
-        local maxPoint = aobj.MOLE_BINGO_MAX_POINT
-        if maxPoint < nowPoint then
-            maxPoint = nowPoint
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint)..ScpArgMsg("MOLE_BINGO_MSG6"), 10);
-            RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX',pc, nil, nil, nil, nil, "MOLE_BINGO", 'ACCOUNT/MOLE_BINGO_MAX_POINT/'..nowPoint)
-        else
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
-        end
         SCR_MOLE_BINGO_END(pc,sObj)
         return
     end
@@ -240,15 +258,6 @@ function SSN_MOLE_BINGO_TIME2(pc, sObj, remainTime)
                 end
             end
         else
-            local aobj = GetAccountObj(pc);
-            local maxPoint = aobj.MOLE_BINGO_MAX_POINT
-            if maxPoint < nowPoint then
-                maxPoint = nowPoint
-                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint)..ScpArgMsg("MOLE_BINGO_MSG6"), 10);
-                RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX',pc, nil, nil, nil, nil, "MOLE_BINGO", 'ACCOUNT/MOLE_BINGO_MAX_POINT/'..nowPoint)
-            else
-                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
-            end
             SCR_MOLE_BINGO_END(pc,sObj)
         end
     end

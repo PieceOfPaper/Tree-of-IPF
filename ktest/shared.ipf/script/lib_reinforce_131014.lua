@@ -96,7 +96,7 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
     
     value = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio;
     value_diamond = math.floor((500 + (lv ^ 1.1 * (5 + (reinforcecount_diamond * 2.5)))) * (2 + (math.max(0, reinforcecount - 9) * 0.5))) * priceRatio * gradeRatio;
-
+    
     if moruItem.ClassName == "Moru_Platinum_Premium" then
         value = value / 2;
     end
@@ -120,6 +120,11 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem, pc)
         value = value + (value_diamond * 2.1)
     end
     
+    if moruItem.StringArg == 'SILVER' then
+        value = 0;
+    end
+    
+    --EVENT_1804_TRANSCEND_REINFORCE
     if SCR_EVENT_REINFORCE_DISCOUNT_CHECK(pc) == 'YES' then
         value = value/2
     end

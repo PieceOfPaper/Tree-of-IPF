@@ -3017,7 +3017,7 @@ function TX_SAVE_EXP_ORB(pc, invItem, fillingExp, maxExp, changeExpOrbAfterSaved
 		return;
 	end
 
-	local curExp = TryGetProp(invItem, "ItemExpString");
+	local curExp = TryGetProp(invItem, "ItemExpString", 'None');
 	if curExp == "None" then
 		curExp = 0;
 	else

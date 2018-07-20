@@ -6,21 +6,32 @@ local member_droplists = {}
 local selectedTitle = nil;
 local DEFAULT_CLAIM_LIST= ""
 local show_claim_dispatching = false;
-function GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB()
-   
-end
-
 local authlist = {}
 local checkboxList = {}
+local aidx_claimIDTable = {}
+function GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB()
+  
+end
+
+function GET_CLAIM_NAME_BY_AIDX(aidx)
+    local claimID = aidx_claimIDTable[tostring(aidx)];
+    if claimID == nil then
+        return nil
+    end
+    local claimTitle = titleList[tonumber(claimID)]
+    return claimTitle;
+end
+
+
 function ON_CLAIM_GET(code, ret_json) -- run once on zone enter
     DEFAULT_CLAIM_LIST= ""
     member_droplists = {}
-    titleList = {}
     availableIdx = 1;
     show_claim_dispatching = false;
     selectedTitle = nil;
     authlist = {}
     checkboxList = {}
+    aidx_claimIDTable = {}
     local curFrame = ui.GetFrame("guildinfo");
   
 	if code ~= 200 then
@@ -82,8 +93,11 @@ function ON_MEMBER_TITLE_GET(code, ret_json)
 
     local frame = ui.GetFrame("guildinfo");
     local titleListPanel = GET_CHILD_RECURSIVELY(frame, "titleListPanel", "ui::CScrollPanel");
-    titleListPanel:RemoveAllChild()
-    titleList = {}
+    if #titleList ~= 0 then
+        titleListPanel:RemoveAllChild()
+        titleList = {}
+    end
+
     for key, value in pairs(list) do
         titleList[tonumber(key)] = value
     end
@@ -123,9 +137,11 @@ end
 
 function GUILDMEMBER_LIST_GET()
     local frame = ui.GetFrame("guildinfo");
-
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
     local memberList = GET_CHILD_RECURSIVELY(frame, "claimMemberList")
+    if memberList:GetChildCount() ~= 0 then
+        memberList:RemoveAllChild()
+    end
     local count = list:Count();
     local guild = GET_MY_GUILD_INFO();
     for i = 0 , count - 1 do
@@ -161,7 +177,7 @@ function GUILDMEMBER_LIST_GET()
             memberTitleList:SetUserValue("account_idx", partyMemberInfo:GetAID() )
             memberTitleList:AddItem("", "", 0)
             member_droplists[tostring(partyMemberInfo:GetAID())] = memberTitleList;
-            local int i = 1
+            local i = 1
             if titleList ~= nil then                    
                 for index, titleName in pairs(titleList) do
                     memberTitleList:AddItem(index, titleName, i);
@@ -182,7 +198,8 @@ function ON_PLAYER_MEMBER_TITLE_GET(code, ret_json)
     end
     local decoded_json = json.decode(ret_json)
     local selectedDropList = member_droplists[decoded_json['aidx']];
-    if selectedDropList ~= nil then
+    aidx_claimIDTable[decoded_json['aidx']] = decoded_json['title_id']
+     if selectedDropList ~= nil then
         selectedDropList:SelectItemByKey(decoded_json['title_id'])
     end
     
@@ -223,7 +240,7 @@ function PUT_PLAYER_TITLE(frame, control)
          -- todo: 직급 삭제 여기다 처리
     end
     
-    
+    aidx_claimIDTable[control:GetUserValue("account_idx")] = control:GetSelItemKey()
     PutPlayerMemberTitle("ON_PLAYER_PUT_TITLE", control:GetUserValue("account_idx"), control:GetSelItemKey())
 end
 
@@ -243,7 +260,7 @@ function ADD_NEW_TITLE()
 
     local titleListPanel = GET_CHILD_RECURSIVELY(curFrame, "titleListPanel", "ui::CScrollPanel");
     if GET_CHILD_RECURSIVELY(titleListPanel, claimInput:GetText()) ~= nil then
-        ui.MsgBox("중복된 직급이 있어요")
+        ui.MsgBox(ClMsg("DuplicateClaim")) -- 중복되는 직급이 있습니다.
         return
     end
 
@@ -284,6 +301,7 @@ function ON_PUT_GUILDMEMBER_NEW(code, ret_json)
     local textName = claimInput:GetText()
 
     local newClaimTxt = titleListPanel:CreateOrGetControlSet("selective_richtext", textName, 0, 0);
+    newClaimTxt:Resize(titleListPanel:GetWidth()-25, newClaimTxt:GetHeight())
     local infoText = GET_CHILD(newClaimTxt, "infoText");
     infoText:SetText("{@st41}" .. textName);
     infoText:SetUserValue("name", textName);
@@ -305,6 +323,11 @@ function ON_PUT_GUILDMEMBER_NEW(code, ret_json)
 end
 
 function ON_PUT_GUILDMEMBER(code, ret_json)
+    local curFrame = ui.GetFrame("guildinfo");
+    
+    local claimInput = GET_CHILD_RECURSIVELY(curFrame, "claimInputTxt", "ui::CEditBox");
+    claimInput:SetEnable(1)
+
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_PUT_GUILDMEMBER")
 
@@ -317,10 +340,9 @@ function ON_PUT_GUILDMEMBER(code, ret_json)
 
     ui.SysMsg(ClMsg("UpdateSuccess"))
     
-    local curFrame = ui.GetFrame("guildinfo");
 
-    local claimInput = GET_CHILD_RECURSIVELY(curFrame, "claimInputTxt", "ui::CEditBox");
     local textName = claimInput:GetText()
+
     if textName ~= "" then
         --직급 이름 수정함
         local titleName = GET_CHILD(selectedTitle, "infoText");
@@ -330,8 +352,8 @@ function ON_PUT_GUILDMEMBER(code, ret_json)
         for index, droplist in pairs(member_droplists) do
             droplist:SetItemTextByKey(selectedTitle:GetUserValue("idx"), textName)
         end
+        selectedTitle:SetName(textName)
     end
-    claimInput:SetEnable(1)
     claimInput:SetText("")
 end
 

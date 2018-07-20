@@ -154,7 +154,7 @@ function ON_INTE_WARP(frame, changeDirection)
 	local currentDirection = config.GetConfig("INTEWARP_DIRECTION", "s");
 	currentDirection = "s";
 
-	if changeDirection == true or ui.GetImage("worldmap_" .. currentDirection .. "_current") == nil then
+	if changeDirection == true or ui.IsValidImage("worldmap_" .. currentDirection .. "_current") == false then
 		makeWorldMapImage = true;
 	end
 

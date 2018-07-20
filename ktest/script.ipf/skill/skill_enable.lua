@@ -1,5 +1,6 @@
 function BUFFAPPLIED_CHECK(self)
-    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+    local zone = GetZoneName(self)
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
         if IsBuffApplied(self, "Cloaking_Buff") == 'YES' then
             SendSysMsg(self, "NotYetAvailable");
             return; 

@@ -1369,6 +1369,11 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
 		return 0;
 	end
+
+	if IsBuffApplied(pc, 'PVP_MINE_BUFF1') == 'YES' or IsBuffApplied(pc, 'PVP_MINE_BUFF2') == 'YES' then
+		ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+		return 0;
+	end
 	
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
@@ -2466,6 +2471,8 @@ end
 
 
 s_dropDeleteItemIESID = '';
+s_dropDeleteItemCount = 0;
+s_dropDeleteItemName = '';
 
 function INVENTORY_DELETE(itemIESID, itemType)
 	if GetCraftState() == 1 then
@@ -2505,15 +2512,31 @@ function INVENTORY_DELETE(itemIESID, itemType)
 	end
 
 	--if cls.UserTrade == 'YES' or cls.ShopTrade == 'YES' then
+	if invItem.count > 1 then
+		local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", invItem.count);
 		s_dropDeleteItemIESID = itemIESID;
-		local yesScp = string.format("EXEC_DELETE_ITEMDROP()");
-		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..cls.Name..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
+		s_dropDeleteItemName = cls.Name;
+		INPUT_NUMBER_BOX(invFrame, titleText, "CHECK_EXEC_DELETE_ITEMDROP", 1, 1, invItem.count);
+	else
+		s_dropDeleteItemIESID = itemIESID;
+		s_dropDeleteItemCount = 1;
+		s_dropDeleteItemName = cls.Name;
+		local yesScp = string.format("EXEC_DELETE_ITEMDROP");
+		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..s_dropDeleteItemName..ScpArgMsg("Auto_]_eul_BeoLiSiKessSeupNiKka?"), yesScp, "None");
+	end
 	--end
 end
 
+function CHECK_EXEC_DELETE_ITEMDROP(count)
+	s_dropDeleteItemCount = tonumber(count);
+	local yesScp = string.format("EXEC_DELETE_ITEMDROP");
+		ui.MsgBox(ScpArgMsg("Auto_JeongMal_[")..s_dropDeleteItemName..ScpArgMsg("]_eul_BeoLiSiKessSeupNiKka?_{count}", "count", s_dropDeleteItemCount), yesScp, "None");
+end
+
 function EXEC_DELETE_ITEMDROP()
-	item.DropDelete(s_dropDeleteItemIESID);
+	item.DropDelete(s_dropDeleteItemIESID, s_dropDeleteItemCount);
 	s_dropDeleteItemIESID = '';
+	s_dropDeleteItemCount = 0;
 end
 
 function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)	
@@ -2941,11 +2964,9 @@ function IS_LIFETIME_OVER(itemobj)
 		end;
 		
 		-- ItemLifeTimeOver으로 검사하는 함수		
-		--[[
 		if 0 ~= itemobj.ItemLifeTimeOver then
 			return 1;
 		end;
-		]]
 	end;
 	return 0;
 end

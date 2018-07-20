@@ -4042,7 +4042,7 @@
 		<controls>
 			<groupbox name="bgBox" rect="0 0 1120 30" margin="0 0 0 0" layout_gravity="left top" skin="None" hittest="false"/>
 			<richtext name="mapNameText" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left center" caption="게나르 평원" fontname="white_16_b_ol" hittest="false"/>
-			<richtext name="gradeText" rect="0 0 100 30" margin="310 0 0 0" layout_gravity="left center" caption="A" fontname="white_16_b_ol" hittest="false"/>
+			<richtext name="gradeText" rect="0 0 100 30" margin="730 0 0 0" layout_gravity="left center" caption="A" fontname="white_16_b_ol" hittest="false"/>
 			<richtext name="percentText" rect="0 0 100 30" margin="460 0 0 0" layout_gravity="left center" fontname="white_16_b_ol" hittest="false"/>
 			<richtext name="rewardText" rect="0 0 300 30" margin="655 0 0 0" layout_gravity="left center" fontname="white_16_b_ol" hittest="false"/>
 		</controls>
@@ -4110,7 +4110,7 @@
 		<picture name="separator" stretch="true" image="guild_line_h2" margin="0 45 0 0" rect="0 0 1355 2"/>
 		<richtext name="writerName" textalign="left center" margin="20 15 0 0" caption="{@st66d}유저이름{/}"/>		
 		<groupbox name="main_box" rect="0 0 1355 400" margin="0 50 0 0"  LBtnUpScp="OPEN_COMMUNITY_CARD" draw="false" scrollbar="false"/>
-		<richtext name="mainText" rect="0 0 1200 100" hittest="false" parent="main_box"  format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="false"  fixwidth="true" margin="100 0 0 0" resizebytext="true" />
+			<richtext name="mainText" rect="0 0 1200 90" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="true" fixwidth="true" margin="100 0 0 0" resizebytext="false"/>
 		<groupbox name="bottomBox" rect="0 0 1355 50"  draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
 		
 		<picture name="replyPic" rect="0 0 50 50" margin="10 0 0 -10" parent="bottomBox" image="guild_comment_on" hittest="true" layout_gravity="left top" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
@@ -4119,7 +4119,7 @@
 		
 		<groupbox name="replyArea"  hittestbox="false" hittest="true" rect="0 0 1340 200" parent="bottomBox" draw="true"  margin="8 35 0 0"  layout_gravity="left top" skin="guild_comment_skin"/>
 		<groupbox name="replyBox" parent="replyArea" rect="0 0 1340 100" draw="false" hittest="false" hittestbox="false" scrollbar="false"/>
-		<edit name="editReply" skin="test_weight_skin" rect="0 0 1340 100" parent="replyArea" layout_gravity="center bottom"/>
+			<edit name="editReply" skin="test_weight_skin" rect="0 0 1340 100" parent="replyArea" fixwidth="true" fontname="white_20_ol" layout_gravity="left bottom"/>
 		<button name="sendReply" rect="0 0 200 50" parent="replyArea" skin="test_pvp_btn" layout_gravity="right bottom" caption="{@st66}{s18}작성{/}" fontname="brown_16" />
 		</controls>
 	</controlset>
@@ -4133,18 +4133,6 @@
 			<richtext name="replyText" format="{@st66b}%s{/}"  param1="text" fontname="black_18_b" textalign="left center" parent="replyTextSection" hittest="false"/>
 			<layoutsection name="dateSection" parent="commentLayout" hittest="false"/>
 			<richtext name="dateText" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="right center" parent="dateSection" hittest="false"/>
-		</controls>
-	</controlset>
-
-	<controlset name="guild_title_setting" hittest="true" width="310" height="32" draw="true" hittestset="true">
-	<userconfig SELECTED_BOX_SKIN="guildbattle_win_bg" NOT_SELECTED_BOX_SKIN="chat_window_2"/>
-	
-		<controls>
-			<layout name="rowLayout" spacing="0" setvertical="false"/>
-			<layoutsection name="firstRow" sizetype="percent" typevalue="30" parent="rowLayout"/>
-			<richtext name="memberName" caption="{@st43b}{s18}이름" parent="firstRow" layout_gravity="center top"/>
-			<layoutsection name="secondRow" sizetype="fixed" parent="rowLayout" typevalue="240" draw="true"/>
-			<droplist name="titleDropList" parent="secondRow" skin="droplist_normal" visibleline="11" frametextalign="left" font="white_20_ol" layout_gravity="left bottom" margin="0 0 25 0" SelectScp="PUT_PLAYER_TITLE"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_member_row" hittest="true" width="1050" height="50" hittestset="true" draw="true">
@@ -4237,7 +4225,7 @@
 			<layoutsection name="memberContribSection" parent="dataLayout"/>
 			<richtext name="memberContribLabel" parent="memberContribSection" fontname="black_18_b" format="%s" param1="charContrib" param1_def="캐릭터 기여" textalign="center center" />
 			<layoutsection name="memberClaimSection" parent="dataLayout"/>
-			<droplist name="claimList" margin="20 10 40 25" parent="memberClaimSection" skin="droplist_normal" visibleline="11" frametextalign="left" font="white_20_ol" SelectScp="PUT_PLAYER_TITLE"/>
+			<droplist name="claimList" margin="30 14 80 25" parent="memberClaimSection" skin="droplist_normal" visibleline="11" frametextalign="left" font="white_20_ol" SelectScp="PUT_PLAYER_TITLE"/>
 	
 		</controls>
 	</controlset>

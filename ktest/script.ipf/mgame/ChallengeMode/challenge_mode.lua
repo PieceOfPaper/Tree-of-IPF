@@ -537,6 +537,10 @@ function CHALLENGE_MODE_REWARD(pc, level)
         elseif 300 <= mapCls.QuestLevel then
        		local rewardCubeName = GetClassByNameFromList(clsList, "RewardCubeName300")
                 TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level, "CHALLENGE_MODE_REWARD");
+    	end
+        if level >= 6 then
+            local rewardCubeName = GetClassByNameFromList(clsList, "AddRewardCubeName")
+                TxGiveItem(tx, TryGet_Str(rewardCubeName, "Value_Str"), level-5, "CHALLENGE_MODE_REWARD");
         end
         TxAddAchievePoint(tx, "Challenge_AP1", 1)
     	local ret = TxCommit(tx);
@@ -715,7 +719,7 @@ function CHALLENGE_MODE_RUN_UPDATE(gameObject, layerObj, pcList, pcCount, playTi
 						if IsValidPos(zoneInst, x, y, z) == "YES" then
 							local monIndex = IMCRandom(1, #monList);
 							local monObj = CreateGCIES('Monster', monList[monIndex].ClassName);
-							monObj.Lv = monList[monIndex].Level;
+						    monObj.Lv = monList[monIndex].Level;
 							local mon = CreateMonster(randomPC, monObj, x, y, z, 0, 200, 0, layer);
 							if mon ~= nil then
         						local level = GetChallengeModeLevel(gameObject);

@@ -935,30 +935,34 @@ end
 
 
 function SCR_ABIL_KABBALIST21_ACTIVE(self, ability)
-	local addMaxMATKRate = 0.0;
-	
-    local rItem  = GetEquipItem(self, 'RH');
-    local rItemType = TryGetProp(rItem, 'ClassType');
-    if rItem ~= nil and (rItemType == 'Staff' or rItemType == 'Mace') then
-		addMaxMATKRate = 0.2;
+	if ability.ActiveState == 1 then
+		local addMaxMATKRate = 0.0;
 		
-		if rItemType == 'Staff' then
-			ChangeNormalAttack(self, "Magic_Attack");
-		end
-    end
-    
-	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM + addMaxMATKRate;
-	
-	SetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE", addMaxMATKRate);
+	    local rItem  = GetEquipItem(self, 'RH');
+	    local rItemType = TryGetProp(rItem, 'ClassType');
+	    if rItem ~= nil and (rItemType == 'Staff' or rItemType == 'Mace') then
+			addMaxMATKRate = 0.2;
+			
+			if rItemType == 'Staff' then
+				ChangeNormalAttack(self, "Magic_Attack");
+			end
+	    end
+	    
+		self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM + addMaxMATKRate;
+		
+		SetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE", addMaxMATKRate);
+	end
 end
 
 function SCR_ABIL_KABBALIST21_INACTIVE(self, ability)
-	local addMaxMATKRate = GetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
-	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM - addMaxMATKRate;
-	
-	ChangeNormalAttack(self, "None");
-	
-	DelExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+	if ability.ActiveState == 1 then
+		local addMaxMATKRate = GetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+		self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM - addMaxMATKRate;
+		
+		ChangeNormalAttack(self, "None");
+		
+		DelExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE");
+	end
 end
 
 function SCR_ABIL_KABBALIST22_ACTIVE(self, ability)

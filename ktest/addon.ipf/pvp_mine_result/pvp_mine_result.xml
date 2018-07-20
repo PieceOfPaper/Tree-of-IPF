@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pvp_mine_result" x="0" y="0" width="1920" height="1080" create="open">
+	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true" resizebyresolution="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<layer layerlevel="99"/>
+	<option closebutton="false" visible="false" useimageitem="true"/>
+	<input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<userconfig WIN_EFFECT_NAME="UI_colony_V" LOSE_EFFECT_NAME="UI_colony_L" EFFECT_SCALE="10"/>
+	<controls>
+		<picture name="bg" rect="0 0 4096 2048" margin="0 0 0 0" layout_gravity="center center" hittest="false" image="fullblack" stretch="true" alpha="80"/>
+		<button name="closeBtn" rect="0 0 70 70" margin="0 10 10 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame('pvp_mine_result')" texttooltip="닫기"/>
+		<richtext name="infoText" rect="0 0 500 30" margin="0 0 280 105" layout_gravity="center bottom" format="{@st66d}{s20}%s초 후에 도시로 귀환됩니다.{/}" param1="time" param1_def="60" fontname="white_18_b_ol"/>
+		<!-- Win -->
+		<groupbox name="winBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false">
+		</groupbox>
+		<!-- Lose -->
+		<groupbox name="loseBox" rect="0 0 1300 900" margin="0 -75 0 0" layout_gravity="center center" draw="false"/>
+		<groupbox name="winnerInfoBox" rect="0 0 800 230" parent="loseBox" margin="0 30 0 0" layout_gravity="center bottom" draw="false"/>
+		<!-- Draw-->
+		<groupbox name="drawBox" rect="0 0 1300 700" margin="0 -100 0 0" layout_gravity="center center" draw="false"/>
+	</controls>
+</uiframe>

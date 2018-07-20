@@ -435,25 +435,25 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_UP_RUN(self, zoneClsName, guildObjLis
                             PlayEffect(P_list[p], 'F_cleric_dodola_line', 0.8, 'BOT')
                             PlayEffect(P_list[p], 'F_lineup020_blue_mint', 0.6, 'BOT')
                         end
-            	        if GetServerNation() == 'GLOBAL' then --점령 사운드 출력
-                            PlaySoundLocal(P_list[p], "S1_battle_occupation")
-                        elseif GetServerNation() == 'KOR' then
+                        if GetServerNation() == 'KOR' then --점령 사운드 출력
                             PlaySoundLocal(P_list[p], "battle_occupation")
+                        else
+                            PlaySoundLocal(P_list[p], "S1_battle_occupation")
                         end
                     elseif IsSameObject(beforeOccupationGuild, GetGuildObj(P_list[p])) == 1 then --검색된 pc 길드가 바로 전에 점령했던 길드라면,
                         SendAddOnMsg(P_list[p], 'NOTICE_Dm_GuildColony2', ScpArgMsg("GUILD_COLONY_MSG_OCCUPIED_1{partyName}{mapName}", "partyName", partyName, "mapName", mapName), 15)
-            	        if GetServerNation() == 'GLOBAL' then --점령 사운드 출력
-                            PlaySoundLocal(P_list[p], "S1_battle_lose_occupation")
-                        elseif GetServerNation() == 'KOR' then
+                        if GetServerNation() == 'KOR' then --점령 사운드 출력
                             PlaySoundLocal(P_list[p], "battle_lose_occupation")
+                        else
+                            PlaySoundLocal(P_list[p], "S1_battle_lose_occupation")
                         end
                         RunScript("SCR_GUILD_COLONY_ZONE_WARP_OUT", P_list[p])
                     else --검색된 pc 길드가 점령 길드 또는 점령했던 길드가 아니라면,
                         SendAddOnMsg(P_list[p], 'NOTICE_Dm_GuildColony3', ScpArgMsg("GUILD_COLONY_MSG_OCCUPIED_2{partyName}{mapName}", "partyName", partyName, "mapName", mapName), 15)
-            	        if GetServerNation() == 'GLOBAL' then --점령 사운드 출력
-                            PlaySoundLocal(P_list[p], "S1_battle_occupied")
-                        elseif GetServerNation() == 'KOR' then
+                        if GetServerNation() == 'KOR' then --점령 사운드 출력
                             PlaySoundLocal(P_list[p], "battle_occupied")
+                        else
+                            PlaySoundLocal(P_list[p], "S1_battle_occupied")
                         end
                         RunScript("SCR_GUILD_COLONY_ZONE_WARP_OUT", P_list[p])
                     end
@@ -696,10 +696,10 @@ function SCR_GUILD_COLONY_SUMMON_MONSTER_RUN(self) --히든 오브젝트 프랍 
                 	local pcList, pcCount = GetLayerPCList(GetZoneInstID(self), GetLayer(self))
                 	if pcCount > 0 then
                 	    for j = 1, pcCount do
-                	        if GetServerNation() == 'GLOBAL' then --보스몬스터 등장 사운드 출력
-                                PlaySoundLocal(pcList[j], "S1_battle_bossmonster_appear")
-                            elseif GetServerNation() == 'KOR' then
+                            if GetServerNation() == 'KOR' then --보스몬스터 등장 사운드 출력
                                 PlaySoundLocal(pcList[j], "battle_bossmonster_appear")
+                            else
+                                PlaySoundLocal(pcList[j], "S1_battle_bossmonster_appear")
                             end
                             SendAddOnMsg(pcList[j], 'NOTICE_Dm_BossAppear', ScpArgMsg("GUILD_COLONY_MSG_BOSSMONSTER_SUMMON"), 15) --보스몬스터 등장 메시지(존 내 인원)
                         end
@@ -904,9 +904,8 @@ function SCR_GUILD_COLONY_OCCUPATION_POINT_OTHER_GUILD_CHECK(self, zoneClsName, 
     end
 end
 
-function SCR_GUILD_COLONY_MUSIC_PLAY(self)
-    sleep(3000)
-    PlayMusicQueueLocal(self, 'battle_colony')
+function SCR_GUILD_COLONY_MUSIC_PLAY(self)    
+    PlayBGM(self, 'battle_colony')
 end
 
 --입장 화살표 태어날 때 동작 스크립트

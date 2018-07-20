@@ -90,8 +90,7 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                         local levelText = GET_CHILD_RECURSIVELY(memberCtrlSet, 'levelText');
                         levelText:SetTextByKey('level', partyMemberInfo:GetLevel());
                     end
-
-                    -- duty
+                    -- claim
                     local txt_duty = GET_CHILD_RECURSIVELY(memberCtrlSet, 'txt_duty');        
                     local grade = partyMemberInfo.grade;    
             		if leaderAID == partyMemberInfo:GetAID() then
@@ -99,8 +98,11 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
             			dutyName = dutyName .. " " .. guild:GetDutyName(grade);
             			txt_duty:SetTextByKey("value", dutyName);
             		else
-            			local dutyName = guild:GetDutyName(grade);
-            			txt_duty:SetTextByKey("value", dutyName);
+                        local claimName = GET_CLAIM_NAME_BY_AIDX(partyMemberInfo:GetAID())
+                        if claimName == nil then
+                            claimName = ""
+            		end
+            			txt_duty:SetTextByKey("value", claimName);
             		end
 
                     -- contribution

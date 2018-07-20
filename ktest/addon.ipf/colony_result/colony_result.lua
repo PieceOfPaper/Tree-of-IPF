@@ -28,10 +28,10 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         winBox:ShowWindow(1);
         loseBox:ShowWindow(0);
 
-        if config.GetServiceNation() == 'GLOBAL' then
-            imcSound.PlayMusicQueueLocal('colonywar_win')
-        elseif config.GetServiceNation() == 'KOR' then
+        if config.GetServiceNation() == 'KOR' then
             imcSound.PlayMusicQueueLocal('colonywar_win_k')
+        else
+            imcSound.PlayMusicQueueLocal('colonywar_win')
         end
         winBox:PlayUIEffect(WIN_EFFECT_NAME, EFFECT_SCALE, 'COLONY_WIN');
     else
@@ -58,10 +58,10 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         winBox:ShowWindow(0);
         loseBox:ShowWindow(1);
 
-        if config.GetServiceNation() == 'GLOBAL' then
-            imcSound.PlayMusicQueueLocal('colonywar_lose')
-        elseif config.GetServiceNation() == 'KOR' then
+        if config.GetServiceNation() == 'KOR' then
             imcSound.PlayMusicQueueLocal('colonywar_lose_k')
+        else
+            imcSound.PlayMusicQueueLocal('colonywar_lose')
         end
         loseBox:PlayUIEffect(LOSE_EFFECT_NAME, EFFECT_SCALE, 'COLONY_LOSE');
     end
@@ -69,7 +69,7 @@ end
 
 function COLONY_RESULT_INIT_TIMER(frame)
     local infoText = GET_CHILD_RECURSIVELY(frame, 'infoText');
-    infoText:SetUserValue('CLOSE_SEC', 60);
+    infoText:SetUserValue('CLOSE_SEC', 30);
     infoText:SetUserValue('START_SEC', math.floor(imcTime.GetAppTime()));
     infoText:RunUpdateScript('COLONY_RESULT_UPDATE_TIMER', 0.2);
 end

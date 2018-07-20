@@ -54,67 +54,69 @@ function SCR_GIMMICK_QUICKNESS_TEST1_START(pc)
 end
 
 function SCR_GIMMICK_QUICKNESS_TEST1_END(pc,sObj)
-    local succPoint = GetExProp(pc,'GQT_SUCCESSPOINT')
-    if sObj.Goal1 >= succPoint then
-        EVENT_1804_ARBOR_NPC_GIMMICK_REWARD_1(pc)
-        local aobj = GetAccountObj(pc);
-        local nowPoint = sObj.Goal1
-        local maxPoint = aobj.EVENT_1804_ARBOR_GIMMICK1_MAXPOINT
-        PlaySound(pc, 'quest_success_3')
-        PlayEffect(pc, 'F_explosion015_anvil_success', 0.5, 'TOP')
-        if maxPoint < nowPoint then
-            RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX',pc, nil, nil, nil, nil, "QUICKNESS_TEST1", 'ACCOUNT/EVENT_1804_ARBOR_GIMMICK1_MAXPOINT/'..nowPoint)
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG11","POINT",nowPoint, "MAXPOINT", maxPoint)..ScpArgMsg("MOLE_BINGO_MSG6"), 10);
+    if sObj ~= nil then
+        local succPoint = GetExProp(pc,'GQT_SUCCESSPOINT')
+        if sObj.Goal1 >= succPoint then
+            EVENT_1804_ARBOR_NPC_GIMMICK_REWARD_1(pc)
+            local aobj = GetAccountObj(pc);
+            local nowPoint = sObj.Goal1
+            local maxPoint = aobj.EVENT_1804_ARBOR_GIMMICK1_MAXPOINT
+            PlaySound(pc, 'quest_success_3')
+            PlayEffect(pc, 'F_explosion015_anvil_success', 0.5, 'TOP')
+            if maxPoint < nowPoint then
+                RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX',pc, nil, nil, nil, nil, "QUICKNESS_TEST1", 'ACCOUNT/EVENT_1804_ARBOR_GIMMICK1_MAXPOINT/'..nowPoint)
+                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG11","POINT",nowPoint, "MAXPOINT", maxPoint)..ScpArgMsg("MOLE_BINGO_MSG6"), 10);
+            else
+                SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG11","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
+            end
         else
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG11","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
+            PlaySound(pc, 'reinforce_fail')
+            PlayEffect(pc, 'F_explosion015_anvil_fail', 3, 'TOP')
         end
-    else
-        PlaySound(pc, 'reinforce_fail')
-        PlayEffect(pc, 'F_explosion015_anvil_fail', 3, 'TOP')
-    end
-    
-    local cellMax = GetExProp(pc,'GQT_CELL')
-    
-    for i = 1, cellMax do
-        for i2 = 1, cellMax do
-            local cell = GetExArgObject(pc, 'GQT_CELL_'..i..'_'..i2)
-            if cell ~= nil then
-                ClearEffect(cell)
-                Kill(cell)
+        
+        local cellMax = GetExProp(pc,'GQT_CELL')
+        
+        for i = 1, cellMax do
+            for i2 = 1, cellMax do
+                local cell = GetExArgObject(pc, 'GQT_CELL_'..i..'_'..i2)
+                if cell ~= nil then
+                    ClearEffect(cell)
+                    Kill(cell)
+                end
             end
         end
-    end
-    
-    SetExProp(pc,'GQT_CELL',nil)
-    SetExProp(pc,'GQT_SUCCESSPOINT',nil)
-    SetExProp(pc,'GQT_READYTIME',nil)
-    SetExProp(pc,'GQT_CELL_COUNT_MIN',nil)
-    SetExProp(pc,'GQT_CELL_COUNT_MAX',nil)
-    SetExProp(pc,'GQT_STEP_MAX',nil)
-    SetExProp(pc,'GQT_LIMIT_MIN',nil)
-    SetExProp(pc,'GQT_TIC_MIN',nil)
-    SetExProp(pc,'GQT_TIC_MAX',nil)
-    SetExProp(pc,'GQT_SPEED_ACC_STEP',nil)
-    SetExProp(pc,'GQT_SPEED_ACC',nil)
-    
-    SetExProp(pc,'GQT_MINUS_MIN',nil)
-    SetExProp(pc,'GQT_MINUS_MAX',nil)
-    SetExProp(pc,'GQT_MINUS_START_STEP',nil)
-    SetExProp(pc,'GQT_MINUS_ACC_STEP',nil)
-    SetExProp(pc,'GQT_MINUS_ACC',nil)
-    
-    SetExProp(pc,'GQT_KNOCKBACK_MIN',nil)
-    SetExProp(pc,'GQT_KNOCKBACK_MAX',nil)
-    SetExProp(pc,'GQT_KNOCKBACK_START_STEP',nil)
-    SetExProp(pc,'GQT_KNOCKBACK_ACC_STEP',nil)
-    SetExProp(pc,'GQT_KNOCKBACK_ACC',nil)
-    DestroySessionObject(pc, sObj)
-    
-    SetTitle(pc, '')
-    SetLayer(pc, 0)
-    local companion = GetMyCompanion(pc)
-    if companion ~= nil then
-        SetLayer(companion, 0)
+        
+        SetExProp(pc,'GQT_CELL',nil)
+        SetExProp(pc,'GQT_SUCCESSPOINT',nil)
+        SetExProp(pc,'GQT_READYTIME',nil)
+        SetExProp(pc,'GQT_CELL_COUNT_MIN',nil)
+        SetExProp(pc,'GQT_CELL_COUNT_MAX',nil)
+        SetExProp(pc,'GQT_STEP_MAX',nil)
+        SetExProp(pc,'GQT_LIMIT_MIN',nil)
+        SetExProp(pc,'GQT_TIC_MIN',nil)
+        SetExProp(pc,'GQT_TIC_MAX',nil)
+        SetExProp(pc,'GQT_SPEED_ACC_STEP',nil)
+        SetExProp(pc,'GQT_SPEED_ACC',nil)
+        
+        SetExProp(pc,'GQT_MINUS_MIN',nil)
+        SetExProp(pc,'GQT_MINUS_MAX',nil)
+        SetExProp(pc,'GQT_MINUS_START_STEP',nil)
+        SetExProp(pc,'GQT_MINUS_ACC_STEP',nil)
+        SetExProp(pc,'GQT_MINUS_ACC',nil)
+        
+        SetExProp(pc,'GQT_KNOCKBACK_MIN',nil)
+        SetExProp(pc,'GQT_KNOCKBACK_MAX',nil)
+        SetExProp(pc,'GQT_KNOCKBACK_START_STEP',nil)
+        SetExProp(pc,'GQT_KNOCKBACK_ACC_STEP',nil)
+        SetExProp(pc,'GQT_KNOCKBACK_ACC',nil)
+        DestroySessionObject(pc, sObj)
+        
+        SetTitle(pc, '')
+        SetLayer(pc, 0)
+        local companion = GetMyCompanion(pc)
+        if companion ~= nil then
+            SetLayer(companion, 0)
+        end
     end
 end
 
@@ -160,6 +162,18 @@ function SCR_SSN_GIMMICK_QUICKNESS_TEST1_BASIC_HOOK(pc, sObj)
     SetTimeSessionObject(pc, sObj, 1, readyTime, 'SSN_GIMMICK_QUICKNESS_TEST1_TIME1')
 	RegisterHookMsg(pc, sObj, "ZoneEnter", "SSN_GIMMICK_QUICKNESS_TEST1_ZoneEner", "YES");
     RegisterHookMsg(pc, sObj, "SetLayer", "SSN_GIMMICK_QUICKNESS_TEST1_SetLayer", "YES");
+    
+    local startnpcIES = SCR_GET_XML_IES('GenType_c_Klaipe', 'Tactics', 'EVENT_1804_ARBOR_NPC_GEN')
+    local startnpc = CREATE_NPC(pc, 'NPC_GM2', -433, 241, 602, 315, nil, GetLayer(pc), startnpcIES.Name, 'EVENT_1804_ARBOR_NPC_IN_GIMMICK_3_4', nil, 30, nil, nil, nil)
+end
+
+function SCR_EVENT_1804_ARBOR_NPC_IN_GIMMICK_3_4_DIALOG(self, pc)
+    local select = ShowSelDlg(pc, 0, 'EVENT_1804_ARBOR_DLG16', ScpArgMsg('EVENT_1804_ARBOR_MSG19'), ScpArgMsg('Auto_DaeHwa_JongLyo'))
+    if select == 1 then
+        local sObj = GetSessionObject(pc,'SSN_GIMMICK_QUICKNESS_TEST1')
+        SCR_GIMMICK_QUICKNESS_TEST1_END(pc,sObj)
+    end
+    
 end
 
 
@@ -260,7 +274,7 @@ function SSN_GIMMICK_QUICKNESS_TEST1_TIME2(pc, sObj, remainTime)
                         local cell = GetExArgObject(pc, 'GQT_CELL_'..targetCell[1]..'_'..targetCell[2])
                         if cell ~= nil then
                             if cell.NumArg1 <= 4 then
-                                AttachEffect(cell, 'F_pattern013_ground_green', 1, 'BOT')
+                                AttachEffect(cell, 'I_smoke001_dark_loop', 5, 'BOT')
                                 cell.NumArg1 = cell.NumArg1 + 1
                             end
                             PlaySound(pc, 'button_click')
@@ -414,7 +428,7 @@ function SSN_GIMMICK_QUICKNESS_TEST1_TIME2(pc, sObj, remainTime)
                     sObj['StrArg'..i] = randX..'/'..randZ
                     local cell = GetExArgObject(pc, 'GQT_CELL_'..randX..'_'..randZ)
                     if cell ~= nil then
-                        AttachEffect(cell, 'F_pattern013_ground_green', 1, 'BOT')
+                        AttachEffect(cell, 'I_smoke001_dark_loop', 5, 'BOT')
                     end
                 end
             end

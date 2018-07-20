@@ -161,6 +161,7 @@ function SCR_REENTER_SSN_KLAPEDA(self, sObj)
         end
     end
 
+    SCR_PVP_MINE_GETBUFF(self)
 end
 
 function SCR_DESTROY_SSN_KLAPEDA(self, sObj)
@@ -732,11 +733,19 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         SCR_D_STARTOWER_GIMMICK_REENTER(self) 
     end
 
-    local regendCardTutoCheck = self.Lv
-    if regendCardTutoCheck >= 330 then
+    
+    local userLevelCheck = self.Lv
+    if userLevelCheck >= 330 then
         if sObj.TUTO_REGEND_CARD == 0 then
             AddHelpByName(self, 'TUTO_REGEND_CARD')
             sObj.TUTO_REGEND_CARD = 1
+        end
+    end
+    
+    if userLevelCheck >= 350 then
+        if sObj.TUTO_RESOURCE_BATTLE == 0 then
+            AddHelpByName(self, 'TUTO_RESOURCE_BATTLE')
+            sObj.TUTO_RESOURCE_BATTLE = 1
         end
     end
     
@@ -856,7 +865,7 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
 --    SCR_EVENT_1710_HOLIDAY(self)
     
     -- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event --
-    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
+--    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
 
 --    SCR_SSN_KLAPEDA_CITYATTACK_BOSS(self, sObj)
     WORLDPVP_TIME_CHECK(self)
@@ -887,8 +896,8 @@ function SCR_SSN_KLAPEDA_ZoneEner(self, sObj, msg, argObj, argStr, argNum)
         end
     end
 
-    -- EVENT_1802_WEEKEND
---    EVENT_1802_WEEKEND(self)
+    -- EVENT_1804_WEEKEND
+    EVENT_1804_WEEKEND(self)
     
     if argStr == 'c_firemage_event' then
         self.FIXMSPD_BM = 25
@@ -2426,8 +2435,11 @@ function SCR_SSN_KLAPEDA_SETTIME_1(self, sObj, remainTime)
     -- EVENT_1710_HOLIDAY
 --    SCR_EVENT_1710_HOLIDAY(self)
 
-    -- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event --
-    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
+--    -- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event --
+--    SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
+    
+    --EVENT_1804_WEEKEND
+    EVENT_1804_WEEKEND_BUFF_REMOVE(self)
 end
 
 --function SCR_EVENT_1710_HOLIDAY(self)
@@ -2462,19 +2474,6 @@ function IS_DAY_EVENT_1710_HOLIDAY(self)
 end
 
 
-
--- 2017.12.02 ~ 2017.12.03 LootingChance + 2000 Event (Start Line) --
-function SCR_EVENT_171202_171203_LOOTINGCHANCE(self)
-    if IsBuffApplied(self, 'Event_1710_Holiday') == 'YES' then
-        if IS_BASIC_FIELD_DUNGEON(self) ~= 'YES' or IS_DAY_EVENT_171202_171203_LOOTINGCHANCE(self) ~= 'YES' then
-            RemoveBuff(self, 'Event_1710_Holiday')
-        end
-    else
-        if IS_BASIC_FIELD_DUNGEON(self) == 'YES' and IS_DAY_EVENT_171202_171203_LOOTINGCHANCE(self) == 'YES' then
-            AddBuff(self, self, 'Event_1710_Holiday')
-        end
-    end
-end
 
 function IS_DAY_EVENT_171202_171203_LOOTINGCHANCE(self)
     local now_time = os.date('*t')

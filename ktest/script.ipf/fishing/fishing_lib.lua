@@ -679,7 +679,7 @@ function SCR_FISH_RUBBING_BUFF_100_START(eventName, self, argStr, argNum)
             name = GetTeamName(self);
         end
 
-		local time = 60;
+		local time = 120;
 		local LootingChance = 100;
 
         ToAll(ScpArgMsg("{Name}FishRubbingBuff", "Name", name, "Time", time, "LootingChance", LootingChance));
@@ -691,7 +691,7 @@ end
 
 function SCR_FISH_RUBBING_BUFF_100_END(eventName)
     --local eventCls = GetClass('EventTableProperty', eventName);
-    RemoveBuffToAllServerPC('GoldenFishEvent', 'UPDATE_EXP_UP');
+    RemoveBuffToAllServerPC('STATUE_LOOTINGCHANCE_1');
 end
 
 --탁본 동상 버프
@@ -704,7 +704,7 @@ function SCR_FISH_RUBBING_BUFF_300_START(eventName, self, argStr, argNum)
             name = GetTeamName(self);
         end
 
-		local time = 30;
+		local time = 40;
 		local LootingChance = 300;
         ToAll(ScpArgMsg("{Name}FishRubbingBuff", "Name", name, "Time", time, "LootingChance", LootingChance));
         --CustomMongoLog(self, "Fishing", "Type", "StartGoldenFishEvent");
@@ -715,7 +715,7 @@ end
 
 function SCR_FISH_RUBBING_BUFF_300_END(eventName)
     --local eventCls = GetClass('EventTableProperty', eventName);
-    RemoveBuffToAllServerPC('GoldenFishEvent');
+    RemoveBuffToAllServerPC('STATUE_LOOTINGCHANCE_2');
 end
 
 --탁본 동상 버프
@@ -728,7 +728,7 @@ function SCR_FISH_RUBBING_BUFF_500_START(eventName, self, argStr, argNum)
             name = GetTeamName(self);
         end
 
-		local time = 10;
+		local time = 20;
 		local LootingChance = 500;
 
         ToAll(ScpArgMsg("{Name}FishRubbingBuff", "Name", name, "Time", time, "LootingChance", LootingChance));
@@ -740,7 +740,7 @@ end
 
 function SCR_FISH_RUBBING_BUFF_500_END(eventName)
     --local eventCls = GetClass('EventTableProperty', eventName);
-    RemoveBuffToAllServerPC('GoldenFishEvent');
+    RemoveBuffToAllServerPC('STATUE_LOOTINGCHANCE_3');
 end
 
 

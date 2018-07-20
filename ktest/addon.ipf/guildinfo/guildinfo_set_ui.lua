@@ -42,7 +42,7 @@ function SET_UI_BY_CLAIM(code, ret_json)
     regBannerBtn:SetEnable(isLeader);
 
     local noticeEdit = GET_CHILD_RECURSIVELY(frame, 'noticeEdit')
-    noticeEdit:SetEnable(isLeader)
+    noticeEdit:EnableHitTest(isLeader)
 
     local noticeRegisterBtn = GET_CHILD_RECURSIVELY(frame, "noticeRegisterBtn");
     noticeRegisterBtn:SetEnable(isLeader);
@@ -68,7 +68,10 @@ function SET_UI_BY_CLAIM(code, ret_json)
 
     local promoteEdit = GET_CHILD_RECURSIVELY(frame, 'regPromoteText')
     promoteEdit:SetEnable(isLeader)
-    
+
+    local promoteSetBtn = GET_CHILD_RECURSIVELY(frame, 'setPr')
+    promoteSetBtn:SetEnable(isLeader)
+
     local regPromoteImageBtn = GET_CHILD_RECURSIVELY(frame, 'regPromoteImageBtn')
     
     regPromoteImageBtn:SetEnable(isLeader)
@@ -79,7 +82,13 @@ function SET_UI_BY_CLAIM(code, ret_json)
     local depositBtn =  GET_CHILD_RECURSIVELY(frame, 'depositBtn')
     depositBtn:SetEnable(isLeader)
 
+    local boolIsLeader = false
+    if isLeader == 1 then
+        boolIsLeader = true
+    end
 
+    settingTab:SetTabVisible(1, boolIsLeader)
+    settingTab:SetTabVisible(2, boolIsLeader)
    --local titleSetSection = GET_CHILD_RECURSIVELY(frame, 'titleSetSection')
     --titleSetSection:ShowWindow(isLeader)
 
@@ -102,33 +111,23 @@ function SET_UI_BY_CLAIM(code, ret_json)
             regEmblemBtn:SetEnable(1);
         elseif claim == 16 then -- 배너 교체
             regBannerBtn:SetEnable(1);
-        --elseif claim == 17 then --직급 임명
-        --    settingTab:SetTabVisible(0, true)
-      --      tab:SelectTab(0)
-      --  elseif claim == 18 or claim == 19 then -- 길드 가입 신청서 삭제/수락
-      --      settingTab:SetTabVisible(1, true)
-      --      tab:SelectTab(1)
+        elseif claim == 17 then --직급 임명
+            settingTab:SetTabVisible(1, true)
+        elseif  claim == 19 then -- 길드 가입 신청서 삭제/수락
+            settingTab:SetTabVisible(2, true)
         elseif claim == 202 then -- 공지 쓰기
-            noticeEdit:SetEnable(1)
+            noticeEdit:EnableHitTest(1)
             noticeRegisterBtn:SetEnable(1);
         elseif claim == 103 then -- 길드 자금 입금
             depositBtn:SetEnable(1)
         elseif claim == 203 then -- 소개글 쓰기
             regPromoteText:SetEnable(1)
-        elseif claim == 205 then -- 커뮤니티 글 작성
-        --elseif claim == 204 then -- 길드 한줄 게시판 보기
-        --    tab:SetTabVisible(0, true)
-        --    tab:SelectTab(0)
+            promoteSetBtn:SetEnable(isLeader)
         elseif claim == 205 then -- 길드 한줄 게시판 등록
             postNewTxt:SetEnable(1)
         elseif claim == 302 then -- 길드 전쟁 중립 설정
             neutralCheck:SetEnable(1)
         elseif claim == 303 then -- 전쟁중인 길드 목록 보기
-        elseif claim == 304 then -- 콜로니전 참가/미참가
-            if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-                colonyJoinBtn:SetEnable(1)
-                colonyJoinBtn1:SetEnable(1)
-            end
         elseif claim == 402 then
             outsiderCheck:SetEnable(1)
         end

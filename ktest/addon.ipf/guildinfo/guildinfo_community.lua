@@ -2,7 +2,14 @@ local json = require "json"
 
 local refreshBoard = false
 local isUpdating = false; -- 타임라인 게시글 가져왔는지 여부 확인용
+local selectedCard = nil;
+local isTimelineEnd = false
+
+local lastBoardIndex = 0;
+local lastIndex = 1;
+
 function GUILDINFO_COMMUNITY_INIT(communityBox)
+    selectedCard = nil;
     GetGuildNotice("GUILDNOTICE_GET")
     GetTimeLine("ON_TIMELINE_UPDATE", "0", "0")
 
@@ -13,6 +20,8 @@ function GUILDINFO_COMMUNITY_INIT(communityBox)
     communityPanel:RemoveAllChild()
     lastIndex = 1;
     refreshBoard = false
+    isTimelineEnd = false
+    lastBoardIndex = 0
 end
 function GUILDNOTICE_GET(code, ret_json)
     if code ~= 200 then
@@ -29,13 +38,10 @@ end
 
 
 function REFRESH_BOARD()
-    refreshBoard = true;
+    refreshBoard = true
     --스패밍 자제
     GetTimeLine("ON_TIMELINE_UPDATE", "0", "0");
 end
-
-local lastBoardIndex = 0;
-local lastIndex = 1;
 
 
 function ON_TIMELINE_UPDATE(code, ret_json)
@@ -53,6 +59,11 @@ function ON_TIMELINE_UPDATE(code, ret_json)
     local decoded_json = json.decode(ret_json);
     local list = decoded_json["list"];
 
+    if #list == 0 then
+        isTimelineEnd = true
+        return;
+    end
+
     local frame = ui.GetFrame("guildinfo");
     local communityPanel = GET_CHILD_RECURSIVELY(frame, "communitypanel", "ui::CGroupBox");
     
@@ -62,6 +73,7 @@ function ON_TIMELINE_UPDATE(code, ret_json)
         refreshBoard = false;
     end
     local i = 1;
+
     for  i = 1, #list do
         local ctrlSet = communityPanel:CreateOrGetControlSet("community_card_layout", lastIndex + i, 0, 0);
         
@@ -108,6 +120,11 @@ function ON_REPLY_SEND(parent, control)
     if message:GetText() == "" then
         return;
     end
+    local badword = IsBadString(message:GetText());
+    if badword ~= nil then
+        ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
+        return;
+    end
    
     WriteOnelineComment("ON_REPLY_SUCCESS", message:GetText(), control:GetUserValue("boardIdx"))
     message:SetText("")
@@ -119,10 +136,18 @@ function ON_REPLY_SUCCESS(code, ret_json)
         return
     end
 
+    if selectedCard ~= nil then
+        local sendReply = GET_CHILD_RECURSIVELY(selectedCard, "sendReply")
+
+        local boardIdx = sendReply:GetUserValue("boardIdx");
+
+        GetComment("ON_COMMENT_GET", boardIdx);
+end
+
 end
 
 
-local selectedCard = nil;
+
 function ON_COMMENT_GET(code, ret_json)
     if code ~= 200 then
         if code == 400 then -- 400:댓글이 없거나 로드에 실패함. 이외 코드는 출력해서 보여줌.
@@ -141,7 +166,6 @@ function ON_COMMENT_GET(code, ret_json)
         local replyArea = GET_CHILD_RECURSIVELY(selectedCard, "replyArea", "ui::CGroupBox");
         local editReply = GET_CHILD_RECURSIVELY(selectedCard, "editReply", "ui::CEdit");
         local bottomBox = GET_CHILD_RECURSIVELY(selectedCard, "bottomBox", "ui::CGroupBox");
-        local i = 1;
         local replyTxt = ""
         local replySetHeight=0;
         for i=1, #list do
@@ -164,17 +188,20 @@ function ON_COMMENT_GET(code, ret_json)
             totalHeight = totalHeight + replySetHeight;
         end
         --기본 컨트롤셋 크기가 댓글 2개는 보이도록 함
-
         if #list > 2 then
             replyList:Resize(replyList:GetWidth(), totalHeight);
             bottomBox:Resize(bottomBox:GetWidth(), totalHeight + editReply:GetHeight() + 50);
             replyArea:Resize(replyArea:GetWidth(), totalHeight + editReply:GetHeight());
-            local replyBoxHeight = totalHeight - (2 * replySetHeight)
+            local replyBoxHeight = totalHeight - (2 * replySetHeight) -- 2 * replySetHeight: 댓글 2개 크기
             replyBoxHeight = replyBoxHeight + editReply:GetHeight();
-            replyBoxHeight = replyBoxHeight + selectedCard:GetHeight();
+            replyBoxHeight = replyBoxHeight + 400;
             selectedCard:Resize(selectedCard:GetWidth(), replyBoxHeight );        
         else
             bottomBox:Resize(bottomBox:GetWidth(), 250)
+        end
+        if selectedCard ~= nil then
+            local replyCount = GET_CHILD_RECURSIVELY(selectedCard, "replyCount", "ui::CRichText");
+            replyCount:SetText(#list)
         end
 
         GBOX_AUTO_ALIGN(replyList, 0, 0, 0, true, false);
@@ -186,7 +213,7 @@ function ON_COMMENT_GET(code, ret_json)
 end
 
 function LOAD_MORE_ONLINE_BOARD(parent, control)
-    if control:GetScrollCurPos() == 0 then
+    if control:GetScrollCurPos() == 0 or isTimelineEnd == true then
         return;
     end
     control = tolua.cast(control, "ui::CGroupBox")
@@ -197,7 +224,7 @@ function LOAD_MORE_ONLINE_BOARD(parent, control)
 
 end
 
-
+-- 하단 매직넘버(width, height값 uservalue나 userconfig으로 수정해야함)
 function OPEN_COMMUNITY_CARD(parent, control)
     local controlset = control:GetAboveControlset();
     controlset = tolua.cast(controlset, "ui::CControlSet")

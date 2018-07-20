@@ -155,18 +155,20 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     else
         return 0;
     end
-    
-    local legendGroup = TryGetProp(targetItem, "LegendGroup");
-    local legendcount = 1;
-    if legendGroup ~= 'None' then
-        legendcount = 0.5
-    end
 
     --Need Material Count --
-    needMatCount = math.floor(((1 + (transcendCount + lv ^ (0.2 + ((math.floor(transcendCount / 3) * 0.03)) + (transcendCount * 0.05))) * equipTypeRatio) * gradeRatio)* legendcount);
-    
+    needMatCount = math.floor(((1 + (transcendCount + lv ^ (0.2 + ((math.floor(transcendCount / 3) * 0.03)) + (transcendCount * 0.05))) * equipTypeRatio) * gradeRatio)* 0.5);
+    --20180409 초월 개편으로 인한 gradeRatio 뒤 0.5 추가 50% 감소 --
     if needMatCount < 1 then
         needMatCount = 1;
+    end
+    
+    --EVENT_1804_TRANSCEND_REINFORCE
+    if transcendCount % 2 == 1 then
+        needMatCount = math.floor(needMatCount/2)
+        if needMatCount < 1 then
+            needMatCount = 1
+        end
     end
     
     return SyncFloor(needMatCount);

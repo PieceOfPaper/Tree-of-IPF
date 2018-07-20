@@ -73,8 +73,8 @@ function PORTAL_SHOP_REGISTER_INIT_PORTAL(frame, skillObj)
             pos:SetTextByKey('z', z);
 
             -- picture
-            local mapimage = ui.GetImage(mapName);
-		    if mapimage == nil then
+            local isValid = ui.IsValidImage(mapName);
+		    if isValid == false then
 			    world.PreloadMinimap(mapName, true, true);
 		    end
 

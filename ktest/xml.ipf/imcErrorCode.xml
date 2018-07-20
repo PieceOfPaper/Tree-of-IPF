@@ -528,6 +528,8 @@
 	<Code Code="ANYONE_SKILL" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="AnyoneSkill 로 없는 스킬을 배워버리는 문제 확인용 로그"/>	<Code Code="WARNING_PACKET_LEN" Team="PROGRAM" Category="SYSTEM" Logger="root" Enabled="YES" CallStack="NO" Desc="패킷 길이 관련 예외처리함"/>
 	<Code Code="WARNING_REDIS" Team="PROGRAM" Category="REDIS" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="레디스 경고"/>
 	<Code Code="INFO_STATUE" Team="PROGRAM" Category="LOGIC" SubCategory="STATUE" Logger="root" Enabled="NO" CallStack="NO" Desc="동상 로드 확인"/>
+	<Code Code="INFO_PC_ICON_INFO_TEST" Team="PROGRAM" Category="LOGIC" SubCategory="PC_ICON_INFO" Logger="root" Enabled="NO" CallStack="NO" Desc="PC_ICON_INFO 테스트"/>
+	<Code Code="WARNING_DB_SP" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이 sp 는 사용에 주의 하세요"/>
 	<Code Code="INFO_CHECK_TIME" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="시간 체크"/>
 	<Code Code="INFO_CHECK_MEMORY" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="메모리 체크"/>
 	<Code Code="INFO_CLIENT_REMOTE_LOG" Team="PROGRAM" Category="LOGIC" SubCategory="CLIENT_REMOTE_LOG" Logger="root" Enabled="YES" CallStack="NO" Desc="Client로 부터 전송된 로그"/>

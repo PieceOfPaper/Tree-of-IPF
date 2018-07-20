@@ -2148,64 +2148,7 @@ function MAKE_HAVE_ITEM_TOOLTIP(control, itemType)
 	end
 
 	SET_ITEM_TOOLTIP_ALL_TYPE(control, invItem, invItem.ClassName,'inven', itemType, "");
---SET_ITEM_TOOLTIP_TYPE(control, itemType);
---control:SetTooltipArg('inven', itemType, "");
 end
-
--- function EXEC_COMBOMACRO(index)
-	-- control.ComboMacro(index);	
--- end
-
--- function COMBOMACRO_EXECUTE(index)
-	
-	-- local stat = info.GetStat(session.GetMyHandle());	
-	-- local macro = GET_COMBO_MACRO(index);
-	-- if macro == nil or stat.HP <= 0 then
-		-- return 0;
-	-- end
-
-	-- if macro.macro ~= nil and macro.macro ~= "" then
-		-- ui.Chat(macro.macro);
-	-- end
-
-	-- if macro.category == 'Skill' then		
-		-- if session.GetSklCoolDown(macro.classID) ~= 0 then
-			-- return 0;
-		-- end
-
-		-- control.Skill(macro.classID);		
-		-- return 1;
-
-	-- elseif macro.category == 'Item' then
-
-		-- local invenItemInfo = session.GetInvItemByType(macro.classID);
-		-- if invenItemInfo.count == 0 then
-			-- return 0;
-		-- end
-		
-		-- if item.GetCoolDown(macro.classID) ~= 0 then
-			-- return 0;
-		-- end
-		
-		-- item.Use(macro.classID);		
-		-- return 1;
-	-- end
-
-	-- return 0;
--- end
-
--- function GET_COMBO_MACRO(index)
-	-- local list = session.GetComboMacroList();
-	-- local cnt = list:Count();
-	-- for i = 0 , cnt - 1 do
-		-- local info = list:PtrAt(i);
-		-- if info.index == index then
-			-- return info;
-		-- end
-	-- end
-
-	-- return nil;
--- end
 
 function EXEC_CHATMACRO(index)
 
@@ -2223,7 +2166,7 @@ function EXEC_CHATMACRO(index)
 		return;
 	end
 
-	ui.Chat(macro.macro);
+	ui.Chat(REPLACE_EMOTICON(macro.macro));
 end
 
 function GET_CHAT_MACRO(index)

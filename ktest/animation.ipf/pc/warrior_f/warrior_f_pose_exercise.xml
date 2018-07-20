@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="74" attachNode="Bip01 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="48" attachNode="Bip01 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="28" attachNode="Bip01 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Bip01 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="39" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="83" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="39" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="83" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<Sound frame="0.00" soundFile="atk_cloth_m_r2"/>
+	<Sound frame="14.00" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="21.00" soundFile="atk_cloth_m_r2"/>
+	<Sound frame="36.00" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="46.00" soundFile="atk_cloth_m_r2"/>
+	<Sound frame="58.00" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="69.00" soundFile="atk_cloth_m_r2"/>
+	<Sound frame="81.00" soundFile="atk_cloth_s_l1"/>
+</ActionDesc>

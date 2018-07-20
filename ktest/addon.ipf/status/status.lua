@@ -172,19 +172,19 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 12, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
-    prop:SetTextByKey("value", imag .. ClMsg("Mission_Reward"));
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
-
-    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 13, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
-    prop:SetTextByKey("value", imag .. ClMsg("RaidStance"));
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 12, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
+--    prop:SetTextByKey("value", imag .. ClMsg("Mission_Reward"));
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
+--
+--    local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 13, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+--    prop:SetTextByKey("value", imag .. ClMsg("RaidStance"));
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
     STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
 
@@ -196,11 +196,11 @@ function STATUS_OVERRIDE_NEWCONTROLSET1(tokenList)
 end
 
 function STATUS_OVERRIDE_GET_IMGNAME1()
-    return "{img 20percent_image %d %d}"
+    return "{img 50percent_image_1 %d %d}"
 end
 
 function STATUS_OVERRIDE_GET_IMGNAME2()
-    return "{img 20percent_image2 %d %d}"
+    return "{img 50percent_image3 %d %d}"
 end
 
 

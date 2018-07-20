@@ -7533,3 +7533,48 @@ function TEST_CHECK_FIND_PATH_TO_PC(pc, dist)
         print(mon.ClassName, isFound)
 	end
 end
+
+function REINFORCE_ALLWEAPON2(pc, value)
+    value = tonumber(value);    
+    local tx = TxBegin(pc);
+    local invItemList = GetInvItemList(pc);
+    for i = 1, #invItemList do
+        if invItemList[i].ItemType == "Equip" then
+            TxSetIESProp(tx, invItemList[i], "Reinforce_2", value);
+        end
+    end
+    local ret = TxCommit(tx);
+end
+
+
+function GET_RANDOM_ITEM(pc, columName, itemClassType , itemLv, grade, itemCnt)
+-- 특정 컬럼으로 필터하여 아이템 얻기 --
+--ex) //run GET_RANDOM_ITEM LegendGroup, Boots, 360, 4, 1  이렇게 넣으면 벨코퍼 부츠 (천, 가죽, 판금) 다 나옴 -- 
+    local itemList, cnt = GetClassList('Item')
+    local getItemList = {};
+    
+    for i = 0 , cnt - 1 do
+        local cls = GetClassByIndexFromList(itemList, i);
+        local checkColumName = TryGetProp(cls, columName)
+        
+        if (checkColumName ~= nil and checkColumName ~= 'None' and checkColumName ~= 0) then
+            local checkLv = TryGetProp(cls, 'UseLv')
+                if checkLv == tonumber(itemLv) then
+                    local checkGrade = TryGetProp(cls, 'ItemGrade')
+                        if checkGrade == tonumber(grade) then
+                            local ClassType =  TryGetProp(cls, 'ClassType')
+                            if ClassType == itemClassType then
+                                getItemList[#getItemList + 1] = cls;
+                            end
+                        end
+                end
+        end
+    end
+
+    local tx = TxBegin(pc);
+        for j = 1 , #getItemList do
+            TxGiveItem(tx, getItemList[j].ClassName, itemCnt, 'Package_Trumpwarm');
+        end
+    local ret = TxCommit(tx);
+    
+end 

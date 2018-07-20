@@ -393,3 +393,8 @@ end
 function SCR_VELLCOFFER_SOUND_ENTER(self, pc)
     PlayMusicQueueLocal(pc, "raid_velcoffer")
 end
+
+
+function SCR_VELCOFFER_USING_SKILL_PROP_RESET(self)
+    SetExProp(self, 'firsttime', 0)
+end

@@ -144,7 +144,11 @@ function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C() -- 경험치 꽉 찬 아이�
 		end
 		local invItem = invItemList:Element(i);
 		local item = GetIES(invItem:GetObject());
-		local itemExpNum = tonumber(item.ItemExpString)
+        local itemExpStr = TryGetProp(item, 'ItemExpString', 'None');
+        if itemExpStr == 'None' then
+            itemExpStr = '0';
+        end
+		local itemExpNum = tonumber(itemExpStr);
         if item.ClassName == needItemName and itemExpNum ~= nil and itemExpNum >= item.NumberArg1 then
             count = count + 1;
         end

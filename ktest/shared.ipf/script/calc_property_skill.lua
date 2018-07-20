@@ -6987,7 +6987,7 @@ function SCR_GET_FireBall_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Pyromancer29") 
     local value = 10
-    if abil ~= nil then 
+    if abil ~= nil and abil.ActiveState == 1 then 
 		value = value + abil.Level
     end
 	

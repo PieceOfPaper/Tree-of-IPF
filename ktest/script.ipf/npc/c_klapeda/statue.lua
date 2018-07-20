@@ -66,13 +66,17 @@ function SCR_GOLD_FISH_STATUE_DIALOG(self, pc)
             local ret = TxCommit(tx);
             if ret == "SUCCESS" then
 				if select == 1 then
-					RunFishRubbingBuff(pc, 3600, "None", 1)
+					RunFishRubbingBuff(pc, 7200, "None", 1)
 		        elseif select == 2 then
-					RunFishRubbingBuff(pc, 1800, "None", 2)
+					RunFishRubbingBuff(pc, 2400, "None", 2)
 				elseif select == 3 then
-					RunFishRubbingBuff(pc, 600, "None", 3)
+					RunFishRubbingBuff(pc, 1200, "None", 3)
 	            end
             end
         end
     end
+end
+
+function TEST_STATUE_LEAVE_SCP(mon, killer)
+    testStatueLeaveLog()
 end

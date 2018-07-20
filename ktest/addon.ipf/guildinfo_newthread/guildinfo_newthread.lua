@@ -43,10 +43,13 @@ function UPDATE_THREAD_LENGTH()
     local frame = ui.GetFrame("guildinfo_newthread");
 
     local inputText = GET_CHILD_RECURSIVELY(frame, "input");
-    local length = ui.GetPaperLength(inputText:GetText())
+    local length = ui.GetCharNameLength(inputText:GetText())
 
     local stringLen = GET_CHILD_RECURSIVELY(frame, "stringLen");
     stringLen:SetTextByKey("len", length);
+    if length >= 140 then 
+        inputText:ReleaseFocus()
+    end
 end
 
 function GUILDINFO_NEWTHREAD_OPEN()

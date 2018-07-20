@@ -93,26 +93,26 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 8,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
     local prop = ctrlSet:GetChild("prop");
     local imag = string.format("{img teamcabinet_image %d %d}", 55, 45)
     prop:SetTextByKey("value", imag..ClMsg("TeamWarehouseEnable")); 
     local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
     value:ShowWindow(0);
 
-    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
-    prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 9,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 1plus_image %d %d}", 55, 45)
+--    prop:SetTextByKey("value", imag..ClMsg("Mission_Reward")); 
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
-    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-    local prop = ctrlSet:GetChild("prop");
-    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
-    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
-    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-    value:ShowWindow(0);
+--    local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_" .. 10,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+--    local prop = ctrlSet:GetChild("prop");
+--    local imag = string.format("{img 2minus_image %d %d}", 55, 45)
+--    prop:SetTextByKey("value", imag..ClMsg("RaidStance")); 
+--    local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
+--    value:ShowWindow(0);
 
 	ADD_2PLUS_IMAGE(gBox)
 
@@ -175,11 +175,11 @@ function ADD_2PLUS_IMAGE(gBox)
 end
 
 function TOKEN_GET_IMGNAME1()
-	return "{img 20percent_image %d %d}"
+	return "{img 50percent_image_1 %d %d}"
 end
 
 function TOKEN_GET_IMGNAME2()
-	return "{img 20percent_image2 %d %d}"
+	return "{img 50percent_image3 %d %d}"
 end
 
 function BEFORE_APPLIED_BOOST_TOKEN_OPEN(invItem)	

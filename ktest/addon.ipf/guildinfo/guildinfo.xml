@@ -25,8 +25,7 @@
 							<layoutsection name="spacing0" size="20" parent="leftlayout"/>
 							<layoutsection name="emblemsection" size="280" parent="leftlayout">
 								<picture name="emblemFrame" image="guildmark_frame" stretch="false" changecursor="false" parent="picturesection">
-									<picture name="emblem" layout_gravity="center center" margin="2 -33 0 0" rect="0 0 106 106" image="guildmark_slot" stretch="false" forceupdate="true" resize="uniform" changecursor="false" parent="picturesection"/>
-								</picture>
+									<picture name="emblem" layout_gravity="center center" margin="2 -33 0 0" rect="0 0 106 106" image="guildmark_slot" stretch="false" forceupdate="true" resize="uniform" changecursor="false" parent="picturesection"/></picture>
 							</layoutsection>
 							<layoutsection name="guildnamesection" size="100" parent="leftlayout">
 								<picture name="guildnameBg" margin="0 0 0 50" stretch="true" image="guildname_frame">
@@ -35,7 +34,7 @@
 							</layoutsection>
 							<layoutsection name="tabsection" size="320" parent="leftlayout">
 								<tab name="maintab" parent="tabsection" layout_gravity="center center" skin="tab4" margin="0 0 20 0" vertical="true" itemspc="1" targetcontrol="contents" fixwidth="false" autowidth="false">
-									<tabitem name="communitytab" parent="menutab" caption="{@st66b}커뮤니티{/}"  width="170" layout_gravity="left top"/>
+									<tabitem name="communitytab" parent="menutab" caption="{@st66b}커뮤니티{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="guildinfotab" parent="menutab" caption="{@st66b}길드 정보{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="inventorytab" parent="menutab" caption="{@st66b}보관함{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="battletab" parent="menutab" caption="{@st66b}전투{/}" width="170" layout_gravity="left top"/>
@@ -49,7 +48,7 @@
 					</layoutsection>
 					<layoutsection name="contentsection" parent="layout">
 						<overlap name="contents" parent="contentsection" margin="0 0 10 15">
-							<layout name="community" spacing="5" orientation="vertical" tabname="communitytab" tabchangescp="GUILDINFO_COMMUNITY_INIT" >
+							<layout name="community" spacing="5" orientation="vertical" tabname="communitytab" tabchangescp="GUILDINFO_COMMUNITY_INIT">
 								<layoutsection name="searchSection" size="45">
 									<layout name="searchLayout">
 										<layoutsection name="searchSection"/>
@@ -63,7 +62,7 @@
 									<groupbox name="communitypanel" margin="" hittest="true" hittestbox="true" skin="test_frame_midle" scrollbar="true"/>
 								</layoutsection>
 							</layout>
-							<layout name="guildinfo_" orientation="vertical" parent="contents" tabname="guildinfotab" tabchangescp="GUILDINFO_INFO_INIT" >
+							<layout name="guildinfo_" orientation="vertical" parent="contents" tabname="guildinfotab" tabchangescp="GUILDINFO_INFO_INIT">
 								<layoutsection name="guildinfo_Section" size="4%" rect="0 0 0 35">
 									<layout name="guildinfo_Layout" orientation="horizontal" draw="false">
 										<layoutsection name="lvlSection" size="10%">
@@ -149,7 +148,7 @@
 											<picture name="headerLine2" stretch="true" image="guild_line_p"/>
 										</layoutsection>
 										<layoutsection name="towerSection">
-											<groupbox name="towerBox" rect="0 0 500 100" parent="guildtowerInfo"  layout_gravity="left top" draw="false" hittest="false">
+											<groupbox name="towerBox" parent="guildtowerInfo" draw="false">
 												<picture name="towerPic" rect="0 0 80 80" margin="10 15 0 0" parent="towerBox" layout_gravity="left center" image="icon_item_guildtower" stretch="true"/>
 												<richtext name="towerInfoText" rect="0 0 300 30" parent="towerBox" margin="10 0 0 0" layout_gravity="left top" format="{@st43b}{s18}길드 타워 (%s/1){/}" param1="current" param1_def="0" fontname="white_16_b_ol"/>
 												<richtext name="towerMapText" rect="0 0 300 30" parent="towerBox" margin="95 50 0 0" layout_gravity="left top" format="{#0000FF}%s" param1="map" param1_def=""/>
@@ -162,7 +161,7 @@
 										</layoutsection>
 										<layoutsection name="guildNoticeSection" size="40%">
 											<groupbox name="guildNoticeBox" draw="false" hittest="true">
-												<edit name="noticeEdit" skin="test_weight_skin" rect="0 0 543 80" margin="8 40 0 0" fontname="black_18" EnterKeyScp="SAVE_GUILD_NOTICE" fixwidth="true"/>
+												<edit name="noticeEdit" skin="test_weight_skin" rect="0 0 543 80" margin="8 40 0 0" fontname="black_18" EnterKeyScp="SAVE_GUILD_NOTICE" fixwidth="true" maxlen="128"/>
 												<richtext name="guildNoticeText" rect="0 0 300 30" margin="10 5 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 공지{/}" fontname="white_16_b_ol"/>
 												<button name="noticeRegisterBtn" rect="0 0 130 40" margin="0 0 0 0" layout_gravity="right top" skin="test_pvp_btn" caption="{@st66}{s18}등록{/}" fontname="brown_16" LBtnUpScp="SAVE_GUILD_NOTICE"/>
 											</groupbox>
@@ -177,7 +176,7 @@
 									</layout>
 								</layoutsection>
 								<layoutsection name="guildMemberListOverlap" size="38%">
-									<groupbox name="guildMemberListBg" skin="test_frame_midle"  margin="0 0 4 0"/>
+									<groupbox name="guildMemberListBg" skin="test_frame_midle" margin="0 0 4 0"/>
 									<layout name="guildMemberListLayout" orientation="vertical" margin="0 0 4 0">
 										<layoutsection name="guildMemberListHeaderSection" size="40">
 											<overlap name="guildMemberHeaderOverlap">
@@ -215,7 +214,9 @@
 											<richtext name="memberCountText" fontname="black_18" textalign="left center" format="온라인 %s명    오프라인 %s명" param1="online" param1_def="3" param2_def="50" param2="offline"/>
 										</layoutsection>
 										<layoutsection name="viewOnlineMemberSection">
-											<checkbox name="memberFilterCheck" fontname="black_18" caption="접속 인원만 보기" LBtnUpScp="GUILDINFO_MEMBER_ONLINE_CLICK"/>
+											<groupbox name="memberFilterBox" draw="false">
+												<checkbox name="memberFilterCheck" rect="0 0 200 40" layout_gravity="right center" fontname="black_18" caption="접속 인원만 보기" LBtnUpScp="GUILDINFO_MEMBER_ONLINE_CLICK" />
+											</groupbox>
 										</layoutsection>
 										<layoutsection name="inviteBtnSection" size="200">
 											<button name="inviteBtn" caption="{@st41b}길드 초대" skin="test_red_button" LBtnUpScp="GUILDINFO_MEMBER_INVITE"/>
@@ -241,7 +242,7 @@
 									</layout>
 								</layoutsection>
 							</layout>
-							<layout name="inventory" orientation="horizontal" parent="contents"  spacing="5" tabname="inventorytab" tabchangescp="GUILDINFO_INVEN_INIT">
+							<layout name="inventory" orientation="horizontal" parent="contents" spacing="5" tabname="inventorytab" tabchangescp="GUILDINFO_INVEN_INIT">
 								<layoutsection name="guildInventorySection" size="437">
 									<layout name="guildInventoryLayout" orientation="vertical" spacing="10">
 										<layoutsection name="guildInventoryHeaderSection" size="30">
@@ -354,10 +355,10 @@
 													<groupbox name="warGuildHeaderBg" skin="test_pvp_youparty_name"/>
 													<layout name="warGuildHeaderLayout">
 														<layoutsection name="warGuildNameHeaderSection">
-															<richtext name="warGuildHeaderText"  caption="    전쟁 길드 목록" textalign="left center" fontname="white_16_b_ol"/>
+															<richtext name="warGuildHeaderText" caption="전쟁 길드 목록" textalign="center center" fontname="white_16_b_ol"/>
 														</layoutsection>
 														<layoutsection name="warGuildDurationHeaderSection">
-															<richtext name="warGuildDurationText"  caption="남은 전쟁 시간" textalign="center center" fontname="white_16_b_ol"/>
+															<richtext name="warGuildDurationText" caption="남은 전쟁 시간" textalign="center center" fontname="white_16_b_ol"/>
 														</layoutsection>
 													</layout>
 												</overlap>
@@ -397,7 +398,7 @@
 												<layoutsection name="radioSectionSpace" size="60%"/>
 											</layout>
 										</layoutsection>
-										<layoutsection name="colonyInfoSection" size="130">
+										<layoutsection name="colonyInfoSection" size="105">
 											<richtext name="colonyInfoText" caption="ⓘ 스팟 점령 길드는 참가로 고정됩니다.{nl}ⓘ 참가 여부 옵션을 '참가'로 변경 시, 길드 마스터 위임이 불가능합니다.{nl}ⓘ 참가 여부 옵션은 템플러 클래스를 가진 길드 마스터만 변경할 수 있습니다.{nl}ⓘ 참가 여부 옵션은 길드 콜로니전 시작 5분 전 부터 종료 1분 후까지 변경할 수 없습니다.{nl}ⓘ 참가 여부 옵션은 길드 타워의 설치 유무와 상관없이 변경할 수 있습니다." margin="5 5 0 0 " fixwidth="true" fontname="black_16"/>
 										</layoutsection>
 										<layoutsection name="colonizedAreaSection" size="200">
@@ -414,6 +415,7 @@
 																<layoutsection name="colonizedAreaRatingSection">
 																	<richtext name="colonizedAreaRatingText" textalign="left center" caption="지역 등급" fontname="black_18"/>
 																</layoutsection>
+																<layoutsection name="colonizedSpace" size="50%"/>
 															</layout>
 														</overlap>
 													</layoutsection>
@@ -423,29 +425,32 @@
 												</layout>
 											</overlap>
 										</layoutsection>
+										<layoutsection name="colonyBetaTextSection" size="25">
+											<richtext name="colonyInfoText" caption="ⓘ Beta로 진행되는 길드 콜로니전의 점령 혜택은 홈페이지 내 공지사항을 통해 확인 바랍니다." fixwidth="true" fontname="black_16"/>
+										</layoutsection>
 									</layout>
 								</layoutsection>
 							</layout>
 							<layout name="setting" orientation="vertical" parent="contents" tabname="optionTabItemText">
 								<layoutsection name="settingTabSection" parent="setting" size="40">
 									<tab name="settingTab" skin="tab2" targetcontrol="settingContent">
+										<tabitem name="guildPromoteTab" caption="{@st66b}홍보{/}" width="120"/>
 										<tabitem name="claimTab" caption="{@st66b}직급과 권한{/}" width="120"/>
 										<tabitem name="guildApplyTab" caption="{@st66b}가입 신청{/}" width="120"/>
-										<tabitem name="guildPromoteTab" caption="{@st66b}홍보{/}" width="120"/>
 									</tab>
 								</layoutsection>
 								<layoutsection name="settingContentSection" parent="setting">
-									<overlap name="settingContent" parent="settingContentSection" >
+									<overlap name="settingContent" parent="settingContentSection">
 										<layout name="claimTitleLayout" tabname="claimTab" orientation="vertical" spacing="5">
 											<layoutsection name="claimLabelSection" size="30">
 												<richtext name="claimLabel" caption="{@st43b}{s18}직급 설정" textalign="left center" fontname="black_18_b"/>
 											</layoutsection>
 											<layoutsection name="settingSection" parent="claimTitleLayout">
-												<layout name="claimListLayout" parent="settingSection" orientation="vertical">
+												<layout name="claimListLayout" parent="settingSection" orientation="vertical" spacing="5">
 													<layoutsection name="claimListSection" size="320" parent="claimListLayout">
 														<layout name="claimListsLayout" orientation="horizontal" spacing="10" parent="claimListSection">
 															<layoutsection name="titleListPanelSection" size="23%" parent="claimListsLayout">
-																<overlap name="titleListPanelOverlap" >
+																<overlap name="titleListPanelOverlap">
 																	<groupbox name="titleListBg" skin="test_frame_midle"/>
 																	<layout name="titleListLayout" orientation="vertical">
 																		<layoutsection name="titleListHeaderSection" size="40">
@@ -472,27 +477,27 @@
 																		</layoutsection>
 																		<layoutsection name="claimAuthListSection">
 																			<scrollpanel name="claimAuthPanel" skin="test_frame_midle" margin="0 0 0 5" spacing="10" parent="claimAuthSection" draw="false" orientation="vertical" hittest="true" hittestbox="true" scrollbar="true">
-																				<overlap name="authName2ovlp" rect="0 0 0 40"  margin="0 0 600 0">
+																				<overlap name="authName2ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName2Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName2" margin="30 0 0 0" caption="{@st42}길드 운영{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
 																				<grid name="claimCheckbox2" margin="20 0 0 0" rect="0 0 0 250" slotsize="500 50" slotspc="0 0" parent="claimAuthPanel"/>
-																				<overlap name="authName3ovlp" rect="0 0 0 40"  margin="0 0 600 0">
+																				<overlap name="authName3ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName3Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName3" margin="30 0 0 0" caption="{@st42}길드 자본{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
 																				<grid name="claimCheckbox3" margin="20 0 0 0" rect="0 0 0 100" slotsize="500 50" slotspc="0 0" parent="claimAuthPanel"/>
-																				<overlap name="authName4ovlp" rect="0 0 0 40"  margin="0 0 600 0">
+																				<overlap name="authName4ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName4Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName4" margin="30 0 0 0" caption="{@st42}길드 커뮤니티{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
 																				<grid name="claimCheckbox4" margin="20 0 0 0" rect="0 0 0 150" slotsize="500 50" slotspc="0 0" parent="claimAuthPanel"/>
-																				<overlap name="authName5ovlp" rect="0 0 0 40"  margin="0 0 600 0">
+																				<overlap name="authName5ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName5Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName5" margin="30 0 0 0" caption="{@st42}PVP{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
 																				<grid name="claimCheckbox5" margin="20 0 0 0" rect="0 0 0 150" slotsize="500 50" slotspc="0 0" parent="claimAuthPanel"/>
-																				<overlap name="authName6ovlp" rect="0 0 0 40"  margin="0 0 600 0">
+																				<overlap name="authName6ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName6Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName6" margin="30 0 0 0" caption="{@st42}컨텐츠{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
@@ -505,11 +510,11 @@
 														</layout>
 													</layoutsection>
 													<layoutsection name="titleSaveRemoveBtnSection" parent="claimListLayout" size="45">
-														<layout name="titleSaveRemoveBtnLayout" parent="titleSaveRemoveBtnSection" spacing="8" orientation="horizontal" >
+														<layout name="titleSaveRemoveBtnLayout" parent="titleSaveRemoveBtnSection" spacing="8" orientation="horizontal">
 															<layoutsection name="claimNameSection" parent="titleSaveRemoveBtnLayout" size="320">
 																<overlap name="claimNameOverlap">
 																	<groupbox name="claimInputTxtBg" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
-																	<edit name="claimInputTxt" fontname="white_20_ol" drawbackground="false" OffsetForDraw="5 -5"/>
+																	<edit name="claimInputTxt" fontname="white_20_ol" drawbackground="false" OffsetForDraw="5 -5" maxlen="15"/>
 																</overlap>
 															</layoutsection>
 															<layoutsection name="addclaimBtnSection" parent="titleSaveRemoveBtnLayout" size="150">
@@ -535,21 +540,21 @@
 																<layoutsection name="titleSetHeaderSection" size="40">
 																	<overlap name="titleSetHeaderOverlap">
 																		<groupbox name="titleSetHeaderBg" skin="market_listbase"/>
-																		<layout name="guildMemberHeaderLayoutSection">
+																		<layout name="guildMemberHeaderLayoutSection" margin="0 0 22 0">
 																			<layoutsection name="memberNameCol">
-																				<richtext name="titleSetListLabel" fontname="black_18_b"  caption="길드원" textalign="center center"/>
+																				<richtext name="titleSetListLabel" fontname="black_18_b" caption="길드원" textalign="center center"/>
 																			</layoutsection>
 																			<layoutsection name="memberJobCol">
-																				<richtext name="memberJobLabel" fontname="black_18_b" margin="-5 0 0 0" caption="직위" textalign="center center"/>
+																				<richtext name="memberJobLabel" fontname="black_18_b" margin="0 0 0 0" caption="클래스" textalign="center center"/>
 																			</layoutsection>
 																			<layoutsection name="memberlevelCol">
-																				<richtext name="memberLevelCol" fontname="black_18_b" margin="-5 0 0 0" caption="레벨" textalign="center center"/>
+																				<richtext name="memberLevelCol" fontname="black_18_b" margin="0 0 0 0" caption="레벨" textalign="center center"/>
 																			</layoutsection>
 																			<layoutsection name="memberContribCol">
-																				<richtext name="memberControlLabel" fontname="black_18_b" margin="-5 0 0 0" caption="기여도" textalign="center center"/>
+																				<richtext name="memberControlLabel" fontname="black_18_b" margin="0 0 0 0" caption="기여도" textalign="center center"/>
 																			</layoutsection>
 																			<layoutsection name="memberAuthCol">
-																				<richtext name="memberAuthLabel" fontname="black_18_b" margin="-10 0 0 0" caption="직급" textalign="center center"/>
+																				<richtext name="memberAuthLabel" fontname="black_18_b" margin="0 0 0 0" caption="직급" textalign="center center"/>
 																			</layoutsection>
 																		</layout>
 																	</overlap>
@@ -602,7 +607,7 @@
 											</layoutsection>
 											<layoutsection name="joinRefuseBtnSection">
 												<groupbox name="joinRefuseBtnBox" draw="false">
-													<button name="acceptJoinBtn"  rect="0 0 130 40" caption="{@st41b}{s16}수락" skin="test_red_button" LBtnUpScp="ACCEPT_SELECTED_USER" layout_gravity="right center"/>
+													<button name="acceptJoinBtn" rect="0 0 130 40" caption="{@st41b}{s16}수락" skin="test_red_button" LBtnUpScp="ACCEPT_SELECTED_USER" layout_gravity="right center"/>
 													<button name="refuseJoinBtn" margin="0 0 130 0" rect="0 0 130 40" caption="{@st41b}{s16}거절" skin="test_gray_button" LBtnUpScp="DECLINE_SELECTED_USER" layout_gravity="right center"/>
 												</groupbox>
 											</layoutsection>
@@ -615,7 +620,7 @@
 															<richtext name="emblemLabel" caption="{@st43b}{s18}엠블럼{/}" resizebytext="true"/>
 															<picture name="emblemLine" margin="0 28 0 0" layout_gravity="center top" rect="0 0 650 2" stretch="true" image="guild_line_h"/>
 															<picture name="emblemPreview" forceupdate="true" layout_gravity="left top" margin="5 40 0 0" rect="0 0 120 120" stretch="true" image="guildmark_slot"/>
-															<richtext PresetName="유의사항" margin="135 40 0 0" layout_gravity="left top" name="emblemWarnText" caption="ⓘ 길드 엠블럼의 최초 등록은 무료입니다.{nl}ⓘ 길드 엠블럼 변경시 %s만 실버가 사용됩니다.{nl}ⓘ 길드 엠블럼은 %s 크기의 %s 파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." textalign="left center" resizebytext="true" fontname="black_16"/>
+															<richtext PresetName="유의사항" margin="135 40 0 0" layout_gravity="left top" name="emblemWarnText" format="ⓘ 길드 엠블럼의 최초 등록은 무료입니다.{nl}ⓘ 길드 엠블럼 변경시 %s만 실버가 사용됩니다.{nl}ⓘ 길드 엠블럼은 %s 크기의 %s 파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." param1="tp" param1_def="1200" param2="size" param2_def="64*64" param3="ext" param3_def="PNG(32bit)" textalign="left center" resizebytext="true" fontname="black_16"/>
 															<button name="regEmblemBtn" margin="3 68 0 0" rect="0 0 125 40" caption="{@st41b}{s16}등록" skin="test_red_button" LBtnUpScp="REGISTER_GUILD_EMBLEM" layout_gravity="left center"/>
 														</groupbox>
 													</layoutsection>
@@ -624,7 +629,7 @@
 															<richtext name="bannerLabel" caption="{@st43b}{s18}배너{/}" resizebytext="true"/>
 															<picture name="bannerLine" margin="0 28 0 0" layout_gravity="center top" rect="0 0 650 2" stretch="true" image="guild_line_h"/>
 															<picture name="previewBanner" rect="0 0 510 200" forceupdate="true" layout_gravity="left top" margin="5 40 0 0" stretch="false" image="guildbanner_slot"/>
-															<richtext PresetName="유의사항" rect="0 0 500 210" margin="70 247 0 0" layout_gravity="center top" name="bannerWarnText" format="ⓘ 길드 배너는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다."  fontname="black_16" param1="size" param1_def="510*200" param2="" param2_def="" param3="" param3_def="" textalign="left center" resizebytext="true" fixwidth="true" />
+															<richtext PresetName="유의사항" rect="0 0 500 210" margin="70 247 0 0" layout_gravity="center top" name="bannerWarnText" format="ⓘ 길드 배너는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fontname="black_16" param1="size" param1_def="510*200" param2="" param2_def="" param3="" param3_def="" textalign="left center" resizebytext="true" fixwidth="true" />
 															<button name="regBannerBtn" margin="3 30 0 0" rect="0 0 125 40" caption="{@st41b}{s16}등록" skin="test_red_button" LBtnUpScp="REGISTER_GUILD_BANNER" layout_gravity="left center"/>
 														</groupbox>
 													</layoutsection>
@@ -643,9 +648,9 @@
 														<groupbox name="promoteBox" draw="false">
 															<richtext name="promoteLabel" caption="{@st43b}{s18}홍보 이미지{/}" resizebytext="true"/>
 															<picture name="promoteLine" margin="0 28 0 0" layout_gravity="center top" rect="0 0 700 2" stretch="true" image="guild_line_h"/>
-															<richtext name="promoteWarnText"  rect="0 0 500 210"  PresetName="유의사항" margin="140 40 0 0" layout_gravity="left top" format="ⓘ 길드 홍보 페이지는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fontname="black_16" param1="size" param1_def="가로 1024, 세로 768~3840" param2="" param2_def="" param3="" param3_def="" textalign="left center" resizebytext="true" fixwidth="true"/>
+															<richtext name="promoteWarnText" rect="0 0 500 210" PresetName="유의사항" margin="140 40 0 0" layout_gravity="left top" format="ⓘ 길드 홍보 페이지는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fontname="black_16" param1="size" param1_def="가로 1024, 세로 768~3840" param2="" param2_def="" param3="" param3_def="" textalign="left center" resizebytext="true" fixwidth="true"/>
 															<button name="regPromoteImageBtn" margin="0 40 0 0" rect="0 0 125 40" caption="{@st41b}{s16}등록" skin="test_red_button" LBtnUpScp="REGISTER_GUILD_PAGE" layout_gravity="left top"/>
-															<button name="previewImageBtn" margin="0 80 0 0" rect="0 0 125 40" caption="{@st41b}{s16}미리보기" skin="test_gray_button" LBtnUpScp="ui.OpenFrame(&quot;previewpicture&quot;);" layout_gravity="left top"/>
+															<button name="previewImageBtn" margin="0 80 0 0" rect="0 0 125 40" caption="{@st41b}{s16}미리보기" skin="test_gray_button" LBtnUpScp="PREVIEW_PROMO_PIC_INIT()" layout_gravity="left top"/>
 														</groupbox>
 													</layoutsection>
 													<layoutsection name="promoteTextSection">

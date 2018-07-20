@@ -940,3 +940,15 @@ function SCR_PRE_GuildQuestEnterCount_1add(self)
         return 1
     end 
 end
+
+function SCR_PRECHECK_CONSUME_PVP_MINE(self)
+    local zone = GetZoneName(self)
+
+    if zone == 'pvp_Mine' then
+        return 1;
+    elseif IsPVPServer(self) == 1 then
+        return 0;
+    end
+   
+    return 1;
+end

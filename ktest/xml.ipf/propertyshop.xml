@@ -13,4 +13,19 @@
 		<Item Script="None" Name="Hat_628111" Count="1" Price="3500" DailyBuyLimit="1"/>
 		<Item Script="None" Name="Hat_628119" Count="1" Price="3500" DailyBuyLimit="1"/>
 	</Shop>
+	<Shop Name="MINEShop" PointScript="GET_PVP_MINE_POINT">
+		<Item Script="None" Name="Point_Stone_100" Count="1" Price="200" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Premium_item_transcendence_Stone" Count="1" Price="2000" DailyBuyLimit="1"/>
+		<Item Script="None" Name="Drug_Event_Looting_Potion_14d" Count="1" Price="100" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Demon_Low_DMG_UP" Count="1" Price="550" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_MIX_Low_DMG_UP" Count="1" Price="550" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Bug_Low_DMG_UP" Count="1" Price="550" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Plant_Low_DMG_UP" Count="1" Price="550" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Wild_Low_DMG_UP" Count="1" Price="550" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Demon_Low_DMG_DOWN" Count="1" Price="300" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_MIX_Low_DMG_DOWN" Count="1" Price="300" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Bug_Low_DMG_DOWN" Count="1" Price="300" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Plant_Low_DMG_DOWN" Count="1" Price="300" DailyBuyLimit="0"/>
+		<Item Script="None" Name="Potion_Wild_Low_DMG_DOWN" Count="1" Price="300" DailyBuyLimit="0"/>
+	</Shop>
 </PropertyShop>

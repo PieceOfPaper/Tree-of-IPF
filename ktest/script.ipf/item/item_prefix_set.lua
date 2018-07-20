@@ -46,7 +46,11 @@ function GET_VALID_LEGEND_PREFIX_MATERIAL_LIST(pc)
     if itemList ~= nil then
         for i = 1, #itemList do
             local item = itemList[i];
-            local itemExpNum = tonumber(item.ItemExpString);
+            local itemExpStr = TryGetProp(item, 'ItemExpString', 'None');
+            if itemExpStr == 'None' then
+                itemExpStr = '0';
+            end
+            local itemExpNum = tonumber(itemExpStr);
             if itemExpNum == nil then
                 itemExpNum = 0;
             end

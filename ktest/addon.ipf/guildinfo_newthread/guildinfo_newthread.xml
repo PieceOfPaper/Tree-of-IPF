@@ -13,14 +13,16 @@
 			<layoutsection name="inputSection">
 				<overlap name="inputOverlap">
 					<groupbox name="InputTxtBg" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_midle"/>
-					<edit name="input" drawbackground="true" skin="test_frame_midle" rect="0 0 450 100" layout_gravity="left top" fixwidth="true" fontname="white_20_ol" maxlen="140" typingscp="UPDATE_THREAD_LENGTH" resizeheightbytext="true" multiline="true"/>
+					<edit name="input" drawbackground="true" skin="test_frame_midle" rect="0 0 450 100" layout_gravity="left top" fixwidth="true" fontname="white_20_ol" maxlen="278" typingscp="UPDATE_THREAD_LENGTH" resizeheightbytext="true" multiline="true"/>
 				</overlap>
 			</layoutsection>
 			<layoutsection name="lowerSection" size="50" spacing="5">
 				<layout name="lowerLayout">
 					<layoutsection name="spaceSection" size="50%"/>
 					<layoutsection name="stringLengthSection">
-						<richtext name="stringLen" format="%s / 140" param1="len" param1_def="0" fontname="black_18" textalign="right center" />
+					<groupbox name="stringLengthBox" draw="false">
+						<richtext name="stringLen" layout_gravity="right center" rect="0 0 160 40" format="%s / 140" param1="len" param1_def="0" fontname="black_18" textalign="right center" />
+						</groupbox>
 					</layoutsection>
 					<layoutsection name="cancelBtnSection">
 						<button name="cancelBtn" caption="{@st41b}취소" skin="test_gray_button" LBtnUpScp="ui.CloseFrame(&quot;guildinfo_newthread&quot;);"/>

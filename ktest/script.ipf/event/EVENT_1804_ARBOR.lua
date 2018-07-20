@@ -425,7 +425,7 @@ function SCR_EVENT_1804_ARBOR_NPC_GEN_TS_BORN_UPDATE(self)
 --        timeIndex = 0
         if timeIndex >= 3 then
             local x,y,z = GetPos(self)
-            local npc =CREATE_NPC(self, 'NPC_GM2', x, y, z, 315, nil, GetLayer(self), self.Name, 'EVENT_1804_ARBOR_NPC')
+            local npc =CREATE_NPC(self, 'NPC_GM2', x+5, y, z-5, 315, nil, GetLayer(self), self.Name, 'EVENT_1804_ARBOR_NPC')
             if npc ~= nil then
                 SetExProp(self, 'EVENT_1804_ARBOR_NPC_GEN_FLAG', 1)
             end

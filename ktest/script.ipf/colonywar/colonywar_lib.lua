@@ -149,10 +149,10 @@ function SEND_KILL_DEAD_MESSAGE(Deader, killer)
 	local fromGuild = GetGuildObj(killer);
 	local guildName = GetPartyName(guild);
 	local fromGuildName = GetPartyName(fromGuild);
-    local killMsg = ScpArgMsg("GuildMember{Name}Killed{Target}OfGuild{TargetGuild}", "Name", GetTeamName(killer), "Target", GetTeamName(Deader), "TargetGuild", guildName);
-	BroadcastToPartyMember(PARTY_GUILD, fromGuildID, killMsg, "{#FFFFFF}");
+    local killMsg = ScpArgMsg("Colony_GuildMember{Name}Killed{Target}OfGuild{TargetGuild}", "Name", GetTeamName(killer), "Target", GetTeamName(Deader), "TargetGuild", guildName);
+	BroadcastToPartyMember(PARTY_GUILD, fromGuildID, killMsg, "{#00FF00}");
 
-	local killedMsg = ScpArgMsg("GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}", "Name", GetTeamName(Deader), "From", GetTeamName(killer), "FromGuild", fromGuildName);
+	local killedMsg = ScpArgMsg("Colony_GuildMember{Name}HasKilledBy{From}OfGuild{FromGuild}", "Name", GetTeamName(Deader), "From", GetTeamName(killer), "FromGuild", fromGuildName);
 	BroadcastToPartyMember(PARTY_GUILD, guildID, killedMsg, "");
 end
 

@@ -40,8 +40,6 @@ function MGAME_WORLDPVP_RETURNTOZONE(cmd, curStage, eventInst, obj)
 end
 
 function MGAME_CHECK_ALL_PC_ENTER(cmd, curStage, eventInst, obj)
-
-    --HS_COMMENT
     local list, cnt = GetCmdPCList(cmd:GetThisPointer());
 	if cnt > 0 then
         if cmd:GetMGameName() == 'battlefield' then

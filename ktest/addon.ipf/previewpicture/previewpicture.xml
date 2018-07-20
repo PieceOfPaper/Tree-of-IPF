@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="previewpicture" x="0" y="0" width="1100" height="950" create="open" version="2">
+<uiframe name="previewpicture" x="0" y="0" width="1100" height="800" create="open" version="2">
     <draw drawnotitlebar="false" drawtitlebar="false"/>
     <skin frameskin="test_frame_low"/>
     <frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
@@ -8,7 +8,6 @@
     <layer layerlevel="93"/>
     <option closebutton="false"/>
     <sound opensound="inven_win_open" closesound="inven_win_close"/>
-    <script OpenScp="PREVIEW_PROMO_PIC_INIT"/>
     <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
     <controls>
         <layout name="bg_layout">

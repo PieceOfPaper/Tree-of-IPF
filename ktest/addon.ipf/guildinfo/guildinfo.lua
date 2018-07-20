@@ -43,10 +43,10 @@ function GUILDINFO_OPEN_UI(frame)
     end
 
     local frame = ui.GetFrame("guildinfo");
-
-
+    
+    GetClaimList("ON_CLAIM_GET")
     if firstOpen == true then
-        GetClaimList("ON_CLAIM_GET")
+        
         --todo여기에 처음 로드할때만 요청할 바인드함수 추가
         GUILDINFO_OPTION_INIT(frame, frame);
         firstOpen = false
@@ -188,10 +188,8 @@ end
 
 function GUILDINFO_CLOSE_UI(frame)    
     ui.CloseFrame('guildinven_send');
-    ui.CloseFrame('guild_authority_popup');
     ui.CloseFrame('guildemblem_change');
     ui.CloseFrame("loadimage")
-    ui.CloseFrame("guild_applicant_list")
     ui.CloseFrame("previewpicture")
     frame:ShowWindow(0);
 end
@@ -273,8 +271,8 @@ function UI_TOGGLE_GUILD()
 		return;
 	end
 
-    local myActor = GetMyActor();
-    if myActor == nil or myActor:IsGuildExist() == false then
+    local guildinfo = session.GetGuildInfo();
+    if guildinfo == nil then
         return;
     end
     g_ENABLE_GUILD_MEMBER_SHOW = true;

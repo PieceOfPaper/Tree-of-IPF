@@ -2414,6 +2414,53 @@ function SCR_SEND_NOTIFY_REWARD(pc, eventName, rewardName)
 	SendAddOnMsg(pc, "EVENT_REWARD_NOTIFY_ITEM_GET", msg);
 end
 
+function SCR_SEND_NOTIFY_REWARD_TABLE(pc, titleName, itemTable)
+	local msg =''
+    for i = 1, #itemTable do
+        if msg == '' then
+            msg = ScpArgMsg('LVUP_REWARD_MSG1','ITEM', GetClassString('Item', itemTable[i][1],'Name'),'COUNT', itemTable[i][2])
+        else
+            msg = msg..', '..ScpArgMsg('LVUP_REWARD_MSG1','ITEM', GetClassString('Item', itemTable[i][1],'Name'),'COUNT', itemTable[i][2])
+        end
+    end
+    SCR_SEND_NOTIFY_REWARD(pc, titleName, msg)
+end
+
+function SCR_USE_EVENT_THANKSGIVINGDAY(pc)
+    local CurMapID = GetMapID(pc);
+    local result = 0;
+    local ymin = 0
+
+    local mapID = {2300, 2301, 3730, 3750}
+    
+    for i = 0, table.getn(mapID) do
+        if CurMapID == mapID[i] then
+            result = 1
+            break;
+        end
+    end
+    
+    if result == 1 then
+        local x, y, z = GetFrontPos(pc, 30);
+    	--CREATE_NPC(pc, classname, x, y, z, angle, faction, layer, name, dialog, enter, range, lv, leave, tactics, uniqueName, fixedLife, hpCount, simpleAI, maxDialog)
+    	local grass = CREATE_NPC(pc, 'siauliai_grass_1_blue', x, y, z, 0, "Summon", GetLayer(pc), GetName(pc), 'MON_THANKSGIVINGDAY_EV', nil, nil, 1, nil, 'MON_THANKSGIVINGDAY_EV')
+    	if grass == nil then
+    		return 1;
+    	else
+    	    local now_time = os.date('*t')
+            local yday = now_time['yday']
+            local hour = now_time['hour']
+            local min = now_time['min']
+            
+            ymin = (yday * 24 * 60) + hour * 60 + min
+    	    grass.NumArg1 = ymin
+    	    grass.StrArg1 = GetName(pc);
+    	end
+    else
+        AddBuff(pc, pc, 'Event_ThanksgivingDay', 1, 0, 0, 1);
+    end
+end
+
 function SCR_USE_PREMIUM_RAIMA_2017(pc)
     local tx = TxBegin(pc);
     TxGiveItem(tx, 'PremiumToken_1d', 1, 'Premium_Raima_2017');
@@ -3599,4 +3646,10 @@ function SCR_USE_ITEM_AddBuff_ABILPOTION(self,argObj,BuffName,arg1,arg2)
     AddBuff(self, self, BuffName, arg1, 0, arg2, 1);
 	AddAchievePoint(self, "Potion", 1);
 
+end
+
+function SCR_USE_GACHA_E_026(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'misc_BlessedStone', 2, 'Gacha_E_026');
+    local ret = TxCommit(tx);
 end

@@ -50,7 +50,7 @@
 								<layoutsection name="infoSec" size="20%">
 									<layout name="guildinfoLayout" spacing="10" orientation="horizontal">
 										<layoutsection name="emblemsec" size="15%">
-											<picture name="emblem" rect="5 5 64 64" layout_gravity="left center" hittest="false" image="mainpc_crown" stretch="true" changecursor="false"/>
+											<picture name="emblem" rect="5 5 64 64" layout_gravity="left center" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" forceupdate="true"/>
 										</layoutsection>
 										<layoutsection name="detailSec">
 											<layout name="detailCol" spacing="10" orientation="horizontal">

@@ -42,12 +42,12 @@ function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 	local curMode = 'WorldMap';
 
 	local imgName = "worldmap_" .. currentDirection .. "_bg";
-	local pic = GET_CHILD(frame, "pic");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic");
 	local size = ui.GetSkinImageSize(imgName);
 
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
-	local t_scale = frame:GetChild("t_scale");
+	local t_scale = GET_CHILD_RECURSIVELY(frame, "t_scale");
 	t_scale:SetTextByKey("value", string.format("%.2f", sizeRatio));
 
 	local picWidth = size.x * sizeRatio;
@@ -110,7 +110,7 @@ end
 
 function WORLDMAP_UPDATE_CLAMP_MINMAX(frame)
 
-	local pic = frame:GetChild("pic");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic");
 	local frameHeight = frame:GetHeight();
 	local picHeight = pic:GetHeight();
 	local maxY = picHeight - frameHeight;
@@ -133,7 +133,7 @@ function _OPEN_WORLDMAP(frame)
 	WORLDMAP_SIZE_UPDATE(frame);
 	frame:Invalidate();
 	
-	local pic = frame:GetChild("pic");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic");
 
 	UPDATE_WORLDMAP_CONTROLS(frame);
 	
@@ -167,13 +167,13 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	local currentDirection = config.GetConfig("WORLDMAP_DIRECTION", "s");
 	currentDirection = "s";
 
-	if changeDirection == true or ui.GetImage("worldmap_" .. currentDirection .. "_current") == nil then
+	if changeDirection == true or ui.IsValidImage("worldmap_" .. currentDirection .. "_current") == false then
 		makeWorldMapImage = true;
 	end
 
 	WORLDMAP_UPDATE_PICSIZE(frame, currentDirection);
 	
-	local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic" ,"ui::CPicture");
 	
 	local picHeight = pic:GetHeight();
 	local frameHeight = frame:GetHeight();
@@ -192,7 +192,7 @@ function CREATE_ALL_ZONE_TEXT(frame, changeDirection)
 	
 	ui.ClearBrush();
 	
-	local worldMapBox = pic:GetChild("GBOX_WorldMap");
+	local worldMapBox = GET_CHILD_RECURSIVELY(pic, "GBOX_WorldMap");
 	DESTROY_CHILD_BYNAME(worldMapBox, "ZONE_GBOX_");
 	DESTROY_CHILD_BYNAME(pic, "ZONE_GBOX_");
 
@@ -214,11 +214,11 @@ end
 function GET_WORLDMAP_GROUPBOX(frame)
 	if frame:GetUserValue('Mode') == "WorldMap" then
 		local curMode = frame:GetUserValue("Mode");
-		local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
-		return pic:GetChild("GBOX_".. curMode);
+		local pic = GET_CHILD_RECURSIVELY(frame, "pic" ,"ui::CPicture");
+		return GET_CHILD_RECURSIVELY(pic, "GBOX_".. curMode);
 	end
 
-	return GET_CHILD(frame, "pic" ,"ui::CPicture");
+	return GET_CHILD_RECURSIVELY(frame, "pic" ,"ui::CPicture");
 end
 
 function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)
@@ -252,7 +252,7 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 				if accObj['HadVisited_' .. mapCls.ClassID] == 1 or FindCmdLine("-WORLDMAP") > 0 then
 					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 					
-					if changeDirection ~= true or parentGBox:GetChild(gBoxName) == nil then
+					if changeDirection ~= true or GET_CHILD_RECURSIVELY(parentGbox, gBoxName) == nil then
 						if index == '0' or index == '1' then
 							CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirection, nowMapIES, mapCls, questPossible, nowMapWorldPos, gBoxName, x, spaceX, startX, y, spaceY, startY, pictureStartY);
 						end
@@ -276,7 +276,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 	local nowZoneName = GetZoneName(pc);
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
-	local pic = GET_CHILD(frame, "pic" ,"ui::CPicture");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic" ,"ui::CPicture");
 	local etc = GetMyEtcObject();
 	local lobbyMapCls = GetClassByType("Map", etc.ItemWarpMapID)
 
@@ -291,7 +291,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
             local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
             local gbox = nil;
             if changeDirection ~= true then
-                gbox = pic:GetChild(gBoxName);
+                gbox = GET_CHILD_RECURSIVELY(pic, gBoxName);
                 if gbox ~= nil then
                     gbox:SetOffset(picX, picY);
                 end
@@ -315,7 +315,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
             set:SetEnableSelect(1);
             set:SetOverSound('button_over');
             set:SetClickSound('button_click_stats');
-            local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
+            local nameRechText = GET_CHILD_RECURSIVELY(set, "areaname", "ui::CRichText");
             nameRechText:SetTextByKey("mapname","{#ffff00}"..ScpArgMsg('Auto_(woPeuJuMunSeo)'));
             set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
             if warpInfo ~= nil then
@@ -369,7 +369,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 					if (warpcost < 1000000) then
 						local brushX = startX + x * spaceX;
 						local brushY = pictureStartY - y * spaceY;
-						if pic:GetChild(gBoxName) == nil then 
+						if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
 							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 							gbox:SetSkinName("downbox");
 							gbox:ShowWindow(1);
@@ -377,7 +377,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 							
 						ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, false, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1);
 
-						local gbox = pic:GetChild(gBoxName)
+						local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
 						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
 					end				
 				end
@@ -406,7 +406,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 					if (warpcost < 1000000) then
 						local calcOnlyPosition = false;
 						if changeDirection ~= true then
-							gbox = pic:GetChild(gBoxName);
+							gbox = GET_CHILD_RECURSIVELY(pic, gBoxName);
 							if gbox ~= nil then
 								gbox:SetOffset(picX, picY);
 								calcOnlyPosition = true;
@@ -414,7 +414,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 						end						
 						local brushX = startX + x * spaceX;
 						local brushY = pictureStartY - y * spaceY;
-						if pic:GetChild(gBoxName) == nil then 
+						if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
 							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 							gbox:SetSkinName("downbox");
 							gbox:ShowWindow(1);
@@ -422,7 +422,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 
 						ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1)
 
-						local gbox = pic:GetChild(gBoxName)
+						local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
 						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
 					end				
 				end
@@ -448,7 +448,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 	end
 
 	if changeDirection == false then
-		local gbox = parentGBox:GetChild(gBoxName);
+		local gbox = GET_CHILD_RECURSIVELY(parentGBox, gBoxName);
 		if gbox ~= nil then
 			gbox:SetOffset(picX, picY);
 			return;
@@ -518,7 +518,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                 emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
 
                 -- emblem pic set
-                local emblemPic = GET_CHILD(emblemSet, 'emblemPic');    
+                local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');    
                 local worldID = session.party.GetMyWorldIDStr();            
                 local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
                 if emblemImgName ~= 'None' then
@@ -639,7 +639,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 					
 			local memberctrlSet = ctrlSet:CreateOrGetControlSet('worldmap_partymember_iconset', "WMAP_PMINFO_" .. partyMemberName, 0, suby );
 		
-			local pm_namertext = GET_CHILD(memberctrlSet,'pm_name','ui::CRichText')
+			local pm_namertext = GET_CHILD_RECURSIVELY(memberctrlSet,'pm_name','ui::CRichText')
 			pm_namertext:SetTextByKey('pm_fname',partyMemberName)
 
 			if suby > ctrlSet:GetHeight() then
@@ -693,7 +693,7 @@ end
 
 function WORLDMAP_SETOFFSET(frame, x, y)
 
-	local pic = frame:GetChild("pic");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic");
 	local frameHeight = frame:GetHeight();
 	local picHeight = pic:GetHeight();
 	local startY = frameHeight - picHeight;
@@ -730,7 +730,7 @@ end
 
 function WORLDMAP_LBTNDOWN(parent, ctrl)		
 	local frame = parent:GetTopParentFrame();
-	local pic = frame:GetChild("pic");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic");
 	local x, y = GET_MOUSE_POS();
 	pic:SetUserValue("MOUSE_X", x);
 	pic:SetUserValue("MOUSE_Y", y);
@@ -892,7 +892,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);	
 	local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
-	local childCtrl = gBox:GetChild(gBoxName);
+	local childCtrl = GET_CHILD_RECURSIVELY(gBox, gBoxName);
 
 	if childCtrl == nil then
 		return false;
@@ -903,7 +903,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 
 	local cx = config.GetConfigInt("WORLDMAP_X");
 	local cy = config.GetConfigInt("WORLDMAP_Y");
-	local pic = GET_CHILD(frame, "pic");
+	local pic = GET_CHILD_RECURSIVELY(frame, "pic");
 
 	local curSize = config.GetConfigInt("WORLDMAP_SCALE", 6);
 	local sizeRatio = 1 + curSize * 0.25;
@@ -928,7 +928,7 @@ function LOCATE_WORLDMAP_POS(frame, mapName)
 	emphasize:SetOffset(x, y);
 	emphasize:MakeTopBetweenChild();
 	emphasize:ShowWindow(1);
-	local animpic = GET_CHILD(emphasize, "animpic");
+	local animpic = GET_CHILD_RECURSIVELY(emphasize, "animpic");
 	animpic:ShowWindow(1);
 	animpic:PlayAnimation();
 
@@ -937,7 +937,7 @@ end
 
 function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 
-	local inputSearch = frame:GetChild('input_search')
+	local inputSearch = GET_CHILD_RECURSIVELY(frame, 'input_search')
 	local searchText = inputSearch:GetText()
 	local oldSearchText = frame:GetUserValue('SEARCH_TEXT')
 	local oldSearchIdx = frame:GetUserValue('SEARCH_IDX')
@@ -1131,13 +1131,13 @@ function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, ca
 	local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
 	local setName = "WARP_CTRLSET_" .. index;
 
-	if calcOnlyPosition == false or gbox:GetChild(setName) == nil then
+	if calcOnlyPosition == false or GET_CHILD_RECURSIVELY(gbox, setName) == nil then
 		local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
 		set = tolua.cast(set, "ui::CControlSet");
 		set:SetEnableSelect(1);
 		set:SetOverSound('button_over');
 		set:SetClickSound('button_click_stats');
-		local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
+		local nameRechText = GET_CHILD_RECURSIVELY(set, "areaname", "ui::CRichText");
 		nameRechText:SetTextByKey("mapname",GET_WARP_NAME_TEXT(mapCls, info, nowZoneName));
 		set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
 		set:SetEventScriptArgString(ui.LBUTTONUP, info.ClassName);
@@ -1171,7 +1171,7 @@ end
 function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	local warpFrame = ui.GetFrame('worldmap');
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
-	local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
+	local costRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_cost", "ui::CRichText");
 	local etc = GetMyEtcObject();
 
 	if (warpitemname == 'NO' or warpitemname == 'None')  then
@@ -1195,11 +1195,11 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 
 	-- 여신상
 	if camp_warp_class ~= nil then
-		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
+		local nameRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
 		world.PreloadMinimap(camp_warp_class.Zone, true, true);
-		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
+		local pic = GET_CHILD_RECURSIVELY(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.Zone);
 		
 		local mapprop = geMapTable.GetMapProp(camp_warp_class.Zone);
@@ -1208,7 +1208,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 			return;
 		end
 
-		local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
+		local costRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_cost", "ui::CRichText");
 		if mapprop.type == etc.ItemWarpMapID then
 			costRichText:SetTextByKey("costname",0);
 		else
@@ -1253,14 +1253,14 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	-- 이전에 워프한 장소
 	camp_warp_class = GetClass("Map", strarg)
 	if camp_warp_class ~= nil then 
-		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
+		local nameRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
 		world.PreloadMinimap(camp_warp_class.ClassName, true, true);
-		local pic = GET_CHILD(tooltipframe, "picture_minimap", "ui::CPicture");
+		local pic = GET_CHILD_RECURSIVELY(tooltipframe, "picture_minimap", "ui::CPicture");
 		pic:SetImage(camp_warp_class.ClassName);
 
-		local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
+		local costRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_cost", "ui::CRichText");
 		costRichText:SetTextByKey("costname",strnum);
 
 		local mapprop = geMapTable.GetMapProp(camp_warp_class.ClassName);
@@ -1402,10 +1402,10 @@ function WARP_INFO_ZONE(zoneName)
 end
 
 function ON_UPDATE_OTHER_GUILD_EMBLEM(frame, msg, argStr, argNum)
-    local pic = frame:GetChild('pic');
+    local pic = GET_CHILD_RECURSIVELY(frame, 'pic');
     local emblemSet = GET_CHILD_RECURSIVELY(pic, 'EMBELM_'..argStr);    
     if emblemSet ~= nil then
-        local emblemPic = GET_CHILD(emblemSet, 'emblemPic');
+        local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');
         local worldID = session.party.GetMyWorldIDStr();
         local emblemImgName = guild.GetEmblemImageName(argStr,worldID);
         if emblemImgName ~= 'None' then

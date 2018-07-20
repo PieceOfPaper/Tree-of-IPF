@@ -195,7 +195,7 @@ end
 
 
 function SCR_BUFF_RATETABLE_GuildColony_BossMonsterBuff_DEF(self, from, skill, atk, ret, rateTable, buff)
-	local buff_name = 'GuildColony_InvincibleBuff'
+	local buff_name = 'GuildColony_BossMonsterBuff_DEF'
 	if IsBuffApplied(self, buff_name) == "YES" then
         local reductionRate = 0.3
 		AddDamageReductionRate(rateTable, reductionRate)

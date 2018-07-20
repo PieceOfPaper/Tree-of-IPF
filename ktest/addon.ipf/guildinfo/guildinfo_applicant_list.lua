@@ -1,4 +1,5 @@
 
+
 local json = require "json"
 local applicant_list = {}
 local selected_applicant = nil
@@ -71,11 +72,26 @@ function ON_GUILD_APPLICANT_GET(_code, ret_json)
     GBOX_AUTO_ALIGN(scrollPanel, 0, 0, 45, true, false, true)
 end
 
+function GUILDINFO_APPLICANT_GUILD_ON_WAR()
+    local guild = GET_MY_GUILD_INFO();
+    if guild == nil then
+        return false
+    end
+    local enemyParty = guild.info:GetEnemyPartyCount();
+    if enemyParty ~= 0 then
+        return true
+    else 
+        return false
+    end
+end
 
 function ACCEPT_APPLICANT(parent, control)
+    if GUILDINFO_APPLICANT_GUILD_ON_WAR() == true then
+        ui.SysMsg(ClMsg('CannotJoinWhileGuildWar'))
+        return;
+    end
     selected_applicant = control:GetAboveControlset();
     ApplicationUserGuildJoin(control:GetUserValue('account_idx'), control:GetUserValue('account_team_name'));
-    ui.MsgBox("길드 가입이 정상적으로 처리되었습니다.")
     REMOVE_APPLICANT_RESUME();
 end
 
@@ -83,6 +99,7 @@ function DECLINE_APPLICANT(parent, control)
     selected_applicant = control:GetAboveControlset();
     RefuseUserApplication("DECLINE_APPLICANT_CB", control:GetUserValue('account_idx'));
 end
+
 function DECLINE_APPLICANT_CB(code, ret_json)
     if code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "DECLINE_APPLICANT")
@@ -95,9 +112,14 @@ function REMOVE_APPLICANT_RESUME()
     local scrollPanel = GET_CHILD_RECURSIVELY(frame, "applicantMemberListBox");
     scrollPanel:RemoveChild(selected_applicant:GetName());
     selected_applicant = nil;
+    GBOX_AUTO_ALIGN(scrollPanel, 0, 0, 45, true, false, true)
 end
 
 function ACCEPT_SELECTED_USER()
+    if GUILDINFO_APPLICANT_GUILD_ON_WAR() == true then
+        ui.SysMsg(ClMsg('CannotJoinWhileGuildWar'))
+        return;
+    end
     local frame = ui.GetFrame("guildinfo");
     local scrollPanel = GET_CHILD_RECURSIVELY(frame, "applicantMemberListBox");
     

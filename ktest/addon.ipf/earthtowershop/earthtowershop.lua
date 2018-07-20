@@ -48,6 +48,12 @@ function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_PVP_MINE_SHOP_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'PVPMine');
+	ui.OpenFrame('earthtowershop');
+end
+
 function EARTH_TOWER_SHOP_OPEN(frame)
 	if frame == nil then
 		frame = ui.GetFrame("earthtowershop")
@@ -106,6 +112,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
 	elseif shopType == 'HALLOWEEN' then
 		title:SetText('{@st43}'..ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME"));
+	elseif shopType == 'PVPMine' then
+		title:SetText('{@st43}'..ScpArgMsg("pvp_mine_shop_name"));
 	end
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
@@ -449,6 +457,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
+	elseif shopType == 'PVPMine' then
+		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)
