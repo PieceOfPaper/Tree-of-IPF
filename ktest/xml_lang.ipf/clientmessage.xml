@@ -4414,6 +4414,8 @@
 		<Class ClassID="27680" ClassName="JOB_BULLETMARKER1_CHARGE6" Data="만능 속성 충전"/>
 		<Class ClassID="27681" ClassName="JOB_BULLETMARKER1_MSG1" Data="훈련 점수 +{POINT}획득"/>
 		<Class ClassID="27682" ClassName="JOB_BULLETMARKER1_CHARGE0" Data="잘못된 공격으로 속성이 사라집니다"/>
+		<Class ClassID="27683" ClassName="JOB_ONLY_EQUIP_ITEM_MSG1" Data=" 클래스"/>
+		<Class ClassID="27684" ClassName="JOB_ONLY_EQUIP_ITEM_MSG2" Data=" 써클"/>
 		<Class ClassID="27700" ClassName="EVENT_1710_NEXONCASHBOX_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}'을 획득하셨습니다."/>
 		<Class ClassID="27710" ClassName="EVENT_1710_NEWCHARACTER_MSG1" Data="{DAY}일 {HOUR}시간 {MIN}분 뒤에 아이템을 사용하실 수 있습니다"/>
 		<Class ClassID="27711" ClassName="EVENT_1710_NEWCHARACTER_MSG2" Data="'{ITEM}' 아이템에서 '{TP}TP'를 획득하셨습니다"/>
@@ -7558,6 +7560,7 @@
 		<Class ClassID="134035" ClassName="CannotUseForAutoMatching" Data="자동매칭 중에는 사용할 수 없습니다."/>
 		<Class ClassID="134036" ClassName="CannotLockInIndun" Data="입장 아이템을 해당 인던 안에서 잠글 수 없습니다."/>
 		<Class ClassID="134037" ClassName="Wait{Sec}ReturnOringinServer" Data="{Sec}초 후 입구로 돌아갑니다..."/>
+		<Class ClassID="134038" ClassName="IndunAlreadyPlaying_AreYouGiveUp" Data="이미 참여 중인 인던이 존재합니다. 참여 중인 인던을 포기하시겠습니까?"/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -10825,5 +10828,9 @@
 		<Class ClassID="1000014" ClassName="AlreadyFailOrDestroy_ChallengeMode" Data="먼저 도전 중인 파티원이 도전 실패 또는 완료하여 참여할 수 없습니다.{nl}잠시 후 다시 시도해주십시오."/>
 		<Class ClassID="1000015" ClassName="CantResurrect_ChallengeMode" Data="도전에 실패하여 부활할 수 없습니다. 잠시 후 원래 장소로 돌아갑니다."/>
 		<Class ClassID="1000016" ClassName="CantJoinLowLevel_ChallengeMode" Data="캐릭터의 레벨이 너무 낮아 입장하실 수 없습니다."/>
+	</Category>
+	<Category Name="RankReset">
+		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>
+		<Class ClassID="1001001" ClassName="CannotBecauseMoru" Data="모루가 설치되어 있는 상태에서는 사용할 수 없습니다."/>
 	</Category>
 </idspace>

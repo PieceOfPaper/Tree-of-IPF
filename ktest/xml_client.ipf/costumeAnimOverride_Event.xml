@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -574,6 +574,13 @@
 					<Event>
 						<Particle frame="0" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 						<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pc_costume_vampire01_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+				<Job Name="Cleric">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
+						<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pc_costume_vampire01_smoke3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false"/>
+						<Particle frame="2" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 					</Event>
 				</Job>
 			</Motion>

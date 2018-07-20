@@ -90,39 +90,60 @@ function GET_USEJOB_TOOLTIP(invitem)
 	if usejob == "All" then
 		resultstr =  ScpArgMsg("USEJOB_ALL")
 	else
-		local char1 = string.find(usejob, 'Char1')
-
-		if char1 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_WAR")
+	    local jobOnly = TryGetProp(invitem,'JobOnly')
+	    if jobOnly ~= nil and jobOnly ~= 'None' then
+	        local jobOnlyIES = GetClass('Job',jobOnly)
+	        if jobOnlyIES ~= nil then
+    	        local jobName = TryGetProp(jobOnlyIES,'Name')
+    	        if jobName ~= nil then
+        	        local jobGrade = TryGetProp(invitem,'JobGrade')
+        	        if jobGrade ~= nil and jobGrade > 1 then
+            			if resultstr ~= '' then
+            				resultstr = resultstr..', '
+            			end
+            			resultstr = resultstr..jobName..ScpArgMsg("JOB_ONLY_EQUIP_ITEM_MSG1").." "..jobGrade..ScpArgMsg("JOB_ONLY_EQUIP_ITEM_MSG2")
+        	        else
+            			if resultstr ~= '' then
+            				resultstr = resultstr..', '
+            			end
+            			resultstr = resultstr..jobName..ScpArgMsg("JOB_ONLY_EQUIP_ITEM_MSG1")
+        	        end
+        	    end
+    	    end
+	    else
+    		local char1 = string.find(usejob, 'Char1')
+    
+    		if char1 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_WAR")
+    		end
+    		local char2 = string.find(usejob, 'Char2')
+    
+    		if char2 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_WIZ")
+    		end
+    		local char3 = string.find(usejob, 'Char3')
+    
+    		if char3 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_ARC")
+    		end
+    		local char4 = string.find(usejob, 'Char4')
+    
+    		if char4 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_CLE")
+    		end
 		end
-		local char2 = string.find(usejob, 'Char2')
-
-		if char2 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_WIZ")
-		end
-		local char3 = string.find(usejob, 'Char3')
-
-		if char3 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_ARC")
-		end
-		local char4 = string.find(usejob, 'Char4')
-
-		if char4 ~= nil then
-			if resultstr ~= '' then
-				resultstr = resultstr..', '
-			end
-			resultstr = resultstr .. ScpArgMsg("USEJOB_CLE")
-		end
-		
 	end
 
 	if resultstr ~= '' then

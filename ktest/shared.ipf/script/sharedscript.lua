@@ -1909,7 +1909,10 @@ end
 function INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(partyMemberCount)
 	--한명당 120프로씩 더 준다. 단! 1명일 땐, 경험치 보너스 없다.
 	local expUpRatio = NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount);
-	expUpRatio = expUpRatio + (partyMemberCount * INDUN_AUTO_FIND_EXP_BONUS);
+	
+	if partyMemberCount > 1 then
+		expUpRatio = expUpRatio + (partyMemberCount * INDUN_AUTO_FIND_EXP_BONUS);
+	end
 	
 	return expUpRatio;
 end

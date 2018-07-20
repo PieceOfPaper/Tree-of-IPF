@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="ID_CASTLE_MINI_02" minLv="0" maxLv="0" mapName="id_castle2" startWaitSec="-1526726657">
+    <Game Name="ID_CASTLE_MINI_02" minLv="0" maxLv="0" mapName="id_castle2" playerCountCheckDestroy="1" startWaitSec="-1526726657">
         <StageList>
             <Stage Name="Start">
                 <ObjList>
@@ -33,6 +33,18 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="Start"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="인던 삭제">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3660"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -150,9 +162,6 @@
                                 <Str Str="마법진이 열렸습니다.!"/>
                                 <Num Num="5"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="실패조건"/>
-                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO" CondFunc="">
                                 <Str Str="마법진1"/>
                             </ToolScp>
@@ -249,9 +258,6 @@
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Stage1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="실패조건"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="마법진2"/>
@@ -408,62 +414,6 @@
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="60초 후 입구로 돌아갑니다."/>
                                 <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="실패조건완료" AutoStart="0">
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="End조건" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/0/Stage1/1/Stage1/2/Stage1/3/Stage1/4/Stage1/5/Stage1/6/Stage1/7/Stage1/8/Stage1/9/Stage1/10/Stage1/11/Stage1/12/Stage1/13/Stage1/14/Stage1/15/Stage1/16/Stage1/17/Stage1/18/Stage1/19/Stage1/20/Stage1/21/Stage1/22/Stage1/23/Stage1/24/Stage1/25/Stage1/26/Stage1/27/Stage1/28/Stage1/29/Stage1/30/Stage1/31/Stage1/32/Stage1/34/Stage1/35/Stage1/37/Stage1/38/Stage1/39/Stage1/40/Stage1/41/Stage1/42/Stage1/43/Stage1/44/Stage1/45/Stage1/51/Stage1/52/Stage1/53/Stage1/54/Stage1/55/Stage1/57/Stage1/58/Stage1/59/Stage1/60/Stage1/56/Stage1/46/Stage1/47/Stage1/48/Stage1/49/Stage1/50/Stage1/61/Stage1/33/Stage1/36/Stage1/62/Stage1/63/Stage1/64/Stage1/65/Stage1/66/Stage1/67/Stage1/68/Stage1/69/Stage1/70/Stage1/71/Stage1/72/Stage1/73/Stage1/74/Stage1/75/Stage1/76/Stage1/77/Stage1/78/Stage1/79/Stage1/80/Stage1/81/Stage1/82/Stage1/83/Stage1/84/Stage1/85/Stage1/86/Stage1/87/Stage1/88/Stage1/89/Stage1/90/Stage2/0/Stage2/1/Stage2/2/Stage2/3/Stage2/4/Stage2/5/Stage2/6/Stage2/7/Stage2/8/Stage2/9/Stage2/10/Stage2/11/Stage2/12/Stage2/13/Stage2/14/Stage2/15/Stage2/16/Stage2/17/Stage2/18/Stage2/19/Stage2/20/Stage2/21/Stage2/22/Stage2/23/Stage2/24/Stage2/25/Stage2/26/Stage2/27/Stage2/28/Stage2/29/Stage2/30/Stage2/31/Stage2/32/Stage2/33/Stage2/34/Stage2/35/Stage2/36/Stage2/37/Stage2/38/Stage2/39/Stage2/40/Stage2/41/Stage2/42/Stage2/43/Stage2/44/Stage2/45/Stage2/46/Stage2/47/Stage2/48/Stage2/49/Stage2/50/Stage2/51/Stage2/52/Stage2/53/Stage2/54/Stage2/55/Stage2/56/Stage2/57/Stage2/58/Stage2/59/Stage2/60/Stage2/61/Stage2/62/Stage2/63/Stage2/64/Stage3/1/Stage3/2/Stage3/3/Stage3/5/Stage3/7/Stage3/8/Stage3/10/Stage3/11/Stage3/12/Stage3/13/Stage3/14/Stage3/15/Stage3/16/Stage3/19/Stage3/20/Stage3/21/Stage3/22/Stage3/23/Stage3/24/Stage3/25/Stage3/26/Stage3/29/Stage3/30/Stage3/31/Stage3/32/Stage3/33/Stage3/34/Stage3/35/Stage3/36/Stage3/37/Stage3/38/Stage3/39/Stage3/40/Stage3/41/Stage3/42/Stage3/43/Stage3/44/Stage3/45/Stage3/46/Stage3/47/Stage3/48/Stage3/49/Stage3/50/Stage3/51/Stage3/52/Stage3/0/Stage3/4/Stage3/6/Stage3/9/Stage3/17/Stage3/18/Stage3/53/Stage3/54/Stage3/27/Stage3/28/Boss/0/Boss2/0"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="End"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="60초 후 입구로 돌아갑니다"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="실패조건">
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="실패조건" execWithStart="0">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="Stage1/92/Stage3/56"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="감시구 조작에 실패 하였습니다 모든 몬스터를 처치 하시기 바랍니다!"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Stage1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="Stage2"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="실패조건완료"/>
                             </ToolScp>
                         </execList>
                     </Event>
