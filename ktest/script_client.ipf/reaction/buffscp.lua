@@ -1007,7 +1007,13 @@ end
 function RamMuay_ENTER(actor, obj, buff)
     actor:SetAlwaysBattleState(true);
     actor:GetAnimation():SetChangeJumpAnim(true);
-    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+    actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
+    actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");
+    actor:GetAnimation():SetTURNAnim("SKL_NAKMUAY_ATURN");
+    actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_ARAISE");
+    actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_AONAIR")
+    actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_AFALL");
+    actor:SetAlwaysBattleState(true);
 end
 
 function RamMuay_LEAVE(actor, obj, buff)
@@ -1017,7 +1023,6 @@ function RamMuay_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetTURNAnim();
     actor:GetAnimation():ResetSTDAnim();
     actor:GetAnimation():ResetRUNAnim();
-    ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
 
 function ScpChangeMovingShotAnimationSet(actor, obj, buff)
@@ -1068,18 +1073,6 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetSTDAnim("ASTD");
         actor:GetAnimation():SetTURNAnim("None");
         actor:SetMovingShotAnimation("SKL_LIMACON");
-        actor:SetAlwaysBattleState(true);
-    end
-    
-    -- RamMuay_Buff
-    if buffRamMuay ~= nil then
-        actor:GetAnimation():SetSTDAnim("SKL_NAKMUAY_ASTD");
-        actor:GetAnimation():SetRUNAnim("SKL_NAKMUAY_ARUN");
-        actor:GetAnimation():SetTURNAnim("SKL_NAKMUAY_ATURN");
-        actor:GetAnimation():SetLANDAnim("SKL_NAKMUAY_ALAND");
-        actor:GetAnimation():SetRAISEAnim("SKL_NAKMUAY_ARAISE");
-        actor:GetAnimation():SetOnAIRAnim("SKL_NAKMUAY_AONAIR")
-        actor:GetAnimation():SetFALLAnim("SKL_NAKMUAY_AFALL");
         actor:SetAlwaysBattleState(true);
     end
 end

@@ -249,20 +249,13 @@ function DROP_GUILDGROWTH_TALT(parent, ctrl)
 	local invItem = GET_DRAG_INVITEM_INFO();
 
 	local dropItemCls = GetClassByType("Item", invItem.type);
-	local itemGuildCheck = TryGetProp(dropItemCls, "StringArg")
-	if itemGuildCheck ~= "Guild_EXP" then
-	    local text = ScpArgMsg("ItemOnlyForGuildExpUpPlz");
+	local itemName = GET_GUILD_EXPUP_ITEM_INFO();
+	local taltCls = GetClass("Item", itemName);
+	if itemName ~= dropItemCls.ClassName then
+		local text = ScpArgMsg("DropItem{Name}ForGuildExpUp", "Name", taltCls.Name);
 		ui.SysMsg(text);
 		return;
 	end
-	
---	local itemName = GET_GUILD_EXPUP_ITEM_INFO();
---	local taltCls = GetClass("Item", itemName);
---	if itemName ~= dropItemCls.ClassName then
---		local text = ScpArgMsg("DropItem{Name}ForGuildExpUp", "Name", taltCls.Name);
---		ui.SysMsg(text);
---		return;
---	end
 
 	local frame = parent:GetTopParentFrame();
 	INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_DROP_GUILDTALT", invItem.count, 1, invItem.count);

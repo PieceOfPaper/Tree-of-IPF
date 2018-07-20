@@ -2514,7 +2514,7 @@
 		<Class ClassID="25283" ClassName="GUILDEVENT_SELECT_2" Data="길드 필드 보스"/>
 		<Class ClassID="25284" ClassName="GUILDEVENT_SELECT_3" Data="길드 레이드"/>
 		<Class ClassID="25285" ClassName="GUILDEVENT_TYPE_LIST" Data=" 목록"/>
-		<Class ClassID="25286" ClassName="GUILDEVENT_TYPE_SELECT" Data="수락할 길드 퀘스트를 선택해 주세요"/>
+		<Class ClassID="25286" ClassName="GUILDEVENT_TYPE_SELECT" Data="수락할 길드 이벤트를 선택해 주세요"/>
 		<Class ClassID="25287" ClassName="GUILDEVENT_SELECT_INFO_NAME" Data="에 대한 정보"/>
 		<Class ClassID="25288" ClassName="GID_SAMPLE_TXTINFO_1" Data="마법사의 탑 길드 인던 미션 샘플 1번의 텍스트 정보입니다"/>
 		<Class ClassID="25289" ClassName="GID_SAMPLE_TXTINFO_2" Data="협곡지대 길드 인던 미션 샘플 1번의 텍스트 정보입니다"/>
@@ -4459,6 +4459,9 @@
 		<Class ClassID="27760" ClassName="EVENT_1712_SECOND_MSG1" Data="2주년 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
 		<Class ClassID="27761" ClassName="EVENT_1712_SECOND_MSG2" Data="2주년 기념수의 축복 버프를 받는다"/>
 		<Class ClassID="27762" ClassName="EVENT_1712_SECOND_MSG3" Data="2주년 축제 교환 상점"/>
+		<Class ClassID="27765" ClassName="EVENT_1712_MORUKING_MSG1" Data="+{COUNT}강 네잎 클로버를 교환 하실 건가요?"/>
+		<Class ClassID="27766" ClassName="EVENT_1712_MORUKING_MSG2" Data="교환한다"/>
+		<Class ClassID="27767" ClassName="EVENT_1712_MORUKING_MSG3" Data="교환 안 한다"/>
 		<Class ClassID="27770" ClassName="EVENT_1712_XMAS_MSG1" Data="크리스마스 이벤트{nl}{ITEM} {COUNT}개 획득!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
@@ -6709,7 +6712,7 @@
 		<Class ClassID="102016" ClassName="ReturnToNature" Data="자연으로 돌려보내기"/>
 		<Class ClassID="102017" ClassName="TakeAsCompanion" Data="컴패니언으로 데려가기"/>
 		<Class ClassID="102018" ClassName="GuildGrowth" Data="길드 성장"/>
-		<Class ClassID="102019" ClassName="NextGuildTower" Data="다음 길드 레벨"/>
+		<Class ClassID="102019" ClassName="NextGuildTower" Data="다음 길드 타워"/>
 		<Class ClassID="102020" ClassName="DropItem{Name}ForGuildExpUp" Data="길드 경험치를 올리기 위해선 {Name}아이템을 올려주세요."/>
 		<Class ClassID="102021" ClassName="WareHouse" Data="개인 창고"/>
 		<Class ClassID="102022" ClassName="UsableAbilityPoint" Data="사용가능한 특성 포인트"/>
@@ -6718,7 +6721,7 @@
 		<Class ClassID="102025" ClassName="GuildTower" Data="길드 타워"/>
 		<Class ClassID="102026" ClassName="DiscardTower" Data="타워 철거"/>
 		<Class ClassID="102027" ClassName="NextDeclareWarAbleTime" Data="다음 전쟁선포 가능 시간"/>
-		<Class ClassID="102028" ClassName="GuildEvent" Data="길드 퀘스트"/>
+		<Class ClassID="102028" ClassName="GuildEvent" Data="길드 이벤트"/>
 		<Class ClassID="102029" ClassName="OnlyAbleInChannel1" Data="1채널에서만 가능합니다."/>
 		<Class ClassID="102030" ClassName="CantCreateObjectNearOtherObject" Data="다른 오브젝트 근처에 만들 수 없습니다."/>
 		<Class ClassID="102031" ClassName="OnlyGuildLeader" Data="길드 마스터만 사용 가능한 기능입니다."/>
@@ -6750,7 +6753,7 @@
 		<Class ClassID="102057" ClassName="WarStartedWith{GuildName}" Data="{GuildName}길드와 전쟁이 시작되었습니다."/>
 		<Class ClassID="102058" ClassName="WarEndedWith{GuildName}" Data="{GuildName}길드와 전쟁이 종료되었습니다."/>
 		<Class ClassID="102059" ClassName="CannotUseThieInThisMap" Data="현재 맵에서는 사용 불가능합니다."/>
-		<Class ClassID="102060" ClassName="GuildEventLocal" Data="길드 퀘스트 지역"/>
+		<Class ClassID="102060" ClassName="GuildEventLocal" Data="길드 이벤트 지역"/>
 		<Class ClassID="102061" ClassName="CanUseGuildtower" Data="길드타워 근처, 마을, 길드 아지트에서만 사용이 가능합니다."/>
 		<Class ClassID="102062" ClassName="RemainTicket:{Ticket}" Data="남은 티켓 : {Ticket}"/>
 		<Class ClassID="102063" ClassName="Ticket" Data="티켓"/>
@@ -6765,7 +6768,7 @@
 		<Class ClassID="102072" ClassName="GuildExpUpSuccessByItem" Data="아이템을 통해 길드 경험치를 올렸습니다."/>
 		<Class ClassID="102073" ClassName="YouCannotDisbandGuildInWarStateForNotBoss" Data="전쟁 상태에서는 길드를 탈퇴할 수 없습니다."/>
 		<Class ClassID="102074" ClassName="GuildMission" Data="길드 미션"/>
-		<Class ClassID="102075" ClassName="GuildIBossSummon" Data="길드 보스 레이드"/>
+		<Class ClassID="102075" ClassName="GuildIBossSummon" Data="길드 보스 사냥"/>
 		<Class ClassID="102076" ClassName="GuildIRaid" Data="길드 레이드"/>
 		<Class ClassID="102077" ClassName="{Name1}GuildDeclaredWarTo{Name2}" Data="{Name1}길드가 {Name2}길드에게 전쟁을 선포했습니다."/>
 		<Class ClassID="102078" ClassName="CancelGuildWar" Data="전쟁 취소"/>
@@ -6789,7 +6792,7 @@
 		<Class ClassID="102096" ClassName="CantRebuildWhileWarState" Data="전쟁중엔 타워를 다시 건설할 수 없습니다."/>
 		<Class ClassID="102097" ClassName="ReturnToOutOfTowerBecauseTowerIsDestroyedAfter{Minute}" Data="타워가 파괴당하여 {Minute}분 후 밖으로 이동됩니다."/>
 		<Class ClassID="102098" ClassName="AbleToRebuild" Data="재건 가능"/>
-		<Class ClassID="102099" ClassName="DoYouWant{GuildEvent}Start?" Data="길드퀘스트{nl}{GuildEvent}를 시작하시겠습니까?"/>
+		<Class ClassID="102099" ClassName="DoYouWant{GuildEvent}Start?" Data="길드이벤트{nl}{GuildEvent}를 시작하시겠습니까?"/>
 		<Class ClassID="102100" ClassName="AccountWareHouse" Data="팀 창고"/>
 		<Class ClassID="102101" ClassName="GetFromGuildWareHouse" Data="길드 보관함 수령 아이템"/>
 		<Class ClassID="102102" ClassName="NotEnoughTicketPossibleCount" Data="필요한 티켓의 개수가 부족합니다."/>
@@ -6798,7 +6801,7 @@
 		<Class ClassID="102105" ClassName="SelectItemByMouseLeftButton" Data="마우스 왼쪽 버튼으로 아이템을 선택해주세요."/>
 		<Class ClassID="102106" ClassName="CantDiscardTowerWhileWarState" Data="전쟁중엔 타워를 철거할 수 없습니다."/>
 		<Class ClassID="102107" ClassName="CantPlantSeedBczNotOurGuild" Data="길드원이 아니면 작물을 심을 수 없습니다."/>
-		<Class ClassID="102108" ClassName="doNotJoinGuildEvent" Data="길드 퀘스트에 참여하지 않았습니다."/>
+		<Class ClassID="102108" ClassName="doNotJoinGuildEvent" Data="길드 이벤트에 참여하지 않았습니다."/>
 		<Class ClassID="102109" ClassName="GuildMember{Name}Get{Item}By{Count}FromGuildWareHouse" Data="길드원 {Name}이 길드 보관함으로부터 {Item} {Count}개를 받았습니다."/>
 		<Class ClassID="102110" ClassName="ReceivedItemFromGuildWareHouse_GetItFromBarrack" Data="길드 보관함에 아이템을 수령했습니다. 숙소에서 아이템을 확인하세요."/>
 		<Class ClassID="102111" ClassName="YouCanBuildInTheOtherGuildAgit" Data="다른 길드 아지트에서는 사용하실 수 없습니다."/>
@@ -6835,7 +6838,7 @@
 		<Class ClassID="102142" ClassName="Guild_Authority_ADD" Data="가입"/>
 		<Class ClassID="102143" ClassName="Guild_Authority_REMOVE" Data="추방"/>
 		<Class ClassID="102144" ClassName="Guild_Authority_INVEN" Data="창고"/>
-		<Class ClassID="102145" ClassName="Guild_Authority_EVENT" Data="길드퀘스트"/>
+		<Class ClassID="102145" ClassName="Guild_Authority_EVENT" Data="길드이벤트"/>
 		<Class ClassID="102146" ClassName="HaveToChangeGuildMaster" Data="길드 마스터는 사용할 수 없습니다. 길드 마스터를 양도하시거나, 해산 후에 사용할 수 있습니다."/>
 		<Class ClassID="102147" ClassName="{PC}AlreadyBelongsToGuildSame" Data="{PC}님은 이미 같은 길드에 속해있습니다"/>
 		<Class ClassID="102148" ClassName="{PC}AlreadyBelongsToGuildOther" Data="{PC}님은 이미 다른 길드에 속해있습니다"/>
@@ -6872,9 +6875,6 @@
 		<Class ClassID="102180" ClassName="DisagreeMemberSkill{SKILL_NAME}ByTarget" Data="상대방이 {SKILL_NAME} 스킬에 대한 요청을 거절하였습니다."/>
 		<Class ClassID="102181" ClassName="UseGuildEmblemChangeItem" Data="길드 엠블렘 변경권을 소유하고 있습니다. 사용하시겠습니까?"/>
 		<Class ClassID="102182" ClassName="GuildEmblemChangeItemIsLock" Data="길드 엠블럼 변경권 사용에 실패했습니다. 아이템 상태를 확인해 주세요."/>
-		<Class ClassID="102183" ClassName="GuildEventStateStartedErrorMsg" Data="길드 퀘스트가 시작된 이후에는 취소할 수 없습니다."/>
-		<Class ClassID="102184" ClassName="OnlyGuildEventAuthority" Data="길드 퀘스트 권한을 가진 길드원만 가능합니다."/>
-		<Class ClassID="102185" ClassName="ItemOnlyForGuildExpUpPlz" Data="길드 경험치를 올리기 위해선 길드 성장용 아이템을 올려주세요."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guild_authority_popup" x="0" y="0" width="340" height="615" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin="test_frame_low"/>
@@ -11,12 +11,10 @@
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<controls>
 		<groupbox name="bg_box" rect="0 0 320 595" margin="0 0 0 0" layout_gravity="center center" hittestbox="false" skin="test_frame_midle" scrollbar="false"/>
-		<groupbox name="bg_Box2" rect="0 0 105 595" margin="10 0 0 0" layout_gravity="left center" skin="pvp_Team_skin"/>
-		<groupbox name="bg_Box3" rect="0 0 100 595" margin="0 0 10 0" layout_gravity="right center" skin="pvp_Team_skin"/>
+		<groupbox name="bg_Box2" rect="0 0 160 595" margin="10 0 0 0" layout_gravity="left center" skin="pvp_Team_skin"/>
 		<groupbox name="headerBox" rect="0 0 320 40" margin="0 10 0 0" layout_gravity="center top" skin="market_listbase"/>
-		<richtext name="inviteText" rect="0 0 100 30" parent="headerBox" margin="35 0 0 0" layout_gravity="left center" caption="가입" fontname="black_18"/>
-		<richtext name="outText" rect="0 0 100 30" parent="headerBox" margin="0 0 0 0" layout_gravity="center center" caption="추방" fontname="black_18"/>
-		<richtext name="eventText" rect="0 0 100 30" parent="headerBox" margin="0 0 25 0" layout_gravity="right center" caption="퀘스트" fontname="black_18"/>
+		<richtext name="inviteText" rect="0 0 100 30" parent="headerBox" margin="60 0 0 0" layout_gravity="left center" caption="가입" fontname="black_18"/>
+		<richtext name="outText" rect="0 0 100 30" parent="headerBox" margin="0 0 60 0" layout_gravity="right center" caption="추방" fontname="black_18"/>
 		<groupbox name="authBox" rect="0 0 320 555" margin="0 50 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
 	</controls>
 </uiframe>

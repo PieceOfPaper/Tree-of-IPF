@@ -1,15 +1,21 @@
 function REQ_OPEN_GUILD_EVENT_PIP()
- 	gGuileEventList = {"FBOSS", "MISSION"}
+	gGuileEventList = {"FBOSS", "MISSION", "RAID"}
 	GUILD_EVENT_OPEN(nil)
 end
 
 
 function GUILD_EVENT_OPEN(frame)
-
+	
 	if frame == nil then
 		frame = ui.GetFrame("guildEventSelect")
 	end
 	
+	local isLeader = AM_I_LEADER(PARTY_GUILD);
+
+	if isLeader == 0 then
+		return;
+	end
+
 	ui.OpenFrame("guildEventSelect");
 
 	local pcGuild = session.party.GetPartyInfo(PARTY_GUILD);
@@ -49,7 +55,10 @@ function CREATE_GUILD_EVENT_LIST(frame)
 				eventName:SetTextByKey("value", cls.Name);
 
 				local userCount = GET_CHILD(ctrlSet, "UserCount");
-				userCount:SetTextByKey("value", cls.MaxPlayerCnt);
+				userCount:SetTextByKey("value", cls.PlayerCnt);
+
+				local timeLimit = GET_CHILD(ctrlSet, "TimeLimit");	
+				timeLimit:SetTextByKey("value", cls.TimeLimit/60);
 
 				local timeLimit = GET_CHILD(ctrlSet, "TimeLimit");	
 				timeLimit:SetTextByKey("value", cls.TimeLimit/60);
@@ -58,7 +67,7 @@ function CREATE_GUILD_EVENT_LIST(frame)
 				detailInfo:SetTextByKey("value", cls.DetailInfo);
 
 				local ticketText = GET_CHILD(ctrlSet, "ticketText");	
-				ticketText:SetTextByKey("value", 1);
+				ticketText:SetTextByKey("value", cls.Cost);
 
 				local eventType = GET_CHILD_RECURSIVELY(ctrlSet, "EventType", "ui::CPicture");
 				local imgName = frame:GetUserConfig("EVENT_TYPE_"..droplist:GetSelItemIndex())
@@ -81,6 +90,7 @@ function CREATE_GUILD_EVENT_LIST_INIT(frame)
 	droplist:ClearItems();
 	droplist:AddItem("0",  ClMsg("GuildIBossSummon"), 0);
 	droplist:AddItem("1",  ClMsg("GuildMission"), 0);
+	droplist:AddItem("2",  ClMsg("GuildIRaid"), 0);
 end
 
 function CREATE_GUILD_EVENT_LIST_CLICK(frame, ctrl)
@@ -105,9 +115,12 @@ function EXEC_GUILD_EVENT(clsID)
 	end
 	local guildObj = GetIES(pcGuild:GetObject());
 
+	local cls = GetClassByType("GuildEvent", clsID)
+	local ticketCost = cls.Cost;
+
 	local haveTicket = GET_REMAIN_TICKET_COUNT(guildObj)
 
-	if haveTicket <= 0 then
+	if ticketCost > haveTicket then
 		ui.SysMsg(ScpArgMsg("NotEnoughTicketPossibleCount"));
 		return;
 	end

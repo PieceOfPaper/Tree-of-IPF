@@ -224,8 +224,8 @@ function GET_GUILD_MAKE_PRICE()
 end
 
 function GET_REMAIN_TICKET_COUNT(guildObj)
-	local TicketCount = guildObj.GuildEventTicketCount
-	return TicketCount - guildObj.UsedTicketCount;
+	local guildLevel = guildObj.Level;
+	return guildLevel - guildObj.UsedTicketCount;
 end
 
 function IS_ENABLE_GUILD_NEUTRALITY(guildObj)

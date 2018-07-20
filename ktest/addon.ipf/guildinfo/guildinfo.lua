@@ -17,6 +17,7 @@
     addon:RegisterMsg('COLONY_ENTER_CONFIG_FAIL', 'GUILDINFO_COLONY_INIT_RADIO');
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
     addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
+    addon:RegisterMsg("GUILD_EVENT_UPDATE", "UPDATE_GUILD_EVENT_INFO");    
 
     g_ENABLE_GUILD_MEMBER_SHOW = false;
 end
@@ -259,4 +260,56 @@ function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 	local yesScp = string.format("ui.Chat('/agreeGuildMaster')");
 	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
 	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
+end
+
+function UPDATE_GUILD_EVENT_INFO(frame)
+    local pcparty = GET_MY_GUILD_INFO();
+    local partyObj = GET_MY_GUILD_OBJECT();
+    if pcparty == nil or partyObj == nil then
+        return;
+    end
+
+	local pcAcc = GetMyAccountObj();
+	if partyObj["GuildBossSummonFlag"] ~= 1 then
+		session.minimap.RemoveIconInfo("GuildBossSummon");
+	end
+	if partyObj["GuildInDunFlag"] ~= 1 then
+		session.minimap.RemoveIconInfo("GuildIndun");
+	end
+
+	if partyObj["GuildBossSummonFlag"] == 1 and pcAcc.GuildEventSeq == partyObj.GuildEventSeq then
+		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildBossSummonLocInfo");
+		if locInfo ~= nil then
+			local mapCls = GetClassByType("Map", locInfo.mapID);
+			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
+			local mapprop = session.GetCurrentMapProp();
+			if locInfo.mapID == mapprop.type then
+				session.minimap.AddIconInfo("GuildBossSummon", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
+			end
+		end
+	elseif partyObj["GuildInDunFlag"] == 1 then
+		local locInfo = geClientGuildEvent.GetGuildEventLocaionInfo(pcparty, "GuildInDunLocInfo");
+		if locInfo ~= nil then
+			local mapCls = GetClassByType("Map", locInfo.mapID);
+			local pos = geClientPartyQuest.GetLocInfoPos(locInfo);
+			local mapprop = session.GetCurrentMapProp();
+			if locInfo.mapID == mapprop.type then
+				session.minimap.AddIconInfo("GuildIndun", "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
+			end
+		end
+	end
+
+	if partyObj["GuildRaidFlag"] == 1 then
+		if partyObj["GuildRaidStage"] > 1 then
+			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"] - 1);
+			session.minimap.RemoveIconInfo(raidStage);
+		end
+		local stageMapID = geClientGuildEvent.GetStageMapID(pcparty)
+		local mapprop = session.GetCurrentMapProp();
+		if mapprop.type == stageMapID then
+			local pos = geClientGuildEvent.GetStagePos(pcparty)
+			local raidStage = string.format("raidStage%d", partyObj["GuildRaidStage"]);
+			session.minimap.AddIconInfo(raidStage, "trasuremapmark", pos, ClMsg("GuildEventLocal"), true, "None", 1.5);
+		end
+	end
 end

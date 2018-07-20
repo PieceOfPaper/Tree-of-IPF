@@ -9,16 +9,16 @@
 	<option closebutton="false"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<script OpenScp="GUILD_EVENT_OPEN" CloseScp="COLLECTION_CLOSE"/>
-	<userconfig EVENT_TYPE_0="guild_event_bosshunting" EVENT_TYPE_1="guild_event_indeon"/>
+	<userconfig EVENT_TYPE_0="guild_event_bosshunting" EVENT_TYPE_1="guild_event_indeon" EVENT_TYPE_2="guild_event_raid"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 550 1000" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_body" rect="0 0 550 930" margin="0 90 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
-		<groupbox name="pipwin_top" rect="0 0 550 126" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="pipwin_top" rect="0 0 550 126" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>		
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
-		<richtext name="richtext_1" rect="0 0 120 24" margin="-3 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s{/}" param1="value" param1_def="길드 퀘스트"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="-3 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s{/}" param1="value" param1_def="길드 이벤트"/>
 		<groupbox name="bg_title_key" rect="0 0 530 815" margin="10 140 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="test_frame_midle" parent="gbox"/>
 		<richtext name="guildLevel" margin="26 80 0 0" rect="0 0 120 24" format="{@st43}길드 Lv. %s{/}" param1="value" param1_def="0" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="richtext_1_1" rect="0 0 120 24" margin="-3 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s{/}" param1="value" param1_def="길드 퀘스트"/>
+		<richtext name="richtext_1_1" rect="0 0 120 24" margin="-3 17 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s{/}" param1="value" param1_def="길드 이벤트"/>
 		<droplist name="droplist_1" margin="397 85 0 0" rect="0 0 140 30" skin="droplist_normal" visibleline="5" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" layout_gravity="left top" SelectScp="CREATE_GUILD_EVENT_LIST_CLICK"/>
 	</controls>
 </uiframe>

@@ -1,27 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="guildeventpopup" x="0" y="104" width="500" height="600">
+<uiframe name="guildeventpopup" x="0" y="104" width="500" height="600" create="open">
 	<frame layout_gravity="right bottom" margin="0 -7 45 91"/>
-	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<draw drawtitlebar="false" drawframe="true" margin="0 -3 0 0"/>
-	<option visible="false" alwaysVisible="false" closebutton="false" hideable="false" margin="0 -3 0 0"  moveable="true" />
-	<userconfig AGREE_MEMBER_FACE_COLORTONE="FFFFFFFF" AGREE_MEMBER_NAME_FONT_COLORTAG="{@st66d}"/>
+	<option closebutton="false" hideable="true" margin="0 -3 0 0"/>
+	<script OpenScp="OPEN_GUILDEVENTPOPUP" margin="0 -3 0 0"/>
+	<userconfig REFUSE_MEMBER_FACE_COLORTONE="FF555533" AGREE_MEMBER_FACE_COLORTONE="FFFFFFFF" REFUSE_MEMBER_NAME_FONT_COLORTAG="{@st66d}" AGREE_MEMBER_NAME_FONT_COLORTAG="{@st66d}"/>
 	<skin frameskin="test_win_system"/>
 	<controls>
 		<groupbox name="groupbox_1" margin="0 -10 0 0" rect="0 0 440 130" hittestbox="false" skin="none" layout_gravity="center top"/>
-		<button name="btn_join" skin="test_red_button" rect="0 0 160 50" layout_gravity="left bottom" LBtnUpScp="REQ_JOIN_GUILD_EVENT" clicksound="button_click" oversound="button_over" margin="85 0 0 0" format="{@st41b}%s{/}" param1="value" param1_def="참여"/>
-		<button name="btn_close" skin="test_gray_button" rect="0 0 160 50" layout_gravity="left bottom" LBtnUpScp="REQ_ClOSE_GUILD_EVENT" clicksound="button_click" oversound="button_over" margin="255 0 0 0" format="{@st41b}%s{/}" param1="value" param1_def="거절"/>
+		<button name="btn_join" skin="test_red_button" rect="0 0 160 50" layout_gravity="left bottom" LBtnUpScp="REQ_JOIN_GUILDEVENT" clicksound="button_click" oversound="button_over" margin="85 0 0 0" format="{@st41b}%s{/}" param1="value" param1_def="참여"/>
+		<button name="btn_close" skin="test_gray_button" rect="0 0 160 50" layout_gravity="left bottom" LBtnUpScp="REQ_ClOSE_GUILDEVENT" clicksound="button_click" oversound="button_over" margin="255 0 0 0" format="{@st41b}%s{/}" param1="value" param1_def="거절"/>
 		<gauge name="gauge" margin="50 0 0 0" rect="0 0 400 43" skin="gauge_barrack_attack" inverse="false" point="50" layout_gravity="left top"/>
 		<groupbox name="bg" rect="0 0 470 100" margin="15 0 0 0" layout_gravity="left top" draw="true" resizebyparent="true" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" hittest="true"/>
 		<groupbox name="bgAccept" rect="0 0 350 100" margin="25 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="none" parent="bg" hittest="true"/>
+		<groupbox name="bgRefuse" rect="0 0 350 100" margin="25 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="none" parent="bg" hittest="true"/>
 		<richtext name="txt_joined_member" rect="0 0 10 10" margin="10 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@sti8}{s18}{ds}참여한 길드원 (%s){/}" param1="value" fontname="white_16" param1_def="?/?" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false" parent="bg"/>
-		<richtext name="txt_currentcount" rect="0 0 439 41" margin="32 44 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66b18}%s{/}" maxwidth="0" param1="value" param1_def="길드 퀘스트 참가자를 모집하고 있습니다." resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="txt_refused_member" rect="0 0 10 10" margin="10 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" format="{@st41}거절한 길드원{/}" fontname="brown_20_b" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false" parent="bg"/>
+		<richtext name="txt_currentcount" rect="0 0 439 41" margin="32 44 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66b18}%s{/}" maxwidth="0" param1="value" param1_def="길드 마스터가 길드 이벤트 참가자를 모집하고 있습니다." resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
 		<richtext name="txt_startwaittime" rect="0 0 296 27" margin="0 0 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{s18}%s{/}" maxwidth="0" param1="value" param1_def="6:23" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
 		<richtext name="txt_joincount" rect="0 0 100 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st63_yellow}인원 :{/}" maxwidth="0" param1="value" param1_def="" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false" parent="groupbox_1"/>
 		<richtext name="memberCount" rect="0 0 250 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66d}%s명 참여 (로그인 %s명중){/}" maxwidth="0" param1="value" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false" parent="groupbox_1" param2="value2" param2_def="0"/>
 		<richtext name="location" rect="0 0 100 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st63_yellow}위치 :{/}" maxwidth="0" param1="value" param1_def="" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false" parent="groupbox_1"/>
-		<richtext name="locationInfo" rect="0 0 250 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66d}%s{/}" maxwidth="0" param1="value" param1_def="" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false" parent="groupbox_1"/>
+		<richtext name="locationInfo" rect="0 0 250 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66d}%s{/}" maxwidth="0" param1="value" param1_def="코발트숲" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false" parent="groupbox_1"/>
 		<richtext name="goal" rect="0 0 100 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st63_yellow}목표 :{/}" maxwidth="0" param1="value" param1_def="" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false" parent="groupbox_1"/>
-		<richtext name="goalInfo" rect="0 0 250 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66d}%s{/}" maxwidth="0" param1="value" param1_def="" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false" parent="groupbox_1"/>
+		<richtext name="goalInfo" rect="0 0 250 40" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st66d}%s{/}" maxwidth="0" param1="value" param1_def="포아타 처치" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false" parent="groupbox_1"/>
 	</controls>
 </uiframe>
