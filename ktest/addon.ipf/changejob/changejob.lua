@@ -301,7 +301,10 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 	--skillslot:SetOverSound('win_open')
 	local canChangeJob = session.CanChangeJob();
     jobchangebutton:ShowWindow(0);
-    if jobinfo.HiddenJob == "YES" then
+    
+    local jobCircleValue = session.GetJobGrade(jobinfo.ClassID);
+    
+    if jobinfo.HiddenJob == "YES" and jobCircleValue <= 0 then
     	local pcEtc = GetMyEtcObject();
     	if pcEtc["HiddenJob_"..jobinfo.ClassName] ~= 300 and IS_KOR_TEST_SERVER() == false then
     	    return

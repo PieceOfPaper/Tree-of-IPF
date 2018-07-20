@@ -320,9 +320,14 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 	local bottomgroup = GET_CHILD(frame, 'bottomGbox', 'ui::CGroupBox')
 	local weightPicture = GET_CHILD(bottomgroup, 'inventory_weight','ui::CPicture')
 	local pc = GetMyPCObject();
-	local newwidth =  math.floor( pc.NowWeight * weightPicture:GetOriginalWidth() / pc.MaxWeight )
+	local newwidth = 0;
+	local rate = 0;
+	if pc.MaxWeight ~= 0 then
+		newwidth =  math.floor( pc.NowWeight * weightPicture:GetOriginalWidth() / pc.MaxWeight )
+		rate = math.floor(pc.NowWeight*100 / pc.MaxWeight)
+	end
 	local weightscptext = ScpArgMsg("Weight{All}{Max}","All", tostring(pc.NowWeight),"Max",tostring(pc.MaxWeight))
-	local weightratetext = ScpArgMsg("Weight{Rate}","Rate", tostring(math.floor(pc.NowWeight*100/pc.MaxWeight)))
+	local weightratetext = ScpArgMsg("Weight{Rate}","Rate", tostring(rate))
 
 	if newwidth > weightPicture:GetOriginalWidth() then
 		newwidth = weightPicture:GetOriginalWidth();

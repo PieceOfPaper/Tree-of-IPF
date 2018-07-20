@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -340,10 +340,20 @@
 		<Class ClassID="4156" ClassName="ItemRandomOptionGroupATK" Data="{img tooltip_attribute1}"/>
 		<Class ClassID="4157" ClassName="CannotUseNotAppliedOption" Data="미감정된 랜덤 옵션 아이템입니다."/>
 		<Class ClassID="4158" ClassName="DON_T_HAVE_ITEM_TO_DECOMPOSE" Data="분해할 아이템을 선택해 주세요."/>
-		<Class ClassID="4159" ClassName="ItemDecomposePrice" Data="분해 비용 : {Price}{nl}분해하시겠습니까?"/>
+		<Class ClassID="4159" ClassName="ItemDecomposePrice" Data="정말 분해를 진행하시겠습니까?{nl}분해 비용 : {Price}"/>
 		<Class ClassID="4164" ClassName="CannotUseInParty" Data="파티에 가입된 상태에서는 사용할 수 없습니다."/>
 		<Class ClassID="4165" ClassName="Event_Solmiki_Box_Title" Data="솔미키 선택 상자"/>
 	<Class ClassID="4166" ClassName="CannotBecause{LAST_INDEX}" Data="{LAST_INDEX}랭크에서 롤백했기 때문에 현재 랭크에서는 사용할 수 없습니다."/>
+		<Class ClassID="4167" ClassName="ItemDecomposeWarningPropMessage" Data="{@st47}{s18}{WARNINGPROP}{/}{/}한 아이템이 포함되어 있습니다.{nl} {nl}{DEFAULTMSG}"/>
+		<Class ClassID="4168" ClassName="ItemDecomposeWarningProp_Reinforce" Data="강화"/>
+		<Class ClassID="4169" ClassName="ItemDecomposeWarningProp_Transcend" Data="초월"/>
+		<Class ClassID="4170" ClassName="ItemDecomposeWarningProp_Awaken" Data="각성"/>
+		<Class ClassID="4171" ClassName="ItemDecomposeWarningProp_Socket_Equip" Data="젬 장착"/>
+		<Class ClassID="4172" ClassName="ItemDecomposeWarningProp_Socket_Add" Data="소켓 추가"/>
+		<Class ClassID="4160" ClassName="MonsterCardOptionGroupDEF" Data="{img blue_type}"/>
+		<Class ClassID="4161" ClassName="MonsterCardOptionGroupSTAT" Data="{img green_type}"/>
+		<Class ClassID="4162" ClassName="MonsterCardOptionGroupUTIL" Data="{img purple_type}"/>
+		<Class ClassID="4163" ClassName="MonsterCardOptionGroupATK" Data="{img red_type}"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1148,6 +1158,8 @@
 		<Class ClassID="21270" ClassName="ClassSolution" Data="해금권 선택 상자"/>
 		<Class ClassID="21273" ClassName="AdmissionItemLockMsg" Data="던전 입장 아이템이 잠금되어 있을 시 던전 입장이 불가능 합니다."/>
 		<Class ClassID="21274" ClassName="IndunAdmissionItemReset" Data="입장 횟수"/>
+		<Class ClassID="21272" ClassName="JunkSilverGachaResultInRaidRewardSmall" Data=""/>
+		<Class ClassID="21275" ClassName="IndunEnterNeedPCRank" Data="{NEED_RANK} 랭크 부터 입장이 가능합니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4431,6 +4443,7 @@
 		<Class ClassID="27741" ClassName="EVENT_1710_HALLOWEEN_MSG6" Data="막혀있어서 사용할 수 없는 방향 입니다"/>
 		<Class ClassID="27742" ClassName="EVENT_1710_HALLOWEEN_MSG7" Data="이번주 이벤트 상점 사탕 교환량 확인"/>
 		<Class ClassID="27743" ClassName="EVENT_1710_HALLOWEEN_MSG8" Data="이번주 이벤트 상점 사탕 교환량 : {COUNT}개"/>
+		<Class ClassID="27750" ClassName="CHANGEJOB_SERVER_MSG1" Data="해금을 완료하셔야 전직할 수 있는 클래스입니다"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -7578,7 +7591,8 @@
 		<Class ClassID="134036" ClassName="CannotLockInIndun" Data="입장 아이템을 해당 인던 안에서 잠글 수 없습니다."/>
 		<Class ClassID="134037" ClassName="Wait{Sec}ReturnOringinServer" Data="{Sec}초 후 입구로 돌아갑니다..."/>
 		<Class ClassID="134039" ClassName="MultipleErrorCannotReward" Data="설정한 만큼의 배수권이 인벤토리에 없어서 배수 토큰 적용에 실패했습니다."/>
-		<Class ClassID="134040" ClassName="IndunAfterSelectDialog" Data="{ID_NAME}(권장레벨:{ID_LV})에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
+		<Class ClassID="134040" ClassName="IndunAfterSelectDialog" Data="{ID_NAME}(권장레벨:{ID_LV} 제한랭크:{ID_NEEDRANK})에 입장하시겠습니까?{nl}당신과 파티를 맺은 플레이어만이 함께 입장할 수 있습니다."/>
+		<Class ClassID="134041" ClassName="IndunSelectDialog" Data="{ID_NAME}(권장레벨:{ID_LV} 제한랭크:{PC_RANK})"/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -10669,7 +10683,12 @@
 		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
 		<Class ClassID="501066" ClassName="Event_GOLDEN_WHALE_2" Data="고래의 보물 받기"/>
 		</Category>
-	<Category Name="Skill_Misc_Shop">
+<Category Name="GEM_GACHA">
+		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
+		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>
+		<Class ClassID="510003" ClassName="GEM_GACHA_START" Data="{GEMPAY}실버와 젬을 교환한다."/>
+		<Class ClassID="510004" ClassName="GEM_GACHA_COUPON_START" Data="{@st66d_y}{s16}오래된 황금 주화{/}{/}와 젬을 교환한다."/>
+	</Category>	<Category Name="Skill_Misc_Shop">
 		<Class ClassID="510100" ClassName="Skill_Misc_Shop_Sel_Warrior" Data="전사 계열"/>
 		<Class ClassID="510101" ClassName="Skill_Misc_Shop_Sel_Archer" Data="궁수 계열"/>
 		<Class ClassID="510102" ClassName="Skill_Misc_Shop_Sel_Mage" Data="마법사 계열"/>
@@ -10846,6 +10865,8 @@
 		<Class ClassID="1000014" ClassName="AlreadyFailOrDestroy_ChallengeMode" Data="먼저 도전 중인 파티원이 도전 실패 또는 완료하여 참여할 수 없습니다.{nl}잠시 후 다시 시도해주십시오."/>
 		<Class ClassID="1000015" ClassName="CantResurrect_ChallengeMode" Data="도전에 실패하여 부활할 수 없습니다. 잠시 후 원래 장소로 돌아갑니다."/>
 		<Class ClassID="1000016" ClassName="CantJoinLowLevel_ChallengeMode" Data="캐릭터의 레벨이 너무 낮아 입장하실 수 없습니다."/>
+	<Class ClassID="1000017" ClassName="CantReJoin_DifferentLevel_ChallengeMode" Data="도전을 중지한 단계와 현재 파티원이 도전중인 단계가 달라 재입장할 수 없습니다."/>
+		<Class ClassID="1000018" ClassName="AcceptChallengeMode_ReJoin" Data="도전중인 챌린지 단계가 있습니다. 재입장 하시겠습니까?"/>
 	</Category>
 	<Category Name="RankReset">
 		<Class ClassID="1001000" ClassName="CannotChangeJobBecauseJobLevel" Data="클래스 레벨이 최대 레벨일 때에만 가능합니다."/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -3807,7 +3807,7 @@
 		<image name="item_icon_Star150" file="icon\item\item_icon_Star150.png" imgrect="0 0 240 240" CMM_Caption="스타잼"/>
 		<image name="item_icon_Dia150" file="icon\item\item_icon_Dia150.png" imgrect="0 0 240 240" CMM_Caption="다이아잼"/>
 		<image name="item_icon_circle150" file="icon\item\item_icon_circle150.png" imgrect="0 0 240 240" CMM_Caption="서클잼"/>
-		<image name="item_icon_twentyside150" file="icon\item\item_icon_twentyside150.png" imgrect="0 0 240 240" CMM_Caption="이십면체잼"/>
+		<image name="item_icon_twentyside150" file="icon\item\item_icon_twentyside150.png" imgrect="0 0 128 128" CMM_Caption="이십면체잼"/>
 		<image name="icon_item_EBONYPAWN_DAGGER" file="icon\item\icon_item_EBONYPAWN_DAGGER.png" imgrect="0 0 128 128" CMM_Caption="에보니폰의 단검"/>
 		<image name="icon_item_farm47_sack_01" file="icon\item\icon_item_farm47_sack_01.png" imgrect="0 0 128 128" CMM_Caption="곡식자루"/>
 		<image name="icon_item_farm47_bitter" file="icon\item\icon_item_farm47_bitter.png" imgrect="0 0 128 128" CMM_Caption="비터드링크"/>
@@ -4446,6 +4446,7 @@
 		<image name="icon_item_poodle01_popupbook" file="\icon\item\icon_item_poodle01_popupbook.png" imgrect="0 0 256 256" CMM_Caption="동물 팝업북"/>
 		<image name="icon_item_poporion_popupbook" file="\icon\item\icon_item_poporion_popupbook.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_penguin01_popupbook" file="\icon\item\icon_item_penguin01_popupbook.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_antque_gold_coin" file="\icon\item\icon_item_antque_gold_coin.png" imgrect="0 0 256 256" CMM_Caption="젬 가챠 코인"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

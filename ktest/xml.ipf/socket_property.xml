@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SocketProperty>
 	<Item Name="gem_circle_1">
 		<Level Level="0" PropList_Weapon="ADD_MAXATK/40" PropList_Weapon_Penalty="ADD_MINATK/0" PropList_TopLeg="MHP/69" PropList_TopLeg_Penalty="DR/0" PropList_Hand="CRTATK/5" PropList_Hand_Penalty="HR/0" PropList_Foot="RHP/2" PropList_Foot_Penalty="MDEF/0" PropList_SubWeapon="PATK/25" PropList_SubWeapon_Penalty="DEF/0"/>
@@ -52,6 +52,19 @@
 		<Level Level="8" PropList_Weapon="CRTHR/69" PropList_Weapon_Penalty="CRTATK/-35" PropList_TopLeg="CRTDR/38" PropList_TopLeg_Penalty="MSP/-228" PropList_Hand="HR/58" PropList_Hand_Penalty="ADD_MINATK/-29" PropList_Foot="DR/42" PropList_Foot_Penalty="RSP/-168" PropList_SubWeapon="CRTHR/75" PropList_SubWeapon_Penalty="ADD_MAXATK/-25"/>
 		<Level Level="9" PropList_Weapon="CRTHR/88" PropList_Weapon_Penalty="CRTATK/-44" PropList_TopLeg="CRTDR/49" PropList_TopLeg_Penalty="MSP/-294" PropList_Hand="HR/74" PropList_Hand_Penalty="ADD_MINATK/-37" PropList_Foot="DR/54" PropList_Foot_Penalty="RSP/-216" PropList_SubWeapon="CRTHR/96" PropList_SubWeapon_Penalty="ADD_MAXATK/-32"/>
 		<Level Level="10" PropList_Weapon="CRTHR/110" PropList_Weapon_Penalty="CRTATK/-55" PropList_TopLeg="CRTDR/61" PropList_TopLeg_Penalty="MSP/-366" PropList_Hand="HR/92" PropList_Hand_Penalty="ADD_MINATK/-46" PropList_Foot="DR/68" PropList_Foot_Penalty="RSP/-272" PropList_SubWeapon="CRTHR/120" PropList_SubWeapon_Penalty="ADD_MAXATK/-40"/>
+	</Item>
+	<Item Name="gem_White_1">
+		<Level Level="0" PropList_Weapon="LootingChance/4" PropList_Weapon_Penalty="MNA/-1" PropList_TopLeg="LootingChance/4" PropList_TopLeg_Penalty="CON/-1" PropList_Hand="LootingChance/4" PropList_Hand_Penalty="STR/-1" PropList_Foot="LootingChance/4" PropList_Foot_Penalty="INT/-1" PropList_SubWeapon="LootingChance/4" PropList_SubWeapon_Penalty="DEX/-1"/>
+		<Level Level="1" PropList_Weapon="LootingChance/4" PropList_Weapon_Penalty="MNA/-1" PropList_TopLeg="LootingChance/4" PropList_TopLeg_Penalty="CON/-1" PropList_Hand="LootingChance/4" PropList_Hand_Penalty="STR/-1" PropList_Foot="LootingChance/4" PropList_Foot_Penalty="INT/-1" PropList_SubWeapon="LootingChance/4" PropList_SubWeapon_Penalty="DEX/-1"/>
+		<Level Level="2" PropList_Weapon="LootingChance/6" PropList_Weapon_Penalty="MNA/-2" PropList_TopLeg="LootingChance/6" PropList_TopLeg_Penalty="CON/-2" PropList_Hand="LootingChance/6" PropList_Hand_Penalty="STR/-2" PropList_Foot="LootingChance/6" PropList_Foot_Penalty="INT/-2" PropList_SubWeapon="LootingChance/6" PropList_SubWeapon_Penalty="DEX/-2"/>
+		<Level Level="3" PropList_Weapon="LootingChance/10" PropList_Weapon_Penalty="MNA/-3" PropList_TopLeg="LootingChance/10" PropList_TopLeg_Penalty="CON/-3" PropList_Hand="LootingChance/10" PropList_Hand_Penalty="STR/-3" PropList_Foot="LootingChance/10" PropList_Foot_Penalty="INT/-3" PropList_SubWeapon="LootingChance/10" PropList_SubWeapon_Penalty="DEX/-3"/>
+		<Level Level="4" PropList_Weapon="LootingChance/14" PropList_Weapon_Penalty="MNA/-4" PropList_TopLeg="LootingChance/14" PropList_TopLeg_Penalty="CON/-4" PropList_Hand="LootingChance/14" PropList_Hand_Penalty="STR/-4" PropList_Foot="LootingChance/14" PropList_Foot_Penalty="INT/-4" PropList_SubWeapon="LootingChance/14" PropList_SubWeapon_Penalty="DEX/-4"/>
+		<Level Level="5" PropList_Weapon="LootingChance/19" PropList_Weapon_Penalty="MNA/-5" PropList_TopLeg="LootingChance/19" PropList_TopLeg_Penalty="CON/-5" PropList_Hand="LootingChance/19" PropList_Hand_Penalty="STR/-5" PropList_Foot="LootingChance/19" PropList_Foot_Penalty="INT/-5" PropList_SubWeapon="LootingChance/19" PropList_SubWeapon_Penalty="DEX/-5"/>
+		<Level Level="6" PropList_Weapon="LootingChance/24" PropList_Weapon_Penalty="MNA/-6" PropList_TopLeg="LootingChance/24" PropList_TopLeg_Penalty="CON/-6" PropList_Hand="LootingChance/24" PropList_Hand_Penalty="STR/-6" PropList_Foot="LootingChance/24" PropList_Foot_Penalty="INT/-6" PropList_SubWeapon="LootingChance/24" PropList_SubWeapon_Penalty="DEX/-6"/>
+		<Level Level="7" PropList_Weapon="LootingChance/30" PropList_Weapon_Penalty="MNA/-7" PropList_TopLeg="LootingChance/30" PropList_TopLeg_Penalty="CON/-7" PropList_Hand="LootingChance/30" PropList_Hand_Penalty="STR/-7" PropList_Foot="LootingChance/30" PropList_Foot_Penalty="INT/-7" PropList_SubWeapon="LootingChance/30" PropList_SubWeapon_Penalty="DEX/-7"/>
+		<Level Level="8" PropList_Weapon="LootingChance/36" PropList_Weapon_Penalty="MNA/-8" PropList_TopLeg="LootingChance/36" PropList_TopLeg_Penalty="CON/-8" PropList_Hand="LootingChance/36" PropList_Hand_Penalty="STR/-8" PropList_Foot="LootingChance/36" PropList_Foot_Penalty="INT/-8" PropList_SubWeapon="LootingChance/36" PropList_SubWeapon_Penalty="DEX/-8"/>
+		<Level Level="9" PropList_Weapon="LootingChance/43" PropList_Weapon_Penalty="MNA/-9" PropList_TopLeg="LootingChance/43" PropList_TopLeg_Penalty="CON/-9" PropList_Hand="LootingChance/43" PropList_Hand_Penalty="STR/-9" PropList_Foot="LootingChance/43" PropList_Foot_Penalty="INT/-9" PropList_SubWeapon="LootingChance/43" PropList_SubWeapon_Penalty="DEX/-9"/>
+		<Level Level="10" PropList_Weapon="LootingChance/50" PropList_Weapon_Penalty="MNA/-10" PropList_TopLeg="LootingChance/50" PropList_TopLeg_Penalty="CON/-10" PropList_Hand="LootingChance/50" PropList_Hand_Penalty="STR/-10" PropList_Foot="LootingChance/50" PropList_Foot_Penalty="INT/-10" PropList_SubWeapon="LootingChance/50" PropList_SubWeapon_Penalty="DEX/-10"/>
 	</Item>
 	<Item Name="gem_star_test">
 		<Level Level="0" PropList_Weapon="CRTHR/2" PropList_Weapon_Penalty="CRTATK/0" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
@@ -1179,8 +1192,8 @@
 		<Level Level="1" PropList_Weapon="OptDesc/턴 언데드 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/턴 언데드 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
 	</Item>
 	<Item Name="Gem_Paladin_Conversion">
-		<Level Level="0" PropList_Weapon="OptDesc/개종 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/개종 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
-		<Level Level="1" PropList_Weapon="OptDesc/개종 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/개종 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="0" PropList_Weapon="OptDesc/생츄어리 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/생츄어리 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/생츄어리 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/생츄어리 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
 	</Item>
 	<Item Name="Gem_Paladin_Barrier">
 		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/배리어 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
@@ -1189,5 +1202,165 @@
 	<Item Name="Gem_Paladin_Conviction">
 		<Level Level="0" PropList_Weapon="OptDesc/컨빅션 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/컨빅션 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
 		<Level Level="1" PropList_Weapon="OptDesc/컨빅션 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/컨빅션 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Peltasta_Langort">
+		<Level Level="0" PropList_Weapon="OptDesc/랑고르트 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/랑고르트 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/랑고르트 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/랑고르트 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Squire_DeadlyCombo">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/데들리 콤보 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/데들리 콤보 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Corsair_PistolShot">
+		<Level Level="0" PropList_Weapon="OptDesc/피스톨 샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/피스톨 샷 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/피스톨 샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/피스톨 샷 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Doppelsoeldner_Zornhau">
+		<Level Level="0" PropList_Weapon="OptDesc/존하우 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/존하우 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/존하우 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/존하우 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Doppelsoeldner_Redel">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/레델 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/레델 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Doppelsoeldner_Zucken">
+		<Level Level="0" PropList_Weapon="OptDesc/츠켄 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/츠켄 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/츠켄 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/츠켄 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Doppelsoeldner_Zwerchhau">
+		<Level Level="0" PropList_Weapon="OptDesc/즈버크하우 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/즈버크하우 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/즈버크하우 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/즈버크하우 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Doppelsoeldner_Sturzhau">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/슈트루츠하우 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/슈트루츠하우 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Dragoon_Dragontooth">
+		<Level Level="0" PropList_Weapon="OptDesc/드래곤투스 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/드래곤투스 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/드래곤투스 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/드래곤투스 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Dragoon_Serpentine">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/서펜틴 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/서펜틴 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Dragoon_Gae_Bulg">
+		<Level Level="0" PropList_Weapon="OptDesc/게이불그 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/게이불그 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/게이불그 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/게이불그 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Dragoon_Dragon_Soar">
+		<Level Level="0" PropList_Weapon="OptDesc/드래곤소어 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/드래곤소어 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/드래곤소어 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/드래곤소어 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Templer_BattleOrders">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/배틀 오더스 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/배틀 오더스 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Templer_NonInvasiveArea">
+		<Level Level="0" PropList_Weapon="OptDesc/불가침 영역 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/불가침 영역 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/불가침 영역 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/불가침 영역 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Cryomancer_SubzeroShield">
+		<Level Level="0" PropList_Weapon="OptDesc/서브제로쉴드 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/서브제로쉴드 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/서브제로쉴드 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/서브제로쉴드 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Sorcerer_Evocation">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/이보케이션 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/이보케이션 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Sorcerer_Desmodus">
+		<Level Level="0" PropList_Weapon="OptDesc/데스모두스 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/데스모두스 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/데스모두스 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/데스모두스 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Alchemist_Combustion">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/컴버스천 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/컴버스천 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Warlock_PoleofAgony">
+		<Level Level="0" PropList_Weapon="OptDesc/폴 오브 아고니 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/폴 오브 아고니 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/폴 오브 아고니 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/폴 오브 아고니 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Warlock_Invocation">
+		<Level Level="0" PropList_Weapon="OptDesc/인보케이션 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/인보케이션 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/인보케이션 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/인보케이션 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Warlock_DarkTheurge">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/다크써지 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/다크써지 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Warlock_Mastema">
+		<Level Level="0" PropList_Weapon="OptDesc/마스테마 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/마스테마 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/마스테마 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/마스테마 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_QuarrelShooter_StonePicking">
+		<Level Level="0" PropList_Weapon="OptDesc/돌멩이 줍기 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/돌멩이 줍기 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/돌멩이 줍기 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/돌멩이 줍기 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Schwarzereiter_WildShot">
+		<Level Level="0" PropList_Weapon="OptDesc/와일드 샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/와일드 샷 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/와일드 샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/와일드 샷 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Falconer_BlisteringThrash">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/음속타 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/음속타 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Musketeer_CoveringFire">
+		<Level Level="0" PropList_Weapon="OptDesc/커버링파이어 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/커버링파이어 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/커버링파이어 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/커버링파이어 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Musketeer_HeadShot">
+		<Level Level="0" PropList_Weapon="OptDesc/헤드샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/헤드샷 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/헤드샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/헤드샷 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Musketeer_Snipe">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/스나이프 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/스나이프 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Musketeer_PenetrationShot">
+		<Level Level="0" PropList_Weapon="OptDesc/페네트레이션 샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/페네트레이션 샷 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/페네트레이션 샷 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/페네트레이션 샷 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Musketeer_ButtStroke">
+		<Level Level="0" PropList_Weapon="OptDesc/버트스트로크 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/버트스트로크 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/버트스트로크 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/버트스트로크 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Musketeer_BayonetThrust">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/바요넷 쓰러스트 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/바요넷 쓰러스트 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Paladin_Demolition">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/데몰리션 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/데몰리션 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Pardoner_Dekatos">
+		<Level Level="0" PropList_Weapon="OptDesc/데카토스 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/데카토스 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/데카토스 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/데카토스 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_PlagueDoctor_HealingFactor">
+		<Level Level="0" PropList_Weapon="OptDesc/힐링팩터 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/힐링팩터 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/힐링팩터 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/힐링팩터 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_PlagueDoctor_Incineration">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/소각 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/소각 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_PlagueDoctor_Fumigate">
+		<Level Level="0" PropList_Weapon="OptDesc/소독 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/소독 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/소독 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/소독 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_PlagueDoctor_Pandemic">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/판데믹 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/판데믹 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_PlagueDoctor_BeakMask">
+		<Level Level="0" PropList_Weapon="OptDesc/새 부리 가면 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/새 부리 가면 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/새 부리 가면 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="OptDesc/새 부리 가면 스킬 레벨 +1" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Kabbalist_RevengedSevenfold">
+		<Level Level="0" PropList_Weapon="OptDesc/리벤지드 세븐폴드 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/리벤지드 세븐폴드 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="OptDesc/리벤지드 세븐폴드 스킬 레벨 +1" PropList_Weapon_Penalty="None" PropList_TopLeg="None" PropList_TopLeg_Penalty="None" PropList_Hand="OptDesc/리벤지드 세븐폴드 스킬 레벨 +1" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+	</Item>
+	<Item Name="Gem_Kabbalist_Ayin_sof">
+		<Level Level="0" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/아인 소프 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
+		<Level Level="1" PropList_Weapon="None" PropList_Weapon_Penalty="None" PropList_TopLeg="OptDesc/아인 소프 스킬 레벨 +1" PropList_TopLeg_Penalty="None" PropList_Hand="None" PropList_Hand_Penalty="None" PropList_Foot="None" PropList_Foot_Penalty="None" PropList_SubWeapon="None" PropList_SubWeapon_Penalty="None"/>
 	</Item>
 </SocketProperty>

@@ -113,7 +113,7 @@
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>
-					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
+					<ToolScp Scp="SPCI_SKILLUP" Client="NO" UseSleep="NO">
 						<Str Str="Cannoneer_SweepingCannon"/>
 						<Num Num="-1"/>
 					</ToolScp>

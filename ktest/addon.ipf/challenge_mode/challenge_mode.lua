@@ -6,6 +6,10 @@ function DIALOG_ACCEPT_CHALLENGE_MODE(handle)
 	ui.MsgBox(ClMsg("AcceptChallengeMode"), "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ")", "None");
 end
 
+function DIALOG_ACCEPT_CHALLENGE_MODE_RE_JOIN(handle)
+	ui.MsgBox(ClMsg("AcceptChallengeMode_ReJoin"), "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ")", "None");
+end
+
 function ACCEPT_CHALLENGE_MODE(handle)
 	packet.AcceptChallengeMode(handle);
 end
@@ -40,6 +44,7 @@ function ON_CHALLENGE_MODE_TOTAL_KILL_COUNT(frame, msg, str, arg)
 		ui.OpenFrame("challenge_mode");
 		frame:ShowWindow(1);
 		
+		local level = tonumber(msgList[2]);
 		local progressGauge = GET_CHILD(frame, "challenge_gauge_lv", "ui::CGauge");
 		progressGauge:SetSkinName("challenge_gauge_lv1");
 		progressGauge:SetMaxPointWithTime(0, 1, 0.1, 0.5);
@@ -49,8 +54,8 @@ function ON_CHALLENGE_MODE_TOTAL_KILL_COUNT(frame, msg, str, arg)
 		picMax:StopUpdateScript("MAX_PICTURE_FADEINOUT");
 		
 		local picLevel = GET_CHILD(frame, "challenge_pic_lv", "ui::CPicture");
-		picLevel:SetImage("challenge_gauge_no1");
-		
+		picLevel:SetImage("challenge_gauge_no" .. level);
+
 		local textTimer = GET_CHILD(frame, "challenge_mode_timer", "ui::CPicture");
 		textTimer:SetTextByKey('time', "00:00");
 

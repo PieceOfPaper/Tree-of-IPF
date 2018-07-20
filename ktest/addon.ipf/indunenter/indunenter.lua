@@ -622,6 +622,18 @@ end
 function INDUNENTER_ENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
@@ -647,6 +659,18 @@ end
 function INDUNENTER_AUTOMATCH(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
@@ -675,6 +699,18 @@ end
 function INDUNENTER_PARTYMATCH(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
@@ -1032,6 +1068,18 @@ end
 function INDUNENTER_REENTER(frame, ctrl)
     local topFrame = frame:GetTopParentFrame();
     local textCount = topFrame:GetUserIValue("multipleCount");
+    local indunType = topFrame:GetUserValue('INDUN_TYPE');
+    local indunCls = GetClassByType('Indun', indunType);
+    local indunMinPCRank = TryGetProp(indunCls, 'PCRank')
+    local totaljobcount = session.GetPcTotalJobGrade()
+    
+    if indunMinPCRank ~= nil then
+        if indunMinPCRank > totaljobcount and indunMinPCRank ~= totaljobcount then
+            ui.SysMsg(ScpArgMsg('IndunEnterNeedPCRank', 'NEED_RANK', indunMinPCRank))
+            return;
+        end
+    end
+    
     ReqMoveToIndun(4, textCount);
 end
 

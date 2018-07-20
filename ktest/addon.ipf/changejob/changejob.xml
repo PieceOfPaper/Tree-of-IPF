@@ -11,7 +11,7 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
 	<controls>
 		<groupbox name="mbg" rect="0 0 570 1080" margin="660 0 0 0" layout_gravity="center center" container="true" hittestbox="false" skin="market_low"/>
-		<button name="closebtn" parent="mbg" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;changejob&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}클래스 정보 창을 닫습니다{/}"/>
+		<button name="closebtn" parent="mbg" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;changejob&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}전직 정보 창을 닫습니다{/}"/>
 		<richtext name="title" parent="mbg" rect="0 0 200 30" margin="0 22 60 0" layout_gravity="right top" caption="{@st43}전직 정보{/}"/>
 		<groupbox name="cjgroupbox_main" rect="0 0 1340 1080" margin="-290 0 0 0" layout_gravity="center center" hittestbox="true" leftscroll="true" skin=""/>
 		<picture name="class_image" rect="0 0 250 438" margin="510 -300 0 0" layout_gravity="center center" hittest="false" image="mainpc_crown" stretch="true"/>

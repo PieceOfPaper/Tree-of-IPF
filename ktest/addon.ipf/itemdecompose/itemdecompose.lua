@@ -219,7 +219,14 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		ui.MsgBox(ScpArgMsg("DON_T_HAVE_ITEM_TO_DECOMPOSE"))
 		return;
 	end
-
+	
+	local itemCheckProp = { }
+	itemCheckProp['Reinforce'] = 0;
+	itemCheckProp['Transcend'] = 0;
+	itemCheckProp['Awaken'] = 0;
+	itemCheckProp['Socket_Equip'] = 0;
+	itemCheckProp['Socket_Add'] = 0;
+	
 	for i = 0, slotSet:GetSelectedSlotCount() -1 do
 		local slot = slotSet:GetSelectedSlot(i)
 		local Icon = slot:GetIcon();
@@ -231,6 +238,35 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		local itemobj = GetIES(invitem:GetObject());
 
 		totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj);
+		
+		local itemReinforce = TryGetProp(itemobj, 'Reinforce_2');
+		if itemReinforce ~= nil and itemReinforce > 0 then
+			itemCheckProp['Reinforce'] = itemCheckProp['Reinforce'] + 1;
+		end
+		
+		local itemTranscend = TryGetProp(itemobj, 'Transcend');
+		if itemTranscend ~= nil and itemTranscend > 0 then
+			itemCheckProp['Transcend'] = itemCheckProp['Transcend'] + 1;
+		end
+		
+		local itemAwaken = TryGetProp(itemobj, 'IsAwaken');
+		if itemAwaken ~= nil and itemAwaken > 0 then
+			itemCheckProp['Awaken'] = itemCheckProp['Awaken'] + 1;
+		end
+		
+		for j = 0, 9 do
+    		local itemSocketEquip = TryGetProp(itemobj, 'Socket_Equip_' .. j);
+    		if itemSocketEquip ~= nil and itemSocketEquip > 0 then
+    			itemCheckProp['Socket_Equip'] = itemCheckProp['Socket_Equip'] + 1;
+    			break;
+    		end
+    		
+    		local itemSocketAdd = TryGetProp(itemobj, 'Socket_' .. j);
+    		if itemSocketAdd ~= nil and itemSocketAdd > 0 then
+    			itemCheckProp['Socket_Add'] = itemCheckProp['Socket_Add'] + 1;
+    			break;
+    		end
+    	end
 	end
 
 	if totalprice == 0 then
@@ -245,8 +281,22 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 
 	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('ItemDecomposePrice',"Price", txtPrice)
-	local msgBox = ui.MsgBox(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None");
 	
+	local checkPropList = { 'Reinforce', 'Transcend', 'Awaken', 'Socket_Equip', 'Socket_Add' };
+	local warningPropList = { };
+	for j = 1, #checkPropList do
+		local checkProp = checkPropList[j];
+		if itemCheckProp[checkProp] > 0 then
+			warningPropList[#warningPropList + 1] = ScpArgMsg('ItemDecomposeWarningProp_' .. checkProp);
+		end
+	end
+	
+	if #warningPropList > 0 then
+		local warningProp = table.concat(warningPropList, ", ")
+		msg = ScpArgMsg('ItemDecomposeWarningPropMessage', 'WARNINGPROP', warningProp, 'DEFAULTMSG', msg);
+	end
+	
+	local msgBox = ui.MsgBox(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None");
 	
 	msgBox:SetYesButtonSound("button_click_repair");
 end

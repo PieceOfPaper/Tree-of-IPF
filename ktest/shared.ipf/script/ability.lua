@@ -3,17 +3,25 @@ local jobHistory = GetJobHistorySting(pc)
     print(jobHistory)
 end
 
-function CHECK_ABILITY_LOCK(pc, ability)
+function LOGGING_ABILITY_CHECK(isEnableLogging, abilityName, logMsg)
+	if isEnableLogging ~= nil and isEnableLogging == true then
+		IMC_LOG("LOGGING_ABILITY_CHECK", "AbilityName : " .. abilityName .. ", LogMsg : " .. logMsg);
+	end
+end
+
+function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     if IsServerSection(pc) == 1 then
         if IS_REAL_PC(pc) == 'NO' then  -- 진짜 PC가 아니네 --
             if GetExProp(pc, "BUNSIN") == 1 then    -- 나는 분신인가? --
                 local bunsinOwner = GetExArgObject(pc, 'BUNSIN_OWNER'); -- 분신 본체가 있는가? --
                 if bunsinOwner == nil then
+					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] BunsinOwner is nullptr");
                     return 'LOCK';
                 else
                     pc = bunsinOwner;   -- 나는 본체다 --
                 end
             else
+				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] Not Real Pc");
                 return 'LOCK';
             end
         end
@@ -21,6 +29,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
     --IMC_LOG("INFO_NORMAL", "CHECK_ABILITY_LOCK-NOT-RETURN");
 
     if ability.Job == "None" then
+		LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Ability Job is None");
         return "UNLOCK";
     end
 
@@ -43,6 +52,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
 
             if abilGroupClass == nil then
                 IMC_LOG("INFO_NORMAL", "abilGroupClass is nil!!  jobCls.EngName : "..jobCls.EngName.."  ability.ClassName : "..ability.ClassName)
+				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass is nullptr");
                 return "UNLOCK"
             end
 
@@ -50,12 +60,15 @@ function CHECK_ABILITY_LOCK(pc, ability)
             local unlockFuncName = abilGroupClass.UnlockScr;
 
             if abilGroupClass.UnlockScr == "None" then
+				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                 return "UNLOCK"
             end
         
             local scp = _G[unlockFuncName];
             local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
         
+			LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[" .. ret .. "] Result1");
+			
             return ret;
         end
     else
@@ -71,6 +84,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
                 local unlockFuncName = abilGroupClass.UnlockScr;
 
                 if abilGroupClass.UnlockScr == "None" then
+					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                     return "UNLOCK"
                 end
         
@@ -78,6 +92,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
                 local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
 
                 if ret == "UNLOCK" then
+					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[" .. ret .. "] Result2");
                     return ret;
                 end
             end
@@ -85,6 +100,7 @@ function CHECK_ABILITY_LOCK(pc, ability)
     end
 
     IMC_LOG("INFO_NORMAL", "abilityUnlock Error");
+	LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] Error1");
     return "UNLOCK";
     
     

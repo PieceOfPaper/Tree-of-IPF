@@ -222,7 +222,7 @@
 		<userconfig BOTTOM_MARGIN="10" GRADE_FONT_SIZE="28"/>
 		<controls>
 			<picture name="itempic" layout_gravity="center top" stretch="true" rect="0 0 347 474" margin="0 100 0 0" updateparent="true"/>
-			<picture name="card_edge" image="moncard_magic" layout_gravity="center top" stretch="true" rect="0 0 384 546" margin="-2 33 0 0" updateparent="true"/>
+			<picture name="card_edge" layout_gravity="center top" stretch="true" rect="0 0 384 546" margin="-2 33 0 0" updateparent="true"/>
 			<richtext name="name" layout_gravity="center top" textalign="center top" fontname="white_20_ol" rect="0 0 120 30" margin="0 79 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true"/>
 			<richtext name="grade" layout_gravity="center top" textalign="center center" fontname="black_18" rect="0 0 395 40" margin="0 120 0 0" fixwidth="true" hittest="false" resizebytext="false" updateparent="true" caption="별별벼려별"/>
 			<richtext name="type_text" format="%s 종족" param1="type" param1_def="DefVal" rect="0 0 100 24" margin="30 590 0 0" fixwidth="false" hittest="false" fontname="brown_18_b" layout_gravity="left top"/>
@@ -244,6 +244,11 @@
 	<controlset name="tooltip_bosscard_bg" hittest="false" width="370" height="1000">
 		<controls>
 			<button name="tooltip_bg" skin="monstercard" layout_gravity="center bottom" stretch="true" rect="0 0 350 1000" margin="4 100 0 0" updateparent="true" scrollbar="false"/>
+		</controls>
+	</controlset>
+	<controlset name="labelline" hittest="false" width="540" height="7">
+		<controls>
+			<labelline name="labelline" skin="None" layout_gravity="center top" stretch="true" rect="0 0 525 4" margin="0 0 0 0" updateparent="true" scrollbar="false"/>
 		</controls>
 	</controlset>
 	<!-- 증표 아이템 관련 시작-->
@@ -616,6 +621,12 @@
 			<richtext name="material_name" rect="0 0 80 30" margin="90 0 0 0" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="brown_18"/>
 			<richtext name="material_count" rect="0 0 30 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" resizebytext="true" fixwidth="false" format="%s%s{/} / %s{/}" param1="color" param2="curCount" param3="needCount" fontname="brown_18"/>
 		<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="eachoption_in_monstercard" hittest="true" width="430" height="200" skin="None" hittestset="false" draw="true" stateskin="false">
+		<userconfig POS_Y="25"/>
+		<controls>
+			<richtext name="option_name" rect="0 0 80 30" margin="8 8 0 0" layout_gravity="left top" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="white_16_ol"/>
 		</controls>
 	</controlset>
 	<controlset name="draw_division_arrow" hittest="true" width="430" height="30" skin="None" hittestset="true" draw="true" stateskin="false">
@@ -2137,7 +2148,7 @@
 		<controls>
 			<picture name="slot" rect="0 0 200 164" margin="0 0 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" image="gemston_randombg" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
 			<slot name="itemslot" rect="0 0 85 85" margin="0 40 0 0" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot_empty" DropScp="None" texttooltip="" layout_gravity="center top" hittest="false"/>
-			<richtext name="itemtext" rect="0 0 150 30" format="{@st41}{/}" margin="0 0 0 28" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
+			<richtext name="itemtext" rect="0 0 200 30" format="{@st43d}{/}" margin="0 0 0 31" layout_gravity="center bottom" textalign="center top" param1="txt" param1_def="ItemName" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_b_ds_ol" fixwidth="true" omitbywidth="true" updateparent="false" drawbackground="false" slideshow="false"/>
 		</controls>
 	</controlset>
 	<controlset name="status_stat" toggle="false" hittest="true" width="455" height="15" skin="no">

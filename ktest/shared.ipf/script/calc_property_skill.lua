@@ -2485,14 +2485,9 @@ function SCR_Get_SkillFactor_DoomSpike(skill)
 end
 
 function SCR_GET_DoomSpike_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Cataphract23") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+	local value = 10 * skill.Level
+	
+	return value
 end
 
 function SCR_Get_SklAtkAdd_SteedCharge(skill)
@@ -6178,6 +6173,12 @@ function SCR_GET_FirstStrike_Ratio(skill)
     local value = 60
     return value
 
+end
+
+function SCR_GET_FirstStrike_Ratio2(skill)
+    local value = skill.Level * 10
+    
+    return value
 end
 
 function SCR_Get_SkillFactor_CannonBarrage(skill)
@@ -12526,28 +12527,21 @@ end
 
 
 function SCR_GET_Concentrate_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill)
---    local statValue = math.floor((pc.STR * 0.04 + pc.DEX * 0.02) * (skill.Level-1))
---    local value = 5.9 + (skill.Level - 1) * 1.5 + statValue;
-
-    local statBonus = (pc.STR * 0.1 + pc.DEX * 0.2) * skill.Level
-    local value = 5 + (skill.Level - 1) * 1.5 + statBonus
-
---    local Swordman22_abil = GetAbility(pc, "Swordman22")    -- 2rank Skill Damage multiple
---    local Swordman23_abil = GetAbility(pc, "Swordman23")    -- 3rank Skill Damage multiple
---    if Swordman23_abil ~= nil then
---        value = value * 1.44
---    elseif Swordman23_abil == nil and Swordman22_abil ~= nil then
---        value = value * 1.38
---    end
+    local pc = GetSkillOwner(skill);
+    local statBonus = 0;
+    local byAbilRate = 0;
+	
+    statBonus = math.floor((pc.STR * 0.1 + pc.DEX * 0.2) * skill.Level)
     
     local Swordman14_abil = GetAbility(pc, "Swordman14")
     if Swordman14_abil ~= nil and skill.Level >= 3 then
-        value = value * (1 + Swordman14_abil.Level * 0.01);
+        byAbilRate = Swordman14_abil.Level * 0.01;
     end
-    return math.floor(value);
-
+    
+    value = 5 + (skill.Level - 1) * 1.5 + statBonus;
+    value = value + (value * byAbilRate);
+    
+	return math.floor(value);
 end
 
 function SCR_GET_ShieldPush_Bufftime(skill)
@@ -13099,7 +13093,7 @@ function SCR_Get_BuildRoost_Ratio(skill)
 end
 
 function SCR_Get_BuildRoost_Ratio2(skill)
-    local value = 120;
+    local value = 20
     return value
 end
 
@@ -13116,7 +13110,9 @@ function SCR_Get_Hovering_Ratio(skill)
 end
 
 function SCR_Get_Circling_Ratio(skill)
-    return skill.Level
+	local value = 15 + skill.Level
+	
+    return value
 end
 
 function SCR_Get_HangingShot_Ratio(skill)
@@ -13133,6 +13129,14 @@ function SCR_GET_FirstStrike_Bufftime(skill)
     return value;
 end
 
+
+function SCR_GET_FirstStrike_Ratio(skill)
+    local value = 30 + (skill.Level * 3)
+    
+    return value;
+end
+
+
 function SHOOTMOVE_CYCLONE(skill)
 
     local pc = GetSkillOwner(skill);
@@ -13143,6 +13147,18 @@ function SHOOTMOVE_CYCLONE(skill)
     end
     
     return 0;
+end
+
+function SCR_GET_AcrobaticMount_Ratio(skill)
+    local value = skill.Level * 5
+	
+    return value;
+end
+
+function SCR_GET_AcrobaticMount_Ratio2(skill)
+    local value = skill.Level * 10
+	
+    return value;
 end
 
 
@@ -13948,7 +13964,7 @@ function SCR_GET_MagnumOpus_Ratio(skill)
 end
 
 function SCR_Get_RunningShot_Bufftime(skill)
-    return skill.Level * 2 + 13;
+    return 300
 end
 
 function SCR_GET_CoverTraps_Ratio(skill)
