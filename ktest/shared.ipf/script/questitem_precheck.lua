@@ -7665,12 +7665,11 @@ function SCR_PRE_CORAL_44_3_SQ_90_ITEM(self, argstring, argnum1, argnum2)
     local result = SCR_QUEST_CHECK(self, 'CORAL_44_3_SQ_90')
     if result == "PROGRESS" then
         if GetZoneName(self) == "f_coral_44_3" then
-            local list, cnt = SelectObject(self, 50, "ALL", 1)
-            if cnt >= 1 then
-                for i = 1, cnt do
-                    if list[i].ClassName == "dirt_heal_2" then
-                        print(list[i].ClassName, list[i].Dialog)
-                        if list[i].Dialog == 'CORAL_44_3_SQ_90_DARK' then
+            if GetLayer(self) == 0 then
+                local list, cnt = SelectObject(self, 50, "ALL", 1)
+                if cnt >= 1 then
+                    for i = 1, cnt do
+                        if list[i].ClassName == "dirt_heal_2" then
                             return GetHandle(list[i])
                         end
                     end

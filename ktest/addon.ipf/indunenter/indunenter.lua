@@ -614,7 +614,7 @@ function INDUNENTER_SET_WAIT_PC_COUNT(pcCount)
         return;
     end
     local memberCntText = GET_CHILD_RECURSIVELY(frame, 'memberCntText');
-    memberCntText:SetTextByKey('cnt', pcCount);
+    memberCntText:SetTextByKey('cnt', pcCount..ClMsg('PersonCountUnit'));
 end
 
 function INDUNENTER_SET_MEMBERCNTBOX()

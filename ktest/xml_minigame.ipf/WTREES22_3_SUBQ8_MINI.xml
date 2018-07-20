@@ -4,11 +4,11 @@
         <StageList>
             <Stage Name="Stage1">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58844" Pos="-1105.29#163.30#-1251.78" angle="168" genCount="1" genTime="20000" genReadyTime="15000" objectKey="0">
+                    <Obj Type="Monster" MonType="58844" Pos="-1105.29#163.30#-1251.78" angle="168" genCount="1" genTime="20000" genReadyTime="15000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1392.4413" Y="218.76819" Z="-1146.5653"/>
@@ -16,7 +16,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -24,11 +24,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58844" Pos="-1126.64#163.30#-1342.50" angle="-178" genCount="1" genTime="20000" genReadyTime="15000" objectKey="1">
+                    <Obj Type="Monster" MonType="58844" Pos="-1126.64#163.30#-1342.50" angle="-178" genCount="1" genTime="20000" genReadyTime="15000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1384.9987" Y="218.76819" Z="-1139.1282"/>
@@ -36,7 +36,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -44,11 +44,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58848" Pos="-1075.53#133.25#-1304.93" angle="159" genCount="1" genTime="20000" genReadyTime="15000" objectKey="3">
+                    <Obj Type="Monster" MonType="58848" Pos="-1075.53#133.25#-1304.93" angle="159" genCount="1" genTime="20000" genReadyTime="15000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1403.4812" Y="218.76819" Z="-1145.4027"/>
@@ -56,7 +56,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -85,11 +85,11 @@
             </Stage>
             <Stage Name="Stage2" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58854" Pos="-1162.62#163.30#-1299.99" angle="158" genCount="1" genTime="20000" objectKey="0">
+                    <Obj Type="Monster" MonType="58854" Pos="-1162.62#163.30#-1299.99" angle="158" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1406.2593" Y="218.76819" Z="-1137.6249"/>
@@ -97,7 +97,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -105,11 +105,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58854" Pos="-1115.23#159.68#-1269.98" angle="161" genCount="1" genTime="20000" objectKey="1">
+                    <Obj Type="Monster" MonType="58854" Pos="-1115.23#159.68#-1269.98" angle="161" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1381.8113" Y="218.76819" Z="-1153.151"/>
@@ -117,7 +117,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -125,11 +125,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58853" Pos="-1121.95#163.30#-1327.09" angle="137" genCount="1" genTime="20000" objectKey="2">
+                    <Obj Type="Monster" MonType="58853" Pos="-1121.95#163.30#-1327.09" angle="137" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1400.9711" Y="218.76819" Z="-1139.3865"/>
@@ -137,7 +137,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -145,11 +145,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58853" Pos="-1084.92#142.56#-1307.92" angle="-174" genCount="1" genTime="20000" objectKey="3">
+                    <Obj Type="Monster" MonType="58853" Pos="-1084.92#142.56#-1307.92" angle="-174" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1419.9109" Y="218.76819" Z="-1140.6201"/>
@@ -157,7 +157,7 @@
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -165,19 +165,19 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58847" Pos="-1059.74#125.76#-1330.21" angle="164" genCount="1" genTime="20000" objectKey="4">
+                    <Obj Type="Monster" MonType="58847" Pos="-1059.74#125.76#-1330.21" angle="164" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
                                 <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                                     <AbsPos X="-1354.8728" Y="218.76819" Z="-1075.2034"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
                                 </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -218,19 +218,16 @@
             </Stage>
             <Stage Name="Stage3" AutoStart="0">
                 <ObjList>
-                    <Obj Type="Monster" MonType="58853" Pos="-1082.47#141.65#-1329.76" angle="164" genCount="1" genTime="20000" objectKey="0">
+                    <Obj Type="Monster" MonType="58853" Pos="-1082.47#141.65#-1329.76" angle="164" genCount="1" genTime="20000" objectKey="0" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1403.3208" Y="218.76819" Z="-1090.574"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -238,19 +235,16 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58848" Pos="-1097.20#155.38#-1260.15" angle="-163" genCount="1" genTime="20000" objectKey="1">
+                    <Obj Type="Monster" MonType="58848" Pos="-1097.20#155.38#-1260.15" angle="-163" genCount="1" genTime="20000" objectKey="1" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1358.114" Y="218.76819" Z="-1078.3604"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -258,19 +252,16 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58854" Pos="-1120.35#163.30#-1340.04" angle="-177" genCount="1" genTime="20000" objectKey="2">
+                    <Obj Type="Monster" MonType="58854" Pos="-1120.35#163.30#-1340.04" angle="-177" genCount="1" genTime="20000" objectKey="2" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1344.0405" Y="218.79393" Z="-1104.7035"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -278,19 +269,16 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58854" Pos="-1124.40#163.30#-1270.67" angle="-161" genCount="1" genTime="20000" objectKey="3">
+                    <Obj Type="Monster" MonType="58854" Pos="-1124.40#163.30#-1270.67" angle="-161" genCount="1" genTime="20000" objectKey="3" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1346.457" Y="218.77661" Z="-1090.2776"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
                             <StartList>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
                                     <Str Str="Attack"/>
@@ -298,14 +286,11 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="58847" Pos="-1102.36#156.78#-1302.55" angle="168" genCount="1" genTime="20000" objectKey="4">
+                    <Obj Type="Monster" MonType="58847" Pos="-1102.36#156.78#-1302.55" angle="168" genCount="1" genTime="20000" objectKey="4" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-1363.101" Y="218.76819" Z="-1094.1198"/>
+                                    <Num Num="500"/>
                                 </ToolScp>
                             </List>
                             <StartList>
@@ -313,7 +298,7 @@
                                     <Str Str="Attack"/>
                                 </ToolScp>
                                 <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
-                                    <Num Num="4"/>
+                                    <Num Num="5"/>
                                 </ToolScp>
                             </StartList>
                         </SelfAI>

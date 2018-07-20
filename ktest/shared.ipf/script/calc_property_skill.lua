@@ -465,7 +465,7 @@ end
 function SCR_GET_SKL_COOLDOWN_Golden_Bell_Shield(skill)
     local pc = GetSkillOwner(skill);
     local basicCoolDown = skill.BasicCoolDown;
-    basicCoolDown = basicCoolDown - ((skill.Level - 1) * 1000);
+    basicCoolDown = basicCoolDown - (skill.Level * 1000);
     if basicCoolDown < 0 then
         basicCoolDown = 0;
     end
@@ -11480,12 +11480,12 @@ function SCR_GET_Change_Ratio(skill)
 end
 
 function SCR_GET_Forecast_Ratio(skill)
-    local value = 30;
+    local value = 300;
     local pc = GetSkillOwner(skill)
     
     local Oracle3_abil = GetAbility(pc, "Oracle3")
     if Oracle3_abil ~= nil and 1 == Oracle3_abil.ActiveState then
-        value = value + Oracle3_abil.Level * 2
+        value = value + Oracle3_abil.Level * 60;
     end
     
     return value

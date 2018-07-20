@@ -1,21 +1,24 @@
 
 function ITEMDECOMPOSE_UI_OPEN(frame, msg, arg1, arg2)
     ui.EnableSlotMultiSelect(1);
-    
+    RESET_SUCCESS(frame)
+    ITEMDECOMPOSE_CHECKBOX(frame)
+    ITEM_DECOMPOSE_ITEM_LIST(frame)
+end
+
+function ITEMDECOMPOSE_UI_CLOSE(frame, ctrl)
+	ui.EnableSlotMultiSelect(0);
+	frame:ShowWindow(0)
+end
+
+function RESET_SUCCESS(frame)
+    local frame = frame:GetTopParentFrame();
     local arrowBox = GET_CHILD_RECURSIVELY(frame, "arrowBox", "ui::CGroupBox");
     arrowBox:ShowWindow(0)
     local decomposeSuccess = GET_CHILD_RECURSIVELY(frame, "decomposeSuccess", "ui::CPicture");
     decomposeSuccess:ShowWindow(0)
     local slotlist = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet");
     slotlist:ShowWindow(0)
-    
-    ITEM_DECOMPOSE_ITEM_LIST(frame)
-    ITEMDECOMPOSE_CHECKBOX(frame)
-end
-
-function ITEMDECOMPOSE_UI_CLOSE(frame, ctrl)
-	ui.EnableSlotMultiSelect(0);
-	frame:ShowWindow(0)
 end
 
 function ITEMDECOMPOSE_CHECKBOX(frame)
@@ -51,7 +54,6 @@ function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
         local itemdecomposeFrame = ui.GetFrame("itemdecompose");
         ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
     end
-    
     return itemGradeList;
 end
 
@@ -100,13 +102,13 @@ function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
     	end
     	index = invItemList:Next(index);
 	end
+	RESET_SUCCESS(frame)
 end
 
 
 function ITEM_DECOMPOSE_SLOT_LBTDOWN(frame, ctrl)
-
 	ui.EnableSlotMultiSelect(1);
-
+    RESET_SUCCESS(frame)
 --	local slotSet = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "itemSlotset", "ui::CSlotSet")
     ITEM_DECOMPOSE_UPDATE_MONEY(frame)
 
@@ -148,10 +150,6 @@ function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
     
 	frame:SetUserValue('TOTAL_MONEY', totalprice);
 end
-
-
-
-
 
 function ITEM_DECOMPOSE_ALL_SELECT(frame, ctrl)
 	local isselected =  ctrl:GetUserValue("SELECTED");
@@ -299,3 +297,4 @@ function ITEM_DECOMPOSE_COMPLETE(...)
         end
     end
 end
+

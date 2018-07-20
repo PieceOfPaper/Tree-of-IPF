@@ -11,7 +11,7 @@
 	<animation frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>
 	<controls>
 		<picture name="dungeon_msg" rect="0 0 100 100" layout_gravity="center top" hittest="false" stretch="true"/>
-		<richtext name="text" rect="0 0 600 30" margin="0 0 0 0" layout_gravity="center bottom" caption="축하합니다! 레벨이 상승하였습니다" fixwidth="true" resizebytext="false" textalign="center top"/>
+		<richtext name="text" rect="0 0 600 350" margin="0 0 0 0" layout_gravity="center bottom" caption="축하합니다! 레벨이 상승하였습니다" fixwidth="true" resizebytext="false" textalign="center top"/>
 		<timer name="addontimer" rect="0 0 10 10"/>
 	</controls>
 </uiframe>

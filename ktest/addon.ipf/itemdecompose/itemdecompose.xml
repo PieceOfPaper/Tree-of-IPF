@@ -26,7 +26,6 @@
 		<slotset name="slotlist" rect="0 0 300 100" margin="0 640 0 0" layout_gravity="center top" row="1" col="2" size="85 85" skin="invenslot2" spc="4 4" enabledrop="false" enablepop="false"/>
 		<groupbox name="materialGbox2" rect="0 0 540 100" margin="0 0 0 168" layout_gravity="center bottom" hittest="true" draw="false"/>
 		<groupbox name="materialGbox" rect="0 0 500 38" margin="0 0 0 205" layout_gravity="center bottom" hittest="true" draw="false"/>
-		<groupbox name="line" rect="0 0 540 69" margin="0 0 0 0" parent="materialGbox2" layout_gravity="center bottom" skin="cutting_line_h" stretch="true"/>
 		<groupbox name="medalGbox2" rect="0 0 500 38" margin="0 0 0 160" layout_gravity="center bottom" draw="true" hittestbox="true" skin="test_weight_skin"/>
 		<picture name="medalPic2" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" parent="medalGbox2" image="icon_item_silver" stretch="true"/>
 		<richtext name="decomposeCostText" rect="0 0 120 24" parent="medalGbox2" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}분해 비용{/}"/>

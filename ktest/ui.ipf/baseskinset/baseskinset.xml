@@ -5141,6 +5141,7 @@
 		<image name="weapon_musket" file="\icon\wearing_weapon.tga" imgrect="63 21 20 20" CMM_Caption="장총"/>
 		<image name="weapon_All" file="\icon\wearing_weapon.tga" imgrect="84 21 28 20" CMM_Caption="전체"/>
 		<image name="weapon_companion" file="\icon\wearing_weapon.tga" imgrect="126 21 20 20" CMM_Caption="컴패니언"/>
+	<image name="weapon_Tmace" file="\icon\wearing_weapon.tga" imgrect="147 21 20 20" CMM_Caption="양손둔기"/>
 	</imagelist>
 	<imagelist category="indunmapimage">
 		<image name="Map_random" file="\skin\indunmap\Map_random.png" imgrect="0 0 295 450" CMM_Caption="맵랜덤일때"/>
@@ -5392,7 +5393,7 @@
 		<image name="market_default" file="\skin\market_default.png" imgrect="0 0 520 250" CMM_Caption="마켓배너준비(작은거)"/>
 		<image name="market_default2" file="\skin\market_default2.png" imgrect="0 0 1230 400" CMM_Caption="마켓배너준비(큰거)"/>
 		<image name="market_default3" file="\skin\market_default3.png" imgrect="0 0 512 246" CMM_Caption="마켓닫기버튼으로쓸이미지"/>
-    <image name="market_default4" file="\skin\market_default4.png" imgrect="0 0 1230 400" CMM_Caption="임시 마켓 데이터"/>
+		<image name="market_default4" file="\skin\market_default4.png" imgrect="0 0 1230 400" CMM_Caption="임시 마켓 데이터"/>
 		<image name="tpshop_image" file="\skin\market_skin.tga" imgrect="0 344 1180 80" CMM_Caption="마켓임시"/>
 		<image name="67percent_image" file="\skin\paid_skin.tga" imgrect="131 0 55 45" CMM_Caption="67%"/>
 		<image name="50percent_image" file="\skin\paid_skin.tga" imgrect="131 46 55 45" CMM_Caption="50%"/>
@@ -7732,6 +7733,9 @@
 		<image name="Dlg_port_Sandra" file="\npcimg\Sandra.png" imgrect="0 0 600 900" CMM_Caption="감정사마스터"/>
 		<image name="Dlg_port_Neringa" file="\npcimg\Neringa.png" imgrect="0 0 700 1000" CMM_Caption="환상도서관npc"/>
 		<image name="Dlg_port_Fish_Shop_Klapead" file="\npcimg\Fish_Shop_Klapead.png" imgrect="0 0 670 940" CMM_Caption="클라페다 낚시 관리인"/>
+		<image name="Dlg_port_Hauberk_red" file="\npcimg\Hauberk_red.png" imgrect="0 0 800 900" CMM_Caption="하우벅 레드"/>
+		<image name="Dlg_port_Hauberk_black" file="\npcimg\Hauberk_black.png" imgrect="0 0 800 900" CMM_Caption="하우벅 블랙"/>
+		<image name="Dlg_port_Hauberk_purple" file="\npcimg\Hauberk_purple.png" imgrect="0 0 800 900" CMM_Caption="하우벅 퍼플"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
