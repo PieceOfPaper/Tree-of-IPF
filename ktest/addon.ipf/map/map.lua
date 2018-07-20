@@ -221,10 +221,7 @@ function INIT_MAP_UI_COMMON(frame, mapName)
 	mapRankObj:SetText(GET_STAR_TXT(20,mapCls.MapRank))
 end
 
-
-
 function MAP_LBTN_DOWN(parent, ctrl)
-
 	if keyboard.IsKeyPressed("LCTRL") ~= 1 then
 		return;
 	end
@@ -234,7 +231,6 @@ function MAP_LBTN_DOWN(parent, ctrl)
 	local mapprop = geMapTable.GetMapProp(mapName);
 	local worldPos = mapprop:MinimapPosToWorldPos(x, y, ctrl:GetWidth(), ctrl:GetHeight());
 	LINK_MAP_POS(mapName, worldPos.x ,worldPos.y);
-
 end
 
 function CHECK_MAP_ICON(frame, object, argStr, argNum)
@@ -552,19 +548,18 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 			if idx ~= -1 and statelist[idx] == 'PROGRESS'then
 				local cls = questIESlist[idx];
 				WorldPos = quemoninfo.Pos;
-				local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
+				local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, mapWidth, mapHeight);
 
-
-				local Range = quemoninfo.GenRange * MINIMAP_LOC_MULTI * m_mapWidth / WORLD_SIZE;
-				local XC = m_offsetX + MapPos.x - Range / 2;
-				local YC = m_offsetY + MapPos.y - Range / 2;
+				local Range = quemoninfo.GenRange * MINIMAP_LOC_MULTI * mapWidth / WORLD_SIZE;
+				local XC = offsetX + MapPos.x - Range / 2;
+				local YC = offsetY + MapPos.y - Range / 2;
 				local ctrlname = "_NPC_MON_MARK" .. quemoninfo.QuestType.. "_" .. i .. "_" ..quemoninfo.MonsterType;
 				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, Range, Range);
 				tolua.cast(PictureC, "ui::CPicture");
 				SET_PICTURE_QUESTMAP(PictureC, 0);
 
-				XC = m_offsetX + MapPos.x - iconW / 2;
-				YC = m_offsetY + MapPos.y - iconH / 2;
+				XC = offsetX + MapPos.x - iconW / 2;
+				YC = offsetY + MapPos.y - iconH / 2;
 
 				ctrlname = "_NPC_MON_" .. quemoninfo.QuestType.. "_" .. i .. "_" .. quemoninfo.MonsterType;
 				PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
@@ -617,11 +612,13 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 									local GenCnt = GenList:Count();
 									for j = 0 , GenCnt - 1 do
 										WorldPos = GenList:Element(j);
-										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
-										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph);
+										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, mapWidth, mapHeight);
+										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, offsetX, offsetY, mapWidth, mapHeight);
+										
 										MAKE_LOC_CLICK_ICON(frame, i, stateidx, k, XC, YC, RangeX, RangeY, 30);
-										XC = m_offsetX + MapPos.x - iconW / 2;
-										YC = m_offsetY + MapPos.y - iconH / 2;
+										
+										XC = offsetX + MapPos.x - iconW / 2;
+										YC = offsetY + MapPos.y - iconH / 2;
 
 										MAKE_LOC_ICON(frame, cls, i, stateidx, k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist, MapPos);
 									end
@@ -630,13 +627,14 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 								allmaptxt = string.format("%s%s{nl}", allmaptxt, cls.Name);
 							end
 						else
-							local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
-							local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, mapprop, minimapw, minimaph);
+							local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, mapWidth, mapHeight);
+							local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, offsetX, offsetY, mapWidth, mapHeight);
 
 							MAKE_LOC_CLICK_ICON(frame, i, stateidx, k, XC, YC, RangeX, RangeY, 30);
+							
+							XC = offsetX + MapPos.x - iconW / 2;
+							YC = offsetY + MapPos.y - iconH / 2;
 
-							XC = m_offsetX + MapPos.x - iconW / 2;
-							YC = m_offsetY + MapPos.y - iconH / 2;
 							MAKE_LOC_ICON(frame, cls, i, stateidx, k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
 
 						end
@@ -695,11 +693,12 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 									local GenCnt = GenList:Count();
 									for j = 0 , GenCnt - 1 do
 										local WorldPos = GenList:Element(j);
-										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, m_mapWidth, m_mapHeight);
+										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, mapWidth, mapHeight);
 										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
 										MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
-										XC = m_offsetX + MapPos.x - iconW / 2;
-										YC = m_offsetY + MapPos.y - iconH / 2;
+										
+										XC = offsetX + MapPos.x - iconW / 2;
+										YC = offsetY + MapPos.y - iconH / 2;
 										MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..k, XC, YC, iconW, iconH, WorldPos, statelist, questIESlist);
 
 										roundCount = roundCount+1;
@@ -712,13 +711,13 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 								z = tonumber(locationMapName);
 							elseif count == 4 then
 								range = tonumber(locationMapName);
-								local MapPos = mapprop:WorldPosToMinimapPos(x, z, m_mapWidth, m_mapHeight);
+								local MapPos = mapprop:WorldPosToMinimapPos(x, z, mapWidth, mapHeight);
 
 								local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
 								MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 
-								XC = m_offsetX + MapPos.x - iconW / 2;
-								YC = m_offsetY + MapPos.y - iconH / 2;
+								XC = offsetX + MapPos.x - iconW / 2;
+								YC = offsetY + MapPos.y - iconH / 2;
 								MAKE_LOC_ICON(frame, cls, i, stateidx, 'group'..k, XC, YC, iconW, iconH, nil, statelist, questIESlist);
 								roundCount = roundCount + 1;
 
@@ -781,26 +780,20 @@ function SET_MINIMAP_TOOLTIP(ctrl, questclsid)
 
 end
 
-function GET_ICON_POS_BY_MAPPOS(x, y, iconW, iconH)
-	local XC = m_offsetX + x - iconW / 2;
-	local YC = m_offsetY + y - iconH / 2;
-	return XC, YC;
-end
-
-function GET_MAP_POS_BY_MAPPOS(MapPos, locinfo)
-	local RangeX = locinfo.Range * MINIMAP_LOC_MULTI * m_mapWidth / WORLD_SIZE;
-	local RangeY = locinfo.Range * MINIMAP_LOC_MULTI * m_mapHeight / WORLD_SIZE;
-	local XC = m_offsetX + MapPos.x - RangeX / 2;
-	local YC = m_offsetY + MapPos.y - RangeY / 2;
+function GET_MAP_POS_BY_MAPPOS(MapPos, locinfo, offsetX, offsetY, mapWidth, mapHeight)
+	local RangeX = locinfo.Range * MINIMAP_LOC_MULTI * mapWidth / WORLD_SIZE;
+	local RangeY = locinfo.Range * MINIMAP_LOC_MULTI * mapHeight / WORLD_SIZE;
+	local XC = offsetX + MapPos.x - RangeX / 2;
+	local YC = offsetY + MapPos.y - RangeY / 2;
 
 	return XC, YC, RangeX, RangeY;
 end
 
-function GET_MAP_POS_BY_SESSIONOBJ(MapPos, range)
-	local RangeX = range * MINIMAP_LOC_MULTI * m_mapWidth / WORLD_SIZE;
-	local RangeY = range * MINIMAP_LOC_MULTI * m_mapHeight / WORLD_SIZE;
-	local XC = m_offsetX + MapPos.x - RangeX / 2;
-	local YC = m_offsetY + MapPos.y - RangeY / 2;
+function GET_MAP_POS_BY_SESSIONOBJ(MapPos, range, offsetX, offsetY, mapWidth, mapHeight)
+	local RangeX = range * MINIMAP_LOC_MULTI * mapWidth / WORLD_SIZE;
+	local RangeY = range * MINIMAP_LOC_MULTI * mapHeight / WORLD_SIZE;
+	local XC = offsetX + MapPos.x - RangeX / 2;
+	local YC = offsetY + MapPos.y - RangeY / 2;
 
 	return XC, YC, RangeX, RangeY;
 end
