@@ -89,7 +89,16 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     if lv == nil then
         return 0;
     end
-        
+    
+    if  (GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(targetItem, 0);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+
     local transcendCount = TryGetProp(targetItem, "Transcend");
 
     if transcendCount == nil then

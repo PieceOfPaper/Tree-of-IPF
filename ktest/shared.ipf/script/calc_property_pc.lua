@@ -545,7 +545,7 @@ function SCR_Get_MSP(self)
         stat = 1;
     end
     
-    local byLevel = math.floor(jobMSP + ((lv - 1) * 7.5 * jobRate));
+    local byLevel = math.floor(jobMSP + ((lv - 1) * 12 * jobRate));
     local byStat = math.floor(((stat * 0.005) + (math.floor(stat / 10) * 0.015)) * byLevel);
     
     local byBonus = TryGetProp(self, "MSP_Bonus");
@@ -1824,17 +1824,12 @@ function SCR_Get_MSPD(self)
             byItem = 0;
         end
         
-        local byBonus = TryGetProp(self, "MSPD_Bonus");
-        if byBonus == nil then
-            byBonus = 0;
-        end
-        
         local byBuff = TryGetProp(self, "MSPD_BM");
         if byBuff == nil then
             byBuff = 0;
         end
         
-        value = value + byItem + byBonus + byBuff;
+        value = value + byItem + byBuff;
         
         local byBuffRate = TryGetProp(self, "SPD_BM");
         if byBuffRate == nil then
@@ -1896,6 +1891,13 @@ function SCR_Get_MSPD(self)
     if value > 60 then
         value = 60;
     end
+    
+    local byBonus = TryGetProp(self, "MSPD_Bonus");
+    if byBonus == nil then
+        byBonus = 0;
+    end
+    
+    value = value + byBonus;
     
     value = value * SERV_MSPD_FIX;
     

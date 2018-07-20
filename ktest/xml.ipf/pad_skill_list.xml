@@ -4841,7 +4841,7 @@ end"/>
                 <Str_Arg Str="None" Arg="0.60000002"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000"/>
+                <Num Num="5400"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
@@ -5353,7 +5353,7 @@ return obj.Level"/>
                 <Str_Arg Str="None" Arg="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="30000" UseFunc="1" FuncTxt="return 25000"/>
+                <Num Num="30000" UseFunc="1" FuncTxt="return 10000"/>
                 <Num Num="10"/>
             </ToolScp>
         </createEvent>
@@ -8735,7 +8735,7 @@ end"/>
                 <Str Str="PlagueVapours_Debuff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level;"/>
                 <Num Num="0"/>
-                <Num Num="7500" UseFunc="1" FuncTxt="return 10000 + obj.Level * 1500;"/>
+                <Num Num="7500" UseFunc="1" FuncTxt="return 15000"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
                 <Num Num="0"/>
@@ -8954,7 +8954,7 @@ end"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="15000"/>
-                <Num Num="10" UseFunc="1" FuncTxt="return 2 + obj.Level * 1"/>
+                <Num Num="10" UseFunc="1" FuncTxt="return 5"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
@@ -9022,7 +9022,7 @@ end"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="15000" UseFunc="1" FuncTxt="
 
-return 15000 + obj.Level * 1000"/>
+return 8400;"/>
                 <Num Num="1"/>
             </ToolScp>
         </createEvent>
@@ -10925,7 +10925,7 @@ return 3 + obj.Level * 0.5"/>
     <PadSkill Name="Warlock_PoleofAgony" CheckerType="0" Range="17.5" UpdateTerm="300" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="7000" UseFunc="1" FuncTxt="return obj.Level * 1000 + 7000"/>
+                <Num Num="7000" UseFunc="1" FuncTxt="return 6600;"/>
                 <Num Num="89990" UseFunc="1" FuncTxt="return 99999;"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">

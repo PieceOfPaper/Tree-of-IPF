@@ -86,8 +86,8 @@ function SCR_Get_SpendSP(skill)
 
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	-- lvUpSpendSP??루아??서??float ???????? ??정??기??해 ??수 5??리??서 반올림한??
-	-- ??렇??계산??줘????라??언???? 계산 값이 맞다. ??마????수??의 10??리쯤이 ??리?? ??을??.
+	-- lvUpSpendSP??루아?????float ???????? ?????�????????5??�????반올림한??
+	-- ?????계산??�???????????? 계산 값이 맞다. ??�?????????10??리�?????�?? ?????.
 	local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 	
 --	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
@@ -877,7 +877,7 @@ end
 
 function SCR_GET_PommelBeat_Ratio(skill)
 
-    return skill.Level * 2;
+    return (1 + (skill.Level - 1) * 0.5)
 
 end
 
@@ -2106,7 +2106,7 @@ end
 function SCR_Get_SkillFactor_Rush(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = skill.SklFactor
+	local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel;
 
 	local abil = GetAbility(pc, "Cataphract11")      -- Skill Damage add
     if abil ~= nil then
@@ -2128,7 +2128,7 @@ function SCR_GET_Rush_Ratio(skill)
 
 end
 function SCR_GET_Rush_Ratio3(skill)
-    local value = 33 + skill.Level *7;
+    local value = 10 + skill.Level *1;
     return value;
 end
 
@@ -2623,7 +2623,7 @@ end
 function SCR_GET_Lunge_Ratio2(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 10 * skill.Level
+	local value = 50 + (20 * skill.Level)
 	
 	return value;
 
@@ -2868,7 +2868,7 @@ function SCR_GET_ShareBuff_Ratio(skill)
 end
 
 function SCR_GET_ShareBuff_Ratio2(skill)
-    local value = 90 + skill.Level*10
+    local value = 42 + skill.Level*2
     return value;
 end
 
@@ -7091,7 +7091,7 @@ function SCR_GET_PoleofAgony_Ratio2(skill)
 end
 
 function SCR_GET_Ngadhundi_Ratio2(skill)
-	local value = 10 + skill.Level * 3
+	local value = 10 + skill.Level * 2
   return value
 
 end
@@ -7171,9 +7171,9 @@ function SCR_GET_BloodBath_Ratio(skill)
 end
 
 function SCR_GET_BloodBath_Ratio2(skill)
-    local AddValue = skill.SkillAtkAdd * 0.3
-	local value = AddValue
-	return math.floor(value);
+
+    local value = 1 * skill.Level
+	return value;
 
 end
 
@@ -7212,7 +7212,7 @@ end
 
 function SCR_GET_BloodSucking_Ratio3(skill)
 
-  local value = 82 + skill.Level * 7
+  local value = 40 + skill.Level * 2
   return value;
 
 end
@@ -8759,7 +8759,7 @@ function SCR_GET_EnergyBlast_Ratio2(skill)
 end
 
 function SCR_GET_EnergyBlast_Ratio3(skill)
-    local value = 62 + skill.Level *7;
+    local value = 35 + skill.Level * 1;
     return value;
 end
 
@@ -8948,7 +8948,7 @@ function SCR_GET_Incineration_Ratio(skill)
 end
 
 function SCR_GET_Incineration_Ratio2(skill)
-    local value = 1 * skill.Level
+    local value = 10
 
     return value
 end
@@ -9062,7 +9062,7 @@ function SCR_GET_PlagueVapours_Ratio(skill)
 end
 
 function SCR_GET_PlagueVapours_Bufftime(skill)
-	local value = 10 + skill.Level * 1.5
+	local value = 15
 	return value
 end
 
@@ -9524,7 +9524,7 @@ function SCR_GET_KaguraDance_Time(skill)
 end
 
 function SCR_GET_KaguraDance_Ratio(skill)
-	local value = 100 + skill.Level * 10
+	local value = 70 + skill.Level * 2
 	return value
 end
 
@@ -9775,7 +9775,7 @@ end
 
 function SCR_Get_Bodkin_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local value = skill.Level * 3
+    local value = skill.Level * 1
     
     local abil = GetAbility(pc, 'Fletcher2')
     if abil ~= nil and 1 == abil.ActiveState then
@@ -10081,7 +10081,7 @@ function SCR_Get_Coursing_Bufftime(skill)
 end
 
 function SCR_Get_Coursing_Ratio(skill)
-    local value = 10 + skill.Level * 1;
+    local value = 5 + skill.Level * 0.5;
     return value
 end
 
@@ -10177,7 +10177,7 @@ function SCR_GET_PsychicPressure_Ratio2(skill)
 end
 
 function SCR_GET_PsychicPressure_Ratio3(skill)
-    local value = 42 + skill.Level *5;
+    local value = 30 + skill.Level * 1;
     return value;
 end
 
@@ -10190,7 +10190,7 @@ function SCR_GET_GravityPole_Ratio(skill)
 end
 
 function SCR_GET_GravityPole_Ratio3(skill)
-    local value = 42 + skill.Level *5;
+    local value = 40 + skill.Level * 1;
     return value;
 end
 
@@ -10282,7 +10282,7 @@ function SCR_Get_FireBall_Bufftime(skill)
 end
 
 function SCR_GET_HellBreath_Ratio(skill)
-    local value = 30 + skill.Level * 7
+    local value = 27 + skill.Level * 2
     return value
 end
 
@@ -12566,12 +12566,13 @@ end
 
 function SCR_Get_Zalciai_Ratio2(skill)
 
-    local pc = GetSkillOwner(skill);
-    local value = 6.3 + (skill.Level - 1) * 1.6
-    
-	if pc ~= nil then
-        value = value + pc.MNA * 0.8
-	end
+--    local pc = GetSkillOwner(skill);
+--    local value = 6.3 + (skill.Level - 1) * 1.6
+--    
+--	if pc ~= nil then
+--        value = value + pc.MNA * 0.8
+--	end
+    local value = skill.Level * 10
 
     return math.floor(value)
 
@@ -12640,6 +12641,14 @@ function SCR_Get_Monstrance_Ratio(skill)
     
 end
 
+function SCR_Get_Monstrance_Ratio3(skill)
+	local pc = GetSkillOwner(skill);
+	local value = skill.Level;
+	
+    return math.floor(value);
+end
+
+
 function SCR_Get_Aspersion_Bufftime(skill)
 
 	local pc = GetSkillOwner(skill);
@@ -12676,7 +12685,7 @@ end
 
 function SCR_Get_VashitaSiddhi_Ratio2(skill)
 
-    local value = 45 + skill.Level *4;
+    local value = 35 + skill.Level * 1;
     return value;
 
 end
@@ -12758,7 +12767,7 @@ function SCR_Get_JointPenalty_Ratio(skill)
 end
 
 function SCR_Get_JointPenalty_Ratio2(skill)
-    local value = skill.Level * 10
+    local value = 6.5 + skill.Level * 0.5
     return math.floor(value)
 end
 
@@ -13360,7 +13369,7 @@ function SCR_NORMAL_SYNCHROTHRUSTING(self, from, skill, splash, ret)
 --	local sklFactor = skill.SklFactor;
 --	if IsBuffApplied(from, 'murmillo_helmet') == 'YES' then
 --	    local abilLevel = GET_ABIL_LEVEL(from, 'Murmillo14');
---	    sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- 이거 무르밀로 리밸런싱 할때 다시 --
+--	    sklFactor = sklFactor + math.floor(sklFactor * abilLevel * 0.28); -- ?�거 무르밀�?리밸?�싱 ?�때 ?�시 --
 --	end
 	
 	local def = lhEquipWeapon.DEF;
@@ -13550,7 +13559,7 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- 몬스??젬 ??킬보너??는 중첩??켜??무조??+1????킨??고??
+		value = value + 1;	-- 몬스???????�보?????중첩??�??무조??+1???????�??
 	end
 
     if skill.LevelByDB == 0 then
@@ -13741,7 +13750,7 @@ end
 function SCR_GET_Hexing_Ratio(skill)
     local pc = GetSkillOwner(skill);
 --    local value = 12.9 + (skill.Level - 1) * 3.2 + pc.MNA * 0.3
-    local value = 1.5 * skill.Level
+    local value = 3 + (skill.Level * 0.5)
     
     return value;
 end

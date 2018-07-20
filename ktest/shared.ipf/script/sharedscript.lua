@@ -1,3 +1,9 @@
+function IS_KOR_TEST_SERVER()
+    if GetServerNation() == 'KOR' and GetServerGroupID() == 9001 then
+        return true
+    end
+    return false
+end
 function IS_SEASON_SERVER(pc)
     
     if pc ~= nil then
@@ -8,9 +14,9 @@ function IS_SEASON_SERVER(pc)
 
                 --Test Server
                 --if GetServerNation() == "KOR" and serverGroupID == 1550 then
-				--	return "NO";
+                --  return "NO";
                 --else
-				--	return "YES";
+                --  return "YES";
                 --end
 
                 --Live Server
@@ -22,9 +28,9 @@ function IS_SEASON_SERVER(pc)
             else
                 --Test Server
                 --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-				--	return "YES"
+                --  return "YES"
                 --else
-				--	return "NO"
+                --  return "NO"
                 --end
     
                 --Live Server
@@ -42,9 +48,9 @@ function IS_SEASON_SERVER(pc)
 
                 --Test Server
                 --if GetServerNation() == "KOR" and serverGroupID == 1550 then
-				--	return "NO";
+                --  return "NO";
                 --else
-				--	return "YES";
+                --  return "YES";
                 --end
 
                 --Live Server
@@ -56,7 +62,7 @@ function IS_SEASON_SERVER(pc)
             else
                 --Test Server
                 --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-				--	return 'YES'
+                --  return 'YES'
                 --end
      
                 --Live Server
@@ -70,7 +76,7 @@ function IS_SEASON_SERVER(pc)
     else
         --Test Server
         --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-		--	return 'YES'
+        --  return 'YES'
         --end
     
         --Live Server
@@ -82,7 +88,7 @@ function IS_SEASON_SERVER(pc)
 
     --Test Server
     --if (GetServerNation() == "KOR" and GetServerGroupID() == 1550) then
-	--	return 'YES'
+    --  return 'YES'
     --end
     
     --Live Server
@@ -1003,7 +1009,7 @@ function GET_CLS_GROUP(idSpace, groupName)
     while 1 do
 
         local name = groupName .. "_" .. index;
-		local cls =	GetClassByNameFromList(clsList, name);
+        local cls = GetClassByNameFromList(clsList, name);
         if cls == nil then
             return retList;
         end
@@ -1039,11 +1045,6 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     
     if levelGap > 30 then
         local lvRatio = 1 - ((levelGap - 30) * 0.05);
-        value = value * lvRatio;
-    end
-    
-    if monLv > (pcLv + 20) then
-        local lvRatio = 1 - ((monLv - pcLv - 20) * 0.033);
         value = value * lvRatio;
     end
     
@@ -1379,9 +1380,9 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-		local conditionCount = #sList / 2;	-- 해당직업 전직조건 체크갯수
+        local conditionCount = #sList / 2;  -- 해당직업 전직조건 체크갯수
         
-		local completeCount = 0;			-- 전직조건에 몇개나 만족하는지
+        local completeCount = 0;            -- 전직조건에 몇개나 만족하는지
         for j = 1, conditionCount do
             -- 직업가지고있고 요구레벨보다 높은지 체크
             for n=0, #haveJobNameList do
@@ -1480,15 +1481,18 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
             if table.find(checkZoneList, questIES.StartMap) == 0 then
                 checkZoneList[#checkZoneList + 1] = questIES.StartMap
             end
-            if #checkZoneList > 0 then
-                for i = 1, #checkZoneList do
-                    if subQuestZoneList == nil or table.find(subQuestZoneList, checkZoneList[i]) > 0 then
-                        subQuestFlag = 1
-                        break
-                    end
-                end
+            if subQuestZoneList == nil then
             else
-                subQuestFlag = 2
+                if #checkZoneList > 0 then
+                    for i = 1, #checkZoneList do
+                        if table.find(subQuestZoneList, checkZoneList[i]) > 0 then
+                            subQuestFlag = 1
+                            break
+                        end
+                    end
+                else
+                    subQuestFlag = 2
+                end
             end
             
             if subQuestFlag == 0 then

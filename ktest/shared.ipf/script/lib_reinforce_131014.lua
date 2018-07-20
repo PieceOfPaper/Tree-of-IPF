@@ -54,6 +54,15 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
         return 0;
     end
     
+    if  (GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(fromItem, 0);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+    
     local value = 0;
 
     local priceRatio = 1;

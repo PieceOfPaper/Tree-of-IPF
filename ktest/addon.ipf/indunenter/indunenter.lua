@@ -145,12 +145,12 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 	end
 
 	local monSlotSet = GET_CHILD_RECURSIVELY(frame, 'monSlotSet');
-	local monSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'monSlotSet_extra');
+    local monRightBtn = GET_CHILD_RECURSIVELY(frame, 'monRightBtn');
+    local monLeftBtn = GET_CHILD_RECURSIVELY(frame, 'monLeftBtn');
 	
 	-- init
-	monSlotSet_extra:SetPos(monSlotSet_extra:GetOriginalX(), monSlotSet_extra:GetOriginalY());
 	monSlotSet:ClearIconAll();
-	monSlotSet_extra:ClearIconAll();
+    monSlotSet:SetUserValue('CURRENT_SLOT', 1);
 
 	-- data set
 	local bossList = TryGetProp(indunCls, 'BossList');
@@ -171,12 +171,7 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 		end
 
 		if monIcon ~= nil then
-			local slot = nil;
-			if i > 5 then
-				slot = monSlotSet_extra:GetSlotByIndex(10 - i);
-			else -- 5개까지는 기본적으로 보여지는 슬롯셋에 아이콘 추가
-				slot = monSlotSet:GetSlotByIndex(i - 1);
-			end
+			local slot = monSlotSet:GetSlotByIndex(i - 1);
 			if slot ~= nil then
 				local slotIcon = CreateIcon(slot);
 				slotIcon:SetImage(monIcon);
@@ -189,6 +184,14 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
 			end
 		end
 	end
+
+    if #bossTable > 5 then
+        monRightBtn:SetEnable(1);
+        monLeftBtn:SetEnable(0);
+    else
+        monRightBtn:SetEnable(0);
+        monLeftBtn:SetEnable(0);
+    end
 end
 
 function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
@@ -197,12 +200,12 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 	end
 
 	local rewardSlotSet = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet');
-	local rewardSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet_extra');
+	local rewardRightBtn = GET_CHILD_RECURSIVELY(frame, 'rewardRightBtn');
+    local rewardLeftBtn = GET_CHILD_RECURSIVELY(frame, 'rewardLeftBtn');
 
-	-- init
-	rewardSlotSet_extra:SetPos(rewardSlotSet_extra:GetOriginalX(), rewardSlotSet_extra:GetOriginalY());
+	-- init	
 	rewardSlotSet:ClearIconAll();
-	rewardSlotSet_extra:ClearIconAll();
+	
 
 	-- data set	
 	local itemList = TryGetProp(indunCls, 'ItemList');
@@ -222,21 +225,21 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 		end
 
 		if itemIcon ~= nil then
-			if i > 5 then
-				local slot = rewardSlotSet_extra:GetSlotByIndex(10 - i);
-				local slotIcon = CreateIcon(slot);
-				slotIcon:SetImage(itemIcon);
-				SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
-				slotIcon:SetTooltipOverlap(1);
-			else -- 5개까지는 기본적으로 보여지는 슬롯셋에 아이콘 추가
-				local slot = rewardSlotSet:GetSlotByIndex(i - 1);
-				local slotIcon = CreateIcon(slot);
-				slotIcon:SetImage(itemIcon);
-				SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
-				slotIcon:SetTooltipOverlap(1);
-			end
+			local slot = rewardSlotSet:GetSlotByIndex(i - 1);
+			local slotIcon = CreateIcon(slot);
+			slotIcon:SetImage(itemIcon);
+			SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemTable[i]);
+			slotIcon:SetTooltipOverlap(1);
 		end
 	end
+
+    if #itemTable > 5 then
+        rewardRightBtn:SetEnable(1);
+        rewardLeftBtn:SetEnable(0);
+    else
+        rewardRightBtn:SetEnable(0);
+        rewardLeftBtn:SetEnable(0);
+    end
 end
 
 function INDUNENTER_MAKE_MULTI_BOX(frame, indunCls)
@@ -910,46 +913,100 @@ function INDUNENTER_REENTER(frame, ctrl)
 	ReqMoveToIndun(4, textCount);
 end
 
-function INDUNENTER_MON_TOGGLE(frame, ctrl)
-	local topFrame = frame:GetTopParentFrame();
-	local monSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'monSlotSet_extra');
-	local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
-
+function INDUNENTER_MON_CLICK_RIGHT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
 	if monSlotCnt < 6 then
 		return;
 	end
 
-	monSlotCnt = monSlotCnt - 5; -- 더 보여줄 슬롯의 개수
-	if topFrame:GetUserValue('MON_TOGGLE_OPEN') == 'NO' then
-		topFrame:SetUserValue('MON_TOGGLE_OPEN', 'YES');
-		ctrl:SetImage(topFrame:GetUserConfig('MINUS_BTN_IMAGE'));
-		UI_PLAYFORCE(monSlotSet_extra, "slotsetRightMove_"..tostring(monSlotCnt));
-	else
-		topFrame:SetUserValue('MON_TOGGLE_OPEN', 'NO');
-		ctrl:SetImage(topFrame:GetUserConfig('PLUS_BTN_IMAGE'));
-		UI_PLAYFORCE(monSlotSet_extra, "slotsetLeftMove_"..tostring(monSlotCnt));		
-	end
+    local monSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'monSlotSet');
+    local currentSlot = monSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot + 4 == monSlotCnt then
+        return;
+    end
+            
+	UI_PLAYFORCE(monSlotSet, "slotsetLeftMove_1");
+    monSlotSet:SetUserValue('CURRENT_SLOT', currentSlot + 1);
+
+    -- button enable
+    if currentSlot + 5 == monSlotCnt then
+       ctrl:SetEnable(0);
+    end
+    local leftBtn = GET_CHILD_RECURSIVELY(topFrame, 'monLeftBtn');
+    leftBtn:SetEnable(1);
 end
 
-function INDUNENTER_REWARD_TOGGLE(frame, ctrl)
-	local topFrame = frame:GetTopParentFrame();
-	local rewardSlotSet_extra = GET_CHILD_RECURSIVELY(frame, 'rewardSlotSet_extra');
-	local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
+function INDUNENTER_MON_CLICK_LEFT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local monSlotCnt = topFrame:GetUserIValue('MON_SLOT_CNT');
+	if monSlotCnt < 6 then
+		return;
+	end
 
+    local monSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'monSlotSet');
+    local currentSlot = monSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot == 1 then
+        return;
+    end
+        
+	UI_PLAYFORCE(monSlotSet, "slotsetRightMove_1");
+    monSlotSet:SetUserValue('CURRENT_SLOT', currentSlot - 1);
+
+     -- button enable
+    if currentSlot - 1 == 1 then
+       ctrl:SetEnable(0);
+    end
+    local rightBtn = GET_CHILD_RECURSIVELY(topFrame, 'monRightBtn');
+    rightBtn:SetEnable(1);
+end
+
+function INDUNENTER_REWARD_CLICK_RIGHT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
 	if rewardSlotCnt < 6 then
 		return;
 	end
 
-	rewardSlotCnt = rewardSlotCnt - 5; -- 더 보여줄 슬롯의 개수
-	if topFrame:GetUserValue('ITEM_TOGGLE_OPEN') == 'NO' then
-		topFrame:SetUserValue('ITEM_TOGGLE_OPEN', 'YES');
-		ctrl:SetImage(topFrame:GetUserConfig('MINUS_BTN_IMAGE'));
-		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetRightMove_"..tostring(rewardSlotCnt));
-	else
-		topFrame:SetUserValue('ITEM_TOGGLE_OPEN', 'NO');
-		ctrl:SetImage(topFrame:GetUserConfig('PLUS_BTN_IMAGE'));
-		UI_PLAYFORCE(rewardSlotSet_extra, "slotsetLeftMove_"..tostring(rewardSlotCnt));		
+    local rewardSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'rewardSlotSet');
+    local currentSlot = rewardSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot + 4 == rewardSlotCnt then
+        return;
+    end
+        
+	UI_PLAYFORCE(rewardSlotSet, "slotsetLeftMove_1");
+    rewardSlotSet:SetUserValue('CURRENT_SLOT', currentSlot + 1);
+
+    -- button enable
+    if currentSlot + 5 == rewardSlotCnt then
+       ctrl:SetEnable(0);
+    end
+    local leftBtn = GET_CHILD_RECURSIVELY(topFrame, 'rewardLeftBtn');
+    leftBtn:SetEnable(1);   
+end
+
+function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)
+    local topFrame = parent:GetTopParentFrame();
+    local rewardSlotCnt = topFrame:GetUserIValue('REWARD_SLOT_CNT');
+	if rewardSlotCnt < 6 then
+		return;
 	end
+
+    local rewardSlotSet = GET_CHILD_RECURSIVELY(topFrame, 'rewardSlotSet');
+    local currentSlot = rewardSlotSet:GetUserIValue('CURRENT_SLOT');
+    if currentSlot == 1 then
+        return;
+    end
+        
+	UI_PLAYFORCE(monSlotSet, "slotsetRightMove_1");
+    rewardSlotSet:SetUserValue('CURRENT_SLOT', currentSlot - 1);
+
+    -- button enable
+    if currentSlot - 1 == 1 then
+       ctrl:SetEnable(0);
+    end
+    local rightBtn = GET_CHILD_RECURSIVELY(topFrame, 'rewardRightBtn');
+    rightBtn:SetEnable(1);
 end
 
 function INDUNENTER_MULTI_EXEC(frame, ctrl)

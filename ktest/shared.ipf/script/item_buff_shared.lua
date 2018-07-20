@@ -99,24 +99,57 @@ end
 
 function ITEMBUFF_NEEDITEM_Squire_WeaponTouchUp(self, item)
 --	local needCount = item.ItemStar + item.ItemStar * (item.ItemGrade - 1) / 2;
-   local UseLv = item.UseLv / 30
-   if UseLv < 1 then
-       UseLv = 1;
-   end
-   local needCount = UseLv + UseLv * (item.ItemGrade - 1) / 2;
-
-	needCount = math.max(1, needCount);
-	return "misc_whetstone", math.floor(needCount);
-end
+    
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+    lv = lv / 30
+        if lv < 1 then
+           lv = 1;
+        end
+    
+    local needCount = lv + lv * (item.ItemGrade - 1) / 2;
+    needCount = math.max(1, needCount);
+    return "misc_whetstone", math.floor(needCount);
+    end
 
 function ITEMBUFF_NEEDITEM_Squire_ArmorTouchUp(self, item)
-   local UseLv = item.UseLv / 30
-   if UseLv < 1 then
-       UseLv = 1;
-   end
-   local needCount = UseLv + UseLv * (item.ItemGrade - 1) / 2;   
-   
-   needCount = math.max(1, needCount);
+   local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+    lv = lv / 30
+        if lv < 1 then
+           lv = 1;
+        end
+    
+    local needCount = lv + lv * (item.ItemGrade - 1) / 2;
+    needCount = math.max(1, needCount);
 	return "misc_repairkit_1", math.floor(needCount);
 end
 
@@ -228,7 +261,25 @@ end
 function ITEMBUFF_VALUE_Squire_WeaponTouchUp(self, item, skillLevel)
     
 --	local value = item.ItemStar + skillLevel * item.ItemStar;
-    local value = math.floor(skillLevel + skillLevel * ((item.UseLv * 0.03) * (1 + (item.ItemGrade * 0.1 ))));
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+
+
+    local value = math.floor(skillLevel + skillLevel * ((lv * 0.03) * (1 + (grade * 0.1 ))));
 	local count = 2500 + skillLevel * 250 + self.INT;
 	local sec = 3600;
 	local Squire3 = GetAbility(self, 'Squire3');
@@ -241,7 +292,25 @@ end
 
 function ITEMBUFF_VALUE_Squire_ArmorTouchUp(self, item, skillLevel)
 --	local value = skillLevel;
-	local value = math.floor(skillLevel + skillLevel * ((item.UseLv * 0.005) * (1 + (item.ItemGrade * 0.1 ))));
+
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    local useLv = TryGetProp(item,"UseLv");
+    if useLv == nil then
+        return 0;
+    end
+    
+    local itemLv = TryGetProp(item,"ItemLv");
+    if itemLv == nil then
+        return 0;
+    end
+    
+    local lv = math.max(useLv, itemLv);
+
+	local value = math.floor(skillLevel + skillLevel * ((lv * 0.005) * (1 + (grade * 0.1 ))));
 	local count = 500 + skillLevel * 50 + self.INT;
 	local sec = 3600;
 	local Squire4 = GetAbility(self, 'Squire4');

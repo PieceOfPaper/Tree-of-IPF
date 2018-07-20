@@ -190,6 +190,15 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
 	    return 0;
 	end
 	
+	if(GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 0);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+	
 	local value = 0;
     
     local gradeRatio = { 1.0, 1.2, 1.5, 2.0 }
@@ -299,6 +308,15 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
 	    return 0;
 	end
 	
+	if(GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+	
 	local classType = TryGetProp(item,"ClassType");
 	if classType == nil then
 	    return 0;
@@ -343,6 +361,15 @@ function GET_BASIC_ATK(item)
     local hiddenLv = TryGetProp(item,"ItemLv");        
     if hiddenLv > 0 then
         lv = hiddenLv;
+    end
+    
+    if(GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item , 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
     end
     
     local grade = TryGetProp(item, "ItemGrade");
@@ -428,6 +455,15 @@ function GET_BASIC_MATK(item)
         lv = hiddenLv 
     end
     
+    if(GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
+
 	local gradeRatio = { 0.9, 1.0, 1.1, 1.25 }
 	local itemATK = (20 + ((lv)*3)) * gradeRatio[grade];
     local classType = TryGetProp(item,"ClassType");
@@ -547,6 +583,14 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         lv = hiddenLv;
     end
 	
+    if(GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
     
 	local def=0;
 	local hr =0;
@@ -675,6 +719,15 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend)
 	if hiddenLv > 0 then
 	    lv = hiddenLv;
 	end
+	
+    if(GetServerNation() == "KOR" and GetServerGroupID() == 9001 or GetServerGroupID() == 9501) then
+        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
+        if kupoleItemLv ==  nil then
+            lv = lv;
+        elseif kupoleItemLv > 0 then
+            lv = kupoleItemLv;
+        end
+    end
 	
     local classType = TryGetProp(item,"ClassType");
     if classType == nil then
@@ -1728,4 +1781,50 @@ end
 
 function SCR_GET_MAX_SOKET(item)
 	return item.MaxSocket_COUNT + item.AppraisalSoket;
+end
+
+function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
+    --큐폴 서버 아이템을 성장형으로 제작하기 위한 스크립트 --
+    local itemName = TryGetProp(item,"ClassName");
+    if itemName == nil then
+        return 0;
+    end
+    
+    local lv  = TryGetProp(item,"ItemLv");
+  
+    if lv == nil then
+        return 0;
+    end
+    
+    local checkKupole = {'T_SWD01_137',	'T_TSW01_129',	'T_STF01_137',	'T_TBW01_137',	'T_BOW01_130',	'T_MAC01_136',	'T_SPR01_119',	'T_TSP01_111',	'T_TSF01_129',	'T_RAP01_103',	'T_TOP01_139',	'T_LEG01_139',	'T_FOOT01_139',	'T_HAND01_139',	'T_TOP01_140',	'T_LEG01_140',	'T_FOOT01_140',	'T_HAND01_140',	'T_TOP01_141',	'T_LEG01_141',	'T_FOOT01_141',	'T_HAND01_141',	'T_NECK100_101',	'T_BRC100_101',	'T_SHD100_101',	'T_DAG100_101',	'T_CAN100_101',	'T_PST100_101', 'T_MUS100_101'}
+    
+    for i = 1, #checkKupole do
+        if checkKupole[i] == itemName then
+            local pc = nil;
+            
+                if IsServerObj(item) == 1 then
+                    pc = GetItemOwner(item)
+                else
+                    pc = GetMyPCObject()
+                end
+                
+                if pc == nil then
+                    return 0;
+                end
+            local pcLv = pc.Lv;
+            
+            if Reinforce == 1 then
+                if pcLv < 220 then
+                    lv = 220;
+                elseif pcLv < 270 then
+                    lv = 270;
+                else 
+                    lv = 315;
+                end
+            elseif Reinforce == 0 then
+                lv = lv
+            end
+        end
+    end
+    return lv;
 end

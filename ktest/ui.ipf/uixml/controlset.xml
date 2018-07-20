@@ -1445,6 +1445,18 @@
 			<button name="btn_getitem" margin="0 0 2 3" rect="0 0 45 45" image="M_down_btn" layout_gravity="right bottom" caption="" clicksound="button_click_big" oversound="button_over" LBtnUpScp="POSTBOX_GET_SELECTED_ITEM"/>
 		</controls>
 	</controlset>
+  <controlset name="steamptinventory_item" hittest="true" width="203" height="250" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
+    <controls>
+      <richtext name="title" margin="0 10 0 0" rect="0 0 120 24" caption="{@st66e}ZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+      <richtext name="textState" margin="10 48 0 0" rect="0 55 70 20" resizebytext="true" format="%s" param1="value" maxwidth="0" textalign="center center" fixwidth="true" updateparent="false" drawbackground="true" slideshow="false" hittest="false" layout_gravity="left top"/>
+      <groupbox name="skin_yellow" rect="0 0 189 30" margin="-1 0 0 55" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="skin_line"/>
+      <richtext name="nxpStatic" margin="30 170 0 0" rect="0 0 120 24" caption="지급 TP" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <picture name="tpicon_change" margin="0 33 0 0" rect="0 0 128 128" hittest="false" image="icon_item_tospoint500" stretch="true" changecursor="false" layout_gravity="center top"/>
+      <picture name="tpicon" margin="10 170 0 0" rect="0 0 20 20" hittest="false" image="icon_item_tospoint" stretch="true" changecursor="false" layout_gravity="left top"/>
+      <richtext name="nxp" margin="0 170 10 0" rect="0 0 120 24" caption="999" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+      <button name="buyBtn" rect="0 0 110 40" margin="0 0 0 10" layout_gravity="center bottom" skin="test_red_button" scrollbar="false" hittest="true" caption="{@st49}사용{/}" oversound="button_over" clicksound="button_click_stats" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="STEAMTPINVENTORY_ITEM_PURCHASE"/>
+    </controls>
+  </controlset>
 	<controlset name="ingameshop_item" hittest="true" width="203" height="250" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
 		<controls>
 			<richtext name="title" margin="0 10 0 0" rect="0 0 120 24" caption="{@st66e}ZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>

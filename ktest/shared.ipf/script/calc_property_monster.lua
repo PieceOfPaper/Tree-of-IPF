@@ -318,11 +318,11 @@ function SCR_Get_MON_DEF(self)
     local monRank = TryGetProp(self, "MonRank");
     if monRank ~= nil then
         if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.1;
+            byItem = byItem * 1.0;
         elseif monRank == "Elite" then
-            byItem = byItem * 1.25;
+            byItem = byItem * 1.1;
         elseif monRank == "Boss" then
-            byItem = byItem * 1.5;
+            byItem = byItem * 1.2;
         end
     end
     
@@ -414,11 +414,11 @@ function SCR_Get_MON_MDEF(self)
     local monRank = TryGetProp(self, "MonRank");
     if monRank ~= nil then
         if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.1;
+            byItem = byItem * 1.0;
         elseif monRank == "Elite" then
-            byItem = byItem * 1.25;
+            byItem = byItem * 1.1;
         elseif monRank == "Boss" then
-            byItem = byItem * 1.5;
+            byItem = byItem * 1.2;
         end
     end
     
@@ -661,11 +661,11 @@ function SCR_Get_MON_MINPATK(self)
     local monRank = TryGetProp(self, "MonRank");
     if monRank ~= nil then
         if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.1;
+            byItem = byItem * 1.0;
         elseif monRank == "Elite" then
-            byItem = byItem * 1.25;
+            byItem = byItem * 1.1;
         elseif monRank == "Boss" then
-            byItem = byItem * 1.5;
+            byItem = byItem * 1.2;
         end
     end
     
@@ -757,11 +757,11 @@ function SCR_Get_MON_MAXPATK(self)
     local monRank = TryGetProp(self, "MonRank");
     if monRank ~= nil then
         if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.1;
+            byItem = byItem * 1.0;
         elseif monRank == "Elite" then
-            byItem = byItem * 1.25;
+            byItem = byItem * 1.1;
         elseif monRank == "Boss" then
-            byItem = byItem * 1.5;
+            byItem = byItem * 1.2;
         end
     end
     
@@ -853,11 +853,11 @@ function SCR_Get_MON_MINMATK(self)
     local monRank = TryGetProp(self, "MonRank");
     if monRank ~= nil then
         if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.1;
+            byItem = byItem * 1.0;
         elseif monRank == "Elite" then
-            byItem = byItem * 1.25;
+            byItem = byItem * 1.1;
         elseif monRank == "Boss" then
-            byItem = byItem * 1.5;
+            byItem = byItem * 1.2;
         end
     end
     
@@ -949,11 +949,11 @@ function SCR_Get_MON_MAXMATK(self)
     local monRank = TryGetProp(self, "MonRank");
     if monRank ~= nil then
         if monRank == "Normal" or monRank == "Material" or monRank == "Special" then
-            byItem = byItem * 1.1;
+            byItem = byItem * 1.0;
         elseif monRank == "Elite" then
-            byItem = byItem * 1.25;
+            byItem = byItem * 1.1;
         elseif monRank == "Boss" then
-            byItem = byItem * 1.5;
+            byItem = byItem * 1.2;
         end
     end
     
@@ -1639,10 +1639,10 @@ function SCR_RACE_TYPE_RATE(self, prop)
     local raceList = { "Widling", "Forester", "Paramune", "Velnias", "Klaida" };
     local raceRateList = { };
     
-    -- 여기서부터 프로퍼티별 raceTypeList --
+    -- ?￢기??????로?¼티뱿raceTypeList --
     raceRateList["ATK"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
-    raceRateList["DEF"] = { 1.6, 0.72, 2.0, 1.2, 0.8 };
-    raceRateList["MDEF"] = { 0.8, 2.0, 0.72, 1.2, 1.6 };
+    raceRateList["DEF"] = { 0.95, 0.8, 1, 0.9 , 0.85 };
+    raceRateList["MDEF"] = { 0.85, 1, 0.8, 0.9, 0.95 };
     raceRateList["MHP"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
     
     if raceRateList[prop] == nil then
@@ -1673,11 +1673,11 @@ function SCR_SIZE_TYPE_RATE(self, prop)
     local sizeList = { "S", "M", "L", "XL" };
     local sizeRateList = { };
     
-    -- 여기서부터 프로퍼티별 raceTypeList --
+--  기존 raceTypeList --
 --    sizeRateList["ATK"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
 --    sizeRateList["DEF"] = { 1.6, 0.72, 2.0, 1.2, 0.8 };
 --    sizeRateList["MDEF"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
-    sizeRateList["MHP"] = { 1.0, 1.2, 1.5, 1.5 };
+    sizeRateList["MHP"] = { 0.8, 1, 1.25, 1.5 };
     
     if sizeRateList[prop] == nil then
         return 1.0;

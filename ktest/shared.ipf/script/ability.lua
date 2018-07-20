@@ -409,26 +409,36 @@ end
 function SCR_ABIL_LEATHER_ACTIVE(self, ability)
     local count = CHECK_ARMORMATERIAL(self, "Leather")
     local addCRTHR = 0;
+    local addHR = 0;
     
     if count >= 3 then
         addCRTHR = 30;
+        addHR = 30;
     end
     
     if count == 4 then
         addCRTHR = 50;
+        addHR = 50;
     end
     
     self.CRTHR_BM = self.CRTHR_BM + addCRTHR;
+    self.HR_BM = self.HR_BM + addHR;
     Invalidate(self, "CRTHR");
+    Invalidate(self, "HR");
     
     SetExProp(ability, "ADD_CRTHR", addCRTHR);
+    SetExProp(ability, "ADD_HR", addHR);
 end
 
 function SCR_ABIL_LEATHER_INACTIVE(self, ability)
     local addCRTHR = GetExProp(ability, "ADD_CRTHR");
+    local addHR = GetExProp(ability, "ADD_HR");
     
     self.CRTHR_BM = self.CRTHR_BM - addCRTHR;
+    self.HR_BM = self.HR_BM - addHR;
+    
     Invalidate(self, "CRTHR");
+    Invalidate(self, "HR");
 end
 
 
