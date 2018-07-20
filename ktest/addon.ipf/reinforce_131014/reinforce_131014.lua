@@ -1,6 +1,4 @@
-
 function REINFORCE_131014_ON_INIT(addon, frame)
-
 	
 end
 
@@ -64,12 +62,12 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 	hitPriceDesc:ShowWindow(1);
 	local fromItemObj = GetIES(fromItem:GetObject());
 	local toItemObj = GetIES(fromMoru:GetObject());
-	local hitCount = GET_REINFORCE_131014_HITCOUNT(fromItemObj, toItemObj);
+	local hitCount = GET_REINFORCE_HITCOUNT(fromItemObj, toItemObj);
 	hitCountDesc:SetTextByKey("hitcount", hitCount);
 
 	local moruObj = GetIES(fromMoru:GetObject());
 	local pc = GetMyPCObject()
-	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc);
+	local price = GET_REINFORCE_PRICE(fromItemObj, moruObj, pc);
 	local msg = GET_COMMAED_STRING(price)
 
 --    --EVENT_1804_TRANSCEND_REINFORCE
@@ -97,9 +95,8 @@ function REINFORCE_131014_UPDATE_MORU_COUNT(frame)
 
 end
 
-function REINFORCE_131014_IS_ABLE(frame)
-	
-	local fromItem, fromMoru = UPGRADE2_GET_ITEM(frame);
+function REINFORCE_131014_IS_ABLE(frame)	
+	local fromItem, fromMoru = GET_REINFORCE_TARGET_AND_MORU(frame);
 	if fromItem == nil or fromMoru == nil then
 		return false;
 	end
@@ -108,16 +105,14 @@ function REINFORCE_131014_IS_ABLE(frame)
 end
 
 function REINFORCE_131014_MSGBOX(frame)
-	local fromItem, fromMoru = UPGRADE2_GET_ITEM(frame);
+	local fromItem, fromMoru = GET_REINFORCE_TARGET_AND_MORU(frame);
 	local fromItemObj = GetIES(fromItem:GetObject());
 	local curReinforce = fromItemObj.Reinforce_2;
-
 	local moruObj = GetIES(fromMoru:GetObject());
-	local pc = GetMyPCObject()
-	local price = GET_REINFORCE_131014_PRICE(fromItemObj, moruObj, pc)
+	local pc = GetMyPCObject();
+	local price = GET_REINFORCE_PRICE(fromItemObj, moruObj, pc)
 	local hadmoney = GET_TOTAL_MONEY();
-	local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)
-	
+	local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)	
 	if hadmoney < retPrice then
 		ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughMoney'));
 		return;
@@ -126,9 +121,9 @@ function REINFORCE_131014_MSGBOX(frame)
 	local classType = TryGetProp(fromItemObj,"ClassType");
     DISABLE_BUTTON_DOUBLECLICK("reinforce_131014","exec", 1)
     --if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
-    if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~='Shield') then
+    if fromItemObj.GroupName == 'Weapon' or (fromItemObj.GroupName == 'SubWeapon' and  classType ~= 'Shield') then
     	if curReinforce >= 5 then
-               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" or moruObj.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then
+               	if IS_MORU_NOT_DESTROY_TARGET_ITEM(moruObj) == true then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
@@ -139,7 +134,7 @@ function REINFORCE_131014_MSGBOX(frame)
         	end
     else
         if curReinforce >= 5 then
-               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" or moruObj.ClassName == "Moru_Gold_TA_NR" or moruObj.ClassName == "Moru_Gold_Team_Trade" or moruObj.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then
+               	if IS_MORU_NOT_DESTROY_TARGET_ITEM(moruObj) == true then
                     ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
                    	return;
                	else
@@ -177,7 +172,7 @@ function REINFORCE_131014_EXEC()
 end
 
 
-function UPGRADE2_GET_ITEM(frame)
+function GET_REINFORCE_TARGET_AND_MORU(frame)
 	local fromItemSlot = GET_CHILD(frame, "fromItemSlot", "ui::CSlot");
 	local fromMoruSlot = GET_CHILD(frame, "fromMoruSlot", "ui::CSlot");
 	local fromItem = GET_SLOT_ITEM(fromItemSlot);

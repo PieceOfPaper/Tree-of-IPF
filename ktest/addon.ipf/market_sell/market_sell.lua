@@ -1,10 +1,11 @@
-
+﻿
 function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_REGISTER", "ON_MARKET_REGISTER");
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
-	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");    
+	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
+	addon:RegisterMsg('RESPONSE_MIN_PRICE', 'ON_RESPONSE_MIN_PRICE');
 end
 
 function MARKET_SELL_OPEN(frame)
@@ -12,9 +13,8 @@ function MARKET_SELL_OPEN(frame)
 	market.ReqMySellList(0);
 	packet.RequestItemList(IT_WAREHOUSE);
 
+
 	local groupbox = frame:GetChild("groupbox");
-	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
-	droplist:ClearItems();
 
 	local defaultTime = 0;
 	local cnt = GetMarketTimeCount();
@@ -23,7 +23,15 @@ function MARKET_SELL_OPEN(frame)
 	for i = 0 , cnt - 1 do
 		local time, free = GetMarketTimeAndTP(i);
 		timeTable[time] = free;
-		timeVec[#timeVec + 1] = time;		
+		timeVec[#timeVec + 1] = time;	
+		--가장 최근에 선택한 라디오로 세팅
+		local recent_radio_config = config.GetXMLConfig('MarketSellFeeValue'..i + 1);
+		if recent_radio_config == 1 then
+			local recent_radio = GET_CHILD_RECURSIVELY(frame, "feePerTime_"..i + 1);
+			if recent_radio ~= nil then
+				recent_radio:SetCheck(true);
+			end
+		end
 	end
 
 	table.sort(timeVec);
@@ -31,28 +39,28 @@ function MARKET_SELL_OPEN(frame)
 		local time = timeVec[i];
 		local free = timeTable[time];
 		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
-		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
 		defaultTime = time; -- 7일을 기본으로 해달래여
 		frame:SetUserValue('TIME_'..tostring(i - 1), time);
 		frame:SetUserValue('FREE_'..tostring(i - 1), free);
+
+		local radio = GET_CHILD_RECURSIVELY(frame, "feePerTime_"..i);
+		radio:SetTextByKey("time", time)
+		radio:SetTextByKey("free", free)
 	end
 
-	droplist:SelectItem(cnt - 1);
-	droplist:SelectItemByKey(defaultTime);
-
 	MARKET_SELL_ITEM_POP_BY_SLOT(frame, nil);
+	CLEAR_SELL_INFO(frame)
 end
 
 function MARKET_SELL_UPDATE_SLOT_ITEM(frame)
-
 	local groupbox = frame:GetChild("groupbox");
 
-	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
-	local itemname = groupbox:GetChild("itemname");
+	local slot_item = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
+	local itemname = GET_CHILD_RECURSIVELY(groupbox, "itemname");
 	local slotItem = GET_SLOT_ITEM(slot_item);
 	local itemObj = nil;
 	if slotItem == nil then
-		itemname:SetTextByKey("name", "");
+		itemname:SetTextByKey("name", frame:GetUserConfig("ITEM_NAME_DEF"));
 	else
 		itemObj = GetIES(slotItem:GetObject());
 		itemname:SetTextByKey("name", GET_FULL_NAME(itemObj));
@@ -71,7 +79,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 	local itemlist = GET_CHILD(frame, "itemlist", "ui::CDetailListBox");
 	itemlist:RemoveAllChild();
-	local sysTime = geTime.GetServerSystemTime();		
+	local sysTime = geTime.GetServerSystemTime();	
 	local count = session.market.GetItemCount();
 	for i = 0 , count - 1 do
 		local marketItem = session.market.GetItemByIndex(i);
@@ -84,47 +92,81 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		end	
 
 		local ctrlSet = INSERT_CONTROLSET_DETAIL_LIST(itemlist, i, 0, "market_sell_item_detail");
-		local pic = GET_CHILD(ctrlSet, "pic", "ui::CPicture");
+		local pic = GET_CHILD(ctrlSet, "pic", "ui::CSlot");
 		local imgName = GET_ITEM_ICON_IMAGE(itemObj);
-		pic:SetImage(imgName);
+        local icon = CreateIcon(pic)
+        SET_SLOT_ITEM_CLS(pic, itemObj)
+        SET_SLOT_STYLESET(pic, itemObj)
+        if itemObj.MaxStack > 1 then        	
+			SET_SLOT_COUNT_TEXT(pic, marketItem.count, '{s16}{ol}{b}');
+		end
 
-		local name = ctrlSet:GetChild("name");
-		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
+		local nameCtrl = ctrlSet:GetChild("name");
+		nameCtrl:SetTextByKey("value", GET_FULL_NAME(itemObj));
 
-		local itemCount = ctrlSet:GetChild("count");
-		itemCount:SetTextByKey("value", marketItem.count);
+		local totalPriceCtrl = ctrlSet:GetChild("totalPrice");
+		local totalPriceValue = marketItem.sellPrice * marketItem.count;
+		local totalPrice = GET_COMMAED_STRING(totalPriceValue);
+		totalPriceCtrl:SetTextByKey("value", totalPrice);
 
-		local priceStr = string.format("{img icon_item_silver %d %d}%s", 20, 20, GetMonetaryString(marketItem.sellPrice * marketItem.count));
-		local totalPrice = ctrlSet:GetChild("totalPrice");
-		totalPrice:SetTextByKey("value", priceStr);
+		local totalPriceStrCtrl = ctrlSet:GetChild("totalPriceStr");
+		local totalPriceStr = GetMonetaryString(totalPriceValue);
+		totalPriceStrCtrl:SetTextByKey("value", totalPriceStr);
+
+		local endIMCTime = marketItem:GetSysTime();
+		local endSYSTime = imcTime.ImcTimeToSysTime(endIMCTime)
+		local difSec = imcTime.GetDifSec(endSYSTime, sysTime);
+		local remainTimeCtrl = ctrlSet:GetChild("remainTime");
+		remainTimeCtrl:SetUserValue("REMAINSEC", difSec);
+		remainTimeCtrl:SetUserValue("STARTSEC", imcTime.GetAppTime());
+		remainTimeCtrl:RunUpdateScript("SHOW_REMAIN_MARKET_SELL_TIME");
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		priceStr = string.format("{img icon_item_silver %d %d}%s[%d%%]", 20, 20, GetMonetaryString( math.floor(marketItem.sellPrice * marketItem.count * cashValue)), stralue);
-		local silverFee = ctrlSet:GetChild("silverFee");
-		silverFee:SetTextByKey("value", priceStr);
+		local feeValueCtrl = ctrlSet:GetChild("feeValue");
+		local feeValue = math.floor(totalPriceValue * cashValue);
+
+		local feeStr = GET_COMMAED_STRING(feeValue);
+		feeValueCtrl:SetTextByKey("value", feeStr);
+
+		local feeValueStrCtrl = ctrlSet:GetChild("feeValueStr");
+		local feeValueStr = GetMonetaryString(feeValue);
+		feeValueStrCtrl:SetTextByKey("value", feeValueStr);
 
 		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 
 		local btn = GET_CHILD(ctrlSet, "btn");
 		btn:SetTextByKey("value", ClMsg("Cancel"));
 		btn:SetEventScript(ui.LBUTTONUP, "CANCEL_MARKET_ITEM");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,marketItem:GetMarketGuid());
-
 	end
 
 	itemlist:RealignItems();
-	GBOX_AUTO_ALIGN(itemlist, 10, 0, 0, false, true);
+	GBOX_AUTO_ALIGN(itemlist, 2, 0, 0, false, true);
+end
+
+function SHOW_REMAIN_MARKET_SELL_TIME(ctrl)
+	local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+	local startSec = ctrl:GetUserIValue("REMAINSEC");
+	startSec = startSec - elapsedSec;
+	if 0 > startSec then
+	 	ctrl:StopUpdateScript("SHOW_REMAIN_MARKET_SELL_TIME");
+		return 0;
+	end 
+	
+	local timeTxt = GET_TIME_TXT(startSec);
+	ctrl:SetTextByKey("value", timeTxt );
+	return 1;
 end
 
 function ON_MARKET_REGISTER(frame, msg, argStr, argNum)
 	ui.SysMsg(ClMsg("MarketItemRegisterSucceeded"));
 
 	local groupbox = frame:GetChild("groupbox");
-	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
+	local slot_item = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
 	CLEAR_SLOT_ITEM_INFO(slot_item);
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
+	CLEAR_SELL_INFO(frame)
 end
 
 function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)	
@@ -140,19 +182,15 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 	end
 
 	local groupbox = frame:GetChild("groupbox");
-	local silverRate = groupbox:GetChild("silverRate");
-	local upValue = silverRate:GetChild("upValue");
-	local downValue = silverRate:GetChild("downValue");
-	local min = silverRate:GetChild("min");
-	local max = silverRate:GetChild("max");
+	local sellPriceGbox = GET_CHILD_RECURSIVELY(groupbox, "sellPriceGbox");
+	local maxPrice = sellPriceGbox:GetChild("maxPrice");
+	local minPrice = sellPriceGbox:GetChild("minPrice");
 	
-	upValue:SetTextByKey("value", '0');
-	downValue:SetTextByKey("value", '0');
-	min:SetTextByKey("value", '0');
-	max:SetTextByKey("value", '0');
+	sellPriceGbox:SetTextByKey("value", '0');
+	sellPriceGbox:SetTextByKey("value", '0');
 
-	local edit_count = GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
-	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count", "ui::CEditControl");
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 
 	local obj = GetIES(invItem:GetObject());
 	if obj.ClassName == "PremiumToken" then
@@ -193,7 +231,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 
 
 	if nil == slot then
-		slot = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
+		slot = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
 	end
 	SET_SLOT_ITEM(slot, invItem);
 	edit_count:SetText(tradeCount);
@@ -205,14 +243,13 @@ end
 
 function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 	local groupbox = frame:GetChild("groupbox");
-	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
 	edit_price:SetMinNumber(0);
 
 	local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, nil);
 	if ret == true then
-		market.ReqSellMinMaxInfo(invItem:GetIESID());
-		frame:SetUserValue('REQ_ITEMID', invItem:GetIESID())
+		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID());
 	end
 end
 
@@ -224,32 +261,31 @@ function MARKET_SELL_ITEM_POP_BY_SLOT(parent, slot)
 		groupbox = frame:GetChild("groupbox");
 	end
 
-	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	local frame = parent:GetTopParentFrame();
+	local itemname = GET_CHILD_RECURSIVELY(groupbox, "itemname");
+	itemname:SetTextByKey("name", frame:GetUserConfig("ITEM_NAME_DEF"));
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
-	local edit_count =GET_CHILD(groupbox, "edit_count", "ui::CEditControl");
+	local edit_count =GET_CHILD_RECURSIVELY(groupbox, "edit_count", "ui::CEditControl");
 	edit_count:SetText("1");
-	local silverRate = groupbox:GetChild("silverRate");
+	local silverRate = groupbox:GetChild("sellPriceGbox");
 
-	local upValue = silverRate:GetChild("upValue");
-	local downValue = silverRate:GetChild("downValue");
-	local min = silverRate:GetChild("min");
-	local max = silverRate:GetChild("max");
+	local maxPrice = silverRate:GetChild("maxPrice");
+	local minPrice = silverRate:GetChild("minPrice");
+	
+	maxPrice:SetTextByKey("value", '0');
+	minPrice:SetTextByKey("value", '0');
 
-	upValue:SetTextByKey("value", '0');
-	downValue:SetTextByKey("value", '0');
-	min:SetTextByKey("value", '0');
-	max:SetTextByKey("value", '0');
-
-	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
+	local slot_item = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
 	CLEAR_SLOT_ITEM_INFO(slot_item);
+	CLEAR_SELL_INFO(frame)
 end
 
 function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
-
 	local frame = parent:GetTopParentFrame();
 	local liftIcon = ui.GetLiftIcon();
 	local groupbox = slot:GetParent();
-	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
 	edit_price:SetMinNumber(0);
 
@@ -265,9 +301,8 @@ function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
 	local invItem = session.GetInvItemByGuid(itemID);
 	if invItem ~= nil then
 		local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
-		if ret == true then
-			market.ReqSellMinMaxInfo(itemID);
-			frame:SetUserValue('REQ_ITEMID', itemID)
+		if ret == true then			
+			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID);
 		end
 		return;
 	end
@@ -280,19 +315,15 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 	local itemID = frame:GetUserValue('REQ_ITEMID');
 	local invItem = session.GetInvItemByGuid(itemID);
 	local groupbox = frame:GetChild("groupbox");
-	local silverRate = groupbox:GetChild("silverRate");
+	local silverRate = groupbox:GetChild("sellPriceGbox");
 
-	local upValue = silverRate:GetChild("upValue");
-	local downValue = silverRate:GetChild("downValue");
-	local min = silverRate:GetChild("min");
-	local max = silverRate:GetChild("max");
+	local maxPrice = silverRate:GetChild("maxPrice");
+	local minPrice = silverRate:GetChild("minPrice");
 
-	upValue:SetTextByKey("value", '0');
-	downValue:SetTextByKey("value", '0');
-	min:SetTextByKey("value", '0');
-	max:SetTextByKey("value", '0');
+	maxPrice:SetTextByKey("value", '0');
+	minPrice:SetTextByKey("value", '0');
 
-	local edit_price = GET_CHILD(groupbox, "edit_price", "ui::CEditControl");
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
 	edit_price:SetMaxNumber(2147483647);
 	edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
@@ -304,11 +335,8 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		local maxStr = tokenList[3];
 		local maxAllow = tokenList[4];
 		local avg = tokenList[5];
-
-		upValue:SetTextByKey("value", GET_COMMAED_STRING(maxAllow));        
-		downValue:SetTextByKey("value", GET_COMMAED_STRING(minAllow));
-		min:SetTextByKey("value", GET_COMMAED_STRING(minStr));
-		max:SetTextByKey("value", GET_COMMAED_STRING(maxStr));
+		maxPrice:SetTextByKey("value", GET_COMMAED_STRING(maxAllow));        
+		minPrice:SetTextByKey("value", GET_COMMAED_STRING(minAllow));
 		edit_price:SetText(GET_COMMAED_STRING(avg));
 		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
@@ -346,9 +374,9 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	local frame = parent:GetTopParentFrame();
 	local groupbox = frame:GetChild("groupbox");
-	local slot_item = GET_CHILD(groupbox, "slot_item", "ui::CSlot");
-	local edit_count = groupbox:GetChild("edit_count");
-	local edit_price = groupbox:GetChild("edit_price");
+	local slot_item = GET_CHILD_RECURSIVELY(groupbox, "slot_item", "ui::CSlot");
+	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count");
+	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price");
 
 	local invitem = GET_SLOT_ITEM(slot_item);
 	if invitem == nil then
@@ -359,6 +387,11 @@ function MARKET_SELL_REGISTER(parent, ctrl)
     local price = GET_NOT_COMMAED_NUMBER(edit_price:GetText());
 	if price < 100 then
 		ui.SysMsg(ClMsg("SellPriceMustOverThen100Silver"));		
+		return;
+	end
+	local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
+	if price * count > limitMoney then
+		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
 		return;
 	end
 
@@ -384,12 +417,14 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
-	local isPrivate = GET_CHILD(groupbox, "isPrivate", "ui::CCheckBox");
+	local isPrivate = GET_CHILD_RECURSIVELY(groupbox, "isPrivate", "ui::CCheckBox");
 	local itemGuid = invitem:GetIESID();
 	local obj = GetIES(invitem:GetObject());
 
-	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
-	local selecIndex = droplist:GetSelItemIndex();
+	--선택한 라디오를 가져옴
+	local radioCtrl = GET_CHILD_RECURSIVELY(frame, "feePerTime_1")
+	local selecIndex = GET_RADIOBTN_NUMBER(radioCtrl) - 1;
+
 	local needTime = frame:GetUserIValue('TIME_'..selecIndex);
 	local free = tonumber(frame:GetUserValue('FREE_'..selecIndex));
 	local commission = (price * count * free * 0.01);
@@ -399,22 +434,24 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
-	local silverRate = groupbox:GetChild("silverRate");
+	UPDATE_FEE_INFO(frame, free, count, price)
 
-	local down = silverRate:GetChild("downValue");
-	local downValue = down:GetTextByKey("value");
-	local idownValue = GET_NOT_COMMAED_NUMBER(downValue);
+	local sellPriceGbox = GET_CHILD_RECURSIVELY(groupbox, "sellPriceGbox");
+
+	local down = sellPriceGbox:GetChild("minPrice");
+	local minPrice = down:GetTextByKey("value");
+	local iminPrice = GET_NOT_COMMAED_NUMBER(minPrice);
 	local iPrice = tonumber(price);
 	if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 		if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-			if 0 ~= idownValue and  iPrice < idownValue then
-				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
+			if 0 ~= iminPrice and  iPrice < iminPrice then
+				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", minPrice));	
 				return;
 			end
 		end
 	else
-		if 0 ~= idownValue and  iPrice < idownValue then
-			ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
+		if 0 ~= iminPrice and  iPrice < iminPrice then
+			ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", minPrice));	
 			return;
 		end
 	end
@@ -467,7 +504,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 
 
 	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, needTime);
-	
+
 	commission = math.floor(commission);
 	if commission <= 0 then
 		commission = 1;
@@ -482,7 +519,21 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	else
 		ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", GetMonetaryString(commission)), yesScp, "None");
 	end
+end
 
+function UPDATE_COUNT_STRING(parent, ctrl)
+    local frame = parent:GetTopParentFrame();
+	local edit_price = GET_CHILD_RECURSIVELY(frame, "edit_price");
+	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
+	
+	local countTxt = ctrl:GetText();
+	if countTxt ~= nil then
+		local count = tonumber(countTxt);
+		if count == nil or countTxt == "" then
+			count = 0;
+		end
+		UPDATE_FEE_INFO(frame, nil, count, nil)
+	end
 end
 
 function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)	
@@ -502,4 +553,114 @@ function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
         ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
     end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
+
+	local feeGBoxFrame = GET_CHILD_RECURSIVELY(frame, "feeGbox");
+	UPDATE_FEE_INFO(feeGBoxFrame, nil, nil, tonumber(moneyText))
+
+	local price_text = GET_CHILD_RECURSIVELY(frame, "priceText");
+	price_text:SetTextByKey("priceText", GetMonetaryString(tonumber(moneyText)));
+end
+
+
+--feeGBox의 컨텐츠 업데이트(등록 수수료, 총 판매 가격, 수수료, 최종 수령금 표시)
+--호출 함수 : 라디오버튼 클릭시, edit_price에서 가격 수정시
+function UPDATE_FEE_INFO(frame, free, count, price)
+	local registerFeeValueCtrl 		= GET_CHILD_RECURSIVELY(frame, "registerFeeValue");		--등록 수수료
+	local totalSellPriceValueCtrl 	= GET_CHILD_RECURSIVELY(frame, "totalSellPriceValue");	--총 판매 가격
+	local feeValueCtrl 				= GET_CHILD_RECURSIVELY(frame, "feeValue");				--수수료(10% or 30%)
+	local finalRecieveValueCtrl 	= GET_CHILD_RECURSIVELY(frame, "finalRecieveValue");	--최종 수령금
+
+	if free == nil then
+		local radioCtrl = GET_CHILD_RECURSIVELY(frame, "feePerTime_1")
+		local selecIndex = GET_RADIOBTN_NUMBER(radioCtrl) - 1;
+		local parentFrame = frame:GetTopParentFrame();
+		free = tonumber(parentFrame:GetUserValue('FREE_'..selecIndex));
+	end
+	if count == nil then
+		local parentFrame = frame:GetTopParentFrame();
+		local groupbox = parentFrame:GetChild("groupbox");
+		local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count");
+		local countTxt = edit_count:GetText();
+		if countTxt ~= nil then
+			count = tonumber(countTxt);
+			if count == nil or countTxt == "" then
+				count = 0;
+			end
+		else
+			return;
+		end
+	end
+	if price == nil then
+		local parentFrame = frame:GetTopParentFrame();
+		local groupbox = parentFrame:GetChild("groupbox");
+		local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price");
+		local priceTxt = edit_price:GetText();
+		if priceTxt ~= nil then
+			price = GET_NOT_COMMAED_NUMBER(priceTxt);
+		else
+			return;
+		end
+	end
+	
+	--소수점 단위 버림
+	local totalPrice = count * price;
+	local registerFeeValue = math.floor(totalPrice * free * 0.01);
+
+	local feeValue = 0;
+	local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
+	local isPremiumStateNexonPC = session.loginInfo.IsPremiumState(NEXON_PC);
+	if isTokenState == true then
+		feeValue = GetCashValue(ITEM_TOKEN, "marketSellCom") * 0.01;
+	elseif isPremiumStateNexonPC == true then
+		feeValue = GetCashValue(NEXON_PC, "marketSellCom") * 0.01;
+	else
+		feeValue = GetCashValue(NONE_PREMIUM, "marketSellCom") * 0.01;
+	end
+	feeValue = math.floor(totalPrice * feeValue);
+
+	if feeValue > 0 then
+		feeValue = feeValue * (-1);
+	end
+	local finalValue = totalPrice + feeValue;
+
+	registerFeeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(registerFeeValue));
+	totalSellPriceValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(totalPrice));
+	feeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(feeValue));
+	finalRecieveValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(finalValue));
+end
+
+--라디오 버튼의 선택에 따라 feeGBox의 컨텐츠 업데이트
+function UPDATE_FEE_INFO_BY_RADIO(frame, slot, argStr, argNum)
+	local parentFrame = frame:GetTopParentFrame();
+	local free = tonumber(parentFrame:GetUserValue('FREE_'..argNum - 1));
+	UPDATE_FEE_INFO(frame, free, nil, nil)
+
+	--현재 선택한 라디오 저장
+	local cnt = GetMarketTimeCount();
+	for i = 1 , cnt do
+		config.ChangeXMLConfig('MarketSellFeeValue'..i, 0);
+	end
+	config.ChangeXMLConfig('MarketSellFeeValue'..argNum, 1);
+end
+
+--거래 완료 후 판매 창의 info 0으로 초기화
+function CLEAR_SELL_INFO(frame)
+	local feeGBoxFrame = GET_CHILD_RECURSIVELY(frame, "feeGbox");
+	UPDATE_FEE_INFO(feeGBoxFrame, 0, 0, 0);
+
+	local groupbox = frame:GetChild("groupbox");
+	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_price");
+	edit_count:SetText(0);
+	local price_text = GET_CHILD_RECURSIVELY(frame, "priceText");
+	price_text:SetTextByKey("priceText", 0)
+end
+
+function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid)
+	market.ReqSellMinMaxInfo(itemGuid);
+	frame:SetUserValue('REQ_ITEMID', itemGuid)
+end
+
+function ON_RESPONSE_MIN_PRICE(frame, msg, minPrice, argNum)	
+	local curMinPrice = GET_CHILD_RECURSIVELY(frame, 'curMinPrice');
+	curMinPrice:SetTextByKey('value', GetMonetaryString(minPrice));
 end

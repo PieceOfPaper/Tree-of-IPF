@@ -467,7 +467,7 @@ function QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(frame)
 	end
 end
 
-function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()
+function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()	
 	local frame = ui.GetFrame('quickslotnexpbar');
 	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
 	for i = 0, MAX_QUICKSLOT_CNT - 1 do
@@ -899,7 +899,7 @@ function QUICKSLOT_ADD(frame, ctrl, argStr, argNum)
 	quickslot.SetActiveSlotCnt(curCnt);
 end
 
-function QUICKSLOT_REFRESH(curCnt)
+function QUICKSLOT_REFRESH(curCnt)	
 	if curCnt < 20 or curCnt > 40 then
 		curCnt = 20;
 	end
@@ -1139,4 +1139,14 @@ function IS_NEED_CLEAR_SLOT(skl, type)
 		return true;
 	end
 	return false;
+end
+
+function QUICKSLOT_REQUEST_REFRESH(parent, ctrl)
+	quickslot.RequestLoad();
+	DISABLE_BUTTON_DOUBLECLICK('quickslotnexpbar', ctrl:GetName(), 1);
+end
+
+function QUICKSLOT_DRAW(curCnt)	
+	QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT();
+	QUICKSLOT_REFRESH(curCnt);
 end

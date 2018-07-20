@@ -219,11 +219,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 	curCnt = 40;
 
 	JOYSTICK_QUICKSLOT_REFRESH(curCnt);
-
-	--UI_MODE_CHANGE()
-
 end
-
 
 function JOYSTICK_QUICKSLOT_REFRESH(curCnt)
 	if curCnt < 20 or curCnt > 40 then
@@ -818,4 +814,9 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 
 	end
 	frame:SetUserValue('SKL_MAX_CNT',0)
+end
+
+function JOYSTICKQUICKSLOT_DRAW()
+    JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT();
+    JOYSTICK_QUICKSLOT_REFRESH(40);
 end

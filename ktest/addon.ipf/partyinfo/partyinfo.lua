@@ -301,7 +301,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
 		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
 		
-		if session.world.IsDungeon() or session.world.IsIntegrateIndunServer() == true then
+		if session.world.IsDungeon() and session.world.IsIntegrateIndunServer() == true then
 			local aid = memberInfo:GetAID();
 			local serverName = GetServerNameByGroupID(GetServerGroupID());
 			local playerName = memberInfo:GetName();

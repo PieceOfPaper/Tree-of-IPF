@@ -557,6 +557,9 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	if basicProp == 'ATK' then
 	    typeiconname = 'test_sword_icon'
 		typestring = ScpArgMsg("Melee_Atk")
+		if TryGetProp(invitem, 'EquipGroup') == "SubWeapon" then
+			typestring = ScpArgMsg("PATK_SUB")
+		end
 		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf, basicProp) )
 		socketaddvalue =  GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem);
 		arg1 = invitem.MINATK - reinforceaddvalue - socketaddvalue;
@@ -684,7 +687,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 
 	local inner_yPos = 0;
 	
-	local maxRandomOptionCnt = 6;
+	local maxRandomOptionCnt = MAX_OPTION_EXTRACT_COUNT;
 	local randomOptionProp = {};
 	for i = 1, maxRandomOptionCnt do
 		if invitem['RandomOption_'..i] ~= 'None' then
@@ -919,6 +922,7 @@ function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	local inner_yPos = DEFAULT_POS_Y;
 
 	local curCount = 0
+
 	for i=0, invitem.MaxSocket-1 do
 		if invitem['Socket_' .. i] > 0 then
 			curCount = curCount + 1

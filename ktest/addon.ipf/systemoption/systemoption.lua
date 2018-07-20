@@ -111,6 +111,12 @@ function INIT_SOUND_CONFIG(frame)
 	if nil ~= chkOtherFlutingEnable then
 		chkOtherFlutingEnable:SetCheck(isOtherFlutingEnable);
 	end
+
+	local isSoundReverbEnable = config.IsEnableSoundReverb();
+	local checkSoundReverb = GET_CHILD_RECURSIVELY(frame, "check_soundReverb");
+	if nil ~= checkSoundReverb then
+		checkSoundReverb:SetCheck(isSoundReverbEnable);
+	end
 end
 
 function INIT_GRAPHIC_CONFIG(frame)
@@ -579,3 +585,8 @@ function CONFIG_RENDER_SHADOW(frame, ctrl, str, num)
     imcperfOnOff.EnableRenderShadow(isEnable);
 end
 
+function ENABLE_SOUND_REVERB(parent, ctrl)
+	local value = config.IsEnableSoundReverb();
+	config.EnableSoundReverb(1-value);
+	config.SaveConfig();
+end

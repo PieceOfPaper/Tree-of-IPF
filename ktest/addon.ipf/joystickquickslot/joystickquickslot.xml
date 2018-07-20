@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <uiframe name="joystickquickslot" x="0" y="0" width="1920" height="170">
 	<frame title="조이스틱 퀵슬롯" layout_gravity="center bottom" margin="0 0 0 0" scale_align="center bottom" tooltipoverlap="true"/>
@@ -14,6 +14,7 @@
 		<picture name="slot_bg" rect="0 0 410 120" margin="0 0 0 -300" layout_gravity="center bottom" hittest="false" image="slot_bg"/>
 		<picture name="rest_R2" rect="0 0 150 110" margin="280 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_R2"/>
 		<picture name="rest_L1" rect="0 0 150 110" margin="-275 0 0 -2009" layout_gravity="center bottom" hittest="false" image="rest_L1"/>
+		<button name="refreshBtn" rect="0 0 120 30" margin="-145 3 0 0" layout_gravity="center top" LBtnUpScp="QUICKSLOT_REQUEST_REFRESH" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="button_refresh" oversound="button_over" texttooltip="{@st59}퀵슬롯 정보를 다시 요청합니다.{/}"/>
 		<richtext name="L2R2" rect="0 0 120 30" margin="-100 5 0 0" layout_gravity="center top" format="{@st41b}L2+R2{/}"/>
 		<button name="L2R2_Set1" rect="0 0 65 30" margin="-33 0 0 0" layout_gravity="center top" LBtnUpScp="JOYSTICK_QUICKSLOT_SWAP" caption="{@st41b}Set 1" skin="padslot_offskin"/>
 		<button name="L2R2_Set2" rect="0 0 65 30" margin="33 0 0 0" layout_gravity="center top" LBtnUpScp="JOYSTICK_QUICKSLOT_SWAP" caption="{@st41b}Set 2" skin="padslot_offskin"/>

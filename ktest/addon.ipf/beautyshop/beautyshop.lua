@@ -23,6 +23,9 @@ function BEAUTYSHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('BEAUTYSHOP_PURCHASED_HAIR_LIST', 'ON_BEAUTYSHOP_PURCHASED_HAIR_LIST');
 	addon:RegisterMsg('BEAUTYSHOP_DIRECTION_START', 'ON_BEAUTYSHOP_DIRECTION_START');
 	addon:RegisterMsg('BEAUTYSHOP_DIRECTION_END', 'ON_BEAUTYSHOP_DIRECTION_END');
+	addon:RegisterMsg('BEAUTYSHOP_PURCHASE_FAIL_LIMIT_PAYMENT', 'ON_BEAUTYSHOP_PURCHASE_FAIL_LIMIT_PAYMENT');
+
+	
 end
 
 function ON_BEAUTYSHOP_DIRECTION_START(frame, msg, argString, argNum)	
@@ -31,6 +34,10 @@ end
 
 function ON_BEAUTYSHOP_DIRECTION_END(frame, msg, argString, argNum)	
 	ui.SetHoldUI(false);
+end
+
+function ON_BEAUTYSHOP_PURCHASE_FAIL_LIMIT_PAYMENT(frame, msg, argString, argNum)	
+	ui.MsgBox(argString);
 end
 
 function BEAUTYSHOP_INIT_FUNCTIONMAP()
@@ -842,6 +849,7 @@ function BEAUTYSHOP_UPDATE_ITEM_LIST(itemList, itemCount)
 	if searchText ~= nil and searchText ~= '' then
 		local itemName = dic.getTranslatedStr(item.Name);
 		itemName = string.lower(itemName); -- 소문자로 변경
+		searchText = string.lower(searchText); -- 소문자로 변경
 		if string.find(itemName, searchText) == nil then
 			return false;
 		end

@@ -15,18 +15,32 @@ function ITEM_BALLOON_CLEAR(handle)
 	end
 end
 
-function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, skinName, msgText, isShowText)
-  if world.GetLayer() ~= 0 then --
+function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, skinName, msgText, isShowText, itemID, modifiedString)
+    if world.GetLayer() ~= 0 then
 		return 0;
 	end
 
-	if nil == itemCls then
-		return;
+    local forgeryObj = nil;
+	if itemObj == nil then
+        if modifiedString == nil then
+		    return;
+        else
+            forgeryObj = CreateGCIESByID('Item', itemID);
+            if forgeryObj == nil then
+                return;
+            end
+            SetModifiedPropertiesString(forgeryObj, modifiedString);
+            itemObj = forgeryObj;
+        end
 	end
+    
+    if itemObj == nil then
+        return;
+    end
 
-	local scp = _G[itemCls.RefreshScp];
+	local scp = _G[itemObj.RefreshScp];
 	if nil ~= scp then
-		scp(itemCls);
+		scp(itemObj);
 	end
 
 	delaySec = 0.0;
@@ -89,10 +103,18 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, s
 	local slot = GET_CHILD(ctrlSet, "slot", "ui::CSlot");
 	local itemSlot = GET_CHILD(ctrlSet, "itemslot", "ui::CSlot");
 	local itemtext = GET_CHILD(ctrlSet, "itemtext", "ui::CRichText");	
-	if itemCls ~= nil then
-		SET_SLOT_ITEM_OBJ(itemSlot, itemCls);
+	if itemObj ~= nil then
+        if forgeryObj ~= nil then
+            local img = GET_ITEM_ICON_IMAGE(forgeryObj);
+	        SET_SLOT_IMG(itemSlot, img);
+
+            local icon = itemSlot:GetIcon();
+            APPRAISER_FORGERY_SET_TOOLTIP(icon, forgeryObj);            
+        else
+		    SET_SLOT_ITEM_OBJ(itemSlot, itemObj);
+        end
 		itemSlot:EnableDrag(0);
-		local rewardTxt = REWARD_SET_ITEM_TEXT(skinName, itemCls);
+		local rewardTxt = REWARD_SET_ITEM_TEXT(skinName, itemObj);
 		itemtext:SetTextByKey("txt", rewardTxt);
 	else
 		CLEAR_SLOT_ITEM_INFO(itemSlot);
@@ -103,11 +125,9 @@ function ITEM_BALLOON_COMMON(handle, itemCls, tooltipEnum, duration, delaySec, s
 	local height = heightCnt * ctrlSetHeight + ctrlSetHeight;
 	itemcontainer:Resize(width, height);
 
-
 	frame:Resize(itemcontainer:GetWidth(), itemcontainer:GetHeight() + 50);
 	itemSlot:EnableHitTest(1)
 	RAID_REWARD_BAL_POS(frame);
-
 end
 
 function REWARD_SET_ITEM_TEXT(skinName, itemCls)

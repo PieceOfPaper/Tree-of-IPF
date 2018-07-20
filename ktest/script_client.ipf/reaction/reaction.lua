@@ -135,12 +135,17 @@ function C_VOICE_SOUND(actor, obj, maleVoice, femaleVoice)
 
     local gender = customize.GetGender( actor:GetHandleVal() );
     
+    local isMyPC = true;
+    if actor:IsMyPC() == 0 then
+        isMyPC = false;
+    end
+
     if gender == 0 then
         return;
     elseif gender == 1 then
-        actor:GetEffect():PlaySound(maleVoice);
+        actor:GetEffect():PlaySound(maleVoice, -1, false, isMyPC);
     else
-        actor:GetEffect():PlaySound(femaleVoice);
+        actor:GetEffect():PlaySound(femaleVoice, -1, false, isMyPC);
     end
     
 end

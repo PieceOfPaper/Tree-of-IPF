@@ -2044,8 +2044,7 @@ function SCR_REINFORCE_COUPON()
 end
 
 function SCR_REINFORCE_COUPON_PRECHECK(pc, price)
-    local retCouponList = {}
-    
+    local retCouponList = {};    
     local couponList = SCR_REINFORCE_COUPON()
     local couponValueList = {}
     for i = 1, #couponList do
