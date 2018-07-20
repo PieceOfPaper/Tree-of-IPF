@@ -3,6 +3,7 @@ function SCR_RETIARII_MASTER_DIALOG(self, pc)
     local is_unlock = SCR_HIDDEN_JOB_IS_UNLOCK(pc, 'Char1_18');
     if IS_KOR_TEST_SERVER() then
         COMMON_QUEST_HANDLER(self,pc)
+        return
     end
     local jobCircle = GetJobGradeByName(pc, 'Char1_18')
     if jobCircle > 0 then
