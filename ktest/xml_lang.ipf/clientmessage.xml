@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by aasdasd (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -60,7 +60,7 @@
 		<Class ClassID="2003" ClassName="CanNotEnchantMore" Data="더 이상 강화 할 수 없습니다"/>
 		<Class ClassID="2004" ClassName="PotentialItem" Data="강화 포텐셜이 0인 아이템만 제련 가능합니다."/>
 		<Class ClassID="2005" ClassName="DestroyReinforceItem" Data="강화 포텐셜이 0이하인 아이템을 강화할 경우 소멸될 수도 있습니다."/>
-		<Class ClassID="2006" ClassName="Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?" Data="+{Auto_1} 이상의 방어구, 팔찌, 목걸이 아이템 강화 실패 시 포텐셜이 소모되며 포텐셜이 0일 때는 아이템이 소멸 됩니다. 강화를 진행하시겠습니까?"/>
+		<Class ClassID="2006" ClassName="Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?" Data="+{Auto_1} 이상의 방어구, 방패, 팔찌, 목걸이 아이템 강화 실패 시 포텐셜이 소모되며 포텐셜이 0일 때는 아이템이 소멸 됩니다. 강화를 진행하시겠습니까?"/>
 		<Class ClassID="2007" ClassName="NewReinforce" Data="신규 강화"/>
 		<Class ClassID="2008" ClassName="REINFORCE_SUCCESS" Data="아이템 강화에 성공하였습니다"/>
 		<Class ClassID="2009" ClassName="REINFORCE_FAIL" Data="아이템 강화에 실패하였습니다"/>
@@ -6395,7 +6395,7 @@
 		<Class ClassID="124026" ClassName="PolicyMsgAlram{TimeStr}" Data="셧다운제에 의해 {TimeStr}시에 게임이용이 제한됩니다."/>
 		<Class ClassID="124027" ClassName="DelibarationMsg1" Data="과도한 게임이용은 정상적인 일상생활에 지장을 줄 수 있습니다."/>
 		<Class ClassID="124028" ClassName="DelibarationMsg2" Data="게임을 시작한 지 {Time}시간이 지났습니다."/>
-		<Class ClassID="124029" ClassName="REQ_CANCEL_LEARING_ABIL" Data="특성배우기를 취소하시겠습니까? 사용한 실버는 회수되지 않습니다. "/>
+		<Class ClassID="124029" ClassName="REQ_CANCEL_LEARING_ABIL" Data="특성배우기를 취소하시겠습니까? 사용한 포인트는 회수되지 않습니다. "/>
 		<Class ClassID="124030" ClassName="CANCEL_LEARING_ABIL" Data="특성배우기가 취소되었습니다."/>
 		<Class ClassID="124031" ClassName="CanNotItemEquip" Data="착용 할 수 있는 아이템이 아닙니다."/>
 		<Class ClassID="124032" ClassName="CanNotLikeIte" Data="해당 캐릭터는 좋아요를 받을 수 있는 상태가 아닙니다."/>

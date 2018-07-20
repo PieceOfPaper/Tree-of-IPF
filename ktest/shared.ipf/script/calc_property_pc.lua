@@ -2363,7 +2363,7 @@ function SCR_PC_GUARD_ON(pc)
     end
     
     -- Block --
-    local blkAdd = math.floor(lv * 5.5);
+    local blkAdd = 550;
     
     ----------
     
