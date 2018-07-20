@@ -15963,18 +15963,6 @@ function SCR_GET_Retiarii_EquipDesrption_Ratio2(skill)
     return value;
 end
 
-function SCR_GET_Mergaite_Ratio(skill)
-    local velcofferSetValue = TryGetProp(skill, "NumberArg");
-    local value = 0;
-    if velcofferSetValue == 4 then
-        value = 40
-    elseif velcofferSetValue == 5 then
-        value = 100
-    end
-    
-    return value;
-end
-
 function SCR_GET_Kraujas_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local value = pc.RHP;

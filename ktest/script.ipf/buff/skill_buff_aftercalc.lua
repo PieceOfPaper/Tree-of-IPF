@@ -869,3 +869,11 @@ function SCR_BUFF_AFTERCALC_HIT_VitalProtection_Buff(self, from, skill, atk, ret
         SetExProp(buff, "VITALPROTECTION_ADDHP", self.HP);
     end
 end
+
+function SCR_BUFF_AFTERCALC_HIT_Mergaite_Enter_Buff(self, from, skill, atk, ret, buff)
+    ret.KDPower = 0;
+    ret.ResultType = HITRESULT_NONE;
+    ret.HitType = HIT_SAFETY;
+    ret.HitDelay = 0;
+    ret.Damage = 0;
+end

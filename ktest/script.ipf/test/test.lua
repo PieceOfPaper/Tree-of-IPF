@@ -350,6 +350,21 @@ function TEST_SKL_ABIL22(pc)
 	local ret = TxCommit(tx);
 end
 
+function RAID_TEST_SET_ENTER_COUNT(pc)
+	local etc = GetETCObject(pc);
+	local tx = TxBegin(pc);
+	if tx == nil then
+		return ;
+	end
+
+	TxSetIESProp(tx, etc, 'IndunWeeklyEnteredCount_400', 0);
+	print(tx, etc)
+	local ret = TxCommit(tx);
+	Chat(pc, "set count: "..ret);
+end
+
+
+
 
 function TEST_RESET_INDUN_COUNT(pc)
 	RunScript("TX_TEST_RESET_INDUN_COUNT", pc);

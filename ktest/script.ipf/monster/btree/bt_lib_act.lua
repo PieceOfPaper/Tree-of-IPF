@@ -255,7 +255,7 @@ function BT_ACT_FLY_UP(self, state, btree, prop)
 	local numArg = GetLeafNumArg(prop);
 	local time = 1;
 	local ease = 0.8;
-	FlyMath(self, numArg, time, ease);
+	Fly(self, numArg);
 	sleep(time*1000);
 	return BT_SUCCESS;
 end
@@ -268,7 +268,7 @@ end
 function BT_ACT_FLY_DOWN(self, state, btree, prop)
 	local time = 0.8;
 	local ease = 0.2;
-	FlyMath(self, 0.0, time, ease);
+	Fly(self, 0);
 	sleep(time*1000);
 	return BT_SUCCESS;
 end
@@ -833,7 +833,7 @@ end
 --**/ 
 function BT_MONRANK_FOLLOW_LIVE(self)
     local followerList, followercnt = GetFollowerList(self);
-    if followerList == nil or followercnt == 0 then
+	if followerList == nil or followercnt == 0 then
 
         return BT_FAILED;
     end

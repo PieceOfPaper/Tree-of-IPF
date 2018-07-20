@@ -1856,6 +1856,50 @@ function SCR_set_038_PIECE7_LEAVE(pc)
     pc.MDEF_BM = pc.MDEF_BM - 247;
 end
 
+function SCR_set_039_PIECE2_ENTER(pc)
+    pc.CRTHR_BM = pc.CRTHR_BM + 30;
+end
+
+
+function SCR_set_039_PIECE2_LEAVE(pc)
+    pc.CRTHR_BM = pc.CRTHR_BM - 30;
+end
+
+function SCR_set_039_PIECE3_ENTER(pc)
+    pc.PATK_BM = pc.PATK_BM + 120;
+    pc.SR_BM = pc.SR_BM + 1;
+    AddBuff(pc, pc, 'item_set_039pre_buff');
+
+end
+
+function SCR_set_039_PIECE3_LEAVE(pc)
+    pc.PATK_BM = pc.PATK_BM - 120;
+    pc.SR_BM = pc.SR_BM - 1;
+    RemoveBuff(pc, 'item_set_039pre_buff');
+end
+
+
+function SCR_set_040_PIECE2_ENTER(pc)
+    pc.MHR_BM = pc.MHR_BM + 60;
+end
+
+
+function SCR_set_040_PIECE2_LEAVE(pc)
+    pc.MHR_BM = pc.MHR_BM - 60;
+end
+
+function SCR_set_040_PIECE3_ENTER(pc)
+    pc.MATK_BM = pc.MATK_BM + 120;
+    pc.SR_BM = pc.SR_BM + 1;
+    AddBuff(pc, pc, 'item_set_039pre_buff');
+
+end
+
+function SCR_set_040_PIECE3_LEAVE(pc)
+    pc.MATK_BM = pc.MATK_BM - 120;
+    pc.SR_BM = pc.SR_BM - 1;
+    RemoveBuff(pc, 'item_set_039pre_buff');
+end
 -- set 041
 function SCR_set_041_PIECE1_ENTER(pc)
     AddBuff(pc, pc, 'item_set_041_buff');
@@ -1997,6 +2041,24 @@ function SCR_SET_TIKSLINE02_LEAVE(pc)
     pc.SR_BM = pc.SR_BM - 3;
 end
 
+function SCR_SET_KARUJAS01_ENTER(pc)
+    pc.CON_BM = pc.CON_BM + 25;
+    pc.DEX_BM = pc.DEX_BM + 25;
+end
+
+function SCR_SET_KARUJAS01_LEAVE(pc)
+    pc.CON_BM = pc.CON_BM - 25;
+    pc.DEX_BM = pc.DEX_BM - 25;
+end
+
+function SCR_SET_KARUJAS02_ENTER(pc)
+    pc.PATK_BM = pc.PATK_BM + 571;
+end
+
+function SCR_SET_KARUJAS02_LEAVE(pc)
+    pc.PATK_BM = pc.PATK_BM - 571;
+end
+
 function SCR_SET_GYVENIMAS01_ENTER(pc)
     pc.CON_BM = pc.CON_BM + 35;
 end
@@ -2006,9 +2068,17 @@ function SCR_SET_GYVENIMAS01_LEAVE(pc)
 end
 
 function SCR_SET_GYVENIMAS02_ENTER(pc)
-    pc.CON_BM = pc.MSPD_BM + 35;
+    pc.MSPD_BM = pc.MSPD_BM + 1;
 end
 
 function SCR_SET_GYVENIMAS02_LEAVE(pc)
-    pc.CON_BM = pc.CON_BM - 35;
+    pc.MSPD_BM = pc.MSPD_BM - 1;
+end
+
+function SCR_VELCOFFER_COSTUME_SET01_ENTER(pc)
+    AddBuff(pc, pc, 'COSTUME_VELCOFFER_SET');
+end
+
+function SCR_VELCOFFER_COSTUME_SET01_LEAVE(pc)
+   RemoveBuff(pc, 'COSTUME_VELCOFFER_SET');
 end

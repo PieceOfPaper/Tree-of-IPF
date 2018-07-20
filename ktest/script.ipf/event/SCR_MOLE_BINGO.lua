@@ -27,12 +27,12 @@ function SCR_MOLE_BINGO_START(pc)
             SetExProp(pc,'MBG_TIC_NEXT_TIME',0)
             SetExProp(pc,'MBG_TIC_MON_COUNT_MIN',5)
             SetExProp(pc,'MBG_TIC_MON_COUNT_MAX',7)
-            SetExProp(pc,'MBG_SUCC_POINT',100)
+            SetExProp(pc,'MBG_SUCC_POINT',50)
             SetExProp(pc,'MBG_NOW_POINT',0)
             SetExProp(pc,'MBG_L1_POINT',10)
             SetExProp(pc,'MBG_L1_POINT_ADD',6)
             SetExProp(pc,'MBG_REWARD_ITEM_FLAG',0)
-            SetExProp(pc,'MBG_PLAY_TIME_MAX', 300000)
+            SetExProp(pc,'MBG_PLAY_TIME_MAX', 180000)
             SetExProp(pc,'MBG_CENTER_X', x)
             SetExProp(pc,'MBG_CENTER_Y', y+50)
             SetExProp(pc,'MBG_CENTER_Z', z)
@@ -161,6 +161,7 @@ function SSN_MOLE_BINGO_TIME2(pc, sObj, remainTime)
             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("MOLE_BINGO_MSG3","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
         end
         SCR_MOLE_BINGO_END(pc,sObj)
+        return
     end
     local ticNextTime = GetExProp(pc,'MBG_TIC_NEXT_TIME')
     if ticNextTime <= nowTime then

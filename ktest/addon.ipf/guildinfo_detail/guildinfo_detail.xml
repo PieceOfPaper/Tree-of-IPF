@@ -100,7 +100,7 @@
 																<layoutsection name="lvlLabelSection" size="30%">
 																	<overlap name="lvlOverlap">
 																		<picture name="lvlBg" image="name_box_beige" stretch="true"/>
-																		<richtext name="lvlText" caption="{@s18}레벨{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																		<richtext name="lvlText" caption="{@s18}길드 레벨{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
 																	</overlap>
 																</layoutsection>
 																<layoutsection name="lvlSection">
@@ -146,7 +146,7 @@
 																<layoutsection name="avgTeamLvlLabel" size="30%">
 																	<overlap name="avgTeamLvlOverlap">
 																		<picture name="avgTeamLvlBg" image="name_box_beige" stretch="true"/>
-																		<richtext name="avgTeamLvlNameText" caption="{@s18}평균 팀레벨{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
+																		<richtext name="avgTeamLvlNameText" caption="{@s18}평균 레벨{/}" textalign="center center" resizebytext="false" fontname="brown_16" fixwidth="false" drawbackground="false" slideshow="false"/>
 																	</overlap>
 																</layoutsection>
 																<layoutsection name="avgTeamLvlTextSection">

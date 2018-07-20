@@ -109,12 +109,13 @@ end
 function SCR_VELLCOFFER_MATCOUNT(pc)
     local matCount = 2;
     
-    for i = 2, 4 do
+    for i = 5, 7 do
         local rndCount = IMCRandom(1, i)
         if rndCount == 1 then
             matCount = matCount + 1
+        else
+            break;
         end
-        break;
     end
     
     return matCount;

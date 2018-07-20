@@ -15,6 +15,11 @@ function SCR_EXECUTE_PREFIX_SET(pc)
     
     local needCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
     local validCount = GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc);
+    
+    if needCount == 0 then
+        return;
+    end
+
     if validCount < needCount then
         return;
     end
@@ -24,18 +29,25 @@ function SCR_EXECUTE_PREFIX_SET(pc)
     end
 end
 
-function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc) -- 경험치 꽉 찬 아이템만 개수 세주는 함수
-    local count = 0;
+function GET_VALID_LEGEND_PREFIX_MATERIAL_LIST(pc)
+    local list = {};
     local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
     local itemList = GetInvItemList(pc);
-    for i = 1, #itemList do
-        local item = itemList[i];
-        if item.ClassName == needItemName and item.ItemExp >= item.NumberArg1 then
-            count = count + 1;
+    if itemList ~= nil then
+        for i = 1, #itemList do
+            local item = itemList[i];
+            if item.ClassName == needItemName and item.ItemExp >= item.NumberArg1 then
+                list[#list + 1] = item;
+            end
         end
     end
 
-    return count;
+    return list;
+end
+
+function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT(pc) -- 경험치 꽉 찬 아이템만 개수 세주는 함수
+    local list = GET_VALID_LEGEND_PREFIX_MATERIAL_LIST(pc);
+    return #list;
 end
 
 function EXECUTE_GIVE_PREFIX(pc, targetItem)
@@ -80,14 +92,23 @@ function EXECUTE_GIVE_PREFIX(pc, targetItem)
 
     local index = IMCRandom(1, #candidateList);
     local targetPrefix = candidateList[index];
+    
+    local matCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
+    local materialList = GET_VALID_LEGEND_PREFIX_MATERIAL_LIST(pc);
+    if #materialList < matCount then
+        return;
+    end
 
     local tx = TxBegin(pc);
     if tx == nil then
         return;
     end
 
-    local matCount = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetItem);
-    TxTakeItem(tx, GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME(), matCount, 'LegendPrefix');
+    for i=1, matCount do
+        local materialObj = materialList[i];
+        TxTakeItemByObject(tx, materialObj, 1, 'LegendPrefix');
+    end
+
     TxSetIESProp(tx, targetItem, 'LegendPrefix', targetPrefix);
     local ret = TxCommit(tx);
     if ret ~= 'SUCCESS' then

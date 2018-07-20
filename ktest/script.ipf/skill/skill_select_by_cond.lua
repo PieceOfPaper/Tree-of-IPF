@@ -89,9 +89,9 @@ function SKL_SELECT_ABIL(self, skill, abilName)
 	end
 end
 
-function SKL_VELCOFFER_SET_COUNT(self, skill, level)
-	local velcofferSetValue = TryGetProp(skill, "NumberArg");
-	if velcofferSetValue >= 4 then
+function SKL_VELCOFFER_SET_COUNT(self, skill, setItemName, stack)
+	local itemStack = GetPrefixSetItemStack(self, setItemName)
+	if itemStack >= stack then
 		return 1;
 	else
 		return 0;

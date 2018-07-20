@@ -2139,20 +2139,21 @@ function SCR_BUFF_ENTER_item_set_039pre_buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_GIVEDMG_item_set_039pre_buff(self, buff, sklID, damage, target, ret)
+
     local arg1, arg2 = GetBuffArg(buff);
+    
     if arg2 == 5 then
         SetBuffArg(self, buff, arg1, 0);
        PlayEffect(target, "F_explosion065_violet", 1, 1, 'BOT')
         local bombDamage = math.floor( 1000 * IMCRandomFloat(1, 3));
         TakeDadak(self, target, "None", bombDamage, 0.1, "Melee", "None", "Melee", HIT_BASIC, HITRESULT_BLOW);
-        AddBuff(self, self, "item_set_039_buff", 99, 0, 5000)
     end
     return 1;
 end
 
 function SCR_BUFF_RATETABLE_item_set_039pre_buff(self, from, skill, atk, ret, rateTable, buff)
 
-    if IsBuffApplied(from, 'item_set_039pre_buff') == 'YES' and IsBuffApplied(from, 'item_set_039_buff') == 'NO'then
+    if IsBuffApplied(from, 'item_set_039pre_buff') == 'YES' then
         if ret.Damage <= 0 then
             return;
         end
@@ -2180,27 +2181,27 @@ function SCR_BUFF_LEAVE_item_set_039_buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_ENTER_Event_Penalty(self, buff, arg1, arg2, over)
-    local defadd = self.DEF
-    local mdefadd = self.MDEF
-    local mhp = self.MHP
-    
-    self.DEF_BM = self.DEF_BM - defadd + 1
-    self.MDEF_BM = self.MDEF_BM - mdefadd + 1;
-    self.MHP_BM = self.MHP_BM - mhp + 1;
-    
-    SetExProp(buff, "ADD_DEF", defadd);
-    SetExProp(buff, "ADD_MDEF", mdefadd);
-    SetExProp(buff, "ADD_MHP", mhp);
+   local defadd = self.DEF
+   local mdefadd = self.MDEF
+   local mhp = self.MHP
+   
+   self.DEF_BM = self.DEF_BM - defadd + 1
+   self.MDEF_BM = self.MDEF_BM - mdefadd + 1;
+   self.MHP_BM = self.MHP_BM - mhp + 1;
+   
+   SetExProp(buff, "ADD_DEF", defadd);
+   SetExProp(buff, "ADD_MDEF", mdefadd);
+   SetExProp(buff, "ADD_MHP", mhp);
 end
 
 function SCR_BUFF_LEAVE_Event_Penalty(self, buff, arg1, arg2, over)
-    local defadd = GetExProp(buff, "ADD_DEF");
-    local mdefadd = GetExProp(buff, "ADD_DEF");
-    local mhp = GetExProp(buff, "ADD_MHP");
-    
-    self.DEF_BM = self.DEF_BM + defadd - 1;
-    self.MDEF_BM = self.MDEF_BM + mdefadd - 1;
-    self.MHP_BM = self.MHP_BM + mhp - 1;
+   local defadd = GetExProp(buff, "ADD_DEF");
+   local mdefadd = GetExProp(buff, "ADD_DEF");
+   local mhp = GetExProp(buff, "ADD_MHP");
+   
+   self.DEF_BM = self.DEF_BM + defadd - 1;
+   self.MDEF_BM = self.MDEF_BM + mdefadd - 1;
+   self.MHP_BM = self.MHP_BM + mhp - 1;
 end
 
 
@@ -3380,4 +3381,12 @@ end
 
 function SCR_BUFF_LEAVE_GOOD_STAMP_EFFECT(self, buff, arg1, arg2, over)
     OverrideSurfaceType(self, 'None')
+end
+
+function SCR_BUFF_ENTER_COSTUME_VELCOFFER_SET(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_COSTUME_VELCOFFER_SET(self, buff, arg1, arg2, over)
+
 end

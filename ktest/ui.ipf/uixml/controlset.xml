@@ -13,7 +13,7 @@
 	<controlset name="enchant_stor_option" toggle="false" hittest="true" hittestset="false" width="430" height="80" skin="test_skin_01">
 		<controls>
 			<groupbox name="groupbox_1" margin="7 5 0 0" rect="0 0 380 27" hittestbox="false" layout_gravity="left top" image="test_com_namebg" skin=""/>
-			<checkbox name="excute" margin="0 -15  5 0" rect="0 0 24 24" LBtnUpArgStr="click" LBtnUpScp="ENCHANTARMOR_OPATION_SELECT" clicksound="button_click_big" oversound="button_over" layout_gravity="right center"/>
+			<checkbox name="excute" margin="0 -15  5 0" rect="0 0 24 24" LBtnUpArgStr="click" LBtnDownScp="ENCHANTARMOR_OPATION_SELECT" clicksound="button_click_big" oversound="button_over" layout_gravity="right center"/>
 			<richtext name="name" margin="12 12 0 0" rect="0 0 200 24" format="{@st66e}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="des" margin="14 48 0 0" rect="0 0 120 24" format="%s" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
@@ -383,6 +383,13 @@
 			<richtext name="level_text" caption="경험치" rect="0 0 100 24" margin="20 320 0 0" fixwidth="true" hittest="false" fontname="brown_18" layout_gravity="left top" textalign="left center"/>
 			<gauge name="level_gauge" margin="80 312 0 0" rect="0 0 220 40" skin="gauge_itemtooltip_poten" inverse="false" point="5" layout_gravity="left top" text1="%.2p %" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center"/>
 			<labelline name="labelline_2" margin="0 353 0 0" rect="0 0 300 3" skin="labelline_def_2" layout_gravity="center top"/>
+		</controls>
+	</controlset>
+	<controlset name="tooltip_legendexppotion_desc" toggle="false" hittest="false" width="330" height="30">
+		<userconfig BOTTOM_MARGIN="15"/>
+		<controls>
+			<richtext name="desc_text" layout_gravity="left top" rect="0 0 300 30" margin="15 0 0 0" fixwidth="true" hittest="false" fontname="brown_16"/>
+			<labelline name="labelline_2" margin="0 0 0 3" rect="0 0 300 3" skin="labelline_def_2" layout_gravity="center bottom"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_common" hittest="true" width="410" height="320">
@@ -2381,7 +2388,7 @@
 		<controls>
 			<richtext name="item" rect="0 0 400 30" margin="120 0 0 0" caption="제작서" layout_gravity="left center" textalign="left center" resizebytext="false" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<slot name="slot" skin="invenslot2" layout_gravity="left top" margin="0 0 0 0" rect="40 0 64 64"/>
-			<richtext name="needcount" rect="0 0 54 20" margin="38 0 0 5" format="x%s" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="true" hittest="false" param1="count" param1_def="99" fontname="white_18_b"/>
+			<richtext name="needcount" rect="0 0 64 20" margin="38 0 0 5" format="x%s" layout_gravity="left bottom" textalign="right center" resizebytext="false" fixwidth="false" hittest="false" param1="count" param1_def="99" fontname="white_18_ol" stretch="true"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_detail_memo" width="500" height="100" skin="test_skin_01" draw="true" stateskin="false" hittest="true" hittestset="true">
@@ -4166,7 +4173,7 @@
 		<userconfig SELECTED_BOX_SKIN="guildbattle_win_bg" NOT_SELECTED_BOX_SKIN="chat_window_2"/>
 		<controls>
 			<groupbox name="skinBox" rect="0 0 312 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
-		<richtext name="infoText" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" format="{@st43b}{s18}%s{/}" param1="name" param1_def="50" hittest="false"/>
+			<richtext name="infoText" rect="0 0 340 30" margin="10 0 0 0" layout_gravity="left center" format="{@st43b}{s18}%s{/}" param1="name" param1_def="50" hittest="false"/>
 		</controls>
 	</controlset>
 </controlsetlist>

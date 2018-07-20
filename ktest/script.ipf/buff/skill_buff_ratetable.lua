@@ -2191,3 +2191,15 @@ function SCR_BUFF_RATETABLE_Kraujas_Buff(self, from, skill, atk, ret, rateTable,
         rateTable.DamageRate = rateTable.DamageRate + increaseRate;
     end
 end
+
+function SCR_BUFF_RATETABLE_COSTUME_VELCOFFER_SET(self, from, skill, atk, ret, rateTable, buff)
+
+    if IsBuffApplied(self, "COSTUME_VELCOFFER_SET") == "YES" then
+
+        if GetZoneName(self) == 'd_raidboss_velcoffer' then
+            local reductionRate = 0.1
+            
+            AddDamageReductionRate(rateTable, reductionRate);
+        end
+    end
+end

@@ -22,7 +22,7 @@ function SCR_GIMMICK_QUICKNESS_TEST1_START(pc)
             
             
             SetExProp(pc,'GQT_CELL',cellMax)
-            SetExProp(pc,'GQT_SUCCESSPOINT',300)
+            SetExProp(pc,'GQT_SUCCESSPOINT',200)
             SetExProp(pc,'GQT_READYTIME',3000)
             SetExProp(pc,'GQT_CELL_COUNT_MIN',2)
             SetExProp(pc,'GQT_CELL_COUNT_MAX',4)
@@ -68,6 +68,9 @@ function SCR_GIMMICK_QUICKNESS_TEST1_END(pc,sObj)
         else
             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG11","POINT",nowPoint, "MAXPOINT", maxPoint), 10);
         end
+    else
+        PlaySound(pc, 'reinforce_fail')
+        PlayEffect(pc, 'F_explosion015_anvil_fail', 3, 'TOP')
     end
     
     local cellMax = GetExProp(pc,'GQT_CELL')
@@ -208,9 +211,7 @@ function SSN_GIMMICK_QUICKNESS_TEST1_TIME2(pc, sObj, remainTime)
 --    end
     
     local maxStep = GetExProp(pc,'GQT_STEP_MAX')
-    if sObj.Step3 > maxStep then
-        PlaySound(pc, 'reinforce_fail')
-        PlayEffect(pc, 'F_explosion015_anvil_fail', 3, 'TOP')
+    if remainTime/1000 > maxStep*3 then
         SetTimeSessionObject(pc, sObj, 2, 200, 'None')
         SCR_GIMMICK_QUICKNESS_TEST1_END(pc,sObj)
         -- FAIL

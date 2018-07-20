@@ -1373,6 +1373,28 @@ function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX(cmd, curStage, eventInst, obj, giv
 	end
 end
 
+function MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE2_TX(cmd, curStage, eventInst, obj, giveList, takeList, setList, addList, AchieveList, giveway, dungeoncount, tokenBonus, mGameName)
+    if giveList == 'None' then
+        giveList = nil
+    end
+    if takeList == 'None' then
+        takeList = nil
+    end
+    if setList == 'None' then
+        setList = nil
+    end
+    if addList == 'None' then
+        addList = nil
+    end
+    if AchieveList == 'None' then
+        AchieveList = nil
+    end
+    
+	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+	for i = 1 , cnt do
+		RunScript('GIVE_TAKE_SOBJ_ACHIEVE_TX', list[i], giveList, takeList, addList, AchieveList,giveway, setList, nil, nil, dungeoncount, tokenBonus, mGameName)
+	end
+end
 
 function MGAME_EVT_BROADCAST_PCNAME(cmd, curStage, eventInst, obj, itemName, sec)
     
@@ -2297,6 +2319,58 @@ end
 
 function MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT(cmd, curStage, indunClsName)
 	cmd:GiveAdventureBookClearPointToAllPlayers(indunClsName);
+end
+
+function MGAME_GIVE_ACHIEVE(cmd, curStage, eventInst, obj, MgameName, Achieve, GivePoint, MaxPoint)
+	local list, cnt = GetCmdPCList(cmd:GetThisPointer());
+	local pc = list[1];
+	local partyObj = GetPartyObj(pc); 
+	local sendRewardPacket = false;
+
+	if partyObj == nil then
+		IMC_LOG("INFO_NORMAL", "VELCOFFER_RAID_PARTY_OBJECT_NIL - What??????????");
+	end
+
+	local sendPartyLeader = false;
+	if cnt > 0 then
+		for i = 1, cnt do
+			pc = list[i]
+
+			if IsPartyLeaderPc(partyObj, pc) == 1 then
+				--PROGRESS_REWARD
+				sendPartyLeader = true;
+				local tx = TxBegin(pc);
+				TxAddAchievePoint(tx, Achieve, GivePoint)
+    	        local ret = TxCommit(tx);
+    	        
+				sendRewardPacket = true;
+				break;
+			end
+		end
+	end
+
+	if sendPartyLeader == false then
+		if cnt > 0 then
+			for i = 1, cnt do
+				pc = list[i]
+
+				if IsPartyLeaderPc(GetPartyObj(pc), pc) == 1 then
+				else
+					RunScript('TX_REWARD_EARTH_TOWER', pc, MgameName)
+					sendRewardPacket = true;
+					break;
+				end
+			end
+		end
+	end
+
+	if sendRewardPacket == false then
+		local isParty = 0;
+		if partyObj ~= nil then
+			isParty = 1
+		end
+		IMC_LOG("INFO_NORMAL", "EARTH_TOWER_REWARD_NO_NO - isParty : "..isParty);
+	end
 end
 
 function GET_MGAME_CLASS_BY_MGAMENAME(mGameName)

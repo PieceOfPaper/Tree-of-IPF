@@ -31,3 +31,16 @@ function GET_LEGEND_PREFIX_ITEM_NAME(item)
 	end
 	return nameText;
 end
+
+function GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj)
+    return TryGetProp(itemObj, "StringArg");
+end
+
+function GET_LEGENDEXPPOTION_ICON_IMAGE(itemObj)
+	local curExp, maxExp = itemObj.ItemExp, itemObj.NumberArg1;
+	if curExp >= maxExp then
+		return GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj);
+	end
+    local emptyImage = TryGetProp(itemObj, "TooltipImage");
+	return emptyImage;
+end

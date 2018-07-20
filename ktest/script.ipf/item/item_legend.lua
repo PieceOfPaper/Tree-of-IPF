@@ -142,8 +142,10 @@ function TX_EXTRACT_OPTION(pc, item, kitItem, matCnt)
         SendAddOnMsg(pc, 'MSG_FAIL_ITEM_OPTION_EXTRACT');        
     end
 
-    if isDestroyed == 1 then
-        SendSysMsg(pc, 'ItemDeletedByOptionExtract');
+    if isDestroyed == 1 and isSuccess == 1 then
+		SendSysMsg(pc, 'ItemDeletedByOptionExtractSuccess');
+	elseif isDestroyed == 1 and isSuccess ~= 1 then
+		SendSysMsg(pc, 'ItemDeletedByOptionExtractDestroy');
     end
 end
 

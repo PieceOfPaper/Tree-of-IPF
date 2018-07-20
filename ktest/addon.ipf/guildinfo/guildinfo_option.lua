@@ -321,6 +321,11 @@ end
 function SAVE_GUILD_PROMOTE(frame, control)
 	local parentFrame = frame:GetTopParentFrame();
 	local introText = GET_CHILD_RECURSIVELY(parentFrame, "promoteEdit")
+	local badword = IsBadString(introText:GetText());
+    if badword ~= nil then
+		ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
+		return;
+	end
 	PutGuildInfo("PUT_GUILD_PROMOTE", introText:GetText(), "");
 end
 

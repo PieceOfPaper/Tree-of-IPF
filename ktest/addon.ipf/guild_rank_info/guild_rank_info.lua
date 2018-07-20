@@ -51,6 +51,7 @@ function SCROLL_GUILD(parent, ctrl, str, wheel)
 end
 function GET_GUILD_LIST(ret_code, return_json)
     finishedLoading = true;
+    print(return_json);
     --print("curpage:" .. curPage)
     if ret_code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, return_json, "GET_GUILD_LIST")
@@ -187,6 +188,9 @@ function ON_BANNER_CLICKED(frame, control, guild_data)
     if guildPropByIdx ~= nil then
         emblemFolderPath = filefind.GetBinPath("GuildEmblem"):c_str()
         local emblemPath = emblemFolderPath .. "\\" .. guild_data .. ".png";
+        if filefind.FileExists(emblemPath, true) == false then
+            emblemPath = "None";
+        end
         GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, guildData['additionalInfo'], guild_data )
     end
 end

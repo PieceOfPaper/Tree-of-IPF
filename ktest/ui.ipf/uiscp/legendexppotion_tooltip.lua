@@ -5,21 +5,13 @@ function ITEM_TOOLTIP_LEGENDEXPPOTION(tooltipframe, invitem, strarg)
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 
 	local mainframename = 'legendexppotion'
-	local ypos = DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); 
-    ypos = DRAW_LEGENDEXPPOTION_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
+	local ypos = DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, strarg); 
+	ypos = DRAW_LEGENDEXPPOTION_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_LEGENDEXPPOTION_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
-function GET_LEGENDEXPPOTION_ICON_IMAGE(itemObj)
-	local curExp, maxExp = itemObj.ItemExp, itemObj.NumberArg1;
-	local emptyImage, fullImage = TryGetProp(itemObj, "TooltipImage"), TryGetProp(itemObj, "StringArg");
-	if curExp == maxExp then
-		return fullImage;
-	end
-	return emptyImage;
-end
-
-function DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
+function DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, strarg)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	
@@ -31,14 +23,17 @@ function DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframenam
 	nameChild:SetText(fullname);
 
 	local level_gauge = GET_CHILD(CSet,'level_gauge','ui::CGauge')
-	local lv, curExp, maxExp = 1, invitem.ItemExp, invitem.NumberArg1
-	if curExp > maxExp then
-		curExp = maxExp;
-	end
-	level_gauge:SetPoint(curExp, maxExp);
-
 	local itemPicture = GET_CHILD(CSet, "itempic", "ui::CPicture");
+	
+	local lv, curExp, maxExp = 1, invitem.ItemExp, invitem.NumberArg1
 	local tooltipImage = GET_LEGENDEXPPOTION_ICON_IMAGE(invitem);
+
+	if strarg == 'maxexp' then
+		curExp = maxExp;
+		tooltipImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(invitem);
+	end
+	
+	level_gauge:SetPoint(curExp, maxExp);
 	if tooltipImage ~= nil and tooltipImage ~= 'None' then
 		itemPicture:SetImage(tooltipImage);
 		itemPicture:ShowWindow(1);
@@ -69,3 +64,32 @@ function DRAW_LEGENDEXPPOTION_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, m
     return ypos + CSet:GetHeight();
 end
 
+function DRAW_LEGENDEXPPOTION_DESC_TOOLTIP(tooltipframe, invitem, yPos, mainframename)
+	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
+	gBox:RemoveChild('tooltip_legendexppotion_desc');
+	
+	local CSet = gBox:CreateOrGetControlSet('tooltip_legendexppotion_desc', 'tooltip_legendexppotion_desc', 0, yPos);
+	local descRichtext= GET_CHILD(CSet,'desc_text','ui::CRichText')
+
+	local customSet = false;
+	local customTooltip = TryGetProp(invitem, "CustomToolTip");
+	if customTooltip ~= nil and customTooltip ~= "None" then
+		local nameFunc = _G[customTooltip .. "_DESC"];
+		if nameFunc ~= nil then
+			local desc = invitem.Desc;
+			desc = desc .. "{nl} {nl}" .. nameFunc(invitem);
+			descRichtext:SetText(desc );
+			customSet = true;
+		end
+	end
+
+	if false == customSet then
+		descRichtext:SetText(invitem.Desc);
+	end
+
+	tolua.cast(CSet, "ui::CControlSet");
+	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
+	CSet:Resize(CSet:GetWidth(), descRichtext:GetHeight() + BOTTOM_MARGIN);
+	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
+	return CSet:GetHeight() + CSet:GetY();
+end

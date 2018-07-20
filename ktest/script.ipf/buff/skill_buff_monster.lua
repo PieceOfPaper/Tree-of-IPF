@@ -1,4 +1,4 @@
-﻿-- skill_buff_monster.lua
+-- skill_buff_monster.lua
 
 -- UC_stun
 function SCR_BUFF_ENTER_UC_stun(self, buff, arg1, arg2, over)
@@ -81,14 +81,14 @@ function SCR_BUFF_ENTER_Monster_GungHo(self, buff, arg1, arg2, over)
     defadd = math.floor(defadd)
     atkadd = math.floor(atkadd)
     
-	self.DEF_BM = self.DEF_BM - defadd;
-	self.PATK_BM = self.PATK_BM + atkadd;
+    self.DEF_BM = self.DEF_BM - defadd;
+    self.PATK_BM = self.PATK_BM + atkadd;
     self.PATK_RATE_BM = self.PATK_RATE_BM + atkrate
     self.DEF_RATE_BM = self.DEF_RATE_BM - defrate
-	SetExProp(buff, "ADD_DEF", defadd);
-	SetExProp(buff, "ADD_ATK", atkadd);
-	SetExProp(buff, "ADD_ATK2", atkrate);
-	SetExProp(buff, "ADD_DEF2", defrate);
+    SetExProp(buff, "ADD_DEF", defadd);
+    SetExProp(buff, "ADD_ATK", atkadd);
+    SetExProp(buff, "ADD_ATK2", atkrate);
+    SetExProp(buff, "ADD_DEF2", defrate);
 end
 
 function SCR_BUFF_UPDATE_Monster_GungHo(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -97,13 +97,13 @@ end
 
 function SCR_BUFF_LEAVE_Monster_GungHo(self, buff, arg1, arg2, over)
 
-	local defadd = GetExProp(buff, "ADD_DEF");
-	local atkadd = GetExProp(buff, "ADD_ATK");
-    local atkrate =	GetExProp(buff, "ADD_ATK2");
-	local defrate = GetExProp(buff, "ADD_DEF2");
-	
-	self.DEF_BM = self.DEF_BM + defadd;
-	self.PATK_BM = self.PATK_BM - atkadd;
+    local defadd = GetExProp(buff, "ADD_DEF");
+    local atkadd = GetExProp(buff, "ADD_ATK");
+    local atkrate = GetExProp(buff, "ADD_ATK2");
+    local defrate = GetExProp(buff, "ADD_DEF2");
+    
+    self.DEF_BM = self.DEF_BM + defadd;
+    self.PATK_BM = self.PATK_BM - atkadd;
     self.PATK_RATE_BM = self.PATK_RATE_BM - atkrate
     self.DEF_RATE_BM = self.DEF_RATE_BM + defrate
 
@@ -124,22 +124,22 @@ end
 
 function SCR_BUFF_UPDATE_UC_freeze(self, buff, arg1, arg2, RemainTime, ret, over)
 
-	local casterINT = GetBuffArgs(buff);
+    local casterINT = GetBuffArgs(buff);
 
-	local from = GetBuffCaster(buff);
+    local from = GetBuffCaster(buff);
     if from == nil then
         from = self;
-	end
+    end
 
-	local dot = casterINT * 0.2;
+    local dot = casterINT * 0.2;
     TakeDamage(from, self, "None", dot, "Ice", "Strike", "Magic", HIT_ICE, HITRESULT_BLOW);
     
     return 1;
 end
 
 function SCR_BUFF_LEAVE_UC_freeze(self, buff, arg1, arg2, over)
-	--HideEmoticon(self, 'I_emo_freeze')
-	
+    --HideEmoticon(self, 'I_emo_freeze')
+    
 end
 
 
@@ -153,7 +153,7 @@ function SCR_BUFF_ENTER_UC_immobilize(self, buff, arg1, arg2, over)
 
     SetExProp(buff, 'DEFENCED_BM', defencedBM);
 
-	self.MaxDefenced_BM = self.MaxDefenced_BM + defencedBM;
+    self.MaxDefenced_BM = self.MaxDefenced_BM + defencedBM;
 
 end
 
@@ -163,7 +163,7 @@ function SCR_BUFF_LEAVE_UC_immobilize(self, buff, arg1, arg2, over)
 
     local defencedBM = GetExProp(buff, 'DEFENCED_BM');
 
-	self.MaxDefenced_BM = self.MaxDefenced_BM - defencedBM;
+    self.MaxDefenced_BM = self.MaxDefenced_BM - defencedBM;
 
 end
 
@@ -203,46 +203,46 @@ function SCR_BUFF_ENTER_UC_confuse(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_confuse', 0)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
 
-	if GetObjType(self) ~= OT_MONSTERNPC then
-		return;
-	end
+    if GetObjType(self) ~= OT_MONSTERNPC then
+        return;
+    end
 
-	local curFaction = GetCurrentFaction(self);
-	SetExProp_Str(self, '_PREV_FACTION', curFaction);
-	SetCurrentFaction(self, 'CrazyMonster');
+    local curFaction = GetCurrentFaction(self);
+    SetExProp_Str(self, '_PREV_FACTION', curFaction);
+    SetCurrentFaction(self, 'CrazyMonster');
 
-	SetTendency(self, "Attack")
+    SetTendency(self, "Attack")
 
-	
-	local list, cnt = SelectObject(self, 100, "ENEMY");
-	for i = 1, cnt do
-		local obj = list[i];
-		if IS_PC(obj) == false then
-		    if obj.MonRank ~= 'Boss' and obj.Faction ~= "Neutral" then
-			    ResetHateAndAttack(obj);
+    
+    local list, cnt = SelectObject(self, 100, "ENEMY");
+    for i = 1, cnt do
+        local obj = list[i];
+        if IS_PC(obj) == false then
+            if obj.MonRank ~= 'Boss' and obj.Faction ~= "Neutral" then
+                ResetHateAndAttack(obj);
 			    InsertHate(obj, self, 10000);
-			end
-		end
-	end
+            end
+        end
+    end
 end
 
 function SCR_BUFF_LEAVE_UC_confuse(self, buff, arg1, arg2, over)
 
     --HideEmoticon(self, 'I_emo_confuse')
-	local prevFaction = GetExProp_Str(self, '_PREV_FACTION');
-	SetCurrentFaction(self, prevFaction);
+    local prevFaction = GetExProp_Str(self, '_PREV_FACTION');
+    SetCurrentFaction(self, prevFaction);
 
-	if IS_PC(self) == false then
-	    local list, cnt = SelectObject(self, 100, "FRIEND");
-	    for i = 1, cnt do
-	        local obj = list[i];
-	        if IS_PC(obj) == false then
-	            RemoveHate(obj, self)
-	        end
-	    end
-	    ResetHateAndAttack(self);
-	    InsertHate(self, GetBuffCaster(buff), 1);
-	end
+    if IS_PC(self) == false then
+        local list, cnt = SelectObject(self, 100, "FRIEND");
+        for i = 1, cnt do
+            local obj = list[i];
+            if IS_PC(obj) == false then
+                RemoveHate(obj, self)
+            end
+        end
+        ResetHateAndAttack(self);
+        InsertHate(self, GetBuffCaster(buff), 1);
+    end
 end
 
 
@@ -254,12 +254,12 @@ function SCR_BUFF_ENTER_UC_bleed(self, buff, arg1, arg2, over)
     
     local dot = 1;
     
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		dot = dot + caster.STR + arg1 + arg2
-	end
-	
-	SetExProp(self, 'BLEED_DOT', dot)
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        dot = dot + caster.STR + arg1 + arg2
+    end
+    
+    SetExProp(self, 'BLEED_DOT', dot)
 
 end
 
@@ -270,12 +270,12 @@ function SCR_BUFF_UPDATE_UC_bleed(self, buff, arg1, arg2, RemainTime, ret, over)
     local from = GetBuffCaster(buff);
     if from == nil then
         from = self;
-	end
-	
-	local useHitTypeOverride = 1;
-	TakeDamage(from, self, "None", dot, "Melee", "Aries", "TrueDamage", HIT_BLEEDING, HITRESULT_BLOW);
+    end
     
-	return 1;
+    local useHitTypeOverride = 1;
+    TakeDamage(from, self, "None", dot, "Melee", "Aries", "TrueDamage", HIT_BLEEDING, HITRESULT_BLOW);
+    
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_UC_bleed(self, buff, arg1, arg2, over)
@@ -291,12 +291,12 @@ function SCR_BUFF_ENTER_UC_hemorrhage(self, buff, arg1, arg2, over)
     
     local dot = 10;
     
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		dot = dot + caster.STR + arg1 + arg2
-	end
-	
-	SetExProp(self, 'BLEED_DOT', dot)
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        dot = dot + caster.STR + arg1 + arg2
+    end
+    
+    SetExProp(self, 'BLEED_DOT', dot)
 
 end
 
@@ -307,11 +307,11 @@ function SCR_BUFF_UPDATE_UC_hemorrhage(self, buff, arg1, arg2, RemainTime, ret, 
     local from = GetBuffCaster(buff);
     if from == nil then
         from = self;
-	end
-	
-	TakeDamage(from, self, "None", dot, "Melee", "Aries", "TrueDamage", HIT_BLEEDING, HITRESULT_BLOW);
+    end
     
-	return 1;
+    TakeDamage(from, self, "None", dot, "Melee", "Aries", "TrueDamage", HIT_BLEEDING, HITRESULT_BLOW);
+    
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_UC_hemorrhage(self, buff, arg1, arg2, over)
@@ -331,11 +331,11 @@ end
 function SCR_BUFF_UPDATE_UC_poison(self, buff, arg1, arg2, RemainTime, ret, over)
 
     local casterMAXPATK, casterMAXMATK = GetBuffArgs(buff);
-    
+
     local from = GetBuffCaster(buff);
     if from == nil then
         from = self;
-	end
+    end
 
     local damage = (casterMAXPATK + casterMAXMATK) / 4;
     TakeDamage(from, self, "None", damage , "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW);
@@ -344,7 +344,7 @@ function SCR_BUFF_UPDATE_UC_poison(self, buff, arg1, arg2, RemainTime, ret, over
 end
 
 function SCR_BUFF_LEAVE_UC_poison(self, buff, arg1, arg2, over)
-    
+
 end
 
 --function SCR_BUFF_ENTER_UC_poison(self, buff, arg1, arg2, over)
@@ -447,9 +447,9 @@ function SCR_BUFF_ENTER_UC_flame(self, buff, arg1, arg2, over)
     --ShowEmoticon(self, 'I_emo_flame', 0)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.INT, 0, 0);
-	end
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.INT, 0, 0);
+    end
 end
 
 function SCR_BUFF_UPDATE_UC_flame(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -457,14 +457,14 @@ function SCR_BUFF_UPDATE_UC_flame(self, buff, arg1, arg2, RemainTime, ret, over)
     local from = GetBuffCaster(buff);
     if from == nil then
         from = self;
-	end
+    end
 
-	local dot = GetBuffArgs(buff);
-	if dot > 0 then
-		TakeDamage(from, self, "None", dot + arg2, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
-	end
+    local dot = GetBuffArgs(buff);
+    if dot > 0 then
+        TakeDamage(from, self, "None", dot + arg2, "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
+    end
     
-	return 1;
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_UC_flame(self, buff, arg1, arg2, over)
@@ -514,9 +514,9 @@ function SCR_BUFF_LEAVE_UC_debrave(self, buff, arg1, arg2, over)
     local patkadd = GetExProp(buff, "ADD_PATK");
     local matkadd = GetExProp(buff, "ADD_MATK");
     
-	self.PATK_RATE_BM = self.PATK_RATE_BM + patkadd;
-	self.MATK_RATE_BM = self.MATK_RATE_BM + matkadd;
-	
+    self.PATK_RATE_BM = self.PATK_RATE_BM + patkadd;
+    self.MATK_RATE_BM = self.MATK_RATE_BM + matkadd;
+    
 end
 
 --UC_deprotect
@@ -527,41 +527,41 @@ function SCR_BUFF_ENTER_UC_deprotect(self, buff, arg1, arg2, over)
 
     local caster = GetBuffCaster(buff);
     if caster == nil then
-		caster = self;
-	end
+        caster = self;
+    end
 
-	local buffover = over;
-	if buffover <= 0 then
-	    buffover = 1
-	end
-	
-	local defadd = math.floor(self.DEF * 0.05 * buffover)
-	
-	self.DEF_BM = self.DEF_BM - defadd;
-	
-	SetExProp(buff, "ADD_DEF", defadd);
+    local buffover = over;
+    if buffover <= 0 then
+        buffover = 1
+    end
+    
+    local defadd = math.floor(self.DEF * 0.05 * buffover)
+    
+    self.DEF_BM = self.DEF_BM - defadd;
+    
+    SetExProp(buff, "ADD_DEF", defadd);
 end
 
 function SCR_BUFF_UPDATE_UC_deprotect(self, buff, arg1, arg2, RemainTime, ret, over)
     if over >= 10 then
         return 0;
     end
-	return 1;
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_UC_deprotect(self, buff, arg1, arg2, over)
 
     --HideEmoticon(self, 'I_emo_deprotect')
     local defadd = GetExProp(buff, "ADD_DEF");
-	
-	self.DEF_BM = self.DEF_BM + defadd;
-	
-	Invalidate(self, "DEF");
+    
+    self.DEF_BM = self.DEF_BM + defadd;
+    
+    Invalidate(self, "DEF");
     local caster = GetBuffCaster(buff);
     if caster == nil then
-		caster = self;
-	end
-	
+        caster = self;
+    end
+    
     if over >= 10 then
         AddBuff(caster, self, 'UC_armorbreak', 1, 0, 10000, 1);
     end
@@ -572,13 +572,13 @@ function SCR_BUFF_ENTER_UC_deprotect_Mon(self, buff, arg1, arg2, over)
 
     --ShowEmoticon(self, 'I_emo_deprotect', 0)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
-	
-	local defadd = 0.5
-	
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
-	
-	SetExProp(buff, "ADD_DEF", defadd);
-	
+    
+    local defadd = 0.5
+    
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
+    
+    SetExProp(buff, "ADD_DEF", defadd);
+    
 end
 
 function SCR_BUFF_LEAVE_UC_deprotect_Mon(self, buff, arg1, arg2, over)
@@ -586,8 +586,8 @@ function SCR_BUFF_LEAVE_UC_deprotect_Mon(self, buff, arg1, arg2, over)
     --HideEmoticon(self, 'I_emo_deprotect')
 
     local defadd = GetExProp(buff, "ADD_DEF");
-	
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
+    
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
 
 end
 
@@ -596,14 +596,14 @@ function SCR_BUFF_ENTER_UC_armorbreak(self, buff, arg1, arg2, over)
     SkillTextEffect(nil, self, GetBuffCaster(buff), "SHOW_BUFF_TEXT", buff.ClassID, nil);
     --ShowEmoticon(self, 'I_emo_armorbreak', 0)
     
-	local defadd = 0.5;
-	local mdefadd = 0.5;
-	
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
-	self.MDEF_RATE_BM = self.MDEF_RATE_BM - mdefadd;
-	
-	SetExProp(buff, "ADD_DEF", defadd);
-	SetExProp(buff, "ADD_MDEF", mdefadd);
+    local defadd = 0.5;
+    local mdefadd = 0.5;
+    
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - mdefadd;
+    
+    SetExProp(buff, "ADD_DEF", defadd);
+    SetExProp(buff, "ADD_MDEF", mdefadd);
 end
 
 function SCR_BUFF_LEAVE_UC_armorbreak(self, buff, arg1, arg2, over)
@@ -611,8 +611,8 @@ function SCR_BUFF_LEAVE_UC_armorbreak(self, buff, arg1, arg2, over)
     
     local defadd = GetExProp(buff, "ADD_DEF");
     local mdefadd = GetExProp(buff, "ADD_MDEF");
-	
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
+    
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
     self.MDEF_RATE_BM = self.MDEF_RATE_BM + mdefadd;
 end
 
@@ -1003,17 +1003,17 @@ function SCR_BUFF_ENTER_After_Invincible(self, buff, arg1, arg2, over)
 
     local defadd = 0.5
     
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd
-	
-	SetExProp(buff, "ADD_DEF", defadd);
-	
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd
+    
+    SetExProp(buff, "ADD_DEF", defadd);
+    
 end
 
 function SCR_BUFF_LEAVE_After_Invincible(self, buff, arg1, arg2, RemainTime)
 
-	local defadd = GetExProp(buff, "ADD_DEF");
+    local defadd = GetExProp(buff, "ADD_DEF");
 
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
 end
 
 
@@ -1028,12 +1028,12 @@ function SCR_BUFF_ENTER_MonReturn(self, buff, arg1, arg2, over)
         CancelMonsterSkill(self)
         ResetHate(self)
         SetTendency(self, "None")
-    	local range = 50;
-    	local count = 1 + arg1;		--arg1 == skill.Level
+        local range = 50;
+        local count = 1 + arg1;     --arg1 == skill.Level
     
-    	MoveEx(self, self.CreateX, self.CreateY, self.CreateZ, 1);
+        MoveEx(self, self.CreateX, self.CreateY, self.CreateZ, 1);
 
-		InvalidateMSPD(self);
+        InvalidateMSPD(self);
     end
 end
 function SCR_BUFF_UPDATE_MonReturn(self, buff, arg1, arg2, RemainTime, ret, over)
@@ -1042,13 +1042,13 @@ function SCR_BUFF_UPDATE_MonReturn(self, buff, arg1, arg2, RemainTime, ret, over
         return 0;
     end
     
-	return 1;
+    return 1;
 end
 function SCR_BUFF_LEAVE_MonReturn(self, buff, arg1, arg2, over)
     SetNoDamage(self, 0);
     UnHoldMonScp(self)
     self.MSPD_BM = self.MSPD_BM - 50;
-	InvalidateMSPD(self);
+    InvalidateMSPD(self);
 end
 
 
@@ -1058,17 +1058,17 @@ function SCR_BUFF_ENTER_Rage_Abomi(self, buff, arg1, arg2, over)
 
   local defadd = 0.6
   
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd
-	
-	SetExProp(buff, "ADD_DEF", defadd);
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd
+    
+    SetExProp(buff, "ADD_DEF", defadd);
 
 end
 
 function SCR_BUFF_LEAVE_Rage_Abomi(self, buff, arg1, arg2, over)
 
-	local defadd = GetExProp(buff, "ADD_DEF");
+    local defadd = GetExProp(buff, "ADD_DEF");
 
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
 
 end
 
@@ -1077,17 +1077,17 @@ function SCR_BUFF_ENTER_Rage_helga(self, buff, arg1, arg2, over)
 
   local defadd = 0.5
   
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd
-	
-	SetExProp(buff, "ADD_DEF", defadd);
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd
+    
+    SetExProp(buff, "ADD_DEF", defadd);
 
 end
 
 function SCR_BUFF_LEAVE_Rage_helga(self, buff, arg1, arg2, over)
 
-	local defadd = GetExProp(buff, "ADD_DEF");
+    local defadd = GetExProp(buff, "ADD_DEF");
 
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
 
 end
 
@@ -1096,17 +1096,17 @@ function SCR_BUFF_ENTER_Rage_Ryta(self, buff, arg1, arg2, over)
 
   local defadd = 0.5
   
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd
-	
-	SetExProp(buff, "ADD_DEF", defadd);
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd
+    
+    SetExProp(buff, "ADD_DEF", defadd);
 
 end
 
 function SCR_BUFF_LEAVE_Rage_Ryta(self, buff, arg1, arg2, over)
 
-	local defadd = GetExProp(buff, "ADD_DEF");
+    local defadd = GetExProp(buff, "ADD_DEF");
 
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd;
 
 end
 
@@ -1122,7 +1122,7 @@ function SCR_BUFF_LEAVE_Death_eye(self, buff, arg1, arg2, over)
 
     ObjectColorBlend(self, 255, 255, 255, 255, 1)
 
-	TakeTrueDamage(self, self, 'None', self.HP-1, HIT_BASIC, HITRESULT_BLOW)
+    TakeTrueDamage(self, self, 'None', self.HP-1, HIT_BASIC, HITRESULT_BLOW)
     --PlayAnim(self, "KNOCKDOWN", 1, 1, 0, 1); -- ??????? kd????????????
 
 end
@@ -1134,11 +1134,11 @@ function SCR_BUFF_ENTER_Mole_Buff(self, buff, arg1, arg2, over)
     local atkadd = 0.5
     local defsub = 0.3
     
-	self.PATK_RATE_BM = self.PATK_RATE_BM + atkadd
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defsub
+    self.PATK_RATE_BM = self.PATK_RATE_BM + atkadd
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defsub
 
-	SetExProp(buff, "ADD_ATK", atkadd);
-	SetExProp(buff, "ADD_DEF", defsub);
+    SetExProp(buff, "ADD_ATK", atkadd);
+    SetExProp(buff, "ADD_DEF", defsub);
     
 --    local rand = IMCRandom(1, 5);
 --    SetExProp(buff, "RAND", rand);
@@ -1149,8 +1149,8 @@ function SCR_BUFF_ENTER_Mole_Buff(self, buff, arg1, arg2, over)
 --  
 --    if rand == 1 then
 --        --print("self.DEF : " + self.DEF + "  ");
---		self.DEF = self.DEF + (self.DEF * rand_val)
---		--print("self.DEF : " + self.DEF);
+--      self.DEF = self.DEF + (self.DEF * rand_val)
+--      --print("self.DEF : " + self.DEF);
 --    else if rand == 2 then
 --        --print("self.DEF : " + self.DEF + "  ");
 --        self.ATK = self.DEF - (self.DEF * rand_val)
@@ -1170,8 +1170,8 @@ function SCR_BUFF_LEAVE_Mole_Buff(self, buff, arg1, arg2, over)
     local atkadd = GetExProp(buff, "ADD_ATK");
     local defsub = GetExProp(buff, "ADD_DEF");
 
-	self.PATK_RATE_BM = self.PATK_RATE_BM - atkadd;
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defsub;
+    self.PATK_RATE_BM = self.PATK_RATE_BM - atkadd;
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defsub;
 
 end
 
@@ -1200,9 +1200,9 @@ function SCR_BUFF_ENTER_Kubas_Buff_Flame(self, buff, arg1, arg2, RemainTime, ret
 
     local regadd = 10
     
-	self.Fire_Def_BM = self.Fire_Def_BM + regadd
+    self.Fire_Def_BM = self.Fire_Def_BM + regadd
 
-	SetExProp(buff, "ADD_REG", regadd);
+    SetExProp(buff, "ADD_REG", regadd);
 
 end
 
@@ -1210,8 +1210,8 @@ function SCR_BUFF_LEAVE_Kubas_Buff_Flame(self, buff, arg1, arg2, RemainTime, ret
 
     local regadd = GetExProp(buff, "ADD_REG");
 
-	self.Fire_Def_BM = self.Fire_Def_BM - regadd
-	
+    self.Fire_Def_BM = self.Fire_Def_BM - regadd
+    
 end
 
 
@@ -1220,9 +1220,9 @@ function SCR_BUFF_ENTER_Kubas_Buff_Water(self, buff, arg1, arg2, RemainTime, ret
 
     local regadd = 10
     
-	self.Ice_Def_BM = self.Ice_Def_BM + regadd
+    self.Ice_Def_BM = self.Ice_Def_BM + regadd
 
-	SetExProp(buff, "ADD_REG", regadd);
+    SetExProp(buff, "ADD_REG", regadd);
 
 end
 
@@ -1230,8 +1230,8 @@ function SCR_BUFF_LEAVE_Kubas_Buff_Water(self, buff, arg1, arg2, RemainTime, ret
 
     local regadd = GetExProp(buff, "ADD_REG");
 
-	self.Ice_Def_BM = self.Ice_Def_BM - regadd
-	
+    self.Ice_Def_BM = self.Ice_Def_BM - regadd
+    
 end
 
 
@@ -1240,9 +1240,9 @@ function SCR_BUFF_ENTER_Kubas_Buff_Tempest(self, buff, arg1, arg2, RemainTime, r
 
     local regadd = 10
     
-	self.Lightning_Def_BM = self.Lightning_Def_BM + regadd
+    self.Lightning_Def_BM = self.Lightning_Def_BM + regadd
 
-	SetExProp(buff, "ADD_REG", regadd);
+    SetExProp(buff, "ADD_REG", regadd);
 
 end
 
@@ -1250,19 +1250,19 @@ function SCR_BUFF_LEAVE_Kubas_Buff_Tempest(self, buff, arg1, arg2, RemainTime, r
 
     local regadd = GetExProp(buff, "ADD_REG");
 
-	self.Lightning_Def_BM = self.Lightning_Def_BM - regadd
+    self.Lightning_Def_BM = self.Lightning_Def_BM - regadd
 
 end
 
 
 -- Mon_Shield
 function SCR_BUFF_ENTER_Mon_Shield(self, buff, arg1, arg2, over)
-	local shieldValue = self.MHP / 10
-	GIVE_BUFF_SHIELD(self, buff, shieldValue)
+    local shieldValue = self.MHP / 10
+    GIVE_BUFF_SHIELD(self, buff, shieldValue)
 end
 
 function SCR_BUFF_LEAVE_Mon_Shield(self, buff, arg1, arg2, over)
-	TAKE_BUFF_SHIELD(self, buff)
+    TAKE_BUFF_SHIELD(self, buff)
 end
 
 
@@ -1271,17 +1271,17 @@ function SCR_BUFF_ENTER_Mon_Def_down(self, buff, arg1, arg2, over)
 
   local defadd = 0.5
   
-	self.DEF_RATE_BM = self.DEF_RATE_BM - defadd
-	
-	SetExProp(buff, "ADD_DEF", defadd);
+    self.DEF_RATE_BM = self.DEF_RATE_BM - defadd
+    
+    SetExProp(buff, "ADD_DEF", defadd);
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Def_down(self, buff, arg1, arg2, over)
 
-	local defadd = GetExProp(buff, "ADD_DEF");
+    local defadd = GetExProp(buff, "ADD_DEF");
 
-	self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
+    self.DEF_RATE_BM = self.DEF_RATE_BM + defadd;
 
 end
 
@@ -1292,15 +1292,15 @@ end
 function SCR_BUFF_ENTER_Mon_Golden_Bell_Shield_Buff(self, buff, arg1, arg2, over)
 
     local addDefenced_BM  = 1;
-	SetExProp(self, 'DEFENCED_BM', addDefenced_BM);
-	self.MaxDefenced_BM = self.MaxDefenced_BM + addDefenced_BM;
+    SetExProp(self, 'DEFENCED_BM', addDefenced_BM);
+    self.MaxDefenced_BM = self.MaxDefenced_BM + addDefenced_BM;
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Golden_Bell_Shield_Buff(self, buff, arg1, arg2, over)
 
-	local addDefenced_BM = GetExProp(self, 'DEFENCED_BM');
-	self.MaxDefenced_BM = self.MaxDefenced_BM - addDefenced_BM;
+    local addDefenced_BM = GetExProp(self, 'DEFENCED_BM');
+    self.MaxDefenced_BM = self.MaxDefenced_BM - addDefenced_BM;
 
 end
 
@@ -1321,17 +1321,17 @@ function SCR_BUFF_ENTER_Mon_Magic_Shield(self, buff, arg1, arg2, over)
 
   local mdefadd = 0.5
   
-	self.MDEF_RATE_BM = self.MDEF_RATE_BM + mdefadd
-	
-	SetExProp(buff, "ADD_MDEF", mdefadd);
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM + mdefadd
+    
+    SetExProp(buff, "ADD_MDEF", mdefadd);
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Magic_Shield(self, buff, arg1, arg2, over)
 
-	local mdefadd = GetExProp(buff, "ADD_MDEF");
+    local mdefadd = GetExProp(buff, "ADD_MDEF");
 
-	self.MDEF_RATE_BM = self.MDEF_RATE_BM - mdefadd;
+    self.MDEF_RATE_BM = self.MDEF_RATE_BM - mdefadd;
 
 end
 
@@ -1340,17 +1340,17 @@ end
 
 
 function SCR_BUFF_ENTER_Mon_Magic_Shield_Debuff(self, buff, arg1, arg2, over)
-	
-	local mdefadd = 100 + arg1 * 5
-	self.MDEF_BM = self.MDEF_BM - mdefadd;
-	SetExProp(buff, 'ADD_MDEF_BM', mdefadd);
+    
+    local mdefadd = 100 + arg1 * 5
+    self.MDEF_BM = self.MDEF_BM - mdefadd;
+    SetExProp(buff, 'ADD_MDEF_BM', mdefadd);
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Magic_Shield_Debuff(self, buff, arg1, arg2, over)
 
-	local mdefadd = GetExProp(buff, 'ADD_MDEF_BM');
-	self.MDEF_BM = self.MDEF_BM + mdefadd;
+    local mdefadd = GetExProp(buff, 'ADD_MDEF_BM');
+    self.MDEF_BM = self.MDEF_BM + mdefadd;
 
 end
 
@@ -1359,25 +1359,25 @@ end
 --Poison_Mon
 function SCR_BUFF_ENTER_Poison_Mon(self, buff, arg1, arg2, over)
 
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.MAXPATK, caster.MAXMATK, 0);
-	end
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.MAXPATK, caster.MAXMATK, 0);
+    end
 end
 
 function SCR_BUFF_UPDATE_Poison_Mon(self, buff, arg1, arg2, RemainTime, ret, over)
 
-	local casterMAXPATK, casterMAXMATK = GetBuffArgs(buff);
+    local casterMAXPATK, casterMAXMATK = GetBuffArgs(buff);
 
     local from = GetBuffCaster(buff);
-	if from == nil then
-		from = self;
-	end
+    if from == nil then
+        from = self;
+    end
 
-	local damage = (casterMAXPATK + casterMAXMATK) / 2;
-	TakeDamage(from, self, "None", damage / 5, "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW);
-	return 1;
-	
+    local damage = (casterMAXPATK + casterMAXMATK) / 2;
+    TakeDamage(from, self, "None", damage / 5, "Poison", "None", "TrueDamage", HIT_POISON, HITRESULT_BLOW);
+    return 1;
+    
 end
 
 function SCR_BUFF_LEAVE_Poison_Mon(self, buff, arg1, arg2, over)
@@ -1424,31 +1424,31 @@ end
 
 function SCR_BUFF_ENTER_Sticky_Bubble(self, buff, arg1, arg2, over)
 
-	if GetPropType(self, "Runnable") ~= nil then
-	    if self.Runnable == 1 then
-		    self.Runnable = self.Runnable - 1;
-		end
-	end
+    if GetPropType(self, "Runnable") ~= nil then
+        if self.Runnable == 1 then
+            self.Runnable = self.Runnable - 1;
+        end
+    end
 
-	local mspdadd = self.MSPD * (0.15 * over)
-	self.MSPD_BM = self.MSPD_BM - mspdadd;
-	
-	SetExProp(buff, "ADD_MSPD", mspdadd);
+    local mspdadd = self.MSPD * (0.15 * over)
+    self.MSPD_BM = self.MSPD_BM - mspdadd;
+    
+    SetExProp(buff, "ADD_MSPD", mspdadd);
 
 end
 
 function SCR_BUFF_LEAVE_Sticky_Bubble(self, buff, arg1, arg2, over)
-	
-	local mspdadd = GetExProp(buff, "ADD_MSPD");
-	
-	self.MSPD_BM = self.MSPD_BM + mspdadd;
-	
-	if GetPropType(self, "Runnable") ~= nil then
-	    if self.Runnable == 0 then
-		    self.Runnable = self.Runnable + 1;
-		end
-	end
-	
+    
+    local mspdadd = GetExProp(buff, "ADD_MSPD");
+    
+    self.MSPD_BM = self.MSPD_BM + mspdadd;
+    
+    if GetPropType(self, "Runnable") ~= nil then
+        if self.Runnable == 0 then
+            self.Runnable = self.Runnable + 1;
+        end
+    end
+    
 end
 
 
@@ -1456,18 +1456,18 @@ end
 
 function SCR_BUFF_ENTER_Scald(self, buff, arg1, arg2, over)
 
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.Lv, 0, 0);
-	end
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.Lv, 0, 0);
+    end
 end
 
 function SCR_BUFF_UPDATE_Scald(self, buff, arg1, arg2, RemainTime, ret, over)
 
     local caster = GetBuffCaster(buff);
-	if caster == nil then
-		caster = self;
-	end
+    if caster == nil then
+        caster = self;
+    end
     local casterLv = GetBuffArgs(buff);
     local dmg = casterLv * 2 / 5;
     TakeDamage(caster, self, "None", dmg, "Fire", "None", "Melee", HIT_FIRE, HITRESULT_BLOW);
@@ -1498,17 +1498,17 @@ end
 
 function SCR_BUFF_ENTER_Monster_Haste_Buff(self, buff, arg1, arg2, over)
 
-	local lv = arg1;
-	local mspdadd = self.MSPD * 2;
-	
-	self.MSPD_BM = self.MSPD_BM + mspdadd;
-	
-	SetExProp(buff, "ADD_MSPD", mspdadd);
-	
-	local caster = GetBuffCaster(buff);
-	if caster == nil then
-		return;
-	end
+    local lv = arg1;
+    local mspdadd = self.MSPD * 2;
+    
+    self.MSPD_BM = self.MSPD_BM + mspdadd;
+    
+    SetExProp(buff, "ADD_MSPD", mspdadd);
+    
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        return;
+    end
     
     local Name = GetName(caster);
     if self.Name ~= Name then
@@ -1518,8 +1518,8 @@ end
 
 function SCR_BUFF_LEAVE_Monster_Haste_Buff(self, buff, arg1, arg2, over)
 
-	local mspdadd = GetExProp(buff, "ADD_MSPD");
-	self.MSPD_BM = self.MSPD_BM - mspdadd;
+    local mspdadd = GetExProp(buff, "ADD_MSPD");
+    self.MSPD_BM = self.MSPD_BM - mspdadd;
 
 end
 
@@ -1532,13 +1532,13 @@ function SCR_BUFF_ENTER_Monster_Slow(self, buff, arg1, arg2, over)
 
     --ShowEmoticon(self, 'I_emo_slowdown', 0)
 
-	local lv = arg1;
+    local lv = arg1;
 
-	local mspdadd = self.MSPD * (0.85 + lv * 0.02);
-	
-	self.MSPD_BM = self.MSPD_BM - mspdadd;
-	
-	SetExProp(buff, "ADD_MSPD", mspdadd);
+    local mspdadd = self.MSPD * (0.85 + lv * 0.02);
+    
+    self.MSPD_BM = self.MSPD_BM - mspdadd;
+    
+    SetExProp(buff, "ADD_MSPD", mspdadd);
 
 end
 
@@ -1547,9 +1547,9 @@ function SCR_BUFF_LEAVE_Monster_Slow(self, buff, arg1, arg2, over)
 
     --HideEmoticon(self, 'I_emo_slowdown')
 
-	local mspdadd = GetExProp(buff, "ADD_MSPD");
+    local mspdadd = GetExProp(buff, "ADD_MSPD");
 
-	self.MSPD_BM = self.MSPD_BM + mspdadd;
+    self.MSPD_BM = self.MSPD_BM + mspdadd;
 
 
 end
@@ -1560,41 +1560,41 @@ function SCR_BUFF_ENTER_BLK_UP(self, buff, arg1, arg2, over)
 
   local defadd = self.BLK * 0.6 * arg1
     
-	self.BLK_BM = self.BLK_BM + defadd
-	
-	SetExProp(buff, "ADD_BLK", defadd);
+    self.BLK_BM = self.BLK_BM + defadd
+    
+    SetExProp(buff, "ADD_BLK", defadd);
 
 end
 
 function SCR_BUFF_LEAVE_BLK_UP(self, buff, arg1, arg2, over)
 
-	local defadd = GetExProp(buff, "ADD_BLK");
+    local defadd = GetExProp(buff, "ADD_BLK");
 
-	self.BLK_BM = self.BLK_BM - defadd;
+    self.BLK_BM = self.BLK_BM - defadd;
 
 end
 
 
 function SCR_BUFF_ENTER_Mon_Scud(self, buff, arg1, arg2, over)
 
-	local lv = arg1;
+    local lv = arg1;
 
-	local mspdadd = self.MSPD * 0.8;
-	
-	--AddStamina(self, 3000);
-	
-	self.MSPD_BM = self.MSPD_BM + mspdadd;
-	
-	SetExProp(buff, "ADD_MSPD", mspdadd);
-	
+    local mspdadd = self.MSPD * 0.8;
+    
+    --AddStamina(self, 3000);
+    
+    self.MSPD_BM = self.MSPD_BM + mspdadd;
+    
+    SetExProp(buff, "ADD_MSPD", mspdadd);
+    
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Scud(self, buff, arg1, arg2, over)
 
-	local mspdadd = GetExProp(buff, "ADD_MSPD");
+    local mspdadd = GetExProp(buff, "ADD_MSPD");
 
-	self.MSPD_BM = self.MSPD_BM - mspdadd;
+    self.MSPD_BM = self.MSPD_BM - mspdadd;
 
 end
 
@@ -1611,15 +1611,15 @@ end
 
 function SCR_BUFF_UPDATE_Dot_Fire(self, buff, arg1, arg2, RemainTime, ret, over)
 
-	local dotDmg = math.floor(((caster.MINMATK + caster.MAXMATK) / 2 - self.DEF) * 0.5);
+    local dotDmg = math.floor(((caster.MINMATK + caster.MAXMATK) / 2 - self.DEF) * 0.5);
 
     if dotDmg < 1 then
         dotDmg = 1;
     end
     
-	TakeDamage(buff, self, "None", dotDmg, "Fire", "None", "None", HIT_FIRE, HITRESULT_BLOW);
-	
-	return 1;
+    TakeDamage(buff, self, "None", dotDmg, "Fire", "None", "None", HIT_FIRE, HITRESULT_BLOW);
+    
+    return 1;
 
 end
 
@@ -1661,33 +1661,33 @@ end
 
 -- Mon_cure_Debuff
 function SCR_BUFF_ENTER_Mon_cure_Debuff(self, buff, arg1, arg2, over)
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.MINMATK, caster.MAXMATK, 0);
-	end
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.MINMATK, caster.MAXMATK, 0);
+    end
 end
 
 function SCR_BUFF_UPDATE_Mon_cure_Debuff(self, buff, arg1, arg2, RemainTime, ret, over)
-	local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
-	local lv = arg1
-	local caster = GetBuffCaster(buff);
-	if caster == nil then
-		caster = self;
-	end
-	
-	local baseAtk = ((casterMINMATK + casterMAXMATK) / 2 - self.DEF) * (0.15 + (lv - 1) * 0.015);
-	local addAtk = lv * 1.5;
-	
+    local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
+    local lv = arg1
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        caster = self;
+    end
+    
+    local baseAtk = ((casterMINMATK + casterMAXMATK) / 2 - self.DEF) * (0.15 + (lv - 1) * 0.015);
+    local addAtk = lv * 1.5;
+    
     if baseAtk < 1 then
-	    baseAtk = 1;
-	end
-	
-	if lv > 5 then
-	    addAtk = addAtk + (lv - 5) * 3.2;
-	end
-	
-	local resultDmg = math.floor(baseAtk + addAtk);
-	TakeDamage(caster, self, "None", resultDmg, "Holy", "None", "Magic", HIT_HOLY, HITRESULT_BLOW);
+        baseAtk = 1;
+    end
+    
+    if lv > 5 then
+        addAtk = addAtk + (lv - 5) * 3.2;
+    end
+    
+    local resultDmg = math.floor(baseAtk + addAtk);
+    TakeDamage(caster, self, "None", resultDmg, "Holy", "None", "Magic", HIT_HOLY, HITRESULT_BLOW);
     
     return 1;
 end
@@ -1849,17 +1849,17 @@ function SCR_BUFF_ENTER_Mon_Atk_up(self, buff, arg1, arg2, over)
 
     local atkadd = 0.5
     
-	self.PATK_RATE_BM = self.PATK_RATE_BM + atkadd
-	
-	SetExProp(buff, "ADD_ATK", atkadd);
+    self.PATK_RATE_BM = self.PATK_RATE_BM + atkadd
+    
+    SetExProp(buff, "ADD_ATK", atkadd);
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Atk_up(self, buff, arg1, arg2, over)
 
-	local atkadd = GetExProp(buff, "ADD_ATK");
+    local atkadd = GetExProp(buff, "ADD_ATK");
 
-	self.PATK_RATE_BM = self.PATK_RATE_BM - atkadd;
+    self.PATK_RATE_BM = self.PATK_RATE_BM - atkadd;
 
 end
 
@@ -1871,32 +1871,32 @@ end
 
 
 function SCR_BUFF_ENTER_Mon_Atk_down(self, buff, arg1, arg2, over)
-	if IS_PC(self) == false then
-		return;
-	end
+    if IS_PC(self) == false then
+        return;
+    end
+
+    local patkadd = 0.2
+    local matkadd = 0.2
     
-	local patkadd = 0.2
-	local matkadd = 0.2
-	
-	self.PATK_RATE_BM = self.PATK_RATE_BM - patkadd
-	self.MATK_RATE_BM = self.MATK_RATE_BM - matkadd
-	
-	SetExProp(buff, "ADD_PATK", patkadd);
-	SetExProp(buff, "ADD_MATK", matkadd);
+    self.PATK_RATE_BM = self.PATK_RATE_BM - patkadd
+    self.MATK_RATE_BM = self.MATK_RATE_BM - matkadd
+    
+    SetExProp(buff, "ADD_PATK", patkadd);
+    SetExProp(buff, "ADD_MATK", matkadd);
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Atk_down(self, buff, arg1, arg2, over)
 
-	if IS_PC(self) == false then
-		return;
-	end
+    if IS_PC(self) == false then
+        return;
+    end
 
-	local patkadd = GetExProp(buff, "ADD_PATK")
-	local matkadd = GetExProp(buff, "ADD_MATK");
+    local patkadd = GetExProp(buff, "ADD_PATK")
+    local matkadd = GetExProp(buff, "ADD_MATK");
 
-	self.PATK_RATE_BM = self.PATK_RATE_BM + patkadd
-	self.MATK_RATE_BM = self.MATK_RATE_BM + matkadd
+    self.PATK_RATE_BM = self.PATK_RATE_BM + patkadd
+    self.MATK_RATE_BM = self.MATK_RATE_BM + matkadd
 
 end
 
@@ -1904,22 +1904,22 @@ function SCR_BUFF_ENTER_Mon_Aggressor_Buff(self, buff, arg1, arg2, over)
     local dradd = (self.DR * 1) - (self.DR * (arg1 * 0.1))
     local hradd = self.DR * (0.2 * arg1)
     
-	self.DR_BM = self.DR_BM - dradd
+    self.DR_BM = self.DR_BM - dradd
     self.HR_BM = self.HR_BM + hradd
     
-	SetExProp(buff, "ADD_DR", dradd);
-	SetExProp(buff, "ADD_HR", hradd);
+    SetExProp(buff, "ADD_DR", dradd);
+    SetExProp(buff, "ADD_HR", hradd);
 
 end
 
 
 function SCR_BUFF_LEAVE_Mon_Aggressor_Buff(self, buff, arg1, arg2, over)
 
-	local dradd = GetExProp(buff, "ADD_DR");
-	local hradd = GetExProp(buff, "ADD_HR");
+    local dradd = GetExProp(buff, "ADD_DR");
+    local hradd = GetExProp(buff, "ADD_HR");
 
-	self.DR_BM = self.DR_BM + dradd;
-	self.HR_BM = self.HR_BM - hradd;
+    self.DR_BM = self.DR_BM + dradd;
+    self.HR_BM = self.HR_BM - hradd;
 
 
 end
@@ -1929,24 +1929,24 @@ end
 --Mon_Transpose_Buff
 function SCR_BUFF_ENTER_Mon_Transpose_Buff(self, buff, arg1, arg2, over)
 
-	local con = self.CON;
-	local str = self.STR;
+    local con = self.CON;
+    local str = self.STR;
 
-	SetExProp(buff, 'BEFORE_CON', con);
-	SetExProp(buff, 'BEFORE_STR', str);
+    SetExProp(buff, 'BEFORE_CON', con);
+    SetExProp(buff, 'BEFORE_STR', str);
 
-	self.CON_BM = self.CON_BM - con + str;
-	self.STR_BM = self.STR_BM - str + con;
+    self.CON_BM = self.CON_BM - con + str;
+    self.STR_BM = self.STR_BM - str + con;
 
 end
 
 function SCR_BUFF_LEAVE_Mon_Transpose_Buff(self, buff, arg1, arg2, over)
 
-	local con = GetExProp(buff, 'BEFORE_CON');
-	local str = GetExProp(buff, 'BEFORE_STR');
+    local con = GetExProp(buff, 'BEFORE_CON');
+    local str = GetExProp(buff, 'BEFORE_STR');
 
-	self.CON_BM = self.CON_BM - str + con;
-	self.STR_BM = self.STR_BM - con + str;
+    self.CON_BM = self.CON_BM - str + con;
+    self.STR_BM = self.STR_BM - con + str;
 end
 
 
@@ -1962,11 +1962,11 @@ end
 function SCR_BUFF_ENTER_NewFireWall_Monster_Debuff(self, buff, arg1, arg2, over)
 
     local lv = arg1
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		local damage = GetFinalAtk(caster.MINMATK, caster.MAXMATK);
-		TakeDamage(caster, self, "None", damage * arg1 / 100 , "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
-	end
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        local damage = GetFinalAtk(caster.MINMATK, caster.MAXMATK);
+        TakeDamage(caster, self, "None", damage * arg1 / 100 , "Fire", "Magic", "Magic", HIT_FIRE, HITRESULT_BLOW);
+    end
 end
 
 function SCR_BUFF_LEAVE_NewFireWall_Monster_Debuff(self, buff, arg1, arg2, over)
@@ -1976,24 +1976,24 @@ end
 
 function SCR_BUFF_ENTER_Wound_mon(self, buff, arg1, arg2, over)
 
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.MAXMATK, caster.MAXMATK, 0);
-	end
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.MAXMATK, caster.MAXMATK, 0);
+    end
 end
 
 function SCR_BUFF_UPDATE_Wound_mon(self, buff, arg1, arg2, RemainTime, ret, over)
 
     local caster = GetBuffCaster(buff);
-	if caster == nil then
-		caster = self;
-	end
+    if caster == nil then
+        caster = self;
+    end
 
-	local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
-	local damage = GetFinalAtk(casterMINMATK, casterMAXMATK);	
-	TakeDamage(caster, self, "None", damage * arg1 / 100, "Wound", "None", "None", HIT_BASIC, HITRESULT_BLOW);
+    local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
+    local damage = GetFinalAtk(casterMINMATK, casterMAXMATK);   
+    TakeDamage(caster, self, "None", damage * arg1 / 100, "Wound", "None", "None", HIT_BASIC, HITRESULT_BLOW);
 
-	return 1;
+    return 1;
 
 end
 
@@ -2012,30 +2012,30 @@ end
 
 
 function SCR_BUFF_ENTER_CantLevelDown(self, buff, arg1, arg2, over)
-	if GetObjType(self) ~= OT_MONSTERNPC then
-		return
-	end
+    if GetObjType(self) ~= OT_MONSTERNPC then
+        return
+    end
 
-	local beforeLv = self.Lv;		
-	SetExProp(self, "LEVEL_FOR_DROP", beforeLv);
-	
-	local newLv = beforeLv - arg1;
-	self.Lv = math.max(1, newLv);
-	InvalidateStates(self);
-	BroadcastLevel(self);
-	
+    local beforeLv = self.Lv;       
+    SetExProp(self, "LEVEL_FOR_DROP", beforeLv);
+    
+    local newLv = beforeLv - arg1;
+    self.Lv = math.max(1, newLv);
+    InvalidateStates(self);
+    BroadcastLevel(self);
+    
 end
 
 function SCR_BUFF_LEAVE_CantLevelDown(self, buff, arg1, arg2, over)
 
-	local originalLv = GetExProp(self, "LEVEL_FOR_DROP");
+    local originalLv = GetExProp(self, "LEVEL_FOR_DROP");
 
-	self.Lv = originalLv
-	InvalidateStates(self);
-	BroadcastLevel(self);
+    self.Lv = originalLv
+    InvalidateStates(self);
+    BroadcastLevel(self);
 
-	ShowUnicodeValueDigit(self, "", 0);	
-	ShowDigitValue(self, -255, arg2);
+    ShowUnicodeValueDigit(self, "", 0); 
+    ShowDigitValue(self, -255, arg2);
 
 end
 
@@ -2047,39 +2047,39 @@ end
 
 
 function SCR_BUFF_ENTER_Mon_PoisonPilla(self, buff, arg1, arg2, over)
-	local caster = GetBuffCaster(buff);
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.MAXMATK, caster.MAXMATK, 0);
-	end
+    local caster = GetBuffCaster(buff);
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.MAXMATK, caster.MAXMATK, 0);
+    end
 
 end
 
 function SCR_BUFF_UPDATE_Mon_PoisonPilla(self, buff, arg1, arg2, RemainTime, ret, over)
 
-	local caster = GetBuffCaster(buff);
-	if caster == nil then
-		caster = self;
-	end
-	local lv = arg1;
-	local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
-	local baseAtk = ((casterMINMATK + casterMAXMATK) / 2 - self.DEF) * (0.74 + (lv - 1) * 0.074);
-	local addAtk = lv * 5.94;
-	
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        caster = self;
+    end
+    local lv = arg1;
+    local casterMINMATK, casterMAXMATK = GetBuffArgs(buff);
+    local baseAtk = ((casterMINMATK + casterMAXMATK) / 2 - self.DEF) * (0.74 + (lv - 1) * 0.074);
+    local addAtk = lv * 5.94;
+    
     if baseAtk < 1 then
-	    baseAtk = 1;
-	end
-	
-	if self.ClassName == 'PC' then
-	    addAtk = 0;
-	end
-	TakeDamage(caster, self, "None", math.floor(baseAtk + addAtk), "Poison", "Magic", "Magic", HIT_POISON, HITRESULT_BLOW);	
+        baseAtk = 1;
+    end
+    
+    if self.ClassName == 'PC' then
+        addAtk = 0;
+    end
+    TakeDamage(caster, self, "None", math.floor(baseAtk + addAtk), "Poison", "Magic", "Magic", HIT_POISON, HITRESULT_BLOW); 
 
-	return 1;
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_Mon_PoisonPilla(self, buff, arg1, arg2, over, isLastEnd)
 
-	
+    
 end
 
 
@@ -2092,20 +2092,20 @@ end
 function SCR_BUFF_ENTER_Mon_ReflectShield(self, buff, arg1, arg2, over)
 
     local buffLv = arg1;
-	local damratio = 50;
-	self.DamReflect = self.DamReflect + damratio;
-	SetExProp(buff, "ADD_DAMREFLCET", damratio);
-	AttachEffect(self, "I_sphere007_mash", 3, "BOT");
+    local damratio = 50;
+    self.DamReflect = self.DamReflect + damratio;
+    SetExProp(buff, "ADD_DAMREFLCET", damratio);
+    AttachEffect(self, "I_sphere007_mash", 3, "BOT");
 end
 
 function SCR_BUFF_LEAVE_Mon_ReflectShield(self, buff, arg1, arg2, over)
 
-	local damratio = GetExProp(buff, "ADD_DAMREFLCET");
-	
-	self.DamReflect = self.DamReflect - damratio;
+    local damratio = GetExProp(buff, "ADD_DAMREFLCET");
+    
+    self.DamReflect = self.DamReflect - damratio;
 
-	DetachEffect(self, 'I_sphere007_mash');
-	AttachEffect(self, "F_wizard_reflect_shot_light", 2, "BOT");
+    DetachEffect(self, 'I_sphere007_mash');
+    AttachEffect(self, "F_wizard_reflect_shot_light", 2, "BOT");
 
 end
 
@@ -2113,24 +2113,24 @@ end
 function SCR_BUFF_ENTER_Marionette_bound(self, buff, arg1, arg2, over)
     ObjectColorBlend(self, 100, 100, 100, 255, 1);
 
-	local caster = GetBuffCaster(buff)
-	if caster ~= nil then
-		SetBuffArgs(buff, caster.MINPATK, 0, 0);
-	end
+    local caster = GetBuffCaster(buff)
+    if caster ~= nil then
+        SetBuffArgs(buff, caster.MINPATK, 0, 0);
+    end
 end
 
 function SCR_BUFF_UPDATE_Marionette_bound(self, buff, arg1, arg2, RemainTime, ret, over)
 
-	local casterMINPATK = GetBuffArgs(buff)
-	local caster = GetBuffCaster(buff);
-	if caster == nil then
-		caster = self;
-	end
+    local casterMINPATK = GetBuffArgs(buff)
+    local caster = GetBuffCaster(buff);
+    if caster == nil then
+        caster = self;
+    end
 
-	local dot = math.floor(casterMINPATK * 0.05)
-	TakeDamage(caster, self, "None", dot, "Melee", "Magic", "TrueDamage", HIT_BASIC, HITRESULT_BLOW);
-	    
-	return 1;
+    local dot = math.floor(casterMINPATK * 0.05)
+    TakeDamage(caster, self, "None", dot, "Melee", "Magic", "TrueDamage", HIT_BASIC, HITRESULT_BLOW);
+        
+    return 1;
 end
 
 function SCR_BUFF_LEAVE_Marionette_bound(self, buff, arg1, arg2, over)
@@ -2142,37 +2142,37 @@ end
 
 -- Anim Change Hp
 function SCR_BUFF_ENTER_AniChangeHP(self, buff, arg1, arg2, over)
-	
+    
 end
 
 function SCR_BUFF_UPDATE_AniChangeHP(self, buff, arg1, arg2, RemainTime, ret, over)
-	
-	local hp = GetHpPercent(self) * 100
-	
-	local change = GetClass("ChangeAnim", self.ClassName)
-	
-	if hp < change.Percent_2 and GetExProp(self, "Ani0" ) == 0  then
-		PlayAnim(self, change.Anim_2, 1)
-		SetExProp(self, "Ani0", 1 )
-		
-	elseif hp < change.Percent_1 and GetExProp(self, "Ani1" ) == 0 then
-		PlayAnim(self, change.Anim_1, 1)
-		SetExProp(self, "Ani1", 1 )
-		
-	elseif hp < change.Percent_0 and GetExProp(self, "Ani2" ) == 0 then
-		PlayAnim(self, change.Anim_0, 1)
-		SetExProp(self, "Ani2", 1 )
-		
-	end
+    
+    local hp = GetHpPercent(self) * 100
+    
+    local change = GetClass("ChangeAnim", self.ClassName)
+    
+    if hp < change.Percent_2 and GetExProp(self, "Ani0" ) == 0  then
+        PlayAnim(self, change.Anim_2, 1)
+        SetExProp(self, "Ani0", 1 )
+        
+    elseif hp < change.Percent_1 and GetExProp(self, "Ani1" ) == 0 then
+        PlayAnim(self, change.Anim_1, 1)
+        SetExProp(self, "Ani1", 1 )
+        
+    elseif hp < change.Percent_0 and GetExProp(self, "Ani2" ) == 0 then
+        PlayAnim(self, change.Anim_0, 1)
+        SetExProp(self, "Ani2", 1 )
+        
+    end
 
 
-	return 1
+    return 1
 end
 
 function SCR_BUFF_LEAVE_AniChangeHP(self, buff, arg1, arg2, over)
-	DelExProp(self, "Ani0")
-	DelExProp(self, "Ani1")
-	DelExProp(self, "Ani2")
+    DelExProp(self, "Ani0")
+    DelExProp(self, "Ani1")
+    DelExProp(self, "Ani2")
 end
 
 -- Anim Change Time
@@ -2181,33 +2181,33 @@ function SCR_BUFF_ENTER_AniChangeTime(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_AniChangeTime(self, buff, arg1, arg2, RemainTime, ret, over)
-	
-	local change = GetClass("ChangeAnim", self.ClassName)
+    
+    local change = GetClass("ChangeAnim", self.ClassName)
 
-	local time = GetAge(self)
-	if time > change.Time_0 and GetExProp(self, "Ani0" ) == 0  then
-		PlayAnim(self, change.Anim_0, 1)
-		SetExProp(self, "Ani0", 1 )
-	elseif time > change.Time_1 and GetExProp(self, "Ani1" ) == 0 then
-		PlayAnim(self, change.Anim_1, 1)
-		SetExProp(self, "Ani1", 1 )
-	elseif time > change.Time_2 and GetExProp(self, "Ani2" ) == 0 then
-		PlayAnim(self, change.Anim_2, 1)
-		SetExProp(self, "Ani2", 1 )
-	end
+    local time = GetAge(self)
+    if time > change.Time_0 and GetExProp(self, "Ani0" ) == 0  then
+        PlayAnim(self, change.Anim_0, 1)
+        SetExProp(self, "Ani0", 1 )
+    elseif time > change.Time_1 and GetExProp(self, "Ani1" ) == 0 then
+        PlayAnim(self, change.Anim_1, 1)
+        SetExProp(self, "Ani1", 1 )
+    elseif time > change.Time_2 and GetExProp(self, "Ani2" ) == 0 then
+        PlayAnim(self, change.Anim_2, 1)
+        SetExProp(self, "Ani2", 1 )
+    end
 
-	return 1
+    return 1
 end
 
 function SCR_BUFF_LEAVE_AniChangeTime(self, buff, arg1, arg2, over)
-	DelExProp(self, "Ani0")
-	DelExProp(self, "Ani1")
-	DelExProp(self, "Ani2")
+    DelExProp(self, "Ani0")
+    DelExProp(self, "Ani1")
+    DelExProp(self, "Ani2")
 end
 
 
 function SCR_BUFF_ENTER_SuperExp(self, buff, arg1, arg2, over)
-	SetExProp(self, "SuperDrop", 1);
+    SetExProp(self, "SuperDrop", 1);
 
 end
 
@@ -2225,26 +2225,26 @@ end
 function SCR_BUFF_ENTER_UC_mspblood(self, buff, arg1, arg2, over)
 
     local mspdadd = self.MSPD * 0.3
-	
-	self.MSPD_BM = self.MSPD_BM - mspdadd;
-	
-	SetExProp(buff, "ADD_MSPD", mspdadd);
-	
+    
+    self.MSPD_BM = self.MSPD_BM - mspdadd;
+    
+    SetExProp(buff, "ADD_MSPD", mspdadd);
+    
 end
 
 function SCR_BUFF_UPDATE_UC_mspblood(self, buff, arg1, arg2, RemainTime, ret, over)
 
     AddSP(self, -self.MSP * 0.2)
 
-	return 1;
+    return 1;
 
 end
 
 function SCR_BUFF_LEAVE_UC_mspblood(self, buff, arg1, arg2, over)
 
-	local mspdadd = GetExProp(buff, "ADD_MSPD");
+    local mspdadd = GetExProp(buff, "ADD_MSPD");
 
-	self.MSPD_BM = self.MSPD_BM + mspdadd;
+    self.MSPD_BM = self.MSPD_BM + mspdadd;
 
 end
 
@@ -2281,57 +2281,57 @@ function SCR_BUFF_ENTER_Mon_joint_MagicShield(self, buff, arg1, arg2, over)
 
     local mdefadd = self.MDEF + arg1 * 5
   
-	self.MDEF_BM = self.MDEF_BM + mdefadd
-	
-	SetExProp(buff, "ADD_MDEF", mdefadd);
+    self.MDEF_BM = self.MDEF_BM + mdefadd
+    
+    SetExProp(buff, "ADD_MDEF", mdefadd);
 
 end
 
 function SCR_BUFF_ENTER_EliteMonsterBuff(self, buff, arg1, arg2, over)
-	if IS_PC(self) == true then
-		return;
-	end
+    if IS_PC(self) == true then
+        return;
+    end
 
-	local monRank = TryGetProp(self, "MonRank");
-	if monRank == nil then
-		return;
-	end
+    local monRank = TryGetProp(self, "MonRank");
+    if monRank == nil then
+        return;
+    end
 
-	local debuffRank = TryGetProp(self, "DebuffRank");
-	if debuffRank == nil then
-		return;
-	end
+    local debuffRank = TryGetProp(self, "DebuffRank");
+    if debuffRank == nil then
+        return;
+    end
 
-	local size = TryGetProp(self, "Size");
-	if size == "S" then
-		self.Size = "L";
-		ChangeScale(self, 2.0, 1.0);		
-	elseif size == "M" then
-		self.Size = "L";
-		ChangeScale(self, 1.5, 1.0);
-	end
+    local size = TryGetProp(self, "Size");
+    if size == "S" then
+        self.Size = "L";
+        ChangeScale(self, 2.0, 1.0);        
+    elseif size == "M" then
+        self.Size = "L";
+        ChangeScale(self, 1.5, 1.0);
+    end
 
-	if monRank == "Normal" then
-		self.MonRank = "Elite";
-	end
+    if monRank == "Normal" then
+        self.MonRank = "Elite";
+    end
 
-	if debuffRank == "None" then
-		self.DebuffRank = "Normal";
-	end
+    if debuffRank == "None" then
+        self.DebuffRank = "Normal";
+    end
 
-	local addmhp = math.floor(self.MHP - self.MHP_BM);
-	local addpatk = math.floor(self.MAXPATK - self.PATK_BM);
-	local addmatk = math.floor(self.MAXMATK - self.MATK_BM);
-	local adddef = math.floor(self.DEF - self.DEF_BM);
-	local addmdef = math.floor(self.MDEF - self.MDEF_BM);
-	local addMSPD = math.floor((self.MSPD - self.MSPD_BM) * 0.75);
-	
-	self.MHP_BM = self.MHP_BM + addmhp;
-	self.PATK_BM = self.PATK_BM + addpatk;
-	self.MATK_BM = self.MATK_BM + addmatk;
-	self.DEF_BM = self.DEF_BM + adddef;
-	self.MDEF_BM = self.MDEF_BM + addmdef;
-	self.MSPD_BM = self.MSPD_BM + addMSPD;
+    local addmhp = math.floor(self.MHP - self.MHP_BM);
+    local addpatk = math.floor(self.MAXPATK - self.PATK_BM);
+    local addmatk = math.floor(self.MAXMATK - self.MATK_BM);
+    local adddef = math.floor(self.DEF - self.DEF_BM);
+    local addmdef = math.floor(self.MDEF - self.MDEF_BM);
+    local addMSPD = math.floor((self.MSPD - self.MSPD_BM) * 0.75);
+    
+    self.MHP_BM = self.MHP_BM + addmhp;
+    self.PATK_BM = self.PATK_BM + addpatk;
+    self.MATK_BM = self.MATK_BM + addmatk;
+    self.DEF_BM = self.DEF_BM + adddef;
+    self.MDEF_BM = self.MDEF_BM + addmdef;
+    self.MSPD_BM = self.MSPD_BM + addMSPD;
 
     InvalidateStates(self);
     AddHP(self, self.MHP);
@@ -2438,17 +2438,17 @@ function SCR_BUFF_UPDATE_EliteMonsterBuff(self, buff, arg1, arg2, RemainTime, re
 end
 
 function SCR_BUFF_ENTER_EliteMonsterSummonBuff(self, buff, arg1, arg2, over)
-	local addmhp = math.floor(self.MHP - self.MHP_BM);
-	local addpatk = math.floor(self.MAXPATK - self.PATK_BM);
-	local addmatk = math.floor(self.MAXMATK - self.MATK_BM);
-	local adddef = math.floor(self.DEF - self.DEF_BM);
-	local addmdef = math.floor(self.MDEF - self.MDEF_BM);
-	
-	self.MHP_BM = self.MHP_BM - (addmhp / 2);
-	self.PATK_BM = self.PATK_BM - (addpatk / 2);
-	self.MATK_BM = self.MATK_BM - (addmatk / 2);
-	self.DEF_BM = self.DEF_BM - (adddef / 2);
-	self.MDEF_BM = self.MDEF_BM - (addmdef / 2);
+    local addmhp = math.floor(self.MHP - self.MHP_BM);
+    local addpatk = math.floor(self.MAXPATK - self.PATK_BM);
+    local addmatk = math.floor(self.MAXMATK - self.MATK_BM);
+    local adddef = math.floor(self.DEF - self.DEF_BM);
+    local addmdef = math.floor(self.MDEF - self.MDEF_BM);
+    
+    self.MHP_BM = self.MHP_BM - (addmhp / 2);
+    self.PATK_BM = self.PATK_BM - (addpatk / 2);
+    self.MATK_BM = self.MATK_BM - (addmatk / 2);
+    self.DEF_BM = self.DEF_BM - (adddef / 2);
+    self.MDEF_BM = self.MDEF_BM - (addmdef / 2);
 
     InvalidateStates(self);
     AddHP(self, self.MHP);
@@ -3058,4 +3058,12 @@ end
 
 function SCR_BUFF_LEAVE_Raid_Velcofer_Last_Curse_Debuff(self, buff, arg1, arg2, over)
     
+end
+
+function SCR_BUFF_ENTER_Raid_Cloaking_Buff(self, buff, arg1, arg2, over)
+
+end
+
+function SCR_BUFF_LEAVE_Raid_Cloaking_Buff(self, buff, arg1, arg2, over)
+
 end

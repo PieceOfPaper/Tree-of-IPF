@@ -543,9 +543,9 @@ function SCR_ITEM_GACHA_ID_WHITETREES(pc, Group, cubeID, btnVisible, bEnableDupl
 	
 	-- 가챠 Grade 우선 확률 계산 시작 --
 	local basicGradeList = {
-	                        { "C", 8480    },
+	                        { "C", 7730    },
     	                    { "B", 1000    },
-	                        { "A", 450     },
+	                        { "A", 1200    },
 	                        { "S", 50      },
 	                        { "LegCard", 20}
 	                       };
@@ -932,8 +932,8 @@ function SCR_ITEM_GACHA_VELCOFFER(pc, Group, cubeID, btnVisible, bEnableDuplicat
     	                    { "WEAPON", 100 },
 	                        { "ARMOR", 100 },
 	                        { "COSTUME", 20},
-	                        { "ACC", 80 },
-	                        { "CARD", 9}
+	                        { "ACC", 90 },
+	                        { "CARD", 10}
 	                       };
     
     local gradeList = { };

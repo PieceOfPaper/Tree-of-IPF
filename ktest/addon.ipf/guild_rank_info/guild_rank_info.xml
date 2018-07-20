@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guild_rank_info" x="0" y="0" width="1090" height="800" create="open">
-	<frame title="{@st43}{s22}길드 홍보{/}" titlepos="0 0" margin="0 100 0 0" layout_gravity="center top" snapclient="true" snapframe="true" scale_align="center top"/>
+	<frame title="{@st43}{s22}길드 홍보{/}" titlepos="0 0" margin="0 0 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
 	<skin frameskin="test_frame_low"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<layer layerlevel="100"/>
@@ -14,7 +14,7 @@
 		<layout name="frameLayout" spacing="0" orientation="vertical"/>
 		<layoutsection name="titleLayoutSection" size="8%" parent="frameLayout"/>
 		<groupbox name="headerBox" hittest="false" parent="titleLayoutSection" layout_gravity="center top" skin="test_frame_top"/>
-		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드" fontname="white_16_b_ol"/>
+		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드 홍보 게시판" fontname="white_16_b_ol"/>
 		<button name="closeBtn" rect="0 0 60 60" margin="0 20 26 0" hittest="true" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guild_rank_info&apos;)"/>
 		<layoutsection name="tabLayoutSection" size="10%" parent="frameLayout"/>
 		<layout name="tabLayout" spacing="35" orientation="horizontal" parent="tabLayoutSection"/>

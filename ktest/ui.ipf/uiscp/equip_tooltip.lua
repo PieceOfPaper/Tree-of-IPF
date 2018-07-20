@@ -70,9 +70,14 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 	    local bg_height = ypos - bg_ypos		
 		RESIZE_TOOLTIP_SUB_BG(tooltipMainFrame, bg_ypos, bg_height)
 	end
-
-	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
+	
+	if invitem.InheritanceItemName ~= nil and invitem.InheritanceItemName ~= "None" then
+		local temp = GetClass('Item', invitem.InheritanceItemName)
+		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, temp, ypos, mainframename, invitem) -- 각종 프로퍼티
 --	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename) -- 세트아이템
+	else
+		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
+	end
 
 	ypos = DRAW_EQUIP_SOCKET_COUNT(tooltipframe, invitem, ypos, mainframename)
 	if IS_NEED_DRAW_GEM_TOOLTIP(invitem) == true then
@@ -609,7 +614,7 @@ function RESIZE_TOOLTIP_SUB_BG(gBox, bg_ypos, bg_height)
 end
 
 -- 아이템에 의한 추가 속성 정보 (광역공격 +1)
-function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
+function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, socketitem)
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_property');
 	
@@ -622,7 +627,6 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
     end
 
 	local list2 = GET_EUQIPITEM_PROP_LIST();
-	
 	local cnt = 0;
 	for i = 1 , #list do
 
@@ -681,7 +685,10 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 	for i = 1 , #list do
 		local propName = list[i];
 		local propValue = invitem[propName];
-
+		if socketitem ~= nil then
+			propValue = socketitem[propName]
+		end
+		
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
 			if basicTooltipPropList[j] == propName then
@@ -689,31 +696,31 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename)
 			end
 		end
 
-		if needToShow == true and invitem[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+		if needToShow == true and propValue ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
 			if  invitem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);					
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);					
 					inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 				end
 			elseif  invitem.GroupName == 'Armor' then
 				if invitem.ClassType == 'Gloves' then
 					if propName ~= "HR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				elseif invitem.ClassType == 'Boots' then
 					if propName ~= "DR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				else
 					if propName ~= "DEF" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				end
 			else
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end
 		end
@@ -891,14 +898,12 @@ function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	for i=0, invitem.MaxSocket-1 do
 		if invitem['Socket_' .. i] > 0 then
 			curCount = curCount + 1
-			if invitem['Socket_Equip_' .. i] ~= 0 then
-				inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, invitem, 
-												invitem['Socket_' .. i], 
-												invitem['Socket_Equip_' .. i], 
-												invitem['SocketItemExp_' .. i],
-												invitem['Socket_JamLv_' ..i],
-												inner_yPos);
-			end
+			inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, invitem, 
+											invitem['Socket_' .. i], 
+											invitem['Socket_Equip_' .. i], 
+											invitem['SocketItemExp_' .. i],
+											invitem['Socket_JamLv_' ..i],
+											inner_yPos);
 		end
 	end
 
@@ -1175,9 +1180,15 @@ function CHECK_EQUIP_SET_ITEM(invitem)
 --			return 0, {}
 --		end
 
-	else		
-		RHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "RH")
-		LHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "LH")
+	else
+		local isDoubleHand = TryGetProp(invitem, "DBLHand");
+		if isDoubleHand == "YES" then			
+			RHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "RH")
+		else
+			RHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "RH")
+			LHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "LH")
+		end
+
 		SHIRTflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "SHIRT")
 		PANTSflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "PANTS")
 		GLOVESflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "GLOVES")

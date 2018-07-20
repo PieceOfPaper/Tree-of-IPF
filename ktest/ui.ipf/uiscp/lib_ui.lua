@@ -512,14 +512,18 @@ function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
 		print(code, msg)
 		errName = errName .. code
 		print(errName)
-		IMC_LOG("INFO_NORMAL", code, msg, funcName,ClMsg(errName))
+		local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
+		IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
+		print(funcName)
 		ui.MsgBox(ClMsg(errName))
 		return
 	end
-
+	print(funcName)
 	local splitStr = StringSplit(msg, " ");
 	print(msg);
 	errName = errName .. splitStr[1];
-  IMC_LOG("INFO_NORMAL", code, msg, funcName, ClMsg(errName))
+	local errString = "code:" .. code .. ", msg:" .. msg .. ", funcName:" .. funcName .. " errName:" ..  ClMsg(errName);
+	IMC_LOG("ERROR_WEBSERVICE_SCRIPT", errString)
+	
 	ui.MsgBox(ClMsg(errName));
 end

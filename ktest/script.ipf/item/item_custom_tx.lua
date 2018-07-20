@@ -1,7 +1,7 @@
 --item_custom_tx.lua
 
 
-function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount, tokenBonus)
+function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add, achieveInfo, giveWay, sObjInfo_set, exp, jexp, dungeoncount, tokenBonus, mGameName)
     local ret
     local pcetc
     if dungeoncount == 'YES' then
@@ -104,6 +104,13 @@ function GIVE_TAKE_SOBJ_ACHIEVE_TABLE_TX(self, giveItem, takeItem, sObjInfo_add,
     	if ret == 'SUCCESS' then
     	    if jexp ~= nil and jexp > 0 then
     	        GiveJobExp(self, jexp, giveWay);
+    	    end
+    	    if mGameName ~= nil and mGameName ~= "None" then
+    	        CustomMongoLog(self, "Raid", "MGAME_NAME", mGameName, "tx_Succ")
+    	    end
+    	elseif ret == 'FAIL' then
+    	    if mGameName ~= nil and mGameName ~= "None" then
+    	        CustomMongoLog(self, "Raid", "MGAME_NAME", mGameName, "tx_Fail")
     	    end
     	end
     end

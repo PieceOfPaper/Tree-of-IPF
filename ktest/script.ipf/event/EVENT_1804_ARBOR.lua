@@ -96,8 +96,22 @@ function SCR_EVENT_1804_ARBOR_TREE_DIALOG(self, pc)
         nowBuffCount = 0
     end
     
+    local maxExchangeCount = 5
+    local nowExchangeCount = aObj.EVENT_1804_ARBOR_INPUT_COUNT
+    if nowday ~= aObj.EVENT_1804_ARBOR_INPUT_DATE then
+        nowExchangeCount = 0
+    end
     
-    local select = ShowSelDlg(pc, 0, 'EVENT_1804_ARBOR_DLG1\\'..ScpArgMsg('EVENT_1804_ARBOR_MSG13','STEP',nowStep)..'('..nowarbor..')', ScpArgMsg('EVENT_1804_ARBOR_MSG3'), ScpArgMsg('EVENT_1804_ARBOR_MSG4','BUFF',buffKor,'COUNT',nowBuffCount,'MAX',maxBuffCount), selMsg3, ScpArgMsg('Auto_DaeHwa_JongLyo'))
+    local nameType
+    if nowStep <= 2 then
+        nameType = ScpArgMsg('EVENT_1804_ARBOR_MSG16')
+    elseif nowStep <= 4 then
+        nameType = ScpArgMsg('EVENT_1804_ARBOR_MSG17')
+    else
+        nameType = ScpArgMsg('EVENT_1804_ARBOR_MSG18')
+    end
+    
+    local select = ShowSelDlg(pc, 0, 'EVENT_1804_ARBOR_DLG1\\'..ScpArgMsg('EVENT_1804_ARBOR_MSG13','STEP',nowStep)..nameType..' '..nowarbor..']', ScpArgMsg('EVENT_1804_ARBOR_MSG3','COUNT',nowExchangeCount,'MAX',maxExchangeCount), ScpArgMsg('EVENT_1804_ARBOR_MSG4','BUFF',buffKor,'COUNT',nowBuffCount,'MAX',maxBuffCount), selMsg3, ScpArgMsg('Auto_DaeHwa_JongLyo'))
     if select == 1 then
         if nowday ~= aObj.EVENT_1804_ARBOR_INPUT_DATE or aObj.EVENT_1804_ARBOR_INPUT_COUNT < 5 then
             if nowStep <= timeIndex then
@@ -147,8 +161,12 @@ function SCR_EVENT_1804_ARBOR_TREE_DIALOG(self, pc)
     elseif select == 2 then
         if nowday ~= aObj.EVENT_1804_ARBOR_BUFF_DATE or aObj.EVENT_1804_ARBOR_BUFF_COUNT < maxBuffCount then
             local tx = TxBegin(pc)
+            if nowday ~= aObj.EVENT_1804_ARBOR_BUFF_DATE then
+                TxSetIESProp(tx, aObj, 'EVENT_1804_ARBOR_BUFF_COUNT', 1)
+            else
+                TxSetIESProp(tx, aObj, 'EVENT_1804_ARBOR_BUFF_COUNT', aObj.EVENT_1804_ARBOR_BUFF_COUNT+1)
+            end
             TxSetIESProp(tx, aObj, 'EVENT_1804_ARBOR_BUFF_DATE', nowday)
-            TxSetIESProp(tx, aObj, 'EVENT_1804_ARBOR_BUFF_COUNT', aObj.EVENT_1804_ARBOR_BUFF_COUNT+1)
             local ret = TxCommit(tx)
             if ret == 'SUCCESS' then
                 AddBuff(self, pc, 'EVENT_1804_ARBOR_BUFF_'..nowStep, 1, 0, 3600000, 1)
@@ -214,12 +232,12 @@ function SCR_EVENT_1804_ARBOR_TREE_TS_BORN_ENTER(self)
     end
     local x,y,z = GetPos(self)
     
-    local treeModelList = {'treasure_box1','treasure_box3','treasure_box4','treasure_box5','npc_pollution_altar_s','coral_stuff03','coral_stuff04'}
+    local treeModelList = {'treeday_1','treeday_2','treeday_3','treeday_4','treeday_5','treeday_6','treeday_7'}
     local modelStep = self.NumArg1
 --    print('DDDDDDDDDDDD',nowStep,self.NumArg1)
     if nowStep >= 1 and nowStep <= 7  and self.NumArg1 ~= nowStep then
-        PlayEffect(self, 'F_light146_leaf', 2, 1, 'TOP')
-        local npc = CREATE_NPC(self, treeModelList[nowStep], x, y, z, 315, nil, GetLayer(self), self.Name, 'EVENT_1804_ARBOR_TREE', nil, nil, nil, nil, 'None')
+        PlayEffect(self, 'F_light146_leaf', 2.5+ nowStep*0.3, 1, 'TOP')
+        local npc = CREATE_NPC(self, treeModelList[nowStep], x, y, z, 315, nil, nil, self.Name, 'EVENT_1804_ARBOR_TREE', nil, nil, nil, nil, 'None')
         if npc ~= nil then
             local beforeNPC = GetExArgObject(self, 'EVENT_1804_ARBOR_TREE_NPC')
 --            print('AAAAAAAAAAA',beforeNPC)
@@ -277,19 +295,19 @@ end
 
 
 function SCR_EVENT_1804_ARBOR_DROP(self, sObj, msg, argObj, argStr, argNum)
---    if IMCRandom(1, 100) <= 9 then
---        local timeIndex = EVENT_1804_ARBOR_NOW_TIME()
---        if timeIndex == 1 or timeIndex == 2 then
---            local curMap = GetZoneName(self);
---            local mapCls = GetClass("Map", curMap);
---            
---            if self.Lv >= 30 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City' and IsPlayingDirection(self) ~= 1 and IsIndun(self) ~= 1 and IsPVPServer(self) ~= 1 and IsMissionInst(self) ~= 1) and argObj.MonRank == 'Normal' then
---                if self.Lv <= argObj.Lv + 20 then
---                    RunScript('GIVE_ITEM_TX',self, 'EVENT_1804_ARBOR_GROW_CRYSTAL_1_2', 1, 'EVENT_1804_ARBOR_DROP')
---                end
---            end
---        end
---    end
+    if IMCRandom(1, 100) <= 9 then
+        local timeIndex = EVENT_1804_ARBOR_NOW_TIME()
+        if timeIndex == 1 or timeIndex == 2 then
+            local curMap = GetZoneName(self);
+            local mapCls = GetClass("Map", curMap);
+            
+            if self.Lv >= 30 and (mapCls.WorldMap ~= 'None' and mapCls.MapType ~= 'City' and IsPlayingDirection(self) ~= 1 and IsIndun(self) ~= 1 and IsPVPServer(self) ~= 1 and IsMissionInst(self) ~= 1) and argObj.MonRank == 'Normal' then
+                if self.Lv <= argObj.Lv + 20 then
+                    RunScript('GIVE_ITEM_TX',self, 'EVENT_1804_ARBOR_GROW_CRYSTAL_1_2', 1, 'EVENT_1804_ARBOR_DROP')
+                end
+            end
+        end
+    end
 end
 
 
@@ -432,12 +450,10 @@ function SCR_EVENT_1804_ARBOR_NPC_DIALOG(self, pc)
 --    timeIndex = 3
     if select == 1 then
         if timeIndex >= 3 and timeIndex <= 4 then
-            local point = 300
+            local point = 200
             SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG10","POINT",point), 10)
             SCR_GIMMICK_QUICKNESS_TEST1_START(pc)
         elseif timeIndex >= 5 and timeIndex <= 6 then
-            local point = 100
-            SendAddOnMsg(pc, "NOTICE_Dm_scroll", ScpArgMsg("EVENT_1804_ARBOR_MSG10","POINT",point), 10)
             SCR_MOLE_BINGO_START(pc)
         end
     end

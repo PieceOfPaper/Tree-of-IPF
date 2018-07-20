@@ -14,7 +14,7 @@
 		<groupbox name="pipwin_top" rect="0 0 580 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<groupbox name="bg" rect="0 0 580 930" margin="0 60 0 0" layout_gravity="center top" draw="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
 		<groupbox name="recipeBox" rect="0 0 545 840" margin="25 100 0 0" layout_gravity="left top" draw="false" hittestbox="true" scrollbar="true" fixheight="true"/>		
-		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}블랙 스미스{/}"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}레전드 장비 제작{/}"/>
 		<tree name="recipetree" parent="recipetree_Box" rect="0 0 570 100" margin="0 0 0 0" layout_gravity="center top" drawline="true" selectioncolor="000000"/>
 		<grid name="category" parent="recipeBox" rect="0 0 0 200" margin="0 0 0 0" layout_gravity="none top" slotsize="100 70" slotspc="10 0"/>		
 		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;legend_craft&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}레전드 아이템 제작 UI를 닫습니다{/}"/>

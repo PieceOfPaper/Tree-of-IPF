@@ -268,4 +268,4 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 500001,140,0,"LIMIT_ONELINE_MESSAGE_LENGTH","한줄 게시판 최대 길이","YES"
 500002,720,0,"TEAMNAME_UPDATE_DELAY_MINUTE","제공하는 팀이름 정보의 업데이트 딜레이(12시간)","NO"
 500003,30,0,"GUILD_MEMBER_ACTIVITY_CONNECTION_TIME","지정 기간내에 접속인지 확인(default:30일)","NO"
-500004,2,0,"GUILD_APPLICATION_LIFE_TIME","길드 가입 신청서의 유지 시간(MINUTE)","NO"
+500004,1440,0,"GUILD_APPLICATION_LIFE_TIME","길드 가입 신청서의 유지 시간(MINUTE)","NO"

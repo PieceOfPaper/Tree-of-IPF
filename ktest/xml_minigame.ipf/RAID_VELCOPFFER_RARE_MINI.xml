@@ -345,6 +345,17 @@
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_VELCOFFR_RAID_PC_DEBUFF_REMOVE"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE2_TX" Client="NO" UseSleep="NO">
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Str Str="VELCOFFER_KILL/1"/>
+                                <Str Str="None"/>
+                                <Str Str="None"/>
+                                <Num Num="0"/>
+                                <Str Str="Raid_Velcoffer_guard"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Boss_Final"/>
                             </ToolScp>

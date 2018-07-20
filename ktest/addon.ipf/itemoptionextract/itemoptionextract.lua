@@ -100,6 +100,7 @@ function CLEAR_ITEMOPTIONEXTRACT_UI()
 
 	local bodyGbox1_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1_1');
 	bodyGbox1_1:ShowWindow(1)
+	bodyGbox1_1:Resize(bodyGbox1:GetWidth(), bodyGbox1:GetHeight())
 	bodyGbox1_1:RemoveAllChild();
 	local bodyGbox2_2 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_2');
 	bodyGbox2_2:ShowWindow(1)
@@ -107,6 +108,9 @@ function CLEAR_ITEMOPTIONEXTRACT_UI()
 	local bodyGbox3_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox3_1');
 	bodyGbox3_1:ShowWindow(1)
 	bodyGbox3_1:RemoveAllChild();
+
+	local destroy_gbox = GET_CHILD_RECURSIVELY(frame, 'destroy_gbox')
+	destroy_gbox:ShowWindow(0)
 
 	local extractKitName = GET_CHILD_RECURSIVELY(frame, "extractKitName")
 	extractKitName:SetTextByKey("value", frame:GetUserConfig("EXTRACT_KIT_DEFAULT"))
@@ -163,7 +167,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-	local yPos = 20
+	local yPos = 0
 	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
     local list = {};
     local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
@@ -236,32 +240,32 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 			end
 		end
 
-		if needToShow == true and invitem[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+		if needToShow == true and itemCls[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
 
 			if  invitem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);					
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);					
 					inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 				end
 			elseif  invitem.GroupName == 'Armor' then
 				if invitem.ClassType == 'Gloves' then
 					if propName ~= "HR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				elseif invitem.ClassType == 'Boots' then
 					if propName ~= "DR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				else
 					if propName ~= "DEF" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				end
 			else
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end
 		end
@@ -330,9 +334,9 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."0%"..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
 	end
 
-	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + 20);
+	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + 40);
 
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())
+	gBox:Resize(gBox:GetWidth(), tooltip_equip_property_CSet:GetHeight())
 
 
 	local itemOptionExtractMaterial = nil;
@@ -436,9 +440,9 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	
 
 	SET_SLOT_IMG(slot_result, icor_img)
+	frame:SetUserValue("icor_img", icor_img)
 	SET_SLOT_ITEM(slot, invItem);
 	SET_OPTIONEXTRACT_RESET(frame);	
-
 	
 end
 
@@ -632,7 +636,7 @@ function SUCCESS_ITEM_OPTION_EXTRACT(frame)
 end
 
 function _SUCCESS_ITEM_OPTION_EXTRACT()
-	ui.SetHoldUI(false);
+	
 	local frame = ui.GetFrame("itemoptionextract");
 	if frame:IsVisible() == 0 then
 		return;
@@ -648,7 +652,6 @@ function _SUCCESS_ITEM_OPTION_EXTRACT()
 	pic_bg:ShowWindow(0)
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot_result");
-	local invItem = GET_SLOT_ITEM(slot);
 
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)
@@ -681,12 +684,9 @@ function _SUCCESS_ITEM_OPTION_EXTRACT()
 
 	local resultItemImg = GET_CHILD_RECURSIVELY(frame, "result_item_img")
 	resultItemImg:ShowWindow(1)
-	if GET_OPTION_EXTRACT_TARGET_ITEM_NAME(item) == 'Weapon_icor' then
-		resultItemImg:SetImage(frame:GetUserConfig("ICOR_IMAGE_WEAPON"))
-	else
-		resultItemImg:SetImage(frame:GetUserConfig("ICOR_IMAGE_ARMOR"))
-	end
 
+	local icor_img = frame:GetUserValue("icor_img")
+	resultItemImg:SetImage(icor_img)
 				
 	EXTRACT_SUCCESS_EFFECT(frame)
 
@@ -712,10 +712,10 @@ function EXTRACT_SUCCESS_EFFECT(frame)
 
 	result_effect_bg:PlayUIEffect(EXTRACT_SUCCESS_EFFECT_NAME, SUCCESS_EFFECT_SCALE, 'EXTRACT_SUCCESS_EFFECT');
 
-	ReserveScript("_EXTRACT_RESULT_EFFECT()", SUCCESS_EFFECT_DURATION)
+	ReserveScript("_EXTRACT_SUCCESS_EFFECT()", SUCCESS_EFFECT_DURATION)
 end
 
-function  _EXTRACT_RESULT_EFFECT()
+function  _EXTRACT_SUCCESS_EFFECT()
 	local frame = ui.GetFrame("itemoptionextract");
 	if frame:IsVisible() == 0 then
 		return;
@@ -726,6 +726,7 @@ function  _EXTRACT_RESULT_EFFECT()
 		return;
 	end
 	result_effect_bg:StopUIEffect('EXTRACT_SUCCESS_EFFECT', true, 0.5);
+	ui.SetHoldUI(false);
 end
 
 function FAIL_ITEM_OPTION_EXTRACT(frame)
@@ -747,17 +748,14 @@ function FAIL_ITEM_OPTION_EXTRACT(frame)
 end
 
 function _FAIL_ITEM_OPTION_EXTRACT()
-	ui.SetHoldUI(false);
+	
 	local frame = ui.GetFrame("itemoptionextract");
 	if frame:IsVisible() == 0 then
 		return;
 	end
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
-	local invItem = GET_SLOT_ITEM(slot);
-	if invItem == nil then
-		return;
-	end
+	
 
 	local EXTRACT_RESULT_EFFECT_NAME = frame:GetUserConfig('EXTRACT_RESULT_EFFECT');
 	local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
@@ -769,7 +767,6 @@ function _FAIL_ITEM_OPTION_EXTRACT()
 	pic_bg : StopUIEffect('EXTRACT_RESULT_EFFECT', true, 0.5);
 
 	pic_bg:ShowWindow(1)
-	local item = GetIES(invItem:GetObject());
 
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)
@@ -780,15 +777,11 @@ function _FAIL_ITEM_OPTION_EXTRACT()
 	local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_1');
 	bodyGbox2_1:ShowWindow(0)
 	local text_material = GET_CHILD_RECURSIVELY(frame, "text_material")
-	text_material : ShowWindow(0)
+	text_material:ShowWindow(0)
 	local bodyGbox3 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox3');
 	bodyGbox3:ShowWindow(0)
 
 	local gbox = frame:GetChild("gbox");
-	invItem = GET_SLOT_ITEM(slot);
-	local invItemGUID = invItem:GetIESID()
-	local resetInvItem = session.GetInvItemByGuid(invItemGUID)
-	local obj = GetIES(resetInvItem:GetObject());
 
 	local resultGbox = GET_CHILD_RECURSIVELY(frame, 'resultGbox')
 	resultGbox:ShowWindow(1)
@@ -798,16 +791,15 @@ function _FAIL_ITEM_OPTION_EXTRACT()
 	result_effect_bg:ShowWindow(0)
 	image_success:ShowWindow(0)
 	text_success:ShowWindow(0)
-	slot:ClearIcon()
 	local slot_result = GET_CHILD_RECURSIVELY(frame, 'slot_result')
 	slot_result:ClearIcon()
 
 	local bodyGbox1_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1_1')
-	bodyGbox1_1:ShowWindow(0)
+--	bodyGbox1_1:ShowWindow(0)
 	local text_potential = GET_CHILD_RECURSIVELY(frame, "text_potential")
-	text_potential:ShowWindow(0)
+--	text_potential:ShowWindow(0)
 	local gauge_potential = GET_CHILD_RECURSIVELY(frame, "gauge_potential")
-	gauge_potential:ShowWindow(0)
+	--gauge_potential:ShowWindow(0)
 	local image_fail = GET_CHILD_RECURSIVELY(frame, 'yellow_skin_fail')
 	local text_fail = GET_CHILD_RECURSIVELY(frame, 'text_fail')
 	image_fail:ShowWindow(1)
@@ -816,15 +808,34 @@ function _FAIL_ITEM_OPTION_EXTRACT()
 	putOnItem:ShowWindow(1)
 	local itemName = GET_CHILD_RECURSIVELY(frame, "text_itemname")
 	itemName:SetText("")
-	--CLEAR_ITEMOPTIONEXTRACT_UI()
 
-	EXTRACT_FAIL_EFFECT(frame)
+	local putOnItem = GET_CHILD_RECURSIVELY(frame, "text_putonitem")
+	putOnItem:ShowWindow(0)
 
+	local invItem = GET_SLOT_ITEM(slot);
+	
+	local isDestroy = 0
+	if invItem == nil then
+		isDestroy = 1
+		slot:ClearIcon()
+		bodyGbox1_1:ShowWindow(0)
+		text_potential:ShowWindow(0)
+		gauge_potential:ShowWindow(0)
+		local destroy_gbox = GET_CHILD_RECURSIVELY(frame, 'destroy_gbox')
+		destroy_gbox:ShowWindow(1)
+	else
+		isDestroy = 0
+		local obj = GetIES(invItem:GetObject());
+		gauge_potential:SetPoint(obj.PR, obj.MaxPR);
+	end
+
+	EXTRACT_FAIL_EFFECT(frame, isDestroy)
+	
 	return
 end
 
 
-function EXTRACT_FAIL_EFFECT(frame)
+function EXTRACT_FAIL_EFFECT(frame, isDestroy)
 	local frame = ui.GetFrame("itemoptionextract");
 	local EXTRACT_FAIL_EFFECT_NAME = frame:GetUserConfig('EXTRACT_FAIL_EFFECT');
 	local FAIL_EFFECT_SCALE = tonumber(frame:GetUserConfig('FAIL_EFFECT_SCALE'));
@@ -853,6 +864,7 @@ function  _EXTRACT_FAIL_EFFECT()
 	end
 
 	result_fail_effect_bg:StopUIEffect('EXTRACT_FAIL_EFFECT', true, 0.5);
+	ui.SetHoldUI(false);
 end
 
 

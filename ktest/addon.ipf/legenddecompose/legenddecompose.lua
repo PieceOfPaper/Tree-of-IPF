@@ -77,7 +77,11 @@ function ON_RESULT_LEGEND_DECOMPOSE(frame, msg, rewardClassName, rewardCnt)
 	local rewardCls = GetClass('Item', rewardClassName);
 	local matPic = GET_CHILD_RECURSIVELY(frame, 'matPic');
 	local matText = GET_CHILD_RECURSIVELY(frame, 'matText');
-	matPic:SetImage(rewardCls.Icon);
+	
+	local rewardIcon = CreateIcon(matPic);
+	rewardIcon:SetImage(rewardCls.Icon);
+	SET_ITEM_TOOLTIP_ALL_TYPE(rewardIcon, nil, rewardClassName, 'legenddecompose', rewardCls.ClassID, 0)
+
 	matText:SetTextByKey('cur', rewardCnt);
 	matPic:ShowWindow(1);	
 	matText:ShowWindow(1);

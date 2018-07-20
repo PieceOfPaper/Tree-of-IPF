@@ -55,7 +55,7 @@ function GAMEEXIT_TIMER_CANCEL(frame)
 end
 
 function DO_QUIT_GAME()
-	session.SaveQuickSlot(true);
+	quickslot.RequestSave();
 	for i = 0, AUTO_SELL_COUNT-1 do
 	-- 뭐하나라도 true면 
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
@@ -67,7 +67,7 @@ function DO_QUIT_GAME()
 end
 
 function GAME_TO_LOGIN()
-	session.SaveQuickSlot(true);
+	quickslot.RequestSave();
 	for i = 0, AUTO_SELL_COUNT-1 do
 	-- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
@@ -79,7 +79,7 @@ function GAME_TO_LOGIN()
 end
 
 function GAME_TO_BARRACK()
-	session.SaveQuickSlot(true);
+	quickslot.RequestSave();
 	for i = 0, AUTO_SELL_COUNT-1 do
     -- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then

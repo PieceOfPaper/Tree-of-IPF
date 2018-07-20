@@ -26,7 +26,11 @@ function GUILDINFO_DETAIL_ON_INIT(guildData, emblemPath, info, guild_idx)
 
         local guildEmblem = GET_CHILD_RECURSIVELY(frame, "emblem")
         guildEmblem:SetImage("")
-        guildEmblem:SetFileName(emblemPath);
+        if emblemPath == "None" then
+            guildEmblem:SetImage('guildmark_slot')
+        else
+            guildEmblem:SetFileName(emblemPath);
+        end
 
 
         local guildDesc = GET_CHILD_RECURSIVELY(frame, "guildText")
@@ -156,7 +160,11 @@ function SEND_JOIN_REQ(frame, control)
     local charList = GetCharacterNameList();
     local charCount = #charList;
     local mylevel = info.GetLevel(session.GetMyHandle());
-    
+    local badword = IsBadString(txtCtrl:GetText());
+    if badword ~= nil then
+		ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
+		return;
+	end
     PutGuildApplicationRequest('ON_GUILDJOIN_REQUEST_SUCCESS', g_guildIdx,tostring(teamLvl), tostring(charCount), tostring(GetAdventureBookMyRank()), tostring(mylevel), txtCtrl:GetText())
     joinFrame:ShowWindow(0)
 end

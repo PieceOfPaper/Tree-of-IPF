@@ -2164,18 +2164,18 @@ function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)
 		return;
 	end
 
-	local slot1 = session.GetWeaponQuicSlot(0)
-	local slot2 = session.GetWeaponQuicSlot(1)	
-	local slot3 = session.GetWeaponQuicSlot(2)
-	local slot4 = session.GetWeaponQuicSlot(3)
+	local slot1 = quickslot.GetSwapWeaponGuid(0);
+	local slot2 = quickslot.GetSwapWeaponGuid(1);	
+	local slot3 = quickslot.GetSwapWeaponGuid(2);
+	local slot4 = quickslot.GetSwapWeaponGuid(3);
 
-	return invItem : GetIESID() == slot1 or invItem : GetIESID() == slot2 or invItem : GetIESID() == slot3 or invItem : GetIESID() == slot4
+	return invItem:GetIESID() == slot1 or invItem:GetIESID() == slot2 or invItem:GetIESID() == slot3 or invItem:GetIESID() == slot4;
 end
 
 function STATUS_SLOT_DROP(frame, icon, argStr, argNum)
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_EQUIP(iconInfo.ext, icon:GetName());
@@ -2303,7 +2303,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		end
 	end
 		
-	if session.GetWeaponCurrentSlotLine() == 0 then
+	if quickslot.GetActiveWeaponLine() == 0 then
 		frame:SetUserValue('CURRENT_WEAPON_INDEX', 1)
 	else
 		frame:SetUserValue('CURRENT_WEAPON_INDEX', 2)
@@ -2311,7 +2311,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	
 	if spotName == 'RH' then
 		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
-			session.SetWeaponQuicSlot(0, equipItem : GetIESID(), false);
+			quickslot.SetSwapWeaponInfo(0, equipItem:GetIESID());
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
@@ -2319,7 +2319,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
 			end
 		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
-			session.SetWeaponQuicSlot(2, equipItem : GetIESID(), false);
+			quickslot.SetSwapWeaponInfo(2, equipItem:GetIESID());
 					
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_RH', equipItem.type)
@@ -2332,7 +2332,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	if spotName == 'LH' then
 		
 		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
-			session.SetWeaponQuicSlot(1, equipItem : GetIESID(), false);
+			quickslot.SetSwapWeaponInfo(1, equipItem:GetIESID());
 			
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
@@ -2340,7 +2340,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 				frame:SetUserValue('CURRENT_WEAPON_LH', 0)
 			end
 		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
-			session.SetWeaponQuicSlot(3, equipItem : GetIESID(), false);
+			quickslot.SetSwapWeaponInfo(3, equipItem:GetIESID());
 			if equipItem ~= nil then
 				frame:SetUserValue('CURRENT_WEAPON_LH', equipItem.type)
 			else
@@ -2946,7 +2946,7 @@ end
 function GET_WEAPON_SWAP_INDEX()
 	local curIndex = 0
 	for i = 0, 3 do
-		local guid = session.GetWeaponQuicSlot(i);
+		local guid = quickslot.GetSwapWeaponGuid(i);
 		if nil ~= guid then
 			local item = session.GetEquipItemByGuid(guid);
 			if nil ~= item then
@@ -3062,13 +3062,13 @@ function DO_WEAPON_SWAP(frame, index)
 	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
 
 	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
-	local WEAPONSWAP_DOWN_IMAGE = frame : GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
+	local WEAPONSWAP_DOWN_IMAGE = frame:GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
 
 	if index == 1 then
 		weaponSwap1:SetImage(WEAPONSWAP_UP_IMAGE);
 		weaponSwap2:SetImage(WEAPONSWAP_DOWN_IMAGE);
 	elseif index == 2 then
-		weaponSwap1 : SetImage(WEAPONSWAP_DOWN_IMAGE);
+		weaponSwap1:SetImage(WEAPONSWAP_DOWN_IMAGE);
 		weaponSwap2:SetImage(WEAPONSWAP_UP_IMAGE);
 	end
 
@@ -3076,17 +3076,17 @@ function DO_WEAPON_SWAP(frame, index)
 		return;
 	end
 
-	frame : SetUserValue('CURRENT_WEAPON_INDEX', index)
-	session.SetWeaponSwap(1);
+	frame:SetUserValue('CURRENT_WEAPON_INDEX', index)
+	quickslot.SwapWeapon();
 
 	local abil = GetAbility(pc, "SwapWeapon");
 
 	if abil ~= nil then
-		weaponSwap1 : ShowWindow(1)
-		weaponSwap2 : ShowWindow(1)
+		weaponSwap1:ShowWindow(1);
+		weaponSwap2:ShowWindow(1);
 	else
-		weaponSwap1 : ShowWindow(0)
-		weaponSwap2 : ShowWindow(0)
+		weaponSwap1:ShowWindow(0);
+		weaponSwap2:ShowWindow(0);
 	end
 
 	local tempIndex = 0;
@@ -3096,7 +3096,7 @@ function DO_WEAPON_SWAP(frame, index)
 		tempIndex = 0
 	end
 
-	SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame : GetUserIValue('CURRENT_WEAPON_LH'), tempIndex)
+	SHOW_WEAPON_SWAP_TEMP_IMAGE(frame:GetUserIValue('CURRENT_WEAPON_RH'), frame:GetUserIValue('CURRENT_WEAPON_LH'), tempIndex)
 end
 
 function DO_WEAPON_SWAP_1(frame)

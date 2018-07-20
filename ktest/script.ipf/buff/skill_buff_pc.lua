@@ -5500,21 +5500,23 @@ function SCR_BUFF_ENTER_Feint_Debuff(self, buff, arg1, arg2, over)
 end
 
 function SCR_FEINT_ABIL(self, caster)
-    local casterx, casterz = GetDir(caster)
-    local casterDir = DirToAngle(casterx, casterz)
-    
-    sleep(300);
-
-    if IS_PC(self) == false then
-            HoldMonScp(self)
-        end
-    
-    SetDirectionByAngle(self, casterDir)
-    
-    if IS_PC(self) == false then
-        sleep(1500);
-        UnHoldMonScp(self)
-    end
+	if TryGetProp(self, "MonRank") ~= "Boss" then
+	    local casterx, casterz = GetDir(caster)
+	    local casterDir = DirToAngle(casterx, casterz)
+	    
+	    sleep(300);
+	
+	    if IS_PC(self) == false then
+	        HoldMonScp(self)
+	    end
+	    
+	    SetDirectionByAngle(self, casterDir)
+	    
+	    if IS_PC(self) == false then
+	        sleep(1500);
+	        UnHoldMonScp(self)
+	    end
+	end
 end
 
 
@@ -16135,18 +16137,18 @@ function SCR_BUFF_LEAVE_Tiksline_Debuff(self, buff, arg1, arg2, over)
     local damage = GetExProp(buff, "Tiksline_accumulatedDamage");
     if buffCaster ~= nil then
         if damage > 1 then
-            TakeDamage(buffCaster, self, "Velcoffer_Tiksline", damage, "Melee", "Magic", "TrueDamage")
+            TakeDamage(buffCaster, self, "Velcoffer_Tiksline", damage, "Melee", "Magic", "AbsoluteDamage")
         end
     end
 end
 
 function SCR_BUFF_ENTER_Mergaite_Buff(self, buff, arg1, arg2, over)
     local addDefRate = 0;
-    local velcofferSetValue = arg2
-    if velcofferSetValue ~= nil then
-        if velcofferSetValue == 4 then
+    local itemStack = GetPrefixSetItemStack(self, "Set_Mergaite");
+    if itemStack ~= nil then
+        if itemStack == 4 then
             addDefRate = 0.4;
-        elseif velcofferSetValue == 5 then
+        elseif itemStack == 5 then
             addDefRate = 1;
         end
     end
@@ -16184,11 +16186,15 @@ function SCR_BUFF_ENTER_Gyvenimas_Buff(self, buff, arg1, arg2, over)
 end
 
 function SCR_BUFF_UPDATE_Gyvenimas_Buff(self, buff, arg1, arg2, RemainTime, ret, over)
-    local shiedlValue = GetBuffArgs(buff)
-    local currentShield = GetShield(self)
-    local updateShiedlValue = shiedlValue * 0.05
+    local shiedlValue = GetBuffArgs(buff);
+    local currentShield = GetShield(self);
+    if currentShield == 0 then
+        return 0;
+    end
+    
+    local updateShiedlValue = shiedlValue * 0.05;
     if (currentShield + updateShiedlValue) <= (shiedlValue/2) then
-        AddShield(self, updateShiedlValue)
+        AddShield(self, updateShiedlValue);
     end
     
     return 1
@@ -16199,3 +16205,10 @@ function SCR_BUFF_LEAVE_Gyvenimas_Buff(self, buff, arg1, arg2, over)
     AddShield(self, -currentShield)
 end
 
+function SCR_BUFF_ENTER_Mergaite_Enter_Buff(self, buff, arg1, arg2, over)
+    self.MaxDefenced_BM = self.MaxDefenced_BM + 1;
+end
+
+function SCR_BUFF_LEAVE_Mergaite_Enter_Buff(self, buff, arg1, arg2, over)
+    self.MaxDefenced_BM = self.MaxDefenced_BM - 1;
+end

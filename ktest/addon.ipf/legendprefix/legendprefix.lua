@@ -17,6 +17,8 @@ function LEGENDPREFIX_RESET(frame)
 end
 
 function LEGENDPREFIX_RESET_TARGET_ITEM(frame)
+	frame:SetUserValue('TARGET_ITEM_GUID', "None");
+
 	local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
 	slot:ClearIcon();
 
@@ -89,14 +91,19 @@ function _LEGENDPREFIX_SET_TARGET(frame, itemGuid)
 
 	local needItemClsName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
 	local needItemCls = GetClass('Item', needItemClsName);
-	local matPic = GET_CHILD_RECURSIVELY(frame, 'matPic');
-	matPic:SetImage(needItemCls.Icon);
+	local matPic = GET_CHILD_RECURSIVELY(frame, 'matPic');	
+	local fullImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(needItemCls)
+	matPic:SetImage(fullImage);
 	matPic:ShowWindow(1);
 	matPic:SetTooltipOverlap(0);
-	SET_ITEM_TOOLTIP_BY_NAME(matPic, needItemClsName);
+	matPic:SetTooltipType('wholeitem');
+	matPic:SetTooltipArg('maxexp', needItemCls.ClassID, 0);	
 
 	local matText = GET_CHILD_RECURSIVELY(frame, 'matText');
 	local needCnt = GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(targetObject);
+	if needCnt == 0 then
+		return;
+	end
 	local curCnt = GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C();
 	matText:SetTextByKey('need', needCnt);
 	matText:SetTextByKey('cur', curCnt);
@@ -133,7 +140,11 @@ end
 
 function LEGENDPREFIX_EXECUTE(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
-    local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+	local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+	if itemGuid == "None" then
+		return;
+	end
+
     local invItem = session.GetInvItemByGuid(itemGuid);
     if invItem == nil then
         return;

@@ -11,7 +11,7 @@ end
 function SCR_JOB_ONMYOJI_Q1_REW1_CHECK(pc, stepRewardFuncList) --보상아이템 지급 포인트별 사전 체크
     local sObj = GetSessionObject(pc, 'SSN_JOB_ONMYOJI_Q1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 > 350 then
+        if sObj.QuestInfoValue1 >= 350 then
             return 'YES'
         end
     end
@@ -21,7 +21,7 @@ end
 function SCR_JOB_ONMYOJI_Q1_REW2_CHECK(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_ONMYOJI_Q1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 > 450 then
+        if sObj.QuestInfoValue1 >= 450 then
             return 'YES'
         end
     end
@@ -31,7 +31,7 @@ end
 function SCR_JOB_ONMYOJI_Q1_REW3_CHECK(pc, stepRewardFuncList)
     local sObj = GetSessionObject(pc, 'SSN_JOB_ONMYOJI_Q1')
     if sObj ~= nil then
-        if sObj.QuestInfoValue1 > 550 then
+        if sObj.QuestInfoValue1 >= 550 then
             return 'YES'
         end
     end

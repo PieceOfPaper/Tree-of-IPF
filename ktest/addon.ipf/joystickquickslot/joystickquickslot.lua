@@ -197,7 +197,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 				if fromInvIndex == 0 then
 					if iconInfo.type == invenItemInfo.type then
 						iconInfo.ext = toInvIndex;
-						session.SetQuickSlotInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, iconInfo.ext, 0);
+						quickslot.SetInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, iconInfo.ext);
 					end
 				else
 					if iconInfo.ext == toInvIndex then
@@ -214,8 +214,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 		end
 	end
 	
-	local quickSlotList = session.GetQuickSlotList();
-	local curCnt = quickSlotList:GetQuickSlotActiveCnt();	
+	local curCnt = quickslot.GetActiveSlotCnt();
 
 	curCnt = 40;
 
@@ -264,10 +263,9 @@ end
 
 function JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT()
 	local frame = ui.GetFrame('joystickquickslot');
-	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
-	local quickSlotList = session.GetQuickSlotList();
-	for i = 0, MAX_SLOT_CNT-1 do
-		local quickSlotInfo 	= quickSlotList:Element(i);			
+	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');	
+	for i = 0, MAX_SLOT_CNT - 1 do
+		local quickSlotInfo = quickslot.GetInfoByIndex(i);
 		local updateslot = true;
 
 		if sklCnt > 0 then
@@ -280,8 +278,8 @@ function JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT()
 			end
 		end
 
-		if true == updateslot and quickSlotInfo.category  ~=  'NONE' then
-			local slot 			= frame:GetChildRecursively("slot"..i+1);
+		if true == updateslot and quickSlotInfo.category ~= 'NONE' then
+			local slot = frame:GetChildRecursively("slot"..i+1);
 			tolua.cast(slot, "ui::CSlot");
 			SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
 		end
@@ -556,6 +554,7 @@ function JOYSTICK_EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
 		timer:Start(1);
 		imcSound.PlaySoundEvent('sys_atk_booster_on');
 	end
+	DebounceScript("JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT", 0.1);
 end
 
 function JOYSTICK_JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
@@ -661,9 +660,8 @@ end
 
 function PLAY_JOYSTICKQUICKSLOT_UIEFFECT_BY_GUID(frame, guid)
 	local slotlist = {};
-	local quickSlotList = session.GetQuickSlotList();
 	for i = 0, MAX_QUICKSLOT_CNT-1 do
-		local quickSlotInfo = quickSlotList:Element(i);
+		local quickSlotInfo = quickslot.GetInfoByIndex(i);
 		if quickSlotInfo ~= nil then
 			if quickSlotInfo:GetIESID() == guid then
 				slotlist[#slotlist + 1] = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
@@ -683,11 +681,8 @@ function PLAY_JOYSTICKQUICKSLOT_UIEFFECT_BY_GUID(frame, guid)
 end
 
 function PLAY_JOYSTICKQUICKSLOT_UIEFFECT(frame, itemID)
-
-	local quickSlotList = session.GetQuickSlotList();
-	for i = 0, MAX_QUICKSLOT_CNT-1 do
-
-		local quickSlotInfo = quickSlotList:Element(i);
+	for i = 0, MAX_QUICKSLOT_CNT - 1 do
+		local quickSlotInfo = quickslot.GetInfoByIndex(i);
 		if quickSlotInfo ~= nil then
 			if quickSlotInfo.type == itemID then
 				local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
@@ -777,7 +772,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 			icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_SKILL_COOLDOWN');
 			icon:SetEnableUpdateScp('MONSTER_ICON_UPDATE_SKILL_ENABLE');
 			icon:SetColorTone("FFFFFFFF");
-			quickSlot.OnSetSkillIcon(slot, type);
+			quickslot.OnSetSkillIcon(slot, type);
 			SET_QUICKSLOT_OVERHEAT(slot);
 
 			slot:EnableDrag(0);

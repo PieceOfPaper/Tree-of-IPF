@@ -94,6 +94,7 @@ function CLEAR_ITEMOPTIONADD_UI()
 
 
 	local bodyGbox1_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1_1');
+	bodyGbox1_1:Resize(bodyGbox1:GetWidth(), bodyGbox1:GetHeight())
 	bodyGbox1_1 : RemoveAllChild();
 	local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_1');
 	bodyGbox2_1: RemoveAllChild();
@@ -349,7 +350,7 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 	end
 
 	local targetItem = GetClass('Item', invitem.InheritanceItemName);
-	local yPos = 20
+	local yPos = 0
 	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(targetItem);
     local list = {};
     local basicTooltipPropList = StringSplit(targetItem.BasicTooltipProp, ';');
@@ -516,9 +517,9 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."0%"..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
 	end
 
-	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + 20);
+	tooltip_equip_property_CSet:Resize(tooltip_equip_property_CSet:GetWidth(),tooltip_equip_property_CSet:GetHeight() + property_gbox:GetHeight() + property_gbox:GetY() + 40);
 
-	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_property_CSet:GetHeight())
+	gBox:Resize(gBox:GetWidth(), tooltip_equip_property_CSet:GetHeight())
 
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot_add")
@@ -749,6 +750,9 @@ ui.SetHoldUI(false);
 		end
 	end
 
+	local resultItemImg = GET_CHILD_RECURSIVELY(frame, "result_item_img")
+	resultItemImg:ShowWindow(1)
+	resultItemImg:SetImage(item.Icon)
 	ADD_SUCCESS_EFFECT(frame)
 end
 

@@ -346,7 +346,7 @@ function SCR_FEDIMIAN_APPRAISER_NORMAL_1(self,pc)
 end
 
 function SCR_FEDIMIAN_APPRAISER_NORMAL_2(self,pc)
-    -- ?�감??
+    -- ??감??
     
     UIOpenToPC(pc, 'itemrandomreset', 1)
 end
@@ -430,6 +430,17 @@ function JOB_APPRAISER52_ABBADON(self)
         RunZombieScript('GIVE_TAKE_ITEM_TX', self, "JOB_APPRAISER5_1_ITEM1/"..temp1.."/JOB_APPRAISER5_1_ITEM2/"..temp2,nil, "Quest")
     end
 end
+
+function SCR_FEDIMIAN_TERIAVELIS_ENTER(self, pc)
+--    local levelCheck = pc.Lv
+--    if levelCheck >= 360 then
+--        AddHelpByName(pc, 'TUTO_ICOR')
+--    end
+end
+
+
+
+
 function SCR_FEDIMIAN_TERIAVELIS_DIALOG(self, pc)
      COMMON_QUEST_HANDLER(self, pc)
 --     local TeriavelisSelect = ShowSelDlg(pc, 0, 'NPC_TERIAVELIS_DLG1', ScpArgMsg("LegendRecipe"),ScpArgMsg("itemoptionextract"),ScpArgMsg("itemoptionadd"),ScpArgMsg("legenditemtranscend"), ScpArgMsg("Close"))
@@ -455,11 +466,11 @@ function SCR_FEDIMIAN_TERIAVELIS_NORMAL_2(self, pc)
 end
 
 function SCR_FEDIMIAN_TERIAVELIS_NORMAL_3(self, pc)
-        UIOpenToPC(pc,'itemoptionextract',1)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemoptionextract', 5, 1, self);
 end
 
 function SCR_FEDIMIAN_TERIAVELIS_NORMAL_4(self, pc)
-        UIOpenToPC(pc,'itemoptionadd',1)
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemoptionadd', 5, 1, self);
     end
      
 function SCR_FEDIMIAN_TERIAVELIS_NORMAL_5(self, pc)

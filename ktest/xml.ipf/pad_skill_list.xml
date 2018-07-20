@@ -5221,7 +5221,7 @@ return value;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Elementalist_Hail" CheckerType="0" Range="10" UpdateTerm="100">
+    <PadSkill Name="Elementalist_Hail" CheckerType="0" Range="10" UpdateTerm="100" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="5000" UseFunc="1" FuncTxt="return 10000"/>
