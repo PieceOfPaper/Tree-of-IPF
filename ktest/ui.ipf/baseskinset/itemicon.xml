@@ -2309,6 +2309,9 @@
 		<image name="icon_item_artefact_Dome_Cover" file="\icon\weapon\icon_item_artefact_Dome_Cover.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_artefact_Ticket_TOS" file="\icon\weapon\icon_item_artefact_Ticket_TOS.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="icon_item_artefact_Decorative_knife" file="\icon\weapon\icon_item_artefact_Decorative_knife.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_artefact_shark" file="\icon\weapon\icon_item_artefact_shark.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_artefact_surfingboard" file="\icon\weapon\icon_item_artefact_surfingboard.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_artefact_watermelon" file="\icon\weapon\icon_item_artefact_watermelon.png" imgrect="0 0 256 256" CMM_Caption=""/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -4236,6 +4239,9 @@
 		<image name="icon_item_happybox_red" file="\icon\item\icon_item_happybox_red.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_cube_piece_magic" file="\icon\item\icon_item_cube_piece_magic.png" imgrect="0 0 128 128" CMM_Caption="큐브 조각 매직"/>
 		<image name="icon_item_cube_piece_rare" file="\icon\item\icon_item_cube_piece_rare.png" imgrect="0 0 128 128" CMM_Caption="큐브 조각 레어"/>
+		<image name="icon_item_Summer01_popupbook" file="\icon\item\icon_item_Summer01_popupbook.png" imgrect="0 0 256 256" CMM_Caption="팝업북 비치 파라솔"/>
+		<image name="icon_item_Summer02_popupbook" file="\icon\item\icon_item_Summer02_popupbook.png" imgrect="0 0 256 256" CMM_Caption="팝업북 상어"/>
+		<image name="icon_item_summer_box" file="\icon\item\icon_item_summer_box.png" imgrect="0 0 256 256" CMM_Caption="17 썸머 장난감 상자"/>
 		<image name="icon_item_event_invitation3" file="\icon\item\icon_item_event_invitation3.png" imgrect="0 0 128 128" CMM_Caption="이벤트 초청장: 결혼식"/>
 	</imagelist>
 	<imagelist category="payment">
@@ -4594,6 +4600,24 @@
 		<image name="icon_item_Ability_coupon_box_B" file="\icon\payment\icon_item_Ability_coupon_box_B.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_Ability_coupon_box_A" file="\icon\payment\icon_item_Ability_coupon_box_A.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_Ability_coupon_box_S" file="\icon\payment\icon_item_Ability_coupon_box_S.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_swimsuit02_m" file="\icon\payment\icon_item_swimsuit02_m.png" imgrect="0 0 256 256" CMM_Caption="17년도 수영복 "/>
+		<image name="icon_item_swimsuit02_f" file="\icon\payment\icon_item_swimsuit02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit03_m" file="\icon\payment\icon_item_swimsuit03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit03_f" file="\icon\payment\icon_item_swimsuit03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit04_m" file="\icon\payment\icon_item_swimsuit04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit04_f" file="\icon\payment\icon_item_swimsuit04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit02flamingo_m" file="\icon\payment\icon_item_swimsuit02flamingo_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit02flamingo_f" file="\icon\payment\icon_item_swimsuit02flamingo_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit03duck_m" file="\icon\payment\icon_item_swimsuit03duck_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit03duck_f" file="\icon\payment\icon_item_swimsuit03duck_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit04flipper_m" file="\icon\payment\icon_item_swimsuit04flipper_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuit04flipper_f" file="\icon\payment\icon_item_swimsuit04flipper_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_icebox_cube_m" file="\icon\payment\icon_item_icebox_cube_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_icebox_cube_f" file="\icon\payment\icon_item_icebox_cube_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuite_m_cube" file="\icon\payment\icon_item_swimsuite_m_cube.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_swimsuite_f_cube" file="\icon\payment\icon_item_swimsuite_f_cube.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_diver" file="\icon\payment\icon_item_helmet_diver.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_fishbowl" file="\icon\payment\icon_item_helmet_fishbowl.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
