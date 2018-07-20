@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -5214,9 +5214,12 @@
 		<image name="new_mark2" file="\skin\market_skin.tga" imgrect="1204 246 72 34" CMM_Caption="뉴_마크"/>
 		<image name="hot_mark2" file="\skin\market_skin.tga" imgrect="1204 281 72 34" CMM_Caption="핫_마크"/>
 		<image name="event_mark2" file="\skin\market_skin.tga" imgrect="1204 316 72 34" CMM_Caption="이벤트_마크"/>
-		<image name="new_mark_K" file="\skin\market_skin.tga" imgrect="1785 383 72 34" CMM_Caption="뉴_마크_한글"/>
-		<image name="hot_mark_K" file="\skin\market_skin.tga" imgrect="1785 418 72 34" CMM_Caption="핫_마크_한글"/>
-		<image name="recommend_mark_K" file="\skin\market_skin.tga" imgrect="1785 453 72 34" CMM_Caption="추천_마크_한글"/>
+		<image name="sale_mark2" file="\skin\market_skin.tga" imgrect="1204 351 72 34" CMM_Caption="이벤트_마크"/>
+		<image name="new_mark_K" file="\skin\market_skin.tga" imgrect="1793 383 72 34" CMM_Caption="뉴_마크_한글"/>
+		<image name="hot_mark_K" file="\skin\market_skin.tga" imgrect="1793 418 72 34" CMM_Caption="핫_마크_한글"/>
+		<image name="recommend_mark_K" file="\skin\market_skin.tga" imgrect="1793 453 72 34" CMM_Caption="추천_마크_한글"/>
+		<image name="sale_mark_K" file="\skin\market_skin.tga" imgrect="1720 383 72 34" CMM_Caption="할인_마크_한글"/>
+		<image name="limit_mark_K" file="\skin\market_skin.tga" imgrect="1720 418 72 34" CMM_Caption="한정_마크_한글"/>
 		<image name="minus_icon" file="\skin\market_skin.tga" imgrect="1277 277 20 20" CMM_Caption="마이너스아이콘"/>
 		<image name="result_icon" file="\skin\market_skin.tga" imgrect="1277 298 20 20" CMM_Caption="결과아이콘"/>
 		<image name="Nexon_cash_mark" file="\skin\market_skin.tga" imgrect="1277 246 30 30" CMM_Caption="넥슨캐시마크"/>
@@ -7113,7 +7116,8 @@
 		<image name="Dlg_port_LoretaNimbus" file="\npcimg\LoretaNimbus.png" imgrect="0 0 800 1000" CMM_Caption="네크로멘서마스터"/>
 		<image name="Dlg_port_Gema" file="\npcimg\Gema.png" imgrect="0 0 700 900" CMM_Caption="로그마스터"/>
 		<image name="Dlg_port_Guerra" file="\npcimg\Guerra.png" imgrect="0 0 800 1000" CMM_Caption="도펠쥘트너마스터"/>
-		<image name="Dlg_port_OlfasGrimm" file="\npcimg\OlfasGrimm.png" imgrect="0 0 900 1100" CMM_Caption="몽크마스터"/>
+		<image name="Dlg_port_OlfasGrimm" file="\npcimg\OlfasGrimm.png" imgrect="0 0 1000 1000" CMM_Caption="몽크마스터"/>
+		<image name="Dlg_port_OlfasGrimm2" file="\npcimg\OlfasGrimm2.png" imgrect="0 0 1000 1000" CMM_Caption="몽크마스터"/>
 		<image name="Dlg_port_Toras" file="\npcimg\Toras.png" imgrect="0 0 700 1000" CMM_Caption="오르샤_컴패니언상인"/>
 		<image name="Dlg_port_ZenklasMetai" file="\npcimg\ZenklasMetai.png" imgrect="0 0 800 1000" CMM_Caption="응사마스터"/>
 		<image name="Dlg_port_UosisKrieg" file="\npcimg\UosisKrieg.png" imgrect="0 0 1000 860" CMM_Caption="슈바르츠라이터마스터"/>
