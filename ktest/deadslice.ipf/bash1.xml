@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<DeadSlice>
+	<Option TYPE="PARTS"/>
+	<Event Index="0.000000" Name="DeadPartsEffect" Type="CUSTOM" LifeTime="5.000000" X="0.000000" Y="10.000000" Z="0.000000" Scale="1.500000" Attach="0" SizeToSprite="1" ForceDestroy="1" FixRotate="1"/>
+	<Event Index="0.000000" Name="mon_die_effect_2" Type="SOUND" LifeTime="5.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="0"/>
+	<Layer Name="right">
+		<DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal"/>
+		<LayerOption TYPE="None"/>
+		<Event Index="0.000000" Name="reaction_lunge" Type="IMC" LifeTime="0.000000" X="0.000000" Y="10.000000" Z="0.000000" Scale="18.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="1"/>
+		<Event Index="0.000000" Name="reaction_bash1" Type="IMC" LifeTime="5.000000" X="0.000000" Y="5.000000" Z="8.000000" Scale="1.200000" Attach="0" SizeToSprite="0" ForceDestroy="1" FixRotate="1"/>
+	</Layer>
+	<Layer Name="left">
+		<DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Random" Type="Normal"/>
+		<LayerOption TYPE="None"/>
+	</Layer>
+</DeadSlice>
