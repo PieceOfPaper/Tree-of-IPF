@@ -582,7 +582,7 @@ function BRIQUETTING_SKILL_EXCUTE(parent, ctrl)
 	frame:SetUserValue('BRIQUETTING_TARGET_GUID', targetItemGuid);
 	frame:SetUserValue('BRIQUETTING_LOOK_GUID', lookItemGuid);
 	local clmsg = '';
-	if prCheck:IsChecked() == 0 then
+	if prCheck:IsChecked() == 0 and containCoreItem == false then
 		clmsg = ScpArgMsg('ReallyBriquetting', 'BEFORE', targetItem.Name, 'AFTER', lookItem.Name);
 	else
 		clmsg = ScpArgMsg('BriquettingResult', 'BEFORE', targetItem.Name, 'AFTER', lookItem.Name);

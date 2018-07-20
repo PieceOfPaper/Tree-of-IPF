@@ -37,6 +37,6 @@
 		<richtext name="infoText" parent="reqItemBox" rect="0 0 200 30" margin="20 0 0 0" layout_gravity="left bottom" caption="포텐셜 소실 방지 체크 해제시 포텐셜이 감소합니다.{nl} 실버는 소모되지 않습니다." fontname="black_16"/>
 		<!-- look material item slotset -->
 		<slotset name="lookMatItemSlotset" parent="spendMaterialBox" rect="0 0 410 80" margin="0 150 0 0" layout_gravity="center top" dropsound="inven_equip" oversound="button_cursor_over_3" picksound="icon_pick_up" col="5" row="1" size="70 70" skin="invenslot2" spc="10 10" DropScp="BRIQUETTING_DROP_LOOK_MATERIAL_ITEM" PopScp="BRIQUETTING_POP_LOOK_MATERIAL_ITEM" enableselect="false"/>
-		<richtext name="matInfoText" parent="spendMaterialBox" rect="0 0 400 30" margin="0 240 0 0" layout_gravity="center top" caption="코어 또는 외형추출 할 무기와 동일한 아이템을 넣어주세요." fontname="black_16"/>
+		<richtext name="matInfoText" parent="spendMaterialBox" rect="0 0 400 30" margin="0 240 0 0" layout_gravity="center top" caption="무기 외형 변환 소재 또는 외형추출 할 무기와 동일한 아이템을 넣어주세요." fontname="black_16" fixwidth="true"/>
 	</controls>
 </uiframe>

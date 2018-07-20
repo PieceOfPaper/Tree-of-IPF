@@ -224,7 +224,7 @@
 		<Class ClassID="2247" ClassName="AlreadyResetingRandomOption" Data="이미 재감정 중인 아이템입니다."/>	<Class ClassID="2248" ClassName="InvalidTargetFor{CONTENTS}" Data="{CONTENTS} 적용을 할 수 없는 대상입니다."/>
 		<Class ClassID="2249" ClassName="Briquetting" Data="무기 외형 변환"/>
 		<Class ClassID="2250" ClassName="CannotBriquettingBecauseAlready" Data="외형이 변경된 아이템은 등록할 수 없습니다."/>
-		<Class ClassID="2251" ClassName="BriquettingAlert" Data="포텐셜 소실 방지를 해제합니다.{nl} {nl}해당 기능을 해제 후 {nl}외형 변환시 {@st66d_y}포텐셜이 1 감소{/}합니다. 하시겠습니까?"/>
+		<Class ClassID="2251" ClassName="BriquettingAlert" Data="포텐셜 소실 방지를 해제합니다.{nl} {nl}해당 기능을 해제 후 {nl}외형 변환시 {@st66d_y}포텐셜이 1 감소{/}합니다.{nl}무기 외형 변환 소재를 사용할 경우 포텐셜이 감소하지 않습니다.{nl}해제하시겠습니까?"/>
 		<Class ClassID="2252" ClassName="ReallyBriquetting" Data="포텐셜 소실 방지 체크가 해제되어 있습니다.{nl}이대로 외형 변환시 {@st66d_y}포텐셜이 1 감소{/}합니다.{nl} {nl}등록한 아이템이 소모됩니다.{nl}{@st66d_y}[{BEFORE}]{/}  ▶ {@st66d_y}[{AFTER}]{/}{nl} 아이템 외형이 변경됩니다.{nl} {nl}{@st66d_y}외형 변환된 아이템은 외형 추출 무기로 사용할 수 없습니다.{/}{nl}진행하시겠습니까?"/>
 		<Class ClassID="2253" ClassName="BriquettingResult" Data="등록한 아이템이 소모됩니다.{nl}{@st66d_y}[{BEFORE}]{/}  ▶ {@st66d_y}[{AFTER}]{/}{nl} 아이템 외형이 변경됩니다.{nl} {nl}{@st66d_y}외형 변환된 아이템은 외형 추출 무기로 사용할 수 없습니다.{/}{nl}진행하시겠습니까?"/>
 		<Class ClassID="2254" ClassName="InvalidItemRegisterStep" Data="등록된 아이템을 사용할 수 없는 상태입니다. 다시 시도해주세요."/>
