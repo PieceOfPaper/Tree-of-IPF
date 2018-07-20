@@ -75,9 +75,10 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Fail"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="퀘스트 실패. 모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -139,6 +140,14 @@
                 </StartScpList>
                 <ObjList/>
                 <StageEvents>
+                    <Event execCount="1" eventName="failset">
+                        <execList>
+                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                     <Event execCount="1" eventName="failsec30">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
@@ -146,12 +155,11 @@
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_GUILD_MINIGAME_EXIT" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_PCLIST_LAYER_CHANGE" Client="NO" UseSleep="NO">
                                 <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
                             </ToolScp>
                         </execList>
                     </Event>
