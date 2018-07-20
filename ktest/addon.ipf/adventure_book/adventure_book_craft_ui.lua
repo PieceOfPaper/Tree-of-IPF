@@ -15,7 +15,7 @@ function ADVENTURE_BOOK_CRAFT.RENEW()
 		return;
 	end
 	if ADVENTURE_BOOK_CRAFT.SELECTED_ITEM == "" then
-		ADVENTURE_BOOK_CRAFT.SELECTED_ITEM = craft_list[1]
+		ADVENTURE_BOOK_CRAFT.SELECTED_ITEM = craft_list[1]['target']
 	end
 	ADVENTURE_BOOK_CRAFT.FILL_CRAFT_INFO();
 end
@@ -41,7 +41,7 @@ function ADVENTURE_BOOK_CRAFT.FILL_CRAFT_LIST()
 	list_box:RemoveAllChild()
 	
 	local craft_list_func = ADVENTURE_BOOK_CRAFT_CONTENT["CRAFT_LIST_ALL"];
-	local craft_target_info_func = ADVENTURE_BOOK_CRAFT_CONTENT["CRAFT_TARGET_INFO"];
+	local craft_recipe_info_func = ADVENTURE_BOOK_CRAFT_CONTENT["CRAFT_RECIPE_INFO"];
 	local craft_material_info_func = ADVENTURE_BOOK_CRAFT_CONTENT["CRAFT_MATERIAL_INFO"];
 	local filter_func = ADVENTURE_BOOK_CRAFT_CONTENT['FILTER_LIST']
 
@@ -51,9 +51,10 @@ function ADVENTURE_BOOK_CRAFT.FILL_CRAFT_LIST()
 	local firstIndex, lastIndex = ADVENTURE_BOOK_CRAFT.CUR_GROUP_INDICES()
 	local y = 0;
 	for i=1, lastIndex do
-		local clsName = craft_list[i]
-		local target_info =  craft_target_info_func(clsName)
-		local material_info_list =  craft_material_info_func(clsName)
+		local recipeClsName = craft_list[i]['recipe']
+		local targetClsName = craft_list[i]['target']
+		local target_info =  craft_recipe_info_func(recipeClsName, targetClsName)
+		local material_info_list =  craft_material_info_func(recipeClsName)
 
 		local ctrlSet = list_box:CreateOrGetControlSet("adventure_book_craft_elem", "list_craft_" .. i, ui.LEFT, ui.TOP, 0, y, 0, 0);
 		ctrlSet = tolua.cast(ctrlSet, 'ui::CControlSet');
@@ -64,7 +65,7 @@ function ADVENTURE_BOOK_CRAFT.FILL_CRAFT_LIST()
 		local icon = GET_CHILD(ctrlSet, "icon_pic", "ui::CPicture");
 		icon:SetImage(target_info['icon']);
 		SET_TEXT(ctrlSet, "name_text", "value", target_info['name'])
-		ctrlSet:SetUserValue('BtnArg', clsName);
+		ctrlSet:SetUserValue('BtnArg', targetClsName);
 		if target_info['is_found'] == 0 then
             ctrlSet:SetColorTone(SIHOUETTE_COLOR_TONE);
 		end
@@ -77,7 +78,7 @@ function ADVENTURE_BOOK_CRAFT.FILL_CRAFT_LIST()
 		local material_margin_top = frame:GetUserConfig("CRAFT_MATERIAL_MARGIN_TOP")
 		local material_margin_bottom  = frame:GetUserConfig("CRAFT_MATERIAL_MARGIN_BOTTOM")
 		local elem_opened_height = elem_closed_height + material_height*#material_info_list + material_margin_top+material_margin_bottom;
-		if #material_info_list > 0 and tostring(ADVENTURE_BOOK_CRAFT.SELECTED_ITEM) == tostring(clsName) then
+		if #material_info_list > 0 and tostring(ADVENTURE_BOOK_CRAFT.SELECTED_ITEM) == tostring(targetClsName) then
 			 isOpened = 1;
 		end
 
@@ -190,9 +191,8 @@ function ADVENTURE_BOOK_CRAFT.DROPDOWN_LIST_INIT()
         return;
    	end
     sort_opt_list:ClearItems();
-    sort_opt_list:AddItem(0, ClMsg('AlignName'));
-    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_5'));
-    sort_opt_list:AddItem(2, ClMsg('ALIGN_ITEM_TYPE_6'));
+    sort_opt_list:AddItem(0, ClMsg('ALIGN_ITEM_TYPE_5'));
+    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_6'));
     
     category_opt_list:ClearItems();
     category_opt_list:AddItem(0, ClMsg('Auto_MoDu_BoKi'));
@@ -202,7 +202,6 @@ function ADVENTURE_BOOK_CRAFT.DROPDOWN_LIST_INIT()
     category_opt_list:AddItem(4, ClMsg('Drug'));
 	category_opt_list:AddItem(5, ClMsg('Material'));
 	category_opt_list:AddItem(6, ClMsg('Cube'));
-	category_opt_list:AddItem(7, ClMsg('Potion'));
 
     sub_category_opt_list:ClearItems();
 	sub_category_opt_list:SetEnable(0);

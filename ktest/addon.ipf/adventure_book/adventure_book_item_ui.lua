@@ -267,6 +267,7 @@ function ADVENTURE_BOOK_ITEM.FILL_ITEM_PROP_EQUIP(prop_set, info, isCraft)
 	local gb = GET_CHILD(prop_set, "gb");
 	local desc_text = GET_CHILD(gb, "desc_text");
 	local labelline1 = GET_CHILD(gb, "labelline1");
+	local labelline2 = GET_CHILD(gb, "labelline2");
 
 	local itemCls = GetClassByType("Item", info['class_id'])
 	SET_TEXT(gb, "item_type_text", "value", TryGetProp(itemCls, "ReqToolTip"))
@@ -317,6 +318,19 @@ function ADVENTURE_BOOK_ITEM.FILL_ITEM_PROP_EQUIP(prop_set, info, isCraft)
 
 	y = y + 10;
 	desc_text:SetOffset(desc_text:GetOriginalX(), y)
+
+	local tradability_label = GET_CHILD(gb, "tradability_label");
+	local tradability_set = GET_CHILD(gb, "tradability_set");
+	ADVENTURE_BOOK_ITEM.FILL_ITEM_TRADABILITY(tradability_set, info)
+	y = y + desc_text:GetHeight();
+	y = y + 10;
+
+	labelline2:SetOffset(labelline2:GetOriginalX(), y);
+	y = y + 10;
+
+	tradability_label:SetOffset(tradability_label:GetOriginalX(), y);
+	tradability_set:SetOffset(tradability_set:GetOriginalX(), y);
+
 	gb:Resize(gb:GetOriginalWidth(), gb:GetOriginalHeight())
 	DestroyIES(dummyIES)
 end
@@ -450,9 +464,8 @@ function ADVENTURE_BOOK_ITEM.DROPDOWN_LIST_INIT()
         return;
  	end
     sort_opt_list:ClearItems();
-    sort_opt_list:AddItem(0, ClMsg('AlignName'));
-    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_5'));
-    sort_opt_list:AddItem(2, ClMsg('ALIGN_ITEM_TYPE_6'));
+    sort_opt_list:AddItem(0, ClMsg('ALIGN_ITEM_TYPE_5'));
+    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_6'));
     
     category_opt_list:ClearItems();
     category_opt_list:AddItem(0, ClMsg('Auto_MoDu_BoKi'));
@@ -461,9 +474,8 @@ function ADVENTURE_BOOK_ITEM.DROPDOWN_LIST_INIT()
     category_opt_list:AddItem(3, ClMsg('SubWeapon'));
 	category_opt_list:AddItem(4, ClMsg('Drug'));
 	category_opt_list:AddItem(5, ClMsg('Material'));
-	category_opt_list:AddItem(6, ClMsg('Premium'));
-	category_opt_list:AddItem(7, ClMsg('JustGem'));
-	category_opt_list:AddItem(8, ClMsg('Card'));
+	category_opt_list:AddItem(6, ClMsg('JustGem'));
+	category_opt_list:AddItem(7, ClMsg('Card'));
 
     sub_category_opt_list:ClearItems();
 	sub_category_opt_list:SetEnable(0);

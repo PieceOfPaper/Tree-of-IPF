@@ -27,12 +27,18 @@ end
 
 function GUILD_AUTHORITY_POPUP_SET_OFFSET(frame)
     local guildinfo = ui.GetFrame('guildinfo');
-    local memberListBox = GET_CHILD_RECURSIVELY(guildinfo, 'memberListBox');
-    if memberListBox:IsVisible() ~= 1 then
+    local memberBox = GET_CHILD_RECURSIVELY(guildinfo, 'memberBox');
+    if memberBox:IsVisible() ~= 1 then
         frame:ShowWindow(0);
         return;
     end
-    frame:SetOffset(memberListBox:GetGlobalX() - frame:GetWidth(), memberListBox:GetGlobalY() - 10);
+
+    local offsetX = guildinfo:GetX();
+    local offsetY = guildinfo:GetY();
+    offsetX = offsetX + memberBox:GetX() - frame:GetWidth();
+    offsetY = offsetY + memberBox:GetY() - 10;
+
+    frame:SetOffset(offsetX, offsetY);
 end
 
 function GUILD_AUTHORITY_POPUP_SET_MEMBER(frame)

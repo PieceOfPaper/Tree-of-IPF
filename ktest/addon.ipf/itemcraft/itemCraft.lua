@@ -547,6 +547,14 @@ function SORT_INVITEM_BY_WORTH(a,b)
 end
 
 function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)	
+
+	if session.world.IsIntegrateServer() == true or
+	 session.world.IsIntegrateIndunServer() == true or
+	 session.IsMissionMap() == true then      
+	  ui.SysMsg(ClMsg("CannotCraftInIndun"));
+      return
+    end
+
 	local frame = ctrlset:GetTopParentFrame();
 	local parentcset = ctrlset:GetParent()
 	local idSpace = frame:GetUserValue("IDSPACE");
@@ -960,69 +968,82 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 	local recipecls = GetClassByType(idSpace, recipeType);
 	local resultlist = session.GetTempItemIDList();--session.GetItemIDList();
 	local cntText = string.format("%s %s", recipecls.ClassID, totalCount);
-    
+    local targetItem = GetClass("Item", recipecls.TargetItem);
+	
     local validRecipeMaterial = GET_MATERIAL_VALIDATION_SCRIPT(recipecls);
-    local IsValidRecipeMaterial = _G[validRecipeMaterial];
-
-    local map = {}  -- 제작에 필요한 아이템 목록
+    local IsValidRecipeMaterial = _G[validRecipeMaterial];    
+    local map_classname = {}  -- 제작에 필요한 아이템 목록
     local map_classID = {}
     local map_cnt = {}  -- 제작에 필요한 아이템별 필요 개수
     local item_count = 0
         
 	for index=1, 5 do        
 		local clsName = "Item_"..index.."_1";        
-		local itemName = recipecls[clsName];
+		local itemName = recipecls[clsName];        
 		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);        
-
+        
         if recipeItemCnt ~= 0 then
             item_count = item_count + 1
+            map_classname[item_count] = itemName            
+            map_cnt[item_count] = recipeItemCnt
         end
-        
-		local invItem = session.GetInvItemByName(itemName);            
-        
-        if invItem ~= nil and recipeItemCnt ~= 0 then        
-            map[item_count] = GetIES(invItem:GetObject()).ClassName             
-            map_classID[item_count] = invItem.type
-            map_cnt[item_count] = recipeItemCnt                
-        end
-
-        if 0 ~= recipeItemCnt and 0 == IS_EQUIPITEM(itemName) then             
-			if nil ~= invItem and invItem.count < (recipeItemCnt * totalCount) then
-				ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
-				CLEAR_CRAFT_QUEUE(queueFrame);
-				frame:SetUserValue("MANUFACTURING", 0);
-				SetCraftState(0)
-				return
-			end
-		end
 	end
-    
+
     local extralist = {}    -- 중복 체크용 셋
     local ordered_list = {}
     local ordered_cnt = 1
     
     for i = 1, item_count do -- 제작에 필요한 아이템을 인벤에서 가져온다.
-        local classname = map[i]    -- item ClassName
-        local classid = map_classID[i]        
-        local candidate_list = GET_SORTED_INV_ITEMLIST()
-        for j = 1, #candidate_list do                        
-            local candidate_item_classname = GetIES(candidate_list[j]:GetObject()).ClassName
-            if IsValidRecipeMaterial(classname, GetIES(candidate_list[j]:GetObject())) then
-                if geItemTable.IsStack(classid) == 1 then
-                    extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()                
-                    ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()                
-                    ordered_cnt = ordered_cnt + 1                    
-                    break
-                else                
-                    if map[candidate_list[j]:GetIESID()] == nil and extralist[candidate_list[j]:GetIESID()] == nil then
-                        extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()                    
-                        ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()                
-                        ordered_cnt = ordered_cnt + 1                        
-                        break
-                    end
+        print('index = ' , i)
+        local classname = map_classname[i]    -- item ClassName
+        
+        local start, e = string.find(classname, 'R_')
+        if start == 1 then
+            local invItem = session.GetInvItemByName(classname);
+            if invItem == nil then
+                session.ResetItemList()
+                ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+		        CLEAR_CRAFT_QUEUE(queueFrame);
+		        frame:SetUserValue("MANUFACTURING", 0);
+		        SetCraftState(0)                
+                return
+            else    -- 레시피 아이템이 존재하면
+                if invItem.isLockState == false then
+                    local invItemObj = GetIES(invItem:GetObject())
+                    ordered_list[ordered_cnt] = invItem:GetIESID()
+                    ordered_cnt = ordered_cnt + 1
+                else
+                    session.ResetItemList()
+                    ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+		            CLEAR_CRAFT_QUEUE(queueFrame);
+		            frame:SetUserValue("MANUFACTURING", 0);
+		            SetCraftState(0)                
+                    return
                 end
             end
+        else
+            local candidate_list = GET_SORTED_INV_ITEMLIST()        
+            for j = 1, #candidate_list do
+                local candidate_item_classname = GetIES(candidate_list[j]:GetObject()).ClassName
             
+                if session.GetInvItemByGuid(candidate_list[j]:GetIESID()).isLockState == false then
+                    if IsValidRecipeMaterial(classname, GetIES(candidate_list[j]:GetObject())) then                        
+                        if geItemTable.IsStack(GetIES(candidate_list[j]:GetObject()).ClassID) == 1 then -- stack 형 아이템이라면
+                            extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()                
+                            ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()
+                            ordered_cnt = ordered_cnt + 1                    
+                            break
+                        else                
+                            if extralist[candidate_list[j]:GetIESID()] == nil and extralist[candidate_list[j]:GetIESID()] == nil then
+                                extralist[candidate_list[j]:GetIESID()] = candidate_list[j]:GetIESID()
+                                ordered_list[ordered_cnt] = candidate_list[j]:GetIESID()                                
+                                ordered_cnt = ordered_cnt + 1
+                                break
+                            end
+                        end
+                    end            
+                end            
+            end
         end
     end
 
@@ -1051,10 +1072,13 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
     end 
 
     local nameList = NewStringList();
-    local name = frame:GetUserValue('customize_name')
-    local memo = frame:GetUserValue('customize_memo')
-    nameList:Add(name)
-	nameList:Add(memo)
+
+    if IS_EQUIP(targetItem) then
+        local name = frame:GetUserValue('customize_name')
+        local memo = frame:GetUserValue('customize_memo')
+        nameList:Add(name)
+	    nameList:Add(memo)
+    end
 
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList)
 end
@@ -1228,7 +1252,7 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
                 if tempinvitem ~= nil then
                     invItemObj = GetIES(tempinvitem:GetObject());
                 end
-				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then
+				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then                    
 					if true == tempinvitem.isLockState then
 						ui.SysMsg(ClMsg("MaterialItemIsLock"));
 						return;

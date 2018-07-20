@@ -23,10 +23,18 @@ function ADVENTURE_BOOK_INDUN_CONTENT.INDUN_INFO(indunClsID)
 	local retTable = {}
 	retTable['name'] = TryGetProp(indunCls, "Name");
 	retTable['level'] = TryGetProp(indunCls, "Level");
-	local startMapClsName = TryGetProp(indunCls, "StartMap")
-	local startMapCls = GetClass("Map", startMapClsName);
-	local startMapName = TryGetProp(startMapCls, "Name")
-	retTable['location'] = startMapName;
+	retTable['location'] = '';
+	local startMapClsNames = TryGetProp(indunCls, "StartMap")
+	local startMapClsNameList = StringSplit(startMapClsNames, "/");
+	for i = 1, #startMapClsNameList do
+		local startMapCls = GetClass("Map", startMapClsNameList[i]);
+		local startMapName = TryGetProp(startMapCls, "Name")
+		retTable['location'] = retTable['location'] .. startMapName;
+		if i ~= #startMapClsNameList then
+			retTable['location'] = retTable['location'] .. " / ";
+		end
+	end
+	
 	retTable['difficulty'] = ''
 	local indunLevel  = TryGetProp(indunCls, "Level")
 	if indunLevel ~= nil then
@@ -66,12 +74,10 @@ function ADVENTURE_BOOK_INDUN_CONTENT.FILTER_LIST(list, sortOption, categoryOpti
 
 	list = ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Indun", "Name", searchText)
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_INDUN_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_INDUN_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-		table.sort(list, ADVENTURE_BOOK_SORT_ASC);
 	end
 	return list;
 end

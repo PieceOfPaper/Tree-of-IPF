@@ -202,7 +202,7 @@ function ADVENTURE_BOOK_MAIN_SET_MY_RANK_INFO(frame)
         myRankRatio = 1;
     end
 
-    local height = gauge_bg:GetHeight() * (1 - myRankRatio);
+    local height = gauge_bg:GetHeight() * (1 - myRankRatio) - 10;
     local FG_MARGIN = 10;
     gauge_fg:Resize(gauge_fg:GetWidth(), height);
 
@@ -219,7 +219,7 @@ function GET_ADVENTURE_BOOK_REWARD_STEP(category, curPoint)
     while curStep <= stepCount do
         preStepScore = stepScore;
         stepScore = GetAdventureBookRewardScoreByStep(category, curStep);        
-        if curPoint <= stepScore then
+        if curPoint < stepScore then
             break;
         end
         curStep = curStep + 1;

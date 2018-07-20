@@ -4,6 +4,7 @@ first_click_y = nil
 
 function WORLDMAP_ON_INIT(addon, frame)
     addon:RegisterMsg('UPDATE_OTHER_GUILD_EMBLEM', 'ON_UPDATE_OTHER_GUILD_EMBLEM');
+    addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'UPDATE_WORLDMAP_CONTROLS');
 end
 
 

@@ -564,17 +564,6 @@ function RELOAD_MAP()
 
 end
 
-function UI_TOGGLE_GUILD()
-
-	local guildinfo = session.GetGuildInfo();
-	if guildinfo == nil then
-		return;
-	end
-
-	ui.ToggleFrame('guildinfo');
-
-end
-
 function OPEN_CHAT_MENU(frame, control, commname, text, x, y)
 
 	OPEN_CHAT_CONTEXT(commname);

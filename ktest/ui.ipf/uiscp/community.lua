@@ -109,8 +109,8 @@ function SHOW_PC_CONTEXT_MENU(handle)
 			ui.AddContextMenuItem(context, ClMsg("WHISPER"), strWhisperScp);
 			strScp = string.format("PARTY_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 			ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
-
-			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1) then
+                        
+			if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1, session.loginInfo.GetAID()) == 1 then
 				strScp = string.format("GUILD_INVITE(\"%s\")", pcObj:GetPCApc():GetFamilyName());
 				ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
 			end
@@ -144,6 +144,10 @@ function SHOW_PC_CONTEXT_MENU(handle)
 
 		ui.AddContextMenuItem(context, ScpArgMsg("Report_AutoBot"), string.format("REPORT_AUTOBOT_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
 
+        -- report guild emblem
+        if  pcObj:IsGuildExist() == true then
+            ui.AddContextMenuItem(context, ScpArgMsg("Report_GuildEmblem"), string.format("REPORT_GUILDEMBLEM_MSGBOX(\"%s\")", pcObj:GetPCApc():GetFamilyName()));
+        end
 
 		-- 보호모드, 강제킥
 		if 1 == session.IsGM() then
@@ -172,6 +176,22 @@ function REPORT_AUTOBOT(teamName)
 	local msgStr = ScpArgMsg("ThxReportAuto{Name}", "Name", teamName);
 	ui.SysMsg(msgStr);
 end
+
+function REPORT_GUILDEMBLEM_MSGBOX(teamName)
+
+	local msgBoxString = ScpArgMsg("DoYouReportGuildEmblem{Name}?", "Name", teamName);
+	local yesScp = string.format("REPORT_GUILDEMBLEM( \"%s\" )", teamName);
+	
+	ui.MsgBox(msgBoxString, yesScp, "None");	
+end
+
+function REPORT_GUILDEMBLEM(teamName)
+
+	packet.ReportGuildEmblem(teamName);
+	local msgStr = ScpArgMsg("ThxReportGuildEmblem{Name}", "Name", teamName);
+	ui.SysMsg(msgStr);
+end
+
 
 function REQUEST_GM_ORDER_PROTECTED(teamName)
 	packet.RequestGmOrderMsg(teamName, 'protected');

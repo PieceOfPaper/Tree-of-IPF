@@ -238,16 +238,6 @@ function ADVENTURE_BOOK_ITEM_CONTENT.SORT_NAME_BY_CLASSID_DES(a, b)
 	return ADVENTURE_BOOK_SORT_PROP_BY_CLASSID_ASC('Item', 'Name', b, a)
 end
 
-function ADVENTURE_BOOK_ITEM_CONTENT.SORT_DEFAULT(a, b)
-	local exist_func = ADVENTURE_BOOK_ITEM_CONTENT['EXIST_IN_HISTORY']
-	if exist_func(a) == 1 and exist_func(b) == 0 then
-		return true;
-	elseif  exist_func(a) == 0 and exist_func(b) == 1 then
-		return false;
-	end
-	return a < b;
-end
-
 function ADVENTURE_BOOK_ITEM_CONTENT.FILTER_LIST(list, sortOption, categoryOption, subCategoryOption, searchText)
 	if categoryOption == 1 then
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "GroupName", "Weapon")
@@ -260,10 +250,8 @@ function ADVENTURE_BOOK_ITEM_CONTENT.FILTER_LIST(list, sortOption, categoryOptio
 	elseif categoryOption == 5 then
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "GroupName", "Material")
 	elseif categoryOption == 6 then
-		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "GroupName", "Premium")
-	elseif categoryOption == 7 then
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "GroupName", "Gem")
-	elseif categoryOption == 8 then
+	elseif categoryOption == 7 then
 		list = ADVENTURE_BOOK_EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "Item", "GroupName", "Card")
 	end
 
@@ -325,12 +313,10 @@ function ADVENTURE_BOOK_ITEM_CONTENT.FILTER_LIST(list, sortOption, categoryOptio
 
 	list = ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Item", "Name", searchText)
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_ITEM_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_ITEM_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-        table.sort(list, ADVENTURE_BOOK_ITEM_CONTENT['SORT_DEFAULT']);
 	end
 	return list;
 end

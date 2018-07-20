@@ -10585,7 +10585,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Templer_BattleOrders" CheckerType="0" Range="50" UpdateTerm="1000" AutoPos="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Templer_BattleOrders" CheckerType="0" Range="50" UpdateTerm="100" AutoPos="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="return 4000+obj.Level*1000"/>
@@ -10652,13 +10652,14 @@ return obj.Level"/>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-1000"/>
+                <Num Num="-100"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+            <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
+                <Str Str="BattleOrders_Debuff"/>
                 <Str Str="BattleOrders_Debuff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
@@ -10699,17 +10700,22 @@ return obj.Level"/>
                 <Num Num="-1"/>
                 <Str Str="ShieldCharger_Check_Buff"/>
                 <Str Str="Guild_ShieldCharger_buff"/>
-                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
-                <Num Num="1" UseFunc="1" FuncTxt="
-local value = 90000
+                <Num Num="0" UseFunc="1" FuncTxt="local value = 90000
+
+
 if IsPVPServer(self) == 1 then
+
 return 30000
+
 else
+
 return value
+
 end"/>
+                <Num Num="1"/>
                 <Num Num="100"/>
-                <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
         </enterEvent>
@@ -10719,7 +10725,7 @@ end"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_BUFF_CHECK_BUFF_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
+                <Str Str="GUILD"/>
                 <Num Num="0"/>
                 <Num Num="-1"/>
                 <Str Str="ShieldCharger_Check_Buff"/>

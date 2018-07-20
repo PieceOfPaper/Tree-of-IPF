@@ -50,7 +50,9 @@ end
 function ADVENTURE_BOOK_ON_MSG(frame, msg, argStr, argNum)
     local bookmark = GET_CHILD(frame, 'bookmark');
 	local selectedTabName = bookmark:GetSelectItemName();
-	if msg == "UPDATE_ADVENTURE_BOOK" then
+	if msg == "UPDATE_ADVENTURE_BOOK" then  
+        ADVENTURE_BOOK_MAIN_INIT(frame, frame);
+          
 		if argNum == ABT_MON_KILL_COUNT then
 			if selectedTabName == "tab_monster" then
 				ADVENTURE_BOOK_RENEW_SELECTED_TAB()
@@ -340,6 +342,7 @@ function ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FUNC(clsID, idSpace, propName, se
 		return false;
 	end
     
+	prop = string.lower(prop);
 	searchText = string.lower(searchText);
 	
 	if string.find(prop, searchText) == nil then

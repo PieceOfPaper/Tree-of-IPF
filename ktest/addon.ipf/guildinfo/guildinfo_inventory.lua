@@ -7,11 +7,38 @@ function GUILDINFO_INVENTORY_DEPOSIT_CLICK(parent, ctrl)
         ui.SysMsg(ClMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
         return;
     end
+
+	local guild = session.party.GetPartyInfo(PARTY_GUILD);
+	if guild == nil then
+		return;
+	end
+
+	local guildObj = GET_MY_GUILD_OBJECT();
+	local nowGuildAsset = TryGetProp(guildObj, "GuildAsset");
+	if nowGuildAsset == nil then
+		return;
+	end
+    if nowGuildAsset == 'None' then
+        nowGuildAsset = 0;
+    end
+    nowGuildAsset = tonumber(nowGuildAsset);
+
+    local sumStr = SumForBigNumber(depositMoney, nowGuildAsset);    
+	if IsGreaterThanForBigNumber(sumStr, MONEY_MAX_STACK) == 1 then
+		ui.SysMsg(ScpArgMsg("Money{MAX}OverAtAcc", "MAX", GET_COMMAED_STRING(MONEY_MAX_STACK)));
+		return;
+	end
+
     control.CustomCommand('DEPOSIT_GUILD_ASSET', depositMoney);
     balanceEdit:SetText('0');
 end
 
 function GUILDINFO_INVEN_INIT(parent, invenBox)
+    local logCount = session.guildState.GetGuildAssetLogCount();
+    if logCount == 0 then
+        ON_GUILD_ASSET_LOG(parent);
+    end
+
     session.guildState.ReqGuildAssetLog();
     party.RequestLoadInventory(PARTY_GUILD);
     ui.CloseFrame('guild_authority_popup');
@@ -114,6 +141,7 @@ function ON_GUILD_ASSET_LOG(frame, msg, argStr, argNum)
         end
     end
     GBOX_AUTO_ALIGN(logBox, 0, 0, 0, true, false);
+    logBox:SetScrollPos(logBox:GetHeight());
 
     GUILDINFO_PROFILE_INIT_ASSET(frame);
 end

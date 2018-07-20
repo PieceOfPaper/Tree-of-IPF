@@ -466,35 +466,6 @@ function UPDATE_REMAIN_GUILD_ENEMY_TIME(frame)
 	return 1;
 end
 
-function GUILD_CHANGE_DUTY(name)
-
-	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
-
-	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-	local grade = memberInfo.grade;
-	local dutyName = pcparty:GetDutyName(grade);
-
-	local inputFrame = INPUT_STRING_BOX("", "EXEC_GUILD_CHANGE_DUTY", dutyName, nil, 9); -- 받침쓰여지지 않는 문제
-	inputFrame:SetUserValue("InputType", "InputNameForChange");
-	inputFrame:SetUserValue("NAME", name);
-	
-end
-
-function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
-
-	if ctrl:GetName() == "inputstr" then
-		frame = ctrl;
-	end
-
-	local duty = GET_INPUT_STRING_TXT(frame);
-	local name = frame:GetUserValue("NAME");
-	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
-		
-	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
-	frame:ShowWindow(0);
-
-end
-
 function GUILD_BAN(name)
 
 	ui.Chat("/partybanByAID " .. PARTY_GUILD.. " " .. name);	

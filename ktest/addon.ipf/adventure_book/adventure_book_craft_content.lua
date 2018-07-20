@@ -58,7 +58,9 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_LIST_EXCEPT_HISTORY()
 			local targetItemClsID = TryGetProp(targetItemCls, "ClassID")
 			if targetItemClsID ~= nil then
 				if ADVENTURE_BOOK_CRAFT_CONTENT.EXIST_IN_HISTORY(targetItemClsID) == 0 then
-					targetList[#targetList+1] = TryGetProp(recipeCls, "ClassName")
+					targetList[#targetList+1] = {}
+					targetList[#targetList]['target'] = targetItemClsName
+					targetList[#targetList]['recipe'] = TryGetProp(recipeCls, "ClassName")
 				end
 			end
 		end
@@ -72,7 +74,9 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_LIST_EXCEPT_HISTORY()
 			local targetItemClsID = TryGetProp(targetItemCls, "ClassID")
 			if targetItemClsID ~= nil then
 				if ADVENTURE_BOOK_CRAFT_CONTENT.EXIST_IN_HISTORY(targetItemClsID) == 0 then
-					targetList[#targetList+1] = TryGetProp(recipeCls, "ClassName")
+					targetList[#targetList+1] = {}
+					targetList[#targetList]['target'] = targetItemClsName
+					targetList[#targetList]['recipe'] = TryGetProp(recipeCls, "ClassName")
 				end
 			end
 		end
@@ -95,16 +99,20 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.HISTORY_CRAFT_LIST()
 			local exist = false;	
 			for j = 0, recipeClsCnt - 1 do 
 				local recipeCls = GetClassByIndexFromList(recipeClsList, j);
-				if targetItemClsName == TryGetProp(recipeCls, "TargetItem") then
-					recipeRetList[#recipeRetList+1]=TryGetProp(recipeCls, "ClassName")
+				if ADVENTURE_BOOK_CRAFT_CONTENT.IS_RECIPE_TARGET(TryGetProp(recipeCls, "ClassName"), targetItemClsName) then
+					recipeRetList[#recipeRetList+1]={}
+					recipeRetList[#recipeRetList]['target'] = targetItemClsName
+					recipeRetList[#recipeRetList]['recipe'] = TryGetProp(recipeCls, "ClassName")
 					exist = true;
 				end
 			end
 			if exist == false then
 				for j = 0, recipeSkillClsCnt - 1 do 
 					local recipeCls = GetClassByIndexFromList(recipeSkillClsList, j);
-					if targetItemClsName == TryGetProp(recipeCls, "TargetItem") then
-						recipeRetList[#recipeRetList+1]=TryGetProp(recipeCls, "ClassName")
+					if ADVENTURE_BOOK_CRAFT_CONTENT.IS_RECIPE_TARGET(TryGetProp(recipeCls, "ClassName"), targetItemClsName) then
+						recipeRetList[#recipeRetList+1]={}
+						recipeRetList[#recipeRetList]['target'] = targetItemClsName
+						recipeRetList[#recipeRetList]['recipe'] = TryGetProp(recipeCls, "ClassName")
 						exist = true;
 					end
 				end
@@ -132,15 +140,84 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.EXIST_IN_HISTORY(targetItemClsID)
 	end
 end
 
-function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_TARGET_INFO(recipeClsName)
+function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_TARGET_INFO(targetItemClsName)
+	local targetItemCls = GetClass("Item", targetItemClsName);
+	if targetItemCls == nil then
+		return;
+	end
+
+	local retTable = {}
+	local needAppraisal = TryGetProp(targetItemCls, "NeedAppraisal");
+	local grade = TryGetProp(targetItemCls, "ItemGrade");
+
+	retTable['class_id'] = TryGetProp(targetItemCls, "ClassID")
+	retTable['class_name'] = TryGetProp(targetItemCls, "ClassName")
+	retTable['name'] = TryGetProp(targetItemCls, "Name");
+	retTable['icon'] = TryGetProp(targetItemCls, "TooltipImage");
+	retTable['bg'] = GET_ITEM_BG_PICTURE_BY_GRADE(grade, needAppraisal)
+
+	retTable['card_icon'] = TryGetProp(targetItemCls, "TooltipImage");
+	retTable['desc'] = TryGetProp(targetItemCls, "Desc");
+	retTable['type'] = TryGetProp(targetItemCls, "ItemType");
+	retTable['group'] = TryGetProp(targetItemCls, "GroupName");
+
+	retTable['count'] = optainCount
+	retTable['consumed_count'] = consumeCount
+	retTable['is_found'] = ADVENTURE_BOOK_CRAFT_CONTENT.EXIST_IN_HISTORY(retTable['class_id'])
+	retTable['trade_shop'] = 0
+	retTable['trade_market'] = 0
+	retTable['trade_team'] = 0
+	retTable['trade_user'] = 0
+
+	if TryGetProp(itemCls, "TeamTrade") == "YES" then
+		retTable['trade_shop'] = 1
+	end
+	if TryGetProp(itemCls, "MarketTrade") == "YES" then
+		retTable['trade_market'] = 1
+	end
+	if TryGetProp(itemCls, "TeamTrade") == "YES" then
+		retTable['trade_team'] = 1
+	end
+	if TryGetProp(itemCls, "UserTrade") == "YES" then
+		retTable['trade_user'] = 1
+	end
+
+	return retTable;
+end
+
+function ADVENTURE_BOOK_CRAFT_CONTENT.IS_RECIPE_TARGET(recipeClsName, targetItemClsName)
 	local recipeCls = GetClass("Recipe", recipeClsName)
 	if recipeCls == nil then
 		recipeCls = GetClass("Recipe_ItemCraft", recipeClsName)
 	end
-	local targetItemClsName = TryGetProp(recipeCls, "TargetItem")
+	if recipeCls == nil then
+		return false;
+	end
 
 	local targetItemCls = GetClass("Item", targetItemClsName);
 	if targetItemCls == nil then
+		return false;
+	end
+
+ 	local targetItemPropValue = TryGetProp(recipeCls, "TargetItem") 
+	if targetItemPropValue == nil or string.find(targetItemClsName, targetItemPropValue) == nil then
+		return false;
+	end
+	return true;
+end
+
+function ADVENTURE_BOOK_CRAFT_CONTENT.CRAFT_RECIPE_INFO(recipeClsName, targetItemClsName) -- 이건 CRAFT_RECPIE_INFO 로 교체하고., CRAFT_TARGET_INFO 생성. 그거뺴노코, 레시피 정보.
+	local recipeCls = GetClass("Recipe", recipeClsName)
+	if recipeCls == nil then
+		recipeCls = GetClass("Recipe_ItemCraft", recipeClsName)
+	end
+
+	local targetItemCls = GetClass("Item", targetItemClsName);
+	if targetItemCls == nil then
+		return;
+	end
+
+	if ADVENTURE_BOOK_CRAFT_CONTENT.IS_RECIPE_TARGET(recipeClsName, targetItemClsName) == false then
 		return;
 	end
 
@@ -262,28 +339,15 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.SORT_CLASSNAME_BY_CLASSNAME_ASC(recipeA, r
 end
 
 function ADVENTURE_BOOK_CRAFT_CONTENT.SORT_NAME_BY_CLASSID_ASC(a, b)
-	if a == nil then
+	if a == nil or a['target'] == nil then
 		return true;
 	end
-	if b == nil then
+	if b == nil or b['target'] == nil then
 		return false;
 	end
 
-	local recipeClsA = GetClass("Recipe", a)
-	local recipeClsB = GetClass("Recipe", b)
-
-	if recipeClsA == nil then
-		recipeClsA = GetClass("Recipe_ItemCraft", a)
-	end
-	if recipeClsB == nil then
-		recipeClsB = GetClass("Recipe_ItemCraft", b)
-	end
-
-	local targetItemClsNameA = TryGetProp(recipeClsA, "TargetItem")
-	local targetItemClsNameB = TryGetProp(recipeClsB, "TargetItem")
-
-	local targetItemClsA = GetClass("Item", targetItemClsNameA)
-	local targetItemClsB = GetClass("Item", targetItemClsNameB)
+	local targetItemClsA = GetClass("Item", a['target'])
+	local targetItemClsB = GetClass("Item", b['target'])
 
 	local targetItemClsIDA = TryGetProp(targetItemClsA, "ClassID")
 	local targetItemClsIDB = TryGetProp(targetItemClsB, "ClassID")
@@ -294,19 +358,8 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.SORT_NAME_BY_CLASSID_DES(a, b)
 	return ADVENTURE_BOOK_CRAFT_CONTENT.SORT_NAME_BY_CLASSID_ASC(b, a)
 end
 
-function ADVENTURE_BOOK_CRAFT_CONTENT.SORT_DEFAULT(recipeA, recipeB)
-	return ADVENTURE_BOOK_CRAFT_CONTENT.SORT_CLASSNAME_BY_CLASSNAME_ASC(recipeA, recipeB);
-end
-
-function ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_TARGET_ITEM_FUNC(recipeClsName, propName, targetPropValue)
-	local recipeCls = GetClass("Recipe", recipeClsName)
-	
-	if recipeCls == nil then
-		recipeCls = GetClass("Recipe_ItemCraft", recipeClsName)
-	end
-
-	local targetItemClsName = TryGetProp(recipeCls, "TargetItem")
-	local targetItemCls = GetClass("Item", targetItemClsName)
+function ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_TARGET_ITEM_FUNC(craftPair, propName, targetPropValue)
+	local targetItemCls = GetClass("Item", craftPair['target'])
 
 	local prop = TryGetProp(targetItemCls, propName);
 	if prop == targetPropValue then
@@ -316,23 +369,19 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_TARGET_ITEM_FUNC(recipeClsNa
 	end
 end
 
-function ADVENTURE_BOOK_CRAFT_CONTENT.SEARCH_PROP_BY_TARGET_ITEM_FUNC(recipeClsName, propName, searchText)
+function ADVENTURE_BOOK_CRAFT_CONTENT.SEARCH_PROP_BY_TARGET_ITEM_FUNC(craftPair, propName, searchText)
     if searchText == nil or searchText == '' then
 		return true;
 	end
 
-	local recipeCls = GetClass("Recipe", recipeClsName)
-	if recipeCls == nil then
-		recipeCls = GetClass("Recipe_ItemCraft", recipeClsName)
-	end
-	local targetItemClsName = TryGetProp(recipeCls, "TargetItem")
-	local targetItemCls = GetClass("Item", targetItemClsName)
+	local targetItemCls = GetClass("Item", craftPair['target'])
 
 	local prop = TryGetProp(targetItemCls, propName);
 	if prop == nil then
 		return false;
 	end
     
+	prop = string.lower(prop);
 	searchText = string.lower(searchText);
 	
 	if string.find(prop, searchText) == nil then
@@ -358,13 +407,11 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.FILTER_LIST(list, sortOption, categoryOpti
 	elseif categoryOption == 3 then
 		list = ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "GroupName", "SubWeapon")
 	elseif categoryOption == 4 then
-		list = ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "ItemType", "Consume")
+		list = ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "GroupName", "Drug")
 	elseif categoryOption == 5 then
 		list = ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "GroupName", "Material")
 	elseif categoryOption == 6 then
 		list = ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "GroupName", "Cube")
-	elseif categoryOption == 7 then
-		list = ADVENTURE_BOOK_CRAFT_CONTENT.EQUAL_PROP_BY_CLASSID_FROM_LIST(list, "GroupName", "Drug")
 	end
 
 	if categoryOption == 1 then
@@ -425,12 +472,10 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.FILTER_LIST(list, sortOption, categoryOpti
 
 	list = ADVENTURE_BOOK_CRAFT_CONTENT.SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Name", searchText)
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_CRAFT_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_CRAFT_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-		table.sort(list, ADVENTURE_BOOK_CRAFT_CONTENT['SORT_DEFAULT']);
 	end
 	return list;
 end

@@ -13,12 +13,17 @@ function TPITEM_ON_INIT(addon, frame)
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_REFUND_RESULT", "_TPSHOP_REFUND_RESULT");
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_PICKUP_RESULT", "_TPSHOP_PICKUP_RESULT");
 	end
-	
+
 	addon:RegisterMsg("UPDATE_TPITEM_LIST_FOR_TAG", "_TPSHOP_TPITEM_SET_SPECIAL");
 	addon:RegisterMsg("UPDATE_TPSHOP_BANNER", "_TPSHOP_BANNER");
 
 	session.ui.Clear_NISMS_CashInven_ItemList();
 
+	if (config.GetServiceNation() == "THI") then
+		addon:RegisterMsg("NEXON_AMERICA_LIST", "ON_NEXON_AMERICA_LIST");
+		addon:RegisterMsg("NEXON_AMERICA_SELLITEMLIST", "ON_NEXON_AMERICA_SELLITEMLIST");
+		addon:RegisterMsg("NEXON_AMERICA_BALANCE", "ON_NEXON_AMERICA_BALANCE");
+	end
 	
 	local limitTime = TPSHOP_ISNEW_CHECK_TIME();	
 	local tpitemframe = ui.GetFrame("tpitem");
@@ -97,6 +102,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local previewStaticTitle = rightgbox:GetChild('previewStaticTitle');
 	local cashInvGbox = rightgbox:GetChild('cashInvGbox');	
 	local screenbgTemp = frame:GetChild('screenbgTemp');
+	local ncChargebtn = rightgbox:GetChild('ncChargebtn');
 	screenbgTemp:ShowWindow(0);
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
@@ -126,6 +132,32 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		cashInvGbox:SetVisible(0);
 		RECYCLE_SHOW_TO_ITEM()
 	end
+	elseif (config.GetServiceNation() == "THI") then	
+	if curtabIndex == 0 then	
+		UPDATE_NEXON_AMERICA_SELLITEMLIST();
+		TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+		basketgbox:SetVisible(0);
+		previewgbox:SetVisible(0);
+		previewStaticTitle:SetVisible(0);	
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+	elseif curtabIndex == 1 then
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		cashInvGbox:SetVisible(0);
+		rcycle_basketgbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+	elseif curtabIndex == 2 then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		basketgbox:SetVisible(0);
+		cashInvGbox:SetVisible(0);
+		ncChargebtn:SetVisible(0);
+		RECYCLE_SHOW_TO_ITEM()
+	end
 	else
 	if curtabIndex == 0 then
 		basketgbox:SetVisible(1);
@@ -152,6 +184,8 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	frame:ShowWindow(1);
 	local leftgFrame = frame:GetChild("leftgFrame");	
 	local leftgbox = leftgFrame:GetChild("leftgbox");
+	local rightFrame = frame:GetChild('rightFrame');
+	local rightgbox = rightFrame:GetChild('rightgbox');
 	local shopTab = leftgbox:GetChild('shopTab');
 	local itembox_tab		= tolua.cast(shopTab, "ui::CTabControl");
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
@@ -160,6 +194,32 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		banner:SetUserValue("URL_BANNER", "");
 		banner:SetUserValue("NUM_BANNER", 0);
 		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+	elseif config.GetServiceNation() == "THI" then 
+		local banner_offset_y = frame:GetUserConfig("banner_offset_y")
+		local balance_resize_width = frame:GetUserConfig("balance_resize_width")
+		local balance_offset_y = frame:GetUserConfig("balance_offset_y")
+		local refresh_offset_x = frame:GetUserConfig("refresh_offset_x")
+		local balance_resize_height = frame:GetUserConfig("balance_resize_height")
+
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetImage("market_event_test");	--market_default
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		banner:SetOffset(banner:GetOriginalX(), banner:GetOriginalY()+banner_offset_y)
+
+		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
+		haveStaticNCbox:SetText("  Total          {img Nexon_cash_mark 30 30}{/}{/}"); -- //memo nxa clientmessage
+		haveStaticNCbox:SetOffset(haveStaticNCbox:GetOriginalX(), haveStaticNCbox:GetOriginalY()+balance_offset_y)
+		haveStaticNCbox:Resize(haveStaticNCbox:GetOriginalWidth()+balance_resize_width, haveStaticNCbox:GetOriginalHeight()+balance_resize_height)
+		local haveStaticNCbox_prepaid = GET_CHILD(rightgbox, 'haveStaticNCbox_prepaid');
+		haveStaticNCbox_prepaid:SetVisible(1);
+		haveStaticNCbox_prepaid:Resize(haveStaticNCbox_prepaid:GetOriginalWidth(), haveStaticNCbox_prepaid:GetOriginalHeight()+balance_resize_height)
+		local haveStaticNCbox_credit = GET_CHILD(rightgbox, 'haveStaticNCbox_credit');
+		haveStaticNCbox_credit:SetVisible(1);
+		haveStaticNCbox_credit:Resize(haveStaticNCbox_credit:GetOriginalWidth(), haveStaticNCbox_credit:GetOriginalHeight()+balance_resize_height)
+		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
+		ncReflashbtn:SetOffset(ncReflashbtn:GetOriginalX()+refresh_offset_x, ncReflashbtn:GetOriginalY()+balance_offset_y)
 	else
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:ShowWindow(0);
@@ -456,6 +516,11 @@ function TPITEM_CLOSE(frame)
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
 	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
+	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+	banner:SetUserValue("URL_BANNER", "");
+	banner:SetUserValue("NUM_BANNER", 0);
+	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+	elseif (config.GetServiceNation() == "THI") then
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 	banner:SetUserValue("URL_BANNER", "");
 	banner:SetUserValue("NUM_BANNER", 0);
@@ -2294,7 +2359,7 @@ function TPITEM_DRAW_NC_TP()
 		    buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
 		    buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
 		    buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-		buyBtn:SetUserValue("LISTINDEX", i);
+			buyBtn:SetUserValue("LISTINDEX", i);
 		elseif (categoryNo == 806) or (categoryNo == 2349)  then				
 		    local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
 		    if imgURL ~= nil then	
@@ -2705,10 +2770,12 @@ end
 --///////////////////////////////////////////////////////////////////////////////////////////TPITEM DRAW Code end
 
 function TPSHOP_REFLASH_REMAINCASH(parent, control, strArg, numArg)
-	if 1 == IsMyPcGM_FORNISMS() then
+	if (config.GetServiceNation() == "THI") then
+		REQ_NEXON_AMERICA_REFRESH();
+	elseif 1 == IsMyPcGM_FORNISMS() then
 		DebounceScript("ON_TPSHOP_REFLASH_REMAINCASH", 5);
 	else
-	ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
+		ui.MsgBox(ClMsg("YouCanChargeOnWeb"));
 	end
 end
 
@@ -2727,27 +2794,32 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER_CLICK(parent, control, strArg, numA
 end
 
 function TPSHOP_TRY_BUY_TPITEM_BY_NEXONCASH(parent, control, ItemClassIDstr, itemid)
-	
-	local frame = ui.GetFrame("tpitem");	
-	
-	local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
-	if nMaxCnt >= 18 then
-		strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
-		ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
+	if (config.GetServiceNation() == "THI") then
+		ON_NEXON_AMERICA_BUY_ITEM(parent, control, ItemClassIDstr, itemid)
 		return;
-	end
-	
-	local screenbgTemp = frame:GetChild('screenbgTemp');	
-	screenbgTemp:ShowWindow(1);	
+	else
+		local frame = ui.GetFrame("tpitem");	
+		
+		local nMaxCnt = session.ui.Get_NISMS_CashInven_ItemListSize();
+		if nMaxCnt >= 18 then
+			strMsg = string.format("{@st43d}{s20}%s{/}", ScpArgMsg("MAX_CASHINVAN"));
+			ui.MsgBox_NonNested(strMsg, 0x00000000, frame:GetName(), "None", "None");	
+			return;
+		end
+		
+		local screenbgTemp = frame:GetChild('screenbgTemp');	
+		screenbgTemp:ShowWindow(1);	
 
-	local listIndex = control:GetUserValue("LISTINDEX");
-	local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
-	if iteminfo == nil then
+		local listIndex = control:GetUserValue("LISTINDEX");
+		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
+		if iteminfo == nil then
+			return;
+		end
+		
+		local amount = iteminfo.limitOnce;-- control:GetUserIValue("LimitOnce");	
+		ui.BuyIngameShopItem(itemid, amount);
 		return;
 	end
-	
-	local amount = iteminfo.limitOnce;-- control:GetUserIValue("LimitOnce");	
-	ui.BuyIngameShopItem(itemid, amount);
 end
 
 function _TPSHOP_PURCHASE_RESULT(parent, control, msg, ret)
@@ -2841,7 +2913,9 @@ function TPSHOP_CHECK_REMAIN_NEXONCASH()
 	local rightFrame = GET_CHILD(frame,"rightFrame");	
 	local rightgbox = GET_CHILD(rightFrame,"rightgbox");	
 
-	if 1 == IsMyPcGM_FORNISMS() then
+	if config.GetServiceNation() == "THI" then
+		ON_NEXON_AMERICA_BALANCE(frame)
+	elseif 1 == IsMyPcGM_FORNISMS() then
 		local haveStaticNCbox = GET_CHILD(rightgbox,"haveStaticNCbox");	
 		local remainNexonCash = GET_CHILD_RECURSIVELY(haveStaticNCbox,"remainNexonCash");	
 		remainNexonCash:SetText(session.ui.GetRemainCash());

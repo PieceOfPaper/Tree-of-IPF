@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -1120,6 +1121,7 @@
 		<Class ClassID="21263" ClassName="DungeonInfo" Data="던전 정보"/>
 		<Class ClassID="21264" ClassName="Helmet_M_Category" Data="[프리미엄]남자 헬멧"/>
 		<Class ClassID="21265" ClassName="Helmet_F_Category" Data="[프리미엄]여자 헬멧"/>
+		<Class ClassID="21267" ClassName="MaxInputLen{Local}{Eng}" Data="최대 한글 {Local}글자, 영문 {Eng}글자 까지 입력이 가능합니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -5287,6 +5289,7 @@
 		<Class ClassID="70150" ClassName="F_CO_OP_SIAULIAI_50_CAMPFIRE" Data="장작더미"/>
 		<Class ClassID="70151" ClassName="F_CO_OP_REMAINING_TIME" Data="남은 시간"/>
 		<Class ClassID="70152" ClassName="F_CO_OP_PILGRIMROAD_46_PURITY_OTHER" Data="아직 오염된 순례자 석상이 남아있습니다!{nl}남아있는 순례자 석상부터 먼저 정화하세요."/>
+		<Class ClassID="70153" ClassName="F_CO_OP_DELETE_OBJECT" Data="이미 다른 사람이 가져갔습니다."/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>
@@ -5837,7 +5840,7 @@
 		<Class ClassID="102047" ClassName="AllMineralsAreExhausted" Data="모든 광물이 고갈되었습니다."/>
 		<Class ClassID="102048" ClassName="CurrentConnectionCount{Cur}/{Max}" Data="현재 접속 인원 {Cur}/{Max}"/>
 		<Class ClassID="102049" ClassName="WillYouUseSkill{SkillName}?" Data="{SkillName}스킬을 사용하시겠습니까?"/>
-		<Class ClassID="102050" ClassName="GuildLeaderUse{SkillName}Skill_WillYouToAccept?" Data="길드마스터가 {SkillName}을 사용했습니다. 수락하시겠습니까?"/>
+		<Class ClassID="102050" ClassName="{CallMemberName}Use{SkillName}Skill_WillYouToAccept?" Data="{CallMemberName}가 {SkillName}을 사용했습니다. 수락하시겠습니까?"/>
 		<Class ClassID="102051" ClassName="GuildMaster" Data="길드마스터"/>
 		<Class ClassID="102052" ClassName="{PC}AlreadyBelongsToGuild" Data="{PC}님은 이미 길드에 속해있습니다"/>
 		<Class ClassID="102053" ClassName="ToMakeGuild,YouMustHaveJob{Name}" Data="길드를 만들거나 마스터 양도를 받기 위해선 {Name}직업으로 전직해야 합니다."/>
@@ -5964,6 +5967,8 @@
 		<Class ClassID="102174" ClassName="NotExistTeam" Data="존재하지 않는 팀입니다."/>
 		<Class ClassID="102175" ClassName="NoImagesAvailable" Data="이미지 파일을 선택해 주세요."/>
 		<Class ClassID="102176" ClassName="GuildAssetLog_EmblemChange" Data="길드 엠블럼 변경"/>
+		<Class ClassID="102178" ClassName="DisableWarpToGuildMemberSkill" Data="해당 지역에서는 길드원에게 이동 스킬을 사용 할 수 없습니다."/>
+		<Class ClassID="102179" ClassName="DisableSummonGuildMemberSkill" Data="해당 지역에서는 길드원 소환 스킬을 사용 할 수 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -6538,6 +6543,9 @@
 		<Class ClassID="122054" ClassName="DoYouReportAuto{Name}?" Data="{Name}님을 오토 유저로 신고하시겠습니까?"/>
 		<Class ClassID="122055" ClassName="ThxReportAuto{Name}" Data="{Name}님에 대한 오토신고가 접수되었습니다. 감사합니다."/>
 		<Class ClassID="122056" ClassName="AlreadyRequestFriend" Data="이미 친구 신청을 보냈습니다."/>
+    <Class ClassID="122057" ClassName="Report_GuildEmblem" Data="부적절 길드 엠블럼 신고하기"/>
+    <Class ClassID="122058" ClassName="DoYouReportGuildEmblem{Name}?" Data="{Name}님을 부적절 길드 엠블럼 사용 유저로 신고하시겠습니까?"/>
+    <Class ClassID="122059" ClassName="ThxReportGuildEmblem{Name}" Data="{Name}님에 대한 부적절 길드 엠블럼 사용 신고가 접수되었습니다. 감사합니다."/>
 	</Category>
 	<Category Name="BlackMarket">
 		<Class ClassID="123001" ClassName="Deposit" Data="계약금"/>
@@ -6761,6 +6769,7 @@
 		<Class ClassID="134028" ClassName="CancelUnderstaffMatching" Data="4인 이하 입장을 취소합니다.{nl}파티원 전부 취소됩니다."/>
 		<Class ClassID="134029" ClassName="YouCanMorePlayIndunWithToken" Data="토큰 혜택이 있으면 {COUNT}회 추가 입장할 수 있습니다{nl}현재 상태: 토큰 {TOKEN_STATE}"/>
 		<Class ClassID="134030" ClassName="NotApplied" Data="비활성"/>
+		<Class ClassID="134031" ClassName="CannotCraftInIndun" Data="인던이나 미션에선 아이템을 제작하거나 강화할 수 없습니다."/>
 	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
@@ -9884,8 +9893,7 @@
 	<Category Name="FieldBossMessage">
 		<Class ClassID="510500" ClassName="FieldBoss{Name}WillAppear" Data="잠시 후 필드 보스가 등장합니다 : {Name}"/>
 	</Category>
-
-<Category Name="Cyou">
+	<Category Name="Cyou">
 		<Class ClassID="600000" ClassName="CyouDelibarationMsg1" Data="您累计在线时间已满1小时"/>
 		<Class ClassID="600001" ClassName="CyouDelibarationMsg2" Data="您累计在线时间已满2小时"/>
 		<Class ClassID="600002" ClassName="CyouDelibarationMsg3" Data="您累计在线时间已满3小时，请您下线休息，做适当身体活动"/>
@@ -9910,13 +9918,13 @@
 		<Class ClassID="700009" ClassName="IndunGroundTower" Data="대지의 탑"/>
 		<Class ClassID="700010" ClassName="IndunNunnery" Data="살러스 수녀원"/>
 		<Class ClassID="700011" ClassName="IndunUpHill" Data="업힐 디펜스"/>
-		<Class ClassID="700012" ClassName="IndunFantasyLib" Data="과거 환상 도서관"/>
+		<Class ClassID="700012" ClassName="IndunFantasyLib" Data="과거 환상도서관"/>
 		<Class ClassID="700013" ClassName="IndunRaid" Data="레이드"/>
 		<Class ClassID="700014" ClassName="ConsumedCount" Data="소비 횟수"/>
 		<Class ClassID="700015" ClassName="TopRanking" Data="상위 랭킹"/>
 		<Class ClassID="700016" ClassName="{CtrlType}Type{RankNum}Rank" Data="{CtrlType} {RankNum}랭크"/>
 		<Class ClassID="700017" ClassName="Score" Data="점수"/>
-	</Category><Category Name="LegendTrade">
+	</Category>	<Category Name="LegendTrade">
 		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
 	<Category Name="ColonyWar">

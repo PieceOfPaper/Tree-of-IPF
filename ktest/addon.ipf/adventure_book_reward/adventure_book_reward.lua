@@ -1,4 +1,5 @@
-function ADVENTURE_BOOK_REWARD_ON_INIT(addon, frame)    
+function ADVENTURE_BOOK_REWARD_ON_INIT(addon, frame)
+    addon:RegisterMsg('UPDATE_ADVENTURE_BOOK_REWARD', 'ON_UPDATE_REWARD_INFO');
 end
 
 function ADVENTURE_BOOK_REWARD_OPEN(rewardCategory, curLevel, isOpenByNPC)
@@ -154,4 +155,14 @@ function ADVENTURE_BOOK_REWARD_FILTER(frame, checkBox)
     local pointCls = GetClass('AdventureBookPoint', frame:GetUserValue('POINT_CLASS_NAME'));
     local curStep = frame:GetUserIValue('CUR_STEP');
     ADVENTURE_BOOK_REWARD_INIT_LIST(frame, pointCls, curStep);
+end
+
+function ON_UPDATE_REWARD_INFO(frame, msg, argStr, argNum)
+    local pointCls = GetClass('AdevntureBookPoint', frame:GetUserValue('POINT_CLASS_NAME'));
+    if pointCls == nil then
+        frame:ShowWindow(0);
+        return;
+    end
+    local curLevel = frame:GetUserIValue('CUR_STEP');
+    ADVENTURE_BOOK_REWARD_INIT_LIST(frame, pointCls, curLevel);
 end

@@ -6,25 +6,32 @@ function GUILDINFO_OPTION_INIT(parent, optionBox)
     ui.CloseFrame('guild_authority_popup');
 end
 
-function GUILDINFO_OPTION_INIT_AGIT_CHECKBOX(optionBox)
+function GUILDINFO_OPTION_INIT_AGIT_CHECKBOX(optionBox)    
     local guildObj = GET_MY_GUILD_OBJECT();
     local outsiderCheck = GET_CHILD_RECURSIVELY(optionBox, 'outsiderCheck');    
-    if guildObj.GuildOnlyAgit == 1 then
+    if guildObj.GuildOnlyAgit == 1 then        
         outsiderCheck:SetCheck(0);
-    else
+    else        
         outsiderCheck:SetCheck(1);
     end
 end
 
-function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)
+function CHANGE_AGIT_ENTER_OPTION(parnet, ctrl)    
 	ctrl = AUTO_CAST(ctrl);
     local onlyGuildMember = ctrl:IsChecked();
-    local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if onlyGuildMember == 0 and 0 == isLeader then -- 해제는 길마만 가능
-		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
+
+    if onlyGuildMember == 1 then
+        onlyGuildMember = 0
+    else
+        onlyGuildMember = 1
+    end
+
+    local isLeader = AM_I_LEADER(PARTY_GUILD);    
+	if 0 == isLeader then -- 해제는 길마만 가능
+		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));        
         GUILDINFO_OPTION_INIT_AGIT_CHECKBOX(parnet)
-		return;
-	end 
+		return;        
+	end         
 	party.ReqChangeProperty(PARTY_GUILD, "GuildOnlyAgit", onlyGuildMember);
 end
 

@@ -75,24 +75,16 @@ function ADVENTURE_BOOK_MAP_CONTENT.MAP_REVEAL_RATE(mapClsID)
 	if  mapRevealRate == nil then
 		return 0;
 	end
-	if TryGetProp(mapCls, "UseMapFog") == 0 then
+	if isVisited == 1 and TryGetProp(mapCls, "UseMapFog") == 0 then
 		return 100;
 	end
 	return math.floor(mapRevealRate)
 end
 
 function ADVENTURE_BOOK_MAP_CONTENT.TOTAL_MAP_REVEAL_RATE()
- 	local mapList = ADVENTURE_BOOK_MAP_CONTENT.MAP_LIST()
-	 local totalRate = 0;
-	 for i=1, #mapList do
-	 	local mapClsID = mapList[i]
-	 	totalRate = totalRate + ADVENTURE_BOOK_MAP_CONTENT.MAP_REVEAL_RATE(mapClsID);
-	 end
-
-	 if #mapList <= 0 then
-	 	return 0;
-	end
-	local ret = totalRate / (#mapList)
+ 	local count, totalRate = GetTotalMapRevealInfo();
+    local adventureBookMapCount = GET_ADVENTURE_BOOK_MAP_COUNT();    
+	local ret = totalRate / adventureBookMapCount;
 	return string.format("%.2f", ret)
 end
 
@@ -168,12 +160,10 @@ function ADVENTURE_BOOK_MAP_CONTENT.FILTER_LIST(list, sortOption, stateOption, s
 	
 	list = ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Map", "Name", searchText)
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_MAP_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_MAP_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-		table.sort(list, ADVENTURE_BOOK_SORT_ASC);
 	end
 	return list;
 end

@@ -240,5 +240,5 @@ end
 
 function GET_GUILD_NEUTRALITY_COST(guildObj)
     local guildLevel = guildObj.Level;
-    return 0; -- hs_comment: 길드 레벨에 따라 중립 선포 비용 다르게 수식 써주세요 :) 
+    return 0;
 end

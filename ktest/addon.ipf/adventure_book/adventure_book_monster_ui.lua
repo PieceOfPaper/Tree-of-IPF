@@ -95,6 +95,7 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO()
 	local monster_attr1 = GET_CHILD(info_box, "monster_attr1", "ui::CControlSet");
 	local monster_attr2 = GET_CHILD(info_box, "monster_attr2", "ui::CControlSet");
 	local monster_attr3 = GET_CHILD(info_box, "monster_attr3", "ui::CControlSet");
+	local monster_attr4 = GET_CHILD(info_box, "monster_attr4", "ui::CControlSet");
 	local kill_count_gauge = GET_CHILD(info_box, "kill_count_gauge", "ui::CGauge");
 	local monster_info_place_gb = GET_CHILD(info_box, "monster_info_place_gb");
 	
@@ -122,6 +123,7 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO()
 	SET_TEXT(monster_attr1, "attr_name_text", "value", ScpArgMsg('RaceType'))
 	SET_TEXT(monster_attr2, "attr_name_text", "value", ScpArgMsg('Attribute'))
 	SET_TEXT(monster_attr3, "attr_name_text", "value", ScpArgMsg('MonInfo_ArmorMaterial'))
+	SET_TEXT(monster_attr4, "attr_name_text", "value", ScpArgMsg('Level'))
 	monster_info_place_gb:RemoveAllChild();
 
     local monClassID = ADVENTURE_BOOK_MONSTER.SELECTED_MONSTER;
@@ -148,12 +150,14 @@ function ADVENTURE_BOOK_MONSTER.FILL_MONSTER_INFO()
 		SET_TEXT(monster_attr1, "attr_value_text", "value", ScpArgMsg(info['race_type']));
 		SET_TEXT(monster_attr2, "attr_value_text", "value", ScpArgMsg(info['attribute']))
 		SET_TEXT(monster_attr3, "attr_value_text", "value", ScpArgMsg(info['armor_material']))
+		SET_TEXT(monster_attr4, "attr_value_text", "value", info['level'])
 		
 		SET_TEXT(info_box, "monster_info_desc_text", "value", info['desc'])
 	else
 		SET_TEXT(monster_attr1, "attr_value_text", "value", "")
 		SET_TEXT(monster_attr2, "attr_value_text", "value", "")
 		SET_TEXT(monster_attr3, "attr_value_text", "value", "")
+		SET_TEXT(monster_attr4, "attr_value_text", "value", "")
 
 		SET_TEXT(info_box, "monster_info_desc_text", "value", "")
 	end
@@ -227,9 +231,8 @@ function ADVENTURE_BOOK_MONSTER.DROPDOWN_LIST_INIT()
         return;
    	end
     sort_opt_list:ClearItems();
-    sort_opt_list:AddItem(0, ClMsg('AlignName'));
-    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_5'));
-    sort_opt_list:AddItem(2, ClMsg('ALIGN_ITEM_TYPE_6'));
+    sort_opt_list:AddItem(0, ClMsg('ALIGN_ITEM_TYPE_5'));
+    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_6'));
     
     grade_opt_list:ClearItems();
     grade_opt_list:AddItem(0, ClMsg('Auto_MoDu_BoKi'));

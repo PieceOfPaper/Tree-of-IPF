@@ -2907,7 +2907,7 @@ function SCR_GET_BuildShieldCharger_Ratio(skill)
 end
 
 function SCR_GET_BuildShieldCharger_Ratio2(skill)
-    local value = 3 + skill.Level;
+    local value = 4 + skill.Level;
     return value;
 
 end

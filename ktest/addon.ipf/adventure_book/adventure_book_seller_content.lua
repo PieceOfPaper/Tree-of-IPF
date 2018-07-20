@@ -112,12 +112,10 @@ function ADVENTURE_BOOK_SELLER_CONTENT.FILTER_LIST(list, sortOption, categoryOpt
 		list = ADVENTURE_BOOK_FILTER_ITEM(list, ADVENTURE_BOOK_SELLER_CONTENT['FIND_SKILL_CTRL_TYPE'], 'Cleric')
 	end
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_SELLER_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_SELLER_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-		table.sort(list, ADVENTURE_BOOK_SORT_ASC);
 	end
 	return list;
 end

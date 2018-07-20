@@ -62,12 +62,18 @@ function GUILDINVEN_SEND_INIT_MEMBER(frame)
    GBOX_AUTO_ALIGN(listBox, 0, 0, 0, true, false);
 end
 
-function GUILDINVEN_SEND_TYPING(parent, ctrl)
+function GUILDINVEN_SEND_TYPING(parent, edit)
     local frame = parent:GetTopParentFrame();
+    local haveText = GET_CHILD_RECURSIVELY(frame, 'haveText');
+    local haveCount = tonumber(haveText:GetTextByKey('count'));
+
     local sendCheck = GET_CHILD(parent, 'sendCheck');    
-    local value = ctrl:GetText();
+    local value = edit:GetText();
     if value ~= nil and value ~= '' and value ~= '0' then
         sendCheck:SetCheck(1);
+        if tonumber(value) > haveCount then
+            edit:SetText(haveCount);
+        end
     else
         sendCheck:SetCheck(0);
     end

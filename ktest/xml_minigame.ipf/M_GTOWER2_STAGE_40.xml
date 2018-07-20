@@ -87,11 +87,6 @@
                         <Str Str="Start"/>
                     </ToolScp>
                 </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-                        <Str Str="M_GTOWER_2"/>
-                    </ToolScp>
-                </CompleteScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="100170" Pos="-3032.04#239.64#4270.04" angle="-95" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
@@ -1018,6 +1013,9 @@
             </Stage>
             <Stage Name="FINAL" AutoStart="0">
                 <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="M_GTOWER_2"/>
+                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="대지의 성소로 통하는 길이 열렸습니다{nl}제미나 여신을 알현하세요"/>
                         <Str Str="move_to_point"/>

@@ -128,9 +128,8 @@ function ADVENTURE_BOOK_SELLER.DROPDOWN_LIST_INIT()
         return;
    	end
     sort_opt_list:ClearItems();
-    sort_opt_list:AddItem(0, ClMsg('AlignName'));
-    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_5'));
-    sort_opt_list:AddItem(2, ClMsg('ALIGN_ITEM_TYPE_6'));
+    sort_opt_list:AddItem(0, ClMsg('ALIGN_ITEM_TYPE_5'));
+    sort_opt_list:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_6'));
     
     category_opt_list:ClearItems();
     category_opt_list:AddItem(0, ClMsg('Auto_MoDu_BoKi'));

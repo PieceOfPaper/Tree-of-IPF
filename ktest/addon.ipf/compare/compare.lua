@@ -113,15 +113,13 @@ function SHOW_PC_COMPARE(cid)
 	jobInfoRTxt:SetTextByKey("job", jobName);
 	jobInfoRTxt:SetTextByKey("lv", level);
 
-	local rankInfo = otherpcinfo:GetOtherpcAdventureBookRanking();
-    print("??", rankInfo)
+	local rankInfo = otherpcinfo:GetOtherpcAdventureBookRanking();    
     local pcranking = rankInfo.rank;
-	local score = rankInfo.score;
+	local score = math.max(rankInfo.score, 0); -- 랭킹 없으면 0점이어야 함
 	local wholeusercnt = GetAdventureBookTotalRankCount();
-
 	local rankingInfoRTxt = GET_CHILD(infoGbox,"rankingInfo","ui::CRichText")
 	local unrankingInfoRTxt = GET_CHILD(infoGbox,"unrankingInfo","ui::CRichText")
-
+    
 	if pcranking < 0 then
 		rankingInfoRTxt:ShowWindow(0)
 		unrankingInfoRTxt:ShowWindow(1)

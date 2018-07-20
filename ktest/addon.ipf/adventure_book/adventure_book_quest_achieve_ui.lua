@@ -43,17 +43,19 @@ function ADVENTURE_BOOK_QUEST_ACHIEVE.FILL_ACHIEVE_LIST()
 	local info_func = ADVENTURE_BOOK_QUEST_ACHIEVE_CONTENT["ACHIEVE_INFO"];
 
 	local list = list_func();
-
 	local y = 0;
 	local height = frame:GetUserConfig("QUEST_ELEM_HEIGHT")
-	for i=1, #list do
+    local showCount = math.min(5, #list);
+	for i = 1, showCount do
 		local clsID = list[i]
 		local info =  info_func(clsID)
 		if info['is_valid_achieve'] == 1 then
 			local ctrlSet = achieve_list_box:CreateOrGetControlSet("adventure_book_text_elem", "list_achieve_" .. i, ui.LEFT, ui.TOP, 0, y, 0, 0);
-			SET_TEXT(ctrlSet, "text", "value", info['name'])
+            local timeStr = string.format("%04d.%02d.%02d", info['year'], info['month'], info['day']); -- yyyy.mm.dd
+			SET_TEXT(ctrlSet, "text", "value", info['name']);
+            SET_TEXT(ctrlSet, 'timeText', 'time', timeStr);
 			ctrlSet:SetUserValue('BtnArg', clsID);
-			y = y + height;
+			y = y + height;            
 		end
 	end
 end
@@ -316,6 +318,15 @@ function IS_QUEST_NEED_TO_SHOW(frame, questCls, mapName, searchText)
         return false;
     end
     if questCls.Lvup == -9999 then
+        return false;
+    end
+
+    if questCls.PeriodInitialization ~= 'None' then
+        return false;
+    end
+
+    local questMode = questCls.QuestMode;
+    if questMode == 'KEYITEM' or questMode == 'PARTY' then
         return false;
     end
 

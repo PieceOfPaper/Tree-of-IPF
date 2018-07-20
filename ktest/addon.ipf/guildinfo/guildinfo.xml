@@ -1,17 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildinfo" x="0" y="0" width="1500" height="800" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin="test_frame_low"/>
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
-	<layer layerlevel="80"/>
+	<layer layerlevel="92"/>
 	<option closebutton="false"/>
 	<sound opensound="inven_win_open" closesound="inven_win_close"/>
 	<opencheck scp="UI_CHECK_GUILD_UI_OPEN"/>
 	<script OpenScp="GUILDINFO_OPEN_UI" CloseScp="GUILDINFO_CLOSE_UI" LBtnDownScp="GUILDINFO_MOVE_START"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig MEMBER_SORT_IMG_ON="guild_arrow_up" MEMBER_SORT_IMG_OFF="guild_arrow_down" COLONY_EVEN_SKIN="chat_window_2" DEFAULT_EMBLEM_IMAGE="guildmark_slot" IMPOSSIBLE_REGIST_EMBLEM_COLOR="FF777777" POSSIBLE_REGIST_EMBLEM_COLOR="00000000"/>
+	<userconfig MEMBER_SORT_IMG_ON="guild_arrow_up" MEMBER_SORT_IMG_OFF="guild_arrow_down" COLONY_EVEN_SKIN="chat_window_2" DEFAULT_EMBLEM_IMAGE="guildmark_slot" IMPOSSIBLE_REGIST_EMBLEM_COLOR="FF777777" POSSIBLE_REGIST_EMBLEM_COLOR="00000000" MEMBER_TEXT_LIMIT_BYTE="12"/>
 	<controls>
 		<groupbox name="headerBox" rect="0 0 1500 60" margin="0 0 0 0" hittest="false" layout_gravity="center top" skin="test_frame_top"/>
 		<richtext name="headerText" rect="0 0 300 30" parent="headerBox" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드" fontname="white_16_b_ol"/>
@@ -26,7 +26,7 @@
 		<picture name="emblemPic_upload" rect="0 0 129 129" parent="emblemPic_slot" margin="0 0 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true"/>
 		<groupbox name="nameBox" rect="0 0 360 42" parent="profileBox" margin="8 300 0 0" layout_gravity="center top" draw="false"/>
 		<groupbox name="nameBox2" rect="0 0 350 42" parent="nameBox" margin="0 0 0 0" layout_gravity="center center" draw="false" image="guildname_frame" stretch="true"/>
-		<richtext name="nameText" rect="0 0 180 30" parent="nameBox" margin="-4 0 0 0" visiblebyte="20" layout_gravity="center center" format="{@st43}{#ffcc33}{s18}Lv.%s %s{/}" param1="level" param1_def="3" param2="name" param2_def="길드 이름" fontname="white_20_ol_ds" resizebytext="true"/>
+		<richtext name="nameText" rect="0 0 180 30" parent="nameBox" margin="-4 0 0 0" layout_gravity="center center" format="{@st43}{#ffcc33}{s18}Lv.%s %s{/}" param1="level" param1_def="3" param2="name" param2_def="길드 이름" fontname="white_20_ol_ds" resizebytext="true"/>
 		<richtext name="masterInfoText" rect="0 0 80 30" parent="profileBox" margin="8 360 0 0" layout_gravity="left top" caption="길드 마스터" fontname="black_18_b"/>
 		<richtext name="masterText" rect="0 0 100 30" parent="profileBox" margin="120 360 0 0" layout_gravity="left top" format="%s" param1="name" param1_def="" fontname="black_18"/>
 		<richtext name="openInfoText" rect="0 0 80 30" parent="profileBox" margin="8 395 0 0" layout_gravity="left top" caption="길드 개설일" fontname="black_18_b"/>
@@ -58,7 +58,7 @@
 		<groupbox name="bottomBox" rect="0 0 1150 50" parent="memberBox" margin="0 0 0 5" layout_gravity="center bottom" draw="false"/>
 		<button name="authBtn" rect="0 0 200 45" parent="bottomBox" margin="5 0 0 2" layout_gravity="left bottom" skin="test_pvp_btn" caption="{@st66b}{s18}길드 권한{/}" fontname="brown_16" LBtnUpScp="ON_GUILD_AUTHO_POPUP_OPEN"/>
 		<richtext name="memberCountText" rect="0 0 300 30" parent="bottomBox" margin="215 0 0 0" layout_gravity="left center" format="온라인 %s명      오프라인 %s명" fontname="black_16" param1="online" param1_def="3" param2="offline" param2_def="50"/>
-		<checkbox name="memberFilterCheck" rect="0 0 300 35" parent="bottomBox" margin="0 0 120 30" layout_gravity="right center" caption="접속 인원만 보기" fontname="black_16" LBtnUpScp="GUILDINFO_MEMBER_ONLINE_CLICK"/>
+		<checkbox name="memberFilterCheck" rect="0 0 200 35" parent="bottomBox" margin="0 0 200 30" layout_gravity="right center" caption="접속 인원만 보기" fontname="black_16" LBtnUpScp="GUILDINFO_MEMBER_ONLINE_CLICK"/>
 		<button name="inviteBtn" rect="0 0 200 45" parent="bottomBox" margin="0 0 5 2" layout_gravity="right bottom" caption="{@st41b}길드 초대" skin="test_red_button" LBtnUpScp="GUILDINFO_MEMBER_INVITE"/>
 		<!-- Info Tab -->
 		<groupbox name="infoBox" rect="0 0 1140 650" margin="0 0 8 0" layout_gravity="right bottom" tabname="infoTabItem" draw="false" tabchangescp="GUILDINFO_INFO_INIT"/>
@@ -116,7 +116,7 @@
 		<groupbox name="arrowPic" rect="0 0 1140 50" parent="warBox" margin="0 40 0 0" layout_gravity="center top" skin="test_arow"/>
 		<groupbox name="warGuildBox" rect="0 0 1140 385" parent="warBox" margin="0 80 0 0" layout_gravity="center top" skin="test_frame_midle"/>
 		<groupbox name="warGuildHeaderBox" rect="0 0 1140 40" parent="warGuildBox" margin="0 0 0 0" layout_gravity="center top" skin="test_pvp_youparty_name"/>
-		<groupbox name="warListBox" rect="0 0 1140 345" parent="warGuildBox" margin="0 0 0 0" layout_gravity="center bottom" draw="false" fixheight="true" scrollbar="true"/>
+		<groupbox name="warListBox" rect="0 0 1140 345" parent="warGuildBox" margin="0 -10 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
 		<richtext name="warGuildListText" rect="0 0 300 30" parent="warGuildHeaderBox" margin="20 0 0 0" layout_gravity="left center" caption="전쟁 길드 목록" fontname="white_16_b_ol"/>
 		<richtext name="remainWarTimeText" rect="0 0 300 30" parent="warGuildHeaderBox" margin="0 0 200 0" layout_gravity="right center" caption="남은 전쟁 시간" fontname="white_16_b_ol"/>
 		<richtext name="warInfoText" rect="0 0 1100 30" parent="warBox" margin="10 0 0 45" fixwidth="true" layout_gravity="left bottom" caption="ⓘ 길드 전쟁 도중 부숴진 길드 타워는 24시간 이후에 다시 세울 수 있습니다.{nl}ⓘ 전쟁 선포는 상대 길드 타워를 통해 선포 할 수 있습니다.{nl}ⓘ 전쟁 선포 후, 1시간 후에 전쟁이 시작됩니다.{nl}ⓘ 전쟁 선포를 하면, 전쟁이 끝날 때까지 길드 해산을 할 수 없습니다.{nl}ⓘ 길드타워가 없으면 전쟁 선포를 할 수 없습니다." fontname="black_16"/>
@@ -163,7 +163,8 @@
 		<groupbox name="communityBox" rect="0 0 1140 650" margin="0 0 8 0" layout_gravity="right bottom" tabname="communityTabItem" draw="false" tabchangescp="GUILDINFO_COMMUNITY_INIT"/>
 		<groupbox name="guildboardBox" rect="0 0 1140 650" parent="communityBox" margin="0 0 0 0" layout_gravity="right bottom" draw="false"/>
 		<richtext name="oneLineText" rect="0 0 100 30" parent="guildboardBox" margin="5 8 0 0" layout_gravity="left top" caption="{@st43b}{s18}한 줄 게시판{/}" fontname="white_16_b_ol"/>
-		<groupbox name="oneLineBox" rect="0 0 1140 453" parent="guildboardBox" margin="0 0 0 156" layout_gravity="right bottom" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
+		<groupbox name="oneLineBox2" rect="0 0 1140 453" parent="guildboardBox" margin="0 0 0 156" layout_gravity="right bottom" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
+		<groupbox name="oneLineBox" rect="0 0 1140 452" parent="oneLineBox2" margin="0 0 0 0" layout_gravity="left center" skin="none" fixheight="true" scrollbar="true"/>
 		<groupbox name="oneLineEditBox" rect="0 0 1140 100" parent="guildboardBox" margin="0 0 0 55" layout_gravity="right bottom" skin="test_weight_skin"/>
 		<edit name="oneLineEdit" rect="0 0 1140 90" parent="oneLineEditBox" margin="0 0 0 0" layout_gravity="center center" maxlen="50" skin="None" fontname="black_18" texttooltip="최대 25자 까지 가능합니다." fixwidth="true"/>
 		<button name="oneLineBtn" rect="0 0 150 40" parent="oneLineEditBox" margin="0 0 0 0" layout_gravity="right bottom" skin="test_pvp_btn" caption="{@st66}{s18}등록{/}" fontname="brown_16" LBtnUpScp="GUILD_SAVE_ONE_SAY"/>

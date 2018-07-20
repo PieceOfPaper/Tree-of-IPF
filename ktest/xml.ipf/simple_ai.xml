@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <AIList>
 	<AI Name="ABBAY643_MQ4_OBJ_EFFECT" UpdateMS="2000" ActiveMessageMapInBattle="1">
 		<List>
@@ -6636,6 +6637,9 @@
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_F_CO_OP_ZONE_SUCCESS"/>
 			</ToolScp>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_F_CO_OP_TIME_NOTICE"/>
+			</ToolScp>
 		</List>
 		<DeadList>
 			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -6644,6 +6648,9 @@
 			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_F_CO_OP_ZONE_REWARD_RESET"/>
 			</ToolScp>
+			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_F_CO_OP_TIME_RESET"/>
+			</ToolScp>
 		</DeadList>
 		<StartList>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -6651,6 +6658,9 @@
 			</ToolScp>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_F_CO_OP_ZONE_REWARD_RESET"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_F_CO_OP_TIME_RESET"/>
 			</ToolScp>
 		</StartList>
 	</AI>
@@ -6695,7 +6705,20 @@
 				<Str_Arg Str="F_burstup036_fire" Arg="0.60000002"/>
 				<Str Str="BOT"/>
 			</ToolScp>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_F_CO_OP_TIME_NOTICE"/>
+			</ToolScp>
 		</List>
+		<DeadList>
+			<ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_F_CO_OP_TIME_RESET"/>
+			</ToolScp>
+		</DeadList>
+		<StartList>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_F_CO_OP_TIME_RESET"/>
+			</ToolScp>
+		</StartList>
 	</AI>
 	<AI Name="F_CO_OP_SIAULIAI_50_SETTLER" ActiveMessageMapInBattle="1">
 		<List>

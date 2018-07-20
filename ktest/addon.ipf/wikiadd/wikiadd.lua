@@ -1,7 +1,6 @@
 function WIKIADD_ON_INIT(addon, frame)
 	--메시지
 	addon:RegisterMsg('WIKI_LIST_ADD', 'ADD_WIKI');
-	addon:RegisterMsg('ACHIEVE_NEW', 'ADD_ACHIEVE');
     addon:RegisterMsg('ADVENTURE_BOOK_NEW', 'ON_ADVENTURE_BOOK_NEW');
 end
 

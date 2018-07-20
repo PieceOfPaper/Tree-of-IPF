@@ -325,7 +325,7 @@ function GET_ADVENTURE_BOOK_FISHING_POINT(pc, isInitSectionInfo)
     end
 --    print("낚시 점수: ", adv_fishing_point);
     UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'Fishing', 0, isInitSectionInfo, section, adv_fishing_point);
-    return  math.floor(adv_fishing_point)
+    return  math.ceil(adv_fishing_point)
 end
 
 --ADVENTURE_BOOK INDUN score
@@ -740,7 +740,7 @@ function GET_ADVENTURE_BOOK_MONSTER_KILL_COUNT_INFO(isBoss, curKillCount)
             local gradeCountCls = GetClass('AdventureBookConst', 'BOSS_MON_KILL_COUNT_GRADE'..i);
             curMaxCount = gradeCountCls.Value;
             curLv = i;
-            if curKillCount <= curMaxCount then
+            if curKillCount < curMaxCount then
                 break;
             end
         end
@@ -751,7 +751,7 @@ function GET_ADVENTURE_BOOK_MONSTER_KILL_COUNT_INFO(isBoss, curKillCount)
            local gradeCountCls = GetClass('AdventureBookConst', 'BASIC_MON_KILL_COUNT_GRADE'..i);
             curMaxCount = gradeCountCls.Value;
             curLv = i;
-            if curKillCount <= curMaxCount then
+            if curKillCount < curMaxCount then
                 break;
             end
         end
@@ -780,7 +780,7 @@ function GET_ADVENTURE_BOOK_ITEM_OBTAIN_COUNT_INFO(isEquip, curObtainCount)
             local gradeCountCls = GetClass('AdventureBookConst', 'GET_EQUIP_ITEM_GRADE'..i);
             curMaxCount = gradeCountCls.Value;
             curLv = i;
-            if curObtainCount <= curMaxCount then
+            if curObtainCount < curMaxCount then
                 break;
             end
         end
@@ -791,7 +791,7 @@ function GET_ADVENTURE_BOOK_ITEM_OBTAIN_COUNT_INFO(isEquip, curObtainCount)
             local gradeCountCls = GetClass('AdventureBookConst', 'GET_ITEM_GRADE'..i);
             curMaxCount = gradeCountCls.Value;
             curLv = i;
-            if curObtainCount <= curMaxCount then
+            if curObtainCount < curMaxCount then
                 break;
             end
         end
@@ -804,4 +804,17 @@ function UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, logType, id, isInit, sectionLeve
     if isInit ~= nil then
         UpdateAdventureBookSectionInfo(pc, logType, id, isInit, sectionLevel, point);
     end
+end
+
+function GET_ADVENTURE_BOOK_MAP_COUNT()
+    local availableCount = 0;
+    local mapList, cnt = GetClassList('Map');
+    for i = 0, cnt - 1 do
+        local mapCls = GetClassByIndexFromList(mapList, i);
+        local journal = TryGetProp(mapCls, 'Journal');
+        if journal == 'TRUE' then
+            availableCount = availableCount + 1;
+        end
+    end
+    return availableCount;
 end

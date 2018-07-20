@@ -22,9 +22,8 @@ function ADVENTURE_BOOK_DROPLIST_INIT(frame)
         return;
     end
     collectionSortDropList:ClearItems();
-    collectionSortDropList:AddItem(0, ClMsg('AlignName'));
-    collectionSortDropList:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_5'));
-    collectionSortDropList:AddItem(2, ClMsg('ALIGN_ITEM_TYPE_6'));
+    collectionSortDropList:AddItem(0, ClMsg('ALIGN_ITEM_TYPE_5'));
+    collectionSortDropList:AddItem(1, ClMsg('ALIGN_ITEM_TYPE_6'));
     
     local collectionStateDropList = GET_CHILD_RECURSIVELY(frame, 'collectionStateDropList');
     collectionStateDropList:ClearItems();
@@ -159,9 +158,9 @@ function ADVENTURE_BOOK_COLLECTION_DROPLIST_SORT(parent, ctrl)
     end
 
     local selectIndex = ctrl:GetSelItemIndex();
-    if selectIndex == 1 then -- 오름차순
+    if selectIndex == 0 then -- 오름차순
         table.sort(collectionNameTable, ADVENTURE_BOOK_SORT);
-    elseif selectIndex == 2 then -- 내림차순
+    elseif selectIndex == 1 then -- 내림차순
         table.sort(collectionNameTable, ADVENTURE_BOOK_SORT_REVERSE);
     end
 
@@ -201,8 +200,9 @@ function ADVENTURE_BOOK_CHECK_STATE_FILTER(frame, collectionInfo, searchText, co
     end
 
     if searchText ~= nil and searchText ~= '' then
-        searchText = string.lower(searchText);
         local collectionName = ADVENTURE_BOOK_COLLECTION_REPLACE_NAME(collectionInfo.name);
+        searchText = string.lower(searchText);
+        collectionName = string.lower(collectionName);
         if string.find(collectionName, searchText) == nil then
             return false;
         end

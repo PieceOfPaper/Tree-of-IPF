@@ -1,16 +1,15 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
 <ActionDesc>
-	<Shockwave frame="4" type="2" intensity="30" frequency="50" duration="0.5" range="1000"/>
-	<Shockwave frame="20" type="2" intensity="5" frequency="60" duration="2" range="1000"/>
-	<Shockwave frame="55" type="2" intensity="40" frequency="60" duration="0.3" range="1000"/>
-	<Shockwave frame="60" type="2" intensity="8" frequency="30" duration="1" range="1000"/>
-	<Sound frame="0.00" soundFile="skl_eff_born_stone_1"/>
-	<Sound frame="23.00" soundFile="mon_voice_unicorn_born"/>
-	<Sound frame="52.00" soundFile="skl_eff_stone_blow_m"/>
-	<Particle frame="0" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="0" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="28" attachNode="Dummy_emitter" particleName="F_smoke003" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="55" attachNode="Dummy_emitter" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_L_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_R_eye" particleName="I_force059_red" useAttach="true" hiddenObj="true" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="4" type="2" intensity="30" frequency="50" duration="0.5" range="1000"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="20" type="2" intensity="5" frequency="60" duration="2" range="1000"/>
+    <Sound frame="23.00" soundFile="mon_voice_unicorn_born"/>
+    <Particle frame="28" attachNode="Dummy_emitter" particleName="F_smoke003" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="52.00" soundFile="skl_eff_stone_blow_m"/>
+    <Shockwave frame="55" type="2" intensity="40" frequency="60" duration="0.3" range="1000"/>
+    <Particle frame="55" attachNode="Dummy_emitter" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="60" type="2" intensity="8" frequency="30" duration="1" range="1000"/>
 </ActionDesc>

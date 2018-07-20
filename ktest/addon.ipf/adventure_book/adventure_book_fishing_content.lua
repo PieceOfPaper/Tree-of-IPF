@@ -40,7 +40,7 @@ function ADVENTURE_BOOK_FISHING_CONTENT.FISH_INFO(itemClsID)
 	retTable['trade_team'] = 0
 	retTable['trade_user'] = 0
 
-	if TryGetProp(itemCls, "TeamTrade") == "YES" then
+	if TryGetProp(itemCls, "ShopTrade") == "YES" then
 		retTable['trade_shop'] = 1
 	end
 	if TryGetProp(itemCls, "MarketTrade") == "YES" then
@@ -65,12 +65,10 @@ end
 
 function ADVENTURE_BOOK_FISHING_CONTENT.FILTER_LIST(list, sortOption)
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_ITEM_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_ITEM_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-		table.sort(list, ADVENTURE_BOOK_SORT_ASC);
 	end
 	return list;
 end

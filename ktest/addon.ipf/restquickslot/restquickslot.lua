@@ -21,7 +21,7 @@ function RESTQUICKSLOT_UPDATE_HOTKEYNAME(frame)
 end;
 
 function RESTQUICKSLOT_ON_ITEM_CHANGE(frame)
-	-- ¿ì¼± °Á´Ù ¾÷µ¥ÀÌÆ® ÇÏ´Â°Å·Î
+	-- ï¿½ì¼± ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½Ï´Â°Å·ï¿½
 	if frame:IsVisible() == 1 then
 		ON_RESTQUICKSLOT_OPEN(frame);
 	end
@@ -125,7 +125,6 @@ end
 
 function SET_REST_QUICK_SLOT(slot, cls)
 
-	slot:SetEventScript(ui.LBUTTONUP, cls.Script);
 	slot:SetUserValue("REST_TYPE", cls.ClassID);
 	
 	local icon 	= CreateIcon(slot);
@@ -163,6 +162,14 @@ function SET_REST_QUICK_SLOT(slot, cls)
 			icon:SetGrayStyle(1);
 		end
 	end
+	if QSLOT_ENABLE_INDUN(cls) == false then
+		slot:GetIcon():SetGrayStyle(1);
+		
+	else
+		slot:SetEventScript(ui.LBUTTONUP, cls.Script);
+	end
+	
+
 end
 
 function REST_SLOT_USE(frame, slotIndex)
@@ -175,6 +182,11 @@ function REST_SLOT_USE(frame, slotIndex)
 	local slot = GET_CHILD(frame, "slot"..slotIndex+1, "ui::CSlot");	
 	local type = slot:GetUserValue("REST_TYPE");
 	local cls = GetClassByType("restquickslotinfo", type);	
+
+	if QSLOT_ENABLE_INDUN(cls) == false then
+		return;
+	end
+
 	local scp = _G[cls.Script];
 	if scp == nil then
 		print(cls.Script);
@@ -308,4 +320,17 @@ function QSLOT_VISIBLE_DISPELLER_CRAFT()
 	end
 
 	return 0;
+end
+
+function QSLOT_ENABLE_INDUN(cls)
+	if  session.world.IsIntegrateServer() == true or
+		session.world.IsIntegrateIndunServer() == true or
+	    session.IsMissionMap() == true then    
+	    if cls.IndunEnabled == "true" then
+			return true;
+		else
+			return false;
+		end
+    end
+	return true;
 end

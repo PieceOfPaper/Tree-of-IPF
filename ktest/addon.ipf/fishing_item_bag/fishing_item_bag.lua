@@ -5,6 +5,10 @@ function FISHING_ITEM_BAG_ON_INIT(addon, frame)
 end
 
 function FISHING_ITEM_BAG_TOGGLE_UI()
+    if app.IsBarrackMode() == true then
+		return;
+	end
+
     local frame = ui.GetFrame('fishing_item_bag');
     if frame ~= nil and frame:IsVisible() == 1 then
         ui.CloseFrame('fishing_item_bag');

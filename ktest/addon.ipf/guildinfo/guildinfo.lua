@@ -15,9 +15,10 @@
     addon:RegisterMsg('GUILD_PROPERTY_UPDATE', 'GUILDINFO_UPDATE_PROPERTY');    
     addon:RegisterMsg("GUILD_EMBLEM_UPDATE", 'ON_UPDATE_GUILD_EMBLEM');
     addon:RegisterMsg('COLONY_ENTER_CONFIG_FAIL', 'GUILDINFO_COLONY_INIT_RADIO');
+    addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
 end
 
-function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)
+function UI_CHECK_GUILD_UI_OPEN(propname, propvalue)    
 	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
 	if pcparty == nil then
 		return 0;
@@ -142,10 +143,12 @@ function GUILDINFO_FORCE_CLOSE_UI()
     end
 end
 
-function GUILDINFO_CLOSE_UI(frame)
+function GUILDINFO_CLOSE_UI(frame)    
     ui.CloseFrame('guildinven_send');
     ui.CloseFrame('guild_authority_popup');
     ui.CloseFrame('guildemblem_change');
+
+    frame:ShowWindow(0);
 end
 
 function GUILDINFO_MOVE_START(frame)
@@ -156,6 +159,11 @@ function GUILDINFO_UPDATE_PROPERTY(frame, msg, argStr, argNum)
     if argStr == 'EnableEnterColonyWar' then
         GUILDINFO_COLONY_INIT_RADIO(frame);
         return;
+    elseif argStr == 'GuildOnlyAgit' then
+        GUILDINFO_OPTION_INIT(frame, frame);
+        return;
+    elseif argStr == 'GuildAsset' then
+        ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum);
     end
 end
 
@@ -206,4 +214,16 @@ end
 
 function REGISTER_GUILD_EMBLEM(frame)
    GUILDEMBLEM_CHANGE_INIT(frame);
+end
+
+function UI_TOGGLE_GUILD()
+    if app.IsBarrackMode() == true then
+		return;
+	end
+
+	local guildinfo = session.GetGuildInfo();
+	if guildinfo == nil then
+		return;
+	end
+	ui.ToggleFrame('guildinfo');
 end

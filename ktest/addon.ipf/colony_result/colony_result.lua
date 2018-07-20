@@ -18,13 +18,18 @@ function COLONY_RESULT_OPEN(isWin, argStr)
 end
 
 function COLONY_RESULT_INIT(frame, isWin, argStr)
+    local WIN_EFFECT_NAME = frame:GetUserConfig('WIN_EFFECT_NAME');
+    local LOSE_EFFECT_NAME = frame:GetUserConfig('LOSE_EFFECT_NAME');
+    local EFFECT_SCALE = tonumber(frame:GetUserConfig('EFFECT_SCALE'));
+
     local winBox = GET_CHILD_RECURSIVELY(frame, 'winBox');
     local loseBox = GET_CHILD_RECURSIVELY(frame, 'loseBox');
     if isWin == 1 then
         winBox:ShowWindow(1);
         loseBox:ShowWindow(0);
 
-        imcSound.PlaySoundEvent('battle_win');        
+        imcSound.PlaySoundEvent('battle_win');
+        winBox:PlayUIEffect(WIN_EFFECT_NAME, EFFECT_SCALE, 'COLONY_WIN');
     else
         local winnerInfoBox = GET_CHILD_RECURSIVELY(loseBox, 'winnerInfoBox');
         if argStr ~= 'None' then
@@ -49,7 +54,8 @@ function COLONY_RESULT_INIT(frame, isWin, argStr)
         winBox:ShowWindow(0);
         loseBox:ShowWindow(1);
 
-        imcSound.PlaySoundEvent('battle_lose');
+        imcSound.PlaySoundEvent('battle_lose');        
+        loseBox:PlayUIEffect(LOSE_EFFECT_NAME, EFFECT_SCALE, 'COLONY_LOSE');
     end
 end
 

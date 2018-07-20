@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
 	<Game Name="F_CO_OP_PILGRIMROAD_46" minLv="0" maxLv="0" playerCountCheckDestroy="0" startWaitSec="-1392508929">
 		<StageList>
@@ -153,7 +154,7 @@
 								<Num Num="1"/>
 							</ToolScp>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="정화된 순례자 석상에서 나온 성스러운 힘이 성수에 깃듭니다!{nl}1분 동안 성수의 사용 시간이 빨라지고 성수의 힘이 더 강해집니다!"/>
+								<Str Str="정화된 순례자 석상에서 나온 성스러운 힘이 성수에 깃듭니다!{nl}90초 동안 성수의 사용 시간이 빨라지고 성수의 힘이 더 강해집니다!"/>
 								<Str Str="Clear"/>
 								<Num Num="8"/>
 							</ToolScp>
@@ -433,7 +434,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="모든 순례자 석상을 정화했지만 아직 이곳엔 오염의 기운이 가득합니다.{nl}석상의 성스러운 기운이 오래 가도록 계속해서 정화해주세요!"/>
+								<Str Str="모든 순례자 석상을 정화했지만 아직 이곳엔 오염의 기운이 가득합니다.{nl}정화의 기운이 지속되도록 계속해서 정화해주세요!"/>
 								<Str Str="Clear"/>
 								<Num Num="5"/>
 							</ToolScp>

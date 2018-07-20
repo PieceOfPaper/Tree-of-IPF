@@ -147,6 +147,7 @@ function ADVENTURE_BOOK_MONSTER_CONTENT.MONSTER_INFO(monClsID)
 		retTable['attribute'] = retTable['attribute'] .. attr;
 	end
 	retTable['armor_material'] = TryGetProp(monCls, "ArmorMaterial");
+	retTable['level'] = TryGetProp(monCls, "Level");
 	retTable['desc'] = TryGetProp(monCls, "Desc");
 	retTable['kill_count'] = ADVENTURE_BOOK_MONSTER_CONTENT.MONSTER_KILL_COUNT(monClsID)
 	retTable['is_found']=ADVENTURE_BOOK_MONSTER_CONTENT.EXIST_IN_HISTORY(monClsID)
@@ -159,16 +160,6 @@ end
 
 function ADVENTURE_BOOK_MONSTER_CONTENT.SORT_NAME_BY_CLASSID_DES(a, b)
 	return ADVENTURE_BOOK_SORT_PROP_BY_CLASSID_ASC('Monster', 'Name', b, a)
-end
-
-function ADVENTURE_BOOK_MONSTER_CONTENT.SORT_DEFAULT(a, b)
-	local exist_func = ADVENTURE_BOOK_MONSTER_CONTENT['EXIST_IN_HISTORY']
-	if exist_func(a) == 1 and exist_func(b) == 0 then
-		return true;
-	elseif  exist_func(a) == 0 and exist_func(b) == 1 then
-		return false;
-	end
-	return a < b;
 end
 
 function ADVENTURE_BOOK_MONSTER_CONTENT.FILTER_LIST(list, sortOption, gradeOption, raceOption, searchText)
@@ -194,12 +185,10 @@ function ADVENTURE_BOOK_MONSTER_CONTENT.FILTER_LIST(list, sortOption, gradeOptio
 
 	list = ADVENTURE_BOOK_SEARCH_PROP_BY_CLASSID_FROM_LIST(list, "Monster", "Name", searchText)
 
-	if sortOption == 1 then
+	if sortOption == 0 then
         table.sort(list, ADVENTURE_BOOK_MONSTER_CONTENT['SORT_NAME_BY_CLASSID_ASC']);
-	elseif sortOption == 2 then
+	elseif sortOption == 1 then
         table.sort(list, ADVENTURE_BOOK_MONSTER_CONTENT['SORT_NAME_BY_CLASSID_DES']);
-	else
-		table.sort(list, ADVENTURE_BOOK_MONSTER_CONTENT['SORT_DEFAULT']);
 	end
 	return list;
 end

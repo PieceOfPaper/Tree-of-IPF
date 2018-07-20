@@ -474,7 +474,7 @@
 							</ToolScp>
 						</execList>
 					</Event>
-					<Event eventName="GOAL_IN">
+					<Event execCount="1" eventName="GOAL_IN">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO" CondFunc="">
 								<Str Str="CLEAR1"/>
@@ -489,7 +489,7 @@
 						</condList>
 						<execList>
 							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-								<Str Str="대다수의 교역품을 되찾았습니다!{nl}아직 놓친 교역품이 있을지도 모르니 조금만 더 찾아주세요!"/>
+								<Str Str="대다수의 교역품을 되찾았습니다.{nl}아직 놓친 교역품이 있을지도 모르니 조금만 더 찾아주세요!"/>
 								<Str Str="Clear"/>
 								<Num Num="5"/>
 							</ToolScp>

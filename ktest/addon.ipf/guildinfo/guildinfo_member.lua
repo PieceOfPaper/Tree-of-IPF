@@ -15,6 +15,7 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
     local leaderAID = guild.info:GetLeaderAID();
 
     local onlineCnt = 0;
+    local MEMBER_TEXT_LIMIT_BYTE = tonumber(frame:GetUserConfig('MEMBER_TEXT_LIMIT_BYTE'));    
     local list = session.party.GetPartyMemberList(PARTY_GUILD);
 	local count = list:Count();
 	for i = 0 , count - 1 do
@@ -66,6 +67,7 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
         local name = partyMemberInfo:GetName();
         txt_teamname:SetTextByKey('value', partyMemberInfo:GetName());
         txt_teamname:SetTextTooltip(partyMemberInfo:GetName());
+        txt_teamname:SetVisibleByte(MEMBER_TEXT_LIMIT_BYTE);
 
         -- job
         local jobID = partyMemberInfo:GetIconInfo().job;
@@ -84,6 +86,7 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 
         -- duty
         local txt_duty = memberCtrlSet:GetChild('txt_duty');
+        txt_duty:SetVisibleByte(MEMBER_TEXT_LIMIT_BYTE);
         local grade = partyMemberInfo.grade;        
 		if leaderAID == partyMemberInfo:GetAID() then
 			local dutyName = "{ol}{#FFFF00}" .. ScpArgMsg("GuildMaster") .. "{/}{/}";
@@ -101,7 +104,7 @@ function GUILDINFO_INIT_MEMBER_TAB(frame, msg)
 
         SET_EVENT_SCRIPT_RECURSIVELY(memberCtrlSet, ui.RBUTTONDOWN, "POPUP_GUILD_MEMBER");
     end
-    GBOX_AUTO_ALIGN(memberCtrlBox, 0, 0, 0, true, false);
+    GUILDINFO_MEMBER_ONLINE_CLICK(frame);
     memberCtrlBox:SetEventScript(ui.SCROLL, 'SET_AUTHO_MEMBERS_SCROLL');
 
     -- on/off
@@ -144,6 +147,10 @@ end
 function GUILDINFO_MEMBER_ONLINE_CLICK(parent, checkBox)
     local topFrame = parent:GetTopParentFrame();
     local memberCtrlBox = GET_CHILD_RECURSIVELY(topFrame, 'memberCtrlBox');
+    if checkBox == nil then
+        checkBox = GET_CHILD_RECURSIVELY(topFrame, 'memberFilterCheck');
+    end
+
     local childCount = memberCtrlBox:GetChildCount();
     local showOnlyOnline = checkBox:IsChecked();
     for i = 0, childCount - 1 do
@@ -176,7 +183,6 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	
 	if isLeader == 1 and aid ~= myAid then
 		ui.AddContextMenuItem(context, ScpArgMsg("ChangeDuty"), string.format("GUILD_CHANGE_DUTY('%s')", name));
-	  ui.AddContextMenuItem(context, ScpArgMsg("DeleteDuty"), string.format("GUILD_DELETE_DUTY('%s')", name));
 	end
 
 	if (isLeader == 1 or IS_GUILD_AUTHORITY(2) == 1) and aid ~= myAid then
@@ -382,4 +388,27 @@ end
 function OUT_GUILD()
 	ui.Chat("/outguild");
     ui.CloseFrame('guildinfo');
+end
+
+function GUILD_CHANGE_DUTY(name)
+	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);
+	local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
+	local grade = memberInfo.grade;
+	local dutyName = pcparty:GetDutyName(grade);
+
+	local inputFrame = INPUT_STRING_BOX("", "EXEC_GUILD_CHANGE_DUTY", dutyName, nil, 64);
+	inputFrame:SetUserValue("InputType", "InputNameForChange");
+	inputFrame:SetUserValue("NAME", name);	
+end
+
+function EXEC_GUILD_CHANGE_DUTY(frame, ctrl)
+	if ctrl:GetName() == "inputstr" then
+		frame = ctrl;
+	end
+
+	local duty = GET_INPUT_STRING_TXT(frame);
+	local name = frame:GetUserValue("NAME");
+	local memberInfo = session.party.GetPartyMemberInfoByName(PARTY_GUILD, name);		
+	party.ReqPartyNameChange(PARTY_GUILD, PARTY_STRING_DUTY, duty, memberInfo:GetAID());
+	frame:ShowWindow(0);
 end
