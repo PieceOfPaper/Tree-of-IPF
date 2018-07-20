@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="statuecaption" x="0" y="0" width="350" height="220" create="open">
+    <frame layout_gravity="left top" scale_align="left top"/>
+    <option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
+    <layer layerlevel="30"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input hittest="true" hittestframe="false"/>
+    <controls>
+        <richtext name="title" margin="26 0 0 0" rect="0 0 300 109" format="{@sti9}%s{/}{nl}{@st42}%s{/}" param1="title" param1_def="TeamBattle League Champion" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" param2="name" param2_def="AABBB (AABB0"/>
+    </controls>
+</uiframe>

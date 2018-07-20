@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="necronomicon" x="0" y="0" width="470" height="450">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<opencheck scp="UI_CHECK_NECRO_UI_OPEN" strarg="necronomicon" numarg="1"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="NECRONOMICON_FRAME_OPEN" CloseScp="NECRONOMICON_FRAME_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 470 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}네크로노미콘{/}" fontname="default" spacey="0"/>
+		<button name="close" rect="-10 0 44 44" margin="0 12 2 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;necronomicon&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}네크로노미콘 UI를 닫습니다{/}"/>
+		<groupbox name="necoGbox" rect="0 0 470 800" margin="-10 82 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="true" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+		<button name="btn_next" parent="necoGbox" rect="0 0 40 40" margin="350 60 0 0" layout_gravity="left top" LBtnUpScp="SET_NECRO_CARD_ROTATE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clickrgn="-40 -40 100 100" clicksound="button_click_big" image="button_right_select2" oversound="button_over"/>
+		<picture name="bgimage" parent="necoGbox" rect="0 0 470 200" margin="20 225 0 0" layout_gravity="center top" image="Magic_necro" stretch="false"/>
+		<picture name="bgimage_ring" parent="necoGbox" rect="0 0 440 200" margin="10 150 0 0" layout_gravity="center top" image="Magic_necro_ring" stretch="false"/>
+		<picture name="shadow2" parent="necoGbox" rect="0 0 103 26" margin="30 287 0 0" layout_gravity="left top" image="Magic_necro_shadow" stretch="false"/>
+		<picture name="shadow2_1" parent="necoGbox" rect="0 0 103 26" margin="30 287 0 0" layout_gravity="left top" image="Magic_necro_shadow" stretch="false"/>
+		<picture name="shadow3" parent="necoGbox" rect="0 0 103 26" margin="160 400 0 0" layout_gravity="left top" image="Magic_necro_shadow" stretch="false"/>
+		<picture name="shadow3_1" parent="necoGbox" rect="0 0 103 26" margin="160 400 0 0" layout_gravity="left top" image="Magic_necro_shadow" stretch="false"/>
+		<picture name="shadow4" parent="necoGbox" rect="0 0 103 26" margin="0 340 28 0" layout_gravity="right top" image="Magic_necro_shadow" stretch="false"/>
+		<picture name="shadow4_1" parent="necoGbox" rect="0 0 103 26" margin="0 340 28 0" layout_gravity="right top" image="Magic_necro_shadow" stretch="false"/>
+		<picture name="subboss1_bg" parent="necoGbox" rect="0 0 170 214" margin="0 25 0 0" layout_gravity="center top" image="bosscard_big_on" stretch="false"/>
+		<picture name="subboss2_bg" parent="necoGbox" rect="0 0 102 132" margin="30 160 0 0" layout_gravity="left top" image="bosscard_small_on" stretch="false"/>
+		<picture name="subboss3_bg" parent="necoGbox" rect="0 0 102 132" margin="160 270 0 0" layout_gravity="left top" image="bosscard_small_on" stretch="false"/>
+		<picture name="subboss4_bg" parent="necoGbox" rect="0 0 102 132" margin="0 210 30 0" layout_gravity="right top" image="bosscard_small_on" stretch="false"/>
+		<slot name="subboss1" parent="necoGbox" rect="0 0 130 174" margin="0 43 0 0" layout_gravity="center top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<slot name="subboss2" parent="necoGbox" rect="0 0 91 121" margin="35 165 0 0" layout_gravity="left top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<slot name="subboss3" parent="necoGbox" rect="0 0 91 121" margin="165 275 0 0" layout_gravity="left top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<slot name="subboss4" parent="necoGbox" rect="0 0 91 121" margin="0 215 36 0" layout_gravity="right top" DropScp="NECRONOMICON_SLOT_DROP" PopScp="NECRONOMICON_SLOT_RESET" RBtnDownScp="NECRONOMICON_SLOT_RESET" stretch="false"/>
+		<richtext name="subbosstext1" parent="necoGbox" rect="0 0 80 150" margin="0 200 0 0" layout_gravity="center top" caption="1" stretch="false"/>
+		<richtext name="subbosstext2" parent="necoGbox" rect="0 0 80 150" margin="-150 290 0 0" layout_gravity="center top" caption="2" stretch="false"/>
+		<richtext name="subbosstext3" parent="necoGbox" rect="0 0 80 150" margin="-20 400 0 0" layout_gravity="center top" caption="3" stretch="false"/>
+		<richtext name="subbosstext4" parent="necoGbox" rect="0 0 80 150" margin="155 340 0 0" layout_gravity="center top" caption="4" stretch="false"/>
+		<groupbox name="descriptGbox" parent="necoGbox" rect="0 0 450 330" margin="10 0 0 20" layout_gravity="center bottom" draw="true" hittestbox="false" skin="test_frame_midle"/>
+		<richtext name="desc_name" parent="descriptGbox" rect="0 0 250 95" margin="8 10 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="{@st41}소환체 : {#ffcc33}%s{/}" param1="bossname"/>
+		<richtext name="desc_needparts" parent="descriptGbox" rect="0 0 250 95" margin="8 300 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_ol" format="{@st41}필요 파편 : %s개" param1="value"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="testquesten_button"/>
+		<groupbox name="deadpartsGbox" rect="0 0 470 205" margin="0 0 0 20" layout_gravity="center bottom" draw="false" hittestbox="false" skin="pipwin_low"/>
+		<richtext name="deadpartsGboxTitle" parent="deadpartsGbox" rect="0 0 80 30" margin="0 25 0 0" layout_gravity="center top" caption="파편의 개수" fontname="white_20_ol" stretch="false"/>
+		<gauge name="part_gauge1" parent="deadpartsGbox" rect="0 0 300 50" margin="0 0 0 0" layout_gravity="center center" inverse="false" point="0" skin="gauge_itemtooltip_poten" text1="%v / %m" textalign1="center center" textfont1="yellow_16_b" textoffset1="0 -1"/>
+		<richtext name="desc_hp" parent="descriptGbox" rect="0 0 250 95" margin="10 40 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="H P : {@st41b}%s" param1="value"/>
+		<richtext name="desc_fower" parent="descriptGbox" rect="0 0 250 95" margin="10 68 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="공격력 : {@st41b}%s" param1="value"/>
+		<richtext name="desc_defense" parent="descriptGbox" rect="0 0 250 95" margin="10 95 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="방어력 : {@st41b}%s" param1="value"/>
+		<richtext name="desc_Str" parent="descriptGbox" rect="0 0 250 95" margin="10 125 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="힘 : {@st41b}%s" param1="value"/>
+		<richtext name="desc_Con" parent="descriptGbox" rect="0 0 250 95" margin="10 155 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="체력 : {@st41b}%s" param1="value"/>
+		<richtext name="desc_Int" parent="descriptGbox" rect="0 0 250 95" margin="10 185 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="지능 : {@st41b}%s" param1="value"/>
+		<richtext name="desc_Mna" parent="descriptGbox" rect="0 0 250 95" margin="10 215 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="민첩 : {@st41b}%s" param1="value"/>
+		<richtext name="desc_Dex" parent="descriptGbox" rect="0 0 250 95" margin="10 250 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="정신 : {@st41b}%s" param1="value"/>
+	</controls>
+</uiframe>

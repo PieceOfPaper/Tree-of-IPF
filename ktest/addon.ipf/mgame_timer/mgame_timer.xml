@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="mgame_timer" x="0" y="0" width="450" height="100" create="open" layout_gravity="center center">
+    <frame title="{@st41}NewUI{/}" fasthide="true" titlepos="0 -8" layout_gravity="right center" margin="0 -67 10 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="none"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="txt_round" rect="0 0 272 80" margin="-87 8 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st43}%s{/}" maxwidth="0" param1="value" param1_def="TOGAMESTASD" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <controlset name="timer" type="timer" margin="291 30 0 0" rect="0 0 150 120" hittest="true" layout_gravity="left top"/>
+    </controls>
+</uiframe>

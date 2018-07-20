@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="grimoire" x="0" y="0" width="470" height="450">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="0 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <skin frameskin="None"/>
+    <opencheck scp="UI_CHECK_GRIMOIRE_UI_OPEN" strarg="grimoire" numarg="1"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <script OpenScp="GRIMOIRE_FRAME_OPEN" CloseScp="GRIMOIRE_FRAME_CLOSE"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
+        <groupbox name="pip4" rect="0 0 470 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+        <animpicture name="animpic" blend="50" texelx="0" texely="0" texelwidth="360" texelheight="360" spacex="1" spacey="0" loop="true" ticktime="0.2" animcount="8" layout_gravity="left top" rect="0 0 360 360" margin="55 150 0 0" image="glimoire_ani" hittest="false" playanim="true" stretch="true"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}그리모어{/}" fontname="default" spacey="0"/>
+        <button name="close" rect="-10 0 44 44" margin="0 12 2 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;grimoire&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}그리모어 UI를 닫습니다{/}"/>
+        <picture name="question" rect="0 0 44 44" margin="12 12  0 0" layout_gravity="left top" hittest="true" image="testquesten_button" texttooltip="{@st59b}그리모어{nl}{@st59s} - 카드를 덱에 올리고 소환술을 실행합니다{/}"/>
+        <groupbox name="grimoireGbox" rect="0 0 470 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="gem_socket_bg"/>
+        <!--picture name="bgimage" parent="grimoireGbox" rect="0 0 310 306" margin="0 125 0 0" layout_gravity="center top" hittest="false" image="Magic_gli" stretch="true"/-->
+        <picture name="subboss1_bg" parent="grimoireGbox" rect="0 0 185 240" margin="0 25 0 0" layout_gravity="center top" hittest="false" image="bosscard_big_on" stretch="true"/>
+        <picture name="subboss2_bg" parent="grimoireGbox" rect="0 0 135 170" margin="0 310 0 0" layout_gravity="center top" hittest="false" image="bosscard_small_on" stretch="true"/>
+		<slot name="Sorcerer_bosscard1" parent="grimoireGbox" rect="0 0 145 200" margin="0 45 0 0" layout_gravity="center top" DropScp="GRIMOIRE_SLOT_DROP" draw="false" skin="None" stretch="true" PopScp="GRIMOIRE_CARD_UI_RESET" RBtnDownScp="GRIMOIRE_CARD_UI_RESET"/>
+		<slot name="Sorcerer_bosscard2" parent="grimoireGbox" rect="0 0 120 160" margin="0 315 0 0" layout_gravity="center top" DropScp="GRIMOIRE_SLOT_DROP" draw="false" skin="None" stretch="true" PopScp="GRIMOIRE_CARD_UI_RESET" RBtnDownScp="GRIMOIRE_CARD_UI_RESET"/>
+        <groupbox name="descriptGbox" parent="grimoireGbox" rect="0 0 450 445" margin="0 0 0 15" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle"/>
+        <richtext name="desc_skill" parent="descriptGbox" rect="0 0 250 95" margin="5 10 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_b" format="{@st41}내 소환수 정보"/>
+        <richtext name="desc_main_card" parent="descriptGbox" rect="0 0 250 95" margin="10 40 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="메인 카드"/>
+        <richtext name="desc_main_assist_card" parent="descriptGbox" rect="0 0 250 95" margin="10 68 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="보조카드"/>
+        <richtext name="desc_hp" parent="descriptGbox" rect="0 0 250 95" margin="10 95 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="HP"/>
+        <richtext name="desc_attack" parent="descriptGbox" rect="0 0 250 95" margin="10 125 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="물리 공격력"/>
+        <richtext name="desc_Mattack" parent="descriptGbox" rect="0 0 250 95" margin="10 155 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="마법 공격력"/>
+        <richtext name="desc_defen" parent="descriptGbox" rect="0 0 250 95" margin="10 185 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="방어력"/>
+        <richtext name="desc_mdefen" parent="descriptGbox" rect="0 0 250 95" margin="10 215 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="마법 방어력"/>
+        <richtext name="desc_stat" parent="descriptGbox" rect="0 0 250 95" margin="5 250 0 0" layout_gravity="left top" fixwidth="false" fontname="white_18_b" format="{@st41}스탯"/>
+        <richtext name="desc_power" parent="descriptGbox" rect="0 0 250 95" margin="10 280 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="힘"/>
+        <richtext name="desc_con" parent="descriptGbox" rect="0 0 250 95" margin="10 310 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="체력"/>
+        <richtext name="desc_int" parent="descriptGbox" rect="0 0 250 95" margin="10 340 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="지능"/>
+        <richtext name="desc_dex" parent="descriptGbox" rect="0 0 250 95" margin="10 370 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="민첩"/>
+        <richtext name="desc_cri" parent="descriptGbox" rect="0 0 250 95" margin="10 400 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="정신"/>
+        <richtext name="my_card" parent="descriptGbox" rect="0 0 250 95" margin="190 40 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="actorcard" textalign="right center"/>
+        <richtext name="my_assist_card" parent="descriptGbox" rect="0 0 250 95" margin="190 68 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="actorassistcard" textalign="right center"/>
+        <richtext name="my_hp" parent="descriptGbox" rect="0 0 250 95" margin="190 95 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_attack" parent="descriptGbox" rect="0 0 250 95" margin="190 125 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_Mattack" parent="descriptGbox" rect="0 0 250 95" margin="190 155 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_defen" parent="descriptGbox" rect="0 0 250 95" margin="190 185 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_Mdefen" parent="descriptGbox" rect="0 0 250 95" margin="190 215 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_power" parent="descriptGbox" rect="0 0 250 95" margin="190 280 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_con" parent="descriptGbox" rect="0 0 250 95" margin="190 310 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_int" parent="descriptGbox" rect="0 0 250 95" margin="190 340 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_mna" parent="descriptGbox" rect="0 0 250 95" margin="190 370 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_dex" parent="descriptGbox" rect="0 0 250 95" margin="190 400 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+    </controls>
+</uiframe>

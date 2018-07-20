@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="sysmenu_custom" x="0" y="0" width="460" height="90">
+    <frame layout_gravity="right bottom" margin="0 0 0 0" fasthide="true" hideprocess="true" scale_align="center bottom"/>
+    <layer layerlevel="89"/>
+    <option visible="true" closebutton="false" alwaysVisible="true"/>
+    <input hittest="true" hittestframe="false"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+    <controls>
+        <groupbox name="maingbox" rect="0 0 460 90" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="None"/>
+    </controls>
+</uiframe>

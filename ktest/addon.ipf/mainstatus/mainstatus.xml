@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uitile name="mainstatus" x="5" y="82" width="260" height="42" bodycolor="#ffff00" bodyalpha="0">
+    <frame layout_gravity="left top"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="100"/>
+    <option visible="false" hideable="false" closebutton="false"/>
+    <userconfig Font_Normal="{@st45tw3}" Font_Add="{@st45tw3}"/>
+    <controls>
+        <picture name="ATK_icon" rect="-80 0 24 24" layout_gravity="center top" hittest="true" image="atk_icon" stretch="true" texttooltip="공격력"/>
+        <picture name="SkillPower_icon" rect="-20 0 24 24" layout_gravity="center top" hittest="true" image="skillpower_icon" stretch="true" texttooltip="주문력"/>
+        <picture name="DEF_icon" rect="20 0 24 24" layout_gravity="center top" hittest="true" image="def_icon" stretch="true" texttooltip="방어력"/>
+        <picture name="RR_icon" rect="60 0 24 24" layout_gravity="center top" hittest="true" image="rr_icon" stretch="true" texttooltip="마법저항력"/>
+        <picture name="CRTHR_icon" rect="100 0 24 24" layout_gravity="center top" hittest="true" image="criticalrate_icon" stretch="true" texttooltip="치명타율"/>
+        <richtext name="MINATK_text" rect="-80 0 40 24" layout_gravity="center bottom" caption="{@st45tw3}64" hittest="false"/>
+        <richtext name="SkillPower_text" rect="-20 0 30 24" layout_gravity="center bottom" caption="{@st45tw3}128" hittest="false"/>
+        <richtext name="DEF_text" rect="20 0 30 24" layout_gravity="center bottom" caption="{@st45tw3}64" hittest="false"/>
+        <richtext name="RR_text" rect="60 0 30 24" layout_gravity="center bottom" caption="{@st45tw3}256" hittest="false"/>
+        <richtext name="CRTHR_text" rect="100 0 30 24" layout_gravity="center bottom" caption="{@st45tw3}64" hittest="false"/>
+    </controls>
+</uitile>

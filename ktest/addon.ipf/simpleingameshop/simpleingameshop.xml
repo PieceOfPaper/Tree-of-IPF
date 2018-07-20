@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="simpleingameshop" x="0" y="0" width="460" height="800" create="open">
+  <frame title="{@st43}{s22}스팀 인벤토리 아이템" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0"/>
+  <option closebutton="false"/>
+  <draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+  <script OpenScp="SIMPLEINGAMESHOP_OPEN"/>
+  <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+  <layer layerlevel="99"/>
+  <opencheck scp="UI_CHECK_SIMPLEINGAMESHOP_UI_OPEN" strarg="simpleingameshop" numarg="1"/>
+  <controls>
+    <groupbox name="bg" rect="0 0 460 800" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="token_skin2"/>
+    <picture name="shop_middle" rect="0 0 316 165" margin="115 0 0 0" layout_gravity="left top" hittest="true" image="tpchange_middle"/>
+    <richtext name="notice" parent="bg" margin="0 150 0 0" rect="0 0 420 100" caption="{@st66}Non-refundable once TP is obtained.{nl}Please refer to Steam's Refund policy and our Official Site's FAQ for details. {/}" fixwidth="true" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+    <groupbox name="itemlist" rect="0 0 425 505" margin="0 260 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
+    <button name="close" rect="0 0 44 44" margin="0 75 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;simpleingameshop&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
+  </controls>
+</uiframe>

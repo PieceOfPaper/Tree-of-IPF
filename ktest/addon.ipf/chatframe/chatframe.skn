@@ -1,0 +1,34 @@
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<skinset name="chatframe">
+	<imagelist/>
+	<skinlist>
+		<skin name="chattitlebar" texture="\skin\mainframe_A.tga">
+			<img name="left" imgrect="714 891 44 44"/>
+			<img name="middle" imgrect="759 891 44 44"/>
+			<img name="right" imgrect="804 891 44 44"/>
+		</skin>
+		<skin name="textview" texture="\skin\mainframe_A.tga">
+			<img name="topleft" imgrect="292 492 20 20"/>
+			<img name="topcore" imgrect="313 492 8 20"/>
+			<img name="topright" imgrect="322 492 20 20"/>
+			<img name="bodyleft" imgrect="292 513 20 8"/>
+			<img name="bodycore" imgrect="313 513 8 8"/>
+			<img name="bodyright" imgrect="322 513 20 8"/>
+			<img name="bottomleft" imgrect="292 522 20 20"/>
+			<img name="bottomcore" imgrect="313 522 8 20"/>
+			<img name="bottomright" imgrect="322 522 20 20"/>
+		</skin>
+		<skin name="editbox" texture="\skin\login_barrack.tga">
+			<img name="topleft" imgrect="0 229 20 18"/>
+			<img name="topcore" imgrect="22 229 100 18"/>
+			<img name="topright" imgrect="132 229 20 18"/>
+			<img name="bodyleft" imgrect="0 247 20 2"/>
+			<img name="bodycore" imgrect="22 247 100 2"/>
+			<img name="bodyright" imgrect="132 247 20 2"/>
+			<img name="bottomleft" imgrect="0 249 20 18"/>
+			<img name="bottomcore" imgrect="22 249 100 18"/>
+			<img name="bottomright" imgrect="132 249 20 18"/>
+		</skin>
+	</skinlist>
+</skinset>

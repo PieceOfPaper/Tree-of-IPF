@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="itemtranscend" x="0" y="0" width="500" height="609" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="ITEMTRASCEND_OPEN" CloseScp="ITEMTRANSCEND_CLOSE"/>
+	<userconfig TRANS_SUCCESS_SOUND="sys_transcend_success" TRANS_FAIL_SOUND="sys_transcend_success" TRANS_BTN_OVER_SOUND="button_over" TRANS_BTN_OK_SOUND="button_click_stats_OK" TRANS_EVENT_EXEC="button_click_skill_up" TRANS_CAST="sys_transcend_cast"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="gbox" rect="0 0 507 1014" margin="9 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 63 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아이템 초월"/>
+		<button name="reg" parent="gbox" rect="0 0 180 50" margin="-5 0  0 80" layout_gravity="center bottom" LBtnUpScp="ITEMTRANSCEND_EXEC" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="초월" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big">
+			<uieffect effect="I_screen_button" scale="45" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
+		</button>
+		<button name="close" rect="0 0 44 44" margin="0 35 30 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMTRANSCEND_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<picture name="pic" parent="gbox" rect="0 0 408 707" margin="-15 40  0 0" layout_gravity="center top" changecursor="false" hittest="true" image="transcendence_bg" stretch="false"/>
+		<animpicture name="animpic_bg" blend="50" texelx="0" texely="0" texelwidth="408" texelheight="707" spacex="1" spacey="0" loop="false" ticktime="0.1" animcount="14" layout_gravity="center top" rect="0 0 408 707" margin="-9 100  0 0" image="transcendence_ani" hittest="false" playanim="true" stretch="false" hideAnimEnd="true" visible="false" tickscript="ITEMTRANSCEND_BG_ANIM_TICK"/>
+		<animpicture name="animpic_slot" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="50 160 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true" hideAnimEnd="true" visible="false"/>
+		<slot name="slotTemp" margin="175 305 0 0" rect="0 0 140 140" movepop="false" skin="none" layout_gravity="left top">
+			<uieffect effect="UI_light013_spark_blue" scale="10" overlab="No" sound="None" offset="0 0" playtime="5" duration="10" conditon="active" event="TRANSCEND_RESULT_1"/>
+		</slot>
+		<slot name="slot" margin="175 305 0 0" rect="0 0 140 140" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="ITEM_TRANSEND_DROP" RBtnUpScp="REMOVE_TRANSCEND_TARGET_ITEM" layout_gravity="left top">
+			<uieffect effect="I_TRANSCEND_light" scale="5" overlab="No" sound="None" offset="0 0" playtime="3" duration="2" conditon="active" event="TRANSCEND_RESULT_1"/>
+		</slot>
+		<slot name="slot_material" margin="200 590 0 0" rect="0 0 90 90" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="DROP_TRANSCEND_MATERIAL" RBtnUpScp="REMOVE_TRANSCEND_MTRL_ITEM" layout_gravity="left top">
+			<uieffect effect="I_sys_item_slot_loop" scale="4" overlab="No" sound="None" offset="-1 0" playtime="0.1" duration="1" conditon="active" event="TRANSCEND_RESULT_1"/>
+		</slot>
+		<picture name="question" rect="0 0 44 44" margin="30 30 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}아이템 초월{nl}{@st59s}- 모루 강화와는 다른 아이템 성능 강화{nl}- 초월 가능 장비 : 무기, 방어구, 장신구{nl}- 초월 성공 확률 = 넣은 재료 개수 / 최대 필요 재료 개수{nl}- 성공 시, 초월이 1단계 상승(최대 10단계){nl}- 실패 시, 초월과 포텐셜이 1단계 하락(초월은 1단계 이하로 떨어지지 않음){nl}- 초월시킨 장비는 거래 제한으로 변경됨{/}"/>
+		<groupbox name="groupbox_2" margin="130 680 0 0" rect="0 0 250 55" hittestbox="false" skin="monster_skill_bg" layout_gravity="left top"/>
+		<richtext name="text_material" margin="95 190 0 0" rect="0 0 300 60" format="{@st41}{s18}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" openAnim="popup_start3" closeAnim="popup_end3"/>
+		<richtext name="text_successratio" margin="0 690 0 0" rect="0 0 400 50" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" openAnim="popup_start3" closeAnim="popup_end3"/>
+		<groupbox name="gbox_result" margin="15 0 0 145" rect="0 0 469 130" hittestbox="false" skin="test_frame_midle" layout_gravity="left bottom"/>
+		<richtext name="title_result" margin="7 2 0 0" rect="0 0 210 32" format="{@st43}{s18}%s{/}" param1="value" param1_def="초월 결과" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox_result"/>
+		<richtext name="txt_result" margin="0 0 0 0" rect="0 0 420 150" format="{#000000}%s{/}" param1="value" param1_def="Attack + 20{nl}Defence + 20" textalign="center center" resizebytext="ture" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center" parent="gbox_result"/>
+		<richtext name="text_itemstar" margin="20 255 0 0" rect="0 0 460 45" format="{@st42}%s{/}" param1="value" param1_def="itemstar" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="text_itemtranscend" margin="0 430 0 0" rect="0 0 460 45" format="{@st42}%s단계{/}" param1="value" param1_def="15" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" openAnim="popup_start3" closeAnim="popup_end3"/>
+	</controls>
+</uiframe>

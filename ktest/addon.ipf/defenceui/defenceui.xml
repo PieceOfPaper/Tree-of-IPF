@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="defenceui" x="0" y="0" width="400" height="277" create="open" layout_gravity="right bottom">
+    <frame layout_gravity="right top" margin="0 433 20 0"/>
+    <input moveable="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer layerlevel="30"/>
+    <option closebutton="false" hideable="true"/>
+    <skin frameskin="none"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <script OpenScp="DEFENCEUI_OPEN"/>
+    <controls>
+        <groupbox name="gbox" margin="0 0 0 0" rect="0 0 400 282" hittestbox="false" skin="Item_tooltip_unique" layout_gravity="left top"/>
+        <richtext name="txt_towerhp" margin="13 57 0 0" rect="0 0 388 44" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="여신상HP"/>
+        <richtext name="txt_round" margin="16 101 0 0" rect="0 0 388 44" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="라운드"/>
+        <richtext name="txt_pc" margin="15 142 0 0" rect="0 0 388 44" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="플레이어"/>
+        <richtext name="txt_myteam" margin="169 12 0 0" rect="0 0 388 44" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="아군"/>
+        <richtext name="txt_enemyteam" margin="298 12 0 0" rect="0 0 388 44" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="적군"/>
+        <richtext name="txt_our_tower" margin="133 52 0 0" rect="0 0 118 42" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="1111"/>
+        <richtext name="txt_enemy_tower" margin="265 51 0 0" rect="0 0 118 42" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="1111"/>
+        <richtext name="txt_our_round" margin="133 96 0 0" rect="0 0 118 42" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="1111"/>
+        <richtext name="txt_enemy_round" margin="267 97 0 0" rect="0 0 118 42" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="1111"/>
+        <richtext name="txt_our_pccount" margin="134 139 0 0" rect="0 0 118 42" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="1111"/>
+        <richtext name="txt_enemy_pccount" margin="267 139 0 0" rect="0 0 118 42" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="1111"/>
+        <richtext name="txt_time" margin="16 191 0 0" rect="0 0 370 57" textalign="left top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="{@sti1c}%s{/}" param1="value" param1_def="ToStartGame, 1:20"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="switchgender" x="0" y="0" width="450" height="1200" create="open">
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+    <skin frameskin=" "/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <effect open="skilltreeOpen" close="skilltreeClose"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 453 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+        <groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="pipwin_top_cleric"/>
+        <groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
+        <richtext name="title" rect="0 0 200 80" margin="0 14 0 0" layout_gravity="center top" caption="{@st43}스위치 젠더 상점{/}" textalign="left top"/>
+        <tab name="statusTab" rect="0 0 330 40" layout_gravity="left top" LBtnDownScp="SWITCHGENDER_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="69 90 0 0"/>
+        <tabitem name="Itembox1" parent="statusTab" caption="{@st66b}변환{/}" width="160" layout_gravity="left top"/>
+        <tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160" layout_gravity="left top"/>
+        <button name="close" rect="10 0 44 44" margin="0 10 20 0" layout_gravity="right top" LBtnUpScp="SWITCHGENDER_TRY_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}스위치 젠더 UI를 닫습니다{/}"/>
+        <groupbox name="repair" rect="0 0 439 900" margin="0 200 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="flase" skin="" parent="Itembox1"/>
+        <groupbox name="bg_mid" rect="0 0 433 250" margin="0 680 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle" parent="Itembox1"/>
+        <groupbox name="moneyGbox" rect="0 0 405 35" margin="0 170 25 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin" parent="Itembox1"/>
+        <richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="6 8 0 0" layout_gravity="left top" caption="받는 가격 {img silver 20 20} " textalign="left top" fontname="brown_16_b"/>
+        <richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="0 8 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+        <edit name="moneyInput" margin="108 -8 0 0" rect="0 10 290 27" fontname="brown_16" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="moneyGbox" skin=""/>
+        <groupbox name="titleGbox" parent="Itembox1" rect="0 0 405 35" margin="0 132 25 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+        <richtext name="titleStr" parent="titleGbox" rect="0 0 200 80" margin="2 8 0 0" layout_gravity="left top" caption=" 상점 이름" textalign="left top" fontname="brown_16_b"/>
+        <richtext name="title_1" parent="titleGbox" rect="0 0 343 48" margin="0 7 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+        <edit name="titleInput" margin="95 -7 0 0" rect="0 10 290 27" fontname="brown_18" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="titleGbox" skin=""/>
+        <groupbox name="effectGbox" parent="bg_mid" rect="0 0 420 100" margin="-3 10 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+        <labelline name="effectline" parent="effectGbox" rect="0 0 400 2" margin="5 27 0 69" layout_gravity="center top" skin="None"/>
+        <richtext name="effect" parent="effectGbox" rect="0 0 200 80" margin="18 1 0 0" layout_gravity="left top" fontname="black_18_b" caption="효과" textalign="left top"/>
+        <groupbox name="materialGbox" parent="bg_mid" rect="0 0 430 110" margin="-1 89 0 0" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+        <labelline name="line" parent="materialGbox" rect="0 0 400 2" margin="5 27 0 135" layout_gravity="center top" skin="None"/>
+        <groupbox name="reqitem_slot" parent="materialGbox" rect="0 0 70 70" margin="20 31 0 47" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+        <groupbox name="checkbox" margin="9 183 0 0" rect="0 0 430 830" hittestbox="false" skin="none" layout_gravity="left top" hittest="false" parent=""/>
+        <richtext name="material" parent="materialGbox" rect="0 0 200 80" margin="18 1 0 0" layout_gravity="left top" caption="소비재료" fontname="black_18_b" textalign="left top"/>
+        <richtext name="reqitemNameStr" parent="materialGbox" rect="0 0 343 48" margin="97 0 0 50" layout_gravity="left bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66e}%s{/}" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="reqitemImage" parent="materialGbox" rect="0 0 343 70" margin="26 0 0 12" layout_gravity="left bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" param2="guid" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="count" parent="materialGbox" rect="0 0 200 80" margin="97 0 0 25" layout_gravity="left bottom" caption="남은 개수" fontname="black_16_b" textalign="left top"/>
+        <picture name="shawdow" margin="25 400 0 0" rect="5 5 200 80" hittest="false" image="skill-name_bg" stretch="true" changecursor="false" layout_gravity="left top" parent="repair"/>
+        <picture name="changepic_1" margin="149 35 0 0" rect="0 0 280 380" hittest="false" image="mirror_bg" stretch="false" changecursor="false" layout_gravity="left top" parent="repair"/>
+        <picture name="changepic" margin="234 130 0 0" rect="0 0 130 250" hittest="false" image="None" stretch="false" changecursor="false" layout_gravity="left top" parent="repair"/>
+        <picture name="mypic" margin="40 170 0 0" rect="5 5 160 320" hittest="false" image="None" stretch="true" changecursor="false" layout_gravity="left top" parent="repair"/>
+        <richtext name="reqitemCount" parent="materialGbox" rect="0 0 343 48" margin="0 0 29 25" layout_gravity="right bottom" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <button name="btn_cencel" parent="repair" rect="0 0 160 50" margin="220 0 0 95" layout_gravity="left bottom" LBtnUpScp="SWITCHGENDER_TRY_UI_CLOSE" caption="{@st41b}취 소" skin="test_gray_button"/>
+        <button name="btn_excute" parent="repair" rect="0 0 160 50" margin="47 0 0 95" layout_gravity="left bottom" LBtnUpScp="SWITCHGENDER_BUFF_EXCUTE_BTN" caption="{@st41b}확 인" skin="test_red_button"/>
+        <button name="btn_excute_1" parent="repair" rect="0 0 160 50" margin="47 0 0 95" layout_gravity="left bottom" LBtnUpScp="SWITCHGENDER_STORE_OPEN_EXCUTE" caption="{@st41b}열 기" skin="test_red_button"/>
+        <groupbox name="log" parent="Itembox2" rect="0 0 439 900" margin="-2 106 0 10" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
+        <groupbox name="log_gbox" parent="log" rect="0 5 420 800" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+        <button name="btn_close" parent="log" rect="0 0 160 50" margin="0 0 0 1" layout_gravity="center bottom" LBtnUpScp="SWITCHGENDER_STORE_CLOSE" caption="{@st41b}폐점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+        <richtext name="effName" margin="29 81 0 0" rect="0 0 120 24" format="{@st42}%s{nl}{@st42}%s{nl}{@st42}%s{/}" param1="v1" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="effectGbox" param2="v2" param3="v3"/>
+        <richtext name="effValue" margin="29 81 17 0" rect="0 0 120 24" format="{@st42}%s{nl}{@st42}%s{nl}{@st42}%s{/}" param1="v1" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="effectGbox" param2="v2" param3="v3"/>
+        <richtext name="richtext_1" margin="73 20 0 0" rect="0 0 120 24" caption="현재{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="repair"/>
+        <richtext name="richtext_1_1" margin="267 20 0 0" rect="0 0 120 24" caption="변경 후{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="repair"/>
+        <richtext name="richtext_2" margin="17 34 0 0" rect="0 0 120 24" caption="{@st66d}성별 변경{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="effectGbox"/>
+        <richtext name="switch" margin="0 34 16 0" rect="0 0 120 24" format="{@st66d_y}%s{/}" param1="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="effectGbox"/>
+        <groupbox name="targetgBox" parent="bg_mid" rect="0 0 439 180" margin="2 0 0 0" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+        <labelline name="line_1" parent="targetgBox" rect="0 0 400 2" margin="0 0 0 122" layout_gravity="center bottom" skin="None"/>
+        <richtext name="richtext_4" margin="20 30 0 0" rect="0 0 120 24" caption="주의 사항{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="targetgBox"/>
+        <richtext name="richtext_5" margin="22 66 0 0" rect="0 0 120 24" caption="모든 장비 해제 한 뒤에 전환 가능{nl}기본 직업별 코스튬은 성별 자동 변경{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="targetgBox"/>
+        <richtext name="richtext_5_1" margin="22 105 0 0" rect="0 0 120 24" caption="{@st67}기존 성별에 맞게 구매한 유료코스튬은{nl}성별 변환 후, 장착 불가{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="targetgBox"/>
+    </controls>
+</uiframe>

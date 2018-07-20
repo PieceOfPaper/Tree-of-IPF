@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="worldpvp_score" x="0" y="0" width="800" height="150" create="open">
+    <frame title="{@st41}NewUI{/}" titlepos="0 0" layout_gravity="center top" margin="0 0 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="none"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <gauge name="g_team_1" rect="0 0 242 40" margin="45 63 0 0" layout_gravity="left top" inverse="true" maxpoint="1" point="1" skin="gauge_youteam_L"/>
+        <gauge name="g_team_2" rect="0 0 242 40" margin="514 63 0 0" layout_gravity="left top" inverse="false" maxpoint="1" point="1" skin="gauge_myteam_R"/>
+        <picture name="test_pvp_reslut_center" rect="0 0 250 65" margin="1 4 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_center_bg" stretch="true"/>
+        <picture name="test_pvp_gauge_R" rect="0 0 10 40" margin="361 8 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_gauge_R" stretch="false"/>
+        <picture name="test_pvp_gauge_L" rect="0 0 10 40" margin="-360 7 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_gauge_L" stretch="false"/>
+        <picture name="test_pvp_center" rect="0 0 335 160" margin="0 10 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_center" stretch="false"/>
+        <richtext name="txt_round" rect="0 0 138 53" margin="-2 -10 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41}%s{/}" maxwidth="0" param1="value" param1_def="Round" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="txt_rouund" rect="0 0 70 35" margin="-3 10 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="@MGame@Round" param1_def="1" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <groupbox name="icon_team1" rect="0 0 243 38" margin="72 99 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
+        <groupbox name="icon_team2" rect="0 0 243 38" margin="482 98 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
+        <picture name="scorepic_1_1" rect="0 0 27 27" margin="330 73 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_pvp_roundwin2" stretch="false"/>
+        <picture name="scorepic_1_2" rect="0 0 27 27" margin="293 73 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_pvp_roundwin2" stretch="false"/>
+        <picture name="scorepic_2_1" rect="0 0 27 27" margin="444 73 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_pvp_roundwin" stretch="false"/>
+        <picture name="scorepic_2_2" rect="0 0 27 27" margin="481 73 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_pvp_roundwin" stretch="false"/>
+        <controlset name="timer" type="timer" margin="332 115 0 0" rect="0 0 150 120" hittest="true" layout_gravity="left top"/>
+    </controls>
+</uiframe>

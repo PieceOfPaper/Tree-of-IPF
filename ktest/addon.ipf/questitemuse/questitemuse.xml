@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="questitemuse" x="0" y="0" width="160" height="100">
+    <frame title="퀘스트 아이템 사용" layout_gravity="center center" margin="300 100 0 0"/>
+    <skin frameskin="bg2"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <input hittest="false" moveable="false"/>
+    <layer layerlevel="40"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeinScp="None" fadeoutScp="None"/>
+    <controls>
+        <richtext name="title" rect="0 0 24 24" layout_gravity="right top" caption="{@st43}V{/}" fixwidth="true" resizebytext="false"/>
+        <groupbox name="itemgroup" rect="0 0 140 100" layout_gravity="left top" draw="false" scrollbar="false"/>
+    </controls>
+</uiframe>

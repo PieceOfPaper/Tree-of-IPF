@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="chatmacro" x="0" y="0" width="560" height="930" create="open">
+    <frame title="{@st43}{s22}채팅 매크로{/}" fullheight="true" fasthide="true" layout_gravity="left top" margin="-600 0 0 0" open="pip"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <effect open="skilltreeOpen" close="skilltreeClose"/>
+    <script OpenScp="CHATMACRO_OPEN" CloseScp="CHATMACRO_CLOSE"/>
+    <controls>
+        <groupbox name="pose_bg" rect="0 0 560 1000" margin="0 30 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+        <groupbox name="pipwin_top" rect="0 0 560 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="poseGroupbox_bg" rect="0 0 544 360" margin="8 85 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="line_bg_skin"/>
+		<groupbox name="poseGroupbox" rect="0 0 552 350" margin="0 90 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
+		<groupbox name="macroGroupbox" rect="0 0 540 500" margin="0 50 0 130" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+        <richtext name="title" rect="0 0 200 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}매크로{/}" fontname=""/>
+        <picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}매크로{nl}{@st59s} - 사용 방법 : {nl} 1. 상단의 제스쳐 아이콘을 하단의 제스쳐 슬롯에 등록{nl} 2. 대화문구 작성 후 저장{nl} 3. 해당 단축키를 사용해서 대사와 동시에 제스쳐 동작{/}"/>
+        <button name="close" rect="0 0 44 44" margin="0 20 29 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;chatmacro&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}매크로를 닫습니다{/}"/>
+		<labelline name="boardLine 2" parent="macroGroupbox" rect="0 0 530 4" margin="0 50 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<button name="commit" rect="0 0 160 50" margin="-65 0 0 70" layout_gravity="center bottom" LBtnUpScp="SAVE_MACRO_LIST" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{/}" clicksound="button_click" image="ok_button" oversound="button_over" textoffset="0 -2" texttooltip="{@st59}등록한 내용을 저장합니다{/}"/>
+		<button name="rollback" rect="0 0 160 50" margin="65 0 0 70" layout_gravity="center bottom" LBtnUpScp="ROLLBACK_MACRO_LIST" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{/}" clicksound="button_click" image="testx_button" oversound="button_over" textoffset="0 0" texttooltip="{@st59}등록한 내용을 취소합니다{/}"/>
+        <richtext name="posetext" rect="0 0 30 24" margin="45 -300 0 0" layout_gravity="left top" textalign="left top"/>
+        <richtext name="descText" rect="0 0 200 20" margin="0 -300 0 0" layout_gravity="left top" textalign="left top"/>
+		<richtext name="exetext" rect="0 0 100 24" margin="26 0 0 590" layout_gravity="left bottom" textalign="center center" resizebytext="false"/>
+		<richtext name="infotext" rect="0 0 120 24" margin="115 0 0 590" layout_gravity="left bottom" textalign="center center" resizebytext="false"/>
+		<richtext name="edittext" rect="0 0 200 24" margin="280 0 0 590" layout_gravity="left bottom" textalign="center center" resizebytext="false"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="tpitem_exchange" x="0" y="0" width="500" height="700" create="open">
+	<frame title="{@st41}IE{/}" layout_gravity="left top" fasthide="true" tooltipoverlap="true" margin="10 10 0 0"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<input moveable="true" minwidth="290" maxwidth="500" maxheight="1000" minheight="150" resize="true" resizerange="450 150 800 600" hittestframe="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<script CloseScp="TPITEM_EXCHANGE_CLOSE"/>
+	<option hideable="true" visible="false" closebutton="false" useimageitem="true"/>
+	<layer layerlevel="99"/>
+	<controls>
+		<groupbox name="stdBox" rect="0 0 500 700" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="nisms_skin" scrollbar="false"/>
+		<groupbox name="group_titlebar" rect="0 0 370 35" margin="120 10 0 0" layout_gravity="left top" LBtnUpScp="" autoresize="1 0" border="0 0 0 0" draw="true" skin="chat_window" scrollbar="false" visiblevector="false" hittest="true"/>
+		<button name="back_Btn" rect="0 0 44 44" margin="10 10 0 0" layout_gravity="left top" clicksound="button_click_big" image="nisms_back_btn" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="TPITEM_EXCHANGE_BACK"/>
+		<button name="forward_Btn" rect="0 0 44 44" margin="45 10 0 0" layout_gravity="left top" clicksound="button_click_big" image="nisms_forward_btn" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="TPITEM_EXCHANGE_FORWARD"/>
+		<button name="reflash_Btn" rect="0 0 44 44" margin="80 10 0 0" layout_gravity="left top" clicksound="button_click_big" image="nisms_refresh_btn" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="TPITEM_EXCHANGE_REFRESH"/>
+		<button name="closeBtn" rect="0 0 44 44" margin="0 10 15 0" layout_gravity="right top" clicksound="button_click_big" image="nisms_close_btn" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp="TPITEM_EXCHANGE_CLOSE"/>
+		<button name="reSizeBtn" rect="0 0 57 40" margin="0 0 7 5" layout_gravity="right bottom" clicksound="button_click_big" image="nisms_scale_btn" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" LBtnUpScp=""/>
+		<webbrowser name="webB" parent="stdBox" rect="0 0 480 625" margin="10 51 0 0" layout_gravity="left top" url="about:blank" useActiveX="true" scale_align="left top"/>
+		<picture name="market_close" parent="webB" rect="0 0 512 320" margin="0 0 0 0" resizebyparent="false" layout_gravity="center center" hittest="false" image="market_default3" oversound="button_cursor_over_3" stretch="false"/>
+		<richtext name="market_close_text" parent="market_close" rect="0 0 195 150" margin="10 170 0 0" layout_gravity="center bottom" caption="{@st66d}{s30}웹 페이지가 끝났습니다. {nl} 닫기를 눌러주세요.{/}" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+	</controls>
+</uiframe>

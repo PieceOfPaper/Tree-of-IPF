@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="party_recommend_popup" x="0" y="0" width="400" height="200" create="open">
+	<frame layout_gravity="left bottom" margin="100 0 0 330"/>
+	<skin frameskin="test_skin_01"/>
+	<draw drawtitlebar="false" drawframe="true"/>
+	<option hideable="false" closebutton="false"/>
+	<input hittestframe="true"/>
+	<script OpenScp="PARTY_RECOMMEND_POPUP_OPEN" CloseScp="PARTY_RECOMMEND_POPUP_CLOSE"/>
+	<layer layerlevel="10"/>
+	<controls>
+		<richtext name="partyName" rect="0 0 340 80" margin="15 10 0 0" layout_gravity="left top" fixwidth="true" fontname="yellow_18_ol" format="파티이름 : %s" param1="partyname" param1_def="DefaultPartyName" textalign="left top"/>
+		<richtext name="mapch" rect="0 0 400 80" margin="0 12 10 0" layout_gravity="right top" format="%s (%s 채널)" param1="map" param1_def="defmapname" param2="ch" param2_def="defch" fixwidth="false" fontname="black_16" hittest="false" textalign="left top"/>
+		<richtext name="partyNote" rect="0 0 340 80" margin="15 35 0 0" layout_gravity="left top" fixwidth="true" fontname="white_16_ol" format="파티소개 : %s" param1="partymemo" param1_def="DefaultPartyMemo" textalign="left top"/>
+		<richtext name="createdTime" rect="0 0 340 80" margin="15 90 0 0" layout_gravity="left top" fixwidth="true" fontname="white_16_ol" format="결성시간 : %s 전" param1="createtime" param1_def="DefTime DefMin" textalign="left top"/>
+		<richtext name="memberCount" rect="0 0 340 80" margin="15 110 0 0" layout_gravity="left top" fixwidth="true" fontname="white_16_ol" format="인원구성 : %s/5" param1="memcount" param1_def="-1" textalign="left top"/>
+		<button name="invite" rect="0 0 120 50" margin="140 0 0 10" layout_gravity="left bottom" LBtnUpScp="PARTY_RECOMMEND_INVITE_ACCEPT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}가입" hittest="true" skin="test_red_button"/>
+		<button name="close" rect="0 0 120 50" margin="265 0 0 10" layout_gravity="left bottom" LBtnUpScp="ui.CloseFrame(&apos;party_recommend_popup&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}닫기" hittest="true" skin="test_gray_button"/>
+	</controls>
+</uiframe>

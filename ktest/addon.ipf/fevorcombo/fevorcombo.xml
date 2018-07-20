@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="fevorcombo" x="0" y="0" width="500" height="180" bodycolor="#ffff 0" bodyalpha="0">
+	<frame fasthide="true" layout_gravity="center center" margin="100 -90 0 0"/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="10"/>
+	<option closebutton="false"/>
+	<effect open="fevorcomboOpen" close="fevorcomboClose"/>
+	<script OpenScp="FEVORCOMBO_OPEN"/>
+	<userconfig Color_0_9="FFFFFFFF" Color_10_29="FFf0b004" Color_30_49="FFdc6d00" Color_50_99="FFad2e07" Color_100="FFee1600"/>
+	<controls>
+		<picture name="digit1" rect="0 0 45 70" margin="0 73 185 0" layout_gravity="right top" hittest="false" image="3" stretch="true"/>
+		<picture name="digit2" rect="0 0 45 70" margin="0 73 150 0" layout_gravity="right top" hittest="false" image="1" stretch="true"/>
+		<picture name="digit3" rect="0 0 45 70" margin="0 73 115 0" layout_gravity="right top" hittest="false" image="2" stretch="true"/>
+		<picture name="comboPic" rect="0 0 180 60" margin="0 20 110 0" layout_gravity="right top" hittest="false" image="combo2" stretch="true"/>
+		<picture name="feverPic" rect="0 0 330 130" margin="0 0 -20 0" layout_gravity="right top" hittest="false" image="fever" stretch="true"/>
+		<gauge name="combo_gauge_right" rect="0 0 170 50" margin="55 0 0 0" layout_gravity="center top"/>
+		<gauge name="fever_gauge" skin="gauge_fever" rect="0 0 165 20" margin="65 18 0 0" layout_gravity="center top"/>
+		<animpicture name="animpic" rect="0 0 24 30" margin="0 12 0 0" layout_gravity="left top" animcount="6" blend="50" hittest="false" image="combo_light" loop="true" playanim="true" spacex="1" spacey="0" stretch="true" texelheight="30" texelwidth="24" texelx="0" texely="0" ticktime="0.08"/>
+		<richtext name="curcombo" rect="0 0 100 20" margin="295 55 0 0" layout_gravity="left top" caption="" format="" hittest="false" param1="comboCnt" textalign="left center"/>
+		<timer name="addontimer" rect="0 0 10 10"/>
+	</controls>
+</uitile>

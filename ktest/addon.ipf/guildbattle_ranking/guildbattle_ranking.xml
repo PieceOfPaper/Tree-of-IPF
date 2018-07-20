@@ -1,0 +1,41 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="guildbattle_ranking" x="0" y="0" width="900" height="1920">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="{@st43}통합 길드배틀랭킹{/}" layout_gravity="left top" margin="-650 0 0 0" fullheight="true" fasthide="true" open="pip"/>
+	<input moveable="false" maxwidth="1280"/>
+	<layer layerlevel="98"/>
+	<option closebutton="false"/>
+	<sound opensound="window_mohum_open" closesound="window_mohum_close"/>
+	<script OpenScp="OPEN_GUILDBATTLE_RANKING"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 900 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 900 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="통합 길드배틀랭킹"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="button_wiki"/>
+		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}통합 길드배틀랭킹을 닫습니다."/>
+		<picture name="question" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" hittesr="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}통합 길드배틀{nl}{@st59s} - 매주 보상이 지급되며 랭킹이 초기화 됩니다.{nl}- 보상 내역은 보상 목록을 참조하세요.{nl}{/}"/>
+		<tab name="tab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="GUILDBATTLE_RANKING_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="378 109 0 0"/>
+		<tabitem name="Itembox1" parent="tab" caption="{@st66b}실시간 랭킹" width="500" layout_gravity="left top"/>
+		<!--tabitem name="Itembox2" parent="tab" caption="{@st66b}전 시즌 랭킹{/}" width="250" layout_gravity="left top"/>-->
+		<richtext name="txt_title_myrank" margin="646 158 0 0" rect="0 0 120 24" format="{@st66b}%s{/}" param1="value" param1_def="내 길드 순위" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="txt_myrank" margin="746 156 0 0" rect="0 0 120 24" format="{@st66b}%s 위{/}" param1="value" param1_def="2411" textalign="right center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="txt_nextseason" margin="4 63 0 0" rect="0 0 516 63" format="{@st66b}%s{/}" param1="value" param1_def="3day 3hour 54minute weekly ranking refresh" textalign="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<picture name="picture_1" margin="5 90 0 0" rect="0 0 366 495" hittest="false" image="guildbattle_ranking_bg" stretch="true" changecursor="false" layout_gravity="left top"/>
+		<richtext name="richtext_2" margin="74 234 0 0" rect="0 0 233 48" format="{#000000}{s24}%s" param1="value" param1_def="지난 시즌 랭킹" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_rank" margin="73 265 0 0" rect="0 0 232 70" format="{#000000}{s58}%s" param1="value" param1_def="1위" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_server" margin="52 330 0 0" rect="0 0 272 30" format="{#000000}{s22}%s" param1="value" param1_def="Ausurine" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_name" margin="26 345 0 0" rect="0 0 320 50" format="{#000000}{s22}{b}%s" param1="value" param1_def="LOVESME, LOVESMENOT" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_winlose" margin="26 380 0 0" rect="0 0 320 40" format="{#251505}{s18}%s" param1="value" param1_def="1000 Battle 700 Win 500 Lose" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_point" margin="49 405 0 0" rect="0 0 284 30" format="{#251505}{s18}%s" param1="value" param1_def="15150 Point" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_guild_award_title" margin="49 470 0 0" rect="0 0 284 30" format="{#251505}{s20}%s" param1="value" param1_def="" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_guild_award" margin="49 495 0 0" rect="0 0 284 30" format="{#251505}{s18}%s" param1="value" param1_def="300TP 교환권 20장" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<!--richtext name="first_server_award_title" margin="49 495 0 0" rect="0 0 284 30" format="{#251505}{s20}%s" param1="value" param1_def="서버 보상" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="first_server_award" margin="49 515 0 0" rect="0 0 284 30" format="{#251505}{s18}%s" param1="value" param1_def="다음 주간 순위 갱신까지 무료TP+3" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/-->
+		<controlset name="rankingpage" type="guildbattle_ranking_page" margin="363 178 0 0" rect="0 0 150 200" hittest="true" layout_gravity="left top"/>
+		<labelline name="labelline_1" margin="40 442 0 0" rect="0 0 300 1" skin="labelline_def_2" layout_gravity="left top"/>
+		<groupbox name="prev_rank" margin="10 580 0 0" rect="0 0 350 380" hittestbox="false" skin="none" layout_gravity="left top"/>
+		<button name="btn_get_reward" margin="76 972 0 0" rect="0 0 217 40" layout_gravity="left top" format="{@st42b}%s" param1="value" param1_def="보상 받기" skin="test_red_button" LBtnUpScp="REQ_GET_GUILD_BATTLE_REWARD"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemcraft_fletching" x="0" y="0" width="540" height="1920">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin=" "/>
+    <frame title="{@st43}화살제작{/}" layout_gravity="left top" margin="-650 0 0 0" fullheight="true" fasthide="true" open="pip"/>
+    <input moveable="false" maxwidth="1280"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="sys_popup_open_1" closesound="sys_popup_open_2"/>
+    <script CloseScp="ITEMCRAFT_CLOSE"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 540 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+        <groupbox name="pipwin_top" rect="0 0 540 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+        <groupbox name="Recipe" rect="0 0 540 960" margin="0 60 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="false" skin="none"/>
+        <groupbox name="recipetree_Box" parent="Recipe" rect="0 0 540 865" margin="10 20 0 0" layout_gravity="left top" draw="true" resizebyresolution="true" scrollbar="true" skin="none"/>
+        <richtext name="title" margin="0 16 0 0" rect="0 0 200 30" format="{@st43}%s{/}" param1="value" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<tree name="recipetree" parent="recipetree_Box" rect="0 0 520 100" margin="0 0 0 0" layout_gravity="center top" drawline="true" selectioncolor="000000"/>
+        <grid name="category" parent="Recipe" rect="0 0 0 200" margin="30 0 30 0" layout_gravity="none top" slotsize="100 70" slotspc="10 0"/>
+        <checkbox name="showonlyhavemat" parent="" rect="0 0 150 30" margin="30 0 0 70" layout_gravity="left bottom" ConfigName="CraftMaterial" LBtnUpScp="CRAFT_CRAFT_OPTION" caption="{@st42b}재료가 있는 것만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+        <picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="button_wiki"/>
+        <button name="close" rect="0 0 44 44" margin="0 20 27 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;itemcraft_fletching&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}제작 UI를 닫습니다.{/}"/>
+    </controls>
+</uiframe>

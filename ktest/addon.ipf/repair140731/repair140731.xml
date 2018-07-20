@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="repair140731" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<script OpenScp="REPAIR140731_OPEN" CloseScp="REPAIR140731_CLOSE"/>
+	<controls>
+		<groupbox name="bodyGbox_bg" rect="0 0 450 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bodyGbox" rect="0 0 450 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+		<groupbox name="pip4" rect="0 0 450 61" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" caption="{@st43}수리{/}" textalign="center center"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<button name="close" rect="0 0 44 44" margin="30 40 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;repair140731&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}수리 UI를 닫습니다{/}"/>
+		<button name="selectAllBtn" parent="bodyGbox" rect="0 0 190 40" margin="30 85 0 0" layout_gravity="left top" LBtnUpScp="REPAIR140731_SELECT_ALL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}전체 선택" clicksound="button_click_stats" oversound="button_over" skin="test_normal_button" texttooltip="한번 더 클릭시 전체 해제"/>
+		<button name="selectEquipedBtn" parent="bodyGbox" rect="0 0 190 40" margin="0 85 30 0" layout_gravity="right top" LBtnUpScp="REPAIR140731_SELECT_EQUIPED_ITEMS" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66}장착중 선택" clicksound="button_click_stats" oversound="button_over" skin="test_normal_button" texttooltip="한번 더 클릭시 전체 해제"/>
+		<richtext name="needlisttxt" parent="bodyGbox" rect="0 0 200 80" margin="0 65 0 0" layout_gravity="center top" caption="{@st66b}수리 필요 아이템 목록" textalign="left top"/>
+		<groupbox name="repairlistGbox" parent="bodyGbox" rect="0 0 440 680" margin="0 90 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
+		<slotset name="slotlist" parent="repairlistGbox" rect="0 0 360 420" margin="18 40 0 0" layout_gravity="left top" LBtnDownScp="SCP_LBTDOWN_REPAIR140731" col="7" cursoronresize="true" dropsound="icon_get_down" enabledrag="false" enableselect="true" hideindrag="true" image="slot" maxselect="80" movepop="false" oversound="button_over" picksound="icon_pick_up" row="11" size="57 57" skin="invenslot2" spc="1 1"/>
+		<groupbox name="moneyGbox" parent="bodyGbox" rect="0 0 400 38" margin="0 0 0 140" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<picture name="Zeny_Img" parent="moneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>
+		<richtext name="invenzenytext" parent="moneyGbox" rect="0 0 60 20" margin="40 1 0 0" layout_gravity="left center" caption="{@st41b}수리 비용{/}"/>
+		<richtext name="invenZeny" parent="moneyGbox" rect="0 0 200 20" margin="0 1 10 0" layout_gravity="right center" caption="1i00,000" fontname="white_16_ol" textalign="right center"/>
+		<groupbox name="remainMoneyGbox" parent="bodyGbox" rect="0 0 400 38" margin="0 0 0 100" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<picture name="remainZeny_Img" parent="remainMoneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>
+		<richtext name="remainInvenzenytext" parent="remainMoneyGbox" rect="0 0 60 20" margin="40 1 0 0" layout_gravity="left center" caption="{@st41b}예상 잔액{/}"/>
+		<richtext name="remainInvenZeny" parent="remainMoneyGbox" rect="0 0 200 20" margin="0 1 10 0" layout_gravity="right center" caption="1i00,000" fontname="white_16_ol" textalign="right center"/>
+		<button name="repairBtn" parent="bodyGbox" rect="0 0 200 55" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="EXECUTE_REPAIR140731" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}장비 수리{/}" clicksound="button_click_stats_OK" oversound="button_over" skin="test_red_button" texttooltip="선택한 장비를 수리합니다."/>
+	</controls>
+</uiframe>

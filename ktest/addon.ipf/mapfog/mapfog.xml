@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by alexel (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="mapfog" x="0" y="0" width="950" height="550" create="open">
+    <frame title="{@st41}지도{/}" titlepos="0 -8" snapclient="true" snapframe="true" layout_gravity="center center"/>
+    <option closebuttonpos="5 20" visible="false" useimageitem="true"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <picture name="map" rect="50 0 512 512" LBtnDownScp="START_DRAG_MAPFOG" LBtnUpScp="END_DRAG_MAPFOG" MouseMoveScp="MOUSE_MOVE_MAPFOG" RBtnUpScp="MAPFOG_CONTEXT" hittest="true" stretch="true"/>
+        <picture name="drag" rect="30 0 10 10" hittest="false" image="fullblack" stretch="true"/>
+        <richtext name="rate" rect="0 -15 200 20" layout_gravity="center top" caption="시프트(지우기), 컨트롤(중간채우기)" fontname="white_18"/>
+        <advlistbox name="AdvBox" rect="-50 10 350 193" layout_gravity="right top" drawgrid="true" heightperrow="16" maxrowcol="5000 1" scroll="true" widthpercol="100"/>
+        <advlistboxitem name="Name" parent="AdvBox" rect="0 0 10 10" caption="{ol}제목" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="AdvBox" col="0" colwidth="335" row="0" rowbgcolor="#4a443f" rowheight="16" startrow="1"/>
+        <button name="add" rect="-290 220 80 30" layout_gravity="right top" LBtnUpScp="ADD_MAPFOG" caption="{@st41}추가{/}" clicksound="button_click" oversound="button_over"/>
+        <button name="delete" rect="-200 220 80 30" layout_gravity="right top" LBtnUpScp="DELETE_MAPFOG" caption="{@st41}삭제{/}" clicksound="button_click" oversound="button_over"/>
+        <button name="save" rect="-110 220 80 30" layout_gravity="right top" LBtnUpScp="SAVE_MAPFOG" caption="{@st41}저장{/}" clicksound="button_click" oversound="button_over"/>
+        <button name="auto" rect="-290 260 80 30" layout_gravity="right top" LBtnUpScp="AUTO_MAPFOG" caption="{@st41}자동{/}" clicksound="button_click" oversound="button_over"/>
+        <button name="clear" rect="-200 260 80 30" layout_gravity="right top" LBtnUpScp="CLEAR_MAPFOG" caption="{@st41}초기화{/}" clicksound="button_click" oversound="button_over"/>
+        <edit name="input" rect="-110 260 80 30" layout_gravity="right top" OffsetForDraw="3 1" fontname="white_20" maxlen="32" maxnumber="32767" numbermode="true" texttooltip="{@st59}조각의 개수를 설정합니다.{/}"/>
+        <advlistbox name="GroupList" rect="-50 310 350 193" layout_gravity="right top" LBtnDblClickScp="SELECT_MAPFOG_GROUP" RBtnUpScp="MAPFOG_CONTEXT" drawgrid="true" heightperrow="16" maxrowcol="5000 4" scroll="true" widthpercol="100"/>
+        <advlistboxitem name="Name" parent="GroupList" rect="0 0 10 10" caption="{ol}그룹" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Text" parent="GroupList" rect="0 0 10 10" caption="{ol}메시지" col="1" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Sound" parent="GroupList" rect="0 0 10 10" caption="{ol}사운드" col="2" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Script" parent="GroupList" rect="0 0 10 10" caption="{ol}Scp" col="3" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="GroupList" col="0" colwidth="50" row="0" rowbgcolor="#4a443f" rowheight="16" startrow="1"/>
+        <advlistboxsetting parent="GroupList" col="1" colwidth="95" row="0" rowbgcolor="#4a443f" rowheight="16" startrow="1"/>
+        <advlistboxsetting parent="GroupList" col="2" colwidth="95" row="0" rowbgcolor="#4a443f" rowheight="16" startrow="1"/>
+        <advlistboxsetting parent="GroupList" col="3" colwidth="95" row="0" rowbgcolor="#4a443f" rowheight="16" startrow="1"/>
+    </controls>
+</uiframe>

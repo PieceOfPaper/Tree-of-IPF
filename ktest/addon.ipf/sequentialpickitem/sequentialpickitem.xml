@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="sequentialpickitem" x="0" y="0" width="380" height="120" create="open">
+	<frame layout_gravity="right bottom" margin="0 0 400 250"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<option hideable="false" closebutton="false"/>
+	<input hittest="false"/>
+	<script OpenScp="SEQUENTIALPICKITEM_OPEN" CloseScp="SEQUENTIALPICKITEM_CLOSE"/>
+	<animation frameOpenAnim="sequentialpickitem_open" frameCloseAnim="sequentialpickitem_close"/>
+	<userconfig POPUP_DURATION="1.5" PUSHUP_ANIM_NAME="sequentialpickitem_pushup"/>
+	<layer layerlevel="90"/>
+	<controls>
+ 		<groupbox name="pickitem" rect="0 0 380 120" layout_gravity="left top" container="true" draw="true" scrollbar="false"  skin="normal_item_tootip_skin"/>  
+	  <picture name="pickitemslot" layout_gravity="left top" parent="pickitem" rect="0 0 380 120"  margin="15 10 0 0" image="jour_new_item1"/>
+	</controls>
+</uiframe>

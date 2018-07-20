@@ -1,0 +1,46 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="spray" x="0" y="0" width="400" height="609" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="wiki_add"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <script OpenScp="INIT_COLOR_SPRAY" CloseScp="CLOSE_COLORSPRAY"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <effect open="sprayOpen" close="sprayClose"/>
+    <controls>
+        <richtext name="title" rect="0 0 100 30" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}그래피티{/}" fontname="default" spacey="0"/>
+        <picture name="titlepicture" rect="0 0 44 44" margin="10 6 0 0" layout_gravity="left top" image="button_quest"/>
+        <button name="close" rect="0 0 44 44" margin="0 6 6 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;spray&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}스프레이를 닫습니다{/}"/>
+        <gauge name="hp" rect="0 0 300 22" margin="0 730 0 0" layout_gravity="center top" hittest="false" skin="gauge_exp"/>
+        <richtext name="t_desc" rect="0 0 200 24" margin="50 120 0 0" layout_gravity="left top" caption="{@st41b}Tip : 아래 액자내에 그림을 그립니다.{/}"/>
+        <richtext name="t_color" rect="0 0 90 24" margin="50 550 0 0" layout_gravity="left top" caption="{@st41b}색상{/}"/>
+        <richtext name="t_remain" rect="0 0 90 24" margin="50 700 0 0" layout_gravity="left top" caption="{@st41b}수량{/}"/>
+        <richtext name="hp_x" rect="0 0 150 24" margin="100 700 0 0" layout_gravity="left top" caption="{@st41b}x {@st41}%s{/}" format="{@st42b}X %s{/}" param1="itemCnt"/>
+        <richtext name="t_brush" rect="0 0 90 24" margin="50 800 0 0" layout_gravity="left top" caption="{@st41b}브러쉬{/}"/>
+        <button name="t_draw" rect="0 0 200 70 " margin="0 0 0 30" layout_gravity="center bottom" LBtnUpScp="SPRAY_SET_POS" caption="{@st43}그리기{/}" skin="btn_lv3" texttppltip="{@st59}완성한 그림을 바닥에 그립니다.{/}"/>
+        <button name="t_save" rect="0 0 120 30" margin="-70 0 0 120" layout_gravity="center bottom" caption="{@st41b}{a SAVE_EDIT_SPRAY}저장{/}{/}" skin="textbutton" texttppltip="{@st59}그리고 있는 그림을 저장합니다.{/}"/>
+        <button name="t_load" rect="0 0 120 30" margin="70 0 0 120" layout_gravity="center bottom" caption="{@st41b}{a LOAD_EDIT_SPRAY}불러오기{/}{/}" skin="textbutton" texttppltip="{@st59}그렸던 그림을 불러옵니다.{/}"/>
+        <picture name="draw_frame" rect="0 0 370 370" margin="0 150 0 0" layout_gravity="center top" hittest="false" image="frame" stretch="true"/>
+        <picture name="draw_pad" rect="0 0 320 320" margin="0 175 0 0" layout_gravity="center top" LBtnDownScp="SPRAY_PAD_DOWN" LBtnUpScp="SPRAY_PAD_UP" MouseMoveScp="SPRAY_PAD_MOVE" hittest="true" image="fullblack" stretch="true"/>
+        <picture name="current_color_2" rect="0 0 40 40" margin="75 605 0 0" layout_gravity="left top" hittest="true" image="fullblack_200" texttppltip="{@st59}선택한 색상1{/}"/>
+        <picture name="current_color_1" rect="0 0 40 40" margin="50 580 0 0" layout_gravity="left top" hittest="true" image="fullblack_200" texttppltip="{@st59}선택한 색상2{/}"/>
+        <picture name="colorList" rect="0 0 200 50" margin="130 600 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_COLOR_L" RBtnUpScp="SELECT_SPRAY_COLOR_R" hittest="true" image="fullblack_200" texttppltip="{@st59}색상 목록{/}"/>
+        <picture name="cur_brush_bg" rect="0 0 60 60" margin="50 830 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}선택한 브러시{/}"/>
+        <picture name="cur_brush" parent="cur_brush_bg" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="left top" hittest="false" image="spray_8" imagealign="center center"/>
+        <picture name="brush_1_bg" rect="0 0 32 32" margin="130 845 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}브러시 1{/}"/>
+        <picture name="brush_2_bg" rect="0 0 32 32" margin="165 845 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}브러시 2{/}"/>
+        <picture name="brush_4_bg" rect="0 0 32 32" margin="200 845 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}브러시 3{/}"/>
+        <picture name="brush_8_bg" rect="0 0 32 32" margin="235 845 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}브러시 4{/}"/>
+        <picture name="brush_16_bg" rect="0 0 32 32" margin="270 845 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}브러시 5{/}"/>
+        <picture name="brush_32_bg" rect="0 0 32 32" margin="305 845 0 0" layout_gravity="left top" hittest="true" image="fullwhite" texttppltip="{@st59}브러시 6{/}"/>
+        <picture name="brush_1" parent="brush_1_bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_BRUSH_R" hittest="true" image="spray_1" imagealign="center center"/>
+        <picture name="brush_2" parent="brush_2_bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_BRUSH_R" hittest="true" image="spray_2" imagealign="center center"/>
+        <picture name="brush_4" parent="brush_4_bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_BRUSH_R" hittest="true" image="spray_4" imagealign="center center"/>
+        <picture name="brush_8" parent="brush_8_bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_BRUSH_R" hittest="true" image="spray_8" imagealign="center center"/>
+        <picture name="brush_16" parent="brush_16_bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_BRUSH_R" hittest="true" image="spray_16" imagealign="center center"/>
+        <picture name="brush_32" parent="brush_32_bg" rect="0 0 32 32" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="SELECT_SPRAY_BRUSH_R" hittest="true" image="spray_32" imagealign="center center"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="tournament_view" x="0" y="0" width="500" height="1200" create="open">
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+    <skin frameskin="pipwin"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <effect open="tournament_viewOpen" close="tournament_viewClose"/>
+    <controls>
+        <groupbox name="groupbox_1" rect="0 0 465 1004" margin="17 54 0 0" layout_gravity="left top" hittestbox="false" skin="wiki_add"/>
+        <button name="colse" rect="0 0 44 44" margin="8 8 6 0" layout_gravity="left top" LBtnUpScp="CLOSE_UI" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
+        <richtext name="richtext_1" rect="0 0 120 24" margin="35 80 0 0" layout_gravity="left top" caption="{@st53}- 이름을 클릭하여 관전 가능{nl}- 우 클릭으로 선물가능" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <tournament name="tourna" rect="0 0 427 843" margin="4 198 0 0" layout_gravity="center top" blankimage="creat_cha" borderspace="10 10 10 10" gamingfont="{@st53}" losecolor="#444444" losefont="{@st55_b}" skin="wiki_add" space="10 10" textwidth="150" waitfont="{@st45}" wincolor="#000000"/>
+        <picture name="mycam" rect="0 0 97 96" margin="363 62 0 0" layout_gravity="left top" LBtnUpScp="T_VIEW_MYPC" changecursor="true" hittest="true" image="notice_dm_directormode2" stretch="true" texttooltip="카메라를 나의 캐릭터로"/>
+    </controls>
+</uiframe>

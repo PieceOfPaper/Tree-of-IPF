@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="mgamelist" x="-450" y="0" width="450" height="450" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" piptype="left"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="70"/>
+    <option closebutton="false"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <effect open="mgamelistOpen" close="mgamelistClose"/>
+    <controls>
+        <picture name="titlepicture" rect="6 6 44 44" layout_gravity="left top" image="button_mgamelist"/>
+        <richtext name="title" rect="0 13 100 30" layout_gravity="center top" caption="{@st43}미니게임{/}" fontname="default" spacey="0"/>
+        <button name="close" rect="-15 7 44 44" layout_gravity="right top" LBtnUpScp="CLOSE_UI" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over"/>
+        <richtext name="desc" rect="5 60 250 95" autowiki="true" fixwidth="false" fontname="white_20_ol"/>
+    </controls>
+</uiframe>

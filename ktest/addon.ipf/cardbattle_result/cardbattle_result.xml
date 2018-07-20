@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="cardbattle_result" x="0" y="100" width="720" height=" 436" create="open">
+	<frame title="" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 129 0 0"/>
+	<skin backgroundimage="mixer_back" layout_gravity="left top" rect="0 82 220 220" frameskin="none"/>
+	<option hideable="false" closebutton="true" useimageitem="true"/>
+	<sound opensound="sys_card_battle_result_1" closesound="win_close"/>
+	<draw drawtitlebar="false"/>
+	<option closebutton="false"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<layer layerlevel="150"/>
+	<userconfig RESULT_EFT="I_cardbattle_end_win" RESULT_EFT_SCALE="7.0"/>
+	<controls>
+		<picture name="pic_bg" rect="0 0 720 436" margin="0 0 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_card_result_bg" stretch="false"/>
+		<richtext name="txt_condition" rect="0 0 545 64" margin="96 166 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st42}%s{/}" maxwidth="0" param1="value" param1_def="WIN CONDITION : DETERMINE BY LENGTH OF NAME " resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<groupbox name="gbox_1" rect="0 0 320 112" margin="39 241 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="test_com_losebg"/>
+		<groupbox name="gbox_2" rect="0 0 320 112" margin="363 241 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="test_com_winbg"/>
+		<richtext name="txt_result" rect="0 0 588 55" margin="65 359 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41}%s{/}" maxwidth="0" param1="value" param1_def="User abcdfaedawdas has win!" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="txt_card" parent="gbox_1" rect="0 0 301 95" margin="0 6 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="User abcdfaedawdas has win!" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="txt_card" parent="gbox_2" rect="0 0 301 92" margin="0 8 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="User abcdfaedawdas has win!" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<picture name="pic_1" rect="0 0 258 84" margin="64 191 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_result_lose" imagealign="center center" stretch="false"/>
+		<picture name="pic_2" rect="0 0 227 85" margin="409 190 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="test_result_win" imagealign="center center" stretch="false"/>
+	</controls>
+</uiframe>

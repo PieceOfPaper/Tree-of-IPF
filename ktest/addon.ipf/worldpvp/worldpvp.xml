@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldpvp" x="0" y="0" width="500" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="95"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<script CloseScp="CLOSE_WORLDPVP" OpenScp="OPEN_WORLDPVP"/>
+	<userconfig IMAGE_GUILDBATTLE="{img guild_master_mark 32 20 }{/}" IMAGE_TEAMBATTLE="{img battle_mark 32 20 }{/}" FONT_GUILDBATTLE="{@st45tw}{s20}" FONT_TEAMBATTLE="{@st45ty}{s20}"/>
+	<userconfig TIME_TABLE_FONT="{@st42}" RANK_PAGE_FONT="{@st42}"/>
+	<controls>
+		<groupbox name="bg3" rect="0 0 500 1000" margin="-1 30 0 0" layout_gravity="center top" draw="true" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="pip4" rect="0 0 500 88" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top"/>
+		<groupbox name="bg" rect="0 0 500 1000" margin="0 85 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+		<richtext name="loadingtext" parent="bg" rect="0 0 525 32" margin="5 106 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center top" updateparent="false" format="{#000000}{s32}%s" param1="value" param1_def="데이터를 받는 중 입니다."/>
+		<controlset name="charinfo" parent="bg" type="pvp_charinfo" rect="0 0 487 480" margin="10 55 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="none"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" format="{@st43}%s" param1="value" param1_def="TeamBattleLeague" textalign="left top"/>
+		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}팀 배틀 리그를 닫습니다."/>
+		<controlset name="timetable" parent="bg" rect="0 0 481 722" margin="12 330 0 0" layout_gravity="left top" hittest="true" type="pvp_timetable" visible="false"/>
+		<controlset name="recent" parent="bg" rect="0 0 481 722" margin="12 615 0 0" layout_gravity="left top" hittest="true" type="pvp_recent" visible="false"/>
+		<controlset name="bg_ranking" rect="0 0 481 880" margin="0 125 0 0" layout_gravity="left top" resizebyresolution="true" hittest="true" type="pvp_ranking_page"/>
+		<controlset name="bg_observer" rect="0 0 481 880" margin="0 145 0 0" layout_gravity="left top" resizebyresolution="true" hittest="true" type="pvp_observe_page"/>
+		<tab name="tab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="WORLDPVP_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 100 0 0"/>
+		<tabitem name="Itembox1" parent="tab" caption="{@st66b}정보{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox2" parent="tab" caption="{@st66b}랭킹{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox3" parent="tab" caption="{@st66b}관전하기" width="150" layout_gravity="left top"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pctitle" x="0" y="0" width="400" height="30" create="open">
+	<frame margin="373 366 0 0"/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="1"/>
+	<option hideable="false" closebutton="false"/>
+	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+	<controls>
+		<richtext name="text" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s%s{/}" maxwidth="0" param1="font" param1_def="{@st50}" param2="value" param2_def="ZZZZZZZZZZZZZZZZZZZZ" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+	</controls>
+</uiframe>

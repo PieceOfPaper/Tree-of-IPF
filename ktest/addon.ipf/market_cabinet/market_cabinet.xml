@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="market_cabinet" x="0" y="0" width="1425" height="1000" create="open">
+	<frame title="{@st43}{s22}아이템 수령함" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0"/>
+	<option closebutton="false"/>
+	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+	<script OpenScp="MARKET_CABINET_OPEN"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<layer layerlevel="99"/>
+	<controls>
+		<groupbox name="market_low" rect="0 0 1425 900" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
+		<groupbox name="market_midle3" rect="0 0 1400 760" margin="9 161 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
+		<groupbox name="market_minititle" rect="0 0 1425 99" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_title"/>
+		<richtext name="t" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<button name="button_1_1" rect="0 0 400 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_SELLMODE" caption="{@st66b18}판매 등록" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
+		<button name="button_1" rect="0 0 400 45" margin="10 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_BUYMODE" caption="{@st66b18}판매중인 아이템" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
+		<button name="close" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;market_cabinet&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
+		<labelline name="labelline" parent="market_low" rect="0 0 1250 2" margin="0 150 0 0" layout_gravity="center top" skin="None"/>
+        <groupbox name="itemGbox" rect="0 0 1400 710" margin="-2 190 0 0" layout_gravity="center top" skin=""/>
+        <detaillist name="itemlist" rect="0 0 1400 700" margin="0 -2 0 0" layout_gravity="center top" skin="" parent="itemGbox"/>
+		<button name="button_2" rect="0 0 180 50" margin="0 0 13 20" layout_gravity="right bottom" LBtnUpScp="CABINET_GET_ALL_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}모두 받기" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
+		<button name="button_1_1_1" rect="0 0 400 45" margin="810 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_OPEN" caption="{@st66b18}아이템 수령함" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
+		<labelline name="labelline_1" parent="market_low" rect="0 0 1250 2" margin="0 150 0 0" layout_gravity="center top" skin="None"/>
+		<groupbox name="title_1" rect="0 0 1400 40" margin="9 161 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<richtext name="richtext_1" margin="158 10 0 0" rect="0 0 120 50" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+		<richtext name="category_totlaPrice" margin="745 10 0 0" rect="0 0 120 24" caption="{@st45tw2}개수{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+    <richtext name="getTime" margin="1000 10 0 0" rect="0 0 120 24" caption="{@st45tw2}대기 시간{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
+	</controls>
+</uiframe>

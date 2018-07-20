@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="tpitem_package" x="0" y="0" width="500" height="700" create="open">
+	<frame layout_gravity="center center" tooltipoverlap="true" margin="0 0 0 0"/>
+	<option closebutton="false"/>
+	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<layer layerlevel="99"/>
+	<controls>
+		<button name="SkinFrame" rect="0 0 500 700" hittest="false" margin="0 0 0 0" layout_gravity="center center" skin="test_win_lastpopup2"/>
+		<groupbox name="stdBox" rect="0 0 500 700" margin="0 0 0 0" layout_gravity="center center" draw="false" scale_align="center bottom" hittestbox="false" skin="test_frame_midle_light"/>
+		<richtext name="itemTitle" parent="stdBox" rect="0 0 200 50" margin="0 110 0 0" layout_gravity="center top" format="{@st46}{s26}%s{/}" param1="name" param1_def="판매 아이템 (패키지) 이름" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" textalign="left top"/>
+		<slot name="packageSlot" parent="stdBox" rect="0 0 140 140" margin="0 160 0 0" layout_gravity="center top" DropScp="" changecursor="false" hittest="false" clicksound="icon_pick_up" oversound="button_cursor_over_3" skin="none" stretch="true"/>
+		<button name="puchaseBtn" parent="stdBox" rect="0 0 160 50" margin="80 0 0 40" layout_gravity="left bottom" LBtnUpScp="TPSHOP_TRY_BUY_PACKAGE_BY_NEXONCASH" caption="{@st66d}{s20}구매 {/}" clicksound="button_click_big" skin="test_red_button" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+		<button name="cancelBtn" parent="stdBox" rect="0 0 160 50" margin="0 0 80 40" layout_gravity="right bottom" LBtnUpScp="TPITEM_PACKAGE_CLOSE" caption="{@st66d}{s20}취소{/}" clicksound="button_click_big" skin="test_gray_button" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+	</controls>
+</uiframe>

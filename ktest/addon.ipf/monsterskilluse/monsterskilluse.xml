@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="monsterskilluse" x="400" y="200" width="380" height="70" create="open">
+	<frame title="" layout_gravity="left center" fasthide="true"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<layer layerlevel="105"/>
+	<skin frameskin="shadow_box2"/>
+	<input moveable="false" hittestframe="false" hittest="false"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<animation frameOpenAnim="monskl_in" frameCloseAnim="monskl_out"/>
+	<option hideable="false" closebutton="false"/>
+	<controls>
+        <gauge name="gauge" rect="0 0 220 30" margin="82 30 0 0" layout_gravity="left top" inverse="false" point="0"/>
+        <animpicture name="animpic" parent="gauge" rect="0 0 50 30" margin="5 0 0 0" layout_gravity="left top" animcount="7" blend="50" hittest="false" image="gauge_light3" loop="true" playanim="true" spacex="1" spacey="0" stretch="true" texelheight="15" texelwidth="50" texelx="0" texely="0" ticktime="0.08"/>
+        <picture name="charge_gauge_L" rect="0 0 45 30" margin="38 32 0 0" layout_gravity="left top" hittest="false" image="skill-charge_gauge_L"/>
+        <picture name="charge_gauge_R" rect="0 0 45 30" margin="300 32 0 0" layout_gravity="left top" hittest="false" image="skill-charge_gauge_R"/>
+        <richtext name="text" rect="0 0 370 30" margin="0 2 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="monskl" format="{@st41monskl}%s{/}" hittest="false" maxwidth="0" param1="value" param1_def="Pyromancer_FirePillar" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <picture name="charge_gauge_L_1" rect="0 0 45 30" margin="38 32 0 0" layout_gravity="left top" hittest="false" image="skill-charge_gauge_L"/>
+	</controls>
+</uiframe>

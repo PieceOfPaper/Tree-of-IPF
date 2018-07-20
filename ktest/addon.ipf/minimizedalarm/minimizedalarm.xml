@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="minimizedalarm" x="0" y="0" width="70" height="130" create="open" layout_gravity="right bottom">
+    <frame layout_gravity="right top" margin="0 175 350 0"/>
+    <input moveable="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <layer layerlevel="30"/>
+    <option closebutton="false" hideable="false"/>
+    <skin frameskin="none"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <groupbox name="gbox" margin="0 0 0 0" rect="0 0 70 65" hittestbox="false" skin="none" layout_gravity="left top"/>
+        <groupbox name="gbox_mission" margin="0 65 0 0" rect="0 0 70 65" hittestbox="false" skin="Item_tooltip_unique" layout_gravity="left top"/>
+        <picture name="pic" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" changecursor="false" hittest="true" image="journal_pvp_icon" stretch="true" parent="gbox"/>
+    </controls>
+</uiframe>

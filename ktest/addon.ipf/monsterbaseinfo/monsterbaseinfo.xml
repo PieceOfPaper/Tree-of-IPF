@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="monsterbaseinfo" x="0" y="0" width="400" height="60">
+    <frame title="몬스터 체력게이지" layout_gravity="center center" outside="true"/>
+    <option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
+    <opencheck scp="UI_CHECK_PROP" strarg="monsterbaseinfo" numarg="1"/>
+    <layer layerlevel="1"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input hittest="false"/>
+    <script fadeinArgStr="moncharinfo" fadeoutArgStr="moncharinfo"/>
+    <userconfig MON_NAME_COLOR_MORE_THAN_5="{#FF2211}" MON_NAME_COLOR_MORE_THAN_10="{gr gradation5}"/>
+    <controls>
+        <richtext name="name" rect="0 0 160 16" layout_gravity="center top" caption="name" fixwidth="false" fontname="white_16_ol" hittest="false" sildeshow="false" textalign="left top" updateparent="false" />
+        <gauge name="shield" rect="0 34 50 10" layout_gravity="center top" hittest="false" skin="shieldgauge" visible="false" />
+        <gauge name="hp" rect="0 24 50 10" layout_gravity="center top" hittest="false" skin="hpgauge" />
+        <picture name="desenchant" margin="0 0 0 0" rect="0 0 64 64" hittest="false" image="None" stretch="true" changecursor="false" layout_gravity="center top"/>
+    </controls>
+</uiframe>

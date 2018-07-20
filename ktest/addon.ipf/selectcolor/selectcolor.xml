@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="selectcolor" x="260" y="300" width="192" height="47" create="open">
+    <frame title="설정" layout_gravity="left top" snapclient="true" snapframe="true"/>
+    <skin frameskin="configskin" backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <layer layerlevel="100"/>
+    <option hideable="true" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <picture name="samplecolors" rect="0 0 192 47" layout_gravity="center top" LBtnUpScp="SEL_EXEC_SAMPLE_COLOR" hittest="true" image="samplecolors" stretch="true"/>
+        <picture name="selectedColor" rect="0 140 60 60" layout_gravity="center top" image="fullwhite" stretch="true"/>
+    </controls>
+</uiframe>

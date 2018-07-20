@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="cheatlist" x="0" y="0" width="580" height="770">
+	<option closebuttonpos="0 35" hideable="true"/>
+	<frame title="{@st43}치트리스트{/}" titlepos="0 -14" snapclient="true" snapframe="true" layout_gravity="left center" margin="100 0 0 0" permission="operator"/>
+	<layer layerlevel="100"/>
+	<script CloseScp="CHEATLIST_UI_CLOSE"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<controls>
+		<tab name="cheatlisttap" rect="0 0 500 40" margin="40 0 0 0" layout_gravity="left top" LBtnDownScp="CHEATLIST_TAB_CHANGE" fixwidth="false" itemspc="0"/>
+		<tabitem name="createitem" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  아이템  {/}" control="none" crect="5 100 235 30"/>
+		<tabitem name="createmonster" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  몬스터  {/}" control="none" crect="5 100 235 30"/>
+		<tabitem name="mzmaplist" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  맵이동  {/}" control="none" crect="5 100 235 30"/>
+		<tabitem name="cheatothers" parent="cheatlisttap" layout_gravity="left top" caption="{@st59b}  전투명령  {/}" control="none" crect="5 100 235 30"/>
+		<tree name="itemtree" rect="0 0 500 400" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000" enableResizing="false"/>
+		<tree name="monstertree" rect="0 0 500 400" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000" enableResizing="false"/>
+		<tree name="maptree" rect="0 0 500 400" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000" enableResizing="false"/>
+		<tree name="otherstree" rect="0 0 500 400" margin="40 40 0 0" layout_gravity="left top" LBtnDblClickScp="CREATE_LIST_LBDBLCLICK" LBtnDownScp="CHEATLIST_TREE_CHANGE" drawline="false" selectioncolor="000000" enableResizing="false"/>
+		<button name="UseBtn" rect="0 0 180 50" margin="-95 0 0 30" layout_gravity="center bottom" LBtnUpScp="CREATE_LIST_LBDBLCLICK" caption="{@st41b}생성{/}" clicksound="button_click" oversound="button_over"/>
+		<button name="CloseBtn" rect="0 0 180 50" margin="95 0 0 30" layout_gravity="center bottom" LBtnUpScp="ui.CloseFrame(&apos;cheatlist&apos;)" caption="{@st41b}닫기{/}" clicksound="button_click" oversound="button_over"/>
+		<groupbox name="ItemUseGroup" rect="0 0 541 170" margin="20 450 0 0" layout_gravity="left top" container="true" draw="false" target="itemtree"/>
+		<richtext name="Item_ToopTip" parent="ItemUseGroup" rect="0 0 500 20" margin="10 10 0 0" layout_gravity="left top" caption="{s16}{b}더블클릭 또는 생성 버튼으로 아이템을 생성할 수 있습니다." fixwidth="true"/>
+		<richtext name="Item_MakeCount" parent="ItemUseGroup" rect="0 0 35 20" margin="116 129 0 0" layout_gravity="left top" caption="{s26}{b}개" fixwidth="true"/>
+		<richtext name="Item_LV" parent="ItemUseGroup" rect="0 0 100 23" margin="273 128 0 0" layout_gravity="left top" caption="{s26}{b}레벨" fixwidth="true"/>
+		<edit name="itemcount" parent="ItemUseGroup" rect="0 0 100 40" margin="7 0 0 5" layout_gravity="left bottom" OffsetForDraw="0 0" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="center top" usetag="true"/>
+		<edit name="ItemlvEdit" parent="ItemUseGroup" rect="0 0 100 40" margin="160 0 0 5" layout_gravity="left bottom" OffsetForDraw="0 0" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="center top" usetag="true"/>
+		<button name="ExecItemSearch" parent="ItemUseGroup" rect="0 0 150 50" margin="0 0 10 63" layout_gravity="right bottom" LBtnUpScp="SEARCH_ITEM_CHEATLIST" caption="{@st41b}검색{/}" clicksound="button_click" oversound="button_over"/>
+		<edit name="ItemSearch" parent="ItemUseGroup" rect="0 0 368 47" margin="4 0 0 64" layout_gravity="left bottom" EnterKeyScp="SEARCH_ITEM_CHEATLIST" OffsetForDraw="0 0" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="left top" usetag="true"/>
+		<groupbox name="CreatMonGroup" rect="0 0 558 203" margin="20 450 0 0" layout_gravity="left top" container="true" draw="false" target="itemtree"/>
+		<richtext name="Mon_ToopTip" parent="CreatMonGroup" rect="0 0 500 20" margin="10 10 0 0" layout_gravity="left top" caption="{s16}{b}더블클릭 또는 생성버튼으로 몬스터를 소환할 수 있습니다." fixwidth="true"/>
+		<edit name="MonSearch" parent="CreatMonGroup" rect="0 0 356 48" margin="11 0 0 95" layout_gravity="left bottom" EnterKeyScp="SEARCH_MON_CHEATLIST" OffsetForDraw="0 3" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="left top" usetag="true"/>
+		<button name="ExecMonSearch" parent="CreatMonGroup" rect="0 0 150 50" margin="0 0 30 95" layout_gravity="right bottom" LBtnUpScp="SEARCH_MON_CHEATLIST" caption="{@st41b}검색{/}" clicksound="button_click" oversound="button_over" usetag="true"/>
+		<richtext name="Mon_CrtLeV" parent="CreatMonGroup" rect="0 0 63 17" margin="95 125 0 0" layout_gravity="left top" caption="{@st44}{s26}레벨" fixwidth="true"/>
+		<edit name="MonLV" parent="CreatMonGroup" rect="0 0 80 40" margin="14 0 0 40" layout_gravity="left bottom" OffsetForDraw="0 0" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="center top" usetag="true"/>
+		<richtext name="Mon_CrtCount" parent="CreatMonGroup" rect="0 0 71 13" margin="260 125 0 0" layout_gravity="left top" caption="{@st59b}{s26}마리" fixwidth="true"/>
+		<edit name="MonCT" parent="CreatMonGroup" rect="0 0 80 40" margin="170 0 0 40" layout_gravity="left bottom" OffsetForDraw="0 0" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="center top" usetag="true"/>
+		<groupbox name="MzMapGroup" rect="0 0 563 180" margin="20 450 0 0" layout_gravity="left top" container="true" draw="false" target="itemtree"/>
+		<richtext name="Map_ToopTip" parent="MzMapGroup" rect="0 0 500 20" margin="10 10 0 0" layout_gravity="left top" caption="{s16}{b}원하는 지역을 선택하세요" fixwidth="true"/>
+		<checkbox name="previewMinimap" parent="MzMapGroup" rect="0 0 100 30" margin="19 0 0 110" layout_gravity="left bottom" EnterKeyScp="SEARCH_ITEM_CHEATLIST" caption="{s18}{b}미니맵 보기{/}" checked="true" clicksound="button_click" oversound="button_over"/>
+		<button name="cheatToolList" parent="MzMapGroup" rect="0 0 150 48" margin="0 0 0 0" layout_gravity="center bottom" LBtnUpScp="ui.OpenFrame(&apos;operatortools&apos;)" caption="{@st41b}툴 리스트{/}" clicksound="button_click" oversound="button_over"/>
+		<edit name="MapSearch" parent="MzMapGroup" rect="0 0 385 48" margin="10 0 0 60" layout_gravity="left bottom" EnterKeyScp="SEARCH_MAP_CHEATLIST" OffsetForDraw="0 3" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="left top" usetag="true"/>
+		<button name="ExecMapSearch" parent="MzMapGroup" rect="0 0 140 50" margin="0 0 24 60" layout_gravity="right bottom" LBtnUpScp="SEARCH_MAP_CHEATLIST" caption="{@st41b}검색{/}" clicksound="button_click" oversound="button_over" usetag="true"/>
+		<groupbox name="OthersGroup" rect="0 0 516 200" margin="20 450 0 0" layout_gravity="left top" container="true" draw="false" scrollbar="false" target="itemtree"/>
+		<edit name="ForkName" parent="OthersGroup" rect="0 0 356 42" margin="11 0 0 88" layout_gravity="left top" EnterKeyScp="SEARCH_COMBAT_CHEATLIST" OffsetForDraw="0 3" fontname="white_24_ol" maxlen="30" saveinput="true" textalign="left top" usetag="true"/>
+		<button name="ExecForkNameSearch" parent="OthersGroup" rect="0 0 142 42" margin="0 0 3 87" layout_gravity="right top" LBtnUpScp="SEARCH_COMBAT_CHEATLIST" caption="{@st41b}검색{/}" clicksound="button_click" oversound="button_over" usetag="true"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,24 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="mcy_killer" x="-300" y="0" width="200" height="120" create="open">
+    <frame title="" snapclient="true" snapframe="true" layout_gravity="right top"/>
+    <option visible="false" useimageitem="true" hideable="false"/>
+    <layer layerlevel="10"/>
+    <skin frameskin="map_aos_bg" layout_gravity="center center" draw="true" rect="0 0 640 540"/>
+    <draw blend="70" drawtitlebar="false" drawframe="false"/>
+    <input hittestframe="false" hittesttitlebar="false"/>
+    <userconfig Font_Kill="{ol}{#FFFFFF}" Font_Dead="{ol}{#AA0000}"/>
+    <controls>
+        <groupbox name="record" rect="0 0 200 100" container="true" draw="false" hittest="false" scrollbar="false" updateparent="false"/>
+        <richtext name="k1" parent="record" rect="10 10 90 20" caption="" hittest="false" resizebytext="false"/>
+        <richtext name="k2" parent="record" rect="10 30 90 20" caption="" hittest="false" resizebytext="false"/>
+        <richtext name="k3" parent="record" rect="10 50 90 20" caption="" hittest="false" resizebytext="false"/>
+        <richtext name="k4" parent="record" rect="10 70 90 20" caption="" hittest="false" resizebytext="false"/>
+        <richtext name="k5" parent="record" rect="10 90 90 20" caption="" hittest="false" resizebytext="false"/>
+        <richtext name="t1" parent="record" rect="-10 10 90 20" layout_gravity="right top" caption="" hittest="false" resizebytext="false" textalign="right top"/>
+        <richtext name="t2" parent="record" rect="-10 30 90 20" layout_gravity="right top" caption="" hittest="false" resizebytext="false" textalign="right top"/>
+        <richtext name="t3" parent="record" rect="-10 50 90 20" layout_gravity="right top" caption="" hittest="false" resizebytext="false" textalign="right top"/>
+        <richtext name="t4" parent="record" rect="-10 70 90 20" layout_gravity="right top" caption="" hittest="false" resizebytext="false" textalign="right top"/>
+        <richtext name="t5" parent="record" rect="-10 90 90 20" layout_gravity="right top" caption="" hittest="false" resizebytext="false" textalign="right top"/>
+    </controls>
+</uiframe>

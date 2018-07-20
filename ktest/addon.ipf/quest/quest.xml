@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="quest" x="0" y="0" width="555" height="450">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0" keyboardselectframe="true"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+  
+<opencheck scp="UI_CHECK_PROP" strarg="quest" numarg="1"/>
+
+<lockopenscript scp="UI_CHECK_NOT_PVP_MAP"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<effect open="questOpen" close="questClose"/>
+	<script OpenScp="QUEST_FRAME_OPEN" CloseScp="QUEST_FRAME_CLOSE"/>
+	<controls>
+		<groupbox name="questGbox2" rect="0 0 555 990" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" skin="test_frame_low"/>
+		<groupbox name="questGbox" rect="0 0 540 860" margin="5 140 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
+		<groupbox name="abandonbox" rect="0 0 540 860" margin="5 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
+		<groupbox name="pip4" rect="0 0 560 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}퀘스트{nl}{@st59s} - 퀘스트 획득시 퀘스트 지령창에 등록{nl} - 메인퀘스트는 노란색, 서브퀘스트는 파란색 표시{nl} - 캐릭터 발 밑의 화살표로 퀘스트 위치를 표시{nl} - 퀘스트 완료시 퀘스트 지령창에 돌아가기 아이콘 표시{nl}  (백스페이스나 마우스 클릭으로 완료 NPC로 순간이동){nl} - 퀘스트 지령창에 등록/해제시 퀘스트 이름 앞 체크 선택{/}"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;quest&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}퀘스트 정보를 닫습니다{/}"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}퀘스트{/}" fontname="default" spacey="0"/>
+		<tab name="questBox" rect="0 0 300 40" margin="125 90 0 0 " layout_gravity="left top" LBtnDownScp="QUEST_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="box1" parent="questBox" caption="{@st66b}  진행  {/}" width="140"/>
+		<tabitem name="box2" parent="questBox" caption="{@st66b}  포기  {/}" width="140"/>
+		<!--labelline name="boardLine2" parent="questGbox" rect="0 0 500 2" margin="0 44 0 0" layout_gravity="center top" visible="true" skin="Nene"/-->
+		<richtext name="desc" rect="0 0 250 95" margin="5 60 0 0" layout_gravity="left top" autowiki="true" fixwidth="false" fontname="white_20_ol"/>
+		<!--<page name="list" rect="0 0 350 0" margin="90 10 0 50" layout_gravity="left none"/>-->
+		<picture name="titlepicture" rect="0 0 44 44" margin="10 -600 0 0" layout_gravity="left top" image="button_quest"/>
+	</controls>
+</uiframe>

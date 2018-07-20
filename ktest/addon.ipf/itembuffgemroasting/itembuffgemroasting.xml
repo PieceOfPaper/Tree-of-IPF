@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itembuffgemroasting" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -680 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="log" rect="0 0 450 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="gem_socket_bg"/>
+		<groupbox name="roasting" rect="0 0 450 1000" margin="0 70 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<groupbox name="pip4" rect="0 0 450 62" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 13 0 0" layout_gravity="center top" caption="{@st43}젬 로스팅{/}" textalign="center center"/>
+		<button name="close" rect="7 2 44 44" margin="0 10 20 0" layout_gravity="right top" LBtnUpScp="GEMROASTING_TARGET_UI_CENCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}UI를 닫습니다{/}"/>
+		<tab name="statusTab" rect="70 70 500 40" layout_gravity="left top" LBtnDownScp="GEMROASTING_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="1" oversound="button_cursor_over_2" skin="tab2"/>
+		<labelline name="repairLine1" rect="0 0 420 2" margin="0 103 0 0 " layout_gravity="center top" skin="None"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}로스팅{/}" width="160"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<picture name="slot_bg_img" parent="roasting" rect="0 0 240 260" margin="0 50 0 0" layout_gravity="center top" image="squaier_gem" stretch="true"/>
+		<slot name="slot" parent="roasting" rect="0 0 130 130" margin="0 110 0 0" layout_gravity="center top" DropScp="GEMROASTING_SLOT_DROP" PopScp="GEMROASTING_SLOT_POP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}젬을 올려주세요{/}"/>
+		<richtext name="slotName" parent="roasting" rect="0 0 200 48" margin="0 250 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<groupbox name="effectGbox" parent="roasting" rect="0 0 439 500" margin="0 230 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<groupbox name="materialGbox" parent="roasting" rect="0 0 439 300" margin="0 700 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<labelline name="effectline" parent="effectGbox" rect="0 0 415 4" margin="15 80 0 0" layout_gravity="left top" skin="None"/>
+		<labelline name="line" parent="materialGbox" rect="0 0 415 4" margin="15 80 0 0" layout_gravity="left top" skin="None"/>
+		<richtext name="effect" parent="effectGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="효과" fontname="brown_18_b" textalign="left top"/>
+		<richtext name="material" parent="materialGbox" rect="0 0 200 80" margin="30 50 0 0" layout_gravity="left top" caption="소비재료" fontname="brown_18_b" textalign="left top"/>
+		<richtext name="reqitemNameStr" parent="materialGbox" rect="0 0 343 48" margin="100 100 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="reqitemNeedCount" parent="materialGbox" rect="0 0 343 48" margin="0 100 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="reqitemImage" parent="materialGbox" rect="0 0 343 48" margin="30 100 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" param2="guid" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="count" parent="materialGbox" rect="0 0 200 80" margin="100 125 0 0" layout_gravity="left top" caption="남은 개수" fontname="brown_16_b" textalign="left top"/>
+		<richtext name="reqitemCount" parent="materialGbox" rect="0 0 343 48" margin="0 125 20 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_16_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<button name="btn_cencel" parent="roasting" rect="10 10 140 55" margin=" 80 0 0 80" layout_gravity="center bottom" LBtnUpScp="GEMROASTING_CENCEL_CHECK" caption="{@st42}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
+		<button name="btn_excute" parent="roasting" rect="10 10 140 55" margin="-90 0 0 80" layout_gravity="center bottom" LBtnUpScp="GEMROASTING_EXCUTE" caption="{@st42}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<groupbox name="reqitem_slot" parent="materialGbox" rect="0 0 70 70" margin="20 0 0 140" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="TitleSkin" parent="roasting" rect="0 0 410 40" margin="20 47 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="log_gbox" parent="log" rect="0 5 420 800" margin="0 69 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<richtext name="Money" parent="roasting" rect="0 0 200 80" margin="30 56 0 0" layout_gravity="left top" caption="{img silver 20 20} 받는 가격" fontname="brown_16_b" textalign="left top"/>
+		<richtext name="needlisttxt" parent="roasting" rect="0 0 200 80" margin="20 27 0 0" layout_gravity="left top" textalign="left top"/>
+		<richtext name="reqitemMoney" parent="roasting" rect="0 0 343 48" margin="0 56 30 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<button name="btn_excute" parent="log" rect="10 10 140 55" margin="0 0 0 30" layout_gravity="center bottom" LBtnUpScp="SQUIRE_BUFF_CLOSE" caption="{@st42}폐점" skin="test_red_button"/>
+	</controls>
+</uiframe>

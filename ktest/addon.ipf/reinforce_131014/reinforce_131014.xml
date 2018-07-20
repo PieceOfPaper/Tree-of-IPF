@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="reinforce_131014" x="0" y="0" width="390" height="360" create="open">
+	<frame title="{@st43}{s22}아이템 강화{/}" titlepos="0 -5" layout_gravity="left center" snapclient="true" snapframe="true" margin="350 -50 0 0"/>
+    <option closebutton="false" hideable="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <draw drawtitlebar="true"/>
+    <layer layerlevel="100"/>
+    <userconfig Font_PropName="{@st45tw4}" Font_From="{@st42}"/>
+    <script OpenScp="REINFORCE_131014_OPEN" CloseScp="REINFORCE_131014_CLOSE"/>
+    <controls>
+        <!--richtext name="t_baseitem" layout_gravity="center top" margin="0 0 0 0" rect="0 0 200 20" caption="{@st43}강화"/-->
+		<button name="close" rect="0 0 44 44" margin="0 -70 7 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;reinforce_131014&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}강화를 취소합니다{/}"/>
+		<richtext name="t_fromItem" rect="0 0 200 20" margin="0 130 0 0" layout_gravity="center top" caption="{@st41b}대상 아이템"/>
+        <slot name="fromMoruSlot" rect="0 0 80 80" margin="-100 10 0 0" layout_gravity="left top" DropScp="DROP_UPGRADE2_MORU" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="rh"/>
+		<slot name="fromItemSlot" rect="0 0 128 128" margin="0 -5 0 0" layout_gravity="center top" DropScp="DROP_UPGRADE2_SLOT" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" draw="true" image="skilltooltip_skill_image_slot"/>
+        <richtext name="t_fromMoru" rect="0 0 200 20" margin="-100 100 0 0" layout_gravity="left top" caption="{@st41b}모루" textalign="center center"/>
+		<labelline name="boardLine 1" rect="0 0 340 4" margin="0 165 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<labelline name="boardLine 2" rect="0 0 340 4" margin="0 250 0 0" layout_gravity="center top" skin="None" visible="true"/>
+		<richtext name="hitCountDesc" rect="0 0 200 20" margin="0 180 0 0" layout_gravity="center top" format="{@st41}{s20}모루 타격 횟수 :{@st43} %s" param1="hitcount" param1_def="10"/>
+		<richtext name="hitPriceDesc" rect="0 0 200 20" margin="0 210 0 0" layout_gravity="center top" fontname="white_18" format="{@st41}{s20}강화 가격 : %s" param1="price" param1_def="0"/>
+		<button name="exec" rect="0 0 160 50" margin="0 0 0 35" layout_gravity="center bottom" LBtnUpScp="REINFORCE_131014_MSGBOX" caption="{@st41b}강화 시작{/}" clicksound="button_click_big" oversound="button_over" skin="test_red_button" texttooltip="{@st59}아이템 강화를 시작합니다.{/}"/>
+    </controls>
+</uiframe>

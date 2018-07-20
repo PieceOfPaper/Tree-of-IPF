@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="inte_warp_detail" x="0" y="0" width="380" height="250" create="open">
+    <frame title="{@st43}{s22}워프{/}" titlepos="0 -12" layout_gravity="center center" snapclient="true" snapframe="true" margin="250 -100 0 0" scale_align="center top"/>
+    <draw drawframe="true" drawtitlebar="true"/>
+    <layer layerlevel="100"/>
+    <option closebuttonpos="0 40"/>
+    <input moveable="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <groupbox name="box" rect="0 0 380 250" margin="3 -7 0 0" layout_gravity="left top" draw="false" hittestbox="true" rateheight="true" ratewidth="true" scrollbar="false" skin="groupbox"/>
+        <richtext name="richtext_static1" rect="0 0 120 24" margin="0 140 0 0" layout_gravity="center top" caption="{@st41b}이 지역으로 이동하시겠습니까?{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" image="map_icon" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <picture name="picture_minimap" rect="5 5 150 150" margin="28 -15 0 0" layout_gravity="left top" hittest="false" image="map_icon" stretch="true"/>
+		<richtext name="richtext_mapname" rect="0 0 120 24" margin="190 25 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="mapname" param1_def="DefVal" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="richtext_medal" rect="0 0 120 24" margin="190 65 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st45ty}%s{/}" maxwidth="0" param1="medal" param1_def="DefVal" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="earth_tower_floor" x="0" y="0" width="490" height="260" create="open">
+	<frame title="" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<skin backgroundimage="mixer_back" layout_gravity="left top" rect="0 0 0 0" frameskin="none"/>
+	<option hideable="false" closebutton="true" useimageitem="true"/>
+	<sound opensound="sys_groundtower_step_popup_open" closesound="win_close"/>
+	<draw drawtitlebar="false"/>
+	<option closebutton="false"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<layer layerlevel="150"/>
+	<controls>
+		<groupbox name="pic_bg" rect="0 0 490 260" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" skin="popup_floor_skin"/>
+		<richtext name="earthToweTitle" margin="0 -62 0 0" rect="0 0 120 24" format="{@st69b_36}%s{/}" param1="value" param1_def="대지의 탑" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="bookfont" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
+		<richtext name="floorCount" margin="-20 13 0 56" rect="0 0 120 24" format="{@st69_100}%s{/}" param1="value" param1_def="24" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="bookfont" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+		<richtext name="floor" margin="66 13 0 66" rect="0 0 120 24" format="{@st69b_36}%s{/}" param1="value" param1_def="층" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="bookfont" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+	</controls>
+</uiframe>

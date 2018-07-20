@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="manufac_renew" x="0" y="0" width="400" height="700" create="open">
+    <frame title="{@st41}제조{/}" titlepos="0 -10" layout_gravity="right center" margin="0 0 500 0"/>
+    <option closebuttonpos="5 20" hideable="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <draw drawtitlebar="true"/>
+    <layer layerlevel="50"/>
+    <script OpenScp="MANU_RESET" CloseScp="MANU_CLOSE"/>
+    <userconfig Font_PropName="{@st42}" Font_From="{@st42}" Font_Indicator="{@st42_yellow}" Font_To="{@st42_green}"/>
+    <controls>
+        <slot name="tgtItemSlot" rect="0 10 80 80" layout_gravity="center top" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="ring"/>
+        <richtext name="itemName" rect="0 100 200 20" layout_gravity="center top" format="{@st41}%s  %s 개" param1="ItemName" param2="ItemCount"/>
+        <groupbox name="materialList" rect="0 150 340 100" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
+        <slotset name="slotlist" rect="0 220 300 120" layout_gravity="center top" DropScp="MANU_MAT_DROP" RBtnDownScp="MANU_MAT_REMOVE" col="5" cursoronresize="true" dropsound="icon_get_down" enableselect="true" hideindrag="true" maxselect="8" movepop="false" picksound="icon_pick_up" row="3" size="60 60" skin="slot_type01" spc="0 0"/>
+        <gauge name="prog_gauge" rect="0 450 300 30" layout_gravity="center top" skin="guildquest_gauge"/>
+        <button name="exec" rect="0 490 200 60" layout_gravity="center top" LBtnUpScp="MANU_EXEC" caption="{@st43}제작시작{/}" clicksound="button_click_big" oversound="button_over" skin="btn_lv3" texttooltip="{@st59}아이템 제작을 시작합니다.{/}"/>
+    </controls>
+</uiframe>

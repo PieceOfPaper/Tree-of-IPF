@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="balloon" x="300" y="200" width="300" height="200" create="open">
+    <frame title="" layout_gravity="left center" fasthide="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <layer layerlevel="105"/>
+    <skin frameskin="textballoon"/>
+    <input moveable="false" hittestframe="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <option hideable="false"/>
+    <controls>
+        <picture name="textImage" rect="0 0 280 130" margin="5 5 0 0" layout_gravity="center center"/>
+        <richtext name="text" rect="0 0 300 20" margin="0 0 0 0" layout_gravity="center center" fixwidth="true" format="%s%s" param1="Font" param1_def="{#001100}{s18}" param2="Text" resizebytext="true"/>
+    </controls>
+</uiframe>

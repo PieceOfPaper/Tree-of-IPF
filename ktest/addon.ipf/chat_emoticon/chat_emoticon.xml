@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="chat_emoticon" x="0" y="0" width="430" height="250" create="open">
+	<skin frameskin="pip_gridbox"/>
+	<frame title="{@st43}게임설정{/}" fasthide="true" titlepos="0 -12" layout_gravity="center bottom" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="93"/>
+	<input moveable="true"/>
+	<option closebutton="false" hideable="true" useimageitem="true"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<script OpenScp="CHAT_EMOTICON_OPEN" lostFocusScp="CHAT_EMOTICON_CLOSE"/>
+	<controls>
+		<slotset name="emoticons" rect="0 0 420 20" margin="0 0 0 0" layout_gravity="center center" LBtnUpScp="CHAT_EMOTICON_SELECT" col="10" cursoronresize="true" dropsound="icon_get_down" enablepop="false" enableselect="true" hideindrag="true" maxselect="4" movepop="false" picksound="icon_pick_up" row="5" size="42 42" skin="invenslot" spc="0 0"/>
+	</controls>
+</uiframe>

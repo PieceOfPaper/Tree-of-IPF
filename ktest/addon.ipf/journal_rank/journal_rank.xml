@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by L (IMCGames Co., Ltd) -->
+<uiframe name="journal_rank" x="0" y="0" width="580" height="1010" create="open">
+    <frame title="{@st41}상세정보{/}" titlepos="0 -10" fasthide="true" layout_gravity="left top" margin="570 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <draw drawtitlebar="true" drawframe="true"/>
+    <option closebutton="false" hideable="true"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <script OpenScp="JOURNAL_RANK_OPEN"/>
+    <controls>
+        <button name="close" rect="0 0 44 44" margin="0 -60 5 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;journal_rank&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip=""/>
+        <groupbox name="detail_item" rect="0 0 0 0" margin="35 50 45 50" layout_gravity="none none" scrollbar="false"/>
+        <button name="prev_rank" parent="detail_item" rect="0 0 40 25" margin="-20 400 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_ITEM_PREV_RANK" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="next_rank" parent="detail_item" rect="0 0 40 25" margin="20 400 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_ITEM_NEXT_RANK" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="prev_item" parent="detail_item" rect="0 0 40 25" margin="-20 860 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_ITEM_PREV_MONSTER" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="next_item" parent="detail_item" rect="0 0 40 25" margin="20 860 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_ITEM_NEXT_MONSTER" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <groupbox name="detail_monster" rect="0 0 0 0" margin="35 50 45 50" layout_gravity="none none" scrollbar="false"/>
+        <button name="prev_rank" parent="detail_monster" rect="0 0 40 25" margin="-20 400 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_MONSTER_PREV_RANK" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="next_rank" parent="detail_monster" rect="0 0 40 25" margin="20 400 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_MONSTER_NEXT_RANK" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="prev_item" parent="detail_monster" rect="0 0 40 25" margin="-20 860 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_MONSTER_PREV_DROP" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="next_item" parent="detail_monster" rect="0 0 40 25" margin="20 860 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_MONSTER_NEXT_DROP" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <groupbox name="detail_craft" rect="0 0 0 0" margin="35 50 45 50" layout_gravity="none none" scrollbar="false"/>
+        <button name="prev_rank" parent="detail_craft" rect="0 0 40 25" margin="-20 400 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_CRAFT_PREV_RANK" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="next_rank" parent="detail_craft" rect="0 0 40 25" margin="20 400 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_CRAFT_NEXT_RANK" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="prev_item" parent="detail_craft" rect="0 0 40 25" margin="-20 760 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_CRAFT_PREV_MAT" caption="{img white_left_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <button name="next_item" parent="detail_craft" rect="0 0 40 25" margin="20 760 0 0" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_CRAFT_NEXT_MAT" caption="{img white_right_arrow 18 18}" clicksound="button_click_big" oversound="button_over"/>
+        <gauge name="craft_gauge" parent="detail_craft" rect="0 791 300 30" layout_gravity="center top" skin="guildquest_gauge"/>
+        <button name="exec" parent="detail_craft" rect="0 830 200 60" layout_gravity="center top" LBtnUpScp="JOURNAL_DETAIL_CRAFT_EXEC" caption="{@st43}제작시작{/}" clicksound="button_click_big" oversound="button_over" skin="btn_lv3" texttooltip="{@st59}아이템 제작을 시작합니다.{/}"/>
+    </controls>
+</uiframe>

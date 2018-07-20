@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<uitile name="chatnotice" x="10" y="100" width="350" height="40" bodycolor="#ffffff" bodyalpha="0">
+    <frame layout_gravity="left center"/>
+    <layer layerlevel="80"/>
+    <input moveable="false" maxwidth="1280"/>
+    <option visible="false" hideable="false" closebutton="false"/>
+    <draw drawframe="false"/>
+    <controls>
+        <slot name="chatslot" margin="0 0 0 0" layout_gravity="left center" index="0" layout_height="30" layout_width="30" skin="slot_type01"/>
+        <richtext name="notice" rect="40 0 350 20" layout_gravity="left center" fixwidth="true" resizebytext="false"/>
+    </controls>
+</uitile>

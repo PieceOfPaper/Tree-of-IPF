@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="chat_option" x="0" y="0" width="270" height="390" create="open">
+	<skin frameskin="chat_optionwin"/>
+	<frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left bottom" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
+	<draw drawframe="true" drawtitlebar="false"/>
+	<layer layerlevel="93"/>
+	<input moveable="true"/>
+	<option closebuttonpos="5 20" closebutton="false" hideable="true" useimageitem="true"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<script OpenScp="CHAT_OPTION_OPEN" lostFocusScp="CHAT_OPTION_CANCEL"/>
+	<controls>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="-1 10 0 0" layout_gravity="center top" caption="{@st42}채팅 설정" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<slidebar name="slide_opacity" rect="0 0 235 27" margin="30 65 0 0" layout_gravity="left top" SlideScp="CHATOPTION_OPACITY" maxlevel="255" minlevel="0" skin="slidebar"/>
+		<richtext name="richtext_2" rect="0 0 120 24" margin="22 43 0 0" layout_gravity="left top" caption="{@st42}투명도" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="richtext_2_1" rect="0 0 120 24" margin="35 90 0 0" layout_gravity="left top" caption="0" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="richtext_2_1_1" rect="0 0 120 24" margin="208 90 0 10" layout_gravity="left top" caption="100" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <checkbox name="showchatballoon" rect="0 0 120 24" margin="31 250 0 0" layout_gravity="left top" ConfigName="ShowChatBalloon" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="말풍선 표시" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+        <checkbox name="showMicFrame" rect="0 0 120 24" margin="31 280 0 0" layout_gravity="left top" ConfigName="ShowMicFrame" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="화면 상단에 외치기 내용 표시" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+        <checkbox name="toggleTextchat" rect="0 0 120 24" margin="31 310 0 0" layout_gravity="left top" ConfigName="ToggleTextChat" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="채팅창 간략화" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+        <checkbox name="toggleBottomchat" rect="0 0 120 24" margin="31 340 0 0" layout_gravity="left top" ConfigName="ToggleBottomChat" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="채팅스크롤 강제 하단 이동" clicksound="button_click_big" fontname="white_16_ol" oversound="button_over"/>
+		<slidebar name="slide_fontsize" rect="0 0 235 27" margin="30 142 0 0" layout_gravity="left top" SlideScp="CHATOPTION_FONTSIZE" maxlevel="200" minlevel="0" skin="slidebar"/>
+		<richtext name="richtext_2_2" rect="0 0 120 24" margin="22 115 0 0" layout_gravity="left top" caption="{@st42}글자 크기" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="richtext_2_1_2" rect="0 0 120 24" margin="35 162 0 0" layout_gravity="left top" caption="0" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="richtext_2_1_1_1" rect="0 0 120 24" margin="208 162 0 10" layout_gravity="left top" caption="100" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <labelline name="labelline_1" margin="6 240 0 0" rect="0 0 260 2" skin="none" layout_gravity="left top"/>
+        <richtext name="richtext_2_2_1" rect="0 0 120 24" margin="22 185 0 0" layout_gravity="left top" caption="{@st42}접속 알림 표시" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <checkbox name="guildNoitce" margin="126 208 0 0" rect="0 0 95 24" caption="{@white_16_ol}길드원{/}" clicksound="button_click_big" oversound="button_over" ConfigName="guildNoitce" layout_gravity="left top"/>
+        <checkbox name="friendNoitce" margin="31 209 0 0" rect="0 0 95 24" caption="{@white_16_ol}친구{/}" clicksound="button_click_big" oversound="button_over" ConfigName="friendNoitce" layout_gravity="left top"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="hair_gacha_skip_btn" x="0" y="0" width="124" height="50">
+	<frame title="hair_gacha_skip_btn" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 20 20 0"/>
+	<option visible="false" closebutton="false" useimageitem="true" piptype="right" autoopen="false" hideable="false" alwaysVisible="false"/>
+	<layer layerlevel="100"/>
+	<draw blend="100" drawtitlebar="false" drawframe="false"/>
+	<controls>
+		<button name="skip_gacha_btn" rect="0 0 124 50" margin="0 0 0 0" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_3" oversound="button_cursor_over_2" image="gachaskip_btn" LBtnDownScp="ui.CloseFrame('fulldark')"/>
+	</controls>
+</uiframe>

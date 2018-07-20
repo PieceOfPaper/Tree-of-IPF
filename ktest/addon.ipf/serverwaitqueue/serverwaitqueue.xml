@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="serverwaitqueue" x="0" y="0" width="650" height="230" create="open" layout_gravity="center center" barrackuse="true">
+	<frame title="{@st41}서버 입장 대기중" titlepos="0 0" margin="0 -132 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+	<skin frameskin="test_win_system"/>
+	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="true" margin="8 3 0 0"/>
+	<layer layerlevel="100" margin="8 3 0 0"/>
+	<input moveable="true" margin="8 3 0 0"/>
+	<option closebutton="false" hideable="true" useimageitem="true" margin="8 3 0 0"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close" margin="8 3 0 0"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end" margin="8 3 0 0"/>
+	<controls>
+		<button name="bid" rect="0 0 160 50" margin="0 0 0 20" layout_gravity="center bottom" LBtnUpScp="CANCEL_SERVER_WAIT_QUEUE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}취소{/}" clicksound="quest_ui_alarm_2" oversound="button_over" skin="test_gray_button"/>
+		<richtext name="title" margin="0 60 0 0" rect="0 0 250 24" caption="{@st41}서버 입장 대기중" textalign="center top" resizebytext="true" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="richtext_1" margin="0 100 0 0" rect="0 0 250 24" caption="{#000000}{s18}서버 인원이 가득 차 입장 대기 중 입니다." textalign="center top" resizebytext="true" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+		<richtext name="currentCount" margin="0 130 0 0" rect="0 0 250 24" textalign="center top" resizebytext="true" maxwidth="0" fontname="white_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" param1="count" param1_def="1000" format="{@st66b18}현재 순위 : %s"/>
+	</controls>
+</uiframe>

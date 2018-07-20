@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="skillstat" x="0" y="0" width="480" height="420">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false" closebuttonpos="0 20"/>
+	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<script CloseScp="SKILLSTAT_SELEC_CANCLE"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 480 420" margin="0 1 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="token_skin2"/>
+		<richtext name="richtext" margin="20 160 0 0" rect="0 0 120 24" format="{@st42}%s 혜택{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<picture name="token_middle" rect="0 0 316 165" margin="90 1 0 0" layout_gravity="left top" hittest="true" image="resetSkill_middle"/>
+		<richtext name="str" margin="-2 0 0 137" rect="0 0 120 24" format="%s 아이템을 사용하시겠습니까?{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+		<richtext name="endTime2" margin="2 0 0 88" rect="0 0 200 24" format="사용한 아이템은 인벤토리에서 사라지며{nl}전체 %s가 초기화 됩니다.{/}" param1="value" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom"/>
+		<button name="button_1" margin="53 0 0 40" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}사용" LBtnUpScp="REQ_SKILLSTAT_ITEM"/>
+		<button name="button_1_1" margin="240 0 0 40" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="SKILLSTAT_SELEC_CANCLE"/>
+		<groupbox name="gBox" margin="15 190 0 0" rect="0 0 450 100" hittestbox="false" skin="None" layout_gravity="left top"/>
+	</controls>
+</uiframe>

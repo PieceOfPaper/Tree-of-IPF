@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldpvp_observer_chat" x="0" y="0" width="520" height="1080" create="open">
+	<frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="right center" margin="0 0 0 0" stretch="false" fullheight="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<skin frameskin="none"/>
+	<option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<controls>
+		<groupbox name="gbox_3" rect="0 0 490 210" margin="20 40 0 60" layout_gravity="left bottom" hittestbox="false" skin="test_Item_tooltip_normal"/>
+		<groupbox name="gbox_1" rect="0 0 379 75" margin="120 87 0 150" layout_gravity="left bottom" hittestbox="false" skin="none"/>
+		<groupbox name="gbox_2" rect="0 0 379 75" margin="120 0 0 70" layout_gravity="left bottom" hittestbox="false" skin="none"/>
+		<!--richtext name="richtext_1" rect="0 0 190 34" margin="104 143 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="value" param1_def="VS" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/-->
+		<edit name="mainchat" rect="0 0 485 36" margin="20 0 0 270" layout_gravity="left bottom" EnterKeyScp="WORLDPVP_NICO_CHAT" OffsetForDraw="10 3" border="10 0 0 0" skin="inventory_serch" drawbackground="true" fontname="white_20" maxlen="150" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" typingsound="chat_typing" usetag="true"/>
+		<button name="button_1" rect="0 0 160 50" margin="0 250 350 0" layout_gravity="right  top" LBtnUpScp="END_PVP_OBSERVER" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}관전 종료" skin="test_gray_button" textalign="center center"/>
+		<labelline name="labelline1" rect="0 0 450 4" margin="0 0 0 147" layout_gravity="center bottom" skin="None"/>
+		<richtext name="richtext_blue" margin="20 0 0 180" rect="0 0 100 30" format="{@st66b}%s{/}" param1="value" param1_def="블루팀" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+		<richtext name="richtext_red" margin="20 0 0 90" rect="0 0 100 30" format="{@st66b}%s{/}" param1="value" param1_def="레드팀" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+		<richtext name="richtext_2" margin="20 48 0 230" rect="0 0 490 30" format="%s" param1="value" param1_def="플레이어 시점 보기" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left bottom"/>
+		<!--richtext name="richtext_2_1" margin="9 261 0 0" rect="0 0 379 40" format="{s22}%s{/}" param1="value" param1_def="관전자 채팅" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/-->
+	</controls>
+</uiframe>

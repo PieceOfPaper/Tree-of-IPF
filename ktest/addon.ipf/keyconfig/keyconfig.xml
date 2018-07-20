@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="keyconfig" x="0" y="0" width="800" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip"/>
+	<skin frameskin="pipwin_test"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="95"/>
+	<option closebutton="false" closebuttonpos="0 20"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<Script OpenScp="OPEN_KEYCONFIG" CloseScp="CLOSE_KEYCONFIG"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 800 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bg_midle" rect="0 0 292 930" margin="13 76 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="bg_midle2" rect="0 0 479 930" margin="311 77 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="pip4" rect="0 0 800 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}키 설정{/}" fontname="" textalign="left top"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<button name="button_1" rect="0 0 292 40" margin="13 75 0 0" layout_gravity="left top" skin="market_listbase" Enable="false"/>
+		<tree name="tree" layout_gravity="left top" rect="0 0 289 557" margin="10 105 0 0" drawline="false" skin="none" selectioncolor="CCCC99" enableselectioncolor="true" LBtnDownScp="KEYCONFIG_TREE_CLICK"/>
+		<controlset name="keyboard" type="keyconfig_tree" margin="0 0 0 0" rect="0 0 180 120" hittest="true" layout_gravity="left top" parent="tree" treeattach="tree#endspace#20"/>
+		<controlset name="mouse" type="keyconfig_tree" margin="0 0 0 0" rect="0 0 180 120" hittest="true" layout_gravity="left top" parent="tree" treeattach="tree#endspace#20"/>
+		<controlset name="joypad" type="keyconfig_tree" margin="0 0 0 0" rect="0 0 180 120" hittest="true" layout_gravity="left top" parent="tree" treeattach="tree#endspace#20"/>
+		<groupbox name="bg_key" rect="0 0 479 890" margin="311 115 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="none"/>
+		<groupbox name="bg_ac_key" rect="0 0 479 40" margin="311 76 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="market_listbase"/>
+		<groupbox name="bg_cate_key" rect="0 0 292 40" margin="13 75 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="market_listbase"/>
+		<richtext name="txt_action" margin="0 4 0 0" rect="0 0 261 33" format="{@st45tw2}%s" param1="value" param1_def="액션" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="bg_ac_key"/>
+		<richtext name="txt_key" margin="280 4 0 0" rect="0 0 135 31" format="{@st45tw2}%s" param1="value" param1_def="키" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="bg_ac_key"/>
+		<richtext name="txt_key" margin="0 0 0 10" rect="0 0 292 40" format="{@st45tw2}카테고리" param1="value" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="bg_cate_key"/>
+		<groupbox name="bg_keylist" rect="0 0 443 890" margin="5 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" scrollbar="false" skin="none" parent="bg_key"/>
+		<button name="defaultconfig" rect="0 0 235 51" margin="-242 0 0 80" layout_gravity="center bottom" LBtnUpScp="KEYCONFIG_RESTORE_DEFAULT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" skin="test_pvp_btn" format="{@st66b}%s" param1="value" param1_def="기본값 복원"/>
+	</controls>
+</uiframe>

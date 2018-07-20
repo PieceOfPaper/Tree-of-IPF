@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="notice_gm" x="0" y="0" width="804" height="350" create="open">
+    <frame title="알림" layout_gravity="center top" margin="0 160 0 0"/>
+    <skin frameskin="none"/>
+	<option closebutton="false" visible="false"/>
+    <draw drawtitlebar="false" drawframe="true"/>
+    <layer layerlevel="100"/>
+    <input hittest="false"/>
+    <animation frameOpenAnim="dialog_select_start" frameCloseAnim="dialog_select_end"/>
+    <controls>
+        <richtext name="text" rect="0 0 789 350" margin="-3 0 0 13" layout_gravity="center bottom" caption="축하합니다! 레벨이 상승하였습니다" fixwidth="true" resizebytext="false" textalign="center top"/>
+    </controls>
+</uiframe>

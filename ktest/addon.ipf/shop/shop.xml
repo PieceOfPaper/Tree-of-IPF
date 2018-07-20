@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="shop" x="0" y="0" width="530" height="609" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" piptype="left" margin="-1000 0 0 0" open="pip"/>
+	<input moveable="false" maxwidth="1280"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false" autoopen="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<effect open="shopOpen" close="shopClose"/>
+	<script OpenScp="SHOP_UI_OPEN" CloseScp="SHOP_UI_CLOSE"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 530 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bg2" rect="0 0 510 320" margin="0 0 0 180" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="pip4" rect="0 0 530 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="shop" rect="0 0 530 495" margin="0 90 0 0" layout_gravity="center top" draw="false" rateheight="true" ratewidth="true" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="shop_1" rect="0 0 530 310" margin="0 0 0 185" layout_gravity="center bottom" draw="false" rateheight="true" ratewidth="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<groupbox name="shop_2" rect="0 0 530 125" margin="0 0 0 60" layout_gravity="center bottom" draw="false" rateheight="true" ratewidth="true" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" image="testquesten_button" texttooltip="{@st59b}상점{nl}{@st59s} - 아이템을 여러 개 판매/구매하려면 Shift + 우클릭 후 개수 입력{nl} - 아이템을 전량 판매하려면 마우스 더블 우클릭으로 이용{/}"/>
+		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;shop&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}상점을 닫습니다{/}"/>
+		<button name="pagestart" rect="0 0 60 40" margin="-135 525 0 0" layout_gravity="center top" LBtnUpArgNum="1" LBtnUpScp="SHOP_PAGE_LEFT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img white_left_arrow 16 16}{img white_left_arrow 16 16}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="test_normal_button" textalign="center center" texttooltip="{@st59}처음 페이지{/}"/>
+		<button name="pageleft" rect="0 0 60 40" margin="-70 525 0 0" layout_gravity="center top" LBtnUpScp="SHOP_PAGE_LEFT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img white_left_arrow 16 16}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="test_normal_button" textalign="center center" texttooltip="{@st59}이전 페이지{/}"/>
+		<button name="pageright" rect="0 0 60 40" margin="70 525 0 0" layout_gravity="center top" LBtnUpScp="SHOP_PAGE_RIGHT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img white_right_arrow 16 16}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="test_normal_button" textalign="center center" texttooltip="{@st59}다음 페이지{/}"/>
+		<button name="pageend" rect="0 0 60 40" margin="135 525 0 0" layout_gravity="center top" LBtnUpArgNum="1" LBtnUpScp="SHOP_PAGE_RIGHT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{img white_right_arrow 16 16}{img white_right_arrow 16 16}" clicksound="button_click_close" oversound="button_cursor_over_2" skin="test_normal_button" textalign="center center" texttooltip="{@st59}마지막 페이지{/}"/>
+		<button name="slotinit" rect="0 0 100 50" margin="20 0 0 190" layout_gravity="left bottom" LBtnUpScp="SHOP_ITEM_SLOT_INIT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}비우기{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center" texttooltip="{@st59}장바구니를 비웁니다{/}"/>
+		<button name="sell" rect="0 0 120 50" margin="0 0 20 190" layout_gravity="right bottom" LBtnUpScp="SHOP_BUTTON_BUYSELL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}정산{/}" clicksound="button_click_big" oversound="button_over" skin="test_red_button" textalign="center center" textoffset="0 -2" texttooltip="{@st59}거래를 결정합니다{/}">
+			<!--uieffect effect="I_screen_button" scale="44" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/-->
+		</button>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}상점{/}" spacey="0" textalign="center center"/>
+		<richtext name="desc" rect="0 0 0 0" margin="0 8 20 0" layout_gravity="right top" spacey="0" textalign="right top"/>
+		<richtext name="pagetxt" rect="0 0 35 20" margin="0 535 0 0" layout_gravity="center top" caption="{@st41b}1 / 1{/}" spacey="0" textalign="center center"/>
+		<richtext name="buy_itemtext" rect="0 0 90 20" margin="50 0 0 465" layout_gravity="left bottom" caption="{@st41b}구입 아이템{/}" spacey="0" textalign="left center"/>
+		<richtext name="buy_price" rect="0 0 90 20" margin="0 0 30 465" layout_gravity="right bottom" caption="{@st41}10,000,000{/}" spacey="0" textalign="right center"/>
+		<richtext name="sell_itemtext" rect="0 0 90 20" margin="50 0 0 370" layout_gravity="left bottom" caption="{@st41b}판매 아이템{/}" spacey="0" textalign="left center"/>
+		<richtext name="sell_price" rect="0 0 90 20" margin="0 0 30 370" layout_gravity="right bottom" caption="{@st41}10,000,000{/}" spacey="0" textalign="right center"/>
+		<richtext name="tradePrice" rect="0 0 64 20" margin="50 0 0 275" layout_gravity="left bottom" caption="{@st41b}거래 정산 ▶{/}" textalign="left center"/>
+		<richtext name="inven_Zenytext" rect="0 0 78 20" margin="50 0 0 245" layout_gravity="left bottom" caption="{@st41b}예상 잔액 ▶{/}" textalign="left center"/>
+		<richtext name="pricetxt" rect="0 0 220 20" margin="0 0 30 275" layout_gravity="right bottom" format="{@st66d_y}%s{/}" param1="text" param1_def="0" spacey="0" textalign="right center"/>
+		<richtext name="finalprice" rect="0 0 220 20" margin="0 0 30 245" layout_gravity="right bottom" format="{@st66d_y}%s{/}" param1="text" param1_def="0" spacey="0" textalign="right center"/>
+		<richtext name="sold_itemtext" rect="0 0 92 20" margin="20 0 0 140" layout_gravity="left bottom" caption="{@st66b}내가 판매한 아이템{/}" spacey="0" textalign="left center"/>
+		<slotset name="buyitemslot" rect="0 0 336 42" margin="0 0 0 415" layout_gravity="center bottom" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
+		<slotset name="sellitemslot" rect="0 0 336 84" margin="0 0 0 320" layout_gravity="center bottom" DropScp="SHOP_SELL_DROP" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
+		<slotset name="solditemslot" rect="0 0 336 42" margin="0 0 0 90" layout_gravity="center bottom" col="10" dropsound="inven_equip" enableselect="true" maxselect="10" oversound="button_cursor_over_3" picksound="icon_pick_up" row="1" size="42 42" skin="invenslot2" spc="2 2"/>
+		<labelline name="boardLine 1" rect="0 0 500 4" margin="0 0 0 305" layout_gravity="center bottom" skin="None" visible="true"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_inven"/>
+		<picture name="buy_Zeny_Img" rect="0 0 24 24" margin="25 0 0 465" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+		<picture name="sell_Zeny_Img" rect="0 0 24 24" margin="25 0 0 370" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+		<picture name="Zeny_Img" rect="0 0 24 24" margin="25 0 0 275" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+		<picture name="Zeny_Img2" rect="0 0 24 24" margin="25 0 0 245" layout_gravity="left bottom" image="icon_item_silver" stretch="true"/>
+	</controls>
+</uiframe>

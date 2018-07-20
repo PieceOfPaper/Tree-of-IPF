@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="guildbattle_score" x="0" y="0" width="800" height="165" create="open">
+    <frame title="{@st41}NewUI{/}" titlepos="0 0" layout_gravity="center top" margin="0 10 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="none"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <gauge name="g_team_1" rect="0 0 240 40" margin="121 54 0 0" layout_gravity="left top" inverse="true" maxpoint="100" point="100" skin="gauge_youteam_L"/>
+        <gauge name="g_team_2" rect="0 0 240 40" margin="450 54 0 0" layout_gravity="left top" inverse="false" maxpoint="100" point="100" skin="gauge_myteam_R"/>
+        <picture name="test_pvp_gauge_R" rect="0 0 10 40" margin="295 -8 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_gauge_R" stretch="false"/>
+        <picture name="test_pvp_gauge_L" rect="0 0 10 40" margin="-284 -9 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_gauge_L" stretch="false"/>
+        <picture name="test_pvp_center" rect="0 0 250 160" margin="6 -4 0 0" layout_gravity="center center" changecursor="false" hittest="false" image="test_pvp_center_bg3" stretch="false"/>
+        <picture name="guildbattle_kill_count" rect="0 0 30 30" margin="120 30 0 0" layout_gravity="left top" changecursor="false" hittest="false" image="guildbattle_kill_count" stretch="false"/>
+        <picture name="guildbattle_kill_count2" rect="0 0 30 30" margin="0 30 170 0" layout_gravity="right top" changecursor="false" hittest="false" image="guildbattle_kill_count" stretch="false"/>
+        <controlset name="timer" type="timer" margin="335 105 0 0" rect="0 0 150 120" hittest="true" layout_gravity="left top"/>
+        <richtext name="txt_guildname_1" margin="124 112 0 0" rect="0 0 200 30" format="{@st66d}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <richtext name="txt_guildname_2" margin="486 111 0 0" rect="0 0 200 30" format="{@st66d}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <richtext name="kill_1" margin="145 20 0 0" rect="0 0 66 47" format="{@sti1c}%s{/}" param1="value" param1_def="0" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <richtext name="kill_2" margin="0 30 130 0" rect="0 0 66 47" format="{@sti1c}%s{/}" param1="value" param1_def="0" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+        <richtext name="txt_guildserver_1" margin="123 93 0 0" rect="0 0 200 30" format="{@st42b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <richtext name="txt_guildserver_2" margin="484 92 0 0" rect="0 0 200 30" format="{@st42b}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+    </controls>
+</uiframe>

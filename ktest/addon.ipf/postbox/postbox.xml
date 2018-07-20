@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="postbox" x="0" y="0" width="470" height="609" create="open" barrackuse="true">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="{@st43}모험일지{/}" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<script OpenScp="POSTBOX_OPEN"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<effect open="auctionOpen" close="auctionClose"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 470 970" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 100 30" margin="0 16 3 0 0" layout_gravity="center top" caption="{@st43}메시지함"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;postbox&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}경매장을 닫습니다{/}"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_wiki"/>
+		<groupbox name="gbox_msgList" rect="0 0 450 420" margin="10 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<tab name="itembox" rect="0 0 400 40" margin="52 90 0 0" layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st66b}전체" skinspace="20" width="180"/>
+		<tabitem name="tab_new" parent="itembox" layout_gravity="left top" caption="{@st66b}안읽은 메시지함" skinspace="20" width="180"/>
+		<groupbox name="gbox_list" rect="0 0 450 850" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="tab_normal"/>
+		<groupbox name="gbox_new" rect="0 0 450 850" margin="10 130 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle" tabname="tab_new"/>
+	</controls>
+</uiframe>

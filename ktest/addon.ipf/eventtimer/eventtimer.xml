@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by LEE (EMBRACE) -->
+<uiframe name="eventtimer" x="10" y="100" width="270" height="150" create="open">
+    <frame title="퀘스트 정보" layout_gravity="left top"/>
+    <option visible="false" closebutton="false" hideable="false"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="20"/>
+    <input hittestframe="false"/>
+    <controls>
+        <richtext name="title" rect="0 0 270 20" layout_gravity="center top" fixwidth="true" format="{@st45}{ol}%s{/}{/}" param1="title" resizebytext="false" textalign="center top" margin="0 0 0 0"/>
+        <richtext name="txt" rect="0 0 270 20" layout_gravity="center top" fixwidth="true" format="{@st45}{ol}%s{/}{/}" param1="txt" resizebytext="false" textalign="center top" margin="0 20 0 0"/>
+        <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+    </controls>
+</uiframe>

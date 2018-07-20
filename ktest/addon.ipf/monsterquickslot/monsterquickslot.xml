@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="monsterquickslot" x="0" y="0" width="500" height="100" layout_gravity="center bottom">
+    <frame title="" layout_gravity="center bottom" margin="0 0 0 8" scale_align="center bottom"/>
+    <layer layerlevel="91"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option visible="false" hideable="false" closebutton="false"/>
+    <input hittestframe="false"/>
+    <animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+    <controls>
+        <picture name="druid_slot_R" rect="0 0 80 80" margin="150 0 0 0" layout_gravity="center bottom" hittest="false" image="druid_slot_R"/>
+        <picture name="druid_slot_L" rect="0 0 80 80" margin="-150 0 0 0" layout_gravity="center bottom" hittest="false" image="druid_slot_L"/>
+        <slotset name="slotset" rect="0 0 240 160" margin="0 0 0 23" layout_gravity="center bottom" col="5" dropsound="icon_get_down" enableselect="true" maxselect="8" movepop="false" picksound="icon_pick_up" row="1" size="48 48" skin="quickslot" spc="2 2"/>
+    </controls>
+</uiframe>

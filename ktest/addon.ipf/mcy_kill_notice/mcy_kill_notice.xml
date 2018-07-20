@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="mcy_kill_notice" x="-50" y="0" width="597" height="90" create="open">
+    <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center center" margin="0 -390 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="test_pvp_alarm"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <picture name="pic" rect="0 0 62 66" margin="59 7 0 0" layout_gravity="left top" hittest="false" image="job_portrait_char1" stretch="true"/>
+        <richtext name="text" rect="0 0 389 51" margin="133 14 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false" format="{#000000}{s20}%s" param1="value" param1_def="textaaa"/>
+    </controls>
+</uiframe>

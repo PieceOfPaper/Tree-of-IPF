@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemmsgqueue" x="0" y="0" width="420" height="30" create="open">
+	<frame title="itemmsg" layout_gravity="right bottom" margin="0 0 0 60" fasthide="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <layer layerlevel="50"/>
+    <skin frameskin="bg"/>
+    <input moveable="false" hittestframe="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option hideable="false" closebutton="false"/>
+    <userconfig HEAD_FONT="{@sti9}" ITEM_FONT="{@st41b}"/>
+    <script CloseScp="CLOSE_ITEMMSG_QUEUE"/>
+    <controls>
+        <richtext name="text" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldpvp_msg" x="-50" y="0" width="870" height="93" create="open">
+    <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center top" margin="0 160 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="test_pvp_alarm"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <picture name="pic_1" rect="0 0 50 50" margin="100 -6 0 0" layout_gravity="left center" hittest="false" image="test_pvp_alram_icon" stretch="true"/>
+        <richtext name="text" rect="0 0 726 81" margin="113 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st41b}%s" maxwidth="0" param1="value" param1_def="Kill the enemy!" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+    </controls>
+</uiframe>

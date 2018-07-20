@@ -1,0 +1,38 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="soldierlist" x="0" y="0" width="350" height="400" create="open">
+    <frame title="{@st41}맵 만들기{/}" titlepos="0 -8" layout_gravity="right bottom" margin="0 0 60 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="skin_shadow"/>
+    <option hideable="false" closebutton="true" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <userconfig MainPCBoxSkin="groupbox" SubPCBoxSkin="bg"/>
+    <controls>
+        <groupbox name="guildquestnotice" rect="0 0 200 260" margin="25 80 0 0" layout_gravity="left top" hittestbox="false" skin=""/>
+        <picture name="myPic" rect="0 0 140 250" margin="0 85 0 0" image="_Capture_MyPC" stretch="true"/>
+        <picture name="i_medalpermin" rect="0 0 32 32" margin="40 45 0 0" image="medal" stretch="true"/>
+        <richtext name="t_medalpermin" rect="0 0 200 20" margin="80 50 0 0" format="{@st41}%s/분 (%s 보유){/}" param1="perMin" param1_def="30" param2="curMedal"/>
+		<richtext name="t_mainCharName" rect="0 0 195 20" margin="25 90 0 0" fixwidth="false" format="{@st41}%s{/}" param1="MainName" param1_def="DefVal" resizebytext="false" textalign="right center"/>
+        <richtext name="t_mainCharJob" rect="0 0 210 20" margin="5 135 0 0" format="{@st42_yellow}%s{/}" param1="MainJob" param1_def="소드맨" resizebytext="false" textalign="right center"/>
+        <richtext name="t_mainCharLevel" rect="0 0 210 20" margin="5 115 0 0" format="{@st42}%s{/}{@st42_yellow}레벨{/}" param1="MainLv" param1_def="65" resizebytext="false" textalign="right center"/>
+        <richtext name="t_mainCharMedal" rect="0 0 210 30" margin="5 170 0 0" format="{img medal 32 32}{/}  {@st43}%s{/}" param1="MainMedal" param1_def="8" resizebytext="false" textalign="right center"/>
+        <richtext name="t_mainCharHireTime_t" rect="0 0 210 20" margin="5 285 0 0" caption="{@st41_yellow}고용시간" resizebytext="false" textalign="right center"/>
+        <richtext name="t_mainCharHireTime" rect="0 0 210 20" margin="5 310 0 0" format="{@st41}%s" param1="MainCharHireTime" param1_def="01:23:47" resizebytext="false" textalign="right center"/>
+        <button name="b_mainCharFire" rect="0 0 90 30" margin="-50 0 0 30" layout_gravity="center bottom" LBtnUpScp="SOL_FIRE" caption="{@st41}해약"/>
+        <groupbox name="Char_1" rect="0 0 90 80" margin="230 45 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
+        <picture name="pic" parent="Char_1" rect="0 0 80 80" layout_gravity="center center" LBtnUpScp="SOL_DPC_CONTROL" changecursor="true" hittest="true" image="None" stretch="true"/>
+        <picture name="i_medal" parent="Char_1" rect="5 5 32 32" hittest="false" image="mainpc_crown" stretch="true"/>
+        <groupbox name="Char_2" rect="0 0 90 80" margin="230 125 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
+        <picture name="pic" parent="Char_2" rect="0 0 80 80" layout_gravity="center center" LBtnUpScp="SOL_DPC_CONTROL" changecursor="true" hittest="true" image="None" stretch="true"/>
+        <picture name="i_medal" parent="Char_2" rect="5 5 32 32" hittest="false" image="medal" stretch="true"/>
+        <richtext name="t_medal" parent="Char_2" rect="0 0 200 30" margin="36 5 0 0" format="{@st43}%s{/}" param1="Medal" param1_def="8" resizebytext="false"/>
+        <groupbox name="Char_3" rect="0 0 90 80" margin="230 205 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
+        <picture name="pic" parent="Char_3" rect="0 0 80 80" layout_gravity="center center" LBtnUpScp="SOL_DPC_CONTROL" changecursor="true" hittest="true" image="None" stretch="true"/>
+        <picture name="i_medal" parent="Char_3" rect="5 5 32 32" hittest="false" image="medal" stretch="true"/>
+        <richtext name="t_medal" parent="Char_3" rect="0 0 200 30" margin="36 5 0 0" format="{@st43}%s{/}" param1="Medal" param1_def="8" resizebytext="false"/>
+        <groupbox name="Char_4" rect="0 0 90 80" margin="230 285 0 0" layout_gravity="left top" hittestbox="false" skin="none"/>
+        <picture name="pic" parent="Char_4" rect="0 0 80 80" layout_gravity="center center" LBtnUpScp="SOL_DPC_CONTROL" changecursor="true" hittest="true" image="None" stretch="true"/>
+        <picture name="i_medal" parent="Char_4" rect="5 5 32 32" hittest="false" image="medal" stretch="true"/>
+        <richtext name="t_medal" parent="Char_4" rect="0 0 200 30" margin="36 5 0 0" format="{@st43}%s{/}" param1="Medal" param1_def="8" resizebytext="false"/>
+    </controls>
+</uiframe>

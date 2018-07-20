@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="event_reward_notify" x="0" y="0" width="1024" height="300">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 -200 0 0" draw="false"/>
+	<skin frameskin="none"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="false" closebutton="false" autoresize="1 1" fixwidth="false" resizeframe="true" autoresizebychild="true" alwaysVisible="false"/>
+	<userconfig TEXT_MARGIN="120" DURATION="7" QUOTES="'"/>
+	<layer layerlevel="100"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 300 120" margin="0 0 10 0" layout_gravity="center center" hittestbox="false" stretch="true" autoresize="1 1" autoresizebychild="true" resizeframe="true" scrollbar="false" fixwidth="false" skin="event_arlarm"/>
+		<picture name="box_image" rect="0 0 170 100" margin="0 33 0 0" layout_gravity="center top" image="event_img_box"/>
+		<richtext name="event_name" rect="0 0 320 50" margin="0 0 0 40" parent="bg" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66d}%s{/}" maxwidth="0" param1="value" param1_def="Event" resizebytext="true" slideshow="false" spacey="0" textalign="center bottom" updateparent="true"/>
+		<richtext name="reward_name" rect="0 0 320 50" margin="0 0 0 16" parent="bg" layout_gravity="center bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="Reward" resizebytext="true" slideshow="false" spacey="0" textalign="center bottom" updateparent="true"/>
+	</controls>
+</uiframe>

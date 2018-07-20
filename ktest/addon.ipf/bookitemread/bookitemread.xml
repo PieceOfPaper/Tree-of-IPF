@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="bookitemread" x="250" y="0" width="820" height="650" create="open">
+	<frame title="책이름" layout_gravity="center center"/>
+	<draw drawtitlebar="false" titlebarfixwidth="false"/>
+	<input moveable="false"/>
+	<layer layerlevel="90"/>
+	<skin frameskin="book_skin" titlebarfont="yellow_login_text" titlepadding="10 0 10 0"/>
+	<script OpenScp="BOOKITEM_UI_OPEN" CloseScp="BOOKITEM_UI_CLOSE"/>
+	<option hideable="true" closebutton="false" useimageitem="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<controls>
+		<flowtext name="text_left" rect="0 0 320 470" margin="70 100 0 0" layout_gravity="left top" fixwidth="true" rateheight="true" sildeshow="false" spacey="2" updateparent="true"/>
+		<flowtext name="text_right" rect="0 0 320 470" margin="430 100 0 0" layout_gravity="left top" fixwidth="true" rateheight="true" sildeshow="false" spacey="2" updateparent="true"/>
+		<button name="colse" rect="0 25 44 44" layout_gravity="right top" LBtnUpScp="COLSE_BOOK_ITEM" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}독서를 그만둡니다{/}"/>
+		<button name="prevBtn" rect="0 10 44 44" layout_gravity="left center" LBtnUpScp="PREV_BOOK_PAGE" clicksound="button_click_2" image="prevBtn" oversound="button_over" texttooltip="{@st59}이전 페이지{/}"/>
+		<button name="nextBtn" rect="0 10 44 44" layout_gravity="right center" LBtnUpScp="NEXT_BOOK_PAGE" clicksound="button_click_2" image="nextBtn" oversound="button_over" texttooltip="{@st59}다음페이지{/}"/>
+	</controls>
+</uiframe>

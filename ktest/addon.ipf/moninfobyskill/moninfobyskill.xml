@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="moninfobyskill" x="0" y="0" width="350" height="0" create="open">
+    <frame title="" layout_gravity="left center" fasthide="true"/>
+    <layer layerlevel="50"/>
+    <!--<skin frameskin="textballoon_reflect"/>-->
+    <skin frameskin="mainwindow2"/>
+    <input moveable="false" hittestframe="false"/>
+    <draw drawtitlebar="false" drawnotitlebar="false"/>
+    <option hideable="false"/>
+    <controls>
+        <richtext name="monname" rect="0 0 350 30" margin="0 20 0 0" layout_gravity="center top" fontname="white_22_ol" format="%s의 정보" hittest="false" param1="monname" param1_def="DefVal" textalign="center center"/>
+        <groupbox name="mainBox" rect="0 0 350 0" margin="0 75 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scroll="false"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="tpitem_selected" x="0" y="0" width="500" height="600" create="open">
+	<frame layout_gravity="center center" margin="0 0 0 0" tooltipoverlap="true"/>
+	<option closebutton="false"/>
+	<script CloseScp="TPITEM_SELECTED_CLOSE"/>
+	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<layer layerlevel="99"/>
+	<controls>
+		<!--TP SHOP 그룹박스-->
+		<button name="SkinFrame" margin="0 0 0 0" rect="0 0 450 600" layout_gravity="center center" skin="test_win_lastpopup2" hittest="false"/>
+		<groupbox name="stdBox" rect="0 0 500 600" margin="0 0 0 0" layout_gravity="center center" draw="false" scale_align="center bottom" hittestbox="false" skin="test_frame_midle_light"/>
+		<richtext name="itemTitle" parent="stdBox" rect="0 0 200 50" margin="0 105 0 0" layout_gravity="center top" format="{@st43}{s20}%s{/}" param1="name" param1_def="SELECTED TP ITEM NAME" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" textalign="left top"/>
+		<slot name="Itemslot" rect="0 0 200 200" parent="stdBox" margin="0 130 0 0" layout_gravity="center top" DropScp="" changecursor="false" hittest="false" clicksound="icon_pick_up" oversound="button_cursor_over_3" skin="none" stretch="true"/>
+		<groupbox name="selectedCashInvenItem" parent="stdBox" rect="0 0 380 120" margin="0 350 0 0" layout_gravity="center top" draw="true" scale_align="left top" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
+		<richtext name="selectedItemInfo" parent="selectedCashInvenItem" rect="0 0 340 250" margin="14 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" format="{@st43d}{s18}%s{/}" param1="info" param1_def="wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" textalign="left top"/>
+		<richtext name="selectedItemDesc" parent="selectedCashInvenItem" rect="0 0 340 250" margin="14 150 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" format="{@st43d}{s18}%s{/}" param1="desc" param1_def="wwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwwww" textalign="left top"/>
+		<richtext name="caution1" parent="stdBox" rect="0 0 200 50" margin="0 0 0 100" layout_gravity="center bottom" caption="{@st67}{s18}구매가 확정되면 되돌릴 수 없습니다.{/}" drawbackground="false" fixwidth="false" fontname="white_18_ol" resizebytext="true" textalign="center center"/>
+		<button name="puchaseBtn" parent="stdBox" caption="{@st66d}{s18}구매확정{/}" rect="0 0 160 50" margin="85 0 0 40" layout_gravity="left bottom" LBtnUpScp="TPITEM_SELECTED_PICKUP" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>
+		<button name="deferBtn" parent="stdBox" caption="{@st66d}{s18}아니오{/}" rect="0 0 160 50" margin="0 0 85 40" layout_gravity="right bottom" LBtnUpScp="TPITEM_SELECTED_DEFER" clicksound="button_click_big" skin="test_gray_button" oversound="button_over"/>
+		<button name="cancelBtn" parent="stdBox" caption="{@st66}{s18}청약철회{/}" rect="0 0 140 45" margin="0 300 60 0" layout_gravity="right top" LBtnUpScp="TPITEM_SELECTED_REFUND" clicksound="button_click_big" skin="test_pvp_btn" oversound="button_over"/>
+	</controls>
+</uiframe>

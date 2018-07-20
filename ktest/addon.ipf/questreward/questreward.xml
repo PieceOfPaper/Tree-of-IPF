@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="questreward" x="0" y="0" width="550" height="270" create="open">
+	<frame title="{@st43}{s22}퀘스트 완료{/}" titlepos="0 -5" layout_gravity="right center" margin="0 0 400 0" snapclient="true" snapframe="true" scale_align="center center"/>
+	<draw drawframe="true" drawtitlebar="true"/>
+	<layer layerlevel="100"/>
+	<option closebutton="false"/>
+	<sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start2" frameCloseAnim="popup_end2"/>
+	<script CloseScp="QUESTREWARD_CLOSE"/>
+	<controls>
+		<groupbox name="box" rect="0 0 480 175" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" rateheight="true" ratewidth="true" scrollbar="true" skin="groupbox"/>
+		<button name="UseBtn" rect="0 0 160 50" margin="-85 0 0 40" layout_gravity="center bottom" LBtnUpScp="CONFIRM_QUEST_REWARD" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}완료{/}" clicksound="button_click_stats_up" oversound="button_over" skin="test_pvp_btn"/>
+		<button name="CancelBtn" rect="0 0 160 50" margin="85 0 0 40" layout_gravity="center bottom" LBtnUpScp="CANCEL_QUEST_REWARD" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}취소{/}" clicksound="button_click" oversound="button_over" skin="test_pvp_btn"/>
+	</controls>
+</uiframe>

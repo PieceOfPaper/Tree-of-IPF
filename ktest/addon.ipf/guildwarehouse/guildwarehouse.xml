@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="guildwarehouse" x="0" y="0" width="550" height="1920" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin=" "/>
+    <frame layout_gravity="right top" margin="0 0 -650 0" fullheight="true" open="pip"/>
+    <input moveable="false" maxwidth="1280" hittestframe="false"/>
+    <layer layerlevel="96"/>
+    <option closebutton="false"/>
+    <sound opensound="window_mohum_open" closesound="window_mohum_close"/>
+    <script OpenScp="GUILDWAREHOUSE_OPEN" CloseScp="GUILDWAREHOUSE_CLOSE"/>
+    <userconfig NormalSlot="slot_greengem" CombinationSlot="belt_slot" DisabledSlot="slot_yellowgem"/>
+    <controls>
+        <groupbox name="gbox_bg" rect="0 0 550 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+        <picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+        <groupbox name="gbox" rect="0 0 650 810" margin="-8 100 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+        <groupbox name="pipwin_top" rect="0 0 555 60" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+        <richtext name="title" rect="0 0 100 30" margin="0 63 0 0" layout_gravity="center top" format="{@st43}%s{/}" param1="value" param1_def="길드 보관함"/>
+        <button name="close" rect="0 0 44 44" margin="28 38 0 0" layout_gravity="left top" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}길드 보관함을 닫습니다{/}"/>
+        <slotset name="slotset" parent="gbox" rect="0 0 400 200" margin="40 50 0 0" layout_gravity="left top" RBtnUpScp="RBTN_GUILDWAREHOUSE" col="8" row="12" cursoronresize="true" dropsound="icon_get_down" enableselect="false" hideindrag="true" maxselect="8" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" size="60 60" skin="invenslot2" spc="1 1"/>
+        <richtext name="t_useprice" rect="0 0 564 102" margin="0 0 0 120" layout_gravity="center bottom" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st66b}%s" maxwidth="0" param1="value" param1_def="* 이 아이템은 길드 마스터가 길드원에게 양도할 수 있고, 그 아이템은{nl}수령한 길드원에게 귀속됩니다.{nl}* 아이템은 메시지함에서 수령할 수 있습니다." resizebytext="false" slideshow="false" spacey="0" textalign="center bottom" updateparent="false"/>
+        <button name="refreshBtn" margin="0 110 30 0 " rect="0 0 40 40 " layout_gravity="right top" image="MCC_resetbtn" LBtnUpScp="GUILDWAREHOUSE_REFRESH_BTN" texttooltip="{@st59}길드 보관함을 새로 갱신합니다.{/}"/>
+    </controls>
+</uiframe>

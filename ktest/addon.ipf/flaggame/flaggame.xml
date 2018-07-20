@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="flaggame" x="0" y="0" width="401" height="700" create="open" layout_gravity="center center">
+    <frame title="{@st41}NewUI{/}" fasthide="true" titlepos="0 -8" layout_gravity="right center" margin="0 143 20 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="none"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <groupbox name="groupbox_1" rect="0 0 403 700" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" skin="textballoon_npc"/>
+        <richtext name="txt_round" rect="0 0 272 52" margin="0 9 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st43}Round %s{/}" maxwidth="0" param1="value" param1_def="1" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <controlset name="timer" type="timer" margin="237 67 0 0" rect="0 0 150 120" hittest="true" layout_gravity="left top"/>
+        <groupbox name="title_1" rect="0 0 392 39" margin="4 116 0 0" hittestbox="false" skin="bg_active" layout_gravity="left top"/>
+        <groupbox name="gbox_ctrlset" rect="0 0 390 540" margin="11 158 0 0" layout_gravity="left top" hittestbox="false" skin="none" scrollbar="true"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="sayballoon_new" x="0" y="0" width="280" height="220" create="open">
+    <frame title="{@st43}말풍선{/}" layout_gravity="left top" snapclient="true" snapframe="true" scale_align="center bottom"/>
+    <draw blend="80" drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true" resize="true" reduce="true" hittest="true" hittestframe="false"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <userconfig offsetY="0"/>
+    <controls>
+        <picture name="chattail" rect="0 0 30 60" margin="-30 35 0 0" layout_gravity="center top" hittest="false" image="dark_balloon_direction" stretch="true"/>
+        <picture name="picture_1" rect="0 0 280 100" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="dark_balloon_2" stretch="true"/>
+        <richtext name="characterName" rect="0 0 20 100" margin="0 10 0 0" layout_gravity="center top" caption="임시이름" drawbackground="false" fixwidth="false" fontname="chatnametemp" hittest="false" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="false" textalign="left center" updateparent="true"/>
+        <richtext name="chat" rect="0 0 20 100" margin="0 40 0 0" layout_gravity="center top" caption="text" drawbackground="false" fixwidth="false" fontname="black_18" hittest="true" maxwidth="260" resizebytext="true" slideshow="false" spacey="0" splitbyspace="true" textalign="left center" updateparent="true"/>
+    </controls>
+</uiframe>

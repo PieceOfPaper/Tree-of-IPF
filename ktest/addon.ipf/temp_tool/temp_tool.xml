@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="temp_tool" x="0" y="0" width="460" height="55">
+    <frame fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
+    <draw drawframe="true" drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <skin frameskin="test_skin_01"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <controls>
+        <richtext name="skillName" margin="62 18 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <button name="excute" margin="0 6 13 0" rect="0 0 70 40" layout_gravity="right top" skin="test_red_button" LBtnUpScp="HOMUNCLUS_SKL_SELECT" format="{@st42}%s" param1="value" param1_def="적용"/>
+        <picture name="pskl" margin="8 6 0 0" rect="5 5 45 45" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
+    </controls>
+</uiframe>

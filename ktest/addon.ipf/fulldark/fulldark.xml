@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="fulldark" x="0" y="0" width="4096" height="2048">
+	<frame title="" snapclient="true" snapframe="true"/>
+	<draw blend="70" drawframe="false" drawtitlebar="false"/>
+	<option hideable="true" autoopen="false"/>
+	<sound opensound="win_open" closesound="win_close"/>
+  <layer layerlevel="97"/>
+  <animation frameCloseAnim="chat_balloon_end2"/>
+  <script OpenScp="FULLDARK_OPEN" CloseScp="FULLDARK_CLOSE"/>
+	<controls>
+		<picture name="screenmask" rect="0 0 4096 2048" hittest="false" image="fullblack" stretch="true"/>
+	</controls>
+</uiframe>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="summoncontrol" x="0" y="0" width="500" height="100" layout_gravity="center bottom">
+    <frame title="" layout_gravity="center bottom" margin="0 0 0 8" scale_align="center bottom"/>
+    <layer layerlevel="91"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <option visible="false" hideable="false" closebutton="false"/>
+    <input hittestframe="false"/>
+    <animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+    <script OpenScp="OPEN_SUMMONCONTROL"/>
+    <controls>
+        <picture name="druid_slot_R" rect="0 0 80 80" margin="150 0 0 0" layout_gravity="center bottom" hittest="false" image="druid_slot_R"/>
+        <picture name="druid_slot_L" rect="0 0 80 80" margin="-150 0 0 0" layout_gravity="center bottom" hittest="false" image="druid_slot_L"/>
+        <groupbox name="bg" rect="0 0 270 60" margin="0 0 0 10" layout_gravity="center bottom" draw="true" hittest="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin=""/>
+    </controls>
+</uiframe>

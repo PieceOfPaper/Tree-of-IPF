@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="enchantarmoropen" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 453 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="pip4" rect="0 0 450 70" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
+		<groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}인챈트 아머{/}" textalign="left top"/>
+		<tab name="statusTab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="ENCHANTAROMOROPEN_TAP_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="70 70 0 0"/>
+		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}상점{/}" width="160" layout_gravity="left top"/>
+		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}기록{/}" width="160" layout_gravity="left top"/>
+		<button name="close" rect="10 0 44 44" margin="0 12 22 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;enchantarmoropen&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}코스튬 마법부여 UI를 닫습니다{/}"/>
+		<groupbox name="repair" rect="0 0 439 1000" margin="7 69 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="flase" skin=""/>
+		<groupbox name="bg_mid" rect="0 0 434 550" margin="0 315 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle" parent="repair"/>
+		<groupbox name="moneyGbox" rect="0 0 410 35" margin="0 48 16 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin" parent="repair"/>
+		<richtext name="moneyStr" parent="moneyGbox" rect="0 0 200 80" margin="7 11 0 0" layout_gravity="left top" caption="받는 가격{img silver 20 20} " textalign="left top" fontname="brown_16_b"/>
+		<richtext name="money" parent="moneyGbox" rect="0 0 343 48" margin="0 8 4 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="brown_18_b" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<picture name="picture_1" margin="-1 90 0 0" rect="0 0 440 200" hittest="false" image="alch_briquetting" stretch="true" changecursor="false" layout_gravity="left top" parent="repair"/>
+		<slot name="slot" parent="repair" rect="0 0 150 150" margin="-4 114 0 0" layout_gravity="center top" DropScp="ENCHANTAROMOROPEN_SLOT_DROP" PopScp="ENCHANTAROMOROPEN_SLOT_POPUP" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}"/>
+		<richtext name="slotName" parent="repair" rect="0 0 343 48" margin="0 275 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0"/>
+		<groupbox name="effectGbox" parent="repair" rect="0 0 439 300" margin="-1 324 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<labelline name="effectline" parent="effectGbox" rect="0 0 400 3" margin="-5 0 0 268" layout_gravity="center bottom" skin="None"/>
+		<richtext name="effect" parent="effectGbox" rect="0 0 200 80" margin="19 1 0 0" layout_gravity="left top" caption="효과" textalign="left top" fontname="black_18"/>
+		<groupbox name="materialGbox" parent="repair" rect="0 0 439 300" margin="0 700 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin=""/>
+		<labelline name="line" parent="materialGbox" rect="0 0 400 3" margin="0 0 0 225" layout_gravity="center bottom" skin="None"/>
+		<richtext name="material" parent="materialGbox" rect="0 0 200 80" margin="30 0 0 230" layout_gravity="left bottom" caption="소비재료" fontname="black_18" textalign="left top"/>
+		<richtext name="reqitemNameStr" parent="materialGbox" rect="0 0 343 48" margin="100 0 0 185" layout_gravity="left bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st66e}%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="reqitemImage" parent="materialGbox" rect="0 0 343 70" margin="20 0 0 150" layout_gravity="left bottom" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" param2="guid" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="count" parent="materialGbox" rect="0 0 200 80" margin="100 0 0 155" layout_gravity="left bottom" caption="남은 개수" fontname="black_16" textalign="left top"/>
+		<richtext name="reqitemCount" parent="materialGbox" rect="0 0 343 48" margin="0 0 30 155" layout_gravity="right bottom" drawbackground="false" fixwidth="false" fontname="black_16" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<button name="btn_cencel" parent="repair" rect="10 10 160 50" margin="220 0 0 75" layout_gravity="left bottom" LBtnUpScp="ENCHANTAROMOROPEN_TRY_UI_CLOSE" caption="{@st41b}취소" skin="test_gray_button"/>
+		<button name="btn_excute" parent="repair" rect="10 10 160 50" margin="50 0 0 75" layout_gravity="left bottom" LBtnUpScp="ENCHANTAROMOROPEN_BUFF_EXCUTE_BTN" caption="{@st41b}결정" skin="test_red_button"/>
+		<groupbox name="log" parent="Itembox2" rect="0 0 439 960" margin="0 79 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="true" scrollbar="false" skin=""/>
+		<groupbox name="log_gbox" parent="log" rect="0 0 425 900" margin="-5 69 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<button name="btn_close" parent="log" rect="10 10 160 50" margin="-20 0 0 55" layout_gravity="center bottom" LBtnUpScp="ENCHANTAROMOROPEN_CLOSE" caption="{@st41b}폐점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+		<groupbox name="reqitem_slot" parent="materialGbox" rect="0 0 70 70" margin="20 0 0 145" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="sklgBox" parent="repair" rect="0 0 430 550" margin="3 335 0 0" layout_gravity="left top" hittestbox="false" skin="None"/>
+		<richtext name="richtext_1" margin="315 325 0 0" rect="0 0 120 24" parent="repair" caption="{img squaier_buff 24 24}24시간 지속{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+	</controls>
+</uiframe>

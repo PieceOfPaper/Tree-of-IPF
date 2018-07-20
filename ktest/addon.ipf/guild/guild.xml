@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="guild" x="0" y="0" width="600" height="590" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<script CloseScp="GUILD_UI_CLOSE"/>
+	<sound opensound="inven_win_open" closesound="inven_win_close"/>
+	<opencheck scp="UI_CHECK_GUILD_UI_OPEN"/>
+	<userconfig NOT_HAVE_COLOR="BB000000" BLANK_ITEM_COLOR="FF000000" ITEM_EXIST_COLOR="FF333300" TITLE_FONT="{@st43b}" TITLE_COUNT_FONT="{@sti7}" DETAIL_ITEM_FONT="{@st45tw2}" DISABLE_EFFECT_FONT="{@st45tw2}" ENABLE_EFFECT_FONT="{@st45tw2}" ENABLE_SKIN="help_bg" DISABLE_SKIN="bg2" SOUND_COLLECTION="statsup"/>
+	<controls>
+		<groupbox name="bg_box" rect="0 0 600 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}길드 정보를 닫습니다{/}"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}길드{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<tab name="itembox" rect="0 0 540 40" margin="50 80 0 0" layout_gravity="left top" LBtnDownScp="GUILD_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="information" parent="itembox" layout_gravity="left top" caption="{@st66b}기본정보" width="170"/>
+    <tabitem name="properties" parent="itembox" layout_gravity="left top" caption="{@st66b}상세정보" width="170"/>
+		<tabitem name="warinfo" parent="itembox" layout_gravity="left top" caption="{@st66b}전쟁" width="170"/>
+		<controlset name="information" type="guild_infomation" margin="4 124 0 0" rect="0 0 590 700" hittest="true" layout_gravity="left top" tabname="information"/>
+		<controlset name="properties" type="guild_properties" margin="4 124 0 0" rect="0 0 149 120" hittest="true" layout_gravity="left top" tabname="properties"/>
+    <controlset name="warinfo" type="guild_warinfo" margin="4 124 0 0" rect="0 0 149 120" hittest="true" layout_gravity="left top" tabname="warinfo"/>
+	</controls>
+</uiframe>

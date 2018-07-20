@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="socialballoon" x="0" y="0" width="200" height="57" create="open">
+    <frame layout_gravity="left top"/>
+    <draw drawtitlebar="false" drawframe="true"/>
+    <skin frameskin="textballoon_mid"/>
+    <input hittestframe="false" moveable="false" maxwidth="226"/>
+    <layer layerlevel="20"/>
+    <option closebutton="false" hideable="false"/>
+    <script fadeinArgStr="textballoon" fadeoutArgStr="textballoon"/>
+    <controls>
+        <groupbox name="myPageGbox" rect="0 0 200 57" layout_gravity="left top" draw="false" resizebyparent="false" scrollbar="false" skin="bg" visible="true"/>
+        <picture name="titlePicture" parent="myPageGbox" rect="5 5 44 44" layout_gravity="left top" image="icon_life_mypage" stretch="true"/>
+        <richtext name="titleText" parent="myPageGbox" rect="54 0 130 20" layout_gravity="left center" fixwidth="true" fontname="textballoon" resizebytext="false" spacey="-2" updateparent="true" visiblecnt="1"/>
+        <groupbox name="myPageGbox_detail" rect="0 0 300 280" layout_gravity="center center" draw="false" resizebyparent="false" scrollbar="false" skin="bg" visible="true"/>
+        <richtext name="myPageTitleText" parent="myPageGbox_detail" rect="0 30 260 30" layout_gravity="center top" fixwidth="true" fontname="textballoon" hittest="false" updateparent="true"/>
+        <groupbox name="commentGbox" parent="myPageGbox_detail" rect="5 50 260 280" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
+        <button name="myPageVisitBtn" parent="myPageGbox_detail" rect="0 -10 70 27" layout_gravity="center bottom" caption="{@st41}방문{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마이페이지를 방문합니다{/}"/>
+        <groupbox name="buyGbox" rect="0 0 200 57" layout_gravity="left top" draw="false" resizebyparent="false" scrollbar="false" skin="bg" visible="true"/>
+        <picture name="titlePicture" parent="buyGbox" rect="5 5 44 44" layout_gravity="left top" image="icon_life_buy" stretch="true"/>
+        <slot name="buyItem0" parent="buyGbox" rect="54 5 44 44" layout_gravity="left top" movepop="false" oversound="button_cursor_over_3"/>
+        <slot name="buyItem1" parent="buyGbox" rect="98 5 44 44" layout_gravity="left top" movepop="false" oversound="button_cursor_over_3"/>
+        <slot name="buyItem2" parent="buyGbox" rect="142 5 44 44" layout_gravity="left top" movepop="false" oversound="button_cursor_over_3"/>
+        <groupbox name="buyGbox_detail" rect="0 0 300 280" layout_gravity="center center" draw="false" resizebyparent="false" scrollbar="false" skin="bg" visible="true"/>
+        <richtext name="titleText" parent="buyGbox_detail" rect="0 30 260 30" layout_gravity="center top" fixwidth="true" fontname="textballoon" hittest="false" updateparent="true"/>
+        <groupbox name="itemGbox" parent="buyGbox_detail" rect="5 50 260 280" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
+        <button name="buyItemBtn" parent="buyGbox_detail" rect="0 -10 70 27" layout_gravity="center bottom" caption="{@st41}판매{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}아이템을 판매 합니다{/}"/>
+    </controls>
+</uiframe>

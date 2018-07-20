@@ -1,0 +1,27 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="itemrullet" x="0" y="0" width="240" height="310" create="open">
+    <frame title="{@st44}세트 아이템 획득{/}" layout_gravity="center center" snapclient="true" snapframe="true"/>
+    <draw drawframe="true" drawtitlebar="false" drawnotitlebar="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <picture name="portrait" rect="80 20 200 40" image="Char1_M"/>
+        <richtext name="Prop_CommName" rect="20 70 100 20" caption="키보드 워리어" fontname="white_16_ol" format="%s" param1="pcName"/>
+        <groupbox name="scoreGBox" rect="10 80 200 140" draw="false" hittest="false" scrollbar="false"/>
+        <richtext name="title_kill" parent="scoreGBox" rect="10 10 100 20" caption="킬" fontname="yellow_16"/>
+        <richtext name="score_kill" parent="scoreGBox" rect="-20 10 100 20" layout_gravity="right top" caption="3811" fontname="white_16_ol" format="%s" param1="kill" textalign="right center"/>
+        <richtext name="title_overkill" parent="scoreGBox" rect="10 30 100 20" caption="오버킬" fontname="yellow_16"/>
+        <richtext name="score_overkill" parent="scoreGBox" rect="-20 30 100 20" layout_gravity="right top" caption="3118" fontname="white_16_ol" format="%s" param1="overkill" textalign="right center"/>
+        <richtext name="title_hit" parent="scoreGBox" rect="10 50 100 20" caption="피격" fontname="yellow_16"/>
+        <richtext name="score_hit" parent="scoreGBox" rect="-20 50 100 20" layout_gravity="right top" caption="3811" fontname="white_16_ol" format="%s" param1="hit" textalign="right center"/>
+        <richtext name="title_dead" parent="scoreGBox" rect="10 70 100 20" caption="사망" fontname="yellow_16"/>
+        <richtext name="score_dead" parent="scoreGBox" rect="-20 70 100 20" layout_gravity="right top" caption="3811" fontname="white_16_ol" format="%s" param1="dead" textalign="right center"/>
+        <richtext name="title_time" parent="scoreGBox" rect="10 90 100 20" caption="시간" fontname="yellow_16"/>
+        <richtext name="score_time" parent="scoreGBox" rect="-20 90 100 20" layout_gravity="right top" caption="99분 99초" fontname="white_16_ol" format="%s" param1="time" textalign="right center"/>
+        <richtext name="title_total" parent="scoreGBox" rect="10 110 100 20" caption="총 점수" fontname="yellow_16"/>
+        <richtext name="score_total" parent="scoreGBox" rect="-20 110 100 20" layout_gravity="right top" caption="38000 점" fontname="white_16_ol" format="%s" param1="total" textalign="right center"/>
+        <slot name="giftitem" rect="20 -20 64 64" layout_gravity="left bottom"/>
+        <richtext name="itemname" rect="90 -40 140 64" layout_gravity="left bottom" caption="향상된 신속의 물약" fixwidth="true" resizebytext="false"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

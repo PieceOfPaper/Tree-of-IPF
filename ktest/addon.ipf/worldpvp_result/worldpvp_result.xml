@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="worldpvp_result" x="0" y="0" width="1800" height="650" create="open">
+    <frame title="" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 -90 0 0"/>
+    <skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 0 0 0" frameskin="none"/>
+    <option hideable="false" closebutton="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <draw drawtitlebar="false"/>
+    <option closebutton="false"/>
+    <controls>
+        <groupbox name="groupbox_1" rect="0 90 1800 560" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" skin="test_pvp_skin"/>
+        <richtext name="wintext" rect="0 0 581 48" margin="0 98 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_22" format="{s32}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="결과" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <groupbox name="gbox_1" rect="0 0 820 300" margin="70 252 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="test_com_losebg"/>
+        <groupbox name="title_1" rect="0 0 820 40" margin="0 0 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="gbox_1"/>
+        <richtext name="richtext_1" parent="gbox_1" rect="0 0 121 36" margin="241 1 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="킬" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="richtext_1_1" parent="gbox_1" rect="0 0 121 36" margin="365 2 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="데스" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="richtext_1_1_1" parent="gbox_1" rect="0 0 147 36" margin="629 2 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="피해량" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <groupbox name="gbox_char" parent="gbox_1" rect="0 0 795 230" margin="11 55 0 0" layout_gravity="left top" hittestbox="false" scrollbar="true" skin="none"/>
+        <groupbox name="gbox_2" rect="0 0 820 300" margin="900 252 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="test_com_winbg"/>
+        <groupbox name="title_2" rect="0 0 820 40" margin="0 0 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="gbox_2"/>
+        <groupbox name="gbox_result_titlebg" parent="groupbox_1" rect="0 0 1600 56" margin="100 90 0 0" layout_gravity="left top" hittestbox="false" skin="test_pvp_resul_team"/>
+        <groupbox name="gbox_result_title" parent="groupbox_1" rect="0 0 1600 56" margin="100 90 0 0" layout_gravity="left top" hittestbox="false" skin="test_pvp_resul_team2"/>
+        <groupbox name="gbox_char" parent="gbox_2" rect="0 0 795 230" margin="11 55 0 0" layout_gravity="left top" hittestbox="false" scrollbar="true" skin="none"/>
+        <button name="btn_returntozone" rect="0 0 220 60" margin="0 555 80 0" layout_gravity="right top" LBtnUpScp="WORLDPVP_RETURN_TO_ZONE" caption="{@st41}바로 이동" skin="test_red_button"/>
+        <picture name="pic_1" rect="0 0 510 120" margin="0 0 0 0" layout_gravity="center top" hittest="false" image="test_pvp_reslut_center" stretch="true"/>
+        <richtext name="autoexittext" rect="0 0 500 69" margin="1000 550 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s초 후 존으로 이동합니다...{/}" maxwidth="0" param1="value" param1_def="30" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <picture name="result_1" margin="377 168 0 0" rect="0 0 153 76" hittest="false" image="test_pvp_win" stretch="false" changecursor="false" layout_gravity="left top" imagealign="center center"/>
+        <picture name="result_2" margin="1225 170 0 0" rect="0 0 153 76" hittest="false" image="test_pvp_lose" stretch="false" changecursor="false" layout_gravity="left top" imagealign="center center"/>
+        <richtext name="richtext_1_1_1_2" parent="gbox_1" rect="0 0 136 37" margin="492 1 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="획득점수" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="richtext_1_2" parent="gbox_2" rect="0 0 121 36" margin="241 1 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="킬" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="richtext_1_1_2" parent="gbox_2" rect="0 0 121 36" margin="365 2 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="데스" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="richtext_1_1_1_1" parent="gbox_2" rect="0 0 147 36" margin="629 2 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="피해량" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+        <richtext name="richtext_1_1_1_2_1" parent="gbox_2" rect="0 0 136 37" margin="492 1 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st45tw2}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="획득점수" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+    </controls>
+</uiframe>
