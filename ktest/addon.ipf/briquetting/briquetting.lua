@@ -34,7 +34,7 @@ end
 
 function BRIQUETTING_SLOT_DROP(parent, ctrl)
 	local invItem = BRIQUETTING_SLOT_ITEM(parent, ctrl)
-	local slot 			    = tolua.cast(ctrl, 'ui::CSlot');
+	local slot = tolua.cast(ctrl, 'ui::CSlot');
 	if nil == invItem or nil == slot then
 		return;
 	end
@@ -43,16 +43,27 @@ function BRIQUETTING_SLOT_DROP(parent, ctrl)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
+    
+    -- 소비재료를 먼저 등록한 경우: 소비재료가 별 더 작으면 안해줘야함
+    local frame = parent:GetTopParentFrame();
+    local slotNametext = GET_CHILD_RECURSIVELY(frame, "spendName");
+	local spendType = slotNametext:GetTextByKey("itemtype");
+	local spendCls = GetClassByType("Item", spendType);
+    local obj = GetIES(invItem:GetObject());
+	if nil == obj then 
+		return;
+	end
+
+	if nil ~= spendCls and obj.ItemStar > spendCls.ItemStar then
+		ui.SysMsg(ClMsg("LowWeaponStar"));
+        return;
+    end
 
 	-- 슬롯 박스에 이미지를 넣고
 	local itemCls = GetClassByType("Item", invItem.type);
 	
 	SET_SLOT_ITEM_IMANGE(slot, invItem);
-
-	local obj = GetIES(invItem:GetObject());
-	if nil == obj then 
-		return nil;
-	end
+	
 	-- 원래 공격력, 마공을 가진 object를 만든다.
 	local tempObj = CreateIESByID("Item", itemCls.ClassID);
 	if nil == tempObj then
@@ -122,7 +133,7 @@ end
 
 function BRIQUETTING_SPEND_DROP(parent, ctrl)
 	local invItem = BRIQUETTING_SLOT_ITEM(parent, ctrl)
-	local slot 			    = tolua.cast(ctrl, 'ui::CSlot');
+	local slot = tolua.cast(ctrl, 'ui::CSlot');
 	if nil == invItem or nil == slot then
 		return;
 	end
@@ -194,9 +205,9 @@ function BRIQUETTING_SPEND_POP(parent)
 end
 
 function BRIQUETTING_SLOT_ITEM(parent, ctrl)
-	local frame				= parent:GetTopParentFrame();
-	local liftIcon 			= ui.GetLiftIcon();
-	local iconInfo			= liftIcon:GetInfo();
+	local frame = parent:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local iconInfo = liftIcon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 	
 	if nil == invItem then
@@ -218,14 +229,15 @@ function BRIQUETTING_SLOT_ITEM(parent, ctrl)
 	end
 
 	local checkItem = _G["ALCHEMIST_CHECK_" .. frame:GetUserValue("SKILLNAME")];
-	local obj = GetIES(invItem:GetObject())
-	if 1 ~= checkItem(GetMyPCObject(), obj) then
+	local dropItemObj = GetIES(invItem:GetObject())
+	if 1 ~= checkItem(GetMyPCObject(), dropItemObj) then
 		ui.SysMsg(ClMsg("WrongDropItem"));
 		return nil;
 	end
 	
-	if 0 > obj.PR then
+	if 0 > dropItemObj.PR then
 		ui.SysMsg(ClMsg("NoMorePotential"));
+        return nil;
 	end
 
 	-- 위에 걸린 재료와 일치하지 않는지 확인한다.
@@ -240,18 +252,24 @@ function BRIQUETTING_SLOT_ITEM(parent, ctrl)
 		return nil;
 	end
 
-	local MainType = mainSlotName:GetTextByKey("itemtype");
-	local spendType = slotNametext:GetTextByKey("itemtype");
 
-	-- 메인과 소비재료 별 비교..
-	local mainCls = GetClassByType("Item", MainType);
-	local spendCls = GetClassByType("Item", spendType);
-	if nil ~= mainCls and mainCls.ItemStar > obj.ItemStar or
-		nil ~= spendCls and spendCls.ItemStar > obj.ItemStar then
-		ui.SysMsg(ClMsg("LowWeaponStar"));
-		return nil;
-	end
-
+    -- 별 비교
+    if ctrl:GetName() == 'slot' then -- 주무기 변경: 드롭 아이템과 소비재료 비교해야함
+        local spendItemType = slotNametext:GetTextByKey('itemtype');
+        local spendItemCls = GetClassByType('Item', spendItemType);
+        if spendItemCls ~= nil and spendItemCls.ItemStar < dropItemObj.ItemStar then
+            ui.SysMsg(ClMsg('LowWeaponStar'));
+            return nil;
+        end
+    elseif ctrl:GetName() == 'slot2' then -- 소비 재료 변경: 드롭 아이템과 주무기 비교해야함
+        local targetItemType = mainSlotName:GetTextByKey('itemtype');
+        local targetItemCls = GetClassByType('Item', targetItemType);
+        if targetItemCls ~= nil and targetItemCls.ItemStar > dropItemObj.ItemStar then
+            ui.SysMsg(ClMsg('LowWeaponStar'));
+            return nil;
+        end
+    end
+    
 	return invItem;
 end
 

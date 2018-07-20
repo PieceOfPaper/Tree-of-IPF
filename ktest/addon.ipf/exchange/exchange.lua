@@ -431,14 +431,18 @@ function EXCHANGE_UPDATE_SLOT(slotset,listindex)
 	local index = 0 
 	for  i = 0, itemCount-1 do 		
 		local itemData = exchange.GetExchangeItemInfo(listindex,i);
+        local itemObj = itemData:GetObject();
+        if itemObj ~= nil then
+            itemObj = GetIES(itemObj);
+        end
 		local slot	= slotset:GetSlotByIndex(index);			
 		if itemData.tradeType == TRADE_ITEM then
-			local class 			= GetClassByType('Item', itemData.type);
+			local class = GetClassByType('Item', itemData.type);
 
 			if class.ItemType == 'Unused' and listindex == 1 then
 				moneyText:SetTextByKey('money', GetCommaedText(itemData.count));
 			elseif class.ItemType ~= 'Unused' then
-				local icon = SET_SLOT_ITEM_INFO(slot, class, itemData.count);
+				local icon = SET_SLOT_ITEM_INFO(slot, itemObj, itemData.count);
 				SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, class.ClassName, 'exchange', itemData.type, i * 10 + listindex);
 				--[[
 				SET_SLOT_ITEM_OBJ(slot, class);							

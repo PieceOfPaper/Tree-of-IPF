@@ -429,20 +429,20 @@ function SEND_POPUP_FRAME_CHAT(parent, ctrl)
 		return;
 	end
 
-	if info:GetRoomType() == 0 then -- 洹볥쭚
+	if info:GetRoomType() == 0 then
 
 		local target = info:GetWhisperTargetName()
 		sendText = "/w " .. target .. " " .. text;
 
-        ui.SetWhisperTargetName(target) -- ?占쎄구 ?占쎈룞?占쎈줈 ?占쎈뒗占?留욌뒗嫄댐옙?? 
+        ui.SetWhisperTargetName(target)
 		
-	elseif info:GetRoomType() == 3 then -- 洹몃９
+	elseif info:GetRoomType() == 3 then
 
 		sendText = "/f " .. guid .. " " .. text;
 
         ui.SetGroupChatTargetID(guid)
 
-	else -- 踰꾧렇
+	else
 
 		ctrl:SetText("");
 		return

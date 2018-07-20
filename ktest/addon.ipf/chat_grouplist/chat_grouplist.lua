@@ -2,7 +2,7 @@
 
 
 
-
+-- copyright : http://lua-users.org/wiki/SortedIteration
 
 function __genOrderedIndex( t )
     local orderedIndex = {}
@@ -259,7 +259,7 @@ function CHAT_CREATE_OR_UPDATE_GROUP_LIST(roomID)
 
 	local initx, inity = CHAT_POPUP_GET_EMPTY_PLACE("chatpopup_" .. roomID, 450, 280)
 
-	session.chat.InsertRoomConfig(roomID, title, 0, 450, 280, initx, inity, IMCRandom(100, 109), info:GetRoomType(), initx, inity ) -- 이거 랜덤이 아니라 가장 적게 사용된 값 찾아야함
+	session.chat.InsertRoomConfig(roomID, title, 0, 450, 280, initx, inity, IMCRandom(100, 109), info:GetRoomType(), initx, inity )
 
 	if info:GetRoomType() == 3 then
 		title = ScpArgMsg("GroupChatTitleWithMemCnt","Text",title,"Cnt",tostring(info:GetMemberCount()));
@@ -402,8 +402,7 @@ function UPDATE_ROOM_READ_CNT(roomID)
 
 
 	-- 4. 각 팝업 프레임 및 팝업 프레임의 폴드 프레임에 대한 리드 카운트 갱신
-	--차후 작업
-
+	
 	grouplistframe:Invalidate()
 
 	

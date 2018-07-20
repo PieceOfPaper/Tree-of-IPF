@@ -1,8 +1,5 @@
 
 
--- 여기 있는 함수들도 전수검사 해야 함
-
-
 CHAT_LINE_HEIGHT = 100;
 
 function CHAT_ON_INIT(addon, frame)	
@@ -16,7 +13,6 @@ function CHAT_ON_INIT(addon, frame)
 
 end
 
---채팅바를 Open할때마다 불러오기로.
 function CHAT_OPEN_INIT()
 	--'채팅 타입'에 따른 채팅바의 '채팅타입 버튼 목록'이 결정된다.
 	if config.GetServiceNation() == "JP" or config.GetServiceNation() == "GLOBAL" or config.GetServiceNation() == "IDN" then

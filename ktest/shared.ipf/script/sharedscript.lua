@@ -1524,16 +1524,35 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, re
     return monList
 end
 
-function GET_COMMAED_STRING(num) -- 백억정도까진 가능합니다
-	num = math.floor(num);
-
-	local retStr = "";
-	while num > 999 do
-		retStr = ','..string.format("%03d", num % 1000)..retStr;
-		num = num / 1000;
-	end
-	retStr = string.format("%d", num)..retStr;
+function GET_COMMAED_STRING(num) -- unsigned long 범위내에서 가능하게 수정함
+	local retStr = GetCommaedString(num);
 	return retStr;
+end
+
+function GET_NOT_COMMAED_NUMBER(commaedString)
+    local retStr = "";
+    local strLen = string.len(commaedString);
+    local tempStr = commaedString;
+    local startIndex, endIndex = string.find(tempStr, ',');
+    local noInfinite = 0;
+
+    while startIndex ~= nil do
+        retStr = retStr.. string.sub(tempStr, 1, startIndex - 1);
+        tempStr = string.sub(tempStr, startIndex + 1, string.len(tempStr));
+        startIndex, endIndex = string.find(tempStr, ',');
+        noInfinite = noInfinite + 1;
+
+        -- 혹시 모를 무한루프 방지
+        if noInfinite >= 10000 then
+            break;
+        end
+    end
+    retStr = retStr..tempStr;
+    local retNum = tonumber(retStr);
+    if retNum == nil then
+        retNum = 0;
+    end
+    return retNum;
 end
 
 function IS_ENABLE_EQUIP_GEM(targetItem, gemType)

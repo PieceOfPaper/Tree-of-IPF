@@ -530,6 +530,17 @@ function INVENTORY_SET_CUSTOM_RDBTNDOWN(scriptName)
 	frame:SetUserValue("CUSTOM_RDBTN_SCP", scriptName);
 end
 
+function GET_ITEM_ICON_IMAGE_BY_TAG_INFO(props, clsID)
+    local newobj = CreateIESByID("Item", clsID);
+	if props ~= 'nullval' then
+		SetModifiedPropertiesString(newobj, props);
+	end
+
+	local ret = GET_ITEM_ICON_IMAGE(newobj);
+	DestroyIES(newobj);
+	return ret;
+end
+
 function GET_ITEM_ICON_IMAGE(itemCls, gender)
 
 	local iconImg = itemCls.Icon;

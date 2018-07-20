@@ -61,7 +61,7 @@
 		<slotset name="rewardSlotSet" parent="rewardBox" rect="0 0 370 60" margin="35 0 0 0" layout_gravity="left bottom" row="1" col="5" size="65 65" skin="invenslot2" spc="2 2" enabledrop="false" enablepop="false"/>
 		<button name="autoMatchBtn" parent="noPicBox" rect="0 0 250 70" margin="0 0 54 155" layout_gravity="right bottom" skin="test_red_button" oversound="button_over" LBtnUpScp="INDUNENTER_AUTOMATCH"/>
 		<button name="reEnterBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 54 100" layout_gravity="right bottom" skin="test_pvp_btn" caption="{@st66b}자동매칭{nl}재입장" oversound="button_over" LBtnUpScp="INDUNENTER_REENTER" texttooltip="이전에 매칭된 곳으로 입장합니다."/>
-		<button name="understaffEnterAllowBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 54 100" layout_gravity="right bottom" skin="test_gray_button" caption="{@st41b}4인 이하 입장{/}" oversound="button_over" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW" texttooltip="4인 이하로 매칭될 수 있는 데에 동의합니다."/>
+		<button name="understaffEnterAllowBtn" parent="noPicBox" rect="0 0 250 55" margin="0 0 54 100" layout_gravity="right bottom" skin="test_gray_button" caption="{@st41b}4인 이하 입장{/}" oversound="button_over" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW"/>
 		<richtext name="autoMatchText" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" caption="자동매칭" fontname="white_18_ol" hittest="false"/>
 		<richtext name="autoMatchTime" parent="autoMatchBtn" rect="0 0 250 80" margin="0 0 0 0" layout_gravity="center center" textalign="center center" foramt="00:00" fontname="white_18_b" hittest="false" draw="false"/>
 		<!-- Bottom Box -->
@@ -83,7 +83,7 @@
 		<groupbox name="matchSuccBox" parent="smallmode" rect="0 0 400 90" layout_gravity="center top" margin="0 40 0 0" draw="false" hittestbox="false"/>
 		<richtext name="matchSuccText" parent="matchSuccBox" rect="0 0 400 90" layout_gravity="center center" caption="잠시 후 이동됩니다" fontname="black_20_b"/>
 		<gauge name="gaugeBar" parent="matchSuccBox" rect="0 0 320 10" margin="40 0 0 10" layout_gravity="left bottom" skin="gauge_produce_blue"/>
-		<button name="smallUnderstaffEnterAllowBtn" parent="smallmode" rect="0 0 200 55" layout_gravity="center bottom" margin="0 0 0 75" oversound="button_over" format="{@st41b}4인 이하 입장" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW" skin="test_gray_button" texttooltip="4인 이하로 매칭될 수 있는 데에 동의합니다."/>
+		<button name="smallUnderstaffEnterAllowBtn" parent="smallmode" rect="0 0 200 55" layout_gravity="center bottom" margin="0 0 0 75" oversound="button_over" format="{@st41b}4인 이하 입장" LBtnUpScp="INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW" skin="test_gray_button"/>
 		<!-- Header -->
 		<groupbox name="header" rect="0 0 700 40" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="none"/>
 		<button name="closeBtn" parent="header" rect="0 0 40 40" margin="0 8 10 0" layout_gravity="right top" image="indun_close_btn" LBtnUpScp="INDUNENTER_CLOSE"/>

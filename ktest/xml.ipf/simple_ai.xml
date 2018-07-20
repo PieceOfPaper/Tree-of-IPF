@@ -502,7 +502,47 @@
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="ATK_COMMON" ActiveMessageMapInBattle="1">
+    <AI Name="ATK_400" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+				<Num Num="150"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="706.96722" Y="323.04456" Z="551.82904"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="1014.3779" Y="323.04364" Z="869.17236"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="771.01147" Y="323.04358" Z="849.0379"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="1015.1531" Y="323.04456" Z="489.10809"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+		</List>
+	</AI>
+	<AI Name="ATK_400_2" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+				<Num Num="150"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="889.96027" Y="323.04352" Z="910.0954"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="944.3548" Y="323.04456" Z="450.84763"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="738.50562" Y="323.04376" Z="699.30859"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="1066.1078" Y="323.04413" Z="688.86823"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_RESET_RALLY" Client="NO" UseSleep="NO" ExtraArg="1"/>
+		</List>
+	</AI>
+	<AI Name="ATK_COMMON" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
                 <Num Num="200"/>
@@ -7527,7 +7567,15 @@
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
-    <AI Name="LIMESOTNE_52_5_WALL_AI" ActiveMessageMapInBattle="1">
+    <AI Name="Kepa_Event" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+				<Num Num="300"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="LIMESOTNE_52_5_WALL_AI" ActiveMessageMapInBattle="1">
         <StartList>
             <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
                 <Num Num="0"/>

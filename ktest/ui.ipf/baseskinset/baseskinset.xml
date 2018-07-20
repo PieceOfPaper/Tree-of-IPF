@@ -3226,6 +3226,17 @@
 			<img name="bottomcore" imgrect="289 365 105 35"/>
 			<img name="bottomright" imgrect="395 365 116 35"/>
 		</skin>
+	<skin name="market_linebg" texture="\skin\market_skin.tga">
+			<img name="topleft" imgrect="1238 97 30 15"/>
+			<img name="topcore" imgrect="1269 97 30 15"/>
+			<img name="topright" imgrect="1300 97 30 15"/>
+			<img name="bodyleft" imgrect="1238 113 30 26"/>
+			<img name="bodycore" imgrect="1269 113 30 26"/>
+			<img name="bodyright" imgrect="1300 113 30 26"/>
+			<img name="bottomleft" imgrect="1238 140 30 15"/>
+			<img name="bottomcore" imgrect="1269 140 30 15"/>
+			<img name="bottomright" imgrect="1300 140 30 15"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testji_frames">
 		<skin name="test_keyque_skin" texture="\skin\keynbet.tga">
@@ -5217,6 +5228,9 @@
 		<image name="market_re_I" file="\skin\market_skin.tga" imgrect="1719 312 65 65" CMM_Caption="아이템으로바꾸기"/>
 		<image name="market_rightarrow" file="\skin\market_skin.tga" imgrect="1277 350 30 20" CMM_Caption="오른쪽으로화살표"/>
 		<image name="market_bottomarrow" file="\skin\market_skin.tga" imgrect="1181 344 22 24" CMM_Caption="밑으로화살표"/>
+		<image name="market_sellcomplet" file="\skin\market_skin.tga" imgrect="1309 425 120 58"/>
+		<image name="market_sellcancel" file="\skin\market_skin.tga" imgrect="1188 425 120 58"/>
+		<image name="market_buycomplet" file="\skin\market_skin.tga" imgrect="1067 425 120 58"/>
 		<image name="indun_line_img" file="\skin\pip_test.tga" imgrect="1548 872 100 14" CMM_Caption="인던맵구분선"/>
 		<image name="gacha_big_01" file="\skin\gacha_big_one.tga" imgrect="0 0 758 508" CMM_Caption="가챠_좋은거_큰거"/>
 		<image name="gacha_big_02" file="\skin\gacha_big_two.tga" imgrect="0 0 758 508" CMM_Caption="가챠_그냥저냥_큰거"/>

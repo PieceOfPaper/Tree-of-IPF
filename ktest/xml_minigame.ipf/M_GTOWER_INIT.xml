@@ -71,6 +71,18 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="ProgToSecond">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SCP_LEADER" Client="NO" UseSleep="NO">
+                                <Str Str="GT_INCOUNT_COMPARE_RUN"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="SETTING">

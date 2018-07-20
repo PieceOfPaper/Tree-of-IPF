@@ -344,7 +344,6 @@ function DRAW_CHAT_MSG(groupboxname, startindex, chatframe)
 
 	for i = startindex , size - 1 do
 
-		-- 일단 이전 정보를 기반으로 ypos를 찾을 것.
 		if i ~= 0 then
 			local clusterinfo = session.ui.GetChatMsgInfo(groupboxname, i-1)
 			if clusterinfo ~= nil then
@@ -701,12 +700,6 @@ end
 
 
 
-
-
-
-
--- 미분류 함수들
-
 --스크롤바 강제 하단 이동 관련 설정 확인 함수
 function TOGGLE_BOTTOM_CHAT()
 	local IsBottomChat = config.GetXMLConfig("ToggleBottomChat")
@@ -978,7 +971,7 @@ end
 
 function CHAT_ADD_MAINCHAT_POPUP(frame)
 
-	if session.chat.GetMainFramePopupConfigsSize() >= 2 then -- 이 숫자 2 나중에 설정값으로 뺄 겟
+	if session.chat.GetMainFramePopupConfigsSize() >= 2 then
 		return;
 	end
 

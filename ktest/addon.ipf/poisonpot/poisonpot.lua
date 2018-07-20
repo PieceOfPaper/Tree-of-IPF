@@ -155,7 +155,7 @@ function POISONPOT_SELECT_ALL(frame, ctrl)
 				slot:SetSelectCount(0)
 			else
 				slot:Select(1)
-				slot:SetSelectCount(99999) -- ?�차???�스?�서 ???�한?�고 ?�다. ?�에??맥스값�? ?��? ?�정 ?�으므�?
+				slot:SetSelectCount(99999) -- ?�차???�스?�서 ???�한?�고 ?�다. ?�에??맥스값�? ?��? ?�정 ?�으므�?
 			end
 		end
 	end
@@ -177,6 +177,10 @@ function POISONPOT_SLOT_DROP(frame, control, argStr, argNum)
 	
 	local iconInfo = liftIcon:GetInfo();
 	local invenItemInfo = session.GetInvItem(iconInfo.ext);
+    if invenItemInfo == nil then -- 카드 슬롯 to 카드 슬롯        
+	    SET_POISONPOT_CARD_COMMIT(slot:GetName(), "UnEquip")
+        return;
+    end
 
 	local tempobj = invenItemInfo:GetObject()
 	local cardobj = GetIES(invenItemInfo:GetObject());

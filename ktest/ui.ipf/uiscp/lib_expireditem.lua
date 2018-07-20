@@ -43,6 +43,10 @@ function IS_SCHEDULED_TO_EXPIRED_ITEM_BY_SYSTIME(itemObj, sysTime)
     end
     local expirationSysTime = imcTime.GetSysTimeByStr(lifeTime);
     
+    if TryGetProp(itemObj, "ItemLifeTimeOver") == 1 then
+        return false;
+    end
+
     if 1 == imcTime.IsLaterThan(sysTime, expirationSysTime) then
         return true;
     else

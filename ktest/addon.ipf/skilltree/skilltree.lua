@@ -763,19 +763,21 @@ function MAKE_SKILLTREE_ICON(frame, jobName, treelist, listindex, topSkillName1,
 	upCtrl:SetEventScriptArgNumber(ui.LBUTTONUP, lv);
 	upCtrl:SetClickSound("button_click_skill_up");
 
+    local lockBtn = GET_CHILD(skillCtrl, 'lockbtn');
+    lockBtn:ShowWindow(0);
 	if totallv >= maxlv then
 		if totallv - sklBM == maxlv then
-			upCtrl:SetImage('testlock_button');
-			upCtrl:SetTextTooltip(ScpArgMsg('NeedMoreRank'));
+			lockBtn:SetImage('testlock_button');
+			lockBtn:SetTextTooltip(ScpArgMsg('NeedMoreRank'));
+            lockBtn:ShowWindow(1);
+            upCtrl:ShowWindow(0);
 		end
 	else
 		upCtrl:SetTextTooltip(ScpArgMsg('SkillLevelUp'));
 	end
 
 	if remainstat <= 0 then
-		if totallv ~= maxlv then
-			upCtrl:ShowWindow(0);
-		end
+		upCtrl:ShowWindow(0);		
 	else
 		upCtrl:ShowWindow(1);
 	end

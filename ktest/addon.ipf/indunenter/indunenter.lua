@@ -104,7 +104,7 @@ function INDUNENTER_INIT_REENTER_UNDERSTAFF_BUTTON(frame, enableReenter)
         understaffEnterAllowBtn:ShowWindow(1);
         understaffEnterAllowBtn:SetEnable(0);
     end
-    smallUnderstaffEnterAllowBtn:ShowWindow(1);
+    smallUnderstaffEnterAllowBtn:ShowWindow(1);    
     frame:SetUserValue('ENABLE_REENTER', enableReenter);
 end
 
@@ -1127,10 +1127,14 @@ function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
         
     -- 파티원과 자동매칭인 경우 처리
     local yesScpStr = '_INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()';
+    local clientMsg = ScpArgMsg('ReallyAllowUnderstaffMatchingWith{MIN_MEMBER}?', 'MIN_MEMBER', UnderstaffEnterAllowMinMember);
+    if INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(topFrame) == true then
+        clientMsg = ClMsg('CancelUnderstaffMatching');
+    end
     if withMatchMode == 'YES' then
         yesScpStr = 'ReqUnderstaffEnterAllowModeWithParty('..indunType..')';
     end
-    ui.MsgBox(ScpArgMsg('ReallyAllowUnderstaffMatchingWith{MIN_MEMBER}?', 'MIN_MEMBER', UnderstaffEnterAllowMinMember), yesScpStr, "None");
+    ui.MsgBox(clientMsg, yesScpStr, "None");
 end
 
 function _INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW()
@@ -1152,4 +1156,21 @@ function INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, enable)
     if understaffEnterAllowBtn:IsVisible() == 1 then
         reEnterBtn:ShowWindow(0);
     end
+end
+
+function INDUNENTER_CHECK_UNDERSTAFF_MODE_WITH_PARTY(frame)
+    local withMatchMode = frame:GetUserValue('WITHMATCH_MODE');
+    if withMatchMode ~= 'YES' then
+        return false;
+    end
+    
+    local memberInfo = frame:GetUserValue('MEMBER_INFO');
+    local memberInfoTable = StringSplit(memberInfo, '/');
+    if #memberInfoTable < PC_INFO_COUNT then
+        return false;
+    end
+    if memberInfoTable[PC_INFO_COUNT] ~= 'YES' then
+        return false;
+    end
+    return true;
 end
