@@ -138,6 +138,11 @@ function GET_TRANSCEND_BREAK_ITEM_COUNT(itemObj)
     if nil == itemPR then
 	    itemPR = itemMPR;
     end
+
+    --¹ö±×·Î ÇöÀç Æ÷ÅÙ¼ÈÀÌ ¸Æ½º Æ÷ÅÙ¼Èº¸´Ù ¸¹À» ¼ö ÀÖ¾î¼­ Æ÷ÅÙ¼È º¸Á¤À» ÇÑ´Ù.
+    if itemPR > itemMPR then
+        itemPR = itemMPR
+    end
 	
     local giveCnt = cnt * (0.2 + ((itemPR / itemMPR) * 0.7))
 		giveCnt = math.floor(giveCnt);

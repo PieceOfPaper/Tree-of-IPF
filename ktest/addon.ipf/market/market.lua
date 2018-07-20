@@ -383,6 +383,10 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	local maxPage = math.ceil(session.market.GetTotalCount() / MARKET_ITEM_PER_PAGE);
 	local curPage = session.market.GetCurPage();
 	local pagecontrol = GET_CHILD(frame, 'pagecontrol', 'ui::CPageController')
+    if maxPage < 1 then
+        maxPage = 1;
+    end
+
 	pagecontrol:SetMaxPage(maxPage);
 	pagecontrol:SetCurPage(curPage);
 

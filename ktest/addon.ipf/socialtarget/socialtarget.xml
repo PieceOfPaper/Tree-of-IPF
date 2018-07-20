@@ -22,13 +22,13 @@
         <groupbox name="mypageGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg"/>
         <groupbox name="commentGbox" parent="mypageGbox" rect="5 150 500 615" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
         <richtext name="writeText" parent="mypageGbox" rect="15 -63 50 30" layout_gravity="left bottom" caption="{@st41b}글쓰기{/}" textalign="center center"/>
-        <edit name="writeEdit" parent="mypageGbox" rect="80 -55 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" usetag="true"/>
+        <edit name="writeEdit" parent="mypageGbox" rect="80 -55 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" allowtag="color size link img ul"/>
         <button name="writeReg" parent="mypageGbox" rect="-15 -60 70 30" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="MYPAGE_COMMENT_REGISTER" caption="{@st41}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}글을 등록합니다{/}"/>
         <button name="boardModeOn" parent="mypageGbox" rect="0 -15 200 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="MYPAGE_MODE_START" caption="{@st41}마이페이지 시작{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}마이페이지를 외부에 게시합니다{/}"/>
         <groupbox name="guestbookGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg" visible="false"/>
         <groupbox name="commentGbox" parent="guestbookGbox" rect="5 5 510 870" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="true" skin="bg"/>
         <richtext name="writeText" parent="guestbookGbox" rect="15 -23 50 30" layout_gravity="left bottom" caption="{@st41b}글쓰기{/}" textalign="center center"/>
-        <edit name="writeEdit" parent="guestbookGbox" rect="80 -15 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" usetag="true"/>
+        <edit name="writeEdit" parent="guestbookGbox" rect="80 -15 350 40" layout_gravity="left bottom" OffsetForDraw="10 7" fontname="white_20" maxlen="128" resizeheightbytext="true" allowtag="color size link img ul"/>
         <button name="writeReg" parent="guestbookGbox" rect="-15 -20 70 30" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="QUESTBOOK_COMMENT_REGISTER" caption="{@st41}등록{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}안부를 등록합니다{/}"/>
     </controls>
 </uiframe>

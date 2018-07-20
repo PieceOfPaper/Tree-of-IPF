@@ -1688,7 +1688,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount ..")")
 
 			if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 then
-				if equipAchieveName == cls.Name then
+				if equipAchieveName ~= 'None' and equipAchieveName == cls.Name then
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle..ScpArgMsg('Auto__(SayongJung)'));
 				else
 					eachAchiveDescTitle:SetText('{@stx2}'..cls.DescTitle);
@@ -1782,7 +1782,7 @@ function STATUS_ACHIEVE_INIT(frame)
 				eachColorE = string.lower(eachColorE)
 
 				-- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
-				if string.find(nowAllowedColor, eachColorE) ~= nil or TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
+				if TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
 				
 					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..eachColorE, 30 + 35 * haircount, 55, 35, 35);
 					tolua.cast(eachhairimg, "ui::CPicture");

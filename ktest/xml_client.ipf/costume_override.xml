@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <!--CustomeName은 item_equip에 있는 fileName 기준임-->
 <costume_override>
 	<List CustomName="CLERIC01_3">
@@ -24,6 +24,11 @@
 	<List CustomName="QUARREELSHOOTER01_3">
 		<Data>
 			<Effect Name="I_arrow009_1" ChangeName="I_arrow009_1_quarreelshooter01_3" ChangeNode="Dummy_q_Force" ChangeScale="1" BuffState="RunningShot_Buff" Moving="YES"/>
+		</Data>
+	</List>
+	<List CustomName="PYROMANCER01_3">
+		<Data>
+			<Effect Name="F_wizard_firepillar_shot_burstup" ChangeName="F_wizard_firepillar_shot_burstup_pyromancer01_3" ChangeNode="None" ChangeScale="1" BuffState="None" Moving="None"/>
 		</Data>
 	</List>
 </costume_override>

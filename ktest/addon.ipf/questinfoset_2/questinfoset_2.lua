@@ -2661,7 +2661,7 @@ function QUEST_PARTY_MEMBER_PROP_UPDATE(frame)
 
 				if questID > 0 then
 					local questIES = GetClassByType("QuestProgressCheck", questID);
-					MAKE_QUEST_INFO_C(bg, questIES, nil, TryGetProp(memberObj, 'Shared_Progress')) --hs_comment
+					MAKE_QUEST_INFO_C(bg, questIES, nil, TryGetProp(memberObj, 'Shared_Progress'))
 				end
 
 				g_currentPartyMemberInfo = nil;

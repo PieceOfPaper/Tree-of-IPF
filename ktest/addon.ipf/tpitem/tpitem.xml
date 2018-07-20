@@ -119,7 +119,7 @@
 		<droplist name="alignTypeList" parent="alignmentgbox2" rect="0 0 170 540" margin="172 0 0 0" layout_gravity="left top" SelectScp="TPSHOP_REDRAW_TPITEMLIST" font="white_20_ol" frametextalign="left" skin="droplist_normal2" textalign="left center" textoffset="10 0" visibleline="4"/>
 		<groupbox name="editSkin" parent="alignmentgbox" margin="0 0 0 0" rect="0 0 364 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<richtext name="editDiff" parent="editSkin" rect="0 0 280 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<edit name="input" parent="editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 250 32" fontname="white_18_ol" maxlen="32" usetag="true" EnterKeyScp="TPSHOP_ITEMSEARCH_ENTER" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<edit name="input" parent="editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 250 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="TPSHOP_ITEMSEARCH_ENTER" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="btn_find" parent="editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="TPSHOP_ITEMSEARCH_ENTER" oversound="button_over" clicksound="button_click_big"/>
 		<!--TP SHOP 왼쪽 그룹박스 탭2-->
 		<!--TP 충전-->

@@ -14,7 +14,7 @@
 		<button name="Direction4" texttooltip="{@st59}왼쪽으로 회전{/}" group="4" clicksound="button_click" oversound="button_over" layout_gravity="center top" rect="0 0 44 44" margin="-120 20 0 0" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnDownScp="CREATECHAR_SELECT_DIRECTION" LBtnDownArgNum="2"/>
 		<richtext name="Direction" layout_gravity="center top" rect="0 0 140 30" margin="0 50 0 0" caption="{@st43b}캐릭터 회전{/}" textalign="left center"/>
 		<richtext name="NameLabel01" layout_gravity="center top" rect="0 0 200 30" margin="0 125 0 0" caption="{@st43}캐릭터 이름{/}" textalign="center center" resizebytext="false"/>
-		<edit name="NameTextEdit01" layout_gravity="center top" margin="0 155 0 0" texttooltip="{@st59}이름을 입력합니다{/}" maxlen="16" textalign="center top" OffsetForDraw="0 7" fontname="yellow_login_text" rect="0 0 210 42" clicksound="button_click" usetag="true" typingscp="UPDATE_INPUT_CREATE_CHAR" EnterKeyScp="CREATECHAR_REQUEST_CREATE"/>
+		<edit name="NameTextEdit01" layout_gravity="center top" margin="0 155 0 0" texttooltip="{@st59}이름을 입력합니다{/}" maxlen="16" textalign="center top" OffsetForDraw="0 7" fontname="yellow_login_text" rect="0 0 210 42" clicksound="button_click" typingscp="UPDATE_INPUT_CREATE_CHAR" EnterKeyScp="CREATECHAR_REQUEST_CREATE"/>
 		<setfocus name="NameTextEdit01"/>
 	</controls>
 </uiframe>

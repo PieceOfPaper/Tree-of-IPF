@@ -7,7 +7,7 @@
 	<option closebutton="false" hideable="true"/>
 	<script OpenScp="CLEAR_CHATNAME_INPUT"/>
 	<controls>
-		<edit name="input" rect="0 10 150 27" layout_gravity="center top" fontname="white_16" maxlen="16" usetag="true" EnterKeyScp="CREATE_GUILD"/>
+		<edit name="input" rect="0 10 150 27" layout_gravity="center top" fontname="white_16" maxlen="16" EnterKeyScp="CREATE_GUILD"/>
 		<button name="UseBtn" caption="{@st42}변경{/}" layout_gravity="right bottom" clicksound="button_click" oversound="button_over" rect="-98 -15 80 24" LBtnUpScp="CHANGE_CHAT_NAME"/>
 		<button name="CloseBtn" caption="{@st42}취소{/}" layout_gravity="right bottom" clicksound="button_click" oversound="button_over" rect="-13 -15 80 24" LBtnUpScp="ui.CloseFrame('chatnamechange')"/>
 	</controls>

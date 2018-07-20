@@ -1433,7 +1433,7 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 		[ES_NECK] = function() 
 				invSlot = invframe:GetChild("NECK");	
 		end,
-		[ES_LAST] = function() --ES_LENS
+		[ES_LENS] = function() --ES_LENS
 				invSlot = invframe:GetChild("LENS");			
 		end,
 		--[ES_HELMET] = function() end,		-- 6

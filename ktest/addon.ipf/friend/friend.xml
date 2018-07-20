@@ -28,7 +28,7 @@
 		<button name="friend_block" parent="friendtree_request_gbox" rect="0 0 160 50" margin="90 0 0 10" layout_gravity="center bottom" LBtnUpScp="FRIEND_BLOCK" caption="{@st41b}차단" clicksound="button_click" oversound="button_over" skin="test_gray_button"/>
         <!--labelline name="boardLine 1" margin="0 134 0 0" rect="0 0 440 2" layout_gravity="center top" visible="true" skin="None"/-->
 		<groupbox name="searchSkin" parent="friendtree_normal_gbox" rect="0 0 410 38" margin="10 0 0 10" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
-		<edit name="friendSearch" parent="friendtree_normal_gbox" rect="0 0 340 24" margin="15 0 0 17" layout_gravity="left bottom" OffsetForDraw="0 0" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="40" oversound="button_over" skin="None" textalign="left top" typingscp="SEARCH_FRIEND" typingsound="chat_typing" usetag="true"/>
+		<edit name="friendSearch" parent="friendtree_normal_gbox" rect="0 0 340 24" margin="15 0 0 17" layout_gravity="left bottom" OffsetForDraw="0 0" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="40" oversound="button_over" skin="None" textalign="left top" typingscp="SEARCH_FRIEND" typingsound="chat_typing"/>
 		<button name="friend_serch_btn" parent="friendtree_normal_gbox" rect="0 0 60 38" margin="0 0 15 12" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SEARCH_FRIEND" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_s" oversound="button_over" stretch="true" texttooltip="{@st59}검색{/}"/>
     </controls>
 </uiframe>

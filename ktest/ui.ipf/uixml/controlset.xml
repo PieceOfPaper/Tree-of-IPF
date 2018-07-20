@@ -574,8 +574,8 @@
 		<controls>
 			<richtext name="name_t" rect="0 0 100 30" margin="20 25 0 0" caption="{@st55_c}아이템 이름" layout_gravity="left top" textalign="center center" resizebytext="false" fixwidth="true" hittest="false"/>
 			<richtext name="memo_t" rect="0 0 100 60" margin="20 100 0 0" caption="{@st55_c}메모 기록" layout_gravity="left top" textalign="center center" resizebytext="false" fixwidth="true" hittest="false"/>
-			<edit name="name" rect="0 0 230 40" margin="130 18 0 0" texttooltip="{@st59}이름을 입력합니다. 입력하지 않을경우 기본이름으로 제작됩니다.{/}" typingscp="RECIPE_TYPING_NAME" textalign="left center" layout_gravity="left top" usetag="true" fontname="white_20_ol" maxlen="32" OffsetForDraw="10 -3" xmargin="10"/>
-			<edit name="memo" rect="0 0 230 160" margin="130 58 0 0" multiline="true" texttooltip="{@st59}메모를 입력합니다{/}" textalign="left top" typingscp="RECIPE_TYPING_MEMO" layout_gravity="left top" usetag="true" fontname="white_20_ol" maxlen="32" resizebytext="true" OffsetForDraw="10 10" xmargin="10"/>
+			<edit name="name" rect="0 0 230 40" margin="130 18 0 0" texttooltip="{@st59}이름을 입력합니다. 입력하지 않을경우 기본이름으로 제작됩니다.{/}" typingscp="RECIPE_TYPING_NAME" textalign="left center" layout_gravity="left top" fontname="white_20_ol" maxlen="32" OffsetForDraw="10 -3" xmargin="10"/>
+			<edit name="memo" rect="0 0 230 160" margin="130 58 0 0" multiline="true" texttooltip="{@st59}메모를 입력합니다{/}" textalign="left top" typingscp="RECIPE_TYPING_MEMO" layout_gravity="left top" fontname="white_20_ol" maxlen="32" resizebytext="true" OffsetForDraw="10 10" xmargin="10"/>
 		</controls>
 	</controlset>
 	<controlset name="journalRecipe_makeBtn" hittest="true" width="240" height="0">
@@ -695,13 +695,13 @@
 	</controlset>
 	<controlset name="myPageNewComment" toggle="false" hittest="true" width="500" height="60" skin="mypage_bar" stateskin="false">
 		<controls>
-			<edit name="writeEdit" rect="10 0 400 40" layout_gravity="left center" resizeheightbytext="false" fontname="white_20" OffsetForDraw="10 7" maxlen="128" usetag="true" tag_color="true" tag_size="true" tag_link="true" tag_img="true" tag_ul="true"/>
+			<edit name="writeEdit" rect="10 0 400 40" layout_gravity="left center" resizeheightbytext="false" fontname="white_20" OffsetForDraw="10 7" maxlen="128" allowtag="color size link img ul"/>
 			<button name="commit" layout_gravity="right center" rect="-10 0 80 30" caption="{@st41}등록"/>
 		</controls>
 	</controlset>
 	<controlset name="myPageNewComment_small" toggle="false" hittest="true" width="500" height="60" skin="mypage_bar" stateskin="false">
 		<controls>
-			<edit name="writeEdit" rect="10 0 400 40" layout_gravity="left center" resizeheightbytext="true" fontname="white_20" OffsetForDraw="10 7" maxlen="128" usetag="true" tag_color="true" tag_size="true" tag_link="true" tag_img="true" tag_ul="true"/>
+			<edit name="writeEdit" rect="10 0 400 40" layout_gravity="left center" resizeheightbytext="true" fontname="white_20" OffsetForDraw="10 7" maxlen="128" allowtag="color size link img ul"/>
 			<button name="commit" layout_gravity="right center" rect="-10 0 50 27" caption="{@st41}등록"/>
 		</controls>
 	</controlset>
@@ -1895,7 +1895,7 @@
 			<richtext name="richtext_1_1" margin="445 12 0 0" rect="0 0 121 36" format="{@st59b}%s{/}" param1="value" param1_def="데스" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox"/>
 			<richtext name="richtext_1_1_1" margin="575 11 0 0" rect="0 0 194 36" format="{@st59b}%s{/}" param1="value" param1_def="피해량" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="gbox"/>
 			<groupbox name="gbox_chat" margin="869 137 0 0" rect="0 0 417 588" hittestbox="false" skin="bg" layout_gravity="left top"/>
-			<edit name="chat" margin="872 731 0 0" rect="0 0 415 43" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top"/>
+			<edit name="chat" margin="872 731 0 0" rect="0 0 415 43" fontname="white_18_ol" maxlen="16" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top"/>
 			<button name="btn_returntozone" margin="1006 93 14 0" rect="0 0 268 39" layout_gravity="right top" caption="{@st41}존으로 돌아가기"/>
 			<groupbox name="gbox_char" margin="13 146 0 0" rect="0 0 843 634" hittestbox="false" skin="none" layout_gravity="left top" scrollbar="true"/>
 		</controls>
@@ -2006,7 +2006,7 @@
 			<richtext name="skilllevel" margin="111 14 0 0" rect="0 0 120 24" format="레벨 %s{/}" param1="value" param1_def="11" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="skillname" margin="111 39 0 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="Heal" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="price" margin="284 75 165 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="가격" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-			<edit name="priceinput" margin="283 60 10 7" rect="0 0 150 31" fontname="white_20_b" maxlen="12" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -2" textalign="center center" layout_gravity="right bottom"/>
+			<edit name="priceinput" margin="283 60 10 7" rect="0 0 150 31" fontname="white_20_b" maxlen="12" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -2" textalign="center center" layout_gravity="right bottom"/>
 			<richtext name="price_1" margin="284 14 82 0" rect="0 0 120 24" format="%s{/}" param1="value" param1_def="재료" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 			<slot name="mat_item" margin="340 15 0 0" rect="0 0 50 50" movepop="false" hittest="true" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="None" texttooltip="{@st59}링1{/}" layout_gravity="left top"/>
 			<button name="cancel" margin="107 40 0 8" rect="0 2 80 40" skin="test_pvp_btn" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="BUFFSELLER_CANCEL_REG"/>
@@ -2088,8 +2088,8 @@
 			<richtext name="memo_t" rect="0 0 60 60" margin="10 45 0 0" caption="{@st41b}메모" layout_gravity="left top" textalign="center center" resizebytext="false" fixwidth="true" hittest="false"/>
 			<groupbox name="edit_bg_1" rect="0 0 250 40" margin="80 16 0 0" skin="test_weight_skin" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" frameOpenAnim="pip_simbol_ani_3" resizebyparent="false"/>
 			<groupbox name="edit_bg_2" rect="0 0 250 40" margin="80 58 0 0" skin="test_weight_skin" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" frameOpenAnim="pip_simbol_ani_3" resizebyparent="false"/>
-			<edit name="name" rect="0 0 240 36" margin="85 18 0 0" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_NAME" textalign="left center" typingsound="chat_typing" layout_gravity="left top" usetag="true" fontname="brown_18_b" maxlen="12" OffsetForDraw="0 0" xmargin="10"/>
-			<edit name="memo" rect="0 0 240 36" margin="85 60 0 0" multiline="true" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_MEMO" textalign="left top" typingsound="chat_typing" layout_gravity="left top" usetag="true" fontname="brown_18_b" maxlen="52" resizebytext="true" OffsetForDraw="0 5" xmargin="10"/>
+			<edit name="name" rect="0 0 240 36" margin="85 18 0 0" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_NAME" textalign="left center" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="12" OffsetForDraw="0 0" xmargin="10"/>
+			<edit name="memo" rect="0 0 240 36" margin="85 60 0 0" multiline="true" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_MEMO" textalign="left top" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="52" resizebytext="true" OffsetForDraw="0 5" xmargin="10"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_detail_memo_alchemist" width="470" height="100" skin="test_skin_01" draw="true" stateskin="false" hittest="true" hittestset="true">
@@ -2099,8 +2099,8 @@
 			<richtext name="memo_t" rect="0 0 60 60" margin="10 45 0 0" caption="{@st41b}메모" layout_gravity="left top" textalign="center center" resizebytext="false" fixwidth="true" hittest="false"/>
 			<groupbox name="edit_bg_1" rect="0 0 250 40" margin="80 16 0 0" skin="inventory_serch" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" frameOpenAnim="pip_simbol_ani_3" resizebyparent="false"/>
 			<groupbox name="edit_bg_2" rect="0 0 250 40" margin="80 58 0 0" skin="inventory_serch" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" frameOpenAnim="pip_simbol_ani_3" resizebyparent="false"/>
-			<edit name="name" rect="0 0 240 36" margin="85 18 0 0" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_NAME" textalign="left center" typingsound="chat_typing" layout_gravity="left top" usetag="true" fontname="brown_18_b" maxlen="12" OffsetForDraw="0 0" xmargin="10"/>
-			<edit name="memo" rect="0 0 240 36" margin="85 60 0 0" multiline="true" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_MEMO" textalign="left top" typingsound="chat_typing" layout_gravity="left top" usetag="true" fontname="brown_18_b" maxlen="52" resizebytext="true" OffsetForDraw="0 5" xmargin="10"/>
+			<edit name="name" rect="0 0 240 36" margin="85 18 0 0" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_NAME" textalign="left center" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="12" OffsetForDraw="0 0" xmargin="10"/>
+			<edit name="memo" rect="0 0 240 36" margin="85 60 0 0" multiline="true" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_MEMO" textalign="left top" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="52" resizebytext="true" OffsetForDraw="0 5" xmargin="10"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_makeBtn" hittest="true" width="120" height="60">
@@ -2291,7 +2291,7 @@
 		<controls>
 			<richtext name="title_score" margin="0 0 0 0" rect="0 0 400 35" format="{@st41_yellow}%s{/}" param1="value" param1_def="0" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
 			<groupbox name="editSkin" margin="15 0 0 10" rect="0 0 560 38" hittestbox="false" skin="test_weight_skin" layout_gravity="left bottom"/>
-			<edit name="input" margin="25 0 0 15" rect="0 0 480 26" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="JOURNAL_FIND_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="left bottom" typingsound="chat_typing"/>
+			<edit name="input" margin="25 0 0 15" rect="0 0 480 26" fontname="white_18_ol" maxlen="16" EnterKeyScp="JOURNAL_FIND_BY_NAME" numbermode="false" drawbackground="false" OffsetForDraw="0 -1" skin="None" layout_gravity="left bottom" typingsound="chat_typing"/>
 			<button name="btn_find" image="inven_s" margin="0 0 5 12" rect="0 0 60 38" layout_gravity="right bottom" LBtnUpScp="JOURNAL_FIND_BY_NAME" oversound="button_over" clicksound="button_click_big"/>
 			<groupbox name="category2" margin="210 20 0 0" rect="0 0 365 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 			<richtext name="richtext_1" margin="20 10 0 0" rect="0 0 120 24" caption="{@st45tw2}이름{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="category2"/>
@@ -2457,14 +2457,14 @@
 			<labelline name="labelline_1" margin="10 105 0 0" rect="0 0 390 4" skin="None" layout_gravity="left top"/>
 			<richtext name="skilllevel" margin="20 120 0 0" rect="0 0 120 24" caption="구입할 아이템 검색" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<groupbox name="edit_skin_search" margin="0 152 0 0" rect="0 0 380 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="center top" scrollbar="false" resizebyparent="false" parent="gbox"/>
-			<edit name="edit" margin="0 158 0 0" rect="0 0 360 26" fontname="brown_16_b" maxlen="16" usetag="true" EnterKeyScp="PS_FIND_ITEM_BY_NAME" numbermode="false" OffsetForDraw="0 2" drawbackground="false" typingsound="chat_typing" layout_gravity="center top"/>
+			<edit name="edit" margin="0 158 0 0" rect="0 0 360 26" fontname="brown_16_b" maxlen="16" EnterKeyScp="PS_FIND_ITEM_BY_NAME" numbermode="false" OffsetForDraw="0 2" drawbackground="false" typingsound="chat_typing" layout_gravity="center top"/>
 			<detaillist name="detaillist" rect="0 0 384 223" margin="15 190 0 0" skin="none" barheight="20" barskin="textbutton" layout_gravity="left top" rowheight="48"/>
 			<groupbox name="edit_skin_count" margin="210 19 0 0" rect="0 0 125 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="left top" scrollbar="false" resizebyparent="false" parent="gbox"/>
-			<edit name="input_count" margin="215 24 0 0" rect="0 0 115 25" fontname="brown_16_b" maxlen="16" usetag="true" numbermode="true" OffsetForDraw="0 2" drawbackground="false" typingsound="chat_typing" layout_gravity="left top"/>
+			<edit name="input_count" margin="215 24 0 0" rect="0 0 115 25" fontname="brown_16_b" maxlen="16" numbermode="true" OffsetForDraw="0 2" drawbackground="false" typingsound="chat_typing" layout_gravity="left top"/>
 			<richtext name="skilllevel_1" margin="102 27 0 0" rect="0 0 100 24" caption="구매수량" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="skilllevel_1_1" margin="102 63 0 0" rect="0 0 100 24" caption="개당가격" textalign="right center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<groupbox name="edit_skin_price" margin="210 56 0 0" rect="0 0 125 35" skin="test_weight_skin" draw="true" hittestbox="true" layout_gravity="left top" scrollbar="false" resizebyparent="false" parent="gbox"/>
-			<edit name="input_price" margin="215 61 0 0" rect="0 0 115 25" fontname="brown_16_b" maxlen="16" usetag="true" numbermode="true" OffsetForDraw="0 2" drawbackground="false" layout_gravity="left top" typingsound="chat_typing"/>
+			<edit name="input_price" margin="215 61 0 0" rect="0 0 115 25" fontname="brown_16_b" maxlen="16" numbermode="true" OffsetForDraw="0 2" drawbackground="false" layout_gravity="left top" typingsound="chat_typing"/>
 			<button name="btn_register" margin="0 25 10 0" skin="test_pvp_btn" rect="0 0 60 60" layout_gravity="right top" caption="{img white_up_arrow 20 20}" LBtnUpScp="PS_REGISTER_ITEM" clicksound="button_click" oversound="button_over"/>
 		</controls>
 	</controlset>
@@ -2539,7 +2539,7 @@
 			<groupbox name="gBox" rect="0 0 475 70" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
 			<groupbox name="TitleSkin" parent="gBox" rect="0 0 270 37" margin="0 29 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 			<button name="change_title" parent="gBox" rect="0 0 150 45" margin="0 25 55 0" layout_gravity="right top" LBtnUpScp="CHANGE_FOOD_TABE_TITLE" caption="{@st66b}간판이름변경" skin="test_pvp_btn"/>
-			<edit name="TitleInput" parent="gBox" rect="0 0 270 35" margin="5 29 0 0" layout_gravity="left top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="white_16_b" maxlen="40" oversound="button_over" textalign="left center" usetag="true"/>
+			<edit name="TitleInput" parent="gBox" rect="0 0 270 35" margin="5 29 0 0" layout_gravity="left top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="white_16_b" maxlen="40" oversound="button_over" textalign="left center"/>
 		</controls>
 	</controlset>
 	<controlset name="camp_food_item" hittest="true" width="420" height="150" hittestset="false" draw="true" skin="test_skin_01">
@@ -2651,7 +2651,7 @@
 				<next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
 			</pagecontroller>
 			<groupbox name="title_1" rect="0 0 478 40" margin="10 70 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-			<edit name="input_findname" margin="20 0 0 40" rect="0 0 460 35" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="WORLDPVP_RANK_SELECT" numbermode="false" OffsetForDraw="10 3" layout_gravity="left bottom" skin="test_weight_skin"/>
+			<edit name="input_findname" margin="20 0 0 40" rect="0 0 460 35" fontname="white_18_ol" maxlen="16" EnterKeyScp="WORLDPVP_RANK_SELECT" numbermode="false" OffsetForDraw="10 3" layout_gravity="left bottom" skin="test_weight_skin"/>
 			<button name="btn_find" margin="0 0 23 40" image="inven_s" rect="0 0 60 38" layout_gravity="right bottom" format="{s20}{#000000}%s" param1="value" param1_def=""/>
 			<droplist name="droplist" margin="282 30 18 0" rect="0 0 192 41" skin="droplist_normal" visibleline="11" frametextalign="left" font="white_20_ol" textalign="left center" textoffset="20 0" layout_gravity="right top" SelectScp="WORLDPVP_RANK_TYPE_SELECT"/>
 			<richtext name="richtext_1" margin="25 10 0 0" rect="0 0 120 24" caption="순위" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
@@ -2745,7 +2745,7 @@
 				<next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
 			</pagecontroller>
 			<groupbox name="title_1" rect="0 0 505 40" margin="6 6 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top" scrollbar="false"/>
-			<edit name="input_findname" margin="20 0 0 70" rect="0 0 480 35" fontname="white_18_ol" maxlen="16" usetag="true" EnterKeyScp="GUILDBATTLE_RANKING_SELECT" numbermode="false" OffsetForDraw="10 3" layout_gravity="left bottom" skin="test_weight_skin"/>
+			<edit name="input_findname" margin="20 0 0 70" rect="0 0 480 35" fontname="white_18_ol" maxlen="16" EnterKeyScp="GUILDBATTLE_RANKING_SELECT" numbermode="false" OffsetForDraw="10 3" layout_gravity="left bottom" skin="test_weight_skin"/>
 			<button name="btn_find" margin="0 0 22 71" image="inven_s" rect="0 0 60 38" layout_gravity="right bottom" format="{s20}{#000000}%s" param1="value" param1_def="" LBtnUpScp="GUILDBATTLE_RANKING_SELECT"/>
 			<richtext name="richtext_1" margin="50 10 0 0" rect="0 0 120 24" caption="순위" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
 			<richtext name="richtext_2" margin="145 10 0 0" rect="0 0 120 24" caption="[서버] 길드명" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="title_1"/>
@@ -2821,7 +2821,7 @@
 			<richtext name="richtext_1_1" margin="110 15 0 0" rect="0 0 100 60" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="이름"/>
 			<richtext name="richtext_1_1_1" margin="0 15 15 0" rect="0 0 100 60" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" format="%s" param1="value" param1_def="점수"/>
 			<groupbox name="bgbox" margin="5 0 0 65" rect="0 0 520 38" draw="true" skin="test_weight_skin" scrollbar="false" hittestbox="false" layout_gravity="left bottom" resizebyparent="false"/>
-			<edit name="input_findname" margin="10 0 0 68" rect="0 0 445 30" fontname="white_18_b" maxlen="16" usetag="true" EnterKeyScp="JOURNAL_WORLDPVP_RANK_SELECT" numbermode="false" drawbackground="false" OffsetForDraw="0 2" skin="None" layout_gravity="left bottom" typingsound="chat_typing"/>
+			<edit name="input_findname" margin="10 0 0 68" rect="0 0 445 30" fontname="white_18_b" maxlen="16" EnterKeyScp="JOURNAL_WORLDPVP_RANK_SELECT" numbermode="false" drawbackground="false" OffsetForDraw="0 2" skin="None" layout_gravity="left bottom" typingsound="chat_typing"/>
 			<button name="btn_find" image="inven_s" margin="460 0 0 67" rect="0 0 60 38" layout_gravity="left bottom" LBtnUpScp="JOURNAL_WORLDPVP_RANK_SELECT" oversound="button_over" clicksound="button_click_big"/>
 			<button name="button_1_1" margin="0 50 0 0" rect="0 0 530 50" layout_gravity="center top" skin="rank_btn" format="{@st63}%s" param1="value" param1_def="팀 배틀 리그 참여" LBtnUpScp="ui.ToggleFrame(&apos;worldpvp&apos;)"/>
 		</controls>
@@ -2912,7 +2912,7 @@
 			<richtext name="skilltext" parent="gbox" rect="0 0 200 30" margin="28 196 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="120" slideshow="false" spacey="0" textalign="left center" updateparent="false" format="{@st42}%s" param1="value" param1_def="길드 특성 및 정보" resizebytext="false"/>
 			<groupbox name="boardBox" margin="21 0 0 60" rect="0 0 550 220" hittestbox="false" skin="test_frame_midle" layout_gravity="left bottom"/>
 			<groupbox name="editgBox" margin="22 30 0 17" rect="0 0 550 40" hittestbox="false" scrollbar="false" skin="test_weight_skin" layout_gravity="left bottom"/>
-			<edit name="edit_1" margin="3 -7 0 0" rect="0 10 400 40" fontname="black_18_b" maxlen="30" usetag="true" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="editgBox" skin="None"/>
+			<edit name="edit_1" margin="3 -7 0 0" rect="0 10 400 40" fontname="black_18_b" maxlen="30" EnterKeyScp="None" numbermode="false" OffsetForDraw="10 3" layout_gravity="left top" parent="editgBox" skin="None"/>
 			<button name="button_1" margin="0 0 0 0" rect="0 0 120 40" layout_gravity="right top" caption="{@st66b}저장" skin="test_pvp_btn" parent="editgBox" LBtnUpScp="GUILD_SAVE_ONE_SAY"/>
 			<button name="guildwarehouse" parent="gBox" rect="0 0 120 40" margin="0 191 21 0" layout_gravity="right top" LBtnUpScp="TOGGLE_GUILD_WAREHOUSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="보관함" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
 			<groupbox name="ablist" margin="10 2 0 0" rect="0 0 530 265" hittestbox="false" skin="None" layout_gravity="left top" parent="groupbox_1"/>

@@ -9,18 +9,18 @@
     <sound opensound="win_open" closesound="win_close"/>
     <script OpenScp="UPDATE_MAP_MAKE_TOOL"/>
     <controls>
-        <edit name="MinimapWidth" rect="60 10 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
-        <edit name="MinimapHeight" rect="60 50 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
-        <edit name="MinimapCenterX" rect="60 90  120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
-        <edit name="MinimapCenterZ" rect="60 130 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
+        <edit name="MinimapWidth" rect="60 10 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
+        <edit name="MinimapHeight" rect="60 50 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
+        <edit name="MinimapCenterX" rect="60 90  120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
+        <edit name="MinimapCenterZ" rect="60 130 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
         <richtext name="MinimapWidth_t" rect="200 15 150 27" caption="{s18}MinimapWidth" fontname="white_16" resizebytext="false" textalign="left center"/>
         <richtext name="MinimapHeight_t" rect="200 55 150 27" caption="{s18}MinimapHeight" fontname="white_16" resizebytext="false" textalign="left center"/>
         <richtext name="MinimapCenterX_t" rect="200 95 150 27" caption="{s18}MinimapCenterX" fontname="white_16" resizebytext="false" textalign="left center"/>
         <richtext name="MinimapCenterZ_t" rect="200 135 150 27" caption="{s18}MinimapCenterZ" fontname="white_16" resizebytext="false" textalign="left center"/>
-        <edit name="MinimapOffsetX" rect="60 200 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
-        <edit name="MinimapOffsetY" rect="60 240 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
-        <edit name="MinimapRateX" rect="60 280 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
-        <edit name="MinimapRateY" rect="60 320 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16" usetag="true"/>
+        <edit name="MinimapOffsetX" rect="60 200 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
+        <edit name="MinimapOffsetY" rect="60 240 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
+        <edit name="MinimapRateX" rect="60 280 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
+        <edit name="MinimapRateY" rect="60 320 120 30" layout_gravity="left top" EnterKeyScp="APPLY_CHANGE_MAP" OffsetForDraw="10 3" fontname="white_20" maxlen="16"/>
         <richtext name="Minimapoffset_t" rect="200 205 150 30" caption="{s18}MinimapOffsetX" fontname="white_16" resizebytext="false" textalign="left center"/>
         <richtext name="Minimapoffstey_t" rect="200 245 150 30" caption="{s18}MinimapOffsetY" fontname="white_16" resizebytext="false" textalign="left center"/>
         <richtext name="MinimapCratex_t" rect="200 285 150 30" caption="{s18}MinimapRateX" fontname="white_16" resizebytext="false" textalign="left center"/>

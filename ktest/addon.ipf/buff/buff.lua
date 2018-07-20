@@ -147,9 +147,11 @@ function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)
 	else
 		slot:SetText("");
 	end
-
-	slot:SetEventScript(ui.RBUTTONUP, 'REMOVE_BUF');
-	slot:SetEventScriptArgNumber(ui.RBUTTONUP, buffType);
+	
+    if slot:GetTopParentFrame():GetName() ~= "targetbuff" then
+    	slot:SetEventScript(ui.RBUTTONUP, 'REMOVE_BUF');
+    	slot:SetEventScriptArgNumber(ui.RBUTTONUP, buffType);
+	end
 	slot:EnableDrop(0);
 	slot:EnableDrag(0);
 

@@ -57,6 +57,10 @@
                                 <Num Num="1"/>
                                 <Num Num="500"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillPVPPointRewardCount"/>
+                                <Num Num="0"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="10sec" execWithStart="0">
@@ -3526,7 +3530,18 @@
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="reward">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillPVPPointRewardCount"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillPVPPointRewardCount"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                             <ToolScp Scp="SCR_GIVE_UP_HILL_RANK_POINT" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_PVP_POINT_GIVE_UPHILL" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EXEC_SOUND_ALLPC" Client="NO" UseSleep="NO">
@@ -4025,7 +4040,18 @@
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="reward">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillPVPPointRewardCount"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="UphillPVPPointRewardCount"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                             <ToolScp Scp="SCR_GIVE_UP_HILL_RANK_POINT" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_PVP_POINT_GIVE_UPHILL" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
