@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="itemtranscend" x="0" y="0" width="500" height="609" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -21,7 +21,7 @@
 			<uieffect effect="I_screen_button" scale="45" overlab="No" sound="None" offset="0 0" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 		</button>
 		<button name="close" rect="0 0 44 44" margin="0 35 30 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMTRANSCEND_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
-		<picture name="pic" parent="gbox" rect="0 0 408 707" margin="-15 40  0 0" layout_gravity="center top" changecursor="false" hittest="true" image="transcendence_bg" stretch="false"/>
+		<picture name="pic" parent="gbox" rect="0 0 408 707" margin="-15 40  0 0" layout_gravity="center top" changecursor="false" hittest="false" image="transcendence_bg" stretch="false"/>
 		<animpicture name="animpic_bg" blend="50" texelx="0" texely="0" texelwidth="408" texelheight="707" spacex="1" spacey="0" loop="false" ticktime="0.1" animcount="14" layout_gravity="center top" rect="0 0 408 707" margin="-9 100  0 0" image="transcendence_ani" hittest="false" playanim="true" stretch="false" hideAnimEnd="true" visible="false" tickscript="ITEMTRANSCEND_BG_ANIM_TICK"/>
 		<animpicture name="animpic_slot" blend="50" texelx="0" texely="0" texelwidth="400" texelheight="400" spacex="1" spacey="0" loop="false" ticktime="0.06" animcount="9" layout_gravity="left top" rect="0 0 400 400" margin="50 160 0 0" image="cube_ani" hittest="false" playanim="true" stretch="true" hideAnimEnd="true" visible="false"/>
 		<slot name="slotTemp" margin="175 305 0 0" rect="0 0 140 140" movepop="false" skin="none" layout_gravity="left top">
