@@ -36,7 +36,11 @@ function GET_VALID_LEGEND_PREFIX_MATERIAL_LIST(pc)
     if itemList ~= nil then
         for i = 1, #itemList do
             local item = itemList[i];
-            if item.ClassName == needItemName and item.ItemExp >= item.NumberArg1 then
+            local itemExpNum = tonumber(item.ItemExpString);
+            if itemExpNum == nil then
+                itemExpNum = 0;
+            end
+            if item.ClassName == needItemName and itemExpNum >= item.NumberArg1 then
                 list[#list + 1] = item;
             end
         end
@@ -164,7 +168,7 @@ function TEST_SET_PREFIX_MATERIAL_EXP(pc) -- 인벤토리에 있는 모든 접�
     for i = 1, #itemList do
         local item = itemList[i];
         if item.ClassName == matName then
-            TxSetIESProp(tx, item, 'ItemExp', matCls.NumberArg1);        
+            TxSetIESProp(tx, item, 'ItemExpString', matCls.NumberArg1);        
             cheatItemList[#cheatItemList + 1] = item;
         end
     end
@@ -174,7 +178,7 @@ function TEST_SET_PREFIX_MATERIAL_EXP(pc) -- 인벤토리에 있는 모든 접�
 
     if ret == 'SUCCESS' then
         for i = 1, #cheatItemList do
-            SendPropertyByName(pc, cheatItemList[i], 'ItemExp');
+            SendPropertyByName(pc, cheatItemList[i], 'ItemExpString');
         end
     end
 end

@@ -34,7 +34,6 @@ function GUILD_CLAIM_GET(code, ret_json)
 	end
 
 	local parsedJson = json.decode(ret_json)
-	print(ret_json)
 end
 
 function GUILD_PR_GET(code, ret_json)
@@ -188,7 +187,6 @@ function GUILDINFO_OPTION_UPDATE_EMBLEM(frame)
 end
 
 function save_guild_introduce_call_back(code, ret_json)
-    print(code, ret_json)
     if code ~= 200 then        
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "save_guild_introduce_call_back")
         return
@@ -357,7 +355,6 @@ function GUILDINFO_GET(code, ret_json)
 end
 
 function SET_GUILD_PROMOTE(frame, control)
-	print(control:GetName());
 	if control:IsChecked() == 1 then
 		SetGuildPRVisible("ON_PR_CHECK");
 	else
@@ -370,5 +367,4 @@ function ON_PR_CHECK(code, ret_json)
 		SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_PR_CHECK");
         return;
 	end
-	print(ret_json)	
 end

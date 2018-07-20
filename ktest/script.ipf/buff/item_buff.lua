@@ -3390,3 +3390,27 @@ end
 function SCR_BUFF_LEAVE_COSTUME_VELCOFFER_SET(self, buff, arg1, arg2, over)
 
 end
+
+function SCR_BUFF_ENTER_STATUE_LOOTINGCHANCE_1(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 100;
+end
+
+function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE_1(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM - 100;
+end
+
+function SCR_BUFF_ENTER_STATUE_LOOTINGCHANCE_2(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 300;
+end
+
+function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE_2(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM - 300;
+end
+
+function SCR_BUFF_ENTER_STATUE_LOOTINGCHANCE_3(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM + 500;
+end
+
+function SCR_BUFF_LEAVE_STATUE_LOOTINGCHANCE_3(self, buff, arg1, arg2, over)
+    self.LootingChance_BM = self.LootingChance_BM - 500;
+end

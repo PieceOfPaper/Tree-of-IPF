@@ -1202,13 +1202,21 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 				if itemCls ~= nil then
 					local makeSlot = true;
 					if cap ~= "" then
-						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));		
+						--인벤토리 안에 있는 아이템을 찾기 위한 로직
+						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));
+						--접두어도 포함시켜 검색해야되기 때문에, 접두를 찾아서 있으면 붙여주는 작업
+						local prefixClassName = TryGetProp(itemCls, "LegendPrefix")
+						if prefixClassName ~= nil and prefixClassName ~= "None" then
+							local prefixCls = GetClass('LegendSetItem', prefixClassName)
+							local prefixName = string.lower(dictionary.ReplaceDicIDInCompStr(prefixCls.Name));
+							itemname = prefixName .. " " .. itemname;
+						end
+
 						local tempcap = string.lower(cap);
 						local a = string.find(itemname, tempcap);
 						if a == nil then
 							makeSlot = false;
-						end
-
+						end			
 					end				
 
 					if makeSlot == true then
@@ -2095,7 +2103,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	local itemType = invItem.type;
 	ICON_SET_ITEM_COOLDOWN(icon, itemType);	
 
-	icon:Set(imageName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
+	local iconImgName  = GET_ITEM_ICON_IMAGE(itemobj);
+	icon:Set(iconImgName, 'Item', itemType, invItem.invIndex, invItem:GetIESID(), invItem.count);
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
 	
@@ -2310,7 +2319,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 	end
 	
 	if spotName == 'RH' then
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then     
 			quickslot.SetSwapWeaponInfo(0, equipItem:GetIESID());
 			
 			if equipItem ~= nil then
@@ -2318,7 +2327,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 			else
 				frame:SetUserValue('CURRENT_WEAPON_RH', 0)
 			end
-		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then        
+		elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
 			quickslot.SetSwapWeaponInfo(2, equipItem:GetIESID());
 					
 			if equipItem ~= nil then
@@ -2331,7 +2340,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 
 	if spotName == 'LH' then
 		
-		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then        
+		if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
 			quickslot.SetSwapWeaponInfo(1, equipItem:GetIESID());
 			
 			if equipItem ~= nil then

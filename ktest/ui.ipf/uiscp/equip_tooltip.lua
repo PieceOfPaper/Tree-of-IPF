@@ -53,7 +53,7 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
     
 
 	local value = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC();
-    if basicTooltipProp ~= 'None' and value == 1 then
+    if basicTooltipProp ~= 'None' and value ~= 1 then
     	local bg_ypos = ypos -- 음영처리할 box ypos
         local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
 	    local isEquiped = 1;
@@ -74,7 +74,6 @@ function ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe, isForger
 	if invitem.InheritanceItemName ~= nil and invitem.InheritanceItemName ~= "None" then
 		local temp = GetClass('Item', invitem.InheritanceItemName)
 		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, temp, ypos, mainframename, invitem) -- 각종 프로퍼티
---	ypos = DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename) -- 세트아이템
 	else
 		ypos = DRAW_EQUIP_PROPERTY(tooltipframe, invitem, ypos, mainframename) -- 각종 프로퍼티
 	end
@@ -142,12 +141,12 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
 	local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
-	local neddRandomOption = TryGetProp(invitem, "NeedRandomOption")
-	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal, neddRandomOption)
+	local needRandomOption = TryGetProp(invitem, "NeedRandomOption")
+	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal, needRandomOption)
 	item_bg:SetImage(gradeBGName);
 	-- 아이템 이미지
 	local itemPicture = GET_CHILD(equipCommonCSet, "itempic", "ui::CPicture");
-	if (needAppraisal ~= nil and needAppraisal == 1) or (neddRandomOption ~= nil and neddRandomOption == 1) then
+	if (needAppraisal ~= nil and needAppraisal == 1) or (needRandomOption ~= nil and needRandomOption == 1) then
 		itemPicture:SetColorTone("FF111111");
 	end
 
@@ -290,12 +289,12 @@ function DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframenam
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");
 	local needAppraisal = TryGetProp(invitem, "NeedAppraisal");
-	local neddRandomOption = TryGetProp(invitem, "NeedRandomOption")
-	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal, neddRandomOption)
+	local needRandomOption = TryGetProp(invitem, "NeedRandomOption")
+	local gradeBGName = GET_ITEM_BG_PICTURE_BY_GRADE(invitem.ItemGrade, needAppraisal, needRandomOption)
 	item_bg:SetImage(gradeBGName);
 	-- 아이템 이미지
 	local itemPicture = GET_CHILD(equipCommonCSet, "itempic", "ui::CPicture");
-	if (needAppraisal ~= nil and needAppraisal == 1) or (neddRandomOption ~= nil and neddRandomOption == 1) then
+	if (needAppraisal ~= nil and needAppraisal == 1) or (needRandomOption ~= nil and needRandomOption == 1) then
 		itemPicture:SetColorTone("FF111111");
 	end
 
@@ -614,16 +613,16 @@ function RESIZE_TOOLTIP_SUB_BG(gBox, bg_ypos, bg_height)
 end
 
 -- 아이템에 의한 추가 속성 정보 (광역공격 +1)
-function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, socketitem)
+function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem)
 	local gBox = GET_CHILD(tooltipframe,mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_equip_property');
 	
-	local baseicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
+	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
     local list = {};
     local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
     for i = 1, #basicTooltipPropList do
         local basicTooltipProp = basicTooltipPropList[i];
-        list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(baseicList, basicTooltipProp, list);
+        list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(basicList, basicTooltipProp, list);
     end
 
 	local list2 = GET_EUQIPITEM_PROP_LIST();
@@ -662,9 +661,12 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, socketi
 	end
 
 	if cnt <= 0 and (invitem.OptDesc == nil or invitem.OptDesc == "None" ) then -- 일단 그릴 프로퍼티가 있는지 검사. 없으면 컨트롤 셋 자체를 안만듬
+		if setItem == nil then
 		if invitem.ReinforceRatio == 100 then
     		return yPos
     	end
+	end
+
 	end
 
 	local tooltip_equip_property_CSet = gBox:CreateOrGetControlSet('tooltip_equip_property', 'tooltip_equip_property', 0, yPos);
@@ -684,10 +686,10 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, socketi
 
 	for i = 1 , #list do
 		local propName = list[i];
-		local propValue = invitem[propName];
-		if socketitem ~= nil then
-			propValue = socketitem[propName]
-		end
+		local propValue = class[propName];
+	--	if socketitem ~= nil then
+	--		propValue = socketitem[propName]
+	--	end
 		
 		local needToShow = true;
 		for j = 1, #basicTooltipPropList do
@@ -742,23 +744,29 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, socketi
 		local propValue = "RandomOptionValue_"..i;
 		local clientMessage = 'None'
 		
-		if invitem[propGroupName] == 'ATK' then
+		local propItem = invitem
+
+		if setItem ~= nil then
+			propItem = setItem
+		end
+
+		if propItem[propGroupName] == 'ATK' then
 		    clientMessage = 'ItemRandomOptionGroupATK'
-		elseif invitem[propGroupName] == 'DEF' then
+		elseif propItem[propGroupName] == 'DEF' then
 		    clientMessage = 'ItemRandomOptionGroupDEF'
-		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
+		elseif propItem[propGroupName] == 'UTIL_WEAPON' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
+		elseif propItem[propGroupName] == 'UTIL_ARMOR' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invitem[propGroupName] == 'UTIL_SHILED' then
+		elseif propItem[propGroupName] == 'UTIL_SHILED' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif invitem[propGroupName] == 'STAT' then
+		elseif propItem[propGroupName] == 'STAT' then
 		    clientMessage = 'ItemRandomOptionGroupSTAT'
 		end
 		
-		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
-			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
-			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
+		if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propItem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);
 
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
@@ -777,10 +785,18 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, socketi
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, invitem.OptDesc, 0, inner_yPos);
 	end
 
-	if invitem.IsAwaken == 1 then
-		local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(invitem.HiddenProp));
-		local strInfo = ABILITY_DESC_PLUS(opName, invitem.HiddenPropValue);
-		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+	if setItem == nil then
+		if invitem.IsAwaken == 1 then
+			local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(invitem.HiddenProp));
+			local strInfo = ABILITY_DESC_PLUS(opName, invitem.HiddenPropValue);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+		end
+	else
+		if setItem.IsAwaken == 1 then
+			local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(setItem.HiddenProp));
+			local strInfo = ABILITY_DESC_PLUS(opName, setItem.HiddenPropValue);
+			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
+		end
 	end
 
 	if invitem.ReinforceRatio > 100 then
@@ -838,7 +854,7 @@ function DRAW_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	end
 
     local value = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC();
-    if value ~= 1 then
+    if value == 1 then
         return yPos
     end
 	
@@ -858,7 +874,7 @@ end
 -- 소켓 정보
 function DRAW_EQUIP_SOCKET_COUNT(tooltipframe, invitem, yPos, addinfoframename)
 	local value = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC();
-    if value ~= 1 then
+    if value == 1 then
         return yPos
     end
 
@@ -881,7 +897,7 @@ end
 
 function DRAW_EQUIP_SOCKET(tooltipframe, invitem, yPos, addinfoframename)
 	local value = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC();
-    if value ~= 1 then
+    if value == 1 then
         return yPos
     end
 
@@ -1108,10 +1124,10 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 				set_text:SetTextByKey("setDesc",setDesc)
 
 				local labelline = GET_CHILD_RECURSIVELY(each_text_CSet, 'labelline')
-
-				each_text_CSet:Resize(each_text_CSet:GetWidth(), set_text:GetHeight());
-
-				inner_yPos = inner_yPos + set_text:GetHeight() + labelline:GetHeight();
+				local y_margin = each_text_CSet:GetUserConfig("TEXT_Y_MARGIN")				
+				local testRect = set_text:GetMargin();
+				each_text_CSet:Resize(each_text_CSet:GetWidth(), set_text:GetHeight() + testRect.top);
+				inner_yPos = inner_yPos + each_text_CSet:GetHeight() + y_margin;
 			end
 		end
 	else
@@ -1133,17 +1149,17 @@ function DRAW_EQUIP_SET(tooltipframe, invitem, ypos, mainframename)
 
 				local setTitle = ScpArgMsg("Auto_{s16}{Auto_1}{Auto_2}_SeTeu_HyoKwa__{nl}", "Auto_1",color, "Auto_2",i + 1);
 				local setDesc = string.format("{s16}%s%s", color, setEffect:GetDesc());
-	
+		
 				local each_text_CSet = set_gbox_prop:CreateControlSet('tooltip_set_each_prop_text', 'each_text_CSet'..i, inner_xPos, inner_yPos);
 				tolua.cast(each_text_CSet, "ui::CControlSet");
+				local y_margin = each_text_CSet:GetUserConfig("TEXT_Y_MARGIN")
 				local set_text = GET_CHILD(each_text_CSet,'set_prop_Text','ui::CRichText')
 				set_text:SetTextByKey("setTitle",setTitle)
 				set_text:SetTextByKey("setDesc",setDesc)
 				local labelline = GET_CHILD_RECURSIVELY(each_text_CSet, 'labelline')
-
-				each_text_CSet:Resize(each_text_CSet:GetWidth(), set_text:GetHeight());
-
-				inner_yPos = inner_yPos + set_text:GetHeight() + labelline:GetHeight();
+				local testRect = set_text:GetMargin();
+				each_text_CSet:Resize(each_text_CSet:GetWidth(), set_text:GetHeight() + testRect.top);
+				inner_yPos = inner_yPos + each_text_CSet:GetHeight() + y_margin;
 			end
 		end
 	end
@@ -1181,25 +1197,54 @@ function CHECK_EQUIP_SET_ITEM(invitem)
 --		end
 
 	else
-		local isDoubleHand = TryGetProp(invitem, "DBLHand");
-		if isDoubleHand == "YES" then			
-			RHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "RH")
-		else
-			RHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "RH")
-			LHflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "LH")
-		end
-
-		SHIRTflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "SHIRT")
-		PANTSflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "PANTS")
-		GLOVESflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "GLOVES")
-		BOOTSflag = CHECK_EQUIP_SET_ITEM_SLOT(invitem, "BOOTS")
-
+		RHflag, LHflag, SHIRTflag, PANTSflag, GLOVESflag, BOOTSflag = GET_PREFIX_SET_ITEM_FLAG(invitem)
 -- 세트아이템 수 정해야함
 		setItemCount = 6
 	end
 
 	return setItemCount, RHflag, LHflag, SHIRTflag, PANTSflag, GLOVESflag, BOOTSflag
 end
+
+function GET_PREFIX_SET_ITEM_FLAG(invitem)
+	local frame = ui.GetFrame("inventory");
+	local prefixCls = GetClass('LegendSetItem', invitem.LegendPrefix)
+	if prefixCls == nil then
+		return 0, 0, 0, 0, 0, 0;
+	end
+
+	local equipTable = {"RH", "LH", "SHIRT", "PANTS", "GLOVES", "BOOTS"};
+	local returnValue = {0 , 0, 0, 0, 0, 0};
+	for i = 1, #equipTable do
+		local slot = GET_CHILD_RECURSIVELY(frame, equipTable[i])
+		local slotIcon = slot:GetIcon()
+		if slotIcon ~= nil then
+			local slotIconInfo = slotIcon:GetInfo()
+			local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
+			local obj = GetIES(slotItem:GetObject())
+			print(prefixCls.ClassName ,obj.LegendPrefix)
+			if prefixCls.ClassName == obj.LegendPrefix then		
+				returnValue[i] = 1;
+			else
+				returnValue[i] = 0;
+			end
+		end
+	end
+	local slot = GET_CHILD_RECURSIVELY(frame, "RH")
+		local slotIcon = slot:GetIcon()
+		if slotIcon ~= nil then
+			local slotIconInfo = slotIcon:GetInfo()
+			local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
+			local obj = GetIES(slotItem:GetObject())
+			local isDoubleHand = TryGetProp(obj, "DBLHand");
+			if isDoubleHand == "YES" then
+				returnValue[2] = 0;
+			end
+		end
+	return returnValue[1], returnValue[2], returnValue[3], returnValue[4], returnValue[5], returnValue[6]
+
+end
+
+
 
 function CHECK_EQUIP_SET_ITEM_SLOT(invitem, slotName)
 	local frame = ui.GetFrame("inventory")
@@ -1529,7 +1574,7 @@ function DRAW_TOGGLE_EQUIP_DESC(tooltipframe, invitem, yPos, mainframename)
 	local toggle_desc_text = GET_CHILD(tooltip_toggle_CSet, 'toggle_desc_text', 'ui::CRichText');
 
     local toggleText = ClMsg('Show');
-    if IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC() == 1 then
+    if IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC() ~= 1 then
         toggleText = ClMsg('Close');
 	end
     toggle_desc_text:SetTextByKey('Toggle', toggleText);

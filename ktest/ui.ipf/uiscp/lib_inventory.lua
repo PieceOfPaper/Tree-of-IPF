@@ -554,7 +554,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 			 end
 		end
 	elseif itemCls.GroupName == "ExpOrb" then
-		local exp = TryGetProp(itemCls, "ItemExp");
+		local exp = TryGetProp(itemCls, "ItemExpString");
 		local maxExp = TryGetProp(itemCls, "NumberArg1");
 		if exp ~= nil and maxExp ~= nil then 
 			iconImg = GET_LEGENDEXPPOTION_ICON_IMAGE(itemCls);

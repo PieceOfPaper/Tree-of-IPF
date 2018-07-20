@@ -1149,7 +1149,7 @@ end
 function SCR_LIB_ATKCALC_LH(from, skill)
 -- RH, LH 혼용으로 사용하고 있어서 문제가 되어있었다.
 -- 스킬의 핸드타입을 체크하여, 맞는 녀석을 호출하도록 하자.
-
+    
     if IS_PC(from) == true and skill.UseSubweaponDamage == "NO" then
         return SCR_LIB_ATKCALC_RH(from, skill)
     end
@@ -3237,8 +3237,10 @@ function SCR_LIB_CALC_HP_HEAL_RATIO(self, value, skillName)
     
     local conRate = 0.005
     
-    if IsPVPServer(self) == 1 and skillName ~= nil then
-        conRate = conRate * 0.5
+    if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 then
+        if skillName ~= nil then
+            conRate = conRate * 0.5
+        end
     end
     
     local byStat = 1 + (stat * conRate);
@@ -3257,7 +3259,7 @@ function SCR_LIB_CALC_HP_HEAL_RATIO(self, value, skillName)
     if Ayin_sof_buff ~= nil then
         local healBonus = GetBuffArgs(Ayin_sof_buff);
         ratio = ratio + healBonus;
-        if IsPVPServer(self) == 1 then
+        if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) ==  1 then
             ratio = ratio * 0.7
         end
     end

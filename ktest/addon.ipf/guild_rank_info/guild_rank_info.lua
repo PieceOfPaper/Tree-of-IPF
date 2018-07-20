@@ -51,8 +51,6 @@ function SCROLL_GUILD(parent, ctrl, str, wheel)
 end
 function GET_GUILD_LIST(ret_code, return_json)
     finishedLoading = true;
-    print(return_json);
-    --print("curpage:" .. curPage)
     if ret_code ~= 200 then
         SHOW_GUILD_HTTP_ERROR(code, return_json, "GET_GUILD_LIST")
         return
@@ -80,7 +78,6 @@ function GET_GUILD_LIST(ret_code, return_json)
 
     local scrollPanel = GET_CHILD_RECURSIVELY(frame, "vertGuildEmblemLayout", "ui::CScrollPanel");
     for guildNum = currentGuildNum, loadedGuildNum-1  do
-        print("guildid:" .. guildProp[guildNum]['id'] .. ", guildNum:" .. guildNum)
         local columnName = "secondColumn";
         if math.floor(guildNum % 2) == 1 then -- 첫번쨰 컬럼일 경우  
                

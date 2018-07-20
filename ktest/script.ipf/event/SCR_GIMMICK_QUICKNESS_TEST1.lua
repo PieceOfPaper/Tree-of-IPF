@@ -289,7 +289,7 @@ function SSN_GIMMICK_QUICKNESS_TEST1_TIME2(pc, sObj, remainTime)
                         local angle = GetAngleTo(pc, cell);
                         KnockBack(pc, cell, 200, angle, 60, 1)
                         PlayEffect(cell, 'I_bomb007', 1.5)
-                        PlaySound(pc, 'skl_eff_fire_4')
+                        PlaySound(pc, 'skl_eff_dead_boom_m')
                     end
                     break
                 end

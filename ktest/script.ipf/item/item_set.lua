@@ -2023,6 +2023,14 @@ function SCR_SET_SUMAZIN02_LEAVE(pc)
      pc.MATK_BM = pc.MATK_BM - 571;
 end
 
+function SCR_SET_SUMAZIN03_ENTER(pc)
+     pc.MSP_BM = pc.MSP_BM + 1435;
+end
+
+function SCR_SET_SUMAZIN03_LEAVE(pc)
+     pc.MSP_BM = pc.MSP_BM - 1435;
+end
+
 function SCR_SET_TIKSLINE01_ENTER(pc)
     pc.DEX_BM = pc.DEX_BM + 25;
     pc.MNA_BM = pc.MNA_BM + 25;

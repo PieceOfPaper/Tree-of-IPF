@@ -53,7 +53,10 @@ function MOVETOCAMP(aid)
         ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
         return;
     end
-
+    if session.colonywar.GetIsColonyWarMap() == true then
+        ui.SysMsg(ClMsg('ImpossibleInCurrentMap'));
+	    return;
+    end
 	session.party.RequestMoveToCamp(aid);
 end
 

@@ -470,23 +470,23 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 		local propValue = "RandomOptionValue_"..i;
 		local clientMessage = 'None'
 		
-		if targetItem[propGroupName] == 'ATK' then
+		if invitem[propGroupName] == 'ATK' then
 		    clientMessage = 'ItemRandomOptionGroupATK'
-		elseif targetItem[propGroupName] == 'DEF' then
+		elseif invitem[propGroupName] == 'DEF' then
 		    clientMessage = 'ItemRandomOptionGroupDEF'
-		elseif targetItem[propGroupName] == 'UTIL_WEAPON' then
+		elseif invitem[propGroupName] == 'UTIL_WEAPON' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif targetItem[propGroupName] == 'UTIL_ARMOR' then
+		elseif invitem[propGroupName] == 'UTIL_ARMOR' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif targetItem[propGroupName] == 'UTIL_SHILED' then
+		elseif invitem[propGroupName] == 'UTIL_SHILED' then
 		    clientMessage = 'ItemRandomOptionGroupUTIL'
-		elseif targetItem[propGroupName] == 'STAT' then
+		elseif invitem[propGroupName] == 'STAT' then
 		    clientMessage = 'ItemRandomOptionGroupSTAT'
 		end
-		
-		if targetItem[propValue] ~= 0 and targetItem[propName] ~= "None" then
-			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(targetItem[propName]));
-			local strInfo = ABILITY_DESC_NO_PLUS(opName, targetItem[propValue], 0);
+
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
+			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
 
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end

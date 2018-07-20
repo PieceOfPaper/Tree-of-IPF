@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Sound frame="10.00" soundFile="mon_voice_screech_2"/>
-    <Sound frame="30.00" soundFile="swd_blow_flesh1--"/>
-    <Sound frame="30.00" soundFile="skl_eff_atk_move_l_14"/>
-    <Sound frame="34.00" soundFile="skl_fgt_execution_2"/>
-    <Particle frame="35" attachNode="Bone_WP_UP4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Bone_tail4" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Bone_wing_L3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Bone_wing_R3" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Bip001 Spine1" particleName="I_smoke013_dark2_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Dummy_effect_mouth" particleName="F_drop001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Dummy_effect_mouth" particleName="F_drop001_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="35" attachNode="Bip001 Head" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="36" attachNode="Dummy_effect_L_nail001" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="36" attachNode="Dummy_effect_L_nail002" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="36" attachNode="Dummy_effect_L_nail003" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="36" attachNode="Dummy_effect_L_nail004" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="37" attachNode="Dummy_effect_atk2" particleName="F_hit012_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="37" attachNode="Dummy_effect_atk" particleName="I_spread_out011_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-    <Particle frame="37" attachNode="Dummy_emitter" particleName="F_spread_out026_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_mouth" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="10.00" soundFile="mon_voice_screech_2"/>
+	<Sound frame="30.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="30.00" soundFile="skl_eff_atk_move_l_14"/>
+	<Sound frame="34.00" soundFile="skl_fgt_execution_2"/>
+	<Particle frame="35" attachNode="Bone_WP_UP4" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_tail4" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_wing_L3" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bone_wing_R3" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bip001 Spine1" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_mouth" particleName="F_drop001_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_mouth" particleName="F_drop001_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="35" attachNode="Bip001 Head" particleName="F_drop_water002_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_effect_L_nail001" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_effect_L_nail002" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_effect_L_nail003" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="36" attachNode="Dummy_effect_L_nail004" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="37" attachNode="Dummy_effect_atk2" particleName="F_hit012_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="37" attachNode="Dummy_effect_atk" particleName="I_spread_out011_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="37" attachNode="Dummy_emitter" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
 </ActionDesc>

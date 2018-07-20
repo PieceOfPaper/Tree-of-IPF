@@ -432,7 +432,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	slot:SetGravity(ui.LEFT, ui.CENTER_VERT)
 	local slot_result = GET_CHILD_RECURSIVELY(frame, "slot_result");
 	local icor_img = nil
-	if itemCls.GroupName == "Weapon" then
+	if itemCls.GroupName == "Weapon" or itemCls.GroupName == "SubWeapon" then
 		icor_img = frame:GetUserConfig("ICOR_IMAGE_WEAPON")
 	else
 		icor_img = frame:GetUserConfig("ICOR_IMAGE_ARMOR")

@@ -31,6 +31,13 @@ function ITEMTRASCEND_OPEN(frame)
 
 	local textEdit = GET_CHILD_RECURSIVELY(frame, "textEdit");
 	textEdit:SetText(0);
+
+	local richtext_1 = GET_CHILD_RECURSIVELY(frame, 'richtext_1');
+	if frame:GetUserIValue('IS_LEGEND_SHOP') ~= 1 then	
+		richtext_1:SetTextByKey('value', ClMsg('itemtranscend'));
+	else
+		richtext_1:SetTextByKey('value', ClMsg('legenditemtranscend'));
+	end
 end
 
 function ITEMTRANSCEND_CLOSE(frame)
@@ -491,8 +498,13 @@ function ITEMTRANSCEND_EXEC(frame)
 	if potential ~= nil and potential > 0  then
 		clmsg = ScpArgMsg("ReallyExecTranscend");
 	end
-
-	if frame:GetUserIValue('IS_LEGEND_SHOP') == 1 then
+    
+    local legendGroup = TryGetProp(itemObj, "LegendGroup");
+	if legendGroup == nil then
+		return;
+	end
+    
+	if frame:GetUserIValue('IS_LEGEND_SHOP') == 1 and  legendGroup ~= nil and legendGroup ~= 'None' then
 		clmsg = ClMsg('LegendItemCannotBreakOrRemove');
 	end	
 

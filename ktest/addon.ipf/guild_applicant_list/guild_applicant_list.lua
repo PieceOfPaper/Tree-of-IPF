@@ -42,6 +42,7 @@ function ON_GUILD_APPLICANT_GET(_code, ret_json)
                 lastApplicant = row;
                 row:SetEventScript(ui.LBUTTONUP, 'SHOW_APPLICANT_MESSAGE');
                 row:SetUserValue("account_idx", y['account_idx'])
+                row:SetUserValue("account_team_name", y['account_team_name'])
                 local NOT_SELECTED_BOX_SKIN = row:GetUserConfig('NOT_SELECTED_BOX_SKIN');               
                 local bg = GET_CHILD(row, "skinBox");
                 if i % 2 == 0 then
@@ -54,7 +55,7 @@ function ON_GUILD_APPLICANT_GET(_code, ret_json)
                 textBox:SetTextByKey("teamlevel", txtToJson['team_lv'])
                 textBox:SetTextByKey("charnum", txtToJson['character_count'])
                 textBox:SetTextByKey("adventureRank", txtToJson['adventure_rank'])
-                textBox:SetTextByKey("team_lv", txtToJson['team_lv'])
+                textBox:SetTextByKey("application_character_lv", txtToJson['application_character_lv'])
 
                 local commentBox = GET_CHILD_RECURSIVELY(frame, "commentText")
                 commentBox:SetText(txtToJson['msg_text']);
@@ -87,12 +88,11 @@ function SHOW_APPLICANT_MESSAGE(parent, control)
         local skinBox = GET_CHILD(control, "skinBox")
         skinBox:SetSkinName(selectedSkin)
         local idx = control:GetUserValue('account_idx');
-        print(applicant_list[idx])
         local textToJson = json.decode(applicant_list[idx])
         textBox:SetTextByKey("teamlevel", textToJson['team_lv'])
         textBox:SetTextByKey("charnum", textToJson['character_count'])
         textBox:SetTextByKey("adventureRank", textToJson['adventure_rank'])
-        textBox:SetTextByKey("team_lv", textToJson['team_lv'])
+        textBox:SetTextByKey("application_character_lv", textToJson['application_character_lv'])
         local frame = ui.GetFrame("guild_applicant_list")
         local commentBox = GET_CHILD_RECURSIVELY(frame, "commentText")
         commentBox:SetText(textToJson['msg_text']);
@@ -104,7 +104,7 @@ end
 
 function ACCEPT_APPLICANT(parent, control)
     if selected_applicant ~= nil then
-        ApplicationUserGuildJoin(selected_applicant:GetUserValue('account_idx'));
+        ApplicationUserGuildJoin(selected_applicant:GetUserValue('account_idx'), selected_applicant:GetUserValue('account_team_name'));
         REMOVE_APPLICANT_RESUME();
     end
 end

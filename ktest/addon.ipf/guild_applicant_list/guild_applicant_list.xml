@@ -34,11 +34,11 @@
                                 fontname="brown_18_b"
                                 margin="10 0 20 0" 
                                 textalign="left top" 
-                                format="팀 레벨 : %s {nl}캐릭터 수 %s {nl}모험일지 랭킹 : %s {nl}신청한 캐릭터 레벨 : %s {nl} {nl}전하는 말"  
+                                format="팀 레벨 : %s {nl}캐릭터 수 : %s {nl}모험일지 랭킹 : %s {nl}신청한 캐릭터 레벨 : %s {nl} {nl}전하는 말"  
                                 param1="teamlevel" 
                                 param2="charnum"
                                  param3="adventureRank"
-                                  param4="team_lv"  backgroundskin="bg"/>
+                                  param4="application_character_lv"  backgroundskin="bg"/>
                             </layoutsection>
                             <layoutsection name="commentSection">
                                 <overlap name="comment" margin="0 0 0 10">

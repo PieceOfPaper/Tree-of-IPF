@@ -29,7 +29,7 @@ function SCR_ORSHA_BLACKSMITH_NORMAL_5(self, pc)
 end
 
 function SCR_ORSHA_BLACKSMITH_NORMAL_6(self,pc)
-    ShowCustomDlg(pc, "itemtranscend_remove", 5);
+    SHOW_ITEM_TRANCEND_UI(pc, 'itemtranscend_remove', 5, 0, self);
 end
 
 function SCR_ORSHA_BLACKSMITH_NORMAL_7(self,pc)

@@ -13,7 +13,7 @@
         <layout name="frameLayout" orientation="vertical">
             <layoutsection name="titleLayoutSection" size="20%">
                 <groupbox name="headerBox" layout_gravity="center top" skin="test_frame_top">
-                    <richtext name="headerText" rect="0 0 300 30" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드 가입 신청" fontname="white_16_b_ol"/>
+                    <richtext name="headerText" rect="0 0 300 30" margin="0 2 0 0" layout_gravity="center center" caption="{@st43}길드 가입 신청 내역" fontname="white_16_b_ol"/>
                     <button name="closeBtn" rect="0 0 60 60" margin="0 20 26 0" layout_gravity="right top" image="testclose_button" LBtnUpScp="ui.CloseFrame(&apos;guild_resume_list&apos;)"/>
                 </groupbox>
             </layoutsection>

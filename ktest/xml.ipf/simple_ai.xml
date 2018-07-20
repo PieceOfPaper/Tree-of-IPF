@@ -8320,7 +8320,27 @@
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 		</StartList>
 	</AI>
-	<AI Name="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" UpdateMS="1000" ActiveMessageMapInBattle="1">
+	<AI Name="GUILD_COLONY_ENHANCER_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_GUILD_COLONY_ENHANCER_HP_UP_RUN"/>
+            </ToolScp>
+        </List>
+        <DeadList>
+            <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_GUILD_COLONY_ENHANCER_DEAD"/>
+            </ToolScp>
+        </DeadList>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_bg_statu_blue" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+    </AI>
+    <AI Name="GUILD_COLONY_ENTER_INVINCIBLE_BUFF" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_GUILD_COLONY_ENTER_INVINCIBLE_BUFF"/>
@@ -8387,7 +8407,10 @@
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_GUILD_COLONY_TOWER_RUN"/>
 			</ToolScp>
-		</List>
+		<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_GUILD_COLONY_ENHANCER_SPEED_UP_BUFF_RUN"/>
+            </ToolScp>
+        </List>
 		<StartList>
 			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">

@@ -25,9 +25,9 @@ function DRAW_LEGENDEXPPOTION_COMMON_TOOLTIP(tooltipframe, invitem, mainframenam
 	local level_gauge = GET_CHILD(CSet,'level_gauge','ui::CGauge')
 	local itemPicture = GET_CHILD(CSet, "itempic", "ui::CPicture");
 	
-	local lv, curExp, maxExp = 1, invitem.ItemExp, invitem.NumberArg1
+	local curExp, maxExp = GET_LEGENDEXPPOTION_EXP(invitem);
 	local tooltipImage = GET_LEGENDEXPPOTION_ICON_IMAGE(invitem);
-
+	
 	if strarg == 'maxexp' then
 		curExp = maxExp;
 		tooltipImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(invitem);
@@ -92,4 +92,32 @@ function DRAW_LEGENDEXPPOTION_DESC_TOOLTIP(tooltipframe, invitem, yPos, mainfram
 	CSet:Resize(CSet:GetWidth(), descRichtext:GetHeight() + BOTTOM_MARGIN);
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+CSet:GetHeight())
 	return CSet:GetHeight() + CSet:GetY();
+end
+
+function GET_LEGENDEXPPOTION_EXP(itemObj)
+	local curExpStr, maxExp = itemObj.ItemExpString, itemObj.NumberArg1;
+	local curExp = tonumber(curExpStr);
+	if curExp == nil then
+		curExp = 0;
+	end
+
+	if GetExpOrbGuidStr() ~= "0" then
+		if GetExpOrbGuidStr() == GetIESID(itemObj) and curExp < maxExp then
+				curExp = GetExpOrbFillingExp();
+		end
+	end
+    return curExp, maxExp;
+end
+
+function GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj)
+    return TryGetProp(itemObj, "StringArg");
+end
+
+function GET_LEGENDEXPPOTION_ICON_IMAGE(itemObj)
+    local curExp, maxExp = GET_LEGENDEXPPOTION_EXP(itemObj);
+	if curExp >= maxExp then
+		return GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj);
+	end
+    local emptyImage = TryGetProp(itemObj, "TooltipImage");
+	return emptyImage;
 end

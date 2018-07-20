@@ -168,7 +168,7 @@
             <Stage Name="START">
                 <ObjList>
                     <Obj Type="Monster" MonType="20053" Pos="-1692.89#41.10#420.41" angle="50" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="103022" Pos="-1969.65#-17.07#636.25" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Monster&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; "/>
+                    <Obj Type="Monster" MonType="103022" Pos="-1969.28#-17.07#635.80" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;curseDebuffer&apos; &apos;Faction&apos; &apos;Trap&apos; &apos;HitProof&apos; &apos;YES&apos; &apos;Hittable&apos; &apos;NO&apos; &apos;TargetMark&apos; &apos;0&apos; &apos;UseTitle&apos; &apos;NO&apos; "/>
                     <Obj Type="Monster" MonType="154064" Pos="-1867.09#-17.07#596.88" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Enter&apos; &apos;VELCOFFER_MQ_START_IN&apos; &apos;Range&apos; &apos;100&apos; "/>
                 </ObjList>
                 <StageEvents>
@@ -226,6 +226,22 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO" CondFunc="">
                                 <Str Str="DebuffCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="DeathCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -311,7 +327,7 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="END"/>
+                                <Str Str="FAIL"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -326,9 +342,9 @@
                     </ToolScp>
                 </CompleteScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="58738" Pos="2306.23#188.75#-10.91" angle="2" genCount="1" genTime="20000" objectKey="0"/>
-                    <Obj Type="Monster" MonType="58738" Pos="2675.06#188.75#-303.91" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="58690" Pos="2568.71#188.75#-61.82" angle="-92" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="58738" Pos="2306.23#188.75#-10.91" angle="2" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58738" Pos="2675.06#188.75#-303.91" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
+                    <Obj Type="Monster" MonType="58690" Pos="2568.71#188.75#-61.82" angle="-92" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" searchRange="500" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="end넘어가기">
@@ -408,6 +424,37 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="MiddleBoss"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Fail">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="제한시간이 초과하였습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Boss_Final"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="MiddleBoss"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
                             </ToolScp>
                         </execList>
                     </Event>

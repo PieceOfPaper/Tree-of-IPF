@@ -799,32 +799,32 @@ end
 
 function SKL_SWAP_POS(self, skl, x, y, z, dcEffect, dcScale, searchRange, swapCount, relation)
     local objList, objCnt = nil, nil;
-  objList, objCnt = SelectObjectPos(self, x, y, z, searchRange, relation);
-
+    objList, objCnt = SelectObjectPos(self, x, y, z, searchRange, relation);
+    
     local swapCount = math.min(swapCount, objCnt);
     if swapCount > 0 then
-        
+    
         local px, py, pz = GetPos(self);
         for i = 1, objCnt do
-        local obj = objList[i];
-        
-    if IS_PC(obj) == false then
-            if obj.MoveType ~= 'Holding' then
-              if obj.MonRank ~= "MISC" and obj.MonRank ~= "NPC" then
-                RunScript('SWAP_POS_AFTER', self, obj, skl, x, y, z, px, py, pz)
-
-              end
-            end
-    else
-            RunScript('SWAP_POS_AFTER', self, obj, skl, x, y, z, px, py, pz)
-    end
-        
-            swapCount = swapCount - 1;
-            if swapCount <= 0 then
-                break;
+            local obj = objList[i];
+            if IsBuffApplied(obj, "GuildColony_InvincibleBuff") == "NO" then
+                if IS_PC(obj) == false then
+                    if obj.MoveType ~= 'Holding' then
+                        if obj.MonRank ~= "MISC" and obj.MonRank ~= "NPC" then
+                            RunScript('SWAP_POS_AFTER', self, obj, skl, x, y, z, px, py, pz)
+                        end
+                    end
+                else
+                    RunScript('SWAP_POS_AFTER', self, obj, skl, x, y, z, px, py, pz)
+                end
+            
+                swapCount = swapCount - 1;
+                if swapCount <= 0 then
+                    break;
+                end
             end
         end
-        
+
         if dcEffect ~= nil then
             PlayEffectToGround(self, dcEffect, x, y, z, dcScale, 0.0);
             PlayEffectToGround(self, dcEffect, px, py, pz, dcScale, 0.0);
@@ -1029,6 +1029,11 @@ function SCR_MON_ATTRACT_MAGNETIC_TS_BORN_UPDATE(self)
 		if obj == nil then
 			return
 		end
+		
+		if IsBuffApplied(obj, "GuildColony_InvincibleBuff") == "YES" then
+		    return
+		end
+		
         -- 보스는 끌려들어가지 않게 처리
         if obj.MonRank ~= 'Boss' then       
           local moveType = "None";

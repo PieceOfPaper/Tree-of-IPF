@@ -41,7 +41,7 @@ function QUESTDETAIL_INFO(questID, xPos)
 		end
 	end
 	
-	y = MAKE_QUESTINFO_BY_IES(box, questCls, 20, y + 5, s_obj, result, 1);
+	y = MAKE_QUESTINFO_BY_IES(box, questCls, 20, y, s_obj, result, 1);
 
     if titleStory ~= 'None' and titleStory ~= questCls[State..'Desc'] then
     	y = BOX_CREATE_RICHTEXT(box, "story", y + 10, 20, "{#150800}{b}"..titleStory);

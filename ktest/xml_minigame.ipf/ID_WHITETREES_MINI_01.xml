@@ -51,6 +51,7 @@
                                 <Str Str="MGameState"/>
                                 <Str Str="Stage/stage_start"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -79,6 +80,7 @@
                                 <Str Str="MGameState"/>
                                 <Str Str="State/stage_end"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -253,6 +255,7 @@
                                 <Str Str="MGameState"/>
                                 <Str Str="Stage/stage_2nd"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -430,6 +433,7 @@
                                 <Str Str="MGameState"/>
                                 <Str Str="Stage/stage_3rd"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -542,6 +546,7 @@
                                 <Str Str="MGameState"/>
                                 <Str Str="Stage/stage_5th"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -630,6 +635,7 @@
                                 <Str Str="MGameState"/>
                                 <Str Str="Stage/stage_boss_start"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>
                 </StageEvents>

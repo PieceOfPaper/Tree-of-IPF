@@ -208,6 +208,7 @@ function SCR_EVENT_1804_ARBOR_TREE_DIALOG(self, pc)
             elseif select2 == 3 then
                 local tx = TxBegin(pc)
                 TxGiveItem(tx, 'EVENT_1804_ARBOR_ACHIEVE_BOX', 4, 'EVENT_1804_ARBOR_TREE')
+                TxGiveItem(tx, 'Hat_629013', 1, 'EVENT_1804_ARBOR_TREE')
                 TxSetIESProp(tx, aObj, 'EVENT_1804_ARBOR_WEEKREWARD5', 300)
                 local ret = TxCommit(tx)
             elseif select2 == 4 then
@@ -237,7 +238,7 @@ function SCR_EVENT_1804_ARBOR_TREE_TS_BORN_ENTER(self)
 --    print('DDDDDDDDDDDD',nowStep,self.NumArg1)
     if nowStep >= 1 and nowStep <= 7  and self.NumArg1 ~= nowStep then
         PlayEffect(self, 'F_light146_leaf', 2.5+ nowStep*0.3, 1, 'TOP')
-        local npc = CREATE_NPC(self, treeModelList[nowStep], x, y, z, 315, nil, nil, self.Name, 'EVENT_1804_ARBOR_TREE', nil, nil, nil, nil, 'None')
+        local npc = CREATE_NPC(self, treeModelList[nowStep], x+5, y, z-5, 315, nil, nil, self.Name, 'EVENT_1804_ARBOR_TREE', nil, nil, nil, nil, 'None')
         if npc ~= nil then
             local beforeNPC = GetExArgObject(self, 'EVENT_1804_ARBOR_TREE_NPC')
 --            print('AAAAAAAAAAA',beforeNPC)

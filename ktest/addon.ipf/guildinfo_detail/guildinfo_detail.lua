@@ -177,6 +177,15 @@ function ON_GUILDJOIN_REQUEST_SUCCESS(code, ret_json)
 end
 
 function GUILDINFO_DETAIL_CLOSE(frame)
+    local frame = ui.GetFrame("guildinfo_detail");
+    local promoPic = GET_CHILD_RECURSIVELY(frame, "promoPicture");
+    promoPic:SetImage("")
+    
+    local tabCtrl = GET_CHILD_RECURSIVELY(frame, "itembox")
+    tabCtrl:SelectTab(0);
+    
+    local guildEmblem = GET_CHILD_RECURSIVELY(frame, "emblem")
+    guildEmblem:SetImage("")
 
     ui.CloseFrame("guild_join")
 end

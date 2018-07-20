@@ -291,7 +291,7 @@ function SCR_VELCOFFER_ROOM_WARP_POTAL_DIALOG(self, pc)
     local x, y, z = GetPos(self)
     local warpDialog = DOTIMEACTION_R(pc, ScpArgMsg("VelcofferWarpMsg"), "EVENT_WARP", 4)
     if warpDialog == 1 then
-        SCR_SETPOS_FADEOUT(pc, 'd_raidboss_velcoffer', 1767, 67, -833)
+        SCR_SETPOS_FADEOUT(pc, 'd_raidboss_velcoffer', 1996, 137, -508)
     end
 end
 
