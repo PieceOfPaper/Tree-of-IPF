@@ -39,12 +39,12 @@ function CLEAR_REINFORCE_BY_MIX_CERTIFICATE(frame)
 	local sel_item_count = box_material:GetChild("sel_item_count");
 	sel_item_count:ShowWindow(0);
 	
-	local reinforceClsName = frame:GetUserValue("REINFORCE_CLS");
+	local reinforceClsName = frame:GetUserValue("REINFORCE_CLS_CERFITICATE");
 	local reinforceCls = GetClass("Reinforce", reinforceClsName);
 	
 	if reinforceCls ~= nil then
-		INVENTORY_SET_ICON_SCRIPT("REINF_MIX_RECOVER_ICON");
-		frame:SetUserValue("REINFORCE_CLS", "None");
+		INVENTORY_SET_ICON_SCRIPT("REINF_MIX_RECOVER_ICON_CERTIFICATE");
+		frame:SetUserValue("REINFORCE_CLS_CERTIFICATE", "None");
 	end
 	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_RBTN_CERTIFICATE");
@@ -59,7 +59,7 @@ function CLOSE_REINFORCE_BY_MIX_CERTIFICATE(frame)
 end
 
 function OPEN_REINFORCE_BY_MIX_CERTIFICATE(frame)    
-	frame:SetUserValue("EXECUTE_REINFORCE", 0);
+	frame:SetUserValue("EXECUTE_REINFORCE_CERTIFICATE", 0);
 	CLEAR_REINFORCE_BY_MIX_CERTIFICATE(frame);
 	ui.OpenFrame("inventory");
 end
@@ -114,7 +114,7 @@ function REINFORCE_BY_MIX_UPDATE_STAT_CERTIFICATE(box_item, obj, nextObj, statNa
 		title:SetTextByKey("value", ClMsg(statName));
 		local propValue = obj[statName];
 		from:SetTextByKey("value", propValue);
-		ctrlSet:SetUserValue("_PROP_VALUE", propValue);
+		ctrlSet:SetUserValue("_PROP_VALUE_CERTIFICATE", propValue);
 		if nextObj == nil or nextObj.Level == obj.Level then
 			to:ShowWindow(0);
 			indicator:ShowWindow(0);
@@ -189,7 +189,7 @@ function REINFORCE_MIX_UPDATE_ITEM_STATS_CERTIFICATE(frame, obj, nextObj)
 				local nextkey, nextValue = GetTooltipInfoByIndex(nextValues, i);
 				ctrlSet:GetChild("to"):SetTextByKey("value", nextValue);
 			end
-			ctrlSet:SetUserValue("_PROP_VALUE", value);		
+			ctrlSet:SetUserValue("_PROP_VALUE_CERTIFICATE", value);		
 		end
 		DeleteTooltipValues(values);
 		if nextValues ~= nil then
@@ -201,7 +201,7 @@ end
 
 function CLICK_ITEM_PIC_RBTN_CERTIFICATE(ctrl)    
 	local frame = ctrl:GetTopParentFrame();	
-	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
+	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE_CERTIFICATE") then
 		return 0;
 	end
 	CLEAR_REINFORCE_BY_MIX_CERTIFICATE(frame);
@@ -234,7 +234,7 @@ function REINFORCE_BY_MIX_SETITEM_CERTIFICATE(frame, invItem)
 		return;
 	end
 			
-	frame:SetUserValue("REINFORCE_CLS", reinforceCls.ClassName);
+	frame:SetUserValue("REINFORCE_CLS_CERTIFICATE", reinforceCls.ClassName);
 	local box_item = frame:GetChild("box_item");
 	local itemname = box_item:GetChild("itemname");
 	itemname:SetTextByKey("value", GET_FULL_NAME(obj));
@@ -251,7 +251,7 @@ function REINFORCE_BY_MIX_SETITEM_CERTIFICATE(frame, invItem)
 	item_pic:SetEventScript(ui.RBUTTONUP, "CLICK_ITEM_PIC_RBTN_CERTIFICATE");
 	SET_SLOT_ITEM(item_pic, invItem);
 	
-	frame:SetUserValue("ITEM_GUID", invItem:GetIESID());	
+	frame:SetUserValue("ITEM_GUID_CERTIFICATE", invItem:GetIESID());	
 	
 	local matslot = GET_MAT_SLOT_CERTIFICATE(frame);
 	matslot:ShowWindow(1);
@@ -321,7 +321,7 @@ end
 
 function GET_REINFORCE_MIX_ITEM_CERTIFICATE()	    
 	local frame = ui.GetFrame("reinforce_by_mix_certificate");
-	local guid = frame:GetUserValue("ITEM_GUID");
+	local guid = frame:GetUserValue("ITEM_GUID_CERTIFICATE");
 	local invItem = GET_ITEM_BY_GUID(guid);    
 	return GetIES(invItem:GetObject());
 end
@@ -345,7 +345,7 @@ function REINF_MIX_CHECK_ICON_CERTIFICATE(slot, reinfItemObj, invItem, itemobj)
 		if materialScp ~= nil then
 			if 1 == _G[materialScp](reinfItemObj, itemobj) then                
 				--slot:PlayUIEffect("I_sys_item_slot_loop_yellow", 1.7, "Reinforce");
-				if 0 == slot:GetUserIValue("REINF_MIX_SELECTED") then
+				if 0 == slot:GetUserIValue("REINF_MIX_SELECTED_CERTIFICATE") then
 					icon:SetColorTone("FFFFFFFF");
 				else
 					icon:SetColorTone("33000000");
@@ -362,9 +362,10 @@ function REINF_MIX_CHECK_ICON_CERTIFICATE(slot, reinfItemObj, invItem, itemobj)
 
 end
 
-function REINF_MIX_RECOVER_ICON(slot, reinfItemObj, invItem, itemobj)
+function REINF_MIX_RECOVER_ICON_CERTIFICATE(slot, reinfItemObj, invItem, itemobj)
 --	slot:StopUIEffect("Reinforce", true, 0.0);
-	slot:SetUserValue("REINF_MIX_SELECTED", 0);
+	slot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", 0);
+    
 end
 
 function REINFORCE_MIX_INV_RDBTN_CERTIFICATE(itemObj, slot)
@@ -381,7 +382,7 @@ function REINFORCE_MIX_INV_RBTN_CERTIFICATE(itemObj, slot, selectall)
 		ui.SysMsg(ClMsg("CanNotBeComposite"));
 		return
 	end
-
+    
 	local reinfItem = GET_REINFORCE_MIX_ITEM_CERTIFICATE();	
 	local reinforceCls = GetClass("Reinforce", reinfItem.Reinforce_Type);		
 	if 1 == _G[reinforceCls.MaterialScript](reinfItem, itemObj) then
@@ -389,7 +390,7 @@ function REINFORCE_MIX_INV_RBTN_CERTIFICATE(itemObj, slot, selectall)
 			ui.SysMsg(ClMsg("MaterialItemIsLock"));
 			return;
 		end
-		local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
+		local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED_CERTIFICATE")
 
 		if selectall == 'YES' then
 			nowselectedcount = invitem.count -1;
@@ -403,8 +404,8 @@ function REINFORCE_MIX_INV_RBTN_CERTIFICATE(itemObj, slot, selectall)
 					
 				imcSound.PlaySoundEvent("icon_get_down");
 
-				slot:SetUserValue("REINF_MIX_SELECTED", nowselectedcount + 1);
-				local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED")
+				slot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", nowselectedcount + 1);
+				local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED_CERTIFICATE")
 						
 				if icon ~= nil and nowselectedcount == invitem.count then
 					icon:SetColorTone("AA000000");
@@ -415,7 +416,7 @@ function REINFORCE_MIX_INV_RBTN_CERTIFICATE(itemObj, slot, selectall)
 end
 
 function REINFORCE_BY_MIX_ADD_MATERIAL_CERTIFICATE(frame, itemObj, count)		
-	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
+	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE_CERTIFICATE") then
 		return 0;
 	end
 	
@@ -446,7 +447,7 @@ end
 
 function REINFORCE_BY_MIX_SLOT_RBTN_CERTIFICATE(parent, slot)
 	local frame = ui.GetFrame("reinforce_by_mix_certificate");	
-	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE") then
+	if 1 == frame:GetUserIValue("EXECUTE_REINFORCE_CERTIFICATE") then
 		return 0;
 	end
 
@@ -457,7 +458,7 @@ function REINFORCE_BY_MIX_SLOT_RBTN_CERTIFICATE(parent, slot)
 	local icon = invSlot:GetIcon();
 	icon:SetColorTone("FFFFFFFF");
 	slot:ClearIcon();
-	invSlot:SetUserValue("REINF_MIX_SELECTED", 0);
+	invSlot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", 0);
 	ui.UpdateVisibleToolTips();
 
 	REINFORCE_MIX_UPDATE_EXP_CERTIFICATE(frame);
@@ -469,7 +470,8 @@ function REINFORCE_BY_MIX_EXECUTE_CERTIFICATE(parent)
 	local slots = GET_MAT_SLOT_CERTIFICATE(frame);
 	local cnt = slots:GetSlotCount();
 	local ishavevalue = 0
-	
+	local canProcessReinforce = false
+
 	for i = 0 , cnt - 1 do
 		local slot = slots:GetSlotByIndex(i);
 		local matItem, count = GET_SLOT_ITEM(slot);
@@ -478,6 +480,8 @@ function REINFORCE_BY_MIX_EXECUTE_CERTIFICATE(parent)
 			if IS_VALUEABLE_ITEM(matItem:GetIESID()) == 1 then
 				ishavevalue = 1
 				break
+            else
+                canProcessReinforce = true
 			end
 		end
 	end
@@ -485,7 +489,7 @@ function REINFORCE_BY_MIX_EXECUTE_CERTIFICATE(parent)
 	if ishavevalue == 1 then
 		local yesScp = string.format("_REINFORCE_BY_MIX_EXECUTE_CERTIFICATE()");
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
-	else
+	elseif canProcessReinforce then
 		_REINFORCE_BY_MIX_EXECUTE_CERTIFICATE()		
 	end
 end
@@ -512,10 +516,14 @@ function _REINFORCE_BY_MIX_EXECUTE_CERTIFICATE()
 
 	local frame = ui.GetFrame("reinforce_by_mix_certificate");
 	
-	frame:SetUserValue("EXECUTE_REINFORCE", 1);
+	frame:SetUserValue("EXECUTE_REINFORCE_CERTIFICATE", 1);
 
 	session.ResetItemList();
-	session.AddItemID(frame:GetUserValue("ITEM_GUID"));
+	session.AddItemID(frame:GetUserValue("ITEM_GUID_CERTIFICATE"));
+
+    -- 재료로 사용된 아이템 GUID를 저장하자
+    local mat_list = "";
+
 	local slots = GET_MAT_SLOT_CERTIFICATE(frame);
 	local cnt = slots:GetSlotCount();
 	for i = 0 , cnt - 1 do
@@ -524,8 +532,18 @@ function _REINFORCE_BY_MIX_EXECUTE_CERTIFICATE()
 		
 		if matItem ~= nil then
 			session.AddItemID(matItem:GetIESID(), count);
+            -- STRING으로 가져다 붙여
+            if mat_list ~= '' then
+                mat_list = mat_list .. ';' .. tostring(matItem:GetIESID())
+            else
+                mat_list = tostring(matItem:GetIESID())
+            end
 		end
 	end
+
+    -- 재료로 사용된 아이템의 GUID를 저장한다.
+    frame:SetUserValue("UsedMaterialItemListCertificate", mat_list);
+
 	local resultlist = session.GetItemIDList();
 	if resultlist:Count() > 1 then			
 		item.DialogTransaction("SCR_ITEM_EXP_UP", resultlist);		
@@ -539,7 +557,7 @@ end
 ------------------------------------------------------
 function REINFORCE_MIX_ITEM_EXP_STOP_CERTIFICATE()	
 	local frame = ui.GetFrame("reinforce_by_mix_certificate");
-	frame:SetUserValue("EXECUTE_REINFORCE", 0);
+	frame:SetUserValue("EXECUTE_REINFORCE_CERTIFICATE", 0);
 end;
 
 function REINFORCE_MIX_FORCE_CERTIFICATE(slot, resultText, x, y)	
@@ -552,7 +570,7 @@ function REINFORCE_MIX_FORCE_CERTIFICATE(slot, resultText, x, y)
 
 end
 
-function REINFORCE_MIX_ITEM_EXPUP_END_CERTIFICATE(frame, msg, multiPly, totalPoint)		
+function REINFORCE_MIX_ITEM_EXPUP_END_CERTIFICATE(frame, msg, multiPly, totalPoint)		    
 	imcSound.PlaySoundEvent("sys_jam_mix_whoosh");
 		
 	local box_item = frame:GetChild("box_item");
@@ -597,8 +615,74 @@ function REINFORCE_MIX_ITEM_EXPUP_END_CERTIFICATE(frame, msg, multiPly, totalPoi
 		if indicator ~= nil then indicator:ShowWindow(0); end
 	end
 
-	frame:SetUserValue("EXECUTE_REINFORCE", 0);	
+	frame:SetUserValue("EXECUTE_REINFORCE_CERTIFICATE", 0);	
 	frame:SetUserValue("MADE_ITEM_INFO", 0)
+
+    -- 사실 재료가 box_material 내의 box_slot 에 들어가면 정보가 계속 남아 있는듯 하다. 
+    -- 그래서 해당 정보를 아이콘 삭제를 통해 지운다.
+    local box_material = frame:GetChild("box_material");
+    local slot_cnt = slots:GetSlotCount()    
+    for i = 1, slot_cnt do
+        local a = GET_CHILD_RECURSIVELY(box_material, "slot" .. tostring(i))
+        a:ClearIcon();
+    end
+    CLEAR_MATERIAL_SLOT_CERTIFICATE(frame)
+end
+
+function CLEAR_MATERIAL_SLOT_CERTIFICATE(frame)        
+	local matslot = GET_MAT_SLOT(frame);
+	matslot:ShowWindow(0);
+	local box_material = frame:GetChild("box_material");
+	local sel_item_count = box_material:GetChild("sel_item_count");
+	sel_item_count:ShowWindow(0);
+	
+	local reinforceClsName = frame:GetUserValue("REINFORCE_CLS_CERTIFICATE");
+	local reinforceCls = GetClass("Reinforce", reinforceClsName);    
+	if reinforceCls ~= nil then
+		INVENTORY_SET_ICON_SCRIPT("REINF_MIX_RECOVER_ICON_CERTIFICATE");
+        INVENTORY_SET_CUSTOM_RBTNDOWN("None")
+        INVENTORY_SET_CUSTOM_RDBTNDOWN("None");    
+	end
+end
+
+function RECREATE_MATERIAL_SLOT_CERTIFICATE(frame)        
+    local reinforceClsName = frame:GetUserValue("REINFORCE_CLS_CERTIFICATE");
+	local reinforceCls = GetClass("Reinforce", reinforceClsName);
+    if reinforceCls == nil then
+		return;
+	end
+    
+    local box_material = frame:GetChild("box_material");
+	local sel_item_count = box_material:GetChild("sel_item_count");
+	sel_item_count:ShowWindow(0);
+    local matslot = GET_MAT_SLOT(frame);        
+    matslot:ShowWindow(1);    
+	matslot:SetSkinName(reinforceCls.SlotSkin);
+	matslot:SetSlotSize(reinforceCls.SlotWidth, reinforceCls.SlotHeight);
+	matslot:SetSpc(reinforceCls.SlotSpaceX, reinforceCls.SlotSpaceY);
+	matslot:RemoveAllChild();
+	matslot:CreateSlots();
+    
+    INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_INV_RBTN_CERTIFICATE");
+	INVENTORY_SET_CUSTOM_RDBTNDOWN("REINFORCE_MIX_INV_RDBTN_CERTIFICATE");
+end
+
+function RESTORE_COLOR_INV_MATERIAL_ITEM_CERTIFICATE(frame)    
+    local slots = GET_MAT_SLOT(frame);
+    local mat_list = frame:GetUserValue('UsedMaterialItemListCertificate')
+    local token = StringSplit(mat_list, ";")
+    
+    for i = 1, #token do      
+        local frame = ui.GetFrame("reinforce_by_mix_certificate");	
+        local guid = token[i];        
+        local invSlot = GET_PC_SLOT_BY_ITEMID(guid);
+        if invSlot ~= nil then
+            local icon = invSlot:GetIcon();
+            icon:SetColorTone("FFFFFFFF");                    
+            ui.UpdateVisibleToolTips();
+        end        
+    end
+    frame:SetUserValue('UsedMaterialItemListCertificate', '')
 end
 
 function REINFORCE_MIX_ITEM_EXPUP_RESERVE(frame, msg, arg1, totalPoint)		
@@ -665,8 +749,18 @@ function REINFORCE_MIX_ITEM_EXPUP_END_NEW_ITEM(frame, totalPoint, arg1)
 		if indicator ~= nil then indicator:ShowWindow(0); end
 	end
 
-	frame:SetUserValue("EXECUTE_REINFORCE", 0);		
+	frame:SetUserValue("EXECUTE_REINFORCE_CERTIFICATE", 0);		
 	frame:SetUserValue("MADE_ITEM_INFO", tostring(arg1))		
+
+     -- 사실 재료가 box_material 내의 box_slot 에 들어가면 정보가 계속 남아 있는듯 하다. 
+    -- 그래서 해당 정보를 아이콘 삭제를 통해 지운다.
+    local box_material = frame:GetChild("box_material");
+    local slot_cnt = slots:GetSlotCount()    
+    for i = 1, slot_cnt do
+        local a = GET_CHILD_RECURSIVELY(box_material, "slot" .. tostring(i))
+        a:ClearIcon();
+    end
+    CLEAR_MATERIAL_SLOT_CERTIFICATE(frame)
 end
 
 function REINF_FORCE_END_CERTIFICATE()	
@@ -676,7 +770,7 @@ function REINF_FORCE_END_CERTIFICATE()
 	if exp == 0 then
 		return;
 	end
-
+    
 	frame:SetUserValue("_FORCE_SHOOT_EXP", "0");
 	frame:SetUserValue("_EXP_UP_VALUE", exp);
 	
@@ -687,6 +781,12 @@ function REINF_FORCE_END_CERTIFICATE()
 	local box_item = frame:GetChild("box_item");
 	local item_pic = GET_CHILD(box_item, "item_pic", "ui::CSlot");
 	item_pic:SetBlink(1, 1, "00FFFFFF");	
+        
+    -- 애니가 끝나면 슬롯을 비우고 새로 그린다. 인벤 아이템 아이콘 색깔도 복구한다.
+    if frame ~= nil then        
+        RESTORE_COLOR_INV_MATERIAL_ITEM_CERTIFICATE(frame)
+        RECREATE_MATERIAL_SLOT_CERTIFICATE(frame)
+    end
 end
 
 function REINF_MIX_UPDATE_EXP_UP_CERTIFICATE(frame)		
@@ -801,10 +901,10 @@ function R_RENEW_SHOW_EXP_APPLIED_CERTIFICATE(frame, obj)
 		local propName = list[i];
 		local ctrlSet = ctrlList[i];
 		if ctrlSet ~= nil then
-			local startValue = ctrlSet:GetUserIValue("_PROP_VALUE");
+			local startValue = ctrlSet:GetUserIValue("_PROP_VALUE_CERTIFICATE");
 			local endValue = endValues[i];
 			if startValue ~= endValue then
-				ctrlSet:SetUserValue("_PROP_VALUE", endValue);
+				ctrlSet:SetUserValue("_PROP_VALUE_CERTIFICATE", endValue);
 				local from = ctrlSet:GetChild("from");
 				UI_PLAYFORCE(from, "text_eft_1", 0, 0);
 				local from = ctrlSet:GetChild("from");

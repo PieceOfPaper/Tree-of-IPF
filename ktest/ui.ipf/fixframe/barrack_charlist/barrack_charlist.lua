@@ -48,20 +48,24 @@ function INIT_BARRACK_NAME(frame)
 	pccount:ShowWindow(1);
 	pccount:SetTextByKey("curpc", '0');
 	pccount:SetTextByKey("maxpc", '4');
-	local myaccount = session.barrack.GetMyAccount();
-	if nil == myaccount then
+
+	local barrackOwner = session.barrack.GetMyAccount();
+	if charlist:GetUserValue('BarrackMode') == 'Visit' then
+		barrackOwner = session.barrack.GetCurrentAccount();
+	end
+	if nil == barrackOwner then
 		return;
 	end
 
-	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
-	local buySlot = myaccount:GetBuySlotCount();
-	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
+	local myCharCont = barrackOwner:GetPCCount() + barrackOwner:GetPetCount();
+	local buySlot = barrackOwner:GetBuySlotCount();
+	local barrackCls = GetClass("BarrackMap", barrackOwner:GetThemaName());
 	pccount:SetTextByKey("curpc", tostring(myCharCont));
 	local maxpcCount = barrackCls.BaseSlot + buySlot;
 	pccount:SetTextByKey("maxpc", tostring(maxpcCount));
 
 
-	local totalBarrackSlotCount = myaccount:GetTotalSlotCount();
+	local totalBarrackSlotCount = barrackOwner:GetTotalSlotCount();
 	local layercount = GET_CHILD(frame, "layercount", "ui::CRichText");
 	if nil ~= layercount then
 		layercount:SetTextByKey("curcount", tostring(totalBarrackSlotCount));

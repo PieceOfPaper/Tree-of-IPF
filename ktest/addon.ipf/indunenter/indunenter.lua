@@ -60,6 +60,9 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	frame:SetUserValue('REWARD_TOGGLE_OPEN', 'NO');
 	frame:SetUserValue('AUTOMATCH_FIND', 'NO');
 
+    frame:SetUserValue("multipleCount", 0);
+
+
 	-- make controls
 	INDUNENTER_MAKE_HEADER(frame);
 	INDUNENTER_MAKE_PICTURE(frame, indunCls);

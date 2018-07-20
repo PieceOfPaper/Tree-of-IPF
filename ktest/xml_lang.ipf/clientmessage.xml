@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -3418,7 +3418,7 @@
 		<Class ClassID="26329" ClassName="BRACKEN631_DEFECT02" Data="라쉬가 헷갈리는지 갑자기 멈춰섰습니다{nl} 라쉬에게 다시 옷 냄새를 맡게 하세요"/>
 		<Class ClassID="26330" ClassName="BRACKEN631_ANIM" Data="로제에게 돌아가라고 전하는 중"/>
 		<Class ClassID="26331" ClassName="BRACKEN631_SMELL" Data="라쉬에게 옷 냄새 맡게 하는 중"/>
-		<Class ClassID="26332" ClassName="BRACKEN631_SMELL02" Data="라쉬에게 행상인의 냄새를 맡게 해 주었습니다.{nl}라쉬를 쫓아가세요!"/>
+		<Class ClassID="26332" ClassName="BRACKEN631_SMELL02" Data="로제의 위치를 알려줬습니다"/>
 		<Class ClassID="26333" ClassName="BRACKEN631_DOG" Data="냄새를 맡은 라쉬가 어디론가로 달려갑니다!{nl}라쉬를 쫓아가세요!"/>
 		<Class ClassID="26334" ClassName="BRACKEN631_TRADEMAN_NAME" Data="행상인"/>
 		<Class ClassID="26335" ClassName="JOB_2_PELTASTA2_SEARCH" Data="나무 토막 살펴보는 중"/>
@@ -4149,6 +4149,8 @@
 		<Class ClassID="27300" ClassName="KEYITEM" Data="증표"/>
 		<Class ClassID="27301" ClassName="KeyQuestShopTitle1" Data="헤스란 증표 Lv1"/>
 		<Class ClassID="27302" ClassName="KeyQuestShopTitle2" Data="헤스란 증표 Lv2"/>
+		<Class ClassID="27212" ClassName="EV170119_NEWYEAR_MSG1" Data="이벤트에 참여하지 않으셨습니다"/>
+		<Class ClassID="27213" ClassName="EV170119_NEWYEAR_MSG2" Data="이벤트 참여 횟수 : {COUNT}회"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -5582,7 +5584,7 @@
 		<Class ClassID="106005" ClassName="BuyCount" Data="구매 개수"/>
 		<Class ClassID="106006" ClassName="SellPriceMustOverThenZeroSilver" Data="판매가격은 0실버 이상이여야 합니다."/>
 		<Class ClassID="106007" ClassName="SellCountMustOverThenZeo" Data="판매개수는 0개 이상이여야합니다."/>
-		<Class ClassID="106008" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다.{nl}토큰을 제외한 모든 아이템은{nl}30분에서 2시간 사이에 판매 리스트에 보여집니다."/>
+		<Class ClassID="106008" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다.{nl}토큰을 제외한 모든 아이템은{nl}판매 리스트에 보이기까지 최대 2시간이 소요됩니다."/>
 		<Class ClassID="106009" ClassName="MarketBuySucceeded_CheckInCabinet" Data="마켓 아이템 구매에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="106010" ClassName="TooMuchItemsMatched_InputMoreDetailFindText" Data="일치하는 아이템 이름이 많습니다. 좀 더 상세하게 검색어를 입력해주세요."/>
 		<Class ClassID="106011" ClassName="ReallyCancelRegisteredItem" Data="아이템 등록을 취소하시겠습니까?"/>
@@ -9284,6 +9286,7 @@
 		<Class ClassID="302002" ClassName="ArborDayOneHourReward" Data="봄볕 이벤트 1시간 게임 플레이 보상입니다."/>
 		<Class ClassID="302003" ClassName="ArborDayEventRewardGet" Data="봄볕 이벤트 보상을 받았습니다. 메시지함에서 확인해주세요."/>
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
+		<Class ClassID="302021" ClassName="Fortunecookie_Count" Data="포춘 쿠키 {COUNT}회 사용"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>

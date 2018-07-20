@@ -73,8 +73,10 @@ function GET_REINFORCE_131014_PRICE(fromItem, moruItem)
     if moruItem.ClassName == "Moru_Potential" or moruItem.ClassName == "Moru_Potential14d" then
 		value = 0;
 	end
-	
-    value = math.floor(value)
+
+    value = math.floor((value*1.0)+0.5) / 1.0; 
+    -- 클라이언트와 서버의 소수점 정밀도 문제로 인해 위와 같은 수식을 사용했습니다.
+  
 	return math.floor(value);
 
 end

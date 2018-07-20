@@ -238,7 +238,7 @@ function SHOW_PC_COMPARE(cid)
 		local y = i * 30
 		local achitext = achieveGbox_sub:CreateOrGetControl("richtext", "achieve_" .. i, 15, y+10, 300, 30);
 		achitext:SetFontName("white_18_ol")
-		achitext:SetText(nowachicls.Name)
+		achitext:SetText(nowachicls.DescTitle)
 	end
 	
 	frame:Invalidate();

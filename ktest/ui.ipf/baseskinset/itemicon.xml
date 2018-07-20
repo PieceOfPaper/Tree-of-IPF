@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -432,7 +432,7 @@
 		<image name="icon_item_warmage_gloves" file="\icon\equip\icon_item_warmage_gloves.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warmage_pants" file="\icon\equip\icon_item_warmage_pants.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warmage_robe" file="\icon\equip\icon_item_warmage_robe.png" imgrect="0 0 256 256"/>
-	<image name="icon_item_malone_amor" file="\icon\equip\icon_item_malone_amor.png" imgrect="0 0 256 256" CMM_Caption="마로네_천세트75"/>
+		<image name="icon_item_malone_amor" file="\icon\equip\icon_item_malone_amor.png" imgrect="0 0 256 256" CMM_Caption="마로네_천세트75"/>
 		<image name="icon_item_malone_boots" file="\icon\equip\icon_item_malone_boots.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_malone_gloves" file="\icon\equip\icon_item_malone_gloves.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_malone_leg" file="\icon\equip\icon_item_malone_leg.png" imgrect="0 0 256 256"/>
@@ -2563,6 +2563,7 @@
 		<image name="christmasRudolph" file="\icon\hairacc\christmasRudolph.png" imgrect="0 0 256 256"/>
 		<image name="christmas1" file="\icon\hairacc\christmas1.png" imgrect="0 0 256 256"/>
 		<image name="christmas2" file="\icon\hairacc\christmas2.png" imgrect="0 0 256 256"/>
+		<image name="Hat_628290" file="\icon\hairacc\Hat_628290.png" imgrect="0 0 256 256" CMM_Caption="붉은닭헤어머리띠"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
