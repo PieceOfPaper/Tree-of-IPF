@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="magnumopus" Anim="EXTRACT"/>
+    <HeadRotBip frame="0" BipName="Bip01"/>
+    <AttachModel frame="0" XAC="artefact_tongs_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="artefact_tongs_ani2.xsm"/>
+    <Sound frame="12.00" soundFile="skl_eff_alchemist_briquetting_pickup"/>
+    <Particle frame="18" attachNode="Dummy_effect_magnumopus_extract" particleName="F_wizard_MAGNUMOPUS_EXTRACT_stone" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="27.00" soundFile="skl_eff_alchemist_briquetting_dip"/>
+</ActionDesc>

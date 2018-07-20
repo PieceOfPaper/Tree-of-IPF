@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="E_PC_craft_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<AttachModel frame="0" XAC="artefact_hammer_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_anvil_set" node="Dummy_effect_craft" isAttach="true" autoDetach="true" index="1" anim="none"/>
+</ActionDesc>

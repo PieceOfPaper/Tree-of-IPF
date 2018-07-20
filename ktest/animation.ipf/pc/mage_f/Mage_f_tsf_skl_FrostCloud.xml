@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_FrostCloud_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <HitAni frame="0" Value="0" damratio="100"/>
+    <Sound frame="0.00" soundFile="atk_rod"/>
+    <Sound frame="5.00" soundFile="atk_rod"/>
+    <PostFix frame="10" ID="_height"/>
+    <ReadyAniTime frame="10" Value="1000"/>
+    <Sound frame="11.00" soundFile="skl_eff_underground_obj_1"/>
+    <Shockwave frame="14" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="16" type="2" intensity="1" frequency="60" duration="0.5" range="1000"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

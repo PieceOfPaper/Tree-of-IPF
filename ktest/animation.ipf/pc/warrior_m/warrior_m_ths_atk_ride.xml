@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="atk_swordswing_1"/>
+	<Sound frame="9" soundFile="voice_war_atk_short"/>
+	<Particle frame="11" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false"/>
+	<Particle frame="11" attachNode="Dummy_effect_atk_ths_pet" particleName="I_swordtrail012_blue1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

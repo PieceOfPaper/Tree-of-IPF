@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="20" G="45" B="30" A="50"/>
+	<BlendOn frame="20" R="60" G="100" B="90" A="100"/>
+	<BlendOn frame="30" R="120" G="150" B="140" A="100"/>
+	<BlendOn frame="35" R="200" G="200" B="200" A="100"/>
+	<BlendOff frame=" " R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" Value="0" soundFile="skl_eff_ninja_cast"/>
+	<Particle frame="4" attachNode="Dummy_R_HAND" particleName="F_warrior_ninja_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="13" attachNode="Dummy_emitter" particleName="F_warrior_ninja_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+	<Particle frame="15" attachNode="Dummy_L_HAND" particleName="F_warrior_ninja_shot_explosion_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="I_spector_f_dead_mash_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false"/>
+</ActionDesc>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="5.00" soundFile="skl_fgt_tackle_shot"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_effect_craft" particleName="F_stone007" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_warrior_moulinet_shot_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_effect_craft" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Shockwave frame="8" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="8" R="150" G="100" B="100" A="100"/>
+	<Particle frame="8" attachNode="Dummy_effect_Dethrone2" particleName="I_warrior_dethrone_shot_line" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<BlendOn frame="9" R="200" G="150" B="150" A="100"/>
+	<BlendOn frame="11" R="120" G="100" B="130" A="100"/>
+	<BlendOn frame="12" R="40" G="40" B="70" A="100"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

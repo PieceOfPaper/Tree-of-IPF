@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Bip01 Pelvis" particleName="F_wizard_Featherfoot_BloodCurse_explosion" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_bloodcurse_cast"/>
+    <Shockwave frame="2" type="2" intensity="2" frequency="50" duration="1.5" range="1000"/>
+    <Shockwave frame="20" type="2" intensity="20" frequency="70" duration="0.6" range="1000"/>
+    <Particle frame="20" attachNode="Dummy_emitter" particleName="F_wizard_Featherfoot_BloodCurse_explosion_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

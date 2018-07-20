@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="atk_rod"/>
+	<Sound frame="0.00" soundFile="skl_eff_debuff_1"/>
+	<Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="13" particleName="E_wizard_refrigerwaves_shot_ground" attachNode="Dummy_emitter" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<PostFix frame="10" ID="_height"/>
+	<Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="12.00" soundFile="skl_wiz_glacialwedges"/>
+	<Shockwave frame="15" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<ReadyAniTime frame="18" Value="500"/>
+	<PostFix frame="23" ID="_height"/>
+</ActionDesc>

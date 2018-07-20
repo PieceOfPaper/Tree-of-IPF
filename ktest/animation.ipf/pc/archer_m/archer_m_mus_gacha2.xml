@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="artefact_gacha_machine" node="Dummy_gacha_root" isAttach="true" autoDetach="true" index="0" anim="artefact_gacha_machine_ani2.xsm"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha01" isAttach="true" autoDetach="true" index="1" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha02" isAttach="true" autoDetach="true" index="2" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha03" isAttach="true" autoDetach="true" index="3" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha04" isAttach="true" autoDetach="true" index="4" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha05" isAttach="true" autoDetach="true" index="5" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha06" isAttach="true" autoDetach="true" index="6" anim="artefact_gacha_ball_open1.xsm"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha07" isAttach="true" autoDetach="true" index="7" anim="none"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha08" isAttach="true" autoDetach="true" index="8" anim="artefact_gacha_ball_open2.xsm"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha09" isAttach="true" autoDetach="true" index="9" anim="artefact_gacha_ball_open3.xsm"/>
+	<AttachModel frame="0" XAC="artefact_gacha_ball" node="Dummy_gacha10" isAttach="true" autoDetach="true" index="10" anim="none"/>
+	<Particle frame="2" attachNode="Dummy_gacha_root" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_gacha_root" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="25.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="140.00" soundFile="skl_eff_gacha_ball_drop2"/>
+	<Particle frame="148" attachNode="Dummy_gacha01" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="149" attachNode="dummy_gacha02" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="152" attachNode="dummy_gacha03" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="155" attachNode="dummy_gacha04" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="156" attachNode="dummy_gacha05" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="162" attachNode="dummy_gacha06" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="165" attachNode="dummy_gacha07" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="168" attachNode="dummy_gacha08" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="171" attachNode="dummy_gacha09" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="174" attachNode="dummy_gacha10" particleName="F_light111_blue_star" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="195.00" soundFile="skl_eff_move_sitdown"/>
+	<Particle frame="198" attachNode="Dummy_R_HAND" particleName="F_light003_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="204" attachNode="Dummy_R_HAND" particleName="F_light029_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="223" attachNode="Dummy_gacha_root" particleName="F_smoke161_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

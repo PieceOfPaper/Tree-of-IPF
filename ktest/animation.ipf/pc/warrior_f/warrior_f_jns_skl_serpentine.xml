@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="9.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="13.00" soundFile="skl_eff_atk_move_s_5"/>
+	<Sound frame="16.00" soundFile="skl_eff_atk_move_s_2"/>
+	<Sound frame="21.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="31.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="32.00" soundFile="skl_fgt_serpentine_final"/>
+	<Sound frame="33.00" soundFile="spear_whoosh"/>
+	<Sound frame="33.00" soundFile="skl_eff_skyline_spread"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Serpentine_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="8" attachNode="Bip01 R Foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="18" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 R Foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="34" attachNode="Dummy_emitter" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="8" R="30" G="90" B="40" A="50"/>
+	<BlendOn frame="9" R="25" G="70" B="35" A="50"/>
+	<BlendOn frame="10" R="20" G="50" B="30" A="50"/>
+	<BlendOn frame="11" R="15" G="30" B="25" A="50"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="30" G="60" B="40" A="50"/>
+	<BlendOn frame="14" R="25" G="55" B="35" A="50"/>
+	<BlendOn frame="15" R="20" G="50" B="30" A="50"/>
+	<BlendOn frame="16" R="15" G="30" B="25" A="50"/>
+	<BlendOn frame="17" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="30" G="60" B="40" A="50"/>
+	<BlendOn frame="19" R="25" G="55" B="35" A="50"/>
+	<BlendOn frame="20" R="20" G="50" B="30" A="50"/>
+	<BlendOn frame="21" R="15" G="30" B="25" A="50"/>
+	<BlendOn frame="22" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="23" R="30" G="60" B="40" A="50"/>
+	<BlendOn frame="24" R="25" G="55" B="35" A="50"/>
+	<BlendOn frame="25" R="20" G="50" B="30" A="50"/>
+	<BlendOn frame="26" R="15" G="30" B="25" A="50"/>
+	<BlendOn frame="27" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="34" R="15" G="30" B="25" A="50"/>
+	<BlendOn frame="35" R="20" G="40" B="30" A="50"/>
+	<BlendOn frame="36" R="60" G="80" B="70" A="50"/>
+	<BlendOn frame="39" R="40" G="55" B="40" A="50"/>
+	<BlendOn frame="40" R="20" G="50" B="30" A="50"/>
+	<BlendOn frame="41" R="15" G="30" B="25" A="50"/>
+	<BlendOff frame="42" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

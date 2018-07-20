@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="atk_cloth_cast"/>
+    <Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+    <Particle frame="11.00" attachNode="Dummy_dpcol_effect" particleName="F_wizard_dpcollect_shot_spread_in" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_cast_smoke_1"/>
+    <Particle frame="11.00" attachNode="Dummy_dpcol_effect" particleName="F_wizard_dpcollect_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false" sound="None"/>
+    <Particle frame="13" attachNode="Dummy_dpcol_effect" particleName="I_bat004_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

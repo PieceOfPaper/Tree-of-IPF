@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_buff_loop_12"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+    <Sound frame="27.00" soundFile="skl_eff_buff_loop_12"/>
+    <Sound frame="43.00" soundFile="skl_wiz_ogouveve_shot"/>
+    <Particle frame="48" particleName="F_wizard_BRIQUETTING_ADD3_smoke_yellow" attachNode="Bip01 R Calf" scale="2.3" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

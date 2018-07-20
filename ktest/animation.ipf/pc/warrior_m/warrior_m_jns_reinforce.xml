@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_pc_making" useAttach="false" hiddenObj="false" scale="1" changeEffect="None" pause="true" targetPos="false" />
+    <Shockwave frame="3.00" type="2" intensity="3" frequency="70" duration="0.3" range="1000" Value="6419" />
+    <Sound frame="3.00" Value="5199" soundFile="skl_fgt_immortalspirit" />
+    <Particle frame="7" attachNode="Dummy_effect_making" particleName="F_pc_making_trail" useAttach="false" hiddenObj="false" scale="0.6" changeEffect="None" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <Particle frame="10" attachNode="Dummy_effect_making" particleName="F_pc_making_trail" useAttach="false" hiddenObj="false" scale="0.9" changeEffect="None" pause="true" targetPos="false" />
+    <Particle frame="15" attachNode="Dummy_effect_making" particleName="F_pc_making_trail_end" useAttach="false" hiddenObj="false" scale="8" changeEffect="None" pause="true" targetPos="false" />
+    <Sound frame="18.00" Value="5099" soundFile="skl_fgt_evasion" />
+    <PostFix frame="20" ID="_height" />
+    <Sound frame="28.00" Value="4239" soundFile="statue" />
+    <Sound frame="33.00" Value="4699" soundFile="skl_fgt_berserk" />
+    <Shockwave frame="35" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="35" attachNode="Dummy_effect_making" particleName="F_pc_making_trail_shot" useAttach="false" hiddenObj="false" scale="10" changeEffect="None" pause="true" targetPos="false" />
+    <Shockwave frame="39" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="41" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="43" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="45" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="47" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="49" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="51" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

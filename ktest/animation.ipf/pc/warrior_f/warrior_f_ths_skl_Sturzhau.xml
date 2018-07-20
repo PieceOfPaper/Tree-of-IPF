@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_trail" particleName="WeaponTrail_Sturzhau" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_sturzhau_whoosh_1"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="7.00" soundFile="skl_eff_sturzhau_whoosh_2"/>
+    <Particle frame="9" attachNode="Dummy_emitter" particleName="E_warrior_Sturzhau_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="10" R="150" G="80" B="50" A="100"/>
+    <Shockwave frame="10" type="2" intensity="30" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="11" R="150" G="130" B="80" A="100"/>
+    <BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+    <Shockwave frame="12" type="2" intensity="3" frequency="70" duration="1.5" range="1000"/>
+</ActionDesc>

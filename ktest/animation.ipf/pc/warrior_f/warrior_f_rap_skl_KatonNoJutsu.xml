@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_L_HAND" particleName="I_smoke026_spread_out_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Shockwave frame="2" type="2" intensity="1" frequency="50" duration="1" range="1000"/>
+    <BlendOn frame="2" R="20" G="10" B="5" A="30"/>
+    <BlendOn frame="4" R="30" G="20" B="10" A="40"/>
+    <Sound frame="5.00" soundFile="skl_fgt_tackle_shot"/>
+    <BlendOn frame="6" R="40" G="25" B="15" A="50"/>
+    <BlendOn frame="8" R="50" G="30" B="20" A="60"/>
+    <Particle frame="9.00" attachNode="Dummy_L_HAND" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_katon_no_jutsu_hit"/>
+    <Shockwave frame="10" type="2" intensity="5" frequency="60" duration="0.5" range="1000"/>
+    <BlendOn frame="10" R="150" G="140" B="130" A="100"/>
+    <BlendOn frame="11" R="150" G="100" B="50" A="100"/>
+    <Particle frame="12" attachNode="Bip01 L Finger11" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_katon_no_jutsu_hit"/>
+    <BlendOn frame="13" R="120" G="70" B="30" A="80"/>
+    <BlendOn frame="15" R="90" G="40" B="20" A="60"/>
+    <BlendOn frame="17" R="60" G="25" B="15" A="40"/>
+    <BlendOn frame="19" R="30" G="15" B="5" A="30"/>
+    <BlendOff frame="20" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

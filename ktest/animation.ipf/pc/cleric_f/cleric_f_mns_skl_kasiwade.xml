@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="atk_cloth_m_r2"/>
+    <Sound frame="2.00" soundFile="atk_cloth_cast"/>
+    <Particle frame="4" attachNode="Dummy_effect_kasiwade" particleName="I_cleric_kasiwade_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Sound frame="6.00" soundFile="skl_eff_kasiwade_hit2"/>
+    <Sound frame="6.00" soundFile="skl_eff_move_clap"/>
+    <Shockwave frame="6" type="2" intensity="1" frequency="30" duration="0.1" range="1000"/>
+    <Particle frame="6" attachNode="Dummy_effect_kasiwade" particleName="I_cleric_kasiwade_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Sound frame="13.00" soundFile="skl_eff_kasiwade_hit2"/>
+    <Particle frame="13" attachNode="Dummy_effect_kasiwade" particleName="I_cleric_kasiwade_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Sound frame="13.00" soundFile="skl_eff_move_clap"/>
+    <Shockwave frame="14" type="2" intensity="1" frequency="30" duration="0.1" range="1000"/>
+    <Particle frame="14" attachNode="Dummy_effect_kasiwade" particleName="I_cleric_kasiwade_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

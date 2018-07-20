@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="0.00" soundFile="rap_attack_special_4"/>
+    <Particle frame="3" attachNode="Dummy_effect_wepon_spear002_1" particleName="I_warrior_Sturzhau_hit_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_trail" particleName="WeaponTrail_rap_SideStep" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="3.00" soundFile="skl_eff_enchantedpowder_shot_motion"/>
+    <Sound frame="4.00" soundFile="skl_fgt_ultimatedash_shot"/>
+    <Particle frame="5" attachNode="Dummy_emitter_front" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_craft" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="E_wariior_SideStep_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_effect_craft" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_effect_craft" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="7" R="130" G="130" B="140" A="100"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter_front" particleName="I_warrior_dash_run_line4" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_effect_moulinet_shot" particleName="I_dash011_mash_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_effect_moulinet_shot" particleName="I_dash011_mash_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="8" R="50" G="50" B="60" A="50"/>
+    <BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

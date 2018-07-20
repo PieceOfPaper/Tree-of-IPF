@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<ReadyAniTime Value="-1" frame="-1"/>
+	<Particle frame="0" attachNode="Dummy_effect_hand_R_2" particleName="I_wizard_countdown_cast_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_wizard_countdown_cast_black" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_hand_L" particleName="I_wizard_countdown_cast_black" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_hand_L" particleName="F_wizard_countdown_shot_spread_out" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="atk_cloth_m_r2"/>
+	<Sound frame="0.00" soundFile="skl_wiz_burninghands"/>
+</ActionDesc>

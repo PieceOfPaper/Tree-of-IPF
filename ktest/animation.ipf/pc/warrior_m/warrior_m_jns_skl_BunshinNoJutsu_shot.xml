@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_bunshinnojutsu_shot"/>
+	<Particle frame="1" attachNode="Dummy_effect_ninja" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="2.00" attachNode="Dummy_emitter" particleName="F_warrior_ninja2_cast_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" targetPos="false" sound="None"/>
+	<Particle frame="3" attachNode="Dummy_effect_ninja" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_ninja" particleName="F_warrior_ninja2_cast_blood" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_effect_ninja" particleName="F_warrior_ninja_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

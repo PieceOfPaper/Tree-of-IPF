@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_s_3"/>
+    <Sound frame="3.00" soundFile="skl_eff_landing_s"/>
+    <Shockwave frame="6" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="10.00" soundFile="skl_eff_ninja_landing"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="I_smoke035" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="150" targetPos="false" sound="skl_eff_special_shot_5"/>
+    <Particle frame="14.00" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="150" targetPos="false" sound="skl_eff_skyline_spread"/>
+    <Sound frame="15.00" soundFile="skl_eff_hit_base_1"/>
+    <BlendOn frame="17" R="150" G="100" B="100" A="100"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="150" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_emitter" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="150" targetPos="false" sound="skl_eff_born_1"/>
+    <Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="18" R="120" G="80" B="80" A="100"/>
+    <BlendOn frame="19" R="100" G="60" B="60" A="60"/>
+    <BlendOff frame="20" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

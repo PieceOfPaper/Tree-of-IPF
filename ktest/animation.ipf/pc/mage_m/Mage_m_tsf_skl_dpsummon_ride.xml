@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_hand_L" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_shoggoth_cast_lineup" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_wepon" particleName="I_wizard_shoggoth_cast_wepon" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_link_magic" particleName="F_wizard_shoggoth_shot_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="13" attachNode="Dummy_effect_link_magic" particleName="E_wizard_shoggoth_force" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="0.00" soundFile="skl_eff_buff_6"/>
+	<Sound frame="12.00" soundFile="skl_eff_atk_move_m_2"/>
+</ActionDesc>

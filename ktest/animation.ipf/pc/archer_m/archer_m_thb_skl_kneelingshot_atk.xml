@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <AttachModel frame="0" XAC="archer_f_arrow_01" node="Dummy_arrow" isAttach="true" autoDetach="false" index="0" anim="None"/>
+    <Sound frame="0.00" soundFile="arrow_cast"/>
+    <Sound frame="2.00" soundFile="arrow_shot"/>
+    <Sound frame="2.00" soundFile="voice_archer_m_atk"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke031" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="tincturing" Anim="dead" Freeze="0"/>
+    <Sound frame="5.00" soundFile="skl_eff_alchemist_tincturing_dead_boom"/>
+    <DeleteMonster frame="9" Key="tincturing"/>
+</ActionDesc>

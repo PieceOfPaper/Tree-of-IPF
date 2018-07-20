@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="skl_eff_collect_move"/>
+	<Sound frame="1" soundFile="sys_collect_success"/>
+	<Sound frame="5" soundFile="skl_eff_collect_shot"/>
+	<Sound frame="24" soundFile="item_pickup"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_force077_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="18" attachNode="Dummy_R_HAND" particleName="F_light003_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true"/>
+</ActionDesc>

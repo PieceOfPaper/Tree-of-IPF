@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_smoke013_dark4_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="atk_cloth_m_l2"/>
+    <Particle frame="12" attachNode="Dummy_R_HAND" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_psychicpressure_body_hit"/>
+    <Particle frame="16" attachNode="Dummy_R_HAND" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_psychicpressure_body_hit"/>
+    <Sound frame="16.00" soundFile="skl_eff_atk_move_s_4"/>
+    <Particle frame="20" attachNode="Dummy_R_HAND" particleName="F_wizard_MicroDimension_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="21" attachNode="Dummy_R_HAND" particleName="I_light018_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_psychicpressure_body_hit"/>
+</ActionDesc>

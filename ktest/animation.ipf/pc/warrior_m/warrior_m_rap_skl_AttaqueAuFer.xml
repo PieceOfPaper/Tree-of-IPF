@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="5.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Particle frame="6" attachNode="Dummy_effect_shieldshoving_pet" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="7.00" soundFile="rap_attack_special_3"/>
+    <Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <BlendOn frame="7" R="150" G="100" B="100" A="100"/>
+    <Particle frame="7" attachNode="Dummy_trail" particleName="WeaponTrail_rap_AttaqueAuFer" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="8" R="200" G="150" B="150" A="100"/>
+    <Particle frame="8" attachNode="Dummy_effect_wepon_spear002_1" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_effect_AttaqueAuFer" particleName="F_hit_rize3" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_effect_craft" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="9" R="150" G="100" B="100" A="100"/>
+    <Particle frame="9" attachNode="Dummy_effect_AttaqueAuFer" particleName="I_light013_spark_orange_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_special_hit_1"/>
+    <Particle frame="9" attachNode="Dummy_effect_shieldshoving_pet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="10" R="100" G="65" B="65" A="200"/>
+    <BlendOn frame="11" R="70" G="40" B="40" A="100"/>
+    <BlendOn frame="12" R="30" G="20" B="20" A="100"/>
+    <BlendOn frame="13" R="30" G="20" B="20" A="100"/>
+    <BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

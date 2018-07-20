@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonster frame="0" MonName="monster_box" Key="None" Angle="0" Dist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="0" Key="None" Anim="in" Freeze="0"/>
+    <Sound frame="1.00" soundFile="skl_eff_move_raise"/>
+    <Sound frame="4.00" soundFile="skl_eff_pc_move"/>
+    <Sound frame="18.00" soundFile="skl_eff_move_sitdown"/>
+</ActionDesc>

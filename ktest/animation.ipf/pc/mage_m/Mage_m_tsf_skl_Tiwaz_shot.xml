@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonsterAnim frame="0" Key="Tiwaz" Anim="Tiwaz_shot" Freeze="0"/>
+	<DeleteMonster frame="14" Key="Tiwaz"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="E_wizard_Tiwaz_shot_line" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>

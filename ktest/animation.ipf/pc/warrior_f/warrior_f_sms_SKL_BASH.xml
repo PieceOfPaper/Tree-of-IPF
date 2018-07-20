@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0" Value="0" soundFile="skl_fgt_ultimatedash_cast"/>
+	<Sound frame="9" Value="0" soundFile="skl_fgt_horizontalcrasher_shot"/>
+	<Shockwave frame="9" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="13" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="9" attachNode="Dummy_effect_bash" particleName="I_warrior_bash_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_warrior_bash_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_warrior_bash_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

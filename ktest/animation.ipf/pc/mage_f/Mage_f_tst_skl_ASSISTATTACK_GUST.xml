@@ -1,0 +1,8 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by minwoo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="common_foldingfan"/>
+    <ReadyAniTime frame="3" Value="500"/>
+    <Sound frame="5.00" soundFile="voice_atk_medium_war_f"/>
+    <Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_assistattack_gust_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+</ActionDesc>

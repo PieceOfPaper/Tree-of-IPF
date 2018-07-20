@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="4" R="100" G="150" B="150" A="100"/>
+	<BlendOn frame="5" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="11" R="150" G="200" B="200" A="200"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="19" R="150" G="200" B="200" A="200"/>
+	<BlendOn frame="20" R="130" G="180" B="180" A="180"/>
+	<BlendOn frame="21" R="100" G="150" B="150" A="150"/>
+	<BlendOn frame="22" R="70" G="100" B="100" A="100"/>
+	<BlendOn frame="23" R="20" G="50" B="50" A="50"/>
+	<BlendOff frame="24" R="0" G="0" B="0" A="0"/>
+	<Particle frame="9" attachNode="Bip01 R Toe0" particleName="I_smoke014_3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke074" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 R Toe0" particleName="I_smoke014_3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_Shield" particleName="I_light013_spark_blue_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_Shield" particleName="I_light013_spark_blue_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="E_warrior_butterfly_swordtrail" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="19" attachNode="Dummy_emitter" particleName="E_warrior_butterfly_swordtrail2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Shockwave frame="4" type="2" intensity="1" frequency="100" duration="0.2" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="3" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="19" type="2" intensity="1" frequency="50" duration="0.5" range="1000"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="0.00" soundFile="arrow_blow_critical"/>
+	<Sound frame="2.00" soundFile="shield_blow"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_s_9"/>
+	<Sound frame="10.00" soundFile="arrow_blow_critical"/>
+	<Sound frame="10.00" soundFile="skl_eff_body_atk_1"/>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<Sound frame="16.00" soundFile="skl_fgt_crescentwing"/>
+	<HeadRotBip frame="20" BipName="None"/>
+</ActionDesc>

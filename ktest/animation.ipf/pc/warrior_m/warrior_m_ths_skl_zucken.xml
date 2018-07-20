@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_zucken_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="100" targetPos="false"/>
+    <Sound frame="2.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="5.00" soundFile="skl_fgt_execution_2"/>
+    <Particle frame="7" attachNode="Dummy_trail" particleName="WeaponTrail_Zucken" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="E_warrior_zucken_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="100" targetPos="false"/>
+    <Sound frame="7.00" soundFile="skl_eff_atk_move_s_1"/>
+    <Sound frame="11.00" soundFile="skl_fgt_dagger_special"/>
+    <Sound frame="13.00" soundFile="skl_eff_atk_move_s_5"/>
+    <Sound frame="20.00" soundFile="skl_eff_atk_move_s_1"/>
+    <Sound frame="21.00" soundFile="skl_fgt_execution_2"/>
+    <Sound frame="26.00" soundFile="skl_fgt_dagger_special"/>
+    <Sound frame="27.00" soundFile="skl_eff_atk_move_s_5"/>
+</ActionDesc>

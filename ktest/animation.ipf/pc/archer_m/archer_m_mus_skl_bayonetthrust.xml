@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_rifle_atk_move_s"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="4.00" soundFile="skl_eff_rifle_atk_swing"/>
+	<Sound frame="5.00" soundFile="atk_rodswing"/>
+	<Sound frame="5.00" soundFile="skl_eff_atk_move_s_11"/>
+	<Sound frame="5.00" soundFile="skl_eff_bayonetthrust"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="E_archer_bayonetthrust_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="7" R="100" G="130" B="100" A="100"/>
+	<BlendOn frame="8" R="10" G="5" B="3" A="40"/>
+	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

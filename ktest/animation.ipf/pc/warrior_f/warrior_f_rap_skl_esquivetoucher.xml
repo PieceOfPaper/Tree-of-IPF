@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <BlendOn frame="1" R="90" G="80" B="70" A="70"/>
+    <BlendOn frame="2" R="60" G="30" B="20" A="50"/>
+    <Particle frame="2" attachNode="Dummy_L_HAND" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="3" R="0" G="0" B="0" A="50"/>
+    <Sound frame="6.00" soundFile="rap_attack"/>
+    <Particle frame="10" attachNode="Dummy_effect_wepon_spear03" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="12.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="15.00" soundFile="rap_attack"/>
+    <Particle frame="15" attachNode="Bip01 L Toe0" particleName="I_smoke014_5" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="21.00" soundFile="rap_attack"/>
+    <Sound frame="21.00" soundFile="rap_attack_special_2"/>
+    <Particle frame="23" attachNode="Dummy_effect_wepon_spear03" particleName="I_warrior_SeptEtoiles_leaf1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Bip01 L Toe0" particleName="I_smoke014_5" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Bip01 R Toe0" particleName="I_smoke014_5" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="25" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <HeadRotBip frame="26" BipName="Dummy_head"/>
+    <Sound frame="28.00" soundFile="rap_attack_thrust"/>
+    <BlendOn frame="29" R="70" G="60" B="50" A="70"/>
+    <BlendOn frame="30" R="60" G="30" B="20" A="50"/>
+    <BlendOn frame="31" R="0" G="0" B="0" A="50"/>
+    <Sound frame="33.00" soundFile="skl_fgt_tackle_cast"/>
+    <Particle frame="35" attachNode="Dummy_effect_wepon_spear03" particleName="I_warrior_SeptEtoiles_leaf_red1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="35.00" soundFile="rap_attack"/>
+    <BlendOn frame="37" R="60" G="50" B="40" A="60"/>
+    <Sound frame="38.00" soundFile="skl_fgt_tackle_cast"/>
+    <BlendOn frame="39" R="40" G="30" B="20" A="40"/>
+    <BlendOff frame="40" R="0" G="0" B="0" A="0"/>
+    <Sound frame="40.00" soundFile="rap_attack"/>
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <HeadRotBip frame="0" BipName="Bip01"/>
+    <AttachModel frame="0" XAC="artefact_pot_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+    <CreateMonsterAnim frame="0" Key="tincturing" Anim="add2" Freeze="0"/>
+    <Sound frame="0.00" soundFile="skl_eff_alchemist_tincturing_machine_open"/>
+    <Sound frame="13.00" soundFile="skl_eff_alchemist_briquetting_pour_3"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="E_wizard_TINCTURING_ADD2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="23.00" soundFile="skl_eff_alchemist_tincturing_machine_close"/>
+</ActionDesc>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="1.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="2.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_4"/>
+	<Sound frame="12.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="12.00" soundFile="skl_eff_hurling_shot_1"/>
+	<Sound frame="13.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="14.00" soundFile="skl_eff_atk_move_s_10"/>
+	<Sound frame="16.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Shockwave frame="1" type="2" intensity="1" frequency="70" duration="1" range="300"/>
+	<Shockwave frame="17" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="130" G="130" B="130" A="100"/>
+	<BlendOn frame="19" R="100" G="100" B="100" A="50"/>
+	<BlendOn frame="20" R="50" G="60" B="60" A="50"/>
+	<BlendOff frame="21" R="0" G="0" B="0" A="0"/>
+	<Particle frame="14" attachNode="Dummy_effect_darksight4" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="14" attachNode="Dummy_effect_darksight4" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="14" attachNode="Dummy_effect_darksight2" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" soft2DValue="100"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_cleric_DarkSight_cast2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="18" attachNode="Dummy_emitter" particleName="F_cleric_Hurling_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="100"/>
+	<Particle frame="0" attachNode="Dummy_L_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_L_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_R_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="20" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Dummy_L_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Dummy_R_HAND" particleName="I_pose_nono_trail_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="30" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_L_HAND" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_R_HAND" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Dummy_R_HAND" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Bip01 R Foot" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Bip01 R Foot" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter_center" particleName="I_smoke052_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="1.00" soundFile="skl_fgt_tackle_cast_2"/>
+	<Sound frame="2.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_s_4"/>
+	<Sound frame="12.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="13.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="14.00" soundFile="skl_eff_atk_move_s_10"/>
+	<Sound frame="16.00" soundFile="skl_eff_atk_move_s_1"/>
+</ActionDesc>

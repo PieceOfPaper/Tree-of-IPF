@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <HitAni frame="0" Value="0" damratio="100"/>
+    <Sound frame="0.00" soundFile="atk_cloth_cast"/>
+    <Sound frame="0.00" soundFile="skl_archer_aimingshot_cast_2"/>
+    <PostFix frame="10" ID="_height"/>
+    <ReadyAniTime frame="10" Value="1000"/>
+    <PostFix frame="20" ID="_height"/>
+    <Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_force038_ice2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+    <Particle frame="0" attachNode="Bip01 Spine1" particleName="F_wizard_hail_cast" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true"/>
+</ActionDesc>

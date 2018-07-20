@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="7" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="7" R="150" G="100" B="100" A="100"/>
+	<BlendOn frame="8" R="120" G="80" B="80" A="100"/>
+	<BlendOn frame="10" R="100" G="60" B="60" A="60"/>
+	<BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="I_warrior_dash_run_line_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="None"/>
+	<Particle frame="7" attachNode="Dummy_effect_shieldshoving" particleName="I_dash25_red_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_special_shot_5"/>
+	<Particle frame="7" attachNode="Dummy_effect_shieldshoving" particleName="I_dash25_red_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_special_shot_5"/>
+	<Particle frame="7" attachNode="Dummy_effect_shieldshoving" particleName="I_dash25_red_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_eff_special_shot_5"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="E_warrior_headbutt_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="150" targetPos="false"/>
+	<Particle frame="13" attachNode="Dummy_effect_head3" particleName="I_archer_pistol_atk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="150" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_effect_head3" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="150" targetPos="false"/>
+</ActionDesc>

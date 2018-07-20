@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="16" R="100" G="50" B="40" A="70"/>
+	<BlendOn frame="17" R="80" G="30" B="20" A="60"/>
+	<BlendOn frame="18" R="70" G="30" B="20" A="50"/>
+	<BlendOn frame="19" R="60" G="25" B="15" A="50"/>
+	<BlendOn frame="20" R="40" G="20" B="15" A="50"/>
+	<BlendOn frame="21" R="20" G="10" B="7" A="50"/>
+	<BlendOff frame="22" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachNode="Dummy_R_HAND" particleName="F_light019_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="17" attachNode="Dummy_emitter" particleName="E_wizard_Ngadhundi_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_wizard_Ngadhundi_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<AttachModel frame="0" XAC="warrior_f_dagger_bone" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+</ActionDesc>

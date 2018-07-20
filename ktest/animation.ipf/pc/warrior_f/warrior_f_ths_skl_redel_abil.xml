@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Redel_abil_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="100" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="1" attachNode="Dummy_L_HAND" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false" sound="skl_eff_redel_cast"/>
+    <Particle frame="2" attachNode="Dummy_effect_wepon_spear002_1" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_effect_wepon_spear001_1" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+    <Particle frame="4" attachNode="Dummy_effect_wepon_spear00" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+    <Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="5.00" soundFile="skl_fgt_light_cast_2"/>
+    <Particle frame="5" attachNode="Dummy_effect_wepon_spear01" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+    <Sound frame="5.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="8" attachNode="Bip01 Spine1" particleName="F_archer_fluflu_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="8" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_trail" particleName="WeaponTrail_Redel_abil" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_s_4"/>
+    <BlendOn frame="8" R="150" G="80" B="40" A="100"/>
+    <BlendOn frame="9" R="100" G="60" B="30" A="200"/>
+    <Sound frame="10.00" soundFile="skl_eff_special_hit_1"/>
+    <BlendOn frame="10" R="70" G="40" B="20" A="200"/>
+    <BlendOn frame="11" R="30" G="20" B="10" A="200"/>
+    <BlendOn frame="12" R="0" G="0" B="0" A="50"/>
+    <Sound frame="12.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Sound frame="14.00" soundFile="skl_eff_atk_move_s_1"/>
+    <Sound frame="17.00" soundFile="skl_eff_special_hit_1"/>
+    <Shockwave frame="18" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="18" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="18" R="150" G="80" B="40" A="100"/>
+    <Sound frame="19.00" soundFile="skl_eff_thsword_whoosh"/>
+    <BlendOn frame="19" R="100" G="60" B="30" A="200"/>
+    <BlendOn frame="20" R="70" G="40" B="20" A="200"/>
+    <Sound frame="21.00" soundFile="skl_eff_atk_move_s_5"/>
+    <BlendOn frame="21" R="30" G="20" B="10" A="200"/>
+    <BlendOn frame="22" R="0" G="0" B="0" A="50"/>
+    <Shockwave frame="23" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="23" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="23.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="23.00" soundFile="skl_eff_special_hit_1"/>
+    <Sound frame="24.00" soundFile="skl_eff_special_hit_1"/>
+    <BlendOn frame="24" R="150" G="80" B="40" A="100"/>
+    <Sound frame="25.00" soundFile="skl_eff_special_hit_2"/>
+    <BlendOn frame="25" R="100" G="60" B="30" A="200"/>
+    <BlendOn frame="26" R="70" G="40" B="20" A="200"/>
+    <Sound frame="27.00" soundFile="skl_eff_thsword_whoosh"/>
+    <BlendOn frame="27" R="30" G="20" B="10" A="200"/>
+    <BlendOn frame="28" R="0" G="0" B="0" A="50"/>
+    <Sound frame="29.00" soundFile="skl_eff_atk_move_s_1"/>
+    <Shockwave frame="32" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="32" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="33" attachNode="Bip01 Spine1" particleName="F_archer_fluflu_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="33.00" soundFile="skl_eff_special_hit_1"/>
+    <BlendOn frame="33" R="150" G="80" B="40" A="100"/>
+    <BlendOn frame="34" R="100" G="60" B="30" A="200"/>
+    <Sound frame="34.00" soundFile="skl_eff_thsword_whoosh"/>
+    <BlendOn frame="35" R="70" G="40" B="20" A="200"/>
+    <Sound frame="36.00" soundFile="skl_eff_atk_move_s_5"/>
+    <BlendOn frame="36" R="30" G="20" B="10" A="200"/>
+    <BlendOn frame="37" R="0" G="0" B="0" A="50"/>
+    <Shockwave frame="38" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="38" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="38" R="150" G="80" B="40" A="100"/>
+    <BlendOn frame="39" R="100" G="60" B="30" A="200"/>
+    <BlendOn frame="40" R="70" G="40" B="20" A="200"/>
+    <BlendOn frame="41" R="30" G="20" B="10" A="200"/>
+    <BlendOn frame="42" R="0" G="0" B="0" A="50"/>
+    <Sound frame="42.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Shockwave frame="48" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="48" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="48" R="150" G="80" B="40" A="100"/>
+    <BlendOn frame="49" R="100" G="60" B="30" A="200"/>
+    <BlendOn frame="50" R="70" G="40" B="20" A="200"/>
+    <BlendOn frame="51" R="30" G="20" B="10" A="200"/>
+    <BlendOn frame="52" R="0" G="0" B="0" A="50"/>
+    <Shockwave frame="53" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="53" attachNode="Bip01 Spine1" particleName="F_archer_fluflu_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="53" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="53" R="180" G="90" B="45" A="100"/>
+    <BlendOn frame="54" R="130" G="70" B="40" A="100"/>
+    <BlendOn frame="55" R="100" G="60" B="35" A="100"/>
+    <BlendOn frame="56" R="80" G="40" B="25" A="100"/>
+    <BlendOn frame="57" R="60" G="35" B="25" A="100"/>
+    <BlendOn frame="58" R="50" G="30" B="20" A="50"/>
+    <BlendOn frame="59" R="40" G="25" B="20" A="50"/>
+    <BlendOn frame="60" R="30" G="20" B="15" A="50"/>
+    <BlendOn frame="61" R="20" G="13" B="10" A="50"/>
+    <BlendOff frame="62" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="Algiz" Anim="Algiz_shot" Freeze="0"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="2.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Particle frame="4" attachNode="Dummy_effect_hand_L" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="4" attachNode="Dummy_effect_hand_R" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="4.00" soundFile="skl_eff_wiz_link1_shot_1"/>
+    <DeleteMonster frame="14" Key="Algiz"/>
+</ActionDesc>

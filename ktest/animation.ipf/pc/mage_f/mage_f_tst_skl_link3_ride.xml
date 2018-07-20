@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_wiz_link2"/>
+    <Sound frame="0.00" soundFile="skl_eff_wiz_link1_cast_1"/>
+    <Particle frame="0" attachNode="Dummy_effect_hand_L" particleName="I_wizard_cutlink_cast_rize" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_wizard_cutlink_cast_rize" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_cutlink_cast_lineup" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="I_wizard_cutlink_cast_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="16.00" soundFile="skl_wiz_magneticforce_cast"/>
+    <Particle frame="16" attachNode="dummy_effect_link3_handtrail_r" particleName="I_wizard_cutlink_shot_rize2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="16" attachNode="Dummy_effect_icebolt" particleName="F_wizard_cutlink_shot_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

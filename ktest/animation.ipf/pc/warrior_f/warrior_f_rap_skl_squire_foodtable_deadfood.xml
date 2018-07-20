@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonsterAnim frame="0" Key="squire_foodtable" Anim="deadfood" Freeze="0"/>
+    <Sound frame="11.00" soundFile="skl_eff_alchemist_roasting_dead"/>
+    <CreateMonster frame="11" MonName="pcskill_squire_food_table" Key="squire_foodtable" Angle="0" Dist="0" MonAngle="0"/>
+</ActionDesc>

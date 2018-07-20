@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<HitAni frame="0" Value="0" damratio="100"/>
+	<ReadyAniTime frame="0" Value="500"/>
+	<Particle frame="0.00" particleName="None" attachNode="None" scale="0.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="0.00" particleName="None" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="0.00" particleName="F_wizard_slow_cast_ground" attachNode="None" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_wiz_soulactivation"/>
+	<Sound frame="10.00" soundFile="skl_wiz_manasphere_spell_1"/>
+</ActionDesc>

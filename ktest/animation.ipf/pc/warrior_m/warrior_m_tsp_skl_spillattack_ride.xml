@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="1.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Particle frame="1.00" attachNode="Dummy_emitter_pet" particleName="F_ground071_smoke_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="3" R="100" G="100" B="100" A="100"/>
+    <Particle frame="3" attachNode="Dummy_emitter_pet" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_emitter" particleName="E_warrior_SpillAttack_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="4" R="60" G="60" B="60" A="100"/>
+    <BlendOn frame="5" R="40" G="40" B="40" A="100"/>
+    <BlendOn frame="6" R="20" G="20" B="20" A="100"/>
+    <BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

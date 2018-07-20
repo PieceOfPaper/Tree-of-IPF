@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="atk_cloth_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_flesh_canon_cast_lineup" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_hand_R" particleName="I_force074_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_spin007_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_spin021_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="8.00" soundFile="skl_eff_partsshooting_shot"/>
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="0.00" Value="0" soundFile="move_block_1"/>
+	<Sound frame="0.00" Value="0" soundFile="skl_fgt_rg_provoke"/>
+	<Sound frame="1.00" Value="0" soundFile="atk_rod"/>
+	<Sound frame="4.00" Value="0" soundFile="voice_atk_medium_war_f"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_bash_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_thrust_gum_sms" particleName="I_warrior_aries_shot_dash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false" use2DEffect="true"/>
+</ActionDesc>

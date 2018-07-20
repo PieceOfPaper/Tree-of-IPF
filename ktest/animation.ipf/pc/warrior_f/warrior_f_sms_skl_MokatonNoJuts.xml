@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_MokutonNoJuts_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="5" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_s_1"/>
+    <Sound frame="4.00" soundFile="skl_eff_atk_move_s_4"/>
+    <Sound frame="5.00" soundFile="skl_eff_atk_move_s_3"/>
+    <Sound frame="8.00" soundFile="skl_eff_hit_base_4"/>
+    <BlendOn frame="10" R="30" G="20" B="10" A="40"/>
+    <BlendOn frame="11" R="20" G="10" B="5" A="30"/>
+    <BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_move_equip_1"/>
+	<Sound frame="0.00" soundFile="arrow_cast2"/>
+	<Sound frame="5.00" soundFile="arrow_cast"/>
+	<Particle frame="6" attachNode="Dummy_Force" particleName="F_light003_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_Force" particleName="F_light003_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_Force" particleName="F_light003_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="11.00" soundFile="arrow_shot_skl"/>
+	<Sound frame="11.00" soundFile="skl_eff_focusfire_shot"/>
+	<Particle frame="12" attachNode="Dummy_Force_effect" particleName="F_archer_FocusFire_spin_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_arrowstart" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="13" attachNode="Dummy_arrowstart" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.6" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="13" attachNode="Dummy_Force_effect" particleName="F_archer_FocusFire_spin_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_Force" particleName="I_wizard_rune_stone_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="14.00" soundFile="arrow_shot_skl"/>
+	<Sound frame="17.00" soundFile="arrow_shot_skl"/>
+	<Sound frame="20.00" soundFile="arrow_shot_skl"/>
+	<Sound frame="23.00" soundFile="arrow_shot_skl"/>
+</ActionDesc>
