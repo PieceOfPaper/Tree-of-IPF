@@ -241,7 +241,6 @@ end
 
 
 function INDUN_REWARD_MULTI_UP(frame, ctrl)
-IMC_LOG("INFO_NORMAL", "MULTI_UP 0")
     if frame == nil or ctrl == nil then
         return;
     end
@@ -251,7 +250,6 @@ IMC_LOG("INFO_NORMAL", "MULTI_UP 0")
     local maxCnt = INDUN_MULTIPLE_USE_MAX_COUNT;
     
     local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
-	IMC_LOG("INFO_NORMAL", "MULTI_UP 1")
     for i = 1, #multipleItemList do
         local itemName = multipleItemList[i];
         local invItem = session.GetInvItemByName(itemName);
@@ -260,19 +258,18 @@ IMC_LOG("INFO_NORMAL", "MULTI_UP 0")
             return;
         end
     end
-			IMC_LOG("INFO_NORMAL", "MULTI_UP 2")
+
     local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT();    
     if itemCount == 0 then
         return;
     end
-		IMC_LOG("INFO_NORMAL", "MULTI_UP 3")
+
     nowCnt = nowCnt + 1;
 
     local etc = GetMyEtcObject();
 	
 	local indunRewardHUD = ui.GetFrame("indun_reward_hud")
 	if indunRewardHUD == nil then
-		IMC_LOG("INFO_NORMAL", "IndunRewardHUD is nil")
 		return
 	end
 	local indunClassID = indunRewardHUD:GetUserValue("IndunClassID")
@@ -281,23 +278,17 @@ IMC_LOG("INFO_NORMAL", "MULTI_UP 0")
 
     local indunCls = GetClassByType('Indun', indunClassID);
     if indunCls == nil then
-		IMC_LOG("INFO_NORMAL", "indunCls is nil")
         return;
     end
 
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
 	nowCount = nowCount - 1
-		IMC_LOG("INFO_NORMAL", "nowCnt : " .. tostring(nowCount))
     local maxCount = TryGetProp(indunCls, 'PlayPerReset');
     if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
         maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token')
     end
-    if session.loginInfo.IsPremiumState(NEXON_PC) == true then
-        maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC')
-    end
-		IMC_LOG("INFO_NORMAL", "maxCnt : " ..tostring(maxCount))
+   
     local remainCount = maxCount - nowCount;
-	IMC_LOG("INFO_NORMAL", "remainCnt : " ..tostring(remainCount))
     if nowCnt >= remainCount then
         nowCnt = remainCount - 1;
         ui.SysMsg(ScpArgMsg('NotEnoughIndunEnterCount'));
@@ -310,20 +301,17 @@ IMC_LOG("INFO_NORMAL", "MULTI_UP 0")
         ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));
         return;
     end
-		IMC_LOG("INFO_NORMAL", "MULTI_UP 5")
+
     if nowCnt < 0 then
-		IMC_LOG("INFO_NORMAL", "nowCnt : "..nowCnt)
         return;
     end
 
 	multiEdit:SetText(tostring(nowCnt));
 	local str = topFrame: GetUserValue("rewardStr")
-		IMC_LOG("INFO_NORMAL", "MULTI_UP 6")
 	INDUN_REWARD_SET(topFrame, msg, str, data)
 end
 
 function INDUN_REWARD_MULTI_DOWN(frame, ctrl)
-IMC_LOG("INFO_NORMAL", "MULTI_down 1")
     if frame == nil or ctrl == nil then
         return;
     end
@@ -336,7 +324,7 @@ IMC_LOG("INFO_NORMAL", "MULTI_down 1")
     if nowCnt < minCnt then
         nowCnt = minCnt;
     end
-		IMC_LOG("INFO_NORMAL", "MULTI_down 2")
+
 	multiEdit:SetText(tostring(nowCnt));
 	local str = topFrame: GetUserValue("rewardStr")
 	INDUN_REWARD_SET(topFrame, msg, str, data)
