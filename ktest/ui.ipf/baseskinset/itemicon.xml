@@ -2324,6 +2324,10 @@
 		<image name="icon_item_artefact_watermelon" file="\icon\weapon\icon_item_artefact_watermelon.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="item_icon_mace_maul_twohand" file="\icon\weapon\item_icon_mace_maul_twohand.png" imgrect="0 0 256 256" CMM_Caption=""/>
 		<image name="item_icon_mace_rune_mace_twohand" file="\icon\weapon\item_icon_mace_rune_mace_twohand.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_bunny_juice" file="\icon\weapon\icon_item_bunny_juice.png" imgrect="0 0 256 256" CMM_Caption="바니 장난감"/>
+		<image name="icon_item_bunny_parfait" file="\icon\weapon\icon_item_bunny_parfait.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_nurse_linger" file="\icon\weapon\icon_item_nurse_linger.png" imgrect="0 0 256 256" CMM_Caption="간호사 장난감"/>
+		<image name="icon_item_nurse_squirt" file="\icon\weapon\icon_item_nurse_squirt.png" imgrect="0 0 256 256" CMM_Caption=""/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -2451,6 +2455,8 @@
 		<image name="item_necklace04_3" file="\icon\acc\item_necklace04_3.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet04_4" file="\icon\acc\item_bracelet04_4.png" imgrect="0 0 256 256"/>
 		<image name="item_necklace04_4" file="\icon\acc\item_necklace04_4.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_bunny" file="\icon\acc\icon_item_armband_bunny.png" imgrect="0 0 256 256" CMM_Caption="바니 암밴드"/>
+		<image name="icon_item_armband_nurse" file="\icon\acc\icon_item_armband_nurse.png" imgrect="0 0 256 256" CMM_Caption="간호사 암밴드"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -4662,6 +4668,26 @@
 		<image name="icon_item_randombox_2" file="\icon\payment\icon_item_randombox_2.png" imgrect="0 0 256 256" CMM_Caption="레티샤큐브모둠"/>
 		<image name="icon_item_Wing_Box" file="\icon\payment\icon_item_Wing_Box.png" imgrect="0 0 256 256" CMM_Caption="날개 상자"/>
 		<image name="icon_item_reinforcecard" file="\icon\payment\icon_item_reinforcecard.png" imgrect="0 0 256 256" CMM_Caption="강화용 카드"/>
+		<image name="icon_item_bunny02_f" file="\icon\payment\icon_item_bunny02_f.png" imgrect="0 0 256 256" CMM_Caption="바니 코스튬"/>
+		<image name="icon_item_bunny02_m" file="\icon\payment\icon_item_bunny02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bunny03_f" file="\icon\payment\icon_item_bunny03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bunny03_m" file="\icon\payment\icon_item_bunny03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bunny04_f" file="\icon\payment\icon_item_bunny04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bunny04_m" file="\icon\payment\icon_item_bunny04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse01_f" file="\icon\payment\icon_item_nurse01_f.png" imgrect="0 0 256 256" CMM_Caption="간호사 코스튬"/>
+		<image name="icon_item_nurse01_m" file="\icon\payment\icon_item_nurse01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse02_f" file="\icon\payment\icon_item_nurse02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse02_m" file="\icon\payment\icon_item_nurse02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse03_f" file="\icon\payment\icon_item_nurse03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse03_m" file="\icon\payment\icon_item_nurse03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_m_nursebox" file="\icon\payment\icon_item_m_nursebox.png" imgrect="0 0 256 256" CMM_Caption="간호사 코스튬 상자"/>
+		<image name="icon_item_f_nursebox" file="\icon\payment\icon_item_f_nursebox.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse_m_package" file="\icon\payment\icon_item_nurse_m_package.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_nurse_f_package" file="\icon\payment\icon_item_nurse_f_package.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_m_bunny" file="\icon\payment\icon_item_m_bunny.png" imgrect="0 0 256 256" CMM_Caption="바니 코스튬 상자"/>
+		<image name="icon_item_f_bunny" file="\icon\payment\icon_item_f_bunny.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bunny_m_package" file="\icon\payment\icon_item_bunny_m_package.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bunny_f_package" file="\icon\payment\icon_item_bunny_f_package.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

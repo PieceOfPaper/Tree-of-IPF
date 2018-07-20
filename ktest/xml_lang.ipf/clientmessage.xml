@@ -326,6 +326,7 @@
 		<Class ClassID="4142" ClassName="THMace" Data="양손둔기"/>
 		<Class ClassID="4143" ClassName="Event_Select_Acc_Box_Title" Data="슈페리어 브레이슬릿(15일) 상자"/>
 		<Class ClassID="4144" ClassName="LeticiaGacha{CONSUME}" Data="큐브 개봉시{nl}{CONSUME}{nl}소모됩니다.{nl}정말 개봉하시겠습니까?"/>
+		<Class ClassID="4145" ClassName="SelectCostume{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}코스튬을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 코스튬으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -4333,6 +4334,7 @@
 		<Class ClassID="27556" ClassName="EVENT_1708_JURATE_MSG7" Data="주말에만 사용하실 수 있습니다."/>
 		<Class ClassID="27557" ClassName="EVENT_1708_JURATE_MSG8" Data="큐폴의 선물{nl}{TEXT}"/>
 		<Class ClassID="27558" ClassName="EVENT_1708_JURATE_MSG9" Data="누적 미션 완료횟수 : {COUNT}회"/>
+		<Class ClassID="27565" ClassName="TradSelectItemMsg1" Data="{#FF0000}{ITEM}{/} 코스튬을 정말 선택하시겠습니까?{nl}선택 후에는 다른 코스튬으로 교환할 수 없습니다."/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
