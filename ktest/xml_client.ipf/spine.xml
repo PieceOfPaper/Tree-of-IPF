@@ -101,6 +101,33 @@
 		</Element>
 	</Spine>
 	<Spine>
-		<Element Name="FrosterLord" root="FrosterLord" atlas="FrosterLord" json="FrosterLord" scale="0.6" offsetX="0" offsetY="-20" animation="animation"/>
+		<Element Name="FrosterLord" root="FrosterLord" atlas="FrosterLord" json="FrosterLord" scale="0.6" offsetX="0" offsetY="-20" animation="animation">
+			<uieffect effect="I_screen_smoke007" attachSpineBone="root" scale="10" overlab="YES" sound="None" offset="-20 120" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_smoke005" attachSpineBone="bone40" scale="10" overlab="YES" sound="None" offset="-20 120" playtime="3" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_smoke002" attachSpineBone="bone40" scale="8" overlab="YES" sound="None" offset="-20 120" playtime="3" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_frame04" attachSpineBone="bone173" scale="13" overlab="YES" sound="None" offset="-20 120" playtime="3.5" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_frame04" attachSpineBone="bone173" scale="13" overlab="YES" sound="None" offset="-20 120" playtime="9" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_bosscard_frame03" attachSpineBone="bone173" scale="13" overlab="YES" sound="None" offset="-20 120" playtime="3" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+			<uieffect effect="I_screen_particle002" attachSpineBone="bone14" scale="15" overlab="YES" sound="None" offset="-30 10" playtime="0.5" duration="0" conditon="always" event="OPEN" viewportByParent="false"/>
+			<uieffect effect="I_screen_smoke001_light_mint2" attachSpineBone="bone74" scale="15" overlab="YES" sound="None" offset="-30 300" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="false"/>
+			<uieffect effect="I_screen_smoke001_light_mint2" attachSpineBone="bone74" scale="15" overlab="YES" sound="None" offset="200 300" playtime="1" duration="0" conditon="always" event="OPEN" viewportByParent="false"/>
+			<uieffect effect="I_screen_light001_violet" attachSpineBone="bone74" scale="5" overlab="YES" sound="None" offset="-30 10" playtime="1.5" duration="0" conditon="always" event="OPEN" viewportByParent="true"/>
+		</Element>
+	</Spine>
+	<Spine>
+		<Element Name="Rank_10_Background_1" root="Rank_10_Background_1" atlas="Rank_10_Background_1" json="Rank_10_Background_1" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
+		<Element Name="Rank_10_Background_2" root="Rank_10_Background_2" atlas="Rank_10_Background_2" json="Rank_10_Background_2" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
+	</Spine>
+	<Spine>
+		<Element Name="Rank_10_Bail" root="Rank_10_Bail" atlas="Rank_10_Bail" json="Rank_10_Bail" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
+	</Spine>
+	<Spine>
+		<Element Name="Rank_10_Detective" root="Rank_10_Detective" atlas="Rank_10_Detective" json="Rank_10_Detective" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
+	</Spine>
+	<Spine>
+		<Element Name="Rank_10_egnas" root="Rank_10_egnas" atlas="Rank_10_egnas" json="Rank_10_egnas" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
+	</Spine>
+	<Spine>
+		<Element Name="Rank_10_LittleWitch" root="Rank_10_LittleWitch" atlas="Rank_10_LittleWitch" json="Rank_10_LittleWitch" scale="0.6" offsetX="0" offsetY="0" animation="animation"/>
 	</Spine>
 </List>

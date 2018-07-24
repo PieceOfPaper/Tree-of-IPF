@@ -118,6 +118,12 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offs
 	local clsList, cnt = GetClassList("Map_Area");
 	for i = 0, cnt -1 do
 		local cls = GetClassByIndexFromList(clsList, i);
+        local check_word = "GuildColony_"
+        local sStart, sEnd = string.find(mapClassName, check_word)
+        if sStart ~= nil then
+            local sLength = string.len(mapClassName)
+            mapClassName = string.sub(mapClassName, sEnd+1, sLength)
+        end
 		if cls ~= nil and mapClassName == cls.ZoneClassName then
 
 			local centerX, centerY, centerZ, posCnt = 0, 0, 0, 0;
@@ -509,7 +515,6 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
     local isColonyMap = session.colonywar.GetIsColonyWarMap();
 	for i = 0 , cnt - 1 do
 		local MonProp = mongens:Element(i);
-		
 		if MonProp.Minimap >= 1 then
 			local GenList = MonProp.GenList;
 			local GenCnt = GenList:Count();

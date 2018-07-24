@@ -1,17 +1,17 @@
 function GET_COLONY_MAP_GRADE_AND_PERCENTAGE(mapLevel)
 
 --Beta에서는 해당 로직 이용
-    if mapLevel < 200 then
+    if mapLevel < 100 then
         return 'B', 8;
-    elseif mapLevel < 300 then
+    elseif mapLevel < 200 then
         return 'A', 9;
     end
     return 'S', 10;
 end
 
 function GET_COLONY_WAR_DAY_OF_WEEK()
-    local guild_colony_rule = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
-    local dayOfWeek = TryGetProp(guild_colony_rule, 'ColonyStartDayOfWeek');    
+    local dayOfWeek = 0
+    dayOfWeek = GetColonyDayOfWeek();    
     if dayOfWeek ~= nil then
         if dayOfWeek ~= -1 then
             dayOfWeek = dayOfWeek - 1
@@ -34,7 +34,8 @@ function IS_COLONY_SPOT(mapClassName)
     for i = 0, cnt - 1 do
         local colonyCls = GetClassByIndexFromList(colonyClsList, i);
         local mapClsName = TryGetProp(colonyCls, 'ZoneClassName');
-        if mapClsName ~= nil and mapClsName == mapClassName then
+        local check_word = "GuildColony_"
+        if mapClsName ~= nil and mapClsName == check_word..mapClassName then
             --콜로니전 미개최 지역은 이미지 표시 안뜨도록 처리(ID 값이 0인 경우)
             if TryGetProp(colonyCls, "ID") ~= 0 then
                 return true;

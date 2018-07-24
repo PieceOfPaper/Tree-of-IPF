@@ -161,7 +161,7 @@ function PET_INFO_SHOW(petGuid)
 	t_friendly:ShowWindow(g_use_pet_friendly_point);
 
 	local gauge_exp = GET_CHILD(bg, "gauge_exp", "ui::CGauge");
-	local exp = petInfo:GetExp();
+	local exp = tonumber(petInfo:GetStrExp());
 	local petLv = SET_PET_XP_GAUGE(gauge_exp, exp, gePetXP.EXP_PET);
 	
 	local lv = bg:GetChild("lv");
@@ -487,7 +487,7 @@ function ON_PET_EXP_UPDATE(frame)
 
 	local bg = frame:GetChild("bg");
 	local gauge_exp = GET_CHILD(bg, "gauge_exp", "ui::CGauge");
-	local exp = petInfo:GetExp();
+	local exp = tonumber(petInfo:GetStrExp());
 	local petLv = SET_PET_XP_GAUGE(gauge_exp, exp, gePetXP.EXP_PET);
 		
 	local lv = bg:GetChild("lv");

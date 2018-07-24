@@ -2670,7 +2670,7 @@ function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
 	return 1;
 end
 
-function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, num)
+function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 	if str == 'JUNGTAN_OFF' then
 
 		frame:SetUserValue("JUNGTAN_EFFECT", 0);
@@ -2699,6 +2699,49 @@ function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, num)
 		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_INVENTORY_JUNGTANDEF");
 		timer:Start(1);		
+		
+	elseif str == 'DISPELDEBUFF_ON' then
+		frame:SetUserValue("DISPELDEBUFF_EFFECT", itemType);
+		local timer = GET_CHILD(frame, "dispeldebufftimer", "ui::CAddOnTimer");
+		timer:SetUpdateScript("UPDATE_INVENTORY_DISPEL_DEBUFF");
+		timer:Start(1);
+		imcSound.PlaySoundEvent('sys_def_booster_on');
+	elseif str == 'DISPELDEBUFF_OFF' then
+
+		frame:SetUserValue("DISPELDEBUFF_EFFECT", 0);
+		local timer = GET_CHILD(frame, "dispeldebufftimer", "ui::CAddOnTimer");
+		timer:Stop();
+		imcSound.PlaySoundEvent('sys_booster_off');
+	end
+end
+
+function UPDATE_INVENTORY_DISPEL_DEBUFF(frame, ctrl, num, str, time)
+	if frame:IsVisible() == 0 then
+		return;
+	end
+	local dispelID = tonumber( frame:GetUserValue("DISPELDEBUFF_EFFECT") );
+	if dispelID == 0 then
+		return;
+	end
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
+	local slot = INV_GET_SLOT_BY_TYPE(dispelID)
+	if tabIndex == 0 then
+		slot = INV_GET_SLOT_BY_TYPE(dispelID, nil, 1)
+	end	
+	
+	if(slot == nil ) then
+		return;
+	end
+	local posX, posY = GET_SCREEN_XY(slot);
+	
+	if slot:IsVisibleRecursively() == true then
+		local size = frame:GetUserConfig("DISPEL_EFFECT_SIZE");	
+		slot:PlayOnceUIEffect('I_sys_item_slot', size);
 	end
 end
 

@@ -832,14 +832,14 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 	-- OFF 일때(복구)
 	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
 	for i = 1, sklCnt do
-		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i, "ui::CSlot");
-		CLEAR_SLOT_ITEM_INFO(slot);	
-		local slotString 	= 'QuickSlotExecute'..i;
-		local hotKey		= hotKeyTable.GetHotKeyString(slotString, 1); -- 조이패드 핫키
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i, "ui::CSlot");		
+		CLEAR_QUICKSLOT_SLOT(slot);
+		local slotString = 'QuickSlotExecute'..i;
+		local hotKey = hotKeyTable.GetHotKeyString(slotString, 1); -- 조이패드 핫키
 		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(false , hotKey);
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', 'left', 'top', 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
-		if 'None' ~= cate then
+		if 'None' ~= cate then        
 			SET_QUICK_SLOT(slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);
 		end
 		slot:SetUserValue('ICON_CATEGORY', 'None');

@@ -49,3 +49,12 @@ function SCR_HT_PRISON62_1_PAPER04_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+
+function SCR_PRISON621_TO_PRISON621_1_PRE_DIALOG(pc, dialog)
+    local result1 = SCR_QUEST_CHECK(pc, 'PRISON621_MQ_05')
+    if result1 == "PROGRESS" or result1 == "SUCCESS" or result1 == "COMPLETE" then
+        return "YES"
+    end
+    return "NO"
+end

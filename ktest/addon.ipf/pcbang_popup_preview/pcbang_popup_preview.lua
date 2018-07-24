@@ -75,6 +75,7 @@ function SET_PCBANG_POPUP_PREVIEW_SILHOUETTE(frame, itemID, rotDir)
     if defaultEqpSlot ~= nil  then
         apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), itemID);
     end
+    apc:SetEquipItem(ES_HAIR, 0)
 
 	local imgName_m = "None";
     apc:SetGender(1);

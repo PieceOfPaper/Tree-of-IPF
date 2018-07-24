@@ -168,9 +168,10 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	if newWidth > frame:GetOriginalWidth() then
 		frame:Resize(newWidth,  frame:GetOriginalHeight());
 		PickItemGropBox:Resize(newWidth, PickItemGropBox:GetOriginalHeight());
+		PickItemCountCtrl:Resize(newWidth, PickItemCountCtrl:GetOriginalHeight());		
 	end
 
-
+		
 	PickItemGropBox:UpdateData();
 	PickItemGropBox:Invalidate();
 

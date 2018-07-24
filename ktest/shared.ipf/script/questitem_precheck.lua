@@ -8565,8 +8565,11 @@ function SCR_PRE_NICOPOLIS_812_SUBQ5_ITEM1(self, argObj, argstring, arg1, arg2)
         local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_2_SQ_06")
         if quest == "PROGRESS" then
             return 1
+        else
+            return 0
         end
     end
+    return 0
 end
 
 --NICOPOLIS_812_SUBQ10_ITEM1

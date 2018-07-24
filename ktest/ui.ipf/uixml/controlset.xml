@@ -1843,13 +1843,13 @@
 	<controlset name="quest_reward_s" toggle="false" hittest="true" skin="reward_joo_btn" draw="true" updateparent="true" width="335" height="70">
 		<controls>
 			<slot name="slot" layout_gravity="left center" rect="20 0 42 42" hittest="false"/>
-			<richtext name="ItemName" rect="80 0 10 42" layout_gravity="left center" fixwidth="false" hittest="false" fontname="white_14_b_ds"/>
+			<richtext name="ItemName" rect="80 0 270 42" layout_gravity="left center" fixwidth="true" resizebytext="true" hittest="false" fontname="white_14_b_ds"/>
 		</controls>
 	</controlset>
 	<controlset name="quest_reward" hittest="false" skin="bg_test" draw="true" updateparent="true" width="500" height="70">
 		<controls>
 			<slot name="slot" layout_gravity="left center" rect="20 0 42 42" hittest="false"/>
-			<richtext name="ItemName" rect="80 0 10 42" layout_gravity="left center" fixwidth="false" hittest="false" fontname="white_14_b_ds"/>
+			<richtext name="ItemName" margin="0 0 0 0" rect="80 0 270 21" layout_gravity="left center" fixwidth="true" resizebytext="true" textalign="left center" hittest="false" fontname="white_18_b_ds"/>
 		</controls>
 	</controlset>
 	<controlset name="itemset" hittest="true" skin="bg_test" draw="true" updateparent="true" width="70" height="70">
@@ -4454,6 +4454,16 @@
 	<controlset name="itemslot_reinforce_styleset" hittest="false" width="60" height="60" hittestset="false">
 		<controls>
 			<richtext name="levelText" parent="starIcon" rect="0 0 30 20" margin="0 0 4 4" layout_gravity="right bottom" textalign="center center" format="+%s" param1="level" param1_def="0" fontname="white_14_b_ds_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="colony_payment_elem" hittest="true" width="600" height="50" skin="test_skin_01" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="bg" rect="0 0 590 50" margin="0 0 0 0" layout_gravity="center center" skin="test_frame_low" draw="false" scrollbar="false"/>
+			<richtext name="date_text" parent="bg" rect="0 0 200 30" margin="20 0 0 0" layout_gravity="left center" format="%s.%s.%s" param1="year" param2="month" param3="day" fontname="brown_16_b" spacey="0"/>
+			<richtext name="map_text" parent="bg" rect="0 0 200 30" margin="130 0 0 0" layout_gravity="left center" caption="지역" fontname="brown_16_b" spacey="0"/>
+			<picture name="reward_pic" parent="bg" rect="0 0 30 30" margin="330 0 0 0" layout_gravity="left center" image="" stretch="true"/>
+			<richtext name="reward_text" parent="bg" rect="0 0 200 30" margin="370 0 0 0" layout_gravity="left center" format="{@st42}{s20}x%s{/}" param1="value" fontname="white_16_b" spacey="0"/>
+			<button name="recv_btn" parent="bg" rect="0 0 70 40" margin="0 0 0 0" layout_gravity="right center" skin="test_red_button" caption="{@st42}{s16}받기" hittest="true" LBtnUpScp="ON_REQ_COLONY_MARKET_FEE_PAYMENT_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
 		</controls>
 	</controlset>
 </controlsetlist>

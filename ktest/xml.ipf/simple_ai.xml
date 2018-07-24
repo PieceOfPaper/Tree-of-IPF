@@ -14352,6 +14352,20 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
+    <AI Name="SCHAFFENSTAR_MEMBER_HP_RESET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+            </ToolScp>
+        </List>
+    </AI>
+    <AI Name="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON"/>
+            </ToolScp>
+        </List>
+    </AI>
 	<AI Name="SERACH_PC_TGT" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -23926,6 +23940,13 @@ return GET_RATE_MHP(self, damage) * 100"/>
 		</List>
 	</AI>
 	<AI Name="companion_pet_goro_suit" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+				<Str Str="PET_LOOP_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="companion_pet_goro_suit2" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
 				<Str Str="PET_LOOP_AI"/>

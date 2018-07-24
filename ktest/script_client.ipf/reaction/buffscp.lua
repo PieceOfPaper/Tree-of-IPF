@@ -1085,10 +1085,15 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         actor:SetAlwaysBattleState(true);
-        actor:GetAnimation():SetSTDAnim("SKL_OUTRAGE_ATK");
-        actor:GetAnimation():SetRUNAnim("SKL_OUTRAGE_MOVEATK");
-        actor:GetAnimation():SetTURNAnim("None");
-        actor:GetAnimation():PlayFixAnim("SKL_OUTRAGE_ATK", 1, 1);
+        actor:SetMovingShotAnimation("DOUBLEGUN_ATKRUN");
+        
+        actor:GetAnimation():SetTURNAnim("SKL_DOUBLEGUN_ATURN");
+        actor:GetAnimation():SetSTDAnim("SKL_DOUBLEGUN_ASTD");
+        actor:GetAnimation():SetRUNAnim("SKL_DOUBLEGUN_ARUN");
+        actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
+        actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
+--        actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_AONAIR")
+        actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
     else
         -- RunningShot_Buff
         if buffRunningShot ~= nil then

@@ -781,6 +781,10 @@ function CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket)
 	quickslot.SetInfo(slot:GetSlotIndex(), 'None', 0, '0');
 	QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
 
+	if quickslot.GetLockState() == 0 then
+		slot:EnableDrag(1);
+		slot:EnableDrop(1);
+	end
 end
 
 function INIT_QUICKSLOT_SLOT(slot, icon)
@@ -1006,13 +1010,23 @@ function QUICKSLOT_SET_LOCKSTATE(frame, isLock)
 		slot_lock:SetImage("button_lock");		
 	end
 
-	for i=1, 40 do
+	for i = 1, 40 do
 		local slotChild = GET_CHILD(frame, "slot"..i, "ui::CSlot");
-		slotChild:EnableDrop(ableDragDrop);
-		slotChild:EnableDrag(ableDragDrop);
+        if ableDragDrop == 0 then
+            slotChild:SetUserValue('PREV_DROP_VALUE', slotChild:IsEnableDrop());
+            slotChild:SetUserValue('PREV_DRAG_VALUE', slotChild:IsEnableDrag());
+		    slotChild:EnableDrop(ableDragDrop);
+		    slotChild:EnableDrag(ableDragDrop);
+        else
+            local prevDropValue = slotChild:GetUserValue('PREV_DROP_VALUE');
+            local prevDragValue = slotChild:GetUserValue('PREV_DRAG_VALUE');
+            if prevDropValue ~= 'None' and prevDragValue ~= 'None' then            	
+	            slotChild:EnableDrop(tonumber(prevDropValue));
+	            slotChild:EnableDrag(tonumber(prevDragValue));
+           	end
+        end
 		slotChild:SetFrontImage(maskImage);
 	end
-
 end
 
 function QUICKSLOT_LOCK(frame, ctrl, argStr, argNum)
@@ -1081,6 +1095,7 @@ end
 function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL_RESET_COOLDOWN(frame, msg, monName)
 	frame:SetUserValue('MON_RESET_COOLDOWN', 1);
 end
+
 function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 	local frame= ui.GetFrame("quickslotnexpbar")	
 	
@@ -1145,19 +1160,18 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 
 	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
 	for i = 1, sklCnt do
-		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i, "ui::CSlot");
-		CLEAR_SLOT_ITEM_INFO(slot);	
-		local slotString 	= 'QuickSlotExecute'..i;
-		local text 			= hotKeyTable.GetHotKeyString(slotString);
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i, "ui::CSlot");		
+		CLEAR_QUICKSLOT_SLOT(slot);
+		local slotString = 'QuickSlotExecute'..i;
+		local text = hotKeyTable.GetHotKeyString(slotString);
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
-		if 'None' ~= cate then
+		if 'None' ~= cate then        
 			SET_QUICK_SLOT(slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);
-	end
+		end
 		slot:SetUserValue('ICON_CATEGORY', 'None');
 		slot:SetUserValue('ICON_TYPE', 0);
-		SET_QUICKSLOT_OVERHEAT(slot)
-
+		SET_QUICKSLOT_OVERHEAT(slot);
 	end
 	frame:SetUserValue('SKL_MAX_CNT',0)
 end

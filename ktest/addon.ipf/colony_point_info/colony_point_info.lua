@@ -92,7 +92,7 @@ function COLONY_POINT_INFO_RESET(frame)
     end
 end
 
-function ON_UPDATE_COLONY_POINT(frame, msg, argStr, argNum)
+function ON_UPDATE_COLONY_POINT(frame, msg, argStr, argNum)     
     local curZone = GetZoneName();
     local mapCls = GetClass('Map', curZone);
     local colonyRuleCls = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
@@ -217,11 +217,18 @@ function COLONY_POINT_INFO_INIT_STYLE(frame)
 end
 
 function COLONY_POINT_INFO_INIT_TIMER(frame)
+    if session.colonywar.IsUpdatedEndTime() == false then
+        session.colonywar.RequestColonyWarEndTime()
+    end    
     local remainTimeText = GET_CHILD_RECURSIVELY(frame, 'remainTimeText');
-    remainTimeText:RunUpdateScript('COLONY_POINT_INFO_UPDATE_TIMER', 0.2);
+    remainTimeText:RunUpdateScript('COLONY_POINT_INFO_UPDATE_TIMER', 0.5);
 end
 
 function COLONY_POINT_INFO_UPDATE_TIMER(remainTimeText)
+    if session.colonywar.IsUpdatedEndTime() == false then
+        session.colonywar.RequestColonyWarEndTime()
+        return 1
+    end    
     local endTime = session.colonywar.GetEndTime();
     local remainTime = -1 * imcTime.GetDiffSecFromNow(endTime.wHour, endTime.wMinute, 0);
     if remainTime <= 0 then

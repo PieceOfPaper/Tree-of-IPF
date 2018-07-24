@@ -922,7 +922,7 @@ function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc)
 	ctrlSet:SetSelectGroupName("QuestRewardList");
 	SET_ITEM_TOOLTIP_BY_TYPE(ctrlSet, itemCls.ClassID);
 
-	ctrlSet:Resize(box:GetWidth() - 20, ctrlSet:GetHeight());
+	ctrlSet:Resize(box:GetWidth() - 30, ctrlSet:GetHeight());
 
 	y = y + ctrlSet:GetHeight();
 	return y;

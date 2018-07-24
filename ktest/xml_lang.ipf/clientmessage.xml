@@ -237,6 +237,7 @@
 		<Class ClassID="2256" ClassName="PleaseRegisterBriquettingLook" Data="외형 추출할 무기를 올려주세요."/>
 		<Class ClassID="2257" ClassName="CannotLock{UI}VisibleState" Data="{UI} UI가 열려 있는 상태에서는 잠금을 시도할 수 없습니다."/>
 		<Class ClassID="2258" ClassName="EnchantedItemForBriquetting" Data="{@st66d_y}강화{/} 및 {@st66d_y}초월{/}된 아이템입니다.{nl}정말 무기 외형 변환을 위해 사용하시겠습니까?"/>
+		<Class ClassID="2259" ClassName="ItemSellFailPlzReconnect" Data="아이템 판매에 실패했습니다. 다시 시도하려면 재접속해주세요."/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -6126,6 +6127,7 @@
 		<Class ClassID="50954" ClassName="NICOPOLIS_812_SUBQ5_ITEM1_FIND_BUTTON3" Data="냄새를 맡아본다"/>
 		<Class ClassID="50955" ClassName="GM_WHITETREES_ITEM1_MSG3" Data="자루더미 1개를 사용해{nl}회심의 일발을 장전시킬 수 있습니다"/>
 		<Class ClassID="50956" ClassName="NICO812_SUB5_OBJ_SERACH3" Data="주변을 수색 중"/>
+		<Class ClassID="50965" ClassName="CHATHEDRAL56_MQ03_ITEM_COMPANION_NOT" Data="컴패니언 탑승 중에는 아이템을 사용할 수 없습니다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>
@@ -12333,6 +12335,9 @@
 		<Class ClassID="801058" ClassName="COLONY_ROOTCRYSTAL_NAME_2" Data="나무뿌리 수정(재생)"/>
 		<Class ClassID="801059" ClassName="COLONY_ROOTCRYSTAL_NAME_3" Data="나무뿌리 수정(공격)"/>
 		<Class ClassID="801060" ClassName="COLONY_ROOTCRYSTAL_NAME_4" Data="나무뿌리 수정(방어)"/>
+		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
+		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
+		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>

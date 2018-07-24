@@ -1676,6 +1676,10 @@ function INDUNENTER_UNDERSTAFF_BTN_ENABLE(frame, enable)
     understaffEnterAllowBtn:SetEnable(enable);
     smallUnderstaffEnterAllowBtn:SetEnable(enable);
 
+    if enable == 1 then
+        understaffEnterAllowBtn:ShowWindow(1);
+    end
+
     local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
     if understaffEnterAllowBtn:IsVisible() == 1 then
         reEnterBtn:ShowWindow(0);

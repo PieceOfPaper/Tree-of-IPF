@@ -91,7 +91,9 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 	end
 
 	local itemObj = GetIES(invItem:GetObject());	
-	if false == IS_EQUIP(itemObj) then
+	
+	local lifeTime = TryGetProp(itemObj, 'LifeTime', 0)
+	if false == IS_EQUIP(itemObj) or lifeTime > 0 then
 		ui.SysMsg(ClMsg("WrongDropItem"));
 		return;
 	end

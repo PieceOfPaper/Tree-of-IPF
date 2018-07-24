@@ -16543,15 +16543,12 @@ function SCR_GET_FreezeBullet_BuffTime(skill)
 end
 
 function SCR_GET_OverReinforce_BuffTime(skill)
-    local value = 20
-    local lv = skill.Level
-    if skill ~= nil then
-        value = value + (lv * 5)
-    end
+    local value = 45
+
     local pc = GetSkillOwner(skill)
     local abil = GetAbility(pc, 'Enchanter5')
     if abil ~= nil and abil.ActiveState == 1 then
-        value = value + (abil.Level * 1)
+        value = value + (abil.Level * 3)
     end
     
     return value

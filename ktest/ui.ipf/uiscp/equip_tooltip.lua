@@ -232,7 +232,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	local fullname = GET_FULL_NAME(invitem, true, isEquipedItem);
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
-	nameChild:AdjustFontSizeByWidth(gBox:GetWidth());		-- 폰트 사이즈를 조정
+	nameChild:AdjustFontSizeByWidth(nameChild:GetWidth());		-- 폰트 사이즈를 조정
 	nameChild:SetTextAlign("center","center");				-- 중앙 정렬
 	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+equipCommonCSet:GetHeight())
@@ -379,7 +379,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframenam
 	local fullname = GET_FULL_NAME(invitem, true, isEquipedItem);
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
-	nameChild:AdjustFontSizeByWidth(gBox:GetWidth());		-- 폰트 사이즈를 조정
+	nameChild:AdjustFontSizeByWidth(nameChild:GetWidth());		-- 폰트 사이즈를 조정
 	nameChild:SetTextAlign("center","center");				-- 중앙 정렬
 	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight()+equipCommonCSet:GetHeight())
