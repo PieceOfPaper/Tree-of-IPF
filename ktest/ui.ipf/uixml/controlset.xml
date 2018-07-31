@@ -2469,7 +2469,7 @@
 			<button name="button_report" margin="913 0 0 0" rect="10 7 80 50" sharedConst="USE_MARKET_REPORT/1" layout_gravity="left top" skin="test_red_button" caption="{@st41}신고{/}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_default" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_default" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<controls>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 230 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" param1_def="Name"/>
@@ -2490,7 +2490,7 @@
 			<button name="reportBtn" margin="0 0 5 0" rect="0 0 49 49" layout_gravity="right center" sharedConst="USE_MARKET_REPORT/1" skin="test_pvp_btn" caption="{img market_etc_pic 25 25}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_equip" toggle="false" hittest="true" width="1067" height="110" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_equip" toggle="false" hittest="true" width="1067" height="110" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<userconfig ATKDEF_IMAGE_SIZE="16" SOCKET_IMAGE_RED="{img market_zem_3 12 12}" SOCKET_IMAGE_BLUE="{img market_zem_7 12 12}" SOCKET_IMAGE_GREEN="{img market_zem_6 12 12}" SOCKET_IMAGE_YELLOW="{img market_zem_5 12 12}" SOCKET_IMAGE_WHITE="{img market_zem_4 12 12}" SOCKET_IMAGE_MONSTER="{img market_zem_8 12 12}" SOCKET_IMAGE_EMPTY="{img market_zem_2 12 12}" SOCKET_IMAGE_UNREVEAL="{img market_zem_1 12 12}"/>
 		<controls>
 			<groupbox name="gbox2" rect="0 0 1067 110" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false" slideshow="false" resizebyparent="false"/>
@@ -2519,7 +2519,7 @@
 			<button name="reportBtn" margin="0 9 5 0" rect="0 0 49 49" layout_gravity="right top" sharedConst="USE_MARKET_REPORT/1" skin="test_pvp_btn" caption="{img market_etc_pic 25 25}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_recipe" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_recipe" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<controls>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 270 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" param1_def="Name"/>
@@ -2541,7 +2541,7 @@
 			<button name="reportBtn" margin="0 0 5 0" rect="0 0 49 49" layout_gravity="right center" sharedConst="USE_MARKET_REPORT/1" skin="test_pvp_btn" caption="{img market_etc_pic 25 25}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_accessory" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_accessory" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<controls>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 270 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="false" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" param1_def="Name"/>
@@ -2555,7 +2555,7 @@
 			<button name="reportBtn" margin="0 0 5 0" rect="0 0 49 49" layout_gravity="right center" sharedConst="USE_MARKET_REPORT/1" skin="test_pvp_btn" caption="{img market_etc_pic 25 25}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_gem" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_gem" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<controls>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 270 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" param1_def="Name"/>
@@ -2570,7 +2570,7 @@
 			<button name="reportBtn" margin="0 0 5 0" rect="0 0 49 49" layout_gravity="right center" sharedConst="USE_MARKET_REPORT/1" skin="test_pvp_btn" caption="{img market_etc_pic 25 25}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_card" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_card" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<controls>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 230 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="false" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" omitbywidth="true" param1_def="Name"/>
@@ -2585,7 +2585,7 @@
 			<button name="reportBtn" margin="0 0 5 0" rect="0 0 49 49" layout_gravity="right center" sharedConst="USE_MARKET_REPORT/1" skin="test_pvp_btn" caption="{img market_etc_pic 25 25}" LBtnUpScp="REPORT_MARKET_ITEM" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" oversound="button_cursor_over_3" clicksound="button_click_big" texttooltip="증여 거래로 의심되는 아이템을 신고합니다."/>
 		</controls>
 	</controlset>
-	<controlset name="market_item_detail_exporb" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" hittestset="false">
+	<controlset name="market_item_detail_exporb" toggle="false" hittest="true" width="1067" height="66" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<controls>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="70 0 0 0" rect="0 0 270 15" hittest="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixheight="false" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" format="%s" param1="value" param1_def="Name"/>
@@ -4391,9 +4391,10 @@
 		</controls>
 	</controlset>
 	<controlset name="pcbang_shop_point_product" hittest="true" width="286" height="340">
+		<userconfig NAME_WIDTH="265"/>
 		<controls>
 			<groupbox name="gb" rect="0 0 286 340" margin="0 0 0 0" layout_gravity="center center" skin="test_skin_01_btn" draw="true" resizebyparent="true" scrollbar="false"/>
-			<richtext name="name_text" parent="gb" rect="0 0 260 15" margin="0 15 0 0" layout_gravity="center top" textalign="center center" caption="item name" fontname="black_18_b" fixwidth="true" omitbywidth="true"/>
+			<richtext name="name_text" parent="gb" rect="0 0 260 15" margin="0 15 0 0" layout_gravity="center top" textalign="left center" caption="item name" fontname="black_18_b" fixwidth="false" omitbywidth="false"/>
 			<labelline name="labelline14" parent="gb" margin="0 45 0 0" rect="0 0 265 6" skin="none" layout_gravity="center top"/>
 			<picture name="item_pic" parent="gb" rect="0 0 140 140" margin="0 65 0 0" layout_gravity="center top" stretch="true" image="None"/>
 			<groupbox name="price_gb" rect="0 0 260 30" margin="0 0 0 95" layout_gravity="center bottom" skin="categoryselect_skin" draw="true" resizebyparent="true" scrollbar="false"/>

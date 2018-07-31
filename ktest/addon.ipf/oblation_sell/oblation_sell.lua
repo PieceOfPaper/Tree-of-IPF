@@ -122,9 +122,15 @@ function GET_SLOT_OBLATION_SELL_PRICE(slot)
 	if invItem == nil then
 		return 0;
 	end
+	local itemCls = GetIES(invItem:GetObject());
 
 	local iconInfo = slot:GetIcon():GetInfo();
-	local slotCount = iconInfo.count;
+	local slotCount = 0;
+	if itemCls.MaxStack > 1 then
+		slotCount = iconInfo.count;
+	else
+		slotCount = 1;	
+	end
 	local itemCls = GetIES(invItem:GetObject());
 	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
 	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());
@@ -171,7 +177,13 @@ function _OBLATION_SELL_EXEC()
 		local slotItem = GET_SLOT_ITEM(slot);
 		if slotItem ~= nil then
 			local iconInfo = slot:GetIcon():GetInfo();
+			local slotItemCls = GetIES(slotItem:GetObject());
+
+			if slotItemCls.MaxStack > 1 then
 			session.AddItemID(iconInfo:GetIESID(), iconInfo.count);
+			else
+				session.AddItemID(iconInfo:GetIESID(), 1);
+			end
 		end
 	end
 

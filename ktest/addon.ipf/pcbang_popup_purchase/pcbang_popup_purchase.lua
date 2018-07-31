@@ -29,7 +29,13 @@ function PCBANG_POPUP_PURCHASE_OPEN(productClsID)
         return;
     end
 
-    item_name:SetText(cls.Name);
+    local namestr = cls.Name;
+    if info.itemCount > 1 then
+        local countstr = "("..ScpArgMsg("Count{n}", "n", info.itemCount)..")"
+        namestr = namestr .. countstr;
+    end
+    item_name:SetText(namestr);
+    item_name:AdjustFontSizeByWidth(frame:GetWidth());
     item_pic:SetImage(cls.Icon);
 
     local bought, buylimit = GET_PCBANG_SHOP_POINTSHOP_BUY_LIMIT(info)

@@ -5217,6 +5217,14 @@
 			<img name="barmiddle" imgrect="234 284 104 26"/>
 			<img name="barright" imgrect="345 257 1 26"/>
 		</skin>
+		<skin name="pcbang_point_gauge_max" texture="\skin\pip_test2.tga">
+			<img name="bgleft" imgrect="240 257 1 26"/>
+			<img name="bgmiddle" imgrect="241 257 104 26"/>
+			<img name="bgright" imgrect="345 257 1 26"/>
+			<img name="barleft" imgrect="240 257 1 26"/>
+			<img name="barmiddle" imgrect="339 284 104 26"/>
+			<img name="barright" imgrect="345 257 1 26"/>
+		</skin>
 		<skin name="pcbang_point_gauge_L" texture="\skin\pip_test2.tga">
 			<img name="bgleft" imgrect="8 476 1 36"/>
 			<img name="bgmiddle" imgrect="9 476 796 36"/>
@@ -6081,7 +6089,7 @@
 		<image name="pcbang_rental_shop_badge_10" file="\skin\pip_test2.tga" imgrect="606 76 76 76" CMM_Caption="피시방 대여 휘장아이콘10"/>
 		<image name="pcbang_point_icon" file="\skin\pip_test2.tga" imgrect="763 0 38 30" CMM_Caption="피시방 포인트 아이콘"/>
 		<image name="pcbang_point_gauge_s_left" file="\skin\pip_test2.tga" imgrect="234 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 좌"/>
-		<image name="pcbang_point_gauge_s_right" file="\skin\pip_test2.tga" imgrect="346 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 오"/>
+		<image name="pcbang_point_gauge_s_right" file="\skin\pip_test2.tga" imgrect="346 257 6 26" CMM_Caption="피시방 포인트게이지 : 소 우"/>
 		<image name="pcbang_point_gauge_L_left" file="\skin\pip_test2.tga" imgrect="0 476 8 36" CMM_Caption="피시방 포인트게이지 : 대 좌"/>
 		<image name="pcbang_point_gauge_L_right" file="\skin\pip_test2.tga" imgrect="806 476 8 36" CMM_Caption="피시방 포인트게이지 : 대 우"/>
 		<image name="frame_classguide_l" file="\skin\mainframe_07.tga" imgrect="0 903 188 35" CMM_Caption="클래스 가이드 프레임 좌"/>

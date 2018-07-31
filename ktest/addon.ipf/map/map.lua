@@ -20,6 +20,7 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'FIRST_UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MAP');
+	addon:RegisterOpenOnlyMsg('NOTICE_Dm_quest_complete', 'UPDATE_MAP');
 	addon:RegisterMsg('REVEAL_ALL', 'UPDATE_MAP');
 
 	-- addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
@@ -159,10 +160,14 @@ function MAKE_MAP_AREA_INFO(frame, mapClassName, font, mapWidth, mapHeight, offs
 			if offsetY == nil then
 				offsetY = m_offsetY - 30;
 			end
-
-			local mapPos = info.GetPositionInMap(centerX, centerY, centerZ, mapWidth, mapHeight);
-			mapPos.x = mapPos.x - 100;
-			mapPos.y = mapPos.y - 30
+			local mapPos = info.GetPositionInMap(centerX, centerY, centerZ, mapWidth, mapHeight, mapClassName);
+			if frame:GetName() == "textGbox" then
+				mapPos.x = mapPos.x - 100
+				mapPos.y = mapPos.y - 30
+			else
+				mapPos.x = mapPos.x + offsetX
+				mapPos.y = mapPos.y + offsetY
+			end
 
 			local areaNameCtrlSet = frame:CreateOrGetControlSet('mapAreaName', 'MAP_AREA_'.. cls.ClassName, mapPos.x, mapPos.y);
 			local nameRechText = GET_CHILD_RECURSIVELY(areaNameCtrlSet, "areaname", "ui::CRichText");
@@ -372,6 +377,8 @@ end
 function UPDATE_MAP(frame)
 
 	local curmapname = session.GetMapName()
+	--DESTORY_MAP_PIC(frame);
+
 	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD_RECURSIVELY(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
 

@@ -11,7 +11,7 @@
 	<controls>
 		<groupbox name="background" rect="0 0 180 100" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="false" scrollbar="false" image="pcbang_timer_bg"/>
 		<richtext name="title" parent="background" rect="0 0 200 30" margin="-12 11 0 0" layout_gravity="center top" caption="{ds}{b}{#ffefd6}30분:{#fe7e00}100 POINT" fontname="white_14_ol" spacey="0"/>
-		<gauge name="time_gauge" parent="background" rect="0 0 104 26" margin="0 30 39 0" layout_gravity="right top" inverse="false" point="0" maxpoint="1" text1="{ds}{b}%p%" textfont1="white_14_ol" textalign1="center center" skin="pcbang_point_gauge_s"/>
+		<gauge name="time_gauge" parent="background" rect="0 0 104 26" margin="0 30 39 0" layout_gravity="right top" inverse="false" point="0" maxpoint="1" text1="{ds}{b}%p%" textfont1="white_14_ol" textalign1="center center" text2="{ds}{b}MAX" textfont2="white_14_ol" textalign2="center center" skin="pcbang_point_gauge_s"/>
 		<picture name="clock_pic" parent="background" rect="0 0 27 27" margin="8 30 0 0" layout_gravity="left top" image="pcbang_clock_icon_s" stretch="true"/>
 		<picture name="gauge_pic_L" parent="background" rect="0 0 6 26" margin="32 30 0 0" layout_gravity="left top" image="pcbang_point_gauge_s_left" stretch="true"/>
 		<picture name="gauge_pic_R" parent="background" rect="0 0 6 26" margin="0 30 34 0" layout_gravity="right top" image="pcbang_point_gauge_s_right" stretch="true"/>

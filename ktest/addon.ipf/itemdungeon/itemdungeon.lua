@@ -153,7 +153,7 @@ function EXEC_ITEM_DUNGEON(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local titleInput = GET_CHILD_RECURSIVELY(frame, 'titleInput');	
 	if titleInput:GetText() == nil or titleInput:GetText() == '' then
-		ui.SysMsg(ClMsg('InputTitlePlease'));
+		ui.MsgBox(ClMsg('InputTitlePlease'));
 		return;
 	end
 

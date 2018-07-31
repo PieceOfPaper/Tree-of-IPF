@@ -551,34 +551,37 @@ function GET_MON_ILLUST(monCls)
 end
 
 function SET_SPINE_TOOLTIP_IMAGE(picture, itemCls)
+	local isEnableSpine = config.GetXMLConfig("EnableAnimateItemIllustration");
+
 	local isSpinePicture = false;
-	local spineToolTip = TryGetProp(itemCls, "SpineTooltipImage");
-	if spineToolTip ~= nil and spineToolTip ~= "None" then
-		local spineInfo = geSpine.GetSpineInfo(spineToolTip);
-		if spineInfo ~= nil then
-			picture:SetScaleFactor(spineInfo:GetScaleFactor());
-			picture:SetOffsetX(spineInfo:GetOffsetX());
-			picture:SetOffsetY(spineInfo:GetOffsetY());
-			picture:CreateSpineActor(spineInfo:GetRoot(), spineInfo:GetAtlas(), spineInfo:GetJson(), "", spineInfo:GetAnimation());
+	if isEnableSpine == 1 then
+		local spineToolTip = TryGetProp(itemCls, "SpineTooltipImage");
+		if spineToolTip ~= nil and spineToolTip ~= "None" then
+			local spineInfo = geSpine.GetSpineInfo(spineToolTip);
+			if spineInfo ~= nil then
+				picture:SetScaleFactor(spineInfo:GetScaleFactor());
+				picture:SetOffsetX(spineInfo:GetOffsetX());
+				picture:SetOffsetY(spineInfo:GetOffsetY());
+				picture:CreateSpineActor(spineInfo:GetRoot(), spineInfo:GetAtlas(), spineInfo:GetJson(), "", spineInfo:GetAnimation());
 
-			local effectCount = spineInfo:GetEffectCount();
-			for i = 0, effectCount - 1 do
-				local effect = spineInfo:GetEffect(i);
-				if effect ~= nil then
-					local isOverlab = false;
-					if effect:GetOverlab() == "Yes" then
-						isOverlab = true;
+				local effectCount = spineInfo:GetEffectCount();
+				for i = 0, effectCount - 1 do
+					local effect = spineInfo:GetEffect(i);
+					if effect ~= nil then
+						local isOverlab = false;
+						if effect:GetOverlab() == "Yes" then
+							isOverlab = true;
+						end
+						picture:PlayEffectByBone(effect:GetCondition(), effect:GetAttachBoneName(), effect:GetEffectName(), effect:GetScale(), effect:GetSound(), effect:GetPlayTime(), effect:GetDuration(), effect:GetOffsetX(), effect:GetOffsetY(), effect:GetEvent(), "", isOverlab);
 					end
-					picture:PlayEffectByBone(effect:GetCondition(), effect:GetAttachBoneName(), effect:GetEffectName(), effect:GetScale(), effect:GetSound(), effect:GetPlayTime(), effect:GetDuration(), effect:GetOffsetX(), effect:GetOffsetY(), effect:GetEvent(), "", isOverlab);
 				end
-			end
 
-			isSpinePicture = true;
+				isSpinePicture = true;
+			end
 		end
 	end
 
 	if isSpinePicture == false then
 		picture:SetImage(TryGetProp(itemCls, "TooltipImage"));
 	end
-	--picture:PlayActiveUIEffect();
 end

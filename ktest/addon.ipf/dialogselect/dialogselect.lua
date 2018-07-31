@@ -265,8 +265,11 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         numberEdit:AcquireFocus();
         frame:Resize(400, 100);
         DialogSelect_Type = 2;
-        frame:SetOffset(frame:GetX(),math.floor(ui.GetSceneHeight()*0.7))
-        
+        local offset_y = 700
+        if option.GetClientHeight() < 800 then
+            offset_y = math.floor(option.GetClientHeight() * 0.9)
+        end
+        frame:SetOffset(frame:GetX(), offset_y)		
         local questreward = frame:GetChild('questreward');
         if questreward ~= nil then
             questreward:ShowWindow(0)
@@ -283,8 +286,8 @@ function DIALOGSELECT_ON_MSG(frame, msg, argStr, argNum)
         if questRewardBox ~= nil then
             argNum = argNum - 1;
             
-            -- questreward가 ?�는 경우, DIALOGSELECT_ITEM_ADD ?�수?�서 버튼??layout_gravity가 ui.TOP?�로 바뀌면??
-            -- GET_SCRREN_XY??반환 값에 questreward가 반영?�어 계산??
+            -- questreward가 ?�는 경우, DIALOGSELECT_ITEM_ADD ?�수?�서 버튼??layout_gravity가 ui.TOP?�로 바뀌면??
+            -- GET_SCRREN_XY??반환 값에 questreward가 반영?�어 계산??
             y = y - questRewardBox:GetY();
         end
         DialogSelect_count = argNum;

@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="loginui_title" x="0" y="0" width="6000" height="3000">
 	<frame title="로그인타이틀" margin="0 0 0 0" layout_gravity="center center"/>
 	<layer layerlevel="10"/>
@@ -8,7 +8,9 @@
 	<script fadeinScp="None" fadeoutScp="None"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>
-		<picture name="login_img" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_img" stretch="false">
+		<picture name="bgbg" rect="0 0 6000 3000" margin="0 0 0 0" layout_gravity="center center" image="bg_w" stretch="true"/>
+		<picture name="login_img" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="login_img" stretch="false"/>
+		<picture name="login_dummy" rect="0 0 1920 1080" margin="0 0 0 0 " layout_gravity="center center" image="None" stretch="false">
 			<uieffect effect="_bg_house_light" scale="0" sound="None" offset="0 0" playtime="10" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo013" scale="8" sound="None" offset="60 -460" playtime="2" duration="0" conditon="Always" event="None"/>
 			<uieffect effect="I_screen_logo002_violet" scale="15" sound="None" offset="275 -415" playtime="2" duration="0" conditon="Always" event="None"/>

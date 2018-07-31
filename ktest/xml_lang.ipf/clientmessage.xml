@@ -1344,6 +1344,7 @@
 		<Class ClassID="21303" ClassName="PCBangExceedBuyLimitCount" Data="구매 제한 횟수를 초과합니다."/>
 		<Class ClassID="21304" ClassName="PCBangRentalDisabledPutWareHouse" Data="창고에 보관할 수 없는 아이템입니다."/>
 		<Class ClassID="21305" ClassName="PCBangRentalAlreadyReceived" Data="이미 대여중인 아이템입니다."/>
+		<Class ClassID="21306" ClassName="Count{n}" Data="{n}개"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4842,6 +4843,7 @@
 		<Class ClassID="28101" ClassName="EVENT_1807_RANK_MSG2" Data="교환한다({COUNT} / 2)"/>
 		<Class ClassID="28102" ClassName="EVENT_1807_RANK_MSG3" Data="{MONTH}월 {DAY}일 출석 체크!{nl}누적 : {COUNT}일차"/>
 		<Class ClassID="28103" ClassName="EVENT_1807_RANK_MSG4" Data="{DAYCOUNT}일차 출석 보상({ITEM})"/>
+		<Class ClassID="28104" ClassName="EVENT_1807_RANK_MSG5" Data="HP, SP 회복의 엘릭서 10"/>
 		<Class ClassID="28110" ClassName="EVENT_1807_HOTTIME_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}' {COUNT}개를 획득하셨습니다"/>
 		<Class ClassID="28111" ClassName="EVENT_1807_HOTTIME_MSG2" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 {COUNT} 실버를 획득하셨습니다"/>
 		<Class ClassID="28115" ClassName="QUEST_ABANDONMENT_MSG1" Data="연출 영상 중에는 퀘스트를 포기하실 수 없습니다"/>

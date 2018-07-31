@@ -7738,7 +7738,7 @@ return buffTime"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Matador_CorridaFinale" CheckerType="0" Dist="95.283997" Angle="1.4082489" Range="60" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Matador_CorridaFinale" CheckerType="0" Dist="95.283997" Angle="1.4082489" Range="70" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="15"/>
@@ -7752,13 +7752,13 @@ return buffTime"/>
                 <Pos Angle="0" Dist="3.8759516e-36"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
-            </ToolScp>
+                </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_smoke039" Arg="1"/>
                 <Pos Angle="0" Dist="3.8759516e-36"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
-            </ToolScp>
+                </ToolScp>
             <ToolScp Scp="C_SHOCKWAVE_PAD" Client="YES" UseSleep="NO">
                 <Num Num="5"/>
                 <Num Num="3"/>
@@ -7770,10 +7770,10 @@ return buffTime"/>
             <ToolScp Scp="MONSKL_PAD_FRONT_MSL_PAD" Client="NO" UseSleep="YES">
                 <Pos Angle="0" Dist="0"/>
                 <Str Str="Matador_CorridaFinale_Abil"/>
-                <Num Num="300"/>
+                <Num Num="400"/>
                 <Num Num="1"/>
-                <Num Num="10"/>
                 <Num Num="100"/>
+                <Num Num="200"/>
                 <Num Num="0"/>
                 <Str Str="Matador15"/>
             </ToolScp>
@@ -7785,14 +7785,8 @@ return buffTime"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Scp="PAD_TGT_KNOCKDOWN" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Str Str="KB"/>
-                <Num Num="300"/>
-                <Num Num="10"/>
-                <Num Num="10"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CORRIDA_KNOCKBACK"/>
             </ToolScp>
         </enterEvent>
         <updateEvent>
@@ -7800,18 +7794,9 @@ return buffTime"/>
                 <Num Num="-300"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str_Arg Str="None" Arg="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="None"/>
-            </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Matador_CorridaFinale_Abil" CheckerType="0" Range="50" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Matador_CorridaFinale_Abil" CheckerType="0" Dist="498.98819" Angle="1.551312" Range="70" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="15"/>
@@ -7827,16 +7812,21 @@ return buffTime"/>
                 <Pos Angle="0" Dist="3.8759516e-36"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="I_smoke039" Arg="1"/>
                 <Pos Angle="0" Dist="3.8759516e-36"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="5000"/>
                 <Num Num="1"/>
+            </ToolScp>
+        <ToolScp Scp="PAD_PLAYSOUND" Client="NO" UseSleep="NO">
+                <Str Str="skl_eff_matador_corridafinale_2"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
@@ -7846,26 +7836,11 @@ return buffTime"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>
-            <ToolScp Scp="PAD_TGT_KNOCKDOWN" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Str Str="KB"/>
-                <Num Num="300"/>
-                <Num Num="10"/>
-                <Num Num="10"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
+            <ToolScp Scp="PAD_TGT_SCRIPT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_CORRIDA_KNOCKBACK"/>
             </ToolScp>
         </enterEvent>
         <updateEvent>
-            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str_Arg Str="None" Arg="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="None"/>
-            </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-300"/>
                 <Num Num="0"/>

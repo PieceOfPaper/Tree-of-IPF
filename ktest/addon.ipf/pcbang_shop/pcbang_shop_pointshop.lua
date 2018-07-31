@@ -1,4 +1,17 @@
 
+function PCBANG_SHOP_POINTSHOP_GET_CATEGORY_ITEM_LIST(group)
+    local infoCnt = session.pcBang.GetSellingListCount();
+    local groupItems = {}
+    
+    for i = 0, infoCnt - 1 do 
+        local info = session.pcBang.GetSellingItem(i);
+        if info:GetGroupStr() == group then
+            groupItems[#groupItems + 1] = i;
+        end
+    end
+    return groupItems;
+end
+
 function PCBANG_SHOP_POINTSHOP_MAKE_LIST(frame, group)
     local constants = {};
     constants["width"] = frame:GetUserConfig("POINTSHOP_PRODUCT_WIDTH");
@@ -9,17 +22,12 @@ function PCBANG_SHOP_POINTSHOP_MAKE_LIST(frame, group)
     products_gb:RemoveAllChild();
 
     local infoCnt = session.pcBang.GetSellingListCount();
-    local groupItems = {}
+    local groupItems = PCBANG_SHOP_POINTSHOP_GET_CATEGORY_ITEM_LIST(group);
     
-    for i = 0, infoCnt - 1 do 
-        local info = session.pcBang.GetSellingItem(i);
-        if info:GetGroupStr() == group then
-            groupItems[#groupItems + 1] = i;
+    if #groupItems > 0 then
+        for i = 1, #groupItems do
+            PCBANG_SHOP_POINTSHOP_MAKE_PRODUCT(products_gb, constants, i-1, groupItems[i]);
         end
-    end
-    
-    for i = 1, #groupItems do
-        PCBANG_SHOP_POINTSHOP_MAKE_PRODUCT(products_gb, constants, i-1, groupItems[i]);
     end
 end
 
@@ -27,7 +35,10 @@ function PCBANG_SHOP_POINTSHOP_MAKE_PRODUCT(products_gb, constants, positionInde
     local x = (positionIndex % constants["divisor"]) * constants["width"];
     local y = math.floor(positionIndex / constants["divisor"]) * constants["height"];
     local ctrl = products_gb:CreateOrGetControlSet('pcbang_shop_point_product', 'point_product_' .. positionIndex, x, y);
+    AUTO_CAST(ctrl);
     local ctrlgb = GET_CHILD(ctrl, "gb");
+    local name_width = ctrl:GetUserConfig("NAME_WIDTH");
+    name_width = tonumber(name_width)
 
     local info = session.pcBang.GetSellingItem(productIndex);
     if info == nil then
@@ -44,7 +55,13 @@ function PCBANG_SHOP_POINTSHOP_MAKE_PRODUCT(products_gb, constants, positionInde
     end
     
     local name_text = GET_CHILD(ctrlgb, "name_text");
-    name_text:SetText(cls.Name);
+    local namestr = cls.Name;
+    if info.itemCount > 1 then
+        local countstr = "("..ScpArgMsg("Count{n}", "n", info.itemCount)..")"
+        namestr = namestr .. countstr;
+    end
+    name_text:SetText(namestr);
+    name_text:AdjustFontSizeByWidth(name_width);
     
     local item_pic = GET_CHILD(ctrlgb, "item_pic");
     item_pic:SetImage(cls.Icon)
@@ -92,11 +109,33 @@ function ON_PCBANG_SHOP_POINTSHOP_PURCHASE_BTN(parent, btn, argstr, productClsID
 end
 
 function ON_UPDATE_PCBANG_SHOP_POINTSHOP_LIST(frame, msg, argstr, argnum)
+    local pointshop_category_common_btn = GET_CHILD_RECURSIVELY(frame, "pointshop_category_common_btn");
+    local y = pointshop_category_common_btn:GetOriginalY();
+    y = PCBANG_SHOP_POINTSHOP_UPDATE_CATEGORY_BTN(frame, "Common", "pointshop_category_common_btn", y);
+    y = PCBANG_SHOP_POINTSHOP_UPDATE_CATEGORY_BTN(frame, "Rotation", "pointshop_category_rotation_btn", y);
+    y = PCBANG_SHOP_POINTSHOP_UPDATE_CATEGORY_BTN(frame, "Event", "pointshop_category_event_btn", y);
     PCBANG_SHOP_POINTSHOP_MAKE_LIST(frame, PCBANG_SHOP_TABLE["POINTSHOP_CATEGORY"]);
 end
 
 function ON_UPDATE_PCBANG_SHOP_POINTSHOP_BUY_COUNT(frame, msg, argstr, argnum)
     PCBANG_SHOP_POINTSHOP_MAKE_LIST(frame, PCBANG_SHOP_TABLE["POINTSHOP_CATEGORY"]);
+end
+
+function PCBANG_SHOP_POINTSHOP_UPDATE_CATEGORY_BTN(frame, category, btnname, y)
+    local height = frame:GetUserConfig("POINTSHOP_CATEGORY_HEIGHT")
+    height = tonumber(height);
+    local pointshop_category_gb = GET_CHILD_RECURSIVELY(frame, "pointshop_category_gb");
+    local btn = GET_CHILD(pointshop_category_gb, btnname);
+
+    local groupItems = PCBANG_SHOP_POINTSHOP_GET_CATEGORY_ITEM_LIST(category)
+    if #groupItems > 0 then
+        btn:SetVisible(1);
+        btn:SetOffset(btn:GetOriginalX(), y)
+        return y + tonumber(height);
+    else
+        btn:SetVisible(0);
+        return y;
+    end
 end
 
 function ON_PCBANG_SHOP_POINTSHOP_CATEGORY_BTN(parent, ctrl, argstr, argnum)

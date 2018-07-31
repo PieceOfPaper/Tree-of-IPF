@@ -1057,10 +1057,10 @@ function SCR_ABIL_PELTASTA5_ACTIVE(self, ability)
     Invalidate(self, "MaxHateCount");
 end
 
-function SCR_ABIL_PELTASTA_INACTIVE(self, ability)
+function SCR_ABIL_PELTASTA5_INACTIVE(self, ability)
     
-    local addValue = GetExProp(ability, "ADD_MaxHateCount");  
+    local addValue = GetExProp(ability, "ADD_MaxHateCount");
     self.MaxHateCount_BM = self.MaxHateCount_BM - addValue;
-
+	
     Invalidate(self, "MaxHateCount");
 end

@@ -15818,7 +15818,7 @@ function SCR_Get_SkillFactor_InfiniteAssault(skill)
 end
 
 function SCR_GET_InfiniteAssault_Ratio(skill)
-    local value = 8
+    local value = 12
     return math.floor(value)
 end
 

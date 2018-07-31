@@ -1497,8 +1497,8 @@ function SCR_Get_CRTDR(self)
         byBuff = 0;
     end
     
-    value = value * byItemRareOption + byBuff;
-    
+    value = value + byItemRareOption + byBuff;
+	
     return math.floor(value);
 end
 

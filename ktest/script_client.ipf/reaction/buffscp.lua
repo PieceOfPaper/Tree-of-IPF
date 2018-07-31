@@ -1162,6 +1162,6 @@ function DaggerGuard_ENTER(actor, obj, buff)
     actor:GetAnimation():SetGuardAnim("SKL_DAGGERGUARD");
 end
 
-function DaggerGuard_ENTER(actor, obj, buff)
+function DaggerGuard_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetGuardAnim();
 end

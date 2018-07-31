@@ -11,12 +11,7 @@ end
 
 function GET_COLONY_WAR_DAY_OF_WEEK()
     local dayOfWeek = 0
-    dayOfWeek = GetColonyDayOfWeek();    
-    if dayOfWeek ~= nil then
-        if dayOfWeek ~= -1 then
-            dayOfWeek = dayOfWeek - 1
-        end
-    end
+    dayOfWeek = GetColonyDayOfWeek();
     return dayOfWeek;
 end
 

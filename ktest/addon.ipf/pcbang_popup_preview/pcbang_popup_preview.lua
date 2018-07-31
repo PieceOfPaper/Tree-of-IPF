@@ -70,7 +70,12 @@ function SET_PCBANG_POPUP_PREVIEW_SILHOUETTE(frame, itemID, rotDir)
     local actor = GetMyActor();
     local apc = actor:GetPCApc();
     apc = pcSession:GetPCDummyApcFromApc(apc)
-    
+
+    local headIndex = {}
+    headIndex[1] = BEAUTYSHOP_GET_HEADINDEX(1, "HAIR_M_103", "default" )
+    headIndex[2] = BEAUTYSHOP_GET_HEADINDEX(2, "HAIR_F_103", "default" )
+    headIndex[apc:GetGender()] = apc:GetHeadType();
+
     local defaultEqpSlot = TryGetProp(cls, "DefaultEqpSlot")
     if defaultEqpSlot ~= nil  then
         apc:SetEquipItem(item.GetEquipSpotNum(defaultEqpSlot), itemID);
@@ -79,6 +84,7 @@ function SET_PCBANG_POPUP_PREVIEW_SILHOUETTE(frame, itemID, rotDir)
 
 	local imgName_m = "None";
     apc:SetGender(1);
+	apc:SetHeadType(headIndex[1]);
 	if rotDir == 99 then
 		imgName_m = ui.CaptureMyFullStdImageByAPC(apc, 1, 1);
 		imgName_m = ui.CaptureMyFullStdImageByAPC(apc, 2, 1);
@@ -88,6 +94,7 @@ function SET_PCBANG_POPUP_PREVIEW_SILHOUETTE(frame, itemID, rotDir)
     
     local imgName_f = "None";
     apc:SetGender(2);
+    apc:SetHeadType(headIndex[2]);
 	if rotDir == 99 then
 		imgName_f = ui.CaptureMyFullStdImageByAPC(apc, 1, 1);
 		imgName_f = ui.CaptureMyFullStdImageByAPC(apc, 2, 1);
