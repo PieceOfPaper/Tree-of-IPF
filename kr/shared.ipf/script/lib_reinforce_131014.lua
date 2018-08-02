@@ -120,6 +120,11 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
         end
     end
     
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(fromItem);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
+    end
+    
     local value, value_diamond = 0, 0;
 
     local priceRatio = 1;

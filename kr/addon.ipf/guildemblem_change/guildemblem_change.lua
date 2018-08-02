@@ -109,51 +109,11 @@ function GUILDEMBLEM_CHANGE_PREVIEW(frame, emblemName)
 end
 
 function GUILDEMBLEM_CHANGE_EXCUTE(isNewRegist, useItem)
-    
-    if isNewRegist == true then
-    -- 최초 등록
-        local fullPath = emblemFolderPath .. "\\" .. selectPngName
-        local result = session.party.RegisterGuildEmblem(fullPath,false)
-        if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
-            ui.SysMsg(ClMsg("AbnormalImageData"))    
-            ui.CloseFrame('guildemblem_change')
-        end
-    else
-    -- 변경
-        if emblemFolderPath ~= nil and selectPngName ~= nil then
-            -- 아이템 사용이 아닐 때는 조건 검사.
-            if useItem == false then
-                -- 길드 자산 확인
-                local guildObj = GET_MY_GUILD_OBJECT()
-                local guildAsset = guildObj.GuildAsset  
-                if guildAsset == nil or guildAsset == 'None' then
-                    guildAsset = 0
-                end
-
-                if tonumber(GUILD_EMBLEM_COST_AMOUNT) > tonumber(guildAsset) then
-                    ui.SysMsg(ClMsg("NotEnoughGuildAsset"))
-                    ui.CloseFrame('guildemblem_change')
-                    GUILDEMBLEM_CHANGE_CANCEL(frame)
-                    return
-                end
-            end
-            
-             -- 길드이미지 변경 가능 시간 확인
-            if session.party.IsPossibleRegistGuildEmblem(useItem) == false and session.party.IsRegisteredEmblem() == true then
-               ui.SysMsg(ClMsg("NotReachToReRegisterTime"))
-               ui.CloseFrame('guildemblem_change')
-               GUILDEMBLEM_CHANGE_CANCEL(frame)
-               return
-            end
-
-            -- 등록 요청
-            local fullPath = emblemFolderPath .. "\\" .. selectPngName
-            local result = session.party.RegisterGuildEmblem(fullPath,useItem)
-            if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
-                ui.SysMsg(ClMsg("AbnormalImageData"))    
-                ui.CloseFrame('guildemblem_change')
-            end
-        end
+    local fullPath = emblemFolderPath .. "\\" .. selectPngName
+    local result = session.party.RegisterGuildEmblem(fullPath,false)        
+    if result == EMBLEM_RESULT_ABNORMAL_IMAGE then
+        ui.SysMsg(ClMsg("AbnormalImageData"))    
+        ui.CloseFrame('guildemblem_change')
     end
     GUILDEMBLEM_CHANGE_CANCEL(frame)
 end
@@ -165,12 +125,6 @@ function GUILDEMBLEM_CHANGE_ACCEPT(frame)
         return
     end
 
-    -- 길드 엠블럼을 변경하는 경우(이미 등록이 되어있었다면) 인벤에 길드 엠블럼 변경권을 확인한다.
-    if session.party.IsRegisteredEmblem() == true then
-        GUILDEMBLEM_CHANGE_EXCUTE(false,false)
-        return
-    end
-    
     -- 최초 길드 엠블럼 등록.
     GUILDEMBLEM_CHANGE_EXCUTE(true,false)
 end

@@ -2,7 +2,7 @@ ADVENTURE_BOOK_CRAFT = {};
 ADVENTURE_BOOK_CRAFT.SELECTED_ITEM = "";
 ADVENTURE_BOOK_CRAFT.SHOW_GROUP_INDEX = 1;
 ADVENTURE_BOOK_CRAFT.CUR_LIST_COUNT = 0;
-
+ADVENTURE_BOOK_CRAFT.SELECTED_CTRL = "";
 function ADVENTURE_BOOK_CRAFT.RENEW()
 	ADVENTURE_BOOK_CRAFT.CLEAR();
 	ADVENTURE_BOOK_CRAFT.FILL_CRAFT_LIST();
@@ -78,10 +78,9 @@ function ADVENTURE_BOOK_CRAFT.FILL_CRAFT_LIST()
 		local material_margin_top = frame:GetUserConfig("CRAFT_MATERIAL_MARGIN_TOP")
 		local material_margin_bottom  = frame:GetUserConfig("CRAFT_MATERIAL_MARGIN_BOTTOM")
 		local elem_opened_height = elem_closed_height + material_height*#material_info_list + material_margin_top+material_margin_bottom;
-		if #material_info_list > 0 and tostring(ADVENTURE_BOOK_CRAFT.SELECTED_ITEM) == tostring(targetClsName) then
+		if #material_info_list > 0 and tostring(ADVENTURE_BOOK_CRAFT.SELECTED_ITEM) == tostring(targetClsName) and ADVENTURE_BOOK_CRAFT.SELECTED_CTRL == "list_craft_" .. i  then
 			 isOpened = 1;
 		end
-
 		if isOpened == 1 then
 			SET_TEXT(ctrlSet, "arrow_text", "value", ARROW_CLOSE);
 		elseif #material_info_list > 0 then

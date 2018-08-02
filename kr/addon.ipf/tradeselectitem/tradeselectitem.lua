@@ -42,23 +42,25 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 
 	local cancelBtn = frame:GetChild('CancelBtn');
 	local useBtn = frame:GetChild('UseBtn');
-
-	box:Resize(box:GetWidth(), y);
+	
+	box:Resize(box:GetOriginalWidth(), y);
 	
 	local maxSizeHeightFrame = box:GetY() + box:GetHeight() + 20;
 	local maxSizeHeightWnd = ui.GetSceneHeight();
 	if maxSizeHeightWnd < (maxSizeHeightFrame + 50) then 
 		local margin = maxSizeHeightWnd/2;
 		box:EnableScrollBar(1);
-		box:Resize(box:GetWidth() + 15, margin - useBtn:GetHeight() - 40);
+		
+		box:Resize(box:GetOriginalWidth(), margin - useBtn:GetHeight() - 40);
 		box:SetScrollBar(0);
 		box:InvalidateScrollBar();
-		frame:Resize(frame:GetWidth() + 10, margin + 100);
+		frame:Resize(frame:GetOriginalWidth(), margin + 100);
 	else
 		box:SetCurLine(0) -- scroll init
 		box:EnableScrollBar(0);
-		box:Resize(box:GetWidth(), y);
-		frame:Resize(frame:GetWidth() + 10, maxSizeHeightFrame);
+		
+		box:Resize(box:GetOriginalWidth(), y);
+		frame:Resize(frame:GetOriginalWidth(), maxSizeHeightFrame);
 	end;
 	
 	frame:ShowWindow(1);

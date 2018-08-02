@@ -36,3 +36,37 @@ function SCR_JOB_PIED_PIPER_Q1_REW3_CHECK(pc, stepRewardFuncList)
         end
     end
 end
+
+function IS_ENABLED_PIED_PIPER_FLUTING_OCTAVE_3(pc)
+    local sObj = GetSessionObject(pc, "ssn_klapeda")
+    if sObj == nil then
+        return 0;
+    end
+    
+    if sObj.JOB_PIED_PIPER_Q1_SRL == "None" then
+        return 0;
+    end
+    
+    local tokenList = TokenizeByChar(sObj.JOB_PIED_PIPER_Q1_SRL, "/");
+    local questHash = {};
+    for i = 1, #tokenList do
+        local token = tonumber(tokenList[i]);
+        if token ~= nil then
+            questHash[token] = true;
+        end
+    end
+    
+    if questHash[1] and questHash[2] and questHash[3] then
+        return 1;
+    end
+
+    return 0;
+end
+
+function IS_ENABLED_PIED_PIPER_FLUTING_OCTAVE(pc, scale, octave, isSharp)
+    if octave < 3 then
+        return 1;
+    else
+        return IS_ENABLED_PIED_PIPER_FLUTING_OCTAVE_3(pc);
+    end
+end

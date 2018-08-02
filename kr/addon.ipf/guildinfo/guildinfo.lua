@@ -258,6 +258,10 @@ function UI_TOGGLE_GUILD()
     if app.IsBarrackMode() == true then
 		return;
 	end
+    if session.world.IsIntegrateServer() == true then
+        ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
+        return;
+    end
 
     local guildinfo = session.GetGuildInfo();
     if guildinfo == nil then

@@ -203,13 +203,19 @@ function INIT_CONTROL_CONFIG(frame)
 	radioBtn:SetCheck(true);
 end
 
-function APPLY_CONTROLMODE(frame)
+function APPLY_CONTROLMODE(frame)    
+    if quickslot.IsEnableChange() == false then
+        ui.SysMsg(ClMsg('CannotInCurrentState'));
+        local prevSelectedType = config.GetXMLConfig('ControlMode');
+        local radioBtn = GET_CHILD_RECURSIVELY(frame, 'controltype_'..prevSelectedType);
+        radioBtn:Select();
+        return;
+    end
 
 	local controlmodeRadioBtn = GET_CHILD_RECURSIVELY(frame, "controltype_0");    
 	local controlmodeType = GET_RADIOBTN_NUMBER(controlmodeRadioBtn);
 	config.ChangeXMLConfig("ControlMode", controlmodeType);
 	UPDATE_CONTROL_MODE();
-
 end
 
 function APPLY_PERFMODE(frame)

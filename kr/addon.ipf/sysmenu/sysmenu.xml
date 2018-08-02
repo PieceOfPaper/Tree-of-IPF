@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="sysmenu" x="0" y="0" width="1920" height="140">
 	<frame layout_gravity="right bottom" margin="0 0 0 0" fasthide="true" hideprocess="true" scale_align="center bottom" keyboardselectframe="true"/>
 	<skin frameskin="systemmenu_vertical 잠정제거"/>
@@ -8,6 +8,7 @@
 	<draw drawframe="true" drawtitlebar="false"/>
 	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
 	<input hittest="true" hittestframe="false"/>
+	<userconfig PC_BANG_SHOP_ICON="sysmenu_pcbang"/>
 	<controls>
 		<button name="guildRank" rect="0 0 38 44" margin="0 0 455 10" stretch="true" layout_gravity="right bottom" LBtnUpScp="GUILD_RANK_INFO_TOGGLE" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clickrgn="0 0 52 52" clicksound="button_click_2" image="sysmenu_guild_rank" oversound="button_over" skin="textbutton" textalign="right bottom" texttooltip="{@st59}길드 홍보 (Alt + R){/}"/>
 		<button name="extraBag" rect="0 0 38 44" margin="0 0 417 10" stretch="true" layout_gravity="right bottom" LBtnUpScp="FISHING_ITEM_BAG_TOGGLE" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clickrgn="0 0 52 52" clicksound="button_click_2" image="sysmenu_Fishing" oversound="button_over" skin="textbutton" textalign="right bottom" texttooltip="{@st59}낚시 살림통{/}"/>

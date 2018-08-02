@@ -20,16 +20,27 @@ function QUESTITEMUSE_ON_MSG(frame, msg, argStr, argNum)
 		if itemClass ~= nil and itemClass.PreCheckScp ~= 'None' and invItem ~= nil then			
 			local result = _G[itemClass.PreCheckScp](GetMyPCObject(), itemClass.StringArg, itemClass.NumberArg1, itemClass.NumberArg2);
 			if result ~= 0 then
-				local xPos = QUEST_CHECK_COUNT * 80 + 15;
+				local xPos = 15;
 				local slot = itemCtrl:CreateOrGetControl('slot', 'itemslot_', xPos, 10, 80, 80);
 				tolua.cast(slot, 'ui::CSlot');
-				slot:ClearIcon();
-				slot:SetSkinName('useslot');
-				slot:SetFrontImage('None');
-				local icon = CreateIcon(slot);
-				slot:SetValue(argNum);
-				ICON_SET_ITEM_COOLDOWN(icon, argNum);
-				icon:Set(itemClass.Icon, 'Item', argNum, 0);
+				local beforeIcon = slot:GetIcon();
+				local needToCreateIcon = true;
+				if beforeIcon ~= nil then
+					if slot:GetValue() == argNum and beforeIcon:GetInfo().imageName == itemClass.Icon then
+						needToCreateIcon = false;
+					end
+				end
+
+				if needToCreateIcon == true then
+					slot:ClearIcon();
+					slot:SetSkinName('useslot');
+					slot:SetFrontImage('None');
+					local icon = CreateIcon(slot);
+					slot:SetValue(argNum);
+					ICON_SET_ITEM_COOLDOWN(icon, argNum);
+					icon:Set(itemClass.Icon, 'Item', argNum, 0);
+				end
+				
 
 				QUEST_CHECK_COUNT = QUEST_CHECK_COUNT + 1;
 			else
@@ -43,15 +54,17 @@ function QUESTITEMUSE_ON_MSG(frame, msg, argStr, argNum)
 
 		if QUEST_CHECK_COUNT ~= 0 then
 			frame:ShowWindow(1);
-			frame:SetAlpha(0, 100, 30, 1.0, "None", 1);			
+			frame:SetAlpha(0, 100, 30, 1.0, "None", 1);
 		end
 	elseif msg == 'QUESTITEM_EMPTY' then
 		if QUEST_CHECK_COUNT == 0 or argNum == 0 then
 			frame:ShowWindow(0);
 			QUEST_CHECK_COUNT = 0;
 			frame:StopAlphaBlend();
+			frame:SetAlpha(100);
 		else
-			local width = QUEST_CHECK_COUNT * 80 + 30;
+		--	local width = QUEST_CHECK_COUNT * 80 + 30;
+			local width = 110;
 			frame:Resize(width, frame:GetHeight());
 		end
 	end

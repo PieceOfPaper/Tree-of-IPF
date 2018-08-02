@@ -595,6 +595,22 @@ function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
     	limitMoney = ACCOUNT_WAREHOUSE_MAX_STORE_SILVER;
     end
 
+    if tonumber(moneyText) > limitMoney then
+        moneyText = tostring(limitMoney);
+        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
+    end
+    ctrl:SetText(GET_COMMAED_STRING(moneyText));
+end
+
+function UPDATE_MARKET_MONEY_STRING(parent, ctrl)	
+    local moneyText = ctrl:GetText();    
+    if moneyText == "" then
+        moneyText = 0;
+    end
+
+    local frame = parent:GetTopParentFrame();
+    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
+    
 	local edit_count = GET_CHILD_RECURSIVELY(frame, "edit_count")
 	local itemCount = edit_count:GetText()
 
@@ -610,7 +626,6 @@ function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
 	local price_text = GET_CHILD_RECURSIVELY(frame, "priceText");
 	price_text:SetTextByKey("priceText", GetMonetaryString(tonumber(moneyText)));
 end
-
 
 --feeGBox의 컨텐츠 업데이트(등록 수수료, 총 판매 가격, 수수료, 최종 수령금 표시)
 --호출 함수 : 라디오버튼 클릭시, edit_price에서 가격 수정시

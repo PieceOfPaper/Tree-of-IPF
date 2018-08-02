@@ -112,12 +112,18 @@ end
 
 function DROPITEM_REQUEST1_PROGRESS_CHECK_FUNC_SUB(pc)
     local pcLv = pc.Lv
-    local minRange = 10
-    local maxRange = 7
+    local minRange = 20
+    local maxRange = 10
     local zoneClassNameList = {}
     local class_count = GetClassCount('Map')
     local itemList = {}
     local monList = {}
+    
+    local maxlevel = PC_MAX_LEVEL
+    
+    if pc.Lv + maxRange > maxlevel then
+        minRange = minRange + (pc.Lv + maxRange - maxlevel)
+    end
     
     for i = 0, class_count -1 do
         local mapIES = GetClassByIndex('Map', i)

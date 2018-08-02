@@ -275,3 +275,33 @@ function PACKAGELIST_ITEM_PREVIEW_CLICK(parent, ctrl)
 	end
 end
 
+
+function GET_PACKAGE_ITEM_LIST(packageName)
+    local infoMap = GET_PACKAGE_CACHE_MAP();
+    local packageList = infoMap[packageName];
+	if packageList == nil then
+		return nil;
+	end
+
+	local list = {};
+	for i = 1, #packageList do
+		list[#list+1] = packageList[i].ItemName;
+	end
+    return list;
+end
+
+function GET_FIRST_COSTUME_NAME_FROM_PACKAGE(packageItemClsName)
+	local packageItemList = GET_PACKAGE_ITEM_LIST(packageItemClsName);
+	if packageItemList == nil then
+		return nil;
+	end
+    local firstCostumeName = nil;
+    for i=1, #packageItemList do
+        local unpackItem =  GetClass("Item", packageItemList[i]);
+        if TryGetProp(unpackItem, "ClassType") == "Outer" then
+            firstCostumeName = unpackItem.ClassName;
+            break;
+        end
+    end
+    return firstCostumeName;
+end

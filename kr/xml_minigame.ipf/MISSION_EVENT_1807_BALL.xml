@@ -5,15 +5,18 @@
             <Stage Name="DefGroup">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="10초 뒤 시작됩니다!"/>
+                        <Str Str="10초 뒤 시작합니다. 곧 파이어볼이 생성되니 대기해주세요!"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="41183" Pos="387.36#1.24#-924.10" angle="315" genCount="1" maxStackCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="41183" Pos="230.34#-32.84#-767.37" angle="315" genCount="1" maxStackCount="1" genTime="20000" objectKey="1"/>
+                </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="sec10">
                         <execList>
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="10초 뒤 시작합니다. 곧 파이어볼이 생성되니 대기해주세요!"/>
                                 <Str Str="scroll"/>
                                 <Num Num="10"/>
                             </ToolScp>
@@ -31,6 +34,9 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Play"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/1"/>
                             </ToolScp>
                         </execList>
                     </Event>

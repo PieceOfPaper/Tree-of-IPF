@@ -631,10 +631,21 @@ function TPITEM_SELECT_TREENODE(tnode)
 		gBox:SetSkinName("baseyellow_btn");
 		tree:OpenNode(tnode, true, true);
 	else	
-		-- 하위항목 클릭시에 대한 그의 모든 아이템들을 그리기
-		local selValue = tnode:GetValue();
-		CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, selValue, 1, 1);
-
+		--검색결과 적용
+		local input = GET_CHILD_RECURSIVELY(frame, "input");
+		if input ~= nil then
+			local inputTxt = input:GetText();
+			if inputTxt ~= nil and string.len(inputTxt) > 0 then
+				-- 검색했으면 검색 결과만 띄워준다
+				local btn_find = GET_CHILD_RECURSIVELY(frame, "btn_find");
+				TPSHOP_ITEMSEARCH_ENTER(frame, btn_find)
+			else
+				-- 하위항목 클릭시에 대한 그의 모든 아이템들을 그리기
+				local selValue = tnode:GetValue();
+				CHECK_SUBCATEGORY_N_DRAW_ITEMS(frame, selValue, 1, 1);
+			end
+		end
+		
 		-- 하위 항목의 상위 항목을 알아내야 한다. (현재 클릭된 하위 항목의 상위 항목 기억하기 위함)
 		local parent_tnode = tnode.pParentNode;
 		if parent_tnode == nil then
@@ -645,7 +656,7 @@ function TPITEM_SELECT_TREENODE(tnode)
 		-- 상위 항목의 버튼 색 변경
 		local gBox = obj:GetChild("group");
 		gBox:SetSkinName("baseyellow_btn_cursoron");
-	end;
+	end
 	
 	-- 이전에 클릭된 다른 상위 버튼이 자신의 상위 버튼과 다를 경우, 이전 클릭된 버튼 스킨 변경시켜주기
 	
@@ -674,7 +685,24 @@ function TPITEM_TREE_CLICK(parent, ctrl, str, num)
 	end
 
 	-- 버튼분류 및 그리기
+	RESET_SORTLIST_INPUT();
 	TPITEM_SELECT_TREENODE(tnode);	
+end
+
+function RESET_SORTLIST_INPUT()
+	local parent = ui.GetFrame("tpitem");
+	local input = GET_CHILD_RECURSIVELY(parent, "input");
+	local showTypeList = GET_CHILD_RECURSIVELY(parent, "showTypeList");
+	local alignTypeList = GET_CHILD_RECURSIVELY(parent, "alignTypeList");
+
+	local inputTxt = input:GetText();
+	if inputTxt ~= nil and string.len(inputTxt) > 0 then
+		input:SetText("");
+	end
+
+	showTypeList:SelectItem(0);
+	alignTypeList:SelectItem(0);
+	
 end
 
 function IS_ITEM_WILL_CHANGE_APC(type)
@@ -1726,7 +1754,6 @@ end
 function TPSHOP_ITEMSEARCH_ENTER(parent, control, strArg, intArg)
 	local frame = ui.GetFrame("tpitem");
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
-
 	local searchFortext = input:GetText();
 	
 	MAKE_CATEGORY_TREE();	

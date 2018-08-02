@@ -24,6 +24,10 @@ function C_SHOCKWAVE(actor, obj, intensity, time, freq, range)
     world.ShockWave(actor, 2, range, intensity, time, freq, 0);
 end
 
+function C_SHOCKWAVE_PAD(actor, obj, padGuid, intensity, time, freq, range)
+    world.ShockWave(actor, 2, range, intensity, time, freq, 0);
+end
+
 function C_SKL_LOCK_MOVE(actor, obj, isOn)
     local key = "SKL_" .. obj.type;
     actor:LockMoveByKey(key, isOn);

@@ -123,15 +123,15 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 			-- 1차 기본 할인율 적용
             local priceRatioAppliedValue = (price * priceRatioPer);
 			hairPrice = hairPrice - priceRatioAppliedValue;
+
 			-- 2차 쿠폰 할인율 적용
+            local beforeSecondDiscountValue = hairPrice;
             hairDiscountValue = (hairPrice * couponDiscountPer);
 			hairPrice = hairPrice - hairDiscountValue;
 			-- 모두 계산하고나서 floor
 			hairPrice = math.floor(hairPrice)
 
-            hairDiscountValue = math.floor(hairDiscountValue);
-            local diff = price - (hairPrice + math.floor(priceRatioAppliedValue) + hairDiscountValue); -- 할인가 보정해줍니다..
-            hairDiscountValue = hairDiscountValue + diff;
+            hairDiscountValue = math.floor(beforeSecondDiscountValue - hairPrice);
 		end
 	end
 
@@ -172,17 +172,16 @@ function GET_BEAUTYSHOP_HAIR_PRICE(pc, info, hairCouponItem, dyeCouponItem)
 				-- 1차 기본 할인율 적용
                 local priceRatioAppliedValue = (price * priceRatioPer);
 				colorDyePrice = colorDyePrice - priceRatioAppliedValue;
+
 				-- 2차 쿠폰 할인율 적용
+                local beforeSecondDiscountValue = colorDyePrice;
                 dyeDiscountValue = (colorDyePrice * couponDiscountPer);
 				colorDyePrice = colorDyePrice - dyeDiscountValue;
 				-- 모두 계산하고나서 floor
 				colorDyePrice = math.floor(colorDyePrice);
 
                 -- for log: 할인을 두 단계로 적용해두고 마지막에만 floor 처리를 하니까.. 정밀도 문제가 발생해요.. 끔찍해요..
-                dyeDiscountValue = math.floor(dyeDiscountValue);
-                local diff = price - (colorDyePrice + math.floor(priceRatioAppliedValue) + dyeDiscountValue); -- 할인가 보정해줍니다..
-                dyeDiscountValue = dyeDiscountValue + diff;
-
+                dyeDiscountValue = math.floor(beforeSecondDiscountValue - colorDyePrice);
 			end
 		end
 	end

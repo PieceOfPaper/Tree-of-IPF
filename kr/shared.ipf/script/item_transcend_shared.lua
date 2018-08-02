@@ -99,6 +99,11 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
         end
     end
 
+    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(targetItem);
+    if pcBangItemLevel ~= nil then
+        lv = pcBangItemLevel;
+    end
+    
     local transcendCount = TryGetProp(targetItem, "Transcend");
 
     if transcendCount == nil then

@@ -100,10 +100,8 @@ function ON_MEMBER_TITLE_GET(code, ret_json)
 
     local frame = ui.GetFrame("guildinfo");
     local titleListPanel = GET_CHILD_RECURSIVELY(frame, "titleListPanel", "ui::CScrollPanel");
-    if #titleList ~= 0 then
         titleListPanel:RemoveAllChild()
         titleList = {}
-    end
 
     for key, value in pairs(list) do
         titleList[tonumber(key)] = value
@@ -223,7 +221,7 @@ function SAVE_TITLE(frame, control)
     local authPanel = GET_CHILD_RECURSIVELY(curFrame, "claimAuthPanel", "ui::CScrollPanel");
     local authStr = ""
     for idx, authName in pairs(authlist) do
-        local checkbox = GET_CHILD_RECURSIVELY(curFrame, authName[1], "ui::CCheckBox");
+        local checkbox = GET_CHILD_RECURSIVELY(authPanel, authName[1], "ui::CCheckBox");
         checkbox = tolua.cast(checkbox, "ui::CCheckBox")
         if checkbox ~= nil and checkbox:IsChecked() == 1 then
             authStr = authStr .. authName[2] ..":"

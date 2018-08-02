@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="token" x="0" y="0" width="480" height="700">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="token" x="0" y="0" width="500" height="730">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
 	<skin frameskin="none"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
@@ -10,16 +10,16 @@
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<script CloseScp="TOKEN_SELEC_CANCLE"/>
 	<controls>
-		<groupbox name="bg2" rect="0 0 480 640" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="token_skin2"/>
+		<groupbox name="bg2" rect="0 0 500 670" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="token_skin2"/>
 		<picture name="token_middle" rect="0 0 316 165" margin="90 1 0 0" layout_gravity="left top" hittest="true" image="token_middle"/>
-		<richtext name="richtext_1" margin="20 160 0 0" rect="0 0 120 24" format="{@st42}%s 혜택{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="endTime" margin="0 160 20 0" rect="0 0 120 24" format="{@st42}사용기간 : %s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
-		<richtext name="str" margin="-2 0 0 160" rect="0 0 120 24" format="%s 을 사용하시겠습니까?{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
-		<richtext name="endTime2" margin="1 0 -10 110" rect="0 0 200 24" format="사용한 %s 인벤토리에서 사라지며{nl}%s동안 현재 %s에만 적용됩니다.{/}" param1="value" param2="value2" param3="value3" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
-		<richtext name="indunStr" margin="1 0 0 110" rect="0 0 200 24" format="사용한 %s 인벤토리에서{nl}사라지며 현재 %s에만 적용됩니다.{/}" param1="value" param2="value2" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+		<richtext name="richtext_1" margin="20 140 0 0" rect="0 0 120 24" format="{@st42}%s 혜택{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="endTime" margin="0 140 20 0" rect="0 0 120 24" format="{@st42}사용기간 : %s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top"/>
+		<richtext name="str" margin="0 0 0 165" rect="0 0 190 50" format="'%s' 아이템을{nl} 사용하시겠습니까?{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_20_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+		<richtext name="endTime2" margin="1 0 -10 110" rect="0 0 190 24" format="사용한 %s 인벤토리에서 사라지며{nl}%s동안 현재 %s에만 적용됩니다.{/}" param1="value" param2="value2" param3="value3" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
+		<richtext name="indunStr" margin="1 0 0 110" rect="0 0 190 24" format="사용한 %s {nl}인벤토리에서 사라지며 현재 %s에만 적용됩니다.{/}" param1="value" param2="value2" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
 		<richtext name="forToken" margin="1 0 0 80" rect="0 0 120 24" format="캐릭터 정보창에서 잔여시간을 확인하실 수 있습니다.{/}" textalign="center bottom" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center bottom" parent="bg2"/>
 		<button name="button_1" margin="49 0 0 31" rect="10 10 170 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41b}사용" LBtnUpScp="REQ_TOKEN_ITEM" parent="bg2"/>
 		<button name="button_1_1" margin="236 0 0 31" rect="10 10 170 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41b}취소" LBtnUpScp="TOKEN_SELEC_CANCLE" parent="bg2"/>
-		<groupbox name="gBox" margin="11 187 0 0" rect="0 0 450 400" hittestbox="false" skin="None" layout_gravity="left top" parnet="bg2" fixheight="true" scrollbar="true"/>
+		<groupbox name="gBox" margin="0 167 0 0" rect="0 0 450 400" hittestbox="false" skin="None" layout_gravity="center top" parnet="bg2" fixheight="true" scrollbar="true"/>
 	</controls>
 </uiframe>

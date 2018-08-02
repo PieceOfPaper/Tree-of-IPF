@@ -513,8 +513,7 @@ function ADVENTURE_BOOK_ITEM.DROPDOWN_LIST_UPDATE_SUB()
 		sub_category_opt_list:AddItem(5, ClMsg('Neck'));
 		sub_category_opt_list:AddItem(6, ClMsg('Ring'));
 		sub_category_opt_list:AddItem(7, ClMsg('Shield'));
-		sub_category_opt_list:AddItem(8, ClMsg('Outer'));
-		sub_category_opt_list:AddItem(9, ClMsg('Hat'));
+		sub_category_opt_list:AddItem(8, ClMsg('Hat'));
 	elseif categoryOption == 3 then
 		sub_category_opt_list:SetEnable(1);
 		sub_category_opt_list:AddItem(1, ClMsg('Dagger'));

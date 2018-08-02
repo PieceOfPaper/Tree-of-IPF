@@ -754,6 +754,8 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
             local expupValue = 0;
             if buffCls.ClassName == 'GoldenFishEvent' then
                 expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, GOLDEN_FISH_EXP_RATE);
+            elseif buffCls.ClassName == 'Premium_Nexon_PartyExp' then
+                expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName, (NEXON_PC_PARTY_EXP_RATE + JAEDDURY_NEXON_PC_PARTY_EXP_RATE)*100);
             else
                 expupValue = SETEXP_SLOT_ADD_ICON(expupBuffBox, buffCls.ClassName);
             end
@@ -1126,8 +1128,26 @@ function STATUS_INFO()
     STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResHoly");
     STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResDark");
     y = y + 10;
-
-
+	
+	
+	
+--	returnY = STATUS_ATTRIBUTE_BOX_TITLE(pc, opc, frame, gboxctrl, ScpArgMsg("ItemRareOption"), y);
+--    if returnY ~= y then
+--        y = returnY + 5;
+--    end
+--	
+--	local itemRareOptionList = { 'ITEM_MainWeaponDamageRate', 'ITEM_SubWeaponDamageRate', 'ITEM_BossDamageRate', 'ITEM_MeleeReducedRate', 'ITEM_MagicReducedRate', 'ITEM_PVPDamageRate', 'ITEM_PVPReducedRate', 'ITEM_CriticalDamage_Rate', 'ITEM_CriticalHitRate', 'ITEM_CriticalDodgeRate', 'ITEM_HitRate', 'ITEM_DodgeRate', 'ITEM_BlockBreakRate', 'ITEM_BlockRate' };
+--	
+--	for i = 1, #itemRareOptionList do
+--		local itemRareOption = itemRareOptionList[i];
+--	    returnY = STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, itemRareOption, y);
+--	    if returnY ~= y then
+--	        y = returnY + 3;
+--	    end
+--	end
+--    
+--	y = y + 10;
+	
     frame:Invalidate();
 
     if vpc ~= nil then
@@ -1450,6 +1470,70 @@ function STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
     controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
     return y + controlSet:GetHeight();
 end
+
+
+
+function STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, attibuteName, y)
+    local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', attibuteName, 0, y);
+    tolua.cast(controlSet, "ui::CControlSet");
+    local title = GET_CHILD(controlSet, "title", "ui::CRichText");
+    title:SetText(ScpArgMsg(attibuteName));
+	
+    local stat = GET_CHILD(controlSet, "stat", "ui::CRichText");
+    title:SetUseOrifaceRect(true)
+    stat:SetUseOrifaceRect(true)
+    
+    local grayStyle, value = SET_VALUE_ZERO(pc[attibuteName]);
+	
+    if 1 == grayStyle then
+        stat:SetText('');
+        controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
+        return y + controlSet:GetHeight();
+    end
+    
+    -- value 값 String 및 소수점 처리 시작 --
+    local stringValue = tostring(math.abs(value));
+    if value ~= 0 and math.abs(value) < 10 then
+    	stringValue = "0." .. stringValue;
+    else
+    	stringValue = string.sub(stringValue, 1, -2) .. "." .. string.sub(stringValue, -1, -1);
+    end
+    
+    if value < 0 then
+    	stringValue = ScpArgMsg("MinusSymbol") .. stringValue;
+    end
+	-- value 값 String 및 소수점 처리 끝 --
+	
+    if opc ~= nil and opc[attibuteName] ~= value then
+        local colBefore = frame:GetUserConfig("BEFORE_STAT_COLOR");
+        local colStr = frame:GetUserConfig("ADD_STAT_COLOR")
+
+        local beforeGray, beforeValue = SET_VALUE_ZERO(opc[attibuteName]);
+		
+        if beforeValue ~= value then
+            stat:SetText(colBefore .. beforeValue .. ScpArgMsg("Auto_{/}__{/}") .. colStr .. stringValue .. ScpArgMsg("PercentSymbol"));
+        else
+            stat:SetText(stringValue .. ScpArgMsg("PercentSymbol"));
+        end
+    else
+        stat:SetText(stringValue .. ScpArgMsg("PercentSymbol"));
+    end
+
+    controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
+    return y + controlSet:GetHeight();
+end
+
+function STATUS_ATTRIBUTE_BOX_TITLE(pc, opc, frame, gboxctrl, titleText, y)
+    local controlSet = gboxctrl:CreateOrGetControlSet('status_stat', titleText, 0, y);
+    tolua.cast(controlSet, "ui::CControlSet");
+    local title = GET_CHILD(controlSet, "title", "ui::CRichText");
+    title:SetText("{@st41}{s20}" .. titleText .. "{/}{/}");
+	
+    controlSet:Resize(controlSet:GetWidth(), title:GetHeight());
+    return y + controlSet:GetHeight();
+end
+
+
 
 function STATUS_ATTRIBUTE_VALUE_DIVISIONBYTHOUSAND_NEW(pc, opc, frame, gboxctrl, attibuteName, y)
 

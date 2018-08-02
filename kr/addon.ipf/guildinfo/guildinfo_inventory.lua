@@ -58,10 +58,11 @@ function GUILDINFO_INVEN_UPDATE_INVENTORY(frame, msg, argStr, argNum)
 		local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
 		
 		SET_SLOT_IMG(slot, iconImg)
-		SET_SLOT_COUNT(slot, invItem.count)
-		SET_SLOT_COUNT_TEXT(slot, invItem.count);
+        SET_SLOT_COUNT(slot, invItem.count)
+
 		SET_SLOT_IESID(slot, invItem:GetIESID())
         SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil)
+        SET_SLOT_STYLESET(slot, itemCls)
 		slot:SetMaxSelectCount(invItem.count);
 		local icon = slot:GetIcon();
 		icon:SetTooltipArg('guildinfo', invItem.type, invItem:GetIESID());

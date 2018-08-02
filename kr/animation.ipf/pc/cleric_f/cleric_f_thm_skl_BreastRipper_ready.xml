@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Bip01 L Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip01 R Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_cleric_breastRipper_ready" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_breastripper_cast"/>
+	<Sound frame="8.00" soundFile="skl_eff_breastripper_shot"/>
+	<Shockwave frame="8" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="10" attachNode="Bip01 L Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="10" attachNode="Bip01 R Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip01 L Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip01 R Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="30" attachNode="Bip01 L Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="30" attachNode="Bip01 R Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip01 L Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip01 R Hand" particleName="F_levitation005_dark_violet4" useAttach="true" hiddenObj="false" changeEffect="None" scale=".3" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

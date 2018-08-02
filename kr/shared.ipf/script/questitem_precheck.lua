@@ -7309,6 +7309,252 @@ function SCR_PRE_FANTASYLIB485_MQ_ITEM(self, argObj, argstring, arg1, arg2)
     return 0
 end
 
+--F_3CMLAKE_85_MQ_02_3_ITEM_01
+function SCR_PRE_F_3CMLAKE_85_MQ_02_3_ITEM_01(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_85_MQ_02_3')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_3cmlake_85' then
+            if GetLayer(self) == 0 then
+                local list, Cnt = SelectObject(self, 30, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'HiddenTrigger4' then
+                        return GetHandle(list[i])
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--F_3CMLAKE_85_MQ_08_ITEM
+function SCR_PRE_F_3CMLAKE_85_MQ_08_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_85_MQ_08_1')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_3cmlake_85' then
+            if GetLayer(self) == 0 then
+                local x, y, z = GetPos(self)
+                if SCR_POINT_DISTANCE(x,z,-1363,620) <= 50 then
+                    local list, Cnt = SelectObject(self, 50, 'ALL', 1)
+                    for i = 1, Cnt do
+                        if list[i].ClassName == 'Hiddennpc_move' then
+                            return GetHandle(list[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--F_3CMLAKE_85_MQ_09_ITEM
+function SCR_PRE_F_3CMLAKE_85_MQ_09_ITEM(self, argObj, argstring, arg1, arg2)
+    local result1 = SCR_QUEST_CHECK(self, 'F_3CMLAKE_85_MQ_09')
+    if result1 == 'PROGRESS' then
+        if GetZoneName(self) == 'f_3cmlake_85' then
+            if GetLayer(self) ~= 0 then
+                local list, Cnt = SelectObject(self, 50, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'boss_hydra_Q2' then
+                        return GetHandle(list[i])
+                    end
+                end
+            end
+        end
+    end    
+    return 0;
+end
+
+--F_3CMLAKE_85_SQ_02_ITEM
+function SCR_PRE_F_3CMLAKE_85_SQ_02_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_85_SQ_02')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_3cmlake_85' then
+            if GetLayer(self) == 0 then
+                local list, Cnt = SelectObject(self, 50, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'Lotuscat' then
+                        if IsBuffApplied(list[i], 'F_3CMLAKE_85_SQ_02_STUN') == 'NO' then
+                            if IsBuffApplied(list[i], 'F_3CMLAKE_85_SQ_02_FRENZY') == 'NO' then 
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--F_3CMLAKE86_MQ2_ITEM
+function SCR_PRE_F_3CMLAKE86_MQ2_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_86_MQ_02')
+    if result == 'PROGRESS' then
+        if GetZoneName(self) == 'f_3cmlake_86' then
+            if GetLayer(self) == 0 then
+                local list, Cnt = SelectObject(self, 20, 'ALL', 1)
+                for i = 1, Cnt do
+                    if list[i].ClassName == 'dirt_heal_3' then
+                        return GetHandle(list[i])
+                    end
+                end
+            end
+        end
+    end
+    return 0;    
+end
+
+--F_3CMLAKE86_MQ8_ITEM
+function SCR_PRE_F_3CMLAKE86_MQ8_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_86_MQ_08')
+    if result == "PROGRESS" then
+        local item_cnt = GetInvItemCount(self, 'F_3CMLAKE86_MQ8_ITEM')
+        if item_cnt ~= 0 then
+            if GetLayer(self) == 0 then
+                local list, cnt = SelectObject(self, 300, 'ALL', 1)
+    	        if cnt >= 1 then
+                    for i = 1, cnt do
+                        if list[i].ClassName == 'noshadow_npc' then
+                            return 0
+                        else                            
+            	            if IsServerSection(self) == 1 then
+                	            if list[i].ClassName ~= 'PC' then
+                    	            if list[i].Dialog == 'F_3CMLAKE_86_MQ_08_CHECK1' then
+                    	                return 1;
+                    	            end
+                    	        end
+            	            else
+                	            if list[i].ClassName ~= 'PC' then
+                    	            if GetDialogByObject(list[i]) == 'F_3CMLAKE_86_MQ_08_CHECK1' then
+                    	                return 1;
+                    	            end
+                    	        end
+                	        end
+                	    end
+        	        end
+        	    end
+            end
+        end
+    end
+    return 0
+end
+
+--F_3CMLAKE86_MQ14_ITEM
+function SCR_PRE_F_3CMLAKE86_MQ14_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_86_MQ_16')
+    if result == "PROGRESS" then
+        local item_cnt = GetInvItemCount(self, 'F_3CMLAKE86_MQ14_ITEM')
+        if item_cnt ~= 0 then
+            if GetZoneName(self) == 'f_3cmlake_86' then
+                if GetLayer(self) == 0 then 
+                    local x, y, z = GetPos(self)
+                    if SCR_POINT_DISTANCE(x, z, 183, 1577) < 30 then
+                        if isHideNPC(self, 'F_3CMLAKE_86_MQ_16_CHECK1') == 'YES' then
+                            return 1
+                        else
+                            return 0;
+                        end
+                    end
+                    if SCR_POINT_DISTANCE(x, z, 151, 1379) < 30 then
+                        if isHideNPC(self, 'F_3CMLAKE_86_MQ_16_CHECK2') == 'YES' then
+                            return 1
+                        else
+                            return 0;
+                        end
+                    end
+                    if SCR_POINT_DISTANCE(x, z, 137, 1217) < 30 then
+                        if isHideNPC(self, 'F_3CMLAKE_86_MQ_16_CHECK3') == 'YES' then
+                            return 1
+                        else
+                            return 0;
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+--F_3CMLAKE87_MQ2_ITEM
+function SCR_PRE_F_3CMLAKE87_MQ2_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_87_MQ_02')
+    local sObj = GetSessionObject(self, 'SSN_F_3CMLAKE_87_MQ_02')
+    if result == "PROGRESS" then
+        if GetZoneName(self) == 'f_3cmlake_87' then
+            if GetLayer(self) == 0 then
+                local list, cnt = SelectObject(self, 50, 'ALL', 1)
+    	        if cnt >= 1 then
+        	        for i = 1, cnt do
+                        if list[i].ClassName ~= 'PC' then
+                            if list[i].ClassName == 'f_3cmlake_Consensus_stone' then
+                	            if IsServerSection(self) == 1 then
+                                    for j = 1 , 6 do
+                                        if list[i].Dialog == "F_3CMLAKE_87_MQ_02_OBJ_"..j then
+                                            if isHideNPC(self, "F_3CMLAKE_87_MQ_02_OBJ_"..j) == "NO" then
+                                                return 1
+                                            end
+                                        end
+                                    end
+                	            else
+                                    for j = 1 , 6 do
+                                        if GetDialogByObject(list[i]) == "F_3CMLAKE_87_MQ_02_OBJ_"..j then
+                                            if isHideNPC(self, "F_3CMLAKE_87_MQ_02_OBJ_"..j) == "NO" then
+                                                return 1
+                                            end
+                                        end
+                                    end
+                                end
+                        	end
+                	    end
+        	        end
+        	    end 
+            end
+        end
+    end
+    return 0
+end
+
+--F_3CMLAKE87_MQ8_ITEM
+function SCR_PRE_F_3CMLAKE87_MQ8_ITEM(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'F_3CMLAKE_87_MQ_08')
+    local sObj = GetSessionObject(self, 'SSN_F_3CMLAKE_87_MQ_08')
+    if result == "PROGRESS" then
+        local item_cnt = GetInvItemCount(self, 'F_3CMLAKE87_MQ8_ITEM')
+        if item_cnt ~= 0 then
+            if GetZoneName(self) == 'f_3cmlake_87' then
+                if GetLayer(self) == 0 then
+                    local x, y, z = GetPos(self) 
+                    if SCR_POINT_DISTANCE(x, z, 133, 1228) < 30 then
+                        if isHideNPC(self, 'F_3CMLAKE_87_MQ_08_OBJ_1') == 'YES' then
+                            return 1
+                        else
+                            return 0;
+                        end
+                    end
+                    if SCR_POINT_DISTANCE(x, z, 70, 1183) < 30 then
+                        if isHideNPC(self, 'F_3CMLAKE_87_MQ_08_OBJ_2') == 'YES' then
+                            return 1
+                        else
+                            return 0;
+                        end
+                    end
+                    if SCR_POINT_DISTANCE(x, z, 92, 1113) < 30 then
+                        if isHideNPC(self, 'F_3CMLAKE_87_MQ_08_OBJ_3') == 'YES' then
+                            return 1
+                        else
+                            return 0;
+                        end
+                    end                                                                                                                                                                                                                                                  
+                end
+            end
+        end
+    end
+    return 0;
+end
+
 --3CMLAKE261_SQ11_ITEM 
 
 function SCR_PRE_3CMLAKE261_SQ11_ITEM(self, argObj, argstring, arg1, arg2)
@@ -7996,6 +8242,154 @@ function SCR_PRE_JOB_PIED_PIPER_Q1_ITEM(self, argObj, argstring, arg1, arg2)
     return 0;   
 end
 
+-- STARTOWER_88_MQ_30_ITEM
+
+function SCR_PRE_STARTOWER_88_MQ_30_ITEM(self, argObj, argstring, arg1, arg2)
+    local questCheck = SCR_QUEST_CHECK(self, "STARTOWER_88_MQ_30")
+    local itemCount = GetInvItemCount(self, "STARTOWER_88_MQ_30_ITEM")
+    if itemCount ~= 0 then
+        if questCheck == "PROGRESS" then
+            if GetZoneName(self) == "d_startower_88" then
+                if GetLayer(self) == 0 then
+                    local x, y, z = GetPos(self)
+                    local objectList, objectCount = SelectObject(self, 50, "ALL")
+                    if objectCount ~= 0 then
+                        for i = 1, objectCount do
+                            if objectList[i].ClassName == "Hiddennpc_Q4" then
+                                local sObj = GetSessionObject(self, "SSN_STARTOWER_88_MQ_30")
+                                if IsServerSection(self) == 0 then
+                                    local DialogFunc = GetDialogByObject(objectList[i])
+                                    if DialogFunc == "D_STARTOWER_88_VELNIAS_1ST_SUMMON_PORTAL" then
+                                        if sObj.Step1 == 0 then
+                                            return 1
+                                        end
+                                    elseif DialogFunc == "D_STARTOWER_88_VELNIAS_2ND_SUMMON_PORTAL" then
+                                        if sObj.Step2 == 0 then
+                                            return 1
+                                        end
+                                    elseif DialogFunc == "D_STARTOWER_88_VELNIAS_3RD_SUMMON_PORTAL" then
+                                        if sObj.Step3 == 0 then
+                                            return 1
+                                        end
+                                    elseif DialogFunc == "D_STARTOWER_88_VELNIAS_4TH_SUMMON_PORTAL" then
+                                        if sObj.Step4 == 0 then
+                                            return 1
+                                        end
+                                    end
+                                elseif IsServerSection(self) == 1 then
+                                    local DialogFunc = objectList[i].Dialog
+                                    if DialogFunc == "D_STARTOWER_88_VELNIAS_1ST_SUMMON_PORTAL" then
+                                        if sObj.Step1 == 0 then
+                                            return 1
+                                        end
+                                    elseif DialogFunc == "D_STARTOWER_88_VELNIAS_2ND_SUMMON_PORTAL" then
+                                        if sObj.Step2 == 0 then
+                                            return 1
+                                        end
+                                    elseif DialogFunc == "D_STARTOWER_88_VELNIAS_3RD_SUMMON_PORTAL" then
+                                        if sObj.Step3 == 0 then
+                                            return 1
+                                        end
+                                    elseif DialogFunc == "D_STARTOWER_88_VELNIAS_4TH_SUMMON_PORTAL" then
+                                        if sObj.Step4 == 0 then
+                                            return 1
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+-- STARTOWER_91_MQ_30_ITEM
+function SCR_PRE_STARTOWER_91_MQ_30_ITEM(self, argObj, argstring, arg1, arg2)
+    local questCheck = SCR_QUEST_CHECK(self, "STARTOWER_91_MQ_30")
+    local itemCount = GetInvItemCount(self, "STARTOWER_91_MQ_30_ITEM")
+    if itemCount >= 1 then
+        if questCheck == "PROGRESS" then
+            if GetZoneName(self) == "d_startower_91" then
+                if GetLayer(self) == 0 then
+                    local objectList, objectCount = SelectObjectByFaction(self, 300, 'Neutral')
+                    if objectCount ~= nil then
+                        for i = 1, objectCount do
+                            if objectList[i].ClassName == "prison_device_2" then
+                                if IsServerSection(self) == 0 then
+                                    local DialogFunc = GetDialogByObject(objectList[i])
+                                    if DialogFunc == "D_STARTOWER_91_3RD_SUB_DEVICE" then
+                                        return 1
+                                    end
+                                elseif IsServerSection(self) == 1 then
+                                    local DialogFunc = objectList[i].Dialog
+                                    if DialogFunc == "D_STARTOWER_91_3RD_SUB_DEVICE" then
+                                        return 1
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+-- STARTOWER_91_MQ_70_ITEM (Using STARTOWER_91_MQ_80)
+function SCR_PRE_STARTOWER_91_MQ_70_ITEM(self, argObj, argstring, arg1, arg2)
+    local questCheck = SCR_QUEST_CHECK(self, "STARTOWER_91_MQ_80")
+    local itemCount = GetInvItemCount(self, "STARTOWER_91_MQ_70_ITEM")
+    if itemCount == 1 then
+        if questCheck == "PROGRESS" then
+            if GetZoneName(self) == "d_startower_91" then
+                if GetLayer(self) == 0 then
+                    local x, y, z = GetPos(self)
+                    local objectList, objectCount = SelectObject(self, 300, "ALL")
+                    if objectCount ~= nil then
+                        for i = 1, objectCount do
+                            if objectList[i].ClassName == "Waglog" or objectList[i].ClassName == "glovegolem" then
+                                if IsBuffApplied(objectList[i], 'STARTOWER_91_MQ_80_KEY_RESONATE_BUFF') == 'NO' then
+                                    return GetHandle(objectList[i])
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+-- STARTOWER_91_MQ_90_ITEM01
+function SCR_PRE_STARTOWER_91_MQ_90_ITEM01(self, argObj, argstring, arg1, arg2)
+    local questCheck = SCR_QUEST_CHECK(self, "STARTOWER_91_MQ_90")
+    local itemCount = GetInvItemCount(self, "STARTOWER_91_MQ_90_ITEM01")
+    if questCheck == "PROGRESS" then
+        if GetZoneName(self) == "d_startower_91" then
+            if GetLayer(self) ~= 0 then
+                local objectList, objectCount = SelectObject(self, 300, "ALL")
+                if objectCount ~= nil then
+                    for i = 1, objectCount do
+                        if objectList[i].ClassName == "boss_Trampler_Q1" then
+                            return GetHandle(objectList[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
 --GM_WHITETREES_OBJ_ITEM2
 function SCR_PRE_GM_WHITETREES_OBJ_ITEM2(self, argObj, argstring, arg1, arg2)
     if GetZoneName(self) == "mission_whitetrees_56_1" then
@@ -8038,6 +8432,230 @@ function SCR_PRE_GM_WHITETREES_OBJ_ITEM5(self, argObj, argstring, arg1, arg2)
             return 1
         else
             SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("GM_WHITETREES_ITEM_MSG2_3"), 3)
+        end
+    end
+    return 0
+end
+
+--NICOPOLIS_811_SUBQ1_ITEM1
+function SCR_PRE_NICOPOLIS_811_SUBQ1_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_1" then
+        local objectList, objectCount = SelectObject(self, 20, "ALL", 1)
+        if objectCount ~= nil then
+            for i = 1, objectCount do
+            if objectList[i].ClassName == "npcl_abbey_device" or objectList[i].ClassName == "star_lantern_01" then
+                    if IsServerSection(self) == 1 then
+                        if objectList[i].Dialog == "NICO811_DEVICE1" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_1")
+                                if quest_result == "PROGRESS" then
+                                if GetLayer(self) > 0 then
+                                    local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_1")
+                                    if sObj.Step1 >= 1 then
+                                        return GetHandle(objectList[i])
+                                    end
+                                end
+                            end
+                        elseif objectList[i].Dialog == "NICO811_DEVICE3" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_2")
+                            if quest_result == "PROGRESS" then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_2")
+                                if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                    return GetHandle(objectList[i])
+                                end
+                            end
+                        elseif objectList[i].Dialog == "NICO811_DEVICE3_ATIFECT" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_3")
+                            if quest_result == "PROGRESS" then
+                                if GetLayer(self) > 0 then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_3")
+                                    if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                        return GetHandle(objectList[i])
+                                    end
+                                end
+                            end
+                        elseif objectList[i].Dialog == "NICO811_DEVICE4" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_4")
+                            if quest_result == "PROGRESS" then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_4")
+                                if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                    return GetHandle(objectList[i])
+                            end
+                            end
+                        elseif objectList[i].Dialog == "NICO811_DEVICE5_ATFECT" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_03")
+                            if quest_result == "PROGRESS" then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_03")
+                                if GetLayer(self) >= 1 then
+                                    if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                        return GetHandle(objectList[i])
+                                    end
+                                end
+                            end
+                        end
+                    elseif IsServerSection(self) == 0 then
+                local DialogFunc = GetDialogByObject(objectList[i])
+                if DialogFunc == "NICO811_DEVICE1" then
+                    local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_1")
+                        if quest_result == "PROGRESS" then
+                        if GetLayer(self) > 0 then
+                            local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_1")
+                            if sObj.Step1 >= 1 then
+                                return GetHandle(objectList[i])
+                            end
+                        end
+                    end
+                elseif DialogFunc == "NICO811_DEVICE3" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_2")
+                    if quest_result == "PROGRESS" then
+                        local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_2")
+                                if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                            return GetHandle(objectList[i])
+                        end
+                    end
+                        elseif DialogFunc == "NICO811_DEVICE3_ATIFECT" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_3")
+                    if quest_result == "PROGRESS" then
+                        if GetLayer(self) > 0 then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_3")
+                                    if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                        return GetHandle(objectList[i])
+                                    end
+                        end
+                    end
+                        elseif DialogFunc == "NICO811_DEVICE4" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_02_4")
+                    if quest_result == "PROGRESS" then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_02_4")
+                                if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                    return GetHandle(objectList[i])
+                    end
+                            end
+                        elseif DialogFunc == "NICO811_DEVICE5_ATFECT" then
+                            local quest_result = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_03")
+                    if quest_result == "PROGRESS" then
+                                local sObj = GetSessionObject(self, "SSN_F_NICOPOLIS_81_1_SQ_03")
+                                if GetLayer(self) >= 1 then
+                                    if sObj.QuestInfoValue1 >= sObj.QuestInfoMaxCount1 then
+                                        return GetHandle(objectList[i])
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--NICOPOLIS_812_SUBQ3_ITEM1
+function SCR_PRE_NICOPOLIS_812_SUBQ3_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_2" then
+        local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_2_SQ_03")
+        if quest == "PROGRESS" then
+            return 1
+        end
+    end
+end
+
+--NICOPOLIS_812_SUBQ5_ITEM1
+function SCR_PRE_NICOPOLIS_812_SUBQ5_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_2" then
+        local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_2_SQ_06")
+        if quest == "PROGRESS" then
+            return 1
+        else
+            return 0
+        end
+    end
+    return 0
+end
+
+--NICOPOLIS_812_SUBQ10_ITEM1
+function SCR_PRE_NICOPOLIS_812_SUBQ10_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_2" then
+        if GetLayer(self) < 1 then
+            local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_2_SQ_10")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if IsServerSection(self) == 1 then
+                            if obj_list[i].ClassName == "npc_nicopolis_female2" or obj_list[i].ClassName == "npc_nicopolis_male3" then
+                                if obj_list[i].Dialog == "NICO812_SUBQ_NPC10" or obj_list[i].Dialog == "NICO812_SUBQ_NPC7" then
+                                   return GetHandle(obj_list[i])
+                                end
+                            end
+                        elseif IsServerSection(self) == 0 then
+                            local DialogFunc = GetDialogByObject(obj_list[i])
+                            if obj_list[i].ClassName == "npc_nicopolis_female2" or obj_list[i].ClassName == "npc_nicopolis_male3" then
+                                if DialogFunc == "NICO812_SUBQ_NPC10" or DialogFunc == "NICO812_SUBQ_NPC7" then
+                                    return GetHandle(obj_list[i])
+                                end
+                    end
+                end
+            end
+        end
+    end
+        end
+    end
+    return 0
+end
+
+--NICOPOLIS_813_SUBQ03_ITEM1
+function SCR_PRE_NICOPOLIS_813_SUBQ03_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_3" then
+        if GetLayer(self) < 1 then
+            local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_3_SQ_03")
+            if quest == "PROGRESS" then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+--NICOPOLIS_813_SUBQ043_ITEM1
+function SCR_PRE_NICOPOLIS_813_SUBQ043_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_3" then
+        if GetLayer(self) < 1 then
+            local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_3_SQ_04_4")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if obj_list[i].ClassName == "Altarcrystal_G1" then
+                            if obj_list[i].NumArg1 < 1 then
+                                if IsBuffApplied(self, "NICOPOLIS_813_SUBQ043_BUFF1") == "NO" then
+                                    return GetHandle(obj_list[i])
+                                end
+                                return 0
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--NICOPOLIS_811_SUBQ5_ITEM1
+function SCR_PRE_NICOPOLIS_811_SUBQ5_ITEM1(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == "f_nicopolis_81_1" then
+        if GetLayer(self) < 1 then
+            local quest = SCR_QUEST_CHECK(self, "F_NICOPOLIS_81_1_SQ_05")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if obj_list[i].ClassName == "Hiddennpc" then
+                            return GetHandle(obj_list[i])
+                        end
+                    end
+                end
+            end
         end
     end
     return 0

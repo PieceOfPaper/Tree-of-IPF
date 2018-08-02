@@ -358,7 +358,7 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 
 
 	-- 이름을기준으로 현재 y위치를 구함.
-	local curPosY = ctrlSet:GetOriginalY() + collec_name:GetY()+  collec_name:GetHeight();
+	local curPosY = ctrlSet:GetOriginalY() + collec_name:GetY() + collec_name:GetHeight();
 	
 	local gbox_magic = GET_CHILD(ctrlSet, "gb_magic", "ui::CGroupBox");
 	local img_btn_magic = GET_CHILD(gbox_magic, "iconMagic", "ui::CPicture");			-- 효과 버튼 이미지
@@ -407,23 +407,23 @@ function SET_COLLECTION_SET(frame, ctrlSet, type, coll, posY)
 	-- Detial 갱신
 	curPosY = DETAIL_UPDATE(frame, coll, gbox_items ,type, curPosY ,isUnknown);
 
-	--마지막으로 컨트롤셋과 gbox_collection의 크기조절
-	local gbox_collection = GET_CHILD(ctrlSet,"gb_collection","ui::CGroupBox");	
-	gbox_collection:Resize(gbox_collection:GetWidth(), ctrlSet:GetOriginalHeight()); -- 이위치에서 리사이즈해야한다. 디테일뷰가 켜지면 그안에 +버튼을 눌러야하니까 히트는 나머지영역만으로 제한
-
-	curPosY = curPosY + gbox_items:GetHeight() + tonumber(frame:GetUserConfig("SLOT_BOTTOM_MARGIN"));
-	gbox_complete:Resize(ctrlSet:GetWidth(), curPosY);
-
 	-- ctrlset 크기 조절
 	local newposY = posY + ctrlSet:GetHeight() + 10;
 	local ctrlsetHeight = math.max(newposY - oldPosY, gbox_magic:GetY() + txtmagic:GetHeight() + 15);	
 	newposY = posY + ctrlsetHeight;
 	ctrlSet:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
 
+	--마지막으로 컨트롤셋과 gbox_collection의 크기조절
+	local gbox_collection = GET_CHILD(ctrlSet,"gb_collection","ui::CGroupBox");	
+	gbox_collection:Resize(gbox_collection:GetWidth(), ctrlSet:GetOriginalHeight()); -- 이위치에서 리사이즈해야한다. 디테일뷰가 켜지면 그안에 +버튼을 눌러야하니까 히트는 나머지영역만으로 제한
+	curPosY = curPosY + gbox_items:GetHeight() + tonumber(frame:GetUserConfig("SLOT_BOTTOM_MARGIN"));
+	gbox_complete:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
+
 	-- 선택된 경우 하단부 커져야 해	
 	if frame:GetUserIValue('DETAIL_VIEW_TYPE') == type then		
 		ctrlsetHeight = ctrlsetHeight + gbox_items:GetHeight();
 		ctrlSet:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
+		gbox_complete:Resize(ctrlSet:GetWidth(), ctrlsetHeight);
 		newposY = newposY + gbox_items:GetHeight();
 	end
 	
@@ -520,7 +520,7 @@ function UPDATE_COLLECTION_LIST(frame, addType, removeType)
 		local ctrlSet = col:CreateOrGetControlSet('collection_deck', "DECK_" .. index, 0, posY );
 		ctrlSet:ShowWindow(1);
 		posY = SET_COLLECTION_SET(frame, ctrlSet, v.cls.ClassID, v.coll, posY) 
-		posY = posY -tonumber(frame:GetUserConfig("DECK_SPACE")); -- 가까이 붙이기 위해 좀더 위쪽으로땡김
+		posY = posY - tonumber(frame:GetUserConfig("DECK_SPACE")); -- 가까이 붙이기 위해 좀더 위쪽으로땡김
 	end
 
 	if addType ~= "UNEQUIP" and REMOVE_ITEM_SKILL ~= 7 then

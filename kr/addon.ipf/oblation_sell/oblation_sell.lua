@@ -49,20 +49,35 @@ function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount)
 		ui.SysMsg(ClMsg("Auto_SangJeom_PanMae_BulKaNeung"));
 		return;
 	end
-	
+
 	local duplicateSlot = GET_SLOT_BY_IESID(slotset, invItem:GetIESID());
 	if duplicateSlot == nil then
 		local emptySlot = GET_EMPTY_SLOT(slotset);
-		SET_SLOT_ITEM(emptySlot, invItem, addCount)
-		SET_SLOT_COUNT_TEXT(emptySlot, addCount);
+		if itemCls.MaxStack <= 1 then
+			SET_SLOT_ITEM(emptySlot, invItem);	
+		else
+			SET_SLOT_ITEM(emptySlot, invItem, addCount)
+			SET_SLOT_COUNT_TEXT(emptySlot, addCount);
+		end
 	else
 		local iconInfo = duplicateSlot:GetIcon():GetInfo();
 		iconInfo.count = iconInfo.count + addCount;
 		if iconInfo.count > invItem.count then
 			iconInfo.count = invItem.count;
 		end
-		SET_SLOT_COUNT_TEXT(duplicateSlot, iconInfo.count);
+
+		if itemCls.MaxStack > 1 then
+			SET_SLOT_COUNT_TEXT(duplicateSlot, iconInfo.count);
+		end
 	end
+
+	--inventory item check
+	if iesID ~= nil then
+		SHOP_SELECT_ITEM_LIST[iesID] = invItem.count;
+	end
+
+	--Check Slot Register
+	INVENTORY_UPDATE_ICON_BY_INVITEM(ui.GetFrame('inventory'), invItem);
 end
 
 function INV_RBTN_DBLDOWN_OBLATION_SELL(itemObj, slot)
@@ -71,12 +86,12 @@ function INV_RBTN_DBLDOWN_OBLATION_SELL(itemObj, slot)
 		return;
 	end
 	local frame = ui.GetFrame("oblation_sell");
+
 	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, invItem.count);
 	OBLATION_SELL_CALCULATE_PRICE(frame);
-
 end
 
-function INV_RBTN_DOWN_OBLATION_SELL(itemObj, slot)
+function INV_RBTN_DOWN_OBLATION_SELL(itemObj, slot, iesID)
 	local invItem = session.GetInvItemByGuid(GetIESID(itemObj));
 	if invItem == nil then
 		return;
@@ -107,9 +122,15 @@ function GET_SLOT_OBLATION_SELL_PRICE(slot)
 	if invItem == nil then
 		return 0;
 	end
+	local itemCls = GetIES(invItem:GetObject());
 
 	local iconInfo = slot:GetIcon():GetInfo();
-	local slotCount = iconInfo.count;
+	local slotCount = 0;
+	if itemCls.MaxStack > 1 then
+		slotCount = iconInfo.count;
+	else
+		slotCount = 1;	
+	end
 	local itemCls = GetIES(invItem:GetObject());
 	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
 	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());
@@ -121,7 +142,7 @@ function GET_SLOT_OBLATION_SELL_PRICE(slot)
 end
 
 function OBLATION_SELL_CLEAR(parent)
-	local frame = parent:GetTopParentFrame();
+	local frame = ui.GetFrame("oblation_sell");
 	local slotset = OBLATION_SELL_GET_SLOTSET(frame);
 	CLEAR_SLOTSET(slotset);
 	OBLATION_SELL_CALCULATE_PRICE(frame)
@@ -156,7 +177,13 @@ function _OBLATION_SELL_EXEC()
 		local slotItem = GET_SLOT_ITEM(slot);
 		if slotItem ~= nil then
 			local iconInfo = slot:GetIcon():GetInfo();
+			local slotItemCls = GetIES(slotItem:GetObject());
+
+			if slotItemCls.MaxStack > 1 then
 			session.AddItemID(iconInfo:GetIESID(), iconInfo.count);
+			else
+				session.AddItemID(iconInfo:GetIESID(), 1);
+			end
 		end
 	end
 

@@ -12,6 +12,17 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 --	local RaidStance = tooltipframe:GetChild("RaidStance");
     
 	local token_tradecount = tooltipframe:GetChild("token_tradecount");
+	
+	local pcbangPartyExpUp = tooltipframe:GetChild("pcbangPartyExpUp");
+	pcbangPartyExpUp:ShowWindow(0);
+	
+	local pcbangChallengeCount = tooltipframe:GetChild("challengeCount");
+	pcbangChallengeCount:ShowWindow(0);
+	
+	local pcbangItemRental = tooltipframe:GetChild("pcbangItemRental");
+	pcbangItemRental:ShowWindow(0);
+	
+	
 
 	local buffCls = GetClassByType('Buff', numarg1);
 	local argNum = NONE_PREMIUM;
@@ -43,7 +54,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 
 	elseif NEXON_PC == argNum then
 		type:SetTextByKey("value", ClMsg("nexon")); 
-		token_staup:SetTextByKey("value", ClMsg("token_setup"));
+--		token_staup:SetTextByKey("value", ClMsg("token_setup"));
 		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 		token_tradecount:ShowWindow(0);
 --		token_buffCountUp:ShowWindow(0);
@@ -52,6 +63,17 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
         token_teamwarehouse:ShowWindow(0);
 --        mission_reward:ShowWindow(0);
 --        RaidStance:ShowWindow(0);
+		
+		local pcbangChallengeCountString = ScpArgMsg("PcbangChallengeCount{COUNT}", "COUNT", 1)
+		pcbangChallengeCount:SetTextByKey("value", pcbangChallengeCountString);
+		pcbangChallengeCount:ShowWindow(1);
+		
+		pcbangPartyExpUp:SetTextByKey("value", ScpArgMsg("PcbangPartyExpUp"));
+		pcbangPartyExpUp:ShowWindow(1);
+		
+		pcbangItemRental:SetTextByKey("value", ScpArgMsg("PcbangItemRental"));
+		pcbangItemRental:ShowWindow(1);
+		
 	else
 		token_tradecount:ShowWindow(0);
         marketFastGet:ShowWindow(0);

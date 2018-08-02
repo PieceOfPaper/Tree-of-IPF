@@ -12,7 +12,7 @@
 	<userconfig starSize="20"/>
 	<controls>
 		<richtext name="infoMsg" rect="0 0 350 70" margin="0 90 0 0" format="{@st66d}{s18}{#FFFF18}[ %s ]{/} {@st66d}{s18}{#FFFFFF} 제거 시{nl}카드 레벨이 한단계 하락합니다.{/}" param1="Name" param1_def="asd" textalign="center center" layout_gravity="center top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false"/>
-		<picture name="card_img" rect="0 0 260 370" margin="0 155 0 0" layout_gravity="center top" hittest="false" image="056_boss_Grinender" stretch="true"/>
+		<spinepic name="card_img" rect="0 0 260 370" layout_gravity="center top" margin="0 155 0 0" updateparent="true" animation="animation" scale="1.0" stretch="true" offsetX="0" offsetY="0" hittest="false" image="boss_bg_slot"/>
 		<picture name="card_img2" rect="0 0 260 370" margin="0 155 0 0" layout_gravity="center top" hittest="false" image="boss_bg_slot" stretch="true"/>
 		<groupbox name="star_bg" rect="0 0 360 115" margin="0 420 0 0" layout_gravity="center top" draw="false" hittest="true" skin="none" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 		<picture name="downArrow" rect="0 0 20 12" margin="1 13 0 0" layout_gravity="center center" hittest="false" image="white_down_arrow" parent="star_bg" stretch="true"/>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_3CMLAKE_86_MQ_06_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59074" Pos="-188.86#40.89#-1177.11" angle="73" genCount="1" genTime="20000" objectKey="0" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="-206.59#40.89#-1145.88" angle="65" genCount="1" genTime="20000" objectKey="1" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="-103.68#40.89#-1144.57" angle="78" genCount="1" genTime="20000" objectKey="2" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="-37.65#40.89#-1132.67" angle="129" genCount="1" genTime="20000" objectKey="3" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="-77.51#40.89#-1123.15" angle="125" genCount="1" genTime="20000" objectKey="4" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="ADD">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59074" Pos="-301.46#40.89#-1210.13" genCount="1" genTime="20000" autoGen="0" objectKey="1" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="-274.23#40.89#-1255.79" genCount="1" genTime="20000" autoGen="0" objectKey="2" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="60.80#40.89#-1203.55" genCount="1" genTime="20000" autoGen="0" objectKey="3" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="73.55#40.89#-1156.95" genCount="1" genTime="20000" autoGen="0" objectKey="4" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                    <Obj Type="Monster" MonType="59074" Pos="18.27#40.89#-1196.28" genCount="1" genTime="20000" autoGen="0" objectKey="5" SimpleAI="F_3CMLAKE_86_MQ_06_AI"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="5" eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="ADD/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="ADD/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="ADD/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="ADD/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="ADD/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="ADD/3"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="ADD/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="ADD/4"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="5" eventName="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="ADD/5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="ADD/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="NPC">
+                <ObjList>
+                    <Obj Type="Monster" MonType="155008" Pos="-365.02#40.89#-991.02" angle="-126" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;보급 물자&apos; &apos;HPCount&apos; &apos;50&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="155008" Pos="-358.62#40.89#-1033.29" angle="-96" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;보급 물자&apos; &apos;HPCount&apos; &apos;50&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="155008" Pos="107.86#40.89#-898.75" angle="-171" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;보급 물자&apos; &apos;HPCount&apos; &apos;50&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="155008" Pos="109.79#40.89#-942.38" angle="129" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;보급 물자&apos; &apos;HPCount&apos; &apos;50&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="156117" Pos="-125.31#40.89#-860.67" angle="-77" genCount="1" genTime="20000" objectKey="4" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;저항군 부관 테일러&apos; &apos;HPCount&apos; &apos;50&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; "/>
+                    <Obj Type="Monster" MonType="156125" Pos="-97.50#40.89#-853.32" angle="-73" genCount="1" genTime="20000" objectKey="5" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;BTree&apos; &apos;BT_Dummy&apos; &apos;Name&apos; &apos;저항군 레트&apos; &apos;HPCount&apos; &apos;50&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; &apos;BornAni&apos; &apos;sit_sick&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="ani">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/5"/>
+                                <Str Str="sit_sick"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="box_msg1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/0"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="보급 물자가 파괴되고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="box_msg2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/1"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="보급 물자가 파괴되고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="box_msg3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/2"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="보급 물자가 파괴되고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="box_msg4">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/3"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="보급 물자가 파괴되고 있습니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="npc_msg1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/4"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="저항군이 위험합니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="npc_msg2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+                                <MGameObj List="NPC/5"/>
+                                <Num Num="50"/>
+                                <Str Str="UNDER"/>
+                                <Num Num="1"/>
+                                <Str Str="OVER"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="저항군이 위험합니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

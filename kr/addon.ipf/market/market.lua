@@ -467,9 +467,8 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -582,9 +581,9 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 		ctrlSet:SetUserValue("optionIndex", 0)
 
 		local inheritanceItem = GetClass('Item', itemObj.InheritanceItemName)
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -659,62 +658,62 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 		
 		local needAppraisal = TryGetProp(itemObj, "NeedAppraisal");
 		local needRandomOption = TryGetProp(itemObj, "NeedRandomOption");
-		local maxSocketCount = itemObj.MaxSocket
-		local drawFlag = 0
-		if maxSocketCount > 3 then
-			drawFlag = 1
-		end
-
-		local curCount = 1
-		local socketText = ""
-		local tempStr = ""
-		for i = 0, maxSocketCount - 1 do
-			if itemObj['Socket_' .. i] > 0 then
-				
-				local isEquip = itemObj['Socket_Equip_' .. i]
-				if isEquip == 0 then
-					tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_EMPTY")
-					if drawFlag == 1 and curCount % 2 == 1 then
-						socketText = socketText .. tempStr
-					else
-						socketText = socketText .. tempStr .. "{nl}"
-					end
-				else
-					local gemClass = GetClassByType("Item", isEquip);
-					if gemClass.ClassName == 'gem_circle_1' then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_RED")
-					elseif gemClass.ClassName == 'gem_square_1' then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_BLUE")
-					elseif gemClass.ClassName == 'gem_diamond_1' then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_GREEN")
-					elseif gemClass.ClassName == 'gem_star_1' then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_YELLOW")
-					elseif gemClass.ClassName == 'gem_White_1' then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_WHITE")
-					elseif gemClass.EquipXpGroup == "Gem_Skill" then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_MONSTER")
-					end
-					
-					local gemLv = GET_ITEM_LEVEL_EXP(gemClass, itemObj['SocketItemExp_' .. i])
-					tempStr = tempStr .. "Lv" .. gemLv
-
-					if drawFlag == 1 and curCount % 2 == 1 then
-						socketText = socketText .. tempStr
-					else
-						socketText = socketText .. tempStr .. "{nl}"
-					end
-				end									
+			local maxSocketCount = itemObj.MaxSocket
+			local drawFlag = 0
+			if maxSocketCount > 3 then
+				drawFlag = 1
 			end
-			curCount = curCount + 1
-		end
-		socket:SetTextByKey("value", socketText)
+
+			local curCount = 1
+			local socketText = ""
+			local tempStr = ""
+			for i = 0, maxSocketCount - 1 do
+				if itemObj['Socket_' .. i] > 0 then
+					
+					local isEquip = itemObj['Socket_Equip_' .. i]
+					if isEquip == 0 then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_EMPTY")
+						if drawFlag == 1 and curCount % 2 == 1 then
+							socketText = socketText .. tempStr
+						else
+							socketText = socketText .. tempStr .. "{nl}"
+						end
+					else
+						local gemClass = GetClassByType("Item", isEquip);
+						if gemClass.ClassName == 'gem_circle_1' then
+							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_RED")
+						elseif gemClass.ClassName == 'gem_square_1' then
+							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_BLUE")
+						elseif gemClass.ClassName == 'gem_diamond_1' then
+							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_GREEN")
+						elseif gemClass.ClassName == 'gem_star_1' then
+							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_YELLOW")
+						elseif gemClass.ClassName == 'gem_White_1' then
+							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_WHITE")
+						elseif gemClass.EquipXpGroup == "Gem_Skill" then
+							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_MONSTER")
+						end
+						
+						local gemLv = GET_ITEM_LEVEL_EXP(gemClass, itemObj['SocketItemExp_' .. i])
+						tempStr = tempStr .. "Lv" .. gemLv
+
+						if drawFlag == 1 and curCount % 2 == 1 then
+							socketText = socketText .. tempStr
+						else
+							socketText = socketText .. tempStr .. "{nl}"
+						end
+					end									
+				end
+				curCount = curCount + 1
+			end
+			socket:SetTextByKey("value", socketText)
 
 		-- POTENTIAL
 
 		local potential = GET_CHILD_RECURSIVELY(ctrlSet, "potential");
 		if needAppraisal == 1 then
 			potential:SetTextByKey("value1", "?")
-			potential:SetTextByKey("value2", "?")		
+			potential:SetTextByKey("value2", "?")			
 		else
 			potential:SetTextByKey("value1", itemObj.PR)
 			potential:SetTextByKey("value2", itemObj.MaxPR)
@@ -766,28 +765,28 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 				if  itemObj.GroupName == 'Weapon' then
 					if propName ~= "MINATK" and propName ~= 'MAXATK' then
 						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);			
-						SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)		
+						SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 					end
 				elseif  itemObj.GroupName == 'Armor' then
 					if itemObj.ClassType == 'Gloves' then
 						if propName ~= "HR" then
 							local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
-							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 						end
 					elseif itemObj.ClassType == 'Boots' then
 						if propName ~= "DR" then
 							local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
-							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 						end
 					else
 						if propName ~= "DEF" then
 							local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
-							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+							SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 						end
 					end
 				else
 					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propValue);
-					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+					SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 				end
 			end
 		end
@@ -798,7 +797,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 			if itemObj[propValue] ~= 0 and itemObj[propName] ~= "None" then
 				local opName = string.format("[%s] %s", ClMsg("EnchantOption"), ScpArgMsg(itemObj[propName]));
 				local strInfo = ABILITY_DESC_PLUS(opName, itemObj[propValue]);
-				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
 		end
 	
@@ -827,9 +826,15 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 			if propItem[propValue] ~= 0 and propItem[propName] ~= "None" then
 				local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(propItem[propName]));
 				local strInfo = ABILITY_DESC_NO_PLUS(opName, propItem[propValue], 0);
-				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
-
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
+		end
+
+        if originalItemObj['RandomOptionRareValue'] ~= 0 and originalItemObj['RandomOptionRare'] ~= "None" then
+			local strInfo = _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(originalItemObj['RandomOptionRare'], originalItemObj['RandomOptionRareValue']);
+            if strInfo ~= nil then
+			    SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+            end
 		end
 
 		for i = 1 , #list2 do
@@ -837,32 +842,32 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 			local propValue = itemObj[propName];
 			if propValue ~= 0 then
 				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemObj[propName]);
-				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
 		end
 
 		if itemObj.OptDesc ~= nil and itemObj.OptDesc ~= 'None' then
-			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, itemObj.OptDesc)	
+			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, itemObj.OptDesc);
 		end
 
 		if inheritanceItem == nil then
-			if itemObj.IsAwaken == 1 then
-				local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(itemObj.HiddenProp));
-				local strInfo = ABILITY_DESC_PLUS(opName, itemObj.HiddenPropValue);
-				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)
+		if itemObj.IsAwaken == 1 then
+			local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(itemObj.HiddenProp));
+			local strInfo = ABILITY_DESC_PLUS(opName, itemObj.HiddenPropValue);
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
 		else
 			if inheritanceItem.IsAwaken == 1 then
 				local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(inheritanceItem.HiddenProp));
 				local strInfo = ABILITY_DESC_PLUS(opName, inheritanceItem.HiddenPropValue);
-				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)
+				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
 		end
 
 		if itemObj.ReinforceRatio > 100 then
 			local opName = ClMsg("ReinforceOption");
 			local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * itemObj.ReinforceRatio/100));
-			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, strInfo)	
+			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 		end
 
 
@@ -920,7 +925,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 	pagecontrol:SetCurPage(curPage);
 end
 
-function SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, str)
+function SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, str)
 	local index = ctrlSet:GetUserIValue("optionIndex")
 	local optionText = GET_CHILD_RECURSIVELY(ctrlSet, "randomoption_" .. index)
 
@@ -929,7 +934,6 @@ function SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, i, str)
 		ctrlSet:SetUserValue("optionIndex", index + 1)
 	end
 end
-
 
 function MARKET_DRAW_CTRLSET_RECIPE(frame)
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
@@ -955,9 +959,8 @@ function MARKET_DRAW_CTRLSET_RECIPE(frame)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 		ctrlSet:SetUserValue("itemClassName", itemObj.ClassName)
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -1135,9 +1138,8 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
 		index = index + 1
 		frame:SetUserValue("searchListIndex", index)
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -1262,9 +1264,8 @@ function MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -1370,9 +1371,8 @@ function MARKET_DRAW_CTRLSET_GEM(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -1467,9 +1467,8 @@ function MARKET_DRAW_CTRLSET_CARD(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)
@@ -1569,9 +1568,8 @@ function MARKET_DRAW_CTRLSET_EXPORB(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		SET_ITEM_TOOLTIP_ALL_TYPE(ctrlSet, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
 
 		SET_SLOT_ITEM_CLS(pic, itemObj)
         SET_SLOT_STYLESET(pic, itemObj)

@@ -14,7 +14,6 @@
 		<groupbox name="pip4" rect="0 0 500 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 200 80" margin="0 17 0 0" layout_gravity="center top" caption="{@st43}다른 캐릭터 정보{/} {@st42}" fontname="" textalign="center center"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;compare&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="10 -500 0 0" layout_gravity="left top" image="button_status"/>
 		<groupbox name="groupbox_1" rect="0 0 500 190" margin="0 88 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false" skin="pipwin_low"/>
 		<tab name="itembox" parent="bg" rect="0 0 450 45" margin="40 40 0 0" layout_gravity="center top" LBtnDownScp="COMPARE_TAB_CHANGE" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
 		<tabitem name="information" parent="itembox" margin="0 -10 0 0" layout_gravity="left top" caption="{@st66b}정보" skinspace="40" width="190"/>

@@ -1,5 +1,5 @@
 function IS_ENABLE_EXTRACT_OPTION(item)
-    if TryGetProp(item,'Extractable') == nil or item.Extractable ~= 'Yes' then
+    if TryGetProp(item,'Extractable', 'No') ~= 'Yes' then
         return false;
     end
 
@@ -66,7 +66,7 @@ function GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)
 end
 
 function GET_OPTION_EQUIP_NEED_MATERIAL_COUNT(item)
-    return item.UseLv * 2;
+    return 0;
 end
 
 function GET_OPTION_EQUIP_CAPITAL_MATERIAL_NAME() 
@@ -74,7 +74,7 @@ function GET_OPTION_EQUIP_CAPITAL_MATERIAL_NAME()
 end
 
 function GET_OPTION_EQUIP_NEED_CAPITAL_COUNT(item)
-    return math.floor(item.UseLv / 2);
+    return 0;
 end
 
 function GET_OPTION_EQUIP_NEED_SILVER_COUNT(item)

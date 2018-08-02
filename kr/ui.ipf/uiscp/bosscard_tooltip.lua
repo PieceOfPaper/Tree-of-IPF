@@ -90,15 +90,12 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 
 	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
 
-	
-	
-
 	-- 카드 테두리 세팅
 	SET_CARD_EDGE_TOOLTIP(CSet, invitem);
 
 	-- 아이템 이미지
-	local itemPicture = GET_CHILD(CSet, "itempic");
-	itemPicture:SetImage(invitem.TooltipImage);
+	local spineItemPicture = GET_CHILD(CSet, "itempic");
+	SET_SPINE_TOOLTIP_IMAGE(spineItemPicture, invitem);
 
 	-- 별 그리기
 	SET_GRADE_TOOLTIP(CSet, invitem, GRADE_FONT_SIZE);

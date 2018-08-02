@@ -10,8 +10,16 @@ function DIALOG_ACCEPT_CHALLENGE_MODE_RE_JOIN(handle)
 	ui.MsgBox(ClMsg("AcceptChallengeMode_ReJoin"), "ACCEPT_CHALLENGE_MODE(" .. tostring(handle) .. ")", "None");
 end
 
+function DIALOG_ACCEPT_CHALLENGE_MODE_PCBANG(handle)
+	ui.MsgBox(ClMsg("AcceptChallengeMode_PCBang"), "ACCEPT_CHALLENGE_MODE_BY_PCBANG(" .. tostring(handle) .. ")", "None");
+end
+
 function ACCEPT_CHALLENGE_MODE(handle)
 	packet.AcceptChallengeMode(handle);
+end
+
+function ACCEPT_CHALLENGE_MODE_BY_PCBANG(handle)
+	packet.AcceptChallengeModeByPCBang(handle);
 end
 
 function DIALOG_ACCEPT_NEXT_LEVEL_CHALLENGE_MODE(handle)
