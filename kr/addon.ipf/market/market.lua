@@ -119,13 +119,13 @@ function MARKET_FIND_PAGE(frame, page)
 	elseif config.GetServiceNation() == "KOR" then
 		maxLength = 60
 	end
-	
+
 	if findItemStrLength ~= 0 then	-- 있다면 길이 조건 체크
 		if findItemStrLength <= minLength then
 			ui.SysMsg(ClMsg("InvalidFindItemQueryMin"));
 		elseif findItemStrLength > maxLength then
 			ui.SysMsg(ClMsg("InvalidFindItemQueryMax"));
-	        else 
+	    else 
 	        market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
         end
 	else  -- 검색어가 없으면 바로 검색...
@@ -334,7 +334,7 @@ end
 function MARKET_PAGE_SELECT_NEXT(pageControl, numCtrl)
 	pageControl = tolua.cast(pageControl, "ui::CPageController");
 	local page = pageControl:GetCurPage();
-	local frame = pageControl:GetTopParentFrame();
+	local frame = pageControl:GetTopParentFrame();	
 	MARKET_FIND_PAGE(frame, page);
 end
 
@@ -434,7 +434,17 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		if nil ~= argNum and argNum == 1 then
 			MARKET_FIND_PAGE(frame, session.market.GetCurPage());
 		end
+	end
+end
 
+local function MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem)
+	local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+	SET_SLOT_ITEM_CLS(pic, itemObj)
+	SET_ITEM_TOOLTIP_ALL_TYPE(pic:GetIcon(), marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
+
+    SET_SLOT_STYLESET(pic, itemObj)
+    if itemObj.MaxStack > 1 then
+		SET_SLOT_COUNT_TEXT(pic, marketItem.count, '{s16}{ol}{b}');
 	end
 end
 
@@ -467,14 +477,7 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count, '{s16}{ol}{b}');
-		end
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -572,8 +575,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 		if refreshScp ~= "None" then
 			refreshScp = _G[refreshScp];
 			refreshScp(itemObj);
-		end	
-
+		end
 
 		local ctrlSet = itemlist:CreateControlSet("market_item_detail_equip", "ITEM_EQUIP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, yPos);
 		AUTO_CAST(ctrlSet)
@@ -581,16 +583,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 		ctrlSet:SetUserValue("optionIndex", 0)
 
 		local inheritanceItem = GetClass('Item', itemObj.InheritanceItemName)
-
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
-
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = GET_CHILD_RECURSIVELY(ctrlSet, "name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -727,7 +720,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 		end
 
 		if needAppraisal == 1 or needRandomOption == 1 then
-			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, 1, '{@st66b}'..ScpArgMsg("AppraisalItem"))
+			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, '{@st66b}'..ScpArgMsg("AppraisalItem"))
 		end
 
 		local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(itemObj);
@@ -959,15 +952,7 @@ function MARKET_DRAW_CTRLSET_RECIPE(frame)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 		ctrlSet:SetUserValue("itemClassName", itemObj.ClassName)
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
-
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -1061,8 +1046,8 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCH(ctrlSet)
 		return
 	end
 
-	local searchBtn = GET_CHILD_RECURSIVELY(ctrlSet, "searchBtn")
-	ui.DisableForTime(searchBtn, 1.5)
+	local searchBtn = GET_CHILD_RECURSIVELY(ctrlSet, "searchBtn");
+	ui.DisableForTime(searchBtn, 1.5);
 
 	frame:SetUserValue("isRecipeSearching", 1)
 	frame:SetUserValue("searchListIndex", 0)
@@ -1105,7 +1090,7 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCH(ctrlSet)
 			materialList = materialList .. itemCls.ClassID .. "#"
 			local materialCnt = recipeCls["Item_" .. i .. "_1_Cnt"]
 		end
-	end
+end
 
 	market.ReqRecipeSearchList(0, materialList)
 end
@@ -1138,14 +1123,7 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
 		index = index + 1
 		frame:SetUserValue("searchListIndex", index)
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -1264,15 +1242,7 @@ function MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
-
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -1371,15 +1341,7 @@ function MARKET_DRAW_CTRLSET_GEM(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
-
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -1388,7 +1350,7 @@ function MARKET_DRAW_CTRLSET_GEM(frame)
 		local gemLevelValue = GET_ITEM_LEVEL_EXP(itemObj)
 		gemLevel:SetTextByKey("value", gemLevelValue)
 
-		local gemRoastingLevel = itemObj.GemRoastingLv
+		local gemRoastingLevel = TryGetProp(itemObj, 'GemRoastingLv', 0);
 		local roastingLevel = GET_CHILD_RECURSIVELY(ctrlSet, "roastingLevel")
 		roastingLevel:SetTextByKey("value", gemRoastingLevel)
 
@@ -1467,15 +1429,7 @@ function MARKET_DRAW_CTRLSET_CARD(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
-
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -1568,15 +1522,7 @@ function MARKET_DRAW_CTRLSET_EXPORB(frame)
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
-		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
-		SET_ITEM_TOOLTIP_ALL_TYPE(pic, marketItem, itemObj.ClassName, "market", marketItem.itemType, marketItem:GetMarketGuid());
-
-		SET_SLOT_ITEM_CLS(pic, itemObj)
-        SET_SLOT_STYLESET(pic, itemObj)
-        if itemObj.MaxStack > 1 then
-			SET_SLOT_COUNT_TEXT(pic, marketItem.count);
-		end
-
+		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
@@ -1803,24 +1749,24 @@ function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
 		end
 	else
 		local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
-	local child = itemlist:GetChildByIndex(row);
-	local editCount = GET_CHILD_RECURSIVELY(child, "count")
-	if editCount == nil then
-		local marketItem = session.market.GetItemByIndex(row-1);
-		market.AddBuyInfo(marketItem:GetMarketGuid(), 1);
-		totalPrice = totalPrice + marketItem.sellPrice;
-	else
-		local buyCount = editCount:GetText()
-		if tonumber(buyCount) > 0 then
+		local child = itemlist:GetChildByIndex(row);
+		local editCount = GET_CHILD_RECURSIVELY(child, "count")
+		if editCount == nil then
 			local marketItem = session.market.GetItemByIndex(row-1);
-			market.AddBuyInfo(marketItem:GetMarketGuid(), buyCount);
-			totalPrice = totalPrice + buyCount * marketItem.sellPrice;
+			market.AddBuyInfo(marketItem:GetMarketGuid(), 1);
+			totalPrice = totalPrice + marketItem.sellPrice;
 		else
-			ui.SysMsg(ScpArgMsg("YouCantBuyZeroItem"));
+			local buyCount = editCount:GetText()
+			if tonumber(buyCount) > 0 then
+				local marketItem = session.market.GetItemByIndex(row-1);
+				market.AddBuyInfo(marketItem:GetMarketGuid(), buyCount);
+				totalPrice = totalPrice + buyCount * marketItem.sellPrice;
+			else
+				ui.SysMsg(ScpArgMsg("YouCantBuyZeroItem"));
+			end
 		end
-	end
 	end	
-
+	
 	if totalPrice == 0 then
 		return;
 	end
@@ -1888,7 +1834,7 @@ function MARKET_SELLMODE(frame)
 	ui.OpenFrame("inventory");
 end
 
-function MARKET_BUYMODE(frame)
+function MARKET_BUYMODE(frame)	
 	frame:SetUserValue("isRecipeSearching", 0)
 	ui.OpenFrame("market");	
 	ui.CloseFrame("market_sell");
@@ -1901,4 +1847,3 @@ function MARKET_CABINET_MODE(frame)
 	ui.CloseFrame("market_sell");
 	ui.OpenFrame("market_cabinet");
 end
-

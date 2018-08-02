@@ -18,13 +18,12 @@ end
 function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 	
-	local itemObj, isReadObj = nil
-	
+	local itemObj, isReadObj = nil;	
 	if tooltipobj ~= nil then
 		itemObj = tooltipobj;
 		isReadObj = 0;
 	else
-		itemObj, isReadObj = GET_TOOLTIP_ITEM_OBJECT(strarg, numarg2, numarg1);	
+		itemObj, isReadObj = GET_TOOLTIP_ITEM_OBJECT(strarg, numarg2, numarg1);
 	end
     
 	if itemObj == nil then
@@ -520,17 +519,14 @@ function CLOSE_ITEM_TOOLTIP()
 
 end
 
-
--- ????수????크????이??도 ??시??????용??니??
-function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
-	
+function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, index)	
 	if className == 'Scroll_SkillItem' then
 		local obj = GetIES(invitem:GetObject());
 		SET_TOOLTIP_SKILLSCROLL(icon, obj, nil, strType);
 	else
 		icon:SetTooltipType('wholeitem');
-		if nil ~= strType and nil ~= ItemType and nil ~= index then
-			icon:SetTooltipArg(strType, ItemType, index);
+		if nil ~= strType and nil ~= itemType and nil ~= index then			
+			icon:SetTooltipArg(strType, itemType, index);
 		end
 	end
 end
@@ -567,7 +563,7 @@ function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)
 	return 1;
 end
 
--- 마켓?�에??묘사?�서 ?�킬�??�오?�록
+-- 마켓??에??묘사??서 ??킬????오??록
 function SET_ITEM_DESC(value, desc, item)
 	if desc == "None" then
 		desc = "";
@@ -646,7 +642,7 @@ end
 
 function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename);
-	gBox:RemoveAllChild();
+	gBox:RemoveAllChild();	
 	
 	local ctrlset = gBox:CreateControlSet('tooltip_extract_option', 'EXTRACT_OPTION_CTRLSET', 0, 0);
 	local nameText = GET_CHILD(ctrlset, 'nameText');
@@ -661,8 +657,8 @@ function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, m
 	local weightText = GET_CHILD(ctrlset, 'weightText');
 	weightText:SetTextByKey('weight', invitem.Weight)
 
-	local classTypeText = GET_CHILD(ctrlset, 'classTypeText');	
-	classTypeText:SetText(ClMsg(targetItem.ClassType));
+	local classTypeText = GET_CHILD(ctrlset, 'classTypeText');
+		classTypeText:SetText(ClMsg(targetItem.ClassType));
 
 	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + ctrlset:GetHeight());
 	return ctrlset:GetHeight(), ctrlset;
@@ -714,26 +710,26 @@ function GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem)
     return _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem[propName], invitem[propValue]);
 end
 
-function _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue)	
+function _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue)
     if rareOptionValue ~= 0 and rareOptionName ~= "None" then
 		local opName = string.format("%s %s", ClMsg('ItemRandomOptionGroupRare'), ScpArgMsg(rareOptionName));
 
 		if rareOptionName == "MSPD" or rareOptionName == "SR" then
             return ABILITY_DESC_NO_PLUS(opName, rareOptionValue, 0);
         else
-        	local clmsg = ScpArgMsg("PropUp");
-        	if tonumber(rareOptionValue) < 0 then
-        		clmsg = ScpArgMsg('PropDown');
-        	end
+    	local clmsg = ScpArgMsg("PropUp");
+    	if tonumber(rareOptionValue) < 0 then
+    		clmsg = ScpArgMsg('PropDown');
+    	end
 
         	local strInfo = string.format(' %s'..clmsg, opName);
-        	local absValue = math.abs(rareOptionValue);
-        	absValue = absValue / 10; -- 15% -> 150 하기로 함        	
-        	if absValue == math.floor(absValue) then
+    	local absValue = math.abs(rareOptionValue);
+    		absValue = absValue / 10; -- 15% -> 150 하기로 함
+    	if absValue == math.floor(absValue) then
         		strInfo = strInfo..string.format('%d', math.floor(absValue));
-        	else
+    	else
         		strInfo = strInfo..string.format('%.1f', absValue);
-        	end
+    	end
         	strInfo = strInfo..'%';
         	return strInfo;
         end

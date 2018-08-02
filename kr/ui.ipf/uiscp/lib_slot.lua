@@ -13,8 +13,6 @@ function SET_SLOT_ITEM_CLS(slot, itemCls)
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 end
 
-
-
 function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
