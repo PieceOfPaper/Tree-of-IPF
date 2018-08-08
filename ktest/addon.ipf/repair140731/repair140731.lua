@@ -153,7 +153,7 @@ function UPDATE_REPAIR140731_MONEY(frame)
 	-- 스콰이어 수리 버프 시전시 UPDATE_REPAIR140731_LIST를 가져다써요
 	-- 그럼 이 money 함수가 호출이 되는데 이 변수가 없어 경고가 떠서 예외처리 해줬습니다.
 	if nil ~= calcprice then
-		calcprice:SetText(GET_COMMAED_STRING(SumForBigNumber(GET_TOTAL_MONEY(), -1 * totalprice)));
+		calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice)));
 	end
 
 end
@@ -266,7 +266,7 @@ function SCP_LBTDOWN_REPAIR140731(frame, ctrl)
 	repairprice:SetText(GET_COMMAED_STRING(totalprice));
 
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "remainInvenZeny", "ui::CRichText")
-	calcprice:SetText(GET_COMMAED_STRING(SumForBigNumber(GET_TOTAL_MONEY(), -1 * totalprice)));
+	calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice)));
 
 
 end

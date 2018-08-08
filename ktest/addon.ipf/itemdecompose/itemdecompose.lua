@@ -174,7 +174,7 @@ function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
 		return;
 	end
     
-	local mymoney = GET_COMMAED_STRING(SumForBigNumber(GET_TOTAL_MONEY(), -1 * totalprice));
+	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice));
 	calcprice:SetText(mymoney)
     
 	frame:SetUserValue('TOTAL_MONEY', totalprice);

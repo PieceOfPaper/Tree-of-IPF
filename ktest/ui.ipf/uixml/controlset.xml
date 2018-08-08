@@ -2493,9 +2493,9 @@
 	<controlset name="market_item_detail_equip" toggle="false" hittest="true" width="1067" height="110" skin="market_listbase" stateskin="false" draw="true" scroll="false" hittestset="false">
 		<userconfig ATKDEF_IMAGE_SIZE="16" SOCKET_IMAGE_RED="{img market_zem_3 12 12}" SOCKET_IMAGE_BLUE="{img market_zem_7 12 12}" SOCKET_IMAGE_GREEN="{img market_zem_6 12 12}" SOCKET_IMAGE_YELLOW="{img market_zem_5 12 12}" SOCKET_IMAGE_WHITE="{img market_zem_4 12 12}" SOCKET_IMAGE_MONSTER="{img market_zem_8 12 12}" SOCKET_IMAGE_EMPTY="{img market_zem_2 12 12}" SOCKET_IMAGE_UNREVEAL="{img market_zem_1 12 12}"/>
 		<controls>
-			<groupbox name="gbox2" rect="0 0 1067 110" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="false" slideshow="false" resizebyparent="false"/>
-			<groupbox name="gbox" rect="0 0 1067 64" margin="0 0 0 0" layout_gravity="left top" parent="gbox2" draw="false" hittestbox="false" scrollbar="false" slideshow="false" resizebyparent="false"/>
-			<groupbox name="optionGbox" rect="0 0 1059 43" margin="0 0 0 4" layout_gravity="center bottom" parent="gbox2" draw="true" hittestbox="false" scrollbar="false" slideshow="false" resizebyparent="false" skin="equip_detail_skin"/>
+			<groupbox name="gbox2" rect="0 0 1067 110" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="true" scrollbar="false" slideshow="false" resizebyparent="false"/>
+			<groupbox name="gbox" rect="0 0 1067 64" margin="0 0 0 0" layout_gravity="left top" parent="gbox2" draw="false" hittestbox="true" scrollbar="false" slideshow="false" resizebyparent="false"/>
+			<groupbox name="optionGbox" rect="0 0 1059 43" margin="0 0 0 4" layout_gravity="center bottom" parent="gbox2" draw="true" hittestbox="true" scrollbar="false" slideshow="false" resizebyparent="false" skin="equip_detail_skin"/>
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="true" parent="gbox" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" parent="gbox" margin="70 0 0 0" rect="0 0 230 15" hittest="false" textalign="left center" resizebytext="true" layout_gravity="left center" spacey="0" maxwidth="0" fontname="brown_16" omitbywidth="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" format="%s" param1="value" param1_def="Name"/>
 			<richtext name="level" parent="gbox" margin="305 0 0 0" rect="0 0 38 20" hittest="false" textalign="center center" resizebytext="true" layout_gravity="left center" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" format="%s" param1="value" param1_def="Lv"/>
@@ -3580,7 +3580,7 @@
 		<controls>
 			<groupbox name="bg_slot" margin="0 0 0 0" rect="0 0 55 55" hittestbox="false" LBtnDownScp="" changecursor="true" skin="" layout_gravity="left top" scrollbar="false"/>
 			<slot name="slot" margin="0 0 0 0" layout_gravity="left top" rect="0 0 55 55" stretch="true" skin="slot_empty" oversound="button_over" enabledrag="false" enableselect="false" enablepop="false"/>
-			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnUpScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
+			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnDownScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 		</controls>
 	</controlset>
 	<controlset name="forgery_item" hittest="true" hittestset="false" draw="true" width="460" height="150" skin="mypage_bar">
@@ -3963,7 +3963,7 @@
 	<!--성장-->
 	<controlset name="adventure_book_grow_elem" toggle="false" hittest="true" width="528" height="60" skin="">
 		<controls>
-			<groupbox name="gb" rect="0 0 528 65" margin="0 0 0 0" layout_gravity="left top" draw="true" hittest="true" hittestbox="true" LBtnUpScp="ADVENTURE_BOOK_BTN_SELECT_INDUN" resizebyparent="false" scrollbar="false" skin="test_skin_01"/>
+			<groupbox name="gb" rect="0 0 528 65" margin="0 0 0 0" layout_gravity="left top" draw="true" resizebyparent="false" scrollbar="false" skin="test_skin_01"/>
 			<picture name="icon_pic" rect="0 0 55 55" margin="5 5 0 0" layout_gravity="left top" stretch="true" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
 			<richtext name="level_text" rect="0 0 200 30" margin="80 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="{@st42}LV.%s" param1="value" param1_def="0" fontname="white_12"/>
 			<richtext name="name_text" rect="0 0 200 20" margin="160 2 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="캐릭터 이름" fontname="black_16_b"/>

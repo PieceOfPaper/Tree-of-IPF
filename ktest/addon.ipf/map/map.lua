@@ -20,7 +20,6 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('GAME_START', 'FIRST_UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MAP');
 	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MAP');
-	addon:RegisterOpenOnlyMsg('NOTICE_Dm_quest_complete', 'UPDATE_MAP');
 	addon:RegisterMsg('REVEAL_ALL', 'UPDATE_MAP');
 
 	-- addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
@@ -377,8 +376,6 @@ end
 function UPDATE_MAP(frame)
 
 	local curmapname = session.GetMapName()
-	--DESTORY_MAP_PIC(frame);
-
 	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD_RECURSIVELY(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
 

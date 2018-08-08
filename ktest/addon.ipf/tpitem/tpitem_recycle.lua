@@ -125,6 +125,7 @@ function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 	if searchText ~= nil and searchText ~= '' then
 		local itemName = dic.getTranslatedStr(item.Name);
 		itemName = string.lower(itemName); -- 소문자로 변경
+		searchText = string.lower(searchText); -- 소문자로 변경
 		if string.find(itemName, searchText) == nil then
 			return false;
 		end

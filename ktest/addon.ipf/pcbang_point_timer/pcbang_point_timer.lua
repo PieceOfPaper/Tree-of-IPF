@@ -17,6 +17,16 @@ function PCBANG_POINT_TIMER_SET_MARGIN(timerFrame)
 end
 
 function ON_PCBANG_POINT_TIMER_OPEN(timerFrame)
+    if session.loginInfo.IsPremiumState(NEXON_PC) ~= true then
+        ui.CloseFrame('pcbang_point_timer');
+        return;
+    end
+
+    if IS_PCBANG_POINT_TIMER_CHECKED() ~= 1 then
+        ui.CloseFrame('pcbang_point_timer');
+        return;
+    end
+
     PCBANG_POINT_TIMER_SET_MARGIN(timerFrame)
     if session.pcBang.GetTime("Accumulating") >= 0 and session.pcBang.GetTime("MaxAccumulating") > 0 then
         PCBANG_POINT_TIMER_SET(timerFrame, session.pcBang.GetTime("Accumulating"), session.pcBang.GetTime("MaxAccumulating"), session.pcBang.GetPCBangPoint());
@@ -46,7 +56,5 @@ function ON_PCBANG_POINT_TIMER_START_MSG(timerFrame, msg, argstr, argnum)
 end
 
 function IS_PCBANG_POINT_TIMER_CHECKED()
-    local pcbang_shop = ui.GetFrame("pcbang_shop");
-    local show_timer_checkbox = GET_CHILD_RECURSIVELY(pcbang_shop, "show_timer_checkbox");
-    return show_timer_checkbox:IsChecked();
+    return config.GetXMLConfig("ShowPCBangTimer");
 end

@@ -4,9 +4,10 @@
 	<frame fullheight="false" fasthide="true" layout_gravity="right bottom" margin="0 0 355 25" draw="false"/>
 	<skin frameskin="none"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<option visible="false" hideable="false" closebutton="false" moveable="false" alwaysVisible="false"/>
+	<option visible="true" hideable="false" closebutton="false" moveable="false" alwaysVisible="false"/>
 	<layer layerlevel="10"/>
 	<script OpenScp="ON_PCBANG_POINT_TIMER_OPEN"/>
+	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
 	<userconfig TIMER_RIGHT_MARGIN_OFFSET="120"/>
 	<controls>
 		<groupbox name="background" rect="0 0 180 100" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="false" scrollbar="false" image="pcbang_timer_bg"/>

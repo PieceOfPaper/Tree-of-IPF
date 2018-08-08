@@ -65,7 +65,6 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('GAME_START', 'UPDATE_MINIMAP');
 	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MINIMAP_SOBJ');
 	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MINIMAP_SOBJ');
-	addon:RegisterOpenOnlyMsg('NOTICE_Dm_quest_complete', 'UPDATE_MINIMAP_SOBJ');
 	
 	addon:RegisterOpenOnlyMsg('NPC_STATE_UPDATE', 'UPDATE_MINIMAP_NPC_STATE');
 	addon:RegisterMsg('PARTY_INST_UPDATE', 'M_MAP_UPDATE_PARTY_INST');

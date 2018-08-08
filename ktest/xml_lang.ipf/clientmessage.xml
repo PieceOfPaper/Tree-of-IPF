@@ -1345,6 +1345,7 @@
 		<Class ClassID="21304" ClassName="PCBangRentalDisabledPutWareHouse" Data="창고에 보관할 수 없는 아이템입니다."/>
 		<Class ClassID="21305" ClassName="PCBangRentalAlreadyReceived" Data="이미 대여중인 아이템입니다."/>
 		<Class ClassID="21306" ClassName="Count{n}" Data="{n}개"/>
+		<Class ClassID="21307" ClassName="MSG{Category}{Name}{Value}{Type}{Info}" Data="[{Category}][{Name}][{Value}][{Type}][{Info}]"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -4638,6 +4639,7 @@
 		<Class ClassID="27700" ClassName="EVENT_1710_NEXONCASHBOX_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}'을 획득하셨습니다."/>
 		<Class ClassID="27710" ClassName="EVENT_1710_NEWCHARACTER_MSG1" Data="{DAY}일 {HOUR}시간 {MIN}분 뒤에 아이템을 사용하실 수 있습니다"/>
 		<Class ClassID="27711" ClassName="EVENT_1710_NEWCHARACTER_MSG2" Data="'{ITEM}' 아이템에서 '{TP}TP'를 획득하셨습니다"/>
+		<Class ClassID="27712" ClassName="EVENT_1710_NEWCHARACTER_MSG3" Data="우스카의 레벨업 지원 이벤트를 3회 모두 참여하셨습니다!{nl}참여해주셔서 감사드립니다"/>
 		<Class ClassID="27720" ClassName="Excnaged_AccountCount_Remind" Data="팀당 {COUNT}번 교환 가능 합니다."/>
 		<Class ClassID="27730" ClassName="EVENT_1710_RESET_MSG1" Data="현재 이벤트 참여 제한 대상자셔서 이벤트에 참여하실 수 없습니다"/>
 		<Class ClassID="27735" ClassName="EVENT_HALLOWEEN_SHOP_NAME" Data="할로윈 상점"/>
@@ -12340,7 +12342,7 @@
 		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
 		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
-	</Category>
+		</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>

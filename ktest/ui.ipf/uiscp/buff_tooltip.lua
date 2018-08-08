@@ -41,6 +41,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 --        token_buffCountUp:ShowWindow(1);
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
+		token_staup:ShowWindow(1);
 		local accountObj = GetMyAccountObj();
 		if accountObj.TradeCount > 0 then
 			local tradeCountString = ScpArgMsg("AllowTradeByCount") .. " " .. tostring(accountObj.TradeCount)
@@ -54,7 +55,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 
 	elseif NEXON_PC == argNum then
 		type:SetTextByKey("value", ClMsg("nexon")); 
---		token_staup:SetTextByKey("value", ClMsg("token_setup"));
+		token_staup:ShowWindow(0);
 		token_expup:SetTextByKey("value", ClMsg("token_expup"));
 		token_tradecount:ShowWindow(0);
 --		token_buffCountUp:ShowWindow(0);
