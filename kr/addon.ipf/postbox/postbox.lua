@@ -71,9 +71,9 @@ function UPDATE_POSTBOX_ITEM(ctrlSet, msgInfo)
 		SET_SLOT_ITEM_INFO(slot, itemCls, itemInfo.itemCount);
 
 		if itemInfo.isTaken == true then
-			slot:GetIcon():SetGrayStyle(1);
+			slot:GetIcon():SetColorTone("FF060606");
 		else
-			slot:GetIcon():SetGrayStyle(0);
+			slot:GetIcon():SetColorTone("FFFFFFFF");
 			slot:SetEventScript(ui.LBUTTONUP, "DO_SELECT_POSTBOX_ITEM");
 			slot:SetUserValue("ITEM_INDEX", j);
 						
