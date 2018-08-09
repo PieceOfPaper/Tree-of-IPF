@@ -1,29 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="nearpartyinfo" x="0" y="0" width="412" height="400">
+<uiframe name="nearpartyinfo" x="0" y="0" width="0" height="0">
 	<frame layout_gravity="left top" scale_align="center top" margin="200 370 0 0" keyboardselectframe="false" tooltipoverlap="false"/>
 	<layer layerlevel="61"/>
 	<option visible="false" hideable="true" closebutton="false" alwaysVisible="false"/>
 	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
 	<controls>
-    <groupbox name="bg" rect="0 0 412 370" margin="0 0 0 0" skin="partylist_tooltip_skin" hittest="false" draw="true" updateparent="true" scrollbar="false"/>
-    <richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="false" hittest="false" resizebytext="true" fontname="white_20_ol_ds"/>
-    <richtext name="partymemo" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="50 70 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-    <richtext name="createdTime" layout_gravity="right top" rect="0 0 140 80" margin="0 35 20 0" fixwidth="false" fontname="white_16_ol" format="[결성: %s 전]" param1="createtime" param1_def="DefTime DefMin" textalign="right top"/>
-    <groupbox name="meminfo" rect="0 0 414 200" margin="0 110 0 0" skin="none" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
-    <richtext name="questText" format="퀘스트" textalign="center top" layout_gravity="left bottom" rect="0 0 100 30" margin="30 0 0 80" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-    <richtext name="expText" format="경험치" textalign="center top" layout_gravity="center bottom" rect="0 0 100 30" margin="0 0 0 80" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-    <richtext name="itemText" format="아이템" textalign="center top" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 30 80" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
-    <picture name="labelline_1" margin="30 0 0 50" rect="0 0 100 32" image="partylist_line" layout_gravity="left bottom"/>
-    <picture name="labelline_2" margin="0 0 0 50" rect="0 0 100 32" image="partylist_line" layout_gravity="center bottom"/>
-    <picture name="labelline_3" margin="0 0 30 50" rect="0 0 100 32" image="partylist_line" layout_gravity="right bottom"/>
-    <labelline name="labelline_4" margin="30 0 0 75" rect="0 0 100 1" skin="partylist_line" layout_gravity="left bottom"/>
-    <labelline name="labelline_5" margin="0 0 0 75" rect="0 0 100 1" skin="partylist_line" layout_gravity="center bottom"/>
-    <labelline name="labelline_6" margin="0 0 30 75" rect="0 0 100 1" skin="partylist_line" layout_gravity="right bottom"/>
-    <richtext name="questTextval" caption="Defval" textalign="center top" layout_gravity="left bottom" rect="0 0 100 30" margin="30 0 0 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
-    <richtext name="expTextval" caption="Defval" textalign="center top" layout_gravity="center bottom" rect="0 0 100 30" margin="0 0 0 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
-    <richtext name="itemTextval" caption="Defval" textalign="center top" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 30 50" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16_ol"/>
-    <button name="btn_req_join" rect="0 0 140 38" margin="-75 0 0 0" layout_gravity="center bottom" caption="{@st42}참석하기" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
-    <button name="btn_req_cancel" rect="0 0 140 38" margin="75 0 0 0" layout_gravity="center bottom" LBtnUpScp="NEAR_PARTY_INFO_DO_CLOSE" caption="{@st42}닫기" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
 	</controls>
 </uiframe>

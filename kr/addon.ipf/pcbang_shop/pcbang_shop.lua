@@ -95,7 +95,7 @@ function ON_UPDATE_PCBANG_SHOP_POINT(frame)
     local resetTime = session.pcBang.GetQuarterResetTime();
     local now  = geTime.GetServerSystemTime();
     local dif = imcTime.GetDifSec(resetTime, now);
-    SET_PCBANG_SHOP_TOTAL_TIME_TEXT(point_timer_text, dif)
+    SET_PCBANG_SHOP_RESET_TIME_TEXT(point_timer_text, dif)
     SET_PCBANG_SHOP_TOTAL_TIME_TEXT(total_time_text, session.pcBang.GetTime("Total"))
     
 	point_timer_text:RunUpdateScript("UPDATE_PCBANG_SHOP_POINT_TIMER_TEXT", 60);
@@ -119,7 +119,7 @@ function UPDATE_PCBANG_SHOP_TOTAL_TIME_TEXT(ctrl, elapsedTime)
     return 1;
 end
 
-function SET_PCBANG_SHOP_TOTAL_TIME_TEXT(point_timer_text, remainSec)
+function SET_PCBANG_SHOP_RESET_TIME_TEXT(point_timer_text, remainSec)
     local day = math.floor(remainSec / 86400);
     local remainder  = remainSec % 86400;
     local hour = math.floor(remainder  / 3600);
@@ -135,7 +135,7 @@ function UPDATE_PCBANG_SHOP_POINT_TIMER_TEXT(ctrl, elapsedTime)
     local resetTime = session.pcBang.GetQuarterResetTime()
     local now  = geTime.GetServerSystemTime();
     local dif = imcTime.GetDifSec(resetTime, now) - elapsedTime;
-    SET_PCBANG_SHOP_TOTAL_TIME_TEXT(ctrl, dif)
+    SET_PCBANG_SHOP_RESET_TIME_TEXT(ctrl, dif)
     return 1;
 end
 

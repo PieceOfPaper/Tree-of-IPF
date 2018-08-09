@@ -2116,10 +2116,14 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 
 	ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
 	
+	local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
+	if resultLifeTimeOver == 1 then
+		icon:SetColorTone("FFFF0000");	
+	end
+	
 	if class.ItemType == 'Equip' then
-		local resultLifeTimeOver = IS_LIFETIME_OVER(itemobj);
 		local result = CHECK_EQUIPABLE(itemType);
-		if (result ~= "OK") or (resultLifeTimeOver == 1) then
+		if result ~= "OK" then
 			icon:SetColorTone("FFFF0000");		
 		end
 			

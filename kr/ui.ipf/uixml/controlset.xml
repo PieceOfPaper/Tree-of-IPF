@@ -3580,7 +3580,7 @@
 		<controls>
 			<groupbox name="bg_slot" margin="0 0 0 0" rect="0 0 55 55" hittestbox="false" LBtnDownScp="" changecursor="true" skin="" layout_gravity="left top" scrollbar="false"/>
 			<slot name="slot" margin="0 0 0 0" layout_gravity="left top" rect="0 0 55 55" stretch="true" skin="slot_empty" oversound="button_over" enabledrag="false" enableselect="false" enablepop="false"/>
-			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnUpScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
+			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnDownScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 		</controls>
 	</controlset>
 	<controlset name="forgery_item" hittest="true" hittestset="false" draw="true" width="460" height="150" skin="mypage_bar">
