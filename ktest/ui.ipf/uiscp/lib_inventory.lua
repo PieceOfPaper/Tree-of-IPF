@@ -674,3 +674,35 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
 	icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 end
+
+function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList)	
+    local itemList = session.GetInvItemList();
+    local index = itemList:Head();
+    local count = 0;
+    local matchedList = {};
+    while itemList:InvalidIndex() ~= index do
+        local invItem = itemList:Element(index);
+        if invItem ~= nil and invItem:GetObject() ~= nil then
+	        local itemObj = GetIES(invItem:GetObject());
+            local matched = true;
+            for i = 1, #propCondList do
+                local cond = propCondList[i];
+	            if TryGetProp(itemObj, cond.Name) ~= cond.Value then
+                    matched = false;
+                    break;
+                end
+            end
+
+            if matched == true then
+                if itemObj.MaxStack > 1 then
+	                count = count + invItem.count;
+	            else -- 비스택형 아이템
+		            count = count + 1;
+		        end
+	            matchedList[#matchedList + 1] = invItem;
+            end
+	    end
+        index = itemList:Next(index);
+    end
+    return count, matchedList;
+end

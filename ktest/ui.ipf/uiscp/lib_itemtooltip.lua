@@ -631,22 +631,6 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			return GetIES(obj);
 		end
 	elseif strarg == "collection" then
-		--[[
-		local colls = session.GetMySession():GetCollection();
-		local coll = colls:Get(numarg1);
-		if coll ~= nil then
-			local collItem = coll:GetByItemID(guid);
-			if collItem == nil then
-				local item = GetClassByType("Item", guid);
-				return item;
-			end
-
-			if collItem ~= nil then
-				return GetIES(collItem:GetObject());
-			end
-		end
-		]]--
-		-- collection parameter(guid) is classID.
 		local item = GetClassByType("Item", guid);
 		return item;
 	elseif strarg == "market" then

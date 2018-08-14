@@ -622,17 +622,17 @@ function ITEM_TOOLTIP_EXTRACT_OPTION(tooltipframe, invitem, mouseOverFrameName)
 	end
 
 	ypos = DRAW_EQUIP_PROPERTY(tooltipframe, targetItem, ypos, mainframename, nil, false);
-	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos);
+	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquip', 'LEVEL', GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)));
 	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);
 	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
-function DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos)
+function DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainframename, ypos, clmsg)
 	local gBox = GET_CHILD(tooltipframe, mainframename);
 	local descCtrlset = gBox:CreateControlSet('tooltip_extract_option_equip_limit', 'equipLimitCtrlSet', 0, ypos);
     local descText = GET_CHILD(descCtrlset, 'descText');
-    descText:SetText(ScpArgMsg('{LEVEL}LimitEquip', 'LEVEL', GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)));
+    descText:SetText(clmsg);
     descCtrlset:Resize(descCtrlset:GetWidth(), descText:GetY() + descText:GetHeight());
 
 	ypos = ypos + descCtrlset:GetHeight() + 10;
@@ -640,13 +640,26 @@ function DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, targetItem, mainfram
 	return ypos;
 end
 
+function GET_ENCHANT_JEWELL_ITEM_NAME_STRING(jewellItem)
+	return '['..string.format('LV. %d', jewellItem.Level)..'] '..jewellItem.Name;
+end
+
+local function GET_EXTRACT_ITEM_NAME(invitem)
+	local name = invitem.Name;
+	if IS_ENCHANT_JEWELL_ITEM(invitem) == true then
+		return GET_ENCHANT_JEWELL_ITEM_NAME_STRING(invitem);
+	end
+	return name;
+end
+
 function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename);
-	gBox:RemoveAllChild();	
+	gBox:RemoveAllChild();
 	
 	local ctrlset = gBox:CreateControlSet('tooltip_extract_option', 'EXTRACT_OPTION_CTRLSET', 0, 0);
 	local nameText = GET_CHILD(ctrlset, 'nameText');
-	nameText:SetText(invitem.Name);
+	local nameStr = GET_EXTRACT_ITEM_NAME(invitem);
+	nameText:SetText(nameStr);
 
 	local itemPic = GET_CHILD(ctrlset, 'itemPic');
 	itemPic:SetImage(invitem.Icon);
@@ -658,7 +671,12 @@ function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, m
 	weightText:SetTextByKey('weight', invitem.Weight)
 
 	local classTypeText = GET_CHILD(ctrlset, 'classTypeText');
+	local classType = TryGetProp(targetItem, 'ClassType', 'None');
+	if classType ~= 'None' then
 		classTypeText:SetText(ClMsg(targetItem.ClassType));
+	else
+		classTypeText:SetText('');
+	end
 
 	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + ctrlset:GetHeight());
 	return ctrlset:GetHeight(), ctrlset;
@@ -711,28 +729,37 @@ function GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem)
 end
 
 function _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue)
-    if rareOptionValue ~= 0 and rareOptionName ~= "None" then
+    if rareOptionValue ~= nil and rareOptionValue ~= 0 and rareOptionName ~= "None" then
 		local opName = string.format("%s %s", ClMsg('ItemRandomOptionGroupRare'), ScpArgMsg(rareOptionName));
 
-		if rareOptionName == "MSPD" or rareOptionName == "SR" then
-            return ABILITY_DESC_NO_PLUS(opName, rareOptionValue, 0);
-        else
     	local clmsg = ScpArgMsg("PropUp");
     	if tonumber(rareOptionValue) < 0 then
     		clmsg = ScpArgMsg('PropDown');
     	end
 
-        	local strInfo = string.format(' %s'..clmsg, opName);
-    	local absValue = math.abs(rareOptionValue);
-    		absValue = absValue / 10; -- 15% -> 150 하기로 함
-    	if absValue == math.floor(absValue) then
-        		strInfo = strInfo..string.format('%d', math.floor(absValue));
-    	else
-        		strInfo = strInfo..string.format('%.1f', absValue);
+    	local function IS_NONE_PERCENT_PROPERTY(propName)
+    		if propName == "RareOption_MSPD" or propName == "RareOption_SR" then -- percent 표기 안하는 프로퍼티 여기에 등록
+    			return true;
+    		end
+    		return false;
     	end
-        	strInfo = strInfo..'%';
-        	return strInfo;
+
+    	local strInfo = '{@st66b}{#e28500}{ol}'..string.format(' %s'..clmsg, opName);
+    	local absValue = math.abs(rareOptionValue);
+    	if IS_NONE_PERCENT_PROPERTY(rareOptionName) == false then
+    		absValue = absValue / 10; -- 15% -> 150 하기로 함
+    	end
+
+    	if absValue == math.floor(absValue) then
+    		strInfo = "{@st66b}{#e28500}{ol} -"..strInfo..string.format('%d', math.floor(absValue));
+    	else
+    		strInfo = "{@st66b}{#e28500}{ol} -"..strInfo..string.format('%.1f', absValue);
+    	end
+
+		if IS_NONE_PERCENT_PROPERTY(rareOptionName) == false then
+        	strInfo = strInfo..'%{/}';
         end
+        return strInfo;
 	end
 	return nil;
 end
@@ -748,4 +775,18 @@ function ADD_RANDOM_OPTION_RARE_TEXT(box, invitem, ypos)
 	    end
 	end
 	return ypos
+end
+
+-- 쥬얼 툴팁
+function ITEM_TOOLTIP_ENCHANT_JEWELL(tooltipframe, invitem, mouseOverFrameName)	
+	tolua.cast(tooltipframe, "ui::CTooltipFrame");
+	local mainframename = 'extract_option';
+	local ypos, commonCtrlSet = DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, invitem, mainframename);
+	local line1 = commonCtrlSet:GetChild('line1');
+	line1:ShowWindow(0);
+
+	ypos = DRAW_EXTRACT_OPTION_LIMIT_EQUIP_DESC(tooltipframe, invitem, mainframename, ypos, ScpArgMsg('{LEVEL}LimitEquipNormalItem', 'LEVEL', invitem.Level));
+	ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_EQUIP_DESC(tooltipframe, invitem, ypos, mainframename);
+	ypos = DRAW_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end

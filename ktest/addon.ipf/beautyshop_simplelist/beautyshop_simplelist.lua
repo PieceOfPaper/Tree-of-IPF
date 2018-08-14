@@ -44,12 +44,32 @@ function BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE(parent, control, argStr, argNum)
   
   local previewSlotName = "slotPreview_"..argStr
 
-  -- Small Mode의 실롯에 내용을 정리한다.
-  BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(control)
-
   -- 뷰티샵 미리보기 슬롯을 정리한다.
-	local slot = GET_CHILD_RECURSIVELY(beautyshop_frame, previewSlotName);
-	BEAUTYSHOP_CLEAR_SLOT(slot);
+  local slot = GET_CHILD_RECURSIVELY(beautyshop_frame, previewSlotName);
+  local itemClassName = slot:GetUserValue("CLASSNAME");
+  local itemCls = GetClass("Item", itemClassName);
+  local checkTwoHandWeapon = false;
+	if itemCls ~= nil then
+		checkTwoHandWeapon = BEAUTYSHOP_CHECK_TWOHAND_WEAPON(itemCls)
+		if checkTwoHandWeapon == true then
+			BEAUTYSHOP_RESET_TWOHAND_WEAPON_SLOT(slot)
+		end
+	end
+  BEAUTYSHOP_CLEAR_SLOT(slot);
+  
+  -- Small Mode의 슬롯에 내용을 정리한다.
+  BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(control)
+  if checkTwoHandWeapon == true then
+     -- 양손 무기라면 반대쪽 slot도 해제.
+     local simplelistOtherSlotName = "slotPreview_lh";
+     if argStr == "lh" then
+      simplelistOtherSlotName = "slotPreview_rh";
+     end
+    local otherSlot = GET_CHILD_RECURSIVELY(parent, simplelistOtherSlotName);
+    if otherSlot ~= nil then
+      BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(otherSlot)
+    end
+  end
 	
   -- 뷰티샵에서 입어볼 목록이 없으면 이 프레임을 종료하고 뷰티샵 UI를 연다.
   local isEmpty = BEAUTYSHOP_IS_PREIVEW_EMPTY(beautyshop_frame)
@@ -248,6 +268,7 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
     end
     local price, hairPrice, dyePrice = GET_BEAUTYSHOP_ITEM_PRICE(pc, priceInfo, nil, nil);
     local totalPrice = 0;
+    local isNoPurchaseItem = false;
     if hairPrice ~= nil then
       rtNxp:SetText(hairPrice..' + '..dyePrice..' TP');
       totalPrice = hairPrice + dyePrice;
@@ -258,12 +279,20 @@ function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
       frame:SetUserValue('PRICE_INFO_COLORCLASSNAME', priceInfo.ColorClassName);
       frame:SetUserValue('PRICE_INFO_COLORENGNAME', priceInfo.ColorEngName);
     else
-      rtNxp:SetText(price..' TP');
-      totalPrice = price;
+      if price == -1 then
+        isNoPurchaseItem = true;
+        rtNxp:SetText('');
+      else
+        rtNxp:SetText(price..' TP');
+        totalPrice = price;
+      end
     end
 
     local dupText = GET_CHILD(ctrlSet, 'dupText');
-    if GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemCls.ClassName) == '' then
+    if isNoPurchaseItem == true then
+      dupText:SetText(ClMsg('ItemsThatCanNotBePurchased'));
+      dupText:ShowWindow(1);
+    elseif GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemCls.ClassName) == '' then
       dupText:ShowWindow(0);
     end
 

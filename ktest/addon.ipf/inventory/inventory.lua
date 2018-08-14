@@ -1378,7 +1378,13 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
 	if warpscrolllistcls ~= nil then
-		if itemobj.LifeTime > 0 and itemobj.ItemLifeTimeOver > 0 then
+		local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
+		if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
+			ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+			return 0;
+		end -- event V I V I D CICY --
+		
+		if tonumber(itemobj.LifeTime) > 0 and tonumber(itemobj.ItemLifeTimeOver) > 0 then
 			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
 			return 1;
 		end
@@ -2207,6 +2213,325 @@ function STATUS_SLOT_DROP(frame, icon, argStr, argNum)
 		ITEM_EQUIP(iconInfo.ext, icon:GetName());
 		STATUS_EQUIP_SLOT_SET(toFrame);
 	end
+end
+
+--머리 보이기/안보이기 아이콘에 의한 염색 버튼 보이기/안보이기
+function SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, IsVisible)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame:GetTopParentFrame(), "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+
+	local pcSession = session.GetMySession()
+	if pcSession == nil then
+		return
+	end
+	local apc = pcSession:GetPCDummyApc()
+
+
+	--뷰티샵 헤어인가
+    local etc = GetMyEtcObject();
+	local isBeautyshopHair = TryGetProp(etc, "BeautyshopStartHair");
+
+	if IsVisible == 1 then	--보이기 상태
+		local Icon = frame:GetIcon();
+		if Icon ~= nil then	--무언가 착용중
+			hairColorBtn:ShowWindow(1);
+
+			--HAIR slot의 아이템 오브젝트의 카테고리 알아냄
+			if apc:GetEquipItem(ES_HELMET) ~= 10000 then	-- Name == Helmet인 헬맷 착용중
+				hairColorBtn:ShowWindow(0);
+			else		-- Name == Hair인 무언가 착용중
+				local slot = tolua.cast(frame, "ui::CSlot");
+				local icon = slot:GetIcon();
+				local iconInfo = icon:GetInfo();
+				local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+				if invIteminfo ~= nil then
+					local itemObj = GetIES(invIteminfo:GetObject())
+					if itemObj.Category == "Look_Helmet" then
+						hairColorBtn:ShowWindow(0);
+					elseif itemObj.Category == "Look_Wig" then
+						hairColorBtn:ShowWindow(1);
+					end
+				end
+			end
+
+		else				--미착용중
+			if isBeautyshopHair == "Yes" then
+				hairColorBtn:ShowWindow(0);		--뷰티샵
+			else
+				hairColorBtn:ShowWindow(1);		--기본헤어
+			end
+		end
+	else	--안보이기 상태
+		if isBeautyshopHair == "Yes" then
+			hairColorBtn:ShowWindow(0);		--뷰티샵
+		else
+			hairColorBtn:ShowWindow(1);		--기본헤어
+		end
+	end
+end
+
+--아이템 착용에 의한 염색 버튼 보이기/안보이기
+function SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame, "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+	local etc = GetMyEtcObject();
+	local hairFrame = GET_CHILD_RECURSIVELY(frame, "HAIR")
+	local slot = tolua.cast(hairFrame, "ui::CSlot");
+	local icon = slot:GetIcon();
+	if icon == nil then	--헤어 미착용중
+		local isBeautyshopHair = TryGetProp(etc, "BeautyshopStartHair");
+		if isBeautyshopHair == "Yes" then
+			hairColorBtn:ShowWindow(0);		--뷰티샵
+		else
+			hairColorBtn:ShowWindow(1);		--기본헤어
+		end
+	else				--헤어 착용중
+		local iconInfo = icon:GetInfo();
+		local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+		if invIteminfo ~= nil then
+			local itemObj = GetIES(invIteminfo:GetObject());
+			if itemObj.Category == "Look_Helmet" then
+				hairColorBtn:ShowWindow(0);
+			elseif itemObj.Category == "Look_Wig" then
+				hairColorBtn:ShowWindow(1);
+			end
+			SET_VISIBLE_DYE_BTN_BY_VISIBLE(hairFrame, etc.HAIR_WIG_Visible);
+		end
+	end
+end
+
+--염색
+function CHANGE_HAIR_COLOR(frame)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame, "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+
+	--현재 가지고 있는 염색의 종류를 haveHairColorList에 넣음
+	local pc = GetMyPCObject()
+    local etc = GetMyEtcObject();
+
+	local haveHairColorList = {}
+	local haveHairColorEList = {}	--영문이름 리스트
+    local nowheadindex = item.GetHeadIndex()
+    local Rootclasslist = imcIES.GetClassList('HairType');
+    local Selectclass = Rootclasslist:GetClass(pc.Gender);
+    local Selectclasslist = Selectclass:GetSubClassList();
+	local nowhaircls = Selectclasslist:GetByIndex(nowheadindex - 1);
+	local nowengname = imcIES.GetString(nowhaircls, 'EngName');
+
+	for i = 0, Selectclasslist:Count() do
+		local eachcls = Selectclasslist:GetByIndex(i);
+		if eachcls ~= nil then
+			local eachengname = imcIES.GetString(eachcls, 'EngName');
+			if eachengname == nowengname then
+				-- eachColor, eachColorE : 게임 내 전체 헤어 컬러
+				local eachColorE = imcIES.GetString(eachcls, 'ColorE');	--영어이름
+				local eachColor = imcIES.GetString(eachcls, 'Color');	--한글이름
+				eachColorE = string.lower(eachColorE);
+				-- 전체 헤어 컬러 목록에서 유저가 가진 헤어 컬러 목록을 드롭 리스트에 넣음
+				if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
+					haveHairColorList[#haveHairColorList + 1] = eachColor;
+					haveHairColorEList[#haveHairColorEList + 1] = eachColorE;
+				end
+			end
+		end
+	end
+	CREATE_HAIR_DYE_DROPLIST(hairColorBtn, haveHairColorList, haveHairColorEList);
+end
+
+--드롭리스트 생성
+function CREATE_HAIR_DYE_DROPLIST(control, colorList, colorEList)
+	local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 150, 600, #colorList, ui.LEFT, "SELECT_HAIR_DYE_IN_DROPLIST", nil, nil);
+	for i = 0, #colorList do
+		ui.AddDropListItem(colorList[i + 1], nil, colorEList[i + 1]);
+	end
+end
+
+--선택한 색으로 염색
+function SELECT_HAIR_DYE_IN_DROPLIST(select, color)
+    item.ReqChangeHead(color);
+end
+
+--머리 보이기/안보이기 아이콘에 의한 염색 버튼 보이기/안보이기
+function SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, IsVisible)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame:GetTopParentFrame(), "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+
+	local pcSession = session.GetMySession()
+	if pcSession == nil then
+		return
+	end
+	local apc = pcSession:GetPCDummyApc()
+
+
+	--뷰티샵 헤어인가
+    local etc = GetMyEtcObject();
+	local isBeautyshopHair = TryGetProp(etc, "BeautyshopStartHair");
+
+	if IsVisible == 1 then	--보이기 상태
+		local Icon = frame:GetIcon();
+		if Icon ~= nil then	--무언가 착용중
+			hairColorBtn:ShowWindow(1);
+
+			--HAIR slot의 아이템 오브젝트의 카테고리 알아냄
+			if apc:GetEquipItem(ES_HELMET) ~= 10000 then	-- Name == Helmet인 헬맷 착용중
+				hairColorBtn:ShowWindow(0);
+			else		-- Name == Hair인 무언가 착용중
+				local slot = tolua.cast(frame, "ui::CSlot");
+				local icon = slot:GetIcon();
+				local iconInfo = icon:GetInfo();
+				local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+				if invIteminfo ~= nil then
+					local itemObj = GetIES(invIteminfo:GetObject())
+					if itemObj.Category == "Look_Helmet" then
+						hairColorBtn:ShowWindow(0);
+					elseif itemObj.Category == "Look_Wig" then
+						hairColorBtn:ShowWindow(1);
+					end
+				end
+			end
+
+		else				--미착용중
+			if isBeautyshopHair == "Yes" then
+				hairColorBtn:ShowWindow(0);		--뷰티샵
+			else
+				hairColorBtn:ShowWindow(1);		--기본헤어
+			end
+		end
+	else	--안보이기 상태
+		if isBeautyshopHair == "Yes" then
+			hairColorBtn:ShowWindow(0);		--뷰티샵
+		else
+			hairColorBtn:ShowWindow(1);		--기본헤어
+		end
+	end
+end
+
+--아이템 착용에 의한 염색 버튼 보이기/안보이기
+function SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame, "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+	local etc = GetMyEtcObject();
+	local hairFrame = GET_CHILD_RECURSIVELY(frame, "HAIR")
+	local slot = tolua.cast(hairFrame, "ui::CSlot");
+	local icon = slot:GetIcon();
+	if icon == nil then	--헤어 미착용중
+		local isBeautyshopHair = TryGetProp(etc, "BeautyshopStartHair");
+		if isBeautyshopHair == "Yes" then
+			hairColorBtn:ShowWindow(0);		--뷰티샵
+		else
+			hairColorBtn:ShowWindow(1);		--기본헤어
+		end
+	else				--헤어 착용중
+		local iconInfo = icon:GetInfo();
+		local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
+		if invIteminfo ~= nil then
+			local itemObj = GetIES(invIteminfo:GetObject());
+			if itemObj.Category == "Look_Helmet" then
+				hairColorBtn:ShowWindow(0);
+			elseif itemObj.Category == "Look_Wig" then
+				hairColorBtn:ShowWindow(1);
+			end
+			SET_VISIBLE_DYE_BTN_BY_VISIBLE(hairFrame, etc.HAIR_WIG_Visible);
+		end
+	end
+end
+
+--현재 가지고 있는 염색의 종류를 haveHairColorList에 넣음
+function CHANGE_HAIR_COLOR(frame)
+	local hairColorBtn = GET_CHILD_RECURSIVELY(frame, "HAIR_COLOR");
+	if hairColorBtn == nil then
+		return;
+	end
+
+	local pc = GetMyPCObject()
+    local etc = GetMyEtcObject();
+
+	local haveHairColorList = {}
+	local haveHairColorEList = {}
+
+    local Rootclasslist = imcIES.GetClassList('HairType');
+    local Selectclass = Rootclasslist:GetClass(pc.Gender);
+    local Selectclasslist = Selectclass:GetSubClassList();
+    local nowHeadIndex = item.GetHeadIndex()
+	local nowHairCls = Selectclasslist:GetByIndex(nowHeadIndex - 1);
+	local nowPCHairEngName = imcIES.GetString(nowHairCls, 'EngName');	--현재 내가 '헤어'슬롯에 착용한 아이템
+
+	for i = 0, Selectclasslist:Count() do
+		local eachcls = Selectclasslist:GetByIndex(i);
+		if eachcls ~= nil then
+			local eachHairEngName = imcIES.GetString(eachcls, 'EngName');
+			if eachHairEngName == nowPCHairEngName then
+				-- eachColor, eachColorE : 게임 내 전체 헤어 컬러(한글이름, 영어이름)
+				local eachColor = imcIES.GetString(eachcls, 'Color');	
+				local eachColorE = imcIES.GetString(eachcls, 'ColorE');	
+				eachColorE = string.lower(eachColorE);
+				-- 전체 헤어 컬러 목록에서 유저가 가진 헤어 컬러 목록을 드롭 리스트에 넣음
+				if TryGetProp(etc, "HairColor_" .. eachColorE) == 1 then
+					haveHairColorList[#haveHairColorList + 1] = eachColor;
+					haveHairColorEList[#haveHairColorEList + 1] = eachColorE;
+				end
+			end
+		end
+	end
+	SORT_HAIR_COLORLIST(hairColorBtn, haveHairColorList, haveHairColorEList)
+	CREATE_HAIR_DYE_DROPLIST(hairColorBtn, haveHairColorList, haveHairColorEList);
+end
+
+function IS_CONTAIN_ITEM(tbl, item)
+    for key, value in pairs(tbl) do
+        if value == item then 
+			return key 
+		end
+    end
+    return false
+end
+
+--코카트리스 헤드같은 경우 염색 리스트가 바뀌는 버그가 있어 재정렬하고 droplist에 넣어줘야 한다.
+function SORT_HAIR_COLORLIST(ctrl, colorKList, colorEList)
+	if colorEList == nil then
+		return;
+	end
+
+	local hairOrder = {"default", "black", "blue", "pink", "white", "blond", "red", "green", "gray", "lightsalmon", "purple", "orange", "brown", "midnightblue"};
+	local curPosColorEList = 1;
+	local curPosHairOrder = 1;
+	while curPosHairOrder < #hairOrder + 1 do
+		local idx = IS_CONTAIN_ITEM(colorEList, hairOrder[curPosHairOrder]);
+
+		if idx ~= false then
+			if colorEList[curPosColorEList] == hairOrder[curPosHairOrder] then
+				curPosColorEList = curPosColorEList + 1;
+			else
+				if idx ~= curPosColorEList then
+					colorEList[curPosColorEList], colorEList[idx] = colorEList[idx], colorEList[curPosColorEList]
+					colorKList[curPosColorEList], colorKList[idx] = colorKList[idx], colorKList[curPosColorEList]
+					curPosHairOrder = curPosHairOrder - 1;
+				end
+			end
+		end
+		curPosHairOrder = curPosHairOrder + 1;
+	end
+end
+
+function CREATE_HAIR_DYE_DROPLIST(control, colorList, colorEList)
+	local dropListFrame = ui.MakeDropListFrame(control, 0, 0, 150, 600, #colorList, ui.LEFT, "SELECT_HAIR_DYE_IN_DROPLIST", nil, nil);
+	for i = 0, #colorList do
+		ui.AddDropListItem(colorList[i + 1], nil, colorEList[i + 1]);
+	end
+end
+
+function SELECT_HAIR_DYE_IN_DROPLIST(select, color)
+    item.ReqChangeHead(color);
 end
 
 function STATUS_DUMP_SLOT_SET(a,s,d)

@@ -794,11 +794,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 		end
 	end
 
-    if setItem ~= nil then
-	    inner_yPos = ADD_RANDOM_OPTION_RARE_TEXT(property_gbox, setItem, inner_yPos);
-    else
-        inner_yPos = ADD_RANDOM_OPTION_RARE_TEXT(property_gbox, invitem, inner_yPos);
-    end
+   
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
@@ -808,11 +804,15 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end
-
+    if setItem ~= nil then
+	    inner_yPos = ADD_RANDOM_OPTION_RARE_TEXT(property_gbox, setItem, inner_yPos);
+    else
+        inner_yPos = ADD_RANDOM_OPTION_RARE_TEXT(property_gbox, invitem, inner_yPos);
+    end
 	if invitem.OptDesc ~= nil and invitem.OptDesc ~= 'None' then
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, invitem.OptDesc, 0, inner_yPos);
 	end
-
+   
 	if setItem == nil then
 		if invitem.IsAwaken == 1 then
 			local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(invitem.HiddenProp));

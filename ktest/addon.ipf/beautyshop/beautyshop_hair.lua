@@ -615,7 +615,7 @@ function HAIRSHOP_PREVIEWSLOT_EQUIP(gender, itemClassName, colorName, colorClass
 		return;
 	end
 
-	local slot = BEAUTYSHOP_GET_PREIVEW_SLOT(equipType)
+	local slot = BEAUTYSHOP_GET_PREIVEW_SLOT(equipType, itemClassName)
 	if slot == nil then
 		return
 	end

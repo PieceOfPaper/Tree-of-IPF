@@ -973,7 +973,33 @@ function SCR_GET_SKL_COOLDOWN_WIZARD(skill)
     end
     
     return basicCoolDown;
+end
 
+function SCR_GET_SKL_COOLDOWN_SummonFamiliar(skill)
+
+    local pc = GetSkillOwner(skill);
+    local basicCoolDown = skill.BasicCoolDown;
+    local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
+    
+    basicCoolDown = basicCoolDown + abilAddCoolDown;
+    
+    if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.8;
+    elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
+        basicCoolDown = basicCoolDown * 1.2;
+    end
+    
+    if IsBuffApplied(pc, 'GM_Cooldown_Buff') == 'YES' then
+        basicCoolDown = basicCoolDown * 0.9;
+    end
+    
+    if basicCoolDown < skill.MinCoolDown then
+        return skill.MinCoolDown;
+    end
+    
+    basicCoolDown = basicCoolDown - (skill.Level * 1000)
+    
+    return basicCoolDown;
 end
 
 function SCR_GET_SKL_COOLDOWN_Bloodletting(skill)
@@ -1214,6 +1240,62 @@ function SCR_Get_SkillFactor_pc_summon_Manticen(skill)
     
     sklFactor = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
     return math.floor(sklFactor);
+end
+
+function SCR_Get_SkillFactor_pcskill_shogogoth(skill)
+    
+    local self = GetSkillOwner(skill);
+    local pc = GetOwner(self)
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Necromancer5")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_pcskill_CorpseTower(skill)
+    
+    local self = GetSkillOwner(skill);
+    local pc = GetOwner(self)
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Necromancer6")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_pcskill_skullsoldier(skill)
+    
+    local self = GetSkillOwner(skill);
+    local pc = GetOwner(self)
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Necromancer7")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
+end
+
+function SCR_Get_SkillFactor_pcskill_skullarcher(skill)
+    
+    local self = GetSkillOwner(skill);
+    local pc = GetOwner(self)
+    local value = skill.SklFactor + (skill.Level - 1) * skill.SklFactorByLevel
+    
+    local abil = GetAbility(pc, "Necromancer10")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_Get_SklAtkAdd(skill)
@@ -3067,7 +3149,7 @@ function SCR_GET_Redel_Ratio2(skill)
     local abil = GetAbility(pc, "Doppelsoeldner21")
     local hitCount = 5
     if abil ~= nil and skill.Level >=6 and abil.ActiveState == 1 then
-        hitCount = hitCount * 2
+        hitCount = 14
     end
     
     return hitCount;
@@ -7702,7 +7784,19 @@ function SCR_Get_SkillFactor_SummonFamiliar(skill)
     end
 
     return math.floor(value)
+end
 
+function SCR_Get_SkillFactor_pcskill_summon_Familiar(skill)
+    local self = GetSkillOwner(skill);
+    local parent = GetOwner(self)
+    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
+    
+    local abil = GetAbility(parent, "Sorcerer11")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_GET_SummonFamiliar_Ratio2(skill)
@@ -7831,14 +7925,9 @@ function SCR_Get_SkillFactor_FleshCannon(skill)
 end
 
 function SCR_GET_FleshCannon_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Necromancer12") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+	local value = 25 + skill.Level * 5
+	
+	return value;
 end
 
 function SCR_Get_SklAtkAdd_FleshHoop(skill)
@@ -7865,14 +7954,9 @@ function SCR_Get_SkillFactor_FleshHoop(skill)
 end
 
 function SCR_GET_FleshHoop_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Necromancer15") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+	local value = skill.Level
+	
+	return value;
 end
 
 function SCR_GET_RevengedSevenfold_Time(skill)
@@ -8518,23 +8602,14 @@ function SCR_Get_SkillFactor_FleshStrike(skill)
 end
 
 function SCR_GET_FleshStrike_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Necromancer9") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
-end
-
-function SCR_GET_FleshStrike_Bufftime(skill)
-    local value = skill.Level
-    return value
+	local value = skill.Level * 10
+	
+	return value;
 end
 
 function SCR_GET_FleshStrike_Ratio2(skill)
     local value = 100
+    
     return value
 end
 
@@ -11208,6 +11283,17 @@ end
 
 function SCR_Get_CreateShoggoth_Ratio(skill)
     local value = 10 + (skill.Level * 5);
+    --local pc = GetSkillOwner(skill);
+    --local abil = GetAbility(pc, "Necromancer5")
+    --if abil ~= nil then
+	--	value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    --end
+    
+    return math.floor(value);
+end
+
+function SCR_Get_CreateShoggoth_Ratio2(skill)
+    local value = 10 + (skill.Level * 5);
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Necromancer5")
     if abil ~= nil then
@@ -11215,6 +11301,22 @@ function SCR_Get_CreateShoggoth_Ratio(skill)
     end
     
     return math.floor(value);
+end
+
+function SCR_Get_CreateShoggoth_Ratio3(skill)
+    local value = 100
+    local masterValue = 0
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "Necromancer5")
+    if abil ~= nil then
+        if abil.Level == 100 then
+            masterValue = 10
+        end
+        
+		value = value + abil.Level * 0.5 + masterValue;
+    end
+    
+    return value;
 end
 
 function SCR_Get_CreateShoggoth_Parts(skill)
@@ -12201,15 +12303,19 @@ function SCR_GET_CorpseTower_Ratio2(skill)
 end
 
 function SCR_GET_CorpseTower_Ratio3(skill)
-    local value = 10 + (skill.Level * 4);
-    
+    local value = 100
+    local masterValue = 0
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Necromancer6")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value * (1 + (abil.Level * 0.005));
+    if abil ~= nil then
+        if abil.Level == 100 then
+            masterValue = 10
+        end
+        
+		value = value + abil.Level * 0.5 + masterValue;
     end
     
-    return math.floor(value);
+    return value;
 end
 
 function SCR_GET_RaiseDead_Ratio(skill)
@@ -12225,15 +12331,19 @@ function SCR_GET_RaiseDead_Ratio2(skill)
 end
 
 function SCR_GET_RaiseDead_Ratio3(skill)
-    local value = 10 + (skill.Level * 5);
-    
+    local value = 100
+    local masterValue = 0
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, 'Necromancer7')
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value * (1 + (abil.Level * 0.005))
+    local abil = GetAbility(pc, "Necromancer7")
+    if abil ~= nil then
+        if abil.Level == 100 then
+            masterValue = 10
+        end
+        
+		value = value + abil.Level * 0.5 + masterValue;
     end
     
-    return math.floor(value);
+    return value;
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio(skill)
@@ -12249,15 +12359,19 @@ function SCR_GET_RaiseSkullarcher_Ratio2(skill)
 end
 
 function SCR_GET_RaiseSkullarcher_Ratio3(skill)
-    local value = 10 + (skill.Level * 5);
-    
+    local value = 100
+    local masterValue = 0
     local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, 'Necromancer10')
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = value * (1 + (abil.Level * 0.005))
+    local abil = GetAbility(pc, "Necromancer10")
+    if abil ~= nil then
+        if abil.Level == 100 then
+            masterValue = 10
+        end
+        
+		value = value + abil.Level * 0.5 + masterValue;
     end
     
-    return math.floor(value);
+    return value;
 end
 
 function SCR_GET_Trot_Bufftime(skill)
@@ -15142,6 +15256,25 @@ function SCR_GET_SR_LV_MagicMissile(skill)
 
     return 1;
     
+end
+
+function SCR_GET_SR_LV_Doppelsoeldner(skill)
+
+    local pc = GetSkillOwner(skill);
+    local skillSR = skill.SklSR;
+    
+    local abil =  GetAbility(pc, 'Doppelsoeldner24')
+    if abil ~= nil and abil.ActiveState == 1 then
+        skillSR = skillSR + abil.Level;
+    end
+    
+    local value = pc.SR + skillSR;
+    
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
 end
 
 

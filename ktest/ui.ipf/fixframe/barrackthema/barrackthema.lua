@@ -121,7 +121,7 @@ function BARRACKTHEMA_APPLIED(themaName)
 end
 
 function BARRACKTHEMA_CANCEL_PREVIEW(parent, ctrl)
-	if barrack.isPreviewMode() == true then
+	if barrack.IsPreviewMode() == true then
 		barrack.ToMyBarrack();
 	else
 		ui.CloseFrame("barrackthema")

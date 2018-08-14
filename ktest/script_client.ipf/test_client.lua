@@ -116,6 +116,92 @@ function JOB_ABIL_LIST_CLIENT(jobClassName)
     io.close(file);
 end
 
+function JOB_SKILL_LIST_CLIENT(jobClassName)
+    if jobClassName == nil or jobClassName == 0 or jobClassName == "" then
+        jobClassName = "ALL";
+    end
+    
+    local classList, classCount = GetClassList("Job");
+    if classList == nil or classCount == 0 then
+        return;
+    end
+	
+    local skillList = { };
+    local skillUnlockGradeList = { };
+    local skillMaxLevelList = { };
+    local jobCategory = { };
+    
+    for i = 0, classCount - 1 do
+        local job = GetClassByIndexFromList(classList, i);
+        if job ~= nil then
+            if (jobClassName == TryGetProp(job, "ClassName") or jobClassName == "ALL") and 10 >= TryGetProp(job, "Rank") then
+                local jobName = TryGetProp(job, "ClassName");
+                for j = 1, 99 do
+	                local skillTreeClass = GetClass("SkillTree", jobName .. "_" .. j);
+	                if skillTreeClass ~= nil then
+	                	local skillName = TryGetProp(skillTreeClass, "SkillName");
+	                    local skill = GetClass("Skill", skillName);
+	                    if skill ~= nil then
+                            jobCategory[#jobCategory + 1] = jobName;
+                            skillList[#skillList + 1] = skill;
+                            skillUnlockGradeList[#skillUnlockGradeList + 1] = TryGetProp(skillTreeClass, "UnlockGrade");
+                            skillMaxLevelList[#skillMaxLevelList + 1] = TryGetProp(skillTreeClass, "MaxLevel");
+	                    end
+	                end
+                end
+            end
+        end
+    end
+    
+    
+    
+    local file = io.open("C:\\testxml\\JobSkillList_" .. jobClassName .. ".xml", "w");
+    if file == nil then
+        file = io.open("C:\\JobSkillList_" .. jobClassName .. ".xml", "w");
+    end
+    
+    
+    local headText = '<?xml version="1.0" encoding="UTF-8"?>\n<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->\n    <Category>\n';
+    local text = "";
+    
+    local startLine = '<Class ';
+    local endLine = ' />\n';
+    
+    local jobTemp = nil;
+    for k = 1, #skillList do
+        if jobTemp == nil then
+            text = text .. '<Category Name="' .. GetClass("Job", jobCategory[k]).Name .. '">\n';
+        elseif jobCategory[k] ~= jobTemp then
+            text = text .. '</Category>\n';
+            text = text .. '<Category Name="' .. GetClass("Job", jobCategory[k]).Name .. '">\n';
+        end
+        
+        local jobEngName = GetClass("Job", jobCategory[k]).EngName;
+        
+        text = text .. startLine
+        			.. 'ClassID="' .. skillList[k].ClassID .. '"'
+        			.. ' ClassName="' .. skillList[k].ClassName .. '"'
+        			.. ' Icon="' .. skillList[k].Icon .. '"'
+        			.. ' Name="' .. skillList[k].Name .. '"'
+        			.. ' EngName="' .. skillList[k].EngName .. '"'
+        			.. ' UnlockGrade="' .. skillUnlockGradeList[k] .. '"'
+        			.. ' MaxLevel="' .. skillMaxLevelList[k] .. '"'
+        			.. ' Caption="' .. skillList[k].Caption .. '"'
+        			.. ' Job="' .. skillList[k].Job .. '"'
+        			.. ' JobClassID="' .. GetClass("Job", jobCategory[k]).ClassID .. '"'
+        			.. endLine;
+        
+        jobTemp = jobCategory[k];
+    end
+    
+    text = text .. '</Category>\n';
+    
+    local bottonText = '</Category>';
+    
+    file:write(headText, text, bottonText);
+    io.close(file);
+end
+
 function TEST_SOUND_EFFECT_FADE_OUT()
     local soundName = "piedpiper_1octave_do";
     local actor = GetMyActor();

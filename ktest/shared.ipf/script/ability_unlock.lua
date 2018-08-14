@@ -257,3 +257,14 @@ function UNLOCK_LANCER17(pc, sklName, limitLevel, abilIES)
 	
 	return "LOCK_GRADE";
 end
+
+function UNLOCK_ABIL_CIRCLE_AND_RANK(pc, jobName, limitLevel, abilIES)
+	local jobGrade = GetJobGradeByName(pc, jobName);
+	local rank = GetTotalJobCount(pc)
+	local limitRank = 10
+	if jobGrade >= limitLevel and rank >= limitRank then
+		return "UNLOCK";
+	end
+	
+	return "LOCK_GRADE";
+end

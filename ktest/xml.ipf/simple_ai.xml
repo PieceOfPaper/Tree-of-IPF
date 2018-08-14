@@ -3721,123 +3721,123 @@
 		</List>
 	</AI>
 	<AI Name="DCAPITAL105_SQ_3_NPC_AI" ActiveMessageMapInBattle="1">
-        <StartList>
-            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_pattern014_ground_red_loop" Arg="3"/>
-                <Str Str="BOT"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="DCAPITAL105_SQ_4_SIGN_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
-                <Num Num="100"/>
-            </ToolScp>
-            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
-        </List>
-        <StartList>
-            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str Str="DCAPITAL105_SQ_4_SIGN"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="DCAPITAL105_SQ_5_NPC" ActiveMessageMapInBattle="1">
-        <StartList>
-            <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
-                <Num Num="255"/>
-                <Num Num="255"/>
-                <Num Num="255"/>
-                <Num Num="220"/>
-                <Num Num="1"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_pattern014_ground_red_loop" Arg="1.5"/>
-                <Str Str="BOT"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_DIALOG_ROTATE" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                <Str Str="event_sit_idle"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="DCAPITAL105_SQ_5_NPC_AI_1" ActiveMessageMapInBattle="1">
-        <StartList>
-            <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
-                <Num Num="5"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_PART_UNHIDE" Client="NO" UseSleep="NO">
-                <Num Num="5"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_CHAT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str Str="풀어주셔서 감사합니다"/>
-                <Num Num="3"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="DCAPITAL105_SQ_6_TRACK_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL105_SQ_6_TRACK_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL106_SQ_2_TRACK_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL106_SQ_2_TRACK_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL106_SQ_6_TRACK_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL106_SQ_6_TRACK_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL106_SUBQ2_KUPOLE_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL106_SUBQ2_KUPOLE_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL106_SUBQ4_KUPOLE_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL106_SUBQ4_KUPOLE_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL106_SUBQ6_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL106_SUBQ6_AI_KILL"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                <AbsPos X="-935.33807" Y="78.088501" Z="1388.4388"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL106_SUBQ6_KUPOLE_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="DCAPITAL106_SUBQ6_KUPOLE_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="DCAPITAL_103_SHADOW_DEVICE" UpdateMS="1000" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_pattern014_ground_red_loop" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="DCAPITAL105_SQ_4_SIGN_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+				<Num Num="100"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str Str="DCAPITAL105_SQ_4_SIGN"/>
+				<Num Num="1"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="DCAPITAL105_SQ_5_NPC" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+				<Num Num="255"/>
+				<Num Num="255"/>
+				<Num Num="255"/>
+				<Num Num="220"/>
+				<Num Num="1"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_pattern014_ground_red_loop" Arg="1.5"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_DIALOG_ROTATE" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+			</ToolScp>
+			<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+				<Str Str="event_sit_idle"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="DCAPITAL105_SQ_5_NPC_AI_1" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+				<Num Num="5"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_PART_UNHIDE" Client="NO" UseSleep="NO">
+				<Num Num="5"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_CHAT" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str Str="풀어주셔서 감사합니다"/>
+				<Num Num="3"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="DCAPITAL105_SQ_6_TRACK_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL105_SQ_6_TRACK_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL106_SQ_2_TRACK_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL106_SQ_2_TRACK_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL106_SQ_6_TRACK_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL106_SQ_6_TRACK_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL106_SUBQ2_KUPOLE_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL106_SUBQ2_KUPOLE_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL106_SUBQ4_KUPOLE_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL106_SUBQ4_KUPOLE_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL106_SUBQ6_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL106_SUBQ6_AI_KILL"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+				<AbsPos X="-935.33807" Y="78.088501" Z="1388.4388"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL106_SUBQ6_KUPOLE_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="DCAPITAL106_SUBQ6_KUPOLE_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="DCAPITAL_103_SHADOW_DEVICE" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
 				<Str Str="SCR_DCAPITAL_103_SHADOW_DEVICE_AI"/>
@@ -9869,7 +9869,7 @@
 	<AI Name="LIMESTONECAVE711_EVENT3_MON_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES" CondFunc="">
-				<Num Num="200"/>
+				<Num Num="300"/>
 			</ToolScp>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
 				<Num Num="100"/>
@@ -11985,73 +11985,73 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</HitList>
 	</AI>
-    <AI Name="NICO811_DEVICE3_AI" UpdateMS="1" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="NICO811_DEVICE3_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="NICO811_DEVICE3_ATIFECT_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="NICO811_DEVICE3_ATIFECT_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="NICO811_DEVICE4_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="NICO811_DEVICE4_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="NICO811_DEVICE5_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="F_ground135_2" Arg="2"/>
-                <Str Str="BOT"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="NICO811_SUBQ03_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="NICO811_SUBQ03_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="NICO811_SUBQ03_DEF_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="NICO811_SUBQ03_DEF_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-        <StartList>
-            <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str Str="HPLock"/>
-                <Num Num="10"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-            </ToolScp>
-            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                <Num Num="0"/>
-                <Str_Arg Str="I_light004_orange" Arg="1"/>
-                <Str Str="TOP"/>
-            </ToolScp>
-        </StartList>
-    </AI>
-    <AI Name="NICO811_SUBQ09_AI" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="NICO811_SUBQ09_AI_UPDATE"/>
-            </ToolScp>
-        </List>
-    </AI>
+	<AI Name="NICO811_DEVICE3_AI" UpdateMS="1" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="NICO811_DEVICE3_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="NICO811_DEVICE3_ATIFECT_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="NICO811_DEVICE3_ATIFECT_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="NICO811_DEVICE4_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="NICO811_DEVICE4_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="NICO811_DEVICE5_AI" UpdateMS="1500" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground135_2" Arg="2"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="NICO811_SUBQ03_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="NICO811_SUBQ03_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="NICO811_SUBQ03_DEF_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="NICO811_SUBQ03_DEF_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str Str="HPLock"/>
+				<Num Num="10"/>
+				<Num Num="0"/>
+				<Num Num="0"/>
+				<Num Num="1"/>
+				<Num Num="100"/>
+			</ToolScp>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="I_light004_orange" Arg="1"/>
+				<Str Str="TOP"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="NICO811_SUBQ09_AI" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="NICO811_SUBQ09_AI_UPDATE"/>
+			</ToolScp>
+		</List>
+	</AI>
 	<AI Name="NONE_SIMPLE_AI" ActiveMessageMapInBattle="1"/>
 	<AI Name="NO_OWNER_DEAD_AI" ActiveMessageMapInBattle="1">
 		<List>
@@ -14352,20 +14352,20 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
-    <AI Name="SCHAFFENSTAR_MEMBER_HP_RESET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
-            </ToolScp>
-        </List>
-    </AI>
-    <AI Name="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON" ActiveMessageMapInBattle="1">
-        <List>
-            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                <Str Str="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON"/>
-            </ToolScp>
-        </List>
-    </AI>
+	<AI Name="SCHAFFENSTAR_MEMBER_HP_RESET_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_SCHAFFENSTAR_MEMBER_HP_RESET_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="SCR_Unique_Raid_Nicopolis_STAGE_04_NONE_MONSTER_SUMMON"/>
+			</ToolScp>
+		</List>
+	</AI>
 	<AI Name="SERACH_PC_TGT" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
@@ -15606,14 +15606,14 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</StartList>
 	</AI>
 	<AI Name="SnowRolling_AI" ActiveMessageMapInBattle="1">
-        <DeadList>
-            <ToolScp Scp="S_AI_DEAD_REMOVE_BUFF" Client="NO" UseSleep="NO">
-                <Num Num="2"/>
-                <Str Str="SnowRolling_Buff"/>
-            </ToolScp>
-        </DeadList>
-    </AI>
-    <AI Name="Sorcerer_SummonServant" UpdateMS="1000" ActiveMessageMapInBattle="1">
+		<DeadList>
+			<ToolScp Scp="S_AI_DEAD_REMOVE_BUFF" Client="NO" UseSleep="NO">
+				<Num Num="2"/>
+				<Str Str="SnowRolling_Buff"/>
+			</ToolScp>
+		</DeadList>
+	</AI>
+	<AI Name="Sorcerer_SummonServant" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
 				<Num Num="80"/>
@@ -19758,6 +19758,339 @@ if self.HP == 0 then return 1; else return 0; end;">
 			</ToolScp>
 		</StartList>
 	</AI>
+	<AI Name="VIVID_CITY_30" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="JUMP_MISSION_30"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_HIDE_BLUE" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_BLUE_HIDE"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_blue" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_210"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_HIDE_RED" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_RED_HIDE"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_150"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_HIDE_RED_120" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_RED_HIDE"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_120"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_HIDE_RED_90" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_RED_HIDE"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_90"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_POTAL" ActiveMessageMapInBattle="1">
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal_red" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_60"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_blue" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN2" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN2"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_150"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN3" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_GREEN_HIDE"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN3"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_180"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_green" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN4" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_YELLOW_HIDE"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN4"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_160"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN5" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_RED_HIDE"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN4"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_160"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN6" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_RED_HIDE"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN5"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_120"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_red" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN7" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN6"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_30"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_blue" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN8" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN7"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_120"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
+	<AI Name="VIVID_CITY_UPDOWN_ORSHA" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_UPDOWN5"/>
+			</ToolScp>
+		</List>
+		<StartList>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="E_buff_gungho" Arg="1"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+				<Str Str="VIVID_CITY_300"/>
+			</ToolScp>
+			<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+			<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+				<Num Num="0"/>
+				<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+				<Str Str="BOT"/>
+			</ToolScp>
+		</StartList>
+	</AI>
 	<AI Name="VPRISON511_MQ_02" UpdateMS="2000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
@@ -20417,6 +20750,13 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</List>
 	</AI>
 	<AI Name="companion_Pet_mrdodo" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+				<Str Str="PET_LOOP_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="companion_Pet_piggy_spotted" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
 				<Str Str="PET_LOOP_AI"/>

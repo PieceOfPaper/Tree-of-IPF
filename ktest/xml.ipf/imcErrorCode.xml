@@ -562,14 +562,14 @@
 	<Code Code="ERROR_SOLO_DUNGEON" Team="tos_team" Category="SYSTEM" SubCategory="SOLO_DUNGEON" Logger="root" Enabled="YES" CallStack="NO" Desc="1인 던전 에러"/>
 	<Code Code="INFO_SOLO_DUNGEON" Team="tos_team" Category="SYSTEM" SubCategory="SOLO_DUNGEON" Logger="root" Enabled="YES" CallStack="NO" Desc="1인 던전 정보"/>
 	<Code Code="INFO_DISCONNECT" Team="tos_team" Category="DEBUG" SubCategory="DISCONNECT" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 유저 접속 불가현상관련 로그"/>
-	<Code Code="ERROR_LOCK_STATE" Team="PROGRAM" Category="SYSTEM" Logger="root" Enabled="YES" CallStack="NO" Desc="아이템 락 상태가 DB와 서버가 다릅니다."/>
 	<Code Code="INFO_webservice" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 정보 로그"/>
 	<Code Code="INFO_invalid_ipf" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IPF 검증 관련"/>
+	<Code Code="INFO_SHUTDOWN" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="셧다운 관련 정보"/>
 	<Code Code="FATAL_IES_ASSIGN_PROPERTY" Team="tos_team" Category="SYSTEM" SubCategory="IES" Logger="root" Enabled="YES" CallStack="NO" Desc="IES 프로퍼티 세팅에 실패했습니다."/>
 	<Code Code="INFO_BUG_TRACING" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="버그 추적을 위한..."/>
 	<Code Code="INFO_ALERT" Team="tos_team" Category="LOGIC" Logger="root" Enabled="YES" CallStack="NO" Desc="그레이로그에서 ALERT 받기 위한 에러코드"/>
 	<Code Code="INFO_SKILL_LOGIC" Team="tos_team" Category="LOGIC" SubCategory="SKILL" Logger="root" Enabled="YES" CallStack="NO" Desc="스킬 로직 확인"/>
 <Code Code="ERROR_NUMERIC_OVERFLOW" Team="PROGRAM" Category="ERROR" Logger="root" Enabled="YES" CallStack="NO" Desc="정수형 연산에서 오버플로우 감지"/>
 	<Code Code="ERROR_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
-	<Code Code="INFO_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
+	<Code Code="INFO_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>	
 </imcErrorCode>

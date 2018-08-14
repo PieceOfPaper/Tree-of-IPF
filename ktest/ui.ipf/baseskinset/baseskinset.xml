@@ -3508,26 +3508,37 @@
 			<img name="bottomright" imgrect="363 506 139 1"/>
 		</skin>
 		<skin name="test_lgraytitle_skin" texture="\skin\Appraiser_skin.tga">
-			<img name="topleft" imgrect="2 242 55 62"/>
-			<img name="topcore" imgrect="58 242 128 62"/>
-			<img name="topright" imgrect="187 242 55 62"/>
-			<img name="bodyleft" imgrect="2 305 55 50"/>
-			<img name="bodycore" imgrect="58 305 128 50"/>
-			<img name="bodyright" imgrect="187 305 55 50"/>
-			<img name="bottomleft" imgrect="2 356 55 62"/>
-			<img name="bottomcore" imgrect="58 356 128 62"/>
-			<img name="bottomright" imgrect="187 356 55 62"/>
+			<img name="topleft" imgrect="500 313 55 62"/>
+			<img name="topcore" imgrect="556 313 60 62"/>
+			<img name="topright" imgrect="617 313 55 62"/>
+			<img name="bodyleft" imgrect="500 376 55 50"/>
+			<img name="bodycore" imgrect="556 376 60 50"/>
+			<img name="bodyright" imgrect="617 376 55 50"/>
+			<img name="bottomleft" imgrect="500 427 55 62"/>
+			<img name="bottomcore" imgrect="556 427 60 62 "/>
+			<img name="bottomright" imgrect="617 427 55 62"/>
 		</skin>
 		<skin name="test_bgreentitle_skin" texture="\skin\Appraiser_skin.tga">
-			<img name="topleft" imgrect="243 242 55 62"/>
-			<img name="topcore" imgrect="299 242 128 62"/>
-			<img name="topright" imgrect="428 242 55 62"/>
-			<img name="bodyleft" imgrect="243 305 55 50"/>
-			<img name="bodycore" imgrect="299 305 128 50"/>
-			<img name="bodyright" imgrect="428 305 55 50"/>
-			<img name="bottomleft" imgrect="243 356 55 62"/>
-			<img name="bottomcore" imgrect="299 356 128 62"/>
-			<img name="bottomright" imgrect="428 356 55 62"/>
+			<img name="topleft" imgrect="673 313 55 62"/>
+			<img name="topcore" imgrect="729 313 60 62"/>
+			<img name="topright" imgrect="790 313 55 62"/>
+			<img name="bodyleft" imgrect="673 376 55 50"/>
+			<img name="bodycore" imgrect="729 376 60 50"/>
+			<img name="bodyright" imgrect="790 376 55 50"/>
+			<img name="bottomleft" imgrect="673 427 55 62"/>
+			<img name="bottomcore" imgrect="729 427 60 62"/>
+			<img name="bottomright" imgrect="790 427 55 62"/>
+		</skin>
+		<skin name="test_lyellow_skin" texture="\skin\Appraiser_skin.tga">
+			<img name="topleft" imgrect="846 313 55 62"/>
+			<img name="topcore" imgrect="902 313 60 62"/>
+			<img name="topright" imgrect="963 313 55 62"/>
+			<img name="bodyleft" imgrect="846 376 55 50"/>
+			<img name="bodycore" imgrect="902 376 60 50"/>
+			<img name="bodyright" imgrect="963 376 55 50"/>
+			<img name="bottomleft" imgrect="846 427 55 62"/>
+			<img name="bottomcore" imgrect="902 427 60 62"/>
+			<img name="bottomright" imgrect="963 427 55 62"/>
 		</skin>
 		<skin name="test_h_scroll_skin" texture="\skin\attendance_sheet_skin.tga">
 			<img name="topleft" imgrect="1 1 348 217 "/>
@@ -5707,6 +5718,9 @@
 		<image name="test_companion_21" file="\icon\companion.tga" imgrect="808 0 100 122" CMM_Caption="홍관조_탭버튼"/>
 		<image name="test_companion_21_cursoron" file="\icon\companion.tga" imgrect="909 0 100 122"/>
 		<image name="test_companion_21_clicked" file="\icon\companion.tga" imgrect="909 0 100 122"/>
+		<image name="test_companion_22" file="\icon\companion.tga" imgrect="808 123 100 122" CMM_Caption="얼룩 아기 돼지_탭버튼"/>
+		<image name="test_companion_22_cursoron" file="\icon\companion.tga" imgrect="909 123 100 122"/>
+		<image name="test_companion_22_clicked" file="\icon\companion.tga" imgrect="909 123 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -6098,6 +6112,8 @@
 		<image name="indun_icon_day_l" file="\skin\indun_skin.tga" imgrect="699 552 41 20" CMM_Caption="던전 일간 표시 : 대"/>
 		<image name="indun_icon_week_s" file="\skin\indun_skin.tga" imgrect="741 573 27 20" CMM_Caption="던전 주간 표시 : 소"/>
 		<image name="indun_icon_day_s" file="\skin\indun_skin.tga" imgrect="741 552 27 20" CMM_Caption="던전 일간 표시 : 소"/>
+		<image name="re_appraisal_image2" file="\skin\Appraiser_skin.tga" imgrect="706 0 312 312" CMM_Caption="레어 인챈트 쥬얼 마법진"/>
+		<image name="re_appraisal_image2_1" file="\skin\Appraiser_skin.tga" imgrect="161 314 337 190" CMM_Caption="레어 인챈트 쥬얼 마법진_누운것"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6282,7 +6298,7 @@
 		<image name="BnYellow_skin" file="\skin\missionFail_skin.tga" imgrect="0 401 500 104"/>
 		<image name="Appraiser_item_bg" file="\skin\USsentiment.tga" imgrect="643 545 55 55" CMM_Caption="미감정"/>
 		<image name="white_s_arrow" file="\skin\Appraiser_skin.tga" imgrect="158 63 69 67" CMM_Caption="재감정"/>
-		<image name="re_appraisal_image" file="\skin\Appraiser_skin.tga" imgrect="484 0 312 312"/>
+		<image name="re_appraisal_image" file="\skin\Appraiser_skin.tga" imgrect="388 0 312 312"/>
 		<image name="pen_button" file="\skin\pip_test_item.tga" imgrect="1903 30 33 34" CMM_Caption="펜 버튼"/>
 		<image name="pen_button_cursoron" file="\skin\pip_test_item.tga" imgrect="1938 30 33 34"/>
 		<image name="pen_button_clicked" file="\skin\pip_test_item.tga" imgrect="1973 30 33 34 "/>
@@ -6593,6 +6609,7 @@
 		<image name="companion_winterpeng" file="\icon\companion_Velhider.tga" imgrect="320 240 80 80"/>
 		<image name="companion_mrdodo" file="\icon\companion_Velhider.tga" imgrect="400 0 80 80"/>
 		<image name="companion_Weddingbird" file="\icon\companion_Velhider.tga" imgrect="400 80 80 80"/>
+		<image name="companion_piggy_spotted" file="\icon\companion_Velhider.tga" imgrect="400 160 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -7937,6 +7954,10 @@
 		<image name="questinfo_3_KEYQUEST" file="\icon\minimap_icon3.tga" imgrect="255 882 72 72"/>
 		<image name="minimap_Appraisers" file="\icon\minimap_icon3.tga" imgrect="432 815 80 80"/>
 		<image name="minimap_erosion" file="\icon\minimap_icon3.tga" imgrect="432 896 80 80"/>
+		<image name="minimap_event_1" file="\icon\minimap_icon3_2.tga" imgrect="0 0 80 80"/>
+		<image name="minimap_event_2" file="\icon\minimap_icon3_2.tga" imgrect="81 0 80 80"/>
+		<image name="minimap_event_3" file="\icon\minimap_icon3_2.tga" imgrect="0 81 80 80"/>
+		<image name="minimap_event_4" file="\icon\minimap_icon3_2.tga" imgrect="81 81 80 80"/>
 	</imagelist>
 	<imagelist category="quest_tags">
 		<image name="quest_tag_1_MAIN" file="\icon\minimap_icon.tga" imgrect="61 31 16 16"/>
@@ -8558,6 +8579,7 @@
 		<image name="icon_event_1807_pool_food2_2" file="\icon\buff_icon2.tga" imgrect="512 384 128 128"/>
 		<image name="icon_event_1807_pool_food2_3" file="\icon\buff_icon2.tga" imgrect="640 384 128 128"/>
 		<image name="icon_cler_meltArmor" file="\icon\buff_icon2.tga" imgrect="768 384 128 128" CMM_Caption="멜트 아머"/>
+		<image name="icon_wizar_NecromancerPoison" file="\icon\buff_icon2.tga" imgrect="0 640 128 128" CMM_Caption="네크로맨서 시독 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

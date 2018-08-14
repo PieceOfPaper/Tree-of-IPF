@@ -479,6 +479,19 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 
 		MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem);
 
+		if itemObj.GroupName == "ExpOrb" then
+			local curExp, maxExp = GET_LEGENDEXPPOTION_EXP(itemObj)
+			local expPoint = 0
+			if maxExp ~= nil and maxExp ~= 0 then
+				expPoint = curExp / maxExp * 100
+			else 
+				expPoint = 0
+			end
+			local expStr = string.format("%.2f", expPoint)
+
+			MARKET_SET_EXPORB_ICON(ctrlSet, curExp, maxExp, itemObj)
+		end
+
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
 
@@ -1537,15 +1550,7 @@ function MARKET_DRAW_CTRLSET_EXPORB(frame)
 		end
 		local expStr = string.format("%.2f", expPoint)
 
-		
-		if curExp == maxExp then
-			local fullImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj);
-			local icon = pic:GetIcon()
-			if icon ~= nil then
-				icon:SetImage(fullImage)
-			end
-		end
-
+		MARKET_SET_EXPORB_ICON(ctrlSet, curExp, maxExp, itemObj)
 
 
 		local exp = GET_CHILD_RECURSIVELY(ctrlSet, "exp")
@@ -1601,6 +1606,17 @@ function MARKET_DRAW_CTRLSET_EXPORB(frame)
 
 	pagecontrol:SetMaxPage(maxPage);
 	pagecontrol:SetCurPage(curPage);
+end
+
+function MARKET_SET_EXPORB_ICON(ctrlSet, curExp, maxExp, itemObj)
+	local pic = GET_CHILD_RECURSIVELY(ctrlSet, "pic");
+	if curExp == maxExp then
+		local fullImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(itemObj);
+		local icon = pic:GetIcon()
+		if icon ~= nil then
+			icon:SetImage(fullImage)
+		end
+	end
 end
 
 function MARKET_SELECT_SHOW_TITLE(frame, titleName)

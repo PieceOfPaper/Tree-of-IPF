@@ -149,7 +149,7 @@ function UPDATE_OBLATION_INV_COUNT(frame)
 		while index ~= itemList:InvalidIndex() do
 			local invItem = itemList:Element(index);
 			
-			curCount = curCount + invItem.count;
+			curCount = curCount + 1
 			local itemProp = geItemTable.GetProp(invItem.type);
 			local sellPrice = geItemTable.GetSellPrice(itemProp);
 			local givenSilver = math.floor(sellPrice * GET_OBLATION_PRICE_PERCENT());

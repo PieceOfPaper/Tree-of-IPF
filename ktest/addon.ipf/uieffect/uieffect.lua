@@ -51,9 +51,13 @@ function START_SNIPE(sx, sy)
     if g_screen_width ~= screen_width or g_screen_height ~= screen_height then re_create_controlset = true end
     g_screen_width = screen_width
     g_screen_height = screen_height    
-    local x_size = 8
+    local x_size = 6
+    local y_size = 0
     local ratio = screen_width / screen_height    
-    if ratio > 2 then x_size = 12 end
+    if ratio > 2 then 
+        x_size = 20
+        y_size = 10
+    end
     
     if re_create_controlset == true then 
         DESTROY_CHILD_BYNAME(frame, 'POSTEXT')    
@@ -61,20 +65,23 @@ function START_SNIPE(sx, sy)
         child = nil
     end
     
+    if screen_width < 1920 then screen_width = 1920 end
+    if screen_height < 1080 then screen_height = 1080 end
+
 	if child == nil then        
 		local skinSize = ui.GetSkinImageSize("snipe_center");	
-		child = frame:CreateControl("groupbox", "SNIPER", 0, 0, screen_width * 2 + skinSize.x * x_size, screen_height * 8 + skinSize.y * 4);
+		child = frame:CreateControl("groupbox", "SNIPER", 0, 0, screen_width * 2 + skinSize.x * x_size, screen_height * 8 + skinSize.y * 4);        
 		child:SetSkinName("None");        
 		local createX = 16 + x_size - 2
-		local createY = 14        
+		local createY = 14 + y_size       
 		for i = 0 , createX - 1 do
 			for j = 0 , createY - 1 do
 				local x = i * skinSize.x;
 				local y = j * skinSize.y;
 				local childName = "PIC_" .. i .. "_" .. j;
 				local pic = child:CreateControl("picture", childName, x, y, skinSize.x, skinSize.y);
-				AUTO_CAST(pic);
-				if i == math.floor(createX / 2) and j == math.floor(createY / 2) then
+				AUTO_CAST(pic);                
+				if i == math.floor(createX / 2) and j == math.floor(createY / 2) then                    
 					local centerOffsetX = x + skinSize.x * 1.5;
 					local centerOffsetY = y + skinSize.y * 0.75;
 					child:SetUserValue("CENTER_X", centerOffsetX / 2);

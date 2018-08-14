@@ -11,14 +11,14 @@ end
 
 function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     if IsServerSection(pc) == 1 then
-        if IS_REAL_PC(pc) == 'NO' then  -- 진짜 PC가 아니네 --
-            if GetExProp(pc, "BUNSIN") == 1 then    -- 나는 분신인가? --
-                local bunsinOwner = GetExArgObject(pc, 'BUNSIN_OWNER'); -- 분신 본체가 있는가? --
+        if IS_REAL_PC(pc) == 'NO' then  -- 진짜 PC가 ??니??--
+            if GetExProp(pc, "BUNSIN") == 1 then    -- ??는 분신?¸? --
+                local bunsinOwner = GetExArgObject(pc, 'BUNSIN_OWNER'); -- 분신 본체가 ??는가? --
                 if bunsinOwner == nil then
 					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] BunsinOwner is nullptr");
                     return 'LOCK';
                 else
-                    pc = bunsinOwner;   -- 나는 본체다 --
+                    pc = bunsinOwner;   -- ??는 본체??--
                 end
             else
 				LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[LOCK] Not Real Pc");
@@ -873,7 +873,7 @@ function SCR_ABIL_THSWORD_ACTIVE(self, ability)
     if rItem.ClassType == "THSword" then
         addSR = 1
     end
-    
+
     SetExProp(self, "ABIL_THSWORD_SR", addSR)
 end
 
@@ -929,7 +929,7 @@ function SCR_ABIL_THMACE_SR_ACTIVE(self, ability)
     if rItem.ClassType == "THMace" then
         addSR = 5
     end
-    
+
     SetExProp(self, "ABIL_THMACE_SR", addSR)
 end
 
@@ -954,22 +954,22 @@ end
 
 
 function SCR_ABIL_KABBALIST21_ACTIVE(self, ability)
-	if ability.ActiveState == 1 then
-		local addMaxMATKRate = 0.0;
-		
-	    local rItem  = GetEquipItem(self, 'RH');
-	    local rItemType = TryGetProp(rItem, 'ClassType');
-	    if rItem ~= nil and (rItemType == 'Staff' or rItemType == 'Mace') then
-			addMaxMATKRate = 0.2;
+    if ability.ActiveState == 1 then
+        local addMaxMATKRate = 0.0;
+        
+        local rItem  = GetEquipItem(self, 'RH');
+        local rItemType = TryGetProp(rItem, 'ClassType');
+        if rItem ~= nil and (rItemType == 'Staff' or rItemType == 'Mace') then
+    	    addMaxMATKRate = 0.2;
 			
-			if rItemType == 'Staff' then
+    	    if rItemType == 'Staff' then
 				ChangeNormalAttack(self, "Magic_Attack");
-			end
-	    end
-	    
-		self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM + addMaxMATKRate;
+    		end
+    	end
+    	
+    	self.MAXMATK_RATE_BM = self.MAXMATK_RATE_BM + addMaxMATKRate;
 		
-		SetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE", addMaxMATKRate);
+    	SetExProp(self, "ABIL_KABBALIST21_MAX_MATK_RATE", addMaxMATKRate);
 	end
 end
 
@@ -1063,4 +1063,36 @@ function SCR_ABIL_PELTASTA5_INACTIVE(self, ability)
     self.MaxHateCount_BM = self.MaxHateCount_BM - addValue;
 	
     Invalidate(self, "MaxHateCount");
+end
+
+function SCR_ABIL_DOPPELSOELDNER24_ACTIVE(self, ability)
+    local addsta = 5
+    self.MaxSta_BM = self.MaxSta_BM - addsta;
+    SetExProp(ability, 'ADD_STA', addsta);
+end
+
+function SCR_ABIL_DOPPELSOELDNER24_INACTIVE(self, ability)
+    local addsta = GetExProp(ability, 'ADD_STA');
+    self.MaxSta_BM = self.MaxSta_BM + addsta;
+end
+
+function SCR_ABIL_MUSKETEER30_ACTIVE(self, ability)
+    local minPATK = TryGetProp(self, "MINPATK")
+    local maxPATK = TryGetProp(self, "MAXPATK")
+    local addATK = 0
+    local addMSPD = 1
+    addATK = ((minPATK + maxPATK)/2 - self.PATK_BM) * (ability.Level * 0.01)
+    
+    self.MSPD_BM = self.MSPD_BM - addMSPD
+    
+    SetExProp(self, "add_Musketeer30_ATK", addATK)
+    SetExProp(self, "add_Musketeer30_MSPD", addMSPD)
+end
+
+function SCR_ABIL_MUSKETEER30_INACTIVE(self, ability)
+    local addMSPD = GetExProp(self, "add_Musketeer30_MSPD")
+    
+    self.MSPD_BM = self.MSPD_BM + addMSPD
+    
+    DelExProp(self, "add_Musketeer30_ATK")
 end

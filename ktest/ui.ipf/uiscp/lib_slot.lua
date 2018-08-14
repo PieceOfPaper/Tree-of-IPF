@@ -381,7 +381,7 @@ function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	end
 
 	local lv = TryGetProp(obj, "Level");
-	if lv ~= nil and lv > 1 then
+	if lv ~= nil and lv > 1 then		
 		slot:SetFrontImage('enchantlevel_indi_icon');
 		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', 'left', 'top', 8, 2);
 		return;
@@ -409,7 +409,11 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count)
 	local lv = TryGetProp(obj, "Level");
 	if lv ~= nil and lv > 1 then
 		--slot:SetFrontImage('enchantlevel_indi_icon');
-		slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
+		if IS_ENCHANT_JEWELL_ITEM(obj) == true then
+			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', 'left', 'bottom', 3, 2);
+		else
+			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
+		end
 		return;
 	end
 end
