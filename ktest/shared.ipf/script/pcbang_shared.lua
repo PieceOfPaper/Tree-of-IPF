@@ -1,9 +1,4 @@
 
-function GET_PCBANG_RENTAL_ITEM_LIST()
-    local list = GetValidPCBangRentalItemList();
-    return list;
-end
-
 function CALC_PCBANG_GROWTH_ITEM_LEVEL(item)
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
@@ -15,7 +10,11 @@ function CALC_PCBANG_GROWTH_ITEM_LEVEL(item)
         return nil;
     end
     
-    local pcBangRental = GET_PCBANG_RENTAL_ITEM_LIST()
+    if _G["GetValidPCBangRentalItemList"] == nil then
+        return nil;
+    end
+    
+    local pcBangRental = GetValidPCBangRentalItemList()
     local isPCBangRental = false;
     for i = 1, #pcBangRental do
         if pcBangRental[i] == itemName then
@@ -27,6 +26,10 @@ function CALC_PCBANG_GROWTH_ITEM_LEVEL(item)
         return nil;
     end
     
+    if _G["GetItemOwner"] == nil then
+        return nil;
+    end
+
     local pc = GetItemOwner(item);
     if pc == nil then
         return nil;
