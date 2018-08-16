@@ -728,9 +728,13 @@ function GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem)
     return _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem[propName], invitem[propValue]);
 end
 
-function _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue)
-    if rareOptionValue ~= nil and rareOptionValue ~= 0 and rareOptionName ~= "None" then
-		local opName = string.format("%s %s", ClMsg('ItemRandomOptionGroupRare'), ScpArgMsg(rareOptionName));
+function _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue, prefixOverride)
+	if rareOptionValue ~= nil and rareOptionValue ~= 0 and rareOptionName ~= "None" then
+		local prefix = ClMsg('ItemRandomOptionGroupRare');
+		if prefixOverride ~= nil then
+			prefix = prefixOverride;
+		end
+		local opName = string.format("%s %s", prefix, ScpArgMsg(rareOptionName));
 
     	local clmsg = ScpArgMsg("PropUp");
     	if tonumber(rareOptionValue) < 0 then
