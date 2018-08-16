@@ -836,12 +836,7 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 			end
 		end
 
-        if originalItemObj['RandomOptionRareValue'] ~= 0 and originalItemObj['RandomOptionRare'] ~= "None" then
-			local strInfo = _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(originalItemObj['RandomOptionRare'], originalItemObj['RandomOptionRareValue']);
-            if strInfo ~= nil then
-			    SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
-            end
-		end
+        
 
 		for i = 1 , #list2 do
 			local propName = list2[i];
@@ -855,7 +850,14 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 		if itemObj.OptDesc ~= nil and itemObj.OptDesc ~= 'None' then
 			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, itemObj.OptDesc);
 		end
-
+		
+        if originalItemObj['RandomOptionRareValue'] ~= 0 and originalItemObj['RandomOptionRare'] ~= "None" then
+			local strInfo = _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(originalItemObj['RandomOptionRare'], originalItemObj['RandomOptionRareValue']);
+            if strInfo ~= nil then
+			    SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+            end
+		end
+		
 		if inheritanceItem == nil then
 		if itemObj.IsAwaken == 1 then
 			local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(itemObj.HiddenProp));

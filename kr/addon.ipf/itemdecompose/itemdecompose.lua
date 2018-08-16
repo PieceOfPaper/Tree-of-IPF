@@ -246,6 +246,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	itemCheckProp['Awaken'] = 0;
 	itemCheckProp['Socket_Equip'] = 0;
 	itemCheckProp['Socket_Add'] = 0;
+	itemCheckProp['EnchantOption'] = 0;
 	
 	for i = 0, slotSet:GetSelectedSlotCount() -1 do
 		local slot = slotSet:GetSelectedSlot(i)
@@ -272,6 +273,12 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		local itemAwaken = TryGetProp(itemobj, 'IsAwaken');
 		if itemAwaken ~= nil and itemAwaken > 0 then
 			itemCheckProp['Awaken'] = itemCheckProp['Awaken'] + 1;
+		end
+		
+		local itemRareOption = TryGetProp(itemobj, 'RandomOptionRare');
+		local itemRareOptionValue = TryGetProp(itemobj, 'RandomOptionRareValue');
+		if itemRareOption ~= nil and itemRareOption ~= 'None' and itemRareOptionValue > 0 then
+		    itemCheckProp['EnchantOption'] = itemCheckProp['EnchantOption'] + 1
 		end
 		
 		for j = 0, 9 do
@@ -302,7 +309,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('ItemDecomposePrice',"Price", txtPrice)
 	
-	local checkPropList = { 'Reinforce', 'Transcend', 'Awaken', 'Socket_Equip', 'Socket_Add' };
+	local checkPropList = { 'Reinforce', 'Transcend', 'Awaken', 'Socket_Equip', 'Socket_Add', 'EnchantOption' };
 	local warningPropList = { };
 	for j = 1, #checkPropList do
 		local checkProp = checkPropList[j];
