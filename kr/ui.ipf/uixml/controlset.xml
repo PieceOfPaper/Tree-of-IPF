@@ -2324,8 +2324,8 @@
 			<richtext name="memo_t" rect="0 0 60 60" margin="10 45 0 0" caption="{@st41b}메모" layout_gravity="left top" textalign="center center" resizebytext="false" fixwidth="true" hittest="false"/>
 			<groupbox name="edit_bg_1" rect="0 0 250 40" margin="80 16 0 0" skin="test_weight_skin" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" frameOpenAnim="pip_simbol_ani_3" resizebyparent="false"/>
 			<groupbox name="edit_bg_2" rect="0 0 250 40" margin="80 58 0 0" skin="test_weight_skin" draw="true" hittestbox="false" layout_gravity="left top" scrollbar="false" frameOpenAnim="pip_simbol_ani_3" resizebyparent="false"/>
-			<edit name="name" rect="0 0 240 36" margin="85 18 0 0" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_NAME" textalign="left center" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="12" OffsetForDraw="0 0" xmargin="10"/>
-			<edit name="memo" rect="0 0 240 36" margin="85 60 0 0" multiline="true" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_MEMO" textalign="left top" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="52" resizebytext="true" OffsetForDraw="0 5" xmargin="10"/>
+			<edit name="name" rect="0 0 240 36" margin="85 18 0 0" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_NAME" textalign="left center" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="20" OffsetForDraw="0 0" xmargin="10"/>
+			<edit name="memo" rect="0 0 240 36" margin="85 60 0 0" multiline="true" skin="none" draw="false" drawbackground="false" typingscp="RECIPE_TYPING_MEMO" textalign="left top" typingsound="chat_typing" layout_gravity="left top" fontname="brown_18_b" maxlen="100" resizebytext="true" OffsetForDraw="0 5" xmargin="10"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_detail_memo_alchemist" width="470" height="100" skin="test_skin_01" draw="true" stateskin="false" hittest="true" hittestset="true">

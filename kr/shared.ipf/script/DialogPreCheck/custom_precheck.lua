@@ -40,40 +40,45 @@ end
 
 
 function SCR_JOB_2_PSYCHOKINO_5_1_BOOK_1_PRE_DIALOG(pc, dialog)
-    local result1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
-    if result1 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
+    local questCheck2 = SCR_QUEST_CHECK(pc, 'MASTER_PSYCHOKINO1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         return 'YES'
     end
     return 'NO'
 end
 
 function SCR_JOB_2_PSYCHOKINO_5_1_BOOK_2_PRE_DIALOG(pc, dialog)
-    local result1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
-    if result1 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
+    local questCheck2 = SCR_QUEST_CHECK(pc, 'MASTER_PSYCHOKINO1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         return 'YES'
     end
     return 'NO'
 end
 
 function SCR_JOB_2_PSYCHOKINO_5_1_BOOK_3_PRE_DIALOG(pc, dialog)
-    local result1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
-    if result1 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
+    local questCheck2 = SCR_QUEST_CHECK(pc, 'MASTER_PSYCHOKINO1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         return 'YES'
     end
     return 'NO'
 end
 
 function SCR_JOB_2_PSYCHOKINO_5_1_BOOK_4_PRE_DIALOG(pc, dialog)
-    local result1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
-    if result1 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
+    local questCheck2 = SCR_QUEST_CHECK(pc, 'MASTER_PSYCHOKINO1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         return 'YES'
     end
     return 'NO'
 end
 
 function SCR_JOB_2_PSYCHOKINO_5_1_BOOK_5_PRE_DIALOG(pc, dialog)
-    local result1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
-    if result1 == 'PROGRESS' then
+    local questCheck1 = SCR_QUEST_CHECK(pc, 'JOB_2_PSYCHOKINO_5_1')
+    local questCheck2 = SCR_QUEST_CHECK(pc, 'MASTER_PSYCHOKINO1')
+    if questCheck1 == 'PROGRESS' or questCheck2 == 'PROGRESS' then
         return 'YES'
     end
     return 'NO'

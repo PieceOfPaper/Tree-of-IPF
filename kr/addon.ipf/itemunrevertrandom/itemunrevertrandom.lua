@@ -219,15 +219,6 @@ function ITEM_UNREVERT_RANDOM_REG_TARGETITEM(frame, itemID)
 		end
 	end
 
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
-	end
-
 	local isAbleExchange = 1;
 	if obj.MaxDur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET or obj.Dur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET then
 		isAbleExchange = -2;
@@ -414,15 +405,6 @@ ui.SetHoldUI(false);
 			propertyList:SetText(strInfo);
             ypos = i * pos_y + propertyList:GetHeight() + 5;
 		end
-	end
-
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
 	end
 
 	local bodyGbox1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox1');

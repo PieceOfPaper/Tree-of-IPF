@@ -36,7 +36,7 @@ function OBLATION_SELL_CLOSE(frame)
 	ui.CloseFrame("inventory");
 end
 
-function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount)
+function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount, iesID, countSet)
 	local slotset = OBLATION_SELL_GET_SLOTSET(frame);
 	if true == invItem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -62,6 +62,9 @@ function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount)
 	else
 		local iconInfo = duplicateSlot:GetIcon():GetInfo();
 		iconInfo.count = iconInfo.count + addCount;
+		if countSet ~= nil and countSet == true then
+			iconInfo.count = addCount;
+		end
 		if iconInfo.count > invItem.count then
 			iconInfo.count = invItem.count;
 		end
@@ -86,8 +89,16 @@ function INV_RBTN_DBLDOWN_OBLATION_SELL(itemObj, slot)
 		return;
 	end
 	local frame = ui.GetFrame("oblation_sell");
+	local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", invItem.count);
+	INPUT_NUMBER_BOX(frame, titleText, "SET_OBLATION_SELL_COUNT", 1, 1, invItem.count, nil, GetIESID(itemObj));
+	
+end
 
-	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, invItem.count);
+function SET_OBLATION_SELL_COUNT(frame, count, inputFrame)
+	local iesid = inputFrame:GetUserValue("ArgString");
+	local invItem = session.GetInvItemByGuid(iesid);
+	local frame = ui.GetFrame("oblation_sell");
+	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, count, nil, true);
 	OBLATION_SELL_CALCULATE_PRICE(frame);
 end
 
@@ -98,7 +109,7 @@ function INV_RBTN_DOWN_OBLATION_SELL(itemObj, slot, iesID)
 	end
 
 	local frame = ui.GetFrame("oblation_sell");
-	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, 1);
+	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, 1, iesID);
 	OBLATION_SELL_CALCULATE_PRICE(frame);
 
 end

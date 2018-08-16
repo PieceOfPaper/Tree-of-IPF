@@ -1,4 +1,4 @@
-function ERROR_INFO_INIT(errorCode, summary, infoMsg, handleMsg, url, argNum, closeScp)
+function ERROR_INFO_INIT(errorCode, summary, infoMsg, handleMsg, url, argNum, closeScp, argStr)	
 	local frame = ui.GetFrame('error_info');
 	if frame:IsVisible() == 1 then
 		return;
@@ -15,8 +15,12 @@ function ERROR_INFO_INIT(errorCode, summary, infoMsg, handleMsg, url, argNum, cl
 
 	local infoText = GET_CHILD_RECURSIVELY(frame, 'infoText');	
 	local _infoText = MAKE_NEW_LINE_TAG(infoMsg);
-	if argNum ~= 0 then
+	if argNum ~= 0 and argStr ~= nil and argStr ~= '' then
+		_infoText = _infoText..'('..argNum..', '..argStr..')';
+	elseif argNum ~= 0 then
 		_infoText = _infoText..'('..argNum..')';
+	elseif argStr ~= nil and argStr ~= '' then
+		_infoText = _infoText..'('..argStr..')';
 	end
 	infoText:SetTextByKey('msg', _infoText);
 

@@ -136,10 +136,8 @@ function GET_INPUT2_STRING_TXT(frame)
 
 end
 
-
-
 function INPUT_DROPLIST_BOX(barrackFrame, strscp, charName, jobName, minNumber, maxNumber)
-if barrackFrame == nil then
+    if barrackFrame == nil then
 		return
 	end
 
@@ -167,14 +165,15 @@ if barrackFrame == nil then
 	for i = minNumber, maxNumber do
 		dropListText_i = dropListText .. ' ' .. i
 		dropList:AddItem(i, dropListText_i)
-	end
+	end    
 end
 
-function CLOSE_INPUT_DROPLIST_BOX(frame)
-	local frame = ui.GetFrame("barrack_move_popup")
-	if frame ~= nil then
-		ui.CloseFrame("barrack_move_popup")
-	end
+function CLOSE_INPUT_DROPLIST_BOX(frame)    
+	if frame == nil then
+	    frame = ui.GetFrame("barrack_move_popup")
+	end    
+    ui.CloseFrame("barrack_move_popup")
+    enable_char_btn(frame)    
 end
 
 function INPUT_DROPLIST_BOX_EXEC(frame)
@@ -191,7 +190,7 @@ function INPUT_DROPLIST_BOX_EXEC(frame)
 	local resultString = dropList:GetSelItemKey()
 	execScp(frame, resultString, frame);
 	
-	ui.CloseFrame("barrack_move_popup")
+	ui.CloseFrame("barrack_move_popup")    
 end
 
 function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)

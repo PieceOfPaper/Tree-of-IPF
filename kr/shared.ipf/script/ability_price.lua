@@ -270,6 +270,13 @@ function ABIL_10RANK_PRICE(pc, abilName, abilLevel, maxLevel)
     return price, time;
 end
 
+function ABIL_10RANK_FOR67_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 250 + (abilLevel-1) * 250
+    local time = 0
+    
+    return price, time;
+end
+
 function ABIL_3RANK_MASTER_PRICE(pc, abilName, abilLevel, maxLevel)
 
     local price = 3

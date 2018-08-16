@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
-<uiframe name="beautyshop_simplelist" x="0" y="0" width="522" height="848" create="open">
+<uiframe name="beautyshop_simplelist" x="0" y="0" width="578" height="848" create="open">
 	<frame titlepos="0 0" margin="0 20 0 0" layout_gravity="right top" snapclient="true" snapframe="true" scale_align="center top"/>
 	<draw drawframe="false" drawtitlebar="false"/>
 	<layer layerlevel="100"/>
@@ -11,8 +11,8 @@
 	<!-- <userconfig hairShopName_male="헤어 샵(남)" hairShopName_female="헤어 샵(여)" costumeShopName_male ="코스튬 샵(남)" costumeShopName_female ="코스튬 샵(여)"/> -->
 	<controls>
 		<!-- default frame -->
-		<groupbox name="gbBackGround" rect="0 0 522 848" margin="0 0 0 0" layout_gravity="left top" skin="test_pvp_skin" draw="true" resizebyparent="true" scrollbar="false" hittest="true" hittestbox="false"/>
-		<groupbox name="bigModeBox" rect="0 0 522 848" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyparent="true" scrollbar="false" hittest="true" hittestbox="false"/>
+		<groupbox name="gbBackGround" rect="0 0 578 848" margin="0 0 0 0" layout_gravity="left top" skin="test_pvp_skin" draw="true" resizebyparent="true" scrollbar="false" hittest="true" hittestbox="false"/>
+		<groupbox name="bigModeBox" rect="0 0 578 848" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyparent="true" scrollbar="false" hittest="true" hittestbox="false"/>
 		<groupbox name="gbTitle" parent="gbBackGround" rect="0 0 470 40" margin="0 20 0 0" layout_gravity="center top" skin="test_frame_low" draw="false" resizebyparent="treu" scrollbar="false" hittest="false"/>
 		<groupbox name="gbBody" parent="bigModeBox" rect="0 0 422 500" margin="0 100 0 0" layout_gravity="center top" skin="test_weight_skin" draw="false" resizebyparent="true" scrollbar="false" hittest="true"/>
 		<groupbox name="gbPurchase" parent="bigModeBox" rect="0 0 420 320" margin="0 0 0 20" layout_gravity="center bottom" skin="test_weight_skin" draw="false" resizebyparent="true" scrollbar="false" hittest="true"/>
@@ -55,19 +55,21 @@
 		<button name="cancelApplyBtn_dye" rect="0 0 100 40" parent="dyeCouponBox" margin="-50 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}취소" LBtnUpScp="BEAUTYSHOP_SIMPLELIST_CANCEL_DYE_COUPON"/>
 		<button name="applyBtn_dye" rect="0 0 100 40" parent="dyeCouponBox" margin="50 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}사용" LBtnUpScp="BEAUTYSHOP_SIMPLELIST_APPLY_DYE_COUPON"/>
 		<!-- small mode -->
-		<groupbox name="smallModeBox" rect="0 0 522 180" margin="0 50 0 0" layout_gravity="left top" draw="false"/>
-		<groupbox name="slotBox" rect="0 0 346 115" parent="smallModeBox" skin="test_frame_midle" margin="0 50 0 30" layout_gravity="center top" draw="true"/>
-		<slot name="slotPreview_hair" parent="slotBox" rect="0 0 56 57" margin="0 0 0 0" layout_gravity="left top" hittest="true" skin="market_hair" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어{/}"/>
-		<slot name="slotPreview_wig" parent="slotBox" rect="0 0 56 57" margin="58 0 0 0" layout_gravity="left top" hittest="true" skin="wig_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발{/}"/>
-		<slot name="slotPreview_wig_dye" parent="slotBox" rect="0 0 56 57" margin="116 0 0 0" layout_gravity="left top" hittest="true" skin="market_wigcolor" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발 염색약{/}"/>
-		<slot name="slotPreview_hair_costume_1" parent="slotBox" rect="0 0 56 57" margin="174 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_1" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬1{/}"/>
-		<slot name="slotPreview_hair_costume_2" parent="slotBox" rect="0 0 56 57" margin="232 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_2" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬2{/}"/>
-		<slot name="slotPreview_hair_costume_3" parent="slotBox" rect="0 0 56 57" margin="290 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_3" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬3{/}"/>
+		<groupbox name="smallModeBox" rect="0 0 578 180" margin="0 50 0 0" layout_gravity="left top" draw="false"/>
+		<groupbox name="slotBox" rect="0 0 402 115" parent="smallModeBox" skin="test_frame_midle" margin="0 50 0 30" layout_gravity="center top" draw="false"/>
+		<slot name="slotPreview_hair" parent="slotBox" rect="0 0 56 57" margin="29 0 0 0" layout_gravity="left top" hittest="true" skin="market_hair" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어{/}"/>
+		<slot name="slotPreview_wig" parent="slotBox" rect="0 0 56 57" margin="87 0 0 0" layout_gravity="left top" hittest="true" skin="wig_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발{/}"/>
+		<slot name="slotPreview_wig_dye" parent="slotBox" rect="0 0 56 57" margin="145 0 0 0" layout_gravity="left top" hittest="true" skin="market_wigcolor" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}가발 염색약{/}"/>
+		<slot name="slotPreview_hair_costume_1" parent="slotBox" rect="0 0 56 57" margin="203 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_1" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬1{/}"/>
+		<slot name="slotPreview_hair_costume_2" parent="slotBox" rect="0 0 56 57" margin="261 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_2" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬2{/}"/>
+		<slot name="slotPreview_hair_costume_3" parent="slotBox" rect="0 0 56 57" margin="319 0 0 0" layout_gravity="left top" hittest="true" skin="market_hairacc_3" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}헤어 코스튬3{/}"/>
+		
 		<slot name="slotPreview_lens" parent="slotBox" rect="0 0 56 57" margin="0 58 0 0" layout_gravity="left top" hittest="true" skin="lens_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}렌즈{/}"/>
 		<slot name="slotPreview_costume" parent="slotBox" rect="0 0 56 57" margin="58 58 5 0" layout_gravity="left top" hittest="true" skin="market_costume" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}코스튬{/}"/>
 		<slot name="slotPreview_wing" parent="slotBox" rect="0 0 56 57" margin="116 58 0 0" layout_gravity="left top" hittest="true" skin="wing_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}등 코스튬{/}"/>
 		<slot name="slotPreview_effect_costume" parent="slotBox" rect="0 0 56 57" margin="174 58 0 0" layout_gravity="left top" hittest="true" skin="effect_slot" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}이펙트 코스튬{/}"/>
 		<slot name="slotPreview_armband" parent="slotBox" rect="0 0 56 57" margin="232 58 0 0" layout_gravity="left top" hittest="true" skin="armband" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}암밴드{/}"/>
-		<slot name="slotPreview_toy" parent="slotBox" rect="0 0 56 57" margin="290 58 0 0" layout_gravity="left top" hittest="true" skin="market_artefact" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}장난감{/}"/>
+		<slot name="slotPreview_lh" parent="slotBox" rect="0 0 56 57" margin="290 58 0 0" layout_gravity="left top" hittest="true" skin="market_artefact" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}왼손{/}"/>
+		<slot name="slotPreview_rh" parent="slotBox" rect="0 0 56 57" margin="348 58 0 0 " layout_gravity="left top" hittest="true" skin="market_artefact" oversound="button_cursor_over_3" enableselect="false" movepop="false" stretch="true" texttooltip="{@st59}오른손{/}"/>
 	</controls>
 </uiframe>

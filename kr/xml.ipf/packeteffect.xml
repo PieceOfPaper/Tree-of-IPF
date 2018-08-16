@@ -272,6 +272,8 @@
         <Effect Name="StepCheck1"/>
         <Effect Name="I_arrow020_ignas_mon_mesh2"/>
         <Effect Name="F_cleric_suppress_loop_debuff"/>
+        <Effect Name="F_light106_drop"/>
+        <Effect Name="F_cleric_LastRites_buff2"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -1268,7 +1270,9 @@
         <Effect Name="countdown_2"/>
         <Effect Name="SKL_PHANTOMERADICATION"/>
         <Effect Name="voice_war_atk_long_shot"/>
-    </Category>
+    <Effect Name="SKL_HIGHGUARD_SWITCH"/>
+		<Effect Name="SKL_HIGHGUARD_SWITCH2"/>
+	</Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
     </Category>
@@ -15159,6 +15163,7 @@
 		<Effect Name="Mon_FirePilla"/>
 		<Effect Name="F_warrior_whirlwind_shot_spin"/>
 		<Effect Name="E_warrior_whirlwind_shot"/>
+		<Effect Name="E_warrior_whirlwind_shot##2"/>
 		<Effect Name="Mon_Heal"/>
 		<Effect Name="I_laser012_fire"/>
 		<Effect Name="F_bg_fire004_1"/>

@@ -316,25 +316,20 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		msg = ScpArgMsg('ItemDecomposeWarningPropMessage', 'WARNINGPROP', warningProp, 'DEFAULTMSG', msg);
 	end
 	
---local msgBox = ui.MsgBox(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None");
 	local msgBox = WARNINGMSGBOX_FRAME_OPEN(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None")
 	local msgBoxFrame = ui.GetFrame("warningmsgbox")
 	if msgBoxFrame == nil then
-		return
+		return;
 	end
 	
 	local yesBtn = GET_CHILD_RECURSIVELY(msgBoxFrame, "yes")
-	yesBtn:SetClickSound("button_click_repair")
-
---	msgBox:SetYesButtonSound("button_click_repair");
+	yesBtn:SetClickSound("button_click_repair");
 end
 
 function ITEM_DECOMPOSE_EXECUTE_COMMIT()
 	local resultlist = session.GetItemIDList()
 	item.DialogTransaction("ITEM_DECOMPOSE_TX", resultlist);
 end
-
-
 
 function ITEM_DECOMPOSE_COMPLETE(...)
     local frame = ui.GetFrame("itemdecompose");
@@ -362,9 +357,9 @@ function ITEM_DECOMPOSE_COMPLETE(...)
         for i = 1, #itemList do
             local item = SCR_STRING_CUT(itemList[i]);
             local itemName = item[1];
-            local itemCount = item[2];
-            
-            if itemCount > 0 then
+			local itemCount = item[2];
+			local itemCls = GetClass('Item', itemName);            
+            if itemCount > 0 and IS_ENCHANT_JEWELL_ITEM(itemCls) == false then
         		local miscSlot = miscSlotSet:GetSlotByIndex(miscSlotCnt)
         		if miscSlot == nil then
         			break;
@@ -384,4 +379,3 @@ function ITEM_DECOMPOSE_COMPLETE(...)
         end
     end
 end
-

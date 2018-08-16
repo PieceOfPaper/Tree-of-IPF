@@ -63,12 +63,34 @@ local function SET_BTN_ALPHA(frame, hittest, alpha)
     downBtn_alpha:SetAlpha(alpha)
 end
 
+local function disable_char_btn(frame)
+    if frame == nil then return end    
+    local new_char = GET_CHILD_RECURSIVELY(frame, "button_new_char")
+    local char_del = GET_CHILD_RECURSIVELY(frame, "button_char_del")    
+    new_char:EnableHitTest(0)
+    new_char:SetAlpha(70)
+    char_del:EnableHitTest(0)
+    char_del:SetAlpha(70)
+end
+
+function enable_char_btn(f)
+    local frame = ui.GetFrame('barrack_charlist')
+    if frame == nil then return end
+
+    local new_char = GET_CHILD_RECURSIVELY(frame, "button_new_char")
+    local char_del = GET_CHILD_RECURSIVELY(frame, "button_char_del")    
+    new_char:EnableHitTest(1)
+    new_char:SetAlpha(100)
+    char_del:EnableHitTest(1)
+    char_del:SetAlpha(100)
+end
+
 function SET_SWAP_REQUEST_FLAG_FALSE(frame)    
     swap_flag = false
     if frame == nil then
     	return
     end
-
+    
     SET_BTN_ALPHA(frame, 1, 0)
 end
 
@@ -270,7 +292,7 @@ function DOWN_SWAP_CHARACTER_SLOT(ctr, btn, cid)
     end
 end
 
-function CHANGE_BARRACK_LAYER(ctrl, btn, cid, argNum)
+function CHANGE_BARRACK_LAYER(ctrl, btn, cid, argNum)   
 	local jobName = barrack.GetSelectedCharacterJob();
 	local charName = barrack.GetSelectedCharacterName();
 	local yesScp = string.format("SELECTCHARINFO_CHANGELAYER_CHARACTER(\'%s\')", tostring(cid));
@@ -278,7 +300,7 @@ function CHANGE_BARRACK_LAYER(ctrl, btn, cid, argNum)
 end
 
 -- 특정 layer 이동
-function CHANGE_BARRACK_TARGET_LAYER(ctrl, btn, cid, argNum)
+function CHANGE_BARRACK_TARGET_LAYER(ctrl, btn, cid, argNum)    
 	cid = CUR_SELECT_GUID    
     local frame = ui.GetFrame("barrack_charlist")
     local titleText = ScpArgMsg("InputCount")
@@ -291,10 +313,11 @@ function CHANGE_BARRACK_TARGET_LAYER(ctrl, btn, cid, argNum)
 
 	local jobName = barrack.GetSelectedCharacterJob();
 	local charName = barrack.GetSelectedCharacterName();
+    disable_char_btn(frame)
     INPUT_DROPLIST_BOX(frame, "SELECT_CHARINFO_CHANGE_TARGET_LAYER_CHARACTER", charName, jobName, 1, 3)
 end
 
-function SELECT_CHARINFO_CHANGE_TARGET_LAYER_CHARACTER(frame, target, inputframe)
+function SELECT_CHARINFO_CHANGE_TARGET_LAYER_CHARACTER(frame, target, inputframe)    
     inputframe:ShowWindow(0)
     target = tonumber(target)
     if target < 1 or target > 3 then
@@ -388,6 +411,7 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
     current_layer = layer    
 	local scrollBox = frame:GetChild("scrollBox");
 	scrollBox:RemoveAllChild();
+    disable_char_btn(frame)
 end
 
 function CREATE_SCROLL_CHAR_LIST(frame, actor)   
