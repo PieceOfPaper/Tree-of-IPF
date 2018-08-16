@@ -550,26 +550,24 @@ function CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem)
     return firstTreeItem;
 end
 
-function TPITEM_CLOSE(frame)
-	
+function TPITEM_CLOSE(frame)	
 	ui.SetUILock(false);
 
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
 	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	elseif (config.GetServiceNation() == "THI") then
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	end
-
-	--ui.SetHoldUI("");
+	
 	SET_TOPMOST_FRAME_SHOWFRAME(1);
 	session.ui.Clear_NISMS_ItemList();
 	ui.OpenAllClosedUI();
