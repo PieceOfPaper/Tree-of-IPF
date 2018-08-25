@@ -58,7 +58,7 @@ function BEAUTYSHOP_DO_OPEN(frame, msg, shopTypeName, genderNum)
 		{Type="PACKAGE", OpenFunc = PACKAGESHOP_OPEN, IDSpace = 'Beauty_Shop_Package_Cube'}, 
 		{Type="PREVIEW", OpenFunc = PREVIEWSHOP_OPEN, IDSpace = 'Beauty_Shop_Preview'}, 
 	};
-
+	
 	-- 상점 성별 설정.
 	BEAUTYSHOP_SET_GENDER(genderNum)
 	-- 상점에 해당하는 OPEN 함수 호출
@@ -104,6 +104,13 @@ function BEAUTYSHOP_CLOSE(frame)
 		SHOW_BEAUTYSHOP_SIMPLELIST(true, list, frame:GetUserValue('CURRENT_SHOP'));
 		BEAUTYSHOP_SEND_TRY_IT_ON_LIST(list)
 		ui.CloseFrame('packagelist'); 
+	end
+	
+	-- 닫을 때 
+	local showOnlyEnableEquipCheck = GET_CHILD_RECURSIVELY(frame, "showOnlyEnableEquipCheck");
+	if showOnlyEnableEquipCheck ~= nil then
+		showOnlyEnableEquipCheck:ShowWindow(0)
+		showOnlyEnableEquipCheck:SetCheck(0)
 	end
 end
 
@@ -1330,7 +1337,7 @@ function BEAUTYSHOP_SET_PREVIEW_WEAPON_EQUIP_SLOT(apc, slot, existItem, classnam
 	if result ~= 'OK' then
 		return
 	end
-
+	
 	local eqpType = TryGetProp(existItem , "EqpType");
 	if eqpType ~= nil then
 		-- slot의 이름을 확인한다. 좌/우 구분
@@ -1338,11 +1345,11 @@ function BEAUTYSHOP_SET_PREVIEW_WEAPON_EQUIP_SLOT(apc, slot, existItem, classnam
 		if slotName ~= nil then
 			if slotName == "slotPreview_lh" then
 				-- 왼손/오른손 상관없이 장비한다.
-				apc:SetEquipItem(ES_LH, existItem.ClassID);
+				apc:SetEquipItem(ES_RH, existItem.ClassID);
 			elseif slotName == "slotPreview_rh" then
 				-- 양손이라면 왼손과 똑같은 무기가 들어 있어야 한다.
 				if eqpType == "SH" then -- 한손무기일 경우
-					apc:SetEquipItem(ES_RH, existItem.ClassID);
+					apc:SetEquipItem(ES_LH, existItem.ClassID);
 				end
 				-- 양손무기라면 그냥 리턴된다.
 			end

@@ -375,9 +375,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	
 	local tempGbox_for_scroll = GET_CHILD_RECURSIVELY(frame,"tempGbox_for_scroll")
 	tempGbox_for_scroll:SetEventScript(ui.MOUSEWHEEL, "TPSHOP_PREVIEW_ZOOM");
-
-	control.EnableControl(0);
-	ui.SetUILock(true);
 end
 
 function TPITEM_CLEAR_SLOTSET(slotset)
@@ -551,31 +548,26 @@ function CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem)
 end
 
 function TPITEM_CLOSE(frame)
-	
-	ui.SetUILock(false);
-
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
 	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	elseif (config.GetServiceNation() == "THI") then
-	local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
-	banner:SetUserValue("URL_BANNER", "");
-	banner:SetUserValue("NUM_BANNER", 0);
-	banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
+		banner:SetUserValue("URL_BANNER", "");
+		banner:SetUserValue("NUM_BANNER", 0);
+		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
 	end
-
-	--ui.SetHoldUI("");
+	
 	SET_TOPMOST_FRAME_SHOWFRAME(1);
 	session.ui.Clear_NISMS_ItemList();
 	ui.OpenAllClosedUI();
 
-	session.ui.Clear_NISMS_CashInven_ItemList();
-	control.ResetControl();
+	session.ui.Clear_NISMS_CashInven_ItemList();	
 
 	ui.CloseFrame("recycleshop_popupmsg");
 	ui.CloseFrame("tpitem_popupmsg");

@@ -1313,7 +1313,7 @@
 			<Motion Name="STD">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.3" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -1399,7 +1399,7 @@
 				</Job>
 			</Motion>
 		</Class>
-	<Class Costume="exorcist02_sp">
+		<Class Costume="exorcist02_sp">
 			<Motion Name="WALK">
 				<Job Name="All" LoopTime="200">
 					<Event>
@@ -2981,120 +2981,120 @@
 		</Class>
 		<Class Costume="piedpiper01_sp">
 			<Motion Name="Default">
-				<Job Name="All">
+				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="ASTD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 		</Class>
 		<Class Costume="piedpiper02_sp">
 			<Motion Name="Default">
-				<Job Name="All">
+				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="ASTD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 		</Class>
 		<Class Costume="piedpiper02_red_sp">
 			<Motion Name="Default">
-				<Job Name="All">
+				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="ASTD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 		</Class>
 		<Class Costume="piedpiper02_yellow_sp">
 			<Motion Name="Default">
-				<Job Name="All">
+				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="5" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="ASTD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD_RIDE">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
 			<Motion Name="STD">
 				<Job Name="All" LoopTime="1000">
 					<Event>
-						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+						<Particle frame="0" attachNode="Bone_Belt_03" particleName="F_light012_3_piedpiper" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -3150,7 +3150,7 @@
 				</Job>
 			</Motion>
 		</Class>
-	<Class Costume="exorcist02_sp">
+		<Class Costume="exorcist02_sp">
 			<Motion Name="WALK">
 				<Job Name="All" LoopTime="200">
 					<Event>

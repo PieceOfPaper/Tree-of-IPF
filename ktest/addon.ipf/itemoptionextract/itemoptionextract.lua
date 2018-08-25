@@ -15,7 +15,7 @@ function ON_OPEN_DLG_ITEMOPTIONEXTRACT(frame)
 end
 
 function ITEMOPTIONEXTRACT_OPEN(frame)
-	
+	ui.CloseFrame('rareoption');
 	SET_OPTIONEXTRACT_RESET(frame);
 	CLEAR_ITEMOPTIONEXTRACT_UI()
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMOPTIONEXTRACT_INV_RBTN")	
@@ -305,11 +305,6 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
-	end
-
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem);
-	if rareOptionText ~= nil then
-		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, rareOptionText, 0, inner_yPos);
 	end
 
 	for i = 1 , #list2 do

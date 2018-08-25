@@ -72,7 +72,6 @@ end
 	BEAUTYSHOP_UPDATE_ITEM_LIST(list, #list)
 end
 
--- 헤어 아이템의 장착 타입을 가져옴.
 function PREVIEWSHOP_GET_ITEM_EQUIPTYPE(ItemClassName)
 	local list = PREVIEWSHOP_REGISTER_ITEM_LIST()
 	
@@ -89,7 +88,6 @@ end
 
 
 function PREVIEWSHOP_POST_SELECT_ITEM(frame, ctrl)
-	-- 코스튬샵은 여기에서 바로 미리보기로 넣어준다.
 	local ctrlSet = ctrl:GetParent()
 	local gender = ctrlSet:GetUserIValue("GENDER")
 	local itemClassName = ctrlSet:GetUserValue("ITEM_CLASS_NAME")
@@ -138,20 +136,6 @@ end
 
 function PREVIEWSHOP_DRAW_ITEM_DETAIL(obj, itemobj, ctrlset)
 
-	-- gender 설정.
-	--[[
-	if TryGetProp(itemobj, "UseGender") ~= nil then
-		if itemobj.UseGender == "Female" then
-			ctrlset:SetUserValue("GENDER", 2 ) 
-		elseif itemobj.UseGender =="Both" then
-			ctrlset:SetUserValue("GENDER", 0 ) 
-		else 
-			ctrlset:SetUserValue("GENDER", 1 ) 
-		end	
-	else 
-		ctrlset:SetUserValue("GENDER", 0 ) 	
-	end
-]]
 	-- 프리미엄 여부에 따라 분류되느 UI를 일괄적으로 받아오고
 	local title = GET_CHILD_RECURSIVELY(ctrlset,"title");
 	local nxp = GET_CHILD_RECURSIVELY(ctrlset,"nxp")
@@ -160,7 +144,6 @@ function PREVIEWSHOP_DRAW_ITEM_DETAIL(obj, itemobj, ctrlset)
 	local pre_Line = GET_CHILD_RECURSIVELY(ctrlset,"noneBtnPreSlot_1");
 	local pre_Box = GET_CHILD_RECURSIVELY(ctrlset,"noneBtnPreSlot_2");
 	
-    -- 체크상자 우선 없앰 (임시로 아무거나 넣어둠 그림 나중에 바꿔야함.)
     picCheck:SetVisible(0);
 
 	local itemName = itemobj.Name;
@@ -204,10 +187,7 @@ function PREVIEWSHOP_DRAW_ITEM_DETAIL(obj, itemobj, ctrlset)
 	end
 
 	-- 구매 버튼 제거
-	-- 버튼에 Arg 설정.
 	local buyBtn = GET_CHILD_RECURSIVELY(ctrlset, "buyBtn");
 	buyBtn:SetVisible(0)
-	--local itemClassName = ctrlSet:GetUserValue("ITEM_CLASS_NAME")
-	--buyBtn:SetEventScriptArgString(ui.LBUTTONUP, itemClassName); --ItemClassName
 
 end

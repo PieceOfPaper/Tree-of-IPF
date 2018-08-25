@@ -3,13 +3,21 @@ function RAREOPTION_ON_INIT(addon, frame)
 	addon:RegisterMsg('SUCESS_ENCHANT_JEWELL', 'ON_SUCESS_ENCHANT_JEWELL');
 end
 
-function OPEN_RARE_OPTION(invItem)	
+function OPEN_RARE_OPTION(invItem)
+	local indun_reward_hud = ui.GetFrame('indun_reward_hud');
+	if info.HasHoldItemBuff() == true or session.world.IsIntegrateServer() == true or IsPVPServer() == 1 or session.world.IsDungeon() == true then
+		ui.SysMsg(ClMsg('CannotUseThieInThisMap'));		
+		return;
+	end
+
 	local rareoption = ui.GetFrame('rareoption');	
 	RAREOPTION_SET_JEWELL_ITEM(rareoption, invItem);
 	rareoption:ShowWindow(1);
 end
 
-function OPEN_RAREOPTION(frame)
+function OPEN_RAREOPTION(frame)	
+	ui.CloseFrame('itemoptionextract');
+	ui.CloseFrame('itemoptionadd');
 	RAREOPTION_INIT(frame);
 	INVENTORY_SET_CUSTOM_RBTNDOWN('RAREOPTION_INVENTORY_RBTN_CLICK');
 end
@@ -58,7 +66,10 @@ end
 
 local function ADD_RARE_OPTION_CTRLSET(box, itemID)
 	box:RemoveAllChild();
-	local targetItem = session.GetInvItemByGuid(itemID);	
+	local targetItem = session.GetInvItemByGuid(itemID);
+	if targetItem == nil then
+		targetItem = session.GetEquipItemByGuid(itemID);
+	end
 	if targetItem ~= nil and targetItem:GetObject() ~= nil then
 		local targetItemObj = GetIES(targetItem:GetObject());
 		local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(targetItemObj);
@@ -114,7 +125,17 @@ local function RAREOPTION_UPDATE_JEWELL_COUNT(frame)
 	text_havematerial:SetTextByKey('count', haveCount);
 	return haveCount;
 end
+
 -- endregion
+
+function ENABLE_CONTROL_WITH_UI_HOLD(hold)	
+	ui.SetHoldUI(hold);
+	local value = 0;
+	if hold == false then
+		value = 1;
+	end
+	control.EnableControl(value, value);
+end
 
 function RAREOPTION_INVENTORY_RBTN_CLICK(itemObj, invSlot, invItemGuid)
 	local frame = ui.GetFrame('rareoption');
@@ -151,6 +172,10 @@ function RAREOPTION_SET_JEWELL_ITEM(frame, jewellItem)
 end
 
 function RAREOPTION_INIT(frame, clearTarget)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	frame = frame:GetTopParentFrame();
 	RAREOPTION_UPDATE_JEWELL_COUNT(frame);
 
@@ -172,6 +197,10 @@ function RAREOPTION_INIT(frame, clearTarget)
 end
 
 function RAREOPTION_DROP_ITEM(parent, slot)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	local liftIcon = ui.GetLiftIcon();
 	local fromFrame = liftIcon:GetTopParentFrame();
 	local toFrame = parent:GetTopParentFrame();
@@ -182,6 +211,10 @@ function RAREOPTION_DROP_ITEM(parent, slot)
 end
 
 function RAREOPTION_REGISTER_ITEM(frame, invItemID)	
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+
 	local jewellItem = GET_JEWELL_ITEM_OBJECT_BY_FRAME(frame);	
 	if jewellItem ==nil then
 		local curSettedLv = frame:GetUserIValue('JEWELL_LEVEL');
@@ -224,20 +257,34 @@ function RAREOPTION_EXECUTE(parent, ctrl)
 	end
 
 	local yesscp = string.format('_RAREOPTION_EXECUTE("%s", "%s")', targetItemID, jewellItem:GetIESID());
-	ui.MsgBox(ClMsg('CommitEnchantOption'), yesscp, 'None');
+	ui.MsgBox(ClMsg('CommitEnchantOption'), yesscp, 'ENABLE_CONTROL_WITH_UI_HOLD(false)');
+	ENABLE_CONTROL_WITH_UI_HOLD(true);
 end
 
 function _RAREOPTION_EXECUTE(targetItemID,  jewellItemID)
+	local rareoption = ui.GetFrame('rareoption');
+	if rareoption:IsVisible() == 0 then
+		ENABLE_CONTROL_WITH_UI_HOLD(false);
+		return;
+	end
+
+	local targetInvItem = session.GetInvItemByGuid(targetItemID);
+	if targetInvItem == nil or targetInvItem.isLockState == true then
+		ui.SysMsg(ClMsg('CannotEnchantOptionEquipItem'));
+		RAREOPTION_INIT(rareoption);
+		ENABLE_CONTROL_WITH_UI_HOLD(false);
+		return;
+	end
+
 	session.ResetItemList();
     session.AddItemID(targetItemID, 1);
     session.AddItemID(jewellItemID, 1);
     local resultlist = session.GetItemIDList();
-    item.DialogTransaction('EXECUTE_ENCHANT_JEWELL', resultlist);
-    ui.SetHoldUI(true);
+	item.DialogTransaction('EXECUTE_ENCHANT_JEWELL', resultlist);	
 end
 
 function ON_FAIL_ENCHANT_JEWELL(frame, msg, argStr, argNum)
-	ui.SetHoldUI(false);
+	ENABLE_CONTROL_WITH_UI_HOLD(false);
 	ui.SysMsg(ClMsg('FailEnchantJewell'));
 	RAREOPTION_INIT(frame);
 end
@@ -260,7 +307,7 @@ function ON_SUCESS_ENCHANT_JEWELL(frame, msg, argStr, argNum)
 end
 
 function _SUCCESS_ENCHANT_JEWELL()	
-	ui.SetHoldUI(false);
+	ENABLE_CONTROL_WITH_UI_HOLD(false);
 	local frame = ui.GetFrame('rareoption');
 	RAREOPTION_UPDATE_JEWELL_COUNT(frame);
 
@@ -276,7 +323,7 @@ function _SUCCESS_ENCHANT_JEWELL()
 	bodyGbox1:ShowWindow(0);
 
 	local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
-	local icon = slot:GetIcon();
+	local icon = slot:GetIcon();	
 	if icon ~= nil and icon:GetInfo() ~= nil then
 		ADD_RARE_OPTION_CTRLSET(bodyGbox2_1, icon:GetInfo():GetIESID());
 	end

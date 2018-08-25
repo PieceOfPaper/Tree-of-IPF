@@ -1373,6 +1373,10 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		end
 	end
 
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then		
+		return GET_EXTRACT_ITEM_NAME(item);
+	end
+
 	return ownName;
 end
 

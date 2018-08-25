@@ -50,14 +50,9 @@ function CHECK_JEWELL_COMMON_CONSTRAINT(item)
 	if item == nil then
 		return false;
 	end
-
-	local groupName = TryGetProp(item, 'GroupName');
-	if groupName == 'Weapon' or groupName == 'SubWeapon' then
-		return true;
-	end
-
-	local classType = TryGetProp(item, 'ClassType');
-	local enableClassType = {'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Neck','Ring'};
+	
+    local classType = TryGetProp(item, 'ClassType');
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield'};
 	for i = 1, #enableClassType do
 		if enableClassType[i] == classType then
 			return true;
@@ -67,7 +62,18 @@ function CHECK_JEWELL_COMMON_CONSTRAINT(item)
 end
 
 function IS_ENABLE_EXTRACT_JEWELL(item)
-	return CHECK_JEWELL_COMMON_CONSTRAINT(item);
+    if item == nil then
+		return false;
+	end
+	
+	local classType = TryGetProp(item, 'ClassType');
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Neck','Ring'};
+	for i = 1, #enableClassType do
+		if enableClassType[i] == classType then
+			return true;
+		end
+	end
+	return false;
 end
 
 function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
@@ -83,12 +89,18 @@ function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
 		return false, 'LEVEL';
 	end
 
-	if targetItem.ItemLifeTimeOver > 0 then
+	if targetItem.ItemLifeTimeOver > 0 or tonumber(targetItem.LifeTime) > 0 then
 		return false, 'LimitTime';
 	end
 
 	if IS_NEED_APPRAISED_ITEM(targetItem) == true or IS_NEED_RANDOM_OPTION_ITEM(targetItem) == true then 
 		return false, 'NeedRandomOption';
+	end
+	
+	local woodCarvingCheck = TryGetProp(targetItem , 'StringArg')
+	
+	if woodCarvingCheck == 'WoodCarving' then
+	    return false, 'WoodCarving';
 	end
 
 	return true;

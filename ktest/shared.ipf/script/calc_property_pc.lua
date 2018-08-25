@@ -1194,7 +1194,13 @@ function SCR_Get_BLKABLE(self)
     local equipLH = GetEquipItem(self, 'LH');
     local isShield = TryGetProp(equipLH, 'ClassType');
     if isShield == 'Shield' then
-        return 1;
+        local Fencer11_abil = GetAbility(self, "Fencer11")
+        if Fencer11_abil ~= nil and Fencer11_abil.ActiveState == 1 then
+            return 0;
+        else
+            return 1;
+        end
+        
     end
     
 --    local isShield = GetSumOfEquipItem(self, 'BlockRate');
@@ -1940,6 +1946,11 @@ function SCR_Get_MSPD(self)
             byItem = 0;
         end
         
+		local byItemRareOption = TryGetProp(self, 'EnchantMSPD');
+		if byItemRareOption == nil then
+		    byItemRareOption = 0;
+		end
+        
         local byBuff = TryGetProp(self, "MSPD_BM");
         if byBuff == nil then
             byBuff = 0;
@@ -1949,7 +1960,7 @@ function SCR_Get_MSPD(self)
             byBuff = byBuff * 0.5
         end
         
-        value = value + byItem + byBuff;
+        value = value + byItem + byItemRareOption + byBuff;
         
         local byBuffRate = TryGetProp(self, "SPD_BM");
         if byBuffRate == nil then
@@ -2091,6 +2102,11 @@ function SCR_Get_SR(self)
         byItem = 0;
     end
     
+	local byItemRareOption = TryGetProp(self, 'EnchantSR');
+	if byItemRareOption == nil then
+	    byItemRareOption = 0;
+	end
+    
     local byBuff = TryGetProp(self, "SR_BM")
     if byBuff == nil then
         byBuff = 0;
@@ -2107,7 +2123,7 @@ function SCR_Get_SR(self)
         byAbil = byAbil + abilProp;
     end
     
-    local value = defaultSR + byItem + byBuff + byAbil;
+    local value = defaultSR + byItem + byItemRareOption + byBuff + byAbil;
     
     return math.floor(value);
 end
