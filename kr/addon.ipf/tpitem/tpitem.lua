@@ -375,9 +375,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	
 	local tempGbox_for_scroll = GET_CHILD_RECURSIVELY(frame,"tempGbox_for_scroll")
 	tempGbox_for_scroll:SetEventScript(ui.MOUSEWHEEL, "TPSHOP_PREVIEW_ZOOM");
-
-	control.EnableControl(0);
-	ui.SetUILock(true);
 end
 
 function TPITEM_CLEAR_SLOTSET(slotset)
@@ -550,9 +547,7 @@ function CREATE_TPITEM_TREE(obj, tpitemtree, i, firstTreeItem)
     return firstTreeItem;
 end
 
-function TPITEM_CLOSE(frame)	
-	ui.SetUILock(false);
-
+function TPITEM_CLOSE(frame)
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
@@ -572,8 +567,7 @@ function TPITEM_CLOSE(frame)
 	session.ui.Clear_NISMS_ItemList();
 	ui.OpenAllClosedUI();
 
-	session.ui.Clear_NISMS_CashInven_ItemList();
-	control.ResetControl();
+	session.ui.Clear_NISMS_CashInven_ItemList();	
 
 	ui.CloseFrame("recycleshop_popupmsg");
 	ui.CloseFrame("tpitem_popupmsg");

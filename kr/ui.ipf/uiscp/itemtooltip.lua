@@ -644,7 +644,7 @@ function GET_ENCHANT_JEWELL_ITEM_NAME_STRING(jewellItem)
 	return '['..string.format('LV. %d', jewellItem.Level)..'] '..jewellItem.Name;
 end
 
-local function GET_EXTRACT_ITEM_NAME(invitem)
+function GET_EXTRACT_ITEM_NAME(invitem)
 	local name = invitem.Name;
 	if IS_ENCHANT_JEWELL_ITEM(invitem) == true then
 		return GET_ENCHANT_JEWELL_ITEM_NAME_STRING(invitem);
