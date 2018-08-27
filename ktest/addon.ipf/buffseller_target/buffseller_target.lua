@@ -81,8 +81,7 @@ function BUY_BUFF_AUTOSELL(ctrlSet, btn)
 	end
 
 	local totalPrice = itemInfo.price * cnt;
-	local myMoney = GET_TOTAL_MONEY();
-	if totalPrice > myMoney or  myMoney <= 0 then
+	if IsGreaterThanForBigNumber(totalPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg("NotEnoughMoney"));
 		return;
 	end

@@ -235,7 +235,11 @@ function PACKAGELIST_INIT_ITEMLIST(frame, itemCls, packageName)
 		nameText:SetText(packageItemCls.Name);
 
 		local typeText = GET_CHILD(ctrlset, 'typeText');
-		typeText:SetText(GET_REQ_TOOLTIP(packageItemCls));
+		if packageList[i].EquipType == "None" then
+			typeText:SetText("");
+		else
+			typeText:SetText(GET_REQ_TOOLTIP(packageItemCls));
+		end
 
 		if tpitem:IsVisible() == 1 then
 			local previewBtn = GET_CHILD(ctrlset, 'previewBtn');

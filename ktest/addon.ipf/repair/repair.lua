@@ -1,5 +1,5 @@
 
-function REPAIR_ON_INIT(addon, frame) -- ÀÌ ¾Öµå¿Â ¾È¾´´Ù. ´º ¾Öµå¿Â ¾¸.
+function REPAIR_ON_INIT(addon, frame) -- ï¿½ï¿½ ï¿½Öµï¿½ï¿½ ï¿½È¾ï¿½ï¿½ï¿½. ï¿½ï¿½ ï¿½Öµï¿½ï¿½ ï¿½ï¿½.
 --[[
 	addon:RegisterMsg('DIALOG_CLOSE', 'REPAIR_ON_MSG');
 	addon:RegisterMsg('OPEN_DLG_REPAIR', 'REPAIR_ON_MSG');
@@ -277,7 +277,7 @@ function EXECUTE_REPAIR(frame)
 		return;
 	end
 
-	if GET_TOTAL_MONEY() < totalprice then
+	if IsGreaterThanForBigNumber(totalprice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end

@@ -128,6 +128,12 @@ function BRIQUETTING_SELECT_INVENTORY_ITEM(slot, isSelect)
 			return;
 		end
 		invSlot:Select(0);
+
+		local invSlot_All = GET_SLOT_BY_ITEMID(nil, guid, 1);
+		if invSlot_All == nil then
+			return;
+		end
+		invSlot_All:Select(0);
 	end
 end
 
@@ -544,7 +550,12 @@ function BRIQUETTING_SKILL_EXCUTE(parent, ctrl)
 		return;
 	end
 
-	local result, containDummyItem, containCoreItem = IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList);
+	if #lookMatItemList < 1 then
+		ui.SysMsg(ScpArgMsg('MustRegister{COUNT}LookMatItem', 'COUNT', needLookMatItemCnt));
+		return;
+	end
+
+	local result, containDummyItem, containCoreItem = IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList);	
 	if result == false then
 		ui.SysMsg(ClMsg('WrongLookMaterialItem'));
 		return;

@@ -12,7 +12,7 @@
 		<groupbox name="itemlist" rect="0 0 400 210" margin="0 100 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="market_listbase"/>
 		<labelline name="labelline" rect="0 0 400 3" margin="0 0 0 140" skin="labelline_def_2" layout_gravity="center bottom"/>
 		<richtext name="desc" rect="0 0 200 30" margin="0 0 0 110" layout_gravity="center bottom" caption="{s17}위의 아이템을 일괄 삭제 하겠습니까?" fontname="brown_16_b" spacey="0"/>
-		<button name="OK" rect="0 0 150 45" margin="90 0 0 50" layout_gravity="left bottom" LBtnUpScp="EXPIREDITEM_REMOVE_OK_BTN" clicksound="button_click_big" oversound="button_over" fontname="white_18_ol" caption="삭제" skin="test_red_button"/>
-		<button name="CANCEL" rect="0 0 150 45" margin="0 0 90 50" layout_gravity="right bottom" LBtnUpScp="EXPIREDITEM_REMOVE_CANCEL_BTN" clicksound="button_click_big" oversound="button_over" fontname="white_18_ol" caption="취소" skin="test_gray_button"/>
+		<button name="OK" rect="0 0 150 45" margin="90 0 0 50" layout_gravity="left bottom" LBtnUpScp="EXPIREDITEM_REMOVE_OK_BTN" clicksound="button_click_big" oversound="button_over" fontname="white_18_ol" caption="{@st41b}삭제" skin="test_red_button"/>
+		<button name="CANCEL" rect="0 0 150 45" margin="0 0 90 50" layout_gravity="right bottom" LBtnUpScp="EXPIREDITEM_REMOVE_CANCEL_BTN" clicksound="button_click_big" oversound="button_over" fontname="white_18_ol" caption="{@st41b}취소" skin="test_gray_button"/>
 	</controls>
 </uiframe>

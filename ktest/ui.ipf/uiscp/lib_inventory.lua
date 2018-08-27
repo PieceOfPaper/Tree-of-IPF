@@ -317,7 +317,7 @@ function INV_GET_SLOT_BY_TYPE(type, frame, isAll)
 	return slot;
 end
 
-function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
+function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame, isAll)
 
 	if frame == nil then
 		frame = ui.GetFrame("inventory");
@@ -329,12 +329,19 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
 
+	local invIndex = invItem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
 
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	if typeStr == nil then
+		return
+	end
+
+	if isAll ~= nil and isAll == 1 then
+		typeStr = "All"
+	end
+	
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 	local tree_box = GET_CHILD(group, "treeGbox_" .. typeStr,'ui::CGroupBox')
 	local tree = GET_CHILD(tree_box, "inventree_" .. typeStr,'ui::CTreeControl')
@@ -352,7 +359,7 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 
 end
 
-function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
+function INV_GET_SLOTSET_BY_ITEMID(itemGUID, isAll)
 
 	local invItem = session.GetInvItemByGuid(itemGUID);
 	if invItem == nil then
@@ -360,10 +367,14 @@ function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
+
+	local invIndex = invItem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	if isAll ~= nil and isAll == 1 then
+		typeStr = "All"
+	end
 
 	local frame = ui.GetFrame("inventory");
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
@@ -376,18 +387,21 @@ function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
 end
 
 
-function INV_GET_SLOTSET_BY_INVINDEX(index)
-
+function INV_GET_SLOTSET_BY_INVINDEX(index, isAll)
 	local invItem = session.GetInvItemByGuid(itemGUID);
 	if invItem == nil then
 		return;
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
+
+	local invIndex = invItem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	if isAll ~= nil and isAll == 1 then
+		typeStr = "All"
+	end
 
 	local invFrame = ui.GetFrame("inventory");
 	local invGbox = invFrame:GetChild('inventoryGbox');
@@ -675,6 +689,12 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
 	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
 end
 
+function GET_INVENTORY_TREEGROUP(baseidcls)
+	local invenTabName = "All"
+	invenTabName = baseidcls.InvenTabName
+	return invenTabName
+end
+
 function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList)	
     local itemList = session.GetInvItemList();
     local index = itemList:Head();
@@ -696,7 +716,7 @@ function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList)
             if matched == true then
                 if itemObj.MaxStack > 1 then
 	                count = count + invItem.count;
-	            else -- 비스택형 아이템
+	            else -- 비스?�형 ?�이??
 		            count = count + 1;
 		        end
 	            matchedList[#matchedList + 1] = invItem;

@@ -28,10 +28,9 @@ end
 function ABILITY_POINT_BUY_RESET(frame)
     local enableValueText = GET_CHILD_RECURSIVELY(frame, 'enableValueText');
     local buyPointEdit = GET_CHILD_RECURSIVELY(frame, 'buyPointEdit');
-    local money = GET_TOTAL_MONEY();
-    
+    local money = GET_TOTAL_MONEY_STR();
     local exchangeRate = GET_SILVER_BY_ONE_ABILITY_POINT_CALC();
-    local enableCount = math.floor(money / exchangeRate);
+    local enableCount = math.floor(tonumber(money) / exchangeRate);
     
     enableValueText:SetTextByKey('count', enableCount);
     frame:SetUserValue('ENABLE_COUNT', enableCount);
@@ -65,16 +64,16 @@ function ABILITY_POINT_BUY_UPDATE_MONEY(frame)
     local consumeMoneyText = GET_CHILD_RECURSIVELY(frame, 'consumeMoneyText');
     local remainMoneyText = GET_CHILD_RECURSIVELY(frame, 'remainMoneyText');
     local moneyValueText = GET_CHILD_RECURSIVELY(frame, 'moneyValueText');
-    local money = GET_TOTAL_MONEY();
+    local money = GET_TOTAL_MONEY_STR();
 
-    local consumeMoney = ABILITY_POINT_BUY_GET_CONSUME_MONEY(frame);
-    local remainMoney = money - consumeMoney;
+    local consumeMoney = ABILITY_POINT_BUY_GET_CONSUME_MONEY(frame);    
+    local remainMoney = SumForBigNumberInt64(money, '-'..consumeMoney);
     local consumeMoneyStr = GET_COMMAED_STRING(consumeMoney);
     local remainMoneyStr = "";
-    if consumeMoney > 0 then
+    if tonumber(consumeMoney) > 0 then
         consumeMoneyStr = '-'..consumeMoneyStr;
     end
-    if remainMoney >= 0 then
+    if tonumber(remainMoney) >= 0 then
         remainMoneyStr = GET_COMMAED_STRING(remainMoney);
     else
         local EXCEED_MONEY_STYLE = frame:GetUserConfig('EXCEED_MONEY_STYLE');
@@ -89,7 +88,7 @@ end
 function ABILITY_POINT_BUY_GET_CONSUME_MONEY(frame)
     local pointCount = frame:GetUserIValue('POINT_COUNT');
     local exchangeRate = GET_SILVER_BY_ONE_ABILITY_POINT_CALC();
-    local consumeMoney = pointCount * exchangeRate;
+    local consumeMoney = MultForBigNumberInt64(pointCount, exchangeRate);
     return consumeMoney;
 end
 
@@ -123,8 +122,8 @@ function ABILITY_POINT_BUY(parent, ctrl)
     end
 
     local consumeMoney = ABILITY_POINT_BUY_GET_CONSUME_MONEY(topFrame);
-    local money = GET_TOTAL_MONEY();
-    if consumeMoney > money then
+    local money = GET_TOTAL_MONEY_STR();
+    if IsGreaterThanForBigNumber(consumeMoney, money) == 1 then
         ui.SysMsg(ClMsg('NotEnoughMoney'));
         return;
     end

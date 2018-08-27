@@ -21,23 +21,6 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
     addon:RegisterMsg("BARRACK_CHARACTER_SWAP_SUCCESS", "SET_SWAP_REQUEST_FLAG_FALSE")
 
 	frame:SetUserValue("BarrackMode", "Barrack");
-	SET_CHILD_USER_VALUE(frame, "upgrade", "Barrack", "YES");
-	SET_CHILD_USER_VALUE(frame, "setting", "Barrack", "YES");
-	SET_CHILD_USER_VALUE(frame, "delete_character", "Barrack", "YES");
-	SET_CHILD_USER_VALUE(frame, "deleteall_character", "Barrack", "YES");
-	SET_CHILD_USER_VALUE(frame, "start_game", "Barrack", "YES");
-	SET_CHILD_USER_VALUE(frame, "barrackname", "Barrack", "YES");
-	SET_CHILD_USER_VALUE(frame, "barrackVisit", "Barrack", "YES");
-
-	SET_CHILD_USER_VALUE(frame, "barrackname", "Visit", "YES");
-	SET_CHILD_USER_VALUE(frame, "returnHome", "Visit", "YES");
-
-	SET_CHILD_USER_VALUE(frame, "end_preview", "Preview", "YES");
-	SET_CHILD_USER_VALUE(frame, "upgrade", "Preview", "YES");
-
-	SET_CHILD_USER_VALUE(frame, "barrackname", "Visit_Normal", "YES");
-	SET_CHILD_USER_VALUE(frame, "returnHome", "Visit_Normal", "YES");
-	SET_CHILD_USER_VALUE(frame, "goto_normalgame", "Visit_Normal", "YES");
 
 
 	CHAR_LIST_CLOSE_HEIGHT = 105;
@@ -141,14 +124,6 @@ function INIT_BARRACK_NAME(frame)
 	CHAR_N_PET_LIST_LOCKMANGED(1);
 
 	app.RequestChannelTraffic(1) -- create command for channel traffic request(this cmd exit when user logout/exit game/start game)
-end
-
-function SET_CHILD_USER_VALUE(frame, childName, name, value)
-	local ctrl = frame:GetChild(childName);
-	if ctrl ~= nil then
-		ctrl:SetUserValue(name, value);
-		ctrl:SetUserValue("ModeCtrl", "YES");
-	end
 end
 
 function DRAW_BARRACK_MEDAL_COUNT(frame)
@@ -443,7 +418,6 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	end
 		
 	btn:ShowWindow(1);
-	btn:SetUserValue("MY_CTRL", "YES");
 
 	local apc = bpc:GetApc();
 	local gender = apc:GetGender();
@@ -537,7 +511,6 @@ function CREATE_SCROLL_NEW_CHAR(frame)
 	btn:SetClickSound('button_click_2');
 	btn:SetEventScript(ui.LBUTTONUP, "BARRACK_GO_CREATE");
 	btn:ShowWindow(1);
-	btn:SetUserValue("MY_CTRL", "YES");
 	local text = charCtrl:GetChild("text");
 	text:SetText("{@st42b}{b}" .. ClMsg("CreateNewCharacter"));
 
@@ -894,15 +867,14 @@ function UPDATE_BARRACK_MODE(frame)
 
 	local argStr = frame:GetUserValue("BarrackMode");
 
-	SHOW_CHILD_BY_USERVALUE(frame, "ModeCtrl", "YES", 0);
-	SHOW_CHILD_BY_USERVALUE(frame, argStr, "YES", 1);
 	if argStr == "Barrack" then
 		SELECTCHAR_RE_ALIGN(frame);
+		SHOW_BTNS(frame, 1)
 
 	elseif argStr == "Visit" then
 		-- 다른 숙소 방문할땐 캐릭생성관련 버튼은 숨긴다.
-		SHOW_CHILD_BY_USERVALUE(frame, "MY_CTRL", "YES", 0);
-		SHOW_CHILD_BY_USERVALUE(frame, "Barrack", "YES", 0);
+		SHOW_BTNS(frame, 0)
+
 		local barrack_nameUI = ui.GetFrame("barrack_name");
 		barrack_nameUI:ShowWindow(0);
 
@@ -1064,7 +1036,9 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 			end
 		end
 	end
-	UPDATE_PET_LIST()	
+	--다른 유저의 숙소를 방문할 때 그 유저의 컴페니언을 찾기 위해 방문중임을 알려준다
+	local charlist = ui.GetFrame("barrack_charlist");
+	UPDATE_PET_LIST(charlist:GetUserValue('BarrackMode'))	
 end
 
 function UPDATE_PET_BTN_SELECTED()	
@@ -1116,6 +1090,9 @@ function UPDATE_PET_BTN(petCtrl, petInfo, useDetachBtn)
 		local btn = mainBox:GetChild("btn");
 		btn:SetEventScript(ui.LBUTTONUP, "SELECT_COMPANION_BTNUP");
 		btn:SetSkinName('companion_on');
+		if account == myaccount then
+			btn:SetEventScript(ui.LBUTTONUP, "SELECT_COMPANION_BTNUP");
+		end
 	
 		local job = mainBox:GetChild("job");
 		job:SetTextByKey("value", obj.Name);

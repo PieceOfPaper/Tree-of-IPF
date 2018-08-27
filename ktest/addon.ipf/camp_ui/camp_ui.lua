@@ -119,7 +119,7 @@ function CAMP_EXTEND_TIME(parent, ctrl)
 	
 	local campInfo = session.camp.GetCurrentCampInfo();
 	local needSilver = CAMP_EXTEND_PRICE(campInfo.skillType, campInfo.skillLevel);
-	if GET_TOTAL_MONEY() < needSilver then
+	if IsGreaterThanForBigNumber(needSilver, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg( ClMsg("NotEnoughMoney") );
 		return;
 	end

@@ -1038,9 +1038,15 @@ function SCR_Get_MON_KDArmorType(self)
     if self.HPCount > 0 then
         return 9999;
     end
-
-
+	
     local value = self.KDArmor;
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Mon_PainBarrier_Buff" };
+    for i = 1, #buffList do
+        if IsBuffApplied(self, buffList[i]) == 'YES' then
+            value = 9999;
+        end
+    end
+    
     return value;
 end
 

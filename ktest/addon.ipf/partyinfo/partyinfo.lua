@@ -8,7 +8,6 @@ function PARTYINFO_ON_INIT(addon, frame)
 end
 
 function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
-	
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
 		return;
@@ -29,9 +28,8 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 				UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo);			
 			end
 		end
-
 	end	
-
+	ON_PARTYINFO_BUFFLIST_UPDATE(frame);
 end
 
 function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
@@ -41,7 +39,7 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 		frame:ShowWindow(0);
 		return;
 	end
-	
+
 	frame:ShowWindow(1);
 	local partyInfo = pcparty.info;
 	local obj = GetIES(pcparty:GetObject());
@@ -104,7 +102,6 @@ function IS_PARTY_INFO_SHOWICON(showIcon)
 end
 
 function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
-	
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty == nil then
 		DESTROY_CHILD_BYNAME(frame, 'PTINFO_');
@@ -119,19 +116,17 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 	local memberIndex = 0;
 
 	local myInfo = session.party.GetMyPartyObj();
-
 	-- 접속중 파티원 버프리스트
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
-		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
+				if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
 
 			local buffCount = partyMemberInfo:GetBuffCount();
 			local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. partyMemberInfo:GetAID());
 			if partyInfoCtrlSet ~= nil then
-	
 				local buffListSlotSet = GET_CHILD(partyInfoCtrlSet, "buffList", "ui::CSlotSet");
 				local debuffListSlotSet = GET_CHILD(partyInfoCtrlSet, "debuffList", "ui::CSlotSet");
-				
+
 				-- 초기화
 				for j=0, buffListSlotSet:GetSlotCount() - 1 do
 					local slot = buffListSlotSet:GetSlotByIndex(j);
@@ -151,11 +146,15 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 				end
 
 				-- 아이콘 셋팅
+				if buffCount <= 0 then
+					partyMemberInfo:ResetBuff();
+					buffCount = partyMemberInfo:GetBuffCount();
+				end
+
 				if buffCount > 0 then
 					local buffIndex = 0;
 					local debuffIndex = 0;
-					for j=0, buffCount - 1 do
-						
+					for j=0, buffCount - 1 do	
 						local buffID = partyMemberInfo:GetBuffIDByIndex(j);
 						local cls = GetClassByType("Buff", buffID);	
 							if cls ~= nil and IS_PARTY_INFO_SHOWICON(cls.ShowIcon) == true and cls.ClassName ~= "TeamLevel" then
@@ -182,8 +181,8 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 									if myInfo:GetMapID() == partyMemberInfo:GetMapID() and myInfo:GetChannel() == partyMemberInfo:GetChannel() then
 										handle  = partyMemberInfo:GetHandle();
 									end
-										
 								end
+
 								handle = tostring(handle);
 								icon:SetDrawCoolTimeText( math.floor(buffTime/1000) );
 								icon:SetTooltipType('buff');
@@ -193,14 +192,14 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 								icon:Set(imageName, 'BUFF', buffID, 0);
 
 								if buffOver > 1 then
-									slot:SetText('{s13}{ol}{b}'..buffOver, 'count', 'right', 'bottom', 1, 2);
+slot:SetText('{s13}{ol}{b}'..buffOver, 'count', 'right', 'bottom', 1, 2);
 								else
 									slot:SetText("");
 								end
-								
+
 								slot:ShowWindow(1);
 							end
-						end
+						end					
 					end
 				end
 			end
@@ -337,7 +336,7 @@ end
 function PARTY_HP_UPDATE(actor, partyMemberInfo)
 	local frame = ui.GetFrame("partyinfo"); 
 	if frame == nil then
-	return;
+		return;
 	end
 	local apc = actor:GetPCApc();
 	local ctrlName = 'PTINFO_'.. apc:GetAID();
@@ -366,7 +365,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	local mapName = geMapTable.GetMapName(partyMemberInfo:GetMapID());
 	local partyMemberName = partyMemberInfo:GetName();
 	
-	local myHandle		= session.GetMyHandle();
+	local myHandle = session.GetMyHandle();
 	local ctrlName = 'PTINFO_'.. partyMemberInfo:GetAID();
 	if mapName == 'None' and makeLogoutPC == false then
 		frame:RemoveChild(ctrlName);
@@ -378,7 +377,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	--	return nil;
 	--end
 	
-		local partyInfoCtrlSet = frame:CreateOrGetControlSet('partyinfo', ctrlName, 10, count * 100);
+	local partyInfoCtrlSet = frame:CreateOrGetControlSet('partyinfo', ctrlName, 10, count * 100);
 		
 	UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo);
 
@@ -577,7 +576,6 @@ PARTY_RELATION_LEADER	= 6;
 PARTY_RELATION_GUILD	= 7;
 
 function ON_PARTYINFO_DESTROY(frame)
-
 	frame:RemoveAllChild();	
 	frame:ShowWindow(0);
 end

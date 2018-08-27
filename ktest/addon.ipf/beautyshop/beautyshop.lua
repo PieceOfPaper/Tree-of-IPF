@@ -1009,7 +1009,7 @@ local function BEAUTYSHOP_SET_PREVIEW_BASE_CHARACTER(apc, equip_list)
 
 		if name ~= nil then
 			if BEAUTYSHOP_CHECK_EXCLUSION_ITEM(name) == false then
-				invSlot = invframe:GetChild(name)
+				invSlot = GET_CHILD_RECURSIVELY(invframe, name)
 			end
 		end
 

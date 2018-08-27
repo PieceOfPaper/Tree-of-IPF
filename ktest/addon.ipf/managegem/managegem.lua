@@ -311,7 +311,7 @@ function EXEC_REMOVE_GEM()
 
 	local price = GET_REMOVE_GEM_PRICE(lv)
 
-	if GET_TOTAL_MONEY() < price then
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end
@@ -387,7 +387,7 @@ function EXEC_MAKE_NEW_SOCKET()
 
 	local price = GET_MAKE_SOCKET_PRICE(lv, grade, curcnt)
 
-	if GET_TOTAL_MONEY() < price then
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end

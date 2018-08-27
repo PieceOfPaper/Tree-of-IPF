@@ -1172,6 +1172,7 @@ function STATUS_TEXT_SET(textStr)
 end
 
 function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
+    frame = frame:GetTopParentFrame()
     if true == BEING_TRADING_STATE() then
         return;
     end
@@ -1197,7 +1198,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 end
 
 function CHECK_EQP_LBTN(frame, slot, argStr, argNum)
-
+    frame = frame:GetTopParentFrame()
     local targetItem = item.HaveTargetItem();
 
     if targetItem == 1 then
@@ -1784,7 +1785,7 @@ end
 
 function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
 
-    if gbox == nil then
+ --[[   if gbox == nil then
         return
     end
 
@@ -1875,7 +1876,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
         --코카트리스 헤드같은 경우 염색 리스트가 바뀌는 버그가 있어 재정렬하고 하고 아이콘을 생성해줘야한다
 	    SORT_HAIR_COLORLIST(hairColorBtn, haveHairColorList, haveHairColorEList)
         SET_HAIR_COLOR_LIST(customizingGBox, row_top_margin, col_left_margin, select_margin, max_width, width, height, nowPCHairColor, haveHairColorList, haveHairColorEList)
-    end
+    end ]]--
 end
 
 function SET_HAIR_COLOR_LIST(gbox, row_top_margin, col_left_margin, select_margin, max_width, width, height, nowPCHairColor, haveHairColorList, haveHairColorEList)

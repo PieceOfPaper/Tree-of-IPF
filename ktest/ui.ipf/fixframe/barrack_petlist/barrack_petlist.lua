@@ -56,12 +56,15 @@ function ON_BARRACK_CREATE_PET_BTN(frame)
 	
 end
 
-function UPDATE_PET_LIST()
+function UPDATE_PET_LIST(barrackMode)
 	local frame = ui.GetFrame("barrack_petlist");
 	local bg = frame:GetChild("bg");
 	bg:RemoveAllChild();	
 
 	local acc = session.barrack.GetMyAccount();
+	if barrackMode == "Visit" then
+		acc = session.barrack.GetCurrentAccount();
+	end
 	local petVec = acc:GetPetVec();
 
 	if petVec:size() == 0 then

@@ -1870,16 +1870,14 @@ function SCR_EXEC_MONWANGGA(guid, x, y, z)
 
 end
 
-function GET_TOTAL_MONEY()
-	local Cron = 0;
+ function GET_TOTAL_MONEY_STR() -- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
+	local silver = '0';
 	local invItem = session.GetInvItemByName('Vis');
 	if invItem ~= nil then
-		Cron = invItem.count;
+		silver = invItem:GetAmountStr();
 	end
-
-	return Cron;
+	return silver;
  end
-
 
 function TRADE_DIALOG_CLOSE()
 	control.DialogOk();

@@ -1,59 +1,5 @@
-
 function RANK_ON_INIT(addon, frame)
-
-	--HIDE_CHILD_BYNAME(frame, 'page_');
-
-	--local page = GET_CHILD(frame, 'main', 'ui::CPage');
-
-
-	-- 메인화면 5개 항목.
-	--local article = page:CreateOrGetControlSet('rankArticle', 'KillTop100', ui.LEFT, ui.TOP, 0, 0, 0, 0);
-	--local pic = GET_CHILD(article, 'icon', 'ui::CPicture')
-	--pic:SetEventScript(ui.LBUTTONUP, 'RANK_OPEN_KILLTOP');
-	--pic:SetImage('atk_icon')
-	--pic:SetEnableStretch(1)
-	--local name = GET_CHILD(article, 'name', 'ui::CPicture')
-	--name:SetText(ScpArgMsg('Auto_{@st41}MonSeuTeo_Kil_Top_100'))
-
-	--local article = page:CreateOrGetControlSet('rankArticle', 'AttackTop100', ui.LEFT, ui.TOP, 0, 0, 0, 0);
-	--local pic = GET_CHILD(article, 'icon', 'ui::CPicture')
-	--pic:SetEventScript(ui.LBUTTONUP, 'RANK_OPEN_ATTACKTOP');
-	--pic:SetImage('armorbreak_icon')
-	--pic:SetEnableStretch(1)
-	--name = GET_CHILD(article, 'name', 'ui::CPicture')
-	--name:SetText(ScpArgMsg('Auto_{@st41}DeMiJi_Top_100'))
-
-	--local article = page:CreateOrGetControlSet('rankArticle', 'MoneyTop100', ui.LEFT, ui.TOP, 0, 0, 0, 0);
-	--local pic = GET_CHILD(article, 'icon', 'ui::CPicture')
-	--pic:SetEventScript(ui.LBUTTONUP, 'RANK_OPEN_MONEYTOP');
-	--pic:SetImage('icon_item_silver')
-	--pic:SetEnableStretch(1)
-	--name = GET_CHILD(article, 'name', 'ui::CPicture')
-	--name:SetText(ScpArgMsg('Auto_{@st41}MeoNiMeoNi_Top_100'))
-
-	--local article = page:CreateOrGetControlSet('rankArticle', 'LevelTop100', ui.LEFT, ui.TOP, 0, 0, 0, 0);
-	--local pic = GET_CHILD(article, 'icon', 'ui::CPicture')
-	--pic:SetEventScript(ui.LBUTTONUP, 'RANK_OPEN_LEVELTOP');
-	--pic:SetImage('hpdrain_icon')
-	--pic:SetEnableStretch(1)
-	--name = GET_CHILD(article, 'name', 'ui::CPicture')
-	--name:SetText(ScpArgMsg('Auto_{@st41}LeBeleop_Top_100'))
-
-	--[[
-	article = page:CreateOrGetControlSet('rankArticle', 'JournalTop100', ui.NONE_HORZ, ui.NONE_VERT, 0, 0, 0, 0);
-	pic = GET_CHILD(article, 'icon', 'ui::CPicture')
-	--pic:SetEventScript(ui.LBUTTONUP, 'RANK_OPEN_JOURNALTOP');
-	pic:SetImage('icon_item_Hammer_1')
-	pic:SetEnableStretch(1)
-	name = GET_CHILD(article, 'name', 'ui::CPicture')
-	name:SetText(ScpArgMsg('Auto_{@st48}{s20}MoHeomilJi_Top_100'))
-	]]
-	--HIDE_CHILD_BYNAME(frame, 'group_');
-
-	--RANK_BACK_MAIN()
-
 end
-
 
 function RANK_OPEN(frame, ctrl, argStr, argNum)
 

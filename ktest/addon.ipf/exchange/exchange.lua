@@ -391,37 +391,6 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	ui.OpenFrame('inventory');
 end 
 
-function CHECK_VIS_INPUT(frame)
-
-	local preVis = tonumber( frame:GetUserValue("INPUT_VIS_COUNT") );
-
-	local visEdit = GET_CHILD_RECURSIVELY(frame, "visEdit", "ui::CEditControl");
-	local myvisTxt = GET_CHILD_RECURSIVELY(frame, "myVis", "ui::CRichText");
-	local curVis = tonumber( visEdit:GetText() );
-
-	-- 문자입력하면 초기화시켜버리기. 일단은 이렇게. 소수점입력한건 어찌할까나??
-	if curVis == nil then
-		frame:SetUserValue("INPUT_VIS_COUNT", '0');
-		visEdit:SetText('0');
-		curVis = 0;
-	end
-	
-	if preVis ~= curVis then
-		
-		local myMaxMoney = GET_TOTAL_MONEY();
-		if curVis > myMaxMoney then
-			curVis = myMaxMoney;
-			ui.SysMsg(ScpArgMsg("NotEnoughMoney"));
-		end
-
-		local visItem = session.GetInvItemByName('Vis');
-		local obj = GetIES(visItem:GetObject());
-		exchange.SendOfferItemByClassID(obj.ClassID, curVis);		
-		myvisTxt:SetTextByKey('money', GetCommaedText(curVis));
-		frame:SetUserValue("INPUT_VIS_COUNT", curVis);
-	end	
-end
-
 function EXCHANGE_ITEM_REMOVE(slot, agrNum, agrString)
 	exchange.SendOfferItem(agrString, 0);	
 end

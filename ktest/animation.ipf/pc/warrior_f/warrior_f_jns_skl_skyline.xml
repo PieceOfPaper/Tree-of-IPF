@@ -1,20 +1,17 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_skyline_swordtrail" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="F_warrior_skyline_shot2_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Shockwave frame="2" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+	<BlendOn frame="2" R="100" G="100" B="150" A="50"/>
+	<BlendOn frame="3" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="4" R="100" G="100" B="150" A="50"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="9" R="100" G="100" B="150" A="50"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
 	<Sound frame="6.00" soundFile="skl_fgt_tackle_shot"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_skyline_swordtrail" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
-	<Particle frame="5" attachNode="Bip01 L Toe0" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-	<Particle frame="5" attachNode="Bip01 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-	<Particle frame="5" attachNode="Bip01 R Toe0" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_skyline_shot2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke088" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
-	<BlendOn frame="5" R="100" G="100" B="130" A="50"/>
-	<BlendOn frame="6" R="50" G="50" B="80" A="50"/>
-	<BlendOn frame="7" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="11" R="100" G="100" B="130" A="50"/>
-	<BlendOn frame="12" R="50" G="50" B="80" A="50"/>
-	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

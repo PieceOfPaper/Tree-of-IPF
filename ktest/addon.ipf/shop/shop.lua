@@ -10,7 +10,7 @@ function SHOP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('NOTICE_Dm_invenfull', 'INVENTORY_DM_INVENFULL');
 	addon:RegisterMsg('COMMON_SHOP_ITEM_LIST_GET', 'SHOP_ON_MSG');
 
-	FINALPRICE = GET_TOTAL_MONEY();
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 	NOWPAGENUM = 1;
 	TOTALPAGENUM = 1;
 	BUYSLOTCOUNT = {};
@@ -24,13 +24,13 @@ function SHOP_UI_OPEN(frame)
 	--HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	OPEN_SHOPUI_COMMON();
 	ui.EnableSlotMultiSelect(1);
-	FINALPRICE = GET_TOTAL_MONEY();
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 
 	return 1;
 end
 
 function INVENTORY_DM_INVENFULL(frame, msg, argStr, argNum)
-	FINALPRICE = GET_TOTAL_MONEY();
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 	SHOP_UPDATE_BUY_PRICE(frame);
 end
 
@@ -137,9 +137,9 @@ function ON_FAIL_SHOP_BUY(frame)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local MyMoney = GET_TOTAL_MONEY();
+
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
-	FINALPRICE = MyMoney + TotalPrice;
+	FINALPRICE = SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), TotalPrice);
 	SHOP_UPDATE_BUY_PRICE(frame);
 end
 
@@ -166,9 +166,9 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local MyMoney = GET_TOTAL_MONEY();
+	
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
-	if -TotalPrice > MyMoney then
+	if IsGreaterThanForBigNumber(-TotalPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end
@@ -183,7 +183,7 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 	elseif isSellSound == true then
 		imcSound.PlaySoundEvent("market_sell");
 	end
-	FINALPRICE = SumForBigNumber(MyMoney, TotalPrice);
+	FINALPRICE = SumForBigNumber(GET_TOTAL_MONEY_STR(), TotalPrice);
 	SHOP_UPDATE_BUY_PRICE(frame);
 
 	SHOP_SELECT_ITEM_LIST = {}
@@ -506,7 +506,6 @@ function SHOP_BUY(clsID, buyCnt, frame)
 		frame = ui.GetFrame('shop');
 	end
 
-	local MyMoney = GET_TOTAL_MONEY();
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
 	if clsID == nil then
 		return;
@@ -522,7 +521,7 @@ function SHOP_BUY(clsID, buyCnt, frame)
 		end
 	end
 
-	if shopItem.price > MyMoney + TotalPrice then
+	if IsGreaterThanForBigNumber(shopItem.price + (-1 * TotalPrice), GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end
@@ -1193,13 +1192,9 @@ function UPDATE_SOLD_ITEM_LIST(frame)
 
 	slotSet:Invalidate();
 
-
-	local MyMoney = GET_TOTAL_MONEY();
-	FINALPRICE = MyMoney;
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 
 	SHOP_UPDATE_BUY_PRICE(frame);
-
-
 end
 
 function SOLD_SLOT_SET(slot, index, info)
@@ -1277,9 +1272,7 @@ function SHOP_REQ_CANCEL_SELL(index, frameName)
 	end
 	
 	local price = slot:GetUserIValue('SOLDITEMPRICE');
-	local MyMoney = GET_TOTAL_MONEY();
-
-	if price > MyMoney then
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end

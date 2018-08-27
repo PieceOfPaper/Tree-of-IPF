@@ -1,7 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="crossbow_cast"/>
-    <Sound frame="0.00" soundFile="skl_eff_grope"/>
-    <Sound frame="14.00" soundFile="crossbow_cast"/>
-    <Sound frame="25.00" soundFile="crossbow_cast"/>
+	<Particle frame="20" attachNode="Dummy_emitter" particleName="F_buff_basic043" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_buff_basic043" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_buff_basic043" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="crossbow_cast"/>
+	<Sound frame="0.00" soundFile="skl_eff_grope"/>
+	<Sound frame="14.00" soundFile="crossbow_cast"/>
+	<Sound frame="25.00" soundFile="crossbow_cast"/>
 </ActionDesc>

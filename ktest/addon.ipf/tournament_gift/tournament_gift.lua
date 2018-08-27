@@ -37,44 +37,6 @@ end
 
 function TOURNAMENT_GIFT_UPDATE_CTRLS(frame)
 
-	local myMoney = GET_TOTAL_MONEY();
-	local mymoney = frame:GetChild("mymoney");
-	mymoney:SetTextByKey("text", GET_MONEY_IMG(24) .. " " .. GetCommaedText(myMoney));
-
-	local queue = GET_CHILD(frame, "queue", "ui::CQueue");
-	queue:RemoveAllChild();
-
-	local clsList, cnt = GetClassList("Tournament_Gift");
-	for i = 0 , cnt - 1 do
-		local cls = GetClassByIndexFromList(clsList, i);
-		local itemName = cls.ClassName;
-		local set = queue:CreateOrGetControlSet("tournament_gift", "SETS_" .. i, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		set:ShowWindow(1);
-		set:SetUserValue("CLSNAME", cls.ClassName);
-
-		local slot = GET_CHILD(set, "slot", "ui::CSlot");
-		local itemCls = GetClass("Item", itemName);
-		SET_SLOT_ICON(slot, itemCls.Icon);
-
-		local text = set:GetChild("text");
-		text:SetTextByKey("name", itemCls.Name);
-		text:SetTextByKey("price", GET_MONEY_IMG(24) .. " " .. itemCls.Price);
-		local point = cls.GiftPoint;
-		if point > 0 then
-			text:SetTextByKey("point", ScpArgMsg("GiftPoint+{Auto_1}", "Auto_1", point));
-		end
-
-		local btn = set:GetChild("button");
-		if myMoney >= itemCls.Price then
-			btn:SetEventScript(ui.LBUTTONUP, "GIVE_TOUR_GIFT");
-			btn:SetEnable(1);
-		else
-			btn:SetEnable(0);
-		end	
-
-	end
-
-	queue:UpdateData();
 end
 
 function TOURNAMENT_GIFT_FIRST_OPEN(frame, handle, name)

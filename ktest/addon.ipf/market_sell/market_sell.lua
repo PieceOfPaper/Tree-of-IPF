@@ -1,18 +1,21 @@
-﻿
-function MARKET_SELL_ON_INIT(addon, frame)
+﻿function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_REGISTER", "ON_MARKET_REGISTER");
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 	addon:RegisterMsg('RESPONSE_MIN_PRICE', 'ON_RESPONSE_MIN_PRICE');
+	addon:RegisterMsg('WEB_RELOAD_SELL_LIST', 'ON_WEB_RELOAD_SELL_LIST')
+end
+
+function ON_WEB_RELOAD_SELL_LIST(frame, msg, argStr, argNum)	
+	RequestMarketSellList();
 end
 
 function MARKET_SELL_OPEN(frame)
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
-	market.ReqMySellList(0);
+	RequestMarketSellList();
 	packet.RequestItemList(IT_WAREHOUSE);
-
 
 	local groupbox = frame:GetChild("groupbox");
 
@@ -114,12 +117,11 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		totalPriceStrCtrl:SetTextByKey("value", totalPriceStr);
 
 		-- 시간 표기하는 부분
-		local remainTimeCtrl = ctrlSet:GetChild("remainTime");
-		local endImcTime = session.market.GetEndTime(marketItem);
-		if endImcTime == nil then
+		local remainTimeCtrl = ctrlSet:GetChild("remainTime");		
+		if marketItem:IsWatingForRegister() == true then
 			remainTimeCtrl:SetTextByKey("value", ClMsg("PleaseWaiting"));
 		else
-			local endSYSTime = imcTime.ImcTimeToSysTime(endImcTime);
+			local endSYSTime = marketItem:GetEndTime();
 			local difSec = imcTime.GetDifSec(endSYSTime, sysTime);			
 			remainTimeCtrl:SetUserValue("REMAINSEC", difSec);
 			remainTimeCtrl:SetUserValue("STARTSEC", imcTime.GetAppTime());
@@ -266,7 +268,7 @@ function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 		priceText:SetTextByKey("priceText", GetMonetaryString(edit_price_value))
 		UPDATE_FEE_INFO(frame, feeSelected, edit_count_value, edit_price_value)
 
-		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID());
+		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID(), invItem.type);
 	end
 end
 
@@ -319,7 +321,7 @@ function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
 	if invItem ~= nil then
 		local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
 		if ret == true then			
-			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID);
+			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID, invItem.type);
 		end
 		return;
 	end
@@ -396,8 +398,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if count+1 > maxCount then
-		ui.SysMsg(ClMsg("MarketRegitCntOver"));		
+	if count + 1 > maxCount then
+		ui.SysMsg(ClMsg("MarketRegitCntOver"));
 		return;
 	end
 	local frame = parent:GetTopParentFrame();
@@ -460,7 +462,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local needTime = frame:GetUserIValue('TIME_'..selecIndex);
 	local free = tonumber(frame:GetUserValue('FREE_'..selecIndex));
 	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
-	local commission = registerFeeValueCtrl:GetTextByKey("value")
+	local commission = registerFeeValueCtrl:GetTextByKey("value")	
+
 	commission = string.gsub(commission, ",", "")
 	commission = tonumber(commission)
 	local vis = session.GetInvItemByName("Vis");
@@ -501,7 +504,6 @@ function MARKET_SELL_REGISTER(parent, ctrl)
     	return;
 	end
 
-
 	if true == invitem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return false;
@@ -538,13 +540,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return false;
 	end
 
-
 	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, needTime);
-
-	commission = math.floor(commission);
-	if commission <= 0 then
-		commission = 1;
-	end
+	commission = registerFeeValueCtrl:GetTextByKey("value");	
+	commission = string.gsub(commission, ",", "");
+	commission = tonumber(commission);
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
 			-- 장비그룹만 buffValue가 있다.
@@ -726,8 +725,9 @@ function CLEAR_SELL_INFO(frame)
 	priceText:SetTextByKey("priceText", "0")
 end
 
-function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid)
+function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid, itemClassID)
 	market.ReqSellMinMaxInfo(itemGuid);
+	RequestMarketMinPrice(itemClassID);
 	frame:SetUserValue('REQ_ITEMID', itemGuid)
 end
 

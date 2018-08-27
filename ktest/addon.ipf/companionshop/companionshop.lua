@@ -100,7 +100,7 @@ function COMPANIONSHOP_UPDATE_REMAINMONEY(frame)
 	end
 
 	local buyMoney = tonumber(buyMoneyText:GetTextByKey('money'));
-	remainMoneyText:SetTextByKey('money', visItem.count - buyMoney);
+	remainMoneyText:SetTextByKey('money', GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -buyMoney)));
 end
 
 function COMPANIONSHOP_CLEAR(frame, ctrl)

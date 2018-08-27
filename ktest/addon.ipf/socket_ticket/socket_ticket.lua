@@ -187,7 +187,7 @@ function SOCKET_TICKET_CLICK_EXEC_BTN(parent, ctrl)
     -- check price
     local hitPriceDesc = GET_CHILD_RECURSIVELY(frame, 'hitPriceDesc');
     local price = GET_NOT_COMMAED_NUMBER(hitPriceDesc:GetTextByKey('price'));
-    if price > GET_TOTAL_MONEY() then
+    if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
         ui.SysMsg(ClMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
         return;
     end

@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Sound frame="5.00" soundFile="skl_fgt_ultimatedash_shot"/>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="4" R="70" G="70" B="40" A="100"/>
-	<BlendOn frame="5" R="100" G="100" B="50" A="70"/>
-	<BlendOn frame="6" R="50" G="50" B="25" A="50"/>
-	<BlendOn frame="7" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="13" R="150" G="150" B="100" A="100"/>
-	<BlendOn frame="14" R="100" G="100" B="50" A="70"/>
-	<BlendOn frame="15" R="50" G="50" B="25" A="50"/>
-	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
-	<Particle frame="0" attachNode="Dummy_trail" particleName="WeaponTrail_rap_crosscut" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="false" use2DEffect="true" soft2DValue="0"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_crosscut_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0"/>
-	<Particle frame="7" attachNode="Dummy_effect_turn_R" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0"/>
-	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
-	<HeadRotBip frame="8" BipName="Dummy_head"/>
-	<HeadRotBip frame="14" BipName="None"/>
+    <Particle frame="0" attachNode="Dummy_trail" particleName="WeaponTrail_rap_crosscut" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="false" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_crosscut_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Shockwave frame="3" type="2" intensity="5" frequency="70" duration="0.2" range="1000"/>
+    <BlendOn frame="4" R="70" G="70" B="40" A="50"/>
+    <Sound frame="5.00" soundFile="skl_fgt_ultimatedash_shot"/>
+    <BlendOn frame="5" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="6" R="70" G="70" B="40" A="50"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_explosion123" useAttach="false" hiddenObj="false" changeEffect="None" scale="7.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <HeadRotBip frame="8" BipName="Dummy_head"/>
+    <Sound frame="11.00" soundFile="skl_fgt_horizontalcrasher_shot"/>
+    <BlendOn frame="13" R="70" G="70" B="40" A="50"/>
+    <BlendOn frame="14" R="0" G="0" B="0" A="0"/>
+    <HeadRotBip frame="14" BipName="None"/>
+    <BlendOn frame="15" R="70" G="70" B="40" A="50"/>
+    <BlendOff frame="16" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

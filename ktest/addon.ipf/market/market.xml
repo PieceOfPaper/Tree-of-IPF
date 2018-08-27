@@ -1,49 +1,52 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="market" x="0" y="0" width="1425" height="1000" create="open">
-	<frame title="{@st43}{s22}마켓{/}" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" margin="0 -20 0 0" scale_align="center top" tooltipoverlap="true" fasthide="true"/>
-	<option closebutton="false"/>
+	<frame title="{@st43}{s22}마켓{/}" titlepos="0 0" layout_gravity="left center" snapclient="true" snapframe="true" margin="0 -20 0 0" scale_align="center top" tooltipoverlap="true"/>
+	<option closebutton="false" hideable="false" escscript="ON_MARKET_ESCAPE_PRESSED"/>
 	<draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
-	<script OpenScp="MARKET_REQ_LIST" CloseScp="MARKET_CLOSE"/>
+	<script CloseScp="MARKET_CLOSE"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<layer layerlevel="99"/>
-	<userconfig RECIPE_BG_HEIGHT="765"/>
+	<userconfig RECIPE_BG_HEIGHT="765" ITEM_CTRLSET_INTERVAL_Y_MARGIN="-0.3" CATEGORY_SAVE_OPTION_SKIN="chat_window_2"/>
 	<controls>
 		<groupbox name="market_low" rect="0 0 1425 900" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
-		<groupbox name="market_midle2" rect="0 0 335 636" margin="10 153 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
 		<groupbox name="market_midle3" rect="0 0 1067 765" margin="348 153 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
-		<groupbox name="market_material_bg" rect="0 0 1067 400" margin="348 0 0 60" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
+		<groupbox name="market_material_bg" rect="0 0 1067 434" margin="348 0 0 82" layout_gravity="left bottom" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
 		<groupbox name="market_title" rect="0 0 1425 99" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_title"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-		<pagecontroller name="pagecontrol" rect="0 0 1020 40" margin="165 0 0 20" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MARKET_PAGE_SELECT_NEXT" prevScp="MARKET_PAGE_SELECT_PREV" selectScp="MARKET_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext" movebyone="true">
-			<prev size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
-			<next size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+		<pagecontroller name="pagecontrol" rect="0 0 1020 40" margin="165 0 0 25" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MARKET_PAGE_SELECT_NEXT" prevScp="MARKET_PAGE_SELECT_PREV" selectScp="MARKET_PAGE_SELECT" slot="35 25" space="100 0 8 100" type="richtext" movebyone="true" showpagecnt="10">
+			<prev size="60 40" margin="60 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<next size="60 40" margin="0 0 60 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+			<prevunit size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<nextunit size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}{img white_right_arrow 18 18}" skin="test_normal_button"/>
 		</pagecontroller>
-		<pagecontroller name="pagecontrol_recipe" rect="0 0 1020 40" margin="165 0 0 495" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="RECIPE_SEARCH_PAGE_SELECT_NEXT" prevScp="RECIPE_SEARCH_SELECT_PREV" selectScp="RECIPE_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext" movebyone="true">
-			<prev size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
-			<next size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+		<pagecontroller name="pagecontrol_recipe" rect="0 0 1020 40" margin="165 0 0 565" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="RECIPE_SEARCH_PAGE_SELECT_NEXT" prevScp="RECIPE_SEARCH_SELECT_PREV" selectScp="RECIPE_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 8 100" type="richtext" movebyone="true" showpagecnt="10">
+			<prev size="60 40" margin="60 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<next size="60 40" margin="0 0 60 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+			<prevunit size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<nextunit size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}{img white_right_arrow 18 18}" skin="test_normal_button"/>
 		</pagecontroller>
-		<pagecontroller name="pagecontrol_material" rect="0 0 1020 40" margin="165 0 0 15" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MATERIAL_SEARCH_PAGE_SELECT_NEXT" prevScp="MATERIAL_SEARCH_SELECT_PREV" selectScp="MATERIAL_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 0 100" type="richtext" movebyone="true">
-			<prev size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
-			<next size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+		<pagecontroller name="pagecontrol_material" rect="0 0 1020 40" margin="165 0 0 25" layout_gravity="center bottom" image="{@st66d} {@st66d_y}" nextScp="MATERIAL_SEARCH_PAGE_SELECT_NEXT" prevScp="MATERIAL_SEARCH_SELECT_PREV" selectScp="MATERIAL_SEARCH_PAGE_SELECT" slot="35 25" space="100 0 8 100" type="richtext" movebyone="true" showpagecnt="10">
+			<prev size="60 40" margin="60 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<next size="60 40" margin="0 0 60 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}" skin="test_normal_button"/>
+			<prevunit size="60 40" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}{img white_left_arrow 18 18}" skin="test_normal_button"/>
+			<nextunit size="60 40" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}{img white_right_arrow 18 18}" skin="test_normal_button"/>
 		</pagecontroller>
 		<button name="marketCabinet" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}완료" clicksound="button_click" oversound="button_over" param1="newitemtext" skin="tab2_btn"/>
 		<button name="marketSell" rect="0 0 200 45" margin="210 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_SELLMODE" caption="{@st66b18}판매" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<button name="close" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;market&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 		<button name="marketBuy" rect="0 0 200 45" margin="10 105 0 0" layout_gravity="left top" caption="{@st66b18}구매" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
-		<groupbox name="categoryList" rect="0 0 344 598" margin="4 190 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false"/>
-		<button name="category" margin="0 0 0 0" rect="0 0 335 40" parent="market_midle2" layout_gravity="left top" caption="{@st66b}{s18}카테고리" hittest="false" skin="market_listbase" Enable="false"/>
-		<groupbox name="itemListGbox" rect="0 0 1167 730 " margin="348 188 0 0" hittestbox="false" skin="" layout_gravity="left top"/>
-		<groupbox name="defaultTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="recipeSearchGbox" rect="0 0 1167 370" margin="348 569 0 0" hittestbox="false" skin="" layout_gravity="left top"/>
-		<groupbox name="equipTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="recipeTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="accessoryTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="gemTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="cardTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="exporbTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="recipeSearchTitle" rect="0 0 1067 40" margin="348 540 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
-		<groupbox name="recipeSearchTemp" rect="0 0 1067 40" margin="348 505 0 0" hittestbox="false" skin="None" layout_gravity="left top"/>
+		<groupbox name="itemListGbox" rect="0 0 1167 730 " margin="348 188 0 0" scrollbar="false" hittestbox="false" skin="" layout_gravity="left top"/>
+		<groupbox name="defaultTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="recipeSearchGbox" rect="0 0 1167 400" margin="348 519 0 0" scrollbar="false" hittestbox="false" skin="" layout_gravity="left top"/>
+		<groupbox name="equipTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="recipeTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="accessoryTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="gemTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="cardTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="exporbTitle" rect="0 0 1067 40" margin="0 0 0 0" parent="market_midle3" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="recipeSearchTitle" rect="0 0 1067 40" margin="348 484 0 0" scrollbar="false" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
+		<groupbox name="recipeSearchTemp" rect="0 0 1067 40" margin="348 445 0 0" scrollbar="false" hittestbox="false" skin="None" layout_gravity="left top"/>
 		<richtext name="defaultTitle_name" margin="90 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}이름{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="defaultTitle"/>
 		<richtext name="defaultTitle_level" margin="305 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}레벨{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="defaultTitle"/>
 		<richtext name="defaultTitle_price" margin="422 0 0 0" rect="0 0 120 24" sharedConst="USE_MARKET_REPORT/0" caption="{@st66b}{s18}단가{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="defaultTitle"/>
@@ -86,24 +89,24 @@
 		<richtext name="recipeSearch_cnt" margin="580 0 0 0" rect="0 0 120 24" sharedConst="USE_MARKET_REPORT/1" caption="{@st66b}{s18}구매개수{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeSearchTitle"/>
 		<richtext name="recipeSearch_totalPrice" margin="755 0 0 0" rect="0 0 120 24" sharedConst="USE_MARKET_REPORT/0" caption="{@st66b}{s18}총 금액{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeSearchTitle"/>
 		<richtext name="recipeSearch_totalPrice" margin="755 0 0 0" rect="0 0 120 24" sharedConst="USE_MARKET_REPORT/1" caption="{@st66b}{s18}총 금액{/}" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeSearchTitle"/>
-		<richtext name="recipeSearch_tempTitle" margin="0 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}제작 재료{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeSearchTemp"/>
+		<richtext name="recipeSearch_tempTitle" margin="3 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}제작 재료{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="recipeSearchTemp"/>
 		<labelline name="labelline" margin="0 0 0 0" rect="0 0 1060 2" parent="recipeSearchTemp" skin="labelline2" layout_gravity="center top"/>
-		<tree name="tree" layout_gravity="left top" rect="0 0 320 590" margin="1 1 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="MARKET_TREE_CLICK" parent="categoryList"/>
-		<groupbox name="detailOption" margin="10 792 0 0" rect="0 0 335 190" hittestbox="false" skin="test_frame_midle_light" layout_gravity="left top"/>
-		<richtext name="richtext_2" margin="8 12 0 0" rect="0 0 120 24" caption="{@st43b}{s18}상세옵션{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailOption"/>
-		<richtext name="richtext_3" margin="22 84 0 0" rect="0 0 120 24" caption="{@st65}레벨{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailOption"/>
-		<richtext name="richtext_4" margin="20 120 0 0" rect="0 0 120 24" caption="{@st65}강화 수치{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailOption"/>
-		<richtext name="richtext_3_1" margin="231 85 0 0" rect="0 0 120 24" caption="{@st66b}{s18}~{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailOption"/>
-		<richtext name="richtext_4_1" margin="231 116 0 0" rect="0 0 120 24" caption="{@st66b}{s18}~{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="detailOption"/>
-		<groupbox name="itemsearchSkin" rect="0 10 300 30" margin="18 0 0 20" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" parent="detailOption" skin="test_weight_skin"/>
-		<edit name="edit_1" margin="160 69 0 0" skin="test_weight_skin" rect="0 10 70 30" fontname="white_18_ol" maxlen="5" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -1" layout_gravity="left top" textalign="center center" parent="detailOption"/>
-		<edit name="edit_1_1" margin="245 69 0 0" skin="test_weight_skin" rect="0 10 70 30" fontname="white_18_ol" maxlen="5" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -1" layout_gravity="left top" textalign="center center" parent="detailOption"/>
-		<edit name="edit_2" margin="160 103 0 0" skin="test_weight_skin" rect="0 10 70 30" fontname="white_18_ol" maxlen="5" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -1" layout_gravity="left top" textalign="center center" parent="detailOption"/>
-		<edit name="edit_2_1" margin="245 103 0 0" skin="test_weight_skin" rect="0 10 70 30" fontname="white_18_ol" maxlen="5" EnterKeyScp="None" numbermode="false" OffsetForDraw="0 -1" layout_gravity="left top" textalign="center center" parent="detailOption"/>
-		<edit name="find_edit" margin="25 0 0 20" skin="None" rect="0 10 255 30" fontname="white_18_ol" maxlen="26" EnterKeyScp="SEARCH_ITEM_MARKET" numbermode="false" OffsetForDraw="0 -1" layout_gravity="left bottom" textalign="left center" parent="detailOption"/>
-		<button name="market_search" parent="detailOption" rect="0 0 60 38" margin="0 0 17 8" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SEARCH_ITEM_MARKET" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_s" oversound="button_over" stretch="true" texttooltip="{@st59}입력한 이름과 작성된 옵션으로 검색합니다{/}"/>
-		<checkbox name="chip" margin="21 43 0 0" rect="0 0 120 24" caption="{@st65}낮은 가격순{/}" LBtnDownScp="MARKET_OPTION_CHECK" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailOption"/>
-		<checkbox name="expensive" margin="180 43 0 0" rect="0 0 120 24" caption="{@st65}높은 가격순{/}" LBtnDownScp="MARKET_OPTION_CHECK" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" parent="detailOption"/>
 		<richtext name="t" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<controlset name="marketCategory" type="market_category" rect="0 0 335 873" margin="10 153 0 0" layout_gravity="left top"/>
+		<!-- option config -->
+		<groupbox name="optionBox" rect="0 0 450 300" margin="345 0 0 0" layout_gravity="left center" skin="test_frame_low" hittest="true"/>
+		<button name="closeOptionBtn" parent="optionBox" rect="0 0 44 44" margin="0 15 15 0" layout_gravity="right top" LBtnUpScp="MARKET_OPTION_BOX_CLOSE_CLICK" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}검색 옵션 창을 닫습니다{/}" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+		<groupbox name="optionSaveBox" parent="optionBox" rect="0 0 450 300" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false"/>
+		<richtext name="saveStaticText" parent="optionSaveBox" rect="0 0 300 30" margin="0 85 0 0" layout_gravity="center top" caption="현재 카테고리 검색 옵션을 저장합니다.{nl}값을 입력하지 않은 설정들은 저장되지 않습니다." fontname="brown_16_b" textalign="center top"/>
+		<picture name="save_titletextline" parent="optionSaveBox" rect="0 0 450 40" margin="7 15 0 0" layout_gravity="left top" hittest="false" image="test_com_namebg"/>
+		<richtext name="savenametext" parent="optionSaveBox" rect="0 0 300 30" margin="0 145 0 0" layout_gravity="center top" caption="저장 이름" fontname="brown_16_b"/>
+		<richtext name="titletext" rect="0 0 120 24" margin="10 0 0 0" parent="save_titletextline" layout_gravity="left center" caption="{@st66d}옵션 저장" drawbackground="false" fixwidth="false" fontname="black_20" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false" hittest="false"/>
+		<edit name="saveConfigNameEdit" parent="optionSaveBox" rect="0 0 300 30" margin="0 170 0 0" layout_gravity="center top" skin="test_weight_skin" fontname="white_16_ol" textalign="center center"/>
+		<button name="saveCommitBtn" parent="optionSaveBox" rect="0 0 200 50" margin="0 0 0 20" layout_gravity="center bottom" skin="test_red_button" caption="{@st41d}저장" fontname="white_16_ol" LBtnUpScp="MARKET_SAVE_CATEGORY_OPTION"/>
+		<groupbox name="optionLoadBox" parent="optionBox" rect="0 0 450 300" margin="0 0 0 0" layout_gravity="center top" draw="false" hittestbox="false"/>
+		<richtext name="loadStaticText" parent="optionLoadBox" rect="0 0 300 30" margin="0 85 0 0" layout_gravity="center top" caption="카테고리 옵션을 불러옵니다." fontname="brown_16_b"/>
+		<picture name="load_titletextline" parent="optionLoadBox" rect="0 0 450 40" margin="7 15 0 0" layout_gravity="left top" hittest="false" image="test_com_namebg"/>
+		<richtext name="titletext" rect="0 0 120 24" margin="10 0 0 0" parent="load_titletextline" layout_gravity="left center" caption="{@st66d}옵션 불러오기" drawbackground="false" fixwidth="false" fontname="black_20" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false" hittest="false"/>
+		<groupbox name="optionListBox" parent="optionLoadBox" rect="0 0 433 150" margin="-4 0  0 10" layout_gravity="center bottom" skin="test_frame_midle"/>
 	</controls>
 </uiframe>

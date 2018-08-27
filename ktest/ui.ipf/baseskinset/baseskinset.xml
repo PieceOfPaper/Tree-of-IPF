@@ -3705,6 +3705,17 @@
 			<img name="bottomcore" imgrect="592 853 148 145"/>
 			<img name="bottomright" imgrect="741 853 279 145"/>
 		</skin>
+		<skin name="test_edit_skin" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="287 1 10 10"/>
+			<img name="topcore" imgrect="298 1 150 10"/>
+			<img name="topright" imgrect="449 1 10 10"/>
+			<img name="bodyleft" imgrect="287 12 10 10"/>
+			<img name="bodycore" imgrect="298 12 150 10"/>
+			<img name="bodyright" imgrect="449 12 10 10"/>
+			<img name="bottomleft" imgrect="287 23 10 10"/>
+			<img name="bottomcore" imgrect="298 23 150 10"/>
+			<img name="bottomright" imgrect="449 23 10 10"/>
+		</skin>
 		<skin name="Cube_skin2" texture="\skin\cube_skin.tga">
 			<img name="topleft" imgrect="0 0 1 409"/>
 			<img name="topcore" imgrect="1 0 453 409"/>
@@ -4258,6 +4269,26 @@
 			<img name="bottomleft" imgrect="1896 882 40 30"/>
 			<img name="bottomcore" imgrect="1937 882 20 30"/>
 			<img name="bottomright" imgrect="2004 882 40 30"/>
+		</skin>
+		<skin name="market_grade_1" texture="\skin\market_skin.tga">
+			<img name="on" imgrect="37 131 47 24"/>
+			<img name="off" imgrect="85 131 47 24"/>
+		</skin>
+		<skin name="market_grade_2" texture="\skin\market_skin.tga">
+			<img name="on" imgrect="1571 130 47 24"/>
+			<img name="off" imgrect="1619 130 47 24"/>
+		</skin>
+		<skin name="market_grade_3" texture="\skin\market_skin.tga">
+			<img name="on" imgrect="1475 130 47 24"/>
+			<img name="off" imgrect="1523 130 47 24"/>
+		</skin>
+		<skin name="market_grade_4" texture="\skin\market_skin.tga">
+			<img name="on" imgrect="1427 130 47 24"/>
+			<img name="off" imgrect="1379 130 47 24"/>
+		</skin>
+		<skin name="market_grade_5" texture="\skin\market_skin.tga">
+			<img name="on" imgrect="133 131 47 24"/>
+			<img name="off" imgrect="1331 130 47 24"/>
 		</skin>
 	</skinlist>
 	<skinlist category="slots">
@@ -5254,6 +5285,20 @@
 		</skin>
 	</skinlist>
 	<skinlist category="labellines">
+		<skin name="labelline_def_4" texture="\skin\tooltip_skin_3.tga">
+			<img name="left" imgrect="900 222 24 2"/>
+			<img name="middle" imgrect="924 222 58 2"/>
+			<img name="right" imgrect="982 222 24 4"/>
+			<img name="top" imgrect="900 229 24 1"/>
+			<img name="bottom" imgrect="982 229 24 1"/>
+		</skin>
+		<skin name="labelline_def_3" texture="\skin\tooltip_skin_3.tga">
+			<img name="left" imgrect="900 218 24 2"/>
+			<img name="middle" imgrect="924 218 58 2"/>
+			<img name="right" imgrect="982 218 24 4"/>
+			<img name="top" imgrect="900 229 24 1"/>
+			<img name="bottom" imgrect="982 229 24 1"/>
+		</skin>
 		<skin name="labelline_def_2" texture="\skin\tooltip_skin_3.tga">
 			<img name="left" imgrect="900 227 24 2"/>
 			<img name="middle" imgrect="925 227 56 2"/>
@@ -5290,9 +5335,9 @@
 			<img name="left" imgrect="868 664 20 40"/>
 			<img name="middle" imgrect="889 664 45 40"/>
 			<img name="right" imgrect="935 664 20 40"/>
-			<img name="dropbutton" imgrect="931 503 12 12"/>
-			<img name="dropbutton_click" imgrect="931 516 12 12"/>
-			<img name="dropbutton_cursoron" imgrect="931 529 12 12"/>
+			<img name="dropbutton" imgrect="941 600 16 12"/>
+			<img name="dropbutton_click" imgrect="941 613 16 12"/>
+			<img name="dropbutton_cursoron" imgrect="941 626 16 12"/>
 		</skin>
 	</skinlist>
 	<skinlist>
@@ -6112,6 +6157,10 @@
 		<image name="indun_icon_day_l" file="\skin\indun_skin.tga" imgrect="699 552 41 20" CMM_Caption="던전 일간 표시 : 대"/>
 		<image name="indun_icon_week_s" file="\skin\indun_skin.tga" imgrect="741 573 27 20" CMM_Caption="던전 주간 표시 : 소"/>
 		<image name="indun_icon_day_s" file="\skin\indun_skin.tga" imgrect="741 552 27 20" CMM_Caption="던전 일간 표시 : 소"/>
+		<image name="indun_icon_week_l_eng" file="\skin\indun_skin.tga" imgrect="699 615 48 20" CMM_Caption="던전 주간 표시 : 대_영문"/>
+		<image name="indun_icon_day_l_eng" file="\skin\indun_skin.tga" imgrect="699 594 48 20" CMM_Caption="던전 일간 표시 : 대_영문"/>
+		<image name="indun_icon_week_s_eng" file="\skin\indun_skin.tga" imgrect="748 615 27 20" CMM_Caption="던전 주간 표시 : 소_영문"/>
+		<image name="indun_icon_day_s_eng" file="\skin\indun_skin.tga" imgrect="748 594 27 20" CMM_Caption="던전 일간 표시 : 소_영문"/>
 		<image name="re_appraisal_image2" file="\skin\Appraiser_skin.tga" imgrect="706 0 312 312" CMM_Caption="레어 인챈트 쥬얼 마법진"/>
 		<image name="re_appraisal_image2_1" file="\skin\Appraiser_skin.tga" imgrect="161 314 337 190" CMM_Caption="레어 인챈트 쥬얼 마법진_누운것"/>
 	</imagelist>
@@ -6382,6 +6431,13 @@
 		<image name="couponbook_ribbon_l" file="\skin\attendance_sheet_skin.tga" imgrect="1 620 312 166 " CMM_Caption="리본 좌"/>
 		<image name="couponbook_ribbon_r" file="\skin\attendance_sheet_skin.tga" imgrect="1 787 154 216" CMM_Caption="리본 우"/>
 		<image name="barbershop_scissors_pic" file="\skin\attendance_sheet_skin.tga" imgrect="977 539 41 36" CMM_Caption="헤어샵 가위 아이콘"/>
+		<image name="weight_name_bg" file="\skin\pip_test2.tga" imgrect="460 1 132 28"/>
+		<image name="weight_frame" file="\skin\pip_test2.tga" imgrect="234 76 134 41"/>
+		<image name="weight_ruler" file="\skin\pip_test2.tga" imgrect="234 34 622 41"/>
+		<image name="silver_pic" file="\skin\pip_test2.tga" imgrect="117 34 27 27"/>
+		<image name="TP_pic" file="\skin\pip_test2.tga" imgrect="145 34 27 27"/>
+		<image name="bonusTP_pic" file="\skin\pip_test2.tga" imgrect="173 34 27 27"/>
+		<image name="left_pageup" file="\skin\pip_test.tga" imgrect="1624 132 21 32" CMM_Caption="인벤 헤어 컬러"/>
 		<image name="briquetting_bg_skin" file="\skin\briquetting_bg_skin.tga" imgrect="0 0 710 520" CMM_Caption="브리케팅 완성 bg"/>
 		<image name="cancle_gold_pic" file="\skin\pip_test2.tga" imgrect="802 0 31 31" CMM_Caption="금색 x "/>
 		<image name="market_zem_3" file="\skin\pip_test2.tga" imgrect="834 0 12 12" CMM_Caption="마켓 젬 아이콘"/>
@@ -7020,6 +7076,48 @@
 		<image name="guildinfo_colony" file="\skin\guild_skin.tga" imgrect="249 190 59 59"/>
 		<image name="guildinfo_colony_cursoron" file="\skin\guild_skin.tga" imgrect="439 70 59 59"/>
 		<image name="guildinfo_colony_clicked" file="\skin\guild_skin.tga" imgrect="630 406 59 59"/>
+		<image name="inventory_main" file="\skin\pip_test2.tga" imgrect="39 0 38 61" CMM_Caption="인벤토리 탭 버튼"/>
+		<image name="inventory_main_cursoron" file="\skin\pip_test2.tga" imgrect="78 0 38 61"/>
+		<image name="inventory_main_clicked" file="\skin\pip_test2.tga" imgrect="0 0 38 61"/>
+		<image name="inventory_recipe" file="\skin\pip_test2.tga" imgrect="39 62 38 61"/>
+		<image name="inventory_recipe_cursoron" file="\skin\pip_test2.tga" imgrect="78 62 38 61"/>
+		<image name="inventory_recipe_clicked" file="\skin\pip_test2.tga" imgrect="0 62 38 61"/>
+		<image name="inventory_equip" file="\skin\pip_test2.tga" imgrect="39 124 38 61"/>
+		<image name="inventory_equip_cursoron" file="\skin\pip_test2.tga" imgrect="78 124 38 61"/>
+		<image name="inventory_equip_clicked" file="\skin\pip_test2.tga" imgrect="0 124 38 61"/>
+		<image name="inventory_supplies" file="\skin\pip_test2.tga" imgrect="39 186 38 61"/>
+		<image name="inventory_supplies_cursoron" file="\skin\pip_test2.tga" imgrect="78 186 38 61"/>
+		<image name="inventory_supplies_clicked" file="\skin\pip_test2.tga" imgrect="0 186 38 61"/>
+		<image name="inventory_card" file="\skin\pip_test2.tga" imgrect="39 248 38 61"/>
+		<image name="inventory_card_cursoron" file="\skin\pip_test2.tga" imgrect="78 248 38 61"/>
+		<image name="inventory_card_clicked" file="\skin\pip_test2.tga" imgrect="0 248 38 61"/>
+		<image name="inventory_gem" file="\skin\pip_test2.tga" imgrect="156 62 38 61"/>
+		<image name="inventory_gem_cursoron" file="\skin\pip_test2.tga" imgrect="195 62 38 61"/>
+		<image name="inventory_gem_clicked" file="\skin\pip_test2.tga" imgrect="117 62 38 61"/>
+		<image name="inventory_favorite" file="\skin\pip_test2.tga" imgrect="156 124 38 61"/>
+		<image name="inventory_favorite_cursoron" file="\skin\pip_test2.tga" imgrect="195 124 38 61"/>
+		<image name="inventory_favorite_clicked" file="\skin\pip_test2.tga" imgrect="117 124 38 61"/>
+		<image name="inventory_material" file="\skin\pip_test2.tga" imgrect="156 186 38 61"/>
+		<image name="inventory_material_cursoron" file="\skin\pip_test2.tga" imgrect="195 186 38 61"/>
+		<image name="inventory_material_clicked" file="\skin\pip_test2.tga" imgrect="117 186 38 61"/>
+		<image name="inventory_premium" file="\skin\pip_test2.tga" imgrect="156 248 38 61"/>
+		<image name="inventory_premium_cursoron" file="\skin\pip_test2.tga" imgrect="195 248 38 61"/>
+		<image name="inventory_premium_clicked" file="\skin\pip_test2.tga" imgrect="117 248 38 61"/>
+		<image name="inven_lineup_btn" file="\skin\pip_test2.tga" imgrect="117 0 33 33" CMM_Caption="인벤토리 정렬 버튼"/>
+		<image name="inven_lineup_btn_cursoron" file="\skin\pip_test2.tga" imgrect="593 0 33 33"/>
+		<image name="inven_lineup_btn_clicked" file="\skin\pip_test2.tga" imgrect="593 0 33 33"/>
+		<image name="inven_setup_btn" file="\skin\pip_test2.tga" imgrect="151 0 33 33"/>
+		<image name="inven_setup_btn_cursoron" file="\skin\pip_test2.tga" imgrect="627 0 33 33"/>
+		<image name="inven_setup_btn_clicked" file="\skin\pip_test2.tga" imgrect="627 0 33 33"/>
+		<image name="inven_favorite_btn" file="\skin\pip_test2.tga" imgrect="185 0 33 33"/>
+		<image name="inven_favorite_btn_cursoron" file="\skin\pip_test2.tga" imgrect="661 0 33 33"/>
+		<image name="inven_favorite_btn_clicked" file="\skin\pip_test2.tga" imgrect="661 0 33 33"/>
+		<image name="inven_del_btn" file="\skin\pip_test2.tga" imgrect="219 0 33 33"/>
+		<image name="inven_del_btn_cursoron" file="\skin\pip_test2.tga" imgrect="695 0 33 33"/>
+		<image name="inven_del_btn_clicked" file="\skin\pip_test2.tga" imgrect="695 0 33 33"/>
+		<image name="inven_lockup_btn" file="\skin\pip_test2.tga" imgrect="253 0 33 33"/>
+		<image name="inven_lockup_btn_cursoron" file="\skin\pip_test2.tga" imgrect="729 0 33 33"/>
+		<image name="inven_lockup_btn_clicked" file="\skin\pip_test2.tga" imgrect="729 0 33 33"/>
 	</imagelist>
 	<imagelist category="se_button">
 		<image name="sysmenu_pcbang" file="\skin\pip_test2.tga" imgrect="815 468 38 44" CMM_Caption="피시방 메뉴 "/>

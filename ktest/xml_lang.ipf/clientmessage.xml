@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -41,7 +41,7 @@
 		<Class ClassID="37" ClassName="DuplicationLoginByOtherWorld" Data="다른 서버에서 접속을 시도하여 서버 선택 화면으로 돌아갑니다."/>
 		<Class ClassID="38" ClassName="FailToGetAuthCode" Data="Session Code 획득에 실패하였습니다. 다시 로그인을 시도해 주세요."/>
 		<Class ClassID="39" ClassName="OutOfVideoMemory" Data="Direct3D 가 처리를 실시하는데 충분한 디스플레이 메모리가 없습니다."/>
-	<Class ClassID="40" ClassName="CannotDo" Data="해당 작업을 수행할 수 없습니다."/>
+		<Class ClassID="40" ClassName="CannotDo" Data="해당 작업을 수행할 수 없습니다."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
@@ -89,6 +89,7 @@
 		<Class ClassID="1115" ClassName="Type" Data="타입"/>
 		<Class ClassID="1116" ClassName="LimitTime" Data="기간제"/>
 		<Class ClassID="1117" ClassName="NeedRandomOption" Data="미감정"/>
+		<Class ClassID="1118" ClassName="IntegrateRetreive" Data="통합 검색"/>
 		<Class ClassID="1119" ClassName="RentalByPCBang" Data="PC방 대여"/>
 		<Class ClassID="1120" ClassName="WoodCarving" Data="외형 변환 아이템"/>
 	</Category>
@@ -250,7 +251,9 @@
 		<Class ClassID="2263" ClassName="FailEnchantJewell" Data="레어 옵션 부여에 실패했습니다."/>
 		<Class ClassID="2264" ClassName="CommitEnchantOption" Data="[인챈트 옵션]을 변경합니다. 옵션은 바로 적용되며 되돌릴 수 없습니다.{nl} 동일한 인챈트 옵션을 가진 장비 아이템 여러 개를 장착하는 경우, 가장 높은 수치의 인챈트 옵션만 캐릭터에게 적용됩니다.{nl}진행하시겠습니까?"/>
 		<Class ClassID="2265" ClassName="ExceedItemMaxStack" Data="아이템 최대 스택 개수를 초과했습니다."/>
-		<Class ClassID="2268" ClassName="CannotEnchantOptionEquipItem" Data="장착 중인 장비에 인챈트 옵션을 부여할 수 없습니다."/>
+		<Class ClassID="2268" ClassName="CannotEnchantOptionEquipItem" Data="장착 중인 장비에 인챈트 옵션을 부여할 수 없습니다."/>		
+		<Class ClassID="2270" ClassName="TooManyMarketSaveOption" Data="더 이상 마켓 검색 옵션을 저장할 수 없습니다."/>
+		<Class ClassID="2271" ClassName="DuplicateMarketSearchOption" Data="이미 설정된 검색 옵션입니다."/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -545,7 +548,7 @@
 		<Class ClassID="5021" ClassName="WeaponTouchUp" Data="무기 손질 효과"/>
 		<Class ClassID="5022" ClassName="ArmorTouchUp" Data="방어구 손질 효과"/>
 		<Class ClassID="5023" ClassName="MoruReinforce" Data="모루강화"/>
-		<Class ClassID="5024" ClassName="SortByLevel" Data="등급순"/>
+		<Class ClassID="5024" ClassName="SortByGrade" Data="등급순"/>
 		<Class ClassID="5025" ClassName="SortByWeight" Data="무게순"/>
 		<Class ClassID="5026" ClassName="SortByPrice" Data="가격순"/>
 		<Class ClassID="5027" ClassName="SortByName" Data="이름순"/>
@@ -561,6 +564,8 @@
 		<Class ClassID="5037" ClassName="CanNotTradeTranscendedItem" Data="초월된 아이템은 거래할 수 없습니다."/>
 		<Class ClassID="5038" ClassName="Soul_Atk_BM" Data="염속성 추가 대미지"/>
 		<Class ClassID="5039" ClassName="MarketTradeAble" Data="마켓 거래 가능"/>
+		<Class ClassID="5040" ClassName="SortByCount" Data="소지량순"/>
+		<Class ClassID="5041" ClassName="SortByLevel" Data="레벨순"/>
 	</Category>
 	<Category Name="PeriodicTitle">
 		<Class ClassID="6001" ClassName="TournamentChampion" Data="토너먼트 챔피언"/>
@@ -674,7 +679,7 @@
 		<Class ClassID="8099" ClassName="ThisCompanionIs NotPossible" Data="스킬을 사용할 수 있는 컴패니언이 없습니다."/>
 		<Class ClassID="8100" ClassName="YouCanNotRideCompanionCoolTime" Data="아직 컴패니언에 탑승할 수 없습니다."/>
 		<Class ClassID="8101" ClassName="YouCanNotUseSkillCompanionCoolTime" Data="아직 컴패니언 스킬을 사용할 수 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
 		<Class ClassID="9002" ClassName="NotCampfireKit" Data="장작 아이템이 없습니다."/>
@@ -1064,7 +1069,8 @@
 		<Class ClassID="10507" ClassName="FailToCreateCharacter" Data="캐릭터 생성에 실패했습니다. 잠시 후 다시 시도해 주세요"/>
 		<Class ClassID="10508" ClassName="LackOfUnrevertRandomMaterial" Data="신비한 돋보기가 부족합니다."/>
 		<Class ClassID="10509" ClassName="LackOfRevertRandomMaterial" Data="장인의 돋보기가 부족합니다."/>
-		</Category>
+		<Class ClassID="10510" ClassName="{Name}Item{MaxStack}CountOver" Data="[{Name}] 아이템은 {MaxStack}개 이상 소유할 수 없습니다."/>
+	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
 		<Class ClassID="20002" ClassName="IncreaseSP{Value}For{Time}Minute" Data="{Time}분 동안 SP가 {Value}% 증가합니다."/>
@@ -1375,7 +1381,8 @@
 		<Class ClassID="21305" ClassName="PCBangRentalAlreadyReceived" Data="이미 대여중인 아이템입니다."/>
 		<Class ClassID="21306" ClassName="Count{n}" Data="{n}개"/>
 		<Class ClassID="21307" ClassName="MSG{Category}{Name}{Value}{Type}{Info}" Data="[{Category}][{Name}][{Value}][{Type}][{Info}]"/>
-		</Category>
+		<Class ClassID="21310" ClassName="ApplyOption" Data="{#ffc500}{s14}옵션 적용중"/>
+	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
 		<Class ClassID="22002" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -1410,7 +1417,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
-		</Category>
+	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -4477,11 +4484,12 @@
 		<Class ClassID="27220" ClassName="EV161124_DAYCHECK_MSG1" Data="이전에 선택하신 번호는 {nl}{NUMLIST}{nl}입니다."/>
 		<Class ClassID="27221" ClassName="EV161124_DAYCHECK_MSG2" Data="이전에 선택하신 번호가 없습니다.{nl}첫번째 선택입니다."/>
 		<Class ClassID="27222" ClassName="EV161124_DAYCHECK_MSG3" Data="선택 번호 : {NUM}{nl}보상 :"/>
-		<Class ClassID="27223" ClassName="EV161124_DAYCHECK_MSG4" Data="누적 출석 : {COUNT}회{nl}선택한 번호 : {NUMLIST}{nl}보상("/>
-		<Class ClassID="27224" ClassName="EV161124_DAYCHECK_MSG5" Data="누적 출석 : 0회{nl}클라페다, 오르샤, 페디미안의 '바카리네의 큐폴'에게서 보상을 받으실 수 있습니다!"/>
+		<Class ClassID="27223" ClassName="EV161124_DAYCHECK_MSG4" Data="참여횟수 : {COUNT}회{nl}선택한 번호 : {NUMLIST}{nl}보상"/>
+		<Class ClassID="27224" ClassName="EV161124_DAYCHECK_MSG5" Data="참여횟수 : 0회{nl}클라페다, 오르샤, 페디미안의 '바카리네의 큐폴'에게서 보상을 받으실 수 있습니다!"/>
 		<Class ClassID="27225" ClassName="EV161124_DAYCHECK_MSG6" Data="{ITEM} {COUNT}개"/>
-		<Class ClassID="27226" ClassName="EV161124_DAYCHECK_MSG7" Data="남은 보상("/>
+		<Class ClassID="27226" ClassName="EV161124_DAYCHECK_MSG7" Data="남은 보상"/>
 		<Class ClassID="27227" ClassName="EV161124_DAYCHECK_MSG8" Data="모든 보상을 받으셨습니다!"/>
+		<Class ClassID="27228" ClassName="EV161124_DAYCHECK_MSG9" Data="출석보상"/>
 		<Class ClassID="27230" ClassName="EV161215_SEED_MSG1" Data="PVP 서버에서는 사용 하실 수 없습니다!"/>
 		<Class ClassID="27231" ClassName="EV161215_SEED_MSG2" Data="주변에 축복이 깃든 새싹이 있어서 추가로 심을 수 없습니다."/>
 		<Class ClassID="27232" ClassName="EV161215_SEED_MSG3" Data="연출 모드에서는 사용하실 수 없습니다."/>
@@ -4878,6 +4886,9 @@
 		<Class ClassID="28110" ClassName="EVENT_1807_HOTTIME_MSG1" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 '{ITEM2}' {COUNT}개를 획득하셨습니다"/>
 		<Class ClassID="28111" ClassName="EVENT_1807_HOTTIME_MSG2" Data="축하드립니다.{nl}'{TEAM}'님이 '{ITEM1}'에서 {COUNT} 실버를 획득하셨습니다"/>
 		<Class ClassID="28115" ClassName="QUEST_ABANDONMENT_MSG1" Data="연출 영상 중에는 퀘스트를 포기하실 수 없습니다"/>
+		<Class ClassID="28120" ClassName="EVENT_1809_UCC_MSG1" Data="다이누 슈벤테 이벤트"/>
+		<Class ClassID="28121" ClassName="EVENT_1809_UCC_MSG2" Data="축제용 코스튬을 선택해주세요"/>
+		<Class ClassID="28122" ClassName="EVENT_1809_UCC_MSG3" Data="축제용 장난감을 선택해주세요"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -8163,6 +8174,7 @@
 		<Class ClassID="102309" ClassName="InvalidGuildName" Data="사용할 수 없는 길드명입니다."/>
 		<Class ClassID="102310" ClassName="NotExistChangeGuildNameItem" Data="길드명 변경권이 존재하지 않습니다."/>
 		<Class ClassID="102311" ClassName="SuccessChangeGuildName" Data="길드명이 성공적으로 변경되었습니다."/>
+		<Class ClassID="102312" ClassName="GuildEventCantStarted" Data="길드 퀘스트를 시작할 권한이 없습니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -8273,7 +8285,52 @@
 		<Class ClassID="106056" ClassName="InvalidMaterialSearchFormat{MSG}" Data="잘못된 재료목록 형식입니다 : {MSG}"/>
 		<Class ClassID="106057" ClassName="VeryRapidRequest" Data="너무 빠른 요청입니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="106058" ClassName="PleaseWaiting" Data="현재 대기중입니다"/>
-		</Category>
+		<Class ClassID="106059" ClassName="BrokenSyncMakretItem{marketidx}" Data="해당 아이템이 동기화 문제로 마켓에 보이지 않을 수 있습니다. MarketItem Index : {marketidx}"/>
+		<Class ClassID="106060" ClassName="CanOnlyOneItemOnce" Data="한번에 하나의 아이템만 구매하실 수 있습니다."/>
+		<Class ClassID="106061" ClassName="Band" Data="팔찌"/>
+		<Class ClassID="106062" ClassName="Look" Data="꾸미기"/>
+		<Class ClassID="106063" ClassName="Costume" Data="코스튬"/>
+		<Class ClassID="106064" ClassName="Acc1" Data="헤어 코스튬1"/>
+		<Class ClassID="106065" ClassName="Acc2" Data="헤어 코스튬2"/>
+		<Class ClassID="106066" ClassName="Acc3" Data="헤어 코스튬3"/>
+		<Class ClassID="106067" ClassName="Toy" Data="장난감"/>
+		<Class ClassID="106068" ClassName="Change" Data="외형 변경 장비"/>
+		<Class ClassID="106069" ClassName="Wing" Data="등 코스튬"/>
+		<Class ClassID="106070" ClassName="SPCostume" Data="스페셜 코스튬"/>
+		<Class ClassID="106071" ClassName="EffectCostume" Data="이펙트 코스튬"/>
+		<Class ClassID="106072" ClassName="Etc" Data="기타"/>
+		<Class ClassID="106073" ClassName="GemRed" Data="레드 젬"/>
+		<Class ClassID="106074" ClassName="GemBlue" Data="블루 젬"/>
+		<Class ClassID="106075" ClassName="GemGreen" Data="그린 젬"/>
+		<Class ClassID="106076" ClassName="CardPurple" Data="퍼플 카드"/>
+		<Class ClassID="106077" ClassName="GemWhite" Data="화이트 젬"/>
+		<Class ClassID="106078" ClassName="CardLeg" Data="레전드 카드"/>
+		<Class ClassID="106079" ClassName="Misc" Data="재료"/>
+		<Class ClassID="106080" ClassName="Special" Data="장비 강화"/>
+		<Class ClassID="106081" ClassName="Mineral" Data="광물"/>
+		<Class ClassID="106082" ClassName="Jungtan" Data="활성화 주문서"/>
+		<Class ClassID="106083" ClassName="Scroll" Data="기타"/>
+		<Class ClassID="106084" ClassName="Usual" Data="일반"/>
+		<Class ClassID="106085" ClassName="GemYellow" Data="옐로우 젬"/>
+		<Class ClassID="106086" ClassName="GemAddExp" Data="젬 연마제"/>
+		<Class ClassID="106087" ClassName="CardAddExp" Data="강화용 카드"/>
+		<Class ClassID="106088" ClassName="Summon" Data="카드첩"/>
+		<Class ClassID="106089" ClassName="Acc" Data="액세서리"/>
+		<Class ClassID="106090" ClassName="GemSkill" Data="스킬 젬"/>
+		<Class ClassID="106091" ClassName="CardRed" Data="레드 카드"/>
+		<Class ClassID="106092" ClassName="CardBlue" Data="블루 카드"/>
+		<Class ClassID="106093" ClassName="CardGreen" Data="그린 카드"/>
+		<Class ClassID="106094" ClassName="Collect" Data="콜렉션"/>
+		<Class ClassID="106095" ClassName="HairAcc" Data="헤어 액세서리"/>
+		<Class ClassID="106096" ClassName="OPTMisc" Data="특수 장비 강화"/>
+		<Class ClassID="106097" ClassName="IcorWeapon" Data="아이커 - 무기"/>
+		<Class ClassID="106098" ClassName="IcorArmor" Data="아이커 - 방어구"/>
+		<Class ClassID="106099" ClassName="Jewel" Data="인챈트 쥬얼"/>
+		<Class ClassID="106100" ClassName="ChangeEquip" Data="외형 변경 장비"/>
+		<Class ClassID="106101" ClassName="UTIL" Data="보조"/>
+		<Class ClassID="106102" ClassName="STAT" Data="능력"/>
+		<Class ClassID="106103" ClassName="MARKET_DEF" Data="방어"/>
+	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>
 		<Class ClassID="107002" ClassName="OnlySkillWithSpendItemIsAble" Data="해당 스킬은 등록할 수 없습니다."/>
@@ -8353,7 +8410,7 @@
 		<Class ClassID="111031" ClassName="MaxSocket" Data="최대 소켓"/>
 		<Class ClassID="111032" ClassName="ShopTrade" Data="상점에 판매"/>
 		<Class ClassID="111033" ClassName="UserTrade" Data="유저와 거래"/>
-		<Class ClassID="111034" ClassName="PR" Data="강화잠재력"/>
+		<Class ClassID="111034" ClassName="PR" Data="포텐셜"/>
 		<Class ClassID="111035" ClassName="SellPrice" Data="상점 판매 가격"/>
 		<Class ClassID="111036" ClassName="UseLv" Data="착용 레벨"/>
 		<Class ClassID="111037" ClassName="UseJob" Data="착용 직업"/>
@@ -11546,7 +11603,7 @@
 		<Class ClassID="201065" ClassName="ChatFrameType" Data="채팅 탭 전환"/>
 		<Class ClassID="201066" ClassName="FishingBag" Data="살림통"/>
 		<Class ClassID="201067" ClassName="guildinfo" Data="길드 정보"/>
-		</Category>
+	</Category>
 	<Category Name="QuestAutoTool">
 		<Class ClassID="202001" Data="퀘스트 툴 파일 복사"/>
 		<Class ClassID="202002" Data="사냥 시 퀘스트 시작 아이템"/>
@@ -12136,8 +12193,8 @@
 		<Class ClassID="501016" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
 		<Class ClassID="501017" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
 		<Class ClassID="501072" ClassName="Event_Nru2_Guide_2" Data="장비 선택"/>
-		</Category>
-		<Category Name="Npc_Equip_Shop_270_315">
+	</Category>
+	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
 		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
@@ -12172,7 +12229,7 @@
 		<Class ClassID="501178" ClassName="EVENT_1806_PENALTY_MSG6" Data="승부의 신"/>
 		<Class ClassID="501179" ClassName="EVENT_1806_PENALTY_MSG7" Data="승부의 신 종료"/>
 		<Class ClassID="501180" ClassName="EVENT_1806_PENALTY_MSG8" Data="승부의 신 랭킹"/>
-		</Category>
+	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
 		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>
@@ -12302,7 +12359,7 @@
 		<Class ClassID="700015" ClassName="TopRanking" Data="상위 랭킹"/>
 		<Class ClassID="700016" ClassName="{CtrlType}Type{RankNum}Rank" Data="{CtrlType} {RankNum}랭크"/>
 		<Class ClassID="700017" ClassName="Score" Data="점수"/>
-		</Category>
+	</Category>
 	<Category Name="LegendTrade">
 		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
@@ -12378,7 +12435,7 @@
 		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
 		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>
@@ -12465,7 +12522,8 @@
 		<Class ClassID="1002039" ClassName="PreviewBtn_Text_Discover" Data="살펴보기"/>
 		<Class ClassID="1002040" ClassName="BEAUTY_SHOP_EQUIPABLE_CHECK" Data="해당 캐릭터는 착용할 수 없는 상품입니다."/>
 		<Class ClassID="1002041" ClassName="NotVisibleWingCostume_Hair" Data="해당 헤어 구매 시 {nl}일부 {@st66d_y}등 코스튬과 렌즈가 {nl}보이지 않을 수 있습니다.{/}{nl}그래도 구매하시겠습니까?"/>
-<Class ClassID="1002043" ClassName="ItemsThatCanNotBePurchased" Data="구매 불가능한 아이템"/>		<Class ClassID="1002042" ClassName="NotVisibleWingCostume_Wig" Data="해당 아이템 착용 시 {nl}일부 {@st66d_y}등 코스튬이 보이지 않을 수 있습니다.{/}{nl}그래도 구매하시겠습니까?"/>
+		<Class ClassID="1002043" ClassName="ItemsThatCanNotBePurchased" Data="구매 불가능한 아이템"/>
+		<Class ClassID="1002042" ClassName="NotVisibleWingCostume_Wig" Data="해당 아이템 착용 시 {nl}일부 {@st66d_y}등 코스튬이 보이지 않을 수 있습니다.{/}{nl}그래도 구매하시겠습니까?"/>
 		<Class ClassID="1002044" ClassName="BEAUTY_SHOP_FASHION_4" Data="테마 상품 입어보기"/>
 		<Class ClassID="1002045" ClassName="NotBuy_Thema" Data="해당 상품은 개별 구매가 불가능하며,{nl}{@st66d_y}여신의 큐브에서 {nl}확률적으로 획득할 수 있는 아이템입니다.{/}"/>
 	</Category>
@@ -12557,13 +12615,18 @@
 		<Class ClassID="2100007" ClassName="AvailableAfterRegisterGuildPromote" Data="미리보기 등록 후 이용이 가능합니다."/>
 		<Class ClassID="2100008" ClassName="CannotJoinWhileGuildWar" Data="길드 전쟁중에는 길드 가입을 할 수 없습니다"/>
 		<Class ClassID="2100009" ClassName="DuplicateClaim" Data="중복되는 직급이 있습니다."/>
-		</Category>
+	<Class ClassID="2200001" ClassName="MarketWebService_1" Data="해당 아이템은 이미 팔렸거나 취소된 아이템입니다."/>
+		<Class ClassID="2200002" ClassName="MarketWebService_2" Data="아이템의 소유주가 아닙니다."/>
+		<Class ClassID="2200003" ClassName="MarketWebService_3" Data="아이템 정보를 얻어오는데 실패했습니다."/>
+		<Class ClassID="2200004" ClassName="MarketWebService_902" Data="서버로 잘못된 Parameter 정보가 전달되었습니다."/>
+		<Class ClassID="2200005" ClassName="MarketWebService_904" Data="서버오류로 정상적인 처리가 되지 않았습니다."/>
+	</Category>
 	<Category Name="Raid">
 		<Class ClassID="514001" ClassName="VelcofferSealStoneScrMsg" Data="봉인 해제중.."/>
 		<Class ClassID="514002" ClassName="VelcofferTeraStoneScrMsg" Data="테라 정수 수집중.."/>
 		<Class ClassID="514003" ClassName="VelcofferBlessScrMsg" Data="제단에 테라 정수를 바치는 중.."/>
 		<Class ClassID="514004" ClassName="VelcofferWarpMsg" Data="이동 마법진 사용중"/>
-		</Category>
+	</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>
 		<Class ClassID="513002" ClassName="SoloDungeonSelectMsg_1" Data="이공간에 들어간다.(권장레벨:300)"/>

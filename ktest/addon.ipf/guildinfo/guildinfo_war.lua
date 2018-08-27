@@ -4,17 +4,7 @@ function GUILDINFO_WAR_INIT(parent, warBox)
     ui.CloseFrame('guild_authority_popup');
 end
 
-function ON_GUILD_SET_NEUTRALITY(parent, checkBox)	
---[[
-    local isLeader = AM_I_LEADER(PARTY_GUILD);
-	if 0 == isLeader then
-		ui.SysMsg(ScpArgMsg("OnlyLeaderAbleToDoThis"));
-        GUILDINFO_WAR_INIT_CHECKBOX(parent);
-		return;
-	end
-    ]]--
-    
-
+function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
 	local guild = GET_MY_GUILD_INFO();
     local guildObj = GET_MY_GUILD_OBJECT();
     if guild == nil or guildObj == nil then
@@ -28,16 +18,6 @@ function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
         return;
     end
 
-    -- 길드 중립 템플러 길마만 할 수 있다고 함
-    --[[
-    local templerCls = GetClass('Job', 'Char1_16');
-    if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == false then
-        ui.SysMsg(ClMsg('TgtDonHaveTmpler'));        
-        GUILDINFO_WAR_INIT_CHECKBOX(parent);
-        return;
-    end
-    -]]
-
     local curState = guild.info:GetNeutralityState();
     local neutralityCost = 0;
     if curState == false then -- 자금 확인
@@ -46,10 +26,7 @@ function ON_GUILD_SET_NEUTRALITY(parent, checkBox)
             GUILDINFO_WAR_INIT_CHECKBOX(parent);
             return;
         end
-        local currentAsset = guildObj.GuildAsset;    
-        if currentAsset == nil or currentAsset == 'None' then
-            currentAsset = 0;
-        end
+        local currentAsset = guild.info:GetAssetAmount();
         currentAsset = tonumber(currentAsset);
         if currentAsset < neutralityCost then
             ui.SysMsg(ScpArgMsg('UnableGuildNeutralityBecause{COST}', 'COST', GET_COMMAED_STRING(neutralityCost)));
@@ -158,7 +135,6 @@ function ON_GUILD_NEUTRALITY_UPDATE(frame, msg, strArg, numArg)
 		end
 	end
     GUILDINFO_WAR_INIT_CHECKBOX(frame);
-    GUILDINFO_INIT_PROFILE(frame);
 end
 
 function GUILDINFO_WAR_NEUTRALITY_ALARM(parent, alarmCheck)
