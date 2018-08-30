@@ -132,7 +132,7 @@ function APPRAISAL_PC_EXECUTE(frame)
 	end
 
 	-- check money
-	if handle ~= session.GetMyHandle() and GET_TOTAL_MONEY() < frame:GetUserIValue('TOTAL_MONEY') then
+	if handle ~= session.GetMyHandle() and IsGreaterThanForBigNumber(frame:GetUserIValue('TOTAL_MONEY'), GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("Auto_SoJiKeumi_BuJogHapNiDa."));
 		return;
 	end

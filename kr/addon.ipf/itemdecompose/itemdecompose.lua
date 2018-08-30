@@ -170,11 +170,11 @@ function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
     
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "remainSilver", "ui::CRichText")
 	if totalprice <= 0 then
-		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY()))
+		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()))
 		return;
 	end
     
-	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice));
+	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -1 * totalprice));
 	calcprice:SetText(mymoney)
     
 	frame:SetUserValue('TOTAL_MONEY', totalprice);
@@ -301,7 +301,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		return;
 	end
 	
-	if GET_TOTAL_MONEY() < totalprice then
+	if IsGreaterThanForBigNumber(totalprice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end

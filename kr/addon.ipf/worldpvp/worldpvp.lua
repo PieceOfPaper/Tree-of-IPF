@@ -624,7 +624,6 @@ function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 	end
 
 	local imgName = GET_JOB_ICON(iconInfo.job);
-
 	local txt_name = ctrlSet:GetChild("txt_name");
 	local pic = GET_CHILD(ctrlSet, "pic");
 	ctrlSet:SetUserValue("CID", key);
@@ -641,6 +640,9 @@ function UPDATE_PVP_RANK_CTRLSET(ctrlSet, info)
 
 	if imgName ~= 'None' then
 		pic:SetImage(imgName);
+		pic:ShowWindow(1);
+	else
+		pic:ShowWindow(0);
 	end
 
 	local txt_rank = ctrlSet:GetChild("txt_rank");

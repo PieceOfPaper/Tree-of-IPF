@@ -364,7 +364,7 @@ function ACCOUNT_WAREHOUSE_WITHDRAW(frame, slot)
 		return;
 	end
 
-	if visItem.count < price then
+	if IsGreaterThanForBigNumber(price, visItem:GetAmountStr()) == 1 then
 		moneyInput:SetText('0');
 		ui.MsgBox(ClMsg("NotEnoughStoredMoney"));
 		return;
@@ -389,13 +389,13 @@ function ACCOUNT_WAREHOUSE_DEPOSIT(frame, slot)
 
 	local visItem = session.GetInvItemByName(MONEY_NAME)
 	if visItem == nil then
-		moneyInput:SetText('0');
+		moneyInput:SetText('0');		
 		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
 		return;
 	end
 
-	if visItem.count < price then
-		moneyInput:SetTempText('0');
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then		
+		moneyInput:SetTempText('0');		
 		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
 		return;
 	end
@@ -436,7 +436,7 @@ function ACCOUNT_WAREHOUSE_EXTEND(frame, slot)
 end
 
 function CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(price)
-	if 0 > GET_TOTAL_MONEY() - price then
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg("NotEnoughMoney"))
 		return;
 	end

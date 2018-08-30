@@ -90,6 +90,11 @@ function PETCMD_FEEDING(parent, ctrl)
 		return;
 	end
 
+	if foodItem.isLockState == true then
+		ui.SysMsg(ClMsg("MaterialItemIsLock"));
+		return;
+	end
+
 	control.CustomCommand("COMPANION_GIVE_FEED", handle, foodItem.invIndex, 0);
 	--INV_ICON_USE(foodItem);
 

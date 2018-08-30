@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Particle frame="3" attachNode="Dummy_q_Force" particleName="I_light013_spark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_arrowstart" particleName="F_light124" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_arrowstart" particleName="I_Curtain001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_arrowstart" particleName="F_light131" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false"/>
+	<BlendOn frame="0" R="100" G="100" B="100" A="10"/>
+	<BlendOff frame="2" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
 </ActionDesc>

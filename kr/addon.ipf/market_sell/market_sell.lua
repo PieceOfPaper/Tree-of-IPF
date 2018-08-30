@@ -1,18 +1,21 @@
-﻿
-function MARKET_SELL_ON_INIT(addon, frame)
+﻿function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_REGISTER", "ON_MARKET_REGISTER");
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 	addon:RegisterMsg('RESPONSE_MIN_PRICE', 'ON_RESPONSE_MIN_PRICE');
+	addon:RegisterMsg('WEB_RELOAD_SELL_LIST', 'ON_WEB_RELOAD_SELL_LIST');
+end
+
+function ON_WEB_RELOAD_SELL_LIST(frame, msg, argStr, argNum)	
+	RequestMarketSellList();
 end
 
 function MARKET_SELL_OPEN(frame)
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
-	market.ReqMySellList(0);
+	RequestMarketSellList();
 	packet.RequestItemList(IT_WAREHOUSE);
-
 
 	local groupbox = frame:GetChild("groupbox");
 
@@ -115,11 +118,10 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		-- 시간 표기하는 부분
 		local remainTimeCtrl = ctrlSet:GetChild("remainTime");
-		local endImcTime = session.market.GetEndTime(marketItem);
-		if endImcTime == nil then
+		if marketItem:IsWatingForRegister() == true then
 			remainTimeCtrl:SetTextByKey("value", ClMsg("PleaseWaiting"));
 		else
-			local endSYSTime = imcTime.ImcTimeToSysTime(endImcTime);
+			local endSYSTime = marketItem:GetEndTime();
 			local difSec = imcTime.GetDifSec(endSYSTime, sysTime);			
 			remainTimeCtrl:SetUserValue("REMAINSEC", difSec);
 			remainTimeCtrl:SetUserValue("STARTSEC", imcTime.GetAppTime());
@@ -266,7 +268,7 @@ function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 		priceText:SetTextByKey("priceText", GetMonetaryString(edit_price_value))
 		UPDATE_FEE_INFO(frame, feeSelected, edit_count_value, edit_price_value)
 
-		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID());
+		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID(), invItem.type);
 	end
 end
 
@@ -319,7 +321,7 @@ function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
 	if invItem ~= nil then
 		local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
 		if ret == true then			
-			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID);
+			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID, invItem.type);
 		end
 		return;
 	end
@@ -396,8 +398,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if count+1 > maxCount then
-		ui.SysMsg(ClMsg("MarketRegitCntOver"));		
+	if count + 1 > maxCount then
+		ui.SysMsg(ClMsg("MarketRegitCntOver"));
 		return;
 	end
 	local frame = parent:GetTopParentFrame();
@@ -406,7 +408,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count");
 	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price");
 
-	local invitem = GET_SLOT_ITEM(slot_item);
+	local invitem = GET_SLOT_ITEM(slot_item);	
 	if invitem == nil then
 		return;
 	end
@@ -460,11 +462,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local needTime = frame:GetUserIValue('TIME_'..selecIndex);
 	local free = tonumber(frame:GetUserValue('FREE_'..selecIndex));
 	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
-	local commission = registerFeeValueCtrl:GetTextByKey("value")
+	local commission = registerFeeValueCtrl:GetTextByKey("value")	
 	commission = string.gsub(commission, ",", "")
-	commission = tonumber(commission)
-	local vis = session.GetInvItemByName("Vis");
-	if vis == nil or 0 > vis.count - commission then
+	commission = math.max(tonumber(commission), 1);
+	if IsGreaterThanForBigNumber(commission, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg("Auto_SilBeoKa_BuJogHapNiDa."));
 		return;
 	end
@@ -500,7 +501,6 @@ function MARKET_SELL_REGISTER(parent, ctrl)
     	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_MAX_PRICE));
     	return;
 	end
-
 
 	if true == invitem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -538,13 +538,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return false;
 	end
 
-
 	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, needTime);
-
-	commission = math.floor(commission);
-	if commission <= 0 then
-		commission = 1;
-	end
+	commission = registerFeeValueCtrl:GetTextByKey("value");	
+	commission = string.gsub(commission, ",", "");
+	commission = math.max(tonumber(commission), 1);
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
 			-- 장비그룹만 buffValue가 있다.
@@ -560,7 +557,6 @@ end
 function UPDATE_COUNT_STRING(parent, ctrl)
     local frame = parent:GetTopParentFrame();
 	local edit_price = GET_CHILD_RECURSIVELY(frame, "edit_price");
-	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
 	
 	local limitMoney = MARKET_REGISTER_SILVER_LIMIT
 	local itemPrice = edit_price:GetText()
@@ -573,7 +569,7 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 		if count == nil or countTxt == "" then
 			count = 0;
 		end
-
+		
 		if count * tonumber(itemPrice) > limitMoney then
 			count = math.floor(limitMoney / itemPrice)
 			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
@@ -584,7 +580,7 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 end
 
 function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)	
-    local moneyText = ctrl:GetText();    
+    local moneyText = ctrl:GetText();
     if moneyText == "" then
         moneyText = 0;
     end
@@ -608,7 +604,7 @@ function UPDATE_MARKET_MONEY_STRING(parent, ctrl)
         moneyText = 0;
     end
 
-    local frame = parent:GetTopParentFrame();
+    local frame = parent:GetTopParentFrame();    
     local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
     
 	local edit_count = GET_CHILD_RECURSIVELY(frame, "edit_count")
@@ -617,7 +613,7 @@ function UPDATE_MARKET_MONEY_STRING(parent, ctrl)
     if tonumber(moneyText) * itemCount > limitMoney then
         moneyText = tostring(math.floor(limitMoney / itemCount));
         ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
-    end
+	end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 
 	local feeGBoxFrame = GET_CHILD_RECURSIVELY(frame, "feeGbox");
@@ -630,10 +626,10 @@ end
 --feeGBox의 컨텐츠 업데이트(등록 수수료, 총 판매 가격, 수수료, 최종 수령금 표시)
 --호출 함수 : 라디오버튼 클릭시, edit_price에서 가격 수정시
 function UPDATE_FEE_INFO(frame, free, count, price)
-	local registerFeeValueCtrl 		= GET_CHILD_RECURSIVELY(frame, "registerFeeValue");		--등록 수수료
-	local totalSellPriceValueCtrl 	= GET_CHILD_RECURSIVELY(frame, "totalSellPriceValue");	--총 판매 가격
-	local feeValueCtrl 				= GET_CHILD_RECURSIVELY(frame, "feeValue");				--수수료(10% or 30%)
-	local finalRecieveValueCtrl 	= GET_CHILD_RECURSIVELY(frame, "finalRecieveValue");	--최종 수령금
+	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue"); --등록 수수료
+	local totalSellPriceValueCtrl = GET_CHILD_RECURSIVELY(frame, "totalSellPriceValue"); --총 판매 가격
+	local feeValueCtrl = GET_CHILD_RECURSIVELY(frame, "feeValue"); --수수료(10% or 30%)
+	local finalRecieveValueCtrl = GET_CHILD_RECURSIVELY(frame, "finalRecieveValue"); --최종 수령금
 
 	if free == nil then
 		local radioCtrl = GET_CHILD_RECURSIVELY(frame, "feePerTime_1")
@@ -669,7 +665,7 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	
 	--소수점 단위 버림
 	local totalPrice = math.mul_int_for_lua(price, count);
-	local registerFeeValue = math.floor(tonumber(math.mul_int_for_lua(math.mul_int_for_lua(totalPrice, free), 0.01)));	
+	local registerFeeValue = math.max(math.floor(tonumber(math.mul_int_for_lua(math.mul_int_for_lua(totalPrice, free), 0.01))), 1);	
 	local feeValue = 0;
 	local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
 	local isPremiumStateNexonPC = session.loginInfo.IsPremiumState(NEXON_PC);
@@ -726,8 +722,9 @@ function CLEAR_SELL_INFO(frame)
 	priceText:SetTextByKey("priceText", "0")
 end
 
-function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid)
+function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid, itemClassID)
 	market.ReqSellMinMaxInfo(itemGuid);
+	RequestMarketMinPrice(itemClassID);
 	frame:SetUserValue('REQ_ITEMID', itemGuid)
 end
 

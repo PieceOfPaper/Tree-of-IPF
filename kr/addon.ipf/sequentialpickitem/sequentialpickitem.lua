@@ -108,8 +108,6 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	frame:SetUserValue("ITEMGUID_N_COUNT",tablekey)
 	
 	local duration = tonumber(frame:GetUserConfig("POPUP_DURATION"))
-
-
 	local PickItemGropBox	= GET_CHILD(frame,'pickitem')
 	--PickItemGropBox:RemoveAllChild();  -- 여기서 자식들을 죽여서 자식으로 넣은 픽쳐가 안나왔음.
 
@@ -123,13 +121,18 @@ function ADD_SEQUENTIAL_PICKITEM(frame, msg, itemGuid, itemCount, class, tableke
 	local ConSetBySlot 	= PickItemCountCtrl:GetChild('slot');
 	local slot			= tolua.cast(ConSetBySlot, "ui::CSlot");
 	local icon = CreateIcon(slot);
-	local iconName = img;
-
-	icon:Set(iconName, 'PICKITEM', itemCount, 0);
-
 
 	-- 아이템 이름과 획득량 출력
-	local printName	 = '{@st41}' ..GET_FULL_NAME(class);
+	local invItem = session.GetInvItemByGuid(itemGuid);
+	local nameObj = class;
+	local iconName = img;
+	if invItem ~= nil and invItem:GetObject() ~= nil then
+		nameObj = GetIES(invItem:GetObject());
+		iconName = GET_ITEM_ICON_IMAGE(nameObj);
+	end	
+	icon:Set(iconName, 'PICKITEM', itemCount, 0);
+
+	local printName	 = '{@st41}' ..GET_FULL_NAME(nameObj);
 	local printCount = '{@st41b}'..ScpArgMsg("GetByCount{Count}", "Count", itemCount);
 
 	PickItemCountCtrl:SetTextByKey('ItemName', printName);

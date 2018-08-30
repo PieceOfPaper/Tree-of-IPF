@@ -64,7 +64,9 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 	local sobjIES = GET_MAIN_SOBJ();
 
 	local ret = QUEST_ABANDON_RESTARTLIST_CHECK(questIES, sobjIES);
-	if ret == 'NOTABANDON' then
+	local questState = SCR_QUEST_CHECK(sobjIES, questIES.ClassName);
+	--퀘스트 중 대화만 끝나면 바로 success인 퀘스트가 있다. 이런 퀘스트도 수락시 지령창에 표시함
+	if ret == 'NOTABANDON' or questState == 'SUCCESS' then		
 		UPDATE_ALLQUEST(frame, nil, 1, argNum, 1);
 	elseif ret == 'ABANDON/LIST' then
 		UPDATE_ALLQUEST_ABANDONLIST(frame);
@@ -415,7 +417,7 @@ function SET_QUEST_LIST_SET(frame, questGbox, posY, ctrlName, questIES, result, 
 		Quest_Ctrl:SetSkinName('test_mainquest_skin');
 	elseif questIES.QuestMode == 'SUB' then
 		Quest_Ctrl:SetSkinName('test_subquest_skin');
-	elseif questIES.PeriodInitialization ~= "None" then -- 일일 퀘스트
+	elseif questIES.PeriodInitialization ~= "None" then -- ?�일 ?�스?
 		Quest_Ctrl:SetSkinName('test_dayquest_skin');
 	elseif questIES.QuestMode == 'REPEAT' then
 		Quest_Ctrl:SetSkinName('test_repeatquest_skin');
@@ -610,12 +612,11 @@ function Q_CTRL_BASIC_SET(Quest_Ctrl, classID, isNew)
 	checkBox:SetTextTooltip(ScpArgMsg("Auto_{@st59}CheKeu_HaMyeon_HwaMyeon_oLeunJjoge_KweSeuTeu_alLiMiKa_NaopNiDa{nl}KweSeuTeu_alLiMiNeun_ChoeDae_5KaeKkaJi_DeungLog_KaNeungHapNiDa{/}"))
 
 	if isNew == 1 or quest.IsCheckQuest(classID) == true then
-
+	
 		local pc = GetMyPCObject();
 		local questIES = GetClassByType("QuestProgressCheck", classID);
 		local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
-		if result == "POSSIBLE" and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO' and questIES.POSSI_WARP ~= 'YES' then
-			
+		if (result == "POSSIBLE" or result == "SUCCESS") and SCR_ISFIRSTJOBCHANGEQUEST(questIES) == 'NO' and questIES.POSSI_WARP ~= 'YES' then
 			--????? ????? ?????? ?????? ????????
 			checkBox:SetCheck(1);
 			ADD_QUEST_DETAIL(Quest_Ctrl:GetTopParentFrame(), checkBox, 'None', classID, true);	
@@ -682,15 +683,17 @@ function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)
 		nametxt:SetText(questIES.Name)		-- ???? ??????? ?????????
 
 --		y = nametxt:GetY() + nametxt:GetHeight() + 10;
-		local descTxt = Quest_Ctrl:CreateOrGetControl("richtext", "state", 55, y, titleWidth, 18);
 		local desc = questIES[CONVERT_STATE(result) .. 'Desc'];
-		tolua.cast(descTxt, "ui::CRichText");
-		descTxt:SetFontName("brown_16_b");
-		descTxt:SetTextFixWidth(1);
-		descTxt:EnableResizeByText(1);
-		descTxt:SetText(ScpArgMsg("QuestDescBasicTxt")..desc);
-
-		y = y + descTxt:GetHeight() + 5;
+		if desc ~= '' and desc ~= 'None' then
+    		local descTxt = Quest_Ctrl:CreateOrGetControl("richtext", "state", 55, y, titleWidth, 18);
+    		tolua.cast(descTxt, "ui::CRichText");
+    		descTxt:SetFontName("brown_16_b");
+    		descTxt:SetTextFixWidth(1);
+    		descTxt:EnableResizeByText(1);
+    		descTxt:SetText(ScpArgMsg("QuestDescBasicTxt")..desc);
+    
+    		y = y + descTxt:GetHeight() + 5;
+    	end
 
 	else
 		Quest_Ctrl:RemoveChild("state");
@@ -816,7 +819,14 @@ function Q_CTRL_TITLE_SET(Quest_Ctrl, questIES, questname, result)
 --		end
 	end
 
-	Quest_Ctrl:Resize(Quest_Ctrl:GetWidth(), y + 20);
+	-- y가 컨트롤의 기본 높이보다 낮으면 기본높이로 조절한다. 
+	if Quest_Ctrl:GetOriginalHeight() > y then
+		y = Quest_Ctrl:GetOriginalHeight()
+	else 
+		y = y +20; -- 아래 공간을 확보해야 하기 때문에 20 크게 잡아줌.
+	end
+
+	Quest_Ctrl:Resize(Quest_Ctrl:GetWidth(), y );
 end
 
 function QUESTTREE_CHOICE(questTabName)
@@ -1072,7 +1082,7 @@ function CHECK_PARTY_QUEST_ADD(frame, questID)
 end
 
 function REQUEST_SHARED_QUEST_PROGRESS(questClsID)
-	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1) -- 값을 초기화해야 바뀜
+	party.ReqChangeMemberProperty(PARTY_NORMAL, "Shared_Progress", -1) -- 값을 초기?�해??바��
 
 	local myInfo = session.party.GetMyPartyObj(PARTY_NORMAL);
 	if nil == myInfo then

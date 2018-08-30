@@ -1328,7 +1328,7 @@ function GET_FULL_GRADE_NAME(itemCls, gradeSize)
 	return GET_FULL_NAME(itemCls) .. "{nl}" .. gradeTxt;
 end
 
-function GET_FULL_NAME(item, useNewLine, isEquiped)
+function GET_FULL_NAME(item, useNewLine, isEquiped)	
 	if isEquiped == nil then
 		isEquiped = 0;
 	end
@@ -1373,8 +1373,13 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		end
 	end
 
-	if IS_ENCHANT_JEWELL_ITEM(item) == true then		
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then
 		return GET_EXTRACT_ITEM_NAME(item);
+	end
+
+	if IS_SKILL_SCROLL_ITEM ~= nil and IS_SKILL_SCROLL_ITEM(item) == true then
+		local skillCls = GetClassByType('Skill', item.SkillType);
+		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
 	end
 
 	return ownName;
@@ -1870,16 +1875,14 @@ function SCR_EXEC_MONWANGGA(guid, x, y, z)
 
 end
 
-function GET_TOTAL_MONEY()
-	local Cron = 0;
+ function GET_TOTAL_MONEY_STR() -- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
+	local silver = '0';
 	local invItem = session.GetInvItemByName('Vis');
 	if invItem ~= nil then
-		Cron = invItem.count;
+		silver = invItem:GetAmountStr();
 	end
-
-	return Cron;
+	return silver;
  end
-
 
 function TRADE_DIALOG_CLOSE()
 	control.DialogOk();
@@ -2958,29 +2961,31 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 			
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-				local icon = slot:GetIcon();
-				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
-					local invitem  = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
-					local socketCnt = GET_SOCKET_CNT(invitem);
+				if slot ~= nil then
+					local icon = slot:GetIcon();
+					if icon ~= nil then
+						local class     = GetClassByType('Item', invItem.type);
+						local invitem  = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
+						local socketCnt = GET_SOCKET_CNT(invitem);
 
-					if invitem.ItemType == 'Equip' then
-						for i=0, socketCnt do
-							local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
-							if temp == 0 then
-								socketNum = i;
-								break;
+						if invitem.ItemType == 'Equip' then
+							for i=0, socketCnt do
+								local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
+								if temp == 0 then
+									socketNum = i;
+									break;
+								end
+							end
+
+							if socketCnt > socketNum then
+								slot:Select(1);
+							else
+								slot:Select(0);
 							end
 						end
-
-						if socketCnt > socketNum then
-							slot:Select(1);
-						else
-							slot:Select(0);
-						end
 					end
+					cnt = cnt + 1;
 				end
-				cnt = cnt + 1;
 			end
 
 			index = invItemList:Next(index);

@@ -11533,7 +11533,7 @@ end
 
 function SCR_GET_Sanctuary_Ratio(skill)
     local pc = GetSkillOwner(skill);
-    local DEF = TryGetProp(pc, "DEF")
+    local DEF = SCR_CALC_BASIC_DEF(pc)
     local defRate = DEF * (0.1 * skill.Level)
     
     return math.floor(defRate)
@@ -11541,7 +11541,7 @@ end
 
 function SCR_GET_Sanctuary_Ratio2(skill)
     local pc = GetSkillOwner(skill);
-    local MDEF = TryGetProp(pc, "MDEF")
+    local MDEF = SCR_CALC_BASIC_MDEF(pc);
     local mdefRate = MDEF * (0.1 * skill.Level)
     
     return math.floor(mdefRate)

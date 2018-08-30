@@ -2,7 +2,7 @@
 
 function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
     if TryGetProp(invitem, 'ClassType', 'None') == 'Outer' then
-        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬        
+        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬      
     end
     
 	if 'TooltipImage' == imageType then
@@ -249,7 +249,6 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 	local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
 	local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
 --	local STAR_SIZE = ControlSetObj:GetUserConfig("STAR_SIZE")
-
 	if gem == 0 then
 		local socketCls = GetClassByType("Socket", socket);
 		socketicon = socketCls.SlotIcon
@@ -270,11 +269,10 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 			socket_image_name = 'test_tooltltip_green'
 		elseif gemclass.ClassName == 'gem_star_1' then
 			socket_image_name = 'test_tooltltip_yellow'
-		elseif gemclass.ClassName == 'thengem_White_1' then
+		elseif gemclass.ClassName == 'gem_White_1' then
 			socket_image_name = 'test_tooltltip_white'
 		end
 
-		
 		socket_image:SetImage(socket_image_name)		
 		local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
 		
@@ -393,7 +391,7 @@ function SET_CARD_EDGE_TOOLTIP(parent, invitem)
 	local cardEdge = GET_CHILD(parent, "card_edge", "ui::CPicture");
 	if cardEdge ~= nil and invitem.CardGroupName ~= 'None' then
 		local cardGroupName = invitem.CardGroupName
-			
+		
 		if cardGroupName == 'ATK' then
 			cardEdge:SetImage('moncard_red')
 		elseif cardGroupName == 'DEF' then
@@ -1128,7 +1126,7 @@ function ABILITY_DESC_PLUS_OLD(desc, basic, cur, color)
 	end
 end
 
-function ABILITY_DESC_PLUS(desc, cur)
+function ABILITY_DESC_PLUS(desc, cur)    
 
     if cur < 0 then
         return string.format(" - %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
@@ -1341,4 +1339,16 @@ function GET_ENABLE_TRADE_MSG(itemProp)
 	else
 		return ScpArgMsg("UserTradeUnable")
 	end
+end
+
+function GET_ITEM_NAME_WITH_LEVEL(item, itemLv)
+	if item == nil then
+		return nil;
+	end
+
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then
+		return '['..string.format('LV. %d', itemLv)..'] '..item.Name;
+	end
+
+	return item.Name;
 end

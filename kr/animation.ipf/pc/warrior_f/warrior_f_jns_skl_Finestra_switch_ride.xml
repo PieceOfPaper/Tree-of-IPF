@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="5" attachNode="Bip01 Spine1" particleName="F_warrior_finestra_switch_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="true"/>
-	<Particle frame="8" attachNode="Dummy_L_HAND" particleName="F_warrior_finestra_switch_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<BlendOn frame="2" R="100" G="150" B="100" A="50"/>
+	<BlendOff frame="4" R="0" G="0" B="0" A="0"/>
+	<Particle frame="3" attachNode="Dummy_emitter_ride" particleName="F_warrior_finestra_switch_shot_light2" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_warrior_finestra_switch_shot_light3" useAttach="true" hiddenObj="false" changeEffect="None" scale="6.5" pause="false" use2DEffect="false"/>
+	<Particle frame="7" attachNode="Dummy_L_HAND" particleName="F_warrior_finestra_switch_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="false" use2DEffect="false"/>
 </ActionDesc>

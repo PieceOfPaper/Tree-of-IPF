@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Particle frame="0" attachActor="None" attachNode="Dummy_R_HAND" particleName="I_warrior_chargingattack_cast_blue" hiddenObj="false" useAttach="true" scale="0.7" pause="true" targetPos="false"/>
-	<Particle frame="0" attachActor="None" attachNode="Dummy_R_HAND" particleName="I_warrior_chargingattack_cast_blue1" hiddenObj="false" useAttach="true" scale="2" pause="true" targetPos="false"/>
-	<Particle frame="0" attachActor="None" attachNode="Dummy_R_HAND" particleName="F_warrior_chargingattack_cast_spread_in" hiddenObj="false" useAttach="true" scale="0.7" pause="true" targetPos="false"/>
-	<Particle frame="10" attachActor="None" attachNode="Dummy_emitter" particleName="F_warrior_chargingattack_cast_ground" hiddenObj="false" useAttach="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_L_HAND" particleName="I_warrior_chargingattack_cast_blue" hiddenObj="false" useAttach="true" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_L_HAND" particleName="F_warrior_chargingattack_cast_spread_in2" hiddenObj="false" useAttach="true" scale="2.5" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+	<Particle frame="10" attachActor="None" attachNode="Dummy_emitter" particleName="F_warrior_chargingattack_cast_ground2" hiddenObj="false" useAttach="false" scale="4" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
 </ActionDesc>

@@ -15,13 +15,13 @@ function ON_DELETE_PET(frame, msg, guid)
 	end
 		
 	local myaccount = session.barrack.GetMyAccount();
-	local barrackName = ui.GetFrame("barrack_name");
-	local richtext = barrackName:GetChild("richtext");
+	local barrackName = ui.GetFrame("barrack_charlist");
+	local pccount = barrackName:GetChild("pccount");
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local myCharCont = myaccount:GetPCCount() + myaccount:GetPetCount();
 	local barrackCls = GetClass("BarrackMap", myaccount:GetThemaName());
-	richtext:SetTextByKey("value", tostring(myCharCont));
-	richtext:SetTextByKey("value2", tostring(barrackCls.BaseSlot + buySlot));
+	pccount:SetTextByKey("curpc", tostring(myCharCont));
+	pccount:SetTextByKey("maxpc", tostring(barrackCls.BaseSlot + buySlot));
 
 	ON_BARRACK_CREATE_PET_BTN(frame);
 end
@@ -56,12 +56,15 @@ function ON_BARRACK_CREATE_PET_BTN(frame)
 	
 end
 
-function UPDATE_PET_LIST()
+function UPDATE_PET_LIST(barrackMode)
 	local frame = ui.GetFrame("barrack_petlist");
 	local bg = frame:GetChild("bg");
 	bg:RemoveAllChild();	
 
 	local acc = session.barrack.GetMyAccount();
+	if barrackMode == "Visit" then
+		acc = session.barrack.GetCurrentAccount();
+	end
 	local petVec = acc:GetPetVec();
 
 	if petVec:size() == 0 then

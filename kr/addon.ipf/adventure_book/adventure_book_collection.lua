@@ -44,7 +44,7 @@ function ADVENTURE_BOOK_COLLECTION_LIST(frame)
     local topFrame = frame:GetTopParentFrame();
     local collectionSearchEdit = GET_CHILD_RECURSIVELY(topFrame, 'collectionSearchEdit');
     local searchText = collectionSearchEdit:GetText();
-    
+  
 	-- 보여줄 콜렉션 리스트를 만듬
 	local collectionCompleteMagicList ={}; -- 완료된 총 효과 리스트.
 	local collectionInfoList = {};
@@ -204,6 +204,7 @@ function ADVENTURE_BOOK_CHECK_STATE_FILTER(frame, collectionInfo, searchText, co
     if searchText ~= nil and searchText ~= '' then
         local collectionName = ADVENTURE_BOOK_COLLECTION_REPLACE_NAME(collectionInfo.name);
         searchText = string.lower(searchText);
+        collectionName = dic.getTranslatedStr(collectionName)
         collectionName = string.lower(collectionName);
         if string.find(collectionName, searchText) == nil then
             return false;

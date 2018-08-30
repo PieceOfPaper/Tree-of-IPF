@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="EUC-KR"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<Sound frame="5.00" soundFile="skl_fgt_crescentwing"/>
-	<Particle frame="4" attachNode="Dummy_emitter" particleName="E_VerticalSlash_shot2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Shockwave frame="10" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="4" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="100" G="70" B="50" A="50"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="10" R="100" G="70" B="50" A="50"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="E_VerticalSlash_shot2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="4" R="15" G="15" B="15" A="50"/>
-	<BlendOn frame="6" R="30" G="30" B="30" A="50"/>
-	<BlendOn frame="8" R="50" G="50" B="50" A="50"/>
-	<BlendOn frame="9" R="80" G="80" B="80" A="50"/>
-	<BlendOn frame="10" R="150" G="150" B="100" A="50"/>
-	<BlendOn frame="11" R="100" G="100" B="100" A="50"/>
-	<BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+	<Particle frame="8" attachNode="Dummy_emitter_front" particleName="F_hit019" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="5.00" soundFile="skl_fgt_crescentwing"/>
 </ActionDesc>

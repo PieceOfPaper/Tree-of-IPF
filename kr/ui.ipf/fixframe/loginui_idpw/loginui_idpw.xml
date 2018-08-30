@@ -25,7 +25,7 @@
 		<groupbox name="pw_bg" rect="0 0 240 40" margin="0 0 0 370" layout_gravity="center bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<edit name="password" rect="0 0 230 36" margin="0 0 0 372" layout_gravity="center bottom" OffsetForDraw="0 3" clicksound="button_click" fontname="gold_login_text" maxlen="16" oversound="button_over" textalign="center top" tooltipcaption="{@st59}비밀 번호를 입력하십시오{/}" tooltipwidth="256" drawbackground="false" skin="None" typingsound="chat_typing"/>
 		<text name="SERVERLIST" rect="0 0 200 30" margin="-230 0 0 310" layout_gravity="center bottom" caption="서버 목록" fontname="white_18_b_ol" textalign="right center"/>
-		<button name="OK" rect="0 0 280 100" margin="0 0 0 70" layout_gravity="center bottom" MouseOnAnim="btn_mouseover_3" caption="{@st43}게임 접속{/}" clicksound="game_start" oversound="button_over" image="login_test_button" textalign="center center" textoffset="0 0" tooltipcaption="{@st59}선택한 서버에 접속합니다{/}" tooltipwidth="256">
+		<button name="OK" rect="0 0 280 100" margin="0 0 0 100" layout_gravity="center bottom" MouseOnAnim="btn_mouseover_3" caption="{@st43}게임 접속{/}" clicksound="game_start" oversound="button_over" image="login_test_button" textalign="center center" textoffset="0 0" tooltipcaption="{@st59}선택한 서버에 접속합니다{/}" tooltipwidth="256">
 			<uieffect effect="UI_light013_spark_blue2" scale="10" overlab="No" sound="None" offset="5 -2" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 			<uieffect effect="I_sys_item_slot4" scale="11" overlab="No" sound="None" offset="3 -4" playtime="1" duration="1" conditon="active" event="LBUTTONDOWN"/>
 		</button>

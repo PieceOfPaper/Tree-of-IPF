@@ -1873,64 +1873,64 @@ function TPSHOP_SET_PREVIEW_APC_IMAGE(frame, rotDir)
 	for i = 0, ES_LAST do	--  EQUIP_SPOT만이 아닌 ES_LENS 포함
 		SWITCH(i) {				
 		[ES_HAT] = function() 
-				invSlot = invframe:GetChild("HAT");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT");			
 		end,
 		[ES_HAT_L] = function() 
-				invSlot = invframe:GetChild("HAT_L");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_L");	
 		end,			
 		[ES_HAT_T] = function() 
-				invSlot = invframe:GetChild("HAT_T");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAT_T");	
 		end,
 		[ES_HAIR] = function() 
-				invSlot = invframe:GetChild("HAIR");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");	
 		end,
 		[ES_SHIRT] = function() 
-				invSlot = invframe:GetChild("SHIRT");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "SHIRT");	
 		end,
 		[ES_GLOVES] = function() 
-				invSlot = invframe:GetChild("GLOVES");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "GLOVES");	
 		end,
 		[ES_BOOTS] = function() 
-				invSlot = invframe:GetChild("BOOTS");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "BOOTS");	
 		end,
 		[ES_HELMET] = function()
-				invSlot = invframe:GetChild("HAIR");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "HAIR");	
 		end,
 		[ES_ARMBAND] = function() 
-				invSlot = invframe:GetChild("ARMBAND");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "ARMBAND");	
 		end,
 		[ES_RH] = function() 
-				invSlot = invframe:GetChild("RH");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "RH");	
 		end,
 		[ES_LH] = function() 
-				invSlot = invframe:GetChild("LH");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "LH");	
 		end,
 		[ES_OUTER] = function() 
-				invSlot = invframe:GetChild("OUTER");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "OUTER");	
 		end,
 		[ES_PANTS] = function() 
-				invSlot = invframe:GetChild("PANTS");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "PANTS");	
 		end,
 		[ES_RING1] = function() 
-				invSlot = invframe:GetChild("RING1");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING1");	
 		end,
 		[ES_RING2] = function() 
-				invSlot = invframe:GetChild("RING2");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "RING2");	
 		end,
 		[ES_NECK] = function() 
-				invSlot = invframe:GetChild("NECK");	
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "NECK");	
 		end,
 		[ES_LENS] = function() --ES_LENS
-				invSlot = invframe:GetChild("LENS");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "LENS");			
 		end,
 		[ES_WING] = function() --ES_WING
-				invSlot = invframe:GetChild("WING");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "WING");			
 		end,
 		[ES_SPECIAL_COSTUME] = function() --ES_SPECIAL_COSTUME
-				invSlot = invframe:GetChild("SPECIAL_COSTUME");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "SPECIAL_COSTUME");			
 		end,
 		[ES_EFFECT_COSTUME] = function() --ES_EFFECT_COSTUME
-				invSlot = invframe:GetChild("EFFECTCOSTUME");			
+				invSlot = GET_CHILD_RECURSIVELY(invframe, "EFFECTCOSTUME");			
 		end,
 		--[ES_HELMET] = function() end,		-- 6
 		--[ES_OUTERADD1] = function() end,	-- 11

@@ -21,25 +21,39 @@ function INIT_MAP_PICTURE_UI(pic, mapName, hitTest)
 
 end
 
-function DISABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
+function DISABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename, childname, buttonname, sec)
+	if sec == nil then
+		sec = 5;
+	end
 
 	local frame = ui.GetFrame(framename)
-	local child = GET_CHILD_RECURSIVELY(frame,childname)
+	local child = GET_CHILD_RECURSIVELY(frame, childname)
+	if child == nil then
+		return;
+	end
+
 	local btn = GET_CHILD_RECURSIVELY(child,buttonname)
+	if btn == nil then
+		return;
+	end
 
 	local strScp = string.format("ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(\"%s\",\"%s\", \"%s\")", framename, childname, buttonname);
 
-	ReserveScript(strScp, 5);
+	ReserveScript(strScp, sec);
 	btn:SetEnable(0)
 end
 
 function ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
-
 	local frame = ui.GetFrame(framename)
-	local child = GET_CHILD_RECURSIVELY(frame,childname)
-	local btn = GET_CHILD_RECURSIVELY(child,buttonname)
+	local child = GET_CHILD_RECURSIVELY(frame, childname);
+	if child == nil then
+		return;
+	end
+	local btn = GET_CHILD_RECURSIVELY(child, buttonname);
+	if btn == nil then
+		return;
+	end
 	btn:SetEnable(1)
-
 end
 
 function DISABLE_BUTTON_DOUBLECLICK(framename,buttonname, sec)

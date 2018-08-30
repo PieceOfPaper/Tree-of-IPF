@@ -167,8 +167,7 @@ function OBLATION_SELL_CALCULATE_PRICE(frame)
 	local gbox = frame:GetChild("gbox");
 	local expectsilver = gbox:GetChild("expectsilver");
 	expectsilver:SetTextByKey("value", expectedSellPrice);
-	local myMoney = GET_TOTAL_MONEY();
-	myMoney = myMoney + expectedSellPrice;
+	local myMoney = SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), expectedSellPrice);
 	local mysilver = gbox:GetChild("mysilver");
 	mysilver:SetTextByKey("value", myMoney);
 

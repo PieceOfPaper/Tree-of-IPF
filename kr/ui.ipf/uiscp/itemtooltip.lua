@@ -519,14 +519,15 @@ function CLOSE_ITEM_TOOLTIP()
 
 end
 
-function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, index)	
+function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
+	
 	if className == 'Scroll_SkillItem' then
 		local obj = GetIES(invitem:GetObject());
 		SET_TOOLTIP_SKILLSCROLL(icon, obj, nil, strType);
 	else
 		icon:SetTooltipType('wholeitem');
-		if nil ~= strType and nil ~= itemType and nil ~= index then			
-			icon:SetTooltipArg(strType, itemType, index);
+		if nil ~= strType and nil ~= ItemType and nil ~= index then
+			icon:SetTooltipArg(strType, ItemType, index);
 		end
 	end
 end

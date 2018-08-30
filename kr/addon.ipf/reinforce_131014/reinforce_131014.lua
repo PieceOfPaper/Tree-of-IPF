@@ -110,10 +110,9 @@ function REINFORCE_131014_MSGBOX(frame)
 	local curReinforce = fromItemObj.Reinforce_2;
 	local moruObj = GetIES(fromMoru:GetObject());
 	local pc = GetMyPCObject();
-	local price = GET_REINFORCE_PRICE(fromItemObj, moruObj, pc)
-	local hadmoney = GET_TOTAL_MONEY();
+	local price = GET_REINFORCE_PRICE(fromItemObj, moruObj, pc)	
 	local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)	
-	if hadmoney < retPrice then
+	if IsGreaterThanForBigNumber(retPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughMoney'));
 		return;
 	end

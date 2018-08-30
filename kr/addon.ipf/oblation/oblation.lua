@@ -166,7 +166,7 @@ function UPDATE_OBLATION_INV_COUNT(frame)
 		local mysilver = gbox:GetChild("mysilver");
 		consumesilver:SetTextByKey("value", givenPrice);
 		expectsilver:SetTextByKey("value", expectedSilver);
-		mysilver:SetTextByKey("value", GET_TOTAL_MONEY());
+		mysilver:SetTextByKey("value", GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()));
 	end 
 
 	count:SetTextByKey("curcount", curCount);

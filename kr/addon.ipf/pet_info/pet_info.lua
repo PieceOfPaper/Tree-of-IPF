@@ -542,7 +542,7 @@ function PET_STAT_UP(frame, ctrl)
 	obj = GetIES(obj);
 
 	local needSilver = PET_INFO_GET_STAT_SILVER(frame, pc, obj, trainCnt + 1);
-	if needSilver > GET_TOTAL_MONEY() then
+	if IsGreaterThanForBigNumber(needSilver, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end
@@ -573,7 +573,7 @@ function PET_INFO_SAVE_TRAIN(frame, ctrl)
 		return;
 	end
 	local totalCost = topFrame:GetUserIValue('TOTAL_COST');
-	if totalCost > GET_TOTAL_MONEY() then
+	if IsGreaterThanForBigNumber(totalCost, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end

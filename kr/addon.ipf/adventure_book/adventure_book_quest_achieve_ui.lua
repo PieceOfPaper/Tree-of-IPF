@@ -186,7 +186,7 @@ function SCR_QUEST_SHOW_ZONE_LIST(nowframe)
                                 local questLevelDrop = GET_CHILD_RECURSIVELY(topFrame, 'questLevelDrop');
                                 local lvIndex = questLevelDrop:GetSelItemIndex();    
                                 if math.floor(questCls.Level / 100) == lvIndex then
-                                    if searchText == '' or string.find(questCls.Name, searchText) ~= nil then
+                                    if searchText == '' or string.find(dic.getTranslatedStr(questCls.Name), searchText) ~= nil then
                                         zoneList[#zoneList + 1] = questCls.StartMap
                                     end
                                 end
@@ -314,7 +314,7 @@ function ADVENTURE_BOOK_QUEST_REALIGN(frame, ctrlSet)
     end
 end
 
-function ADVENTURE_BOOK_QUEST_FILL_QUEST_BY_MAP(expandBox, mapClassName)
+function ADVENTURE_BOOK_QUEST_FILL_QUEST_BY_MAP(expandBox, mapClassName)    
     if mapClassName == 'None' then
         return;
     end
@@ -406,7 +406,7 @@ function IS_QUEST_NEED_TO_SHOW(frame, questCls, mapName, searchText)
         return false;
     end
 
-    if searchText ~= '' and string.find(questCls.Name, searchText) == nil then
+    if searchText ~= '' and string.find(dic.getTranslatedStr(questCls.Name), searchText) == nil then
         return false;
     end
 

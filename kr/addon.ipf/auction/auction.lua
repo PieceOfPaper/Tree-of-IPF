@@ -46,26 +46,6 @@ function AUCTION_SET_CTRLSET(ctrlSet, aucItem)
 end
 
 function AUCTION_BUYNOW(ctrlSet, ctrl)
-	local silver = GetNumberFromCommaText(ctrl:GetTextByKey("value"));
-	if GET_TOTAL_MONEY() < silver then
-		ui.SysMsg(ClMsg('NotEnoughMoney'));
-		return;
-	end
-
-	local guid = ctrlSet:GetUserValue("GUID");
-	local frame = ctrlSet:GetTopParentFrame();
-	local handle = frame:GetUserIValue("NPCHANDLE");
-	local strScp = string.format("npcAuction.ReqNPCAuctionCmd(1, %d, \'%s\', 0)", handle, guid);
-	
-	local msgFrame = ui.MsgBox(ScpArgMsg("ReallyBuy?"), strScp, "None");
-	local noBtn = msgFrame:GetChild('NO');	
-	tolua.cast(noBtn, "ui::CButton");
-	local yesBtn = msgFrame:GetChild('YES');	
-	tolua.cast(yesBtn, "ui::CButton");
-
-	noBtn:SetClickSound('button_click_3');
-	yesBtn:SetClickSound('market buy');
-
 end
 
 function AUCTION_GET_LOSE_MONEY(ctrlSet, ctrl)

@@ -128,19 +128,6 @@ function AUC_POPUP_UPDATE_TIME(frame)
 end
 
 function AUC_POP_BID(frame)
-	local silver = tonumber(frame:GetChild("inputmoney"):GetText());
-	if GET_TOTAL_MONEY() < silver then
-		ui.SysMsg(ClMsg('NotEnoughMoney'));
-		return;
-	end
-
-	local aucItem = AUC_POPUP_GET_ITEM(frame);
-	if silver >= aucItem.buyPrice then
-		ui.MsgBox(ClMsg("CannotBidOverBuyPrice"));
-		return;
-	end
-
-	ui.MsgBox(ScpArgMsg("ReallyBid?"), "EXEC_AUC_POP_BID()", "None");
 end
 
 function EXEC_AUC_POP_BID()
@@ -154,17 +141,6 @@ function EXEC_AUC_POP_BID()
 end
 
 function AUC_POP_BUY(frame)
-	local aucItem = AUC_POPUP_GET_ITEM(frame);
-	if aucItem == nil then
-		return;
-	end
-
-	if GET_TOTAL_MONEY() < aucItem.buyPrice then
-		ui.SysMsg(ClMsg('NotEnoughMoney'));
-		return;
-	end
-
-	ui.MsgBox(ScpArgMsg("ReallyBuy?"), "EXEC_AUC_POP_BUY()", "None");
 end
 
 function EXEC_AUC_POP_BUY()

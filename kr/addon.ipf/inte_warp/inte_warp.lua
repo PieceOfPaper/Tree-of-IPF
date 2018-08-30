@@ -551,7 +551,6 @@ end
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
 
-	local myMoney = GET_TOTAL_MONEY();
 	local warpcost = 0;
 	local targetMapName = 0;
 	local type = frame:GetUserValue("Type");
@@ -586,7 +585,7 @@ end
 	end
 	
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');	
-	if (warpitemname == 'NO' or warpitemname == 'None') and myMoney < warpcost then
+	if (warpitemname == 'NO' or warpitemname == 'None') and IsGreaterThanForBigNumber(warpcost, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end

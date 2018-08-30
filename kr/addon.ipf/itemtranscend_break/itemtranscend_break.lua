@@ -317,7 +317,7 @@ function _ITEMTRANSCEND_BREAK_EXEC()
 	end
 
 	local obj = GetIES(invItem:GetObject());
-	if GET_TOTAL_MONEY() < GET_TRANSCEND_BREAK_SILVER(obj) then
+	if IsGreaterThanForBigNumber(GET_TRANSCEND_BREAK_SILVER(obj), GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg("NotEnoughMoney"));
 		return;
 	end

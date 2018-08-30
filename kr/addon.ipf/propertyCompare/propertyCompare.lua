@@ -20,7 +20,7 @@ function PROPERTYCOMPARE_RESPONSE(frame, name, lv, money, grade, rating)
 	local myMoney = GET_CHILD(frame, 'my_money', 'ui::CRichText')
 	local targetMoney = GET_CHILD(frame, 'target_money', 'ui::CRichText')
 
-	myMoney:SetText('{@st43}'..GET_TOTAL_MONEY())
+	myMoney:SetText('{@st43}'..GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()));
 	targetMoney:SetText('{@st43}'..money);
 
 
