@@ -4293,3 +4293,8 @@ function _UPDATE_LOCK_STATE(slot)
 		controlset:ShowWindow(0);
 	end
 end
+
+function SELECT_INVENTORY_TAB(frame, tabIndex)
+	local inventype_Tab = GET_CHILD_RECURSIVELY(frame, 'inventype_Tab');
+	inventype_Tab:SelectTab(tabIndex);
+end

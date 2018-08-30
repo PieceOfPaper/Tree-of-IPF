@@ -31,12 +31,12 @@ end
 
 function REINFORCE_131014_OPEN(frame)
 	local invframe = ui.GetFrame("inventory");
-	SET_SLOT_APPLY_FUNC(invframe, "_CHECK_REINFORCE_ITEM");
+	--SET_SLOT_APPLY_FUNC(invframe, "_CHECK_REINFORCE_ITEM");
 end
 
 function REINFORCE_131014_CLOSE(frame)
 	local invframe = ui.GetFrame("inventory");
-	SET_SLOT_APPLY_FUNC(invframe, "None");
+	--SET_SLOT_APPLY_FUNC(invframe, "None");
 end
 
 function REINFORCE_131014_GET_ITEM(frame)
