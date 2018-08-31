@@ -335,6 +335,11 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame, isAll)
 
 	local invIndex = invItem.invIndex;
 	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	
+	if baseidcls == nil then
+		return nil
+	end
+
 	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 	if typeStr == nil then
 		return nil;
@@ -398,7 +403,7 @@ function INV_GET_SLOTSET_BY_INVINDEX(index, isAll)
 
 	local invIndex = invItem.invIndex;
 	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
-
+	
 	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 	if isAll ~= nil and isAll == 1 then
 		typeStr = "All"

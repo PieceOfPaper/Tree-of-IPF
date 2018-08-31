@@ -394,9 +394,9 @@ function TRANSCEND_SCROLL_SELECT_TARGET_ITEM(scrollItem)
 		
 	local tab = gbox:GetChild("inventype_Tab");	
 	tolua.cast(tab, "ui::CTabControl");
-	tab:SelectTab(0);
-
-	SET_SLOT_APPLY_FUNC(invframe, "TRANSCEND_SCROLL_CHECK_TARGET_ITEM");
+	tab:SelectTab(1);
+	
+	SET_SLOT_APPLY_FUNC(invframe, "TRANSCEND_SCROLL_CHECK_TARGET_ITEM", nil, "Equip");
 	SET_INV_LBTN_FUNC(invframe, "TRANSCEND_SCROLL_SET_TARGET_ITEM");
 end
 

@@ -169,7 +169,7 @@ local function ADD_DETAIL_OPTION_SETTING(detailBox, ypos, parentCategory, forceO
 		return ypos;
 	end
 
-	if parentCategory ~= 'HairAcc' then
+	if parentCategory ~= 'HairAcc' and parentCategory ~= 'Recipe' then
 		local market_detail_setting = detailBox:CreateOrGetControlSet('market_detail_setting', 'detailOptionSet', 0, ypos);
 		if forceOpen ~= true then
 			MARKET_ADD_SEARCH_DETAIL_SETTING(market_detail_setting, nil, true);

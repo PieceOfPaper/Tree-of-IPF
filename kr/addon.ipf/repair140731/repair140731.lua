@@ -10,7 +10,6 @@ end
 
 
 function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
-
 	if  msg == 'DIALOG_CLOSE'  then
 		frame:OpenFrame(0);
     elseif msg == 'OPEN_DLG_REPAIR' then
@@ -118,7 +117,7 @@ function UPDATE_REPAIR140731_LIST(frame)
 
 	local invFrame = ui.GetFrame("inventory")
 	if invFrame ~= nil then
-		INVENTORY_ON_MSG(invFrame, "UPDATE_ITEM_REPAIR")
+		INVENTORY_ON_MSG(invFrame, "UPDATE_ITEM_REPAIR", "Equip")
 	end
 
 	UPDATE_REPAIR140731_MONEY(frame)

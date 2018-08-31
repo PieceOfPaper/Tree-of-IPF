@@ -458,9 +458,11 @@ function EXCHANGE_MSG_UPDATE(frame, msg, argStr, argNum)
 	
 	local opslotSet = GET_CHILD_RECURSIVELY(frame,'opponentslot','ui::CSlotSet');
 	EXCHANGE_UPDATE_SLOT(opslotSet,1);
-	
-	local invFrame = ui.GetFrame('inventory')
-	UPDATE_INV_LIST(invFrame);
+
+	if argNum ~= 1 then
+		local invFrame = ui.GetFrame('inventory')
+		UPDATE_INV_LIST(invFrame);
+	end
 end 
 
 function EXCHANGE_RESET_AGREE_BUTTON(frame)
