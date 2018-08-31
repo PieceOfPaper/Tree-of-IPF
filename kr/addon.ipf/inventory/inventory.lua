@@ -1024,7 +1024,10 @@ function INVENTORY_LIST_GET(frame, setpos, slotSetName, invenTypeStr)
 	
 	--이미 인벤토리의 리스트는 만들어져 있는데, slotSetName 이부분 갱신해주고 싶어서
 	--모든 리스트를 다 불러올 필요는 없다.
-	INVENTORY_TOTAL_LIST_GET(frame, setpos, nil, invenTypeStr);
+
+	if slotSetName == nil then
+		INVENTORY_TOTAL_LIST_GET(frame, setpos, nil, invenTypeStr);
+	end
 	
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
 	local funcStr = frame:GetUserValue("SLOT_APPLY_FUNC");
