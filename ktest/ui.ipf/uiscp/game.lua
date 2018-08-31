@@ -1328,7 +1328,7 @@ function GET_FULL_GRADE_NAME(itemCls, gradeSize)
 	return GET_FULL_NAME(itemCls) .. "{nl}" .. gradeTxt;
 end
 
-function GET_FULL_NAME(item, useNewLine, isEquiped)
+function GET_FULL_NAME(item, useNewLine, isEquiped)	
 	if isEquiped == nil then
 		isEquiped = 0;
 	end
@@ -1373,8 +1373,13 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		end
 	end
 
-	if IS_ENCHANT_JEWELL_ITEM(item) == true then		
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then
 		return GET_EXTRACT_ITEM_NAME(item);
+	end
+
+	if IS_SKILL_SCROLL_ITEM ~= nil and IS_SKILL_SCROLL_ITEM(item) == true then
+		local skillCls = GetClassByType('Skill', item.SkillType);
+		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
 	end
 
 	return ownName;
@@ -2060,35 +2065,35 @@ function ITEM_EQUIP_EXCEPTION(item)
 	if item == nil then
 		return 0
 	end
-
+	
 	local hairFrame = ui.GetFrame('beauty_hair');
 	if hairFrame ~= nil and hairFrame:IsVisible() == 1 then
 		ui.SysMsg(ScpArgMsg("Auto_MiyongSil_iyongJungeNeun_aiTemeul_JangChag_Hal_Su_eopSeupNiDa."));
 		return 0
 	end
-
+			
 	local result = CHECK_EQUIPABLE(item.type);
 	if result ~= "OK" then
 		ui.MsgBox(ITEM_REASON_MSG(result));
 		return 0
 	end
-
+			
 	local obj = GetIES(item:GetObject());
 	if obj.IsPrivate == "YES" and obj.Equiped == 0 then
 		ui.EnableToolTip(0);
 		ui.MsgBox(ScpArgMsg("Auto_HaeDang_aiTemeun_ChagyongSi_KwiSogDoeeo_KeoLaeHal_Su_eopSeupNiDa._ChagyongHaSiKessSeupNiKka?"), strscp, "None");
 		return 0;
 	end
-	
+		
 	return 1;
 end
 
 function ITEM_EQUIP_MSG(item, slotName)
-
+	
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
 		return;
 	end
-	
+		
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
@@ -2097,7 +2102,7 @@ function ITEM_EQUIP_MSG(item, slotName)
 	if itemCls.EqpType == "HELMET" and slotName == "HAIR" then
 		slotName = "HELMET";
 	end
-
+	
 	local strscp = string.format("item.Equip(%d)", item.invIndex);
 	if slotName ~= nil then
 		strscp = string.format("item.Equip(\"%s\", %d)", slotName, item.invIndex);
@@ -2944,7 +2949,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 
 
 	elseif itemobj.GroupName == "Gem" then
-
+							
 		local invItemList = session.GetInvItemList();
 		local index = invItemList:Head();
 		local itemCount = session.GetInvItemList():Count();
@@ -2952,33 +2957,37 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 		local cnt = 0;
 		for i = 0, itemCount - 1 do
 			local invItem = invItemList:Element(index);
-			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) then
-			
+			local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
+			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) and invitem.ItemType == "Equip" then
+				local tab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+				tolua.cast(tab, "ui::CTabControl");
+				tab:SelectTab(1);
+
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-				local icon = slot:GetIcon();
-				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
-					local invitem  = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
-					local socketCnt = GET_SOCKET_CNT(invitem);
+				if slot ~= nil then
+					local icon = slot:GetIcon();
+					if icon ~= nil then
+						local class     = GetClassByType('Item', invItem.type);
+						
+						local socketCnt = GET_SOCKET_CNT(invitem);
 
-					if invitem.ItemType == 'Equip' then
-						for i=0, socketCnt do
-							local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
-							if temp == 0 then
-								socketNum = i;
-								break;
+							for i=0, socketCnt do
+								local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
+								if temp == 0 then
+									socketNum = i;
+									break;
+								end
 							end
-						end
 
-						if socketCnt > socketNum then
-							slot:Select(1);
-						else
-							slot:Select(0);
-						end
+							if socketCnt > socketNum then
+								slot:Select(1);
+							else
+								slot:Select(0);
+							end
 					end
+					cnt = cnt + 1;
 				end
-				cnt = cnt + 1;
 			end
 
 			index = invItemList:Next(index);
@@ -3037,7 +3046,7 @@ function USE_ITEMTARGET_ICON_GEM(argNum)
 	local invGbox		= invFrame:GetChild('inventoryGbox');
 	local tab = invGbox:GetChild("inventype_Tab");
 	tolua.cast(tab, "ui::CTabControl");
-	tab:SelectTab(0);
+	tab:SelectTab(1);
 	item.SelectTargetItem(argNum)
 end
 

@@ -106,6 +106,14 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 
 	local id = GetIESID(item);
 	local invItem = session.GetInvItemByGuid(id);
+	if invItem == nil then
+		invItem = session.GetEquipItemByGuid(id);
+	end
+
+	if invItem == nil then
+		return
+	end
+	
 	if true == invItem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;

@@ -5335,9 +5335,9 @@
 			<img name="left" imgrect="868 664 20 40"/>
 			<img name="middle" imgrect="889 664 45 40"/>
 			<img name="right" imgrect="935 664 20 40"/>
-			<img name="dropbutton" imgrect="941 600 16 12"/>
-			<img name="dropbutton_click" imgrect="941 613 16 12"/>
-			<img name="dropbutton_cursoron" imgrect="941 626 16 12"/>
+			<img name="dropbutton" imgrect="931 503 12 12"/>
+			<img name="dropbutton_click" imgrect="931 516 12 12"/>
+			<img name="dropbutton_cursoron" imgrect="931 529 12 12"/>
 		</skin>
 	</skinlist>
 	<skinlist>
@@ -6163,6 +6163,7 @@
 		<image name="indun_icon_day_s_eng" file="\skin\indun_skin.tga" imgrect="748 594 27 20" CMM_Caption="던전 일간 표시 : 소_영문"/>
 		<image name="re_appraisal_image2" file="\skin\Appraiser_skin.tga" imgrect="706 0 312 312" CMM_Caption="레어 인챈트 쥬얼 마법진"/>
 		<image name="re_appraisal_image2_1" file="\skin\Appraiser_skin.tga" imgrect="161 314 337 190" CMM_Caption="레어 인챈트 쥬얼 마법진_누운것"/>
+		<image name="pp_point_icon" file="\skin\pip_test2.tga" imgrect="895 31 35 36" CMM_Caption="스팀 홈프리미엄 포인트 아이콘"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6450,6 +6451,11 @@
 		<image name="market_zem_8" file="\skin\pip_test2.tga" imgrect="873 13 12 12"/>
 		<image name="market_etc_pic" file="\skin\pip_test2.tga" imgrect="886 0 30 30"/>
 		<image name="market_search_pic" file="\skin\pip_test2.tga" imgrect="917 0 27 27"/>
+	</imagelist>
+	<imagelist category="se_button">
+		<image name="sysmenu_pp" file="\skin\pip_test2.tga" imgrect="815 423 38 44" CMM_Caption="스팀 홈프리미엄메뉴"/>
+		<image name="sysmenu_pp_cursoron" file="\skin\pip_test2.tga" imgrect="854 423 38 44"/>
+		<image name="sysmenu_pp_clicked" file="\skin\pip_test2.tga" imgrect="893 423 38 44"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>

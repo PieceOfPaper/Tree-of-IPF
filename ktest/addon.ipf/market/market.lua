@@ -178,12 +178,16 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		if groupName == "ShowAll" then
 			MARKET_DRAW_CTRLSET_DEFAULT(frame)
 		elseif groupName == "Weapon" or groupName == "SubWeapon" or groupName == 'Accessory' or groupName == 'HairAcc' then
-			MARKET_DRAW_CTRLSET_EQUIP(frame)
+			local isShowSocket = true;
+			if groupName == 'HairAcc' then
+				isShowSocket = false;
+			end
+			MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket);
 		elseif groupName == "Armor" then
 			MARKET_DRAW_CTRLSET_EQUIP(frame)
 		elseif groupName == "Recipe" then
 			MARKET_DRAW_CTRLSET_RECIPE(frame)
-		elseif groupName == "Look" then
+		elseif groupName == "Look" or groupName == "ChangeEquip" or groupName == 'OPTMisc' then			
 			MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 		elseif groupName == "Gem" then
 			MARKET_DRAW_CTRLSET_GEM(frame)
@@ -257,12 +261,14 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 
 		local level = ctrlSet:GetChild("level");
 		local levelValue = ""
-		if itemObj.GroupName == "Gem" then
-			levelValue = GET_ITEM_LEVEL_EXP(itemObj)
-		elseif itemObj.GroupName == "Card" then
-			levelValue = itemObj.Level
-		elseif itemObj.ItemType == "Equip" and itemObj.GroupName ~= "Premium" then
-			levelValue = itemObj.UseLv
+		if isShowLevel ~= false then
+			if itemObj.GroupName == "Gem" then
+				levelValue = GET_ITEM_LEVEL_EXP(itemObj)
+			elseif itemObj.GroupName == "Card" then
+				levelValue = itemObj.Level
+			elseif itemObj.ItemType == "Equip" and TryGetProp(itemObj, 'ClassType2') ~= "Premium" then
+				levelValue = itemObj.UseLv
+			end
 		end
 		level:SetTextByKey("value", levelValue);
 
@@ -324,7 +330,7 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 end
 
 
-function MARKET_DRAW_CTRLSET_EQUIP(frame)
+function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
 	itemlist:RemoveAllChild();
 	local mySession = session.GetMySession();
@@ -332,6 +338,16 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame)
 	local count = session.market.GetItemCount();
 
 	MARKET_SELECT_SHOW_TITLE(frame, "equipTitle")
+
+	local equipTitle_socket = GET_CHILD_RECURSIVELY(frame, "equipTitle_socket");
+	local equipTitle_stats = GET_CHILD_RECURSIVELY(frame, "equipTitle_stats");
+	if isShowSocket ~= nil and isShowSocket == false then	
+		equipTitle_socket:ShowWindow(0);
+		equipTitle_stats:ShowWindow(0);
+	else
+		equipTitle_socket:ShowWindow(1)
+		equipTitle_stats:ShowWindow(1);
+	end
 
 	local yPos = 0
 	for i = 0 , count - 1 do
@@ -1163,13 +1179,17 @@ function MARKET_DRAW_CTRLSET_CARD(frame)
 		local name = ctrlSet:GetChild("name");
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
 
+		local lvText = itemObj.Level;
+		if itemObj.GroupName ~= 'Card' then
+			lvText = '';
+		end
 		local level = GET_CHILD_RECURSIVELY(ctrlSet, "level")
-		level:SetTextByKey("value", itemObj.Level)
+		level:SetTextByKey("value", lvText);
 
 		local option = GET_CHILD_RECURSIVELY(ctrlSet, "option")
 
 		local tempText1 = itemObj.Desc;
-		if itemObj.Desc == "None" then
+		if itemObj.Desc == "None" or itemObj.GroupName ~= 'Card' then
 			tempText1 = "";
 		end
 
@@ -1348,7 +1368,8 @@ function CANCEL_MARKET_ITEM(parent, ctrl)
 	local guid = marketItem:GetMarketGuid()
 
 	local yesScp = string.format("EXEC_CANCEL_MARKET_ITEM(\"%s\")", guid);
-	ui.MsgBox_NonNested(ClMsg("ReallyCancelRegisteredItem"), 'market', yesScp, "None");
+	local msgbox = ui.MsgBox_NonNested(ClMsg("ReallyCancelRegisteredItem"), 'market', yesScp, "None");
+	SET_MODAL_MSGBOX(msgbox);
 end
 
 function EXEC_CANCEL_MARKET_ITEM(itemGuid)
@@ -1432,7 +1453,7 @@ function MARKET_ITEM_COUNT_MAX(frame)
 	local price_num = GET_CHILD_RECURSIVELY(frame, "price_num")
 	local price = frame:GetUserIValue("sellPrice")
 	
-	local maxCanBuyCount = math.floor(tonumber(GET_TOTAL_MONEY_STR()) / price);
+	local maxCanBuyCount = math.max(math.floor(tonumber(GET_TOTAL_MONEY_STR()) / price), 1);
 	local maxItemCount = math.min(maxItemCount, maxCanBuyCount)
 	editCount:SetText(tostring(maxItemCount))
 
@@ -1517,7 +1538,8 @@ function BUY_MARKET_ITEM(parent, ctrl)
 	local itemObj = GetIES(marketItem:GetObject());
 
 	local txt = ScpArgMsg("ReallyBuy?");
-	ui.MsgBox_NonNested(txt, 'market', string.format("_BUY_MARKET_ITEM(%d, %d)", row + 1, isRecipeSearchBox), "None");
+	local msgbox = ui.MsgBox_NonNested(txt, 'market', string.format("_BUY_MARKET_ITEM(%d, %d)", row + 1, isRecipeSearchBox), "None");
+	SET_MODAL_MSGBOX(msgbox);
 end
 
 function _REPORT_MARKET_ITEM(row)
@@ -1542,7 +1564,8 @@ function REPORT_MARKET_ITEM(parent, ctrl)
 	local itemObj = GetIES(marketItem:GetObject());
 	local txt = ScpArgMsg("ReallyReport");
 
-	ui.MsgBox_NonNested(txt, 'market', string.format("_REPORT_MARKET_ITEM(%d)", row+1), "None");
+	local msgbox = ui.MsgBox_NonNested(txt, 'market', string.format("_REPORT_MARKET_ITEM(%d)", row+1), "None");
+	SET_MODAL_MSGBOX(msgbox);
 end
 
 function MARKET_SELLMODE(frame)

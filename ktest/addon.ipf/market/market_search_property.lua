@@ -35,7 +35,7 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
 		"RES_DARK",
 		"CRTDR",
 	},
-    ATK = {
+    MARKET_ATK = {
 		"PATK",
 		"ADD_MATK",
 		"CRTATK",
@@ -64,6 +64,7 @@ local MARKET_OPTION_GROUP_PROP_LIST = {
     ETC = {
 		"SR",
 		"MSPD",
+		"SDR",
 	},
 };
 

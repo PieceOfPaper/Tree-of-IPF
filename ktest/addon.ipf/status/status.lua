@@ -2410,11 +2410,6 @@ function STATUS_UPDATE_EXP_UP_BOX(frame, msg, argStr, argNum)
 end
 
 function ON_HAIR_COLOR_CHANGE(frame, msg, argStr, argNum)
-    frame:ShowWindow(1);
-    local statusTab = GET_CHILD_RECURSIVELY(frame, 'statusTab');
-    STATUS_ACHIEVE_INIT(frame);
-    statusTab:SelectTab(2);
-    STATUS_TAB_CHANGE(frame);
 
     local colorItemCls = GetClass('Item', argStr);
     local hairCls = GET_HAIR_CLASS_C(colorItemCls.StringArg);

@@ -550,12 +550,12 @@ function BRIQUETTING_SKILL_EXCUTE(parent, ctrl)
 		return;
 	end
 
-	if #lookMatItemList < 1 then
+	local result, containDummyItem, containCoreItem = IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList);	
+	if containDummyItem ~= true and #lookMatItemList < 1 then
 		ui.SysMsg(ScpArgMsg('MustRegister{COUNT}LookMatItem', 'COUNT', needLookMatItemCnt));
 		return;
 	end
 
-	local result, containDummyItem, containCoreItem = IS_VALID_LOOK_MATERIAL_ITEM(lookItem, lookMatItemList);	
 	if result == false then
 		ui.SysMsg(ClMsg('WrongLookMaterialItem'));
 		return;

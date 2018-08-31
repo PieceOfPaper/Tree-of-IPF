@@ -61,7 +61,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 100049,0.550000,0,"OTHER_BLOW_SOUND_VOL","내캐릭제외한 blowSound volume","NO"
 100050,10,0,"JOB_CHANGE_MAX_RANK","전직 랭크제한","YES"
 100051,10,0,"TRACK_NORMAL_DROP_RATE","연출 퀘스트 일반 몹 드랍 확률 1/10","NO"
-100052,0,0,"ZONE_MEMORY_INFO_MONGO","ENABLE_NEW_DEBUG일 때, 존서버 메모리정보 몽고로그 기록","NO"
+100052,1,0,"ZONE_MEMORY_INFO_MONGO","ENABLE_NEW_DEBUG일 때, 존서버 메모리정보 몽고로그 기록","NO"
 100053,60000,0,"PREMIUM_BUFF_SAVE_TIME","","NO"
 100054,0,0,"USE_LOGIN_LOG","로그인 관련 로그를 배럭서버에 INFO로 남깁니다.","NO"
 100055,0,0,"DAILY_TIME_EVENT_FLAG","타임 이벤트를 실행할 것인가 체크 값","YES"

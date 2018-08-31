@@ -188,7 +188,7 @@
 		<Class ClassID="2200" ClassName="ClickSocketTargetItem" Data="소켓을 추가 할 아이템을 선택해주세요"/>
 		<Class ClassID="2201" ClassName="ThisItemCannotPlusSocket" Data="이 아이템은 소켓을 추가할 수 없습니다."/>
 		<Class ClassID="2202" ClassName="AddSocketByTicketInfoMsg{ITEM_NAME}" Data="{ITEM_NAME}에 소켓을 추가합니다. 소켓 추가시 실버가 소모되며, 포텐셜이 감소되지 않습니다."/>
-		<Class ClassID="2203" ClassName="Hair_Color_Change{COLOR}" Data="염색약이 정상적으로 적용 되었습니다.{nl}현재 {@st66d_y}{s19}{COLOR}{/}{/}를 적용하시겠습니까?{nl} {nl} {@st43b}{s16}* 캐릭터 설정에서 헤어 염색을 바꿀 수 있습니다.{/}{/}"/>
+		<Class ClassID="2203" ClassName="Hair_Color_Change{COLOR}" Data="염색약이 정상적으로 적용 되었습니다.{nl}현재 {@st66d_y}{s19}{COLOR}{/}{/}를 적용하시겠습니까?{nl} {nl} {@st43b}{s16}* 인벤토리 외형 탭의 가발 슬롯에서 가발 염색을 변경할 수 있습니다.{/}{/}"/>
 		<Class ClassID="2204" ClassName="FailToItemSell" Data="아이템 판매에 실패했습니다. 다시 시도해 주세요."/>
 		<Class ClassID="2205" ClassName="FailToPutItemIntoWarehouse" Data="창고에 아이템 보관을 실패했습니다. 다시 시도해주세요."/>
 		<Class ClassID="2206" ClassName="InvalidRandomOption" Data="해당 아이템이 유효한 랜덤옵션을 가지고 있지 않습니다."/>
@@ -254,6 +254,7 @@
 		<Class ClassID="2268" ClassName="CannotEnchantOptionEquipItem" Data="장착 중인 장비에 인챈트 옵션을 부여할 수 없습니다."/>		
 		<Class ClassID="2270" ClassName="TooManyMarketSaveOption" Data="더 이상 마켓 검색 옵션을 저장할 수 없습니다."/>
 		<Class ClassID="2271" ClassName="DuplicateMarketSearchOption" Data="이미 설정된 검색 옵션입니다."/>
+		<Class ClassID="2272" ClassName="CannotCancelBecauseNotYourItem" Data="해당 캐릭터가 등록한 아이템이 아니기 때문에 취소할 수 없습니다."/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -8306,7 +8307,7 @@
 		<Class ClassID="106077" ClassName="GemWhite" Data="화이트 젬"/>
 		<Class ClassID="106078" ClassName="CardLeg" Data="레전드 카드"/>
 		<Class ClassID="106079" ClassName="Misc" Data="재료"/>
-		<Class ClassID="106080" ClassName="Special" Data="장비 강화"/>
+		<Class ClassID="106080" ClassName="Special" Data="장비 강화 소재"/>
 		<Class ClassID="106081" ClassName="Mineral" Data="광물"/>
 		<Class ClassID="106082" ClassName="Jungtan" Data="활성화 주문서"/>
 		<Class ClassID="106083" ClassName="Scroll" Data="기타"/>
@@ -8322,7 +8323,7 @@
 		<Class ClassID="106093" ClassName="CardGreen" Data="그린 카드"/>
 		<Class ClassID="106094" ClassName="Collect" Data="콜렉션"/>
 		<Class ClassID="106095" ClassName="HairAcc" Data="헤어 액세서리"/>
-		<Class ClassID="106096" ClassName="OPTMisc" Data="특수 장비 강화"/>
+		<Class ClassID="106096" ClassName="OPTMisc" Data="특수 장비 강화 소재"/>
 		<Class ClassID="106097" ClassName="IcorWeapon" Data="아이커 - 무기"/>
 		<Class ClassID="106098" ClassName="IcorArmor" Data="아이커 - 방어구"/>
 		<Class ClassID="106099" ClassName="Jewel" Data="인챈트 쥬얼"/>
@@ -8330,6 +8331,11 @@
 		<Class ClassID="106101" ClassName="UTIL" Data="보조"/>
 		<Class ClassID="106102" ClassName="STAT" Data="능력"/>
 		<Class ClassID="106103" ClassName="MARKET_DEF" Data="방어"/>
+		<Class ClassID="106104" ClassName="MiscSkill" Data="스킬 재료"/>
+		<Class ClassID="106105" ClassName="PopUp" Data="팝업북"/>
+		<Class ClassID="106106" ClassName="Orgel" Data="오르골"/>
+		<Class ClassID="106107" ClassName="MARKET_ATK" Data="공격"/>
+		<Class ClassID="106108" ClassName="ConsumeSp" Data="장비 강화 소재"/>
 	</Category>
 	<Category Name="AutoSeller">
 		<Class ClassID="107001" ClassName="InputPriceMoreThanOne" Data="가격을 1이상 입력해주세요."/>

@@ -81,9 +81,9 @@ function CLIENT_MORU(invItem)
 		
 	local tab = gbox:GetChild("inventype_Tab");	
 	tolua.cast(tab, "ui::CTabControl");
-	tab:SelectTab(0);
+	tab:SelectTab(1);
 
-	SET_SLOT_APPLY_FUNC(invframe, "_CHECK_MORU_TARGET_ITEM");
+	--SET_SLOT_APPLY_FUNC(invframe, "_CHECK_MORU_TARGET_ITEM");
 	SET_INV_LBTN_FUNC(invframe, "MORU_LBTN_CLICK");
 
 	CHANGE_MOUSE_CURSOR("MORU", "MORU_UP", "CURSOR_CHECK_REINF");
@@ -132,7 +132,7 @@ function CANCEL_MORU()
 	SET_MOUSE_FOLLOW_BALLOON();
 	ui.SetEscapeScp("");
 	local invframe = ui.GetFrame("inventory");
-	SET_SLOT_APPLY_FUNC(invframe, "None");
+	--SET_SLOT_APPLY_FUNC(invframe, "None");
 	SET_INV_LBTN_FUNC(invframe, "None");
 	RESET_MOUSE_CURSOR();
 end

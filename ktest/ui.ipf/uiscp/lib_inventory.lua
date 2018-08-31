@@ -304,6 +304,9 @@ function INV_GET_SLOTSET_NAME_BY_ITEMGUID(itemGUID)
 	end
 
 	local slotsetname = 'sset_'..baseidcls.ClassName
+	if baseidcls.MergedTreeTitle ~= "NO" then
+		slotsetname = 'sset_'..baseidcls.MergedTreeTitle
+	end
 	return slotsetname
 
 end
@@ -325,17 +328,21 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame, isAll)
 
 	local invItem = session.GetInvItemByGuid(itemGUID);
 	if invItem == nil then
-		return;
+		return nil;
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
 
 	local invIndex = invItem.invIndex;
 	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	
+	if baseidcls == nil then
+		return nil
+	end
 
 	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 	if typeStr == nil then
-		return
+		return nil;
 	end
 
 	if isAll ~= nil and isAll == 1 then
@@ -354,7 +361,6 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame, isAll)
 	if slotSet == nil then
 		return nil;
 	end
-	
 	return GET_SLOT_BY_ITEMID(slotSet, itemGUID);
 
 end
@@ -397,7 +403,7 @@ function INV_GET_SLOTSET_BY_INVINDEX(index, isAll)
 
 	local invIndex = invItem.invIndex;
 	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
-
+	
 	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 	if isAll ~= nil and isAll == 1 then
 		typeStr = "All"
