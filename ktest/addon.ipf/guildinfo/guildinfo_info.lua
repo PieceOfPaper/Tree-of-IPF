@@ -6,7 +6,6 @@ function GUILDINFO_INFO_INIT(parent, infoBox)
     GUILDINFO_INFO_INIT_TOWER(infoBox, guildObj);
     GUILDINFO_INFO_INIT_BENEFIT(infoBox, guildObj);
     GUILDINFO_INFO_INIT_ABILITY(infoBox, guildObj);
-    GetGuildProfile("SET_INTRODUCE_TXT")
     ui.CloseFrame('guild_authority_popup');
 end
 
@@ -22,19 +21,6 @@ function RECV_INTRO_TXT(code, ret_json)
         return;
     end
     ui.SysMsg(ClMsg("GuildIntroUpdated"))
-end
-
-function SET_INTRODUCE_TXT(code, ret_json)
-    if code ~= 200 then
-		SHOW_GUILD_HTTP_ERROR(code, ret_json, "SET_INTRODUCE_TXT");
-        return;
-    end
-    local frame = ui.GetFrame("guildinfo")
-    local introduceText = GET_CHILD_RECURSIVELY(frame, 'regPromoteText');
-    if introduceText:IsHaveFocus() == 0 then
-        introduceText:SetText(ret_json);
-    end
-
 end
 
 function GUILDINFO_INFO_INIT_EXP(infoBox, guildObj)

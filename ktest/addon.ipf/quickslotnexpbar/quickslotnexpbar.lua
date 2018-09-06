@@ -341,6 +341,11 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 	local icon 	= CreateIcon(slot);
 	local imageName = "";
 
+	if category ~= 'Item' then
+		icon:SetDrawLifeTimeText(0)
+		slot:SetFrontImage('None')
+	end
+
 	if category == 'Action' then
 		icon:SetColorTone("FFFFFFFF");
 		icon:ClearText();
@@ -360,7 +365,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 	elseif category == 'Item' then
 		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);	--퀵슬롯에 놓는 것이 아이템이면 게이지를 무조건 안보이게 함
 		local itemIES = GetClassByType('Item', type);
-		if itemIES ~= nil then			
+		if itemIES ~= nil then		
 			imageName = itemIES.Icon;
 			
 			local invenItemInfo = nil
@@ -371,9 +376,10 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				invenItemInfo = session.GetInvItemByGuid(iesID);
 			end
 
+			--시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색
 			local skill_scroll = 910001;
-			if invenItemInfo == nil then
-				if skill_scroll ~= type then
+			if invenItemInfo == nil and itemIES.LifeTime == 0 then
+				if type ~= skill_scroll then
 					invenItemInfo = session.GetInvItemByType(type);
 				end
 			end
@@ -405,6 +411,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
 				icon:SetColorTone("FFFF0000");
 				icon:SetText(0, 'quickiconfont', 'right', 'bottom', -2, 1);
+				SET_SLOT_LIFETIME_IMAGE(invenItemInfo, icon, slot, false);
 				icon:SetEnableUpdateScp('None');
 			end
 
@@ -425,9 +432,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			
 			local invItem = nil
 
-			if iesID == '0' then
-				invItem = session.GetInvItemByType(type);
-			elseif iesID == "" then
+			if iesID == '0' or iesID == "" then
 				invItem = session.GetInvItemByType(type);
 			else
 				invItem = session.GetInvItemByGuid(iesID);
@@ -450,7 +455,8 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 						icon:SetColorTone("FFFF0000");
 					end
 				end
-
+			
+				SET_SLOT_LIFETIME_IMAGE(invItem, icon, slot);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "quickslot", GetIES(invItem:GetObject()));
 			else
 				icon:Set(imageName, category, type, 0, iesID);
@@ -494,6 +500,34 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 	if category == 'Skill' then
 		SET_QUICKSLOT_OVERHEAT(slot);
 		SET_QUICKSLOT_TOOLSKILL(slot);
+	end
+end
+
+-- 기간제 아이템을 퀵슬롯에 등록하면 시간 표기
+function SET_SLOT_LIFETIME_IMAGE(invItem, icon, slot, force_off)
+	if invItem == nil or icon == nil or slot == nil then
+		icon:SetDrawLifeTimeText(0);
+		slot:SetFrontImage('None');
+		return 0;
+	end
+	if force_off == nil then
+		force_off = true;
+	end
+
+	local itemIES = GetIES(invItem:GetObject());
+	if force_off ~= false and invItem.hasLifeTime == true and invItem.count > 0 then
+		ICON_SET_ITEM_REMAIN_LIFETIME(icon);
+		slot:SetFrontImage('clock_inven');
+		local resultLifeTimeOver = IS_LIFETIME_OVER(itemIES);
+		if resultLifeTimeOver == 1 then
+			icon:SetColorTone("FFFF0000");	
+		end
+	elseif force_off == false or invItem.hasLifeTime == false or invItem.count == 0 then
+		icon:SetDrawLifeTimeText(0);
+		slot:SetFrontImage('None');
+		if invItem.count == 0 then
+			icon:SetColorTone("FFFF0000");	
+		end
 	end
 end
 
@@ -550,7 +584,7 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 
 	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE' 
 	or msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
-		DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1);
+		DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1, 0);
 	end
 		
 	local curCnt = quickslot.GetActiveSlotCnt();
@@ -632,6 +666,10 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 
 	if iconInfo.category == 'Skill' then    
 		ICON_USE(icon);
+		return;
+	end
+
+	if icon:GetStringColorTone() == "FFFF0000" then
 		return;
 	end
 

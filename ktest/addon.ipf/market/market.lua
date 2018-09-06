@@ -166,7 +166,7 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	end
 
 	local groupName = frame:GetUserValue('SELECTED_CATEGORY');
-	local isRecipeSearching = frame:GetUserIValue("isRecipeSearching")	
+	local isRecipeSearching = frame:GetUserIValue("isRecipeSearching")
 	if isRecipeSearching == 1 then
 		MARKET_DRAW_CTRLSET_RECIPE(frame);
 		MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
@@ -237,7 +237,7 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 			refreshScp(itemObj);
 		end	
 
-		local ctrlSet = itemlist:CreateControlSet("market_item_detail_default", "ITEM_EQUIP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, yPos);				
+		local ctrlSet = itemlist:CreateControlSet("market_item_detail_default", "ITEM_EQUIP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, yPos);
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
@@ -262,13 +262,13 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 		local level = ctrlSet:GetChild("level");
 		local levelValue = ""
 		if isShowLevel ~= false then
-			if itemObj.GroupName == "Gem" then
-				levelValue = GET_ITEM_LEVEL_EXP(itemObj)
-			elseif itemObj.GroupName == "Card" then
-				levelValue = itemObj.Level
+		if itemObj.GroupName == "Gem" then
+			levelValue = GET_ITEM_LEVEL_EXP(itemObj)
+		elseif itemObj.GroupName == "Card" then
+			levelValue = itemObj.Level
 			elseif itemObj.ItemType == "Equip" and TryGetProp(itemObj, 'ClassType2') ~= "Premium" then
-				levelValue = itemObj.UseLv
-			end
+			levelValue = itemObj.UseLv
+		end
 		end
 		level:SetTextByKey("value", levelValue);
 
@@ -976,7 +976,11 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
 
 	pagecontrol_material:SetMaxPage(maxPage_material);
 	pagecontrol_material:SetCurPage(curPage_material);
+
 end
+
+
+
 
 function MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
@@ -1460,6 +1464,10 @@ function MARKET_ITEM_COUNT_MAX(frame)
 	MARKET_SET_TOTAL_PRICE(frame, price, maxItemCount)
 end
 
+function GET_REMAIN_MARKET_TRADE_AMOUNT_STR()
+	return SumForBigNumberInt64(session.inventory.GetMarketLimitAmount(), -session.inventory.GetCurMarketTradeAmount());
+end
+
 function _BUY_MARKET_ITEM(row, isRecipeSearchBox)	
 	local frame = ui.GetFrame("market");
 
@@ -1501,7 +1509,7 @@ function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
 			if tonumber(buyCount) > 0 then
 				local marketItem = session.market.GetItemByIndex(row-1);
 				market.AddBuyInfo(marketItem:GetMarketGuid(), buyCount);
-				totalPrice = totalPrice + buyCount * marketItem.sellPrice;				
+				totalPrice = totalPrice + buyCount * marketItem.sellPrice;
 			else
 				ui.SysMsg(ScpArgMsg("YouCantBuyZeroItem"));
 			end
@@ -1515,6 +1523,14 @@ function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
 	if IsGreaterThanForBigNumber(totalPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg("NotEnoughMoney"));
 		return;
+	end
+
+	local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();	
+	if limitTradeStr ~= nil then
+		if IsGreaterThanForBigNumber(totalPrice, limitTradeStr) == 1 then			
+			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));
+			return;
+		end		
 	end
 
 	market.ReqBuyItems();	
@@ -1536,8 +1552,8 @@ function BUY_MARKET_ITEM(parent, ctrl)
 	end
 
 	local itemObj = GetIES(marketItem:GetObject());
-
-	local txt = ScpArgMsg("ReallyBuy?");
+	local remainAmount = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
+	local txt = ScpArgMsg('MarketTradeLimit{AMOUNT}ReallyBuy?', 'AMOUNT', GET_COMMAED_STRING(remainAmount));
 	local msgbox = ui.MsgBox_NonNested(txt, 'market', string.format("_BUY_MARKET_ITEM(%d, %d)", row + 1, isRecipeSearchBox), "None");
 	SET_MODAL_MSGBOX(msgbox);
 end

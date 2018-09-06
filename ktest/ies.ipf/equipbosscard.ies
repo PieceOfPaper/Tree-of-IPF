@@ -143,3 +143,5 @@ ClassID,ConditionArg4,ClassName,UseType,ValueType,PropertyType,ConditionScp,Cond
 142,0,"Legend_card_Velcoffer","Always","StarCount","","","","","","SCR_CARDEFFECT_DAMAGE_REDUCTION_RATE_FROM_MON","CARD_MON_DMG_Rate_Down_Buff","","3","몬스터에게 받는 대미지 {@st66d_y}{s16}[%d]{/}{/}%% 감소","3"
 143,0,"Legend_card_FrosterLord","Always","StarCount","","","","","","SCR_CARDEFFECT_SUMMON_ATK_RANGE","MON_Average_Atk_FROM_PC","","10","소환수의 최소 공격력과 최대 공격력의 차이 {@st66d_y}{s16}[%d]{/}{/}%% 감소","10"
 144,0,"card_varleking","Always","StarCount","","","","","","SCR_CARDEFFECT_STATUS_PLUS","HEAL_PWR_BM","HEAL_PWR","5","치유력 + {@st66d_y}{s16}[%d]{/}{/}","5"
+145,0,"Legend_card_Wastrel","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","MHP_BM","MHP","500","최대 HP +{@st66d_y}{s16}[%d]{/}{/}","500"
+146,0,"Legend_card_Acio","Always","StarCount","","","","100","","SCR_CARDEFFECT_STATUS_PLUS","CRTHR_BM","CRTHR","15","치명타 발생 +{@st66d_y}{s16}[%d]{/}{/}","15"

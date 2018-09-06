@@ -318,7 +318,7 @@ local function CLAMP_MARKET_PAGE_NUMBER(frame, pageControllerName, page)
 	if page == nil then
 		return 0;
 	end
-	local pagecontrol = GET_CHILD(frame, pageControllerName);
+	local pagecontrol = GET_CHILD(frame, pageControllerName);	
 	local MaxPage = pagecontrol:GetMaxPage();	
 	if page >= MaxPage then
 		page = MaxPage - 1;
@@ -571,7 +571,7 @@ function MARKET_REQ_LIST(frame)
 end
 
 function MARKET_FIND_PAGE(frame, page)
-	page = CLAMP_MARKET_PAGE_NUMBER(frame, 'pageControl', page);
+	page = CLAMP_MARKET_PAGE_NUMBER(frame, 'pagecontrol', page);
 	local orderByDesc = GET_SEARCH_PRICE_ORDER(frame);
 	if orderByDesc < 0 then
 		return;

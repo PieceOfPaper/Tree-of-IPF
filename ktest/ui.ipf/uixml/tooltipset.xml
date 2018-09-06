@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <tooltipset>
 	<tooltip name="partyinfotooltipNormal" x="0" y="0" fixwidth="false" width="412" height="370" moveable="true" frameskin="partylist_tooltip_skin" blendtime="" UpdateScp="PARTY_INFO_UPDATE_TOOLTIP_NORMAL">
 		<controls>
@@ -278,6 +278,12 @@
 			<richtext name="jobdifficulty_text" rect="0 0 70 40" margin="100 93 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="black_14_b" format="%s" maxwidth="0" param1="value" param1_def="difficulty"/>
 			<labelline name="label" margin="0 55 0 0" rect="0 0 400 4" skin="None" layout_gravity="center top"/>
 			<richtext name="desc_text" rect="0 0 390 100" margin="30 130 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_14" format="%s" maxwidth="0" param1="value" param1_def="Description"/>
+		</controls>
+	</tooltip>
+	<tooltip name="job_select_guide_tree_tooltip" x="0" y="0" fixwidth="false" width="220" height="25" draw="true" moveable="false" frameskin="tooltip1" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_JOB_SELECT_GUIDE_TREE_TOOLTIP">
+		<controls>
+			<richtext name="jobname_text" rect="0 0 200 200" margin="10 0 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="value" spacey="0"/>
+			<richtext name="star_text" rect="0 0 200 200" margin="0 0 10 0" layout_gravity="right center" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="value" spacey="3"/>
 		</controls>
 	</tooltip>
 	<tooltip name="imagePreview" x="0" y="0" fixwidth="true" width="450" height="300" moveable="false" frameskin="adventure_paper2" lifetime="90000" blendtime="1500" UpdateScp="SET_PREVIEW_IMAGE">

@@ -267,3 +267,13 @@ function PET_ADOPT_SUC_BARRACK()
 	frame:SetUserValue("EGG_GUID", 'None');
 end
 
+function PET_ADOPT_FAIL()
+	ui.CloseFrame("companionhire");
+	ui.CloseFrame("companionshop");
+
+	ui.SysMsg(ClMsg("HasFobiddenWord"));
+
+	local frame = ui.GetFrame("companionhire")
+	frame:SetUserValue("EGG_GUID", 'None');
+end
+

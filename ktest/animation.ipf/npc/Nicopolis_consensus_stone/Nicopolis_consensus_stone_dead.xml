@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" particleName="F_smoke006" attachNode="Point_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" targetPos="false"/>
+	<Particle frame="0" particleName="3cmlake_Consensus_stone_dead" attachNode="Point_dead" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_dead_boom_stone"/>
+	<Sound frame="0.00" soundFile="skl_eff_smokeshell"/>
+</ActionDesc>

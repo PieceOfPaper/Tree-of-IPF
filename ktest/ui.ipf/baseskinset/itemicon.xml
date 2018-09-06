@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2579,6 +2579,38 @@
 		<image name="icon_item_chess_thsword2" file="\icon\weapon\icon_item_chess_thsword2.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chess_shield" file="\icon\weapon\icon_item_chess_shield.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chess_timer" file="\icon\weapon\icon_item_chess_timer.png" imgrect="0 0 256 256" CMM_Caption="2018 08 장난감"/>
+		<image name="icon_item_mus_asiomage1" file="\icon\weapon\icon_item_mus_asiomage1.png" imgrect="0 0 256 256" CMM_Caption="아시오메이지 무기"/>
+		<image name="icon_item_pistol_asiomage1" file="\icon\weapon\icon_item_pistol_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_crossbow_asiomage1" file="\icon\weapon\icon_item_crossbow_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mace_asiomage1" file="\icon\weapon\icon_item_mace_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_spear_asiomage1" file="\icon\weapon\icon_item_spear_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_thmace_asiomage1" file="\icon\weapon\icon_item_thmace_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_thspear_asiomage1" file="\icon\weapon\icon_item_thspear_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_rod_asiomage1" file="\icon\weapon\icon_item_rod_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_staff_asiomage1" file="\icon\weapon\icon_item_staff_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sword_asiomage1" file="\icon\weapon\icon_item_sword_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_rapier_asiomage1" file="\icon\weapon\icon_item_rapier_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_dagger_asiomage1" file="\icon\weapon\icon_item_dagger_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_thsword_asiomage1" file="\icon\weapon\icon_item_thsword_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bow_asiomage1" file="\icon\weapon\icon_item_bow_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cannon_asiomage1" file="\icon\weapon\icon_item_cannon_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_shield_asiomage1" file="\icon\weapon\icon_item_shield_asiomage1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bow_nicopolis2" file="\icon\weapon\icon_item_bow_nicopolis2.png" imgrect="0 0 256 256" CMM_Caption="니코폴리스 무기2"/>
+		<image name="icon_item_cannon_nicopolis2" file="\icon\weapon\icon_item_cannon_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_crossbow_nicopolis2" file="\icon\weapon\icon_item_crossbow_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_rod_nicopolis2" file="\icon\weapon\icon_item_rod_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_staff_nicopolis2" file="\icon\weapon\icon_item_staff_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mus_nicopolis2" file="\icon\weapon\icon_item_mus_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_pistol_nicopolis2" file="\icon\weapon\icon_item_pistol_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_dagger_nicopolis2" file="\icon\weapon\icon_item_dagger_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_rapier_nicopolis2" file="\icon\weapon\icon_item_rapier_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_shield_nicopolis2" file="\icon\weapon\icon_item_shield_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_spear_nicopolis2" file="\icon\weapon\icon_item_spear_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sword_nicopolis2" file="\icon\weapon\icon_item_sword_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_thspear_nicopolis2" file="\icon\weapon\icon_item_thspear_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_thsword_nicopolis2" file="\icon\weapon\icon_item_thsword_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_thmace_nicopolis2" file="\icon\weapon\icon_item_thmace_nicopolis2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_mace_nicopolis2" file="\icon\weapon\icon_item_mace_nicopolis2.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -2735,6 +2767,7 @@
 		<image name="item_bracelet_05_2" file="\icon\acc\item_bracelet_05_2.png" imgrect="0 0 256 256" CMM_Caption="10랭크 퀘스트 보상 브레이슬릿"/>
 		<image name="item_bracelet_02_3" file="\icon\acc\item_bracelet_02_3.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_10_1" file="\icon\acc\item_bracelet_10_1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_TH1stAnniversary" file="\icon\acc\icon_item_armband_TH1stAnniversary.png" imgrect="0 0 256 256" CMM_Caption="태국 오픈1주년 암밴드"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -3036,6 +3069,7 @@
 		<image name="icon_item_accessory_chessKnight2" file="\icon\hairacc\icon_item_accessory_chessKnight2.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_chessBoard" file="\icon\hairacc\icon_item_accessory_chessBoard.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_chessRook" file="\icon\hairacc\icon_item_accessory_chessRook.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_songpyun2" file="\icon\hairacc\icon_item_helmet_songpyun2.png" imgrect="0 0 256 256" CMM_Caption="2018 09 헤어악세"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -4817,6 +4851,7 @@
 		<image name="icon_item_pc_looting300" file="\icon\item\icon_item_pc_looting300.png" imgrect="0 0 128 128" CMM_Caption="[PC방] 루팅 찬스 물약 =300"/>
 		<image name="icon_item_egg_piggy_spotted" file="\icon\item\icon_item_egg_piggy_spotted.png" imgrect="0 0 128 128" CMM_Caption="얼룩 아기 돼지 알"/>
 		<image name="item_icon_armor_linksoul_3" file="\icon\item\item_icon_armor_linksoul_3.png" imgrect="0 0 256 256" CMM_Caption="링크소울3"/>
+		<image name="icon_item_energylamp" file="\icon\item\icon_item_energylamp.png" imgrect="0 0 128 128" CMM_Caption="마나 램프"/>
 		<image name="icon_item_1808_rainbow_powder" file="\icon\item\icon_item_1808_rainbow_powder.png" imgrect="0 0 128 128" CMM_Caption="무지개빛 가루"/>
 		<image name="icon_item_random_hpellixerbox_pp" file="\icon\item\icon_item_random_hpellixerbox_pp.png" imgrect="0 0 128 128" CMM_Caption="[스팀] HP엘릭서 x20"/>
 		<image name="icon_item_random_spellixerbox_pp" file="\icon\item\icon_item_random_spellixerbox_pp.png" imgrect="0 0 128 128" CMM_Caption="[스팀] SP엘릭서 x20"/>
@@ -4830,6 +4865,13 @@
 		<image name="icon_item_pp_Unlock_runecaster" file="\icon\item\icon_item_pp_Unlock_runecaster.png" imgrect="0 0 256 256" CMM_Caption="[스팀] 룬캐스터 해금권"/>
 		<image name="icon_item_Paste_Bait2_pp" file="\icon\item\icon_item_Paste_Bait2_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀] 미끼 무지개지렁이"/>
 		<image name="icon_item_pp_looting300" file="\icon\item\icon_item_pp_looting300.png" imgrect="0 0 128 128" CMM_Caption="[스팀] 루팅 찬스 물약 =300"/>
+		<image name="icon_item_HairCoupon_50_pp" file="\icon\item\icon_item_HairCoupon_50_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]헤어 50"/>
+		<image name="icon_item_HairCoupon_100_pp" file="\icon\item\icon_item_HairCoupon_100_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]헤어 100"/>
+		<image name="icon_item_DyeCoupon_50_pp" file="\icon\item\icon_item_DyeCoupon_50_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]염색 50"/>
+		<image name="icon_item_DyeCoupon_100_pp" file="\icon\item\icon_item_DyeCoupon_100_pp.png" imgrect="0 0 256 256" CMM_Caption="[스팀]염색 100"/>
+		<image name="item_icon_asiomage_stone" file="\icon\item\item_icon_asiomage_stone.png" imgrect="0 0 256 256" CMM_Caption="아시오메이지 정수"/>
+		<image name="item_icon_weistrel_stone" file="\icon\item\item_icon_weistrel_stone.png" imgrect="0 0 256 256" CMM_Caption="웨이스트럴 정수"/>
+		<image name="icon_item_gele_gear_02" file="\icon\item\icon_item_gele_gear_02.png" imgrect="0 0 128 128" CMM_Caption="사우가의 동력기관"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5539,6 +5581,8 @@
 		<image name="icon_item_lens_twinklePurple" file="\icon\payment\icon_item_lens_twinklePurple.png" imgrect="0 0 256 256" CMM_Caption="트윙클 퍼플 렌즈"/>
 		<image name="icon_item_lens_twinkleForest" file="\icon\payment\icon_item_lens_twinkleForest.png" imgrect="0 0 256 256" CMM_Caption="트윙클 포레스트 렌즈"/>
 		<image name="icon_item_lens_XCross" file="\icon\payment\icon_item_lens_XCross.png" imgrect="0 0 256 256" CMM_Caption="엠버 크로스 렌즈"/>
+		<image name="icon_item_wing_scroll2" file="\icon\payment\icon_item_wing_scroll2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_wing_bundle" file="\icon\payment\icon_item_wing_bundle.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

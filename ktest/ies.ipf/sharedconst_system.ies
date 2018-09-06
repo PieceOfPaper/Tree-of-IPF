@@ -280,6 +280,6 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 500003,30,0,"GUILD_MEMBER_ACTIVITY_CONNECTION_TIME","지정 기간내에 접속인지 확인(default:30일)","NO"
 500004,1440,0,"GUILD_APPLICATION_LIFE_TIME","길드 가입 신청서의 유지 시간(MINUTE)","NO"
 500005,30,0,"PERIOD_POPULAR_RANK_SEARCH","인기 트리 조회 기간(30일)","NO"
-500006,9,0,"NUMBER_OF_MAX_RANK","마지막은 9랭크","NO"
+500006,10,0,"NUMBER_OF_MAX_RANK","최대 랭크","NO"
 500007,3,0,"NUMBER_OF_SHOW_HIGH_RANK_TREE","상위 3개의 트리","NO"
-500008,0,0,"USE_POPULAR_RANK_TREE","웹서버에서 인기랭크 집계 사용 여부(0/1)","NO"
+500008,1,0,"USE_POPULAR_RANK_TREE","웹서버에서 인기랭크 집계 사용 여부(0/1)","NO"

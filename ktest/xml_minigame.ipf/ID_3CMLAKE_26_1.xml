@@ -155,7 +155,7 @@
                     <Obj Type="Monster" MonType="59135" Pos="1573.62#-122.62#-1324.01" angle="164" genCount="1" genTime="20000" objectKey="4" IsIncludeAchievementRate="1"/>
                     <Obj Type="Monster" MonType="59136" Pos="1726.52#-122.62#-1163.63" angle="-160" genCount="1" genTime="20000" objectKey="5" IsIncludeAchievementRate="1"/>
                     <Obj Type="Monster" MonType="59136" Pos="1805.10#-122.62#-1312.05" angle="-160" genCount="1" genTime="20000" objectKey="6" IsIncludeAchievementRate="1"/>
-                    <Obj Type="Monster" MonType="59136" Pos="1724.54#-122.62#-1252.53" angle="-160" genCount="1" genTime="20000" objectKey="7" IsIncludeAchievementRate="1"/>
+                    <Obj Type="Monster" MonType="59136" Pos="1697.35#-122.62#-1370.64" angle="-160" genCount="1" genTime="20000" objectKey="7" IsIncludeAchievementRate="1"/>
                     <Obj Type="Monster" MonType="59136" Pos="1686.91#-122.62#-1215.67" angle="-160" genCount="1" genTime="20000" objectKey="8" IsIncludeAchievementRate="1"/>
                     <Obj Type="Monster" MonType="59136" Pos="1941.58#-122.62#-1142.24" angle="-160" genCount="1" genTime="20000" objectKey="9" IsIncludeAchievementRate="1"/>
                     <Obj Type="Monster" MonType="59136" Pos="1938.79#-122.62#-1210.29" angle="-160" genCount="1" genTime="20000" objectKey="10" IsIncludeAchievementRate="1"/>
@@ -254,30 +254,6 @@
                     <Obj Type="Monster" MonType="59137" Pos="821.99#-112.57#-263.61" angle="-76" genCount="1" genTime="20000" objectKey="27" IsIncludeAchievementRate="1"/>
                     <Obj Type="Monster" MonType="59137" Pos="1059.77#-112.57#-260.50" angle="-76" genCount="1" genTime="20000" objectKey="28" IsIncludeAchievementRate="1"/>
                 </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="clear">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="STAGE3/0/STAGE3/1/STAGE3/2/STAGE3/3/STAGE3/4/STAGE3/5/STAGE3/6/STAGE3/7/STAGE3/8/STAGE3/9/STAGE3/10/STAGE3/11/STAGE3/12/STAGE3/13/STAGE3/14/STAGE3/15/STAGE3/16/STAGE3/17/STAGE3/18/STAGE3/19/STAGE3/20/STAGE3/21/STAGE3/22/STAGE3/23/STAGE3/25/STAGE3/27/STAGE3/28"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="DOOR/0"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="강 건너로 이동 가능한 포탈이 열렸습니다."/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="BOSS"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
             </Stage>
             <Stage Name="BOSS" AutoStart="0">
                 <ObjList>
@@ -393,6 +369,33 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="MGAME_MON_KILL_COUNT_CALC"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Potal Opne">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="조건">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE1/6/STAGE1/7/STAGE1/8/STAGE1/9/STAGE1/13/STAGE1/16/STAGE1/21/STAGE1/25/STAGE1/26/STAGE1/29/STAGE1/30/STAGE1/0/STAGE1/2/STAGE1/3/STAGE1/10/STAGE1/1/STAGE1/4/STAGE1/5/STAGE1/11/STAGE1/12/STAGE1/14/STAGE1/15/STAGE1/17/STAGE1/18/STAGE1/19/STAGE1/20/STAGE1/22/STAGE1/23/STAGE1/24/STAGE1/27/STAGE1/28/STAGE1/32/STAGE1/33/STAGE1/34/STAGE1/35/STAGE1/36/STAGE1/37/STAGE1/38/STAGE1/39/STAGE1/40/STAGE1/41/STAGE1/42/STAGE1/43/STAGE1/44/STAGE1/45/STAGE1/46/STAGE1/47/STAGE1/48/STAGE1/49/STAGE1/50/STAGE1/51/STAGE1/52/STAGE1/53/STAGE1/54/STAGE1/55/STAGE1/56/STAGE1/57/STAGE1/58/STAGE1/59/STAGE1/60/STAGE1/61/STAGE1/62/STAGE1/63/STAGE1/64/STAGE1/65/STAGE1/66/STAGE1/67/STAGE1/68/STAGE1/69/STAGE1/70/STAGE1/71/STAGE1/72/STAGE1/73/STAGE1/74/STAGE1/75/STAGE1/76/STAGE1/77/STAGE1/78/STAGE1/79/STAGE1/80/STAGE1/81/STAGE1/82/STAGE1/83/STAGE1/84/STAGE1/85/STAGE1/86/STAGE1/87/STAGE1/88/STAGE1/89/STAGE1/90/STAGE1/91/STAGE1/92/STAGE1/93/STAGE1/94/STAGE1/95/STAGE1/96/STAGE1/97/STAGE2/35/STAGE2/36/STAGE2/37/STAGE2/38/STAGE2/39/STAGE2/40/STAGE2/41/STAGE2/42/STAGE2/43/STAGE2/44/STAGE2/45/STAGE2/46/STAGE2/47/STAGE2/49/STAGE2/50/STAGE2/51/STAGE2/52/STAGE2/53/STAGE2/54/STAGE2/55/STAGE2/56/STAGE2/57/STAGE2/58/STAGE2/59/STAGE2/60/STAGE2/61/STAGE2/62/STAGE2/64/STAGE2/65/STAGE2/66/STAGE2/67/STAGE2/68/STAGE2/70/STAGE2/71/STAGE2/72/STAGE2/73/STAGE2/74/STAGE2/75/STAGE2/0/STAGE2/1/STAGE2/2/STAGE2/3/STAGE2/4/STAGE2/5/STAGE2/6/STAGE2/7/STAGE2/8/STAGE2/9/STAGE2/10/STAGE2/11/STAGE2/12/STAGE2/13/STAGE2/14/STAGE2/15/STAGE2/16/STAGE2/17/STAGE2/18/STAGE2/19/STAGE2/20/STAGE2/21/STAGE2/22/STAGE2/23/STAGE2/24/STAGE2/25/STAGE2/26/STAGE2/27/STAGE2/28/STAGE2/29/STAGE2/30/STAGE2/31/STAGE2/33/STAGE2/34/STAGE2/32/STAGE2/63/STAGE3/0/STAGE3/1/STAGE3/2/STAGE3/3/STAGE3/4/STAGE3/6/STAGE3/7/STAGE3/9/STAGE3/10/STAGE3/11/STAGE3/12/STAGE3/13/STAGE3/14/STAGE3/15/STAGE3/16/STAGE3/17/STAGE3/18/STAGE3/19/STAGE3/20/STAGE3/23/STAGE3/25/STAGE3/27/STAGE3/5/STAGE3/21/STAGE3/22/STAGE3/28/STAGE3/8/STAGE1/31"/>
+                                <Num Num="9"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="강 건너로 이동 가능한 포탈이 열렸습니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DOOR/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
                             </ToolScp>
                         </execList>
                     </Event>

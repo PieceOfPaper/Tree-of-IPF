@@ -21,6 +21,26 @@ end
 function APPRAISAL_UI_CLOSE(frame, ctrl)
 	ui.EnableSlotMultiSelect(0);
 	frame:ShowWindow(0)
+
+	local selectAllBtn = GET_CHILD_RECURSIVELY(frame, "selectAllBtn")
+
+	local isselected = selectAllBtn:GetUserValue("SELECTED")
+	
+
+	local slotSet =  GET_CHILD_RECURSIVELY_AT_TOP(selectAllBtn, "slotlist", "ui::CSlotSet")
+	local slotCount = slotSet:GetSlotCount();
+
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			if isselected == "selected" then
+				slot:Select(0)
+			end
+		end
+	end
+	if isselected == "selected" then
+		selectAllBtn:SetUserValue("SELECTED", "notselected");
+	end
 	TRADE_DIALOG_CLOSE();
 end
 

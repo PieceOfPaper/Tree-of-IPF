@@ -6,6 +6,7 @@
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 	addon:RegisterMsg('RESPONSE_MIN_PRICE', 'ON_RESPONSE_MIN_PRICE');
 	addon:RegisterMsg('WEB_RELOAD_SELL_LIST', 'ON_WEB_RELOAD_SELL_LIST');
+	addon:RegisterMsg('UPDATE_MARKET_TRADE_LIMIT', 'ON_UPDATE_MARKET_TRADE_LIMIT');
 end
 
 function ON_WEB_RELOAD_SELL_LIST(frame, msg, argStr, argNum)	
@@ -16,6 +17,7 @@ function MARKET_SELL_OPEN(frame)
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
 	RequestMarketSellList();
 	packet.RequestItemList(IT_WAREHOUSE);
+	session.inventory.ReqMarketTradeLimitAmount();
 
 	local groupbox = frame:GetChild("groupbox");
 
@@ -398,8 +400,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if count + 1 > maxCount then
-		ui.SysMsg(ClMsg("MarketRegitCntOver"));
+	if count+1 > maxCount then
+		ui.SysMsg(ClMsg("MarketRegitCntOver"));		
 		return;
 	end
 	local frame = parent:GetTopParentFrame();
@@ -419,9 +421,15 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		ui.SysMsg(ClMsg("SellPriceMustOverThen100Silver"));		
 		return;
 	end
-	local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
-	if price * count > limitMoney then
-		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
+
+	local limitMoneyStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
+	if limitMoneyStr == nil then
+		ui.SysMsg(ClMsg('LoadingTradeLimitAmount'));
+		return;
+	end
+
+	if IsGreaterThanForBigNumber(price * count, limitMoneyStr) == 1 then
+		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoneyStr)));
 		return;
 	end
 
@@ -462,7 +470,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local needTime = frame:GetUserIValue('TIME_'..selecIndex);
 	local free = tonumber(frame:GetUserValue('FREE_'..selecIndex));
 	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
-	local commission = registerFeeValueCtrl:GetTextByKey("value")	
+	local commission = registerFeeValueCtrl:GetTextByKey("value")
 	commission = string.gsub(commission, ",", "")
 	commission = math.max(tonumber(commission), 1);
 	if IsGreaterThanForBigNumber(commission, GET_TOTAL_MONEY_STR()) == 1 then
@@ -558,7 +566,6 @@ function UPDATE_COUNT_STRING(parent, ctrl)
     local frame = parent:GetTopParentFrame();
 	local edit_price = GET_CHILD_RECURSIVELY(frame, "edit_price");
 	
-	local limitMoney = MARKET_REGISTER_SILVER_LIMIT
 	local itemPrice = edit_price:GetText()
     itemPrice = string.gsub(itemPrice, ',', '')
     itemPrice = tonumber(itemPrice)
@@ -570,9 +577,11 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 			count = 0;
 		end
 		
-		if count * tonumber(itemPrice) > limitMoney then
-			count = math.floor(limitMoney / itemPrice)
-			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
+		local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();		
+		if limitTradeStr ~= nil then
+			if IsGreaterThanForBigNumber(tonumber(itemPrice) * count, limitTradeStr) == 1 then			
+				ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));				
+			end		
 		end
 		ctrl:SetText(count)
 		UPDATE_FEE_INFO(frame, nil, count, nil)
@@ -586,14 +595,18 @@ function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
     end
 
     local frame = parent:GetTopParentFrame();
-    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
+    local limitMoney = REGISTER_SILVER_LIMIT;
     if frame:GetName() == 'accountwarehouse' then
-    	limitMoney = ACCOUNT_WAREHOUSE_MAX_STORE_SILVER;
+		limitMoney = session.inventory.GetAccountWareHouseLimitAmount();
+		if limitMoney == nil then
+			ui.SysMsg(ClMsg('LoadingTradeLimitAmount'));
+			limitMoney = 0;			
+		end
+		limitMoney = tonumber(limitMoney);
     end
 
     if tonumber(moneyText) > limitMoney then
         moneyText = tostring(limitMoney);
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
     end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 end
@@ -605,15 +618,17 @@ function UPDATE_MARKET_MONEY_STRING(parent, ctrl)
     end
 
     local frame = parent:GetTopParentFrame();    
-    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
-    
 	local edit_count = GET_CHILD_RECURSIVELY(frame, "edit_count")
 	local itemCount = edit_count:GetText()
 
-    if tonumber(moneyText) * itemCount > limitMoney then
-        moneyText = tostring(math.floor(limitMoney / itemCount));
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
+	local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
+	if limitTradeStr ~= nil then
+		if IsGreaterThanForBigNumber(tonumber(moneyText) * itemCount, limitTradeStr) == 1 then			
+			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));
+			moneyText = limitTradeStr;
+		end		
 	end
+    
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 
 	local feeGBoxFrame = GET_CHILD_RECURSIVELY(frame, "feeGbox");
@@ -626,10 +641,10 @@ end
 --feeGBox의 컨텐츠 업데이트(등록 수수료, 총 판매 가격, 수수료, 최종 수령금 표시)
 --호출 함수 : 라디오버튼 클릭시, edit_price에서 가격 수정시
 function UPDATE_FEE_INFO(frame, free, count, price)
-	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue"); --등록 수수료
-	local totalSellPriceValueCtrl = GET_CHILD_RECURSIVELY(frame, "totalSellPriceValue"); --총 판매 가격
-	local feeValueCtrl = GET_CHILD_RECURSIVELY(frame, "feeValue"); --수수료(10% or 30%)
-	local finalRecieveValueCtrl = GET_CHILD_RECURSIVELY(frame, "finalRecieveValue"); --최종 수령금
+	local registerFeeValueCtrl 		= GET_CHILD_RECURSIVELY(frame, "registerFeeValue");		--등록 수수료
+	local totalSellPriceValueCtrl 	= GET_CHILD_RECURSIVELY(frame, "totalSellPriceValue");	--총 판매 가격
+	local feeValueCtrl 				= GET_CHILD_RECURSIVELY(frame, "feeValue");				--수수료(10% or 30%)
+	local finalRecieveValueCtrl 	= GET_CHILD_RECURSIVELY(frame, "finalRecieveValue");	--최종 수령금
 
 	if free == nil then
 		local radioCtrl = GET_CHILD_RECURSIVELY(frame, "feePerTime_1")
@@ -731,4 +746,10 @@ end
 function ON_RESPONSE_MIN_PRICE(frame, msg, minPrice, argNum)	
 	local curMinPrice = GET_CHILD_RECURSIVELY(frame, 'curMinPrice');
 	curMinPrice:SetTextByKey('value', GetMonetaryString(minPrice));
+end
+
+function ON_UPDATE_MARKET_TRADE_LIMIT(frame, msg, argStr, argNum)	
+	local limitAmountText = GET_CHILD_RECURSIVELY(frame, 'limitAmountText');
+	limitAmountText:SetTextByKey('cur', GET_COMMAED_STRING(session.inventory.GetCurMarketTradeAmount()));
+	limitAmountText:SetTextByKey('max', GET_COMMAED_STRING(session.inventory.GetMarketLimitAmount()));
 end

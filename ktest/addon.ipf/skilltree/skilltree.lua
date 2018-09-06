@@ -1,5 +1,8 @@
 ﻿-- skilltree.lua
 
+g_skilltreeJobList = {}
+g_skilltreeJobIDList = {}
+
 function SKILLTREE_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg('GAME_START', 'SKILLLIST_GAMESTART');
@@ -52,8 +55,8 @@ function SKILLTREE_OPEN(frame)
 		questInfoSetFrame:ShowWindow(0);
 	end
 
-	frame:SetUserValue("CLICK_ABIL_ACTIVE_TIME", imcTime.GetAppTime());    
-	REFRESH_SKILL_TREE(frame, nil, true);
+	frame:SetUserValue("CLICK_ABIL_ACTIVE_TIME", imcTime.GetAppTime());   
+	REFRESH_SKILL_TREE(frame, nil, true, true);
 
 	local skilltreegbox = GET_CHILD_RECURSIVELY(frame,'skilltree_pip')
 	skilltreegbox:SetScrollPos(0);
@@ -79,7 +82,6 @@ function UPDATE_ABILITYLIST(frame, msg, argStr, argNum)
 			timer:Stop();
 		end
 	end
-    
 	REFRESH_SKILL_TREE(frame);
 	frame:Invalidate();
 end
@@ -109,6 +111,10 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 	local lastclassCtrlcount = 0
 	local cnt = pcJobInfo:GetJobCount();
 	
+--	local mainClassList = GET_CHILD_RECURSIVELY(frame, "mainClassList")
+	g_skilltreeJobList = {}
+	g_skilltreeJobIDList = {}
+
 	for i = 0 , cnt - 1 do
 		local jobID = pcJobInfo:GetJobByIndex(i);
 		if jobID == -1 then
@@ -146,6 +152,10 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. GET_JOB_NAME(cls, gender));
+
+		g_skilltreeJobList[i + 1] = GET_JOB_NAME(cls, gender)
+		g_skilltreeJobIDList[i + 1] = jobID
+	--	mainClassList:AddItem(i, GET_JOB_NAME(cls, gender));
 
 		-- 클래스 레벨 (★로 표시)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
@@ -767,7 +777,6 @@ function SKILLLIST_GAMESTART(frame)
 	local jobObj = info.GetJob(session.GetMyHandle());
 	local jobCtrlTypeName = GetClassString('Job', jobObj, 'CtrlType');
 	ui.ReqRedisSkillPoint(jobCtrlTypeName);
-	
 	REFRESH_SKILL_TREE(frame);
 	REFRESH_STAT_TEXT(frame);
 
@@ -783,13 +792,13 @@ function SKILLLIST_GAMESTART(frame)
 	OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 1);
 end
 
-function UPDATE_SKILLTREE(frame)
+function UPDATE_SKILLTREE(frame, msg)
 	local reservereset = session.GetUserConfig("SKL_RESET", 0);
 	if reservereset == 1 then
         local skillResetPotion = true
 		ROLLBACK_SKILL(frame, skillResetPotion);
 		session.SetUserConfig("SKL_RESET", 0);
-	else        		
+	else      
 		REFRESH_SKILL_TREE(frame);
 	end
 	frame:Invalidate();
@@ -958,19 +967,36 @@ function REFRESH_STAT_TEXT(frame, treelist)
 	frame:GetChild("CANCEL"):ShowWindow(1);
 end
 
-function REFRESH_SKILL_TREE(frame, skillResetPotion, resetCommonType)            
+function REFRESH_SKILL_TREE(frame, skillResetPotion, resetCommonType, isOpenSkillTree)            
 	HIDE_CHILD_BYNAME(frame, 'skillCtrl_');	
 	MAKE_CLASS_INFO_LIST(frame, resetCommonType);
 
 	local selectJobID = session.GetUserConfig("SELECT_SKLTREE", 0);
+
 	if selectJobID <= 0 then	
 		selectJobID = info.GetJob(session.GetMyHandle());
 	end
+
+	if isOpenSkillTree ~= nil and isOpenSkillTree == true then
+		local etc = GetMyEtcObject()
+		local currentMainClassID = frame:GetUserIValue("currentMainClassID")
+    	local myJobNum = TryGetProp(etc, 'RepresentationClassID', 'None')
+    	if currentMainClassID ~= nil and currentMainClassID ~= 0 then
+
+    		myJobNum = currentMainClassID
+    	end
+
+   		if myJobNum ~= 'None' then
+    		selectJobID = myJobNum
+    	end
+    end
 
 	local clslist, cnt  = GetClassList("Job");
 	local cls = GetClassByTypeFromList(clslist, selectJobID);
 	
 	if cls ~= nil then
+		local nowJobName = GET_CHILD_RECURSIVELY(frame, "nowJobName")
+		nowJobName:SetText(cls.Name)
 		OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 0, skillResetPotion)
 	end
 
@@ -1290,4 +1316,28 @@ function GET_PC_ABILITY_OBJECT_LIST()
 		end
     end
     return abilObjList;
+end
+
+function SKILLTREE_OPEN_MAIN_CLASS_DROPLIST()
+	local frame = ui.GetFrame("skilltree")
+	if frame == nil then
+		return
+	end
+
+	local nowJobName = GET_CHILD_RECURSIVELY(frame, "nowJobName")
+	local mainClassList = GET_CHILD_RECURSIVELY(frame, "mainClassList")
+
+	local dropListFrame = ui.MakeDropListFrame(mainClassList, 0, 0, 400, 100, #g_skilltreeJobList, ui.CENTER_HORZ, "SKILLTREE_CHANGE_MAIN_CLASS", nil, nil);
+	for i = 1, #g_skilltreeJobList do
+		ui.AddDropListItem(g_skilltreeJobList[i], nil, g_skilltreeJobIDList[i]);
+	end
+end
+
+function SKILLTREE_CHANGE_MAIN_CLASS(select, jobID)
+	local frame = ui.GetFrame("skilltree")
+	if frame ~= nil then
+		frame:SetUserValue("currentMainClassID", jobID)
+	end
+	ChangeRepresentationClass(jobID)
+	
 end

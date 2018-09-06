@@ -599,3 +599,17 @@ function SET_SPINE_TOOLTIP_IMAGE(picture, itemCls)
 		picture:SetImage(TryGetProp(itemCls, "TooltipImage"));
 	end
 end
+
+function FIND_CLASSNAME_LIST_BY_PROP(idspace, propName, propVal)
+	if idspace == nil or propName == nil or propVal == nil then
+		return nil;
+	end
+    local cnt = FindClassesByProp(idspace, propName, propVal, "None", false);
+    local list = {}
+    for i = 0 , cnt - 1 do
+        local foundName = GetFindedClass(i);
+        list[#list + 1] = foundName;
+    end
+    return list;
+end
+

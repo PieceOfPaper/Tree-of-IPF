@@ -12,7 +12,7 @@
 		<groupbox name="market_midle3" rect="0 0 1015 831" margin="10 153 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
 		<groupbox name="market_minititle" rect="0 0 1425 99" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="market_title"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 33 0 0" layout_gravity="center top" caption="{@st43}{s24}마켓{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-		<groupbox name="groupbox" rect="0 0 390 690" margin="0 153 5 0" layout_gravity="right top" hittestbox="false" skin=""/>
+		<groupbox name="groupbox" rect="0 0 390 750" margin="0 153 5 0" layout_gravity="right top" hittestbox="false" draw="false"/>
 		<button name="button_1" rect="0 0 200 45" margin="10 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_BUYMODE" caption="{@st66b18}구매" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<button name="close" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;market_sell&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}마켓 창을 닫습니다{/}"/>
 		<groupbox name="sellPriceGbox" margin="0 50 0 0" rect="0 0 390 200" hittestbox="false" layout_gravity="left top" draw="false" parent="groupbox" scrollbar="false"/>
@@ -51,7 +51,7 @@
 		<richtext name="finalRecieveValue" margin="0 79 0 0" rect="0 0 140 24" parent="feeGbox" format="{@st66}%s{/}" param1="value" param1_def="0" fixwidth="true" textalign="right center" layout_gravity="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false"/>
 		<labelline name="labelline" parent="feeGbox" rect="0 0 235 2" margin="0 24 0 0" layout_gravity="right top" skin="labelline2"/>
 		<labelline name="labelline2" parent="feeGbox" rect="0 0 235 2" margin="0 77 0 0" layout_gravity="right top" skin="labelline2"/>
-		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="0 0 0 10" layout_gravity="center bottom" LBtnUpScp="MARKET_SELL_REGISTER" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
+		<button name="button_1_1" parent="groupbox" rect="0 0 180 50" margin="0 0 0 50" layout_gravity="center bottom" LBtnUpScp="MARKET_SELL_REGISTER" caption="{@st41b}등록" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
 		<button name="button_1_2" rect="0 0 200 45" margin="210 105 0 0" layout_gravity="left top" caption="{@st66b18}판매" clicksound="button_click" oversound="button_over" skin="tab2_btn_2"/>
 		<button name="button_1_2_1" rect="0 0 200 45" margin="410 105 0 0" layout_gravity="left top" LBtnUpScp="MARKET_CABINET_MODE" caption="{@st66b18}완료" clicksound="button_click" oversound="button_over" skin="tab2_btn"/>
 		<groupbox name="groupbox_1" parent="market_midle3" margin="0 0 0 0" rect="0 0 1015 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
@@ -67,5 +67,7 @@
 		<richtext name="richtext_5_1_1_1" margin="620 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}수수료{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox_1"/>
 		<richtext name="richtext_5_1_1" margin="785 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}남은 시간{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox_1"/>
 		<detaillist name="itemlist" rect="0 0 1015 792" margin="-195 190 0 0" layout_gravity="center top" skin=""/>
+		<richtext name="limitStaticText" parent="groupbox" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left bottom" caption="등록 제한 금액" fontname="brown_16_b"/>
+		<richtext name="limitAmountText" parent="groupbox" rect="0 0 200 30" margin="0 0 20 0" layout_gravity="right bottom" format="%s/%s" param1="cur" param1_def="0" param2="max" param2_def="0" fontname="brown_16"/>
 	</controls>
 </uiframe>

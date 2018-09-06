@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildinfo" x="0" y="0" width="1600" height="900" create="open" version="2">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin="test_frame_low" titlebarskin="test_frame_top" activetitlebarskin="test_frame_top"/>
@@ -164,7 +164,7 @@
 										</layoutsection>
 										<layoutsection name="guildNoticeSection" size="40%">
 											<groupbox name="guildNoticeBox" draw="false" hittest="true">
-												<edit name="noticeEdit" skin="test_weight_skin" rect="0 0 543 80" margin="8 40 0 0" fontname="black_18" EnterKeyScp="SAVE_GUILD_NOTICE" fixwidth="true" maxlen="128"/>
+												<edit name="noticeEdit" skin="test_weight_skin" rect="0 0 543 80" margin="8 40 0 0" fontname="black_18" EnterKeyScp="SAVE_GUILD_NOTICE" fixwidth="true" maxlen="128" multiline="true"/>
 												<richtext name="guildNoticeText" rect="0 0 300 30" margin="10 5 0 0" layout_gravity="left top" caption="{@st43b}{s18}길드 소개글{/}" fontname="white_16_b_ol"/>
 												<button name="noticeRegisterBtn" rect="0 0 130 40" margin="0 0 0 0" layout_gravity="right top" skin="test_pvp_btn" caption="{@st66}{s18}등록{/}" fontname="brown_16" LBtnUpScp="SAVE_GUILD_NOTICE"/>
 											</groupbox>
