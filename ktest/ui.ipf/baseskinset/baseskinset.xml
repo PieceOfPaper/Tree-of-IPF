@@ -3866,6 +3866,17 @@
 			<img name="bottomcore" imgrect="255 236 96 20"/>
 			<img name="bottomright" imgrect="352 236 20 20"/>
 		</skin>
+		<skin name="blackbox_op_50" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1243 442 16 19"/>
+			<img name="topcore" imgrect="1260 442 128 19"/>
+			<img name="topright" imgrect="1389 442 16 19"/>
+			<img name="bodyleft" imgrect="1243 462 16 18"/>
+			<img name="bodycore" imgrect="1260 462 128 18"/>
+			<img name="bodyright" imgrect="1389 462 16 18"/>
+			<img name="bottomleft" imgrect="1243 481 16 19"/>
+			<img name="bottomcore" imgrect="1260 481 128 19"/>
+			<img name="bottomright" imgrect="1389 481 16 19"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">

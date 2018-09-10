@@ -996,7 +996,7 @@ function REFRESH_SKILL_TREE(frame, skillResetPotion, resetCommonType, isOpenSkil
 	
 	if cls ~= nil then
 		local nowJobName = GET_CHILD_RECURSIVELY(frame, "nowJobName")
-		nowJobName:SetText(cls.Name)
+		nowJobName:SetText(GET_JOB_NAME(cls, info.GetGender(session.GetMyHandle())))
 		OPEN_SKILL_INFO(frame, nil, cls.ClassName, selectJobID, 0, skillResetPotion)
 	end
 

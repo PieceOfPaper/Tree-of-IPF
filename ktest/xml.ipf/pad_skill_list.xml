@@ -14225,14 +14225,14 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="boss_asiomage_fire" CheckerType="4" Dist="8.5373497" Angle="-0.67215323" Range="120" InnerRange="65" AutoPos="1" AutoDir="1" AllowOverlap="1">
+    <PadSkill Name="boss_asiomage_fire" CheckerType="4" Dist="0.4106681" Angle="-0.7854113" Range="50" InnerRange="20" AutoPos="1" AutoDir="1" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
                 <Num Num="99999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_cleric_HengeStone_ground_loop" Arg="4"/>
+                <Str_Arg Str="I_circle011_whtie_mash_redBlack" Arg="2"/>
                 <Pos Angle="0" Dist="3.9432153e-36"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>

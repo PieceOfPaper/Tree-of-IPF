@@ -150,10 +150,13 @@ function GET_SLOT_OBLATION_SELL_PRICE(slot)
 	end
 
 	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
-	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());
-	if 0 >= price then
-		price = 1;
-	end
+	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());    
+    if geItemTable.GetSellPrice(itemProp) <= 0 then
+        price = 0
+    elseif geItemTable.GetSellPrice(itemProp) <= 1 then
+        price = 1        
+    end
+	
 	return price* slotCount;
 
 end
