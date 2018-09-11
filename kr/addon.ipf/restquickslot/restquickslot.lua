@@ -195,6 +195,9 @@ function REST_SLOT_USE(frame, slotIndex)
 	end
 
 	local slot = GET_CHILD(frame, "slot"..slotIndex+1, "ui::CSlot");	
+	if slot == nil then
+		return;
+	end
 	local type = slot:GetUserValue("REST_TYPE");
 	local cls = GetClassByType("restquickslotinfo", type);	
 	

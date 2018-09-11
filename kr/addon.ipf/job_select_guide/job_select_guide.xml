@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="job_select_guide" x="0" y="0" width="1920" height="1080">
+	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
+	<skin frameskin="property_screenbg"/>
+	<input hittest="true"/>
+	<layer layerlevel="100"/>
+	<option hideable="true" closebutton="false"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<script OpenScp="ON_OPEN_JOB_SELECT_GUIDE"/>
+	<userconfig CardDefaultScale="1.0" CardDestScale="1.0" CardDestAngle="0" CardAnimSec="0.25" ResultCountPerPage="3" MaxOneLineCnt="3" StarTextWidth="15"/>
+	<controls>
+		<groupbox name="gb" rect="0 0 1600 900" margin="0 100 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin=""/>
+		<picture name="title_left_pic" rect="0 0 188 35" margin="-200 100 0 0" layout_gravity="center top" image="frame_classguide_l"/>
+		<picture name="title_right_pic" rect="0 0 188 35" margin="200 100 0 0" layout_gravity="center top" image="frame_classguide_r"/>
+		<richtext name="title_text" rect="0 0 200 60" margin="0 100 0 0" layout_gravity="center top" textalign="center center" format="{@sti7}{s28}%s" param1="value" param1_def="" fixwidth="true" resizebytext="true" font="white_20_ol"/>
+		<button name="close_btn" rect="0 0 40 40" margin="0 30 30 0" layout_gravity="right top" clicksound="button_click_2" LBtnUpScp="ON_CLOSE_JOB_SELECT_GUIDE" image="testclose_button"/>
+		<button name="back_btn" rect="0 0 60 60" margin="30 30 0 0" layout_gravity="left top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clickrgn="0 0 65 65" clicksound="button_click_2" LBtnUpScp="ON_BACK_JOB_SELECT_GUIDE" image="guide_back_btn"/>
+		<button name="restart_btn" rect="0 0 60 60" margin="240 30 0 0" layout_gravity="left top" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clickrgn="0 0 65 65" clicksound="button_click_2" LBtnUpScp="ON_RESTART_JOB_SELECT_GUIDE" image="guide_restart_btn"/>
+		<richtext name="back_text" rect="0 0 200 40" margin="120 50 0 0" layout_gravity="left top" textalign="center center" caption="{@st43}뒤로가기" fixwidth="false" resizebytext="true" font="white_20_ol"/>
+		<richtext name="retry_text" rect="0 0 200 40" margin="330 50 0 0" layout_gravity="left top" textalign="center center" caption="{@st43}다시하기" fixwidth="false" resizebytext="true" font="white_20_ol"/>
+		<button name="result_left_btn" rect="0 0 60 60" margin="30 0 0 0" layout_gravity="left center" LBtnUpScp="ON_LEFT_JOB_SELECT_GUIDE" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clicksound="button_click_2" clickrgn="0 0 63 63" image="guide_page_left_btn"/>
+		<button name="result_right_btn" rect="0 0 60 60" margin="0 0 30 0" layout_gravity="right center" LBtnUpScp="ON_RIGHT_JOB_SELECT_GUIDE" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" clicksound="button_click_2" clickrgn="0 0 63 63" image="guide_page_right_btn"/>
+		<richtext name="page_num_text" rect="0 0 200 40" margin="0 0 0 50" layout_gravity="center bottom" textalign="center center" format="{@st43}%s/%s" param1="cur" param2="max" fixwidth="false" resizebytext="true" font="white_20_ol"/>
+	</controls>
+</uiframe>

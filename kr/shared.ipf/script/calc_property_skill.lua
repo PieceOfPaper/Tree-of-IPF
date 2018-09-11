@@ -6364,13 +6364,13 @@ function SCR_GET_SmokeGrenade_Time(skill)
 end
 
 function SCR_GET_Bazooka_Ratio(skill)
-    local value = skill.Level * 10
+    local value = 50
     return value
 end
 
 
 function SCR_GET_Bazooka_Ratio2(skill)
-    local value = skill.Level * 8;
+    local value = 80
     return value
 end
 
@@ -7787,10 +7787,17 @@ function SCR_Get_SkillFactor_SummonFamiliar(skill)
 end
 
 function SCR_Get_SkillFactor_pcskill_summon_Familiar(skill)
+    local sklLevel = 1;
     local self = GetSkillOwner(skill);
     local parent = GetOwner(self)
-    local value = skill.SklFactor + skill.SklFactorByLevel * (skill.Level - 1)
+    if parent ~= nil then
+        local skl = GetSkill(parent, 'Sorcerer_SummonFamiliar')
+        if skl ~= nil then
+            sklLevel = skl.Level
+        end
+    end
     
+    local value = skill.SklFactor + skill.SklFactorByLevel * (sklLevel - 1)
     local abil = GetAbility(parent, "Sorcerer11")      -- Skill Damage add
     if abil ~= nil then
         value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
@@ -7833,6 +7840,15 @@ function SCR_GET_Evocation_Ratio(skill)
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
 
+end
+
+function SCR_GET_Evocation_Ratio2(skill)
+
+    local pc = GetSkillOwner(skill);
+    local value = 5 + 5 * skill.Level;
+    
+    return value
+    
 end
 
 function SCR_Get_SkillFactor_Desmodus(skill)
@@ -8259,30 +8275,21 @@ function SCR_GET_HeadShot_Ratio2(skill)
 end
 
 function SCR_GET_HealingFactor_Time(skill)
-
-  local value = 15 + skill.Level * 5
-  
-  local pc = GetSkillOwner(skill);
-  if IsPVPServer(pc) == 1 then
-    value = math.min(27, value);
-  end
-  
-  local value = 15 + skill.Level * 5
-  
-  local pc = GetSkillOwner(skill);
-  if IsPVPServer(pc) == 1 then
-    value = math.min(27, value);
-  end
-  
-  return value;
-  
+	local value = 60
+	local pc = GetSkillOwner(skill);
+	if IsPVPServer(pc) == 1 then
+		value = 20
+	end
+	
+	return value;
 end
 
 function SCR_GET_HealingFactor_Ratio(skill)
-
-  local value = 50 + skill.Level * 10
-  return value;
-  
+	local pc = GetSkillOwner(skill);
+	local healPower = TryGetProp(pc, "HEAL_PWR")
+	local value = healPower * (0.3 + (skill.Level * 0.08))
+	
+	return math.floor(value);
 end
 
 function SCR_GET_Bloodletting_Time(skill)
@@ -15372,6 +15379,11 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     if skill.LevelByDB == 0 then
         return 0;
+    end
+    
+    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", skill.ClassName)
+    if skilltreecls ~= nil and skilltreecls.MaxLevel == 1 then
+        value = 1
     end
     
     if value < 1 then

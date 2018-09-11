@@ -55,6 +55,7 @@ function GET_MORE_EVENT_EXP(pc)
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Goddess');	-- 여신의 조각상
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_RedOrb_GM');	-- 이벤트 참여
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_WeddingCake'); -- 웨딩 케잌
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Wedding'); --스팀 웨딩 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1706_FREE_EXPUP'); --이런 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_SECOND_BUFF'); --2주년 기념수의 축복
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1712_XMAS_FIRE'); --크리스마스 폭죽 이벤트

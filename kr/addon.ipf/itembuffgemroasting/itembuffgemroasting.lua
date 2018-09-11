@@ -277,11 +277,6 @@ end
 function GEMROASTING_CENCEL_CHECK(frame)
 	frame = frame:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
-	if handle == session.GetMyHandle() then
-		GEMROASTING_CENCEL();
-		return;
-	end
-
 	session.autoSeller.BuyerClose(AUTO_SELL_GEM_ROASTING, handle);
 end
 

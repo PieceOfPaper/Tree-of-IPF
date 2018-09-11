@@ -280,6 +280,10 @@ function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAp
 			SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
 		end
 	end
+
+	if TryGetProp(itemCls, "Dur") ~= nil then
+		SET_SLOT_DURATION(slot, itemCls)
+	end
 end
 
 
@@ -386,6 +390,17 @@ function SET_SLOT_REINFORCE_LEVEL(slot, reinforceLv)
 	end
 
 	levelText:SetTextByKey("level", reinforceLv)
+end
+
+function SET_SLOT_DURATION(slot, itemCls)
+	if itemCls.Dur == 0 then
+		local icon = slot:GetIcon()
+		if icon == nil then
+			return
+		end
+
+		icon : SetColorTone("FFFF0000")
+	end
 end
 
 function SET_SLOT_ITEM_TEXT(slot, invItem, obj)

@@ -63,7 +63,7 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
             			if logoutSec >= 0 then
             				locationText = GET_DIFF_TIME_TXT(logoutSec);
             			else				
-            				locationText = ScpArgMsg("Logout");
+            				locationText = ScpArgMsg("LogoutLongTime");
             			end
                         memberCtrlSet:SetUserValue('IS_ONLINE', 'NO');
                     end
@@ -79,7 +79,7 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                     -- job
                     local jobID = partyMemberInfo:GetIconInfo().job;
                     local jobCls = GetClassByType('Job', jobID);
-                    local jobName = TryGetProp(jobCls, 'Name');        
+                    local jobName = GET_JOB_NAME(jobCls, partyMemberInfo:GetIconInfo().gender);
                     if jobName ~= nil then
                         local jobText = GET_CHILD_RECURSIVELY(memberCtrlSet, 'jobText')
                         jobText:SetTextByKey('job', jobName);
@@ -132,7 +132,7 @@ function GUILDINFO_MEMBER_LEADER_ON_TOP(frame, leaderAID)
     local firstMember = nil;
     for i = 0, memberBoxChildCount - 1 do
         local child = memberCtrlBox:GetChildByIndex(i);        
-        if string.find(child:GetName(), 'MEMBER_') ~= nil then
+        if string.find(child:GetName(), 'MEMBER_') ~= nil and child:IsVisible() == 1 then
             firstMember = child;
             break;
         end

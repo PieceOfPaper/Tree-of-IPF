@@ -600,7 +600,6 @@ function IS_DRAW_ETC_ITEM_DAMAGE(invitem)
 end
 
 function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
-
 	local invitem = nil;
 	if strarg == 'select' then
 		invitem = session.GetSelectItemByIndex(guid);
@@ -666,8 +665,11 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
 
-	if invitem ~= nil then
-		return GetIES(invitem:GetObject()), 0;
+	if invitem ~= nil and invitem:GetObject() ~= nil then
+		local itemObj = GetIES(invitem:GetObject());
+		if itemObj.ClassName ~= MONEY_NAME then
+			return itemObj, 0;
+		end
 	end
 
 	local itemObj = GetClassByType("Item", numarg1)

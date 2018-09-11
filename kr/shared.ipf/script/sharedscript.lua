@@ -2363,3 +2363,25 @@ function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-dd hh:mm:ss
 
     return year, month, day, hour, minute, second;
 end
+
+function GET_INTERSECT_TABLE_BY_VALUE(table1, table2)
+    local hash2 = {};
+    for k2, v2 in pairs(table2) do
+        hash2[v2] = 1;
+    end
+    
+    local ret = {};
+    for k1, v1 in pairs(table1) do
+        if hash2[v1] == 1 then
+            ret[#ret + 1] = v1;
+            hash2[v1] = nil;
+        end
+    end
+    return ret;
+end
+
+function CALC_CENTER_ALIGN_POSITION(index, count, len, dist, bgLen)
+    local bgOffset = bgLen/2;
+    local firstOffset = (len*count/2) + math.floor(count/2)*dist;
+    return bgOffset - firstOffset + (len + dist)*(index-1);
+end

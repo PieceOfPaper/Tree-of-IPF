@@ -27,11 +27,21 @@ function HEADSUPDISPLAY_ON_INIT(addon, frame)
     addon:RegisterMsg("PARTY_UPDATE", "HEADSUPDISPLAY_SET_CAMP_BTN");
 	addon:RegisterMsg("SHOW_SOUL_CRISTAL", "HEADSUPDISPLAY_SHOW_SOUL_CRISTAL");
 	addon:RegisterMsg("UPDATE_SOUL_CRISTAL", "HEADSUPDISPLAY_UPDATE_SOUL_CRISTAL");
-	
+	addon:RegisterMsg("UPDATE_REPRESENTATION_CLASS_ICON", "UPDATE_REPRESENTATION_CLASS_ICON");
+
 	local leaderMark = GET_CHILD(frame, "Isleader", "ui::CPicture");
 	leaderMark:SetImage('None_Mark');
 
 	SHOW_SOULCRYSTAL_COUNT(frame, 0)
+end
+
+function UPDATE_REPRESENTATION_CLASS_ICON(frame, msg, argStr, argNum)    
+    HUD_SET_EMBLEM(frame, argNum, 1)
+    session.SetUserConfig("SELECT_SKLTREE", argNum)
+    local skilltreeFrame = ui.GetFrame("skilltree")
+    if skilltreeFrame ~= nil and skilltreeFrame:IsVisible() == 1 then
+    	UPDATE_SKILLTREE(skilltreeFrame)
+    end
 end
 
 function CANT_RUN_ALARM(frame, msg, argStr, argNum)
@@ -113,10 +123,9 @@ function CONTEXT_MY_INFO(frame, ctrl)
 	ui.OpenContextMenu(context);
 end
 
-function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
+function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)    
 	local hpGauge = GET_CHILD(frame, "hp", "ui::CGauge");
 	local spGauge = GET_CHILD(frame, "sp", "ui::CGauge");
-
 	if msg == 'STANCE_CHANGE' or msg == 'NAME_UPDATE' or msg == 'LEVEL_UPDATE' or msg == 'GAME_START' or msg == 'CHANGE_COUNTRY' or msg == 'MYPC_CHANGE_SHAPE' then        
 		local levelRichText = GET_CHILD(frame, "level_text", "ui::CRichText");
 		local level = GETMYPCLEVEL();
@@ -126,13 +135,24 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
 		local CharName = info.GetFamilyName(MySession);
 		local nameRichText = GET_CHILD(frame, "name_text", "ui::CRichText");
 		nameRichText:SetText('{@st41}'..CharName)
+        		        
+        local etc = GetMyEtcObject()
+        local MyJobNum = TryGetProp(etc, 'RepresentationClassID', 'None')
+        if MyJobNum == 'None' then
+            MyJobNum = info.GetJob(MySession)
+        end        
 
-		local MyJobNum = info.GetJob(MySession);
 		local JobCtrlType = GetClassString('Job', MyJobNum, 'CtrlType');
 		config.SetConfig("LastJobCtrltype", JobCtrlType);
 		config.SetConfig("LastPCLevel", level);
 
-        HUD_SET_EMBLEM(frame, MyJobNum);
+		if msg == 'GAME_START' or msg == 'MYPC_CHANGE_SHAPE' then
+			HUD_SET_EMBLEM(frame, MyJobNum, 1);
+		else
+			HUD_SET_EMBLEM(frame, MyJobNum);
+		end
+        session.SetUserConfig("SELECT_SKLTREE", MyJobNum)
+ 		
 	end
 
 	if msg == 'LEVEL_UPDATE'  or  msg == 'STAT_UPDATE'  or  msg == 'TAKE_DAMAGE'  or  msg == 'TAKE_HEAL' or msg == 'GAME_START' or msg == 'CHANGE_COUNTRY' then
@@ -162,7 +182,7 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
 	end
 end
 
-function HUD_SET_EMBLEM(frame, jobClassID)
+function HUD_SET_EMBLEM(frame, jobClassID, isChangeMainClass)
     local jobCls = GetClassByType('Job', jobClassID);
     local jobIcon = TryGetProp(jobCls, 'Icon');
     if jobIcon == nil then
@@ -171,7 +191,7 @@ function HUD_SET_EMBLEM(frame, jobClassID)
     local mySession = session.GetMySession();
     local jobPic = GET_CHILD_RECURSIVELY(frame, 'jobPic');
     jobPic:SetImage(jobIcon);
-    UPDATE_MY_JOB_TOOLTIP(jobClassID, jobPic, jobCls)
+    UPDATE_MY_JOB_TOOLTIP(jobClassID, jobPic, jobCls, isChangeMainClass)
     local jobStarText = GET_CHILD_RECURSIVELY(frame, 'jobStarText');
     local STAR_SIZE = frame:GetUserConfig('STAR_SIZE');
     local pcJobInfo = mySession.pcJobInfo;

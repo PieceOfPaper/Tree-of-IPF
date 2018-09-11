@@ -96,7 +96,7 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		if invItem.count > 1 then
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()));
 		else
-			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue("HANDLE"));
 		end
 	else        
 		local iconSlot = liftIcon:GetParent();
@@ -110,7 +110,7 @@ end
 function EXEC_PUT_ITEM_TO_WAREHOUSE(frame, count, inputframe)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
-	item.PutItemToWarehouse(IT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+	item.PutItemToWarehouse(IT_WAREHOUSE, iesid, tostring(count), frame:GetUserIValue("HANDLE"));
 end
 
 function ON_WAREHOUSE_ITEM_LIST(frame)    
@@ -179,8 +179,8 @@ function WAREHOUSE_INV_RBTN(itemObj, slot)
 	if fromFrame:GetName() == "inventory" then        
 		if invItem.count > 1 then
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()));
-		else
-			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+		else			
+			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue("HANDLE"));
 		end
 	end
 end

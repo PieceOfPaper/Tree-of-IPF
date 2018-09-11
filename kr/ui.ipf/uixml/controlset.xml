@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
 		<controls>
@@ -1391,9 +1391,9 @@
 			<richtext name="text" rect="28 2 220 22" fixwidth="true" hittest="false" fontname="white_14"/>
 		</controls>
 	</controlset>
-	<controlset name="richtxt" toggle="false" hittest="false" width="250" height="24">
+	<controlset name="richtxt" toggle="false" hittest="false" width="350" height="24">
 		<controls>
-			<richtext name="text" rect="0 0 250 24" fixwidth="true" hittest="false" fontname="white_14"/>
+			<richtext name="text" rect="0 0 350 24" fixwidth="true" hittest="false" fontname="white_14"/>
 		</controls>
 	</controlset>
 	<controlset name="appralsal" toggle="false" hittest="false" width="160" height="54">
@@ -4341,6 +4341,47 @@
 	<controlset name="itemslot_reinforce_styleset" hittest="false" width="60" height="60" hittestset="false">
 		<controls>
 			<richtext name="levelText" parent="starIcon" rect="0 0 30 20" margin="0 0 4 4" layout_gravity="right bottom" textalign="center center" format="+%s" param1="level" param1_def="0" fontname="white_14_b_ds_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="job_select_guide_card" hittest="true" width="269" height="350" hittestset="false">
+		<controls>
+			<picture name="pic" rect="0 0 259 326" margin="0 0 0 0" layout_gravity="center center" image="charinfo_markslot" stretch="true" hittest="true" LBtnUpScp="ON_CLICK_JOB_SELECT_GUIDE_CARD"/>
+			<richtext name="text" rect="0 0 60 30" margin="0 0 0 0" layout_gravity="center bottom" textalign="center center" format="{@st43}%s{/}" param1="value" param1_def="none" fontname="white_14_b_ds_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="job_select_guide_start" hittest="true" width="1340" height="350" hittestset="false">
+		<userconfig Icon_Warrior="swordsman_icon" Icon_Archer="archer_icon" Icon_Wizard="wizard_icon" Icon_Cleric="cleric_icon"/>
+		<controls>
+			<picture name="title_left_pic" rect="0 0 188 35" margin="-220 15 0 0" layout_gravity="center top" image="frame_classguide_l"/>
+			<picture name="title_right_pic" rect="0 0 188 35" margin="220 15 0 0" layout_gravity="center top" image="frame_classguide_r"/>
+			<richtext name="title_text" rect="0 0 440 60" margin="0 15 0 0" layout_gravity="center top" textalign="center center" caption="{@sti7}{s26}클래스 선택 가이드" fixwidth="true" resizebytext="true" font="white_20_ol"/>
+			<picture name="job_pic" rect="0 0 140 190" margin="0 75 0 0" layout_gravity="center top" image="" stretch="true"/>
+			<button name="start_btn" rect="0 0 70 20" margin="0 0 0 -10" layout_gravity="center bottom" image="btn_lv3" caption="{@st43b}시작" hittest="true" LBtnUpScp="ON_CHANGE_JOB_SELECT_GUIDE_START" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		</controls>
+	</controlset>
+	<controlset name="job_select_guide_job_tree" hittest="true" width="500" height="80" hittestset="false">
+		<controls>
+			<groupbox name="gb" margin="0 0 0 0" rect="0 0 500 80" draw="false" hittestbox="false" layout_gravity="center center" resizebyparent="false" scrollbar="false"/>
+		</controls>
+	</controlset>
+	<controlset name="job_select_guide_result" hittest="true" width="500" height="830" hittestset="false" draw="false" skin="None">
+		<controls>
+			<picture name="portrait_pic" rect="0 0 350 350" margin="0 100 0 0" layout_gravity="center top" image="charinfo_markslot" stretch="true" hittest="true"/>
+			<picture name="job_icon_pic" rect="0 0 80 80" margin="110 470 0 0" layout_gravity="left top" image="charinfo_markslot" stretch="true" hittest="true"/>
+			<richtext name="job_name_text" rect="0 0 200 50" margin="210 495 0 0" layout_gravity="left top" textalign="left center" format="{@st43}%s{/}" param1="value" param1_def="none" omitbywidth="true" fixwidth="true" fontname="white_14_b_ds_ol"/>
+			<groupbox name="suggestion_gb" margin="0 0 0 0" rect="0 0 500 260" draw="true" hittestbox="false" layout_gravity="center bottom" resizebyparent="false" skin="none" scrollbar="false"/>
+			<controlset name="suggestion_1" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
+			<controlset name="suggestion_2" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 85 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
+			<controlset name="suggestion_3" skin="blackbox_op_50" parent="suggestion_gb" type="job_select_guide_job_tree" rect="0 0 500 80" margin="0 170 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false"/>
+			<richtext name="suggestion_1st" parent="suggestion_1" rect="0 0 200 80" margin="15 0 0 0" layout_gravity="left center" textalign="left center" format="{@st43}1위" fontname="white_14_b_ds_ol" hittest="false"/>
+			<richtext name="suggestion_2nd" parent="suggestion_2" rect="0 0 200 80" margin="15 0 0 0" layout_gravity="left center" textalign="left center" format="{@st43}2위" fontname="white_14_b_ds_ol" hittest="false"/>
+			<richtext name="suggestion_3rd" parent="suggestion_3" rect="0 0 200 80" margin="15 0 0 0" layout_gravity="left center" textalign="left center" format="{@st43}3위" fontname="white_14_b_ds_ol" hittest="false"/>
+		</controls>
+	</controlset>
+	<controlset name="job_select_guide_circle" hittest="false" width="60" height="80" hittestset="false">
+		<controls>
+			<picture name="job_icon_pic" rect="0 0 50 50" margin="0 -6 0 0" layout_gravity="center center" image="charinfo_markslot" stretch="true" hittest="true"/>
+			<richtext name="circle_text" rect="0 0 200 50" margin="0 22 0 0" layout_gravity="center center" textalign="center center" caption="" fontname="white_14_b_ds_ol"/>
 		</controls>
 	</controlset>
 	<controlset name="colony_payment_elem" hittest="true" width="600" height="50" skin="test_skin_01" hittestset="false" draw="true">

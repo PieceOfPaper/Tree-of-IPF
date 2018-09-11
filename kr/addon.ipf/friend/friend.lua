@@ -731,7 +731,8 @@ function UPDATE_FRIEND_CONTROLSET(ctrlSet, listType, friendInfo)
         local logoutTime = imcTime.GetDiffSecFromNow(info.logoutTime);
                 
         logoutText:SetTextByKey('name', info:GetFamilyName());
-        logoutText:SetTextByKey('time', GET_DIFF_TIME_TXT(logoutTime));
+		logoutText:SetTextByKey('time', GET_DIFF_TIME_TXT(logoutTime));
+		ctrlSet:SetEventScript(ui.RBUTTONUP, "POPUP_FRIEND_COMPLETE_CTRLSET");
         return;
     end
 
@@ -820,14 +821,15 @@ function POPUP_FRIEND_COMPLETE_CTRLSET(parent, ctrlset)
 	if f.mapID ~= 0 then
 		local partyinviteScp = string.format("PARTY_INVITE(\"%s\")", info:GetFamilyName());
 		ui.AddContextMenuItem(context, ScpArgMsg("PARTY_INVITE"), partyinviteScp);
+		
+		--메모 추가
+		local memoScp = string.format("FRIEND_SET_MEMO(\"%s\")",aid);
+		ui.AddContextMenuItem(context, ScpArgMsg("FriendAddMemo"), memoScp);
 	end
 
 	local whisperScp = string.format("ui.WhisperTo('%s')", info:GetFamilyName());
 	ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), whisperScp);
 
-	--메모 추가
-	local memoScp = string.format("FRIEND_SET_MEMO(\"%s\")",aid);
-	ui.AddContextMenuItem(context, ScpArgMsg("FriendAddMemo"), memoScp);
 	
 	local groupnamelist = {}
 	local cnt = session.friends.GetFriendCount(FRIEND_LIST_COMPLETE);

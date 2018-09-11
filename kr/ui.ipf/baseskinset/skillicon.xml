@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1444,6 +1444,7 @@
 		<image name="ability_Wizard_Warlock19" file="\icon\icon_ability_wizard05.tga" imgrect="512 768 128 128" CMM_Caption="워록: 다크니스"/>
 		<image name="ability_Wizard_Featherfoot19" file="\icon\icon_ability_wizard05.tga" imgrect="640 768 128 128" CMM_Caption="페더풋: 저주술사"/>
 		<image name="ability_Wizard_Sorcerer17" file="\icon\icon_ability_wizard05.tga" imgrect="768 768 128 128" CMM_Caption="살라미온 소환 : 온기"/>
+		<image name="ability_Wizard_Sorcerer18" file="\icon\icon_ability_wizard05.tga" imgrect="896 768 128 128" CMM_Caption="서모닝: 혹사"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -1806,6 +1807,7 @@
 		<image name="ability_archer_Cannoneer21" file="\icon\icon_ability_archer06.tga" imgrect="128 512 128 128" CMM_Caption="캐노니어: 폭굉"/>
 		<image name="ability_archer_Falconer21" file="\icon\icon_ability_archer06.tga" imgrect="256 512 128 128" CMM_Caption="응사: 매의 눈"/>
 		<image name="ability_archer_Schwarzereiter4" file="\icon\icon_ability_archer06.tga" imgrect="384 512 128 128" CMM_Caption="슈바르츠라이터: 권총사격술"/>
+		<image name="ability_archer_Cannoneer22" file="\icon\icon_ability_archer06.tga" imgrect="512 512 128 128" CMM_Caption="바주카 고정 포격"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

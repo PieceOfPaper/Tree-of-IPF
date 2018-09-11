@@ -297,12 +297,11 @@ function ROLLBACK_STAT(frame)
 end
 
 function STATUS_UPDATE(frame)
-
     if g_reserve_reset == 1 then
         STAT_RESET(frame, 1);
         g_reserve_reset = 0;
     else
-        DebounceScript("STATUS_INFO", 0.2);
+        DebounceScript("STATUS_INFO", 0.2, 0);
     end
 end
 
