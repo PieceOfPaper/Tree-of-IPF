@@ -277,6 +277,8 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 		return;
 	end
 
+    local predraw_class_name = nil
+
 	local clsList, cnt = GetClassList('Map');	
 	if cnt == 0 then
 		return;
@@ -382,6 +384,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
             set:SetTooltipType('warpminimap');
             if warpInfo ~= nil then
                 set:SetTooltipStrArg(warpInfo.ClassName);
+                predraw_class_name = lobbyMapCls.ClassName                
             else
                 set:SetTooltipStrArg(lobbyMapCls.ClassName);
             end
@@ -403,9 +406,8 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 	if type == 'Dievdirbys' or type == 'Normal' then
 		for index = 1, #result do
 			local info = result[index];
+            if predraw_class_name ~= info.Zone then
 			local mapCls = GetClass("Map", info.Zone);
-
-
 			local warpcost = 0;
 			if mapCls.WorldMap ~= "None" then
 				local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
@@ -433,20 +435,18 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 				end
 			end
 		end
+		end
 	else
 		for index = 1, #result do
 			local info = result[index];
+            if predraw_class_name ~= info.Zone then
 			local mapCls = GetClass("Map", info.Zone);
 			local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
-			
-			--warpcost = 0      --EV161110
-			
 			if nowZoneName == 'infinite_map' then
 				warpcost = 0;
 			end
 			if mapCls.WorldMap ~= "None" then
 				local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
-				
 				if currentDirection == dir then
 					local picX = startX + x * spaceX * sizeRatio + 60;
 					local picY = startY - y * spaceY * sizeRatio + 30;
@@ -483,6 +483,7 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 				end
 			end
 		end
+	end
 	end
 
 	if makeWorldMapImage == true then

@@ -415,4 +415,40 @@
 			<Sound From="walk_left" To="step_ice"/>
 		</Anim>
 	</Material>
+	<Material ID="26" Name="rabbit_stamp" KorName="토끼 스탬프" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_welldone_ground_rabit" Scale="0.5"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
+	<Material ID="27" Name="horse_stamp" KorName="마패 스탬프" MaterialItem="misc_soil">
+		<Anim Name="LAND">
+			<Particle From="F_pc_jump_smoke" To="F_pc_jump_smoke" Scale="1"/>
+			<Sound From="pc_war_jump_2" To="step_dry_land"/>
+		</Anim>
+		<Anim Name="JUMP">
+			<Particle From="F_pc_jump_smoke" To="F_pc_welldone_ground_inspector" Scale="0.5"/>
+			<Sound From="pc_war_jump" To="pc_war_jump_1"/>
+		</Anim>
+		<Anim Name="RUN">
+			<Particle From="F_pc_run_smoke" To="F_pc_run_smoke" Scale="1.7"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+		<Anim Name="DASH">
+			<Particle From="F_pc_jump_smoke" To="F_pc_run_smoke" Scale="1.8"/>
+			<Sound From="walk_left" To="step_soil"/>
+		</Anim>
+	</Material>
 </Map_materials>

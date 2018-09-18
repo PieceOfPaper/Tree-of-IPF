@@ -4339,17 +4339,29 @@ function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
 end
 
 function _UPDATE_LOCK_STATE(slot)
+	local frame = ui.GetFrame("inventory")
 	local item = GET_SLOT_ITEM(slot);
 	if item == nil or item:GetIESID() ~= g_lockItemGuid then
 		return;
 	end
 
-	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	local invSlot = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid)
+	local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid, 1)
+
+	if invSlot == nil or invSlot_All == nil then
+		return;
+	end
+
+	local controlset = invSlot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	local controlset_All = invSlot_All:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
 	controlset:SetGravity(ui.RIGHT, ui.TOP)
+	controlset_All:SetGravity(ui.RIGHT, ui.TOP)
 	if true == item.isLockState then		
 		controlset:ShowWindow(1);
+		controlset_All:ShowWindow(1);
 	else
 		controlset:ShowWindow(0);
+		controlset_All:ShowWindow(0);
 	end
 end
 
@@ -4364,14 +4376,16 @@ function ON_UPDATE_TRUST_POINT(frame, msg, argStr, trustPoint)
 		return
 	end
 
-	local trustPointImg = GET_CHILD_RECURSIVELY(frame, "trustPointImg")
-	local trustPointText = GET_CHILD_RECURSIVELY(frame, "trustPointText")
-
+	local trustPointGbox = GET_CHILD_RECURSIVELY(frame, 'trustPointGbox');
+	local trustPointImg = GET_CHILD_RECURSIVELY(trustPointGbox, "trustPointImg");
+	local trustPointText = GET_CHILD_RECURSIVELY(trustPointGbox, "trustPointText");
 	if trustPointImg == nil or trustPointText == nil then
 		return
 	end
 	
 	trustPoint = math.min(trustPoint + 1, 6);
 	trustPointImg:SetImage("icon_credit_grade_" .. trustPoint);
-	trustPointText:SetTextByKey("trustPoint", trustPoint - 1)
+	trustPointText:SetTextByKey("trustPoint", trustPoint - 1);
+	trustPointGbox:SetTooltipType('trust_point');
+	trustPointGbox:SetTooltipOverlap(1);
 end

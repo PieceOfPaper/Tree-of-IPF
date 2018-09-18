@@ -9,7 +9,6 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 400007,0,0,"USE_COUNT_INDUN_USING_RATE","인던, 미션 입장 횟수 DB 집계 여부. 1이면 사용","NO"
 400008,1,0,"ENABLE_APPRAISAL_ITEM_MOVE","0일 경우 감정 아이템의 강화, 초월, 소켓추가, 각성, 1:1거래, 마켓 등록, 구매, 취소, NPC 상점 판매, 개인 및 팀 창고 in/out, 컴패니언 장비 슬롯 장착, 해제 불가","YES"
 400009,1,0,"ENABLE_RECEIVE_CLIENT_SYSTEM_LOG","1일 경우 클라이언트로부터 시스템 로그 전송받음","NO"
-400012,1,0,"MINIGAME_COND_CHECK_BUG_LOG","1일 경우 미니게임 바로 체크 함수 도는 문제 추적용 로그를 남김","NO"
 400013,1,0,"EMERGENCY_LOG","긴급하게 자동매칭 안되는거 체크용","NO"
 100000,0,0,"SHUTDOWN_TEST","셧다운테스트","NO"
 100001,0.250000,0,"MOVE_PKT_TIME","이동동기화패킷전송텀","NO"

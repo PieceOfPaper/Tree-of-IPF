@@ -547,3 +547,11 @@ function SHOW_GUILD_HTTP_ERROR(code, msg, funcName)
 	ui.MsgBox(ClMsg(errName));
 end
 end
+
+function GET_JOB_MAX_CIRCLE(jobcls)
+	local maxCircle = TryGetProp(jobcls, "MaxCircle")
+	if maxCircle ~= nil then
+		return maxCircle;
+	end
+	return 3;
+end

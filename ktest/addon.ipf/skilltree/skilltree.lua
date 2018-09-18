@@ -164,11 +164,7 @@ function MAKE_CLASS_INFO_LIST(frame, resetCommonType)
 		session.SetUserConfig("CLASSUP_" .. cls.ClassName, classLv);
 
 		local startext = ""
-		local maxIndex = 3
-		local maxCircle = TryGetProp(cls,'MaxCircle')
-		if maxCircle ~= nil then
-		    maxIndex = maxCircle
-		end
+		local maxIndex = GET_JOB_MAX_CIRCLE(cls)
 		for i = 1 , maxIndex do
 			if i <= classLv then
 				startext = startext .. ("{img star_in_arrow 20 20}")

@@ -360,8 +360,8 @@ function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcStat
 	local questclsIdStr = '';
 	local cnt = #npclist;
 	for i = 1 , cnt do
-		local name = npclist[i];        
-		if  MonProp:IsHaveDialog(name) then
+		local name = npclist[i];
+		if name ~= 'None' and MonProp:IsHaveDialog(name) then
 			local questIES = questIESlist[i];
 			local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
 			if questclsIdStr == '' then

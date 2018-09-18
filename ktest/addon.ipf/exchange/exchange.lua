@@ -46,7 +46,7 @@ function EXCHANGE_ON_CANCEL(frame)
 
 	exchange.ResetExchangeItem();
 	local invFrame = ui.GetFrame('inventory')
-	UPDATE_INV_LIST(invFrame);	
+--	UPDATE_INV_LIST(invFrame);	
 	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 end 

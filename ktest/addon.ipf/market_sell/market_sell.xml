@@ -67,7 +67,7 @@
 		<richtext name="richtext_5_1_1_1" margin="620 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}수수료{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox_1"/>
 		<richtext name="richtext_5_1_1" margin="785 0 0 0" rect="0 0 120 24" caption="{@st66b}{s18}남은 시간{/}" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="groupbox_1"/>
 		<detaillist name="itemlist" rect="0 0 1015 792" margin="-195 190 0 0" layout_gravity="center top" skin=""/>
-		<richtext name="limitStaticText" parent="groupbox" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left bottom" caption="등록 제한 금액" fontname="brown_16_b"/>
+		<richtext name="limitStaticText" parent="groupbox" rect="0 0 200 30" margin="10 0 0 0" layout_gravity="left bottom" caption="거래 한도" fontname="brown_16_b"/>
 		<richtext name="limitAmountText" parent="groupbox" rect="0 0 200 30" margin="0 0 20 0" layout_gravity="right bottom" format="%s/%s" param1="cur" param1_def="0" param2="max" param2_def="0" fontname="brown_16"/>
 	</controls>
 </uiframe>

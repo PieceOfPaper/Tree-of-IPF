@@ -5642,7 +5642,7 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Exorcist_Rubric" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" UpdateTerm="300" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Exorcist_Rubric" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="999999"/>
@@ -5709,6 +5709,15 @@ return count;"/>
                 <Num Num="0"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DAMAGE_ENEMY" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
@@ -14225,7 +14234,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="boss_asiomage_fire" CheckerType="4" Dist="0.4106681" Angle="-0.7854113" Range="50" InnerRange="20" AutoPos="1" AutoDir="1" AllowOverlap="1">
+    <PadSkill Name="boss_asiomage_fire" CheckerType="4" Dist="0.4106681" Angle="-0.7854113" Range="50" InnerRange="20" AutoPos="1" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
@@ -14684,7 +14693,7 @@ end"/>
                 <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1.5"/>
                 <Pos Angle="0" Dist="3.8953403e-36"/>
                 <Num Num="0"/>
-                <Str_Arg Str="None" Arg="1"/>
+                <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">

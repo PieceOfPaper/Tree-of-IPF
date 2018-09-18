@@ -95,21 +95,14 @@ function ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION()
 
 	local isEnableSpine = config.GetXMLConfig("EnableAnimateBackgroundIllustration");
 	if isEnableSpine == 1 then
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_1", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_2", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Bail", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Detective", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_egnas", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_LittleWitch", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 1);
+		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 1);
+
 		
 		TITLE_SHOW_SPINE_PIC(frame, "login_img", 0);
 	else
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_1", 0);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Background_2", 0);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Bail", 0);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_Detective", 0);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_egnas", 0);
-		TITLE_SHOW_SPINE_PIC(frame, "Rank_10_LittleWitch", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 0);
+		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 0);
 
 		TITLE_SHOW_SPINE_PIC(frame, "login_img", 1);
 	end

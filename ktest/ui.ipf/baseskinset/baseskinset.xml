@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3877,6 +3877,17 @@
 			<img name="bottomcore" imgrect="1260 481 128 19"/>
 			<img name="bottomright" imgrect="1389 481 16 19"/>
 		</skin>
+		<skin name="lightbrownbox_op_100" texture="\skin\pip_test_item.tga">
+			<img name="topleft" imgrect="1040 501 10 10"/>
+			<img name="topcore" imgrect="1051 501 10 10"/>
+			<img name="topright" imgrect="1062 501 10 10"/>
+			<img name="bodyleft" imgrect="1040 512 10 10"/>
+			<img name="bodycore" imgrect="1051 512 10 10"/>
+			<img name="bodyright" imgrect="1062 512 10 10"/>
+			<img name="bottomleft" imgrect="1040 523 10 10"/>
+			<img name="bottomcore" imgrect="1051 523 10 10"/>
+			<img name="bottomright" imgrect="1062 523 10 10"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -6183,6 +6194,7 @@
 		<image name="icon_credit_grade_3" file="\skin\pip_test2.tga" imgrect="946 31 25 29" CMM_Caption="거래 등급 아이콘 : 3단계"/>
 		<image name="icon_credit_grade_2" file="\skin\pip_test2.tga" imgrect="972 31 25 29" CMM_Caption="거래 등급 아이콘 : 2단계"/>
 		<image name="icon_credit_grade_1" file="\skin\pip_test2.tga" imgrect="998 31 25 29" CMM_Caption="거래 등급 아이콘 : 1단계"/>
+		<image name="brownbox_op_100" file="\skin\pip_test_item.tga" imgrect="1073 501 48 24" CMM_Caption=""/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -9121,6 +9133,9 @@
 		<image name="high_difficulty_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="376 732 216 272" CMM_Caption=""/>
 		<image name="none_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="564 732 216 272" CMM_Caption=""/>
 		<image name="Performance_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="753 732 216 272" CMM_Caption=""/>
+		<image name="Holy_icon" file="\skin\class_guide\class_guide_card3.tga" imgrect="0 0 216 272" CMM_Caption=""/>
+		<image name="Crossbow_weapon_icon" file="\skin\class_guide\class_guide_card3.tga" imgrect="188 0 216 272" CMM_Caption=""/>
+		<image name="Crowd_control_icon" file="\skin\class_guide\class_guide_card3.tga" imgrect="376 0 216 272" CMM_Caption=""/>
 		<image name="wizard_icon" file="\skin\class_guide\wizard_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
 		<image name="swordsman_icon" file="\skin\class_guide\swordsman_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
 		<image name="cleric_icon" file="\skin\class_guide\cleric_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
@@ -9195,6 +9210,12 @@
 		<image name="wizard_master" file="\skin\class_guide\wizard_master.png" imgrect="0 0 412 418"/>
 		<image name="wugushi_master" file="\skin\class_guide\wugushi_master.png" imgrect="0 0 412 418"/>
 		<image name="zealot_master" file="\skin\class_guide\zealot_master.png" imgrect="0 0 412 418"/>
+		<image name="Appraiser_master" file="\skin\class_guide\Appraiser_master.png" imgrect="0 0 412 418"/>
+		<image name="Chaplain_master" file="\skin\class_guide\Chaplain_master.png" imgrect="0 0 412 418"/>
+		<image name="Miko_master" file="\skin\class_guide\Miko_master.png" imgrect="0 0 412 418"/>
+		<image name="NakMuay_master" file="\skin\class_guide\NakMuay_master.png" imgrect="0 0 412 418"/>
+		<image name="RuneCaster_master" file="\skin\class_guide\RuneCaster_master.png" imgrect="0 0 412 418"/>
+		<image name="Shinobi_master" file="\skin\class_guide\Shinobi_master.png" imgrect="0 0 412 418"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

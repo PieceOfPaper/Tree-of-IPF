@@ -6,7 +6,10 @@ function RESTART_ON_INIT(addon, frame)
 end
 
 function RESTART_ON_RESSURECT_SAVE_POINT(frame)
-
+	local fsmActor = GetMyActor();
+	if fsmActor:IsDead() == 0 then
+		return
+	end
 	restart.SendRestartSavePointMsg();
 end
 
@@ -61,6 +64,10 @@ end
 
 
 function MOVE_TO_CAMP_WHEN_DED(frame, control, aid)
+	local fsmActor = GetMyActor();
+	if fsmActor:IsDead() == 0 then
+		return
+	end
 	restart.SendRestartCampMsg(aid);
 end
 

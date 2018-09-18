@@ -931,7 +931,7 @@
             <Stage Name="Succ" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-                        <Str Str="raid_bracken"/>
+                        <Str Str="Indun_Bracken_uniqe_raid"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
                         <Str Str="60초 후 존으로 돌아갑니다"/>
@@ -939,6 +939,11 @@
                         <Num Num="5"/>
                     </ToolScp>
                 </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Indun_Bracken_uniqe_raid"/>
+                    </ToolScp>
+                </CompleteScpList>
                 <ObjList/>
                 <StageEvents>
                     <Event execCount="1" eventName="Succ">

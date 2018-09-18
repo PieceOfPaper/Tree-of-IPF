@@ -250,12 +250,13 @@
 		<Class ClassID="2262" ClassName="CannotApplyJewellBecause{REASON}" Data="인챈트 쥬얼을 적용할 수 없는 [{REASON}] 아이템입니다."/>
 		<Class ClassID="2263" ClassName="FailEnchantJewell" Data="레어 옵션 부여에 실패했습니다."/>
 		<Class ClassID="2264" ClassName="CommitEnchantOption" Data="[인챈트 옵션]을 변경합니다. 옵션은 바로 적용되며 되돌릴 수 없습니다.{nl} 동일한 인챈트 옵션을 가진 장비 아이템 여러 개를 장착하는 경우, 가장 높은 수치의 인챈트 옵션만 캐릭터에게 적용됩니다.{nl}진행하시겠습니까?"/>		
-		<Class ClassID="2266" ClassName="LoadingTradeLimitAmount" Data="거래 제한 금액을 받아오는 중입니다. 다시 시도해주세요."/>
-		<Class ClassID="2267" ClassName="MarketTradeLimit{AMOUNT}ReallyBuy?" Data="현재 남은 마켓 거래 제한 금액은 {AMOUNT} 실버 입니다.{nl}정말 구매하시겠습니까?"/>
+		<Class ClassID="2266" ClassName="LoadingTradeLimitAmount" Data="거래 한도를 받아오는 중입니다. 다시 시도해주세요."/>
+		<Class ClassID="2267" ClassName="MarketTradeLimit{AMOUNT}ReallyBuy?" Data="현재 남은 마켓 거래 한도는 {AMOUNT} 실버 입니다.{nl}정말 구매하시겠습니까?"/>
 		<Class ClassID="2268" ClassName="CannotEnchantOptionEquipItem" Data="장착 중인 장비에 인챈트 옵션을 부여할 수 없습니다."/>		
 		<Class ClassID="2270" ClassName="TooManyMarketSaveOption" Data="더 이상 마켓 검색 옵션을 저장할 수 없습니다."/>
 		<Class ClassID="2271" ClassName="DuplicateMarketSearchOption" Data="이미 설정된 검색 옵션입니다."/>
 		<Class ClassID="2272" ClassName="CannotCancelBecauseNotYourItem" Data="해당 캐릭터가 등록한 아이템이 아니기 때문에 취소할 수 없습니다."/>
+		<Class ClassID="2274" ClassName="SafeAuthInfo" Data="OTP 또는 플레이 패스 사용"/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -991,7 +992,7 @@
 		<Class ClassID="10423" ClassName="OblationNameIsNone" Data="봉헌함 이름을 입력해야 합니다."/>
 		<Class ClassID="10424" ClassName="DoingEnchanting" Data="현재 아이템 마법 부여 중에 있습니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="10425" ClassName="MaxSilverLimitOver" Data="실버 소지 제한 금액을 초과하였습니다."/>
-		<Class ClassID="10426" ClassName="MarketMaxSilverLimit{LIMIT}Over" Data="마켓 거래 제한 금액인 {LIMIT}실버를 초과하였습니다."/>
+		<Class ClassID="10426" ClassName="MarketMaxSilverLimit{LIMIT}Over" Data="마켓 거래 한도인 {LIMIT}실버를 초과하였습니다."/>
 		<Class ClassID="10427" ClassName="MustbeTokenUser" Data="토큰 혜택 적용 시만이 2회 까지 가능합니다."/>
 		<Class ClassID="10428" ClassName="ExtendWarehouseSlot{Silver}{SLOT}" Data="{Silver}실버를 소모해 {SLOT}칸을 확장하시겠습니까?"/>
 		<Class ClassID="10429" ClassName="WarpQuestDisabled" Data="해당 지역에서는 되돌아가기를 사용할 수 없습니다."/>
@@ -4915,6 +4916,7 @@
 		<Class ClassID="28146" ClassName="EVENT_1809_CHUSEOK_MOON_MSG16" Data="랭킹 도전을 시작합니다{nl}퀘스트를 완료하고 보스 몬스터를 처치해 '보름달 조각'을 획득하세요!"/>
 		<Class ClassID="28147" ClassName="EVENT_1809_CHUSEOK_MOON_MSG17" Data="{COUNT} 개"/>
 		<Class ClassID="28148" ClassName="EVENT_1809_CHUSEOK_MOON_MSG18" Data="[누적 : {COUNT} 개]"/>
+		<Class ClassID="28149" ClassName="EVENT_1809_CHUSEOK_MOON_MSG19" Data="{nl}{#D50000}기간제 아이템은 팀 창고로 옮길 수 없습니다. 선물을 받기 전에 캐릭터를 꼭! 확인하세요.{/}"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -8281,7 +8283,7 @@
 		<Class ClassID="106008" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다.{nl}토큰을 제외한 모든 아이템은{nl}판매 리스트에 보이기까지 최대 2시간이 소요됩니다."/>
 		<Class ClassID="106009" ClassName="MarketBuySucceeded_CheckInCabinet" Data="마켓 아이템 구매에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="106010" ClassName="TooMuchItemsMatched_InputMoreDetailFindText" Data="일치하는 아이템 이름이 많습니다. 좀 더 상세하게 검색어를 입력해주세요."/>
-		<Class ClassID="106011" ClassName="ReallyCancelRegisteredItem" Data="아이템 등록을 취소하시겠습니까?"/>
+		<Class ClassID="106011" ClassName="ReallyCancelRegisteredItem" Data="{@st66d_y}{s19}등록 취소 시{nl}거래 한도는 복구되지 않습니다.{/}{/}{nl}아이템 등록을 취소하시겠습니까?"/>
 		<Class ClassID="106012" ClassName="MarketItemCanceled_CheckInCabinet" Data="마켓 아이템 취소에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="106013" ClassName="CantRegisterEquipItem" Data="착용중인 아이템은 등록할 수 없습니다."/>
 		<Class ClassID="106014" ClassName="Private" Data="비공개"/>
@@ -8300,7 +8302,7 @@
 		<Class ClassID="106027" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
 		<Class ClassID="106028" ClassName="MinAllowPriceError" Data="해당 아이템의 하한가가 변동되었습니다. 다시 입력해주세요."/>
 		<Class ClassID="106029" ClassName="MaxAllowPriceError" Data="해당 아이템의 상한가가 변동되었습니다. 다시 입력해주세요."/>
-		<Class ClassID="106030" ClassName="CommissionRegMarketItem{Price}" Data="등록수수료 {Price}실버가 소비됩니다. 등록하시겠습니까?"/>
+		<Class ClassID="106030" ClassName="CommissionRegMarketItem{Price}" Data="등록 수수료 {Price}실버가 소비되며,{nl}{@st66d_y}{s19}등록 취소 시{nl}거래 한도는 복구되지 않습니다.{/}{/}{nl}등록하시겠습니까?"/>
 		<Class ClassID="106031" ClassName="SellPriceMustOverThen100Silver" Data="판매가격은 100실버 이상이여야 합니다."/>
 		<Class ClassID="106032" ClassName="AutoAdjustToMinPrice" Data="최소 가격 단위로 금액이 자동 변경됩니다."/>
 		<Class ClassID="106033" ClassName="CantRegisterEquipItemToEnchant" Data="착용 중인 아이템은 인챈트 아이템으로 각성 시킬 수 없습니다."/>
@@ -11548,6 +11550,7 @@
 		<Class ClassID="138401" ClassName="ChallengeModeReset_MSG2" Data="챌린지 모드 1회 추가 횟수를 받으셨습니다"/>
 		<Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#fe7e00}[{ITEM}]{/}을 {#fe7e00}[{COUNT}]{/}개 버리시겠습니까?"/>
 		<Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을 버리시겠습니까?"/>
+	<Class ClassID="138406" ClassName="ChallengeMode_InvalidPos_CantCreateWarp" Data="공간이 협소하여 포탈을 생성할 수 없습니다."/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>

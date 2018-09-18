@@ -3011,9 +3011,7 @@ function SCR_GET_Cyclone_Ratio(skill)
 end
 
 function SCR_GET_Cyclone_Ratio2(skill)
-
- return 5.5
-
+    return 3.5
 end
 
 function SCR_Get_SklAtkAdd_Mordschlag(skill)

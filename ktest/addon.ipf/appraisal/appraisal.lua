@@ -70,20 +70,18 @@ function APPRAISAL_UPDATE_ITEM_LIST(frame)
 		if tempobj ~= nil then
 		    
 			local obj = GetIES(tempobj);
-			if CHECK_NEED_RANDOM_OPTION(obj) == true then
-				if IS_NEED_APPRAISED_ITEM(obj) == true or IS_NEED_RANDOM_OPTION_ITEM(obj) == true then
-					local slot = slotSet:GetSlotByIndex(slotcnt)
-					if slot == nil then
-						break;
-					end
-
-					local icon = CreateIcon(slot);
-					icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
-					local class = GetClassByType('Item', invItem.type);
-					ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
-
-					slotcnt = slotcnt + 1
+			if IS_NEED_APPRAISED_ITEM(obj) == true or (CHECK_NEED_RANDOM_OPTION(obj) == true and IS_NEED_RANDOM_OPTION_ITEM(obj) == true) then
+				local slot = slotSet:GetSlotByIndex(slotcnt)
+				if slot == nil then
+					break;
 				end
+
+				local icon = CreateIcon(slot);
+				icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
+				local class = GetClassByType('Item', invItem.type);
+				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
+
+				slotcnt = slotcnt + 1
 			end
 		end
 	end

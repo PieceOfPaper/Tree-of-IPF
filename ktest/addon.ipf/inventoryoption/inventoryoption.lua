@@ -88,3 +88,7 @@ function INVENTORYOPTION_CHECK_NOT_ALL(frame, ctrl, argStr, argNum)
 
 	INVENTORY_TOTAL_LIST_GET(frame)
 end
+
+function INVENTORYOPTION_CHECK_EXTRA(frame, ctrl, argStr, argNum)
+	INVENTORY_TOTAL_LIST_GET(frame)
+end

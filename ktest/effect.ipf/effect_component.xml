@@ -619,6 +619,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="brick001" model="brick001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="magictrap_core_red_dead" model="magictrap_core_red_dead.xac" motion="magictrap_core_red_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="magictrap_core_dead" model="magictrap_core_dead.xac" motion="magictrap_core_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="warrior_shield_shoving" model="warrior_shield_shoving.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="slime_witch01" model="slime_witch01.xac" motion="slime_witch01_ani.xsm" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="key01" model="key01.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
@@ -1537,6 +1540,9 @@
 	<Model name="f_nicopolis_npc_01_dead" model="f_nicopolis_npc_01_dead.xac" motion="f_nicopolis_npc_01_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="i_boss_wastrel_dead" model="boss_wastrel_dead.xac" motion="boss_wastrel_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="i_boss_wastrel_red_dead" model="boss_wastrel_red_dead.xac" motion="boss_wastrel_red_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_magictrap_core_dead" model="magictrap_core_dead.xac" motion="magictrap_core_dead_ani.xsm" texturepath="char_texture\npc\magictrap_core\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_magictrap_core_red_dead" model="magictrap_core_red_dead.xac" motion="magictrap_core_red_dead_ani.xsm" texturepath="char_texture\npc\magictrap_core\red\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_Brick_dead" model="Brick_dead.xac" motion="Brick_dead_ani.xsm" texturepath="item_texture\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
