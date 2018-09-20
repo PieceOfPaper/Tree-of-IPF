@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="inventoryoption" x="0" y="0" width="440" height="380" create="open">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -39,8 +39,8 @@
 		<checkbox name="cbox_Equip_Rare" rect="0 0 120 30" parent="treeGbox_Equip" margin="185 80 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Rare" LBtnUpScp="INVENTORYOPTION_CHECK_NOT_ALL" LBtnUpArgNum="1" caption="{@st66b}레어{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="cbox_Equip_Unique" rect="0 0 120 30" parent="treeGbox_Equip" margin="20 110 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Unique" LBtnUpScp="INVENTORYOPTION_CHECK_NOT_ALL" LBtnUpArgNum="1" caption="{@st66b}유니크{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="cbox_Equip_Legend" rect="0 0 120 30" parent="treeGbox_Equip" margin="185 110 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Legend" LBtnUpScp="INVENTORYOPTION_CHECK_NOT_ALL" LBtnUpArgNum="1" caption="{@st66b}레전드{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="cbox_Equip_Upgrade" rect="0 0 120 30" parent="treeGbox_Equip" margin="20 200 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Upgrade" LBtnUpScp="INVENTORY_TOTAL_LIST_GET" LBtnUpArgNum="1" caption="{@st66b}강화, 초월된 장비만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="cbox_Equip_Random" rect="0 0 120 30" parent="treeGbox_Equip" margin="20 230 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Random" LBtnUpScp="INVENTORY_TOTAL_LIST_GET" LBtnUpArgNum="1" caption="{@st66b}미감정 장비만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="cbox_Equip_Upgrade" rect="0 0 120 30" parent="treeGbox_Equip" margin="20 200 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Upgrade" LBtnUpScp="INVENTORYOPTION_CHECK_EXTRA" caption="{@st66b}강화, 초월된 장비만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="cbox_Equip_Random" rect="0 0 120 30" parent="treeGbox_Equip" margin="20 230 0 0" layout_gravity="left top" ConfigName="InvOption_Equip_Random" LBtnUpScp="INVENTORYOPTION_CHECK_EXTRA" caption="{@st66b}미감정 장비만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="cbox_Card_All" rect="0 0 120 30" parent="treeGbox_Card" margin="20 50 0 0" layout_gravity="left top" ConfigName="InvOption_Card_All" LBtnUpScp="INVENTORYOPTION_CHECK_ALL" LBtnUpArgNum="2" caption="{@st66b}모든 카드{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="cbox_Card_Red" rect="0 0 120 30" parent="treeGbox_Card" margin="185 50 0 0" layout_gravity="left top" ConfigName="InvOption_Card_Red" LBtnUpScp="INVENTORYOPTION_CHECK_NOT_ALL" LBtnUpArgNum="2" caption="{@st66b}레드 카드{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="cbox_Card_Blue" rect="0 0 120 30" parent="treeGbox_Card" margin="20 80 0 0" layout_gravity="left top" ConfigName="InvOption_Card_Blue" LBtnUpScp="INVENTORYOPTION_CHECK_NOT_ALL" LBtnUpArgNum="2" caption="{@st66b}블루 카드{/}" clicksound="button_click_big" oversound="button_over"/>

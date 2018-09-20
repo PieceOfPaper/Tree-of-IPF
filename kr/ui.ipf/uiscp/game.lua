@@ -3008,7 +3008,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 
 				if  slot  ~=  nil  then
 
-				slot:SetSelectedImage('socket_slot_check')
+		--		slot:SetSelectedImage('socket_slot_check')
 
 					if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
@@ -3021,7 +3021,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 								break;
 							end
 						end
-
+						
 						if socketCnt > socketNum then
 							slot:Select(1);
 						else
@@ -3035,10 +3035,14 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 
 	if itemobj.GroupName == "Gem" then
 		local yesscp = string.format("USE_ITEMTARGET_ICON_GEM(%d)", argNum);
-		ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "None");
+		ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "RELEASE_ITEMTARGET_ICON_GEM()");
 		return;
 	end
 	item.SelectTargetItem(argNum);
+end
+
+function RELEASE_ITEMTARGET_ICON_GEM()
+	SCR_ITEM_USE_TARGET_RELEASE()
 end
 
 function USE_ITEMTARGET_ICON_GEM(argNum)
@@ -3053,13 +3057,14 @@ end
 function SCR_ITEM_USE_TARGET_RELEASE()
 	local frame				= ui.GetFrame('inventory');	
 	INVENTORY_UPDATE_ICONS(frame);
+	STATUS_EQUIP_SLOT_SET(frame)
 
 	local frame 			= ui.GetFrame('status');
 	STATUS_ON_MSG(frame, 'EQUIP_ITEM_LIST_GET', 'None', 0);
 end
 
 function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
-
+	
 	-- get inventory item
 	local invitem = nil;
 	if frameName == 'inventory' then
@@ -3765,7 +3770,6 @@ function ON_RIDING_VEHICLE(onoff)
         return;
     end
 	
-	
 	local isRidingOnly = 'NO';
     local summonedCompanion = session.pet.GetSummonedPet(0);	-- Riding Companion Only / Not Hawk --
     if summonedCompanion ~= nil then
@@ -3778,7 +3782,10 @@ function ON_RIDING_VEHICLE(onoff)
 		end
 	end
 	
-	if control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES' then
+    local cartHandle = control.GetNearSitableCart();
+    --js: 현재 메르카바만 하드코딩 형태로 예외처리되어있다 위에 함수명만 봐도 알수있음, 해당 예외처리 추후 하기로 정수씨와 이야기함 (2.0끝나고)--
+
+	if (control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES') and cartHandle == 0 then
 		local fsmActor = GetMyActor();
 
 		local subAction = fsmActor:GetSubActionState();
@@ -3803,7 +3810,6 @@ function ON_RIDING_VEHICLE(onoff)
 		end
 	else
 		if onoff == 1 then
-			local cartHandle = control.GetNearSitableCart();
 			if cartHandle ~= 0 then
 				local index = control.GetNearSitableCartIndex();
 				control.ReqRideCart(cartHandle, index);

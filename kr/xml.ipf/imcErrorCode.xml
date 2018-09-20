@@ -520,10 +520,10 @@
 	<Code Code="ERROR_TEAM_BATTLE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="팀배틀리그 관련 에러"/>
 	<Code Code="NOTICE_HEALTH_STATE" Team="tos_team" Category="HEALTH" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="상태 정보"/>
 	<Code Code="ERROR_CHALLENGE_MODE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="챌린지모드 관련 에러"/>
+	<Code Code="INFO_CHALLENGE_MODE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="챌린지모드 관련 정보"/>
 	<Code Code="LOGGING_ABILITY_CHECK" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="어빌리티 적용 여부 확인을 위한 로그"/>
 	<Code Code="ERROR_DAMAGE_MESSAGE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대미지 메세지화 관련 에러로그"/>
-	<Code Code="INFO_DAMAGE_MESSAGE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대미지 메세지화 관련 정보"/>
-	<Code Code="INFO_MINIGAME_CONDITION" Team="PROGRAM" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="미니게임 컨디션 체크 이상 동작 확인용 로그"/>
+	<Code Code="INFO_DAMAGE_MESSAGE" Team="PROGRAM" Category="ERROR" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="대미지 메세지화 관련 정보"/>	
 	<Code Code="FATAL_ZOMBIE_REF_COUNT" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="좀비 레프런스 카운트 안 줄어들어서 메모리 샐 여지가 있음"/>
 	<Code Code="INFO_RANK_RESET" Team="PROGRAM" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="랭크 초기화 관련 정보"/>
 	<Code Code="ERROR_GUILD_EVENT" Team="PROGRAM" Category="GUILD" SubCategory="GUILD_EVENT" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 이벤트 에러"/>
@@ -574,4 +574,4 @@
 	<Code Code="INFO_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
 	<Code Code="FATAL_GET_MARKET_WEB_URL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Market Web Server URL 획득에 실패하였습니다. server_info 확인 필요."/>
 	<Code Code="ERROR_MARKET_WEB" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="마켓 웹서버 에러 로그"/>
-</imcErrorCode>
+</imcErrorCode> 

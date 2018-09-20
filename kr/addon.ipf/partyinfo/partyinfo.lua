@@ -768,7 +768,8 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 		end
 		
 		-- 클래스 레벨 (★로 표시)				
-		for i = 1 , 3 do
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
 			else
@@ -827,7 +828,8 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		end
 		
 		-- 클래스 레벨 (★로 표시)				
-		for i = 1 , 3 do
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
 			else
@@ -887,8 +889,9 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- 클래스 레벨 (★로 표시)				
-		for i = 1 , 3 do
+		-- 클래스 레벨 (★로 표시)	
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)			
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
 			else

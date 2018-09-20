@@ -1552,8 +1552,8 @@
 			<richtext name="subtitle" margin="0 43 0 0" rect="0 0 210 40" caption="WWWWWWWWWWWWW" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<picture name="shawdow" margin="0 20 0 0" rect="0 0 110 40 " hittest="false" layout_gravity="center center" stretch="true" image="skill-name_bg"/>
 			<slot name="icon" margin="0 70 0 0" rect="0 0 135 135" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>
-			<picture name="time_limited_bg" margin="0 60 2 0" rect="0 0 150 25 " layout_gravity="right top" hittest="false" image="LimitedPeriod_timebg"/>
-			<richtext name="time_limited_text" format="{img test_cooltime 20 20}%s{/}" param1="remainTime" param1_def="일시분" margin="0 62 6 0 " rect="0 0 140 25 " layout_gravity="right top" hittest="false" fontname="limitedsale"/>
+			<picture name="time_limited_bg" margin="0 0 7 60" rect="0 0 150 25 " layout_gravity="right bottom" hittest="false" image="LimitedPeriod_timebg"/>
+			<richtext name="time_limited_text" format="{img test_cooltime 20 20}%s{/}" param1="remainTime" param1_def="일시분" margin="0 0 7 60" rect="0 0 140 25 " layout_gravity="right bottom" hittest="false" fontname="limitedsale"/>
 			<button name="noneBtnPreSlot_2" margin="0 0 0 0 " rect="0 0 287 350" layout_gravity="left top" skin="premium_case_skin" scrollbar="false" hittest="false"/>
 			<button name="staticTPbox" margin="0 0 0 105" rect="0 0 255 30" layout_gravity="center bottom" hittestbox="false" draw="true" hittest="false" skin="categoryselect_skin" textalign="left center" fontname="black_16_b" caption="{@st42}{s18}  TP {/}{img icon_item_tospoint 20 20}{/}"/>
 			<labelline name="labelline14" margin="10 35 0 0" rect="0 0 270 40" skin="none" layout_gravity="left top"/>

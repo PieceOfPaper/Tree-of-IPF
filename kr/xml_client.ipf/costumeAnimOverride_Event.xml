@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -1548,6 +1548,57 @@
 				<Job Name="All" LoopTime="200">
 					<Event>
 						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="true" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="inspector_uniform01">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>
@@ -3299,6 +3350,57 @@
 				<Job Name="All" LoopTime="200">
 					<Event>
 						<Particle frame="0" attachNode="Dummy_Exorcist" particleName="F_light152_exorcist" useAttach="true" hiddenObj="true" scale="1.9" pause="false" use2DEffect="false" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="inspector_uniform01">
+			<Motion Name="WALK">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="ARUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="WALK_RIDE">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All" LoopTime="200">
+					<zosemf>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="false" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</zosemf>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="200">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="E_PC_costume_inspector_uniform01" useAttach="true" hiddenObj="true" scale="1" pause="false" use2DEffect="true" soft2DValue="0"/>
 					</Event>
 				</Job>
 			</Motion>

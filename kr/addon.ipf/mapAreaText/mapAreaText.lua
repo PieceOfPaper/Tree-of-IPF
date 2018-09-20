@@ -4,7 +4,7 @@ end
 
 function ON_MAP_AREA_TEXT(frame, msg, name, range)
 	local mapText = frame:GetChild("mapName");
-	local nameText = GET_CHILD(frame, "areaname", "ui::CRichText");
+	local nameText = GET_CHILD(frame, "areaName", "ui::CRichText");
 	local mapName = session.GetMapName();
 	local mapCls = GetClass('Map', mapName);
 	if mapCls == nil then

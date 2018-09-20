@@ -11550,6 +11550,7 @@
 		<Class ClassID="138401" ClassName="ChallengeModeReset_MSG2" Data="챌린지 모드 1회 추가 횟수를 받으셨습니다"/>
 		<Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#fe7e00}[{ITEM}]{/}을 {#fe7e00}[{COUNT}]{/}개 버리시겠습니까?"/>
 		<Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을 버리시겠습니까?"/>
+	<Class ClassID="138406" ClassName="ChallengeMode_InvalidPos_CantCreateWarp" Data="공간이 협소하여 포탈을 생성할 수 없습니다."/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>

@@ -201,7 +201,8 @@ function SHOW_PC_COMPARE(cid)
 		local levelFont = frame:GetUserConfig("Font_Normal");
 		
 		local startext = ""
-		for i = 1 , 3 do
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}')
 			else

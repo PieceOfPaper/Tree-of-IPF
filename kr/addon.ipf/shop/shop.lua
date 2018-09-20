@@ -90,10 +90,10 @@ function SHOP_SLOT_RBTNDOWN_2(frame, slotList, argStr, argNum)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local ConSetBySlot 	= slotList:GetChild('slot');
-	local slot			= tolua.cast(ConSetBySlot, "ui::CSlot");
+	local ConSetBySlot = slotList:GetChild('slot');
+	local slot = tolua.cast(ConSetBySlot, "ui::CSlot");
 
-	SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
+	SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum);
 end
 
 function SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
@@ -334,20 +334,23 @@ function SHOP_SELL_DROP(frame, ctrl)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	if toFrame:GetName() == 'companionshop' then
 		toFrame = toFrame:GetChild('foodBox');
 	end
+
 	if ctrl:GetClassName() ~= "slot" then
 		return;
 	end
 
 	local iconInfo = liftIcon:GetInfo();
 	local iesID = liftIcon:GetTooltipIESID();
-
 	local invItem = session.GetInvItemByGuid(iesID);
+	if invItem == nil then
+		return;
+	end
 
 	SHOP_SELL(invItem, invItem.count, toFrame);
 
@@ -713,7 +716,7 @@ function SHOP_UPDATE_BUY_PRICE(frame)
 		frame = ui.GetFrame('shop');
 	end
 	local price = GET_TOTAL_BUY_PRICE(frame);
-	local txt = frame:GetChild("pricetxt");
+	local txt = frame:GetChild("pricetxt");	
 	if price >= 0 then
 		txt:SetTextByKey("text", price);
 	else
@@ -721,8 +724,8 @@ function SHOP_UPDATE_BUY_PRICE(frame)
 	end
 
 	local invenZeny = FINALPRICE;
-	local totaltext = frame:GetChild("finalprice");
-	local totalprice = SumForBigNumber(invenZeny, price);
+	local totaltext = frame:GetChild("finalprice");	
+	local totalprice = SumForBigNumberInt64(invenZeny, price);	
 	totaltext:SetTextByKey("text", totalprice);
 	frame:SetUserValue("EXPECTED_REMAIN_ZENY", totalprice);
 

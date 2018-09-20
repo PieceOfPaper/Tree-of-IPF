@@ -35,8 +35,7 @@ function ENCHANTARMOR_BUFF_EXCUTE_BTN(frame, ctrl)
 	frame = frame:GetTopParentFrame();
 	local repair = frame:GetChild('repair');
 	local moneyGbox = repair:GetChild("moneyGbox");
-	local moneyInput = GET_CHILD(moneyGbox, "MoneyInput");
-
+	local moneyInput = GET_CHILD_RECURSIVELY(moneyGbox, "moneyInput");
 	local price = moneyInput:GetNumber();
 	if price <= 0 then
 		ui.MsgBox(ClMsg("InputPriceMoreThanOne"));

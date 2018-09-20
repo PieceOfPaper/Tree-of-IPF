@@ -56,7 +56,7 @@ function ITEMTRANSCEND_CLOSE(frame)
  end
 
 function TRANSCEND_UPDATE(isSuccess)
-	local frame = ui.GetFrame("itemtranscend");
+	local frame = ui.GetFrame("itemtranscend");	
 	UPDATE_TRANSCEND_ITEM(frame);
 	UPDATE_TRANSCEND_RESULT(frame, isSuccess);
 end
@@ -106,7 +106,7 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-	
+
 	local slot = GET_CHILD(frame, "slot");
 	SET_SLOT_ITEM(slot, invItem);
 	ITEMTRANSCEND_LOCK_ITEM(invItem:GetIESID());
@@ -187,7 +187,7 @@ end;
 
 -- 초월 아이템 제거시
 function REMOVE_TRANSCEND_TARGET_ITEM(frame)
-	
+
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
@@ -567,7 +567,7 @@ function _ITEMTRANSCEND_EXEC()
 	local resultlist = session.GetItemIDList();
 	local cntText = string.format("%d", materialCount);
 	item.DialogTransaction("ITEM_TRANSCEND_TX", resultlist, cntText);
-	
+
 	slot_material:SetUserValue("MTRL_COUNT", 0);
 	slot_material:ClearIcon();
 	ITEMTRANSCEND_LOCK_ITEM("None");
@@ -737,6 +737,8 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 		ui.SetHoldUI(false);
 		slot:ClearIcon();
 		ITEMTRANSCEND_LOCK_ITEM("None");
+		frame:StopUpdateScript("TIMEWAIT_STOP_ITEMTRANSCEND");
+		frame:SetUserValue("ONANIPICTURE_PLAY", 0);
 		return;
 	end
 	local obj = GetIES(invItem:GetObject());

@@ -4339,17 +4339,29 @@ function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
 end
 
 function _UPDATE_LOCK_STATE(slot)
+	local frame = ui.GetFrame("inventory")
 	local item = GET_SLOT_ITEM(slot);
 	if item == nil or item:GetIESID() ~= g_lockItemGuid then
 		return;
 	end
 
-	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	local invSlot = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid)
+	local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid, 1)
+
+	if invSlot == nil or invSlot_All == nil then
+		return;
+	end
+
+	local controlset = invSlot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	local controlset_All = invSlot_All:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
 	controlset:SetGravity(ui.RIGHT, ui.TOP)
+	controlset_All:SetGravity(ui.RIGHT, ui.TOP)
 	if true == item.isLockState then		
 		controlset:ShowWindow(1);
+		controlset_All:ShowWindow(1);
 	else
 		controlset:ShowWindow(0);
+		controlset_All:ShowWindow(0);
 	end
 end
 
