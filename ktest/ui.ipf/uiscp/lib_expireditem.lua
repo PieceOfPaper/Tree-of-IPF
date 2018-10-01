@@ -106,26 +106,56 @@ function SORT_ITEM_LIST_BY_LIFETIME(list)
     return list;
 end
 
-function ADD_EXPIRED_ITEM(groupbox, item, i, ypos)
+function GET_REMAIN_ITEM_LIFE_TIME(item)
+    local nowSysTime = geTime.GetServerSystemTime();
+    if TryGetProp(item, "ItemLifeTime") ~= nil and item.ItemLifeTime ~= "None" then
+        local expirationSysTime = imcTime.GetSysTimeByStr(item.ItemLifeTime);    
+        local diffSec = imcTime.GetDifSec(expirationSysTime, nowSysTime);
+        return diffSec;
+    end
+    return nil;
+end
+
+function GET_REMAIN_TOKEN_SEC()
+    local sysTime = geTime.GetServerSystemTime();
+    local endTime = session.loginInfo.GetTokenTime();
+    local difSec = imcTime.GetDifSec(endTime, sysTime);
+    return difSec;
+end
+
+function IS_NEED_TO_ALERT_TOKEN_EXPIRATION(nearFutureSec)
+    local difSec = GET_REMAIN_TOKEN_SEC();
+    if difSec < nearFutureSec and difSec > 0 then     
+        return true;
+    end
+    return false;
+end
+
+function ADD_EXPIRED_ITEM(groupbox, itemName, itemIcon, i, ypos, diffSec, isOver, skinName)
     local ctrlset = groupbox:CreateOrGetControlSet('expireditem_ctrlset', 'expireditem_ctrlset' .. i , 0, ypos);
     tolua.cast(ctrlset, "ui::CGroupBox");
+    local top_bg = GET_CHILD_RECURSIVELY(ctrlset, 'top_bg');
     local name = GET_CHILD_RECURSIVELY(ctrlset, 'name', 'ui::CRichText')
     local expirationTime = GET_CHILD_RECURSIVELY(ctrlset, 'expirationTime', 'ui::CRichText')
     local remainingTime = GET_CHILD_RECURSIVELY(ctrlset, 'remainingTime', 'ui::CRichText')
     local item_pic = GET_CHILD_RECURSIVELY(ctrlset, 'item_pic', 'ui::CPicture')
-    name:SetTextByKey('itemname', item.Name);
+    name:SetTextByKey('itemname', itemName);
+    
+    if skinName ~= nil then
+        top_bg:SetSkinName(skinName);
+    end
 
-    if TryGetProp(item, "ItemLifeTime") ~= nil and TryGetProp(item, "ItemLifeTime") ~= "None" then
-        local expirationSysTime = imcTime.GetSysTimeByStr(item.ItemLifeTime);
+    if diffSec ~= nil then
+        local expirationSysTime = geTime.GetServerSystemTime();
+        expirationSysTime = imcTime.AddSec(expirationSysTime, diffSec);
+
         expirationTime:SetTextByKey('year', expirationSysTime.wYear);
         expirationTime:SetTextByKey('month', GET_TWO_DIGIT_STR(expirationSysTime.wMonth));
         expirationTime:SetTextByKey('day', GET_TWO_DIGIT_STR(expirationSysTime.wDay));
 
-        if TryGetProp(item, "ItemLifeTimeOver") == 1 then
+        if isOver then
             remainingTime:SetText(ClMsg("TimeExpired"))
         else
-            local nowSysTime = geTime.GetServerSystemTime();
-            local diffSec = imcTime.GetDifSec(expirationSysTime, nowSysTime);
             local days = math.floor(diffSec / 86400);
             local hours = math.floor((diffSec % 86400) / 3600)
             local mins = math.floor(((diffSec % 86400) % 3600) / 60)
@@ -146,7 +176,7 @@ function ADD_EXPIRED_ITEM(groupbox, item, i, ypos)
         end
     end
 
-    item_pic:SetImage(item.Icon);
+    item_pic:SetImage(itemIcon);
 
     local timeParentCtrl = remainingTime:GetParent();
     local amendHeight = remainingTime:GetY() + remainingTime:GetHeight();
@@ -163,14 +193,22 @@ end
 -- slot
 
 -- ICON_SET_ITEM_COOLDOWN ī��
-function ICON_SET_ITEM_REMAIN_LIFETIME(icon)	
+function ICON_SET_ITEM_REMAIN_LIFETIME(icon, invType)
     if icon == nil then
 		return;
 	end
-	
-	local iconInfo = icon:GetInfo();
-	local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
-	if invItem == nil then
+    
+    local iconInfo = icon:GetInfo();
+    local invItem = nil;
+    if invType ~= nil then
+        invItem = session.GetEtcItemByGuid(invType, iconInfo:GetIESID());
+        icon:SetUserValue('INV_TYPE', invType);
+    else
+        invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
+        icon:SetUserValue('INV_TYPE', IT_INVENTORY);
+    end
+    
+    if invItem == nil then
         return;
     end
 
@@ -179,7 +217,7 @@ function ICON_SET_ITEM_REMAIN_LIFETIME(icon)
         return;
     end
     
-    local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);
+    local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);    
     if remainTimeSec ~= "None" then
         icon:SetDrawLifeTimeText(1)
 	    icon:SetOnLifeTimeUpdateScp('ICON_UPDATE_ITEM_REMAIN_LIFETIME');
@@ -191,8 +229,15 @@ function ICON_UPDATE_ITEM_REMAIN_LIFETIME(icon)
 		return 0;
 	end
 	
-	local iconInfo = icon:GetInfo();
-	local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
+    local iconInfo = icon:GetInfo();
+    local invType = icon:GetUserIValue('INV_TYPE');
+    local invItem = nil;
+    if invType ~= IT_INVENTORY then
+        invItem = session.GetEtcItemByGuid(invType, iconInfo:GetIESID());
+    else
+        invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
+    end
+    
 	if invItem == nil then
         return 0;
     end
@@ -249,4 +294,9 @@ function GET_LATEST_ITEM_LIFE_TIME_OVERED()
 
     latestSysTimeStr = imcTime.GetStringSysTime(latestSysTime);
     return latestSysTimeStr;
+end
+
+function CLEAR_ICON_REMAIN_LIFETIME(slot, icon)    
+    icon:SetDrawLifeTimeText(0);
+    slot:SetFrontImage('None');
 end

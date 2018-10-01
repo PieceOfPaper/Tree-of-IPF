@@ -845,8 +845,7 @@ function POPUP_FRIEND_COMPLETE_CTRLSET(parent, ctrlset)
 		end
 	end
 
-
-	local subcontext = ui.CreateContextMenu("SUB", "", 0, 0, 0, 0);	
+	local subcontext = ui.CreateContextMenu("SUB", "", 0, 0, 0, 0);
 	--그룹 설정
 	
 	for k, customgroupname in pairs(groupnamelist) do

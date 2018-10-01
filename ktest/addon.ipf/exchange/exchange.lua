@@ -343,12 +343,7 @@ function EXCHANGE_MSG_START(frame, msg, argStr, argNum)
 	local oppfinalbutton = GET_CHILD_RECURSIVELY(opponenGBox,'opponentfinalagree','ui::CButton');
 	oppfinalbutton:SetEnable(0);
 
-	local myToken = false;
-	local accountObj = GetMyAccountObj();
-	if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) and accountObj.TradeCount > 0 then
-		myToken = true;
-	end
-
+	local myToken = IS_MYPC_EXCHANGE_BENEFIT_STATE();	
 	local targetToken = false;
 	 if 0 ~= argNum then
 		targetToken = true;

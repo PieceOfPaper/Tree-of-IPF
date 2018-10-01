@@ -2829,12 +2829,14 @@
 		<userconfig NORMAL_SKIN="test_skin_01" HAVE_SKIN="rank_one_skin"/>
 		<controls>
 			<groupbox name="each_achieve_gbox" margin="0 0 0 0" rect="0 0 435 230" hittestbox="false" skin="test_skin_01" layout_gravity="left top" scrollbar="false"/>
-			<richtext name="achieve_desctitle" parent="each_achieve_gbox" margin="20 10 0 0" rect="0 0 430 30" format="None" textalign="left center" resizebytext="true" fontname="brown_18_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<picture name="each_achieve_name_box" margin="0 7 0 0" parent="each_achieve_gbox" rect="0 0 420 30" hittestbox="false" draw="false" stretch="true" image="test_com_namebg" layout_gravity="center top" scrollbar="false"/>
+			<richtext name="achieve_desctitle" parent="each_achieve_gbox" margin="15 10 0 0" rect="0 0 430 30" format="None" textalign="left center" resizebytext="true" fontname="white_18_b_ol_ds" fixwidth="false" layout_gravity="left top" hittest="false"/>
 			<button name="req_reward_btn" margin="0 0 5 5" rect="0 0 36 39" image="compen_btn" layout_gravity="right top" LBtnUpScp="REQ_ACHIEVE_REWARD"/>
-			<labelline name="labelline" parent="each_achieve_gbox" margin="0 37 0 0" rect="0 0 400 2" skin="None" layout_gravity="center top" hittest="false"/>
-			<richtext name="achieve_static_desc" parent="each_achieve_gbox" margin="20 45 0 0" rect="0 0 430 30" format="{@41b}조건" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
-			<gauge name="achieve_gauge" parent="each_achieve_gbox" margin="0 30 0 0" rect="0 0 260 50" skin="gauge_itemtooltip_poten" inverse="false" point="50" layout_gravity="left top" text1="" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center" hittest="true"/>
-			<richtext name="achieve_desc" parent="each_achieve_gbox" margin="20 45 0 0" rect="0 0 400 30" caption="None" textalign="left center" resizebytext="true" fontname="white_16_ol" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<richtext name="achieve_static_desc" parent="each_achieve_gbox" margin="20 71 0 0" rect="0 0 430 30" format="{@41b}조건" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<richtext name="achieve_static_accomplishment" parent="each_achieve_gbox" margin="20 45 0 0" rect="0 0 60 30" format="{@41b}달성도" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<gauge name="achieve_gauge" parent="each_achieve_gbox" margin="0 30 0 0" rect="0 0 230 50" skin="gauge_itemtooltip_poten" inverse="false" point="50" layout_gravity="left top" text1="" textoffset1="0 1" textfont1="white_14_ol" textalign1="center center" hittest="true"/>
+			<richtext name="achieve_accomplishment" parent="each_achieve_gbox" margin="20 40 0 0" rect="0 0 335 30" caption="None" textalign="center center" resizebytext="false" fontname="white_16_ol" fixwidth="false" layout_gravity="left top" hittest="false"/>
+			<richtext name="achieve_desc" parent="each_achieve_gbox" margin="20 71 0 0" rect="0 0 335 30" caption="None" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="true" layout_gravity="left top" hittest="false"/>
 			<richtext name="achieve_name" parent="each_achieve_gbox" margin="20 65 0 0" rect="0 0 400 30" format="칭호       %s" param1="name" param1_def="None" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
 			<richtext name="achieve_reward" parent="each_achieve_gbox" margin="20 90 0 0" rect="0 0 400 30" format="보상       %s" param1="reward" param1_def="None" textalign="left center" resizebytext="true" fontname="brown_16_b" fixwidth="false" layout_gravity="left top" hittest="false"/>
 		</controls>
@@ -3466,7 +3468,7 @@
 		<controls>
 			<groupbox name="bg_slot" margin="0 0 0 0" rect="0 0 55 55" hittestbox="false" LBtnDownScp="" changecursor="true" skin="" layout_gravity="left top" scrollbar="false"/>
 			<slot name="slot" margin="0 0 0 0" layout_gravity="left top" rect="0 0 55 55" stretch="true" skin="slot_empty" oversound="button_over" enabledrag="false" enableselect="false" enablepop="false"/>
-			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnDownScp="COLLECTION_TAKE" texttooltip="{@st59}콜렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
+			<button name="btn" caption="{@st41b}{/}" margin="0 0 0 0" rect="0 0 55 55" layout_gravity="center center" DropScp="COLLECTION_DROP" LBtnDownScp="COLLECTION_TAKE" texttooltip="{@st59}컬렉션 아이템을 등록합니다.{/}" image="itemcraft_btn" clicksound="button_click_big_2" oversound="button_cursor_over_3"/>
 		</controls>
 	</controlset>
 	<controlset name="forgery_item" hittest="true" hittestset="false" draw="true" width="460" height="150" skin="mypage_bar">
@@ -4518,6 +4520,27 @@
 			<groupbox name="skinBox" rect="0 0 410 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
 			<richtext name="nameText" rect="0 0 300 30" margin="15 5 0 0" layout_gravity="left top" fontname="white_16_b_ol" caption="설정 저장 이름"/>
 			<richtext name="deleteText" rect="0 0 30 30" margin="0 5 8 0" layout_gravity="right top" caption="x" fontname="brown_18_b" texttooltip="설정 삭제" LBtnUpScp="MARKET_DELETE_SAVED_OPTION"/>
+		</controls>
+	</controlset>
+	<controlset name="news_ranking_each_rank" width="520" height="58" hittestset="true" draw="false" skin="none">
+		<userconfig RankingPic_1="adventure_ranking1" RankingPic_2="adventure_ranking2" RankingPic_3="adventure_ranking3" RankingSkin_1="rank_one_skin" RankingSkin_2="rank_two_skin" RankingSkin_3="rank_three_skin"/>
+		<controls>
+			<picture name="ranking_pic" rect="0 0 53 44" margin="0 0 0 0" layout_gravity="left center" stretch="true" image="adventure_ranking1"/>
+			<groupbox name="bg" rect="0 0 400 50" margin="54 5 0 0" layout_gravity="left top" draw="true" skin="rank_one_skin"/>
+			<picture name="job_pic" parent="bg" rect="0 0 30 30" margin="10 0 0 0" layout_gravity="left center" stretch="true" image="None"/>
+			<richtext name="name_text" parent="bg" rect="0 0 300 30" margin="50 0 0 0" fixwidth="true" layout_gravity="left center" textalign="left center" format="Lv.%s %s" param1="lv" param1_def="0" param2="name" param2_def="None" fontname="white_18_ol" omitbywidth="true"/>
+			<richtext name="noranker_text" parent="bg" rect="0 0 300 30" margin="20 0 0 0" fixwidth="true" layout_gravity="left center" textalign="left center" format="%s" param1="value" param1_def="-    -" fontname="white_18_ol"/>
+			<richtext name="score_text" parent="bg" rect="0 0 200 30" margin="0 0 12 0" layout_gravity="right center" textalign="right center" format="%s" param1="value" param1_def="0" fontname="white_18_ol"/>
+		</controls>
+	</controlset>
+	<controlset name="news_ranking" hittest="true" width="500" height="250" hittestset="true" draw="true" skin="none">
+		<userconfig OffsetX="10" OffsetY="-8"/>
+		<controls>
+			<groupbox name="title_bg" rect="0 0 490 40" margin="0 0 0 0" layout_gravity="center top" draw="true" skin="test_skin_01_btn"/>
+			<richtext name="title_text" rect="0 0 490 30" margin="0 10 0 0" layout_gravity="center top" textalign="center top" format="%s" param1="value" fontname="black_16_b"/>
+			<groupbox name="list_bg" rect="0 0 490 180" margin="0 50 0 0" layout_gravity="center top" draw="false" skin="bg2"/>
+			<button name="detail_btn" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 0 10" caption="{s16}{b}{ol}{ds}자세히 보기>>" draw="true" skin="none" clicksound="button_click_big" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
+			<labelline name="labelline" margin="0 0 0 5" rect="0 0 490 3" skin="labelline_def_2" layout_gravity="center bottom"/>
 		</controls>
 	</controlset>
 </controlsetlist>

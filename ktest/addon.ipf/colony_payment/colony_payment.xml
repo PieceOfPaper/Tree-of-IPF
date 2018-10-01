@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="colony_payment" x="0" y="0" width="650" height="630">
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="colony_payment" x="0" y="0" width="650" height="650">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_frame_low"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
@@ -17,6 +17,6 @@
 		<richtext name="map_text" parent="column_bar" rect="0 0 200 30" margin="160 0 0 0" layout_gravity="left center" caption="점령 지역" fontname="black_18_b" spacey="0"/>
 		<richtext name="reward_text" parent="column_bar" rect="0 0 200 30" margin="385 0 0 0" layout_gravity="left center" caption="점령 보상" fontname="black_18_b" spacey="0"/>
 		<groupbox name="list_gb" rect="0 0 630 428" margin="0 120 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="true"/>
-		<richtext name="guidance" rect="0 0 600 100" margin="0 0 0 20" layout_gravity="center bottom" textalign="left center" caption="ⓘ 점령 보상 목록은 콜로니전 종료 후 1시간 뒤에 갱신됩니다.{nl}ⓘ 보상 수령은 길드마스터만 가능하며, 수령된 아이템은 길드 보관함으로 이동됩니다." fontname="black_16_b" spacey="0" fixwidth="true"/>
+		<richtext name="guidance" rect="0 0 600 100" margin="0 0 0 20" layout_gravity="center bottom" textalign="left center" caption="ⓘ 점령 보상 목록은 콜로니전 종료 후 1시간 뒤에 갱신됩니다.{nl}ⓘ 보상 수령은 길드마스터만 가능하며, 수령된 아이템은 길드 보관함으로 이동됩니다.{nl}ⓘ Beta로 진행되는 길드 콜로니전에서는 점령 보상이 지급되지 않습니다." fontname="black_16_b" spacey="0" fixwidth="true"/>
 	</controls>
 </uiframe>

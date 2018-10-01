@@ -13,9 +13,9 @@ function ON_COLONY_ALARM_MSG(frame, msg, argStr, diffSec)
         enableEnterColonyWar = TryGetProp(guildObj, 'EnableEnterColonyWar');
     end
 
-    if 1 == session.IsGM() then --GM은 예외처리
-        enableEnterColonyWar = 1
-    end
+--    if 1 == session.IsGM() then --GM은 예외처리
+--        enableEnterColonyWar = 1
+--    end
 
     if argStr == 'START' then
         if diffSec == -1800 then

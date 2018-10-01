@@ -189,6 +189,7 @@
 	<ReadXml Name="statue_position"/>
 	<ReadXml Name="guild_colony"/>
 	<ReadXml Name="guild_colony_rule"/>
+  <ReadXml Name="max_pc_count_in_zone"/>
 	<ReadXml Name="time_event"/>
 	<ReadXml Name="item_random_reset_material"/>
 	<ReadXml Name="monster_event"/>	<ReadXml Name="specialcostume"/>
@@ -223,4 +224,5 @@
 />
 	<ReadXml Name="UserShopPrice"/>
 	<ReadXml Name="Beauty_Shop_Preview"/>	
+	<ReadXml Name="mainquest_startnpcwarp"/>
 </Category>

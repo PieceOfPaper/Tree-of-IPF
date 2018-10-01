@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3877,16 +3877,16 @@
 			<img name="bottomcore" imgrect="1260 481 128 19"/>
 			<img name="bottomright" imgrect="1389 481 16 19"/>
 		</skin>
-		<skin name="lightbrownbox_op_100" texture="\skin\pip_test_item.tga">
-			<img name="topleft" imgrect="1040 501 10 10"/>
-			<img name="topcore" imgrect="1051 501 10 10"/>
-			<img name="topright" imgrect="1062 501 10 10"/>
-			<img name="bodyleft" imgrect="1040 512 10 10"/>
-			<img name="bodycore" imgrect="1051 512 10 10"/>
-			<img name="bodyright" imgrect="1062 512 10 10"/>
-			<img name="bottomleft" imgrect="1040 523 10 10"/>
-			<img name="bottomcore" imgrect="1051 523 10 10"/>
-			<img name="bottomright" imgrect="1062 523 10 10"/>
+		<skin name="token_skin" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="373 192 41 20"/>
+			<img name="topcore" imgrect="415 192 100 20"/>
+			<img name="topright" imgrect="516 192 41 20"/>
+			<img name="bodyleft" imgrect="373 213 41 20"/>
+			<img name="bodycore" imgrect="415 213 100 20"/>
+			<img name="bodyright" imgrect="516 213 41 20"/>
+			<img name="bottomleft" imgrect="373 234 41 20"/>
+			<img name="bottomcore" imgrect="415 234 100 20"/>
+			<img name="bottomright" imgrect="516 234 41 20"/>
 		</skin>
 	</skinlist>
 	<skinlist category="buttons">
@@ -6095,8 +6095,8 @@
 		<image name="ability_max" file="\skin\pip_test.tga" imgrect="868 626 72 18" CMM_Caption="최대"/>
 		<image name="collection_magic" file="\skin\pip_test.tga" imgrect="868 645 72 18" CMM_Caption="효과"/>
 		<image name="collection_num" file="\skin\pip_test.tga" imgrect="1797 153 35 35" CMM_Caption="등록가능갯수"/>
-		<image name="collection_tooltip1" file="\skin\pip_test.tga" imgrect="939 542 18 18" CMM_Caption="콜렉션완성한것"/>
-		<image name="collection_tooltip2" file="\skin\pip_test.tga" imgrect="939 561 18 18" CMM_Caption="콜렉션미완성된것"/>
+		<image name="collection_tooltip1" file="\skin\pip_test.tga" imgrect="939 542 18 18" CMM_Caption="컬렉션완성한것"/>
+		<image name="collection_tooltip2" file="\skin\pip_test.tga" imgrect="939 561 18 18" CMM_Caption="컬렉션미완성된것"/>
 		<image name="collection_tooltip3" file="\skin\pip_test.tga" imgrect="939 580 18 18" CMM_Caption="레시피재료가능"/>
 		<image name="friend_new_ar" file="\skin\chat_skin.tga" imgrect="0 160 30 22" CMM_Caption="친구 귓속말알림"/>
 		<image name="friend_onoff" file="\skin\chat_skin.tga" imgrect="237 81 14 14" CMM_Caption="접속했나안했나"/>
@@ -6841,7 +6841,7 @@
 		<image name="sysmenu_jal" file="\skin\HUD.tga" imgrect="916 546 38 44" CMM_Caption="모험일지"/>
 		<image name="sysmenu_jal_cursoron" file="\skin\HUD.tga" imgrect="916 591 38 44"/>
 		<image name="sysmenu_jal_clicked" file="\skin\HUD.tga" imgrect="916 636 38 44"/>
-		<image name="sysmenu_coll" file="\skin\HUD.tga" imgrect="955 546 38 44" CMM_Caption="콜렉션"/>
+		<image name="sysmenu_coll" file="\skin\HUD.tga" imgrect="955 546 38 44" CMM_Caption="컬렉션"/>
 		<image name="sysmenu_coll_cursoron" file="\skin\HUD.tga" imgrect="955 591 38 44"/>
 		<image name="sysmenu_coll_clicked" file="\skin\HUD.tga" imgrect="955 636 38 44"/>
 		<image name="sysmenu_jem" file="\skin\HUD.tga" imgrect="994 546 38 44" CMM_Caption="젬강화"/>
@@ -8739,6 +8739,13 @@
 		<image name="icon_Add_Agro" file="\icon\buff_icon2.tga" imgrect="896 640 128 128"/>
 		<image name="icon_Rock_on" file="\icon\buff_icon2.tga" imgrect="0 768 128 128"/>
 		<image name="icon_Immune_debuff" file="\icon\buff_icon2.tga" imgrect="128 768 128 128"/>
+		<image name="icon_1810_fall_6" file="\icon\buff_icon2.tga" imgrect="256 768 128 128" CMM_Caption="튼튼한"/>
+		<image name="icon_1810_fall_7" file="\icon\buff_icon2.tga" imgrect="384 768 128 128" CMM_Caption="강한"/>
+		<image name="icon_1810_fall_2" file="\icon\buff_icon2.tga" imgrect="512 768 128 128" CMM_Caption="운이 좋은"/>
+		<image name="icon_1810_fall_4" file="\icon\buff_icon2.tga" imgrect="640 768 128 128" CMM_Caption="노련한"/>
+		<image name="icon_1810_fall_5" file="\icon\buff_icon2.tga" imgrect="768 768 128 128" CMM_Caption="생명이 질긴"/>
+		<image name="icon_1810_fall_1" file="\icon\buff_icon2.tga" imgrect="896 768 128 128" CMM_Caption="날렵한"/>
+		<image name="icon_1810_fall_3" file="\icon\buff_icon2.tga" imgrect="0 896 128 128" CMM_Caption="솜씨 좋은"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

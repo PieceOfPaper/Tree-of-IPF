@@ -651,7 +651,14 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		slot:SetMaxSelectCount(invItem.count);
 		
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
-		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
+		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);
+
+		if invItem.hasLifeTime == true then
+			ICON_SET_ITEM_REMAIN_LIFETIME(icon, etcType);
+			slot:SetFrontImage('clock_inven');
+		else
+			CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
+		end
 
 		index = itemList:Next(index);
 	end
@@ -667,7 +674,7 @@ function GET_DRAG_INVITEM_INFO()
 	return invenItemInfo;
 end
 
-function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)    
+function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
     local itemCls = GetIES(invItem:GetObject());
 	local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
     SET_SLOT_IMG(slot, iconImg)
@@ -693,6 +700,13 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
 	
 	icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
+
+	if invItem.hasLifeTime == true then
+		ICON_SET_ITEM_REMAIN_LIFETIME(icon, IT_WAREHOUSE);
+		slot:SetFrontImage('clock_inven');
+	else
+		CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
+	end
 end
 
 function GET_INVENTORY_TREEGROUP(baseidcls)

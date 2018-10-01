@@ -2468,7 +2468,7 @@ function APPLY_MSGBOX_EDIT_PROP(inputframe, ctrl)
 	local item = advBox:GetObjectByKey(propName, 1);
 	item:SetText(txt);
 
-	dtool.ChangeIESEntry(idSpace, clsID, propName, txt);
+	dtool.ChangeIESEntity(idSpace, clsID, propName, txt);
 	inputframe:ShowWindow(0);
 
 	FIXWIDTH_ADVBOX_ITEM(advBox, 1, item);

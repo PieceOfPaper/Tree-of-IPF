@@ -294,7 +294,7 @@
 	<Code Code="ERROR_REDIS" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Redis 서버 관련 에러가 발생하였습니다. 에러 메시지를 확인하세요."/>
 	<Code Code="ERROR_SP_EXCUTE_ERROR" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SP실행에 실패하였습니다. sp 내용과 에러코드를 확인하세요."/>
 	<Code Code="ERROR_MASTER_IES_SAVE_TIME" Team="PROGRAM" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_ies_master_set 수행에 오랜시간이 걸려 취소되었습니다."/>
-	<Code Code="ERROR_NEED_ADD_LOG_COLLECTINO" Team="DB" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_server_logging_list 에 해당 콜렉션이 등록되어있지 않습니다. DB팀이나 운영팀에 문의하세요."/>
+	<Code Code="ERROR_NEED_ADD_LOG_COLLECTINO" Team="DB" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="sp_server_logging_list 에 해당 컬렉션이 등록되어있지 않습니다. DB팀이나 운영팀에 문의하세요."/>
 	<Code Code="WARNING_COULDNT_LOAD_CLIENT_HASH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="DB에서 클라이언트 파일 해시코드 값을 로드하지 못했습니다. 개발서버가 아니라면 반드시 로드되어야 합니다."/>
 	<Code Code="ERROR_CMD_DISPATHCING" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="해당 커멘더가 이미 처리중에 있는데 새로운 생성을 시도하려합니다."/>
 	<Code Code="ERROR_NEXON_SN_NOT_MATCH" Team="tos_team" Category="DB" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 넥슨에서 전달받은 SN과 월드테이블의 SN값이 서로 다릅니다."/>

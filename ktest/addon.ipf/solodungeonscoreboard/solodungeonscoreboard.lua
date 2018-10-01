@@ -118,7 +118,7 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(gbox, ctrlType)
             local rankImage = GET_CHILD_RECURSIVELY(rankGbox, "rankImage")
             rankImage:SetImage(rankGbox:GetUserConfig("RANK_IMAGE_" .. rank + 1))
 
-            local scoreInfo = session.soloDungeon.GetCurrentRankingByIndex(ctrlType, rank)
+            local scoreInfo = session.soloDungeon.GetRankingByIndex(soloDungeonShared.ThisWeek, ctrlType, rank)
             if scoreInfo ~= nil then
                 local teamNameText = GET_CHILD_RECURSIVELY(rankGbox, "teamNameText")
                 local teamName = rank .. "team"

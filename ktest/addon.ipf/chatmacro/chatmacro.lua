@@ -75,18 +75,22 @@ function MACRO_POSE_VIEW(poseGbox)
 	
 	local freeTable = {}
     local premiumTable = {}
+	local rewardTable = {}
     local clslist, cnt = GetClassList("Pose");
     for i = 0 , cnt - 1 do
         local cls = GetClassByIndexFromList(clslist, i);
-        if cls.Premium == "NO" then
+        if cls.PoseType == "Basic" then
             freeTable[#freeTable + 1] = cls.ClassID;
-        else
-            premiumTable[#premiumTable + 1] = cls.ClassID
+		elseif cls.PoseType == "Premium" then
+			premiumTable[#premiumTable + 1] = cls.ClassID
+		elseif cls.PoseType == "Reward" then
+			rewardTable[#rewardTable + 1] = cls.ClassID
         end
     end
 
     table.sort(freeTable, POSE_TABLE_SORT);
     table.sort(premiumTable, POSE_TABLE_SORT);
+	table.sort(rewardTable, POSE_TABLE_SORT);
 
 	for i = 1, #freeTable do
 	    local cls = GetClassByType("Pose", freeTable[i]);
@@ -126,7 +130,31 @@ function MACRO_POSE_VIEW(poseGbox)
         		y = ymargin + math.floor(controlIndex / 6) * csetheight
         	end
         end 
-    end
+	end
+	
+	local aObj = GetMyAccountObj();
+	if nil ~= aObj then
+		for i = 1, #rewardTable do
+			local cls = GetClassByType("Pose", rewardTable[i]);
+			if cls ~= nil then
+				if aObj[cls.RewardName] >= cls.RewardCheckCount then
+					local eachcontrol = poseGbox:CreateOrGetControlSet('pose_icon','pose_icon'..cls.ClassName, x, y)
+					local each_pose_name = GET_CHILD(eachcontrol, 'pose_name','ui::CRichText');
+					local each_pose_slot = GET_CHILD(eachcontrol, 'pose_slot','ui::CSlot');
+					each_pose_slot:SetEventScript(ui.LBUTTONDOWN, 'SOCIAL_POSE')
+					each_pose_slot:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
+					SET_SLOT_IMG(each_pose_slot, cls.Icon);
+					each_pose_name:SetTextByKey('posename',cls.Name);
+					each_pose_slot:SetTextByKey('posename',cls.Name);
+					local icon = each_pose_slot:GetIcon();
+					icon:SetUserValue('POSEID', cls.ClassID);			
+					controlIndex = controlIndex + 1;
+					x = xmargin + (controlIndex % 6) * csetwidth
+					y = ymargin + math.floor(controlIndex / 6) * csetheight
+				end
+			end
+		end 	
+	end
 
     index = index + 1;
 end

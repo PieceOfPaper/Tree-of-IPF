@@ -2385,3 +2385,68 @@ function CALC_CENTER_ALIGN_POSITION(index, count, len, dist, bgLen)
     local firstOffset = (len*count/2) + math.floor(count/2)*dist;
     return bgOffset - firstOffset + (len + dist)*(index-1);
 end
+
+
+function SCR_MAIN_QUEST_WARP_CHECK(pc, questState, questIES, questName)
+    if questName == nil and questIES == nil then
+        return 'NO'
+    end
+    if questIES == nil then
+        questIES = GetClass('QuestProgressCheck', questName)
+    end
+    
+    if questName == nil then
+        questName = questIES.ClassName
+    end
+    
+    if questState == nil then
+        if IsServerSection(pc) == 1 then
+            questState = SCR_QUEST_CHECK(pc, questName)
+        else
+            questState = SCR_QUEST_CHECK_C(pc, questName)
+        end
+    end
+    
+    if questState ~= 'POSSIBLE' then
+        return 'NO'
+    end
+    
+    if GetClass('mainquest_startnpcwarp', questName) == nil then
+        return 'NO'
+    end
+    
+    if IsServerSection(pc) ~= 1 and GET_QUESTINFO_PC_FID() ~= 0 then
+        return 'NO'
+    end
+    
+    local clsList, cnt  = GetClassList("mainquest_startnpcwarp");
+    for i = 0, cnt - 1 do
+        local tQuest = GetClassByIndexFromList(clsList, i);
+        if tQuest.ClassName == questName then
+            return 'YES'
+        end
+        
+        local tQuestState
+        if IsServerSection(pc) == 1 then
+            tQuestState = SCR_QUEST_CHECK(pc, tQuest.ClassName)
+        else
+            if pc.Lv == nil then
+                pc = GetMyPCObject()
+            end
+            tQuestState = SCR_QUEST_CHECK_C(pc, tQuest.ClassName)
+        end
+        
+        if tQuestState == 'POSSIBLE' then
+            local tquestIES = GetClass('QuestProgressCheck',tQuest.ClassName)
+            if pc.Lv < 100 then
+                if questIES.QStartZone ~= 'None' and questIES.QStartZone ==  tquestIES.QStartZone then
+                    return 'NO'
+                end
+            else
+                return 'NO'
+            end
+        end
+    end
+    
+    return 'NO'
+end

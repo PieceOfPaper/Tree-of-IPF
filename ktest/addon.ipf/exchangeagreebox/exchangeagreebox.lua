@@ -9,27 +9,31 @@ function CHANGEAGREEBOX_FIANLAGREE_CLICK(frame, ctrl)
 	exchange.SendFinalAgreeExchangeMsg()
 end
 
+function IS_MYPC_EXCHANGE_BENEFIT_STATE()
+	if session.loginInfo.IsPremiumState(ITEM_TOKEN) == false then
+		return false;
+	end
+
+	local tokenItemID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN);
+	local tokenCls = GetClassByType('Item', tokenItemID);
+	if TryGetProp(tokenCls, 'NumberArg2', 0) < 1 then
+		return false;
+	end
+	return true;
+end
+
 function OPEN_EXCHANGE_FILNAL_BOX(oppoTokenState)
 	local frame = ui.GetFrame('exchangeagreebox')
 	local bg2 = frame:GetChild('bg2');
 	local itemList = bg2:GetChild('itemList');
-
-	local myAccount = GetMyAccountObj()
-	local myTradeCnt = TryGetProp(myAccount, "TradeCount")
-	if myTradeCnt == nil then
-		return
-	end
-
     local needShowAgreeBox = 1;
-	if (0 == oppoTokenState) or (false == session.loginInfo.IsPremiumState(ITEM_TOKEN)) or (myTradeCnt < 1) then
+	if oppoTokenState == 0 or IS_MYPC_EXCHANGE_BENEFIT_STATE() == false then
  		local itemCount = exchange.GetExchangeItemCount(1);	
 		local listStr = "";
 		for i = 0, itemCount-1 do
 			local itemData = exchange.GetExchangeItemInfo(1,i);
 			local class = GetClassByType('Item', itemData.type);
-			--if class.ItemType == 'Equip' and class.ClassType ~= "Outer" then -- 코스튬은 비토큰 거래시에도 귀속되지 않도록
-				listStr = listStr .. string.format("%s",class.Name) .. "{nl}";
-			--end
+			listStr = listStr .. string.format("%s",class.Name) .. "{nl}";
 		end
 
         if listStr == '' then

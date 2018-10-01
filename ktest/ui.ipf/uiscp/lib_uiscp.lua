@@ -434,6 +434,7 @@ end
 
 
 function BUFF_TIME_UPDATE(handle, buff_ui)
+	local TOKEN_BUFF_ID = TryGetProp(GetClass("Buff", "Premium_Token"), "ClassID");
 
 	local updated = 0;
 	for j = 0 , buff_ui["buff_group_cnt"] do
@@ -450,7 +451,7 @@ function BUFF_TIME_UPDATE(handle, buff_ui)
     				local icon 		= slot:GetIcon();
     				local iconInfo = icon:GetInfo();
 					local buffIndex = icon:GetUserIValue("BuffIndex");
-    				local buff = info.GetBuff(handle, iconInfo.type, buffIndex);
+					local buff = info.GetBuff(handle, iconInfo.type, buffIndex);
     				if buff ~= nil then
     					SET_BUFF_TIME_TO_TEXT(text, buff.time);
     					updated = 1;
@@ -458,7 +459,11 @@ function BUFF_TIME_UPDATE(handle, buff_ui)
     					if buff.time < 5000 and buff.time ~= 0.0 then
     						if slot:IsBlinking() == 0 then
     							slot:SetBlink(600000, 1.0, "55FFFFFF", 1);
-    						end
+							end
+					elseif buff.buffID == TOKEN_BUFF_ID and GET_REMAIN_TOKEN_SEC() < 3600 then
+						if slot:IsBlinking() == 0 then
+    							slot:SetBlink(0, 1.0, "55FFFFFF", 1);
+						end
     					else
     						if slot:IsBlinking() == 1 then
     							slot:ReleaseBlink();

@@ -10,6 +10,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local token_teamwarehouse = tooltipframe:GetChild("token_teamwarehouse");
 --	local mission_reward = tooltipframe:GetChild("mission_reward");
 --	local RaidStance = tooltipframe:GetChild("RaidStance");
+	local token_remaintime = tooltipframe:GetChild("token_remaintime");
     
 	local token_tradecount = tooltipframe:GetChild("token_tradecount");
 	
@@ -22,7 +23,7 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	local pcbangItemRental = tooltipframe:GetChild("pcbangItemRental");
 	pcbangItemRental:ShowWindow(0);
 	
-	
+
 
 	local buffCls = GetClassByType('Buff', numarg1);
 	local argNum = NONE_PREMIUM;
@@ -42,10 +43,9 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		token_expup:SetTextByKey("value", ScpArgMsg("Token_ExpUp{PER}", "PER", "20%"));
 		token_staup:SetTextByKey("value", ClMsg("AllowPremiumPose"));
 		token_staup:ShowWindow(1);
-		local accountObj = GetMyAccountObj();
-		if accountObj.TradeCount > 0 then
-			local tradeCountString = ScpArgMsg("AllowTradeByCount") .. " " .. tostring(accountObj.TradeCount)
-			token_tradecount:SetTextByKey("value", tradeCountString);
+		if IS_MYPC_EXCHANGE_BENEFIT_STATE() == true then
+			local tradeCountString = ScpArgMsg("AllowTradeByCount")-- .. " " .. tostring(accountObj.TradeCount)
+--			token_tradecount:SetTextByKey("value", tradeCountString);
 			token_tradecount:ShowWindow(1);
 		else
 			token_tradecount:ShowWindow(0);
@@ -53,6 +53,17 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 --        mission_reward:ShowWindow(1);
 --        RaidStance:ShowWindow(1);
 
+		local difSec = GET_REMAIN_TOKEN_SEC();
+		if 0 < difSec then
+			token_remaintime:SetUserValue("REMAINSEC", difSec);
+			token_remaintime:SetUserValue("STARTSEC", imcTime.GetAppTime());
+			SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP(token_remaintime);
+			token_remaintime:RunUpdateScript("SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP");
+			token_remaintime:ShowWindow(1);
+		else
+			token_remaintime:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP");
+			token_remaintime:ShowWindow(0);
+		end
 	elseif NEXON_PC == argNum then
 		type:SetTextByKey("value", ClMsg("nexon")); 
 		token_staup:ShowWindow(0);
@@ -75,10 +86,15 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 		pcbangItemRental:SetTextByKey("value", ScpArgMsg("PcbangItemRental"));
 		pcbangItemRental:ShowWindow(1);
 		
+		token_remaintime:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP");
+		token_remaintime:ShowWindow(0);
 	else
 		token_tradecount:ShowWindow(0);
         marketFastGet:ShowWindow(0);
-        marketMinMax:ShowWindow(0);
+		marketMinMax:ShowWindow(0);
+		
+		token_remaintime:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP");
+		token_remaintime:ShowWindow(0);
 	end
 	
 	for i = 0, 3 do 
@@ -91,13 +107,9 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 				normal = normal + 0.01;
 				value = value + 0.01;
 				txt = math.floor(normal*100).. "% ->".. math.floor(value*100) .."%";
-				type:SetTextByKey("value", ClMsg(str)); 
-			elseif str =="abilityMax" or str == "speedUp"then
-				if NEXON_PC == argNum and str =="abilityMax" then
-					str = "abilityMax_ForPC";
-				end
-				txt = normal.. " -> +"..value;
-				type:SetTextByKey("value", ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
+				type:SetTextByKey("value", ClMsg(str));
+			elseif str == 'abilityMax' then
+				type:SetTextByKey("value", '');
 			else
 				txt = normal..ClMsg("Piece").." ->"..value .. ClMsg("Piece");
 				type:SetTextByKey("value", ScpArgMsg(str.."{COUNT}", "COUNT", value)); 
@@ -120,6 +132,18 @@ function UPDATE_PREMIUM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 	tooltipframe:Resize(tooltipframe:GetWidth(), gbox:GetHeight() + 20);
 end
 
+function SHOW_TOKEN_REMAIN_TIME_IN_BUFF_TOOLTIP(ctrl)
+    local elapsedSec = imcTime.GetAppTime() - ctrl:GetUserIValue("STARTSEC");
+    local startSec = ctrl:GetUserIValue("REMAINSEC");
+    startSec = startSec - elapsedSec;
+    if 0 > startSec then
+        ctrl:SetTextByKey("value", "");
+        return 0;
+    end
+    local timeTxt = GET_TIME_TXT(startSec);
+    ctrl:SetTextByKey("value", timeTxt);
+    return 1;
+end
 
 function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 	local buff = nil;    

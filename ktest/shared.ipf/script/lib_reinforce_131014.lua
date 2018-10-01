@@ -49,6 +49,7 @@ function IS_MORU_NOT_DESTROY_TARGET_ITEM(moruItem)
         or moruItem.ClassName == "Moru_Gold_TA" 
         or moruItem.ClassName == "Moru_Gold_TA_NR" 
         or moruItem.ClassName == "Moru_Gold_Team_Trade" 
+        or moruItem.ClassName == "Moru_Gold_14d_Team" 
         or moruItem.ClassName == "Moru_Gold_EVENT_1710_NEWCHARACTER" then
         return true;
     end

@@ -55,11 +55,11 @@ function GET_QUEST_RET_POS(pc, questIES, inputNpcState)
     local questnpc_state;
 	if inputNpcState == nil then
 		local result = SCR_QUEST_CHECK(pc, questIES.ClassName);
-		questnpc_state = GET_QUEST_NPC_STATE(questIES, result);
+		questnpc_state = GET_QUEST_NPC_STATE(questIES, result, pc);
 	else
 		questnpc_state = inputNpcState;
 	end
-
+	
     if questnpc_state ~= nil then
     	local mapProp = geMapTable.GetMapProp(questIES[questnpc_state..'Map']);
     	if mapProp ~= nil then

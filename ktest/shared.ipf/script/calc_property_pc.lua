@@ -1902,6 +1902,11 @@ function SCR_Get_KDArmorType(self)
         end
     end
     
+    -- colony buff --
+    if IsBuffApplied(self, "GuildColony_BossMonsterBuff_DEF") == 'YES' then
+        value = 99999
+    end
+
     return value;
 end
 

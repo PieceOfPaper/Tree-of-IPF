@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -3651,11 +3651,11 @@
 		<image name="icon_item_stonepiece_04Purple" file="icon\item\icon_item_stonepiece_04Purple.png" imgrect="0 0 80 80" CMM_Caption="석재 파편"/>
 		<image name="icon_item_stonepiece_05gray" file="icon\item\icon_item_stonepiece_05gray.png" imgrect="0 0 80 80" CMM_Caption="석재 파편"/>
 		<image name="icon_item_stonepiece_06black" file="icon\item\icon_item_stonepiece_06black.png" imgrect="0 0 80 80" CMM_Caption="석재 파편"/>
-		<image name="icon_item_collection_00Basic" file="icon\item\icon_item_collection_00Basic.png" imgrect="0 0 80 80" CMM_Caption="콜렉션 북"/>
-		<image name="icon_item_collection_01Red" file="icon\item\icon_item_collection_01Red.png" imgrect="0 0 80 80" CMM_Caption="콜렉션 북"/>
-		<image name="icon_item_collection_02green" file="icon\item\icon_item_collection_02green.png" imgrect="0 0 80 80" CMM_Caption="콜렉션 북"/>
-		<image name="icon_item_collection_03Blue" file="icon\item\icon_item_collection_03Blue.png" imgrect="0 0 80 80" CMM_Caption="콜렉션 북"/>
-		<image name="icon_item_collection_04Black" file="icon\item\icon_item_collection_04Black.png" imgrect="0 0 80 80" CMM_Caption="콜렉션 북"/>
+		<image name="icon_item_collection_00Basic" file="icon\item\icon_item_collection_00Basic.png" imgrect="0 0 80 80" CMM_Caption="컬렉션 북"/>
+		<image name="icon_item_collection_01Red" file="icon\item\icon_item_collection_01Red.png" imgrect="0 0 80 80" CMM_Caption="컬렉션 북"/>
+		<image name="icon_item_collection_02green" file="icon\item\icon_item_collection_02green.png" imgrect="0 0 80 80" CMM_Caption="컬렉션 북"/>
+		<image name="icon_item_collection_03Blue" file="icon\item\icon_item_collection_03Blue.png" imgrect="0 0 80 80" CMM_Caption="컬렉션 북"/>
+		<image name="icon_item_collection_04Black" file="icon\item\icon_item_collection_04Black.png" imgrect="0 0 80 80" CMM_Caption="컬렉션 북"/>
 		<image name="icon_item_goldbar_s" file="icon\item\icon_item_goldbar_s.png" imgrect="0 0 80 80" CMM_Caption="순금 주괴"/>
 		<image name="icon_item_silverbar" file="icon\item\icon_item_silverbar.png" imgrect="0 0 80 80" CMM_Caption="은괴"/>
 		<image name="icon_item_silverbar_s" file="icon\item\icon_item_silverbar_s.png" imgrect="0 0 80 80" CMM_Caption="순은 주괴
@@ -4885,6 +4885,8 @@
 		<image name="item_icon_asiomage_stone" file="\icon\item\item_icon_asiomage_stone.png" imgrect="0 0 256 256" CMM_Caption="아시오메이지 정수"/>
 		<image name="item_icon_weistrel_stone" file="\icon\item\item_icon_weistrel_stone.png" imgrect="0 0 256 256" CMM_Caption="웨이스트럴 정수"/>
 		<image name="icon_item_gele_gear_02" file="\icon\item\icon_item_gele_gear_02.png" imgrect="0 0 128 128" CMM_Caption="사우가의 동력기관"/>
+		<image name="icon_item_1810_fall1" file="\icon\item\icon_item_1810_fall1.png" imgrect="0 0 128 128" CMM_Caption="커다란 단풍잎"/>
+		<image name="icon_item_1810_fall2" file="\icon\item\icon_item_1810_fall2.png" imgrect="0 0 128 128" CMM_Caption="커다란 은행잎"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5616,6 +5618,13 @@
 		<image name="icon_item_Inspector01_Box" file="\icon\payment\icon_item_Inspector01_Box.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Inspector02_Box" file="\icon\payment\icon_item_Inspector02_Box.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_Inspector03_Box" file="\icon\payment\icon_item_Inspector03_Box.png" imgrect="0 0 256 256"/>
+		<image name="Dye_Lavender" file="\icon\payment\Dye_Lavender.png" imgrect="0 0 128 128" CMM_Caption="헤어 염색약"/>
+		<image name="Dye_Charcoal" file="\icon\payment\Dye_Charcoal.png" imgrect="0 0 128 128"/>
+		<image name="Dye_Tiramisu" file="\icon\payment\Dye_Tiramisu.png" imgrect="0 0 128 128"/>
+		<image name="hair_braidtwin" file="\icon\payment\hair_braidtwin.png" imgrect="0 0 256 256" CMM_Caption="9월 헤어"/>
+		<image name="hair_Hunter" file="\icon\payment\hair_Hunter.png" imgrect="0 0 256 256"/>
+		<image name="hair_BangHair" file="\icon\payment\hair_BangHair.png" imgrect="0 0 256 256"/>
+		<image name="hair_bulletmarker" file="\icon\payment\hair_bulletmarker.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

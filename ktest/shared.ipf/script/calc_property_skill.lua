@@ -16801,3 +16801,9 @@ end
 function SCR_GET_EmphasisTrust_Ratio(skill)
     return 15 + skill.Level*2;
 end
+
+function SCR_GET_SiegeBurst_Ratio2(skill)
+	local value = skill.Level * 0.1
+	
+	return value;
+end

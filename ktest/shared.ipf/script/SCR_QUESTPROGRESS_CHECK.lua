@@ -3188,11 +3188,16 @@ function SCR_QUEST_STATE_COMPARE(pc_quest_state, target_quest_state)
 end
 
 
-function GET_QUEST_NPC_STATE(questIES, result)
+function GET_QUEST_NPC_STATE(questIES, result, pc)
 	if result == 'POSSIBLE' then
         if questIES.POSSI_WARP == 'YES' and questIES.StartNPC ~= 'None' then
             return 'Start';
         end
+        
+        if pc ~= nil and SCR_MAIN_QUEST_WARP_CHECK(pc, result, questIES, questIES.ClassName) == 'YES' then
+            return 'Start';
+        end
+        
     elseif result == 'PROGRESS' and questIES.ProgNPC ~= 'None' then
         if questIES.PROG_WARP == 'YES' then
             return 'Prog';

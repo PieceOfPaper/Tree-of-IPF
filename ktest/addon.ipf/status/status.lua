@@ -62,10 +62,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
         return;
     end
 
-    local sysTime = geTime.GetServerSystemTime();
-    local endTime = session.loginInfo.GetTokenTime();
-    local difSec = imcTime.GetDifSec(endTime, sysTime);
-
+    local difSec = GET_REMAIN_TOKEN_SEC();
     if 0 < difSec then
         time:ShowWindow(1);
         time:SetUserValue("REMAINSEC", difSec);
@@ -77,10 +74,10 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
         time:StopUpdateScript("SHOW_TOKEN_REMAIN_TIME");
     end
 
-    for i = 0, 3 do
-        local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-        local str, value = GetCashInfo(ITEM_TOKEN, i)
-        if nil ~= str then
+    for i = 0, 3 do        
+        local str, value = GetCashInfo(ITEM_TOKEN, i);
+        if str ~= nil and str ~= 'abilityMax' then
+            local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. i, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
             local prop = ctrlSet:GetChild("prop");
             local normal = GetCashValue(0, str)
             local txt = "None"
@@ -90,10 +87,6 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
                 local img = string.format("{img 67percent_image %d %d}", 55, 45)
                 prop:SetTextByKey("value", img .. ClMsg(str));
                 txt = string.format("{img 67percent_image2 %d %d}", 100, 45)
-            elseif str == "abilityMax" then
-                local img = string.format("{img paid_immed_image %d %d}", 55, 45)
-                prop:SetTextByKey("value", img .. ClMsg(str));
-                txt = string.format("{img 2plus_image2 %d %d}", 100, 45)
             elseif str == "speedUp" then
                 local img = string.format("{img 3plus_image %d %d}", 55, 45)
                 prop:SetTextByKey("value", img .. ClMsg(str));
@@ -105,13 +98,7 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
             end
 
             local value = GET_CHILD_RECURSIVELY(ctrlSet, "value");
-            if str == "abilityMax" then
-                value:ShowWindow(0);
-            else
-                value:SetTextByKey("value", txt);
-            end
-        else
-            return;
+            value:SetTextByKey("value", txt);
         end
     end
 
@@ -124,10 +111,8 @@ function TOKEN_ON_MSG(frame, msg, argStr, argNum)
     value:SetTextByKey("value", imag);
 
     local itemClassID = session.loginInfo.GetPremiumStateArg(ITEM_TOKEN)
-    local itemCls = GetClassByType("Item", itemClassID);
-    local accountObj = GetMyAccountObj();
-    local tradeCount = TryGetProp(accountObj, 'TradeCount');
-    if tradeCount ~= nil and tradeCount > 0 then
+    local itemCls = GetClassByType("Item", itemClassID);    
+    if IS_MYPC_EXCHANGE_BENEFIT_STATE() == true then
         local ctrlSet = tokenList:CreateControlSet("tokenDetail", "CTRLSET_" .. 6, ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
         local prop = ctrlSet:GetChild("prop");
         local img = string.format("{img dealok_image %d %d}", 55, 45)
@@ -1950,15 +1935,20 @@ function STATUS_ACHIEVE_INIT(frame)
             local eachAchiveDescTitle = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_desctitle')
             local eachAchiveReward = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_reward')
             local eachAchiveGauge = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_gauge')
+            local eachAchiveStaticAccomplishment = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_static_accomplishment')
+            local eachAchiveAccomplishment = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_accomplishment')
             local eachAchiveStaticDesc = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_static_desc')
             local eachAchiveDesc = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_desc')
             local eachAchiveName = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'achieve_name')
             local eachAchiveReqBtn = GET_CHILD_RECURSIVELY(eachAchiveCSet, 'req_reward_btn')
+
+            --조건과 칭호의 위치를 텍스트 길이가 가장 긴 "달성도" 기준으로 맞춘다
             eachAchiveReqBtn:ShowWindow(0);
-            eachAchiveDesc:SetOffset(eachAchiveStaticDesc:GetX() + eachAchiveStaticDesc:GetWidth() + 10, eachAchiveDesc:GetY())
-            eachAchiveGauge:SetOffset(eachAchiveStaticDesc:GetX() + eachAchiveStaticDesc:GetWidth() + 10, eachAchiveGauge:GetY())
-            eachAchiveGauge:Resize(eachAchiveGBox:GetWidth() - eachAchiveStaticDesc:GetWidth() -50, eachAchiveGauge:GetHeight())
-            eachAchiveGauge:SetTextTooltip("(" .. nowpoint .. "/" .. cls.NeedCount .. ")")
+            eachAchiveDesc:SetOffset(eachAchiveStaticDesc:GetX() + eachAchiveStaticAccomplishment:GetWidth() + 10, eachAchiveDesc:GetY())
+            eachAchiveAccomplishment:SetOffset(eachAchiveStaticAccomplishment:GetX() + eachAchiveStaticAccomplishment:GetWidth() + 10, eachAchiveAccomplishment:GetY())
+            eachAchiveGauge:SetOffset(eachAchiveStaticAccomplishment:GetX() + eachAchiveStaticAccomplishment:GetWidth() + 10, eachAchiveGauge:GetY())
+            eachAchiveGauge:Resize(eachAchiveGBox:GetWidth() - eachAchiveStaticAccomplishment:GetWidth() -50, eachAchiveGauge:GetHeight())
+            eachAchiveAccomplishment:SetText("(" .. nowpoint .. "/" .. cls.NeedCount .. ")")
 
             local isHasAchieve = 0;
             if HAVE_ACHIEVE_FIND(cls.ClassID) == 1 and nowpoint >= cls.NeedCount then
@@ -1967,9 +1957,9 @@ function STATUS_ACHIEVE_INIT(frame)
 
             if isHasAchieve == 1 then
                 if equipAchieveName ~= 'None' and equipAchieveName == cls.Name then
-                    eachAchiveDescTitle:SetText('{@stx2}' .. cls.DescTitle .. ScpArgMsg('Auto__(SayongJung)'));
+                    eachAchiveDescTitle:SetText(cls.DescTitle .. ScpArgMsg('Auto__(SayongJung)'));
                 else
-                    eachAchiveDescTitle:SetText('{@stx2}' .. cls.DescTitle);
+                    eachAchiveDescTitle:SetText(cls.DescTitle);
                 end
                 eachAchiveGBox:SetSkinName(HAVE_SKIN)
             else
@@ -1983,10 +1973,13 @@ function STATUS_ACHIEVE_INIT(frame)
             eachAchiveReward:SetTextByKey('reward', cls.Reward);
 
             if isHasAchieve == 1 then
-                eachAchiveGauge:ShowWindow(0)
-                -- eachAchiveCSet:SetEventScript(ui.LBUTTONDOWN, "ACHIEVE_EQUIP");
-                -- eachAchiveCSet:SetEventScriptArgNumber(ui.LBUTTONDOWN, cls.ClassID);
-                -- eachAchiveCSet:SetTextTooltip(ScpArgMsg('YouCanEquipAchieve'));
+                eachAchiveGauge:ShowWindow(0);
+                eachAchiveStaticAccomplishment:ShowWindow(0);
+                eachAchiveAccomplishment:ShowWindow(0);
+
+                eachAchiveStaticDesc:SetOffset(eachAchiveStaticDesc:GetX(), eachAchiveStaticAccomplishment:GetY())
+                eachAchiveDesc:SetOffset(eachAchiveDesc:GetX(), eachAchiveStaticDesc:GetY())
+               
                 local etcObjValue = TryGetProp(etcObj, 'AchieveReward_' .. cls.ClassName);
                 -- if etcObj['AchieveReward_' .. cls.ClassName] == 0 then
                 if etcObjValue ~= nil and etcObjValue == 0 then
@@ -1994,9 +1987,8 @@ function STATUS_ACHIEVE_INIT(frame)
                 end
             else
                 eachAchiveGauge:ShowWindow(1)
-                -- eachAchiveDesc:SetText(' ' .. cls.Desc);
-                -- eachAchiveCSet:SetEventScript(ui.LBUTTONDOWN, "None");
-                -- eachAchiveCSet:SetTextTooltip('');
+                eachAchiveStaticAccomplishment:ShowWindow(1);
+                eachAchiveAccomplishment:ShowWindow(1);
             end
 
             local suby = eachAchiveDesc:GetY() + eachAchiveDesc:GetHeight() + 10;

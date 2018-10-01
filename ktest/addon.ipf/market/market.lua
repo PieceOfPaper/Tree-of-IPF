@@ -166,7 +166,7 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 	end
 
 	local groupName = frame:GetUserValue('SELECTED_CATEGORY');
-	local isRecipeSearching = frame:GetUserIValue("isRecipeSearching")
+	local isRecipeSearching = frame:GetUserIValue("isRecipeSearching")	
 	if isRecipeSearching == 1 then
 		MARKET_DRAW_CTRLSET_RECIPE(frame);
 		MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
@@ -212,6 +212,32 @@ local function MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem)
 	end
 end
 
+local function MARKET_CTRLSET_SET_PRCIE(ctrlSet, marketItem)
+	local priceStr = marketItem:GetSellPrice();
+	local price_num = ctrlSet:GetChild("price_num");
+	price_num:SetTextByKey("value", GET_COMMAED_STRING(priceStr));
+	price_num:SetUserValue("Price", priceStr);
+
+	local price_text = ctrlSet:GetChild("price_text");
+	price_text:SetTextByKey("value", GetMonetaryString(priceStr));
+
+	ctrlSet:SetUserValue("sellPrice", priceStr);
+end
+
+local function MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem)
+	local priceStr = marketItem:GetSellPrice();
+	local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_num");
+	if totalPrice_num ~= nil then
+		totalPrice_num:SetTextByKey("value", GET_COMMAED_STRING(priceStr));
+		totalPrice_num:SetUserValue("Price", priceStr);
+	end
+
+	local totalPrice_text = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_text");
+	if totalPrice_text ~= nil then
+		totalPrice_text:SetTextByKey("value", GetMonetaryString(priceStr));
+	end
+end
+
 function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
 	itemlist:RemoveAllChild();
@@ -237,7 +263,7 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 			refreshScp(itemObj);
 		end	
 
-		local ctrlSet = itemlist:CreateControlSet("market_item_detail_default", "ITEM_EQUIP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, yPos);
+		local ctrlSet = itemlist:CreateControlSet("market_item_detail_default", "ITEM_EQUIP_" .. i, ui.LEFT, ui.TOP, 0, 0, 0, yPos);				
 		AUTO_CAST(ctrlSet)
 		ctrlSet:SetUserValue("DETAIL_ROW", i);
 
@@ -262,22 +288,17 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 		local level = ctrlSet:GetChild("level");
 		local levelValue = ""
 		if isShowLevel ~= false then
-		if itemObj.GroupName == "Gem" then
-			levelValue = GET_ITEM_LEVEL_EXP(itemObj)
-		elseif itemObj.GroupName == "Card" then
-			levelValue = itemObj.Level
+			if itemObj.GroupName == "Gem" then
+				levelValue = GET_ITEM_LEVEL_EXP(itemObj)
+			elseif itemObj.GroupName == "Card" then
+				levelValue = itemObj.Level
 			elseif itemObj.ItemType == "Equip" and TryGetProp(itemObj, 'ClassType2') ~= "Premium" then
-			levelValue = itemObj.UseLv
-		end
+				levelValue = itemObj.UseLv
+			end
 		end
 		level:SetTextByKey("value", levelValue);
 
-		local price_num = ctrlSet:GetChild("price_num");
-		price_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-		price_num:SetUserValue("Price", marketItem.sellPrice);
-
-		local price_text = ctrlSet:GetChild("price_text");
-		price_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
+		MARKET_CTRLSET_SET_PRCIE(ctrlSet, marketItem, cid);
 
 		if cid == marketItem:GetSellerCID() then
 			local buyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
@@ -297,7 +318,6 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
 			totalPrice_text:SetTextByKey("value", 0);
 		else
-
 			local buyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
 			buyBtn:ShowWindow(1)
 			buyBtn:SetEnable(1);
@@ -312,15 +332,9 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 			editCount:SetNumChangeScp("MARKET_CHANGE_COUNT");
 			ctrlSet:SetUserValue("minItemCount", 1)
 			ctrlSet:SetUserValue("maxItemCount", marketItem.count)
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
 
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
 		end		
-
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -645,8 +659,6 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 			SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 		end
 
-
-
 		-- 내 판매리스트 처리
 
 		if cid == marketItem:GetSellerCID() then
@@ -675,16 +687,10 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 			cancelBtn:ShowWindow(0)
 			cancelBtn:SetEnable(0)
 
-			local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
-
-			local totalPrice_text = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);			
 		end		
 
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+		ctrlSet:SetUserValue("sellPrice", marketItem:GetSellPrice());
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -735,12 +741,7 @@ function MARKET_DRAW_CTRLSET_RECIPE(frame)
 		local count = ctrlSet:GetChild("count");
 		count:SetTextByKey("value", marketItem.count);
 		
-		local price_num = ctrlSet:GetChild("price_num");
-		price_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-		price_num:SetUserValue("Price", marketItem.sellPrice);
-
-		local price_text = ctrlSet:GetChild("price_text");
-		price_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
+		MARKET_CTRLSET_SET_PRICE(ctrlSet, marketItem);
 
 		if cid == marketItem:GetSellerCID() then
 			local buyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
@@ -775,17 +776,11 @@ function MARKET_DRAW_CTRLSET_RECIPE(frame)
 			editCount:SetNumChangeScp("MARKET_CHANGE_COUNT");
 			ctrlSet:SetUserValue("minItemCount", 1)
 			ctrlSet:SetUserValue("maxItemCount", marketItem.count)
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
 
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
 		end		
 
-		ctrlSet:SetUserValue("marketItemGuid", marketItem:GetMarketGuid())
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+		ctrlSet:SetUserValue("marketItemGuid", marketItem:GetMarketGuid());
 	end
 
 	local itemlistHeight = itemlist:GetHeight()
@@ -894,12 +889,7 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
 		local level = ctrlSet:GetChild("level");
 		level:SetTextByKey("value", itemObj.UseLv);
 
-		local price_num = ctrlSet:GetChild("price_num");
-		price_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-		price_num:SetUserValue("Price", marketItem.sellPrice);
-
-		local price_text = ctrlSet:GetChild("price_text");
-		price_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
+		MARKET_CTRLSET_SET_PRICE(ctrlSet, marketItem);
 
 		local reportBtn = ctrlSet:GetChild("reportBtn")
 		reportBtn:ShowWindow(0)
@@ -937,16 +927,9 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
 			editCount:SetNumChangeScp("MARKET_CHANGE_COUNT");
 			ctrlSet:SetUserValue("minItemCount", 1)
 			ctrlSet:SetUserValue("maxItemCount", marketItem.count)
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
 
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
-		end		
-
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
+		end
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -976,11 +959,7 @@ function MARKET_DRAW_CTRLSET_RECIPE_SEARCHLIST(frame)
 
 	pagecontrol_material:SetMaxPage(maxPage_material);
 	pagecontrol_material:SetCurPage(curPage_material);
-
 end
-
-
-
 
 function MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
@@ -1054,16 +1033,10 @@ function MARKET_DRAW_CTRLSET_ACCESSORY(frame)
 			cancelBtn:ShowWindow(0)
 			cancelBtn:SetEnable(0)
 
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
-
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
 		end		
 
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+		ctrlSet:SetUserValue("sellPrice", marketItem:GetSellPrice());
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -1136,16 +1109,10 @@ function MARKET_DRAW_CTRLSET_GEM(frame)
 			cancelBtn:ShowWindow(0)
 			cancelBtn:SetEnable(0)
 
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
-
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
 		end		
 
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+		ctrlSet:SetUserValue("sellPrice", marketItem:GetSellPrice());
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -1226,16 +1193,10 @@ function MARKET_DRAW_CTRLSET_CARD(frame)
 			cancelBtn:ShowWindow(0)
 			cancelBtn:SetEnable(0)
 
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
-
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
 		end		
 
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+		ctrlSet:SetUserValue("sellPrice", marketItem:GetSellPrice());
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -1316,16 +1277,10 @@ function MARKET_DRAW_CTRLSET_EXPORB(frame)
 			cancelBtn:ShowWindow(0)
 			cancelBtn:SetEnable(0)
 
-			local totalPrice_num = ctrlSet:GetChild("totalPrice_num");
-			totalPrice_num:SetTextByKey("value", GetCommaedText(marketItem.sellPrice));
-			totalPrice_num:SetUserValue("Price", marketItem.sellPrice);
-
-			local totalPrice_text = ctrlSet:GetChild("totalPrice_text");
-			totalPrice_text:SetTextByKey("value", GetMonetaryString(marketItem.sellPrice));
-			
+			MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem);
 		end		
 
-		ctrlSet:SetUserValue("sellPrice", marketItem.sellPrice)
+		ctrlSet:SetUserValue("sellPrice", marketItem:GetSellPrice());
 	end
 
 	local ITEM_CTRLSET_INTERVAL_Y_MARGIN = tonumber(frame:GetUserConfig('ITEM_CTRLSET_INTERVAL_Y_MARGIN'));
@@ -1381,9 +1336,8 @@ function EXEC_CANCEL_MARKET_ITEM(itemGuid)
 end
 
 function MARKET_SET_TOTAL_PRICE(ctrlset, price, count)
-
 	local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlset, "totalPrice_num")
-	totalPrice_num:SetTextByKey("value", GetCommaedText(tonumber(math.mul_int_for_lua(price, count))))
+	totalPrice_num:SetTextByKey("value", GET_COMMAED_STRING(tonumber(math.mul_int_for_lua(price, count))))
 	local totalPrice_text = GET_CHILD_RECURSIVELY(ctrlset, "totalPrice_text")
 	totalPrice_text:SetTextByKey("value", GetMonetaryString(tonumber(math.mul_int_for_lua(price, count))))
 end
@@ -1419,7 +1373,7 @@ function MARKET_ITEM_COUNT_UP(frame)
 	editCount:SetText(tostring(nowCount))
 	
 	local price_num = GET_CHILD_RECURSIVELY(frame, "price_num")
-	local price = frame:GetUserIValue("sellPrice")
+	local price = frame:GetUserValue("sellPrice")
 
 	MARKET_SET_TOTAL_PRICE(frame, price, nowCount)
 end
@@ -1442,7 +1396,7 @@ function MARKET_ITEM_COUNT_DOWN(frame)
 	editCount:SetText(tostring(nowCount))
 
 	local price_num = GET_CHILD_RECURSIVELY(frame, "price_num")
-	local price = frame:GetUserIValue("sellPrice")
+	local price = frame:GetUserValue("sellPrice")
 	
 	MARKET_SET_TOTAL_PRICE(frame, price, nowCount)
 end
@@ -1455,7 +1409,7 @@ function MARKET_ITEM_COUNT_MAX(frame)
 
 	local maxItemCount = frame:GetUserIValue("maxItemCount")
 	local price_num = GET_CHILD_RECURSIVELY(frame, "price_num")
-	local price = frame:GetUserIValue("sellPrice")
+	local price = frame:GetUserValue("sellPrice")
 	
 	local maxCanBuyCount = math.max(math.floor(tonumber(GET_TOTAL_MONEY_STR()) / price), 1);
 	local maxItemCount = math.min(maxItemCount, maxCanBuyCount)
@@ -1481,13 +1435,13 @@ function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
 		if editCount == nil then
 			local marketItem = session.market.GetRecipeSearchByIndex(row-1);
 			market.AddBuyInfo(marketItem:GetMarketGuid(), 1);
-			totalPrice = totalPrice + marketItem.sellPrice;
+			totalPrice = SumForBigNumber(totalPrice, marketItem:GetSellPrice());
 		else
 			local buyCount = editCount:GetText()
 			if tonumber(buyCount) > 0 then
 				local marketItem = session.market.GetRecipeSearchByIndex(row-1);
 				market.AddBuyInfo(marketItem:GetMarketGuid(), buyCount);
-				totalPrice = totalPrice + buyCount * marketItem.sellPrice;
+				totalPrice = SumForBigNumber(totalPrice, math.mul_int_for_lua(buyCount, marketItem:GetSellPrice()));
 			else
 				ui.SysMsg(ScpArgMsg("YouCantBuyZeroItem"));
 			end
@@ -1498,7 +1452,7 @@ function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
 		if child == nil then
 			local marketItem = session.market.GetItemByIndex(row-1);
 			market.AddBuyInfo(marketItem:GetMarketGuid(), 1);			
-			totalPrice = totalPrice + marketItem.sellPrice;
+			totalPrice = SumForBigNumber(totalPrice, marketItem:GetSellPrice());
 		else
 			local editCount = GET_CHILD_RECURSIVELY(child, "count")
 			local buyCount = 1;
@@ -1509,7 +1463,7 @@ function _BUY_MARKET_ITEM(row, isRecipeSearchBox)
 			if tonumber(buyCount) > 0 then
 				local marketItem = session.market.GetItemByIndex(row-1);
 				market.AddBuyInfo(marketItem:GetMarketGuid(), buyCount);
-				totalPrice = totalPrice + buyCount * marketItem.sellPrice;
+				totalPrice = SumForBigNumber(totalPrice, math.mul_int_for_lua(buyCount, marketItem:GetSellPrice()));	
 			else
 				ui.SysMsg(ScpArgMsg("YouCantBuyZeroItem"));
 			end
