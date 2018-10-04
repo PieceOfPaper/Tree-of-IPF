@@ -8288,7 +8288,7 @@
 		<Class ClassID="106008" ClassName="MarketItemRegisterSucceeded" Data="마켓 아이템 등록에 성공했습니다.{nl}토큰을 제외한 모든 아이템은{nl}판매 리스트에 보이기까지 최대 2시간이 소요됩니다."/>
 		<Class ClassID="106009" ClassName="MarketBuySucceeded_CheckInCabinet" Data="마켓 아이템 구매에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="106010" ClassName="TooMuchItemsMatched_InputMoreDetailFindText" Data="일치하는 아이템 이름이 많습니다. 좀 더 상세하게 검색어를 입력해주세요."/>
-		<Class ClassID="106011" ClassName="ReallyCancelRegisteredItem" Data="{@st66d_y}{s19}등록 취소 시{nl}거래 한도는 복구되지 않습니다.{/}{/}{nl}아이템 등록을 취소하시겠습니까?"/>
+		<Class ClassID="106011" ClassName="ReallyCancelRegisteredItem" Data="아이템 등록을 취소하시겠습니까?"/>
 		<Class ClassID="106012" ClassName="MarketItemCanceled_CheckInCabinet" Data="마켓 아이템 취소에 성공했습니다. 아이템 수령함을 확인하세요."/>
 		<Class ClassID="106013" ClassName="CantRegisterEquipItem" Data="착용중인 아이템은 등록할 수 없습니다."/>
 		<Class ClassID="106014" ClassName="Private" Data="비공개"/>
@@ -8307,7 +8307,7 @@
 		<Class ClassID="106027" ClassName="DecreasePotaion" Data="해당 아이템을 구입하시면{nl}포텐셜이 감소합니다.{nl}그래도 구입하시겠습니까?"/>
 		<Class ClassID="106028" ClassName="MinAllowPriceError" Data="해당 아이템의 하한가가 변동되었습니다. 다시 입력해주세요."/>
 		<Class ClassID="106029" ClassName="MaxAllowPriceError" Data="해당 아이템의 상한가가 변동되었습니다. 다시 입력해주세요."/>
-		<Class ClassID="106030" ClassName="CommissionRegMarketItem{Price}" Data="등록 수수료 {Price}실버가 소비되며,{nl}{@st66d_y}{s19}등록 취소 시{nl}거래 한도는 복구되지 않습니다.{/}{/}{nl}등록하시겠습니까?"/>
+		<Class ClassID="106030" ClassName="CommissionRegMarketItem{Price}" Data="등록 수수료 {Price}실버가 소비됩니다.{/}{nl}등록하시겠습니까?"/>
 		<Class ClassID="106031" ClassName="SellPriceMustOverThen100Silver" Data="판매가격은 100실버 이상이여야 합니다."/>
 		<Class ClassID="106032" ClassName="AutoAdjustToMinPrice" Data="최소 가격 단위로 금액이 자동 변경됩니다."/>
 		<Class ClassID="106033" ClassName="CantRegisterEquipItemToEnchant" Data="착용 중인 아이템은 인챈트 아이템으로 각성 시킬 수 없습니다."/>
