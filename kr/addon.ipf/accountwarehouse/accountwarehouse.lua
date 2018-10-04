@@ -99,6 +99,12 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 				return;
 			end
 
+			if invItem.hasLifeTime == true then
+				local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", %d, %d)', IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue('HANDLE'));
+				ui.MsgBox(ClMsg('PutLifeTimeItemInWareHouse'), yesscp, 'None');
+				return;
+			end
+
 			item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue("HANDLE"));            
             new_add_item[#new_add_item + 1] = invItem:GetIESID()
             
@@ -226,6 +232,14 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			local icon = slot:GetIcon();
 			icon:SetTooltipArg("accountwarehouse", invItem.type, invItem:GetIESID());
 			SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, "accountwarehouse");	
+
+			if invItem.hasLifeTime == true then
+				ICON_SET_ITEM_REMAIN_LIFETIME(icon, IT_ACCOUNT_WAREHOUSE);
+				slot:SetFrontImage('clock_inven');
+			else
+				CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
+			end
+
 			slotIndx = slotIndx + 1;
 		end
 		index = itemList:Next(index);

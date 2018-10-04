@@ -6,7 +6,6 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 
 	local drawList = {};
 	drawList[#drawList + 1] = mapCls;
-	
 	local accObj = GetMyAccountObj();
 
 	local clsList, cnt = GetClassList('Map');	

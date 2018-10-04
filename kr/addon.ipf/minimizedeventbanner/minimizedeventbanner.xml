@@ -10,6 +10,6 @@
 	<controls>
 		<groupbox name="gbox" margin="0 0 0 0" rect="0 0 70 65" hittestbox="false" skin="none" layout_gravity="left top"/>
 		<groupbox name="gbox_mission" margin="0 65 0 0" rect="0 0 70 65" hittestbox="false" skin="event_btn" layout_gravity="left top"/>
-		<picture name="pic" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" changecursor="false" stretch="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" LBtnDownScp="OPEN_INGAME_EVENTBANNER_FRAME" image="event_btn" parent="gbox"/>
+		<picture name="pic" rect="0 0 60 60" margin="0 0 0 0" layout_gravity="center center" changecursor="false" stretch="true" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" LBtnDownScp="OPEN_INGAME_EVENTBANNER_FRAME" image="news_btn" parent="gbox"/>
 	</controls>
 </uiframe>

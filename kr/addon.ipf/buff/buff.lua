@@ -144,9 +144,14 @@ function HOLD_EXP_BOOK_TIME(frame, data, argStr, argNum)
 	end	
 end
 
+function GET_BUFF_ICON_NAME(buffCls)
+	local imageName = 'icon_' .. buffCls.Icon;
+	return imageName;
+end
+
 function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)	
 	local icon = slot:GetIcon();
-	local imageName = 'icon_' .. class.Icon;
+	local imageName = GET_BUFF_ICON_NAME(class);
 
 	icon:Set(imageName, 'BUFF', buffType, 0);
 	icon:SetUserValue("BuffIndex", buffIndex);	

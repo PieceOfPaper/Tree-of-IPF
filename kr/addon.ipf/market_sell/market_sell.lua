@@ -110,7 +110,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		nameCtrl:SetTextByKey("value", GET_FULL_NAME(itemObj));
 
 		local totalPriceCtrl = ctrlSet:GetChild("totalPrice");
-		local totalPriceValue = math.mul_int_for_lua(marketItem.sellPrice, marketItem.count);
+		local totalPriceValue = math.mul_int_for_lua(marketItem:GetSellPrice(), marketItem.count);
 		local totalPrice = GET_COMMAED_STRING(totalPriceValue);
 		totalPriceCtrl:SetTextByKey("value", totalPrice);
 
@@ -234,7 +234,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
-		edit_price:SetMaxNumber(2147483647);
+		edit_price:ClearMaxNumber();
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- 3: , 텍스트로 변환		
 	end
 
@@ -345,7 +345,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 
 	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
-	edit_price:SetMaxNumber(2147483647);
+	edit_price:ClearMaxNumber();
 	edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 
 	if argNum == 1 then	
@@ -363,7 +363,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 				edit_price:SetMaxNumber(maxAllow);
 				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			else
-				edit_price:SetMaxNumber(2147483647);
+				edit_price:ClearMaxNumber();
 				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			end
 		else
@@ -428,23 +428,22 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
-	if IsGreaterThanForBigNumber(price * count, limitMoneyStr) == 1 then
+	if IsGreaterThanForBigNumber(math.mul_int_for_lua(price, count), limitMoneyStr) == 1 then
 		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoneyStr)));
 		return;
 	end
 
-	local strprice = string.format("%d", price);
-
+	local strprice = tostring(price);
 	if string.len(strprice) < 3 then
 		return
 	end
 
-	local floorprice = strprice.sub(strprice,0,2)
+	local floorprice = strprice.sub(strprice, 0, 2);
 	for i = 0 , string.len(strprice) - 3 do
 		floorprice = floorprice .. "0"
 	end
 	
-	if strprice ~= floorprice then
+	if strprice ~= floorprice then		
 		edit_price:SetText(GET_COMMAED_STRING(floorprice));
 		ui.SysMsg(ScpArgMsg("AutoAdjustToMinPrice"));		
 		price = tonumber(floorprice);
@@ -546,7 +545,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return false;
 	end
 
-	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, needTime);
+	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %s, %d, 1, %d)", itemGuid, floorprice, count, needTime);
 	commission = registerFeeValueCtrl:GetTextByKey("value");	
 	commission = string.gsub(commission, ",", "");
 	commission = math.max(tonumber(commission), 1);
@@ -579,7 +578,7 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 		
 		local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();		
 		if limitTradeStr ~= nil then
-			if IsGreaterThanForBigNumber(tonumber(itemPrice) * count, limitTradeStr) == 1 then			
+			if IsGreaterThanForBigNumber(tonumber(itemPrice) * count, limitTradeStr) == 1 then				
 				ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));				
 			end		
 		end
@@ -623,8 +622,8 @@ function UPDATE_MARKET_MONEY_STRING(parent, ctrl)
 
 	local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
 	if limitTradeStr ~= nil then
-		if IsGreaterThanForBigNumber(tonumber(moneyText) * itemCount, limitTradeStr) == 1 then			
-			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));
+		if IsGreaterThanForBigNumber(math.mul_int_for_lua(moneyText, itemCount), limitTradeStr) == 1 then			
+			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));			
 			moneyText = limitTradeStr;
 		end		
 	end
@@ -698,9 +697,8 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	if feeValue > 0 then
 		feeValue = tonumber(math.mul_int_for_lua(feeValue, -1));
 	end
-	feeValue = math.floor(feeValue)
-	local finalValue = tonumber(math.add_for_lua(totalPrice, feeValue));
-
+	feeValue = math.floor(feeValue)	
+	local finalValue =SumForBigNumberInt64(totalPrice, feeValue);
 	registerFeeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(registerFeeValue));
 	totalSellPriceValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(totalPrice));
 	feeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(feeValue));

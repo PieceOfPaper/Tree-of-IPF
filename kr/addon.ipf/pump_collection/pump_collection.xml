@@ -8,7 +8,7 @@
 	<sound opensound="win_open" closesound="win_close"/>
   <userconfig OPEN_DURATION="3" SLOT_PLAY_EFFECT_NAME ="I_sys_item_slot_loop" SLOT_PLAY_EFFECT_SCALE ="3.3" SLOT_SKIN_NAME ="slot_type02" IMAGE_MARGIN ="40" ITEM_SLOT_LINE_COUNT="5" LINE_TOP_MARGIN="3" LINE_BOTTOM_MARGIN="3" LINE_LEFT_MARGIN="3" LINE_RIGHT_MARGIN="3" SLOT_SPACE="1" NOT_COLLECT_COLOR="88000000" EXIST_COLLECT_COLOR="FF777777" ABLE_COLLECT_COLOR="FF777777"/>
 	<controls>
-		<richtext name="rt_title" rect="0 0 540 24" margin="0 29 0 0" layout_gravity="center top" caption="{@st41b}콜렉션{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="rt_title" rect="0 0 540 24" margin="0 29 0 0" layout_gravity="center top" caption="{@st41b}컬렉션{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
 		<richtext name="rt_collection_name" rect="0 0 200 50" margin="0 53 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_18_ol" format="{@st66b}[%s]{nl}조각 획득{/}" maxwidth="0" param1="value" param1_def="샤울레이 서쪽 숲" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
     <groupbox name="gb_item" rect="0 0 420 500" margin="60 110 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin=""/>
     <timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>

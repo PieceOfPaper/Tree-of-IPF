@@ -18,7 +18,7 @@ function _PUMP_RECIPE_OPEN(frame, recipeType, itemName)
     frame = tolua.cast(frame, "ui::CFrame");
 
     
-    -- 콜렉션 알람 UI 검사 (콜렉션 알람 UI랑 겹쳐서 여기서 검사한다)
+    -- 컬렉션 알람 UI 검사 (컬렉션 알람 UI랑 겹쳐서 여기서 검사한다)
     local isOpenCollectionUI = false;
     local frame_collection = ui.GetFrame("pump_collection");
     if frame_collection ~= nil then

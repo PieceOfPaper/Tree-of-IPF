@@ -30,7 +30,9 @@ function EXPIREDITEM_REMOVE_OPEN(frame)
     local ypos = 0;
     for i=1, #list do
         local item = list[i];
-        ypos = ADD_EXPIRED_ITEM(itemlist, item, i, ypos);
+        local difSec = GET_REMAIN_ITEM_LIFE_TIME(item);
+        local isOver = tonumber(TryGetProp(item, "ItemLifeTimeOver", 0)) == 1;
+        ypos = ADD_EXPIRED_ITEM(itemlist, item.Name, item.Icon, i, ypos, difSec, isOver, nil);
     end
     
     local maxItemPerPage = frame:GetUserConfig("MaxItemPerPage");

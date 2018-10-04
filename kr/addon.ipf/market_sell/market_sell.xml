@@ -7,6 +7,7 @@
 	<script OpenScp="MARKET_SELL_OPEN"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<layer layerlevel="99"/>
+	<userconfig ITEM_NAME_DEF="아이템을 등록해주세요."/>
 	<controls>
 		<groupbox name="market_low" rect="0 0 1425 900" margin="0 95 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
 		<groupbox name="market_midle3" rect="0 0 1015 831" margin="10 153 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" skin="test_frame_midle_light"/>
@@ -21,8 +22,7 @@
 		<picture name="headerLine2" rect="0 0 290 2" margin="0 96 0 0" layout_gravity="right top" image="guild_line_h" parent="sellPriceGbox" stretch="true"/>
 		<picture name="headerLine" rect="0 0 290 2" margin="0 28 0 0" layout_gravity="right top" image="guild_line_h" parent="sellPriceGbox" stretch="true"/>
 		<SpinePicture name="itemSellTitleBg" margin="0 0 0 0" hittestbox="false" layout_gravity="left top" image="market_sell_updown" fixwidth="false" parent="groupbox"/>
-		<groupbox name="line_h" margin="0 0 0 0" rect="0 0 390 67" hittestbox="false" layout_gravity="center bottom" skin="cutting_line_h" parent="sellPriceGbox"/>
-		<userconfig ITEM_NAME_DEF="아이템을 등록해주세요."/>
+		<groupbox name="line_h" margin="0 0 0 0" rect="0 0 390 67" hittestbox="false" layout_gravity="center bottom" skin="cutting_line_h" parent="sellPriceGbox"/>		
 		<richtext name="itemSellTitle" margin="0 0 0 0" rect="0 0 375 30" parent="itemSellTitleGbox" caption="{@st66d}아이템 등록" layout_gravity="center center" param1="name" textalign="center center" fixwidth="false" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false"/>
 		<richtext name="itemname" margin="110 3 0 0" rect="0 0 275 30" parent="sellPriceGbox" format="{@st66b}{s18}%s{/}" layout_gravity="left top" param1="name" param1_def="아이템을 등록해주세요." textalign="left center" omitbywidth="true" fixwidth="true" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" updateparent="false" drawbackground="false" slideshow="false"/>
 		<richtext name="maxPriceText" margin="130 33 0 0" rect="0 0 120 24" parent="sellPriceGbox" caption="{@st66b}상한가▲{/}" layout_gravity="left top" textalign="left center" fixwidth="false" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" updateparent="false" drawbackground="false" slideshow="false"/>

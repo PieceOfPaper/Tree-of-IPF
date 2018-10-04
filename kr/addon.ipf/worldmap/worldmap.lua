@@ -545,64 +545,66 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
     local maxCtrlWidth = 0;
 
     -- colony occupation info    
+	
+	if session.world.IsIntegrateServer() == false then
     if IS_COLONY_SPOT(mapCls.ClassName) == true then
         local check_word = "GuildColony_"
         local colonyMapCls = GetClassByStrProp("Map", "ClassName", check_word..mapCls.ClassName)
         if colonyMapCls ~= nil then
-            mapCls = colonyMapCls
-        end
-        local topFrame = ctrlSet:GetTopParentFrame();
-        local COLONY_IMG_SIZE = tonumber(topFrame:GetUserConfig('COLONY_IMG_SIZE'));
-
-        local colonyText = '';
-        local occupyTextTooltip = '';
-        local occupyText = ctrlSet:CreateControl('richtext', 'occupyText', 0, 0, 30, 30);        
-        local emblemSet = nil;
-        SET_WORLDMAP_RICHTEXT(occupyText, 1);        
-                
-        if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
-            local COLONY_PROGRESS_IMG = topFrame:GetUserConfig('COLONY_PROGRESS_IMG');
-            colonyText = string.format('{img %s %d %d}', COLONY_PROGRESS_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
-            occupyTextTooltip = ClMsg('ProgressColonyWar');
-        else -- 콜로니전 진행 중이 아닐 때
-            local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
-            local occupyInfo = session.colonywar.GetOccupationInfoByMapID(mapCls.ClassID);        
-            if occupyInfo == nil then
-                colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
-                occupyTextTooltip = ClMsg('NotOccupiedSpot');
-            else            
-                ctrlSet:RemoveChild('occupyText');
-                occupyText = nil;
-
-                local guildID = occupyInfo:GetGuildID();
-                emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
-                emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
-
-                -- emblem pic set
-                local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');    
-                local worldID = session.party.GetMyWorldIDStr();            
-                local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
-                if emblemImgName ~= 'None' then
-                    emblemPic:SetFileName(emblemImgName);
+            local topFrame = ctrlSet:GetTopParentFrame();
+            local COLONY_IMG_SIZE = tonumber(topFrame:GetUserConfig('COLONY_IMG_SIZE'));
+    
+            local colonyText = '';
+            local occupyTextTooltip = '';
+            local occupyText = ctrlSet:CreateControl('richtext', 'occupyText', 0, 0, 30, 30);        
+            local emblemSet = nil;
+            SET_WORLDMAP_RICHTEXT(occupyText, 1);        
+                    
+            if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
+                local COLONY_PROGRESS_IMG = topFrame:GetUserConfig('COLONY_PROGRESS_IMG');
+                colonyText = string.format('{img %s %d %d}', COLONY_PROGRESS_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
+                occupyTextTooltip = ClMsg('ProgressColonyWar');
+            else -- 콜로니전 진행 중이 아닐 때
+                local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
+                local occupyInfo = session.colonywar.GetOccupationInfoByMapID(colonyMapCls.ClassID);        
+                if occupyInfo == nil then
+                    colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
+                    occupyTextTooltip = ClMsg('NotOccupiedSpot');
                 else            
-                    local worldID = session.party.GetMyWorldIDStr();    
-                    guild.ReqEmblemImage(guildID,worldID);
-                end                                
-                occupyTextTooltip = occupyInfo:GetGuildName();
+                    ctrlSet:RemoveChild('occupyText');
+                    occupyText = nil;
+    
+                    local guildID = occupyInfo:GetGuildID();
+                    emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
+                    emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
+    
+                    -- emblem pic set
+                    local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');    
+                    local worldID = session.party.GetMyWorldIDStr();            
+                    local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
+                    if emblemImgName ~= 'None' then
+                        emblemPic:SetFileName(emblemImgName);
+                    else            
+                        local worldID = session.party.GetMyWorldIDStr();    
+                        guild.ReqEmblemImage(guildID,worldID);
+                    end                                
+                    occupyTextTooltip = occupyInfo:GetGuildName();
+                end
+            end
+    
+            if occupyText ~= nil then
+                occupyText:SetTextTooltip(occupyTextTooltip);
+                occupyText:SetText(colonyText);
+                totalCtrlHeight = totalCtrlHeight + occupyText:GetHeight();
+                maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, occupyText:GetWidth());
+            elseif emblemSet ~= nil then
+                emblemSet:SetTextTooltip(occupyTextTooltip);            
+                totalCtrlHeight = totalCtrlHeight + emblemSet:GetHeight();
+                maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, emblemSet:GetWidth());
             end
         end
-
-        if occupyText ~= nil then
-            occupyText:SetTextTooltip(occupyTextTooltip);
-            occupyText:SetText(colonyText);
-            totalCtrlHeight = totalCtrlHeight + occupyText:GetHeight();
-            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, occupyText:GetWidth());
-        elseif emblemSet ~= nil then
-            emblemSet:SetTextTooltip(occupyTextTooltip);            
-            totalCtrlHeight = totalCtrlHeight + emblemSet:GetHeight();
-            maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, emblemSet:GetWidth());
-        end
     end
+	end
 	
     -- dungeon info
 	local mapType = TryGetProp(mapCls, 'MapType');

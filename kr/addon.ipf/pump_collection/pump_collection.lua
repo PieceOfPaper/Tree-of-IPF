@@ -1,5 +1,5 @@
 
--- pump_collection.lua - 콜렉션에 등록할 아이템 습득시 팝업.
+-- pump_collection.lua - 컬렉션에 등록할 아이템 습득시 팝업.
 
 PUMP_COLLECTION_FIRST_UPDATE = false; 
 PUMP_COLLECTION_INFO_LIST = {};
@@ -7,19 +7,19 @@ PUMP_COLLECTION_CURRENT_OPEN_LIST = {};
 PUMP_COLLECTION_CURRENT_OPEN_ITEM = 0;
 
 function PUMP_COLLECTION_ON_INIT(addon, frame)
-	addon:RegisterMsg("ADD_COLLECTION", "ON_ADD_PUMP_COLLECTION");						-- 콜렉션이 추가되면.   -> Make
-	addon:RegisterMsg("COLLECTION_ITEM_CHANGE", "ON_PUMP_COLLECTION_ITEM_CHANGE");		-- 콜렉션의 아이템이 갱신되면 -> Update/make
+	addon:RegisterMsg("ADD_COLLECTION", "ON_ADD_PUMP_COLLECTION");						-- 컬렉션이 추가되면.   -> Make
+	addon:RegisterMsg("COLLECTION_ITEM_CHANGE", "ON_PUMP_COLLECTION_ITEM_CHANGE");		-- 컬렉션의 아이템이 갱신되면 -> Update/make
 	addon:RegisterMsg("INV_ITEM_ADD", "ON_PUMP_COLLECTION_OPEN");						-- 인벤에 아이템이 들어오면. -> OpenView
 	
 	PUMP_COLLECTION_FIRST_UPDATE  = false;												-- 재접시에 초기화
 end
 
--- 콜렉션이 등록될때
+-- 컬렉션이 등록될때
 function ON_ADD_PUMP_COLLECTION(frame, msg)
 	MAKE_PUMP_COLLECTION_LIST();
 end
 
--- 콜렉션에 아이템이 등록될때
+-- 컬렉션에 아이템이 등록될때
 function ON_PUMP_COLLECTION_ITEM_CHANGE(frame, msg, str, type, removeType)
 	MAKE_PUMP_COLLECTION_LIST();
 end
@@ -30,7 +30,7 @@ function ON_PUMP_COLLECTION_OPEN(frame, msg, str, itemType, removeType)
 	
 	PUMP_COLLECTIOn_CURRENT_OPEN_ITEM = 0;
 	
-	-- 콜렉션 리스트가 생성되어있는지 확인
+	-- 컬렉션 리스트가 생성되어있는지 확인
 	local isMake = PUMP_COLLECTION_FIRST_UPDATE;
 	if isMake ~= nil or isMake ~= true then
 		MAKE_PUMP_COLLECTION_LIST();
@@ -80,7 +80,7 @@ function _PUMP_COLLECTION_OPEN(frame, currentKey)
 			isOpenRecipeUI = true;
 		end
 	end
-	-- 콜렉션 알람 UI 검사
+	-- 컬렉션 알람 UI 검사
 	local beforeCollectionType = frame:GetUserIValue("COLLECTIONTYPE");
 	local collectionType = PUMP_COLLECTION_CURRENT_OPEN_LIST[currentKey].collectionClassID;
 	if frame:IsVisible() == 1 and beforeCollectionType ~= collectionType or isOpenRecipeUI == true then
@@ -107,7 +107,7 @@ function _PUMP_COLLECTION_OPEN(frame, currentKey)
 		return ;
 	end
 	
-	-- 콜렉션 이름을 설정
+	-- 컬렉션 이름을 설정
 	local ctrlCollectionName = GET_CHILD(frame, "rt_collection_name", "ui::CRichText");
 	if ctrlCollectionName == nil then
 		return;
@@ -119,7 +119,7 @@ function _PUMP_COLLECTION_OPEN(frame, currentKey)
 	end
 
 	local replaceName =  collectionCls.Name;
-	replaceName = string.gsub(replaceName, ClMsg("CollectionReplace"), ""); -- "콜렉션:" 을 공백으로 치환한다.
+	replaceName = string.gsub(replaceName, ClMsg("CollectionReplace"), ""); -- "컬렉션:" 을 공백으로 치환한다.
 	ctrlCollectionName:SetTextByKey("value", replaceName);
 	
 	-- 아이템 그룹박스 가져옴
@@ -266,7 +266,7 @@ function UPDATE_PUMP_COLLECTION_EFFECT(frame, ctrl, num, str, time)
 
 end
 
--- 아이템 습득 후 보여줄 콜렉션 리스트를 리턴한다
+-- 아이템 습득 후 보여줄 컬렉션 리스트를 리턴한다
 function GET_OPEN_PUMP_COLLECTION_LIST(itemType)
 
 	local openCollectionList = {};
@@ -285,7 +285,7 @@ function GET_OPEN_PUMP_COLLECTION_LIST(itemType)
 	return openCollectionList;
 end
 
--- 완성/미완성된 콜렉션 리스트를 만든다. 
+-- 완성/미완성된 컬렉션 리스트를 만든다. 
 function MAKE_PUMP_COLLECTION_LIST()
 	
 	PUMP_COLLECTION_FIRST_UPDATE = false;
@@ -295,7 +295,7 @@ function MAKE_PUMP_COLLECTION_LIST()
 		PUMP_COLLECTION_INFO_LIST[key] = nil;
 	end
 
-	-- 콜렉션 정보를 만듬
+	-- 컬렉션 정보를 만듬
 	local pc = session.GetMySession();
 	if pc == nil then
 		return false;
@@ -314,7 +314,7 @@ function MAKE_PUMP_COLLECTION_LIST()
 		local collectionInfo = GET_COLLECTION_ITEM_INFO(collectionClass, collection);
 		if collectionInfo ~= nil then
 			PUMP_COLLECTION_INFO_LIST[collectionInfoIndex] = { 
-															   collectionClassID = collectionClass.ClassID,			-- 콜렉션 클래스ID
+															   collectionClassID = collectionClass.ClassID,			-- 컬렉션 클래스ID
 															   infoList = collectionInfo							    -- 아이템 정보(아이템 ClassID, 수집유무)
 															 };
 			collectionInfoIndex = collectionInfoIndex +1;
@@ -327,7 +327,7 @@ function MAKE_PUMP_COLLECTION_LIST()
 end
 
 function GET_COLLECTION_ITEM_INFO(collectionClass, collection)
-	-- 콜렉션이 nil이면 수집되지 않은 콜렉션임.
+	-- 컬렉션이 nil이면 수집되지 않은 컬렉션임.
 	if collection == nil then
 		return nil;
 	end

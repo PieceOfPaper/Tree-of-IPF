@@ -3,15 +3,15 @@
 <uiframe name="expireditem_alert" x="0" y="0" width="450" height="240">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_win_system"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<layer layerlevel="100"/>
-	<userconfig NearFutureSec="86400" ItemHeight="70" MaxItemPerPage="3"/>
+	<userconfig NearFutureSec="86400" TokenName="토큰 혜택" TokenSkin="token_skin"/>
 	<controls>
-		<richtext name="title" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{s18}기간제 아이템 목록" fontname="brown_16_b" spacey="0"/>
+		<richtext name="title" rect="0 0 200 30" margin="0 60 0 0" layout_gravity="center top" caption="{s18}곧 기간이 만료됩니다." fontname="brown_16_b" spacey="0"/>
 		<groupbox name="itemlist" rect="0 0 400 210" margin="0 100 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin="market_listbase"/>
 		<labelline name="labelline" rect="0 0 400 3" margin="0 0 0 130" skin="labelline_def_2" layout_gravity="center bottom"/>
-		<richtext name="desc" rect="0 0 200 30" margin="0 0 0 90" layout_gravity="center bottom" caption="곧 기간이 만료됩니다. 종료하시겠습니까?" fontname="brown_16_b" spacey="0"/>
+		<richtext name="desc" rect="0 0 200 30" margin="0 0 0 90" layout_gravity="center bottom" caption="{s18}그래도 종료 하시겠습니까?" fontname="brown_16_b" spacey="0"/>
 		<button name="OK" rect="0 0 124 50" margin="100 0 0 30" layout_gravity="left bottom" LBtnUpScp="EXPIREDITEM_ALERT_OK_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}확인{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
 		<button name="CANCEL" rect="0 0 124 50" margin="0 0 100 30" layout_gravity="right bottom" LBtnUpScp="EXPIREDITEM_ALERT_CANCEL_BTN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}취소{/}" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
 	</controls>

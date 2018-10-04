@@ -24,7 +24,7 @@ end
 function IS_VALID_OPTION_EXTRACT_KIT(itemCls)
     local list = GET_OPTION_EXTRACT_KIT_LIST();
     for i = 1, #list do
-        if list[i] == itemCls.StringArg then
+        if list[i] == itemCls.StringArg and tonumber(TryGetProp(itemCls, "ItemLifeTimeOver", 0)) == 0 then
             return true;
         end
     end

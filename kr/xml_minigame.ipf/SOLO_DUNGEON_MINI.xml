@@ -35,9 +35,12 @@
                     </Event>
                     <Event execCount="1" eventName="mvalSET">
                         <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_ST_EVT_EXEC_MVALUE_SKIP" Client="NO" UseSleep="NO">
                                 <Str Str="STAGE_COUNT"/>
                                 <Num Num="1"/>
+                                <Num Num="20"/>
+                                <Num Num="35"/>
+                                <Str Str=""/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -205,6 +208,13 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_SOLODUNGEON_PONIT_CALC"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="pc에게 mval저장">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SOLO_DUNGEON_STAGEVALUE_ETC_Save"/>
                             </ToolScp>
                         </execList>
                     </Event>

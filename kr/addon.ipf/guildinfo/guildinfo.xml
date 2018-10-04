@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildinfo" x="0" y="0" width="1600" height="900" create="open" version="2">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin="test_frame_low" titlebarskin="test_frame_top" activetitlebarskin="test_frame_top"/>
-	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center" />
+	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<layer layerlevel="92"/>
 	<option closebutton="false"/>
@@ -25,7 +25,8 @@
 							<layoutsection name="spacing0" size="20" parent="leftlayout"/>
 							<layoutsection name="emblemsection" size="280" parent="leftlayout">
 								<picture name="emblemFrame" image="guildmark_frame" stretch="false" changecursor="false" parent="picturesection">
-									<picture name="emblem" layout_gravity="center center" margin="2 -33 0 0" rect="0 0 106 106" image="guildmark_slot" stretch="false" forceupdate="true" resize="uniform" changecursor="false" parent="picturesection"/></picture>
+									<picture name="emblem" layout_gravity="center center" margin="2 -33 0 0" rect="0 0 106 106" image="guildmark_slot" stretch="false" forceupdate="true" resize="uniform" changecursor="false" parent="picturesection"/>
+</picture>
 							</layoutsection>
 							<layoutsection name="guildnamesection" size="100" parent="leftlayout">
 								<picture name="guildnameBg" margin="0 0 0 50" stretch="true" image="guildname_frame">
@@ -218,7 +219,7 @@
 										</layoutsection>
 										<layoutsection name="viewOnlineMemberSection">
 											<groupbox name="memberFilterBox" draw="false">
-												<checkbox name="memberFilterCheck" rect="0 0 200 40" layout_gravity="right center" fontname="black_18" caption="접속 인원만 보기" LBtnUpScp="GUILDINFO_MEMBER_ONLINE_CLICK" />
+												<checkbox name="memberFilterCheck" rect="0 0 200 40" layout_gravity="right center" fontname="black_18" caption="접속 인원만 보기" LBtnUpScp="GUILDINFO_MEMBER_ONLINE_CLICK"/>
 											</groupbox>
 										</layoutsection>
 										<layoutsection name="inviteBtnSection" size="200">
@@ -441,8 +442,8 @@
 												</layout>
 											</overlap>
 										</layoutsection>
-										<layoutsection name="colonyBetaTextSection" size="25">
-											<richtext name="colonyInfoText" caption="ⓘ Beta로 진행되는 길드 콜로니전의 점령 혜택은 홈페이지 내 공지사항을 통해 확인 바랍니다." fixwidth="true" fontname="black_16"/>
+										<layoutsection name="colonyBetaTextSection" size="35">
+											<richtext name="colonyInfoText" caption="ⓘ 지역 등급은 지역 레벨로 구분되며 등급에 따라 점령 보상이 차등 지급됩니다.(B등급 : 지역 Lv 1~99, A등급 : 지역 Lv 100~199, S등급 : 지역 Lv 200 이상){nl}ⓘ Beta로 진행되는 길드 콜로니전의 점령 혜택은 홈페이지 내 공지사항을 통해 확인 바랍니다." fixwidth="true" fontname="black_16"/>
 										</layoutsection>
 									</layout>
 								</layoutsection>
@@ -645,7 +646,7 @@
 															<richtext name="bannerLabel" caption="{@st43b}{s18}배너{/}" resizebytext="true"/>
 															<picture name="bannerLine" margin="0 28 0 0" layout_gravity="center top" rect="0 0 650 2" stretch="true" image="guild_line_h"/>
 															<picture name="previewBanner" rect="0 0 510 200" forceupdate="true" layout_gravity="left top" margin="5 40 0 0" stretch="false" image="guildbanner_slot"/>
-															<richtext PresetName="유의사항" rect="0 0 500 210" margin="70 247 0 0" layout_gravity="center top" name="bannerWarnText" format="ⓘ 길드 배너는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fontname="black_16" param1="size" param1_def="510*200" param2="" param2_def="" param3="" param3_def="" textalign="left center" resizebytext="true" fixwidth="true" />
+															<richtext PresetName="유의사항" rect="0 0 500 210" margin="70 247 0 0" layout_gravity="center top" name="bannerWarnText" format="ⓘ 길드 배너는 %s 크기의 PNG(24bit/32bit)파일만 등록 가능합니다.{nl}ⓘ 파일 이름이 영문과 숫자로 이루어진 파일만 등록 가능합니다.{nl}ⓘ 문제 있는 이미지 사용 시 제재가 있을 수 있습니다." fontname="black_16" param1="size" param1_def="510*200" param2="" param2_def="" param3="" param3_def="" textalign="left center" resizebytext="true" fixwidth="true"/>
 															<button name="regBannerBtn" margin="3 30 0 0" rect="0 0 125 40" caption="{@st41b}{s16}등록" skin="test_red_button" LBtnUpScp="REGISTER_GUILD_BANNER" layout_gravity="left center"/>
 														</groupbox>
 													</layoutsection>

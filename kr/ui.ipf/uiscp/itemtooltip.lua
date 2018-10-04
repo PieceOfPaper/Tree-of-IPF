@@ -89,7 +89,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 
 	local recipeclass = recipeitemobj;
 
-	-- 콜렉션에서 툴팁을 띄울때는 제작서는 제작서만 보여준다. 
+	-- 컬렉션에서 툴팁을 띄울때는 제작서는 제작서만 보여준다. 
 	if recipeclass ~= nil and strarg ~= 'collection' then
 		local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. recipeclass.ToolTipScp];
 		ToolTipScp(tooltipframe, recipeclass, strarg, "usesubframe_recipe");

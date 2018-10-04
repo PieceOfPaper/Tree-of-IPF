@@ -269,7 +269,7 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 280003,120000,0,"UNDERSTAFF_ENTER_ALLOW_TIME","4인 이하 매칭 가능 시간(MS)","NO"
 290000,0,0,"USE_REPORT_BOT_TO_STEAM","1일 경우 스팀 VAC에 봇 신고 기능 사용","NO"
 290001,0,0,"USE_REPORT_BOT_TO_CLASSIFIER","1일 경우 분류기를 통한 봇 검출 기능 사용","NO"
-300000,0,0,"COLONY_WAR_OPEN","콜로니전 열꺼면 1 아니면 0","NO"
+300000,1,0,"COLONY_WAR_OPEN","콜로니전 열꺼면 1 아니면 0","NO"
 300001,100,0,"COLONY_CHANGE_STATE_INTERVAL_MS","콜로니전 상태전이 간격(ms)","NO"
 300002,0,0,"COLONY_ENABLE_MARKET_FEE_PAYMENT","콜로니 점령 마켓 수수료 보상 지급 가능 여부. 1일 경우 가능.","YES"
 300003,60,0,"COLONY_MARKET_FEE_PAYMENT_DELAY_MIN","콜로니 점령 마켓 수수료 보상 지급 대기 시간.(minute) 점령시 기록됨.","NO"
