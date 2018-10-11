@@ -426,6 +426,8 @@
         <Key Name="RareOption_SR" Value="103063"/>
         <Key Name="TempUseItem" Value="103088"/>
         <Key Name="SkillWidthRange" Value="103097"/>
+        <Key Name="DynamicCalcLifeTimeFunc" Value="103120"/>
+        <Key Name="DynamicLifeTime" Value="103119"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1503,6 +1505,9 @@
         <Key Name="EVENT_1810_FALL_LEAF_DAY_STATE" Value="103107"/>
         <Key Name="EVENT_1810_UNIQUE_STATE" Value="103105"/>
         <Key Name="EVENT_1810_UNIQUE_YDAY" Value="103106"/>
+        <Key Name="KOR_COLONY_BETA_OCCUPATION_REWARD_DAYCHECK" Value="103123"/>
+        <Key Name="KOR_COLONY_BETA_REWARD1_DAYCHECK" Value="103122"/>
+        <Key Name="KOR_COLONY_BETA_REWARD2_DAYCHECK" Value="103121"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>

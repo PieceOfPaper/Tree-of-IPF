@@ -92,6 +92,8 @@
 		<Class ClassID="1118" ClassName="IntegrateRetreive" Data="통합 검색"/>
 		<Class ClassID="1119" ClassName="RentalByPCBang" Data="PC방 대여"/>
 		<Class ClassID="1120" ClassName="WoodCarving" Data="외형 변환 아이템"/>
+		<Class ClassID="1122" ClassName="Market" Data="마켓"/>
+		<Class ClassID="1123" ClassName="Trade" Data="개인 거래"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -12489,6 +12491,29 @@
 		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
 		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
+		<Class ClassID="801093" ClassName="Guild_Colony_Occupation_WorldMessage" Data="[콜로니전] [{partyName}] 길드가 [{mapName}] 점령에 성공했습니다."/>
+		<Class ClassID="801094" ClassName="Guild_Colony_Beta_FAIL_REWARD_MSG1" Data="길드에 가입되지 않은 경우 지원받을 수 없습니다."/>
+		<Class ClassID="801095" ClassName="Guild_Colony_Beta_FAIL_REWARD_MSG2" Data="소속된 길드가 길드 콜로니전 참가 상태가 아닌경우 지원받을 수 없습니다."/>
+		<Class ClassID="801096" ClassName="Guild_Colony_Beta_FAIL_REWARD_MSG3" Data="콜로니전 진행중에는 점령 명예 보상을 받을 수 없습니다."/>
+		<Class ClassID="801097" ClassName="Guild_Colony_Beta_FAIL_REWARD_MSG4" Data="콜로니전 베타 지원 물품은 19:00 ~ 20:59 사이에 지급받을 수 있습니다."/>
+		<Class ClassID="801098" ClassName="Guild_Colony_Beta_FAIL_REWARD_MSG5" Data="콜로니전 베타 점령 명예 보상은 각 스팟 지역 최종 점령 길드만 지급됩니다."/>
+		<Class ClassID="801099" ClassName="Guild_Colony_Beta_FAIL_REWARD_MSG6" Data="이미 보상을 받은 상태입니다."/>
+		<Class ClassID="801100" ClassName="Guild_Colony_Beta_REWARD_MSG1" Data="콜로니전 베타 지원 물품이 지급되었습니다."/>
+		<Class ClassID="801101" ClassName="Guild_Colony_Beta_REWARD_MSG2" Data="콜로니전 베타 점령 명예 보상이 지급되었습니다."/>
+		<Class ClassID="801102" ClassName="Guild_Colony_Beta_REWARD_MSG3" Data="콜로니전 베타 지원 물품 받기"/>
+		<Class ClassID="801103" ClassName="Guild_Colony_Beta_REWARD_MSG4" Data="콜로니전 베타 점령 보상 받기"/>
+		<Class ClassID="801104" ClassName="Guild_Colony_End_WorldMessage_1" Data="안녕하세요. 트리 오브 세이비어입니다."/>
+		<Class ClassID="801105" ClassName="Guild_Colony_End_WorldMessage_2" Data="금일의 길드 콜로니전 Beta가 종료되었습니다."/>
+		<Class ClassID="801106" ClassName="Guild_Colony_End_WorldMessage_3" Data="스팟 지역을 점령한 길드는 다음과 같습니다."/>
+		<Class ClassID="801107" ClassName="Guild_Colony_End_WorldMessage_4" Data="A등급 게나르 평원 : [{partyName}]길드"/>
+		<Class ClassID="801108" ClassName="Guild_Colony_End_WorldMessage_5" Data="B등급 수로교 지역 : [{partyName}]길드"/>
+		<Class ClassID="801109" ClassName="Guild_Colony_End_WorldMessage_6" Data="B등급 아렐르노 남작령 : [{partyName}]길드"/>
+		<Class ClassID="801110" ClassName="Guild_Colony_End_WorldMessage_7" Data="길드 콜로니전 Beta는 내일도 같은 시간에 진행되오니, 많은 참여 부탁드립니다."/>
+		<Class ClassID="801111" ClassName="Guild_Colony_End_WorldMessage_8" Data="길드 콜로니전 Beta는 금일을 기점으로 종료되었으며, Beta에 참여해주신 모든 분들에게 감사의 인사를 드립니다."/>
+		<Class ClassID="801112" ClassName="Guild_Colony_End_WorldMessage_9" Data="길드 콜로니전은 정식 서비스를 통해 더 나은 모습으로 찾아뵙겠습니다. 감사합니다."/>
+		<Class ClassID="801113" ClassName="Guild_Colony_End_WorldMessage_10" Data="A등급 게나르 평원 : 미점령"/>
+		<Class ClassID="801114" ClassName="Guild_Colony_End_WorldMessage_11" Data="B등급 수로교 지역 : 미점령"/>
+		<Class ClassID="801115" ClassName="Guild_Colony_End_WorldMessage_12" Data="B등급 아렐르노 남작령 : 미점령"/>
 		</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
