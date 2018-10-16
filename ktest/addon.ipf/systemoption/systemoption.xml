@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="systemoption" x="0" y="0" width="600" height="1200">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
@@ -51,8 +51,8 @@
 		<checkbox name="chkShowPadSkillRange" rect="0 0 120 30" parent="gamePVPSetting" margin="20 315 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SHOW_PAD_SKILL_RANGE" caption="{@st66b}장판 범위 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkSimplifyBuffEffects" rect="0 0 120 30" parent="gamePVPSetting" margin="20 345 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SIMPLIFY_BUFF_EFFECTS" caption="{@st66b}버프 이펙트 간소화{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkSimplifyModel" rect="0 0 120 30" parent="gamePVPSetting" margin="20 375 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SIMPLIFY_MODEL" caption="{@st66b}모델 간소화{/}" clicksound="button_click_big" oversound="button_over"/>
-		
-
+		<checkbox name="chkShowGuildInColony" rect="0 0 120 30" parent="gamePVPSetting" margin="20 405 0 0" layout_gravity="left top" ConfigName="ShowGuildInColony" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}콜로니전 길드 이름, 팀이름 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="chkShowGuildInColonyEffectCostume" rect="0 0 120 30" parent="gamePVPSetting" margin="20 435 0 0" layout_gravity="left top" ConfigName="ShowGuildInColonyEffectCostume" LBtnUpScp="SHOW_COLONY_EFFECTCOSTUME" caption="{@st66b}콜로니전 이펙트 코스튬 효과 켜기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<!-- Display -->
 		<groupbox name="displayBox" parent="bg2" rect="0 0 560 160" margin="0 560 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<labelline name="boardLine 1" parent="displayBox" rect="0 0 560 4" margin="0 0 0 0" layout_gravity="left top" skin="None" visible="true"/>
@@ -77,7 +77,6 @@
 		<slidebar name="totalVol" rect="0 0 280 20" parent="soundBox" margin="20 190 0 0" layout_gravity="left top" SlideScp="CONFIG_TOTALVOL" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
 		<checkbox name="check_fluting" parent="soundBox" rect="0 0 200 24" margin="20 210 0 0" layout_gravity="left top" ConfigName="EnableOtherFluting" LBtnDownScp="ENABLE_OTHER_FLUTING" caption="{@st66b}다른 캐릭터 피리 연주 듣기{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}다른 캐릭터의 피리 연주를 듣지 않으려면 체크를 해제해주세요.{/}"/>
 		<checkbox name="check_soundReverb" parent="soundBox" rect="0 0 200 24" margin="20 235 0 0" layout_gravity="left top" ConfigName="EnableOtherCharBalanceVolume" LBtnDownScp="ENABLE_SOUND_REVERB" caption="{@st66b}잔향효과 ON/OFF{/}" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}잔향효과를 적용하려면 체크해 주세요.{/}"/>
-		
 		<groupbox name="perfBox" rect="0 0 280 260" parent="soundPerfBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
 		<richtext name="graphic_txt2" rect="0 0 120 24" parent="perfBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}성능 조정{/}"/>
 		<radiobutton name="perftype_0" parent="perfBox" rect="0 0 200 24" margin="20 50 0 0" layout_gravity="left top" LBtnDownScp="APPLY_PERFMODE" caption="{@st66b}저사양모드{/}" clicksound="button_click_big" group="perfType" oversound="button_over"/>
@@ -100,7 +99,7 @@
 		<checkbox name="check_EnableNaturalEffect" rect="0 0 120 30" parent="graphicBox" margin="300 110 0 0" layout_gravity="left top" ConfigName="EnableNaturalEffect" caption="{@st66b} 환경 이펙트 적용" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="check_EnableCharSilhouette" rect="0 0 120 30" parent="graphicBox" margin="300 140 0 0" layout_gravity="left top" ConfigName="EnableCharSilhouette" caption="{@st66b} 캐릭터 실루엣 적용" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="check_ShowOtherPCDamageEffect" rect="0 0 120 30" parent="graphicBox" margin="300 170 0 0" layout_gravity="left top" ConfigName="EnableOtherPCDamageEffect" caption="{@st66b}다른 캐릭터 대미지 보기" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="check_HitGlow" rect="0 0 120 30" parent="graphicBox" margin="300 200 0 0" layout_gravity="left top" ConfigName="EnableHitGlow" LBtnUpScp="ENABLE_HITGLOW" caption="{@st66b}타격 효과 사용" clicksound="button_click_big" oversound="button_over" />
+		<checkbox name="check_HitGlow" rect="0 0 120 30" parent="graphicBox" margin="300 200 0 0" layout_gravity="left top" ConfigName="EnableHitGlow" LBtnUpScp="ENABLE_HITGLOW" caption="{@st66b}타격 효과 사용" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="check_EnableAnimateItemIllustration" rect="0 0 120 30" parent="graphicBox" margin="300 230 0 0" layout_gravity="left top" ConfigName="EnableAnimateItemIllustration" caption="{@st66b}아이템 움직이는 일러스트 켜기" clicksound="button_click_big" oversound="button_over"/>
 		<!-- Language -->
 		<groupbox name="languageBox" rect="0 0 560 80" parent="bg2" margin="0 1300 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>

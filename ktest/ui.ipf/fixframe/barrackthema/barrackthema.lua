@@ -13,10 +13,6 @@ function BARRACKTHEMA_ACCOUNT_PROP_UPDATE(frame)
 	BARRACK_THEMA_UPDATE(frame);
 end
 
-function THEMA_BUY_SUCCESS()
-	barrack.ToMyBarrack();
-end
-
 function BARRACK_THEMA_UPDATE(frame)
 	if frame == nil then
 		return;
@@ -82,13 +78,13 @@ function BARRACK_THEMA_UPDATE(frame)
 
 		local have = barrack.HaveThame(mapCls.ClassID, cls.Price);
 
-		if true == have then -- ÇöÀç Å×¸¶¸¦ °¡Áö°í ÀÖÀ» ¶§
+		if true == have then -- ï¿½ï¿½ï¿½ï¿½ ï¿½×¸ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½
 			local appliedScp = string.format("BARRACKTHEMA_APPLIED(\'%s\')", cls.ClassName);
 			changeBtn:SetEventScript(ui.LBUTTONUP, appliedScp, true);
 			changeBtn:ShowWindow(1);
 			buyBtn:ShowWindow(0);
 
-			if mapCls.ClassID == curID then -- ÇöÀç Àû¿ëÁßÀÌ¶ó¸é
+			if mapCls.ClassID == curID then -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¶ï¿½ï¿½
 				preViewBtn:ShowWindow(0);
 				state:SetTextByKey("value", ClMsg("IsApplied"));
 				changeBtn:SetEnable(0);

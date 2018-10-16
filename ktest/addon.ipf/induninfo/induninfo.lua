@@ -1,4 +1,4 @@
--- inuninfo.lua
+﻿-- inuninfo.lua
 function INDUNINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'INDUNINFO_CHAT_OPEN');
 
@@ -8,7 +8,7 @@ end
 g_indunCategoryList = nil;
 function PUSH_BACK_UNIQUE_INTO_INDUN_CATEGORY_LIST(cateType)
     if g_indunCategoryList == nil then        
-        g_indunCategoryList ={100, 10000, 400, 200, 300, 500};
+        g_indunCategoryList ={100, 10000, 400, 800, 200, 300, 500};
     end
     for i = 1, #g_indunCategoryList do
         if g_indunCategoryList[i] == cateType then
@@ -34,6 +34,11 @@ function INDUNINFO_CHAT_OPEN(frame, msg, argStr, argNum)
 end
 
 function INDUNINFO_UI_OPEN(frame)
+    if session.GetWasBarrack() == true then
+        session.barrack.RequestCharacterIndunInfo();
+    end
+
+    
     INDUNINFO_RESET_USERVALUE(frame);
     INDUNINFO_CREATE_CATEGORY(frame);
 end
@@ -41,6 +46,7 @@ end
 function INDUNINFO_UI_CLOSE(frame)
     INDUNMAPINFO_UI_CLOSE();
     ui.CloseFrame('induninfo');
+    ui.CloseFrame('indun_char_status');
 end
 
 function INDUNINFO_CREATE_CATEGORY(frame)
@@ -159,7 +165,7 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
     categoryBox:RemoveChild('INDUN_LIST_BOX');
     g_selectedIndunTable = {};
         
-    local indunListBox = categoryBox:CreateControl('groupbox', 'INDUN_LIST_BOX', 0, 0, listBoxWidth, 30);
+    local indunListBox = categoryBox:CreateControl('groupbox', 'INDUN_LIST_BOX', 5, 0, listBoxWidth, 30);
     indunListBox = tolua.cast(indunListBox, 'ui::CGroupBox');
     indunListBox:EnableDrawFrame(0);
     indunListBox:EnableScrollBar(0);
@@ -209,7 +215,7 @@ function INDUNINFO_CATEGORY_LBTN_CLICK(categoryCtrl, ctrl)
             end
         end
     end
-    GBOX_AUTO_ALIGN(indunListBox, 0, 0, 0, true, true);
+    GBOX_AUTO_ALIGN(indunListBox, 0, 2, 0, true, true);
 
     -- category box align
     INDUNINFO_CATEGORY_ALIGN_DEFAULT(categoryBox);

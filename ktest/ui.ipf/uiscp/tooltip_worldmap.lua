@@ -6,7 +6,6 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 
 	local drawList = {};
 	drawList[#drawList + 1] = mapCls;
-	print(mapCls.ClassName)
 	local accObj = GetMyAccountObj();
 
 	local clsList, cnt = GetClassList('Map');	
@@ -37,7 +36,6 @@ function UPDATE_WORLDMAP_TOOLTIP(frame, mapName, numarg)
 		
 
 		local drawMapName = drawCls.ClassName;
-		print(drawMapName)
 		local pic = GET_CHILD_RECURSIVELY(ctrlSet, "map", "ui::CPicture");
 		local isValid = ui.IsImageExist(drawMapName .. "_fog");
 		if isValid == false then

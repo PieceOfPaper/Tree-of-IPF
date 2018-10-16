@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<uiframe name="mon_guild_hud" x="0" y="0" width="50" height="110">
+	<frame layout_gravity="center center" outside="true" useothercountryframe="false" fasthide="true"/>
+	<option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
+	<layer layerlevel="20"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input hittest="false" hittestframe="false"/>
+	<userconfig OffsetY="10"/>
+	<controls>
+		<picture name="emblemPic" rect="0 0 39 39" margin="0 64 0 0" layout_gravity="center top" image="guildmark_slot" stretch="true" forceupdate="true"/>
+		<picture name="bgSlot" rect="0 0 45 45" margin="0 64 0 0" layout_gravity="center top" image="emblemslot_green"/>
+		<picture name="occupationPic" rect="0 0 50 30" margin="0 44 0 0" layout_gravity="center top" image="Icon_occupation_emblem_skin"/>
+	</controls>
+</uiframe>

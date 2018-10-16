@@ -176,6 +176,9 @@
 										<richtext margin="15 0 0 0" name="guildMemberLabeltext" caption="{@s18}길드원{/}" textalign="left center" resizebytext="false" fontname="white_18_ol" fixwidth="false" drawbackground="false" slideshow="false"/>
 									</overlap>
 								</layoutsection>
+								<layoutsection name="memberListOptSec" size="5%">
+									<checkbox name="showMemberWithAccept" caption="가입 승인 직급이 있는 접속한 길드원 표시"  fontname="white_18_ol" LBtnUpScp="SHOW_GUILD_MEMBER_WITH_ACCEPT_AUTH" />
+								</layoutsection>
 								<layoutsection name="memberListSec" size="free">
 									<overlap name="memberListoverlap">
 										<groupbox name="memberListBg" skin="test_frame_midle"/>

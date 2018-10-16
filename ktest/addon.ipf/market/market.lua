@@ -212,7 +212,7 @@ local function MARKET_CTRLSET_SET_ICON(ctrlSet, itemObj, marketItem)
 	end
 end
 
-local function MARKET_CTRLSET_SET_PRCIE(ctrlSet, marketItem)
+function MARKET_CTRLSET_SET_PRICE(ctrlSet, marketItem)
 	local priceStr = marketItem:GetSellPrice();
 	local price_num = ctrlSet:GetChild("price_num");
 	price_num:SetTextByKey("value", GET_COMMAED_STRING(priceStr));
@@ -224,7 +224,7 @@ local function MARKET_CTRLSET_SET_PRCIE(ctrlSet, marketItem)
 	ctrlSet:SetUserValue("sellPrice", priceStr);
 end
 
-local function MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem)
+function MARKET_CTRLSET_SET_TOTAL_PRICE(ctrlSet, marketItem)
 	local priceStr = marketItem:GetSellPrice();
 	local totalPrice_num = GET_CHILD_RECURSIVELY(ctrlSet, "totalPrice_num");
 	if totalPrice_num ~= nil then
@@ -298,7 +298,7 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 		end
 		level:SetTextByKey("value", levelValue);
 
-		MARKET_CTRLSET_SET_PRCIE(ctrlSet, marketItem, cid);
+		MARKET_CTRLSET_SET_PRICE(ctrlSet, marketItem, cid);
 
 		if cid == marketItem:GetSellerCID() then
 			local buyBtn = GET_CHILD_RECURSIVELY(ctrlSet, "buyBtn");
@@ -739,8 +739,7 @@ function MARKET_DRAW_CTRLSET_RECIPE(frame)
 		name:SetTextByKey("value", GET_FULL_NAME(itemObj));
 
 		local count = ctrlSet:GetChild("count");
-		count:SetTextByKey("value", marketItem.count);
-		
+		count:SetTextByKey("value", marketItem.count);				
 		MARKET_CTRLSET_SET_PRICE(ctrlSet, marketItem);
 
 		if cid == marketItem:GetSellerCID() then

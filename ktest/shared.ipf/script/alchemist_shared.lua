@@ -97,7 +97,7 @@ function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)
 		return false;
 	end
 	
-	if targetItem.BriquetingAble ~= 'Yes' then
+	if TryGetProp(targetItem, 'BriquetingAble') ~= 'Yes' then
         return false;
     end
 
@@ -126,13 +126,13 @@ function IS_VALID_LOOK_ITEM(lookItem)
 		return false;
 	end
 
-    if lookItem.BriquettingIndex ~= nil then
+    if TryGetProp(lookItem, 'BriquettingIndex') ~= nil then
     	if (lookItem.UseLv >= 360 and lookItem.ItemGrade >= 5) or lookItem.BriquettingIndex ~= 0 then
     		return false;
     	end
     end
     
-    if lookItem.BriquetingAble ~= 'Yes' then
+    if TryGetProp(lookItem, 'BriquetingAble') ~= 'Yes' then
         return false;
     end
     

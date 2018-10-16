@@ -18,7 +18,8 @@ function ASK_EXPIREDITEM_ALERT_LIFETIME(frame, itemlist, nearFutureSec, startInd
         local item = list[i];
         local difSec = GET_REMAIN_ITEM_LIFE_TIME(item);
         local isOver = tonumber(TryGetProp(item, "ItemLifeTimeOver", 0)) == 1;
-        ypos = ADD_EXPIRED_ITEM(itemlist, item.Name, item.Icon, startIndex+i, ypos, difSec, isOver, nil);
+        local imgName = GET_ITEM_ICON_IMAGE(item);
+        ypos = ADD_EXPIRED_ITEM(itemlist, item.Name, imgName, startIndex+i, ypos, difSec, isOver, nil);
     end
     return ypos;
 end

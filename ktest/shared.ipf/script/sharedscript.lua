@@ -348,7 +348,7 @@ function GET_LAST_UI_OPEN_POS(etc)
 end
 
 
-function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
+function IS_NO_EQUIPITEM(equipItem) -- No_~ ?�리�??�이?�인지.
 
     local clsName = equipItem.ClassName;
 
@@ -432,7 +432,7 @@ function GET_GEM_TYPE_NUMBER(GemType)
     return -1;
 end
 
--- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��???
+-- ?�정 �??�커 �??�덤?�로 1�?IES�?리턴?��???
 function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     local idspace = 'Anchor_'..zoneName
     local class_count = GetClassCount(idspace)
@@ -451,7 +451,7 @@ function SCR_RANDOM_ZONE_ANCHORIES(zoneName)
     
 end
 
--- ?�이블에???�정 컬럼??검?�해??리턴?��???
+-- ?�이블에???�정 컬럼??검?�해??리턴?��???
 function SCR_TABLE_SEARCH_ITEM(list, target)
     local result = 'NO'
     local keyList = {}
@@ -541,7 +541,7 @@ function SCR_Q_SUCCESS_REWARD_JOB_GENDER_CHECK(pc, list, target1, target2, targe
 end
 
 
--- ?�개??IES 리스?��? ?�쳐준??
+-- ?�개??IES 리스?��? ?�쳐준??
 function SCR_IES_ADD_IES(IES_list1, IES_list2)
     if IES_list1 == nil and IES_list2 == nil then
         return nil
@@ -562,7 +562,7 @@ function SCR_IES_ADD_IES(IES_list1, IES_list2)
     return IES_list1
 end
 
--- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
+-- ?�정 ?�스???�션?�브?�트 ?�료 조건 �?index 번째 조건 만족 ?�인
 function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     local sObj_quest = GetSessionObject(pc, sObj_name)
     if sObj_quest ~= nil then
@@ -578,7 +578,7 @@ function SCR_QUEST_SOBJ_TERMS(pc, sObj_name, index)
     end
 end
 
--- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�?
+-- ?�정 존에 ?�는 ?�브?�트??좌표 IES 리스?��? 찾아�?
 function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
     local result2 = SCR_GET_XML_IES('GenType_'..zone_name, column, value)
     if  result2 ~= nil and #result2 > 0 then
@@ -590,7 +590,7 @@ function SCR_GET_MONGEN_ANCHOR(zone_name, column, value)
 end
 
 
--- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
+-- xml �??�정 컬럼??값과 ?�치/?�사 ??IES 리스?��? 찾아�?(option 1?�면 ?�사 �? ?�니�??�치)
 function SCR_GET_XML_IES(idspace, column_name, target_value, option)
     local return_list = {}
     if idspace == nil then
@@ -1055,6 +1055,15 @@ function SCR_DATE_TO_YDAY_BASIC_2000_REVERSE(yday)
     
     return yy,mm,dd
 end
+function SCR_DATE_HOUR_TO_YWEEK_BASIC_2000(yy, mm, dd, hour, firstWday, firstHour)
+    local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
+    if hour < firstHour then
+        yday2000 = yday2000 - 1
+    end
+    local result = math.floor((yday2000+6-firstWday)/7) + 1
+    return result
+    
+end
 function SCR_DATE_TO_YWEEK_BASIC_2000(yy, mm, dd, firstWday)
     local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
     local result = math.floor((yday2000+6-firstWday)/7) + 1
@@ -1312,13 +1321,13 @@ function GET_MAP_ACHI_NAME(mapCls)
 
     local name = ScpArgMsg("Auto_{Auto_1}_TamSaJa","Auto_1", mapCls.Name);
     local desc = ScpArgMsg("Auto_{Auto_1}_Jiyeogeul_MoDu_TamSaHayeossSeupNiDa.","Auto_1", mapCls.Name);
-    local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
+    local desctitle = name -- ?�시. ?�중??�??�적 ?�성??보상�?�?��???�???�이???�팅 ?�루??지�?바꾸??
     local reward = "None"
     return desc, name, desctitle, reward;
 
 end
 
--- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0??
+-- hgihLv : ?�티?�중 가???��? ?�벨, ?�티가 ?�니거나 1???�티�?0??
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     local pcLv = myLevel;
     local monLv = monLevel;
@@ -1337,9 +1346,9 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
     if levelGap > standardLevel then
     	local penaltyRatio = 0.0;
     	if pcLv < monLv then
-	        penaltyRatio = 0.05;	-- 고레�?몬스???�냥 ???�널??
+	        penaltyRatio = 0.05;	-- 고레�?몬스???�냥 ???�널??
 	    else
-	    	penaltyRatio = 0.02;	-- ?�?�벨 몬스???�냥 ???�널??
+	    	penaltyRatio = 0.02;	-- ?�?�벨 몬스???�냥 ???�널??
 	    end
 	    
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
@@ -1538,9 +1547,9 @@ function SCR_DIALOG_NPC_ANIM(animName)
 
 end
 
-                                    -- 공용 ?�이브러�?
+                                    -- 공용 ?�이브러�?
 --------------------------------------------------------------------------------------
--- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
+-- ?�정 문자�?기�??�로 문자?�을 ?�라 ?�이블로 반환
 function StringSplit(str, delimStr)
     local _tempStr = str;
     local _result = {};
@@ -1624,13 +1633,13 @@ function IsEnableEffigy(self, skill)
         return 0;
     end
 
-    -- 거리 체크?�는�?추�??�야?�듯?
-    -- 근데 그럼 ?�능??��?�디???
+    -- 거리 체크?�는�?추�??�야?�듯?
+    -- 근데 그럼 ?�능??��?�디???
     return 1;
 end
 
 
--- 보스 ?�랍 리스??교체 바인???�수
+-- 보스 ?�랍 리스??교체 바인???�수
 function CHANGE_BOSSDROPLIST(self, equipDropList)
     ChangeClassValue(self, 'EquipDropType', equipDropList);
 end
@@ -1648,10 +1657,10 @@ function GET_RECIPE_REQITEM_CNT(cls, propname)
 
 end
 
--- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
+-- ?�직가??조건체크?�는 ?�수. skilltree.lua ui?�드?�에???�용?�고 ?�버?�서??조건체크?�때 ?�용.
 function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
     
-    -- ?��? 가지고있??직업?�면 바로 true리턴
+    -- ?��? 가지고있??직업?�면 바로 true리턴
     for i = 0, #haveJobNameList do      
         if haveJobNameList[i] ~= nil then
             if haveJobNameList[i] == cls.ClassName then
@@ -1660,29 +1669,29 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
         end
     end
     
-    -- ?�래???�로??직업?��???조건 체크
+    -- ?�래???�로??직업?��???조건 체크
     local i = 1;
     
     while 1 do
     
-            -- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?   
+            -- 조건체크?�는 칼럼?????�요?�면 xml?�서 �??�리면됨. ?�ㅋ?   
         if GetPropType(cls, "ChangeJobCondition" .. i) == nil then
             break;
         end
 
 
-        -- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
+        -- ChangeJobCondition???��? 'None'?�면 ?�스?��? ?�해???�직?�는거임. UI?�서???�보?�줌.
         if cls["ChangeJobCondition" .. i] == 'None' then
             return false;
         end
         
 
         local sList = StringSplit(cls["ChangeJobCondition" .. i], ";");
-        local conditionCount = #sList / 2;  -- ?�당직업 ?�직조건 체크�?��
+        local conditionCount = #sList / 2;  -- ?�당직업 ?�직조건 체크�?��
         
-        local completeCount = 0;            -- ?�직조건??몇개??만족?�는지
+        local completeCount = 0;            -- ?�직조건??몇개??만족?�는지
         for j = 1, conditionCount do
-            -- 직업가지고있�??�구?�벨보다 ?��?지 체크
+            -- 직업가지고있�??�구?�벨보다 ?��?지 체크
             for n=0, #haveJobNameList do
                             
                 if sList[j*2-1] == haveJobNameList[n] and tonumber(sList[j*2]) <= tonumber(haveJobGradeList[n]) then
@@ -1691,7 +1700,7 @@ function CHECK_CHANGE_JOB_CONDITION(cls, haveJobNameList, haveJobGradeList)
             end
         end
 
-            -- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
+            -- ?�직조건??모두 만족?�면 ?�직가?�하?�고 ?�팅?�줌
         if conditionCount == completeCount then
             return true;
         end
@@ -1816,7 +1825,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
     elseif (chType == 'ZoneMap' or chType == 'NPCMark') and abandonCheck == 'ABANDON/LIST' then
         ret = "OPEN"
         return ret, subQuestZoneList
-    elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and result == 'POSSIBLE' and subQuestFlag == 0 then
+    elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and result == 'POSSIBLE' and (subQuestFlag == 0 or subQuestFlag == 1) then
         ret = "OPEN"
         subQuestZoneList[#subQuestZoneList + 1] = subQuestNowZone
         return ret, subQuestZoneList
@@ -1907,7 +1916,7 @@ function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
 	local retStr = "";
 	local numValue = num;
 	
-	for i = 1, 1000 do	-- 무한루프 방�???--
+	for i = 1, 1000 do	-- 무한루프 방�???--
 		local tempValue = numValue % 1000;
 		if string.len(tempValue) < 3 then
 			for j = 1, 3 - string.len(tempValue) do
@@ -1936,9 +1945,9 @@ function GET_COMMA_SEPARATED_STRING_FOR_HIGH_VALUE(num)
 	return retStr, "SUCCESS";
 end
 
--- ???�수???�제 ?�용?��? �?�?--
--- 그래???�시 ?�디??참조?��? 몰라???�겨?�긴 ??--
-function GET_COMMAED_STRING(num) -- unsigned long 범위?�에??가?�하�??�정??
+-- ???�수???�제 ?�용?��? �?�?--
+-- 그래???�시 ?�디??참조?��? 몰라???�겨?�긴 ??--
+function GET_COMMAED_STRING(num) -- unsigned long 범위?�에??가?�하�??�정??
     if num == nil then
         return "0";
     end
@@ -1965,7 +1974,7 @@ function GET_NOT_COMMAED_NUMBER(commaedString)
         startIndex, endIndex = string.find(tempStr, ',');
         noInfinite = noInfinite + 1;
 
-        -- ?�시 모�? 무한루프 방�?
+        -- ?�시 모�? 무한루프 방�?
         if noInfinite >= 10000 then
             break;
         end
@@ -2159,13 +2168,13 @@ function IS_IN_EVENT_MAP(pc)
     return false;
 end
 
---?�반 ?�티 경험�?계산
+--?�반 ?�티 경험�?계산
 function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
 	--1??100. 2??190(95), 3??270(90), 4??340(85), 5??400(80)
-	--?�문자�??�언?�어?�는 변?�는 ??sharedconst_system.xml???�는 값임.
+	--?�문자�??�언?�어?�는 변?�는 ??sharedconst_system.xml???�는 값임.
 	local expUpRatio = 1;
 	
-	--?�티?�원?�에 ?�??계산
+	--?�티?�원?�에 ?�??계산
 	if partyMemberCount > 1 then
 		expUpRatio = expUpRatio + ((1 - (partyMemberCount * PARTY_EXP_BONUS)) * (partyMemberCount - 1));
 	end
@@ -2173,9 +2182,9 @@ function NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount, pc)
 	return expUpRatio;
 end
 
---?�던 ?�동매칭 경험�?계산
+--?�던 ?�동매칭 경험�?계산
 function INDUN_AUTO_MATCHING_PARTY_EXP_BOUNS_RATE(partyMemberCount)
-	--?�명??120?�로????준?? ?? 1명일 ?? 경험�?보너???�다.
+	--?�명??120?�로????준?? ?? 1명일 ?? 경험�?보너???�다.
 	local expUpRatio = NORMAL_PARTY_EXP_BOUNS_RATE(partyMemberCount);
 	
 	if partyMemberCount > 1 then
@@ -2194,7 +2203,7 @@ function GET_INDUN_SILVER_RATIO(myLevel, indunLevel)
     local levelGap = math.abs(pcLv - dungeonLv);
     
     if levelGap > standardLevel then
-    	local penaltyRatio = 0.02;	-- ?�?�벨 ?�던 ?�냥 ???�버 ?�널??-
+    	local penaltyRatio = 0.02;	-- ?�?�벨 ?�던 ?�냥 ???�버 ?�널??-
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
         value = value * lvRatio;        
     end

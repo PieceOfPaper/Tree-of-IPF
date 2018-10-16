@@ -702,8 +702,9 @@ function MINIMAP_COLONY_MONSTER(frame, msg, posStr, monID)
     local MONSTER_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_SIZE'));
     local MONSTER_EFFECT_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_EFFECT_SIZE'));
 
-    local x, z = GET_COLONY_MONSTER_POS(posStr);  
-    local colonyMonPic = mappicturetemp:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
+	local handle, x, z = GET_COLONY_MONSTER_POS(posStr);  
+	local ctrlName = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
+    local colonyMonPic = mappicturetemp:CreateControl('picture', ctrlName, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
     colonyMonPic = AUTO_CAST(colonyMonPic);    
     colonyMonPic:SetImage(COLONY_MON_IMG);
 
@@ -727,8 +728,10 @@ function MINIMAP_COLONY_MONSTER(frame, msg, posStr, monID)
     end
 end
 
-function ON_REMOVE_COLONY_MONSTER_MINIMAP(frame, msg, posStr, monID)
-    local mappicturetemp = GET_CHILD(frame, 'npclist', 'ui::CPicture');  
-    mappicturetemp:RemoveChild('colonyMonPic_'..monID);
+function ON_REMOVE_COLONY_MONSTER_MINIMAP(frame, msg, handlePosStr, monID)
+	local mappicturetemp = GET_CHILD(frame, 'npclist', 'ui::CPicture');  
+	local handle, x, z = GET_COLONY_MONSTER_POS(handlePosStr)
+	local pic = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
+    mappicturetemp:RemoveChild(pic);
     frame:RemoveChild('colonyMonEffectPic');
 end

@@ -519,6 +519,14 @@ function UPDATE_TITLE_OPTION(frame)
 	world.UpdateTitleOption();
 end
 
+function SHOW_COLONY_EFFECTCOSTUME(frame)
+	if IS_IN_EVENT_MAP() == true then
+		return;
+	end
+
+	effect.ShowColonyEffectCostume();
+end
+
 function SET_DMG_FONT_SCALE_CONTROLLER(frame)
 	local value = config.GetDmgFontScale();
 	local slide = GET_CHILD_RECURSIVELY(frame, "dmgFontSizeController", "ui::CSlideBar");

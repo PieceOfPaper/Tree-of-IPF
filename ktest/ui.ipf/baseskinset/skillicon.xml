@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -654,6 +654,9 @@
 		<image name="Icon_common_arrow_upper_right" file="\icon\skill\common\Icon_common_arrow_upper_right.png" imgrect="0 0 128 128" CMM_Caption="우측상단 이동"/>
 		<image name="Icon_common_arrow_bottom_left" file="\icon\skill\common\Icon_common_arrow_bottom_left.png" imgrect="0 0 128 128" CMM_Caption="좌측하단 이동"/>
 		<image name="Icon_common_arrow_bottom_right" file="\icon\skill\common\Icon_common_arrow_bottom_right.png" imgrect="0 0 128 128" CMM_Caption="우측하단 이동"/>
+		<image name="Icon_common_cannon_attack" file="\icon\skill\common\Icon_common_cannon_attack.png" imgrect="0 0 128 128" CMM_Caption="포 발사"/>
+		<image name="Icon_common_flame_radiation" file="\icon\skill\common\Icon_common_flame_radiation.png" imgrect="0 0 128 128" CMM_Caption="화염 방사"/>
+		<image name="Icon_common_get_off" file="\icon\skill\common\Icon_common_get_off.png" imgrect="0 0 128 128" CMM_Caption="하차"/>
 	</imagelist>
 	<imagelist category="restquickslot_icon">
 		<image name="icon_rest_arrow" file="\icon\rest_mode_icon.tga" imgrect="0 0 128 128" CMM_Caption="화살제작"/>

@@ -822,7 +822,11 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local hotKey		= hotKeyTable.GetHotKeyString(slotString, 1); -- 조이패드 핫키
 		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(false , hotKey);
 		lastSlot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', 'left', 'top', 2, 1);
-		icon:SetImage("druid_del_icon");	
+		local lastSlotIconName = "druid_del_icon";
+		if monName == "Colony_Siege_Tower" then
+			lastSlotIconName = "Icon_common_get_off";
+		end	
+		icon:SetImage(lastSlotIconName);
 		lastSlot:EnableDrag(0);
 		SET_QUICKSLOT_OVERHEAT(lastSlot);
 		frame:SetUserValue('SKL_MAX_CNT',list:Count() + 1)

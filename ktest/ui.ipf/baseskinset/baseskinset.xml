@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -1552,6 +1552,48 @@
 			<img name="bottomleft" imgrect="0 0 64 64"/>
 			<img name="bottomcore" imgrect="0 0 64 64"/>
 			<img name="bottomright" imgrect="0 0 64 64"/>
+		</skin>
+		<skin name="colony_tab" texture="\skin\colony.tga">
+			<img name="leftopen" imgrect="891 557 16 36"/>
+			<img name="bodyopen" imgrect="907 557 30 36"/>
+			<img name="rightopen" imgrect="1007 557 16 36"/>
+			<img name="leftclose" imgrect="1024 557 16 36"/>
+			<img name="bodyclose" imgrect="1040 557 30 36"/>
+			<img name="rightclose" imgrect="1140 557 16 36"/>
+			<img name="topopen"/>
+			<img name="centeropen"/>
+			<img name="bottomopen"/>
+			<img name="topclose"/>
+			<img name="centerclose"/>
+			<img name="bottomclose"/>
+		</skin>
+		<skin name="colony_tab_cursoron" texture="\skin\colony.tga">
+			<img name="leftopen" imgrect="891 557 16 36"/>
+			<img name="bodyopen" imgrect="907 557 30 36"/>
+			<img name="rightopen" imgrect="1007 557 16 36"/>
+			<img name="leftclose" imgrect="1024 557 16 36"/>
+			<img name="bodyclose" imgrect="1040 557 30 36"/>
+			<img name="rightclose" imgrect="1140 557 16 36"/>
+			<img name="topopen"/>
+			<img name="centeropen"/>
+			<img name="bottomopen"/>
+			<img name="topclose"/>
+			<img name="centerclose"/>
+			<img name="bottomclose"/>
+		</skin>
+		<skin name="colony_tab_clicked" texture="\skin\colony.tga">
+			<img name="leftopen" imgrect="891 557 16 36"/>
+			<img name="bodyopen" imgrect="907 557 30 36"/>
+			<img name="rightopen" imgrect="1007 557 16 36"/>
+			<img name="leftclose" imgrect="1024 557 16 36"/>
+			<img name="bodyclose" imgrect="1040 557 30 36"/>
+			<img name="rightclose" imgrect="1140 557 16 36"/>
+			<img name="topopen"/>
+			<img name="centeropen"/>
+			<img name="bottomopen"/>
+			<img name="topclose"/>
+			<img name="centerclose"/>
+			<img name="bottomclose"/>
 		</skin>
 	</skinlist>
 	<skinlist category="testjoo_buttons">
@@ -5185,13 +5227,21 @@
 			<img name="barmiddle" imgrect="67 1 213 39"/>
 			<img name="barright" imgrect="280 1 1 39"/>
 		</skin>
-		<skin name="colony_teamgauge" texture="\skin\PVP_skin.tga">
+		<skin name="colony_mygauge" texture="\skin\PVP_skin.tga">
 			<img name="bgleft" imgrect="867 187 1 18"/>
 			<img name="bgmiddle" imgrect="868 187 99 18"/>
 			<img name="bgright" imgrect="967 187 1 18"/>
 			<img name="barleft" imgrect="595 251 1 18"/>
 			<img name="barmiddle" imgrect="596 251 99 18"/>
 			<img name="barright" imgrect="695 251 1 18"/>
+		</skin>
+		<skin name="colony_teamgauge" texture="\skin\PVP_skin.tga">
+			<img name="bgleft" imgrect="867 187 1 18"/>
+			<img name="bgmiddle" imgrect="868 187 99 18"/>
+			<img name="bgright" imgrect="967 187 1 18"/>
+			<img name="barleft" imgrect="867 168 1 18"/>
+			<img name="barmiddle" imgrect="1007 136 99 18"/>
+			<img name="barright" imgrect="967 168 1 18"/>
 		</skin>
 		<skin name="colony_enemygauge" texture="\skin\PVP_skin.tga">
 			<img name="bgleft" imgrect="867 187 1 18"/>
@@ -6187,7 +6237,13 @@
 		<image name="indun_icon_day_s_eng" file="\skin\indun_skin.tga" imgrect="748 594 27 20" CMM_Caption="던전 일간 표시 : 소_영문"/>
 		<image name="re_appraisal_image2" file="\skin\Appraiser_skin.tga" imgrect="706 0 312 312" CMM_Caption="레어 인챈트 쥬얼 마법진"/>
 		<image name="re_appraisal_image2_1" file="\skin\Appraiser_skin.tga" imgrect="161 314 337 190" CMM_Caption="레어 인챈트 쥬얼 마법진_누운것"/>
-		<image name="pp_point_icon" file="\skin\pip_test2.tga" imgrect="895 31 35 36" CMM_Caption="스팀 홈프리미엄 포인트 아이콘"/>
+		<image name="Icon_seat_handle_1" file="\skin\PVP_skin.tga" imgrect="1829 216 28 28" CMM_Caption="공성탑 운전아이콘 _1"/>
+		<image name="Icon_seat_handle_2" file="\skin\PVP_skin.tga" imgrect="1858 216 28 28" CMM_Caption="공성탑 운전아이콘 _2"/>
+		<image name="Icon_seat_handle_3" file="\skin\PVP_skin.tga" imgrect="1887 216 28 28" CMM_Caption="공성탑 운전아이콘 _3"/>
+		<image name="Icon_seat_attack_1" file="\skin\PVP_skin.tga" imgrect="1829 245 28 28" CMM_Caption="공성탑 발포아이콘 _1"/>
+		<image name="Icon_seat_attack_2" file="\skin\PVP_skin.tga" imgrect="1858 245 28 28" CMM_Caption="공성탑 발포아이콘 _2"/>
+		<image name="Icon_seat_attack_3" file="\skin\PVP_skin.tga" imgrect="1887 245 28 28" CMM_Caption="공성탑 발포아이콘 _3"/>
+		<image name="Icon_occupation_emblem_skin" file="\skin\PVP_skin.tga" imgrect="1107 136 51 26" CMM_Caption="길드콜로니 점령 엠블럼프레임"/>
 		<image name="icon_credit_grade_6" file="\skin\pip_test2.tga" imgrect="946 1 25 29" CMM_Caption="거래 등급 아이콘 : 6단계"/>
 		<image name="icon_credit_grade_5" file="\skin\pip_test2.tga" imgrect="972 1 25 29" CMM_Caption="거래 등급 아이콘 : 5단계"/>
 		<image name="icon_credit_grade_4" file="\skin\pip_test2.tga" imgrect="998 1 25 29" CMM_Caption="거래 등급 아이콘 : 4단계"/>
@@ -6485,6 +6541,9 @@
 		<image name="class_setting_btn" file="\skin\pip_test2.tga" imgrect="932 470 42 42" CMM_Caption="담기 버튼"/>
 		<image name="class_setting_btn_cursoron" file="\skin\pip_test2.tga" imgrect="975 470 42 42"/>
 		<image name="class_setting_btn_clicked" file="\skin\pip_test2.tga" imgrect="975 470 42 42"/>
+		<image name="indun_count_btn" file="\skin\indun_skin.tga" imgrect="535 633 34 33"/>
+		<image name="indun_count_btn_cursoron" file="\skin\indun_skin.tga" imgrect="570 633 34 33"/>
+		<image name="indun_count_btn_clicked" file="\skin\indun_skin.tga" imgrect="570 633 34 33"/>
 	</imagelist>
 	<imagelist category="se_button">
 		<image name="sysmenu_pp" file="\skin\pip_test2.tga" imgrect="815 423 38 44" CMM_Caption="스팀 홈프리미엄메뉴"/>
@@ -6607,11 +6666,12 @@
 		<image name="colony_lose_wingL" file="\skin\colony.tga" imgrect="0 536 442 422" CMM_Caption="패배날개왼쪽"/>
 		<image name="colony_lose_wingR" file="\skin\colony.tga" imgrect="448 536 442 422" CMM_Caption="패배날개오른쪽"/>
 		<image name="colony_lose_ivy" file="\skin\colony.tga" imgrect="1171 0 622 363" CMM_Caption="패배넝쿨데코"/>
-		<image name="colony_chartbg" file="\skin\colony.tga" imgrect="1273 370 324 311" CMM_Caption="콜로니알림창"/>
+		<image name="colony_chartbg" file="\skin\colony.tga" imgrect="1088 901 329 344" CMM_Caption="콜로니알림창"/>
+		<image name="colony_namebg_pic" file="\skin\colony.tga" imgrect="891 594 318 34" CMM_Caption="콜로니 알림창 네임 배경"/>
 		<image name="colony_medal1" file="\skin\colony.tga" imgrect="1171 366 39 57" CMM_Caption="콜로니현재1위"/>
 		<image name="colony_medal2" file="\skin\colony.tga" imgrect="1214 366 39 57" CMM_Caption="콜로니현재2위"/>
 		<image name="colony_medal3" file="\skin\colony.tga" imgrect="1171 426 39 57" CMM_Caption="콜로니현재3위"/>
-		<image name="colony_myscore" file="\skin\colony.tga" imgrect="893 561 332 96" CMM_Caption="콜로니내점수"/>
+		<image name="colony_myscore" file="\skin\colony.tga" imgrect="1266 365 331 162" CMM_Caption="콜로니내점수"/>
 		<image name="colonyopen_btn" file="\skin\colony.tga" imgrect="893 536 60 20" CMM_Caption="콜로니펴보기버튼"/>
 		<image name="colonyopen_btn_cursoron" file="\skin\colony.tga" imgrect="955 536 60 20"/>
 		<image name="colonyopen_btn_clicked" file="\skin\colony.tga" imgrect="1017 536 60 20"/>
@@ -6623,6 +6683,11 @@
 		<image name="colonyline" file="\skin\colony.tga" imgrect="894 877 1048 23" CMM_Caption="콜로니 라인"/>
 		<image name="colonymonster" file="\skin\colony.tga" imgrect="1214 426 51 51" CMM_Caption="콜로니 몹등장"/>
 		<image name="colonypalace" file="\skin\colony.tga" imgrect="1795 77 78 79" CMM_Caption="콜로니 미니맵성표시"/>
+		<image name="colonyenhancer" file="\skin\colony.tga" imgrect="1874 77 78 79" CMM_Caption="콜로니 미니맵 증폭기 표시"/>
+		<image name="colony_point_pic" file="\skin\colony.tga" imgrect="2020 26 24 24" CMM_Caption="포인트 현황 아이콘"/>
+		<image name="colony_deploy_pic" file="\skin\colony.tga" imgrect="2020 1 24 24" CMM_Caption="배치 현황 아이콘"/>
+		<image name="colony_deploy_bg" file="\skin\colony.tga" imgrect="1953 77 50 50" CMM_Caption="콜로니 알림창 슬롯"/>
+		<image name="colony_point_bg" file="\skin\colony.tga" imgrect="1599 364 316 168" CMM_Caption="콜로니 알림창 포인트 슬롯"/>
 	</imagelist>
 	<imagelist category="living_image">
 		<image name="fishingbox_0" file="\skin\living\fishingbox_0.png" imgrect="0 0 256 256" CMM_Caption="살림통 1"/>
@@ -8730,6 +8795,15 @@
 		<image name="icon_event_1807_pool_food2_3" file="\icon\buff_icon2.tga" imgrect="640 384 128 128"/>
 		<image name="icon_cler_meltArmor" file="\icon\buff_icon2.tga" imgrect="768 384 128 128" CMM_Caption="멜트 아머"/>
 		<image name="icon_Nicopolis_key" file="\icon\buff_icon2.tga" imgrect="896 384 128 128" CMM_Caption="니코폴리스 열쇠버프"/>
+		<image name="icon_GuildColony_rootcrystal_Buff_spd" file="\icon\buff_icon2.tga" imgrect="0 512 128 128" CMM_Caption="콜로니전 나무뿌리 수정 파괴 버프 1"/>
+		<image name="icon_GuildColony_rootcrystal_Buff_hpsp" file="\icon\buff_icon2.tga" imgrect="128 512 128 128" CMM_Caption="콜로니전 나무뿌리 수정 파괴 버프 2"/>
+		<image name="icon_GuildColony_rootcrystal_Buff_atk" file="\icon\buff_icon2.tga" imgrect="256 512 128 128" CMM_Caption="콜로니전 나무뿌리 수정 파괴 버프 3"/>
+		<image name="icon_GuildColony_rootcrystal_Buff_def" file="\icon\buff_icon2.tga" imgrect="384 512 128 128" CMM_Caption="콜로니전 나무뿌리 수정 파괴 버프 4"/>
+		<image name="icon_GuildColony_OccupationBuff" file="\icon\buff_icon2.tga" imgrect="512 512 128 128" CMM_Caption="콜로니전 ` 버프"/>
+		<image name="icon_GuildColony_BossMonsterBuff_DEF" file="\icon\buff_icon2.tga" imgrect="640 512 128 128" CMM_Caption="콜로니전 몬스터 처치 버프"/>
+		<image name="icon_GuildColony_EnhancerDestroyBuff_2" file="\icon\buff_icon2.tga" imgrect="768 512 128 128" CMM_Caption="콜로니전 증폭기 파괴 버프 2"/>
+		<image name="icon_GuildColony_EnhancerDestroyBuff_1" file="\icon\buff_icon2.tga" imgrect="896 512 128 128" CMM_Caption="콜로니전 증폭기 파괴 버프 1"/>
+		<image name="icon_wizar_NecromancerPoison" file="\icon\buff_icon2.tga" imgrect="0 640 128 128" CMM_Caption="네크로맨서 시독 버프"/>
 		<image name="icon_SP_shield" file="\icon\buff_icon2.tga" imgrect="128 640 128 128" CMM_Caption="SP 감소 방지 버프"/>
 		<image name="icon_smile_bunny" file="\icon\buff_icon2.tga" imgrect="256 640 128 128"/>
 		<image name="icon_angry_bunny" file="\icon\buff_icon2.tga" imgrect="384 640 128 128"/>
@@ -8746,7 +8820,7 @@
 		<image name="icon_1810_fall_5" file="\icon\buff_icon2.tga" imgrect="768 768 128 128" CMM_Caption="생명이 질긴"/>
 		<image name="icon_1810_fall_1" file="\icon\buff_icon2.tga" imgrect="896 768 128 128" CMM_Caption="날렵한"/>
 		<image name="icon_1810_fall_3" file="\icon\buff_icon2.tga" imgrect="0 896 128 128" CMM_Caption="솜씨 좋은"/>
-	</imagelist>
+		</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
 	<imagelist category="inventory">
@@ -9140,9 +9214,6 @@
 		<image name="high_difficulty_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="376 732 216 272" CMM_Caption=""/>
 		<image name="none_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="564 732 216 272" CMM_Caption=""/>
 		<image name="Performance_icon" file="\skin\class_guide\class_guide_card2.tga" imgrect="753 732 216 272" CMM_Caption=""/>
-		<image name="Holy_icon" file="\skin\class_guide\class_guide_card3.tga" imgrect="0 0 216 272" CMM_Caption=""/>
-		<image name="Crossbow_weapon_icon" file="\skin\class_guide\class_guide_card3.tga" imgrect="188 0 216 272" CMM_Caption=""/>
-		<image name="Crowd_control_icon" file="\skin\class_guide\class_guide_card3.tga" imgrect="376 0 216 272" CMM_Caption=""/>
 		<image name="wizard_icon" file="\skin\class_guide\wizard_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
 		<image name="swordsman_icon" file="\skin\class_guide\swordsman_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
 		<image name="cleric_icon" file="\skin\class_guide\cleric_icon.png" imgrect="0 0 160 216" CMM_Caption=""/>
@@ -9217,12 +9288,6 @@
 		<image name="wizard_master" file="\skin\class_guide\wizard_master.png" imgrect="0 0 412 418"/>
 		<image name="wugushi_master" file="\skin\class_guide\wugushi_master.png" imgrect="0 0 412 418"/>
 		<image name="zealot_master" file="\skin\class_guide\zealot_master.png" imgrect="0 0 412 418"/>
-		<image name="Appraiser_master" file="\skin\class_guide\Appraiser_master.png" imgrect="0 0 412 418"/>
-		<image name="Chaplain_master" file="\skin\class_guide\Chaplain_master.png" imgrect="0 0 412 418"/>
-		<image name="Miko_master" file="\skin\class_guide\Miko_master.png" imgrect="0 0 412 418"/>
-		<image name="NakMuay_master" file="\skin\class_guide\NakMuay_master.png" imgrect="0 0 412 418"/>
-		<image name="RuneCaster_master" file="\skin\class_guide\RuneCaster_master.png" imgrect="0 0 412 418"/>
-		<image name="Shinobi_master" file="\skin\class_guide\Shinobi_master.png" imgrect="0 0 412 418"/>
 	</imagelist>
 	<effectimagelist category="effectlist">
 		<image name="blue_orb" file="\icon\blue_orb.tga" imgrect="0 0 256 256"/>

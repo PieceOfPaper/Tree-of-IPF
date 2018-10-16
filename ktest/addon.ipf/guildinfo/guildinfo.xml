@@ -508,7 +508,7 @@
 																					<picture name="authName4Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName4" margin="30 0 0 0" caption="{@st42}길드 커뮤니티{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
-																				<grid name="claimCheckbox4" margin="20 0 0 0" rect="0 0 0 100" slotsize="500 50" slotspc="0 0" parent="claimAuthPanel"/>
+																				<grid name="claimCheckbox4" margin="20 0 0 0" rect="0 0 0 170" slotsize="500 50" slotspc="0 0" parent="claimAuthPanel"/>
 																				<overlap name="authName5ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName5Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName5" margin="30 0 0 0" caption="{@st42}PVP{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>

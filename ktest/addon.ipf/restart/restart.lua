@@ -37,6 +37,16 @@ function RESTART_ON_RESSURECT_HERE(frame)
 	restart.SendRestartHereMsg();
 end
 
+function RESTART_ON_RESSURECT_HERE_MYSTIC(frame)
+	local cristal = GetClass("Item", "GuildColony_Item_mysticCristal");
+	local item = session.GetInvItemByName(cristal.ClassName);
+	if item == nil then
+		ui.SysMsg(ScpArgMsg("NotEnough{ItemName}Item","ItemName", cristal.Name));
+		return;
+	end
+	restart.SendRestartHereMysticMsg();
+end
+
 function RESTART_ON_RESSURECT_MAINLAYER(frame)
 
 	restart.SendRestartMainLayerMsg();
@@ -232,6 +242,16 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 			local btnName = "restart6btn";
 			local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
 			resButtonObj:ShowWindow(1);
+		end
+
+		local resButtonObj	= GET_CHILD(frame, "restart8btn", 'ui::CButton');
+		resButtonObj:ShowWindow(0);
+		if 1 == BitGet(argNum, 14) then
+			resButtonObj:ShowWindow(1);
+			COLONY_WAR_RESTART_BY_MYSTIC_UPDATE(frame);
+		end
+
+		if 1 == BitGet(argNum, 12) or 1 == BitGet(argNum, 14) then
 			frame:RunUpdateScript("COLONY_WAR_RESTART_UPDATE",1,0,0,1);
 			frame:SetUserValue("COUNT", 30);
 		end
@@ -286,6 +306,45 @@ function RESTARTSELECT_ITEM_SELECT(frame)
 	mouse.SetHidable(0);
 end
 
+function COLONY_WAR_RESTART_BY_MYSTIC_UPDATE(frame)
+	local btn = GET_CHILD(frame, "restart8btn");
+	AUTO_CAST(frame)
+
+	local mysticItem = session.GetInvItemByName("GuildColony_Item_mysticCristal");
+	if mysticItem == nil then
+		btn:ShowWindow(0);
+		AUTORESIZE_RESTART(frame);
+		return;
+	elseif mysticItem ~= nil and btn:IsVisible() ~= 1 then
+		btn:ShowWindow(1);
+		AUTORESIZE_RESTART(frame);
+	end
+
+	local isCoolTime = 0;
+	local ms = item.GetCoolDown(mysticItem.type);
+	if ms > 0 then
+		isCoolTime = 1;
+	end
+	
+	local style = frame:GetUserConfig("MysticCristalStyleOn");
+	local text = "";
+	local isEnable = 1;
+	if isCoolTime == 1 then
+		if ms > 60000 then
+			text = ScpArgMsg("Min{n}", "n", math.floor(ms/60000));
+		else
+			text = ScpArgMsg("Sec{n}", "n", math.floor(ms/1000));
+		end
+		text = " ("..text..")";
+		isEnable = 0;
+		style = frame:GetUserConfig("MysticCristalStyleOff");
+	end
+	btn:SetTextByKey("style", style);
+	btn:SetTextByKey("value", text);
+	btn:SetEnable(isEnable)
+	btn:EnableTextColorTone(false);
+end
+
 function COLONY_WAR_RESTART_UPDATE(frame)
 	local btnName = "restart6btn";
 	local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
@@ -293,6 +352,8 @@ function COLONY_WAR_RESTART_UPDATE(frame)
 	frame:SetUserValue("COUNT",  sec - 1);
 	local text = "{@st66b}"..ScpArgMsg("ReturnCity{SEC}", "SEC", sec).."{/}"
 	resButtonObj:SetText(text);
+
+	COLONY_WAR_RESTART_BY_MYSTIC_UPDATE(frame);
 	return 1;
 end
 

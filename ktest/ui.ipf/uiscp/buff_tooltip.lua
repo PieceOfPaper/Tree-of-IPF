@@ -194,6 +194,8 @@ function UPDATE_BUFF_TOOLTIP(frame, handle, numarg1, numarg2)
 
 		comment:SetText("{@st59}"..txt);
 	end
+	
+	frame:Resize(frame:GetOriginalWidth(), frame:GetOriginalHeight());
 
 	name:SetText("{@st41}"..nametxt);
 

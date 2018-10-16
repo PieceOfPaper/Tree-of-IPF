@@ -45,10 +45,9 @@ function EXCHANGE_ON_CANCEL(frame)
 	exchange.SendCancelExchangeMsg();
 
 	exchange.ResetExchangeItem();
-	local invFrame = ui.GetFrame('inventory')
---	UPDATE_INV_LIST(invFrame);	
-	
+	local invFrame = ui.GetFrame('inventory');	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
+	INVENTORY_CLEAR_SELECT(invFrame);
 end 
 
 function EXCHANGE_ON_AGREE(frame)
@@ -134,7 +133,6 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 end
 
 function EXCHANGE_INV_RBTN(itemobj, slot)
-
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	local item = session.GetInvItem(iconInfo.ext);
@@ -160,7 +158,7 @@ function EXCHANGE_INV_RBTN(itemobj, slot)
 		end
 	end
 	
-	EXCHANGE_ADD_FROM_INV(obj, item, tradeCount)
+	EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
 end
 
 function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
@@ -237,7 +235,8 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
         end
     end
 
-	exchange.SendOfferItem(tostring(item:GetIESID()), 1);				
+	exchange.SendOfferItem(tostring(item:GetIESID()), 1);
+	SELECT_INV_SLOT_BY_GUID(item:GetIESID(), 1);
 end
 
 function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
@@ -453,11 +452,6 @@ function EXCHANGE_MSG_UPDATE(frame, msg, argStr, argNum)
 	
 	local opslotSet = GET_CHILD_RECURSIVELY(frame,'opponentslot','ui::CSlotSet');
 	EXCHANGE_UPDATE_SLOT(opslotSet,1);
-
-	if argNum ~= 1 then
-		local invFrame = ui.GetFrame('inventory')
-		UPDATE_INV_LIST(invFrame);
-	end
 end 
 
 function EXCHANGE_RESET_AGREE_BUTTON(frame)
@@ -510,5 +504,3 @@ function EXCHANGE_MSG_FINALAGREE(frame, msg, argStr, argNum)
 	--local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	--timer:Stop();
 end 
-
-

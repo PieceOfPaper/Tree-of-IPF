@@ -428,7 +428,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return;
 	end
 
-	if IsGreaterThanForBigNumber(price * count, limitMoneyStr) == 1 then
+	if IsGreaterThanForBigNumber(math.mul_int_for_lua(price, count), limitMoneyStr) == 1 then
 		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoneyStr)));
 		return;
 	end
@@ -578,7 +578,7 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 		
 		local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();		
 		if limitTradeStr ~= nil then
-			if IsGreaterThanForBigNumber(tonumber(itemPrice) * count, limitTradeStr) == 1 then			
+			if IsGreaterThanForBigNumber(tonumber(itemPrice) * count, limitTradeStr) == 1 then				
 				ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));				
 			end		
 		end
@@ -622,8 +622,8 @@ function UPDATE_MARKET_MONEY_STRING(parent, ctrl)
 
 	local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
 	if limitTradeStr ~= nil then
-		if IsGreaterThanForBigNumber(tonumber(moneyText) * itemCount, limitTradeStr) == 1 then			
-			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));
+		if IsGreaterThanForBigNumber(math.mul_int_for_lua(moneyText, itemCount), limitTradeStr) == 1 then			
+			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));			
 			moneyText = limitTradeStr;
 		end		
 	end
@@ -697,9 +697,8 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	if feeValue > 0 then
 		feeValue = tonumber(math.mul_int_for_lua(feeValue, -1));
 	end
-	feeValue = math.floor(feeValue)
-	local finalValue = tonumber(math.add_for_lua(totalPrice, feeValue));
-
+	feeValue = math.floor(feeValue)	
+	local finalValue =SumForBigNumberInt64(totalPrice, feeValue);
 	registerFeeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(registerFeeValue));
 	totalSellPriceValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(totalPrice));
 	feeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(feeValue));

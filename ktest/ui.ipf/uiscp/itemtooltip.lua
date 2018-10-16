@@ -2,7 +2,7 @@
 
 -- tooltip.xml에 적혀있는, 툴팁 관련 가장 처음 실행되는 루아 함수. 여기서 아이템의 종류에 따라 각각 다른 전용 툴팁 함수들을 호출한다. 종류되는 함수 명은 item클래스의 CT_ToolTipScp를 따름
 
-function ON_REFRESH_ITEM_TOOLTIP()
+function ON_REFRESH_ITEM_TOOLTIP()	
 	local wholeitem = ui.GetTooltip("wholeitem")
 	if wholeitem ~= nil then
 		wholeitem:RefreshTooltip();
@@ -13,11 +13,17 @@ function ON_REFRESH_ITEM_TOOLTIP()
 	if wholeitem_link ~= nil then
 		wholeitem_link:RefreshTooltip();
 	end
+
+	local item_tooltip = ui.GetFrame("item_tooltip")
+	tolua.cast(item_tooltip, "ui::CTooltipFrame");
+	if item_tooltip ~= nil then
+		item_tooltip:RefreshTooltip();
+	end
 end
 
-function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)
+function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, tooltipobj, noTradeCnt)		
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
-	
+
 	local itemObj, isReadObj = nil;	
 	if tooltipobj ~= nil then
 		itemObj = tooltipobj;
@@ -25,7 +31,7 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 	else
 		itemObj, isReadObj = GET_TOOLTIP_ITEM_OBJECT(strarg, numarg2, numarg1);
 	end
-    
+
 	if itemObj == nil then
 		return;
 	end
@@ -197,16 +203,13 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
 		if class ~= nil then
 			local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. class.ToolTipScp];
 			ToolTipScp(tooltipframe, class, strarg, "mainframe", isForgeryItem);
-		end
-
-		
+		end		
 	else
 		local ToolTipScp = _G[ 'ITEM_TOOLTIP_' .. itemObj.ToolTipScp];
 		if nil == noTradeCnt then
 			noTradeCnt = 0
 		end
 		ToolTipScp(tooltipframe, itemObj, strarg, "mainframe",noTradeCnt);
-
 	end
 	
 

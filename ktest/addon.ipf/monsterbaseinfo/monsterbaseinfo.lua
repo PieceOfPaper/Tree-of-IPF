@@ -39,6 +39,14 @@ function DRAW_DEBUFF_UI_EFECT(handle, buffType)
         return;
     end
 
+	local isColonyMap = session.colonywar.GetIsColonyWarMap();
+	if isColonyMap == true then
+		local guildEmblem = GET_CHILD_RECURSIVELY(frame, "guildEmblem")
+		local guildEmblem_edge = GET_CHILD_RECURSIVELY(frame, "guildEmblem_edge")
+		guildEmblem:ShowWindow(0)
+		guildEmblem_edge:ShowWindow(0)
+	end
+
     local pic =frame:GetChild('desenchant');
     local gx, gy = GET_UI_FORCE_POS(pic);
     local delayTime = 0.1;

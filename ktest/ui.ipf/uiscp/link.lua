@@ -7,6 +7,12 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 		SetModifiedPropertiesString(newobj, props);
 	end
 
+	if newobj.ClassName == "Scroll_SkillItem" then
+		local skillType, level = GetSkillScrollProperty(props);
+		newobj.SkillType = skillType
+		newobj.SkillLevel = level
+	end
+
 	local ret = GET_FULL_NAME(newobj);
 	DestroyIES(newobj);
 	return ret;
@@ -14,6 +20,7 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 end
 
 function SLI(props, clsID)
+
 	local itemFrame = ui.GetFrame("wholeitem_link");
 	if itemFrame == nil then
 		itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
@@ -123,7 +130,7 @@ function LINK_ITEM_TEXT(invitem)
 	else
 		properties = GetModifiedPropertiesString(itemobj);
 	end
-
+	
 	if properties == "" then
 		properties = 'nullval'
 	end

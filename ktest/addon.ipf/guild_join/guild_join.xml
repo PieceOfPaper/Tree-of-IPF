@@ -17,7 +17,7 @@
                 <richtext name="inputLabel" layout_gravity="left center" caption="{@st42}전하는 말{/}" textalign="left top" resizebytext="true" fontname="white_16_ol" />
             </layoutSection>
             <layoutSection name="textInputSection" size="20%">
-                <edit name="input" fontname="white_20_ol" fixwidth="true" skin="test_frame_midle" multiline="true" resizeheightbytext="true" OffsetForDraw="0 3" textalign="left top" maxlen="63" />
+                <edit name="input" fontname="white_20_ol" fixwidth="true" skin="test_frame_midle" multiline="false" resizeheightbytext="true" OffsetForDraw="0 3" textalign="left top" maxlen="63" />
             </layoutSection>
             <layoutSection name="infoText">
                 <richtext name="applicationInfoText" format="ⓘ '전하는 말'이 없어도 가입 신청이 가능합니다{nl}ⓘ 길드 가입 신청 시 아래 정보가 자동으로 길드에 제공 됩니다{nl} - 팀 이름{nl} - 팀 레벨{nl} - 캐릭터 수{nl} - 신청한 캐릭터 레벨{nl} - 모험일지 랭킹{nl}" fixwidth="true" fontname="black_16"/>

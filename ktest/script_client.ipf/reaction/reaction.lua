@@ -541,3 +541,14 @@ end
 function SKL_C_RESERVE_LANDANIM(actor, skill, animName, spd, freezeAnim, playAnimHeight)
     actor:GetAnimation():ReserveLandAnim(animName, spd, freezeAnim, playAnimHeight);
 end
+
+function SCR_COLONY_SIEGE_TOWER_CANNON_ATTACK_EFFECT_RUN(handle, effectName, scale, nodeName)
+
+    if lifeTime == nil then
+        lifeTime = 0;
+    end
+    local obj = world.GetActor(handle)
+    
+    effect.PlayActorEffect(obj, effectName, nodeName, lifeTime, scale);
+    
+end

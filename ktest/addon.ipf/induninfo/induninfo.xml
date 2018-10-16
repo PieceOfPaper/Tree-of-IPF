@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="induninfo" x="0" y="0" width="1095" height="620" create="open">
-	<frame fasthide="true" layout_gravity="center center" margin="0 -50 0 0"/>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="induninfo" x="0" y="0" width="1095" height="570" create="open">
+	<frame fasthide="true" layout_gravity="center center" margin="0 -75 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
 	<layer layerlevel="101"/>
@@ -9,7 +9,7 @@
 	<script OpenScp="INDUNINFO_UI_OPEN" CloseScp="INDUNINFO_UI_CLOSE"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l"/>
+	<userconfig STAR_IMAGE="star_mark" RANDOM_ICON="indun_bossrandom" TOKEN_STATE_IMAGE="token_on" NOT_TOKEN_STATE_IMAGE="indun_icon_day_l" FIRST_OPEN="TRUE"/>
 	<controls>
 		<groupbox name="bgBox" rect="0 0 1095 570" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" hittest="true"/>
 		<groupbox name="headerBox" rect="0 0 1095 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top" hittest="false"/>
@@ -17,9 +17,9 @@
 		<button name="closeBtn" rect="0 0 50 50" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="INDUNINFO_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인스턴스 던전 창을 닫습니다{/}"/>
 		<richtext name="headerText" rect="0 0 600 50" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}인스턴스 던전{/}" hittest="false"/>
 		<groupbox name="contentBox" rect="0 0 1095 460" margin="0 60 0 0" layout_gravity="left top" draw="false" scrollbar="false"/>
-		<groupbox name="categoryBox" rect="0 0 340 450" parent="contentBox" margin="10 0 0 0" layout_gravity="left top" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
+		<groupbox name="categoryBox" rect="0 0 350 450" parent="contentBox" margin="10 0 0 0" layout_gravity="left top" skin="test_frame_midle" fixheight="true" scrollbar="true"/>
 		<!-- Info -->
-		<groupbox name="infoBox" rect="0 0 720 500" parent="contentBox" margin="0 0 20 0" layout_gravity="right top" draw="false"/>
+		<groupbox name="infoBox" rect="0 0 720 500" parent="contentBox" margin="0 0 12 0" layout_gravity="right top" draw="false"/>
 		<groupbox name="nameBox" rect="0 0 420 45" parent="infoBox" margin="0 0 0 0" layout_gravity="right top" draw="false" image="test_com_namebg"/>
 		<richtext name="nameText" rect="0 0 500 30" parent="nameBox" margin="10 0 0 0" layout_gravity="left center" format="{@st66d}%s{/}" param1="name" param1_def="던전 이름"/>
 		<picture name="indunPic" rect="0 0 295 450" parent="infoBox" margin="0 0 0 0" layout_gravity="left top" image="027_boss_Gaigalas" stretch="true"/>
@@ -60,7 +60,8 @@
 		<!-- Bottom controls -->
 		<richtext name="resetInfoText" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>
 		<richtext name="resetInfoText_Week" rect="0 0 600 30" parent="bgBox" margin="0 0 20 22" layout_gravity="right bottom" format="{@st66b}입장 횟수는 매주 월요일 %s시에 초기화 됩니다.{/}" param1="resetTime" param1_def="6"/>
-		<radiobutton name="lvAscendRadio" parent="bgBox" rect="0 0 200 30" margin="20 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 오름차순{/}" clicksound="button_click_big" oversound="button_over"/>
-		<radiobutton name="lvDescendRadio" parent="bgBox" rect="0 0 200 30" margin="200 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 내림차순{/}" clicksound="button_click_big" oversound="button_over"/>
-	</controls>
+		<radiobutton name="lvAscendRadio" parent="bgBox" rect="0 0 200 30" margin="70 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 오름차순{/}" clicksound="button_click_big" oversound="button_over"/>
+		<radiobutton name="lvDescendRadio" parent="bgBox" rect="0 0 200 30" margin="250 0 0 17" layout_gravity="left bottom" group="sortOption" LBtnDownScp="INDUNINFO_SORT_BY_LEVEL" caption="{@st66b}레벨 내림차순{/}" clicksound="button_click_big" oversound="button_over"/>
+		<button name="showCharIndunState" parent="bgBox" rect="0 0 5 5" margin="20 0 0 17" layout_gravity="left bottom" image="indun_count_btn" clicksound="button_click_big" oversound="button_over" LBtnUpScp="UI_TOGGLE_INDUNINFO_CHAR_UI" isEnabled="0" />
+		</controls>
 </uiframe>

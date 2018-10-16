@@ -102,6 +102,9 @@ function QSLOT_ENABLE_OMAMORI_CRAFT()
 end
 
 function QSLOT_ENABLE_FLUTING_KEYBOARD()
+	if FLUTING_ENABLED ~= 1 then
+		return 0;
+	end
 	if IS_EXIST_JOB_IN_HISTORY(3012) == true then
 		return 1;
 	end
@@ -299,7 +302,11 @@ function OPEN_FLUTING_KEYBOARD()
     if GetCraftState() == 1 then
         ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
         return;
-    end
+	end
+	
+	if FLUTING_ENABLED ~= 1 then
+		return;
+	end
 
 	if IS_EXIST_JOB_IN_HISTORY(3012) ~= true then
 		return;
@@ -388,6 +395,9 @@ function QSLOT_VISIBLE_DISPELLER_CRAFT()
 end
 
 function QSLOT_VISIBLE_FLUTING_KEYBOARD()
+	if FLUTING_ENABLED ~= 1 then
+		return 0;
+	end
 	if IS_EXIST_JOB_IN_HISTORY(3012) == true then
 		return 1;
 	end

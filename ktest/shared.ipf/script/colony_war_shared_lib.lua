@@ -48,6 +48,14 @@ function IS_COLONY_MONSTER(monID)
     return false;
 end
 
+function IS_COLONY_ENHANCER(monID)
+    local monCls = GetClass('Monster', GET_COLONY_ENHANCER_CLASS_NAME());
+    if monCls ~= nil and monCls.ClassID == monID then
+        return true;
+    end
+    return false;
+end
+
 function GET_COLONY_CLASS(zoneName)
     local clsList, cnt = GetClassList('guild_colony');
     for i = 0, cnt - 1 do
@@ -75,4 +83,9 @@ end
 function GET_COLONY_TOWER_CLASS_NAME()
     local ruleCls = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
     return ruleCls.GuildColonyTowerClassName;
+end
+
+function GET_COLONY_ENHANCER_CLASS_NAME()
+    local ruleCls = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
+    return ruleCls.GuildColonyEnhancerClassName;
 end

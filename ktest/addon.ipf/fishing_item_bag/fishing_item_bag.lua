@@ -225,5 +225,11 @@ function FISHING_ITEM_BAG_TOGGLE()
 end
 
 function FISHING_ITEM_BAG_UPGRADE(parent, ctrl)
+    local account = session.barrack.GetMyAccount();
+    local currentMaxSlotCount = account:GetMaxFishingItemBagSlotCount(0);
+    if currentMaxSlotCount + FISHING_SLOT_EXPAND_UNIT > MAX_FISHING_ITEM_BAG_SLOT_COUNT then
+        ui.SysMsg(ClMsg('ExceedMaxFishingItemBagSlotCount'));
+        return;
+    end
     ui.OpenFrame('fishing_bag_upgrade');
 end

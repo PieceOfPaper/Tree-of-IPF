@@ -193,11 +193,12 @@ end
 
 function SCR_GET_DEX(self)
     local statString = "DEX";
-    
-    local byJob = TryGetProp(self, statString.."_JOB");
-    if byJob == nil then
-        byJob = 0;
-    end
+        
+ -- 2.0에서 어차피 개선되기로 되어 있지만 2.0 들어가기 전에 서버 다운 막아야 해서 커밋합니다 ㅠㅠ --
+ -- 만약 이부분에서 충돌이 난다면 2.0 코드로 덮어씌워도 괜찮을 거 같아요. --
+ -- CP가 CP를 계속 호출하는 구조는 서버를 죽일 수가 있어요 --
+ -- CP가 바인드 함수들을 호출해서 걔 하나로 끝나는게 바람직합니다. CP가 CT 호출은 갠춘 --
+    local byJob = SCR_GET_JOB_DEX(self);
     
     local byStat = TryGetProp(self, statString.."_STAT");
     if byStat == nil then

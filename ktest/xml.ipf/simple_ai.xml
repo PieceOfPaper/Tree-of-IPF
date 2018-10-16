@@ -9034,7 +9034,31 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="GuildFarmPet" UpdateMS="2000" ActiveMessageMapInBattle="1">
+	<AI Name="GUILD_COLONY_WARP_ARROW_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_COLONY_WARP_ACCESS_RESTRICT_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="GUILD_COLONY_WARP_PORTAL_AI" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_COLONY_WARP_ACCESS_RESTRICT_RUN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_circle25" Arg="9.5"/>
+                <Str Str="MID"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="GuildFarmPet" UpdateMS="2000" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
 				<Str Str="GUILD_FARM_PET_AI"/>

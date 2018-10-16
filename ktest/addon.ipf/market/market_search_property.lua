@@ -78,6 +78,7 @@ local MARKET_ITEM_COUNT_PER_PAGE = {
 	Weapon = 7,
 	Armor = 7,
 	Accessory = 7,	
+	HairAcc = 7,
 	RecipeMaterial = 7,
 	Recipe_Detail = 3,
 	Default = 11

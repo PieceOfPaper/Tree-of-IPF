@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -804,6 +804,10 @@
 		<image name="icon_item_SpecialCostume_piedpiper_m" file="\icon\equip\icon_item_SpecialCostume_piedpiper_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_schaffenstar01_m" file="\icon\equip\icon_item_schaffenstar01_m.png" imgrect="0 0 256 256" CMM_Caption="별의탑 영웅 코스튬"/>
 		<image name="icon_item_schaffenstar01_f" file="\icon\equip\icon_item_schaffenstar01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_golden_champion_f" file="\icon\equip\icon_item_vincentaas01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_golden_champion_m" file="\icon\equip\icon_item_vincentaas01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_black_champion_f" file="\icon\equip\icon_item_vincentaas02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_black_champion_m" file="\icon\equip\icon_item_vincentaas02_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -2778,6 +2782,7 @@
 		<image name="item_bracelet_02_3" file="\icon\acc\item_bracelet_02_3.png" imgrect="0 0 256 256"/>
 		<image name="item_bracelet_10_1" file="\icon\acc\item_bracelet_10_1.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_TH1stAnniversary" file="\icon\acc\icon_item_armband_TH1stAnniversary.png" imgrect="0 0 256 256" CMM_Caption="태국 오픈1주년 암밴드"/>
+		<image name="icon_item_armband_Colony01" file="\icon\acc\icon_item_armband_Colony01.png" imgrect="0 0 256 256" CMM_Caption="콜로니전 보상 암밴드"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -4887,6 +4892,12 @@
 		<image name="icon_item_gele_gear_02" file="\icon\item\icon_item_gele_gear_02.png" imgrect="0 0 128 128" CMM_Caption="사우가의 동력기관"/>
 		<image name="icon_item_1810_fall1" file="\icon\item\icon_item_1810_fall1.png" imgrect="0 0 128 128" CMM_Caption="커다란 단풍잎"/>
 		<image name="icon_item_1810_fall2" file="\icon\item\icon_item_1810_fall2.png" imgrect="0 0 128 128" CMM_Caption="커다란 은행잎"/>
+		<image name="icon_item_octopus" file="\icon\item\icon_item_octopus.png" imgrect="0 0 256 256" CMM_Caption="주꾸미"/>
+		<image name="icon_item_AoE_revive_scroll" file="\icon\item\icon_item_AoE_revive_scroll.png" imgrect="0 0 128 128" CMM_Caption="콜로니전 광역부활주문서"/>
+		<image name="icon_item_warp_scroll_colony" file="\icon\item\icon_item_warp_scroll_colony.png" imgrect="0 0 128 128" CMM_Caption="콜로니전 워프 주문서"/>
+		<image name="icon_item_woodenwall_trap3" file="\icon\item\icon_item_woodenwall_trap3.png" imgrect="0 0 256 256" CMM_Caption="목책"/>
+		<image name="icon_item_siege_tower" file="\icon\item\icon_item_siege_tower.png" imgrect="0 0 256 256" CMM_Caption="공성탑"/>
+		<image name="icon_item_divine_flag" file="\icon\item\icon_item_divine_flag.png" imgrect="0 0 256 256" CMM_Caption="신성한 깃발"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5581,6 +5592,7 @@
 		<image name="icon_item_abilitypoint4" file="\icon\payment\icon_item_abilitypoint4.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 1만"/>
 		<image name="icon_item_abilitypoint5" file="\icon\payment\icon_item_abilitypoint5.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 3만"/>
 		<image name="icon_item_abilitypoint6" file="\icon\payment\icon_item_abilitypoint6.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 10만"/>
+		<image name="icon_item_soulCrystal_colony" file="\icon\payment\icon_item_soulCrystal_colony.png" imgrect="0 0 256 256" CMM_Caption="콜로니 소울 크리스탈"/>
 		<image name="icon_item_chessUniform01_m" file="\icon\payment\icon_item_chessUniform01_m.png" imgrect="0 0 256 256" CMM_Caption="8월 테마 체스 코스튬"/>
 		<image name="icon_item_chessUniform01_f" file="\icon\payment\icon_item_chessUniform01_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_chessUniform02_m" file="\icon\payment\icon_item_chessUniform02_m.png" imgrect="0 0 256 256"/>
@@ -5625,6 +5637,8 @@
 		<image name="hair_Hunter" file="\icon\payment\hair_Hunter.png" imgrect="0 0 256 256"/>
 		<image name="hair_BangHair" file="\icon\payment\hair_BangHair.png" imgrect="0 0 256 256"/>
 		<image name="hair_bulletmarker" file="\icon\payment\hair_bulletmarker.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_vampire01_red_f" file="\icon\payment\icon_item_vampire01_red_f.png" imgrect="0 0 256 256" CMM_Caption="2018 10월 피시방 코스튬"/>
+		<image name="icon_item_vampire01_red_m" file="\icon\payment\icon_item_vampire01_red_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

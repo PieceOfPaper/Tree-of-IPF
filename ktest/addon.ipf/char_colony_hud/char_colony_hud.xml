@@ -1,18 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="char_colony_hud" x="0" y="0" width="310" height="90">
+<uiframe name="char_colony_hud" x="0" y="0" width="310" height="150">
 	<frame layout_gravity="center center" outside="true" useothercountryframe="false" fasthide="true"/>
 	<option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
 	<layer layerlevel="20"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<input hittest="false" hittestframe="false"/>
 	<controls>
-		<picture name="emblemPic" rect="0 0 39 39" margin="0 -25 0 0" layout_gravity="center center" image="guildmark_slot" stretch="true" forceupdate="true"/>
-		<picture name="bgSlot" rect="0 0 45 45" margin="0 -23 0 0" layout_gravity="center center" image="emblemslot_green"/>
-		<gauge name="hpGauge" rect="0 0 101 18" margin="0 0 0 24" layout_gravity="center bottom" skin="colony_teamgauge" inverse="false" point="100"/>
-		<gauge name="spGauge" rect="0 0 100 5" margin="0 0 0 23" layout_gravity="center bottom" skin="colony_gauge_sp" inverse="false" point="100"/>
-		<picture name="bgBox" rect="0 0 133 22" margin="0 0 0 20" layout_gravity="center bottom" image="colonymy_myframe"/>
-	<slotset name="buffList" margin="115 5 0 0" rect="0 0 200 20" layout_gravity="center bottom" size="20 20" skin="slot_empty" enablepop="false" enabledrop="false" spc="2 2" image="slot" col="4" row="2"/>
-		<gauge name="pcShieldGauge" rect="0 0 96 4" margin="0 72 0 0" layout_gravity="center top" hittest="false" skin="guard_gauge" point="100" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
+		<picture name="emblemPic" rect="0 0 39 39" margin="0 64 0 0" layout_gravity="center top" image="guildmark_slot" stretch="true" forceupdate="true"/>
+		<picture name="bgSlot" rect="0 0 45 45" margin="0 64 0 0" layout_gravity="center top" image="emblemslot_green"/>
+		<picture name="occupationPic" rect="0 0 50 30" margin="0 44 0 0" layout_gravity="center top" image="Icon_occupation_emblem_skin"/>
+		<gauge name="hpGauge" rect="0 0 101 18" margin="0 0 0 18" layout_gravity="center bottom" skin="colony_teamgauge" inverse="false" point="100"/>
+		<gauge name="spGauge" rect="0 0 100 5" margin="0 0 0 18" layout_gravity="center bottom" skin="colony_gauge_sp" inverse="false" point="100"/>
+		<picture name="bgBox" rect="0 0 133 37" margin="0 0 0 0" layout_gravity="center bottom" image="colonymy_myframe"/>
+	<slotset name="buffList" margin="115 0 0 0" rect="0 0 200 20" layout_gravity="center bottom" size="20 20" skin="slot_empty" enablepop="false" enabledrop="false" spc="2 2" image="slot" col="4" row="2"/>
+		<gauge name="pcShieldGauge" rect="0 0 96 4" margin="0 0 0 8" layout_gravity="center bottom" hittest="false" skin="guard_gauge" point="100" textoffset1="0 -1" textfont1="white_14_ol" textalign1="center center"/>
 	</controls>
 </uiframe>

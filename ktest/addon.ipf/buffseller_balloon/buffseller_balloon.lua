@@ -99,7 +99,8 @@ function AUTOSELLER_BALLOON(title, sellType, handle, skillID, skillLv)
 	
 	local actor = world.GetActor(handle);
 	if actor ~= nil then
-		actor:GetTitle():SetBuffSellerBalloonFrame(frameName, offsetY);
+		actor:GetTitle():ClearBuffSellerBalloonFrame();
+		actor:GetTitle():AddBuffSellerBalloonFrame(frameName, "TOP", offsetY);
 	end
 	
 end

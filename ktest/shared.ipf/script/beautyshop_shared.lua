@@ -304,3 +304,46 @@ function IS_CURREUNT_IN_PERIOD(startDateString, endDateString, isClient)
 	end
 	return true;
 end
+
+
+function BEAUTYSHOP_TRANS_HEAD_INDEX_TO_NAME(gender, headIndex)
+	local Rootclasslist = imcIES.GetClassList('HairType');
+    local Selectclass   = Rootclasslist:GetClass(gender);
+    local Selectclasslist = Selectclass:GetSubClassList();
+	local cls = Selectclasslist:GetByIndex(headIndex-1);
+    if cls ~= nil then
+        local engName = imcIES.GetString(cls, 'EngName');
+        local colorName = imcIES.GetString(cls, 'ColorE');
+		
+		return engName, colorName;
+	end
+	return 'None', 'None';
+end
+
+
+NameToItemClassListCache = nil
+function BEAUTYSHOP_TRANS_HAIR_NAME_TO_ITEMCLASSNAME(gender, hairEngName)
+	if NameToItemClassListCache == nil then
+		NameToItemClassListCache ={}
+		NameToItemClassListCache[1] = {}
+		NameToItemClassListCache[2] = {}
+
+		local clsList, cnt = GetClassList('Beauty_Shop_Wig');
+		for i = 0, cnt - 1 do
+			local cls = GetClassByIndexFromList(clsList, i);
+			local className = TryGetProp(cls, "ClassName")
+			local engName =TryGetProp(cls, "HairEngName");
+			local genderStr = TryGetProp(cls, "Gender");
+			if className ~= nil and engName ~= nil and genderStr ~= nil then
+				if engName ~= 'None' and genderStr ~= 'None' then
+					if genderStr == 'M' then
+						NameToItemClassListCache[1][engName] = className;
+					elseif genderStr == 'F' then
+						NameToItemClassListCache[2][engName] = className;
+					end
+				end
+			end
+		end
+	end
+	return NameToItemClassListCache[gender][hairEngName]
+end

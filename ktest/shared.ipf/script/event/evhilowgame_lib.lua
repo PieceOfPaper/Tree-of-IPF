@@ -38,7 +38,7 @@ function SCR_EVHILOWGAME_ACT(self,pc, target_item_classid, drop_item_classid)
     local sObj = GetSessionObject(pc, ssn_name) 
     if sObj == nil then
         CreateSessionObject(pc, ssn_name, 1)
-        target_item = GetClassByNumProp('Item', 'ClassID',target_item_classid)
+        local target_item = GetClassByNumProp('Item', 'ClassID',target_item_classid)
         TAKE_ITEM_TX(pc, 'PuzzleBoxKey', 1, 'EVHILOWGAME_ACT')
         ChatLocal(self, pc, ScpArgMsg("Auto_ChaeTingChange_0_~_10000_BeomwiNaeui_SusJa_ipLyeog"))
     else
