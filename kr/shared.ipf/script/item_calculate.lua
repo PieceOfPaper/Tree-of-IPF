@@ -1661,19 +1661,48 @@ function SCR_GET_ITEM_COOLDOWN(item)
 end
 
 function SCR_GET_HP_COOLDOWN(item)
-    local name = item.ClassName
-  return item.ItemCoolDown;
+    if item.CoolDownGroup == "HPPOTION_TP" then
+        local coolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+        if coolDown ~= 0 or coolDown ~= nil then
+            return coolDown;
+        end
+    end
+    return item.ItemCoolDown;
 end
 
-function SCR_GET_HPSP_COOLDOWN(item)  
+function SCR_GET_HPSP_COOLDOWN(item)
   return item.ItemCoolDown;
 end
 
 function SCR_GET_SP_COOLDOWN(item)  
-  return item.ItemCoolDown;
+    if item.CoolDownGroup == "SPPOTION_TP" then
+        local coolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+        if coolDown ~= 0 or coolDown ~= nil then
+            return coolDown;
+        end
+    end
+    return item.ItemCoolDown;
 end
 
-
+function SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+    local coolDownGroup = item.CoolDownGroup
+    local owner = GetItemOwner(item)
+    if owner ~= nil then
+        local iscolonyzone = IsJoinColonyWarMap(owner)
+        if iscolonyzone == 1 then
+            local list, cnt = SCR_GUILD_COLONY_RESTRICTION_CHECK(owner, "GuildColony_Restricted_Item_CoolDown")
+            local coolTime = 0
+            for i = 1, cnt do
+                if table.find(list[i], coolDownGroup) > 0 then
+                    coolTime = list[i][2]
+                    break
+                end
+            end
+            return coolTime;
+        end
+    end
+    return 0
+end
 function SCR_GET_AWAKENING_PROP_LEVEL(star, grade)
 
     local value = 0;

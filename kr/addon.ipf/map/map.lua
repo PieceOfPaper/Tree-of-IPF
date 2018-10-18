@@ -1257,16 +1257,23 @@ function SCR_SHOW_LOCAL_MAP(zoneClassName, useMapFog, showX, showZ)
 		
 end
 
-function GET_COLONY_MONSTER_POS(posStr)
-    local list = StringSplit(posStr, '#');
-    return list[1], list[2];
+function GET_COLONY_MONSTER_POS(handlePosStr)
+    local list = StringSplit(handlePosStr, '#');
+    return list[1], list[2], list[3];
 end
 
 function GET_COLONY_MONSTER_IMG(frame, monID)
     if IS_COLONY_MONSTER(monID) == true then
-        return frame:GetUserConfig('COLONY_MON_IMG');
+		return frame:GetUserConfig('COLONY_MON_IMG');
+	elseif IS_COLONY_ENHANCER(monID) == true then
+		return frame:GetUserConfig('COLONY_ENHANCER_IMG');
     end
     return frame:GetUserConfig('COLONY_TOWER_IMG');
+end
+
+function GET_COLONY_MONSTER_PIC_NAME(monID, handle)
+	local ctrlName = 'colonyMonPic_'..monID..'_'..handle;
+	return ctrlName;
 end
 
 function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
@@ -1277,8 +1284,9 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     local MONSTER_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_SIZE'));
     local MONSTER_EFFECT_SIZE = tonumber(mapFrame:GetUserConfig('COLONY_MON_EFFECT_SIZE'));
 
-    local x, z = GET_COLONY_MONSTER_POS(posStr);    
-    local colonyMonPic = frame:CreateControl('picture', 'colonyMonPic_'..monID, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
+	local handle, x, z = GET_COLONY_MONSTER_POS(posStr);    
+	local ctrlName = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
+    local colonyMonPic = frame:CreateControl('picture', ctrlName, 0, 0, MONSTER_SIZE, MONSTER_SIZE);    
     colonyMonPic = AUTO_CAST(colonyMonPic);    
     colonyMonPic:SetImage(COLONY_MON_IMG);
 	
@@ -1308,9 +1316,11 @@ function MAP_COLONY_MONSTER(frame, msg, posStr, monID)
     end
 end
 
-function ON_REMOVE_COLONY_MONSTER(frame, msg, argStr, monID)
-   frame:RemoveChild('colonyMonPic_'..monID);
-   frame:RemoveChild('colonyMonEffectPic'); 
+function ON_REMOVE_COLONY_MONSTER(frame, msg, handlePosStr, monID)
+	local handle, x, z = GET_COLONY_MONSTER_POS(handlePosStr)
+	local pic = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
+	frame:RemoveChild(pic);
+	frame:RemoveChild('colonyMonEffectPic'); 
 end
 
 function DESTROY_GUILD_MEMBER_ICON(frame, msg, guild_member_aid)    

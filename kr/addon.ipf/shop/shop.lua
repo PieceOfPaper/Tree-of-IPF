@@ -78,6 +78,7 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 
 	local invenFrame = ui.GetFrame('inventory');
 	INVENTORY_UPDATE_ICONS(invenFrame);
+	INVENTORY_CLEAR_SELECT(invenFrame);
 	if invenFrame:IsVisible() == 1 then
 		invenFrame:ShowWindow(0);
 	end

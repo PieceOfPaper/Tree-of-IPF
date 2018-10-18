@@ -127,7 +127,7 @@ function JOB_SKILL_LIST_CLIENT(jobClassName)
     end
 	
     local skillList = { };
-    local skillUnlockGradeList = { };
+    local skillUnlockClassLevelList = { };
     local skillMaxLevelList = { };
     local jobCategory = { };
     
@@ -144,7 +144,7 @@ function JOB_SKILL_LIST_CLIENT(jobClassName)
 	                    if skill ~= nil then
                             jobCategory[#jobCategory + 1] = jobName;
                             skillList[#skillList + 1] = skill;
-                            skillUnlockGradeList[#skillUnlockGradeList + 1] = TryGetProp(skillTreeClass, "UnlockGrade");
+                            skillUnlockClassLevelList[#skillUnlockClassLevelList + 1] = TryGetProp(skillTreeClass, "UnlockClassLevel");
                             skillMaxLevelList[#skillMaxLevelList + 1] = TryGetProp(skillTreeClass, "MaxLevel");
 	                    end
 	                end
@@ -184,7 +184,7 @@ function JOB_SKILL_LIST_CLIENT(jobClassName)
         			.. ' Icon="' .. skillList[k].Icon .. '"'
         			.. ' Name="' .. skillList[k].Name .. '"'
         			.. ' EngName="' .. skillList[k].EngName .. '"'
-        			.. ' UnlockGrade="' .. skillUnlockGradeList[k] .. '"'
+        			.. ' UnlockClassLevel="' .. skillUnlockClassLevelList[k] .. '"'
         			.. ' MaxLevel="' .. skillMaxLevelList[k] .. '"'
         			.. ' Caption="' .. skillList[k].Caption .. '"'
         			.. ' Job="' .. skillList[k].Job .. '"'

@@ -111,3 +111,55 @@ end
 function SCR_JOB_MIKO_6_1_FTOWER_61_1_PRE_DIALOG(pc, dialog)
     return 'NO'
 end
+
+function SCR_COLONY_WOODENWALL_TRAP_PRE_DIALOG(pc, dialog, handle)
+    local buildinginfo = session.guildbuilding.GetByHandle(handle);
+    if buildinginfo == nil then
+        return 'NO' 
+    end
+    local objGuildID = buildinginfo:GetGuildID()
+    
+    local guild = GET_MY_GUILD_INFO();
+    local guildID = guild.info:GetPartyID()
+    
+    if objGuildID ~= guildID then
+        return 'NO'
+    end
+    return 'YES'
+end
+
+function SCR_COLONY_BALLISTA_PRE_DIALOG(pc, dialog, handle)
+    local buildinginfo = session.guildbuilding.GetByHandle(handle);
+    if buildinginfo == nil then
+        return 'NO' 
+    end
+    local objGuildID = buildinginfo:GetGuildID()
+    
+    local guild = GET_MY_GUILD_INFO();
+    local guildID = guild.info:GetPartyID()
+
+    if objGuildID ~= guildID then
+        return 'NO'
+    end
+    return 'YES'
+end
+
+function SCR_COLONY_SIEGE_TOWER_PRE_DIALOG(pc, dialog, handle)
+    local buildinginfo = session.guildbuilding.GetByHandle(handle);
+    if buildinginfo == nil then
+        return 'NO' 
+    end
+    local objGuildID = buildinginfo:GetGuildID()
+
+    local guild = GET_MY_GUILD_INFO();
+    local guildID = guild.info:GetPartyID()
+
+    if objGuildID ~= guildID then
+        return 'NO'
+    end
+    
+    if GET_GUILD_VEHICLE_RIDE_STATE(handle) == 1 then
+        return 'NO'
+    end
+    return 'YES'
+end

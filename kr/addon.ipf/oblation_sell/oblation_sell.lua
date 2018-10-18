@@ -35,6 +35,7 @@ function OBLATION_SELL_CLOSE(frame)
 	INVENTORY_SET_CUSTOM_RDBTNDOWN("NOne");
 	OBLATION_SELL_CLEAR(frame);
 	ui.CloseFrame("inventory");
+	INVENTORY_CLEAR_SELECT();
 end
 
 function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount, iesID, countSet)

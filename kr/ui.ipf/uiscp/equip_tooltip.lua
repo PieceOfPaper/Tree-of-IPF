@@ -1,7 +1,6 @@
 -- equip_tooltip.lua
 
 function ITEM_TOOLTIP_WEAPON(tooltipframe, invitem, strarg, usesubframe)
-
 	ITEM_TOOLTIP_EQUIP(tooltipframe, invitem, strarg, usesubframe)
 end
 

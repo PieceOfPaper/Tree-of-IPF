@@ -1,3 +1,4 @@
+local json = require "json_imc"
 function PARTYINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("PARTY_UPDATE", "ON_PARTYINFO_UPDATE");
 	addon:RegisterMsg("PARTY_BUFFLIST_UPDATE", "ON_PARTYINFO_BUFFLIST_UPDATE");
@@ -653,14 +654,42 @@ function RECEIVE_PARTY_INVITE(partyType, inviterAid, familyName)
 	ui.MsgBox(str, yesScp, noScp);
 end
 
-function RECEIVE_GUILD_INVITE(partyType, inviterAid, familyName)    
+function RECEIVE_GUILD_INVITE(partyType, inviterAid, familyName, guildID)    
 	local msg = "";
 	msg = "{Inviter}InviteYouToGuild_DoYouAccept?";	
-	
 	local str = ScpArgMsg(msg, "Inviter", familyName);
+	str = ui.ConvertScpArgMsgTag(str)
+	
+	local msgBox = ui.GetMsgBox(str);
+	if msgBox ~= nil then
+		return
+	end
+
 	local yesScp = string.format("party.AcceptGuildInvite(\"%s\", \"%s\")", inviterAid, familyName);
 	local noScp = string.format("party.CancelInvite(%d, \"%s\", 0)", partyType, familyName);
-	ui.MsgBox(str, yesScp, noScp);
+	local etcScp = string.format("GetGuildInfo(\"%s\", \"%s\")", "GET_INVITED_GUILD_INFO", guildID);
+	local ret = ui.MsgBoxEtc(str, yesScp, noScp, etcScp, ClMsg("guildinfo"));
+	ret:SetMsgBoxOpenAfterBtnPressed(true)
+	ret:SetGravity(ui.LEFT, ui.CENTER_VERT)
+end
+
+function GET_INVITED_GUILD_INFO(code, ret_json)
+	if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GET_INVITED_GUILD_INFO")
+        return
+	end
+	if ret_json == "\"\"" then
+		ui.MsgBox(ClMsg("GuildHasNoGuildInfo"));
+		return
+	end
+	local parsedJson = json.decode(ret_json)
+
+    local emblemFolderPath = filefind.GetBinPath("GuildEmblem"):c_str()
+    local emblemPath = emblemFolderPath .. "\\" .. parsedJson["id"] .. ".png";
+    if filefind.FileExists(emblemPath, true) == false then
+    	emblemPath = "None";
+    end
+    GUILDINFO_DETAIL_ON_INIT(parsedJson, emblemPath, parsedJson['additionalInfo'], parsedJson["id"] )
 end
 
 function PARTY_AUTO_REFUSE_INVITE(familyName)

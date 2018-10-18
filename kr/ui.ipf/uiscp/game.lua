@@ -629,7 +629,6 @@ end
 
 
 function GET_ITEM_BY_GUID(guid, equipfirst)
-
 	if equipfirst == 1 then
 		local pitem = session.GetEquipItemByGuid(guid);
 		if pitem ~= nil then
@@ -3042,7 +3041,8 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 end
 
 function RELEASE_ITEMTARGET_ICON_GEM()
-	SCR_ITEM_USE_TARGET_RELEASE()
+	SCR_ITEM_USE_TARGET_RELEASE();
+	INVENTORY_CLEAR_SELECT();
 end
 
 function USE_ITEMTARGET_ICON_GEM(argNum)
@@ -3055,11 +3055,11 @@ function USE_ITEMTARGET_ICON_GEM(argNum)
 end
 
 function SCR_ITEM_USE_TARGET_RELEASE()
-	local frame				= ui.GetFrame('inventory');	
+	local frame = ui.GetFrame('inventory');	
 	INVENTORY_UPDATE_ICONS(frame);
 	STATUS_EQUIP_SLOT_SET(frame)
 
-	local frame 			= ui.GetFrame('status');
+	local frame = ui.GetFrame('status');
 	STATUS_ON_MSG(frame, 'EQUIP_ITEM_LIST_GET', 'None', 0);
 end
 

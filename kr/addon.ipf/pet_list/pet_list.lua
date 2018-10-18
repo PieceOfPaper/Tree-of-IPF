@@ -25,6 +25,12 @@ function GET_SUMMONED_PET()
 	return summonedPet;
 end
 
+function GET_SUMMONED_PET_HAWK()
+	local needJobID = 3014;
+	local summonedPet = session.pet.GetSummonedPet(needJobID);
+	return summonedPet;
+end
+
 function UI_TOGGLE_PETLIST()
 	if app.IsBarrackMode() == true then
 		return;

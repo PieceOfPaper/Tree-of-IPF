@@ -23,7 +23,7 @@ function ITEM_TOOLTIP_LEGEND_BOSSCARD(tooltipframe, invitem, strarg)
 	local ypos = DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 보스 카드라면 공통적으로 그리는 툴팁들
 	ypos = DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, ypos, mainframename);
 --	ypos = DRAW_BOSSCARD_EXP_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 경험치 바
-    ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
+        ypos = DRAW_BOSSCARD_TRADABILITY_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 
 	ypos = DRAW_BOSSCARD_SELL_PRICE(tooltipframe, invitem, ypos, mainframename);
 end
 
@@ -84,8 +84,7 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	gBox:RemoveAllChild()
 	
 	local CSetBg = gBox : CreateControlSet('tooltip_bosscard_bg', 'boss_bg_cset', 0, 200);
-
-	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 50);
+	local CSet = gBox:CreateControlSet('tooltip_bosscard_common', 'boss_common_cset', 0, 0);
 	tolua.cast(CSet, "ui::CControlSet");
 
 	local GRADE_FONT_SIZE = CSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기

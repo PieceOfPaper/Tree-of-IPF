@@ -13,7 +13,9 @@ function BRIQUETTING_UI_CLOSE()
 	INVENTORY_SET_CUSTOM_RBTNDOWN('None');
 	ui.CloseFrame('inventory');
 	local inventory = ui.GetFrame('inventory');	
-	INVENTORY_UPDATE_ICONS(inventory);	
+	INVENTORY_SET_ICON_SCRIPT('None');
+	INVENTORY_UPDATE_ICONS(inventory);
+	INVENTORY_CLEAR_SELECT(inventory);
 end
 
 function BRIQUETTING_SLOT_POP(parent, ctrl)
@@ -89,8 +91,12 @@ function BRIQUETTING_SET_TARGET_SLOT(frame, invItemObj, invSlot, targetSlot, inv
 	BRIQUETTING_SELECT_INVENTORY_ITEM(invSlot, 1);
 	targetSlot:SetUserValue('SELECTED_INV_GUID', invItemGuid);
     
-	-- 슬롯 박스에 이미지를 넣고
+	-- 슬롯 박스에 이미지를 넣고	
 	SET_SLOT_ITEM_IMAGE(targetSlot, invItem);
+	local targetEmptyPic = GET_CHILD(targetSlot, 'targetEmptyPic');
+	local staticInfoText = GET_CHILD_RECURSIVELY(frame, 'staticInfoText');
+	targetEmptyPic:ShowWindow(0);	
+	staticInfoText:ShowWindow(0);
 
 	local bodyGBox = frame:GetChild("bodyGbox");
 	local slotNametext = bodyGBox:GetChild("slotName");
@@ -110,6 +116,8 @@ function BRIQUETTING_SET_TARGET_SLOT(frame, invItemObj, invSlot, targetSlot, inv
 	slotNametext:SetTextByKey("txt", invItemObj.Name);
 	BRIQUETTING_SLOT_SET(slotNametext, invItem);
 	BRIQUETTING_REFRESH_MATERIAL(frame);
+
+	INVENTORY_SET_ICON_SCRIPT('BRIQUETTING_CHECK_LOOK_ICON_IN_INVENTORY');
 end
 
 function BRIQUETTING_SELECT_INVENTORY_ITEM(slot, isSelect)
@@ -122,18 +130,7 @@ function BRIQUETTING_SELECT_INVENTORY_ITEM(slot, isSelect)
 		if guid == 'None' then
 			return;
 		end
-
-		local invSlot = GET_SLOT_BY_ITEMID(nil, guid);
-		if invSlot == nil then
-			return;
-		end
-		invSlot:Select(0);
-
-		local invSlot_All = GET_SLOT_BY_ITEMID(nil, guid, 1);
-		if invSlot_All == nil then
-			return;
-		end
-		invSlot_All:Select(0);
+		SELECT_INV_SLOT_BY_GUID(guid, 0);
 	end
 end
 
@@ -203,6 +200,11 @@ function BRIQUETTING_SET_LOOK_ITEM(frame, itemObj, invSlot, lookSlot, invItemGui
 	end
 
 	local targetItem, targetItemGuid = BRIQUETTING_GET_SLOT_ITEM_OBJECT(frame, 'target');
+	if targetItem == nil then
+		ui.SysMsg(ClMsg('FirstRegisterTargetForBriquetting'));
+		return;
+	end
+
 	if targetItemGuid == invItemGuid then
 		return;
 	end
@@ -228,7 +230,7 @@ function BRIQUETTING_SET_LOOK_ITEM(frame, itemObj, invSlot, lookSlot, invItemGui
 		ui.MsgBox(ClMsg('EnchantedItemForBriquetting'), yesscp, 'None');
 		return;
 	end
-	_BRIQUETTING_SET_LOOK_ITEM(invItemGuid);
+	_BRIQUETTING_SET_LOOK_ITEM(invItemGuid);	
 end
 
 function _BRIQUETTING_SET_LOOK_ITEM(invItemGuid)
@@ -264,6 +266,8 @@ function _BRIQUETTING_SET_LOOK_ITEM(invItemGuid)
 	BRIQUETTING_SLOT_SET(slotNametext, invItem);
 	BRIQUETTING_REFRESH_MATERIAL(frame);
 	BRIQUETTING_INIT_LOOK_MATERIAL_LIST(frame, itemObj);
+	
+	INVENTORY_SET_ICON_SCRIPT('BRIQUETTING_CHECK_LOOK_MATERIAL_ICON_IN_INVENTORY');
 end
 
 function BRIQUETTING_GET_SLOT_ITEM_OBJECT(frame, type)
@@ -316,6 +320,12 @@ function BRIQUETTING_UI_RESET(frame)
 	local slot = bodyGBox:GetChild("targetSlot");
 	slot = tolua.cast(slot, 'ui::CSlot');
 	slot:ClearIcon();
+
+	local targetEmptyPic = GET_CHILD(slot, 'targetEmptyPic');
+	local staticInfoText = GET_CHILD_RECURSIVELY(frame, 'staticInfoText');
+	targetEmptyPic:ShowWindow(1);
+	staticInfoText:ShowWindow(1);
+
 	BRIQUETTING_SELECT_INVENTORY_ITEM(slot, 0);
 	
 	local slotName = bodyGBox:GetChild("slotName");
@@ -326,8 +336,10 @@ function BRIQUETTING_UI_RESET(frame)
 	local nowPotentialStr = GET_CHILD_RECURSIVELY(frame, 'nowPotentialStr');
 	nowPotentialStr:ShowWindow(0);
 
-	local lookSlot = GET_CHILD_RECURSIVELY(frame, 'lookSlot');
+	local lookSlot = GET_CHILD_RECURSIVELY(frame, 'lookSlot');	
 	BRIQUETTING_SELECT_INVENTORY_ITEM(lookSlot, 0);
+	INVENTORY_SET_ICON_SCRIPT('BRIQUETTING_CHECK_TARGET_ICON_IN_INVENTORY');
+	lookSlot:SetUserValue('SELECTED_INV_GUID', 'None');
 
 	BRIQUETTING_INIT_LOOK_MATERIAL_LIST(frame);
 	BRIQUETTING_UI_SPEND_RESET(frame);
@@ -476,7 +488,7 @@ function _BRIQUETTING_ADD_LOOK_MATERIAL_ITEM(lookMatSlotName, invItemGuid, conta
 
 	SET_SLOT_ITEM_IMAGE(lookMatSlot, invItem);
 	lookMatSlot:SetUserValue('SELECTED_INV_GUID', invItemGuid);
-	BRIQUETTING_REFRESH_MATERIAL(frame);
+	BRIQUETTING_REFRESH_MATERIAL(frame);	
 end
 
 function BRIQUETTING_SET_CORE_ITEM(frame, coreItem)
@@ -486,6 +498,7 @@ function BRIQUETTING_SET_CORE_ITEM(frame, coreItem)
 	SET_SLOT_ITEM_IMAGE(firstSlot, coreItem);
 	firstSlot:SetUserValue('SELECTED_INV_GUID', coreItem:GetIESID());
 	BRIQUETTING_REFRESH_MATERIAL(frame);
+	BRIQUETTING_SELECT_INVENTORY_ITEM(g_invSlot, 1);
 
 	local slotCnt = lookMatItemSlotset:GetSlotCount();
 	for i = 1, slotCnt - 1 do
@@ -618,13 +631,11 @@ function _BRIQUETTING_SKILL_EXCUTE(targetItemGuid, lookItemGuid)
 	 	session.shop.AddBriquettingGuid(lookMatItemGuidList[i]);	 	
 	end
 
-	session.shop.ExecuteBriquetting(prCheck:IsChecked());
+	session.shop.ExecuteBriquetting(prCheck:IsChecked());	
 	ui.CloseFrame('briquetting');
 end
 
 function BRIQUETTING_REFRESH_INVENTORY_ICON(frame, msg, guid, argNum)
-	BRIQUETTING_UI_RESET(frame);
-
 	local inventory = ui.GetFrame('inventory');
 	if inventory == nil or inventory:IsVisible() ~= 1 then
 		return;
@@ -724,4 +735,56 @@ function IS_ENCHANTED_ITEM(item)
 		return true;
 	end
 	return false;
+end
+
+function BRIQUETTING_CHECK_TARGET_ICON_IN_INVENTORY(slot, reinfItemObj, invItem, itemobj)
+	local icon = slot:GetIcon();
+	if itemobj ~= nil then
+		if IS_VALID_BRIQUETTING_TARGET_ITEM(itemobj) == true then
+			icon:SetColorTone("FFFFFFFF");
+		else
+			icon:SetColorTone("33000000");
+		end
+		return;
+	end		
+	
+	if icon ~= nil then
+		icon:SetColorTone("AA000000");
+	end
+end
+
+function BRIQUETTING_CHECK_LOOK_ICON_IN_INVENTORY(slot, reinfItemObj, invItem, itemobj)
+	local briquetting = ui.GetFrame('briquetting');
+	local targetItem = BRIQUETTING_GET_SLOT_ITEM_OBJECT(briquetting, 'target');
+	local icon = slot:GetIcon();
+	if itemobj ~= nil then
+		if IS_VALID_LOOK_ITEM(itemobj) == true and targetItem ~= nil and targetItem.ClassType == itemobj.ClassType then
+			icon:SetColorTone("FFFFFFFF");
+		else
+			icon:SetColorTone("33000000");
+		end
+		return;
+	end		
+	
+	if icon ~= nil then
+		icon:SetColorTone("AA000000");
+	end
+end
+
+function BRIQUETTING_CHECK_LOOK_MATERIAL_ICON_IN_INVENTORY(slot, reinfItemObj, invItem, itemobj)	
+	local briquetting = ui.GetFrame('briquetting');
+	local lookItem = BRIQUETTING_GET_SLOT_ITEM_OBJECT(briquetting, 'look');
+	local icon = slot:GetIcon();
+	if itemobj ~= nil then
+		if lookItem ~= nil and IS_VALID_LOOK_MATERIAL_ITEM(lookItem, {itemobj}) == true then
+			icon:SetColorTone("FFFFFFFF");
+		else
+			icon:SetColorTone("33000000");
+		end
+		return;
+	end		
+	
+	if icon ~= nil then
+		icon:SetColorTone("AA000000");
+	end
 end

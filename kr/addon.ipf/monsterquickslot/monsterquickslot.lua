@@ -95,7 +95,11 @@ function MONSTER_QUICKSLOT(isOn, monName, buffType, ableToUseSkill)
 
 		local lastSlot = slotset:GetSlotByIndex(slotset:GetSlotCount() - 1);
 		local icon = CreateIcon(lastSlot);
-		icon:SetImage("druid_del_icon");		
+		local lastSlotIconName = "druid_del_icon";
+		if monName == "Colony_Siege_Tower" then
+			lastSlotIconName = "Icon_common_get_off";
+		end	
+		icon:SetImage(lastSlotIconName);
 		local slotString 	= 'QuickSlotExecute'.. slotset:GetSlotCount();
 		local hotKey = nil;
 

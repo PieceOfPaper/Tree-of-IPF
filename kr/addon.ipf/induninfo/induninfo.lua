@@ -34,6 +34,11 @@ function INDUNINFO_CHAT_OPEN(frame, msg, argStr, argNum)
 end
 
 function INDUNINFO_UI_OPEN(frame)
+    if session.GetWasBarrack() == true then
+        session.barrack.RequestCharacterIndunInfo();
+    end
+
+    
     INDUNINFO_RESET_USERVALUE(frame);
     INDUNINFO_CREATE_CATEGORY(frame);
 end
@@ -41,6 +46,7 @@ end
 function INDUNINFO_UI_CLOSE(frame)
     INDUNMAPINFO_UI_CLOSE();
     ui.CloseFrame('induninfo');
+    ui.CloseFrame('indun_char_status');
 end
 
 function INDUNINFO_CREATE_CATEGORY(frame)

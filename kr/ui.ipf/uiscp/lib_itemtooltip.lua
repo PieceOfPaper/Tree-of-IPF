@@ -666,8 +666,8 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	end
 
 	if invitem ~= nil and invitem:GetObject() ~= nil then
-		local itemObj = GetIES(invitem:GetObject());
-		if itemObj.ClassName ~= MONEY_NAME then
+		local itemObj = GetIES(invitem:GetObject());		
+		if itemObj.ClassName ~= MONEY_NAME then						
 			return itemObj, 0;
 		end
 	end
@@ -1212,18 +1212,27 @@ function ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
 	local frame = ui.GetFrame("inventory")
     if frame == nil then
         return;
-    end
-	local wholeitem = ui.GetTooltip("wholeitem")
-	local wholeitem_link = ui.GetFrame("wholeitem_link")
-    
-    local is_frame_visible = frame ~= nil and frame:IsVisible() == 1;
-    local is_wholeitem_visible = wholeitem ~= nil and wholeitem:IsVisible() == 1;
-    local is_wholeitem_link_visible = wholeitem_link ~= nil and wholeitem_link:IsVisible() == 1;
-    
-    if is_frame_visible == false and is_wholeitem_link_visible == false then
-        return;
-    end
+	end
+	
+	local wholeitem = ui.GetTooltip("wholeitem");
+	local wholeitem_link = ui.GetFrame("wholeitem_link");
+	local item_tooltip = ui.GetFrame('item_tooltip');	
+	local function _IsVisible(_frame)
+		if _frame ~= nil and _frame:IsVisible() == 1 then
+			return true;
+		end
+		return false;
+	end
 
+    local is_frame_visible = _IsVisible(frame);
+    local is_wholeitem_visible = _IsVisible(wholeitem);
+	local is_wholeitem_link_visible = _IsVisible(wholeitem_link);
+	local is_item_tooltip_visible = _IsVisible(item_tooltip);
+    
+    if is_frame_visible == false and is_wholeitem_link_visible == false and is_item_tooltip_visible == false then
+        return;
+	end
+	
     isToggle = IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
 	if isToggle == 1 then
 		frame:SetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC", 0);
@@ -1231,7 +1240,7 @@ function ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()
         frame:SetUserValue("IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC", 1);
 	end
 
-    ON_REFRESH_ITEM_TOOLTIP()
+    ON_REFRESH_ITEM_TOOLTIP();
 end
 
 function IS_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC()

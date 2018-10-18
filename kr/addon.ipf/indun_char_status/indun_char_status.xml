@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="indun_char_status" x="0" y="0" width="400" height="570" create="open" version="2">
+	<frame fasthide="true" layout_gravity="center center" margin="-745 -75 0 0"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="101"/>
+	<option closebutton="false"/>
+	<script OpenScp="INDUNINFO_CHAR_UI_OPEN"/>
+	<userconfig FIRST_OPEN="TRUE"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 400 570" layout_gravity="left top" skin="test_frame_low" hittest="true">
+			<layout name="mainLayout" orientation="vertical" margin="9 8 18 18" spacing="3">
+				<layoutsection name="headerSection" size="45">
+					<overlap name="headerOverlap">
+						<groupbox name="headerBox" draw="false" image="test_com_namebg"/>
+						<richtext name="headerText" margin="10 8 0 0" caption="{@st43}{s20}팀 이용 현황{/}"/>
+					</overlap>
+				</layoutsection>
+				<layoutsection name="groupboxSection">
+					<groupbox name="charListBox" skin="test_frame_midle"/>
+				</layoutsection>
+			</layout>
+		</groupbox>
+	</controls>
+</uiframe>

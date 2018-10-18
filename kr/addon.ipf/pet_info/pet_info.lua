@@ -314,6 +314,18 @@ function PET_INFO_UPDATE_ACTIVATED(frame, isFirstUpdate)
 
 end
 
+function UNLOCK_LEAVE_SUMMONED_PET()
+	local pet = GET_SUMMONED_PET();
+	if pet ~= nil then
+		world.Leave(pet:GetHandle(), 0);
+	end
+
+	local hawk = GET_SUMMONED_PET_HAWK()
+	if hawk ~= nil then
+		world.Leave(hawk:GetHandle(), 0);
+	end
+end
+
 function TOGGLE_PET_ACTIVITY(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local pet_guid = frame:GetUserValue("PET_GUID");

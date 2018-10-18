@@ -63,7 +63,19 @@ function START_TIME_ACTION(frame, msg, second)
 	
 end
 
+function CANCEL_TIME_ACTION_BY_SCRIPT(frame)
+    if frame == nil then
+        frame = ui.GetFrame('timeaction')
+    end
+	packet.StopTimeAction();
+	END_TIME_ACTION(frame, 1)
+		
+end
+
 function CANCEL_TIME_ACTION(frame)
+    if frame == nil then
+        frame = ui.GetFrame('timeaction')
+    end
 	packet.StopTimeAction();
 	END_TIME_ACTION(frame, 1)
 		

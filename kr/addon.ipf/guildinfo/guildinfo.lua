@@ -67,7 +67,25 @@ function GUILDINFO_OPEN_UI(frame)
     GUILD_APPLICANT_INIT()
 
     session.party.ReqGuildAsset();
+
+    GetGuildNotice("GUILDNOTICE_GET")
+
 end
+
+function GUILDNOTICE_GET(code, ret_json)
+    if code ~= 200 then
+        SHOW_GUILD_HTTP_ERROR(code, ret_json, "GUILDNOTICE_GET")
+    end
+
+    local frame = ui.GetFrame("guildinfo")
+    local notifyText = GET_CHILD_RECURSIVELY(frame, 'noticeEdit');
+    if notifyText:IsHaveFocus() == 0 then
+        notifyText:SetText(ret_json)
+        notifyText:Invalidate()
+    end
+
+end
+
 
 function GUILDINFO_INIT_PROFILE(frame)
     local guild = session.party.GetPartyInfo(PARTY_GUILD);

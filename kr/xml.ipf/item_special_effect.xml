@@ -16,4 +16,10 @@
 			<effect TargetNode="Dummy001" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All"/>
 		</ItemList>
 	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="ABAND01_138">
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="0.5" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="0.5" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All"/>
+		</ItemList>
+	</Effect_Item>
 </List>

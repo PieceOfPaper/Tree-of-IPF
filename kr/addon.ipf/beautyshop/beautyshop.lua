@@ -90,20 +90,25 @@ function BEAUTYSHOP_CLOSE(frame)
 	if isEmpty == true then
 		session.beautyshop.SendCancelTryItOn();
 	else
-		-- 미리보기 목록이 있는데 끄는거면 간소화 목록 표시.
-		local list = GET_CURRENT_TRY_ON_ITEM_LIST(frame);
-		if #list < 1 then
-			return
+		local isAlreadySend = frame:GetUserIValue("ALREADY_TRY_IT_ON_SEND");
+		if  isAlreadySend ~= 1 then
+			-- 미리보기 목록이 있는데 끄는거면 간소화 목록 표시.
+			local list = GET_CURRENT_TRY_ON_ITEM_LIST(frame);
+			if #list < 1 then
+				return
+			end
+
+			-- 인벤토리에서 헤어 악세서리 보이기/안보이기 확인.
+			if BEAUTYSHOP_IS_HAIR_ACCESSORY_VISIBLE(frame) == false then
+					ui.MsgBox(ClMsg('Hair_Accessory_Visible'));
+			end
+
+			SHOW_BEAUTYSHOP_SIMPLELIST(true, list, frame:GetUserValue('CURRENT_SHOP'));
+			BEAUTYSHOP_SEND_TRY_IT_ON_LIST(list)
+			ui.CloseFrame('packagelist'); 
 		end
 
-		-- 인벤토리에서 헤어 악세서리 보이기/안보이기 확인.
-		if BEAUTYSHOP_IS_HAIR_ACCESSORY_VISIBLE(frame) == false then
-				ui.MsgBox(ClMsg('Hair_Accessory_Visible'));
-		end
-
-		SHOW_BEAUTYSHOP_SIMPLELIST(true, list, frame:GetUserValue('CURRENT_SHOP'));
-		BEAUTYSHOP_SEND_TRY_IT_ON_LIST(list)
-		ui.CloseFrame('packagelist'); 
+		frame:SetUserValue("ALREADY_TRY_IT_ON_SEND", 0);
 	end
 	
 	-- 닫을 때 
@@ -368,7 +373,7 @@ function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)
 		
 		local buyCaseClMsg, previewCaseClMsg = GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemClassName);
 		if argStr ~= 'NoCheckDup' and argStr ~= 'NoCheckBuyMsg' and previewCaseClMsg ~= '' then
-		local yesscp = string.format('_BEAUTYSHOP_SELECT_ITEM("%s", "%s")', parent:GetName(), control:GetName());
+			local yesscp = string.format('_BEAUTYSHOP_SELECT_ITEM("%s", "%s")', parent:GetName(), control:GetName());
 			ui.MsgBox(ClMsg(previewCaseClMsg), yesscp, 'None');
 			return false;
 		end
@@ -392,7 +397,7 @@ function BEAUTYSHOP_SELECT_ITEM(parent, control, argStr, argNum)
 
 		BEAUTYSHOP_CLEAR_SLOT(slot);
 	end
-
+	
 	-- 선택 처리
 	local select = frame:GetUserValue("SELECT");
 	frame:SetUserValue('CLICKED_ITEM_CTRLSET_NAME', ctrlSet:GetName());    
@@ -509,6 +514,7 @@ function BEAUTYSHOP_TRY_IT_ON(parent, ctrl)
 
 	SHOW_BEAUTYSHOP_SIMPLELIST(true, list, frame:GetUserValue('CURRENT_SHOP'));
 	BEAUTYSHOP_SEND_TRY_IT_ON_LIST(list)
+	frame:SetUserValue("ALREADY_TRY_IT_ON_SEND", 1); 
 	ui.CloseFrame('beautyshop');
 	ui.CloseFrame('packagelist'); 
 end
@@ -1312,6 +1318,15 @@ function BEAUTYSHOP_SET_PREVIEW_WIG_DYE_EQUIP_SLOT(apc, topFrame, wigVisible, ex
 		return
 	end
 
+	-- 먼저 뷰티샵에서 변경할 헤어가 세팅 됬다면 염색을 적용하지 않음.
+	local hairSlot = GET_CHILD_RECURSIVELY(gbPreview, 'slotPreview_hair');
+	if hairSlot ~= nil then
+		local hairClassName = hairSlot:GetUserValue("CLASSNAME");
+		if hairClassName ~= nil and hairClassName ~= 'None' then
+			return
+		end
+	end
+
 	-- 조건에 충족하면 현재 가발슬롯에 장착된 가발을 가져온다.
 	local wigSlot = GET_CHILD_RECURSIVELY(gbPreview, 'slotPreview_wig');
 	if wigSlot ~= nil then
@@ -1319,7 +1334,16 @@ function BEAUTYSHOP_SET_PREVIEW_WIG_DYE_EQUIP_SLOT(apc, topFrame, wigVisible, ex
 		local wigCls = GetClass("Item", wigClassName)
 		local colorName = existItem.StringArg
 		
+		-- 기본.
 		local headIndex = BEAUTYSHOP_GET_HEADINDEX(apc:GetGender(), wigClassName, colorName )
+
+		--headIndex가 0이고 가발 슬롯이 비어 있으면 현재 머리를 가져온다.
+		if headIndex == 0 and (wigClassName == nil or wigClassName =='None') then
+			local curHeadIndex = apc:GetHeadType();
+			local name, color = BEAUTYSHOP_TRANS_HEAD_INDEX_TO_NAME(apc:GetGender(),curHeadIndex)
+			headIndex = ui.GetHeadIndexByXML(apc:GetGender(), name, colorName);
+		
+		end
 		apc:SetHeadType(headIndex);
 	end
 
@@ -1376,7 +1400,8 @@ function BEAUTYSHOP_SET_PREVIEW_SLOT_LIST(apc)
 	end
 
 	-- 미리보기 장착 : 미리보기 슬롯들을 이용해 덮어쓴다.
-	local wigVisible = false -- 가발이 visible 상태인지 (염색약을 적용하려면 이게 visible 상태여야 한다.)
+	local wigVisible = true
+
 	local slotNameList = BEAUTYSHOP_GET_PREVIEW_NAME_LIST()
 	for index = 1, #slotNameList do
 		local name = slotNameList[index]
@@ -1391,7 +1416,7 @@ function BEAUTYSHOP_SET_PREVIEW_SLOT_LIST(apc)
 				if type == "hair" then -- hair
 					BEAUTYSHOP_SET_PREVIEW_HAIR_EQUIP_SLOT(apc, slot, existItem, classname);
 				elseif type == "wig" then -- wig 
-					wigVisible = visible -- 가발 상태를 설정.
+					wigVisible = visible -- 가발 상태를 설정. 
 					BEAUTYSHOP_SET_PREVIEW_WIG_EQUIP_SLOT(apc, existItem, classname);
 				elseif type == "wig_dye" then -- wig_dye
 					BEAUTYSHOP_SET_PREVIEW_WIG_DYE_EQUIP_SLOT(apc, topFrame, wigVisible, existItem);

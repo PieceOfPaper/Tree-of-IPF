@@ -124,10 +124,15 @@ function GET_REMAIN_TOKEN_SEC()
 end
 
 function IS_NEED_TO_ALERT_TOKEN_EXPIRATION(nearFutureSec)
+    if true ~= session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+        return false;
+    end
+
     local difSec = GET_REMAIN_TOKEN_SEC();
     if difSec < nearFutureSec and difSec > 0 then     
         return true;
     end
+    
     return false;
 end
 

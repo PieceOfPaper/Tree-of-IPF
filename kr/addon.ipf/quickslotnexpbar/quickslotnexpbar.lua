@@ -1189,7 +1189,11 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local slotString 	= 'QuickSlotExecute'..(list:Count() +1);
 		local text 			= hotKeyTable.GetHotKeyString(slotString);
 		lastSlot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
-		icon:SetImage("druid_del_icon");		
+		local lastSlotIconName = "druid_del_icon";
+		if monName == "Colony_Siege_Tower" then
+			lastSlotIconName = "Icon_common_get_off";
+		end	
+		icon:SetImage(lastSlotIconName);
 		lastSlot:EnableDrag(0);
 		SET_QUICKSLOT_OVERHEAT(lastSlot);
 		frame:SetUserValue('SKL_MAX_CNT',list:Count() + 1)
