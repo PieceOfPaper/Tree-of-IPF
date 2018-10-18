@@ -428,6 +428,8 @@
         <Key Name="SkillWidthRange" Value="103097"/>
         <Key Name="DynamicCalcLifeTimeFunc" Value="103120"/>
         <Key Name="DynamicLifeTime" Value="103119"/>
+        <Key Name="GuildCoolDownGroup" Value="103125"/>
+        <Key Name="ItemGuildCoolDown" Value="103124"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1513,6 +1515,7 @@
         <Key Name="KOR_COLONY_BETA_OCCUPATION_REWARD_DAYCHECK" Value="103123"/>
         <Key Name="KOR_COLONY_BETA_REWARD1_DAYCHECK" Value="103122"/>
         <Key Name="KOR_COLONY_BETA_REWARD2_DAYCHECK" Value="103121"/>
+        <Key Name="EVENT_1810_GUILD_BUFF_CHECK" Value="103126"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9219,6 +9222,7 @@
         <Key Name="InDunRewardCountType_800" Value="103104"/>
         <Key Name="IndunWeeklyEnteredCount_800" Value="103101"/>
         <Key Name="Pose_MAGICAL" Value="103103"/>
+        <Key Name="GuildColonyWarpFlag" Value="103127"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
