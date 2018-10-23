@@ -512,11 +512,23 @@ end
 function INVSLOT_CLEAR_CUSTOM(slot)
 	local icon = slot:GetIcon();
 	if icon ~= nil then
-		icon:SetColorTone("FFFFFFFF");
+        local iconInfo = icon:GetInfo()
+		local guid = iconInfo:GetIESID()
+		local invItem = GET_ITEM_BY_GUID(guid)
+        if invItem ~= nil then
+            local itemobj = GetIES(invItem:GetObject())
+            if itemobj ~= nil then
+                if random_item.is_sealed_random_item(itemobj) then
+                    random_item.set_sealed_random_item_icon_color(icon) -- sharedscript.lua 참고        
+                else
+                    icon:SetColorTone("FFFFFFFF")     
+                end
+            end
+        end
 	end
 end
 
-function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)
+function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)      
 	local frame = ui.GetFrame("inventory");
 	local curValue = frame:GetUserValue("CUSTOM_ICON_SCP");
 	if curValue == scriptName then
@@ -526,11 +538,10 @@ function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)
 	frame:SetUserValue("CUSTOM_ICON_SCP", scriptName);
 	frame:SetUserValue("CUSTOM_ICON_ARG_SCP", getArgScript);
 	if scriptName == "None" then
-		INV_APPLY_TO_ALL_SLOT(INVSLOT_CLEAR_CUSTOM);
+	    INV_APPLY_TO_ALL_SLOT(INVSLOT_CLEAR_CUSTOM);        
 		return;
-	end
-
-	INVENTORY_UPDATE_ICONS(frame);
+	end    
+	INVENTORY_UPDATE_ICONS(frame);    
 end
 
 function INVENTORY_SET_CUSTOM_RBTNDOWN(scriptName)
@@ -715,14 +726,14 @@ function GET_INVENTORY_TREEGROUP(baseidcls)
 	return invenTabName
 end
 
-function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList)	
+function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList, exceptLock)
     local itemList = session.GetInvItemList();
     local index = itemList:Head();
     local count = 0;
     local matchedList = {};
     while itemList:InvalidIndex() ~= index do
         local invItem = itemList:Element(index);
-        if invItem ~= nil and invItem:GetObject() ~= nil then
+        if invItem ~= nil and invItem:GetObject() ~= nil and (exceptLock ~= true or invItem.isLockState == false) then
 	        local itemObj = GetIES(invItem:GetObject());
             local matched = true;
             for i = 1, #propCondList do

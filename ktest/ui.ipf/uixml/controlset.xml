@@ -4087,37 +4087,37 @@
 			<controlset name="secondColumnControlset" parent="secondColumn" type="guild_info_banner" hittestbox="true" scrollbar="false" skin="None"/>
 		</controls>
 	</controlset>
-	<controlset name="community_card_layout" hittest="true" width="1355" height="600" hittestset="true" draw="true">
+	<controlset name="community_card_layout" hittest="true" width="1355" height="220" hittestset="false" draw="true">
 		<controls>
-			<layout name="layoutBg"/>
-			<layoutsection name="layoutbgSection" parent="layoutBg"/>
-			<groupbox name="mainBg" parent="layoutbgSection" skin="test_skin_01" LBtnUpScp="OPEN_COMMUNITY_CARD" scrollbar="false"/>
-			<picture name="separator" stretch="true" image="guild_line_h2" margin="0 45 0 0" rect="0 0 1355 2"/>
-			<richtext name="writerName" textalign="left center" margin="20 15 0 0" caption="{@st66d}유저이름{/}"/>
-			<button name="card_deleteBtn" rect="0 0 40 40" skin="test_pvp_btn" caption="{img indun_entrance_LOD 26 26}" layout_gravity="right top" margin="0 5 5 0" LBtnUpScp="COMMUNITY_CARD_DELETE"/>
-			<groupbox name="main_box" rect="0 0 1355 400" margin="0 50 0 0" LBtnUpScp="OPEN_COMMUNITY_CARD" draw="false" scrollbar="false"/>
-			<richtext name="mainText" rect="0 0 1200 90" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="false" fixwidth="true" margin="100 0 0 0" resizebytext="true"/>
-			<groupbox name="bottomBox" LBtnUpScp="OPEN_COMMUNITY_CARD" rect="0 0 1355 50" draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
-			<picture name="replyPic" rect="0 0 50 50" margin="10 0 0 -10" parent="bottomBox" image="guild_comment_on" hittest="true" layout_gravity="left top" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
-			<richtext name="replyCount" parent="bottomBox" caption="0" rect="0 0 100 50" fontname="black_18" layout_gravity="left top" margin="50 0 0 15" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
-			<richtext name="date" parent="bottomBox" caption="000 000 000 000" rect="0 0 100 50" fontname="black_18" layout_gravity="right top" margin="0 0 10 10"/>
-			<groupbox name="replyArea" hittestbox="true" hittest="true" rect="0 0 1340 200" parent="bottomBox" draw="true" margin="8 35 0 0" layout_gravity="left top" skin="guild_comment_skin"/>
-			<groupbox name="replyBox" parent="replyArea" rect="0 0 1340 100" draw="false" hittest="true" hittestbox="true" scrollbar="false"/>
-			<edit name="editReply" skin="test_weight_skin" rect="0 0 1340 100" parent="replyArea" fixwidth="true" fontname="white_20_ol" layout_gravity="left bottom"/>
+			<groupbox name="mainBg" rect="0 0 1355 220" parent="layoutbgSection" skin="test_skin_01" LBtnUpScp="OPEN_COMMUNITY_CARD" scrollbar="false"/>
+		
+			<groupbox name="header" draw="false" rect="0 0 1355 50" parent="mainBg" scrollbar="false"/>
+			<picture name="separator" parent="header" stretch="true" image="guild_line_h2" margin="0 45 0 0" rect="0 0 1355 2"/>
+			<richtext name="writerName" textalign="left center" parent="header" margin="20 15 0 0" caption="{@st66d}유저이름{/}"/>
+			<button name="card_deleteBtn" rect="0 0 40 40" skin="test_pvp_btn" parent="header" caption="{img indun_entrance_LOD 26 26}" layout_gravity="right top" margin="0 5 5 0" LBtnUpScp="COMMUNITY_CARD_DELETE"/>
+			
+			<groupbox name="main_box" rect="0 0 1355 100" margin="0 50 0 0" parent="mainBg" LBtnUpScp="OPEN_COMMUNITY_CARD" draw="false" scrollbar="false"/>
+			<richtext name="mainText" rect="0 0 1200 100" hittest="false" parent="main_box" format="{@st66b}%s{/}" param1="text" param1_def="텍스트" fixheight="false" fixwidth="true" margin="100 0 0 0" resizebytext="true"/>
+			
+			<groupbox name="bottomBox" parent="mainBg" LBtnUpScp="OPEN_COMMUNITY_CARD" rect="0 0 1355 50" margin="0 0 0 10" draw="false" skin="premium_title_line" layout_gravity="center bottom" scrollbar="false"/>
+			<groupbox name="bottomBoxHeader" parent="bottomBox" rect="0 0 1355 50" draw="false" scrollbar="false"/>
+			<picture name="replyPic" rect="0 0 50 50" margin="10 0 0 -10" parent="bottomBoxHeader" image="guild_comment_on" hittest="true" layout_gravity="left top" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
+			<richtext name="replyCount" parent="bottomBoxHeader" caption="0" rect="0 0 100 50" fontname="black_18" layout_gravity="left top" margin="50 0 0 15" LBtnUpScp="OPEN_COMMUNITY_CARD"/>
+			<richtext name="date" parent="bottomBoxHeader" caption="000 000 000 000" rect="0 0 100 50" fontname="black_18" layout_gravity="right top" margin="0 0 10 10"/>
+			
+			<groupbox name="replyArea" parent="bottomBox" LBtnUpScp="OPEN_COMMUNITY_CARD" hittest="true" scrollbar="false" rect="0 0 1340 200"  draw="true" margin="8 50 0 0" layout_gravity="left top" skin="guild_comment_skin" hittestbox="false"/>
+			<groupbox name="replyBox" parent="replyArea" rect="0 0 1340 100" draw="false" hittest="true" hittestbox="false" scrollbar="false"/>
+			<edit name="editReply" skin="test_weight_skin" rect="0 0 1340 100" parent="replyArea" fixwidth="true" fontname="white_20_ol" layout_gravity="left bottom" maxlen="120"/>
 			<button name="sendReply" rect="0 0 200 50" parent="replyArea" skin="test_pvp_btn" layout_gravity="right bottom" caption="{@st66}{s18}작성{/}" fontname="brown_16"/>
 		</controls>
 	</controlset>
-	<controlset name="community_card_reply" hittest="true" width="1355" height="50" hittestset="true" draw="false">
-		<controls>
-			<picture name="guildLinePicture" rect="0 0 1355 2" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
-			<layout name="commentLayout" margin="20 5 40 10"/>
-			<layoutsection name="commentAuthorSection" parent="commentLayout" size="10%" hittest="false"/>
-			<richtext name="commentAuthorText" parent="commentAuthorSection" textalign="left center" fontname="black_18_b" hittest="false"/>
-			<layoutsection name="replyTextSection" parent="commentLayout" hittest="true"/>
-			<richtext name="replyText" format="{@st66b}%s     {/}" param1="text" fontname="white_18" textalign="left center" parent="replyTextSection" />
-			<button name="deleteCommentBtn" rect="0 0 20 20" margin="0 0 0 0" format="X" skin="None" fontname="white_18" layout_gravity="right bottom" parent="replyText"  LBtnUpScp="DELETE_ONELINE_COMMENT"/>
-			<layoutsection name="dateSection" parent="commentLayout" hittest="false"/>
-			<richtext name="dateText" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="right center" parent="dateSection" hittest="false"/>
+	<controlset name="community_card_reply" hittest="true" width="1320" height="50" hittestset="false" draw="false">
+	<controls>
+			<picture name="guildLinePicture" rect="0 0 1320 2" layout_gravity="center bottom" stretch="true" image="guild_line_h2"/>
+			<richtext name="commentAuthorText" fixwidth="true" margin="50 0 0 0" rect="0 0 140 40" layout_gravity="left center" textalign="left center" fontname="black_18_b" hittest="true" omitbywidth="true"/>
+			<richtext name="replyText" rect="0 0 960 40" margin="200 0 0 0" layout_gravity="left center" format="{@st66b}%s     {/}" param1="text" fontname="white_18"  hittest="true" omitbywidth="true" fixwidth="true" resizebytext="true"/>
+			<button name="deleteCommentBtn" rect="0 0 20 20" format="X" skin="None" fontname="white_18" layout_gravity="right bottom" parent="replyText" LBtnUpScp="DELETE_ONELINE_COMMENT"/>
+			<richtext name="dateText" rect="0 0 400 40"   layout_gravity="right center" format="{@st66b}%s{/}" param1="text" fontname="black_18_b" textalign="right center" hittest="false"/>
 		</controls>
 	</controlset>
 	<controlset name="guild_member_row" hittest="true" width="1050" height="50" hittestset="true" draw="true">
@@ -4551,6 +4551,21 @@
 			<groupbox name="list_bg" rect="0 0 490 180" margin="0 50 0 0" layout_gravity="center top" draw="false" skin="bg2"/>
 			<button name="detail_btn" layout_gravity="right bottom" rect="0 0 100 30" margin="0 0 0 10" caption="{s16}{b}{ol}{ds}자세히 보기>>" draw="true" skin="none" clicksound="button_click_big" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 			<labelline name="labelline" margin="0 0 0 5" rect="0 0 490 3" skin="labelline_def_2" layout_gravity="center bottom"/>
+		</controls>
+	</controlset>
+	<controlset name="guild_joint_inventory_log" width="950" height="50" hittest="true" hittestset="false" draw="false">
+		<userconfig DEPOSIT_IMG="in_arrow" WITHDRAW_IMG="chul_arrow"/>
+		<controls>
+			<picture name="line" rect="0 0 946 2" margin="0 4 0 0" layout_gravity="right top" stretch="true" image="guild_line_h2"/>
+			<layout name="logLayout" margin="0 0 30 0"/>
+			<layoutsection name="dateSection" parent="logLayout"/>
+			<richtext name="dateText" parent="dateSection" format="{img %s 18 18} %s" fontname="white_16_ol" param1="img" param1_def="in_arrow" param2="date" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="teamNameSection" parent="logLayout"/>
+			<richtext name="teamName" parent="teamNameSection" format="{@st66d}%s" param1="name" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="itemNameSection" parent="logLayout"/>
+			<richtext name="itemName" parent="itemNameSection" format="{@st66d}%s" fontname="white_16_ol"  param1="name" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="itemCountSection" parent="logLayout"/>
+			<richtext name="itemCount" parent="itemCountSection" format="{@st66d_y}%s" fontname="black_18" param1="count" textalign="center center"/>
 		</controls>
 	</controlset>
 </controlsetlist>

@@ -48,6 +48,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	SHOP_SELECT_ITEM_LIST = {};
 	INVENTORY_TOGGLE_ITEM_LIST = {};
 
+
 	--검색 용 변수
 	searchEnterCount = 1
 	beforekeyword = "None"
@@ -92,7 +93,6 @@ end
 
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 	INIT_INVEN_SLOT(slot);
-
 	--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
 	if ui.GetFrame('shop'):IsVisible() == 1 or ui.GetFrame('exchange'):IsVisible() == 1 or ui.GetFrame("oblation_sell"):IsVisible() == 1 then
 		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
@@ -167,7 +167,6 @@ function MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls)
 end
 
 function MAKE_INVEN_SLOTSET(tree, name)
-	
 	local frame = ui.GetFrame('inventory');
 	local slotsize = frame:GetUserConfig("TREE_SLOT_SIZE");
 	local colcount = frame:GetUserConfig("TREE_COL_COUNT");
@@ -813,8 +812,7 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	local itemSlot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
-		INV_SLOT_UPDATE(frame, invItem, itemSlot); 
-
+		INV_SLOT_UPDATE(frame, invItem, itemSlot)
 		local itemSlot_All = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
 		if itemSlot_All ~= nil then
 			local invItem_All = GET_PC_ITEM_BY_GUID(itemGuid)
@@ -966,8 +964,6 @@ end
 
 function SLOTSET_UPDATE_ICONS_BY_NAME(frame, slotSetName)
 	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
-
-	
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
@@ -992,23 +988,21 @@ function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 	end
 
 	for j = 0 , slotSet:GetChildCount() - 1 do
-		local slot = slotSet:GetChildByIndex(j);
-		local invItem = GET_SLOT_ITEM(slot); 
+		local slot = slotSet:GetChildByIndex(j)
+		local invItem = GET_SLOT_ITEM(slot)        
 		if invItem ~= nil then
-			local itemCls = GetIES(invItem:GetObject());			
+			local itemCls = GetIES(invItem:GetObject())            
 			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-			INV_SLOT_UPDATE(frame, invItem, slot);
+			INV_SLOT_UPDATE(frame, invItem, slot)
 		end
 	end
 end
 
 function INVENTORY_UPDATE_ICONS(frame)
 	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
-
 	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
-
 		for i = 1 , #SLOTSET_NAMELIST do
 			local slotSet = GET_CHILD_RECURSIVELY(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 			SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)

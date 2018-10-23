@@ -103,8 +103,7 @@ function WARNINGMSGBOX_CREATE_TOOLTIP(frame)
 		return
 	end
 
-	local tempObj = CreateIESByID("Item", obj.ClassID);
-	CopyChangedProperty(obj, tempObj);
+	local tempObj = CloneIES_NotUseCalc(obj);
 
     local tooltipObj = tolua.cast(tempObj, 'imcIES::IObject');
     if tooltipObj == nil then

@@ -275,16 +275,15 @@ function ITEMTOOLTIPFRAME_ARRANGE_CHILDS(tooltipframe, showAppraisalPic)
 end
 
 function INIT_ITEMTOOLTIPFRAME_CHILDS(tooltipframe)
-
 	local childCnt = tooltipframe:GetChildCount();
 	for i = 0 , childCnt - 1 do
 		local chld = tooltipframe:GetChildByIndex(i);
 
 		chld:RemoveAllChild()
-		chld:SetOffset(chld:GetOriginalX(),chld:GetOriginalY());
+		chld:SetOffset(chld:GetOriginalX(), chld:GetOriginalY());
 
 		if chld:GetName() ~= 'closebtn' then
-			chld:Resize(chld:GetOriginalWidth(),0);
+			chld:Resize(chld:GetOriginalWidth(), 0);
 		end
 	end
 end
@@ -324,12 +323,15 @@ function ITEMTOOLTIPFRAME_RESIZE(tooltipframe)
 
 	local childCnt = tooltipframe:GetChildCount();
 	for i = 0 , childCnt - 1 do
-		local chld = tooltipframe:GetChildByIndex(i);
-		    chld:SetOffset(chld:GetX() - min_x, chld:GetY() - min_y)
+		local chld = tooltipframe:GetChildByIndex(i);		
+		chld:SetOffset(chld:GetX() - min_x, chld:GetY() - min_y);
+		
+		if chld:GetName() == 'closebtn' then
+			chld:SetOffset(chld:GetX(), chld:GetOriginalY() + 5);
+		end
 	end
 
 	tooltipframe:Resize(max_x-min_x, max_y-min_y);
-
 end
 
 --상점에서 가격 표시

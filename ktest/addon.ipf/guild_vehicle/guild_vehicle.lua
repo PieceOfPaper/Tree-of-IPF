@@ -45,9 +45,9 @@ function CREATE_GUILD_VEHICLE_FRAME(handle, list, listcnt)
     local frame = ui.GetFrame(frameName);
     if frame == nil then
         frame = ui.CreateNewFrame("guild_vehicle", frameName);
+        frame:SetLayerLevel(1);
         local offsetY = tonumber(frame:GetUserConfig("OffsetY"));
         actor:GetTitle():AddBuffSellerBalloonFrame(frameName, "TOP", offsetY);
-        --frame:SetVisible(1);
     end
     UPDATE_GUILD_VEHICLE_RIDER_LIST(frame, list, listcnt);
 end

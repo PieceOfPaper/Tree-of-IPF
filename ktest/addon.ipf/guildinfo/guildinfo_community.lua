@@ -63,6 +63,7 @@ function ON_TIMELINE_UPDATE(code, ret_json)
         local ctrlSet = communityPanel:CreateOrGetControlSet("community_card_layout", lastIndex + i, 0, 0);
         
         ctrlSet:EnableHitTest(1);
+        ctrlSet:SetUserValue("opened", "false")
         local mainText = GET_CHILD_RECURSIVELY(ctrlSet, "mainText", "ui::CRichText");
         local authorTxt = GET_CHILD_RECURSIVELY(ctrlSet, "writerName", "ui::CRichText");
         local regDateTxt = GET_CHILD_RECURSIVELY(ctrlSet, "date", "ui::CRichText");
@@ -93,8 +94,8 @@ function ON_TIMELINE_UPDATE(code, ret_json)
         replyBtn:SetEventScript(ui.LBUTTONUP, "ON_REPLY_SEND")
         replyBtn:SetUserValue("boardIdx", list[i]["board_idx"]);
 
-        OPEN_COMMUNITY_CARD(communityPanel, mainText)
-
+        local replyArea = GET_CHILD_RECURSIVELY(ctrlSet, "replyArea", "ui::CGroupBox");
+        replyArea:SetVisible(0);
     end
     if #list ~= 0 then
         lastBoardIndex = list[#list]["seq"]
@@ -142,8 +143,7 @@ end
 
 function ON_COMMENT_GET(code, ret_json, boardIdx)
     if code ~= 200 then
-        if code == 400 then -- 400:댓글이 없거나 로드에 실패함. 이외 코드는 출력해서 보여줌.
-        else
+        if code ~= 400 then -- 400:댓글이 없거나 로드에 실패함. 이외 코드는 출력해서 보여줌.
             SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_COMMENT_GET")
         end
         return
@@ -156,22 +156,19 @@ function ON_COMMENT_GET(code, ret_json, boardIdx)
     if selectedCard == nil then
         return
     end 
-    local totalHeight = 0;
     
-    local replyList = GET_CHILD_RECURSIVELY(selectedCard, "replyBox", "ui::CGroupBox");
+    local replyBox = GET_CHILD_RECURSIVELY(selectedCard, "replyBox", "ui::CGroupBox");
     local replyArea = GET_CHILD_RECURSIVELY(selectedCard, "replyArea", "ui::CGroupBox");
-    local editReply = GET_CHILD_RECURSIVELY(selectedCard, "editReply", "ui::CEdit");
     local bottomBox = GET_CHILD_RECURSIVELY(selectedCard, "bottomBox", "ui::CGroupBox");
-    local bg = GET_CHILD_RECURSIVELY(selectedCard, "mainBg")
-    local replyTxt = ""
-    local replySetHeight=0;
-    replyList:RemoveAllChild()
+    local mainBg = GET_CHILD_RECURSIVELY(selectedCard, "mainBg")
+    replyBox:RemoveAllChild()  
+     
     for i=1, #list do
-        local replySet = replyList:CreateOrGetControlSet("community_card_reply", i, 0, 0)
+        local replySet = replyBox:CreateOrGetControlSet("community_card_reply", i, 0, 0)
         local replyData = list[i]
 
         replySet:SetUserValue("comment_idx", replyData["comment_idx"]);
-        replySetHeight = replySet:GetHeight()
+
 
         local authorTxt = GET_CHILD_RECURSIVELY(replySet, "commentAuthorText");
         authorTxt:SetText("{@st66d}" .. replyData["author"] .. "{/}");
@@ -179,6 +176,7 @@ function ON_COMMENT_GET(code, ret_json, boardIdx)
         if GETMYFAMILYNAME() == replyData["author"] then
             authorTxt:SetText("{@st66d_y}" .. replyData["author"] .. "{/}");
         end
+        authorTxt:SetTextTooltip(replyData["author"]);
             
         local regTime =  GET_CHILD_RECURSIVELY(replySet, "dateText");
         regTime:SetTextByKey("text", replyData["reg_time"]);
@@ -191,22 +189,14 @@ function ON_COMMENT_GET(code, ret_json, boardIdx)
         replyText:SetTextByKey("text", replyData["message"]);
         replyText:SetUserValue("comment_idx", replyData["comment_idx"])
         replyText:SetUserValue("board_idx", replyData["board_idx"])
-        totalHeight = totalHeight + replySetHeight;
     end
-        replyList:Resize(replyList:GetWidth(), totalHeight);
-        bottomBox:Resize(bottomBox:GetWidth(), totalHeight + editReply:GetHeight() + 50);
-        replyArea:Resize(replyArea:GetWidth(), totalHeight + editReply:GetHeight());
 
-        local replyBoxHeight = totalHeight + replySetHeight
-        replyBoxHeight = replyBoxHeight + editReply:GetHeight();
-        replyBoxHeight = replyBoxHeight + 100;
-        selectedCard:Resize(selectedCard:GetWidth(), replyBoxHeight );      
+    GBOX_AUTO_ALIGN(replyBox, 0, 0, 0, false, true, true)
+    GBOX_AUTO_ALIGN(replyArea, 0, 0, 0, true, true, true)
+    GBOX_AUTO_ALIGN(bottomBox, 0, 0, 0, true, true, true)
+    GBOX_AUTO_ALIGN(mainBg, 0, 0, 10, true, true, true)
+    selectedCard:Resize(selectedCard:GetWidth(), mainBg:GetHeight())
 
-    local replyCount = GET_CHILD_RECURSIVELY(selectedCard, "replyCount", "ui::CRichText");
-
-    replyCount:SetText(#list)
-    bg:Resize(selectedCard:GetWidth(), selectedCard:GetHeight())
-    GBOX_AUTO_ALIGN(replyList, 0, 0, 0, true, false);
     REALIGN_COMMUNITYPANEL()
 end
 
@@ -222,60 +212,49 @@ function LOAD_MORE_ONLINE_BOARD(parent, control)
 
 end
 
--- 하단 매직넘버(width, height값 uservalue나 userconfig으로 수정해야함)
 function OPEN_COMMUNITY_CARD(parent, control)
     local controlset = control:GetAboveControlset();
     controlset = tolua.cast(controlset, "ui::CControlSet")
+
+    local mainBg = GET_CHILD_RECURSIVELY(controlset, "mainBg")
+    local header = GET_CHILD_RECURSIVELY(controlset, "header");
+    
     local main_box = GET_CHILD_RECURSIVELY(controlset, "main_box");
-    local height = controlset:GetHeight()
     local bottomBox = GET_CHILD_RECURSIVELY(controlset, "bottomBox");
-    local replyArea =  GET_CHILD_RECURSIVELY(controlset, "replyArea");
-    local replyBox = GET_CHILD_RECURSIVELY(controlset, "replyBox");
-    local editReply =  GET_CHILD_RECURSIVELY(controlset, "editReply");
-    local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply");
     local mainText = GET_CHILD_RECURSIVELY(controlset, "mainText", "ui::CRichText");
-    local bg = GET_CHILD_RECURSIVELY(controlset, "mainBg")
+    local replyArea =  GET_CHILD_RECURSIVELY(controlset, "replyArea");
 
-    replyBox:SetUserValue("card_name", control:GetName())
-    if height == 140 then  -- closed. opening
-        local additionalTextHeight = mainText:GetHeight() - 100
-        if additionalTextHeight > 0 then
-            main_box:Resize(main_box:GetWidth(), mainText:GetHeight())
-            controlset:Resize(controlset:GetWidth(), 450 + additionalTextHeight)
-        else
-            main_box:Resize(main_box:GetWidth(), 100)
-            controlset:Resize(controlset:GetWidth(), 400)
-        end
-
-        bottomBox:Resize(bottomBox:GetWidth(), 250)
-        replyArea:SetVisible(1)
-        replyBox:SetVisible(1)
-        editReply:SetVisible(1)
-        local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply")
-
-        local boardIdx = sendReply:GetUserValue("boardIdx");
-
-        GetComment("ON_COMMENT_GET", boardIdx);
-        local replyCount = GET_CHILD_RECURSIVELY(controlset, "replyCount", "ui::CRichText");
-        replyCount:SetText('0')
-        bg:Resize(controlset:GetWidth(), controlset:GetHeight())
-    else --opened. closing
-        controlset:Resize(controlset:GetWidth(), 140)
-        main_box:Resize(main_box:GetWidth(), 20)
-        bg:Resize(controlset:GetWidth(), 140)
-        bottomBox:Resize(bottomBox:GetWidth(), 50)
-        replyArea:SetVisible(0)
+    if controlset:GetUserValue("opened") == "true" then -- 열려있음. 닫혀야함
+        controlset:SetUserValue("opened", "false")
+       
+        main_box:Resize(main_box:GetWidth(), main_box:GetOriginalHeight())
         
-        replyBox:SetVisible(0)
-        editReply:SetVisible(0)
+        replyArea:SetVisible(0);
+        
+
+    else--닫힘. 열고 코멘트 로드함
+        controlset:SetUserValue("opened", "true")
+        if mainText:GetHeight() > main_box:GetOriginalHeight() then
+            main_box:Resize(main_box:GetWidth(), mainText:GetHeight())
+        end
+        replyArea:SetVisible(1);
+
+        local sendReply = GET_CHILD_RECURSIVELY(controlset, "sendReply")
+        local boardIdx = sendReply:GetUserValue("boardIdx");
+        GetComment("ON_COMMENT_GET", boardIdx);
     end
+    GBOX_AUTO_ALIGN(bottomBox, 0, 0, 0, true, true, true)
+    GBOX_AUTO_ALIGN(mainBg, 0, 0, 10, true, true, true)
+    controlset:Resize(controlset:GetWidth(), mainBg:GetHeight())
+        
+
     REALIGN_COMMUNITYPANEL()
 end
 
 function REALIGN_COMMUNITYPANEL()
     local frame = ui.GetFrame("guildinfo");
     local communityPanel = GET_CHILD_RECURSIVELY(frame, "communitypanel", "ui::CGroupBox");
-    GBOX_AUTO_ALIGN(communityPanel, 0, 0, 0, true, false);
+    GBOX_AUTO_ALIGN(communityPanel, 0, 0, 0, false, false);
 end
 
 

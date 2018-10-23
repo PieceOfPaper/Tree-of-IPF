@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="systemoption" x="0" y="0" width="600" height="1200">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
@@ -18,7 +18,7 @@
 		<!-- Game & UI Mode -->
 		<groupbox name="gameUIModeBox" rect="0 0 560 560" parent="bg2" margin="0 40 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>
 		<groupbox name="gameBox" rect="0 0 280 520" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="left top" scrollbar="false" draw="false"/>
-		<groupbox name="gamePVPSetting" rect="0 0 280 430" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
+		<groupbox name="gamePVPSetting" rect="0 0 280 520" parent="gameUIModeBox" margin="0 0 0 0" layout_gravity="right top" scrollbar="false" draw="false"/>
 		<richtext name="game_title" rect="0 0 120 24" parent="gameBox" margin="10 10 0 0" layout_gravity="left top" format="{@st43}게임{/}"/>
 		<checkbox name="viewCharInfoBase" rect="0 0 120 30" parent="gameBox" margin="20 50 0 0" layout_gravity="left top" ConfigName="ViewCharInfoBase" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}캐릭터 기본 정보 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="HideGivenName" rect="0 0 120 30" parent="gameBox" margin="20 80 0 0" layout_gravity="left top" ConfigName="HideGivenName" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}팀 이름만 보기{/}" clicksound="button_click_big" oversound="button_over"/>
@@ -51,7 +51,7 @@
 		<checkbox name="chkShowPadSkillRange" rect="0 0 120 30" parent="gamePVPSetting" margin="20 315 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SHOW_PAD_SKILL_RANGE" caption="{@st66b}장판 범위 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkSimplifyBuffEffects" rect="0 0 120 30" parent="gamePVPSetting" margin="20 345 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SIMPLIFY_BUFF_EFFECTS" caption="{@st66b}버프 이펙트 간소화{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkSimplifyModel" rect="0 0 120 30" parent="gamePVPSetting" margin="20 375 0 0" layout_gravity="left top" LBtnUpScp="CONFIG_SIMPLIFY_MODEL" caption="{@st66b}모델 간소화{/}" clicksound="button_click_big" oversound="button_over"/>
-		<checkbox name="chkShowGuildInColony" rect="0 0 120 30" parent="gamePVPSetting" margin="20 405 0 0" layout_gravity="left top" ConfigName="ShowGuildInColony" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}콜로니전 길드 이름, 팀이름 보기{/}" clicksound="button_click_big" oversound="button_over"/>
+		<checkbox name="chkShowGuildInColony" rect="0 0 120 30" parent="gamePVPSetting" margin="20 405 0 0" layout_gravity="left top" ConfigName="ShowGuildInColony" LBtnUpScp="UPDATE_TITLE_OPTION" caption="{@st66b}콜로니전 길드 이름, 팀 이름 보기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<checkbox name="chkShowGuildInColonyEffectCostume" rect="0 0 120 30" parent="gamePVPSetting" margin="20 435 0 0" layout_gravity="left top" ConfigName="ShowGuildInColonyEffectCostume" LBtnUpScp="SHOW_COLONY_EFFECTCOSTUME" caption="{@st66b}콜로니전 이펙트 코스튬 효과 켜기{/}" clicksound="button_click_big" oversound="button_over"/>
 		<!-- Display -->
 		<groupbox name="displayBox" parent="bg2" rect="0 0 560 160" margin="0 560 0 0" layout_gravity="center top" scrollbar="false" draw="false"/>

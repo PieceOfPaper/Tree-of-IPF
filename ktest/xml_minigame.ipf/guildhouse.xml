@@ -7,6 +7,7 @@
                     <Obj Type="Monster" MonType="40001" Pos="-238.23#73.49#295.62" angle="142" genCount="1" genTime="20000" objectKey="0" propList="&apos;Enter&apos; &apos;AGIT_TO_HOUSE&apos; &apos;Range&apos; &apos;10&apos; "/>
                     <Obj Type="Monster" MonType="40001" Pos="323.22#-3.04#1301.73" angle="-43" genCount="1" genTime="20000" objectKey="1" propList="&apos;Enter&apos; &apos;AGIT_TO_YARD&apos; &apos;Range&apos; &apos;10&apos; "/>
                     <Obj Type="Monster" MonType="58046" Pos="33.55#0.23#27.03" genCount="1" genTime="20000" objectKey="2" propList="&apos;Dialog&apos; &apos;TOWER_IN_AGIT&apos; &apos;Faction&apos; &apos;Peaceful&apos; " AfterGenScript="INIT_AGIT_HOUSE"/>
+                    <Obj Type="Monster" MonType="156152" Pos="-134.02#0.23#72.53" genCount="1" genTime="20000" objectKey="3" propList="&apos;Dialog&apos; &apos;COLONY_SUTLER&apos; &apos;Faction&apos; &apos;Peaceful&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="ValidPcCheck">

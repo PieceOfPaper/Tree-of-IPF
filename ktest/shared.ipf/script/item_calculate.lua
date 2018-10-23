@@ -1661,7 +1661,20 @@ function SCR_GET_ITEM_COOLDOWN(item)
 end
 
 function SCR_GET_HP_COOLDOWN(item)
-    local name = item.ClassName
+    ---GuildColony POTION_TP CoolTime Setting---
+    local owner = GetItemOwner(item)
+    local iscolonyzone = IsJoinColonyWarMap(owner)
+    if iscolonyzone == 1 then
+        if item.CoolDownGroup == "HPPOTION_TP" then
+            local colonyCoolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+            if colonyCoolDown ~= 0 and colonyCoolDown ~= nil then
+                return colonyCoolDown;
+            else
+                return item.ItemCoolDown;
+            end
+        end
+    end
+    --------------------------------------------
   return item.ItemCoolDown;
 end
 
@@ -1670,9 +1683,42 @@ function SCR_GET_HPSP_COOLDOWN(item)
 end
 
 function SCR_GET_SP_COOLDOWN(item)  
+    ---GuildColony POTION_TP CoolTime Setting---
+    local owner = GetItemOwner(item)
+    local iscolonyzone = IsJoinColonyWarMap(owner)
+    if iscolonyzone == 1 then
+        if item.CoolDownGroup == "SPPOTION_TP" then
+            local colonyCoolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+            if colonyCoolDown ~= 0 and colonyCoolDown ~= nil then
+                return colonyCoolDown;
+            else
+                return item.ItemCoolDown;
+            end
+        end
+    end
+    --------------------------------------------
   return item.ItemCoolDown;
 end
 
+function SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+    local coolDownGroup = item.CoolDownGroup
+    local owner = GetItemOwner(item)
+    if owner ~= nil then
+        local iscolonyzone = IsJoinColonyWarMap(owner)
+        if iscolonyzone == 1 then
+            local list, cnt = SCR_GUILD_COLONY_RESTRICTION_CHECK(owner, "GuildColony_Restricted_Item_CoolDown")
+            local coolTime = 0
+            for i = 1, cnt do
+                if table.find(list[i], coolDownGroup) > 0 then
+                    coolTime = list[i][2]
+                    break
+                end
+            end
+            return coolTime;
+        end
+    end
+    return 0
+end
 
 function SCR_GET_AWAKENING_PROP_LEVEL(star, grade)
 

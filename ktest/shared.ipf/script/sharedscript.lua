@@ -1,3 +1,26 @@
+random_item = {}
+random_item.is_sealed_random_item = function(itemobj)    
+    if IS_EQUIP(itemobj) == false then
+        return false;
+    end
+
+    local isRandomOption = TryGetProp(itemobj,'NeedRandomOption')
+    local isAppraisal = TryGetProp(itemobj,'NeedAppraisal')
+
+    if isRandomOption == 1 then
+        return true;    
+    elseif isAppraisal == 1 then
+        return true;
+    end
+    return false;    
+end
+
+random_item.set_sealed_random_item_icon_color = function(icon)
+    if icon ~= nil then
+        icon:SetColorTone("FFFF0000")
+    end
+end
+
 function SCR_QUEST_LINK_FIRST(pc,questname)
     return SCR_QUEST_LINK_FIRST_SUB(pc,{questname}, {}, {})
 end

@@ -237,8 +237,16 @@ function SET_ENABLESKILLCANCEL_HITINDEX_C(actor, obj, cancelHitIndex)
 end
 
 function GET_LH_SOUND_SKILL(sklID)
-	-- 스칼푸그닝
-	if sklID == 31301 then
+	local skillCls = GetClassByType('Skill', sklID);
+	if skillCls == nil then
+		return 0;
+	end
+
+	if skillCls.ClassName == 'Hackapell_Skarphuggning' then
+		return 1;
+	end
+
+	if skillCls.AttackType == 'Gun' then
 		return 1;
 	end
 

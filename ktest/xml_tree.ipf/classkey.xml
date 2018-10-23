@@ -428,6 +428,8 @@
         <Key Name="SkillWidthRange" Value="103097"/>
         <Key Name="DynamicCalcLifeTimeFunc" Value="103120"/>
         <Key Name="DynamicLifeTime" Value="103119"/>
+        <Key Name="GuildCoolDownGroup" Value="103125"/>
+        <Key Name="ItemGuildCoolDown" Value="103124"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1513,6 +1515,17 @@
         <Key Name="KOR_COLONY_BETA_OCCUPATION_REWARD_DAYCHECK" Value="103123"/>
         <Key Name="KOR_COLONY_BETA_REWARD1_DAYCHECK" Value="103122"/>
         <Key Name="KOR_COLONY_BETA_REWARD2_DAYCHECK" Value="103121"/>
+        <Key Name="EVENT_1810_GUILD_BUFF_CHECK" Value="103126"/>
+        <Key Name="EVENT_1810_HALLOWEEN_ACC_COUNT" Value="103130"/>
+        <Key Name="EVENT_1810_HALLOWEEN_ACC_REWARD" Value="103129"/>
+        <Key Name="EVENT_1810_HALLOWEEN_DATE" Value="103134"/>
+        <Key Name="EVENT_1810_HALLOWEEN_DAY_COUNT" Value="103131"/>
+        <Key Name="GUILD_INVENTORY_COLONY_ENTER_DATE" Value="103133"/>
+        <Key Name="GUILD_INVENTORY_DAY_ENTER_DATE" Value="103132"/>
+        <Key Name="Guild_Colony_Honor_Reward_DayCheck" Value="103139"/>
+        <Key Name="KOR_COLONY_BETA2_ENTRY_REWARD_COUNT" Value="103138"/>
+        <Key Name="KOR_COLONY_BETA2_ENTRY_REWARD_DAYCHECK" Value="103136"/>
+        <Key Name="KOR_COLONY_BETA2_REWARD_DAYCHECK" Value="103137"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9219,6 +9232,7 @@
         <Key Name="InDunRewardCountType_800" Value="103104"/>
         <Key Name="IndunWeeklyEnteredCount_800" Value="103101"/>
         <Key Name="Pose_MAGICAL" Value="103103"/>
+        <Key Name="GuildColonyWarpFlag" Value="103127"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -10162,6 +10176,7 @@
         <Key Name="Guild_Attendance_Reset" Value="102227"/>
         <Key Name="ColonyWarFirstEntryReward" Value="102303"/>
         <Key Name="ColonyWarFirstVictoryReward" Value="102304"/>
+        <Key Name="GUILD_QUEST_CLEAR_COUNT" Value="103128"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -17042,6 +17057,7 @@
         <Key Name="EVENT_1810_UNIQUE_PC_YDAY" Value="103110"/>
         <Key Name="GUILD_QUEST_WEEK1" Value="103117"/>
         <Key Name="GUILD_QUEST_WEEK1_R" Value="103118"/>
+        <Key Name="MG_Last_MISSION_UPHILL_DEFFENSE_EVENT_1810" Value="103135"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

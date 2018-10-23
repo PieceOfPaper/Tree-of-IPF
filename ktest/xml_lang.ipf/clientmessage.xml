@@ -688,7 +688,7 @@
 		<Class ClassID="8099" ClassName="ThisCompanionIs NotPossible" Data="스킬을 사용할 수 있는 컴패니언이 없습니다."/>
 		<Class ClassID="8100" ClassName="YouCanNotRideCompanionCoolTime" Data="아직 컴패니언에 탑승할 수 없습니다."/>
 		<Class ClassID="8101" ClassName="YouCanNotUseSkillCompanionCoolTime" Data="아직 컴패니언 스킬을 사용할 수 없습니다."/>
-    <Class ClassID="8103" ClassName="{layer}LayerFull" Data="현재 [숙소{layer}]가 가득차 더 이상 캐릭터를 생성할 수 없습니다. 숙소를 변경하여 시도해 주세요."/>    
+		<Class ClassID="8103" ClassName="{layer}LayerFull" Data="현재 [숙소{layer}]가 가득차 더 이상 캐릭터를 생성할 수 없습니다. 숙소를 변경하여 시도해 주세요."/>
 	</Category>
 	<Category Name="RestMode">
 		<Class ClassID="9001" ClassName="WhereToMakeCampFire?" Data="어디에 모닥불을 피워볼까?"/>
@@ -4929,6 +4929,11 @@
 		<Class ClassID="28161" ClassName="EVENT_1810_UNIQUE_MSG2" Data="[로타의 특별 지원] 참여한다"/>
 		<Class ClassID="28170" ClassName="EVENT_1810_FALL_LEAF_MSG1" Data="단풍 축제 이벤트에 참여한다"/>
 		<Class ClassID="28171" ClassName="EVENT_1810_FALL_LEAF_MSG2" Data="클라페다, 오르샤로 돌아가시면 단풍 축제 이벤트 도우미에게 선물을 받으실 수 있습니다"/>
+		<Class ClassID="28175" ClassName="EVENT_1810_HALLOWEEN_MSG1" Data="호박 코스튬을 선택해주세요"/>
+		<Class ClassID="28176" ClassName="EVENT_1810_HALLOWEEN_MSG2" Data="미션에 도전한다"/>
+		<Class ClassID="28177" ClassName="EVENT_1810_HALLOWEEN_MSG3" Data="일일 보상 누적 횟수 보상을 받는다 : 현재 {COUNT}"/>
+		<Class ClassID="28178" ClassName="EVENT_1810_HALLOWEEN_MSG4" Data="금일 미션 완료 횟수 : {COUNT}"/>
+		<Class ClassID="28205" ClassName="GUILD_INVENTORY_MSG1" Data="길드에서 공용 창고를 사용하기 위한 길드 조건{nl}길드 레벨 8 달성 {#33FF33}[현재 {NUM1} 레벨]{/}{nl} 길드 퀘스트 12회 성공 필요 {#33FF33}[현재 {NUM2} 회 성공]{/}"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -8232,7 +8237,19 @@
 		<Class ClassID="102310" ClassName="NotExistChangeGuildNameItem" Data="길드명 변경권이 존재하지 않습니다."/>
 		<Class ClassID="102311" ClassName="SuccessChangeGuildName" Data="길드명이 성공적으로 변경되었습니다."/>
 		<Class ClassID="102312" ClassName="GuildEventCantStarted" Data="길드 퀘스트를 시작할 권한이 없습니다."/>
+		<Class ClassID="102400" ClassName="GuildJointInvError" Data="길드 공용 창고 사용 중 에러가 발생했습니다."/>
+		<Class ClassID="102401" ClassName="GuildJointInvTryLater" Data="잠시 후 다시 시도해 주세요"/>
+		<Class ClassID="102402" ClassName="GuildJointInvDisabled" Data="길드 공용 창고를 사용할 수 없습니다."/>
+		<Class ClassID="102403" ClassName="GuildJointInvLackOfCount" Data="길드 공용 창고 사용 횟수가 부족합니다."/>
+		<Class ClassID="102404" ClassName="GuildJointInvNoItemInWareHouse" Data="길드 공용 창고에 아이템이 없습니다."/>
+		<Class ClassID="102405" ClassName="GuildJointInvNoItemInMyInv" Data="인벤토리에 아이템이 없습니다."/>
+		<Class ClassID="102406" ClassName="GuildJointInvDisabledSlot" Data="사용할 수 없는 슬롯입니다."/>
+		<Class ClassID="102407" ClassName="GuildJointInvDisabledState" Data="길드 공용 창고를 사용할 수 없는 상태입니다."/>
+		<Class ClassID="102408" ClassName="GuildJointInvLackOfGuildLv" Data="길드 레벨이 부족합니다."/>
+		<Class ClassID="102409" ClassName="CantMakeGuildWhileColonyWarProgress" Data="길드 콜로니전이 진행중인 시간에는 길드를 개설할 수 없습니다."/>
 		<Class ClassID="102411" ClassName="NoOneIsOnline" Data="가입 승인 직급이 있는 접속한 길드원이 없습니다. "/>
+		<Class ClassID="102412" ClassName="GuildJointInvLackOfTrustPoint" Data="개인 거래 등급이 낮아 길드 공용 창고를 이용할 수 없습니다."/>
+		<Class ClassID="102410" ClassName="GuildJointInvLackOfGuildQuest" Data="길드 퀘스트를 12회 이상 완료하셔야 합니다."/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -8269,6 +8286,7 @@
 		<Class ClassID="104026" ClassName="ItIsAlreadyInProcess" Data="이미 처리중입니다. 원치않으면 취소를 눌러주세요."/>
 		<Class ClassID="104027" ClassName="ItIsAlreadyInProcessAfter" Data="이미 처리중입니다. 잠시 후에 다시 시도해 주세요."/>
 		<Class ClassID="104028" ClassName="FailToRegisterMargketItem" Data="마켓에 아이템 등록을 실패했습니다. 다시 시도해주세요."/>
+		<Class ClassID="104029" ClassName="CheckWeaponSwapSlot" Data="무기 스왑 슬롯에 아이템이 현재 장착중에 있습니다."/>
 	</Category>
 	<Category Name="ShopCommon">
 		<Class ClassID="105001" ClassName="ReallyBuy?" Data="구매하시겠습니까?"/>
@@ -8900,8 +8918,8 @@
 		<Class ClassID="122056" ClassName="AlreadyRequestFriend" Data="이미 친구 신청을 보냈습니다."/>
 		<Class ClassID="122057" ClassName="Report_GuildEmblem" Data="부적절 길드 엠블럼 신고하기"/>
 		<Class ClassID="122058" ClassName="DoYouReportGuildEmblem{Name}?" Data="{Name}님을 부적절 길드 엠블럼 사용 유저로 신고하시겠습니까?"/>
-		<Class ClassID="122059" ClassName="ThxReportGuildEmblem{Name}" Data="{Name}님에 대한 부적절 길드 엠블럼 사용 신고가 접수되었습니다. 감사합니다."/>    
-    <Class ClassID="122060" ClassName="CantActionInIntegrateServer" Data="자동 매칭 서버에서는 수행할 수 없습니다."/>
+		<Class ClassID="122059" ClassName="ThxReportGuildEmblem{Name}" Data="{Name}님에 대한 부적절 길드 엠블럼 사용 신고가 접수되었습니다. 감사합니다."/>
+		<Class ClassID="122060" ClassName="CantActionInIntegrateServer" Data="자동 매칭 서버에서는 수행할 수 없습니다."/>
 	</Category>
 	<Category Name="BlackMarket">
 		<Class ClassID="123001" ClassName="Deposit" Data="계약금"/>
@@ -12494,6 +12512,7 @@
 		<Class ClassID="801058" ClassName="COLONY_ROOTCRYSTAL_NAME_2" Data="나무뿌리 수정(재생)"/>
 		<Class ClassID="801059" ClassName="COLONY_ROOTCRYSTAL_NAME_3" Data="나무뿌리 수정(공격)"/>
 		<Class ClassID="801060" ClassName="COLONY_ROOTCRYSTAL_NAME_4" Data="나무뿌리 수정(방어)"/>
+		<Class ClassID="801065" ClassName="shop_Colony_Sutler_MSG1" Data="군수품 구입"/>
 		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
 		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
@@ -12544,7 +12563,19 @@
 		<Class ClassID="801113" ClassName="Guild_Colony_End_WorldMessage_10" Data="A등급 게나르 평원 : 미점령"/>
 		<Class ClassID="801114" ClassName="Guild_Colony_End_WorldMessage_11" Data="B등급 수로교 지역 : 미점령"/>
 		<Class ClassID="801115" ClassName="Guild_Colony_End_WorldMessage_12" Data="B등급 아렐르노 남작령 : 미점령"/>
-		<Class ClassID="801089" ClassName="GuildCoolDownPleaseWait" Data="길드 아이템 재사용 대기시간 입니다. 기다려주세요."/>
+		<Class ClassID="801116" ClassName="Guild_Colony_Enhancer_Summon_MSG" Data="30초 뒤에 콜로니 증폭기가 생성됩니다."/>
+		<Class ClassID="801117" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY_ADD_POINT" Data="길드 내 [{name}] 유저가 증폭기를 마지막으로 타격하는데 성공했습니다!{nl}보상으로 점령 포인트를 {point} 획득했습니다!"/>
+		<Class ClassID="801118" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY_ADD_POINT_2" Data="길드 내 [{name}] 유저가 증폭기를 마지막으로 타격하는데 성공했습니다!{nl}(현재 해당 지역을 점령중이므로 파괴 보상을 받을 수 없습니다.)"/>
+		<Class ClassID="801119" ClassName="shop_Colony_Sutler_MSG2" Data="점령 명예 보상 받기"/>
+		<Class ClassID="801120" ClassName="Guild_Colony_Honor_Reweard_MSG1" Data="콜로니전 진행중에는 점령 명예 보상을 받을 수 없습니다."/>
+		<Class ClassID="801121" ClassName="Guild_Colony_Honor_Reweard_MSG2" Data="지금은 점령 명예 보상을 받을 수 없습니다."/>
+		<Class ClassID="801122" ClassName="Guild_Colony_Honor_Reweard_MSG3" Data="콜로니전 승리 기념으로 점령 명예 보상을 받았습니다!"/>
+		<Class ClassID="801123" ClassName="Guild_Colony_Honor_Reweard_MSG4" Data="이미 점령 명예 보상을 받았습니다"/>
+		<Class ClassID="801124" ClassName="Guild_Colony_Beta2_FAIL_REWARD_MSG1" Data="콜로니전 베타 지원 물품은 매주 일요일, 19:00 ~ 20:59 사이에 지급받을 수 있습니다."/>
+		<Class ClassID="801126" ClassName="Guild_Colony_Beta2_FAIL_REWARD_MSG2" Data="이미 지원을 받은 상태입니다."/>
+		<Class ClassID="801127" ClassName="Guild_Colony_Beta2_REWARD_MSG1" Data="콜로니전 베타 2차 지원 물품이 지급되었습니다."/>
+		<Class ClassID="801129" ClassName="Guild_Colony_Beta2_REWARD_MSG2" Data="콜로니전 베타 2차 지원 물품 받기"/>
+		<Class ClassID="801130" ClassName="Guild_Colony_Beta2_ENTRY_REWARD_MSG1" Data="콜로니전 베타 2차 참여 보상이 지급되었습니다."/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="การซื้อสำเร็จ"/>
@@ -12719,10 +12750,10 @@
 		<Class ClassID="2000217" ClassName="WebService_507" Data="댓글 수 차감시에 댓글 수가 음수입니다."/>
 		<Class ClassID="2000218" ClassName="WebService_508" Data="삭제되는 댓글은 1개여야 합니다."/>
 		<Class ClassID="2000219" ClassName="WebService_509" Data="적용되는 댓글은 1개여야 합니다."/>
-    <Class ClassID="2000220" ClassName="WebService_600" Data="길드공용창고 출입 기록이 없습니다."/>
-    <Class ClassID="2000221" ClassName="WebService_601" Data="조회시간이 현재시간보다 과거여야합니다."/>
-    <Class ClassID="2000222" ClassName="WebService_602" Data="조회시간이 존재해야 합니다."/>
-    <Class ClassID="2000223" ClassName="WebService_603" Data="조회할 길드 인덱스가 필요합니다."/>    
+		<Class ClassID="2000220" ClassName="WebService_600" Data="길드공용창고 출입 기록이 없습니다."/>
+		<Class ClassID="2000221" ClassName="WebService_601" Data="조회시간이 현재시간보다 과거여야합니다."/>
+		<Class ClassID="2000222" ClassName="WebService_602" Data="조회시간이 존재해야 합니다."/>
+		<Class ClassID="2000223" ClassName="WebService_603" Data="조회할 길드 인덱스가 필요합니다."/>
 		<Class ClassID="2099994" ClassName="ImageUploadSuccess" Data="이미지가 성공적으로 업로드되었습니다"/>
 		<Class ClassID="2099995" ClassName="RegGuildPromoteBeforeImage" Data="이미지를 등록하기 전에 길드 홍보글을 등록해주세요"/>
 		<Class ClassID="2099996" ClassName="BannerUploadSuccess" Data="배너가 성공적으로 업로드되었습니다"/>

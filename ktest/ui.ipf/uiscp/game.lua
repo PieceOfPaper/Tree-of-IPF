@@ -2049,14 +2049,15 @@ function CHECK_EQUIPABLE(type)
 		else
 			return 'ABIL'
 		end
+    elseif ret == 'NOEQUIP' then
+        return ret
 	else
 		if ret == 'LV' or ret == 'GENDER' then
 			return ret;
-		elseif 0 ~= haveAbil then
+		elseif 0 ~= haveAbil then            
 			return 'OK'
 		end
 	end
-
 	return ret;
 end
 
@@ -2076,9 +2077,12 @@ function ITEM_EQUIP_EXCEPTION(item)
 		ui.MsgBox(ITEM_REASON_MSG(result));
 		return 0
 	end
-			
-	local obj = GetIES(item:GetObject());
-	if obj.IsPrivate == "YES" and obj.Equiped == 0 then
+
+	local obj = GetIES(item:GetObject())
+    local is_private = TryGetProp(obj, 'IsPrivate')
+    local equiped = TryGetProp(obj, 'Equiped')
+    
+	if is_private == "YES" and equiped == 0 then
 		ui.EnableToolTip(0);
 		ui.MsgBox(ScpArgMsg("Auto_HaeDang_aiTemeun_ChagyongSi_KwiSogDoeeo_KeoLaeHal_Su_eopSeupNiDa._ChagyongHaSiKessSeupNiKka?"), strscp, "None");
 		return 0;
@@ -2087,8 +2091,7 @@ function ITEM_EQUIP_EXCEPTION(item)
 	return 1;
 end
 
-function ITEM_EQUIP_MSG(item, slotName)
-	
+function ITEM_EQUIP_MSG(item, slotName)	
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
 		return;
 	end
@@ -2098,7 +2101,8 @@ function ITEM_EQUIP_MSG(item, slotName)
 	end
 	
 	local itemCls = GetIES(item:GetObject());
-	if itemCls.EqpType == "HELMET" and slotName == "HAIR" then
+    local eqp_type = TryGetProp(itemCls, 'EqpType')    
+	if eqp_type == "HELMET" and slotName == "HAIR" then
 		slotName = "HELMET";
 	end
 	

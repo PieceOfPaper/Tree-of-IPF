@@ -39,6 +39,13 @@ function INDUNINFO_CHAR_UI_OPEN(frame, msg, argStr, argNum)
             nameLabel:SetText('{@st42b}Lv.' .. pcInfo:GetLevel() .. " " .. pcName)
 
             local playPerRestTypeTable={}
+
+            --기본 인던들 추가
+
+            for i=1, #g_indunCategoryList do
+                charGroupBox:CreateOrGetControl("groupbox", "INDUN_CONTROL_".. g_indunCategoryList[i], 0, 0, ctrlWidth, 20)
+            end
+            
             for j = 0, indunCount - 1 do
                 local indunCls = GetClassByIndexFromList(indunClsList, j)
                 if indunCls ~= nil and indunCls.Category ~= 'None' then
@@ -72,7 +79,7 @@ function INDUNINFO_CHAR_UI_OPEN(frame, msg, argStr, argNum)
                 end
             end
             local silverLabel = charGroupBox:CreateOrGetControl("richtext", 'CHARACTER_SILVER_' .. pcName, 20, 10, ctrlWidth, 20)
-            silverLabel:SetText('{@st42b}실버:' .. pcInfo:GetSilver())
+            silverLabel:SetText('{@st42b}실버:' .. GET_COMMAED_STRING(pcInfo:GetSilver()))
 
 
             local labelLine = charGroupBox:CreateOrGetControl('labelline', "CHARACTER_LINE_" .. pcName, 0, 0, ctrlWidth, 10)
@@ -111,8 +118,9 @@ function GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID)
             break;
         end
     end
-
-    if indunCls.AdmissionItemName ~= "None" then
+    
+    local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
+    if indunCls.AdmissionItemName ~= "None" or infinity == 'YES'  then
         local a = "{img infinity_text 20 10}"
         return a;
     end

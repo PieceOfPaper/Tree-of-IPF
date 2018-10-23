@@ -408,11 +408,13 @@ function ON_UPDATE_CLAIM(code, ret_json)
     local decoded_json = json.decode(ret_json)
     local i = 1;
     for k, v in pairs(checkboxList) do
-        SetCheckForce(v, 0)
+        v = AUTO_CAST(v)
+        v:SetCheck(0)
     end
     for k, v in pairs(decoded_json) do
-        local asdf = checkboxList[tostring(v)];
-       SetCheckForce(asdf, 1)
+        local claimCheckbox = checkboxList[tostring(v)];
+        claimCheckbox = AUTO_CAST(claimCheckbox)
+        claimCheckbox:SetCheck(1)
     end
 
 end

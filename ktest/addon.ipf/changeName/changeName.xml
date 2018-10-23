@@ -9,6 +9,7 @@
 	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<script CloseScp="TOKEN_SELEC_CANCLE"/>
+	<userconfig DEFAULT_CONSUME_IMG="icon_item_tospoint"/>
 	<controls>
 		<groupbox name="bg2" rect="0 0 480 240" margin="-1 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="none"/>
 		<button name="button_1" margin="50 0 0 30" rect="10 10 160 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41}확인" LBtnUpScp="CHANGE_NAME_USE_TP"/>
@@ -17,7 +18,7 @@
 		<groupbox name="groupbox_1" margin="22 90 0 0" rect="0 0 430 55" hittestbox="false" skin="test_weight_skin" layout_gravity="left top"/>
 		<groupbox name="groupbox_1_1" margin="103 150 0 0" rect="0 0 270 40" hittestbox="false" skin="guild_base_skin" layout_gravity="left top"/>
 		<richtext name="richtext_1" margin="114 160 0 0" rect="0 0 120 24" caption="{@st42}사용{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="richtext_2" margin="77 200 0 0" rect="0 0 120 24" caption="{@st66b18}※이름 변경에 사용된 TP는 환불되지 않습니다.{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<richtext name="richtext_2" margin="0 200 0 0" rect="0 0 120 24" caption="{@st66b18}※이름 변경에 사용된 TP 또는 아이템은 환불되지 않습니다.{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		<picture name="picture_1" margin="146 158 0 0" rect="5 5 23 23" hittest="false" image="icon_item_tospoint" stretch="true" changecursor="false" layout_gravity="left top"/>
 		<richtext name="NeedTP" margin="163 160 0 0" rect="0 0 200 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		<richtext name="myName" margin="31 107 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>

@@ -349,8 +349,7 @@ function COLONY_POINT_INFO_DRAW_BUFF_ICON()
                         end
 
                         colonyBuffIcon:SetTooltipType('buff');
-                       
-                        colonyBuffIcon:SetTooltipArg(handle, buffType, slotIndex);
+                        colonyBuffIcon:SetTooltipArg(handle, buffType);
                         colonyBuffIcon:Set(imageName, 'BUFF', buffType, 0);
 
                         colonyBuffCount = colonyBuffCount + 1
