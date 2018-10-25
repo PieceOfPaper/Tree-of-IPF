@@ -4553,4 +4553,19 @@
 			<labelline name="labelline" margin="0 0 0 5" rect="0 0 490 3" skin="labelline_def_2" layout_gravity="center bottom"/>
 		</controls>
 	</controlset>
+	<controlset name="guild_joint_inventory_log" width="950" height="50" hittest="true" hittestset="false" draw="false">
+		<userconfig DEPOSIT_IMG="in_arrow" WITHDRAW_IMG="chul_arrow"/>
+		<controls>
+			<picture name="line" rect="0 0 946 2" margin="0 4 0 0" layout_gravity="right top" stretch="true" image="guild_line_h2"/>
+			<layout name="logLayout" margin="0 0 30 0"/>
+			<layoutsection name="dateSection" parent="logLayout"/>
+			<richtext name="dateText" parent="dateSection" format="{img %s 18 18} %s" fontname="white_16_ol" param1="img" param1_def="in_arrow" param2="date" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="teamNameSection" parent="logLayout"/>
+			<richtext name="teamName" parent="teamNameSection" format="{@st66d}%s" param1="name" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="itemNameSection" parent="logLayout"/>
+			<richtext name="itemName" parent="itemNameSection" format="{@st66d}%s" fontname="white_16_ol"  param1="name" textalign="center center" omitbywidth="true"/>
+			<layoutsection name="itemCountSection" parent="logLayout"/>
+			<richtext name="itemCount" parent="itemCountSection" format="{@st66d_y}%s" fontname="black_18" param1="count" textalign="center center"/>
+		</controls>
+	</controlset>
 </controlsetlist>

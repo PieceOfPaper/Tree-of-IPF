@@ -94,16 +94,16 @@ function ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION()
 	local frame = ui.GetFrame("loginui_title");
 
 	local isEnableSpine = config.GetXMLConfig("EnableAnimateBackgroundIllustration");
-	if isEnableSpine == 1 then
-		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 1);
-
-		
-		TITLE_SHOW_SPINE_PIC(frame, "login_img", 0);
-	else
+--	if isEnableSpine == 1 then
+--		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 1);
+--		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 1);
+--
+--		
+--		TITLE_SHOW_SPINE_PIC(frame, "login_img", 0);
+--	else
 		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 0);
 		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 0);
 
 		TITLE_SHOW_SPINE_PIC(frame, "login_img", 1);
-	end
+--	end
 end

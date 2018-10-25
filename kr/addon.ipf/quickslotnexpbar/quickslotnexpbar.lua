@@ -757,7 +757,11 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 						
 							if itemType ~= nil and classType ~= nil then
 								if itemType ~= "Equip" or (itemType == "Equip" and (classType == "Outer" or classType == "SpecialCostume")) then
-									return;
+                                    --GuildColony_soulCrystal
+                                    local coolDownGroup = TryGetProp(obj, "CoolDownGroup");
+                                    if coolDownGroup ~= "GuildColony_soulCrystal" then
+                                        return;
+                                    end
 								end
 							else
 								return;

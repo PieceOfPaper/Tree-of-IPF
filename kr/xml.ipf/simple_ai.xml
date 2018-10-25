@@ -9044,6 +9044,123 @@
             <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
         </StartList>
     </AI>
+    <AI Name="EVENT_1810_HALLOWEEN_MON_L1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-215.49251" Y="-6.302063" Z="-104.92027" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-162.64294" Y="-3.8374557" Z="-150.5554" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-198.66316" Y="-3.8374557" Z="-190.21982" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="72.853241" Y="-3.8374557" Z="-460.23938"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="117.88454" Y="-3.8374557" Z="-420.875"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-94.590836" Y="34.821693" Z="-203.1367"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-55.380245" Y="34.821693" Z="-163.38237"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="88.048622" Y="74.637917" Z="-302.9671"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="187.37816" Y="80.12394" Z="-154.57808" Random="60"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="EVENT_1810_HALLOWEEN_MON_L2" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="123.93778" Y="12.336159" Z="253.12532" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-150.21111" Y="12.336159" Z="-54.746956" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="-99.072952" Y="12.336159" Z="-100.43547" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="121.77676" Y="68.160576" Z="108.24173" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="168.24841" Y="75.635017" Z="66.110847" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="83.81871" Y="75.635017" Z="-24.622482" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="180.12663" Y="80.12394" Z="-155.55528" Random="50" Height="1"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="EVENT_1810_HALLOWEEN_MON_L3" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="S_AI_ATTACK_NEAR_HEIGHT" Client="NO" UseSleep="NO">
+                <Num Num="80"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="253.92166" Y="-1.1043572" Z="263.53207" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="170.53372" Y="32.204292" Z="161.09406" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="233.02396" Y="32.204292" Z="104.43022" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="314.51389" Y="32.204292" Z="192.7847" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="528.22229" Y="32.204292" Z="-12.900013" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="479.68262" Y="32.204292" Z="-56.262642" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="341.55582" Y="74.610336" Z="75.793648" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="295.05185" Y="74.610329" Z="28.387896" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="363.62964" Y="74.610329" Z="-28.628233" Random="20"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="185.00041" Y="80.12394" Z="-159.09885" Random="60"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_R_MOVE" Client="NO" UseSleep="NO"/>
+        </List>
+        <StartList>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SCR_UPHILL_DEFFENSE_SCRIPT_SETTING"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="GUILD_COLONY_WARP_PORTAL_AI" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">

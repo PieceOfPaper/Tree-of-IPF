@@ -660,14 +660,14 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			end
 		end
 	elseif strarg == "guildwarehouse" then
-		invitem = session.GetEtcItemByGuid(IT_GUILD, guid);
+		invitem = session.GetEtcItemByGuid(IT_GUILD_JOINT, guid);
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
 
 	if invitem ~= nil and invitem:GetObject() ~= nil then
 		local itemObj = GetIES(invitem:GetObject());		
-		if itemObj.ClassName ~= MONEY_NAME then						
+		if itemObj.ClassName ~= MONEY_NAME then	
 			return itemObj, 0;
 		end
 	end
@@ -979,7 +979,7 @@ end
 function ABILITY_CHANGEVALUE_SKINSET(tooltipframe, itemtype, invitem, equipItem)
 	local valueUp = IS_VALUE_UP_BY_CHANGE_ITEM(itemtype, invitem, equipItem);
 	local gbox = GET_CHILD(tooltipframe,'changevalue','ui::CGroupBox')
-
+	
 	if valueUp == 0 then
 		gbox:SetSkinName("comparisonballoon_negative");
 	else

@@ -258,8 +258,9 @@ function GET_MAX_ENTERANCE_COUNT(resetGroupID)
             break;
         end
     end
-
-    if indunCls.AdmissionItemName ~= "None" then
+    
+    local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
+    if indunCls.AdmissionItemName ~= "None" or infinity == 'YES' then
         local a = "{img infinity_text 20 10}"
         return a;
     end

@@ -25,6 +25,11 @@ function GET_COLONY_REWARD_ITEM()
 end
 
 function IS_COLONY_SPOT(mapClassName)
+    local cls = GetClass("SharedConst", "COLONY_WAR_OPEN");
+    local curValue = TryGetProp(cls, "Value")
+    if curValue == 0 then
+        return false;
+    end
     local colonyClsList, cnt = GetClassList('guild_colony');    
     for i = 0, cnt - 1 do
         local colonyCls = GetClassByIndexFromList(colonyClsList, i);

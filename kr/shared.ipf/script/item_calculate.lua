@@ -1661,27 +1661,43 @@ function SCR_GET_ITEM_COOLDOWN(item)
 end
 
 function SCR_GET_HP_COOLDOWN(item)
-    if item.CoolDownGroup == "HPPOTION_TP" then
-        local coolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
-        if coolDown ~= 0 or coolDown ~= nil then
-            return coolDown;
+    ---GuildColony POTION_TP CoolTime Setting---
+    local owner = GetItemOwner(item)
+    local iscolonyzone = IsJoinColonyWarMap(owner)
+    if iscolonyzone == 1 then
+        if item.CoolDownGroup == "HPPOTION_TP" then
+            local colonyCoolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+            if colonyCoolDown ~= 0 and colonyCoolDown ~= nil then
+                return colonyCoolDown;
+            else
+                return item.ItemCoolDown;
+            end
         end
     end
-    return item.ItemCoolDown;
+    --------------------------------------------
+  return item.ItemCoolDown;
 end
 
-function SCR_GET_HPSP_COOLDOWN(item)
+function SCR_GET_HPSP_COOLDOWN(item)  
   return item.ItemCoolDown;
 end
 
 function SCR_GET_SP_COOLDOWN(item)  
-    if item.CoolDownGroup == "SPPOTION_TP" then
-        local coolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
-        if coolDown ~= 0 or coolDown ~= nil then
-            return coolDown;
+    ---GuildColony POTION_TP CoolTime Setting---
+    local owner = GetItemOwner(item)
+    local iscolonyzone = IsJoinColonyWarMap(owner)
+    if iscolonyzone == 1 then
+        if item.CoolDownGroup == "SPPOTION_TP" then
+            local colonyCoolDown = SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
+            if colonyCoolDown ~= 0 and colonyCoolDown ~= nil then
+                return colonyCoolDown;
+            else
+                return item.ItemCoolDown;
+            end
         end
     end
-    return item.ItemCoolDown;
+    --------------------------------------------
+  return item.ItemCoolDown;
 end
 
 function SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
@@ -1703,6 +1719,7 @@ function SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
     end
     return 0
 end
+
 function SCR_GET_AWAKENING_PROP_LEVEL(star, grade)
 
     local value = 0;

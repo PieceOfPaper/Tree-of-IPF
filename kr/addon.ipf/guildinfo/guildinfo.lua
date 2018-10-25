@@ -21,7 +21,8 @@ function GUILDINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('COLONY_ENTER_CONFIG_FAIL', 'GUILDINFO_COLONY_INIT_RADIO');
     addon:RegisterMsg('COLONY_OCCUPATION_INFO_UPDATE', 'GUILDINFO_COLONY_UPDATE_OCCUPY_INFO');
     addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
-
+    addon:RegisterMsg("GUILD_JOINT_INV_ITEM_LIST", "ON_GUILD_JOINT_INV_ITEM_LIST_GET");
+    addon:RegisterMsg("UPDATE_GUILD_MILEAGE", "ON_UPDATE_GUILD_MILEAGE");
     firstOpen = true;
     g_ENABLE_GUILD_MEMBER_SHOW = false;
 end
@@ -44,15 +45,16 @@ function GUILDINFO_OPEN_UI(frame)
     local frame = ui.GetFrame("guildinfo");
  
     GetClaimList("ON_CLAIM_GET")
+
+    local mainTab = GET_CHILD_RECURSIVELY(frame, 'maintab');
     if firstOpen == true then
 
         --todo여기에 처음 로드할때만 요청할 바인드함수 추가
         GUILDINFO_OPTION_INIT(frame, frame);
-        local mainTab = GET_CHILD_RECURSIVELY(frame, 'mainTab');
         mainTab:SelectTab(0);
-        firstOpen = false
-        
+        firstOpen = false    
     end
+
     GUILDINFO_COLONY_INIT(frame, frame)
     INIT_UI_BY_CLAIM();
 
@@ -61,14 +63,18 @@ function GUILDINFO_OPEN_UI(frame)
     
 	GetGuildInfo("GUILDINFO_GET");
 
-    local guild = GET_MY_GUILD_INFO();
-	local leaderAID = guild.info:GetLeaderAID()
-    local myAID = session.loginInfo.GetAID()
     GUILD_APPLICANT_INIT()
 
     session.party.ReqGuildAsset();
 
     GetGuildNotice("GUILDNOTICE_GET")
+    
+    local guildObj = GET_MY_GUILD_OBJECT();
+    if guildObj.Level == nil or guildObj.Level < 8 then
+        mainTab:SetTabVisible(5, false)
+    else
+        mainTab:SetTabVisible(5, true)
+    end
 
 end
 
