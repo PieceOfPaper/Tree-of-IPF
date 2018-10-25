@@ -39,7 +39,6 @@
 									<tabitem name="inventorytab" caption="{@st66b}보관함{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="battletab" caption="{@st66b}전투{/}" width="170" layout_gravity="left top"/>
 									<tabitem name="optionTabItemText" caption="{@st66b}설정{/}" width="170" layout_gravity="left top"/>
-									<tabitem name="jointInventoryTab" caption="{@st66b}공용 창고{/}" width="170" layout_gravity="left top"/>
 								</tab>
 							</layoutsection>
 						</layout>
@@ -446,95 +445,6 @@
 											<richtext name="colonyInfoText" caption="ⓘ 지역 등급은 지역 레벨로 구분되며 등급에 따라 점령 보상이 차등 지급됩니다.(B등급 : 지역 Lv 1~99, A등급 : 지역 Lv 100~199, S등급 : 지역 Lv 200 이상){nl}ⓘ Beta로 진행되는 길드 콜로니전의 점령 혜택은 홈페이지 내 공지사항을 통해 확인 바랍니다." fixwidth="true" fontname="black_16"/>
 										</layoutsection>
 									</layout>
-								</layoutsection>
-							</layout>
-							<layout name="jointInventory" tabname="jointInventoryTab" spacing="5" tabchangescp="GUILDINFO_JOINT_INVENTORY_LOAD" orientation="vertical">
-								<layoutsection name="slotLogSection">
-									<layout name="slotLogSectionLayout" spacing="5">
-								<layoutsection name="itemSection" size="33%">
-									<layout name="itemLayout" orientation="vertical" spacing="10">
-										<layoutsection name="itemLabelSection" size="30">
-											<richtext name="guildItemLabel" caption="{@st43b}{s18}아이템{/}" textalign="left center"/>
-										</layoutsection>
-										<layoutsection name="itemSlotSection">
-											<groupbox name="itemSlotBox" fixheight="true" scrollbar="true" skin="test_frame_midle">
-												<slotset margin="5 4 0 0" name="guildItemSlotset" row="20" col="5" skin="invenslot2" spc="2 2" size="83 83" enableselect="true" enabledrag="true" enabledrop="true" enablepop="true" DropScp="ON_JOINT_INVENTORY_DROP"/>
-											</groupbox>
-										</layoutsection>
-												<layoutsection name="itemEtcSection" size="50">
-											<groupbox name="itemEtcBox" draw="false">
-												<richtext name="mileageCount" format="{@st66b}길드 마일리지:%s{/}" param1="point" param1_def="0"/>
-												<button name="itemTakeBtn" rect="0 0 200 50" layout_gravity="right top" skin="test_pvp_btn" caption="{@st66b}{s18}아이템 수령{/}" LBtnUpScp="ON_JOINT_ITEM_TAKE"/>
-											</groupbox>
-										</layoutsection>
-									</layout>
-								</layoutsection>
-								<layoutsection name="itemLogSection">
-									<layout name="itemTransactionLayout" orientation="vertical" spacing="10">
-										<layoutsection name="itemTransactionHeaderSection" size="30">
-											<richtext name="itemTransactionTitleText" textalign="left center" caption="{@st43b}{s18}입고/출고 내역{/}"/>
-										</layoutsection>
-										<layoutsection name="itemTransactionLogSection">
-											<overlap name="itemTransactionLogOverlap">
-												<groupbox name="itemTransactionLogBg" skin="test_frame_midle" margin="0 0 20 0"/>
-												<layout name="itemTransactionBg">
-													<layoutsection name="1column1"/>
-													<layoutsection name="2column2">
-														<groupbox name="2column12" hittestbox="false" skin="pvp_Team_skin" scrollbar="false"/>
-													</layoutsection>
-													<layoutsection name="3column3"/>
-													<layoutsection name="4column4">
-														<groupbox name="2column22" hittestbox="false" skin="pvp_Team_skin" scrollbar="false"/>
-													</layoutsection>
-												</layout>
-												<layout name="itemTransactionLogLayout" orientation="vertical">
-													<layoutsection name="itemTransactionLogHeaderLayout" size="45">
-														<overlap name="itemTransactionLogHeaderOverlap">
-															<groupbox name="itemHistoryHeaderBox" hittestbox="false" skin="market_listbase"/>
-															<layout name="itemTransactionChartLayout">
-																<layoutsection name="itemTradedTimeSection">
-																	<richtext name="itemDateText" caption="시간" textalign="center center" fontname="black_18"/>
-																</layoutsection>
-																<layoutsection name="itemDepositSection">
-																	<richtext name="itemDepositText" caption="이름" textalign="center center" fontname="black_18"/>
-																</layoutsection>
-																<layoutsection name="itemDepositSection2">
-																	<richtext name="itemDepositText2" caption="아이템명" textalign="center center" fontname="black_18"/>
-																</layoutsection>
-																<layoutsection name="itemBalanceSection">
-																	<richtext name="itemBalanceText" caption="수량" textalign="center center" fontname="black_18"/>
-																</layoutsection>
-															</layout>
-														</overlap>
-													</layoutsection>
-													<layoutsection name="itemLogBoxsection">
-														<groupbox name="itemLogBox" fixheight="true" scrollbar="true" draw="false"/>
-													</layoutsection>
-												</layout>
-											</overlap>
-										</layoutsection>
-												<layoutsection name="itemTransactionOptionSection" size="50">
-											<groupbox name="itemTransactionOptBox" draw="false">
-												<checkbox name="showOnlyDeposit" caption="{@st66b}입고만 보기" layout_gravity="left top" LBtnUpScp="FILTER_TRANSACTION_LOG" checked="true"/>
-												<checkbox name="showOnlyWithdraw" caption="{@st66b}출고만 보기" layout_gravity="left top" margin="150 0 0 0" LBtnUpScp="FILTER_TRANSACTION_LOG" checked="true"/>
-												<droplist name="itemLogDate" rect="0 0 200 24" layout_gravity="right top" margin="0 0 50 0" skin="droplist_normal" visibleline="8" SelectScp="ON_LOG_TIME_SET">
-													<item key="3hour" caption="{@st41d}3시간       " value="10800"/>
-													<item key="10hour" caption="{@st41d}10시간       " value="36000"/>
-													<item key="day" caption="{@st41d}1일       " value="86400"/>
-													<item key="3day" caption="{@st41d}3일       " value="259200"/>
-													<item key="week" caption="{@st41d}7일       " value="604800"/>
-													<item key="month" caption="{@st41d}1개월       " value="2629746"/>
-													<item key="2month" caption="{@st41d}2개월       " value="5259492"/>
-													<item key="3month" caption="{@st41d}3개월       " value="7889238"/>
-												</droplist>
-											</groupbox>
-										</layoutsection>
-									</layout>
-								</layoutsection>
-							</layout>
-								</layoutsection>
-								<layoutsection name="jointInventoryInfoSection" size="10%">
-									<richtext name="inventoryInfoText" format="ⓘ 입고/출고 시 마일리지 20 차감 됩니다. {nl}ⓘ마일리지는 길드원 로그인, 길드 퀘스트, 콜로니전 참여를 통해서 적립됩니다." textalign="left top" resizebytext="true" fontname="black_16"/>
 								</layoutsection>
 							</layout>
 							<layout name="setting" orientation="vertical" tabname="optionTabItemText">
