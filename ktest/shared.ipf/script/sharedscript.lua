@@ -2592,7 +2592,7 @@ function JOB_NAKMUAY_PRE_CHECK(pc, jobCount)
 	    
 	    if pcEtc ~= nil then
 	        local value = TryGetProp(pcEtc, 'HiddenJob_Char1_20', 0)
-	        if value == 300 then
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
 	            return 'YES'
 	        end
 	    end
@@ -2616,7 +2616,7 @@ function JOB_RUNECASTER_PRE_CHECK(pc, jobCount)
 	    
 	    if pcEtc ~= nil then
 	        local value = TryGetProp(pcEtc, 'HiddenJob_Char2_17', 0)
-	        if value == 300 then
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
 	            return 'YES'
 	        end
 	    end
@@ -2640,7 +2640,7 @@ function JOB_APPRAISER_PRE_CHECK(pc, jobCount)
 	    
 	    if pcEtc ~= nil then
 	        local value = TryGetProp(pcEtc, 'HiddenJob_Char3_13', 0)
-	        if value == 300 then
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
 	            return 'YES'
 	        end
 	    end
@@ -2664,7 +2664,7 @@ function JOB_MIKO_PRE_CHECK(pc, jobCount)
 	    
 	    if pcEtc ~= nil then
 	        local value = TryGetProp(pcEtc, 'HiddenJob_Char4_18', 0)
-	        if value == 300 then
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
 	            return 'YES'
 	        end
 	    end
@@ -2688,7 +2688,7 @@ function JOB_SHINOBI_PRE_CHECK(pc, jobCount)
 	    
 	    if pcEtc ~= nil then
 	        local value = TryGetProp(pcEtc, 'HiddenJob_Char5_6', 0)
-	        if value == 300 then
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
 	            return 'YES'
 	        end
 	    end
@@ -2698,25 +2698,25 @@ function JOB_SHINOBI_PRE_CHECK(pc, jobCount)
 end
 
 
-function JOB_CANNONEER_PRE_CHECK(pc, jobCount)
-    if jobCount == nil then        
-        jobCount = GetTotalJobCount(pc);
-    end
-	if jobCount >= 2 then
-        return 'YES';
-    end   
-    
-    return 'NO';
-end
-
-
-function JOB_MUSKETEER_PRE_CHECK(pc, jobCount)
-    if jobCount == nil then
-        jobCount = GetTotalJobCount(pc);
-    end
-	if jobCount >= 2 then
-        return 'YES';
-    end
-    
-    return 'NO';
+--function JOB_CANNONEER_PRE_CHECK(pc, jobCount)
+--    if jobCount == nil then        
+--        jobCount = GetTotalJobCount(pc);
+--    end
+--	if jobCount >= 2 then
+--        return 'YES';
+--    end   
+--    
+--    return 'NO';
+--end
+--
+--
+--function JOB_MUSKETEER_PRE_CHECK(pc, jobCount)
+--    if jobCount == nil then
+--        jobCount = GetTotalJobCount(pc);
+--    end
+--	if jobCount >= 2 then
+--        return 'YES';
+--    end
+--    
+--    return 'NO';
 end
