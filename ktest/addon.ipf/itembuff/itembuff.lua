@@ -12,11 +12,6 @@ function ITEMBUFF_SET_SKILLTYPE(frame, skillName, skillLevel, titleName)
 	title:SetTextByKey("txt", titleName);
 end
 
-function ITEM_STOR_FAIL()
-	ui.SysMsg(ClMsg("CannotState"));
-	ui.CloseFrame("itembuff");
-end
-
 function ITEMBUFF_REFRESH_LIST(frame)
 	local reqitembox = frame:GetChild("Material");
 	local reqitemtext = reqitembox:GetChild("reqitemCount");
@@ -241,6 +236,24 @@ end
 function ITEMBUFF_INIT_USER_PRICE(frame, sklClassName)
 	local MoneyInput = GET_CHILD_RECURSIVELY(frame, 'MoneyInput');
 	PROCESS_USER_SHOP_PRICE(sklClassName, MoneyInput);
+end
+
+local function GET_PC_ABILITY_OBJECT_LIST()
+    local abilObjList = {};
+    local pcSession = session.GetMySession();
+	local abilList = pcSession.abilityList;
+	local abilListCnt = 0;
+	if abilList ~= nil then
+		abilListCnt = abilList:Count();
+	end
+
+	for i=0, abilListCnt - 1 do
+		local abil = abilList:Element(i);
+		if abil ~= nil and abil:GetObject() ~= nil then
+            abilObjList[#abilObjList + 1] = GetIES(abil:GetObject());
+		end
+    end
+    return abilObjList;
 end
 
 function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)

@@ -12,36 +12,37 @@ function GET_NINJA_SKILLS()
 	retList[#retList + 1] = "Shinobi_Kunai";
 	retList[#retList + 1] = "Shinobi_Mijin_no_jutsu";
 	retList[#retList + 1] = "Shinobi_Katon_no_jutsu";
-	retList[#retList + 1] = "Swordman_Thrust";
-	retList[#retList + 1] = "Swordman_Bash";
-	retList[#retList + 1] = "Swordman_DoubleSlash";
-	retList[#retList + 1] = "Swordman_PommelBeat";
-	retList[#retList + 1] = "Peltasta_UmboBlow";
-	retList[#retList + 1] = "Peltasta_RimBlow";
-	retList[#retList + 1] = "Peltasta_ButterFly";
-	retList[#retList + 1] = "Peltasta_Langort";
-	retList[#retList + 1] = "Highlander_Crown";
-	retList[#retList + 1] = "Highlander_Moulinet";
-	retList[#retList + 1] = "Hoplite_SynchroThrusting";
-	retList[#retList + 1] = "Barbarian_Cleave";
-	retList[#retList + 1] = "Barbarian_Seism";
-	retList[#retList + 1] = "Rodelero_ShootingStar";
-	retList[#retList + 1] = "Rodelero_ShieldBash";
-	retList[#retList + 1] = "Rodelero_TargeSmash";
-	retList[#retList + 1] = "Corsair_DustDevil";
-	retList[#retList + 1] = "Corsair_HexenDropper";
-	retList[#retList + 1] = "Corsair_ImpaleDagger";
-	retList[#retList + 1] = "Doppelsoeldner_Mordschlag";
-	retList[#retList + 1] = "Doppelsoeldner_Zwerchhau";
-	retList[#retList + 1] = "Doppelsoeldner_Sturzhau";
-	retList[#retList + 1] = "Fencer_SeptEtoiles";
-	retList[#retList + 1] = "Fencer_AttaqueComposee";
-	retList[#retList + 1] = "Fencer_Fleche";
-	retList[#retList + 1] = "Dragoon_Dragontooth";
-	retList[#retList + 1] = "Dragoon_Dragon_Soar";
-	retList[#retList + 1] = "NakMuay_Attack";
-	retList[#retList + 1] = "Templer_MortalSlash";
-	retList[#retList + 1] = "Squire_DeadlyCombo";
+	retList[#retList + 1] = "Shinobi_Raiton_no_Jutsu";
+--	retList[#retList + 1] = "Swordman_Thrust";
+--	retList[#retList + 1] = "Swordman_Bash";
+--	retList[#retList + 1] = "Swordman_DoubleSlash";
+--	retList[#retList + 1] = "Swordman_PommelBeat";
+--	retList[#retList + 1] = "Peltasta_UmboBlow";
+--	retList[#retList + 1] = "Peltasta_RimBlow";
+--	retList[#retList + 1] = "Peltasta_ButterFly";
+--	retList[#retList + 1] = "Peltasta_Langort";
+--	retList[#retList + 1] = "Highlander_Crown";
+--	retList[#retList + 1] = "Highlander_Moulinet";
+--	retList[#retList + 1] = "Hoplite_SynchroThrusting";
+--	retList[#retList + 1] = "Barbarian_Cleave";
+--	retList[#retList + 1] = "Barbarian_Seism";
+--	retList[#retList + 1] = "Rodelero_ShootingStar";
+--	retList[#retList + 1] = "Rodelero_ShieldBash";
+--	retList[#retList + 1] = "Rodelero_TargeSmash";
+--	retList[#retList + 1] = "Corsair_DustDevil";
+--	retList[#retList + 1] = "Corsair_HexenDropper";
+--	retList[#retList + 1] = "Corsair_ImpaleDagger";
+--	retList[#retList + 1] = "Doppelsoeldner_Mordschlag";
+--	retList[#retList + 1] = "Doppelsoeldner_Zwerchhau";
+--	retList[#retList + 1] = "Doppelsoeldner_Sturzhau";
+--	retList[#retList + 1] = "Fencer_SeptEtoiles";
+--	retList[#retList + 1] = "Fencer_AttaqueComposee";
+--	retList[#retList + 1] = "Fencer_Fleche";
+--	retList[#retList + 1] = "Dragoon_Dragontooth";
+--	retList[#retList + 1] = "Dragoon_Dragon_Soar";
+--	retList[#retList + 1] = "NakMuay_Attack";
+--	retList[#retList + 1] = "Templer_MortalSlash";
+--	retList[#retList + 1] = "Squire_DeadlyCombo";
 	return retList;
 
 end
@@ -68,7 +69,7 @@ function GET_HOMUNCULUS_SKILLS()
 	retList[#retList + 1] = "Psychokino_MagneticForce";
 	retList[#retList + 1] = "Elementalist_StoneCurse";
 	retList[#retList + 1] = "Elementalist_Rain";
-	retList[#retList + 1] = "Chronomancer_Quicken";
+--	retList[#retList + 1] = "Chronomancer_Quicken";
 	retList[#retList + 1] = "Chronomancer_Slow";
 	retList[#retList + 1] = "Chronomancer_Stop";
 	retList[#retList + 1] = "Thaumaturge_ShrinkBody";
@@ -303,4 +304,21 @@ function SCR_GET_APPRISE_PRICE(shopClassName, mapClassName, buffClassName, abilL
 	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
 	
 	return math.floor(price);
+end
+
+-- 해당 skill에 checkKeyword 키워드가 존재하는지 체크. 있으면 1 반환, 없으면 0 반환.
+function CHECK_SKILL_KEYWORD(skill, checkKeyword)
+	local skillKeyword = TryGetProp(skill, 'Keyword');
+	
+	if skillKeyword ~= nil and skillKeyword ~= 'None' then
+		local skillKeywordList = SCR_STRING_CUT(skillKeyword, ';')
+		for i = 1, #skillKeywordList do
+			local keyword = skillKeywordList[i];
+			if keyword == checkKeyword then
+				return 1;
+			end
+		end
+	end
+	
+	return 0;
 end

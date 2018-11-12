@@ -1,13 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by rottenapple (IMCGames Co., Ltd) -->
 <repeatlyHits>
-	<Skill Name="Sadhu_EctoplasmAttack">
-		<Timing Level="1">
-			<KeyFrame Time="0.1" Ratio="50" HitDelayRatio="100" Effect="None" Sound="hit_good"/>
-			<KeyFrame Time="0.15" Ratio="50" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
-			<KeyFrame Time="0.2" Ratio="50" HitDelayRatio="0" Effect="None" Sound="hit_good"/>
-		</Timing>
-	</Skill>
 	<Skill Name="Schwarzereiter_Caracole">
 		<Timing Level="1">
 			<KeyFrame Time="0.1" Ratio="50" HitDelayRatio="100" Effect="None" Sound="hit_good"/>

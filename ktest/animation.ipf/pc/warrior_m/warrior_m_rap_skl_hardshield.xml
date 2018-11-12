@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_buff_warrior_hardshield" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="I_warrior_hardshield001" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="10" G="20" B="40" A="50"/>
+	<BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

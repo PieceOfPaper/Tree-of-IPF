@@ -1,12 +1,34 @@
-	-- inventory.lua
+-- inventory.lua
+g_lock_state_item_guid = 0
+lock_state_check = {}
+
+lock_state_check.can_lock = function(item_guid)
+    if g_lock_state_item_guid == item_guid then return false
+    else return true end
+end
+
+lock_state_check.clear_lock_state = function()
+    g_lock_state_item_guid = 0
+end
+
+-- 특정아이템의 락을 막는다.
+lock_state_check.disable_lock_state = function(item_guid)
+    g_lock_state_item_guid = item_guid
+end
+
+-- 특정아이템의 락을 허용한다.
+lock_state_check.enable_lock_state = function(item_guid)
+    if g_lock_state_item_guid == item_guid then
+        g_lock_state_item_guid = 0
+    end
+end
+
 local invenTitleName = nil
 local clickedLockItemSlot = nil
 
 g_invenTypeStrList = {"All", "Equip", "Consume", "Recipe", "Card", "Etc", "Gem", "Premium"};
 
-
 function INVENTORY_ON_INIT(addon, frame)
-
 	addon:RegisterMsg('ITEM_LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
 	addon:RegisterMsg('MYPC_CHANGE_SHAPE','INVENTORY_MYPC_CHANGE_SHAPE');
     addon:RegisterMsg('GAME_START', 'INVENTORY_ON_MSG');
@@ -56,7 +78,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	frame:SetEventScript(ui.DROP, dropscp);
-	INVENTORY_LIST_GET(frame);
+	INVENTORY_LIST_GET(frame);    
 end
 
 function UI_TOGGLE_INVENTORY()
@@ -770,7 +792,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
     if msg == 'INV_ITEM_ADD' then
         TEMP_INV_ADD(frame, argNum)
     end
-	if  msg == 'EQUIP_ITEM_LIST_GET' then	
+	if  msg == 'EQUIP_ITEM_LIST_GET' then	        
 		STATUS_EQUIP_SLOT_SET_ANIM(frame);
 		STATUS_EQUIP_SLOT_SET(frame);
 		SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame);	--염색버튼 숨기기/보이기
@@ -780,7 +802,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 	end
 
     if msg == 'GAME_START' then
-		UPDATE_SHIHOUETTE_IMAGE(frame);
+		UPDATE_SHIHOUETTE_IMAGE(frame);        
         -- INVENTORY_LIST_GET(frame)
 		STATUS_EQUIP_SLOT_SET(frame);
 		DRAW_MEDAL_COUNT(frame)
@@ -1325,15 +1347,6 @@ function SEARCH_ITEM_INVENTORY_KEY()
 	local frame = ui.GetFrame('inventory')
 	frame:CancelReserveScript("SEARCH_ITEM_INVENTORY");
 	frame:ReserveScript("SEARCH_ITEM_INVENTORY", 0.3, 1);
-end
-
-function REMOVE_ITEM_INVENTORY()
-    local list = GET_EXPIRED_ITEM_LIST();
-    if list ~= nil and #list > 0 then
-        addon.BroadMsg("EXPIREDITEM_REMOVE_OPEN", "", 0);
-    else
-        ui.SysMsg(ScpArgMsg("NoTimeExpiredItem"));
-    end
 end
 
 function SEARCH_ITEM_INVENTORY(a,b,c)
@@ -2677,7 +2690,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)	
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)    
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
@@ -2974,7 +2987,7 @@ function STATUS_DUMP_SLOT_SET(a,s,d)
 	STATUS_EQUIP_SLOT_SET(ui.GetFrame('inventory'));
 end
 
-function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
+function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)    
 	local frame = slot:GetTopParentFrame();
 	ICON_SET_EQUIPITEM_TOOLTIP(icon, equipItem, frame:GetName());
 	if frame:GetName() ~= "compare" then
@@ -3032,7 +3045,7 @@ function SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
 	end
 end
 
-function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
+function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)    
 
 	local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 	if  spotName  ==  nil  then
@@ -3716,7 +3729,7 @@ function REQ_INV_SORT(invType, sortType)
 	item.SortInvIndex(invType, sortType);
 end
 
-function LOCK_ITEM_INVENTORY(frame)
+function LOCK_ITEM_INVENTORY(frame)    
 	for i = 0, AUTO_SELL_COUNT-1 do
 		-- 뭐하나라도 true면
 		if session.autoSeller.GetMyAutoSellerShopState(i) == true then
@@ -3781,8 +3794,18 @@ function CURSOR_CHECK_IN_LOCK(slot)
 	return 0;
 end
 
-function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)    
-	clickedLockItemSlot = nil
+function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
+    if lock_state_check.can_lock(selectItem:GetIESID()) == false then
+        ui.SysMsg(ClMsg('selectItemUsed'))
+        return
+    end
+
+    if reinforce_by_mix.is_reinforce_state() == true then
+        ui.SysMsg(ClMsg('CannotUseInReinforceState'))
+        return
+    end    
+    
+    clickedLockItemSlot = nil
     local briquetting = ui.GetFrame('briquetting');
     if briquetting:IsVisible() == 1 then
         ui.SysMsg(ScpArgMsg('CannotLock{UI}VisibleState', 'UI', ClMsg('Briquetting')));
@@ -4206,7 +4229,7 @@ function DO_WEAPON_SWAP(frame, index)
 	frame:SetUserValue('CURRENT_WEAPON_INDEX', index)
 	quickslot.SwapWeapon();
 
-	local abil = GetAbility(pc, "SwapWeapon");
+    local abil = GetAbility(pc, "SwapWeapon");
 
 	if abil ~= nil then
 		weaponSwap1:ShowWindow(1);
@@ -4215,7 +4238,7 @@ function DO_WEAPON_SWAP(frame, index)
 		weaponSwap1:ShowWindow(0);
 		weaponSwap2:ShowWindow(0);
 	end
-
+    
 	local tempIndex = 0;
 	if index == 1 then
 		tempIndex = 2

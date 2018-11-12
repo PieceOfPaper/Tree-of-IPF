@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="solodungeonscoreboard" x="0" y="100" width="850" height="750" create="open">
+<uiframe name="solodungeonscoreboard" x="0" y="100" width="1000" height="750" create="open">
 	<frame title="" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 130 0 0"/>
 	<skin layout_gravity="left top" rect="0 82 220 220" frameskin="none"/>
 	<option hideable="true" closebutton="true" useimageitem="true"/>
@@ -11,12 +11,12 @@
 	<layer layerlevel="150"/>
 	<Script OpenScp="SOLODUNGEON_SCOREBOARD_OPEN"/>
 	<controls>
-		<groupbox name="bg" rect="0 0 810 700" margin="0 40 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="test_pvp_skin"/>
+		<groupbox name="bg" rect="0 0 840 700" margin="0 40 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="test_pvp_skin"/>
 		<groupbox name="title" rect="0 0 740 80" margin="0 10 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin=""/>
-		<groupbox name="myscoreGbox" rect="0 0 660 100" margin="0 135 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="myscoreGbox" rect="0 0 710 100" margin="0 135 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="myscoreGbox_max" parent="myscoreGbox" rect="0 0 330 100" margin="0 0 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="none"/>
 		<groupbox name="myscoreGbox_now" parent="myscoreGbox" rect="0 0 330 100" margin="335 0 0 0" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="none"/>
-		<groupbox name="rankGbox" rect="0 0 780 400" margin="0 250 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="none"/>
+		<groupbox name="rankGbox" rect="0 0 800 400" margin="0 250 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="none"/>
 		<richtext name="titleText" rect="0 0 350 60" margin="0 0 0 0" parent="title" layout_gravity="center bottom" textalign="left top" caption="{@st43}STAGE FINISH" fontname="white_24" format="%s" param1="value" param1_def="Stage Finish"/>
 		<richtext name="result_stage_max" rect="0 0 330 30" margin="10 10 0 0" parent="myscoreGbox_max" layout_gravity="left top" textalign="left top" fontname="white_18_ol" format="최고 기록 스테이지 : %s 스테이지" param1="value" param1_def="100"/>
 		<richtext name="result_monster_max" rect="0 0 330 30" margin="10 38 0 0" parent="myscoreGbox_max" layout_gravity="left top" textalign="left top" fontname="white_18_ol" format="최고 기록 처치 몬스터 수 : %s 마리" param1="value" param1_def="100"/>
@@ -24,17 +24,19 @@
 		<richtext name="result_stage_now" rect="0 0 330 30" margin="15 10 0 0" parent="myscoreGbox_now" layout_gravity="left top" textalign="left top" fontname="white_18_ol" format="현재 스테이지 : %s 스테이지" param1="value" param1_def="100"/>
 		<richtext name="result_monster_now" rect="0 0 330 30" margin="15 38 0 0" parent="myscoreGbox_now" layout_gravity="left top" textalign="left top" fontname="white_18_ol" format="처치 몬스터 수 : %s 마리" param1="value" param1_def="100"/>
 		<richtext name="result_rank_now" rect="0 0 330 30" margin="15 66 0 0" parent="myscoreGbox_now" layout_gravity="left top" textalign="left top" fontname="white_18_ol" format="현재 기록 랭킹 : %s" param1="value" param1_def="1"/>
-		<tab name="tab_joblist" rect="0 0 710 50" margin="22 0 0 0" parent="rankGbox" layout_gravity="center top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="adventure_tab"/>
-		<tabitem name="tab_all" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="133" caption="{@st66b}{s16}전체" texttooltip="{@st59}전체{/}"/>
-		<tabitem name="tab_warrior" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="133" caption="{@st66b}{s16}전사" texttooltip="{@st59}소드맨 계열{/}"/>
-		<tabitem name="tab_wizard" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="133" caption="{@st66b}{s16}마법사" texttooltip="{@st59}위자드 계열{/}"/>
-		<tabitem name="tab_archer" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="133" caption="{@st66b}{s16}궁수" texttooltip="{@st59}아처 계열{/}"/>
-		<tabitem name="tab_cleric" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="133" caption="{@st66b}{s16}성직자" texttooltip="{@st59}클레릭 계열{/}"/>
-		<groupbox name="rankGbox_all" rect="0 0 665 350" margin="0 50 0 0" parent="rankGbox" tabname="tab_all" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
-		<groupbox name="rankGbox_warrior" rect="0 0 665 350" margin="0 50 0 0" parent="rankGbox" tabname="tab_warrior" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
-		<groupbox name="rankGbox_wizard" rect="0 0 665 350" margin="0 50 0 0" parent="rankGbox" tabname="tab_wizard" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
-		<groupbox name="rankGbox_archer" rect="0 0 665 350" margin="0 50 0 0" parent="rankGbox" tabname="tab_archer" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
-		<groupbox name="rankGbox_cleric" rect="0 0 665 350" margin="0 50 0 0" parent="rankGbox" tabname="tab_cleric" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<tab name="tab_joblist" rect="0 0 780 50" margin="30 0 0 0" parent="rankGbox" layout_gravity="center top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="tab_all" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="120" caption="{@st66b}{s16}전체" resizebytext="false" texttooltip="{@st59}전체{/}"/>
+		<tabitem name="tab_warrior" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="120" caption="{@st66b}{s16}전사" resizebytext="false" texttooltip="{@st59}소드맨 계열{/}"/>
+		<tabitem name="tab_wizard" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="120" caption="{@st66b}{s16}마법사" resizebytext="false" texttooltip="{@st59}위자드 계열{/}"/>
+		<tabitem name="tab_archer" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="120" caption="{@st66b}{s16}궁수" resizebytext="false" texttooltip="{@st59}아처 계열{/}"/>
+		<tabitem name="tab_cleric" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="120" caption="{@st66b}{s16}성직자" resizebytext="false" texttooltip="{@st59}클레릭 계열{/}"/>
+		<tabitem name="tab_scout" parent="tab_joblist" layout_gravity="center center" skinspace="20" width="120" caption="{@st66b}{s16}스카우트" resizebytext="false" texttooltip="{@st59}스카우트 계열{/}"/>
+		<groupbox name="rankGbox_all" rect="0 0 700 350" margin="0 45 0 0" parent="rankGbox" tabname="tab_all" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="rankGbox_warrior" rect="0 0 700 350" margin="0 45 0 0" parent="rankGbox" tabname="tab_warrior" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="rankGbox_wizard" rect="0 0 700 350" margin="0 45 0 0" parent="rankGbox" tabname="tab_wizard" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="rankGbox_archer" rect="0 0 700 350" margin="0 45 0 0" parent="rankGbox" tabname="tab_archer" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="rankGbox_cleric" rect="0 0 700 350" margin="0 45 0 0" parent="rankGbox" tabname="tab_cleric" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="rankGbox_scout" rect="0 0 700 350" margin="0 45 0 0" parent="rankGbox" tabname="tab_scout" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
 		<richtext name="returnMsg" rect="0 0 300 30" margin="70 0 0 54" parent="bg" layout_gravity="left bottom" textalign="center top" fontname="brown_18_b" format="%s" param1="value" param1_def="잠시후 마을로 돌아갑니다"/>
 		<button name="returnBtn" parent="bg" rect="0 0 160 46" margin="0 0 80 42" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SOLODUNGEON_SCOREBOARD_MGAME_RETURN" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" skin="test_red_button" caption="{@st42}{s18}{nl}돌아가기{nl}" oversound="button_over" stretch="false"/>
 	</controls>

@@ -1,10 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="itemdecompose" x="0" y="0" width="560" height="1000" create="open">
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="itemdecompose" x="0" y="0" width="560" height="1030" create="open">
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin="test_frame_low"/>
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<layer layerlevel="80"/>
+	<input moveable="false" hittestframe="false"/>
 	<option closebutton="false"/>
 	<script OpenScp="ITEMDECOMPOSE_UI_OPEN" CloseScp="ITEMDECOMPOSE_UI_CLOSE"/>
 	<controls>

@@ -1,32 +1,74 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="changejob" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="property_screenbg"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="100"/>
-	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="180" ControlHeight="100" MarginX="15" MarginY="80"/>
+	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="180" ControlHeight="100" MarginX="15" MarginY="80" BUTTON_IMG_HAVE_JOB="class_tree_job_sel_btn" BUTTON_IMG_NEW_JOB="class_tree_new_icon" BUTTON_IMG_HAD_HIDDEN_JOB="class_tree_job_hidden_sel_btn" BUTTON_IMG_HIDDEN_JOB="class_tree_job_hidden_btn" BUTTON_IMG_DEFAULT="class_tree_job_btn" FIRST_JOB_NAME_STYLE="{@sti7}{s24}{ds}" JOB_NAME_STYLE="{@st43}{s22}{ds}" CLASS_CTRLSET_MARGIN_X="40" CLASS_CTRLSET_MARGIN_Y="-20" CLASS_RESET_EXP_ON_IMG="class_tree_reset_icon_on" CLASS_RESET_EXP_OFF_IMG="class_tree_reset_icon_off"/>
 	<script OpenScp="CHANGEJOB_OPEN" CloseScp="CHANGEJOB_CLOSE"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<option escscript="CHANGEJOB_ON_ESCAPE" hideable="false"/>
 	<controls>
-		<groupbox name="mbg" rect="0 0 570 1080" margin="660 0 0 0" layout_gravity="center center" container="true" hittestbox="false" skin="market_low"/>
-		<button name="closebtn" parent="mbg" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;changejob&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}전직 정보 창을 닫습니다{/}"/>
-		<richtext name="title" parent="mbg" rect="0 0 200 30" margin="0 22 60 0" layout_gravity="right top" caption="{@st43}전직 정보{/}"/>
-		<groupbox name="cjgroupbox_main" rect="0 0 1340 1080" margin="-290 0 0 0" layout_gravity="center center" hittestbox="true" leftscroll="true" skin=""/>
-		<picture name="class_image" rect="0 0 250 438" margin="510 -300 0 0" layout_gravity="center center" hittest="false" image="mainpc_crown" stretch="true"/>
-		<button name="class_select" parent="mbg" rect="0 0 226 78" margin="0 0 0 30" layout_gravity="center bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}클래스 선택" clicksound="button_click_skill_up" oversound="button_over" image="btn_lv3"/>
-		<groupbox name="groupbox_infotext" rect="0 0 300 40" margin="780 -410 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false" skin=""/>
-		<richtext name="classCircle" parent="groupbox_infotext" rect="0 0 160 30" margin="0 0 0 0" layout_gravity="right top" drawbackground="false" fixwidth="true" format="{@st43}[%s서클]{/}" maxwidth="0" param1="param_circle" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
-		<richtext name="className" parent="groupbox_infotext" rect="0 0 200 30" margin="0 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
-		<richtext name="classExplain" rect="0 0 300 250" margin="780 -300 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st42b} %s{/}" maxwidth="0" param1="param_explain" param1_def="클래스에 대한 간단한 설명을 이곳에 표시합니다." resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<richtext name="classRating1" rect="0 0 300 30" margin="780 -190 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st41b}타입 : {@sti7}%s{/}" maxwidth="0" param1="rating" param1_def="★★★★★" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<richtext name="classRating2" rect="0 0 300 30" margin="780 -160 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st41b}조작난이도 : {@sti7}%s{/}" maxwidth="0" param1="rating" param1_def="★★★★★" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<richtext name="skilltext" rect="0 0 500 30" margin="660 -100 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st43}스킬{/}" maxwidth="0" param1_def="스킬" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
-		<richtext name="classtip" rect="0 0 500 30" margin="660 100 0 0" layout_gravity="center center" drawbackground="false" fixwidth="true" format="{@st43}클래스Tip{/}" maxwidth="0" param1_def="클래스Tip" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false" visible="false"/>
-		<labelline name="labelline" rect="0 0 300 4" margin="780 -390 0 0" layout_gravity="center center" skin="None"/>
-		<labelline name="labelline2" rect="0 0 500 4" margin="660 -80 0 0" layout_gravity="center center" skin="None"/>
-		<labelline name="labelline3" rect="0 0 500 4" margin="660 120 0 0" layout_gravity="center center" skin="None"/>
-		<groupbox name="groupbox_skills" rect="0 0 500 130" margin="660 0 0 " layout_gravity="center center" hittestbox="5 5" skin=""/>
+		<groupbox name="leftBox" rect="0 0 886 720" margin="0 0 0 0" layout_gravity="left top" hittestbox="true" draw="false"/>
+		<groupbox name="rightBox" rect="0 0 1025 1050" margin="0 0 0 0" layout_gravity="right top" hittestbox="true" skin="market_low" resizebyresolution="true"/>
+		<richtext name="changeJob_richtext" parent="rightBox" rect="0 0 120 25" hittest="false" textalign="left top" format="{@st44}클래스 목록{/}" resizebytext="true" spacey="0" maxwidth="0" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" margin="0 0 0 0" layout_gravity="left center"/>
+		<labelline name="labelline" parent="rightBox" margin="30 -62 0 0" rect="0 0 1000 2" skin="None" layout_gravity="left center"/>
+		<groupbox name="cjgroupbox_main" parent="rightBox" rect="0 0 1020 400" margin="0 70 0 0" layout_gravity="left top" hittestbox="true" draw="false" resizebyparent="true" resizebyresolution="true"/>
+		<button name="closeBtn" rect="0 0 44 44" margin="0 15 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame('changejob')" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<!-- Job Tree -->
+		<groupbox name="jobTreeBox" rect="0 0 910 1080" margin="0 0 0 0" layout_gravity="left top" skin="brownbox_filter" resizebyparent="true" resizebyresolution="true"/>
+		<richtext name="jobTreeStaticText" parent="jobTreeBox" rect="0 0 300 30" margin="20 10 0 0" layout_gravity="left top" caption="{@st43}현재 클래스 정보"/>
+		<groupbox name="treeDetailBox" parent="jobTreeBox" rect="0 0 710 510" margin="0 30 0 0" layout_gravity="center top" stretch="false" image="none" skin="none"/>
+		<groupbox name="treeDetailBox1" parent="treeDetailBox" rect="0 0 678 378" margin="0 40 0 0" layout_gravity="center top" stretch="false" image="class_tree_frame" skin="none"/>
+		<controlset name="curJobSet_1" parent="treeDetailBox" type="changejob_class_info" rect="0 0 100 200" margin="-14 -96 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false"/>
+		<controlset name="curJobSet_2" parent="treeDetailBox" type="changejob_class_info" rect="0 0 100 200" margin="-265 120 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false"/>
+		<controlset name="curJobSet_3" parent="treeDetailBox" type="changejob_class_info" rect="0 0 100 200" margin="-15 120 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false"/>
+		<controlset name="curJobSet_4" parent="treeDetailBox" type="changejob_class_info" rect="0 0 100 200" margin="236 120 0 0" layout_gravity="center center" hittestbox="false" scrollbar="false"/>
+		<!-- Reset Point -->
+		<groupbox name="resetInfoBox" parent="jobTreeBox" rect="0 0 866 170" margin="15 560 0 0" layout_gravity="left top" draw="false"/>
+		<richtext name="resetInfoStaticText" parent="resetInfoBox" rect="0 0 300 30" margin="5 0 0 0" layout_gravity="left top" caption="{@st43}클래스 변경 {img testquesten_button 30 30}" texttooltip="획득 가능한 포인트량은 매주 월요일 6시에 초기화됩니다.{nl}포인트는 아래의 방법으로 획득할 수 있습니다.{nl} {nl}- 접속: 10 포인트 (PC방, 길드 가입, 토큰 사용 시 각 5 포인트 추가 획득){nl}- 낚시 성공: 1회 당 1 포인트{nl}- 살러스 수녀원 미션: 15 포인트{nl}- 레전드 레이드: 20 포인트{nl}- 업힐 디펜스 미션: 10 포인트{nl}- 유니크 레이드: 20 포인트{nl}- 레벨 던전: 10 포인트{nl}- 의뢰소 미션: 10 포인트{nl}- 일일 퀘스트: 10 포인트"/>
+		<gauge name="resetGauge" parent="resetInfoBox" rect="0 0 824 37" margin="0 85 0 0" layout_gravity="center top" skin="class_tree_gauge_green"/>
+		<gauge name="resetExpGauge" parent="resetInfoBox" rect="0 0 824 37" margin="0 85 0 0" layout_gravity="center top" skin="class_tree_gauge_yellow" drawbg="false" inverse="false" point="50" maxpoint="100" text1="{@st42}%v / %m" textfont1="white_14_ol" textalign1="center center"/>
+		<richtext name="weelyGainExpText" parent="resetInfoBox" rect="0 0 300 30" margin="16 0 0 10" layout_gravity="left bottom" format="{@st42}주간획득 경험치{/} {@st66d_y}(%s/%s){/}" param1="cur" param1_def="0" param2="max" param2_def="10000"/>
+		<richtext name="myResetPointText" parent="resetInfoBox" rect="0 0 300 30" margin="0 0 18 5" layout_gravity="right bottom" format="{@st43}{img class_tree_reset_icon 27 32} x%s" param1="count" param1_def="10"/>
+		<picture name="resetGauge_L" parent="resetInfoBox" rect="0 0 21 37" margin="1 18 0 0" layout_gravity="left center" image="class_tree_gauge_L" stretch="false"/>
+		<picture name="resetGauge_R" parent="resetInfoBox" rect="0 0 21 37" margin="0 18 1 0" layout_gravity="right center" image="class_tree_gauge_R" stretch="false"/>
+		<picture name="availablePic_1" parent="resetInfoBox" rect="0 0 53 65" margin="290 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
+		<picture name="availablePic_2" parent="resetInfoBox" rect="0 0 53 65" margin="540 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
+		<picture name="availablePic_3" parent="resetInfoBox" rect="0 0 53 65" margin="810 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
+		<!-- Job Select -->
+		<groupbox name="jobSelectBox" rect="0 0 910 350" margin="0 0 0 0" layout_gravity="left bottom" draw="false"/>
+		<!-- Class Info -->
+		<groupbox name="mbg" parnet="rightBox" rect="0 0 1050 480" margin="0 0 10 100" layout_gravity="right bottom" hittestbox="false" resizebyparent="true" skin="marketlow" />
+		<button name="class_select" parent="mbg" rect="0 0 226 78" margin="0 0 230 0" layout_gravity="right bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}전직하기" clicksound="button_click_skill_up" oversound="button_over" image="btn_lv3"/>
+		<groupbox name="charImgBox" parent="mbg" rect="0 0 300 470" margin="70 10 0 0" layout_gravity="left top" skin="blackbox_op_50"/>
+		<picture name="class_image" parent="charImgBox" rect="0 0 250 360" margin="-10 0 0 100" layout_gravity="center bottom" hittest="false" image="mainpc_crown" stretch="false"/>
+		<richtext name="className" parent="charImgBox" rect="0 0 200 30" margin="0 30 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" format="{@sti7}{s20}{ds}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<picture name="jobEmblemPic" parent="charImgBox" rect="0 0 75 75" margin="10 10 0 0" layout_gravity="left top" image="c_wizard_pyromancer" stretch="true"/>
+		<groupbox name="explainBox" parent="mbg" rect="0 0 600 400" margin="400 0 0 0" layout_gravity="left top" skin="none" hittestbox="false"/>
+		<richtext name="classExplain" parent="explainBox" rect="0 0 590 100" margin="10 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st42b}%s{/}" maxwidth="0" param1="param_explain" param1_def="클래스에 대한 간단한 설명을 이곳에 표시합니다." resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="statRatioBox" parent="mbg" rect="0 0 300 130" margin="75 0 0 15" layout_gravity="left bottom" draw="false"/>
+		<groupbox name="statRatioHeaderBox" parent="charImgBox" rect="0 0 280 30" margin="0 0 0 120" layout_gravity="center bottom" skin="blackbox_op_80"/>
+		<richtext name="statRatioInfoText" parent="statRatioHeaderBox" rect="0 0 280 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st66d_y}{#ffa800}스탯 성장 비율"/>
+		<richtext name="statRatioStaticText_STR" parent="statRatioBox" rect="0 0 100 30" margin="30 40 0 0" layout_gravity="left top" caption="{@st42}{#FFCC66}힘"/>
+		<richtext name="statRatioStaticText_CON" parent="statRatioBox" rect="0 0 100 30" margin="160 40 0 0" layout_gravity="left top" caption="{@st42}{#FFCC66}체력"/>
+		<richtext name="statRatioStaticText_INT" parent="statRatioBox" rect="0 0 100 30" margin="30 70 0 0" layout_gravity="left top" caption="{@st42}{#FFCC66}지능"/>
+		<richtext name="statRatioStaticText_MNA" parent="statRatioBox" rect="0 0 100 30" margin="160 70 0 0" layout_gravity="left top" caption="{@st42}{#FFCC66}정신"/>
+		<richtext name="statRatioStaticText_DEX" parent="statRatioBox" rect="0 0 100 30" margin="30 100 0 0" layout_gravity="left top" caption="{@st42}{#FFCC66}민첩"/>
+		<richtext name="statRatioText_STR" parent="statRatioBox" rect="0 0 100 30" margin="80 40 0 0" layout_gravity="left top" format="{@st42}%s%" param1="ratio" param1_def="0"/>
+		<richtext name="statRatioText_CON" parent="statRatioBox" rect="0 0 100 30" margin="210 40 0 0" layout_gravity="left top" format="{@st42}%s%" param1="ratio" param1_def="0"/>
+		<richtext name="statRatioText_INT" parent="statRatioBox" rect="0 0 100 30" margin="80 70 0 0" layout_gravity="left top" format="{@st42}%s%" param1="ratio" param1_def="0"/>
+		<richtext name="statRatioText_MNA" parent="statRatioBox" rect="0 0 100 30" margin="210 70 0 0" layout_gravity="left top" format="{@st42}%s%" param1="ratio" param1_def="0"/>
+		<richtext name="statRatioText_DEX" parent="statRatioBox" rect="0 0 100 30" margin="80 100 0 0" layout_gravity="left top" format="{@st42}%s%" param1="ratio" param1_def="0"/>
+		<!-- Class Info: Skill -->
+		<richtext name="class_ex_text" parent="explainBox" rect="0 0 500 30" margin="10 10 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}클래스 정보{/}" maxwidth="0" param1_def="스킬" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="skilltext" parent="explainBox" rect="0 0 500 30" margin="10 210 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st43}스킬{/}" maxwidth="0" param1_def="스킬" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<groupbox name="groupbox_skills" parent="explainBox" rect="0 0 550 130" margin="10 250 0 0" layout_gravity="left top" hittestbox="5 5" draw="false"/>
+		<picture name="rollbackInfoBox" rect="0 0 886 1080" margin="0 0 0 0" layout_gravity="left top" hittestbox="true" image="fullblack" stretch="true" alpha="90" resizebyparent="true" resizebyresolution="true"/>
+		<button name="rollbackCloseBtn" parent="rollbackInfoBox" rect="0 0 44 44" margin="0 15 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CHANGEJOB_CLOSE_ROLLBACK_MODE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" texttooltip="클래스 변경 모드를 종료합니다."/>
+		<richtext name="infoText" parent="rollbackInfoBox" rect="0 0 800 50" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}변경 할 클래스를 선택한 후에 전직하기 버튼을 눌러주세요."/>
+		<picture name="arrowPic" parent="rollbackInfoBox" rect="0 0 50 50" margin="0 0 80 0" layout_gravity="right center" image="class_tree_arrow" stretch="true"/>
 	</controls>
 </uiframe>

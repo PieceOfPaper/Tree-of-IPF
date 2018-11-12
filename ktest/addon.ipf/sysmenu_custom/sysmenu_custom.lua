@@ -7,7 +7,7 @@ function SYSMENU_CUSTOM_ON_INIT(addon, frame)
 
 end
 
-function SYSMENU_CUSTOM_UPDATE(frame) -- °ÔÀÓ Á¢¼Ó, Àâ Ã¼ÀÎÂ¡ ½Ã µ¹¾Æ¾ß ÇÒ µí.
+function SYSMENU_CUSTOM_UPDATE(frame) -- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, ï¿½ï¿½ Ã¼ï¿½ï¿½Â¡ ï¿½ï¿½ ï¿½ï¿½ï¿½Æ¾ï¿½ ï¿½ï¿½ ï¿½ï¿½.
 	local gBox = GET_CHILD(frame,'maingbox','ui::CGroupBox')
 	gBox:RemoveAllChild();
 
@@ -20,13 +20,8 @@ function SYSMENU_CUSTOM_UPDATE(frame) -- °ÔÀÓ Á¢¼Ó, Àâ Ã¼ÀÎÂ¡ ½Ã µ¹¾Æ¾ß ÇÒ µí.
 	for i = 0 , cnt - 1 do
 
 		local cls = GetClassByIndexFromList(clslist, i);
-
-		--local jobcls = GetClass("Job", cls.JobName);
-		--local jobid = jobcls.ClassID
-
 		local targetframe = ui.GetFrame(cls.ClassName)
-		--if IS_HAD_JOB(jobid) == 1 and targetframe:CheckOpenCondScp() == true then
-		if targetframe:CheckOpenCondScp() == true then -- È®Àå¼ºÀ» À§ÇØ¼­. ¸¸ÀÏ Á÷¾÷Àü¿ë UI·Î¸¸ sysmenu_customÀ» ¾´´Ù¸é ±×³É ÇØµåÀâÀ¸·Î °Ë»çÇÏ¸é ¾à°£ ´õ ºü¸¦ µí.
+		if targetframe:CheckOpenCondScp() == true then
 			local x = (#SYSMENU_CUSTOM_LIST) * 44
 			local btn = gBox:CreateControl('button', 'btn_'..cls.ClassName, x, 36, 44, 44);
 			tolua.cast(btn, "ui::CButton");

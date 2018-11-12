@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="atk_cloth_s_l1"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" targetPos="false" use2DEffect="true"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="E_warrior_assistattack_dagger_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" targetPos="false" use2DEffect="true"/>
+	<Sound frame="0.00" Value="0" soundFile="move_block_1"/>
+	<Sound frame="2.00" Value="0" soundFile="voice_atk_short_war_f"/>
+</ActionDesc>

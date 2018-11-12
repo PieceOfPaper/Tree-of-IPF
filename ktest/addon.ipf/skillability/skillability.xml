@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="skillability" x="0" y="0" width="1270" height="900">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 -30 0 0" draw="true"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawtitlebar="false"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
+	<layer layerlevel="92"/>
+	<script OpenScp="SKILLABILITY_ON_OPEN" CloseScp="ON_CLOSE_SKILLABILITY"/>
+	<userconfig JOB_TAB_WIDTH="1270" JOB_TAB_HEIGHT="890" JOB_TAB_X="10" JOB_TAB_Y="105" TAB_WIDTH="180" LINKABIL_OFFSET_X="5" LINKABIL_OFFSET_Y="20" ACTIVE_GROUP_WIDTH="20" ONE_ACTIVE_GROUP_HEIGHT="40" ACTIVE_GROUP_SKIN="abill_group_skin" ACTIVE_GROUP_CENTER_ON_IMAGE="abill_group_on_pic" ACTIVE_GROUP_CENTER_OFF_IMAGE="abill_group_off_pic" ACTIVE_GROUP_CENTER_IMAGE_SIZE="20" ACTIVE_GROUP_X="10" ACTIVE_GROUP_CENTER_IMAGE_X="10" LAYER_LEVEL_DRAG_ON="90" LAYER_LEVEL_DRAG_OFF="92"/>
+	<controls>
+		<groupbox name="title_bg" rect="0 0 1270 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}스킬과 특성" fontname="brown_16_b" spacey="0"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;skillability&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<groupbox name="line_h" parent="" rect="0 0 1260 60" margin="0 70 0 0" layout_gravity="center top" skin="cutting_line_h"/>
+		<tab name="job_tab" rect="0 0 1200 50" margin="0 65 0 0" layout_gravity="center top" clicksound="inven_arrange" imagetype="false" oversound="button_cursor_over_2" skin="tab2"/>
+	</controls>
+</uiframe>

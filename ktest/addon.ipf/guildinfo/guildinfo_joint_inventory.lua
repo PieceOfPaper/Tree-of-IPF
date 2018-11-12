@@ -73,10 +73,11 @@ function ON_GUILD_WAREHOUSE_GET(code, ret_json)
 
         if element["set_type"] == "take" then
             dateText:SetTextByKey("img", ctrlSet:GetUserConfig("WITHDRAW_IMG"))
-            dateText:SetMargin(12, 0, 0, 0)
+            dateText:SetMargin(12, 8, 0, 0)
             ctrlSet:SetUserValue("type", "take")
         elseif element["set_type"] == "put" then
             dateText:SetTextByKey("img", ctrlSet:GetUserConfig("DEPOSIT_IMG"))
+            dateText:SetMargin(0, 0, 0, 0)
             ctrlSet:SetUserValue("type", "put")
         end
 
@@ -118,13 +119,16 @@ function ON_GUILD_JOINT_INV_ITEM_LIST_GET(frame, msg, strArg, numArg)
         SET_SLOT_COUNT(slot, invItem.count);
         SET_SLOT_COUNT_TEXT(slot, invItem.count);
         SET_SLOT_IESID(slot, invItem:GetIESID());
-        SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil);
-        SET_ITEM_TOOLTIP_BY_OBJ(slot:GetIcon(), invItem)
+        SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil);        
+        SET_ITEM_TOOLTIP_ALL_TYPE(slot:GetIcon(), invItem, itemCls.ClassName, 'guildwarehouse', itemCls.ClassID, invItem:GetIESID());        
         slot:ShowWindow(1)
         slotIndex = slotIndex + 1;
         index = itemList:Next(index);
     end
     control.CustomCommand("REQ_GUILD_MILEAGE_AMOUNT", 0);
+    
+    local itemLogDate = GET_CHILD_RECURSIVELY(frame, "itemLogDate")
+    ON_LOG_TIME_SET(nil, itemLogDate);
 end
 
 function ON_JOINT_INVENTORY_DROP(slotset, slot, argStr, argNum)
@@ -143,8 +147,17 @@ function ON_JOINT_INVENTORY_DROP(slotset, slot, argStr, argNum)
     if fromFrame:GetName() == "inventory" then
       
         local slotIndex = slot:GetSlotIndex();
+        
+        if iconInfo.count > 1 then
+            local frame = ui.GetFrame("guildinfo")
+            local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", iconInfo.count);
+            frame:SetUserValue("SLOT_INDEX", slotIndex)
+            frame:SetUserValue("ITEM_IES", itemIES)
+            INPUT_NUMBER_BOX(frame, titleText, "EXEC_ITEM_DROP_COUNT_JOINT_INVENTORY", 1, 1, iconInfo.count)
+        else
         local argList = string.format("%d %d", iconInfo.count, slotIndex);
         pc.ReqExecuteTx_Item("PUT_GUILD_JOINT_INV", itemIES, argList);
+        end
     elseif fromFrame:GetName() == "guildinfo" then
         local hoveredSlot = slot:GetIcon();
         if hoveredSlot == nil then
@@ -159,6 +172,14 @@ function ON_JOINT_INVENTORY_DROP(slotset, slot, argStr, argNum)
             pc.ReqExecuteTx_Item("SWAP_GUILD_JOINT_INV", itemIES, tostring(slot:GetSlotIndex()));
         end
     end
+end
+
+function EXEC_ITEM_DROP_COUNT_JOINT_INVENTORY(frame, count)
+    local slotIndex = frame:GetUserValue("SLOT_INDEX")
+    local itemIES = frame:GetUserValue("ITEM_IES")
+    local numberCount = tonumber(count)
+    local argList = numberCount .. " " .. slotIndex-- string.format("%d %s", count, slotIndex);
+    pc.ReqExecuteTx_Item("PUT_GUILD_JOINT_INV", itemIES, argList);
 end
 
 function ON_JOINT_ITEM_TAKE(parent, control)
@@ -180,12 +201,28 @@ function ON_JOINT_ITEM_TAKE(parent, control)
         return
     end
     local itemIES = iconInfo:GetIESID();
-
     local argList = string.format("%d",iconInfo.count);
+
+    if iconInfo.count > 1 then
+        local frame = ui.GetFrame("guildinfo")
+        local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", iconInfo.count);
+        frame:SetUserValue("SLOT_INDEX", slotIndex)
+        frame:SetUserValue("ITEM_IES", itemIES)
+        INPUT_NUMBER_BOX(frame, titleText, "EXEC_ITEM_TAKE_COUNT_JOINT_INVENTORY", 1, 1, iconInfo.count)
+
+    else
 
     pc.ReqExecuteTx_Item("TAKE_GUILD_JOINT_INV", itemIES, argList);
 end
+end
 
+function EXEC_ITEM_TAKE_COUNT_JOINT_INVENTORY(frame, count)
+    local slotIndex = frame:GetUserValue("SLOT_INDEX")
+    local itemIES = frame:GetUserValue("ITEM_IES")
+    local numberCount = tonumber(count)
+    local argList = numberCount .. " " .. slotIndex
+    pc.ReqExecuteTx_Item("TAKE_GUILD_JOINT_INV", itemIES, argList);
+end
 
 function FILTER_TRANSACTION_LOG(parent, control)
 

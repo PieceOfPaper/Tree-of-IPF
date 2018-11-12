@@ -166,6 +166,11 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
         value = value + (value_diamond * 2.1)
     end
     
+    -- EVENT_1811_WEEKEND
+    if SCR_EVENT_1811_WEEKEND_CHECK('REINFORCE') == 'YES' then
+        value = value/2
+    end
+    
     return SyncFloor(value);
 
 end

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist>
@@ -79,5 +79,8 @@
 		<image name="c_cleric_Zealot" file="\icon\class_cleric.tga" imgrect="200 300 100 100" CMM_Caption="질럿"/>
 		<image name="c_cleric_Exorcist" file="\icon\class_cleric.tga" imgrect="300 300 100 100" CMM_Caption="엑소시스트"/>
 		<image name="c_melee" file="\icon\class_melee.tga" imgrect="0 0 100 100" CMM_Caption="일반"/>
+		<image name="c_scout_scout" file="\icon\class_scout.tga" imgrect="0 0 100 100" CMM_Caption="스카우트"/>
+		<image name="c_scout_assassin" file="\icon\class_scout.tga" imgrect="100 0 100 100" CMM_Caption="어쌔신"/>
+		<image name="c_scout_outlaw" file="\icon\class_scout.tga" imgrect="200 0 100 100" CMM_Caption="아웃로"/>
 	</imagelist>
 </skinset>

@@ -430,57 +430,41 @@ function SORT_INVITEM_BY_WORTH(a,b)
 	local a_gemexp = 0
 	local b_gemexp = 0
 
-	for i = 0, 5-1 do
-	    local tempvala = TryGetProp(itemobj_a,'SocketItemExp_' .. i)
-   	    local tempvalb = TryGetProp(itemobj_b,'SocketItemExp_' .. i)
-        
-        if tempvala ~= nil and tempvalb ~= nil then
-		    a_gemexp = a_gemexp +  itemobj_a['SocketItemExp_' .. i] 
-    		b_gemexp = b_gemexp +  itemobj_b['SocketItemExp_' .. i] 
-		end
+	for i = 0, 4 do
+		a_gemexp = a_gemexp +  a:GetEquipGemExp(i);
+		b_gemexp = b_gemexp +  b:GetEquipGemExp(i);
 	end
 
 	if a_gemexp ~= b_gemexp then
 		return a_gemexp < b_gemexp
 	end
 
-
 	local a_gemcnt = 0
 	local b_gemcnt = 0
 
-	for i = 0, 5-1 do
-	    local tempvala = TryGetProp(itemobj_a,'Socket_Equip_' .. i)
-   	    local tempvalb = TryGetProp(itemobj_b,'Socket_Equip_' .. i)
-        
-        if tempvala ~= nil and tempvalb ~= nil then
-    		if itemobj_a['Socket_Equip_' .. i] ~= 0 then
-    			a_gemcnt = a_gemcnt + 1
-    		end
-    		if itemobj_b['Socket_Equip_' .. i] ~= 0 then
-    			b_gemcnt = b_gemcnt + 1
-    		end
+	for i = 0, 4 do
+		if a:GetEquipGemID(i) ~= 0 then
+			a_gemcnt = a_gemcnt + 1
+		end
+		if b:GetEquipGemID(i) ~= 0 then
+			b_gemcnt = b_gemcnt + 1
 		end
 	end
 
-	if a_amuletcnt ~= b_amuletcnt then
-		return a_amuletcnt < b_amuletcnt
+	if a_gemcnt ~= b_gemcnt then
+		return a_gemcnt < b_gemcnt
 	end
 
 
 	local a_socketcnt = 0
 	local b_socketcnt = 0
 
-	for i = 0, 5-1 do
-	    local tempvala = TryGetProp(itemobj_a,'Socket_' .. i)
-   	    local tempvalb = TryGetProp(itemobj_b,'Socket_' .. i)
-        
-        if tempvala ~= nil and tempvalb ~= nil then
-    		if itemobj_a['Socket_' .. i] > 0 then
-    			a_socketcnt = a_socketcnt + 1
-    		end
-    		if itemobj_b['Socket_' .. i] > 0 then
-    			b_socketcnt = b_socketcnt + 1
-    		end
+	for i = 0, 4 do
+		if a:IsAvailableSocket(i) == true then
+			a_socketcnt = a_socketcnt + 1
+		end
+		if b:IsAvailableSocket(i) == true then
+			b_socketcnt = b_socketcnt + 1
 		end
 	end
 
@@ -901,8 +885,8 @@ function IS_VALUEABLE_ITEM(itemid)
 
 	local gemcnt = 0
 
-	for i = 0, 5-1 do
-		if itemobj['Socket_Equip_' .. i] ~= 0 then
+	for i = 0, 4 do
+		if invitem:GetEquipGemID(i) ~= 0 then
 		gemcnt = gemcnt + 1
 		end
 	end
@@ -1470,7 +1454,7 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 	if IS_EQUIP(itemObj) == true then
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", cset:GetName())
-		local equip =	REGISTER_EQUIP(itemObj)
+		local equip =	REGISTER_EQUIP(itemObj,  invItem);
 		if equip == 1 then
 			return;
 		end
@@ -1574,9 +1558,9 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_gemexp = 0
     	local b_gemexp = 0
     
-    	for i = 0, 5-1 do
-    		a_gemexp = a_gemexp +  itemobj_a['SocketItemExp_' .. i] 
-    		b_gemexp = b_gemexp +  itemobj_b['SocketItemExp_' .. i] 
+    	for i = 0, 4 do
+    		a_gemexp = a_gemexp + a:GetEquipGemExp(i);
+    		b_gemexp = b_gemexp + b:GetEquipGemExp(i);
     	end
     
     	if a_gemexp ~= b_gemexp then
@@ -1587,11 +1571,11 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_gemcnt = 0
     	local b_gemcnt = 0
     
-    	for i = 0, 5-1 do
-    		if itemobj_a['Socket_Equip_' .. i] ~= 0 then
+    	for i = 0, 4 do
+    		if a:GetEquipGemID(i) ~= 0 then
     			a_gemcnt = a_gemcnt + 1
     		end
-    		if itemobj_b['Socket_Equip_' .. i] ~= 0 then
+    		if b:GetEquipGemID(i) ~= 0 then
     			b_gemcnt = b_gemcnt + 1
     		end
     	end
@@ -1604,11 +1588,11 @@ function SORT_PURE_INVITEMLIST(a,b)
     	local a_socketcnt = 0
     	local b_socketcnt = 0
     
-    	for i = 0, 5-1 do
-    		if itemobj_a['Socket_' .. i] > 0 then
+    	for i = 0, 4 do
+    		if a:IsAvailableSocket(i) == true then
     			a_socketcnt = a_socketcnt + 1
     		end
-    		if itemobj_b['Socket_' .. i] > 0 then
+    		if b:IsAvailableSocket(i) == true then
     			b_socketcnt = b_socketcnt + 1
     		end
     	end
@@ -1753,7 +1737,7 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		local frame = ui.GetFrame(g_itemCraftFrameName);
 		frame:SetUserValue("TARGETSET", itemSet:GetName())
 		frame:SetUserValue("TARGET_GUID", GetIESID(itemObj))
-		local equip =	REGISTER_EQUIP(itemObj)
+		local equip =	REGISTER_EQUIP(itemObj, invItemadd);
 		if equip == 1 then
 			return;
 		end
@@ -1825,15 +1809,14 @@ function ITEM_EQUIP_CRAFT()
 
 end
 
-function REGISTER_EQUIP(itemObj)	
+function REGISTER_EQUIP(itemObj, invItem)
 	if itemObj.Reinforce_2 ~= 0 then
 			local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 			ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
 			return 1
-	else 
-		
-		for i = 0 , itemObj.MaxSocket	do
-			if itemObj["Socket_"..i]  ~= 0 then
+	else 		
+		for i = 0, itemObj.MaxSocket - 1 do
+			if invItem:IsAvailableSocket(i) then
 				local yesScp = string.format("ITEM_EQUIP_CRAFT()");
 				ui.MsgBox(ScpArgMsg("craft_really_make"), yesScp, "None");
 				return 1

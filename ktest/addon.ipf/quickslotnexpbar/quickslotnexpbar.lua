@@ -275,9 +275,7 @@ function SET_QUICKSLOT_OVERHEAT(slot)
 
 end
 
-function UPDATE_SLOT_OVERHEAT(slot)
-	local obj = GET_SLOT_SKILL_OBJ(slot);
-	
+function _UPDATE_SLOT_OVERHEAT(slot, obj)
 	local icon = slot:GetIcon()
 	local isScroll = nil
 	if icon ~= nil then
@@ -291,15 +289,23 @@ function UPDATE_SLOT_OVERHEAT(slot)
 	local sklType = obj.ClassID;
 	local skl = session.GetSkill(sklType);
 	skl = GetIES(skl:GetObject());
-	local useOverHeat = skl.SklUseOverHeat;
+	local overHeatCount = skl.SklUseOverHeat;
 	local curHeat = session.GetSklOverHeat(sklType);
-	curHeat = curHeat + useOverHeat - 1;
-	local maxOverHeat = session.GetSklMaxOverHeat(sklType);
+	local resetTime = session.GetSklOverHeatResetTime(sklType);
 	local gauge = slot:GetSlotGauge();
+	gauge:SetCellPoint(1);
 
-	gauge:SetCellPoint(useOverHeat);
-	gauge:SetPoint(curHeat, maxOverHeat);
+	local count = 0;
+	if resetTime ~= 0 and curHeat > 0 then
+		count = math.ceil(curHeat/resetTime) - 1;
+	end
+	gauge:SetPoint(count, overHeatCount);
 	slot:InvalidateGauge();
+end
+
+function UPDATE_SLOT_OVERHEAT(slot)
+	local obj = GET_SLOT_SKILL_OBJ(slot);
+	_UPDATE_SLOT_OVERHEAT(slot, obj)
 end
 
 function GET_SLOT_SKILL_TYPE(slot)
@@ -474,6 +480,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		
 			icon:Set(imageName, category, type, 0, iesID);
 			icon:SetTooltipNumArg(type);
+			icon:SetTooltipStrArg("quickslot");
 			icon:SetTooltipIESID(iesID);		
 		end
 
@@ -663,8 +670,8 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	end
 
 	local iconInfo = icon:GetInfo();
-
-	if iconInfo.category == 'Skill' then    
+	local joystickquickslotRestFrame = ui.GetFrame("joystickrestquickslot");
+	if iconInfo.category == 'Skill' and joystickquickslotRestFrame:IsVisible() == 0 then
 		ICON_USE(icon);
 		return;
 	end
@@ -757,7 +764,11 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 						
 							if itemType ~= nil and classType ~= nil then
 								if itemType ~= "Equip" or (itemType == "Equip" and (classType == "Outer" or classType == "SpecialCostume")) then
-									return;
+                                    --GuildColony_soulCrystal
+                                    local coolDownGroup = TryGetProp(obj, "CoolDownGroup");
+                                    if coolDownGroup ~= "GuildColony_soulCrystal" then
+                                        return;
+                                    end
 								end
 							else
 								return;
@@ -919,7 +930,7 @@ function QUICKSLOTNEXPBAR_DUMPICON(frame, control, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
-
+	
 	local chatFrame = ui.GetFrame("chat");
 	if chatFrame ~= nil then
 		if chatFrame:IsVisible() == 1 then

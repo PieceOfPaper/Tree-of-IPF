@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="None" particleName="E_scout_annihiation" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="F_scout_annihiation_bottom" useAttach="false" hiddenObj="false" changeEffect="None" scale="6.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="F_smoke171" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="20" attachNode="None" particleName="F_smoke171_busrtup" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="None" particleName="I_smoke013_dark3_up" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="150" G="100" B="100" A="50"/>
+	<BlendOn frame="30" R="150" G="100" B="100" A="50"/>
+	<BlendOff frame="26" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

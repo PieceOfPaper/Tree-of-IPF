@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="ability_point_extractor" x="0" y="0" width="400" height="340" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 120 0 0"/>
+	<skin frameskin="pipwin_test"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="93"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="character_item_window_open" close="character_item_window_close"/>
+	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+	<script OpenScp="ABILITY_POINT_EXTRACTOR_OPEN"/>
+	<userconfig EXCEED_POINT_STYLE="{#FF0000}" EXCEED_MONEY_STYLE="{#FF0000}"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 400 330" margin="0 0 0 0" layout_gravity="left top" draw="true" skin="collection_complete"/>
+		<groupbox name="headerBox" rect="0 0 400 30" margin="0 0 0 0" layout_gravity="left top" draw="false"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 400 30" margin="0 5 0 0" layout_gravity="center center" caption="{@st66d}특성 포인트 추출"/>
+		<picture name="question" rect="0 0 44 44" margin="0 0 0 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59s}100,000실버 + 1000 특성포인트를 소비하여{nl} 특성포인트 스크롤 아이템 1개를 추출합니다."/>
+		<!-- buy fee -->
+		<groupbox name="feeBox" rect="0 0 400 30" margin="0 40 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="feeTextBox" parent="feeBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="feeInfoText" parent="feeTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="수수료" fontname="brown_16"/>
+		<richtext name="feeValueText" parent="feeBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s 실버" fontname="brown_18" param1="value" param1_def="0"/>
+		<!-- extract scroll -->
+		<groupbox name="extractScrollBox" rect="0 0 400 90" margin="0 65 0 0" layout_gravity="center top" draw="false"/>
+		<labelline name="labelline1" parent="extractScrollBox" rect="0 0 380 1" margin="0 4 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<richtext name="extractScrollInfoText" parent="extractScrollBox" rect="0 0 400 30" margin="0 10 0 0" layout_gravity="center top" caption="추출할 특성 포인트 스크롤" fontname="brown_18"/>
+		<edit name="extractScrollEdit" parent="extractScrollBox" rect="0 0 120 35" margin="0 44 0 0" layout_gravity="center top" numbermode="true" minnumber="0" skin="test_weight_skin" caption="0" textalign="center center" fontname="white_18_ol" typingscp="ABILITY_POINT_EXTRACTOR_TYPE"/>
+		<button name="extractScrollDown" parent="extractScrollBox" rect="0 0 35 35" margin="-75 49 0 0" layout_gravity="center top" LBtnUpScp="ABILITY_POINT_EXTRACTOR_DOWN" LBtnUpArgNum="1" image="buff_sale_left" stretch="true"/>
+		<button name="extractScrollUp" parent="extractScrollBox" rect="0 0 35 35" margin="75 49 0 0" layout_gravity="center top" LBtnUpScp="ABILITY_POINT_EXTRACTOR_UP" LBtnUpArgNum="1" image="buff_sale_right" stretch="true"/>
+		<button name="extractScrollReset" parent="extractScrollBox" rect="0 0 35 35" margin="-102 49 0 0" layout_gravity="center top" LBtnUpScp="ABILITY_POINT_EXTRACTOR_MIN" LBtnUpArgNum="10" image="buff_sale_left_2" stretch="true"/>
+		<button name="extractScrollMax" parent="extractScrollBox" rect="0 0 35 35" margin="102 49 0 0" layout_gravity="center top" LBtnUpScp="ABILITY_POINT_EXTRACTOR_MAX" LBtnUpArgNum="10" image="buff_sale_right_2" stretch="true"/>
+		<labelline name="labelline2" parent="extractScrollBox" rect="0 0 380 1" margin="0 0 0 0" layout_gravity="center bottom" skin="labelline_def_2"/>
+		<!-- consume money -->
+		<groupbox name="consumeMoneyBox" rect="0 0 400 30" margin="0 160 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="consumeMoneyTextBox" parent="consumeMoneyBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="consumeMoneyInfoText" parent="consumeMoneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="소비 실버" fontname="brown_16"/>
+		<richtext name="consumeMoneyText" parent="consumeMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
+		<!-- expect value -->
+		<groupbox name="expectMoneyBox" rect="0 0 400 30" margin="0 190 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="expectMoneyTextBox" parent="expectMoneyBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="expectMoneyInfoText" parent="expectMoneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="예상 잔액" fontname="brown_16"/>
+		<richtext name="expectMoneyText" parent="expectMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
+		<!-- consume point -->
+		<groupbox name="consumePointBox" rect="0 0 400 30" margin="0 220 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="consumePointTextBox" parent="consumePointBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="consumePointInfoText" parent="consumePointTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="추출 특성 포인트" fontname="brown_16"/>
+		<richtext name="consumePointText" parent="consumePointBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
+		<!-- remain point -->
+		<groupbox name="remainPointBox" rect="0 0 400 30" margin="0 250 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="remainPointTextBox" parent="remainPointBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<richtext name="remainPointInfoText" parent="remainPointTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="잔여 특성 포인트" fontname="brown_16"/>
+		<richtext name="remainPointText" parent="remainPointBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
+		<!-- buttons -->
+		<button name="buyBtn" parent="bg" rect="0 0 160 40" margin="-80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}추출" LBtnUpScp="ABILITY_POINT_EXTRACTOR" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+		<button name="cancelBtn" parent="bg" rect="0 0 160 40" margin="80 0 0 10" layout_gravity="center bottom" skin="test_pvp_btn" caption="{@st66b}취소" LBtnUpScp="ABILITY_POINT_EXTRACTOR_CANCEL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover_3" clicksound="button_click" oversound="button_over"/>
+	</controls>
+</uiframe>

@@ -103,16 +103,8 @@ function WARNINGMSGBOX_CREATE_TOOLTIP(frame)
 		return
 	end
 
-	local tempObj = CloneIES_NotUseCalc(obj);
-
-    local tooltipObj = tolua.cast(tempObj, 'imcIES::IObject');
-    if tooltipObj == nil then
-    	return
-    end
-
-	tooltipFrame:SetTooltipStrArg('warningmsgbox');
+	tooltipFrame:SetTooltipStrArg('inven');
 	tooltipFrame:SetTooltipIESID(itemGuid);
-	tooltipFrame:SetToolTipObject(tooltipObj);	
     tooltipFrame:RefreshTooltip();
 	tooltipFrame:SetOffset(warningboxFrame:GetX() + warningboxFrame:GetWidth(), warningboxFrame:GetY())
 	local isShowTooltip = config.GetXMLConfig("ShowTooltipInWarningBox")

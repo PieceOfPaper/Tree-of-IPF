@@ -19,7 +19,9 @@ function GACHA_LEGEND_CUBE_LEGEND_SUCEECD_EX(invItemClsID, rewardItem, btnVisibl
 	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible, reopenCount);
 end
 
-function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)        
+function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)
+    if msg ~= 'CLOSE_GACHA_CUBE_LEGEND' then return end
+    
 	SET_MOUSE_FOLLOW_BALLOON(nil);
 	ui.SetEscapeScp("");
 
@@ -27,8 +29,14 @@ function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)
 	    CancelGachaCube();
     end
 
-	local gachaCubeFrame = ui.GetFrame("gacha_cube_legend");	
-	GHACHA_CUBE_UI_RESET(gachaCubeFrame); -- UI 리셋		
+	local gachaCubeFrame = ui.GetFrame("gacha_cube_legend");
+	GHACHA_CUBE_UI_RESET(gachaCubeFrame); -- UI 리셋
+
+    if argNum ~= nil then
+       local itemobj = GetClassByType("Item", tonumber(argNum))
+       RemoveLuaTimerFunc('discover_velcoffer_cube_use')
+       DiscoverVelcofferLegendCubeUse(itemobj.ClassName)    -- 사용 가능 복구
+    end
 end
 
 -- 버튼 클릭 (2, 3번째 뽑기)
@@ -39,4 +47,9 @@ end
 
 function GACHA_CUBE_LEGEND_USE_COUPON_BTN(frame, ctrl)
     item.DoPremiumItemGachaCubeLegend(true)
+end
+
+function discover_velcoffer_cube_use()
+    DiscoverVelcofferLegendCubeUse('Gacha_I_016');
+    DiscoverVelcofferLegendCubeUse('Gacha_I_017');
 end

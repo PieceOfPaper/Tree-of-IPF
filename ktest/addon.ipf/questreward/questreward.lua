@@ -132,6 +132,7 @@ function QUEST_REWARD_TEST(frame, questID)
     	y = MAKE_BASIC_REWARD_BUFF_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y);
+    	y = MAKE_BASIC_REWARD_JOURNEYSHOP_CTRL(box, cls, y);
     end
     
 	local succExp = cls.Success_Exp;
@@ -189,12 +190,6 @@ function QUEST_REWARD_TEST(frame, questID)
 	local cancelBtn = frame:GetChild('CancelBtn');
 	local useBtn = frame:GetChild('UseBtn');
 
-	    --[[
-	box:Resize(box:GetWidth(), y);
-
-	frame:ShowWindow(1);
-	frame:Resize(frame:GetWidth(), box:GetY()+ box:GetHeight() + 20);
-		]]
 	box:Resize(box:GetWidth(), y);
 	local maxSizeHeightFrame = box:GetY() + box:GetHeight() + 20;
 	local maxSizeHeightWnd = ui.GetSceneHeight();
@@ -476,6 +471,20 @@ function MAKE_BUFF_TAG_TEXT_CTRL(y, box, ctrlNameHead, buffName, index)
 
 	return y;
 end
+function MAKE_JOURNEYSHOP_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, index)
+    if index == 1 then
+        local titleTxt
+	    y, titleTxt = BOX_CREATE_RICH_CONTROLSET(box, ctrlNameHead ..'Title', y, 20, ScpArgMsg('QUEST_JOURNEYSHOP_MSG1'), 1);
+	    titleTxt:EnableHitTest(1);
+    	y = y + 5
+    end
+	local txt =ScpArgMsg('QUEST_JOURNEYSHOP_MSG2','ITEM', GetClassString('Item', itemName, 'Name'),'COUNT',itemCount)
+	local richTxt;
+	y, richTxt = BOX_CREATE_RICH_CONTROLSET(box, ctrlNameHead .. index, y, 20, txt, 1);
+	richTxt:EnableHitTest(1);
+
+	return y;
+end
 
 function MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, ctrlNameHead, propertyName, value, index)
 
@@ -511,7 +520,7 @@ function BOX_CREATE_RICH_CONTROLSET(box, name, y, height, text, index)
 		x = box:GetWidth() / 2;
 		y = y - height - 10;
 	end
-
+	
 	local newSet = box:CreateControlSet("richtxt", name, x + 10, y);
 	local title = newSet:GetChild("text");
 	title:SetText(text);
@@ -564,6 +573,20 @@ function MAKE_TAKEITEM_CTRL(box, cls, y)
 	
 	return y;
 end
+function MAKE_BASIC_REWARD_JOURNEYSHOP_CTRL(box, cls, y)
+    local journeyShop = GetClass('reward_property', 'JS_Quest_Reward_'..cls.ClassName)
+    if journeyShop ~= nil then
+        for i = 1, 5 do
+            if journeyShop['RewardItem'..i] ~= 'None' then
+                y = y + 5
+                y = MAKE_JOURNEYSHOP_TAG_TEXT_CTRL(y, box, "reward_JourneyShop", journeyShop['RewardItem'..i], journeyShop['RewardCount'..i], i);
+            end
+        end
+    end
+    
+    y = y + 5
+	return y;
+end
 
 function MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y)
     local pcProperty = GetClass('reward_property', cls.ClassName)
@@ -571,7 +594,11 @@ function MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y)
         if pcProperty.Property ~= "AchievePoint" then
             y = MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, "reward_PcProperty", pcProperty.Property, pcProperty.Value, 1);
         end
+    elseif cls.Success_StatByBonus > 0 then
+        y = MAKE_PCPROPERTY_TAG_TEXT_CTRL(y, box, "reward_PcProperty", 'StatByBonus', cls.Success_StatByBonus, 1);
     end
+    
+    y = y + 5
     
 	return y;
 end
@@ -724,7 +751,7 @@ function MAKE_BASIC_REWARD_REPE_CTRL(box, questCls, questAutoCls, y)
 	        if #repeat_reward_achieve > 0 then
 	            for i = 1, #repeat_reward_achieve do
 	                local achieve = GetClass('Achieve', repeat_reward_achieve[i][2])
-	                local txt = ScpArgMsg("RepeatRewardAchieve")..'{s20}{ol}{#FFFF00}'..achieve.Name
+	                local txt = ScpArgMsg("RepeatRewardAchieve")..'{@st41b}{#0064FF}'..achieve.Name
 	                
 	                y = BOX_CREATE_RICHTEXT(box, 'achieve'..i, y, 20, txt);
 	                y = y + 5
@@ -1145,6 +1172,13 @@ function QUEST_REWARD_CHECK(questname)
     local pcProperty = GetClass('reward_property', questname)
     if pcProperty ~= nil then
         result[#result + 1] = 'PCProperty'
+    elseif cls.Success_StatByBonus > 0 then
+        result[#result + 1] = 'PCProperty'
+    else
+        local journeyShop = GetClass('reward_property', 'JS_Quest_Reward_'..questname)
+        if journeyShop ~= nil then
+            result[#result + 1] = 'JourneyShop'
+        end
     end
 
     return result

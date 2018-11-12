@@ -19,14 +19,26 @@ end
 
 function GET_SAGE_PORTAL_MAX_COUNT_C()
     local maxCnt = tonumber(SAGE_PORTAL_BASE_CNT);
-
-    -- 특성
-	local abil = session.GetAbilityByName("Sage1")
-	if abil ~= nil then
-	    local abilObj = GetIES(abil:GetObject());
+	
+    -- 특성 --
+	local abilSage1 = session.GetAbilityByName("Sage1")
+	if abilSage1 ~= nil then
+	    local abilObj = GetIES(abilSage1:GetObject());
 	    maxCnt = maxCnt + abilObj.Level
 	end
-
+	
+	local abilSage16 = session.GetAbilityByName("Sage16")
+	if abilSage16 ~= nil then
+	    local abilObj = GetIES(abilSage16:GetObject());
+	    maxCnt = maxCnt + abilObj.Level
+	end
+	
+	local abilSage17 = session.GetAbilityByName("Sage17")
+	if abilSage17 ~= nil then
+	    local abilObj = GetIES(abilSage17:GetObject());
+	    maxCnt = maxCnt + abilObj.Level
+	end
+	
     return maxCnt;
 end
 
@@ -150,18 +162,22 @@ function SHOW_REMAIN_POTAL_COOLDOWN(ctrl)
 end
 
 function SAGEPORTAL_SAVE_BTN(frame, ctrl)
-	local mapCls = GetClass("Map", session.GetMapName());
-	if mapCls == nil or mapCls.MapType ~= "Field" then
+	local zoneName = session.GetMapName();
+	local mapCls = GetClass("Map", zoneName);
+	local mapType = TryGetProp(mapCls, "MapType", "None");
+	if mapType ~= "Field" and mapType ~= "Dungeon" then
 		ui.SysMsg(ClMsg('CannotSaveThisZone'));
-		return 
+		return;
 	end
-
-	local mapName = "None"
-	if nil ~= mapCls then
-		mapName = mapCls.Name;
+	
+	if SCR_ZONE_KEYWORD_CHECK(zoneName, "NoWarp") == "YES" then
+		ui.SysMsg(ClMsg('CannotSaveThisZone'));
+		return;
 	end
+	
+	local saveName = TryGetProp(mapCls, "Name", "None");
 
-	ui.MsgBox(ScpArgMsg("SageSavePos{MN}","MN", mapName), "ui.Chat('/sageSavePos')", "None");
+	ui.MsgBox(ScpArgMsg("SageSavePos{MN}","MN", saveName), "ui.Chat('/sageSavePos')", "None");
 	DISABLE_BUTTON_DOUBLECLICK("sageportal",ctrl:GetName())
 end
 

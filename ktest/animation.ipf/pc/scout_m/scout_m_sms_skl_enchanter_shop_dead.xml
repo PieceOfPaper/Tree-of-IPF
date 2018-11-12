@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<CreateMonsterAnim frame="0" Key="enchanter_skill" Anim="DEAD"/>
+	<CreateMonsterAlphaBlend frame="0" Key="enchanter_skill" Alpha="0" BlendTime="4"/>
+	<DeleteMonster frame="15" Key="enchanter_skill"/>
+</ActionDesc>

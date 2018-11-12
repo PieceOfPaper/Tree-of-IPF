@@ -179,10 +179,18 @@ function SKL_KEY_PRESS(actor, obj, dik, startDelay, pressSpd, duration, hitCance
 	if nil ~= hitCancel and hitCancel == 1 then
 		actor:SetHitCancelCast(true)
 	end
-	return 0, 0;
+return 0, 0;
 end
 
 function SKL_SKILL_REUSE_ON_BTN_UP(actor, obj, dik, buffName)
 	geSkillControl.SkillReuseOnDikUp(actor, obj.type, dik, buffName);
 	return 0;
+end
+
+function SKL_PARTY_TARGET_BY_KEY(actor, obj, dik, showHPGauge)
+	if showHPGauge == nil then
+		showHPGauge = 0;
+	end
+	geSkillControl.SelectTargetFromPartyList(actor, obj.type, showHPGauge);
+	return 1, 0;
 end

@@ -113,7 +113,6 @@ function _GUILDINFO_INIT_MEMBER_TAB(frame, msg)
                     memberCtrlSet:SetEventScript(ui.RBUTTONDOWN, 'POPUP_GUILD_MEMBER');
     end
     GUILDINFO_MEMBER_ONLINE_CLICK(frame);
-    memberCtrlBox:SetEventScript(ui.SCROLL, 'SET_AUTHO_MEMBERS_SCROLL');
 
     -- on/off
     local memberCountText = GET_CHILD_RECURSIVELY(memberBox, 'memberCountText');

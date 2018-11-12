@@ -7,8 +7,8 @@ end
 
 function MANAGEGEM_MSG(frame, msg, argStr, argNum)
 	if msg == "MSG_REMOVE_GEM" or msg == "MSG_MAKE_ITEM_SOCKET" then
-		CLEAR_MANAGEGEM_UI()
-		UPDATE_MANAGEGEM_UI_BY_MSG(frame)
+		CLEAR_MANAGEGEM_UI();
+		UPDATE_MANAGEGEM_UI_BY_MSG(frame);
 	elseif msg == "DO_OPEN_MANAGE_GEM_UI" then
 		frame:ShowWindow(1)
 	end
@@ -76,24 +76,18 @@ function CLEAR_MANAGEGEM_UI()
 end
 
 function UPDATE_MANAGEGEM_UI_BY_MSG(frame)
-
-	local tempiesid = frame:GetUserValue("TEMP_IESID");
-	
+	local tempiesid = frame:GetUserValue("TEMP_IESID");	
 	if tempiesid == nil then
 		return;
 	end
 
 	local item = GetObjectByGuid(tempiesid);
-	ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
-
+	ADD_ITEM_TO_MANAGEGEM_FROM_INV(item);
 end
 
 
 function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
-
 	local itemClass = GetClassByType("Item", item.ClassID);
-	
-
 	if item.ItemType ~= 'Equip' then
 		ui.MsgBox(ScpArgMsg("IMPOSSIBLE_ITEM"))
 		return;
@@ -109,7 +103,6 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	if invItem == nil then
 		invItem = session.GetEquipItemByGuid(id);
 	end
-
 	if invItem == nil then
 		return
 	end
@@ -137,12 +130,12 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	frame:SetUserValue('MAX_SOCKET_CNT', item.MaxSocket);
 	local nowusesocketcount = 0;
 	for i = 0, item.MaxSocket - 1 do
-		local nowsockettype = item['Socket_' .. i]
-		local nowsocketitem = item['Socket_Equip_' .. i]
-		local nowsocketitemexp = item['SocketItemExp_' .. i]
+		local isAvailableSocket = invItem:IsAvailableSocket(i);
+		local equipGemID = invItem:GetEquipGemID(i);
+		local equipGemExp = invItem:GetEquipGemExp(i);
 
-		if nowsockettype ~= 0 then
-			nowusesocketcount = nowusesocketcount + 1
+		if isAvailableSocket == true then
+			nowusesocketcount = nowusesocketcount + 1;
 		end
 		
 		local subClassCtrl = bodyGbox_midle:CreateOrGetControlSet('eachsocket_in_managesocket', 'SOCKET_CSET_'..i , 0, i*90);
@@ -162,13 +155,13 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 		socket_icon:ShowWindow(1)
 		socket_questionmark:ShowWindow(0)
 		
-		if nowsockettype ~= 0 then
-			local socketCls = GetClassByType("Socket", nowsockettype);
+		if isAvailableSocket == true then
+			local socketCls = GetClassByType("Socket", GET_COMMON_SOCKET_TYPE());
 			
-			if nowsocketitem == 0 then
+			if equipGemID == 0 then
 				socketname = socketCls.Name .. ' '.. ScpArgMsg("JustSocket")
 
-				local socketCls = GetClassByType("Socket", nowsockettype);
+				local socketCls = GetClassByType("Socket", GET_COMMON_SOCKET_TYPE());
 				socketicon = socketCls.SlotIcon
 
 				gradetext:ShowWindow(0)
@@ -177,20 +170,20 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 				local radioBtn = subClassCtrl:GetChild('radioBtn');
 				radioBtn:ShowWindow(0)
 			else
-			    local socketItemCls = GetClassByNumProp('Item', 'ClassID', nowsocketitem)
+			    local socketItemCls = GetClassByNumProp('Item', 'ClassID', equipGemID)
 			    socketname = socketItemCls.Name;
 
-				local socketCls = GetClassByType("Item", nowsocketitem);
+				local socketCls = GetClassByType("Item", equipGemID);
 				socketicon = socketCls.Icon;
 
 				local radioBtn = GET_CHILD(subClassCtrl, 'radioBtn', 'ui::CRadioButton');
 				radioBtn:SetCheck(false);
 				radioBtn:ShowWindow(1)
 
-				local level = GET_ITEM_LEVEL_EXP(socketCls,nowsocketitemexp)
+				local level = GET_ITEM_LEVEL_EXP(socketCls, equipGemExp);
 				gradetext:SetText(GET_STAR_TXT(STAR_SIZE,level))
 
-				local prop = geItemTable.GetProp(nowsocketitem);
+				local prop = geItemTable.GetProp(equipGemID);
 				local desc = "";
 				local socketProp = prop:GetSocketPropertyByLevel(level);
 				local type = item.ClassID;
@@ -232,7 +225,7 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	end
 
 	local richtext_howmuch = GET_CHILD_RECURSIVELY(frame, 'richtext_howmuch', 'ui::CRichText')
-	local curcnt = GET_SOCKET_CNT(item);
+	local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(item);
 	local lv = TryGetProp(item,"UseLv");
 	if lv == nil then
 	    return 0;
@@ -241,10 +234,10 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	if grade == nil then
 	    return 0;
 	end
-richtext_howmuch:SetTextByKey("add",GET_COMMAED_STRING(GET_MAKE_SOCKET_PRICE(lv,grade ,curcnt)));
+	richtext_howmuch:SetTextByKey("add",GET_COMMAED_STRING(GET_MAKE_SOCKET_PRICE(lv, grade ,nextSlotIdx)));
 	richtext_howmuch:SetTextByKey("remove",GET_COMMAED_STRING(GET_REMOVE_GEM_PRICE(lv)));
 	richtext_howmuch:ShowWindow(1)
-	frame:SetUserValue("TEMP_IESID",id);
+	frame:SetUserValue("TEMP_IESID", id);
 	
 	local button_remove_gem = GET_CHILD_RECURSIVELY(frame, 'button_remove_gem', 'ui::CButton')
 	button_remove_gem:SetEventScriptArgString(ui.LBUTTONUP, item.Name);	
@@ -282,7 +275,6 @@ function CLICK_REMOVE_GEM_BUTTON(frame, slot, argStr, argNum)
 end
 
 function EXEC_REMOVE_GEM()
-
 	local frame = ui.GetFrame("managegem");
 	local tempiesid = frame:GetUserValue("TEMP_IESID");
 	local selectedNum = tonumber(frame:GetUserValue("NOW_SELECT_INDEX"));
@@ -299,20 +291,8 @@ function EXEC_REMOVE_GEM()
 		return;
 	end
 
-	local itemobj = GetObjectByGuid(tempiesid);
-
-	local nowusesocketcount = 0
-
-	for i = 0, itemobj.MaxSocket - 1 do
-		local nowsockettype = itemobj['Socket_' .. i]
-
-		if nowsockettype ~= 0 then
-			nowusesocketcount = nowusesocketcount + 1
-		end
-	end
-    
-    local lv = TryGetProp(itemobj , "UseLv");
-    
+	local itemobj = GetObjectByGuid(tempiesid);	
+    local lv = TryGetProp(itemobj , "UseLv");    
     if lv == nil then
         return 0;
     end
@@ -325,10 +305,8 @@ function EXEC_REMOVE_GEM()
 	end
 
 	session.ResetItemList();
-	session.AddItemID(tempiesid);
-	
+	session.AddItemID(tempiesid);	
 	local resultlist = session.GetItemIDList();
-
 	item.DialogTransaction("REMOVE_GEM", resultlist, selectedNum-1);
 
 end
@@ -345,44 +323,40 @@ function CLICK_MAKE_SOCKET_BUTTON(frame, slot, argStr, argNum)
 end
 
 function EXEC_MAKE_NEW_SOCKET()
-
 	local frame = ui.GetFrame("managegem");
 	local tempiesid = frame:GetUserValue("TEMP_IESID");
-
 	if tempiesid == 0 then
 		return;
 	end
 	
 	local itemobj = GetObjectByGuid(tempiesid);
+	local invItem = GET_PC_ITEM_BY_GUID(tempiesid);
+	if invItem == nil or invItem.isLockState == true then
+		return;
+	end
 
-	local nowusesocketcount = 0
-
+	local nowusesocketcount = 0;
 	for i = 0, itemobj.MaxSocket - 1 do
-		local nowsockettype = itemobj['Socket_' .. i]
-
-		if nowsockettype ~= 0 then
-			nowusesocketcount = nowusesocketcount + 1
+		if invItem:IsAvailableSocket(i) == true then
+			nowusesocketcount = nowusesocketcount + 1;
 		end
 	end
 
-	-- ��ȭ �Ұ���
 	if IS_REINFORCEABLE_ITEM(itemobj) == 0 then
 		ui.MsgBox(ScpArgMsg("IT_ISNT_REINFORCEABLE_ITEM"))
 		return;
 	end
 
-	-- ���� ���ټ�
 	if itemobj.PR <= 0 then
 		ui.MsgBox(ScpArgMsg('NoMorePotential'))
 		return;
 	end
 
-	-- ���� �ƽ� ����
 	if itemobj.MaxSocket - nowusesocketcount <= 0 then
 		ui.MsgBox(ScpArgMsg('NoMoreSocket'))
 		return;
 	end
-    local curcnt = GET_SOCKET_CNT(itemobj);
+	local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(itemobj);
    	local lv = TryGetProp(itemobj,"UseLv");
 	if lv == nil then
 		return 0;
@@ -393,8 +367,7 @@ function EXEC_MAKE_NEW_SOCKET()
 		return 0;
 	end
 
-	local price = GET_MAKE_SOCKET_PRICE(lv, grade, curcnt)
-
+	local price = GET_MAKE_SOCKET_PRICE(lv, grade, nextSlotIdx);
 	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
@@ -405,5 +378,4 @@ function EXEC_MAKE_NEW_SOCKET()
 	
 	local resultlist = session.GetItemIDList();
 	item.DialogTransaction("MAKE_SOCKET", resultlist);
-
 end

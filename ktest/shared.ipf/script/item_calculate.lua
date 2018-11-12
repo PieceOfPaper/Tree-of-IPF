@@ -27,11 +27,11 @@ function GET_COMMON_PROP_LIST()
         'MNA',
         'SR',
         'SDR',
-        'MHR',
-        'ADD_MHR',
+        'CRTMATK',
         'MGP',
         'AddSkillMaxR',
         'SkillRange',
+        'SkillWidthRange',
         'SkillAngle',
         'BlockRate',
         'BLK',
@@ -160,8 +160,6 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
         return 0;
     end
     
-    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "ReinforceRatio")
-    
     local reinforceValue = TryGetProp(item,"Reinforce_2")
     if reinforceValue == nil then
         return 0;
@@ -171,90 +169,18 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
     if reinforceRatio == nil then
         return 0;
     end
+    -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
     
+    lv, grade, reinforceValue, reinforceRatio = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade, reinforceValue, reinforceRatio);
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "ReinforceRatio")
     reinforceValue = reinforceValue + reinfBonusValue
     
     value = math.floor((reinforceValue + (lv * (reinforceValue * (0.08 + (math.floor((math.min(21,reinforceValue)-1)/5) * 0.015 ))))));
-    
-    local itemOwner = GetItemOwner(item)
-	
-	if itemOwner == nil then
-		return 0;
-	end
-
-    local checkPvp = IsPVPServer(itemOwner)
-    
-    if checkPvp == nil then
-        checkPvp = 0;
-    end
-    
-    if checkPvp == 1 then
-        value = value * 0.5
-    end
 
     value = value * (reinforceRatio / 100) * gradeRatio + buffValue;
     value = SyncFloor(value);
     return math.floor(value);
-end
-
-function GET_SOCKET_ADD_VALUE(item, i)
-    local socket = item['Socket_' .. i]
-    local gem = item['Socket_Equip_' .. i]
-    local gemExp = item['SocketItemExp_' .. i]
-    local gemLv = item['Socket_JamLv_' ..i]
-
-    if socket <= 0 then
-        return;
-    end
-    if gem == 0 then
-        return;
-    end
-    
-    local props = {};
-    local gemclass = GetClassByType("Item", gem);
-    local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
-    local prop = geItemTable.GetProp(gem);
-    local socketProp = prop:GetSocketPropertyByLevel(lv);
-    local type = item.ClassID;
-    local benefitCnt = socketProp:GetPropCountByType(type);
-    for i = 0 , benefitCnt - 1 do
-        local benefitProp = socketProp:GetPropAddByType(type, i);
-        props[#props + 1] = {benefitProp:GetPropName(), benefitProp.value}
-    end
-    
-    local penaltyCnt = socketProp:GetPropPenaltyCountByType(type);
-    local penaltyLv = lv - gemLv;
-    if 0 > penaltyLv then
-        penaltyLv = 0;
-    end
-    local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
-    for i = 0 , penaltyCnt - 1 do
-        local penaltyProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
-        local value = penaltyProp.value
-        penaltyProp:GetPropName()
-        props[#props + 1] = {penaltyProp:GetPropName(), penaltyProp.value}
-    end
-    return props;
-end
-
-function GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
-    local value = 0;
-    local sockets = {};
-    for i=0, item.MaxSocket-1 do
-        sockets[#sockets + 1] = GET_SOCKET_ADD_VALUE(item, i)
-    end
-
-    for i = 1, #sockets do
-        local props = sockets[i];
-        for j = 1, #props do
-            local prop = props[j]
-            if prop[1] == targetPropName then                
-                value = value + prop[2];
-            end
-        end
-    end
-
-    return value;
 end
 
 function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
@@ -303,6 +229,8 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
     if grade == nil then
         return 0;
     end
+    -- 팀 배틀 리그에서는 가상의 무기 강화, 레벨, 등급 값을 받아 오도록 설정 --
+    lv, grade, reinforceValue = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade, reinforceValue);
     
     local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "ReinforceRatio")
     
@@ -366,8 +294,11 @@ function GET_BASIC_ATK(item)
         return 0;
     end
     
+    -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
+    lv, grade = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade);
+    
     local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
-    local itemATK = (20 + ((lv)*3)) * gradeRatio;
+    local itemATK = (30 + lv * 7.5) * gradeRatio;
     if lv == 0 then
         itemATK = 0;
     end
@@ -382,43 +313,23 @@ function GET_BASIC_ATK(item)
         return 0;
     end
     
-    local damageRange = TryGetProp(item,"DamageRange")/100;
+
+    
+    local itemGradeClass = GetClassList('item_grade')
+    local weaponClass = GetClassByNameFromList(itemGradeClass,'WeaponClassTypeRatio')
+    local weaponDamageClass = GetClassByNameFromList(itemGradeClass,'WeaponDamageRange')
+    
+    if itemGradeClass ~= nil and weaponClass[classType] > 0 then
+        itemATK = itemATK * weaponClass[classType];
+    end
+
+    local damageRange = weaponDamageClass[classType]
     if damageRange == nil then
         return 0;
     end
     
-    if slot == "RH" then
-        if classType == 'THSpear' or classType == 'Musket' then
-            itemATK = itemATK * 1.95;
-        elseif classType == 'Spear' then
-            itemATK = itemATK * 1.65;
-        elseif classType == 'Mace' then
-            itemATK = itemATK * 1.35;
-        elseif classType == 'THMace' then
-            itemATK = itemATK * 1.62;
-        elseif classType == 'Bow' or classType == 'Rapier' then
-            itemATK = itemATK * 1.5;
-        else
-            itemATK = itemATK * 1.8;
-        end
-   elseif slot == "RH LH" then
-       if classType == 'Sword' then
-           itemATK = itemATK * 1.5;
-       end
-   elseif slot == "LH" then
-        if classType == 'Cannon' then
-            itemATK = itemATK * 1.65;
-        elseif classType == 'Pistol' then
-            itemATK = itemATK * 1.5;
-        else
-            itemATK = itemATK * 1.35;
-        end
-    else
-        return 0;
-    end
-
-    local maxAtk = SyncFloor(itemATK * damageRange);
-    local minAtk = SyncFloor(itemATK * (2 - damageRange));
+    local maxAtk = itemATK * damageRange;
+    local minAtk = itemATK * (2 - damageRange);
     return maxAtk, minAtk;
 end
 
@@ -460,30 +371,27 @@ function GET_BASIC_MATK(item)
         lv = pcBangItemLevel;
     end
     
+    -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
+    lv, grade = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade);
+
     local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
-    local itemATK = (20 + ((lv)*3)) * gradeRatio;
+    local itemATK = (30 + lv * 7.5) * gradeRatio;
     local classType = TryGetProp(item,"ClassType");
     if classType == nil then
         return 0;
     end
     
-    if classType == 'THStaff' then
-        itemATK = itemATK * 1.8;
-    elseif classType == 'Staff' then
-        itemATK = itemATK * 1.5;
-    elseif classType == 'Mace' then
-        itemATK = itemATK * 1.35;
-    elseif classType == 'THMace' then
-        itemATK = itemATK * 1.62;
-    else
-        return 0;
+    local itemGradeClass = GetClassList('item_grade')
+    local weaponClass = GetClassByNameFromList(itemGradeClass,'WeaponClassTypeRatio')
+    
+    if itemGradeClass ~= nil and weaponClass[classType] > 0 then
+        itemATK = itemATK * weaponClass[classType];
     end
     
     return itemATK;
 end
 
 function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
-
     if nil == enchantUpdate then
         enchantUpdate = 0;
     end
@@ -496,6 +404,10 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
         reinfBonusValue = 0;
     end
     
+    if item == nil then 
+        return;
+    end
+
     local class = GetClassByType('Item', item.ClassID);
     INIT_WEAPON_PROP(item, class);
     item.Level = GET_ITEM_LEVEL(item);
@@ -517,21 +429,22 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
             item.MAXATK, item.MINATK = GET_BASIC_ATK(item);
             
             local reinforceAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinfAndTranscend, reinfBonusValue, basicProp);            
-            item.MAXATK = (item.MAXATK * upgradeRatio)  + buffarg + reinforceAddValueAtk;
-            item.MINATK = (item.MINATK * upgradeRatio)  + buffarg + reinforceAddValueAtk;
+
+            item.MAXATK = SyncFloor((item.MAXATK * upgradeRatio)  + buffarg + reinforceAddValueAtk);
+            item.MINATK = SyncFloor((item.MINATK * upgradeRatio)  + buffarg + reinforceAddValueAtk);
             
             if zero ~= item.MAXATK_AC then
-                item.MAXATK = item.MAXATK + item.MAXATK_AC;
+                item.MAXATK = SyncFloor(item.MAXATK + item.MAXATK_AC);
             end
             
             if zero ~= item.MINATK_AC then
-                item.MINATK = item.MINATK + item.MINATK_AC;
+                item.MINATK = SyncFloor(item.MINATK + item.MINATK_AC);
             end
         elseif basicProp == 'MATK' then
             item.MATK = GET_BASIC_MATK(item);
             
             local reinfAddValueAtk = GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinfAndTranscend, reinfBonusValue, basicProp);
-            item.MATK = (item.MATK * upgradeRatio)  + buffarg + reinfAddValueAtk;
+            item.MATK = SyncFloor((item.MATK * upgradeRatio)  + buffarg + reinfAddValueAtk);
             
             if zero ~= item.MAXATK_AC then
                 item.MATK = item.MATK + item.MAXATK_AC;
@@ -539,21 +452,10 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
         end
     end
     
-    item.MINATK = math.floor(item.MINATK);
-    item.MAXATK = math.floor(item.MAXATK);
-    item.MATK = math.floor(item.MATK);
     APPLY_OPTION_SOCKET(item);
     APPLY_AWAKEN(item);
-    APPLY_ENCHANTCHOP(item);
     APPLY_RANDOM_OPTION(item);
     APPLY_RARE_RANDOM_OPTION(item);
-    if item.MINATK < 0 then
-        item.MINATK = 0;
-    end
-    
-    if item.MAXATK < 0 then
-        item.MAXATK = 0;
-    end
     
     MakeItemOptionByOptionSocket(item);
 end
@@ -573,12 +475,12 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     
     local class = GetClassByType('Item', item.ClassID);
     INIT_ARMOR_PROP(item, class);
-    item.Level = GET_ITEM_LEVEL(item);
     
     local lv = TryGetProp(item , "UseLv");
     if lv == nil then
         return 0;
     end
+    
     local hiddenLv = TryGetProp(item, "ItemLv");
     if hiddenLv == nil then
         return 0;
@@ -602,109 +504,56 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         lv = pcBangItemLevel;
     end
     
-    local def=0;
-    local hr =0;
-    local dr =0;
-    local mhr=0;
-    local mdef=0;
-    local fireAtk = 0;
-    local iceAtk = 0;
-    local lightningAtk = 0;
-    local defRatio = 0;
-    local mdefRatio = 0;
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
     
-    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
+    -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
+    lv, grade = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade);
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
+    
+    local buffarg = 0;  
+    if enchantUpdate == 1 then
+        buffarg = GetExProp(item, "Rewards_BuffValue");
+    end
+    
+    local equipMaterial = TryGetProp(item, "Material");
+    if equipMaterial == nil then
+        return 0;
+    end
+    
+    local classType = TryGetProp(item,"ClassType");
+    if classType == nil then
+        return 0;
+    end
+    
+    local itemGradeClass = GetClassList('item_grade')
+    
+    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');    
     for i = 1, #basicTooltipPropList do
         local basicProp = basicTooltipPropList[i];
+        local upgradeRatio = 1;
         
-        local buffarg = 0;
-        
-        local grade = TryGetProp(item,"ItemGrade");
-        if grade == nil then
-            return 0;
-        end
+        local basicDef = 0;
+        local armorClassTypeRatio = GetClassByNameFromList(itemGradeClass,'ArmorClassTypeRatio')
           
-        local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
-          
-        if enchantUpdate == 1 then
-            buffarg = GetExProp(item, "Rewards_BuffValue");
-        end
+        basicDef = ((40 + lv * 8) * armorClassTypeRatio[classType]) * gradeRatio;
+        upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;
         
-        local equipMaterial = TryGetProp(item, "Material");
-        if equipMaterial == nil then
-            return 0;
-        end
+        local armorMaterialRatio = GetClassByNameFromList(itemGradeClass,'armorMaterial_'..basicProp)
         
-        local classType = TryGetProp(item,"ClassType");
-        if classType == nil then
-            return 0;
+        basicDef = basicDef * armorMaterialRatio[equipMaterial]
+       
+        if basicDef < 1 then
+            basicDef = 1;
         end
-        local equipRatio;
-        
-        if classType == 'Shirt' or classType == 'Pants' or classType == 'Shield'then
-                equipRatio = 3.5;
-        elseif classType == 'Boots' or classType == 'Gloves' then
-                equipRatio = 4.5;
-        else
-            return 0;
-        end
-        
-        local upgradeRatio = 1;        
-        if basicProp == 'DEF' then
-            def = ((20 + lv*3)/equipRatio) * gradeRatio;
-            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;            
-            if equipMaterial == 'Cloth' then
-                def = def * 1.7;
-            elseif equipMaterial == 'Leather' then
-                def = def * 1.7;
-            elseif equipMaterial == 'Iron' then
-                def = def * 3.4;
-            elseif classType == 'Shield' then
-                def = def * 3.4;
-            end
-           
-            if def < 1 then
-                def = 1;
-            end
-            
-            def = math.floor(def) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
-            def = SyncFloor(def);
-            
-        elseif basicProp == 'MDEF' then
-            mdef = ((20 + lv*3)/equipRatio) * gradeRatio;
-            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreReinfAndTranscend) / 100;
-            if equipMaterial == 'Cloth' then
-                mdef = mdef * 3.4;
-            elseif equipMaterial == 'Leather' then
-                mdef = mdef * 1.7;
-            elseif equipMaterial == 'Iron' then
-                mdef = mdef * 1.7;
-            elseif classType == 'Shield' then
-                mdef = mdef * 3.4;
-            end
-            
-            if mdef < 1 then
-                mdef = 1;
-            end
-    
-           mdef = math.floor(mdef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
-           mdef = SyncFloor(mdef);
-        end
+        basicDef = math.floor(basicDef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
+        item[basicProp] = SyncFloor(basicDef);
     end
-
-    item.HR = hr;
-    item.DR = dr;
-    item.DEF = def;
-    item.MHR = mhr;
-    item.MDEF = mdef;
-    item.DefRatio = defRatio;
-    item.MDefRatio = mdefRatio;
-
-
-
-
+    
     APPLY_AWAKEN(item);
-    APPLY_ENCHANTCHOP(item);
     APPLY_RANDOM_OPTION(item);
     APPLY_RARE_RANDOM_OPTION(item);
     MakeItemOptionByOptionSocket(item);
@@ -756,224 +605,80 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonu
         lv = pcBangItemLevel;
     end
     
-    local def=0;
-    local hr =0;
-    local dr =0;
-    local mhr=0;
-    local mdef=0;
-    local fireAtk = 0;
-    local iceAtk = 0;
-    local lightningAtk = 0;
-    local defRatio = 0;
-    local mdefRatio = 0;
-    
     local PropName = {"ADD_FIRE"}; -- 아그니 네클리스만 유일하게 속성 공격력을 갖고 있습니다. 추후, 악세사리 메인 옵션 추가할 때 여기 추가할것 --
     local changeProp = {};
     
+    local buffarg = 0;
+    
+    local grade = TryGetProp(item,"ItemGrade");
+    if grade == nil then
+        return 0;
+    end
+    
+    -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
+    lv, grade = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade);
+    
+    if enchantUpdate == 1 then
+        buffarg = GetExProp(item, "Rewards_BuffValue");
+    end
+    
+    local equipMaterial = TryGetProp(item, "Material");
+    if equipMaterial == nil then
+        return 0;
+    end
+    
+    local classType = TryGetProp(item,"ClassType");
+    if classType == nil then
+        return 0;
+    end
+    
+    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");    
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
+    
     for i = 1, #basicTooltipPropList do
         local basicProp = basicTooltipPropList[i];
         
-        local buffarg = 0;
-        
-        local grade = TryGetProp(item,"ItemGrade");
-        if grade == nil then
-            return 0;
-        end
-          
-        local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
-          
-        if enchantUpdate == 1 then
-            buffarg = GetExProp(item, "Rewards_BuffValue");
-        end
-        
-        local equipMaterial = TryGetProp(item, "Material");
-        if equipMaterial == nil then
-            return 0;
-        end
-        
-        local classType = TryGetProp(item,"ClassType");
-        if classType == nil then
-            return 0;
-        end
-        local accRatio;
-        
-        if classType == 'Neck' then
-            accRatio = 5.5;
-        elseif classType == 'Ring' then
-            accRatio = 11;
-        elseif classType == 'Hat' then
-            accRatio = 0;
-        else
-            return 0;
-        end
-        
-        local upgradeRatio = 1;        
-        if basicProp == 'DEF' then
-            def = ((20 + lv*3)/accRatio) * gradeRatio;
-            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;            
-
-            if def < 1 then
-                def = 1;
+        if basicProp == 'DEF' or basicProp == 'MDEF' then
+            
+            local itemGradeClass = GetClassList('item_grade')
+            local ACCClassTypeRatio = GetClassByNameFromList(itemGradeClass,'ACCClassTypeRatio')
+            
+            if ACCClassTypeRatio == nil or ACCClassTypeRatio == 0 then
+                return;
             end
             
-            def = math.floor(def) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
-            def = SyncFloor(def);
+            local accRatio = ACCClassTypeRatio[classType]
+            local basicDef = ((2 + lv * 0.3) * accRatio) * gradeRatio;
             
-        elseif basicProp == 'MDEF' then
-            mdef = ((20 + lv*3)/accRatio) * gradeRatio;
-            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreReinfAndTranscend) / 100;
+            local upgradeRatio = 1;
+            upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;
+            basicDef = basicDef * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
             
-            if mdef < 1 then
-                mdef = 1;
+            if basicDef < 1 then
+                basicDef = 1;
             end
-    
-           mdef = math.floor(mdef) * upgradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend, reinfBonusValue) + buffarg
-           mdef = SyncFloor(mdef);
+            
+            item[basicProp] = SyncFloor(basicDef)
+            
         elseif basicProp == 'ADD_FIRE' then
             changeProp["ADD_FIRE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
             changeProp["ADD_FIRE"] = SyncFloor(changeProp["ADD_FIRE"]);
-        end
-    end
-
-    for i = 1, #PropName do
-        if changeProp[PropName[i]] ~= nil then
-            if changeProp[PropName[i]] ~= 0 then
-                item[PropName[i]] = changeProp[PropName[i]];
+            
+            for i = 1, #PropName do
+                if changeProp[PropName[i]] ~= nil then
+                    if changeProp[PropName[i]] ~= 0 then
+                        item[PropName[i]] = SyncFloor(changeProp[PropName[i]]);
+                    end
+                end
             end
+            
         end
     end
-
-    item.HR = hr;
-    item.DR = dr;
-    item.DEF = def;
-    item.MHR = mhr;
-    item.MDEF = mdef;
-    item.DefRatio = defRatio;
-    item.MDefRatio = mdefRatio;
-
-
-
-
+    
     APPLY_AWAKEN(item);
-    APPLY_ENCHANTCHOP(item);
     MakeItemOptionByOptionSocket(item);
     
 end
-    --기존 --
---    if ignoreReinfAndTranscend == nil then
---        ignoreReinfAndTranscend = 0;
---    end
---
---    if reinfBonusValue == nil then
---        reinfBonusValue = 0;
---    end
---
---    local class = GetClassByType('Item', item.ClassID);
---    INIT_ARMOR_PROP(item, class);
---    item.Level = GET_ITEM_LEVEL(item);
---
---    local lv = TryGetProp(item, "UseLv");
---    if lv == nil then
---        return 0;
---    end
---    
---    local hiddenLv = TryGetProp(item,"ItemLv");
---    if hiddenLv == nil then
---        return 0 ;
---    end
---    
---    if hiddenLv > 0 then
---        lv = hiddenLv;
---    end
---    
---    if (GetServerNation() == "KOR" and (GetServerGroupID() == 9001 or GetServerGroupID() == 9501)) then
---        local kupoleItemLv = SRC_KUPOLE_GROWTH_ITEM(item, 1);
---        if kupoleItemLv ==  nil then
---            lv = lv;
---        elseif kupoleItemLv > 0 then
---            lv = kupoleItemLv;
---        end
---    end
---    
---    local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
---    if pcBangItemLevel ~= nil then
---        lv = pcBangItemLevel;
---    end
-    
---    local classType = TryGetProp(item,"ClassType");
---    if classType == nil then
---        return 0;
---    end
---    
---    local accRatio;
---    
---    if classType == 'Neck' then
---        accRatio = 5.5;
---    elseif classType == 'Ring' then
---        accRatio = 11;
---    elseif classType == 'Hat' then
---        accRatio = 0;
---    else
---        return 0;
---    end
---
---    local grade = TryGetProp(item,"ItemGrade");
---    if grade == nil then
---            return 0;
---    end
---    
---    local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(grade, "BasicRatio");
---
---    local PropName = {"DEF", "MDEF", "HR", "DR",  "MHR", "ADD_FIRE", "ADD_ICE", "ADD_LIGHTNING", "DefRatio", "MDefRatio"};
---    local changeProp = {};
---    
---    local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');
---    for i = 1, #basicTooltipPropList do
---        local basicProp = basicTooltipPropList[i];
---    
---        if basicProp == 'DEF' then
---            changeProp["DEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
---            changeProp["DEF"] = SyncFloor(changeProp["DEF"]);
---            changeProp["DefRatio"] = math.floor(item.Reinforce_2 * 0.1);
---        elseif basicProp == 'MDEF' then
---            changeProp["MDEF"] = ((20 + lv*3)/accRatio) * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend)
---            changeProp["MDEF"] = SyncFloor(changeProp["MDEF"]);
---        elseif basicProp == 'ADD_FIRE' then
---            changeProp["ADD_FIRE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
---            changeProp["ADD_FIRE"] = SyncFloor(changeProp["ADD_FIRE"]);
---        elseif basicProp == 'ADD_ICE' then
---            changeProp["ADD_ICE"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
---            changeProp["ADD_ICE"] = SyncFloor(changeProp["ADD_ICE"]);
---        elseif basicProp == 'ADD_LIGHTNING' then
---            changeProp["ADD_LIGHTNING"] = math.floor(lv * gradeRatio + GET_REINFORCE_ADD_VALUE(basicProp, item, ignoreReinfAndTranscend));
---            changeProp["ADD_LIGHTNING"] = SyncFloor(changeProp["ADD_LIGHTNING"]);
---        end
---    end
---
---    for i = 1, #PropName do
---        if changeProp[PropName[i]] ~= nil then
---            if changeProp[PropName[i]] ~= 0 then
---                item[PropName[i]] = changeProp[PropName[i]];
---            end
---        end
---    end
---
---    local propNames, propValues = GET_ITEM_TRANSCENDED_PROPERTY(item, ignoreReinfAndTranscend);
---    for i = 1 , #propNames do
---        local propName = propNames[i];
---        local propValue = propValues[i];
---        print(propValue)
---        local upgradeRatio = 1 + propValue / 100;
---        item[propName] = math.floor( item[propName] * upgradeRatio );
---    end
---    
---    APPLY_AWAKEN(item);
---    APPLY_ENCHANTCHOP(item);
---    APPLY_OPTION_SOCKET(item);
---    MakeItemOptionByOptionSocket(item);
---
---end
 
 function SCR_REFRESH_GEM(item)
     item.Level = GET_ITEM_LEVEL(item);
@@ -984,16 +689,26 @@ function SCR_REFRESH_CARD(item)
 end
 
 function APPLY_OPTION_SOCKET(item)
-
-    local curcnt = GET_SOCKET_CNT(item);
-    if curcnt == 0 then
+    local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(item);
+    if nextSlotIdx == 0 then
         return;
     end
 
-
+    local invItem;
+    if IsServerSection() == 0 then
+        invItem = GET_INV_ITEM_BY_ITEM_OBJ(item);
+        if invItem == nil then
+            return;
+        end
+    end
     
-    for i=0, curcnt-1 do
-        local runeID = TryGetProp(item, 'Socket_Equip_' .. i);
+    for i=0, nextSlotIdx-1 do
+        local runeID;
+        if invItem ~= nil then
+            runeID = invItem:GetEquipGemID(i);
+        else
+            runeID = GetItemSocketInfo(item, i);
+        end
         if runeID ~= nil and runeID > 0 then
             local runeItem = GetClassByType('Item', runeID);
             if runeItem ~= nil then
@@ -1008,8 +723,8 @@ function APPLY_OPTION_SOCKET(item)
 
     end
     
-    curcnt = GET_OPTION_CNT(item);
-    for i = 0 , curcnt - 1 do
+    nextSlotIdx = GET_OPTION_CNT(item);
+    for i = 0 , nextSlotIdx - 1 do
         local optDur = item["OpDur_".. i];
         if optDur > 0 then
             local Opt = TryGetProp(item, 'Option_' .. i);
@@ -1026,7 +741,7 @@ function APPLY_OPTION_SOCKET(item)
     end
 end
 
-function APPLY_ENCHANTCHOP(item)
+function SCR_REFRESH_HAIRACC(item)
     for i = 1, 3 do
         local propName = "HatPropName_"..i;
         local propValue = "HatPropValue_"..i;
@@ -1516,24 +1231,6 @@ function GET_AUCTION_INCR_PRICE(item)
 
 end
 
-function GET_GEM_SOCKET_CNT(invitem, gemtype)
-
-    if invitem.ItemType ~= 'Equip' then
-        return 0;
-    end
-
-
-    for i = 0 , SKT_COUNT - 1 do
-        local val = TryGetProp(invitem, "Socket_" .. i)     
-        local val2 = TryGetPropProp(invitem, "Socket_Equip_" .. i)      
-        if val == gemtype then
-            return i;
-        end
-    end
-
-    return -1;
-end
-
 function GET_MAGICAMULET_EMPTY_SOCKET_INDEX(invitem)
 
     if invitem.ItemType ~= 'Equip' then
@@ -1550,16 +1247,32 @@ function GET_MAGICAMULET_EMPTY_SOCKET_INDEX(invitem)
     return -1;
 end
 
-function GET_SOCKET_CNT(invitem)
-
-    if invitem.ItemType ~= 'Equip' then
+function GET_NEXT_SOCKET_SLOT_INDEX(item)
+    if item.ItemType ~= 'Equip' then
         return 0;
     end
 
+    local invitem = nil;
+    if IsServerSection() == 0 then
+        local guid = GetIESID(item);
+        if guid == nil then
+            return 0;
+        end
+        invitem = GET_PC_ITEM_BY_GUID(guid);
+        if invitem == nil then
+            return 0;
+        end
+    end    
+
     for i = 0 , SKT_COUNT - 1 do
-        local val = TryGetProp(invitem, "Socket_" .. i)     
-        if val == 0 then
-            return i;
+        if IsServerSection() == 1 then
+            if GetItemSocketInfo(item, i) == nil then
+                return i;
+            end
+        else
+            if invitem:IsAvailableSocket(i) == false then
+                return i;
+            end
         end
     end
 
@@ -2020,14 +1733,13 @@ function SCR_GET_MAXPROP_ENCHANT_SDR(item)
     return 4;
 end
 
-function IS_SAME_TYPE_GEM_IN_ITEM(invItem, gemType, sckCnt)
-
-    if TryGetProp(invItem, "ItemType") ~= 'Equip' then
+function IS_SAME_TYPE_GEM_IN_ITEM(invItem, gemType, sckCnt, itemObj)
+    if TryGetProp(itemObj, "ItemType") ~= 'Equip' then
         return false
     end
 
     for i = 0 , sckCnt - 1 do
-        if TryGetProp(invItem, "Socket_Equip_"..i) == gemType then
+        if invItem:GetEquipGemID(i) == gemType then
             return true
         end
     end
@@ -2039,8 +1751,8 @@ end
 function GET_EMPTY_SOCKET_CNT(socketCnt, invItem)
     local emptyCnt = 0
     for i = 0, socketCnt - 1 do
-        if TryGetProp(invItem, "Socket_Equip_"..i) == 0 then
-            emptyCnt = emptyCnt + 1
+        if invItem:GetEquipGemID(i) == 0 then
+            emptyCnt = emptyCnt + 1;
         end
     end
     return emptyCnt
@@ -2108,7 +1820,7 @@ function SCR_GET_ITEM_GRADE_RATIO(grade, prop)
 end
 
 
-function SCR_CHECK_ADD_SOCKET(item)
+function SCR_CHECK_ADD_SOCKET(item, invItem)
     --예외처리
     if item == nil then
 		return false;
@@ -2145,13 +1857,20 @@ function SCR_CHECK_ADD_SOCKET(item)
         return false;
     end
     
-    for i = 0, itemMaxSocket - 1 do
-		local nowsockettype = item['Socket_' .. i]
+    if invItem ~= nil then -- client
+        for i = 0, itemMaxSocket - 1 do
+            if invItem:IsAvailableSocket(i) then
+                nowSocketCount= nowSocketCount + 1;
+            end
+        end
+    else -- server
+        for i = 0, itemMaxSocket - 1 do
+            if GetItemSocketInfo(item, i) ~= nil then
+                nowSocketCount= nowSocketCount + 1;
+            end
+        end
+    end
 
-		if nowsockettype ~= 0 then
-			nowSocketCount= nowSocketCount+ 1
-		end
-	end
 	-- 남은 맥스 소켓
 	if itemMaxSocket - nowSocketCount <= 0 then
 		return false;
@@ -2161,6 +1880,21 @@ function SCR_CHECK_ADD_SOCKET(item)
 end
 
 function GET_SOCKET_ADD_PRICE_BY_TICKET(item)
-    local curSocketCount = GET_SOCKET_CNT(item);
-    return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, curSocketCount) * 3;
+    local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(item);
+    return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, nextSlotIdx) * 3;
+end
+
+function GET_COPY_TARGET_OPTION_LIST()
+	return {
+		'Reinforce_2', 
+		'Transcend', 
+		'Transcend_MatCount', 
+		'Transcend_SucessCount',
+		'Dur',
+		'PR',
+		'IsAwaken',
+		'HiddenProp',
+		'HiddenPropValue',
+		'LegendPrefix',
+	};
 end

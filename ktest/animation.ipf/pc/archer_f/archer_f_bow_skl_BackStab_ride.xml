@@ -3,6 +3,6 @@
 <ActionDesc>
 	<Sound frame="0.00" soundFile="atk_cloth_s_l2"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="E_warrior_backstep_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="E_warrior_backstep_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false"/>
 	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
 </ActionDesc>

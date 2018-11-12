@@ -1,23 +1,44 @@
 -- util
 function GET_MON_STAT(self, lv, statStr)
-    local allStatMax = 10 + lv;
-    local statRate = TryGetProp(self, statStr .. "_Rate");
-    if statRate == nil then
+    -- Sum MaxStat --
+    local allStatMax = 10 + (lv * 2);
+    
+    local raceType = TryGetProp(self, "RaceType", "None");
+    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+        raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
+        if raceType == nil then
+            raceType = "None";
+        end
+    end
+    
+    local raceTypeClass = GetClass("Stat_Monster_Race", raceType);
+    if raceTypeClass == nil then
+        return 1;
+    end
+    
+    -- Select Stat Rate --
+    local statRate = 100;
+    statRate = TryGetProp(raceTypeClass, statStr, statRate);
+    
+    if statRate < 0 then
         statRate = 0;
     end
     
+    -- All Stat Rate --
     local totalStatRate = 0;
     local statRateList = { 'STR', 'INT', 'CON', 'MNA', 'DEX' };
     
     for i = 1, #statRateList do
-        local statRateTemp = TryGetProp(self, statRateList[i] .. "_Rate")
+        local statRateTemp = TryGetProp(raceTypeClass, statRateList[i], 0);
         if statRateTemp == nil then
             statRateTemp = 0;
         end
+        
         totalStatRate = totalStatRate + statRateTemp;
     end
     
-    local value = allStatMax * (statRate / totalStatRate) + math.floor(lv / 10);
+    -- Calc Stat --
+    local value = allStatMax * (statRate / totalStatRate);
     
     if value < 1 then
         value = 1;
@@ -151,77 +172,43 @@ end
 
 
 function SCR_Get_MON_MHP(self)
-    local isHPCount = TryGetProp(self, "HPCount");
-    if isHPCount ~= nil then
-        if isHPCount > 0 then
-            return isHPCount;
-        end
+    local monHPCount = TryGetProp(self, "HPCount", 0);
+    if monHPCount > 0 then
+        return math.floor(monHPCount);
     end
     
-    local fixedMHP = TryGetProp(self, "FIXMHP_BM");
-    if fixedMHP ~= nil and fixedMHP > 0 then
+    local fixedMHP = TryGetProp(self, "FIXMHP_BM", 0);
+    if fixedMHP > 0 then
         return math.floor(fixedMHP);
     end
     
-    local lv = TryGetProp(self, "Lv");
-    if lv == nil then
-        lv = 1;
-    end
+    local lv = TryGetProp(self, "Lv", 1);
     
-    local byLevel = 30 * lv;
     
-    local stat = TryGetProp(self, "CON")
-    if stat == nil then
-        stat = 1;
-    end
     
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            stat = stat + ownerMNA;
---        end
---    end
+    local standardMHP = math.max(30, lv);
+    local byLevel = (standardMHP / 4) * lv;
     
-    local byStat = (byLevel * (stat * 0.005)) + (byLevel * (math.floor(stat / 10) * 0.015));
+    local stat = TryGetProp(self, "CON", 1);
     
-    local value = byLevel + byStat
+    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005));
     
-    local byMHPRate = TryGetProp(self, "MHPRate");
-    if byMHPRate == nil then
-        byMHPRate = 100;
-    end
-    
-    byMHPRate = byMHPRate / 100;
+    local value = standardMHP + byLevel + byStat;
     
     local statTypeRate = 100;
-    local statType = TryGetProp(self, "StatType");
+    local statType = TryGetProp(self, "StatType", "None");
     if statType ~= nil and statType ~= 'None' then
-        local cls2 = GetClass("Stat_Monster_Type", "type"..statType);
-        if cls2 ~= nil then
-            local clsHP = TryGetProp(cls2, "HP");
-            statTypeRate = clsHP;
+        local statTypeClass = GetClass("Stat_Monster_Type", statType);
+        if statTypeClass ~= nil then
+            statTypeRate = TryGetProp(statTypeClass, "MHP", statTypeRate);
         end
     end
     
     statTypeRate = statTypeRate / 100;
+    value = value * statTypeRate;
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MHP");
-    local sizeTypeRate = SCR_SIZE_TYPE_RATE(self, "MHP");
-    
---    if TryGetProp(self, "Faction") == "Summon" then
---        local ratio = 0.2;
---        if TryGetProp(self, "MonRank") == "Boss" then
---            ratio = 1.0;
---        end
---        value = math.floor(value * ratio);
---    end
-    
-    value = value * (byMHPRate * statTypeRate * raceTypeRate * sizeTypeRate);
+    value = value * raceTypeRate;
     
     value = value * JAEDDURY_MON_MHP_RATE;      -- JAEDDURY
     
@@ -232,7 +219,9 @@ function SCR_Get_MON_MHP(self)
     
     value = value + byBuff;
     
-    if "Summon" == TryGetProp(self, "Faction") then
+	local monClassName = TryGetProp(self, "ClassName", "None");
+	local monOriginFaction = TryGetProp(GetClass("Monster", monClassName), "Faction");
+    if monOriginFaction == "Summon" then
         value = value + 5000;   -- PC Summon Monster MHP Add
     end
     
@@ -261,59 +250,57 @@ end
 
 -- monster only
 function SCR_GET_MON_EXP(self)
-    if self.EXP_Rate + self.JEXP_Rate == 0 then
+    if TryGetProp(self, "GiveEXP", "NO") ~= "YES" then
         return 0;
     end
     
-    local level = GetExProp(self, "LEVEL_FOR_EXP");
-    if level == 0 then
-        level = self.Lv;
+    local level = TryGetProp(self, "Lv", 1);
+    local exPropLevel = GetExProp(self, "LEVEL_FOR_EXP")
+    if exPropLevel ~= nil and exPropLevel ~= 0 then
+        level = exPropLevel;
     end
     
-    local multipleValue = 0;
-    
     local cls = GetClassByType("Stat_Monster", level);
-    local value = cls.EXP_BASE;    
+    local value = TryGetProp(cls, "EXP_BASE", 0);
     
     local expValue = 100;
-    if self.StatType ~= 'None' then
-        local cls2 = GetClass("Stat_Monster_Type", "type"..self.StatType);
+    local monStatType = TryGetProp(self, "StatType", "None");
+    if monStatType ~= 'None' then
+        local cls2 = GetClass("Stat_Monster_Type", monStatType);
         if cls2 ~= nil then
-            expValue = cls2.EXP;
+            expValue = TryGetProp(cls2, "EXP", 0);
         end
     end
     
-    value = value * (expValue / 100) * (self.EXP_Rate / 100);
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "EXP");
+    
+    value = value * (expValue / 100) * raceTypeRate;
     
     return math.floor(value);
 end
 
 function SCR_GET_MON_JOBEXP(self)
-    if self.EXP_Rate + self.JEXP_Rate == 0 then
+    if TryGetProp(self, "GiveEXP", "NO") ~= "YES" then
         return 0;
     end
     
-    local level = self.Lv;
-    local multipleValue = 0;    
+    local level = TryGetProp(self, "Lv", 1);
     
     local cls = GetClassByType("Stat_Monster", level);
-    local value = cls.JEXP_BASE;
+    local value = TryGetProp(cls, "JEXP_BASE", 0);
     
     local jexpValue = 100;
-    if self.StatType ~= 'None' then
-        local cls2 = GetClass("Stat_Monster_Type", "type"..self.StatType);
+    local monStatType = TryGetProp(self, "StatType", "None");
+    if monStatType ~= 'None' then
+        local cls2 = GetClass("Stat_Monster_Type", monStatType);
         if cls2 ~= nil then
-            jexpValue = cls2.JEXP;
+            jexpValue = TryGetProp(cls2, "JEXP", 0);
         end
     end
     
---    if self.EXP_Rate ~= 0 then
---        local mul = (self.EXP_Rate + self.JEXP_Rate) / 2;       
---        mul = (mul - 100) / 3 + 100;
---        value = value * self.JEXP_Rate / mul;
---    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "JEXP");
     
-    value = value * (jexpValue / 100) * (self.JEXP_Rate / 100);
+    value = value * (jexpValue / 100) * raceTypeRate;
     
     return math.floor(value);
 end
@@ -331,39 +318,20 @@ function SCR_Get_MON_DEF(self)
     
     local byLevel = lv * 1.0;
     
-    local byItem = SCR_MON_ITEM_ARMOR_CALC(self, lv);
-    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
-    
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            local reinforceValue = cls.ReinforceArmor;
-            byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio);
-            
-            local transcendValue = cls.TranscendArmor;
-            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
-        end
+    local stat = TryGetProp(self, "CON");
+    if stat == nil then
+        stat = 1;
     end
     
-    byItem = math.floor(byItem * basicGradeRatio);
-    byItem = math.floor(byItem * byTranscend) + byReinforce;
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local value = byLevel + byItem;
+    local byItem = SCR_MON_ITEM_ARMOR_DEF_CALC(self);
     
-    local byDEFRate = TryGetProp(self, "DEFRate")
-    if byDEFRate == nil then
-        byDEFRate = 100;
-    end
-    
-    byDEFRate = byDEFRate / 100;
+    local value = byLevel + byStat + byItem;
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DEF");
     
-    value = value * (byDEFRate * raceTypeRate);
+    value = value * raceTypeRate;
     
     local byBuff = TryGetProp(self, "DEF_BM");
     if byBuff == nil then
@@ -403,39 +371,20 @@ function SCR_Get_MON_MDEF(self)
     
     local byLevel = lv * 1.0;
     
-    local byItem = SCR_MON_ITEM_ARMOR_CALC(self, lv);
-    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
-    
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            local reinforceValue = cls.ReinforceArmor;
-            byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio);
-            
-            local transcendValue = cls.TranscendArmor;
-            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
-        end
+    local stat = TryGetProp(self, "CON");
+    if stat == nil then
+        stat = 1;
     end
     
-    byItem = math.floor(byItem * basicGradeRatio);
-    byItem = math.floor(byItem * byTranscend) + byReinforce;
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local value = byLevel + byItem;
+    local byItem = SCR_MON_ITEM_ARMOR_MDEF_CALC(self);
     
-    local byMDEFRate = TryGetProp(self, "MDEFRate")
-    if byMDEFRate == nil then
-        byMDEFRate = 100;
-    end
-    
-    byMDEFRate = byMDEFRate / 100;
+    local value = byLevel + byStat + byItem;
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MDEF");
     
-    value = value * (byMDEFRate * raceTypeRate);
+    value = value * raceTypeRate;
     
     local byBuff = TryGetProp(self, "MDEF_BM");
     if byBuff == nil then
@@ -468,25 +417,19 @@ function SCR_Get_MON_HR(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
+    local byLevel = lv * 1.0;
     
-    local stat = TryGetProp(self, "STR");
-    if stat == nil then
-        stat = 1;
-    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "HR");
     
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
-    
-    local monHitRate = TryGetProp(self, "HitRate")
-    if monHitRate == nil then
-        monHitRate = 100;
-    end
-    
-    monHitRate = monHitRate / 100;
+    local value = byLevel * raceTypeRate;
     
     local byBuff = self.HR_BM
     
-    local value = ((byLevel + byStat) * monHitRate) + byBuff;
+    value = value + byBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -501,115 +444,109 @@ function SCR_Get_MON_DR(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
+    local byLevel = lv * 1.0;
     
-    local stat = TryGetProp(self, "DEX");
-    if stat == nil then
-        stat = 1;
-    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DR");
     
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
-    
-    local monDodgeRate = TryGetProp(self, "DodgeRate")
-    if monDodgeRate == nil then
-        monDodgeRate = 100;
-    end
-    
-    monDodgeRate = monDodgeRate / 100;
+    local value = byLevel * raceTypeRate;
     
     local byBuff = self.DR_BM
     
-    local value = ((byLevel + byStat) * monDodgeRate) + byBuff;
+    value = value + byBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
 
 function SCR_Get_MON_MHR(self)
     local value = 0;    
-    --local lv = self.Lv;
-
-    --local lvValue = lv;
-    --local monStatValue = self.INT;
-    
-    --value = lvValue + (lvValue + 4);
-    --value = value + monStatValue;
---  local itemStat = GET_MON_ITEM_STAT(self, self.Lv, "HR")
-
     value = value + self.MHR_BM;
+    
     return math.floor(value);   
 end
 
 
 
 function SCR_Get_MON_CRTHR(self)
-    local lv = self.Lv;
-    local byLevel = lv * 0.5;
+    local lv = TryGetProp(self, "Lv", 1);
+    local byLevel = lv * 1.0;
     
-    local monCRTHitRate = TryGetProp(self, "CRTHitRate")
-    if monCRTHitRate == nil then
-        monCRTHitRate = 100;
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTHR");
+    
+    local value = byLevel * raceTypeRate;
+    
+    local byBuff = TryGetProp(self, "CRTHR_BM", 0);
+    
+    value = value + byBuff;
+    
+    if value < 0 then
+    	value = 0;
     end
-    
-    monCRTHitRate = monCRTHitRate / 100;
-    
-    local byBuff = self.CRTHR_BM;
-    
-    local value = (byLevel * monCRTHitRate) + byBuff;
     
     return math.floor(value);
 end
 
 function SCR_Get_MON_CRTDR(self)
---  local lv = self.Lv;
---    local byLevel = lv * 0.5;
---    
---  local monCRTDodgeRate = TryGetProp(self, "CRTDodgeRate")
---  if monCRTDodgeRate == nil then
---      monCRTDodgeRate = 100;
---  end
---  
---  monCRTDodgeRate = monCRTDodgeRate / 100;
---  
---  local byBuff = self.CRTDR_BM;
---    
---    local value = (byLevel * monCRTDodgeRate) + byBuff;
---    
---  return math.floor(value);
-
-    local lv = self.Lv;
-    local byLevel = lv * 0.5;
+    local lv = TryGetProp(self, "Lv", 1);
+    local byLevel = lv * 1.0;
     
-    local byBuff = self.CRTDR_BM;
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTDR");
     
-    local value = byLevel + byBuff;
+    local value = byLevel * raceTypeRate;
+    
+    local byBuff = TryGetProp(self, "CRTDR_BM", 0);
+	
+    value = value + byBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
 
 function SCR_Get_MON_CRTATK(self)
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
+    end
+    
+    local byLevel = lv * 1.0;
+    
     local stat = TryGetProp(self, "DEX");
     if stat == nil then
         stat = 1;
     end
     
-    local value = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
+    
+    local value = byLevel + byStat;
     
     return math.floor(value);
 end
 
-function SCR_Get_MON_ATKRATIO(self)
-    local atkRatio = 100;
-    if self.StatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..self.StatType);
-        if cls ~= nil then
-            atkRatio = cls.ATK;
-        end
+function SCR_Get_MON_CRTMATK(self)
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
     end
     
-    atkRatio = atkRatio / 100;
-    return atkRatio;
+    local byLevel = lv * 1.0;
+    
+    local stat = TryGetProp(self, "MNA");
+    if stat == nil then
+        stat = 1;
+    end
+    
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
+    
+    local value = byLevel + byStat;
+    
+    return math.floor(value);
 end
-
 
 function SCR_Get_MON_MINPATK(self)
     local lv = TryGetProp(self, "Lv");
@@ -617,36 +554,16 @@ function SCR_Get_MON_MINPATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1.0;
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
-    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
-    
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
-            
-            local transcendValue = cls.TranscendWeapon;
-            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
-        end
-    end
-    
-    byItem = math.floor(byItem * basicGradeRatio);
-    
-    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem;
     
@@ -659,16 +576,9 @@ function SCR_Get_MON_MINPATK(self)
     
     value = value * (2.0 - range / 100.0);
     
-    local byATKRate = TryGetProp(self, "ATKRate")
-    if byATKRate == nil then
-        byATKRate = 100;
-    end
-    
-    byATKRate = byATKRate / 100;
-    
-    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
-    
-    value = value * (byATKRate * raceTypeRate);
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "PATK");
+	
+    value = value * raceTypeRate;
     
     local byBuff = 0;
     local byBuffList = { "PATK_BM", "MINPATK_BM" };
@@ -707,35 +617,16 @@ function SCR_Get_MON_MAXPATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1.0;
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
-    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
-    
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
-            
-            local transcendValue = cls.TranscendWeapon;
-            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
-        end
-    end
-    
-    byItem = math.floor(byItem * basicGradeRatio);
-    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem
     
@@ -748,16 +639,9 @@ function SCR_Get_MON_MAXPATK(self)
     
     value = value * (range / 100.0)
     
-    local byATKRate = TryGetProp(self, "ATKRate")
-    if byATKRate == nil then
-        byATKRate = 100;
-    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "PATK");
     
-    byATKRate = byATKRate / 100;
-    
-    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
-    
-    value = value * (byATKRate * raceTypeRate);
+    value = value * raceTypeRate;
     
     local byBuff = 0;
     local byBuffList = { "PATK_BM", "MAXPATK_BM" };
@@ -796,35 +680,16 @@ function SCR_Get_MON_MINMATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1.0;
     
     local stat = TryGetProp(self, "INT");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
-    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
-    
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
-            
-            local transcendValue = cls.TranscendWeapon;
-            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
-        end
-    end
-    
-    byItem = math.floor(byItem * basicGradeRatio);
-    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem;
     
@@ -837,16 +702,9 @@ function SCR_Get_MON_MINMATK(self)
     
     value = value * (2.0 - range / 100.0);
     
-    local byATKRate = TryGetProp(self, "ATKRate")
-    if byATKRate == nil then
-        byATKRate = 100;
-    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MATK");
     
-    byATKRate = byATKRate / 100;
-    
-    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
-    
-    value = value * (byATKRate * raceTypeRate);
+    value = value * raceTypeRate;
     
     local byBuff = 0;
     local byBuffList = { "MATK_BM", "MINMATK_BM" };
@@ -885,38 +743,16 @@ function SCR_Get_MON_MAXMATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1.0;
     
     local stat = TryGetProp(self, "INT");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
-    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, lv);
-    
-    local byReinforce = 0;
-    local byTranscend = 1;
-    
-    local monStatType = TryGetProp(self, "StatType");
-    if monStatType ~= nil and monStatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..monStatType);
-        if cls ~= nil then
-            local reinforceValue = cls.ReinforceWeapon;
-            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
-            
-            local transcendValue = cls.TranscendWeapon;
-            byTranscend = SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue);
-        end
-    end
-    
-    byItem = math.floor(byItem * basicGradeRatio);
-    byItem = math.floor(byItem * byTranscend) + math.floor(byReinforce);
     
     local value = byLevel + byStat + byItem;
     
@@ -929,16 +765,9 @@ function SCR_Get_MON_MAXMATK(self)
     
     value = value * (range / 100.0);
     
-    local byATKRate = TryGetProp(self, "ATKRate")
-    if byATKRate == nil then
-        byATKRate = 100;
-    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MATK");
     
-    byATKRate = byATKRate / 100;
-    
-    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "ATK");
-    
-    value = value * (byATKRate * raceTypeRate);
+    value = value * raceTypeRate;
     
     local byBuff = 0;
     local byBuffList = { "MATK_BM", "MAXMATK_BM" };
@@ -975,38 +804,35 @@ function SCR_Get_MON_BLKABLE(self)
     if self.HPCount > 0 then
         return 0;
     end
-
-    return self.Blockable;
+    
+    local value = TryGetProp(self, 'Blockable', 0);
+    
+    return value;
 end
 
 function SCR_Get_MON_BLK(self)
-    if self.Blockable == 0 then
+    if TryGetProp(self, "BLKABLE", 0) == 0 then
         return 0;
     end
     
     local lv = self.Lv;
-    local byLevel = lv * 0.25;
     
-    local stat = TryGetProp(self, "CON");
-    if stat == nil then
-        stat = 1;
-    end
+    local byLevel = lv * 1.0;
     
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "BLK");
     
-    local monBlockRate = TryGetProp(self, "BlockRate");
-    if monBlockRate == nil then
-        monBlockRate = 100;
-    end
-    
-    monBlockRate = (byLevel + byStat) * (monBlockRate * 0.01);
+    local value = byLevel * raceTypeRate;
     
     local byBuff = TryGetProp(self, "BLK_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    local value = byLevel + byStat + monBlockRate + byBuff;
+    value = value + byBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -1017,21 +843,22 @@ function SCR_Get_MON_BLK_BREAK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
+    local byLevel = lv * 1.0;
     
-    local stat = TryGetProp(self, "DEX");
-    if stat == nil then
-        stat = 1;
-    end
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "BLK_BREAK");
     
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
+    local value = byLevel * raceTypeRate;
     
     local byBuff = TryGetProp(self, "BLK_BREAK_BM");
     if byBuff == nil then
         byBuff = 0;
     end
     
-    local value = byLevel + byStat + byBuff;
+    value = value + byBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -1043,7 +870,7 @@ function SCR_Get_MON_KDArmorType(self)
     if self.HPCount > 0 then
         return 9999;
     end
-	
+    
     local value = self.KDArmor;
     local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Mon_PainBarrier_Buff" };
     for i = 1, #buffList do
@@ -1078,9 +905,9 @@ function SCR_Get_MON_RHP(self)
     if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
         return 0;
     end
-
-    local value = 0;
-    value = value + self.RHP_BM;
+    
+    local value = TryGetProp(self, "RHP_BM");
+    
     return value;
 end
 
@@ -1122,61 +949,77 @@ function SCR_Get_MON_TR(self)
 end
 
 -- Add
-function SCR_Get_MON_ADD_FIRE(self)
-
-    local value = 0;
-    value = value + self.ADD_FIRE_BM;
+function SCR_GET_MON_FIRE_ATK(self)
+    local attributeName = "Fire";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_ICE(self)
-
-    local value = 0;
-    value = value + self.ADD_ICE_BM;
+function SCR_GET_MON_ICE_ATK(self)
+    local attributeName = "Ice";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_POISON(self)
-
-    local value = 0;
-    value = value + self.ADD_POISON_BM;
+function SCR_GET_MON_POISON_ATK(self)
+    local attributeName = "Poison";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_LIGHTNING(self)
-
-    local value = 0;
-    value = value + self.ADD_LIGHTNING_BM;
+function SCR_GET_MON_LIGHTNING_ATK(self)
+    local attributeName = "Lightning";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_SOUL(self)
-
-    local value = 0;
-    value = value + self.ADD_SOUL_BM;
+function SCR_GET_MON_SOUL_ATK(self)
+    local attributeName = "Soul";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_EARTH(self)
-
-    local value = 0;
-    value = value + self.ADD_EARTH_BM;
+function SCR_GET_MON_EARTH_ATK(self)
+    local attributeName = "Earth";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_HOLY(self)
-
-    local value = 0;
-    value = value + self.ADD_HOLY_BM;
+function SCR_GET_MON_HOLY_ATK(self)
+    local attributeName = "Holy";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_DARK(self)
-
-    local value = 0;
-    value = value + self.ADD_DARK_BM;
+function SCR_GET_MON_DARK_ATK(self)
+    local attributeName = "Dark";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
+
+function SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName)
+--    local lv = TryGetProp(self, "Lv", 1);
+--    local byLevel = lv * 1.5;
+--    
+--    local byBuff = TryGetProp(self, attributeName .. "_Atk_BM", 0);
+--    
+--    local value = byLevel + byBuff;
+--    
+--    return math.floor(value);
+    
+    local value = TryGetProp(self, attributeName .. "_Atk_BM", 0);
+    
+    return math.floor(value);
+end
+
 
 function SCR_Get_MON_HitRange(self)
 
@@ -1205,224 +1048,282 @@ end
 
 function SCR_Get_MON_MSPD(self)
  
-    local fixMspd = self.FIXMSPD_BM;
-
-    if fixMspd ~= 0.0 then
-        return math.max(0, fixMspd);
+    local fixMSPD = TryGetProp(self, "FIXMSPD_BM");
+    if fixMSPD ~= nil and fixMSPD > 0 then
+        return fixMSPD;
     end
-
-    local wlkMspd = self.WlkMSPD;
-    if wlkMspd == 0 then
+    
+    local wlkMSPD = TryGetProp(self, "WlkMSPD", 0);
+    if wlkMSPD == 0 then
         return 0;
     end
-
-    local moveType = GetExProp(self, 'MOVE_TYPE_CURRENT');
     
-    if moveType ~= 0 then
-        local moveSpd = wlkMspd + self.MSPD_BM;
-        if moveType == 2 then
-            moveSpd = self.RunMSPD + self.MSPD_BM;
-        elseif moveType == 3 then
-            moveSpd = wlkMspd + self.RunMSPD + self.MSPD_BM;
+    local byBuff = TryGetProp(self, "MSPD_BM", 0);
+    
+    local byBuffOnlyTopValue = 0;
+    local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
+    if byBuffOnlyTopList ~= nil then
+        for k, v in pairs(byBuffOnlyTopList) do
+            if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
+                byBuffOnlyTopValue = byBuffOnlyTopList[k];
+            end
         end
+    end
     
+    local moveType = GetExProp(self, 'MOVE_TYPE_CURRENT');
+    if moveType ~= 0 then
+        local runMSPD = TryGetProp(self, "RunMSPD", 0);
+        
+        local moveSpd = wlkMSPD + byBuff + byBuffOnlyTopValue;
+        if moveType == 2 then
+            moveSpd = runMSPD + byBuff + byBuffOnlyTopValue;
+        elseif moveType == 3 then
+            moveSpd = wlkMSPD + runMSPD + byBuff + byBuffOnlyTopValue;
+        end
+        
         return moveSpd;
     end
     
-    local value = 0;
-    value = wlkMspd + self.MSPD_BM;
+    local value = wlkMSPD + byBuff + byBuffOnlyTopValue;
     if value < 0 then
         value = 0;
     end
-
-    local mspdValue = 100;
-    if self.StatType ~= 'None' then
-        local cls2 = GetClass("Stat_Monster_Type", "type"..self.StatType);
-        if cls2 ~= nil then
-            mspdValue = cls2.MoveSpeed;
-        end
-    end
-    
-    value = value * mspdValue / 100;
-    
-    value = value * (100 + self.SPD_BM) / 100;
     
     value = value * SERV_MSPD_FIX;
+    
     return math.floor(value);
 end
 
 
 function SCR_Get_MON_minRange(self)
 
-    local value = 0;
-    value = self.MinR;
+    local value = TryGetProp(self, "MinR", 0);
     return math.floor(value);
 end
 
 function SCR_Get_MON_maxRange(self)
 
-    local value = 0;
-    value = self.MaxR;
-    value = value + self.maxRange_BM;
-    if value < (self.MinR + 2) then
-        value = self.MinR + 2;
+    local value = TryGetProp(self, "MaxR", 0);
+    
+    local byBuff = TryGetProp(self, "maxRange_BM", 0);
+    value = value + byBuff;
+    
+    local minRange = TryGetProp(self, "MinR", 0);
+    if value < (minRange + 2) then
+        value = minRange + 2;
     elseif value > 300 then
         value = 300;
     end
+    
     return math.floor(value);
 end
 
 function SCR_Get_MON_KDPow(self)
 
     local value = 0;
-    value = value + self.KDPow_BM;
-    value = value * self.KDRank;
+    
+    local byBuff = TryGetProp(self, "KDPow_BM", 0);
+    value = value + byBuff;
+    
+    local monKDRank = TryGetProp(self, "KDRank", 1);
+    value = value * monKDRank;
+    
     return math.floor(value);
 end
 
 ---------------------------------KnockDown-------------------------
 function SCR_GET_MON_KDBONUS(self)
-    local basestat = 120;
-    local byStat = basestat;
-    local byLevel = 10 * self.Lv;
-    local byBuff = self.KDBonus_BM;
-    value = byStat + byLevel + byBuff;
-    return value;
+    local defaultValue = 120;
+    
+    local lv = TryGetProp(self, "Lv", 1);
+    local byLevel = lv * 10;
+    
+    local byBuff = TryGetProp(self, "KDBonus_BM", 0);
+    
+    local value = defaultValue + byLevel + byBuff;
+    
+    return math.floor(value);
 end
 
 function SCR_GET_MON_KDDEFENCE(self)
-    local basestat = 80;
-    local byStat = basestat;
-    local byLevel = 10 * self.Lv;
-    local byBuff = self.KDBonus_BM;
-    value = byStat + byLevel + byBuff;
-    return value;
+    local defaultValue = 80;
+    
+    local lv = TryGetProp(self, "Lv", 1);
+    local byLevel = lv * 10;
+    
+    local byBuff = TryGetProp(self, "KDBonus_BM", 0);
+    
+    local value = defaultValue + byLevel + byBuff;
+    
+    return math.floor(value);
 end
 ---------------------------------------------------------------------
 
 function SCR_Get_MON_MGP(self)
-
     return 65535;
-
 end
 
 function SCR_Get_MON_SR(self)
-    local value = self.MonSR + self.SR_BM;
+    local value = 50;
+    
+    local monSize = TryGetProp(self, 'Size', "S");
+    
+    if monSize == 'S' then
+        value = 8;
+    elseif monSize == 'M' then
+        value = 16;
+    elseif monSize == 'L' then
+        value = 24;
+    elseif monSize == 'XL' then
+        value = 50;
+    end
+    
+    local byBuff = TryGetProp(self, "SR_BM", 0);
+    
+    value = value + byBuff;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
     return math.floor(value)
 end
 
 function SCR_Get_MON_SDR(self)
-	local fixedSDR = TryGetProp(self, 'FixedMinSDR_BM');
-	if fixedSDR ~= nil and fixedSDR ~= 0 then
-		return 1;
-	end
-	
+    local fixedSDR = TryGetProp(self, 'FixedMinSDR_BM');
+    if fixedSDR ~= nil and fixedSDR ~= 0 then
+        return 1;
+    end
+    
     local value = 5;
     
-    local monSDR = TryGetProp(self, 'MonSDR');
-    if monSDR == nil then
-    	monSDR = 1;
-    end
+    local monSDR = TryGetProp(self, 'MonSDR', 1);
     
-    local monSize = TryGetProp(self, 'Size');
-    if monSize == nil then
-    	monSize = 'S';
-    end
+    local monSize = TryGetProp(self, 'Size', "S");
     
-    if monSDR < 1 then
-        value = 1;
-    elseif monSize == 'S' then
+    if monSize == 'S' then
         value = 1;
     elseif monSize == 'M' then
         value = 2;
     elseif monSize == 'L' then
         value = 3;
+    elseif monSize == 'XL' then
+        value = 5;
     end
     
-    local byBuff = TryGetProp(self, 'SDR_BM');
-    if byBuff == nil then
-    	byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, 'SDR_BM', 0);
     
     value = value + byBuff;
     
     if value < 1 then
-    	value = 1;
+        value = 1;
     end
+    
+    return math.floor(value);
+end
+
+function SCR_GET_MONSKL_COOL(skill)
+    local value = TryGetProp(skill, "BasicCoolDown", 0);
     
     return value;
 end
 
-function SCR_GET_MONSKL_COOL(skill)
-    return skill.BasicCoolDown;
-end
-
 function SCR_MON_COMBOABLE(mon)
-
-    if mon.GroupName == "Monster" then
+    if TryGetProp(mon, "GroupName") == "Monster" then
         return 1;
     end
     
     return 0;
-
 end
 
-function SCR_GET_MON_FIRE_DEF(self)
-    local value = 0;
-    value = self.Fire_Def_BM;
-    return value;
+function SCR_GET_MON_RES_FIRE(self)
+    local attributeName = "Fire";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_ICE_DEF(self)
-    local value = 0;
-    value = self.Ice_Def_BM;
-    return value;
+function SCR_GET_MON_RES_ICE(self)
+    local attributeName = "Ice";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_POISON_DEF(self)
-    local value = 0;
-    value = self.Poison_Def_BM;
-    return value;
+function SCR_GET_MON_RES_POISON(self)
+    local attributeName = "Poison";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_LIGHTNING_DEF(self)
-    local value = 0;
-    value = self.Lightning_Def_BM;
-    return value;
+function SCR_GET_MON_RES_LIGHTNING(self)
+    local attributeName = "Lightning";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_SOUL_DEF(self)
-    local value = 0;
-    value = self.Soul_Def_BM;
-    return value;
+function SCR_GET_MON_RES_SOUL(self)
+    local attributeName = "Soul";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_EARTH_DEF(self)
-    local value = 0;
-    value = self.Earth_Def_BM;
-    return value;
+function SCR_GET_MON_RES_EARTH(self)
+    local attributeName = "Earth";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_HOLY_DEF(self)
-    local value = 0;
-    value = self.Holy_Def_BM;
-    return value;
+function SCR_GET_MON_RES_HOLY(self)
+    local attributeName = "Holy";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
 end
 
-function SCR_GET_MON_DARK_DEF(self)
-    local value = 0;
-    value = self.Dark_Def_BM;
-    return value;
+function SCR_GET_MON_RES_DARK(self)
+    local attributeName = "Dark";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
+    
+    return math.floor(value);
+end
+
+function SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName)
+    local lv = TryGetProp(self, "Lv", 1);
+    local fixedFigure = 30;
+    local byLevel = math.floor(((lv / 3) ^ 2) / fixedFigure) + fixedFigure 
+    
+    local byBuff = TryGetProp(self, "Res" .. attributeName .. "_BM", 0);
+    
+    local byStatType = 0;
+    local statType = TryGetProp(self, "StatType", "None");
+    if statType ~= nil then
+        local statTypeClass = GetClass("Stat_Monster_Type", statType);
+        if statTypeClass ~= nil then
+            byStatType = TryGetProp(statTypeClass, "ResAttributeRate", 100)*0.01;
+        end
+    end
+    
+    local value = (byLevel * byStatType) + byBuff;
+    
+    return math.floor(value);
 end
 
 function SCR_GET_MON_LIMIT_BUFF_COUNT(self)
+    local value = 999;  -- 2017/9/13 --
     
-    local count = 10;
-    count = count + self.LimitBuffCount_BM;
-    return count;
+--    local byBuff = TryGetProp(self, "LimitBuffCount_BM", 0);
+--    if byBuff > 0 then
+--      value = byBuff;
+--    end
+    
+    return value;
 end
 
--- hardskill_sorcerer.lua ?? ???????? shared?? ?????? ?????... ????? ?????? ???? ????
 function CLIENT_SORCERER_SUMMONING_MON(self, caster, skl, item)
 
     if nil == self then
@@ -1454,33 +1355,6 @@ end
 
 function SCR_GET_MON_SKILLFACTORRATE(self)
     local value = 100;
-    if self.StatType ~= 'None' then
-        local cls = GetClass("Stat_Monster_Type", "type"..self.StatType);
-        if cls ~= nil then
-            value = cls.SkillFactorRate;
-        end
-    end
-    
---    local byOwner = 0;
---    local myOwner = GetTopOwner(self);
---    if myOwner ~= nil then
---        if myOwner.ClassName == 'PC' then
---            local ownerLv = TryGetProp(myOwner, "Lv");
---            if ownerLv == nil then
---                ownerLv = 1;
---            end
---            
---            local ownerMNA = TryGetProp(myOwner, "MNA");
---            if ownerMNA == nil then
---                ownerMNA = 1;
---            end
---            
---            byOwner = math.floor(value * (ownerMNA / (ownerLv + 1)));
---            if byOwner < 0 then
---                byOwner = 0;
---            end
---        end
---    end
     
     local byBuff = TryGetProp(self, "SkillFactorRate_BM");
     if byBuff == nil then
@@ -1494,11 +1368,51 @@ function SCR_GET_MON_SKILLFACTORRATE(self)
     
     byRateBuff = value * byRateBuff;
     
---    value = value + byOwner;
-    
     value = value + byBuff + byRateBuff;
     
     return value;
+end
+
+function SCR_Get_MON_HEAL_PWR(self)
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
+    end
+    
+    local byLevel = lv * 1.0;
+    
+    local stat = TryGetProp(self, "MNA");
+    if stat == nil then
+        stat = 1;
+    end
+    
+    local byStat = (stat * 1) + (math.floor(stat / 10) * (byLevel * 0.03));
+    
+    local value = byLevel + byStat;
+    
+    local byBuff = 0;
+    
+    local byBuffTemp = TryGetProp(self, "HEAL_PWR_BM");
+    if byBuffTemp ~= nil then
+        byBuff = byBuff + byBuffTemp;
+    end
+    
+    local byRateBuff = 0;
+
+    local byRateBuffTemp = TryGetProp(self, "HEAL_PWR_RATE_BM");
+    if byRateBuffTemp ~= nil then
+        byRateBuff = byRateBuff + byRateBuffTemp;
+    end
+    
+    byRateBuff = math.floor(value * byRateBuffTemp);
+    
+    value = value + byBuff + byRateBuff;
+    
+    if value < 1 then
+        value = 1;
+    end
+    
+    return math.floor(value);
 end
 
 
@@ -1625,124 +1539,197 @@ end
 
 
 function SCR_RACE_TYPE_RATE(self, prop)
-    local raceTypeRate = 1.0;
+    -- RaceType --
+    local raceTypeRate = 100;
     
-    local raceList = { "Widling", "Forester", "Paramune", "Velnias", "Klaida" };
-    local raceRateList = { };
-    
-    -- ?￢기??????로?¼티뱿raceTypeList --
-    raceRateList["ATK"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
-    raceRateList["DEF"] = { 0.95, 0.8, 1, 0.9 , 0.85 };
-    raceRateList["MDEF"] = { 0.85, 1, 0.8, 0.9, 0.95 };
-    raceRateList["MHP"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
-    
-    if raceRateList[prop] == nil then
-        return 1.0;
-    end
-    
-    raceRateList = raceRateList[prop];
-    
-    for i = 1, #raceList do
-        local raceType = TryGetProp(self, "RaceType");
-        if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
-            raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
-        end
-        
-        if raceType == raceList[i] then
-            if raceRateList[i] ~= nil and raceRateList[i] > 0 then
-                raceTypeRate = raceRateList[i];
-            end
-            
-            break;
+    local raceType = TryGetProp(self, "RaceType", "None");
+    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+        raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
+        if raceType == nil then
+            raceType = "None";
         end
     end
     
-    return raceTypeRate;
-end
-
-
-
-function SCR_SIZE_TYPE_RATE(self, prop)
-    local sizeTypeRate = 1.0;
-    
-    local sizeList = { "S", "M", "L", "XL" };
-    local sizeRateList = { };
-    
---  기존 raceTypeList --
---    sizeRateList["ATK"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
---    sizeRateList["DEF"] = { 1.6, 0.72, 2.0, 1.2, 0.8 };
---    sizeRateList["MDEF"] = { 1.0, 1.0, 1.0, 1.0, 1.0 };
-    sizeRateList["MHP"] = { 0.8, 1, 1.25, 1.5 };
-    
-    if sizeRateList[prop] == nil then
-        return 1.0;
+    local raceTypeClass = GetClass("Stat_Monster_Race", raceType);
+    if raceTypeClass ~= nil then
+        raceTypeRate = TryGetProp(raceTypeClass, prop, raceTypeRate);
     end
     
-    sizeRateList = sizeRateList[prop];
+    raceTypeRate = raceTypeRate / 100;
     
-    for i = 1, #sizeList do
-        local sizeType = TryGetProp(self, "Size");
-        if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
-            sizeType = GetExProp_Str(self, "SHADOW_INFERNAL_SIZE");
-        end
-        
-        if sizeType == sizeList[i] then
-            if sizeRateList[i] ~= nil and sizeRateList[i] > 0 then
-                sizeTypeRate = sizeRateList[i];
-            end
-            
-            break;
+    if raceTypeRate < 0 then
+        raceTypeRate = 0;
+    end
+    
+    
+    
+    -- Size --
+    local sizeTypeRate = 100;
+    
+    local sizeType = TryGetProp(self, "Size", "None");
+    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+        sizeType = GetExProp_Str(self, "SHADOW_INFERNAL_SIZE");
+        if sizeType == nil then
+            sizeType = "None";
         end
     end
     
-    return sizeTypeRate;
+    if sizeType ~= nil then
+        local sizeTypeClass = GetClass("Stat_Monster_Race", sizeType);
+        if sizeTypeClass ~= nil then
+            sizeTypeRate = TryGetProp(sizeTypeClass, prop, sizeTypeRate);
+        end
+    end
+    
+    sizeTypeRate = sizeTypeRate / 100;
+    
+    if sizeTypeRate < 0 then
+        sizeTypeRate = 0;
+    end
+    
+    
+    
+    -- MonRank --
+    local rankTypeRate = 100;
+    
+    local rankType = TryGetProp(self, "MonRank", "None");
+    
+    if rankType ~= nil then
+        local rankTypeClass = GetClass("Stat_Monster_Race", rankType);
+        if rankTypeClass ~= nil then
+            rankTypeRate = TryGetProp(rankTypeClass, prop, rankTypeRate);
+        end
+    end
+    
+    rankTypeRate = rankTypeRate / 100;
+    
+    if rankTypeRate < 0 then
+        rankTypeRate = 0;
+    end
+    
+    local value = raceTypeRate * sizeTypeRate * rankTypeRate;
+    
+    return value;
 end
 
 
 
 function SCR_MON_ITEM_WEAPON_CALC(self, lv)
-    local value = 20 + (math.max(1, lv - 50) * 3);
-    local value = value * 1.0;
+	local monClassName = TryGetProp(self, "ClassName", "None");
+	local monOriginFaction = TryGetProp(GetClass("Monster", monClassName), "Faction");
+    if monOriginFaction == "Summon" then
+        return 0;
+    end
+    
+    local value = 20 + (lv * 5);
+    
+    local defList = { };
+    defList["Cloth"] = 1.0;
+    defList["Leather"] = 1.5 ;
+    defList["Iron"] = 1.0;
+    
+    local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
+    if defList[armorMaterial] ~= nil then
+        value = value * defList[armorMaterial];
+    end
+    
+    local byReinforce = 0;
+    local byTranscend = 0;
+    
+    local statType = TryGetProp(self, "StatType", "None");
+    if statType ~= nil then
+        local statTypeClass = GetClass("Stat_Monster_Type", statType);
+        if statTypeClass ~= nil then
+            local itemGrade = TryGetProp(statTypeClass, "WeaponGrade", "Normal")
+            local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);
+            value = math.floor(value * basicGradeRatio);
+            
+            local reinforceValue = TryGetProp(statTypeClass, "ReinforceWeapon", 0);
+            byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local itemTranscend = TryGetProp(statTypeClass, "TranscendWeapon", 0);
+            local transcendValue = SCR_MON_ITEM_TRANSCEND_CALC(self, itemTranscend);
+            byTranscend = math.floor(value * transcendValue);
+        end
+    end
+    
+    value = value + byReinforce + byTranscend;
+    
     return math.floor(value);
 end
 
-function SCR_MON_ITEM_ARMOR_CALC(self, lv)
-    local value = 20 + (math.max(1, lv - 50) * 3);
-    value = value * 1.0;
+function SCR_MON_ITEM_ARMOR_DEF_CALC(self)
+    return SCR_MON_ITEM_ARMOR_CALC(self, "DEF");
+end
+
+function SCR_MON_ITEM_ARMOR_MDEF_CALC(self)
+    return SCR_MON_ITEM_ARMOR_CALC(self, "MDEF");
+end
+
+
+function SCR_MON_ITEM_ARMOR_CALC(self, defType)
+    local lv = TryGetProp(self, "Lv");
+    
+    local value = (40 + (lv * 8));
+    
+    if defType ~= nil then
+        local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
+        local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
+        local defRatio = TryGetProp(defClass, armorMaterial);
+        if defRatio ~= nil then
+            value = value * defRatio;
+        end
+    end
+    
+    local byReinforce = 0;
+    local byTranscend = 0;
+    
+    local statType = TryGetProp(self, "StatType", "None");
+    if statType ~= nil then
+        local statTypeClass = GetClass("Stat_Monster_Type", statType);
+        if statTypeClass ~= nil then
+            local itemGrade = TryGetProp(statTypeClass, "ArmorGrade", "C")
+            local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);
+            value = math.floor(value * basicGradeRatio);
+            
+            local reinforceValue = TryGetProp(statTypeClass, "ReinforceArmor", 0);
+            byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio);
+            
+            local itemTranscend = TryGetProp(statTypeClass, "TranscendArmor", 0);
+            local transcendValue = SCR_MON_ITEM_TRANSCEND_CALC(self, itemTranscend);
+            byTranscend = math.floor(value * transcendValue);
+        end
+    end
+    
+    value = value + byReinforce + byTranscend;
+    
     return math.floor(value);
 end
 
-function SCR_MON_ITEM_GRADE_RATE(self, lv)
-    local monRank = TryGetProp(self, "MonRank");
-    if monRank == nil then
-        monRank = "Normal";
+function SCR_MON_ITEM_GRADE_RATE(self, itemGrade)
+    if itemGrade == nil then
+        itemGrade = "Normal";
     end
     
-    local basicGradeRatio = 1;
-    local reinforceGradeRatio = 1;
-    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
-        monRank = GetExProp_Str(self, "SHADOW_INFERNAL_MONRANK");
+--    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
+--        monRank = GetExProp_Str(self, "SHADOW_INFERNAL_MONRANK");
+--    end
+    
+    local gradeList = { "Normal", "Magic", "Rare", "Unique", "Legend" };
+    local gradeIndex = table.find(gradeList, itemGrade);
+    if gradeIndex == 0 then
+        gradeIndex = 1;
     end
     
-    if monRank == "Normal" or monRank == "Material" then
-        basicGradeRatio = 0.9;  --normal
-        reinforceGradeRatio = 1.0;
-    elseif monRank == "Special" then
-        basicGradeRatio = 1.0;  --rare
-        reinforceGradeRatio = 1.2;
-    elseif monRank == "Elite" then
-        basicGradeRatio = 1.1;  --rare
-        reinforceGradeRatio = 1.5;
-    elseif monRank == "Boss" then
-        basicGradeRatio = 1.25;  --unique
-        reinforceGradeRatio = 2.0;
-    end
+    local basicGradeRatio = SCR_GET_ITEM_GRADE_RATIO(gradeIndex, "BasicRatio");
+    local reinforceGradeRatio = SCR_GET_ITEM_GRADE_RATIO(gradeIndex, "ReinforceRatio");
     
     return basicGradeRatio, reinforceGradeRatio;
 end
 
 function SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio)
     local value = 0;
+    
     value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.08 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.015 ))))));
     value = math.floor(value * reinforceGradeRatio);
     
@@ -1751,15 +1738,16 @@ end
 
 function SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio)
     local value = 0;
-    value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.12 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.0225 ))))));
+    value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.12 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.0225 ))))) * 1.25);
     value = math.floor(value * reinforceGradeRatio);
+    
+    value = value * 2;  -- 방어구는 무기의 2배 --
     
     return value;
 end
 
 function SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue)
-    local value = 0;
-    value = 1 + (transcendValue * 0.1);
+    local value = transcendValue * 0.1;
     
     return value;
 end

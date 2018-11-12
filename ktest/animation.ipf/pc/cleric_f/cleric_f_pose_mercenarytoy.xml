@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_mercenarytoy" particleName="I_force086_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_trail" particleName="None" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
 	<AttachModel frame="0" XAC="artefact_mercenarytoy_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim=""/>
+	<Sound frame="0.00" soundFile="skl_eff_move_mercenarytoy"/>
+	<Particle frame="2" attachNode="Dummy_effect_mercenarytoy" particleName="I_spread_out001_light2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_effect_mercenarytoy" particleName="F_light055_orange3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+	<Sound frame="5.00" soundFile="skl_eff_mercenarytoy_eff"/>
 </ActionDesc>

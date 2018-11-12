@@ -461,7 +461,12 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 
 	local nameCtrl = GET_CHILD(mainBox, "name", "ui::CRichText");
 	nameCtrl:SetText("{@st42b}{b}".. name);
-	local jobCls = GetClassByType("Job", jobid);
+        
+    -- 대표 클래스 지정
+    local barrack_pc = session.barrack.GetMyAccount():GetByStrCID(key)    
+    if barrack_pc:GetRepID() ~= 0 then jobid = barrack_pc:GetRepID() end
+    
+    local jobCls = GetClassByType("Job", jobid);
 	local jobCtrl = GET_CHILD(mainBox, "job", "ui::CRichText");
 	jobCtrl:SetText("{@st42b}".. GET_JOB_NAME(jobCls, gender));
 	local levelCtrl = GET_CHILD(mainBox, "level", "ui::CRichText");

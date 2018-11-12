@@ -8676,3 +8676,17 @@ function SCR_PRE_NICOPOLIS_RAID_ITEM(self,  argObj, argstring, arg1, arg2)
     end
     return 0;
 end
+
+
+--JOB_ASSIASIN_Q1_ITEM
+function SCR_PRE_JOB_ASSASSIN_Q1_ITEM(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_rokas_25' then
+        if GetLayer(self) == 0 then
+            local x, y, z = GetPos(self)
+            if SCR_POINT_DISTANCE(x,z,-2097,365) <= 200 then
+                return 1
+            end
+        end
+    end
+    return 0;   
+end

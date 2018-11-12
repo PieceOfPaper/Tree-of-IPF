@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="status" x="0" y="0" width="500" height="1080">
 	<draw drawnotitlebar="false" drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -17,12 +17,13 @@
 		<groupbox name="statusAvgGbox" rect="0 0 480 325" margin="0 145 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<groupbox name="statusUpGbox" rect="0 0 480 440" margin="25 100 0 0" layout_gravity="left top" draw="false" frameOpenAnim="pip_simbol_ani_4" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<groupbox name="test_arow" parent="statusUpGbox" rect="0 0 480 49" margin="-20 170 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>
+		<button name="set_btn" rect="0 0 42 42" margin="0 48 80 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="class_setting_btn" oversound="button_over" texttooltip="{@st59}대표 클래스 설정{/}" LBtnUpScp="STATUS_OPEN_CLASS_DROPLIST"/>
 		<tab name="statusTab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="STATUS_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 90 0 0"/>
 		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}정보{/}" width="150" layout_gravity="left top"/>
 		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}업적{/}" width="150" layout_gravity="left top"/>
 		<tabitem name="Itembox3" parent="statusTab" caption="{@st66b}캐릭터 설정{/}" width="150" layout_gravity="left top"/>
 		<richtext name="Title_RemainStat" parent="statusUpGbox" rect="0 0 200 24" margin="-20 320 0 0" layout_gravity="center top" fontname="brown_18_b" format="남은 스테이터스 포인트 {nl}{@st46}%s" hittest="false" param1="statpts" spacey="0" textalign="center center"/>
-		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}내 정보{nl}{@st59s} - 스테이터스 : 레벨업으로 얻은 포인트를 사용해서 5가지 능력 강화{nl} - 정보 : 아이템 및 스테이터스 능력치에 따른 캐릭터 능력치 정보{nl} - 칭호 : 업적을 완료했을때 습득가능한 칭호{nl}{/}"/>
+		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}내 정보{nl}{@st59s} - 스테이터스 : 레벨업으로 증가하는 5가지 능력{nl} - 정보 : 아이템 및 스테이터스 능력치에 따른 캐릭터 능력치 정보{nl} - 칭호 : 업적을 완료했을때 습득가능한 칭호{nl}{/}"/>
 		<groupbox name="statusGbox" rect="0 0 480 415" margin="10 550 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
 		<groupbox name="achieveGbox" rect="0 0 500 830" margin="10 160 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="false"/>
 		<groupbox name="internalstatusBox" parent="statusGbox" rect="0 0 483 415" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="true" resizebyparent="false" resizebyresolution="true" scrollbar="true"/>

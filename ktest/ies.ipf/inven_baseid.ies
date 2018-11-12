@@ -19,7 +19,7 @@ ClassID,BaseID,ClassName,TreeGroup,TreeGroupCaption,TreeSSetTitle,InvenTabName,M
 18,90001,"Weapon_THSpear","EquipGroup","장비","주 무기","Equip","Weapon"
 19,95001,"Weapon_THStaff","EquipGroup","장비","주 무기","Equip","Weapon"
 20,100001,"Weapon_THSword","EquipGroup","장비","주 무기","Equip","Weapon"
-21,105001,"Weapon_Cannon","EquipGroup","장비","보조 무기","Equip","SubWeapon"
+21,105001,"Weapon_Cannon","EquipGroup","장비","주 무기","Equip","Weapon"
 22,110001,"Weapon_Dagger","EquipGroup","장비","보조 무기","Equip","SubWeapon"
 23,115001,"Weapon_Pistol","EquipGroup","장비","보조 무기","Equip","SubWeapon"
 24,120001,"Armor_Boots","EquipGroup","장비","방어구","Equip","Armor"
@@ -98,3 +98,4 @@ ClassID,BaseID,ClassName,TreeGroup,TreeGroupCaption,TreeSSetTitle,InvenTabName,M
 97,485001,"ChangeEquip_Bow","EquipGroup","장비","외형 변경 장비","Equip","ChangeEquip"
 98,490001,"ChangeEquip_Dagger","EquipGroup","장비","외형 변경 장비","Equip","ChangeEquip"
 99,495001,"Look_Wing","EquipGroup","장비","등 코스튬","Equip","NO"
+100,500001,"Accessory_Seal","EquipGroup","장비","인장","Equip","NO"

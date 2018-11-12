@@ -1,0 +1,692 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="RVR_RAID_BORUTOS_KAPAS_1" journal="0" minLv="0" maxLv="0" mapName="d_limestonecave_70_1" playerCountCheckDestroy="1" startWaitSec="0">
+        <StageList>
+            <Stage Name="Initialize">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154005" Pos="333.08#207.22#1209.34" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="154069" Pos="-361.97#207.22#949.13" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
+                    <Obj Type="Monster" MonType="154069" Pos="434.34#207.22#1633.25" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
+                    <Obj Type="Monster" MonType="154069" Pos="1036.62#207.22#1711.13" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
+                    <Obj Type="Monster" MonType="154069" Pos="757.18#207.22#658.62" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Init_Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="NORMAL_DEAD"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DEAD_FROM_PC"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DEAD_FROM_BOSS"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DEAD_FROM_ENV"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="DEAD_FROM_OTHERS"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="30000" eventName="Boss_Dead_ReCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="BK_MGAME_BOSS_RESET_CHECK_COND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BK_BOSS_DEAD_CHECK_REDIS"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="BK_MGAME_BOSS_RESET_CHECK"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="PC_CNT">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="30000" eventName="Over_10_20/30sec">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_RANGE" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Gen_Boss">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59208" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Notice">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="보루타가 등장했습니다"/>
+                                <Str Str="BossAppear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Save_HP">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_BORUTA_HP_SAVE_UPDATE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" execCount="1" eventName="Boruta_gen_regen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BK_BOSS_DEAD_CHECK_REDIS"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="HP_Regen">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="Heal_boss">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1200"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_HEAL_BOSS_UPDATE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Pattern_ForceWarp" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="보루타가 먼 곳을 응시합니다"/>
+                        <Str Str="!"/>
+                        <Num Num="5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154069" Pos="110.41#159.76#-1584.64" genCount="1" genTime="1" autoGen="0" objectKey="0" propList="&apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_MGAME_FORCEWARP_B_TO_A&apos; &apos;Name&apos; &apos;탈출 포탈&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154069" Pos="100.81#216.98#-1003.17" genCount="1" genTime="1" autoGen="0" objectKey="1" propList="&apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_MGAME_FORCEWARP_B_TO_A&apos; &apos;Name&apos; &apos;탈출 포탈&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154069" Pos="-579.23#311.46#-1379.22" genCount="1" genTime="1" autoGen="0" objectKey="2" propList="&apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_MGAME_FORCEWARP_B_TO_A&apos; &apos;Name&apos; &apos;탈출 포탈&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154069" Pos="-781.52#311.73#-1501.58" genCount="1" genTime="1" autoGen="0" objectKey="3" propList="&apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_MGAME_FORCEWARP_B_TO_A&apos; &apos;Name&apos; &apos;탈출 포탈&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154069" Pos="-121.16#201.18#-1529.93" genCount="1" genTime="1" autoGen="0" objectKey="4" propList="&apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_MGAME_FORCEWARP_B_TO_A&apos; &apos;Name&apos; &apos;탈출 포탈&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="GenPortal">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Pattern_ForceWarp/0/Pattern_ForceWarp/1/Pattern_ForceWarp/2/Pattern_ForceWarp/3/Pattern_ForceWarp/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Pattern_ForceWarp/0/Pattern_ForceWarp/1/Pattern_ForceWarp/2/Pattern_ForceWarp/3/Pattern_ForceWarp/4"/>
+                                <Num Num="1"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_FORCEWARP_SEL_PC"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DelPorTal">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_ForceWarp"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_ForceWarp"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Control_Pattern">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="ForceWarp_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1200"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="BK_MGAME_CHECK_WEEKEND_18_TO_03"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_ForceWarp"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Echo_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="300"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_Echo"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Scream_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="600"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_SCREAM"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Revenge_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1200"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_Revenge"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="SafeArea_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="BK_MGAME_CHECK_WEEKEND_18_TO_03"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="Pattern_safeArea"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Pattern_Echo" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="곧 메아리가 등장 합니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="154070" Pos="645.85#207.22#498.44" maxStackCount="1" genTime="100" autoGen="0" objectKey="0" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="312.44#207.22#686.13" maxStackCount="1" genTime="100" autoGen="0" objectKey="1" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="-94.61#207.22#816.96" maxStackCount="1" genTime="100" autoGen="0" objectKey="2" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="-366.54#207.22#969.83" maxStackCount="1" genTime="100" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="-314.31#207.22#1322.56" maxStackCount="1" genTime="100" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="-314.88#207.22#1569.42" maxStackCount="1" genTime="100" autoGen="0" objectKey="5" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="-182.08#207.22#1734.79" maxStackCount="1" genTime="100" autoGen="0" objectKey="6" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="279.70#207.22#1592.23" maxStackCount="1" genTime="100" autoGen="0" objectKey="7" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="689.96#207.22#1593.88" maxStackCount="1" genTime="100" autoGen="0" objectKey="8" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="999.87#207.22#1654.68" maxStackCount="1" genTime="100" autoGen="0" objectKey="9" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="998.84#207.22#1320.48" maxStackCount="1" genTime="100" autoGen="0" objectKey="10" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="1111.57#207.22#1090.56" maxStackCount="1" genTime="100" autoGen="0" objectKey="11" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154070" Pos="1000.31#207.22#891.66" maxStackCount="1" genTime="100" autoGen="0" objectKey="12" propList="&apos;Name&apos; &apos;메아리&apos; &apos;Enter&apos; &apos;BK_MGAME_ECHO_MON&apos; &apos;Range&apos; &apos;80&apos; &apos;AlwaysTitle&apos; &apos;YES&apos; &apos;ShowBaseInfoUI&apos; &apos;1&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_circle003_spin_loop_violet" Arg="3"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_light080_blue_loop_attach" Arg="3"/>
+                                    <Str Str="TOP"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="2" eventName="Echo_gen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Pattern_Echo/0/Pattern_Echo/1/Pattern_Echo/2/Pattern_Echo/3/Pattern_Echo/4/Pattern_Echo/5/Pattern_Echo/6/Pattern_Echo/7/Pattern_Echo/8/Pattern_Echo/9/Pattern_Echo/10/Pattern_Echo/11/Pattern_Echo/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Pattern_Echo/0/Pattern_Echo/1/Pattern_Echo/2/Pattern_Echo/3/Pattern_Echo/4/Pattern_Echo/5/Pattern_Echo/6/Pattern_Echo/7/Pattern_Echo/8/Pattern_Echo/9/Pattern_Echo/10/Pattern_Echo/11/Pattern_Echo/12"/>
+                                <Num Num="1"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="메아리가 등장했습니다"/>
+                                <Str Str="timestart"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Pattern_SCREAM" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="절규가 곧 발생합니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="5" eventName="SCREAM_RUN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_BORUTA_SCREAM_RUN"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="절규가 발생했습니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Pattern_Revenge" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="복수의 미열이 곧 등장합니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Revenge_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="복수의 미열이 등장했습니다"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_BORUTA_REVENGE_FEVER_CREATE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Pattern_safeArea" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="안전구역이 활성화 됩니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="SafeArea_On">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_BORUTA_HATE_RESET_PAD_CREATE"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -35,10 +35,10 @@ function CAMP_REG_INIT(frame, skillName, sklLevel)
 	local campTime = CAMP_TIME(skillName, sklLevel);
 	time_text:SetTextByKey("value", GET_TIME_TXT(campTime));
 
-	local buffTime = CAMP_BUFF_TIME(sklLevel);
-	local effectTxt = ClMsg("BuffMaintainTime") .. " + " ..buffTime .. "%";
-	local effect_text = GET_CHILD(gbox, "effect_text");		
-	effect_text:SetTextByKey("value", effectTxt);
+	--local buffTime = CAMP_BUFF_TIME(sklLevel);
+	--local effectTxt = ClMsg("BuffMaintainTime") .. " + " ..buffTime .. "%";
+	--local effect_text = GET_CHILD(gbox, "effect_text");
+	--effect_text:SetTextByKey("value", effectTxt);
 
 	local silver, itemList = CAMP_NEED_PRICE(skillName, sklLevel);
 	local silver_text = GET_CHILD(gbox, "silver_text");
@@ -93,16 +93,20 @@ function CAMP_REGISTER_EXEC(parent, ctrl)
 			return;
 		end
 	end
-
-	local mapCls = GetClass("Map", session.GetMapName());
-	if nil == mapCls then
-		return;
-	end
-
-	if 'Field' ~= mapCls.MapType then
+	
+	local zoneName = session.GetMapName();
+	local mapCls = GetClass("Map", zoneName);
+	local mapType = TryGetProp(mapCls, "MapType", "None");
+	if mapType ~= "Field" and mapType ~= "Dungeon" then
 		ui.SysMsg(ClMsg('DontBuildCampThisAria'));
 		return;
 	end
+	
+	if SCR_ZONE_KEYWORD_CHECK(zoneName, "NoWarp") == "YES" then
+		ui.SysMsg(ClMsg('DontBuildCampThisAria'));
+		return;
+	end
+	
 	local strScp = "_CAMP_REGISTER_EXEC()";
 	ui.MsgBox(ScpArgMsg("REALLY_DO"), strScp, "None");
 end

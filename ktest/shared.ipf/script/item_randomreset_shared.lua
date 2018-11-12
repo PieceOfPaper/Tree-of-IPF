@@ -6,7 +6,12 @@ function SCR_SIERA_MATERIAL(item)
 	end
 
 	local sieraCount =  math.floor((1 + (math.floor(itemLv/75) * math.floor(itemLv/75))* 5) * 0.5)
-
+    
+    --EVENT_1811_WEEKEND
+	if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
+	    sieraCount = math.floor(sieraCount/2)
+	end
+	
 	return sieraCount
 end
 
@@ -25,7 +30,12 @@ function SCR_NEWCLE_MATERIAL(item)
 	end
 	
 	local newcleCount = math.floor(math.floor(1 + (itemLv/itemGradeRatio[itemGrade])) * itemMaxRatio[itemGrade] * 20)
-
+    
+    --EVENT_1811_WEEKEND
+	if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
+	    newcleCount = math.floor(newcleCount/2)
+	end
+	
 	return newcleCount
 end
 

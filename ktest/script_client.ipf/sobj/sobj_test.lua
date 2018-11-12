@@ -144,15 +144,15 @@ function CLIENT_SMARTGEN_INIT()
 		sObj.ZoneGenPoint = -1;
 	end
     
-    local pc = GetMyPCObject()
-	if pc.Lv <= 50 then
-    	local nowZoneClassName = GetZoneName(pc)
-    	if nowZoneClassName == 'd_cmine_01' or nowZoneClassName == 'd_cmine_02' or nowZoneClassName == 'd_cmine_6' or nowZoneClassName == 'd_prison_62_1' or nowZoneClassName == 'd_prison_62_2' or nowZoneClassName == 'd_prison_62_3'  then
-    	    if GetInvItemCount(pc,'gem_circle_1') > 0 or GetInvItemCount(pc,'gem_square_1') > 0 or GetInvItemCount(pc,'gem_diamond_1') > 0 or GetInvItemCount(pc,'gem_star_1') > 0 then
-    	        ui.MsgBox_NonNested(ScpArgMsg('DungeonEnterWarningMsg1','ZONE', GetClassString('Map',nowZoneClassName,'Name')),0x00000000)
-            end
-        end
-    end
+--    local pc = GetMyPCObject()
+--	if pc.Lv <= 50 then
+--    	local nowZoneClassName = GetZoneName(pc)
+--    	if nowZoneClassName == 'd_cmine_01' or nowZoneClassName == 'd_cmine_02' or nowZoneClassName == 'd_cmine_6' or nowZoneClassName == 'd_prison_62_1' or nowZoneClassName == 'd_prison_62_2' or nowZoneClassName == 'd_prison_62_3'  then
+--    	    if GetInvItemCount(pc,'gem_circle_1') > 0 or GetInvItemCount(pc,'gem_square_1') > 0 or GetInvItemCount(pc,'gem_diamond_1') > 0 or GetInvItemCount(pc,'gem_star_1') > 0 then
+--    	        ui.MsgBox_NonNested(ScpArgMsg('DungeonEnterWarningMsg1','ZONE', GetClassString('Map',nowZoneClassName,'Name')),0x00000000)
+--            end
+--        end
+--    end
 end
 
 function SSN_CLIENT_SMARTGEN(self)
@@ -827,7 +827,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 	
 	s_nextTime = now + 2;
 
-	--QA Test �뵵
+	--QA Test ?뵵
 	if imcperfOnOff.IsEnableOptQuestLoop() == 0 then
 		PREV_SSN_CLIENT_UPDATE_FOR_QA(pc);
 		return;
@@ -885,7 +885,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 		end
 	end
 	
-	-- Session Object�� �ִ� ��� Progress ������ ����Ʈ�� ��з��Ѵ�. 
+	-- Session Object?? ??? ??? Progress ?????? ??????? ??з????. 
 	local progressQuestListArrange = {}
 	for i = 1, #progressQuestList do
 	    local flag = 0
@@ -947,7 +947,7 @@ function SSN_CLIENT_UPDATE_QUEST(pc)
 
 end
 
--- QA TEST �뵵
+-- QA TEST ?뵵
 function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
     local questPossible = {}
 	

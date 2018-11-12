@@ -1,13 +1,10 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<Shockwave frame="13" type="2" intensity="8" frequency="70" duration="0.3" range="1000"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
 	<Particle frame="13" attachNode="Dummy_effect_GodSmash" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="2" targetPos="false"/>
-	<Particle frame="13" attachNode="Dummy_effect_GodSmash" particleName="F_cleric_demolition_explosion" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="2" targetPos="false"/>
-	<Particle frame="13" attachNode="Dummy_effect_GodSmash" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
-	<Particle frame="13" attachNode="Dummy_effect_GodSmash" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="2" targetPos="false"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="3" R="20" G="20" B="15" A="100"/>
 	<BlendOn frame="4" R="40" G="35" B="25" A="100"/>

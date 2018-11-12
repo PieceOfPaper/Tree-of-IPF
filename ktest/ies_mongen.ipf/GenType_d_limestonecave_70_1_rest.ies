@@ -1,0 +1,5 @@
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+1,1,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","베다 고원","","","","","","","","RVR_BK_REST_TO_TABLE111","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,1,60000,1,2,0,0,0,0,0,"dialog_warp_npc_1","동굴 심부","","","","","","TO_VELNIASP511_PORTAL","RVR_BK_REST1_TO_REST2","","","NO","YES","NO","Neutral","","","",""
+3,3,1,40,1,60000,1,2,0,0,0,0,0,"dialog_warp_npc_1","동굴 출구","","","","","","TO_VELNIASP511_PORTAL","RVR_BK_REST2_TO_REST1","","","NO","YES","NO","Neutral","","","",""
+4,4,1,100,1,60000,1,0,0,0,0,0,0,"Raid_boss_Boruta_rest_Dir","지친 보루타","","","","","","RVR_BK_REST_BORUTA_1","","RVR_BK_701_REST_BORUTA_NPC","","NO","YES","NO","Neutral","","","",""

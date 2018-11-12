@@ -1,55 +1,56 @@
-﻿function SCR_GET_JOB_STR(pc)
-    local jobObj = GetJobObject(pc);
-    if jobObj ~= nil then
-        return jobObj.STR;
-    end
-    
-    return 1;
+﻿function SCR_GET_JOB_STAT_RATIO(pc, statName)
+	local stat = 0;
+	if statName == nil then
+		return 1;
+	end
+	
+	local jobList = GetJobHistoryList(pc);
+	if jobList ~= nil then
+		local totalStatRatio = 0;
+		local jobCount = #jobList;
+		for i = 1, jobCount do
+			local jobClass = GetClassByType('Job', jobList[i]);
+			if jobClass ~= nil then
+				totalStatRatio = totalStatRatio + jobClass[statName];
+			end
+		end
+		
+		local statRatio = totalStatRatio / jobCount;
+	    local lv = TryGetProp(pc, "Lv", 1);
+		stat = (lv - 1) * (statRatio / 100);
+	end
+	
+	return math.floor(stat);
+end
+
+function SCR_GET_JOB_STR(pc)
+    local statName = 'STR'
+    return SCR_GET_JOB_STAT_RATIO(pc, statName);
 end
 
 function SCR_GET_JOB_DEX(pc)
-    local jobObj = GetJobObject(pc);
-    if jobObj ~= nil then
-        return jobObj.DEX;
-    end
-    
-    return 1;
+    local statName = 'DEX'
+    return SCR_GET_JOB_STAT_RATIO(pc, statName);
 end
 
 function SCR_GET_JOB_CON(pc)
-    local jobObj = GetJobObject(pc);
-    if jobObj ~= nil then
-        return jobObj.CON;
-    end
-    
-    return 1;
+    local statName = 'CON'
+    return SCR_GET_JOB_STAT_RATIO(pc, statName);
 end
 
 function SCR_GET_JOB_INT(pc)
-    local jobObj = GetJobObject(pc);
-    if jobObj ~= nil then
-        return jobObj.INT;
-    end
-    
-    return 1;
+    local statName = 'INT'
+    return SCR_GET_JOB_STAT_RATIO(pc, statName);
 end
 
 function SCR_GET_JOB_MNA(pc)
-    local jobObj = GetJobObject(pc);
-    if jobObj ~= nil then
-        return jobObj.MNA;
-    end
-    
-    return 1;
+    local statName = 'MNA'
+    return SCR_GET_JOB_STAT_RATIO(pc, statName);
 end
 
 function SCR_GET_JOB_LUCK(pc)
-    local jobObj = GetJobObject(pc);
-    if jobObj ~= nil then
-        return jobObj.LUCK;
-    end
-    
-    return 1;
+    local statName = 'LUCK'
+    return SCR_GET_JOB_STAT_RATIO(pc, statName);
 end
 
 function SCR_Get_Const(self)
@@ -64,10 +65,10 @@ function SCR_Get_Const(self)
 end
 
 function GET_STAT_POINT(pc)
-    local byLevel = TryGetProp(pc, "StatByLevel")
-    if byLevel == nil then
-        byLevel = 0;
-    end
+--    local byLevel = TryGetProp(pc, "StatByLevel")
+--    if byLevel == nil then
+--        byLevel = 0;
+--    end
     
     local byBonus = TryGetProp(pc, "StatByBonus")
     if byBonus == nil then
@@ -79,7 +80,8 @@ function GET_STAT_POINT(pc)
         usedStat = 0;
     end
     
-    return math.floor(byLevel + byBonus - usedStat);
+--    return math.floor(byLevel + byBonus - usedStat);
+    return math.floor(byBonus - usedStat);
 end
 
 function SCR_GET_MAX_WEIGHT(pc)
@@ -122,8 +124,50 @@ function SCR_GET_ADDSTAT(self, stat)
     return math.floor(addStat);
 end
 
+function SCR_GET_JOB_DEFAULT_STAT(pc, prop)
+    local jobObj = GetJobObject(pc);
+    local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
+    if jobCtrlType ~= nil then
+		local stat = 1;
+	    local ctrlTypeClass = GetClass("Stat_PC", jobCtrlType);
+	    if ctrlTypeClass ~= nil then
+	        stat = TryGetProp(ctrlTypeClass, prop, stat);
+	    end
+	    
+	    if stat < 1 then
+	    	stat = 1;
+	    end
+		
+        return stat;
+    end
+	
+    return 1;
+end
+
+function SCR_GET_JOB_RATIO_STAT(pc, prop)
+    local jobObj = GetJobObject(pc);
+    local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
+    if jobCtrlType ~= nil then
+		local ctrlTypeRate = 100;
+	    local ctrlTypeClass = GetClass("Stat_PC", jobCtrlType);
+	    if ctrlTypeClass ~= nil then
+	        ctrlTypeRate = TryGetProp(ctrlTypeClass, prop, ctrlTypeRate);
+	    end
+	    
+	    ctrlTypeRate = ctrlTypeRate / 100;
+	    
+	    if ctrlTypeRate < 0 then
+	    	ctrlTypeRate = 0;
+	    end
+		
+        return ctrlTypeRate;
+    end
+    
+    return 1;
+end
+
 function SCR_GET_STR(self)
-    -- self.STR_JOB : job.xml에 있는 "기본 스탯" --
+    -- self.STR_JOB : job.xml에 있는 "레벨 당 비율로 증가한 스탯" --
     -- self.STR_STAT : pc.xml에 있는 "직접 투자한 스탯" --
     -- self.STR_Bonus : pc_battle.xml에 있지만 0 --
     -- self.STR_ADD : 장비, 버프 등 가변적인 스탯 --
@@ -132,7 +176,9 @@ function SCR_GET_STR(self)
     
     local statString = "STR";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local defaultStat = SCR_GET_JOB_DEFAULT_STAT(self, statString);
+    
+    local byJob = SCR_GET_JOB_STR(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -159,7 +205,7 @@ function SCR_GET_STR(self)
     
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
     
-    local value = byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
+    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
     
     if value < 1 then
         value = 1;
@@ -194,11 +240,12 @@ end
 function SCR_GET_DEX(self)
     local statString = "DEX";
         
- -- 2.0에서 어차피 개선되기로 되어 있지만 2.0 들어가기 전에 서버 다운 막아야 해서 커밋합니다 ㅠㅠ --
- -- 만약 이부분에서 충돌이 난다면 2.0 코드로 덮어씌워도 괜찮을 거 같아요. --
- -- CP가 CP를 계속 호출하는 구조는 서버를 죽일 수가 있어요 --
- -- CP가 바인드 함수들을 호출해서 걔 하나로 끝나는게 바람직합니다. CP가 CT 호출은 갠춘 --
-    local byJob = SCR_GET_JOB_DEX(self);
+    local defaultStat = SCR_GET_JOB_DEFAULT_STAT(self, statString);
+    
+    local byJob = TryGetProp(self, statString.."_JOB");
+    if byJob == nil then
+        byJob = 0;
+    end
     
     local byStat = TryGetProp(self, statString.."_STAT");
     if byStat == nil then
@@ -222,7 +269,7 @@ function SCR_GET_DEX(self)
     
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
     
-    local value = byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
+    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
     
     if value < 1 then
         value = 1;
@@ -258,7 +305,9 @@ end
 function SCR_GET_CON(self)
     local statString = "CON";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local defaultStat = SCR_GET_JOB_DEFAULT_STAT(self, statString);
+    
+    local byJob = SCR_GET_JOB_CON(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -299,8 +348,8 @@ function SCR_GET_CON(self)
         byEnchant = ((enchantByJob + enchantByStat + enchantByBonus + enchantByTemp + enchantRewardProp) / 20) * enchantCount;
     end
     
-    local value = byJob + byStat + byBonus + byAdd + byTemp + rewardProperty + byEnchant;
-    
+    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty + byEnchant;
+	
     if value < 1 then
         value = 1;
     end
@@ -334,7 +383,9 @@ end
 function SCR_GET_INT(self)
     local statString = "INT";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local defaultStat = SCR_GET_JOB_DEFAULT_STAT(self, statString);
+    
+    local byJob = SCR_GET_JOB_INT(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -361,7 +412,7 @@ function SCR_GET_INT(self)
     
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
     
-    local value = byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
+    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
     
     if value < 1 then
         value = 1;
@@ -396,7 +447,9 @@ end
 function SCR_GET_MNA(self)
     local statString = "MNA";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local defaultStat = SCR_GET_JOB_DEFAULT_STAT(self, statString);
+    
+    local byJob = SCR_GET_JOB_MNA(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -422,8 +475,8 @@ function SCR_GET_MNA(self)
     end
     
     local rewardProperty = GET_REWARD_PROPERTY(self, statString);
-    
-    local value = byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
+	
+    local value = defaultStat + byJob + byStat + byBonus + byAdd + byTemp + rewardProperty;
     
     if value < 1 then
         value = 1;
@@ -504,12 +557,7 @@ end
 
 
 function SCR_Get_MHP(self)
-    local jobObj = GetJobObject(self);
-    if jobObj == nil then
-        return 1;
-    end
-    
-    local jobRate = jobObj.JobRate_HP;
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "MHP");
     local jobMHP = 400 * jobRate;
     
     local lv = TryGetProp(self, "Lv");
@@ -523,7 +571,7 @@ function SCR_Get_MHP(self)
     end
     
     local byLevel = math.floor(jobMHP + ((lv - 1) * 80 * jobRate));
-    local byStat = math.floor(((stat * 0.005) + (math.floor(stat / 10) * 0.015)) * byLevel);
+    local byStat = math.floor(((stat * 0.003) + (math.floor(stat / 10) * 0.01)) * byLevel);
     
     local byBonus = TryGetProp(self, "MHP_Bonus");
     if byBonus == nil then
@@ -567,13 +615,9 @@ function SCR_Get_MHP(self)
 end
 
 function SCR_Get_MSP(self)
-    local jobObj = GetJobObject(self);
-    if jobObj == nil then
-        return 1;
-    end
-    
-    local jobRate = jobObj.JobRate_SP;
+	local jobRate = SCR_GET_JOB_RATIO_STAT(self, "MSP");
     local jobMSP = 200 * jobRate;
+--	local defaultMSP = 1000;
     
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
@@ -585,8 +629,8 @@ function SCR_Get_MSP(self)
         stat = 1;
     end
     
-    local byLevel = math.floor(jobMSP + ((lv - 1) * 12 * jobRate));
-    local byStat = math.floor(((stat * 0.005) + (math.floor(stat / 10) * 0.015)) * byLevel);
+    local byLevel = math.floor(jobMSP + ((lv - 1) * 18 * jobRate));
+--    local byStat = math.floor(((stat * 0.005) + (math.floor(stat / 10) * 0.015)) * byLevel);
     
     local byBonus = TryGetProp(self, "MSP_Bonus");
     if byBonus == nil then
@@ -600,7 +644,9 @@ function SCR_Get_MSP(self)
     
     local rewardProperty = GET_REWARD_PROPERTY(self, "MSP");
     
-    local value = byLevel + byStat + byBonus + byItem + rewardProperty;
+--    local value = byLevel + byStat + byBonus + byItem + rewardProperty;
+    local value = byLevel + byBonus + byItem + rewardProperty;
+--    local value = defaultMSP + byBonus + byItem + rewardProperty;
     
     local byBuff = TryGetProp(self, "MSP_BM");
     if byBuff == nil then
@@ -631,14 +677,14 @@ function SCR_Get_MINPATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1;
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = 0;
     local byItemList = { "MINATK", "PATK", "ADD_MINATK" };
@@ -713,14 +759,14 @@ function SCR_Get_MAXPATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1;
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = 0;
     local byItemList = { "MAXATK", "PATK", "ADD_MAXATK" };
@@ -790,14 +836,14 @@ function SCR_Get_MINPATK_SUB(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1;
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = 0;
     local byItemList = { "MINATK", "PATK", "ADD_MINATK" };
@@ -866,14 +912,14 @@ function SCR_Get_MAXPATK_SUB(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1;
     
     local stat = TryGetProp(self, "STR");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = 0;
     local byItemList = { "MAXATK", "PATK", "ADD_MAXATK" };
@@ -937,14 +983,14 @@ function SCR_Get_MINMATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1;
     
     local stat = TryGetProp(self, "INT");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = 0;
     local byItemList = { "MATK", "ADD_MATK", "ADD_MINATK" };
@@ -1013,14 +1059,14 @@ function SCR_Get_MAXMATK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local byLevel = lv * 1;
     
     local stat = TryGetProp(self, "INT");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 2) + (math.floor(stat / 10) * 5);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = 0;
     local byItemList = { "MATK", "ADD_MATK", "ADD_MAXATK" };
@@ -1118,6 +1164,13 @@ function SCR_CALC_BASIC_DEF(self)
     
     local byLevel = lv * 1.0;
     
+    local stat = TryGetProp(self, "CON");
+    if stat == nil then
+        stat = 1;
+    end
+    
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
+    
     local byItem = 0;
     local byItemList = { "DEF", "ADD_DEF" };
     for i = 1, #byItemList do
@@ -1134,7 +1187,9 @@ function SCR_CALC_BASIC_DEF(self)
         byBonus = 0;
     end
     
-    local value = defaultValue + byLevel + byItem + byBonus;
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "DEF");
+    
+    local value = defaultValue + ((byLevel + byStat) * jobRate) + byItem + byBonus;
     
     return value;
 end
@@ -1175,6 +1230,13 @@ function SCR_CALC_BASIC_MDEF(self)
     
     local byLevel = lv * 1.0;
     
+    local stat = TryGetProp(self, "CON");
+    if stat == nil then
+        stat = 1;
+    end
+    
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
+    
     local byItem = 0;
     local byItemList = { "MDEF", "ADD_MDEF" };
     for i = 1, #byItemList do
@@ -1186,7 +1248,9 @@ function SCR_CALC_BASIC_MDEF(self)
         byItem = byItem + byItemTemp;
     end
     
-    local value = defaultValue + byLevel + byItem;
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "MDEF");
+    
+    local value = defaultValue + ((byLevel + byStat) * jobRate) + byItem;
     
     return value;
 end
@@ -1204,17 +1268,17 @@ function SCR_Get_BLKABLE(self)
         
     end
     
---    local isShield = GetSumOfEquipItem(self, 'BlockRate');
---    if isShield > 0 then
---        return 1;
+--    local buffList = { "CrossGuard_Buff", "NonInvasiveArea_Buff", "EnchantEarth_Buff", "Retiarii_DaggerGuard" };
+--    for i = 1, #buffList do
+--        if IsBuffApplied(self, buffList[i]) == 'YES' then
+--            return 2;
+--        end
 --    end
     
-    local buffList = { "CrossGuard_Buff", "NonInvasiveArea_Buff"};
-    for i = 1, #buffList do
-        if IsBuffApplied(self, buffList[i]) == 'YES' then
+    local enableBlockBuff = TryGetProp(self, "BLKABLE_BM", 0);
+    if enableBlockBuff >= 1 then
             return 2;
         end
-    end
     
     return 0;
 end
@@ -1230,14 +1294,8 @@ function SCR_Get_BLK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
-    
-    local stat = TryGetProp(self, "CON");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "BLK");
+    local byLevel = lv * 1.0 * jobRate;
     
     local byItem = GetSumOfEquipItem(self, 'BLK');
     if byItem == nil then
@@ -1249,9 +1307,9 @@ function SCR_Get_BLK(self)
         byBlockRate = 0;
     end
     
-    byBlockRate = (byLevel + byStat) * (byBlockRate * 0.01);
+    byBlockRate = byLevel * (byBlockRate * 0.01);
     
-    local value = byLevel + byStat + byItem + byBlockRate;
+    local value = byLevel + byItem + byBlockRate;
     
     local byItemRareOption = TryGetProp(self, 'EnchantBlockRate');
     if byItemRareOption == nil then
@@ -1291,21 +1349,15 @@ function SCR_Get_BLK_BREAK(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
-    
-    local stat = TryGetProp(self, "DEX")
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "BLK_BREAK");
+    local byLevel = lv * 1.0 * jobRate;
     
     local byItem = GetSumOfEquipItem(self, 'BLK_BREAK');
     if byItem == nil then
         byItem = 0;
     end
     
-    local value = byLevel + byStat + byItem;
+    local value = byLevel + byItem;
     
     local byItemRareOption = TryGetProp(self, 'EnchantBlockBreakRate');
     if byItemRareOption == nil then
@@ -1326,6 +1378,10 @@ function SCR_Get_BLK_BREAK(self)
     
     local value = value + byItemRareOption + byBuff + byAbil;
     
+    if value < 0 then
+    	value = 0;
+    end
+    
     return math.floor(value);
 end
 
@@ -1335,14 +1391,8 @@ function SCR_Get_HR(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
-    
-    local stat = TryGetProp(self, "STR");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "HR");
+    local byLevel = lv * 1.0 * jobRate;
     
     local byItem = 0;
     local byItemList = { "HR", "ADD_HR" };
@@ -1355,7 +1405,7 @@ function SCR_Get_HR(self)
         byItem = byItem + byItemTemp;
     end
     
-    local value = byLevel + byStat + byItem;
+    local value = byLevel + byItem;
     
     local byItemRareOption = TryGetProp(self, 'EnchantHitRate');
     if byItemRareOption == nil then
@@ -1384,14 +1434,8 @@ function SCR_Get_DR(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.25;
-    
-    local stat = TryGetProp(self, "DEX");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = (stat * 0.5) + (math.floor(stat / 15) * 3);
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "DR");
+    local byLevel = lv * 1.0 * jobRate;
     
     local byItem = 0;
     local byItemList = { "DR", "ADD_DR" };
@@ -1404,7 +1448,7 @@ function SCR_Get_DR(self)
         byItem = byItem + byItemTemp;
     end
     
-    local value = byLevel + byStat + byItem;
+    local value = byLevel + byItem;
     
     local byItemRareOption = TryGetProp(self, 'EnchantDodgeRate');
     if byItemRareOption == nil then
@@ -1420,29 +1464,35 @@ function SCR_Get_DR(self)
     
     value = value + byItemRareOption + byBuff;
     
+    if value < 0 then
+    	value = 0;
+    end
+    
     return math.floor(value);
 end
 
 function SCR_Get_MHR(self)
-    local byItem = 0;
-    local byItemList = { "MHR", "ADD_MHR" };
-    for i = 1, #byItemList do
-        local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
-        if byItemTemp == nil then
-            byItemTemp = 0;
-        end
-        
-        byItem = byItem + byItemTemp;
-    end
+--    local byItem = 0;
+--    local byItemList = { "MHR", "ADD_MHR" };
+--    for i = 1, #byItemList do
+--        local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
+--        if byItemTemp == nil then
+--            byItemTemp = 0;
+--        end
+--        
+--        byItem = byItem + byItemTemp;
+--    end
+--    
+--    local byBuff = TryGetProp(self, "MHR_BM");
+--    if byBuff == nil then
+--        byBuff = 0;
+--    end
+--    
+--    local value = byItem + byBuff;
+--    
+--    return math.floor(value);
     
-    local byBuff = TryGetProp(self, "MHR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
-    
-    local value = byItem + byBuff;
-    
-    return math.floor(value);
+    return 0;
 end
 
 function SCR_Get_CRTHR(self)
@@ -1451,7 +1501,8 @@ function SCR_Get_CRTHR(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "CRTHR");
+    local byLevel = lv * 1.0 * jobRate;
     
     local byItem = GetSumOfEquipItem(self, 'CRTHR');
     if byItem == nil then
@@ -1474,6 +1525,10 @@ function SCR_Get_CRTHR(self)
     
     value = value + byItemRareOption + byBuff;
     
+    if value < 0 then
+    	value = 0;
+    end
+    
     return math.floor(value);
 end
 
@@ -1483,13 +1538,14 @@ function SCR_Get_CRTDR(self)
         lv = 1;
     end
     
-    local byLevel = lv * 0.5;
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "CRTDR");
+    local byLevel = lv * 1.0 * jobRate;
     
     local byItem = GetSumOfEquipItem(self, 'CRTDR');
     if byItem == nil then
         byItem = 0;
     end
-    
+    byItem = -1000
     local value = byLevel + byItem;
     
     local byItemRareOption = TryGetProp(self, 'EnchantCriticalDodgeRate');
@@ -1506,16 +1562,27 @@ function SCR_Get_CRTDR(self)
     
     value = value + byItemRareOption + byBuff;
 	
+    if value < 0 then
+    	value = 0;
+    end
+	
     return math.floor(value);
 end
 
 function SCR_Get_CRTATK(self)
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
+    end
+    
+    local byLevel = lv * 1.0;
+	
     local stat = TryGetProp(self, "DEX");
     if stat == nil then
         stat = 1;
     end
     
-    local byStat = (stat * 4) + (math.floor(stat / 10) * 10);
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local byItem = GetSumOfEquipItem(self, "CRTATK");
     if byItem == nil then
@@ -1527,7 +1594,37 @@ function SCR_Get_CRTATK(self)
         byBuff = 0;
     end
     
-    local value = byStat + byItem + byBuff;
+    local value = byLevel + byStat + byItem + byBuff;
+    
+    return math.floor(value);
+end
+
+function SCR_Get_CRTMATK(self)
+    local lv = TryGetProp(self, "Lv");
+    if lv == nil then
+        lv = 1;
+    end
+    
+    local byLevel = lv * 1.0;
+	
+    local stat = TryGetProp(self, "MNA");
+    if stat == nil then
+        stat = 1;
+    end
+    
+    local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
+    
+    local byItem = GetSumOfEquipItem(self, "CRTMATK");
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(self, "CRTMATK_BM");
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local value = byLevel + byStat + byItem + byBuff;
     
     return math.floor(value);
 end
@@ -1544,24 +1641,11 @@ function SCR_Get_RHP(self)
         end
     end
     
-    local jobObj = GetJobObject(self);
-    if jobObj == nil then
-        return 0;
-    end
+    local baseMHP = TryGetProp(self, 'MHP', 1);
     
-    local lv = TryGetProp(self, "Lv");
-    if lv == nil then
-        lv = 1;
-    end
-    
-    local byLevel = lv * jobObj.JobRate_HP;
-    
-    local stat = TryGetProp(self, "CON");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = (stat * 2) + (math.floor(stat / 5) * 3);
+	local jobRate = SCR_GET_JOB_RATIO_STAT(self, "RHP");
+	
+	local defaultValue = math.floor(baseMHP * 0.01 * jobRate);
     
     local byItem = GetSumOfEquipItem(self, 'RHP');
     if byItem == nil then
@@ -1573,7 +1657,7 @@ function SCR_Get_RHP(self)
         byBuff = 0;
     end
     
-    local value = byLevel + byStat + byItem + byBuff;
+    local value = defaultValue + byItem + byBuff;
     
     if value < 0 then
         value = 0;
@@ -1616,37 +1700,22 @@ function SCR_Get_RSP(self)
         end
     end
     
---    if IsBuffApplied(self, 'Summoning_Buff') == 'YES' then  
---        value = 0;
---    end 
-    
-    local jobObj = GetJobObject(self);  -- job
-    if jobObj == nil then
-        return 0;
-    end
-    
-    local lv = TryGetProp(self, "Lv");
-    if lv == nil then
-        lv = 1;
-    end
-    
-    local byLevel = lv * jobObj.JobRate_SP;
-    
-    local stat = TryGetProp(self, "MNA");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = (stat * 2) + (math.floor(stat / 5) * 3);
+--    local jobObj = GetJobObject(self);  -- job
+--    if jobObj == nil then
+--        return 0;
+--    end
+	
+    local baseMSP = TryGetProp(self, 'MSP', 1);
+	
+	local jobRate = SCR_GET_JOB_RATIO_STAT(self, "RSP");
+	
+	local defaultValue = math.floor(baseMSP * 0.03 * jobRate);
     
     local byItem = GetSumOfEquipItem(self, 'RSP');
     if byItem == nil then
         byItem = 0;
     end
     
-    local value = byLevel + byStat + byItem;
-    
-    local baseMSP = self.MSP;
     local byAbil = 0
     
     -- 1번 인자 : 특성 ClassName --
@@ -1669,7 +1738,7 @@ function SCR_Get_RSP(self)
         byBuff = 0;
     end
     
-    value = value + byAbil + byBuff
+    local value = defaultValue + byItem + byAbil + byBuff
     
     if value < 1 then
         value = 1;
@@ -1896,7 +1965,7 @@ function SCR_Get_KDArmorType(self)
         value = 1;
     end
     
-    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff" };
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_PainBarrier_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
@@ -1911,16 +1980,61 @@ function SCR_Get_KDArmorType(self)
     return value;
 end
 
-
-function SCR_Get_ASPD(self)
-    local value = TryGetProp(self, "ASPD_BM");
-    if value == nil then
-        value = 0;
+function SCR_Get_CastingSpeed(self)
+	local value = 100;
+	
+	local castingSpeedBuffList = GetCastingSpeedBuffInfoTable(self)
+	if castingSpeedBuffList ~= nil then
+		for k, v in pairs(castingSpeedBuffList) do
+			if castingSpeedBuffList[k] > 0 then
+				value = value - (value * (castingSpeedBuffList[k] / 100));
+			end
+		end
+	end
+	
+    local byBuff = TryGetProp(self, "CastingSpeed_BM", 0);
+	value = value - byBuff;
+    
+    if value < 10 then
+        value = 10;
     end
     
-    return value;
+    if value > 200 then
+        value = 200;
+    end
+	
+    return math.floor(value);
 end
 
+function SCR_Get_NormalAttackSpeed(self)
+	local value = 0;
+	
+    local byBuff = 0;
+    local buffList = { "ASPD_BM", "NormalASPD_BM" };
+    for i = 1, #buffList do
+    	local propName = buffList[i];
+		byBuff = byBuff + TryGetProp(self, propName, 0);
+	end
+	
+    value = value + byBuff;
+    
+    return math.floor(value);
+end
+
+function SCR_Get_SkillAttackSpeed(self)
+	local value = 0;
+	
+    local byBuff = 0;
+    local buffList = { "ASPD_BM", "SkillASPD_BM" };
+    for i = 1, #buffList do
+    	local propName = buffList[i];
+		byBuff = byBuff + TryGetProp(self, propName, 0);
+	end
+	
+    value = value + byBuff;
+    
+    return math.floor(value);
+end
 
 function SCR_Get_MSPD(self)
     local fixMSPDBuff = TryGetProp(self, "FIXMSPD_BM");
@@ -1936,15 +2050,8 @@ function SCR_Get_MSPD(self)
     	return 60;
     end
     
-    local value = 30.0;
-    local zone = GetZoneName(self);
-    if IsBuffApplied(self, "BattleOrders_Buff") == "YES" then
-    	if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == 'pvp_Mine' then
-        	value = 45;
-        else
-        	value = 60;
-        end
-    end
+    local jobRate = SCR_GET_JOB_RATIO_STAT(self, "MOVE_SPEED");
+    local value = 30.0 * jobRate;
     
     if self.ClassName == 'PC' then
         local byItem = GetSumOfEquipItem(self, 'MSPD');
@@ -1957,6 +2064,8 @@ function SCR_Get_MSPD(self)
 		    byItemRareOption = 0;
 		end
         
+        value = value + byItem + byItemRareOption;
+        
         local byBuff = TryGetProp(self, "MSPD_BM");
         if byBuff == nil then
             byBuff = 0;
@@ -1966,16 +2075,17 @@ function SCR_Get_MSPD(self)
             byBuff = byBuff * 0.5
         end
         
-        value = value + byItem + byItemRareOption + byBuff;
-        
-        local byBuffRate = TryGetProp(self, "SPD_BM");
-        if byBuffRate == nil then
-            byBuffRate = 0;
-        end
-        
-        byBuffRate = (100 + byBuffRate) * 0.01;
-        
-        value = value * byBuffRate;
+	    local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
+	    if byBuffOnlyTopList ~= nil then
+	    	local byBuffOnlyTopValue = 0;
+			for k, v in pairs(byBuffOnlyTopList) do
+				if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
+					byBuffOnlyTopValue = byBuffOnlyTopList[k];
+				end
+			end
+			
+	        value = value + byBuff + byBuffOnlyTopValue;
+		end
         
         local nowWeight = 0;
         local maxWeight = 0;
@@ -2017,8 +2127,33 @@ function SCR_Get_MSPD(self)
         isDashRun = 0;
     end
     
+    local jobObj = GetJobObject(self);
+    local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
+    if jobCtrlType == "Archer" then
+    	if IsBattleState(self) == 1 then
+    		isDashRun = 0
+    	end
+    end
+    
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
+        
+	    if jobCtrlType == "Wizard" then
+	    	dashRunAddValue = dashRunAddValue - 4
+	    end
+	    
+	    if jobCtrlType == "Archer" then
+	    	if IsBattleState(self) == 0 then
+	    		dashRunAddValue = dashRunAddValue + 3
+	    	else
+	    		isDashRun = 0
+	    	end
+	    end
+        
+	    if jobCtrlType == "Scout" then
+	    	dashRunAddValue = dashRunAddValue + 3
+	    end
+        
         if IsPVPServer(self) == 1 or zone == "pvp_Mine" then
             dashRunAddValue = 5
         end
@@ -2026,6 +2161,11 @@ function SCR_Get_MSPD(self)
         value = value + dashRunAddValue;
         if isDashRun == 2 then  -- 인보 특성이 있으면 속도 +1 --
             value = value + 1;
+        end
+        
+        local RidingDashAbil = GetAbility(self, "Hackapell6")
+        if isDashRun == 3 and RidingDashAbil ~= nil then
+            value = value + 3;  -- 탑승 대쉬 특성이 있으면 속도 +3 --
         end
     end
     
@@ -2040,11 +2180,15 @@ function SCR_Get_MSPD(self)
     end
     
     value = value + byBonus;
-    
+	
     value = value * SERV_MSPD_FIX;
     
     if value < 10 then
     	value = 10
+    end
+    
+    if GetExProp(self, "IS_OOBE_DUMMYPC") == 1 then
+        value = 55;
     end
     
     return math.floor(value);
@@ -2203,6 +2347,7 @@ function SCR_Get_JUMP(self)
     return 350;
 end
 
+-- 지금은 안 쓰이는 함수 --
 function SCR_Get_AddSplCount(self)
     local byLevel = TryGetProp(self, "Lv");
     if byLevel == nil then
@@ -2218,6 +2363,9 @@ function SCR_Get_AddSplCount(self)
     
     return math.floor(value);
 end
+--
+
+
 
 function SCR_GET_MOVING_SHOT(pc)
     local PCJob = TryGetProp(pc, "Job");
@@ -2257,10 +2405,10 @@ function SCR_PC_MOVINGSHOTABLE(pc)
     if jobObj.CtrlType == 'Archer' then
         return 1;
     end
-    
-    local buffList = { "Warrior_EnableMovingShot_Buff", "Warrior_RushMove_Buff", "Cyclone_EnableMovingShot_Buff" }
+
+    local buffList = { "Warrior_EnableMovingShot_Buff", "Warrior_RushMove_Buff", "Cyclone_EnableMovingShot_Buff", 'DoubleGunStance_Buff' };
     for i = 1, #buffList do
-        if IsBuffApplied(pc, buffList[i]) == "YES" then
+        if IsBuffApplied(pc, buffList[i]) == "YES" then    
             return 1;
         end
     end
@@ -2297,15 +2445,6 @@ end
 function SCR_Get_MSTA(self)
     local defaultMSTA = 25000;
     
-    local stat = TryGetProp(self, "CON");
-    if stat == nil then
-        stat = 1;
-    end
-    
-    local byStat = math.floor(stat / 20);
-    
-    byStat = byStat * 1000;
-    
     local byItem = GetSumOfEquipItem(self, 'MSTA');
     if byItem == nil then
         byItem = 0;
@@ -2331,7 +2470,7 @@ function SCR_Get_MSTA(self)
     local rewardProperty = GET_REWARD_PROPERTY(self, "MSTA")
     rewardProperty = rewardProperty * 1000;
     
-    local value = defaultMSTA + byStat + byItem + byBonus + byBuff + rewardProperty;
+    local value = defaultMSTA + byItem + byBonus + byBuff + rewardProperty;
     
     return math.floor(value);
 end
@@ -2359,14 +2498,37 @@ function SCR_Get_Sta_Run(self)
         isDashRun = 0;
     end
     
+    local isAgility = GetExProp(self, 'ADD_RCSTA')
+    if isAgility == nil then
+        isAgility = 0;
+    end
+    
+    local jobObj = GetJobObject(self);
+    local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
+    if jobCtrlType == "Archer" then
+    	if IsBattleState(self) == 1 then
+    		isDashRun = 0
+    	end
+    end
+    
     if isDashRun > 0 then
         local dashAmount = 500;
+	    if jobCtrlType == "Cleric" then
+			if IsBuffApplied(self, "Lycanthropy_Half_Buff") == "YES" then
+				dashAmount = dashAmount * 0.5
+			end
+		end
+        
+	    if jobCtrlType == "Scout" then
+			dashAmount = dashAmount * 2
+		end
+        
         consumptionSTA = consumptionSTA + dashAmount;
         
         if isDashRun == 2 then
             addRateConsumptionSTA = addRateConsumptionSTA - 0.1;  -- 인보 특성 있는 중에는 추가량 10% 감소
         end
-        
+	    
         local byRateBuffDash = TryGetProp(self, 'DASHSTA_RATE_BM');
         if byRateBuffDash == nil then
             byRateBuffDash = 0;
@@ -2377,7 +2539,8 @@ function SCR_Get_Sta_Run(self)
     
     local value = (250 * consumptionSTA / 100);
     
-    addRateConsumptionSTA = addRateConsumptionSTA + byRateBuff;
+    addRateConsumptionSTA = addRateConsumptionSTA + byRateBuff
+    addRateConsumptionSTA = addRateConsumptionSTA + isAgility
     
     value = value + (value * addRateConsumptionSTA);
     
@@ -2424,7 +2587,7 @@ function SCR_Get_Sta_Runable(self)
 end
 
 function SCR_Get_Sta_Jump(self)
-    return 0;
+    return 1000;
 end
 
 function SCR_Get_Sta_Step(self)
@@ -2490,6 +2653,7 @@ function SCR_GET_PC_HPDRAIN_ADD(pc)
     return byBuff;
 end
 
+-- 지금은 안 쓰이는 함수 --
 function SCR_GET_PC_PIERCE(pc)
     local byLevel = TryGetProp(pc, "Lv");
     if byLevel == nil then
@@ -2514,6 +2678,7 @@ function SCR_GET_PC_PIE_ADD(pc)
     
     return byBuff;
 end
+--
 
 function SCR_GET_PC_KDHIT(pc)
     local byBuff = TryGetProp(pc, "KDHit_BM");
@@ -2576,6 +2741,19 @@ end
 
 
 function SCR_GET_PC_GUARDABLE(pc)
+    if IsDummyPC(pc) == 1 then
+        return 0;
+    end
+    
+    -- QuarrelShooter & Equip Shield ---
+    local jobListString = GetJobHistoryString(pc);
+    if jobListString ~= nil and string.find(jobListString, "Char3_3") ~= nil then
+        local itemLH  = GetEquipItemForPropCalc(pc, 'LH');
+        if itemLH ~= nil and itemLH.ClassType == "Shield" and itemLH.LHandSkill == "None" then
+            return 1;
+        end
+    end
+	
     if IsBuffApplied(pc, "Impaler_Buff") == "YES" then
         return 0;
     end
@@ -2599,6 +2777,10 @@ function SCR_PC_GUARD_ON(pc)
     local lv = TryGetProp(pc, "Lv");
     if lv == nil then
         lv = 1;
+    end
+    
+    if IsBuffApplied(pc, "Archer_Kneelingshot") == "YES" then
+        RemoveBuff(pc, "Archer_Kneelingshot")
     end
     
     -- Block --
@@ -2709,7 +2891,35 @@ function SCR_Get_SkillRange(self)
     end
     
     local value = byItem + byBuff + byAbil;
+    return value;
+end
     
+function SCR_Get_SkillWidthRange(self)    
+    local byItem = GetSumOfEquipItem(self, 'SkillWidthRange');
+    
+    if byItem == nil then
+        byItem = 0;
+    end
+    
+    local byBuff = TryGetProp(self, "SkillWidthRange_BM");
+    
+    if byBuff == nil then
+        byBuff = 0;
+    end
+    
+    local byAbil = 0
+    
+    local abilPropList = { 'ABIL_SPEAR_RANGE', 'ABIL_THSPEAR_RANGE' };
+    for i = 1, #abilPropList do
+        local abilProp = GetExProp(self, abilPropList[i])
+        if abilProp == nil then
+            abilProp = 0
+        end
+        
+        byAbil = byAbil + abilProp;
+    end
+    
+    local value = byItem + byBuff + byAbil;    
     return value;
 end
 
@@ -3343,44 +3553,14 @@ function SCR_GET_ADDOVERHEAT(pc, skill)
 end
 
 function SCR_GET_PC_LIMIT_BUFF_COUNT(self)
---    local jobObj = GetJobObject(self)
---    if jobObj == nil then
---        return 0;
---    end
---    
---    local count = 5;
---    
---    if 'Warrior' == jobObj.CtrlType or 'Cleric' == jobObj.CtrlType then
---        count = 7;
---    end
---    
---    if 1 == IsDummyPC(self) then
---        return count;
---    end
---    
---    local byAbil = 0;
---    local abil = GetAbility(self, "AddBuffCount")
---    if abil ~= nil then
---        byAbil = 1;
---    end
---    
---    local byBuff = TryGetProp(self, "LimitBuffCount_BM");
---    if byBuff == nil then
---        byBuff = 0;
---    end
---    
---    local byToken = 0;
---    local isToken = IsPremiumState(self, ITEM_TOKEN);
---    if isToken == 1 then
---        byToken = 1;
---    end
---    
---    count = count + byAbil + byBuff + byToken;
---    
---    return count;
+    local value = 999;	-- 2017/9/13 --
     
-    -- 2017/9/13 --
-    return 999;
+    local byBuff = TryGetProp(self, "LimitBuffCount_BM", 0);
+    if byBuff > 0 then
+    	value = byBuff;
+    end
+    
+    return value;
 end
 
 function GET_MAXHATE_COUNT(self)
@@ -3407,6 +3587,19 @@ function GET_MAXHATE_COUNT(self)
     end
     
     return maxHateCount;
+end
+
+function SCR_Get_HateRate(self)
+	local value = 0;
+	
+    local byBuff = TryGetProp(self, "HateRate_BM", 0);
+	value = value + byBuff;
+	
+    if value < -99 then
+        value = -99;
+    end
+	
+    return math.floor(value);
 end
 
 function GET_ArmorMaterial_ID(self)
@@ -3741,27 +3934,21 @@ function SCR_GET_LOOTINGCHANCE(self)
 end
 
 function SCR_Get_HEAL_PWR(self)
-    local defaultValue = 50;
+    local defaultValue = 20;
     
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;
     end
     
-    local byLevel = lv;
+    local byLevel = lv * 1.0;
     
-    local mnaStat = TryGetProp(self, "MNA");
-    if mnaStat == nil then
-        mnaStat = 1;
+    local stat = TryGetProp(self, "MNA");
+    if stat == nil then
+        stat = 1;
     end
     
-    local intStat = TryGetProp(self, "INT");
-    if intStat == nil then
-        intStat = 1;
-    end
-    
-    local stat = mnaStat * 0.7 + intStat * 0.3
-    local byStat = (stat * 4) + (math.floor(stat / 10) * 10);
+    local byStat = (stat * 1) + (math.floor(stat / 10) * (byLevel * 0.03));
     
     local value = defaultValue + byLevel + byStat;
     
@@ -3787,7 +3974,7 @@ function SCR_Get_HEAL_PWR(self)
     if byAbil == nil then
         byAbil = 0
     end
---    print(byAbil)
+	
     value = value * (1 + byAbil) 
     
     if value < 1 then

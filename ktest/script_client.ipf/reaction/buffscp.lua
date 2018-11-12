@@ -98,7 +98,7 @@ function SlitheringClientScp_LEAVE(actor, obj, buff)
 end
 
 function PouncingClientScp_ENTER(actor, obj, buff)
-    actor:GetAnimation():SetSTDAnim("ASTD");
+    actor:GetAnimation():SetSTDAnim("SKL_POUNCING_STAND");
     actor:GetAnimation():SetRUNAnim("SKL_POUNCING");
     actor:GetAnimation():SetWLKAnim("SKL_POUNCING");
     actor:GetAnimation():SetTURNAnim("None");
@@ -359,11 +359,23 @@ function Proliferation_ENTER(actor, obj, buff)
 
     actor:PushNodeScale("Proliferation1", "Bip01 L Hand", 1.0);
     actor:PushNodeScale("Proliferation2", "Dummy_L_HAND", 0.25);
+    actor:PushNodeScale("ProliferationRH1", "Bip01 R Hand", 1.0)
+    actor:PushNodeScale("ProliferationRH2", "Dummy_R_HAND", 0.25)
+    actor:PushNodeScale("ProliferationRH3", "Dummy_R_dagger", 0.25)
+    actor:PushNodeScale("ProliferationRH4", "Dummy_R_allebell", 0.25)
+    actor:PushNodeScale("ProliferationRH5", "Dummy_R_umbrella", 0.25)
+    actor:PushNodeScale("ProliferationRH6", "Dummy_Shield", 0.25)
 end
 
 function Proliferation_LEAVE(actor, obj, buff)
 	actor:PopNodeScale("Proliferation1");
 	actor:PopNodeScale("Proliferation2");
+	actor:PopNodeScale("ProliferationRH1");
+	actor:PopNodeScale("ProliferationRH2");
+	actor:PopNodeScale("ProliferationRH3");
+	actor:PopNodeScale("ProliferationRH4");
+	actor:PopNodeScale("ProliferationRH5");
+	actor:PopNodeScale("ProliferationRH6");
 end
 
 function ProliferationRH_ENTER(actor, obj, buff)
@@ -1003,7 +1015,7 @@ function SlitheringDebuffClient_LEAVE(actor, obj, buff)
 end
 
 function DoubleGunStance_ENTER(actor, obj, buff)
---    actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+--    actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
 --    actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
 --    actor:SetAlwaysBattleState(true);
 --    actor:SetMovingShotAnimation("DOUBLEGUN_ATKMOVE");
@@ -1069,7 +1081,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     
     -- RunningShot_Buff (and) DoubleGunStance_Buff
     if buffRunningShot ~= nil and buffDoubleGunStance ~= nil and Outrage == nil then
-        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         actor:SetAlwaysBattleState(true);
         actor:SetMovingShotAnimation("DOUBLEGUN_ATKRUN");
@@ -1083,7 +1095,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
     -- Outrage_Buff
     elseif Outrage ~= nil and buffDoubleGunStance ~= nil then
-        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+        actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         actor:SetAlwaysBattleState(true);
         actor:SetMovingShotAnimation("DOUBLEGUN_ATKRUN");
@@ -1103,7 +1115,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         
         -- DoubleGunStance_Buff
         if buffDoubleGunStance ~= nil then            
-            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
             actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
             actor:SetAlwaysBattleState(true);
             actor:SetMovingShotAnimation("DOUBLEGUN_ATKMOVE");
@@ -1154,7 +1166,7 @@ function SCR_ANIM_archer_f_bow_aonair(handle)
             actor:DetachCopiedModel();
             actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_L_HAND");
             
-            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
+            actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
             actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         end
     end

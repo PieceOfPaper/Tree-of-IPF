@@ -2,8 +2,23 @@ function LOGINUI_TITLE_ON_INIT(addon, frame)
 	login.LoadServerList();
 
 	TOGGLE_SINGLE_MODE_UI(frame);
-	
-	ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION();
+		
+	local view1 = GET_CHILD(frame, "login_img", "ui::CPicture")
+	if view1 ~= nil then
+        view1:ShowWindow(0)
+    end
+    local view2 = GET_CHILD(frame, "login_img2", "ui::CPicture")
+    if view2 ~= nil then
+        view2:ShowWindow(0)
+    end
+    
+    local rand = IMCRandom(1,2)
+    if rand == 1 then
+        view1:ShowWindow(1)
+    elseif rand == 2 then
+        view2:ShowWindow(1)
+    end
+--	ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION();
 end
 
 function TOGGLE_SINGLE_MODE_UI(frame)
@@ -90,20 +105,21 @@ function TITLE_SHOW_SPINE_PIC(frame, name, isShow)
 	child:ShowWindow(isShow);
 end
 
-function ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION()
-	local frame = ui.GetFrame("loginui_title");
-
-	local isEnableSpine = config.GetXMLConfig("EnableAnimateBackgroundIllustration");
-	if isEnableSpine == 1 then
-		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 1);
-		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 1);
-
-		
-		TITLE_SHOW_SPINE_PIC(frame, "login_img", 0);
-	else
-		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 0);
-		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 0);
-
-		TITLE_SHOW_SPINE_PIC(frame, "login_img", 1);
-	end
-end
+--function ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION()
+--	local frame = ui.GetFrame("loginui_title");
+--
+--	local isEnableSpine = config.GetXMLConfig("EnableAnimateBackgroundIllustration");
+----	if isEnableSpine == 1 then
+----		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 1);
+----		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 1);
+----
+----		
+----		TITLE_SHOW_SPINE_PIC(frame, "login_img", 0);
+----	else
+--		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_Background", 0);
+--		TITLE_SHOW_SPINE_PIC(frame, "Chuseok_NPC", 0);
+--
+--
+--		TITLE_SHOW_SPINE_PIC(frame, "login_img", 1);
+----	end
+--end

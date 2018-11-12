@@ -342,8 +342,8 @@ function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
 	if state == PVP_STATE_NONE then
 
 		if cls.Party == 0 then
-			if session.GetPcTotalJobGrade() < WORLDPVP_MIN_JOB_GRADE and cls.MatchType ~= "Guild" then
-				local msg = ScpArgMsg("OnlyAbleOver{Rank}", "Rank", WORLDPVP_MIN_JOB_GRADE);
+			if GETMYPCLEVEL() < WORLDPVP_MIN_LEVEL and cls.MatchType ~= "Guild" then
+				local msg = ScpArgMsg("OnlyAbleOver{LEVEL}", "LEVEL", WORLDPVP_MIN_LEVEL);
 				ui.MsgBox(msg);
 				 return;
 			end

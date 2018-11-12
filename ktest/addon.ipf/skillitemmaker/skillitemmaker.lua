@@ -19,9 +19,9 @@ function POP_SKILLITEM_MAKER(frame)
 end
 
 function DROP_SKILLITEM_MAKER(frame, icon, argStr, argNum)
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	local iconInfo = liftIcon:GetInfo();
 
 	if iconInfo.category == "Skill" then
@@ -34,11 +34,11 @@ function CLEAR_SKILLITEMMAKER(frame)
 	frame:GetChild("skilllevel"):SetTextByKey("value", "");
 	frame:GetChild("skillname"):SetTextByKey("value", "");
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
-	CLEAR_SLOT_ITEM_INFO(skill_slot);	--skill_slot:ClearIcon();
+	CLEAR_SLOT_ITEM_INFO(skill_slot);
 	local mattext = frame:GetChild("mattext");
 	mattext:SetTextByKey("value", "");
 	local matslot = GET_CHILD(frame, "matslot", "ui::CSlot");
-	CLEAR_SLOT_ITEM_INFO(matslot);		--matslot:ClearIcon();
+	CLEAR_SLOT_ITEM_INFO(matslot);
 end
 
 function SKILLITEMMAKER_REGISTER(frame, skillType)
@@ -59,33 +59,26 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	local skillInfo = session.GetSkill(skillType);
 	local sklObj = GetIES(skillInfo:GetObject());
 
-	--SET_SKILL_TOOLTIP_BY_TYPE_LEVEL(resultItem:GetIcon(), skillType, sklObj.Level);
-
 	frame:SetUserValue("SKILLTYPE", skillType);
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
-
 	SET_SLOT_SKILL(skill_slot, sklObj);
---[[
-	local type = sklObj.ClassID;
-	local icon = CreateIcon(skill_slot);
-	local imageName = 'icon_' .. sklObj.Icon;
-	icon:Set(imageName, "Skill", sklObj.ClassID, 0);
-	SET_SKILL_TOOLTIP_BY_TYPE(icon, type);
-	icon:ClearText();
-]]	
-	local sklName = frame:GetUserValue('SKLNAME');
-	local mySimonySkill = GetSkill(GetMyPCObject(), sklName);
+	
+	local count = sklObj.Level;
+	if frame:GetUserValue('MODE') ~= 'CraftSpellBook' then
+		local sklName = frame:GetUserValue('SKLNAME');
+		local mySimonySkill = GetSkill(GetMyPCObject(), sklName);	
+		count = mySimonySkill.Level;		
+		
+		-- 만든 스킬이, 시모니 레벨 보다 클때
+		if sklObj.Level >= mySimonySkill.Level then
+			count = mySimonySkill.Level;
+		elseif sklObj.Level < mySimonySkill.Level then
+			count = sklObj.Level;
+		end
+	end
 
 	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
 	droplist_level:ClearItems();
-	local count = mySimonySkill.Level;
-
-		-- 만든 스킬이, 시모니 레벨 보다 클때
-	if sklObj.Level >= mySimonySkill.Level then
-		count = mySimonySkill.Level;
-	elseif sklObj.Level < mySimonySkill.Level then
-		count = sklObj.Level;
-	end
 
 	 for i = 1 , count do
 	 	droplist_level:AddItem(i,  "{@st42}" .. ClMsg("Level") .. " " .. i, 0);
@@ -105,8 +98,7 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 				
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	makecount:SetNumChangeScp("SKILLITEMKAE_NUMCHANGE");
-	makecount:SetNumberValue(1);
-	-- 얘는 왜 따로있을까여?
+	makecount:SetNumberValue(1);	
 	makecount:SetIncrValue(1);
 
 	SKILLITEMKAE_NUMCHANGE(frame);
@@ -145,7 +137,6 @@ function SKILLITEMKAE_NUMCHANGE(parent)
 	frame:GetChild("skilllevel"):SetTextByKey("value", levelSkill);	
 	
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
-
 	if sklObj == nil then
 		return;
 	end
@@ -154,16 +145,13 @@ function SKILLITEMKAE_NUMCHANGE(parent)
 end
 
 function SKILLITEMMAKE_EXEC(frame)
-	-- 스킬등록이 안되있어!
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
-	if nil == IS_CLEAR_SLOT_ITEM_INFO(skill_slot) then
-		print("skill regit NO");
+	if nil == IS_CLEAR_SLOT_ITEM_INFO(skill_slot) then		
 		return;
 	end
 
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
-	if 0 == makecount:GetNumber() then
-		print("count 0");
+	if 0 == makecount:GetNumber() then		
 		return;
 	end
 
@@ -217,8 +205,6 @@ function _SKILLITEMMAKE_EXEC()
 end
 
 function _SKILLITEMMAKE_RESET(frame)
-
-	-- 전체를 초기화 해줌... ???
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local totalprice = frame:GetChild("totalprice");
 	makecount:SetNumberValue(0);

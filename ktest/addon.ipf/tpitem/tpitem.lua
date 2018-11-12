@@ -2831,7 +2831,7 @@ function GETPACKAGE_JOBNUM_BYJOBNGENDER()
 	["Warrior"] = function() jobNum = gender; end,				
 	["Wizard"] = function() jobNum = (2 * 1) + gender; end,				
 	["Archer"] = function() jobNum = (2 * 2) + gender; end,				
-	["Cleric"] = function() jobNum = (2 * 3) + gender; end,					
+	["Cleric"] = function() jobNum = (2 * 3) + gender; end,
 	default = function() jobNum = 0 end,
 	}	
 	return jobNum;

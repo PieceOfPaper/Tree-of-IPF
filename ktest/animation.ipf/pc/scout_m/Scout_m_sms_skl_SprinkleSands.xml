@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_outlaw_sprinklesands"/>
+    <Shockwave frame="7" type="2" intensity="1" frequency="30" duration="0.5" range="1000"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="E_scout_SprinkleSands" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_ground071_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="14" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

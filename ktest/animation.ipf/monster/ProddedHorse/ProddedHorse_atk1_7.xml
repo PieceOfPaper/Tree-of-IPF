@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="57" R="110" G="80" B="130" A="100"/>
+	<BlendOn frame="58" R="80" G="60" B="100" A="100"/>
+	<BlendOff frame="59" R="0" G="0" B="0" A="0"/>
+	<Particle frame="57" attachNode="Dummy_effect_skl7" particleName="I_swordtrail051_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_unicorn_stun"/>
+	<Sound frame="8.17" soundFile="mon_minivern_wing"/>
+	<Sound frame="33.90" soundFile="mon_minivern_wing"/>
+	<Sound frame="53.00" soundFile="skl_eff_thsword_whoosh"/>
+	<Sound frame="53.35" soundFile="mon_voice_proddedhorse_atk_1"/>
+	<Sound frame="54.72" soundFile="skl_eff_big_whoosh_1"/>
+	<Sound frame="79.23" soundFile="mon_minivern_wing"/>
+	<Sound frame="97.60" soundFile="mon_minivern_wing"/>
+</ActionDesc>

@@ -1,27 +1,49 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
-<uiframe name="itemrullet" x="0" y="0" width="240" height="310" create="open">
-    <frame title="{@st44}세트 아이템 획득{/}" layout_gravity="center center" snapclient="true" snapframe="true"/>
-    <draw drawframe="true" drawtitlebar="false" drawnotitlebar="true"/>
-    <sound opensound="win_open" closesound="win_close"/>
-    <controls>
-        <picture name="portrait" rect="80 20 200 40" image="Char1_M"/>
-        <richtext name="Prop_CommName" rect="20 70 100 20" caption="키보드 워리어" fontname="white_16_ol" format="%s" param1="pcName"/>
-        <groupbox name="scoreGBox" rect="10 80 200 140" draw="false" hittest="false" scrollbar="false"/>
-        <richtext name="title_kill" parent="scoreGBox" rect="10 10 100 20" caption="킬" fontname="yellow_16"/>
-        <richtext name="score_kill" parent="scoreGBox" rect="-20 10 100 20" layout_gravity="right top" caption="3811" fontname="white_16_ol" format="%s" param1="kill" textalign="right center"/>
-        <richtext name="title_overkill" parent="scoreGBox" rect="10 30 100 20" caption="오버킬" fontname="yellow_16"/>
-        <richtext name="score_overkill" parent="scoreGBox" rect="-20 30 100 20" layout_gravity="right top" caption="3118" fontname="white_16_ol" format="%s" param1="overkill" textalign="right center"/>
-        <richtext name="title_hit" parent="scoreGBox" rect="10 50 100 20" caption="피격" fontname="yellow_16"/>
-        <richtext name="score_hit" parent="scoreGBox" rect="-20 50 100 20" layout_gravity="right top" caption="3811" fontname="white_16_ol" format="%s" param1="hit" textalign="right center"/>
-        <richtext name="title_dead" parent="scoreGBox" rect="10 70 100 20" caption="사망" fontname="yellow_16"/>
-        <richtext name="score_dead" parent="scoreGBox" rect="-20 70 100 20" layout_gravity="right top" caption="3811" fontname="white_16_ol" format="%s" param1="dead" textalign="right center"/>
-        <richtext name="title_time" parent="scoreGBox" rect="10 90 100 20" caption="시간" fontname="yellow_16"/>
-        <richtext name="score_time" parent="scoreGBox" rect="-20 90 100 20" layout_gravity="right top" caption="99분 99초" fontname="white_16_ol" format="%s" param1="time" textalign="right center"/>
-        <richtext name="title_total" parent="scoreGBox" rect="10 110 100 20" caption="총 점수" fontname="yellow_16"/>
-        <richtext name="score_total" parent="scoreGBox" rect="-20 110 100 20" layout_gravity="right top" caption="38000 점" fontname="white_16_ol" format="%s" param1="total" textalign="right center"/>
-        <slot name="giftitem" rect="20 -20 64 64" layout_gravity="left bottom"/>
-        <richtext name="itemname" rect="90 -40 140 64" layout_gravity="left bottom" caption="향상된 신속의 물약" fixwidth="true" resizebytext="false"/>
-        <timer name="addontimer" rect="0 0 10 10"/>
-    </controls>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemrullet" x="0" y="0" width="500" height="1280" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<draw drawframe="false"/>
+	<layer layerlevel="80"/>
+	<script OpenScp="OPEN_REINFORCE_SEAL" CloseScp="CLOSE_REINFORCE_SEAL"/>
+	<userconfig TARGET_SLOT_SIZE="150" MATERIAL_SLOT_SIZE="115" SLOT_INTERVAL_MARGIN_X="110" MINMAX_COMP_WIDTH="200" MINMAX_COMP_HEIGHT="36" MINMAX_MARGIN_RIGHT="20" MINMAX_MARGIN_TOP="68" APPLY_OPTION_CTRLSET_WIDTH="460" APPLY_OPTION_CTRLSET_HEIGHT="32" APPLY_OPTIOIN_CTRLSET_INTERVAL_MARGIN_Y="4" NEXT_OPTION_SKIN="listbox_light_op_20" FAR_FUTURE_OPTION_SKIN="listbox_op_20" LOCK_IMG_SIZE="28" LOCK_IMG_NAME="icon_lock_tooltip_1"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 500 1080" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low" resizebyresolution="true" resizebyparent="true"/>
+		<groupbox name="headerBox" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_top"/>
+		<richtext name="headerText" parent="headerBox" rect="0 0 300 30" margin="0 0 0 0" layout_gravity="center center" caption="{@st43}인장 강화"/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame('itemrullet')" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<groupbox name="mainslot" parent="slotBox" rect="0 0 180 180" margin="50 105 0 0" layout_gravity="left top" skin="slotbox_light" draw="true" stretch="true"/>
+		<groupbox name="slotBox" rect="0 0 450 250" margin="0 90 0 0" layout_gravity="center top" draw="false"/>
+		<groupbox name="slotBox2" rect="0 0 450 50" margin="0 80 0 0" layout_gravity="center top" draw="false"/>
+		<richtext name="targetText" parent="slotBox2" rect="0 0 300 30" margin="68 0 0 0" layout_gravity="left top" caption="{@st66d_y}{b}주 옵션 인장"/>
+		<richtext name="materialText" parent="slotBox2" rect="0 0 300 30" margin="0 0 80 0" layout_gravity="right top" caption="{@st43b}{s18}{b}재료 인장" fontname="white_16_b_ol"/>
+		<picture name="arrowPic" parent="slotBox" rect="0 0 30 86" stretch="true" margin="5 -15 0 0" layout_gravity="center center" image="icon_arrow_left"/>
+		<richtext name="targetNameText" parent="slotBox" rect="0 0 400 30" margin="0 0 0 10" layout_gravity="center bottom" format="{@st43}{s20}%s" param1="name" param1_def="주 옵션 인장 아이템의 이름" fontname="white_16_b_ol"/>
+		<groupbox name="applyOptionBox" rect="0 0 470 230" margin="15 345 0 0" layout_gravity="left top" skin="test_bgreentitle_skin"/>
+		<richtext name="applyOptionText" parent="applyOptionBox" rect="0 0 300 30" margin="10 5 0 0" layout_gravity="left top" fontname="white_16_ol" caption="{@st43b}{s18}적용 옵션"/>
+		<groupbox name="simulateBox" rect="0 0 430 180" margin="0 0 0 280" layout_gravity="center bottom" draw="false"/>
+		<richtext name="defaultRatioText" parent="simulateBox" rect="0 0 300 30" margin="0 0 0 0" layout_gravity="center top" format="{@st68b}{b}기본 확률: %s%" param1="ratio" param1_def="0" fontname="black_18"/>
+		<richtext name="additionalRatioText" parent="simulateBox" rect="0 0 300 30" margin="0 30 0 0" layout_gravity="center top" format="{@st66d_y}마정석 증폭 + %s%" param1="ratio" param1_def="0"/>
+		<picture name="downArrowPic" parent="simulateBox" rect="0 0 106 39" margin="0 65 0 0" layout_gravity="center top" image="icon_arrow_down" stretch="true"/>
+		<groupbox name="resultBox" parent="simulateBox" rect="0 0 400 70" margin="0 0 0 6" layout_gravity="center bottom" skin="monster_skill_bg"/>
+		<richtext name="resultText" parent="resultBox" rect="0 0 300 30" margin="0 -3 0 0" layout_gravity="center center" format="{@st43}{s20}성공률 %s%" param1="ratio" param1_def="100"/>
+		<button name="reinfBtn" parent="bgBox" rect="0 0 200 55" margin="0 0 0 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}강화" LBtnUpScp="REINFORCE_SEAL_EXECUTE"/>
+		<groupbox name="costBox" parent="bgBox" rect="0 0 470 185" margin="0 0 0 100" layout_gravity="center bottom" skin="test_frame_midle"/>
+		<richtext name="itemNameText" parent="costBox" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="{@st42}마정석"/>
+		<slot name="itemSlot" parent="costBox" rect="0 0 70 70" margin="10 50 0 0" layout_gravity="left top" skin="invenslot2" DropScp="REINFORCE_SEAL_DROP_ADDITIONAL_ITEM" enabledrop="false" enablepop="false" enabledrag="false"/>
+		<labelline name="line1" parent="costBox" rect="0 0 460 4" margin="0 35 0 0" layout_gravity="center top" skin="labelline_def2"/>
+		<labelline name="line2" parent="costBox" rect="0 0 460 4" margin="0 0 0 50" layout_gravity="center bottom" skin="labelline_def2"/>
+		<richtext name="costStaticText" parent="costBox" rect="0 0 300 30" margin="10 0 0 13" layout_gravity="left bottom" caption="{img silver_pic 24 24} 가격 {img white_right_arrow 16 16}" fontname="white_16_b_ol"/>
+		<richtext name="priceText" parent="costBox" rect="0 0 300 30" margin="0 0 10 20" layout_gravity="right bottom" format="{@st66d_y}%s" param1="price" param1_def="0"/>
+		<groupbox name="reinfResultBox" rect="0 0 500 1080" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" resizebyparent="true"/>
+		<picture name="successBgBox" parent="reinfResultBox" rect="0 0 507 400" margin="0 60 0 0" layout_gravity="center top" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3"/>
+		<picture name="successPic" parent="successBgBox" rect="0 0 401 150" hittest="false" image="BnYellow_skin" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<picture name="successItemPic" parent="successBgBox" rect="0 0 140 140" hittest="false" margin="0 120 0 0" stretch="true" layout_gravity="center top" image="testclose_button"/>
+		<picture name="successTextPic" parent="successBgBox" rect="0 0 330 133" hittest="false" image="card_reinforce_SUCCESS" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
+		<labelline name="line3" parent="successBgBox" rect="0 0 480 10" margin="0 380 0 0" layout_gravity="center top" skin="labelline_def2"/>
+		<groupbox name="failBgBox" parent="reinfResultBox" rect="0 0 480 180" margin="0 350 0 0" layout_gravity="center top" skin="mission_fail_name"/>
+		<picture name="failPic" parent="failBgBox" rect="0 0 300 100" margin="0 0 0 0" layout_gravity="center top" image="card_reinforce_DESTROY"/>
+		<richtext name="failText" parent="failBgBox" rect="0 0 500 30" margin="0 0 0 30" layout_gravity="center bottom" caption="아이템이 파괴 되었습니다." fontname="white_18_b_ol"/>
+		<button name="resetBtn" parent="reinfResultBox" rect="0 0 200 55" margin="0 0 0 30" layout_gravity="center bottom" skin="test_red_button" caption="{@st42}확인" LBtnUpScp="RESET_REINFORCE_SEAL"/>
+	</controls>
 </uiframe>

@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonster frame="0.0" MonName="pcskill_armor_maintain" Key="armor_maintain" Angle="0" ist="0" MonAngle="0"/>
+	<CreateMonster frame="0.0" MonName="pcskill_equipmenttouchup_sign" Key="equipmenttouchup_sign" Angle="0" ist="0" MonAngle="0"/>
+	<CreateMonsterAnim frame="0" Key="armor_maintain" Anim="BORN"/>
+	<CreateMonsterAnim frame="0" Key="equipmenttouchup_sign" Anim="BORN"/>
+	<Sound frame="4.00" soundFile="skl_eff_finger_flick"/>
+	<Sound frame="4.00" soundFile="skl_eff_squire_armor_born"/>
+	<Particle frame="4.00" attachNode="Dummy_L_HAND" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false" sound=""/>
+	<Particle frame="6" attachNode="Dummy_L_HAND" particleName="F_archer_fluflu_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false" sound="None"/>
+</ActionDesc>

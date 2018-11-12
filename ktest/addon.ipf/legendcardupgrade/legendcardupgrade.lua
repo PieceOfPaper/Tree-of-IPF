@@ -35,7 +35,7 @@ function OPEN_LEGENDCARD_REINFORCE(frame)
 	ui.OpenFrame("inventory");
 				 
 	local upgradeBtn = GET_CHILD_RECURSIVELY(frame, 'upgradeBtn')
-	upgradeBtn : SetTextByKey("value", "강화")
+	upgradeBtn : SetTextByKey("value", ClMsg("Reinforce_2"))
 	frame:SetUserValue("IsVisibleResult", 0)
 
 end
@@ -73,7 +73,7 @@ function LEGENDCARD_UPGRADE_SLOT_CLEAR(frame, clearType)
 	end
 	
 	local upgradeBtn = GET_CHILD_RECURSIVELY(frame, "upgradeBtn")
-	upgradeBtn:SetTextByKey("value", "강화")
+	upgradeBtn:SetTextByKey("value", ClMsg("Reinforce_2"))
 	frame : SetUserValue("IsVisibleResult", 0)
 	local legendCardNameGbox = GET_CHILD_RECURSIVELY(frame, 'legendcardnameGbox')
 	legendCardNameGbox:ShowWindow(0)
@@ -225,7 +225,7 @@ function LEGENDCARD_SET_SLOT(slot, invItem)
 	end
 
 	local upgradeBtn = GET_CHILD_RECURSIVELY(frame, 'upgradeBtn')
-	upgradeBtn : SetTextByKey("value", "강화")
+	upgradeBtn : SetTextByKey("value", ClMsg("Reinforce_2"))
 	frame:SetUserValue("IsVisibleResult", 0)
 
 	if obj.GroupName == "Card" then
@@ -321,7 +321,7 @@ function LEGENDCARD_MATERIAL_SET_SLOT(slot, invItem)
 	end
 
 	local upgradeBtn = GET_CHILD_RECURSIVELY(frame, 'upgradeBtn')
-	upgradeBtn : SetTextByKey("value", "강화")
+	upgradeBtn : SetTextByKey("value", ClMsg("Reinforce_2"))
 	frame:SetUserValue("IsVisibleResult", 0)
 	
 	if obj.GroupName == "Card" then
@@ -737,7 +737,7 @@ function LEGENDCARD_UPGRADE_UPDATE(resultFlag, beforeLv, afterLv)
 	needItemIcon:SetImage("icon_item_legend_card_misc")
 
 	local upgradeBtn = GET_CHILD_RECURSIVELY(frame, 'upgradeBtn')
-	upgradeBtn:SetTextByKey("value", "확인")
+	upgradeBtn:SetTextByKey("value", ClMsg("Confirm"))
 	upgradeBtn:EnableHitTest(0)
 	frame : SetUserValue("IsVisibleResult", 1)
 end

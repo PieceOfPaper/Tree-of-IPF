@@ -161,6 +161,8 @@ function ON_COMMENT_GET(code, ret_json, boardIdx)
     local replyArea = GET_CHILD_RECURSIVELY(selectedCard, "replyArea", "ui::CGroupBox");
     local bottomBox = GET_CHILD_RECURSIVELY(selectedCard, "bottomBox", "ui::CGroupBox");
     local mainBg = GET_CHILD_RECURSIVELY(selectedCard, "mainBg")
+    local replyCount = GET_CHILD_RECURSIVELY(selectedCard, "replyCount", "ui::CRichText")
+    replyCount:SetText(#list)
     replyBox:RemoveAllChild()  
      
     for i=1, #list do
@@ -259,6 +261,7 @@ end
 
 
 function COMMUNITY_CARD_DELETE(frame, control)
+    frame = frame:GetAboveControlset()
     local context = ui.CreateContextMenu("CARD_DELETE_CONTEXT","", 0, 0, 170, 100)
     ui.AddContextMenuItem(context, ClMsg("Delete"), "DELETE_COMMUNITY_CARD(" .. frame:GetUserValue("boardIdx") .. ")");
     ui.AddContextMenuItem(context, ClMsg("Cancel"), "ui.CloseFrame('CARD_DELETE_CONTEXT')")

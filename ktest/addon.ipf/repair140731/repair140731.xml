@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="repair140731" x="0" y="0" width="450" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
@@ -7,6 +7,7 @@
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<input moveable="false" hittestframe="false"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
 	<script OpenScp="REPAIR140731_OPEN" CloseScp="REPAIR140731_CLOSE"/>
 	<controls>

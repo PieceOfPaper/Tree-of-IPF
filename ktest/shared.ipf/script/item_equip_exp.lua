@@ -104,6 +104,8 @@ function GET_MIX_MATERIAL_EXP(item)
 	        return item.UseLv;
 	    elseif item.EquipXpGroup == 'hethran_material' then
 			return itemExp;
+		elseif item.EquipXpGroup =='Gem' and itemExp > 0 then
+		    return itemExp;
 	    end
 		return prop:GetMaterialExp(itemExp);
 	end

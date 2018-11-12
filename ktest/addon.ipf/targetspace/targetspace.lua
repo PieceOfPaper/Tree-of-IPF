@@ -145,10 +145,14 @@ function TARGETSPACE_PRECHECK(handle)
 			return 1;
 		end
 	end
-
+	
 	if dialog == 'None' then
         return 0
     else
+        if session.config.IsMouseMode() == true then
+            return 1
+        end
+        
         local npcselectIES = GetClass('NPCSelectDialog',dialog)
         local ret = 0
         local questNPCFlag = false

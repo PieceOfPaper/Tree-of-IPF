@@ -5,61 +5,6 @@ function UPDATE_PARTYLIST_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userDa
 	
 end
 
-function PARTY_INFO_UPDATE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userData)
-	
-	local name = GET_CHILD_RECURSIVELY(tooltipframe,"partyname")
-	local getterPartyList = session.party.GetNearPartyList();
-		
-	if getterPartyList == nil then
-		return;
-	end	
-
-	local eachpartyinfo = getterPartyList:Element(numarg1).partyInfo;
-	local eachpartymemberlist = getterPartyList:Element(numarg1):GetMemberList();
-
-	if eachpartyinfo == nil then
-		return;
-	end
-
-	UPDATE_COMMON_PARTY_INFO(tooltipframe, eachpartyinfo, eachpartymemberlist, name);
-
-    tooltipframe:Resize(tooltipframe:GetOriginalWidth(), 210 + (eachpartymemberlist:Count() * 30) )
-
-	tooltipframe:Invalidate()
-
-end
-
-
-
-function PARTY_INFO_UPDATE_TOOLTIP_NORMAL(tooltipframe, strarg, numarg1, numarg2, userData)
-
-	local name = GET_CHILD_RECURSIVELY(tooltipframe,"partyname")
-	local getterPartyList = session.party.GetFoundPartyList(PARTY_NORMAL);
-
-	if getterPartyList == nil then
-		return;
-	end	
-
-	if getterPartyList:IsValidIndex(numarg1) == false then
-		return;
-	end
-
-	local eachpartyinfo = getterPartyList:Element(numarg1).partyInfo;
-	local eachpartymemberlist = getterPartyList:Element(numarg1):GetMemberList();
-
-	if eachpartyinfo == nil then
-		return;
-	end	
-
-	UPDATE_COMMON_PARTY_INFO(tooltipframe, eachpartyinfo, eachpartymemberlist, name);
-
-    tooltipframe:Resize(tooltipframe:GetOriginalWidth(), 210 + (eachpartymemberlist:Count() * 30) )
-
-	tooltipframe:Invalidate()
-
-end
-
-
 function UPDATE_COMMON_PARTY_INFO(frame, eachpartyinfo, eachpartymemberlist, name)
 
 	local ppartyobj = eachpartyinfo:GetObject();
@@ -75,7 +20,7 @@ function UPDATE_COMMON_PARTY_INFO(frame, eachpartyinfo, eachpartymemberlist, nam
 	end
 
 		
-	-- ÆÄÆ¼ ÀÌ¸§
+	-- ï¿½ï¿½Æ¼ ï¿½Ì¸ï¿½
 	local name = GET_CHILD_RECURSIVELY(frame,'partyname')
 	name:SetText(eachpartyinfo.info.name)
 	
@@ -122,15 +67,15 @@ function UPDATE_COMMON_PARTY_INFO(frame, eachpartyinfo, eachpartymemberlist, nam
 			local gender = eachpartymember:GetIconInfo().gender;
 			meminfotext:SetTextByKey('job',GET_JOB_NAME(jobclass, gender))
 
-			-- »öÀ¸·Î Â÷º°È­.
+			-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½È­.
 			if eachpartyinfo.info:GetLeaderAID() == eachpartymember:GetAID() then
 				if eachpartyinfo.info.isCorsairType == true then
-					meminfotext:SetFontName("green_16_ol"); -- Ä¿¼¼¾î´Â ÃÊ·Ï»ö
+					meminfotext:SetFontName("green_16_ol"); -- Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê·Ï»ï¿½
 				else
-					meminfotext:SetFontName("yellow_16_ol"); -- ÆÄÆ¼ÀåÀº ³ë¶õ»ö
+					meminfotext:SetFontName("yellow_16_ol"); -- ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 				end
 			else
-					meminfotext:SetFontName("white_16_ol"); -- ÀÏ¹ÝÀº ÇÏ¾á»ö
+					meminfotext:SetFontName("white_16_ol"); -- ï¿½Ï¹ï¿½ï¿½ï¿½ ï¿½Ï¾ï¿½ï¿½
 			end
 
 			

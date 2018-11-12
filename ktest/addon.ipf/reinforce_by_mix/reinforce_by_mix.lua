@@ -1,9 +1,26 @@
 -- reinforce_by_mix.lua
 
+reinforce_by_mix = {}
+reinforce_by_mix.is_reinforce_state = function()
+    local reinforce_frame = ui.GetFrame("reinforce_by_mix")
+    if reinforce_frame ~= nil then
+        if reinforce_frame:GetUserIValue("EXECUTE_REINFORCE") == 1 then
+            return true
+        end
+    end
+    return false
+end
+
 local is_stop = true
 local is_opened_msg_box = false
 local item_obj = nil
 
+local function active_reinforce_button()
+    local reinforceButton = GET_CHILD_RECURSIVELY(ui.GetFrame("reinforce_by_mix"), "exec_mixreinf");
+	if reinforceButton ~= nil then
+	    reinforceButton:EnableHitTest(1);
+    end
+end
 
 local function get_item_max_exp(itemObj)
     local prop = geItemTable.GetProp(itemObj.ClassID);	
@@ -896,11 +913,10 @@ function _REINFORCE_BY_MIX_EXECUTE()
 	local frame = ui.GetFrame("reinforce_by_mix");
 	local reinforceButton = GET_CHILD_RECURSIVELY(frame, "exec_mixreinf");
 	if reinforceButton ~= nil then
-	  reinforceButton:EnableHitTest(0);
+	    reinforceButton:EnableHitTest(0);
     end
 	
     frame:SetUserValue("EXECUTE_REINFORCE", 1)
-
 	session.ResetItemList();
 
 	session.AddItemID(frame:GetUserValue("ITEM_GUID"));
@@ -912,10 +928,16 @@ function _REINFORCE_BY_MIX_EXECUTE()
 	local cnt = slots:GetSlotCount();
 	for i = 0 , cnt - 1 do
 		local slot = slots:GetSlotByIndex(i);
-		local matItem, count = GET_SLOT_ITEM(slot);
-		
+		local matItem, count = GET_SLOT_ITEM(slot);		
 		if matItem ~= nil then
-			session.AddItemID(matItem:GetIESID(), count);
+			session.AddItemID(matItem:GetIESID(), count)            
+            local mat_item = session.GetInvItemByGuid(matItem:GetIESID())            
+            if mat_item ~= nil and mat_item.isLockState == true then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"))
+                active_reinforce_button()
+                return
+            end
+            
             -- STRING으로 가져다 붙여
             if mat_list ~= '' then
                 mat_list = mat_list .. ';' .. tostring(matItem:GetIESID())

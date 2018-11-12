@@ -1,9 +1,5 @@
 --joystickquickslot.lua
 
---기존의 퀵슬롯과 같은 함수는 그대로 사용하려고 하였으나,
---특정 경우의 피씨 환경에서는 함수를 찾을 수 없다는 에러메시지를 띄워서
---그냥 기존의 함수의 이름을 변경하여 사용하기로 함.
-
 MAX_SLOT_CNT = 40;
 SLOT_NAME_INDEX = 0;
 
@@ -57,7 +53,7 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_JOYSTICK_QUICKSLOT_OVERHEAT");
-	timer:Start(0.1);
+	timer:Start(0.1, 0);
 
 	JOYSTICKQUICKSLOT_TOGGLE_ITEM_LIST={}
 
@@ -79,20 +75,7 @@ end
 function UPDATE_JOYSTICK_QUICKSLOT_OVERHEAT(frame, ctrl, num, str, time)
 
 	UPDATE_JOYSTICK_INPUT(frame)
-
-	--[[땜빵코드입니다.
-	다이얼로그를 열 때마다 조이스틱모드에서 특정 조건에
-	그냥 퀵슬롯이 같이 열리는 경우가 있어서 그냥 여기서 강제로 꺼버림
-	넥슨 테스트 대비 땜빵이고 찾아서 고쳐야함.
-	]]--
-
 	local quickSlotFrame = ui.GetFrame("quickslotnexpbar");
-
-	--if quickSlotFrame:IsVisible() == 1 and IsJoyStickMode() == 1  then
-	--quickSlotFrame:ShowWindow(0);
-	--end
-
-
 	for i = 0, MAX_SLOT_CNT - 1 do
 		local slot 			= frame:GetChildRecursively("slot"..i+1);
 		tolua.cast(slot, "ui::CSlot");
@@ -102,22 +85,7 @@ end
 
 function UPDATE_JOYSTICK_SLOT_OVERHEAT(slot)
 	local obj = GET_JOYSTICK_SLOT_SKILL_OBJ(slot);
-	if obj == nil or obj.OverHeatGroup == "None" then
-		return;
-	end
-
-	local sklType = obj.ClassID;
-	local skl = session.GetSkill(sklType);
-	skl = GetIES(skl:GetObject());
-	local useOverHeat = skl.UseOverHeat;
-	local curHeat = session.GetSklOverHeat(sklType);
-	curHeat = curHeat + useOverHeat - 1;
-	local maxOverHeat = session.GetSklMaxOverHeat(sklType);
-	local gauge = slot:GetSlotGauge();
-
-	gauge:SetCellPoint(useOverHeat);
-	gauge:SetPoint(curHeat, maxOverHeat);
-	slot:InvalidateGauge();
+	_UPDATE_SLOT_OVERHEAT(slot, obj)
 end
 
 function GET_JOYSTICK_SLOT_SKILL_OBJ(slot)

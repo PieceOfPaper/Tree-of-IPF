@@ -1,6 +1,4 @@
 ﻿-- monstercardslot.lua
-
-
 function MONSTERCARDSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg("DO_OPEN_MONSTERCARDSLOT_UI", "MONSTERCARDSLOT_FRAME_OPEN");
 	addon:RegisterMsg("MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "PLAY_LEGENDCARD_OPEN_EFFECT");
@@ -14,7 +12,7 @@ function MONSTERCARDSLOT_FRAME_OPEN()
 
 	local isOpen = frame:GetUserIValue("CARD_OPTION_OPENED");
 	local optionGbox = GET_CHILD_RECURSIVELY(frame, "option_bg")
-	optionGbox:ShowWindow(1)
+	optionGbox:ShowWindow(1)	
 
 	CARD_OPTION_OPEN(frame)
 		frame : SetUserValue("CARD_OPTION_OPENED", 0);
@@ -602,13 +600,14 @@ function CARD_SLOT_EQUIP(slot, item, groupNameStr)
 			-- leg 카드는 slotindex = 12, 13번째 슬롯
 		end
 
-		local pcEtc = GetMyEtcObject()
-		if pcEtc["EquipCardID_Slot"..slotIndex + 1] ~= 0 then
+		local cardInfo = equipcard.GetCardInfo(slotIndex + 1);
+		if cardInfo ~= nil then
 			ui.SysMsg(ClMsg("AlreadyEquippedThatCardSlot"));
 			return;
 		end
 
 		if groupNameStr == 'LEG' then
+			local pcEtc = GetMyEtcObject();
 			if pcEtc.IS_LEGEND_CARD_OPEN ~= 1 then
 				ui.SysMsg(ClMsg("LegendCard_Slot_NotOpen"))
 				return
@@ -756,16 +755,13 @@ function _CARD_SLOT_REMOVE(slotIndex, cardGroupName)
 end;
 
 -- 카드 정보 얻는 함수
-function GETMYCARD_INFO(slotIndex)	
-	local myPCetc = GetMyEtcObject();
-	if myPCetc == nil then
-		return
+function GETMYCARD_INFO(slotIndex)
+	local info = equipcard.GetCardInfo(slotIndex + 1);
+	
+	if info == nil then
+		return 0, 0, 0;
 	end
-
-	local cardID = myPCetc[string.format("EquipCardID_Slot%d", slotIndex + 1)];
-	local cardLv = myPCetc[string.format("EquipCardLv_Slot%d", slotIndex + 1)];
-	local cardExp = myPCetc[string.format("EquipCardExp_Slot%d", slotIndex + 1)];
-	return cardID, cardLv, cardExp;
+	return info:GetCardID(), info.cardLv, info.exp;
 end
 
 -- 단계 보호하고, 카드 슬롯의 카드 제거

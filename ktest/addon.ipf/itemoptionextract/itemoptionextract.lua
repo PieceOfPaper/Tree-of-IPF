@@ -1,23 +1,17 @@
-
 function ITEMOPTIONEXTRACT_ON_INIT(addon, frame)
-
-	addon:RegisterMsg("OPEN_DLG_ITEMOPTIONEXTRACT", "ON_OPEN_DLG_ITEMOPTIONEXTRACT");
-
-	--성공시 UI 호출
-	addon:RegisterMsg("MSG_SUCCESS_ITEM_OPTION_EXTRACT", "SUCCESS_ITEM_OPTION_EXTRACT");
-	--실패시 UI 호출
-	addon:RegisterMsg("MSG_FAIL_ITEM_OPTION_EXTRACT", "FAIL_ITEM_OPTION_EXTRACT");
-
+	addon:RegisterMsg("OPEN_DLG_ITEMOPTIONEXTRACT", "ON_OPEN_DLG_ITEMOPTIONEXTRACT");	
+	addon:RegisterMsg("MSG_SUCCESS_ITEM_OPTION_EXTRACT", "SUCCESS_ITEM_OPTION_EXTRACT"); --성공시 UI 호출	
+	addon:RegisterMsg("MSG_FAIL_ITEM_OPTION_EXTRACT", "FAIL_ITEM_OPTION_EXTRACT"); --실패시 UI 호출
 end
 
-function ON_OPEN_DLG_ITEMOPTIONEXTRACT(frame)
-	frame:ShowWindow(1);	
+function ON_OPEN_DLG_ITEMOPTIONEXTRACT(frame, msg, isRollbackMode)
+	frame:SetUserValue('ROLLBACK_MODE', isRollbackMode);
+	frame:ShowWindow(1);
 end
 
 function ITEMOPTIONEXTRACT_OPEN(frame)
 	ui.CloseFrame('rareoption');
-	SET_OPTIONEXTRACT_RESET(frame);
-	CLEAR_ITEMOPTIONEXTRACT_UI()
+	CLEAR_ITEMOPTIONEXTRACT_UI(frame);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMOPTIONEXTRACT_INV_RBTN")	
 	ui.OpenFrame("inventory");	
 end
@@ -38,13 +32,12 @@ function OPTIONEXTRACT_UPDATE(isSuccess)
 	UPDATE_OPTIONEXTRACT_RESULT(frame, isSuccess);
 end
 
-function CLEAR_ITEMOPTIONEXTRACT_UI()
+function CLEAR_ITEMOPTIONEXTRACT_UI(frame)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
 
-	local frame = ui.GetFrame("itemoptionextract");
-
+	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot", "ui::CSlot");
 	slot:ClearIcon();
 	slot:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT)
@@ -114,43 +107,48 @@ function CLEAR_ITEMOPTIONEXTRACT_UI()
 
 	local extractKitName = GET_CHILD_RECURSIVELY(frame, "extractKitName")
 	extractKitName:SetTextByKey("value", frame:GetUserConfig("EXTRACT_KIT_DEFAULT"))
-
+	
+	-- rollback mode
+	local richtext_1 = GET_CHILD_RECURSIVELY(frame, 'richtext_1');
+	local text_material = GET_CHILD_RECURSIVELY(frame, 'text_material');
+	local bodyGbox2_1 = GET_CHILD_RECURSIVELY(frame, 'bodyGbox2_1');
+	local show = 1;	
+	if frame:GetUserValue('ROLLBACK_MODE') == 'YES' then
+		show = 0;
+		richtext_1:SetTextByKey('value', ClMsg('Rollback'));
+	else
+		richtext_1:SetTextByKey('value', ClMsg('Extract'));
+	end
+	text_material:ShowWindow(show);
+	bodyGbox2_1:ShowWindow(show);
 end
 
-function ITEM_OPTIONEXTRACT_DROP(frame, icon, argStr, argNum)
-	if ui.CheckHoldedUI() == true then
-		return;
-	end
-	local liftIcon = ui.GetLiftIcon();
-	local FromFrame = liftIcon:GetTopParentFrame();
-	local toFrame = frame:GetTopParentFrame();
-	CLEAR_ITEMOPTIONEXTRACT_UI()
-	if FromFrame:GetName() == 'inventory' then
-		local iconInfo = liftIcon:GetInfo();
-		ITEM_OPTIONEXTRACT_REG_TARGETITEM(toFrame, iconInfo:GetIESID());
-	end
-end
-
-function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
-	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox1_1")
+local function _ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemGuid)
+	local gBox = GET_CHILD_RECURSIVELY(frame, "bodyGbox1_1");
 	gBox:RemoveChild('tooltip_equip_property');
 
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-	local invItem = session.GetInvItemByGuid(itemID)
+
+	local invItem = session.GetInvItemByGuid(itemGuid);
 	if invItem == nil then
 		return;
 	end
 
 	local item = GetIES(invItem:GetObject());
-	local itemCls = GetClassByType('Item', item.ClassID)
-	local invitem = item
-
-	if IS_ENABLE_EXTRACT_OPTION(item) ~= true then
-		--추출 안대는 아이템
-		ui.SysMsg(ClMsg("NotAllowedItemOptionExtract"));
-		return;
+	local invitem = item;
+	local isRollbackMode = frame:GetUserValue('ROLLBACK_MODE') == 'YES';
+	if isRollbackMode then		
+		if TryGetProp(item, 'InheritanceItemName', 'None') == 'None' then
+			ui.SysMsg(ClMsg("NotAllowedItemOptionExtract"));
+			return;
+		end
+	else
+		if IS_ENABLE_EXTRACT_OPTION(item) ~= true then			
+			ui.SysMsg(ClMsg("NotAllowedItemOptionExtract"));
+			return;
+		end
 	end
 	
 	local pc = GetMyPCObject();
@@ -159,29 +157,31 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	end
 
 	local obj = GetIES(invItem:GetObject());
-
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
+
+	local propTargetItem = invitem;
+	if isRollbackMode then
+		propTargetItem = GetClass('Item', item.InheritanceItemName);
+	end
+
 	local yPos = 0
-	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(invitem);
+	local basicList = GET_EQUIP_TOOLTIP_PROP_LIST(propTargetItem);
     local list = {};
-    local basicTooltipPropList = StringSplit(invitem.BasicTooltipProp, ';');
+    local basicTooltipPropList = StringSplit(propTargetItem.BasicTooltipProp, ';');
     for i = 1, #basicTooltipPropList do
         local basicTooltipProp = basicTooltipPropList[i];
         list = GET_CHECK_OVERLAP_EQUIPPROP_LIST(basicList, basicTooltipProp, list);
     end
 
 	local list2 = GET_EUQIPITEM_PROP_LIST();
-	
 	local cnt = 0;
 	for i = 1 , #list do
-
 		local propName = list[i];
-		local propValue = invitem[propName];
-		
+		local propValue = propTargetItem[propName];		
 		if propValue ~= 0 then
             local checkPropName = propName;
             if propName == 'MINATK' or propName == 'MAXATK' then
@@ -195,18 +195,9 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = invitem[propName];
+		local propValue = propTargetItem[propName];		
 		if propValue ~= 0 then
-
-			cnt = cnt +1
-		end
-	end
-
-	for i = 1 , 3 do
-		local propName = "HatPropName_"..i;
-		local propValue = "HatPropValue_"..i;
-		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
-			cnt = cnt +1
+			cnt = cnt + 1;
 		end
 	end
 
@@ -214,9 +205,6 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	local labelline = GET_CHILD_RECURSIVELY(tooltip_equip_property_CSet, "labelline")
 	labelline:ShowWindow(0)
 	local property_gbox = GET_CHILD(tooltip_equip_property_CSet,'property_gbox','ui::CGroupBox')
-
-	local class = GetClassByType("Item", invitem.ClassID);
-
 	local inner_yPos = 0;
 	
 	local maxRandomOptionCnt = 6;
@@ -226,7 +214,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 			randomOptionProp[invitem['RandomOption_'..i]] = invitem['RandomOptionValue_'..i];
 		end
 	end
-
+	
 	for i = 1 , #list do
 		local propName = list[i];
 		local propValue = invitem[propName];
@@ -238,47 +226,36 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 			end
 		end
 
-		if needToShow == true and itemCls[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
-
-			if  invitem.GroupName == 'Weapon' then
+		if needToShow == true and propTargetItem[propName] ~= 0 and randomOptionProp[propName] == nil then -- 랜덤 옵션이랑 겹치는 프로퍼티는 여기서 출력하지 않음
+			if  propTargetItem.GroupName == 'Weapon' then
 				if propName ~= "MINATK" and propName ~= 'MAXATK' then
-					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);					
+					local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propTargetItem[propName]);					
 					inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 				end
-			elseif  invitem.GroupName == 'Armor' then
-				if invitem.ClassType == 'Gloves' then
+			elseif  propTargetItem.GroupName == 'Armor' then
+				if propTargetItem.ClassType == 'Gloves' then
 					if propName ~= "HR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propTargetItem[propName]);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
-				elseif invitem.ClassType == 'Boots' then
+				elseif propTargetItem.ClassType == 'Boots' then
 					if propName ~= "DR" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propTargetItem[propName]);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				else
 					if propName ~= "DEF" then
-						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+						local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propTargetItem[propName]);
 						inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 					end
 				end
 			else
-				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), itemCls[propName]);
+				local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propTargetItem[propName]);
 				inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 			end
 		end
 	end
 
-	for i = 1 , 3 do
-		local propName = "HatPropName_"..i;
-		local propValue = "HatPropValue_"..i;
-		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
-			local opName = string.format("[%s] %s", ClMsg("EnchantOption"), ScpArgMsg(invitem[propName]));
-			local strInfo = ABILITY_DESC_PLUS(opName, invitem[propValue]);
-			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
-		end
-	end
-	
 	for i = 1 , maxRandomOptionCnt do
 	    local propGroupName = "RandomOptionGroup_"..i;
 		local propName = "RandomOption_"..i;
@@ -299,7 +276,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 		    clientMessage = 'ItemRandomOptionGroupSTAT'
 		end
 		
-		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then
+		if invitem[propValue] ~= 0 and invitem[propName] ~= "None" then			
 			local opName = string.format("%s %s", ClMsg(clientMessage), ScpArgMsg(invitem[propName]));
 			local strInfo = ABILITY_DESC_NO_PLUS(opName, invitem[propValue], 0);
 
@@ -309,20 +286,20 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 
 	for i = 1 , #list2 do
 		local propName = list2[i];
-		local propValue = invitem[propName];
+		local propValue = propTargetItem[propName];		
 		if propValue ~= 0 then
-			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), invitem[propName]);
+			local strInfo = ABILITY_DESC_PLUS(ScpArgMsg(propName), propTargetItem[propName]);
 			inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo, 0, inner_yPos);
 		end
 	end
 
-	if invitem.OptDesc ~= nil and invitem.OptDesc ~= 'None' then
-		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, invitem.OptDesc, 0, inner_yPos);
+	if propTargetItem.OptDesc ~= nil and propTargetItem.OptDesc ~= 'None' then
+		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, propTargetItem.OptDesc, 0, inner_yPos);
 	end
 
-	if invitem.ReinforceRatio > 100 then
+	if propTargetItem.ReinforceRatio > 100 then
 		local opName = ClMsg("ReinforceOption");
-		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * invitem.ReinforceRatio/100));
+		local strInfo = ABILITY_DESC_PLUS(opName, math.floor(10 * propTargetItem.ReinforceRatio/100));
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, strInfo.."0%"..ClMsg("ReinforceOptionAtk"), 0, inner_yPos);
 	end
 
@@ -341,7 +318,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	local i = 1
 	local materialItemIndex = "MaterialItem_" .. i
 	local materialItemCount = 0
-	local ItemGrade = itemCls.ItemGrade
+	local ItemGrade = propTargetItem.ItemGrade
 	materialItemCount = GET_OPTION_EXTRACT_NEED_MATERIAL_COUNT(item)
 	frame:SetUserValue('MATERIAL_ITEM_COUNT', materialItemCount)
 	
@@ -363,8 +340,8 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	material_icon:ShowWindow(1)
 	material_questionmark : ShowWindow(0)
 	if item ~= nil then
-		local materialCls = GetClass("Item", GET_OPTION_EXTRACT_MATERIAL_NAME());
-		if i <= materialItemSlot and materialCls ~= 'None' then
+		local materialCls = GetClass("Item", GET_OPTION_EXTRACT_MATERIAL_NAME(invitem));
+		if i <= materialItemSlot and materialCls ~= nil then
 			materialClsCtrl : ShowWindow(1)
 			itemIcon = materialCls.Icon;
 			materialItemName = materialCls.Name;
@@ -425,7 +402,7 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 	slot:SetGravity(ui.LEFT, ui.CENTER_VERT)
 	local slot_result = GET_CHILD_RECURSIVELY(frame, "slot_result");
 	local icor_img = nil
-	if itemCls.GroupName == "Weapon" or itemCls.GroupName == "SubWeapon" then
+	if propTargetItem.GroupName == "Weapon" or propTargetItem.GroupName == "SubWeapon" then
 		icor_img = frame:GetUserConfig("ICOR_IMAGE_WEAPON")
 	else
 		icor_img = frame:GetUserConfig("ICOR_IMAGE_ARMOR")
@@ -434,18 +411,30 @@ function ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, itemID)
 
 	SET_SLOT_IMG(slot_result, icor_img)
 	frame:SetUserValue("icor_img", icor_img)
-	SET_SLOT_ITEM(slot, invItem);
-	SET_OPTIONEXTRACT_RESET(frame);	
-	
+	SET_SLOT_ITEM(slot, invItem);	
+end
+
+function ITEM_OPTIONEXTRACT_DROP(frame, icon, argStr, argNum)
+	if ui.CheckHoldedUI() == true then
+		return;
+	end
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
+	CLEAR_ITEMOPTIONEXTRACT_UI(toFrame);
+	if FromFrame:GetName() == 'inventory' then
+		local iconInfo = liftIcon:GetInfo();
+		_ITEM_OPTIONEXTRACT_REG_TARGETITEM(toFrame, iconInfo:GetIESID());
+	end
 end
 
 function ITEM_OPTIONEXTRACT_KIT_DROP(frame, icon, argStr, argNum)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
 		ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(toFrame, iconInfo:GetIESID());
@@ -494,41 +483,35 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 
 end
 
-function SET_OPTIONEXTRACT_RESET(frame)
---	reg:ShowWindow(0);
-end;
-
-
 function ITEMOPTIONEXTRACT_EXEC(frame)
-
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	local invItem = GET_SLOT_ITEM(slot);
-
 	if invItem == nil then
 		return
 	end
 
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
-
+	local isRollbackMode = frame:GetUserValue('ROLLBACK_MODE') == 'YES';
 	local extractKitSlot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot");
 	local kitInvItem = GET_SLOT_ITEM(extractKitSlot);
-	if kitInvItem == nil then
-		ui.SysMsg(ClMsg("NotHaveExtractKitItem"));
-		return;
-	end
-
-	local kitInvItemObj = GetIES(kitInvItem:GetObject());
 	local clmsg = ScpArgMsg("ItemOptionExtractMessage_1")
-	if item.PR == 0 then
-		clmsg = ScpArgMsg("ItemOptionExtractMessage_2")
-	elseif IS_ENABLE_NOT_TAKE_POTENTIAL_BY_EXTRACT_OPTION(kitInvItemObj) then
-		--황금 키트
-		clmsg = ScpArgMsg("ItemOptionExtractMessage_3")
+	if isRollbackMode == false then
+		if kitInvItem == nil then
+			ui.SysMsg(ClMsg("NotHaveExtractKitItem"));
+			return;
+		end
+		
+		local kitInvItemObj = GetIES(kitInvItem:GetObject());
+		if item.PR == 0 then
+			clmsg = ScpArgMsg("ItemOptionExtractMessage_2")
+		elseif IS_ENABLE_NOT_TAKE_POTENTIAL_BY_EXTRACT_OPTION(kitInvItemObj) then
+			--황금 키트
+			clmsg = ScpArgMsg("ItemOptionExtractMessage_3")
+		end
 	end
-
---	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL");
+	clmsg = ClMsg('RollbackToIcor');
 	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL")
 end
 
@@ -538,34 +521,37 @@ end;
 
 function _ITEMOPTIONEXTRACT_EXEC()
 	local frame = ui.GetFrame("itemoptionextract");
+	local isRollbackMode = frame:GetUserValue('ROLLBACK_MODE') == 'YES';
 	local extractKitSlot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot");
 	local extractKitIcon = extractKitSlot:GetIcon();
-	local extractKitIconInfo = extractKitIcon:GetInfo();
-	if extractKitIconInfo == nil then
-		return;
-	end
-
-	local extractKitItemCls = GetClassByType('Item', extractKitIconInfo.type);
-	if extractKitItemCls == nil then
-		return;
-	end
+	if isRollbackMode == false then
+		local extractKitIconInfo = extractKitIcon:GetInfo();
+		if extractKitIconInfo == nil then
+			return;
+		end
 	
-	local isAbleExchange = frame:GetUserIValue("isAbleExchange")
-	if IS_ENABLE_NOT_TAKE_MATERIAL_KIT(extractKitItemCls) == false and isAbleExchange == 0 then		
-		--재료가 부족할때
-		ui.SysMsg(ClMsg('NotEnoughRecipe'));
-		return
-	end
-
-	if isAbleExchange == -1 then
-		--재료가 잠겨있을때
-		ui.SysMsg(ClMsg("MaterialItemIsLock"));
-		return
-	end
-
-	if isAbleExchange == -2 then
-		ui.SysMsg(ClMsg("MaxDurUnderflow")); 
-		return
+		local extractKitItemCls = GetClassByType('Item', extractKitIconInfo.type);
+		if extractKitItemCls == nil then
+			return;
+		end
+		
+		local isAbleExchange = frame:GetUserIValue("isAbleExchange")
+		if IS_ENABLE_NOT_TAKE_MATERIAL_KIT(extractKitItemCls) == false and isAbleExchange == 0 then		
+			--재료가 부족할때
+			ui.SysMsg(ClMsg('NotEnoughRecipe'));
+			return
+		end
+	
+		if isAbleExchange == -1 then
+			--재료가 잠겨있을때
+			ui.SysMsg(ClMsg("MaterialItemIsLock"));
+			return
+		end
+	
+		if isAbleExchange == -2 then
+			ui.SysMsg(ClMsg("MaxDurUnderflow")); 
+			return
+		end
 	end
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
@@ -574,10 +560,6 @@ function _ITEMOPTIONEXTRACT_EXEC()
 		return;
 	end
 
-	local item = GetIES(invItem:GetObject());
-	local itemCls = GetClassByType('Item', item.ClassID)
-
-	
 	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2")
 	bodyGbox2:ShowWindow(0)
 	local bodyGbox3 = GET_CHILD_RECURSIVELY(frame, "bodyGbox3")
@@ -602,11 +584,15 @@ function _ITEMOPTIONEXTRACT_EXEC()
 	local resultGbox = GET_CHILD_RECURSIVELY(frame, 'resultGbox')
 	resultGbox:ShowWindow(0)
 
-	local argList = string.format("%d", extractKitIconInfo.type);
-	pc.ReqExecuteTx_Item("EXTRACT_ITEM_OPTION", invItem:GetIESID(), argList)
-	
-	return
-
+	if frame:GetUserValue('ROLLBACK_MODE') == 'YES' then
+		session.ResetItemList();
+		session.AddItemID(invItem:GetIESID(), 1);
+		local resultlist = session.GetItemIDList();
+		item.DialogTransaction('ROLLBACK_ICOR', resultlist);
+	else
+		local argList = string.format("%d", extractKitIconInfo.type);	
+		pc.ReqExecuteTx_Item("EXTRACT_ITEM_OPTION", invItem:GetIESID(), argList);
+	end
 end
 
 function SUCCESS_ITEM_OPTION_EXTRACT(frame)
@@ -870,7 +856,7 @@ function REMOVE_OPTIONEXTRACT_TARGET_ITEM(frame)
 	frame = frame:GetTopParentFrame();
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 	slot:ClearIcon();
-	CLEAR_ITEMOPTIONEXTRACT_UI()
+	CLEAR_ITEMOPTIONEXTRACT_UI(frame);
 end
 
 function REMOVE_OPTIONEXTRACT_KIT_TARGET_ITEM(frame)
@@ -899,20 +885,15 @@ function ITEMOPTIONEXTRACT_INV_RBTN(itemObj, slot)
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
-	local obj = GetIES(invItem:GetObject());
-	
+	local obj = GetIES(invItem:GetObject());	
 	local extractSlot = GET_CHILD_RECURSIVELY(frame, "slot");
-	local slotInvItem = GET_SLOT_ITEM(extractSlot);
-	
+	local slotInvItem = GET_SLOT_ITEM(extractSlot);	
 	if extractSlot:GetIcon() == nil then
-
-		CLEAR_ITEMOPTIONEXTRACT_UI()
-		ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, iconInfo:GetIESID()); 
-	elseif icon ~= nil then
+		CLEAR_ITEMOPTIONEXTRACT_UI(frame);
+		_ITEM_OPTIONEXTRACT_REG_TARGETITEM(frame, iconInfo:GetIESID()); 
+	elseif icon ~= nil then -- 추출 키트
 		local extractKitSlot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot")
-		local extractKitIcon = extractKitSlot:GetIcon()
-		
+		local extractKitIcon = extractKitSlot:GetIcon()		
 		ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, iconInfo:GetIESID());
 	end
-
 end

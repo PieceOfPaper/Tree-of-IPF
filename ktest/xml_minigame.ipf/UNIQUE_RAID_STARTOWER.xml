@@ -1,0 +1,2756 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="UNIQUE_RAID_STARTOWER" minLv="0" maxLv="0" mapName="uniq_startower_raid" playerCountCheckDestroy="1" startWaitSec="0">
+        <StageList>
+            <Stage Name="setting">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="WelcomeNotice">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="init"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마족과 결탁하여, 음모를 꾸미고 있는 이그나스를 찾아 처치해주세요"/>
+                                <Str Str="timestart"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="ValueInit">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_MODE"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="INIT_CHAT_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE1_CHAT_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_CLEAR"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_D"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_G"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_Y"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_B"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_R"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_CNT"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4_CLEAR"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4_CNT"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Init_msg">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="4"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="별의 탑 폐쇄 구역에 입장했습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="gate">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150044" Pos="-895.01#1046.27#736.89" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="150044" Pos="-898.93#1017.15#535.71" angle="-90" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="150042" Pos="423.88#932.66#764.79" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="150042" Pos="724.61#1048.45#253.01" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="150042" Pos="718.22#1016.05#-409.14" genCount="1" genTime="20000" objectKey="4"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="control" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Pc_Count">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="control"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="모든 PC가 사망하였습니다"/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="TimeOut">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="control"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="1시간을 초과하여 던전 공략에 실패했습니다"/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="fail" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Out">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="out"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="success" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+                        <Str Str="Indun_StarTower_uniqe_raid"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Out">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="out"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="out" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="30초 후 원래 있던 지역으로 돌아갑니다"/>
+                        <Str Str="Clear"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="30"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Out">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_GUILD_INDUN_EXIT" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="init" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="150023" Pos="-1323.73#957.32#649.80" angle="46" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;WlkMSPD&apos; &apos;80&apos; &apos;RunMSPD&apos; &apos;80&apos; ">
+                        <SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1139.0184" Y="957.32031" Z="752.32861"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_RAMUNASU_INIT_NPC_AI_1"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="255"/>
+                                    <Num Num="255"/>
+                                    <Num Num="255"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_SLEEP" Client="NO" UseSleep="YES">
+                                    <Num Num="5000"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+                                    <Str Str="UNIQ_STARTTOWER_RAMUNASU_INIT_NPC_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_CHAT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="내가 좀 늦었군"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="starter_1_1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="INIT_CHAT_1"/>
+                                <Str Str="OVER"/>
+                                <Num Num="6"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="init"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1_1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="몬스터를 처치하고 영혼을 수집하세요{nl}수집한 영혼으로 영혼집약기를 충전하면 결계를 해제할 수 있습니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="352.16611" Y="895.02045" Z="572.36328"/>
+                        <Str Str="STAGE_1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="150033" Pos="320.15#894.40#586.14" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_1_1_NPC&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_OPEN_GATE"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150034" Pos="-199.09#999.52#1145.18" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="30"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150034" Pos="-117.31#915.09#838.20" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="2">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="30"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150034" Pos="-419.83#940.75#1633.86" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="3">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="30"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150034" Pos="-636.83#1048.49#933.91" range="300" maxStackCount="1" genTime="60000" genReadyTime="10000" objectKey="4">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="30"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150023" Pos="329.84#893.69#528.10" angle="88" genCount="1" genTime="20000" objectKey="5" autoDestroy="0" propList="&apos;Enter&apos; &apos;STARTTOWER_RAMUNASU_STAGE1_NPC_AI_RUN&apos; ">
+                        <SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="ASTD"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Gate_Kill">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="gate/0"/>
+                                <Str Str="SCR_Unique_Raid_StarTower_Stage_Door_Effect_90_remove"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="init"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1_2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_1"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59196" Pos="-134.26#999.83#1118.45" range="150" genCount="1" genTime="20000" objectKey="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59196" Pos="-145.11#1000.04#1210.81" range="150" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59196" Pos="-24.15#1000.03#1096.73" range="150" genCount="1" genTime="20000" objectKey="2" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59196" Pos="-190.86#999.45#1020.02" range="150" genCount="1" genTime="20000" objectKey="3" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59196" Pos="-304.59#999.43#1135.07" range="150" genCount="1" genTime="20000" objectKey="4" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59196" Pos="-267.20#999.43#1275.67" range="150" genCount="1" genTime="20000" objectKey="5" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59195" Pos="-185.55#905.05#712.61" range="150" genCount="1" genTime="20000" objectKey="6" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59195" Pos="-159.69#909.10#832.04" range="150" genCount="1" genTime="20000" objectKey="7" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59195" Pos="-134.67#951.48#903.74" range="150" genCount="1" genTime="20000" objectKey="8" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59195" Pos="-153.97#905.05#764.14" range="150" genCount="1" genTime="20000" objectKey="9" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59202" Pos="-494.19#988.43#1199.93" range="150" genCount="1" genTime="20000" objectKey="10" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59202" Pos="-175.48#999.99#1384.40" range="150" genCount="1" genTime="20000" objectKey="11" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59202" Pos="2.12#1000.07#1012.17" range="150" genCount="1" genTime="20000" objectKey="12" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="150"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_1_KILL_MON"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_BTREE" Client="NO" UseSleep="NO">
+                                    <Num Num="4"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="MonGen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage1_2/0/stage1_2/1/stage1_2/2/stage1_2/3/stage1_2/4/stage1_2/5/stage1_2/6/stage1_2/7/stage1_2/8/stage1_2/9/stage1_2/10/stage1_2/11/stage1_2/12"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage1_2/0/stage1_2/1/stage1_2/2/stage1_2/3/stage1_2/4/stage1_2/5/stage1_2/6/stage1_2/7/stage1_2/8/stage1_2/9/stage1_2/10/stage1_2/11/stage1_2/12"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Gether_Soul">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage1_1/1/stage1_1/2/stage1_1/3/stage1_1/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage1_1/1/stage1_1/2/stage1_1/3/stage1_1/4"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_CLEAR"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="UNIQ_STARTTOWER_STAGE_1_RESET"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage1_1/5"/>
+                                <Str Str="STARTTOWER_RAMUNASU_STAGE1_RAMUNAS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Notice">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="UNIQ_STARTTOWER_STAGE_1_NOTICE_START"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="UNIQ_STARTTOWER_STAGE_1_NOTICE_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="gate/2"/>
+                                <Str Str="SCR_Unique_Raid_StarTower_Stage_Door_Effect_0_remove"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage2_1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="726.95074" Y="987.41345" Z="1378.5941"/>
+                        <Str Str="STAGE_2"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="150025" Pos="718.24#987.41#1411.21" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;100&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_TOWER_AI"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_TOWER_AI_HIT"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_TOWER_AI_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150031" Pos="724.58#987.41#972.78" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;25&apos; &apos;Enter&apos; &apos;UNIQ_STARTTOWER_STAGE_2_CTRL_NPC&apos; &apos;Name&apos; &apos;검은색 마력 제어 장치&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_NPC_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150035" Pos="709.49#987.41#767.40" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;25&apos; &apos;Enter&apos; &apos;UNIQ_STARTTOWER_STAGE_2_CTRL_NPC&apos; &apos;Name&apos; &apos;초속색 마력 제어 장치&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_NPC_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150036" Pos="859.58#987.41#722.82" genCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;25&apos; &apos;Enter&apos; &apos;UNIQ_STARTTOWER_STAGE_2_CTRL_NPC&apos; &apos;Name&apos; &apos;노란색 마력 제어 장치&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_NPC_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150037" Pos="954.06#987.41#812.27" genCount="1" genTime="20000" objectKey="4" autoDestroy="0" propList="&apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;25&apos; &apos;Enter&apos; &apos;UNIQ_STARTTOWER_STAGE_2_CTRL_NPC&apos; &apos;Name&apos; &apos;파란색 마력 제어 장치&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_NPC_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150038" Pos="915.17#987.41#966.19" genCount="1" genTime="20000" objectKey="5" autoDestroy="0" propList="&apos;OnlyPCCheck&apos; &apos;NO&apos; &apos;Range&apos; &apos;25&apos; &apos;Enter&apos; &apos;UNIQ_STARTTOWER_STAGE_2_CTRL_NPC&apos; &apos;Name&apos; &apos;붉은색 마력 제어 장치&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_CTRL_NPC_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150023" Pos="520.82#987.41#926.32" angle="-16" genCount="1" genTime="20000" objectKey="6">
+                        <SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_RAMUNASU_STAGE2_UPDATE"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="255"/>
+                                    <Num Num="255"/>
+                                    <Num Num="255"/>
+                                    <Num Num="150"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_ground065_smoke" Arg="0.5"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                                    <Str Str="astd"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG3"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage2_2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_2"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="150026" Pos="946.24#987.41#736.35" maxStackCount="1" genTime="10000" autoGen="0" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150027" Pos="767.07#987.41#1311.88" maxStackCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150028" Pos="889.12#987.41#1549.22" maxStackCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150029" Pos="829.93#987.41#1482.58" maxStackCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150030" Pos="1028.49#987.41#902.08" maxStackCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59198" Pos="812.61#987.41#872.14" range="70" maxStackCount="5" genTime="5000" objectKey="5" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_MON_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59198" Pos="694.58#987.41#1028.36" range="70" maxStackCount="5" genTime="10000" objectKey="6" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_MON_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59198" Pos="1053.13#987.41#886.33" range="70" maxStackCount="5" genTime="10000" objectKey="7" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_MON_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59200" Pos="932.39#987.41#1475.25" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="8" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_MON_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59201" Pos="537.80#987.70#1512.04" range="70" genCount="1" genTime="20000" autoGen="0" objectKey="9" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="500"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_MON_DEAD"/>
+                                </ToolScp>
+                            </DeadList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150026" Pos="705.85#987.41#1183.32" maxStackCount="1" genTime="10000" autoGen="0" objectKey="10" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150026" Pos="506.44#987.41#938.12" maxStackCount="1" genTime="10000" autoGen="0" objectKey="11" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150026" Pos="557.95#987.64#1363.40" maxStackCount="1" genTime="10000" autoGen="0" objectKey="12" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150030" Pos="850.50#987.41#1056.11" maxStackCount="1" genTime="20000" autoGen="0" objectKey="13" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150030" Pos="708.16#987.41#1524.14" maxStackCount="1" genTime="20000" autoGen="0" objectKey="14" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150030" Pos="774.79#987.41#618.87" maxStackCount="1" genTime="20000" autoGen="0" objectKey="15" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150027" Pos="645.53#987.41#1021.37" maxStackCount="1" genTime="20000" autoGen="0" objectKey="16" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150027" Pos="584.93#987.41#918.81" maxStackCount="1" genTime="20000" autoGen="0" objectKey="17" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150027" Pos="931.24#987.41#897.44" maxStackCount="1" genTime="20000" autoGen="0" objectKey="18" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150028" Pos="503.53#987.41#884.62" maxStackCount="1" genTime="20000" autoGen="0" objectKey="19" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150028" Pos="1053.04#987.41#844.84" maxStackCount="1" genTime="20000" autoGen="0" objectKey="20" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150028" Pos="770.56#987.41#1065.13" maxStackCount="1" genTime="20000" autoGen="0" objectKey="21" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150029" Pos="778.54#987.41#707.03" maxStackCount="1" genTime="20000" autoGen="0" objectKey="22" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150029" Pos="789.97#987.41#892.39" maxStackCount="1" genTime="20000" autoGen="0" objectKey="23" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150029" Pos="991.33#987.41#1387.12" maxStackCount="1" genTime="20000" autoGen="0" objectKey="24" propList="&apos;Faction&apos; &apos;Monster&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_2_BALL_NPC"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_explosion096_violet" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SetLifeTime" Client="NO" UseSleep="NO">
+                                    <Num Num="60"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_CLEAR"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_1/6"/>
+                                <Str Str="UNIQ_STARTTOWER_RAMUNASU_STAGE2_END"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="On_Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_D"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_G"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_Y"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_B"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_R"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG4"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Regen_dark">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_D"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_2/0/stage2_2/10/stage2_2/11/stage2_2/12"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage2_2/0/stage2_2/10/stage2_2/11/stage2_2/12"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Regen_green">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_G"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_2/1/stage2_2/16/stage2_2/17/stage2_2/18"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage2_2/1/stage2_2/16/stage2_2/17/stage2_2/18"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Regen_yllw">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_Y"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_2/2/stage2_2/19/stage2_2/20/stage2_2/21"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage2_2/2/stage2_2/19/stage2_2/20/stage2_2/21"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Regen_blue">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_B"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_2/3/stage2_2/22/stage2_2/23/stage2_2/24"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage2_2/3/stage2_2/22/stage2_2/23/stage2_2/24"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Regen_red">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON_R"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_2/4/stage2_2/13/stage2_2/14/stage2_2/15"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage2_2/4/stage2_2/13/stage2_2/14/stage2_2/15"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="monGen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_2/8/stage2_2/9"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_2_ON"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage2_2/8/stage2_2/9"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fail_ck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage2_1/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="마력 응축 장치를 지켜내지 못 했습니다"/>
+                                <Str Str="!"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage2_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG2"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="gate/3"/>
+                                <Str Str="SCR_Unique_Raid_StarTower_Stage_Door_Effect_0_remove"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage3_1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="719.09662" Y="1047.009" Z="-78.961998"/>
+                        <Str Str="STAGE_3"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage3_2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="STAGE_3"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59206" Pos="716.33#1047.01#-78.04" angle="-42" genCount="1" genTime="20000" objectKey="0"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="BossKill">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage3_2/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="프로디드 호스를 처치했습니다"/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Notice">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="프로디드 호스가 등장했습니다{nl}처치하여 결계를 해제하세요!"/>
+                                <Str Str="BossAppear"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage3_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG2"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="gate/4"/>
+                                <Str Str="SCR_Unique_Raid_StarTower_Stage_Door_Effect_0_remove"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage4_1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="741.30621" Y="972.52692" Z="-835.69806"/>
+                        <Str Str="Stage_4"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="150032" Pos="730.85#972.56#-918.33" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_4_CONTROL_NPC&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_CONTROL_AI_UPDATE"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_CONTROL_AI_BORN"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150040" Pos="152.75#979.73#-845.62" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;서쪽 동력 장치&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_POWER_AI_HIT"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_POWER_AI_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150041" Pos="1291.10#981.17#-845.48" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;동쪽 동력 장치&apos; ">
+                        <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_POWER_AI_HIT"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_POWER_AI_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="150023" Pos="688.57#972.72#-915.29" angle="-2" genCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;HPCount&apos; &apos;30&apos; &apos;Faction&apos; &apos;Our_Forces&apos; ">
+                        <SelfAI UpdateMS="3000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_RAMUNAS_AI_UPDATE"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_RAMUNAS_AI_HIT"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="UNIQ_STARTTOWER_STAGE_4_RAMUNAS_AI_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_CREATE_POS" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG6"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FailCnt_RAMUNAS">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_1/3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG7"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_1/3"/>
+                                <Str Str="UNIQ_STARTTOWER_STAGE_4_RAMUNAS_END"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="FailCnt_OBJ">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_1/1/stage4_1/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG8"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage4_2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="Stage_4"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59204" Pos="130.73#973.21#-959.73" range="200" genCount="1" maxStackCount="30" genTime="1000" autoGen="0" objectKey="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59197" Pos="1452.81#975.34#-843.61" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59199" Pos="610.07#972.97#-797.90" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="2" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59202" Pos="136.12#973.21#-716.29" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="3" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59205" Pos="1292.26#973.22#-716.36" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="4" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59203" Pos="831.77#972.26#-800.74" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="5" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59199" Pos="4.75#973.21#-996.94" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="6" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59202" Pos="819.98#972.30#-896.11" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="7" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59199" Pos="1284.52#973.21#-1035.81" range="200" genCount="1" maxStackCount="30" genTime="1000" autoGen="0" objectKey="8" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59205" Pos="716.57#972.98#-680.47" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="9" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59197" Pos="-12.73#979.01#-814.55" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="10" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59203" Pos="1394.45#971.93#-968.84" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="11" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
+                                    <Num Num="1200"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Clear_ck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4_CNT"/>
+                                <Str Str="OVER"/>
+                                <Num Num="600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4_CLEAR"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4_CLEAR"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase1_timmer" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_4_CLEAR"/>
+                                <Str Str="=="/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage4_2/0/stage4_2/3/stage4_2/6/stage4_2/10"/>
+                                <Num Num="7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase1_monKill"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG12"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase1_monKill" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_2/0/stage4_2/3/stage4_2/6/stage4_2/10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase2_timmer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG13"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase2_timmer" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
+                                <Num Num="7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase2_monKill"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase2_monKill" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase3_timmer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG14"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase3_timmer" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
+                                <Num Num="7"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase3_monKill"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase3_monKill" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase4_timmer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG15"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase4_timmer" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage4_2/3/stage4_2/11"/>
+                                <Num Num="10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase4_monKill"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Phase4_monKill" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_2/3/stage4_2/11"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase1_timmer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG12"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="PhaseStarter">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Phase1_timmer"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG12"/>
+                                <Num Num="8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="MoreGen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_2/6/stage4_2/7/stage4_2/8/stage4_2/9/stage4_2/10/stage4_2/11"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage4_1/2/stage4_1/1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage4_2/6/stage4_2/7/stage4_2/8/stage4_2/9/stage4_2/10/stage4_2/11"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage4_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="balloon">
+                        <execList>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG11"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage5_1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+                        <AbsPos X="-58.792786" Y="1225.9944" Z="16.739332"/>
+                        <Str Str="Stage_5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="next">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="gate/1"/>
+                                <Str Str="SCR_Unique_Raid_StarTower_Stage_Door_Effect_90_remove"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="이그나스가 등장했습니다!"/>
+                                <Str Str="BossAppear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="WarpPC">
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+                                <AbsPosRange X="-1195.1747" Y="957.32031" Z="644.90472" Range="40"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
+                                <Str Str="Unique_Raid_StarTower_Stage_MSG9"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage5_2" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+                        <Str Str="Stage_5"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="59207" Pos="-60.75#1225.99#9.75" angle="116" genCount="1" genTime="20000" objectKey="0"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="BossKill">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage5_2/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="이그나스를 처치했습니다!"/>
+                                <Str Str="Clear"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="UniqueRaid: Indun_StarTower_uniqe_raid"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage5_3" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="End">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="test" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="현재 테스트용 스테이지가 실행 중입니다{nl}문제가 해결 되면 본  Stage를 off시켜 주세요"/>
+                        <Str Str="!"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Test_Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_RESET"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_1"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_UR_ST_STAGE_DEBUG_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage2">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_2"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_3"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage4">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_4"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Stage5">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_5"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_STAGE_5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="AllReset">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_RESET"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="control"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="success"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="out"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="init"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage1_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage2_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage3_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage4_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="stage5_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_RESET"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="DebugPrint">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_UR_ST_STAGE_DEBUG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DelGate">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TEST_MODE"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="gate/0/gate/1/gate/2/gate/3/gate/4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

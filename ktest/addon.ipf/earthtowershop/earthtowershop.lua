@@ -54,6 +54,13 @@ function REQ_PVP_MINE_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_MASSIVE_CONTENTS_SHOP1_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'MCShop1');
+	ui.OpenFrame('earthtowershop');
+end
+
+
 function EARTH_TOWER_SHOP_OPEN(frame)
 	if frame == nil then
 		frame = ui.GetFrame("earthtowershop")
@@ -86,7 +93,7 @@ function EARTH_TOWER_SHOP_OPEN(frame)
 end
 
 function  EARTH_TOWER_SHOP_OPTION(frame, ctrl)
-  session.ResetItemList();
+    session.ResetItemList();
 	frame = frame:GetTopParentFrame();
 	local shopType = frame:GetUserValue("SHOP_TYPE");
 	EARTH_TOWER_INIT(frame, shopType);
@@ -114,6 +121,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 		title:SetText('{@st43}'..ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME"));
 	elseif shopType == 'PVPMine' then
 		title:SetText('{@st43}'..ScpArgMsg("pvp_mine_shop_name"));
+	elseif shopType == 'MCShop1' then
+		title:SetText('{@st43}'..ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME"));
 	end
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
@@ -134,6 +143,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 	tree:SetTabWidth(5);
 		
 	--��� ���� ������ ����.
+
 
 	local clslist = GetClassList("ItemTradeShop");
 	if clslist == nil then return end
@@ -459,6 +469,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
 	elseif shopType == 'PVPMine' then
 		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
+	elseif shopType == 'MCShop1' then
+		item.DialogTransaction("MASSIVE_CONTENTS_SHOP_TREAD1", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)

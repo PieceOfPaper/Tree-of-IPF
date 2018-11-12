@@ -1,4 +1,4 @@
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <Category>
 	<ReadXml Name="bonescale"/>
@@ -120,6 +120,7 @@
 	<ReadXml Name="statbase_pc"/>
 	<ReadXml Name="statbase_monster"/>
 	<ReadXml Name="statbase_monster_type"/>
+	<ReadXml Name="statbase_monster_race"/>
 	<ReadXml Name="statbase_weapon"/>
 	<ReadXml Name="statbase_weaponrank"/>
 	<ReadXml Name="statbase_armor"/>
@@ -146,7 +147,6 @@
 	<ReadXml Name="foodtable"/>
 	<ReadXml Name="zoneobject_contents"/>
 	<ReadXml Name="dismount_ani"/>
-	<ReadXml Name="partymatchmaker"/>
 	<ReadXml Name="subeffect"/>
 	<ReadXml Name="changeanim"/>
 	<ReadXml Name="cardbattle"/>
@@ -189,7 +189,7 @@
 	<ReadXml Name="statue_position"/>
 	<ReadXml Name="guild_colony"/>
 	<ReadXml Name="guild_colony_rule"/>
-  <ReadXml Name="max_pc_count_in_zone"/>
+	<ReadXml Name="max_pc_count_in_zone"/>
 	<ReadXml Name="time_event"/>
 	<ReadXml Name="item_random_reset_material"/>
 	<ReadXml Name="monster_event"/>	<ReadXml Name="specialcostume"/>
@@ -225,5 +225,6 @@
 	<ReadXml Name="UserShopPrice"/>
 	<ReadXml Name="Beauty_Shop_Preview"/>	
 	<ReadXml Name="mainquest_startnpcwarp"/>
-	<ReadXml Name="cooldown_guild"/>
+	<ReadXml Name="cooldown_guild"/>	
+	<ReadXml Name="item_seal_option"/>	
 </Category>

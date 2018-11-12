@@ -100,7 +100,8 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CSlot");
 		local imgName = GET_ITEM_ICON_IMAGE(itemObj);
         local icon = CreateIcon(pic)
-        SET_SLOT_ITEM_CLS(pic, itemObj)
+		SET_SLOT_ITEM_CLS(pic, itemObj)
+		icon:SetImage(imgName);
         SET_SLOT_STYLESET(pic, itemObj)
         if itemObj.MaxStack > 1 then        	
 			SET_SLOT_COUNT_TEXT(pic, marketItem.count, '{s16}{ol}{b}');

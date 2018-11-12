@@ -1,1 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?><!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) --><ActionDesc>	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>	<Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/></ActionDesc>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_eff_acaneenergy_shot"/>
+    <Sound frame="4.00" soundFile="skl_eff_agility_cast_eff"/>
+    <Particle frame="6" attachNode="Dummy_R_HAND" particleName="I_spread_out001_light2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="7.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Sound frame="7.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

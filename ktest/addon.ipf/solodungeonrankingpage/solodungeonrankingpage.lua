@@ -318,27 +318,18 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_CTRL(rankGbox, ctrlType, rank, week)
         end
     end
 
-    local startext = "";
+    local jobtext = "";
     for jobid, grade in pairs(jobTreeList) do
         -- 클래스 이름{@st41}
         local jobCls = GetClassByType("Job", jobid)
 
         local jobName = TryGetProp(jobCls, "Name")
-        startext = startext .. ("{@st41}").. jobName
+        jobtext = jobtext .. ("{@st41}").. jobName
         
-        -- 클래스 레벨 (★로 표시)               
-        local maxCircle = GET_JOB_MAX_CIRCLE(jobCls);
-        for i = 1 , maxCircle do
-            if i <= grade then
-                startext = startext ..('{img star_in_arrow 20 20}');
-            else
-                startext = startext ..('{img star_out_arrow 20 20}');
-            end
-        end
-        startext = startext ..('{nl}');
+        jobtext = jobtext ..('{nl}');
     end
 
-    jobTreeGbox:SetTextTooltip(startext);
+    jobTreeGbox:SetTextTooltip(jobtext);
 
 
     local maxStageText = GET_CHILD_RECURSIVELY(rankGbox, "maxStageText")

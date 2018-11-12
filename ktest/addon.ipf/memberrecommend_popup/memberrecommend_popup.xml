@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
-<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<uiframe name="memberrecommend_popup" x="0" y="0" width="400" height="165" create="open">
-	<frame layout_gravity="left bottom" margin="100 0 0 280"/>
-	<skin frameskin="test_skin_01"/>
-	<draw drawtitlebar="false" drawframe="true"/>
-	<option hideable="false" closebutton="false"/>
-	<input hittestframe="true"/>
-	<script OpenScp="MEMBERRECOMMEND_POPUP_OPEN" CloseScp="MEMBERRECOMMEND_POPUP_CLOSE"/>
-	<layer layerlevel="10"/>
+<!-- deprecated -->
+<uiframe name="memberrecommend_popup" x="0" y="0" width="0" height="0" create="open">
 	<controls>
-		<picture name="shihouette" rect="0 0 120 220" margin="0 -15 0 0" layout_gravity="left top" image="inventory_F" stretch="true"/>
-		<richtext name="cname" rect="0 0 220 80" margin="120 10 0 0" layout_gravity="left top" caption="WWWWWWWW" fixwidth="true" fontname="white_18_ol" textalign="left top"/>
-		<richtext name="fname" rect="0 0 220 80" margin="120 35 0 0" layout_gravity="left top" caption="WWWWWWWW" fixwidth="true" fontname="yellow_16_ol" textalign="left top"/>
-		<richtext name="mapch" rect="0 0 220 80" margin="0 60 10 0" layout_gravity="right top" format="%s (%s 채널)" param1="map" param1_def="defmap" param2="ch" param2_def="defch" fixwidth="false" fontname="brown_16" textalign="left top"/>
-		<richtext name="lv" rect="0 0 220 80" margin="120 60 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" format="%s 레벨" param1="level" param1_def="9999" textalign="left top"/>
-		<richtext name="job" rect="0 0 220 80" margin="120 80 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_16" format="%s (%s 랭크)" param1="jobname" param1_def="직업이름" param2="jobrank" param2_def="9999" textalign="left top"/>
-		<button name="invite" rect="0 0 130 50" margin="120 0 0 10" layout_gravity="left bottom" LBtnUpScp="MEMBER_RECOMMEND_INVITE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}초대" hittest="true" skin="test_red_button" oversound="button_over" clicksound="button_click_post"/>
-		<button name="close" rect="0 0 130 50" margin="255 0 0 10" layout_gravity="left bottom" LBtnUpScp="MEMBER_RECOMMEND_REFUSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}거절" hittest="true" skin="test_gray_button" oversound="button_over" clicksound="button_click_big_2"/>
 	</controls>
 </uiframe>

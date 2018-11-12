@@ -67,7 +67,6 @@ end
 function SHOW_PC_COMPARE(cid)
 
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
-	local jobhistory = otherpcinfo.jobHistory;
 	local frame = ui.GetFrame("compare");
 	frame:ShowWindow(1);
 
@@ -101,11 +100,11 @@ function SHOW_PC_COMPARE(cid)
 
 	local jobInfoRTxt = GET_CHILD(infoGbox,"jobInfo","ui::CRichText")
 
-	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+	local jobRank = otherpcinfo:GetJobCount();
+	local nowjobinfo = otherpcinfo:GetJobInfoByIndex(jobRank - 1);
 	local clslist, cnt  = GetClassList("Job");
 	local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 
-	local jobRank = jobhistory:GetJobHistoryCount()
 	local jobName = GET_JOB_NAME(nowjobcls, gender);
 	local level = obj.Lv
 	
@@ -145,7 +144,7 @@ function SHOW_PC_COMPARE(cid)
 	eqpSet:ShowWindow(1);
 	tolua.cast(eqpSet, "ui::CControlSet")
 
-	local imagename = ui.CaptureSomeonesFullStdImage(otherpcinfo:GetAppearance())	
+	local imagename = ui.CaptureSomeonesFullStdImage(otherpcinfo:GetAppearance(), 7);	
 	
 	local charImage = GET_CHILD(eqpSet,"shihouette","ui::CPicture");
 	charImage:SetImage(imagename)
@@ -153,19 +152,11 @@ function SHOW_PC_COMPARE(cid)
 	local eqpList = otherpcinfo:GetEquipList();
 	SET_EQUIP_LIST(eqpSet, eqpList, PC_COMPARE_SET_ICON);
 
-	
-
 	local OTHERPCJOBS = {}
-
-	for i = 0, jobhistory:GetJobHistoryCount()-1 do
-		local tempjobinfo = jobhistory:GetJobHistory(i);
-
+	for i = 0, otherpcinfo:GetJobCount() - 1 do
+		local tempjobinfo = otherpcinfo:GetJobInfoByIndex(i);
 		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
-			OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-		else
-			if tempjobinfo.grade > OTHERPCJOBS[tempjobinfo.jobID] then
-				OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-			end
+			OTHERPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
 
@@ -200,18 +191,6 @@ function SHOW_PC_COMPARE(cid)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
 		local levelFont = frame:GetUserConfig("Font_Normal");
 		
-		local startext = ""
-		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
-		for i = 1 , maxCircle do
-			if i <= grade then
-				startext = startext ..('{img star_in_arrow 20 20}')
-			else
-				startext = startext ..('{img star_out_arrow 20 20}')
-			end
-		end
-
-		levelCtrl:SetText(startext);
-
 		clsindex = clsindex + 1
 	end
 

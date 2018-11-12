@@ -1,11 +1,25 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <TextureInfo>
+	<Texture Name="sprite038" File="sprite038.dds" Size="128 256"/>
+	<Texture Name="skillrange_box" File="skillrange_box.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut88" File="skillrange_donut88.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut75" File="skillrange_donut75.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut50" File="skillrange_donut50.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut25" File="skillrange_donut25.dds" Size="512 512"/>
+	<Texture Name="skillrange_donut0" File="skillrange_donut0.dds" Size="512 512"/>
+	<Texture Name="skillrange_270" File="skillrange_270.dds" Size="512 512"/>
+	<Texture Name="skillrange_240" File="skillrange_240.dds" Size="512 512"/>
+	<Texture Name="skillrange_135" File="skillrange_135.dds" Size="512 512"/>
+	<Texture Name="skillrange_180" File="skillrange_180.dds" Size="512 512"/>
+	<Texture Name="skillrange_120" File="skillrange_120.dds" Size="512 512"/>
 	<Texture Name="skillrange_90" File="skillrange_90.dds" Size="512 512"/>
 	<Texture Name="skillrange_60" File="skillrange_60.dds" Size="512 512"/>
 	<Texture Name="skillrange_45" File="skillrange_45.dds" Size="512 512"/>
 	<Texture Name="skillrange_36" File="skillrange_36.dds" Size="512 512"/>
+	<Texture Name="skillrange_30" File="skillrange_30.dds" Size="512 512"/>
+	<Texture Name="skillrange_20" File="skillrange_20.dds" Size="512 512"/>
 	<Texture Name="skillrange_15" File="skillrange_15.dds" Size="512 512"/>
 	<Texture Name="pattern027_circle" File="pattern027_circle.dds" Size="256 256"/>
 	<Texture Name="pattern027_square" File="pattern027_square.dds" Size="256 256"/>
@@ -711,4 +725,6 @@
 	<Texture Name="fx_trail01" File="fx_trail001.dds" Size="128 128"/>
 	<Texture Name="fx_trail02" File="fx_trail002.dds" Size="64 64"/>
 	<Texture Name="fx_trail_giantaxe" File="fx_trail_giantaxe.dds" Size="256 256"/>
+	<Texture Name="critical_bg1" File="critical_bg1.tga" Size="237 96"/>
+	<Texture Name="critical_bg2" File="critical_bg2.tga" Size="237 96"/>
 </TextureInfo>

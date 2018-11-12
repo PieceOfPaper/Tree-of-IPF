@@ -1,5 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
+	<Shockwave frame="3" type="2" intensity="3" frequency="70" duration="0.7" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="3" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="4" R="100" G="80" B="50" A="100"/>
+	<BlendOff frame="5" R="0" G="0" B="0" A="0"/>
+	<Particle frame="3" attachNode="Dummy_effect_hand_R" particleName="I_explosion002_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
 	<Sound frame="0.00" soundFile="skl_wiz_firepillar_shot"/>
 </ActionDesc>

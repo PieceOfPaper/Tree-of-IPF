@@ -771,3 +771,45 @@ function SELECT_INV_SLOT_BY_GUID(guid, isSelect)
 	end
 	invSlot_All:Select(isSelect);
 end
+
+function GET_INV_ITEM_BY_ITEM_OBJ(item)	
+	if item == nil then
+		return nil;
+	end
+
+	local itemIdx = GetIESID(item);
+	if app.IsBarrackMode() == true then
+		return session.barrack.GetEquipItemByGuid(CUR_SELECT_GUID, itemIdx);
+	end
+
+	local invitem = GET_PC_ITEM_BY_GUID(itemIdx);	
+	local dummy1, dummy2;
+	if invitem == nil then
+		invitem = session.GetEtcItemByGuid(IT_WAREHOUSE, itemIdx);
+	end
+	if invitem == nil then
+		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, itemIdx);
+	end
+	if invitem == nil then
+		invitem = session.GetEtcItemByGuid(IT_SOLD, itemIdx);		
+	end
+	if invitem == nil then
+		invItem = session.GetEtcItemByGuid(IT_GUILD_JOINT, itemIdx);
+	end
+	if invitem == nil then
+		invitem = session.otherPC.GetItemByGuid(itemIdx);
+	end
+	if invitem == nil then
+		invitem = session.market.GetItemByItemID(itemIdx);
+	end
+	if invitem == nil then		
+		invitem = session.market.GetCabinetItemByItemObjID(itemIdx);		
+	end
+	if invitem == nil then
+		invitem = exchange.GetExchangeItemInfoByGuid(itemIdx);
+	end
+	if invitem == nil then
+		invitem = session.pet.GetPetEquipObjByGuid(itemIdx);
+	end
+	return invitem;
+end

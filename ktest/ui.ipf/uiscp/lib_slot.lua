@@ -277,7 +277,11 @@ function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAp
 		if isInventory ~= nil and isInventory == 1 and config.GetXMLConfig("ViewReinforceStyle") == 0 then
 
 		else
-			SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+			local reinforceLv = TryGetProp(itemCls, 'Reinforce_2');
+			if TryGetProp(itemCls, 'GroupName') == 'Seal' then
+				reinforceLv = GET_CURRENT_SEAL_LEVEL(itemCls);
+			end
+			SET_SLOT_REINFORCE_LEVEL(slot, reinforceLv);			
 		end
 	end
 
@@ -495,4 +499,16 @@ function _EXEC_SLOT_SELECT_COUNT(numberString, inputFrame)
 	slotSet:MakeSelectionList();
 
 
+end
+
+function GET_SLOT_ITEM_TYPE(slot)
+	local icon = slot:GetIcon();
+	if icon == nil then
+		return 0;		
+	end
+	local iconinfo = icon:GetInfo();
+	if iconinfo == nil then
+		return 0;
+	end
+	return iconinfo.type;
 end

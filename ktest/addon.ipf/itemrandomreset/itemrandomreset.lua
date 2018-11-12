@@ -263,7 +263,7 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 		local material_name = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_name", "ui::CRichText");
 		local material_count = GET_CHILD_RECURSIVELY(materialClsCtrl, "material_count", "ui::CRichText");
 		local gradetext2 = GET_CHILD_RECURSIVELY(materialClsCtrl, "grade", "ui::CRichText");
-	
+		
 		material_count:ShowWindow(1)
 
 		local itemName = ScpArgMsg('NotDecidedYet')
@@ -293,7 +293,13 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 					material_count:SetTextByKey("color", nil);
 				end
 				material_count:SetTextByKey("curCount", itemCount);
-				material_count:SetTextByKey("needCount", materialItemCount)
+				
+				--EVENT_1811_WEEKEND
+				if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
+    			    material_count:SetTextByKey("needCount", materialItemCount..' '..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'))
+    			else
+    				material_count:SetTextByKey("needCount", materialItemCount)
+    			end
 					
 				session.AddItemID(materialCls.ClassID, materialItemCount);
 	

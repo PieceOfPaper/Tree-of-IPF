@@ -75,6 +75,7 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LISTS()
     local rankGbox_wizard = GET_CHILD_RECURSIVELY(frame, "rankGbox_wizard")
     local rankGbox_archer = GET_CHILD_RECURSIVELY(frame, "rankGbox_archer")
     local rankGbox_cleric = GET_CHILD_RECURSIVELY(frame, "rankGbox_cleric")
+    local rankGbox_scout = GET_CHILD_RECURSIVELY(frame, "rankGbox_scout")
     if rankGbox_all ~= nil then
         --All
         SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_all, 0)
@@ -98,6 +99,11 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LISTS()
     if rankGbox_cleric ~= nil then
         --cleric
         SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_cleric, 4)
+    end
+
+    if rankGbox_scout ~= nil then
+        --cleric
+        SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_scout, 5)
     end
 end
 

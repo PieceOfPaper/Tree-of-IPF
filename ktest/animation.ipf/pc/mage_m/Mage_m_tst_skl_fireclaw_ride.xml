@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_fireclaw_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_emitter" particleName="F_wizard_fireclaw_cast_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Shockwave frame="14" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="1" frequency="60" duration="0.5" range="1000"/>
+</ActionDesc>

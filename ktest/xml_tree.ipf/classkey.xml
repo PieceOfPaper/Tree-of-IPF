@@ -430,6 +430,7 @@
         <Key Name="DynamicLifeTime" Value="103119"/>
         <Key Name="GuildCoolDownGroup" Value="103125"/>
         <Key Name="ItemGuildCoolDown" Value="103124"/>
+        <Key Name="CRTMATK" Value="103193"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1526,6 +1527,36 @@
         <Key Name="KOR_COLONY_BETA2_ENTRY_REWARD_COUNT" Value="103138"/>
         <Key Name="KOR_COLONY_BETA2_ENTRY_REWARD_DAYCHECK" Value="103136"/>
         <Key Name="KOR_COLONY_BETA2_REWARD_DAYCHECK" Value="103137"/>
+        <Key Name="HadVisited_10002" Value="103192"/>
+        <Key Name="STEAM_EVENT_INVITE_FRIEND_ROOKIE_LV_181030" Value="103141"/>
+        <Key Name="STEAM_EVENT_INVITE_FRIEND_SAVIOR_LV_181030" Value="103140"/>
+        <Key Name="HadVisited_4951" Value="103198"/>
+        <Key Name="RVR_BK_CONTRIBUTION_TEAM" Value="103199"/>
+        <Key Name="RVR_BK_USED_KEY_ITEM" Value="103197"/>
+        <Key Name="EVENT_1811_KUPOLE_FISHING_COUNT" Value="103218"/>
+        <Key Name="EVENT_1811_KUPOLE_FISHING_DATE" Value="103225"/>
+        <Key Name="EVENT_1811_KUPOLE_PLAYTIME" Value="103212"/>
+        <Key Name="EVENT_1811_KUPOLE_PLAYTIME_DATE" Value="103224"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP1" Value="103219"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP2" Value="103214"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP3" Value="103211"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP4" Value="103209"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP5" Value="103220"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP6" Value="103215"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP7" Value="103210"/>
+        <Key Name="EVENT_1811_KUPOLE_ZONEENTER" Value="103216"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_15LV_BOX" Value="103221"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_170LV_BOX" Value="103223"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_270LV_BOX" Value="103217"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_350LV_BOX" Value="103213"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_ACTIVEUSER" Value="103222"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_COUNT" Value="103208"/>
+        <Key Name="EVENT_1811_NEWCLASS_ASS_TEAM_COUNT" Value="103206"/>
+        <Key Name="EVENT_1811_NEWCLASS_OUL_TEAM_COUNT" Value="103205"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_GIVE_ABILITY_BOX" Value="103235"/>
+        <Key Name="RVR_BK_REWARD_BLESSF_PC" Value="103239"/>
+        <Key Name="RVR_BK_REWARD_COIN_PC" Value="103240"/>
+        <Key Name="RVR_BK_REWARD_CUBE_PC" Value="103238"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9233,6 +9264,28 @@
         <Key Name="IndunWeeklyEnteredCount_800" Value="103101"/>
         <Key Name="Pose_MAGICAL" Value="103103"/>
         <Key Name="GuildColonyWarpFlag" Value="103127"/>
+        <Key Name="AlcheWorkshopItemID_Combustion" Value="103163"/>
+        <Key Name="AlcheWorkshopItemID_SprinkleHP" Value="103159"/>
+        <Key Name="AlcheWorkshopItemID_SprinkleSP" Value="103169"/>
+        <Key Name="CTRLTYPE_RESET_BEFORE_CTRTYPE" Value="103168"/>
+        <Key Name="CTRLTYPE_RESET_EXCEPT" Value="103158"/>
+        <Key Name="CTRLTYPE_RESET_PLAY_COUNT" Value="103170"/>
+        <Key Name="CTRLTYPE_RESET_ZONE_ENTER_DATE" Value="103156"/>
+        <Key Name="HadVisited_10002" Value="103166"/>
+        <Key Name="HiddenJob_Char5_12" Value="103164"/>
+        <Key Name="HiddenJob_Char5_6" Value="103154"/>
+        <Key Name="Hide_2833" Value="103167"/>
+        <Key Name="IS_KANNUSHI_GENDER_CHANGE" Value="103165"/>
+        <Key Name="JOB_ASSASSIN_Q1_TRACK" Value="103155"/>
+        <Key Name="JOB_OUTLAW_Q1_TRACK" Value="103157"/>
+        <Key Name="Kill_Raid_boss_Boruta" Value="103172"/>
+        <Key Name="Kill_Raid_boss_Boruta_rest" Value="103161"/>
+        <Key Name="Kill_Raid_boss_Boruta_rest_Dir" Value="103173"/>
+        <Key Name="Kill_uniq_id_boss_ProddedHorse" Value="103171"/>
+        <Key Name="Kill_uniq_id_boss_ignas" Value="103160"/>
+        <Key Name="LEVELINFORM_GUILDJOIN" Value="103162"/>
+        <Key Name="HadVisited_4951" Value="103202"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Ignas" Value="103243"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -9766,6 +9819,18 @@
         <Key Name="EnchantPVPReducedRate" Value="103050"/>
         <Key Name="EnchantSR" Value="103058"/>
         <Key Name="EnchantSubWeaponDamageRate" Value="103053"/>
+        <Key Name="BLKABLE_BM" Value="103145"/>
+        <Key Name="CRTMATK" Value="103143"/>
+        <Key Name="CRTMATK_BM" Value="103147"/>
+        <Key Name="CastingSpeed" Value="103151"/>
+        <Key Name="CastingSpeed_BM" Value="103148"/>
+        <Key Name="HateRate" Value="103153"/>
+        <Key Name="HateRate_BM" Value="103150"/>
+        <Key Name="NormalASPD" Value="103152"/>
+        <Key Name="NormalASPD_BM" Value="103144"/>
+        <Key Name="SkillASPD" Value="103149"/>
+        <Key Name="SkillASPD_BM" Value="103146"/>
+        <Key Name="SkillWidthRange" Value="103142"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -9957,6 +10022,7 @@
         <Key Name="CommonType" Value="102228"/>
         <Key Name="IgnoreAnimWhenMove" Value="102775"/>
         <Key Name="Keyword" Value="102774"/>
+        <Key Name="ReinforceAbility" Value="103196"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Guild">
         <Key Name="AbilLevel_Farming" Value="8999"/>
@@ -10177,6 +10243,14 @@
         <Key Name="ColonyWarFirstEntryReward" Value="102303"/>
         <Key Name="ColonyWarFirstVictoryReward" Value="102304"/>
         <Key Name="GUILD_QUEST_CLEAR_COUNT" Value="103128"/>
+        <Key Name="GUILD_SYSTEM_MSG_DEF" Value="103188"/>
+        <Key Name="GUILD_SYSTEM_MSG_MAXMATK" Value="103189"/>
+        <Key Name="GUILD_SYSTEM_MSG_MAXPATK" Value="103191"/>
+        <Key Name="GUILD_SYSTEM_MSG_MDEF" Value="103190"/>
+        <Key Name="RVR_BK_CONTRIBUTION_GUILD" Value="103204"/>
+        <Key Name="BK_MGAME_BORUTA_SIGN_BUFF" Value="103233"/>
+        <Key Name="RVR_BK_REWARD_CUBE_1" Value="103242"/>
+        <Key Name="RVR_BK_REWARD_SEAL_1" Value="103241"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -10267,6 +10341,7 @@
         <Key Name="MOLE_BINGO_RANKING_POINT_2" Value="102244"/>
         <Key Name="MOLE_BINGO_RANKING_POINT_3" Value="102242"/>
         <Key Name="LIMESTONECAVE711_EVENT1_COUNT" Value="102773"/>
+        <Key Name="BK_MGAME701_BORUTA_LIVETIME_1" Value="103203"/>
     </KeyIDSpc>
     <KeyIDSpc Name="SessionObject">
         <Key Name="BOOKSHELF" Value="1079"/>
@@ -17058,6 +17133,33 @@
         <Key Name="GUILD_QUEST_WEEK1" Value="103117"/>
         <Key Name="GUILD_QUEST_WEEK1_R" Value="103118"/>
         <Key Name="MG_Last_MISSION_UPHILL_DEFFENSE_EVENT_1810" Value="103135"/>
+        <Key Name="CHARACTER_ATTENDANCE_CHECK" Value="103180"/>
+        <Key Name="GUILD_SYSTEM_MSG_MAX_LEVEL" Value="103181"/>
+        <Key Name="GUILD_SYSTEM_MSG_MAX_RANK" Value="103177"/>
+        <Key Name="JOB_ASSASSIN_Q1" Value="103186"/>
+        <Key Name="JOB_ASSASSIN_Q1_FC" Value="103179"/>
+        <Key Name="JOB_ASSASSIN_Q1_PI" Value="103176"/>
+        <Key Name="JOB_ASSASSIN_Q1_R" Value="103182"/>
+        <Key Name="JOB_ASSASSIN_Q1_SRL" Value="103183"/>
+        <Key Name="JOB_OUTLAW_Q1" Value="103184"/>
+        <Key Name="JOB_OUTLAW_Q1_FC" Value="103178"/>
+        <Key Name="JOB_OUTLAW_Q1_PI" Value="103175"/>
+        <Key Name="JOB_OUTLAW_Q1_R" Value="103187"/>
+        <Key Name="JOB_OUTLAW_Q1_SRL" Value="103185"/>
+        <Key Name="MG_Last_UNIQUE_RAID_STARTOWER" Value="103174"/>
+        <Key Name="MG_Last_RVR_RAID_BORUTOS_KAPAS_1" Value="103200"/>
+        <Key Name="RVR_BK_TUTORIAL_1" Value="103201"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_CHAR_USE" Value="103228"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_CREATE_CHAR" Value="103231"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST1" Value="103232"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST2" Value="103227"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST_REWARD1" Value="103226"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST_REWARD2" Value="103230"/>
+        <Key Name="EVENT_1811_RANKRESET_DATE" Value="103207"/>
+        <Key Name="TUTO_RANK_REST_POINT_SYSTEM" Value="103229"/>
+        <Key Name="TUTO_RANK_RESET_POINT_SYSTEM" Value="103234"/>
+        <Key Name="EVENT_1811_ABILITY_EXTRACTOR_EXCEPT" Value="103236"/>
+        <Key Name="EVENT_1811_ABILITY_EXTRACTOR_USE" Value="103237"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>
@@ -17483,6 +17585,8 @@
         <Key Name="TR" Value="6607"/>
         <Key Name="TR_BM" Value="6601"/>
         <Key Name="Velnias_Defence" Value="6644"/>
+        <Key Name="GiveEXP" Value="103194"/>
+        <Key Name="Keyword" Value="103195"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PartyMember">
         <Key Name="Auth_Raid" Value="7223"/>

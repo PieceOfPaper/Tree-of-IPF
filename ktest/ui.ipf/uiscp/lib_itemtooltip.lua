@@ -27,19 +27,21 @@ function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
 	return 'None'
 end
 
-function IS_NEED_DRAW_GEM_TOOLTIP(invitem)
-
-	local cnt = 0
-	for i=0, invitem.MaxSocket-1 do
-		if invitem['Socket_' .. i] > 0 then
+function IS_NEED_DRAW_GEM_TOOLTIP(itemObj)
+	local invitem = GET_INV_ITEM_BY_ITEM_OBJ(itemObj);	
+	if invitem == nil then
+		return false;
+	end
+	local cnt = 0;
+	for i = 0, itemObj.MaxSocket - 1 do
+		if invitem:IsAvailableSocket(i) == true then
 			cnt = cnt + 1;
 		end
 	end
 
 	if cnt <= 0 then 
-	return false
+		return false;
 	end
-
 	return true
 
 end
@@ -147,6 +149,14 @@ function GET_USEJOB_TOOLTIP(invitem)
     			end
     			resultstr = resultstr .. ScpArgMsg("USEJOB_CLE")
     		end
+    		local char5 = string.find(usejob, 'Char5')
+    
+    		if char5 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_SCO")
+    		end
 		end
 	end
 
@@ -218,16 +228,12 @@ end
 
 function GET_ICONNAME_BY_WHENEQUIPSTR(innerCSet, str)
 
-	if str == 'WhenEquipToWeapon' then
+	if str == 'WhenEquipToMainOrSubWeapon' then
 		return innerCSet:GetUserConfig("SWORD_ICON")
-	elseif str == 'WhenEquipToSubWeapon' then
-		return innerCSet:GetUserConfig("DEFENSE_ICON")
 	elseif str == 'WhenEquipToShirtsOrPants' then
-		return innerCSet:GetUserConfig("ARMOR_ICON")
-	elseif str == 'WhenEquipToBoots' then
-		return innerCSet:GetUserConfig("SHOES_ICON")
-	elseif str == 'WhenEquipToGlove' then
-		return innerCSet:GetUserConfig("GLOVE_ICON")
+		return innerCSet:GetUserConfig("DEFENSE_ICON")
+	elseif str == 'WhenEquipToHandOrFoot' then
+		return innerCSet:GetUserConfig("DEFENSE_ICON")
 	end
 
 end
@@ -239,8 +245,8 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 
 	local cnt = GroupCtrl:GetChildCount();
 	
-	local ControlSetObj			= GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
-	local ControlSetCtrl		= tolua.cast(ControlSetObj, 'ui::CControlSet');
+	local ControlSetObj = GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
+	local ControlSetCtrl = tolua.cast(ControlSetObj, 'ui::CControlSet');
 
 	local socket_image = GET_CHILD(ControlSetCtrl, "socket_image", "ui::CPicture");
 	local socket_property_text = GET_CHILD(ControlSetCtrl, "socket_property", "ui::CRichText");
@@ -248,7 +254,6 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 
 	local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
 	local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
---	local STAR_SIZE = ControlSetObj:GetUserConfig("STAR_SIZE")
 	if gem == 0 then
 		local socketCls = GetClassByType("Socket", socket);
 		socketicon = socketCls.SlotIcon
@@ -282,8 +287,7 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 		local socketProp = prop:GetSocketPropertyByLevel(lv);
 		local type = invitem.ClassID;
 		local cnt = socketProp:GetPropCountByType(type);
---		gradetext:SetText(GET_STAR_TXT(STAR_SIZE,lv))
-gradetext:SetText("Lv " .. lv)
+		gradetext:SetText("Lv " .. lv)
 		gradetext:ShowWindow(1)
 
 		for i = 0 , cnt - 1 do
@@ -603,7 +607,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	local invitem = nil;
 	if strarg == 'select' then
 		invitem = session.GetSelectItemByIndex(guid);
-	elseif strarg == 'soldItem' then
+	elseif strarg == 'soldItem' then		
 		invitem = GET_SOLDITEM_BY_INDEX(guid);
 	elseif strarg == 'equip' then
 		invitem = GET_ITEM_BY_GUID(guid, 1);
@@ -613,11 +617,13 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	elseif strarg == 'dummyPC' then
 		invitem = GET_DUMMYPC_ITEM(guid, numarg1);
 	elseif strarg == "warehouse" then
-		invitem = session.GetWarehouseItemByGuid(guid);
+		invitem = session.GetWarehouseItemByGuid(guid);		
 	elseif strarg == "accountwarehouse" then
 		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, guid);
 	elseif strarg == "party" then
-		invitem = GetItemByID(guid, session.party.GetPartyInfo().inv);
+		if session.party.GetPartyInfo() ~= nil then
+			invitem = GetItemByID(guid, session.party.GetPartyInfo().inv);
+		end
 	elseif strarg == "exchange" then
 		local idx = math.floor(guid / 10);
 		local listIndex = guid % 10;
@@ -660,15 +666,15 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			end
 		end
 	elseif strarg == "guildwarehouse" then
-		invitem = session.GetEtcItemByGuid(IT_GUILD, guid);
+		invitem = session.GetEtcItemByGuid(IT_GUILD_JOINT, guid);
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
 
 	if invitem ~= nil and invitem:GetObject() ~= nil then
 		local itemObj = GetIES(invitem:GetObject());		
-		if itemObj.ClassName ~= MONEY_NAME then						
-			return itemObj, 0;
+		if itemObj.ClassName ~= MONEY_NAME then	
+			return itemObj, 0, invitem;
 		end
 	end
 
@@ -873,10 +879,10 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 	local overReinf = TryGetProp(pc, 'OverReinforce');
 
 	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
-		bonusReinf = 0;
+		overReinf = 0;
 	end
 	if TryGetProp(invitem, 'GroupName') ~= 'Weapon' or isEquiped == 0 then
-		overReinf = 0;
+		bonusReinf = 0;
 	end
 	if isEquiped == 0 then
 		ignoreReinf = 0;
@@ -979,7 +985,7 @@ end
 function ABILITY_CHANGEVALUE_SKINSET(tooltipframe, itemtype, invitem, equipItem)
 	local valueUp = IS_VALUE_UP_BY_CHANGE_ITEM(itemtype, invitem, equipItem);
 	local gbox = GET_CHILD(tooltipframe,'changevalue','ui::CGroupBox')
-
+	
 	if valueUp == 0 then
 		gbox:SetSkinName("comparisonballoon_negative");
 	else
@@ -1128,7 +1134,7 @@ function ABILITY_DESC_PLUS_OLD(desc, basic, cur, color)
 	end
 end
 
-function ABILITY_DESC_PLUS(desc, cur)    
+function ABILITY_DESC_PLUS(desc, cur)   
 
     if cur < 0 then
         return string.format(" - %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
@@ -1138,14 +1144,23 @@ function ABILITY_DESC_PLUS(desc, cur)
 
 end
 
-function ABILITY_DESC_NO_PLUS(desc, cur)
+function GET_OPTION_VALUE_OR_PERCECNT_STRING(optionName, optionValue)
+	local commonPropList = GET_COMMON_PROP_LIST();
+	for i = 1, #commonPropList do
+		if optionName == commonPropList[i] then
+			return ABILITY_DESC_PLUS(ClMsg(optionName), optionValue);
+		end
+	end
+	local percentText = string.format('%d', optionValue / 10);
+	return ' - '..ScpArgMsg(optionName, 'value', percentText);
+end
 
+function ABILITY_DESC_NO_PLUS(desc, cur)
     if cur < 0 then
         return string.format(" %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
     else
     	return string.format(" %s "..ScpArgMsg("PropUp").."%d", desc, math.abs(cur));
 	end
-
 end
 
 function ABILITY_DESC_GENERAL(desc, basic, cur, color)

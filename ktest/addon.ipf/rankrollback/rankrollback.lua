@@ -47,7 +47,6 @@ function RANKROLLBACK_CHECK_PLAYER_STATE(frame)
 	RANKROLLBACK_PC_LOCATE(frame);
 	RANKROLLBACK_PC_AUTOSELLER_STATE(frame);
 	RANKROLLBACK_PC_TIMEACTION_STATE(frame);
-    RANKROLLBACK_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame);
 end
 
 function RANKROLLBACK_PC_TIMEACTION_STATE(frame)
@@ -205,19 +204,14 @@ function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
         ui.MsgBox_NonNested(ClMsg('YouHaveRankCardReallyRankReset?'), 0x00000000, frame:GetName(), 'None', 'None');
         return;
     end
-
-    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
-        ui.SysMsg(ClMsg('CannotRankResetBecauseUniqueTemplerMaster'));
-        return;
-    end
     
     local templerCls = GetClass('Job', 'Char1_16');    
     if AM_I_LEADER(PARTY_GUILD) == 1 and IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
         local yesscp = string.format("RANKROLLBACK_REQUEST_RANK_RESET()");
         ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
         return;
-    end
-
+	end
+	
     RANKROLLBACK_REQUEST_RANK_RESET();
 end
 
@@ -239,9 +233,10 @@ function CHECK_INVENTORY_HAS_RANK_CARD()
 end
 
 function RANKROLLBACK_REQUEST_RANK_RESET()
-    local frame = ui.GetFrame('rankrollback');
-    local itemIES = frame:GetUserValue("itemIES");
-	packet.RequestRankResetSystem(1 , "0");
+	local frame = ui.GetFrame('rankrollback');
+	local targetJobID = frame:GetUserIValue('TARGET_JOB_CLASS_ID');
+	local destJobID = frame:GetUserIValue('DEST_JOB_CLASS_ID')
+	session.job.ReqClassExchange(targetJobID, destJobID);
 end
 
 function RANKROLLBACK_CANCEL_BUTTON_CLICK(frame, ctrl)
@@ -264,27 +259,7 @@ function RANKROLLBACK_DELETE_RANK_CARD(className)
     ui.MsgBox(ClMsg('DeleteCardBecauseYourRankTooHigh'), yesScp, 'None');
 end
 
-function RANKROLLBACK_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame)
-    local enable = 1;
-    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
-        enable = 0;
-    end    
-    local master_check = GET_CHILD(frame, 'master_check');
-    master_check:SetCheck(enable);
-end
-
 function OPEN_RANKROLLBACK_UI_BY_SYSMENU()
     ui.OpenFrame('changejob');
     CHANGEJOB_SHOW_RANKROLLBACK();
-end
-
-function RANKROLLBACK_BTN_CLICK(parent, ctrl)	
-	if ctrl:GetUserValue('ENABLE_RANKROLLBACK') == 'NO' then
-		return;
-	end
-    ui.CloseFrame('changejob');
-
-    local frame = ui.GetFrame("rankrollback");
-	frame:ShowWindow(1)
-	RANKROLLBACK_CHECK_PLAYER_STATE(frame);
 end

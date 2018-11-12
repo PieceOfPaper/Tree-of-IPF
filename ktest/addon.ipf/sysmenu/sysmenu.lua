@@ -14,6 +14,7 @@ function SYSMENU_ON_INIT(addon, frame)
 	addon:RegisterMsg('SERV_UI_EMPHASIZE', 'ON_UI_EMPHASIZE');
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "SYSMENU_ON_MSG");
 	addon:RegisterMsg("PREMIUM_NEXON_PC", "SYSMENU_ON_MSG");
+	addon:RegisterMsg("ENABLE_PCBANG_SHOP", "SYSMENU_ON_MSG");
     	
 	frame:EnableHideProcess(1);
 
@@ -40,11 +41,13 @@ function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 		SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 	end
 
-	if msg == "PREMIUM_NEXON_PC" then
+	if msg == "PREMIUM_NEXON_PC" or msg == "ENABLE_PCBANG_SHOP" then
 		if argNum == 1 then
 			SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 			if IS_PCBANG_POINT_TIMER_CHECKED() == 1 then
 				ui.OpenFrame("pcbang_point_timer");
+				local timerFrame = ui.GetFrame("pcbang_point_timer");
+				PCBANG_POINT_TIMER_SET_MARGIN(timerFrame);
 			end
 		end
 	end
@@ -87,6 +90,7 @@ end
 function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 
 	if false == VARICON_VISIBLE_STATE_CHANTED(frame, "necronomicon", "necronomicon")
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "customdrag", "customdrag")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "grimoire", "grimoire")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
@@ -103,7 +107,8 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
     local guildRank = frame:GetChild('guildRank');
     local offsetX = extraBag:GetX() - guildRank:GetX()
 	local rightMargin = guildRank:GetMargin().right + offsetX;
-	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");    
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "guildinfo", "guildinfo", "sysmenu_guild", rightMargin, offsetX, "Guild");
+	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "customdrag", "customdrag", "sysmenu_alchemist", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "necronomicon", "necronomicon", "sysmenu_card", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "grimoire", "grimoire", "sysmenu_neacro", rightMargin, offsetX);
 	rightMargin = SYSMENU_CREATE_VARICON(frame, extraBag, "poisonpot", "poisonpot", "sysmenu_wugushi", rightMargin, offsetX);	 

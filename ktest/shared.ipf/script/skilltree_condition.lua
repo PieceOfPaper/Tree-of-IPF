@@ -280,13 +280,5 @@ function SCR_CHECK_STEP(pc, treecls, totallv, treelist, ignoremaxlevel)
 end
 
 function GET_SKILLTREE_MAXLV(pc, jobName, cls)
-	local classLv = GetJobGradeByName(pc, jobName);
-	local ret = (classLv - cls.UnlockGrade + 1) * cls.LevelPerGrade;
-	if ret > cls.MaxLevel then
-		ret = cls.MaxLevel;
-	end
-
-	return ret;
+	return cls.MaxLevel;
 end
-
-
