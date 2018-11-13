@@ -742,6 +742,8 @@ function APPLY_OPTION_SOCKET(item)
 end
 
 function SCR_REFRESH_HAIRACC(item)
+    local class = GetClassByType('Item', item.ClassID);
+    INIT_ARMOR_PROP(item, class)
     for i = 1, 3 do
         local propName = "HatPropName_"..i;
         local propValue = "HatPropValue_"..i;

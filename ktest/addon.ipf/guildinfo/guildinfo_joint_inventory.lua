@@ -103,12 +103,8 @@ function ON_GUILD_JOINT_INV_ITEM_LIST_GET(frame, msg, strArg, numArg)
     local itemSlotSet = GET_CHILD_RECURSIVELY(frame, "guildItemSlotset")
     itemSlotSet:ClearIconAll()
     local itemList = session.GetEtcItemList(IT_GUILD_JOINT);
-    local index = itemList:Head()
-    local slotIndex=0
-
-    while itemList:InvalidIndex() ~= index do
-        local invItem = itemList:Element(index);
-        local itemCls = GetIES(invItem:GetObject());
+    FOR_EACH_INVENTORY(itemList, function(invItemList, invItem, itemSlotSet)
+		local itemCls = GetIES(invItem:GetObject());
         local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
         local slot = itemSlotSet:GetSlotByIndex(invItem.invIndex);
         if slot == nil then
@@ -122,9 +118,8 @@ function ON_GUILD_JOINT_INV_ITEM_LIST_GET(frame, msg, strArg, numArg)
         SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemCls, nil);        
         SET_ITEM_TOOLTIP_ALL_TYPE(slot:GetIcon(), invItem, itemCls.ClassName, 'guildwarehouse', itemCls.ClassID, invItem:GetIESID());        
         slot:ShowWindow(1)
-        slotIndex = slotIndex + 1;
-        index = itemList:Next(index);
-    end
+    end, false, itemSlotSet);
+
     control.CustomCommand("REQ_GUILD_MILEAGE_AMOUNT", 0);
     
     local itemLogDate = GET_CHILD_RECURSIVELY(frame, "itemLogDate")
@@ -145,8 +140,8 @@ function ON_JOINT_INVENTORY_DROP(slotset, slot, argStr, argNum)
     local itemIES = iconInfo:GetIESID();
 
     if fromFrame:GetName() == "inventory" then
-      
-        local slotIndex = slot:GetSlotIndex();
+
+    local slotIndex = slot:GetSlotIndex();
         
         if iconInfo.count > 1 then
             local frame = ui.GetFrame("guildinfo")
@@ -155,8 +150,8 @@ function ON_JOINT_INVENTORY_DROP(slotset, slot, argStr, argNum)
             frame:SetUserValue("ITEM_IES", itemIES)
             INPUT_NUMBER_BOX(frame, titleText, "EXEC_ITEM_DROP_COUNT_JOINT_INVENTORY", 1, 1, iconInfo.count)
         else
-        local argList = string.format("%d %d", iconInfo.count, slotIndex);
-        pc.ReqExecuteTx_Item("PUT_GUILD_JOINT_INV", itemIES, argList);
+            local argList = string.format("%d %d", iconInfo.count, slotIndex);
+            pc.ReqExecuteTx_Item("PUT_GUILD_JOINT_INV", itemIES, argList);
         end
     elseif fromFrame:GetName() == "guildinfo" then
         local hoveredSlot = slot:GetIcon();
@@ -201,7 +196,7 @@ function ON_JOINT_ITEM_TAKE(parent, control)
         return
     end
     local itemIES = iconInfo:GetIESID();
-    local argList = string.format("%d",iconInfo.count);
+    local argList = string.format("%d", iconInfo.count);
 
     if iconInfo.count > 1 then
         local frame = ui.GetFrame("guildinfo")
@@ -212,8 +207,8 @@ function ON_JOINT_ITEM_TAKE(parent, control)
 
     else
 
-    pc.ReqExecuteTx_Item("TAKE_GUILD_JOINT_INV", itemIES, argList);
-end
+        pc.ReqExecuteTx_Item("TAKE_GUILD_JOINT_INV", itemIES, argList);
+    end
 end
 
 function EXEC_ITEM_TAKE_COUNT_JOINT_INVENTORY(frame, count)

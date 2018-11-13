@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="changejob" x="0" y="0" width="1920" height="1080" create="open">
 	<frame stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="property_screenbg"/>
@@ -35,9 +35,9 @@
 		<richtext name="myResetPointText" parent="resetInfoBox" rect="0 0 300 30" margin="0 0 18 5" layout_gravity="right bottom" format="{@st43}{img class_tree_reset_icon 27 32} x%s" param1="count" param1_def="10"/>
 		<picture name="resetGauge_L" parent="resetInfoBox" rect="0 0 21 37" margin="1 18 0 0" layout_gravity="left center" image="class_tree_gauge_L" stretch="false"/>
 		<picture name="resetGauge_R" parent="resetInfoBox" rect="0 0 21 37" margin="0 18 1 0" layout_gravity="right center" image="class_tree_gauge_R" stretch="false"/>
-		<picture name="availablePic_1" parent="resetInfoBox" rect="0 0 53 65" margin="290 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
-		<picture name="availablePic_2" parent="resetInfoBox" rect="0 0 53 65" margin="540 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
-		<picture name="availablePic_3" parent="resetInfoBox" rect="0 0 53 65" margin="810 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
+		<picture name="availablePic_1" parent="resetInfoBox" rect="0 0 53 65" margin="269 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
+		<picture name="availablePic_2" parent="resetInfoBox" rect="0 0 53 65" margin="543 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
+		<picture name="availablePic_3" parent="resetInfoBox" rect="0 0 53 65" margin="817 32 0 0" layout_gravity="left top" image="class_tree_reset_icon_off" stretch="false"/>
 		<!-- Job Select -->
 		<groupbox name="jobSelectBox" rect="0 0 910 350" margin="0 0 0 0" layout_gravity="left bottom" draw="false"/>
 		<!-- Class Info -->

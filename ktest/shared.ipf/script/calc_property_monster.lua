@@ -210,7 +210,7 @@ function SCR_Get_MON_MHP(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MHP");
     value = value * raceTypeRate;
     
-    value = value * JAEDDURY_MON_MHP_RATE;      -- JAEDDURY
+--    value = value * JAEDDURY_MON_MHP_RATE;      -- JAEDDURY
     
     local byBuff = TryGetProp(self, "MHP_BM");
     if byBuff == nil then

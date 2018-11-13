@@ -448,7 +448,7 @@ function TEMP_INV_ADD(frame,invIndex)
 		end
 	end	
 
-	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex);
 	local invItem = session.GetInvItem(invIndex);	
 	local itemCls = GetClassByType("Item", invItem.type);
 
@@ -792,7 +792,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
     if msg == 'INV_ITEM_ADD' then
         TEMP_INV_ADD(frame, argNum)
     end
-	if  msg == 'EQUIP_ITEM_LIST_GET' then	        
+	if  msg == 'EQUIP_ITEM_LIST_GET' then
 		STATUS_EQUIP_SLOT_SET_ANIM(frame);
 		STATUS_EQUIP_SLOT_SET(frame);
 		SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame);	--염색버튼 숨기기/보이기
@@ -3228,8 +3228,8 @@ function SET_EQUIP_SLOT(frame, i, equipItemList, iconFunc, ...)
 		equipItemList = session.GetEquipItemList();
 	end
 
-	local equipItem = equipItemList:Element(i);    
-	SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, equipItemList, iconFunc, ...);
+	local equipItem = equipItemList:GetEquipItemByIndex(i);
+	SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, equipItemList, iconFunc, ...);	
 	
 	frame:Invalidate();
 end
@@ -3237,7 +3237,7 @@ end
 function SET_EQUIP_LIST_ANIM(frame, equipItemList, iconFunc, ...)
 
 	for i = 0, equipItemList:Count() - 1 do
-		local equipItem = equipItemList:Element(i);
+		local equipItem = equipItemList:GetEquipItemByIndex(i);
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 		if equipItem.isChangeItem == true then
 
@@ -3269,16 +3269,15 @@ function SET_EQUIP_LIST_ANIM(frame, equipItemList, iconFunc, ...)
 end
 
 function SET_EQUIP_LIST(frame, equipItemList, iconFunc, ...)
-	for i = 0, equipItemList:Count() - 1 do
-		local equipItem = equipItemList:Element(i);
-		
+	local cnt = equipItemList:Count();	
+	for i = 0, cnt - 1 do
+		local equipItem = equipItemList:GetEquipItemByIndex(i);
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-		if  spotName  ~=  nil  then
-		
+		if  spotName  ~=  nil  then		
 			if SET_EQUIP_ICON_FORGERY(frame, spotName) == false then
 				SET_EQUIP_SLOT(frame, i, equipItemList, _INV_EQUIP_LIST_SET_ICON);
 			end
-		end		
+		end
 	end
 	frame:Invalidate();
 end
@@ -3652,7 +3651,7 @@ function INVENTORY_SLOTANIM_CHANGEIMG(frame, key, str, cnt)
 	local child = GET_CHILD_RECURSIVELY(frame, str);
 	if  child  ~=  nil  then			
 		local slot = tolua.cast(child, 'ui::CAnimPicture');
-		slot:ForcePlayAnimationReverse();		
+		slot:ForcePlayAnimationReverse();
 		SET_EQUIP_SLOT(frame, spot, nil, _INV_EQUIP_LIST_SET_ICON)
 		
 		local equipSound = "sys_armor_equip_new";

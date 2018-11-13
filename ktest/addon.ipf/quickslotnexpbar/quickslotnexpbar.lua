@@ -36,6 +36,7 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('QUICK_SLOT_LOCK_STATE', 'SET_QUICK_SLOT_LOCK_STATE');
 	addon:RegisterMsg('QUICKSLOT_MONSTER_RESET_COOLDOWN', 'QUICKSLOTNEXPBAR_MY_MONSTER_SKILL_RESET_COOLDOWN');
 	
+	addon:RegisterMsg('RESET_ABILITY_ACTIVE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
@@ -368,6 +369,18 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		icon:SetColorTone("FFFFFFFF");
 		icon:ClearText();
 		quickslot.OnSetSkillIcon(slot, type);
+	elseif category == 'Ability' then
+		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
+		local abilClass = GetClassByType("Ability", type)
+    	local abilIES = GetAbilityIESObject(GetMyPCObject(), abilClass.ClassName);
+		if abilIES == nil or HAS_ABILITY_SKILL(abilClass.ClassName) == false then
+			slot:ClearIcon();
+			return
+		end
+		imageName = abilClass.Icon;
+		icon:SetTooltipType("ability");
+		icon:ClearText();
+		SET_ABILITY_TOGGLE_COLOR(icon, type)
 	elseif category == 'Item' then
 		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);	--퀵슬롯에 놓는 것이 아이템이면 게이지를 무조건 안보이게 함
 		local itemIES = GetClassByType('Item', type);
@@ -424,7 +437,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES);
 		end
 	end
-				
+	
 	if imageName ~= "" then
 		if iesID == nil then
 			iesID = ""
@@ -578,9 +591,6 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 		
 	local skillList = session.GetSkillList();
 	local skillCount = skillList:Count();
-	local invItemList = session.GetInvItemList();
-	local itemCount = invItemList:Count();
-
 	local MySession = session.GetMyHandle();
 	local MyJobNum = info.GetJob(MySession);
 	local JobName = GetClassString('Job', MyJobNum, 'ClassName');
@@ -672,6 +682,11 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	local iconInfo = icon:GetInfo();
 	local joystickquickslotRestFrame = ui.GetFrame("joystickrestquickslot");
 	if iconInfo.category == 'Skill' and joystickquickslotRestFrame:IsVisible() == 0 then
+		ICON_USE(icon);
+		return;
+	end
+
+	if iconInfo.category == 'Ability' and joystickquickslotRestFrame:IsVisible() == 0 then
 		ICON_USE(icon);
 		return;
 	end
@@ -1262,4 +1277,28 @@ end
 function QUICKSLOT_DRAW(curCnt)	
 	QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT();
 	QUICKSLOT_REFRESH(curCnt);
+end
+
+function SET_ABILITY_TOGGLE_COLOR(icon, type)
+	local frame = ui.GetFrame("quickslotnexpbar");
+	local COLOR_TOGGLE_ABILITY_ON = frame:GetUserConfig("COLOR_TOGGLE_ABILITY_ON")
+	local COLOR_TOGGLE_ABILITY_OFF = frame:GetUserConfig("COLOR_TOGGLE_ABILITY_OFF")
+    local abilClass = GetClassByType("Ability", type)
+    local abilIES = GetAbilityIESObject(GetMyPCObject(), abilClass.ClassName);
+    if abilIES ~= nil then
+        local isActive = TryGetProp(abilIES, "ActiveState");
+        if isActive == nil then
+            isActive = abilClass.ActiveState;
+        end
+        local colorTone = COLOR_TOGGLE_ABILITY_ON;
+        if isActive ~= 1 then
+            colorTone = COLOR_TOGGLE_ABILITY_OFF;
+        end
+        icon:SetColorTone(colorTone);
+    end
+end
+
+function QUICKSLOT_TOGGLE_ABILITY(type)
+    local abilCls = GetClassByType("Ability", type)
+    TOGGLE_ABILITY(abilCls.ClassName)
 end

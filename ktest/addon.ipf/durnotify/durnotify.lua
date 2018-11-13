@@ -30,43 +30,32 @@ function DURNOTIFY_ON_START(frame)
 end
 
 function DURNOTIFY_UPDATE(frame, notOpenFrame)
-
 	if frame:IsVisible() == 0 then
 		frame:ShowWindow(1);
 	end
 
-	local equiplist = session.GetEquipItemList()
 	local slotSet = GET_CHILD_RECURSIVELY(frame, 'slotlist', 'ui::CSlotSet')
 	slotSet:ClearIconAll();
-
+	
 	for i = 0 , slotSet:GetSlotCount() - 1 do
 		local slot = slotSet:GetSlotByIndex(i);
 		slot:ShowWindow(0);
 	end
-
-	local slotcnt = 0
 	
-	local nowvalue = frame:GetValue()
+	local equiplist = session.GetEquipItemList();
 	local someflag = 1
-
-	local reverseIndex = 8
-
 	for i = 0, equiplist:Count() - 1 do
-		local equipItem = equiplist:Element(i);
+		local equipItem = equiplist:GetEquipItemByIndex(i);
+		local reverseIndex = 8;
+		local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
 		local tempobj = equipItem:GetObject()
 		if tempobj ~= nil then
-			local obj = GetIES(tempobj);
-		
-			if IS_DUR_ZERO(obj) == true  then
-				
-				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt)
-
+			local obj = GetIES(tempobj);		
+			if IS_DUR_ZERO(obj) == true  then				
+				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt);
 				local icon = CreateIcon(slot);
 				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
 				icon:SetColorTone("FF990000");
-				
-				slotcnt = slotcnt + 1
-
 				
 				if someflag < 3 then	
 					someflag = 3
@@ -78,22 +67,16 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 
 				local icon = CreateIcon(slot);
 				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
-				icon:SetColorTone("FF999900");
-				
-				slotcnt = slotcnt + 1
-
-				if someflag < 2  then -- 깨진 템은 없으면서 처음 경고 템 뜰 경우
+				icon:SetColorTone("FF999900");				
+				if someflag < 2  then
 					someflag = 2
 				end
-
 				slot:ShowWindow(1);
 			end
-		else
-			print('error! tempobj == nil')
 		end
-		
 	end
 
+	local nowvalue = frame:GetValue();
 	if someflag == 1 then
 		frame:SetValue(1)
 	elseif someflag == 2 and nowvalue < someflag then
@@ -103,8 +86,6 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 		frame:SetValue(3)
 		ui.SysMsg(ScpArgMsg('DurUnder0'));
 	end
-
-	
 end
 
 function IS_DUR_UNDER_10PER(itemobj)

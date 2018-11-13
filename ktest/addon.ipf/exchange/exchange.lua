@@ -87,15 +87,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 
 	-- 개수채크
 	local invItemList = session.GetInvItemList();
-	local i = invItemList:Head();
-	local count = 0;
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
+	if FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, iesid, inputCnt)
 		if invItem:GetIESID() == iesid then
 			local obj = GetIES(invItem:GetObject());
 			local noTrade = TryGetProp(obj, "BelongingCount");
@@ -119,7 +111,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 					else
 						ui.SysMsg(ClMsg("ItemOverCount"));	
 					end
-					return;
+					return 'end';
 				end
 			end
 			if tradeCount >= inputCnt then
@@ -127,8 +119,10 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 			else
 				ui.AlarmMsg("ItemOverCount"); -- 등록수가 소비개수보다 큼
 			end
-			break;
+			return 'break';
 		end
+	end, false, slotSet) == false then
+		return;
 	end
 end
 

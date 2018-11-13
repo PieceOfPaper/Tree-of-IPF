@@ -2301,7 +2301,7 @@ function SCR_GET_EpeeGarde_Ratio(skill)
 end
 
 function SCR_GET_EpeeGarde_Bufftime(skill)
-    local value = 5 + skill.Level * 2
+    local value = 7 + skill.Level * 3
     return value
 
 end
@@ -5485,7 +5485,9 @@ end
 function SCR_GET_StormCalling_Ratio(skill)
 	local value = skill.Level * 5
 	
-	return value
+	value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
+	
+	return math.floor(value)
 end
 
 function SCR_GET_PhantomEradication_Ratio(skill)
@@ -5573,7 +5575,9 @@ end
 function SCR_GET_TriDisaster_Ratio(skill)
     local value = skill.Level * 5
     
-    return value;
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
+    
+    return math.floor(value);
 end
 
 function SCR_GET_CreepingDeath_Ratio(skill)
@@ -7025,18 +7029,19 @@ end
 
 function SCR_GET_OwlStatue_Bufftime(skill)
     local pc = GetSkillOwner(skill);
-    if IsPVPServer(pc) == 1 then
-        return 900
-    end
-    return 20 + skill.Level * 5;
-    
+    local value = 20 + skill.Level * 2;
+    return value
 end
 
 function SCR_GET_OwlStatue_Ratio(skill)
-
     local pc = GetSkillOwner(skill);
-    return 40 + skill.Level * 10;
-
+    local value = 10 + skill.Level * 3;
+    
+    if IsPVPServer(pc) == 1 then
+        value = 10;
+    end
+    
+    return value
 end
 
 

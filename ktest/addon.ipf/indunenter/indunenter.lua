@@ -1570,20 +1570,10 @@ function GET_INVENTORY_ITEM_COUNT_BY_NAME(name)
     end
 
     local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
-    local itemCount = session.GetInvItemList():Count();
-    local invITemCount = 0;
-    for i = 0, itemCount - 1 do     
-        local invItem = invItemList:Element(index);
-        local itemobj = GetIES(invItem:GetObject());            
-        if invItem ~= nil then
-            if itemobj.ClassName == name then            
-                invITemCount = invITemCount + invItem.count;
-            end
-        end
-        index = invItemList:Next(index);
-    end
-    return invITemCount;
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value = name}
+    }, false, invItemList);
+    return count;
 end
 
 function GET_INDUN_MULTIPLE_ITEM_COUNT_BY_NAME(name)

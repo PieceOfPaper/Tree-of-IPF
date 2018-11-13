@@ -74,6 +74,7 @@
 		<Class ClassID="500" ClassName="CannotGetSkill{NAME}" Data="[{NAME}] 스킬을 습득할 수 없습니다."/>
 		<Class ClassID="501" ClassName="CannotGetSkill{Reason}" Data="[{Reason}] 조건이 만족하지 않아 습득할 수 없습니다."/>
 		<Class ClassID="502" ClassName="CanOnlyInEqualMap" Data="같은 맵에서만 사용 가능합니다."/>
+		<Class ClassID="504" ClassName="CannotToggleAbilitySkillCoolDown" Data="스킬 재사용 대기시간 중에는 특성 ON/OFF를 변경할 수 없습니다."/>
 		</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -577,7 +578,7 @@
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
-		<Class ClassID="5002" ClassName="WhenEquipToMainOrSubWeapon" Data="무기, 보조 무기 장착 시 효과"/>
+		<Class ClassID="5002" ClassName="WhenEquipToMainOrSubWeapon" Data="무기, 보조 장비 장착 시 효과"/>
 		<Class ClassID="5003" ClassName="WhenEquipToSubWeapon" Data="보조 장비 장착 시 효과"/>
 		<Class ClassID="5004" ClassName="WhenEquipToShirtsOrPants" Data="상의, 하의 장착 시 효과"/>
 		<Class ClassID="5005" ClassName="WhenEquipToHandOrFoot" Data="글러브, 부츠 장착 시 효과"/>
@@ -7253,6 +7254,11 @@
 		<Class ClassID="70407" ClassName="D_STARTOWER_91_BOOKSHELF_11" Data="솔콤의 공격에 대한 방어전 기록물 6"/>
 		<Class ClassID="70408" ClassName="ACT4_MINE3_ENTER_END" Data="폐쇄된 구역을 가로막고 있는 결계석이 무너집니다!"/>
 		<Class ClassID="70409" ClassName="STARTOWER_89_MQ_50_MSG4" Data="여기엔 레버가 없습니다."/>
+		<Class ClassID="70411" ClassName="EXORCIST_MASTER_SHOP_SELECT" Data="엑소시스트 물품 구입"/>
+		<Class ClassID="70412" ClassName="EXORCIST_MASTER_SEND_ANSWER" Data="조사한 내용을 말한다"/>
+		<Class ClassID="70413" ClassName="EXORCIST_MASTER_ANSWER_YES" Data="구마 의식까지 전부 마쳤다고 말한다"/>
+		<Class ClassID="70414" ClassName="LETIARII_MASTER_SHOP_SELECT" Data="레티아리이 물품 구입"/>
+		<Class ClassID="70415" ClassName="LETIARII_MASTER_TALK_ABOUT_TRAINING" Data="레티아리이의 훈련에 관해 이야기한다"/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>

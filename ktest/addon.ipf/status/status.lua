@@ -1189,8 +1189,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 
     local isEmptySlot = false;
 
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
+    local invItemList = session.GetInvItemList();    
     local itemCount = session.GetInvItemList():Count();
 
     if session.GetInvItemList():Count() < MAX_INV_COUNT then

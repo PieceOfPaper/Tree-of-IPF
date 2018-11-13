@@ -4509,7 +4509,7 @@
 	<controlset name="skillability_ability" toggle="false" hittest="true" width="660" height="140" skin="test_skin_01_btn" stateskin="false">
 		<userconfig AFTER_ARROW="{img skill_arrow_red_pic 13 17}{/}{#8e0000}{b}" SKIN_LOCK="test_skin_gary_01" SKIN_UNLOCK="test_skin_01_btn" SKIN_LEVEL_ZERO="test_skin_gary_01" SKIN_LEVEL_MAX="test_skin_01_btn_cursoron"/>
 		<controls>
-			<slot name="slot" layout_gravity="left top" skin="slot_empty" rect="0 0 55 55" margin="13 15 0 0" oversound="button_over" enabledrop="false" enablepop="false" hittestset="true" hittest="true"/>
+			<slot name="slot" margin="13 15 0 0" rect="0 0 55 55" layout_gravity="left top" skin="slot_empty" PopScp="LIFT_ABILITY_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 			<picture name="abilLevelPic" margin="80 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_now" stretch="true"/>
 			<picture name="abilConditionPic" margin="405 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_now" stretch="true"/>
 			<picture name="abilLevelMaxPic" margin="265 42 0 0" rect="0 0 75 20" layout_gravity="left top" image="ability_max" stretch="true"/>
@@ -4558,7 +4558,7 @@
 	<controlset name="skillability_linkabil" hittest="true" width="510" height="80" hittestset="false" draw="false">
 		<userconfig ACTIVE_GROUP_DIST_X="5" ACTIVE_GROUP_WIDTH="30" ACTIVE_GROUP_HEIGHT="30" LINK_LEFT_MARGIN="15"/>
 		<controls>
-			<slot name="slot" layout_gravity="left center" skin="slot_empty" rect="0 0 55 55" margin="15 -2 0 0" oversound="button_over" enabledrop="false" enablepop="false" hittestset="true" hittest="true"/>
+			<slot name="slot" layout_gravity="left center" skin="slot_empty" rect="0 0 55 55" margin="15 -2 0 0" PopScp="LIFT_ABILITY_ICON" enabledrop="false" enablepop="true" hittestset="true" hittest="true" clicksound="button_click_big" oversound="button_over" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 			<richtext name="nameText" layout_gravity="left top" rect="0 0 150 30" margin="90 13 0 0" format="%s" param1="value" fixwidth="false" hittest="false" fontname="brown_16" textalign="left center"/>
 			<richtext name="abilLevelText" layout_gravity="left top" rect="0 0 90 30" margin="90 40 0 0" format="Lv.%s" param1="value" param1_def="0" fixwidth="true" hittest="false" fontname="brown_16" textalign="left center"/>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 530 3" skin="labelline_def_2" layout_gravity="left bottom"/>

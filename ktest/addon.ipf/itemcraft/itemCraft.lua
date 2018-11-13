@@ -679,13 +679,9 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
         end
     end
         
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
-    local itemCount = session.GetInvItemList():Count();
-
-    for i = 0, itemCount - 1 do -- 인벤내의 아이템을 가져와서 재료인 아이템의 개수를 센다.
-	    local invItem = invItemList:Element(index);        
-	    if invItem ~= nil then
+	local invItemList = session.GetInvItemList();
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, havingItemCount)		
+		if invItem ~= nil then
             for key, value in pairs(havingItemCount) do
                 local item_classname = GetIES(invItem:GetObject()).ClassName
                 if item_classname ~= nil and IsValidRecipeMaterial(key, GetIES(invItem:GetObject())) and invItem.isLockState == false then                    
@@ -693,8 +689,7 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
                 end    
             end
 	    end
-	    index = invItemList:Next(index);
-    end
+	end, false, havingItemCount);
 
     local max_try_count = 210000000 -- 가진 재료로 최대로 만들 수 있는 개수
         
@@ -1631,52 +1626,34 @@ end
 
 
 function GET_SORTED_INV_ITEMLIST()
-    local resultlist = {}
-
+    local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, resultlist)		
 		if invItem ~= nil then
 			if invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
 				resultlist[#resultlist+1] = invItem
 			end
 		end
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
+	end, false, resultlist);
 
+	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
 	return resultlist
 end
 
 function GET_ONLY_PURE_INVITEMLIST(type)
-
-	local resultlist = {}
-
+	local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, resultlist)		
 		if invItem ~= nil then
 			if invItem.type == type and invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
 				resultlist[#resultlist+1] = invItem
 			end
 		end
+	end, false, resultlist);
 
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_PURE_INVITEMLIST)
-
+	table.sort(resultlist, SORT_PURE_INVITEMLIST);
 	return resultlist
 end
 

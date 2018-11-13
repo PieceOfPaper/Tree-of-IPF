@@ -53,40 +53,27 @@ end
 function APPRAISAL_UPDATE_ITEM_LIST(frame)
 	--슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
-	slotSet:ClearIconAll();
-	local slotcnt = 0
-
+	slotSet:ClearIconAll();	
 	local invItemList = session.GetInvItemList();
-	local i = invItemList:Head();
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
-		
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, slotSet)		
 		local tempobj = invItem:GetObject()
-		if tempobj ~= nil then
-		    
+		if tempobj ~= nil then		    
 			local obj = GetIES(tempobj);
 			if IS_NEED_APPRAISED_ITEM(obj) == true or (CHECK_NEED_RANDOM_OPTION(obj) == true and IS_NEED_RANDOM_OPTION_ITEM(obj) == true) then
+				local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
 				local slot = slotSet:GetSlotByIndex(slotcnt)
 				if slot == nil then
-					break;
+					return 'break';
 				end
 
 				local icon = CreateIcon(slot);
 				icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
 				local class = GetClassByType('Item', invItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
-
-				slotcnt = slotcnt + 1
 			end
 		end
-	end
-
-	APPRAISAL_UPDATE_MONEY(frame)
+	end, false, slotSet);
+	APPRAISAL_UPDATE_MONEY(frame);
 end
 
 function APPRAISAL_RESET_CAL_MONEY(frame)

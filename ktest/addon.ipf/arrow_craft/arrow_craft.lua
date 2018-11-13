@@ -23,7 +23,7 @@ function ARROW_CRAFT_FIRST_OPEN(frame)
 end
 
 function INIT_ARROW_CRAFT(frame)
-	-- ÃÊ±âÈ­
+	-- ï¿½Ê±ï¿½È­
 	frame:SetUserValue("INPUT_ARROW_COUNT", '0');
 	frame:SetUserValue("CREATED_ARROW_COUNT", '0');
 	frame:SetUserValue("SELECT_ARROW_NAME", 'None');
@@ -54,27 +54,16 @@ function SHOW_ARROW_CRAFT(frame)
 	
 	local slot1 = GET_CHILD(frame, "invItem", "ui::CSlot");
 	if slot1 ~= nil then
-
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		for i = 0, itemCount - 1 do
-
-			local invItem			= invItemList:Element(index);
-
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, needItemName, slot1)
 			if invItem ~= nil then
 				local itemobj = GetIES(invItem:GetObject());
 				if itemobj.ClassName == needItemName then
-				
 					SET_SLOT_INVITEM(slot1, invItem);
-					break;
+					return 'break';
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
-
+		end, false, needItemName, slot1);
 	end
 
 	local itemCls = GetClass("Item", targetItemName);
@@ -113,13 +102,13 @@ end
 
 function EXE_CREATE_ARROW_CRAFT(frame, itemName)
 
-	-- ¸¸µé¼öÀÖ´ÂÁö ¼ö·® Ã¼Å©
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ã¼Å©
 
 
 	
 	item.ReqCreateArrowCraft(itemName);
 
-	-- °ÔÀÌÁö ¿¬Ãâ
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local createtime = 5.0;
 	local gauge = GET_CHILD(frame, "casting", "ui::CGauge");
 	gauge:SetTotalTime(createtime);	

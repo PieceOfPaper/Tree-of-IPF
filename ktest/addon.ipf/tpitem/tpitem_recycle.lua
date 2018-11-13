@@ -135,44 +135,30 @@ function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 end
 
 function RECYCLE_CREATE_SELL_LIST()
-
 	local frame = ui.GetFrame('tpitem')
 	local rcycle_mainSubGbox = GET_CHILD_RECURSIVELY(frame,"rcycle_mainSubGbox");
 	DESTROY_CHILD_BYNAME(rcycle_mainSubGbox, "eachitem_");
 
 	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"rcycle_mainSubGbox");
-
-
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-	local x, y;
-	local showitemcnt = 1
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	local retTable = {showitemcnt = 1};
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, retTable, mainSubGbox)
 		local itemobj = GetIES(invItem:GetObject());			
 		if invItem ~= nil then
 			local obj = GetClass("recycle_shop", itemobj.ClassName)
 			if obj ~= nil then
 				if obj.SellPrice ~= 0 then
-				
-					x = ( (showitemcnt-1) % 3) * ui.GetControlSetAttribute("tpshop_recycle", 'width')
-					y = (math.ceil( (showitemcnt / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_recycle", 'height') * 1)
+					local showitemcnt = retTable.showitemcnt;
+					local x = ( (showitemcnt-1) % 3) * ui.GetControlSetAttribute("tpshop_recycle", 'width')
+					local y = (math.ceil( (showitemcnt / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_recycle", 'height') * 1)
 					local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_recycle', 'eachitem_'..invItem:GetIESID(), x, y);
 					RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, "sell", invItem:GetIESID());
-
-					showitemcnt = showitemcnt + 1
-
+					retTable.showitemcnt = showitemcnt + 1
 				end
-
 			end
 		end
-
-		index = invItemList:Next(index);
-	end
+	end, false, retTable, mainSubGbox);
 end
-
 
 function RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, type, itemguid)
 

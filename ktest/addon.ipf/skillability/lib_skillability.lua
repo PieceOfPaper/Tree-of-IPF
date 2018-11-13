@@ -231,12 +231,27 @@ function LIFT_SKILL_ICON(parent, ctrl)
         end
     end
 end
- 
+
 function DROP_FINALLY_SKILL_ICON(frame, object, argStr, argNum)	
     AUTO_CAST(object);
 	local FromFrame = object:GetTopParentFrame();
     local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_OFF"));
 	FromFrame:SetLayerLevel(layer)
+end
+
+function LIFT_ABILITY_ICON(parent, ctrl)
+    local FromFrame = ctrl:GetTopParentFrame();
+    if FromFrame ~= nil then
+        local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_ON"));
+        FromFrame:SetLayerLevel(layer)
+    end
+end
+ 
+function DROP_FINALLY_ABILITY_ICON(frame, object, argStr, argNum)	
+    AUTO_CAST(object);
+    local FromFrame = object:GetTopParentFrame();
+    local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_OFF"));
+    FromFrame:SetLayerLevel(layer)
 end
 
 function SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame)
@@ -514,4 +529,19 @@ function GET_SKILLABILITY_COMMON_SKILL_LIST()
         skillIDList[#skillIDList+1] = sklCls.ClassName;
     end
     return skillLvHash;
+end
+
+function HAS_ABILITY_SKILL(abilName)
+	local category_list = GET_ABILITY_SKILL_CATEGORY_LIST(abilName)
+    if #category_list <= 0 then
+        return true -- nothing to have.
+    end
+    for i=1, #category_list do
+        local sklName = category_list[i]
+        local sklObj = GetSkill(GetMyPCObject(), sklName)
+        if sklObj ~= nil then
+            return true;
+        end
+    end
+    return false;
 end

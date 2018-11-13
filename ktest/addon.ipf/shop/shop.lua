@@ -1174,45 +1174,30 @@ function UPDATE_SOLD_ITEM_LIST(frame)
 	CLEAR_SOLD_ITEM_LIST(slotSet);
 
 	local list = session.GetSoldItemList();
-	local i = list:Tail();
-	local idx = 0;
-	while 1 do
-		if i == list:InvalidIndex() then
-			break;
-		end
-
+	FOR_EACH_INVENTORY(list, function(invItemList, info, slotSet)		
+		local idx = imcSlot:GetEmptySlotIndex(slotSet);
 		local slot = slotSet:GetSlotByIndex(idx);
 		if slot == nil then
-			break;
+			return 'break';
 		end
-		local info = list:Element(i);
-		local obj = GetIES(info:GetObject());
-		local info = list:Element(i);
-		SOLD_SLOT_SET(slot, i, info);
-
-		idx = idx + 1;
-		i = list:Prev(i);
-	end
+		local obj = GetIES(info:GetObject());		
+		SOLD_SLOT_SET(slot, idx, info);
+	end, true, slotSet);
 
 	slotSet:Invalidate();
-
 	FINALPRICE = GET_TOTAL_MONEY_STR();
 
 	SHOP_UPDATE_BUY_PRICE(frame);
 end
 
 function SOLD_SLOT_SET(slot, index, info)
-
 	local obj = GetIES(info:GetObject());
-	--local icon = SET_SLOT_ITEM_INFO(slot, obj, info.count);
-
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
 	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon')
 	icon:Set(imageName, 'SOLDITEMITEM', 0, 0, info:GetIESID());
 
-	--SET_ITEM_TOOLTIP_TYPE(icon, obj.ClassID, obj);
-	SET_ITEM_TOOLTIP_ALL_TYPE(icon, info, obj.ClassName, 'soldItem', info.type, index);
+	SET_ITEM_TOOLTIP_ALL_TYPE(icon, info, obj.ClassName, 'soldItem', info.type, info:GetIESID());
 
 	if IS_EQUIP(obj) == false then
 		slot:SetText('{s18}{ol}{b}'..info.count, 'count', 'right', 'bottom', -2, 1);
@@ -1224,32 +1209,27 @@ function SOLD_SLOT_SET(slot, index, info)
 		price = geItemTable.GetSellPrice(itemProp);
 	end
 	slot:SetUserValue('SOLDITEMPRICE', price * info.count);
-
-	-- icon:SetTooltipArg('soldItem', info.type, index);
-
 	slot:SetEventScript(ui.RBUTTONUP, "CONTEXT_SOLD_ITEM");
-	slot:SetEventScriptArgNumber(ui.RBUTTONUP, index);
-
+	slot:SetEventScriptArgString(ui.RBUTTONUP, info:GetIESID());
 end
 
-function CONTEXT_SOLD_ITEM(frame, slot, str, num)
+function CONTEXT_SOLD_ITEM(frame, slot, guid)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
 	local list = session.GetSoldItemList();
-	if list:IsValidIndex(num) == 0 then
+	local info = list:GetItemByGuid(guid);
+	if info == nil then
 		return;
 	end
-	
-	local info = list:Element(num);
 	local obj = GetIES(info:GetObject());
 
 	local topFrame = frame:GetTopParentFrame();
 	local context = ui.CreateContextMenu("SOLD_ITEM_CONTEXT", "{@st41}".. GET_FULL_NAME(obj).. "{@st42b}..",0, 0, 100, 100);
-	local strScp = string.format("SHOP_REQ_CANCEL_SELL(%d, '%s')", num, topFrame:GetName());
+	local strScp = string.format("SHOP_REQ_CANCEL_SELL('%s', '%s')", guid, topFrame:GetName());
 
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}JaeMaeip"), strScp);
-	strScp = string.format("SHOP_REQ_DELETE_SOLDITEM(%d)", num);
+	strScp = string.format("SHOP_REQ_DELETE_SOLDITEM('%s', '%s')", guid, topFrame:GetName());
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}yeongKuJeKeo"), strScp);
 	ui.AddContextMenuItem(context, ScpArgMsg("Auto_{@st42b}ChwiSo"), "SHOP_SOLDED_CANCEL");
 	ui.OpenContextMenu(context);
@@ -1259,7 +1239,7 @@ function SHOP_SOLDED_CANCEL()
 	imcSound.PlaySoundEvent("button_click");
 end
 
-function SHOP_REQ_CANCEL_SELL(index, frameName)
+function SHOP_REQ_CANCEL_SELL(guid, frameName)
 	local frame = ui.GetFrame(frameName);
 	if frame == nil then
 		return;
@@ -1270,7 +1250,17 @@ function SHOP_REQ_CANCEL_SELL(index, frameName)
 
 	imcSound.PlaySoundEvent("button_click");
 	local slotSet = GET_CHILD(frame, "solditemslot", "ui::CSlotSet");
-	local slot = slotSet:GetSlotByIndex(index);
+	local slot;
+	for i = 0, slotSet:GetSlotCount() - 1 do
+		local child = slotSet:GetSlotByIndex(i);
+		local icon = child:GetIcon();
+		if icon ~= nil and icon:GetInfo() ~= nil then
+			if icon:GetInfo():GetIESID() == guid then
+				slot = child;
+				break;
+			end
+		end
+	end
 	if slot == nil then
 		return;
 	end
@@ -1281,13 +1271,20 @@ function SHOP_REQ_CANCEL_SELL(index, frameName)
 		return;
 	end
 
-
-	item.ReqCancelSell(index);
+	item.ReqCancelSell(guid);
 end
 
-function SHOP_REQ_DELETE_SOLDITEM(index)
+function SHOP_REQ_DELETE_SOLDITEM(guid, frameName)
+	local frame = ui.GetFrame(frameName);
+	if frame == nil then
+		return;
+	end
+	if frame:GetName() == 'companionshop' then
+		frame = frame:GetChild('foodBox');
+	end
+	
 	imcSound.PlaySoundEvent("inven_arrange");
-	item.ReqDeleteSoldItem(index);
+	item.ReqDeleteSoldItem(guid);
 end
 
 function CLEAR_SOLD_ITEM_LIST(slotSet)

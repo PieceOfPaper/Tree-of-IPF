@@ -116,7 +116,7 @@ function RANKROLLBACK_PC_EQUIP_STATE(frame)
 	local equipList = session.GetEquipItemList();
 	local unEquip = false;
 	for i = 0, equipList:Count() - 1 do
-		local equipItem = equipList:Element(i);
+		local equipItem = equipList:GetEquipItemByIndex(i);
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);	
 		if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 			unEquip = true;

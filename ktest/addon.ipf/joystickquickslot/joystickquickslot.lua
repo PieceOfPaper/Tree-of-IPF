@@ -137,9 +137,6 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 -- 스킬과 인벤토리 정보를 가지고 온다.
 	local skillList 		= session.GetSkillList();
 	local skillCount 		= skillList:Count();
-	local invItemList 		= session.GetInvItemList();
-	local itemCount 		= invItemList:Count();
-
 	local MySession		= session.GetMyHandle();
 	local MyJobNum		= info.GetJob(MySession);
 	local JobName		= GetClassString('Job', MyJobNum, 'ClassName');

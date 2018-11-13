@@ -46,20 +46,14 @@ function GET_PC_ITEM_BY_TYPE(type)
 end
 
 function GET_LIST_FUNC_VALUES(list, func, ...)
-
-	local ret = 0;
-	local index = list:Head();
-	while 1 do
-		if index == list:InvalidIndex() then
-			break;
+	local retTable = {ret = 0};
+	FOR_EACH_INVENTORY(list, function(invItemList, invItem, retTable, func, ...)
+		if invItem == nil then
+			return;
 		end
-
-		local item = list:Element(index);
-		ret = ret + func(item, ...);
-		index = list:Next(index);
-	end
-
-	return ret;
+		retTable.ret = retTable.ret + func(invItem, ...);
+	end, false, retTable, func, ...);
+	return retTable.ret;
 end
 
 function GET_PC_ITEM_FUNC_VALUES(func, ...)
@@ -72,24 +66,15 @@ function GET_PC_ITEM_FUNC_VALUES(func, ...)
 end
 
 function GET_BY_INV_LIST(list, func, ...)
-
-	local index = list:Head();
-	while 1 do
-		if index == list:InvalidIndex() then
-			break;
+	local retTable = {item = nil};
+	FOR_EACH_INVENTORY(list, function(invItemList, invItem, retTable, func, ...)
+		if func(invItem, ...) > 0 then
+			retTable.item = invItem;
+			return 'break';
 		end
-
-		local item = list:Element(index);
-		if func(item, ...) > 0 then
-			return item;
-		end
-
-		index = list:Next(index);
-	end
-
-	return nil;
+	end, false, retTable, func, ...);
+	return retTable.item;
 end
-
 
 function GET_PC_ITEM_BY_FUNC(func, ...)
 	
@@ -116,25 +101,10 @@ function GET_TOTAL_ITEM_CNT(type)
 end
 
 function GET_TOTAL_ITEM_CNT_LIST(type, list)
-
-	local cnt = 0;
-	local index = list:Head();
-	while 1 do
-		if index == list:InvalidIndex() then
-			break;
-		end
-
-		local item = list:Element(index);
-		if item.type == type then
-			cnt = cnt + 1;
-		end
-
-		index = list:Next(index);
-
-	end
-
-	return cnt;
-
+	local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassID', Value = type}
+    }, false, list);
+	return count;
 end
 
 function INV_APPLY_TO_ALL_SLOT(func, ...)
@@ -200,7 +170,7 @@ function PC_APPLY_TO_ALL_ITEM(func, ...)
 	end
 end
 
-function _CHECK_INVITEM_LV(invitem, clsId, lv)
+function _CHECK_INVITEM_LV(invitem, clsId, lv)	
 	local obj = GetIES(invitem:GetObject());
 	if clsId == obj.ClassID and TryGet(obj, "Level") >= lv then
 		return invitem.count;
@@ -433,7 +403,7 @@ function GET_PC_EQUIP_SLOT_BY_ITEMID(itemID)
 	local frame = ui.GetFrame("inventory");
 	local equipItemList = session.GetEquipItemList();
 	for i = 0, equipItemList:Count() - 1 do
-		local equipItem = equipItemList:Element(i);
+		local equipItem = equipItemList:GetEquipItemByIndex(i);
 		if itemID == equipItem:GetIESID() then
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 			if  spotName  ~=  nil  then
@@ -441,7 +411,6 @@ function GET_PC_EQUIP_SLOT_BY_ITEMID(itemID)
 			end
 		end
 	end
-
 	return nil;
 end
 
@@ -627,11 +596,11 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
     slotset:SetSkinName("invenslot2")
 
 	local itemList = session.GetEtcItemList(etcType);
-	local index = itemList:Head();
-
-	while itemList:InvalidIndex() ~= index do
-		
-		local invItem = itemList:Element(index);
+	local guidList = itemList:GetGuidList();
+	local cnt = guidList:Count();
+	for i = 0, cnt - 1 do
+		local guid = guidList:Get(i);
+		local invItem = itemList:GetItemByGuid(guid);
 		local slot = slotset:GetSlotByIndex(invItem.invIndex);
 		if slot == nil then
 			slot = GET_EMPTY_SLOT(slotset);
@@ -670,10 +639,7 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		else
 			CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
 		end
-
-		index = itemList:Next(index);
 	end
-	
 end
 
 function GET_DRAG_INVITEM_INFO()
@@ -726,23 +692,31 @@ function GET_INVENTORY_TREEGROUP(baseidcls)
 	return invenTabName
 end
 
-function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList, exceptLock)
-    local itemList = session.GetInvItemList();
-    local index = itemList:Head();
+function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList, exceptLock, itemList, checkFunc)	
+	if itemList == nil then
+		itemList = session.GetInvItemList();
+	end
+	local guidList = itemList:GetGuidList();
+	local cnt = guidList:Count();
     local count = 0;
     local matchedList = {};
-    while itemList:InvalidIndex() ~= index do
-        local invItem = itemList:Element(index);
+	for i = 0, cnt - 1 do
+		local guid = guidList:Get(i);
+		local invItem = itemList:GetItemByGuid(guid);
         if invItem ~= nil and invItem:GetObject() ~= nil and (exceptLock ~= true or invItem.isLockState == false) then
 	        local itemObj = GetIES(invItem:GetObject());
-            local matched = true;
-            for i = 1, #propCondList do
-                local cond = propCondList[i];
-	            if TryGetProp(itemObj, cond.Name) ~= cond.Value then
-                    matched = false;
-                    break;
-                end
-            end
+			local matched = true;
+			for i = 1, #propCondList do
+				local cond = propCondList[i];
+				if TryGetProp(itemObj, cond.Name) ~= cond.Value then
+					matched = false;
+					break;
+				end
+			end
+
+			if checkFunc ~= nil and matched then
+				matched = checkFunc(itemObj);
+			end
 
             if matched == true then
                 if itemObj.MaxStack > 1 then
@@ -753,8 +727,7 @@ function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList, exceptLock)
 	            matchedList[#matchedList + 1] = invItem;
             end
 	    end
-        index = itemList:Next(index);
-    end
+	end
     return count, matchedList;
 end
 
@@ -812,4 +785,35 @@ function GET_INV_ITEM_BY_ITEM_OBJ(item)
 		invitem = session.pet.GetPetEquipObjByGuid(itemIdx);
 	end
 	return invitem;
+end
+
+function FOR_EACH_INVENTORY(invItemList, func, desc, ...)
+	if invItemList == nil then
+		return true;
+	end
+	local guidList = invItemList:GetGuidList();
+	local cnt = guidList:Count();
+	if desc == true then
+		for i = cnt - 1, 0, -1 do
+			local guid = guidList:Get(i);
+			local ret = func(invItemList, invItemList:GetItemByGuid(guid), ...);
+			if ret == 'end' then
+				return false;
+			elseif ret == 'break' then
+				break;
+			end
+		end
+		return true;
+	end
+
+	for i = 0, cnt - 1 do
+		local guid = guidList:Get(i);
+		local ret = func(invItemList, invItemList:GetItemByGuid(guid), ...);
+		if ret == 'end' then
+			return false;
+		elseif ret == 'break' then
+			break;
+		end
+	end
+	return true;
 end

@@ -621,9 +621,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	elseif strarg == "accountwarehouse" then
 		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, guid);
 	elseif strarg == "party" then
-		if session.party.GetPartyInfo() ~= nil then
-			invitem = GetItemByID(guid, session.party.GetPartyInfo().inv);
-		end
+		return; -- deprecated
 	elseif strarg == "exchange" then
 		local idx = math.floor(guid / 10);
 		local listIndex = guid % 10;

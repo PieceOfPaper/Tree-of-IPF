@@ -154,60 +154,23 @@ function ITEMBUFF_NEEDITEM_Squire_Repair(self, item)
 end
 
 function ITEMBUFF_STONECOUNT_Squire_EquipmentTouchUp(invItemList)
-    local i = invItemList:Head();
-    local count = 0;
-    while 1 do
-        if i == invItemList:InvalidIndex() then
-            break;
-        end
-        local invItem = invItemList:Element(i);     
-        i = invItemList:Next(i);
-        local obj = GetIES(invItem:GetObject());
-        
-        if obj.ClassName == "misc_whetstone" then
-            count = count + invItem.count;
-        end
-    end
-
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value ='misc_whetstone'}
+    }, false, invItemList);
     return "misc_whetstone", count;
 end
 
 function ITEMBUFF_STONECOUNT_Squire_Repair(invItemList)
-
-    local i = invItemList:Head();
-    local count = 0;
-    while 1 do
-        if i == invItemList:InvalidIndex() then
-            break;
-        end
-        local invItem = invItemList:Element(i);     
-        i = invItemList:Next(i);
-        local obj = GetIES(invItem:GetObject());
-        
-        if obj.ClassName == "misc_repairkit_1" then
-            count = count + invItem.count;
-        end
-    end
-
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value ='misc_repairkit_1'}
+    }, false, invItemList);
     return "misc_repairkit_1", count;
 end
 
 function ITEMBUFF_STONECOUNT_Enchanter_EnchantArmor(invItemList)
-    local i = invItemList:Head();
-    local count = 0;
-    while 1 do
-        if i == invItemList:InvalidIndex() then
-            break;
-        end
-        local invItem = invItemList:Element(i);     
-        i = invItemList:Next(i);
-        local obj = GetIES(invItem:GetObject());
-        
-        if obj.ClassName == "misc_emptySpellBook" then
-            count = count + invItem.count;
-        end
-    end
-
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value ='misc_emptySpellBook'}
+    }, false, invItemList);
     return "misc_emptySpellBook", count;
 end
 
@@ -274,24 +237,11 @@ end
 
 
 function ITEMBUFF_STONECOUNT_Alchemist_Roasting(invItemList, frame)
-
     frame:SetUserValue("STORE_GROUP_NAME", 'GemRoasting');
 
-    local i = invItemList:Head();
-    local count = 0;
-    while 1 do
-        if i == invItemList:InvalidIndex() then
-            break;
-        end
-        local invItem = invItemList:Element(i);     
-        i = invItemList:Next(i);
-        local obj = GetIES(invItem:GetObject());
-        
-        if obj.ClassName == "misc_catalyst_1" then
-            count = count + invItem.count;
-        end
-    end
-
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value ='misc_catalyst_1'}
+    }, false, invItemList);
     return "misc_catalyst_1", count;
 end
 
@@ -316,21 +266,9 @@ function ITEMBUFF_STONECOUNT_Appraiser_Apprise(invItemList, frame)
         frame:SetUserValue("STORE_GROUP_NAME", 'Appraise');
     end
 
-    local i = invItemList:Head();
-    local count = 0;
-    while 1 do
-        if i == invItemList:InvalidIndex() then
-            break;
-        end
-        local invItem = invItemList:Element(i);     
-        i = invItemList:Next(i);
-        local obj = GetIES(invItem:GetObject());
-        
-        if obj.ClassName == "misc_0507" then -- 감정 재료 아이템 정해지면 여기 바꿔야 함
-            count = count + invItem.count;
-        end
-    end
-
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value ='misc_0507'}
+    }, false, invItemList);
     return "misc_0507", count;
 end
 
@@ -340,21 +278,9 @@ function ITEMBUFF_NEEDITEM_Appraiser_Apprise(self, item) -- 스킬 이름 바뀌
 end
 
 function ITEMBUFF_STONECOUNT_Sage_PortalShop(invItemList)
-    local i = invItemList:Head();
-    local count = 0;
-    while 1 do
-        if i == invItemList:InvalidIndex() then
-            break;
-        end
-        local invItem = invItemList:Element(i);
-        i = invItemList:Next(i);
-        local obj = GetIES(invItem:GetObject());
-        
-        if obj.ClassName == "misc_portalstone" then -- 포탈 상점 재료 이름 써주세요
-            count = count + invItem.count;
-        end
-    end
-    
+    local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value ='misc_portalstone'}
+    }, false, invItemList);
     return "misc_portalstone", count; -- 포탈 상점 재료 이름 써주세요
 end
 

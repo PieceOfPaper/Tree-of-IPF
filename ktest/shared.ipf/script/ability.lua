@@ -122,6 +122,18 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     ]]--
 end
 
+function GET_ABILITY_SKILL_CATEGORY_LIST(abilClsName)
+    local abilCls = GetClass("Ability", abilClsName);
+    if abilCls == nil then
+        return {}
+    end
+    if abilCls.SkillCategory == "All" or abilCls.SkillCategory == "None" then
+        return {}
+    end
+    local category_list = StringSplit(abilCls.SkillCategory, ';')
+    return category_list
+end
+
 function SCR_ABIL_NONE_ACTIVE(self, ability)
     
 end

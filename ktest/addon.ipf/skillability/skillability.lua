@@ -289,11 +289,19 @@ function SKILLABILITY_FILL_LINKABIL_CTRLSET(classCtrl, abilClass)
 	local icon = CreateIcon(slot);	
     icon:SetImage(abilClass.Icon);
 	icon:SetTooltipType('ability');
+    icon:SetDropFinallyScp("DROP_FINALLY_ABILITY_ICON");
+	icon:Set(abilClass.Icon, "Ability", abilClass.ClassID, 1);
     icon:SetTooltipOverlap(1);
     icon:SetTooltipStrArg(abilClass.Name);
     icon:SetTooltipNumArg(abilClass.ClassID);
     local abilIES = GetAbilityIESObject(GetMyPCObject(), abilClass.ClassName);
     icon:SetTooltipIESID(GetIESGuid(abilIES));
+
+    local isEnablePop = 0;
+    if abilIES ~= nil and abilClass.AlwaysActive == "NO" then
+        isEnablePop = 1;
+    end
+    slot:EnablePop(isEnablePop);
     
     -- toggle.
     local isActive = TryGetProp(abilIES, "ActiveState");
@@ -581,10 +589,17 @@ function SKILLABILITY_FILL_ABILITY_CTRLSET(ability_gb, classCtrl, abilClass, gro
 	local icon = CreateIcon(slot);	
     icon:SetImage(abilClass.Icon);
     icon:SetTooltipType('ability');
+    icon:SetDropFinallyScp("DROP_FINALLY_ABILITY_ICON");
+	icon:Set(abilClass.Icon, "Ability", abilClass.ClassID, 1);
     icon:SetTooltipOverlap(1);
     icon:SetTooltipStrArg(abilClass.Name);
     icon:SetTooltipNumArg(abilClass.ClassID);
     icon:SetTooltipIESID(GetIESGuid(abilIES));
+    local isEnablePop = 0;
+    if abilIES ~= nil and abilClass.AlwaysActive == "NO" then
+        isEnablePop = 1;
+    end
+    slot:EnablePop(isEnablePop);
     
     -- toggle.
     local isActive = TryGetProp(abilIES, "ActiveState");
@@ -922,16 +937,18 @@ function SKILLABILITY_TOGGLE_ABILITY(parent, ctrl)
     end
 
     SKILLABILITY_INIT_TOGGLE_ABILITY(parent, ctrl, abilClass, isActive)
+    TOGGLE_ABILITY(abilName)
+end
+
+function TOGGLE_ABILITY(abilName)
+    local topFrame = ui.GetFrame("skillability")
 
     local curTime = imcTime.GetAppTime();    
-    local topFrame = parent:GetTopParentFrame();
     local prevClickTime = tonumber( topFrame:GetUserValue("CLICK_ABIL_ACTIVE_TIME") );
     
     if prevClickTime == nil then
-        return
-    end
-
-    if prevClickTime + 0.5 > curTime then        
+	    topFrame:SetUserValue("CLICK_ABIL_ACTIVE_TIME", imcTime.GetAppTime());
+    elseif prevClickTime + 0.5 > curTime then        
         return
     end
     
@@ -940,6 +957,11 @@ function SKILLABILITY_TOGGLE_ABILITY(parent, ctrl)
         return;
     end
     
+    local abilCls = GetClass("Ability", abilName)
+    if abilCls.AlwaysActive ~= 'NO' then
+        return;
+    end
+
     topFrame:SetUserValue("CLICK_ABIL_ACTIVE_TIME", curTime);
     pc.ReqExecuteTx("SCR_TX_PROPERTY_ACTIVE_TOGGLE", abilName);    
 end

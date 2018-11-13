@@ -19,13 +19,24 @@ function GACHA_LEGEND_CUBE_LEGEND_SUCEECD_EX(invItemClsID, rewardItem, btnVisibl
 	GACHA_CUBE_SUCEECD_UI(gachaCubeFrame, invItemClsID, rewardItem, btnVisible, reopenCount);
 end
 
-function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)
-    if msg ~= 'CLOSE_GACHA_CUBE_LEGEND' then return end
+function CLICK_CLOSE_BUTTON()
+    local frame = ui.GetFrame('gacha_cube_legend');
+    local close = GET_CHILD_RECURSIVELY(frame, 'close');
+    CANCEL_GACHA_CUBE_LEGEND(frame, close, 'close_btn', nil);
+end
+
+function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)    
+    if argStr == 'close_btn' then
+        CancelGachaCube()
+        return
+    end
+
+    if argStr ~= 'close_btn' and msg ~= 'CLOSE_GACHA_CUBE_LEGEND' then return end
     
 	SET_MOUSE_FOLLOW_BALLOON(nil);
 	ui.SetEscapeScp("");
-
-    if argStr ~= 'NO' then
+    
+    if argStr ~= 'NO' then        
 	    CancelGachaCube();
     end
 
@@ -35,7 +46,7 @@ function CANCEL_GACHA_CUBE_LEGEND(frame, msg, argStr, argNum)
     if argNum ~= nil then
        local itemobj = GetClassByType("Item", tonumber(argNum))
        RemoveLuaTimerFunc('discover_velcoffer_cube_use')
-       DiscoverVelcofferLegendCubeUse(itemobj.ClassName)    -- 사용 가능 복구
+       DiscoverVelcofferLegendCubeUse(itemobj.ClassName)    -- 사용 가능 복구       
     end
 end
 

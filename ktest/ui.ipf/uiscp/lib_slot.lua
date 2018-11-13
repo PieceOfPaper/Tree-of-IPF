@@ -512,3 +512,23 @@ function GET_SLOT_ITEM_TYPE(slot)
 	end
 	return iconinfo.type;
 end
+
+imcSlot = {
+	GetEmptySlotIndex = function(self, slotset)
+		for i = 0, slotset:GetSlotCount() - 1 do
+			if slotset:GetSlotByIndex(i):GetIcon() == nil then
+				return i;
+			end
+		end
+		return 0;
+	end,
+	GetFilledSlotCount = function(self, slotset)
+		local cnt = 0;
+		for i = 0, slotset:GetSlotCount() - 1 do
+			if slotset:GetSlotByIndex(i):GetIcon() ~= nil then
+				cnt = cnt + 1;
+			end
+		end
+		return cnt;
+	end,
+};

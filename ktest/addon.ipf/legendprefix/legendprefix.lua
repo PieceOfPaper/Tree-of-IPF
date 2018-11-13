@@ -139,27 +139,23 @@ end
 
 function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C() -- 경험치 꽉 찬 아이템만 개수 세주는 함수
     local count = 0;
-    local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
-    local invItemList = session.GetInvItemList();
-    local i = invItemList:Head();
-    while true do		
-		if i == invItemList:InvalidIndex() then
-			break;
+	local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
+	local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'ClassName', Value = needItemName}
+	}, false, nil, function(item)
+		if item == nil then
+			return false;
 		end
-		local invItem = invItemList:Element(i);
-		local item = GetIES(invItem:GetObject());
-        local itemExpStr = TryGetProp(item, 'ItemExpString', 'None');
+		local itemExpStr = TryGetProp(item, 'ItemExpString', 'None');
         if itemExpStr == 'None' then
             itemExpStr = '0';
         end
 		local itemExpNum = tonumber(itemExpStr);
-        if item.ClassName == needItemName and itemExpNum ~= nil and itemExpNum >= item.NumberArg1 then
-            count = count + 1;
-        end
-
-        i = invItemList:Next(i);
-    end
-
+        if itemExpNum ~= nil and itemExpNum >= item.NumberArg1 then
+            return true;
+		end
+		return false;
+	end);	
     return count;
 end
 

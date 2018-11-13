@@ -10153,7 +10153,7 @@ return GET_ABIL_LEVEL(self, &apos;Necromancer2&apos;) * 4000;"/>
                 <Str Str="PARTY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Foretell_Immune_Buff"/>
+                <Str Str="Foretell_Buff"/>
                 <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
@@ -10167,7 +10167,7 @@ return GET_ABIL_LEVEL(self, &apos;Necromancer2&apos;) * 4000;"/>
                 <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="Foretell_Immune_Buff"/>
+                <Str Str="Foretell_Buff"/>
             </ToolScp>
         </leaveEvent>
         <updateEvent>

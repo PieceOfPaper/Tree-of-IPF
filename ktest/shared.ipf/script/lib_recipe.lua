@@ -11,21 +11,15 @@ end
 function GET_INVITEMS_BY_TYPE_WORTH_SORTED(compareScript, compareProperty)
 	local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
     local CompareFunction = _G[compareScript];
-
-	for i = 0, itemCount - 1 do		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, CompareFunction, compareProperty, resultlist)
 		if invItem ~= nil then
 			local itemobj = GetIES(invItem:GetObject());		
 			if CompareFunction(compareProperty, itemobj) then
 				resultlist[#resultlist+1] = invItem;
 			end
 		end
-		index = invItemList:Next(index);
-	end
-	
+	end, false, CompareFunction, compareProperty, resultlist);
 	table.sort(resultlist, SORT_INVITEM_BY_WORTH);
 	return resultlist
 end
@@ -119,7 +113,12 @@ function GET_INV_ITEM_COUNT_BY_TYPE_FOR_BOOSTTOKEN(pc, itemType, recipeCls)
     end
 
     for i = 1 , #pcInvList do
-        local invItem = pcInvList[i];
+		local invItem;
+		if IsServerSection() == 1 then
+			invItem = pcInvList[i];
+		else
+			invItem = session.GetInvItemByGuid(pcInvList[i]);
+		end
         if invItem ~= nil and IsValidRecipeMaterial(itemClassName, invItem) then
             invItemCount = invItemCount + 1;
         end
