@@ -141,3 +141,25 @@ function CHECK_NEED_RANDOM_OPTION(item)
 
 	return true;
 end
+
+function IS_HAVE_RANDOM_OPTION(item)
+	if item == nil then
+		return false;
+	end
+
+	for i = 1, 6 do
+		if item['RandomOption_'..i] ~= 'None' then
+			return true;
+		end
+
+		if item['RandomOptionGroup_'..i] ~= 'None' then
+			return true;
+		end
+
+		if item['RandomOptionValue_'..i] ~= 0 then
+			return true;
+		end
+	end
+
+	return false;
+end

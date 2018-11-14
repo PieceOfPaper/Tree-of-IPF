@@ -5095,7 +5095,7 @@ function SCR_GET_CorpseTower_Bufftime(skill)
 end
 
 function SCR_GET_DoublePunch_Ratio(skill)
-    local value = skill.Level * 10
+    local value = skill.Level * 20
     return value
 end
 
@@ -5200,7 +5200,7 @@ function SCR_GET_BuildCappella_Ratio2(skill)
 end
 
 function SCR_GET_Binatio_Ratio(skill)
-    local value = 15 + skill.Level * 10;
+    local value = 55 + skill.Level * 15;
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return math.floor(value)
 end
@@ -5669,7 +5669,7 @@ function SCR_Get_SkillFactor_DoubleGun(skill)
     local DoubleGunSkill = GetSkill(pc, "Bulletmarker_DoubleGunStance")
     local value = 0
     if DoubleGunSkill ~= nil then
-        value = DoubleGunSkill.SklFactor + DoubleGunSkill.Level * DoubleGunSkill.SklFactorByLevel
+        value = DoubleGunSkill.SklFactor + (DoubleGunSkill.Level - 1) * DoubleGunSkill.SklFactorByLevel
     end
     
     return math.floor(value)
@@ -6991,7 +6991,7 @@ function SCR_GET_KneelingShot_Ratio(skill)
 end
 
 function SCR_GET_KneelingShot_Ratio2(skill)
-    local value = 35
+    local value = 250
     return value
 end
 
@@ -7525,21 +7525,18 @@ function SCR_GET_StereaTrofh_Ratio(skill)
     return value
 end
 
+function SCR_GET_Chortasmata_Time(skill)
+    local value = 5 + skill.Level * 0.6
+    return value
+end
+
 function SCR_GET_Chortasmata_Bufftime(skill)
-    local value = 10 + skill.Level
-    
-    local pc = GetSkillOwner(skill)
-    local Druid1_abil = GetAbility(pc, "Druid1")
-    if Druid1_abil ~= nil and 1 == Druid1_abil.ActiveState then
-        value = value + Druid1_abil.Level
-    end
-    
+    local value = 10 + skill.Level * 0.6
     return value
 end
 
 function SCR_GET_Chortasmata_Ratio(skill)
-    local value = 600 + (30 * (skill.Level - 1));
-    
+    local value = 41 + (7.6 * (skill.Level - 1));
     return value
 end
 
@@ -10467,7 +10464,7 @@ function SCR_GET_DownFall_Ratio(skill)
 end
 
 function SCR_GET_HakkaPalle_Ratio(skill)
-    local value = 10 + skill.Level
+    local value = 50 * skill.Level
     
     return value;
 end
@@ -10521,7 +10518,7 @@ function SCR_Get_SkillFactor_RamMuay(skill)
 end
 
 function SCR_GET_Rammuay_Ratio(skill)
-    local value = skill.Level * 10
+    local value = skill.Level * 20
     
     return value;
 end
@@ -10884,7 +10881,7 @@ function SCR_GET_EmphasisTrust_Ratio(skill)
 end
 
 function SCR_GET_Hasisas_Ratio(skill)
-	local value = 5 + skill.Level * 5
+	local value = 30 + skill.Level * 15
 	value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
 	return value;
 end

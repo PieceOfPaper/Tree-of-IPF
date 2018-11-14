@@ -69,13 +69,14 @@
 		<Class ClassID="324" ClassName="CantUseMicRapidly" Data="연속해서 사용하실 수 없습니다."/>
 		<Class ClassID="325" ClassName="YouResurrect" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_resurrection 24 24} 캐릭터가 부활했습니다."/>
 		<Class ClassID="326" ClassName="GroupMsg{TYPE}{MSG}" Data="[{TYPE}]{MSG}"/>
+		<Class ClassID="327" ClassName="DPSMsg{DPS}{Damage}{Time}" Data="{ol}DPS:{DPS} 누적대미지:{Damage} 시간:{Time}"/>
 	</Category>
 	<Category Name="Skill">
 		<Class ClassID="500" ClassName="CannotGetSkill{NAME}" Data="[{NAME}] 스킬을 습득할 수 없습니다."/>
 		<Class ClassID="501" ClassName="CannotGetSkill{Reason}" Data="[{Reason}] 조건이 만족하지 않아 습득할 수 없습니다."/>
 		<Class ClassID="502" ClassName="CanOnlyInEqualMap" Data="같은 맵에서만 사용 가능합니다."/>
 		<Class ClassID="504" ClassName="CannotToggleAbilitySkillCoolDown" Data="스킬 재사용 대기시간 중에는 특성 ON/OFF를 변경할 수 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
 		<Class ClassID="1101" ClassName="Caster" Data="시전자"/>
@@ -104,8 +105,6 @@
 		<Class ClassID="1124" ClassName="customdrag" Data="연금공방"/>
 		<Class ClassID="1125" ClassName="Maximum" Data="최대"/>
 		<Class ClassID="1126" ClassName="Step" Data="단계"/>
-		<Class ClassID="1127" ClassName="Extract" Data="추출"/>
-		<Class ClassID="1128" ClassName="Rollback" Data="롤백"/>		
 		<Class ClassID="1129" ClassName="IsAwaken" Data="각성 수치"/>
 		<Class ClassID="1130" ClassName="LegendPrefix" Data="레전드 세트 옵션"/>
 	</Category>
@@ -282,7 +281,6 @@
 		<Class ClassID="2273" ClassName="PutLifeTimeItemInWareHouse" Data="기간제 아이템을 창고에 넣어도 기간은 동작하며, 창고 안에서 기간이 만료될 수 있습니다.{nl}계속하시겠습니까?{nl}{@st66d_y}[주의] '배수 토큰' 아이템은 창고 안에서 기간이 만료되었을 경우 수령시 사라지게 됩니다.{/}"/>
 		<Class ClassID="2274" ClassName="SafeAuthInfo" Data="OTP 또는 플레이 패스 사용"/>
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>
-		<Class ClassID="2276" ClassName="RollbackToIcor" Data="장착된 아이커 옵션을{nl}새로운 아이커로 추출합니다.{nl}기존 장비에서의 아이커 옵션은 해제됩니다."/>
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
 		<Class ClassID="2278" ClassName="CanExchangeOnlyOnce" Data="교환된 아이템은 다시 교환 할 수 없습니다."/>
 	</Category>
@@ -574,7 +572,7 @@
 		<Class ClassID="4215" ClassName="SelectSkillgem{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}을/를 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 선택지로 변경 할 수 없습니다."/>
 		<Class ClassID="4216" ClassName="ITEM_DRAGON_POWER" Data="드래곤 기운 {img green_up_arrow 16 16}"/>
 		<Class ClassID="4217" ClassName="CantUseSeal" Data="등록 할 수 없는 아이템입니다.{nl} 등급과 강화 수치가 동일한 인장이 필요합니다."/>
-	<Class ClassID="4218" ClassName="USEJOB_SCO" Data="스카우트계 클래스"/>
+		<Class ClassID="4218" ClassName="USEJOB_SCO" Data="스카우트계 클래스"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1456,7 +1454,7 @@
 		<Class ClassID="21317" ClassName="second{value}" Data="{value}초"/>
 		<Class ClassID="21318" ClassName="UseItemToReset{value}StatusPoints" Data="사용 시 {value}개의 스테이터스 포인트를 초기화 할 수 있습니다."/>
 		<Class ClassID="21319" ClassName="NoStatusPointToReset" Data="초기화 할 수 있는 스탯 포인트가 없습니다."/>
-	</Category>
+		</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
 		<Class ClassID="22002" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -5037,6 +5035,7 @@
 		<Class ClassID="28247" ClassName="EVENT_1811_NEWCHARACTER_MSG8" Data="현재 캐릭터에 우스카의 성장 지원 서브 이벤트가 시작됩니다{nl} 몬스터 처치 : 10,000 마리 (베르니케의 파편을 제외한 모든 지역){nl}레이드 클리어 : 10회 (유니크/레전드 레이드 최종 보스 처치) "/>
 		<Class ClassID="28248" ClassName="EVENT_1811_NEWCHARACTER_MSG9" Data="[Re:Build] 마시니오스 무기가 +11강화 되었습니다"/>
 		<Class ClassID="28249" ClassName="EVENT_1811_NEWCHARACTER_MSG10" Data="[Re:Build] 마시니오스 무기가 +5 초월 되었습니다"/>
+		<Class ClassID="28250" ClassName="EVENT_1811_NEWCHARACTER_MSG11" Data="'캐릭터 슬롯 추가 이용권' 아이템을 사용해 캐릭터 슬롯이 1 증가하였습니다"/>
 		<Class ClassID="28255" ClassName="EVENT_1811_KUPOLE_MSG1" Data="교환 상점을 사용한다"/>
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
@@ -8080,6 +8079,8 @@
 		<Class ClassID="100069" ClassName="ID_ENDTER_DIALOG_4" Data="쇠락한 르귄가문의 저택 (권장 레벨:230)"/>
 		<Class ClassID="100070" ClassName="ID_ENDTER_DIALOG_5" Data="카타콤 지하 (권장 레벨:270)"/>
 		<Class ClassID="100071" ClassName="ID_ENDTER_DIALOG_6" Data="캐슬 지하 (권장 레벨:300)"/>
+    <Class ClassID="100072" ClassName="DPS_START_MSG" Data="DPS 측정 시작!"/>
+    <Class ClassID="100073" ClassName="DPS_STOP_MSG" Data="DPS 측정 종료!"/>
 		<Class ClassID="100078" ClassName="skill_visibletalent" Data="비지블 탤런트 공격"/>
     <Class ClassID="100079" ClassName="guild_quest_enter" Data="길드퀘스트 입장"/>
     <Class ClassID="100080" ClassName="guild_quest_cancel" Data="길드퀘스트 진행 취소"/>    
@@ -12987,6 +12988,7 @@
 		<Class ClassID="514006" ClassName="NicopolisManaNucleusMsg" Data="마나 핵 작동중.."/>
 		<Class ClassID="514007" ClassName="NicopolisGimmickMsg" Data="마력 장치 작동중.."/>
 		<Class ClassID="514008" ClassName="NicopolisItemMsg" Data="마나 램프를 사용하려면 대기중의 마나를 수집해야 합니다."/>
+		<Class ClassID="514009" ClassName="UniqStarTowerMsg" Data="마법진 너머로 이동중.."/>
 	</Category>
 	<Category Name="SoloDungeon">
 		<Class ClassID="513001" ClassName="SoloDungeonStageMSG" Data="스테이지의 몬스터가 몰려옵니다. 모두 처치해 주세요!"/>

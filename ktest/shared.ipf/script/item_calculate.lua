@@ -316,8 +316,19 @@ function GET_BASIC_ATK(item)
 
     
     local itemGradeClass = GetClassList('item_grade')
+    if itemGradeClass == nil then
+        return 0;
+    end
+    
     local weaponClass = GetClassByNameFromList(itemGradeClass,'WeaponClassTypeRatio')
+    if weaponClass == nil then
+        return 0;
+    end
+    
     local weaponDamageClass = GetClassByNameFromList(itemGradeClass,'WeaponDamageRange')
+    if weaponDamageClass == nil then
+        return 0;
+    end
     
     if itemGradeClass ~= nil and weaponClass[classType] > 0 then
         itemATK = itemATK * weaponClass[classType];
@@ -530,6 +541,9 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     end
     
     local itemGradeClass = GetClassList('item_grade')
+    if itemGradeClass == nil then
+        return 0;
+    end
     
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');    
     for i = 1, #basicTooltipPropList do
@@ -538,11 +552,14 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         
         local basicDef = 0;
         local armorClassTypeRatio = GetClassByNameFromList(itemGradeClass,'ArmorClassTypeRatio')
-          
+        if classType == nil then
+            armorClassTypeRatio[classType] = 0
+        end
+
         basicDef = ((40 + lv * 8) * armorClassTypeRatio[classType]) * gradeRatio;
         upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;
         
-        local armorMaterialRatio = GetClassByNameFromList(itemGradeClass,'armorMaterial_'..basicProp)
+        local armorMaterialRatio = GetClassByNameFromList(itemGradeClass,'armorMaterial_'..basicProp)        
         
         basicDef = basicDef * armorMaterialRatio[equipMaterial]
        
@@ -1765,7 +1782,11 @@ function SCR_GET_MAX_SOKET(item)
 end
 
 function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
-
+    
+    if item == nil then
+        return 0;
+    end
+    
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
         return 0;
@@ -1866,11 +1887,7 @@ function SCR_CHECK_ADD_SOCKET(item, invItem)
             end
         end
     else -- server
-        for i = 0, itemMaxSocket - 1 do
-            if GetItemSocketInfo(item, i) ~= nil then
-                nowSocketCount= nowSocketCount + 1;
-            end
-        end
+        nowSocketCount = GET_CURRENT_AVAILABLE_SOCKET_COUNT(item);
     end
 
 	-- 남은 맥스 소켓

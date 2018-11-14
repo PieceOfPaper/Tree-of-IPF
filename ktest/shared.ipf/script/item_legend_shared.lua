@@ -31,17 +31,11 @@ function IS_VALID_OPTION_EXTRACT_KIT(itemCls)
     return false;
 end
 
-function GET_OPTION_EXTRACT_MATERIAL_NAME(item)
-    if TryGetProp(item, 'InheritanceItemName', 'None') ~= 'None' then
-        return 'None';
-    end
+function GET_OPTION_EXTRACT_MATERIAL_NAME()
     return 'misc_ore23'; 
 end
 
 function GET_OPTION_EXTRACT_NEED_MATERIAL_COUNT(item)
-    if TryGetProp(item, 'InheritanceItemName', 'None') ~= 'None' then
-        return 0;
-    end
     return math.floor(item.UseLv / (3 * (5 - item.ItemGrade)));
 end
 

@@ -99,7 +99,7 @@
                     <Obj Type="Monster" MonType="150044" Pos="-895.01#1046.27#736.89" genCount="1" genTime="20000" objectKey="0"/>
                     <Obj Type="Monster" MonType="150044" Pos="-898.93#1017.15#535.71" angle="-90" genCount="1" genTime="20000" objectKey="1"/>
                     <Obj Type="Monster" MonType="150042" Pos="423.88#932.66#764.79" genCount="1" genTime="20000" objectKey="2"/>
-                    <Obj Type="Monster" MonType="150042" Pos="724.61#1048.45#253.01" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="150042" Pos="732.38#1047.88#228.18" genCount="1" genTime="20000" objectKey="3"/>
                     <Obj Type="Monster" MonType="150042" Pos="718.22#1016.05#-409.14" genCount="1" genTime="20000" objectKey="4"/>
                 </ObjList>
             </Stage>
@@ -1778,6 +1778,10 @@
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="59206" Pos="716.33#1047.01#-78.04" angle="-42" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="150045" Pos="718.93#988.57#405.81" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="150045" Pos="733.84#1047.30#201.69" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="150046" Pos="715.36#1043.04#307.11" genCount="1" genTime="20000" objectKey="3"/>
+                    <Obj Type="Monster" MonType="150042" Pos="718.07#1015.50#-410.11" genCount="1" genTime="20000" objectKey="4"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="BossKill">

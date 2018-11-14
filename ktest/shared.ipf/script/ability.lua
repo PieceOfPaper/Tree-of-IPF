@@ -259,25 +259,12 @@ function SCR_ABIL_STAFFMASTERY_ACTIVE(self, ability)
 	local crthrRate = 0
     local rItem  = GetEquipItem(self, 'RH');
     if rItem.ClassType == "Staff" then
-		SetCastingSpeedBuffInfo(self, "StaffMastery", 10);
-		
-		crthrRate = crtHR * 0.05
+		SetCastingSpeedBuffInfo(self, "StaffMastery", 30);
     end
-    
-    self.CRTHR_BM = self.CRTHR_BM + crthrRate
-    
-    SetExProp(self, "STAFFMASTERY_CRTHR", crthrRate)
-    
---    InvalidateStates(self);
 end
 
 function SCR_ABIL_STAFFMASTERY_INACTIVE(self, ability)
-	local crthrRate = GetExProp(self, "STAFFMASTERY_CRTHR")
-	
-    self.CRTHR_BM = self.CRTHR_BM - crthrRate
-    
 	RemoveCastingSpeedBuffInfo(self, "StaffMastery");
---	InvalidateStates(self);
 end
 
 
