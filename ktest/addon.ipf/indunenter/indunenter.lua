@@ -503,21 +503,10 @@ function GET_MY_INDUN_MULTIPLE_ITEM_COUNT()
     local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
     for i = 1, #multipleItemList do
         local itemClassName = multipleItemList[i];
-        count = count + GET_INDUN_MULTIPLE_ITEM_COUNT_BY_NAME(itemClassName);
+        count = count + GET_INVENTORY_ITEM_COUNT_BY_NAME(itemClassName);
     end
     return count;
 end
-
-function GET_LOCK_MY_INDUN_MULTIPLE_ITEM_COUNT()
-    local count = 0;
-    local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
-    for i = 1, #multipleItemList do
-        local itemClassName = multipleItemList[i];
-        count = count + GET_LOCK_INDUN_MULTIPLE_ITEM_COUNT_BY_NAME(itemClassName);
-    end
-    return count;
-end
-
 
 function INDUNENTER_MAKE_MULTI_BOX(frame, indunCls)
     if frame == nil then
@@ -770,13 +759,18 @@ function INDUNENTER_MULTI_UP(frame, ctrl)
     --local maxCnt = topFrame:GetUserIValue('MAX_MULTI_CNT');
     local maxCnt = INDUN_MULTIPLE_USE_MAX_COUNT;
     
-    local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT()
-    local lock_item_count = GET_LOCK_MY_INDUN_MULTIPLE_ITEM_COUNT()    
-    if itemCount == 0 then
-        ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));
-        if lock_item_count ~= 0 then
-            ui.SysMsg(ClMsg("MaterialItemIsLock"))
+    local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+    for i = 1, #multipleItemList do
+        local itemName = multipleItemList[i];
+        local invItem = session.GetInvItemByName(itemName);
+        if invItem ~= nil and invItem.isLockState then
+            ui.SysMsg(ClMsg("MaterialItemIsLock"));
+            return;
         end
+    end
+       
+    local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT();    
+    if itemCount == 0 then
         return;
     end
 
@@ -801,9 +795,6 @@ function INDUNENTER_MULTI_UP(frame, ctrl)
     if nowCnt >= remainCount then
         nowCnt = remainCount - 1;
         ui.SysMsg(ScpArgMsg('NotEnoughIndunEnterCount'));
-        if lock_item_count ~= 0 then
-            ui.SysMsg(ClMsg("MaterialItemIsLock"))
-        end
     elseif nowCnt == maxCnt then
         ui.SysMsg(ScpArgMsg('IndunMultipleMAX'));
         return
@@ -811,9 +802,6 @@ function INDUNENTER_MULTI_UP(frame, ctrl)
     
     if nowCnt - 1 >= itemCount then
         ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));
-        if lock_item_count ~= 0 then
-            ui.SysMsg(ClMsg("MaterialItemIsLock"))
-        end
         return;
     end
 
@@ -898,11 +886,15 @@ function INDUNENTER_ENTER(frame, ctrl)
     end
     
     if useCount > 0 then
-        local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT()        
-        if useCount > itemCount then
-            ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));            
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
             return;
         end        
+    end
     end
     
     local topFrame = frame:GetTopParentFrame();
@@ -931,11 +923,15 @@ function INDUNENTER_AUTOMATCH(frame, ctrl)
     end
     
     if useCount > 0 then
-        local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT()        
-        if useCount > itemCount then
-            ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));            
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
             return;
         end        
+    end
     end
     
     local topFrame = frame:GetTopParentFrame();
@@ -967,11 +963,15 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
     end
     
     if useCount > 0 then
-        local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT()        
-        if useCount > itemCount then
-            ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));            
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
             return;
         end        
+    end
     end
     
     if session.party.GetPartyInfo(PARTY_NORMAL) == nil then 
@@ -1470,6 +1470,17 @@ function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)
 end
 
 function INDUNENTER_MULTI_EXEC(frame, ctrl)    
+    
+    local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+    for i = 1, #multipleItemList do
+        local itemName = multipleItemList[i];
+        local invItem = session.GetInvItemByName(itemName);
+        if invItem ~= nil and invItem.isLockState then
+            ui.SysMsg(ClMsg("MaterialItemIsLock"));
+            return;
+        end
+    end
+    
     local indunenterFrame = ui.GetFrame('indunenter');
     local indunType = indunenterFrame:GetUserValue('INDUN_TYPE');
 
@@ -1506,12 +1517,8 @@ function INDUNENTER_MULTI_EXEC(frame, ctrl)
     end
 
     local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT();    
-    local lock_item_count = GET_LOCK_MY_INDUN_MULTIPLE_ITEM_COUNT()    
     if itemCount < textCount then
         ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));
-        if lock_item_count ~= 0 then
-            ui.SysMsg(ClMsg("MaterialItemIsLock"))
-        end
         return;
     end
 
@@ -1576,50 +1583,6 @@ function GET_INVENTORY_ITEM_COUNT_BY_NAME(name)
     return count;
 end
 
-function GET_INDUN_MULTIPLE_ITEM_COUNT_BY_NAME(name)
-    if name == nil or name == "" then
-        return 0;
-    end
-
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
-    local itemCount = session.GetInvItemList():Count();
-    local invITemCount = 0;
-    for i = 0, itemCount - 1 do     
-        local invItem = invItemList:Element(index);
-        local itemobj = GetIES(invItem:GetObject());            
-        if invItem ~= nil then
-            if itemobj.ClassName == name and invItem.isLockState == false then
-                invITemCount = invITemCount + invItem.count;
-            end
-        end
-        index = invItemList:Next(index);
-    end
-    return invITemCount;
-end
-
-function GET_LOCK_INDUN_MULTIPLE_ITEM_COUNT_BY_NAME(name)
-    if name == nil or name == "" then
-        return 0;
-    end
-
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
-    local itemCount = session.GetInvItemList():Count();
-    local invITemCount = 0;
-    for i = 0, itemCount - 1 do     
-        local invItem = invItemList:Element(index);
-        local itemobj = GetIES(invItem:GetObject());            
-        if invItem ~= nil then
-            if itemobj.ClassName == name and invItem.isLockState == true then
-                invITemCount = invITemCount + invItem.count;
-            end
-        end
-        index = invItemList:Next(index);
-    end
-    return invITemCount;
-end
-
 function INDUNENTER_AMEND_OFFSET(frame)
     local left = frame:GetX();
     local top = frame:GetY();
@@ -1646,11 +1609,15 @@ function INDUNENTER_REQ_UNDERSTAFF_ENTER_ALLOW(parent, ctrl)
     local topFrame = parent:GetTopParentFrame();
     local useCount = tonumber(topFrame:GetUserValue("multipleCount"));
     if useCount > 0 then
-        local itemCount = GET_MY_INDUN_MULTIPLE_ITEM_COUNT()        
-        if useCount > itemCount then
-            ui.SysMsg(ScpArgMsg('NotEnoughIndunMultipleItem'));            
+        local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
+        for i = 1, #multipleItemList do
+            local itemName = multipleItemList[i];
+            local invItem = session.GetInvItemByName(itemName);
+            if invItem ~= nil and invItem.isLockState then
+                ui.SysMsg(ClMsg("MaterialItemIsLock"));
             return;
         end        
+    end
     end
 
     local withMatchMode = topFrame:GetUserValue('WITHMATCH_MODE');
