@@ -186,7 +186,7 @@ local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 		if jobInfo ~= nil then
 			jobCls = GetClassByType('Job', jobInfo.JobClassID);
 			local jobNameText = GET_CHILD(jobCtrlset, 'jobNameText');			
-			jobNameText:SetTextByKey('name', jobCls.Name);			
+			jobNameText:SetTextByKey('name', GET_JOB_NAME(jobCls, GETMYPCGENDER()));			
 			if i == 1 then
 				jobNameText:SetTextByKey('style', FIRST_JOB_NAME_STYLE);
 			else
@@ -250,7 +250,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid)
 	charpic:SetImage(charimgName);
 
 	local jobclassname_richtext = GET_CHILD_RECURSIVELY(frame, "className");
-	jobclassname_richtext:SetTextByKey("param_name", GET_JOB_NAME(jobinfo));
+	jobclassname_richtext:SetTextByKey("param_name", GET_JOB_NAME(jobinfo, GETMYPCGENDER()));
 
 	local captionstr = 'Caption1';
 	local jobclasscaption_richtext = GET_CHILD_RECURSIVELY(frame, "classExplain");
@@ -401,7 +401,7 @@ function CJ_CLICK_CHANGEJOBBUTTON(frame, slot, argStr, argNum)
 	exechangejobid = jobid
 	
 	local yesScp = string.format("EXEC_CHANGE_JOB()");
-	ui.MsgBox( ScpArgMsg("JobClassSelect").." : {@st41}'"..jobinfo.Name ..ScpArgMsg("Auto__{nl}JeongMalLo_JinHaengHaSiKessSeupNiKka?"), yesScp, "None");
+	ui.MsgBox( ScpArgMsg("JobClassSelect").." : {@st41}'"..GET_JOB_NAME(jobinfo, GETMYPCGENDER()) ..ScpArgMsg("Auto__{nl}JeongMalLo_JinHaengHaSiKessSeupNiKka?"), yesScp, "None");
 
 end
 
@@ -426,23 +426,6 @@ local function TRANS_BOOLEAN(number)
 	return true;
 end
 
-function IS_SATISFIED_HIDDEN_JOB_TRIGGER(jobCls)	
-    local preFuncName = TryGetProp(jobCls, 'PreFunction')
-    if preFuncName ~= nil and preFuncName ~= 'None' and jobCls.HiddenJob == "YES" then
-        local preFunc = _G[preFuncName]
-        if preFunc ~= nil then
-            return false
-        end
-	end
---	if jobCls.HiddenJob == "YES" then
---    	local pcEtc = GetMyEtcObject();
---    	if pcEtc["HiddenJob_"..jobCls.ClassName] ~= 300 and IS_KOR_TEST_SERVER() == false then
---    	    return false;
---    	end
---	end
-	return true;
-end
-
 function UPDATE_CHANGEJOB(frame)
 	local pc = GetMyPCObject();
 	local pcjobinfo = GetClass('Job', pc.JobName)
@@ -456,6 +439,24 @@ function UPDATE_CHANGEJOB(frame)
 	local groupbox_main = GET_CHILD_RECURSIVELY(frame, 'cjgroupbox_main');
 	groupbox_main = tolua.cast(groupbox_main, "ui::CGroupBox");
 	groupbox_main:RemoveAllChild();
+	
+	local function _IS_SATISFIED_HIDDEN_JOB_TRIGGER(jobCls)	
+		local preFuncName = TryGetProp(jobCls, 'PreFunction', 'None');
+		if jobCls.HiddenJob == 'NO' then
+			return true;
+		end
+
+		if preFuncName == 'None' then
+			return true;
+		end
+	--	if jobCls.HiddenJob == "YES" then
+	--    	local pcEtc = GetMyEtcObject();
+	--    	if pcEtc["HiddenJob_"..jobCls.ClassName] ~= 300 and IS_KOR_TEST_SERVER() == false then
+	--    	    return false;
+	--    	end
+	--	end
+		return false;
+	end
 
 	local jobInfos = {};
 	local forHotJobList = {};
@@ -467,7 +468,7 @@ function UPDATE_CHANGEJOB(frame)
 										IsHave = IS_HAD_JOB(jobCls.ClassID),
 										IsNew = IS_NEW_JOB(jobCls),
 										HotCount = session.GetChangeJobHotRank(jobCls.ClassName),
-										IsSatisfiedHiddenQuest = IS_SATISFIED_HIDDEN_JOB_TRIGGER(jobCls)};
+										IsSatisfiedHiddenQuest = _IS_SATISFIED_HIDDEN_JOB_TRIGGER(jobCls)};
 										
 			forHotJobList[#forHotJobList + 1] = { JobClassID = jobCls.ClassID, HotCount = session.GetChangeJobHotRank(jobCls.ClassName) };
 		end
@@ -526,7 +527,8 @@ function UPDATE_CHANGEJOB(frame)
 
 		-- button img
 		if info.IsHave == true then
-			if jobCls.HiddenJob == 'YES' then
+		    local preFuncName = TryGetProp(jobCls, 'PreFunction', 'None')
+			if jobCls.HiddenJob == 'YES' and preFuncName ~= 'None'  then
 				button:SetImage(BUTTON_IMG_HAD_HIDDEN_JOB);
 			else
 				button:SetImage(BUTTON_IMG_HAVE_JOB);
@@ -555,7 +557,7 @@ function UPDATE_CHANGEJOB(frame)
 
 		-- name			
 		local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname");
-		jobnameCtrl:SetTextByKey("param_jobcname", jobCls.Name);
+		jobnameCtrl:SetTextByKey("param_jobcname", GET_JOB_NAME(jobCls, GETMYPCGENDER()));
 				
 		button:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_INFO')
 		button:SetEventScriptArgNumber(ui.LBUTTONDOWN, info.JobClassID);

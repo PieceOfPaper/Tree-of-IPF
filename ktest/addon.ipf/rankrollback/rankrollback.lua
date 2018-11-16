@@ -205,13 +205,6 @@ function RANKROLLBACK_ITEM_USE_BUTTON_CLICK(frame, ctrl)
         return;
     end
     
-    local templerCls = GetClass('Job', 'Char1_16');    
-    if AM_I_LEADER(PARTY_GUILD) == 1 and IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-        local yesscp = string.format("RANKROLLBACK_REQUEST_RANK_RESET()");
-        ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
-        return;
-	end
-	
     RANKROLLBACK_REQUEST_RANK_RESET();
 end
 

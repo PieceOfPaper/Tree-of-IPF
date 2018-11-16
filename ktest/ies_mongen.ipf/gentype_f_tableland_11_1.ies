@@ -15,7 +15,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 14,14,1,40,-1,60000,1,0,0,1,0,0,0,"HiddenControl","UnvisibleName","","","","","","MONSTER_GEN_GIMMIC_EVENT_AI","","","","NO","YES","NO","Neutral","Tableland_11_1_killcount","","",""
 15,15,1,40,-1,60000,1,0,0,1,0,0,0,"HiddenControl","UnvisibleName","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n43","",""
 16,16,1,40,100,60000,18,0,0,0,1,0,0,"rootcrystal_01","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
-17,17,1,40,-1,60000,2,0,0,0,1,0,0,"HiddenTrigger_CantGen200","필드젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
+17,17,1,40,-1,1,3,0,0,0,1,0,0,"HiddenTrigger_CantGen200","필드젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 18,18,1,80,-1,60000,1,0,0,0,0,0,0,"npc_necromancer_m_2","네크로맨서 아도마스","","","","","","TABLELAND_11_1_ADOMAS_AI","TABLELAND_11_1_ADOMAS","TABLELAND_11_1_SQ_01_BALLOON","","NO","YES","NO","Neutral","","","",""
 19,19,1,40,-1,60000,1,0,0,0,0,0,0,"leather_bag","UnvisibleName","","","","","","","TABLELAND_11_1_ADOMAS_BAG","","","NO","YES","NO","Neutral","","","",""
 20,20,1,40,-1,60000,20,0,0,0,1,0,0,"SCS_M2_Mon","얼어붙은 병사","","","","","","TABLELAND_11_1_FORST_GUARD_AI","","TABLELAND_11_1_FROST_GUARD","","NO","YES","NO","Neutral","","","",""
@@ -45,3 +45,4 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 44,44,1,40,1,5000,16,0,0,0,1,0,0,"HiddenTrigger6","UnvisibleName","","","","","","","JOB_DRAGOON_8_1_KEY","","","NO","YES","NO","Neutral","","","",""
 45,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_263:1","",""
 5002,5002,1,150,-1,1,1,2,0,0,0,0,0,"npc_kupole_kaze_1","[아우스테야의 하인]{nl}큐폴 카제","","","","","","","RVR_BK_KAZE_NPC_1","","","NO","YES","NO","Neutral","","","",""
+5003,5003,1,300,1,1,1,0,0,0,0,0,0,"HiddenTrigger_CantGen300","필드젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""

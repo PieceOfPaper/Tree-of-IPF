@@ -1094,11 +1094,117 @@ function DRAW_EQUIP_SOCKET(tooltipframe, itemObj, yPos, addinfoframename)
 	local DEFAULT_POS_Y = tooltip_equip_socket_CSet:GetUserConfig("DEFAULT_POS_Y")
 	local inner_yPos = DEFAULT_POS_Y;
 
+	local function _ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yPos )
+		if GroupCtrl == nil then
+			return 0;
+		end
+	
+		local cnt = GroupCtrl:GetChildCount();
+		
+		local ControlSetObj = GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
+		local ControlSetCtrl = tolua.cast(ControlSetObj, 'ui::CControlSet');
+	
+		local socket_image = GET_CHILD(ControlSetCtrl, "socket_image", "ui::CPicture");
+		local socket_property_text = GET_CHILD(ControlSetCtrl, "socket_property", "ui::CRichText");
+		local gradetext = GET_CHILD_RECURSIVELY(ControlSetCtrl,"grade","ui::CRichText");
+	
+		local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
+		local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
+		if gem == 0 then
+			local socketCls = GetClassByType("Socket", socket);
+			socketicon = socketCls.SlotIcon
+			local socket_image_name = socketCls.SlotIcon
+			socket_image:SetImage(socket_image_name)		
+			socket_property_text:ShowWindow(0)
+			gradetext:ShowWindow(0)
+		else
+	
+			local gemclass = GetClassByType("Item", gem);
+			local socket_image_name = gemclass.Icon
+	
+			if gemclass.ClassName == 'gem_circle_1' then
+				socket_image_name = 'test_tooltltip_red'
+			elseif gemclass.ClassName == 'gem_square_1' then
+				socket_image_name = 'test_tooltltip_blue'
+			elseif gemclass.ClassName == 'gem_diamond_1' then
+				socket_image_name = 'test_tooltltip_green'
+			elseif gemclass.ClassName == 'gem_star_1' then
+				socket_image_name = 'test_tooltltip_yellow'
+			elseif gemclass.ClassName == 'gem_White_1' then
+				socket_image_name = 'test_tooltltip_white'
+			end
+	
+			socket_image:SetImage(socket_image_name)		
+			local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
+			
+			local prop = geItemTable.GetProp(gem);
+			
+			local desc = "";
+			local socketProp = prop:GetSocketPropertyByLevel(lv);
+			local type = invitem.ClassID;
+			local cnt = socketProp:GetPropCountByType(type);
+			gradetext:SetText("Lv " .. lv)
+			gradetext:ShowWindow(1)
+	
+			for i = 0 , cnt - 1 do
+				local addProp = socketProp:GetPropAddByType(type, i);
+	
+				local tempvalue = addProp.value
+	
+				local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
+				if tempvalue < 0 then
+					plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';
+					tempvalue = tempvalue * -1
+				end
+	
+				if addProp:GetPropName() == "OptDesc" then
+					desc = addProp:GetPropDesc().." ";
+				else
+					desc = desc .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
+				end
+	
+			end
+	
+			local cnt2 = socketProp:GetPropPenaltyCountByType(type);
+	
+			local penaltyLv = lv - gemLv;
+			if 0 > penaltyLv then
+				penaltyLv = 0;
+			end
+			local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
+			for i = 0 , cnt2 - 1 do
+				local addProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
+				local tempvalue = addProp.value
+				local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
+	
+				if tempvalue < 0 then
+					plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';			
+				end
+	
+				if gemLv > 0 then
+					if 0 < penaltyLv then
+						desc = desc .. "{nl}" .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
+					end
+				else
+					desc = desc .. "{nl}" .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
+				end
+			end
+				
+			socket_property_text:SetText(desc);
+			socket_property_text:ShowWindow(1);
+			ControlSetCtrl:Resize(ControlSetCtrl:GetWidth(), math.max(ControlSetCtrl:GetHeight(), socket_property_text:GetHeight()));
+		end
+	
+		GroupCtrl:ShowWindow(1)
+		GroupCtrl:Resize(GroupCtrl:GetWidth(), GroupCtrl:GetHeight() + ControlSetObj:GetHeight() + 7)
+		return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetY() + 5;
+	end	
+
 	local curCount = 0;	
 	for i = 0, itemObj.MaxSocket - 1 do
 		if invitem:IsAvailableSocket(i) == true then
 			curCount = curCount + 1
-			inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, itemObj, 
+			inner_yPos = _ADD_ITEM_SOCKET_PROP(socket_gbox, itemObj, 
 											GET_COMMON_SOCKET_TYPE(), 
 											invitem:GetEquipGemID(i), 
 											invitem:GetEquipGemExp(i),
@@ -1110,7 +1216,7 @@ function DRAW_EQUIP_SOCKET(tooltipframe, itemObj, yPos, addinfoframename)
 	socket_value:SetTextByKey("curCount", curCount)
 
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
-	tooltip_equip_socket_CSet:Resize(tooltip_equip_socket_CSet:GetWidth(),socket_gbox:GetHeight() + socket_gbox:GetY() + BOTTOM_MARGIN);
+	tooltip_equip_socket_CSet:Resize(tooltip_equip_socket_CSet:GetWidth(), socket_gbox:GetHeight() + socket_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_socket_CSet:GetHeight())
 	return tooltip_equip_socket_CSet:GetHeight() + tooltip_equip_socket_CSet:GetY();

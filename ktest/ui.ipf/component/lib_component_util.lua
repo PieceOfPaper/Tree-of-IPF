@@ -11,6 +11,6 @@ function COMPONENT_CALLBACK_EVENT_SCRIPT(parent, ctrl, callBackFuncPropName)
     local callbackFuncName = ctrl:GetUserValue(callBackFuncPropName);
     local CallBackFunc = _G[callbackFuncName];
     if CallBackFunc ~= nil then
-        CallBackFunc(parent, ctrl);
+        return CallBackFunc(parent, ctrl);
     end
 end

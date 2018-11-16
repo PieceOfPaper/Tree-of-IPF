@@ -100,6 +100,5 @@
 		<checkbox name="skillCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 150 0 0" layout_gravity="left top" caption="스킬 사용" fontname="brown_16_b" ConfigName="BattleMsg_Skill"/>
 		<checkbox name="resurrectCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 180 0 0" layout_gravity="left top" caption="사망/부활" fontname="brown_16_b" ConfigName="BattleMsg_Resurrect" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
 		<checkbox name="resurrectCheck_party" parent="battleConfigBox" rect="0 0 100 30" margin="25 210 0 0" layout_gravity="left top" caption="파티원의 사망/부활" fontname="brown_16_b" ConfigName="BattleMsg_Resurrect_party" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
-		<checkbox name="dpsCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 240 0 0" layout_gravity="left top" caption="DPS" fontname="brown_16_b" ConfigName="BattleMsg_DPS"/>
 	</controls>
 </uiframe>

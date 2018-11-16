@@ -103,7 +103,7 @@ function ABILITY_POINT_EXTRACTOR_UPDATE_MONEY(frame)
     end
     
     if eventDiscount == 1 then
-        consumeMoneyStr = consumeMoneyStr..' [100% '..ScpArgMsg('TP_Premium_Sale')..']'
+        consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('EVENT_1811_ABILITY_EXTRACTOR_MSG1','COUNT',100)
     end
     
     consumePointText:SetTextByKey('value', consumePointStr);
@@ -185,7 +185,7 @@ function ABILITY_POINT_EXTRACTOR(parent, ctrl)
     local consumePointStr = GET_COMMAED_STRING(consumePoint);
 	
 	if eventDiscount == 1 then
-        consumeMoneyStr = consumeMoneyStr..' [100% '..ScpArgMsg('TP_Premium_Sale')..']'
+        consumeMoneyStr = consumeMoneyStr..' '..ScpArgMsg('EVENT_1811_ABILITY_EXTRACTOR_MSG1','COUNT',100)
     end
 	
     local msg = ScpArgMsg("AskExtractAbilityPoint{Silver}{Scroll}{ConsumePoint}", "Silver", consumeMoneyStr, "Scroll", count, "ConsumePoint", consumePointStr);

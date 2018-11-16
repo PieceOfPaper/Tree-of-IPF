@@ -577,7 +577,6 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
 
     ------------------------ ability description frame ---------------------------------
-
     local isShowNoHaveAbility = false
     local abilFrame = GET_CHILD(frame, 'ability_desc', 'ui::CGroupBox')
     ypos = 20 -- init by ability frame
@@ -592,6 +591,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         jobEngNameList[#jobEngNameList+1] = jobCls.EngName
     end
 
+    local showAbilCnt = 0;
     local abilList, abilCnt = GET_ABILITYLIST_BY_SKILL_NAME(obj.ClassName, jobEngNameList)
     local pcAbilCnt = 0 -- ability count for showing
     local pcAbilList = {}
@@ -606,6 +606,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
                 labelLine:SetSkinName('labelline_def_2')
             end
             ypos = ABILITY_DESC_TOOLTIP(abilFrame, abilList[i], i, ypos, GetMyPCObject(), pcAbilIES)
+            showAbilCnt = showAbilCnt + 1
         end
 
         if isShowNoHaveAbility then
@@ -617,11 +618,8 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         end
     end
 
-    if totalLevel > 0 and pcAbilCnt > 0 then
+    if totalLevel > 0 and showAbilCnt > 0 then
         ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList, pcAbilCnt)
-    end
-
-    if pcAbilCnt > 0 then
         abilFrame:Resize(abilFrame:GetOriginalWidth(), ypos)
         frame:Resize(skillFrame:GetWidth()+abilFrame:GetWidth(), math.max(skillFrame:GetHeight(), abilFrame:GetHeight()));
         abilFrame:ShowWindow(1)
@@ -702,6 +700,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     local LABEL_SKIN_NAME = lvDescCtrlSet:GetUserConfig("LABEL_SKIN_NAME")
     local SKIN_NEXTLV_NAME = lvDescCtrlSet:GetUserConfig("SKIN_NEXTLV_NAME")
     local SP_ICON = lvDescCtrlSet:GetUserConfig("SP_ICON")
+    local OVERHEAT_ICON = lvDescCtrlSet:GetUserConfig("OVERHEAT_ICON")
 
     local lvFont = LEVEL_FONTNAME
     local descFont = DESC_FONTNAME
@@ -709,6 +708,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     -- controls
     local lvText = lvDescCtrlSet:GetChild("level");
     local spText = lvDescCtrlSet:GetChild("sp_text");
+    local overheatText = lvDescCtrlSet:GetChild("overheat_text");
     local coolText = lvDescCtrlSet:GetChild("cool_text");
     local padText = lvDescCtrlSet:GetChild("pad_text");
     local descText = GET_CHILD(lvDescCtrlSet, "desc", "ui::CRichText");
@@ -748,6 +748,7 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
         end
     end
 
+    local overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
     local sp = GET_SPENDSP_BY_LEVEL(obj, lv);
     local pc = GetMyPCObject();
 
@@ -760,6 +761,9 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     else
         coolText:SetText(lvFont..GET_TIME_TXT_TWO_FIGURES(coolTime))        
     end
+
+    overheatText:SetText(OVERHEAT_ICON ..lvFont..ScpArgMsg("count{value}", "value", overHeat))
+    overheatText:SetVisible(0)
     
     -- trim desc    
     local trimedDesc = desc:match("^%s*(.+)")    

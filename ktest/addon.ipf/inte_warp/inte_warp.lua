@@ -64,17 +64,6 @@ function INTE_WARP_OPEN_BY_NPC()
 
 end
 
-function INTE_WARP_OPEN_NORMAL()
-
-   	local frame = ui.GetFrame('inte_warp');
-	
-	frame:SetUserValue("Type", "Normal");
-
-	frame:ShowWindow(1);
-	frame:Invalidate();
-	
-end
-
 function INTE_WARP_OPEN_DIB()
 
    	local frame = ui.GetFrame('inte_warp');

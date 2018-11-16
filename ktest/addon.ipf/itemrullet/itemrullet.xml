@@ -3,7 +3,7 @@
 <uiframe name="itemrullet" x="0" y="0" width="500" height="1280" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip"/>
 	<sound opensound="win_open" closesound="win_close"/>
-	<draw drawframe="false"/>
+	<draw drawframe="false"drawnotitlebar="false" drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<script OpenScp="OPEN_REINFORCE_SEAL" CloseScp="CLOSE_REINFORCE_SEAL"/>
 	<userconfig TARGET_SLOT_SIZE="150" MATERIAL_SLOT_SIZE="115" SLOT_INTERVAL_MARGIN_X="110" MINMAX_COMP_WIDTH="200" MINMAX_COMP_HEIGHT="36" MINMAX_MARGIN_RIGHT="20" MINMAX_MARGIN_TOP="68" APPLY_OPTION_CTRLSET_WIDTH="460" APPLY_OPTION_CTRLSET_HEIGHT="32" APPLY_OPTIOIN_CTRLSET_INTERVAL_MARGIN_Y="4" NEXT_OPTION_SKIN="listbox_light_op_20" FAR_FUTURE_OPTION_SKIN="listbox_op_20" LOCK_IMG_SIZE="28" LOCK_IMG_NAME="icon_lock_tooltip_1"/>

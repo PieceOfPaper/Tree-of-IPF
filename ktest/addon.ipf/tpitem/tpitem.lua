@@ -96,6 +96,14 @@ function TPSHOP_REDRAW_TPITEMLIST()
 	
 end
 
+
+function TPSHOP_GET_INDEX_BY_TAB_NAME(name)
+	local frame = ui.GetFrame("tpitem");
+	local tabObj = GET_CHILD_RECURSIVELY(frame, 'shopTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	return itembox_tab:GetIndexByName(name);
+end
+
 function TPSHOP_TAB_CHANGE(frame, ctrl, argStr, argNum)
 	local tabObj		    = frame:GetChild('shopTab');
 	local itembox_tab		= tolua.cast(tabObj, "ui::CTabControl");
@@ -120,6 +128,7 @@ function TPITEM_OPEN(frame)
 	end
 
 	RECYCLE_MAKE_TREE(frame);
+	COSTUME_EXCHANGE_MAKE_TREE(frame);
 end
 
 function TPSHOP_TAB_VIEW(frame, curtabIndex)
@@ -135,64 +144,63 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	screenbgTemp:ShowWindow(0);
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	local rcycle_basketgbox = GET_CHILD_RECURSIVELY(frame,'rcycle_basketgbox');
-
 	local rcycle_toitemBtn = GET_CHILD_RECURSIVELY(frame, 'rcycle_toitemBtn');
+	local costume_exchange_basketgbox =  GET_CHILD_RECURSIVELY(frame,'costume_exchange_basketgbox');
+	local costume_exchange_toitemBtn=  GET_CHILD_RECURSIVELY(frame,'costume_exchange_toitemBtn');
 	local basketBuyBtn = GET_CHILD_RECURSIVELY(frame, 'basketBuyBtn');
-	basketBuyBtn:SetEnable(1);
-	rcycle_toitemBtn:SetEnable(1);
 	
+	basketBuyBtn:SetEnable(0);
+	rcycle_toitemBtn:SetEnable(0);
+	costume_exchange_toitemBtn:SetEnable(0);
+
+	previewgbox:SetVisible(0);
+	previewStaticTitle:SetVisible(0);	
+	cashInvGbox:SetVisible(0);
+	ncChargebtn:SetVisible(0);
+	basketgbox:SetVisible(0);
+	rcycle_basketgbox:SetVisible(0);
+	costume_exchange_basketgbox:SetVisible(0);
+	
+
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
 		if curtabIndex == 0 then	
 			TPITEM_DRAW_NC_TP();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-			basketgbox:SetVisible(0);
-			previewgbox:SetVisible(0);
-			previewStaticTitle:SetVisible(0);	
 			cashInvGbox:SetVisible(1);
-			rcycle_basketgbox:SetVisible(0);
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
 		elseif curtabIndex == 1 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
-		elseif curtabIndex == 2 then -- 리사이클 샵
+			basketBuyBtn:SetEnable(1);
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox5") then -- 계열 코스튬 교환 샵
+			costume_exchange_basketgbox:SetVisible(1);
+			previewStaticTitle:SetVisible(1);	
+			previewgbox:SetVisible(1);
+			costume_exchange_toitemBtn:SetEnable(1);
+			COSTUME_EXCHANGE_SHOW_TO_ITEM()
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
 			rcycle_basketgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);	
 			previewgbox:SetVisible(1);
-			basketgbox:SetVisible(0);
-			cashInvGbox:SetVisible(0);
+			rcycle_toitemBtn:SetEnable(1);
 			RECYCLE_SHOW_TO_ITEM()
-		elseif curtabIndex == 3 then
-			basketBuyBtn:SetEnable(0);
-			rcycle_toitemBtn:SetEnable(0);
 		end
 	elseif (config.GetServiceNation() == "THI") then	
 		if curtabIndex == 0 then	
 			UPDATE_NEXON_AMERICA_SELLITEMLIST();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-			basketgbox:SetVisible(0);
-			previewgbox:SetVisible(0);
-			previewStaticTitle:SetVisible(0);	
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
-			ncChargebtn:SetVisible(0);
 		elseif curtabIndex == 1 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
-			ncChargebtn:SetVisible(0);
-		elseif curtabIndex == 2 then -- 리사이클 샵
+			basketBuyBtn:SetEnable(1);
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
 			rcycle_basketgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);	
 			previewgbox:SetVisible(1);
-			basketgbox:SetVisible(0);
-			cashInvGbox:SetVisible(0);
-			ncChargebtn:SetVisible(0);
+			rcycle_toitemBtn:SetEnable(1);
 			RECYCLE_SHOW_TO_ITEM()
 		end
 	else
@@ -200,21 +208,48 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
-			cashInvGbox:SetVisible(0);
-			rcycle_basketgbox:SetVisible(0);
-		elseif curtabIndex == 1 then -- 리사이클 샵
+			basketBuyBtn:SetEnable(1);
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
 			rcycle_basketgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);	
 			previewgbox:SetVisible(1);
-			basketgbox:SetVisible(0);
-			cashInvGbox:SetVisible(0);
+			rcycle_toitemBtn:SetEnable(1);
 			RECYCLE_SHOW_TO_ITEM()
 		end
 	end
 end
 
+function  TPSHOP_CHECK_COSTUME_EXCHANGE_OPEN(frame)
+
+	local shopTab = GET_CHILD_RECURSIVELY(frame, "shopTab");
+	local itembox_tab = tolua.cast(shopTab, "ui::CTabControl");
+
+	local isCostumeExchangeCoupon = false;
+	local CostumeExchangeCoupon = session.GetInvItemByName("Costume_Exchange_Coupon");
+	if CostumeExchangeCoupon ~= nil and CostumeExchangeCoupon.count > 0 then
+		isCostumeExchangeCoupon = true;
+	end
+
+	local costumeExchangeShopTabIndex = itembox_tab:GetIndexByName("Itembox5")
+	local beautyshopTabIndex = itembox_tab:GetIndexByName("Itembox4")
+	if costumeExchangeShopTabIndex ~= -1 and beautyshopTabIndex ~= -1 then
+		if isCostumeExchangeCoupon == false then
+			itembox_tab:SetTabVisible(costumeExchangeShopTabIndex, false)
+			if beautyshopTabIndex > costumeExchangeShopTabIndex then
+				itembox_tab:SwapTab(costumeExchangeShopTabIndex, beautyshopTabIndex )
+				frame:Invalidate();
+			end
+		elseif isCostumeExchangeCoupon == true then
+			itembox_tab:SetTabVisible(costumeExchangeShopTabIndex, true)
+			if beautyshopTabIndex < costumeExchangeShopTabIndex then
+				itembox_tab:SwapTab(costumeExchangeShopTabIndex, beautyshopTabIndex )
+				frame:Invalidate();
+			end
+		end
+	end
+end
+
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
-    
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
 	session.shop.RequestLoadShopBuyLimit();
@@ -231,6 +266,9 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		banner:SetUserValue("URL_BANNER", "");
 		banner:SetUserValue("NUM_BANNER", 0);
 		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");
+		
+		TPSHOP_CHECK_COSTUME_EXCHANGE_OPEN(frame)
+
 	elseif config.GetServiceNation() == "THI" then 
 		local banner_offset_y = frame:GetUserConfig("banner_offset_y")
 		local balance_resize_width = frame:GetUserConfig("balance_resize_width")
@@ -281,7 +319,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 			itembox_tab:SetItemsFixWidth(170);
 		end
 	end
-		
+	
 	
 	MAKE_CATEGORY_TREE();
 	
@@ -403,9 +441,13 @@ function ON_TPSHOP_BUY_SUCCESS(frame)
 	local rcycle_basketsellslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketsellslotset")
 	rcycle_basketsellslotset:ClearIconAll();
 
+	local costume_exchange_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"costume_exchange_basketbuyslotset")
+	costume_exchange_basketbuyslotset:ClearIconAll();
+
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")	
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"buy")
+	UPDATE_COSTUME_EXCHANGE_BASKET_MONEY(frame)
 end
 
 function ON_TPSHOP_RESET_PREVIEWMODEL()
@@ -570,6 +612,7 @@ function TPITEM_CLOSE(frame)
 	session.ui.Clear_NISMS_CashInven_ItemList();	
 
 	ui.CloseFrame("recycleshop_popupmsg");
+	ui.CloseFrame("costume_exchangeshop_popupmsg")
 	ui.CloseFrame("tpitem_popupmsg");
 	ui.CloseFrame('packagelist');
 end
@@ -1736,8 +1779,8 @@ end
 function TPSHOP_ITEMSEARCH_CLICK(parent, control, strArg, intArg)
 	local editDiff = GET_CHILD(parent, "editDiff");
     if editDiff == nil then
-        local frame = parent:GetTopParentFrame();
-        editDiff = GET_CHILD_RECURSIVELY(frame, 'recycle_editDiff');
+		local frame = parent:GetTopParentFrame();
+	  editDiff = GET_CHILD_RECURSIVELY(frame, 'recycle_editDiff');
     end
 	editDiff:SetVisible(0);
 	control:ClearText();

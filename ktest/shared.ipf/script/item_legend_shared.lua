@@ -18,7 +18,7 @@ function IS_LEGEND_GROUP_ITEM(item)
 end
 
 function GET_OPTION_EXTRACT_KIT_LIST()
-    return {'Extract_kit', 'Extract_kit_Sliver', 'Extract_kit_Gold'};
+    return {'Extract_kit', 'Extract_kit_Sliver', 'Extract_kit_Gold', 'Extract_kit_Gold_NotFail'};
 end
 
 function IS_VALID_OPTION_EXTRACT_KIT(itemCls)
@@ -40,7 +40,7 @@ function GET_OPTION_EXTRACT_NEED_MATERIAL_COUNT(item)
 end
 
 function IS_ENABLE_NOT_TAKE_MATERIAL_KIT(kitCls)
-    if kitCls.StringArg == 'Extract_kit_Sliver' then 
+    if kitCls.StringArg == 'Extract_kit_Sliver' or kitCls.StringArg == 'Extract_kit_Gold_NotFail' then 
         return true;
     end
     return false;
@@ -119,4 +119,12 @@ function SCR_VELLCOFFER_MATCOUNT(pc)
     end
     
     return matCount;
+end
+
+function IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item)
+    if item == nil then
+        return false;
+    end
+
+    return item.StringArg == 'Extract_kit_Gold_NotFail';
 end

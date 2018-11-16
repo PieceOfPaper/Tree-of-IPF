@@ -12,8 +12,6 @@ function SKILLABILITY_GET_JOB_ID_LIST()
         end
     end    
     
-    
-    table.sort(joblist)
     return joblist;
 end
 
@@ -544,4 +542,15 @@ function HAS_ABILITY_SKILL(abilName)
         end
     end
     return false;
+end
+
+function GET_SKILL_OVERHEAT_COUNT(sklObj)
+    local overHeat = 0;
+    if sklObj ~= nil then
+        overHeat = sklObj.SklUseOverHeat;
+    end
+    if overHeat == 0 then
+        overHeat = 1
+    end
+    return overHeat;
 end

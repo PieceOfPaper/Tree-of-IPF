@@ -1779,9 +1779,9 @@
                 <ObjList>
                     <Obj Type="Monster" MonType="59206" Pos="716.33#1047.01#-78.04" angle="-42" genCount="1" genTime="20000" objectKey="0"/>
                     <Obj Type="Monster" MonType="150045" Pos="718.93#988.57#405.81" genCount="1" genTime="20000" objectKey="1"/>
-                    <Obj Type="Monster" MonType="150045" Pos="733.84#1047.30#201.69" genCount="1" genTime="20000" objectKey="2"/>
                     <Obj Type="Monster" MonType="150046" Pos="715.36#1043.04#307.11" genCount="1" genTime="20000" objectKey="3"/>
                     <Obj Type="Monster" MonType="150042" Pos="718.07#1015.50#-410.11" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="150047" Pos="727.98#1047.70#219.36" genCount="1" genTime="20000" objectKey="2"/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="BossKill">
@@ -2463,6 +2463,9 @@
                 </StartScpList>
                 <ObjList>
                     <Obj Type="Monster" MonType="59207" Pos="-60.75#1225.99#9.75" angle="116" genCount="1" genTime="20000" objectKey="0"/>
+                    <Obj Type="Monster" MonType="150047" Pos="-187.01#1218.06#238.19" angle="27" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="150048" Pos="-225.45#1220.10#315.68" angle="27" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="150045" Pos="-261.57#1183.26#387.96" angle="18" genCount="1" genTime="20000" objectKey="3" propList="&apos;ClassID&apos; &apos;150049&apos; &apos;Dialog&apos; &apos;UNIQ_STARTTOWER_STAGE_5_2_SETPOS&apos; "/>
                 </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="BossKill">

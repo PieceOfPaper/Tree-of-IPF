@@ -1072,7 +1072,7 @@ function RamMuay_LEAVE(actor, obj, buff)
 end
 
 function ScpChangeMovingShotAnimationSet(actor, obj, buff)
-    local buffRunningShot = actor:GetBuff():GetBuff('RunningShot_Buff');
+    local buffSwiftStep = actor:GetBuff():GetBuff('SwiftStep_Buff');
     local buffDoubleGunStance = actor:GetBuff():GetBuff('DoubleGunStance_Buff');
     local buffLimacon = actor:GetBuff():GetBuff('Limacon_Buff');
     local RetreatShot = actor:GetBuff():GetBuff('RetreatShot');
@@ -1080,7 +1080,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
     local Outrage = actor:GetBuff():GetBuff('Outrage_Buff');
     
     -- RunningShot_Buff (and) DoubleGunStance_Buff
-    if buffRunningShot ~= nil and buffDoubleGunStance ~= nil and Outrage == nil then
+    if buffSwiftStep ~= nil and buffDoubleGunStance ~= nil and Outrage == nil then
         actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_Sword");
         actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
         actor:SetAlwaysBattleState(true);
@@ -1109,7 +1109,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
     else
         -- RunningShot_Buff
-        if buffRunningShot ~= nil then
+        if buffSwiftStep ~= nil then
             actor:SetMovingShotAnimation("ATKRUN");
         end
         

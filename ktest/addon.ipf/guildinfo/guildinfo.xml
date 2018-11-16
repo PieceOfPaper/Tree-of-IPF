@@ -231,8 +231,7 @@
 									<layout name="infomiscLayout" orientation="horizontal" spacing="5" rect="0 0 0 300">
 										<layoutsection name="guildBenefitSection">
 											<groupbox name="benefitbox" skin="test_frame_midle">
-												<richtext name="benefitText" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="길드 혜택" fontname="white_16_b_ol"/>
-												<button name="updateBtn" rect="0 0 32 32" margin="0 3 5 0" layout_gravity="right top" image="market_reset3_btn" fontname="white_16_b_ol" LBtnUpScp="GUILDINFO_INFO_UPDATE_TOWERLEVEL" texttooltip="현재 템플러의 길드 타워 레벨로 길드 혜택을 갱신합니다."/>
+												<richtext name="benefitText" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="길드 혜택" fontname="white_16_b_ol"/>												
 												<picture name="headerLine" rect="0 0 680 2" margin="0 35 0 0" layout_gravity="center top" image="guild_line_h2" stretch="true"/>
 											</groupbox>
 										</layoutsection>

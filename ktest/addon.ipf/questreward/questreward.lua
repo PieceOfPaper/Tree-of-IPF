@@ -366,7 +366,7 @@ function MAKE_ITEM_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, inde
 	tolua.cast(ctrlSet, "ui::CControlSet");
 	ctrlSet:SetValue(chIndex);
 	ctrlSet:SetStretch(1);
-	ctrlSet:Resize(box:GetWidth() - 20, ctrlSet:GetHeight());
+	ctrlSet:Resize(box:GetWidth() - 30, ctrlSet:GetHeight());
 
 	local itemCls = GetClass("Item", itemName);
 	local slot = GET_CHILD(ctrlSet, "slot", "ui::CSlot");

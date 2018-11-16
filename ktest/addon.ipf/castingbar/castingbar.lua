@@ -73,7 +73,7 @@ function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 		tolua.cast(timer, "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_CASTTIME");
 		timer:SetValue( imcTime.GetDWTime() );
-		timer:Start(1);
+		timer:Start(0.01);
 		if isVisivle == nil then
 			isVisivle = 0;
 		end

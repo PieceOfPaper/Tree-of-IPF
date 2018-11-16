@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SocketProperty>
 	<Item Name="gem_circle_1">
-		<Level Level="0" PropList_TopLeg="BLK/15" PropList_TopLeg_Penalty="HR/-3" PropList_MainOrSubWeapon="PATK/72" PropList_MainOrSubWeapon_Penalty="CRTHR/-3" PropList_HandOrFoot="HR/15" PropList_HandOrFoot_Penalty="CRTATK/-32"/>
+		<Level Level="0" PropList_TopLeg="BLK/15" PropList_TopLeg_Penalty="HR/0" PropList_MainOrSubWeapon="PATK/72" PropList_MainOrSubWeapon_Penalty="CRTHR/0" PropList_HandOrFoot="HR/15" PropList_HandOrFoot_Penalty="CRTATK/0"/>
 		<Level Level="1" PropList_TopLeg="BLK/15" PropList_TopLeg_Penalty="HR/-3" PropList_MainOrSubWeapon="PATK/72" PropList_MainOrSubWeapon_Penalty="CRTHR/-3" PropList_HandOrFoot="HR/15" PropList_HandOrFoot_Penalty="CRTATK/-32"/>
 		<Level Level="2" PropList_TopLeg="BLK/23" PropList_TopLeg_Penalty="HR/-5" PropList_MainOrSubWeapon="PATK/105" PropList_MainOrSubWeapon_Penalty="CRTHR/-5" PropList_HandOrFoot="HR/23" PropList_HandOrFoot_Penalty="CRTATK/-46"/>
 		<Level Level="3" PropList_TopLeg="BLK/31" PropList_TopLeg_Penalty="HR/-7" PropList_MainOrSubWeapon="PATK/138" PropList_MainOrSubWeapon_Penalty="CRTHR/-7" PropList_HandOrFoot="HR/31" PropList_HandOrFoot_Penalty="CRTATK/-61"/>
@@ -15,7 +15,7 @@
 		<Level Level="10" PropList_TopLeg="BLK/85" PropList_TopLeg_Penalty="HR/-21" PropList_MainOrSubWeapon="PATK/375" PropList_MainOrSubWeapon_Penalty="CRTHR/-21" PropList_HandOrFoot="HR/85" PropList_HandOrFoot_Penalty="CRTATK/-166"/>
 	</Item>
 	<Item Name="gem_square_1">
-		<Level Level="0" PropList_TopLeg="MDEF/360" PropList_TopLeg_Penalty="DEF/-90" PropList_MainOrSubWeapon="MATK/72" PropList_MainOrSubWeapon_Penalty="CRTHR/-3" PropList_HandOrFoot="CRTDR/15" PropList_HandOrFoot_Penalty="ADD_MAXATK/-40"/>
+		<Level Level="0" PropList_TopLeg="MDEF/360" PropList_TopLeg_Penalty="DEF/0" PropList_MainOrSubWeapon="MATK/72" PropList_MainOrSubWeapon_Penalty="CRTHR/0" PropList_HandOrFoot="CRTDR/15" PropList_HandOrFoot_Penalty="ADD_MAXATK/0"/>
 		<Level Level="1" PropList_TopLeg="MDEF/360" PropList_TopLeg_Penalty="DEF/-90" PropList_MainOrSubWeapon="MATK/72" PropList_MainOrSubWeapon_Penalty="CRTHR/-3" PropList_HandOrFoot="CRTDR/15" PropList_HandOrFoot_Penalty="ADD_MAXATK/-40"/>
 		<Level Level="2" PropList_TopLeg="MDEF/525" PropList_TopLeg_Penalty="DEF/-131" PropList_MainOrSubWeapon="MATK/105" PropList_MainOrSubWeapon_Penalty="CRTHR/-5" PropList_HandOrFoot="CRTDR/23" PropList_HandOrFoot_Penalty="ADD_MAXATK/-58"/>
 		<Level Level="3" PropList_TopLeg="MDEF/690" PropList_TopLeg_Penalty="DEF/-172" PropList_MainOrSubWeapon="MATK/138" PropList_MainOrSubWeapon_Penalty="CRTHR/-7" PropList_HandOrFoot="CRTDR/31" PropList_HandOrFoot_Penalty="ADD_MAXATK/-77"/>
@@ -28,7 +28,7 @@
 		<Level Level="10" PropList_TopLeg="MDEF/1875" PropList_TopLeg_Penalty="DEF/-468" PropList_MainOrSubWeapon="MATK/375" PropList_MainOrSubWeapon_Penalty="CRTHR/-21" PropList_HandOrFoot="CRTDR/85" PropList_HandOrFoot_Penalty="ADD_MAXATK/-208"/>
 	</Item>
 	<Item Name="gem_star_1">
-		<Level Level="0" PropList_TopLeg="DEF/360" PropList_TopLeg_Penalty="MDEF/-90" PropList_MainOrSubWeapon="CRTATK/128" PropList_MainOrSubWeapon_Penalty="ADD_MAXATK/-40" PropList_HandOrFoot="BLK_BREAK/15" PropList_HandOrFoot_Penalty="CRTHR/-3"/>
+		<Level Level="0" PropList_TopLeg="DEF/360" PropList_TopLeg_Penalty="MDEF/0" PropList_MainOrSubWeapon="CRTATK/128" PropList_MainOrSubWeapon_Penalty="ADD_MAXATK/0" PropList_HandOrFoot="BLK_BREAK/15" PropList_HandOrFoot_Penalty="CRTHR/0"/>
 		<Level Level="1" PropList_TopLeg="DEF/360" PropList_TopLeg_Penalty="MDEF/-90" PropList_MainOrSubWeapon="CRTATK/128" PropList_MainOrSubWeapon_Penalty="ADD_MAXATK/-40" PropList_HandOrFoot="BLK_BREAK/15" PropList_HandOrFoot_Penalty="CRTHR/-3"/>
 		<Level Level="2" PropList_TopLeg="DEF/525" PropList_TopLeg_Penalty="MDEF/-131" PropList_MainOrSubWeapon="CRTATK/187" PropList_MainOrSubWeapon_Penalty="ADD_MAXATK/-58" PropList_HandOrFoot="BLK_BREAK/23" PropList_HandOrFoot_Penalty="CRTHR/-5"/>
 		<Level Level="3" PropList_TopLeg="DEF/690" PropList_TopLeg_Penalty="MDEF/-172" PropList_MainOrSubWeapon="CRTATK/246" PropList_MainOrSubWeapon_Penalty="ADD_MAXATK/-77" PropList_HandOrFoot="BLK_BREAK/31" PropList_HandOrFoot_Penalty="CRTHR/-7"/>
@@ -41,7 +41,7 @@
 		<Level Level="10" PropList_TopLeg="DEF/1875" PropList_TopLeg_Penalty="MDEF/-468" PropList_MainOrSubWeapon="CRTATK/667" PropList_MainOrSubWeapon_Penalty="ADD_MAXATK/-208" PropList_HandOrFoot="BLK_BREAK/85" PropList_HandOrFoot_Penalty="CRTHR/-21"/>
 	</Item>
 	<Item Name="gem_diamond_1">
-		<Level Level="0" PropList_TopLeg="DR/15" PropList_TopLeg_Penalty="ADD_MAXATK/-40" PropList_MainOrSubWeapon="CRTMATK/128" PropList_MainOrSubWeapon_Penalty="BLK_BREAK/-3" PropList_HandOrFoot="CRTHR/15" PropList_HandOrFoot_Penalty="BLK/-3"/>
+		<Level Level="0" PropList_TopLeg="DR/15" PropList_TopLeg_Penalty="ADD_MAXATK/0" PropList_MainOrSubWeapon="CRTMATK/128" PropList_MainOrSubWeapon_Penalty="BLK_BREAK/0" PropList_HandOrFoot="CRTHR/15" PropList_HandOrFoot_Penalty="BLK/0"/>
 		<Level Level="1" PropList_TopLeg="DR/15" PropList_TopLeg_Penalty="ADD_MAXATK/-40" PropList_MainOrSubWeapon="CRTMATK/128" PropList_MainOrSubWeapon_Penalty="BLK_BREAK/-3" PropList_HandOrFoot="CRTHR/15" PropList_HandOrFoot_Penalty="BLK/-3"/>
 		<Level Level="2" PropList_TopLeg="DR/23" PropList_TopLeg_Penalty="ADD_MAXATK/-58" PropList_MainOrSubWeapon="CRTMATK/187" PropList_MainOrSubWeapon_Penalty="BLK_BREAK/-5" PropList_HandOrFoot="CRTHR/23" PropList_HandOrFoot_Penalty="BLK/-5"/>
 		<Level Level="3" PropList_TopLeg="DR/31" PropList_TopLeg_Penalty="ADD_MAXATK/-77" PropList_MainOrSubWeapon="CRTMATK/246" PropList_MainOrSubWeapon_Penalty="BLK_BREAK/-7" PropList_HandOrFoot="CRTHR/31" PropList_HandOrFoot_Penalty="BLK/-7"/>

@@ -66,11 +66,10 @@ end
 function SKILLABILITY_ON_CHANGE_TAB(frame)
     local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local jobClsName = gb:GetUserValue("JobClsName");
-    gb:RemoveChild("skillability_job_"..jobClsName);
     
     CLEAR_SKILLABILITY_POINT(jobClsName)
     
-    local skillability_job = gb:CreateControlSet("skillability_job", "skillability_job_"..jobClsName, 0, 0);
+    local skillability_job = gb:CreateOrGetControlSet("skillability_job", "skillability_job_"..jobClsName, 0, 0);
     SKILLABILITY_FILL_JOB_GB(skillability_job, jobClsName)
 end
 
@@ -87,10 +86,15 @@ function SKILLABILITY_FILL_JOB_GB(skillability_job, jobClsName)
         local treelist = GET_TREE_INFO_VEC(jobClsName)
         local unlockLvHash = GET_TREE_UNLOCK_LEVEL_LIST(treelist);
         local width = ui.GetControlSetAttribute("skillability_skillset", "width");
-        local skillTreeClsName = unlockLvHash[1][1];
-        local cls = GetClass("SkillTree", skillTreeClsName)
-        local ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..cls.SkillName);
-        SKILLABILITY_SELECT_SKILL(skilltree_gb, ctrlset)--
+
+        local skillinfo_gb = GET_CHILD_RECURSIVELY(skill_gb, "skillinfo_gb");
+        local infoctrl = skillinfo_gb:GetControlSet("skillability_skillinfo", "skillability_skillinfo");
+        if infoctrl == nil then
+            local skillTreeClsName = unlockLvHash[1][1];
+            local cls = GetClass("SkillTree", skillTreeClsName)
+            local ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..cls.SkillName);
+            SKILLABILITY_SELECT_SKILL(skilltree_gb, ctrlset)
+        end
     end
 end
 
@@ -250,7 +254,6 @@ function SKILLABILITY_SELECT_SKILL(parent, ctrlset)
     local jobEngName = jobCls.EngName
     
     local skillinfo_gb = GET_CHILD_RECURSIVELY(tab_gb, "skillinfo_gb");
-    skillinfo_gb:RemoveChild("skillability_skillinfo")
     local infoctrl = skillinfo_gb:CreateOrGetControlSet("skillability_skillinfo", "skillability_skillinfo", 0, 0);
     AUTO_CAST(infoctrl)
 
@@ -355,7 +358,7 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     local obj = info["obj"];
     local sklClsName = info["skillname"];
 	local sklCls = GetClass("Skill", sklClsName);
-    
+
     MAKE_SKILLTREE_CTRLSET_ICON(infoctrl, sklCls, obj)
     
     local name_txt = GET_CHILD(infoctrl, "name_txt");
@@ -368,8 +371,14 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     
     if obj ~= nil then
         sp = GET_SPENDSP_BY_LEVEL(obj);
-        overHeat = obj.SklUseOverHeat;
+        overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
         coolDown = obj.CoolDown/1000;
+    else
+        local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
+        tempObj.Level = lv
+        sp = GET_SPENDSP_BY_LEVEL(tempObj);
+        coolDown = tempObj.CoolDown/1000;
+        overHeat = GET_SKILL_OVERHEAT_COUNT(tempObj);
     end
     
     lv = ScpArgMsg("level{value}", "value", lv);
@@ -421,7 +430,6 @@ function SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName)
 
     local abilitytop_gb = GET_CHILD(ability_gb, "abilitytop_gb");
     local height = ui.GetControlSetAttribute("skillability_ability", "height");
-    local abilitylist_gb = GET_CHILD(ability_gb, "abilitylist_gb");
 
     local jobCls = GetClass("Job", jobClsName);
     local jobEngName = jobCls.EngName;
@@ -442,6 +450,8 @@ function SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName)
 
     CLEAR_SKILLABILITY_LEARN_COUNT_BY_JOB(ability_gb, jobClsName);
 
+    local abilitylist_gb = GET_CHILD(ability_gb, "abilitylist_gb");
+    abilitylist_gb:RemoveAllChild()
     for i=1, #clsList do
         local abilClass = clsList[i];
         local abilClsName = abilClass.ClassName;
@@ -832,20 +842,25 @@ function ON_CLICK_SKILLABILITY_SKILL_CTRLSET_UP_BTN(parent, control, clsID, leve
 	end
 
 	session.SetUserConfig("SKLUP_" .. cls.SkillName, curpts + 1);    
-    local info = GET_TREE_INFO_BY_CLSNAME(cls.ClassName)
     AUTO_CAST(parent);
+    if remain - 1 <= 0 then
+        local skillability_job = GET_CHILD_RECURSIVELY(gb, "skillability_job_"..jobClsName);
+        local skill_gb = GET_CHILD_RECURSIVELY(gb, "skill_gb")
+        SKILLABILITY_FILL_SKILL_GB(skillability_job, skill_gb, jobClsName)
+        return;
+    end
+
+    local info = GET_TREE_INFO_BY_CLSNAME(cls.ClassName)
     SKILLABILITY_FILL_SKILL_CTRLSET(parent, info, jobClsName)
 
     local skillinfo_gb = GET_CHILD_RECURSIVELY(gb, "skillinfo_gb");
-    local infoctrl = skillinfo_gb:GetControlSet("skillability_skillinfo", "skillability_skillinfo");
-    AUTO_CAST(infoctrl)
-    
     local sklTreeClsName = nil;
     if cls ~= nil then
         sklTreeClsName = cls.ClassName;
     end
-    local info = GET_SKILL_INFO_BY_JOB_CLSNAME(jobClsName, sklTreeClsName, sklClsName);
-    SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
+
+    local skilltree_gb = GET_CHILD_RECURSIVELY(gb, "skilltree_gb");
+    SKILLABILITY_SELECT_SKILL(skilltree_gb, parent);
     
     ON_UPDATE_SKILLABILITY_SKILL_POINT(gb, jobClsName);
     SKILLABILITY_UPDATE_CONFIRM_BTN(gb)
@@ -1175,4 +1190,8 @@ function SKILLABILITY_DEPLOY_LABEL_LINE(skilltree_gb, unlockLvHash, SKILL_COL_CO
         leveltext:SetFontName('brown_16');
         leveltext:SetText('Lv.'..lv);
     end
+end
+
+function REFRESH_DEFAULT_HAVE_ABILITY(parent, ctrl)
+    control.CustomCommand('REFRESH_DEFAULT_HAVE_ABILITY', 0);
 end

@@ -17,15 +17,9 @@ function ACT_QUEST_WARP(handle)
 end
 
 function ACT_INTE_WARP(handle)
-
 	if session.GetMyHandle() == handle then
 		return;
 	end
 
 	movie.InteWarp(handle, "None");
 end
-
-
-
-
-

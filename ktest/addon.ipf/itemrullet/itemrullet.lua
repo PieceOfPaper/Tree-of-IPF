@@ -44,6 +44,8 @@ local function _INIT_COMPONENT(frame)
 		upBtnUpScp = 'REINFORCE_SEAL_UPDATE_SIMULATE',
 		downBtnUpScp = 'REINFORCE_SEAL_UPDATE_SIMULATE',
 		maxBtnUpScp = 'REINFORCE_SEAL_UPDATE_SIMULATE',
+		checkScp = 'REINFORCE_SEAL_CHECK_ADDITIONAL_ITEM',
+		isAlwaysWithMax = true,
 	});
 	local additionalItemCls = GetClass('Item', GET_SEAL_ADDITIONAL_ITEM());
 	local additionalInvItem = session.GetInvItemByType(additionalItemCls.ClassID);
@@ -595,4 +597,12 @@ end
 
 function ON_OPEN_DLG_REINFORCE_SEAL(frame, msg, argStr, argNum)
 	ui.OpenFrame('itemrullet');
+end
+
+function REINFORCE_SEAL_CHECK_ADDITIONAL_ITEM(parent, ctrl)
+	local curCnt = s_reinforceSeal.UpDownMax:GetNumber();
+	local curHaveCnt = GET_INV_ITEM_COUNT_BY_PROPERTY({}, false, nil, function(item)
+		return IS_SEAL_ADDITIONAL_ITEM(item);
+	end);
+	return curHaveCnt > curCnt;
 end

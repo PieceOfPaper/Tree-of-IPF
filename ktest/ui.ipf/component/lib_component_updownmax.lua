@@ -4,12 +4,18 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
     box:SetGravity(prop.gravity.horz, prop.gravity.vert);
     box:SetMargin(prop.margin[1], prop.margin[2], prop.margin[3], prop.margin[4]);
 
+    local checkScp = 'None';
+    if prop.checkScp ~= nil then
+        checkScp = prop.checkScp;
+    end
+
     local maxBtn = box:CreateControl('button', 'maxBtn', 0, 0, 60, prop.height);
     AUTO_CAST(maxBtn);
     maxBtn:SetGravity(ui.RIGHT, ui.CENTER_VERT);
     maxBtn:SetSkinName('test_white_h_btn');
     maxBtn:SetText('{@st66}{s16}'..ClMsg('Maximum'));    
-    maxBtn:SetEventScript(ui.LBUTTONUP, 'UPDOWNMAX_MAXBTN_CLICK');
+    maxBtn:SetEventScript(ui.LBUTTONUP, 'UPDOWNMAX_MAXBTN_CLICK');    
+    maxBtn:SetUserValue('CALLBACK_FUNCTION_CHECK', checkScp);
     if prop.maxBtnUpScp ~= nil then
         maxBtn:SetUserValue('CALLBACK_FUNCTION', prop.maxBtnUpScp);
     end
@@ -21,6 +27,7 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
     upBtn:SetMargin(0, -updownMarginY, 62, 0);
     upBtn:SetImage('test_up_w_btn');
     upBtn:SetEventScript(ui.LBUTTONUP, 'UPDOWNMAX_UPBTN_CLICK');
+    upBtn:SetUserValue('CALLBACK_FUNCTION_CHECK', checkScp);
     if prop.upBtnUpScp ~= nil then
         upBtn:SetUserValue('CALLBACK_FUNCTION', prop.upBtnUpScp);
     end
@@ -31,6 +38,7 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
     downBtn:SetMargin(0, updownMarginY, 62, 0);
     downBtn:SetImage('test_down_w_btn');    
     downBtn:SetEventScript(ui.LBUTTONUP, 'UPDOWNMAX_DOWNBTN_CLICK');
+    downBtn:SetUserValue('CALLBACK_FUNCTION_CHECK', checkScp);
     if prop.downBtnUpScp ~= nil then
         downBtn:SetUserValue('CALLBACK_FUNCTION', prop.downBtnUpScp);
     end
@@ -40,10 +48,21 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
     edit:SetGravity(ui.LEFT, ui.CENTER_VERT);
     edit:SetTextAlign('center', 'center');
     edit:SetSkinName('test_weight_skin');
-    edit:SetFormat('%s%s');
-    edit:AddParamInfo('style', '{@st41}{s18}');
-    edit:AddParamInfo('number', '0');
-    edit:SetTextByKey('number', 0);
+
+    if prop.isAlwaysWithMax == true then        
+        edit:SetFormat('%s%s/%s');
+        edit:AddParamInfo('style', '{@st41}{s18}');
+        edit:AddParamInfo('number', '0');
+        edit:AddParamInfo('max', '0');
+        edit:SetTextByKey('number', 0);
+        edit:SetUserValue('IS_ALWAYS_WITH_MAX', 1);
+    else
+        edit:SetFormat('%s%s');
+        edit:AddParamInfo('style', '{@st41}{s18}');
+        edit:AddParamInfo('number', '0');        
+        edit:SetTextByKey('number', 0);
+    end
+
     edit:SetFontName('white_18_ol');
     edit:SetNumberMode(1);
 
@@ -58,6 +77,10 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
             edit:SetMinNumber(min);
             edit:SetMaxNumber(max);
             edit:SetTextByKey('style', '{@st41}{s18}');
+            if edit:GetUserIValue('IS_ALWAYS_WITH_MAX') > 0 then
+                edit:SetTextByKey('max', max);
+            end
+            
         end,
         GetMinMax = function(self)
             local edit = GET_CHILD(self.ctrl, 'edit');
@@ -81,6 +104,10 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
 end
 
 function UPDOWNMAX_UPBTN_CLICK(parent, ctrl)
+    if COMPONENT_CALLBACK_EVENT_SCRIPT(parent, ctrl, 'CALLBACK_FUNCTION_CHECK') == false then
+        return;
+    end
+
     local component = GET_COMPONENT('UPDOWNMAX_'..parent:GetName());
     local edit = GET_CHILD(parent, 'edit');
     local curNum = component:GetNumber();
@@ -90,6 +117,10 @@ function UPDOWNMAX_UPBTN_CLICK(parent, ctrl)
 end
 
 function UPDOWNMAX_DOWNBTN_CLICK(parent, ctrl)
+    if COMPONENT_CALLBACK_EVENT_SCRIPT(parent, ctrl, 'CALLBACK_FUNCTION_CHECK') == false then
+        return;
+    end
+
     local component = GET_COMPONENT('UPDOWNMAX_'..parent:GetName());
     local edit = GET_CHILD(parent, 'edit');
     local curNum = component:GetNumber();
@@ -99,6 +130,10 @@ function UPDOWNMAX_DOWNBTN_CLICK(parent, ctrl)
 end
 
 function UPDOWNMAX_MAXBTN_CLICK(parent, ctrl)
+    if COMPONENT_CALLBACK_EVENT_SCRIPT(parent, ctrl, 'CALLBACK_FUNCTION_CHECK') == false then
+        return;
+    end
+    
     local edit = GET_CHILD(parent, 'edit');
     edit:SetTextByKey('number', edit:GetMaxNumber());
     COMPONENT_CALLBACK_EVENT_SCRIPT(parent, ctrl, 'CALLBACK_FUNCTION');

@@ -1376,6 +1376,14 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
 	end
 
+	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then
+		if TryGetProp(item, 'KeyWord') == 'RandomOption' then
+			return ownName..string.format(': %s', ClMsg('RandomOption'));
+		else
+			return ownName..string.format(': %s', ClMsg('Auto_JeJag'));
+		end		
+	end
+
 	return ownName;
 end
 

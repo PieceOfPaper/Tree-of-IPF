@@ -15614,8 +15614,11 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </StartList>
     </AI>
-    <AI Name="SIAULIAI_46_1_MQ_03_AI2" ActiveMessageMapInBattle="1">
+    <AI Name="SIAULIAI_46_1_MQ_03_AI2" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="SIAULIAI_46_1_MQ_03_DAZZ_SET_AI"/>
+            </ToolScp>
             <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
                 <AbsPos X="-1674.6005" Y="261.96191" Z="-382.15659"/>
             </ToolScp>

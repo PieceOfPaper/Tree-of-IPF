@@ -473,6 +473,27 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
 		return
 	end
+			
+	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then		
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot");
+		local targetItem = GET_SLOT_ITEM(slot);
+		if targetItem == nil then
+			return;
+		end
+
+		local targetItemObj = GetIES(targetItem:GetObject());
+		if TryGetProp(item, 'KeyWord') == 'RandomOption' then			
+			if IS_HAVE_RANDOM_OPTION(targetItemObj) == false then
+				ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
+				return;
+			end
+		else
+			if IS_HAVE_RANDOM_OPTION(targetItemObj) == true then
+				ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
+				return;
+			end
+		end
+	end
 	
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
@@ -483,7 +504,7 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 	local slot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot");
 	SET_SLOT_ITEM(slot, invItem);
 	local extractKitName = GET_CHILD_RECURSIVELY(frame, "extractKitName", "ui::CRichText")
-	extractKitName:SetTextByKey("value", item.Name)
+	extractKitName:SetTextByKey("value", GET_FULL_NAME(item));	
 	local bodyGbox2_2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2_2")
 		
 	if IS_ENABLE_NOT_TAKE_MATERIAL_KIT(itemCls) then
@@ -528,7 +549,6 @@ function ITEMOPTIONEXTRACT_EXEC(frame)
 		clmsg = ScpArgMsg("ItemOptionExtractMessage_3")
 	end
 
---	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL");
 	WARNINGMSGBOX_FRAME_OPEN(clmsg, "_ITEMOPTIONEXTRACT_EXEC", "_ITEMOPTIONEXTRACT_CANCEL")
 end
 

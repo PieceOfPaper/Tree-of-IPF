@@ -2483,7 +2483,7 @@ function SCR_Get_Sta_Run(self)
     local consumptionSTA = 0;
     
     -- 기본 스태미너 소모량 --
-    local defaultConsumptionSTA = 50;
+    local defaultConsumptionSTA = 0;
     
     -- 추가하는 스태미너 소모량 --
     local addRateConsumptionSTA = 0.0;
@@ -2547,7 +2547,7 @@ function SCR_Get_Sta_Run(self)
     if IsBuffApplied(self, 'Sprint_Buff') == 'YES' then
         value = 0;
     end
-    
+
     return math.floor(value);
 end
 
@@ -2583,7 +2583,7 @@ function SCR_Get_Sta_R_Delay(self)
 end
 
 function SCR_Get_Sta_Runable(self)
-    return 250;
+    return 0;
 end
 
 function SCR_Get_Sta_Jump(self)

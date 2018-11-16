@@ -8659,7 +8659,8 @@ end
 
 function SCR_GET_PatronSaint_Raito(skill)
     local value = skill.Level * 5
-    return math.floor(value);
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return value;
 end
 
 function SCR_GET_Daino_Bufftime(skill)
@@ -9337,7 +9338,7 @@ function SCR_GET_Lachrymator_Bufftime(skill)
 end
 
 function SCR_GET_Backstab_Ratio(skill)
-    return 30 + skill.Level * 2
+    return 50 + skill.Level * 2
 end
 
 function SCR_Get_Slow_Bufftime(skill)
@@ -10777,16 +10778,28 @@ function SCR_GET_Rubric_Ratio(skill)
 end
 
 function SCR_GET_Rubric_Ratio2(skill)
-    local value = 5;
+    local value = 5
     local pc = GetSkillOwner(skill);
     local abilExorcist3 = GetAbility(pc, "Exorcist3");
     if abilExorcist3 ~= nil and TryGetProp(abilExorcist3, "ActiveState") == 1 then
-        value = 25;
+        value = 25
     end
     
     return value;
-    
 end
+
+function SCR_GET_Rubric_Ratio3(skill)
+    local value = 6
+    local pc = GetSkillOwner(skill);
+    local abilExorcist3 = GetAbility(pc, "Exorcist3");
+    if abilExorcist3 ~= nil and TryGetProp(abilExorcist3, "ActiveState") == 1 then
+        value = 4
+    end
+    
+    return value;
+end
+
+
 
 function SCR_GET_Engkrateia_Ratio(skill)
     return skill.Level * 5
@@ -10805,7 +10818,7 @@ end
 
 function SCR_GET_TheTreeofSepiroth_Ratio(skill)
     local value = skill.Level
-    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value
 end
 
