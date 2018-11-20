@@ -199,7 +199,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 								icon:Set(imageName, 'BUFF', buffID, 0);
 
 								if buffOver > 1 then
-slot:SetText('{s13}{ol}{b}'..buffOver, 'count', 'right', 'bottom', 1, 2);
+									slot:SetText('{s13}{ol}{b}'..buffOver, 'count', ui.RIGHT, ui.BOTTOM, 1, 2);
 								else
 									slot:SetText("");
 								end
@@ -476,14 +476,14 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	if hpGauge:GetStat() == 0 then
 		hpGauge:AddStat("%v / %m");
 		hpGauge:SetStatOffset(0, 0, -1);
-		hpGauge:SetStatAlign(0, 'center', 'center');
+		hpGauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 		hpGauge:SetStatFont(0, 'white_12_ol');
 	end
 	
 	if spGauge:GetStat() == 0 then
 		spGauge:AddStat("%v / %m");
 		spGauge:SetStatOffset(0, 0, -1);
-		spGauge:SetStatAlign(0, 'center', 'center');
+		spGauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 		spGauge:SetStatFont(0, 'white_12_ol');
 	end
 			

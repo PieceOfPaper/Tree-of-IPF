@@ -181,7 +181,7 @@ function SHOPCOMMON_BUY(frame, imageName, itemIndex)
 			if itemIndex == slot:GetSlotIndex() then
 				slot:SetValue(slotBuyCount + 1);
 				local slotIcon	= slotSet:GetIconByIndex(i);
-				slot:SetText('{s18}{ol}{b}'..slotBuyCount+1, 'count', 'right', 'bottom', -2, 1);
+				slot:SetText('{s18}{ol}{b}'..slotBuyCount+1, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 				slot:Invalidate();
 				SHOPCOMMON_ITEM_LIST(frame);
 				return;

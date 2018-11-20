@@ -7,7 +7,7 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
     local skillID = geSkillControl.GetSelectTargetFromPartyListSkillID();
     local skillCls = GetClassByType('Skill', skillID);
     if skillCls == nil then
-        ui.CloseFrame('party_recommend');
+        ui.CloseFrame('party_recommend');        
         return;
     end
 
@@ -30,7 +30,9 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
     -- party member
     local myMapName = session.GetMapName();
     local myMapCls = GetClass('Map', myMapName);
-    local partyList = session.party.GetPartyMemberList(PARTY_NORMAL);
+    local partyList = session.party.GetPartyMemberList(PARTY_NORMAL);    
+    local emphasizePic = nil;
+    local emphasizeValue = nil;
     if partyList ~= nil then
         local count = partyList:Count();
         local index = 1;
@@ -54,6 +56,13 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
                 hpGauge:SetPoint(stat.hp, stat.maxhp);
                 hpGauge:ShowWindow(showHPGauge);
 
+                if showHPGauge == 1 then
+                    if emphasizeValue == nil or (stat.hp < stat.maxhp and emphasizeValue < stat.hp) then
+                        emphasizeValue = stat.hp;
+                        emphasizePic = memberSet;
+                    end
+                end
+
                 memberSet:ShowWindow(1);
                 geSkillControl.SetPartyMemberTarget(index, partyMemberInfo:GetAID());
                 index = index + 1;
@@ -61,15 +70,23 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
         end
     end
 
+    --[[
+    if emphasizePic ~= nil then
+        imcUIAnim:PlayEmphasize(frame, emphasizePic:GetX() + emphasizePic:GetWidth() / 2, emphasizePic:GetY() + emphasizePic:GetHeight() / 2);
+    else
+        imcUIAnim:RemoveEmphasize(frame);
+    end
+    ]]--
+
     -- cancel key
     local cancelText = GET_CHILD_RECURSIVELY(frame, 'cancelText');
-    config.InitHotKeyByCurrentUIMode('Battle');
+    config.InitHotKeyByCurrentUIMode('Battle');    
     local jumpKeyIdx = config.GetHotKeyElementIndex('ID', 'Jump');
-    local jumpKey = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, 'Key');
+    local jumpKey = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, 'Key');    
     local useShift = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseShift");
     local useAlt = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseAlt");
     local useCtrl = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseCtrl");
-    local KEY_IMG_SIZE = frame:GetUserConfig('KEY_IMG_SIZE');
+    local KEY_IMG_SIZE = frame:GetUserConfig('KEY_IMG_SIZE');    
     local jumpKeyImg = string.format('{img key_%s %d %d}', jumpKey, KEY_IMG_SIZE, KEY_IMG_SIZE);
     if useShift == 'YES' then
         jumpKeyImg = string.format('{img SHIFT %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;

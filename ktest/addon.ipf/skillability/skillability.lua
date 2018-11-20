@@ -36,9 +36,6 @@ function SKILLABILITY_ON_FULL_UPDATE(frame)
 end
 
 function SKILLABILITY_MAKE_JOB_TAB(frame)
-    if frame == nil then
-        DumpCallStack()
-    end
     local job_tab = GET_CHILD(frame, "job_tab");
 
     local job_tab_width = frame:GetUserConfig("JOB_TAB_WIDTH");
@@ -48,7 +45,7 @@ function SKILLABILITY_MAKE_JOB_TAB(frame)
     local tab_width = frame:GetUserConfig("TAB_WIDTH");
 
     local addTabInfoList = SKILLABILITY_GET_JOB_TAB_INFO_LIST();
-    local gblist = UI_LIB_TAB_ADD_TAB_LIST(frame, job_tab, addTabInfoList, job_tab_width, job_tab_height, ui.CENTER_HORZ, ui.TOP, job_tab_x, job_tab_y, "job_tab_box", "true", tab_width);
+    local gblist = UI_LIB_TAB_ADD_TAB_LIST(frame, job_tab, addTabInfoList, job_tab_width, job_tab_height, ui.CENTER_HORZ, ui.TOP, job_tab_x, job_tab_y, "job_tab_box", "true", tab_width, "JobClsName");
 
     for i=1, #gblist do
         local gb = gblist[i];
@@ -80,22 +77,32 @@ function SKILLABILITY_FILL_JOB_GB(skillability_job, jobClsName)
     local skilltree_gb = GET_CHILD_RECURSIVELY(skill_gb, "skilltree_gb");
     SKILLABILITY_FILL_SKILL_GB(skillability_job, skill_gb, jobClsName);
     SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName);
+    local skillinfo_gb = GET_CHILD_RECURSIVELY(skill_gb, "skillinfo_gb");
 
-    if jobClsName ~= "Common" then
+    local ctrlset = nil
+    local infoctrl = skillinfo_gb:GetControlSet("skillability_skillinfo", "skillability_skillinfo");
+    if infoctrl ~= nil then
+        local skillName = infoctrl:GetUserValue("SkillClsName")
+        ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..skillName);
+    end
+
+    if ctrlset == nil then
         local mySession = session.GetMySession();
         local treelist = GET_TREE_INFO_VEC(jobClsName)
         local unlockLvHash = GET_TREE_UNLOCK_LEVEL_LIST(treelist);
-        local width = ui.GetControlSetAttribute("skillability_skillset", "width");
-
-        local skillinfo_gb = GET_CHILD_RECURSIVELY(skill_gb, "skillinfo_gb");
-        local infoctrl = skillinfo_gb:GetControlSet("skillability_skillinfo", "skillability_skillinfo");
-        if infoctrl == nil then
+        if unlockLvHash[1] ~= nil then
+            local width = ui.GetControlSetAttribute("skillability_skillset", "width");            
             local skillTreeClsName = unlockLvHash[1][1];
             local cls = GetClass("SkillTree", skillTreeClsName)
-            local ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..cls.SkillName);
-            SKILLABILITY_SELECT_SKILL(skilltree_gb, ctrlset)
+            ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..cls.SkillName);
         end
     end
+
+    if ctrlset == nil then
+        return;
+    end
+
+    SKILLABILITY_SELECT_SKILL(skilltree_gb, ctrlset)
 end
 
 function SKILLABILITY_FILL_SKILL_GB(skillability_job, skill_gb, jobClsName)
@@ -153,7 +160,7 @@ function SKILLABILITY_FILL_SKILL_CTRLSET(ctrlset, info, jobClsName)
     local DISABLED_COLOR = ctrlset:GetUserConfig("DISABLED_COLOR");
     local cls = info["class"];
     local obj = info["obj"];
-	local lv = info["lv"];
+	local dbLv = info["DBLv"];
 	local statlv = info["statlv"];
     local sklClsName = info["skillname"];
 	local sklCls = GetClass("Skill", sklClsName);
@@ -174,27 +181,33 @@ function SKILLABILITY_FILL_SKILL_CTRLSET(ctrlset, info, jobClsName)
     end
     
     local level_txt = GET_CHILD(ctrlset, "level_txt");
-    level_txt:SetTextByKey("value", info["lv"]);
+    
+    if cls ~= nil then
+        level_txt:SetTextByKey("value", dbLv);
+    else
+        level_txt:SetTextByKey("value", 1);
+    end
 
     local upbtn = GET_CHILD(ctrlset, "upbtn");
     if cls ~= nil then
         upbtn:SetEventScript(ui.LBUTTONUP, "ON_CLICK_SKILLABILITY_SKILL_CTRLSET_UP_BTN");
         upbtn:SetEventScriptArgString(ui.LBUTTONUP, cls.ClassID);
-        upbtn:SetEventScriptArgNumber(ui.LBUTTONUP, info["lv"]);
+        upbtn:SetEventScriptArgNumber(ui.LBUTTONUP, dbLv);
         upbtn:SetClickSound("button_click_skill_up");
     end
     
     local lockbtn = GET_CHILD(ctrlset, 'lockbtn');
 	lockbtn:ShowWindow(0);
-    local totallv = lv + statlv;
-    if statlv > 0 then
-        level_txt:SetTextByKey("value", "{#FF0000}"..totallv);
+    local totallv = 0;
+    if cls ~= nil then
+        totallv = dbLv + statlv;
+        if statlv > 0 then
+            level_txt:SetTextByKey("value", "{#FF0000}"..totallv);
+        end
     end
 
-    local result, reason = false, "";
-    if jobClsName ~= "Common" then
-	    result, reason = CHECK_ENABLE_GET_SKILL_C(sklClsName, totallv, maxlv);
-    end
+    local result, reason = false, "";    
+	result, reason = CHECK_ENABLE_GET_SKILL_C(sklClsName, totallv, maxlv);
     if result == false then
         if reason == ScpArgMsg('MaxSkillLevel') then
             lockbtn:SetImage(IMG_MAX)
@@ -251,11 +264,15 @@ function SKILLABILITY_SELECT_SKILL(parent, ctrlset)
     local tab_gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local jobClsName = tab_gb:GetUserValue("JobClsName");
     local jobCls = GetClass("Job", jobClsName)
-    local jobEngName = jobCls.EngName
+    local jobEngName = nil;
+    if jobCls ~= nil then
+        jobEngName = jobCls.EngName
+    end
     
     local skillinfo_gb = GET_CHILD_RECURSIVELY(tab_gb, "skillinfo_gb");
     local infoctrl = skillinfo_gb:CreateOrGetControlSet("skillability_skillinfo", "skillability_skillinfo", 0, 0);
     AUTO_CAST(infoctrl)
+    infoctrl:SetUserValue("SkillClsName", sklClsName)
 
     local info = GET_SKILL_INFO_BY_JOB_CLSNAME(jobClsName, sklTreeClsName, sklClsName);
     SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
@@ -353,7 +370,6 @@ end
 
 function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     --from MAKE_SKILLTREE_ICON;
-
     local cls = info["class"];
     local obj = info["obj"];
     local sklClsName = info["skillname"];
@@ -364,10 +380,13 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     local name_txt = GET_CHILD(infoctrl, "name_txt");
     name_txt:SetTextByKey("value", sklCls.Name)
 
-    local lv = info["lv"]
+    local lv = info["lv"];
     local sp = 0;
     local overHeat = 0;
     local coolDown = 0;
+    if cls == nil then
+        lv = 1
+    end
     
     if obj ~= nil then
         sp = GET_SPENDSP_BY_LEVEL(obj);
@@ -375,7 +394,7 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
         coolDown = obj.CoolDown/1000;
     else
         local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
-        tempObj.Level = lv
+        tempObj.Level = lv;
         sp = GET_SPENDSP_BY_LEVEL(tempObj);
         coolDown = tempObj.CoolDown/1000;
         overHeat = GET_SKILL_OVERHEAT_COUNT(tempObj);
@@ -401,19 +420,21 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     end
     level_txt:SetTextByKey("arrow", AFTER_ARROW)
 
-	local dummyObj = CreateGCIES("Skill", cls.SkillName);
-    dummyObj.Level = info["lv"]+info["statlv"];
-    dummyObj.LevelByDB = info["DBLv"]+info["statlv"];
-
     local afterLv = "";    
-    if info["statlv"] > 0 then
-        afterLv = dummyObj.Level;
-        afterLv = ScpArgMsg("level{value}", "value", afterLv);
+    if cls ~= nil then
+        local dummyObj = CreateGCIES("Skill", sklClsName);
+        dummyObj.Level = info["DBLv"]+info["statlv"];
+        dummyObj.LevelByDB = info["DBLv"]+info["statlv"];
+
+        if info["statlv"] > 0 then
+            afterLv = dummyObj.Level;
+            afterLv = ScpArgMsg("level{value}", "value", afterLv);
+        end
     end
     level_txt:SetTextByKey("after", afterLv)
 
     local weapon_gb = GET_CHILD(infoctrl, "weapon_gb");
-    local skillCls = GetClass("Skill", cls.SkillName);
+    local skillCls = GetClass("Skill", sklClsName);
     local iconCount, companionIconCount = MAKE_STANCE_ICON(weapon_gb, skillCls.ReqStance, skillCls.EnableCompanion, 0, 0);
     local weaponWidth = iconCount*20+companionIconCount*20;
     if iconCount == 0 then
@@ -847,6 +868,7 @@ function ON_CLICK_SKILLABILITY_SKILL_CTRLSET_UP_BTN(parent, control, clsID, leve
         local skillability_job = GET_CHILD_RECURSIVELY(gb, "skillability_job_"..jobClsName);
         local skill_gb = GET_CHILD_RECURSIVELY(gb, "skill_gb")
         SKILLABILITY_FILL_SKILL_GB(skillability_job, skill_gb, jobClsName)
+        SKILLABILITY_UPDATE_CONFIRM_BTN(gb)
         return;
     end
 

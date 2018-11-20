@@ -4,7 +4,7 @@
     <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center top" margin="0 160 0 0"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="test_pvp_alarm"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <picture name="pic_1" rect="0 0 50 50" margin="100 -6 0 0" layout_gravity="left center" hittest="false" image="test_pvp_alram_icon" stretch="true"/>

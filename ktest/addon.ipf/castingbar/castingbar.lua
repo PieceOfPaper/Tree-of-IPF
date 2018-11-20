@@ -20,7 +20,7 @@ function CASTINGBAR_ON_MSG(frame, msg, argStr, argNum)
 		local time = argNum / 1000;   -- 이부분 필요한 값으로 변경
 			
 		castingGauge:SetTotalTime(time);	
-		castingGauge:SetText(argStr, 'normal', 'center', 'bottom', 0, 0);
+		castingGauge:SetText(argStr, 'normal', ui.CENTER_HORZ, ui.BOTTOM, 0, 0);
 
 		local sklObj = GetSkill(GetMyPCObject(), argStr);
 		if nil ~= sklObj then
@@ -67,7 +67,7 @@ function DYNAMIC_CASTINGBAR_ON_MSG(frame, msg, argStr, maxTime, isVisivle)
 		
 		castingGauge:SetTotalTime(maxTime);
 		frame:SetUserValue("MAX_CHARGE_TIME", maxTime);
-		castingGauge:SetText("1", 'normal', 'center', 'bottom', 0, 0);
+		castingGauge:SetText("1", 'normal', ui.CENTER_HORZ, ui.BOTTOM, 0, 0);
 		
 		local timer = frame:GetChild("addontimer");
 		tolua.cast(timer, "ui::CAddOnTimer");

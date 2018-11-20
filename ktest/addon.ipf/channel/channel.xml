@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="channel" x="0" y="0" width="310" height="40">
-    <frame title="" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 30 35 0"/>
-    <option visible="true" closebutton="false" useimageitem="true" piptype="right" alwaysVisible="true"/>
+    <frame title="" layout_gravity="right top" margin="0 30 35 0"/>
+    <option visible="true" closebutton="false" useimageitem="true" piptype="right" alwaysVisible="true" hideable="false"/>
     <input hittestframe="false"/>
     <layer layerlevel="79"/>
     <draw blend="90" drawtitlebar="false" drawframe="false"/>

@@ -47,7 +47,7 @@ function JOYSTICKQUICKSLOT_ON_INIT(addon, frame)
 			SLOT_NAME_INDEX = 0;
 		end
 
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..string, 'default', ui.LEFT, ui.TOP, 2, 1);
 		JOYSTICK_QUICKSLOT_MAKE_GAUGE(slot)
 	end
 
@@ -759,7 +759,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 			local slotString 	= 'QuickSlotExecute'..(i+1);
 			local hotKey		= hotKeyTable.GetHotKeyString(slotString, 1); -- 조이패드 핫키
 			hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(false , hotKey);
-			slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', 'left', 'top', 2, 1);
+			slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', ui.LEFT, ui.TOP, 2, 1);
 			local type = sklCls.ClassID;
 			local icon = CreateIcon(slot);
 			local imageName = 'icon_' .. sklCls.Icon;
@@ -786,7 +786,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local slotString 	= 'QuickSlotExecute'..(list:Count() +1);
 		local hotKey		= hotKeyTable.GetHotKeyString(slotString, 1); -- 조이패드 핫키
 		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(false , hotKey);
-		lastSlot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', 'left', 'top', 2, 1);
+		lastSlot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', ui.LEFT, ui.TOP, 2, 1);
 		local lastSlotIconName = "druid_del_icon";
 		if monName == "Colony_Siege_Tower" then
 			lastSlotIconName = "Icon_common_get_off";
@@ -806,7 +806,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local slotString = 'QuickSlotExecute'..i;
 		local hotKey = hotKeyTable.GetHotKeyString(slotString, 1); -- 조이패드 핫키
 		hotKey = JOYSTICK_QUICKSLOT_REPLACE_HOTKEY_STRING(false , hotKey);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', ui.LEFT, ui.TOP, 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
 		if 'None' ~= cate then        
 			SET_QUICK_SLOT(slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);

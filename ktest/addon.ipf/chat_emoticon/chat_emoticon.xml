@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="chat_emoticon" x="0" y="0" width="430" height="250" create="open">
 	<skin frameskin="pip_gridbox"/>
-	<frame title="{@st43}게임설정{/}" fasthide="true" titlepos="0 -12" layout_gravity="center bottom" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<frame title="{@st43}게임설정{/}" fasthide="true" titlepos="0 -12" layout_gravity="center bottom" margin="0 0 0 0"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<layer layerlevel="93"/>
 	<input moveable="true"/>

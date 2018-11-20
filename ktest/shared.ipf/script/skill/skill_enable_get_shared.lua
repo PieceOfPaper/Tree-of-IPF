@@ -45,7 +45,16 @@ local function GET_LIMIT_SKILL_LEVEL(pc, targetSkillTreeCls, targetSkillJobName,
 	return math.min(applyCircle * 5, defMaxLevel);
 end
 
-function SCR_ENABLE_GET_SKILL_COMMON(pc, skillClsName, targetLv)	
+function SCR_ENABLE_GET_SKILL_COMMON(pc, skillClsName, targetLv)
+	local skillCls = GetClass('Skill', skillClsName);
+	if skillCls == nil then
+		return false, 'SkillTreeError';
+	end
+
+	if TryGetProp(skillCls, 'CommonType', 'None') ~= 'None' then
+		return false, ScpArgMsg('MaxSkillLevel');
+	end
+
 	local skillTreeCls = GET_SKILLTREE_CLS(skillClsName);
 	if skillTreeCls == nil then
 		IMC_LOG('ERROR_LOGIC', 'Skill info not exist in skilltree.xml: skillName['..skillClsName..']');

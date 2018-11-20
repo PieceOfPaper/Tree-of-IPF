@@ -3,7 +3,7 @@
 <uiframe name="repair140731" x="0" y="0" width="450" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>

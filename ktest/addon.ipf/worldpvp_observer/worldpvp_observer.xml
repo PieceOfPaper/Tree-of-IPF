@@ -4,7 +4,7 @@
     <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center bottom" margin="0 -424 0 254" useautoposition="true" autosizebychild="true"/>
     <draw drawtitlebar="false" drawframe="true"/>
     <skin frameskin="test_skin_01"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <groupbox name="bg_text" rect="0 0 372 5" margin="6 9 0 0" layout_gravity="left top" autosizebychild="true" hittestbox="false" skin="left_gradient"/>

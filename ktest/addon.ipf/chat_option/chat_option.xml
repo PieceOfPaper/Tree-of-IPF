@@ -2,11 +2,11 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="chat_option" x="0" y="0" width="700" height="500" create="open">
 	<skin frameskin="test_frame_low"/>
-	<frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left bottom" snapclient="true" snapframe="true" margin="0 0 0 0" scale_align="left bottom"/>
+	<frame title="chat_optionwin" titlepos="0 -12" layout_gravity="left bottom" margin="0 0 0 0" scale_align="left bottom"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<layer layerlevel="93"/>
 	<input moveable="true"/>
-	<option closebuttonpos="5 20" closebutton="false" hideable="true" useimageitem="true"/>
+	<option hideable="true" useimageitem="true"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
 	<sound opensound="win_open" closesound="win_close"/>
 	<script OpenScp="CHAT_OPTION_OPEN" lostFocusScp="CHAT_OPTION_CANCEL"/>

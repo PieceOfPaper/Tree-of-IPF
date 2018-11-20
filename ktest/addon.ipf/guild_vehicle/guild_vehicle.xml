@@ -3,7 +3,7 @@
 <uiframe name="guild_vehicle" x="0" y="0" width="40" height="40">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="None"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="false" closebutton="false" moveable="false" alwaysVisible="false"/>
 	<layer layerlevel="1"/>
 	<userconfig OffsetY="-110" SeatWidth="40" SeatHeight="40" ImgHandleNobody="icon_seat_handle_1" ImgHandleMe="icon_seat_handle_2" ImgHandleAnother="icon_seat_handle_3" ImgAttackNobody="icon_seat_attack_1" ImgAttackMe="icon_seat_attack_2" ImgAttackAnother="icon_seat_attack_3"/>

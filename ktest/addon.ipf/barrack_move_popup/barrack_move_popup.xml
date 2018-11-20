@@ -4,7 +4,7 @@
 	<frame fullheight="false" fasthide="true" drawtitlebar="false" layout_gravity="center center " margin="0 -80 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<skin frameskin="test_win_system"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<userconfig DROPBOX_TEXT="{@st41d}               숙소"/>
 	<layer layerlevel="80"/>
   <script CloseScp="CLOSE_INPUT_DROPLIST_BOX"/>

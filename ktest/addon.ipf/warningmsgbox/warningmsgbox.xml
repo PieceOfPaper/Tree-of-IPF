@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="warningmsgbox" x="0" y="0" width="500" height="350" create="open">
 	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
@@ -13,7 +13,7 @@
 	<controls>
 		<groupbox name="bg" rect="0 0 500 350" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="true" resizebyresolution="false" skin="test_win_lastpopup"/>
 		<groupbox name="warningbox" margin="0 50 0 0" rect="0 0 400 300" skin="None" layout_gravity="center top"/>
-		<richtext name="warningtitle" margin="0 42 0 0" rect="0 0 200 50" layout_gravity="center top" caption="{s30}주의" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="orange_32_b_ol_ds" fixwidth="false" parent="warningbox"/>
+		<richtext name="warningtitle" margin="0 42 0 0" rect="0 0 200 50" layout_gravity="center top" caption="{s30}주의" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="orange_32_b_ol_ds" fixwidth="false" parent="warningbox"/>		
 		<richtext name="warningtext" margin="0 112 0 0" rect="0 0 350 30" layout_gravity="center top" caption="{s18}WARNING" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b_ol_ds" fixwidth="true" parent="warningbox"/>
 		<checkbox name="cbox_showTooltip" rect="0 0 200 50" margin="15 0 0 80" layout_gravity="center bottom" ConfigName="ShowTooltipInWarningBox" fontname="white_16_b_ol" LBtnUpScp="WARNINGMSGBOX_SHOW_TOOLTIP" caption="{s16}아이템 툴팁 보기" clicksound="button_click_big" oversound="button_over"/>
 		<button name="yes" rect="0 0 150 50" margin="-80 0 0 30" layout_gravity="center bottom" LBtnUpArgNum="" LBtnUpScp="" fontname="white_16_b_ol" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{img icon_button_warning 36 36}예" clicksound="button_click_big" skin="test_red_button" oversound="button_over"/>

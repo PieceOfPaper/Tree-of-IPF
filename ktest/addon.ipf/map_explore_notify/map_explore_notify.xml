@@ -3,7 +3,7 @@
 <uiframe name="map_explore_notify" x="0" y="0" width="340" height="160">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 -200 0 0" draw="false"/>
 	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
 	<layer layerlevel="100"/>
 	<controls>

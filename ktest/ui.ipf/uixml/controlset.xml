@@ -119,7 +119,7 @@
 			<picture name="item_bg" image="nomalitem_tooltip_bg" layout_gravity="left top" stretch="true" rect="0 0 80 80" margin="10 45 0 0"/>
 			<picture name="itempic" layout_gravity="left top" stretch="true" rect="0 0 60 60" margin="21 55 0 0"/>
 			<picture name="questMark" image="quest_indi_icon" layout_gravity="left top" stretch="true" rect="0 0 43 43" margin="15 48 0 0"/>
-			<richtext name="name" format="{s22}{#FFFFFF}{b}%s{/}" param1="itemname" param1_def="기본 아이템 이름" layout_gravity="center top" rect="0 0 385 30" margin="0 13 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" fontname="white_20_ol"/>
+			<richtext name="name" format="{s22}{#FFFFFF}{b}%s{/}" param1="itemname" param1_def="기본 아이템 이름" layout_gravity="center top" rect="0 0 385 30" margin="0 13 0 0" fixwidth="false" hittest="false" resizebytext="false" updateparent="true" fontname="white_20_ol"/>
 			<richtext name="type_text" format="%s" param1="type" param1_def="DefVal" layout_gravity="left top" textalign="left center" rect="0 0 140 24" margin="100 50 0 0" fixwidth="true" hittest="false" fontname="brown_18_b"/>
 			<richtext name="weight_text" format="무게 : %s" param1="weight" param1_def="999" layout_gravity="right top" textalign="right center" rect="0 0 140 24" margin="0 50 15 0" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<richtext name="grade" layout_gravity="left top" textalign="center center" rect="0 0 80 30" margin="10 107 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="brown_18"/>
@@ -789,7 +789,7 @@
 			<checkbox name="BuyCheck" rect="5 0 30 30" layout_gravity="left center"/>
 		</controls>
 	</controlset>
-	<controlset name="socialitemset_Type" toggle="false" hittest="true" width="480" height="70" cursoronimage="Item_View01_ON" selectedimage="Item_View01_SELECTED" skin="downbox">
+	<controlset name="socialitemset_Type" toggle="false" hittest="true" width="480" height="70" skin="downbox">
 		<controls>
 			<slot name="slot" layout_gravity="left center" skin="slot_empty" rect="10 0 60 60"/>
 			<richtext name="ItemName" rect="80 10 120 42" layout_gravity="left top" fixwidth="true" hittest="false" fontname="white_16_ol"/>
@@ -1131,7 +1131,7 @@
 	</controlset>
 	<controlset name="CreateSet_Type02" toggle="false" hittest="true" width="68" height="68" caption="퀘스트의 리스트 오브젝트-여기까지는 옛날꺼임">
 		<controls>
-			<picture name="Picture" stretch="ture" rect="2 2 64 64"/>
+			<picture name="Picture" rect="2 2 64 64"/>
 		</controls>
 	</controlset>
 	<controlset name="Roadmap_Line01" toggle="false" hittest="true" width="298" height="28" caption="로드맵에서 사용하는 라인">
@@ -2098,7 +2098,7 @@
 			<picture name="text_bg" margin="24 22 0 0" rect="0 0 454 50" hittest="false" image="test_com_namebg" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<button name="tradeBtn" margin="370 23 0 0" rect="0 0 134 50" layout_gravity="left top" format="{@st41}%s" skin="test_red_button" LBtnUpScp="EARTH_TOWER_SHOP_EXEC" param1="text" param1_def="교환"/>
 			<picture name="itemIcon" margin="55 85 0 0" rect="5 5 128 128" hittest="true" image="icon_item_helm_misc4" stretch="true" changecursor="false" layout_gravity="left top"/>
-			<richtext name="itemName" margin="41 33 0 0" rect="0 0 150 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="itemName" margin="38 35 0 0" rect="0 0 335 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" omitbywidth="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="0 0  0 0" skin="labelline_def" rect="0 0 480 2" layout_gravity="center top"/>
 			<richtext name="exchangeCount" margin="0  0 0 0" rect="0 0 10 10" format="{#FF0000}%s{/}" param1="value" param1_def="?" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>
@@ -2159,7 +2159,7 @@
 			<button name="make" layout_gravity="right top" rect="0 0 150 50" margin="0 35 20 0" caption="{@st41b}제작" hittest="true" skin="test_pvp_btn" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff"/>
 		</controls>
 	</controlset>
-	<controlset name="craftRecipe_numupdown" toggle="false" hittest="true" width="145" height="30" skin="downbox" cursoronimage="Item_View01_ON" selectedimage="Item_View01_SELECTED">
+	<controlset name="craftRecipe_numupdown" toggle="false" hittest="true" width="145" height="30" skin="downbox">
 		<controls>
 			<numupdown name="upDown" rect="0 0 120 30" layout_gravity="right top" clicksound="button_click_big" oversound="button_over" minvalue="0" incrvalue="1" fontname="white_20_ol" keypad="false" margin="0 0 35 0"/>
 		</controls>
@@ -2268,7 +2268,7 @@
 			<richtext name="name" margin="100 24 0 0" rect="0 0 100 15" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Name"/>
 			<richtext name="level" margin="399 24 0 10" rect="0 0 38 20" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Lv"/>
 			<picture name="pic" margin="15 0 0 0" rect="0 0 55 55" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left center"/>
-			<richtext name="count" margin="49 40 0 10" rect="0 0 30 20" hittest="false" textalign="right center" resizebytext="ture" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Cnt"/>
+			<richtext name="count" margin="49 40 0 10" rect="0 0 30 20" hittest="false" textalign="right center" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="Cnt"/>
 			<richtext name="price" margin="495 24 0 10" rect="0 0 100 20" sharedConst="USE_MARKET_REPORT/0" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="price"/>
 			<richtext name="price" margin="450 24 0 10" rect="0 0 100 20" sharedConst="USE_MARKET_REPORT/1" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="price"/>
 			<richtext name="totalPrice" margin="760 24 0 10" rect="0 0 150 20" sharedConst="USE_MARKET_REPORT/0" hittest="false" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="brown_16_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" format="%s" param1="value" param1_def="totalPrice"/>
@@ -2414,7 +2414,7 @@
 			<slot name="pic" margin="5 -1 0 0" rect="0 0 55 55" hittest="false" skin="invenslot2" stretch="true" changecursor="false" layout_gravity="left center"/>
 			<richtext name="name" margin="80 0 0 0" rect="0 0 100 15" hittest="false" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left  center" format="{@st66}%s" param1="value" param1_def="Name"/>
 			<groupbox name="timeBox" rect="0 0 200 66" margin="640 0 0 0" layout_gravity="left center" draw="false" hittest="false" skin="market_linebg"/>
-			<richtext name="endTime" parent="timeBox" margin="0 0 0 0" rect="0 0 200 20" hittest="false" resizebytext="ture" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center" format="{@st66}%s" param1="value" param1_def="totalPrice"/>
+			<richtext name="endTime" parent="timeBox" margin="0 0 0 0" rect="0 0 200 20" hittest="false" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center" format="{@st66}%s" param1="value" param1_def="totalPrice"/>
 			<groupbox name="priceBox" rect="0 0 200 66" margin="407 0 0 0" layout_gravity="left center" draw="false"/>
 			<richtext name="totalPrice" parent="priceBox" margin="0 -7 0 0" rect="0 0 200 20" layout_gravity="center center" textalign="center center" fixwidth="true" format="{@st66}%s" fontname="brown_16" param1="value" param1_def="totalPrice"/>
 			<richtext name="totalPriceStr" parent="priceBox" margin="0 10 0 0" rect="0 0 200 20" layout_gravity="center center" textalign="center center" fixwidth="true" format="{@st66}{s14}%s" fontname="brown_16" param1="value" param1_def="totalPriceStr"/>
@@ -2669,7 +2669,7 @@
 		<controls>
 			<slot name="slot" margin="-2 -11 0 0" rect="0 0 50 50" movepop="false" hittest="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="buff_buy_slot" DropScp="None" texttooltip="{@st59}링1{/}" layout_gravity="left center"/>
 			<richtext name="UserName" margin="49 0 0 0" rect="0 0 171 23" format="{@sti9}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-			<richtext name="prop" margin="50 27 0 0" rect="0 0 168 23" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" resizebytext="true " spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="prop" margin="50 27 0 0" rect="0 0 168 23" format="{@st49}%s{/}" param1="value" param1_def="THISISITEMNAEM" textalign="left top" spacey="0" maxwidth="0" fontname="white_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 	<controlset name="enchanter_history" toggle="false" hittest="true" width="400" height="100" skin="none" stateskin="false">

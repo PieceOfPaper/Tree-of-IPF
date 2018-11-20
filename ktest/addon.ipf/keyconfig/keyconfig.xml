@@ -3,9 +3,8 @@
 <uiframe name="keyconfig" x="0" y="0" width="800" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip"/>
 	<skin frameskin="pipwin_test"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="95"/>
-	<option closebutton="false" closebuttonpos="0 20"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<Script OpenScp="OPEN_KEYCONFIG" CloseScp="CLOSE_KEYCONFIG"/>

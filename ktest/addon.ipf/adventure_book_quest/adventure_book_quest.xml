@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="adventure_book_quest" x="0" y="0" width="450" height="700">
-	<frame title="{@st43}{s22}퀘스트 정보{/}" titlepos="0 0" layout_gravity="left top" snapclient="true" snapframe="true" scale_align="center top" margin="800 200 0 0"/>
+	<frame title="{@st43}{s22}퀘스트 정보{/}" titlepos="0 0" layout_gravity="left top" scale_align="center top" margin="800 200 0 0"/>
 	<skin frameskin="mainwindow2"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<layer layerlevel="101"/>

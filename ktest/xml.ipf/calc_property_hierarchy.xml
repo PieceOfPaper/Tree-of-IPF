@@ -1,0 +1,445 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<property>
+	<hierarchy Name="STR">
+		<Child Name="STR_JOB"/>
+		<Child Name="STR_STAT"/>
+		<Child Name="STR_Bonus"/>
+		<Child Name="STR_ADD"/>
+		<Child Name="STR_TEMP"/>
+		<Child Name="STR_BM"/>
+	</hierarchy>
+	<hierarchy Name="DEX">
+		<Child Name="DEX_JOB"/>
+		<Child Name="DEX_STAT"/>
+		<Child Name="DEX_Bonus"/>
+		<Child Name="DEX_ADD"/>
+		<Child Name="DEX_TEMP"/>
+		<Child Name="DEX_BM"/>
+	</hierarchy>
+	<hierarchy Name="CON">
+		<Child Name="CON_JOB"/>
+		<Child Name="CON_STAT"/>
+		<Child Name="CON_Bonus"/>
+		<Child Name="CON_ADD"/>
+		<Child Name="CON_TEMP"/>
+		<Child Name="CON_BM"/>
+	</hierarchy>
+	<hierarchy Name="MNA">
+		<Child Name="MNA_JOB"/>
+		<Child Name="MNA_STAT"/>
+		<Child Name="MNA_Bonus"/>
+		<Child Name="MNA_ADD"/>
+		<Child Name="MNA_TEMP"/>
+	</hierarchy>
+	<hierarchy Name="INT">
+		<Child Name="INT_JOB"/>
+		<Child Name="INT_STAT"/>
+		<Child Name="INT_Bonus"/>
+		<Child Name="INT_ADD"/>
+		<Child Name="INT_TEMP"/>
+		<Child Name="INT_BM"/>
+	</hierarchy>
+	<hierarchy Name="MINPATK">
+		<Child Name="STR"/>
+		<Child Name="PATK_BM"/>
+		<Child Name="MINPATK_BM"/>
+		<Child Name="PATK_MAIN_BM"/>
+		<Child Name="MINPATK_MAIN_BM"/>
+		<Child Name="PATK_RATE_BM"/>
+		<Child Name="MINPATK_RATE_BM"/>
+		<Child Name="PATK_MAIN_RATE_BM"/>
+		<Child Name="MINPATK_MAIN_RATE_BM"/>
+		<Child Name="MAXPATK"/>
+	</hierarchy>
+	<hierarchy Name="MAXPATK">
+		<Child Name="STR"/>
+		<Child Name="PATK_BM"/>
+		<Child Name="MAXPATK_BM"/>
+		<Child Name="PATK_MAIN_BM"/>
+		<Child Name="MAXPATK_MAIN_BM"/>
+		<Child Name="PATK_RATE_BM"/>
+		<Child Name="MAXPATK_RATE_BM"/>
+		<Child Name="PATK_MAIN_RATE_BM"/>
+		<Child Name="MAXPATK_MAIN_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="MINPATK_SUB">
+		<Child Name="STR"/>
+		<Child Name="PATK_BM"/>
+		<Child Name="MINPATK_BM"/>
+		<Child Name="PATK_SUB_BM"/>
+		<Child Name="MINPATK_SUB_BM"/>
+		<Child Name="PATK_RATE_BM"/>
+		<Child Name="MINPATK_RATE_BM"/>
+		<Child Name="PATK_SUB_RATE_BM"/>
+		<Child Name="MINPATK_SUB_RATE_BM"/>
+		<Child Name="MAXPATK_SUB"/>
+	</hierarchy>
+	<hierarchy Name="MAXPATK_SUB">
+		<Child Name="STR"/>
+		<Child Name="PATK_BM"/>
+		<Child Name="MAXPATK_BM"/>
+		<Child Name="PATK_SUB_BM"/>
+		<Child Name="MAXPATK_SUB_BM"/>
+		<Child Name="PATK_RATE_BM"/>
+		<Child Name="MAXPATK_RATE_BM"/>
+		<Child Name="PATK_SUB_RATE_BM"/>
+		<Child Name="MAXPATK_SUB_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="HR">
+		<Child Name="STR"/>
+		<Child Name="ADD_HR"/>
+		<Child Name="HR_BM"/>
+	</hierarchy>
+	<hierarchy Name="BLK_BREAK">
+		<Child Name="DEX"/>
+		<Child Name="BLK_BREAK_BM"/>
+	</hierarchy>
+	<hierarchy Name="DR">
+		<Child Name="DEX"/>
+		<Child Name="ADD_DR"/>
+		<Child Name="DR_BM"/>
+	</hierarchy>
+	<hierarchy Name="CRTATK">
+		<Child Name="DEX"/>
+		<Child Name="CRTATK_BM"/>
+	</hierarchy>
+	<hierarchy Name="CRTMATK">
+		<Child Name="MNA"/>
+		<Child Name="CRTMATK_BM"/>
+	</hierarchy>
+	<hierarchy Name="MHP">
+		<Child Name="CON"/>
+		<Child Name="MHP_Bonus"/>
+		<Child Name="MHP_BM"/>
+		<Child Name="MHP_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="BLK">
+		<Child Name="CON"/>
+		<Child Name="BLK_BM"/>
+	</hierarchy>
+	<hierarchy Name="RHP">
+		<Child Name="CON"/>
+		<Child Name="RHP_BM"/>
+	</hierarchy>
+	<hierarchy Name="MSTA">
+		<Child Name="CON"/>
+		<Child Name="MAXSTA_Bonus"/>
+		<Child Name="MaxSta_BM"/>
+	</hierarchy>
+	<hierarchy Name="MSP">
+		<Child Name="MNA"/>
+		<Child Name="MSP_Bonus"/>
+		<Child Name="MSP_BM"/>
+		<Child Name="MSP_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="RSP">
+		<Child Name="MNA"/>
+		<Child Name="RSP_BM"/>
+	</hierarchy>
+	<hierarchy Name="HEAL_PWR">
+		<Child Name="MNA"/>
+		<Child Name="INT"/>
+		<Child Name="HEAL_PWR_BM"/>
+		<Child Name="HEAL_PWR_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="MINMATK">
+		<Child Name="INT"/>
+		<Child Name="MATK_BM"/>
+		<Child Name="MINMATK_BM"/>
+		<Child Name="MATK_RATE_BM"/>
+		<Child Name="MINMATK_RATE_BM"/>
+		<Child Name="MAXMATK"/>
+	</hierarchy>
+	<hierarchy Name="MAXMATK">
+		<Child Name="INT"/>
+		<Child Name="MATK_BM"/>
+		<Child Name="MAXMATK_BM"/>
+		<Child Name="MATK_RATE_BM"/>
+		<Child Name="MAXMATK_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="ADDOVERHEAT">
+		<Child Name="INT"/>
+	</hierarchy>
+	<hierarchy Name="DEF">
+		<Child Name="DEF_BM"/>
+		<Child Name="DEF_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="MDEF">
+		<Child Name="MDEF_BM"/>
+		<Child Name="MDEF_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="RHPTIME">
+		<Child Name="RHPTIME_BM"/>
+	</hierarchy>
+	<hierarchy Name="RSPTIME">
+		<Child Name="RSPTIME_BM"/>
+	</hierarchy>
+	<hierarchy Name="ASPD">
+		<Child Name="ASPD_BM"/>
+	</hierarchy>
+	<hierarchy Name="MSPD">
+		<Child Name="FIXMSPD_BM"/>
+		<Child Name="MSPD_BM"/>
+		<Child Name="SPD_BM"/>
+		<Child Name="MaxWeight"/>
+		<Child Name="NowWeight"/>
+		<Child Name="DashRun"/>
+		<Child Name="MSPD_Bonus"/>
+	</hierarchy>
+	<hierarchy Name="MHR">
+		<Child Name="MHR_BM"/>
+	</hierarchy>
+	<hierarchy Name="CRTHR">
+		<Child Name="CRTHR_BM"/>
+	</hierarchy>
+	<hierarchy Name="CRTDR">
+		<Child Name="CRTDR_BM"/>
+	</hierarchy>
+	<hierarchy Name="BLKABLE"/>
+	<hierarchy Name="KDPow">
+		<Child Name="KDPow_BM"/>
+	</hierarchy>
+	<hierarchy Name="MGP">
+		<Child Name="MGP_BM"/>
+	</hierarchy>
+	<hierarchy Name="SR">
+		<Child Name="SR_BM"/>
+	</hierarchy>
+	<hierarchy Name="SDR">
+		<Child Name="FixedMinSDR_BM"/>
+		<Child Name="SDR_BM"/>
+	</hierarchy>
+	<hierarchy Name="HPDrain">
+		<Child Name="HPDrain_ADD"/>
+		<Child Name="HPDrain_BM"/>
+	</hierarchy>
+	<hierarchy Name="SkillAngle">
+		<Child Name="SkillAngle_BM"/>
+	</hierarchy>
+	<hierarchy Name="SkillRange">
+		<Child Name="SkillRange_BM"/>
+	</hierarchy>
+	<hierarchy Name="StunRate">
+		<Child Name="StunRate_BM"/>
+	</hierarchy>
+	<hierarchy Name="Revive">
+		<Child Name="Revive_BM"/>
+	</hierarchy>
+	<hierarchy Name="HitCount">
+		<Child Name="HitCount_BM"/>
+	</hierarchy>
+	<hierarchy Name="BackHit"/>
+	<hierarchy Name="PostDelay"/>
+	<hierarchy Name="ArmorMaterial_ID"/>
+	<hierarchy Name="Sta_Run">
+		<Child Name="MOVESTA_RATE_BM"/>
+		<Child Name="DashRun"/>
+		<Child Name="DASHSTA_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="Sta_Recover">
+		<Child Name="REST_BM"/>
+		<Child Name="RSta_BM"/>
+	</hierarchy>
+	<hierarchy Name="MovingShot">
+		<Child Name="MovingShot_BM"/>
+	</hierarchy>
+	<hierarchy Name="MovingShotable"/>
+	<hierarchy Name="SkillPower">
+		<Child Name="SkillPower_BM"/>
+	</hierarchy>
+	<hierarchy Name="KnockDownHit">
+		<Child Name="KDHit_BM"/>
+	</hierarchy>
+	<hierarchy Name="KDBonusDamage">
+		<Child Name="KDBonus_BM"/>
+	</hierarchy>
+	<hierarchy Name="KDBonusDefence">
+		<Child Name="KDBonus_BM"/>
+	</hierarchy>
+	<hierarchy Name="MaxWeight">
+		<Child Name="MaxWeight_Bonus"/>
+		<Child Name="MaxWeight_BM"/>
+		<Child Name="MaxWeight_RATE_BM"/>
+	</hierarchy>
+	<hierarchy Name="LootingChance">
+		<Child Name="LootingChance_BM"/>
+	</hierarchy>
+	<hierarchy Name="FIRE_ATK">
+		<Child Name="Fire_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Ice_Atk">
+		<Child Name="Ice_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Poison_Atk">
+		<Child Name="Poison_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Lightning_Atk">
+		<Child Name="Lightning_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Soul_Atk">
+		<Child Name="Soul_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Earth_Atk">
+		<Child Name="Earth_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Holy_Atk">
+		<Child Name="Holy_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Dark_Atk">
+		<Child Name="Dark_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Widling_Atk">
+		<Child Name="Widling_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Paramune_Atk">
+		<Child Name="Paramune_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Forester_Atk">
+		<Child Name="Forester_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Velnias_Atk">
+		<Child Name="Velnias_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Klaida_Atk">
+		<Child Name="Klaida_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Cloth_Atk">
+		<Child Name="Cloth_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Leather_Atk">
+		<Child Name="Leather_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Chain_Atk">
+		<Child Name="Chain_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Iron_Atk">
+		<Child Name="Iron_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Ghost_Atk">
+		<Child Name="Ghost_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="SmallSize_Atk">
+		<Child Name="SmallSize_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="MiddleSize_Atk">
+		<Child Name="MiddleSize_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="LargeSize_Atk">
+		<Child Name="LargeSize_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Aries_Atk">
+		<Child Name="Aries_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Slash_Atk">
+		<Child Name="Slash_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="Strike_Atk">
+		<Child Name="Strike_Atk_BM"/>
+	</hierarchy>
+	<hierarchy Name="DefAries">
+		<Child Name="DefAries_BM"/>
+	</hierarchy>
+	<hierarchy Name="DefSlash">
+		<Child Name="DefSlash_BM"/>
+	</hierarchy>
+	<hierarchy Name="DefStrike">
+		<Child Name="DefStrike_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResFire">
+		<Child Name="ResFire_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResIce">
+		<Child Name="ResIce_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResLightning">
+		<Child Name="ResLightning_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResSoul">
+		<Child Name="ResSoul_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResPoison">
+		<Child Name="ResPoison_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResEarth">
+		<Child Name="ResEarth_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResHoly">
+		<Child Name="ResHoly_BM"/>
+	</hierarchy>
+	<hierarchy Name="ResDark">
+		<Child Name="ResDark_BM"/>
+	</hierarchy>
+	<hierarchy Name="AriesAtkFactor_PC">
+		<Child Name="AriesAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="SlashAtkFactor_PC">
+		<Child Name="SlashAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="StrikeAtkFactor_PC">
+		<Child Name="StrikeAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="MissileAtkFactor_PC">
+		<Child Name="MissileAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="FireAtkFactor_PC">
+		<Child Name="FireAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="IceAtkFactor_PC">
+		<Child Name="IceAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="LightningAtkFactor_PC">
+		<Child Name="LightningAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="SoulAtkFactor_PC">
+		<Child Name="SoulAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="PoisonAtkFactor_PC">
+		<Child Name="PoisonAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="EarthAtkFactor_PC">
+		<Child Name="EarthAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="HolyAtkFactor_PC">
+		<Child Name="HolyAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="DarkAtkFactor_PC">
+		<Child Name="DarkAtkFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="AriesDefFactor_PC">
+		<Child Name="AriesDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="SlashDefFactor_PC">
+		<Child Name="SlashDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="StrikeDefFactor_PC">
+		<Child Name="StrikeDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="MissileDefFactor_PC">
+		<Child Name="MissileDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="FireDefFactor_PC">
+		<Child Name="FireDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="IceDefFactor_PC">
+		<Child Name="IceDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="LightningDefFactor_PC">
+		<Child Name="LightningDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="SoulDefFactor_PC">
+		<Child Name="SoulDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="PoisonDefFactor_PC">
+		<Child Name="PoisonDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="EarthDefFactor_PC">
+		<Child Name="EarthDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="HolyDefFactor_PC">
+		<Child Name="HolyDefFactor_PC_BM"/>
+	</hierarchy>
+	<hierarchy Name="DarkDefFactor_PC">
+		<Child Name="DarkDefFactor_PC_BM"/>
+	</hierarchy>
+</property>

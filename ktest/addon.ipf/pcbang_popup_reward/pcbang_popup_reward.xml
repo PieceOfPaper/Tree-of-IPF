@@ -3,7 +3,7 @@
 <uiframe name="pcbang_popup_reward" x="0" y="0" width="380  " height="480">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="mainwindow3"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<layer layerlevel="101"/>
 	<controls>

@@ -2880,14 +2880,8 @@ function SCR_GET_StonePicking_Ratio(skill)
 end
 
 function SCR_GET_StoneShot_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "QuarrelShooter12") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+    local value = 50
+    return value
 end
 
 function SCR_GET_StoneShot_Ratio2(skill)

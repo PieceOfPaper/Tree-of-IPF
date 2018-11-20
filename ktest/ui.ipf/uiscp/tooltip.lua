@@ -167,7 +167,7 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption, predictSkillPoint)
         -- current level        
         caption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, caption);        
         -- next level
-        lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);        
+        lvCaption, parsed = TRY_PARSE_PROPERTY(obj, nextObj, lvCaption);      
         if parsed == 0 then
             break;
         end
@@ -438,12 +438,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     end
     tooltipStartLevel = tooltipStartLevel + stateLevel;    
 
-    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);    
-    if skilltreecls ~= nil then    
-        if skilltreecls.MaxLevel < tooltipStartLevel then            
-             tooltipStartLevel = skilltreecls.MaxLevel
-        end
-    end
+    local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);
     
     local iconEndPos = iconPicture:GetY() + iconPicture:GetHeight()
     local ypos = skillDesc:GetY() + skillDesc:GetHeight()
@@ -498,12 +493,6 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
         totalLevel = obj.LevelByDB;
     end
 
-    if skilltreecls ~= nil then
-        if skilltreecls.MaxLevel < totalLevel then
-            totalLevel = skilltreecls.MaxLevel
-        end
-    end
-    
     local currLvCtrlSet = nil    
     if totalLevel == 0 and lvDescStart ~= nil then  -- no have skill case        
         skillLvDesc = string.sub(skillLvDesc, lvDescEnd + 2, string.len(skillLvDesc));
@@ -526,7 +515,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
             elseif lv >= 99 then
                 levelvalue = 4
             end
-
+            
             lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");  
             if lvDescStart == nil then -- max skill level = 1
                 local lvDesc = string.sub(skillLvDesc, 2, string.len(skillLvDesc));   
@@ -661,6 +650,9 @@ end
 		maxLevel = 1;
 		curLv = 1;
 	end
+    if maxLevel < curLv then
+        maxLevel = curLv
+    end
 
     -- 1 ~ maxLevel caption cause to client down. use only two captions which you need
     if curLv ~= nil then

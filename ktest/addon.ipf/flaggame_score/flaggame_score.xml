@@ -3,7 +3,7 @@
     <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="left top" margin="258 8 0 0"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="wiki_add"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <richtext name="text" rect="0 0 480 70" margin="30 26 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st47}%s" maxwidth="0" param1="killer" param1_def="" param2="killed" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="auction_popup" x="0" y="0" width="400" height="600" create="open">
-    <frame title="{@st43}{s22}아이템 경매{/}" titlepos="0 0" margin="-280 0 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <frame title="{@st43}{s22}아이템 경매{/}" titlepos="0 0" margin="-280 0 0 0" layout_gravity="center center" scale_align="center top"/>
     <draw drawframe="true" drawtitlebar="true"/>
     <layer layerlevel="100"/>
     <input moveable="true"/>

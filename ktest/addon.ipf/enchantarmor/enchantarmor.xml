@@ -3,7 +3,7 @@
 <uiframe name="enchantarmor" x="0" y="0" width="450" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>

@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="inventory" x="0" y="0" width="505" height="649">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" open="pip" margin="0 0 -490 0 " keyboardselectframe="true"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin="none"/>
 	<input moveable="false" maxwidth="1280" hittestframe="false"/>
 	<layer layerlevel="95"/>

@@ -4,6 +4,7 @@ MAX_INV_COUNT = 4999;
 function STATUS_ON_INIT(addon, frame)
 
     addon:RegisterMsg('PC_PROPERTY_UPDATE', 'STATUS_UPDATE');
+    addon:RegisterMsg('PC_PROPERTY_UPDATE_DETAIL', 'SCR_PC_PROPERTY_UPDATE_DETAIL');
     addon:RegisterOpenOnlyMsg('STAT_UPDATE', 'STATUS_UPDATE');
     addon:RegisterMsg('RESET_STAT_UP', 'RESERVE_RESET');
     addon:RegisterMsg('STAT_AVG', 'STATUS_ON_MSG');
@@ -671,7 +672,7 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
     local totalExpUpValue = 0;
 
     -- team level
-    local account = session.barrack.GetCurrentAccount();
+    local account = session.barrack.GetMyAccount();
     if account ~= nil then
         local teamLevel = account:GetTeamLevel();
         local expupValue = GET_TEAM_LEVEL_EXP_BONUS(teamLevel);
@@ -2496,6 +2497,20 @@ function GET_HAIR_CLASS_C(engName)
     end
 
     return nil;
+end
+
+function SCR_PC_PROPERTY_UPDATE_DETAIL(frame, msg, propertyName, argNum)
+    local pc = GetMyPCObject();
+    local gboxctrl2 = frame:GetChild('statusGbox');
+    local gboxctrl = GET_CHILD(gboxctrl2, 'internalstatusBox');
+
+    local controlSet = gboxctrl:GetControlSet('status_stat', propertyName);
+	local y = 0;
+	if controlSet ~= nil then
+		y = controlSet:GetY();
+	end
+
+    STATUS_ATTRIBUTE_VALUE_NEW(pc, nil, frame, gboxctrl, propertyName, y);
 end
 
 function STATUS_OPEN_CLASS_DROPLIST(parent, ctrl)

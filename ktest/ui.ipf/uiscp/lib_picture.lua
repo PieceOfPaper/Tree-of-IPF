@@ -74,6 +74,29 @@ imcUIAnim = {
 		end
 		ctrl:RunUpdateScript('UPDATE_IMC_UI_ANIM_MOVE_EXPONENTIAL', 0.005);
 	end,
+	PlayEmphasize = function(self, parent, x, y)
+		if x == nil then
+			x = parent:GetWidth() / 2;
+		end
+		if y == nil then
+			y = parent:GetHeight() / 2;
+		end
+		local emphasize = parent:CreateOrGetControlSet('indunmap_emphasize', "EMPHASIZE", x, y);
+		emphasize:EnableHitTest(0);
+		x = x - emphasize:GetWidth() / 2;
+		y = y - emphasize:GetHeight() / 2;
+
+		emphasize:SetOffset(x, y);
+		emphasize:MakeTopBetweenChild();
+		emphasize:ShowWindow(1);
+		local animpic = GET_CHILD(emphasize, "animpic");
+		animpic:SetWaitAnimEndTime(1);
+		animpic:ShowWindow(1);
+		animpic:PlayAnimation();
+	end,
+	RemoveEmphasize = function(self, parent)
+		parent:RemoveChild('EMPHASIZE');
+	end,
 };
 
 function UPDATE_IMC_UI_ANIM_MOVE_EXPONENTIAL(ctrl)

@@ -27,12 +27,12 @@ function SKILLABILITY_GET_JOB_TAB_INFO_LIST()
         local jobid = joblist[i];
         local jobcls = GetClassByTypeFromList(clslist, jobid);
         local jobName = GET_JOB_NAME(jobcls, gender);
-        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..jobid, "gb_"..jobid, textstyle..jobName, "JobClsName", jobcls.ClassName);
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..jobid, "gb_"..jobid, textstyle..jobName, jobcls.ClassName);
     end
     
 	local commonSkillCount = session.skill.GetCommonSkillCount();	
 	if commonSkillCount > 0 then		
-        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..0, "gb_"..0, textstyle..ClMsg("Common"), "JobClsName", "Common");
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..0, "gb_"..0, textstyle..ClMsg("Common"), "Common");
 	end
 
     return list;

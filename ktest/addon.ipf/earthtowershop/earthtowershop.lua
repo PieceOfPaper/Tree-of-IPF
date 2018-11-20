@@ -48,6 +48,12 @@ function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP8_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop8');
+	ui.OpenFrame('earthtowershop');
+end
+
 function REQ_PVP_MINE_SHOP_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'PVPMine');
@@ -105,25 +111,34 @@ function EARTH_TOWER_INIT(frame, shopType)
 	INVENTORY_SET_ICON_SCRIPT("None");
 
 	local title = GET_CHILD(frame, 'title', 'ui::CRichText')
+	local close = GET_CHILD(frame, 'close');
 	if shopType == 'EarthTower' then
 		title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
-	elseif shopType == 'EventShop' then
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EarthTowerShop")));
+	elseif shopType == 'EventShop' or shopType == 'EventShop2' or shopType == 'EventShop3' then
 		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
-	elseif shopType == 'EventShop2' then
-		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
-	elseif shopType == 'EventShop3' then
-		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
 	elseif shopType == 'KeyQuestShop1' then
-	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
+		title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("KeyQuestShopTitle1")));
 	elseif shopType == 'KeyQuestShop2' then
-	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
+		title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("KeyQuestShopTitle2")));
 	elseif shopType == 'HALLOWEEN' then
 		title:SetText('{@st43}'..ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME")));
 	elseif shopType == 'PVPMine' then
 		title:SetText('{@st43}'..ScpArgMsg("pvp_mine_shop_name"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("pvp_mine_shop_name")));
 	elseif shopType == 'MCShop1' then
 		title:SetText('{@st43}'..ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME")));
+	elseif shopType == 'EventShop8' then
+		local taltPropCls = GetClassByType('Anchor_c_Klaipe', 5187);
+		title:SetText('{@st43}'..taltPropCls.Name);
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', taltPropCls.Name));
 	end
+
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
 
@@ -467,6 +482,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
+	elseif shopType == 'EventShop8' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD8", resultlist, cntText);
 	elseif shopType == 'PVPMine' then
 		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
 	elseif shopType == 'MCShop1' then

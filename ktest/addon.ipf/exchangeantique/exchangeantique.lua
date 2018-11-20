@@ -27,6 +27,11 @@ local function _ADD_ITEM_TO_EXCHANGEANTIQUE_FROM_INV(frame, item)
 		if item.ItemGrade ~= 5 and item.GroupName ~= Armor then
 			return;
 		end
+	else
+		if TryGetProp(item, 'Rebuildchangeitem', 0) == 0 then			
+			ui.SysMsg(ClMsg('WrongDropItem'));
+			return;
+		end
 	end
 	
 	local pc = GetMyPCObject();
@@ -324,7 +329,18 @@ function CHECK_EXCHANGE_ANTIQUE()
 end
 
 function OPEN_EXCHANGE_ANTIQUE(careMode)
-	local frame = ui.GetFrame('exchangeantique');	
+	local frame = ui.GetFrame('exchangeantique');
 	frame:SetUserValue('CARE_MODE', careMode);
+
+	local function _SET_TITLE(frame, careMode)
+		local title = GET_CHILD_RECURSIVELY(frame, 'title');
+		if careMode == 1 then
+			title:SetTextByKey('title', ClMsg('ExchangeWeaponType'));
+		else
+			title:SetTextByKey('title', ClMsg('ExchangeAntique'));
+		end
+	end
+	_SET_TITLE(frame, careMode);
+
 	ui.OpenFrame('exchangeantique');
 end

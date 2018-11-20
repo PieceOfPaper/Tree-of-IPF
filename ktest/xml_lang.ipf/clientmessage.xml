@@ -109,6 +109,8 @@
 		<Class ClassID="1129" ClassName="IsAwaken" Data="각성 수치"/>
 		<Class ClassID="1130" ClassName="LegendPrefix" Data="레전드 세트 옵션"/>
 		<Class ClassID="1131" ClassName="RandomOption" Data="랜덤 옵션"/>
+		<Class ClassID="1132" ClassName="ExchangeAntique" Data="유물 교환"/>
+		<Class ClassID="1133" ClassName="ExchangeWeaponType" Data="무기 계열 변경"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -285,6 +287,7 @@
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
 		<Class ClassID="2278" ClassName="CanExchangeOnlyOnce" Data="교환된 아이템은 다시 교환 할 수 없습니다."/>
+		<Class ClassID="2279" ClassName="CloseUI{NAME}" Data="{@st59}{NAME} UI를 닫습니다{/}"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 경험치를 모두 달성하였습니다."/>
@@ -294,6 +297,7 @@
 		<Class ClassID="2504" ClassName="TooLowClassLevelForGetSkill{Level}" Data="클래스 레벨 {Level} 이상 필요"/>
 		<Class ClassID="2505" ClassName="DoYouWantRankReset" Data="랭크 초기화 아이템을 사용하시겠습니까?"/>
 		<Class ClassID="2506" ClassName="DoYouWantCtrlTypeReset" Data="계열 변경을 하시겠습니까?"/>
+		<Class ClassID="2507" ClassName="ArcherCannotDashInBattleState" Data="아처 클래스는 전투 중에 대시를 할 수 없습니다."/>
 	</Category>
 	<Category Name="CannotGetSkillMessage">
 		<Class ClassID="2600" ClassName="CannotGetSkillMessage_Doppelsoeldner_Zucken" Data="[스킬] 존하우 1레벨 이상 필요"/>
@@ -5041,10 +5045,18 @@
 		<Class ClassID="28249" ClassName="EVENT_1811_NEWCHARACTER_MSG10" Data="[Re:Build] 마시니오스 무기가 +5 초월 되었습니다"/>
 		<Class ClassID="28250" ClassName="EVENT_1811_NEWCHARACTER_MSG11" Data="'캐릭터 슬롯 추가 이용권' 아이템을 사용해 캐릭터 슬롯이 1 증가하였습니다"/>
 		<Class ClassID="28251" ClassName="EVENT_1811_NEWCHARACTER_MSG12" Data="캐릭터 슬롯이 모두 개방되어 슬롯 아이템 대신 증정용 33TP 가 지급됩니다"/>
+		<Class ClassID="28252" ClassName="EVENT_1811_NEWCHARACTER_MSG13" Data="{COUNT1}강화 {COUNT2}초월"/>
+		<Class ClassID="28253" ClassName="EVENT_1811_NEWCHARACTER_MSG14" Data="적용할 장비 아이템이 없습니다"/>
 		<Class ClassID="28255" ClassName="EVENT_1811_KUPOLE_MSG1" Data="교환 상점을 사용한다"/>
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
 		<Class ClassID="28265" ClassName="EVENT_1811_ABILITY_EXTRACTOR_MSG1" Data="[최초 1회 {COUNT}%할인]"/>
+		<Class ClassID="28270" ClassName="EVENT_1811_TESTSERVER_UNIQUE" Data="'별의 탑 폐쇄 구역'을 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
+		<Class ClassID="28271" ClassName="EVENT_1811_TESTSERVER_LEGEND" Data="'벨코퍼의 둥지'를 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
+		<Class ClassID="28272" ClassName="EVENT_1811_TESTSERVER_CHALLENGE" Data="챌린지 5단계를 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
+		<Class ClassID="28273" ClassName="EVENT_1811_TESTSERVER_MSG1" Data="현재 캐릭터 드래곤 보루타 퀘스트 상태 : "/>
+		<Class ClassID="28274" ClassName="EVENT_1811_TESTSERVER_MSG2" Data="미완료"/>
+		<Class ClassID="28275" ClassName="EVENT_1811_TESTSERVER_MSG3" Data="{nl}클래스 변경 : {COUNT1}회{nl}별의 탑 폐쇄 구역 완료 : {COUNT2}회{nl}벨코퍼의 둥지 완료 : {COUNT3}회{nl}챌린지 5단계 완료 : {COUNT3}회"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -8456,7 +8468,8 @@
 		<Class ClassID="102411" ClassName="NoOneIsOnline" Data="가입 승인 직급이 있는 접속한 길드원이 없습니다. "/>
 		<Class ClassID="102412" ClassName="GuildJointInvLackOfTrustPoint" Data="개인 거래 등급이 낮아 길드 공용 창고를 이용할 수 없습니다."/>
 		<Class ClassID="102413" ClassName="GuildJointInvNotAllowedItem" Data="길드 공용 창고를 이용할 수 없는 아이템 입니다."/>
-		<Class ClassID="102415" ClassName="ReallySummonGuildMember" Data="[{NAME}] 길드원을 소환하시겠습니까?"/>
+		<Class ClassID="102414" ClassName="GuildNewJoinRequest" Data="가입 요청이 들어왔습니다."/>
+<Class ClassID="102415" ClassName="ReallySummonGuildMember" Data="[{NAME}] 길드원을 소환하시겠습니까?"/>
 		<Class ClassID="102416" ClassName="ReallyWarpGuildMember" Data="[{NAME}] 길드원에게 이동하시겠습니까?"/>
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작 시간 감소"/>
@@ -12419,6 +12432,9 @@
 		<Class ClassID="302002" ClassName="ArborDayOneHourReward" Data="봄볕 이벤트 1시간 게임 플레이 보상입니다."/>
 		<Class ClassID="302003" ClassName="ArborDayEventRewardGet" Data="봄볕 이벤트 보상을 받았습니다. 메시지함에서 확인해주세요."/>
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
+		<Class ClassID="302011" ClassName="Get_RedSeed" Data="씨앗 획득하기"/>
+		<Class ClassID="302012" ClassName="Get_RedSeed_Time" Data=" {nl}성장 완료 시간 : {TIME} 분{nl}{nl}성장이 완료되면 수확할 수 있습니다."/>
+		<Class ClassID="302020" ClassName="NotOwner" Data=" {nl}주인이 아니면 이용하실 수 없습니다"/>
 		<Class ClassID="302021" ClassName="Fortunecookie_Count" Data="포춘 쿠키 {COUNT}회 사용"/>
 		<Class ClassID="302022" ClassName="Prison_Select1" Data="아샤크 지하 감옥 입장"/>
 		<Class ClassID="302023" ClassName="Prison_Select2" Data="이벤트 던전 참여보상({COUNT}회 입장)"/>
@@ -12429,6 +12445,7 @@
 		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
 		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 		<Class ClassID="302035" ClassName="Leticia_Cube" Data="레티샤의 시크릿 큐브"/>
+		<Class ClassID="302036" ClassName="THANKSGIVINGDAY_SEED_PRE_MSG1" Data="주변에 다른 작물이 있어서 사용하실 수 없습니다"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>

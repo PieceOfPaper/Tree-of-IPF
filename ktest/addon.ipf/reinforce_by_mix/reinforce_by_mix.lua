@@ -807,7 +807,7 @@ function REINFORCE_BY_MIX_ADD_MATERIAL(frame, itemObj, count)
 	    
 		if invItem.count > 1 then
 			local icon  = slot:GetIcon()
-			icon:SetText(count, 'quickiconfont', 'right', 'bottom', -2, 1);
+			icon:SetText(count, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 		end
 	
 		slot:SetEventScript(ui.RBUTTONDOWN, "REINFORCE_BY_MIX_SLOT_RBTN");	

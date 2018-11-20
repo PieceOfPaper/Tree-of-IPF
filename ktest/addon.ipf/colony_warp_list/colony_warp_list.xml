@@ -3,7 +3,7 @@
 <uiframe name="colony_warp_list" x="0" y="0" width="580" height="360">
 	<frame fullheight="false" fasthide="true" layout_gravity="right center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_frame_low"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<layer layerlevel="101"/>

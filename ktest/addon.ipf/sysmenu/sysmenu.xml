@@ -4,7 +4,7 @@
 	<frame layout_gravity="right bottom" margin="0 0 0 0" fasthide="true" hideprocess="true" scale_align="center bottom" keyboardselectframe="true"/>
 	<skin frameskin="systemmenu_vertical 잠정제거"/>
 	<layer layerlevel="96"/>
-	<option visible="true" closebutton="false" alwaysVisible="true"/>
+	<option visible="true" closebutton="false" alwaysVisible="true" hideable="false"/>
 	<draw drawframe="true" drawtitlebar="false"/>
 	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
 	<input hittest="true" hittestframe="false"/>

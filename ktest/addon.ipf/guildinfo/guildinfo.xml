@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="guildinfo" x="0" y="0" width="1600" height="900" create="open" version="2">
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin="test_frame_low" titlebarskin="test_frame_top" activetitlebarskin="test_frame_top"/>
 	<frame title="" fullheight="false" fasthide="true" layout_gravity="center center"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>

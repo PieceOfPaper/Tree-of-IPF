@@ -12,9 +12,7 @@ function ON_TIME_ACTION(frame, msg, msgType, isFail, info)
 	end
 	
 	info = tolua.cast(info, "TIME_ACTION_INFO");
-	START_TIME_ACTION(frame, info.msg, info.time)
-
-			
+	START_TIME_ACTION(frame, info.msg, info.time);
 end
 
 function START_TIME_ACTION(frame, msg, second)

@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="exchange" x="0" y="0" width="600" height="1280" create="open">
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
-    <skin frameskin="  "/>
+	<draw drawtitlebar="false"/>
+	<skin frameskin="  "/>
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="0 0 0 0"/>
-    <input maxwidth="1280" moveable="false"/>
-    <layer layerlevel="99"/>
-    <option closebutton="true"/>
-    <script CloseScp="EXCHANGE_ON_CANCEL" OpenScp="EXCHANGE_ON_OPEN"/>
-    <sound opensound="win_open" closesound="win_close"/>
-    <controls>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="99"/>
+	<option closebutton="true"/>
+	<script CloseScp="EXCHANGE_ON_CANCEL" OpenScp="EXCHANGE_ON_OPEN"/>
+	<sound opensound="win_open" closesound="win_close"/>
+	<controls>
 		<groupbox name="bg" rect="0 0 600 990" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_top_my" rect="0 0 600 126" margin="1 -1 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 26 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;exchange&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}거래를취소합니다{/}"/>
-        <richtext name="title" rect="0 0 200 30" layout_gravity="center top" caption="{@st43}개인 거래{/}" textalign="center center" margin="0 17 0 0"/>
+		<richtext name="title" rect="0 0 200 30" layout_gravity="center top" caption="{@st43}개인 거래{/}" textalign="center center" margin="0 17 0 0"/>
 		<!-- slotset의 col과 row를 변경 할때에는 ExchangeManager.cpp 파일의 MAX_OFFER_ITEM 값을 col * row로 변경해주세요~ -->
 		<groupbox name="mybgGbox" rect="0 0 300 800" margin="0 10 -28 0" layout_gravity="right center" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_low"/>
 		<slotset name="myslot" parent="mybgGbox" rect="0 0 210 110" margin="5 150 0 0" DropScp="EXCHANGE_ON_DROP" col="4" row="7" size="60 60" skin="invenslot2" layout_gravity="left top"/>
@@ -39,5 +39,5 @@
 		<picture name="tradeStatePic" margin="15 160 0 0" rect="5 5 561 64" hittest="false" image="mainpc_crown" stretch="true" changecursor="false" layout_gravity="left top"/>
 		<richtext name="opponentState" margin="65 0 83 0" rect="0 0 200 24" format="{@st66b}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left center" parent="tradeStatePic"/>
 		<richtext name="myState" margin="4 0 65 0" rect="0 0 120 24" format="{@st66b}%s{/}" param1="value" textalign="right top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right center" parent="tradeStatePic"/>
-    </controls>
+	</controls>
 </uiframe>

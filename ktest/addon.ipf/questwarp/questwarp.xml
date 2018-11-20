@@ -4,7 +4,7 @@
 <uiframe name="questwarp" x="0" y="0" width="500" height="400">
 	<frame title="{@st44}돌아가기{/}" layout_gravity="center top" margin="0 150 0 0"/>
 	<skin frameskin="test_win_system"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<input moveable="false"/>
 	<layer topmostlayer="true" layerlevel="100"/>
 	<option closebutton="true" hideable="true"/>

@@ -236,7 +236,7 @@ function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 
 	local totalVis, totalBottle = SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, levelSkill);
 	totalprice:SetTextByKey("value", GetCommaedText(totalVis));
-	matslot:SetText('{s20}{ol}{b}'..totalBottle, 'count', 'right', 'bottom', -2, 1);
+	matslot:SetText('{s20}{ol}{b}'..totalBottle, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();

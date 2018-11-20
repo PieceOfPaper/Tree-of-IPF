@@ -105,7 +105,11 @@ local function _CREATE_SEAL_OPTION_HIDE(parent, ypos, idx, showHelpImg, itemObj,
 	local lockImg = bg:CreateControl('picture', 'lockImg', 0, 0, prop.lockImgSize, prop.lockImgSize);
 	AUTO_CAST(lockImg);
 	lockImg:SetImage(prop.lockImgName);
-	lockImg:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+	if itemObj.SealType == 'unlock' then
+		lockImg:SetGravity(ui.RIGHT, ui.CENTER_VERT);
+	else
+		lockImg:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+	end
 
 	ypos = ypos + bg:GetHeight();
 	return ypos;

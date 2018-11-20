@@ -1,13 +1,13 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <uiframe name="pcinvite" x="-28" y="-18" width="380" height="549" create="open">
-    <frame title="{@st43}초대" titlepos="0 -12" layout_gravity="left bottom" snapclient="true" snapframe="true" margin="486 0 0 68"/>
+    <frame title="{@st43}초대" titlepos="0 -12" layout_gravity="left bottom" margin="486 0 0 68"/>
     <draw drawframe="true" drawtitlebar="true"/>
     <layer layerlevel="100"/>
     <input moveable="true"/>
     <option closebuttonpos="5 20" closebutton="true" hideable="true" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
-        <advlistbox name="advBox" rect="0 0 360 510" margin="10 -11 10 0" layout_gravity="left top" SelectScp="None" bgcolor="#" drawCurItem="false" drawMouseOn="true" drawbgcolor="false" drawgrid="true" gridcolor="#" heightperrow="30" maxrowcol="1000 2" rowtooltip="false" scroll="true" selectable="true" selectgroup="" widthpercol="280"/>
+        <advlistbox name="advBox" rect="0 0 360 510" margin="10 -11 10 0" layout_gravity="left top" SelectScp="None" drawCurItem="false" drawMouseOn="true" drawbgcolor="false" drawgrid="true" heightperrow="30" maxrowcol="1000 2" rowtooltip="false" scroll="true" selectable="true" selectgroup="" widthpercol="280"/>
         <button name="invite" rect="0 0 100 30" margin="0 0 20 20" layout_gravity="right bottom" LBtnUpScp="PCINVITE_EXEC" caption="{@st41b}초대{/}" clicksound="button_click_big" oversound="button_over"/>
         <edit name="input" rect="0 0 230 32" margin="22 0 0 20" layout_gravity="left bottom" OffsetForDraw="0 0" fontname="white_20" maxlen="16" textalign="center top"/>
     </controls>

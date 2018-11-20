@@ -3,7 +3,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- 지금은 쓰지 않는 UI다. 140825 현재 최신은 repair140731.xml -->
 <uiframe name="repair" x="-250" y="0" width="350" height="380" create="open">
-    <frame title="{s18}{ol}{gr gradation1}장비 수리{/}" layout_gravity="center center" snapclient="true" snapframe="true"/>
+    <frame title="{s18}{ol}{gr gradation1}장비 수리{/}" layout_gravity="center center" snapframe="true"/>
     <draw drawframe="true" drawtitlebar="true"/>
     <option hideable="false" closebuttonpos="-7 3"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>

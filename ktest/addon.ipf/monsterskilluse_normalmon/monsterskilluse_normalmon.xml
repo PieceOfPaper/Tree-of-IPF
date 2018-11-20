@@ -6,7 +6,7 @@
 	<layer layerlevel="105"/>
 	<skin frameskin="monster_skill_bg"/>
 	<input moveable="false" hittestframe="false" hittest="false"/>
-	<draw drawtitlebar="false" drawnotitlebar="false" blend="90"/>
+	<draw drawtitlebar="false" blend="90"/>
 	<animation frameOpenAnim="monskl_in" frameCloseAnim="monskl_out"/>
 	<option hideable="false" closebutton="false"/>
 	<controls>

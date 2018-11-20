@@ -3,7 +3,7 @@
 <uiframe name="pcbang_popup_purchase" x="0" y="0" width="350" height="430">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_win_system"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<layer layerlevel="101"/>
 	<controls>

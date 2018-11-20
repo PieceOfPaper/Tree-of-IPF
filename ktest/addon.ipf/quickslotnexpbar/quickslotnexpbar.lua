@@ -410,9 +410,9 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 
 				if itemIES.MaxStack > 0 or itemIES.GroupName == "Material" then
 					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
-						icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
+						icon:SetText(invenItemInfo.count, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 					else
-					  	icon:SetText(nil, 'quickiconfont', 'right', 'bottom', -2, 1);
+					  	icon:SetText(nil, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 					end
 					icon:SetColorTone("FFFFFFFF");
 				end
@@ -429,7 +429,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			else
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
 				icon:SetColorTone("FFFF0000");
-				icon:SetText(0, 'quickiconfont', 'right', 'bottom', -2, 1);
+				icon:SetText(0, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 				SET_SLOT_LIFETIME_IMAGE(invenItemInfo, icon, slot, false);
 				icon:SetEnableUpdateScp('None');
 			end
@@ -557,7 +557,7 @@ function QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(frame)
 		tolua.cast(slot, "ui::CSlot");
 		local slotString = 'QuickSlotExecute'..(i+1);
 		local text = hotKeyTable.GetHotKeyString(slotString);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 		QUICKSLOT_MAKE_GAUGE(slot);
 	end
 end
@@ -705,7 +705,7 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	if invenItemInfo == nil then
 		if iconInfo.category == 'Item' then
 			icon:SetColorTone("FFFF0000");
-			icon:SetText('0', 'quickiconfont', 'right', 'bottom', -2, 1);
+			icon:SetText('0', 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 		end
 		return;
 	end
@@ -717,7 +717,7 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 		
 	if invenItemInfo.count == 0 then
 		icon:SetColorTone("FFFF0000");
-		icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
+		icon:SetText(invenItemInfo.count, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 		return;
 	end
 		
@@ -740,7 +740,7 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_ICON_COUNT(frame, icon, argStr, argNum)
-	icon:SetText(argNum, 'quickiconfont', 'right', 'bottom', -2, 1);
+	icon:SetText(argNum, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 end
 
 function QUICKSLOTNEXPBAR_SLOT_RBTNDOWN(frame, control, argStr, argNum)
@@ -1182,7 +1182,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 			CLEAR_SLOT_ITEM_INFO(slot);
 			local slotString 	= 'QuickSlotExecute'..(i+1);
 			local text 			= hotKeyTable.GetHotKeyString(slotString);
-			slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+			slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 			local type = sklCls.ClassID;
 			local icon = CreateIcon(slot);
 			local imageName = 'icon_' .. sklCls.Icon;
@@ -1214,7 +1214,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local icon = CreateIcon(lastSlot);
 		local slotString 	= 'QuickSlotExecute'..(list:Count() +1);
 		local text 			= hotKeyTable.GetHotKeyString(slotString);
-		lastSlot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		lastSlot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default',  ui.LEFT, ui.TOP, 2, 1);
 		local lastSlotIconName = "druid_del_icon";
 		if monName == "Colony_Siege_Tower" then
 			lastSlotIconName = "Icon_common_get_off";
@@ -1234,7 +1234,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		CLEAR_QUICKSLOT_SLOT(slot);
 		local slotString = 'QuickSlotExecute'..i;
 		local text = hotKeyTable.GetHotKeyString(slotString);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
 		if 'None' ~= cate then        
 			SET_QUICK_SLOT(slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);

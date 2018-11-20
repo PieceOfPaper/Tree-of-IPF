@@ -65,6 +65,12 @@ function GUILDINFO_COLONY_UPDATE_OCCUPY_INFO(frame, msg, argStr, argNum)
     if guild == nil then
         return;
     end
+	local cls = GetClass("SharedConst", "COLONY_WAR_OPEN");
+	local curValue = TryGetProp(cls, "Value")
+	if curValue == 0 then
+	    return;
+	end
+    
     local myGuildID = guild.info:GetPartyID();
     local COLONY_EVEN_SKIN = frame:GetUserConfig('COLONY_EVEN_SKIN');
     local occupyInfoBox = GET_CHILD_RECURSIVELY(frame, 'occupyInfoBox');

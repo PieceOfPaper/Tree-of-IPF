@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="cardbattle" x="0" y="100" width="860" height="450" create="open">
-	<frame title="" layout_gravity="left top" snapclient="true" snapframe="true" margin="0 46 0 0"/>
+	<frame title="" layout_gravity="left top" margin="0 46 0 0"/>
 	<skin backgroundimage="mixer_back" layout_gravity="center center" rect="0 82 220 220" frameskin="none"/>
 	<option hideable="false" useimageitem="true" closebutton="false" escscript="CARDBATTLE_ESCKEY"/>
 	<sound opensound="win_open" closesound="win_close"/>

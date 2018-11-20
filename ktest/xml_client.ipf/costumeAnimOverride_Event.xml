@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <Category>
 	<Gender Name="Male">
 		<Class Costume="shadowmancer01_sp">
@@ -1603,7 +1603,7 @@
 				</Job>
 			</Motion>
 		</Class>
-	<Class Costume="Outlaw01_sp">
+		<Class Costume="Outlaw01_sp">
 			<Motion Name="WALK">
 				<Job Name="All" LoopTime="200">
 					<Event>
@@ -1810,6 +1810,36 @@
 	</Gender>
 	<Gender Name="Female">
 		<Class Costume="weddingdress01">
+			<Motion Name="RUN">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 Pelvis" particleName="I_leaf005_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Bip01 Pelvis" particleName="I_leaf005_pink" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="F_pose_jumping_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="STD_RIDE">
+				<Job Name="All">
+					<Event>
+						<Particle frame="0" attachNode="Dummy_emitter" particleName="F_pose_jumping_light2_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="weddingdress01_blue">
 			<Motion Name="RUN">
 				<Job Name="All">
 					<Event>
@@ -3609,7 +3639,7 @@
 				</Job>
 			</Motion>
 		</Class>
-	<Class Costume="Outlaw01_sp">
+		<Class Costume="Outlaw01_sp">
 			<Motion Name="WALK">
 				<Job Name="All" LoopTime="200">
 					<Event>

@@ -1,4 +1,6 @@
 -- barrack_charlist.lua
+local prev_select_slot = 0
+
 function BARRACK_CHARLIST_ON_INIT(addon, frame)
 	addon:RegisterMsg("BARRACK_ADDCHARACTER", "SELECTTEAM_ON_MSG");
 	addon:RegisterMsg("BARRACK_NEWCHARACTER", "SELECTTEAM_ON_MSG");
@@ -733,17 +735,26 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 
 		local account = session.barrack.GetMyAccount();
 		local bpc = account:GetBySlot(argNum);
+        session.barrack.SetSelectSlot(tonumber(argNum))
 		local gameStartFrame = ui.GetFrame('barrack_gamestart')
 		if argNum == 0 or bpc == nil then
 			gameStartFrame:ShowWindow(0);
 		else
+            local now_select_slot = tonumber(argNum)
+            local char_controlset = GET_CHILD_RECURSIVELY(frame, 'char_' .. tostring(bpc:GetCID()))
+            local y_pos = tonumber(char_controlset:GetY())            
+            local ret = math.floor(y_pos / 200)
+            if now_select_slot > prev_select_slot then  -- down
+                y_pos = (200 * ret)                
+            else    -- up                
+                y_pos = (150 * ret)
+            end
+            local scroll_bar = GET_CHILD_RECURSIVELY(frame, 'ScrollBox')
+            scroll_bar:SetScrollPos(math.abs(tonumber(y_pos - 10)))                    
+            prev_select_slot = now_select_slot
 			START_GAME_SET_MAP(gameStartFrame, argNum, bpc:GetApc().mapID, bpc:GetApc().channelID);
 			gameStartFrame:ShowWindow(1);
 		end
-		
---	elseif msg == "BARRACK_CREATECHARACTER_BTN" then
---		CREATE_SCROLL_NEW_CHAR(frame);
-
 	elseif msg == "BARRACK_SELECTCHARACTER" then    
 		ON_CLOSE_BARRACK_SELECT_MONSTER();
 		CUR_SELECT_GUID = argStr;

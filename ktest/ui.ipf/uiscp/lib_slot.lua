@@ -27,7 +27,7 @@ function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
     end
 	icon:Set(iconImageName, "item", itemCls.ClassID, count);
 	if itemCls.ItemType ~= "Equip" then
-		slot:SetText(style..count, 'count', 'right', 'bottom', -2, 1);
+		slot:SetText(style..count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
@@ -92,7 +92,7 @@ function SET_SLOT_ITEM_INV(slot, itemCls)
 	iconInfo.type = type;
 	local invItem = session.GetInvItemByType(type);
 	if nil ~= invItem then
-		slot:SetText('{s12}{ol}{b}'..invItem.count, 'count', 'right', 'bottom', -2, 1);
+		slot:SetText('{s12}{ol}{b}'..invItem.count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	slot:SetEventScript(ui.RBUTTONDOWN, 'SLOT_ITEMUSE_BY_TYPE');
@@ -219,11 +219,11 @@ function SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY)
 		end
 		
 		if hor == nil then
-			hor = 'right';
+			hor = ui.RIGHT;
 		end
 
 		if ver == nil then
-			ver = 'bottom';
+			ver = ui.BOTTOM;
 		end
 
 		if stateX == nil then
@@ -416,7 +416,7 @@ function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	local lv = TryGetProp(obj, "Level");
 	if lv ~= nil and lv > 1 then		
 		slot:SetFrontImage('enchantlevel_indi_icon');
-		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', 'left', 'top', 8, 2);
+		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', ui.LEFT, ui.TOP, 8, 2);
 		return;
 	end
 end
@@ -443,9 +443,9 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 	if lv ~= nil and lv > 1 then
 		--slot:SetFrontImage('enchantlevel_indi_icon');
 		if IS_ENCHANT_JEWELL_ITEM(obj) == true then
-			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', 'left', 'bottom', 3, 2);
+			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', ui.LEFT, ui.BOTTOM, 3, 2);
 		else
-			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
+			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', ui.LEFT, ui.TOP, 3, 2);
 		end
 		return;
 	end

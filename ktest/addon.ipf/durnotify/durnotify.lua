@@ -42,35 +42,31 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 		slot:ShowWindow(0);
 	end
 	
+	local reverseIndex = slotSet:GetSlotCount()-1;
 	local equiplist = session.GetEquipItemList();
 	local someflag = 1
 	for i = 0, equiplist:Count() - 1 do
 		local equipItem = equiplist:GetEquipItemByIndex(i);
-		local reverseIndex = 8;
-		local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
+		local slotcnt = imcSlot:GetFilledSlotCount(slotSet);
 		local tempobj = equipItem:GetObject()
 		if tempobj ~= nil then
-			local obj = GetIES(tempobj);		
-			if IS_DUR_ZERO(obj) == true  then				
-				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt);
-				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
-				icon:SetColorTone("FF990000");
-				
-				if someflag < 3 then	
-					someflag = 3
-				end
-
-				slot:ShowWindow(1);
-			elseif IS_DUR_UNDER_10PER(obj) == true  then
-				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt)
-
-				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
-				icon:SetColorTone("FF999900");				
+			local obj = GetIES(tempobj);
+			if IS_DUR_UNDER_10PER(obj) == true then
+				local colorTone = "FF999900";
 				if someflag < 2  then
 					someflag = 2
 				end
+				if IS_DUR_ZERO(obj) == true then
+					colorTone = "FF990000";
+					if someflag < 3 then	
+						someflag = 3
+					end
+				end
+
+				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt)
+				local icon = CreateIcon(slot);
+				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
+				icon:SetColorTone(colorTone);
 				slot:ShowWindow(1);
 			end
 		end

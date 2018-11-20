@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="minimizedeventbanner" x="0" y="0" width="70" height="70">
-	<frame title="이벤트 배너를 엽니다" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 270 350 0"/>
+	<frame title="이벤트 배너를 엽니다" layout_gravity="right top" margin="0 270 350 0"/>
 	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="true" hideable="false"/>
 	<input hittestframe="true"/>
 	<layer layerlevel="31"/>

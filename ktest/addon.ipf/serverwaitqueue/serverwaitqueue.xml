@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="serverwaitqueue" x="0" y="0" width="650" height="230" create="open" layout_gravity="center center" barrackuse="true">
-	<frame title="{@st41}서버 입장 대기중" titlepos="0 0" margin="0 -132 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+	<frame title="{@st41}서버 입장 대기중" titlepos="0 0" margin="0 -132 0 0" layout_gravity="center center" scale_align="center top"/>
 	<skin frameskin="test_win_system"/>
-	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="true" margin="8 3 0 0"/>
+	<draw drawtitlebar="false" drawframe="true" margin="8 3 0 0"/>
 	<layer layerlevel="100" margin="8 3 0 0"/>
 	<input moveable="true" margin="8 3 0 0"/>
 	<option closebutton="false" hideable="true" useimageitem="true" margin="8 3 0 0"/>

@@ -1,22 +1,6 @@
 ----- lib_cooldown.lua
 
 
--- Item CoolDown
-function ICON_SET_ITEM_COOLDOWN(icon, itemType)
-	local itemCls = GetClassByType('Item', itemType);
-
-	if itemCls.ClientScp == "SCR_SKILLITEM" then
-		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_SKILL');
-		return;	
-	end
-	
-	if itemCls.CoolDownGroup ~= 'None' or itemCls.ClassName == 'Scroll_SkillItem' then		
-		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_COOLDOWN');
-		return;
-	end
-	
-end
-
 function ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES)
 	if icon == nil then
 		return;

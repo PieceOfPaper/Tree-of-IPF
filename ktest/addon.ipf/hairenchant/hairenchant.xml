@@ -2,7 +2,7 @@
 <uiframe name="hairenchant" x="0" y="0" width="360" height="560">
     <frame fullheight="false" fasthide="true" layout_gravity="right center" margin="0 65 0 0"/>
     <skin frameskin="none"/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <draw drawtitlebar="false"/>
     <layer layerlevel="100"/>
     <option closebutton="false"/>
     <sound opensound="button_click_stats_OK" />

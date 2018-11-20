@@ -4,7 +4,7 @@
 <uiframe name="mousetutorial" x="0" y="0" width="1460" height="830">
 	<frame title="마우스 튜토리얼" stretch="true" fullwidth="false" fullheight="false" fasthide="false" hideprocess="true" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true" width="1460" height="830"/>
 	<skin frameskin="none"/>
-	<draw blend="85" drawnotitlebar="false" drawtitlebar="false"/>
+	<draw blend="85" drawtitlebar="false"/>
 	<layer layerlevel="99"/>
 	<option closebutton="false" visible="false" useimageitem="true"/>
 	<opencheck scp="UI_CHECK_PROP" strarg="map" numarg="1"/>

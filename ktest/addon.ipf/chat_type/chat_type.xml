@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <uitile name="chattypelist" x="0" y="0" width="66" height="180">
 	<frame margin="0 0 0 0" layout_gravity="center bottom"/>
-	<draw drawnotitlebar="false" drawframe="false" drawtitlebar="false"/>
+	<draw drawframe="false" drawtitlebar="false"/>
 	<skin frameskin="None"/>
 	<script lostFocusScp="CHAT_TYPE_CLOSE"/>
 	<input moveable="false" moveintitlebar="false"/>

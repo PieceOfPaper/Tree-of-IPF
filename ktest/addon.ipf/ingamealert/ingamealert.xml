@@ -4,7 +4,7 @@
 	<frame layout_gravity="left bottom" scale_align="center bottom" margin="0 0 0 0"/>
 	<layer layerlevel="80"/>
 	<option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
-	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
 	<animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
 	<controls>
 		<groupbox name="mainGbox" margin="0 0 0 0" rect="0 0 350 100" skin="nearparty_btn" draw="true" scrollbar="false" hittestbox="true" layout_gravity="left top" resizebyparent="false"/>

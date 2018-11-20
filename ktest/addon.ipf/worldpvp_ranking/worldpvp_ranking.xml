@@ -3,7 +3,7 @@
 <uiframe name="worldpvp_ranking" x="0" y="0" width="500" height="1200" create="open">
     <frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
     <skin frameskin=" "/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <draw drawtitlebar="false"/>
     <layer layerlevel="80"/>
     <option closebutton="false"/>
     <sound opensound="skill_window_open" closesound="skill_window_close"/>
@@ -16,7 +16,7 @@
             <prev size="40 30" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
             <next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
         </pagecontroller>
-        <advlistbox name="advBox" parent="bg_ranking" rect="0 0 464 953" margin="24 68 0 0" layout_gravity="left top" SelectScp="None" bgcolor="#" drawCurItem="true" drawMouseOn="false" drawbgcolor="false" drawgrid="false" gridcolor="#" heightperrow="77" maxrowcol="400 3" resizebyresolution="true" rowtooltip="false" scroll="false" selectable="true" selectgroup="" widthpercol="400"/>
+        <advlistbox name="advBox" parent="bg_ranking" rect="0 0 464 953" margin="24 68 0 0" layout_gravity="left top" SelectScp="None" drawCurItem="true" drawMouseOn="false" drawbgcolor="false" drawgrid="false" heightperrow="77" maxrowcol="400 3" resizebyresolution="true" rowtooltip="false" scroll="false" selectable="true" selectgroup="" widthpercol="400"/>
         <advlistboxitem name="Type" parent="advBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="{@st43}{s22}랭킹" col="0" datatype="richtext" fontname="white_16" row="0"/>
         <advlistboxitem name="Caption" parent="advBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="{@st43}{s22}이름" col="1" datatype="richtext" fontname="white_16" row="0"/>
         <advlistboxitem name="ImgName" parent="advBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="{@st43}{s22}점수" col="2" datatype="richtext" fontname="white_16" row="0"/>

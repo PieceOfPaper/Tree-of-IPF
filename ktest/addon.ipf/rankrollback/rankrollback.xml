@@ -3,9 +3,8 @@
 <uiframe name="rankrollback" x="0" y="0" width="480" height="750">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
 	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="100"/>
-	<option closebutton="false" closebuttonpos="0 20"/>
 	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<script CloseScp="SKILLSTAT_SELEC_CANCLE"/>

@@ -55,7 +55,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('SWITCH_GENDER_SUCCEED', 'INVENTORY_ON_MSG');
     addon:RegisterMsg('RESET_ABILITY_UP', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('APPRAISER_FORGERY', 'INVENTORY_ON_APPRAISER_FORGERY');
-    addon:RegisterMsg('LOCK_FAIL', 'ON_LOCK_FAIL');
+    addon:RegisterMsg('LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
 
 	addon:RegisterOpenOnlyMsg('REFRESH_ITEM_TOOLTIP', 'ON_REFRESH_ITEM_TOOLTIP');
 	addon:RegisterMsg('TOGGLE_EQUIP_ITEM_TOOLTIP_DESC', 'ON_TOGGLE_EQUIP_ITEM_TOOLTIP_DESC');
@@ -276,8 +276,6 @@ function INVENTORY_OPEN(frame)
 
 	local minimapFrame = ui.GetFrame('minimap');
 	minimapFrame:ShowWindow(0);
-
-
 end
 
 function INVENTORY_CLOSE()
@@ -636,7 +634,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	if slot == nil then
 		return;
 	end
-	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
+	slot:SetText('{s18}{ol}{b}', 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	local slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
 
@@ -692,7 +690,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	if slot == nil then
 		return;
 	end
-	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
+	slot:SetText('{s18}{ol}{b}', 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
 
@@ -1102,7 +1100,7 @@ function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)
 
 		local slot		= slotSet:GetSlotByIndex(i);
 		INIT_INVEN_SLOT(slot)
-		slot:SetText(' ', 'count', 'right', 'bottom', -2, 1);
+		slot:SetText(' ', 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 		slot:SetOverSound('button_cursor_over_3');
 		slot:ClearIcon()
 		DESTROY_CHILD_BYNAME(slot, "styleset_")
@@ -1994,41 +1992,6 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 	local itemobj = GetIES(invitem:GetObject());
 
-	-- oblation
-	local oblation = ui.GetFrame("oblation");
-	if oblation:IsVisible() == 0 then
-		local invFrame = ui.GetFrame("inventory");
-		local invGbox = invFrame:GetChild('inventoryGbox');
-		if true == IS_TEMP_LOCK(invFrame, invitem) then
-			return;
-		end
-
-		local Itemclass = GetClassByType("Item", invitem.type);
-		--local ItemType = Itemclass.ItemType;
-
-		local invIndex = invitem.invIndex;
-		local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
-
-		local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
-		local tree_box = invGbox:GetChild('treeGbox_'.. typeStr);
-		local tree = tree_box:GetChild('inventree_'.. typeStr);
-		local slotsetname = GET_SLOTSET_NAME(argNum)
-		local slotSet = GET_CHILD_RECURSIVELY(tree, slotsetname, "ui::CSlotSet")
-		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
-
-		local slot = INVENTORY_GET_SLOT_BY_INVITEM(invFrame, invitem);
-		
-		--lib_slot.lua 에서 확인중(해당 함수)
-		--if slot ~= nil then
-			--slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
-			--local icon = CreateIcon(slot);
-			--local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
-			--icon:Set(imageName, 'SELLITEMITEM', 0, 0, invitem:GetIESID());
-
-			--SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, itemobj.ClassName,'buy', invitem.type, invitem:GetIESID());
-		--end
-	end
-	
     -- custom
 	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");	
 	if customRBtnScp == "None" then
@@ -2098,17 +2061,16 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 					invFrame:SetUserValue("SELL_ITEM_GUID", invitem:GetIESID());
 					return;
 				end
+					
 				-- 상점 Sell Slot으로 넘긴다.
 				SHOP_SELL(invitem, 1, frame);
 				return;
 			else
 	        	ui.SysMsg(ClMsg("CannotSellMore"));
-					return;
 			end
-			else
-				ui.SysMsg(ClMsg("CannoTradeToNPC"));
-			return;
 		end
+
+		return;
 	end	
 
     -- mixer
@@ -2381,10 +2343,10 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	        ui.SysMsg(ClMsg("CannotSellMore"));
             return;
         end
-	else
+	end
+
 	ui.SysMsg(ClMsg("CannoTradeToNPC"));
 	return;
-end
 end
 
 function EXEC_SHOP_SELL(frame, cnt)
@@ -2617,7 +2579,7 @@ function INVENTORY_THROW_ITEM_AWAY(frame, control, argStr, argNum)
 
 					slot:SetEventScript(ui.RBUTTONDOWN, "INVENTORY_DELETE_ITEM_CANCEL");
 					slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, slot:GetSlotIndex());
-					slot:SetText('{s18}{ol}{b}'..invItem.count, 'count', 'right', 'bottom', -2, 1);
+					slot:SetText('{s18}{ol}{b}'..invItem.count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 					local slotSet			= INV_GET_SLOTSET_BY_INVINDEX(invItem.invIndex-1)
 					local slot				= slotSet:GetSlotByIndex(invItem.invIndex - 1);
 					local icon				= slot:GetIcon();
@@ -3012,7 +2974,7 @@ function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
 
 	local lv = itemObj.Level;
 	if lv > 1 then
-		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', 'left', 'top', 8, 2);
+		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', ui.LEFT, ui.TOP, 8, 2);
 	else
 		slot:ClearText();
 	end
@@ -3875,12 +3837,11 @@ function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
 				    local slot = slotset:GetSlotByIndex(i );
 				    AUTO_CAST(slot);
 				    local invItem = GET_SLOT_ITEM(slot);
-				    if invItem ~= nil and invItem:GetIESID() == argStr then
-					    invItem.isLockState = argNum;
+				    if invItem ~= nil and invItem:GetIESID() == argStr then					    
 					    local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
 					    controlset:SetGravity(ui.RIGHT, ui.TOP);
                         found = true;
-					    if 1 == agrNum then
+					    if 1 == invItem.isLockState then
 						    controlset:ShowWindow(1);
 					    else
 						    controlset:ShowWindow(0);
@@ -4070,7 +4031,7 @@ function IS_LIFETIME_OVER(itemobj)
 	if itemobj.LifeTime == nil then
 		return 0;
 
-	elseif 0 ~= itemobj.LifeTime then		
+	elseif 0 ~= tonumber(itemobj.LifeTime) then		
 
 		-- 기간에 따라 정하기
 		local sysTime = geTime.GetServerSystemTime();
@@ -4264,38 +4225,6 @@ function DO_WEAPON_SWAP_2(frame)
 	DO_WEAPON_SWAP(frame, 2)
 end
 
-function ON_LOCK_FAIL(frame, msg, argStr, argNum)
-	local grandParentName = frame:GetUserValue('LOCK_SLOT_GRANDPARENT_NAME');
-    local slotParentName = frame:GetUserValue('LOCK_SLOT_PARENT_NAME');
-    local slotName = frame:GetUserValue('LOCK_SLOT_NAME');
-	local grandParent = nil;
-	local parent = nil;
-	local slot = nil;
-
-	if grandParentName ~= "None" then
-		grandParent = GET_CHILD_RECURSIVELY(frame, grandParentName);
-		parent = GET_CHILD_RECURSIVELY(grandParent, slotParentName);
-		if parent == nil then
-			parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
-		end
-		slot = GET_CHILD_RECURSIVELY(parent, slotName);
-	else
-		parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
-		slot = GET_CHILD_RECURSIVELY(parent, slotName);
-	end
-
-    if slot ~= nil then        
-        local lockPic = slot:GetChild('itemlock');
-        if lockPic ~= nil then
-            lockPic:ShowWindow(0);
-        end
-    end
-
-	frame:SetUserValue('LOCK_SLOT_GRANDPARENT_NAME', "None");	
-    frame:SetUserValue('LOCK_SLOT_PARENT_NAME', "None");
-    frame:SetUserValue('LOCK_SLOT_NAME', "None");
-end
-
 function INVENTORY_RBTN_LEGENDPREFIX(invItem)
 	local legendprefix = ui.GetFrame('legendprefix');
 	if legendprefix ~= nil and legendprefix:IsVisible() == 0 then
@@ -4327,7 +4256,7 @@ g_lockItemGuid = '0';
 function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
 	g_lockItemGuid = itemGuid;	
 
-	local invItem = session.GetInvItemByGuid(itemGuid)
+	local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
 	if invItem ~= nil then
 		if clickedLockItemSlot ~= nil then
 			_UPDATE_LOCK_STATE(clickedLockItemSlot)

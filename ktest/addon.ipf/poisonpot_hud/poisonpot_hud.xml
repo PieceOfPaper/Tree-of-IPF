@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="poisonpot_hud" x="470" y="30" width="233" height="60" hud="true">
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame layout_gravity="left top" scale_align="center top" keyboardselectframe="false"/>
 	<input maxwidth="1280" moveable="true" hittestframe="true" moveintitlebar="false"/>

@@ -5,7 +5,7 @@
 	<input maxwidth="1280" moveable="false" hittestframe="false"/>
 	<layer layerlevel="92"/>
 	<option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
-	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
 	<controls>
 		<gauge name="exp" rect="0 0 795 30" margin="0 0 0 -10" layout_gravity="left bottom" inverse="" skin="gauge_exp" usepostooltip="520 -30"/>
 		<gauge name="skillexp" rect="0 0 795 30" margin="0 0 0 -10" layout_gravity="right bottom" inverse="true" skin="gauge_skillexp" usepostooltip="250 -30"/>

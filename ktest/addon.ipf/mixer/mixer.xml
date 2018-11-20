@@ -2,8 +2,8 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <uiframe name="mixer" x="-250" y="50" width="230" height="380" create="open">
-    <frame title="{@st44}아이템 조합기{/}" layout_gravity="center top" snapclient="true" snapframe="true"/>
-    <option hideable="true" closebuttonpos="235 5" useimageitem="true"/>
+    <frame title="{@st44}아이템 조합기{/}" layout_gravity="center top" snapframe="true"/>
+    <option hideable="true" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <richtext name="name" rect="0 0 160 20" layout_gravity="center top" fixwidth="false" hittest="false" updateparent="true"/>

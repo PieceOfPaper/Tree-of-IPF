@@ -4,7 +4,7 @@
 <uiframe name="restart" x="0" y="0" width="500" height="260">
 	<frame title="{@st44}재시작{/}" layout_gravity="center center" margin="0 -200 0 0"/>
 	<skin frameskin="test_win_restart"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<input moveable="false"/>
 	<layer topmostlayer="true" layerlevel="100"/>
 	<option closebutton="false" hideable="true"/>

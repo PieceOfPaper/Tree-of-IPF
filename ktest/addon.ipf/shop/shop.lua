@@ -413,7 +413,7 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 	slot:SetUserValue("SELL_CNT", curCnt);
 
 	if itemobj.MaxStack > 1 then
-		slot:SetText('{s18}{b}{ol}'..curCnt, 'count', 'right', 'bottom', -2, 1);
+		slot:SetText('{s18}{b}{ol}'..curCnt, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	SHOP_SELECT_ITEM_LIST[invitem:GetIESID()] = curCnt;
@@ -557,7 +557,7 @@ function SHOP_BUY(clsID, buyCnt, frame)
 				if GET_SHOP_ITEM_MAXSTACK(shopItem) >= BUYSLOTCOUNT[i] + buyCnt  then
 					BUYSLOTCOUNT[i] = BUYSLOTCOUNT[i] + buyCnt;
 					local slotIcon	= slotSet:GetIconByIndex(i);
-					slot:SetText('{s18}{ol}{b}'..BUYSLOTCOUNT[i], 'count', 'right', 'bottom', -2, 1);
+					slot:SetText('{s18}{ol}{b}'..BUYSLOTCOUNT[i], 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 					slot:Invalidate();
 					SHOP_ITEM_LIST_GET(frame);
 					return;
@@ -586,7 +586,7 @@ function SHOP_BUY(clsID, buyCnt, frame)
 			slot:SetEventScript(ui.RBUTTONDOWN, "CANCEL_BUY");
 			slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, i);
 			BUYSLOTCOUNT[i] = buyCnt;
-			slot:SetText('{s18}{ol}{b}'..BUYSLOTCOUNT[i], 'count', 'right', 'bottom', -2, 1);
+			slot:SetText('{s18}{ol}{b}'..BUYSLOTCOUNT[i], 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 			SHOP_ITEM_LIST_GET(frame);
 			return;
 		end
@@ -1047,7 +1047,7 @@ function SHOP_ITEM_LIST_UPDATE(frame, ShopItemData, ShopItemCount)
 
 	-- 묶음아이템 수량 표시
 	if shopItem.count > 1 then
-		slot:SetText(shopItem.count,  'quickiconfont', 'right', 'bottom', 0, 0);
+		slot:SetText(shopItem.count,  'quickiconfont', ui.RIGHT, ui.BOTTOM, 0, 0);
 	end
 
 	SET_SHOP_ITEM_TOOLTIP(icon, shopItem);
@@ -1200,7 +1200,7 @@ function SOLD_SLOT_SET(slot, index, info)
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, info, obj.ClassName, 'soldItem', info.type, info:GetIESID());
 
 	if IS_EQUIP(obj) == false then
-		slot:SetText('{s18}{ol}{b}'..info.count, 'count', 'right', 'bottom', -2, 1);
+		slot:SetText('{s18}{ol}{b}'..info.count, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 
 	local price = 0;

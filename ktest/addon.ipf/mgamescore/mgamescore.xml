@@ -5,7 +5,7 @@
     <input maxwidth="600" moveable="false" hittestframe="false"/>
     <layer layerlevel="20"/>
     <option visible="false" hideable="false" closebutton="false"/>
-    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
     <controls>
         <groupbox name="score_bg" rect="0 0 500 50" margin="0 -5 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="score_bg_skin"/>
         <richtext name="mt" rect="0 0 260 20" margin="0 0 0 0" layout_gravity="center top" caption="{@st42}MISSION SCORE{/}" fontname="white_20_ol" hittest="false" textalign="center center"/>

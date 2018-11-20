@@ -1268,6 +1268,22 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
     end
 end
 
+local function _RUNFUNC_TO_MERGED_CTRLSET(ctrlset, setName, func)
+
+	local setInfo = ui.GetControlSetInfo(setName);	
+	if setInfo == nil then
+		return;
+	end
+
+	local cnt = setInfo:GetControlCount();
+	for i = 0 , cnt - 1 do
+		local name = setInfo:GetControl(i):GetName();
+		local child = ctrlset:GetChild(name);
+		func(child);
+	end
+
+end
+
 function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)	
 	session.ResetItemList();
 	
@@ -1357,13 +1373,12 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 		memoSet:SetSkinName('None');
 		CRAFT_DETAIL_CTRL_INIT(memoSet);
 		CRAFT_INIT_MEMO_SET(memoSet);
-		--y = y + memoSet:GetHeight();
 	end
 
 	y = y + 10;
 
 	ctrlset:MergeControlSet(g_craftRecipe_makeBtn, 100, y +5);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_makeBtn, CRAFT_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_makeBtn, CRAFT_DETAIL_CTRL_INIT);
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
 	make:SetEventScript(ui.LBUTTONUP, 'CRAFT_BEFORE_START_CRAFT');
 	make:SetOverSound('button_over');
@@ -1372,7 +1387,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	make:ShowWindow(1)
 
 	ctrlset:MergeControlSet(g_craftRecipe_upDown, 357, y + 5);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_upDown, CRAFT_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_upDown, CRAFT_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_upDown, 'height');
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_makeBtn, 'height');
 	local upDown = GET_CHILD(ctrlset, "upDown", "ui::CNumUpDown");
@@ -1849,7 +1864,7 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 
 
 	ctrlset:MergeControlSet("journalRecipe_makeBtn", ctrlset:GetWidth() - 320, y + 0);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute("journalRecipe_makeBtn", 'height') + 0;
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
 	

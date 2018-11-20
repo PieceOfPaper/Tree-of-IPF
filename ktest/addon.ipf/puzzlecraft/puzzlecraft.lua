@@ -78,7 +78,7 @@ function PUZZLECRAFT_DROP(frame, slot, argStr, argNum)
 			return;
 		end
 		SET_SLOT_INVITEM(slot, invItem);
-		slot:SetText("", 'count', 'right', 'bottom', -2, 1);
+		slot:SetText("", 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 		CHECK_NEW_PUZZLE(frame, slot);
 		
 	elseif FromFrame:GetName() == "puzzlecraft" then
@@ -91,7 +91,7 @@ function PUZZLECRAFT_DROP(frame, slot, argStr, argNum)
 		captureSlot:SetUserValue("SELECTED", 0);
 
 		SET_SLOT_INVITEM(slot, invItem);
-		slot:SetText("", 'count', 'right', 'bottom', -2, 1);
+		slot:SetText("", 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 		CHECK_NEW_PUZZLE(frame, slot);
 	end
 

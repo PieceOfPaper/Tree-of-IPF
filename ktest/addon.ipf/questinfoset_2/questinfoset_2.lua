@@ -1943,7 +1943,7 @@ function MAKE_QUESTINFO_COUNT_GAUGE(sObj, ctrlset, i, startx, y)
 	gauge:AddStat('%v/%m');
 	gauge:SetStatFont(0, 'white_12_ol');
 	gauge:SetStatOffset(0, -3, -2);
-	gauge:SetStatAlign(0, 'center', 'center');
+	gauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 	y = y + gauge:GetHeight();
 	return y;
 end

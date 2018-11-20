@@ -167,11 +167,13 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			TPITEM_DRAW_NC_TP();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
 			cashInvGbox:SetVisible(1);
+			ncChargebtn:SetVisible(1);
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
 		elseif curtabIndex == 1 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
+			ncChargebtn:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
 			basketBuyBtn:SetEnable(1);
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox5") then -- 계열 코스튬 교환 샵
@@ -207,6 +209,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		if curtabIndex == 0 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
+			ncChargebtn:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
 			basketBuyBtn:SetEnable(1);
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵

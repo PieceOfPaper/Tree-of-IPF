@@ -343,7 +343,7 @@ function COLONY_POINT_INFO_DRAW_BUFF_ICON()
                         end
                         
                         if buff.over > 1 then
-                            colonyBuffSlot:SetText('{s13}{ol}{b}'..buff.over, 'count', 'right', 'bottom', -5, -3);
+                            colonyBuffSlot:SetText('{s13}{ol}{b}'..buff.over, 'count', ui.RIGHT, ui.BOTTOM, -5, -3);
                         else
                             colonyBuffSlot:SetText("");
                         end
@@ -447,7 +447,7 @@ function COLONY_BUILD_ICON_UPDATE()
                     if slot ~= nil then
                         local icon = CreateIcon(slot)
                         icon:SetImage(gbCls.Icon)
-                        slot:SetText(count, "count", "right", "bottom", 2, 1)
+                        slot:SetText(count, "count", ui.RIGHT, ui.BOTTOM, 2, 1)
                         slotIndex = slotIndex + 1
                         totalBuildingCount = totalBuildingCount + count
                     end

@@ -2531,7 +2531,7 @@ end
 
 function CLEAR_SLOT_ITEM_INFO(slot)
 	slot:ClearIcon();
-	slot:SetText("", 'count', 'right', 'bottom', -2, 1);
+	slot:SetText("", 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 end
 
 function GET_SOLDITEM_BY_INDEX(guid)
@@ -3297,7 +3297,7 @@ end
 function SET_GAUGE_PERCENT_STAT(g)
 
 	g:SetStatFont(0, "white_16_ol");
-	g:SetStatAlign(0, "center", "top");
+	g:SetStatAlign(0, ui.CENTER_HORZ, ui.TOP);
 
 end
 

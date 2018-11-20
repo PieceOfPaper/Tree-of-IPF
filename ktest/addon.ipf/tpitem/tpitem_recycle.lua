@@ -436,7 +436,7 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)
 					nowcnt = nowcnt + addcnt
 
 					slot:SetUserValue("COUNT",tostring(nowcnt));
-					slot:SetText("{s20}{b}{ol}"..tostring(nowcnt), 'count', 'right', 'bottom', -2, 1);
+					slot:SetText("{s20}{b}{ol}"..tostring(nowcnt), 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 
 					TPSHOP_ITEM_RECYCLE_SELL_UPDATE_REMAINCNT(itemguid)
 					UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")	
@@ -467,7 +467,7 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)
 			slot:SetUserValue("SELLITEMGUID", itemguid);
 			slot:SetUserValue("COUNT", tostring(addcnt));
 			if addcnt > 1 then
-				slot:SetText("{s20}{b}{ol}"..tostring(addcnt), 'count', 'right', 'bottom', -2, 1);
+				slot:SetText("{s20}{b}{ol}"..tostring(addcnt), 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 			end
 
 			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
