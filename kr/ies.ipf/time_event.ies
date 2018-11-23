@@ -1,4 +1,4 @@
 ClassID,Hour,Minute,Second,ActivateRangeSec,ClassName,Activate,Script,Before,After,IsDynamicTime
-1,20,0,0,3600,"ColonyStartAlarm","YES","SCR_COLONY_START_ALARM","YES","NO","YES"
-2,21,0,0,3600,"ColonyEndAlarm","YES","SCR_COLONY_END_ALARM","YES","NO","YES"
-3,21,0,0,300,"ColonyEndWorldMessage","YES","SCR_COLONY_END_WORLD_MESSAGE","NO","YES","YES"
+1,20,0,0,3600,"ColonyStartAlarm","NO","SCR_COLONY_START_ALARM","YES","NO","YES"
+2,21,0,0,3600,"ColonyEndAlarm","NO","SCR_COLONY_END_ALARM","YES","NO","YES"
+3,21,0,0,300,"ColonyEndWorldMessage","NO","SCR_COLONY_END_WORLD_MESSAGE","NO","YES","YES"
