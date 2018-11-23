@@ -2186,7 +2186,7 @@
 			<picture name="text_bg" margin="24 22 0 0" rect="0 0 454 50" hittest="false" image="test_com_namebg" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<button name="tradeBtn" margin="370 23 0 0" rect="0 0 134 50" layout_gravity="left top" format="{@st41}%s" skin="test_red_button" LBtnUpScp="EARTH_TOWER_SHOP_EXEC" param1="text" param1_def="교환"/>
 			<picture name="itemIcon" margin="55 85 0 0" rect="5 5 128 128" hittest="true" image="icon_item_helm_misc4" stretch="true" changecursor="false" layout_gravity="left top"/>
-			<richtext name="itemName" margin="41 33 0 0" rect="0 0 150 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="itemName" margin="38 35 0 0" rect="0 0 335 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" omitbywidth="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="0 0  0 0" skin="labelline_def" rect="0 0 480 2" layout_gravity="center top"/>
 			<richtext name="exchangeCount" margin="0  0 0 0" rect="0 0 10 10" format="{#FF0000}%s{/}" param1="value" param1_def="?" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>
