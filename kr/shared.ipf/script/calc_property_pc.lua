@@ -132,7 +132,7 @@ function SCR_GET_STR(self)
     
     local statString = "STR";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local byJob = SCR_GET_JOB_STR(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -258,7 +258,7 @@ end
 function SCR_GET_CON(self)
     local statString = "CON";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local byJob = SCR_GET_JOB_CON(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -334,7 +334,7 @@ end
 function SCR_GET_INT(self)
     local statString = "INT";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local byJob = SCR_GET_JOB_INT(self);
     if byJob == nil then
         byJob = 0;
     end
@@ -396,7 +396,7 @@ end
 function SCR_GET_MNA(self)
     local statString = "MNA";
     
-    local byJob = TryGetProp(self, statString.."_JOB");
+    local byJob = SCR_GET_JOB_MNA(self);
     if byJob == nil then
         byJob = 0;
     end
