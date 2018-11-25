@@ -438,7 +438,14 @@ function REFINFORCE_SEAL_RBTN_CLICK(itemObj, invSlot, invItemGuid)
 end
 
 function REINFORCE_SEAL_UPDATE_SIMULATE(parent, ctrl)	
-	local frame = parent:GetTopParentFrame();
+	local frame = parent:GetTopParentFrame();	
+	local curHaveCnt = GET_INV_ITEM_COUNT_BY_PROPERTY({}, false, nil, function(item)
+		return IS_SEAL_ADDITIONAL_ITEM(item);
+	end);
+	if s_reinforceSeal.UpDownMax:GetNumber() > curHaveCnt then
+		s_reinforceSeal.UpDownMax:SetNumber(curHaveCnt);
+	end
+
 	_SIMULATE_RESULT(frame);
 	_UPDATE_ADDITIONAL_ITEM_STYLE(frame);
 end

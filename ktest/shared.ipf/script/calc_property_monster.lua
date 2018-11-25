@@ -563,7 +563,7 @@ function SCR_Get_MON_MINPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
     
@@ -626,7 +626,7 @@ function SCR_Get_MON_MAXPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem
     
@@ -689,7 +689,7 @@ function SCR_Get_MON_MINMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
     
@@ -752,7 +752,7 @@ function SCR_Get_MON_MAXMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
     
@@ -1061,11 +1061,13 @@ function SCR_Get_MON_MSPD(self)
     local byBuff = TryGetProp(self, "MSPD_BM", 0);
     
     local byBuffOnlyTopValue = 0;
-    local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
-    if byBuffOnlyTopList ~= nil then
-        for k, v in pairs(byBuffOnlyTopList) do
-            if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
-                byBuffOnlyTopValue = byBuffOnlyTopList[k];
+    if IsServerSection(self) == 1 then
+        local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
+        if byBuffOnlyTopList ~= nil then
+            for k, v in pairs(byBuffOnlyTopList) do
+                if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
+                    byBuffOnlyTopValue = byBuffOnlyTopList[k];
+                end
             end
         end
     end
@@ -1614,12 +1616,15 @@ end
 
 
 
-function SCR_MON_ITEM_WEAPON_CALC(self, lv)
+function SCR_MON_ITEM_WEAPON_CALC(self)
 	local monClassName = TryGetProp(self, "ClassName", "None");
 	local monOriginFaction = TryGetProp(GetClass("Monster", monClassName), "Faction");
     if monOriginFaction == "Summon" then
         return 0;
     end
+    
+    local lv = TryGetProp(self, "Lv", 1);
+    lv = math.max(1, lv - 30);
     
     local value = 20 + (lv * 5);
     
@@ -1668,7 +1673,8 @@ end
 
 
 function SCR_MON_ITEM_ARMOR_CALC(self, defType)
-    local lv = TryGetProp(self, "Lv");
+    local lv = TryGetProp(self, "Lv", 1);
+    lv = math.max(1, lv - 30);
     
     local value = (40 + (lv * 8));
     

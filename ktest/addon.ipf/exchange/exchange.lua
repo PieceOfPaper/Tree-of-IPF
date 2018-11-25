@@ -74,7 +74,6 @@ function EXCHANGE_MSG_REQUEST(frame)
 end
 
 function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
-
 	if ctrl ~= nil then
 		if ctrl:GetName() == "inputstr" then
 			inputframe = ctrl;
@@ -84,9 +83,7 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 	local inputCnt = tonumber(GET_INPUT_STRING_TXT(inputframe));
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
-
-	-- 개수채크
-	local invItemList = session.GetInvItemList();
+	local invItemList = session.GetInvItemList();	
 	if FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, iesid, inputCnt)
 		if invItem:GetIESID() == iesid then
 			local obj = GetIES(invItem:GetObject());
@@ -121,41 +118,12 @@ function EXEC_INPUT_EXCHANGE_CNT(frame, inputframe, ctrl)
 			end
 			return 'break';
 		end
-	end, false, slotSet) == false then
+	end, false, iesid, inputCnt) == false then
 		return;
 	end
 end
 
-function EXCHANGE_INV_RBTN(itemobj, slot)
-	local icon = slot:GetIcon();
-	local iconInfo = icon:GetInfo();
-	local item = session.GetInvItem(iconInfo.ext);
-	if nil == item then
-		return;
-	end
-
-	local obj = GetIES(item:GetObject());
-	local noTradeCnt = TryGetProp(obj, "BelongingCount");
-	local tradeCount = item.count;
-	if noTradeCnt ~= nil then
-		local wareItem = nil;
-		if obj.MaxStack > 1 then
-			wareItem = session.GetWarehouseItemByType(obj.ClassID);
-		end
-		local wareCnt = 0;
-		if nil ~= wareItem then
-			wareCnt = wareItem.count;
-		end
-		tradeCount = (item.count + wareCnt) - noTradeCnt;
-		if tradeCount > item.count then
-			tradeCount = item.count;
-		end
-	end
-	
-	EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
-end
-
-function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
+local function _EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 	local reason = GetTradeLockByProperty(obj);
 	if reason ~= "None" then
 		ui.SysMsg(ScpArgMsg(reason));
@@ -233,6 +201,35 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 	SELECT_INV_SLOT_BY_GUID(item:GetIESID(), 1);
 end
 
+function EXCHANGE_INV_RBTN(itemobj, slot)
+	local icon = slot:GetIcon();
+	local iconInfo = icon:GetInfo();
+	local item = session.GetInvItem(iconInfo.ext);
+	if nil == item then
+		return;
+	end
+
+	local obj = GetIES(item:GetObject());
+	local noTradeCnt = TryGetProp(obj, "BelongingCount");
+	local tradeCount = item.count;
+	if noTradeCnt ~= nil then
+		local wareItem = nil;
+		if obj.MaxStack > 1 then
+			wareItem = session.GetWarehouseItemByType(obj.ClassID);
+		end
+		local wareCnt = 0;
+		if nil ~= wareItem then
+			wareCnt = wareItem.count;
+		end
+		tradeCount = (item.count + wareCnt) - noTradeCnt;
+		if tradeCount > item.count then
+			tradeCount = item.count;
+		end
+	end
+	
+	_EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
+end
+
 function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
  	
 	if 'YES' == frame:GetTopParentFrame():GetUserValue('CLICK_EQUIP_INV_ITEM') then
@@ -280,7 +277,7 @@ function EXCHANGE_ON_DROP(frame, control, argStr, argNum)
 				return;
 			end
 		end
-		EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
+		_EXCHANGE_ADD_FROM_INV(obj, item, tradeCount);	
 	end 	
 	
 end 

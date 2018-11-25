@@ -1965,7 +1965,7 @@ function SCR_Get_KDArmorType(self)
         value = 1;
     end
     
-    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_PainBarrier_Buff" };
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
@@ -1983,13 +1983,15 @@ end
 function SCR_Get_CastingSpeed(self)
 	local value = 100;
 	
-	local castingSpeedBuffList = GetCastingSpeedBuffInfoTable(self)
-	if castingSpeedBuffList ~= nil then
-		for k, v in pairs(castingSpeedBuffList) do
-			if castingSpeedBuffList[k] > 0 then
-				value = value - (value * (castingSpeedBuffList[k] / 100));
-			end
-		end
+	if IsServerSection(self) == 1 then
+	    local castingSpeedBuffList = GetCastingSpeedBuffInfoTable(self)
+	    if castingSpeedBuffList ~= nil then
+	        for k, v in pairs(castingSpeedBuffList) do
+	            if castingSpeedBuffList[k] > 0 then
+	                value = value - (value * (castingSpeedBuffList[k] / 100));
+	            end
+	        end
+	    end
 	end
 	
     local byBuff = TryGetProp(self, "CastingSpeed_BM", 0);
@@ -2075,17 +2077,19 @@ function SCR_Get_MSPD(self)
             byBuff = byBuff * 0.5
         end
         
-	    local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
-	    if byBuffOnlyTopList ~= nil then
-	    	local byBuffOnlyTopValue = 0;
-			for k, v in pairs(byBuffOnlyTopList) do
-				if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
-					byBuffOnlyTopValue = byBuffOnlyTopList[k];
-				end
-			end
-			
-	        value = value + byBuff + byBuffOnlyTopValue;
-		end
+        local byBuffOnlyTopValue = 0;
+        if IsServerSection(self) == 1 then
+            local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
+            if byBuffOnlyTopList ~= nil then
+                for k, v in pairs(byBuffOnlyTopList) do
+                    if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
+                        byBuffOnlyTopValue = byBuffOnlyTopList[k];
+                    end
+                end
+            end
+        end
+		
+		value = value + byBuff + byBuffOnlyTopValue;
         
         local nowWeight = 0;
         local maxWeight = 0;

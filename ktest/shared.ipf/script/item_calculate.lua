@@ -288,6 +288,18 @@ function GET_BASIC_ATK(item)
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
     end
+    local itemstring = TryGetProp(item, 'StringArg')
+    if itemstring == nil then
+        return;
+    end
+    
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+
+        end
+    end
     
     local grade = TryGetProp(item, "ItemGrade");
     if grade == nil then
@@ -313,7 +325,7 @@ function GET_BASIC_ATK(item)
         return 0;
     end
     
-
+    
     
     local itemGradeClass = GetClassList('item_grade')
     if itemGradeClass == nil then
@@ -513,6 +525,19 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
+    end
+    
+    local itemstring = TryGetProp(item, 'StringArg')
+    if itemstring == nil then
+        return;
+    end
+    
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+
+        end
     end
     
     local grade = TryGetProp(item,"ItemGrade");
@@ -1916,4 +1941,38 @@ function GET_COPY_TARGET_OPTION_LIST()
 		'HiddenPropValue',
 		'LegendPrefix',
 	};
+end
+
+function CALC_GROWTH_ITEM_LEVEL(item)
+
+    if item == nil then
+        return 1;
+    end
+    
+    local pc = GetItemOwner(item);
+    if pc == nil then
+        return 1;
+    end
+    
+    local pcLv = TryGetProp(pc, 'Lv', 1);
+    
+    local itemLvList = { 1, 40, 75, 120, 170, 220, 270, 315, 350, 380 };
+    local value = itemLvList[#itemLvList];
+    for i = 2, #itemLvList do
+        if pcLv < itemLvList[i] then
+            value = itemLvList[i - 1];
+            print(value)
+            break;
+        end
+    end
+    
+    local growthItem = GetClass('item_growth', TryGetProp(item, 'ClassName', "None"));
+    local maxLv = TryGetProp(growthItem , 'MaxLV', 1);
+    
+    if value > maxLv then
+        value = maxLv;
+    end
+    
+    return value;
+    
 end

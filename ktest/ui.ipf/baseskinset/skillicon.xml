@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1217,6 +1217,7 @@
 		<image name="ability_Warrior_Peltasta38" file="\icon\icon_ability_warrior07.tga" imgrect="512 384 128 128" CMM_Caption="로델레로:방패타격술"/>
 		<image name="ability_Warrior_Rodelero31" file="\icon\icon_ability_warrior07.tga" imgrect="512 384 128 128" CMM_Caption="로델레로:방패타격술"/>
 		<image name="ability_Warrior_Murmillo20" file="\icon\icon_ability_warrior07.tga" imgrect="512 384 128 128" CMM_Caption="로델레로:방패타격술"/>
+		<image name="ability_Warrior_Dragoon20" file="\icon\icon_ability_warrior07.tga" imgrect="640 384 128 128" CMM_Caption="드라군헬맷: "/>
 	</imagelist>
 	<imagelist category="abilityicon_wizard">
 		<image name="ability_Wizard_Wizard1" file="\icon\icon_ability_wizard01.tga" imgrect="0 0 128 128" CMM_Caption="슬리프-단잠"/>
@@ -1926,6 +1927,7 @@
 		<image name="ability_archer_Cannoneer24" file="\icon\icon_ability_archer06.tga" imgrect="896 640 128 128" CMM_Caption="연막탄: 한계 돌파"/>
 		<image name="ability_archer_Appraiser5" file="\icon\icon_ability_archer06.tga" imgrect="0 768 128 128" CMM_Caption="보험증서: 강화"/>
 		<image name="ability_archer_Appraiser4" file="\icon\icon_ability_archer06.tga" imgrect="128 768 128 128" CMM_Caption="평가절하:강화"/>
+		<image name="ability_archer_Hackapell7" file="\icon\icon_ability_archer06.tga" imgrect="256 768 128 128" CMM_Caption="스톰볼트:강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_cleric">
 		<image name="ability_cleric_Cleric1" file="\icon\icon_ability_cleric01.tga" imgrect="0 0 128 128" CMM_Caption="큐어-도트시간감소"/>

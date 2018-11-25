@@ -74,8 +74,11 @@ float4x3	g_BoneTM[70];
 #endif
 
 #ifdef USE_DECAL
-float4x4	g_matWorldArr[50];
-float4x4	g_matInvWorldArr[50];
+#define DECAL_INST_COUT 32
+
+float4x4 g_matWorldArr[32];
+float4x4 g_matInvWorldArr[32];
+float4 g_colorArr[32];
 #endif
 
 float4		g_lightDirection;
@@ -704,6 +707,10 @@ float4 PS_Decal(in float4 ScrPos : TEXCOORD0,
 
 	float fDist = abs(f3DecalLocalPos.y);
 	float4 color = tex2D(g_sampler, f2DecalUV).rgba;
+
+#ifdef USE_DECAL
+	color = color * g_colorArr[nInstID];
+#endif
 	color.a *= (1.f - max((fDist - 0.25f) / 0.25f, 0.f));
 
 	return color;

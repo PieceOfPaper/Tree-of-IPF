@@ -9,7 +9,7 @@
 		<groupbox name="bgBox" rect="0 0 710 386" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low"/>
 		<picture name="bgPic" parent="bgBox" rect="0 0 710 338" margin="0 0 0 0" layout_gravity="center bottom" image="alchemist_ui_skin" stretch="false"/>
 		<groupbox name="headerBox" rect="0 0 710 65" margin="0 0 0 0" layout_gravity="left top" skin="pipwin_top_wizard"/>
-		<button name="helpBtn" parent="headerBox" rect="0 0 50 50" margin="12 -2 0 0" layout_gravity="left center" image="testquesten_button" texttooltip="여기에 연금공방 관련 도움말을 작성해주세요" useclickimg="false"/>
+		<button name="helpBtn" parent="headerBox" rect="0 0 50 50" margin="12 -2 0 0" layout_gravity="left center" image="testquesten_button" texttooltip="연금공방에 아이템을 등록하여 스킬을 사용할 수 있습니다." useclickimg="false"/>
 		<richtext name="titleText" parent="headerBox" rect="0 0 100 30" margin="0 -2 0 0" layout_gravity="center center" caption="{@st43}연금공방"/>
 		<button name="closeBtn" parent="headerBox" rect="0 0 50 50" margin="0 -2 12 0" layout_gravity="right center" LBtnUpScp="ui.CloseFrame('customdrag')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<picture name="combSlotPic" rect="0 0 81 81" margin="-195 0 0 40" layout_gravity="center bottom" image="alchemist_ui_slotframe" stretch="false"/>

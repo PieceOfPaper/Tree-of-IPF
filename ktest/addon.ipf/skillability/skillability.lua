@@ -434,6 +434,7 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     level_txt:SetTextByKey("after", afterLv)
 
     local weapon_gb = GET_CHILD(infoctrl, "weapon_gb");
+    weapon_gb:RemoveAllChild();
     local skillCls = GetClass("Skill", sklClsName);
     local iconCount, companionIconCount = MAKE_STANCE_ICON(weapon_gb, skillCls.ReqStance, skillCls.EnableCompanion, 0, 0);
     local weaponWidth = iconCount*20+companionIconCount*20;

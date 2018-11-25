@@ -21747,7 +21747,7 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="companion_Toucan" ActiveMessageMapInBattle="1">
+    <AI Name="companion_Toucan" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
                 <Str Str="HAWK_LOOP_AI"/>
@@ -21864,7 +21864,7 @@ if self.HP == 0 then return 1; else return 0; end;">
             </ToolScp>
         </List>
     </AI>
-    <AI Name="companion_pet_hawk" ActiveMessageMapInBattle="1">
+    <AI Name="companion_pet_hawk" UpdateMS="1000" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
                 <Str Str="HAWK_LOOP_AI"/>
@@ -22199,6 +22199,9 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Num Num="1"/>
                         <Str Str="10_26_6_24_1"/>
                     </ToolScp>
+                    <ToolScp Scp="SH_COND_RAND" Client="NO" UseSleep="NO">
+                        <Num Num="35"/>
+                    </ToolScp>
                 </Cond>
                 <Exec>
                     <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
@@ -22299,11 +22302,14 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Num Num="1"/>
                         <Str Str="10_25_8_32_24"/>
                     </ToolScp>
+                    <ToolScp Scp="SH_COND_RAND" Client="NO" UseSleep="NO">
+                        <Num Num="35"/>
+                    </ToolScp>
                 </Cond>
                 <Exec>
                     <ToolScp Scp="SH_USE_PCSKILL" Client="NO" UseSleep="NO">
                         <Str Str="QuarrelShooter_ScatterCaltrop"/>
-                        <Num Num="15"/>
+                        <Num Num="5"/>
                         <Num Num="1"/>
                     </ToolScp>
                 </Exec>

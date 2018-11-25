@@ -4252,43 +4252,31 @@ function INVENTORY_RBTN_LEGENDDECOMPOSE(invItem)
 	return true;
 end
 
-g_lockItemGuid = '0';
-function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
-	g_lockItemGuid = itemGuid;	
+local function _UPDATE_LOCK_STATE(guid, slot, lockState)	
+	local frame = ui.GetFrame("inventory")
+	
+	local function _SET_LOCK_IMAGE(slot, lockState)
+		local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);		
+		controlset:SetGravity(ui.RIGHT, ui.TOP)
+		controlset:ShowWindow(lockState);
+	end
 
-	local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
-	if invItem ~= nil then
-		if clickedLockItemSlot ~= nil then
-			_UPDATE_LOCK_STATE(clickedLockItemSlot)
+	if slot ~= nil then
+		_SET_LOCK_IMAGE(slot, lockState);
+	else
+		local invSlot = INVENTORY_GET_SLOT_BY_IESID(frame, guid)
+		local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(frame, guid, 1)	
+		if invSlot == nil or invSlot_All == nil then		
+			return;
 		end
-	end			
+		_SET_LOCK_IMAGE(invSlot, lockState);
+		_SET_LOCK_IMAGE(invSlot_All, lockState);
+	end
 end
 
-function _UPDATE_LOCK_STATE(slot)
-	local frame = ui.GetFrame("inventory")
-	local item = GET_SLOT_ITEM(slot);
-	if item == nil or item:GetIESID() ~= g_lockItemGuid then
-		return;
-	end
-
-	local invSlot = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid)
-	local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid, 1)
-
-	if invSlot == nil or invSlot_All == nil then
-		return;
-	end
-
-	local controlset = invSlot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
-	local controlset_All = invSlot_All:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
-	controlset:SetGravity(ui.RIGHT, ui.TOP)
-	controlset_All:SetGravity(ui.RIGHT, ui.TOP)
-	if true == item.isLockState then		
-		controlset:ShowWindow(1);
-		controlset_All:ShowWindow(1);
-	else
-		controlset:ShowWindow(0);
-		controlset_All:ShowWindow(0);
-	end
+function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
+	local equipSlot = GET_PC_EQUIP_SLOT_BY_ITEMID(itemGuid);
+	_UPDATE_LOCK_STATE(itemGuid, equipSlot, lockState);
 end
 
 function ON_UPDATE_TRUST_POINT(frame, msg, argStr, trustPoint)

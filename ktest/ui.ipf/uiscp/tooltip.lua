@@ -92,6 +92,78 @@ function PARSE_TOOLTIP_CAPTION(_obj, caption, predictSkillPoint)
     if obj == nil then
         return caption;
     end
+    
+    local addCaption = ""
+    local skillValueType = TryGetProp(obj,"ValueType")
+    if skillValueType ~= nil then
+        local skillClassType = TryGetProp(obj,"ClassType","None")
+        local skillAttackType = TryGetProp(obj,"AttackType","None")
+        local skillAttribute = TryGetProp(obj,"Attribute","None")
+        local skillAffectedByAttackSpeedRate = TryGetProp(obj,"AffectedByAttackSpeedRate","None")
+        local skillEnableCompanion = TryGetProp(obj,"EnableCompanion","None")
+        
+        if skillValueType == "Attack" then
+            if skillClassType == "Melee" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG1')
+                if skillAttackType == "Aries" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG4')
+                elseif skillAttackType == "Slash" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG5')
+                elseif skillAttackType == "Strike" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG6')
+                end
+            elseif skillClassType == "Magic" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG2')
+            elseif skillClassType == "Missile" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG3')
+                if skillAttackType == "Arrow" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG7')
+                elseif skillAttackType == "Gun" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG8')
+                elseif skillAttackType == "Cannon" then
+                    addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG9')
+                end
+            end
+            
+            if skillAttribute == "Fire" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG10')
+            elseif skillAttribute == "Ice" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG11')
+            elseif skillAttribute == "Lightning" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG12')
+            elseif skillAttribute == "Poison" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG13')
+            elseif skillAttribute == "Earth" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG14')
+            elseif skillAttribute == "Dark" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG15')
+            elseif skillAttribute == "Holy" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG16')
+            elseif skillAttribute == "Soul" then
+                addCaption = addCaption.." - "..ScpArgMsg('SKILL_CAPTION_MSG17')
+            end
+            
+            if addCaption ~= "" then
+                addCaption = addCaption.."{nl}"
+            end
+            
+            if skillAffectedByAttackSpeedRate == "YES" then
+                addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG18').."{nl}"
+            end
+        end
+        
+        if skillEnableCompanion == "BOTH" then
+            addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG19').."{nl}"
+        elseif skillEnableCompanion == "YES" then
+            addCaption = addCaption..ScpArgMsg('SKILL_CAPTION_MSG20').."{nl}"
+        end
+        
+        if addCaption ~= "" then
+            addCaption = "{#DD5500}{ol}"..addCaption.."{/}{/}"
+        end
+        
+        caption = addCaption..caption
+    end
 
     local nextObj = CloneIES_UseCP(obj);
 

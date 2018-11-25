@@ -177,6 +177,8 @@
 	</hierarchy>
 	<hierarchy Name="ASPD">
 		<Child Name="ASPD_BM"/>
+		<Child Name="NormalASPD_BM"/>
+		<Child Name="SkillASPD_BM"/>
 	</hierarchy>
 	<hierarchy Name="MSPD">
 		<Child Name="FIXMSPD_BM"/>
@@ -186,6 +188,8 @@
 		<Child Name="NowWeight"/>
 		<Child Name="DashRun"/>
 		<Child Name="MSPD_Bonus"/>
+		<Child Name="MovingShot"/>
+		<Child Name="MovingShotable"/>
 	</hierarchy>
 	<hierarchy Name="MHR">
 		<Child Name="MHR_BM"/>
@@ -242,9 +246,11 @@
 		<Child Name="RSta_BM"/>
 	</hierarchy>
 	<hierarchy Name="MovingShot">
+		<Child Name="MovingShotable"/>		
+	</hierarchy>
+	<hierarchy Name="MovingShotable">
 		<Child Name="MovingShot_BM"/>
 	</hierarchy>
-	<hierarchy Name="MovingShotable"/>
 	<hierarchy Name="SkillPower">
 		<Child Name="SkillPower_BM"/>
 	</hierarchy>

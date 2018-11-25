@@ -156,10 +156,11 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	previewgbox:SetVisible(0);
 	previewStaticTitle:SetVisible(0);	
 	cashInvGbox:SetVisible(0);
-	ncChargebtn:SetVisible(0);
 	basketgbox:SetVisible(0);
 	rcycle_basketgbox:SetVisible(0);
 	costume_exchange_basketgbox:SetVisible(0);
+
+	ncChargebtn:SetVisible(1); -- 캐시 충전은 기본 활성화.
 	
 
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
@@ -167,13 +168,11 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			TPITEM_DRAW_NC_TP();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
 			cashInvGbox:SetVisible(1);
-			ncChargebtn:SetVisible(1);
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
 		elseif curtabIndex == 1 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
-			ncChargebtn:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
 			basketBuyBtn:SetEnable(1);
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox5") then -- 계열 코스튬 교환 샵
@@ -193,23 +192,25 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		if curtabIndex == 0 then	
 			UPDATE_NEXON_AMERICA_SELLITEMLIST();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
+			ncChargebtn:SetVisible(0);
 		elseif curtabIndex == 1 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
 			basketBuyBtn:SetEnable(1);
+			ncChargebtn:SetVisible(0);
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
 			rcycle_basketgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);	
 			previewgbox:SetVisible(1);
 			rcycle_toitemBtn:SetEnable(1);
+			ncChargebtn:SetVisible(0);
 			RECYCLE_SHOW_TO_ITEM()
 		end
 	else
 		if curtabIndex == 0 then
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
-			ncChargebtn:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
 			basketBuyBtn:SetEnable(1);
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵

@@ -72,6 +72,11 @@ function CREATE_UPDOWNMAX_COMPONENT(parent, name, prop)
             local edit = GET_CHILD(self.ctrl, 'edit');
             return tonumber(edit:GetTextByKey('number'));
         end,
+        SetNumber = function(self, number)
+            local edit = GET_CHILD(self.ctrl, 'edit');
+            number = math.min(number, edit:GetMaxNumber());
+            edit:SetTextByKey('number', number);
+        end,
         SetMinMax = function(self, min, max)            
             local edit = GET_CHILD(self.ctrl, 'edit');
             edit:SetMinNumber(min);

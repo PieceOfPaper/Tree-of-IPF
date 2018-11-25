@@ -290,9 +290,9 @@
 		<Class ClassID="2279" ClassName="CloseUI{NAME}" Data="{@st59}{NAME} UI를 닫습니다{/}"/>
 	</Category>
 	<Category Name="ClassContents">
-		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 경험치를 모두 달성하였습니다."/>
-		<Class ClassID="2501" ClassName="FullClassResetExp" Data="더 이상 클래스 변경 경험치를 획득할 수 없습니다."/>
-		<Class ClassID="2502" ClassName="ClassResetFailOtherClass" Data="{JOB} 클래스를 초기화 하기 전에는 {TARGET} 클래스를 초기화 할 수 없습니다."/>
+		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
+		<Class ClassID="2501" ClassName="FullClassResetExp" Data="더 이상 클래스 변경 포인트를 획득할 수 없습니다."/>
+		<Class ClassID="2502" ClassName="ClassResetFailOtherClass" Data="{JOB} 클래스를 먼저 변경하기 전에는 {TARGET} 클래스로 변경할 수 없습니다."/>
 		<Class ClassID="2503" ClassName="ClassResetFailPoint" Data="클래스 변경을 하기 위한 경험치가 모자랍니다."/>
 		<Class ClassID="2504" ClassName="TooLowClassLevelForGetSkill{Level}" Data="클래스 레벨 {Level} 이상 필요"/>
 		<Class ClassID="2505" ClassName="DoYouWantRankReset" Data="랭크 초기화 아이템을 사용하시겠습니까?"/>
@@ -580,6 +580,10 @@
 		<Class ClassID="4217" ClassName="CantUseSeal" Data="등록 할 수 없는 아이템입니다.{nl} 등급과 강화 수치가 동일한 인장이 필요합니다."/>
 		<Class ClassID="4218" ClassName="USEJOB_SCO" Data="스카우트계 클래스"/>
 		<Class ClassID="4219" ClassName="Seal" Data="인장"/>
+		<Class ClassID="4220" ClassName="SealReinforce_1" Data="오늘은 망치가 잘 드는 날이구먼!"/>
+		<Class ClassID="4221" ClassName="SealReinforce_2" Data="흠.. 신중해야겠어"/>
+		<Class ClassID="4222" ClassName="SealReinforce_3" Data="방금 빛을 보았는가! {nl}역시 노력은 배신하지 않아"/>
+		<Class ClassID="4223" ClassName="SealReinforce_4" Data="미안하네 이렇게 되버릴줄이야"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -627,7 +631,7 @@
 		<Class ClassID="5043" ClassName="Holy_Atk_BM" Data="신성 속성 데미지"/>
 		<Class ClassID="5044" ClassName="Ice_Atk_BM" Data="얼음 속성 데미지"/>
 		<Class ClassID="5045" ClassName="ITEM_Swordman_GungHo_DMGRate" Data="겅호 대미지 추가 증가 {img green_up_arrow 16 16}{value}%"/>
-		<Class ClassID="5046" ClassName="ITEM_Wizard_Lethargy_DMGRate" Data="래써지 대미지 추가 증가 {img green_up_arrow 16 16}{value}%"/>
+		<Class ClassID="5046" ClassName="ITEM_Wizard_Lethargy_DMGRate" Data="래써지 마법진 대미지 추가 효과 증가 {img green_up_arrow 16 16}{value}%"/>
 		<Class ClassID="5047" ClassName="ITEM_Cleric_PatronSaint_HwpRate" Data="수호 성인 사용시 치유력, 대미지 증가 {img green_up_arrow 16 16}{value}%"/>
 		<Class ClassID="5048" ClassName="ITEM_Archer_Concentration_CRTHRRate" Data="콘센트레이션 치명타 발생 추가 증가 {img green_up_arrow 16 16}{value}%"/>
 		<Class ClassID="5049" ClassName="ITEM_Scout_Cloaking_CloakingDMGRate" Data="클로킹 대미지 추가 증가 {img green_up_arrow 16 16}{value}%"/>
@@ -5057,6 +5061,26 @@
 		<Class ClassID="28273" ClassName="EVENT_1811_TESTSERVER_MSG1" Data="현재 캐릭터 드래곤 보루타 퀘스트 상태 : "/>
 		<Class ClassID="28274" ClassName="EVENT_1811_TESTSERVER_MSG2" Data="미완료"/>
 		<Class ClassID="28275" ClassName="EVENT_1811_TESTSERVER_MSG3" Data="{nl}클래스 변경 : {COUNT1}회{nl}별의 탑 폐쇄 구역 완료 : {COUNT2}회{nl}벨코퍼의 둥지 완료 : {COUNT3}회{nl}챌린지 5단계 완료 : {COUNT3}회"/>
+		<Class ClassID="28280" ClassName="SKILL_CAPTION_MSG1" Data="[물리]"/>
+		<Class ClassID="28281" ClassName="SKILL_CAPTION_MSG2" Data="[마법]"/>
+		<Class ClassID="28282" ClassName="SKILL_CAPTION_MSG3" Data="[미사일]"/>
+		<Class ClassID="28283" ClassName="SKILL_CAPTION_MSG4" Data="[찌르기]"/>
+		<Class ClassID="28284" ClassName="SKILL_CAPTION_MSG5" Data="[베기]"/>
+		<Class ClassID="28285" ClassName="SKILL_CAPTION_MSG6" Data="[때리기]"/>
+		<Class ClassID="28286" ClassName="SKILL_CAPTION_MSG7" Data="[활]"/>
+		<Class ClassID="28287" ClassName="SKILL_CAPTION_MSG8" Data="[총]"/>
+		<Class ClassID="28288" ClassName="SKILL_CAPTION_MSG9" Data="[캐논]"/>
+		<Class ClassID="28289" ClassName="SKILL_CAPTION_MSG10" Data="[불]"/>
+		<Class ClassID="28290" ClassName="SKILL_CAPTION_MSG11" Data="[얼음]"/>
+		<Class ClassID="28291" ClassName="SKILL_CAPTION_MSG12" Data="[전기]"/>
+		<Class ClassID="28292" ClassName="SKILL_CAPTION_MSG13" Data="[독]"/>
+		<Class ClassID="28293" ClassName="SKILL_CAPTION_MSG14" Data="[땅]"/>
+		<Class ClassID="28294" ClassName="SKILL_CAPTION_MSG15" Data="[어둠]"/>
+		<Class ClassID="28295" ClassName="SKILL_CAPTION_MSG16" Data="[신성]"/>
+		<Class ClassID="28296" ClassName="SKILL_CAPTION_MSG17" Data="[염]"/>
+		<Class ClassID="28297" ClassName="SKILL_CAPTION_MSG18" Data="[공격 속도에 영향 받음]"/>
+		<Class ClassID="28298" ClassName="SKILL_CAPTION_MSG19" Data="[탑승 호환]"/>
+		<Class ClassID="28299" ClassName="SKILL_CAPTION_MSG20" Data="[탑승 전용]"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -6855,7 +6879,7 @@
 		<Class ClassID="67256" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE1_NPC_CHAT_1" Data="영혼 집약기는 별의 탑 고유의 방어시설로{nl}침입자가 있으면 자동으로 작동하지"/>
 		<Class ClassID="67257" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE1_NPC_CHAT_2" Data="영혼 집약기에 영혼을 채워 넣으면, 내가 문을 열도록 하겠네"/>
 		<Class ClassID="67258" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE1_NPC_CHAT_3" Data="문을 여는 것도 여간 까다로워서. 이놈의 방어시설은 쓸 대 없이 잘 만들었단 말이지"/>
-		<Class ClassID="67259" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE1_GETBUFF" Data="몬스터를 처치하여 영혼을 수집했습니다{nl}수집된 영혼 : {COUNT} / 30"/>
+		<Class ClassID="67259" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE1_GETBUFF" Data="몬스터를 처치하여 영혼을 수집했습니다{nl}수집된 영혼 : {COUNT} / 50"/>
 		<Class ClassID="67260" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE1_GETBUFF_OVER" Data="영혼을 충분히 수집했습니다.{nl}영혼 집약기를 충전하세요!"/>
 		<Class ClassID="67261" ClassName="UNIQ_STARTTOWER_STAGE_1_NPC_RAMUNAS_CHAT_1" Data="좋아! 영혼이 계속 모이고 있군"/>
 		<Class ClassID="67262" ClassName="UNIQ_STARTTOWER_STAGE_1_NPC_RAMUNAS_CHAT_2" Data="그래도 아직 부족하네"/>
@@ -8661,7 +8685,7 @@
 		<Class ClassID="107024" ClassName="{USER}Awaken{ITEM}" Data="[{USER}]님이 [{ITEM}] 아이템을 각성하였습니다."/>
 		<Class ClassID="107025" ClassName="SwitchGenderNeed{ITEM}" Data="스위치 젠더를 하려면 [{ITEM}] 아이템이 필요합니다."/>
 		<Class ClassID="107026" ClassName="{SKILL}UserPriceMustBetween{MIN}{MAX}" Data="[{SKILL}] 스킬의 가격은 최소 [{MIN}] 실버와 최대 [{MAX}] 실버 사이의 값이어야 합니다."/>
-		<Class ClassID="107027" ClassName="IsSureNotUseStone" Data="각성석 미사용 시{nl}아이템의 포텐셜이 감소합니다.{nl}진행하시겠습니까?"/>
+		<Class ClassID="107027" ClassName="IsSureNotUseStone" Data="{@st66d}각성석 미사용 시{nl}아이템의{/} {@st66d_y}포텐셜이 감소{/} {@st66d}합니다.{nl}진행하시겠습니까?{/}"/>
 		<Class ClassID="107028" ClassName="CantFindMaterialItem" Data="재료 아이템을 찾을 수 없습니다. 다시 시도해 주세요."/>
 	</Category>
 	<Category Name="ChatMsg">
@@ -11845,6 +11869,7 @@
 		<Class ClassID="200033" ClassName="DontChangeMonsterThisArea" Data="해당 지역에서는 체인지 스킬이 적용되지 않습니다."/>
 		<Class ClassID="200034" ClassName="MuletaCoolDownReset" Data="파소 도블레 재사용 대기시간 초기화!"/>
 		<Class ClassID="200035" ClassName="OverReinforce" Data="오버 리인포스"/>
+		<Class ClassID="200036" ClassName="PositionObstructed" Data="해당 위치에 물체가 있습니다."/>
 		<Class ClassID="200037" ClassName="Fanaticism_Martyrdom" Data="파나티시즘: 순교"/>
 		<Class ClassID="200038" ClassName="CannotWarpThisZone" Data="이동할 수 없는 지역입니다."/>
 	</Category>

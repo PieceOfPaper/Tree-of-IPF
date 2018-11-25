@@ -1,5 +1,4 @@
 -- lib_inventory.lua
-
 function GET_PC_ITEM_BY_GUID(guid)
 	local invItem = session.GetInvItemByGuid(guid);
 	if invItem ~= nil then
@@ -401,14 +400,11 @@ end
 
 function GET_PC_EQUIP_SLOT_BY_ITEMID(itemID)
 	local frame = ui.GetFrame("inventory");
-	local equipItemList = session.GetEquipItemList();
-	for i = 0, equipItemList:Count() - 1 do
-		local equipItem = equipItemList:GetEquipItemByIndex(i);
-		if itemID == equipItem:GetIESID() then
-			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-			if  spotName  ~=  nil  then
-				return frame:GetChild(spotName);
-			end
+	local equipItem = session.GetEquipItemByGuid(itemID);	
+	if equipItem ~= nil then
+		local spotName = item.GetEquipSpotName(equipItem.equipSpot);
+		if  spotName  ~=  nil  then			
+			return GET_CHILD_RECURSIVELY(frame, spotName);
 		end
 	end
 	return nil;

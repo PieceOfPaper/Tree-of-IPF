@@ -168,7 +168,7 @@ local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 	for i = 0, jobCount - 1 do
 		local jobHistory = pcJobInfo:GetJobInfoByIndex(i);		
 		jobHistoryList[#jobHistoryList + 1] = {
-			JobClassID = jobHistory.jobID, JobSequence = jobHistory.index, PlayTime = jobHistory.playSecond, 
+			JobClassID = jobHistory.jobID, JobSequence = jobHistory.index, PlayTime = jobHistory:GetPlaySecond(), 
 			StartTime = imcTime.ImcTimeToSysTime(jobHistory.startTime);
 		};
 	end

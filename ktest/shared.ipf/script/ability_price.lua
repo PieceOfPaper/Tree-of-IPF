@@ -353,6 +353,11 @@ function ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, factor1, factor2)
     end
     
     local price = minimumFactor + (4 - maxLevel + abilLevel) * increseFactor;
+    
+    if price < 1 then
+        price = 1;
+    end
+    
     local time = 0;
     
     return price, time;

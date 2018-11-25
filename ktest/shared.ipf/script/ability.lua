@@ -178,18 +178,6 @@ function SCR_ABIL_STEP_INACTIVE(self, ability)
 
 end
 
-function SCR_ABIL_MOVINGSHOT_ACTIVE(self, ability)
-
-    self.MovingShotable = 1;
-
-end
-
-function SCR_ABIL_MOVINGSHOT_INACTIVE(self, ability)
-
-    self.MovingShotable = 0;
-
-end
-
 function SCR_ABIL_HIGHLANDER9_ACTIVE(self, ability)
     if GetExProp(self, "BUNSIN") == 1 then
         return

@@ -6873,18 +6873,7 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
 				<Num Num="0.5"/>
 			</ToolScp>
 		</destroyEvent>
-		<enterEvent>
-			<ToolScp Scp="PAD_TGT_KNOCKDOWN" Client="NO" UseSleep="NO">
-				<Str Str="ENEMY"/>
-				<Str Str="KD"/>
-				<Num Num="200"/>
-				<Num Num="70"/>
-				<Num Num="1"/>
-				<Num Num="0"/>
-				<Num Num="0"/>
-			</ToolScp>
-		</enterEvent>
-	</PadSkill>
+		</PadSkill>
 	<PadSkill Name="GravityPole_PVP" CheckerType="1" Range="75" InnerRange="15" EnableSearch="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
@@ -12525,18 +12514,114 @@ return 30000 + obj.Level * 5000"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Templer_BattleOrders" CheckerType="0" Range="50" UpdateTerm="100" AutoPos="1" IgnoreDistanceInterval="1" EnableSearch="0" IsMineType="0">
+	<PadSkill Name="Templer_AdvancedOrders" CheckerType="0" Range="150" UpdateTerm="100" AutoPos="1" IgnoreDistanceInterval="1" EnableSearch="0" IsMineType="0">
+        <createEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="10000"/>
+                <Num Num="99990"/>
+            </ToolScp>
+            <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
+                <Str_Arg Str="F_warrior_AdvancedOrders_ground" Arg="3.5"/>
+                <Pos Angle="0" Dist="0"/>
+                <Num Num="0"/>
+                <Str_Arg Str="None" Arg="1"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </createEvent>
+        <destroyEvent>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Buff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_REMOVEBUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Debuff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="1"/>
+            </ToolScp>
+        </destroyEvent>
+        <enterEvent>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="GUILD"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="PARTY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Buff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Debuff"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </enterEvent>
+        <leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Buff"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
+                <Str Str="ALL"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="AdvancedOrders_Debuff"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
+            <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
+                <Num Num="-100"/>
+                <Num Num="0"/>
+            </ToolScp>
+        </updateEvent>
+    </PadSkill>
+    <PadSkill Name="Templer_BattleOrders" CheckerType="0" Range="150" UpdateTerm="100" AutoPos="1" IgnoreDistanceInterval="1" EnableSearch="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="30000"/>
 				<Num Num="99990"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="F_warrior_BattleOrders_ground" Arg="1.1"/>
+				<Str_Arg Str="F_warrior_BattleOrders_ground" Arg="3.5"/>
 				<Pos Angle="0" Dist="0"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
-			</ToolScp>
+			<Num Num="0"/>
+            </ToolScp>
 			<ToolScp Scp="PAD_SET_ARG_NUMBER" Client="NO" UseSleep="NO">
 				<Num Num="0" UseFunc="1" FuncTxt="return obj.Level"/>
 				<Num Num="0"/>
@@ -12698,7 +12783,7 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Templer_FlyingColors" CheckerType="0" Range="50" UpdateTerm="100" IgnoreDistanceInterval="1" EnableSearch="0" IsMineType="0">
+	<PadSkill Name="Templer_FlyingColors" CheckerType="0" Range="150" UpdateTerm="100" IgnoreDistanceInterval="1" EnableSearch="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="15000"/>
@@ -12793,14 +12878,14 @@ end"/>
 			</ToolScp>
 		</updateEvent>
 	</PadSkill>
-	<PadSkill Name="Templer_NonInvasiveArea" CheckerType="0" Range="50" UpdateTerm="800" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+	<PadSkill Name="Templer_NonInvasiveArea" CheckerType="0" Range="100" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="10000"/>
 				<Num Num="99999"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-				<Str_Arg Str="F_light078_holy_yellow_loop2" Arg="0.75"/>
+				<Str_Arg Str="F_light078_holy_yellow_loop2" Arg="1.5"/>
 				<Pos Angle="0" Dist="0"/>
 				<Num Num="0"/>
 				<Str_Arg Str="None" Arg="1"/>
@@ -12814,7 +12899,7 @@ end"/>
 		</createEvent>
 		<updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="-800"/>
+				<Num Num="-500"/>
 				<Num Num="0"/>
 			</ToolScp>
 			<ToolScp Scp="PAD_UPDATE_TGT_KNOCKDOWN" Client="NO" UseSleep="NO">

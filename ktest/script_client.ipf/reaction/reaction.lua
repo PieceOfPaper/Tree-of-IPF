@@ -70,11 +70,15 @@ function C_EFFECT_POS(actor, obj, eftName, scl, x, y, z, lifeTime, key)
     effect.PlayGroundEffect(actor, eftName, scl, x, y, z, lifeTime, key);
 end
 
-function C_EFFECT_ATTACH(actor, obj, eftName, scl, scl2, x, y, z, autoDetach)
+function C_EFFECT_ATTACH(actor, obj, eftName, scl, scl2, x, y, z, autoDetach, angle)
+	if angle == nil then
+		angle = -1;
+	end
+
     if x == nil then
-        effect.AddActorEffect(actor, eftName, scl * scl2, 0, 0, 0);
+        effect.AddActorEffect(actor, eftName, scl * scl2, 0, 0, 0, angle);
     else
-        effect.AddActorEffect(actor, eftName, scl * scl2, x, y, z);
+        effect.AddActorEffect(actor, eftName, scl * scl2, x, y, z, angle);
     end
 
 	-- �� ���̾�ó�� ��ų�� ���� ScpArgMsg("Auto_iPegTeuTteKi")�� ������������ ����ϸ� ��

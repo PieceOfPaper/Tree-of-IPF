@@ -119,6 +119,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execMS="30000" eventName="Add_KillCnt">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_SKL3_COND_BORUTA_LOAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="HP_Regen">

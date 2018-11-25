@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<uiframe name="portal_shop_register" x="0" y="0" width="450" height="1200" create="open">
+<uiframe name="portal_shop_register" x="0" y="0" width="450" height="1200"create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
 	<skin frameskin=" "/>
 	<draw drawtitlebar="false"/>
@@ -13,8 +13,7 @@
 		<groupbox name="portalBox" rect="0 0 430 600" parent="bg_mid" margin="0 5 0 0" layout_gravity="center top" draw="false" fixheight="true" scrollbar="true"/>
 		<groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>
 		<groupbox name="bodyGbox" rect="0 0 453 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
-		<richtext name="title" rect="0 0 200 80" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}포탈 상점{/}" textalign="left top"/>
-		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}마법부여{/}" width="160" layout_gravity="left top"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}포탈 상점{/}" textalign="left top"/>		
 		<button name="close" rect="10 0 44 44" margin="0 12 22 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;portal_shop_register&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}포탈 상점 등록 UI를 닫습니다{/}"/>
 		<groupbox name="repair" rect="0 0 439 1000" margin="0 69 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="flase" skin=""/>
 		<groupbox name="moneyGbox" parent="repair" rect="0 0 405 35" margin="0 43 18 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>

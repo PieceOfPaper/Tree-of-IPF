@@ -4,10 +4,6 @@ function SCR_EVENT_1811_WEEKEND_CHECK(inputType)
     local day = now_time['day']
     
     local t = {
-                {11,24,{'REINFORCE'}},
-                {11,25,{'TRANSCEND'}},
-                {12,1,{'ITEMRANDOMRESET'}},
-                {12,2,{'LOOTINGCHANCE'}},
                 {12,8,{'REINFORCE'}},
                 {12,9,{'TRANSCEND'}},
                 {12,15,{'ITEMRANDOMRESET'}},
@@ -19,7 +15,11 @@ function SCR_EVENT_1811_WEEKEND_CHECK(inputType)
                 {12,30,{'TRANSCEND'}},
                 {1,1,{'ITEMRANDOMRESET','LOOTINGCHANCE'}},
                 {1,5,{'REINFORCE'}},
-                {1,6,{'TRANSCEND'}}
+                {1,6,{'TRANSCEND'}},
+                {1,12,{'ITEMRANDOMRESET'}},
+                {1,13,{'LOOTINGCHANCE'}},
+                {1,19,{'REINFORCE'}},
+                {1,20,{'TRANSCEND'}}
                 }
     for i = 1, #t do
         if t[i][1] == month and t[i][2] == day then

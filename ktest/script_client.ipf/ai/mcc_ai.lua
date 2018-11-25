@@ -73,7 +73,7 @@ function MCC_SCRIPT_NINJA(actor, mccIndex)
 
 	local forpos = actor:GetFormationPos(mccIndex, 25.0);			
 	local distFromActor = imcMath.Vec3Dist(actor:GetPos(), myActor:GetPos());
-	if distFromActor >= 30 then
+	if distFromActor >= 100 then
 		geMCC.MoveTo(actor, forpos);		
 	end
 	

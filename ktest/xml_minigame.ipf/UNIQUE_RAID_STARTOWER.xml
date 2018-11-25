@@ -1827,10 +1827,11 @@
                                 <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="UNIQ_STARTTOWER_STAGE_4_CONTROL_AI_BORN"/>
                                 </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150040" Pos="152.75#979.73#-845.62" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;서쪽 동력 장치&apos; ">
+                    <Obj Type="Monster" MonType="150040" Pos="152.75#979.73#-845.62" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;100&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1845,7 +1846,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150041" Pos="1291.10#981.17#-845.48" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;50&apos; &apos;Name&apos; &apos;동쪽 동력 장치&apos; ">
+                    <Obj Type="Monster" MonType="150041" Pos="1291.10#981.17#-845.48" genCount="1" genTime="20000" objectKey="2" autoDestroy="0" propList="&apos;Faction&apos; &apos;Our_Forces&apos; &apos;HPCount&apos; &apos;100&apos; ">
                         <SelfAI UpdateMS="2000" ActiveMessageMapInBattle="1">
                             <HitList>
                                 <ToolScp Scp="SAI_HIT_DIRECT_RUN" Client="NO" UseSleep="NO">
@@ -1860,7 +1861,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="150023" Pos="688.57#972.72#-915.29" angle="-2" genCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;HPCount&apos; &apos;30&apos; &apos;Faction&apos; &apos;Our_Forces&apos; ">
+                    <Obj Type="Monster" MonType="150023" Pos="688.57#972.72#-915.29" angle="-2" genCount="1" genTime="20000" objectKey="3" autoDestroy="0" propList="&apos;HPCount&apos; &apos;50&apos; &apos;Faction&apos; &apos;Our_Forces&apos; ">
                         <SelfAI UpdateMS="3000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_HOMEPOS" Client="NO" UseSleep="YES">
@@ -2468,7 +2469,7 @@
                     <Event execCount="1" eventName="End">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="3"/>
                             </ToolScp>
                         </condList>
                         <execList>

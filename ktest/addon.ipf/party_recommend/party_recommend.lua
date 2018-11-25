@@ -82,12 +82,16 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
     local cancelText = GET_CHILD_RECURSIVELY(frame, 'cancelText');
     config.InitHotKeyByCurrentUIMode('Battle');    
     local jumpKeyIdx = config.GetHotKeyElementIndex('ID', 'Jump');
-    local jumpKey = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, 'Key');    
+    local jumpKey = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, 'Key');
     local useShift = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseShift");
     local useAlt = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseAlt");
     local useCtrl = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseCtrl");
-    local KEY_IMG_SIZE = frame:GetUserConfig('KEY_IMG_SIZE');    
-    local jumpKeyImg = string.format('{img key_%s %d %d}', jumpKey, KEY_IMG_SIZE, KEY_IMG_SIZE);
+    local KEY_IMG_SIZE = tonumber(frame:GetUserConfig('KEY_IMG_SIZE'));
+    local imgName = 'key_'..jumpKey;
+    local originImgWidth = ui.GetImageWidth(imgName);
+    local originImgHeight = ui.GetImageHeight(imgName);
+    local sizeAmendCoeff = KEY_IMG_SIZE / originImgWidth;
+    local jumpKeyImg = string.format('{img %s %d %d}', imgName, KEY_IMG_SIZE, originImgHeight * sizeAmendCoeff);
     if useShift == 'YES' then
         jumpKeyImg = string.format('{img SHIFT %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
     end

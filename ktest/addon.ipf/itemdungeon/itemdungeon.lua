@@ -355,7 +355,7 @@ function ITEMDUNGEON_BUY_ITEM(parent, ctrl)
 	end
 	
 	if materialItemGuid == '0' then
-        ui.MsgBox(ClMsg("IsSureNotUseStone"), "_ITEMDUNGEON_BUY_ITEM", "None");
+		WARNINGMSGBOX_FRAME_OPEN(ClMsg("IsSureNotUseStone"), '_ITEMDUNGEON_BUY_ITEM', 'None');
 	else
 		_ITEMDUNGEON_BUY_ITEM();
 	end
