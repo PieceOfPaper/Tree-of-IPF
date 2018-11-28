@@ -1,5 +1,4 @@
 function SKILLITEMMAKER_ON_INIT(addon, frame)
-
 	frame = ui.GetFrame('skillitemmaker');
 	local richtext_1 = frame:GetChild('richtext_1');
 	richtext_1:ShowWindow(1);
@@ -9,9 +8,15 @@ function SKILLITEMMAKER_ON_INIT(addon, frame)
 	frame:SetUserValue("SKLNAME", 'Pardoner_Simony');
 end
 
+function OPEN_SKILLITEMMAKER(frame)
+	local skillability = ui.GetFrame('skillability');	
+	skillability:SetOffset(frame:GetWidth(), skillability:GetY());
+	skillability:ShowWindow(1);
+end
+
 function SKILLITEMMAKER_FIRST_OPEN(frame)
 	CLEAR_SKILLITEMMAKER(frame);
-	_SKILLITEMMAKE_RESET(frame);
+	_SKILLITEMMAKE_RESET(frame);	
 end
 
 function POP_SKILLITEM_MAKER(frame)
@@ -42,13 +47,7 @@ function CLEAR_SKILLITEMMAKER(frame)
 end
 
 function SKILLITEMMAKER_REGISTER(frame, skillType)
-	local resultItem = GET_CHILD(frame, "slot_result", "ui::CSlot");
-	local resultCls = GetClass("Item", "Scroll_SkillItem");
-	SET_SLOT_ITEM_CLS(resultItem, resultCls);
-	frame:GetChild("progtime"):SetTextByKey("value", "0");
-
 	local sklCls = GetClassByType("Simony", skillType);
-
 	if sklCls == nil or 'YES' ~= sklCls.CanMake then
 	    ui.SysMsg(ClMsg("CanNotCraftSkill"));
 		CLEAR_SKILLITEMMAKER(frame);
@@ -58,34 +57,24 @@ function SKILLITEMMAKER_REGISTER(frame, skillType)
 	
 	local skillInfo = session.GetSkill(skillType);
 	local sklObj = GetIES(skillInfo:GetObject());
+	local skillTreeCls = GET_SKILLTREE_CLS(sklObj.ClassName);
+	if sklObj.Level < skillTreeCls.MaxLevel then
+		ui.SysMsg(ClMsg("CanOnlyWithMaxLevel"));
+		CLEAR_SKILLITEMMAKER(frame);
+		_SKILLITEMMAKE_RESET(frame);
+		return;
+	end
+	
+	local resultItem = GET_CHILD(frame, "slot_result", "ui::CSlot");
+	local resultCls = GetClass("Item", GET_SKILL_SCROLL_ITEM_NAME_BY_SKILL(sklObj));
+	SET_SLOT_ITEM_CLS(resultItem, resultCls);
+	frame:GetChild("progtime"):SetTextByKey("value", "0");
 
 	frame:SetUserValue("SKILLTYPE", skillType);
 	local skill_slot = GET_CHILD(frame, "skillslot", "ui::CSlot");
 	SET_SLOT_SKILL(skill_slot, sklObj);
 	
 	local count = sklObj.Level;
-	if frame:GetUserValue('MODE') ~= 'CraftSpellBook' then
-		local sklName = frame:GetUserValue('SKLNAME');
-		local mySimonySkill = GetSkill(GetMyPCObject(), sklName);	
-		count = mySimonySkill.Level;		
-		
-		-- 만든 스킬이, 시모니 레벨 보다 클때
-		if sklObj.Level >= mySimonySkill.Level then
-			count = mySimonySkill.Level;
-		elseif sklObj.Level < mySimonySkill.Level then
-			count = sklObj.Level;
-		end
-	end
-
-	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
-	droplist_level:ClearItems();
-
-	 for i = 1 , count do
-	 	droplist_level:AddItem(i,  "{@st42}" .. ClMsg("Level") .. " " .. i, 0);
-	 end
-	 -- 스킬 레벨 까지
-	 droplist_level:SelectItem(count-1);
-	 droplist_level:SetSelectedScp("SKILLITEMKAE_NUMCHANGE");
 	if sklObj.Caption == "None" then
 		frame:GetChild("skilltext"):SetTextByKey("value", "");
 	else
@@ -111,7 +100,6 @@ function SKILLITEMMAKE_GET_SKL_OBJ(frame)
 end
 
 function SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, sklevel)
-
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
 	local vis = GET_SKILL_MAT_PRICE(sklObj, sklevel);
 	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklevel);
@@ -126,22 +114,17 @@ function SKILLITEM_MAKE_START(sec)
 	local frame = ui.GetFrame("skillitemmaker");
 	local gauge = GET_CHILD(frame, "gauge", "ui::CGauge");
 	gauge:SetPoint(0, 100);
-    gauge:SetPointWithTime(100, sec, 1);
-	
+    gauge:SetPointWithTime(100, sec, 1);	
 end
 
 function SKILLITEMKAE_NUMCHANGE(parent)
-	local frame = parent:GetTopParentFrame();
-	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
-	local levelSkill = droplist_level:GetSelItemIndex()+1;
-	frame:GetChild("skilllevel"):SetTextByKey("value", levelSkill);	
-	
+	local frame = parent:GetTopParentFrame();	
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
 	if sklObj == nil then
 		return;
 	end
 
-	UPDATE_SKILLITEMMAKE_PRICE(parent:GetTopParentFrame(), sklObj, levelSkill);
+	UPDATE_SKILLITEMMAKE_PRICE(parent:GetTopParentFrame(), sklObj, sklObj.Level);
 end
 
 function SKILLITEMMAKE_EXEC(frame)
@@ -155,10 +138,8 @@ function SKILLITEMMAKE_EXEC(frame)
 		return;
 	end
 
-	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
-	local levelSkill = droplist_level:GetSelItemIndex()+1;
-	local totalVis, totalBottle = SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, levelSkill);
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
+	local totalVis, totalBottle = SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, sklObj.Level);
 	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, levelSkill);
 	local bottleCls = GetClass("Item", bottle);
 	local visCls = GetClass("Item", "Vis");
@@ -196,11 +177,8 @@ function _SKILLITEMMAKE_EXEC()
 	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklObj.Level);
 	local bottleCls = GetClass("Item", bottle);
 	local myBottle = session.GetInvItemByName(bottleCls.ClassName);
-	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
-	local level = droplist_level:GetSelItemIndex()+1;
-	local argList = string.format("%d %d %d", sklObj.ClassID, level, curCount);
+	local argList = string.format("%d %d", sklObj.ClassID, curCount);
 	pc.ReqExecuteTx_Item("ITEM_SKILL_MAKER", myBottle:GetIESID(), argList);
-
 	_SKILLITEMMAKE_RESET(frame);
 end
 
@@ -210,9 +188,6 @@ function _SKILLITEMMAKE_RESET(frame)
 	makecount:SetNumberValue(0);
 	makecount:SetIncrValue(0);
 	totalprice:SetTextByKey("value", 0);
-
-	local droplist_level = GET_CHILD(frame, "droplist_level", "ui::CDropList");
-	droplist_level:ClearItems();
 
 	CLEAR_SKILLITEMMAKER(frame);
 end
@@ -245,11 +220,4 @@ function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 	progtime:SetTextByKey("value", makeSec);
 	local gauge = GET_CHILD(frame, "gauge", "ui::CGauge");
     gauge:SetPoint(0, 100);
-end
-
-function IS_SKILL_SCROLL_ITEM(item)
-	if TryGetProp(item, 'ClassName') == 'Scroll_SkillItem' then
-		return true;
-	end
-	return false;
 end

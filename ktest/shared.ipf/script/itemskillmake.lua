@@ -23,3 +23,29 @@ function CHECK_EQUAL_Scroll_SkillItem(invItem, otherItem)
 	return 0;
 end
 
+function GET_SKILL_SCROLL_ITEM_NAME_BY_SKILL(skill)
+	if skill == nil then
+		return 'None';
+	end
+	return 'Scroll_SkillItem'; --_'..skill.ClassName;
+end
+
+function IS_SKILL_SCROLL_ITEM_BYNAME(itemName)
+	if itemName == nil then
+		return false;
+	end
+	if string.find(itemName, 'Scroll_SkillItem') ~= nil then
+		return true;
+	end
+	return false;
+end
+
+function IS_SKILL_SCROLL_ITEM(item)
+	if item == nil then
+		return 0;
+	end
+	if IS_SKILL_SCROLL_ITEM_BYNAME(TryGetProp(item, 'ClassName', 'None')) == true then
+		return 1;
+	end
+	return 0;
+end

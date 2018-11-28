@@ -1,5 +1,48 @@
 -- lib_slot.lua
 
+imcSlot = {
+	GetEmptySlotIndex = function(self, slotset)
+		for i = 0, slotset:GetSlotCount() - 1 do
+			if slotset:GetSlotByIndex(i):GetIcon() == nil then
+				return i;
+			end
+		end
+		return 0;
+	end,
+	GetFilledSlotCount = function(self, slotset)
+		local cnt = 0;
+		for i = 0, slotset:GetSlotCount() - 1 do
+			if slotset:GetSlotByIndex(i):GetIcon() ~= nil then
+				cnt = cnt + 1;
+			end
+		end
+		return cnt;
+	end,
+	SetImage = function(self, slot, img)		
+		tolua.cast(slot, "ui::CSlot");
+		local icon = slot:GetIcon();
+		if icon == nil then
+			icon = CreateIcon(slot);
+		end
+		icon:SetImage(img);
+		return icon;
+	end,
+	SetItemInfo = function(self, slot, invItem, count)
+		local itemCls = GetClassByType("Item", invItem.type);
+		local type = itemCls.ClassID;
+		local obj = GetIES(invItem:GetObject());
+		local img = GET_ITEM_ICON_IMAGE(obj);    
+		self:SetImage(slot, img);
+		SET_SLOT_COUNT(slot, count);
+		SET_SLOT_IESID(slot, invItem:GetIESID());
+		local icon = slot:GetIcon();
+		local iconInfo = icon:GetInfo();
+		iconInfo.type = type;
+		SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, itemCls.ClassName, 'inven', type, invItem:GetIESID());
+		return icon;
+	end,
+};
+
 function SET_SLOT_ITEM_CLS(slot, itemCls)
 	if itemCls == nil then
 		return;
@@ -124,26 +167,11 @@ function SET_SLOT_ITEM_IMAGE(slot, invItem)
 end
 
 function SET_SLOT_ITEM(slot, invItem, count)
-	local itemCls = GetClassByType("Item", invItem.type);
-	local type = itemCls.ClassID;
-	local obj = GetIES(invItem:GetObject());
-	local img = GET_ITEM_ICON_IMAGE(obj);    
-	SET_SLOT_IMG(slot, img);
-	SET_SLOT_COUNT(slot, count);
-	SET_SLOT_IESID(slot, invItem:GetIESID());
-	local icon = slot:GetIcon();
-	local iconInfo = icon:GetInfo();
-	iconInfo.type = type;
-	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invItem, itemCls.ClassName, 'inven', type, invItem:GetIESID());
+	imcSlot:SetItemInfo(slot, invItem, count);
 end
 
 function SET_SLOT_IMG(slot, img)
-	tolua.cast(slot, "ui::CSlot");
-    local icon = slot:GetIcon();
-    if icon == nil then
-	    icon = CreateIcon(slot);
-    end
-	icon:SetImage(img);
+	imcSlot:SetImage(slot, img);
 end
 
 function SET_SLOT_IESID(slot, iesid)
@@ -512,23 +540,3 @@ function GET_SLOT_ITEM_TYPE(slot)
 	end
 	return iconinfo.type;
 end
-
-imcSlot = {
-	GetEmptySlotIndex = function(self, slotset)
-		for i = 0, slotset:GetSlotCount() - 1 do
-			if slotset:GetSlotByIndex(i):GetIcon() == nil then
-				return i;
-			end
-		end
-		return 0;
-	end,
-	GetFilledSlotCount = function(self, slotset)
-		local cnt = 0;
-		for i = 0, slotset:GetSlotCount() - 1 do
-			if slotset:GetSlotByIndex(i):GetIcon() ~= nil then
-				cnt = cnt + 1;
-			end
-		end
-		return cnt;
-	end,
-};

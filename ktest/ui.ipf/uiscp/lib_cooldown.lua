@@ -12,7 +12,7 @@ function ICON_SET_ITEM_COOLDOWN_OBJ(icon, itemIES)
 		return;	
 	end
 	
-	if itemIES.CoolDownGroup ~= 'None' or itemIES.ClassName == 'Scroll_SkillItem' then		
+	if itemIES.CoolDownGroup ~= 'None' or IS_SKILL_SCROLL_ITEM(itemIES) == 1 then		
 		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_COOLDOWN');
 		return;
 	end
@@ -38,7 +38,7 @@ function ICON_UPDATE_ITEM_COOLDOWN(icon)
 	local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
 	if invItem ~= nil then
 		local obj = GetIES(invItem:GetObject());
-		if obj ~= nil and obj.ClassName == 'Scroll_SkillItem' then
+		if IS_SKILL_SCROLL_ITEM(obj) == 1 then
 			local skillInfo = session.GetSkill(obj.SkillType);
 			if skillInfo ~= nil then
 				local skl = GetIES(skillInfo:GetObject());
@@ -109,7 +109,7 @@ function ICON_SET_ITEM_COOLDOWN(icon, itemType)
 		return;	
 	end
 
-	if itemCls.CoolDownGroup ~= 'None' or itemCls.ClassName == 'Scroll_SkillItem' then		
+	if itemCls.CoolDownGroup ~= 'None' or IS_SKILL_SCROLL_ITEM(itemCls) == 1 then		
 		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_ITEM_COOLDOWN');
 		return;
 	end

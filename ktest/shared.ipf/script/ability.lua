@@ -247,7 +247,7 @@ function SCR_ABIL_STAFFMASTERY_ACTIVE(self, ability)
 	local crthrRate = 0
     local rItem  = GetEquipItem(self, 'RH');
     if rItem.ClassType == "Staff" then
-		SetCastingSpeedBuffInfo(self, "StaffMastery", 30);
+		SetCastingSpeedBuffInfo(self, "StaffMastery", 50);
     end
 end
 

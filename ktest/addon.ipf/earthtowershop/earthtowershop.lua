@@ -108,7 +108,7 @@ end
 function EARTH_TOWER_INIT(frame, shopType)
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("None");
+	RESET_INVENTORY_ICON();
 
 	local title = GET_CHILD(frame, 'title', 'ui::CRichText')
 	local close = GET_CHILD(frame, 'close');

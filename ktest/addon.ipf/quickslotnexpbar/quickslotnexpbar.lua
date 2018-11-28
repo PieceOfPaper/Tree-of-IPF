@@ -37,6 +37,7 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('QUICKSLOT_MONSTER_RESET_COOLDOWN', 'QUICKSLOTNEXPBAR_MY_MONSTER_SKILL_RESET_COOLDOWN');
 	
 	addon:RegisterMsg('RESET_ABILITY_ACTIVE', 'QUICKSLOTNEXPBAR_ON_MSG');
+    addon:RegisterMsg('RESET_ALL_SKILL', 'CLEAR_ALL_SKILL_QUICKSLOTBAR');
 	
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
@@ -44,6 +45,20 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	
 	QUICKSLOT_TOGGLE_ITEM_LIST={}
 	
+end
+
+local function quickslot_item_amount_refresh(ies_id)
+    if ies_id == nil then return end
+    local frame = ui.GetFrame('quickslotnexpbar')
+	for i = 0, MAX_QUICKSLOT_CNT - 1 do
+		local quickSlotInfo = quickslot.GetInfoByIndex(i)
+        if quickSlotInfo:GetIESID() == ies_id then
+            local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
+            if slot ~= nil then
+                SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false)
+            end
+        end
+	end
 end
 
 function QUICKSLOT_MAKE_GAUGE(slot)
@@ -78,7 +93,7 @@ function EXP_ORB_SLOT_ON_MSG(frame, msg, str, num)
 		timer:Start(1);
 		imcSound.PlaySoundEvent('sys_atk_booster_on');
 	end
-	DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1);
+	DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1);    
 end
 
 --토글
@@ -344,7 +359,40 @@ function GET_SLOT_SKILL_OBJ(slot)
 
 end
 
-function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
+function CLEAR_ALL_SKILL_QUICKSLOTBAR()    
+    local frame = ui.GetFrame('quickslotnexpbar')
+    for i = 0, MAX_QUICKSLOT_CNT - 1 do
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
+		local icon = slot:GetIcon()
+		if icon ~= nil then
+		    tolua.cast(icon, "ui::CIcon")
+            local skill_id = icon:GetTooltipNumArg()
+            if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' then
+                icon:SetTooltipNumArg(0)
+                slot:ClearIcon()
+            end
+		end
+	end
+
+    frame = ui.GetFrame('joystickquickslot')
+    for i = 0, MAX_QUICKSLOT_CNT - 1 do
+		local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
+		local icon = slot:GetIcon()
+		if icon ~= nil then
+		    tolua.cast(icon, "ui::CIcon")
+            local skill_id = icon:GetTooltipNumArg()
+            if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' then
+                icon:SetTooltipNumArg(0)
+                slot:ClearIcon()
+            end
+		end
+	end
+end
+
+function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePacket)
+    if frame ~= nil and session.GetSkill(type) ~= nil and is_contain_skill_icon(frame, type) == true then        
+        return 
+    end    
 	local icon 	= CreateIcon(slot);
 	local imageName = "";
 
@@ -359,16 +407,20 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 	elseif category == 'Skill' then
 		local skl = session.GetSkill(type);
 		if IS_NEED_CLEAR_SLOT(skl, type) == true then	
+            if icon ~= nil then
+                tolua.cast(icon, "ui::CIcon");
+                icon:SetTooltipNumArg(0)                
+            end
 			slot:ClearIcon();
-			QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
+			QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);            
 			return;
 		end
-		imageName = 'icon_' .. GetClassString('Skill', type, 'Icon');
+		imageName = 'icon_' .. GetClassString('Skill', type, 'Icon');        
 		icon:SetOnCoolTimeUpdateScp('ICON_UPDATE_SKILL_COOLDOWN');
 		icon:SetEnableUpdateScp('ICON_UPDATE_SKILL_ENABLE');
 		icon:SetColorTone("FFFFFFFF");
 		icon:ClearText();
-		quickslot.OnSetSkillIcon(slot, type);
+		quickslot.OnSetSkillIcon(slot, type);        
 	elseif category == 'Ability' then
 		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
 		local abilClass = GetClassByType("Ability", type)
@@ -446,6 +498,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 		local category = category;
 		local type = type;
 
+		slot:SetPosTooltip(0, 0);
 		if category == 'Item' then
 			icon:SetTooltipType('wholeitem');
 			
@@ -489,6 +542,9 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				if skl ~= nil then
 					iesID = skl:GetIESID();
 				end
+				local quickSlotFrame = ui.GetFrame("quickslotnexpbar")
+				local SKILL_TOOLTIP_WIDTH = quickSlotFrame:GetUserConfig("SKILL_TOOLTIP_WIDTH")
+				slot:SetPosTooltip(ui.GetClientInitialWidth()/2 - SKILL_TOOLTIP_WIDTH/2 - slot:GetX(), 0);
 			end
 		
 			icon:Set(imageName, category, type, 0, iesID);
@@ -520,7 +576,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 	if category == 'Skill' then
 		SET_QUICKSLOT_OVERHEAT(slot);
 		SET_QUICKSLOT_TOOLSKILL(slot);
-	end
+	end    
 end
 
 -- 기간제 아이템을 퀵슬롯에 등록하면 시간 표기
@@ -562,7 +618,7 @@ function QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(frame)
 	end
 end
 
-function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()	
+function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()    
 	local frame = ui.GetFrame('quickslotnexpbar');
 	local sklCnt = frame:GetUserIValue('SKL_MAX_CNT');
 	for i = 0, MAX_QUICKSLOT_CNT - 1 do
@@ -580,12 +636,16 @@ function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()
 
 		if true == updateslot and quickSlotInfo.category ~= 'NONE' then
 			local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
-			SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
+            local icon = slot:GetIcon();
+            if icon ~= nil then                
+                if icon:GetTooltipNumArg() == 0 then return end                
+            end
+			SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
 		end
 	end
 end
 
-function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
+function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)        
 	local joystickquickslotFrame = ui.GetFrame('joystickquickslot');
 	JOYSTICK_QUICKSLOT_ON_MSG(joystickquickslotFrame, msg, argStr, argNum)
 		
@@ -599,11 +659,16 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 		ON_PET_SELECT(frame);
 	end
 
-	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE' 
-	or msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
-		DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1, 0);
+	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or 
+        msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'PC_PROPERTY_UPDATE'
+    then
+		DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1, 0);        
 	end
-		
+    	
+    if msg == 'INV_ITEM_CHANGE_COUNT' then
+        quickslot_item_amount_refresh(argStr)
+    end
+
 	local curCnt = quickslot.GetActiveSlotCnt();
 		
 	QUICKSLOT_REFRESH(curCnt);
@@ -822,21 +887,22 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 	QUICKSLOTNEXPBAR_NEW_SETICON(slot, iconCategory, iconType, iconGUID);
 end
 
+-- 스킬창에서 스킬을 드랍하였다.
 function QUICKSLOTNEXPBAR_NEW_SETICON(slot, category, type, guid)
-	SET_QUICK_SLOT(slot, category, type, guid, 1, true);
+	SET_QUICK_SLOT(nil, slot, category, type, guid, 1, true);
 end
 
 function QUICKSLOTNEXPBAR_SETICON(slot, icon, makeLog, sendSavePacket)
 	if icon  ~=  nil then
 		local iconInfo = icon:GetInfo();
-		SET_QUICK_SLOT(slot, iconInfo.category, iconInfo.type, iconInfo:GetIESID(), makeLog, sendSavePacket);
+		SET_QUICK_SLOT(nil, slot, iconInfo.category, iconInfo.type, iconInfo:GetIESID(), makeLog, sendSavePacket);
 	else
 		CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket);
 	end
 
 end
 
-function CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket)
+function CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket)    
 	slot:ReleaseBlink();
 	slot:ClearIcon();
 	local sendPacket = 1;
@@ -854,11 +920,30 @@ function CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket)
 end
 
 function INIT_QUICKSLOT_SLOT(slot, icon)
-
 	icon:SetOnCoolTimeEndScp('ICON_ON_COOLTIMEEND');
 	icon:SetDumpScp('QUICKSLOTNEXPBAR_DUMPICON');
 	slot:SetEventScript(ui.RBUTTONUP, 'QUICKSLOTNEXPBAR_SLOT_USE');
 
+end
+
+function is_contain_skill_icon(frame, type)        
+    if type == 0 then        
+        return true
+    end
+    if frame == nil then         
+        return false 
+    end
+    for i = 0, MAX_QUICKSLOT_CNT-1 do
+		local slot = frame:GetChildRecursively("slot"..i+1);
+		tolua.cast(slot, "ui::CSlot");
+		local icon = slot:GetIcon();        
+		if icon ~= nil then
+		    if type == icon:GetTooltipNumArg() then
+                return true;
+            end
+		end
+	end
+	return false;
 end
 
 function QUICKSLOT_GET_EMPTY_SLOT(frame)
@@ -866,12 +951,12 @@ function QUICKSLOT_GET_EMPTY_SLOT(frame)
 		local slot = frame:GetChildRecursively("slot"..i+1);
 		tolua.cast(slot, "ui::CSlot");
 		local icon = slot:GetIcon();
-
+        
 		if icon == nil then
 			return slot;
 		end
-
-		local iconInfo = icon:GetInfo();
+        
+		local iconInfo = icon:GetInfo();        
 		if iconInfo.category == "None" then
 			return slot;
 		end
@@ -898,7 +983,10 @@ function GET_SLOT_BY_INDEX(frame, index)
 	return GET_CHILD_RECURSIVELY(frame, "slot"..index, "ui::CSlot");
 end
 
-function QUICKSLOT_REGISTER(frame, type, index, idSpace)
+function QUICKSLOT_REGISTER(frame, type, index, idSpace)    
+    if is_contain_skill_icon(frame, type) == true then        
+        return
+    end
 
 	local slot = nil;
 	if index == -1 then
@@ -911,7 +999,7 @@ function QUICKSLOT_REGISTER(frame, type, index, idSpace)
 		return;
 	end
 
-	SET_QUICK_SLOT(slot, idSpace, type, "", 0, true);
+	SET_QUICK_SLOT(frame, slot, idSpace, type, "", 0, true);
 
 	if idSpace == "Skill" then
 		QUICKSLOTNEXPBAR_SKILL_NOTICE(frame, slot, type);
@@ -1237,7 +1325,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
 		if 'None' ~= cate then        
-			SET_QUICK_SLOT(slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);
+			SET_QUICK_SLOT(frame, slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);
 		end
 		slot:SetUserValue('ICON_CATEGORY', 'None');
 		slot:SetUserValue('ICON_TYPE', 0);
@@ -1274,7 +1362,7 @@ function QUICKSLOT_REQUEST_REFRESH(parent, ctrl)
 	DISABLE_BUTTON_DOUBLECLICK('quickslotnexpbar', ctrl:GetName(), 1);
 end
 
-function QUICKSLOT_DRAW(curCnt)	
+function QUICKSLOT_DRAW(curCnt)    
 	QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT();
 	QUICKSLOT_REFRESH(curCnt);
 end

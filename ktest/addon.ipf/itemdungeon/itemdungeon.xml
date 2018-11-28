@@ -31,6 +31,10 @@
 		<richtext name="richtext_1_1" parent="buyerBox" rect="0 0 160 24" margin="20 0 0 0" layout_gravity="left top" caption="{@st41}제물 재료" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<labelline name="Optionline2_1" parent="buyerBox" rect="0 0 420 1" margin="0 30 0 0" layout_gravity="center top" skin="None"/>
 		<slot name="stoneSlot" parent="buyerBox" rect="0 0 70 70" margin="20 40 0 0" layout_gravity="left top" DropScp="ITEMDUNGEON_DROP_WEALTH_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="invenslot2" texttooltip="{@st59}아이템을 올려주세요{/}" PopScp="ITEMDUNGEON_RESET_STONE" RBtnUpScp="ITEMDUNGEON_RESET_STONE"/>
+		<richtext name="stoneInfoText" parent="buyerBox" rect="0 0 300 30" margin="110 65 0 0" layout_gravity="left top" caption="{@st66d_y}각성석을 추가해주세요.{/}"/>
+		<richtext name="stoneNameText" parent="buyerBox" rect="0 0 300 30" margin="110 65 0 0" layout_gravity="left top" format="{@st41b}%s" param1="name" param1_def="각성석 아이템 이름"/>
+		<richtext name="stoneCountText" parent="buyerBox" rect="0 0 300 30" margin="0 65 20 0" layout_gravity="right top" format="{@st41b}%s/1" param1="cur" param1_def="0"/>
+
 		<groupbox name="buyerBtnBox" rect="0 0 450 90" margin="0 0 0 50" layout_gravity="center bottom" draw="false"/>
 		<button name="closeShopBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="0 0 75 0" layout_gravity="right center" LBtnUpScp="ITEMDUNGEON_CLOSE_SHOP" caption="{@st42}폐 점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
 		<button name="buyBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="65 20 0 0" layout_gravity="left top" LBtnUpScp="ITEMDUNGEON_BUY_ITEM" caption="{@st42}각 성" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>

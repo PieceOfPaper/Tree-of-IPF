@@ -18,9 +18,9 @@ function MAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('LOCALAREA_LEAVE', 'MAP_ON_MSG');
 
 	addon:RegisterMsg('GAME_START', 'FIRST_UPDATE_MAP');
-	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MAP');
-	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MAP');
-	addon:RegisterMsg('REVEAL_ALL', 'UPDATE_MAP');
+	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'REQUEST_MAP_UPDATE');
+	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'REQUEST_MAP_UPDATE');
+	addon:RegisterMsg('REVEAL_ALL', 'REQUEST_MAP_UPDATE');
 
 	-- addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'UPDATE_MAP');
 	addon:RegisterMsg('NPC_STATE_UPDATE', 'UPDATE_MAP_NPC_STATE');
@@ -36,9 +36,12 @@ function MAP_ON_INIT(addon, frame)
 			
 	addon:RegisterMsg('CHANGE_CLIENT_SIZE', 'FIRST_UPDATE_MAP');
     addon:RegisterMsg('COLONY_MONSTER', 'MAP_COLONY_MONSTER');
-    addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MAP');
+    addon:RegisterMsg('OPEN_COLONY_POINT', 'REQUEST_MAP_UPDATE');
     addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER');
 	addon:RegisterOpenOnlyMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MAP_MGAME_POSITION');
+	addon:RegisterMsg('ON_QUEST_UPDATED', 'UPDATE_MAP');
+	addon:RegisterMsg('QUEST_DELETED', 'REQUEST_MAP_UPDATE');
+	
 	frame = ui.GetFrame("map");
 	INIT_MAPUI_INFO(frame);
 	local mapClassName = session.GetMapName();
@@ -50,6 +53,13 @@ function MAP_ON_INIT(addon, frame)
 
 	INIT_MAP_UI_COMMON(frame, mapClassName);
 
+end
+function REQUEST_MAP_UPDATE(frame)
+	
+	local curmapname = session.GetMapName();
+	local mapprop = geMapTable.GetMapProp(curmapname);
+	local mapname = mapprop:GetClassName();
+	RequestUpdateMinimap(mapname, 0);
 end
 
 function MAP_OPEN(frame)
@@ -374,7 +384,6 @@ function FIRST_UPDATE_MAP(frame, msg)
 end
 
 function UPDATE_MAP(frame)
-
 	local curmapname = session.GetMapName()
 	UPDATE_MAP_BY_NAME(frame, curmapname, GET_CHILD_RECURSIVELY(frame, "map"));
 	RUN_REVEAL_CHECKER(frame, curmapname);
@@ -387,7 +396,7 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 		return;
 	end
 	
-	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
+	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames(mapname);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
 	MAKE_MY_CURSOR_TOP(frame);

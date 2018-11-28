@@ -7,7 +7,6 @@
 		<Child Name="STR_Bonus"/>
 		<Child Name="STR_ADD"/>
 		<Child Name="STR_TEMP"/>
-		<Child Name="STR_BM"/>
 	</hierarchy>
 	<hierarchy Name="DEX">
 		<Child Name="DEX_JOB"/>
@@ -15,7 +14,6 @@
 		<Child Name="DEX_Bonus"/>
 		<Child Name="DEX_ADD"/>
 		<Child Name="DEX_TEMP"/>
-		<Child Name="DEX_BM"/>
 	</hierarchy>
 	<hierarchy Name="CON">
 		<Child Name="CON_JOB"/>
@@ -23,7 +21,6 @@
 		<Child Name="CON_Bonus"/>
 		<Child Name="CON_ADD"/>
 		<Child Name="CON_TEMP"/>
-		<Child Name="CON_BM"/>
 	</hierarchy>
 	<hierarchy Name="MNA">
 		<Child Name="MNA_JOB"/>
@@ -38,7 +35,26 @@
 		<Child Name="INT_Bonus"/>
 		<Child Name="INT_ADD"/>
 		<Child Name="INT_TEMP"/>
+	</hierarchy>
+	<hierarchy Name="STR_ADD">
+		<Child Name="STR_BM"/>
+		<Child Name="STR_ITEM_BM"/>
+	</hierarchy>
+	<hierarchy Name="DEX_ADD">
+		<Child Name="DEX_BM"/>
+		<Child Name="DEX_ITEM_BM"/>
+	</hierarchy>
+	<hierarchy Name="CON_ADD">
+		<Child Name="CON_BM"/>
+		<Child Name="CON_ITEM_BM"/>
+	</hierarchy>
+	<hierarchy Name="MNA_ADD">
+		<Child Name="MNA_BM"/>
+		<Child Name="MNA_ITEM_BM"/>
+	</hierarchy>
+	<hierarchy Name="INT_ADD">
 		<Child Name="INT_BM"/>
+		<Child Name="INT_ITEM_BM"/>
 	</hierarchy>
 	<hierarchy Name="MINPATK">
 		<Child Name="STR"/>
@@ -180,6 +196,14 @@
 		<Child Name="NormalASPD_BM"/>
 		<Child Name="SkillASPD_BM"/>
 	</hierarchy>
+	<hierarchy Name="NormalASPD">
+		<Child Name="ASPD_BM"/>
+		<Child Name="NormalASPD_BM"/>
+	</hierarchy>
+	<hierarchy Name="SkillASPD">
+		<Child Name="ASPD_BM"/>
+		<Child Name="SkillASPD_BM"/>
+	</hierarchy>
 	<hierarchy Name="MSPD">
 		<Child Name="FIXMSPD_BM"/>
 		<Child Name="MSPD_BM"/>
@@ -246,7 +270,7 @@
 		<Child Name="RSta_BM"/>
 	</hierarchy>
 	<hierarchy Name="MovingShot">
-		<Child Name="MovingShotable"/>		
+		<Child Name="MovingShotable"/>
 	</hierarchy>
 	<hierarchy Name="MovingShotable">
 		<Child Name="MovingShot_BM"/>
@@ -271,7 +295,7 @@
 	<hierarchy Name="LootingChance">
 		<Child Name="LootingChance_BM"/>
 	</hierarchy>
-	<hierarchy Name="FIRE_ATK">
+	<hierarchy Name="FIRE_Atk">
 		<Child Name="Fire_Atk_BM"/>
 	</hierarchy>
 	<hierarchy Name="Ice_Atk">

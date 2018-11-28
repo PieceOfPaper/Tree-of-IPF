@@ -33,6 +33,10 @@ function SHOW_DMG_CRI()
 	return ScpArgMsg("ADD_CRI");
 end
 
+function SHOW_DMG_BLOCK()
+	return ScpArgMsg("ADD_BLOCK");
+end
+
 
 function SHOW_DMG_COUNTER()
 	return ScpArgMsg("ADD_COUNTER");

@@ -1969,14 +1969,15 @@ function SCR_Get_KDArmorType(self)
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
+            break;
         end
     end
     
     -- colony buff --
     if IsBuffApplied(self, "GuildColony_BossMonsterBuff_DEF") == 'YES' then
-        value = 99999
+        value = 99999;
     end
-
+	
     return value;
 end
 

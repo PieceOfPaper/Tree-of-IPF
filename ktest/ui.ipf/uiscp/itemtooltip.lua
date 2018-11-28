@@ -524,15 +524,14 @@ function CLOSE_ITEM_TOOLTIP()
 
 end
 
-function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, ItemType, index)
-	
-	if className == 'Scroll_SkillItem' then
+function SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, className, strType, itemType, index)
+	if IS_SKILL_SCROLL_ITEM_BYNAME(className) == true then
 		local obj = GetIES(invitem:GetObject());
 		SET_TOOLTIP_SKILLSCROLL(icon, obj, nil, strType);
 	else
 		icon:SetTooltipType('wholeitem');
-		if nil ~= strType and nil ~= ItemType and nil ~= index then
-			icon:SetTooltipArg(strType, ItemType, index);
+		if nil ~= strType and nil ~= itemType and nil ~= index then			
+			icon:SetTooltipArg(strType, itemType, index);
 		end
 	end
 end
@@ -569,16 +568,13 @@ function SET_TOOLTIP_SKILLSCROLL(icon, obj, itemCls, strType)
 	return 1;
 end
 
--- 마켓??에??묘사??서 ??킬????오??록
 function SET_ITEM_DESC(value, desc, item)
 	if desc == "None" then
 		desc = "";
 	end
 
 	local obj = GetIES(item:GetObject());
-
-	if nil ~= obj and
-	   obj.ClassName == 'Scroll_SkillItem' then		
+	if IS_SKILL_SCROLL_ITEM(obj) == 1 then		
 		local sklCls = GetClassByType("Skill", obj.SkillType)
 		value:SetTextByKey("value", obj.SkillLevel .. " Level/ "..  sklCls.Name);
 	else
@@ -660,8 +656,7 @@ end
 
 function DRAW_EXTRACT_OPTION_COMMON_TOOLTIP(tooltipframe, invitem, targetItem, mainframename)
 	local gBox = GET_CHILD(tooltipframe, mainframename);
-	gBox:RemoveAllChild();
-	
+	gBox:RemoveAllChild();	
 	local ctrlset = gBox:CreateControlSet('tooltip_extract_option', 'EXTRACT_OPTION_CTRLSET', 0, 0);
 	local nameText = GET_CHILD(ctrlset, 'nameText');
 	local nameStr = GET_EXTRACT_ITEM_NAME(invitem);

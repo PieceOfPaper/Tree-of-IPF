@@ -65,7 +65,13 @@ function DURNOTIFY_UPDATE(frame, notOpenFrame)
 
 				local slot = slotSet:GetSlotByIndex(reverseIndex - slotcnt)
 				local icon = CreateIcon(slot);
-				icon:Set(obj.Icon, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
+				local iconImg = obj.Icon;
+				local briquettingID = TryGetProp(obj, 'BriquettingIndex', 0);
+				if briquettingID > 0 then
+					local briquettingItemCls = GetClassByType('Item', briquettingID);
+					iconImg = briquettingItemCls.Icon;
+				end
+				icon:Set(iconImg, 'Item', equipItem.type, reverseIndex - slotcnt, equipItem:GetIESID());
 				icon:SetColorTone(colorTone);
 				slot:ShowWindow(1);
 			end

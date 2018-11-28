@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -41,6 +41,7 @@
 		<Class ClassID="37" ClassName="DuplicationLoginByOtherWorld" Data="다른 서버에서 접속을 시도하여 서버 선택 화면으로 돌아갑니다."/>
 		<Class ClassID="38" ClassName="FailToGetAuthCode" Data="Session Code 획득에 실패하였습니다. 다시 로그인을 시도해 주세요."/>
 		<Class ClassID="39" ClassName="OutOfVideoMemory" Data="Direct3D 가 처리를 실시하는데 충분한 디스플레이 메모리가 없습니다."/>
+    <Class ClassID="40" ClassName="ServerListToolTip" Data="{@st59}접속을 원하는 서버를 선택하여 주세요."/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
@@ -49,8 +50,8 @@
 		<Class ClassID="304" ClassName="GroupList" Data="대화 목록"/>
 		<Class ClassID="305" ClassName="{WHO}{TYPE}Login" Data="[{TYPE}]{WHO}님이 접속했습니다."/>
 		<Class ClassID="306" ClassName="{WHO}{TYPE}Logout" Data="[{TYPE}]{WHO}님이 접속을 종료했습니다."/>
-		<Class ClassID="307" ClassName="CHNSYSTEMTAG" Data="系统"/>
-		<Class ClassID="308" ClassName="CHNCLIENTTITLE" Data="救世之树"/>
+		<Class ClassID="307" ClassName="CHNSYSTEMTAG" Data="系?"/>
+		<Class ClassID="308" ClassName="CHNCLIENTTITLE" Data="救世之?"/>
 		<Class ClassID="309" ClassName="FailToWhisper" Data="귓속말에 실패했습니다. 다시 시도해주세요."/>
 		<Class ClassID="310" ClassName="FailToInviteGroupChat" Data="그룹 채팅 초대에 실패했습니다. 다시 시도해주세요."/>
 		<Class ClassID="311" ClassName="GiveDamage{TO}{AMOUNT}" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_damage 24 24}[{TO}]에게 [{AMOUNT}]의 피해를 주었습니다."/>
@@ -69,12 +70,13 @@
 		<Class ClassID="324" ClassName="CantUseMicRapidly" Data="연속해서 사용하실 수 없습니다."/>
 		<Class ClassID="325" ClassName="YouResurrect" Data="{#1663c3}{ol}[전투 메시지]{img chat_icon_resurrection 24 24} 캐릭터가 부활했습니다."/>
 		<Class ClassID="326" ClassName="GroupMsg{TYPE}{MSG}" Data="[{TYPE}]{MSG}"/>
-		<Class ClassID="327" ClassName="DPSMsg{DPS}{Damage}{Time}" Data="{ol}{#00ff00}DPS:{DPS} {#ff0000}TotalDamage:{Damage} {#ffff00}Sec:{Time}"/>
+	<Class ClassID="327" ClassName="DPSMsg{DPS}{Damage}{Time}" Data="{ol}{#00ff00}DPS:{DPS} {#ff0000}TotalDamage:{Damage} {#ffff00}Sec:{Time}"/>
 	</Category>
 	<Category Name="Skill">
 		<Class ClassID="500" ClassName="CannotGetSkill{NAME}" Data="[{NAME}] 스킬을 습득할 수 없습니다."/>
 		<Class ClassID="501" ClassName="CannotGetSkill{Reason}" Data="[{Reason}] 조건이 만족하지 않아 습득할 수 없습니다."/>
 		<Class ClassID="502" ClassName="CanOnlyInEqualMap" Data="같은 맵에서만 사용 가능합니다."/>
+		<Class ClassID="503" ClassName="CanOnlyWithMaxLevel" Data="최대 레벨일 때에만 사용 가능합니다."/>
 		<Class ClassID="504" ClassName="CannotToggleAbilitySkillCoolDown" Data="스킬 재사용 대기시간 중에는 특성 ON/OFF를 변경할 수 없습니다."/>
 		<Class ClassID="505" ClassName="TooFarTarget" Data="대상과의 거리가 멀어 사용할 수 없습니다."/>
 	</Category>
@@ -106,7 +108,7 @@
 		<Class ClassID="1124" ClassName="customdrag" Data="연금공방"/>
 		<Class ClassID="1125" ClassName="Maximum" Data="최대"/>
 		<Class ClassID="1126" ClassName="Step" Data="단계"/>
-		<Class ClassID="1129" ClassName="IsAwaken" Data="각성 수치"/>
+			<Class ClassID="1129" ClassName="IsAwaken" Data="각성 수치"/>
 		<Class ClassID="1130" ClassName="LegendPrefix" Data="레전드 세트 옵션"/>
 		<Class ClassID="1131" ClassName="RandomOption" Data="랜덤 옵션"/>
 		<Class ClassID="1132" ClassName="ExchangeAntique" Data="유물 교환"/>
@@ -283,7 +285,7 @@
 		<Class ClassID="2271" ClassName="DuplicateMarketSearchOption" Data="이미 설정된 검색 옵션입니다."/>
 		<Class ClassID="2272" ClassName="CannotCancelBecauseNotYourItem" Data="해당 캐릭터가 등록한 아이템이 아니기 때문에 취소할 수 없습니다."/>
 		<Class ClassID="2273" ClassName="PutLifeTimeItemInWareHouse" Data="기간제 아이템을 창고에 넣어도 기간은 동작하며, 창고 안에서 기간이 만료될 수 있습니다.{nl}계속하시겠습니까?{nl}{@st66d_y}[주의] '배수 토큰' 아이템은 창고 안에서 기간이 만료되었을 경우 수령시 사라지게 됩니다.{/}"/>
-		<Class ClassID="2274" ClassName="SafeAuthInfo" Data="OTP 또는 플레이 패스 사용"/>
+		<Class ClassID="2274" ClassName="SafeAuthInfo" Data="U-OTP 또는 넥슨 OTP 사용"/>
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
 		<Class ClassID="2278" ClassName="CanExchangeOnlyOnce" Data="교환된 아이템은 다시 교환 할 수 없습니다."/>
@@ -7085,8 +7087,8 @@
 		<Class ClassID="70194" ClassName="JOB_SHADOWMANCER_SWITCH_OFF" Data="장치를 감싸고 있던 기운이 사라져 그림자가 보이지 않게 됐습니다."/>
 		<Class ClassID="70195" ClassName="JOB_SHADOWMANCER_YOU_DOING_OTHER_PLACE" Data="이미 다른 지역에서 진행하여 그 지역의 기운이 남아있습니다.{nl}다음 날에 다시 시도해주세요."/>
 		<Class ClassID="70196" ClassName="F_CORAL_44_3_ALREADY_PURITY" Data="이미 누군가에 의해 정화됐습니다"/>
-		<Class ClassID="70197" ClassName="BOOKCOLLECT_ASK_PAGE_MSG" Data="찢어진 책의 책장에 관해 묻는다"/>
-		<Class ClassID="70198" ClassName="BOOKCOLLECT_CHECK_MSG" Data="찢어진 책의 책장을 모아왔다고 한다"/>
+		<Class ClassID="70197" ClassName="BOOKCOLLECT_ASK_PAGE_MSG" Data="찢어진 책장에 관해 묻는다"/>
+		<Class ClassID="70198" ClassName="BOOKCOLLECT_CHECK_MSG" Data="찢어진 책장을 모아왔다고 한다"/>
 		<Class ClassID="70199" ClassName="BOOKCOLLECT_EXPLAIN_MSG" Data="설명해달라고 한다"/>
 		<Class ClassID="70200" ClassName="BOOKCOLLECT_GIVE_PAPER_MSG" Data="모아온 책장들을 건네준다"/>
 		<Class ClassID="70201" ClassName="DAEGIL_GIMMICK_DOG_SOUND" Data="멍멍!"/>
@@ -8130,6 +8132,7 @@
 		<Class ClassID="100078" ClassName="skill_visibletalent" Data="비지블 탤런트 공격"/>
 		<Class ClassID="100079" ClassName="guild_quest_enter" Data="길드퀘스트 입장"/>
 		<Class ClassID="100080" ClassName="guild_quest_cancel" Data="길드퀘스트 진행 취소"/>
+		<Class ClassID="100081" ClassName="ADD_BLOCK" Data="블록!"/>
 	</Category>
 	<Category Name="Party">
 		<Class ClassID="101001" ClassName="GULID_OUT" Data="길드 탈퇴"/>
@@ -8493,7 +8496,7 @@
 		<Class ClassID="102412" ClassName="GuildJointInvLackOfTrustPoint" Data="개인 거래 등급이 낮아 길드 공용 창고를 이용할 수 없습니다."/>
 		<Class ClassID="102413" ClassName="GuildJointInvNotAllowedItem" Data="길드 공용 창고를 이용할 수 없는 아이템 입니다."/>
 		<Class ClassID="102414" ClassName="GuildNewJoinRequest" Data="가입 요청이 들어왔습니다."/>
-<Class ClassID="102415" ClassName="ReallySummonGuildMember" Data="[{NAME}] 길드원을 소환하시겠습니까?"/>
+		<Class ClassID="102415" ClassName="ReallySummonGuildMember" Data="[{NAME}] 길드원을 소환하시겠습니까?"/>
 		<Class ClassID="102416" ClassName="ReallyWarpGuildMember" Data="[{NAME}] 길드원에게 이동하시겠습니까?"/>
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작 시간 감소"/>

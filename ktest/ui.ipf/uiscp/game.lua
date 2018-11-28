@@ -1371,7 +1371,7 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		end
 	end
 
-	if IS_SKILL_SCROLL_ITEM ~= nil and IS_SKILL_SCROLL_ITEM(item) == true then
+	if IS_SKILL_SCROLL_ITEM(item) == 1 then
 		local skillCls = GetClassByType('Skill', item.SkillType);
 		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
 	end
@@ -1731,7 +1731,6 @@ function SCR_SKILLSCROLL(invItem)
 
 	local obj = GetIES(invItem:GetObject());
 	if obj.SkillType == 0 then
-
 		return;
 	end
 

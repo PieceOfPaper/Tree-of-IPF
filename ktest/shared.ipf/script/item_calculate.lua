@@ -394,6 +394,16 @@ function GET_BASIC_MATK(item)
         lv = pcBangItemLevel;
     end
     
+    local itemstring = TryGetProp(item, 'StringArg')
+    
+    if itemstring == 'Growth_Item' then
+    local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+
+        end
+    end
+    
     -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
     lv, grade = SCR_PVP_ITEM_LV_GRADE_REINFORCE_SET(item, lv, grade);
 
@@ -1405,7 +1415,7 @@ function IS_PERSONAL_SHOP_TRADABLE(itemCls)
         return 0;
     end
 
-    if itemCls.ClassName == 'Default_Recipe' or itemCls.ClassName == 'Scroll_SkillItem' then
+    if itemCls.ClassName == 'Default_Recipe' or IS_SKILL_SCROLL_ITEM(itemCls) == 1 then
         return 0;
     end
 
@@ -1961,7 +1971,6 @@ function CALC_GROWTH_ITEM_LEVEL(item)
     for i = 2, #itemLvList do
         if pcLv < itemLvList[i] then
             value = itemLvList[i - 1];
-            print(value)
             break;
         end
     end

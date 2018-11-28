@@ -12,10 +12,7 @@ end
 function BRIQUETTING_UI_CLOSE()
 	INVENTORY_SET_CUSTOM_RBTNDOWN('None');
 	ui.CloseFrame('inventory');
-	local inventory = ui.GetFrame('inventory');	
-	INVENTORY_SET_ICON_SCRIPT('None');
-	INVENTORY_UPDATE_ICONS(inventory);
-	INVENTORY_CLEAR_SELECT(inventory);
+	RESET_INVENTORY_ICON();
 end
 
 function BRIQUETTING_SLOT_POP(parent, ctrl)

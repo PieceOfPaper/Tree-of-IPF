@@ -61,20 +61,41 @@ function PET_MHP_BY_ABIL(statValue)
 end
 
 function PET_GET_MHP(self)
-    local lv = self.Lv;
-    local addLv = self.Level;
-    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP);
-    return math.floor(ret);
+    local owner = self
+    if IsZombie(self) ~= 1 then
+        owner = GetTopOwner(self)
+    end
+    
+    local lv = TryGetProp(owner, "Lv", 1);
+    local standardMHP = lv * 10;
+    local byLevel = (standardMHP / 4) * lv;
+    local stat = TryGetProp(self, "CON", 1);
+    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005));
+    local value = standardMHP + byLevel + byStat + GetSumOfPetEquip(self, "MHP");
+    return math.floor(value);
 end
 
 function PET_GET_MHP_C(self, addAbil)
     if addAbil == nil then
         addAbil = 0;
     end
-    local lv = self.Lv;
-    local addLv = self.Level;
-    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
-    return math.floor(ret);
+--    local lv = self.Lv;
+--    local addLv = self.Level;
+--    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
+--    return math.floor(ret);
+    
+    local owner = self
+    if IsZombie(self) ~= 1 then
+        owner = GetTopOwner(self)
+    end
+    
+    local lv = TryGetProp(owner, "Lv", 1);
+    local standardMHP = lv * 10;
+    local byLevel = (standardMHP / 4) * lv;
+    local stat = TryGetProp(self, "CON", 1);
+    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005));
+    local value = standardMHP + byLevel + byStat + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
+    return math.floor(value);
 end
 
 function PET_GET_RHP(self)

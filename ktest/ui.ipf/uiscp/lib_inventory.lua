@@ -493,7 +493,14 @@ function INVSLOT_CLEAR_CUSTOM(slot)
 	end
 end
 
-function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)      
+function RESET_INVENTORY_ICON()
+	local inventory = ui.GetFrame('inventory');	
+	INVENTORY_SET_ICON_SCRIPT('None');
+	INVENTORY_UPDATE_ICONS(inventory);
+	INVENTORY_CLEAR_SELECT(inventory);
+end
+
+function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)	
 	local frame = ui.GetFrame("inventory");
 	local curValue = frame:GetUserValue("CUSTOM_ICON_SCP");
 	if curValue == scriptName then

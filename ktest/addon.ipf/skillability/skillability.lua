@@ -1056,10 +1056,24 @@ function ON_SKILLABILITY_TOGGLE_SKILL_ACTIVE(frame, msg, abilName, isActive)
 end
 
 function ABILITYSHOP_EXTRACTOR_BTN_CLICK(parent, ctrl)
+    local mapClsName = session.GetMapName();
+    local mapCls = GetClass('Map', mapClsName);
+    if TryGetProp(mapCls, 'MapType', 'None') ~= 'City' then
+        ui.SysMsg(ClMsg('AllowedInTown'));
+        return;
+    end
+
     ui.OpenFrame('ability_point_extractor');
 end
 
 function ABILITYSHOP_BUY_BTN_CLICK(parent, ctrl)
+    local mapClsName = session.GetMapName();
+    local mapCls = GetClass('Map', mapClsName);
+    if TryGetProp(mapCls, 'MapType', 'None') ~= 'City' then
+        ui.SysMsg(ClMsg('AllowedInTown'));
+        return;
+    end
+
     ui.OpenFrame('ability_point_buy');
 end
 

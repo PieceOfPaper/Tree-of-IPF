@@ -1,6 +1,7 @@
 -- inventory.lua
 g_lock_state_item_guid = 0
 lock_state_check = {}
+g_weapon_swap_request_index = nil
 
 lock_state_check.can_lock = function(item_guid)
     if g_lock_state_item_guid == item_guid then return false
@@ -2652,7 +2653,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)    
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count) --hs_comment
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
@@ -4071,10 +4072,8 @@ function GET_WEAPON_SWAP_INDEX()
 	return curIndex
 end
 
-function MAKE_WEAPON_SWAP_BUTTON()
-	
-	local frame = ui.GetFrame("inventory");
-	
+function MAKE_WEAPON_SWAP_BUTTON()	
+	local frame = ui.GetFrame("inventory");	
 
 	local pc = GetMyPCObject();
 	if pc == nil then
@@ -4084,8 +4083,7 @@ function MAKE_WEAPON_SWAP_BUTTON()
 	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
 	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
 	
-	local abil = GetAbility(pc, "SwapWeapon");
-	
+	local abil = GetAbility(pc, "SwapWeapon");	
 	if abil ~= nil then
 		weaponSwap1 : ShowWindow(1)
 		weaponSwap2 : ShowWindow(1)
@@ -4095,15 +4093,14 @@ function MAKE_WEAPON_SWAP_BUTTON()
 
 		return;
 	end
-
-
+    
 	local curIndex = 0
 	curIndex = GET_WEAPON_SWAP_INDEX()
 				
 	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
 	local WEAPONSWAP_DOWN_IMAGE = frame : GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
 
-	if frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 0 then
+	if frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 0 then
 		if curIndex == 0 or curIndex == 1 then
 			frame : SetUserValue('CURRENT_WEAPON_INDEX', 1)
 			weaponSwap1 : SetImage(WEAPONSWAP_UP_IMAGE);
@@ -4113,9 +4110,9 @@ function MAKE_WEAPON_SWAP_BUTTON()
 			weaponSwap2 : SetImage(WEAPONSWAP_UP_IMAGE);
 			weaponSwap1:SetImage(WEAPONSWAP_DOWN_IMAGE);
 		end
-	elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
+	elseif frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 1 then
 		DO_WEAPON_SWAP(frame, 1)
-	elseif frame : GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
+	elseif frame:GetUserIValue('CURRENT_WEAPON_INDEX') == 2 then
 		DO_WEAPON_SWAP(frame, 2)
 	end
 end
@@ -4128,7 +4125,6 @@ function WEAPONSWAP_HOTKEY_ENTERED()
 	end
 	local frame = ui.GetFrame("inventory");
 	
-
 	local pc = GetMyPCObject();
 	if pc == nil then
 		return;
@@ -4157,8 +4153,10 @@ function WEAPONSWAP_HOTKEY_ENTERED()
 end
 
 --index = 1 일때 1번창으로 스왑하는 함수. 2일때 2번창으로 스왑하는 함수
-function DO_WEAPON_SWAP(frame, index)
-	local frame = ui.GetFrame("inventory");
+function DO_WEAPON_SWAP(frame, index)        
+    if quickslot.IsDoingWeaponSwap() == true then
+        return
+    end
 
 	if index == nil then
 		index = 1
@@ -4168,8 +4166,10 @@ function DO_WEAPON_SWAP(frame, index)
 	if pc == nil then
 		return;
 	end
-	
-	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
+    g_weapon_swap_request_index = index    	
+
+    local frame = ui.GetFrame("inventory");
+    local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
 	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
 	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
 	local WEAPONSWAP_DOWN_IMAGE = frame:GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
@@ -4186,8 +4186,9 @@ function DO_WEAPON_SWAP(frame, index)
 		return;
 	end
 
-	frame:SetUserValue('CURRENT_WEAPON_INDEX', index)
-	quickslot.SwapWeapon();
+	frame:SetUserValue('CURRENT_WEAPON_INDEX', index);
+
+    quickslot.SwapWeapon()    
 
     local abil = GetAbility(pc, "SwapWeapon");
 
@@ -4212,16 +4213,14 @@ end
 function DO_WEAPON_SWAP_1(frame)
 	if frame == nil then
 		frame = ui.GetFrame("inventory");
-	end
-
+	end   
 	DO_WEAPON_SWAP(frame, 1)
 end
 
 function DO_WEAPON_SWAP_2(frame)
 	if frame == nil then
 		frame = ui.GetFrame("inventory");
-	end
-
+	end    
 	DO_WEAPON_SWAP(frame, 2)
 end
 

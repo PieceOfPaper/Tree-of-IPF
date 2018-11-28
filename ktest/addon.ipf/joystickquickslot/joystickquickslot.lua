@@ -246,7 +246,7 @@ function JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT()
 		if true == updateslot and quickSlotInfo.category ~= 'NONE' then
 			local slot = frame:GetChildRecursively("slot"..i+1);
 			tolua.cast(slot, "ui::CSlot");
-			SET_QUICK_SLOT(slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
+			SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false);
 		end
 	end
 end
@@ -809,7 +809,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..hotKey, 'default', ui.LEFT, ui.TOP, 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
 		if 'None' ~= cate then        
-			SET_QUICK_SLOT(slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);
+			SET_QUICK_SLOT(frame, slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0);
 		end
 		slot:SetUserValue('ICON_CATEGORY', 'None');
 		slot:SetUserValue('ICON_TYPE', 0);

@@ -997,9 +997,12 @@ end
 
 function DashRunBlend_ENTER(actor, obj, buff)
 
-    --actor:GetEffect():PlayEffect('I_warrior_dash_run_line2', 0.7, EFTOFFSET_BOTTOM);
     effect.PlayActorEffect(actor, 'I_warrior_dash_run_line2', 'Dummy_emitter', 2.0, 1.7);
     actor:GetEffect():SetColorBlend("DashRun", 100, 100, 100, 100, true, 0, true, 0.15);
+
+    local dir = actor:GetHorizonalDir();
+    actor:GetEffect():SetStartDirection("I_warrior_dash_run_line2", -dir.x, 0, -dir.y);
+    
 end
 
 function DashRunBlend_LEAVE(actor, obj, buff)
@@ -1179,4 +1182,21 @@ end
 
 function DaggerGuard_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetGuardAnim();
+end
+
+function WING_GUILTY_FAIRY_BUFF_ENTER(actor, obj, buff)
+	SCR_CREATE_FAIRY(actor:GetHandleVal(), "guilty");
+end
+
+function WING_GUILTY_FAIRY_BUFF_LEAVE(actor, obj, buff)
+	SCR_REMOVE_FAIRY(actor:GetHandleVal(), "guilty");
+end
+
+function GET_BUFF_BY_NAME_C(buffName)
+    local buffCls = GetClass('Buff', buffName);
+    if buffCls == nil then
+        return nil;
+    end
+    local handle = session.GetMyHandle();
+    return info.GetBuff(handle, buffCls.ClassID);
 end

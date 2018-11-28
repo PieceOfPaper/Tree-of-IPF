@@ -35,7 +35,7 @@
 		<labelline name="line2" parent="costBox" rect="0 0 460 4" margin="0 0 0 50" layout_gravity="center bottom" skin="labelline_def2"/>
 		<richtext name="costStaticText" parent="costBox" rect="0 0 300 30" margin="10 0 0 13" layout_gravity="left bottom" caption="{img silver_pic 24 24} 가격 {img white_right_arrow 16 16}" fontname="white_16_b_ol"/>
 		<richtext name="priceText" parent="costBox" rect="0 0 300 30" margin="0 0 10 20" layout_gravity="right bottom" format="{@st66d_y}%s" param1="price" param1_def="0"/>
-		<groupbox name="reinfResultBox" rect="0 0 500 1080" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" resizebyparent="true"/>
+		<groupbox name="reinfResultBox" rect="0 0 500 1080" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" resizebyparent="true" hittestbox="false"/>
 		<picture name="successBgBox" parent="reinfResultBox" rect="0 0 507 400" margin="0 60 0 0" layout_gravity="center top" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3"/>
 		<picture name="successPic" parent="successBgBox" rect="0 0 401 150" hittest="false" image="BnYellow_skin" margin="0 240 0 0" stretch="true" layout_gravity="center top"/>
 		<picture name="successItemPic" parent="successBgBox" rect="0 0 140 140" hittest="false" margin="0 120 0 0" stretch="true" layout_gravity="center top" image="testclose_button"/>

@@ -67,10 +67,23 @@ end
 function ITEMDUNGEON_RESET_STONE(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local stoneSlot = GET_CHILD_RECURSIVELY(frame, "stoneSlot");
-	CLEAR_SLOT_ITEM_INFO(stoneSlot);
+	local stoneItemCls = GetClass('Item', 'misc_awakeningStone1');
+	local icon = imcSlot:SetImage(stoneSlot, stoneItemCls.Icon);
+	icon:SetColorTone('FFFF0000');
+
+	local stoneCountText = GET_CHILD_RECURSIVELY(frame, 'stoneCountText');
+	stoneCountText:SetColorTone('FFFF0000');
+	stoneCountText:SetTextByKey('cur', '0');
+
+	local stoneInfoText = GET_CHILD_RECURSIVELY(frame, 'stoneInfoText');
+	imcRichText:SetColorBlend(stoneInfoText, true, 2,  0xFFFFFFFF, 0xFFFFBB00);
+	stoneInfoText:ShowWindow(1);
+
+	local stoneNameText = GET_CHILD_RECURSIVELY(frame, 'stoneNameText');
+	stoneNameText:ShowWindow(0);
 end
 
-function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
+function ITEMDUNGEON_DROP_ITEM(parent, ctrl)	
 	local frame = parent:GetTopParentFrame();
 	local liftIcon = ui.GetLiftIcon();
 	local slot = tolua.cast(ctrl, ctrl:GetClassString());
@@ -116,7 +129,7 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 	UPDATE_ITEMDUNGEON_CURRENT_ITEM(frame);	
 end
 
-function ITEMDUNGEON_DROP_WEALTH_ITEM(parent, ctrl)
+function ITEMDUNGEON_DROP_WEALTH_ITEM(parent, ctrl)	
 	local frame = parent:GetTopParentFrame();
 	local liftIcon = ui.GetLiftIcon();
 	local slot = tolua.cast(ctrl, ctrl:GetClassString());
@@ -146,7 +159,19 @@ function ITEMDUNGEON_DROP_WEALTH_ITEM(parent, ctrl)
 		return;
 	end
 
-	SET_SLOT_ITEM(slot, invItem, invItem.count);
+	local icon = imcSlot:SetItemInfo(slot, invItem, invItem.count);
+	icon:SetColorTone('FFFFFFFF');
+	
+	local stoneCountText = GET_CHILD_RECURSIVELY(frame, 'stoneCountText');
+	stoneCountText:SetColorTone('FFFFFFFF');
+	stoneCountText:SetTextByKey('cur', '1');
+
+	local stoneInfoText = GET_CHILD_RECURSIVELY(frame, 'stoneInfoText');
+	stoneInfoText:ShowWindow(0);
+
+	local stoneNameText = GET_CHILD_RECURSIVELY(frame, 'stoneNameText');
+	stoneNameText:SetTextByKey('name', itemObj.Name);
+	stoneNameText:ShowWindow(1);
 end
 
 function EXEC_ITEM_DUNGEON(parent, ctrl)
@@ -281,6 +306,7 @@ function ITEMDUNGEON_INIT_FOR_BUYER(frame, isSeller)
 	end
 	ITEMDUNGEON_SET_TITLE(frame, false);
 	ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame);
+	ITEMDUNGEON_RESET_STONE(frame);
 end
 
 function ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame)

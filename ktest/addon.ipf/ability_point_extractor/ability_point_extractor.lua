@@ -6,6 +6,9 @@ function ABILITY_POINT_EXTRACTOR_OPEN(frame)
     local feeValueText = GET_CHILD_RECURSIVELY(frame, 'feeValueText');
     feeValueText:SetTextByKey('value', GET_COMMAED_STRING(ABILITY_POINT_EXTRACTOR_FEE));
     ABILITY_POINT_EXTRACTOR_RESET(frame);
+
+    local sklAbilFrame = ui.GetFrame('skillability');
+    SET_FRAME_OFFSET_TO_RIGHT_TOP(frame, sklAbilFrame);
 end
 
 function ABILITY_POINT_EXTRACTOR_GET_ABILITY_POINT()
@@ -150,11 +153,12 @@ end
 function ABILITY_POINT_EXTRACTOR_SET_EDIT(edit, count)
     local topFrame = edit:GetTopParentFrame();
     local enableCount = topFrame:GetUserIValue('ENABLE_COUNT');
-    if count == nil or count == "" then
+    count = tonumber(count)
+    if count == nil then
         count = 0;
         edit:SetText('0');
     end
-    count = math.min(tonumber(count), MAX_ABILITY_POINT);
+    count = math.min(count, MAX_ABILITY_POINT);
     if count > enableCount then
         local EXCEED_POINT_STYLE = topFrame:GetUserConfig('EXCEED_POINT_STYLE');
         edit:SetText(EXCEED_POINT_STYLE..count..'{/}');
@@ -190,7 +194,7 @@ function ABILITY_POINT_EXTRACTOR(parent, ctrl)
 	
     local msg = ScpArgMsg("AskExtractAbilityPoint{Silver}{Scroll}{ConsumePoint}", "Silver", consumeMoneyStr, "Scroll", count, "ConsumePoint", consumePointStr);
 	local yesscp = string.format('EXEC_ABILITY_POINT_EXTRACTOR(%d)', count);
-    ui.MsgBox(msg, yesscp, 'None');
+    ui.MsgBox_NonNested(msg, topFrame:GetName(), yesscp, 'None');
 end
 
 function EXEC_ABILITY_POINT_EXTRACTOR(count)

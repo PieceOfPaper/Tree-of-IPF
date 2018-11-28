@@ -8,8 +8,7 @@ function INSERT_TEXT_DETAIL_LIST(itemlist, row, col, text, horAlign, Item, textT
 	ctrl:SetTextFixHeight(true);
 	if nil ~= Item then
 		local obj = GetIES(Item:GetObject());
-		if nil ~= obj and
-		   obj.ClassName == 'Scroll_SkillItem' then		
+		if IS_SKILL_SCROLL_ITEM(obj) == 1 then		
 			local sklCls = GetClassByType("Skill", obj.SkillType)
 			text = text .. " [".. sklCls.Name .. ":" .. obj.SkillLevel.."]";
 		end

@@ -107,7 +107,11 @@ function TGTINFO_TARGET_SET(frame, msg, argStr, argNum)
 
     -- birth buff
     local mon_attribute_img = TARGETINFO_GET_ATTRIBUTE_SKIN_ANG_IMG(frame, targetinfo, targetHandle);
-    local attribute = targetinfo.attribute
+	local attribute = targetinfo.attribute
+	
+	if attribute == nil then
+		attribute = "None"
+	end
     local attributeImgName = "attribute_"..attribute
 	if attributeImgName == "None" or attribute == "None" then
 		mon_attribute_img:ShowWindow(0)

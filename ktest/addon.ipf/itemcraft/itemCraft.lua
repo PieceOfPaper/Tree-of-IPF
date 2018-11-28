@@ -85,18 +85,12 @@ function ITEMCRAFT_FIRST_OPEN(frame)
 end
 
 function ITEMCRAFT_CLOSE(frame)
-
 	session.ResetItemList();
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON");
-	INVENTORY_SET_ICON_SCRIPT("None");
-
-    local invframe = ui.GetFrame('inventory')
-	INVENTORY_UPDATE_ICONS(invframe)
-	ui.CloseFrame('inventory')
-
-
+	RESET_INVENTORY_ICON();
+	ui.CloseFrame('inventory');
 end
 
 function CRAFT_OPEN(frame)
@@ -171,7 +165,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 	end
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("None");
+	RESET_INVENTORY_ICON();
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
 
@@ -1083,8 +1077,7 @@ function CRAFT_RECIPE_FOCUS(page, ctrlSet)
 		CRAFT_MINIMIZE_FOCUS(page);
 
 		INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-		INVENTORY_SET_ICON_SCRIPT("None");
-		
+		RESET_INVENTORY_ICON();		
 	else
 		CRAFT_MINIMIZE_FOCUS(page);
 		page:SetUserValue("minimized", 0);
