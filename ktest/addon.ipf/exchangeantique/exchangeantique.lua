@@ -236,36 +236,6 @@ function CLICK_EXCHANGEANTIQUE_RADIOBTN(parent)
 	end
 end
 
-local function _GET_CHANGED_OPTION_STR(item, invItem)
-	local str = '';
-	local baseCls = GetClass('Item', item.ClassName);
-	local checkPropList = GET_COPY_TARGET_OPTION_LIST();
-	for i = 1, #checkPropList do
-		if TryGetProp(baseCls, checkPropList[i]) ~= TryGetProp(item, checkPropList[i]) then
-			if str ~= '' then
-				str = str..', ';
-			end
-			if IsExistMsg(checkPropList[i]) == 1 then
-				str = str..ClMsg(checkPropList[i]);
-			end
-		end
-	end
-
-	for i = 0, item.MaxSocket - 1 do
-		if invItem:IsAvailableSocket(i) == true then
-			if str ~= '' then
-				str = str..', ';
-			end
-			str = str..ClMsg('Gem');
-			break;
-		end
-	end
-	if str ~= '' then
-		str = '['..str..'] ';
-	end	
-	return str;
-end
-
 function CLICK_EXCHANGE_BUTTON()
 	local frame = ui.GetFrame("exchangeantique");
 	local tempSelectedItemIndex = frame:GetUserIValue('NOW_SELECT_ITEM_ID')
@@ -287,8 +257,78 @@ function CLICK_EXCHANGE_BUTTON()
 	if invItem == nil then
 		return;
 	end
-	local targetItem = GetIES(invItem:GetObject());
-	local str = ScpArgMsg('AntiqueExchange{OPTIONS}', 'OPTIONS', _GET_CHANGED_OPTION_STR(targetItem, invItem));
+		
+	local function _GET_CHANGED_OPTION_STR(item, invItem)
+		local str = '';
+		local baseCls = GetClass('Item', item.ClassName);
+		local checkPropList = GET_COPY_TARGET_OPTION_LIST();
+		for i = 1, #checkPropList do
+			if TryGetProp(baseCls, checkPropList[i]) ~= TryGetProp(item, checkPropList[i]) then			
+				if IsExistMsg(checkPropList[i]) == 1 then
+					if str ~= '' then
+						str = str..', ';
+					end
+					str = str..ClMsg(checkPropList[i]);
+				end
+			end
+		end
+
+		for i = 0, item.MaxSocket - 1 do
+			if invItem:IsAvailableSocket(i) == true then
+				if str ~= '' then
+					str = str..', ';
+				end
+				str = str..ClMsg('Gem');
+				break;
+			end
+		end
+		if str ~= '' then
+			str = '['..str..'] ';
+		end	
+		return str;
+	end
+
+	local function _GET_CHANGED_PR_SOCKET_STR(invItem, exchangeItem)
+		if invItem == nil or invItem:GetObject() == nil or exchangeItem == nil then
+			return '';
+		end
+		local invItemObj = GetIES(invItem:GetObject());
+		local addPR = GET_REBUILD_CARE_ADD_PR(invItemObj, exchangeItem, invItem);
+		local str = '{@st66d_y}';
+		if addPR ~= 0 then
+			str = str..ClMsg('PR')..' '
+			if addPR > 0 then
+				str = str..tostring(addPR)..' '..ClMsg('Increase');
+			else
+				str = str..tostring(-addPR)..' '..ClMsg('Decrease');
+			end
+		end
+
+		local curAvailableSocket = GET_CURRENT_AVAILABLE_SOCKET_COUNT(invItemObj, invItem);
+		local resultSocket = curAvailableSocket;		
+		if IS_REBUILD_CARE_ADD_PR_TARGET(invItemObj, exchangeItem) == true then
+			resultSocket = resultSocket + 2;
+		end		
+		resultSocket = math.min(SCR_GET_MAX_SOKET(exchangeItem), resultSocket);		
+		local addSocket = resultSocket - curAvailableSocket;
+		if addSocket ~= 0 then
+			if str ~= '' then
+				str = str..', ';
+			end
+
+			str = str..ClMsg('JustSocket')..' '
+			if addSocket > 0 then
+				str = str..tostring(addSocket)..' '..ClMsg('Increase');
+			else
+				str = str..tostring(-addSocket)..' '..ClMsg('Decrease');
+			end
+		end
+
+		return str..'{/}';
+	end
+
+	local targetItem = GetIES(invItem:GetObject());	
+	local str = ScpArgMsg('AntiqueExchange{OPTIONS}', 'OPTIONS', _GET_CHANGED_OPTION_STR(targetItem, invItem), 'ADDINFO', _GET_CHANGED_PR_SOCKET_STR(invItem, GetClassByType('Item', tempSelectedItemIndex)));
 	if frame:GetUserIValue('CARE_MODE') == 1 then
 		str = str..'{nl}'..ClMsg('CanExchangeOnlyOnce');		
 	end

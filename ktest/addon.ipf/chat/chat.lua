@@ -20,7 +20,7 @@ function CHAT_OPEN_INIT()
 		local chatEditCtrl = frame:GetChild('mainchat');
 		local btn_emo = GET_CHILD(frame, "button_emo");
 		local titleCtrl = GET_CHILD(frame,'edit_to_bg');	
-		chatEditCtrl:Resize(chatEditCtrl:GetOriginalWidth() - btn_emo:GetWidth() - titleCtrl:GetWidth() - 28, chatEditCtrl:GetOriginalHeight());
+		chatEditCtrl:Resize((chatEditCtrl:GetOriginalWidth()- 23) - btn_emo:GetWidth() - titleCtrl:GetWidth() - 28, chatEditCtrl:GetOriginalHeight());
 	end
 end;
 

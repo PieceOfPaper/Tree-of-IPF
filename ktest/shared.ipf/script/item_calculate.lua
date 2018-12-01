@@ -1985,3 +1985,23 @@ function CALC_GROWTH_ITEM_LEVEL(item)
     return value;
     
 end
+
+function GET_CURRENT_AVAILABLE_SOCKET_COUNT(item, invItem)
+    if item == nil then
+        return 0;
+    end
+
+    local count = 0;
+    for i = 0, item.MaxSocket - 1 do
+        if invItem ~= nil then -- call by client
+            if invItem:IsAvailableSocket(i) == true then
+                count = count + 1;
+            end
+        else -- call by server            
+            if GetItemSocketInfo(item, i) ~= nil then
+                count = count + 1;
+            end
+        end
+    end
+    return count;
+end

@@ -542,9 +542,6 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 				if skl ~= nil then
 					iesID = skl:GetIESID();
 				end
-				local quickSlotFrame = ui.GetFrame("quickslotnexpbar")
-				local SKILL_TOOLTIP_WIDTH = quickSlotFrame:GetUserConfig("SKILL_TOOLTIP_WIDTH")
-				slot:SetPosTooltip(ui.GetClientInitialWidth()/2 - SKILL_TOOLTIP_WIDTH/2 - slot:GetX(), 0);
 			end
 		
 			icon:Set(imageName, category, type, 0, iesID);

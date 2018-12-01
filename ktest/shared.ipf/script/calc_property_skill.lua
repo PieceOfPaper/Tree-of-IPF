@@ -1629,6 +1629,11 @@ function SCR_GET_Slithering_Ratio2(skill)
 	return value
 end
 
+function SCR_GET_Slithering_Ratio3(skill)
+	local value = skill.Level
+	
+	return value
+end
 
 function SCR_GET_ShootingStar_Ratio(skill)
 
@@ -4465,7 +4470,7 @@ function SCR_GET_Pandemic_Ratio(skill)
 end
 
 function SCR_GET_BeakMask_Time(skill)
-    local value = 20
+    local value = 60
     local pc = GetSkillOwner(skill)
     if IsPVPServer(pc) == 1 then
         value = value / 3
@@ -5674,9 +5679,9 @@ function SCR_Get_Muleta_Ratio(skill)
 end
 
 function SCR_Get_Muleta_Ratio2(skill)
-    local value = skill.Level * 10;
+    local value = skill.Level * 2
     
-    return math.floor(value)
+    return value
 end
 
 function SCR_Get_SkillFactor_DoubleGun(skill)
@@ -6972,7 +6977,7 @@ function SCR_GET_Lethargy_Ratio(skill)
 end
 
 function SCR_GET_Lethargy_Ratio2(skill)
-    local value = skill.Level * 5
+    local value = skill.Level
     
     return value
 end
@@ -7612,19 +7617,15 @@ function SCR_GET_CounterSpell_Ratio(skill)
 end
 
 function SCR_GET_DeathVerdict_Ratio(skill)
-    local value = 10 + (skill.Level * 5)
-    return math.floor(value);
+    local value = skill.Level * 5
+    
+    return value;
 end
 
 function SCR_GET_DeathVerdict_Ratio2(skill)
-	local value = 100
-    local pc = GetSkillOwner(skill);
-    local Oracle13_abil = GetAbility(pc, 'Oracle13')
-    if Oracle13_abil ~= nil and 1 == Oracle13_abil.ActiveState then
-    	value = value - (Oracle13_abil.Level * 10);
-    end
+	local value = 5 + skill.Level
 	
-    return math.floor(value);
+	return value
 end
 
 function SCR_GET_Prophecy_Ratio(skill)
@@ -10715,7 +10716,7 @@ end
 
 
 function SCR_GET_Wiegenlied_Ratio2(skill)
-    local value = 50 + (skill.Level * 10)
+    local value = 5 + (skill.Level * 2)
 	
     return value;
 end
@@ -11152,7 +11153,7 @@ function SCR_Get_DragonFear_Ratio2(skill)
 end
 
 function SCR_GET_MuayThai_Ratio(skill)
-	local value = 5 + skill.Level
+	local value = 10 + skill.Level
 	
 	return value;
 end

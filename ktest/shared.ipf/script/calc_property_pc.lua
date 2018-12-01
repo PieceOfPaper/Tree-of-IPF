@@ -1319,22 +1319,13 @@ function SCR_Get_BLK(self)
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
     local byAbil = 0;
---    local abilList = { { 'Peltasta5', 0.05 } };
---    for i = 1, #abilList do
---        local abilTemp = GetAbility(self, abilList[i][1]);
---        if abilTemp ~= nil then
---            local abilLevel = abilTemp.Level;
---            local abilRate = abilList[i][2];
---            byAbil = byAbil + (abilLevel * abilRate);
---        end
---    end
     
-    local byBuff = TryGetProp(self, "BLK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BM", 0);
     
-    value = value + byItemRareOption + byAbil + byBuff;
+    local byRateBuff = TryGetProp(self, "BLK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byAbil + byBuff + byRateBuff;
     
     if value < 0 then
         value = 0;
@@ -1366,17 +1357,14 @@ function SCR_Get_BLK_BREAK(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "BLK_BREAK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BREAK_BM", 0);
     
-    local byAbil = GetExProp(self, "ABIL_THMACE_BLKBLEAK")
-    if byAbil == nil then
-        byAbil = 0
-    end
+    local byRateBuff = TryGetProp(self, "BLK_BREAK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
     
-    local value = value + byItemRareOption + byBuff + byAbil;
+    local byAbil = GetExProp(self, "ABIL_THMACE_BLKBLEAK", 0)
+    
+    local value = value + byItemRareOption + byBuff + byRateBuff + byAbil;
     
     if value < 0 then
     	value = 0;
@@ -1414,12 +1402,12 @@ function SCR_Get_HR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "HR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "HR_BM", 0);
     
-    value = value + byItemRareOption + byBuff;
+    local byRateBuff = TryGetProp(self, "HR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0
@@ -1457,12 +1445,12 @@ function SCR_Get_DR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "DR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "DR_BM", 0);
     
-    value = value + byItemRareOption + byBuff;
+    local byRateBuff = TryGetProp(self, "DR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -1518,12 +1506,12 @@ function SCR_Get_CRTHR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "CRTHR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "CRTHR_BM", 0);
+	
+    local byRateBuff = TryGetProp(self, "CRTHR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
     
-    value = value + byItemRareOption + byBuff;
+    value = value + byItemRareOption + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -1555,12 +1543,12 @@ function SCR_Get_CRTDR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "CRTDR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "CRTDR_BM", 0);
     
-    value = value + byItemRareOption + byBuff;
+    local byRateBuff = TryGetProp(self, "CRTDR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byBuff + byRateBuff;
 	
     if value < 0 then
     	value = 0;

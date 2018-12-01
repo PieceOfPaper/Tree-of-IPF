@@ -206,7 +206,7 @@ end
 
 
 
--- ´Ü¹ß/XACÀÌº¥Æ® Áßº¹ º¸»ó Ã³¸®µÇ´Â ¹ö±× ¼öÁ¤(ÀÓ½Ã/²Ä¼ö)
+-- ï¿½Ü¹ï¿½/XACï¿½Ìºï¿½Æ® ï¿½ßºï¿½ ï¿½ï¿½ï¿½ï¿½ Ã³ï¿½ï¿½ï¿½Ç´ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½(ï¿½Ó½ï¿½/ï¿½Ä¼ï¿½)
 
 function SCR_CREATE_SSN_EV_STOP(self, sObj)
     sObj.Goal1 = 0
@@ -256,7 +256,7 @@ function MOD_BOX(mon)
 end
 
 
--- ¼ÒÈ¯µÈ ¸ó½ºÅÍµéÀÌ ÀÖ´ÂÁö ¾ø´ÂÁö È®ÀÎÇÏ¿© ¾øÀ¸¸é »óÀÚ º¹±¸
+-- ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Íµï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ È®ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 function MOD_BOX_TESS(self)
     local list = GetScpObjectList(self, "TRAPBOX_MON");
     if #list == 0 then
@@ -267,7 +267,7 @@ function MOD_BOX_TESS(self)
     return 1
 end
 
--- ¼ÒÈ¯µÈ ¸ó½ºÅÍ°¡ ¾øÀ½¿¡µµ PC°¡ »óÀÚ¸¦ º¹±¸ÇÏÁö ¾Ê¾ÒÀ»¶§
+-- ï¿½ï¿½È¯ï¿½ï¿½ ï¿½ï¿½ï¿½Í°ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ PCï¿½ï¿½ ï¿½ï¿½ï¿½Ú¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾ï¿½ï¿½ï¿½ï¿½ï¿½
 function MOD_BOX_RUN(self)
     if self.NumArg3 <= 20 then
         self.NumArg3 = self.NumArg3 + 1
@@ -297,4 +297,38 @@ function MOD_BOX_MON(self)
     elseif self.NumArg1 >= 17 then 
         return 0
     end
+end
+
+function GET_REBUILD_CARE_ADD_PR(targetItem, exchangeItem, targetInvItem)
+	local addPR = math.max(GET_CURRENT_AVAILABLE_SOCKET_COUNT(targetItem, targetInvItem) - SCR_GET_MAX_SOKET(exchangeItem), 0);
+
+	-- ë²¨ì½”í¼ ì¥ë¹„ë“¤ ê°ì¢… ì˜ˆì™¸ ì²˜ë¦¬
+	if targetItem.ItemGrade == 5 and targetItem.UseLv == 360 then
+		if targetItem.ClassType == 'Cannon' and targetItem.DBLHand == 'NO' then -- (êµ¬) ë²¨ì½”í¼ ìºë…¼
+			if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'YES' then -- ë²¨ì½”í¼ ì–‘ì†ìœ¼ë¡œ ë°”ê¿€ ë•Œ(ìºë…¼ í¬í•¨)
+				addPR = addPR + 1;
+			end
+		elseif targetItem.DBLHand == 'YES' then -- ë²¨ì½”í¼ ì–‘ì†
+			if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'NO' then -- ë²¨ì½”í¼ í•œì†ìœ¼ë¡œ ë°”ê¿€ ë•Œ
+				addPR = addPR + 1;
+			end
+		elseif targetItem.DBLHand == 'NO' then -- ë²¨ì½”í¼ í•œì†
+			if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'YES' then -- ë²¨ì½”í¼ ì–‘ì†ìœ¼ë¡œ ë°”ê¿€ ë•Œ
+				addPR = addPR + 1;
+			end
+		end
+	end
+	return addPR;
+end
+
+function IS_REBUILD_CARE_ADD_PR_TARGET(invItem, exchangeItem)
+	if invItem == nil or exchangeItem == nil then
+		return false;
+	end
+	if invItem.ItemGrade == 5 and invItem.UseLv == 360 and invItem.ClassType == 'Cannon' and invItem.DBLHand == 'NO' then -- (êµ¬) ë²¨ì½”í¼ ìºë…¼
+		if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'YES' and exchangeItem.ClassType == 'Cannon' then -- ë²¨ì½”í¼ ìºë…¼ìœ¼ë¡œ ë°”ê¿€ ë•Œ
+			return true;
+		end
+	end
+	return false;
 end

@@ -423,9 +423,12 @@ function SCR_Get_MON_HR(self)
     
     local value = byLevel * raceTypeRate;
     
-    local byBuff = self.HR_BM
+    local byBuff = TryGetProp(self, "HR_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "HR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -450,9 +453,12 @@ function SCR_Get_MON_DR(self)
     
     local value = byLevel * raceTypeRate;
     
-    local byBuff = self.DR_BM
+    local byBuff = TryGetProp(self, "DR_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "DR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -480,7 +486,10 @@ function SCR_Get_MON_CRTHR(self)
     
     local byBuff = TryGetProp(self, "CRTHR_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "CRTHR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -499,7 +508,10 @@ function SCR_Get_MON_CRTDR(self)
     
     local byBuff = TryGetProp(self, "CRTDR_BM", 0);
 	
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "CRTDR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+	
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -823,12 +835,12 @@ function SCR_Get_MON_BLK(self)
     
     local value = byLevel * raceTypeRate;
     
-    local byBuff = TryGetProp(self, "BLK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BM", 0);
+	
+    local byRateBuff = TryGetProp(self, "BLK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
     
-    value = value + byBuff;
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;
@@ -849,12 +861,12 @@ function SCR_Get_MON_BLK_BREAK(self)
     
     local value = byLevel * raceTypeRate;
     
-    local byBuff = TryGetProp(self, "BLK_BREAK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BREAK_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "BLK_BREAK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0;

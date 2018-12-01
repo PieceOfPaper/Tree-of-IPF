@@ -9873,15 +9873,48 @@ end"/>
 				<Str Str="ENEMY"/>
 				<Num Num="0"/>
 				<Num Num="0"/>
-				<Str Str="Common_Rotten"/>
+				<Str Str="Common_Rotten"UseFunc="1" FuncTxt="local owner = GetTopOwner(self)
+
+local abilLevel = GET_ABIL_LEVEL(owner, &quot;Necromancer16&quot;); 
+
+if abilLevel &gt;= 0 then 
+
+    return &quot;Common_HighRotten&quot; 
+
+else 
+
+    return &quot;Common_Rotten&quot;
+
+end"/>
 				<Num Num="1"/>
 				<Num Num="0"/>
-				<Num Num="15000"/>
+				<Num Num="0"/>
 				<Num Num="1"/>
 				<Num Num="100"/>
-			</ToolScp>
+			<Num Num="0"/>
+            </ToolScp>
 		</enterEvent>
-		<updateEvent>
+		<leaveEvent>
+            <ToolScp Scp="PAD_TGT_BUFF_REMOVE_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="None" UseFunc="1" FuncTxt="local owner = GetTopOwner(self)
+
+local abilLevel = GET_ABIL_LEVEL(owner, &quot;Necromancer16&quot;); 
+
+if abilLevel &gt;= 0 then 
+
+    return &quot;Common_HighRotten&quot; 
+
+else 
+
+    return &quot;Common_Rotten&quot;
+
+end"/>
+            </ToolScp>
+        </leaveEvent>
+        <updateEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
 				<Num Num="-500"/>
 				<Num Num="0"/>
@@ -15455,7 +15488,7 @@ return obj.Level"/>
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="ElectricShock"/>
+                <Str Str="UniqRaid_Ignas_Phase2_Debuff"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
                 <Num Num="8000"/>

@@ -58,6 +58,10 @@ end
 function SKILLABILITY_ON_OPEN(frame)
     SKILLABILITY_MAKE_JOB_TAB(frame);
     session.skill.ReqCommonSkillList();
+    
+    local jobObj = info.GetJob(session.GetMyHandle());
+	local jobCtrlTypeName = GetClassString('Job', jobObj, 'CtrlType');
+	ui.ReqRedisSkillPoint(jobCtrlTypeName);
 end
 
 function SKILLABILITY_ON_CHANGE_TAB(frame)

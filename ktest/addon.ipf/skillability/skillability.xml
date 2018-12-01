@@ -10,7 +10,7 @@
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
 	<layer layerlevel="92"/>
 	<script OpenScp="SKILLABILITY_ON_OPEN" CloseScp="ON_CLOSE_SKILLABILITY"/>
-	<userconfig JOB_TAB_WIDTH="1270" JOB_TAB_HEIGHT="890" JOB_TAB_X="10" JOB_TAB_Y="105" TAB_WIDTH="180" LINKABIL_OFFSET_X="5" LINKABIL_OFFSET_Y="20" ACTIVE_GROUP_WIDTH="20" ONE_ACTIVE_GROUP_HEIGHT="40" ACTIVE_GROUP_SKIN="abill_group_skin" ACTIVE_GROUP_CENTER_ON_IMAGE="abill_group_on_pic" ACTIVE_GROUP_CENTER_OFF_IMAGE="abill_group_off_pic" ACTIVE_GROUP_CENTER_IMAGE_SIZE="20" ACTIVE_GROUP_X="10" ACTIVE_GROUP_CENTER_IMAGE_X="10" LAYER_LEVEL_DRAG_ON="90" LAYER_LEVEL_DRAG_OFF="92"/>
+	<userconfig JOB_TAB_WIDTH="1270" JOB_TAB_HEIGHT="890" JOB_TAB_X="10" JOB_TAB_Y="105" TAB_WIDTH="180" LINKABIL_OFFSET_X="5" LINKABIL_OFFSET_Y="0" ACTIVE_GROUP_WIDTH="20" ONE_ACTIVE_GROUP_HEIGHT="40" ACTIVE_GROUP_SKIN="abill_group_skin" ACTIVE_GROUP_CENTER_ON_IMAGE="abill_group_on_pic" ACTIVE_GROUP_CENTER_OFF_IMAGE="abill_group_off_pic" ACTIVE_GROUP_CENTER_IMAGE_SIZE="20" ACTIVE_GROUP_X="10" ACTIVE_GROUP_CENTER_IMAGE_X="10" LAYER_LEVEL_DRAG_ON="90" LAYER_LEVEL_DRAG_OFF="92"/>
 	<controls>
 		<groupbox name="title_bg" rect="0 0 1270 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}스킬과 특성" fontname="brown_16_b" spacey="0"/>

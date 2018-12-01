@@ -106,15 +106,18 @@
 		<Child Name="STR"/>
 		<Child Name="ADD_HR"/>
 		<Child Name="HR_BM"/>
+		<Child Name="HR_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="BLK_BREAK">
 		<Child Name="DEX"/>
 		<Child Name="BLK_BREAK_BM"/>
+		<Child Name="BLK_BREAK_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="DR">
 		<Child Name="DEX"/>
 		<Child Name="ADD_DR"/>
 		<Child Name="DR_BM"/>
+		<Child Name="DR_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="CRTATK">
 		<Child Name="DEX"/>
@@ -133,6 +136,7 @@
 	<hierarchy Name="BLK">
 		<Child Name="CON"/>
 		<Child Name="BLK_BM"/>
+		<Child Name="BLK_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="RHP">
 		<Child Name="CON"/>
@@ -220,9 +224,11 @@
 	</hierarchy>
 	<hierarchy Name="CRTHR">
 		<Child Name="CRTHR_BM"/>
+		<Child Name="CRTHR_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="CRTDR">
 		<Child Name="CRTDR_BM"/>
+		<Child Name="CRTDR_RATE_BM"/>
 	</hierarchy>
 	<hierarchy Name="BLKABLE"/>
 	<hierarchy Name="KDPow">

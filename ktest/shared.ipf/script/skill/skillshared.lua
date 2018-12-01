@@ -1,4 +1,4 @@
-﻿--- skillshared.lua
+--- skillshared.lua
 
 function SKILL_TARGET_ITEM_Swordman_Thrust(obj)
 	
@@ -309,14 +309,11 @@ end
 -- 해당 skill에 checkKeyword 키워드가 존재하는지 체크. 있으면 1 반환, 없으면 0 반환.
 function CHECK_SKILL_KEYWORD(skill, checkKeyword)
 	local skillKeyword = TryGetProp(skill, 'Keyword');
-	
 	if skillKeyword ~= nil and skillKeyword ~= 'None' then
 		local skillKeywordList = SCR_STRING_CUT(skillKeyword, ';')
-		for i = 1, #skillKeywordList do
-			local keyword = skillKeywordList[i];
-			if keyword == checkKeyword then
-				return 1;
-			end
+		local index = table.find(skillKeywordList, checkKeyword);
+		if index ~= 0 then
+			return 1;
 		end
 	end
 	

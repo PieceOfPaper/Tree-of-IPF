@@ -8,7 +8,7 @@
 	<draw drawtitlebar="false" drawframe="false"/>
 	<option visible="true" hideable="false" closebutton="false" alwaysVisible="false"/>
 	<animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
-	<userconfig COLOR_TOGGLE_ABILITY_ON="FFFFFFFF" COLOR_TOGGLE_ABILITY_OFF="FF111111" SKILL_TOOLTIP_WIDTH="1000"/>
+	<userconfig COLOR_TOGGLE_ABILITY_ON="FFFFFFFF" COLOR_TOGGLE_ABILITY_OFF="FF111111"/>
 	<controls>
 		<picture name="playing_deco1" rect="0 0 90 120" margin="-295 0 0 -2057" layout_gravity="center bottom" hittest="false" image="playing_deco1"/>
 		<picture name="playing_deco2" rect="0 0 90 120" margin="295 0 0 -2057" layout_gravity="center bottom" hittest="false" image="playing_deco2"/>

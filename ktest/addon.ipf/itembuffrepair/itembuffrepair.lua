@@ -165,7 +165,7 @@ function SQUIRE_REAPIR_SELECT_EQUIPED_ITEMS(frame, ctrl)
 						local needItem, needCount = ITEMBUFF_NEEDITEM_Squire_Repair(GetMyPCObject(), itemobj);
 						totalcont = totalcont + needCount;
 						isSelectEquipedItem = true;
-						return 'break';
+						break;
 					end
 				end
 			end

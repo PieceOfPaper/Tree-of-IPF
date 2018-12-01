@@ -115,18 +115,18 @@
 			<groupbox name="changevalue" rect="0 0 300 50" hittest="false" draw="true" updateparent="false" scrollbar="false"/>
 		</controls>
 	</tooltip>
-	<tooltip name="skill" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="1000" height="500" moveable="true" blendtime="" UpdateScp="UPDATE_SKILL_TOOLTIP" CustomUpdate="UPDATE_SKILL_NEW_TIP">
+	<tooltip name="skill" x="0" y="0" frameskin="None" marginy="10" fixwidth="true" width="500" height="1000" moveable="true" blendtime="" UpdateScp="UPDATE_SKILL_TOOLTIP" CustomUpdate="UPDATE_SKILL_NEW_TIP">
 		<controls>
 			<groupbox name="skill_desc" margin="0 0 500 50" rect="0 0 500 50" skin="test_skill_tooltip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
-			<picture name="icon_frame" image="skilltooltip_skill_image_slot" layout_gravity="left top" rect="0 0 100 100" stretch="true" margin="20 70 0 0"parent="skill_desc"/>
-			<picture name="icon" layout_gravity="left top" rect="0 0 85 85" stretch="true" margin="28 78 0 0"parent="skill_desc"/>
-			<groupbox name="weapon_box" margin="0 170 0 0" rect="0 0 500 40" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="center top"parent="skill_desc"/>
-			<groupbox name="stance_pic" margin="120 0 0 0" rect="0 0 380 50" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="left top"parent="weapon_box"/>
-			<richtext name="name" layout_gravity="center top" fontname="yellow_18_ol" rect="0 0 494 60" fixwidth="true" textalign="center center" margin="1 2 0 0" resizebytext="false" hittest="false" updateparent="true"parent="skill_desc"/>
-			<richtext name="type" layout_gravity="center top" rect="0 0 160 20" fixwidth="false" margin="0 70 0 0" hittest="false" updateparent="true"parent="skill_desc"/>
-			<richtext name="desc" layout_gravity="left top" fontname="brown_16_b" rect="0 0 350 20" fixwidth="true" margin="130 80 0 0" resizebytext="true" hittest="false" updateparent="true"parent="skill_desc"/>
-			<richtext name="trade_text" format="총 거래 불가: %s개" param1="count" layout_gravity="right top" fontname="brown_16_b" rect="0 0 150 20" fixwidth="true" textalign="right center" margin="0 70 20 0" hittest="false" updateparent="true"parent="skill_desc"/>
-			<richtext name="weapon_text" format="{@st66d}착용 무기" layout_gravity="left center" fontname="white_18_ol" rect="0 0 100 50" fixwidth="true" textalign="left center" margin="30 -5 0 0" hittest="false" updateparent="true"parent="weapon_box"/>
+			<picture name="icon_frame" image="skilltooltip_skill_image_slot" layout_gravity="left top" rect="0 0 100 100" stretch="true" margin="20 70 0 0" parent="skill_desc"/>
+			<picture name="icon" layout_gravity="left top" rect="0 0 85 85" stretch="true" margin="28 78 0 0" parent="skill_desc"/>
+			<groupbox name="weapon_box" margin="0 170 0 0" rect="0 0 500 40" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="center top" parent="skill_desc"/>
+			<groupbox name="stance_pic" margin="120 0 0 0" rect="0 0 380 50" hittest="false" draw="false" updateparent="true" scrollbar="false" layout_gravity="left top" parent="weapon_box"/>
+			<richtext name="name" layout_gravity="center top" fontname="yellow_18_ol" rect="0 0 494 60" fixwidth="true" textalign="center center" margin="1 2 0 0" resizebytext="false" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="type" layout_gravity="center top" rect="0 0 160 20" fixwidth="false" margin="0 70 0 0" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="desc" layout_gravity="left top" fontname="brown_16_b" rect="0 0 350 20" fixwidth="true" margin="130 80 0 0" resizebytext="true" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="trade_text" format="총 거래 불가: %s개" param1="count" layout_gravity="right top" fontname="brown_16_b" rect="0 0 150 20" fixwidth="true" textalign="right center" margin="0 70 20 0" hittest="false" updateparent="true" parent="skill_desc"/>
+			<richtext name="weapon_text" format="{@st66d}착용 무기" layout_gravity="left center" fontname="white_18_ol" rect="0 0 100 50" fixwidth="true" textalign="left center" margin="30 -5 0 0" hittest="false" updateparent="true" parent="weapon_box"/>
 			<groupbox name="ability_desc" margin="500 0 0 50" rect="0 0 500 50" hittest="false" skin="test_skill_skin2" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 		</controls>
 	</tooltip>

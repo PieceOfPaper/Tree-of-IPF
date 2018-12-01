@@ -633,13 +633,14 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     ypos = PVP_DESC_TOOLTIP(skillFrame, ypos)   
     ]]--
 
-    skillFrame:Resize(skillFrame:GetOriginalWidth(), ypos + 10)
+    skillFrame:Resize(frame:GetWidth(), ypos + 10)
     frame:Resize(frame:GetWidth(), skillFrame:GetHeight() + 10)
 
 
     ------------------------ ability description frame ---------------------------------
     local isShowNoHaveAbility = false
     local abilFrame = GET_CHILD(frame, 'ability_desc', 'ui::CGroupBox')
+    abilFrame:SetOffset(0, ypos)
     ypos = 20 -- init by ability frame
 
     local jobEngNameList = {}
@@ -681,11 +682,10 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
     if totalLevel > 0 and showAbilCnt > 0 then
         ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList, pcAbilCnt)
-        abilFrame:Resize(abilFrame:GetOriginalWidth(), ypos)
-        frame:Resize(skillFrame:GetWidth()+abilFrame:GetWidth(), math.max(skillFrame:GetHeight(), abilFrame:GetHeight()));
+        abilFrame:Resize(frame:GetWidth(), ypos)
+        frame:Resize(frame:GetWidth(), frame:GetHeight() + abilFrame:GetHeight());
         abilFrame:ShowWindow(1)
     else
-        frame:Resize(skillFrame:GetWidth(), skillFrame:GetHeight());
         abilFrame:ShowWindow(0)
     end
     frame:Invalidate();
