@@ -302,20 +302,13 @@ end
 function GET_REBUILD_CARE_ADD_PR(targetItem, exchangeItem, targetInvItem)
 	local addPR = math.max(GET_CURRENT_AVAILABLE_SOCKET_COUNT(targetItem, targetInvItem) - SCR_GET_MAX_SOKET(exchangeItem), 0);
 
-	-- 벨코퍼 장비들 각종 예외 처리
-	if targetItem.ItemGrade == 5 and targetItem.UseLv == 360 then
-		if targetItem.ClassType == 'Cannon' and targetItem.DBLHand == 'NO' then -- (구) 벨코퍼 캐논
-			if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'YES' then -- 벨코퍼 양손으로 바꿀 때(캐논 포함)
-				addPR = addPR + 1;
-			end
-		elseif targetItem.DBLHand == 'YES' then -- 벨코퍼 양손
-			if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'NO' then -- 벨코퍼 한손으로 바꿀 때
-				addPR = addPR + 1;
-			end
-		elseif targetItem.DBLHand == 'NO' then -- 벨코퍼 한손
-			if exchangeItem.ItemGrade == 5 and exchangeItem.UseLv == 360 and exchangeItem.DBLHand == 'YES' then -- 벨코퍼 양손으로 바꿀 때
-				addPR = addPR + 1;
-			end
+	if targetItem.ItemGrade == 5 and targetItem.UseLv == 360 then -- 벨코퍼 장비들 각종 예외 처리
+		if targetItem.DBLHand == 'YES' and exchangeItem.DBLHand == 'NO' then
+			addPR = addPR + 1;
+		end
+	elseif targetItem.ItemGrade == 5 and targetItem.UseLv <= 330 then -- 솔미키/롤로팬서
+		if targetInvItem.MaxPR > exchangeItem.MaxPR then
+			addPR = addPR + 1;
 		end
 	end
 	return addPR;

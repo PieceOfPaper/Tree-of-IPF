@@ -1470,6 +1470,8 @@
 		<Class ClassID="21318" ClassName="UseItemToReset{value}StatusPoints" Data="사용 시 {value}개의 스테이터스 포인트를 초기화 할 수 있습니다."/>
 		<Class ClassID="21319" ClassName="NoStatusPointToReset" Data="초기화 할 수 있는 스탯 포인트가 없습니다."/>
 		<Class ClassID="21320" ClassName="MoreNeedCostumeExchangeCoupon" Data="소유중인 교환권이 부족합니다."/>
+		<Class ClassID="21322" ClassName="NoMarketTrade" Data="마켓 거래 불가"/>
+		<Class ClassID="21323" ClassName="NoUserTrade" Data="개인 거래 불가"/>
 		</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>

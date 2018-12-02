@@ -121,6 +121,10 @@ function GET_JOYSTICK_SLOT_SKILL_TYPE(slot)
 end
 
 function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
+    if msg == 'INV_ITEM_ADD_FOR_QUICKSLOT' then
+        return
+    end
+
 --[[
 	local Set1 			= frame:GetChildRecursively("Set1");
 	local Set2 			= frame:GetChildRecursively("Set2");

@@ -18,7 +18,7 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	addon:RegisterMsg('REGISTER_QUICK_SKILL', 'QUICKSLOT_REGISTER_Skill');
 	addon:RegisterMsg('REGISTER_QUICK_ITEM', 'QUICKSLOT_REGISTER_Item');
 	
-	addon:RegisterMsg('INV_ITEM_ADD', 'QUICKSLOTNEXPBAR_ON_MSG');
+	addon:RegisterMsg('INV_ITEM_ADD_FOR_QUICKSLOT', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_POST_REMOVE', 'QUICKSLOTNEXPBAR_ON_MSG');
 	addon:RegisterMsg('INV_ITEM_CHANGE_COUNT', 'QUICKSLOTNEXPBAR_ON_MSG');
 	
@@ -47,12 +47,18 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	
 end
 
-local function quickslot_item_amount_refresh(ies_id)
+local function quickslot_item_amount_refresh(ies_id, class_id)
     if ies_id == nil then return end
     local frame = ui.GetFrame('quickslotnexpbar')
 	for i = 0, MAX_QUICKSLOT_CNT - 1 do
 		local quickSlotInfo = quickslot.GetInfoByIndex(i)
         if quickSlotInfo:GetIESID() == ies_id then
+            local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
+            if slot ~= nil then
+                SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false)
+            end
+        elseif class_id ~= nil and quickSlotInfo:GetClassID() == tonumber(class_id) then
+            quickSlotInfo:SetIESID(ies_id)
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
             if slot ~= nil then
                 SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false)
@@ -74,7 +80,6 @@ function QUICKSLOT_MAKE_GAUGE(slot)
 end
 
 function QUICKSLOT_SET_GAUGE_VISIBLE(slot, isVisible)
-
 	local gauge = slot:GetSlotGauge();
 	gauge:ShowWindow(isVisible);
 	slot:InvalidateGauge();
@@ -642,7 +647,7 @@ function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()
 	end
 end
 
-function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)        
+function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 	local joystickquickslotFrame = ui.GetFrame('joystickquickslot');
 	JOYSTICK_QUICKSLOT_ON_MSG(joystickquickslotFrame, msg, argStr, argNum)
 		
@@ -656,18 +661,17 @@ function QUICKSLOTNEXPBAR_ON_MSG(frame, msg, argStr, argNum)
 		ON_PET_SELECT(frame);
 	end
 
-	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or 
-        msg == 'INV_ITEM_ADD' or msg == 'INV_ITEM_POST_REMOVE' or msg == 'PC_PROPERTY_UPDATE'
+	if msg == 'QUICKSLOT_LIST_GET' or msg == 'GAME_START' or msg == 'EQUIP_ITEM_LIST_GET' or msg == 'PC_PROPERTY_UPDATE'
     then
 		DebounceScript("QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT", 0.1, 0);        
+    elseif msg == 'INV_ITEM_CHANGE_COUNT' or msg == 'INV_ITEM_POST_REMOVE' then
+        quickslot_item_amount_refresh(argStr)    
+    elseif msg == 'INV_ITEM_ADD_FOR_QUICKSLOT' then
+        -- argStr = iesID, argNum = classID
+        quickslot_item_amount_refresh(argStr, argNum)
 	end
-    	
-    if msg == 'INV_ITEM_CHANGE_COUNT' then
-        quickslot_item_amount_refresh(argStr)
-    end
 
-	local curCnt = quickslot.GetActiveSlotCnt();
-		
+	local curCnt = quickslot.GetActiveSlotCnt();		
 	QUICKSLOT_REFRESH(curCnt);
 end
 

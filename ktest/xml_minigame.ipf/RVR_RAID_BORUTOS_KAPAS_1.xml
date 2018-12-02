@@ -33,6 +33,10 @@
                                 <Str Str="DEAD_FROM_OTHERS"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BK_BOSS_DEAD_CHECK_REDIS"/>
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execMS="30000" eventName="Boss_Dead_ReCheck">
@@ -53,6 +57,18 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="Bossgen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Gen_Boss"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="PC_CNT">
@@ -68,7 +84,7 @@
                     </Event>
                 </StageEvents>
             </Stage>
-            <Stage Name="Gen_Boss">
+            <Stage Name="Gen_Boss" AutoStart="0">
                 <ObjList>
                     <Obj Type="Monster" MonType="59208" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1"/>
                 </ObjList>
@@ -82,14 +98,14 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="Save_HP">
+                    <Event eventName="Save_HP" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
-                                <Num Num="0"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -130,6 +146,18 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Str Str="BK_SKL3_COND_BORUTA_LOAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="late_stage_start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="60"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Save_HP"/>
                             </ToolScp>
                         </execList>
                     </Event>

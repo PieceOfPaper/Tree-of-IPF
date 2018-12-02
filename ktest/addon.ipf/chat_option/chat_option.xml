@@ -92,13 +92,10 @@
 		<groupbox name="battleTextBgBox" stretch="true" rect="0 0 340 30" margin="350 47 0 0" layout_gravity="left top" skin="" image="test_partyquest_slot"/>
 		<richtext name="battleText" rect="0 0 100 30" parent="battleTextBgBox" margin="10 0 0 0" layout_gravity="left center" caption="전투 메시지 설정" fontname="white_16_ol"/>
 		<groupbox name="battleConfigBox" rect="0 0 300 300" margin="375 90 0 0" layout_gravity="left top" draw="false"/>
-		<checkbox name="damageCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="left top" caption="피해량" fontname="brown_16_b" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
-		<checkbox name="damageCheck_others" parent="battleConfigBox" rect="0 0 100 30" margin="25 30 0 0" layout_gravity="left top" caption="입은 피해" fontname="brown_16_b" ConfigName="BattleMsg_Damage_others" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
-		<checkbox name="damageCheck_my" parent="battleConfigBox" rect="0 0 100 30" margin="25 60 0 0" layout_gravity="left top" caption="가한 피해" fontname="brown_16_b" ConfigName="BattleMsg_Damage_my" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
-		<checkbox name="buffCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 90 0 0" layout_gravity="left top" caption="버프" fontname="brown_16_b" ConfigName="BattleMsg_Buff" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
-		<checkbox name="debuffCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 120 0 0" layout_gravity="left top" caption="디버프" fontname="brown_16_b" ConfigName="BattleMsg_Debuff"/>
-		<checkbox name="skillCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 150 0 0" layout_gravity="left top" caption="스킬 사용" fontname="brown_16_b" ConfigName="BattleMsg_Skill"/>
-		<checkbox name="resurrectCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 180 0 0" layout_gravity="left top" caption="사망/부활" fontname="brown_16_b" ConfigName="BattleMsg_Resurrect" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
-		<checkbox name="resurrectCheck_party" parent="battleConfigBox" rect="0 0 100 30" margin="25 210 0 0" layout_gravity="left top" caption="파티원의 사망/부활" fontname="brown_16_b" ConfigName="BattleMsg_Resurrect_party" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
+		<checkbox name="buffCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="left top" caption="버프" fontname="brown_16_b" ConfigName="BattleMsg_Buff" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
+    <checkbox name="debuffCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 30 0 0" layout_gravity="left top" caption="디버프" fontname="brown_16_b" ConfigName="BattleMsg_Debuff"/>
+		<checkbox name="skillCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 60 0 0" layout_gravity="left top" caption="스킬 사용" fontname="brown_16_b" ConfigName="BattleMsg_Skill"/>
+		<checkbox name="resurrectCheck" parent="battleConfigBox" rect="0 0 100 30" margin="0 90 0 0" layout_gravity="left top" caption="사망/부활" fontname="brown_16_b" ConfigName="BattleMsg_Resurrect" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
+		<checkbox name="resurrectCheck_party" parent="battleConfigBox" rect="0 0 100 30" margin="25 120 0 0" layout_gravity="left top" caption="파티원의 사망/부활" fontname="brown_16_b" ConfigName="BattleMsg_Resurrect_party" LBtnUpScp="CHAT_OPTION_UPDATE_CHECKBOX"/>
 	</controls>
 </uiframe>

@@ -3373,12 +3373,8 @@ end
 
 function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
-    local value = 50 + (skill.Level - 1) * 10;
-    
-    local abil = GetAbility(pc, "Schwarzereiter13")      -- Skill Damage add
-    if abil ~= nil then
-        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
-    end
+    local value = 30 + ((skill.Level - 1) * 5);
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
 
     return math.floor(value)
 end
@@ -4151,14 +4147,15 @@ function SCR_GET_Evocation_Ratio2(skill)
 end
 
 function SCR_GET_Desmodus_Ratio(skill)
+    local value = skill.Level * 4
+    
+    return value
+end
 
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Sorcerer14") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+function SCR_GET_Desmodus_Ratio2(skill)
+    local value = skill.Level * 6
+    
+    return value
 end
 
 function SCR_GET_GatherCorpse_Ratio(skill)
@@ -5588,7 +5585,7 @@ function SCR_GET_StormCalling_Time(skill)
 end
 
 function SCR_GET_TriDisaster_Time(skill)
-    local value = skill.Level
+    local value = 18 * skill.Level
     return value;
 end
 
@@ -6229,6 +6226,7 @@ end
 
 function SCR_GET_FreeStep_Ratio(skill)
     local value = skill.Level * 4
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
     return value
 end
 
@@ -6922,6 +6920,8 @@ end
 
 function SCR_GET_SwiftStep_Ratio2(skill)
     local value = 3 * skill.Level;
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
+    
     return value
 end
 
@@ -6932,6 +6932,8 @@ end
 
 function SCR_GET_Concentration_Ratio(skill)
      local value = 2 * skill.Level;
+     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
+     
      return value;
 end
 
@@ -10568,6 +10570,8 @@ end
 
 function SCR_GET_FishingNetsDraw_Ratio(skill)
     local value = 5 * skill.Level;
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    
     return value;
 end
 
@@ -10591,6 +10595,13 @@ end
 
 function SCR_GET_ThrowingFishingNet_Ratio2(skill)
     return 3 + skill.Level;
+end
+
+function SCR_GET_ThrowingFishingNet_Ratio3(skill)
+    local value = 100
+    value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
+    
+    return value
 end
 
 

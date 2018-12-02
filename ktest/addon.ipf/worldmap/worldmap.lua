@@ -1413,7 +1413,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		end	
 	end
 	
-	if type ~= "Dievdirbys" then
+	if type == "Dievdirbys" then
 		warpcost = 0
 	end
 	

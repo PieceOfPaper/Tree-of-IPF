@@ -5138,7 +5138,7 @@ return value;"/>
 	<PadSkill Name="Daoshi_TriDisaster" CheckerType="0" Range="50" UpdateTerm="100" ApplyFlyMon="1" IsMineType="0">
 		<createEvent>
 			<ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-				<Num Num="50000" UseFunc="1" FuncTxt="return obj.Level * 60000;"/>
+				<Num Num="50000" UseFunc="1" FuncTxt="return obj.Level * 18000;"/>
 				<Num Num="9999"/>
 			</ToolScp>
 			<ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
