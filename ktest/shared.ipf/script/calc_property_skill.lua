@@ -3330,10 +3330,10 @@ function SCR_Get_SkillFactor_Limacon(skill)
         value = LimaconSkill.SklFactor + LimaconSkill.SklFactorByLevel * (skill.Level - 1)
     end
 
-    local abil = GetAbility(pc, "Schwarzereiter13")      -- Skill Damage add
-    if abil ~= nil then
-        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
-    end
+--    local abil = GetAbility(pc, "Schwarzereiter13")      -- Skill Damage add
+--    if abil ~= nil then
+--        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+--    end
     
     return math.floor(value)
 
@@ -3375,7 +3375,12 @@ function SCR_GET_Limacon_Ratio2(skill)
     local pc = GetSkillOwner(skill);
     local value = 30 + ((skill.Level - 1) * 5);
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill));
-
+    
+    local abil = GetAbility(pc, "Schwarzereiter13")
+    if abil ~= nil and abil.Level == 100 then
+        value = value + 10
+    end
+    
     return math.floor(value)
 end
 
