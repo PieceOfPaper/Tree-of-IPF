@@ -195,10 +195,20 @@ local function _EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
             ui.SysMsg(ClMsg("ItemIsNotTradable"));	
             return;
         end
-    end
+	end
+	
+	if TryGetProp(obj, 'Rebuildchangeitem', 0) > 0 then		
+		ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), 'IMPL_EXCHANGE_ADD_FROM_INV("'..item:GetIESID()..'")', 'None');
+		return;
+	end
 
 	exchange.SendOfferItem(tostring(item:GetIESID()), 1);
 	SELECT_INV_SLOT_BY_GUID(item:GetIESID(), 1);
+end
+
+function IMPL_EXCHANGE_ADD_FROM_INV(guid)
+	exchange.SendOfferItem(guid, 1);
+	SELECT_INV_SLOT_BY_GUID(guid, 1);
 end
 
 function EXCHANGE_INV_RBTN(itemobj, slot)

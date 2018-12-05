@@ -4,7 +4,13 @@
         <StageList>
             <Stage Name="Initialize">
                 <ObjList>
-                    <Obj Type="Monster" MonType="154005" Pos="333.08#207.22#1209.34" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+                    <Obj Type="Monster" MonType="154005" Pos="333.08#207.22#1209.34" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
                     <Obj Type="Monster" MonType="154069" Pos="-361.97#207.22#949.13" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
                     <Obj Type="Monster" MonType="154069" Pos="434.34#207.22#1633.25" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
                     <Obj Type="Monster" MonType="154069" Pos="1036.62#207.22#1711.13" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;베다 고원&apos; &apos;SimpleAI&apos; &apos;TO_VELNIASP511_PORTAL&apos; &apos;Dialog&apos; &apos;BK_LEAVE_PORTAL&apos; "/>
@@ -39,19 +45,16 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="30000" eventName="Boss_Dead_ReCheck">
+                    <Event execMS="30000" eventName="Boss_Dead_ReCheck" isEnabled="0">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="BK_MGAME_BOSS_RESET_CHECK_COND"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE_NOPC" Client="NO" UseSleep="NO">
                                 <Str Str="BK_BOSS_DEAD_CHECK_REDIS"/>
                                 <Str Str="=="/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON_CMD" Client="NO" UseSleep="NO">
                                 <MGameObj List="Initialize/0"/>
                                 <Str Str="BK_MGAME_BOSS_RESET_CHECK"/>
                             </ToolScp>
@@ -60,12 +63,36 @@
                     <Event execCount="1" eventName="Bossgen">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </condList>
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Gen_Boss"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Boss_Dead_ReCheck"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Log">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_MGAME_START"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="30000" eventName="Log_30sec">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_CONTRIBUTE_GUILD"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -89,15 +116,6 @@
                     <Obj Type="Monster" MonType="59208" Pos="349.27#207.22#1224.86" angle="-79" maxStackCount="1" genTime="20000" autoGen="0" objectKey="0" autoDestroy="0" tendency="1"/>
                 </ObjList>
                 <StageEvents>
-                    <Event execCount="1" eventName="Notice">
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="보루타가 등장했습니다"/>
-                                <Str Str="BossAppear"/>
-                                <Num Num="5"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
                     <Event eventName="Save_HP" isEnabled="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
@@ -121,7 +139,7 @@
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Num Num="0"/>
                             </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE_NOPC" Client="NO" UseSleep="NO">
                                 <Str Str="BK_BOSS_DEAD_CHECK_REDIS"/>
                                 <Str Str="=="/>
                                 <Num Num="0"/>
@@ -132,6 +150,9 @@
                                 <MGameObjIndex List="Gen_Boss/0"/>
                                 <Num Num="1"/>
                                 <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="RVR_BK_WORLD_MSG_BOSS_BORN_ACT"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -230,6 +251,10 @@
                             <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Str Str="BK_MGAME_FORCEWARP_SEL_PC"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_PATTERN_FORCEWARP"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -642,6 +667,10 @@
                                 <Str Str="timestart"/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_PATTERN_ECHO"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -670,6 +699,10 @@
                             <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
                                 <Str Str="절규가 발생했습니다"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_PATTERN_SCREAM"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -700,6 +733,10 @@
                                 <MGameObj List="Gen_Boss/0"/>
                                 <Str Str="BK_MGAME_BORUTA_REVENGE_FEVER_CREATE"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Gen_Boss/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_PATTERN_REVENGE"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -728,6 +765,44 @@
                         </execList>
                     </Event>
                 </StageEvents>
+            </Stage>
+            <Stage Name="Obb60">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154116" Pos="-239.53#207.22#991.26" angle="-15" genCount="1" genTime="1" objectKey="0"/>
+                    <Obj Type="Monster" MonType="154116" Pos="415.02#207.22#1365.87" angle="-12" genCount="1" genTime="1" objectKey="1"/>
+                    <Obj Type="Monster" MonType="154116" Pos="248.06#207.22#1087.44" angle="170" genCount="1" genTime="1" objectKey="2"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-145.72#207.22#1484.27" angle="-8" genCount="1" genTime="1" objectKey="3"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-377.59#207.22#1286.16" angle="-20" genCount="1" genTime="1" objectKey="4"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-359.99#207.22#1246.32" genCount="1" genTime="1" objectKey="5"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-342.86#207.22#889.34" angle="76" genCount="1" genTime="1" objectKey="6"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-366.73#207.22#873.41" angle="-11" genCount="1" genTime="1" objectKey="7"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-372.80#207.22#896.05" angle="79" genCount="1" genTime="1" objectKey="8"/>
+                    <Obj Type="Monster" MonType="154116" Pos="3.06#207.22#887.03" angle="81" genCount="1" genTime="1" objectKey="9"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-350.51#207.22#1694.63" angle="-20" genCount="1" genTime="1" objectKey="10"/>
+                    <Obj Type="Monster" MonType="154116" Pos="-373.28#207.22#1647.03" angle="-32" genCount="1" genTime="1" objectKey="11"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Obb40">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154117" Pos="-51.16#207.22#1401.26" angle="-11" genCount="1" genTime="1" objectKey="0"/>
+                    <Obj Type="Monster" MonType="154117" Pos="-120.23#207.22#1383.14" angle="165" genCount="1" genTime="1" objectKey="1"/>
+                    <Obj Type="Monster" MonType="154117" Pos="957.43#207.22#1401.20" angle="-101" genCount="1" genTime="1" objectKey="2"/>
+                    <Obj Type="Monster" MonType="154117" Pos="519.72#207.22#1235.90" angle="-6" genCount="1" genTime="1" objectKey="3"/>
+                    <Obj Type="Monster" MonType="154117" Pos="149.86#207.22#1256.18" angle="-13" genCount="1" genTime="1" objectKey="4"/>
+                    <Obj Type="Monster" MonType="154117" Pos="127.84#207.22#1514.06" angle="-15" genCount="1" genTime="1" objectKey="5"/>
+                    <Obj Type="Monster" MonType="154117" Pos="478.57#207.22#1634.87" genCount="1" genTime="1" objectKey="6"/>
+                    <Obj Type="Monster" MonType="154117" Pos="503.25#207.22#1601.39" genCount="1" genTime="1" objectKey="7"/>
+                    <Obj Type="Monster" MonType="154117" Pos="958.82#207.22#1411.33" angle="75" genCount="1" genTime="1" objectKey="8"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="Obb25">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154118" Pos="-90.57#207.22#951.52" angle="-12" genCount="1" genTime="1" objectKey="0"/>
+                    <Obj Type="Monster" MonType="154118" Pos="909.61#207.22#1073.04" genCount="1" genTime="1" objectKey="1"/>
+                    <Obj Type="Monster" MonType="154118" Pos="917.92#207.22#1103.15" genCount="1" genTime="1" objectKey="2"/>
+                    <Obj Type="Monster" MonType="154118" Pos="907.75#207.22#1095.68" genCount="1" genTime="1" objectKey="3"/>
+                    <Obj Type="Monster" MonType="154118" Pos="456.87#207.22#1210.13" angle="-14" genCount="1" genTime="1" objectKey="4"/>
+                </ObjList>
             </Stage>
         </StageList>
     </Game>

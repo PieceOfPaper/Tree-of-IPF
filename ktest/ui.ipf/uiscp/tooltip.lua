@@ -53,7 +53,8 @@ function TRY_PARSE_PROPERTY(obj, nextObj, caption)
 
             local propValue;
             if string.sub(tagText, 1, 1) == "1" then
-                propValue = nextObj[string.sub(tagText, 2, string.len(tagText))];
+                local propName = string.sub(tagText, 2, string.len(tagText));
+                propValue = nextObj[propName];
             else
                 propValue = nextObj[tagText]
             end

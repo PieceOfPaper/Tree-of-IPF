@@ -1974,7 +1974,7 @@
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
-                    <Obj Type="Monster" MonType="59204" Pos="130.73#973.21#-959.73" range="200" genCount="1" maxStackCount="30" genTime="1000" autoGen="0" objectKey="0" tendency="1">
+                    <Obj Type="Monster" MonType="59204" Pos="130.73#973.21#-959.73" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="0" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -1998,7 +1998,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59199" Pos="610.07#972.97#-797.90" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="2" tendency="1">
+                    <Obj Type="Monster" MonType="59199" Pos="748.30#972.50#-850.75" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="2" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2022,7 +2022,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59205" Pos="1292.26#973.22#-716.36" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="4" tendency="1">
+                    <Obj Type="Monster" MonType="59205" Pos="1292.26#973.22#-716.36" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="4" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2034,7 +2034,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59203" Pos="831.77#972.26#-800.74" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="5" tendency="1">
+                    <Obj Type="Monster" MonType="59203" Pos="589.02#973.05#-863.33" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="5" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2058,7 +2058,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59202" Pos="819.98#972.30#-896.11" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="7" tendency="1">
+                    <Obj Type="Monster" MonType="59202" Pos="852.41#972.20#-835.52" range="200" genCount="1" maxStackCount="5" genTime="1000" objectKey="7" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2070,7 +2070,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59199" Pos="1284.52#973.21#-1035.81" range="200" genCount="1" maxStackCount="30" genTime="1000" autoGen="0" objectKey="8" tendency="1">
+                    <Obj Type="Monster" MonType="59199" Pos="1284.52#973.21#-1035.81" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="8" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2082,7 +2082,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59205" Pos="716.57#972.98#-680.47" range="200" genCount="1" genTime="1000" autoGen="0" objectKey="9" tendency="1">
+                    <Obj Type="Monster" MonType="59205" Pos="716.57#972.98#-680.47" range="200" genCount="1" maxStackCount="5" genTime="1000" autoGen="0" objectKey="9" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2106,7 +2106,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="59203" Pos="1394.45#971.93#-968.84" angle="-105" range="200" maxStackCount="5" genTime="10000" genReadyTime="60000" objectKey="11" tendency="1">
+                    <Obj Type="Monster" MonType="59203" Pos="1394.45#971.93#-968.84" angle="-105" range="200" maxStackCount="5" genTime="10000" autoGen="0" genReadyTime="60000" objectKey="11" tendency="1">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="S_AI_ATTACK_NEAR_MAXHATECOUNT_CHECK" Client="NO" UseSleep="NO">
@@ -2169,7 +2169,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/0/stage4_2/3/stage4_2/6/stage4_2/10"/>
-                                <Num Num="7"/>
+                                <Num Num="5"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2210,7 +2210,7 @@
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
-                                <Num Num="7"/>
+                                <Num Num="5"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2246,8 +2246,8 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
-                                <Num Num="7"/>
+                                <MGameObjIndex List="stage4_2/2/stage4_2/5/stage4_2/7/stage4_2/9"/>
+                                <Num Num="5"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2261,7 +2261,7 @@
                                 <Num Num="30"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage4_2/1/stage4_2/4/stage4_2/8/stage4_2/11"/>
+                                <MGameObj List="stage4_2/2/stage4_2/5/stage4_2/7/stage4_2/9"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </condList>
@@ -2271,7 +2271,7 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_SHOWBALLOONTEXT" Client="NO" UseSleep="NO">
                                 <Str Str="Unique_Raid_StarTower_Stage_MSG15"/>
-                                <Num Num="5"/>
+                                <Num Num="4"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2283,8 +2283,8 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage4_2/3/stage4_2/11"/>
-                                <Num Num="10"/>
+                                <MGameObjIndex List="stage4_2/3/stage4_2/11/stage4_2/10/stage4_2/8"/>
+                                <Num Num="4"/>
                                 <Num Num="0"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
@@ -2328,21 +2328,21 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="10000" eventName="MoreGen">
+                    <Event execMS="10000" execCount="1" eventName="MoreGen">
                         <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage4_2/6/stage4_2/7/stage4_2/8/stage4_2/9/stage4_2/10/stage4_2/11"/>
-                                <Num Num="0"/>
-                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="stage4_1/2/stage4_1/1"/>
                                 <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="동력 장치 한 개가 파괴되었습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
                                 <MGameObjIndex List="stage4_2/6/stage4_2/7/stage4_2/8/stage4_2/9/stage4_2/10/stage4_2/11"/>
-                                <Num Num="5"/>
+                                <Num Num="3"/>
                                 <Num Num="0"/>
                             </ToolScp>
                         </execList>

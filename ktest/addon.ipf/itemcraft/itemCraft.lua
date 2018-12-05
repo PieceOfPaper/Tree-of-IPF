@@ -303,7 +303,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 	
 	local hGroup = tree:FindByValue(groupName);
 	if tree:IsExist(hGroup) == 0 then
-		hGroup = tree:Add(GET_RECIPE_GROUP_NAME(groupName), groupName);
+		hGroup = tree:Add(ScpArgMsg(groupName), groupName);
 		tree:SetNodeFont(hGroup,"brown_18_b")
 	end
 
@@ -313,7 +313,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 	else
 		local hClassType = tree:FindByValue(hGroup, classType);
 		if tree:IsExist(hClassType) == 0 then
-			hClassType = tree:Add(hGroup, GET_RECIPE_GROUP_NAME(classType), classType);
+			hClassType = tree:Add(hGroup, ScpArgMsg(classType), classType);
 			tree:SetNodeFont(hClassType,"brown_18_b")
 			
 		end

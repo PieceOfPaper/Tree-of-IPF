@@ -493,7 +493,7 @@ function _ITEMOPTIONADD_CANCEL()
 	local frame = ui.GetFrame("itemoptionadd");
 end;
 
-function _ITEMOPTIONADD_EXEC()
+function _ITEMOPTIONADD_EXEC(checkRebuildFlag)
 
 	local frame = ui.GetFrame("itemoptionadd");
 
@@ -515,6 +515,26 @@ function _ITEMOPTIONADD_EXEC()
 		return
 	end
 
+	local frame = ui.GetFrame("itemoptionadd");
+	if frame:IsVisible() == 0 then
+		return;
+	end
+	
+
+	local mainSlot = GET_CHILD_RECURSIVELY(frame, "slot");
+	local mainInvItem = GET_SLOT_ITEM(mainSlot);
+	if mainInvItem == nil then
+		return;
+	end
+
+	if checkRebuildFlag ~= false then
+		local targetItemObj = GetIES(mainInvItem:GetObject());
+		if TryGetProp(targetItemObj, 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_ITEMOPTIONADD_EXEC(false)', 'None');
+			return;
+		end
+	end
+
 	local text_beforeadd = GET_CHILD_RECURSIVELY(frame, "text_beforeadd")
 	text_beforeadd:ShowWindow(0)
 	local text_afteradd = GET_CHILD_RECURSIVELY(frame, "text_afteradd")
@@ -527,17 +547,6 @@ function _ITEMOPTIONADD_EXEC()
 	local sendOK = GET_CHILD_RECURSIVELY(frame, "send_ok")
 	sendOK:ShowWindow(1)
 
-	local frame = ui.GetFrame("itemoptionadd");
-	if frame:IsVisible() == 0 then
-		return;
-	end
-	
-
-	local mainSlot = GET_CHILD_RECURSIVELY(frame, "slot");
-	local mainInvItem = GET_SLOT_ITEM(mainSlot);
-	if mainInvItem == nil then
-		return;
-	end
 
 	local addSlot = GET_CHILD_RECURSIVELY(frame, "slot_add");
 	local addInvItem = GET_SLOT_ITEM(addSlot);

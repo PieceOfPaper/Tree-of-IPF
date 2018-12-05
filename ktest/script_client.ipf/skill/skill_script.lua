@@ -12,6 +12,12 @@ end
 
 function SKL_OPEN_UI_C(actor, obj, uiName, subUi)
 	if GetMyActor() == actor then
+	    -- 12.20까지 시모니 제작 기능 임시로 불가능하게 처리
+	    if uiName == "skillitemmaker" then
+	        ui.SysMsg(ClMsg('CannotUseSkill'));
+	        return ;
+	    end 
+	
 		ui.OpenFrame(uiName);
 
 		if nil ~= subUi then	

@@ -556,7 +556,7 @@ function _ITEMOPTIONEXTRACT_CANCEL()
 	local frame = ui.GetFrame("itemoptionextract");
 end;
 
-function _ITEMOPTIONEXTRACT_EXEC()
+function _ITEMOPTIONEXTRACT_EXEC(checkRebuildFlag)
 	local frame = ui.GetFrame("itemoptionextract");
 	local extractKitSlot = GET_CHILD_RECURSIVELY(frame, "extractKitSlot");
 	local extractKitIcon = extractKitSlot:GetIcon();
@@ -597,6 +597,12 @@ function _ITEMOPTIONEXTRACT_EXEC()
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
 
+	if checkRebuildFlag ~= false then
+		if TryGetProp(item, 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_ITEMOPTIONEXTRACT_EXEC(false)', 'None');
+			return;
+		end
+	end
 	
 	local bodyGbox2 = GET_CHILD_RECURSIVELY(frame, "bodyGbox2")
 	bodyGbox2:ShowWindow(0)

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1551,6 +1551,13 @@
 		<image name="ability_Wizard_Cryomancer24" file="\icon\icon_ability_wizard06.tga" imgrect="896 0 128 128" CMM_Caption="아이스 블래스트 브레이크"/>
 		<image name="ability_Wizard_Shadowmancer10" file="\icon\icon_ability_wizard06.tga" imgrect="0 128 128 128" CMM_Caption="할루시네이션: 강화"/>
 		<image name="ability_Wizard_StaffMastery" file="\icon\icon_ability_wizard06.tga" imgrect="128 128 128 128" CMM_Caption="스태프마스터리"/>
+		<image name="ability_Wizard_Chronomancer13" file="\icon\icon_ability_wizard06.tga" imgrect="256 128 128 128" CMM_Caption="패스: 이기심"/>
+		<image name="ability_Wizard_Chronomancer14" file="\icon\icon_ability_wizard06.tga" imgrect="384 128 128 128" CMM_Caption="타임 포워드: 공격"/>
+		<image name="ability_Wizard_Chronomancer15" file="\icon\icon_ability_wizard06.tga" imgrect="512 128 128 128" CMM_Caption="퀵 캐스트: 집중"/>
+		<image name="ability_Wizard_Chronomancer10" file="\icon\icon_ability_wizard06.tga" imgrect="640 128 128 128" CMM_Caption="스톱: 디버프 제거"/>
+		<image name="ability_Wizard_Chronomancer11" file="\icon\icon_ability_wizard06.tga" imgrect="768 128 128 128" CMM_Caption="슬로우: 마법 공격"/>
+		<image name="ability_Wizard_Chronomancer12" file="\icon\icon_ability_wizard06.tga" imgrect="896 128 128 128" CMM_Caption="환생: 리바이브"/>
+		<image name="ability_Wizard_Chronomancer16" file="\icon\icon_ability_wizard06.tga" imgrect="0 256 128 128" CMM_Caption="환생: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -2272,6 +2279,13 @@
 		<image name="ability_cleric_chaplain15" file="\icon\icon_ability_cleric06.tga" imgrect="384 256 128 128" CMM_Caption="카펠라 설치: 강화"/>
 		<image name="ability_cleric_chaplain16" file="\icon\icon_ability_cleric06.tga" imgrect="512 256 128 128" CMM_Caption="비지블 탤런트: 강화"/>
 		<image name="ability_cleric_Miko7" file="\icon\icon_ability_cleric06.tga" imgrect="640 256 128 128" CMM_Caption="오마쿠지: 강화"/>
+		<image name="ability_cleric_Oracle15" file="\icon\icon_ability_cleric06.tga" imgrect="768 256 128 128" CMM_Caption="카운터 스펠: 강화"/>
+		<image name="ability_cleric_Oracle16" file="\icon\icon_ability_cleric06.tga" imgrect="896 256 128 128" CMM_Caption="카운터 스펠: 지속시간"/>
+		<image name="ability_cleric_Oracle17" file="\icon\icon_ability_cleric06.tga" imgrect="0 384 128 128" CMM_Caption="포어텔: 위협"/>
+		<image name="ability_cleric_Oracle18" file="\icon\icon_ability_cleric06.tga" imgrect="128 384 128 128" CMM_Caption="죽음의 선고: 초기화"/>
+		<image name="ability_cleric_Oracle19" file="\icon\icon_ability_cleric06.tga" imgrect="256 384 128 128" CMM_Caption="죽음의 선고: 강화"/>
+		<image name="ability_cleric_Oracle20" file="\icon\icon_ability_cleric06.tga" imgrect="384 384 128 128" CMM_Caption="디바인 마이트: 횟수 증가"/>
+		<image name="ability_cleric_Oracle21" file="\icon\icon_ability_cleric06.tga" imgrect="512 384 128 128" CMM_Caption="트위스트 오브 페이트: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

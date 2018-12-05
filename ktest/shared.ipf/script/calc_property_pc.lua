@@ -1533,7 +1533,7 @@ function SCR_Get_CRTDR(self)
     if byItem == nil then
         byItem = 0;
     end
-    byItem = -1000
+    
     local value = byLevel + byItem;
     
     local byItemRareOption = TryGetProp(self, 'EnchantCriticalDodgeRate');

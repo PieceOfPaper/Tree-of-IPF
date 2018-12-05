@@ -28,7 +28,7 @@ local function _ADD_ITEM_TO_EXCHANGEANTIQUE_FROM_INV(frame, item)
 			return;
 		end
 	else
-		if TryGetProp(item, 'Rebuildchangeitem', 0) == 0 then			
+		if TryGetProp(item, 'Rebuildchangeitem', 0) == 0 then
 			ui.SysMsg(ClMsg('WrongDropItem'));
 			return;
 		end
@@ -45,6 +45,7 @@ local function _ADD_ITEM_TO_EXCHANGEANTIQUE_FROM_INV(frame, item)
 	local itemClass = GetClassByType("Item", item.ClassID);
 	local exchangeAntique = GET_EXCHANGE_ANTIQUE_INFO(item.ClassName);
 	if exchangeAntique == nil then
+		ui.SysMsg(ClMsg('WrongDropItem'));
 		return;
 	end
 
@@ -297,6 +298,10 @@ function CLICK_EXCHANGE_BUTTON()
 		local str = '{@st66d_y}';
 		if addPR ~= 0 then
 			str = str..ClMsg('PR')..' '
+			local resultPR = exchangeItem.MaxPR + addPR;
+			resultPR = math.min(exchangeItem.MaxPR, resultPR);
+			addPR = resultPR - invItemObj.PR;
+
 			if addPR > 0 then
 				str = str..tostring(addPR)..' '..ClMsg('Increase');
 			else
@@ -374,10 +379,13 @@ function OPEN_EXCHANGE_ANTIQUE(careMode)
 
 	local function _SET_TITLE(frame, careMode)
 		local title = GET_CHILD_RECURSIVELY(frame, 'title');
+		local close = GET_CHILD_RECURSIVELY(frame, 'close');
 		if careMode == 1 then
 			title:SetTextByKey('title', ClMsg('ExchangeWeaponType'));
+			close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("ExchangeWeaponType")));
 		else
 			title:SetTextByKey('title', ClMsg('ExchangeAntique'));
+			close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("ExchangeAntique")));
 		end
 	end
 	_SET_TITLE(frame, careMode);

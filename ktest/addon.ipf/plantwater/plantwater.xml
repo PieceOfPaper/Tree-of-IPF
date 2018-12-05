@@ -5,7 +5,7 @@
     <draw drawframe="false" drawtitlebar="false"/>
     <layer layerlevel="100"/>
     <input moveable="true"/>
-    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <option closebutton="false" hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <gauge name="watergauge" rect="0 0 75 40" margin="49 5 0 0" layout_gravity="left top" inverse="false" point="50" skin="pcinfo_gauge_sp"/>

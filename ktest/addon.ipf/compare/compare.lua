@@ -186,10 +186,6 @@ function SHOW_PC_COMPARE(cid)
 		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
 		nameCtrl:SetText("{@st41}".. GET_JOB_NAME(cls, gender));
-
-		-- 클래스 레벨 (★로 표시)
-		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
-		local levelFont = frame:GetUserConfig("Font_Normal");
 		
 		clsindex = clsindex + 1
 	end

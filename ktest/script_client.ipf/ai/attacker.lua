@@ -166,8 +166,8 @@ function UPDATE_QUEST_WARP(actor, elapsedTime)
 		movie.ShowModel(actor:GetHandleVal(), 1);
 		return;		
 	end
-	
-	local arg = actor:GetFSMArg1();
+
+	local arg = actor:GetFSMArg1();	
 	if arg == 0 then		-- warp ready
 		UPDATE_QUEST_WARP_READY(actor);		
 	elseif arg == 1 then	-- warp
@@ -190,15 +190,17 @@ function UPDATE_QUEST_WARP_READY(actor)
 		actor:SetPos(startPos);
 	else
 		if s_warpEffect == 0 then
+			--movie.StopAnimToStd(actor:GetHandleVal());		
 			actor:GetEffect():PlayEffect("F_light029_blue", 0.2);
-			movie.ShowModel(actor:GetHandleVal(), 0);
+			--movie.ShowModel(actor:GetHandleVal(), 0);
 			s_warpEffect = 1;
 		end
 	end		
 	
 	if ratio >= 1.0 and (imcTime.GetAppTime() - actor:GetFSMTime()) > s_warpPCHideTime then				
 		actor:SetFSMArg1(1);
-		local strArg = actor:GetFSMStrArg();		
+		actor:SetFSMTime(imcTime.GetAppTime());
+		local strArg = actor:GetFSMStrArg();
 		if strArg ~= "None" then
 			ui.Chat(strArg);
 		end
@@ -210,14 +212,14 @@ end
  
 function UPDATE_QUEST_WARP_PROC(actor)
 	actor:SetJumpAniType(1);
-	movie.ShowModel(actor:GetHandleVal(), 0);
+	-- movie.StopAnimToStd(actor:GetHandleVal());
+	--movie.ShowModel(actor:GetHandleVal(), 0);
 	
 	if actor:GetFSMArg2() == 1 then
-		s_warpSleepTime = 1.0;
+		s_warpSleepTime = 5.0;
 	else
 		s_warpSleepTime = 0.3;
 	end
-
 	if (imcTime.GetAppTime() - actor:GetFSMTime()) > s_warpSleepTime then
 		local scenePos = world.GetActorPos(actor:GetHandleVal());
 		scenePos.y = scenePos.y - s_warpDestYPos;
@@ -225,14 +227,16 @@ function UPDATE_QUEST_WARP_PROC(actor)
 		actor:ReserveArgPos(1);
 		actor:SetArgPos(0, world.GetActorPos(actor:GetHandleVal()));
 		
-		actor:SetFSMArg1(2);		
+		actor:SetFSMArg1(2);
+		actor:SetFSMTime(imcTime.GetAppTime());
+		
 		actor:GetEffect():RemoveEffect("F_light029_blue", 1);
-		UPDATE_QUEST_WARP_END(actor);
+		
 		return;
 	end
 end
 
-function UPDATE_QUEST_WARP_END(actor, elapsedTime)
+function UPDATE_QUEST_WARP_END(actor, elapsedTime)	
 	local ratio = (imcTime.GetAppTime() - actor:GetFSMTime()) / s_warpEndTime;
 	
 	if ratio >= 0.2 and ratio < 1.0 then
@@ -242,9 +246,13 @@ function UPDATE_QUEST_WARP_END(actor, elapsedTime)
 		end
 	end
 
-	if ratio >= 1.0 then	
-		movie.ShowModel(actor:GetHandleVal(), 1);
-		actor:ActorMoveStop();		
+	if ratio >= 1.0 then
+		actor:ProcessVerticalMove(elapsedTime);		
+		movie.ShowModel(actor:GetHandleVal(), 1);		
+		-- if actor:IsOnGround() == true then
+			actor:ActorMoveStop();
+		-- end
+		
 		s_warpEffect = 0;
 		return;
 	end	
@@ -264,10 +272,6 @@ function SELECT_QUEST_WARP()
 
 	local frame = ui.GetFrame('questwarp');
 	OPEN_QUESTWARP_FRAME(frame);
-end
-
-function ENTER_QUEST_WARP(actor)
-	ENTER_INTE_WARP(actor);
 end
 
 function ENTER_INTE_WARP(actor)
@@ -353,7 +357,7 @@ function UPDATE_INTE_WARP_PROC(actor)
 	movie.ShowModel(actor:GetHandleVal(), 0);
 	
 	if actor:GetFSMArg2() == 1 then
-		s_warpSleepTime = 1.0;
+		s_warpSleepTime = 5.0;
 	else
 		s_warpSleepTime = 0.3;
 	end

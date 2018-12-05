@@ -585,18 +585,27 @@ function _ITEMTRANSCEND_CANCEL()
 	local frame = ui.GetFrame("itemtranscend");
 end;
 
-function _ITEMTRANSCEND_EXEC()
-
+function _ITEMTRANSCEND_EXEC(checkRebuildFlag)
 	local frame = ui.GetFrame("itemtranscend");
 	if frame:IsVisible() == 0 then
 		return;
 	end
+
+	local slot = GET_CHILD(frame, "slot");
+	local invItem = GET_SLOT_ITEM(slot);
+	if checkRebuildFlag ~= false then
+		local invItemObj = GetIES(invItem:GetObject());
+		if TryGetProp(invItemObj, 'Rebuildchangeitem', 0) > 0 then		
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_ITEMTRANSCEND_EXEC(false)', 'None');
+			return;
+		end
+	end
+
 	frame:SetUserValue("ONANIPICTURE_PLAY", 1);
 	
 	ui.SetHoldUI(true);
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_EVENT_EXEC"));
-	local slot = GET_CHILD(frame, "slot");
-	local invItem = GET_SLOT_ITEM(slot);
+	
 	
 	local slot_material = GET_CHILD(frame, "slot_material");
 	local materialItem = GET_SLOT_ITEM(slot_material);	

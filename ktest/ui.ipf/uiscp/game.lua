@@ -1725,6 +1725,10 @@ function SCR_SKILLITEM(invItem)
 end
 
 function SCR_SKILLSCROLL(invItem)
+    if 1 == 1 then
+		return;
+	end
+
 	if world.IsPVPMap() then
 		return;
 	end

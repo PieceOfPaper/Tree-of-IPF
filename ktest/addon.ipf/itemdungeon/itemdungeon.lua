@@ -333,7 +333,7 @@ function ITEMDUNGEON_SET_TITLE(frame, isSeller)
 	titleText:SetTextByKey('title', title);
 end
 
-function _ITEMDUNGEON_BUY_ITEM()
+function _ITEMDUNGEON_BUY_ITEM(checkRebuildFlag)
 	local frame = ui.GetFrame('itemdungeon');
 	local targetSlot = GET_CHILD_RECURSIVELY(frame, 'targetSlot');
 	local targetIcon = targetSlot:GetIcon();
@@ -364,6 +364,13 @@ function _ITEMDUNGEON_BUY_ITEM()
 	if materialItemGuid == '0' and targetItemObj.PR <= 0 then
 		ui.SysMsg(ClMsg("NoMorePotential"));
 		return;
+	end
+
+	if checkRebuildFlag ~= false then
+		if TryGetProp(targetItemObj, 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_ITEMDUNGEON_BUY_ITEM(false)', 'None');
+			return;
+		end
 	end
 
 	local sklCls = GetClass('Skill', 'Alchemist_ItemAwakening');

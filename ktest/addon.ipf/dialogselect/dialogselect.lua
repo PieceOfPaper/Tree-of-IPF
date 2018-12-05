@@ -61,7 +61,7 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 
 				ItemBtnCtrl:SetOffset(0, questRewardBox:GetY() + questRewardBox:GetHeight() + 10);	
 			else				
-				frame:SetUserValue("IsScroll", "NO");	
+				frame:SetUserValue("IsScroll", "NO");
 				ItemBtnCtrl:SetOffset(0, height + offset + 10 + ItemBtnCtrl:GetHeight());
 			end;
 			frame:SetUserValue("FIRSTORDER_MAXHEIGHT", 0);
@@ -69,7 +69,7 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
 			if frame:GetUserValue("IsScroll") == "NO" then
 				height = y + ItemBtnCtrl:GetHeight();	
 				frameHeight = height + offset + 50;	
-				ItemBtnCtrl:SetOffset(0, height + offset + 10);
+				ItemBtnCtrl:SetOffset(0, height + offset + 10);				
 			else
 				frameHeight = height + offsetEx + 50;	
 				ItemBtnCtrl:SetOffset(0, height + offsetEx);
@@ -209,7 +209,7 @@ function DIALOGSELECT_QUEST_REWARD_ADD(frame, argStr)
     y = MAKE_REWARD_STEP_ITEM_CTRL(questRewardBox, questCls, cls, y)
 	y = MAKE_BASIC_REWARD_REPE_CTRL(questRewardBox, questCls, cls, y)
 	questRewardBox:Resize(questRewardBox:GetWidth(), math.min(questRewardBox:GetHeight(), y));
-	frame:SetUserValue("QUESTFRAME_HEIGHT",  y+30);
+	frame:SetUserValue("QUESTFRAME_HEIGHT",  questRewardBox:GetHeight());
 	frame:Invalidate();
 	return 1;
 end

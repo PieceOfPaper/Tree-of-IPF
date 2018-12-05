@@ -616,7 +616,19 @@ function IMPL_BRIQUETTING_SKILL_EXCUTE()
 	_BRIQUETTING_SKILL_EXCUTE(frame:GetUserValue('BRIQUETTING_TARGET_GUID'), frame:GetUserValue('BRIQUETTING_LOOK_GUID'));
 end
 
-function _BRIQUETTING_SKILL_EXCUTE(targetItemGuid, lookItemGuid)
+function _BRIQUETTING_SKILL_EXCUTE(targetItemGuid, lookItemGuid, checkRebuildFlag)
+	if checkRebuildFlag ~= false then
+		local targetItem = session.GetInvItemByGuid(targetItemGuid);
+		if targetItem == nil or targetItem:GetObject() == nil then
+			return;
+		end
+
+		if TryGetProp(GetIES(targetItem:GetObject()), 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), '_BRIQUETTING_SKILL_EXCUTE("'..targetItemGuid..'", "'..lookItemGuid..'", false)', 'None');
+			return;
+		end
+	end
+
 	local frame = ui.GetFrame('briquetting');	
 	local prCheck = GET_CHILD_RECURSIVELY(frame, 'prCheck');
 	local lookMatItemList, lookMatItemGuidList = BRIQUETTING_GET_LOOK_MATERIAL_LIST(frame);	

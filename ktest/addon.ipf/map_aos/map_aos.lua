@@ -1,4 +1,16 @@
+
+
 function MAP_AOS_ON_INIT(addon, frame)
+
+
+	--[[
+	addon:RegisterMsg('MAP_CHARACTER_UPDATE', 'MAP_AOS_MYPCUPDATE');
+	addon:RegisterMsg('ANGLE_UPDATE', 'MAP_AOS_ANGLEUPDATE');
+	addon:RegisterMsg('AOS_OBJ_ENTER', 'ON_AOS_OBJ_ENTER');
+	addon:RegisterMsg('AOS_OBJ_LEAVE', 'ON_AOS_OBJ_LEAVE');
+	addon:RegisterMsg('AOS_POS_UPDATE', 'ON_AOS_POS_UPDATE');
+]]
+		
 end
 
 function MAP_AOS_CREATE(addon, frame)
@@ -155,6 +167,7 @@ function ON_CHANGE_VIEW_FOCUS(frame, msg, name, handle)
 end
 
 function MAP_AOS_MYPCUPDATE(frame, msg, name, handle)
+
 	local fhandle = view.GetFocusedHandle();
 	if fhandle ~= 0 then
 		handle = fhandle
@@ -166,7 +179,9 @@ function MAP_AOS_MYPCUPDATE(frame, msg, name, handle)
 	SET_AOS_PIC_POS(frame, map, my, pos.x, pos.y);
 	my:MakeTopBetweenChild();
 	frame:Invalidate();
+
 end
+
 
 function MAP_AOS_ANGLEUPDATE(frame, msg, name, handle)
 
@@ -176,3 +191,11 @@ function MAP_AOS_ANGLEUPDATE(frame, msg, name, handle)
 	my:SetAngle(angle);
 	frame:Invalidate();	
 end
+
+
+
+
+
+
+
+

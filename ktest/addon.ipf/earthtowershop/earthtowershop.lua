@@ -198,6 +198,9 @@ function INSERT_ITEM(cls, tree, slotHeight, haveMaterial)
 	local classType = nil;
 	if GetPropType(item, "ClassType") ~= nil then
 		classType = item.ClassType;
+		if classType == 'None' then
+		    classType = nil
+		end
 	end
 
 	EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls);
@@ -208,7 +211,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 	
 	local hGroup = tree:FindByValue(groupName);
 	if tree:IsExist(hGroup) == 0 then
-		hGroup = tree:Add(GET_RECIPE_GROUP_NAME(groupName), groupName);
+		hGroup = tree:Add(ScpArgMsg(groupName), groupName);
 		tree:SetNodeFont(hGroup,"brown_18_b")
 	end
 
@@ -218,7 +221,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 	else
 		local hClassType = tree:FindByValue(hGroup, classType);
 		if tree:IsExist(hClassType) == 0 then
-			hClassType = tree:Add(hGroup, GET_RECIPE_GROUP_NAME(classType), classType);
+			hClassType = tree:Add(hGroup, ScpArgMsg(classType), classType);
 			tree:SetNodeFont(hClassType,"brown_18_b")
 			
 		end

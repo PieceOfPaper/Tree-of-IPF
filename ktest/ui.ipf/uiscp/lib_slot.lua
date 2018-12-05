@@ -480,14 +480,13 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 end
 
 function GET_SLOT_ITEM(slot)
-
 	slot = AUTO_CAST(slot);
 	local icon = slot:GetIcon();
 	if icon == nil then
 		return nil;
 	end
-	local iconInfo = icon:GetInfo();
 
+	local iconInfo = icon:GetInfo();
 	if iconInfo:GetIESID() ~= "0" then
 		return GET_PC_ITEM_BY_GUID(iconInfo:GetIESID()), iconInfo.count
 	else

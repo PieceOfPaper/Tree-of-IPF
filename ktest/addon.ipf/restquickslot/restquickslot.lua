@@ -419,9 +419,10 @@ function QSLOT_ENABLE_INDUN(cls)
 end
 
 function QSLOT_VISIBLE_CRAFT_SPELL_BOOK()
+    -- 12.20까지 제작 기능 임시로 불가능하게 처리
 	local runecasterCls = GetClass('Job', 'Char2_17');
 	if IS_HAD_JOB(runecasterCls.ClassID) == true then
-		return 1;
+		return 0;
 	end
 	return 0;
 end

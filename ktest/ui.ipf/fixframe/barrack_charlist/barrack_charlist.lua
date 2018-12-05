@@ -465,8 +465,10 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	nameCtrl:SetText("{@st42b}{b}".. name);
         
     -- 대표 클래스 지정
-    local barrack_pc = session.barrack.GetMyAccount():GetByStrCID(key)    
-    if barrack_pc:GetRepID() ~= 0 then jobid = barrack_pc:GetRepID() end
+	local barrack_pc = session.barrack.GetMyAccount():GetByStrCID(key);
+	if barrack_pc ~= nil and barrack_pc:GetRepID() ~= 0 then 
+		jobid = barrack_pc:GetRepID();
+	end
     
     local jobCls = GetClassByType("Job", jobid);
 	local jobCtrl = GET_CHILD(mainBox, "job", "ui::CRichText");
@@ -741,7 +743,8 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 			gameStartFrame:ShowWindow(0);
 		else
             local now_select_slot = tonumber(argNum)
-            local char_controlset = GET_CHILD_RECURSIVELY(frame, 'char_' .. tostring(bpc:GetCID()))
+			local char_controlset = GET_CHILD_RECURSIVELY(frame, 'char_' .. tostring(bpc:GetCID()))
+			if char_controlset ~= nil then
             local y_pos = tonumber(char_controlset:GetY())            
             local ret = math.floor(y_pos / 200)
             if now_select_slot > prev_select_slot then  -- down
@@ -753,6 +756,7 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
             scroll_bar:SetScrollPos(math.abs(tonumber(y_pos - 10)))                    
             prev_select_slot = now_select_slot
 			START_GAME_SET_MAP(gameStartFrame, argNum, bpc:GetApc().mapID, bpc:GetApc().channelID);
+			end
 			gameStartFrame:ShowWindow(1);
 		end
 	elseif msg == "BARRACK_SELECTCHARACTER" then    

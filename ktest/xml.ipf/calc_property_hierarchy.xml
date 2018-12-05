@@ -137,6 +137,7 @@
 		<Child Name="CON"/>
 		<Child Name="BLK_BM"/>
 		<Child Name="BLK_RATE_BM"/>
+		<Child Name="BLKABLE"/>
 	</hierarchy>
 	<hierarchy Name="RHP">
 		<Child Name="CON"/>
@@ -230,7 +231,12 @@
 		<Child Name="CRTDR_BM"/>
 		<Child Name="CRTDR_RATE_BM"/>
 	</hierarchy>
-	<hierarchy Name="BLKABLE"/>
+	<hierarchy Name="BLKABLE">
+		<Child Name="BLKABLE_BM"/>
+	</hierarchy>
+	<hierarchy Name="HateRate">
+		<Child Name="HateRate_BM"/>
+	</hierarchy>
 	<hierarchy Name="KDPow">
 		<Child Name="KDPow_BM"/>
 	</hierarchy>
@@ -301,7 +307,7 @@
 	<hierarchy Name="LootingChance">
 		<Child Name="LootingChance_BM"/>
 	</hierarchy>
-	<hierarchy Name="FIRE_Atk">
+	<hierarchy Name="Fire_Atk">
 		<Child Name="Fire_Atk_BM"/>
 	</hierarchy>
 	<hierarchy Name="Ice_Atk">

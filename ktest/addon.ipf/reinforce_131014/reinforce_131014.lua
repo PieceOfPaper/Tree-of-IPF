@@ -153,11 +153,18 @@ function REINFORCE_131014_MSGBOX(frame)
 	REINFORCE_131014_EXEC();
 end
 
-function REINFORCE_131014_EXEC()
+function REINFORCE_131014_EXEC(checkReuildFlag)
 	local frame = ui.GetFrame("reinforce_131014");
-	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(frame);
-	
+	local fromItem, fromMoru = REINFORCE_131014_GET_ITEM(frame);	
 	if fromItem ~= nil and fromMoru ~= nil then
+		if checkReuildFlag ~= false then
+			local fromItemObj = GetIES(fromItem:GetObject());
+			if TryGetProp(fromItemObj, 'Rebuildchangeitem', 0) > 0 then		
+				ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), 'REINFORCE_131014_EXEC(false)', 'None');
+				return;
+			end
+		end
+
 		session.ResetItemList();
 		session.AddItemID(fromItem:GetIESID());
 		session.AddItemID(fromMoru:GetIESID());
@@ -174,7 +181,6 @@ function REINFORCE_131014_EXEC()
 	REINFORCE_131014_UPDATE_MORU_COUNT(frame);
 
 end
-
 
 function GET_REINFORCE_TARGET_AND_MORU(frame)
 	local fromItemSlot = GET_CHILD(frame, "fromItemSlot", "ui::CSlot");

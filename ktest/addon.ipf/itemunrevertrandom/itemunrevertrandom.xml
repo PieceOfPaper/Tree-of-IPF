@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="itemunrevertrandom" x="0" y="0" width="400" height="730">
-	<frame fullheight="false" fasthide="false" layout_gravity="right center" margin="0 0 490 0"/>
+	<frame fullheight="false" fasthide="false" layout_gravity="right center" margin="0 0 505 0"/>
 	<draw drawtitlebar="false"/>
-	<skin frameskin="none"/>	
+	<skin frameskin="none"/>
 	<input maxwidth="1280" moveable="false"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<layer layerlevel="100"/>

@@ -571,7 +571,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	end
 
 	local itemObj = GetClassByType("Item", numarg1)
-	viewObj = CloneIES_NotUseCalc(itemObj);
+	viewObj = CloneIES_UseCP(itemObj);
 	if nil ~= viewObj then
 		local refreshScp = viewObj.RefreshScp;
 		if refreshScp ~= "None" then

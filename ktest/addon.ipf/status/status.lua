@@ -2535,5 +2535,7 @@ function ON_UPDATE_REPRESENTATION_CLASS_ICON(frame, msg, argStr, representationI
     local gender = info.GetGender(session.GetMyHandle());
     local jName = GET_JOB_NAME(jobCls, gender);
     local lvText = jName;
+    local etc = GetMyEtcObject();
+    etc.RepresentationClassID = tostring(representationID);
     LevJobText:SetText('{@st41}{s20}' .. lvText);
 end

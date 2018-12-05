@@ -124,7 +124,7 @@ function SOCKET_TICKET_EXECUTE(frame, invItem)
         return;
     end
 
-    if SCR_CHECK_ADD_SOCKET(obj, item) == false then
+    if SCR_CHECK_ADD_SOCKET(obj, invItem) == false then
         ui.SysMsg(ClMsg("ThisItemCannotPlusSocket"));
         return;
     end
@@ -192,7 +192,19 @@ function SOCKET_TICKET_CLICK_EXEC_BTN(parent, ctrl)
     ui.MsgBox(ScpArgMsg('AddSocketByTicketInfoMsg{ITEM_NAME}', 'ITEM_NAME', targetItem.Name), yesScp, 'None');
 end
 
-function REQUEST_ADD_SOCKET_BY_TICKET(targetItemID, ticketItemID)
+function REQUEST_ADD_SOCKET_BY_TICKET(targetItemID, ticketItemID, checkRebuildFlag)
+    local targetItem = GET_PC_ITEM_BY_GUID(targetItemID);
+    if targetItem == nil or targetItem:GetObject() == nil then
+        return;
+    end
+
+    if checkRebuildFlag ~= false then
+        if TryGetProp(GetIES(targetItem:GetObject()), 'Rebuildchangeitem', 0) > 0 then            
+            local yesScp = string.format('REQUEST_ADD_SOCKET_BY_TICKET("%s", "%s", false)', targetItemID, ticketItemID);
+            ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), yesScp, 'None');
+        end
+    end
+
     local resultlist = session.GetItemIDList();
     session.ResetItemList();
 	if nil~= targetItemID then

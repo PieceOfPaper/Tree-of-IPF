@@ -136,5 +136,5 @@ end
 function ASK_DESTORY_OLD_CAMP(sklName)
 
 	local scp = string.format("_CAMP_REGISTER_EXEC(1, \"%s\")", sklName);
-	ui.MsgBox(ScpArgMsg("OnlyOneCampBuildable"), scp, "None");
+	ui.MsgBox(ScpArgMsg("OnlyOneCampBuildable")..'{nl}'..ClMsg('BuildAfterDestroyPrevObject'), scp, "None");
 end

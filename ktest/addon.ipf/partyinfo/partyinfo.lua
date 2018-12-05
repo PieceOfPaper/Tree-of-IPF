@@ -842,14 +842,23 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 	end
 
 	local jobtext = ("");
+	local jobName = nowjobcls.Name; -- hs_comment
+	local etc = GetMyEtcObject();
+    if etc.RepresentationClassID ~= 'None' then
+        local repreJobCls = GetClassByType('Job', etc.RepresentationClassID);
+        if repreJobCls ~= nil then
+            jobName = repreJobCls.Name;
+        end
+    end
+
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 
-		if cls.Name == nowjobcls.Name then
-			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
+		if cls.Name == jobName then
+			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender)..'{nl}{/}';
 		else
-			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
+			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender)..'{nl}{/}';
 		end
 	end
 	icon:SetTextTooltip(jobtext);

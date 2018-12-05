@@ -470,7 +470,7 @@ function BEAUTYSHOP_SIMPLELIST_MAKE_COUPON_SLOTSET(frame, slotset, type)
 			if invItem ~= nil then
         local itemObj = GetIES(invItem:GetObject());
         if IS_COUPON_ITEM(itemObj, type) == true then
-          local cutCnt = imcSlot:GetEmptySlotIndex(slotset);
+          local curCnt = imcSlot:GetEmptySlotIndex(slotset);
           local slot = slotset:GetSlotByIndex(curCnt);        
           SET_SLOT_IMG(slot, itemObj.Icon);
           SET_SLOT_COUNT(slot, invItem.count);

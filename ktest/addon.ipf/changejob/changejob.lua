@@ -299,7 +299,11 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid)
 		icon:SetImage(iconname)
 		icon:SetTooltipType('skill');
 		icon:SetTooltipStrArg(skillClass.ClassName);
-		icon:SetTooltipNumArg(skillClass.ClassID);
+		icon:SetTooltipNumArg(skillClass.ClassID);		
+		local skl = session.GetSkillByName(skillClass.ClassName);
+		if skl ~= nil then
+			icon:SetTooltipIESID(skl:GetIESID());
+		end
 		icon:Set(iconname, "Skill", skillClass.ClassID, 1);
 
 		skillslot:SetSkinName('slot');

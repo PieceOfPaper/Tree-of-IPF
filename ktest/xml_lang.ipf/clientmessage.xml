@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -79,6 +79,9 @@
 		<Class ClassID="503" ClassName="CanOnlyWithMaxLevel" Data="최대 레벨일 때에만 사용 가능합니다."/>
 		<Class ClassID="504" ClassName="CannotToggleAbilitySkillCoolDown" Data="스킬 재사용 대기시간 중에는 특성 ON/OFF를 변경할 수 없습니다."/>
 		<Class ClassID="505" ClassName="TooFarTarget" Data="대상과의 거리가 멀어 사용할 수 없습니다."/>
+		<Class ClassID="506" ClassName="BuildAfterDestroyPrevObject" Data=" 기존걸 지우고 새로 생성하시겠습니까?"/>
+		<Class ClassID="507" ClassName="CannotCountinueBuff_Equip{Name}" Data="[{Name}] 버프가 해제됩니다. 착용한 장비를 확인해주세요."/>
+		<Class ClassID="508" ClassName="CannotUseSkill" Data="임시로 사용이 제한된 스킬입니다."/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -292,12 +295,13 @@
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
 		<Class ClassID="2278" ClassName="CanExchangeOnlyOnce" Data="교환된 아이템은 다시 교환 할 수 없습니다."/>
 		<Class ClassID="2279" ClassName="CloseUI{NAME}" Data="{@st59}{NAME} UI를 닫습니다{/}"/>
+		<Class ClassID="2280" ClassName="IfUDoCannotExchangeWeaponType" Data="계열 변경이 가능한 아이템에 변경이 생기는 경우 {#ff0000}{ol}계열 변경의 기회는 사라집니다.{/}{/} {nl} {nl}{@st66d_y}(강화, 초월, 마켓 판매, 개인 거래, 소켓 추가, 각성, 아이커 장착 및 추출, 무기 외형 변환){/}{nl} {nl}계속 하시겠습니까?"/>
 	</Category>
 	<Category Name="ClassContents">
 		<Class ClassID="2500" ClassName="FullWeeklyGainClassResetExp" Data="주간 획득 가능한 클래스 변경 포인트를 모두 달성하였습니다."/>
 		<Class ClassID="2501" ClassName="FullClassResetExp" Data="더 이상 클래스 변경 포인트를 획득할 수 없습니다."/>
 		<Class ClassID="2502" ClassName="ClassResetFailOtherClass" Data="{JOB} 클래스를 먼저 변경하기 전에는 {TARGET} 클래스로 변경할 수 없습니다."/>
-		<Class ClassID="2503" ClassName="ClassResetFailPoint" Data="클래스 변경을 하기 위한 경험치가 모자랍니다."/>
+		<Class ClassID="2503" ClassName="ClassResetFailPoint" Data="클래스 변경을 하기 위한 포인트가 모자랍니다."/>
 		<Class ClassID="2504" ClassName="TooLowClassLevelForGetSkill{Level}" Data="클래스 레벨 {Level} 이상 필요"/>
 		<Class ClassID="2505" ClassName="DoYouWantRankReset" Data="랭크 초기화 아이템을 사용하시겠습니까?"/>
 		<Class ClassID="2506" ClassName="DoYouWantCtrlTypeReset" Data="계열 변경을 하시겠습니까?"/>
@@ -491,16 +495,16 @@
 		<Class ClassID="4122" ClassName="AppraisalSuccess" Data="감정 성공!"/>
 		<Class ClassID="4123" ClassName="AppraisalPrice" Data="감정 비용 : {Price}{nl}감정하시겠습니까?"/>
 		<Class ClassID="4124" ClassName="AppraisalItem" Data="미감정 아이템입니다"/>
-		<Class ClassID="4125" ClassName="RankResetStart" Data="랭크초기화를 시작하였습니다. 처리시간이 걸릴 수 있습니다."/>
+		<Class ClassID="4125" ClassName="RankResetStart" Data="클래스 변경을 시작하였습니다. 처리시간이 걸릴 수 있습니다."/>
 		<Class ClassID="4126" ClassName="DON_T_HAVE_ITEM_TO_APPRAISAL" Data="감정할 아이템을 선택해 주세요."/>
 		<Class ClassID="4127" ClassName="CantUseRank" Data="{Rank}랭크 에서만 사용하실 수 있습니다."/>
 		<Class ClassID="4128" ClassName="CantUseRankRest1Rank" Data="1랭크에서는 사용하실 수 없습니다."/>
-		<Class ClassID="4130" ClassName="IsDoingRankReset" Data="랭크 초기화중에 있습니다."/>
+		<Class ClassID="4130" ClassName="IsDoingRankReset" Data="클래스 변경 중에 있습니다."/>
 		<Class ClassID="4131" ClassName="Right" Data="오른쪽"/>
 		<Class ClassID="4132" ClassName="Left" Data="왼쪽"/>
 		<Class ClassID="4133" ClassName="CannotReinforceAndTranscendBy{BUFFNAME}" Data="{BUFFNAME} 적용 중에는 강화 또는 초월할 수 없습니다."/>
 		<Class ClassID="4134" ClassName="OnlyEnableUseAt{LAST_RANK}not{CUR_RANK}" Data="{LAST_RANK}랭크일 때에만 사용 가능합니다. 현재 랭크는 {CUR_RANK}랭크 입니다."/>
-		<Class ClassID="4135" ClassName="YouHaveRankCardReallyRankReset?" Data="사용하지 않은 랭크 카드가 있습니다.{nl}랭크 카드 및 클래스 경험치 복구 카드를 사용한 후에 랭크 초기화를 할 수 있습니다."/>
+		<Class ClassID="4135" ClassName="YouHaveRankCardReallyRankReset?" Data="사용하지 않은 랭크 카드가 있습니다.{nl}랭크 카드 및 클래스 경험치 복구 카드를 사용한 후에 클래스 변경을 할 수 있습니다."/>
 		<Class ClassID="4136" ClassName="NotEnoughStoredMoney" Data="보관 중인 금액이 부족합니다."/>
 		<Class ClassID="4137" ClassName="DeleteCardBecauseYourRankTooHigh" Data="이미 사용할 수 있는 랭크를 초과하였습니다.{nl}확인을 누르면 카드가 삭제됩니다."/>
 		<Class ClassID="4138" ClassName="{Item}LockSuccess" Data="{Item} 아이템의 잠금이 설정되었습니다."/>
@@ -588,7 +592,10 @@
 		<Class ClassID="4221" ClassName="SealReinforce_2" Data="흠.. 신중해야겠어"/>
 		<Class ClassID="4222" ClassName="SealReinforce_3" Data="방금 빛을 보았는가! {nl}역시 노력은 배신하지 않아"/>
 		<Class ClassID="4223" ClassName="SealReinforce_4" Data="미안하네 이렇게 되버릴줄이야"/>
-		</Category>
+		<Class ClassID="4224" ClassName="Use_Item_LegendCard_Slot_Open" Data="이미 레전드 카드 슬롯 해제 퀘스트가 완료된 상태이거나, {nl}레전드 카드 장착 슬롯이 봉인 해제된 상태입니다."/>
+		<Class ClassID="4225" ClassName="LegendCard_Box" Data="레전드 카드 선택 봉투"/>
+		<Class ClassID="4226" ClassName="Use_Item_LegendCard_Slot_Open2" Data="{nl}{nl}레전드 카드 슬롯 봉인 해제를 진행하시겠습니까?"/>
+	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToMainOrSubWeapon" Data="무기, 보조 장비 장착 시 효과"/>
@@ -729,7 +736,7 @@
 		<Class ClassID="8076" ClassName="IncreaseCRTHROfPetBy{Value}" Data="컴패니언의 치명타 발생 {Value}추가"/>
 		<Class ClassID="8077" ClassName="IncreaseDROfPetBy{Value}" Data="컴패니언의 회피 {Value}추가"/>
 		<Class ClassID="8078" ClassName="Pet_ATK" Data="공격력"/>
-		<Class ClassID="8079" ClassName="PetHasNotAbility" Data="해당 캐릭터는 이 컴패니언을 탈 수 있는 특성을 가지고 있지 않습니다."/>
+		<Class ClassID="8079" ClassName="PetHasNotAbility" Data="해당 컴패니언을 탑승 할 수 있는 클래스를 가지고 있지 않습니다."/>
 		<Class ClassID="8080" ClassName="BeTogetherWithCompanionReallyDelete" Data="컴패니언을 장착한 상태에서는 캐릭터를 삭제할 수 없습니다."/>
 		<Class ClassID="8081" ClassName="InputCompanionName" Data="컴패니언 이름을 입력하세요"/>
 		<Class ClassID="8082" ClassName="AbilityReduced" Data="능력치 감소"/>
@@ -997,7 +1004,7 @@
 		<Class ClassID="10339" ClassName="ItemIsAwaken" Data="아이템 각성!"/>
 		<Class ClassID="10341" ClassName="BuffMaintainTime" Data="버프지속시간"/>
 		<Class ClassID="10342" ClassName="YouCanBuildFoodTableNearCamp" Data="배식대는 베이스 캠프 근처에만 설치할 수 있습니다."/>
-		<Class ClassID="10343" ClassName="OnlyOneCampBuildable" Data="하나의 베이스 캠프만 건설 가능합니다. 기존걸 지우고 새로 생성하시겠습니까?"/>
+		<Class ClassID="10343" ClassName="OnlyOneCampBuildable" Data="하나의 베이스 캠프만 건설 가능합니다."/>
 		<Class ClassID="10344" ClassName="MakingFoodIsCompleted" Data="음식 제조가 완료되었습니다."/>
 		<Class ClassID="10345" ClassName="ChargeValue:{Value}" Data="충전량:{Value}"/>
 		<Class ClassID="10346" ClassName="ItemRepairFinished" Data="수리가 완료되었습니다."/>
@@ -1011,7 +1018,7 @@
 		<Class ClassID="10361" ClassName="YouCanSellOblationItemOnlyInCity" Data="봉헌아이템은 마을에서만 팔 수 있습니다."/>
 		<Class ClassID="10362" ClassName="AutoSeller_Oblation_Not_Install" Data="봉헌함을 설치 할 수 없는 지역입니다."/>
 		<Class ClassID="10363" ClassName="NewPatchSoExit" Data="새로운 패치가 있습니다. 업데이트를 위해 클라이언트를 종료합니다."/>
-		<Class ClassID="10364" ClassName="OnlyOneFoodBuildable" Data="하나의 배식 테이블만 건설 가능합니다."/>
+		<Class ClassID="10364" ClassName="OnlyOneFoodBuildable" Data="하나의 배식 테이블만 설치 가능합니다."/>
 		<Class ClassID="10365" ClassName="SearchKeywordMustLongerThen{LEN}" Data="검색어는 {LEN}자 이상이어야 합니다."/>
 		<Class ClassID="10366" ClassName="TransferSuccess" Data="전송이 성공했습니다. 감사합니다."/>
 		<Class ClassID="10367" ClassName="TransferFailed" Data="전송이 실패했습니다."/>
@@ -1105,7 +1112,7 @@
 		<Class ClassID="10468" ClassName="NotExistFieldBossInSpot" Data="해당 지역에 필드보스가 없습니다."/>
 		<Class ClassID="10469" ClassName="ErrorNexonLauncher" Data="넥슨 런처를 실행해주세요."/>
 		<Class ClassID="10472" ClassName="Mission_Reward" Data="살러스 수녀원 미션 완료 보상 +1"/>
-		<Class ClassID="10473" ClassName="AntiqueExchange{OPTIONS}" Data="이전 아이템의 {OPTIONS}옵션이 이전됩니다.{nl}{ADDINFO} {nl}교환하시겠습니까?"/>
+		<Class ClassID="10473" ClassName="AntiqueExchange{OPTIONS}" Data="이전 아이템의 {OPTIONS}옵션이 이전됩니다.{nl}{ADDINFO}{nl}변경될 아이템의 최대 포텐셜을 초과 할 수 없습니다.{nl}교환하시겠습니까?"/>
 		<Class ClassID="10474" ClassName="ToEquipSameCardGroup" Data="동일한 카드 그룹에 카드를 장착해야 합니다."/>
 		<Class ClassID="10475" ClassName="AlreadyEquippedThatCardSlot" Data="해당 슬롯에 이미 카드가 장착되어 있습니다."/>
 		<Class ClassID="10476" ClassName="NGSKick" Data="불법 프로그램이 감지되었습니다.{nl}접속이 차단됩니다."/>
@@ -1470,6 +1477,7 @@
 		<Class ClassID="21318" ClassName="UseItemToReset{value}StatusPoints" Data="사용 시 {value}개의 스테이터스 포인트를 초기화 할 수 있습니다."/>
 		<Class ClassID="21319" ClassName="NoStatusPointToReset" Data="초기화 할 수 있는 스탯 포인트가 없습니다."/>
 		<Class ClassID="21320" ClassName="MoreNeedCostumeExchangeCoupon" Data="소유중인 교환권이 부족합니다."/>
+		<Class ClassID="21321" ClassName="TP_Sale_New2" Data="[프리미엄]신규 상품 [10%]할인"/>
 		<Class ClassID="21322" ClassName="NoMarketTrade" Data="마켓 거래 불가"/>
 		<Class ClassID="21323" ClassName="NoUserTrade" Data="개인 거래 불가"/>
 		</Category>
@@ -5050,7 +5058,7 @@
 		<Class ClassID="28244" ClassName="EVENT_1811_NEWCHARACTER_MSG5" Data="우스카의 성장 지원 : 레이드 클리어 진행 대상 캐릭터가 아닙니다"/>
 		<Class ClassID="28245" ClassName="EVENT_1811_NEWCHARACTER_MSG6" Data="우스카의 성장 지원 : 몬스터 처치를 완료한 캐릭터 입니다"/>
 		<Class ClassID="28246" ClassName="EVENT_1811_NEWCHARACTER_MSG7" Data="우스카의 성장 지원 : 레이드 클리어를 완료한 캐릭터 입니다"/>
-		<Class ClassID="28247" ClassName="EVENT_1811_NEWCHARACTER_MSG8" Data="{#33FF33}[우스카의 성장 지원 서브 이벤트]{/} 발동!{nl} 몬스터 처치 : 10,000 마리 (베르니케의 파편을 제외한 모든 지역){nl}레이드 클리어 : 10회 (유니크/레전드 레이드 최종 보스 처치) "/>
+		<Class ClassID="28247" ClassName="EVENT_1811_NEWCHARACTER_MSG8" Data="{#33FF33}[우스카의 성장 지원 서브 이벤트]{/} 발동!{nl} 몬스터 처치 : 5,000 마리 (베르니케의 파편을 제외한 모든 지역){nl}레이드 클리어 : 10회 (유니크/레전드 레이드 최종 보스 처치) "/>
 		<Class ClassID="28248" ClassName="EVENT_1811_NEWCHARACTER_MSG9" Data="[Re:Build] 마시니오스 무기가 +11강화 되었습니다"/>
 		<Class ClassID="28249" ClassName="EVENT_1811_NEWCHARACTER_MSG10" Data="[Re:Build] 마시니오스 무기가 +5 초월 되었습니다"/>
 		<Class ClassID="28250" ClassName="EVENT_1811_NEWCHARACTER_MSG11" Data="'캐릭터 슬롯 추가 이용권' 아이템을 사용해 캐릭터 슬롯이 1 증가하였습니다"/>
@@ -8505,7 +8513,7 @@
 		<Class ClassID="102415" ClassName="ReallySummonGuildMember" Data="[{NAME}] 길드원을 소환하시겠습니까?"/>
 		<Class ClassID="102416" ClassName="ReallyWarpGuildMember" Data="[{NAME}] 길드원에게 이동하시겠습니까?"/>
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
-		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작 시간 감소"/>
+		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작시간 감소"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>

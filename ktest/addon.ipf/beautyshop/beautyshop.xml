@@ -21,7 +21,7 @@
 		<button name="btnClose" parent="gbTitle" rect="0 0 44 44" margin="0 20 80 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;beautyshop&apos;)" clicksound="button_click_big" image="testclose_button" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover"/>
 		<!-- left : item list -->
 		<droplist name="cateDrop" rect="0 0 178 20" margin="15 80 0 0" layout_gravity="left top" SelectScp="BEAUTYSHOP_SELECT_DROPLIST" frametextalign="left" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="8"/>
-		<checkbox name="showOnlyEnableEquipCheck" parent="publicgbox" rect="0 0 178 20" margin="210 75 0 0" layout_gravity="left top" LBtnDownScp="BEAUTYSHOP_CLICK_CHECKBOX" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="착용 가능한 물품만 보기" clicksound="button_click_big" fontname="black_16_b" oversound="button_over" visible="false"/>
+		<checkbox name="showOnlyEnableEquipCheck" rect="0 0 178 20" margin="210 75 0 0" layout_gravity="left top" LBtnDownScp="BEAUTYSHOP_CLICK_CHECKBOX" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="착용 가능한 물품만 보기" clicksound="button_click_big" fontname="black_16_b" oversound="button_over" visible="false"/>
 		<groupbox name="gbItemList" parent="gbLeft" rect="0 0 595 820" margin="3 10 0 0" layout_gravity="left top" skin="test_frame_midle" draw="true" hittestbox="false" resizebyparent="true" scrollbar="true"/>
 		<!-- left : Search -->
 		<groupbox name="gbSearchItem" parent="gbLeft" rect="0 0 595 55" margin="3 0 0 5" layout_gravity="left bottom" skin="test_frame_low" draw="false" hittestbox="false" resizebyparent="true" scrollbar="false"/>
@@ -76,7 +76,7 @@
 		<groupbox name="gbBasketTPInfo" parent="gbBasket" rect="0 0 420 150" margin="3 65 0 0" layout_gravity="left top" skin="test_frame_low" draw="false" hittestbox="false" resizebyparent="true" scrollbar="false"/>
 		<button name="btnBoxHaveStaticTP" parent="gbBasketTPInfo" rect="0 0 413 46" margin="5 6 0 0" layout_gravity="left top" skin="test_weight_skin" hittestbox="false" draw="true" hittest="false" caption="   보유중인 TP{/}" textalign="left center" fontname="black_16_b"/>
 		<button name="btnBoxRemainStaticTP" parent="gbBasketTPInfo" rect="0 0 413 46" margin="5 95 0 0" layout_gravity="left top" skin="test_weight_skin" hittestbox="false" draw="true" hittest="false" caption="   잔여 TP{/}" textalign="left center" fontname="black_16_b"/>
-		<richtext name="rtBasketStaticTP" parent="gbBasketTPInfo" rect="0 0 215 50" margin="16 65 0 0" layout_gravity="leff top" caption="장바구니 TP" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="rtBasketStaticTP" parent="gbBasketTPInfo" rect="0 0 215 50" margin="16 65 0 0" layout_gravity="left top" caption="장바구니 TP" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<richtext name="rtHaveTP" parent="btnBoxHaveStaticTP" rect="0 0 215 50" margin="0 0 13 0" layout_gravity="right center" caption="0" fontname="black_16_b" resizebytext="true" textalign="right center"/>
 		<richtext name="rtBasketTP" parent="gbBasketTPInfo" rect="0 0 215 50" margin="5 65 15 0" layout_gravity="right top" caption="0" fontname="black_16_b" resizebytext="true" textalign="right center"/>
 		<richtext name="rtRemainTP" parent="btnBoxRemainStaticTP" rect="0 0 215 50" margin="0 0 13 0" layout_gravity="right center" caption="0" fontname="black_16_b" resizebytext="true" textalign="right center"/>

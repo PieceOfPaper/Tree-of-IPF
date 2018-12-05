@@ -2,6 +2,7 @@
 function SKILLABILITY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('SUCCESS_BUY_ABILITY_POINT', 'ON_SKILLABILITY_BUY_ABILITY_POINT');
     addon:RegisterOpenOnlyMsg('SUCCESS_LEARN_ABILITY', 'ON_SKILLABILITY_LEARN_ABILITY');
+    addon:RegisterOpenOnlyMsg('PC_PROPERTY_UPDATE', 'ON_SKILLABILITY_UPDATE_PROPERTY');
     addon:RegisterOpenOnlyMsg('UPDATE_ABILITY_POINT', 'ON_SKILLABILITY_UPDATE_ABILITY_POINT');
     addon:RegisterOpenOnlyMsg('RESET_ABILITY_ACTIVE', 'ON_SKILLABILITY_TOGGLE_SKILL_ACTIVE');
 
@@ -427,8 +428,8 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     local afterLv = "";    
     if cls ~= nil then
         local dummyObj = CreateGCIES("Skill", sklClsName);
-        dummyObj.Level = info["DBLv"]+info["statlv"];
-        dummyObj.LevelByDB = info["DBLv"]+info["statlv"];
+        dummyObj.Level = info["lv"]+info["statlv"];
+        dummyObj.LevelByDB = info["lv"]+info["statlv"];
 
         if info["statlv"] > 0 then
             afterLv = dummyObj.Level;
@@ -933,6 +934,22 @@ function ON_SKILLABILITY_BUY_ABILITY_POINT(frame, msg, argmsg, argnum)
     local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 
+end
+
+function ON_SKILLABILITY_UPDATE_PROPERTY(frame, msg, argstr, argnum)
+    local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
+    if gb == nil then
+        return;
+    end
+
+    local jobClsName = gb:GetUserValue("JobClsName");
+    if jobClsName == "Common" then
+        return;
+    end
+
+    local skillability_job = GET_CHILD_RECURSIVELY(gb, "skillability_job_"..jobClsName);
+    local ability_gb = GET_CHILD_RECURSIVELY(gb, "ability_gb");
+    SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName);
 end
 
 function ON_SKILLABILITY_LEARN_ABILITY(frame, msg, abilName)

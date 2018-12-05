@@ -14,6 +14,14 @@ function ADVENTURE_BOOK_MAIN_INIT_MY_CHAR_INFO(mainPage)
     -- job info
     local myHandle = session.GetMyHandle();
     local jobClassID = info.GetJob(myHandle);
+    local etc = GetMyEtcObject();
+    if etc.RepresentationClassID ~= 'None' then
+        local repreJobCls = GetClassByType('Job', etc.RepresentationClassID);
+        if repreJobCls ~= nil then
+            jobClassID = repreJobCls.ClassID;            
+        end
+    end
+    
     local jobCls = GetClassByType('Job', jobClassID);
     local jobIcon = TryGetProp(jobCls, 'Icon');
     if jobIcon == nil then

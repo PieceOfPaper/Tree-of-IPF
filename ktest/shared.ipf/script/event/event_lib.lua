@@ -300,14 +300,14 @@ function MOD_BOX_MON(self)
 end
 
 function GET_REBUILD_CARE_ADD_PR(targetItem, exchangeItem, targetInvItem)
-	local addPR = math.max(GET_CURRENT_AVAILABLE_SOCKET_COUNT(targetItem, targetInvItem) - SCR_GET_MAX_SOKET(exchangeItem), 0);
-
+	local addPR = (targetItem.PR - targetItem.MaxPR) + math.max(GET_CURRENT_AVAILABLE_SOCKET_COUNT(targetItem, targetInvItem) - SCR_GET_MAX_SOKET(exchangeItem), 0);
+    
 	if targetItem.ItemGrade == 5 and targetItem.UseLv == 360 then -- 벨코퍼 장비들 각종 예외 처리
 		if targetItem.DBLHand == 'YES' and exchangeItem.DBLHand == 'NO' then
 			addPR = addPR + 1;
 		end
 	elseif targetItem.ItemGrade == 5 and targetItem.UseLv <= 330 then -- 솔미키/롤로팬서
-		if targetInvItem.MaxPR > exchangeItem.MaxPR then
+		if targetItem.MaxPR > exchangeItem.MaxPR then
 			addPR = addPR + 1;
 		end
 	end
