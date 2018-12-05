@@ -1163,7 +1163,7 @@ ClassID,ActiveState,Level,ClassName,Name,Icon,Job,SkillCategory,AddSpend,Desc,Bu
 407013,1,1,"Paladin8","개종: 참회","ability_cleric_Paladin8","Char4_11","Paladin_Conversion","","* [개종]된 몬스터 근처에 다른 몬스터가 근접하면 개종된 몬스터가 자폭","","","NO","","SCR_ABIL_NONE","NO",""
 407014,1,1,"Paladin9","배리어: 원거리 방어","ability_cleric_Paladin9","Char4_11","Paladin_Barrier","SP/20","* [배리어] 안에 있을 경우 미사일, 포스 공격의 대미지가{nl}    특성 레벨당 10%씩 감소{nl}* SP 소모 20%증가","","","NO","","SCR_ABIL_NONE","NO",""
 407015,1,1,"Paladin19","배리어: 범위 증가","ability_cleric_Paladin19","Char4_11","Paladin_Barrier","SP/10","* [배리어]의 반경이 2배 증가{nl}* SP 소모 10%증가","","","NO","","SCR_ABIL_NONE","NO",""
-407016,1,1,"Paladin20","배리어: 헌신","ability_cleric_Paladin20","Char4_11","Paladin_Barrier","SP/30","* [배리어] 안에 있는 파티원이 피해를 입으면 팔라딘이{nl}    대신 피해를 입음{nl}* 팔라딘이 [배리어] 안에 있을떄 팔라딘의 물리 방어력이 특성 레벨당{nl}    4% 증가{nl} * SP 소모 30%증가","","","NO","","SCR_ABIL_NONE","NO",""
+407016,1,1,"Paladin20","배리어: 헌신","ability_cleric_Paladin20","Char4_11","Paladin_Barrier","SP/30","* [배리어] 안에 있는 파티원이 피해를 입으면 팔라딘이 대신 피해를 입음{nl}* 팔라딘이 [배리어] 안에 있을떄 팔라딘의 물리 방어력이 특성 레벨당 4% 증가{nl} * SP 소모 30%증가","","","NO","","SCR_ABIL_NONE","NO",""
 407017,1,1,"Paladin21","데몰리션: 강화","ability_cleric_Paladin22","Char4_11","Paladin_Demolition","","* [데몰리션]의 스킬 계수가 특성 레벨당 0.5% 증가{nl} * 최고 레벨 마스터 시 10% 추가로 증가","","","YES","","SCR_ABIL_NONE","NO",""
 407018,1,1,"Paladin22","데몰리션: 스턴","ability_cleric_Paladin21","Char4_11","Paladin_Demolition","","* [데몰리션]에 피격된 적이 특성 레벨당 1% 확률로 스턴","","","NO","","SCR_ABIL_NONE","NO",""
 407019,1,1,"Paladin24","스톤 스킨: 강화","ability_cleric_Paladin24","Char4_11","Paladin_StoneSkin","","* [스톤 스킨]의 물리 피해, 마법 피해 감소 효과가 특성 레벨당 0.5% 증가{nl} * 최고 레벨 마스터 시 10% 추가로 증가","","","YES","","SCR_ABIL_NONE","NO",""
