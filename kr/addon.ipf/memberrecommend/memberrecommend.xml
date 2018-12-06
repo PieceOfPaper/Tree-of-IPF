@@ -1,22 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<uiframe name="memberrecommend" x="0" y="0" width="480" height="130" create="open">
-	<frame layout_gravity="left top" margin="0 610 0 0"/>
-	<draw drawtitlebar="false" drawframe="true"/>
-	<option hideable="false" closebutton="false"/>
-	<skin frameskin="test_party_alarm"/>
-	<script OpenScp="MEMBERRECOMMEND_OPEN" CloseScp="MEMBERRECOMMEND_CLOSE" LBtnUpScp="POPUP_MEMBER_RECOMMEND_UI"/>
-	<animation frameOpenAnim="" frameCloseAnim=""/>
-	<sound opensound="travel_diary_2" closesound=""/>
-	<userconfig POPUP_DURATION="30"/>
-	<layer layerlevel="9"/>
+<!-- deprecated -->
+<uiframe name="memberrecommend" x="0" y="0" width="0" height="0" create="open">
 	<controls>
-		<!--		<picture name="justicon" rect="0 0 50 50" margin="15 10 0 0" image="button_status" layout_gravity="left top"/>-->
-		<picture name="shihouette" rect="0 0 80 150" margin="15 0 0 0" layout_gravity="left top" hittest="false" image="viewunfold" stretch="true"/>
-		<richtext name="name" rect="0 0 320 80" margin="110 15 0 0" layout_gravity="left top" format="%s" param1="name" param1_def="defname" param3="ch" param3_def="defch" fixwidth="true" fontname="white_16_ol" textalign="left top"/>
-		<richtext name="mapch" rect="0 0 220 80" margin="0 15 20 0" layout_gravity="right top" format="%s (%s 채널)" param1="map" param1_def="defmap" param2="ch" param2_def="defch" fixwidth="false" fontname="black_16" textalign="left top"/>
-		<richtext name="description" rect="0 0 320 80" margin="110 40 0 0" layout_gravity="left top" caption="같은 퀘스트를 진행중인 플레이어가 가까이에 있습니다. 이 사람을 파티에 초대하세요!" fixwidth="true" fontname="white_16_ol" hittest="false" textalign="left top"/>
-		<richtext name="moreinfo" rect="0 0 300 20" margin="110 0 0 10" layout_gravity="left bottom" caption="&gt;&gt;더 보기.." fontname="yellow_16_ol" hittest="false" textalign="left top"/>
 	</controls>
 </uiframe>

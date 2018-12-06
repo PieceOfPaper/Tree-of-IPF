@@ -1,7 +1,7 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P_MaxDialog,AnchorCount,UP_ReturnRange,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,30,1,1,1,2,0,0,0,0,100,"Warp_arrow","우키스 경작지","","","","MON_DUMMY","","","","SIAULIAI46_3_SIAULIAI46_2","","NO","YES","NO","Neutral","","","",""
 3,3,1,30,1,1,1,2,0,0,0,0,100,"Warp_arrow","다이나 양봉지","","","","MON_DUMMY","","","","SIAULIAI46_3_SIAULIAI46_4","","NO","YES","NO","Neutral","","","",""
-4,4,0,40,30,20000,15,0,0,0,0,0,0,"chupaluka","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+4,4,0,40,30,20000,85,0,0,0,0,0,0,"chupaluka","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 6,6,0,40,9999,200000,15,0,0,0,0,0,0,"Spion","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 7,7,1,40,1,60000,1,1,0,0,0,0,100,"npc_beekeeper2","마라스","","","","","","","SIAULIAI_46_3_MQ01_NPC","","","NO","YES","NO","Neutral","","","",""
 8,8,1,40,1,60000,1,1,0,0,0,0,100,"npc_village_male_a2","발다","","","","","","","SIAULIAI_46_3_SQ_03_NPC","","","NO","YES","NO","Neutral","","","",""
@@ -20,7 +20,8 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,P
 21,21,1,300,1,60000,5,0,0,0,0,1,0,"HiddenTrigger_CantGen300","몬젠X","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 22,22,0,40,20,20000,20,0,0,0,0,1,0,"Spion","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 23,23,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_196:1","",""
-24,24,1,40,25,20000,10,0,0,0,0,0,0,"Siaulago","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+24,24,1,40,25,20000,50,0,0,0,0,0,0,"Siaulago","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 25,25,1,40,25,60000,4,0,0,0,0,0,0,"honeymeli","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 26,26,1,40,25,60000,18,0,0,0,0,0,0,"chupaluka","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+1001,1001,1,40,-1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","UnvisibleName","","","","EVENT_BOY_TAC","","","","","","NO","YES","NO","Neutral","","","",""
 1002,1002,1,40,1,60000,1,0,0,0,0,0,0,"HiddenTrigger6","","","","","","","PIED_PIPER_MSTEP_GEN_AI","","CHAR312_MSTEP1_GEN_INIT","","NO","YES","NO","Neutral","","","",""

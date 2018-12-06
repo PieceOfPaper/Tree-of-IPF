@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_L_HAND" particleName="F_light128_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_action_cast_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_daggerfinish_cast"/>
+    <BlendOn frame="2" R="15" G="20" B="25" A="50"/>
+    <BlendOn frame="3" R="20" G="25" B="30" A="50"/>
+    <BlendOn frame="4" R="25" G="35" B="50" A="50"/>
+    <BlendOn frame="5" R="10" G="15" B="20" A="50"/>
+    <Sound frame="5.00" soundFile="skl_eff_action_shot_1"/>
+    <BlendOn frame="6" R="0" G="0" B="0" A="50"/>
+    <Sound frame="9.00" soundFile="skl_eff_skl_shot_2"/>
+    <Sound frame="9.00" soundFile="skl_eff_archer_broadhead_shot"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="11" R="60" G="80" B="80" A="100"/>
+    <Shockwave frame="11" type="2" intensity="1" frequency="40" duration="0.2" range="1000"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="F_cleric_visibletalent_shot_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_emitter" particleName="F_cleric_visibletalent_shot_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="12" R="30" G="40" B="50" A="100"/>
+    <BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

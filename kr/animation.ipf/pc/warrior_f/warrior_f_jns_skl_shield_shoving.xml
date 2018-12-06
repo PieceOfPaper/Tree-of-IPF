@@ -1,15 +1,14 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
+	<Shockwave frame="5" type="2" intensity="1" frequency="80" duration=".7" range="1000"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="6" R="120" G="120" B="120" A="90"/>
 	<BlendOn frame="8" R="50" G="50" B="50" A="50"/>
 	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
 	<Sound frame="0" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="4" soundFile="skl_eff_shieldshoving"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke034" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="7" attachNode="Dummy_effect_shieldshoving" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="I_warrior_shield_shoving" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="7" attachNode="Dummy_effect_shieldshoving" particleName="I_dash008_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="1" attachNode="Dummy_effect_dash_center" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
 </ActionDesc>

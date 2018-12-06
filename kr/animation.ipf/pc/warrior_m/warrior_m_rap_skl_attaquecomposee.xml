@@ -12,9 +12,9 @@
 	<Particle frame="7" attachNode="Dummy_effect_wepon_spear01" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="7" attachNode="Bip01 L Toe0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="7" attachNode="DUmmy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="15" attachNode="Dummy_effect_wepon_spear01" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 	<BlendOn frame="8" R="60" G="50" B="20" A="50"/>
 	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
 	<Sound frame="9.00" soundFile="rap_attack"/>
 	<Sound frame="13.00" soundFile="rap_attack"/>
+	<Particle frame="15" attachNode="Dummy_effect_wepon_spear01" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 </ActionDesc>

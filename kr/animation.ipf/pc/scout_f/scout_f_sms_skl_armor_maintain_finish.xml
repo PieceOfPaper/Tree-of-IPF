@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonster frame="0.0" MonName="pcskill_armor_maintain" Key="armor_maintain" Angle="0" ist="0" MonAngle="0"/>
+    <CreateMonster frame="0.0" MonName="pcskill_armor_maintain_sign" Key="armor_maintain_sign" Angle="0" ist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="0" Key="armor_maintain" Anim="FINISH"/>
+    <CreateMonsterAnim frame="0" Key="armor_maintain_sign" Anim="FINISH"/>
+    <Sound frame="0.00" soundFile="skl_eff_squire_armor_hand_2"/>
+    <Particle frame="3" attachNode="Dummy_L_HAND" particleName="F_smoke082" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_R_HAND" particleName="F_smoke084" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_R_HAND" particleName="F_smoke050" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="12" attachNode="Dummy_R_HAND" particleName="F_light077_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

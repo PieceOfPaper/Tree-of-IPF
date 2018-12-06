@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_scout_behead001" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_action_cast_1"/>
+    <Sound frame="2.00" soundFile="skl_eff_action_shot_1"/>
+    <Sound frame="2.00" soundFile="skl_eff_assassin_behead"/>
+    <BlendOn frame="4" R="80" G="10" B="2" A="30"/>
+    <Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.1" range="1000"/>
+    <BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

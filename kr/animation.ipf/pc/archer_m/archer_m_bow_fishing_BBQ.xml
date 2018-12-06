@@ -2,5 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by pziyo (IMCGames Co., Ltd) -->
 <ActionDesc>
     <AttachModel frame="0" XAC="fish_skewer_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+    <Sound frame="18.00" soundFile="skl_eff_move_raise"/>
     <Sound frame="35.00" soundFile="skl_eff_bbq_eat"/>
+    <Sound frame="50.00" soundFile="skl_eff_bbq_eat"/>
 </ActionDesc>

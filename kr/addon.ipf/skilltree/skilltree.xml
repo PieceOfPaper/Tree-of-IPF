@@ -1,33 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="skilltree" x="0" y="0" width="600" height="480" create="open">
-	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -600 0" open="pip" keyboardselectframe="true"/>
-	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -600 0" open="pip" keyboardselectframe="true"/>	
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
-	<option closebutton="false"/>
+	<option closebutton="false" hideable="true"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
-	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="260" ControlHeight="90" MarginX="15" MarginY="80" CommonTypeIconImage="c_melee"/>
-	<effect open="skilltreeOpen" close="skilltreeClose"/>
-	<script OpenScp="SKILLTREE_OPEN" CloseScp="SKILLTREE_CLOSE"/>
 	<controls>
-		<groupbox name="mainGbox" rect="0 0 600 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" savescroll="true" scrollbar="false" skin="test_frame_low"/>
-		<groupbox name="pipwin_top" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_topf1"/>
-		<groupbox name="skilltree_pip" rect="0 0 595 700" margin="0 150 0 0" layout_gravity="left top" draw="false" hittestbox="true" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="bg"/>
-		<groupbox name="test_arrow" rect="0 0 430 49" margin="0 150 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>
-		<picture name="titlepicture" rect="0 0 44 44" margin="0 -500 8 0" layout_gravity="right top" image="button_skillvan"/>
-		<picture name="question" rect="0 0 44 44" margin="0 20 20 0" layout_gravity="right top" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}클래스{nl}{@st59s} - 클래스의 서클을 성장시켜 해당 클래스의 스킬을 습득{nl} - 1차 직업에서 2차 직업로 전직할 경우 3개 클래스 선택 가능{nl} - 동일한 직업으로 총 3회까지 전직 가능{nl} - 동일한 클래스도 선택 가능{nl}{@st59b}스킬{nl}{@st59s} - 각 랭크별 스킬은 최대 5레벨 증가 가능{nl} - 마스터에게 배운 특성은 스킬 하단에서 확인 가능{/}"/>
-		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;skilltree&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}스킬과 특성을 닫습니다{/}"/>
-		<richtext name="title" rect="0 0 200 30" margin="0 15 0 0" layout_gravity="center top" caption="{@st43}스킬과 특성{/}" fontname=""/>
-		<button name="COMMIT" rect="0 0 105 50" margin="-60 0 0 80" layout_gravity="center bottom" LBtnUpScp="EXEC_COMMIT_SKILL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{/}" clicksound="button_click_skill_up_OK" image="ok_button" oversound="button_over" textalign="center center" textoffset="0 -2" texttooltip="{@st59}스킬 포인트를 적용합니다{/}"/>
-		<richtext name="nowJobName" rect="0 0 200 30" margin="0 56 0 0" layout_gravity="center top" caption="큘레릭" fontname="white_20_ol_ds" hittest="false"/>
-		<richtext name="PTS" rect="0 0 200 30" margin="0 110  0 0" layout_gravity="center top" caption="{@st41b}200{/}" fontname="brown_18_b" hittest="false"/>
-		<button name="CANCEL" rect="0 0 105 50" margin="80 0 0 80" layout_gravity="center bottom" LBtnUpScp="ROLLBACK_SKILL" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}{/}" clicksound="button_click" image="testx_button" oversound="button_over" textalign="center center" texttooltip="{@st59}포인트 배분을 취소합니다{/}"/>
-		<button name="set_btn" rect="0 0 42 42" margin="0 48 80 0" layout_gravity="right top" LBtnUpScp="SKILLTREE_OPEN_MAIN_CLASS_DROPLIST" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="class_setting_btn" oversound="button_over" texttooltip="{@st59}대표 클래스 설정{/}"/>
-		<grid name="skill" parent="skilltree_pip" rect="0 0 0 0" margin="40 30 15 200" layout_gravity="none none" slotsize="140 140"/>
-		<droplist name="mainClassList" parent="mainGbox" rect="0 0 400 80" margin="-15 32 0 0" layout_gravity="center top" SelectScp="SKILLTREE_CHANGE_MAIN_CLASS" frametextalign="center" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="left center" textoffset="10 0" visibleline="10"/>
-		<groupbox name="detailGBox" parent="skilltree_pip" rect="0 0 580 450" margin="10 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" savescroll="true" scrollbar="false" skin="test_frame_midle"/>
-		<timer name="addontimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
-        <groupbox name="nowLearingGBox" rect="0 0 570 70" margin="10 0 0 120" layout_gravity="left bottom" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg"/>
 	</controls>
 </uiframe>

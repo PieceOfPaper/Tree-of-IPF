@@ -32,13 +32,9 @@ function SOCKET_TICKET_OPEN(frame, targetItem)
         return;
     end
     
-    local socketCnt = GET_SOCKET_CNT(targetItemObj);
-    if socketCnt == nil then
-        return;
-    end
-
+    local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(targetItemObj);
     local hitCountDesc = GET_CHILD_RECURSIVELY(frame, 'hitCountDesc');
-    hitCountDesc:SetTextByKey('cur', socketCnt);
+    hitCountDesc:SetTextByKey('cur', nextSlotIdx);
     hitCountDesc:SetTextByKey('max', maxSocket);
 
     local hitPriceDesc = GET_CHILD_RECURSIVELY(frame, 'hitPriceDesc');
@@ -108,7 +104,7 @@ function _CHECK_SOCKET_TICKET_TARGET_ITEM(slot)
         return;
     end
 
-    if SCR_CHECK_ADD_SOCKET(obj) == true then
+    if SCR_CHECK_ADD_SOCKET(obj, item) == true then
         slot:GetIcon():SetGrayStyle(0);
         slot:SetBlink(60000, 2.0, "FFFFFF00", 1);
     else
@@ -128,7 +124,7 @@ function SOCKET_TICKET_EXECUTE(frame, invItem)
         return;
     end
 
-    if SCR_CHECK_ADD_SOCKET(obj) == false then
+    if SCR_CHECK_ADD_SOCKET(obj, item) == false then
         ui.SysMsg(ClMsg("ThisItemCannotPlusSocket"));
         return;
     end
@@ -151,7 +147,7 @@ function CURSOR_CHECK_SOCKET_PLUS(slot)
         return 0;
     end
 
-    if SCR_CHECK_ADD_SOCKET(obj) == false then
+    if SCR_CHECK_ADD_SOCKET(obj, item) == false then
         return 0;
     end
 

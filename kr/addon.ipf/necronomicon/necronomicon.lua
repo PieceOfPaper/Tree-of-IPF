@@ -348,7 +348,7 @@ function UI_CHECK_NECRO_UI_OPEN(propname, propvalue)
 	local jobcls = GetClass("Job", 'Char2_9');
 	local jobid = jobcls.ClassID
 
-	if IS_HAD_JOB(jobid) == 1 then
+	if IS_HAD_JOB(jobid) == true then
 		return 1
 	end
 

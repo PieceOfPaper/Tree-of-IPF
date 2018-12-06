@@ -74,27 +74,19 @@ function ON_CABINET_ITEM_LIST(frame)
 
         ctrlSet:SetUserValue('CABINET_TYPE', whereFrom);
         if whereFrom == 'market_sell' then -- 판매 완료
-       --     typeBox:SetImage(SELL_SUCCESS_IMAGE);
-       --     typeText:SetTextByKey('textStyle', SELL_SUCCESS_TEXT_STYLE);
             typeText:SetTextByKey('type', ClMsg('SellSuccess'));
         elseif whereFrom == 'market_buy' then -- 구매 완료
-        --    typeBox:SetImage(BUY_SUCCESS_IMAGE);
-       --     typeText:SetTextByKey('textStyle', BUY_SUCCESS_TEXT_STYLE);
             typeText:SetTextByKey('type', ClMsg('BuySuccess'));
         elseif whereFrom == 'market_cancel' or whereFrom == 'market_expire' then -- 판매 취소, 판매 기한 완료
-        --    typeBox:SetImage(SELL_CANCEL_IMAGE);
-        --    typeText:SetTextByKey('textStyle', SELL_CANCEL_TEXT_STYLE);
             typeText:SetTextByKey('type', ClMsg('SellCancel'));
-        else
-        --    typeBox:SetImage(DEFAULT_TYPE_IMAGE);
         end
 
         -- item picture and name
 		local pic = GET_CHILD(ctrlSet, "pic", "ui::CSlot");
         local itemImage = GET_ITEM_ICON_IMAGE(itemObj);
         local icon = CreateIcon(pic)
-        -- icon:CreateIcon(itemObj)
         SET_SLOT_ITEM_CLS(pic, itemObj)
+        icon:SetImage(itemImage);
         SET_SLOT_STYLESET(pic, itemObj)
         if itemObj.ClassName ~= MONEY_NAME and itemObj.MaxStack > 1 then
             if whereFrom == "market_sell" then

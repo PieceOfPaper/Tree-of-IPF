@@ -1,8 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
-<uiframe name="customdrag" x="0" y="0" width="300" height="150" create="false">
-    <frame title=""/>
-    <draw drawtitlebar="false" drawframe="false"/>
-    <controls/>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="customdrag" x="0" y="0" width="710" height="400" create="open">
+	<frame layout_gravity="center center" margin="0 -50 0 0"/>
+	<draw drawframe="false"/>
+	<opencheck scp="UI_CHECK_ALCHEMYWORKSHOP_OPEN" strarg="alchemyworkshop" numarg="1"/>
+	<script OpenScp="OPEN_ALCHEMY_WORKSHOP" CloseScp="CLOSE_ALCHEMY_WORKSHOP"/>
+	<controls>
+		<groupbox name="bgBox" rect="0 0 710 386" margin="0 0 0 0" layout_gravity="left top" skin="test_frame_low"/>
+		<picture name="bgPic" parent="bgBox" rect="0 0 710 338" margin="0 0 0 0" layout_gravity="center bottom" image="alchemist_ui_skin" stretch="false"/>
+		<groupbox name="headerBox" rect="0 0 710 65" margin="0 0 0 0" layout_gravity="left top" skin="pipwin_top_wizard"/>
+		<button name="helpBtn" parent="headerBox" rect="0 0 50 50" margin="12 -2 0 0" layout_gravity="left center" image="testquesten_button" texttooltip="여기에 연금공방 관련 도움말을 작성해주세요" useclickimg="false"/>
+		<richtext name="titleText" parent="headerBox" rect="0 0 100 30" margin="0 -2 0 0" layout_gravity="center center" caption="{@st43}연금공방"/>
+		<button name="closeBtn" parent="headerBox" rect="0 0 50 50" margin="0 -2 12 0" layout_gravity="right center" LBtnUpScp="ui.CloseFrame('customdrag')" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<picture name="combSlotPic" rect="0 0 81 81" margin="-195 0 0 40" layout_gravity="center bottom" image="alchemist_ui_slotframe" stretch="false"/>
+		<picture name="hpSlotPic" rect="0 0 81 81" margin="0 0 0 40" layout_gravity="center bottom" image="alchemist_ui_slotframe" stretch="false"/>
+		<picture name="spSlotPic" rect="0 0 81 81" margin="195 0 0 40" layout_gravity="center bottom" image="alchemist_ui_slotframe" stretch="false"/>
+		<slot name="combSlot" rect="0 0 67 67" margin="-195 0 0 47" layout_gravity="center bottom" skin="alchemist_ui1_slot" texttooltip="컴버스천 스킬 사용시 소모될 재료를 등록해주세요." DropScp="ALCHEMY_WORKSHOP_REGISTER" PopScp="ALCHEMY_WORKSHOP_UNREGISTER" RBtnDownScp="ALCHEMY_WORKSHOP_UNREGISTER"/>
+		<slot name="hpSlot" rect="0 0 67 67" margin="0 0 0 47" layout_gravity="center bottom" skin="alchemist_ui2_slot" texttooltip="스프링클 HP 포션 스킬 사용시 소모될 HP 포션을 등록해주세요." DropScp="ALCHEMY_WORKSHOP_REGISTER" PopScp="ALCHEMY_WORKSHOP_UNREGISTER" RBtnDownScp="ALCHEMY_WORKSHOP_UNREGISTER"/>
+		<slot name="spSlot" rect="0 0 67 67" margin="195 0 0 47" layout_gravity="center bottom" skin="alchemist_ui3_slot" texttooltip="스프링클 SP 포션 스킬 사용시 소모될 SP 포션을 등록해주세요." DropScp="ALCHEMY_WORKSHOP_REGISTER" PopScp="ALCHEMY_WORKSHOP_UNREGISTER" RBtnDownScp="ALCHEMY_WORKSHOP_UNREGISTER"/>
+	</controls>
 </uiframe>

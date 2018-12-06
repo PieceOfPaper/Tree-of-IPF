@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="4" attachNode="Bip01 R Finger2" particleName="F_smoke109_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="4" attachNode="Bip01 L Finger2" particleName="F_smoke109_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="11" attachNode="Bip01 L Finger2" particleName="F_smoke109_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Bip01 R Finger2" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Bip01 L Finger2" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Bip01 R Finger2" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Bip01 L Finger2" particleName="F_pose_cheers_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="3.00" soundFile="skl_eff_move_clap"/>
+	<Sound frame="10.00" soundFile="skl_eff_move_clap"/>
+	<Sound frame="16.00" soundFile="atk_cloth_s_l1"/>
+	<Sound frame="25.00" soundFile="atk_cloth_s_r1"/>
+</ActionDesc>

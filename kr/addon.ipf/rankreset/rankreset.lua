@@ -1,6 +1,4 @@
 -- rankreset
-
-
 function RANKRESET_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('EQUIP_ITEM_LIST_GET', 'RANKRESET_PC_EQUIP_STATE');
 	addon:RegisterOpenOnlyMsg('RESET_ABILITY_UP', 'RANKRESET_PC_ABILITY_STATE');
@@ -30,24 +28,40 @@ function RANKRESET_ITEM_USE(invItem)
           return
         end
     end
-    
+    RANKRESET_OPEN('RankReset', 'None', invItem);
+end
+
+local function _INIT_BY_MODE(frame, mode)
+	local str = GET_CHILD_RECURSIVELY(frame, 'str');
+	local endTime2 = GET_CHILD_RECURSIVELY(frame, 'endTime2');
+	
+	str:SetTextByKey('value', ClMsg('DoYouWant'..mode));
+	if mode == 'RankReset' then
+		endTime2:ShowWindow(1);
+	else
+		endTime2:ShowWindow(0);
+	end
+end
+
+function RANKRESET_OPEN(mode, targetCtrlType, invItem)
 	local frame = ui.GetFrame("rankreset");
-	frame:ShowWindow(1)
-	frame:SetUserValue("itemIES", invItem:GetIESID());
-
-
-	RANKRESET_CHECK_PLAYER_STATE(frame);
+	frame:ShowWindow(1);
+	frame:SetUserValue('MODE', mode);
+	frame:SetUserValue('TARGET_CTRLTYPE', targetCtrlType);
+	if invItem ~= nil then
+		frame:SetUserValue("itemIES", invItem:GetIESID());
+	end
+	_INIT_BY_MODE(frame, mode);
+	RANKRESET_CHECK_PLAYER_STATE(frame);	
 end
 
 function RANKRESET_CHECK_PLAYER_STATE(frame)
-
 	RANKRESET_PC_EQUIP_STATE(frame);
 	RANKRESET_PC_ABILITY_STATE(frame);
 	RANKRESET_PC_WITH_COMMPANION(frame);
 	RANKRESET_PC_LOCATE(frame);
 	RANKRESET_PC_AUTOSELLER_STATE(frame);
 	RANKRESET_PC_TIMEACTION_STATE(frame);
-    RANKRESET_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame);
 end
 
 function RANKRESET_PC_TIMEACTION_STATE(frame)
@@ -159,7 +173,7 @@ end
 
 function RANKRESET_ITEM_USE_BUTTON_CLICK(frame, ctrl)
 	local gradeRank = session.GetPcTotalJobGrade();
-	if gradeRank <= 1 then
+	if frame:GetUserValue('MODE') == 'RankReset' and gradeRank <= 1 then
 		ui.SysMsg(ScpArgMsg("CantUseRankRest1Rank"));
 	    return;
 	end
@@ -173,11 +187,6 @@ function RANKRESET_ITEM_USE_BUTTON_CLICK(frame, ctrl)
      
     if CHECK_INVENTORY_HAS_RANK_CARD() == true then
         ui.MsgBox_NonNested(ClMsg('YouHaveRankCardReallyRankReset?'), 0x00000000, frame:GetName(), 'None', 'None');
-        return;
-    end
-
-    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
-        ui.SysMsg(ClMsg('CannotRankResetBecauseUniqueTemplerMaster'));
         return;
     end
     
@@ -210,8 +219,12 @@ end
 
 function RANKRESET_REQUEST_RANK_RESET()
     local frame = ui.GetFrame('rankreset');
-    local itemIES = frame:GetUserValue("itemIES");
-	packet.RankResetItemUse(itemIES);
+	local itemIES = frame:GetUserValue("itemIES");
+	if frame:GetUserValue('MODE') == 'RankReset' then
+		session.job.ReqRankReset(itemIES);
+	else
+		session.job.ReqCtrlTypeReset(frame:GetUserValue('TARGET_CTRLTYPE'));
+	end
 end
 
 function RANKRESET_CANCEL_BUTTON_CLICK(frame, ctrl)
@@ -232,38 +245,4 @@ function RANKRESET_DELETE_RANK_CARD(className)
     local yesScp = string.format('control.CustomCommand("TAKE_ITEM", %d)', deleteItemCls.ClassID);
 
     ui.MsgBox(ClMsg('DeleteCardBecauseYourRankTooHigh'), yesScp, 'None');
-end
-
-function IS_UNIQUE_TEMPLER_GUILD_MASTER_C()
-    if AM_I_LEADER(PARTY_GUILD) == 1 then
-        local templerCls = GetClass('Job', 'Char1_16');
-        if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-            local myHandle = session.GetMyHandle();
-            local myName = info.GetName(myHandle);
-            local charList = GetCharacterNameList();
-            for i = 1, #charList do
-                local charName = charList[i];
-                if charName ~= myName then                
-                    local jobString = GetCharacterJobHistoryString(nil, charName);                    
-                    local jobList = StringSplit(jobString, ';');
-                    for j = 1, #jobList do                    
-                        if jobList[j] == 'Char1_16' then                        
-                            return false;
-                        end
-                    end
-                end
-            end
-            return true;
-        end
-    end
-    return false;
-end
-
-function RANKRESET_PC_UNIQUE_TEMPLER_GUILD_MASTER_STATE(frame)
-    local enable = 1;
-    if IS_UNIQUE_TEMPLER_GUILD_MASTER_C() == true then
-        enable = 0;
-    end    
-    local master_check = GET_CHILD(frame, 'master_check');
-    master_check:SetCheck(enable);
 end

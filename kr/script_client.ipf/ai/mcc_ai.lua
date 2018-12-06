@@ -71,11 +71,26 @@ function MCC_SCRIPT_NINJA(actor, mccIndex)
 		end
 	end
 
-
 	local forpos = actor:GetFormationPos(mccIndex, 25.0);			
 	local distFromActor = imcMath.Vec3Dist(actor:GetPos(), myActor:GetPos());
 	if distFromActor >= 30 then
-		geMCC.MoveTo(actor, forpos);
+		geMCC.MoveTo(actor, forpos);		
+	end
+	
+	local objList, objCount = SelectObject(myActor, 300, 'ENEMY');
+	if objCount > 0 then
+		for i = 1, objCount do
+			local enemyHandle = GetHandle(objList[i]);
+			local enemy = world.GetActor(enemyHandle);
+			if enemy ~= nil then
+				if imcMath.Vec3Dist(enemy:GetPos(), actor:GetPos()) <= 30 then
+					geMCC.UseSkill(actor, enemy, geMCC.GetNormalSkillID());
+					return;
+				end
+				geMCC.MoveTo(actor, enemy:GetPos());
+				return;
+			end
+		end
 	end
 end
 

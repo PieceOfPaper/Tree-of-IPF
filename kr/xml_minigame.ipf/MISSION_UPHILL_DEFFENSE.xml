@@ -6574,6 +6574,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="UphillDefense"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
@@ -7132,6 +7136,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                                <Str Str="UphillDefense"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>

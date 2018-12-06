@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="EUC-KR"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="6" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="13" R="100" G="100" B="100" A="100"/>
+	<BlendOn frame="14" R="80" G="70" B="50" A="80"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="5" type="2" intensity="4" frequency="70" duration="0.2" range="500"/>
+	<Shockwave frame="13" type="2" intensity="5" frequency="70" duration="0.3" range="500"/>
 	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_cleric_Conviction_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
-	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_ground139_light_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_ground071_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="F_ground071_smoke2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_cleric_conviction_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false"/>
 </ActionDesc>

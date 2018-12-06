@@ -343,6 +343,20 @@ function MARKET_DRAW_CTRLSET_DEFAULT(frame, isShowLevel)
 	MARKET_SET_PAGE_CONTROL(frame, "pagecontrol")
 end
 
+local function _CREATE_SEAL_OPTION(ctrlSet, itemObj)
+	if TryGetProp(itemObj, 'GroupName') ~= 'Seal' then
+		return;
+	end
+
+	for i = 1, itemObj.MaxReinforceCount do
+		local option = TryGetProp(itemObj, 'SealOption_'..i, 'None');
+		if option == 'None' then
+			break;
+		end		
+		local strInfo = GET_OPTION_VALUE_OR_PERCECNT_STRING(option, itemObj['SealOptionValue_'..i]);
+		SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
+	end
+end
 
 function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 	local itemlist = GET_CHILD_RECURSIVELY(frame, "itemListGbox");
@@ -447,55 +461,54 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 		
 		local needAppraisal = TryGetProp(itemObj, "NeedAppraisal");
 		local needRandomOption = TryGetProp(itemObj, "NeedRandomOption");
-			local maxSocketCount = itemObj.MaxSocket
-			local drawFlag = 0
-			if maxSocketCount > 3 then
-				drawFlag = 1
-			end
+		local maxSocketCount = itemObj.MaxSocket
+		local drawFlag = 0
+		if maxSocketCount > 3 then
+			drawFlag = 1
+		end
 
-			local curCount = 1
-			local socketText = ""
-			local tempStr = ""
-			for i = 0, maxSocketCount - 1 do
-				if itemObj['Socket_' .. i] > 0 then
-					
-					local isEquip = itemObj['Socket_Equip_' .. i]
-					if isEquip == 0 then
-						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_EMPTY")
-						if drawFlag == 1 and curCount % 2 == 1 then
-							socketText = socketText .. tempStr
-						else
-							socketText = socketText .. tempStr .. "{nl}"
-						end
+		local curCount = 1;
+		local socketText = "";
+		local tempStr = "";
+		for i = 0, maxSocketCount - 1 do
+			if marketItem:IsAvailableSocket(i) == true then				
+				local isEquip = marketItem:GetEquipGemID(i);
+				if isEquip == 0 then
+					tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_EMPTY")
+					if drawFlag == 1 and curCount % 2 == 1 then
+						socketText = socketText .. tempStr
 					else
-						local gemClass = GetClassByType("Item", isEquip);
-						if gemClass.ClassName == 'gem_circle_1' then
-							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_RED")
-						elseif gemClass.ClassName == 'gem_square_1' then
-							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_BLUE")
-						elseif gemClass.ClassName == 'gem_diamond_1' then
-							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_GREEN")
-						elseif gemClass.ClassName == 'gem_star_1' then
-							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_YELLOW")
-						elseif gemClass.ClassName == 'gem_White_1' then
-							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_WHITE")
-						elseif gemClass.EquipXpGroup == "Gem_Skill" then
-							tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_MONSTER")
-						end
-						
-						local gemLv = GET_ITEM_LEVEL_EXP(gemClass, itemObj['SocketItemExp_' .. i])
-						tempStr = tempStr .. "Lv" .. gemLv
+						socketText = socketText .. tempStr .. "{nl}"
+					end
+				else
+					local gemClass = GetClassByType("Item", isEquip);
+					if gemClass.ClassName == 'gem_circle_1' then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_RED")
+					elseif gemClass.ClassName == 'gem_square_1' then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_BLUE")
+					elseif gemClass.ClassName == 'gem_diamond_1' then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_GREEN")
+					elseif gemClass.ClassName == 'gem_star_1' then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_YELLOW")
+					elseif gemClass.ClassName == 'gem_White_1' then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_WHITE")
+					elseif gemClass.EquipXpGroup == "Gem_Skill" then
+						tempStr = ctrlSet:GetUserConfig("SOCKET_IMAGE_MONSTER")
+					end
+					
+					local gemLv = GET_ITEM_LEVEL_EXP(gemClass, marketItem:GetEquipGemExp(i));
+					tempStr = tempStr .. "Lv" .. gemLv
 
-						if drawFlag == 1 and curCount % 2 == 1 then
-							socketText = socketText .. tempStr
-						else
-							socketText = socketText .. tempStr .. "{nl}"
-						end
-					end									
-				end
-				curCount = curCount + 1
+					if drawFlag == 1 and curCount % 2 == 1 then
+						socketText = socketText .. tempStr
+					else
+						socketText = socketText .. tempStr .. "{nl}"
+					end
+				end									
 			end
-			socket:SetTextByKey("value", socketText)
+			curCount = curCount + 1
+		end
+		socket:SetTextByKey("value", socketText)
 
 		-- POTENTIAL
 
@@ -618,6 +631,8 @@ function MARKET_DRAW_CTRLSET_EQUIP(frame, isShowSocket)
 				SET_MARKET_EQUIP_CTRLSET_OPTION_TEXT(ctrlSet, strInfo);
 			end
 		end
+
+		_CREATE_SEAL_OPTION(ctrlSet, itemObj);
 
 		for i = 1 , #list2 do
 			local propName = list2[i];

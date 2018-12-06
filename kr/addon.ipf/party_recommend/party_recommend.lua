@@ -1,164 +1,99 @@
-
-
 function PARTY_RECOMMEND_ON_INIT(addon, frame)
-
+    addon:RegisterMsg('OPEN_SELECT_TARGET', 'OPEN_SELECT_TARGET_FROM_PARTY');
 end
 
+function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
+    -- skill
+    local skillID = geSkillControl.GetSelectTargetFromPartyListSkillID();
+    local skillCls = GetClassByType('Skill', skillID);
+    if skillCls == nil then
+        ui.CloseFrame('party_recommend');
+        return;
+    end
 
-function PARTY_RECOMMEND_OPEN(frame)
+    local skillSlot = GET_CHILD_RECURSIVELY(frame, 'skillSlot');
+    local icon = skillSlot:GetIcon();
+    if icon == nil then
+        icon = CreateIcon(skillSlot);
+    end
+    icon:SetImage('icon_'..skillCls.Icon);
 
+    -- default init
+    local MAX_SHOW_COUNT = 4;
+    for i = 1, MAX_SHOW_COUNT do
+        local memberSet = GET_CHILD_RECURSIVELY(frame, 'memberSet_'..i);
+        local fan = GET_CHILD_RECURSIVELY(frame, 'fan_'..i);
+        memberSet:ShowWindow(0);
+        fan:ShowWindow(0);
+    end
+
+    -- party member
+    local myMapName = session.GetMapName();
+    local myMapCls = GetClass('Map', myMapName);
+    local partyList = session.party.GetPartyMemberList(PARTY_NORMAL);
+    if partyList ~= nil then
+        local count = partyList:Count();
+        local index = 1;
+        for i = 0, count - 1 do
+            local partyMemberInfo = partyList:Element(i);
+            if partyMemberInfo:GetAID() ~= session.loginInfo.GetAID() and myMapCls.ClassID == partyMemberInfo:GetMapID() then
+                local memberSet = GET_CHILD_RECURSIVELY(frame, 'memberSet_'..index);
+                local jobEmblemPic = GET_CHILD(memberSet, 'jobEmblemPic');
+                local iconinfo = partyMemberInfo:GetIconInfo();
+                local jobCls  = GetClassByType("Job", iconinfo.repre_job);
+                if nil ~= jobCls then
+                    jobEmblemPic:SetImage(jobCls.Icon);
+                end
+                local lvText = GET_CHILD(memberSet, 'lvText');
+                lvText:SetTextByKey('lv', partyMemberInfo:GetLevel());
+                local nameText = GET_CHILD(memberSet, 'nameText');
+                nameText:SetTextByKey('name', partyMemberInfo:GetName());
+
+                local stat = partyMemberInfo:GetInst();
+                local hpGauge = GET_CHILD(memberSet, 'hpGauge');
+                hpGauge:SetPoint(stat.hp, stat.maxhp);
+                hpGauge:ShowWindow(showHPGauge);
+
+                memberSet:ShowWindow(1);
+                geSkillControl.SetPartyMemberTarget(index, partyMemberInfo:GetAID());
+                index = index + 1;
+            end
+        end
+    end
+
+    -- cancel key
+    local cancelText = GET_CHILD_RECURSIVELY(frame, 'cancelText');
+    config.InitHotKeyByCurrentUIMode('Battle');
+    local jumpKeyIdx = config.GetHotKeyElementIndex('ID', 'Jump');
+    local jumpKey = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, 'Key');
+    local useShift = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseShift");
+    local useAlt = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseAlt");
+    local useCtrl = config.GetHotKeyElementAttributeForConfig(jumpKeyIdx, "UseCtrl");
+    local KEY_IMG_SIZE = frame:GetUserConfig('KEY_IMG_SIZE');
+    local jumpKeyImg = string.format('{img key_%s %d %d}', jumpKey, KEY_IMG_SIZE, KEY_IMG_SIZE);
+    if useShift == 'YES' then
+        jumpKeyImg = string.format('{img SHIFT %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
+    end
+    if useAlt == 'YES' then
+        jumpKeyImg = string.format('{img alt %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
+    end
+    if useCtrl == 'YES' then
+        jumpKeyImg = string.format('{img ctrl %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
+    end
+    cancelText:SetTextByKey('img', jumpKeyImg);
+
+    frame:ShowWindow(1);
 end
 
-
-function PARTY_RECOMMEND_CLOSE(frame)
-
-	local isOpen = frame:GetUserValue("IS_OPEN");
-
-	if isOpen ~= "true" then
-		local popupframe = ui.GetFrame("party_recommend_popup");
-		local fname = popupframe:GetUserValue("RECOMMEND_LEADER_FNAME");
-		
-		party.CancelInvite(0, fname, 2)
-	end
-
-	
-end
-
-
-function SHOW_PARTY_RECOMMEND(recommendType)
-
-	--팝업프레임 세팅
-	local popupframe = ui.GetFrame("party_recommend_popup");
-
-	if popupframe:IsVisible() == 1 then
-		return
-	end
-	
-	local recommendParty = session.party.GetRecommendParty();
-
-	local partyInfo = recommendParty.partyInfo
-	local partymemberlist = recommendParty:GetMemberList()
-
-	local leadername = partyInfo.info.leaderName;
-	local mapname = ""
-	local channel = ""
-
-				
-	for i = 0 , partymemberlist:Count() - 1 do
-
-		local eachpartymember = partymemberlist:Element(i)
-
-		if eachpartymember:GetName() == leadername then
-		
-			if geMapTable.GetMapName(eachpartymember:GetMapID()) ~= 'None' then		
-				mapname = geMapTable.GetMapName(eachpartymember:GetMapID())
-				channel = eachpartymember:GetChannel() + 1
-				break;
-			end
-		end
-
-	end
-
-	local ppartyobj = partyInfo:GetObject();
-	local partyObj = GetIES(ppartyobj);
-
-	local partyNameTxt = GET_CHILD_RECURSIVELY(popupframe,'partyName')
-	partyNameTxt:SetTextByKey('partyname',partyInfo.info.name)
-
-	local mapch = GET_CHILD_RECURSIVELY(popupframe,'mapch')
-	mapch:SetTextByKey('map', mapname)
-	mapch:SetTextByKey('ch', channel)
-
-	if mapname == "" then
-		mapch:ShowWindow(0)
-	else
-		mapch:ShowWindow(1)
-	end
-
-	-- 파티 설명
-	local noteTxt = GET_CHILD_RECURSIVELY(popupframe,'partyNote')
-	noteTxt:SetTextByKey('partymemo',partyObj["Note"])
-	
-	local elapsedTime = session.party.GetHowOldPartyCreated(partyInfo);
-	local timeString = GET_TIME_TXT_DHM(elapsedTime);
-	
-	local createdTimeTxt = GET_CHILD_RECURSIVELY(popupframe,'createdTime')
-	createdTimeTxt:SetTextByKey('createtime',timeString)
-
-	local partyNameTxt = GET_CHILD_RECURSIVELY(popupframe,'memberCount')
-	partyNameTxt:SetTextByKey('memcount',partymemberlist:Count())
-
-	DESTROY_CHILD_BYNAME(popupframe, 'eachmember_');
-
-	local csetheight = ui.GetControlSetAttribute("party_recommend_member_info", 'height');
-
-	for i = 0 , partymemberlist:Count() - 1 do
-
-		local eachpartymember = partymemberlist:Element(i)		
-	
-		local memberinfoset = popupframe:CreateOrGetControlSet('party_recommend_member_info', 'eachmember_'..i, 88, partyNameTxt:GetY() + partyNameTxt:GetHeight() + i * csetheight);
-		
-		local nameTxt = GET_CHILD_RECURSIVELY(memberinfoset,'name')
-		local otherinfoTxt = GET_CHILD_RECURSIVELY(memberinfoset,'otherinfo')
-		nameTxt:SetText(eachpartymember:GetName())
-
-		if eachpartymember:GetMapID() > 0 then
-
-			otherinfoTxt:SetTextByKey('level',eachpartymember:GetLevel())
-
-			local jobType = eachpartymember:GetIconInfo().job;
-			local jobCls = GetClassByType(jobType);
-			local gender = eachpartymember:GetIconInfo().gender;
-			otherinfoTxt:SetTextByKey('job', GET_JOB_NAME(jobCls, gender))
-			otherinfoTxt:ShowWindow(1)
-			nameTxt:SetColorTone("FFFFFFFF")
-		else
-			otherinfoTxt:ShowWindow(0)
-			nameTxt:SetColorTone("FF888888")
-		end
-
-	end
-
-
-	popupframe:Resize(popupframe:GetWidth(),popupframe:GetOriginalHeight() + (partymemberlist:Count() * csetheight) )
-
-	popupframe:SetUserValue("RECOMMEND_TYPE",recommendType);
-	popupframe:SetUserValue("RECOMMEND_LEADER_FNAME", partyInfo.info.leaderName);
-	popupframe:SetUserValue("RECOMMEND_LEADER_AID", partyInfo.info:GetLeaderAID());
-	popupframe:SetUserValue("IS_ACK", "false");
-	
-
-
-	local frame = ui.GetFrame("party_recommend");
-	frame:SetUserValue("IS_OPEN", "false");
-	local description = GET_CHILD_RECURSIVELY(frame,"description")
-	local matchmakerCls = GetClassByType("PartyMatchMaker",recommendType)
-	description:SetText(matchmakerCls.InviteMent)
-
-	local partyNameTxt2 = GET_CHILD_RECURSIVELY(frame,"partyname")
-	partyNameTxt2:SetText(partyInfo.info.name)
-
-	local mapch2 = GET_CHILD_RECURSIVELY(frame,'mapch')
-	mapch2:SetTextByKey('map', mapname)
-	mapch2:SetTextByKey('ch', channel)
-
-	if mapname == "" then
-		mapch2:ShowWindow(0)
-	else
-		mapch2:ShowWindow(1)
-	end
-
-	local duration = tonumber(frame:GetUserConfig("POPUP_DURATION"))
-	
-	frame:ShowWindow(1);
-	frame:SetDuration(duration);
-
-end
-
-
-function POPUP_RECOMMEND_PARTY_UI()
-	local frame = ui.GetFrame("party_recommend");
-	frame:SetUserValue("IS_OPEN", "true");
-	ui.OpenFrame('party_recommend_popup')
-	ui.CloseFrame('party_recommend')
+function SELECT_TARGET_FROM_PARTY_SET_TARGET(index)
+    local frame = ui.GetFrame('party_recommend');    
+    local MAX_SHOW_COUNT = 4;
+    for i = 1, MAX_SHOW_COUNT do
+        local fan = GET_CHILD_RECURSIVELY(frame, 'fan_'..i);
+        if i == index then
+            fan:ShowWindow(1);
+        else
+            fan:ShowWindow(0);
+        end
+    end
 end

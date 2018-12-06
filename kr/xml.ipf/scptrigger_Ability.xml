@@ -88,38 +88,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Archer6">
-		<TriggerList Act="Attack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_COND_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="SwiftStep_Buff"/>
-						<Num Num="1" UseFunc="1" FuncTxt="return obj.Level"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Archer_ObliqueShot"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Archer6"/>
-					</ToolScp>
-				</CondList>
-				<TgtExecList>
-					<ToolScp Scp="SPCI_BUFF" Client="NO" UseSleep="NO">
-						<Str Str="Monster_Slow"/>
-						<Num Num="1"/>
-						<Num Num="0"/>
-						<Num Num="7000"/>
-						<Num Num="1"/>
-						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 5;"/>
-						<Num Num="-1"/>
-					</ToolScp>
-				</TgtExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="Barbarian6">
 		<TriggerList Act="Attack">
 			<Trigger>
@@ -515,28 +483,6 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
-	<SpcItem Name="Ranger6">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKILL" Client="NO" UseSleep="NO">
-						<Str Str="Ranger_SpiralArrow"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Ranger6"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_CRTHR" Client="NO" UseSleep="NO">
-						<Num Num="10" UseFunc="1" FuncTxt="return obj.Level * 13;"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
 	<SpcItem Name="Sapper3">
 		<TriggerList Act="Attack">
 			<Trigger>
@@ -562,28 +508,6 @@
 						<Num Num="22"/>
 						<Num Num="0.80000001"/>
 						<Num Num="3"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-		</TriggerList>
-	</SpcItem>
-	<SpcItem Name="Archer30">
-		<TriggerList Act="BeforeAttack">
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_ABILITY" Client="NO" UseSleep="NO">
-						<Str Str="Archer30"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_TARGET_RELATION" Client="NO" UseSleep="NO">
-						<Str Str="ENEMY"/>
-					</ToolScp>
-					<ToolScp Scp="SPCI_CHECK_ITEM_CLASSTYPE" Client="NO" UseSleep="NO">
-						<Str Str="Bow"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_IGNORE_DEFENCE_RATE" Client="NO" UseSleep="NO">
-						<Num Num="1" UseFunc="1" FuncTxt="local ignoreDEF = obj.Level * 0.02;return ignoreDEF;"/>
 					</ToolScp>
 				</ExecList>
 			</Trigger>

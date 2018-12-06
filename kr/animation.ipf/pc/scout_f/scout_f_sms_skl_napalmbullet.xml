@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_bulletmarker_pistol_spin"/>
+    <Sound frame="5.00" soundFile="skl_eff_bulletmarker_pistol_equip"/>
+    <Sound frame="8.00" soundFile="skl_eff_napalmbullet_shot"/>
+    <BlendOn frame="9" R="150" G="100" B="100" A="50"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="11" R="150" G="100" B="100" A="50"/>
+    <BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

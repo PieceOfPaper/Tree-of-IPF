@@ -75,7 +75,6 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1807_WEEKEND_BUFF_1'); --[For 10] 경험치 버닝
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_FALL_LEAF_BUFF4'); --ENTER_EVENT_1810_FALL_LEAF
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_GUILD_EXPUP'); --길드 있어 트오세 있다 시즌2
-	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ThanksgivingDay'); --붉은 씨앗
 	return sumExp; 
 end
 
@@ -105,6 +104,8 @@ function GET_MIX_MATERIAL_EXP(item)
 	        return item.UseLv;
 	    elseif item.EquipXpGroup == 'hethran_material' then
 			return itemExp;
+		elseif item.EquipXpGroup =='Gem' and itemExp > 0 then
+		    return itemExp;
 	    end
 		return prop:GetMaterialExp(itemExp);
 	end

@@ -15,9 +15,50 @@ function PUB_CANCEL_CREATECHAR(frame)
 
 end
 
+local function _CREATE_STAT_GAUGE(box, ypos, stat, value, onImg, offImg, style, gaugeMarginX, gaugeLeftMarginX)	
+	local statText = box:CreateControl('richtext', 'statText_'..stat, 0, ypos, 300, 30);
+	statText:SetText(style..ClMsg(stat));
+
+	local MAX_STAT_VALUE = 5;
+	local IMG_WIDTH = 60;
+	local xpos = gaugeLeftMarginX;
+	for i = 1, MAX_STAT_VALUE do
+		local bg = box:CreateControl('picture', 'statBg_'..stat..'_'..i, xpos, ypos, IMG_WIDTH, 30);
+		AUTO_CAST(bg);
+		bg:SetImage(offImg);		
+		
+		if i <= value then
+			local img = box:CreateControl('picture', 'statImg_'..stat..'_'..i, xpos, ypos, IMG_WIDTH, 30);
+			AUTO_CAST(img);
+			img:SetImage(onImg);
+		end
+		xpos = xpos + IMG_WIDTH + gaugeMarginX;
+	end
+
+	ypos = ypos + statText:GetHeight() + 5;
+	return ypos;
+end
+
+local function _PUB_CREATE_UPDATE_JOB_SPECIAL_STAT(frame, jobCls)
+	local jobSpecialStatBox = GET_CHILD_RECURSIVELY(frame, 'jobSpecialStatBox');	
+	local jobSpecialStatListBox = GET_CHILD(jobSpecialStatBox, 'jobSpecialStatListBox');
+	jobSpecialStatListBox:RemoveAllChild();
+
+	local JOB_SPECIAL_FONT = frame:GetUserConfig('JOB_SPECIAL_FONT');
+	local GAUGE_LEFT_MARGIN_X = tonumber(frame:GetUserConfig('GAUGE_LEFT_MARGIN_X'));
+	local GAUGE_INTERVAL_MARGIN_X = tonumber(frame:GetUserConfig('GAUGE_INTERVAL_MARGIN_X'));
+	local caption = jobCls.Caption2;
+	local infos = StringSplit(caption, '/');
+	local ypos = 0;
+	for i = 1, #infos, 2 do
+		local stat = infos[i];
+		local value = infos[i + 1];
+		ypos = _CREATE_STAT_GAUGE(jobSpecialStatListBox, ypos, stat, tonumber(value), 'stat_gauge_bar', 'stat_gauge_frame', JOB_SPECIAL_FONT, GAUGE_INTERVAL_MARGIN_X, GAUGE_LEFT_MARGIN_X);
+	end
+end
+
 function PUB_CHARFRAME_UPDATE(frame, actor)
 	local apc = actor:GetPCApc();
-
 	local gender = apc:GetGender();
 	local job = apc:GetJob();
 	local headType = apc:GetHeadType();
@@ -30,10 +71,7 @@ function PUB_CHARFRAME_UPDATE(frame, actor)
 	local maingroup = frame:GetChild("maingroup");
 	for i = 1, 4 do -- 혹시 별점 항목이 늘어난다면 이 3을 늘릴 것
 		ratingstr_arg[i] = string.sub(ratingstr,2*i-1,2*i-1)
-		ratingstr_arg[i] = ratingstr_arg[i] + 0
-
-		local gauge = GET_CHILD(maingroup, "gauge_rating_" .. i, "ui::CGauge");
-		gauge:SetPoint(ratingstr_arg[i], 5);
+		ratingstr_arg[i] = ratingstr_arg[i] + 0;
 	end
 
 	local classimage = GET_CHILD_RECURSIVELY(frame, "classImage", "ui::CPicture");
@@ -44,24 +82,24 @@ function PUB_CHARFRAME_UPDATE(frame, actor)
 
 	local job_desc = maingroup:GetChild("job_desc");
 	job_desc:SetTextByKey("value", jobCls.Caption1);
-
+	
+	_PUB_CREATE_UPDATE_JOB_SPECIAL_STAT(frame, jobCls);
 	SET_HEAD_NAME(frame, gender, headType);
-	--SET_HEAD_COLOR_NAME(frame, gender, headType);	
 end
 
 function SET_HEAD_COLOR_NAME(frame, gender, headType)
 	local Rootclasslist = imcIES.GetClassList('HairType');
-	local Selectclass   = Rootclasslist:GetClass(gender);
+	local Selectclass = Rootclasslist:GetClass(gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
-	local cnt		      = Selectclasslist:Count();
+	local cnt = Selectclasslist:Count();
 
 	for i = 0, cnt-1 do
-		local Changeclass	= Selectclasslist:GetByIndex(i);	
-		local index			= imcIES.GetINT(Changeclass, 'Index');
-		local type		= imcIES.GetString(Changeclass, 'Color');
+		local Changeclass = Selectclasslist:GetByIndex(i);	
+		local index = imcIES.GetINT(Changeclass, 'Index');
+		local type = imcIES.GetString(Changeclass, 'Color');
 
 		if index == headType then
-			local customgroup = frame:GetChild("customgroup");
+			local customgroup = GET_CHILD_RECURSIVELY(frame, "customgroup");
 			local color = customgroup:GetChild("title_hairColorList");
 			color:SetTextByKey("value", type);
 			return;
@@ -71,9 +109,9 @@ end
 
 function SET_HEAD_NAME(frame, gender, headType)
 	local Rootclasslist = imcIES.GetClassList('HairType');
-	local Selectclass   = Rootclasslist:GetClass(gender);
+	local Selectclass = Rootclasslist:GetClass(gender);
 	local Selectclasslist = Selectclass:GetSubClassList();
-	local cnt		      = Selectclasslist:Count();
+	local cnt = Selectclasslist:Count();
 
 	for i = 0, cnt do
 		local Changeclass	= Selectclasslist:GetByIndex(i);	
@@ -81,10 +119,10 @@ function SET_HEAD_NAME(frame, gender, headType)
 			return;
 		end
 
-		local index		= imcIES.GetINT(Changeclass, 'Index');
-		local type		= imcIES.GetString(Changeclass, 'Type');
+		local index = imcIES.GetINT(Changeclass, 'Index');
+		local type = imcIES.GetString(Changeclass, 'Type');
 		if index == headType then
-			local customgroup   = frame:GetChild("customgroup");
+			local customgroup = GET_CHILD_RECURSIVELY(frame, "customgroup");
 			local title_hairtype = customgroup:GetChild("title_hairtype");
 			title_hairtype:SetTextByKey("value", type);
 			return;

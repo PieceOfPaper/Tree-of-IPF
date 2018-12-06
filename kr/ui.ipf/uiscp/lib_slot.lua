@@ -496,3 +496,15 @@ function _EXEC_SLOT_SELECT_COUNT(numberString, inputFrame)
 
 
 end
+
+function GET_SLOT_ITEM_TYPE(slot)
+	local icon = slot:GetIcon();
+	if icon == nil then
+		return 0;		
+	end
+	local iconinfo = icon:GetInfo();
+	if iconinfo == nil then
+		return 0;
+	end
+	return iconinfo.type;
+end

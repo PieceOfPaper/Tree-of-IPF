@@ -1,8 +1,5 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
-1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter_Bomb","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 1서클 필요","ABIL_8RANK_NORMAL_PRICE"
-2,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter6","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 3서클 필요","ABIL_10RANK_NORMAL_PRICE"
-3,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter7","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 3서클 필요","ABIL_10RANK_NORMAL_PRICE"
-101,2,10,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter3","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 2서클 필요","ABIL_9RANK_BUFF_PRICE"
-201,3,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter8","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 3서클 필요","ABIL_10RANK_NORMAL_PRICE"
-301,2,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter4","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 2서클 필요","ABIL_9RANK_NORMAL_PRICE"
-401,3,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter5","UNLOCK_ABIL_CIRCLE","Char2_18","인챈터 3서클 필요","ABIL_10RANK_NORMAL_PRICE"
+1,100,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter_Bomb","UNLOCK_BASE_LEVEL","","캐릭터 100레벨 이상","ABIL_COMMON_PRICE_100LV"
+2,200,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter6","UNLOCK_BASE_LEVEL","","캐릭터 200레벨 이상","ABIL_COMMON_PRICE_200LV"
+3,200,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter7","UNLOCK_BASE_LEVEL","","캐릭터 200레벨 이상","ABIL_COMMON_PRICE_200LV"
+101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Enchanter9","UNLOCK_ABIL_SKILL","Enchanter_EnchantGlove","인챈트 글로브 1레벨 이상","ABIL_REINFORCE_PRICE"

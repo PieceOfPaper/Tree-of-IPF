@@ -1,6 +1,22 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="atk_cloth_m_r1" />
-    <Sound frame="6.00" soundFile="skl_fgt_tackle_shot" />
-    <Sound frame="7.00" soundFile="atk_cloth_s_r1" />
+	<Shockwave frame="6" type="2" intensity="1" frequency="70" duration="1" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="6" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="7" R="200" G="200" B="150" A="100"/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="9" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="10" R="200" G="200" B="150" A="100"/>
+	<BlendOn frame="11" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="12" R="50" G="50" B="30" A="50"/>
+	<BlendOn frame="13" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="14" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="15" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="16" R="200" G="200" B="150" A="100"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_cleric_zaibas_shot_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="atk_cloth_m_r1"/>
+	<Sound frame="6.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="7.00" soundFile="atk_cloth_s_r1"/>
 </ActionDesc>

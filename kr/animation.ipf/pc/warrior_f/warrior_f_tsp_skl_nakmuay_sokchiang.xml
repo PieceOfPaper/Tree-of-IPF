@@ -8,8 +8,7 @@
 	<Particle frame="5" attachNode="Dummy_L_HAND" particleName="I_force091_trail_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
 	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_SokChiang_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
 	<Particle frame="8" attachNode="Dummy_emitter" particleName="E_warrior_SokChiang_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
-	<Particle frame="6" attachNode="Dummy_jns_atk_weapon_spear1" particleName="I_warrior_sokchiang_spin" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="3" targetPos="false"/>
-	<Particle frame="6" attachNode="Dummy_effect_pns_force_ride" particleName="none" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_jns_atk_weapon_spear1" particleName="I_warrior_sokchiang_spin" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="3" targetPos="false"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
 	<BlendOn frame="8" R="150" G="100" B="100" A="100"/>
 	<BlendOn frame="9" R="120" G="90" B="60" A="100"/>

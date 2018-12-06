@@ -1049,19 +1049,20 @@ function CREATE_PM_PICTURE(frame, pcInfo, type, mapprop)
 	map_partymember_iconset:SetTooltipArg(pcInfo:GetName(), type);
 
 	local pm_name_rtext = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_name","ui::CRichText")
-	pm_name_rtext:SetTextByKey("pm_fname",pcInfo:GetName())    
+	pm_name_rtext:SetTextByKey("pm_fname", pcInfo:GetName())    
 	local iconinfo = pcInfo:GetIconInfo();    
-	SET_PM_MINIMAP_ICON(map_partymember_iconset, instInfo.hp, iconinfo.job)
+	SET_PM_MINIMAP_ICON(map_partymember_iconset, instInfo.hp, pcInfo:GetAID());
 	SET_PM_MAPPOS(frame, map_partymember_iconset, instInfo, mapprop)    
 end
 
-function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, pcJobID)
-	local jobCls = GetClassByType("Job", pcJobID);
-	local pm_icon = GET_CHILD_RECURSIVELY(map_partymember_iconset,"pm_icon","ui::CPicture")
+function SET_PM_MINIMAP_ICON(map_partymember_iconset, pcHP, aid)
+	local pm_icon = GET_CHILD_RECURSIVELY(map_partymember_iconset, "pm_icon");
 	if pcHP > 0 then
-		if nil ~= jobCls then            
-			pm_icon:SetImage(jobCls.CtrlType.."_party");
-		else        
+		if session.party.GetPartyMemberInfoByAID(PARTY_NORMAL, aid) ~= nil then
+			pm_icon:SetImage('Archer_party');
+		elseif session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid) ~= nil then
+			pm_icon:SetImage('Wizard_party');
+		else
 			pm_icon:SetImage('die_party');
 		end
 	else    
@@ -1093,7 +1094,7 @@ function MAP_UPDATE_PARTY_INST(frame, msg, str, partyType)
 			local pic = GET_CHILD_RECURSIVELY(frame, name);            
 			if pic ~= nil then
 				local iconinfo = pcInfo:GetIconInfo()
-				SET_PM_MINIMAP_ICON(pic, instInfo.hp, iconinfo.job)
+				SET_PM_MINIMAP_ICON(pic, instInfo.hp, pcInfo:GetAID());
 				tolua.cast(pic, "ui::CControlSet")
 				SET_PM_MAPPOS(frame, pic, instInfo, mapprop)
 			else

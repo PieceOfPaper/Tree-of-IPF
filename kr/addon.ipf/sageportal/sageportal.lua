@@ -19,14 +19,26 @@ end
 
 function GET_SAGE_PORTAL_MAX_COUNT_C()
     local maxCnt = tonumber(SAGE_PORTAL_BASE_CNT);
-
-    -- 특성
-	local abil = session.GetAbilityByName("Sage1")
-	if abil ~= nil then
-	    local abilObj = GetIES(abil:GetObject());
+	
+    -- 특성 --
+	local abilSage1 = session.GetAbilityByName("Sage1")
+	if abilSage1 ~= nil then
+	    local abilObj = GetIES(abilSage1:GetObject());
 	    maxCnt = maxCnt + abilObj.Level
 	end
-
+	
+	local abilSage16 = session.GetAbilityByName("Sage16")
+	if abilSage16 ~= nil then
+	    local abilObj = GetIES(abilSage16:GetObject());
+	    maxCnt = maxCnt + abilObj.Level
+	end
+	
+	local abilSage17 = session.GetAbilityByName("Sage17")
+	if abilSage17 ~= nil then
+	    local abilObj = GetIES(abilSage17:GetObject());
+	    maxCnt = maxCnt + abilObj.Level
+	end
+	
     return maxCnt;
 end
 

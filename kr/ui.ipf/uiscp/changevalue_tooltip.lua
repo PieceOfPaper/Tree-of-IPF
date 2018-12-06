@@ -93,7 +93,7 @@ function UPDATE_ITEM_CHANGEVALUE_TOOLTIP(tooltipframe, strarg, numarg1, numarg2)
 end
 
 function ITEM_TOOLTIP_SOCKETCHANGEVALUE(frame, invItem, socketItem, strarg)
-	local socketCnt = GET_SOCKET_CNT(invItem);
+	local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(invItem);
 
 	-- 일단 소켓 비교 툴팁 안뜨게 변경
 	if socketCnt < 0 then

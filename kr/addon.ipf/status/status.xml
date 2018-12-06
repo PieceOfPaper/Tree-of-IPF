@@ -16,7 +16,8 @@
 		<groupbox name="pipwin_top_my" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_topf1"/>
 		<groupbox name="statusAvgGbox" rect="0 0 480 325" margin="0 145 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
 		<groupbox name="statusUpGbox" rect="0 0 480 440" margin="25 100 0 0" layout_gravity="left top" draw="false" frameOpenAnim="pip_simbol_ani_4" hittestbox="false" resizebyparent="false" scrollbar="false" skin="bg2"/>
-		<groupbox name="test_arow" parent="statusUpGbox" rect="0 0 480 49" margin="-20 170 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>
+		<groupbox name="test_arow" parent="statusUpGbox" rect="0 0 480 49" margin="-20 170 0 0" layout_gravity="center center" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_arow"/>		
+		<button name="set_btn" rect="0 0 42 42" margin="0 48 80 0" layout_gravity="right top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click" image="class_setting_btn" oversound="button_over" texttooltip="{@st59}대표 클래스 설정{/}" LBtnUpScp="STATUS_OPEN_CLASS_DROPLIST"/>
 		<tab name="statusTab" rect="0 0 500 40" layout_gravity="left top" LBtnDownScp="STATUS_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 90 0 0"/>
 		<tabitem name="Itembox1" parent="statusTab" caption="{@st66b}정보{/}" width="150" layout_gravity="left top"/>
 		<tabitem name="Itembox2" parent="statusTab" caption="{@st66b}업적{/}" width="150" layout_gravity="left top"/>

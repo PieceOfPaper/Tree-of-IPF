@@ -26,7 +26,7 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 		if partyMemberInfo:GetMapID() > 0 then
 			local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. partyMemberInfo:GetAID());
 			if partyInfoCtrlSet ~= nil then
-				UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo);			
+				UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo);	
 			end
 		end
 	end	
@@ -659,7 +659,7 @@ function RECEIVE_GUILD_INVITE(partyType, inviterAid, familyName, guildID)
 	msg = "{Inviter}InviteYouToGuild_DoYouAccept?";	
 	local str = ScpArgMsg(msg, "Inviter", familyName);
 	str = ui.ConvertScpArgMsgTag(str)
-	
+
 	local msgBox = ui.GetMsgBox(str);
 	if msgBox ~= nil then
 		return
@@ -757,34 +757,25 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 		return 0;
 	end		 
 	
-	local otherpcinfo = session.otherPC.GetByStrCID(cid);
-
-	local jobhistory = otherpcinfo.jobHistory;
+	local otherpcinfo = session.otherPC.GetByStrCID(cid);	
 	local gender = otherpcinfo:GetIconInfo().gender;
 	local clslist, cnt  = GetClassList("Job");
 	
-	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+	local nowjobinfo = otherpcinfo:GetJobInfoByIndex(otherpcinfo:GetJobCount() - 1);
 	local nowjobcls;
-
 	if nil == nowjobinfo or (nowJobName ~= nil and 	GetClassByTypeFromList(clslist, nowjobinfo.jobID) ~= nowJobName) then
 		nowjobcls = nowJobName; 
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);        
 	end; 
 
-	local OTHERPCJOBS = {}
-	for i = 0, jobhistory:GetJobHistoryCount()-1 do
-		local tempjobinfo = jobhistory:GetJobHistory(i);
-
+	local OTHERPCJOBS = {}	
+	for i = 0, otherpcinfo:GetJobCount()-1 do
+		local tempjobinfo = otherpcinfo:GetJobInfoByIndex(i);		
 		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
-			OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-		else
-			if tempjobinfo.grade > OTHERPCJOBS[tempjobinfo.jobID] then
-				OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-			end
+			OTHERPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
-
 	local startext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
@@ -817,14 +808,22 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 	if (nil == session.otherPC.GetByStrCID(cid)) or (nil == icon) then 
 		return 0;
 	end		 
-	
+			 	
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
-
-	local jobhistory = otherpcinfo.jobHistory;
-	local gender = otherpcinfo:GetIconInfo().gender;
+	local nowjobinfo, jobCount;	
+    local gender;
+	local mySession = session.GetMySession();
+	if otherpcinfo ~= nil then
+		jobCount = otherpcinfo:GetJobCount();
+        nowjobinfo = otherpcinfo:GetJobInfoByIndex(jobCount - 1);
+	    gender = otherpcinfo:GetIconInfo().gender;
+    else
+		jobCount = mySession.pcJobInfo:GetJobCount();
+        nowjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(jobCount - 1);
+        gender = info.GetGender(session.GetMyHandle());
+    end
 	local clslist, cnt  = GetClassList("Job");
 	
-	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
 	local nowjobcls;
 	if nil == nowjobinfo then
 		nowjobcls = nowJobName; 
@@ -832,16 +831,16 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 	end; 
 	local OTHERPCJOBS = {}
-	for i = 0, jobhistory:GetJobHistoryCount()-1 do
-		
-		local tempjobinfo = jobhistory:GetJobHistory(i);
+	for i = 0, jobCount - 1 do		
+		local tempjobinfo;
+		if otherpcinfo ~= nil then
+			tempjobinfo = otherpcinfo:GetJobInfoByIndex(i);
+		else
+			tempjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(i);
+		end
 
 		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
-			OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-		else
-			if tempjobinfo.grade > OTHERPCJOBS[tempjobinfo.jobID] then
-				OTHERPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-			end
+			OTHERPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
 
@@ -879,13 +878,11 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	end		 	
    	local mySession = session.GetMySession();
 	local pcJobInfo = mySession.pcJobInfo;
-    local classLv = pcJobInfo:GetJobGrade(jobClassID);
-
-	local jobhistory = mySession.jobHistory;
+	local jobhistory = mySession.pcJobInfo;
     local gender = info.GetGender(session.GetMyHandle());
 	local clslist, cnt  = GetClassList("Job");
 	
-	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
+	local nowjobinfo = jobhistory:GetJobInfoByIndex(jobhistory:GetJobCount()-1);
 	local nowjobcls;
 	if nil == nowjobinfo or (isChangeMainClass ~= nil and isChangeMainClass == 1) then
 		nowjobcls = nowJobName; 
@@ -894,9 +891,9 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	end; 
 
 	local MYPCJOBS = {}
-	for i = 0, jobhistory:GetJobHistoryCount()-1 do
+	for i = 0, jobhistory:GetJobCount()-1 do
 		
-		local tempjobinfo = jobhistory:GetJobHistory(i);
+		local tempjobinfo = jobhistory:GetJobInfoByIndex(i);
 
 		if MYPCJOBS[tempjobinfo.jobID] == nil then
 			MYPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;

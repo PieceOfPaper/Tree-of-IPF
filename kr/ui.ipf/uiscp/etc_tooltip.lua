@@ -1,6 +1,6 @@
 -- etc_tooltip.lua
 
-function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe)
+function ITEM_TOOLTIP_ETC(tooltipframe, invitem, argStr, usesubframe)
 	tolua.cast(tooltipframe, "ui::CTooltipFrame");
 
 	local mainframename = 'etc'
@@ -11,7 +11,7 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe)
 		mainframename = "etc_sub"
 	end
 
-	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename); -- 기타 템이라면 공통적으로 그리는 툴팁들	
+	local ypos = DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, argStr); -- 기타 템이라면 공통적으로 그리는 툴팁들	
 	ypos = DRAW_ETC_DESC_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 아이템 설명.
 	ypos = DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframename); -- 재료템이라면 필요한 재료랑 보여줌
     ypos = DRAW_EQUIP_TRADABILITY(tooltipframe, invitem, ypos, mainframename);
@@ -25,7 +25,7 @@ function ITEM_TOOLTIP_ETC(tooltipframe, invitem, num1, usesubframe)
 	
 end
 
-function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
+function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, from)
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveAllChild()
 	--스킨 세팅
@@ -94,6 +94,10 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 		end
 	end
 
+    if from ~= nil and from == 'accountwarehouse' then
+        noTrade_cnt:ShowWindow(0)
+    end
+    
 	
 	-- 아이템 종류 세팅
 	local type_richtext = GET_CHILD(CSet, "type_text", "ui::CRichText");
@@ -226,15 +230,7 @@ function DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframe
 	return CSet:GetHeight() + CSet:GetY();
 end
 
-function UPDATE_TRUST_POINT_TOOLTIP(tooltipframe, tree)
-	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 1, 'TeamLevel');
-	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 2, 'CharLevel');
-	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 3, 'CreateTime');
-	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 4, 'SafeAuth');
-	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 5, 'Quest');
-end
-
-function SET_TRUST_POINT_PARAM_INFO(tooltipframe, index, paramType)
+local function _SET_TRUST_POINT_PARAM_INFO(tooltipframe, index, paramType)
 	-- point
 	local starTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'starTextBox'..index);
 	local point = session.inventory.GetTrustPointByParam(paramType);
@@ -260,5 +256,36 @@ function SET_TRUST_POINT_PARAM_INFO(tooltipframe, index, paramType)
 		check:SetCheck(1);
 	else
 		check:SetCheck(0);
+	end
+end
+
+local function _HIDE_SAFEAUTH_INFO(tooltipframe, safeAuthIndex, questIndex)
+	local starTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'starTextBox'..safeAuthIndex);
+	local paramTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'paramTextBox'..safeAuthIndex);
+	local check = GET_CHILD_RECURSIVELY(tooltipframe, 'check'..safeAuthIndex);
+	starTextBox:ShowWindow(0);
+	paramTextBox:ShowWindow(0);
+	check:ShowWindow(0);
+
+	local _starTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'starTextBox'..questIndex);
+	local _paramTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'paramTextBox'..questIndex);
+	local _check = GET_CHILD_RECURSIVELY(tooltipframe, 'check'..questIndex);
+	_starTextBox:SetOffset(_starTextBox:GetX(), starTextBox:GetY());
+	_paramTextBox:SetOffset(_paramTextBox:GetX(), paramTextBox:GetY());		
+	local margin = check:GetMargin();
+	_check:SetMargin(margin.left, margin.top, margin.right, margin.bottom);
+
+	tooltipframe:Resize(tooltipframe:GetWidth(), _starTextBox:GetY() + _starTextBox:GetHeight() + 10);
+end
+
+function UPDATE_TRUST_POINT_TOOLTIP(tooltipframe, tree)
+	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 1, 'TeamLevel');
+	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 2, 'CharLevel');
+	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 3, 'CreateTime');
+	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 4, 'SafeAuth');
+	_SET_TRUST_POINT_PARAM_INFO(tooltipframe, 5, 'Quest');
+
+	if config.GetServiceNation() ~= 'KOR' and config.GetServiceNation() ~= 'GLOBAL' then
+		_HIDE_SAFEAUTH_INFO(tooltipframe, 4, 5);
 	end
 end

@@ -23,3 +23,8 @@ function SCR_STARTOWER_92_MQ_20_STARSTONE_PRE_DIALOG(pc, dialog)
     end
     return "NO"
 end
+
+
+function SCR_D_STARTOWER_92_VALNIAS_DEVICE_PRE_DIALOG(pc, dialog)
+    return "NO"
+end

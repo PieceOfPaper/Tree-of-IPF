@@ -70,6 +70,7 @@ function QUESTDETAIL_INFO(questID, xPos)
     	y = MAKE_BASIC_REWARD_BUFF_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_HONOR_CTRL(box, cls, y);
     	y = MAKE_BASIC_REWARD_PCPROPERTY_CTRL(box, cls, y);
+    	y = MAKE_BASIC_REWARD_JOURNEYSHOP_CTRL(box, cls, y);
     end
 
 	local succExp = cls.Success_Exp;

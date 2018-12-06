@@ -549,9 +549,19 @@ end
 end
 
 function GET_JOB_MAX_CIRCLE(jobcls)
-	local maxCircle = TryGetProp(jobcls, "MaxCircle")
+	local maxCircle = TryGetProp(jobcls, "MaxCircle")	
 	if maxCircle ~= nil then
 		return maxCircle;
 	end
-	return 3;
+	return 1;
 end
+
+imcRichText = {
+	SetColorBlend = function(self, richtext, isStart, blendTime, color1, color2)
+		richtext:StopColorBlend();
+		if isStart == false then
+			return;
+		end
+		richtext:SetColorBlend(blendTime, color1, color2, true);
+	end,
+};

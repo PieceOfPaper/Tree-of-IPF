@@ -24,31 +24,23 @@ function IS_ENABLE_EQUIPPED_CARD(pc, item)
 		return 0;
 	end
 
-	local cardGroupName = item.CardGroupName
---	local itemGrade = 0
---	itemGrade = math.floor(item.ItemGrade)
-		
---	local maxIndex = GetTotalJobCount(pc)
---	if maxIndex > JOB_CHANGE_MAX_RANK then
---		maxIndex = JOB_CHANGE_MAX_RANK
---	end
-
-	local pcEtc = GetETCObject(pc);
-
-	if pcEtc == nil then
-		return 0;
-	end
-
-	local tempCount = 0
-
-
+	local cardGroupName = item.CardGroupName;
+	local tempCount = 0;
 	for i = 1, MAX_NORMAL_MONSTER_CARD_SLOT_COUNT + LEGEND_CARD_SLOT_COUNT do
-		if pcEtc["EquipCardID_Slot" ..i] ~= 0 then
-			local cardID = pcEtc["EquipCardID_Slot" ..i]
-			local equipCard = GetClassByType('Item', cardID)
-			if cardGroupName == equipCard.CardGroupName then
-				tempCount = tempCount + 1
+		local equipCard = nil;
+		if IsServerObj(pc) == 1 then
+			local cardName = GetEquipCardInfo(pc, i);
+			if cardName ~= nil then
+				equipCard = GetClass('Item', cardName);
 			end
+		else
+			local cardInfo = equipcard.GetCardInfo(i);
+			if cardInfo ~= nil then
+				equipCard = GetClassByType('Item', cardInfo:GetCardID());
+			end
+		end
+		if cardGroupName == TryGetProp(equipCard, 'CardGroupName') then
+			tempCount = tempCount + 1
 		end
 	end
 

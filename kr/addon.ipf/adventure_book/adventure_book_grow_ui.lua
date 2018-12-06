@@ -17,12 +17,14 @@ function ADVENTURE_BOOK_GROW.CLEAR()
 	local wizardList = GET_CHILD(page, "page_grow_wizard", "ui::CGroupBox");
 	local archerList = GET_CHILD(page, "page_grow_archer", "ui::CGroupBox");
 	local clericList = GET_CHILD(page, "page_grow_cleric", "ui::CGroupBox");
+	local scoutList = GET_CHILD(page, "page_grow_scout", "ui::CGroupBox");
 
 	charList:RemoveAllChild();
 	warriorList:RemoveAllChild();
 	wizardList:RemoveAllChild();
 	archerList:RemoveAllChild();
 	clericList:RemoveAllChild();
+	scoutList:RemoveAllChild();
 end
 
 function ADVENTURE_BOOK_GROW.FILL_CHAR_LIST()
@@ -74,6 +76,7 @@ function ADVENTURE_BOOK_GROW.FILL_CTRL_TYPES()
 	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Wizard", "page_grow_wizard");
 	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Archer", "page_grow_archer");
 	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Cleric", "page_grow_cleric");
+	ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE("Scout", "page_grow_scout");
 end
 
 function ADVENTURE_BOOK_GROW.FILL_CTRL_TYPE(ctrlType, ctrlName)

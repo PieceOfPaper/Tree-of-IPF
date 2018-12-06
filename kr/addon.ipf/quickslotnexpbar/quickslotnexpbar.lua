@@ -275,9 +275,7 @@ function SET_QUICKSLOT_OVERHEAT(slot)
 
 end
 
-function UPDATE_SLOT_OVERHEAT(slot)
-	local obj = GET_SLOT_SKILL_OBJ(slot);
-	
+function _UPDATE_SLOT_OVERHEAT(slot, obj)
 	local icon = slot:GetIcon()
 	local isScroll = nil
 	if icon ~= nil then
@@ -291,15 +289,23 @@ function UPDATE_SLOT_OVERHEAT(slot)
 	local sklType = obj.ClassID;
 	local skl = session.GetSkill(sklType);
 	skl = GetIES(skl:GetObject());
-	local useOverHeat = skl.SklUseOverHeat;
+	local overHeatCount = skl.SklUseOverHeat;
 	local curHeat = session.GetSklOverHeat(sklType);
-	curHeat = curHeat + useOverHeat - 1;
-	local maxOverHeat = session.GetSklMaxOverHeat(sklType);
+	local resetTime = session.GetSklOverHeatResetTime(sklType);
 	local gauge = slot:GetSlotGauge();
+	gauge:SetCellPoint(1);
 
-	gauge:SetCellPoint(useOverHeat);
-	gauge:SetPoint(curHeat, maxOverHeat);
+	local count = 0;
+	if resetTime ~= 0 and curHeat > 0 then
+		count = math.ceil(curHeat/resetTime) - 1;
+	end
+	gauge:SetPoint(count, overHeatCount);
 	slot:InvalidateGauge();
+end
+
+function UPDATE_SLOT_OVERHEAT(slot)
+	local obj = GET_SLOT_SKILL_OBJ(slot);
+	_UPDATE_SLOT_OVERHEAT(slot, obj)
 end
 
 function GET_SLOT_SKILL_TYPE(slot)

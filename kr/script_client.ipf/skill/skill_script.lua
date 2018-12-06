@@ -87,22 +87,18 @@ function RUN_BUFF_SELLER(actor, obj)
 	end
 end
 
-function OPEN_MAGIC_SKL_UI(skillType)
-	local skill = session.GetSkill(skillType);
-	if skill == nil then
-		return 0;
-	end
-
+function OPEN_MAGIC_SKL_UI()	
 	local frame = ui.GetFrame('skillitemmaker');
 	local richtext_1 = frame:GetChild('richtext_1');
 	richtext_1:ShowWindow(0);
 	local richtext_1_1 = frame:GetChild('richtext_1_1');
 	richtext_1_1:ShowWindow(1);
-	local obj = GetIES(skill:GetObject());
-
-	frame:SetUserValue("SKLNAME", obj.ClassName);
+	frame:SetUserValue('MODE', 'CraftSpellBook');
+	frame:SetUserValue('SKLNAME', 'Enchanter_CraftMagicScrolls');
 	_SKILLITEMMAKE_RESET(frame);
 	frame:ShowWindow(1)
+
+	ui.OpenFrame('skillability');
 end
 
 function EQUIP_MENDING_SKL(skillType)

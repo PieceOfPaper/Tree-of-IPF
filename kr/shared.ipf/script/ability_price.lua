@@ -306,6 +306,93 @@ function ABIL_3RANK_MASTER_PRICE(pc, abilName, abilLevel, maxLevel)
     
 end
 
+function ABIL_BASE_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 1
+    local time = 0
+    
+    return price, time;
+end
+
+function ABIL_REINFORCE_PRICE(pc, abilName, abilLevel, maxLevel)
+
+    local baseFactor = 1.07
+    local increseFactorList = { 1, 2, 3, 4, 5, 
+                                6, 7, 8, 8.5, 9 }
+    
+    local index = math.ceil(abilLevel / 10)
+    local increseFactor = 0;
+    
+    if index > 0 and index <= #increseFactorList then
+        increseFactor = increseFactorList[index];
+    end
+    
+    local price = math.floor(baseFactor^(abilLevel - 1) * increseFactorList[index])
+    local time = 0;
+
+    return price, time;
+    
+end
+
+function ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
+    local price = 70 + (abilLevel - 1) * 7;
+    local time = 0
+    
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local minimumFactor = factor1;
+    local increseFactor = factor2;
+    
+    if minimumFactor == nil then
+        minimumFactor = 0
+    end
+    
+    if increseFactor == nil then
+        increseFactor = 0
+    end
+    
+    local price = minimumFactor + (4 - maxLevel + abilLevel) * increseFactor;
+    local time = 0;
+    
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_1LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 11, 1)
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_100LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 22, 2)
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_150LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 41, 3)
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_200LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 70, 7)
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_250LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 480, 45)
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_300LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 720, 67)
+    return price, time;
+end
+
+function ABIL_COMMON_PRICE_350LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 1080, 100)
+    return price, time;
+end
+
 function ABIL_SWAPWEAPON_PRICE(pc, abilName, abilLevel, maxLevel)
 
     local price = 3
@@ -473,16 +560,6 @@ function ABIL_UNLOCKCHEST_PRICE(pc, abilName, abilLevel, maxLevel)
 --    local time = 1;
     local time = 0
 
-    return price, time;
-    
-end
-
-function ABIL_TAXPAYMENT_PRICE(pc, abilName, abilLevel, maxLevel)
-    
-    local price = math.floor(1.09^(abilLevel-1) * 1);
---    local time = 1;
-    local time = 0
-    
     return price, time;
     
 end

@@ -167,7 +167,7 @@ function BUFFSELLER_REG_CANCEL(frame)
 end
 
 function BUFFSELLER_REG_OPEN(frame)
-	ui.OpenFrame("skilltree");
+	ui.OpenFrame("skillability");
 
 	local customSkill = frame:GetUserValue("CUSTOM_SKILL");
 	if customSkill == "None" then

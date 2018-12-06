@@ -376,7 +376,7 @@ function QSLOT_VISIBLE_ENCHNTE_CRAFT()
 	local pc = GetMyPCObject();
 	local pcjobinfo = GetClass('Job', pc.JobName)
 	local pcCtrlType = pcjobinfo.CtrlType
-	if pcCtrlType == "Wizard" then
+	if pcCtrlType == "Scout" then
 		return 1;
 	end
 
@@ -416,4 +416,12 @@ function QSLOT_ENABLE_INDUN(cls)
 		end
     end
 	return true;
+end
+
+function QSLOT_VISIBLE_CRAFT_SPELL_BOOK()
+	local runecasterCls = GetClass('Job', 'Char2_17');
+	if IS_HAD_JOB(runecasterCls.ClassID) == true then
+		return 1;
+	end
+	return 0;
 end

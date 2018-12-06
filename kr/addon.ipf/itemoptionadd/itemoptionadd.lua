@@ -10,10 +10,10 @@ function ITEMOPTIONADD_ON_INIT(addon, frame)
 end
 
 function ON_OPEN_DLG_ITEMOPTIONADD(frame)
-	frame:ShowWindow(1);	
+	frame:ShowWindow(1);
 end
 
-function ITEMOPTIONADD_OPEN(frame)	
+function ITEMOPTIONADD_OPEN(frame)
 	ui.CloseFrame('rareoption');
 	SET_OPTIONADD_RESET(frame);
 	CLEAR_ITEMOPTIONADD_UI()
@@ -27,7 +27,7 @@ function ITEMOPTIONADD_CLOSE(frame)
 	end
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	frame:ShowWindow(0);
-	control.DialogOk();
+		control.DialogOk();
 	ui.CloseFrame("inventory");
  end
 
@@ -41,7 +41,7 @@ function CLEAR_ITEMOPTIONADD_UI()
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-
+	
 	local frame = ui.GetFrame("itemoptionadd");
 
 	local slot = GET_CHILD_RECURSIVELY(frame, "slot", "ui::CSlot");
@@ -99,9 +99,9 @@ function ITEM_OPTIONADD_MAIN_ITEM_DROP(frame, icon, argStr, argNum)
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	CLEAR_ITEMOPTIONADD_UI()
 	if FromFrame:GetName() == 'inventory' then
 		local iconInfo = liftIcon:GetInfo();
@@ -136,7 +136,7 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	if invItem == nil then
 		return;
 	end
-
+	
 	
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
@@ -553,8 +553,6 @@ function _ITEMOPTIONADD_EXEC()
     session.AddItemID(addInvItem:GetIESID(), 1);
     local resultlist = session.GetItemIDList();
     item.DialogTransaction("EQUIP_ITEM_OPTION", resultlist);
-	return
-
 end
 
 function SUCCESS_ITEM_OPTION_ADD(frame)
@@ -782,4 +780,55 @@ function INVENTORY_ADD_ITEM_CHECK(slot, reinfItemObj, invItem, itemobj)
 	slot:SetUserValue("INVENTORY_ADD_ITEM_CHECK", 0);
 	local icon = slot:GetIcon();
 	icon:SetColorTone("FFFFFFFF");
+end
+
+-- 인장
+local function _INIT_SLOT_FOR_OPTION_ADD(frame)
+	local slot = GET_CHILD_RECURSIVELY(frame, 'slot');
+	local slot_add = GET_CHILD_RECURSIVELY(frame, 'slot_add');
+	local slot_bg_image = GET_CHILD(slot, 'slot_bg_image');
+	local arrowbox = GET_CHILD_RECURSIVELY(frame, 'arrowbox');
+	slot:SetGravity(ui.LEFT, ui.CENTER_VERT);
+	slot:ShowWindow(1);
+	slot_bg_image:ShowWindow(0);
+	slot_add:ShowWindow(1);
+	arrowbox:ShowWindow(1);
+end
+
+local function _CREATE_COMPONENT(frame)
+	local parent = GET_CHILD_RECURSIVELY(frame, 'bodyGbox4');
+	local updownmax = CREATE_UPDOWNMAX_COMPONENT(parent, 'updownmax', {
+		x = 0, y = 0, width = 200, height = 36, 
+		margin = {0, 210, 0, 0},
+		gravity = { horz = ui.CENTER_HORZ, vert = ui.TOP },
+		maxBtnUpScp = 'SEAL_REINFORCE_MAX_BTN_CLICK',
+		upBtnUpScp = 'SEAL_REINFORCE_UP_BTN_CLICK',
+		downBtnUpScp = 'SEAL_REINFORCE_DOWN_BTN_CLICK',
+	});
+
+
+	local itemslotComp_Silver = CREATE_ITEMSLOT_MINMAXCOUNT_COMPONENT(parent, 'itemslotComp_Silver', {
+		x = 0, y = 0, width = parent:GetWidth() - 10, height = 80, 
+		margin = {0, 0, 0, 90},
+		gravity = { horz = ui.CENTER_HORZ, vert = ui.BOTTOM },
+	});
+	local moneyCls = GetClass('Item', MONEY_NAME);
+	itemslotComp_Silver:SetName(moneyCls.Name);
+
+	local itemslotComp_Item = CREATE_ITEMSLOT_MINMAXCOUNT_COMPONENT(parent, 'itemslotComp_Item', {
+		x = 0, y = 0, width = parent:GetWidth() - 10, height = 80, 
+		margin = {0, 0, 0, 0},
+		gravity = { horz = ui.CENTER_HORZ, vert = ui.BOTTOM },
+	});
+end
+
+function OPEN_SEAL_OPTION_UI()
+	local frame = ui.GetFrame('itemoptionadd');
+	frame:SetUserValue('MODE', 'REINFORCE_SEAL');
+	CLEAR_ITEMOPTIONADD_UI();
+	_SET_TITLE(frame, 'ReinforceSeal');	
+	_SHOW_MAIN_SLOT(frame, 0);
+	_INIT_SLOT_FOR_OPTION_ADD(frame);	
+	_CREATE_COMPONENT(frame);
+	frame:ShowWindow(1);
 end

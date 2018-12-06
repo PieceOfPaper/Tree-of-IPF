@@ -282,7 +282,7 @@ function SCR_JOB_PROPERTYQUESTCHECK(pc, questname, scriptInfo)
 ----    end
 --    
 --    if jlv >= 5 + changedJobCount * 5 then
-    if jlv >= 15 then
+    if jlv >= GetJobMaxLevel(pc) then
         local pcjobinfo = GetClass('Job', pc.JobName)
         local tarjobinfo = GetClass('Job', scriptInfo[2])
         if pcjobinfo.CtrlType == tarjobinfo.CtrlType then
@@ -596,6 +596,42 @@ end
 --    print('AAAAA',pc.Name, argList)
 --    return 'NO'
 --end
+
+function SCR_JOB_OUTLAW_Q1_PRE_CHECK(pc, questname, scriptInfo)
+    local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)
+    if result1 == 'YES' and #result2 == 0 then
+        return 'NO'
+    end
+    
+    return 'YES'
+end
+
+function SCR_JOB_OUTLAW_Q1_STEPREWARD_CHECK1(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_OUTLAW_Q1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 20 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_JOB_OUTLAW_Q1_STEPREWARD_CHECK2(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_OUTLAW_Q1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 30 then
+            return 'YES'
+        end
+    end
+end
+
+function SCR_JOB_OUTLAW_Q1_STEPREWARD_CHECK3(pc, stepRewardFuncList)
+    local sObj = GetSessionObject(pc, 'SSN_JOB_OUTLAW_Q1')
+    if sObj ~= nil then
+        if sObj.QuestInfoValue1 >= 45 then
+            return 'YES'
+        end
+    end
+end
 
 function SCR_JOB_RETIARII1_PRE_FUNC(pc, questname, scriptInfo)
     local result1, result2 = SCR_STEPREWARD_QUEST_REMAINING_CHECK(pc, questname)

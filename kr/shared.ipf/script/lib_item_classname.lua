@@ -21,3 +21,7 @@ end
 function GET_SWITCHGENDER_SELLER_SPEND_ITEM()
     return 'Drug_holywater', 100; -- 여기 스위치젠더 사용시 판매자가 소모할 아이템 이름이랑 개수요
 end
+
+function GET_SEAL_ADDITIONAL_ITEM() -- hs_comment: 재성씨!
+    return 'leaf_hanaming'; -- 인장 재료 아이템
+end

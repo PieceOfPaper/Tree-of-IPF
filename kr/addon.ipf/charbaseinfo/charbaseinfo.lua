@@ -26,8 +26,11 @@ function ON_JOB_EXP_UPDATE(frame, msg, str, exp, tableinfo)
 		curExp = tableinfo.before:GetLevelExp();
 		maxExp = curExp;
 
-		-- ������ ���������� Ŭ���� & ��ų�� ������Ʈ�ϱ�
-		REFRESH_SKILL_TREE( ui.GetFrame('skilltree') );
+		-- 전직이 가능해지면 클래스 & 스킬쪽 업데이트하기
+		local skillAbilityFrame = ui.GetFrame('skillability')
+		if skillAbilityFrame:IsVisible() == 1 then
+			SKILLABILITY_ON_OPEN(skillAbilityFrame)
+		end
 	end
 
 	local expObject = GET_CHILD(frame, 'skillexp', "ui::CGauge");

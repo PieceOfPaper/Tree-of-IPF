@@ -18,39 +18,19 @@ function GET_LIMITATION_TO_BUY(tpItemID)
 end
 
 itemOptCheckTable = nil;
-function CREATE_ITEM_OTP_TABLE()
+function CREATE_ITEM_OPTION_TABLE()
     --추가할 프로퍼티가 존재한다면 밑에다가 추가하면 됨.
     itemOptCheckTable = {
     "Reinforce_2", -- 강화
     "Transcend", -- 초월
     "IsAwaken", -- 각성
-    "Socket_Equip_0", -- 젬장착
-    "Socket_Equip_1",
-    "Socket_Equip_2",
-    "Socket_Equip_3",
-    "Socket_Equip_4",
-    "Socket_Equip_5",
-    "Socket_Equip_6",
-    "Socket_Equip_7",
-    "Socket_Equip_8",
-    "Socket_Equip_9",
-    "Socket_0", -- 소켓 추가
-    "Socket_1",
-    "Socket_2",
-    "Socket_3",
-    "Socket_4",
-    "Socket_5",
-    "Socket_6",
-    "Socket_7",
-    "Socket_8",
-    "Socket_9",
-    "RandomOptionRareValue"
+    "RandomOptionRareValue",
     }
 end
 
 function IS_MECHANICAL_ITEM(itemObject)
     if itemOptCheckTable == nil then
-        CREATE_ITEM_OTP_TABLE();
+        CREATE_ITEM_OPTION_TABLE();
     end
 
     if itemOptCheckTable == nil or #itemOptCheckTable == 0 then
@@ -66,5 +46,31 @@ function IS_MECHANICAL_ITEM(itemObject)
         end
     end
 
+    local maxSocketCnt = TryGetProp(itemObject, 'MaxSocket', 0);
+    if maxSocketCnt > 0 then
+        if IsServerSection() == 0 then
+            local invitem = GET_INV_ITEM_BY_ITEM_OBJ(itemObject);
+            if invitem == nil then
+                return false;
+            end
+            for i = 0, itemObject.MaxSocket - 1 do
+                if invitem:IsAvailableSocket(i) == true then
+                    return true;
+                end                
+            end
+        else
+            for i = 0, itemObject.MaxSocket - 1 do
+                local equipGemID = GetItemSocketInfo(itemObject, i);
+                if equipGemID ~= nil then
+                    return true;
+                end
+            end
+        end    
+    end
+
     return false;
+end
+
+function GET_COMMON_SOCKET_TYPE()
+	return 5;
 end

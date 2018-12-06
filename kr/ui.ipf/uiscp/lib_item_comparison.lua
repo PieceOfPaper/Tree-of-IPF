@@ -37,7 +37,7 @@ function GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "CRTATK";
     list[#list+1] = "KDPow";
     list[#list+1] = "SkillPower";
-    list[#list+1] = "MHR";
+    list[#list+1] = "CRTMATK";
     list[#list+1] = "MDEF";
     list[#list+1] = "SkillRange";
     list[#list+1] = "SkillAngle";
@@ -113,7 +113,7 @@ function GET_ATK_PROP_CHANGEVALUETOOLTIP_LIST()
     list[#list+1] = "CRTATK";
     list[#list+1] = "KDPow";
     list[#list+1] = "SkillPower";
-    list[#list+1] = "MHR";
+    list[#list+1] = "CRTMATK";
     list[#list+1] = "MDEF";
     list[#list+1] = "SkillRange";
     list[#list+1] = "SkillAngle";
@@ -188,8 +188,7 @@ function GET_DEF_PROP_LIST()
     list[#list+1] = "SkillPower";
     list[#list+1] = "ADD_HR";
     list[#list+1] = "ADD_DR";
-    list[#list+1] = "MHR";
-    list[#list+1] = "ADD_MHR";
+    list[#list+1] = "CRTMATK";
     list[#list+1] = "MDEF";
     list[#list+1] = "ADD_MDEF";
     list[#list+1] = "SkillRange";
@@ -270,8 +269,7 @@ function GET_ATK_PROP_LIST()
     list[#list+1] = "SkillPower";
     list[#list+1] = "ADD_HR";
     list[#list+1] = "ADD_DR";
-    list[#list+1] = "MHR";
-    list[#list+1] = "ADD_MHR";
+    list[#list+1] = "CRTMATK";
     list[#list+1] = "MDEF";
     list[#list+1] = "ADD_MDEF";
     list[#list+1] = "SkillRange";

@@ -262,18 +262,12 @@ function GET_UPGRADE_ADD_ATK_RATIO(item, ignoreTranscend)
     if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
         local value = class.AtkRatio;
-        local itemOwner = GetItemOwner(item)
-        local checkPvp = IsPVPServer(itemOwner)
-        if checkPvp == nil then
-            checkPvp = 0;
-        end
         
-        if checkPvp == 1 then
-            return value * 0.5
-        else
+        -- PVP --
+        value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
+        
             return value;
         end
-    end
     return 0;
 end
 
@@ -281,6 +275,10 @@ function GET_UPGRADE_ADD_DEF_RATIO(item, ignoreTranscend)
     if item.Transcend > 0  and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
         local value = class.DefRatio;
+        
+        -- PVP --
+        value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
+        
         return value;
     end
     return 0;
@@ -290,6 +288,10 @@ function GET_UPGRADE_ADD_MDEF_RATIO(item, ignoreTranscend)
     if item.Transcend > 0 and ignoreTranscend ~= 1 then
         local class = GetClassByType('ItemTranscend', item.Transcend);
         local value = class.MdefRatio;
+        
+        -- PVP --
+        value = SCR_PVP_ITEM_TRANSCEND_SET(item, value);
+        
         return value;
     end
     return 0;

@@ -281,15 +281,13 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		    itemCheckProp['EnchantOption'] = itemCheckProp['EnchantOption'] + 1
 		end
 		
-		for j = 0, 9 do
-    		local itemSocketEquip = TryGetProp(itemobj, 'Socket_Equip_' .. j);
-    		if itemSocketEquip ~= nil and itemSocketEquip > 0 then
+		for j = 0, 4 do
+    		if invitem:GetEquipGemID(j) > 0 then
     			itemCheckProp['Socket_Equip'] = itemCheckProp['Socket_Equip'] + 1;
     			break;
     		end
-    		
-    		local itemSocketAdd = TryGetProp(itemobj, 'Socket_' .. j);
-    		if itemSocketAdd ~= nil and itemSocketAdd > 0 then
+    		    		
+    		if invitem:IsAvailableSocket(j) == true then
     			itemCheckProp['Socket_Add'] = itemCheckProp['Socket_Add'] + 1;
     			break;
     		end

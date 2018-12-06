@@ -34,7 +34,10 @@ function SCR_SMARTGEN_GENFLAG_RESTART(sObj)
     local i
     
     for i = 1, CON_SMARTGEN_GENFLAG_MAX_INDEX do
-        sObj['GenFlag'..i] = 'None'
+        local beforeValue = TryGetProp(sObj, 'GenFlag'..i)
+        if beforeValue ~= nil and beforeValue ~= 'None' then
+            sObj['GenFlag'..i] = 'None'
+        end
     end
 end
 
@@ -42,7 +45,10 @@ function SCR_SMARTGEN_STOUP_USE_RESTART(sObj)
     local i
     
     for i = 1, 10 do
-        sObj['STOUP_USE'..i] = 0
+        local beforeValue = TryGetProp(sObj, 'STOUP_USE'..i)
+        if beforeValue ~= nil and beforeValue ~= 0 then
+            sObj['STOUP_USE'..i] = 0
+        end
     end
 end
 
@@ -50,7 +56,10 @@ function SCR_SMARTGEN_SCROLLLOCKGENFLAG_RESTART(sObj)
     local i
     
     for i = 1, 100 do
-        sObj['ScrollLockGenFlag'..i] = 0
+        local beforeValue = TryGetProp(sObj, 'ScrollLockGenFlag'..i)
+        if beforeValue ~= nil and beforeValue ~= 0 then
+            sObj['ScrollLockGenFlag'..i] = 0
+        end
     end
 end
 

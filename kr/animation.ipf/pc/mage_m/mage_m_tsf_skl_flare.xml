@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
-    <Sound frame="6.00" soundFile="skl_eff_finger_flick"/>
-    <Particle frame="6" attachNode="Dummy_L_HAND" particleName="F_wizard_flare_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="6.00" soundFile="skl_eff_finger_flick"/>
+	<Particle frame="6" attachNode="Bip01 L Finger22" particleName="F_wizard_flare_shot" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
 </ActionDesc>

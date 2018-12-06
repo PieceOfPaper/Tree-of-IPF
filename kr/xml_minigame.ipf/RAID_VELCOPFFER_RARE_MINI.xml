@@ -384,6 +384,10 @@
                                 <Num Num="0"/>
                                 <Str Str="Raid_Velcoffer_guard"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                                <Str Str="LegendRaid: Raid_Velcoffer_guard"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Boss_Final"/>
                             </ToolScp>

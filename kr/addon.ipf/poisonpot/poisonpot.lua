@@ -272,7 +272,7 @@ end
 function POISONPOT_CHECK_OPEN(propname, propvalue)
 	local jobcls = GetClass("Job", 'Char3_6');
 	local jobid = jobcls.ClassID;
-	if IS_HAD_JOB(jobid) == 1 then
+	if IS_HAD_JOB(jobid) == true then
 		return 1;
 	end
 	return 0;

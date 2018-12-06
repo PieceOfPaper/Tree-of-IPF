@@ -243,6 +243,24 @@ function ITEMBUFF_INIT_USER_PRICE(frame, sklClassName)
 	PROCESS_USER_SHOP_PRICE(sklClassName, MoneyInput);
 end
 
+local function GET_PC_ABILITY_OBJECT_LIST()
+    local abilObjList = {};
+    local pcSession = session.GetMySession();
+	local abilList = pcSession.abilityList;
+	local abilListCnt = 0;
+	if abilList ~= nil then
+		abilListCnt = abilList:Count();
+	end
+
+	for i=0, abilListCnt - 1 do
+		local abil = abilList:Element(i);
+		if abil ~= nil and abil:GetObject() ~= nil then
+            abilObjList[#abilObjList + 1] = GetIES(abil:GetObject());
+		end
+    end
+    return abilObjList;
+end
+
 function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
 	local userPriceCls = GetClass('UserShopPrice', sklClassName);	
 	if userPriceCls ~= nil then
