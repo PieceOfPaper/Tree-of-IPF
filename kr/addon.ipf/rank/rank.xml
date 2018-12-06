@@ -5,7 +5,7 @@
     <input maxwidth="1280" moveable="false"/>
     <layer layerlevel="80"/>
     <skin frameskin="pipwin_L"/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <draw drawtitlebar="false"/>
     <option closebutton="false"/>
     <sound opensound="window_open" closesound="window_close"/>
     <script OpenScp="RANK_OPEN" CloseScp="RANK_CLOSE"/>

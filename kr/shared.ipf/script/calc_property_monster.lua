@@ -1,19 +1,19 @@
 -- util
 function GET_MON_STAT(self, lv, statStr)
-	-- Sum MaxStat --
+    -- Sum MaxStat --
     local allStatMax = 10 + (lv * 2);
     
     local raceType = TryGetProp(self, "RaceType", "None");
     if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
         raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
         if raceType == nil then
-        	raceType = "None";
+            raceType = "None";
         end
     end
     
     local raceTypeClass = GetClass("Stat_Monster_Race", raceType);
     if raceTypeClass == nil then
-    	return 1;
+        return 1;
     end
     
     -- Select Stat Rate --
@@ -21,7 +21,7 @@ function GET_MON_STAT(self, lv, statStr)
     statRate = TryGetProp(raceTypeClass, statStr, statRate);
     
     if statRate < 0 then
-    	statRate = 0;
+        statRate = 0;
     end
     
     -- All Stat Rate --
@@ -210,7 +210,7 @@ function SCR_Get_MON_MHP(self)
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "MHP");
     value = value * raceTypeRate;
     
-    value = value * JAEDDURY_MON_MHP_RATE;      -- JAEDDURY
+--    value = value * JAEDDURY_MON_MHP_RATE;      -- JAEDDURY
     
     local byBuff = TryGetProp(self, "MHP_BM");
     if byBuff == nil then
@@ -219,7 +219,9 @@ function SCR_Get_MON_MHP(self)
     
     value = value + byBuff;
     
-    if "Summon" == TryGetProp(self, "Faction") then
+	local monClassName = TryGetProp(self, "ClassName", "None");
+	local monOriginFaction = TryGetProp(GetClass("Monster", monClassName), "Faction");
+    if monOriginFaction == "Summon" then
         value = value + 5000;   -- PC Summon Monster MHP Add
     end
     
@@ -248,10 +250,10 @@ end
 
 -- monster only
 function SCR_GET_MON_EXP(self)
-	if TryGetProp(self, "GiveEXP", "NO") ~= "YES" then
-		return 0;
-	end
-	
+    if TryGetProp(self, "GiveEXP", "NO") ~= "YES" then
+        return 0;
+    end
+    
     local level = TryGetProp(self, "Lv", 1);
     local exPropLevel = GetExProp(self, "LEVEL_FOR_EXP")
     if exPropLevel ~= nil and exPropLevel ~= 0 then
@@ -278,10 +280,10 @@ function SCR_GET_MON_EXP(self)
 end
 
 function SCR_GET_MON_JOBEXP(self)
-	if TryGetProp(self, "GiveEXP", "NO") ~= "YES" then
-		return 0;
-	end
-	
+    if TryGetProp(self, "GiveEXP", "NO") ~= "YES" then
+        return 0;
+    end
+    
     local level = TryGetProp(self, "Lv", 1);
     
     local cls = GetClassByType("Stat_Monster", level);
@@ -421,9 +423,16 @@ function SCR_Get_MON_HR(self)
     
     local value = byLevel * raceTypeRate;
     
-    local byBuff = self.HR_BM
+    local byBuff = TryGetProp(self, "HR_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "HR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -440,13 +449,20 @@ function SCR_Get_MON_DR(self)
     
     local byLevel = lv * 1.0;
     
-	local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DR");
-	
-	local value = byLevel * raceTypeRate;
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "DR");
     
-    local byBuff = self.DR_BM
+    local value = byLevel * raceTypeRate;
     
-    value = value + byBuff;
+    local byBuff = TryGetProp(self, "DR_BM", 0);
+    
+    local byRateBuff = TryGetProp(self, "DR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -464,13 +480,20 @@ function SCR_Get_MON_CRTHR(self)
     local lv = TryGetProp(self, "Lv", 1);
     local byLevel = lv * 1.0;
     
-	local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTHR");
-	
-	local value = byLevel * raceTypeRate;
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTHR");
+    
+    local value = byLevel * raceTypeRate;
     
     local byBuff = TryGetProp(self, "CRTHR_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "CRTHR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -479,13 +502,20 @@ function SCR_Get_MON_CRTDR(self)
     local lv = TryGetProp(self, "Lv", 1);
     local byLevel = lv * 1.0;
     
-	local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTDR");
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "CRTDR");
     
     local value = byLevel * raceTypeRate;
     
     local byBuff = TryGetProp(self, "CRTDR_BM", 0);
+	
+    local byRateBuff = TryGetProp(self, "CRTDR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+	
+    value = value + byBuff + byRateBuff;
     
-    value = value + byBuff;
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -506,7 +536,7 @@ function SCR_Get_MON_CRTATK(self)
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local value = byLevel + byStat;
-	
+    
     return math.floor(value);
 end
 
@@ -526,7 +556,7 @@ function SCR_Get_MON_CRTMATK(self)
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
     local value = byLevel + byStat;
-	
+    
     return math.floor(value);
 end
 
@@ -545,7 +575,7 @@ function SCR_Get_MON_MINPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
     
@@ -559,7 +589,7 @@ function SCR_Get_MON_MINPATK(self)
     value = value * (2.0 - range / 100.0);
     
     local raceTypeRate = SCR_RACE_TYPE_RATE(self, "PATK");
-    
+	
     value = value * raceTypeRate;
     
     local byBuff = 0;
@@ -608,8 +638,8 @@ function SCR_Get_MON_MAXPATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
-	
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
+    
     local value = byLevel + byStat + byItem
     
     local monAtkRange = TryGetProp(self, "ATK_RANGE");
@@ -671,7 +701,7 @@ function SCR_Get_MON_MINMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
     
@@ -734,7 +764,7 @@ function SCR_Get_MON_MAXMATK(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_WEAPON_CALC(self, lv);
+    local byItem = SCR_MON_ITEM_WEAPON_CALC(self);
     
     local value = byLevel + byStat + byItem;
     
@@ -786,9 +816,9 @@ function SCR_Get_MON_BLKABLE(self)
     if self.HPCount > 0 then
         return 0;
     end
-	
-	local value = TryGetProp(self, 'Blockable', 0);
-	
+    
+    local value = TryGetProp(self, 'Blockable', 0);
+    
     return value;
 end
 
@@ -801,16 +831,20 @@ function SCR_Get_MON_BLK(self)
     
     local byLevel = lv * 1.0;
     
-	local raceTypeRate = SCR_RACE_TYPE_RATE(self, "BLK");
+    local raceTypeRate = SCR_RACE_TYPE_RATE(self, "BLK");
+    
+    local value = byLevel * raceTypeRate;
+    
+    local byBuff = TryGetProp(self, "BLK_BM", 0);
 	
-	local value = byLevel * raceTypeRate;
+    local byRateBuff = TryGetProp(self, "BLK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
     
-    local byBuff = TryGetProp(self, "BLK_BM");
-    if byBuff == nil then
-        byBuff = 0;
+    value = value + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
     end
-    
-    value = value + byBuff;
     
     return math.floor(value);
 end
@@ -827,12 +861,16 @@ function SCR_Get_MON_BLK_BREAK(self)
     
     local value = byLevel * raceTypeRate;
     
-    local byBuff = TryGetProp(self, "BLK_BREAK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BREAK_BM", 0);
     
-    value = value + byBuff;
+    local byRateBuff = TryGetProp(self, "BLK_BREAK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -844,7 +882,7 @@ function SCR_Get_MON_KDArmorType(self)
     if self.HPCount > 0 then
         return 9999;
     end
-	
+    
     local value = self.KDArmor;
     local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Mon_PainBarrier_Buff" };
     for i = 1, #buffList do
@@ -879,7 +917,7 @@ function SCR_Get_MON_RHP(self)
     if GetBuffByProp(self, 'Keyword', 'Curse') ~= nil then
         return 0;
     end
-	
+    
     local value = TryGetProp(self, "RHP_BM");
     
     return value;
@@ -923,61 +961,77 @@ function SCR_Get_MON_TR(self)
 end
 
 -- Add
-function SCR_Get_MON_ADD_FIRE(self)
-
-    local value = 0;
-    value = value + self.ADD_FIRE_BM;
+function SCR_GET_MON_FIRE_ATK(self)
+    local attributeName = "Fire";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_ICE(self)
-
-    local value = 0;
-    value = value + self.ADD_ICE_BM;
+function SCR_GET_MON_ICE_ATK(self)
+    local attributeName = "Ice";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_POISON(self)
-
-    local value = 0;
-    value = value + self.ADD_POISON_BM;
+function SCR_GET_MON_POISON_ATK(self)
+    local attributeName = "Poison";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_LIGHTNING(self)
-
-    local value = 0;
-    value = value + self.ADD_LIGHTNING_BM;
+function SCR_GET_MON_LIGHTNING_ATK(self)
+    local attributeName = "Lightning";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_SOUL(self)
-
-    local value = 0;
-    value = value + self.ADD_SOUL_BM;
+function SCR_GET_MON_SOUL_ATK(self)
+    local attributeName = "Soul";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_EARTH(self)
-
-    local value = 0;
-    value = value + self.ADD_EARTH_BM;
+function SCR_GET_MON_EARTH_ATK(self)
+    local attributeName = "Earth";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_HOLY(self)
-
-    local value = 0;
-    value = value + self.ADD_HOLY_BM;
+function SCR_GET_MON_HOLY_ATK(self)
+    local attributeName = "Holy";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
 
-function SCR_Get_MON_ADD_DARK(self)
-
-    local value = 0;
-    value = value + self.ADD_DARK_BM;
+function SCR_GET_MON_DARK_ATK(self)
+    local attributeName = "Dark";
+    local value = SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName);
+    
     return math.floor(value);
 end
+
+function SCR_GET_MON_ATTRIBUTE_ATK_CALC(self, attributeName)
+--    local lv = TryGetProp(self, "Lv", 1);
+--    local byLevel = lv * 1.5;
+--    
+--    local byBuff = TryGetProp(self, attributeName .. "_Atk_BM", 0);
+--    
+--    local value = byLevel + byBuff;
+--    
+--    return math.floor(value);
+    
+    local value = TryGetProp(self, attributeName .. "_Atk_BM", 0);
+    
+    return math.floor(value);
+end
+
 
 function SCR_Get_MON_HitRange(self)
 
@@ -1015,30 +1069,32 @@ function SCR_Get_MON_MSPD(self)
     if wlkMSPD == 0 then
         return 0;
     end
-	
-	local byBuff = TryGetProp(self, "MSPD_BM", 0);
-	
-	local byBuffOnlyTopValue = 0;
-    local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
-    if byBuffOnlyTopList ~= nil then
-		for k, v in pairs(byBuffOnlyTopList) do
-			if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
-				byBuffOnlyTopValue = byBuffOnlyTopList[k];
-			end
-		end
-	end
-	
+    
+    local byBuff = TryGetProp(self, "MSPD_BM", 0);
+    
+    local byBuffOnlyTopValue = 0;
+    if IsServerSection(self) == 1 then
+        local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
+        if byBuffOnlyTopList ~= nil then
+            for k, v in pairs(byBuffOnlyTopList) do
+                if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
+                    byBuffOnlyTopValue = byBuffOnlyTopList[k];
+                end
+            end
+        end
+    end
+    
     local moveType = GetExProp(self, 'MOVE_TYPE_CURRENT');
     if moveType ~= 0 then
-	    local runMSPD = TryGetProp(self, "RunMSPD", 0);
-	    
+        local runMSPD = TryGetProp(self, "RunMSPD", 0);
+        
         local moveSpd = wlkMSPD + byBuff + byBuffOnlyTopValue;
         if moveType == 2 then
             moveSpd = runMSPD + byBuff + byBuffOnlyTopValue;
         elseif moveType == 3 then
             moveSpd = wlkMSPD + runMSPD + byBuff + byBuffOnlyTopValue;
         end
-    	
+        
         return moveSpd;
     end
     
@@ -1046,7 +1102,7 @@ function SCR_Get_MON_MSPD(self)
     if value < 0 then
         value = 0;
     end
-	
+    
     value = value * SERV_MSPD_FIX;
     
     return math.floor(value);
@@ -1122,8 +1178,8 @@ function SCR_Get_MON_MGP(self)
 end
 
 function SCR_Get_MON_SR(self)
-	local value = 50;
-	
+    local value = 50;
+    
     local monSize = TryGetProp(self, 'Size', "S");
     
     if monSize == 'S' then
@@ -1141,18 +1197,18 @@ function SCR_Get_MON_SR(self)
     value = value + byBuff;
     
     if value < 1 then
-    	value = 1;
+        value = 1;
     end
     
     return math.floor(value)
 end
 
 function SCR_Get_MON_SDR(self)
-	local fixedSDR = TryGetProp(self, 'FixedMinSDR_BM');
-	if fixedSDR ~= nil and fixedSDR ~= 0 then
-		return 1;
-	end
-	
+    local fixedSDR = TryGetProp(self, 'FixedMinSDR_BM');
+    if fixedSDR ~= nil and fixedSDR ~= 0 then
+        return 1;
+    end
+    
     local value = 5;
     
     local monSDR = TryGetProp(self, 'MonSDR', 1);
@@ -1174,15 +1230,15 @@ function SCR_Get_MON_SDR(self)
     value = value + byBuff;
     
     if value < 1 then
-    	value = 1;
+        value = 1;
     end
     
     return math.floor(value);
 end
 
 function SCR_GET_MONSKL_COOL(skill)
-	local value = TryGetProp(skill, "BasicCoolDown", 0);
-	
+    local value = TryGetProp(skill, "BasicCoolDown", 0);
+    
     return value;
 end
 
@@ -1194,60 +1250,89 @@ function SCR_MON_COMBOABLE(mon)
     return 0;
 end
 
-function SCR_GET_MON_FIRE_DEF(self)
-    local value = TryGetProp(self, "Fire_Def_BM", 0);
+function SCR_GET_MON_RES_FIRE(self)
+    local attributeName = "Fire";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_ICE_DEF(self)
-    local value = TryGetProp(self, "Ice_Def_BM", 0);
+function SCR_GET_MON_RES_ICE(self)
+    local attributeName = "Ice";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_POISON_DEF(self)
-    local value = TryGetProp(self, "Poison_Def_BM", 0);
+function SCR_GET_MON_RES_POISON(self)
+    local attributeName = "Poison";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_LIGHTNING_DEF(self)
-    local value = TryGetProp(self, "Lightning_Def_BM", 0);
+function SCR_GET_MON_RES_LIGHTNING(self)
+    local attributeName = "Lightning";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_SOUL_DEF(self)
-    local value = TryGetProp(self, "Soul_Def_BM", 0);
+function SCR_GET_MON_RES_SOUL(self)
+    local attributeName = "Soul";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_EARTH_DEF(self)
-    local value = TryGetProp(self, "Earth_Def_BM", 0);
+function SCR_GET_MON_RES_EARTH(self)
+    local attributeName = "Earth";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_HOLY_DEF(self)
-    local value = TryGetProp(self, "Holy_Def_BM", 0);
+function SCR_GET_MON_RES_HOLY(self)
+    local attributeName = "Holy";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
 end
 
-function SCR_GET_MON_DARK_DEF(self)
-    local value = TryGetProp(self, "Dark_Def_BM", 0);
+function SCR_GET_MON_RES_DARK(self)
+    local attributeName = "Dark";
+    local value = SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName);
     
-    return value;
+    return math.floor(value);
+end
+
+function SCR_GET_MON_RES_ATTRIBUTE_CALC(self, attributeName)
+    local lv = TryGetProp(self, "Lv", 1);
+    local fixedFigure = 30;
+    local byLevel = math.floor(((lv / 3) ^ 2) / fixedFigure) + fixedFigure 
+    
+    local byBuff = TryGetProp(self, "Res" .. attributeName .. "_BM", 0);
+    
+    local byStatType = 0;
+    local statType = TryGetProp(self, "StatType", "None");
+    if statType ~= nil then
+        local statTypeClass = GetClass("Stat_Monster_Type", statType);
+        if statTypeClass ~= nil then
+            byStatType = TryGetProp(statTypeClass, "ResAttributeRate", 100)*0.01;
+        end
+    end
+    
+    local value = (byLevel * byStatType) + byBuff;
+    
+    return math.floor(value);
 end
 
 function SCR_GET_MON_LIMIT_BUFF_COUNT(self)
-    local value = 999;	-- 2017/9/13 --
+    local value = 999;  -- 2017/9/13 --
     
 --    local byBuff = TryGetProp(self, "LimitBuffCount_BM", 0);
 --    if byBuff > 0 then
---    	value = byBuff;
+--      value = byBuff;
 --    end
     
     return value;
@@ -1338,9 +1423,9 @@ function SCR_Get_MON_HEAL_PWR(self)
     value = value + byBuff + byRateBuff;
     
     if value < 1 then
-    	value = 1;
+        value = 1;
     end
-	
+    
     return math.floor(value);
 end
 
@@ -1468,17 +1553,17 @@ end
 
 
 function SCR_RACE_TYPE_RATE(self, prop)
-	-- RaceType --
+    -- RaceType --
     local raceTypeRate = 100;
     
     local raceType = TryGetProp(self, "RaceType", "None");
     if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
         raceType = GetExProp_Str(self, "SHADOW_INFERNAL_RACETYPE");
         if raceType == nil then
-        	raceType = "None";
+            raceType = "None";
         end
     end
-	
+    
     local raceTypeClass = GetClass("Stat_Monster_Race", raceType);
     if raceTypeClass ~= nil then
         raceTypeRate = TryGetProp(raceTypeClass, prop, raceTypeRate);
@@ -1487,7 +1572,7 @@ function SCR_RACE_TYPE_RATE(self, prop)
     raceTypeRate = raceTypeRate / 100;
     
     if raceTypeRate < 0 then
-    	raceTypeRate = 0;
+        raceTypeRate = 0;
     end
     
     
@@ -1499,7 +1584,7 @@ function SCR_RACE_TYPE_RATE(self, prop)
     if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
         sizeType = GetExProp_Str(self, "SHADOW_INFERNAL_SIZE");
         if sizeType == nil then
-        	sizeType = "None";
+            sizeType = "None";
         end
     end
     
@@ -1513,7 +1598,7 @@ function SCR_RACE_TYPE_RATE(self, prop)
     sizeTypeRate = sizeTypeRate / 100;
     
     if sizeTypeRate < 0 then
-    	sizeTypeRate = 0;
+        sizeTypeRate = 0;
     end
     
     
@@ -1533,40 +1618,49 @@ function SCR_RACE_TYPE_RATE(self, prop)
     rankTypeRate = rankTypeRate / 100;
     
     if rankTypeRate < 0 then
-    	rankTypeRate = 0;
+        rankTypeRate = 0;
     end
     
-	local value = raceTypeRate * sizeTypeRate * rankTypeRate;
+    local value = raceTypeRate * sizeTypeRate * rankTypeRate;
     
     return value;
 end
 
 
 
-function SCR_MON_ITEM_WEAPON_CALC(self, lv)
+function SCR_MON_ITEM_WEAPON_CALC(self)
+	local monClassName = TryGetProp(self, "ClassName", "None");
+	local monOriginFaction = TryGetProp(GetClass("Monster", monClassName), "Faction");
+    if monOriginFaction == "Summon" then
+        return 0;
+    end
+    
+    local lv = TryGetProp(self, "Lv", 1);
+    lv = math.max(1, lv - 30);
+    
     local value = 20 + (lv * 5);
     
-	local defList = { };
+    local defList = { };
     defList["Cloth"] = 1.0;
     defList["Leather"] = 1.5 ;
     defList["Iron"] = 1.0;
     
-	local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
-	if defList[armorMaterial] ~= nil then
-	    value = value * defList[armorMaterial];
-	end
+    local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
+    if defList[armorMaterial] ~= nil then
+        value = value * defList[armorMaterial];
+    end
     
     local byReinforce = 0;
     local byTranscend = 0;
-	
+    
     local statType = TryGetProp(self, "StatType", "None");
     if statType ~= nil then
         local statTypeClass = GetClass("Stat_Monster_Type", statType);
         if statTypeClass ~= nil then
-        	local itemGrade = TryGetProp(statTypeClass, "WeaponGrade", "Normal")
-		    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);
-		    value = math.floor(value * basicGradeRatio);
-        	
+            local itemGrade = TryGetProp(statTypeClass, "WeaponGrade", "Normal")
+            local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);
+            value = math.floor(value * basicGradeRatio);
+            
             local reinforceValue = TryGetProp(statTypeClass, "ReinforceWeapon", 0);
             byReinforce = SCR_MON_ITEM_REINFORCE_WEAPON_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
@@ -1582,39 +1676,40 @@ function SCR_MON_ITEM_WEAPON_CALC(self, lv)
 end
 
 function SCR_MON_ITEM_ARMOR_DEF_CALC(self)
-	return SCR_MON_ITEM_ARMOR_CALC(self, "DEF");
+    return SCR_MON_ITEM_ARMOR_CALC(self, "DEF");
 end
 
 function SCR_MON_ITEM_ARMOR_MDEF_CALC(self)
-	return SCR_MON_ITEM_ARMOR_CALC(self, "MDEF");
+    return SCR_MON_ITEM_ARMOR_CALC(self, "MDEF");
 end
 
 
 function SCR_MON_ITEM_ARMOR_CALC(self, defType)
-	local lv = TryGetProp(self, "Lv");
-	
+    local lv = TryGetProp(self, "Lv", 1);
+    lv = math.max(1, lv - 30);
+    
     local value = (40 + (lv * 8));
     
     if defType ~= nil then
-    	local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
-		local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
-    	local defRatio = TryGetProp(defClass, armorMaterial);
-		if defRatio ~= nil then
-		    value = value * defRatio;
-		end
-	end
+        local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
+        local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
+        local defRatio = TryGetProp(defClass, armorMaterial);
+        if defRatio ~= nil then
+            value = value * defRatio;
+        end
+    end
     
     local byReinforce = 0;
     local byTranscend = 0;
-	
+    
     local statType = TryGetProp(self, "StatType", "None");
     if statType ~= nil then
         local statTypeClass = GetClass("Stat_Monster_Type", statType);
         if statTypeClass ~= nil then
-        	local itemGrade = TryGetProp(statTypeClass, "ArmorGrade", "C")
-		    local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);
-		    value = math.floor(value * basicGradeRatio);
-        	
+            local itemGrade = TryGetProp(statTypeClass, "ArmorGrade", "C")
+            local basicGradeRatio, reinforceGradeRatio = SCR_MON_ITEM_GRADE_RATE(self, itemGrade);
+            value = math.floor(value * basicGradeRatio);
+            
             local reinforceValue = TryGetProp(statTypeClass, "ReinforceArmor", 0);
             byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGradeRatio);
             
@@ -1630,9 +1725,9 @@ function SCR_MON_ITEM_ARMOR_CALC(self, defType)
 end
 
 function SCR_MON_ITEM_GRADE_RATE(self, itemGrade)
-	if itemGrade == nil then
-		itemGrade = "Normal";
-	end
+    if itemGrade == nil then
+        itemGrade = "Normal";
+    end
     
 --    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
 --        monRank = GetExProp_Str(self, "SHADOW_INFERNAL_MONRANK");
@@ -1641,7 +1736,7 @@ function SCR_MON_ITEM_GRADE_RATE(self, itemGrade)
     local gradeList = { "Normal", "Magic", "Rare", "Unique", "Legend" };
     local gradeIndex = table.find(gradeList, itemGrade);
     if gradeIndex == 0 then
-    	gradeIndex = 1;
+        gradeIndex = 1;
     end
     
     local basicGradeRatio = SCR_GET_ITEM_GRADE_RATIO(gradeIndex, "BasicRatio");
@@ -1664,7 +1759,7 @@ function SCR_MON_ITEM_REINFORCE_ARMOR_CALC(self, lv, reinforceValue, reinforceGr
     value = math.floor((reinforceValue + (math.max(1, lv - 50) * (reinforceValue * (0.12 + (math.floor((math.min(21, reinforceValue) - 1) / 5) * 0.0225 ))))) * 1.25);
     value = math.floor(value * reinforceGradeRatio);
     
-    value = value * 2;	-- 방어구는 무기의 2배 --
+    value = value * 2;  -- 방어구는 무기의 2배 --
     
     return value;
 end

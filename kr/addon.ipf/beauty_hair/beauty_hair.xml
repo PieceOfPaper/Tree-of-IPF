@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="beauty_hair" x="0" y="0" width="400" height="130" create="open">
-    <frame title="{@st43}{s22}미용실{/}" titlepos="0 0" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 150 0 0"/>
-    <option closebuttonpos="0 40"/>
+    <frame title="{@st43}{s22}미용실{/}" titlepos="0 0" layout_gravity="center top" margin="0 150 0 0"/>    
     <draw drawtitlebar="true"/>
     <script OpenScp="BEAUTY_HAIR_OPEN" CloseScp="BEAUTY_HAIR_CLOSE"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>

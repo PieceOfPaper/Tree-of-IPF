@@ -3,7 +3,7 @@
 <uiframe name="packagelist" x="0" y="0" width="540" height="760">
 	<frame fullheight="false" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center"/>
 	<skin frameskin="test_pvp_skin"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="1000"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>

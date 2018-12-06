@@ -3,7 +3,7 @@
 <uiframe name="worldmap" x="0" y="0" width="1920" height="1080">
 	<frame title="지도" stretch="true" fullwidth="true" fullheight="true" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" tooltipoverlap="true"/>
 	<skin frameskin="fullblack_bg"/>
-	<draw blend="100" drawnotitlebar="false" drawtitlebar="false"/>
+	<draw blend="100" drawtitlebar="false"/>
 	<layer layerlevel="200"/>
 	<option closebutton="false" visible="false" useimageitem="true"/>
 	<input resize="false" minwidth="128" minheight="128" hittestframe="true" hittesttitlebar="false"/>

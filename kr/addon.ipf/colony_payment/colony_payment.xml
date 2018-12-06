@@ -3,7 +3,7 @@
 <uiframe name="colony_payment" x="0" y="0" width="650" height="650">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_frame_low"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<layer layerlevel="101"/>
 	<script OpenScp="ON_OPEN_COLONY_PAYMENT"/>

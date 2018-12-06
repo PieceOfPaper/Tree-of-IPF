@@ -154,9 +154,8 @@ function SQUIRE_REAPIR_SELECT_EQUIPED_ITEMS(frame, ctrl)
 			if isselected == "SelectedEquiped" then
 				slot:Select(0)
 			else
-
-				for i = 0, equipList:Count() - 1 do
-					local equipItem = equipList:Element(i);					
+				for j = 0, equipList:Count() - 1 do
+					local equipItem = equipList:GetEquipItemByIndex(j);
 					if equipItem:GetIESID() == slot:GetIcon():GetInfo():GetIESID() then						
 						slot:Select(1)
 						local Icon = slot:GetIcon();
@@ -165,12 +164,10 @@ function SQUIRE_REAPIR_SELECT_EQUIPED_ITEMS(frame, ctrl)
 						local itemobj = GetIES(invitem:GetObject());
 						local needItem, needCount = ITEMBUFF_NEEDITEM_Squire_Repair(GetMyPCObject(), itemobj);
 						totalcont = totalcont + needCount;
-
 						isSelectEquipedItem = true;
 						break;
 					end
 				end
-				
 			end
 		end
 	end

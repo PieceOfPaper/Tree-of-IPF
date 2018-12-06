@@ -73,6 +73,9 @@ function CREATE_TARGET_ITEM_SLOT_COMPONENT(parent, name, prop)
             slot:ClearIcon();
             slotBgPic:ShowWindow(1);
         end,
+        ShowWindow = function(self, isShow)
+            self.ctrl:ShowWindow(isShow);
+        end,
     };
     REGISTER_COMPONENT('TARGET_ITEM_SLOT_'..name, component);
     return component;

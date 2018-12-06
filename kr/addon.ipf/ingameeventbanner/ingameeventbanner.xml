@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="ingameeventbanner" x="0" y="0" width="1060" height="700" create="open">
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="200 150 0 0"/>
 	<input maxwidth="1280" moveable="false"/>
@@ -24,7 +24,7 @@
 		<controlset name="ranking_solo_dungeon" parent="rankingGbox" rect="0 0 500 250" margin="0 0 0 0" type="news_ranking" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="None"/>
 		<controlset name="ranking_team_battle" parent="rankingGbox" rect="0 0 500 250" margin="0 250 0 0" type="news_ranking" layout_gravity="left top" hittestbox="false" scrollbar="false" skin="None"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}뉴스{/}" fontname="default" spacey="0"/>
-		<richtext name="bottom_message" rect="0 0 100 30" margin="100 0 0 20" parent="bg" layout_gravity="left bottom" caption="{@st66b}배너를 클릭하면 해당 이벤트 페이지로 이동합니다{/}" fixwidth="center center" textalign="center center" fontname="default" spacey="0"/>
+		<richtext name="bottom_message" rect="0 0 100 30" margin="100 0 0 20" parent="bg" layout_gravity="left bottom" caption="{@st66b}배너를 클릭하면 해당 이벤트 페이지로 이동합니다{/}" textalign="center center" fontname="default" spacey="0"/>
 		<button name="close" rect="-10 0 44 44" margin="0 20 17 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;ingameeventbanner&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}이벤트 안내 UI를 닫습니다{/}"/>
 	</controls>
 </uiframe>

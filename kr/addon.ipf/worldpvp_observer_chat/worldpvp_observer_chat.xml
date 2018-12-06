@@ -4,7 +4,7 @@
 	<frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="right center" margin="0 0 0 0" stretch="false" fullheight="true"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<skin frameskin="none"/>
-	<option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+	<option hideable="false" useimageitem="true"/>
 	<sound opensound="win_open" closesound="win_close"/>
 	<controls>
 		<groupbox name="gbox_3" rect="0 0 490 210" margin="20 40 0 60" layout_gravity="left bottom" hittestbox="false" skin="test_Item_tooltip_normal"/>

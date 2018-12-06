@@ -1103,14 +1103,10 @@ function INTE_WARP_OPEN_BY_NPC()
 end
 
 function INTE_WARP_OPEN_NORMAL()
-
-   	local frame = ui.GetFrame('worldmap');
-	
+   	local frame = ui.GetFrame('worldmap');	
 	frame:SetUserValue("Type", "Normal");
-
 	frame:ShowWindow(1);
-	frame:Invalidate();
-	
+	frame:Invalidate();	
 end
 
 function INTE_WARP_OPEN_DIB()
@@ -1417,7 +1413,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		end	
 	end
 	
-	if type ~= "Dievdirbys" then
+	if type == "Dievdirbys" then
 		warpcost = 0
 	end
 	

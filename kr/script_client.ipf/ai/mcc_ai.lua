@@ -56,16 +56,16 @@ function MCC_SCRIPT_NINJA(actor, mccIndex)
 			end
 		end
 
-		if false == useSkill then
-			local sklProp = geSkillTable.Get(sklName);
-			if sklProp.isNormalAttack then
-				useSkill = true;
-			end
-		end
+--		if false == useSkill then
+--			local sklProp = geSkillTable.Get(sklName);
+--			if sklProp.isNormalAttack then
+--				useSkill = true;
+--			end
+--		end
 
 		if useSkill == true then
 		
-			local tgt = geMCC.GetLastAttackObject(5.0);
+			local tgt = geMCC.GetLastAttackObject(25.0);
 			geMCC.UseSkill(actor, tgt, skillID);
 			return;
 		end
@@ -73,7 +73,7 @@ function MCC_SCRIPT_NINJA(actor, mccIndex)
 
 	local forpos = actor:GetFormationPos(mccIndex, 25.0);			
 	local distFromActor = imcMath.Vec3Dist(actor:GetPos(), myActor:GetPos());
-	if distFromActor >= 30 then
+	if distFromActor >= 100 then
 		geMCC.MoveTo(actor, forpos);		
 	end
 	
@@ -84,7 +84,7 @@ function MCC_SCRIPT_NINJA(actor, mccIndex)
 			local enemy = world.GetActor(enemyHandle);
 			if enemy ~= nil then
 				if imcMath.Vec3Dist(enemy:GetPos(), actor:GetPos()) <= 30 then
-					geMCC.UseSkill(actor, enemy, geMCC.GetNormalSkillID());
+					geMCC.UseSkill(actor, enemy, 20);
 					return;
 				end
 				geMCC.MoveTo(actor, enemy:GetPos());

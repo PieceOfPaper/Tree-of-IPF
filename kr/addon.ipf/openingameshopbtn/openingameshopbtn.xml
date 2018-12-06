@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <uiframe name="openingameshopbtn" x="0" y="0" width="80" height="80">
-	<frame title="TP충전" snapclient="true" snapframe="true" layout_gravity="right top" margin="0 100 345 0"/>
+	<frame title="TP충전" layout_gravity="right top" margin="0 100 345 0"/>
 	<option visible="true" closebutton="false" useimageitem="true" piptype="right" autoopen="false" hideable="false" alwaysVisible="true"/>
 	<layer layerlevel="31"/>
 	<draw blend="100" drawtitlebar="false" drawframe="false"/>

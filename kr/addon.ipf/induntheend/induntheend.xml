@@ -3,9 +3,8 @@
 <uiframe name="induntheend" x="0" y="0" width="480" height="640">
     <frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
     <skin frameskin="token_skin2"/>
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <draw drawtitlebar="false"/>
     <layer layerlevel="99"/>
-    <option closebutton="false" closebuttonpos="0 20"/>
     <sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
     <effect open="character_item_window_open" close="character_item_window_close"/>
     <script CloseScp="SELEC_CANCLE"/>

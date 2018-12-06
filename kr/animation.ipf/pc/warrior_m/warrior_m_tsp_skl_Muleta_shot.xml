@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="1" R="130" G="80" B="80" A="100"/>
+	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="5" term="50" blendTime="300" r="160" g="130" b="30" a="160"/>
+	<AfterImage frame="9" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="7" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="6" attachNode="Dummy_effect_moulinet_shot" particleName="I_dash014_orange_short2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="bip01 Neck" particleName="I_archer_multishot_ranger01_3_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="100"/>
+	<AttachModel frame="0" XAC="matador_cpae" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="matador_cpae_skl_Muleta_loop.xsm"/>
+</ActionDesc>

@@ -42,21 +42,20 @@ function UPDATE_REPAIR140731_LIST(frame)
 	--슬롯 셋 및 전체 슬롯 초기화 해야됨
 	local slotSet = GET_CHILD_RECURSIVELY(frame,"slotlist","ui::CSlotSet")
 	slotSet:ClearIconAll();
-	local slotcnt = 0
-
 	local equiplist = session.GetEquipItemList()
 	local isSquire = 0;
 
 	if "itembuffrepair" == frame:GetName() then
 		isSquire = 1;
 	end
-	
+
 	for i = 0, equiplist:Count() - 1 do
-		local equipItem = equiplist:Element(i);
+		local equipItem = equiplist:GetEquipItemByIndex(i);
 		local tempobj = equipItem:GetObject()
 		if tempobj ~= nil then
 			local obj = GetIES(tempobj);
 			if IS_NEED_REPAIR_ITEM(obj, isSquire) == true then
+				local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
 				local slot = slotSet:GetSlotByIndex(slotcnt)
 				slot:SetClickSound('button_click_stats');
 				while slot == nil do 
@@ -73,27 +72,18 @@ function UPDATE_REPAIR140731_LIST(frame)
 				icon:Set(iconValue, 'Item', equipItem.type, slotcnt, equipItem:GetIESID());
 				local class = GetClassByType('Item', equipItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, equipItem, "repair", class);
-
-				slotcnt = slotcnt + 1
 			end
 		end
 	end
 
-	local invItemList = session.GetInvItemList();
-	local i = invItemList:Head();
-	while 1 do
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);		
-		i = invItemList:Next(i);
-		
+	local invItemList = session.GetInvItemList();	
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, isSquire, slotSet)
 		local tempobj = invItem:GetObject()
 		if tempobj ~= nil then
 			local obj = GetIES(tempobj);
 			if IS_NEED_REPAIR_ITEM(obj, isSquire) == true then
-				local slot = slotSet:GetSlotByIndex(slotcnt)
+				local slotcnt = imcSlot:GetEmptySlotIndex(slotSet);
+				local slot = slotSet:GetSlotByIndex(slotcnt);
 
 				while slot == nil do 
 					slotSet:ExpandRow()
@@ -109,11 +99,9 @@ function UPDATE_REPAIR140731_LIST(frame)
 				icon:Set(iconValue, 'Item', invItem.type, slotcnt, invItem:GetIESID());
 				local class = GetClassByType('Item', invItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "repair", class);
-
-				slotcnt = slotcnt + 1
 			end
 		end
-	end
+	end, false, isSquire, slotSet);
 
 	local invFrame = ui.GetFrame("inventory")
 	if invFrame ~= nil then
@@ -327,16 +315,14 @@ function REPAIR140731_SELECT_EQUIPED_ITEMS(frame, ctrl)
 			if isselected == "SelectedEquiped" then
 				slot:Select(0)
 			else
-				for i = 0, equipList:Count() - 1 do
-					local equipItem = equipList:Element(i);
-					
+				for j = 0, equipList:Count() - 1 do
+					local equipItem = equipList:GetEquipItemByIndex(j);
 					if equipItem:GetIESID() == slot:GetIcon():GetInfo():GetIESID() then
 						slot:Select(1);
 						isSelectEquipedItem = true;
 						break;
 					end
 				end
-				
 			end
 		end
 	end

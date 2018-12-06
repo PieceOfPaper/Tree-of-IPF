@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="adventure_book_reward" x="0" y="0" width="500" height="800" create="open">
-	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<frame titlepos="0 0" layout_gravity="center center" margin="0 0 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<option margin="-100 -100 0 0" closebutton="false" hideable="true"/>
 	<sound opensound="win_open" closesound="win_close" margin="-100 -100 0 0"/>

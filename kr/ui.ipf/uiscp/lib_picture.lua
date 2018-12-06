@@ -49,5 +49,87 @@ imcPicture = {
 		end
 		picture:SetImage(imgName);
 		return imgName;
+	end,	
+};
+
+imcUIAnim = {
+	PlayMoveExponential = function(self, ctrl, dirType, isHorz, totalOffset, coeff, isLoop)
+		local dirTypeCandidate = {left = -1, right = 1, top = -1, bottom = 1 };
+		if dirTypeCandidate[dirType] == nil then
+			print("invalid dirtype: "..dirType);
+			return;
+		end
+
+		ctrl:SetUserValue('TOTAL_OFFSET', totalOffset);
+		ctrl:SetUserValue('ACCUMULATE_OFFSET', 0);
+		ctrl:SetUserValue('COUNT', 0);
+		ctrl:SetUserValue('COEFF', coeff);
+		if isHorz == true then
+			ctrl:SetUserValue('MOVE_X', dirTypeCandidate[dirType]);
+		else
+			ctrl:SetUserValue('MOVE_Y', dirTypeCandidate[dirType]);
+		end
+		if isLoop == true then
+			ctrl:SetUserValue('LOOP_ANI', 'YES');
+		end
+		ctrl:RunUpdateScript('UPDATE_IMC_UI_ANIM_MOVE_EXPONENTIAL', 0.005);
+	end,
+	PlayEmphasize = function(self, parent, x, y)
+		if x == nil then
+			x = parent:GetWidth() / 2;
+		end
+		if y == nil then
+			y = parent:GetHeight() / 2;
+		end
+		local emphasize = parent:CreateOrGetControlSet('indunmap_emphasize', "EMPHASIZE", x, y);
+		emphasize:EnableHitTest(0);
+		x = x - emphasize:GetWidth() / 2;
+		y = y - emphasize:GetHeight() / 2;
+
+		emphasize:SetOffset(x, y);
+		emphasize:MakeTopBetweenChild();
+		emphasize:ShowWindow(1);
+		local animpic = GET_CHILD(emphasize, "animpic");
+		animpic:SetWaitAnimEndTime(1);
+		animpic:ShowWindow(1);
+		animpic:PlayAnimation();
+	end,
+	RemoveEmphasize = function(self, parent)
+		parent:RemoveChild('EMPHASIZE');
 	end,
 };
+
+function UPDATE_IMC_UI_ANIM_MOVE_EXPONENTIAL(ctrl)
+	local totalOffset = tonumber(ctrl:GetUserValue('TOTAL_OFFSET'));
+	local accumulateOffset = tonumber(ctrl:GetUserValue('ACCUMULATE_OFFSET'));
+	if accumulateOffset >= totalOffset then
+		local oriMargin = ctrl:GetOriginalMargin();
+		ctrl:SetMargin(oriMargin.left, oriMargin.top, oriMargin.right, oriMargin.bottom);
+		if ctrl:GetUserValue('LOOP_ANI') == 'YES' then
+			ctrl:SetUserValue('ACCUMULATE_OFFSET', 0);
+			ctrl:SetUserValue('COUNT', 0);
+			return 1;
+		end
+		return 0;
+	end
+
+	local count = ctrl:GetUserIValue('COUNT');
+	local coeff = tonumber(ctrl:GetUserValue('COEFF'));
+	local moveX = ctrl:GetUserValue('MOVE_X');
+	if moveX == nil or moveX == 'None' then
+		moveX = 0;
+	else
+		moveX = tonumber(moveX);
+	end
+	local moveY = ctrl:GetUserValue('MOVE_Y');	
+	if moveY == nil or moveY == 'None' then
+		moveY = 0;
+	else
+		moveY = tonumber(moveY);
+	end
+	local deltaOffset = coeff * count * count;
+	ctrl:SetUserValue('COUNT', count + 1);
+	ctrl:SetUserValue('ACCUMULATE_OFFSET', accumulateOffset + deltaOffset);
+	ctrl:Move(moveX * deltaOffset, moveY * deltaOffset);
+	return 1;
+end

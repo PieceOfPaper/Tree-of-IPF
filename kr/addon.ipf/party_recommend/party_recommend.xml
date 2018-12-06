@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="party_recommend" x="0" y="0" width="500" height="500" create="open">
 	<frame layout_gravity="center center" margin="0 -50 0 0"/>
-	<draw drawframe="false"drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
 	<input moveable="false" moveintitlebar="false"/>	
 	<userconfig KEY_IMG_SIZE="40"/>
 	<controls>
@@ -15,8 +15,8 @@
 		<controlset name="memberSet_3" type="select_target_party_member" rect="0 0 80 100" margin="0 0 0 0" layout_gravity="center bottom"/>
 		<controlset name="memberSet_4" type="select_target_party_member" rect="0 0 80 100" margin="0 0 0 0" layout_gravity="right center"/>
 		<slot name="skillSlot" rect="0 0 70 70" margin="0 0 0 0" layout_gravity="center center" skin="invenslot2"/>
-		<groupbox name="cancelBox" rect="0 0 120 50" margin="0 0 50 50" layout_gravity="right bottom" draw="false"/>
+		<groupbox name="cancelBox" rect="0 0 150 50" margin="0 0 50 50" layout_gravity="right bottom" draw="false"/>
 		<groupbox name="cancelBgBox" parent="cancelBox" rect="0 0 120 26" margin="0 0 0 0" layout_gravity="left center" skin="left_gradient"/>
-		<richtext name="cancelText" parent="cancelBox" rect="0 0 350 40" margin="5 0 0 0" layout_gravity="left center" format="%s{@st42}{s14}{#ffff00}취소{/}" param1="img" param1_def=""/>
+		<richtext name="cancelText" parent="cancelBox" rect="0 0 350 40" margin="5 0 0 0" layout_gravity="left center" format="%s{@st42}{s14}{#ffff00}취소(점프 키){/}" param1="img" param1_def=""/>
 	</controls>
 </uiframe>

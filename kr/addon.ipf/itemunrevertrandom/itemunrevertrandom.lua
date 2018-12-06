@@ -417,42 +417,14 @@ ui.SetHoldUI(false);
 	return
 end
 
-function UPDATE_REMAIN_MYSTIC_GLASS_COUNT(frame)
-	local itemHaveCount = 0
-	local invItemList = session.GetInvItemList()
-	local invItemCount = session.GetInvItemList():Count()
+function UPDATE_REMAIN_MYSTIC_GLASS_COUNT(frame)	
+	local itemHaveCount = GET_INV_ITEM_COUNT_BY_PROPERTY({
+        {Name = 'StringArg', Value ='Mystic_Glass'}
+	}, false);
 	
-	local limitLoopCount = 100000
-	local loopCount = 0
-
-	if invItemCount <= 0 then
-		itemHaveCount = 0
-	else
-		local index = invItemList:Head()
-		while invItemList:InvalidIndex() ~= index do
-			local invItem = invItemList:Element(index)
-			if invItem ~= nil and invItem:GetObject() ~= nil then
-				local obj = GetIES(invItem:GetObject())
-				if obj ~= nil then
-					local stringArg = TryGetProp(obj, "StringArg")
-					if stringArg == "Mystic_Glass" then
-						local pc = GetMyPCObject();
-						itemHaveCount = itemHaveCount + GetInvItemCount(pc, obj.ClassName)
-					end
-				end
-			end
-			index = invItemList:Next(index)
-			loopCount = loopCount + 1
-			if loopCount >= limitLoopCount then
-				return
-			end
-		end
-	end
-
 	local text_havematerial = GET_CHILD_RECURSIVELY(frame, "text_havematerial")
 	text_havematerial:SetTextByKey("count", itemHaveCount)
 end
-
 
 function REMOVE_UNREVERT_RANDOM_TARGET_ITEM(frame)
 	if ui.CheckHoldedUI() == true then

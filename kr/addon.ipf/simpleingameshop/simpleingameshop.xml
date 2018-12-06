@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="simpleingameshop" x="0" y="0" width="460" height="800" create="open">
-  <frame title="{@st43}{s22}스팀 인벤토리 아이템" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top" margin="0 -20 0 0"/>
+  <frame title="{@st43}{s22}스팀 인벤토리 아이템" titlepos="0 0" layout_gravity="center center" scale_align="center top" margin="0 -20 0 0"/>
   <option closebutton="false"/>
   <draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
   <script OpenScp="SIMPLEINGAMESHOP_OPEN"/>

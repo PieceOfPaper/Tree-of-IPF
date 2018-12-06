@@ -3,7 +3,7 @@
 <uiframe name="appraiser_forgery" x="0" y="0" width="500" height="1100" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="-450 0 0 0" open="pip" piptype="left"/>
 	<skin frameskin=" "/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="98"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>

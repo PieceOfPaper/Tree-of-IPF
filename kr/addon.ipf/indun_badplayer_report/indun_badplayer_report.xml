@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="indun_badplayer_report" x="0" y="0" width="470" height="300">
 	<skin frameskin="test_pvp_skin"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<frame layout_gravity="left center" keyboardselectframe="false" margin="330 0 20 0"/>
 	<layer layerlevel="60"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>

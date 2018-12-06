@@ -162,18 +162,22 @@ function SHOW_REMAIN_POTAL_COOLDOWN(ctrl)
 end
 
 function SAGEPORTAL_SAVE_BTN(frame, ctrl)
-	local mapCls = GetClass("Map", session.GetMapName());
-	if mapCls == nil or mapCls.MapType ~= "Field" then
+	local zoneName = session.GetMapName();
+	local mapCls = GetClass("Map", zoneName);
+	local mapType = TryGetProp(mapCls, "MapType", "None");
+	if mapType ~= "Field" and mapType ~= "Dungeon" then
 		ui.SysMsg(ClMsg('CannotSaveThisZone'));
-		return 
+		return;
 	end
-
-	local mapName = "None"
-	if nil ~= mapCls then
-		mapName = mapCls.Name;
+	
+	if SCR_ZONE_KEYWORD_CHECK(zoneName, "NoWarp") == "YES" then
+		ui.SysMsg(ClMsg('CannotSaveThisZone'));
+		return;
 	end
+	
+	local saveName = TryGetProp(mapCls, "Name", "None");
 
-	ui.MsgBox(ScpArgMsg("SageSavePos{MN}","MN", mapName), "ui.Chat('/sageSavePos')", "None");
+	ui.MsgBox(ScpArgMsg("SageSavePos{MN}","MN", saveName), "ui.Chat('/sageSavePos')", "None");
 	DISABLE_BUTTON_DOUBLECLICK("sageportal",ctrl:GetName())
 end
 

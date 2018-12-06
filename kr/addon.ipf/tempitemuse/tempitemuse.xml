@@ -4,7 +4,7 @@
 <uiframe name="tempitemuse" x="0" y="0" width="100" height="100">
 	<frame title="사용 아이템" layout_gravity="center center" margin="300 100 0 0"/>
 	<skin frameskin="bg2"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<input hittest="false" moveable="false"/>
 	<layer layerlevel="40"/>
 	<option hideable="false" closebutton="false"/>

@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="UTF-8" ?>
 <uiframe name="test_controlset" x="0" y="0" width="346" height="106" create="open" layout_gravity="center center">
     <skin frameskin="wiki_add"/>
-    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 174 222"/>
+    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="center center" margin="0 0 174 222"/>
     <draw drawframe="true" drawtitlebar="false"/>
     <layer layerlevel="100"/>
     <input moveable="true"/>

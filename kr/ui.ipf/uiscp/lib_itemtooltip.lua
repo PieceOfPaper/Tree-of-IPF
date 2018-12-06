@@ -149,6 +149,14 @@ function GET_USEJOB_TOOLTIP(invitem)
     			end
     			resultstr = resultstr .. ScpArgMsg("USEJOB_CLE")
     		end
+    		local char5 = string.find(usejob, 'Char5')
+    
+    		if char5 ~= nil then
+    			if resultstr ~= '' then
+    				resultstr = resultstr..', '
+    			end
+    			resultstr = resultstr .. ScpArgMsg("USEJOB_SCO")
+    		end
 		end
 	end
 
@@ -227,112 +235,6 @@ function GET_ICONNAME_BY_WHENEQUIPSTR(innerCSet, str)
 	elseif str == 'WhenEquipToHandOrFoot' then
 		return innerCSet:GetUserConfig("DEFENSE_ICON")
 	end
-
-end
-
-function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yPos )
-	if GroupCtrl == nil then
-		return 0;
-	end
-
-	local cnt = GroupCtrl:GetChildCount();
-	
-	local ControlSetObj = GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
-	local ControlSetCtrl = tolua.cast(ControlSetObj, 'ui::CControlSet');
-
-	local socket_image = GET_CHILD(ControlSetCtrl, "socket_image", "ui::CPicture");
-	local socket_property_text = GET_CHILD(ControlSetCtrl, "socket_property", "ui::CRichText");
-	local gradetext = GET_CHILD_RECURSIVELY(ControlSetCtrl,"grade","ui::CRichText");
-
-	local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
-	local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
-	if gem == 0 then
-		local socketCls = GetClassByType("Socket", socket);
-		socketicon = socketCls.SlotIcon
-		local socket_image_name = socketCls.SlotIcon
-		socket_image:SetImage(socket_image_name)		
-		socket_property_text:ShowWindow(0)
-		gradetext:ShowWindow(0)
-	else
-
-		local gemclass = GetClassByType("Item", gem);
-		local socket_image_name = gemclass.Icon
-
-		if gemclass.ClassName == 'gem_circle_1' then
-			socket_image_name = 'test_tooltltip_red'
-		elseif gemclass.ClassName == 'gem_square_1' then
-			socket_image_name = 'test_tooltltip_blue'
-		elseif gemclass.ClassName == 'gem_diamond_1' then
-			socket_image_name = 'test_tooltltip_green'
-		elseif gemclass.ClassName == 'gem_star_1' then
-			socket_image_name = 'test_tooltltip_yellow'
-		elseif gemclass.ClassName == 'gem_White_1' then
-			socket_image_name = 'test_tooltltip_white'
-		end
-
-		socket_image:SetImage(socket_image_name)		
-		local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
-		
-		local prop = geItemTable.GetProp(gem);
-		
-		local desc = "";
-		local socketProp = prop:GetSocketPropertyByLevel(lv);
-		local type = invitem.ClassID;
-		local cnt = socketProp:GetPropCountByType(type);
-		gradetext:SetText("Lv " .. lv)
-		gradetext:ShowWindow(1)
-
-		for i = 0 , cnt - 1 do
-			local addProp = socketProp:GetPropAddByType(type, i);
-
-			local tempvalue = addProp.value
-
-			local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
-			if tempvalue < 0 then
-				plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';
-				tempvalue = tempvalue * -1
-			end
-
-			if addProp:GetPropName() == "OptDesc" then
-				desc = addProp:GetPropDesc().." ";
-			else
-				desc = desc .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
-			end
-
-		end
-
-		local cnt2 = socketProp:GetPropPenaltyCountByType(type);
-
-		local penaltyLv = lv - gemLv;
-		if 0 > penaltyLv then
-			penaltyLv = 0;
-		end
-		local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
-		for i = 0 , cnt2 - 1 do
-			local addProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
-			local tempvalue = addProp.value
-			local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
-
-			if tempvalue < 0 then
-				plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';			
-			end
-
-			if gemLv > 0 then
-				if 0 < penaltyLv then
-					desc = desc .. " / " .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
-				end
-			else
-				desc = desc .. " / " .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
-			end
-		end
-			
-		socket_property_text:SetText(desc)
-		socket_property_text:ShowWindow(1)
-	end
-
-	GroupCtrl:ShowWindow(1)
-	GroupCtrl:Resize(GroupCtrl:GetWidth(),GroupCtrl:GetHeight() + ControlSetObj:GetHeight())
-	return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetY();
 
 end
 
@@ -613,9 +515,7 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	elseif strarg == "accountwarehouse" then
 		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, guid);
 	elseif strarg == "party" then
-		if session.party.GetPartyInfo() ~= nil then
-			invitem = GetItemByID(guid, session.party.GetPartyInfo().inv);
-		end
+		return; -- deprecated
 	elseif strarg == "exchange" then
 		local idx = math.floor(guid / 10);
 		local listIndex = guid % 10;
@@ -666,12 +566,13 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	if invitem ~= nil and invitem:GetObject() ~= nil then
 		local itemObj = GetIES(invitem:GetObject());		
 		if itemObj.ClassName ~= MONEY_NAME then	
-			return itemObj, 0, invitem;
+            local temp_obj = CloneIES_UseCP(itemObj)
+			return temp_obj, 0, invitem;
 		end
 	end
 
 	local itemObj = GetClassByType("Item", numarg1)
-	viewObj = CloneIES_NotUseCalc(itemObj);
+	viewObj = CloneIES_UseCP(itemObj);
 	if nil ~= viewObj then
 		local refreshScp = viewObj.RefreshScp;
 		if refreshScp ~= "None" then
@@ -1143,17 +1044,16 @@ function GET_OPTION_VALUE_OR_PERCECNT_STRING(optionName, optionValue)
 			return ABILITY_DESC_PLUS(ClMsg(optionName), optionValue);
 		end
 	end
-	return ' - '..ScpArgMsg(optionName, 'value', optionValue);
+	local percentText = string.format('%d', optionValue / 10);
+	return ' - '..ScpArgMsg(optionName, 'value', percentText);
 end
 
 function ABILITY_DESC_NO_PLUS(desc, cur)
-
     if cur < 0 then
         return string.format(" %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
     else
     	return string.format(" %s "..ScpArgMsg("PropUp").."%d", desc, math.abs(cur));
 	end
-
 end
 
 function ABILITY_DESC_GENERAL(desc, basic, cur, color)

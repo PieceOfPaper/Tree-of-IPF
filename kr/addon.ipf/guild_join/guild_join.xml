@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="guild_join" x="0" y="0" width="400" height="450" create="open" version="2">
-    <frame title="{@st43}{s22}새 UI{/}" titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <frame title="{@st43}{s22}새 UI{/}" titlepos="0 0" layout_gravity="center center" scale_align="center top"/>
     <draw drawframe="true" drawtitlebar="false"/>
     <layer layerlevel="102"/>
     <input moveable="true"/>

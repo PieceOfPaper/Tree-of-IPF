@@ -39,27 +39,10 @@ function GET_CURRENT_SEAL_LEVEL(item)
             return i - 1;
         end
     end
-    return MAX_SEAL_OPTION_COUNT;
+    return item.MaxReinforceCount;
 end
 
--- 인장 강화 기본 확률 -- hs_comment: 재성씨!
-function GET_SEAL_BASIC_RATIO(targetSeal, materialSeal)
-    local curReinforceValue = GET_CURRENT_SEAL_LEVEL(targetSeal);
-
-    return 50;
-end
-
--- 인장 강화 마정석 증폭 확률 -- hs_comment: 재성씨!
-function GET_SEAL_ADDITIONAL_RATIO(targetSeal, materialSeal, additionalItem, additionalItemCount)
-    local basicRatio = GET_SEAL_BASIC_RATIO(targetSeal, materialSeal); -- 기본 확률
-    local maxNeedItemCount = GET_MAX_SEAL_ADDIONAL_ITEM_COUNT(targetSeal, materialSeal); -- 넣을 수 있는 마정석 최대 개수
-
-
-
-    return additionalItem.UseLv * additionalItemCount;
-end
-
--- 인장 강화 재료(마정석) 아이템 -- hs_comment: 재성씨!
+-- 인장 강화 재료(마정석) 아이템 -- 
 function IS_SEAL_ADDITIONAL_ITEM(item)
     if item.ClassName ~= GET_SEAL_ADDITIONAL_ITEM() then
         return;
@@ -67,12 +50,43 @@ function IS_SEAL_ADDITIONAL_ITEM(item)
     return true;
 end
 
--- 인장 강화 재료 아이템 최대 개수 -- hs_comment: 재성씨!
+-- 인장 강화 재료 아이템 최대 개수
 function GET_MAX_SEAL_ADDIONAL_ITEM_COUNT(targetSeal, materialSeal)
-    return 20;
+    local matMaxCount = 0;
+    
+    if targetSeal == nil then
+        return 0;
+    end
+
+    local itemlv = TryGetProp(targetSeal, 'UseLv')
+    if itemlv == nil then
+        return 0;
+    end
+    
+    local grade = TryGetProp(targetSeal, 'ItemGrade')
+    if grade == nil then
+        return 0;
+    end
+    
+    local reinforce = GET_CURRENT_SEAL_LEVEL(targetSeal)
+    
+    matMaxCount = 1 + ((itemlv / 50) + (reinforce ^ 3 ) ) * ((grade-1) / 5)
+
+    return math.floor(matMaxCount);
 end
 
--- 인장 강화 가격 -- hs_comment: 재성씨!
-function GET_SEAL_PRICE(targetSeal, materialSeal, additionalItem, additionalItemCount)
-    return 10000;
+-- 인장 강화 가격 --
+function GET_SEAL_PRICE(targetSeal)
+    if targetSeal == nil then
+        return 0;
+    end
+    
+    local itemlv = TryGetProp(targetSeal, 'UseLv')
+    local grade = TryGetProp(targetSeal, 'ItemGrade')
+    local reinforceValue = GET_CURRENT_SEAL_LEVEL(targetSeal)
+
+    local price = math.floor((grade ^ (reinforceValue / 2) * itemlv * 500) / 1000)
+    price = price * 1000
+    
+    return SyncFloor(price);
 end

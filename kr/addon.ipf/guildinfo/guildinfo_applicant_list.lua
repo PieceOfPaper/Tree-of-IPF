@@ -119,6 +119,9 @@ function REMOVE_APPLICANT_RESUME()
     scrollPanel:RemoveChild(selected_applicant:GetName());
     selected_applicant = nil;
     GBOX_AUTO_ALIGN(scrollPanel, 0, 0, 45, true, false, true)
+
+    --길드UI에 알림 있으면 삭제
+    SYSMENU_GUILD_NOTICE(ui.GetFrame("sysmenu"), 0)
 end
 
 function ACCEPT_SELECTED_USER()

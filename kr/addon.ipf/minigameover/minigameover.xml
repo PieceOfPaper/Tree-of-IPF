@@ -3,7 +3,7 @@
 <uiframe name="minigameover" x="0" y="0" width="620" height="580">
 	<frame layout_gravity="center center" margin="0 -100 0 0"/>
 	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<input moveable="false"/>
 	<layer topmostlayer="true" layerlevel="100"/>
 	<option closebutton="false" hideable="true"/>

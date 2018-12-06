@@ -22,9 +22,9 @@ function SCR_ATTACKER_TS_CHASE(selfAi)
 	-- Main Loop
 	while true do
 
-		-- µµÂø ¹üÀ§ ¼³Á¤
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 
-		-- µµÂø ¹üÀ§ ¾È¿¡ µµÂø Çß´ÂÁö Ã¼Å©
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ Ã¼Å©
 		selfAi:UpdateChaseState(arrivalrange);
 		local chaseState = selfAi:GetChaseState();
 
@@ -36,24 +36,24 @@ function SCR_ATTACKER_TS_CHASE(selfAi)
 		if chaseState == 'ARRIVED' then
 			selfAi:MoveStop();
 
-			-- ½ºÅ³
+			-- ï¿½ï¿½Å³
 			if 'SKILL' == destAction then
 				selfAi:SkillTarget();
 			elseif 'SKILL_GROUND' == destAction then
 				selfAi:SkillTarget();
 				
-			-- ¾ÆÀÌÅÛ Pick
+			-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Pick
 			elseif 'PICK' == destAction then
 				selfAi:PickTarget();
 
-			-- Trigger ½ÇÇà
+			-- Trigger ï¿½ï¿½ï¿½ï¿½
 			elseif 'TRIGGER' == destAction then
 				selfAi:TriggerTarget();				
 			
 			elseif 'BGEVENT' == destAction then
 				selfAi:BGEventTarget();
 
-			-- WatchObject ÀÇ ½ºÅ©¸³Æ® ½ÇÇà
+			-- WatchObject ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 			elseif 'WATCH' == destAction then
 				selfAi:ActivateWatchTarget();
 			elseif 'RIDE_CART' == destAction then
@@ -62,15 +62,15 @@ function SCR_ATTACKER_TS_CHASE(selfAi)
 				selfAi:SocialTarget();
 			end
 
-			-- µµÂøÇßÀ¸¹Ç·Î ÇöÀç ¸ñÀûÁö¸¦ ÇØÁ¦, Å¸°ÙÀº ÇØÁ¦ ÇÏÁö ¾ÊÀ½
+			-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½, Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 			selfAi:ReleaseDest();
 
-			-- AIÀÇ ´ÙÀ½ Çàµ¿ ¼³Á¤
+			-- AIï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿ ï¿½ï¿½ï¿½ï¿½
 			selfAi:ChangeTactics('TS_NONE');
 			return;
 		 end
 
-		-- µµÂø ÇÏÁö ¾ÊÀº °æ¿ì ÁöÁ¤µÈ ¸ñÀûÁö·Î ÀüÁø
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		local loopCnt = selfAi:GetAiLoopCnt();
 		
 		if loopCnt >= AUTO_MOVE_CNT then
@@ -100,7 +100,7 @@ function SCR_ATTACKER_TS_CHASE_SKILL_GROUND(selfAi)
 			return;	
 		end
 
-		-- µµÂø ¹üÀ§ ¾È¿¡ µµÂø Çß´ÂÁö Ã¼Å©
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½È¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ß´ï¿½ï¿½ï¿½ Ã¼Å©
 		local chaseState = selfAi:GetChaseState(arrivalrange);
 
 		if chaseState == 'TARGET_MISS' then
@@ -110,7 +110,7 @@ function SCR_ATTACKER_TS_CHASE_SKILL_GROUND(selfAi)
 
 		if chaseState == 'ARRIVED' then
 
-			-- µµÂøÈÄÀÇ ¿¹¾àµÈ Çàµ¿
+			-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½àµ¿
 			local destCount  = selfAi:GetDestCount();
 
 			if destCount > 1 then
@@ -159,7 +159,7 @@ end
 
 function UPDATE_QUEST_WARP(actor, elapsedTime)	
 
-	-- ¿öÇÁÇÏ´ÂÁß¿¡ °ø°Ý´çÇÏ¸é ¿öÇÁ Äµ½½
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ï¿½ß¿ï¿½ ï¿½ï¿½ï¿½Ý´ï¿½ï¿½Ï¸ï¿½ ï¿½ï¿½ï¿½ï¿½ Äµï¿½ï¿½
 	local fsmActor = GetMyActor();	
 	if fsmActor:IsHitState() == 1 or fsmActor:IsDead() == 1 then
 		actor:ActorMoveStop();
@@ -192,7 +192,7 @@ function UPDATE_QUEST_WARP_READY(actor)
 		if s_warpEffect == 0 then
 			--movie.StopAnimToStd(actor:GetHandleVal());		
 			actor:GetEffect():PlayEffect("F_light029_blue", 0.2);
-			movie.ShowModel(actor:GetHandleVal(), 0);
+			--movie.ShowModel(actor:GetHandleVal(), 0);
 			s_warpEffect = 1;
 		end
 	end		
@@ -213,7 +213,7 @@ end
 function UPDATE_QUEST_WARP_PROC(actor)
 	actor:SetJumpAniType(1);
 	-- movie.StopAnimToStd(actor:GetHandleVal());
-	movie.ShowModel(actor:GetHandleVal(), 0);
+	--movie.ShowModel(actor:GetHandleVal(), 0);
 	
 	if actor:GetFSMArg2() == 1 then
 		s_warpSleepTime = 5.0;
@@ -274,8 +274,6 @@ function SELECT_QUEST_WARP()
 	OPEN_QUESTWARP_FRAME(frame);
 end
 
-
--- ¿öÇÁ
 function ENTER_INTE_WARP(actor)
 
 	local fsmActor = GetMyActor();
@@ -296,8 +294,6 @@ function ENTER_INTE_WARP(actor)
 end
 
 function UPDATE_INTE_WARP(actor, elapsedTime)	
-
-	-- ¿öÇÁÇÏ´ÂÁß¿¡ °ø°Ý´çÇÏ¸é ¿öÇÁ Äµ½½ : ¿öÇÁ¿¡µµ Àû¿ë ÇÒ °ÍÀÎ°¡?
 	local fsmActor = GetMyActor();	
 	if fsmActor:IsHitState() == 1 or fsmActor:IsDead() == 1 then
 		actor:ActorMoveStop();
@@ -305,7 +301,7 @@ function UPDATE_INTE_WARP(actor, elapsedTime)
 		return;		
 	end
 
-	local arg = actor:GetFSMArg1();	
+	local arg = actor:GetFSMArg1();		
 	if arg == 0 then		-- warp ready
 		UPDATE_INTE_WARP_READY(actor);		
 	elseif arg == 1 then	-- warp
@@ -356,10 +352,8 @@ function UPDATE_INTE_WARP_READY(actor)
 	end
 end
  
-function UPDATE_INTE_WARP_PROC(actor)
-	
+function UPDATE_INTE_WARP_PROC(actor)	
 	actor:SetJumpAniType(1);
-	-- movie.StopAnimToStd(actor:GetHandleVal());
 	movie.ShowModel(actor:GetHandleVal(), 0);
 	
 	if actor:GetFSMArg2() == 1 then
@@ -367,6 +361,7 @@ function UPDATE_INTE_WARP_PROC(actor)
 	else
 		s_warpSleepTime = 0.3;
 	end
+	
 	if (imcTime.GetAppTime() - actor:GetFSMTime()) > s_warpSleepTime then
 		local scenePos = world.GetActorPos(actor:GetHandleVal());
 		scenePos.y = scenePos.y - s_warpDestYPos;
@@ -377,8 +372,7 @@ function UPDATE_INTE_WARP_PROC(actor)
 		actor:SetFSMArg1(2);
 		actor:SetFSMTime(imcTime.GetAppTime());
 		
-		actor:GetEffect():RemoveEffect("F_light029_blue", 1);
-		
+		actor:GetEffect():RemoveEffect("F_light029_blue", 1);		
 		return;
 	end
 end

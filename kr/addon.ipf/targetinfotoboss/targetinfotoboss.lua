@@ -41,6 +41,8 @@ function TARGETINFOTOBOSS_TARGET_SET(frame, msg, argStr, argNum)
 		return;
 	end
 	
+	local targetHandle = argNum ;
+
 	local targetinfo = info.GetTargetInfo(argNum);
 	if targetinfo == nil then
 		session.ResetTargetBossHandle();
@@ -91,7 +93,9 @@ function TARGETINFOTOBOSS_TARGET_SET(frame, msg, argStr, argNum)
 	local hpGauge = GET_CHILD(frame, "hp", "ui::CGauge");
     local hpText = frame:GetChild('hpText');
 	hpGauge:SetPoint(stat.HP, stat.maxHP);
-    hpText:SetText(GET_COMMAED_STRING(stat.HP));
+
+	local strHPValue = TARGETINFO_TRANS_HP_VALUE(targetHandle, stat.HP, frame:GetUserConfig("HPTEXT_STYLESHEET") ); 
+    hpText:SetText(strHPValue);
 
 	if targetinfo.isInvincible ~= hpGauge:GetValue() then
 		hpGauge:SetValue(targetinfo.isInvincible);
@@ -127,9 +131,9 @@ function TARGETINFOTOBOSS_ON_MSG(frame, msg, argStr, argNum)
 		if stat ~= nil then
 			local hpGauge = GET_CHILD(frame, "hp", "ui::CGauge");
 			hpGauge:SetPoint(stat.HP, stat.maxHP);
-
-            local hpText = frame:GetChild('hpText');
-            hpText:SetText(GET_COMMAED_STRING(stat.HP));
+			local strHPValue = TARGETINFO_TRANS_HP_VALUE(session.GetTargetBossHandle(), stat.HP, frame:GetUserConfig("HPTEXT_STYLESHEET"));
+			local hpText = frame:GetChild('hpText');
+            hpText:SetText(strHPValue);
 			if frame:IsVisible() == 0 then
 				frame:ShowWindow(1)
 			end

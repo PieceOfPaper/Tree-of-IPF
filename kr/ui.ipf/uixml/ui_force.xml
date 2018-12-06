@@ -1230,8 +1230,8 @@ return IMCRandom(6, 10);"/>
 	<File FileName="dialog_select_start" TotalSec="0.30000001">
 		<Line ImageName="{@st42}aaaaaaa" isText="1">
 			<KeyFrameList>
-				<KeyFrame Time="0" Easing="1" x="0" y="70" posRandomMin="0" posRandomMax="0" sx="0.80000001" sy="0.80000001" angle="0" alpha="0" colorTone="00000000"/>
-				<KeyFrame Time="0.1" Easing="2" x="0" y="10" posRandomMin="0" posRandomMax="0" sx="1.1" sy="1.1" angle="0" alpha="0.60000002" colorTone="00000000"/>
+				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="0.80000001" sy="0.80000001" angle="0" alpha="0" colorTone="00000000"/>
+				<KeyFrame Time="0.1" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.1" sy="1.1" angle="0" alpha="0.60000002" colorTone="00000000"/>
 				<KeyFrame Time="0.2" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
 			</KeyFrameList>
 		</Line>

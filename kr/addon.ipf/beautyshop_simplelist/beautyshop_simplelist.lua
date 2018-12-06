@@ -463,33 +463,28 @@ function BEAUTYSHOP_SIMPLELIST_OPEN_HAIR_COUPON(parent, ctrl)
 end
 
 function BEAUTYSHOP_SIMPLELIST_MAKE_COUPON_SLOTSET(frame, slotset, type)
-  slotset:ClearIconAll();
-  local curCnt = 0;
+  slotset:ClearIconAll();  
   local totalSlotCount = slotset:GetSlotCount();
   local invItemList = session.GetInvItemList();
-  local index = invItemList:Head();
-  local itemCount = session.GetInvItemList():Count();  
-  for i = 0, itemCount - 1 do
-    local invItem = invItemList:Element(index);
-    if invItem ~= nil then
-      local itemObj = GetIES(invItem:GetObject());
-      if IS_COUPON_ITEM(itemObj, type) == true then
-        local slot = slotset:GetSlotByIndex(curCnt);        
-        SET_SLOT_IMG(slot, itemObj.Icon);
-        SET_SLOT_COUNT(slot, invItem.count);
-        SET_SLOT_COUNT_TEXT(slot, invItem.count);
-        SET_SLOT_IESID(slot, invItem:GetIESID());
-        SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemObj, nil);
-        SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemObj.ClassName);
-
-        slot:SetUserValue('COUPON_CLASS_NAME', itemObj.ClassName);
-        slot:SetUserValue('COUPON_GUID', invItem:GetIESID());
-        slot:SetSelectedImage('socket_slot_check');
-        curCnt = curCnt + 1;
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, type, slotset)
+			if invItem ~= nil then
+        local itemObj = GetIES(invItem:GetObject());
+        if IS_COUPON_ITEM(itemObj, type) == true then
+          local curCnt = imcSlot:GetEmptySlotIndex(slotset);
+          local slot = slotset:GetSlotByIndex(curCnt);        
+          SET_SLOT_IMG(slot, itemObj.Icon);
+          SET_SLOT_COUNT(slot, invItem.count);
+          SET_SLOT_COUNT_TEXT(slot, invItem.count);
+          SET_SLOT_IESID(slot, invItem:GetIESID());
+          SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemObj, nil);
+          SET_ITEM_TOOLTIP_BY_NAME(slot:GetIcon(), itemObj.ClassName);
+  
+          slot:SetUserValue('COUPON_CLASS_NAME', itemObj.ClassName);
+          slot:SetUserValue('COUPON_GUID', invItem:GetIESID());
+          slot:SetSelectedImage('socket_slot_check');          
+        end
       end
-    end
-    index = invItemList:Next(index);
-  end
+    end, false, type, slotset);    
 end
 
 function BEAUTYSHOP_SIMPLELIST_OPEN_COLOR_COUPON(parent, ctrl)

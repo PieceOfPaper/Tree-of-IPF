@@ -122,6 +122,18 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
     ]]--
 end
 
+function GET_ABILITY_SKILL_CATEGORY_LIST(abilClsName)
+    local abilCls = GetClass("Ability", abilClsName);
+    if abilCls == nil then
+        return {}
+    end
+    if abilCls.SkillCategory == "All" or abilCls.SkillCategory == "None" then
+        return {}
+    end
+    local category_list = StringSplit(abilCls.SkillCategory, ';')
+    return category_list
+end
+
 function SCR_ABIL_NONE_ACTIVE(self, ability)
     
 end
@@ -163,18 +175,6 @@ end
 function SCR_ABIL_STEP_INACTIVE(self, ability)
 
     self.Steppable = 0;
-
-end
-
-function SCR_ABIL_MOVINGSHOT_ACTIVE(self, ability)
-
-    self.MovingShotable = 1;
-
-end
-
-function SCR_ABIL_MOVINGSHOT_INACTIVE(self, ability)
-
-    self.MovingShotable = 0;
 
 end
 
@@ -243,23 +243,16 @@ function SCR_GET_StaffMastery_Bonus(ability)
 end
 
 function SCR_ABIL_STAFFMASTERY_ACTIVE(self, ability)
-
+	local crtHR = TryGetProp(self, "CRTHR")
+	local crthrRate = 0
     local rItem  = GetEquipItem(self, 'RH');
-    
-    if rItem.ClassType2 == "Staff" or rItem.ClassType2 == "Wand" then
-        local addValue = self.MAXMATK * SCR_GET_StaffMastery_Bonus(ability) / 100
-        self.MATK_BM = self.MATK_BM + addValue;
-        SetExProp(ability, "ADD", addValue);
-    else
-        SetExProp(ability, "ADD", 0);
+    if rItem.ClassType == "Staff" then
+		SetCastingSpeedBuffInfo(self, "StaffMastery", 50);
     end
 end
 
 function SCR_ABIL_STAFFMASTERY_INACTIVE(self, ability)
-
-    local addValue = GetExProp(ability, "ADD");
-    self.MATK_BM = self.MATK_BM - addValue; 
-    
+	RemoveCastingSpeedBuffInfo(self, "StaffMastery");
 end
 
 
@@ -363,7 +356,6 @@ function SCR_ABIL_ELEMENTALIST6_INACTIVE(self, ability)
 end
 
 function CHECK_ARMORMATERIAL(self, meaterial)
-
     local count = 0;
     local lowestGrade = nil;
     
@@ -372,10 +364,16 @@ function CHECK_ARMORMATERIAL(self, meaterial)
     itemList[#itemList + 1] = "PANTS";
     itemList[#itemList + 1] = "GLOVES";
     itemList[#itemList + 1] = "BOOTS";
+	
+	local noItemList = { };
+	noItemList[#noItemList + 1] = "NoShirt";
+	noItemList[#noItemList + 1] = "NoPants";
+	noItemList[#noItemList + 1] = "NoGloves";
+	noItemList[#noItemList + 1] = "NoBoots";
     
     for i = 1, #itemList do
     	local item = GetEquipItem(self, itemList[i]);
-    	if TryGetProp(item, "Material", "None") == meaterial then
+    	if TryGetProp(item, "Material", "None") == meaterial and 0 == table.find(noItemList, TryGetProp(item, "ClassName", "None")) then
     		count = count + 1;
     		local itemGrade = TryGetProp(item, "ItemGrade", 1);
     		if lowestGrade == nil or lowestGrade > itemGrade then
@@ -383,21 +381,11 @@ function CHECK_ARMORMATERIAL(self, meaterial)
     		end
     	end
     end
-    
-    
-    if GetEquipItem(self, 'SHIRT').Material == meaterial then
-        count = count + 1
-    end
-    if GetEquipItem(self, 'PANTS').Material == meaterial then
-        count = count + 1
-    end
-    if GetEquipItem(self, 'GLOVES').Material == meaterial then
-        count = count + 1
-    end
-    if GetEquipItem(self, 'BOOTS').Material == meaterial then
-        count = count + 1
-    end
-    
+	
+	if lowestGrade == nil then
+		lowestGrade = 1;
+	end
+	
     return count, lowestGrade;
     
 end
@@ -443,9 +431,7 @@ end
 
 function SCR_ABIL_LEATHER_ACTIVE(self, ability)
     local count, lowestGrade = CHECK_ARMORMATERIAL(self, "Leather")
-    
-    
-    
+	
     local value = 0;
     
     if count >= 4 and lowestGrade >= 1 then
@@ -453,36 +439,10 @@ function SCR_ABIL_LEATHER_ACTIVE(self, ability)
 	end
     
     SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE", value);
-    
-    
-    
-    
---    local addCRTHR = 0;
---    local addHR = 0;
---    
---    if count == 4 then
---        addCRTHR = 50;
---        addHR = 50;
---    end
---    
---    self.CRTHR_BM = self.CRTHR_BM + addCRTHR;
---    self.HR_BM = self.HR_BM + addHR;
---    Invalidate(self, "CRTHR");
---    Invalidate(self, "HR");
---    
---    SetExProp(ability, "ADD_CRTHR", addCRTHR);
---    SetExProp(ability, "ADD_HR", addHR);
 end
 
 function SCR_ABIL_LEATHER_INACTIVE(self, ability)
---    local addCRTHR = GetExProp(ability, "ADD_CRTHR");
---    local addHR = GetExProp(ability, "ADD_HR");
---    
---    self.CRTHR_BM = self.CRTHR_BM - addCRTHR;
---    self.HR_BM = self.HR_BM - addHR;
---    
---    Invalidate(self, "CRTHR");
---    Invalidate(self, "HR");
+	
 end
 
 
@@ -729,22 +689,21 @@ function SCR_ABIL_KRIWI1_INACTIVE(self, ability)
 end
 
 function SCR_ABIL_INQUISITOR9_ACTIVE(self, ability)
-
     local rItem  = GetEquipItem(self, 'RH');
     
     local addresdark = 0
     if rItem.ClassType == "Mace" or rItem.ClassType == "THMace" then
-    	local selfResDark = TryGetProp(self, "ResDark")
-    	
-        addresdark = addresdark + (addresdark * (ability.Level * 0.05))
+        addresdark = ability.Level * 10
     end
     
     self.ResDark_BM = self.ResDark_BM + addresdark
+    
     SetExProp(ability, "ABIL_RESDARK_ADD", addresdark)
 end
 
 function SCR_ABIL_INQUISITOR9_INACTIVE(self, ability)
     local addresdark = GetExProp(ability, "ABIL_RESDARK_ADD")
+    
     self.ResDark_BM = self.ResDark_BM - addresdark
 end
 
@@ -962,12 +921,26 @@ function SCR_ABIL_THMACE_SR_ACTIVE(self, ability)
     if rItem.ClassType == "THMace" then
         addSR = 5
     end
-
+	
     SetExProp(self, "ABIL_THMACE_SR", addSR)
 end
 
 function SCR_ABIL_THMACE_SR_INACTIVE(self, ability)
     DelExProp(self, "ABIL_THMACE_SR")
+end
+
+function SCR_ABIL_THMACE_StrikeDamage_ACTIVE(self, ability)
+    local rItem  = GetEquipItem(self, 'RH');
+    local addDamageRate = 0
+    if rItem.ClassType == "THMace" then
+        addDamageRate = 0.1
+    end
+	
+    SetExProp(self, "ABIL_THMACE_STRIKE_DAMAGE", addDamageRate)
+end
+
+function SCR_ABIL_THMACE_StrikeDamage_INACTIVE(self, ability)
+    DelExProp(self, "ABIL_THMACE_STRIKE_DAMAGE")
 end
 
 function SCR_ABIL_SPEAR_ACTIVE(self, ability)

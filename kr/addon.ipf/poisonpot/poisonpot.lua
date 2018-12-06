@@ -72,51 +72,34 @@ function UPDATE_POISONPOT_UI(frame)
 	slotSet:ClearIconAll();
 
 	local invItemList = session.GetInvItemList();
-
 	local bExistsCard = false;
-	local i = invItemList:Head();
-	local slotindex = 0
-	while 1 do
-		
-		if i == invItemList:InvalidIndex() then
-			break;
-		end
-
-		local invItem = invItemList:Element(i);
-		local obj = GetIES(invItem:GetObject());
-		
+	local retTable = {Value = bExistsCard};
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, slotSet, bosscardid, retTable)
+		local obj = GetIES(invItem:GetObject());		
 		if IS_USEABLEITEM_IN_POISONPOT(obj) == 1 then
-
-			local slot = slotSet:GetSlotByIndex(slotindex)
-			
+			local slotindex = imcSlot:GetEmptySlotIndex(slotSet);
+			local slot = slotSet:GetSlotByIndex(slotindex);
 			while slot == nil do 
 				slotSet:ExpandRow()
 				slot = slotSet:GetSlotByIndex(slotindex)
 			end
-
 			slot:SetMaxSelectCount(invItem.count);
 			
-			local icon = CreateIcon(slot);
-			
-			icon:Set(obj.Icon, 'Item', invItem.type, i, invItem:GetIESID(), invItem.count);
-			local class 			= GetClassByType('Item', invItem.type);
+			local icon = CreateIcon(slot);			
+			icon:Set(obj.Icon, 'Item', invItem.type, slotindex, invItem:GetIESID(), invItem.count);
+			local class = GetClassByType('Item', invItem.type);
 			SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, invItem.count);
 			ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "poisonpot", class);
-
-			slotindex = slotindex + 1
-
 		end
 
 		if obj.ClassID == bosscardid then
-			bExistsCard = true;
+			retTable.Value = true;
 		end
-
-		i = invItemList:Next(i);
-	end
+	end, false, slotSet, bosscardid, retTable);
+	bExistsCard = retTable.Value;
 
 	if bExistsCard == false and bosscardid ~= 0 then
-		slotchild:ClearIcon();
-		
+		slotchild:ClearIcon();		
 		local slot = tolua.cast(slotchild, "ui::CSlot");
 		SET_POISONPOT_CARD_COMMIT(slot:GetName(), "UnEquip")
 	end

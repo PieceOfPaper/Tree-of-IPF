@@ -48,6 +48,12 @@ function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP8_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop8');
+	ui.OpenFrame('earthtowershop');
+end
+
 function REQ_PVP_MINE_SHOP_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'PVPMine');
@@ -102,28 +108,37 @@ end
 function EARTH_TOWER_INIT(frame, shopType)
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("None");
+	RESET_INVENTORY_ICON();
 
 	local title = GET_CHILD(frame, 'title', 'ui::CRichText')
+	local close = GET_CHILD(frame, 'close');
 	if shopType == 'EarthTower' then
 		title:SetText('{@st43}'..ScpArgMsg("EarthTowerShop"));
-	elseif shopType == 'EventShop' then
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EarthTowerShop")));
+	elseif shopType == 'EventShop' or shopType == 'EventShop2' or shopType == 'EventShop3' then
 		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
-	elseif shopType == 'EventShop2' then
-		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
-	elseif shopType == 'EventShop3' then
-		title:SetText('{@st43}'..ScpArgMsg("EventShop"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EventShop")));
 	elseif shopType == 'KeyQuestShop1' then
-	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
+		title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle1"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("KeyQuestShopTitle1")));
 	elseif shopType == 'KeyQuestShop2' then
-	    title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
+		title:SetText('{@st43}'..ScpArgMsg("KeyQuestShopTitle2"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("KeyQuestShopTitle2")));
 	elseif shopType == 'HALLOWEEN' then
 		title:SetText('{@st43}'..ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("EVENT_HALLOWEEN_SHOP_NAME")));
 	elseif shopType == 'PVPMine' then
 		title:SetText('{@st43}'..ScpArgMsg("pvp_mine_shop_name"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("pvp_mine_shop_name")));
 	elseif shopType == 'MCShop1' then
 		title:SetText('{@st43}'..ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("MASSIVE_CONTENTS_SHOP_NAME")));
+	elseif shopType == 'EventShop8' then
+		local taltPropCls = GetClassByType('Anchor_c_Klaipe', 5187);
+		title:SetText('{@st43}'..taltPropCls.Name);
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', taltPropCls.Name));
 	end
+
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
 
@@ -183,6 +198,9 @@ function INSERT_ITEM(cls, tree, slotHeight, haveMaterial)
 	local classType = nil;
 	if GetPropType(item, "ClassType") ~= nil then
 		classType = item.ClassType;
+		if classType == 'None' then
+		    classType = nil
+		end
 	end
 
 	EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls);
@@ -193,7 +211,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 	
 	local hGroup = tree:FindByValue(groupName);
 	if tree:IsExist(hGroup) == 0 then
-		hGroup = tree:Add(GET_RECIPE_GROUP_NAME(groupName), groupName);
+		hGroup = tree:Add(ScpArgMsg(groupName), groupName);
 		tree:SetNodeFont(hGroup,"brown_18_b")
 	end
 
@@ -203,7 +221,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 	else
 		local hClassType = tree:FindByValue(hGroup, classType);
 		if tree:IsExist(hClassType) == 0 then
-			hClassType = tree:Add(hGroup, GET_RECIPE_GROUP_NAME(classType), classType);
+			hClassType = tree:Add(hGroup, ScpArgMsg(classType), classType);
 			tree:SetNodeFont(hClassType,"brown_18_b")
 			
 		end
@@ -467,6 +485,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
+	elseif shopType == 'EventShop8' then
+		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD8", resultlist, cntText);
 	elseif shopType == 'PVPMine' then
 		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
 	elseif shopType == 'MCShop1' then

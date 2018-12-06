@@ -11,21 +11,15 @@ end
 function GET_INVITEMS_BY_TYPE_WORTH_SORTED(compareScript, compareProperty)
 	local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
     local CompareFunction = _G[compareScript];
-
-	for i = 0, itemCount - 1 do		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, CompareFunction, compareProperty, resultlist)
 		if invItem ~= nil then
 			local itemobj = GetIES(invItem:GetObject());		
 			if CompareFunction(compareProperty, itemobj) then
 				resultlist[#resultlist+1] = invItem;
 			end
 		end
-		index = invItemList:Next(index);
-	end
-	
+	end, false, CompareFunction, compareProperty, resultlist);
 	table.sort(resultlist, SORT_INVITEM_BY_WORTH);
 	return resultlist
 end
@@ -119,7 +113,12 @@ function GET_INV_ITEM_COUNT_BY_TYPE_FOR_BOOSTTOKEN(pc, itemType, recipeCls)
     end
 
     for i = 1 , #pcInvList do
-        local invItem = pcInvList[i];
+		local invItem;
+		if IsServerSection() == 1 then
+			invItem = pcInvList[i];
+		else
+			invItem = session.GetInvItemByGuid(pcInvList[i]);
+		end
         if invItem ~= nil and IsValidRecipeMaterial(itemClassName, invItem) then
             invItemCount = invItemCount + 1;
         end
@@ -139,152 +138,6 @@ function IS_ALL_MATERIAL_CHECKED(checkList, numCheckList)
         end
     end
     return true;
-end
-
-function GET_RECIPE_GROUP_NAME(groupname)
-
-	if groupname == 'Wood' then
-		return ScpArgMsg('RecipeGroup_Wood')
-	end
-
-	if groupname == 'Quest' then
-		return ScpArgMsg('RecipeGroup_Quest')
-	end
-
-	if groupname == 'Weapon' then
-		return ScpArgMsg('RecipeGroup_Weapon')
-	end
-
-	if groupname == 'Armor' then
-		return ScpArgMsg('RecipeGroup_Armor')
-	end
-
-	if groupname == 'THSword' then
-		return ScpArgMsg('RecipeGroup_THSword')
-	end
-
-	if groupname == 'Neck' then
-		return ScpArgMsg('RecipeGroup_Neck')
-	end
-
-	if groupname == 'Pants' then
-		return ScpArgMsg('RecipeGroup_Pants')
-	end
-
-	if groupname == 'THBow' then
-		return ScpArgMsg('RecipeGroup_THBow')
-	end
-
-	if groupname == 'Bow' then
-		return ScpArgMsg('RecipeGroup_Bow')
-	end
-
-	if groupname == 'Sword' then
-		return ScpArgMsg('RecipeGroup_Sword')
-	end
-
-	if groupname == 'Staff' then
-		return ScpArgMsg('RecipeGroup_Staff')
-	end
-
-	if groupname == 'Mace' then
-		return ScpArgMsg('RecipeGroup_Mace')
-	end
-
-if groupname == 'THMace' then
-		return ScpArgMsg('RecipeGroup_THMace')
-	end
-
-	if groupname == 'None' then
-		return ScpArgMsg('RecipeGroup_None')
-	end
-
-	if groupname == 'Spear' then
-		return ScpArgMsg('RecipeGroup_Spear')
-	end
-
-	if groupname == 'Shirt' then
-		return ScpArgMsg('RecipeGroup_Shirt')
-	end
-
-	if groupname == 'Gloves' then
-		return ScpArgMsg('RecipeGroup_Gloves')
-	end
-
-	if groupname == 'Boots' then
-		return ScpArgMsg('RecipeGroup_Boots')
-	end
-	
-	if groupname == 'Shield' then
-		return ScpArgMsg('RecipeGroup_Shield')
-	end
-
-	if groupname == 'Material' then
-		return ScpArgMsg('RecipeGroup_Material')
-	end
-
-	if groupname == 'Ring' then
-		return ScpArgMsg('RecipeGroup_Ring')
-	end
-	
-	if groupname == 'THStaff' then
-		return ScpArgMsg('RecipeGroup_THStaff')
-	end
-    
-    if groupname == 'THSpear' then
-		return ScpArgMsg('RecipeGroup_THSpear')
-	end
-	
-	if groupname == 'Rapier' then
-		return ScpArgMsg('RecipeGroup_Rapier')
-	end
-	
-	if groupname == 'Pistol' then
-		return ScpArgMsg('RecipeGroup_Pistol')
-	end
-	
-	if groupname == 'Hat' then
-		return ScpArgMsg('RecipeGroup_Hat')
-	end
-	
-	if groupname == 'SubWeapon' then
-		return ScpArgMsg('RecipeGroup_SubWeapon')
-	end
-	
-	if groupname == 'Artefact' then
-		return ScpArgMsg('RecipeGroup_Artefact')
-	end
-
-	if groupname == 'Armband' then
-		return ScpArgMsg('RecipeGroup_Armband')
-	end
-	
-	if groupname == 'MagicAmulet' then
-		return ScpArgMsg('RecipeGroup_MagicAmulet')
-	end
-	
-	if groupname == 'Cannon' then
-		return ScpArgMsg('RecipeGroup_Cannon')
-	end
-	
-	if groupname == 'Dagger' then
-		return ScpArgMsg('RecipeGroup_Dagger')
-	end
-	
-	if groupname == 'Musket' then
-		return ScpArgMsg('RecipeGroup_Musket')
-	end
-	
-	if groupname == 'Premium' then
-		return ScpArgMsg('TP_Premium')
-	end
-	
-	if groupname == 'Drug' then
-		return ScpArgMsg('Drug')
-	end
-	
-	return groupname;
-
 end
 
 function GET_RECIPE_MATERIAL_INFO(recipeCls, index)

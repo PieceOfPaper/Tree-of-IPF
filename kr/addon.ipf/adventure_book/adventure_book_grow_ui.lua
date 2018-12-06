@@ -162,22 +162,13 @@ function ADVENTURE_BOOK_GROW_SET_JOB_HISTORY_TOOLTIP(icon, charName)
 	end
 
     local gender = info.GetGender(session.GetMyHandle());
-    local startext = '';
+    local jobtext = '';
     for jobName, grade in pairs(jobInfoTable) do
         local jobCls = GetClass('Job', jobName);        
         if jobCls ~= nil then
-            startext = startext .. ("{@st41}").. GET_JOB_NAME(jobCls, gender);
+            jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(jobCls, gender).."{nl}";
         end
-        
-		for i = 1 , 3 do
-			if i <= grade then
-				startext = startext ..('{img star_in_arrow 20 20}');
-			else
-				startext = startext ..('{img star_out_arrow 20 20}');
-			end
-		end
-		startext = startext ..('{nl}');
     end
-    icon:SetTextTooltip(startext);
+    icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 end

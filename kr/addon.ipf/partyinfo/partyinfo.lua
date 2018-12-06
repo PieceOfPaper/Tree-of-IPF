@@ -27,6 +27,12 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 			local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. partyMemberInfo:GetAID());
 			if partyInfoCtrlSet ~= nil then
 				UPDATE_PARTY_INST_SET(partyInfoCtrlSet, partyMemberInfo);	
+				local lvbox = partyInfoCtrlSet:GetChild('lvbox');
+				local levelObj = partyInfoCtrlSet:GetChild('lvbox');
+				local levelRichText = tolua.cast(levelObj, "ui::CRichText");
+				local level = partyMemberInfo:GetLevel();	
+				levelRichText:SetTextByKey("lv", level);
+				lvbox:Resize(levelRichText:GetWidth(), lvbox:GetHeight());		
 			end
 		end
 	end	
@@ -193,7 +199,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 								icon:Set(imageName, 'BUFF', buffID, 0);
 
 								if buffOver > 1 then
-slot:SetText('{s13}{ol}{b}'..buffOver, 'count', 'right', 'bottom', 1, 2);
+									slot:SetText('{s13}{ol}{b}'..buffOver, 'count', ui.RIGHT, ui.BOTTOM, 1, 2);
 								else
 									slot:SetText("");
 								end
@@ -470,14 +476,14 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	if hpGauge:GetStat() == 0 then
 		hpGauge:AddStat("%v / %m");
 		hpGauge:SetStatOffset(0, 0, -1);
-		hpGauge:SetStatAlign(0, 'center', 'center');
+		hpGauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 		hpGauge:SetStatFont(0, 'white_12_ol');
 	end
 	
 	if spGauge:GetStat() == 0 then
 		spGauge:AddStat("%v / %m");
 		spGauge:SetStatOffset(0, 0, -1);
-		spGauge:SetStatAlign(0, 'center', 'center');
+		spGauge:SetStatAlign(0, ui.CENTER_HORZ, ui.CENTER_VERT);
 		spGauge:SetStatFont(0, 'white_12_ol');
 	end
 			
@@ -776,29 +782,20 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 			OTHERPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
-	local startext = ("");
+	local jobtext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 
 		if cls.Name == nowjobcls.Name then
-			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
+			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
-			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
+			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- 클래스 레벨 (★로 표시)				
-		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
-		for i = 1 , maxCircle do
-			if i <= grade then
-				startext = startext ..('{img star_in_arrow 20 20}');
-			else
-				startext = startext ..('{img star_out_arrow 20 20}');
-			end
-		end
-		startext = startext ..('{nl}');
+		jobtext = jobtext ..('{nl}');
 	end
-	uiChild:SetTextTooltip(startext);
+	uiChild:SetTextTooltip(jobtext);
 	uiChild:EnableHitTest(1);
 
 	return 1;
@@ -844,29 +841,27 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		end
 	end
 
-	local startext = ("");
+	local jobtext = ("");
+	local jobName = nowjobcls.Name; -- hs_comment
+	local etc = GetMyEtcObject();
+    if etc.RepresentationClassID ~= 'None' then
+        local repreJobCls = GetClassByType('Job', etc.RepresentationClassID);
+        if repreJobCls ~= nil then
+            jobName = repreJobCls.Name;
+        end
+    end
+
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 
-		if cls.Name == nowjobcls.Name then
-			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
+		if cls.Name == jobName then
+			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender)..'{nl}{/}';
 		else
-			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
+			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender)..'{nl}{/}';
 		end
-		
-		-- 클래스 레벨 (★로 표시)				
-		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
-		for i = 1 , maxCircle do
-			if i <= grade then
-				startext = startext ..('{img star_in_arrow 20 20}');
-			else
-				startext = startext ..('{img star_out_arrow 20 20}');
-			end
-		end
-		startext = startext ..('{nl}');
 	end
-	icon:SetTextTooltip(startext);
+	icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 	return 1;
 end
@@ -896,37 +891,25 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 		local tempjobinfo = jobhistory:GetJobInfoByIndex(i);
 
 		if MYPCJOBS[tempjobinfo.jobID] == nil then
-			MYPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-		else
-			if tempjobinfo.grade > MYPCJOBS[tempjobinfo.jobID] then
-				MYPCJOBS[tempjobinfo.jobID] = tempjobinfo.grade;
-			end
+			MYPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
 
-	local startext = ("");
+	local jobtext = ("");
+
 	for jobid, grade in pairs(MYPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 
 		if cls.Name == nowjobcls.Name then
-			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
+			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
-			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
+			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- 클래스 레벨 (★로 표시)	
-		local maxCircle = GET_JOB_MAX_CIRCLE(cls)			
-		for i = 1 , maxCircle do
-			if i <= grade then
-				startext = startext ..('{img star_in_arrow 20 20}');
-			else
-				startext = startext ..('{img star_out_arrow 20 20}');
-			end
-		end
-		startext = startext ..('{nl}');
+		jobtext = jobtext ..('{nl}');
 	end
-	icon:SetTextTooltip(startext);
+	icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 	return 1;
 end

@@ -1,9 +1,71 @@
+local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
+    if itemGradeList == nil then
+        local itemTypeBoxFrame = GET_CHILD_RECURSIVELY(frame, "itemTypeBox", "ui::CGroupBox")
+		itemGradeList = DECOMPOSE_ITEM_GRADE_SET(itemTypeBoxFrame, 0)		
+	end
+
+    --슬롯 셋 및 전체 슬롯 초기화 해야됨
+	local itemSlotSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset", "ui::CSlotSet")
+	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
+    
+	itemSlotSet:ClearIconAll();
+	miscSlotSet:ClearIconAll();
+
+	local itemSlotSetCnt = itemSlotSet:GetSlotCount();
+	itemSlotSet:SetSkinName("invenslot2")
+	for i = 0, itemSlotSetCnt - 1 do
+		local tempSlot = itemSlotSet:GetSlotByIndex(i)
+		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
+	end
+	
+	local invItemList = session.GetInvItemList();
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, itemGradeList, itemSlotSet)		
+		if invItem ~= nil then
+    		local itemobj = GetIES(invItem:GetObject());
+    		local itemGrade = TryGetProp(itemobj, 'ItemGrade');
+            if itemGrade == nil then
+                itemGrade = 0;
+            end
+
+            local needToShow = true;
+			for j = 1, #itemGradeList do
+				if itemGradeList[j] == 0 and itemGrade == j then
+            		needToShow = false;
+            		break;
+				end
+				
+            	--가공된 장비 체크 추가 --
+				if itemGradeList[5] == 0 and itemGrade == j and IS_MECHANICAL_ITEM(itemobj) == true then					
+        	        needToShow = false;
+        	        break;
+            	end
+            end
+            
+            if needToShow == true then
+				if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false and itemGrade <= 4 then
+					local itemSlotCnt = imcSlot:GetEmptySlotIndex(itemSlotSet);
+	    			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
+	    			if itemSlot == nil then
+	    				return 'break';
+	    			end
+				
+	    			local icon = CreateIcon(itemSlot);
+	    			icon:Set(itemobj.Icon, 'Item', invItem.type, itemSlotCnt, invItem:GetIESID());
+	    			local class = GetClassByType('Item', invItem.type);
+	    			SET_SLOT_STYLESET(itemSlot, itemobj)
+	    			ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);	                
+	            end
+        	end
+    	end
+	end, false, itemGradeList, itemSlotSet);
+	RESET_SUCCESS(frame)
+end
 
 function ITEMDECOMPOSE_UI_OPEN(frame, msg, arg1, arg2)
     ui.EnableSlotMultiSelect(1);
     RESET_SUCCESS(frame)
     ITEMDECOMPOSE_CHECKBOX(frame)
-    ITEM_DECOMPOSE_ITEM_LIST(frame)
+    _ITEM_DECOMPOSE_ITEM_LIST(frame)
 end
 
 function ITEMDECOMPOSE_UI_CLOSE(frame, ctrl)
@@ -53,87 +115,17 @@ function DECOMPOSE_ITEM_GRADE_SET(frame, isOpen)
     itemGradeList[#itemGradeList + 1] = mechanicalCheckbox:IsChecked();
     
     ITEM_DECOMPOSE_UPDATE_MONEY(frame);
-    
+
     if itemGradeList[5] == 1 then
         ui.MsgBox(ScpArgMsg("IS_MechanicalItem_Decompose"));
     end
 
     if isOpen ~= 1 then
         local itemdecomposeFrame = ui.GetFrame("itemdecompose");
-        ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
+        _ITEM_DECOMPOSE_ITEM_LIST(itemdecomposeFrame, itemGradeList);
     end
     return itemGradeList;
 end
-
-function ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
-    if itemGradeList == nil then
-        local itemTypeBoxFrame = GET_CHILD_RECURSIVELY(frame, "itemTypeBox", "ui::CGroupBox")
-        itemGradeList = DECOMPOSE_ITEM_GRADE_SET(itemTypeBoxFrame, 0)
-    end
-    
-    --슬롯 셋 및 전체 슬롯 초기화 해야됨
-	local itemSlotSet = GET_CHILD_RECURSIVELY(frame, "itemSlotset", "ui::CSlotSet")
-	local miscSlotSet = GET_CHILD_RECURSIVELY(frame, "slotlist", "ui::CSlotSet")
-    
-	itemSlotSet:ClearIconAll();
-	miscSlotSet:ClearIconAll();
-	
-	local itemSlotSetCnt = itemSlotSet:GetSlotCount();
-	itemSlotSet:SetSkinName("invenslot2")
-	for i = 0, itemSlotSetCnt - 1 do
-		local tempSlot = itemSlotSet:GetSlotByIndex(i)
-		DESTROY_CHILD_BYNAME(tempSlot, "styleset_")		
-	end
-	
-	local itemSlotCnt = 0
-	
-	local invItemList = session.GetInvItemList();
-    local itemCount = session.GetInvItemList():Count();
-    local index = invItemList:Head();
-	for i = 0, itemCount - 1 do
-    	local invItem = invItemList:Element(index);
-    	if invItem ~= nil then
-    		local itemobj = GetIES(invItem:GetObject());
-    		local itemGrade = TryGetProp(itemobj, 'ItemGrade');
-            if itemGrade == nil then
-                itemGrade = 0;
-            end
-
-            local needToShow = true;
-            for j = 1, #itemGradeList do
-            	if itemGradeList[j] == 0 and itemGrade == j then
-            		needToShow = false;
-            		break;
-            	end
-            	--가공된 장비 체크 추가 --
-            	if itemGradeList[5] == 0 and itemGrade == j and IS_MECHANICAL_ITEM(itemobj) == true then
-        	        needToShow = false;
-        	        break;
-            	end
-            end
-            
-            if needToShow == true then
-    		if itemobj.ItemType == 'Equip' and itemobj.DecomposeAble ~= nil and itemobj.DecomposeAble == "YES" and itemobj.ItemType == 'Equip' and itemobj.UseLv >= 75 and invItem.isLockState == false  and itemGrade <= 4 then
-    			local itemSlot = itemSlotSet:GetSlotByIndex(itemSlotCnt)
-    			if itemSlot == nil then
-    				break;
-    			end
-                
-    			local icon = CreateIcon(itemSlot);
-    			icon:Set(itemobj.Icon, 'Item', invItem.type, itemSlotCnt, invItem:GetIESID());
-    			local class = GetClassByType('Item', invItem.type);
-	    			SET_SLOT_STYLESET(itemSlot, itemobj)
-    			ICON_SET_INVENTORY_TOOLTIP(icon, invItem, nil, class);
-                
-    			itemSlotCnt = itemSlotCnt + 1;
-            end
-    	end
-    	end
-    	index = invItemList:Next(index);
-	end
-	RESET_SUCCESS(frame)
-end
-
 
 function ITEM_DECOMPOSE_SLOT_LBTDOWN(frame, ctrl)
 	ui.EnableSlotMultiSelect(1);
@@ -339,7 +331,7 @@ end
 function ITEM_DECOMPOSE_COMPLETE(...)
     local frame = ui.GetFrame("itemdecompose");
     if frame:IsVisible() == 1 then
-        ITEM_DECOMPOSE_ITEM_LIST(frame)
+        _ITEM_DECOMPOSE_ITEM_LIST(frame)
         
         local arrowBox = GET_CHILD_RECURSIVELY(frame, "arrowBox", "ui::CGroupBox");
         arrowBox:ShowWindow(1);

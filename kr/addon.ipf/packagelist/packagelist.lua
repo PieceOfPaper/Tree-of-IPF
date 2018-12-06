@@ -280,6 +280,18 @@ function PACKAGELIST_ITEM_PREVIEW_CLICK(parent, ctrl)
 		local slot = GET_CHILD(gbPreview, slotName);
 		slot:SetUserValue("TYPE", equipType)
 		slot:SetUserValue("PACKAGE_NAME", packageName)
+
+		-- 장비 장착 가능 확인.
+		local ret, reason = IS_ENABLE_EQUIP_AT_BEAUTYSHOP(itemobj, nil);
+		if ret == false then
+			if reason == 'Gender' then
+				ui.SysMsg(ClMsg('InvalidGender'));
+			elseif reason == 'JOB' then
+				ui.SysMsg(ClMsg('BEAUTY_SHOP_CLASS_CHECK'));
+			end
+			return 
+		end
+		
 		BEAUTYSHOP_PREVIEWSLOT_EQUIP(topFrame, slot, itemobj )
 	end
 end

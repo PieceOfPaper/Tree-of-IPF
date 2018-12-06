@@ -3,4 +3,6 @@
 <ActionDesc>
 	<AttachModel frame="0" XAC="miko_omikuji" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="1" anim="none"/>
 	<AttachModel frame="0" XAC="miko_omikuji_paper" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
+    <Sound frame="0.00" soundFile="skl_eff_omikuji_motion"/>
+    <Sound frame="6.00" soundFile="skl_eff_omikuji_magic"/>
 </ActionDesc>

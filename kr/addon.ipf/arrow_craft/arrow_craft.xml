@@ -1,8 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
 <uiframe name="arrow_craft" x="0" y="0" width="400" height="170" create="open">
-    <frame title="{@st41}어떤 종류의 화살을 제작하겠습니까?{/}" titlepos="0 0" layout_gravity="center top" snapclient="true" snapframe="true" margin="0 150 0 0"/>
-    <option closebuttonpos="0 40"/>
+    <frame title="{@st41}어떤 종류의 화살을 제작하겠습니까?{/}" titlepos="0 0" layout_gravity="center top" margin="0 150 0 0"/>
     <sound opensound="win_open" closesound="win_close"/>
     <draw drawtitlebar="true"/>
     <script OpenScp="INIT_ARROW_CRAFT" CloseScp="INIT_ARROW_CRAFT"/>

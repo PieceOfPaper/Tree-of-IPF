@@ -74,3 +74,58 @@ end
 function GET_COMMON_SOCKET_TYPE()
 	return 5;
 end
+
+local _anitiqueCache = {}; -- key: itemClassName, value: groupKey
+local function _RETURN_ANTIQUE_INFO(itemClassName, groupKey, group, exchangeItemList, giveItemList, giveItemCntList, matItemList, matItemCntList)
+    if groupKey == nil then
+        _anitiqueCache[itemClassName] = 'None';
+        return nil;
+    end
+
+    _anitiqueCache[itemClassName] = groupKey;
+    local giveList = {};
+    for i = 1, #giveItemList do
+        giveList[#giveList + 1] = {
+            Name = giveItemList[i],
+            Count = giveItemCntList[i]
+        };
+    end
+
+    local matList = {};
+    for i = 1, #matItemList do
+        matList[#matList + 1] = {
+            Name = matItemList[i],
+            Count = matItemCntList[i]
+        };
+    end
+
+    return {
+        GroupKey = groupKey,
+        ExchangeGroup = group,
+        AddGiveItemList = giveList,
+        ExchangeItemList = exchangeItemList,
+        MatItemList = matList,
+    };
+end
+
+function GET_EXCHANGE_ANTIQUE_INFO(itemClassName)
+    if _anitiqueCache[itemClassName] ~= nil then
+        return _RETURN_ANTIQUE_INFO(itemClassName, GetExchangeAntiqueInfoByGroupKey(_anitiqueCache[itemClassName]));
+    end
+    return _RETURN_ANTIQUE_INFO(itemClassName, GetExchangeAntiqueInfoByItemName(itemClassName));
+end
+
+function IS_ENABLE_EXCHANGE_ANTIQUE(srcItem, dstItem)
+    if srcItem == nil or dstItem == nil then
+        return false;
+    end
+    
+    if srcItem.ClassID == dstItem.ClassID then
+        return false;
+    end
+
+    if dstItem.ClassName == 'CAN05_101' or dstItem.ClassName == 'CAN05_102' then
+        return false;
+    end
+    return true;
+end

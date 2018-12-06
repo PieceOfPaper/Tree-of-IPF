@@ -36,7 +36,12 @@ function IS_EXPIRED_ITEM_BY_ITEMLIFETIMEOVER(itemObj)
     end
 end
 
-function IS_SCHEDULED_TO_EXPIRED_ITEM_BY_SYSTIME(itemObj, sysTime)
+function IS_SCHEDULED_TO_EXPIRED_ITEM_BY_SYSTIME(itemGuid, sysTime)
+    local invitem = GET_ITEM_BY_GUID(itemGuid);
+    if invitem == nil then
+        return false;
+    end
+    local itemObj = GetIES(invitem:GetObject());
     local lifeTime = TryGetProp(itemObj, "ItemLifeTime");
     if lifeTime == nil or lifeTime == "None" then
         return false;
@@ -61,9 +66,9 @@ function GET_SCHEDULED_TO_EXPIRED_ITEM_LIST(addSec)
     local list = GetInvItemList(pc);
     local out = {};
     for i=1, #list do
-        local item = list[i];
-        if true == IS_SCHEDULED_TO_EXPIRED_ITEM_BY_SYSTIME(item, nearFutureSysTime) then
-            out[#out+1]=item;
+        local itemGuid = list[i];
+        if true == IS_SCHEDULED_TO_EXPIRED_ITEM_BY_SYSTIME(itemGuid, nearFutureSysTime) then
+            out[#out+1]=itemGuid;
         end
     end
     return out;

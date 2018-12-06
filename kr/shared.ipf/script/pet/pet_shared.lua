@@ -61,20 +61,41 @@ function PET_MHP_BY_ABIL(statValue)
 end
 
 function PET_GET_MHP(self)
-    local lv = self.Lv;
-    local addLv = self.Level;
-    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP);
-    return math.floor(ret);
+    local owner = self
+    if IsZombie(self) ~= 1 then
+        owner = GetTopOwner(self)
+    end
+    
+    local lv = TryGetProp(owner, "Lv", 1);
+    local standardMHP = lv * 10;
+    local byLevel = (standardMHP / 4) * lv;
+    local stat = TryGetProp(self, "CON", 1);
+    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005));
+    local value = standardMHP + byLevel + byStat + GetSumOfPetEquip(self, "MHP");
+    return math.floor(value);
 end
 
 function PET_GET_MHP_C(self, addAbil)
     if addAbil == nil then
         addAbil = 0;
     end
-    local lv = self.Lv;
-    local addLv = self.Level;
-    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
-    return math.floor(ret);
+--    local lv = self.Lv;
+--    local addLv = self.Level;
+--    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
+--    return math.floor(ret);
+    
+    local owner = self
+    if IsZombie(self) ~= 1 then
+        owner = GetTopOwner(self)
+    end
+    
+    local lv = TryGetProp(owner, "Lv", 1);
+    local standardMHP = lv * 10;
+    local byLevel = (standardMHP / 4) * lv;
+    local stat = TryGetProp(self, "CON", 1);
+    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005));
+    local value = standardMHP + byLevel + byStat + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
+    return math.floor(value);
 end
 
 function PET_GET_RHP(self)
@@ -325,75 +346,75 @@ function GET_PET_STAT_PRICE(pc, pet, statName, val)
     return math.floor(defPrice * math.pow(1.08, val - 1));
 end
 
-function PET_ADD_FIRE(self)
-    local value = GetSumOfPetEquip(self, "ADD_FIRE") + self.ADD_FIRE_BM;
-    return value;
-end
-
-function PET_ADD_ICE(self)
-    local value = GetSumOfPetEquip(self, "ADD_ICE") + self.ADD_ICE_BM;
-    return value;
-end
-
-function PET_ADD_LIGHTNING(self)
-    local value = GetSumOfPetEquip(self, "ADD_LIGHTNING") + self.ADD_LIGHTNING_BM;
-    return value;
-end
-
-function PET_ADD_EARTH(self)
-    local value = GetSumOfPetEquip(self, "ADD_EARTH") + self.ADD_EARTH_BM;
-    return value;
-end
-
-function PET_ADD_POISON(self)
-    local value = GetSumOfPetEquip(self, "ADD_POISON") + self.ADD_POISON_BM;
-    return value;
-end
-
-function PET_ADD_HOLY(self)
-    local value = GetSumOfPetEquip(self, "ADD_HOLY") + self.ADD_HOLY_BM;
-    return value;
-end
-
-function PET_ADD_DARK(self)
-    local value = GetSumOfPetEquip(self, "ADD_DARK") + self.ADD_DARK_BM;
-    return value;
-end
-
-function PET_Fire_Def(self)
-    local value = GetSumOfPetEquip(self, "Fire_Def") + self.Fire_Def_BM;
-    return value;
-end
-
-function PET_Ice_Def(self)
-    local value = GetSumOfPetEquip(self, "Ice_Def") + self.Ice_Def_BM;
-    return value;
-end
-
-function PET_Lightning_Def(self)
-    local value = GetSumOfPetEquip(self, "Lightning_Def") + self.Lightning_Def_BM;
-    return value;
-end
-
-function PET_Earth_Def(self)
-    local value = GetSumOfPetEquip(self, "Earth_Def") + self.Earth_Def_BM;
-    return value;
-end
-
-function PET_Poison_Def(self)
-    local value = GetSumOfPetEquip(self, "Poison_Def") + self.Poison_Def_BM;
-    return value;
-end
-
-function PET_Holy_Def(self)
-    local value = GetSumOfPetEquip(self, "Holy_Def") + self.Holy_Def_BM;
-    return value;
-end
-
-function PET_Dark_Def(self)
-    local value = GetSumOfPetEquip(self, "Dark_Def") + self.Dark_Def_BM;
-    return value;
-end
+--function PET_ADD_FIRE(self)
+--    local value = GetSumOfPetEquip(self, "ADD_FIRE") + self.ADD_FIRE_BM;
+--    return value;
+--end
+--
+--function PET_ADD_ICE(self)
+--    local value = GetSumOfPetEquip(self, "ADD_ICE") + self.ADD_ICE_BM;
+--    return value;
+--end
+--
+--function PET_ADD_LIGHTNING(self)
+--    local value = GetSumOfPetEquip(self, "ADD_LIGHTNING") + self.ADD_LIGHTNING_BM;
+--    return value;
+--end
+--
+--function PET_ADD_EARTH(self)
+--    local value = GetSumOfPetEquip(self, "ADD_EARTH") + self.ADD_EARTH_BM;
+--    return value;
+--end
+--
+--function PET_ADD_POISON(self)
+--    local value = GetSumOfPetEquip(self, "ADD_POISON") + self.ADD_POISON_BM;
+--    return value;
+--end
+--
+--function PET_ADD_HOLY(self)
+--    local value = GetSumOfPetEquip(self, "ADD_HOLY") + self.ADD_HOLY_BM;
+--    return value;
+--end
+--
+--function PET_ADD_DARK(self)
+--    local value = GetSumOfPetEquip(self, "ADD_DARK") + self.ADD_DARK_BM;
+--    return value;
+--end
+--
+--function PET_Fire_Def(self)
+--    local value = GetSumOfPetEquip(self, "Fire_Def") + self.Fire_Def_BM;
+--    return value;
+--end
+--
+--function PET_Ice_Def(self)
+--    local value = GetSumOfPetEquip(self, "Ice_Def") + self.Ice_Def_BM;
+--    return value;
+--end
+--
+--function PET_Lightning_Def(self)
+--    local value = GetSumOfPetEquip(self, "Lightning_Def") + self.Lightning_Def_BM;
+--    return value;
+--end
+--
+--function PET_Earth_Def(self)
+--    local value = GetSumOfPetEquip(self, "Earth_Def") + self.Earth_Def_BM;
+--    return value;
+--end
+--
+--function PET_Poison_Def(self)
+--    local value = GetSumOfPetEquip(self, "Poison_Def") + self.Poison_Def_BM;
+--    return value;
+--end
+--
+--function PET_Holy_Def(self)
+--    local value = GetSumOfPetEquip(self, "Holy_Def") + self.Holy_Def_BM;
+--    return value;
+--end
+--
+--function PET_Dark_Def(self)
+--    local value = GetSumOfPetEquip(self, "Dark_Def") + self.Dark_Def_BM;
+--    return value;
+--end
 
 function PET_REVIVE_PRICE(obj)
     return 100;

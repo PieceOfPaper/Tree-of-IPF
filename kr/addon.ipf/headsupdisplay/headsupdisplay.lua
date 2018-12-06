@@ -134,8 +134,8 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
         		        
         local etc = GetMyEtcObject()
         local MyJobNum = TryGetProp(etc, 'RepresentationClassID', 'None')
-        if MyJobNum == 'None' then
-            MyJobNum = info.GetJob(MySession)
+        if MyJobNum == 'None' or tonumber(MyJobNum) == 0 then
+            MyJobNum = info.GetJob(MySession);
         end        
 
 		local JobCtrlType = GetClassString('Job', MyJobNum, 'CtrlType');

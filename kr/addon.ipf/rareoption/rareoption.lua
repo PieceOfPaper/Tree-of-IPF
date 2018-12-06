@@ -3,6 +3,32 @@ function RAREOPTION_ON_INIT(addon, frame)
 	addon:RegisterMsg('SUCESS_ENCHANT_JEWELL', 'ON_SUCESS_ENCHANT_JEWELL');
 end
 
+local function _RAREOPTION_SET_JEWELL_ITEM(frame, jewellItem)	
+	if jewellItem == nil then
+		local curSettedLv = frame:GetUserIValue('JEWELL_LEVEL');
+		if curSettedLv == 0 then
+			return;
+		end
+
+		local haveCount, itemList = GET_INV_ITEM_COUNT_BY_PROPERTY({{Name = 'StringArg', Value ='EnchantJewell'}, {Name = 'Level', Value = frame:GetUserIValue('JEWELL_LEVEL')}});
+		if haveCount < 1 then
+			ui.MsgBox(ScpArgMsg('UseUp{LEVEL}Jewell', 'LEVEL', curSettedLv), 'ui.CloseFrame("rareoption")', 'None');
+			return;
+		end
+		for i = 1, #itemList do
+			local itemObj = GetIES(itemList[i]:GetObject());
+			if itemObj.Level == curSettedLv then
+				jewellItem = itemList[i];
+				break;
+			end
+		end
+	end
+	local jewellObj = GetIES(jewellItem:GetObject());
+	local margin = frame:GetMargin();	
+	frame:SetUserValue('JEWELL_GUID', jewellItem:GetIESID());
+	frame:SetUserValue('JEWELL_LEVEL', jewellObj.Level);
+end
+
 function OPEN_RARE_OPTION(invItem)
 	local indun_reward_hud = ui.GetFrame('indun_reward_hud');
 	if info.HasHoldItemBuff() == true or session.world.IsIntegrateServer() == true or IsPVPServer() == 1 or session.world.IsDungeon() == true then
@@ -10,8 +36,8 @@ function OPEN_RARE_OPTION(invItem)
 		return;
 	end
 
-	local rareoption = ui.GetFrame('rareoption');	
-	RAREOPTION_SET_JEWELL_ITEM(rareoption, invItem);
+	local rareoption = ui.GetFrame('rareoption');
+	_RAREOPTION_SET_JEWELL_ITEM(rareoption, invItem);
 	rareoption:ShowWindow(1);
 end
 
@@ -144,31 +170,6 @@ function RAREOPTION_INVENTORY_RBTN_CLICK(itemObj, invSlot, invItemGuid)
 	else
 		RAREOPTION_REGISTER_ITEM(frame, invItemGuid);
 	end
-end
-
-function RAREOPTION_SET_JEWELL_ITEM(frame, jewellItem)	
-	if jewellItem == nil then
-		local curSettedLv = frame:GetUserIValue('JEWELL_LEVEL');
-		if curSettedLv == 0 then
-			return;
-		end
-
-		local haveCount, itemList = GET_INV_ITEM_COUNT_BY_PROPERTY({{Name = 'StringArg', Value ='EnchantJewell'}, {Name = 'Level', Value = frame:GetUserIValue('JEWELL_LEVEL')}});
-		if haveCount < 1 then
-			ui.MsgBox(ScpArgMsg('UseUp{LEVEL}Jewell', 'LEVEL', curSettedLv), 'ui.CloseFrame("rareoption")', 'None');
-			return;
-		end
-		for i = 1, #itemList do
-			local itemObj = GetIES(itemList[i]:GetObject());
-			if itemObj.Level == curSettedLv then
-				jewellItem = itemList[i];
-				break;
-			end
-		end
-	end
-	local jewellObj = GetIES(jewellItem:GetObject());
-	frame:SetUserValue('JEWELL_GUID', jewellItem:GetIESID());
-	frame:SetUserValue('JEWELL_LEVEL', jewellObj.Level);
 end
 
 function RAREOPTION_INIT(frame, clearTarget)
@@ -328,7 +329,7 @@ function _SUCCESS_ENCHANT_JEWELL()
 		ADD_RARE_OPTION_CTRLSET(bodyGbox2_1, icon:GetInfo():GetIESID());
 	end
 
-	RAREOPTION_SET_JEWELL_ITEM(frame, nil);
+	_RAREOPTION_SET_JEWELL_ITEM(frame, nil);
 end
 
 function RAREOPTION_INIT_EXCEPT_TARGET(parent, ctrl)

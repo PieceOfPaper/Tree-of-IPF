@@ -2,11 +2,11 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <uiframe name="helpmsgbox" x="0" y="0" width="480" height="710">
-    <frame title="{@st43}{s22}도움말{/}" titlepos="0 0" margin="300 -80 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <frame title="{@st43}{s22}도움말{/}" titlepos="0 0" margin="300 -80 0 0" layout_gravity="center center" scale_align="center top"/>
     <draw drawtitlebar="true" drawframe="true"/>
     <layer layerlevel="100"/>
     <skin frameskin="mainwindow"/>
-    <option autoopen="false" closebuttonpos="0 40"/>
+    <option autoopen="false"/>
     <input moveable="true"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>

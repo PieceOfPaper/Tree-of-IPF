@@ -3,7 +3,7 @@
 <uiframe name="pcbang_point_timer" x="0" y="0" width="180" height="100">
 	<frame fullheight="false" fasthide="true" layout_gravity="right bottom" margin="0 0 355 25" draw="false"/>
 	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="true" hideable="false" closebutton="false" moveable="false" alwaysVisible="false"/>
 	<layer layerlevel="10"/>
 	<script OpenScp="ON_PCBANG_POINT_TIMER_OPEN"/>

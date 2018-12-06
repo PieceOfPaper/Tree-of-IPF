@@ -334,7 +334,7 @@ function ABIL_REINFORCE_PRICE(pc, abilName, abilLevel, maxLevel)
 end
 
 function ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel)
-    local price = 70 + (abilLevel - 1) * 7;
+    local price = 60 + (abilLevel - 1) * 5;
     local time = 0
     
     return price, time;
@@ -353,43 +353,48 @@ function ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, factor1, factor2)
     end
     
     local price = minimumFactor + (4 - maxLevel + abilLevel) * increseFactor;
+    
+    if price < 1 then
+        price = 1;
+    end
+    
     local time = 0;
     
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_1LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 11, 1)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 11, 1)
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_100LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 22, 2)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 22, 2)
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_150LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 41, 3)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 34, 3)
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_200LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 70, 7)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 48, 4)
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_250LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 480, 45)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 63, 5)
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_300LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 720, 67)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 84, 6)
     return price, time;
 end
 
 function ABIL_COMMON_PRICE_350LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
-    local price, time = ABIL_ABOVE_NORMAL_PRICE(pc, abilName, abilLevel, maxLevel, 1080, 100)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 115, 7)
     return price, time;
 end
 

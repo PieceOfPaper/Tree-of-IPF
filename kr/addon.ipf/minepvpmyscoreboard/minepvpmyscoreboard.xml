@@ -5,7 +5,7 @@
 	<input maxwidth="250" moveable="true" hittestframe="fatruelse" moveintitlebar="false"/>
 	<layer layerlevel="60"/>
 	<option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
-	<draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+	<draw drawtitlebar="false" drawframe="false"/>
 	<userconfig/>
 	<controls>
 		<groupbox name="gbBackGround" rect="0 0 275 144" margin="0 0 0 0" layout_gravity="left top" draw="false" image="mine_pvp_img_scoreboard" stretch="false"/>

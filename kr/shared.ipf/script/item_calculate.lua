@@ -288,6 +288,18 @@ function GET_BASIC_ATK(item)
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
     end
+    local itemstring = TryGetProp(item, 'StringArg')
+    if itemstring == nil then
+        return;
+    end
+    
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+
+        end
+    end
     
     local grade = TryGetProp(item, "ItemGrade");
     if grade == nil then
@@ -313,11 +325,22 @@ function GET_BASIC_ATK(item)
         return 0;
     end
     
-
+    
     
     local itemGradeClass = GetClassList('item_grade')
+    if itemGradeClass == nil then
+        return 0;
+    end
+    
     local weaponClass = GetClassByNameFromList(itemGradeClass,'WeaponClassTypeRatio')
+    if weaponClass == nil then
+        return 0;
+    end
+    
     local weaponDamageClass = GetClassByNameFromList(itemGradeClass,'WeaponDamageRange')
+    if weaponDamageClass == nil then
+        return 0;
+    end
     
     if itemGradeClass ~= nil and weaponClass[classType] > 0 then
         itemATK = itemATK * weaponClass[classType];
@@ -369,6 +392,16 @@ function GET_BASIC_MATK(item)
     local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
+    end
+    
+    local itemstring = TryGetProp(item, 'StringArg')
+    
+    if itemstring == 'Growth_Item' then
+    local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+
+        end
     end
     
     -- 팀 배틀 리그에서는 가상의 무기 등급과 무기 레벨을 받아 오도록 설정 --
@@ -504,6 +537,19 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         lv = pcBangItemLevel;
     end
     
+    local itemstring = TryGetProp(item, 'StringArg')
+    if itemstring == nil then
+        return;
+    end
+    
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+
+        end
+    end
+    
     local grade = TryGetProp(item,"ItemGrade");
     if grade == nil then
         return 0;
@@ -530,6 +576,9 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     end
     
     local itemGradeClass = GetClassList('item_grade')
+    if itemGradeClass == nil then
+        return 0;
+    end
     
     local basicTooltipPropList = StringSplit(item.BasicTooltipProp, ';');    
     for i = 1, #basicTooltipPropList do
@@ -538,11 +587,14 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
         
         local basicDef = 0;
         local armorClassTypeRatio = GetClassByNameFromList(itemGradeClass,'ArmorClassTypeRatio')
-          
+        if classType == nil then
+            armorClassTypeRatio[classType] = 0
+        end
+
         basicDef = ((40 + lv * 8) * armorClassTypeRatio[classType]) * gradeRatio;
         upgradeRatio = upgradeRatio + GET_UPGRADE_ADD_DEF_RATIO(item, ignoreReinfAndTranscend) / 100;
         
-        local armorMaterialRatio = GetClassByNameFromList(itemGradeClass,'armorMaterial_'..basicProp)
+        local armorMaterialRatio = GetClassByNameFromList(itemGradeClass,'armorMaterial_'..basicProp)        
         
         basicDef = basicDef * armorMaterialRatio[equipMaterial]
        
@@ -742,6 +794,8 @@ function APPLY_OPTION_SOCKET(item)
 end
 
 function SCR_REFRESH_HAIRACC(item)
+    local class = GetClassByType('Item', item.ClassID);
+    INIT_ARMOR_PROP(item, class)
     for i = 1, 3 do
         local propName = "HatPropName_"..i;
         local propValue = "HatPropValue_"..i;
@@ -1361,7 +1415,7 @@ function IS_PERSONAL_SHOP_TRADABLE(itemCls)
         return 0;
     end
 
-    if itemCls.ClassName == 'Default_Recipe' or itemCls.ClassName == 'Scroll_SkillItem' then
+    if itemCls.ClassName == 'Default_Recipe' or IS_SKILL_SCROLL_ITEM(itemCls) == 1 then
         return 0;
     end
 
@@ -1370,6 +1424,10 @@ end
 
 
 function SCR_GET_ITEM_COOLDOWN(item)
+  return item.ItemCoolDown;
+end
+
+function SCR_GET_STA_COOLDOWN(item)
   return item.ItemCoolDown;
 end
 
@@ -1763,7 +1821,11 @@ function SCR_GET_MAX_SOKET(item)
 end
 
 function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
-
+    
+    if item == nil then
+        return 0;
+    end
+    
     local itemName = TryGetProp(item,"ClassName");
     if itemName == nil then
         return 0;
@@ -1864,11 +1926,7 @@ function SCR_CHECK_ADD_SOCKET(item, invItem)
             end
         end
     else -- server
-        for i = 0, itemMaxSocket - 1 do
-            if GetItemSocketInfo(item, i) ~= nil then
-                nowSocketCount= nowSocketCount + 1;
-            end
-        end
+        nowSocketCount = GET_CURRENT_AVAILABLE_SOCKET_COUNT(item);
     end
 
 	-- 남은 맥스 소켓
@@ -1882,4 +1940,72 @@ end
 function GET_SOCKET_ADD_PRICE_BY_TICKET(item)
     local nextSlotIdx = GET_NEXT_SOCKET_SLOT_INDEX(item);
     return GET_MAKE_SOCKET_PRICE(item.UseLv, item.ItemGrade, nextSlotIdx) * 3;
+end
+
+function GET_COPY_TARGET_OPTION_LIST()
+	return {
+		'Reinforce_2', 
+		'Transcend', 
+		'Transcend_MatCount', 
+		'Transcend_SucessCount',
+		'Dur',
+		'PR',
+		'IsAwaken',
+		'HiddenProp',
+		'HiddenPropValue',
+		'LegendPrefix',
+	};
+end
+
+function CALC_GROWTH_ITEM_LEVEL(item)
+
+    if item == nil then
+        return 1;
+    end
+    
+    local pc = GetItemOwner(item);
+    if pc == nil then
+        return 1;
+    end
+    
+    local pcLv = TryGetProp(pc, 'Lv', 1);
+    
+    local itemLvList = { 1, 40, 75, 120, 170, 220, 270, 315, 350, 380 };
+    local value = itemLvList[#itemLvList];
+    for i = 2, #itemLvList do
+        if pcLv < itemLvList[i] then
+            value = itemLvList[i - 1];
+            break;
+        end
+    end
+    
+    local growthItem = GetClass('item_growth', TryGetProp(item, 'ClassName', "None"));
+    local maxLv = TryGetProp(growthItem , 'MaxLV', 1);
+    
+    if value > maxLv then
+        value = maxLv;
+    end
+    
+    return value;
+    
+end
+
+function GET_CURRENT_AVAILABLE_SOCKET_COUNT(item, invItem)
+    if item == nil then
+        return 0;
+    end
+
+    local count = 0;
+    for i = 0, item.MaxSocket - 1 do
+        if invItem ~= nil then -- call by client
+            if invItem:IsAvailableSocket(i) == true then
+                count = count + 1;
+            end
+        else -- call by server            
+            if GetItemSocketInfo(item, i) ~= nil then
+                count = count + 1;
+            end
+        end
+    end
+    return count;
 end

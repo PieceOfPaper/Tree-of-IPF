@@ -12,7 +12,6 @@ function SKILLABILITY_GET_JOB_ID_LIST()
         end
     end    
     
-    table.sort(joblist)
     return joblist;
 end
 
@@ -28,8 +27,14 @@ function SKILLABILITY_GET_JOB_TAB_INFO_LIST()
         local jobid = joblist[i];
         local jobcls = GetClassByTypeFromList(clslist, jobid);
         local jobName = GET_JOB_NAME(jobcls, gender);
-        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..jobid, "gb_"..jobid, textstyle..jobName, "JobClsName", jobcls.ClassName);
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..jobid, "gb_"..jobid, textstyle..jobName, jobcls.ClassName);
     end
+    
+	local commonSkillCount = session.skill.GetCommonSkillCount();	
+	if commonSkillCount > 0 then		
+        list[#list + 1] = UI_LIB_TAB_GET_ADD_TAB_INFO("tab_"..0, "gb_"..0, textstyle..ClMsg("Common"), "Common");
+	end
+
     return list;
 end
 
@@ -56,13 +61,21 @@ function SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)
      return retList;
 end
 
-function SKILLABILITY_GET_ABILITY_CONDITION(abilIES, groupClass, isMax)
-    local pc = GetMyPCObject();
-    local condition = "";
+function GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass)
 	local unlockFuncName = groupClass.UnlockScr;
 	if unlockFuncName ~= 'None' then
 		local scp = _G[unlockFuncName];
-		local ret = scp(pc, groupClass.UnlockArgStr, groupClass.UnlockArgNum, abilIES);
+		local ret = scp(GetMyPCObject(), groupClass.UnlockArgStr, groupClass.UnlockArgNum, abilIES);
+        return ret;
+    end
+    return nil;
+end
+
+function SKILLABILITY_GET_ABILITY_CONDITION(abilIES, groupClass, isMax)
+    local ret = GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass);
+
+    local condition = '';
+	if ret ~= nil then
 		if ret ~= 'UNLOCK' then
             if ret == 'LOCK_GRADE' then
                 condition = groupClass.UnlockDesc;
@@ -111,6 +124,7 @@ function GET_TREE_INFO_BY_CLS(cls, skillList)
         dbLv = obj.LevelByDB;
     end
     
+    info["skillname"] = cls.SkillName;
     info["obj"] = obj;
     info["lv"] = lv;
     info["DBLv"] = dbLv;
@@ -128,6 +142,23 @@ function GET_TREE_INFO_BY_CLSNAME(name)
         return;
     end
     return GET_TREE_INFO_BY_CLS(cls, skillList);
+end
+
+function GET_COMMON_SKILL_INFO_BY_CLSNAME(sklClsName)
+    local info = {}
+    info["class"] = nil;
+    info["obj"] = nil;
+	info["lv"] = 1;
+	info["statlv"] = 0;
+    info["skillname"] = sklClsName;
+    return info;
+end
+
+function GET_SKILL_INFO_BY_JOB_CLSNAME(jobClsName, sklTreeClsName, sklClsName)
+    if jobClsName == "Common" then
+        return GET_COMMON_SKILL_INFO_BY_CLSNAME(sklClsName)
+    end
+    return GET_TREE_INFO_BY_CLSNAME(sklTreeClsName);
 end
 
 function GET_TREE_INFO_VEC(jobName)
@@ -183,15 +214,42 @@ end
 
 function LIFT_SKILL_ICON(parent, ctrl)
 	local FromFrame = ctrl:GetTopParentFrame();
-    local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_ON"));
-	FromFrame:SetLayerLevel(layer)
+    if FromFrame ~= nil then
+        local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_ON"));
+        FromFrame:SetLayerLevel(layer)
+    end
+
+    local skillName = parent:GetUserValue("SkillClsName");
+    if skillName ~= "None" then
+        local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(FromFrame);
+        local skilltree_gb = GET_CHILD_RECURSIVELY(gb, "skilltree_gb");
+        local ctrlset = skilltree_gb:GetControlSet("skillability_skillset", "SKILL_"..skillName);
+        if ctrlset ~= nil then
+            SKILLABILITY_SELECT_SKILL(skilltree_gb, ctrlset);
+        end
+    end
 end
- 
+
 function DROP_FINALLY_SKILL_ICON(frame, object, argStr, argNum)	
     AUTO_CAST(object);
 	local FromFrame = object:GetTopParentFrame();
     local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_OFF"));
 	FromFrame:SetLayerLevel(layer)
+end
+
+function LIFT_ABILITY_ICON(parent, ctrl)
+    local FromFrame = ctrl:GetTopParentFrame();
+    if FromFrame ~= nil then
+        local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_ON"));
+        FromFrame:SetLayerLevel(layer)
+    end
+end
+ 
+function DROP_FINALLY_ABILITY_ICON(frame, object, argStr, argNum)	
+    AUTO_CAST(object);
+    local FromFrame = object:GetTopParentFrame();
+    local layer = tonumber(FromFrame:GetUserConfig("LAYER_LEVEL_DRAG_OFF"));
+    FromFrame:SetLayerLevel(layer)
 end
 
 function SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame)
@@ -208,8 +266,7 @@ function SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame)
 end
 
 
-function GET_ABILITYLIST_BY_SKILL_NAME(skillName, jobEngName)
-
+function GET_ABILITYLIST_BY_SKILL_NAME(skillName, jobEngNameList)
     local abilList, abilCnt = GetClassList('Ability')
     local retList = {}
     local index = 0
@@ -230,8 +287,7 @@ function GET_ABILITYLIST_BY_SKILL_NAME(skillName, jobEngName)
     for i = 0, abilCnt do
         local abilCls = GetClassByIndexFromList(abilList, i - 1)
         if abilCls ~= nil then
-            local abilGroupName = SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName)
-            local abilGroupCls = GetClass(abilGroupName, abilCls.ClassName)
+            local abilGroupCls = GET_ABILITY_GROUP_CLASS_BY_JOB_ENG_LIST(jobEngNameList, abilCls.ClassName)
             local abilClsSkillList = SCR_STRING_CUT_SEMICOLON(abilCls.SkillCategory);
             if abilGroupCls ~= nil and abilClsSkillList ~= nil and #abilClsSkillList ~= 0 then
                 for j = 1, #abilClsSkillList do
@@ -248,7 +304,27 @@ function GET_ABILITYLIST_BY_SKILL_NAME(skillName, jobEngName)
     return retList, index -- return list and count
 end
 
+function GET_ABILITY_GROUP_CLASS_BY_JOB_ENG_LIST(jobEngNameList, abilClsName)
+    local abilGroupNameList = {}
+    for i=1, #jobEngNameList do
+        local jobEngName = jobEngNameList[i]
+        local abilGroupName = SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName)
+        abilGroupNameList[#abilGroupNameList + 1] = abilGroupName
+    end
+    for i=1, #abilGroupNameList do
+        local abilGroupName = abilGroupNameList[i]
+        local abilGroupCls = GetClass(abilGroupName, abilClsName)
+        if abilGroupCls ~= nil then
+            return abilGroupCls
+        end
+    end
+    return nil
+end
+
 function GET_REMAIN_SKILLTREE_POINT(jobClsName)
+    if jobClsName == "Common" then
+        return 0;
+    end
     local list = GET_TREE_INFO_VEC(jobClsName)
     local pc = GetMyPCObject();
     local jobCls = GetClass("Job", jobClsName);
@@ -265,6 +341,10 @@ function GET_REMAIN_SKILLTREE_POINT(jobClsName)
 end
 
 function CLEAR_SKILLABILITY_POINT(jobClsName)
+    if jobClsName == "Common" then
+        return false;
+    end
+
     local list = GET_TREE_INFO_VEC(jobClsName)
     local changed = false;
     -- for all skill
@@ -424,7 +504,6 @@ function GET_ABILITY_LEARN_COST(pc, groupClass, abilClass, destLv)
 	return price, totalTime
 end
 
-
 function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
 	if IS_SEASON_SERVER(nil) == "YES" then
 		price = price - (price * 0.4)
@@ -435,4 +514,43 @@ function GET_ABILITY_PRICE(price, groupClass, abilClass, abilLv)
 	price = math.floor(price);
 	
 	return price;
+end
+
+function GET_SKILLABILITY_COMMON_SKILL_LIST()
+    local skillLvHash = {}
+    skillLvHash[1] = {}
+    local skillIDList = skillLvHash[1];
+	local commonSkillCount = session.skill.GetCommonSkillCount();	
+    for i=0,commonSkillCount-1 do
+		local skillID = session.skill.GetCommonSkillIDByIndex(i);
+        local sklCls = GetClassByType("Skill", skillID);
+        skillIDList[#skillIDList+1] = sklCls.ClassName;
+    end
+    return skillLvHash;
+end
+
+function HAS_ABILITY_SKILL(abilName)
+	local category_list = GET_ABILITY_SKILL_CATEGORY_LIST(abilName)
+    if #category_list <= 0 then
+        return true -- nothing to have.
+    end
+    for i=1, #category_list do
+        local sklName = category_list[i]
+        local sklObj = GetSkill(GetMyPCObject(), sklName)
+        if sklObj ~= nil then
+            return true;
+        end
+    end
+    return false;
+end
+
+function GET_SKILL_OVERHEAT_COUNT(sklObj)
+    local overHeat = 0;
+    if sklObj ~= nil then
+        overHeat = sklObj.SklUseOverHeat;
+    end
+    if overHeat == 0 then
+        overHeat = 1
+    end
+    return overHeat;
 end

@@ -23,6 +23,9 @@ function ABILITY_POINT_BUY_OPEN(frame)
 --    ratioValueText:SetTextByKey('ratio', GET_COMMAED_STRING(SILVER_BY_ONE_ABILITY_POINT));
 
     ABILITY_POINT_BUY_RESET(frame);
+
+    local sklAbilFrame = ui.GetFrame('skillability');
+    SET_FRAME_OFFSET_TO_RIGHT_TOP(frame, sklAbilFrame);
 end
 
 function ABILITY_POINT_BUY_RESET(frame)
@@ -100,7 +103,8 @@ end
 function ABILITY_POINT_BUY_SET_EDIT(edit, count)
     local topFrame = edit:GetTopParentFrame();
     local enableCount = topFrame:GetUserIValue('ENABLE_COUNT');
-    if count == nil or count == "" then
+    count = tonumber(count)
+    if count == nil then
         count = 0;
         edit:SetText('0');
     end

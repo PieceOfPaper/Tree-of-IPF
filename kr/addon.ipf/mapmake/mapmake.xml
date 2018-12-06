@@ -2,7 +2,7 @@
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by alexel (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="mapmake" x="0" y="0" width="400" height="400" create="open">
-    <frame title="{@st41}미니맵 제작{/}" titlepos="0 -8" snapclient="true" snapframe="true" layout_gravity="center center"/>
+    <frame title="{@st41}미니맵 제작{/}" titlepos="0 -8" layout_gravity="center center"/>
     <option closebuttonpos="5 20" visible="false" useimageitem="true"/>
     <draw drawtitlebar="true" drawframe="true"/>
     <input resize="false" minwidth="128" minheight="128" hittestframe="false" hittesttitlebar="true"/>

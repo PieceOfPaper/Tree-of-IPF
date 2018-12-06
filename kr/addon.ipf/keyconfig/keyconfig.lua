@@ -451,17 +451,15 @@ function KEYCONFIG_RESTORE_DEFAULT(parent)
 	local frame = parent:GetTopParentFrame();
 	local bg_key = GET_CHILD(frame, "bg_key");
 	local bg_keylist = GET_CHILD(bg_key, "bg_keylist");
-	bg_keylist:RemoveAllChild();	
+	bg_keylist:RemoveAllChild();
 
 	config.RestoreHotKey("hotkey.xml");
 	config.RestoreHotKey("hotkey_mousemode.xml");
 	config.RestoreHotKey("hotkey_joystick.xml");
 	ReloadHotKey();
-	
-
-
-	
-	
+	local keyFrame = ui.GetFrame("quickslotnexpbar");
+	QUICKSLOTNEXPBAR_UPDATE_HOTKEYNAME(keyFrame);
+	keyFrame:Invalidate();
 
 	local fileName = frame:GetUserValue("FILENAME");
 	local categoryName = frame:GetUserValue("CATEGORY");

@@ -2521,6 +2521,30 @@ function IS_KANNUSHI_GENDER_CHANGE_FLAG(pc, targetJobClassName)
     return 'NO'
 end
 
+
+
+function SCR_ZONE_KEYWORD_CHECK(zoneName, keyword)
+	if zoneName == nil or keyword == nil then
+		return "NO";
+	end
+	
+	local mapClass = GetClass("Map", zoneName);
+	local mapKeyWord = TryGetProp(mapClass, "Keyword", "None");
+	if mapKeyWord ~= "None" or mapKeyWord ~= "" then
+		return "NO";
+	end
+	
+	local keyWordList = SCR_STRING_CUT(mapKeyWord, ";");
+	if keyWordList ~= nil and #keyWordList >= 1 then
+		local index = table.find(keyWordList, keyword);
+		if index ~= 0 then
+			return "YES";
+		end
+	end
+	
+	return 'NO';
+end
+
 function SCR_CHECK_MONSTER_KEYWORD(mon, keyword)
 	if keyword == nil then
 		return "NO"
@@ -2554,88 +2578,145 @@ function SCR_GET_MONSTER_KEYWORD(mon)
 end
 
 
-function JOB_NAKMUAY_PRE_CHECK(pc)
-    local pcEtc
-    if IsServerSection() == 0 then
-        pcEtc = GetMyEtcObject();
-    else
-		pcEtc = GetETCObject(pc);
+function JOB_NAKMUAY_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char1_20', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+	end
+    
+    return 'NO'
+end
+
+
+function JOB_RUNECASTER_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char2_17', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
     end
     
-    if pcEtc ~= nil then
-        local value = TryGetProp(pcEtc, 'HiddenJob_Char1_20', 0)
-        if value == 300 then
-            return 'YES'
-        end
+    return 'NO';
+end
+
+
+function JOB_APPRAISER_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
+    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char3_13', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
     end
     
     return 'NO'
 end
-function JOB_RUNECASTER_PRE_CHECK(pc)
-    local pcEtc
-    if IsServerSection() == 0 then
-        pcEtc = GetMyEtcObject();
-    else
-		pcEtc = GetETCObject(pc);
+
+
+function JOB_MIKO_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then        
+        jobCount = GetTotalJobCount(pc);
     end
-    
-    if pcEtc ~= nil then
-        local value = TryGetProp(pcEtc, 'HiddenJob_Char2_17', 0)
-        if value == 300 then
-            return 'YES'
-        end
-    end
-    
-    return 'NO'
-end
-function JOB_APPRAISER_PRE_CHECK(pc)
-    local pcEtc
-    if IsServerSection() == 0 then
-        pcEtc = GetMyEtcObject();
-    else
-		pcEtc = GetETCObject(pc);
-    end
-    
-    if pcEtc ~= nil then
-        local value = TryGetProp(pcEtc, 'HiddenJob_Char3_13', 0)
-        if value == 300 then
-            return 'YES'
-        end
-    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char4_18', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+	end
     
     return 'NO'
 end
-function JOB_MIKO_PRE_CHECK(pc)
-    local pcEtc
-    if IsServerSection() == 0 then
-        pcEtc = GetMyEtcObject();
-    else
-		pcEtc = GetETCObject(pc);
+
+
+function JOB_SHINOBI_PRE_CHECK(pc, jobCount)
+    if jobCount == nil then
+        jobCount = GetTotalJobCount(pc);
     end
-    
-    if pcEtc ~= nil then
-        local value = TryGetProp(pcEtc, 'HiddenJob_Char4_18', 0)
-        if value == 300 then
-            return 'YES'
-        end
-    end
-    
-    return 'NO'
-end
-function JOB_SHINOBI_PRE_CHECK(pc)
-    local pcEtc
-    if IsServerSection() == 0 then
-        pcEtc = GetMyEtcObject();
-    else
-		pcEtc = GetETCObject(pc);
-    end
-    
-    if pcEtc ~= nil then
-        local value = TryGetProp(pcEtc, 'HiddenJob_Char5_6', 0)
-        if value == 300 then
-            return 'YES'
-        end
-    end
+	if jobCount >= 2 then
+	    local pcEtc
+	    if IsServerSection() == 0 then
+	        pcEtc = GetMyEtcObject();
+	    else
+			pcEtc = GetETCObject(pc);
+	    end
+	    
+	    if pcEtc ~= nil then
+	        local value = TryGetProp(pcEtc, 'HiddenJob_Char5_6', 0)
+	        if value == 300 or IS_KOR_TEST_SERVER() == true then
+	            return 'YES'
+	        end
+	    end
+	end
     
     return 'NO'
 end
+
+
+--function JOB_CANNONEER_PRE_CHECK(pc, jobCount)
+--    if jobCount == nil then        
+--        jobCount = GetTotalJobCount(pc);
+--    end
+--	if jobCount >= 2 then
+--        return 'YES';
+--    end   
+--    
+--    return 'NO';
+--end
+--
+--
+--function JOB_MUSKETEER_PRE_CHECK(pc, jobCount)
+--    if jobCount == nil then
+--        jobCount = GetTotalJobCount(pc);
+--    end
+--	if jobCount >= 2 then
+--        return 'YES';
+--    end
+--    
+--    return 'NO';
+--end

@@ -8269,7 +8269,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="OutLaw_FireBlindly"/>
+						<Str Str="OutLaw_Bully"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
@@ -8279,7 +8279,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="OutLaw_FireBlindly"/>
+						<Str Str="OutLaw_Bully"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>
@@ -8291,7 +8291,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="OutLaw_Bully"/>
+						<Str Str="OutLaw_Aggress"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
@@ -8301,7 +8301,7 @@
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_GEM_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="OutLaw_Bully"/>
+						<Str Str="OutLaw_Aggress"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>

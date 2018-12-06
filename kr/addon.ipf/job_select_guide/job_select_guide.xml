@@ -6,7 +6,7 @@
 	<input hittest="true"/>
 	<layer layerlevel="100"/>
 	<option hideable="true" closebutton="false"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<script OpenScp="ON_OPEN_JOB_SELECT_GUIDE"/>
 	<userconfig CardDefaultScale="1.0" CardDestScale="1.0" CardDestAngle="0" CardAnimSec="0.25" ResultCountPerPage="3" MaxOneLineCnt="3" StarTextWidth="15"/>
 	<controls>

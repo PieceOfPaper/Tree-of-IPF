@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="94" type="2" intensity="2" frequency="60" duration="0.2" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="94" R="110" G="80" B="130" A="100"/>
+	<BlendOn frame="95" R="80" G="60" B="100" A="100"/>
+	<BlendOff frame="96" R="0" G="0" B="0" A="0"/>
+	<Particle frame="94" attachNode="Dummy_effect_skl1_dash" particleName="F_dash016" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="8.56" soundFile="mon_minivern_wing"/>
+	<Sound frame="32.73" soundFile="mon_voice5_l_cast_1"/>
+	<Sound frame="33.27" soundFile="mon_minivern_wing"/>
+	<Sound frame="58.94" soundFile="mon_minivern_wing"/>
+	<Sound frame="84.00" soundFile="skl_eff_krumphau_shot"/>
+	<Sound frame="86.00" soundFile="mon_voice_proddedhorse_atk_2"/>
+	<Sound frame="117.41" soundFile="mon_minivern_wing"/>
+</ActionDesc>

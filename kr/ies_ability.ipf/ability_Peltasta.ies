@@ -1,7 +1,8 @@
 ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time4,Price5,Time5,Price6,Time6,Price7,Time7,Price8,Time8,Price9,Time9,Price10,Time10,ClassName,UnlockScr,UnlockArgStr,UnlockDesc,ScrCalcPrice
-1,100,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta5","UNLOCK_BASE_LEVEL","","캐릭터 100레벨 이상","ABIL_COMMON_PRICE_100LV"
-2,200,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta10","UNLOCK_BASE_LEVEL","","캐릭터 200레벨 이상","ABIL_COMMON_PRICE_200LV"
-3,300,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta31","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
+1,1,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta38","UNLOCK_BASE_LEVEL","","캐릭터 1레벨 이상","ABIL_COMMON_PRICE_1LV"
+2,100,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta5","UNLOCK_BASE_LEVEL","","캐릭터 100레벨 이상","ABIL_COMMON_PRICE_100LV"
+3,200,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta10","UNLOCK_BASE_LEVEL","","캐릭터 200레벨 이상","ABIL_COMMON_PRICE_200LV"
+4,300,1,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta31","UNLOCK_BASE_LEVEL","","캐릭터 300레벨 이상","ABIL_COMMON_PRICE_300LV"
 101,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta12","UNLOCK_ABIL_SKILL","Peltasta_UmboBlow","엄보 블로 1레벨 이상","ABIL_REINFORCE_PRICE"
 102,5,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Impact","UNLOCK_ABIL_SKILL","Peltasta_UmboBlow","엄보 블로 5레벨 이상","ABIL_ABOVE_NORMAL_PRICE"
 201,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta11","UNLOCK_ABIL_SKILL","Peltasta_RimBlow","림 블로 1레벨 이상","ABIL_REINFORCE_PRICE"
@@ -9,3 +10,5 @@ ClassID,UnlockArgNum,MaxLevel,Price1,Time1,Price2,Time2,Price3,Time3,Price4,Time
 301,200,5,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta32","UNLOCK_BASE_LEVEL","","캐릭터 200레벨 이상","ABIL_COMMON_PRICE_200LV"
 401,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta13","UNLOCK_ABIL_SKILL","Peltasta_Guardian","가디언 1레벨 이상","ABIL_REINFORCE_PRICE"
 501,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta14","UNLOCK_ABIL_SKILL","Peltasta_ShieldLob","실드 로브 1레벨 이상","ABIL_REINFORCE_PRICE"
+601,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta36","UNLOCK_ABIL_SKILL","Peltasta_HighGuard","하이 가드 1레벨 이상","ABIL_REINFORCE_PRICE"
+701,1,100,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,"Peltasta37","UNLOCK_ABIL_SKILL","Peltasta_HardShield","하드 실드 1레벨 이상","ABIL_REINFORCE_PRICE"

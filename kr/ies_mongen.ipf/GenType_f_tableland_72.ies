@@ -1,5 +1,5 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
-1,1,0,40,30,0,215,0,0,0,0,0,0,"Spion_white","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","TABLELAND72_Gimmick_hidenseek","",""
+1,1,0,40,30,0,35,0,0,0,0,0,0,"Spion_white","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","TABLELAND72_Gimmick_hidenseek","",""
 2,2,0,40,30,0,20,0,0,0,0,0,0,"Cronewt_mage_blue","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","TABLELAND72_Gimmick_hidenseek","",""
 3,3,0,40,30,0,8,0,0,0,0,0,0,"Hohen_orben_red","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 4,4,0,40,30,0,30,0,0,0,0,0,0,"lapasape_brown","","","","","","","HIDENSEEK_GIMMICK_AI","","","","NO","YES","NO","Monster","SmartGen","TABLELAND72_Gimmick_hidenseek","",""
@@ -28,7 +28,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 28,28,1,150,1,60000,1,0,0,0,0,0,0,"npc_friar_05","마을 사제 아른타스","","","","","","","TABLE72_PEAPLE5_1","TABLE72_PEAPLE5_2","","NO","YES","NO","Neutral","","","",""
 29,29,1,300,1,60000,2,0,0,0,1,0,0,"HiddenTrigger_CantGen300","UnvisibleName","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 30,30,1,250,1,60000,1,0,0,0,0,0,0,"HiddenTrigger_CantGen250","UnvisibleName","","","","","","","","","","NO","YES","NO","Neutral","","","",""
-32,32,0,40,40,0,130,0,0,0,1,0,0,"Spion_white","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+32,32,0,40,40,0,35,0,0,0,1,0,0,"Spion_white","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 33,33,1,40,1,60000,9,0,0,0,1,0,1,"Stone04","UnvisibleName","","","","","","","TABLE72_SUBQ3_STONE","","","NO","YES","NO","Neutral","","","",""
 34,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_276:1","",""
 35,1001,1,150,1,60000,1,0,0,0,0,0,0,"HiddenTrigger6","UnvisibleName","","","","","","","","JOB_ONMYOJI_Q1_OBJ","","NO","YES","NO","Neutral","","","",""

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="monstercardslot" x="0" y="0" width="600" height="745" create="open">
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<skin frameskin=" "/>
-	<frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+	<frame titlepos="0 0" layout_gravity="center center" margin="0 0 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
 	<layer layerlevel="100"/>
 	<userconfig OPTION_BTN_TEXT_OPEN="{@st43b}{s18}적용효과{/}" OPTION_BTN_TEXT_CLOSE="{@st43b}{s18}적용효과{/}" LEGENDCARD_OPEN_EFFECT="UI_card_lock" LEGENDCARD_OPEN_EFFECT_SCALE="12" LEGENDCARD_CLOSE_IMAGE="legend_cardslot"/>

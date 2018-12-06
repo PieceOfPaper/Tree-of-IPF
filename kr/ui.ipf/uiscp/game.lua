@@ -1371,9 +1371,17 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		end
 	end
 
-	if IS_SKILL_SCROLL_ITEM ~= nil and IS_SKILL_SCROLL_ITEM(item) == true then
+	if IS_SKILL_SCROLL_ITEM(item) == 1 then
 		local skillCls = GetClassByType('Skill', item.SkillType);
 		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
+	end
+
+	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then
+		if TryGetProp(item, 'KeyWord') == 'RandomOption' then
+			return ownName..string.format(': %s', ClMsg('RandomOption'));
+		else
+			return ownName..string.format(': %s', ClMsg('Auto_JeJag'));
+		end		
 	end
 
 	return ownName;
@@ -1717,13 +1725,16 @@ function SCR_SKILLITEM(invItem)
 end
 
 function SCR_SKILLSCROLL(invItem)
+    if 1 == 1 then
+		return;
+	end
+
 	if world.IsPVPMap() then
 		return;
 	end
 
 	local obj = GetIES(invItem:GetObject());
 	if obj.SkillType == 0 then
-
 		return;
 	end
 
@@ -2523,18 +2534,12 @@ end
 
 function CLEAR_SLOT_ITEM_INFO(slot)
 	slot:ClearIcon();
-	slot:SetText("", 'count', 'right', 'bottom', -2, 1);
+	slot:SetText("", 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 end
 
-function GET_SOLDITEM_BY_INDEX(index)
-
-	index = tonumber(index);
+function GET_SOLDITEM_BY_INDEX(guid)
 	local list = session.GetSoldItemList();
-	if 0 == list:IsValidIndex(index) then
-		return nil;
-	end
-
-	return list:Element(index);
+	return list:GetItemByGuid(guid);
 end
 
 function ADD_QUEST_CHECK_MONSTER(questID, monname)
@@ -2712,23 +2717,14 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 		return;
 	end
 	if itemobj.ClassName == "Drug_Socket" then
-
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		for i = 0, itemCount - 1 do
-			local invItem = invItemList:Element(index);
-
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem)
 			if invItem ~= nil then
-
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-
-				local icon 		= slot:GetIcon();
-
+				local icon = slot:GetIcon();
 				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
+					local class = GetClassByType('Item', invItem.type);
 					local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
 					local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(invitem);
 					local maxcnt = 0;
@@ -2742,22 +2738,19 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 					end
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
+		end, false);
 
 		local statusFrame = ui.GetFrame('status');
 		local curChildIndex = 0;
 		local equipItemList = session.GetEquipItemList();
 		for i = 0, equipItemList:Count() - 1 do
-			local equipItem = equipItemList:Element(i);
+			local equipItem = equipItemList:GetEquipItemByIndex(i);
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-
 			if  spotName  ~=  nil  then
 				local child = statusFrame:GetChild(spotName);
 				local slot = tolua.cast(child, 'ui::CSlot');
 				if  child  ~=  nil  then
-					if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
+					if  equipItem.type ~= item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
 						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(equipItemObj);
 						local maxcnt = equipItemObj.MaxSocket;
@@ -2774,21 +2767,15 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 	elseif itemobj.ClassName == "Drug_Reinforce" then
 
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		for i = 0, itemCount - 1 do
-		
-			local invItem = invItemList:Element(index);
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem)
 			if invItem ~= nil then
-
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-				local icon 		= slot:GetIcon();
+				local icon = slot:GetIcon();
 
 				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
-					local invitem  = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
+					local class = GetClassByType('Item', invItem.type);
+					local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
 
 					if invitem.ItemType == 'Equip' then
 						local potential = invitem.PR;
@@ -2800,17 +2787,14 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 					end
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
+		end, false);
 
 		local statusFrame = ui.GetFrame('status');
 		local curChildIndex = 0;
 		local equipItemList = session.GetEquipItemList();
 		for i = 0, equipItemList:Count() - 1 do
-			local equipItem = equipItemList:Element(i);
+			local equipItem = equipItemList:GetEquipItemByIndex(i);
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-
 			if  spotName  ~=  nil  then
 				local child = statusFrame:GetChild(spotName);
 				local slot = tolua.cast(child, 'ui::CSlot');
@@ -2828,17 +2812,10 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 				end
 			end
 		end
-
-
 	elseif itemobj.GroupName == "Gem" then
 							
 		local invItemList = session.GetInvItemList();
-		local index = invItemList:Head();
-		local itemCount = session.GetInvItemList():Count();
-
-		local cnt = 0;
-		for i = 0, itemCount - 1 do
-			local invItem = invItemList:Element(index);
+		FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, frame)
 			local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
 			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) and invitem.ItemType == "Equip" then
 				local tab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
@@ -2850,48 +2827,38 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 				if slot ~= nil then
 					local icon = slot:GetIcon();
 					if icon ~= nil then
-						local class     = GetClassByType('Item', invItem.type);
+						local class = GetClassByType('Item', invItem.type);
 						
 						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(invitem);
-
-							for i=0, socketCnt do								
-								if invItem:GetEquipGemID(i) == 0 then
-									socketNum = i;
-									break;
-								end
+						for i=0, socketCnt do								
+							if invItem:GetEquipGemID(i) == 0 then
+								socketNum = i;
+								break;
 							end
+						end
 
-							if socketCnt > socketNum then
-								slot:Select(1);
-							else
-								slot:Select(0);
-							end
+						if socketCnt > socketNum then
+							slot:Select(1);
+						else
+							slot:Select(0);
+						end
 					end
-					cnt = cnt + 1;
 				end
 			end
-
-			index = invItemList:Next(index);
-		end
+		end, false, frame);
 
 		local statusFrame = ui.GetFrame('status');
 		local curChildIndex = 0;
 		local equipItemList = session.GetEquipItemList();
 		for i = 0, equipItemList:Count() - 1 do
-			local equipItem = equipItemList:Element(i);
+			local equipItem = equipItemList:GetEquipItemByIndex(i);
 			local spotName = item.GetEquipSpotName(equipItem.equipSpot);
-
-			
-
 			if  spotName  ~=  nil  then
-	
 				local slot = GET_CHILD_RECURSIVELY(frame, spotName, "ui::CSlot")
-
 				if  slot  ~=  nil  then
 					if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
 						local socketCnt = GET_NEXT_SOCKET_SLOT_INDEX(equipItemObj);
-
 						for i=0, socketCnt do							
 							if equipItem:GetEquipGemID(i) == 0 then
 								socketNum = i;
@@ -3333,7 +3300,7 @@ end
 function SET_GAUGE_PERCENT_STAT(g)
 
 	g:SetStatFont(0, "white_16_ol");
-	g:SetStatAlign(0, "center", "top");
+	g:SetStatAlign(0, ui.CENTER_HORZ, ui.TOP);
 
 end
 

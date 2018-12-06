@@ -322,7 +322,7 @@ function CLICK_MAKE_SOCKET_BUTTON(frame, slot, argStr, argNum)
 	ui.MsgBox( "'"..itemname ..ScpArgMsg("Auto_'_SeonTaeg")..ScpArgMsg("ReallyMakeSocket"), yesScp, "None");
 end
 
-function EXEC_MAKE_NEW_SOCKET()
+function EXEC_MAKE_NEW_SOCKET(checkRebuildFlag)
 	local frame = ui.GetFrame("managegem");
 	local tempiesid = frame:GetUserValue("TEMP_IESID");
 	if tempiesid == 0 then
@@ -371,6 +371,13 @@ function EXEC_MAKE_NEW_SOCKET()
 	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
+	end
+
+	if checkRebuildFlag ~= false then
+		if TryGetProp(itemobj, 'Rebuildchangeitem', 0) > 0 then
+			ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), 'EXEC_MAKE_NEW_SOCKET(false)', 'None');
+			return;
+		end
 	end
 
 	session.ResetItemList();

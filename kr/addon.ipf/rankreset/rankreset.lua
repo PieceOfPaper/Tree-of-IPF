@@ -1,7 +1,6 @@
 -- rankreset
 function RANKRESET_ON_INIT(addon, frame)
-	addon:RegisterOpenOnlyMsg('EQUIP_ITEM_LIST_GET', 'RANKRESET_PC_EQUIP_STATE');
-	addon:RegisterOpenOnlyMsg('RESET_ABILITY_UP', 'RANKRESET_PC_ABILITY_STATE');
+	addon:RegisterOpenOnlyMsg('EQUIP_ITEM_LIST_GET', 'RANKRESET_PC_EQUIP_STATE');	
 	addon:RegisterOpenOnlyMsg('AUTOSELLER_UPDATE', 'RANKRESET_PC_AUTOSELLER_STATE'); 
 end
 
@@ -57,7 +56,6 @@ end
 
 function RANKRESET_CHECK_PLAYER_STATE(frame)
 	RANKRESET_PC_EQUIP_STATE(frame);
-	RANKRESET_PC_ABILITY_STATE(frame);
 	RANKRESET_PC_WITH_COMMPANION(frame);
 	RANKRESET_PC_LOCATE(frame);
 	RANKRESET_PC_AUTOSELLER_STATE(frame);
@@ -131,7 +129,7 @@ function RANKRESET_PC_EQUIP_STATE(frame)
 	local equipList = session.GetEquipItemList();
 	local unEquip = false;
 	for i = 0, equipList:Count() - 1 do
-		local equipItem = equipList:Element(i);
+		local equipItem = equipList:GetEquipItemByIndex(i);
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);	
 		if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 			unEquip = true;
@@ -144,30 +142,6 @@ function RANKRESET_PC_EQUIP_STATE(frame)
 		armor_check:SetCheck(1);
 	else
 		armor_check:SetCheck(0);
-	end
-end
-
-function RANKRESET_PC_ABILITY_STATE(frame)
-	local pc = GetMyPCObject();
-	local runAbil = false;
-	for i = 0, RUN_ABIL_MAX_COUNT do
-		local prop = "None";
-		if 0 == i then
-			prop = "LearnAbilityID";
-		else
-			prop = "LearnAbilityID_" ..i;
-		end
-		if pc[prop] ~= nil and pc[prop] > 0 then
-			runAbil = true;
-			break;
-		end
-	end
-
-	local ability_check = GET_CHILD(frame, 'ability_check', "ui::CCheckBox");
-	if false == runAbil then
-		ability_check:SetCheck(1);
-	else
-		ability_check:SetCheck(0);
 	end
 end
 
@@ -190,13 +164,6 @@ function RANKRESET_ITEM_USE_BUTTON_CLICK(frame, ctrl)
         return;
     end
     
-    local templerCls = GetClass('Job', 'Char1_16');    
-    if AM_I_LEADER(PARTY_GUILD) == 1 and IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-        local yesscp = string.format("RANKRESET_REQUEST_RANK_RESET()");
-        ui.MsgBox(ClMsg('YouMustUpdateTowerLevel'), yesscp, 'None');
-        return;
-    end
-
     RANKRESET_REQUEST_RANK_RESET();
 end
 

@@ -15,11 +15,14 @@ function ASK_EXPIREDITEM_ALERT_LIFETIME(frame, itemlist, nearFutureSec, startInd
     local list = GET_SCHEDULED_TO_EXPIRED_ITEM_LIST(nearFutureSec);
     list = SORT_ITEM_LIST_BY_LIFETIME(list);
     for i=1, #list do
-        local item = list[i];
-        local difSec = GET_REMAIN_ITEM_LIFE_TIME(item);
-        local isOver = tonumber(TryGetProp(item, "ItemLifeTimeOver", 0)) == 1;
-        local imgName = GET_ITEM_ICON_IMAGE(item);
-        ypos = ADD_EXPIRED_ITEM(itemlist, item.Name, imgName, startIndex+i, ypos, difSec, isOver, nil);
+        local invitem = GET_ITEM_BY_GUID(list[i]);
+        if invitem ~= nil then
+            local itemObj = GetIES(invitem:GetObject());
+            local difSec = GET_REMAIN_ITEM_LIFE_TIME(itemObj);
+            local isOver = tonumber(TryGetProp(itemObj, "ItemLifeTimeOver", 0)) == 1;
+            local imgName = GET_ITEM_ICON_IMAGE(itemObj);
+            ypos = ADD_EXPIRED_ITEM(itemlist, itemObj.Name, imgName, startIndex+i, ypos, difSec, isOver, nil);
+        end
     end
     return ypos;
 end

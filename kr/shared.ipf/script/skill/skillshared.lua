@@ -1,4 +1,4 @@
-﻿--- skillshared.lua
+--- skillshared.lua
 
 function SKILL_TARGET_ITEM_Swordman_Thrust(obj)
 	
@@ -304,4 +304,40 @@ function SCR_GET_APPRISE_PRICE(shopClassName, mapClassName, buffClassName, abilL
 	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)
 	
 	return math.floor(price);
+end
+
+-- 해당 skill에 checkKeyword 키워드가 존재하는지 체크. 있으면 1 반환, 없으면 0 반환.
+function CHECK_SKILL_KEYWORD(skill, checkKeyword)
+	local skillKeyword = TryGetProp(skill, 'Keyword');
+	if skillKeyword ~= nil and skillKeyword ~= 'None' then
+		local skillKeywordList = SCR_STRING_CUT(skillKeyword, ';')
+		local index = table.find(skillKeywordList, checkKeyword);
+		if index ~= 0 then
+			return 1;
+		end
+	end
+	
+	return 0;
+end
+
+
+-- 버프 강화 특성 증가 비율 계산-------
+function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
+    local addRate = 1;
+    if self ~= nil and skill ~= nil then
+        local reinforceAbilName = TryGetProp(skill, "ReinforceAbility", "None");
+        if reinforceAbilName ~= "None" then
+            local reinforceAbil = GetAbility(self, reinforceAbilName)
+            if reinforceAbil ~= nil then
+                local abilLevel = TryGetProp(reinforceAbil, "Level")
+                local masterAddValue = 0
+                if abilLevel == 100 then
+                    masterAddValue = 0.1
+                end
+                
+                addRate = addRate + (abilLevel * 0.005 + masterAddValue);
+            end
+        end
+    end
+    return addRate
 end

@@ -49,7 +49,7 @@ function CLEAR_REINFORCE_BY_MIX_CERTIFICATE(frame)
 	
 	INVENTORY_SET_CUSTOM_RBTNDOWN("REINFORCE_MIX_RBTN_CERTIFICATE");
 	INVENTORY_SET_CUSTOM_RDBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("None");		
+	RESET_INVENTORY_ICON();	
 end
 
 function CLOSE_REINFORCE_BY_MIX_CERTIFICATE(frame)
@@ -436,7 +436,7 @@ function REINFORCE_BY_MIX_ADD_MATERIAL_CERTIFICATE(frame, itemObj, count)
 	
 	if invItem.count > 1 then
 		local icon  = slot:GetIcon()
-		icon:SetText(count, 'quickiconfont', 'right', 'bottom', -2, 1);
+		icon:SetText(count, 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 	end
 	
 	slot:SetEventScript(ui.RBUTTONDOWN, "REINFORCE_BY_MIX_SLOT_RBTN_CERTIFICATE");

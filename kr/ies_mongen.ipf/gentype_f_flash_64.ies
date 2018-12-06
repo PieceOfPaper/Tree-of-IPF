@@ -1,6 +1,6 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,30,1,1,1,2,0,0,0,0,0,"Warp_arrow","중심시가","","","","MON_DUMMY","","","","FLASH64_FLASH63","","NO","YES","NO","Neutral","","","",""
-2,2,0,40,9999,0,75,0,0,0,0,0,0,"Repusbunny","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+2,2,0,40,9999,0,20,0,0,0,0,0,0,"Repusbunny","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 3,3,0,40,9999,0,15,0,0,0,0,0,0,"Lemuria","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 4,4,0,40,30,0,7,0,0,0,0,0,0,"Rubabos","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 5,5,0,40,30,0,16,0,0,0,0,0,0,"Lemuria","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
@@ -31,7 +31,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 33,33,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","이브레 고원","","","","MON_DUMMY","","","","FLASH64_TABLELAND70","","NO","YES","NO","Neutral","","","",""
 34,34,1,40,-1,60000,1,1,0,0,0,0,0,"npc_CNN_master","[캐노니어 마스터]{nl}에다 세이커 바라자스","","","","MON_DUMMY","","","CANNONEER_MASTER","","","NO","YES","NO","Neutral","","","",""
 35,35,1,40,-1,60000,1,1,0,0,0,0,0,"npc_MSK_master","[머스킷티어 마스터]{nl}알로덴 마자린","","","","MON_DUMMY","","","MUSKETEER_MASTER","","","NO","YES","NO","Neutral","","","",""
-38,38,1,40,20,0,68,0,0,0,0,0,0,"Lemuria","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+38,38,1,40,20,0,76,0,0,0,0,0,0,"Lemuria","","","","","","","","","","","NO","YES","NO","Monster","","","",""
 1000,1000,1,0,1,1,1,0,0,0,0,0,0,"treasure_box1","보물 상자 LV1","","","","","","","TREASUREBOX_LV","","","","YES","NO","Neutral","LV1","ITEM:COLLECT_213:1","",""
 1001,1001,1,70,-1,60000,3,0,0,0,1,0,0,"wood_carving","UnvisibleName","","","","","","","","JOB_MUSKETEER_8_1_WOOD_CARVING","","NO","YES","NO","Monster","","","",""
 1002,1002,1,40,1,60000,1,1,0,0,0,0,0,"npc_MUR_master","[무르밀로 마스터]{nl}펠릭시아","","","","MON_DUMMY","","","MURMILO_MASTER","","","NO","YES","NO","Neutral","","","",""

@@ -3,7 +3,7 @@
 <uiframe name="expireditem_remove" x="0" y="0" width="500" height="270">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_pvp_skin"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<option visible="false" hideable="false" closebutton="false" moveable="true" alwaysVisible="false"/>
 	<layer layerlevel="100"/>
   <userconfig ItemHeight="70" MaxItemPerPage="3"/>

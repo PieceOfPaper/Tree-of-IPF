@@ -5,7 +5,7 @@
     <input maxwidth="1280" moveable="false" hittestframe="false"/>
     <layer layerlevel="100"/>
     <option visible="false" hideable="false" closebutton="false" alwaysVisible="false"/>
-    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
     <animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
     <controls>
         <groupbox name="gBox" rect="0 0 750 300" margin="0 0 0 0" draw="true" hittestbox="true" scrollbar="true" skin="bg" updateparent="true"/>

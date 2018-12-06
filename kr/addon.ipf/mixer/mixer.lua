@@ -246,9 +246,9 @@ function UPDATE_MIX_ICON(slot)
 		if USE_RECIPE_ITEM_CNT == 1 then
 			if PreviewType == invItem.type then
 				local Txt = string.format("%d/%d", curcnt, NeedCnt);
-				slot:SetText('{s14}{ol}{b}'..Txt, 'count', 'right', 'bottom', -2, 1);
+				slot:SetText('{s14}{ol}{b}'..Txt, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 			else
-				slot:SetText('{s14}{ol}{b}'..curcnt, 'count', 'right', 'bottom', -2, 1);
+				slot:SetText('{s14}{ol}{b}'..curcnt, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 			end
 		end
 
@@ -262,7 +262,7 @@ function UPDATE_MIX_ICON(slot)
 			local MyCnt = 0;
 			if USE_RECIPE_ITEM_CNT == 1 then
 				local Txt = string.format("%d/%d", MyCnt, NeedCnt);
-				slot:SetText('{s14}{ol}{b}'..Txt, 'count', 'right', 'bottom', -2, 1);
+				slot:SetText('{s14}{ol}{b}'..Txt, 'count', ui.RIGHT, ui.BOTTOM, -2, 1);
 			end
 			ImageSet = 1;
 		end

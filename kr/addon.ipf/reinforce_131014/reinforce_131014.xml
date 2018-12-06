@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="reinforce_131014" x="0" y="0" width="390" height="360" create="open">
-	<frame title="{@st43}{s22}아이템 강화{/}" titlepos="0 -5" layout_gravity="left center" snapclient="true" snapframe="true" margin="350 -50 0 0"/>
+	<frame title="{@st43}{s22}아이템 강화{/}" titlepos="0 -5" layout_gravity="left center" margin="350 -50 0 0"/>
     <option closebutton="false" hideable="true"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
-    <draw drawtitlebar="true"/>
+    <draw drawtitlebar="true" titlebarfixwidth="true"/>
     <layer layerlevel="100"/>
     <userconfig Font_PropName="{@st45tw4}" Font_From="{@st42}"/>
     <script OpenScp="REINFORCE_131014_OPEN" CloseScp="REINFORCE_131014_CLOSE"/>

@@ -12,11 +12,6 @@ function ITEMBUFF_SET_SKILLTYPE(frame, skillName, skillLevel, titleName)
 	title:SetTextByKey("txt", titleName);
 end
 
-function ITEM_STOR_FAIL()
-	ui.SysMsg(ClMsg("CannotState"));
-	ui.CloseFrame("itembuff");
-end
-
 function ITEMBUFF_REFRESH_LIST(frame)
 	local reqitembox = frame:GetChild("Material");
 	local reqitemtext = reqitembox:GetChild("reqitemCount");

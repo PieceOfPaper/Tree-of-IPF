@@ -2,7 +2,7 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
 <uiframe name="chatpopup_main" x="0" y="0" width="500" height="235" create="open">
   <frame title="{@st41}일반 대화{/}" fasthide="true" layout_gravity="left bottom" margin="50 200 0 0" scale_align="center bottom"/>
-  <draw drawframe="false" drawnotitlebar="false" drawtitlebar="false"/>
+  <draw drawframe="false" drawtitlebar="false"/>
   <input moveable="true" minwidth="450" minheight="150" hittestframe="false" resize="true" resizerange="450 100 800 600"/>
   <option visible="false" hideable="false" useimageitem="true" closebutton="false"/>
   <layer layerlevel="79"/>

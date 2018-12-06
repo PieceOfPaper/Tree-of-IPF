@@ -262,6 +262,8 @@ function ICON_USE(object, reAction)
 			end
 		elseif iconInfo.category == 'Skill' then
 			control.Skill(iconInfo.type);
+		elseif iconInfo.category == 'Ability' then
+			QUICKSLOT_TOGGLE_ABILITY(iconInfo.type)
 		elseif iconInfo.category == 'ACTION' then
 			local script = GetClassString('Action', iconInfo.type, 'Script');
 			loadstring(script)();

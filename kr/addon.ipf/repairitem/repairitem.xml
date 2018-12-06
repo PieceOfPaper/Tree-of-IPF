@@ -1,10 +1,10 @@
 ﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
 <uiframe name="repairitem" x="-400" y="0" width="400" height="700" create="open">
-    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <draw drawtitlebar="false"/>
     <skin frameskin="pipwin"/>
     <frame fullheight="true" fasthide="true" layout_gravity="left top" piptype="left"/>
-    <input maxwidth="1280" moveable="false"/>
+    <input maxwidth="1280" hittestframe="false" moveable="false"/>
     <layer layerlevel="50"/>
     <option closebutton="false"/>
     <sound opensound="character_item_window_open" closesound="character_item_window_close"/>

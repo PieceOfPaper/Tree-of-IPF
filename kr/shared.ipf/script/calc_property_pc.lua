@@ -1319,22 +1319,13 @@ function SCR_Get_BLK(self)
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
     local byAbil = 0;
---    local abilList = { { 'Peltasta5', 0.05 } };
---    for i = 1, #abilList do
---        local abilTemp = GetAbility(self, abilList[i][1]);
---        if abilTemp ~= nil then
---            local abilLevel = abilTemp.Level;
---            local abilRate = abilList[i][2];
---            byAbil = byAbil + (abilLevel * abilRate);
---        end
---    end
     
-    local byBuff = TryGetProp(self, "BLK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BM", 0);
     
-    value = value + byItemRareOption + byAbil + byBuff;
+    local byRateBuff = TryGetProp(self, "BLK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byAbil + byBuff + byRateBuff;
     
     if value < 0 then
         value = 0;
@@ -1366,17 +1357,18 @@ function SCR_Get_BLK_BREAK(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "BLK_BREAK_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "BLK_BREAK_BM", 0);
     
-    local byAbil = GetExProp(self, "ABIL_THMACE_BLKBLEAK")
-    if byAbil == nil then
-        byAbil = 0
-    end
+    local byRateBuff = TryGetProp(self, "BLK_BREAK_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
     
-    local value = value + byItemRareOption + byBuff + byAbil;
+    local byAbil = GetExProp(self, "ABIL_THMACE_BLKBLEAK", 0)
+    
+    local value = value + byItemRareOption + byBuff + byRateBuff + byAbil;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -1410,12 +1402,12 @@ function SCR_Get_HR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "HR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "HR_BM", 0);
     
-    value = value + byItemRareOption + byBuff;
+    local byRateBuff = TryGetProp(self, "HR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byBuff + byRateBuff;
     
     if value < 0 then
     	value = 0
@@ -1453,36 +1445,42 @@ function SCR_Get_DR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "DR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "DR_BM", 0);
     
-    value = value + byItemRareOption + byBuff;
+    local byRateBuff = TryGetProp(self, "DR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
 
 function SCR_Get_MHR(self)
-    local byItem = 0;
-    local byItemList = { "MHR", "ADD_MHR" };
-    for i = 1, #byItemList do
-        local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
-        if byItemTemp == nil then
-            byItemTemp = 0;
-        end
-        
-        byItem = byItem + byItemTemp;
-    end
+--    local byItem = 0;
+--    local byItemList = { "MHR", "ADD_MHR" };
+--    for i = 1, #byItemList do
+--        local byItemTemp = GetSumOfEquipItem(self, byItemList[i]);
+--        if byItemTemp == nil then
+--            byItemTemp = 0;
+--        end
+--        
+--        byItem = byItem + byItemTemp;
+--    end
+--    
+--    local byBuff = TryGetProp(self, "MHR_BM");
+--    if byBuff == nil then
+--        byBuff = 0;
+--    end
+--    
+--    local value = byItem + byBuff;
+--    
+--    return math.floor(value);
     
-    local byBuff = TryGetProp(self, "MHR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
-    
-    local value = byItem + byBuff;
-    
-    return math.floor(value);
+    return 0;
 end
 
 function SCR_Get_CRTHR(self)
@@ -1508,12 +1506,16 @@ function SCR_Get_CRTHR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "CRTHR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "CRTHR_BM", 0);
+	
+    local byRateBuff = TryGetProp(self, "CRTHR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
     
-    value = value + byItemRareOption + byBuff;
+    value = value + byItemRareOption + byBuff + byRateBuff;
+    
+    if value < 0 then
+    	value = 0;
+    end
     
     return math.floor(value);
 end
@@ -1541,12 +1543,16 @@ function SCR_Get_CRTDR(self)
     
     byItemRareOption = math.floor(value * (byItemRareOption / 1000));
     
-    local byBuff = TryGetProp(self, "CRTDR_BM");
-    if byBuff == nil then
-        byBuff = 0;
-    end
+    local byBuff = TryGetProp(self, "CRTDR_BM", 0);
     
-    value = value + byItemRareOption + byBuff;
+    local byRateBuff = TryGetProp(self, "CRTDR_RATE_BM", 0);
+    byRateBuff = math.floor(value * byRateBuff);
+    
+    value = value + byItemRareOption + byBuff + byRateBuff;
+	
+    if value < 0 then
+    	value = 0;
+    end
 	
     return math.floor(value);
 end
@@ -1947,31 +1953,34 @@ function SCR_Get_KDArmorType(self)
         value = 1;
     end
     
-    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_PainBarrier_Buff" };
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
+            break;
         end
     end
     
     -- colony buff --
     if IsBuffApplied(self, "GuildColony_BossMonsterBuff_DEF") == 'YES' then
-        value = 99999
+        value = 99999;
     end
-
+	
     return value;
 end
 
 function SCR_Get_CastingSpeed(self)
 	local value = 100;
 	
-	local castingSpeedBuffList = GetCastingSpeedBuffInfoTable(self)
-	if castingSpeedBuffList ~= nil then
-		for k, v in pairs(castingSpeedBuffList) do
-			if castingSpeedBuffList[k] > 0 then
-				value = value - (value * (castingSpeedBuffList[k] / 100));
-			end
-		end
+	if IsServerSection(self) == 1 then
+	    local castingSpeedBuffList = GetCastingSpeedBuffInfoTable(self)
+	    if castingSpeedBuffList ~= nil then
+	        for k, v in pairs(castingSpeedBuffList) do
+	            if castingSpeedBuffList[k] > 0 then
+	                value = value - (value * (castingSpeedBuffList[k] / 100));
+	            end
+	        end
+	    end
 	end
 	
     local byBuff = TryGetProp(self, "CastingSpeed_BM", 0);
@@ -2057,17 +2066,19 @@ function SCR_Get_MSPD(self)
             byBuff = byBuff * 0.5
         end
         
-	    local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
-	    if byBuffOnlyTopList ~= nil then
-	    	local byBuffOnlyTopValue = 0;
-			for k, v in pairs(byBuffOnlyTopList) do
-				if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
-					byBuffOnlyTopValue = byBuffOnlyTopList[k];
-				end
-			end
-			
-	        value = value + byBuff + byBuffOnlyTopValue;
-		end
+        local byBuffOnlyTopValue = 0;
+        if IsServerSection(self) == 1 then
+            local byBuffOnlyTopList = GetMSPDBuffInfoTable(self)
+            if byBuffOnlyTopList ~= nil then
+                for k, v in pairs(byBuffOnlyTopList) do
+                    if byBuffOnlyTopValue < byBuffOnlyTopList[k] then
+                        byBuffOnlyTopValue = byBuffOnlyTopList[k];
+                    end
+                end
+            end
+        end
+		
+		value = value + byBuff + byBuffOnlyTopValue;
         
         local nowWeight = 0;
         local maxWeight = 0;
@@ -2143,6 +2154,11 @@ function SCR_Get_MSPD(self)
         value = value + dashRunAddValue;
         if isDashRun == 2 then  -- 인보 특성이 있으면 속도 +1 --
             value = value + 1;
+        end
+        
+        local RidingDashAbil = GetAbility(self, "Hackapell6")
+        if isDashRun == 3 and RidingDashAbil ~= nil then
+            value = value + 3;  -- 탑승 대쉬 특성이 있으면 속도 +3 --
         end
     end
     
@@ -2383,7 +2399,7 @@ function SCR_PC_MOVINGSHOTABLE(pc)
         return 1;
     end
 
-    local buffList = { "Warrior_EnableMovingShot_Buff", "Warrior_RushMove_Buff", "Cyclone_EnableMovingShot_Buff", 'Outrage_Buff' };
+    local buffList = { "Warrior_EnableMovingShot_Buff", "Warrior_RushMove_Buff", "Cyclone_EnableMovingShot_Buff", 'DoubleGunStance_Buff' };
     for i = 1, #buffList do
         if IsBuffApplied(pc, buffList[i]) == "YES" then    
             return 1;
@@ -2460,7 +2476,7 @@ function SCR_Get_Sta_Run(self)
     local consumptionSTA = 0;
     
     -- 기본 스태미너 소모량 --
-    local defaultConsumptionSTA = 50;
+    local defaultConsumptionSTA = 0;
     
     -- 추가하는 스태미너 소모량 --
     local addRateConsumptionSTA = 0.0;
@@ -2480,11 +2496,16 @@ function SCR_Get_Sta_Run(self)
         isAgility = 0;
     end
     
+    local jobObj = GetJobObject(self);
+    local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
+    if jobCtrlType == "Archer" then
+    	if IsBattleState(self) == 1 then
+    		isDashRun = 0
+    	end
+    end
+    
     if isDashRun > 0 then
         local dashAmount = 500;
-        
-	    local jobObj = GetJobObject(self);
-	    local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
 	    if jobCtrlType == "Cleric" then
 			if IsBuffApplied(self, "Lycanthropy_Half_Buff") == "YES" then
 				dashAmount = dashAmount * 0.5
@@ -2500,7 +2521,7 @@ function SCR_Get_Sta_Run(self)
         if isDashRun == 2 then
             addRateConsumptionSTA = addRateConsumptionSTA - 0.1;  -- 인보 특성 있는 중에는 추가량 10% 감소
         end
-        
+	    
         local byRateBuffDash = TryGetProp(self, 'DASHSTA_RATE_BM');
         if byRateBuffDash == nil then
             byRateBuffDash = 0;
@@ -2519,7 +2540,7 @@ function SCR_Get_Sta_Run(self)
     if IsBuffApplied(self, 'Sprint_Buff') == 'YES' then
         value = 0;
     end
-    
+
     return math.floor(value);
 end
 
@@ -2555,11 +2576,11 @@ function SCR_Get_Sta_R_Delay(self)
 end
 
 function SCR_Get_Sta_Runable(self)
-    return 250;
+    return 0;
 end
 
 function SCR_Get_Sta_Jump(self)
-    return 1500;
+    return 1000;
 end
 
 function SCR_Get_Sta_Step(self)
@@ -2749,6 +2770,10 @@ function SCR_PC_GUARD_ON(pc)
     local lv = TryGetProp(pc, "Lv");
     if lv == nil then
         lv = 1;
+    end
+    
+    if IsBuffApplied(pc, "Archer_Kneelingshot") == "YES" then
+        RemoveBuff(pc, "Archer_Kneelingshot")
     end
     
     -- Block --

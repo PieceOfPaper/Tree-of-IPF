@@ -64,17 +64,6 @@ function INTE_WARP_OPEN_BY_NPC()
 
 end
 
-function INTE_WARP_OPEN_NORMAL()
-
-   	local frame = ui.GetFrame('inte_warp');
-	
-	frame:SetUserValue("Type", "Normal");
-
-	frame:ShowWindow(1);
-	frame:Invalidate();
-	
-end
-
 function INTE_WARP_OPEN_DIB()
 
    	local frame = ui.GetFrame('inte_warp');
@@ -94,12 +83,10 @@ function INTE_WARP_OPEN_FOR_QUICK_SLOT()
 end
 
 function INTE_WARP_CLOSE(frame)
-
 	frame:SetUserValue('SCROLL_WARP', 'NO')
+    frame:SetUserValue('SCROLL_WARP_IESID', '0')
 	UNREGISTERR_LASTUIOPEN_POS(frame)
-
-	SetKeyboardSelectMode(0)
-	
+	SetKeyboardSelectMode(0)	
 end
 
 function GET_INTE_WARP_LIST()
@@ -135,9 +122,7 @@ function WARP_INFO_ZONE(zoneName)
 end
 
 function ON_INTE_WARP(frame, changeDirection)
-
 	local type = frame:GetUserValue("Type");
-
 	frame:SetUserValue("Mode", "InteWarp");
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);

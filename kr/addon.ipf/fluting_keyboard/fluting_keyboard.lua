@@ -27,7 +27,7 @@ function FLUTING_KEYBOARD_UPDATE_HOTKEYNAME(frame)
 		if slot ~= nil then
 		local slotString 	= 'QuickSlotExecute'..(i+1);
 		local text 			= hotKeyTable.GetHotKeyString(slotString);
-		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', 'left', 'top', 2, 1);
+		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 		end
 	end
 end

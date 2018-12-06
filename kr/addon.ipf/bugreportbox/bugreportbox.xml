@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="bugreportbox" x="0" y="0" width="500" height="350" create="open">
-    <frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="-35 -130 0 0"/>
-    <option closebuttonpos="0 40" margin="-3 174 0 0"/>
+    <frame titlepos="0 0" layout_gravity="center center" margin="-35 -130 0 0"/>
+    <option margin="-3 174 0 0"/>
     <sound opensound="win_open" closesound="win_close" margin="-3 174 0 0"/>
     <draw drawtitlebar="true" margin="-3 174 0 0"/>
     <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-3 174 0 0"/>

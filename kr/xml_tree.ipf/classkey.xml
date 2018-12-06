@@ -431,6 +431,7 @@
         <Key Name="GuildCoolDownGroup" Value="103125"/>
         <Key Name="ItemGuildCoolDown" Value="103124"/>
         <Key Name="CRTMATK" Value="103193"/>
+        <Key Name="Rebuildchangeitem" Value="103244"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Party">
         <Key Name="P_PARTY_Q_040" Value="53"/>
@@ -1533,6 +1534,45 @@
         <Key Name="HadVisited_4951" Value="103198"/>
         <Key Name="RVR_BK_CONTRIBUTION_TEAM" Value="103199"/>
         <Key Name="RVR_BK_USED_KEY_ITEM" Value="103197"/>
+        <Key Name="EVENT_1811_KUPOLE_FISHING_COUNT" Value="103218"/>
+        <Key Name="EVENT_1811_KUPOLE_FISHING_DATE" Value="103225"/>
+        <Key Name="EVENT_1811_KUPOLE_PLAYTIME" Value="103212"/>
+        <Key Name="EVENT_1811_KUPOLE_PLAYTIME_DATE" Value="103224"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP1" Value="103219"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP2" Value="103214"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP3" Value="103211"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP4" Value="103209"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP5" Value="103220"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP6" Value="103215"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP7" Value="103210"/>
+        <Key Name="EVENT_1811_KUPOLE_ZONEENTER" Value="103216"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_15LV_BOX" Value="103221"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_170LV_BOX" Value="103223"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_270LV_BOX" Value="103217"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_350LV_BOX" Value="103213"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_ACTIVEUSER" Value="103222"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_COUNT" Value="103208"/>
+        <Key Name="EVENT_1811_NEWCLASS_ASS_TEAM_COUNT" Value="103206"/>
+        <Key Name="EVENT_1811_NEWCLASS_OUL_TEAM_COUNT" Value="103205"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_GIVE_ABILITY_BOX" Value="103235"/>
+        <Key Name="RVR_BK_REWARD_BLESSF_PC" Value="103239"/>
+        <Key Name="RVR_BK_REWARD_COIN_PC" Value="103240"/>
+        <Key Name="RVR_BK_REWARD_CUBE_PC" Value="103238"/>
+        <Key Name="EVENT_1811_DAYCHECK_DATE" Value="103245"/>
+        <Key Name="EVENT_1811_DAYCHECK_PLAYMIN" Value="103246"/>
+        <Key Name="RVR_BK_CURRENT_ZONE_SAVE" Value="103248"/>
+        <Key Name="EVENT_1811_TESTSERVER_CHALLENGE" Value="103256"/>
+        <Key Name="EVENT_1811_TESTSERVER_JOBCHANGE" Value="103258"/>
+        <Key Name="EVENT_1811_TESTSERVER_LEGEND" Value="103257"/>
+        <Key Name="EVENT_1811_TESTSERVER_UNIQUE" Value="103255"/>
+        <Key Name="EVENT_STEAM_FISHING_TALT_1" Value="103249"/>
+        <Key Name="EVENT_STEAM_FISHING_TALT_2" Value="103253"/>
+        <Key Name="EVENT_STEAM_FISHING_TALT_3" Value="103252"/>
+        <Key Name="EVENT_STEAM_FISHING_TALT_4" Value="103251"/>
+        <Key Name="EVENT_STEAM_FISHING_TALT_5" Value="103250"/>
+        <Key Name="EVENT_STEAM_FISHING_TALT_6" Value="103254"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP8" Value="103266"/>
+        <Key Name="EVENT_1811_KUPOLE_SHOP9" Value="103265"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9261,6 +9301,7 @@
         <Key Name="Kill_uniq_id_boss_ignas" Value="103160"/>
         <Key Name="LEVELINFORM_GUILDJOIN" Value="103162"/>
         <Key Name="HadVisited_4951" Value="103202"/>
+        <Key Name="Kill_Pc_summon_Legend_card_Ignas" Value="103243"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -9806,6 +9847,12 @@
         <Key Name="SkillASPD" Value="103149"/>
         <Key Name="SkillASPD_BM" Value="103146"/>
         <Key Name="SkillWidthRange" Value="103142"/>
+        <Key Name="BLK_BREAK_RATE_BM" Value="103259"/>
+        <Key Name="BLK_RATE_BM" Value="103261"/>
+        <Key Name="CRTDR_RATE_BM" Value="103264"/>
+        <Key Name="CRTHR_RATE_BM" Value="103262"/>
+        <Key Name="DR_RATE_BM" Value="103263"/>
+        <Key Name="HR_RATE_BM" Value="103260"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Skill">
         <Key Name="OnNeutral" Value="6715"/>
@@ -10223,6 +10270,9 @@
         <Key Name="GUILD_SYSTEM_MSG_MAXPATK" Value="103191"/>
         <Key Name="GUILD_SYSTEM_MSG_MDEF" Value="103190"/>
         <Key Name="RVR_BK_CONTRIBUTION_GUILD" Value="103204"/>
+        <Key Name="BK_MGAME_BORUTA_SIGN_BUFF" Value="103233"/>
+        <Key Name="RVR_BK_REWARD_CUBE_1" Value="103242"/>
+        <Key Name="RVR_BK_REWARD_SEAL_1" Value="103241"/>
     </KeyIDSpc>
     <KeyIDSpc Name="ZoneObject">
         <Key Name="JaqBoxLock" Value="122"/>
@@ -17121,6 +17171,18 @@
         <Key Name="MG_Last_UNIQUE_RAID_STARTOWER" Value="103174"/>
         <Key Name="MG_Last_RVR_RAID_BORUTOS_KAPAS_1" Value="103200"/>
         <Key Name="RVR_BK_TUTORIAL_1" Value="103201"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_CHAR_USE" Value="103228"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_CREATE_CHAR" Value="103231"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST1" Value="103232"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST2" Value="103227"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST_REWARD1" Value="103226"/>
+        <Key Name="EVENT_1811_NEWCHARACTER_QUEST_REWARD2" Value="103230"/>
+        <Key Name="EVENT_1811_RANKRESET_DATE" Value="103207"/>
+        <Key Name="TUTO_RANK_REST_POINT_SYSTEM" Value="103229"/>
+        <Key Name="TUTO_RANK_RESET_POINT_SYSTEM" Value="103234"/>
+        <Key Name="EVENT_1811_ABILITY_EXTRACTOR_EXCEPT" Value="103236"/>
+        <Key Name="EVENT_1811_ABILITY_EXTRACTOR_USE" Value="103237"/>
+        <Key Name="CHARACTER_ATTENDANCE_CHECK_EXTEND" Value="103247"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

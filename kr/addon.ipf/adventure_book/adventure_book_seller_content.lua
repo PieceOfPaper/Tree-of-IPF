@@ -110,6 +110,8 @@ function ADVENTURE_BOOK_SELLER_CONTENT.FILTER_LIST(list, sortOption, categoryOpt
 		list = ADVENTURE_BOOK_FILTER_ITEM(list, ADVENTURE_BOOK_SELLER_CONTENT['FIND_SKILL_CTRL_TYPE'], 'Archer')
 	elseif categoryOption == 4 then
 		list = ADVENTURE_BOOK_FILTER_ITEM(list, ADVENTURE_BOOK_SELLER_CONTENT['FIND_SKILL_CTRL_TYPE'], 'Cleric')
+	elseif categoryOption == 5 then
+		list = ADVENTURE_BOOK_FILTER_ITEM(list, ADVENTURE_BOOK_SELLER_CONTENT['FIND_SKILL_CTRL_TYPE'], 'Scout')
 	end
 
 	if sortOption == 0 then

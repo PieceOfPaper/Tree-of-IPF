@@ -23,6 +23,7 @@ function GUILDINFO_ON_INIT(addon, frame)
     addon:RegisterMsg("GUILD_MASTER_REQUEST", "ON_GUILD_MASTER_REQUEST");
     addon:RegisterMsg("GUILD_JOINT_INV_ITEM_LIST", "ON_GUILD_JOINT_INV_ITEM_LIST_GET");
     addon:RegisterMsg("UPDATE_GUILD_MILEAGE", "ON_UPDATE_GUILD_MILEAGE");
+    addon:RegisterMsg("NEW_USER_REQUEST_GUILD_JOIN", "NEW_USER_REQUEST_GUILD_JOIN");    
     firstOpen = true;
     g_ENABLE_GUILD_MEMBER_SHOW = false;
 end
@@ -307,4 +308,8 @@ function ON_GUILD_MASTER_REQUEST(frame, msg, argStr)
 	local yesScp = string.format("ui.Chat('/agreeGuildMasterByWeb')");
 	local noScp = string.format("ui.Chat('/disagreeGuildMaster')");
 	ui.MsgBox(ScpArgMsg("DoYouWantGuildLeadr{N1}{N2}",'N1',leaderName,'N2', pcparty.info.name), yesScp, noScp);
+end
+
+function NEW_USER_REQUEST_GUILD_JOIN(frame, msg)
+    print('NEW_USER_REQUEST_GUILD_JOIN')
 end

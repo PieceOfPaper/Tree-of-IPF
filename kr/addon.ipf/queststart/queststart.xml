@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="queststart" x="0" y="0" width="420" height="592" create="open">
-    <frame title="임무 수락" snapclient="true" snapframe="true" layout_gravity="left center"/>
+    <frame title="임무 수락" layout_gravity="left center"/>
     <layer layerlevel="100"/>
     <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
     <option closebutton="false" hideable="false"/>

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="videocamera" x="0" y="0" width="400" height="450">
+	<frame fullheight="false" fasthide="true"  layout_gravity="right top" scale_align="center top" margin="0 160 345 0" draw="true"/>
+  	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_skin_01"/>
+	<draw drawtitlebar="false"/>
+	<option visible="true" hideable="false" closebutton="false" moveable="true" />
+	<layer layerlevel="50"/>
+	<userconfig TOGGLE_HEIGHT_OFF="40" TOGGLE_WIDTH_OFF="120"/>
+	<script OpenScp="VIDEOCAMERA_OPEN"/>
+	<controls>
+		<richtext name="title" rect="0 0 190 30" margin="0 11 0 0" layout_gravity="center top" caption="{s14}Video Camera" fontname="brown_16_b" spacey="0" hittest="false"/>
+    	<groupbox name="toggle_gbox" rect="0 0 190 40" margin="0 0 0 0" LBtnUpScp="VIDEOCAMERA_TOGGLE" layout_gravity="center top" draw="false" skin="bg2" hittest="true"/>
+		<labelline name="labelline" rect="0 0 300 2" margin="0 35 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<groupbox name="base_gbox" rect="0 0 400 400" margin="0 40 0 0" layout_gravity="left top" draw="false" skin="bg2" hittest="true" scrollbar="true"/>
+		<groupbox name="func_gbox" parent="base_gbox" rect="0 0 400 100" margin="0 0 0 0" layout_gravity="left top" draw="false" skin="bg2" hittest="true" scrollbar="true"/>
+		<labelline name="labelline_2" parent="base_gbox" rect="0 0 300 2" margin="0 100 0 0" layout_gravity="center top" skin="labelline_def_2"/>
+		<groupbox name="model_gbox" parent="base_gbox" rect="0 0 200 300" margin="0 100 0 0" layout_gravity="left top" draw="false" skin="bg2" hittest="true" scrollbar="true"/>
+		<picture name="labellineVert" parent="base_gbox" rect="0 0 2 300" margin="0 100 0 0" draw="true" layout_gravity="center top" stretch="true" image="guild_line_p"/>
+		<groupbox name="free_gbox" parent="base_gbox" rect="0 0 200 300" margin="200 100 0 0" layout_gravity="left top" draw="false" skin="bg2" hittest="true" scrollbar="true"/>
+		<!-- Func Btn -->
+		<button name="btnMyCharHide" parent="func_gbox" rect="0 0 200 40" margin="15 10 0 0" LBtnUpScp="VIDEOCAMERA_MYCHAR_HIDE" fixwidth="true" format="{@st41}My Char Hide : %s{/}" param1="value" param1_def="OFF" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
+		<button name="btnFog" parent="func_gbox" rect="0 0 200 40" margin="15 50 0 0" LBtnUpScp="VIDEOCAMERA_FOG" fixwidth="true" format="{@st41}Fog : %s{/}" param1="value" param1_def="ON" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
+		<!--
+		<button name="btnEnvEffect" parent="base_gbox" rect="0 0 170 40" margin="0 120 0 0" LBtnUpScp="VIDEOCAMERA_ENV_EFFECT" fixwidth="true" format="{@st41}Env Effect : %s{/}" param1="value" param1_def="ON" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
+		-->
+		<!-- Model View -->
+		<button name="btnModelViewCam" parent="model_gbox" rect="0 0 170 40" margin="0 10 0 0" LBtnUpScp="VIDEOCAMERA_MODEL_CAM_EXEC" fixwidth="true" format="{@st41}Model Cam : %s{/}" param1="value" param1_def="OFF" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
+		<richtext name="horzSpeed_text" parent="model_gbox" rect="0 0 170 24" margin="15 60 0 0" layout_gravity="left top" format="{@st41}가로 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="horzSpeedSlide" parent="model_gbox" rect="0 0 190 20" margin="15 84 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_CONFIG_HORZ" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<richtext name="vertSpeed_text" parent="model_gbox" rect="0 0 170 24" margin="15 104 0 0" layout_gravity="left top" format="{@st41}세로 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="vertSpeedSlide" parent="model_gbox" rect="0 0 190 20" margin="15 128 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_CONFIG_VERT" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<richtext name="zoomSpeed_text" parent="model_gbox" rect="0 0 170 24" margin="15 148 0 0" layout_gravity="left top" format="{@st41}확대/축소 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="zoomSpeedSlide" parent="model_gbox" rect="0 0 190 20" margin="15 172 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_CONFIG_ZOOM" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+
+		<!-- Free View -->
+		<button name="btnFreeCam" parent="free_gbox" rect="0 0 170 40" margin="0 10 0 0" LBtnUpScp="VIDEOCAMERA_FREE_CAM_EXEC" fixwidth="true" format="{@st41}Free Cam : %s{/}" param1="value" param1_def="OFF" layout_gravity="center top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_cursor_over_2" skin="test_pvp_btn" textalign="center center"/>
+		<richtext name="freeHorzSpeed_text" parent="free_gbox" rect="0 0 170 24" margin="15 60 0 0" layout_gravity="left top" format="{@st41}가로 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="freeHorzSpeedSlide" parent="free_gbox" rect="0 0 190 20" margin="15 84 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_FREE_CONFIG_HORZ" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<richtext name="freeVertSpeed_text" parent="free_gbox" rect="0 0 170 24" margin="15 104 0 0" layout_gravity="left top" format="{@st41}세로 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="freeVertSpeedSlide" parent="free_gbox" rect="0 0 190 20" margin="15 128 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_FREE_CONFIG_VERT" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<richtext name="freeZoomSpeed_text" parent="free_gbox" rect="0 0 170 24" margin="15 148 0 0" layout_gravity="left top" format="{@st41}확대/축소 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="freeZoomSpeedSlide" parent="free_gbox" rect="0 0 190 20" margin="15 172 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_FREE_CONFIG_ZOOM" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<richtext name="freeArcHorzSpeed_text" parent="free_gbox" rect="0 0 170 24" margin="15 192 0 0" layout_gravity="left top" format="{@st41}카메라 가로 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="freeArcHorzSpeedSlide" parent="free_gbox" rect="0 0 190 20" margin="15 216 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_FREE_CONFIG_ARC_HORZ" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+		<richtext name="freeArcVertSpeed_text" parent="free_gbox" rect="0 0 170 24" margin="15 236 0 0" layout_gravity="left top" format="{@st41}카메라 세로 (%s){/}" param1_def="0" param1="opValue"/>
+		<slidebar name="freeArcVertSpeedSlide" parent="free_gbox" rect="0 0 190 20" margin="15 262 0 0" layout_gravity="left top" SlideScp="VIDEOCAMERA_FREE_CONFIG_ARC_VERT" clicksound="button_click_big_2" maxlevel="255" minlevel="0" oversound="button_over" skin="slidebar"/>
+	</controls>
+</uiframe>

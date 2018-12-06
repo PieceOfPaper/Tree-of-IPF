@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="sayballoon_new" x="0" y="0" width="280" height="220" create="open">
-    <frame title="{@st43}말풍선{/}" layout_gravity="left top" snapclient="true" snapframe="true" scale_align="center bottom"/>
+    <frame title="{@st43}말풍선{/}" layout_gravity="left top" scale_align="center bottom"/>
     <draw blend="80" drawframe="false" drawtitlebar="false"/>
     <layer layerlevel="89"/>
     <input moveable="true" resize="true" reduce="true" hittest="true" hittestframe="false"/>
-    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
     <userconfig offsetY="0"/>

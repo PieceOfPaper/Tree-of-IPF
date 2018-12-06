@@ -85,18 +85,12 @@ function ITEMCRAFT_FIRST_OPEN(frame)
 end
 
 function ITEMCRAFT_CLOSE(frame)
-
 	session.ResetItemList();
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	INVENTORY_SET_ICON_SCRIPT("ITEMCRAFT_INV_ICON");
-	INVENTORY_SET_ICON_SCRIPT("None");
-
-    local invframe = ui.GetFrame('inventory')
-	INVENTORY_UPDATE_ICONS(invframe)
-	ui.CloseFrame('inventory')
-
-
+	RESET_INVENTORY_ICON();
+	ui.CloseFrame('inventory');
 end
 
 function CRAFT_OPEN(frame)
@@ -171,7 +165,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 	end
 
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	INVENTORY_SET_ICON_SCRIPT("None");
+	RESET_INVENTORY_ICON();
 
 	local group = GET_CHILD(frame, 'Recipe', 'ui::CGroupBox')
 
@@ -309,7 +303,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 	
 	local hGroup = tree:FindByValue(groupName);
 	if tree:IsExist(hGroup) == 0 then
-		hGroup = tree:Add(GET_RECIPE_GROUP_NAME(groupName), groupName);
+		hGroup = tree:Add(ScpArgMsg(groupName), groupName);
 		tree:SetNodeFont(hGroup,"brown_18_b")
 	end
 
@@ -319,7 +313,7 @@ function CRAFT_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType)
 	else
 		local hClassType = tree:FindByValue(hGroup, classType);
 		if tree:IsExist(hClassType) == 0 then
-			hClassType = tree:Add(hGroup, GET_RECIPE_GROUP_NAME(classType), classType);
+			hClassType = tree:Add(hGroup, ScpArgMsg(classType), classType);
 			tree:SetNodeFont(hClassType,"brown_18_b")
 			
 		end
@@ -679,13 +673,9 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
         end
     end
         
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
-    local itemCount = session.GetInvItemList():Count();
-
-    for i = 0, itemCount - 1 do -- 인벤내의 아이템을 가져와서 재료인 아이템의 개수를 센다.
-	    local invItem = invItemList:Element(index);        
-	    if invItem ~= nil then
+	local invItemList = session.GetInvItemList();
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, havingItemCount)		
+		if invItem ~= nil then
             for key, value in pairs(havingItemCount) do
                 local item_classname = GetIES(invItem:GetObject()).ClassName
                 if item_classname ~= nil and IsValidRecipeMaterial(key, GetIES(invItem:GetObject())) and invItem.isLockState == false then                    
@@ -693,8 +683,7 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
                 end    
             end
 	    end
-	    index = invItemList:Next(index);
-    end
+	end, false, havingItemCount);
 
     local max_try_count = 210000000 -- 가진 재료로 최대로 만들 수 있는 개수
         
@@ -1088,8 +1077,7 @@ function CRAFT_RECIPE_FOCUS(page, ctrlSet)
 		CRAFT_MINIMIZE_FOCUS(page);
 
 		INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-		INVENTORY_SET_ICON_SCRIPT("None");
-		
+		RESET_INVENTORY_ICON();		
 	else
 		CRAFT_MINIMIZE_FOCUS(page);
 		page:SetUserValue("minimized", 0);
@@ -1273,6 +1261,22 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
     end
 end
 
+local function _RUNFUNC_TO_MERGED_CTRLSET(ctrlset, setName, func)
+
+	local setInfo = ui.GetControlSetInfo(setName);	
+	if setInfo == nil then
+		return;
+	end
+
+	local cnt = setInfo:GetControlCount();
+	for i = 0 , cnt - 1 do
+		local name = setInfo:GetControl(i):GetName();
+		local child = ctrlset:GetChild(name);
+		func(child);
+	end
+
+end
+
 function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)	
 	session.ResetItemList();
 	
@@ -1362,13 +1366,12 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 		memoSet:SetSkinName('None');
 		CRAFT_DETAIL_CTRL_INIT(memoSet);
 		CRAFT_INIT_MEMO_SET(memoSet);
-		--y = y + memoSet:GetHeight();
 	end
 
 	y = y + 10;
 
 	ctrlset:MergeControlSet(g_craftRecipe_makeBtn, 100, y +5);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_makeBtn, CRAFT_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_makeBtn, CRAFT_DETAIL_CTRL_INIT);
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
 	make:SetEventScript(ui.LBUTTONUP, 'CRAFT_BEFORE_START_CRAFT');
 	make:SetOverSound('button_over');
@@ -1377,7 +1380,7 @@ function CRAFT_MAKE_DETAIL_REQITEMS(ctrlset)
 	make:ShowWindow(1)
 
 	ctrlset:MergeControlSet(g_craftRecipe_upDown, 357, y + 5);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_upDown, CRAFT_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, g_craftRecipe_upDown, CRAFT_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_upDown, 'height');
 	y = y + ui.GetControlSetAttribute(g_craftRecipe_makeBtn, 'height');
 	local upDown = GET_CHILD(ctrlset, "upDown", "ui::CNumUpDown");
@@ -1631,52 +1634,34 @@ end
 
 
 function GET_SORTED_INV_ITEMLIST()
-    local resultlist = {}
-
+    local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, resultlist)		
 		if invItem ~= nil then
 			if invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
 				resultlist[#resultlist+1] = invItem
 			end
 		end
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
+	end, false, resultlist);
 
+	table.sort(resultlist, SORT_INVITEM_BY_WORTH)
 	return resultlist
 end
 
 function GET_ONLY_PURE_INVITEMLIST(type)
-
-	local resultlist = {}
-
+	local resultlist = {};
 	local invItemList = session.GetInvItemList();
-	local index = invItemList:Head();
-	local itemCount = session.GetInvItemList():Count();
-
-	for i = 0, itemCount - 1 do
-		
-		local invItem = invItemList:Element(index);
+	FOR_EACH_INVENTORY(invItemList, function(invItemList, invItem, resultlist)		
 		if invItem ~= nil then
 			if invItem.type == type and invItem.isLockState == false then
 				local itemobj = GetIES(invItem:GetObject());			
 				resultlist[#resultlist+1] = invItem
 			end
 		end
+	end, false, resultlist);
 
-		index = invItemList:Next(index);
-	end
-	
-	table.sort(resultlist, SORT_PURE_INVITEMLIST)
-
+	table.sort(resultlist, SORT_PURE_INVITEMLIST);
 	return resultlist
 end
 
@@ -1872,7 +1857,7 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 
 
 	ctrlset:MergeControlSet("journalRecipe_makeBtn", ctrlset:GetWidth() - 320, y + 0);
-	RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
+	_RUNFUNC_TO_MERGED_CTRLSET(ctrlset, "journalRecipe_makeBtn", JOURNAL_DETAIL_CTRL_INIT);
 	y = y + ui.GetControlSetAttribute("journalRecipe_makeBtn", 'height') + 0;
 	local make = GET_CHILD(ctrlset, "make", "ui::CButton");
 	

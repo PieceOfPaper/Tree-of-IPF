@@ -3,12 +3,11 @@
 <uiframe name="skillstat" x="0" y="0" width="480" height="470">
 	<frame fullheight="false" fasthide="true" layout_gravity="center center" open=""/>
 	<skin frameskin="none"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<draw drawtitlebar="false"/>
 	<layer layerlevel="80"/>
-	<option closebutton="false" closebuttonpos="0 20"/>
 	<sound opensound="button_click_stats_OK" closesound="button_click_big_2"/>
 	<effect open="character_item_window_open" close="character_item_window_close"/>
-	<script CloseScp="SKILLSTAT_SELEC_CANCLE" OpenScp="SKILLSTAT_OPEN"/>
+	<script CloseScp="SKILLSTAT_SELEC_CANCLE"/>
 	<userconfig HEIGHT_SKILLRESET="420" HEIGHT_STATRESET="480" FONT_STATCOUNT="{#FF0000}"/>
 	<controls>
 		<groupbox name="bg2" rect="0 0 480 470" margin="0 1 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="token_skin2"/>

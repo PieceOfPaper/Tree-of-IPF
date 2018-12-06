@@ -4,7 +4,7 @@
     <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="left top" margin="183 8 0 0"/>
     <draw drawtitlebar="false"/>
     <skin frameskin="wiki_add"/>
-    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>
         <richtext name="richtext_1" rect="0 0 121 24" margin="241 1 0 0" layout_gravity="left top" caption="{@st55_a}VS{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>

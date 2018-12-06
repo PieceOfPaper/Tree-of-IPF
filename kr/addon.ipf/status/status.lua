@@ -4,6 +4,7 @@ MAX_INV_COUNT = 4999;
 function STATUS_ON_INIT(addon, frame)
 
     addon:RegisterMsg('PC_PROPERTY_UPDATE', 'STATUS_UPDATE');
+    addon:RegisterMsg('PC_PROPERTY_UPDATE_DETAIL', 'SCR_PC_PROPERTY_UPDATE_DETAIL');
     addon:RegisterOpenOnlyMsg('STAT_UPDATE', 'STATUS_UPDATE');
     addon:RegisterMsg('RESET_STAT_UP', 'RESERVE_RESET');
     addon:RegisterMsg('STAT_AVG', 'STATUS_ON_MSG');
@@ -671,7 +672,7 @@ function SETEXP_SLOT(gbox, addBuffClsName, isAdd)
     local totalExpUpValue = 0;
 
     -- team level
-    local account = session.barrack.GetCurrentAccount();
+    local account = session.barrack.GetMyAccount();
     if account ~= nil then
         local teamLevel = account:GetTeamLevel();
         local expupValue = GET_TEAM_LEVEL_EXP_BONUS(teamLevel);
@@ -1189,8 +1190,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 
     local isEmptySlot = false;
 
-    local invItemList = session.GetInvItemList();
-    local index = invItemList:Head();
+    local invItemList = session.GetInvItemList();    
     local itemCount = session.GetInvItemList():Count();
 
     if session.GetInvItemList():Count() < MAX_INV_COUNT then
@@ -1425,7 +1425,8 @@ function STATUS_HIDDEN_JOB_UNLOCK_VIEW(pc, opc, frame, gboxctrl, y)
                 else
                     flag = true
                 end
-                if flag == true and(etcObj["HiddenJob_" .. jobIES.ClassName] == 300 or IS_KOR_TEST_SERVER()) then
+                
+                if flag == true and((etcObj["HiddenJob_" .. jobIES.ClassName] == 300 and jobIES.PreFunction ~= 'None' ) or IS_KOR_TEST_SERVER()) then
                     local hidden_job = gboxctrl:CreateControl('richtext', 'HIDDEN_JOB_' .. jobIES.ClassName, 10, y, 100, 25);
                     hidden_job:SetText('{@sti8}' .. ScpArgMsg("HIDDEN_JOB_UNLOCK_VIEW_MSG1", "JOBNAME", jobIES.Name))
                     y = y + 25
@@ -2498,6 +2499,20 @@ function GET_HAIR_CLASS_C(engName)
     return nil;
 end
 
+function SCR_PC_PROPERTY_UPDATE_DETAIL(frame, msg, propertyName, argNum)
+    local pc = GetMyPCObject();
+    local gboxctrl2 = frame:GetChild('statusGbox');
+    local gboxctrl = GET_CHILD(gboxctrl2, 'internalstatusBox');
+
+    local controlSet = gboxctrl:GetControlSet('status_stat', propertyName);
+	local y = 0;
+	if controlSet ~= nil then
+		y = controlSet:GetY();
+	end
+
+    STATUS_ATTRIBUTE_VALUE_NEW(pc, nil, frame, gboxctrl, propertyName, y);
+end
+
 function STATUS_OPEN_CLASS_DROPLIST(parent, ctrl)
     local mainSession = session.GetMainSession();
 	local pcJobInfo = mainSession.pcJobInfo;
@@ -2520,5 +2535,7 @@ function ON_UPDATE_REPRESENTATION_CLASS_ICON(frame, msg, argStr, representationI
     local gender = info.GetGender(session.GetMyHandle());
     local jName = GET_JOB_NAME(jobCls, gender);
     local lvText = jName;
+    local etc = GetMyEtcObject();
+    etc.RepresentationClassID = tostring(representationID);
     LevJobText:SetText('{@st41}{s20}' .. lvText);
 end

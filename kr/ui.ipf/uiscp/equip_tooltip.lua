@@ -33,7 +33,7 @@ local function _CREATE_SEAL_OPTION(box, ypos, step, propName, propValue, drawLin
 		local lockImg = box:CreateControl('picture', 'lockImg'..step, 0, 0, LOCK_IMG_SIZE, LOCK_IMG_SIZE);
 		AUTO_CAST(lockImg);
 		lockImg:SetGravity(ui.RIGHT, ui.TOP);
-		lockImg:SetMargin(0, infoText:GetY() + 10, 5, 0);
+		lockImg:SetMargin(0, infoText:GetY(), 5, 0);
 		lockImg:SetImage('icon_lock_tooltip_2');
 		lockImg:SetEnableStretch(1);
 	end
@@ -810,6 +810,10 @@ function IS_NEED_TO_DRAW_TOOLTIP_PROPERTY(list, list2, invitem, basicTooltipProp
 		return true;
 	end
 
+	if TryGetProp(invitem, 'IsAwaken', 0) ~= 0 then
+		return true;
+	end
+
 	return false;
 end
 
@@ -959,7 +963,7 @@ function DRAW_EQUIP_PROPERTY(tooltipframe, invitem, yPos, mainframename, setItem
 	if invitem.OptDesc ~= nil and invitem.OptDesc ~= 'None' then
 		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, invitem.OptDesc, 0, inner_yPos);
 	end
-    
+	
 	if setItem == nil then
 		if invitem.IsAwaken == 1 then
 			local opName = string.format("[%s] %s", ClMsg("AwakenOption"), ScpArgMsg(invitem.HiddenProp));
@@ -1094,11 +1098,117 @@ function DRAW_EQUIP_SOCKET(tooltipframe, itemObj, yPos, addinfoframename)
 	local DEFAULT_POS_Y = tooltip_equip_socket_CSet:GetUserConfig("DEFAULT_POS_Y")
 	local inner_yPos = DEFAULT_POS_Y;
 
+	local function _ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yPos )
+		if GroupCtrl == nil then
+			return 0;
+		end
+	
+		local cnt = GroupCtrl:GetChildCount();
+		
+		local ControlSetObj = GroupCtrl:CreateControlSet('tooltip_item_prop_socket', "ITEM_PROP_" .. cnt , 0, yPos);
+		local ControlSetCtrl = tolua.cast(ControlSetObj, 'ui::CControlSet');
+	
+		local socket_image = GET_CHILD(ControlSetCtrl, "socket_image", "ui::CPicture");
+		local socket_property_text = GET_CHILD(ControlSetCtrl, "socket_property", "ui::CRichText");
+		local gradetext = GET_CHILD_RECURSIVELY(ControlSetCtrl,"grade","ui::CRichText");
+	
+		local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
+		local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
+		if gem == 0 then
+			local socketCls = GetClassByType("Socket", socket);
+			socketicon = socketCls.SlotIcon
+			local socket_image_name = socketCls.SlotIcon
+			socket_image:SetImage(socket_image_name)		
+			socket_property_text:ShowWindow(0)
+			gradetext:ShowWindow(0)
+		else
+	
+			local gemclass = GetClassByType("Item", gem);
+			local socket_image_name = gemclass.Icon
+	
+			if gemclass.ClassName == 'gem_circle_1' then
+				socket_image_name = 'test_tooltltip_red'
+			elseif gemclass.ClassName == 'gem_square_1' then
+				socket_image_name = 'test_tooltltip_blue'
+			elseif gemclass.ClassName == 'gem_diamond_1' then
+				socket_image_name = 'test_tooltltip_green'
+			elseif gemclass.ClassName == 'gem_star_1' then
+				socket_image_name = 'test_tooltltip_yellow'
+			elseif gemclass.ClassName == 'gem_White_1' then
+				socket_image_name = 'test_tooltltip_white'
+			end
+	
+			socket_image:SetImage(socket_image_name)		
+			local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
+			
+			local prop = geItemTable.GetProp(gem);
+			
+			local desc = "";
+			local socketProp = prop:GetSocketPropertyByLevel(lv);
+			local type = invitem.ClassID;
+			local cnt = socketProp:GetPropCountByType(type);
+			gradetext:SetText("Lv " .. lv)
+			gradetext:ShowWindow(1)
+	
+			for i = 0 , cnt - 1 do
+				local addProp = socketProp:GetPropAddByType(type, i);
+	
+				local tempvalue = addProp.value
+	
+				local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
+				if tempvalue < 0 then
+					plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';
+					tempvalue = tempvalue * -1
+				end
+	
+				if addProp:GetPropName() == "OptDesc" then
+					desc = addProp:GetPropDesc().." ";
+				else
+					desc = desc .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
+				end
+	
+			end
+	
+			local cnt2 = socketProp:GetPropPenaltyCountByType(type);
+	
+			local penaltyLv = lv - gemLv;
+			if 0 > penaltyLv then
+				penaltyLv = 0;
+			end
+			local socketPenaltyProp = prop:GetSocketPropertyByLevel(penaltyLv);
+			for i = 0 , cnt2 - 1 do
+				local addProp = socketPenaltyProp:GetPropPenaltyAddByType(type, i);
+				local tempvalue = addProp.value
+				local plma_mark = POSITIVE_COLOR .. "{img green_up_arrow 16 16}"..'{/}';
+	
+				if tempvalue < 0 then
+					plma_mark = NEGATIVE_COLOR .. "{img red_down_arrow 16 16}"..'{/}';			
+				end
+	
+				if gemLv > 0 then
+					if 0 < penaltyLv then
+						desc = desc .. "{nl}" .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
+					end
+				else
+					desc = desc .. "{nl}" .. ScpArgMsg(addProp:GetPropName()) .. plma_mark .. tempvalue.." ";
+				end
+			end
+				
+			socket_property_text:SetText(desc);
+			socket_property_text:ShowWindow(1);
+			ControlSetCtrl:Resize(ControlSetCtrl:GetWidth(), math.max(ControlSetCtrl:GetHeight(), socket_property_text:GetHeight()));
+		end
+	
+		GroupCtrl:ShowWindow(1)
+		GroupCtrl:Resize(GroupCtrl:GetWidth(), GroupCtrl:GetHeight() + ControlSetObj:GetHeight() + 7)
+		return ControlSetCtrl:GetHeight() + ControlSetCtrl:GetY() + 5;
+	end	
+
 	local curCount = 0;	
 	for i = 0, itemObj.MaxSocket - 1 do
 		if invitem:IsAvailableSocket(i) == true then
 			curCount = curCount + 1
-			inner_yPos = ADD_ITEM_SOCKET_PROP(socket_gbox, itemObj, 
+			inner_yPos = _ADD_ITEM_SOCKET_PROP(socket_gbox, itemObj, 
 											GET_COMMON_SOCKET_TYPE(), 
 											invitem:GetEquipGemID(i), 
 											invitem:GetEquipGemExp(i),
@@ -1110,7 +1220,7 @@ function DRAW_EQUIP_SOCKET(tooltipframe, itemObj, yPos, addinfoframename)
 	socket_value:SetTextByKey("curCount", curCount)
 
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
-	tooltip_equip_socket_CSet:Resize(tooltip_equip_socket_CSet:GetWidth(),socket_gbox:GetHeight() + socket_gbox:GetY() + BOTTOM_MARGIN);
+	tooltip_equip_socket_CSet:Resize(tooltip_equip_socket_CSet:GetWidth(), socket_gbox:GetHeight() + socket_gbox:GetY() + BOTTOM_MARGIN);
 
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + tooltip_equip_socket_CSet:GetHeight())
 	return tooltip_equip_socket_CSet:GetHeight() + tooltip_equip_socket_CSet:GetY();
@@ -1523,16 +1633,22 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	local extract_flag = 0
 	local socket_flag = 0
 	local briquet_flag = 0;
+	local exchange_flag = TryGetProp(invitem, 'Rebuildchangeitem', 0);
 	local text = ""
 
 	if REINFORCE_ABLE_131014(invitem) == 0 then
 		reinforce_flag = 1
 	end
+	
+	if IS_SEAL_ITEM(invitem) == true then		
+		if invitem.MaxReinforceCount > GET_CURRENT_SEAL_LEVEL(invitem) then
+			reinforce_flag = 0;
+		end
+	end
 
 	if IS_TRANSCEND_ABLE_ITEM(invitem) == 0 then
 		transcend_flag = 1
-	end
-    
+	end    
 
 	if IS_VALID_LOOK_ITEM(invitem) == false then
 	    briquet_flag = 1;
@@ -1547,7 +1663,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 		socket_flag = 1
 	end
 
-	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 then
+	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 then
 		return yPos
 	end
 
@@ -1557,72 +1673,47 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	local CSet = gBox:CreateControlSet('tooltip_equip_cannot_reinforce', 'tooltip_equip_cannot_reinforce', 0, yPos);
 	tolua.cast(CSet, "ui::CControlSet");
 
-	local socket_text = GET_CHILD_RECURSIVELY(CSet, 'socket_text')
-	
+	local socket_text = GET_CHILD_RECURSIVELY(CSet, 'socket_text');
 
-	local text_font = CSet:GetUserConfig("TEXT_FONT")
-	text = text .. text_font
-
-	if reinforce_flag == 1 then
-		local text_temp = CSet:GetUserConfig("REINFORCE_TEXT")
-		text = text .. text_temp
-	end
-
-	if transcend_flag == 1 then
-		local text_temp = CSet:GetUserConfig("TRANSCEND_TEXT")
-		if reinforce_flag == 1 then
-			text = text .. ', ' .. text_temp
-		else
-			text = text .. text_temp
+	local function _APPEND_LIMITATION_TEXT(flag, text, targetText, appendComma)
+		if flag == 0 then
+			return text;
 		end
-	end
 
-	if extract_flag == 1 then
-		local text_temp = CSet:GetUserConfig("EXTRACT_TEXT")
-		if reinforce_flag == 1 or transcend_flag == 1 then
-			text = text .. ', ' .. text_temp
-		else
-			text = text .. text_temp
+		local _text = text..targetText;
+		if appendComma ~= false then
+			_text = _text..',';
 		end
-	end
-
-	if socket_flag == 1 then
-		local text_temp = CSet:GetUserConfig("SOCKET_TEXT")
-		if reinforce_flag == 1 or transcend_flag == 1 or extract_flag == 1 then
-			text = text .. ', ' .. text_temp
-		else
-			text = text .. text_temp
-		end
-	end
-    
-    if briquet_flag == 1 then
-		local text_temp = CSet:GetUserConfig("BRIQUET_TEXT")
-		if reinforce_flag == 1 or transcend_flag == 1 or extract_flag == 1 or socket_flag == 1 then
-			text = text .. ', ' .. text_temp
-		else
-			text = text .. text_temp
-		end
+		return _text;
 	end
 	
-	socket_text:SetText(text)
+	text = _APPEND_LIMITATION_TEXT(1, text, CSet:GetUserConfig("TEXT_FONT"), false);
+	text = _APPEND_LIMITATION_TEXT(reinforce_flag, text, CSet:GetUserConfig("REINFORCE_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(transcend_flag, text, CSet:GetUserConfig("TRANSCEND_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(extract_flag, text, CSet:GetUserConfig("EXTRACT_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(socket_flag, text, CSet:GetUserConfig("SOCKET_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(briquet_flag, text, CSet:GetUserConfig("BRIQUET_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(exchange_flag, text, CSet:GetUserConfig("EXCHANGE_TEXT"));
+
+	if text:sub(-#',') == ',' then
+		text = text:sub(0, text:len() - 1);
+	end
+
+	socket_text:SetText(text);
 
 	local bottomMargin = CSet:GetUserConfig("BOTTOM_MARGIN");
---	CSet:Resize(CSet:GetWidth(), CSet:GetHeight() + bottomMargin)
---	gBox:Resize(gBox:GetWidth(), gBox:GetHeight() + CSet:GetHeight())
-	return yPos + CSet:GetHeight()
-
+	return yPos + CSet:GetHeight();
 end
 
 --포텐 및 내구도
-function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
+function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)	
 
 	local gBox = GET_CHILD(tooltipframe, mainframename,'ui::CGroupBox')
 	gBox:RemoveChild('tooltip_pr_n_dur');
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
 	if (invitem.GroupName ~= "Armor" and invitem.GroupName ~= "Weapon" ) or invitem.EquipGroup == "WING" then -- 내구도 개념이 없는 템
-
-	    if invitem.BasicTooltipProp == "None" then
+		if invitem.BasicTooltipProp == "None" then			
     		return yPos;
 		end
 	end
@@ -1632,6 +1723,7 @@ function DRAW_EQUIP_PR_N_DUR(tooltipframe, invitem, yPos, mainframename)
 		if (classtype == "Outer") 
 		or (classtype == "Hat") 
 		or (classtype == "Hair") 
+		or (classtype == "Seal") 
 		or ((itemClass.PR == 0) and (invitem.MaxDur <= 0)) then
 			return yPos;
 		end
@@ -1738,11 +1830,11 @@ function DRAW_EQUIP_ONLY_PR(tooltipframe, invitem, yPos, mainframename)
 		if (classtype ~= "Hat" and invitem.BasicTooltipProp ~= "None")
 		or (itemClass.PR == 0) 
 		or (classtype == "Outer")
+		or (classtype == "Seal")
 		or (itemClass.ItemGrade == 0 and classtype == "Hair") then
 			return yPos;
 		end;
 	end
-
 
 	local CSet = gBox:CreateControlSet('tooltip_only_pr', 'tooltip_only_pr', 0, yPos);
 	tolua.cast(CSet, "ui::CControlSet");

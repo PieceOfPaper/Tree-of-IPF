@@ -32,8 +32,8 @@ function SET_MINIMAP_SIZE(amplify)
 	SET_MINIMAPSIZE(cursize);
 
 	local frame = ui.GetFrame('minimap');
-	UPDATE_MINIMAP(frame);
-	MINIMAP_CHAR_UDT(frame);
+	REQUEST_UPDATE_MINIMAP(frame);
+
 end
 
 function MINIMAP_MOUSEWHEEL(frame, ctrl, argStr, argNum)
@@ -62,10 +62,11 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('MAP_CHARACTER_UPDATE', 'MINIMAP_CHAR_UDT');
 	addon:RegisterOpenOnlyMsg('ANGLE_UPDATE', 'M_UPT_ANGLE');
 
-	addon:RegisterOpenOnlyMsg('GAME_START', 'UPDATE_MINIMAP');
+	addon:RegisterOpenOnlyMsg('GAME_START', 'REQUEST_UPDATE_MINIMAP');
 	addon:RegisterOpenOnlyMsg('QUEST_UPDATE', 'UPDATE_MINIMAP_SOBJ');
 	addon:RegisterOpenOnlyMsg('GET_NEW_QUEST', 'UPDATE_MINIMAP_SOBJ');
-	
+	addon:RegisterOpenOnlyMsg('QUEST_DELETED', 'REQUEST_UPDATE_MINIMAP');
+
 	addon:RegisterOpenOnlyMsg('NPC_STATE_UPDATE', 'UPDATE_MINIMAP_NPC_STATE');
 	addon:RegisterMsg('PARTY_INST_UPDATE', 'M_MAP_UPDATE_PARTY_INST');
 	addon:RegisterMsg('PARTY_UPDATE', 'M_MAP_UPDATE_PARTY');
@@ -74,9 +75,10 @@ function MINIMAP_ON_INIT(addon, frame)
 	addon:RegisterMsg('MON_MINIMAP', 'MAP_MON_MINIMAP');
 	addon:RegisterMsg('MON_MINIMAP_END', 'ON_MON_MINIMAP_END');
     addon:RegisterMsg('COLONY_MONSTER', 'MINIMAP_COLONY_MONSTER');
-    addon:RegisterMsg('OPEN_COLONY_POINT', 'UPDATE_MINIMAP');
+    addon:RegisterMsg('OPEN_COLONY_POINT', 'REQUEST_UPDATE_MINIMAP');
 	addon:RegisterMsg('REMOVE_COLONY_MONSTER', 'ON_REMOVE_COLONY_MONSTER_MINIMAP');
 	addon:RegisterMsg('UPDATE_MGAME_POSITION', 'ON_UPDATE_MINIMAP_MGAME_POSITION');	
+	addon:RegisterMsg('ON_QUEST_UPDATED', 'UPDATE_MINIMAP');	
 
 	mini_pos = GET_CHILD(frame, "my");
 	mini_pos:SetOffset(frame:GetWidth() / 2 - mini_pos:GetImageWidth() / 2 , frame:GetHeight() / 2 - mini_pos:GetImageHeight() / 2);
@@ -103,14 +105,12 @@ end
 
 function MINIMAP_FIRST_OPEN(frame)
 
-	UPDATE_MINIMAP(frame);
+	REQUEST_UPDATE_MINIMAP(frame);
 
 end
 
 function UPDATE_MINIMAP_SOBJ(frame)
-
-	DESTROY_CHILD_BYNAME(frame, "_INDIC_");
-	UPDATE_MINIMAP(frame);
+	REQUEST_UPDATE_MINIMAP(frame);
 
 end
 
@@ -118,7 +118,14 @@ function UPDATE_MINIMAP_NPC_STATE(frame)
 	local npcList = GET_CHILD(frame, 'npclist', 'ui::CGroupBox');
 	UPDATE_NPC_STATE_COMMON(npcList);
 end
+function REQUEST_UPDATE_MINIMAP(frame)
+	
+	local curmapname = session.GetMapName();
+	local mapprop = geMapTable.GetMapProp(curmapname);
+	local mapname = mapprop:GetClassName();
 
+	RequestUpdateMinimap(mapname, 0);
+end
 function UPDATE_MINIMAP(frame)
 
 	if session.DontUseMinimap() == true then
@@ -152,7 +159,7 @@ function UPDATE_MINIMAP(frame)
 	
 	local mapname = mapprop:GetClassName();
 
-	local npclist, statelist, questIESlist, questPropList = GET_QUEST_NPC_NAMES(mapname);
+	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames(mapname);
 
 	local npcList = frame:GetChild('npclist')
 	tolua.cast(npcList, 'ui::CGroupBox');
@@ -384,7 +391,8 @@ function UPDATE_MINIMAP(frame)
 	M_MAP_UPDATE_PARTY(frame, nil, nil, 0);
 	M_MAP_UPDATE_GUILD(frame, nil, nil, 0);
 	MAKE_MY_CURSOR_TOP(frame);
-
+	DESTROY_CHILD_BYNAME(frame, "_INDIC_");
+	MINIMAP_CHAR_UDT(frame);
 	frame:Invalidate();
 	
 end
@@ -729,7 +737,7 @@ function MINIMAP_COLONY_MONSTER(frame, msg, posStr, monID)
 end
 
 function ON_REMOVE_COLONY_MONSTER_MINIMAP(frame, msg, handlePosStr, monID)
-	local mappicturetemp = GET_CHILD(frame, 'npclist', 'ui::CPicture');  
+    local mappicturetemp = GET_CHILD(frame, 'npclist', 'ui::CPicture');  
 	local handle, x, z = GET_COLONY_MONSTER_POS(handlePosStr)
 	local pic = GET_COLONY_MONSTER_PIC_NAME(monID, handle);
     mappicturetemp:RemoveChild(pic);

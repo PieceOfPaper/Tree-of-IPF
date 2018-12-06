@@ -4,7 +4,7 @@
 	<frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="center top" margin="0 50 0 0"/>
 	<draw drawtitlebar="false"/>
 	<skin frameskin="recipe_skin"/>
-	<option hideable="true" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+	<option hideable="true" useimageitem="true"/>
 	<sound opensound="win_open" closesound="win_close"/>
   <userconfig OPEN_DURATION="3" SLOT_PLAY_EFFECT_NAME ="I_sys_item_slot_loop" SLOT_PLAY_EFFECT_SCALE ="3.3" SLOT_SKIN_NAME ="slot_type02" IMAGE_MARGIN ="40" ITEM_SLOT_LINE_COUNT="5" LINE_TOP_MARGIN="3" LINE_BOTTOM_MARGIN="3" LINE_LEFT_MARGIN="3" LINE_RIGHT_MARGIN="3" SLOT_SPACE="1" NOT_COLLECT_COLOR="88000000" EXIST_COLLECT_COLOR="FF777777" ABLE_COLLECT_COLOR="FF777777"/>
 	<controls>

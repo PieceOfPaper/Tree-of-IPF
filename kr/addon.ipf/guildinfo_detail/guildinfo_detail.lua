@@ -191,6 +191,7 @@ function ON_GUILDJOIN_REQUEST_SUCCESS(code, ret_json)
         SHOW_GUILD_HTTP_ERROR(code, ret_json, "ON_GUILDJOIN_REQUEST_SUCCESS")
         return
     end
+    SendNoticeGuildApplication(tostring(g_guildIdx))
     ui.MsgBox(ClMsg("GuildJoined"))
 end
 

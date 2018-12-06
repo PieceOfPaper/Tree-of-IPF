@@ -7,6 +7,7 @@ end
 local s_reinforceSeal = {};
 local function _INIT_COMPONENT(frame)
 	local slotBox = GET_CHILD_RECURSIVELY(frame, 'slotBox');
+	local slotBox2 = GET_CHILD_RECURSIVELY(frame, 'slotBox2');
 	local costBox = GET_CHILD_RECURSIVELY(frame, 'costBox');
 	DESTROY_CHILD_BYNAME(slotBox, 'Component_');
 	DESTROY_CHILD_BYNAME(costBox, 'Component_');
@@ -43,16 +44,15 @@ local function _INIT_COMPONENT(frame)
 		upBtnUpScp = 'REINFORCE_SEAL_UPDATE_SIMULATE',
 		downBtnUpScp = 'REINFORCE_SEAL_UPDATE_SIMULATE',
 		maxBtnUpScp = 'REINFORCE_SEAL_UPDATE_SIMULATE',
+		checkScp = 'REINFORCE_SEAL_CHECK_ADDITIONAL_ITEM',
+		isAlwaysWithMax = true,
 	});
 	local additionalItemCls = GetClass('Item', GET_SEAL_ADDITIONAL_ITEM());
 	local additionalInvItem = session.GetInvItemByType(additionalItemCls.ClassID);
-	local max = GET_MAX_SEAL_ADDIONAL_ITEM_COUNT();
-	if additionalInvItem ~= nil then		
-		max = math.min(max, additionalInvItem.count);
-	else
-		max = 0;
-	end
-	s_reinforceSeal.UpDownMax:SetMinMax(0, max);
+	s_reinforceSeal.UpDownMax:SetMinMax(0, 0);
+	s_reinforceSeal.UpDownMax:SetStyle('{#FF0000}');
+	slotBox:ShowWindow(1);
+	slotBox2:ShowWindow(1);
 end
 
 local function _CREATE_SEAL_OPTION(parent, ypos, width, height, option, optionValue, idx, xMargin)
@@ -105,18 +105,50 @@ local function _CREATE_SEAL_OPTION_HIDE(parent, ypos, idx, showHelpImg, itemObj,
 	local lockImg = bg:CreateControl('picture', 'lockImg', 0, 0, prop.lockImgSize, prop.lockImgSize);
 	AUTO_CAST(lockImg);
 	lockImg:SetImage(prop.lockImgName);
-	lockImg:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+	if itemObj.SealType == 'unlock' then
+		lockImg:SetGravity(ui.RIGHT, ui.CENTER_VERT);
+	else
+		lockImg:SetGravity(ui.CENTER_HORZ, ui.CENTER_VERT);
+	end
 
 	ypos = ypos + bg:GetHeight();
 	return ypos;
 end
 
-local function _INIT_APPLY_OPTION_BOX(frame, itemObj)
-	control.CustomCommand('GET_SEAL_OPTION_MINMAX_VALUE', itemObj.ClassID);
-	
+local function _REQUEST_SEAL_MINMAX_INFO(targetSeal)
+	session.ResetItemList();
+    session.AddItemID(targetSeal:GetIESID(), 1);
+    local resultlist = session.GetItemIDList();
+    item.DialogTransaction('GET_SEAL_INFO', resultlist, '0');
+end
+
+local function _REQUEST_SEAL_BASIC_RATIO(targetSeal)	
+	session.ResetItemList();
+    session.AddItemID(targetSeal:GetIESID(), 1);
+    local resultlist = session.GetItemIDList();
+    item.DialogTransaction('GET_SEAL_INFO', resultlist, '1');
+end
+
+local function _REQUEST_SEAL_ADDITIONAL_RATIO(targetSeal, matSeal, additionalItemCount)	
+	session.ResetItemList();
+	session.AddItemID(targetSeal:GetIESID(), 1);
+	session.AddItemID(matSeal:GetIESID(), 1);
+    local resultlist = session.GetItemIDList();
+	item.DialogTransaction('GET_SEAL_INFO', resultlist, '2 '..additionalItemCount);
+end
+
+local function _INIT_APPLY_OPTION_BOX(frame, itemObj)	
 	local applyOptionBox = GET_CHILD_RECURSIVELY(frame, 'applyOptionBox');
 	DESTROY_CHILD_BYNAME(applyOptionBox, 'OPTION_');
-	
+	if itemObj == nil then
+		return;
+	end
+
+	if itemObj.SealType == 'random' then
+		local targetSeal = s_reinforceSeal.TargetSeal:GetItemInfo();
+		_REQUEST_SEAL_MINMAX_INFO(targetSeal);
+	end
+
 	local ypos = 40;
 	local APPLY_OPTION_CTRLSET_WIDTH = tonumber(frame:GetUserConfig('APPLY_OPTION_CTRLSET_WIDTH'));
 	local APPLY_OPTION_CTRLSET_HEIGHT = tonumber(frame:GetUserConfig('APPLY_OPTION_CTRLSET_HEIGHT'));
@@ -158,27 +190,10 @@ local function _SIMULATE_RESULT(frame)
 	if targetItem == nil or materialItem == nil then
 		return;
 	end
-
-	local simulateBox = GET_CHILD_RECURSIVELY(frame, 'simulateBox');
-	local defaultRatioText = GET_CHILD_RECURSIVELY(simulateBox, 'defaultRatioText');
-	local basicRatio = GET_SEAL_BASIC_RATIO(targetItemObj, materialITemObj);
-	defaultRatioText:SetTextByKey('ratio', basicRatio);
-
-	local additionalRatio = 0;
-	local additionalItem, additionalItemCount = _GET_ADDITIONAL_ITEM(frame);
+	
 	local additionalRatioText = GET_CHILD_RECURSIVELY(frame, 'additionalRatioText');
-	if additionalItem == nil or additionalItemCount < 1 then		
-		additionalRatioText:ShowWindow(0);
-	else
-		additionalRatio = GET_SEAL_ADDITIONAL_RATIO(targetItemObj, materialItemObj, additionalItem, additionalItemCount);
-		additionalRatioText:SetTextByKey('ratio', additionalRatio);
-		additionalRatioText:ShowWindow(1);
-	end
-
-	local resultText = GET_CHILD_RECURSIVELY(simulateBox, 'resultText');
-	resultText:SetTextByKey('ratio', basicRatio + additionalRatio);
-	imcRichText:SetColorBlend(resultText, true, 2,  0xFFFF0000, 0xFFFFBB00);
-	simulateBox:ShowWindow(1);
+	additionalRatioText:SetTextByKey('ratio', 0);
+	_REQUEST_SEAL_BASIC_RATIO(targetItem);
 end
 
 local function _UPDATE_PRICE(frame)
@@ -229,6 +244,18 @@ function CLOSE_REINFORCE_SEAL(frame)
 	control.DialogOk();
 end
 
+local function _UPDATE_ADDITIONAL_ITEM_STYLE(frame)
+	local itemSlot = GET_CHILD_RECURSIVELY(frame, 'itemSlot');
+	local icon = itemSlot:GetIcon();
+	if s_reinforceSeal.UpDownMax:IsMax() == true then
+		s_reinforceSeal.UpDownMax:SetStyle('{@st41}{s18}');
+		icon:SetColorTone('FFFFFFFF');
+	else
+		s_reinforceSeal.UpDownMax:SetStyle('{#FF0000}');
+		icon:SetColorTone('AAFF0000');
+	end
+end
+
 function REINFORCE_SEAL_DROP_TARGET(parent, slot)
 	local frame = parent:GetTopParentFrame();
 	local targetItem, targetItemObj = s_reinforceSeal.TargetSeal:GetItemInfo();
@@ -237,6 +264,10 @@ function REINFORCE_SEAL_DROP_TARGET(parent, slot)
 	
 	local targetNameText = GET_CHILD_RECURSIVELY(frame, 'targetNameText');
 	targetNameText:SetTextByKey('name', GET_FULL_NAME(targetItemObj));
+
+	local maxCnt = GET_MAX_SEAL_ADDIONAL_ITEM_COUNT(targetItemObj);
+	s_reinforceSeal.UpDownMax:SetMinMax(0, maxCnt);
+	_UPDATE_ADDITIONAL_ITEM_STYLE(frame);
 end
 
 function REINFORCE_SEAL_DROP_MATERIAL(parent, slot)	
@@ -261,7 +292,7 @@ function REINFORCE_SEAL_DROP_ADDITIONAL_ITEM(parent, slot)
 
 	local itemObj = GetIES(invItem:GetObject());
 	if IS_SEAL_ADDITIONAL_ITEM(itemObj) == false then
-		ui.SysMsg(ClMsg('WrongDropItem'));
+		ui.SysMsg(ClMsg('CantUseSeal'));
 		return;
 	end
 
@@ -270,7 +301,7 @@ end
 
 function REINFORCE_SEAL_CHECK_TARGET(parent, ctrl, itemObj)
 	if IS_SEAL_ITEM(itemObj) == false then
-		ui.SysMsg(ClMsg('WrongDropItem'));
+		ui.SysMsg(ClMsg('CantUseSeal'));
 		return false;
 	end
 
@@ -290,7 +321,7 @@ function REINFORCE_SEAL_CHECK_MATERIAL(parent, ctrl, itemObj)
 
 	local targetSeal, targetSealObj = s_reinforceSeal.TargetSeal:GetItemInfo();	
 	if IS_VALID_SEAL_MATERIAL_ITEM(targetSealObj, itemObj) == false then
-		ui.SysMsg(ClMsg('WrongDropItem'));
+		ui.SysMsg(ClMsg('CantUseSeal'));
 		return false;
 	end
 
@@ -318,6 +349,16 @@ function RESET_REINFORCE_SEAL(parent, ctrl)
 
 	local applyOptionBox = GET_CHILD_RECURSIVELY(frame, 'applyOptionBox');
 	DESTROY_CHILD_BYNAME(applyOptionBox, 'OPTION_');
+	applyOptionBox:SetOffset(applyOptionBox:GetX(), applyOptionBox:GetOriginalY());
+	applyOptionBox:ShowWindow(1);
+
+	local reinfResultBox = GET_CHILD_RECURSIVELY(frame, 'reinfResultBox');
+	reinfResultBox:ShowWindow(0);
+
+	local costBox = GET_CHILD_RECURSIVELY(frame, 'costBox');
+	local priceText = GET_CHILD_RECURSIVELY(costBox, 'priceText');
+	priceText:SetTextByKey('price', GET_SEAL_PRICE());
+	costBox:ShowWindow(1);
 end
 
 function REINFORCE_SEAL_EXECUTE(parent, ctrl)
@@ -339,12 +380,17 @@ function REINFORCE_SEAL_EXECUTE(parent, ctrl)
 
 	local resultText = GET_CHILD_RECURSIVELY(frame, 'resultText');
 	local successRatio = tonumber(resultText:GetTextByKey('ratio'));
-	local clmsg = ClMsg('ReallyReinforceSeal');
-	if successRatio < 100 then
-		if targetSealObj.PR < 1 then
-			clmsg = ClMsg('DestroyReinforceItem')..'{nl}'..clmsg;
-		end
+	local clmsg = '';
+	if s_reinforceSeal.UpDownMax:IsMax() == true then
+		clmsg = ClMsg('AdditionalItemCountIsMax');
+	else
+		clmsg = ClMsg('AdditionalItemCountIsNotMax');
 	end
+	if successRatio < 100 then
+		clmsg = clmsg..'{nl}'..ClMsg('DestroyReinforceItem');
+	end
+
+	clmsg = clmsg..'{nl}'..ClMsg('ReallyReinforceSeal');
 
 	ui.MsgBox(clmsg, 'IMPL_REINFORCE_SEAL_EXECUTE', 'None');
 end
@@ -367,6 +413,11 @@ end
 
 function REFINFORCE_SEAL_RBTN_CLICK(itemObj, invSlot, invItemGuid)
 	local frame = ui.GetFrame('itemrullet');
+	local reinfResultBox = GET_CHILD_RECURSIVELY(frame, 'reinfResultBox');	
+	if reinfResultBox:IsVisible() == 1 then
+		return;
+	end
+
 	if invSlot:IsSelected() == 1 then
 		RESET_REINFORCE_SEAL(frame);
 	else
@@ -387,14 +438,75 @@ function REFINFORCE_SEAL_RBTN_CLICK(itemObj, invSlot, invItemGuid)
 end
 
 function REINFORCE_SEAL_UPDATE_SIMULATE(parent, ctrl)	
-	local frame = parent:GetTopParentFrame();
-	_SIMULATE_RESULT(frame);	
+	local frame = parent:GetTopParentFrame();	
+	local curHaveCnt = GET_INV_ITEM_COUNT_BY_PROPERTY({}, false, nil, function(item)
+		return IS_SEAL_ADDITIONAL_ITEM(item);
+	end);
+	if s_reinforceSeal.UpDownMax:GetNumber() > curHaveCnt then
+		s_reinforceSeal.UpDownMax:SetNumber(curHaveCnt);
+	end
+
+	_SIMULATE_RESULT(frame);
+	_UPDATE_ADDITIONAL_ITEM_STYLE(frame);
 end
 
-function ON_SUCCESS_REINFORCE_SEAL(frame, msg, argStr, argNum)
+local function _SET_RESULT_INFO(frame, result)	
+	-- hide
+	local applyOptionBox = GET_CHILD_RECURSIVELY(frame, 'applyOptionBox');
+	local simulateBox = GET_CHILD_RECURSIVELY(frame, 'simulateBox');
+	local costBox = GET_CHILD_RECURSIVELY(frame, 'costBox');
+	local slotBox = GET_CHILD_RECURSIVELY(frame, 'slotBox');
+	local slotBox2 = GET_CHILD_RECURSIVELY(frame, 'slotBox2');	
+	applyOptionBox:ShowWindow(0);
+	simulateBox:ShowWindow(0);
+	costBox:ShowWindow(0);
+	slotBox:ShowWindow(0);
+	slotBox2:ShowWindow(0);
+
+	-- show
+	local reinfResultBox = GET_CHILD_RECURSIVELY(frame, 'reinfResultBox');
+	local successBgBox = GET_CHILD(reinfResultBox, 'successBgBox');
+	local failBgBox = GET_CHILD(reinfResultBox, 'failBgBox');
+	if result == 'Success' then
+		local successItemPic = GET_CHILD(successBgBox, 'successItemPic');
+		local targetItem, targetItemObj = s_reinforceSeal.TargetSeal:GetItemInfo();
+		successItemPic:SetImage(targetItemObj.Icon);
+
+		applyOptionBox:Move(0, 100);
+		applyOptionBox:ShowWindow(1);
+		successBgBox:ShowWindow(1);
+		failBgBox:ShowWindow(0);
+	else
+		local failPic = GET_CHILD(failBgBox, 'failPic');
+		local failText = GET_CHILD(failBgBox, 'failText');
+		if result == 'Fail' then
+			failPic:SetImage('card_reinforce_FAIL');
+			failText:ShowWindow(0);
+		else
+			failPic:SetImage('card_reinforce_DESTROY');
+			failText:ShowWindow(1);
+		end
+		successBgBox:ShowWindow(0);
+		failBgBox:ShowWindow(1);
+		slotBox:ShowWindow(1);
+		slotBox2:ShowWindow(1);
+	end
+
+	reinfResultBox:ShowWindow(1);
+end
+
+function ON_SUCCESS_REINFORCE_SEAL(frame, msg, result, argNum)
+	_SET_RESULT_INFO(frame, result);
 	local targetItem, targetItemObj = s_reinforceSeal.TargetSeal:GetItemInfo();
+	local materialItem, materialItemObj = s_reinforceSeal.MaterialSeal:GetItemInfo();
 	if targetItemObj == nil then
-		RESET_REINFORCE_SEAL(frame);
+		s_reinforceSeal.TargetSeal:Clear();		
+	end
+	if materialItemObj == nil then
+		s_reinforceSeal.MaterialSeal:Clear();
+	end
+
+	if result ~= 'Success' then
 		return;
 	end
 
@@ -449,6 +561,59 @@ function CB_SEALMINMAX(minmaxStr)
 	helpPic:SetTextTooltip(text);
 end
 
+function CB_SEAL_BASIC_RATIO(basicRatio)	
+	local frame = ui.GetFrame('itemrullet');	
+	local simulateBox = GET_CHILD_RECURSIVELY(frame, 'simulateBox');
+	local defaultRatioText = GET_CHILD_RECURSIVELY(simulateBox, 'defaultRatioText');
+	local additionalRatioText = GET_CHILD_RECURSIVELY(frame, 'additionalRatioText');	
+	defaultRatioText:SetTextByKey('ratio', basicRatio);
+	additionalRatioText:ShowWindow(0);
+	simulateBox:ShowWindow(1);
+
+	local targetItem, targetItemObj = s_reinforceSeal.TargetSeal:GetItemInfo();
+	local materialItem, materialItemObj = s_reinforceSeal.MaterialSeal:GetItemInfo();
+	local additionalItem, additionalItemCount = _GET_ADDITIONAL_ITEM(frame);
+	if targetItem == nil or materialItem == nil then
+		return;
+	end
+
+	local resultText = GET_CHILD_RECURSIVELY(simulateBox, 'resultText');
+	resultText:SetTextByKey('ratio', basicRatio);
+	imcRichText:SetColorBlend(resultText, true, 2,  0xFFFF0000, 0xFFFFBB00);
+	simulateBox:ShowWindow(1);
+
+	_REQUEST_SEAL_ADDITIONAL_RATIO(targetItem, materialItem, additionalItemCount);
+end
+
+function CB_SEAL_ADDITIONAL_RATIO(additionalRatio)	
+	local frame = ui.GetFrame('itemrullet');	
+	local simulateBox = GET_CHILD_RECURSIVELY(frame, 'simulateBox');
+	local defaultRatioText = GET_CHILD_RECURSIVELY(simulateBox, 'defaultRatioText');	
+	local basicRatio = tonumber(defaultRatioText:GetTextByKey('ratio'));
+
+	local additionalItem, additionalItemCount = _GET_ADDITIONAL_ITEM(frame);
+	local additionalRatioText = GET_CHILD_RECURSIVELY(frame, 'additionalRatioText');
+	if additionalItem == nil or additionalItemCount < 1 then		
+		additionalRatioText:ShowWindow(0);
+	else
+		additionalRatioText:SetTextByKey('ratio', additionalRatio);
+		additionalRatioText:ShowWindow(1);
+	end
+
+	local resultText = GET_CHILD_RECURSIVELY(simulateBox, 'resultText');
+	resultText:SetTextByKey('ratio', basicRatio + additionalRatio);
+	imcRichText:SetColorBlend(resultText, true, 2,  0xFFFF0000, 0xFFFFBB00);
+	simulateBox:ShowWindow(1);
+end
+
 function ON_OPEN_DLG_REINFORCE_SEAL(frame, msg, argStr, argNum)
 	ui.OpenFrame('itemrullet');
+end
+
+function REINFORCE_SEAL_CHECK_ADDITIONAL_ITEM(parent, ctrl)
+	local curCnt = s_reinforceSeal.UpDownMax:GetNumber();
+	local curHaveCnt = GET_INV_ITEM_COUNT_BY_PROPERTY({}, false, nil, function(item)
+		return IS_SEAL_ADDITIONAL_ITEM(item);
+	end);
+	return curHaveCnt > curCnt;
 end

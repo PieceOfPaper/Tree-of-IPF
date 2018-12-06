@@ -4816,11 +4816,13 @@ end
 
 function SCR_QUEST_CHECK_SUB_SUCCESS_PROPERTY_CHANGE(pc, sObj, questIES)
     if pc ~= nil and sObj ~= nil and questIES ~= nil then
-        if sObj[questIES.QuestPropertyName] >= CON_QUESTPROPERTY_MIN and sObj[questIES.QuestPropertyName] < CON_QUESTPROPERTY_MAX then
-            local tx = TxBegin(pc);
-        	TxEnableInIntegrate(tx);
-        	TxSetIESProp(tx, sObj, questIES.QuestPropertyName, 200)
-        	local ret = TxCommit(tx);
+        if questIES.QuestEndMode ~= 'SYSTEM' then
+            if sObj[questIES.QuestPropertyName] >= CON_QUESTPROPERTY_MIN and sObj[questIES.QuestPropertyName] < CON_QUESTPROPERTY_MAX then
+                local tx = TxBegin(pc);
+            	TxEnableInIntegrate(tx);
+            	TxSetIESProp(tx, sObj, questIES.QuestPropertyName, CON_QUESTPROPERTY_MAX)
+            	local ret = TxCommit(tx);
+            end
         end
     end
 end

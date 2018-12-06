@@ -7,7 +7,7 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 		SetModifiedPropertiesString(newobj, props);
 	end
 
-	if newobj.ClassName == "Scroll_SkillItem" then
+	if IS_SKILL_SCROLL_ITEM(newobj) == 1 then
 		local skillType, level = GetSkillScrollProperty(props);
 		newobj.SkillType = skillType
 		newobj.SkillLevel = level
@@ -123,7 +123,7 @@ function LINK_ITEM_TEXT(invitem)
 
 	local itemName = GET_FULL_NAME(itemobj);
 
-	if itemobj.ClassName == 'Scroll_SkillItem' then		
+	if IS_SKILL_SCROLL_ITEM(itemobj) == 1 then		
 		local sklCls = GetClassByType("Skill", itemobj.SkillType)
 		itemName = itemName .. "(" .. sklCls.Name ..")";
 		properties = GetSkillItemProperiesString(itemobj);

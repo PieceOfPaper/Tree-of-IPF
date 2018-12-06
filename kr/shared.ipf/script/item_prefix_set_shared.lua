@@ -21,10 +21,13 @@ function GET_LEGEND_PREFIX_NEED_MATERIAL_COUNT(item)
     return 4;
 end
 
-function GET_LEGEND_PREFIX_ITEM_NAME(item)
-	local nameText = item.Name;
-	if TryGetProp(item, 'LegendPrefix', 'None') ~= 'None' then
-		local prefixCls = GetClass('LegendSetItem', item.LegendPrefix);
+function GET_LEGEND_PREFIX_ITEM_NAME(item, prefix)
+    if prefix == nil then
+        prefix = TryGetProp(item, 'LegendPrefix', 'None');
+    end
+    local nameText = item.Name;    
+	if prefix ~= 'None' then
+		local prefixCls = GetClass('LegendSetItem', prefix);
         if prefixCls ~= nil then
 		  nameText = prefixCls.Name..' '..nameText;
         end
