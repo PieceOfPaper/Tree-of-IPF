@@ -3364,16 +3364,6 @@
 			<groupbox name="compareBox" rect="0 0 450 50" margin="0 195 0 0" layout_gravity="center top" draw="true" skin="Appariser_Positive" scrollbar="false" fixheight="false"/>
 			<richtext name="compareResText" parent="compareBox" rect="0 0 100 20" margin="0 0 0 0" layout_gravity="center center" caption="감정사가 착용 중인 아이템이 없습니다" fontname="black_16"/>
 		</controls>
-		<controls>
-			<labelline name="label" margin="0 30 0 0" rect="0 0 560 4" skin="None" layout_gravity="center top"/>
-			<richtext name="scoreText" rect="0 0 400 24" margin="0 0 20 0" layout_gravity="right top" format="{@st41_yellow}획득점수 %s{/}" param1="score" param1_def="0" resizebytext="false" fixwidth="true" fixheight="true" textalign="right center"/>
-			<grid name="category" rect="0 0 0 210" margin="30 0 30 0" layout_gravity="left top" slotsize="100 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-			<grid name="detail" rect="0 0 0 0" margin="30 200 30 50" slotsize="300 90" slotspc="10 10">
-				<detail margin="0 0 0 0" speed="500" layout_gravity="left top"/>
-			</grid>
-		</controls>
 	</controlset>
 	<controlset name="expireditem_ctrlset" hittest="false" width="380" height="70">
 		<controls>

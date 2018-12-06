@@ -566,11 +566,8 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	if invitem ~= nil and invitem:GetObject() ~= nil then
 		local itemObj = GetIES(invitem:GetObject());		
 		if itemObj.ClassName ~= MONEY_NAME then	
-            local check_prop = TryGetProp(itemObj, 'MaxSocket')            
-            if check_prop ~= nil and itemObj.MaxSocket > 10 then
-                itemObj.MaxSocket = 10
-            end
-            return itemObj, 0, invitem;
+            local temp_obj = CloneIES_UseCP(itemObj)
+			return temp_obj, 0, invitem;
 		end
 	end
 
