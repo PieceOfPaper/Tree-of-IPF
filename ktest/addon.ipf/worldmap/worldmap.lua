@@ -91,7 +91,7 @@ function WORLDMAP_UPDATE_PICSIZE(frame, currentDirection)
 
 end
 
-function OPEN_WORLDMAP(frame)
+function OPEN_WORLDMAP(frame)    
 	if frame:GetUserValue('Type') ~= 'None' or frame:GetUserValue('SCROLL_WARP') ~= 'None' then
 		local nowZoneName = GetZoneName(pc);
 		LOCATE_WORLDMAP_POS(frame, nowZoneName);
@@ -223,7 +223,7 @@ function GET_WORLDMAP_GROUPBOX(frame)
 	return GET_CHILD_RECURSIVELY(frame, "pic" ,"ui::CPicture");
 end
 
-function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)
+function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)    
 
 	local clsList, cnt = GetClassList('Map');	
 	if cnt == 0 then
@@ -271,8 +271,8 @@ function CREATE_ALL_WORLDMAP_CONTROLS(frame, parentGBox, makeWorldMapImage, chan
 
 end
 
-function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)
-	local result = GET_INTE_WARP_LIST();
+function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDirection, mapName, currentDirection, spaceX, startX, spaceY, startY, pictureStartY)	    
+    local result = GET_INTE_WARP_LIST();
 	if result == nil then
 		return;
 	end
@@ -320,15 +320,15 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
 					local set = pic:GetControlSet('warpAreaName', gBoxName);
 					if set == nil then
 						set = pic:CreateControlSet('warpAreaName', gBoxName, picX, picY);
-					set = tolua.cast(set, "ui::CControlSet");
-					set:SetEnableSelect(1);
+						set = tolua.cast(set, "ui::CControlSet");
+						set:SetEnableSelect(1);
 
 						local nameRichText = GET_CHILD_RECURSIVELY(set, "areaname", "ui::CRichText");
-					nameRichText:SetTextByKey("mapname",mapCls.Name);
+						nameRichText:SetTextByKey("mapname",mapCls.Name);
+					end
 				end
 			end
 		end
-	end
 	end
 
 	-- draw lobby map
@@ -376,17 +376,17 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
                 set:SetEventScriptArgString(ui.LBUTTONUP, lobbyMapCls.ClassName);
             end
 
-            set:SetEventScriptArgNumber(ui.LBUTTONUP, 1);
+            set:SetEventScriptArgNumber(ui.LBUTTONUP, 1);            
 
             local warpcost;
             warpcost = 0
-			
+            			
             set:SetTooltipType('warpminimap');
             if warpInfo ~= nil then
-                set:SetTooltipStrArg(warpInfo.ClassName);
+                set:SetTooltipStrArg(warpInfo.ClassName);   
                 predraw_class_name = lobbyMapCls.ClassName                
             else
-                set:SetTooltipStrArg(lobbyMapCls.ClassName);
+                set:SetTooltipStrArg(lobbyMapCls.ClassName);                
             end
             set:SetTooltipNumArg(warpcost)
             if nameRechText:GetWidth() > 130 then
@@ -403,87 +403,87 @@ function CREATE_ALL_WARP_CONTROLS(frame, parentGBox, makeWorldMapImage, changeDi
     end
 
 	-- draw text
-	if type == 'Dievdirbys' or type == 'Normal' then
+	if type == 'Dievdirbys' or type == 'Normal' then        
 		for index = 1, #result do
 			local info = result[index];
             if predraw_class_name ~= info.Zone then
-			local mapCls = GetClass("Map", info.Zone);
-			local warpcost = 0;
-			if mapCls.WorldMap ~= "None" then
-				local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+                local mapCls = GetClass("Map", info.Zone);
+			    local warpcost = 0;
+			    if mapCls.WorldMap ~= "None" then
+				    local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
 				
-				if currentDirection == dir then
-					local picX = startX + x * spaceX * sizeRatio + 60;
-					local picY = startY - y * spaceY * sizeRatio + 30;
-					local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
-					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+				    if currentDirection == dir then
+					    local picX = startX + x * spaceX * sizeRatio + 60;
+					    local picY = startY - y * spaceY * sizeRatio + 30;
+					    local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
+					    local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
-					if (warpcost < 1000000) then
-						local brushX = startX + x * spaceX;
-						local brushY = pictureStartY - y * spaceY;
-						if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
-							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
-							gbox:SetSkinName("downbox");
-							gbox:ShowWindow(1);
-						end
+					    if (warpcost < 1000000) then
+						    local brushX = startX + x * spaceX;
+						    local brushY = pictureStartY - y * spaceY;
+						    if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
+							    local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+							    gbox:SetSkinName("downbox");
+							    gbox:ShowWindow(1);
+						    end
 							
-						ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, false, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1);
+						    ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, false, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1);
 
-						local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
-						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
-					end				
-				end
-			end
+						    local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
+						    GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+					    end				
+				    end
+			    end
+            end			
 		end
-		end
-	else
+	else        
 		for index = 1, #result do
 			local info = result[index];
             if predraw_class_name ~= info.Zone then
-			local mapCls = GetClass("Map", info.Zone);
-			local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
-			if nowZoneName == 'infinite_map' then
-				warpcost = 0;
-			end
-			if mapCls.WorldMap ~= "None" then
-				local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
-				if currentDirection == dir then
-					local picX = startX + x * spaceX * sizeRatio + 60;
-					local picY = startY - y * spaceY * sizeRatio + 30;
-					local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
-					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+                local mapCls = GetClass("Map", info.Zone);
+			    local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);            
+			    if nowZoneName == 'infinite_map' then
+				    warpcost = 0;
+			    end
+			    if mapCls.WorldMap ~= "None" then
+				    local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+				    if currentDirection == dir then
+					    local picX = startX + x * spaceX * sizeRatio + 60;
+					    local picY = startY - y * spaceY * sizeRatio + 30;
+					    local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
+					    local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
-	                local zoneGbox = GET_CHILD_RECURSIVELY(pic, "_" .. gBoxName)
-	                if zoneGbox ~= nil then
-        	        	zoneGbox:ShowWindow(0)
-            	    end
+	                    local zoneGbox = GET_CHILD_RECURSIVELY(pic, "_" .. gBoxName)
+	                    if zoneGbox ~= nil then
+        	        	    zoneGbox:ShowWindow(0)
+            	        end
 
-					if (warpcost < 1000000) then
-						local calcOnlyPosition = false;
-						if changeDirection ~= true then
-							gbox = GET_CHILD_RECURSIVELY(pic, gBoxName);
-							if gbox ~= nil then
-								gbox:SetOffset(picX, picY);
-								calcOnlyPosition = true;
-							end
-						end						
-						local brushX = startX + x * spaceX;
-						local brushY = pictureStartY - y * spaceY;
-						if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
-							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
-							gbox:SetSkinName("downbox");
-							gbox:ShowWindow(1);
-						end
+					    if (warpcost < 1000000) then
+						    local calcOnlyPosition = false;
+						    if changeDirection ~= true then
+							    gbox = GET_CHILD_RECURSIVELY(pic, gBoxName);
+							    if gbox ~= nil then
+								    gbox:SetOffset(picX, picY);
+								    calcOnlyPosition = true;
+							    end
+						    end						
+						    local brushX = startX + x * spaceX;
+						    local brushY = pictureStartY - y * spaceY;
+						    if GET_CHILD_RECURSIVELY(pic, gBoxName) == nil then 
+							    local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+							    gbox:SetSkinName("downbox");
+							    gbox:ShowWindow(1);
+						    end
+                            
+                            ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1)                        
 
-						ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1)
-
-						local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
-						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
-					end				
-				end
-			end
+                            local gbox = GET_CHILD_RECURSIVELY(pic, gBoxName)
+						    GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+					    end				
+				    end
+			    end
+            end			
 		end
-	end
 	end
 
 	if makeWorldMapImage == true then
@@ -544,66 +544,66 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
     local totalCtrlHeight = 0;
     local maxCtrlWidth = 0;
 
-    -- colony occupation info    
+	-- colony occupation info    
 	
 	if session.world.IsIntegrateServer() == false then
-    if IS_COLONY_SPOT(mapCls.ClassName) == true then
-        local check_word = "GuildColony_"
-        local colonyMapCls = GetClassByStrProp("Map", "ClassName", check_word..mapCls.ClassName)
-        if colonyMapCls ~= nil then
-            local topFrame = ctrlSet:GetTopParentFrame();
-            local COLONY_IMG_SIZE = tonumber(topFrame:GetUserConfig('COLONY_IMG_SIZE'));
-    
-            local colonyText = '';
-            local occupyTextTooltip = '';
-            local occupyText = ctrlSet:CreateControl('richtext', 'occupyText', 0, 0, 30, 30);        
-            local emblemSet = nil;
-            SET_WORLDMAP_RICHTEXT(occupyText, 1);        
-                    
-            if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
-                local COLONY_PROGRESS_IMG = topFrame:GetUserConfig('COLONY_PROGRESS_IMG');
-                colonyText = string.format('{img %s %d %d}', COLONY_PROGRESS_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
-                occupyTextTooltip = ClMsg('ProgressColonyWar');
-            else -- 콜로니전 진행 중이 아닐 때
-                local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
+		if IS_COLONY_SPOT(mapCls.ClassName) == true then
+			local check_word = "GuildColony_"
+			local colonyMapCls = GetClassByStrProp("Map", "ClassName", check_word..mapCls.ClassName)
+			if colonyMapCls ~= nil then
+				local topFrame = ctrlSet:GetTopParentFrame();
+				local COLONY_IMG_SIZE = tonumber(topFrame:GetUserConfig('COLONY_IMG_SIZE'));
+		
+				local colonyText = '';
+				local occupyTextTooltip = '';
+				local occupyText = ctrlSet:CreateControl('richtext', 'occupyText', 0, 0, 30, 30);        
+				local emblemSet = nil;
+				SET_WORLDMAP_RICHTEXT(occupyText, 1);        
+						
+				if session.colonywar.GetProgressState() == true then -- 콜로니전 중일 때
+					local COLONY_PROGRESS_IMG = topFrame:GetUserConfig('COLONY_PROGRESS_IMG');
+					colonyText = string.format('{img %s %d %d}', COLONY_PROGRESS_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
+					occupyTextTooltip = ClMsg('ProgressColonyWar');
+				else -- 콜로니전 진행 중이 아닐 때
+					local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
                 local occupyInfo = session.colonywar.GetOccupationInfoByMapID(colonyMapCls.ClassID);        
                 if occupyInfo == nil then
-                    colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
-                    occupyTextTooltip = ClMsg('NotOccupiedSpot');
-                else            
-                    ctrlSet:RemoveChild('occupyText');
-                    occupyText = nil;
+                            colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
+                            occupyTextTooltip = ClMsg('NotOccupiedSpot');
+                        else
+                            ctrlSet:RemoveChild('occupyText');
+                            occupyText = nil;
     
                     local guildID = occupyInfo:GetGuildID();
-                    emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
-                    emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
-    
-                    -- emblem pic set
-                    local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');    
-                    local worldID = session.party.GetMyWorldIDStr();            
-                    local emblemImgName = guild.GetEmblemImageName(guildID, worldID);                        
-                    if emblemImgName ~= 'None' then
-                        emblemPic:SetFileName(emblemImgName);
-                    else            
-                        local worldID = session.party.GetMyWorldIDStr();    
-                        guild.ReqEmblemImage(guildID,worldID);
-                    end                                
+                            emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
+                            emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
+                        
+                            -- emblem pic set
+                            local emblemPic = GET_CHILD_RECURSIVELY(emblemSet, 'emblemPic');    
+                            local worldID = session.party.GetMyWorldIDStr();            
+                            local emblemImgName = guild.GetEmblemImageName(guildID,worldID);                        
+                            if emblemImgName ~= 'None' then
+                                emblemPic:SetFileName(emblemImgName);
+                            else            
+                                local worldID = session.party.GetMyWorldIDStr();    
+                                guild.ReqEmblemImage(guildID,worldID);
+                            end                                
                     occupyTextTooltip = occupyInfo:GetGuildName();
-                end
-            end
-    
-            if occupyText ~= nil then
-                occupyText:SetTextTooltip(occupyTextTooltip);
-                occupyText:SetText(colonyText);
-                totalCtrlHeight = totalCtrlHeight + occupyText:GetHeight();
-                maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, occupyText:GetWidth());
-            elseif emblemSet ~= nil then
-                emblemSet:SetTextTooltip(occupyTextTooltip);            
-                totalCtrlHeight = totalCtrlHeight + emblemSet:GetHeight();
-                maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, emblemSet:GetWidth());
-            end
-        end
-    end
+                    end
+				end
+
+				if occupyText ~= nil then
+					occupyText:SetTextTooltip(occupyTextTooltip);
+					occupyText:SetText(colonyText);
+					totalCtrlHeight = totalCtrlHeight + occupyText:GetHeight();
+					maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, occupyText:GetWidth());
+				elseif emblemSet ~= nil then
+					emblemSet:SetTextTooltip(occupyTextTooltip);            
+					totalCtrlHeight = totalCtrlHeight + emblemSet:GetHeight();
+					maxCtrlWidth = GET_MAX_WIDTH(maxCtrlWidth, emblemSet:GetWidth());
+				end
+			end
+		end
 	end
 	
     -- dungeon info
@@ -1057,19 +1057,19 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 			end;
 
 			if TryGetProp(genCls, 'ClassType') ~= 'Warp_arrow' then -- 워프 제외한 npc
-				local name = GET_GENCLS_NAME(genCls);
-				local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(name));		
-				local tempinputtext = string.lower(searchText);
-				if string.find(tempname, tempinputtext) ~= nil and IS_ITEM_IN_LIST(targetMap, mapCls.ClassName) == false then
-					targetMap[targetCnt] = mapCls.ClassName;
-					targetCnt = targetCnt + 1;
-				end
-			end
+						local name = GET_GENCLS_NAME(genCls);
+						local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(name));		
+						local tempinputtext = string.lower(searchText);
+						if string.find(tempname, tempinputtext) ~= nil and IS_ITEM_IN_LIST(targetMap, mapCls.ClassName) == false then
+							targetMap[targetCnt] = mapCls.ClassName;
+							targetCnt = targetCnt + 1;
+						end
+					end
 			npcIdx = npcList:Next(npcIdx);
 		end
 		idx = npcStates:Next(idx);
 	end
-	
+
 	local showIdx = 0
 	if oldSearchText == searchText then
 		showIdx = tonumber(oldSearchIdx) + 1
@@ -1222,7 +1222,7 @@ function ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, ca
 	else
 		local set = gbox:CreateOrGetControlSet('warpAreaName', setName, 0, 0);
 		set = tolua.cast(set, "ui::CControlSet");
-		set:SetTooltipNumArg(warpcost)
+		set:SetTooltipNumArg(warpcost)        
 	end
 end
 
@@ -1236,7 +1236,7 @@ function GET_WARP_NAME_TEXT(mapCls, info, nowZoneName)
 
 end
 
-function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
+function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)        
 	local warpFrame = ui.GetFrame('worldmap');
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
 	local costRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_cost", "ui::CRichText");
@@ -1256,7 +1256,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	        end
 	    else
 	        if camp_warp_class.Zone == 'c_Klaipe' then
-	            strnum = 0
+	            strnum = 0                
 	        end
 	    end
 	end
@@ -1275,7 +1275,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		if mapprop == nil then
 			return;
 		end
-
+        
 		local costRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_cost", "ui::CRichText");
 		if mapprop.type == etc.ItemWarpMapID then
 			costRichText:SetTextByKey("costname",0);
@@ -1289,7 +1289,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 		local worldPos;
 
 		for i = 0,  genCnt - 1 do
-			local element = genList:Element(i)
+			local element = genList:Element(i)            
 			if	string.find(element:GetClassName(), "statue_vakarine") ~= nil then
 				local genPointlist = element.GenList;
 				worldPos = genPointlist:Element(0)
@@ -1299,7 +1299,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 
 		if worldPos == nil then
 			local statuePic = GET_CHILD(tooltipframe, "picture_statue");
-			statuePic:ShowWindow(0);
+			statuePic:ShowWindow(0);            
 			return;
 		end
 
@@ -1321,8 +1321,8 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 	
 	-- 이전에 워프한 장소
-	camp_warp_class = GetClass("Map", strarg)
-	if camp_warp_class ~= nil then 
+	camp_warp_class = GetClass("Map", strarg)    
+	if camp_warp_class ~= nil then         
 		local nameRichText = GET_CHILD_RECURSIVELY(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
 
@@ -1362,7 +1362,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	tooltipframe:Invalidate()
 end
 
-function WARP_TO_AREA(frame, cset, argStr, argNum)
+function WARP_TO_AREA(frame, cset, argStr, argNum)  
 	local warpFrame = ui.GetFrame('worldmap');
 	local test = frame:GetTopParentFrame();
 	local x, y = GET_MOUSE_POS();
@@ -1380,19 +1380,18 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 
 	local camp_warp_class = GetClass('camp_warp', argStr)
 
-
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
 
 	local warpcost = 0;
-	local targetMapName = 0;
-	local type = frame:GetUserValue("Type");
+	local targetMapName = 0;	
+	local type = warpFrame:GetUserValue("Type");
 	if camp_warp_class ~= nil then
-		targetMapName = camp_warp_class.Zone;
-    	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);
-	elseif argStr ~= nil then
-		warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), argStr);
-		targetMapName = argStr;
+		targetMapName = camp_warp_class.Zone;        
+    	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);        
+	elseif argStr ~= nil then        
+		warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), argStr);    
+		targetMapName = argStr;    
 	end
 	
 	if targetMapName == nowZoneName then
@@ -1413,16 +1412,16 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		end	
 	end
 	
-	if type == "Dievdirbys" then
+	if type == "Dievdirbys" or type == 'Normal' then
 		warpcost = 0
 	end
 	
-	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');	
+	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
 	if (warpitemname == 'NO' or warpitemname == 'None') and IsGreaterThanForBigNumber(warpcost, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end
-	    
+    
     local dest_mapClassID
     if camp_warp_class ~= nil then
 	    dest_mapClassID = camp_warp_class.ClassID
@@ -1439,7 +1438,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 
 	movie.InteWarp(session.GetMyHandle(), cheat);
 
-	packet.ClientDirect("InteWarp");
+	packet.ClientDirect("InteWarp");    
     
     if warpFrame:IsVisible() == 1 then
 		ui.CloseFrame('worldmap')
@@ -1482,6 +1481,7 @@ function ON_UPDATE_OTHER_GUILD_EMBLEM(frame, msg, argStr, argNum)
         end
     end
 end
+
 function UPDATE_SHOW_ALL_WORLDMAP(frame)
 	local showAllWorldMap = frame:GetUserIValue("isShowAllMap")
 	if showAllWorldMap == 0 then

@@ -191,6 +191,7 @@ function GET_FORGERY_ITEM_OBJECT(spotName)
 	elseif spotName == 'NECK' then
 		forgeryItem = session.GetForgeryNeckItem();
 	end
+
 	if forgeryItem == nil or forgeryItem:GetClassID() == 0 then
 		return nil;
 	end
@@ -210,7 +211,7 @@ function GET_FORGERY_ITEM_OBJECT(spotName)
 end
 
 function SET_EQUIP_ICON_FORGERY(frame, spotName)
-	local slot = frame:GetChild(spotName);
+	local slot = GET_CHILD_RECURSIVELY(frame, spotName);	
 	if slot == nil then
 		return false;
 	end
