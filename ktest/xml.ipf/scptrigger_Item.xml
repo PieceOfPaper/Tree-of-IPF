@@ -91,6 +91,32 @@
 			</Trigger>
 		</TriggerList>
 	</SpcItem>
+	<SpcItem Name="Effect_Stamp_Thorn">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="THORN_EFFECT"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="THORN_EFFECT"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
 	<SpcItem Name="PST04_112">
 		<TriggerList Act="Equip">
 			<Trigger>
@@ -4757,6 +4783,32 @@ end"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_SEAL_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Doll_fairy_guilty">
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_BUFF_EQUIPITEM" Client="NO" UseSleep="NO">
+						<Str Str="WING_GUILTY_FAIRY_BUFF"/>
+						<Num Num="1"/>
+						<Num Num="0"/>
+						<Num Num="0"/>
+						<Num Num="1"/>
+						<Num Num="100"/>
+						<Num Num="-1"/>
+					</ToolScp>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_REMOVE_BUFF_UNEQUIP" Client="NO" UseSleep="NO">
+						<Str Str="WING_GUILTY_FAIRY_BUFF"/>
+					</ToolScp>
 				</ExecList>
 			</Trigger>
 		</TriggerList>

@@ -293,7 +293,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	if mainframename == 'equip_main' and isForgery == true and tooltipframe:GetTopParentFrameName() == 'inventory' then
 		forgeryEquip:ShowWindow(1);
 		itemNowEquip:ShowWindow(0);
-		APPRAISER_FORGERY_TOOLTIP_SET_BUFFTIME(forgeryEquip:GetChild('forgeryequip_text'));
 	else
 		forgeryEquip:ShowWindow(0);
 	end
@@ -440,7 +439,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframenam
 	if mainframename == 'equip_main' and isForgery == true and tooltipframe:GetTopParentFrameName() == 'inventory' then
 		forgeryEquip:ShowWindow(1);
 		itemNowEquip:ShowWindow(0);
-		APPRAISER_FORGERY_TOOLTIP_SET_BUFFTIME(forgeryEquip:GetChild('forgeryequip_text'));
 	else
 		forgeryEquip:ShowWindow(0);
 	end
@@ -1663,7 +1661,12 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 		socket_flag = 1
 	end
 
-	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 then
+	local awaken_flag = 0;
+	if IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(invitem) == false then
+		awaken_flag = 1;
+	end
+
+	if reinforce_flag == 0 and transcend_flag == 0 and extract_flag == 0 and socket_flag == 0 and briquet_flag == 0 and exchange_flag == 0 and awaken_flag == 0 then
 		return yPos
 	end
 
@@ -1694,6 +1697,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	text = _APPEND_LIMITATION_TEXT(socket_flag, text, CSet:GetUserConfig("SOCKET_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(briquet_flag, text, CSet:GetUserConfig("BRIQUET_TEXT"));
 	text = _APPEND_LIMITATION_TEXT(exchange_flag, text, CSet:GetUserConfig("EXCHANGE_TEXT"));
+	text = _APPEND_LIMITATION_TEXT(awaken_flag, text, CSet:GetUserConfig("AWAKEN_TEXT"));
 
 	if text:sub(-#',') == ',' then
 		text = text:sub(0, text:len() - 1);

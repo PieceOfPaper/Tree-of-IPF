@@ -1,4 +1,4 @@
-
+﻿
 function COMPARE_ON_INIT(addon, frame)
 	addon:RegisterMsg("RELATED_HISTORY", "COMPARE_RELATED_HISTORY");
 end
@@ -168,10 +168,10 @@ function SHOW_PC_COMPARE(cid)
 	local clsindex = 0
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		local x = clsindex%3 * 150
-		local y = math.floor(clsindex/3) * 160
+		local y = math.floor(clsindex/3) * 125
 
 		local cls = GetClassByTypeFromList(clslist, jobid);
-		local classCtrl = classGbox:CreateOrGetControlSet('classtreeIcon', 'classCtrl_'..cls.ClassName, x+20, y+10);
+		local classCtrl = classGbox:CreateOrGetControlSet('classtreeIcon', 'classCtrl_'..cls.ClassName, x+20, y+5);
 		
 		local classSlot = GET_CHILD(classCtrl, "slot", "ui::CSlot");
 		classSlot:EnableHitTest(0)

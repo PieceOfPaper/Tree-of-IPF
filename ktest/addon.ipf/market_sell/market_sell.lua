@@ -597,6 +597,15 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
+    
+    if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+        local maxPrice = GET_CHILD_RECURSIVELY(frame, "maxPrice");
+		local maxPriceStr = GET_NOT_COMMAED_NUMBER(maxPrice:GetTextByKey('value'), true);		
+	    if tonumber(maxPriceStr) ~= 0 and IsGreaterThanForBigNumber(floorprice, maxPriceStr) == 1 then
+		    ui.SysMsg(ClMsg('MaxAllowPriceError'));
+		    return false;
+	    end
+    end 	
 
 	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %s, %d, 1, %d)", itemGuid, floorprice, count, needTime);
 	commission = registerFeeValueCtrl:GetTextByKey("value");	

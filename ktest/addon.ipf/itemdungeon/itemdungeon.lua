@@ -125,6 +125,12 @@ function ITEMDUNGEON_DROP_ITEM(parent, ctrl)
 		ui.SysMsg(ClMsg('LessThanItemLifeTime'));
 		return;
 	end
+
+	if IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(itemObj) == false then
+		ui.SysMsg(ClMsg('ItemIsNotEnchantable1'));
+		return;
+	end
+
 	SET_SLOT_ITEM(slot, invItem, invItem.count);	
 	UPDATE_ITEMDUNGEON_CURRENT_ITEM(frame);	
 end

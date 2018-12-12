@@ -130,23 +130,42 @@ function GACHA_POPUP_MSG(frame, msg, itemname, itemcnt)
 
 	elseif msg == "HAIR_GACHA_POPUP_10" or  msg == "RBOX_GACHA_POPUP_10" or msg == 'LETICIA_POPUP_10' then
 
-		local itemliststr = itemname;
-		if INIT_HAIR_GACHA_RET_TABLE(itemliststr) == false then
-			return;
+		local isAlreadyPlaying = false;	
+		for i = 1, 11 do
+			local bigframename = "HAIRGACHA_BIG_"..tostring(i);
+			local bigframe = ui.GetFrame(bigframename);
+			if bigframe ~= nil then
+				isAlreadyPlaying = true;
+				break;
+			end
 		end
 
-		for i = 1, 11 do 
-			HAIR_GACHA_RESERVE_POP_SMALL_FRAME(i, type)
+		if isAlreadyPlaying == true then
+			DARK_FRAME_DO_CLOSE();
+			
+			local reserveScp = string.format("SHOW_GACHA(%d, '%s', '%s')", isLeticia, itemname, type);
+			ReserveScript(reserveScp , 3.5);
+		else
+			SHOW_GACHA(isLeticia, itemname, type);
 		end
-
-        local reserveScp = string.format('DARK_FRAME_DO_OPEN(%d)', isLeticia);
-		ReserveScript(reserveScp , 1.5);
-		ReserveScript( string.format("HAIR_GACHA_POP_BIG_FRAME(%d, '%s', %d)", 1, type, isLeticia) , 1.5);
 	end
 end
 
+function SHOW_GACHA(isLeticia, itemliststr, type)
+	if INIT_HAIR_GACHA_RET_TABLE(itemliststr) == false then
+		return;
+	end
+
+	for i = 1, 11 do 
+		HAIR_GACHA_RESERVE_POP_SMALL_FRAME(i, type)
+	end
+
+	local reserveScp = string.format('DARK_FRAME_DO_OPEN(%d)', isLeticia);
+	ReserveScript(reserveScp , 1.5);
+	ReserveScript( string.format("HAIR_GACHA_POP_BIG_FRAME(%d, '%s', %d)", 1, type, isLeticia), 1.5);
+end
+
 function HAIR_GACHA_RESERVE_POP_SMALL_FRAME(frameindex, type)
-    
 	local itemname = g_hairgacharresult[frameindex]["name"]
 	local grade = g_hairgacharresult[frameindex]["grade"]
 	local xindex = g_hairgacharresult[frameindex]["xindex"]
@@ -252,11 +271,10 @@ function HAIR_GACHA_POP_BIG_FRAME(frameindex, type, nobonus, isLeticia)
 	local bigframename = "HAIRGACHA_BIG_"..tostring(frameindex);
 	ui.DestroyFrame(bigframename);
 
-
 	local bigframe = ui.CreateNewFrame("hair_gacha_fullscreen", bigframename);
 	if bigframe == nil then
 		return;
-	end        
+	end
     local leticiaBox = bigframe:GetChild('leticiaBox');
     local skip_gacha_btn = bigframe:GetChild('skip_gacha_btn');
     if isLeticia == 1 then

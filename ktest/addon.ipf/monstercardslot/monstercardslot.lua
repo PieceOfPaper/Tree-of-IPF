@@ -163,6 +163,12 @@ function CARD_OPTION_CREATE(monsterCardSlotFrame)
 
 	--숫자 12 빼줘야함
 	local legendCardID, legendCardLv, legendCardExp = GETMYCARD_INFO(12)
+
+	local prop = geItemTable.GetProp(legendCardID);
+	if prop ~= nil then
+		legendCardLv = prop:GetLevel(legendCardExp);
+	end
+
 	if legendCardID ~= nil and legendCardID ~= 0 then
 		clientMessage = 'MonsterCardOptionGroupLEG'
 		optionIndex = frame : GetUserIValue("CARD_OPTION_INDEX");
@@ -177,11 +183,6 @@ function CARD_OPTION_CREATE(monsterCardSlotFrame)
 		frame : SetUserValue("CURRENT_HEIGHT", currentHeight);
 		deleteLabelIndex = 4
 	end
-
-
-
-
-
 
 	for i = 0, 3 do
 		frame:SetUserValue("DUPLICATE_COUNT", 0)
@@ -408,10 +409,9 @@ function CARD_SLOT_SET(ctrlSet, slot_label_set, slotIndex, itemClsId, itemLv, it
 	end;
 	
 	-- 툴팁 생성 (카드 아이템은 IES가 사라지기 때문에 똑같이 생긴 툴팁을 따로 만들어서 적용)
-
 	slot:SetEventScript(ui.MOUSEMOVE, "EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN");
 	slot:SetEventScriptArgNumber(ui.MOUSEMOVE, slotIndex);
-slot:SetEventScript(ui.LOST_FOCUS, "EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE");
+	slot:SetEventScript(ui.LOST_FOCUS, "EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE");
 end;
 
 -- 인벤토리의 카드 슬롯 오른쪽 클릭시 정보창오픈 과정시작 스크립트
@@ -451,10 +451,14 @@ function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 		frame:ShowWindow(0);	
 	end
 	
-	local cardID, cardLv, cardExp = GETMYCARD_INFO(slotIndex);
-	
+	local cardID, cardLv, cardExp = GETMYCARD_INFO(slotIndex);	
 	if cardID == 0 then
 		return;
+	end
+
+	local prop = geItemTable.GetProp(cardID);
+	if prop ~= nil then
+		cardLv = prop:GetLevel(cardExp);
 	end
 	
 	-- 카드 슬롯 제거하기 위함
@@ -541,9 +545,9 @@ end
 
 -- 몬스터 카드를 인벤토리의 카드 슬롯에 드레그드롭으로 장착하려 할 경우.
 function CARD_SLOT_DROP(frame, slot, argStr, argNum)
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	
 	if toFrame:GetName() == 'monstercardslot' then
 		local iconInfo = liftIcon:GetInfo();
@@ -620,7 +624,7 @@ function CARD_SLOT_EQUIP(slot, item, groupNameStr)
 		end
 				
 		local itemGuid = item:GetIESID();
-		local invFrame    = ui.GetFrame("inventory");	
+		local invFrame = ui.GetFrame("inventory");	
 		invFrame:SetUserValue("EQUIP_CARD_GUID", itemGuid);
 		invFrame:SetUserValue("EQUIP_CARD_SLOTINDEX", slotIndex);	
 		local textmsg = string.format("[ %s ]{nl}%s", obj.Name, ScpArgMsg("AreYouSureEquipCard"));	

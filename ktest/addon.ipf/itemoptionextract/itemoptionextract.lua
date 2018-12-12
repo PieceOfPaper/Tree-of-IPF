@@ -473,7 +473,7 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 		ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
 		return
 	end
-			
+
 	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then		
 		local slot = GET_CHILD_RECURSIVELY(frame, "slot");
 		local targetItem = GET_SLOT_ITEM(slot);
@@ -482,12 +482,12 @@ function ITEM_OPTIONEXTRACT_KIT_REG_TARGETITEM(frame, itemID)
 		end
 
 		local targetItemObj = GetIES(targetItem:GetObject());
-		if TryGetProp(item, 'KeyWord') == 'RandomOption' then			
+		if item.ClassName == 'Extract_kit_Gold_NotFail_Rand' then	
 			if IS_HAVE_RANDOM_OPTION(targetItemObj) == false then
 				ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
 				return;
 			end
-		else
+		elseif item.ClassName == 'Extract_kit_Gold_NotFail_Recipe' then
 			if IS_HAVE_RANDOM_OPTION(targetItemObj) == true then
 				ui.SysMsg(ClMsg("IsNotOptionExtractKit"));
 				return;

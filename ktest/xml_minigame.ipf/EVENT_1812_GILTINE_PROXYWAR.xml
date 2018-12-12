@@ -1,0 +1,250 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="EVENT_1812_GILTINE_PROXYWAR" rankScript="EVENT_1812_GILTINE_PROXYWAR_INIT" minLv="0" maxLv="0" mapName="c_Klaipe_event_1812" playerCnt="6" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154039" Pos="-207.92#149.11#96.87" angle="315" genCount="1" genTime="20000" objectKey="4"/>
+                    <Obj Type="Monster" MonType="20025" Pos="-62.17#149.07#67.37" range="200" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;Tactics&apos; &apos;EVENT_1812_GILTINE_PROXYWAR_MON_CREATER&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Dialog&apos; &apos;EVENT_1812_GILTINE_PROXYWAR_MON_CREATER&apos; &apos;MaxDialog&apos; &apos;1&apos; &apos;DialogRotate&apos; &apos;0&apos; "/>
+                    <Obj Type="Monster" MonType="20041" Pos="-642.00#241.00#685.00" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Faction&apos; &apos;Peaceful&apos; &apos;Tactics&apos; &apos;EVENT_1812_GILTINE_PROXYWAR_TEAM_A&apos; "/>
+                    <Obj Type="Monster" MonType="20041" Pos="336.00#0.00#-647.00" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Faction&apos; &apos;Peaceful&apos; &apos;Tactics&apos; &apos;EVENT_1812_GILTINE_PROXYWAR_TEAM_B&apos; "/>
+                    <Obj Type="Monster" MonType="20041" Pos="-376.00#241.00#828.00" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Tactics&apos; &apos;EVENT_1812_GILTINE_PROXYWAR_TEAM_A&apos; "/>
+                    <Obj Type="Monster" MonType="20041" Pos="555.00#0.00#-436.00" genCount="1" genTime="20000" objectKey="5" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;UseAiOutOfPC&apos; &apos;1&apos; &apos;Tactics&apos; &apos;EVENT_1812_GILTINE_PROXYWAR_TEAM_B&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="SetProperty">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TeamGoal1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="TeamGoal2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GoalCheckEnd"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="monbuffFlag"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="10Sec">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 뒤 경기가 시작됩니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_EVENT_1812_GILTINE_PROXYWAR_START_POS_SET"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/3"/>
+                                <Str Str="Monster"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="startMsg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_SYSMSG" Client="NO" UseSleep="NO">
+                                <Str Str="Instant"/>
+                                <Str Str="EVENT_1812_GILTINE_PROXYWAR_MSG8"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage1" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="8분간 경기"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="480"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="- 여신 아우슈리네의 상 근처에 있는 붉은 소환 구체를 클릭하여 몬스터를 소환하세요!{nl}- 소환된 몬스터는 상대 진영으로 움직입니다.{nl}- 제한시간 8분 동안 상대 진영으로 몬스터가 많이 이동한 팀이 승리합니다.{nl}- 캐릭터가 속한 팀의 진영으로 몬스터가 오지 않도록 몬스터를 처치하세요.{nl}- 4분이 경과되면 몬스터 이동 수가 적은 팀에서 소환한 몬스터의 이동속도가 +10 증가합니다.{nl}  몬스터가 빠르게 이동하니 조심하세요!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="GoalNotice">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_EVENT_1812_GILTINE_PROXYWAR_GOAL_MSG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="End">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="480"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="StageEnd"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GoalCheckEnd"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/1/DefGroup/0/DefGroup/2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="NPCGen1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="NPCGen2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="15"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0"/>
+                                <Num Num="10"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="NPCGen3">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/0"/>
+                                <Num Num="20"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="90"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0"/>
+                                <Num Num="15"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="monbuff">
+                        <hookList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GoalCheckEnd"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </hookList>
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="240"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="monbuffFlag"/>
+                                <Num Num="300"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="StageEnd" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Reward">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_EVENT_1812_GILTINE_PROXYWAR_END_MSG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="End">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="pcnil">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

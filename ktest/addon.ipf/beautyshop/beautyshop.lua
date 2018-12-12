@@ -967,7 +967,7 @@ local function BEAUTYSHOP_GET_EQUIP_LIST()
 	equip_list[ES_SHIRT] = "SHIRT"
 	equip_list[ES_GLOVES] = "GLOVES"
 	equip_list[ES_BOOTS] = "BOOTS"
-	equip_list[ES_HELMET] = "HAIR"
+	equip_list[ES_HELMET] = "HELMET"
 	equip_list[ES_ARMBAND] = "ARMBAND"
 	equip_list[ES_RH] = "RH"
 	equip_list[ES_LH] = "LH"
@@ -980,6 +980,7 @@ local function BEAUTYSHOP_GET_EQUIP_LIST()
 	equip_list[ES_WING] = "WING"
 	equip_list[ES_SPECIAL_COSTUME] = "SPECIAL_COSTUME"
 	equip_list[ES_EFFECT_COSTUME] = "EFFECTCOSTUME"
+	equip_list[ES_DOLL] = "DOLL"
 
 	return equip_list
 end 
@@ -1084,6 +1085,7 @@ function BEAUTYSHOP_GET_PREVIEW_NAME_LIST()
 		"slotPreview_armband",
 		"slotPreview_lh", 
 		"slotPreview_rh",
+		"slotPreview_doll",
 	}
 	return slotNamelist
 end
@@ -1223,6 +1225,7 @@ function BEAUTYSHOP_GET_PREIVEW_SLOT_NAME(equipType, itemClassName)
 			{previewEquipName = "armband" , slotName = "slotPreview_armband"},
 			{previewEquipName = "lh" , slotName = "slotPreview_lh"},
 			{previewEquipName = "rh" , slotName = "slotPreview_rh"},
+			{previewEquipName = "doll" , slotName = "slotPreview_doll"}
 	}
 
 	local _equipType = BEAUTYSHOP_GET_ITEM_EQUIPTYPE_BY_ITEMCLASSNAME(equipType,itemClassName )
@@ -1697,7 +1700,7 @@ function BEAUTYSHOP_BUY_BASKET_BTN_CLICK(parent, ctrl)
 end
 
 function GET_CURRENT_TRY_ON_ITEM_LIST(frame)
-	local equipTypeList = {'hair', 'wig', 'wig_dye', 'hair_costume_1', 'hair_costume_2', 'hair_costume_3', 'lens', 'costume', 'wing', 'effect_costume', 'armband', 'lh', 'rh'};
+	local equipTypeList = {'hair', 'wig', 'wig_dye', 'hair_costume_1', 'hair_costume_2', 'hair_costume_3', 'lens', 'costume', 'wing', 'effect_costume', 'armband', 'lh', 'rh', 'doll'};
 	local list = {};
 	for i = 1, #equipTypeList do
 		local slot = GET_CHILD_RECURSIVELY(frame, 'slotPreview_'..equipTypeList[i]);

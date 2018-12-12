@@ -9,7 +9,7 @@ function LOGGING_ABILITY_CHECK(isEnableLogging, abilityName, logMsg)
 	end
 end
 
-function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
+function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)    
     if IsServerSection(pc) == 1 then
         if IS_REAL_PC(pc) == 'NO' then  -- 진짜 PC가 ??니??--
             if GetExProp(pc, "BUNSIN") == 1 then    -- ??는 분신?¸? --
@@ -77,14 +77,14 @@ function CHECK_ABILITY_LOCK(pc, ability, isEnableLogging)
                 if abilGroupClass == nil then
                     abilGroupClass = GetClass("Ability", ability.ClassName);
                 end
+                                
+                local unlockFuncName = TryGetProp(abilGroupClass, 'UnlockScr')
 
-                local unlockFuncName = abilGroupClass.UnlockScr;
-
-                if abilGroupClass.UnlockScr == "None" then
+                if  unlockFuncName == nil or abilGroupClass.UnlockScr == "None" then
 					LOGGING_ABILITY_CHECK(isEnableLogging, ability.ClassName, "[UNLOCK] abilGroupClass.UnlockScr is None");
                     return "UNLOCK"
                 end
-        
+
                 local scp = _G[unlockFuncName];
                 local ret = scp(pc, abilGroupClass.UnlockArgStr, abilGroupClass.UnlockArgNum, ability);
 

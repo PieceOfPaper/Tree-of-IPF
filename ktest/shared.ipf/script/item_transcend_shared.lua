@@ -72,6 +72,19 @@ function IS_TRANSCEND_ITEM(obj)
     return 0;
 end
 
+function SCR_TARGET_TRANSCEND_CHECK(obj, scrollTranscend)
+    local value = TryGetProp(obj, "Transcend");
+    if value == nil then
+        return 0
+    else
+        if value < scrollTranscend then
+            return 1
+        end
+    end
+
+    return 0;
+end
+
 function GET_TRANSCEND_MATERIAL_ITEM(target)
 
     local groupName = TryGetProp(target, "GroupName");
@@ -335,9 +348,9 @@ function IS_TRANSCEND_SCROLL_ITEM(scrollObj)
 	return 0;
 end
 
-function IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType)
+function IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType, scrollTranscend)
     if scrollType == "transcend_Set" then
-        if IS_TRANSCEND_ITEM(itemObj) == 0 and IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
+        if SCR_TARGET_TRANSCEND_CHECK(itemObj, scrollTranscend) == 1 and IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
             return 1;
         else
             return 0;
@@ -357,7 +370,8 @@ function GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
         return;
     end
     local scrollType = scrollObj.StringArg;
-    if IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType) ~= 1 then
+    local scrollTranscend = scrollObj.NumberArg1;
+    if IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType, scrollTranscend) ~= 1 then
         return;
     end
     

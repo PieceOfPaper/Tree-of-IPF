@@ -225,7 +225,7 @@ end
 local function _UPDATE_JOB_STAT_RATIO(frame, jobCls)
 	local function SetJobStatRatio(statType, jobCls)
 		local statText = GET_CHILD_RECURSIVELY(frame, 'statRatioText_'..statType);
-		statText:SetTextByKey('ratio', math.floor(jobCls[statType] / 2));
+		statText:SetTextByKey('ratio', string.format('%.1f', jobCls[statType] / 2));
 	end
 	SetJobStatRatio('STR', jobCls);
 	SetJobStatRatio('INT', jobCls);

@@ -2720,3 +2720,47 @@ end
 --    
 --    return 'NO';
 --end
+
+
+function GET_TIMESTAMP_TO_COUNTDOWN_DATESTR(timestamp, prop)
+    
+    if prop == nil then
+        prop ={}
+    end
+
+    local day = math.floor(timestamp / 86400)
+	local remainder = (timestamp % 86400)
+	local hour = math.floor(remainder / 3600)
+	local remainder = (timestamp % 3600)
+	local min = math.floor(remainder / 60)
+	local sec = (remainder % 60)
+	
+    local countdownStr = ""
+    
+    if prop.noDay == nil then
+        if day > 0 then
+            countdownStr = countdownStr..day..ClMsg("UI_Day").." ";
+        end
+    end
+    
+    if prop.noHour == nil then
+        if hour > 0 then
+            countdownStr = countdownStr..hour..ClMsg("UI_Hour").." ";
+        end
+    end
+
+    if prop.noMin == nil then
+        if min > 0 then
+            countdownStr = countdownStr..min..ClMsg("UI_Min").." ";
+        end
+    end
+    
+    if prop.noSec == nil then
+        if sec > 0 then
+            countdownStr = countdownStr..sec..ClMsg("UI_Sec").." ";
+        end
+    end
+    
+	return countdownStr
+
+end

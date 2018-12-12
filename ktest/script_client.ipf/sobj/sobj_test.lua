@@ -128,8 +128,17 @@ function SMARGEN_NEAR_NPC_EXIST_CLIENT(self)
 	end
 end
 
+-- EVENT_1812_CHARACTER_RESET
+local EVENT_1812_CHARACTER_RESET_CLIENT_FLAG = 0
+
 function CLIENT_SMARTGEN_INIT()
 
+    -- EVENT_1812_CHARACTER_RESET
+	if EVENT_1812_CHARACTER_RESET_CLIENT_FLAG == 0 then
+    	ui.MsgBox_NonNested(ScpArgMsg('EVENT_1812_CHARACTER_RESET_CLIENT_FLAG_MSG1'),0x00000000)
+    	EVENT_1812_CHARACTER_RESET_CLIENT_FLAG = 1
+    end
+    
 	local sObj = session.GetSessionObjectByName("ssn_smartgen");
 	if sObj == nil then
 		return;
@@ -748,7 +757,7 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                                 local curState = mapNpcState:FindAndGet(genType);
                                 if curState < 1 then
                                     control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
-                                end
+								end
                            	end
                         end
                     end

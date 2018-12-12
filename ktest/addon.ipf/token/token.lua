@@ -113,7 +113,7 @@ function BEFORE_APPLIED_TOKEN_OPEN(invItem)
   -- 혹시나 저처럼 고생하시는 분이 생길가 적습니다. 해당 부분은 토큰의 실제 적용 시간에 여유분을 두기 때문에 UI 상 출력시간을 보정하는 곳입니다.
   -- 여기 작성 안하면 계속 시간이 이상하게 나올거에요
 	local arg1 = itemobj.NumberArg1;
-	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" then
+	if itemobj.ClassName == "PremiumToken" or itemobj.ClassName == "PremiumToken_event" or itemobj.ClassName == "PremiumToken_New_Return" then
 		arg1 = 2592000 --30일
 	elseif itemobj.ClassName == "PremiumToken_5d" or itemobj.ClassName == "PremiumToken_5d_Steam" or itemobj.ClassName == "PremiumToken_5d_event" then
 		arg1 = 432000 -- 5일
@@ -306,7 +306,7 @@ function BEFORE_APPLIED_INDUNRESET_OPEN(invItem)
 	local ctrlSet = gBox:CreateControlSet("tokenDetail", "CTRLSET_INDUNFREE",  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 	local prop = ctrlSet:GetChild("prop");
 
-	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' or obj.ClassName == 'indunReset_1add_14d_NoStack' or obj.ClassName == 'Event_1704_Premium_indunReset_1add' then
+	if obj.ClassName == 'Premium_indunReset_1add' or obj.ClassName == 'Premium_indunReset_1add_14d' or obj.ClassName == 'indunReset_1add_14d_NoStack' or obj.ClassName == 'Event_1704_Premium_indunReset_1add' or obj.ClassName == 'indunReset_1add_14d_NoStack_Team' then
 	    prop:SetTextByKey("value", ClMsg('Indun1AddText'));
 	else
 	    prop:SetTextByKey("value", ClMsg('IndunRestText'));
@@ -416,7 +416,7 @@ function REQ_TOKEN_ITEM(parent, ctrl)
 		return;
 	end
 	
-	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' or argList == 'Event_1704_Premium_indunReset_1add' or argList == 'Event_1704_Premium_indunReset' then
+	if argList == 'Premium_indunReset' or argList == 'Premium_indunReset_14d' or argList == 'Premium_indunReset_14d_test' or argList == 'Premium_indunReset_1add' or argList == 'Premium_indunReset_1h' or argList == 'Premium_indunReset_1add_14d' or argList == 'Premium_indunReset_TA' or argList == 'indunReset_1add_14d_NoStack' or argList == 'Event_1704_Premium_indunReset_1add' or argList == 'Event_1704_Premium_indunReset' or argList == 'indunReset_1add_14d_NoStack_Team' then
 
 		local etcObj = GetMyEtcObject();
 		-- 2개뿐이여서 고정으로 넣어둠

@@ -5690,6 +5690,12 @@
 			<img name="cooltime" imgrect="1163 801 100 100"/>
 			<img name="selected" imgrect="1163 801 100 100"/>
 		</skin>
+		<skin name="doll_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="1625 711 50 51"/>
+			<img name="mouseon" imgrect="1163 801 100 100"/>
+			<img name="cooltime" imgrect="1163 801 100 100"/>
+			<img name="selected" imgrect="1163 801 100 100"/>
+		</skin>
 		<skin name="spcostume_slot" texture="\skin\pip_test_item.tga">
 			<img name="slot" imgrect="1564 751 50 51"/>
 			<img name="mouseon" imgrect="1565 804 54 54"/>
@@ -5803,6 +5809,7 @@
 		<image name="Map_Indun_Nicopolis_01" file="\skin\indunmap\Map_Indun_Nicopolis_01.png" imgrect="0 0 295 450" CMM_Caption="니코폴리스 던전"/>
 		<image name="Map_Indun_abbey_raid" file="\skin\indunmap\Map_Indun_abbey_raid.png" imgrect="0 0 295 450" CMM_Caption="노바하 유니크 던전"/>
 		<image name="Map_Indun_StarTower_uniqe_raid" file="\skin\indunmap\Map_Indun_StarTower_uniqe_raid.png" imgrect="0 0 295 450" CMM_Caption="별의 탑 레이드"/>
+		<image name="Map_Klapeda" file="\skin\indunmap\Map_Klapeda.png" imgrect="0 0 295 450" CMM_Caption="클라페다"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
