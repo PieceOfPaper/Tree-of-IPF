@@ -566,7 +566,8 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 	if invitem ~= nil and invitem:GetObject() ~= nil then
 		local itemObj = GetIES(invitem:GetObject());		
 		if itemObj.ClassName ~= MONEY_NAME then	
-			return itemObj, 0, invitem;
+            local temp_obj = CloneIES_UseCP(itemObj)
+			return temp_obj, 0, invitem;
 		end
 	end
 
