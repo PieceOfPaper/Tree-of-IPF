@@ -68,6 +68,10 @@ function EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex)
 	if cardID == 0 then
 		return;
 	end
+
+	local prop = geItemTable.GetProp(cardID);
+	cardLv = prop:GetLevel(cardExp);
+
 	local ypos = EQUIP_CARDSLOT_DRAW_TOOLTIP(frame, cardID, cardLv);
 	ypos = EQUIP_CARDSLOT_DRAW_ADDSTAT_TOOLTIP(frame, ypos, cardID);
 	if cls ~= nil and cls.ToolTipScp ~= 'LEGEND_BOSSCARD' then
