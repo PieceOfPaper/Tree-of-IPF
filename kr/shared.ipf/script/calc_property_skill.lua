@@ -5672,6 +5672,12 @@ end
 function SCR_GET_Lycanthropy_Ratio2(skill)
     local value = skill.Level * 10
     
+    local pc = GetSkillOwner(skill);
+    local abilDruid20 = GetAbility(pc, "Druid20");
+    if abilDruid20 ~= nil and TryGetProp(abilDruid20, 'ActiveState') == 1 then
+        value = value + 10
+    end
+    
     return value;
 end
 
