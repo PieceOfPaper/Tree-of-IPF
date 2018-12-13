@@ -248,3 +248,12 @@ function SCR_GET_SPEND_ITEM_Alchemist_SprinkleSPPotion(pc)
 	local savedID = etc.AlcheWorkshopItemID_SprinkleSP;
 	return GetClassByType('Item', savedID), savedID;
 end
+
+function IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(item)
+	local star = TryGetProp(item, 'ItemStar', -1);
+	if star < 0 then
+		return false;		
+	end
+	
+	return true;
+end

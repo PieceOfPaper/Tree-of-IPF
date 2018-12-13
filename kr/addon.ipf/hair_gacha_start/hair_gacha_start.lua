@@ -18,11 +18,16 @@ function HAIR_GACHA_OK_BTN()
 		return
 	end
 
-	local frame = ui.GetFrame("hair_gacha_start")
+	local frame = ui.GetFrame("hair_gacha_start");
+	local skip_animation = GET_CHILD_RECURSIVELY(frame, "skip_animation");
 	
 	local type = frame:GetUserValue("ClassName");
 
-	local scpString = string.format("/hairgacha %s",  type);
+	local isSkipAnimation = "NO";
+	if skip_animation:IsChecked() == 1 then
+		isSkipAnimation = "YES";
+	end
+	local scpString = string.format("/hairgacha %s %s", type, isSkipAnimation);
 	ui.Chat(scpString);
 
 	ui.CloseFrame("hair_gacha_start")
@@ -78,6 +83,12 @@ function GACHA_START(gachaDetail)
     local hairText = GET_CHILD_RECURSIVELY(frame, 'richtext_2');
 	local costumeText = GET_CHILD_RECURSIVELY(frame, 'richtext_3');
 	local btn = GET_CHILD_RECURSIVELY(frame,"button")
+	local skip_animation = GET_CHILD_RECURSIVELY(frame, "skip_animation");
+
+	local isSkipAnimation = skip_animation:GetUserValue("IsSkipAnimation");
+	if isSkipAnimation ~= nil and isSkipAnimation ~= "None" then
+		skip_animation:SetCheck(isSkipAnimation);
+	end
 
 	btn:SetVisible(1)
 	local val = ScpArgMsg("GachaMsg", "Name", item.Name);
@@ -101,6 +112,9 @@ function GACHA_START(gachaDetail)
 	end
 
 	frame:ShowWindow(1)
-	
-	
+end
+
+function SCR_GACHA_SKIP_ANIMATION(frame)
+	local skip_animation = GET_CHILD_RECURSIVELY(frame, "skip_animation");
+	skip_animation:SetUserValue("IsSkipAnimation", skip_animation:IsChecked());
 end

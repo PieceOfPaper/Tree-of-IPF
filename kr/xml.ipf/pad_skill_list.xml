@@ -1842,7 +1842,8 @@ return obj.Level"/>
 local zone = GetZoneName(self);
 if IsPVPServer(self) == 1 or IsJoinColonyWarMap(self) == 1 or zone == &apos;pvp_Mine&apos; then
 buffTime = buffTime * 0.5
-end
+end
+
 return buffTime"/>
                 <Num Num="1"/>
                 <Num Num="100"/>
@@ -11072,20 +11073,6 @@ return time"/>
                 <Str Str="DeployPavise_Buff"/>
             </ToolScp>
         </destroyEvent>
-        <enterEvent>
-            <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Str Str="DeployPavise_Buff"/>
-                <Num Num="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-                <Num Num="1"/>
-                <Num Num="100"/>
-                <Num Num="0"/>
-            </ToolScp>
-        </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
                 <Str Str="ALL"/>
@@ -11099,6 +11086,17 @@ return time"/>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="-1000"/>
                 <Num Num="0"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_BUFF_ENEMY" Client="NO" UseSleep="NO">
+                <Str Str="FRIEND"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="DeployPavise_Buff"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
@@ -16809,15 +16807,19 @@ end"/>
                 <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
-                <Str Str="PlantGround_Debuff"/>
-                <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
                 <Str Str="Chortasmata_Buff"/>
                 <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="PAD_TGT_BUFF_MON" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+                <Str Str="PlantGround_Debuff"/>
+                <Num Num="1" FuncTxt="return obj.Leve"/>
+                <Num Num="0"/>
+                <Num Num="5000"/>
+                <Num Num="1"/>
+                <Num Num="100"/>
             </ToolScp>
         </leaveEvent>
         <updateEvent>

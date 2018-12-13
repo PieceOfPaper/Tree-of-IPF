@@ -3794,7 +3794,7 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 	local obj = GetIES(selectItem:GetObject());
 	if obj.ClassName == "Dispeller_1" or obj.ClassName == 'Bujeok_1' then
 		if false == selectItem.isLockState then
-			if true == item.useToggleDispelDebuff() then
+			if true == item.UseToggleDispelDebuff() then
 				ui.SysMsg(ClMsg("selectItemUsed"));
 				return;
 			end

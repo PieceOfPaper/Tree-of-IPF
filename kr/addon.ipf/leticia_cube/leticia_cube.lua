@@ -98,13 +98,15 @@ function LETICIA_CUBE_OPEN_BUTTON(frame, ctrl, argStr, argNum, _gachaClassName, 
     end    
 
     if frame:GetUserIValue('OPEN_MSG_BOX') == 0 then
-        ui.MsgBox(ScpArgMsg('LeticiaGacha{CONSUME}', 'CONSUME', clMsg)..'{nl} {nl}'..'{#85070a}'..ClMsg('ContainWarningItem'), 'REQ_LETICIA_CUBE_OPEN("'..cubeName..'")', 'LETICIA_CUBE_MSG_BOX_RESET()');
+        ui.MsgBox(ScpArgMsg('LeticiaGacha{CONSUME}', 'CONSUME', clMsg)..'{nl} {nl}'..'{#85070a}'..ClMsg('ContainWarningItem'), 'REQ_LETICIA_CUBE_OPEN("'..cubeName..'")', 'LETICIA_CUBE_CLOSE_ALL()');
         frame:SetUserValue('OPEN_MSG_BOX', 1);
     end
 end
 
 function REQ_LETICIA_CUBE_OPEN(cubeItemName)
-    local scpString = string.format("/leticia_gacha %s",  cubeItemName);
+    ui.CloseFrame('fulldark');
+
+    local scpString = string.format("/leticia_gacha %s",  cubeItemName);    
 	ui.Chat(scpString);
 
     LETICIA_CUBE_MSG_BOX_RESET();
@@ -114,4 +116,9 @@ end
 function LETICIA_CUBE_MSG_BOX_RESET()
     local leticia_cube = ui.GetFrame('leticia_cube');
     leticia_cube:SetUserValue('OPEN_MSG_BOX', 0);
+end
+
+function LETICIA_CUBE_CLOSE_ALL()
+    ui.CloseFrame('fulldark');
+    LETICIA_CUBE_MSG_BOX_RESET();
 end

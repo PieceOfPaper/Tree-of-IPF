@@ -380,17 +380,11 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	if tostring(before) == tostring(layer) then
 		return;
 	end
+	
 	if tostring(isMoving) == '1' then
 		return;
 	end
-	
-	-- 숙소 방문 중일 때에는 상대방 숙소의 레이어를 변경시켜야하는데 내 숙소로 변경시키는 문제가 있음.
-	-- 일단 숙소 방문중 레이어 변경 막아버림.
-	local barrackMode = frame:GetUserValue("BarrackMode");
-	if barrackMode == "Visit" then
-		return;
-	end
-	
+		
 	frame:SetUserValue("MovingBarrackLayer", 1);
     
 	local pccount = GET_CHILD(frame, "pccount", "ui::CRichText");

@@ -9,7 +9,7 @@
 	<effect open="character_item_window_open" close="character_item_window_close"/>
 	<script CloseScp="BARRACK_CHANCLE_CHANGE_NAME"/>
 	<controls>
-		<groupbox name="bg2" rect="0 0 480 240" margin="-1 0 0 0" layout_gravity="left top" draw="flase" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="jour_search"/>
+		<groupbox name="bg2" rect="0 0 480 240" margin="-1 0 0 0" layout_gravity="left top" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" draw="false"/>
 		<button name="button_1" margin="50 0 0 30" rect="10 10 160 50" skin="test_red_button" layout_gravity="left bottom" caption="{@st41}확인" LBtnUpScp="BARRACK_CHANGE_NAME_USE_TP"/>
 		<button name="button_1_1" margin="245 0 0 30" rect="10 10 160 50" skin="test_gray_button" layout_gravity="left bottom" caption="{@st41}취소" LBtnUpScp="BARRACK_CHANCLE_CHANGE_NAME"/>
 		<richtext name="prop" margin="0 -80 0 0" rect="0 0 120 24" format="{@st44}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center center"/>
@@ -20,7 +20,7 @@
 		<picture name="picture_1" margin="146 158 0 0" rect="5 5 23 23" hittest="false" image="icon_item_tospoint" stretch="true" changecursor="false" layout_gravity="left top"/>
         <richtext name="NeedTP" margin="163 160 0 0" rect="0 0  200 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="right top" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		<richtext name="myName" margin="31 107 0 0" rect="0 0 120 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-        <richtext name="ChangeName" margin="253 105 0 0" rect="0 0 200 24" format="{@st42}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <richtext name="ChangeName" margin="253 105 0 0" rect="0 0 200 24" format="{@st66d_y}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="center center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		<picture name="picture_2" margin="230 108 0 0" rect="5 5 20 20" hittest="false" image="white_right_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
 	</controls>
 </uiframe>

@@ -5355,17 +5355,6 @@ function SCR_GET_IncreaseMagicDEF_Ratio2(skill)
     return value
 end
 
-function SCR_GET_Carnivory_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Druid11") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
-end
-
 function SCR_GET_Incineration_Ratio(skill)
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "PlagueDoctor2") 
@@ -7118,7 +7107,7 @@ function SCR_GET_CrossGuard_Ratio(skill)
 end
 
 function SCR_GET_CrossGuard_Ratio2(skill)
-    local value = 5 + (1.5 * skill.Level)
+    local value = 5 * skill.Level
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return math.floor(value)
 end
@@ -7551,9 +7540,13 @@ function SCR_GET_Conversion_Bufftime(skill)
 end
 
 function SCR_GET_Carnivory_Ratio(skill)
-    local value = skill.Level * 5;
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
-    return value
+    local value = 1 + ((skill.Level * 1) / 2)
+    return math.ceil(value)
+end
+
+function SCR_GET_Carnivory_Ratio2(skill)
+    local value = (skill.Level * 10)
+    return math.floor(value)
 end
 
 function SCR_GET_Carnivory_Time(skill)
@@ -7562,7 +7555,8 @@ function SCR_GET_Carnivory_Time(skill)
 end
 
 function SCR_GET_StereaTrofh_Ratio(skill)
-    local value = skill.Level
+    local value = skill.Level * 7
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value
 end
 
@@ -10358,7 +10352,7 @@ end
 
 function SCR_GET_Samdiveve_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = 298.6 + ((pc.MHP * (0.005 * skill.Level)))
+    local value = (pc.MHP - pc.MHP_BM) * (0.05 * skill.Level)
     return math.floor(value)
 
 end

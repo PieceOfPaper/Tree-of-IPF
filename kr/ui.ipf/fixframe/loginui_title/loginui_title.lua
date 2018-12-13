@@ -7,16 +7,24 @@ function LOGINUI_TITLE_ON_INIT(addon, frame)
 	if view1 ~= nil then
         view1:ShowWindow(0)
     end
+    
     local view2 = GET_CHILD(frame, "login_img2", "ui::CPicture")
     if view2 ~= nil then
         view2:ShowWindow(0)
     end
+
+    local view3 = GET_CHILD(frame, "login_img3", "ui::CPicture")
+    if view3 ~= nil then
+        view3:ShowWindow(0)
+    end
     
-    local rand = IMCRandom(1,2)
-    if rand == 1 then
+    local rand = IMCRandom(1,3)
+    if rand == 0 then
         view1:ShowWindow(1)
-    elseif rand == 2 then
+    elseif rand == 0 then
         view2:ShowWindow(1)
+    elseif rand >= 1 then
+        view3:ShowWindow(1)
     end
 --	ENABLE_ANIMATE_BACKGROUND_ILLUSTRATION();
 end

@@ -577,7 +577,8 @@
 	<Code Code="ERROR_MARKET_WEB" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="마켓 웹서버 에러 로그"/>
 	<Code Code="ERROR_GUILD_BUILDING" Team="tos_team" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 설치물 에러"/>
 	<Code Code="INFO_GUILD_BUILDING" Team="tos_team" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 설치물 정보"/>
-    <Code Code="ERROR_INDUN_MULTIPLE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
+    <Code Code="FATAL_DUPLICATE_USERPROP_NAME" Team="PROGRAM" Category="ERROR" SubCategory="USER_PROP" Logger="root" Enabled="YES" CallStack="NO" Desc="동일한 UserProp 이름으로 다른 타입을 설정하려 했습니다."/>
+	<Code Code="ERROR_INDUN_MULTIPLE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
 	<Code Code="ERROR_GUILD_JOINT_INV" Team="PROGRAM" Category="LOGIC" SubCategory="GuildJointInv" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 공용 창고 에러"/>
 	<Code Code="ERROR_GUILD_MILEAGE" Team="PROGRAM" Category="LOGIC" SubCategory="GuildMileage" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 마일리지 에러"/>
 	

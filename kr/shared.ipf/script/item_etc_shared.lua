@@ -17,6 +17,34 @@ function GET_LIMITATION_TO_BUY(tpItemID)
     return 'NO', 0;
 end
 
+function GET_LIMITATION_TO_BUY_WITH_SHOPTYPE(tpItemID, shopType)
+    local tpItemObj = nil
+    -- shopType normal(0), return User(1), newbie(2)
+    if shopType == 1 then
+        tpItemObj = GetClassByType('TPitem_Return_User', tpItemID);
+    elseif shopType == 2 then
+        tpItemObj = GetClassByType('TPitem_User_New', tpItemID);
+    else
+        tpItemObj = GetClassByType('TPitem', tpItemID);
+    end
+    
+    if tpItemObj == nil then
+        return 'NO', 0;
+    end
+
+    local accountLimitCount = TryGetProp(tpItemObj, 'AccountLimitCount');
+    if accountLimitCount ~= nil and accountLimitCount > 0 then
+        return 'ACCOUNT', accountLimitCount;
+    end
+
+    local monthLimitCount = TryGetProp(tpItemObj, 'MonthLimitCount');
+    if monthLimitCount ~= nil and monthLimitCount > 0 then
+        return 'MONTH', monthLimitCount;
+    end
+
+    return 'NO', 0;
+end
+
 itemOptCheckTable = nil;
 function CREATE_ITEM_OPTION_TABLE()
     --추가할 프로퍼티가 존재한다면 밑에다가 추가하면 됨.

@@ -828,7 +828,6 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     end
 
     overheatText:SetText(OVERHEAT_ICON ..lvFont..ScpArgMsg("count{value}", "value", overHeat))
-    overheatText:SetVisible(0)
     
     -- trim desc    
     local trimedDesc = desc:match("^%s*(.+)")    

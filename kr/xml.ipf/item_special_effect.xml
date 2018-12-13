@@ -49,4 +49,22 @@
 			<effect TargetNode="dummy_effect" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1.5" offsetX="0" offsetY="0" ReinforceValue="21" UseAttach="YES" PlayType="All"/>
 		</ItemList>
 	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="wing_Incense_Burner">
+			<effect TargetNode="Dummy_effect001" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0"/>
+			<effect TargetNode="Dummy_effect001" effect="F_pc_costume_inspector_uniform01_light_loop" scale="1" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="ABAND01_140">
+			<effect TargetNode="dummy_effect" effect="F_pc_item_armband_devil" scale="1.2" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_item_armband_devil" scale="1.2" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0"/>
+		</ItemList>
+	</Effect_Item>
+	<Effect_Item>
+		<ItemList ItemClassName="ABAND01_141">
+			<effect TargetNode="dummy_effect" effect="F_pc_item_armband_saint" scale="1.2" offsetX="0" offsetY="0" ReinforceValue="0" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0"/>
+			<effect TargetNode="dummy_effect" effect="F_pc_item_armband_saint" scale="1.2" offsetX="0" offsetY="0" ReinforceValue="1" UseAttach="YES" PlayType="All" IsKeeping="NO" BlendMode="NO" OnLifeTime="NO" LifeTimeValue="0.0"/>
+		</ItemList>
+	</Effect_Item>
 </List>

@@ -158,8 +158,7 @@ function CRAFT_CHECK_Recipe_ItemCraft(cls, arg1, arg2)
 end	
 		
 		
-function CREATE_CRAFT_ARTICLE(frame)
-
+function CREATE_CRAFT_ARTICLE(frame)    
 	if g_craftRecipe == nil then
 		return;
 	end
@@ -195,7 +194,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 
 	local clslist = GetClassList(idSpace);
 	if clslist == nil then return end
-
+    
 	local i = 0;
 	local cls = GetClassByIndexFromList(clslist, i);
 
@@ -203,7 +202,7 @@ function CREATE_CRAFT_ARTICLE(frame)
 	local checkHaveMaterial = showonlyhavemat:IsChecked();	
 
 	local checkCraftFunc = _G["CRAFT_CHECK_".. idSpace];
-	while cls ~= nil do
+	while cls ~= nil do        
 		if checkCraftFunc(cls, arg1, arg2) == true then
 			local haveM = CRAFT_HAVE_MATERIAL(cls);
 			if checkHaveMaterial == 1 then
@@ -524,7 +523,8 @@ function SORT_INVITEM_BY_WORTH(a,b)
 	return a:GetIESID() < b:GetIESID()	
 end
 
-function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
+function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)    
+    
     if session.colonywar.GetIsColonyWarMap() == true then
         ui.SysMsg(ClMsg('CannotUseInPVPZone'));
         return;
@@ -593,7 +593,7 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
 	if someflag > 0 then
 		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
-	else
+	else        
 		CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	end
 end
@@ -771,7 +771,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	local resultlist = session.GetItemIDList();
 	for index=1, 5 do
 		local clsName = "Item_"..index.."_1";
-		local itemName = recipecls[clsName];
+		local itemName = recipecls[clsName];        
 		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);
 		if 'None' ~= itemName then
 			for j = 0, resultlist:Count() - 1 do
@@ -812,7 +812,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
 		CLEAR_CRAFT_QUEUE(queueFrame);
-		for i = 1, totalCount do
+		for i = 1, totalCount do            
 			ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, 1);
 		end
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
@@ -826,7 +826,7 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	
 	local resultlist = session.GetItemIDList();
 	local cntText = string.format("%s %s", recipecls.ClassID, 1);
-	frame:SetUserValue("IDSPACE", idSpace);
+	frame:SetUserValue("IDSPACE", idSpace);    
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);    
 end
 
@@ -951,19 +951,20 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
     local map_classID = {}
     local map_cnt = {}  -- 제작에 필요한 아이템별 필요 개수
     local item_count = 0
-        
+    
 	for index=1, 5 do        
 		local clsName = "Item_"..index.."_1";        
-		local itemName = recipecls[clsName];        
-		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName);        
-        
-        if recipeItemCnt ~= 0 then
-            item_count = item_count + 1
-            map_classname[item_count] = itemName            
-            map_cnt[item_count] = recipeItemCnt
-        end
+		local itemName = recipecls[clsName];
+        if itemName ~= 'None' then
+            local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, clsName)
+            if recipeItemCnt ~= 0 then
+                item_count = item_count + 1
+                map_classname[item_count] = itemName
+                map_cnt[item_count] = recipeItemCnt                
+            end
+        end		
 	end
-
+    
     local extralist = {}    -- 중복 체크용 셋
     local ordered_list = {}
     local ordered_cnt = 1
@@ -1020,7 +1021,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
             end
         end
     end
-
+    
     session.ResetItemList()
 
     for i = 1, ordered_cnt - 1 do        
@@ -1034,8 +1035,9 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
         end
         session.AddItemID(ordered_list[i], map_cnt[i]);
     end
-
+    
     resultlist = session.GetItemIDList()
+    
     if resultlist:Count() ~= item_count then
         session.ResetItemList()
         ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
@@ -1044,7 +1046,7 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
 		SetCraftState(0)                
         return
     end 
-
+    
     local nameList = NewStringList();
 
     if IS_EQUIP(targetItem) then
@@ -1053,7 +1055,6 @@ function CRAFT_DETAIL_CRAFT_EXEC_ON_SUCCESS(frame, msg, str, time)
         nameList:Add(name)
 	    nameList:Add(memo)
     end
-
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList)
 end
 
