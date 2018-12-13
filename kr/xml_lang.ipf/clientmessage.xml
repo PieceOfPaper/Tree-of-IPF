@@ -42,6 +42,7 @@
 		<Class ClassID="38" ClassName="FailToGetAuthCode" Data="Session Code 획득에 실패하였습니다. 다시 로그인을 시도해 주세요."/>
 		<Class ClassID="39" ClassName="OutOfVideoMemory" Data="Direct3D 가 처리를 실시하는데 충분한 디스플레이 메모리가 없습니다."/>
 		<Class ClassID="40" ClassName="ServerListToolTip" Data="{@st59}접속을 원하는 서버를 선택하여 주세요."/>
+    <Class ClassID="41" ClassName="TemporarilyUnavailable_1" Data="일시적으로 사용 불가능한 기능입니다"/>
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
