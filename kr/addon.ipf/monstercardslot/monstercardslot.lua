@@ -165,7 +165,9 @@ function CARD_OPTION_CREATE(monsterCardSlotFrame)
 	local legendCardID, legendCardLv, legendCardExp = GETMYCARD_INFO(12)
 
 	local prop = geItemTable.GetProp(legendCardID);
-	legendCardLv = prop:GetLevel(legendCardExp);
+	if prop ~= nil then
+		legendCardLv = prop:GetLevel(legendCardExp);
+	end
 
 	if legendCardID ~= nil and legendCardID ~= 0 then
 		clientMessage = 'MonsterCardOptionGroupLEG'
@@ -455,7 +457,9 @@ function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 	end
 
 	local prop = geItemTable.GetProp(cardID);
-	cardLv = prop:GetLevel(cardExp);
+	if prop ~= nil then
+		cardLv = prop:GetLevel(cardExp);
+	end
 	
 	-- 카드 슬롯 제거하기 위함
 	frame:SetUserValue("REMOVE_CARD_SLOTINDEX", slotIndex);

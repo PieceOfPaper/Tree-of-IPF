@@ -293,7 +293,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	if mainframename == 'equip_main' and isForgery == true and tooltipframe:GetTopParentFrameName() == 'inventory' then
 		forgeryEquip:ShowWindow(1);
 		itemNowEquip:ShowWindow(0);
-		APPRAISER_FORGERY_TOOLTIP_SET_BUFFTIME(forgeryEquip:GetChild('forgeryequip_text'));
 	else
 		forgeryEquip:ShowWindow(0);
 	end
@@ -440,7 +439,6 @@ function DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframenam
 	if mainframename == 'equip_main' and isForgery == true and tooltipframe:GetTopParentFrameName() == 'inventory' then
 		forgeryEquip:ShowWindow(1);
 		itemNowEquip:ShowWindow(0);
-		APPRAISER_FORGERY_TOOLTIP_SET_BUFFTIME(forgeryEquip:GetChild('forgeryequip_text'));
 	else
 		forgeryEquip:ShowWindow(0);
 	end

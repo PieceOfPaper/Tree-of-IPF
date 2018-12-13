@@ -70,7 +70,9 @@ function EQUIP_CARDSLOT_TOOLTIP_BOSSCARD(slotIndex)
 	end
 
 	local prop = geItemTable.GetProp(cardID);
-	cardLv = prop:GetLevel(cardExp);
+	if prop ~= nil then
+		cardLv = prop:GetLevel(cardExp);
+	end
 
 	local ypos = EQUIP_CARDSLOT_DRAW_TOOLTIP(frame, cardID, cardLv);
 	ypos = EQUIP_CARDSLOT_DRAW_ADDSTAT_TOOLTIP(frame, ypos, cardID);

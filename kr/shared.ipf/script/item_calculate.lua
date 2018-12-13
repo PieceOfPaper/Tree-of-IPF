@@ -1953,7 +1953,9 @@ function GET_COPY_TARGET_OPTION_LIST()
 		'IsAwaken',
 		'HiddenProp',
 		'HiddenPropValue',
-		'LegendPrefix',
+        'LegendPrefix',
+        'RandomOptionRare',
+        'RandomOptionRareValue',
 	};
 end
 

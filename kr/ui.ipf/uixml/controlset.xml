@@ -367,8 +367,8 @@
 			<groupbox name="nowequip" rect="0 0 100 30" layout_gravity="left top" margin="10 280 0 0" image="testblackbg_image" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
 			<richtext name="nowequip_text" caption="착용중" layout_gravity="center center" textalign="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" parent="nowequip"/>
 			<richtext name="cantrf_text" caption="강화 불가" layout_gravity="right top" textalign="center center" fontname="white_16_ol" rect="0 0 120 30" margin="0 285 10 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true"/>
-			<groupbox name="forgeryequip" rect="0 0 400 100" margin="0 140 0 0" layout_gravity="center top" skin="chat_window_2" draw="true"/>
-			<richtext name="forgeryequip_text" format="{@st66d}감정사 [모조품] 아이템{nl}   남은 유지시간 %s" param1="time" param1_def="1분30초" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
+			<groupbox name="forgeryequip" rect="0 0 200 200" margin="0 80 0 0" layout_gravity="center top" skin="chat_window_2" draw="true"/>
+			<richtext name="forgeryequip_text" format="{@st66d}모조품" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_equip_small_img" hittest="true" width="405" height="165">
@@ -409,8 +409,8 @@
 			<groupbox name="nowequip" rect="0 0 100 30" layout_gravity="left top" margin="10 280 0 0" image="testblackbg_image" hittest="false" draw="false" updateparent="false" scrollbar="false"/>
 			<richtext name="nowequip_text" caption="착용중" layout_gravity="center center" textalign="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" parent="nowequip"/>
 			<richtext name="cantrf_text" caption="강화 불가" layout_gravity="right top" textalign="center center" fontname="white_16_ol" rect="0 0 120 30" margin="0 285 10 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true"/>
-			<groupbox name="forgeryequip" rect="0 0 400 100" margin="0 140 0 0" layout_gravity="center top" skin="chat_window_2" draw="true"/>
-			<richtext name="forgeryequip_text" format="{@st66d}감정사 [모조품] 아이템{nl}   남은 유지시간 %s" param1="time" param1_def="1분30초" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
+			<groupbox name="forgeryequip" rect="0 0 97 97" margin="7 60 0 0" layout_gravity="left top" skin="chat_window_2" draw="true"/>
+			<richtext name="forgeryequip_text" format="{@st66d}모조품" layout_gravity="center center" fontname="white_16_ol" rect="0 0 100 30" margin="0 0 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" parent="forgeryequip"/>
 			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center bottom"/>
 		</controls>
 	</controlset>
