@@ -2,6 +2,7 @@
 function ITEMRULLET_ON_INIT(addon, frame)
 	addon:RegisterMsg('OPEN_DLG_ITEMRULLET', 'ON_OPEN_DLG_REINFORCE_SEAL');
 	addon:RegisterMsg('SUCCESS_REINFORCE_SEAL', 'ON_SUCCESS_REINFORCE_SEAL');
+	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_ITEMRULLET_UPDATE_COLONY_TAX_RATE_SET');
 end
 
 local s_reinforceSeal = {};
@@ -51,6 +52,9 @@ local function _INIT_COMPONENT(frame)
 	local additionalInvItem = session.GetInvItemByType(additionalItemCls.ClassID);
 	s_reinforceSeal.UpDownMax:SetMinMax(0, 0);
 	s_reinforceSeal.UpDownMax:SetStyle('{#FF0000}');
+
+	local costStaticText = GET_CHILD_RECURSIVELY(frame, "costStaticText");
+	SET_COLONY_TAX_RATE_TEXT(costStaticText, "tax_rate")
 	slotBox:ShowWindow(1);
 	slotBox2:ShowWindow(1);
 end
@@ -201,7 +205,7 @@ local function _UPDATE_PRICE(frame)
 	local targetSeal, targetSealObj = s_reinforceSeal.TargetSeal:GetItemInfo();
 	local materialSeal, materialSealObj = s_reinforceSeal.MaterialSeal:GetItemInfo();
 	local additionalItem, additionalItemCount = _GET_ADDITIONAL_ITEM(frame);
-	priceText:SetTextByKey('price', GET_COMMAED_STRING(GET_SEAL_PRICE(targetSealObj, materialSealObj, additionalItem, additionalItemCount)));
+	priceText:SetTextByKey('price', GET_COMMAED_STRING(GET_SEAL_PRICE(targetSealObj, materialSealObj, additionalItem, additionalItemCount, GET_COLONY_TAX_RATE_CURRENT_MAP())));
 end
 
 local function _INIT_ADDITIONAL_ITEM(frame)
@@ -254,6 +258,12 @@ local function _UPDATE_ADDITIONAL_ITEM_STYLE(frame)
 		s_reinforceSeal.UpDownMax:SetStyle('{#FF0000}');
 		icon:SetColorTone('AAFF0000');
 	end
+end
+
+function ON_ITEMRULLET_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local costStaticText = GET_CHILD_RECURSIVELY(frame, "costStaticText");
+	SET_COLONY_TAX_RATE_TEXT(costStaticText, "tax_rate")
+	RESET_REINFORCE_SEAL(frame)
 end
 
 function REINFORCE_SEAL_DROP_TARGET(parent, slot)

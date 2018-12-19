@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ClassKey>
     <KeyIDSpc Name="Ability">
         <Key Name="Job" Value="132"/>
@@ -1590,6 +1591,7 @@
         <Key Name="EVENT_RVR_BK_ACHIVE_COUNT_5" Value="103287"/>
         <Key Name="EVENT_RVR_BK_DAILY" Value="103285"/>
         <Key Name="EVENT_RVR_BK_ACHIVE_SAVE_DAY" Value="103289"/>
+        <Key Name="EVENT_REFILL_STONE_DATE_FIRST" Value="103290"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -8720,8 +8722,6 @@
         <Key Name="HiddenJob_Char2_18" Value="33058"/>
         <Key Name="Hide_2585" Value="101452"/>
         <Key Name="Hide_2647" Value="102015"/>
-        <Key Name="InDunCountType_1" Value="4751"/>
-        <Key Name="InDunCountType_10" Value="5837"/>
         <Key Name="InDunCountType_1000" Value="100995"/>
         <Key Name="InDunCountType_11" Value="6297"/>
         <Key Name="InDunCountType_1100" Value="100457"/>
@@ -8730,15 +8730,7 @@
         <Key Name="InDunCountType_14" Value="8692"/>
         <Key Name="InDunCountType_15" Value="8980"/>
         <Key Name="InDunCountType_16" Value="9068"/>
-        <Key Name="InDunCountType_2" Value="3930"/>
-        <Key Name="InDunCountType_3" Value="4714"/>
-        <Key Name="InDunCountType_4" Value="6286"/>
         <Key Name="InDunCountType_401" Value="33126"/>
-        <Key Name="InDunCountType_5" Value="4675"/>
-        <Key Name="InDunCountType_6" Value="6285"/>
-        <Key Name="InDunCountType_7" Value="4635"/>
-        <Key Name="InDunCountType_8" Value="6298"/>
-        <Key Name="InDunCountType_9" Value="7696"/>
         <Key Name="KATYN10_MQ_07_TRACK" Value="7816"/>
         <Key Name="KATYN10_MQ_10_TRACK" Value="7811"/>
         <Key Name="KATYN10_MQ_12_TRACK" Value="7801"/>
@@ -17206,6 +17198,10 @@
         <Key Name="EVENT_1812_UNIQUE_PC_STATE" Value="103277"/>
         <Key Name="EVENT_1812_UNIQUE_PC_YDAY" Value="103276"/>
         <Key Name="MG_Last_EVENT_1812_GILTINE_PROXYWAR" Value="103278"/>
+        <Key Name="FIRST_JOB_CHANGE_ACTIVE" Value="103291"/>
+        <Key Name="SECOND_JOB_CHANGE_ACTIVE" Value="103292"/>
+        <Key Name="THIRD_JOB_CHANGE_ACTIVE" Value="103293"/>
+        <Key Name="PVP_MINE_INIT_BEFORE_ZONE" Value="103294"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

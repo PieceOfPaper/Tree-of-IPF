@@ -317,6 +317,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP(tooltipframe, invitem, mainframename, isForge
 	if session.GetEquipItemByGuid(itemGuid) ~= nil then
 		isEquipedItem = 1;
 	end
+
 	local fullname = GET_FULL_NAME(invitem, true, isEquipedItem);
 	local nameChild = GET_CHILD(equipCommonCSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
@@ -679,9 +680,9 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 	
 	-- 무기 타입 아이콘
 	local pc = GetMyPCObject();
-	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
-	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
-	local overReinf = TryGetProp(pc, 'OverReinforce');
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce', 0);
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce', 0);
+	local overReinf = TryGetProp(pc, 'OverReinforce', 0);
 	local itemGuid = tooltipframe:GetUserValue('TOOLTIP_ITEM_GUID');
 	local isEquiped = 1;
 	if session.GetEquipItemByGuid(itemGuid) == nil then
@@ -1506,7 +1507,7 @@ function GET_PREFIX_SET_ITEM_FLAG(invitem)
 			local slotItem = GET_ITEM_BY_GUID(slotIconInfo:GetIESID())
 			if slotItem ~= nil then
 				local obj = GetIES(slotItem:GetObject())
-				if prefixCls.ClassName == obj.LegendPrefix then		
+				if prefixCls.ClassName == TryGetProp(obj, 'LegendPrefix') then		
 					returnValue[i] = 1;
 				else
 					returnValue[i] = 0;

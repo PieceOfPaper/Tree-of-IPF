@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -3802,6 +3802,28 @@
 			<img name="bottomcore" imgrect="696 144 30 133"/>
 			<img name="bottomright" imgrect="694 144 1 133"/>
 		</skin>
+		<skin name="midle_line_skin" texture="\skin\adventure_diary2.tga">
+			<img name="topleft" imgrect="1 330 10 10"/>
+			<img name="topcore" imgrect="12 330 180 10"/>
+			<img name="topright" imgrect="1 330 10 10"/>
+			<img name="bodyleft" imgrect="1 341 10 20"/>
+			<img name="bodycore" imgrect="12 341 180 20"/>
+			<img name="bodyright" imgrect="1 341 10 20"/>
+			<img name="bottomleft" imgrect="1 330 10 10"/>
+			<img name="bottomcore" imgrect="12 330 180 10"/>
+			<img name="bottomright" imgrect="1 330 10 10"/>
+		</skin>
+		<skin name="map_bg2" texture="\skin\map_bg2.tga">
+			<img name="topleft" imgrect="0 0 110 96"/>
+			<img name="topcore" imgrect="110 0 203 96"/>
+			<img name="topright" imgrect="312 0 88 96"/>
+			<img name="bodyleft" imgrect="0 96 110 112"/>
+			<img name="bodycore" imgrect="110 96 203 112"/>
+			<img name="bodyright" imgrect="312 96 88 112"/>
+			<img name="bottomleft" imgrect="0 208 110 92"/>
+			<img name="bottomcore" imgrect="110 208 203 92"/>
+			<img name="bottomright" imgrect="312 208 88 92"/>
+		</skin>
 	</skinlist>
 	<skinlist category="testmin_frames">
 		<skin name="monstercard" texture="\skin\monstercard.tga">
@@ -5323,12 +5345,20 @@
 			<img name="barmiddle" imgrect="596 251 99 18"/>
 			<img name="barright" imgrect="695 251 1 18"/>
 		</skin>
-		<skin name="colony_teamgauge" texture="\skin\PVP_skin.tga">
+		<skin name="colony_partygauge" texture="\skin\PVP_skin.tga">
 			<img name="bgleft" imgrect="867 187 1 18"/>
 			<img name="bgmiddle" imgrect="868 187 99 18"/>
 			<img name="bgright" imgrect="967 187 1 18"/>
 			<img name="barleft" imgrect="867 168 1 18"/>
 			<img name="barmiddle" imgrect="1007 136 99 18"/>
+			<img name="barright" imgrect="967 168 1 18"/>
+		</skin>
+		<skin name="colony_teamgauge" texture="\skin\PVP_skin.tga">
+			<img name="bgleft" imgrect="867 187 1 18"/>
+			<img name="bgmiddle" imgrect="868 187 99 18"/>
+			<img name="bgright" imgrect="967 187 1 18"/>
+			<img name="barleft" imgrect="867 168 1 18"/>
+			<img name="barmiddle" imgrect="1288 145 99 18"/>
 			<img name="barright" imgrect="967 168 1 18"/>
 		</skin>
 		<skin name="colony_enemygauge" texture="\skin\PVP_skin.tga">
@@ -6565,6 +6595,7 @@
 		<image name="emblemslot_green" file="\skin\PVP_skin.tga" imgrect="913 6 45 45" CMM_Caption="콜로니전 아군 앰블럼 슬롯"/>
 		<image name="emblemslot_red" file="\skin\PVP_skin.tga" imgrect="963 6 45 45" CMM_Caption="콜로니전 적군 앰블럼 슬롯"/>
 		<image name="colonymy_myframe" file="\skin\PVP_skin.tga" imgrect="580 226 133 22" CMM_Caption="콜로니 hsp 장식"/>
+		<image name="colonymy_partyframe" file="\skin\PVP_skin.tga" imgrect="1701 127 133 22" CMM_Caption="콜로니 hsp 장식"/>
 		<image name="charinfo_markslot" file="\skin\pip_test.tga" imgrect="1797 263 25 25" CMM_Caption="hud 길드 마크 슬롯"/>
 		<image name="colonymap_unoccupation" file="\skin\colony.tga" imgrect="1795 1 74 74" CMM_Caption="콜로니전 맵 아이콘"/>
 		<image name="colonymap_in_progress" file="\skin\colony.tga" imgrect="1870 1 74 74"/>
@@ -6688,6 +6719,8 @@
 		<image name="skill_abill_link_pic" file="\skin\tooltip_skin_3.tga" imgrect="1025 95 16 16" CMM_Caption="링크 사슬"/>
 		<image name="abill_group_on_pic" file="\skin\tooltip_skin_3.tga" imgrect="970 176 27 27" CMM_Caption="링크 온"/>
 		<image name="abill_group_off_pic" file="\skin\tooltip_skin_3.tga" imgrect="942 176 27 27" CMM_Caption="링크 오프"/>
+		<image name="colony_scales_pic" file="\skin\pip_test2.tga" imgrect="375 255 25 20" CMM_Caption="콜로니 세율 저울"/>
+		<image name="colony_observation_pic" file="\skin\pip_test2.tga" imgrect="401 255 28 28" CMM_Caption="콜로니 지도 점"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>

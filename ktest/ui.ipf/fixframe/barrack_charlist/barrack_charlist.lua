@@ -471,9 +471,9 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 	levelCtrl:SetText("{@st42b}Lv.".. actor:GetLv());
 
 	local detail = GET_CHILD(charCtrl,'detailBox','ui::CGroupBox');
-	local mapNameCtrl				= GET_CHILD(detail,'mapName','ui::CRichText');	
+	local mapNameCtrl = GET_CHILD(detail,'mapName','ui::CRichText');	
 	local mapCls = GetClassByType("Map", apc.mapID);
-	local mapName 					= mapCls.Name;
+	local mapName = mapCls.Name;
 	mapNameCtrl:SetText("{@st66b}".. mapName);
 		
 	local isDraw = 0;
@@ -506,6 +506,7 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 				end	
 
 				if 0 == item.IsNoneItem(obj.ClassID) then
+					CLEAR_SLOT_ITEM_INFO(eqpSlot);
 					SET_SLOT_ITEM_OBJ(eqpSlot, obj, gender, 1);
 					if obj.ItemType == 'Equip' and obj.DBLHand == 'YES' then
 						local LhSlot = GET_CHILD(detail, 'LH', "ui::CSlot");
@@ -527,10 +528,6 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 
 	detail:ShowWindow(0);
 	charCtrl:Resize(charCtrl:GetWidth(), CHAR_LIST_CLOSE_HEIGHT);
-
---	if barrackMode == "Barrack" then
---		CREATE_SCROLL_NEW_CHAR(frame);
---	end
 
 	GBOX_AUTO_ALIGN(scrollBox, 10, 10, 10, true, false);
 

@@ -33,7 +33,7 @@
 		<slot name="itemSlot" parent="costBox" rect="0 0 70 70" margin="10 50 0 0" layout_gravity="left top" skin="invenslot2" DropScp="REINFORCE_SEAL_DROP_ADDITIONAL_ITEM" enabledrop="false" enablepop="false" enabledrag="false"/>
 		<labelline name="line1" parent="costBox" rect="0 0 460 4" margin="0 35 0 0" layout_gravity="center top" skin="labelline_def2"/>
 		<labelline name="line2" parent="costBox" rect="0 0 460 4" margin="0 0 0 50" layout_gravity="center bottom" skin="labelline_def2"/>
-		<richtext name="costStaticText" parent="costBox" rect="0 0 300 30" margin="10 0 0 13" layout_gravity="left bottom" caption="{img silver_pic 24 24} 가격 {img white_right_arrow 16 16}" fontname="white_16_b_ol"/>
+		<richtext name="costStaticText" parent="costBox" rect="0 0 300 30" margin="10 0 0 13" layout_gravity="left bottom" format="{img silver_pic 24 24} 가격 {img white_right_arrow 16 16} %s" param1="tax_rate" fontname="white_16_b_ol"/>
 		<richtext name="priceText" parent="costBox" rect="0 0 300 30" margin="0 0 10 20" layout_gravity="right bottom" format="{@st66d_y}%s" param1="price" param1_def="0"/>
 		<groupbox name="reinfResultBox" rect="0 0 500 1080" margin="0 0 0 0" layout_gravity="left top" draw="false" resizebyresolution="true" resizebyparent="true" hittestbox="false"/>
 		<picture name="successBgBox" parent="reinfResultBox" rect="0 0 507 400" margin="0 60 0 0" layout_gravity="center top" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3"/>

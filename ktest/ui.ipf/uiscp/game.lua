@@ -1333,7 +1333,7 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 	end
 	local ownName = GET_NAME_OWNED(item);
 	local reinforce_2 = TryGetProp(item, "Reinforce_2");
-	local isHaveLifeTime = TryGetProp(item, "LifeTime");
+	local isHaveLifeTime = TryGetProp(item, "LifeTime", 0);    
 	local pc = GetMyPCObject();
 	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
 	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
@@ -1352,7 +1352,7 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		reinforce_2 = 0;
 	end	
 	
-	if 0 ~= isHaveLifeTime then
+	if 0 ~= tonumber(isHaveLifeTime) then
 		ownName = string.format("{img test_cooltime 30 30}%s{/}", ownName);
 	end
 	
@@ -1369,11 +1369,6 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		if curLv > 0 then
 			ownName = string.format("+%d %s", curLv, ownName);
 		end
-	end
-
-	if IS_SKILL_SCROLL_ITEM(item) == 1 then
-		local skillCls = GetClassByType('Skill', item.SkillType);
-		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
 	end
 
 --	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then
@@ -1725,9 +1720,6 @@ function SCR_SKILLITEM(invItem)
 end
 
 function SCR_SKILLSCROLL(invItem)
-    if 1 == 1 then
-		return;
-	end
 
 	if world.IsPVPMap() then
 		return;
@@ -1742,7 +1734,7 @@ function SCR_SKILLSCROLL(invItem)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-
+	
 	local sklType = obj.SkillType;
 	spcitem.CreateScrollSkill(sklType, invItem:GetIESID(), obj.SkillLevel, true);
 	control.Skill(sklType, obj.SkillLevel, true);
@@ -2943,7 +2935,6 @@ function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
 		return
 	end
 
-	-- 몬스?�젬�?중복검??
 	local gemClass = GetClassByType("Item", luminItem.type)
 	if gemClass ~= nil then
 		local gemEquipGroup = TryGetProp(gemClass, "EquipXpGroup")
@@ -3141,14 +3132,13 @@ function SCR_QUEST_CHECK_T(pc, questname)
 			end
 		end
 	end
-
+    
 	return result, reasonString;
 end
 
 function SCR_QUEST_CHECK_C(pc, questname)
 	local questState = GetQuestState(questname);
-	if "PROGRESS" == questState then -- 진행중일?? ?�션?�브?�트???�로 ?�인?�보?�록 ?�자.
-	-- 마법?�회 ?�스?��? 갱신???��? ?�기?�문??
+	if "PROGRESS" == questState then
 		local questIES = GetClass('QuestProgressCheck', questname);
 		local sObj_quest = GetSessionObject(pc, questIES.Quest_SSN);
 		if nil ~= sObj_quest then
@@ -3635,7 +3625,6 @@ function ON_RIDING_VEHICLE(onoff)
 
 	if (control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES') and cartHandle == 0 then
 		local fsmActor = GetMyActor();
-
 		local subAction = fsmActor:GetSubActionState();
 		
 		-- 41, 42 == CSS_SKILL_READY, CSS_SKILL_USE
@@ -3669,8 +3658,6 @@ function ON_RIDING_VEHICLE(onoff)
 			end			
 		end
 	end
-	
-
 end
 
 function COMPANION_INTERACTION(index)
@@ -3752,7 +3739,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 		local petObj = GetIES(pet:GetObject());
 		gauge_stamina:SetPoint(petObj.Stamina, petObj.MaxStamina);
 		
-		local petInfo = info.GetStat(handle); --IESObject ?�보 ?�용??HP???�시간으�??�기???��? ?�는??
+		local petInfo = info.GetStat(handle);
 		gauge_HP:SetPoint(petInfo.HP, petInfo.maxHP);		
 	end
 
@@ -3785,7 +3772,6 @@ end
 function TEST_TIARUA()
 
 ReloadHotKey()
---print("?�щ줈??�빂??)
 --ui.OpenFrame("joystickrestquickslot");
 --[[
 local quickFrame = ui.GetFrame('quickslotnexpbar')

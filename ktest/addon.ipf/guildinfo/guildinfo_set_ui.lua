@@ -63,13 +63,13 @@ function SET_UI_BY_CLAIM(code, ret_json)
 
     local colonyJoinBtn = GET_CHILD_RECURSIVELY(frame, 'joinRadio_0')
     local colonyJoinBtn1 = GET_CHILD_RECURSIVELY(frame, 'joinRadio_1')
-    colonyJoinBtn:SetEnable(0)
-    colonyJoinBtn1:SetEnable(0)
-    local templerCls = GetClass('Job', 'Char1_16');
-    if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
-        colonyJoinBtn:SetEnable(isLeader)
-        colonyJoinBtn1:SetEnable(isLeader)
-    end
+--    colonyJoinBtn:SetEnable(0)
+--    colonyJoinBtn1:SetEnable(0)
+--    local templerCls = GetClass('Job', 'Char1_16');
+--    if IS_EXIST_JOB_IN_HISTORY(templerCls.ClassID) == true then
+    colonyJoinBtn:SetEnable(isLeader)
+    colonyJoinBtn1:SetEnable(isLeader)
+--    end
 
     local neutralCheck = GET_CHILD_RECURSIVELY(frame, 'neutralCheck')
     neutralCheck:SetEnable(isLeader)

@@ -3,6 +3,7 @@ function COMPANIONSHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('OPEN_DLG_COMPANIONSHOP', 'ON_OPEN_DLG_COMPANIONSHOP');
 	addon:RegisterMsg('COMPANIONSHOP_FOOD_TAB', 'ON_COMPANIONSHOP_FOOD_TAB');
 	addon:RegisterMsg('COMPANIONSHOP_DIALOG_CLOSE', 'ON_COMPANIONSHOP_DIALOG_CLOSE');
+	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_COMPANIONSHOP_UPDATE_COLONY_TAX_RATE_SET');
 end
 
 function ON_OPEN_DLG_COMPANIONSHOP(frame, msg, shopGroup)
@@ -14,6 +15,18 @@ function COMPANIONSHOP_OPEN(frame)
 	UPDATE_COMPANION_SELL_LIST(frame);
 	COMPANIONSHOP_UPDATE_REMAINMONEY(frame);
 	COMPANIONSHOP_TAB_CHANGE(frame);
+	local buyMoneyInfoText = GET_CHILD_RECURSIVELY(frame, "buyMoneyInfoText")
+	SET_COLONY_TAX_RATE_TEXT(buyMoneyInfoText, "tax_rate")
+	local buy_itemtext = GET_CHILD_RECURSIVELY(frame, "buy_itemtext")
+	SET_COLONY_TAX_RATE_TEXT(buy_itemtext, "tax_rate")
+end
+
+function ON_COMPANIONSHOP_UPDATE_COLONY_TAX_RATE_SET(frame)
+	COMPANIONSHOP_CLEAR(frame);
+
+	local foodFrame = frame:GetChild('foodBox');
+	SHOP_ON_MSG(foodFrame, "SHOP_ITEM_LIST_GET", "Klapeda_Companion");
+	COMPANIONSHOP_OPEN(frame);
 end
 
 function UPDATE_COMPANION_SELL_LIST(frame)
@@ -27,8 +40,7 @@ function UPDATE_COMPANION_SELL_LIST(frame)
 		local cls = GetClassByIndexFromList(clsList, i);
 		local sellPrice = cls.SellPrice;
 		if sellPrice ~= "None" and shopGroup == cls.ShopGroup then
-			sellPrice = _G[sellPrice];
-			local price = sellPrice(cls, pc);		
+			local price = GET_COMPANION_PRICE(cls, pc, GET_COLONY_TAX_RATE_CURRENT_MAP());
 			local ctrlSet = adoptTopBox:CreateControlSet("companionshop_ctrl", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
 			ctrlSet:SetUserValue("CLSNAME", cls.ClassName);
 			local name = ctrlSet:GetChild("name");

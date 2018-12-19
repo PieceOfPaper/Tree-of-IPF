@@ -6,27 +6,23 @@ function OPEN_APPRAISER_FORGERY(ownerAID, ring1ID, ring2ID, neckID, ring1Str, ri
 	-- create virtual item
 	local tempRing1, tempRing2, tempNeck = nil;
 	if ring1ID ~= nil and ring1ID > 0 then
-		tempRing1 = CreateGCIESByID("Item", ring1ID);
+		tempRing1 = session.link.CreateOrGetGCLinkObject(ring1ID, ring1Str);
+		local tempObj = GetIES(tempRing1:GetObject());
+		session.SetForgeryRing1ItemGuid(GetIESID(tempObj));
 	end
 	if ring2ID ~= nil and ring2ID > 0 then
-		tempRing2 = CreateGCIESByID("Item", ring2ID);
+		tempRing2 = session.link.CreateOrGetGCLinkObject(ring2ID, ring2Str);
+		local tempObj = GetIES(tempRing2:GetObject());
+		session.SetForgeryRing2ItemGuid(GetIESID(tempObj));
 	end
 	if neckID ~= nil and neckID > 0 then
-		tempNeck = CreateGCIESByID("Item", neckID);
-	end
-	if tempRing1 == nil and tempRing2 == nil and tempNeck == nil then
-		return;
+		tempNeck = session.link.CreateOrGetGCLinkObject(neckID, neckStr);
+		local tempObj = GetIES(tempNeck:GetObject());
+		session.SetForgeryNeckItemGuid(GetIESID(tempObj));
 	end
 
-	-- set property
-	if tempRing1 ~= nil and ring1Str ~= nil and ring1Str ~= '0' then
-		SetModifiedPropertiesString(tempRing1, ring1Str);
-	end
-	if tempRing2 ~= nil and ring2Str ~= nil and ring2Str ~= '0' then
-		SetModifiedPropertiesString(tempRing2, ring2Str);
-	end
-	if tempNeck ~= nil and neckStr ~= nil and neckStr ~= '0' then
-		SetModifiedPropertiesString(tempNeck, neckStr);
+	if tempRing1 == nil and tempRing2 == nil and tempNeck == nil then
+		return;
 	end
 
 	-- set control
@@ -66,7 +62,7 @@ function APPRAISER_FORGERY_CLOSE()
 	ui.CloseFrame('appraiser_forgery');
 end
 
-function APPRAISER_FORGERY_CREATE_ITEM_BOX(frame, part, itemObj, yPos)
+function APPRAISER_FORGERY_CREATE_ITEM_BOX(frame, part, forgeryItem, yPos)
 	-- get my item info
 	local myItem = session.GetEquipItemBySpot(item.GetEquipSpotNum(part));
 	local myItemObj = nil;
@@ -101,14 +97,15 @@ function APPRAISER_FORGERY_CREATE_ITEM_BOX(frame, part, itemObj, yPos)
 	local compareBox = ctrlSet:GetChild('compareBox');
 	local compareResText = compareBox:GetChild('compareResText');
 	local list = GET_DEF_PROP_CHANGEVALUETOOLTIP_LIST();
-	if itemObj ~= nil then
+	if forgeryItem ~= nil then
+		local itemObj = GetIES(forgeryItem:GetObject());
 		itemName:SetTextByKey('name', GET_FULL_NAME(itemObj));
 		appraiserItemPic:SetImage(itemObj.Icon);
-		APPRAISER_FORGERY_SET_TOOLTIP(appraiserItemPic, itemObj);
+		APPRAISER_FORGERY_SET_TOOLTIP(appraiserItemPic, itemObj, forgeryItem);
 
 		if myItemObj ~= nil and myItemObj.ClassName ~= 'NoRing' and myItemObj.ClassName ~= 'NoNeck' then
 			myItemPic:SetImage(myItemObj.Icon);
-			APPRAISER_FORGERY_SET_TOOLTIP(myItemPic, myItemObj);
+			APPRAISER_FORGERY_SET_TOOLTIP(myItemPic, myItemObj, forgeryItem);
 			myItemPic:SetTooltipTopParentFrame(frame:GetTopParentFrame():GetName());
 		end
 
@@ -177,9 +174,10 @@ function APPRAISER_FORGERY_CREATE_ITEM_BOX(frame, part, itemObj, yPos)
 	return newYpos;
 end
 
-function APPRAISER_FORGERY_SET_TOOLTIP(ctrl, itemObj)
+function APPRAISER_FORGERY_SET_TOOLTIP(ctrl, itemObj, forgeryItem)
 	SET_ITEM_TOOLTIP_TYPE(ctrl, itemObj.ClassID);
-	ctrl:SetTooltipArg('forgery#'..GetModifiedPropertiesString(itemObj), itemObj.ClassID);
+	ctrl:SetTooltipArg('forgery', itemObj.ClassID);
+	ctrl:SetTooltipIESID(GetIESID(itemObj));
 end
 
 function GET_FORGERY_ITEM_OBJECT(spotName)
@@ -196,18 +194,18 @@ function GET_FORGERY_ITEM_OBJECT(spotName)
 		return nil;
 	end
 
-	-- create virtual item
-	local forgeryClassID = forgeryItem:GetClassID();
-	local forgeryModifiedString = forgeryItem:GetModifiedString();
-	local forgeryItemObj = CreateGCIESByID('Item', forgeryClassID);
-	if forgeryItemObj == nil then
-		return nil;
-	end
-	if forgeryModifiedString ~= '0' then
-		SetModifiedPropertiesString(forgeryItemObj, forgeryModifiedString);
+	local gcObj = session.link.GetGCLinkObject(forgeryItem:GetGuid());
+	if gcObj == nil then
+		-- create virtual item
+		local forgeryClassID = forgeryItem:GetClassID();
+		local forgeryModifiedString = forgeryItem:GetModifiedString();
+		gcObj = session.link.CreateOrGetGCLinkObject(forgeryClassID, forgeryModifiedString);
+		forgeryItemObj = GetIES(gcObj:GetObject());
+	else
+		forgeryItemObj = GetIES(gcObj:GetObject());
 	end
 
-	return forgeryItemObj;
+	return forgeryItemObj, gcObj;
 end
 
 function SET_EQUIP_ICON_FORGERY(frame, spotName)
@@ -224,7 +222,7 @@ function SET_EQUIP_ICON_FORGERY(frame, spotName)
 	end
 
 	-- get forgery item
-	local forgeryItemObj = GET_FORGERY_ITEM_OBJECT(spotName);
+	local forgeryItemObj, forgeryItem = GET_FORGERY_ITEM_OBJECT(spotName);
 	if forgeryItemObj == nil then
 		return false;
 	end
@@ -233,7 +231,7 @@ function SET_EQUIP_ICON_FORGERY(frame, spotName)
 	local icon = CreateIcon(slot);
 	local imageName = GET_EQUIP_ITEM_IMAGE_NAME(forgeryItemObj, 'Icon');
 	icon:SetImage(imageName);
-	APPRAISER_FORGERY_SET_TOOLTIP(icon, forgeryItemObj);
+	APPRAISER_FORGERY_SET_TOOLTIP(icon, forgeryItemObj, forgeryItem);
 
 	local forgeryFrame = ui.GetFrame('appraiser_forgery');
 	local FORGERY_ITEM_ICON_SKIN = forgeryFrame:GetUserConfig('FORGERY_ITEM_ICON_SKIN');

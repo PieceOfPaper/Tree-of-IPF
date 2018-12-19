@@ -41,12 +41,9 @@ function UPDATE_ITEM_TOOLTIP(tooltipframe, strarg, numarg1, numarg2, userdata, t
         return;
 	end
 	
-	-- 모조품은 가상의 아이템 정보를 만들어서 보여주기 때문에 GUID가 없어서 strarg를 통해 정보 보내줌(forgery#ModifiedPropertyString)
 	local isForgeryItem = false;	
-	if string.find(strarg, 'forgery') ~= nil and itemObj ~= nil then
-		isForgeryItem = true;
-		local strList = StringSplit(strarg, '#');
-		SetModifiedPropertiesString(itemObj, strList[2]);
+	if strarg == 'forgery' then
+	 	isForgeryItem = true;
 	elseif string.find(strarg, 'pcbang_rental') ~= nil and itemObj ~= nil then
 		local strList = StringSplit(strarg, '#');
 		itemObj.Reinforce_2 = strList[2]

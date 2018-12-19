@@ -9,6 +9,7 @@ function SHOP_ON_INIT(addon, frame)
 	addon:RegisterMsg('FAIL_SHOP_BUY', 'ON_FAIL_SHOP_BUY');
 	addon:RegisterOpenOnlyMsg('NOTICE_Dm_invenfull', 'INVENTORY_DM_INVENFULL');
 	addon:RegisterMsg('COMMON_SHOP_ITEM_LIST_GET', 'SHOP_ON_MSG');
+	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'SHOP_ON_MSG');
 
 	FINALPRICE = GET_TOTAL_MONEY_STR();
 	NOWPAGENUM = 1;
@@ -25,6 +26,10 @@ function SHOP_UI_OPEN(frame)
 	OPEN_SHOPUI_COMMON();
 	ui.EnableSlotMultiSelect(1);
 	FINALPRICE = GET_TOTAL_MONEY_STR();
+	
+	local shopName = session.GetCurrentShopName()
+	local buy_itemtext = GET_CHILD_RECURSIVELY(frame, "buy_itemtext")
+	SET_COLONY_TAX_RATE_TEXT(buy_itemtext, "tax_rate", IS_COLONY_TAX_SHOP_NAME(GET_COLONY_TAX_CURRENT_CITY_NAME(), shopName))
 
 	return 1;
 end
@@ -122,6 +127,15 @@ function SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
 		end
 
 		local itemPrice = shopItem.price * shopItem.count;
+
+        local shopName = session.GetCurrentShopName()
+        if IS_COLONY_TAX_SHOP_NAME(GET_COLONY_TAX_CURRENT_CITY_NAME(), shopName) == true then
+            local taxRate = GET_COLONY_TAX_RATE_CURRENT_MAP()
+            if taxRate ~= nil then
+                itemPrice = tonumber(CALC_PRICE_WITH_TAX_RATE(itemPrice, taxRate))
+            end
+        end
+
 		local buyableCnt = math.floor(remainPrice / itemPrice);
 
 		local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", buyableCnt);
@@ -524,8 +538,17 @@ function SHOP_BUY(clsID, buyCnt, frame)
 			return;
 		end
 	end
+	
+    local itemPrice = shopItem.price
+    local shopName = session.GetCurrentShopName()
+    if IS_COLONY_TAX_SHOP_NAME(GET_COLONY_TAX_CURRENT_CITY_NAME(), shopName) == true then
+        local taxRate = GET_COLONY_TAX_RATE_CURRENT_MAP()
+        if taxRate ~= nil then
+            itemPrice = tonumber(CALC_PRICE_WITH_TAX_RATE(itemPrice, taxRate))
+        end
+    end
 
-	if IsGreaterThanForBigNumber(shopItem.price + (-1 * TotalPrice), GET_TOTAL_MONEY_STR()) == 1 then
+	if IsGreaterThanForBigNumber(itemPrice + (-1 * TotalPrice), GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end
@@ -668,10 +691,15 @@ function GET_TOTAL_BUY_PRICE(frame)
 		if icon ~= nil then
 			local clsid = icon:GetUserIValue("SHOPCLSID");
 			local shopItem = geShopTable.GetByClassID(clsid);
+            local unitPrice = shopItem.price
+            local shopName = session.GetCurrentShopName()
+            if IS_COLONY_TAX_SHOP_NAME(GET_COLONY_TAX_CURRENT_CITY_NAME(), shopName) == true then
+                unitPrice = GET_SHOP_PRICE_WITH_TAX(shopItem.price, GET_COLONY_TAX_RATE_CURRENT_MAP())
+            end
 			if BUYSLOTCOUNT[i] ~= nil then
-				buyprice = buyprice - shopItem.price * BUYSLOTCOUNT[i];
+				buyprice = buyprice - unitPrice * BUYSLOTCOUNT[i];
 			else
-				buyprice = buyprice - shopItem.price;
+				buyprice = buyprice - unitPrice
 			end
 		end
 	end
@@ -763,6 +791,15 @@ function SHOP_ON_MSG(frame, msg, argStr, argNum)
 	if msg == 'INV_ITEM_POST_REMOVE' or msg == 'INV_ITEM_CHANGE_COUNT' then
 		SHOP_ITEM_LIST_GET(frame);
 		UPDATE_SOLD_ITEM_LIST(frame);
+	end
+
+	if msg == 'UPDATE_COLONY_TAX_RATE_SET' then
+		SHOP_ITEM_LIST_GET(frame);
+		SHOP_ITEM_SLOT_INIT(frame);
+		UPDATE_SOLD_ITEM_LIST(frame);
+
+		local buy_itemtext = GET_CHILD_RECURSIVELY(frame, "buy_itemtext")
+		SET_COLONY_TAX_RATE_TEXT(buy_itemtext, "tax_rate", IS_COLONY_TAX_SHOP_NAME(GET_COLONY_TAX_CURRENT_CITY_NAME(), session.GetCurrentShopName()))
 	end
 
 	if  msg == 'DIALOG_CLOSE' or msg == 'ESCAPE_PRESSED' then
@@ -933,16 +970,22 @@ function GET_SHOPITEM_TXT(shopItem, class)
 end
 
 function GET_SHOPITEM_PRICE_TXT(shopItem, class)
+    local unitPrice = shopItem.price
+    
+    local shopName = session.GetCurrentShopName()
+    if IS_COLONY_TAX_SHOP_NAME(GET_COLONY_TAX_CURRENT_CITY_NAME(), shopName) == true then
+        unitPrice = GET_SHOP_PRICE_WITH_TAX(shopItem.price, GET_COLONY_TAX_RATE_CURRENT_MAP())
+    end
 
 	local needProp = shopItem:GetPropName();
 	if needProp == "None" then
-		return shopItem.price * shopItem.count;
+		return GET_COMMAED_STRING(unitPrice * shopItem.count);
 	end
 
 	local availCnt = GET_SHOP_PROP_POINT(needProp);
 
 	local limitedTxt = ScpArgMsg("{Auto_1}_Count_Limited", "Auto_1", availCnt);
-	return string.format("%d {@st45r14}(%s)", shopItem.price * shopItem.count, limitedTxt);
+	return string.format("%d {@st45r14}(%s)", GET_COMMAED_STRING(unitPrice * shopItem.count), limitedTxt);
 
 end
 
@@ -1311,4 +1354,7 @@ function GET_SHOP_FRAME()
 		return companionshop:GetChild('foodBox');
 	end
 	return shop;
+end
+function GET_SHOP_PRICE_WITH_TAX(shopItemPrice, taxRate)
+	return tonumber(CALC_PRICE_WITH_TAX_RATE(shopItemPrice, taxRate))
 end

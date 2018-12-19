@@ -9,7 +9,7 @@
 	<option closebutton="false"/>
 	<sound opensound="window_mohum_open" closesound="window_mohum_close"/>
 	<script OpenScp="ACCOUNTWAREHOUSE_OPEN" CloseScp="ACCOUNTWAREHOUSE_CLOSE"/>
-	<userconfig NormalSlot="slot_greengem" CombinationSlot="belt_slot" DisabledSlot="slot_yellowgem" EXCEED_SLOT_FONT_COLOR="FF0000"/>
+	<userconfig NormalSlot="slot_greengem" CombinationSlot="belt_slot" DisabledSlot="slot_yellowgem" EXCEED_SLOT_FONT_COLOR="FF0000" STYLE_TAX_RATE="{#000000}" START_TAX_RATE="{nl}(" END_TAX_RATE=")" TAX_ICON_WIDTH="25" TAX_ICON_HEIGHT="30"/>
 	<controls>
 		<groupbox name="gbox_bg" rect="0 0 670 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
 		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" changecursor="false" hittest="false" image="test_socket_top" stretch="true"/>

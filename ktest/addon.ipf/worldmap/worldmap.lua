@@ -566,15 +566,17 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 					occupyTextTooltip = ClMsg('ProgressColonyWar');
 				else -- 콜로니전 진행 중이 아닐 때
 					local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
-                local occupyInfo = session.colonywar.GetOccupationInfoByMapID(colonyMapCls.ClassID);        
-                if occupyInfo == nil then
+                    local cityMap = GetClassString('guild_colony', check_word..mapCls.ClassName, 'TaxApplyCity')
+                    if cityMap ~= "None" then
+                        local cityMapID = GetClassNumber('Map', cityMap, 'ClassID')
+                        local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapID)
+                        if taxRateInfo == nil then
                             colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
                             occupyTextTooltip = ClMsg('NotOccupiedSpot');
                         else
                             ctrlSet:RemoveChild('occupyText');
                             occupyText = nil;
-    
-                    local guildID = occupyInfo:GetGuildID();
+                            local guildID = taxRateInfo:GetGuildID()
                             emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
                             emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
                         
@@ -588,7 +590,8 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                                 local worldID = session.party.GetMyWorldIDStr();    
                                 guild.ReqEmblemImage(guildID,worldID);
                             end                                
-                    occupyTextTooltip = occupyInfo:GetGuildName();
+                            occupyTextTooltip = taxRateInfo:GetGuildName();
+                        end
                     end
 				end
 

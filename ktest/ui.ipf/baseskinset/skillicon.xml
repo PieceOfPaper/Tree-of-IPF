@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -483,6 +483,10 @@
 		<image name="icon_cler_modafinil" file="\icon\skill\cleric\icon_cler_modafinil.png" imgrect="0 0 128 128" CMM_Caption="모다피닐"/>
 		<image name="icon_cler_visibletalent" file="\icon\skill\cleric\icon_cler_visibletalent.png" imgrect="0 0 128 128" CMM_Caption="비지블 탤런드"/>
 		<image name="icon_cler_omikuji" file="\icon\skill\cleric\icon_cler_omikuji.png" imgrect="0 0 128 128" CMM_Caption="오미쿠지"/>
+		<image name="icon_cler_aspersion_2" file="\icon\skill\cleric\icon_cler_aspersion_2.png" imgrect="0 0 128 128" CMM_Caption="개인상점 아스퍼션"/>
+		<image name="icon_cler_blessing_2" file="\icon\skill\cleric\icon_cler_blessing_2.png" imgrect="0 0 128 128" CMM_Caption="개인상점 블레싱"/>
+		<image name="icon_cler_increasemagicDEF_2" file="\icon\skill\cleric\icon_cler_increasemagicDEF_2.png" imgrect="0 0 128 128" CMM_Caption="개인상점 마법방어력증가"/>
+		<image name="icon_cler_Sacrament_2" file="\icon\skill\cleric\icon_cler_Sacrament_2.png" imgrect="0 0 128 128" CMM_Caption="개인상점 사크라멘트"/>
 	</imagelist>
 	<imagelist category="warrior_skillicon">
 		<image name="icon_warri_thrust" file="\icon\skill\warrior\icon_warri_thrust.png" imgrect="0 0 128 128" CMM_Caption="쓰러스트"/>
@@ -1497,6 +1501,7 @@
 		<image name="ability_Wizard_Pyromancer27" file="\icon\icon_ability_wizard05.tga" imgrect="128 256 128 128" CMM_Caption="플레임 그라운드 열기 확산"/>
 		<image name="ability_Wizard_Psychokino21" file="\icon\icon_ability_wizard05.tga" imgrect="256 256 128 128" CMM_Caption="헤비 그라비티 강화"/>
 		<image name="ability_Wizard_Psychokino22" file="\icon\icon_ability_wizard05.tga" imgrect="384 256 128 128" CMM_Caption="헤비 그라비티 이동속도 감소"/>
+		<image name="ability_Wizard_Psychokino24" file="\icon\icon_ability_wizard05.tga" imgrect="384 256 128 128" CMM_Caption="그라비티 폴: 슬로우"/>
 		<image name="ability_Wizard_Onmyoji1" file="\icon\icon_ability_wizard05.tga" imgrect="512 256 128 128" CMM_Caption="불여우 식신 강화"/>
 		<image name="ability_Wizard_Onmyoji2" file="\icon\icon_ability_wizard05.tga" imgrect="640 256 128 128" CMM_Caption="불여우 식신 염동화"/>
 		<image name="ability_Wizard_Onmyoji3" file="\icon\icon_ability_wizard05.tga" imgrect="768 256 128 128" CMM_Caption="불여우 식신 큰 여우"/>
@@ -2348,6 +2353,10 @@
 		<image name="ability_scout_Outlaw16" file="\icon\icon_ability_scout01.tga" imgrect="640 640 128 128" CMM_Caption="난동 부리기: 깽판"/>
 		<image name="ability_scout_Outlaw17" file="\icon\icon_ability_scout01.tga" imgrect="768 640 128 128" CMM_Caption="난동 부리기: 말리지마"/>
 		<image name="ability_scout_Outlaw18" file="\icon\icon_ability_scout01.tga" imgrect="896 640 128 128" CMM_Caption="난동 부리기: 분노조절 실패"/>
+		<image name="ability_scout_Enchanter10" file="\icon\icon_ability_scout01.tga" imgrect="128 768 128 128" CMM_Caption="어질리티: 강화"/>
+		<image name="ability_scout_Enchanter11" file="\icon\icon_ability_scout01.tga" imgrect="256 768 128 128" CMM_Caption="인챈트 라이트닝: 강화"/>
+		<image name="ability_scout_Enchanter12" file="\icon\icon_ability_scout01.tga" imgrect="384 768 128 128" CMM_Caption="인챈트 어스: 강화"/>
+		<image name="ability_scout_Enchanter13" file="\icon\icon_ability_scout01.tga" imgrect="512 768 128 128" CMM_Caption="라이트닝 핸즈: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon">
 		<image name="icon_abil_1_1" file="\icon\ability_icon.tga" imgrect="0 0 64 64" CMM_Caption="절단"/>

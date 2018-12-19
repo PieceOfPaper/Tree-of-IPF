@@ -246,25 +246,26 @@ function SCR_GET_SWITCHGENDER_PRICE(shopClassName, mapClassName, buffClassName, 
 	return math.floor(price);
 end
 
-function GET_BUFFSELLER_SPEND_ITEM_COUNT(sklClassName)
-	if sklClassName == "Priest_Aspersion" then
-		return 10;
-	end
+-- deprecated: buff_seller_info.xml에 적어주세요 
+-- function GET_BUFFSELLER_SPEND_ITEM_COUNT(sklClassName)
+-- 	if sklClassName == "Priest_Aspersion" then
+-- 		return 10;
+-- 	end
 	
-	if sklClassName == "Priest_Blessing" then
-		return 25;
-	end
+-- 	if sklClassName == "Priest_Blessing" then
+-- 		return 25;
+-- 	end
 	
-	if sklClassName == "Priest_Sacrament" then
-		return 14;
-	end
+-- 	if sklClassName == "Priest_Sacrament" then
+-- 		return 14;
+-- 	end
 	
-	if sklClassName == "Pardoner_IncreaseMagicDEF" then
-		return 10;
-	end
+-- 	if sklClassName == "Pardoner_IncreaseMagicDEF" then
+-- 		return 10;
+-- 	end
 	
-	return 0;
-end
+-- 	return 0;
+-- end
 
 function SCR_GET_EQUIPMENTTOUCHUP_PRICE(shopClassName, mapClassName, buffClassName, abilList)
 	local price = SCR_USER_SHOP_PIRCE_DEFAULT(shopClassName)

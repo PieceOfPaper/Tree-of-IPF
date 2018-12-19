@@ -844,6 +844,12 @@ function MARKET_SAVE_CATEGORY_OPTION(parent, ctrl)
 		return;
 	end
 
+	local length = ui.GetCharNameLength(configKey);	
+	if length > 50 then
+		ui.SysMsg(ClMsg('OverLength'));
+		return;
+	end
+
 	local configText = session.market.GetCategoryConfig(configKey);
 	if configText ~= nil and configText ~= '' then
 		ui.SysMsg(ClMsg('Auto_iMi_JonJaeHaNeun_iLeumipNiDa'));
@@ -885,206 +891,205 @@ function MARKET_LOAD_CATEGORY_OPTION(parent, ctrl, argStr)
 	local optionBox = GET_CHILD_RECURSIVELY(frame, 'optionBox');
 	optionBox:ShowWindow(0);
 
-	_MARKET_LOAD_CATEGORY_OPTION(frame, argStr);
-end
-
-function _MARKET_LOAD_CATEGORY_OPTION(frame, configKey)
-	frame = frame:GetTopParentFrame();
-	local configText = session.market.GetCategoryConfig(configKey);
-	if configText == nil or configText == '' then
-		return false;
-	end
-
-	-- parse
-	local configList = StringSplit(configText, '@');
-	local configTable = {};
-	for i = 1, #configList do
-		local config = configList[i];
-		local idx = string.find(config, ':');
-		if idx == nil then
+	function _MARKET_LOAD_CATEGORY_OPTION(frame, configKey)
+		frame = frame:GetTopParentFrame();
+		local configText = session.market.GetCategoryConfig(configKey);
+		if configText == nil or configText == '' then
 			return false;
 		end
-		local propName = string.sub(config, 0, idx - 1);
-		local propValue = string.sub(config, idx + 1);
-		configTable[propName] = propValue;
-	end
-
-	-- set category
-	local categoryStr = configTable['category'];	
-	local underBarIdx = string.find(categoryStr, '_');
-	local category = categoryStr;
-	local subCategory = '';
-	if underBarIdx ~= nil then
-		category = string.sub(categoryStr, 0, underBarIdx - 1);
-		subCategory = string.sub(categoryStr, underBarIdx + 1);
-	end
-	if category == '' then
-		category = 'IntegrateRetreive';
-	end
-
-	local categoryCtrlset = GET_CHILD_RECURSIVELY(frame, 'CATEGORY_'..category);
-	MARKET_CATEGORY_CLICK(categoryCtrlset, categoryCtrlset:GetChild('bgBox'), false, true);
 	
-	if subCategory ~= '' then
-		local subCategoryCtrlset = GET_CHILD_RECURSIVELY(frame, 'SUB_CATE_'..subCategory);
-		if subCategoryCtrlset ~= nil then
-			MARKET_SUB_CATEOGRY_CLICK(subCategoryCtrlset:GetParent(), subCategoryCtrlset, false);
-		end
-	end
-	
-	-- set price order
-	local checkIdx = configTable['order'];
-	local priceOrderCheck = GET_CHILD_RECURSIVELY(frame, 'priceOrderCheck_'..checkIdx);	
-	priceOrderCheck:SetCheck(1);
-	MARKET_UPDATE_PRICE_ORDER(frame, priceOrderCheck);
-	
-	-- set level range
-	if configTable['CT_UseLv'] ~= nil or configTable['Level'] ~= nil then
-		local levelRangeSet = GET_CHILD_RECURSIVELY(frame, 'levelRangeSet');
-		if levelRangeSet ~= nil and levelRangeSet:IsVisible() == 1 then
-			local rangeValue = configTable['CT_UseLv'];
-			if configTable['Level'] ~= nil then
-				rangeValue = configTable['Level'];
+		-- parse
+		local configList = StringSplit(configText, '@');
+		local configTable = {};
+		for i = 1, #configList do
+			local config = configList[i];
+			local idx = string.find(config, ':');
+			if idx == nil then
+				return false;
 			end
-			local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(rangeValue);
-			local minEdit = GET_CHILD_RECURSIVELY(levelRangeSet, 'minEdit');
-			local maxEdit = GET_CHILD_RECURSIVELY(levelRangeSet, 'maxEdit');
-			minEdit:SetText(minValue);
-			maxEdit:SetText(maxValue);
+			local propName = string.sub(config, 0, idx - 1);
+			local propValue = string.sub(config, idx + 1);
+			configTable[propName] = propValue;
 		end
-	end
-
-	-- set item grade	
-	local gradeCheckSet = GET_CHILD_RECURSIVELY(frame, 'gradeCheckSet');
-	if gradeCheckSet ~= nil then
-		local gradeChildCnt = gradeCheckSet:GetChildCount(); -- init
-		for i = 0, gradeChildCnt - 1 do
-			local child = gradeCheckSet:GetChildByIndex(i);
-			if string.find(child:GetName(), 'gradeCheck_') ~= nil then
-				AUTO_CAST(child);
-				child:SetCheck(0);
+	
+		-- set category
+		local categoryStr = configTable['category'];	
+		local underBarIdx = string.find(categoryStr, '_');
+		local category = categoryStr;
+		local subCategory = '';
+		if underBarIdx ~= nil then
+			category = string.sub(categoryStr, 0, underBarIdx - 1);
+			subCategory = string.sub(categoryStr, underBarIdx + 1);
+		end
+		if category == '' then
+			category = 'IntegrateRetreive';
+		end
+	
+		local categoryCtrlset = GET_CHILD_RECURSIVELY(frame, 'CATEGORY_'..category);
+		MARKET_CATEGORY_CLICK(categoryCtrlset, categoryCtrlset:GetChild('bgBox'), false, true);
+		
+		if subCategory ~= '' then
+			local subCategoryCtrlset = GET_CHILD_RECURSIVELY(frame, 'SUB_CATE_'..subCategory);
+			if subCategoryCtrlset ~= nil then
+				MARKET_SUB_CATEOGRY_CLICK(subCategoryCtrlset:GetParent(), subCategoryCtrlset, false);
 			end
 		end
-		if configTable['CT_ItemGrade'] ~= nil then
-			if gradeCheckSet ~= nil and gradeCheckSet:IsVisible() == 1 then
-				local checkValue = configTable['CT_ItemGrade'];
-				local checkValueList = StringSplit(checkValue, ';');
-				
-				-- set check
-				for i = 1, #checkValueList do
-					local gradeCheck = GET_CHILD(gradeCheckSet, 'gradeCheck_'..checkValueList[i]);
-					gradeCheck:SetCheck(1);
+		
+		-- set price order
+		local checkIdx = configTable['order'];
+		local priceOrderCheck = GET_CHILD_RECURSIVELY(frame, 'priceOrderCheck_'..checkIdx);	
+		priceOrderCheck:SetCheck(1);
+		MARKET_UPDATE_PRICE_ORDER(frame, priceOrderCheck);
+		
+		-- set level range
+		if configTable['CT_UseLv'] ~= nil or configTable['Level'] ~= nil then
+			local levelRangeSet = GET_CHILD_RECURSIVELY(frame, 'levelRangeSet');
+			if levelRangeSet ~= nil and levelRangeSet:IsVisible() == 1 then
+				local rangeValue = configTable['CT_UseLv'];
+				if configTable['Level'] ~= nil then
+					rangeValue = configTable['Level'];
+				end
+				local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(rangeValue);
+				local minEdit = GET_CHILD_RECURSIVELY(levelRangeSet, 'minEdit');
+				local maxEdit = GET_CHILD_RECURSIVELY(levelRangeSet, 'maxEdit');
+				minEdit:SetText(minValue);
+				maxEdit:SetText(maxValue);
+			end
+		end
+	
+		-- set item grade	
+		local gradeCheckSet = GET_CHILD_RECURSIVELY(frame, 'gradeCheckSet');
+		if gradeCheckSet ~= nil then
+			local gradeChildCnt = gradeCheckSet:GetChildCount(); -- init
+			for i = 0, gradeChildCnt - 1 do
+				local child = gradeCheckSet:GetChildByIndex(i);
+				if string.find(child:GetName(), 'gradeCheck_') ~= nil then
+					AUTO_CAST(child);
+					child:SetCheck(0);
+				end
+			end
+			if configTable['CT_ItemGrade'] ~= nil then
+				if gradeCheckSet ~= nil and gradeCheckSet:IsVisible() == 1 then
+					local checkValue = configTable['CT_ItemGrade'];
+					local checkValueList = StringSplit(checkValue, ';');
+					
+					-- set check
+					for i = 1, #checkValueList do
+						local gradeCheck = GET_CHILD(gradeCheckSet, 'gradeCheck_'..checkValueList[i]);
+						gradeCheck:SetCheck(1);
+					end
 				end
 			end
 		end
-	end
-
-	-- set search text
-	local itemSearchSet = GET_CHILD_RECURSIVELY(frame, 'itemSearchSet');
-	local searchEdit = GET_CHILD_RECURSIVELY(itemSearchSet, 'searchEdit');
-	searchEdit:SetText(configTable['searchText']);
-
-	-- set appraisal check
-	if configTable['Random_Item'] ~= nil then
-		local appCheckSet = GET_CHILD_RECURSIVELY(frame, 'appCheckSet');
-		if appCheckSet ~= nil and appCheckSet:IsVisible() == 1 then
-			local configValue = tonumber(configTable['Random_Item']);
-			local checkCtrl = nil;			
-			if configValue == 1 then
-				checkCtrl = GET_CHILD(appCheckSet, 'appCheck_1');
-			elseif configValue == 2 then
-				checkCtrl = GET_CHILD(appCheckSet, 'appCheck_0');
-			end
-			if checkCtrl ~= nil then
-				checkCtrl:SetCheck(1);				
-				MARKET_UPDATE_APPRAISAL_CHECK(checkCtrl:GetParent(), checkCtrl);
+	
+		-- set search text
+		local itemSearchSet = GET_CHILD_RECURSIVELY(frame, 'itemSearchSet');
+		local searchEdit = GET_CHILD_RECURSIVELY(itemSearchSet, 'searchEdit');
+		searchEdit:SetText(configTable['searchText']);
+	
+		-- set appraisal check
+		if configTable['Random_Item'] ~= nil then
+			local appCheckSet = GET_CHILD_RECURSIVELY(frame, 'appCheckSet');
+			if appCheckSet ~= nil and appCheckSet:IsVisible() == 1 then
+				local configValue = tonumber(configTable['Random_Item']);
+				local checkCtrl = nil;			
+				if configValue == 1 then
+					checkCtrl = GET_CHILD(appCheckSet, 'appCheck_1');
+				elseif configValue == 2 then
+					checkCtrl = GET_CHILD(appCheckSet, 'appCheck_0');
+				end
+				if checkCtrl ~= nil then
+					checkCtrl:SetCheck(1);				
+					MARKET_UPDATE_APPRAISAL_CHECK(checkCtrl:GetParent(), checkCtrl);
+				end
 			end
 		end
-	end
-
-	-- detail setting
-	local detailOptionSet = GET_CHILD_RECURSIVELY(frame, 'detailOptionSet');
-	if detailOptionSet ~= nil and detailOptionSet:IsVisible() == 1 then
-		local added = false;
-		for configName, configValue in pairs(configTable) do
-			if IS_MARKET_DETAIL_SETTING_OPTION(configName) == true then
-				local selectSet = MARKET_ADD_SEARCH_DETAIL_SETTING(detailOptionSet);
-				local groupList = GET_CHILD(selectSet, 'groupList');
-				groupList:SelectItemByKey(configName);
-
-				local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configValue);
-				local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'minEdit'), GET_CHILD_RECURSIVELY(selectSet, 'maxEdit');
+	
+		-- detail setting
+		local detailOptionSet = GET_CHILD_RECURSIVELY(frame, 'detailOptionSet');
+		if detailOptionSet ~= nil and detailOptionSet:IsVisible() == 1 then
+			local added = false;
+			for configName, configValue in pairs(configTable) do
+				if IS_MARKET_DETAIL_SETTING_OPTION(configName) == true then
+					local selectSet = MARKET_ADD_SEARCH_DETAIL_SETTING(detailOptionSet);
+					local groupList = GET_CHILD(selectSet, 'groupList');
+					groupList:SelectItemByKey(configName);
+	
+					local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configValue);
+					local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'minEdit'), GET_CHILD_RECURSIVELY(selectSet, 'maxEdit');
+					minEdit:SetText(minValue);
+					maxEdit:SetText(maxValue);
+	
+					added = true;
+				end
+			end	
+			if added == false then
+				ALIGN_OPTION_GROUP_SET(detailOptionSet);
+			end
+		end
+	
+		-- option group
+		local optionGroupSet = GET_CHILD_RECURSIVELY(frame, 'optionGroupSet');
+		if optionGroupSet ~= nil and optionGroupSet:IsVisible() == 1 then
+			local added = false;
+			for configName, configValue in pairs(configTable) do
+				local isOptionGroup, group = IS_MARKET_SEARCH_OPTION_GROUP(configName);			
+				if isOptionGroup == true then
+					local selectSet = MARKET_ADD_SEARCH_OPTION_GROUP(optionGroupSet);
+					local groupList = GET_CHILD(selectSet, 'groupList');
+					groupList:SelectItemByKey(group);
+					MARKET_INIT_OPTION_GROUP_VALUE_DROPLIST(groupList:GetParent(), groupList);
+	
+					local nameList = GET_CHILD(selectSet, 'nameList');
+					nameList:SelectItemByKey(configName);
+	
+					local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configValue);
+					local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'minEdit'), GET_CHILD_RECURSIVELY(selectSet, 'maxEdit');
+					minEdit:SetText(minValue);
+					maxEdit:SetText(maxValue);
+	
+					added = true;
+				end
+			end
+			if added == false then
+				ALIGN_OPTION_GROUP_SET(optionGroupSet);
+			end
+		end
+	
+		-- gem
+		local gemOptionSet = GET_CHILD_RECURSIVELY(frame, 'gemOptionSet');
+		if gemOptionSet ~= nil then
+			if configTable['GemLevel'] ~= nil then			
+				local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configTable['GemLevel']);
+				local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'levelMinEdit'), GET_CHILD_RECURSIVELY(selectSet, 'levelMaxEdit');
 				minEdit:SetText(minValue);
 				maxEdit:SetText(maxValue);
-
-				added = true;
 			end
-		end	
-		if added == false then
-			ALIGN_OPTION_GROUP_SET(detailOptionSet);
-		end
-	end
-
-	-- option group
-	local optionGroupSet = GET_CHILD_RECURSIVELY(frame, 'optionGroupSet');
-	if optionGroupSet ~= nil and optionGroupSet:IsVisible() == 1 then
-		local added = false;
-		for configName, configValue in pairs(configTable) do
-			local isOptionGroup, group = IS_MARKET_SEARCH_OPTION_GROUP(configName);			
-			if isOptionGroup == true then
-				local selectSet = MARKET_ADD_SEARCH_OPTION_GROUP(optionGroupSet);
-				local groupList = GET_CHILD(selectSet, 'groupList');
-				groupList:SelectItemByKey(group);
-				MARKET_INIT_OPTION_GROUP_VALUE_DROPLIST(groupList:GetParent(), groupList);
-
-				local nameList = GET_CHILD(selectSet, 'nameList');
-				nameList:SelectItemByKey(configName);
-
-				local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configValue);
-				local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'minEdit'), GET_CHILD_RECURSIVELY(selectSet, 'maxEdit');
+			if configTable['CardLevel'] ~= nil then
+				local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configTable['CardLevel']);
+				local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'levelMinEdit'), GET_CHILD_RECURSIVELY(selectSet, 'levelMaxEdit');
 				minEdit:SetText(minValue);
 				maxEdit:SetText(maxValue);
-
-				added = true;
+			end
+			if configTable['GemRoastingLv'] ~= nil then
+				local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configTable['CardLevel']);
+				local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'levelMinEdit'), GET_CHILD_RECURSIVELY(selectSet, 'levelMaxEdit');
+				minEdit:SetText(minValue);
+				maxEdit:SetText(maxValue);
 			end
 		end
-		if added == false then
-			ALIGN_OPTION_GROUP_SET(optionGroupSet);
+	
+		-- saveBtn
+		local saveCheck = GET_CHILD_RECURSIVELY(frame, 'saveCheck');
+		if saveCheck ~= nil then
+			saveCheck:SetCheck(1);
 		end
-	end
-
-	-- gem
-	local gemOptionSet = GET_CHILD_RECURSIVELY(frame, 'gemOptionSet');
-	if gemOptionSet ~= nil then
-		if configTable['GemLevel'] ~= nil then			
-			local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configTable['GemLevel']);
-			local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'levelMinEdit'), GET_CHILD_RECURSIVELY(selectSet, 'levelMaxEdit');
-			minEdit:SetText(minValue);
-			maxEdit:SetText(maxValue);
-		end
-		if configTable['CardLevel'] ~= nil then
-			local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configTable['CardLevel']);
-			local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'levelMinEdit'), GET_CHILD_RECURSIVELY(selectSet, 'levelMaxEdit');
-			minEdit:SetText(minValue);
-			maxEdit:SetText(maxValue);
-		end
-		if configTable['GemRoastingLv'] ~= nil then
-			local minValue, maxValue = GET_MINMAX_VALUE_BY_QUERY_STRING(configTable['CardLevel']);
-			local minEdit, maxEdit = GET_CHILD_RECURSIVELY(selectSet, 'levelMinEdit'), GET_CHILD_RECURSIVELY(selectSet, 'levelMaxEdit');
-			minEdit:SetText(minValue);
-			maxEdit:SetText(maxValue);
-		end
-	end
-
-	-- saveBtn
-	local saveCheck = GET_CHILD_RECURSIVELY(frame, 'saveCheck');
-	if saveCheck ~= nil then
-		saveCheck:SetCheck(1);
-	end
-
-	ALIGN_ALL_CATEGORY(frame);
-	MARKET_REQ_LIST(frame);
-	return true;
+	
+		ALIGN_ALL_CATEGORY(frame);
+		MARKET_REQ_LIST(frame);
+		return true;
+	end	
+	_MARKET_LOAD_CATEGORY_OPTION(frame, argStr);
 end
 
 function MARKET_TRY_SAVE_CATEGORY_OPTION(parent, ctrl)
@@ -1123,6 +1128,7 @@ function MARKET_TRY_LOAD_CATEGORY_OPTION(parent, ctrl)
 			local keyText = optionListBox:CreateOrGetControlSet('market_save_option', 'CONFIG_'..i, 0, ypos);
 			local nameText = GET_CHILD(keyText, 'nameText');		
 			nameText:SetText(configKeyList[i]);
+			nameText:SetTextTooltip(configKeyList[i]);
 			nameText:SetEventScript(ui.LBUTTONUP, 'MARKET_LOAD_CATEGORY_OPTION');
 			nameText:SetEventScriptArgString(ui.LBUTTONUP, configKeyList[i]);
 

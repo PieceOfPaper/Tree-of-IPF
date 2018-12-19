@@ -46,7 +46,6 @@ function ON_SHOP_BUY_LIMIT_INFO(frame)	--해당 아이템에 대하여 월별 �
 	TPSHOP_SORT_TAB(frame)
 	TPSHOP_REDRAW_TPITEMLIST();
 	
-
 	local tabObj = GET_CHILD_RECURSIVELY(frame, 'shopTab');
 	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
 	local curtabIndex = itembox_tab:GetSelectItemIndex();
@@ -58,12 +57,16 @@ function ON_SHOP_BUY_LIMIT_INFO(frame)	--해당 아이템에 대하여 월별 �
 end
 
 function ON_SHOP_USER_INFO(frame)
-
 	TPSHOP_SORT_TAB(frame)
 	
 	if session.shop.GetEventUserType() ~= eventUserType.normalUser  then
 		TPSHOP_EVENT_USER_TIMER_START(frame)		
 	end
+
+	local tabObj = GET_CHILD_RECURSIVELY(frame, 'shopTab');
+	local itembox_tab = tolua.cast(tabObj, "ui::CTabControl");
+	local curtabIndex = itembox_tab:GetSelectItemIndex();
+	TPSHOP_TAB_VIEW(frame, curtabIndex); -- 배너 변경을 위해 호출
 end
 
 function TPSHOP_EVENT_USER_TIMER_UPDATE()
@@ -124,7 +127,6 @@ function TPSHOP_REDRAW_TPITEMLIST()
 	local frame = ui.GetFrame("tpitem");
 	local category = frame:GetUserValue("LAST_OPEN_CATEGORY");
 	local subcategory = frame:GetUserValue("LAST_OPEN_SUB_CATEGORY");	
-		
 	local showTypeList = GET_CHILD_RECURSIVELY(frame,"showTypeList");	
 	local typeIndex = showTypeList:GetSelItemIndex();
 	session.shop.RequestLoadShopBuyLimit();
@@ -216,16 +218,10 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	local newbie_toitemBtn=  GET_CHILD_RECURSIVELY(frame,'newbie_toitemBtn');
 	local returnuser_basketgbox =  GET_CHILD_RECURSIVELY(frame,'returnuser_basketgbox');
 	local returnuser_toitemBtn=  GET_CHILD_RECURSIVELY(frame,'returnuser_toitemBtn');
-	local top5Title = GET_CHILD_RECURSIVELY(frame,"top5Title");
-	local top5gBox = GET_CHILD_RECURSIVELY(frame,"top5gBox");
 	-- 배너
 	local banner = GET_CHILD_RECURSIVELY(frame,"banner");
 	local eventUserBanner = GET_CHILD_RECURSIVELY(frame,"eventUserBanner");
 	local eventUserRemainTimeText = GET_CHILD_RECURSIVELY(frame,"eventUserRemainTimeText");
-
-
-	top5Title:SetVisible(0);
-	top5gBox:SetVisible(0);
 
 	eventUserBanner:SetVisible(0);
 	eventUserRemainTimeText:SetVisible(0);
@@ -256,8 +252,6 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
 		elseif curtabIndex == 1 then
-			top5Title:SetVisible(1);
-			top5gBox:SetVisible(1);
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);
@@ -275,8 +269,6 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			rcycle_toitemBtn:SetEnable(1);
 			RECYCLE_SHOW_TO_ITEM()
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox6") then -- 신규 유저 상점
-			top5Title:SetVisible(1);
-			top5gBox:SetVisible(1);
 			banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
 			eventUserBanner:SetVisible(1);
 			eventUserRemainTimeText:SetVisible(1);
@@ -286,8 +278,6 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			newbie_toitemBtn:SetEnable(1);
 			NEWBIE_SHOW_TO_ITEM()
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox7") then -- 복귀 유저 상점
-			top5Title:SetVisible(1);
-			top5gBox:SetVisible(1);
 			banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
 			eventUserBanner:SetVisible(1);
 			eventUserRemainTimeText:SetVisible(1);
@@ -297,14 +287,19 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 			returnuser_toitemBtn:SetEnable(1);
 			RETURNUSER_SHOW_TO_ITEM()
 		end
+
+		-- 이벤트 유저면 배너를 이벤트 유저 전용 배너로 변경
+		if session.shop.GetEventUserType() ~= eventUserType.normalUser then
+			banner:SetVisible(0)
+			eventUserBanner:SetVisible(1)
+			eventUserRemainTimeText:SetVisible(1)
+		end
 	elseif (config.GetServiceNation() == "THI") then	
 		if curtabIndex == 0 then
 			UPDATE_NEXON_AMERICA_SELLITEMLIST();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
 			ncChargebtn:SetVisible(0);
 		elseif curtabIndex == 1 then
-			top5Title:SetVisible(1);
-			top5gBox:SetVisible(1);
 			basketgbox:SetVisible(1);
 			previewgbox:SetVisible(1);
 			previewStaticTitle:SetVisible(1);

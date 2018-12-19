@@ -1,3 +1,7 @@
+function ITEMDECOMPOSE_ON_INIT(addon, frame)
+	addon:RegisterOpenOnlyMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_ITEMDECOMPOSE_UPDATE_COLONY_TAX_RATE_SET');
+end
+
 local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
     if itemGradeList == nil then
         local itemTypeBoxFrame = GET_CHILD_RECURSIVELY(frame, "itemTypeBox", "ui::CGroupBox")
@@ -61,11 +65,20 @@ local function _ITEM_DECOMPOSE_ITEM_LIST(frame, itemGradeList)
 	RESET_SUCCESS(frame)
 end
 
+function ON_ITEMDECOMPOSE_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local decomposeCostText = GET_CHILD_RECURSIVELY(frame, "decomposeCostText")
+	SET_COLONY_TAX_RATE_TEXT(decomposeCostText, "tax_rate")
+
+    _ITEM_DECOMPOSE_ITEM_LIST(frame)
+end
+
 function ITEMDECOMPOSE_UI_OPEN(frame, msg, arg1, arg2)
     ui.EnableSlotMultiSelect(1);
     RESET_SUCCESS(frame)
     ITEMDECOMPOSE_CHECKBOX(frame)
     _ITEM_DECOMPOSE_ITEM_LIST(frame)
+	local decomposeCostText = GET_CHILD_RECURSIVELY(frame, "decomposeCostText")
+	SET_COLONY_TAX_RATE_TEXT(decomposeCostText, "tax_rate")
 end
 
 function ITEMDECOMPOSE_UI_CLOSE(frame, ctrl)
@@ -153,7 +166,7 @@ function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
 		local itemobj = GetIES(invitem:GetObject());
         
 		if groupInfo == nil then -- npc 상점의 경우
-		    totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj);
+		    totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj, GET_COLONY_TAX_RATE_CURRENT_MAP());
 		end
 	end
     
@@ -240,6 +253,13 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	itemCheckProp['Socket_Add'] = 0;
 	itemCheckProp['EnchantOption'] = 0;
 	
+	local groupName = frame:GetUserValue("GroupName");
+	local groupInfo = session.autoSeller.GetByIndex(groupName, 0);
+	local taxRate = nil
+	if groupInfo == nil then -- if not pc shop
+		taxRate = GET_COLONY_TAX_RATE_CURRENT_MAP()
+	end
+
 	for i = 0, slotSet:GetSelectedSlotCount() -1 do
 		local slot = slotSet:GetSelectedSlot(i)
 		local Icon = slot:GetIcon();
@@ -249,8 +269,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 
 		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
 		local itemobj = GetIES(invitem:GetObject());
-
-		totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj);
+		totalprice = totalprice + GET_DECOMPOSE_PRICE(itemobj, taxRate);
 		
 		local itemReinforce = TryGetProp(itemobj, 'Reinforce_2');
 		if itemReinforce ~= nil and itemReinforce > 0 then

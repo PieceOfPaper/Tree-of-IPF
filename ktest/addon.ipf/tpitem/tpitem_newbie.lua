@@ -4,9 +4,12 @@ function NEWBIE_SHOW_TO_ITEM(parent, ctrl, str, num)
 	local frame = ui.GetFrame('tpitem')
 	
 	UPDATE_NEWBIE_BASKET_MONEY(frame);
+
+	local curSelectCate = frame:GetUserValue('NEWBIE_SELECTED_CATEGORY');		
+	if curSelectCate == 'None' then
+		NEWBIE_CATE_SELECT(frame, true);
+	end
 	NEWBIE_CREATE_ITEM_LIST(frame);
-	NEWBIE_CATE_SELECT(frame, true);
-	
 end
 
 function NEWBIE_MAKE_TREE(frame)
@@ -94,12 +97,9 @@ function NEWBIE_CREATE_ITEM_LIST(frame)
 	local newbie_mainSubGbox = GET_CHILD_RECURSIVELY(frame,"newbie_mainSubGbox");
 	DESTROY_CHILD_BYNAME(newbie_mainSubGbox, "eachitem_");
 
-	local returnuser_mainSubGbox = GET_CHILD_RECURSIVELY(frame,"returnuser_mainSubGbox");
-	returnuser_mainSubGbox:RemoveAllChild();
+	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"newbie_mainSubGbox");
+	mainSubGbox:RemoveAllChild();
 
-	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
-    mainSubGbox:RemoveAllChild();
-    
 	local clsList, cnt = GetClassList('TPitem_User_New');	
 	if cnt == 0 or clsList == nil then
 		return;
@@ -164,6 +164,7 @@ function NEWBIE_CATE_SELECT(frame, forceSelect)
 	end
 	if forceSelect == true then
 		newbieCateTree:Select(firstItem);
+		frame:SetUserValue('NEWBIE_SELECTED_CATEGORY', "TP_Premium");
 	else
 		newbieCateTree:DeSelectAll();
 	end

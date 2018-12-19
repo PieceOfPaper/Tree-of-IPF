@@ -6,6 +6,7 @@
     <skin frameskin="test_pvp_alarm"/>
     <option hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
+    <userconfig COLONYWAR_OFFSET_Y="240" WORLDPVP_OFFSET_Y="160"/>
     <controls>
         <picture name="pic_1" rect="0 0 50 50" margin="100 -6 0 0" layout_gravity="left center" hittest="false" image="test_pvp_alram_icon" stretch="true"/>
         <richtext name="text" rect="0 0 726 81" margin="113 0 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{@st41b}%s" maxwidth="0" param1="value" param1_def="Kill the enemy!" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>

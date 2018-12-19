@@ -111,22 +111,21 @@ function GACHA_POPUP_MSG(frame, msg, itemname, itemcnt)
 	end
 
 	if msg == "HAIR_GACHA_POPUP" or msg == "RBOX_GACHA_POPUP" or msg == 'LETICIA_POPUP' then
-
-		local count = #g_hairgacharresult
-		for i = 0, count do 
-			g_hairgacharresult[i] = nil 
+	
+		local isAlreadyPlaying = false;	
+		local bigframe = ui.GetFrame("HAIRGACHA_BIG_11");
+		if bigframe ~= nil then
+			isAlreadyPlaying = true;
 		end
-
-		local grade = math.floor(itemcnt / 1000)
-		local cnt = itemcnt % 1000
-
-		g_hairgacharresult[11] = {}
-		g_hairgacharresult[11]["name"] = itemname
-		g_hairgacharresult[11]["grade"] = grade
-		g_hairgacharresult[11]["cnt"] = cnt
-
-		DARK_FRAME_DO_OPEN(isLeticia);
-		HAIR_GACHA_POP_BIG_FRAME(11, type, true, isLeticia);
+		
+		if isAlreadyPlaying == true then
+			DARK_FRAME_DO_CLOSE();
+			
+			local reserveScp = string.format("SHOW_GACHA(%d, '%s', '%s', %d)", isLeticia, itemname, type, itemcnt);
+			ReserveScript(reserveScp , 1.25);
+		else
+			SHOW_GACHA(isLeticia, itemname, type, itemcnt);
+		end
 
 	elseif msg == "HAIR_GACHA_POPUP_10" or  msg == "RBOX_GACHA_POPUP_10" or msg == 'LETICIA_POPUP_10' then
 
@@ -143,15 +142,33 @@ function GACHA_POPUP_MSG(frame, msg, itemname, itemcnt)
 		if isAlreadyPlaying == true then
 			DARK_FRAME_DO_CLOSE();
 			
-			local reserveScp = string.format("SHOW_GACHA(%d, '%s', '%s')", isLeticia, itemname, type);
+			local reserveScp = string.format("SHOW_GACHA_10(%d, '%s', '%s')", isLeticia, itemname, type);
 			ReserveScript(reserveScp , 3.5);
 		else
-			SHOW_GACHA(isLeticia, itemname, type);
+			SHOW_GACHA_10(isLeticia, itemname, type);
 		end
 	end
 end
 
-function SHOW_GACHA(isLeticia, itemliststr, type)
+function SHOW_GACHA(isLeticia, itemname, type, itemcnt)
+	local count = #g_hairgacharresult
+	for i = 0, count do 
+		g_hairgacharresult[i] = nil 
+	end
+
+	local grade = math.floor(itemcnt / 1000)
+	local cnt = itemcnt % 1000
+
+	g_hairgacharresult[11] = {}
+	g_hairgacharresult[11]["name"] = itemname
+	g_hairgacharresult[11]["grade"] = grade
+	g_hairgacharresult[11]["cnt"] = cnt
+
+	DARK_FRAME_DO_OPEN(isLeticia);
+	HAIR_GACHA_POP_BIG_FRAME(11, type, true, isLeticia);
+end
+
+function SHOW_GACHA_10(isLeticia, itemliststr, type)
 	if INIT_HAIR_GACHA_RET_TABLE(itemliststr) == false then
 		return;
 	end
@@ -177,7 +194,7 @@ function HAIR_GACHA_RESERVE_POP_SMALL_FRAME(frameindex, type)
 		return;
 	end
 	
-	local itemiconname = itemclass.Icon
+	local itemiconname = GET_ITEM_ICON_IMAGE(itemclass);
 
 	local smallframename = "HAIRGACHA_SMALL_"..tostring(frameindex);
 	local smallframe = ui.GetFrame(smallframename);
@@ -310,7 +327,7 @@ function HAIR_GACHA_POP_BIG_FRAME(frameindex, type, nobonus, isLeticia)
 	end
 
 	local itemimg = GET_CHILD_RECURSIVELY(bigframe, "bigitemimg")
-	itemimg:SetImage(itemclass.Icon)
+	itemimg:SetImage(GET_ITEM_ICON_IMAGE(itemclass))
 
 	local itemnamectl = GET_CHILD_RECURSIVELY(bigframe, "itemname")
 	if cnt == 1 then

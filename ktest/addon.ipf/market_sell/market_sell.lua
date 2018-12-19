@@ -664,6 +664,9 @@ function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)
 			limitMoney = 0;			
 		end
 		limitMoney = tonumber(limitMoney);
+	--
+	elseif frame:GetName() == 'colony_tax_distribute' then
+		
     end
 
     if tonumber(moneyText) > limitMoney then

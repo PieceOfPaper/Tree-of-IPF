@@ -165,7 +165,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 
  function RUN_CLIENT_SCP(invItem)
 	local itemobj = GetIES(invItem:GetObject());
-	local clScp = TryGetProp(itemobj, "ClientScp");
+	local clScp = TryGetProp(itemobj, "ClientScp");	
 	if clScp ~= nil and clScp ~= "None" then
 		local scp = _G[itemobj.ClientScp];
 		if scp == nil then
@@ -206,14 +206,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 		return;
 	end
 	
-	local itemCount = invItem.count - 1;
-	if itemCount >= 0 then
-		local equipSound = GetClassString('Item', invItem.type, 'EquipSound');
-		--imcSound.PlaySoundItem(equipSound);
-	end
-
 	item.UseByGUID(invItem:GetIESID());
-
  end
 
  function GET_ICON_ITEM(iconInfo)

@@ -505,7 +505,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     if reinfBonusValue == nil then
         reinfBonusValue = 0;
     end
-    
+
     local class = GetClassByType('Item', item.ClassID);
     INIT_ARMOR_PROP(item, class);
     
@@ -1123,7 +1123,7 @@ function GET_REINFORCE_PR(obj)
     
 end
 
-function GET_APPRAISAL_PRICE(item, SellPrice)
+function GET_APPRAISAL_PRICE(item, SellPrice, taxRate)
     -- ???????캿추??¸??μ???
     local lv = TryGetProp(item,"UseLv");
     local grade = TryGetProp(item,"ItemGrade")
@@ -1141,10 +1141,14 @@ function GET_APPRAISAL_PRICE(item, SellPrice)
             return;
         end
     end
+
+    if taxRate ~= nil then
+        SellPrice = tonumber(CALC_PRICE_WITH_TAX_RATE(SellPrice, taxRate))
+    end
     return SellPrice;
 end
 
-function GET_DECOMPOSE_PRICE(item)
+function GET_DECOMPOSE_PRICE(item, taxRate)
     local lv = TryGetProp(item,"UseLv");
     local itemGradeRatio = {75, 50, 35, 20};
     local grade = TryGetProp(item,"ItemGrade")
@@ -1154,11 +1158,14 @@ function GET_DECOMPOSE_PRICE(item)
     end
     
     price = math.floor(1 + (lv / itemGradeRatio[grade])) * 100
+    if taxRate ~= nil then
+        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate))
+    end
     
     return price;
 end
 
-function GET_REPAIR_PRICE(item, fillValue)
+function GET_REPAIR_PRICE(item, fillValue, taxRate)
     local reinforceCount = TryGetProp(item, "Reinforce_2");
         if reinforceCount == nil then
             return 0;
@@ -1216,7 +1223,11 @@ function GET_REPAIR_PRICE(item, fillValue)
     local transcendRatio = (0.1 * transcendCount);
     
     value = value * priceRatio * (1 + (item.ItemGrade - 1) * 0.1) * (1 + reinforceRatio + transcendRatio);
-    return math.floor(value);
+    value = math.floor(value)
+    if taxRate ~= nil then
+        value = tonumber(CALC_PRICE_WITH_TAX_RATE(value, taxRate))
+    end
+    return value;
 end
 
 function GET_REPAIR_PRICE_BY_RANK(item, fillValue)

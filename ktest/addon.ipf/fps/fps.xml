@@ -1,14 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="fps" x="0" y="0" width="200" height="40">
-    <frame title="FPS" layout_gravity="center bottom" margin="-350 0 0 220"/>
+<uiframe name="fps" x="0" y="0" width="300" height="60">
+    <frame title="FPS" layout_gravity="center bottom" margin="-305 0 0 200"/>
     <draw drawtitlebar="false" drawframe="false"/>
     <input moveintitlebar="false" hittestframe="false"/>
     <layer layerlevel="10"/>
     <option closebutton="false" hideable="false" visible="true" alwaysVisible="true"/>
     <controls>
-        <richtext name="serverfpstext" rect="0 0 200 20" layout_gravity="left top" caption="0000" fixwidth="true" hittest="false" resizebytext="false" textalign="left center"/>
-        <richtext name="fpstext" rect="0 20 200 20" layout_gravity="left top" caption="0000" fixheight="true" fixwidth="false" hittest="false" resizebytext="false" textalign="left center"/>
+        <timer name="memoryTimer" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top"/>
+        <richtext name="serverfpstext" rect="0 0 300 20" margin="0 0 0 0" layout_gravity="left top" caption="0000" fixwidth="true" hittest="false" resizebytext="false" textalign="left center"/>
+        <richtext name="fpstext" rect="0 20 300 20" margin="0 0 0 0" layout_gravity="left top" caption="0000" fixheight="true" fixwidth="false" hittest="false" resizebytext="false" textalign="left center"/>
+<richtext name="memoryText" rect="0 40 300 20" margin="0 0 0 0" layout_gravity="left top" caption="0000" fixheight="true" fixwidth="false" hittest="false" resizebytext="false" textalign="left center"/>
     </controls>
 </uiframe>

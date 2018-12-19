@@ -6,6 +6,7 @@
 	<layer layerlevel="20"/>
 	<draw drawtitlebar="false" drawframe="false"/>
 	<input hittest="false" hittestframe="false"/>
+	<userconfig MyBox="colonymy_myframe" MyGuildPartyBox="colonymy_partyframe" LayerBaseLevel="20"/>
 	<controls>
 		<picture name="emblemPic" rect="0 0 39 39" margin="0 64 0 0" layout_gravity="center top" image="guildmark_slot" stretch="true" forceupdate="true"/>
 		<picture name="bgSlot" rect="0 0 45 45" margin="0 64 0 0" layout_gravity="center top" image="emblemslot_green"/>

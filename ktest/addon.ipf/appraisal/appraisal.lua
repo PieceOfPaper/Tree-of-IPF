@@ -5,6 +5,7 @@ function APPRAISAL_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("OPEN_DLG_APPRAISAL", "ON_OPEN_APPRAISAL");
 	addon:RegisterMsg("SUCCESS_APPRALSAL", "ON_OPEN_APPRAISAL");
+	addon:RegisterMsg('UPDATE_COLONY_TAX_RATE_SET', 'ON_APPRAISAL_UPDATE_COLONY_TAX_RATE_SET');
 	
 end
 
@@ -48,6 +49,16 @@ function APPRAISAL_UI_OPEN(frame, ctrl)
 	ui.EnableSlotMultiSelect(1);
 
 	APPRAISAL_UPDATE_ITEM_LIST(frame);
+	local invenzenytext = GET_CHILD_RECURSIVELY(frame, "invenzenytext")
+	SET_COLONY_TAX_RATE_TEXT(invenzenytext, "tax_rate")
+end
+
+function ON_APPRAISAL_UPDATE_COLONY_TAX_RATE_SET(frame)
+	local invenzenytext = GET_CHILD_RECURSIVELY(frame, "invenzenytext")
+	SET_COLONY_TAX_RATE_TEXT(invenzenytext, "tax_rate")
+	session.ResetItemList();
+	APPRAISAL_UPDATE_ITEM_LIST(frame);
+	CLOSE_MSGBOX_BY_NON_NESTED_KEY("APPRAISAL_EXECUTE");
 end
 
 function APPRAISAL_UPDATE_ITEM_LIST(frame)
@@ -99,7 +110,7 @@ function APPRAISAL_UPDATE_MONEY(frame)
 		local itemobj = GetIES(invitem:GetObject());
 
 		if groupInfo == nil then -- npc 상점의 경우
-		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj);
+		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj, nil, GET_COLONY_TAX_RATE_CURRENT_MAP());
 		elseif handle ~= session.GetMyHandle() then -- pc 상점인 경우
 			local itemName, cnt = ITEMBUFF_NEEDITEM_Appraiser_Apprise(nil, itemobj);
 			totalprice = totalprice + cnt * groupInfo.price;
@@ -182,7 +193,7 @@ function APPRAISAL_EXECUTE(frame)
 		local invitem = GET_ITEM_BY_GUID(iconInfo:GetIESID());
 		local itemobj = GetIES(invitem:GetObject());
 
-		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj);
+		totalprice = totalprice + GET_APPRAISAL_PRICE(itemobj, nil, GET_COLONY_TAX_RATE_CURRENT_MAP());
 	end
 
 	if totalprice == 0 then
@@ -197,7 +208,7 @@ function APPRAISAL_EXECUTE(frame)
 
 	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('AppraisalPrice',"Price", txtPrice)
-	local msgBox = ui.MsgBox(msg, 'APPRAISAL_EXECUTE_COMMIT', "None");
+	local msgBox = ui.MsgBox_NonNested(msg, 'APPRAISAL_EXECUTE', 'APPRAISAL_EXECUTE_COMMIT', "None");
 	msgBox:SetYesButtonSound("button_click_repair");
 end
 

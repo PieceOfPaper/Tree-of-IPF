@@ -4,8 +4,13 @@ function RETURNUSER_SHOW_TO_ITEM(parent, ctrl, str, num)
 	local frame = ui.GetFrame('tpitem')
 	
 	UPDATE_RETURNUSER_BASKET_MONEY(frame);
+
+	local curSelectCate = frame:GetUserValue('RETURNUSER_SELECTED_CATEGORY');		
+	if curSelectCate == 'None' then
+		RETURNUSER_CATE_SELECT(frame, true);
+	end
+
 	RETURNUSER_CREATE_ITEM_LIST(frame);
-	RETURNUSER_CATE_SELECT(frame, true);
 end
 
 function RETURNUSER_MAKE_TREE(frame)
@@ -93,16 +98,9 @@ function RETURNUSER_CREATE_ITEM_LIST(frame)
 	local returnuser_mainSubGbox = GET_CHILD_RECURSIVELY(frame,"returnuser_mainSubGbox");
 	DESTROY_CHILD_BYNAME(returnuser_mainSubGbox, "eachitem_");
 
-	local newbie_mainSubGbox = GET_CHILD_RECURSIVELY(frame,"newbie_mainSubGbox");
-	newbie_mainSubGbox:RemoveAllChild();
-
-	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
+		local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"returnuser_mainSubGbox");
 	mainSubGbox:RemoveAllChild();
 	
-
-	local mainSubGbox = GET_CHILD_RECURSIVELY(frame,"mainSubGbox");
-    mainSubGbox:RemoveAllChild();
-    
 	local clsList, cnt = GetClassList('TPitem_Return_User');	
 	if cnt == 0 or clsList == nil then
 		return;
@@ -162,12 +160,13 @@ end
 
 function RETURNUSER_CATE_SELECT(frame, forceSelect)
 	local returnuserCateTree = GET_CHILD_RECURSIVELY(frame, 'returnuserCateTree');
-	local firstItem = returnuserCateTree:FindByValue('TP_Premium');
+	local firstItem = returnuserCateTree:FindByValue('TP_Premium');	
 	if firstItem == nil then
 		return;
 	end
 	if forceSelect == true then
 		returnuserCateTree:Select(firstItem);
+		frame:SetUserValue('RETURNUSER_SELECTED_CATEGORY', "TP_Premium");
 	else
 		returnuserCateTree:DeSelectAll();
 	end

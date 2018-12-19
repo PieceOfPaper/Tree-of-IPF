@@ -542,10 +542,9 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 				invenItemInfo = session.GetInvItemByGuid(iesID);
 			end
 
-			--시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색
-			local skill_scroll = 910001;
+			--시모니 스크롤이 아니고 기간제가 아닌 아이템 재검색			
 			if invenItemInfo == nil and itemIES.LifeTime == 0 then
-				if type ~= skill_scroll then
+				if IS_SKILL_SCROLL_ITEM(itemIES) == 0 then
 					invenItemInfo = session.GetInvItemByType(type);
 				end
 			end
@@ -568,7 +567,7 @@ function SET_QUICK_SLOT(frame, slot, category, type, iesID, makeLog, sendSavePac
 				local iconInfo = icon:GetInfo();
 				iconInfo.count = invenItemInfo.count;
 
-				if skill_scroll == type then
+				if IS_SKILL_SCROLL_ITEM(itemIES) == 1 then
 					icon:SetUserValue("IS_SCROLL","YES")
 				else
 					icon:SetUserValue("IS_SCROLL","NO")

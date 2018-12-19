@@ -842,7 +842,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 	end
 
 	local jobtext = ("");
-	local jobName = nowjobcls.Name; -- hs_comment
+	local jobName = nowjobcls.Name;
 	local etc = GetMyEtcObject();
     if etc.RepresentationClassID ~= 'None' then
         local repreJobCls = GetClassByType('Job', etc.RepresentationClassID);

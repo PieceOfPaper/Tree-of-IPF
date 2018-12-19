@@ -25,7 +25,8 @@
 							<layoutsection name="spacing0" size="20"/>
 							<layoutsection name="emblemsection" size="280">
 								<picture name="emblemFrame" image="guildmark_frame" stretch="false" changecursor="false">
-									<picture name="emblem" layout_gravity="center center" margin="2 -33 0 0" rect="0 0 106 106" image="guildmark_slot" stretch="false" forceupdate="true" resize="uniform" changecursor="false"/></picture>
+									<picture name="emblem" layout_gravity="center center" margin="2 -33 0 0" rect="0 0 106 106" image="guildmark_slot" stretch="false" forceupdate="true" resize="uniform" changecursor="false"/>
+								</picture>
 							</layoutsection>
 							<layoutsection name="guildnamesection" size="100">
 								<picture name="guildnameBg" margin="0 0 0 50" stretch="true" image="guildname_frame">
@@ -231,7 +232,7 @@
 									<layout name="infomiscLayout" orientation="horizontal" spacing="5" rect="0 0 0 300">
 										<layoutsection name="guildBenefitSection">
 											<groupbox name="benefitbox" skin="test_frame_midle">
-												<richtext name="benefitText" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="길드 혜택" fontname="white_16_b_ol"/>												
+												<richtext name="benefitText" rect="0 0 300 30" margin="10 10 0 0" layout_gravity="left top" caption="길드 혜택" fontname="white_16_b_ol"/>
 												<picture name="headerLine" rect="0 0 680 2" margin="0 35 0 0" layout_gravity="center top" image="guild_line_h2" stretch="true"/>
 											</groupbox>
 										</layoutsection>
@@ -410,10 +411,10 @@
 										<layoutsection name="colonyInfoSection" size="105">
 											<layout name="colonyInfoLayout">
 												<layoutsection name="colonyInfoTextLayout">
-													<richtext name="colonyInfoText" caption="ⓘ 스팟 점령 길드는 참가로 고정됩니다.{nl}ⓘ 참가 여부 옵션을 '참가'로 변경 시, 길드 마스터 위임이 불가능합니다.{nl}ⓘ 참가 여부 옵션은 템플러 클래스를 가진 길드 마스터만 변경할 수 있습니다.{nl}ⓘ 참가 여부 옵션은 길드 콜로니전 시작 5분 전 부터 종료 1분 후까지 변경할 수 없습니다.{nl}ⓘ 참가 여부 옵션은 길드 타워의 설치 유무와 상관없이 변경할 수 있습니다." margin="5 5 0 0 " fixwidth="true" fontname="black_16"/>
+													<richtext name="colonyInfoText" caption="ⓘ 스팟 점령 길드는 참가로 고정됩니다.{nl}ⓘ 참가 여부 옵션은 길드 마스터만 변경할 수 있으며, '참가'로 변경 시 길드 마스터 위임이 불가능합니다.{nl}ⓘ 참가 여부 옵션은 길드 콜로니전 시작 5분 전 부터 종료 1분 후까지 변경할 수 없습니다.{nl}ⓘ 참가 여부 옵션은 길드 타워의 설치 유무와 상관없이 변경할 수 있습니다.{nl}ⓘ 이전 길드 탈퇴일을 기점으로 14일 미만인 길드원은 길드 콜로니전에 참가할 수 없습니다." margin="5 5 0 0 " fixwidth="true" fontname="black_16"/>
 												</layoutsection>
 												<layoutsection name="colonyRewardBtnSection" size="15%">
-													<button name="colonyRewardBtn" margin="0 50 0 50" caption="{@st41b}{s16}점령 보상" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&apos;colony_payment&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+													<button name="colonyRewardBtn" margin="0 50 0 50" caption="{@st41b}{s16}점령 혜택" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&apos;colony_tax_board&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 												</layoutsection>
 											</layout>
 										</layoutsection>
@@ -425,13 +426,22 @@
 														<overlap name="colonizedAreaHeaderOverlap">
 															<groupbox name="colonizedHeaderBg" skin="market_listbase"/>
 															<layout name="colonizedAreaLayoutHeader">
-																<layoutsection name="colonizedHeaderSection">
-																	<richtext name="colonizedAreaText" margin="15 0 0 0" textalign="left center" caption="점령 지역" fontname="black_18"/>
+																<layoutsection name="colonizedHeaderSection" size="22%">
+																	<richtext name="colonizedAreaText" margin="40 0 0 0" textalign="left center" caption="점령 지역" fontname="black_18"/>
 																</layoutsection>
-																<layoutsection name="colonizedAreaRatingSection">
-																	<richtext name="colonizedAreaRatingText" textalign="center center" caption="지역 등급" fontname="black_18"/>
+																<layoutsection name="colonizedCitySection" size="20%">
+																	<richtext name="colonizedCityText" textalign="left center" caption="" fontname="black_18" hittest="true"/>
 																</layoutsection>
-																<layoutsection name="colonizedSpace" size="29%"/>
+																<layoutsection name="colonizedTaxRateSection" size="7%">
+																	<richtext name="colonizedTaxRateText" textalign="left center" caption="도시 세율" fontname="black_18"/>
+																</layoutsection>
+																<layoutsection name="colonizedCityTaxSection" size="18%">
+																	<richtext name="colonizedCityTaxText" textalign="center center" caption="징수될 도시 세금{img tip_questionmark 20 20}" fontname="black_18" hittest="true"/>
+																</layoutsection>
+																<layoutsection name="colonizedMarketTaxSection" size="22%">
+																	<richtext name="colonizedMarketTaxText" textalign="center center" caption="징수될 마켓 세금{img tip_questionmark 20 20}" fontname="black_18" hittest="true"/>
+																</layoutsection>
+																<layoutsection name="colonizedSpace" size="12%"/>
 															</layout>
 														</overlap>
 													</layoutsection>
@@ -442,7 +452,7 @@
 											</overlap>
 										</layoutsection>
 										<layoutsection name="colonyBetaTextSection" size="35">
-											<richtext name="colonyInfoText" caption="ⓘ 지역 등급은 지역 레벨로 구분되며 등급에 따라 점령 보상이 차등 지급됩니다.(B등급 : 지역 Lv 1~99, A등급 : 지역 Lv 100~199, S등급 : 지역 Lv 200 이상){nl}ⓘ Beta로 진행되는 길드 콜로니전의 점령 혜택은 홈페이지 내 공지사항을 통해 확인 바랍니다." fixwidth="true" fontname="black_16"/>
+											<richtext name="colonyInfoText" caption="ⓘ 점령 길드는 점령 혜택 버튼을 통해 도시의 세율 조정 및 세금 징수가 가능합니다" fixwidth="true" fontname="black_16"/>
 										</layoutsection>
 									</layout>
 								</layoutsection>
@@ -591,7 +601,7 @@
 																					<picture name="authName3Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName3" margin="30 0 0 0" caption="{@st42}길드 자본{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>
 																				</overlap>
-																				<grid name="claimCheckbox3" margin="20 0 0 0" rect="0 0 0 100" slotsize="500 50" slotspc="0 0"/>
+																				<grid name="claimCheckbox3" margin="20 0 0 0" rect="0 0 0 170" slotsize="500 50" slotspc="0 0"/>
 																				<overlap name="authName4ovlp" rect="0 0 0 40" margin="0 0 600 0">
 																					<picture name="authName4Bg" layout_gravity="left center" margin="10 0 0 0" stretch="true" image="test_partyquest_slot"/>
 																					<richtext name="authName4" margin="30 0 0 0" caption="{@st42}길드 커뮤니티{/}" textalign="left center" resizebytext="false" fontname="white_16_ol" fixwidth="true"/>

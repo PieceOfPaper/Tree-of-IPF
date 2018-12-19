@@ -1,7 +1,4 @@
-
 function BUFFSELLER_MY_ON_INIT(addon, frame)
-
-
 
 end
 
@@ -16,22 +13,8 @@ function UPDATE_PERSONALSHOP_CTRLSET_MY(ctrlSet, info)
 end
 
 function UPDATE_BUFFSELLER_SLOT_MY(ctrlSet, info)
-	local skill_slot = GET_CHILD(ctrlSet, "skill_slot", "ui::CSlot");
-	SET_SLOT_SKILL_BY_LEVEL(skill_slot, info.classID, info.level)
-	local sklObj = GetClassByType("Skill", info.classID);
-	ctrlSet:SetUserValue("Type", info.classID);
-	ctrlSet:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
-	ctrlSet:GetChild("skilllevel"):SetTextByKey("value", info.level);
-	ctrlSet:GetChild("remaincount"):SetTextByKey("value", info.remainCount);
---	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
-
-	local priceStr = GET_COMMA_SEPARATED_STRING(info.price);
-	ctrlSet:GetChild("price"):SetTextByKey("value", priceStr);
-	
-	-- 가격 부분만 정렬이 이상해서 강제로 정렬하고 마진값 조정 시작 --
-	ctrlSet:GetChild("price"):SetGravity(ui.LEFT, ui.TOP);
-	ctrlSet:GetChild("price"):SetMargin(96, 55, 0, 0)
-	-- 가격 부분만 정렬이 이상해서 강제로 정렬하고 마진값 조정 끝 --
+	local buffCls = GetClassByType('Buff', info.classID);
+	SET_BUFFSELLER_CTRLSET(ctrlSet, buffCls.ClassName, info.level, 'Pardoner_SpellShop', info.price, info.remainCount);
 end
 
 function MY_AUTOSELL_LIST(groupName, sellType)
@@ -79,16 +62,15 @@ function MY_AUTOSELL_LIST(groupName, sellType)
 
 	GBOX_AUTO_ALIGN(selllist, 10, 10, 10, true, false);
 	frame:ShowWindow(1);
-
 end
 
-function UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info)
+local function _UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info)
 	local itemCls = GetClassByType("Item", info.itemType);
 	local slot = GET_CHILD(ctrlSet, "slot");
 
 	if nil == itemCls then
-		itemCls = GetClassByType("Skill", info.itemType);
-		imageName = 'icon_' .. GetClassString('Skill', info.itemType, 'Icon');
+		itemCls = GetClassByType("Buff", info.itemType);
+		imageName = GET_BUFF_ICON_NAME(itemCls);
 		SET_SLOT_IMG(slot, imageName);
 	else
 		SET_SLOT_ITEM_CLS(slot, itemCls);
@@ -159,7 +141,7 @@ function MY_AUTOSELL_HISTORY(groupName, sellType)
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
 		local ctrlSet = history:CreateControlSet(ctrlsetType, "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
-		UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info);		
+		_UPDATE_AUTOSELL_HISTORY_CTRLSET(ctrlSet, info);		
 	end
 
 	GBOX_AUTO_ALIGN(history, 10, 10, 10, true, false);
@@ -169,7 +151,4 @@ function BUFFSELLER_MY_CLOSE(frame)
 	frame = frame:GetTopParentFrame();
 	local groupName = frame:GetUserValue("GroupName");
 	session.autoSeller.Close(groupName);
-	-- frame:ShowWindow(0);
 end
-
-

@@ -256,7 +256,7 @@ local function GET_PC_ABILITY_OBJECT_LIST()
     return abilObjList;
 end
 
-function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
+function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffClassID)
 	local userPriceCls = GetClass('UserShopPrice', sklClassName);	
 	if userPriceCls ~= nil then
 		local priceType = userPriceCls.PriceType;
@@ -266,10 +266,10 @@ function PROCESS_USER_SHOP_PRICE(sklClassName, editCtrl, buffSklClsID)
 		elseif priceType == 'ConstantPrice' then
 			local GetPriceScp = _G[TryGetProp(userPriceCls, 'Price', 'None')];
 			if GetPriceScp ~= nil then
-				local buffSklCls = GetClassByType('Skill', buffSklClsID);
+				local buffCls = GetClassByType('Buff', buffClassID);
 				local argStr = '';
 				if buffSklCls ~= nil then
-					argStr = buffSklCls.ClassName;
+					argStr = buffCls.ClassName;
 				end
 
 				price = GetPriceScp(sklClassName, GetZoneName(), argStr, GET_PC_ABILITY_OBJECT_LIST());

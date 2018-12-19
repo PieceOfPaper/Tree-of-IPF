@@ -6,6 +6,7 @@ function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_CHANGE_COUNT", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_IN", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterOpenOnlyMsg("ACCOUNT_WAREHOUSE_VIS", "ACCOUNT_WAREHOUSE_UPDATE_VIS_LOG");
+	addon:RegisterMsg("UPDATE_COLONY_TAX_RATE_SET", "ON_ACCOUNT_WAREHOUSE_UPDATE_COLONY_TAX_RATE_SET");
 end
 
 local new_add_item = {}
@@ -53,6 +54,10 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 	TRADE_DIALOG_CLOSE();    
     new_add_item = {}
     new_stack_add_item = {}
+end
+
+function ON_ACCOUNT_WAREHOUSE_UPDATE_COLONY_TAX_RATE_SET(frame)
+	CLOSE_MSGBOX_BY_NON_NESTED_KEY("EXTEND_ACCOUNT_WAREHOUSE");
 end
 
 local function _CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(insertItem)
@@ -448,31 +453,27 @@ function ACCOUNT_WAREHOUSE_DEPOSIT(frame, slot)
 	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","Deposit")
 end
 
-function ACCOUNT_WAREHOUSE_EXTEND(frame, slot)
+function ACCOUNT_WAREHOUSE_EXTEND(parent, slot)
+	local frame = parent:GetTopParentFrame();
+	local STYLE_TAX_RATE = frame:GetUserConfig("STYLE_TAX_RATE");
+	local START_TAX_RATE = frame:GetUserConfig("START_TAX_RATE");
+	local END_TAX_RATE = frame:GetUserConfig("END_TAX_RATE");
+	local TAX_ICON_WIDTH = frame:GetUserConfig("TAX_ICON_WIDTH");
+	local TAX_ICON_HEIGHT = frame:GetUserConfig("TAX_ICON_HEIGHT");
 	
 	local aObj = GetMyAccountObj();
 	if nil == aObj then
 		return;
 	end
 
-	local slotDiff = aObj.AccountWareHouseExtend;
-	local price = ACCOUNT_WAREHOUSE_EXTEND_PRICE;
-	if slotDiff > 0 then
-		if slotDiff >= tonumber(ACCOUNT_WAREHOUSE_MAX_EXTEND_COUNT) then
-			ui.SysMsg(ScpArgMsg("WareHouseMax"))
-			return;
-		end
-		if slotDiff < 4 then
-		    price = price * GetPow(2, slotDiff);
-		else
-		    --Form the fifth slot, it will be fixde at 2000000 silver
-		    price = price * 10
-		end
+	local price = GET_ACCOUNT_WAREHOUSE_EXTEND_PRICE(aObj, GET_COLONY_TAX_RATE_CURRENT_MAP())
+	local str = ScpArgMsg("ExtendWarehouseSlot{Silver}{SLOT}", "Silver", GetCommaedText(price), "SLOT", 1);
+	if session.colonytax.IsEnabledColonyTaxShop() == true then
+		str = str .. string.format("%s%s%s%s%s", STYLE_TAX_RATE, START_TAX_RATE, GET_COLONY_TAX_APPLIED_STRING(true, TAX_ICON_WIDTH, TAX_ICON_HEIGHT), END_TAX_RATE, "{/}");
 	end
 
-	local str = ScpArgMsg("ExtendWarehouseSlot{Silver}{SLOT}", "Silver", GetCommaedText(price), "SLOT", 1);
 	local yesScp = string.format("CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(%d)", price) 
-	ui.MsgBox(str, yesScp, "None");
+	local msgBox = ui.MsgBox_NonNested(str, "EXTEND_ACCOUNT_WAREHOUSE", yesScp, "None");
 
 	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","extend")
 

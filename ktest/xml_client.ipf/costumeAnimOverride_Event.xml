@@ -855,6 +855,52 @@
 				</Job>
 			</Motion>
 		</Class>
+		<Class Costume="wing_Guilty_Little">
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="DASH_RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="7" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="16" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
 		<Class Costume="wing_guilty">
 			<Motion Name="RUN">
 				<Job Name="All">
@@ -2899,6 +2945,52 @@
 					<Event>
 						<Particle frame="0" attachNode="Bip01 Head" particleName="I_pc_costume_vampire01_bat2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
 						<Particle frame="0" attachNode="Bip01 Spine2" particleName="F_pc_costume_vampire01_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+					</Event>
+				</Job>
+			</Motion>
+		</Class>
+		<Class Costume="wing_Guilty_Little">
+			<Motion Name="STD">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="DASH_RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="RUN">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_1_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3_1" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="10" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="25" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+					</Event>
+				</Job>
+			</Motion>
+			<Motion Name="Default">
+				<Job Name="All" LoopTime="500">
+					<Event>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_levitation005_dark_violet3_re" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_levitation005_dark_violet3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effR" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="5" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black2_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+						<Particle frame="20" attachNode="Dummy_effL" particleName="F_spread_out031_fether_black3_1" useAttach="false" hiddenObj="false" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
 					</Event>
 				</Job>
 			</Motion>

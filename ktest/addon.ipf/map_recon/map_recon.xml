@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="map_recon" x="0" y="0" width="1200" height="1024">
+	<frame fullheight="false" fullwidth="false" fasthide="false" layout_gravity="center center" margin="0 0 0 0" scale_align="center center" draw="true" tooltipoverlap="true"/>
+	<skin frameskin="test_pvp_skin"/>
+	<draw drawtitlebar="false"/>
+	<layer layerlevel="99"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<sound opensound="sys_map_open" closesound="sys_map_close"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
+	<userconfig PC_ICON_NAME="colony_observation_pic" PC_ICON_WIDTH="28" PC_ICON_HEIGHT="28" FADE_OUT_SEC="3"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 1100 950" margin="0 10 0 0" layout_gravity="center center" hittest="false" skin="map_bg2" stretch="true"/>
+		<picture name="map_pic" rect="0 0 900 900" margin="0 0 0 0" layout_gravity="center center" hittest="false" stretch="true"/>
+		<groupbox name="icon_gb" rect="0 0 1200 1024" margin="0 10 0 0" layout_gravity="left top" hittest="false" draw="false"/>
+		<groupbox name="list_gb" rect="0 0 1200 1024" margin="0 10 0 0" layout_gravity="left top" hittest="false" draw="false"/>
+		<richtext name="title" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" format="{@st43}%s{/}" param1="itemname" param1_def="item" fontname="white_24_ol"/>
+		<richtext name="mapname_text" rect="0 0 200 30" margin="0 80 0 0" layout_gravity="center top" format="{@st46}%s{/}" param1="mapname" param1_def="map" fontname="white_24_ol"/>
+		<button name="close_map" rect="0 0 44 44" margin="0 18 18 0" layout_gravity="right top" LBtnUpScp="ui.CloseFrame(&apos;map_recon&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" image="testclose_button" clicksound="button_click_big" oversound="button_over" texttooltip="{@st59}지도를 닫습니다{/}"/>
+	</controls>
+</uiframe>

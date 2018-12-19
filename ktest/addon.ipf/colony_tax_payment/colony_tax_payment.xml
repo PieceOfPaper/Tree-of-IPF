@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<uiframe name="colony_tax_payment" x="0" y="0" width="650" height="460">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<script OpenScp="ON_OPEN_COLONY_TAX_PAYMENT"/>
+	<controls>
+		<groupbox name="title_bg" rect="0 0 650 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}세금 수령" fontname="brown_16_b" spacey="0"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;colony_tax_payment&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<groupbox name="bg" rect="0 0 630 290" margin="0 60 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="column_bar" rect="0 0 630 40" margin="0 60 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>
+		<richtext name="date_text" parent="column_bar" rect="0 0 200 30" margin="40 0 0 0" layout_gravity="left center" caption="지급일" fontname="black_18_b" spacey="0"/>
+		<richtext name="map_text" parent="column_bar" rect="0 0 200 30" margin="235 0 0 0" layout_gravity="left center" caption="금액" fontname="black_18_b" spacey="0"/>
+		<richtext name="time_text" parent="column_bar" rect="0 0 200 30" margin="360 0 0 0" layout_gravity="left center" caption="남은 수령 기간" fontname="black_18_b" spacey="0"/>
+		<groupbox name="list_gb" rect="0 0 630 251" margin="0 98 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="true"/>
+		<richtext name="guidance_text" rect="0 0 600 100" margin="0 0 0 20" layout_gravity="center bottom" format="%s" param1="value" fontname="brown_16_b" spacey="0" fixwidth="true"/>
+	</controls>
+</uiframe>

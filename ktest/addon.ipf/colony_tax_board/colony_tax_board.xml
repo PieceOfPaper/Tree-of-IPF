@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="colony_tax_board" x="0" y="0" width="860" height="800">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<script OpenScp="ON_OPEN_COLONY_TAX_BOARD"/>
+	<userconfig SKIN_ODD="none" SKIN_EVEN="midle_line_skin"/>
+	<controls>
+		<groupbox name="title_bg" rect="0 0 860 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}점령 혜택" fontname="brown_16_b" spacey="0"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;colony_tax_board&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<tab name="maintab" rect="0 0 400 40" margin="10 80 0 0" layout_gravity="left top" LBtnDownScp="" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="maintab_taxrate" parent="maintab" caption="{@st66b}세율 조정{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="maintab_cheque" parent="maintab" caption="{@st66b}세금 징수{/}" width="150" layout_gravity="left top"/>
+		<groupbox name="taxrate_gb" tabname="maintab_taxrate" rect="0 0 840 658" margin="0 130 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="false"/>
+		<groupbox name="taxrate_bg" parent="taxrate_gb" rect="0 0 840 400" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="taxrate_column_bar" parent="taxrate_gb" rect="0 0 840 40" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>
+		<richtext name="taxrate_colony_text" parent="taxrate_column_bar" rect="0 0 200 30" margin="90 0 0 0" layout_gravity="left center" caption="점령 지역" fontname="black_18_b" spacey="0"/>
+		<richtext name="taxrate_city_text" parent="taxrate_column_bar" rect="0 0 200 30" margin="335 0 0 0" layout_gravity="left center" caption="세율 적용 도시" fontname="black_18_b" spacey="0"/>
+		<richtext name="taxrate_rate_text" parent="taxrate_column_bar" rect="0 0 200 30" margin="660 0 0 0" layout_gravity="left center" caption="세율" fontname="black_18_b" spacey="0"/>
+		<groupbox name="taxrate_list_gb" parent="taxrate_gb" rect="0 0 840 320" margin="0 40 0 0" layout_gravity="center top" skin="none" draw="false" scrollbar="true"/>
+		<groupbox name="taxratewarning_bg" parent="taxrate_gb" tabname="taxrateinfo_tab_warning" rect="0 0 840 210" margin="0 0 0 0" layout_gravity="center bottom" skin="bg2" draw="false" scrollbar="false"/>
+		<labelline name="taxratewarning_labelline" parent="taxratewarning_bg" margin="0 5 0 0" rect="0 0 840 3" skin="labelline_def_2" layout_gravity="center top"/>
+		<richtext name="taxratewarning_text" parent="taxratewarning_bg" omitwidth="true" fixwidth="true" rect="0 0 830 180" margin="10 20 0 0" richtext="left top" layout_gravity="left top" format="%s" param1="value" fontname="black_16" spacey="0"/>
+		<groupbox name="contents_bg" parent="taxrate_gb" tabname="taxrateinfo_tab_contents" rect="0 0 840 210" margin="0 0 0 0" layout_gravity="center bottom" skin="bg2" draw="false" scrollbar="false"/>
+		<labelline name="contents_labelline" parent="contents_bg" margin="0 5 0 0" rect="0 0 840 3" skin="labelline_def_2" layout_gravity="center top"/>
+		<richtext name="contents_text" parent="contents_bg" rect="0 0 700 180" margin="10 20 0 0" layout_gravity="left top" format="%s" param1="value" fontname="black_16" spacey="0"/>
+		<groupbox name="cheque_gb" tabname="maintab_cheque" rect="0 0 840 658" margin="0 130 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="false"/>
+		<groupbox name="cheque_bg" parent="cheque_gb" rect="0 0 840 400" margin="0 0 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="cheque_column_bar" parent="cheque_gb" rect="0 0 840 40" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>
+		<richtext name="cheque_date_text" parent="cheque_column_bar" rect="0 0 200 30" margin="35 0 0 0" layout_gravity="left center" caption="지급일" fontname="black_18_b" spacey="0"/>
+		<richtext name="cheque_colonymap_text" parent="cheque_column_bar" rect="0 0 200 30" margin="152 0 0 0" layout_gravity="left center" caption="점령 지역" fontname="black_18_b" spacey="0"/>
+		<richtext name="cheque_citymap_text" parent="cheque_column_bar" rect="0 0 200 30" margin="293 0 0 0" layout_gravity="left center" caption="세금 징수 도시" fontname="black_18_b" spacey="0"/>
+		<richtext name="cheque_expire_text" parent="cheque_column_bar" rect="0 0 200 30" margin="460 0 0 0" layout_gravity="left center" caption="남은 분배 기간" fontname="black_18_b" spacey="0"/>
+		<richtext name="cheque_reward_text" parent="cheque_column_bar" rect="0 0 200 30" margin="700 0 0 0" layout_gravity="left center" caption="세금" fontname="black_18_b" spacey="0"/>
+		<groupbox name="cheque_list_gb" parent="cheque_gb" rect="0 0 840 352" margin="0 40 0 0" layout_gravity="center top" skin="none" draw="false" scrollbar="true"/>
+		<groupbox name="chequewarning_bg" parent="cheque_gb" tabname="chequeinfo_tab_warning" rect="0 0 840 210" margin="0 0 0 0" layout_gravity="center bottom" skin="bg2" draw="false" scrollbar="false"/>
+		<labelline name="chequewarning_labelline" parent="chequewarning_bg" margin="0 5 0 0" rect="0 0 840 3" skin="labelline_def_2" layout_gravity="center top"/>
+		<richtext name="chequewarning_text" parent="chequewarning_bg" omitwidth="true" fixwidth="true" rect="0 0 830 180" margin="10 20 0 0" layout_gravity="left top" format="%s" param1="value" fontname="black_16" spacey="0"/>
+		<groupbox name="history_bg" parent="cheque_gb" tabname="chequeinfo_tab_history" rect="0 0 840 210" margin="0 0 0 0" layout_gravity="center bottom" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="history_column_bar" parent="history_bg" rect="0 0 834 30" margin="0 4 0 0" layout_gravity="center top" skin="jour_search" draw="true" scrollbar="false"/>
+		<richtext name="history_date_text" parent="history_column_bar" textalign="center center" rect="0 0 200 30" margin="35 0 0 0" layout_gravity="left center" caption="지급일" fontname="black_18_b" spacey="0"/>
+		<richtext name="history_sender_text" parent="history_column_bar" textalign="center center" rect="0 0 200 30" margin="195 0 0 0" layout_gravity="left center" caption="세금 분배" fontname="black_18_b" spacey="0"/>
+		<richtext name="history_receiver_text" parent="history_column_bar" textalign="center center" rect="0 0 200 30" margin="365 0 0 0" layout_gravity="left center" caption="세금 수령" fontname="black_18_b" spacey="0"/>
+		<richtext name="history_amount_text" parent="history_column_bar" textalign="center center" rect="0 0 200 30" margin="545 0 0 0" layout_gravity="left center" caption="분배 금액" fontname="black_18_b" spacey="0"/>
+		<richtext name="history_comment_text" parent="history_column_bar" textalign="center center" rect="0 0 200 30" margin="720 0 0 0" layout_gravity="left center" caption="비고" fontname="black_18_b" spacey="0"/>
+		<groupbox name="history_list_gb" parent="history_bg" rect="0 0 838 175" margin="0 40 0 0" layout_gravity="center top" skin="none" draw="false" scrollbar="true"/>
+		<tab name="taxrateinfo_tab" parent="taxrate_gb" rect="0 0 500 40" margin="0 410 0 0" layout_gravity="left top" LBtnDownScp="" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="taxrateinfo_tab_warning" parent="taxrateinfo_tab" caption="{@st66b}유의사항{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="taxrateinfo_tab_contents" parent="taxrateinfo_tab" caption="{@st66b}세율 적용 항목{/}" width="150" layout_gravity="left top"/>
+		<tab name="chequeinfo_tab" parent="cheque_gb" rect="0 0 500 40" margin="0 410 0 0" layout_gravity="left top" LBtnDownScp="" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="chequeinfo_tab_warning" parent="chequeinfo_tab" caption="{@st66b}유의사항{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="chequeinfo_tab_history" parent="chequeinfo_tab" caption="{@st66b}세금 상세 이력{/}" width="150" layout_gravity="left top"/>
+	</controls>
+</uiframe>

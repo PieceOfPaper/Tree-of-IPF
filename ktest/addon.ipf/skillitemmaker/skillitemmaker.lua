@@ -103,6 +103,9 @@ function SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, sklevel)
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
 	local vis = GET_SKILL_MAT_PRICE(sklObj, sklevel);
 	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklevel);
+	if frame:GetUserValue("SKLNAME") == "RuneCaster_CraftMagicScrolls" then
+	    bottleCnt = bottleCnt * 2;
+	end	
 	local makecount = GET_CHILD(frame, "makecount", "ui::CNumUpDown");
 	local curCount = makecount:GetNumber();
 	local totalVis = curCount * vis;
@@ -140,7 +143,10 @@ function SKILLITEMMAKE_EXEC(frame)
 
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
 	local totalVis, totalBottle = SKILLITEMMAKE_GET_TOTAL_MARTERIAL(frame, sklObj.Level);
-	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, levelSkill);
+	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklObj.Level);
+	if frame:GetUserValue("SKLNAME") == "RuneCaster_CraftMagicScrolls" then
+	    bottleCnt = bottleCnt * 2;
+	end
 	local bottleCls = GetClass("Item", bottle);
 	local visCls = GetClass("Item", "Vis");
 	local myVis = session.GetInvItemCountByType(visCls.ClassID);
@@ -175,6 +181,9 @@ function _SKILLITEMMAKE_EXEC()
 	local curCount = makecount:GetNumber();
 	local sklObj = SKILLITEMMAKE_GET_SKL_OBJ(frame);
 	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, sklObj.Level);
+	if frame:GetUserValue("SKLNAME") == "RuneCaster_CraftMagicScrolls" then
+	    bottleCnt = bottleCnt * 2;
+	end
 	local bottleCls = GetClass("Item", bottle);
 	local myBottle = session.GetInvItemByName(bottleCls.ClassName);
 	local argList = string.format("%d %d", sklObj.ClassID, curCount);
@@ -195,6 +204,9 @@ end
 function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 	local vis = GET_SKILL_MAT_PRICE(sklObj, levelSkill);
 	local bottle, bottleCnt = GET_SKILL_MAT_ITEM(frame:GetUserValue("SKLNAME"), sklObj, levelSkill);
+	if frame:GetUserValue("SKLNAME") == "RuneCaster_CraftMagicScrolls" then
+	    bottleCnt = bottleCnt * 2;
+	end
 	local bottleCls = GetClass("Item", bottle);
 	local matDesc = ClMsg("Material") .. " : ";
 	matDesc = matDesc .. GET_MONEY_IMG(36) .. vis;

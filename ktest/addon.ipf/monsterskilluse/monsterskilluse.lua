@@ -5,7 +5,6 @@ function MONSTERSKILLUSE_ON_INIT(addon, frame)
 end
 
 function MON_PC_SKILL_BALLOON(title, handle, castTimeMS, isBoss, changeColor)
-
 	local frame = nil;
 	local offsetY;
 	if isBoss == 0 then
@@ -27,7 +26,7 @@ function MON_PC_SKILL_BALLOON(title, handle, castTimeMS, isBoss, changeColor)
 	local castTimeSec = castTimeMS * 0.001;
 	
 	local text = frame:GetChild("text");
-	if changeColor == 1 then
+	if changeColor ~= 0 then
 		text:SetTextByKey("value", '{@st41_yellow}'..title);
 	else
 		text:SetTextByKey("value", title);
@@ -83,5 +82,3 @@ function MONSTER_SAY_BALLOON(handle, msg, isBoss, showTime)
 	FRAME_AUTO_POS_TO_OBJ(frame, handle, -frame:GetWidth() / 2, offsetY, 3, 1);
 
 end
-
-
