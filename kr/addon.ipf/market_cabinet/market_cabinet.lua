@@ -208,12 +208,12 @@ function CABINET_GET_ITEM()
 		local difSec = imcTime.GetDifSec(registerTime, sysTime);
 
 		if cabinetItem:GetWhereFrom() ~= 'market_sell' or 0 >= difSec then
-			market.ReqGetCabinetItem(cabinetItem:GetItemID());
-            local count = session.market.GetCabinetItemCount()
-            if count ~= 0 then
-                RunScript('redo_cabinet_get_item')
-            end        
-		end        
+			market.ReqGetCabinetItem(cabinetItem:GetItemID());            
+		end
+        local count = session.market.GetCabinetItemCount()
+        if count ~= 0 then
+            RunScript('redo_cabinet_get_item')
+        end        
 	end
 end
 

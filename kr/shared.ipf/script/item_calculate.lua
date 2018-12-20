@@ -1438,6 +1438,10 @@ function SCR_GET_ITEM_COOLDOWN(item)
   return item.ItemCoolDown;
 end
 
+function SCR_GET_HASTE_COOLDOWN(item)
+  return item.ItemCoolDown;
+end
+
 function SCR_GET_STA_COOLDOWN(item)
   return item.ItemCoolDown;
 end

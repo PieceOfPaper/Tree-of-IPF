@@ -23,13 +23,16 @@ end
 
 function SCR_CREATE_FAIRY(ownerHandle, monName)
 	local ownerActor = world.GetActor(ownerHandle);
-	local ownerPos = ownerActor:GetPos();
-
-	ownerActor:GetClientMonster():ClientMonsterToPos(monName, "STD", ownerPos.x, ownerPos.y, ownerPos.z, 0, 0);
 	local monActor = ownerActor:GetClientMonster():GetClientMonsterByName(monName);
-	local monHandle = monActor:GetHandleVal();
-	FollowToActor(monHandle, ownerHandle, "None", 7.0, 30.0, 10.0, 1, 0.1);
-	StartImitatingAnimation(monHandle, ownerHandle);
+	if monActor == nil then
+		local ownerPos = ownerActor:GetPos();
+
+		ownerActor:GetClientMonster():ClientMonsterToPos(monName, "STD", ownerPos.x, ownerPos.y, ownerPos.z, 0, 0);
+		monActor = ownerActor:GetClientMonster():GetClientMonsterByName(monName);
+		local monHandle = monActor:GetHandleVal();
+		FollowToActor(monHandle, ownerHandle, "None", 7.0, 30.0, 10.0, 1, 0.1);
+		StartImitatingAnimation(monHandle, ownerHandle);
+	end
 end
 
 function SCR_REMOVE_FAIRY(ownerHandle, monName)
