@@ -11,6 +11,7 @@ function ON_OPEN_MARKET(frame)
 	MARKET_BUYMODE(frame)
 	MARKET_FIRST_OPEN(frame);
 	ui.OpenFrame("inventory");
+    ForceRemoveLuaTimerFunc("CABINET_GET_ITEM")
 end
 
 function MARKET_FIRST_OPEN(frame)	
@@ -38,7 +39,7 @@ end
 
 function MARKET_CLOSE(frame)
 	TRADE_DIALOG_CLOSE();
-	RESET_MARKET_OPTION(frame);
+	RESET_MARKET_OPTION(frame);    
 end
 
 function RECIPE_SEARCH_FIND_PAGE(frame, page)
@@ -1557,7 +1558,7 @@ function MARKET_SELLMODE(frame)
 	ui.CloseFrame("market");
 	ui.CloseFrame("market_cabinet");
 	ui.OpenFrame("market_sell");
-	ui.OpenFrame("inventory");
+	ui.OpenFrame("inventory");    
 end
 
 function MARKET_BUYMODE(frame)	
@@ -1565,7 +1566,7 @@ function MARKET_BUYMODE(frame)
 	ui.OpenFrame("market");	
 	ui.CloseFrame("market_sell");
 	ui.CloseFrame("market_cabinet");
-	MARKET_FIRST_OPEN(ui.GetFrame('market'));	
+	MARKET_FIRST_OPEN(ui.GetFrame('market'));	    
 end
 
 function MARKET_CABINET_MODE(frame)

@@ -11,15 +11,8 @@ function BACKMASKING_READY(actor, obj, range)
 end
 
 function SKL_OPEN_UI_C(actor, obj, uiName, subUi)
-	if GetMyActor() == actor then
-	    -- 12.20까지 시모니 제작 기능 임시로 불가능하게 처리
-	    if uiName == "skillitemmaker" then
-	        ui.SysMsg(ClMsg('CannotUseSkill'));
-	        return ;
-	    end 
-	
+	if GetMyActor() == actor then	
 		ui.OpenFrame(uiName);
-
 		if nil ~= subUi then	
 			ui.OpenFrame(subUi);
 		end
@@ -100,7 +93,7 @@ function OPEN_MAGIC_SKL_UI()
 	local richtext_1_1 = frame:GetChild('richtext_1_1');
 	richtext_1_1:ShowWindow(1);
 	frame:SetUserValue('MODE', 'CraftSpellBook');
-	frame:SetUserValue('SKLNAME', 'Enchanter_CraftMagicScrolls');
+	frame:SetUserValue('SKLNAME', 'RuneCaster_CraftMagicScrolls');
 	_SKILLITEMMAKE_RESET(frame);
 	frame:ShowWindow(1)
 

@@ -7,7 +7,7 @@ function GET_BRIQUETTING_NEED_LOOK_ITEM_CNT(targetItem)
 	return needItem;
 end
 
-function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
+function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList, taxRate)
 	if IS_BRIQUETTING_DUMMY_ITEM(lookItem) == true then		
 		return 0;
 	end
@@ -37,6 +37,10 @@ function GET_BRIQUETTING_PRICE(targetItem, lookItem, lookMaterialItemList)
 	
 	if cehckLookitem == 'WoodCarving' then
 	    price = 0;
+	end
+
+	if taxRate ~= nil then
+		price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate)) -- 외형 변경 세금
 	end
 	return price;
 end

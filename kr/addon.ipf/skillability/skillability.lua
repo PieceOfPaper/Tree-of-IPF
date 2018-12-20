@@ -1249,7 +1249,3 @@ function SKILLABILITY_DEPLOY_LABEL_LINE(skilltree_gb, unlockLvHash, SKILL_COL_CO
         leveltext:SetText('Lv.'..lv);
     end
 end
-
-function REFRESH_DEFAULT_HAVE_ABILITY(parent, ctrl)
-    control.CustomCommand('REFRESH_DEFAULT_HAVE_ABILITY', 0);
-end

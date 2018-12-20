@@ -1,5 +1,5 @@
 function PVP_MINE_RESULT_REQ_RETURN_CITY(frame)
-    packet.ReqReturnOriginServer();
+    control.CustomCommand('RETURN_FROM_PVP_MINE', 0);
     ui.CloseFrame('pvp_mine_result');
 end
 

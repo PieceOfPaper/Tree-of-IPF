@@ -70,7 +70,7 @@ function PET_GET_MHP(self)
     local standardMHP = lv * 10;
     local byLevel = (standardMHP / 4) * lv;
     local stat = TryGetProp(self, "CON", 1);
-    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005));
+    local byStat = (byLevel * (stat * 0.0015)) + (byLevel * (math.floor(stat / 10) * 0.005)) + PET_MHP_BY_ABIL(self.Stat_MHP);
     local value = standardMHP + byLevel + byStat + GetSumOfPetEquip(self, "MHP");
     return math.floor(value);
 end
@@ -84,12 +84,11 @@ function PET_GET_MHP_C(self, addAbil)
 --    local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
 --    return math.floor(ret);
     
-    local owner = self
-    if IsZombie(self) ~= 1 then
-        owner = GetTopOwner(self)
+    local owner = GetMyPCObject()
+    local lv = 1
+    if owner ~= nil then
+    	lv = TryGetProp(owner, "Lv", 1);
     end
-    
-    local lv = TryGetProp(owner, "Lv", 1);
     local standardMHP = lv * 10;
     local byLevel = (standardMHP / 4) * lv;
     local stat = TryGetProp(self, "CON", 1);
@@ -334,7 +333,7 @@ function PET_HR_C(self, addAbil)
     return math.floor(ret);
 end
 
-function GET_PET_STAT_PRICE(pc, pet, statName, val)
+function GET_PET_STAT_PRICE(pc, pet, statName, val, taxRate)
     local defPrice = 300;
     if statName  == "DEF" then
         defPrice = 600;
@@ -343,7 +342,11 @@ function GET_PET_STAT_PRICE(pc, pet, statName, val)
     if val == nil then
         val = pet["Stat_" .. statName];
     end 
-    return math.floor(defPrice * math.pow(1.08, val - 1));
+    local price = math.floor(defPrice * math.pow(1.08, val - 1))
+    if taxRate ~= nil then
+        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate))
+    end
+    return price;
 end
 
 --function PET_ADD_FIRE(self)

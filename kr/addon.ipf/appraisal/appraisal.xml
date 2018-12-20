@@ -23,7 +23,7 @@
 		<slotset name="slotlist" parent="repairlistGbox" rect="0 0 360 420" margin="18 10 0 0" layout_gravity="left top" LBtnDownScp="APPRAISAL_ITEM_LBTDOWN" col="7" dropsound="icon_get_down" enabledrag="false" enableselect="true" hideindrag="true" image="slot" maxselect="80" movepop="false" oversound="button_over" picksound="icon_pick_up" row="8" size="57 57" skin="invenslot2" spc="1 1"/>
 		<groupbox name="moneyGbox" parent="bodyGbox" rect="0 0 400 38" margin="0 0 0 140" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<picture name="Zeny_Img" parent="moneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>
-		<richtext name="invenzenytext" parent="moneyGbox" rect="0 0 60 20" margin="40 1 0 0" layout_gravity="left center" caption="{@st41b}감정 비용{/}"/>
+		<richtext name="invenzenytext" parent="moneyGbox" rect="0 0 60 20" margin="40 1 0 0" layout_gravity="left center" format="{@st41b}감정 비용{/}%s" param1="tax_rate"/>
 		<richtext name="invenZeny" parent="moneyGbox" rect="0 0 200 20" margin="0 1 10 0" layout_gravity="right center" caption="0" fontname="white_16_ol" textalign="right center"/>
 		<groupbox name="remainMoneyGbox" parent="bodyGbox" rect="0 0 400 38" margin="0 0 0 100" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
 		<picture name="remainZeny_Img" parent="remainMoneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>

@@ -10,14 +10,14 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
         ui.CloseFrame('party_recommend');        
         return;
     end
-
+    
     local skillSlot = GET_CHILD_RECURSIVELY(frame, 'skillSlot');
     local icon = skillSlot:GetIcon();
     if icon == nil then
         icon = CreateIcon(skillSlot);
     end
     icon:SetImage('icon_'..skillCls.Icon);
-
+    
     -- default init
     local MAX_SHOW_COUNT = 4;
     for i = 1, MAX_SHOW_COUNT do
@@ -26,7 +26,7 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
         memberSet:ShowWindow(0);
         fan:ShowWindow(0);
     end
-
+    
     -- party member
     local myMapName = session.GetMapName();
     local myMapCls = GetClass('Map', myMapName);
@@ -101,7 +101,13 @@ function OPEN_SELECT_TARGET_FROM_PARTY(frame, msg, argStr, showHPGauge)
     if useCtrl == 'YES' then
         jumpKeyImg = string.format('{img ctrl %d %d}', KEY_IMG_SIZE, KEY_IMG_SIZE)..jumpKeyImg;
     end
-    cancelText:SetTextByKey('img', jumpKeyImg);
+    if IsJoyStickMode() == 0 then
+        cancelText:SetTextByKey('img', jumpKeyImg);
+    end
+    if IsJoyStickMode() == 1 then
+        jumpKeyImg = string.format('{img %s %d %d}', "a_button", KEY_IMG_SIZE, originImgHeight * sizeAmendCoeff);
+        cancelText:SetTextByKey('img', jumpKeyImg);
+    end
 
     frame:ShowWindow(1);
 end

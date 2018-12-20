@@ -4,8 +4,8 @@ function GET_SKILL_MAT_PRICE(sklObj, level)
 end
 
 function GET_SKILL_MAT_ITEM(sklName, makeSklObj, level)
-	if sklName == "Enchanter_CraftMagicScrolls" then
-		return "misc_emptySpellBook", level;
+	if sklName == "RuneCaster_CraftMagicScrolls" then
+		return "misc_runeStone", level;
 	end
 	return "misc_parchment", level;
 end
@@ -27,7 +27,7 @@ function GET_SKILL_SCROLL_ITEM_NAME_BY_SKILL(skill)
 	if skill == nil then
 		return 'None';
 	end
-	return 'Scroll_SkillItem'; --_'..skill.ClassName;
+	return 'Scroll_SkillItem_'..skill.ClassName;
 end
 
 function IS_SKILL_SCROLL_ITEM_BYNAME(itemName)

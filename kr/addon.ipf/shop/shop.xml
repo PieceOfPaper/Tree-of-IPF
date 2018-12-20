@@ -30,7 +30,7 @@
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}상점{/}" spacey="0" textalign="center center"/>
 		<richtext name="desc" rect="0 0 0 0" margin="0 8 20 0" layout_gravity="right top" spacey="0" textalign="right top"/>
 		<richtext name="pagetxt" rect="0 0 35 20" margin="0 535 0 0" layout_gravity="center top" caption="{@st41b}1 / 1{/}" spacey="0" textalign="center center"/>
-		<richtext name="buy_itemtext" rect="0 0 90 20" margin="50 0 0 465" layout_gravity="left bottom" caption="{@st41b}구입 아이템{/}" spacey="0" textalign="left center"/>
+		<richtext name="buy_itemtext" rect="0 0 90 20" margin="50 0 0 465" layout_gravity="left bottom" format="{@st41b}구입 아이템{/} %s" param1="tax_rate" spacey="0" textalign="left center"/>
 		<richtext name="buy_price" rect="0 0 90 20" margin="0 0 30 465" layout_gravity="right bottom" caption="{@st41}10,000,000{/}" spacey="0" textalign="right center"/>
 		<richtext name="sell_itemtext" rect="0 0 90 20" margin="50 0 0 370" layout_gravity="left bottom" caption="{@st41b}판매 아이템{/}" spacey="0" textalign="left center"/>
 		<richtext name="sell_price" rect="0 0 90 20" margin="0 0 30 370" layout_gravity="right bottom" caption="{@st41}10,000,000{/}" spacey="0" textalign="right center"/>

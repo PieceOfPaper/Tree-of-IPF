@@ -20,16 +20,20 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 		return 0;
 	end
 
-    local forgeryObj = nil;
+    local forgeryItem, forgeryObj = nil;
 	if itemObj == nil then
         if modifiedString == nil then
 		    return;
-        else
-            forgeryObj = CreateGCIESByID('Item', itemID);
+		else
+			forgeryItem = session.link.CreateOrGetGCLinkObject(itemID, modifiedString);			
+			if forgeryItem == nil then
+				return;
+			end
+			
+            forgeryObj = GetIES(forgeryItem:GetObject());
             if forgeryObj == nil then
                 return;
             end
-            SetModifiedPropertiesString(forgeryObj, modifiedString);
             itemObj = forgeryObj;
         end
 	end
@@ -109,7 +113,7 @@ function ITEM_BALLOON_COMMON(handle, itemObj, tooltipEnum, duration, delaySec, s
 	        SET_SLOT_IMG(itemSlot, img);
 
             local icon = itemSlot:GetIcon();
-            APPRAISER_FORGERY_SET_TOOLTIP(icon, forgeryObj);            
+            APPRAISER_FORGERY_SET_TOOLTIP(icon, forgeryObj, forgeryItem);            
         else
 		    SET_SLOT_ITEM_OBJ(itemSlot, itemObj);
         end

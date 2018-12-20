@@ -291,6 +291,7 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
     if obj.Desc2 ~= translatedData2 then
         originalText = obj.Desc2
     end
+
     local skillLvDesc = PARSE_TOOLTIP_CAPTION(obj, obj.Desc2, true);
 
     local lvDescStart, lvDescEnd = string.find(skillLvDesc, "Lv.");
@@ -447,6 +448,36 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
 	return iconCount, compainonindex;
 end
 
+function SET_SKILL_TOOLTIP_ICON_AND_NAME(skillFrame, obj, useTranslateData)    
+    local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
+    local iconname = "icon_" .. obj.Icon;
+    iconPicture:SetImage(iconname);
+    local name = skillFrame:GetChild('name');
+    local nameText = '{@st43}'..obj.Name;
+
+    if useTranslateData == true then
+        local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Name);
+        if obj.EngName ~= translatedData then
+            if config.GetServiceNation() ~= "GLOBAL" then
+                nameText = nameText .. "{/}{nl}" .. obj.EngName;
+            end
+        end
+    end
+    name:SetText(nameText); 
+end
+
+function SET_SKILL_TOOLTIP_CAPTION(skillFrame, caption, parsedCaption)
+    local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
+    skillDesc:Resize(skillDesc:GetWidth(), 20);
+    skillDesc:SetTextAlign("left", "top");
+    local translatedData = dictionary.ReplaceDicIDInCompStr(caption);
+    if caption ~= translatedData then
+        skillDesc:SetDicIDText(caption)
+    end
+    skillDesc:SetText('{#1f100b}'..parsedCaption);
+    skillDesc:EnableSplitBySpace(0);
+end
+
 function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)         
     -- destroy skill, ability tooltip
     DESTROY_CHILD_BYNAME(frame:GetChild('skill_desc'), 'SKILL_CAPTION_');
@@ -480,30 +511,11 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     local skillFrame = GET_CHILD(frame, "skill_desc", "ui::CGroupBox")
 
     -- set skill icon and name
-    local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
-    local iconname = "icon_" .. obj.Icon;
-    iconPicture:SetImage(iconname);
-    local name = skillFrame:GetChild('name');
-    local nameText = '{@st43}'..obj.Name;   
-    local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Name);
-
-    if obj.EngName ~= translatedData then
-        if config.GetServiceNation() ~= "GLOBAL" then
-            nameText = nameText .. "{/}{nl}" .. obj.EngName;
-        end
-    end
-    name:SetText(nameText); 
+    SET_SKILL_TOOLTIP_ICON_AND_NAME(skillFrame, obj, true);    
     
     -- set skill description
     local skillDesc = GET_CHILD(skillFrame, "desc", "ui::CRichText");   
-    skillDesc:Resize(skillDesc:GetWidth(), 20);
-    skillDesc:SetTextAlign("left", "top");
-    local translatedData = dictionary.ReplaceDicIDInCompStr(obj.Caption);
-    if obj.Caption ~= translatedData then
-        skillDesc:SetDicIDText(obj.Caption)
-    end
-    skillDesc:SetText('{#1f100b}'..PARSE_TOOLTIP_CAPTION(obj, obj.Caption, true));    
-    skillDesc:EnableSplitBySpace(0);
+    SET_SKILL_TOOLTIP_CAPTION(skillFrame, obj.Caption, PARSE_TOOLTIP_CAPTION(obj, obj.Caption, true));    
 
     local stateLevel = 0;
     if strarg ~= "quickslot" then
@@ -512,7 +524,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     tooltipStartLevel = tooltipStartLevel + stateLevel;    
 
     local skilltreecls = GetClassByStrProp("SkillTree", "SkillName", obj.ClassName);
-    
+    local iconPicture = GET_CHILD(skillFrame, "icon", "ui::CPicture");
     local iconEndPos = iconPicture:GetY() + iconPicture:GetHeight()
     local ypos = skillDesc:GetY() + skillDesc:GetHeight()
 
@@ -830,13 +842,15 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
     overheatText:SetText(OVERHEAT_ICON ..lvFont..ScpArgMsg("count{value}", "value", overHeat))
     
     -- trim desc    
-    local trimedDesc = desc:match("^%s*(.+)")    
-    local detect_comma = string.find(trimedDesc, ',')
-    
-    if detect_comma ~= nil and detect_comma == 1 then
-        trimedDesc = string.sub(trimedDesc, 2, string.len(trimedDesc))
+    local trimedDesc = desc:match("^%s*(.+)");
+    if trimedDesc ~= nil then
+        local detect_comma = string.find(trimedDesc, ',');        
+        if detect_comma ~= nil and detect_comma == 1 then
+            trimedDesc = string.sub(trimedDesc, 2, string.len(trimedDesc))
+        end
+        descText:SetText(descFont..trimedDesc);
     end
-    descText:SetText(descFont..trimedDesc);
+
     lvDescCtrlSet:SetGravity(ui.CENTER_HORZ, ui.TOP)
     lvDescCtrlSet:Resize(frame:GetWidth() - 20, descText:GetY() + descText:GetHeight() + 15);
     lvDescCtrlSet:ShowWindow(1);

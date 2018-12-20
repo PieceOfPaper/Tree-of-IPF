@@ -228,7 +228,9 @@ function PACKAGELIST_INIT_ITEMLIST(frame, itemCls, packageName)
 		local ctrlset = itemListBox:CreateOrGetControlSet('packagelist_item', 'ITEM_'..packageItemCls.ClassName, 0, 0);
 		local itemSlot = GET_CHILD(ctrlset, 'itemSlot');
 		local icon = CreateIcon(itemSlot);
-		icon:SetImage(packageItemCls.Icon);
+		
+		local iconName = GET_ITEM_ICON_IMAGE(packageItemCls);
+		icon:SetImage(iconName);
 		SET_ITEM_TOOLTIP_BY_NAME(icon, packageItemCls.ClassName);
 
 		local nameText = GET_CHILD(ctrlset, 'nameText');

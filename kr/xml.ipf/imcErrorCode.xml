@@ -581,9 +581,9 @@
 	<Code Code="ERROR_INDUN_MULTIPLE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
 	<Code Code="ERROR_GUILD_JOINT_INV" Team="PROGRAM" Category="LOGIC" SubCategory="GuildJointInv" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 공용 창고 에러"/>
 	<Code Code="ERROR_GUILD_MILEAGE" Team="PROGRAM" Category="LOGIC" SubCategory="GuildMileage" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 마일리지 에러"/>
-	
-
-
+	<Code Code="INFO_GUILD_MILEAGE" Team="PROGRAM" Category="LOGIC" SubCategory="GuildMileage" Logger="root" Enabled="YES" CallStack="NO" Desc="길드 마일리지 정보"/>
+	<Code Code="ERROR_COLONY_TAX" Team="PROGRAM" Category="LOGIC" SubCategory="ColonyTax" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니 세금 에러"/>
+	<Code Code="INFO_COLONY_TAX" Team="PROGRAM" Category="LOGIC" SubCategory="ColonyTax" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니 세금 정보"/>
 	<Code Code="EMOTIONFX_FATAL" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Fatal Log"/>
 	<Code Code="EMOTIONFX_ERROR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Error Log"/>
 	<Code Code="EMOTIONFX_WARNING" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Warning Log"/>

@@ -58,3 +58,12 @@ function IS_GUILD_AUTHORITY(flag, aid)
 
 	return 0;
 end
+
+function GET_PARTY_ID(partyType)
+	local party = session.party.GetPartyInfo(partyType);
+	if party == nil or party.info == nil then
+		return 0;
+	end
+    local partyID = party.info:GetPartyID();
+	return partyID;
+end

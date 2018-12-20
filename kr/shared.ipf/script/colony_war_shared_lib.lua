@@ -9,6 +9,11 @@ function GET_COLONY_MAP_GRADE_AND_PERCENTAGE(mapLevel)
     return 'S', 10;
 end
 
+function GET_COLONY_MAP_CITY(colonyMapClsName)
+    local colonyCls = GET_COLONY_CLASS(colonyMapClsName)
+    return colonyCls.TaxApplyCity
+end
+
 function GET_COLONY_WAR_DAY_OF_WEEK()
     local dayOfWeek = 0
     dayOfWeek = GetColonyDayOfWeek();
@@ -93,4 +98,27 @@ end
 function GET_COLONY_ENHANCER_CLASS_NAME()
     local ruleCls = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
     return ruleCls.GuildColonyEnhancerClassName;
+end
+
+function GET_COLONY_MARKET_PERCENTAGE_LIST()
+    local grade_A = COLONY_TAX_MARKET_RATE_A
+    local grade_B = COLONY_TAX_MARKET_RATE_B
+
+    local gradeList = { {"A", grade_A}, {"B", grade_B} }
+    local clslist, cnt = GetClassList('guild_colony');
+    local list = {}
+	for i = 0 , cnt - 1 do
+		local cls = GetClassByIndexFromList(clslist, i);
+        if cls.ID == 1 then
+            local zoneGrade = TryGetProp(cls, "ZoneGrade")
+            for j = 1, #gradeList do
+                local grade = table.find(gradeList[j], zoneGrade)
+                if grade ~= 0 then
+                    local percent = gradeList[j][2]
+                    list[#list + 1] = {Zone=cls.ZoneClassName, MapName=TryGetProp(GetClass('Map', cls.ZoneClassName), 'Name'), Percent=percent, CityName=TryGetProp(GetClass('Map', cls.TaxApplyCity), 'Name')} --memo
+                end
+            end
+        end
+    end
+    return list;
 end

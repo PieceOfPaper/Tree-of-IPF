@@ -76,17 +76,21 @@ function GET_MAX_SEAL_ADDIONAL_ITEM_COUNT(targetSeal, materialSeal)
 end
 
 -- 인장 강화 가격 --
-function GET_SEAL_PRICE(targetSeal)
+function GET_SEAL_PRICE(targetSeal, materialSeal, additionalItem, additionalItemCount, taxRate)
     if targetSeal == nil then
         return 0;
     end
-    
+
     local itemlv = TryGetProp(targetSeal, 'UseLv')
     local grade = TryGetProp(targetSeal, 'ItemGrade')
     local reinforceValue = GET_CURRENT_SEAL_LEVEL(targetSeal)
 
     local price = math.floor((grade ^ (reinforceValue / 2) * itemlv * 500) / 1000)
     price = price * 1000
-    
+
+    if taxRate ~= nil then
+        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate))
+    end
+
     return SyncFloor(price);
 end

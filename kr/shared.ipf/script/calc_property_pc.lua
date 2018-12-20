@@ -2737,7 +2737,7 @@ function SCR_GET_PC_GUARDABLE(pc)
     if IsDummyPC(pc) == 1 then
         return 0;
     end
-    
+
     -- QuarrelShooter & Equip Shield ---
     local jobListString = GetJobHistoryString(pc);
     if jobListString ~= nil and string.find(jobListString, "Char3_3") ~= nil then
@@ -2746,16 +2746,22 @@ function SCR_GET_PC_GUARDABLE(pc)
             return 1;
         end
     end
-	
+
     if IsBuffApplied(pc, "Impaler_Buff") == "YES" then
         return 0;
     end
+
+     -- beautyshop check
+     local beautyshopZone = GetZoneName(pc)
+     if beautyshopZone == "c_barber_dress" and jobListString ~= nil and string.find(jobListString, "Char1_1") ~= nil then
+         return 1;
+     end
     
     local isGuardSkill = GetStanceSkill(pc, "Warrior_Guard");
     if isGuardSkill == nil then
         return 0;
     end
-    
+
     local itemLH  = GetEquipItemForPropCalc(pc, 'LH');
     if itemLH ~= nil then
         if itemLH.ClassType == "Shield" and itemLH.LHandSkill == "None" then

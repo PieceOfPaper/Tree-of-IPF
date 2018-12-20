@@ -1,8 +1,8 @@
 ClassID,Delay,ClassName,ObjectAnim,IsLoop
 1,0,"guilty_arun","arun","YES"
 2,0,"guilty_astd","astd","YES"
-3,0,"guilty_atk","atk","NO"
-4,0,"guilty_atk2","atk2","NO"
+3,0.200000,"guilty_atk","atk","YES"
+4,0.200000,"guilty_atk2","atk2","YES"
 5,0,"guilty_idle1","idle","YES"
 6,0,"guilty_idle2","idle2","YES"
 7,0,"guilty_wlk","std","YES"
@@ -83,3 +83,5 @@ ClassID,Delay,ClassName,ObjectAnim,IsLoop
 82,0.300000,"guilty_skl_assistattack_dagger_ride","atk","YES"
 83,0.200000,"guilty_skl_buttstroke","atk","YES"
 84,0.200000,"guilty_skl_buttstroke_ride","atk","YES"
+85,0,"guilty_rest","rest","NO"
+86,0,"guilty_shopopen","shop","YES"

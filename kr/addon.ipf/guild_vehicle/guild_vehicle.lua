@@ -22,6 +22,13 @@ function UPDATE_GUILD_VEHICLE_RIDER_LIST(frame, list, listcnt)
         AUTO_CAST(pic);
         pic:SetImage(imgName);
         pic:SetEnableStretch(1);
+        local teamName = ""
+        local actor = world.GetActor(handle)
+        if actor ~= nil then
+            local apc = actor:GetPCApc();
+            teamName = apc:GetFamilyName()
+        end
+        pic:SetTextTooltip(teamName)
     end
     print(w, listcnt)
     bg:Resize(w*listcnt, bg:GetOriginalHeight())

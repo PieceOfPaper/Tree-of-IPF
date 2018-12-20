@@ -787,6 +787,9 @@ function GET_INV_ITEM_BY_ITEM_OBJ(item)
 	if invitem == nil then
 		invitem = session.pet.GetPetEquipObjByGuid(itemIdx);
 	end
+	if invitem == nil then
+		invitem = session.link.GetGCLinkObject(itemIdx);
+	end
 	return invitem;
 end
 

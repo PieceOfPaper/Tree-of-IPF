@@ -317,7 +317,7 @@ function ITEM_COMPARISON_SET_OFFSET(tooltipframe, isReadObj)
 end
 
 function COMPARISON_BY_PROPLIST(list, invitem, eqpItem, tooltipframe, equipchange, ispickitem)
-
+	local ShowEquipItemComparison = config.GetXMLConfig("ShowEquipItemComparison")
 	local valueList = GET_COMPARE_VALUE_LIST(list, invitem, eqpItem);
 
 	local IsNeedShowTooltip = 0;
@@ -329,7 +329,7 @@ function COMPARISON_BY_PROPLIST(list, invitem, eqpItem, tooltipframe, equipchang
 		end
 	end
 
-	if IsNeedShowTooltip == 0 then
+	if ShowEquipItemComparison == 0 or IsNeedShowTooltip == 0 then
 		return 0;
 	else
 		local cnt = equipchange:GetChildCount();
@@ -559,6 +559,8 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		end
 	elseif strarg == "guildwarehouse" then
 		invitem = session.GetEtcItemByGuid(IT_GUILD_JOINT, guid);
+	elseif strarg == 'forgery' or strarg == 'link' then
+		invitem = session.link.GetGCLinkObject(guid);
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
@@ -767,9 +769,9 @@ function SET_REINFORCE_TEXT(gBox, invitem, yPos, isEquiped, basicProp)
 		isEquiped = 0;
 	end
 	local pc = GetMyPCObject();
-	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce');
-	local bonusReinf = TryGetProp(pc, 'BonusReinforce');
-	local overReinf = TryGetProp(pc, 'OverReinforce');
+	local ignoreReinf = TryGetProp(pc, 'IgnoreReinforce', 0);
+	local bonusReinf = TryGetProp(pc, 'BonusReinforce', 0);
+	local overReinf = TryGetProp(pc, 'OverReinforce', 0);
 
 	if TryGetProp(invitem, 'EquipGroup') ~= 'SubWeapon' or isEquiped == 0 then
 		overReinf = 0;

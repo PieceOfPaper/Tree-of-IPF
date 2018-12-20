@@ -384,8 +384,7 @@ function IS_NO_EQUIPITEM(equipItem) -- No_~ 시리즈 아이템인지.
     return 0;
 end
 
-function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
-
+function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt, taxRate)
     local clslist, cnt  = GetClassList("socketprice");
     local gradRatio = {1.2, 1 , 0.5 , 0.4, 0.3}
     local itemGradeRatio = 1;
@@ -401,6 +400,9 @@ function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
         if cls.Lv == itemlv then
             local priceRatio = (curcnt + 1) ;
             local ret = SyncFloor(cls.NewSocketPrice * secretNumber * (priceRatio ^ 1 / itemGradeRatio));
+            if taxRate ~= nil then
+                ret = tonumber(CALC_PRICE_WITH_TAX_RATE(ret, taxRate))
+            end
             return ret
         end
     end
@@ -409,7 +411,7 @@ function GET_MAKE_SOCKET_PRICE(itemlv, grade, curcnt)
 
 end
 
-function GET_REMOVE_GEM_PRICE(itemlv)
+function GET_REMOVE_GEM_PRICE(itemlv, taxRate)
 
     local clslist, cnt  = GetClassList("socketprice");
 
@@ -418,7 +420,11 @@ function GET_REMOVE_GEM_PRICE(itemlv)
         local cls = GetClassByIndexFromList(clslist, i);
 
         if cls.Lv == itemlv then
-            return cls.RemoveSocketPrice
+            local price = cls.RemoveSocketPrice
+            if taxRate ~= nil then
+                price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate)) -- 젬 추출 세금
+            end
+            return price
         end
     end
 
@@ -2467,12 +2473,17 @@ function SCR_MAIN_QUEST_WARP_CHECK(pc, questState, questIES, questName)
         return 'NO'
     end
     
+    local sObj
+    if IsServerSection(pc) == 1 then
+        sObj = GetSessionObject(pc, 'ssn_klapeda')
+    else
+        pc = GetMyPCObject()
+        sObj = GetSessionObject(pc, 'ssn_klapeda')
+    end
+    
     local clsList, cnt  = GetClassList("mainquest_startnpcwarp");
     for i = 0, cnt - 1 do
         local tQuest = GetClassByIndexFromList(clsList, i);
-        if tQuest.ClassName == questName then
-            return 'YES'
-        end
         
         local tQuestState
         if IsServerSection(pc) == 1 then
@@ -2487,12 +2498,19 @@ function SCR_MAIN_QUEST_WARP_CHECK(pc, questState, questIES, questName)
         if tQuestState == 'POSSIBLE' then
             local tquestIES = GetClass('QuestProgressCheck',tQuest.ClassName)
             if pc.Lv < 100 then
-                if questIES.QStartZone ~= 'None' and questIES.QStartZone ==  tquestIES.QStartZone then
+                if tquestIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and tquestIES.QStartZone ~=  sObj.QSTARTZONETYPE then
+                elseif tQuest.ClassName == questName then
+                    return 'YES'
+                elseif tquestIES.QStartZone ~= 'None' and sObj.QSTARTZONETYPE ~= 'None' and tquestIES.QStartZone ==  sObj.QSTARTZONETYPE then
                     return 'NO'
                 end
             else
                 return 'NO'
             end
+        end
+        
+        if tQuest.ClassName == questName then
+            return 'YES'
         end
     end
     
@@ -2697,6 +2715,39 @@ function JOB_SHINOBI_PRE_CHECK(pc, jobCount)
     return 'NO'
 end
 
+function GET_ACCOUNT_WAREHOUSE_EXTEND_PRICE(aObj, taxRate)
+	local slotDiff = aObj.AccountWareHouseExtend;
+	local price = ACCOUNT_WAREHOUSE_EXTEND_PRICE;
+	if slotDiff > 0 then
+		if slotDiff >= tonumber(ACCOUNT_WAREHOUSE_MAX_EXTEND_COUNT) then
+			return;
+		end
+		if slotDiff < 4 then
+		    price = price*(math.pow(2, slotDiff))
+		else
+		    --Form the fifth slot, it will be fixde at 2000000 silver
+		    price = price * 10
+		end
+	end
+
+    if taxRate ~= nil then
+        price = tonumber(CALC_PRICE_WITH_TAX_RATE(price, taxRate))
+    end
+    return price
+end
+
+function GET_COMPANION_PRICE(petCls, pc, taxRate)
+    if petCls.SellPrice == "None" then
+        return nil
+    end
+
+	local sellPrice = _G[petCls.SellPrice];
+	sellPrice = sellPrice(petCls, pc);
+    if taxRate ~= nil then
+        sellPrice = tonumber(CALC_PRICE_WITH_TAX_RATE(sellPrice, taxRate))
+    end
+    return sellPrice
+end
 
 --function JOB_CANNONEER_PRE_CHECK(pc, jobCount)
 --    if jobCount == nil then        
@@ -2763,4 +2814,22 @@ function GET_TIMESTAMP_TO_COUNTDOWN_DATESTR(timestamp, prop)
     
 	return countdownStr
 
+end
+
+function GET_MODIFIED_PROPERTIES_STRING(item, invitem)
+    local str = GetModifiedPropertiesString(item);
+    str = str..'#';
+    if IsServerSection() == 1 then
+        local additionalStr = GetAdditionalModifiedString(item);
+        if additionalStr ~= nil then            
+            str = str..additionalStr;            
+        end
+    else
+        local itemIdx = GetIESID(item);
+        if invitem == nil then
+            invitem = GET_PC_ITEM_BY_GUID(itemIdx);
+        end
+        str = str..invitem:GetAdditionalModifiedString();
+    end
+    return str;
 end

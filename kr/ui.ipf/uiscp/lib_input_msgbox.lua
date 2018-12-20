@@ -381,3 +381,11 @@ function SET_MODAL_MSGBOX(msgBox)
 	msgBox = tolua.cast(msgBox, 'ui::CMessageBoxFrame');
 	msgBox:SetModal();
 end
+
+function CLOSE_MSGBOX_BY_NON_NESTED_KEY(key)
+	local msgbox = ui.GetMsgBoxByNonNestedKey(key);
+	if msgbox ~= nil then
+		msgbox = tolua.cast(msgbox, 'ui::CMessageBoxFrame');
+		ui.CloseMsgBoxByIndex(msgbox:GetIndex());
+	end
+end

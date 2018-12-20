@@ -42,21 +42,8 @@ function TARGET_BUFF_AUTOSELL_LIST(groupName, sellType, handle)
 end
 
 function UPDATE_BUFFSELLER_SLOT_TARGET(ctrlSet, info)
-	local skill_slot = GET_CHILD(ctrlSet, "skill_slot", "ui::CSlot");
-	local sklObj = GetClassByType("Skill", info.classID);
-	ctrlSet:SetUserValue("Type", info.classID);
-	--local buycount = GET_CHILD(ctrlSet, "buycount");
-	--buycount:SetMaxValue(info.remainCount);
-	ctrlSet:GetChild("skillname"):SetTextByKey("value", sklObj.Name);
-	ctrlSet:GetChild("skilllevel"):SetTextByKey("value", info.level);
-	ctrlSet:GetChild("remaincount"):SetTextByKey("value", info.remainCount);
---	ctrlSet:GetChild("price"):SetTextByKey("value", info.price);
-	
-	local priceStr = GET_COMMA_SEPARATED_STRING(info.price);
-	ctrlSet:GetChild("price"):SetTextByKey("value", priceStr);
-
-	SET_SLOT_SKILL_BY_LEVEL(skill_slot, info.classID, info.level);
-
+	local buffCls = GetClassByType('Buff', info.classID);
+	SET_BUFFSELLER_CTRLSET(ctrlSet, buffCls.ClassName, info.level, 'Pardoner_SpellShop', info.price, info.remainCount);
 end
 
 function BUY_BUFF_AUTOSELL(ctrlSet, btn)

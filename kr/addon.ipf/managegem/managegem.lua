@@ -3,6 +3,7 @@ function MANAGEGEM_ON_INIT(addon, frame)
 	addon:RegisterMsg("MSG_REMOVE_GEM", "MANAGEGEM_MSG");
 	addon:RegisterMsg("DO_OPEN_MANAGE_GEM_UI", "MANAGEGEM_MSG");
 	addon:RegisterMsg("MSG_MAKE_ITEM_SOCKET", "MANAGEGEM_MSG");
+	addon:RegisterOpenOnlyMsg("UPDATE_COLONY_TAX_RATE_SET", "MANAGEGEM_MSG");
 end
 
 function MANAGEGEM_MSG(frame, msg, argStr, argNum)
@@ -11,6 +12,11 @@ function MANAGEGEM_MSG(frame, msg, argStr, argNum)
 		UPDATE_MANAGEGEM_UI_BY_MSG(frame);
 	elseif msg == "DO_OPEN_MANAGE_GEM_UI" then
 		frame:ShowWindow(1)
+	elseif msg == "UPDATE_COLONY_TAX_RATE_SET" then
+		local richtext_howmuch = GET_CHILD_RECURSIVELY(frame, 'richtext_howmuch')
+		CLEAR_MANAGEGEM_UI()
+		SET_COLONY_TAX_RATE_TEXT(richtext_howmuch, "add_tax_rate")
+		SET_COLONY_TAX_RATE_TEXT(richtext_howmuch, "remove_tax_rate")
 	end
 end
 
@@ -64,7 +70,10 @@ function CLEAR_MANAGEGEM_UI()
 	local richtext_howmuch = GET_CHILD_RECURSIVELY(frame, 'richtext_howmuch', 'ui::CRichText')
 	richtext_howmuch:SetTextByKey("add",'--')
 	richtext_howmuch:SetTextByKey("remove",'--')
-
+	
+	SET_COLONY_TAX_RATE_TEXT(richtext_howmuch, "add_tax_rate", false)
+	SET_COLONY_TAX_RATE_TEXT(richtext_howmuch, "remove_tax_rate", false)
+	
 	frame:SetUserValue("NOW_SELECT_INDEX",0);
 
 	local button_remove_gem = GET_CHILD_RECURSIVELY(frame, 'button_remove_gem', 'ui::CButton')
@@ -234,8 +243,12 @@ function ADD_ITEM_TO_MANAGEGEM_FROM_INV(item)
 	if grade == nil then
 	    return 0;
 	end
-	richtext_howmuch:SetTextByKey("add",GET_COMMAED_STRING(GET_MAKE_SOCKET_PRICE(lv, grade ,nextSlotIdx)));
-	richtext_howmuch:SetTextByKey("remove",GET_COMMAED_STRING(GET_REMOVE_GEM_PRICE(lv)));
+	richtext_howmuch:SetTextByKey("add",GET_COMMAED_STRING(GET_MAKE_SOCKET_PRICE(lv, grade ,nextSlotIdx, GET_COLONY_TAX_RATE_CURRENT_MAP())));
+	richtext_howmuch:SetTextByKey("remove",GET_COMMAED_STRING(GET_REMOVE_GEM_PRICE(lv, GET_COLONY_TAX_RATE_CURRENT_MAP())));
+
+	SET_COLONY_TAX_RATE_TEXT(richtext_howmuch, "add_tax_rate")
+	SET_COLONY_TAX_RATE_TEXT(richtext_howmuch, "remove_tax_rate")
+	
 	richtext_howmuch:ShowWindow(1)
 	frame:SetUserValue("TEMP_IESID", id);
 	
@@ -297,7 +310,7 @@ function EXEC_REMOVE_GEM()
         return 0;
     end
 
-	local price = GET_REMOVE_GEM_PRICE(lv)
+	local price = GET_REMOVE_GEM_PRICE(lv, GET_COLONY_TAX_RATE_CURRENT_MAP())
 
 	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
@@ -367,7 +380,7 @@ function EXEC_MAKE_NEW_SOCKET(checkRebuildFlag)
 		return 0;
 	end
 
-	local price = GET_MAKE_SOCKET_PRICE(lv, grade, nextSlotIdx);
+	local price = GET_MAKE_SOCKET_PRICE(lv, grade, nextSlotIdx, GET_COLONY_TAX_RATE_CURRENT_MAP());
 	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;

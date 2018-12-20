@@ -199,11 +199,11 @@ function POPUP_GUILD_MEMBER(parent, ctrl)
 	if isLeader == 1 then
 		local list = session.party.GetPartyMemberList(PARTY_GUILD);
 		if list:Count() == 1 then
-			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "ui.Chat('/destroyguildbyweb')");            
+			ui.AddContextMenuItem(context, ScpArgMsg("Disband"), "DESTROY_GUILD()");            
 		end
 	else
 		if aid == myAid then
-			ui.AddContextMenuItem(context, ScpArgMsg("GULID_OUT"), "OUT_GUILD()");
+			ui.AddContextMenuItem(context, ScpArgMsg("GULID_OUT"), "OUT_GUILD_CHECK()");
 		end
     end
     
@@ -391,6 +391,22 @@ end
 
 function _SEND_REQ_GUILD_MASTER(name)
 	ui.Chat("/guildleader " .. name);
+end
+
+function OUT_GUILD_CHECK()
+	ui.Chat("/outguildcheck");
+    ui.CloseFrame('guildinfo');
+end
+
+function SHOW_WARNING_OUT_GUILD(taxAmount)
+    local yesscp = "OUT_GUILD()"
+    taxAmount = GET_COMMAED_STRING(taxAmount)
+    ui.MsgBox(ScpArgMsg('ColonyTax_GuildOut_RemainAsset_Warning{Tax}', 'Tax', taxAmount), yesscp, 'None');
+end
+
+function DESTROY_GUILD()
+    local yesscp = "ui.Chat('/destroyguildbyweb')"
+    ui.MsgBox(ScpArgMsg('ColonyTax_GuildDestroy_RemainAsset_Warning'), yesscp, 'None');
 end
 
 function OUT_GUILD()

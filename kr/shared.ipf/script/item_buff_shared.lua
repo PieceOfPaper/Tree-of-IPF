@@ -273,7 +273,7 @@ function ITEMBUFF_STONECOUNT_Appraiser_Apprise(invItemList, frame)
 end
 
 function ITEMBUFF_NEEDITEM_Appraiser_Apprise(self, item) -- 스킬 이름 바뀌면 여기 수정
-    local needCount =GET_APPRAISAL_PRICE(item) / 200;
+    local needCount =GET_APPRAISAL_PRICE(item, nil) / 200;
     return "misc_0507", math.floor(needCount); -- 재료 이름 바뀌면 여기 수정
 end
 
