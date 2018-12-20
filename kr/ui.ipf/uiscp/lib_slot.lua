@@ -56,8 +56,6 @@ function SET_SLOT_ITEM_CLS(slot, itemCls)
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 end
 
-
-
 function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
@@ -87,21 +85,13 @@ function SET_SLOT_ITEM_OBJ(slot, itemCls, gender, isBarrack)
 	if nil == icon then
 		return;
 	end
-	local tooltipID = GetExProp(itemCls, "TooltipID");
-	
-	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
-
-
-	if isBarrack == 1 then
-		icon:SetTooltipIESID(GetIESID(itemCls));
+	local tooltipID = GetExProp(itemCls, "TooltipID");	
+	if tooltipID == 0 then
+		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
 	else
-		if tooltipID == 0 then
-			SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls);
-		else
-			SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemCls, itemCls.ClassName, "tooltips", itemCls.ClassID, tooltipID);
-			if nil == isBarrack then
-				slot:CopyTooltipData(icon);
-			end
+		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemCls, itemCls.ClassName, "tooltips", itemCls.ClassID, tooltipID);
+		if nil == isBarrack then
+			slot:CopyTooltipData(icon);
 		end
 	end
 end
