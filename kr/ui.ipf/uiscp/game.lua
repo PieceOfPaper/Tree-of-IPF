@@ -1373,7 +1373,8 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 
 	if IS_SKILL_SCROLL_ITEM(item) == 1 then
 		local skillCls = GetClassByType('Skill', item.SkillType);
-		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
+		local skillName = TryGetProp(skillCls, 'Name', '');
+		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillName);
 	end
 
 --	if IS_100PERCENT_SUCCESS_EXTRACT_ICOR_ITEM(item) == true then
