@@ -29,13 +29,9 @@ for /f %%a in (ipflist_patch.txt) do (
 	echo F|xcopy /y "%TosPath%\patch\%%a" "%TempPath%\patch\%%a"
 	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a decrypt
 	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a extract %3
-	
-	xcopy /y /s "%ExtractPath%\*.%3" "%ExportPath%\*.%3"
-	
-	cd %RootPath%
-	del /s /q Temp
-	del /s /q extract
 )
+	
+xcopy /y /s "%ExtractPath%\*.%3" "%ExportPath%\*.%3"
 
 cd %ExportPath%
 git add --all
