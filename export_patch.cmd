@@ -33,7 +33,7 @@ for /f %%a in (ipflist_patch.txt) do (
 	
 	::===== Decrypt & Extract
 	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a decrypt
-	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3 pathengine atlas
+	%ToolsPath%\ipf_unpack\ipf_unpack.exe %TempPath%\patch\%%a extract ies xml lua dds xac png jpg tga imctree effect skn xsd xsm xsmtime wmove bin fx fxdb ttf export lma xpm fdp fev h txt lst mp3 pathengine atlas skel json
 	
 	::===== Copy to Export Path
 	xcopy /y /s %ExtractPath% %ExportPath%
