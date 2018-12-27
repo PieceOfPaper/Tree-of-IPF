@@ -88,16 +88,16 @@ end
 function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 	-- category check	
 	local curSelectCate = frame:GetUserValue('RECYCLE_SELECTED_CATEGORY');		
-	if curSelectCate == 'Wiki_Accessory' and item.ClassType ~= 'Ring' and item.ClassType ~= 'Neck' then
+	if curSelectCate == 'Wiki_Accessory' and TryGetProp(item, 'ClassType') ~= 'Ring' and TryGetProp(item, 'ClassType') ~= 'Neck' then
 		return false;
 	end
 
-	if curSelectCate == 'Drug' and item.GroupName ~= 'Consume' then
+	if curSelectCate == 'Drug' and TryGetProp(item, 'ItemType') ~= 'Consume' then
 		return false;
 	end
 
 	if string.find(curSelectCate, 'costume') ~= nil then
-		if item.ClassType ~= 'Outer' then
+		if TryGetProp(item, 'ClassType') ~= 'Outer' then
 			return false;
 		else
 			local ctrlType = string.sub(curSelectCate, 0, string.find(curSelectCate, '_') - 1);			
@@ -115,7 +115,7 @@ function CHECK_RECYCLE_SHOW_ITEM(frame, item)
 		end
 	end
 
-	if curSelectCate == 'Artefact' and item.ClassType ~= 'Artefact' then
+	if curSelectCate == 'Artefact' and TryGetProp(item, 'ClassType') ~= 'Artefact' then
 		return false;
 	end
 
@@ -681,9 +681,9 @@ function TPSHOP_ITEM_RECYCLE_PREVIEW_PREPROCESSOR(parent, control, tpitemname, t
 	end
 	
 	-- 급한대로 코스튬과 헤어악세만 지원 중. 미리보기 여부를 TpItem에 의존하는 구조를 바꿔야 함
-	if itemobj.ClassType == "Outer" then
+	if TryGetProp(itemobj, 'ClassType') == "Outer" then
 		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);
-	elseif itemobj.ClassType == "Hat" then
+	elseif TryGetProp(itemobj, 'ClassType') == "Hat" then
 		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);
 	end
 end
@@ -898,14 +898,14 @@ function RECYCLE_MAKE_TREE(frame)
 
 	-- TODO: 추후 카테고리를 늘릴 때에는 여기 아래를 수정하면 됨. 지금은 고정된 것들만 하기로 하였음
 	local firstItem = RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'TotalTabName');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Drug');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiki_Accessory');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Artefact');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Com_costume_M');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'War_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Wiz_costume_F');
 	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Arc_costume_F');
-	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');
-	--RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Drug');
+	RECYCLE_CREATE_CATEGORY_ITEM(recycleCateTree, 'Cle_costume_F');	
 	recycleCateTree:OpenNodeAll();
 end
 

@@ -4,7 +4,8 @@ function GET_ITEM_FULLNAME_BY_TAG_INFO(props, clsID)
 
 	local newobj = CreateIESByID("Item", clsID);
 	if props ~= 'nullval' then
-		SetModifiedPropertiesString(newobj, props);
+		local propInfo = StringSplit(props, '#');
+		SetModifiedPropertiesString(newobj, propInfo[1]);
 	end
 
 	if IS_SKILL_SCROLL_ITEM(newobj) == 1 then

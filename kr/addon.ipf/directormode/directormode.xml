@@ -9,7 +9,7 @@
 	<layer layerlevel="0"/>
 	<input moveable="false" hittestframe="false"/>
 	<controls>
-		<picture name="screenmask" rect="0 0 1920 1080" margin="0 0 0 0" layout_gravity="none none" hittest="false" image="directormode" stretch="true"/>
+		<picture name="screenmask" rect="0 0 1920 1080" margin="0 0 0 0" hittest="false" image="directormode" stretch="true"/>
 		<richtext name="caption" rect="0 0 500 100" margin="0 0 0 50" layout_gravity="center bottom" caption=" " textalign="center center"/>
 		<picture name="isntlayer0" rect="0 0 64 64" margin="25 10 0 0" layout_gravity="center top" hittest="false" image="NOTICE_Dm_directormode2" stretch="true"/>
 	</controls>

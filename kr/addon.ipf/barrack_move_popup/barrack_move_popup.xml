@@ -13,6 +13,6 @@
 		<richtext name="richtext_1" rect="0 0 469 49" margin="0 25 0 0" layout_gravity="center top" parent="bg" format="{@st66d}{s20}%s {@st66d_y}{s20}%s{@st66b}{s18}의{nl}숙소를 이동하겠습니까?" param1="JobName" param1_def="wizard" param2="CharName" param2_def="kkk" textalign="center center" fixwidth="true"/>
 		<button name="button_1" rect="0 0 145 46" margin="-73 0 0 5" layout_gravity="center bottom" parent="bg" skin="test_pvp_btn" caption="{@st66b}예"/>
 		<button name="button_2" rect="0 0 145 46" margin="73 0 0 5" layout_gravity="center bottom" skin="test_pvp_btn" parent="bg" caption="{@st66b}아니오"/>
-		<droplist name="droplist_new" rect="0 0 200 20" margin="0 100 0 0" layout_gravity="center top" font="white_20_ol" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="left center" textoffset="0" visibleline="3" SelectScp="" frametextalign="left" parent="bg"/>
+		<droplist name="droplist_new" rect="0 0 200 20" margin="0 100 0 0" layout_gravity="center top" font="white_20_ol" listclicksound="button_click" listoversound="button_cursor_over_2" skin="droplist_normal" textalign="left center" visibleline="3" SelectScp="" frametextalign="left" parent="bg"/>
 	</controls>
 </uiframe>

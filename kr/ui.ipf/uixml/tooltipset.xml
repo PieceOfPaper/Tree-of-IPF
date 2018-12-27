@@ -3,7 +3,7 @@
 <tooltipset>
 	<tooltip name="partyinfotooltipNormal" x="0" y="0" fixwidth="false" width="412" height="370" moveable="true" frameskin="partylist_tooltip_skin" blendtime="" UpdateScp="PARTY_INFO_UPDATE_TOOLTIP_NORMAL">
 		<controls>
-			<richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_20_ol_ds" textalign="false"/>
+			<richtext name="partyname" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="30 30 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_20_ol_ds"/>
 			<richtext name="partymemo" caption="WWWWWWWW" layout_gravity="left top" rect="0 0 300 30" margin="50 70 0 0" fixwidth="true" hittest="false" resizebytext="true" fontname="white_16"/>
 			<richtext name="createdTime" layout_gravity="right top" rect="0 0 140 80" margin="0 35 20 0" fixwidth="false" fontname="white_16_ol" format="[결성: %s 전]" param1="createtime" param1_def="DefTime DefMin" textalign="right top"/>
 			<groupbox name="meminfo" rect="0 0 414 200" margin="0 110 0 0" skin="none" hittest="false" draw="false" updateparent="true" scrollbar="false"/>
@@ -307,19 +307,19 @@
 			<richtext name="staticText" rect="0 0 300 30" margin="10 8 0 0" layout_gravity="left top" format="거래 등급 안내" fontname="white_18_b_ds_ol"/>
 			<button name="starTextBox1" rect="0 0 48 24" margin="10 38 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
 			<button name="paramTextBox1" rect="0 0 212 24" margin="60 38 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
-			<checkbox name="check1" rect="0 0 30 30" margin="0 35 3 0" layout_gravity="right top" hittest="fasle"/>
+			<checkbox name="check1" rect="0 0 30 30" margin="0 35 3 0" layout_gravity="right top"/>
 			<button name="starTextBox2" rect="0 0 48 24" margin="10 64 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
 			<button name="paramTextBox2" rect="0 0 212 24" margin="60 64 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="캐릭터 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
-			<checkbox name="check2" rect="0 0 30 30" margin="0 61 3 0" layout_gravity="right top" hittest="fasle"/>
+			<checkbox name="check2" rect="0 0 30 30" margin="0 61 3 0" layout_gravity="right top"/>
 			<button name="starTextBox3" rect="0 0 48 24" margin="10 90 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
 			<button name="paramTextBox3" rect="0 0 212 24" margin="60 90 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 생성 %s일 이상" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
-			<checkbox name="check3" rect="0 0 30 30" margin="0 87 3 0" layout_gravity="right top" hittest="fasle"/>
+			<checkbox name="check3" rect="0 0 30 30" margin="0 87 3 0" layout_gravity="right top"/>
 			<button name="starTextBox4" rect="0 0 48 24" margin="10 116 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
 			<button name="paramTextBox4" rect="0 0 212 24" margin="60 116 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="%s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
-			<checkbox name="check4" rect="0 0 30 30" margin="0 113 3 0" layout_gravity="right top" hittest="fasle"/>
+			<checkbox name="check4" rect="0 0 30 30" margin="0 113 3 0" layout_gravity="right top"/>
 			<button name="starTextBox5" rect="0 0 48 24" margin="10 142 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
 			<button name="paramTextBox5" rect="0 0 212 24" margin="60 142 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="계시 %s개 획득" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
-			<checkbox name="check5" rect="0 0 30 30" margin="0 139 3 0" layout_gravity="right top" hittest="fasle"/>
+			<checkbox name="check5" rect="0 0 30 30" margin="0 139 3 0" layout_gravity="right top"/>
 		</controls>
 	</tooltip>
 </tooltipset>

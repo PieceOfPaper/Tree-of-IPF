@@ -122,3 +122,31 @@ function GET_COLONY_MARKET_PERCENTAGE_LIST()
     end
     return list;
 end
+
+--콜로니전 사용 제한 관련 스크립트
+function SCR_GUILD_COLONY_RESTRICTION_CHECK_CLIENT(self, restriction_group)
+    local restrictionList = {}
+    local list, cnt = GetClassList("pvp_use_restrict")
+    for i = 0, cnt-1 do
+        local restrictionCls = GetClassByIndexFromList(list, i);
+        if TryGetProp(restrictionCls, "GroupName") == restriction_group then
+            table.insert(restrictionList, restrictionCls)
+        end
+    end
+
+    if restriction_group == "GuildColony_Restricted_Item_CoolDown" then
+        local list = {}
+        for i = 1, #restrictionList do
+            local name = TryGetProp(restrictionList[i], "Name")
+            local coolTime = TryGetProp(restrictionList[i], "SetCoolTime")
+            local itemName = TryGetProp(restrictionList[i], "ItemName")
+            if itemName == "ALL" then
+                list[#list+1] = {name, coolTime}
+            else
+                list[#list+1] = {name, coolTime, itemName}
+            end
+        end
+        return list, #list
+    end
+
+end

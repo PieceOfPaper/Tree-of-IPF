@@ -1,5 +1,6 @@
 function CREATE_TARGET_ITEM_SLOT_COMPONENT(parent, name, prop)
-    local box = parent:CreateControl('groupbox', name, prop.x, prop.y, prop.width, prop.height);    
+    local NAME_TEXT_HEIGHT = 30;
+    local box = parent:CreateControl('groupbox', name, prop.x, prop.y, prop.width, prop.height + NAME_TEXT_HEIGHT);
     box:SetSkinName('None');
     box:SetGravity(prop.gravity.horz, prop.gravity.vert);
     box:SetMargin(prop.margin[1], prop.margin[2], prop.margin[3], prop.margin[4]);
@@ -25,8 +26,19 @@ function CREATE_TARGET_ITEM_SLOT_COMPONENT(parent, name, prop)
     slotBgPic:SetEnableStretch(1);
     slotBgPic:EnableHitTest(0);
 
+    if prop.useNameText == true then        
+        local nameText = box:CreateControl('richtext', 'nameText', 0, 0, prop.width, NAME_TEXT_HEIGHT);
+        AUTO_CAST(nameText);
+        nameText:SetFormat('%s%s');
+        nameText:AddParamInfo('style', '{@st41}');
+        nameText:AddParamInfo('name', 'ddddddd');
+        nameText:SetTextByKey('style', '{@st41}');
+        nameText:SetGravity(ui.CENTER_HORZ, ui.BOTTOM);
+    end
+
     local component = {
         ctrl = box,
+        isUseNameText = prop.useNameText;
         SetSlotItem = function(self, invItem)
             local slotBgPic = GET_CHILD_RECURSIVELY(self.ctrl, 'slotBgPic');
             slotBgPic:ShowWindow(0);
@@ -38,6 +50,12 @@ function CREATE_TARGET_ITEM_SLOT_COMPONENT(parent, name, prop)
             end
 
             SET_SLOT_ITEM_IMAGE(slot, invItem);
+
+            if self.isUseNameText == true and invItem ~= nil then
+                local itemObj = GetIES(invItem:GetObject());
+                local nameText = GET_CHILD(self.ctrl, 'nameText');
+                nameText:SetTextByKey('name', GET_FULL_NAME(itemObj));
+            end
         end,
         IsEmpty = function(self)
             local slot = GET_CHILD(self.ctrl, 'slot');
@@ -72,6 +90,11 @@ function CREATE_TARGET_ITEM_SLOT_COMPONENT(parent, name, prop)
             local slotBgPic = GET_CHILD(slot, 'slotBgPic');
             slot:ClearIcon();
             slotBgPic:ShowWindow(1);
+
+            if self.isUseNameText == true then
+                local nameText = GET_CHILD(self.ctrl, 'nameText');
+                nameText:SetTextByKey('name', '');
+            end
         end,
         ShowWindow = function(self, isShow)
             self.ctrl:ShowWindow(isShow);

@@ -29,7 +29,7 @@ function ITEMBUFF_REFRESH_LIST(frame)
 	reqitemtext:SetTextByKey("txt", text);
 end
 
-function ITEM_BUFF_CREATE_STORE(frame)
+function ITEM_BUFF_CREATE_STORE(frame)    
 	ITEM_BUFF_CLOSE();
 	local optionBox = frame:GetChild("OptionBox");
 	local edit = GET_CHILD(optionBox, "TitleInput")
@@ -92,6 +92,7 @@ function ITEM_BUFF_CREATE_STORE(frame)
 		return;
 	end
 	session.autoSeller.RequestRegister("ItemBuffStore", storeGroupName, edit:GetText(), sklName);
+    packet.SendMoveStopMyCharacter()
 end
 
 function OPEN_MY_ITEMBUFF_UI(groupName, sellType, handle)

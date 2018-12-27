@@ -1,0 +1,364 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="EVENT_1812_GILTINE_ATTACK" rankScript="EVENT_1812_GILTINE_ATTACK_LV_SET" minLv="0" maxLv="0" mapName="c_Klaipe_event_1812" playerCountCheckDestroy="1" startWaitSec="-1526726657">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="10초 뒤 시작됩니다!"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="20025" Pos="-209.98#149.11#97.52" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;결계&apos; &apos;Tactics&apos; &apos;EVENT_1812_GILTINE_HIDDEN_WALL&apos; "/>
+                    <Obj Type="Monster" MonType="154039" Pos="-207.36#149.11#97.39" angle="315" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="151000" Pos="-639.14#241.05#535.64" angle="45" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;결계 장치&apos; &apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;HPCount&apos; &apos;80&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-340.24#149.11#-26.85" angle="45" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;결계 장치&apos; &apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;HPCount&apos; &apos;100&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-82.25#149.11#235.33" angle="45" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;결계 장치&apos; &apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;HPCount&apos; &apos;100&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="-154.23#79.86#-519.08" angle="45" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;결계 장치&apos; &apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;HPCount&apos; &apos;200&apos; "/>
+                    <Obj Type="Monster" MonType="151000" Pos="352.36#79.86#186.91" angle="45" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" propList="&apos;Name&apos; &apos;결계 장치&apos; &apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;HPCount&apos; &apos;200&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="sec10">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10초 후에 시작됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="start">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="미션이 시작됩니다!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Play"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="SuccessCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/Play/0/Play/5/Play/10/Play/15/DefGroup/3/Play/1/Play/6/Play/11/Play/16/DefGroup/4/Play/2/Play/7/Play/12/Play/17/DefGroup/5/Play/3/Play/8/Play/13/Play/18/DefGroup/6/Play/4/Play/9/Play/14/Play/19/Play/20"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Play"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FailCheck">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="pcDieCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min10Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3000"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="10분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min5Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="5분 뒤 미션이 종료됩니다"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="min60Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="FailCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Fail" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="scroll"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="failsec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Success" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}30초 후에 돌아갑니다"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="미션 성공!{nl}30초 후에 돌아갑니다"/>
+                        <Str Str="Clear"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="successsec30">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="success">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="EVENT_1812_GILTINE_ATTACK_SUCCESS"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Play" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="1. 모든 적을 처치하세요.{nl} 2. 결계 장치 5개를 파괴 하세요."/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="600"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="10022" Pos="-650.44#241.05#513.52" range="90" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="10022" Pos="-359.39#149.11#-43.85" range="70" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="10022" Pos="-60.98#149.11#257.83" range="70" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="10022" Pos="-141.51#79.86#-498.72" range="50" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="10022" Pos="340.21#79.86#217.93" range="60" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="10022" Pos="-617.96#241.05#562.20" range="80" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="10022" Pos="-329.72#149.11#-6.69" range="70" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11283" Pos="-72.25#149.11#209.71" range="80" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11283" Pos="-190.09#79.86#-507.98" range="60" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11283" Pos="365.80#79.86#169.72" range="70" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos1&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;BTree&apos; &apos;BasicMonster&apos; &apos;Name&apos; &apos;UnvisibleName&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11120" Pos="-602.55#241.05#503.93" range="120" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11120" Pos="-377.42#149.11#-2.39" range="100" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11120" Pos="-114.45#149.11#242.02" range="80" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11120" Pos="-215.34#79.86#-491.27" range="70" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="11120" Pos="329.46#79.86#161.01" range="90" genTime="20000" autoGen="0" objectKey="14" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47495" Pos="-685.38#241.05#560.59" range="90" genTime="20000" autoGen="0" objectKey="15" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47468" Pos="-307.38#149.11#-49.46" range="80" genTime="20000" autoGen="0" objectKey="16" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47495" Pos="-46.04#149.11#230.56" range="90" genTime="20000" autoGen="0" objectKey="17" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47496" Pos="-190.28#79.86#-533.56" range="60" genTime="20000" autoGen="0" objectKey="18" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="47484" Pos="376.65#79.86#211.22" range="70" genTime="20000" autoGen="0" objectKey="19" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_NORMAL_LV&apos; &apos;DropItemList&apos; &apos;None&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="57868" Pos="288.31#79.86#218.77" range="60" genTime="20000" autoGen="0" objectKey="20" UseAiOutOfPc="1" searchRange="400" propList="&apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Level&apos; &apos;@EVENT_1812_GILTINE_ATTACK_MON_BOSS_LV&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="npcGen">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Play/0/Play/5/Play/1/Play/6/Play/7/Play/2/Play/8/Play/3/Play/9/Play/4"/>
+                                <Num Num="3"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="monGen1">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Play/15/Play/10/Play/11//Play/16/Play/Play/16/Play/12/Play/17"/>
+                                <Num Num="5"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Play/13/Play/18/Play/14/Play/19"/>
+                                <Num Num="4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Play/20"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="monCountMsg">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_LIVE_MON_COUNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Play/0/Play/15/Play/5/Play/10/Play/11/Play/6/Play/16/Play/1/Play/12/Play/2/Play/17/Play/7/Play/3/Play/13/Play/8/Play/18/Play/20/Play/4/Play/19/Play/9/Play/14"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="failCheck">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="600"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/Play/0/Play/5/Play/10/Play/15/DefGroup/3/Play/1/Play/6/Play/11/Play/16/DefGroup/4/Play/2/Play/7/Play/12/Play/17/DefGroup/5/Play/3/Play/8/Play/13/Play/18/DefGroup/6/Play/4/Play/9/Play/14/Play/19/Play/20"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="successCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Play"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successCheck">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/Play/0/Play/5/Play/10/Play/15/DefGroup/3/Play/1/Play/6/Play/11/Play/16/DefGroup/4/Play/2/Play/7/Play/12/Play/17/DefGroup/5/Play/3/Play/8/Play/13/Play/18/DefGroup/6/Play/4/Play/9/Play/14/Play/19/Play/20"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="failCheck"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="Play"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Success"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="msg1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="Play/5/Play/15/Play/0/Play/10/Play/11/Play/6/Play/16/Play/1/Play/2/Play/7/Play/17/Play/12/Play/13/Play/8/Play/18/Play/3/Play/4/Play/19/Play/9/Play/14/Play/20"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="모든 결계 장치가 파괴되었습니다!{nl}남은 적을 처치하세요!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="msg2">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Play/5/Play/15/Play/0/Play/10/Play/11/Play/6/Play/16/Play/1/Play/2/Play/7/Play/17/Play/12/Play/13/Play/8/Play/18/Play/3/Play/4/Play/19/Play/9/Play/14/Play/20"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="모든 적을 처치하셨습니다!{nl}남은 결계 장치를 파괴하세요!"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

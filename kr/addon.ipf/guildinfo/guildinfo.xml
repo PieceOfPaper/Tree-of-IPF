@@ -76,7 +76,7 @@
 										<layoutsection name="lvl" size="5%">
 											<richtext name="guildLvl" format="{@st66d_y}{s18}%s{/}" margin="0 0 10 0" param1="level" textalign="right center"/>
 										</layoutsection>
-										<layoutsection>
+										<layoutsection name="expGuageSection">
 											<gauge name="expGuage" skin="gauge_barrack_guild" inverse="false" point="50" maxpoint="100" text1="%v / %m" textfont1="white_14_ol" textalign1="center center"/>
 										</layoutsection>
 										<layoutsection name="blankSection" size="5">
