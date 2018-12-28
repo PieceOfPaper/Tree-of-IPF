@@ -529,7 +529,8 @@ end
 function GET_ITEM_ICON_IMAGE_BY_TAG_INFO(props, clsID)
     local newobj = CreateIESByID("Item", clsID);
 	if props ~= 'nullval' then
-		SetModifiedPropertiesString(newobj, props);
+		local propInfo = StringSplit(props, '#');
+		SetModifiedPropertiesString(newobj, propInfo[1]);
 	end
 
 	local ret = GET_ITEM_ICON_IMAGE(newobj);

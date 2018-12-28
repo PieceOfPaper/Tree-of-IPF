@@ -1,319 +1,176 @@
+local RollbackBriquettingUI = {
+	-- vars
+	_frame = nil,
+	_targetItemGuid = '0',
 
-function COLORSPRAY_ON_INIT(addon)
-
-	--[[addon:RegisterMsg('VIEW_RBTN_DOWN', 'COLSPRAY_RBTN_DOWN');
-	addon:RegisterMsg('VIEW_LBTN_DOWN', 'COLSPRAY_LBTN_DOWN');
-	addon:RegisterMsg('VIEW_LBTN_UP', 'COLSPRAY_LBTN_UP');
-	addon:RegisterMsg('VIEW_RBTN_UP', 'COLSPRAY_LBTN_UP');
-	addon:RegisterMsg('SPRAY_CREATED', 'ON_SPRAY_CREATED');
-	]]
-	
-
-end
-
-function COLORSPRAY_FIRST_OPEN(addon, frame)
-	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
-	timer:SetUpdateScript("COLORSPRAY_UPDATE_MOUSEMOVE");
-	timer:Start(0.01);
-end
-
-
-function INIT_COLOR_SPRAY(frame)
-
-	local colorList = GET_CHILD(frame, "colorList", "ui::CPicture");
-	colorList:ClonePicture();
-	
-	local maxCol = itemutil.GetMaxSprayColor();
-	local row_Cnt = 2;
-	local colPerRow = maxCol / row_Cnt;
-	
-	local colWidth = colorList:GetWidth() / colPerRow;
-	local rowHeight =  colorList:GetHeight() / row_Cnt;
-	
-	local colIndex = 1;
-	for j = 0 , row_Cnt - 1 do
-		for i = 0 , colPerRow - 1 do
-			
-			local startX = i * colWidth;
-			local startY = j * rowHeight;
-			
-			local colItem = session.GetInvItemByName("ColorSpray_" .. colIndex);
-			if colItem == nil then
-				colorList:SetPixelColor(startX, startY, colWidth, rowHeight, 0);
-			else
-				local sprayColor = itemutil.GetSprayColor(colIndex);
-				colorList:SetPixelColor(startX, startY, colWidth, rowHeight, sprayColor);
-			end
-			
-			colIndex = colIndex + 1;
-			
+	-- functions
+	SetFrame = function(self, frame)
+		self._frame = frame;
+	end,
+	Reset = function(self)
+		local frame = self._frame;
+		local beforeSlot = GET_CHILD_RECURSIVELY(frame, 'beforeSlot');
+		local afterSlot = GET_CHILD_RECURSIVELY(frame, 'afterSlot');
+		if beforeSlot:GetIcon() ~= nil then
+			local beforeSlotItemGuid = beforeSlot:GetIcon():GetInfo():GetIESID();
+			SELECT_INV_SLOT_BY_GUID(beforeSlotItemGuid, 0);
 		end
-		
-		colIndex = colIndex + 1;
-	end
-	
-	colorList:SetSValue("FF000000");
-	colorList:SetValue(1);
-	itemutil.ResetColCounts();
-	UPDATE_CUR_COLOR_AMOUNT(frame);
-	
+		beforeSlot:ClearIcon();
+		afterSlot:ClearIcon();
+
+		local beforeNameText = GET_CHILD_RECURSIVELY(frame, 'beforeNameText');
+		local afterNameText = GET_CHILD_RECURSIVELY(frame, 'afterNameText');
+		beforeNameText:ShowWindow(0);
+		afterNameText:ShowWindow(0);
+	end,
+	IsEmpty = function(self)
+		local frame = self._frame;		
+		local beforeSlot = GET_CHILD_RECURSIVELY(frame, 'beforeSlot');
+		return beforeSlot:GetIcon() == nil;
+	end,
+	SetTargetSlot = function(self, invSlot, itemGuid)
+		local invItem = session.GetInvItemByGuid(itemGuid);
+		if invItem == nil then
+			return;
+		end
+		if invItem.isLockState == true then
+			ui.SysMsg(ClMsg('WebService_45'));
+			return;
+		end
+
+		local frame = self._frame;
+		local itemobj = GetIES(invItem:GetObject());
+		if TryGetProp(itemobj, 'BriquettingIndex', 0) == 0 then
+			ui.SysMsg(ClMsg('OnlyBriquettingItem'));
+			return;
+		end
+
+		local beforeSlot = GET_CHILD_RECURSIVELY(frame, 'beforeSlot');
+		imcSlot:SetItemInfo(beforeSlot, invItem, 1);
+
+		local afterSlot = GET_CHILD_RECURSIVELY(frame, 'afterSlot');
+		local modifiedString = GET_MODIFIED_PROPERTIES_STRING(itemobj);
+		local linkInfo = session.link.CreateOrGetGCLinkObject(itemobj.ClassID, modifiedString);
+		local virtualObj = GetIES(linkInfo:GetObject());
+		virtualObj.BriquettingIndex = 0;
+
+		local icon = afterSlot:GetIcon();
+		if icon == nil then
+			icon = CreateIcon(afterSlot);
+		end
+
+		APPRAISER_FORGERY_SET_TOOLTIP(icon, virtualObj);
+		icon:SetImage(itemobj.Icon);
+
+		local beforeNameText = GET_CHILD_RECURSIVELY(frame, 'beforeNameText');
+		beforeNameText:SetTextByKey('name', itemobj.Name);
+		beforeNameText:ShowWindow(1);
+
+		local afterNameText = GET_CHILD_RECURSIVELY(frame, 'afterNameText');
+		afterNameText:SetTextByKey('name', itemobj.Name);
+		afterNameText:ShowWindow(1);
+
+		invSlot:SetSelectedImage('socket_slot_check');
+		invSlot:Select(1);
+	end,
+	SetTargetItemGuid = function(self, guid)
+		self._targetItemGuid = guid;
+	end,
+	GetTargetItemGuid = function(self)
+		return self._targetItemGuid;
+	end,
+	GetTargetEquipItemGuid = function(self)
+		local frame = self._frame;
+		local beforeSlot = GET_CHILD_RECURSIVELY(frame, 'beforeSlot');
+		local icon = beforeSlot:GetIcon();
+		if icon == nil then	
+			return nil;
+		end
+		return icon:GetInfo():GetIESID();
+	end,
+};
+
+function USE_ROLLBACK_BRIQUETTING_ITEM(invItem)
+	RollbackBriquettingUI:SetTargetItemGuid(invItem:GetIESID());
+	ui.OpenFrame('colorspray');
 end
 
-function END_EDIT_SPRAY()
-
-	itemutil.ReqDrawSpray();
-
+function OPEN_ROLLBACK_BRIQUETTING(frame)
+	RollbackBriquettingUI:SetFrame(frame);
+	RollbackBriquettingUI:Reset();	
+	INVENTORY_SET_CUSTOM_RBTNDOWN('ROLLBACK_BRIQUETTING_INV_RBTN_CLICK');
+	INVENTORY_SET_ICON_SCRIPT('ROLLBACK_BRIQUETTING_ICON_SCP');
 end
 
-function SAVE_EDIT_SPRAY()
-
-	OPEN_FILE_FIND("spraysave", "EXEC_SAVE_SPRAY", 1);
-
+function CLOSE_ROLLBACK_BRIQUETTING(frame)
+	INVENTORY_SET_CUSTOM_RBTNDOWN('None');
+	RESET_INVENTORY_ICON();
 end
 
-function EXEC_SAVE_SPRAY(fileName)
-
-	itemutil.SaveSprayFile(fileName);
-
+function DROP_ROLLBACK_BRIQUETTING_TARGET(parent, ctrl)	
+	local liftIcon = ui.GetLiftIcon();
+	local iconInfo = liftIcon:GetInfo();
+	local itemGuid = iconInfo:GetIESID();
+	local invSlot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
+	RollbackBriquettingUI:SetTargetSlot(invSlot, itemGuid);
 end
 
-function LOAD_EDIT_SPRAY()
-
-	OPEN_FILE_FIND("spraysave", "EXEC_LOAD_SPRAY");
-
+function POP_ROLLBACK_BRIQUETTING_TARGET(parent, ctrl)
+	RollbackBriquettingUI:Reset();
 end
 
-function EXEC_LOAD_SPRAY(fileName)
+function IMPL_EXEC_ROLLBACK_BRIQUETTING(rollbackItemGuid, equipItemGuid)
+	session.ResetItemList();
+	session.AddItemID(rollbackItemGuid, 1);
+	session.AddItemID(equipItemGuid, 1);
+    local resultlist = session.GetItemIDList();
+	item.DialogTransaction('EXECUTE_ROLLBACK_BRIQUETTING', resultlist);
 
-	itemutil.LoadSprayFile(fileName);
-	UPDATE_CUR_COLOR_AMOUNT(ui.GetFrame("colorspray"));
-
+	ui.CloseFrame('colorspray');
+	ui.CloseFrame('inventory');	
 end
 
-
-function ON_SPRAY_CREATED(frame)
-
-	frame:ShowWindow(0);
-
-end
-
-function SELECT_SPRAY_COLOR(frame, colorList)
-
-	tolua.cast(colorList, "ui::CPicture");
-	local x, y = GET_LOCAL_MOUSE_POS(colorList);
-	local color = colorList:GetPixelColor(x, y);
-	colorList:SetSValue(color);
-	colorList:SetValue(itemutil.GetColIndex(color));
-	UPDATE_CUR_COLOR_AMOUNT(frame);
-	
-end
-
-function COLORSPRAY_UPDATE_MOUSEMOVE(frame)
-
-	if keyboard.IsKeyDown("Z") == 1 and keyboard.IsKeyPressed("LCTRL") == 1 then
-		itemutil.UndoSpray();
-	end
-	
-	if keyboard.IsKeyDown("Y") == 1 and keyboard.IsKeyPressed("LCTRL") == 1 then
-		itemutil.RedoSpray();
-	end
-	
-	if frame:GetValue() == 0 then
-
-		local pos = view.GetCursurScenePos();	
-		itemutil.SetFramePos(pos);
-		
-	elseif frame:GetValue() == 1 then
-	
-		local pos = view.GetCursurScenePos();	
-		itemutil.RotateFrameToPos(pos);
-	
-	elseif frame:GetValue() == 3 then
-	
-		local pos = view.GetCursurScenePos();
-		itemutil.SetCurDrawPos(pos);
-		UPDATE_COLSPRAY_AMOUNT(frame);
-		
-	end
-
-end
-
-function START_COLOR_SPRAY(frame)
-
-	itemutil.StartLocationSpray();
-	ui.GuideMsg("SelectGround");
-	frame:SetValue(0);
-
-end
-
-function COLSPRAY_LBTN_DOWN(frame)
-
-	if itemutil.IsEditingColorSpray() == 0 then
+function EXEC_ROLLBACK_BRIQUETTING(parent, ctrl)
+	local rollbackItemGuid = RollbackBriquettingUI:GetTargetItemGuid();
+	local equipItemGuid = RollbackBriquettingUI:GetTargetEquipItemGuid();
+	if rollbackItemGuid == nil or equipItemGuid == nil then
+		ui.SysMsg(ClMsg('DropTargetItemFirst'));
 		return;
 	end
 
-	local pos = view.GetCursurScenePos();
-	
-	if frame:GetValue() == 0 then
-	
-		ui.RemoveGuideMsg("SelectGround");
-		frame:SetValue(1);
-		ui.GuideMsg("SelectAngleAndClickMouse");
-	
-	elseif frame:GetValue() == 1 then
-	
-		frame:SetValue(2);
-		itemutil.StartEditSpray();		
-		ui.RemoveGuideMsg("SelectAngleAndClickMouse");
-		ui.AlarmMsg("SelectPenAndDrawImg");
-		
-	elseif frame:GetValue() == 2 then
-	
-		frame:SetValue(3);
-		
-		local color = GET_COLSPRAY_COLOR(frame);
-		local size = GET_COLSPRAY_SIZE(frame);
-		itemutil.StartDraw(color, size, pos);
-		itemutil.SetCurDrawPos(pos);
-	
-	end
-
-end
-
-function COLSPRAY_RBTN_DOWN(frame)
-
-	local pos = view.GetCursurScenePos();
-	
-	if frame:GetValue() == 2 then
-	
-		frame:SetValue(3);
-		
-		local size = GET_COLSPRAY_SIZE(frame);
-		itemutil.StartDraw(0, size, pos);
-		itemutil.SetCurDrawPos(pos);
-	
-	end
-
-end
-
-
-function GET_COLSPRAY_COLOR(frame)
-	
-	local colorList = GET_CHILD(frame, "colorList", "ui::CPicture");
-	return imc.GetColorByString( colorList:GetSValue() );
-	
-end
-
-function SELECT_SPRAY_BRUSH(frame, picture)
-
-	tolua.cast(picture, "ui::CPicture");
-	local brushName = picture:GetImageName();
-	itemutil.SetBrushName(brushName);
-	
-end
-
-function GET_COLSPRAY_SIZE(frame)
-
-	return 1;
---	local dugge = GET_CHILD(frame, "dugge", "ui::CNumUpDown");
---	return dugge:GetNumber();
-	
-end
-
-function COLSPRAY_LBTN_UP(frame)
-
-	if frame:GetValue() == 3 then
-	
-		frame:SetValue(2);
-		itemutil.EndDraw();
-	
-	end
-
-end
-
-function CLOSE_COLORSPRAY(frame)
-
-	itemutil.EndColorSpray();
-	frame:SetValue(0);
-
-	ui.RemoveGuideMsg("SelectGround");
-	ui.RemoveGuideMsg("SelectAngleAndClickMouse");
-				
-end
-
-function UPDATE_COLSPRAY_AMOUNT(frame)
-
-	local isExceeded = IS_EXCEEDED_AMOUNT();
-	if isExceeded == 1 then
-		itemutil.UndoNotSave();
-		ui.AlarmMsg("NotEnoughSpray");
-	end
-	
-	UPDATE_CUR_COLOR_AMOUNT(frame);
-end
-
-function UPDATE_CUR_COLOR_AMOUNT(frame)
-
-	local colorList = GET_CHILD(frame, "colorList", "ui::CPicture");
-	local curColIndex = colorList:GetValue();
-	local hp = GET_CHILD(frame, "hp", "ui::CGauge");
-	local hp_x = GET_CHILD(frame, "hp_x", "ui::CRichText");
-		
-	local colItem = session.GetInvItemByName("ColorSpray_" .. curColIndex);
-	if colItem == nil then
-		hp:SetPoint(0, MAX_COLSPRAY_PIXEL());
-		hp_x:SetTextByKey("itemCnt", 0);
+	local rollbackInvItem = session.GetInvItemByGuid(rollbackItemGuid);
+	local equipInvItem = session.GetInvItemByGuid(equipItemGuid);
+	if rollbackInvItem == nil or rollbackInvItem.isLockState == true or equipInvItem == nil or equipInvItem.isLockState == true then
 		return;
 	end
-	
-	local obj = GetIES(colItem:GetObject());
-	
-	local curCnt = itemutil.GetColCount(curColIndex);
-	curCnt = curCnt + GET_ADD_SPRAY_USE(curCnt, obj);
-	local usable = GET_TOTAL_SPRAY_PIXEL(colItem.count, obj);
-	usable = usable - curCnt - 1;
-	
-	local remainPercent	
-	if usable > 0 then
-		remainPercent = (usable)  % MAX_COLSPRAY_PIXEL();
-	else
-		remainPercent = 0;
+
+	if TryGetProp(GetIES(equipInvItem:GetObject()), 'Rebuildchangeitem', 0) > 0 then
+		ui.MsgBox(ScpArgMsg('IfUDoCannotExchangeWeaponType'), 'IMPL_EXEC_ROLLBACK_BRIQUETTING("'..rollbackItemGuid..'", "'..equipItemGuid..'")', 'None');
+		return;
 	end
-	
-	local remainCnt = math.floor ( (usable) / MAX_COLSPRAY_PIXEL() ) + 1;
-	remainCnt = math.abs(remainCnt);
-	hp_x:SetTextByKey("itemCnt", remainCnt);
-		
-	hp:SetPoint(remainPercent, MAX_COLSPRAY_PIXEL());
-	
-	
+
+	IMPL_EXEC_ROLLBACK_BRIQUETTING(rollbackItemGuid, equipItemGuid);
 end
 
-function IS_EXCEEDED_AMOUNT()
+function ROLLBACK_BRIQUETTING_INV_RBTN_CLICK(itemObj, invSlot, invItemGuid)
+	if RollbackBriquettingUI:IsEmpty() == false then
+		return;
+	end
+	RollbackBriquettingUI:SetTargetSlot(invSlot, invItemGuid);
+end
 
-	local maxCol = itemutil.GetMaxSprayColor();
-	
-	for i = 1 , itemutil.GetMaxSprayColor() do
-		local curCnt = itemutil.GetColCount(i);
-		if curCnt > 0 then
-			local colItem = session.GetInvItemByName("ColorSpray_" .. i);
-			if colItem == nil then
-				return 1;
-			else
-				local obj = GetIES(colItem:GetObject());
-				local usable = GET_TOTAL_SPRAY_PIXEL(colItem.count, obj);
-				if curCnt > usable then
-					return 1;
-				end
-			end
+function ROLLBACK_BRIQUETTING_ICON_SCP(slot, reinfItemObj, invItem, itemobj)	
+	local icon = slot:GetIcon();
+	if itemobj ~= nil then
+		if TryGetProp(itemobj, 'BriquettingIndex', 0) ~= 0 then
+			icon:SetColorTone("FFFFFFFF");
+		else
+			icon:SetColorTone("33000000");
 		end
-	end
+		return;
+	end		
 	
-	return 0;
-
+	if icon ~= nil then
+		icon:SetColorTone("AA000000");
+	end
 end
-
-
-
-
-

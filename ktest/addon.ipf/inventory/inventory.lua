@@ -80,6 +80,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	local dropscp = frame:GetUserConfig("TREE_SLOT_DROPSCRIPT");
 	frame:SetEventScript(ui.DROP, dropscp);
 	INVENTORY_LIST_GET(frame);    
+	RESET_INVENTORY_ICON();
 end
 
 function UI_TOGGLE_INVENTORY()
@@ -2657,7 +2658,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count) --hs_comment
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		

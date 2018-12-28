@@ -25,7 +25,7 @@
 		<picture name="L1" margin="35 32 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainL_1" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
 		<picture name="R2" margin="330 34 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainR_2" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
 		<picture name="R1" margin="330 32 0 0" rect="0 0 170 55" hittest="false" image="barrack_chainR_1" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_1" layout_gravity="left top"/>
-		<picture name="classImage" margin="216 46" rect="0 0 100 100" hittest="false" image="barrack_class_Warrior" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
+		<picture name="classImage" margin="216 46 0 0" rect="0 0 100 100" hittest="false" image="barrack_class_Warrior" stretch="true" changecursor="false" frameOpenAnim="simbol_ani_2" layout_gravity="left top"/>
 		<picture name="star2" margin="469 22 0 0" rect="0 0 30 30" hittest="false" image="star_in_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
 		<picture name="star1" margin="35 22 0 0" rect="0 0 30 30" hittest="false" image="star_in_arrow" stretch="true" changecursor="false" layout_gravity="left top"/>
 		<richtext name="job_title" margin="4 110 0 0" rect="0 0 120 22" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" format="{@sti1c}%s{/}" param1="value" param1_def="AAAAAAAAAAAAA" parent="maingroup"/>

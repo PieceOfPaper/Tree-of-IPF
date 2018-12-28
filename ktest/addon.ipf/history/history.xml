@@ -9,8 +9,8 @@
 	<controls>
 		<groupbox name="main" rect="0 0 500 980" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
 		<groupbox name="pipwin_midle" rect="0 0 480 800" margin="10 110 0 0" layout_gravity="left top" hittestbox="false" skin="test_frame_midle" resizebyresolution="true"/>
-		<groupbox name="pipwin_top_my" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top" parent="TPBox"/>
-<groupbox name="pipwin_top" rect="0 0 490 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="pipwin_top_my" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="right top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="pipwin_top" rect="0 0 490 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
 		<tab name="statusTab" rect="0 0 470 40" layout_gravity="left top" LBtnDownScp="HISTORY_TAB_CHANGE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="25 68 0 0"/>
 		<tabitem name="Itembox3" parent="statusTab" caption="{@st66b}TP{/}" width="150" layout_gravity="left top"/>
 		<pagecontroller name="pagecontrol" rect="0 0 430 40" margin="-3 0 0 117" layout_gravity="center bottom" image="{@st42b}{#999999} {@st41}{b}" nextScp="HISTORY_PAGE_SELECT_NEXT" prevScp="HISTORY_PAGE_SELECT_PREV" selectScp="HISTORY_PAGE_SELECT" slot="25 25" space="100 0 0 100" type="richtext">
@@ -19,11 +19,11 @@
 		</pagecontroller>
 		<richtext name="Title" rect="0 0 200 30" layout_gravity="center top" caption="{@st43}히스토리{/}" hittest="false" spacey="0" textalign="left center" margin="0 16 0 0"/>
 		<button name="colse" rect="0 0 44 44" margin="0 20 33 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;history&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}히스토리 정보를 닫습니다.{/}"/>
-		<groupbox name="stat" margin="8 145 0 0" rect="0 0 480 780" hittestbox="false" skin="none" layout_gravity="left top" parent="Itembox1"/>
-		<groupbox name="skill" margin="8 145 0 0" rect="0 0 480 780" hittestbox="false" skin="none" layout_gravity="left top" parent="Itembox2"/>
-		<groupbox name="tp" margin="8 145 0 0" rect="0 0 480 780" hittestbox="false" skin="none" layout_gravity="left top" parent="Itembox3"/>
-		<groupbox name="stat_respect" margin="0 0 16 80" rect="0 0 250 30" hittestbox="false" skin="test_weight_skin" layout_gravity="right bottom" parent="Itembox1" draw="false"/>
-		<groupbox name="skill_respect" margin="0 0 16 80" rect="0 0 250 30" hittestbox="false" skin="test_weight_skin" layout_gravity="right bottom" parent="Itembox2" draw="false"/>
+		<groupbox name="stat" margin="8 145 0 0" rect="0 0 480 780" hittestbox="false" skin="none" layout_gravity="left top"/>
+		<groupbox name="skill" margin="8 145 0 0" rect="0 0 480 780" hittestbox="false" skin="none" layout_gravity="left top"/>
+		<groupbox name="tp" margin="8 145 0 0" rect="0 0 480 780" hittestbox="false" skin="none" layout_gravity="left top" />
+		<groupbox name="stat_respect" margin="0 0 16 80" rect="0 0 250 30" hittestbox="false" skin="test_weight_skin" layout_gravity="right bottom" draw="false"/>
+		<groupbox name="skill_respect" margin="0 0 16 80" rect="0 0 250 30" hittestbox="false" skin="test_weight_skin" layout_gravity="right bottom" draw="false"/>
 		<groupbox name="menu" margin="10 110 0 0" rect="0 0 480 40" hittestbox="false" skin="market_listbase" layout_gravity="left top"/>
 		<richtext name="richtext_1" margin="10 10 0 0" rect="0 0 120 24" caption="{@st45tw2}항목{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="menu"/>
 		<richtext name="richtext_2" margin="170 10 0 0" rect="0 0 120 24" caption="{@st45tw2}변동값{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="menu"/>

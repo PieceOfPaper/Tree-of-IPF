@@ -33,9 +33,8 @@ function ROLLBACK_MACRO_LIST(frame)
 end
 
 function SAVE_MACRO_LIST(frame)
-
 	local gbox = frame:GetChild('macroGroupbox');
-
+	
 	SAVE_CHAT_MACRO(gbox, 1);
 end
 
@@ -245,17 +244,36 @@ function LOAD_SESSION_CHAT_MACRO(frame)
 end
 
 function SAVE_CHAT_MACRO(macroGbox, isclose)   
+	local badWordText = nil;
+	local badWordIndex = 0;
+
+	-- Check BadWord
 	for i = 1 , MAX_MACRO_CNT do
 		local ctrl = macroGbox:GetChild("CHAT_MACRO_" .. i);
 		local text = ctrl:GetText();
         local badword = IsBadString(text);
 	    if badword ~= nil then
-		    ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word',badword, "None", "None"));
-		    return
+	    	badWordText = text;
+			badWordIndex = i;
+		else
+			local slot = macroGbox:GetChild("CHAT_MACRO_SLOT_" .. i);		
+			local poseID = tonumber( slot:GetUserValue('POSEID') );
+			packet.ReqSaveChatMacro(i, poseID, text);
 	    end        
-		local slot = macroGbox:GetChild("CHAT_MACRO_SLOT_" .. i);		
+	end
+
+	-- Check ConvertBadWord
+	if badWordText ~= nil then
+		local isConvertBadWord = ConvertBadWord(badWordText);
+		if isConvertBadWord == 1 then
+			local badword = IsBadString(badWordText);
+			ui.MsgBox(ScpArgMsg('{Word}_FobiddenWord','Word', badword, "None", "None"));
+			return;				
+		end
+
+		local slot = macroGbox:GetChild("CHAT_MACRO_SLOT_" .. badWordIndex);		
 		local poseID = tonumber( slot:GetUserValue('POSEID') );
-		packet.ReqSaveChatMacro(i, poseID, text);
+		packet.ReqSaveChatMacro(badWordIndex, poseID, badWordText);
 	end
 
 	if isclose == 1 then

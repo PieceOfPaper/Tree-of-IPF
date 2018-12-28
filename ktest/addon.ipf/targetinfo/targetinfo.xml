@@ -34,7 +34,7 @@
 		<controlset name="eliteRace" type="monsterRaceSet" rect="0 0 60 70" parent="eliteGaugeBox" margin="13 2 0 0" layout_gravity="left center"/>
 		<picture name="elite_attribute_img" rect="0 0 35 35" parent="eliteGaugeBox" margin="57 -20 0 0" layout_gravity="left center" image="attribute_fire"/>
 		<!-- Common -->
-		<richtext name="name" rect="0 0 300 30" parent="nameimage" margin="-7 30 0 0" layout_gravity="center center" format="{@st41}%sLv.%s %s{/}{/}" param1="color" param1_def="{#FFFFFF}" param2="lv" param2_def="1" param3="name" param3_def="몬스터"/>
+		<richtext name="name" rect="0 0 300 30" margin="-7 30 0 0" layout_gravity="center center" format="{@st41}%sLv.%s %s{/}{/}" param1="color" param1_def="{#FFFFFF}" param2="lv" param2_def="1" param3="name" param3_def="몬스터"/>
 		<richtext name="hpText" rect="0 0 200 40" margin="0 1 0 0" layout_gravity="center center" caption="" fontname="white_16_ol"/>
 	</controls>
 </uiframe>

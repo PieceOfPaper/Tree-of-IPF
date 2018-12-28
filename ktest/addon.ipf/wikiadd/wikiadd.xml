@@ -11,6 +11,6 @@
 	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
 	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
 	<controls>
-		<richtext name="pickitemtext" parent="pickitem" rect="0 0 290 60" layout_gravity="center center" fixwidth="true" hittest="false" resizebytext="false" textalign="center top" updateparent="true"/>
+		<richtext name="pickitemtext" rect="0 0 290 60" layout_gravity="center center" fixwidth="true" hittest="false" resizebytext="false" textalign="center top" updateparent="true"/>
 	</controls>
 </uiframe>

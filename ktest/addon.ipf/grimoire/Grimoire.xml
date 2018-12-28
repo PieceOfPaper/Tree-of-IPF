@@ -38,7 +38,7 @@
         <richtext name="desc_cri" parent="descriptGbox" rect="0 0 250 95" margin="10 400 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="정신"/>
         <richtext name="my_card" parent="descriptGbox" rect="0 0 250 95" margin="190 40 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="actorcard" textalign="right center"/>
         <richtext name="my_assist_card" parent="descriptGbox" rect="0 0 250 95" margin="190 68 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="actorassistcard" textalign="right center"/>
-        <richtext name="my_hp" parent="descriptGbox" rect="0 0 250 95" margin="190 95 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
+        <richtext name="my_hp" parent="descriptGbox" rect="0 0 250 95" margin="190 95 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
         <richtext name="my_attack" parent="descriptGbox" rect="0 0 250 95" margin="190 125 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
         <richtext name="my_Mattack" parent="descriptGbox" rect="0 0 250 95" margin="190 155 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>
         <richtext name="my_defen" parent="descriptGbox" rect="0 0 250 95" margin="190 185 0 0" layout_gravity="left top" fixwidth="true" fontname="brown_18" format="{#FFFFFF}{ol}%s" param1="value" textalign="right center"/>

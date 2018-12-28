@@ -16,7 +16,7 @@
 		<picture name="line" rect="0 0 330 23" margin="-12 149 0 0" layout_gravity="center top" image="colonyline" stretch="true"/>
 		<button name="expandBtn" rect="0 0 60 20" margin="-10 163 0 0" layout_gravity="center top" image="colonyopen_btn" stretch="true" LBtnUpScp="COLONY_POINT_INFO_EXPAND_CLICK"clicksound="button_click_big" oversound="button_over"/>
 		<!-- Expand -->
-		<groupbox name="infoBox" rect="0 0 331 366" margin="0 164 0 0" layout_gravity="cneter top" draw="false"/>
+		<groupbox name="infoBox" rect="0 0 331 366" margin="0 164 0 0" layout_gravity="left top" draw="false"/>
 		<groupbox name="bgBox" rect="0 0 328 344" parent="infoBox" margin="3 0 0 0" layout_gravity="left top" draw="false" image="colony_chartbg"/>
 		<tab name="statusTab" rect="0 0 280 40" layout_gravity="left top" parent="bgBox" LBtnDownScp="COLONY_POINT_INFO_TAB_LBTN_UP" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="colony_tab" margin="13 3 0 0"/>
 		<tabitem name="Itembox1" parent="statusTab" caption="{s6} {nl}{/}{@st41d}{img colony_point_pic 24 24}포인트 현황{nl}{/}" width="140" layout_gravity="left top"/>

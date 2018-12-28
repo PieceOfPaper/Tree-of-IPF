@@ -23,9 +23,9 @@
         <richtext name="boardText" parent="bgGbox" rect="10 10 100 30" margin="10 10 0 0" layout_gravity="left top" caption="{@st41}게시판{/}" fontname="default" spacey="0"/>
         <richtext name="tradeText" parent="bgGbox" rect="10 170 100 30" margin="10 170 0 0" layout_gravity="left top" caption="{@st41}거래{/}" fontname="default" spacey="0"/>
         <richtext name="societyText" parent="bgGbox" rect="10 330 100 30" margin="10 330 0 0" layout_gravity="left top" caption="{@st41}사회기능{/}" fontname="default" spacey="0"/>
-        <labelbox name="boardLine" parent="bgGbox" rect="10 150 500 20" margin="10 150 10 0" layout_gravity="none top" skin="mypage_bar" visible="true"/>
-        <labelbox name="tradeLine" parent="bgGbox" rect="10 310 500 20" margin="10 310 10 0" layout_gravity="none top" skin="mypage_bar" visible="true"/>
-        <labelbox name="societyLine" parent="bgGbox" rect="10 470 500 20" margin="10 470 10 0" layout_gravity="none top" skin="mypage_bar" visible="true"/>
+        <labelbox name="boardLine" parent="bgGbox" rect="10 150 500 20" margin="10 150 10 0" layout_gravity="left top" skin="mypage_bar" visible="true"/>
+        <labelbox name="tradeLine" parent="bgGbox" rect="10 310 500 20" margin="10 310 10 0" layout_gravity="left top" skin="mypage_bar" visible="true"/>
+        <labelbox name="societyLine" parent="bgGbox" rect="10 470 500 20" margin="10 470 10 0" layout_gravity="left top" skin="mypage_bar" visible="true"/>
         <!--  MyPage     -->
         <groupbox name="mypageGbox" rect="35 105 520 940" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
         <groupbox name="commentGbox" parent="mypageGbox" rect="5 150 500 615" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>

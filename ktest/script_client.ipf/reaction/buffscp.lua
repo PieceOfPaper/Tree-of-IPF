@@ -1185,6 +1185,9 @@ function DaggerGuard_LEAVE(actor, obj, buff)
 end
 
 function WING_GUILTY_FAIRY_BUFF_ENTER(actor, obj, buff)
+end
+
+function WING_GUILTY_FAIRY_BUFF_UPDATE(actor, obj, buff)
 	SCR_CREATE_FAIRY(actor:GetHandleVal(), "guilty");
 end
 

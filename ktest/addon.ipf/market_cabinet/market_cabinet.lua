@@ -5,7 +5,6 @@ end
 
 function MARKET_CABINET_OPEN(frame)
 	market.ReqCabinetList();
-    ForceRemoveLuaTimerFunc("CABINET_GET_ITEM")    
 end
 
 function SHOW_REMAIN_NEXT_TIME_GET_CABINET(ctrl)
@@ -201,36 +200,27 @@ function CABINET_GET_ALL_ITEM(parent, ctrl)
 end
 
 function CABINET_GET_ITEM()
-	local cabinetItem = session.market.GetCabinetItemByIndex(0);    
+    local moneyItem = GetClass('Item', MONEY_NAME);
+	local count = session.market.GetCabinetItemCount();
+
+    local sysTime = geTime.GetServerSystemTime();		
+
+	local cabinetItem = session.market.GetCabinetItemByIndex(0);
 	if cabinetItem ~= nil then
-        local sysTime = geTime.GetServerSystemTime();
 		local registerTime = cabinetItem:GetRegSysTime();
 		local difSec = imcTime.GetDifSec(registerTime, sysTime);
 
 		if cabinetItem:GetWhereFrom() ~= 'market_sell' or 0 >= difSec then
 			market.ReqGetCabinetItem(cabinetItem:GetItemID());
-            local count = session.market.GetCabinetItemCount()
-            if count ~= 0 then
-                RunScript('redo_cabinet_get_item')
-            end        
-		end        
+		end
 	end
 end
 
-function redo_cabinet_get_item()
-    ForceRemoveLuaTimerFunc("CABINET_GET_ITEM")
-    AddLuaTimerFunc("CABINET_GET_ITEM", 200, 0)
-end
-
-function stop_running_script_cabinet()
-    ForceRemoveLuaTimerFunc("CABINET_GET_ITEM")
-end
-
 function CABINET_GET_ALL_LIST(frame, control, strarg, now)
-    --market cabient 완료 (모두받기)	
-	AddLuaTimerFunc("CABINET_GET_ITEM", 200, 0)
-    ForceRemoveLuaTimerFunc('stop_running_script_cabinet')
-    AddLuaTimerFunc('stop_running_script_cabinet', 30000, 0)
+    --market cabient 완료 (모두받기)
+	local count = session.market.GetCabinetItemCount();
+	AddLuaTimerFuncWithLimitCount("CABINET_GET_ITEM", 200, count * 5);
+
 	local frame = ui.GetFrame("market_cabinet_soldlist")
 	if frame ~= nil then
 		ui.CloseFrame("market_cabinet_soldlist")

@@ -1438,6 +1438,10 @@ function SCR_GET_ITEM_COOLDOWN(item)
   return item.ItemCoolDown;
 end
 
+function SCR_GET_HASTE_COOLDOWN(item)
+  return item.ItemCoolDown;
+end
+
 function SCR_GET_STA_COOLDOWN(item)
   return item.ItemCoolDown;
 end
@@ -1488,7 +1492,7 @@ function SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
     if owner ~= nil then
         local iscolonyzone = IsJoinColonyWarMap(owner)
         if iscolonyzone == 1 then
-            local list, cnt = SCR_GUILD_COLONY_RESTRICTION_CHECK(owner, "GuildColony_Restricted_Item_CoolDown")
+            local list, cnt = SCR_GUILD_COLONY_RESTRICTION_CHECK_CLIENT(owner, "GuildColony_Restricted_Item_CoolDown")
             local coolTime = 0
             for i = 1, cnt do
                 if table.find(list[i], coolDownGroup) > 0 then
