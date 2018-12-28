@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -42,7 +42,7 @@
 		<Class ClassID="38" ClassName="FailToGetAuthCode" Data="Session Code 획득에 실패하였습니다. 다시 로그인을 시도해 주세요."/>
 		<Class ClassID="39" ClassName="OutOfVideoMemory" Data="Direct3D 가 처리를 실시하는데 충분한 디스플레이 메모리가 없습니다."/>
 		<Class ClassID="40" ClassName="ServerListToolTip" Data="{@st59}접속을 원하는 서버를 선택하여 주세요."/>
-    <Class ClassID="41" ClassName="InsufficientMemory" Data="메모리가 부족합니다."/>
+		<Class ClassID="41" ClassName="InsufficientMemory" Data="메모리가 부족합니다."/>
 		<Class ClassID="42" ClassName="SyncErrorPlzReLoadCommander" Data="데이터 응답을 받지 못했습니다. 해당 기능 이용을 위해서는 채널 이동 또는 캐릭터 선택이 필요합니다."/>
 	</Category>
 	<Category Name="ChatMsg">
@@ -1491,7 +1491,7 @@
 		<Class ClassID="21326" ClassName="UI_Hour" Data="시간"/>
 		<Class ClassID="21327" ClassName="UI_Min" Data="분"/>
 		<Class ClassID="21328" ClassName="UI_Sec" Data="초"/>
-		</Category>
+	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
 		<Class ClassID="22002" ClassName="FrontShot!" Data="전방 사격!"/>
@@ -1526,7 +1526,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
-		</Category>
+	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -8551,7 +8551,7 @@
 		<Class ClassID="102416" ClassName="ReallyWarpGuildMember" Data="[{NAME}] 길드원에게 이동하시겠습니까?"/>
 		<Class ClassID="102417" ClassName="ReallyChangeLeader" Data="[{NAME}] 님에게 길드를 양도합니다. 길드 양도 후에는 직급이 변경되므로 신중히 선택해주시기 바랍니다. {nl} 계속 하시겠습니까?"/>
 		<Class ClassID="102418" ClassName="DecreaseCraftTime" Data="제작시간 감소"/>
-    <Class ClassID="102419" ClassName="CantJoinGuildUntilDaysBefore{Number2}Days{Time}" Data="길드 탈퇴 후 {Number2}일 이내에 타 길드에 가입이 불가능 합니다.{nl}가입 가능일 : {Time} 이후"/>    
+		<Class ClassID="102419" ClassName="CantJoinGuildUntilDaysBefore{Number2}Days{Time}" Data="길드 탈퇴 후 {Number2}일 이내에 타 길드에 가입이 불가능 합니다.{nl}가입 가능일 : {Time} 이후"/>
 	</Category>
 	<Category Name="EqupClasses">
 		<Class ClassID="103001" ClassName="THSword" Data="양손검"/>
@@ -9106,11 +9106,12 @@
 		<Class ClassID="119010" ClassName="CollectionMagicText" Data="효과"/>
 		<Class ClassID="119011" ClassName="AlignDefault" Data="기본"/>
 		<Class ClassID="119012" ClassName="AlignName" Data="이름 순"/>
-		<Class ClassID="119013" ClassName="COLLECT_REWARD_ITEM_NEXT_PAGE" Data="다음 컬렉션 보상 목록을 본다"/>
-		<Class ClassID="119014" ClassName="COLLECT_REWARD_END" Data="보상 목록을 닫는다"/>
-		<Class ClassID="119015" ClassName="COLLECT_FAIL_MSG1" Data="콜로니전 지역에서는 사용하실 수 없습니다"/>
-		<Class ClassID="119016" ClassName="COLLECT_FAIL_MSG2" Data="슬리비나스 레어에서는 사용하실 수 없습니다"/>
-		<Class ClassID="119017" ClassName="COLLECT_FAIL_MSG3" Data="인스턴스 지역에서는 사용하실 수 없습니다"/>
+		<Class ClassID="119013" ClassName="AlignStatus" Data="상태 순"/>
+		<Class ClassID="119014" ClassName="COLLECT_REWARD_ITEM_NEXT_PAGE" Data="다음 컬렉션 보상 목록을 본다"/>
+		<Class ClassID="119015" ClassName="COLLECT_REWARD_END" Data="보상 목록을 닫는다"/>
+		<Class ClassID="119016" ClassName="COLLECT_FAIL_MSG1" Data="콜로니전 지역에서는 사용하실 수 없습니다"/>
+		<Class ClassID="119017" ClassName="COLLECT_FAIL_MSG2" Data="슬리비나스 레어에서는 사용하실 수 없습니다"/>
+		<Class ClassID="119018" ClassName="COLLECT_FAIL_MSG3" Data="인스턴스 지역에서는 사용하실 수 없습니다"/>
 	</Category>
 	<Category Name="Wiki">
 		<Class ClassID="120001" ClassName="From{Auto_1}_Get_{Auto_2}_Count" Data="{Auto_1}로부터 {Auto_2}개 획득"/>
@@ -9291,7 +9292,7 @@
 		<Class ClassID="130001" ClassName="ClickToSharedQuestWithParty" Data="{@st59}버튼을 클릭하면 파티원에게 노출합니다."/>
 		<Class ClassID="130002" ClassName="ThisQuestIsSharedToParty" Data="{@st59}파티원에게 현재 노출되는 퀘스트입니다."/>
 		<Class ClassID="130003" ClassName="QuestOf{Name}" Data="{Name}의 퀘스트"/>
-		</Category>
+	</Category>
 	<Category Name="WorldPVP">
 		<Class ClassID="131001" ClassName="PVP_State_None" Data="참여"/>
 		<Class ClassID="131002" ClassName="PVP_State_Finding" Data="검색 중..."/>
@@ -9480,7 +9481,7 @@
 		<Class ClassID="134052" ClassName="AlreadyReportedBadPlayer" Data="이미 신고를 받은 캐릭터입니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="134053" ClassName="AlreadOpenRegisterIndunUI" Data="인던 신청 UI가 열려 있는 상태에선 신청할 수 없습니다. 문제가 지속된다면 재접속을 해보시기 바랍니다."/>
 		<Class ClassID="134054" ClassName="IndunInfoLoadFail" Data="인던 정보를 얻어오는데 실패했습니다. 문제가 지속된다면 재접속을 해보시기 바랍니다."/>
-		</Category>
+	</Category>
 	<Category Name="AchieveReward">
 		<Class ClassID="135001" ClassName="GainAchieveHairBefore" Data="이미 업적 보상을 받았습니다."/>
 		<Class ClassID="135002" ClassName="GainAchieveHairBlack" Data="하나밍 박멸! 업적 보상을 받았습니다."/>
@@ -11998,7 +11999,7 @@
 		<Class ClassID="201065" ClassName="ChatFrameType" Data="채팅 탭 전환"/>
 		<Class ClassID="201066" ClassName="FishingBag" Data="살림통"/>
 		<Class ClassID="201067" ClassName="guildinfo" Data="길드 정보"/>
-		</Category>
+	</Category>
 	<Category Name="QuestAutoTool">
 		<Class ClassID="202001" Data="퀘스트 툴 파일 복사"/>
 		<Class ClassID="202002" Data="사냥 시 퀘스트 시작 아이템"/>
@@ -12593,8 +12594,8 @@
 		<Class ClassID="501016" ClassName="ManWoo_1" Data="컴패니언 탑승 상태에서 사용할 수 없습니다."/>
 		<Class ClassID="501017" ClassName="ManWoo_2" Data="만우절 아이템 받기"/>
 		<Class ClassID="501072" ClassName="Event_Nru2_Guide_2" Data="장비 선택"/>
-		</Category>
-		<Category Name="Npc_Equip_Shop_270_315">
+	</Category>
+	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
 		<Class ClassID="501065" ClassName="Event_GOLDEN_WHALE_1" Data="황금 석화 고래 이벤트"/>
@@ -12629,7 +12630,7 @@
 		<Class ClassID="501178" ClassName="EVENT_1806_PENALTY_MSG6" Data="승부의 신"/>
 		<Class ClassID="501179" ClassName="EVENT_1806_PENALTY_MSG7" Data="승부의 신 종료"/>
 		<Class ClassID="501180" ClassName="EVENT_1806_PENALTY_MSG8" Data="승부의 신 랭킹"/>
-		</Category>
+	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
 		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>
@@ -12759,7 +12760,7 @@
 		<Class ClassID="700015" ClassName="TopRanking" Data="상위 랭킹"/>
 		<Class ClassID="700016" ClassName="{CtrlType}Type" Data="{CtrlType}"/>
 		<Class ClassID="700017" ClassName="Score" Data="점수"/>
-		</Category>
+	</Category>
 	<Category Name="LegendTrade">
 		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
@@ -12901,7 +12902,8 @@
 		<Class ClassID="801133" ClassName="Guild_Colony_End_WorldMessage_8_Beta2" Data="길드 콜로니전 Beta 2차가 모두 종료되었습니다. 참여하여 주신 모든 분들께 감사의 인사를 드립니다."/>
 		<Class ClassID="801134" ClassName="Guild_Colony_End_WorldMessage_9_Beta2" Data="더 나아진 모습으로 찾아뵙겠습니다. 감사합니다."/>
 		<Class ClassID="801135" ClassName="CannotSeatSiegeTowerByBuff" Data="[{buffName}] 버프가 적용중인 상태에서는 공성탑에 탑승할 수 없습니다"/>
-		<Class ClassID="801136" ClassName="NoOccupyingGuildThisLocation" Data="현재 해당 지역을 점령중인 길드가 없습니다."/>		<Class ClassID="801137" ClassName="GUILD_COLONY_MSG_ENTER_FAIL5{day}{time}" Data="길드 탈퇴 후 {day}일 동안은 콜로니전에 참가할 수 없습니다.{nl}(참가 가능일 : {time} 이후)"/>
+		<Class ClassID="801136" ClassName="NoOccupyingGuildThisLocation" Data="현재 해당 지역을 점령중인 길드가 없습니다."/>
+		<Class ClassID="801137" ClassName="GUILD_COLONY_MSG_ENTER_FAIL5{day}{time}" Data="길드 탈퇴 후 {day}일 동안은 콜로니전에 참가할 수 없습니다.{nl}(참가 가능일 : {time} 이후)"/>
 		<Class ClassID="801138" ClassName="GUILD_COLONY_ENTER_REMAIN_TIME{day}{hour}{min}{sec}" Data="{day}일 {hour}시간 {min}분 {sec}초"/>
 	</Category>
 	<Category Name="ColonyTax">
@@ -12939,11 +12941,9 @@
 		<Class ClassID="810031" ClassName="ColonyTax_Payment_Received{Silver}" Data="{Silver} 실버를 수령했습니다"/>
 		<Class ClassID="810032" ClassName="ColonyTax_ColumnMapGrade" Data="지역 등급"/>
 		<Class ClassID="810033" ClassName="ColonyTax_ColumnColonyCity" Data="세율 적용 도시{img tip_questionmark 20 20}"/>
-		
-<Class ClassID="810034" ClassName="ColonyTax_InfoMapGrade" Data="ⓘ 지역 등급은 지역 레벨로 구분되며 등급에 따라 점령 보상이 차등 지급됩니다. (B등급 : 지역 Lv1~99, A등급 : 지역 Lv100~199, S등급 : 지역 Lv200 이상"/>
+		<Class ClassID="810034" ClassName="ColonyTax_InfoMapGrade" Data="{#ff0000}ⓘ 현재 세율 시스템 기능이 중지되어 있습니다. 자세한 내용은 홈페이지를 참고 바랍니다."/>
 		<Class ClassID="810035" ClassName="ColonyTax_InfoColonyCity" Data="ⓘ 점령 길드는 점령 혜택 버튼을 통해 도시의 세율 조정 및 세금 징수가 가능합니다 {nl}ⓘ 점령 혜택의 자세한 내용은 홈페이지를 통해 확인 바랍니다."/>
-
-</Category>
+	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>
 		<Class ClassID="900001" ClassName="NXABillingPurchaseFailed" Data="Purchase Failed"/>
@@ -13035,6 +13035,7 @@
 		<Class ClassID="1002044" ClassName="BEAUTY_SHOP_FASHION_4" Data="테마 상품 입어보기"/>
 		<Class ClassID="1002045" ClassName="NotBuy_Thema" Data="해당 상품은 개별 구매가 불가능하며,{nl}{@st66d_y}여신의 큐브에서 {nl}확률적으로 획득할 수 있는 아이템입니다.{/}"/>
 		<Class ClassID="1002046" ClassName="NotBuy_Thema2" Data="해당 상품은 개별 구매가 불가능하며,{nl}{@st66d_y}마신의 큐브에서 {nl}확률적으로 획득할 수 있는 아이템입니다.{/}"/>
+		<Class ClassID="1002047" ClassName="SCT" Data="스카우트"/>
 	</Category>
 	<Category Name="WebService">
 		<Class ClassID="1999998" ClassName="WebService_" Data="서버에 접속이 원활하지 않습니다."/>

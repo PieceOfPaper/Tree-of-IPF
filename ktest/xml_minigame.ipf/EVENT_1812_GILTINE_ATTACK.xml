@@ -339,7 +339,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event eventName="msg2">
+                    <Event execCount="1" eventName="msg2">
                         <condList>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Play/5/Play/15/Play/0/Play/10/Play/11/Play/6/Play/16/Play/1/Play/2/Play/7/Play/17/Play/12/Play/13/Play/8/Play/18/Play/3/Play/4/Play/19/Play/9/Play/14/Play/20"/>

@@ -1469,7 +1469,7 @@ local function CHECK_INVENTORY_OPTION_ETC(itemCls)
 	end
 
 	local itemCategory = itemCls.MarketCategory
-	local optionConfig = 1
+	local optionConfig = 0
 	if itemCategory == "Misc_Usual" then
 		optionConfig = config.GetXMLConfig("InvOption_Etc_Usual")
 	elseif itemCategory == "Misc_Quest" then
@@ -1960,6 +1960,7 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 		local pc = GetMyPCObject();
 		local warpFrame = ui.GetFrame('worldmap');
 		warpFrame:SetUserValue('SCROLL_WARP', itemobj.ClassName)
+        warpFrame:SetUserValue('SCROLL_WARP_IESID', tostring(invitem:GetIESID()))        
 		warpFrame:ShowWindow(1);
 		return 1;
 	end

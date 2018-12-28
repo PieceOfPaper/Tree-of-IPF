@@ -14,6 +14,7 @@ function NICO_CHAT(msg)
 	local spd = -IMCRandom(150, 200);
 
 	local frame = ui.GetFrame("uieffect");
+	change_client_size(frame)
 	local name = UI_EFFECT_GET_NAME(frame, "NICO_");
 	local ctrl = frame:CreateControl("richtext", name, x, y, 200, 20);
 	

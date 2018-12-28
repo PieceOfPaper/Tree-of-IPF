@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2681,6 +2681,18 @@
 		<image name="icon_item_winter_staff" file="\icon\weapon\icon_item_winter_staff.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_winter_sword" file="\icon\weapon\icon_item_winter_sword.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_winter_thsword" file="\icon\weapon\icon_item_winter_thsword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_thbow" file="\icon\weapon\icon_item_bushyCat_thbow.png" imgrect="0 0 256 256" CMM_Caption="2019 1테마 무기"/>
+		<image name="icon_item_bushyCat_dagger" file="\icon\weapon\icon_item_bushyCat_dagger.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_mace" file="\icon\weapon\icon_item_bushyCat_mace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_thmace" file="\icon\weapon\icon_item_bushyCat_thmace.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_rapier" file="\icon\weapon\icon_item_bushyCat_rapier.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_rod" file="\icon\weapon\icon_item_bushyCat_rod.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_shield" file="\icon\weapon\icon_item_bushyCat_shield.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_spear" file="\icon\weapon\icon_item_bushyCat_spear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_thspear" file="\icon\weapon\icon_item_bushyCat_thspear.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_staff" file="\icon\weapon\icon_item_bushyCat_staff.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_sword" file="\icon\weapon\icon_item_bushyCat_sword.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bushyCat_thsword" file="\icon\weapon\icon_item_bushyCat_thsword.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -5823,6 +5835,24 @@
 		<image name="icon_item_carving_Core" file="\icon\payment\icon_item_carving_Core.png" imgrect="0 0 256 256" CMM_Caption="무기 외형변환 초기화 아이템"/>
 		<image name="icon_item_bluenight_red_m" file="\icon\payment\icon_item_bluenight_red_m.png" imgrect="0 0 256 256" CMM_Caption="2019년 1분기 PC방 코스튬"/>
 		<image name="icon_item_bluenight_red_f" file="\icon\payment\icon_item_bluenight_red_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_helmet_gold_pig" file="\icon\payment\icon_item_helmet_gold_pig.png" imgrect="0 0 256 256" CMM_Caption="2018 1월 테마 코스튬"/>
+		<image name="icon_item_goldpig_uniform_f" file="\icon\payment\icon_item_goldpig_uniform.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_goldpig_uniform_m" file="\icon\payment\icon_item_goldpig_uniform.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_black_f" file="\icon\payment\icon_item_sweat_suit_black_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_black_m" file="\icon\payment\icon_item_sweat_suit_black_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_blue_f" file="\icon\payment\icon_item_sweat_suit_blue_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_blue_m" file="\icon\payment\icon_item_sweat_suit_blue_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_gray_f" file="\icon\payment\icon_item_sweat_suit_gray_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_gray_m" file="\icon\payment\icon_item_sweat_suit_gray_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_green_f" file="\icon\payment\icon_item_sweat_suit_green_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_green_m" file="\icon\payment\icon_item_sweat_suit_green_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_purple_f" file="\icon\payment\icon_item_sweat_suit_purple_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_purple_m" file="\icon\payment\icon_item_sweat_suit_purple_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_red_f" file="\icon\payment\icon_item_sweat_suit_red_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_red_m" file="\icon\payment\icon_item_sweat_suit_red_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_yellow_f" file="\icon\payment\icon_item_sweat_suit_yellow_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_sweat_suit_yellow_m" file="\icon\payment\icon_item_sweat_suit_yellow_m.png" imgrect="0 0 256 256"/>
+		<image name="item_icon_gold_pig" file="\icon\payment\item_icon_gold_pig.png" imgrect="0 0 256 256" CMM_Caption="2018 1월 테마 황금돼지 컴페니언"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

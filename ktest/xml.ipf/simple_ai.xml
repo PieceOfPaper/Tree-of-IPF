@@ -953,7 +953,7 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="ASIOMAGE_THBOW_RABBIT_SIMPLE_AI" ActiveMessageMapInBattle="1" UpdateMS="1000" >
+	<AI Name="ASIOMAGE_THBOW_RABBIT_SIMPLE_AI" ActiveMessageMapInBattle="1" UpdateMS="1000">
 		<List>
 			<ToolScp Scp="S_AI_CUSTOM_SCRIPT" Client="NO" UseSleep="YES">
 				<Str Str="SCR_ASIOMAGE_THBOW_RABBIT_SIMPLE_AI"/>
@@ -21809,6 +21809,13 @@ if self.HP == 0 then return 1; else return 0; end;">
 		</List>
 	</AI>
 	<AI Name="companion_Piggy_baby" ActiveMessageMapInBattle="1">
+		<List>
+			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
+				<Str Str="PET_LOOP_AI"/>
+			</ToolScp>
+		</List>
+	</AI>
+	<AI Name="companion_Pet_gold_pig" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC2_DIRECT_SLEEP" Client="NO" UseSleep="YES">
 				<Str Str="PET_LOOP_AI"/>
