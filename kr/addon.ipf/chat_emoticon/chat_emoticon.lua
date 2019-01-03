@@ -101,9 +101,11 @@ function CHAT_ADD_EMOTICON(imageName)
 		
 	local left = editCtrl:GetCursurLeftText();
 	local right = editCtrl:GetCursurRightText();
-
+	--이 함수 들어오는 시점에서 이미 스페이스키를 클릭한 상태이므로 추가해줌
+	right = right .. " ";
 	local resultText = string.format("%s%s%s", left, imgtag, right);
 	SET_CHAT_TEXT(resultText);
+	editCtrl:SetCursorPos(#resultText)
 end
 
 function CHAT_CHECK_EMOTICON(szIconTokken, imageName)

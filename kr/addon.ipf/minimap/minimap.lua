@@ -12,7 +12,7 @@ end
 
 MAX_MINIMAP_RATE = 160;
 MIN_MINIMAP_RATE = -80;
-
+local ___cursize=0;
 function SET_MINIMAP_SIZE(amplify)
 
 	local cursize = GET_MINIMAPSIZE();
@@ -28,9 +28,7 @@ function SET_MINIMAP_SIZE(amplify)
 			return;
 		end
 	end
-
-	SET_MINIMAPSIZE(cursize);
-
+	___cursize = cursize;
 	local frame = ui.GetFrame('minimap');
 	REQUEST_UPDATE_MINIMAP(frame);
 
@@ -134,6 +132,7 @@ function UPDATE_MINIMAP(frame)
 	end
 
 	local mylevel = info.GetLevel(session.GetMyHandle());
+	SET_MINIMAPSIZE(___cursize);
 
 	local cursize = GET_MINIMAPSIZE();
 	local zoominfo = frame:GetChild("ZOOM_INFO");

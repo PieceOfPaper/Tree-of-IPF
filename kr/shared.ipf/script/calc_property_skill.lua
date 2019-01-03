@@ -2064,13 +2064,15 @@ function SCR_GET_SummonGuildMember_Ratio(skill)
 end
 
 function SCR_GET_BattleOrders_Ratio(skill)
-    local value = skill.Level * 2
+    local value = skill.Level * 1.5
+    local addValue = skill.Level * 1.5
+    value = value + addValue
     
     return value
 end
 
 function SCR_GET_BattleOrders_Ratio2(skill)
-    local value = skill.Level
+    local value = skill.Level * 1.5
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value
 end
@@ -11310,4 +11312,12 @@ function SCR_GET_SKL_COOLDOWN_Preparation(skill)
     value = value - (skill.Level * 1000);
     
     return value
+end
+
+
+function SCR_GET_LightningCharm_Ratio(skill)
+	local value = 50
+	value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
+	
+	return value
 end

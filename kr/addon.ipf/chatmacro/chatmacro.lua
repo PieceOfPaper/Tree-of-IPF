@@ -370,6 +370,8 @@ function CHATMACRO_TYPE_MACRO(parent, ctrl)
 
 	local replaceTargetText = iconToken..' ';	
 	local toText = string.format('{img %s 30 30}', imageClass.ClassName);			
-	text = string.gsub(text, replaceTargetText, toText);	
+	text = string.gsub(text, replaceTargetText, toText);
+		--이 함수 들어오는 시점에서 이미 스페이스키를 클릭한 상태이므로 추가해줌
+	text = text .. " "; 	
 	ctrl:SetText(text);
 end

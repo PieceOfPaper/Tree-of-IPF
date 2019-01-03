@@ -943,7 +943,7 @@
 			<richtext name="partymembercount" layout_gravity="right top" hittest="false" visible="true" rect="0 0 50 20" margin="0 5 5 0" textalign="left top" caption="{@st60}1"/>
 		</controls>
 	</controlset>
-	<controlset name="chatTextVer" toggle="false" hittest="true" width="450" height="26" skin="chat_window_2" stateskin="false">
+	<controlset name="chatTextVer" toggle="false" hittest="true" width="450" height="26" skin="chat_window_2" stateskin="false" draw="false">
 		<controls>
 			<labelbox name="bg" layout_gravity="left top" rect="0 0 420 26" skin="chat_window_2" margin="0 0 0 0"/>
 			<richtext name="text" layout_gravity="left top" useorifacerect="true" visible="true" rect="0 0 440 24" margin="0 0 0 0" resizebytext="true" maxwidth="440" fixwidth="false" textalign="left top" splitbyspace="false" format="{/}%s{s%s}%s{/}" param1="font" param1_def="{#FFFFFF}" param2="size" param2_def="16" param3="text" param3_def="AAA"/>
