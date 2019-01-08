@@ -79,7 +79,7 @@ function CREATE_TARGET_ITEM_SLOT_COMPONENT(parent, name, prop)
             if iconinfo == nil then
                 return nil, nil;
             end
-            local invItem = session.GetInvItemByGuid(iconinfo:GetIESID());
+            local invItem = GET_PC_ITEM_BY_GUID(iconinfo:GetIESID());
             if invItem == nil then
                 return nil, nil;
             end

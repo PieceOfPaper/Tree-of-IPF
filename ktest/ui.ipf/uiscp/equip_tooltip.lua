@@ -641,8 +641,8 @@ local function _GET_SOCKET_ADD_VALUE(item, invItem, i)
 end
 
 local function _GET_ITEM_SOCKET_ADD_VALUE(targetPropName, item)
-	local invItem = GET_INV_ITEM_BY_ITEM_OBJ(item);
-	if invItem == nil then
+	local invItem, where = GET_INV_ITEM_BY_ITEM_OBJ(item);
+	if invItem == nil or (where ~= 'market' and where ~= 'cabinet') then
 		return 0;
 	end
 
@@ -712,7 +712,7 @@ function DRAW_EQUIP_ATK_N_DEF(tooltipframe, invitem, yPos, mainframename, strarg
 			typestring = ScpArgMsg("PATK_SUB")
 		end
 		reinforceaddvalue = math.floor( GET_REINFORCE_ADD_VALUE_ATK(invitem, ignoreReinf, bonusReinf + overReinf, basicProp) )
-		socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem);
+		socketaddvalue =  _GET_ITEM_SOCKET_ADD_VALUE(basicProp, invitem);		
 		arg1 = invitem.MINATK - reinforceaddvalue - socketaddvalue;
 		arg2 = invitem.MAXATK - reinforceaddvalue - socketaddvalue;
 	elseif basicProp == 'MATK' then

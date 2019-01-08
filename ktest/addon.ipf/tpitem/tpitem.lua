@@ -244,88 +244,73 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	ncChargebtn:SetVisible(1); -- 캐시 충전은 기본 활성화.
 	banner:SetVisible(1); -- 배너는 기본적으로 활성화.
 	
+	-- 국가별 처리
 	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
-		if curtabIndex == 0 then
+		if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox2") then	-- TP 구매
 			TPITEM_DRAW_NC_TP();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
 			cashInvGbox:SetVisible(1);
 			tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 			tpSubgbox:RunUpdateScript("_PROCESS_ROLLING_SPECIALGOODS",  3, 0, 1, 1);
-		elseif curtabIndex == 1 then
-			basketgbox:SetVisible(1);
-			previewgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);
-			basketBuyBtn:SetEnable(1);
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox5") then -- 계열 코스튬 교환 샵
-			costume_exchange_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			costume_exchange_toitemBtn:SetEnable(1);
-			COSTUME_EXCHANGE_SHOW_TO_ITEM()
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
-			rcycle_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			rcycle_toitemBtn:SetEnable(1);
-			RECYCLE_SHOW_TO_ITEM()
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox6") then -- 신규 유저 상점
-			banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
-			eventUserBanner:SetVisible(1);
-			eventUserRemainTimeText:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			newbie_basketgbox:SetVisible(1);
-			newbie_toitemBtn:SetEnable(1);
-			NEWBIE_SHOW_TO_ITEM()
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox7") then -- 복귀 유저 상점
-			banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
-			eventUserBanner:SetVisible(1);
-			eventUserRemainTimeText:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			returnuser_basketgbox:SetVisible(1);
-			returnuser_toitemBtn:SetEnable(1);
-			RETURNUSER_SHOW_TO_ITEM()
-		end
-
-		-- 이벤트 유저면 배너를 이벤트 유저 전용 배너로 변경
-		if session.shop.GetEventUserType() ~= eventUserType.normalUser then
-			banner:SetVisible(0)
-			eventUserBanner:SetVisible(1)
-			eventUserRemainTimeText:SetVisible(1)
 		end
 	elseif (config.GetServiceNation() == "THI") then	
-		if curtabIndex == 0 then
+		if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox2") then		-- TP 구매
 			UPDATE_NEXON_AMERICA_SELLITEMLIST();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
 			ncChargebtn:SetVisible(0);
-		elseif curtabIndex == 1 then
-			basketgbox:SetVisible(1);
-			previewgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);
-			basketBuyBtn:SetEnable(1);
+		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1") then	-- 프리미엄 샵
 			ncChargebtn:SetVisible(0);
 		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
-			rcycle_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			rcycle_toitemBtn:SetEnable(1);
 			ncChargebtn:SetVisible(0);
-			RECYCLE_SHOW_TO_ITEM()
 		end
 	else
-		if curtabIndex == 0 then
-			basketgbox:SetVisible(1);
-			previewgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);
-			basketBuyBtn:SetEnable(1);
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
-			rcycle_basketgbox:SetVisible(1);
-			previewStaticTitle:SetVisible(1);	
-			previewgbox:SetVisible(1);
-			rcycle_toitemBtn:SetEnable(1);
-			RECYCLE_SHOW_TO_ITEM()
-		end
+		-- 기본적으로 타 국가에서는 TP충전 버튼을 비활성화.
+		ncChargebtn:SetVisible(0);
+	end
+
+	-- 모든 국가 공통 적용(프리미엄, 계열 코스튬, 리사이클, 신규유저, 복귀유저)
+	if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1") then -- 프리미엄
+		basketgbox:SetVisible(1);
+		previewgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);
+		basketBuyBtn:SetEnable(1);
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox5") then -- 계열 코스튬 교환 샵
+		costume_exchange_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		costume_exchange_toitemBtn:SetEnable(1);
+		COSTUME_EXCHANGE_SHOW_TO_ITEM()
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
+		rcycle_basketgbox:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		rcycle_toitemBtn:SetEnable(1);
+		RECYCLE_SHOW_TO_ITEM()
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox6") then -- 신규 유저 상점
+		banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
+		eventUserBanner:SetVisible(1);
+		eventUserRemainTimeText:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		newbie_basketgbox:SetVisible(1);
+		newbie_toitemBtn:SetEnable(1);
+		NEWBIE_SHOW_TO_ITEM()
+	elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox7") then -- 복귀 유저 상점
+		banner:SetVisible(0); -- 기존 배너 비활성화 후 이벤트 상점 배너 활성화.
+		eventUserBanner:SetVisible(1);
+		eventUserRemainTimeText:SetVisible(1);
+		previewStaticTitle:SetVisible(1);	
+		previewgbox:SetVisible(1);
+		returnuser_basketgbox:SetVisible(1);
+		returnuser_toitemBtn:SetEnable(1);
+		RETURNUSER_SHOW_TO_ITEM()
+	end
+
+	-- 이벤트 유저면 배너를 이벤트 유저 전용 배너로 변경
+	if session.shop.GetEventUserType() ~= eventUserType.normalUser then
+		banner:SetVisible(0)
+		eventUserBanner:SetVisible(1)
+		eventUserRemainTimeText:SetVisible(1)
 	end
 end
 
@@ -484,6 +469,11 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
 		ncReflashbtn:SetOffset(ncReflashbtn:GetOriginalX()+refresh_offset_x, ncReflashbtn:GetOriginalY()+balance_offset_y)
 	else
+		-- 그외에는 TP 구매 탭을 제거한다.
+		itembox_tab:DeleteTab(itembox_tab:GetIndexByName("Itembox2"));	
+		itembox_tab:SetItemsFixWidth(170);		
+		itembox_tab:SelectTab(itembox_tab:GetIndexByName("Itembox1"));
+
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:ShowWindow(0);
 		local haveStaticNCbox = GET_CHILD_RECURSIVELY(frame,"haveStaticNCbox");	
@@ -496,11 +486,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		remainNexonCash:ShowWindow(0);
 		local ncReflashbtn = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn");	
 		ncReflashbtn:ShowWindow(0);
-		
-		if itembox_tab:GetItemCount() == 3 then
-			itembox_tab:DeleteTab(0);
-			itembox_tab:SetItemsFixWidth(170);
-		end
 	end
 	
 	MAKE_CATEGORY_TREE();
@@ -509,9 +494,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 
 	local screenbgTemp = GET_CHILD_RECURSIVELY(frame, 'screenbgTemp');
 	screenbgTemp:ShowWindow(0);
-	
-	--buyBtn = GET_CHILD_RECURSIVELY(frame,"specialBuyBtn");	
-	--buyBtn:ShowWindow(0);
 	
 	local ratio = option.GetClientHeight()/option.GetClientWidth();	
 	local limitMaxWidth = ui.GetSceneWidth() / ui.GetRatioWidth();
@@ -531,8 +513,13 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	--session.shop.RequestLoadShopBuyLimit();
 	SET_TOPMOST_FRAME_SHOWFRAME(0);	
 	
-	itembox_tab:SelectTab(1);
-	TPSHOP_TAB_VIEW(frame, 1);
+	-- 프리미엄 탭을 설정.
+	local premiumTabIndex = TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1");
+	if premiumTabIndex < 0 then
+		premiumTabIndex = 0
+	end
+	itembox_tab:SelectTab(premiumTabIndex);
+	TPSHOP_TAB_VIEW(frame, premiumTabIndex);
 	
 	local input = GET_CHILD_RECURSIVELY(frame, "input");
 	local editDiff = GET_CHILD_RECURSIVELY(frame, "editDiff");
@@ -563,7 +550,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local tpPackageGbox = GET_CHILD_RECURSIVELY(frame,"tpPackageGbox");		
 	tpPackageGbox:ShowWindow(0);	
 
-	--ui.SetHoldUI(frame:GetName());
 	UPDATE_BASKET_MONEY(frame);
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell");
 	
@@ -580,9 +566,6 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		resol = 0;
 	end
 	
-	--leftgFrame:SetOffset(leftgFrame:GetOffsetX(), resol);
-	--rightFrame:SetOffset(rightFrame:GetOffsetX(), resol);
-
 	for i = 0 , 3 do
 	local resString = string.format("{@st42b}{s16}%s{/}", ScpArgMsg("SHOWLIST_ITEM_TYPE_" .. i));
 		showTypeList:AddItem(i, resString);
@@ -2442,12 +2425,11 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
 				return true;
 			else
-				--return false;
-				return true;
+				return false;
 			end
 		end
 	end
-	return true;
+	return false;
 end
 
 function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)

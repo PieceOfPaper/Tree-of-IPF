@@ -11,7 +11,7 @@
     <animation frameOpenAnim="" frameCloseAnim=""/>
     <userconfig POPUP_DURATION="0.5" PUSHUP_ANIM_NAME="sequentialnotice_pushup"/>
     <controls>
-        <groupbox name="mainbox" rect="0 0 350 90" margin="0 0 0 0" layout_gravity="center buttom" hittestbox="false" skin="notice_more"/>
+        <groupbox name="mainbox" rect="0 0 350 90" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" skin="notice_more"/>
         <richtext name="context" parent="mainbox" rect="0 0 800 30" margin="0 0 0 0" layout_gravity="center top" format="%s가 나를 좋아합니다" param1="fname" param1_def="Default" textalign="center center"/>
     </controls>
 </uiframe>

@@ -17,6 +17,7 @@
         <Key Name="Script" Value="140"/>
         <Key Name="IsEquipItemAbil" Value="33968"/>
         <Key Name="Desc2" Value="141"/>
+        <Key Name="Keyword" Value="103301"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Item">
         <Key Name="AttachNode" Value="7460"/>
@@ -1594,6 +1595,17 @@
         <Key Name="EVENT_REFILL_STONE_DATE_FIRST" Value="103290"/>
         <Key Name="EVENT_1812_GILTINE_ATTACK_REWARD_DATE" Value="103295"/>
         <Key Name="EVENT_1901_NEWYEAR_PLAYTIME" Value="103296"/>
+        <Key Name="EVENT_1801_ORB_SHOP5_JP" Value="103298"/>
+        <Key Name="EVENT_1901_3DAY_TARGET_ACC_REWARD_COUNT" Value="103302"/>
+        <Key Name="EVENT_1901_3DAY_TARGET_DAY_SUCCESS_COUNT" Value="103305"/>
+        <Key Name="EVENT_1901_3DAY_TARGET_LAST_COUNT" Value="103307"/>
+        <Key Name="EVENT_1901_3DAY_TARGET_LAST_DATE" Value="103306"/>
+        <Key Name="EVENT_1901_3DAY_TARGET_SELECT_DATE" Value="103304"/>
+        <Key Name="EVENT_1901_3DAY_TARGET_SELECT_TYPE" Value="103303"/>
+        <Key Name="EVENT_1901_GOLDPIG_BASIC_REWARD_COUNT" Value="103310"/>
+        <Key Name="EVENT_1901_GOLDPIG_BASIC_REWARD_DATE" Value="103309"/>
+        <Key Name="EVENT_1901_GOLDPIG_TOPPOINT_REWARD_DATE" Value="103311"/>
+        <Key Name="HadVisited_711" Value="103308"/>
     </KeyIDSpc>
     <KeyIDSpc Name="PCEtc">
         <Key Name="Kill_boss_Clymen_Q2" Value="7788"/>
@@ -9315,6 +9327,8 @@
         <Key Name="Kill_Pc_summon_Legend_card_Ignas" Value="103243"/>
         <Key Name="HadVisited_710" Value="103269"/>
         <Key Name="Hide_2818" Value="103284"/>
+        <Key Name="HadVisited_711" Value="103299"/>
+        <Key Name="InDunCountType_8002" Value="103300"/>
     </KeyIDSpc>
     <KeyIDSpc Name="GuildMember">
         <Key Name="Name" Value="9011"/>
@@ -17205,6 +17219,7 @@
         <Key Name="THIRD_JOB_CHANGE_ACTIVE" Value="103293"/>
         <Key Name="PVP_MINE_INIT_BEFORE_ZONE" Value="103294"/>
         <Key Name="MG_Last_EVENT_1812_GILTINE_ATTACK" Value="103297"/>
+        <Key Name="MG_Last_MISSION_EVENT_1901_GOLDPIG" Value="103312"/>
     </KeyIDSpc>
     <KeyIDSpc Name="Monster">
         <Key Name="MaxHate" Value="6671"/>

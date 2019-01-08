@@ -128,17 +128,8 @@ function SMARGEN_NEAR_NPC_EXIST_CLIENT(self)
 	end
 end
 
--- EVENT_1812_CHARACTER_RESET
-local EVENT_1812_CHARACTER_RESET_CLIENT_FLAG = 0
-
 function CLIENT_SMARTGEN_INIT()
 
-    -- EVENT_1812_CHARACTER_RESET
-	if EVENT_1812_CHARACTER_RESET_CLIENT_FLAG == 0 then
-    	ui.MsgBox_NonNested(ScpArgMsg('EVENT_1812_CHARACTER_RESET_CLIENT_FLAG_MSG1'),0x00000000)
-    	EVENT_1812_CHARACTER_RESET_CLIENT_FLAG = 1
-    end
-    
 	local sObj = session.GetSessionObjectByName("ssn_smartgen");
 	if sObj == nil then
 		return;
@@ -753,9 +744,8 @@ function SSN_CLIENT_UPDATE_QUEST_POSSIBLE(sObj, list, questPossible)
                            	        
                            	if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
                            	    local mapprop = session.GetCurrentMapProp();
-                                local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
-                                local curState = mapNpcState:FindAndGet(genType);
-                                if curState < 1 then
+								local curState = GetNPCState(mapprop:GetClassName(), genType);
+								if curState ~= nil and curState < 1 then
                                     control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
 								end
                            	end
@@ -1102,9 +1092,8 @@ function PREV_SSN_CLIENT_UPDATE_FOR_QA(pc)
                            	        
                            	        if genType ~= nil and ( genIES.Minimap == 1 or genIES.Minimap == 3) and string.find(genIES.ArgStr1, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr2, 'NPCStateLocal/') == nil and string.find(genIES.ArgStr3, 'NPCStateLocal/') == nil  then
                            	            local mapprop = session.GetCurrentMapProp();
-                                    	local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
-                                    	local curState = mapNpcState:FindAndGet(genType);
-                                    	if curState < 1 then
+										local curState = GetNPCState(mapprop:GetClassName(), genType);
+										if curState ~= nil and curState < 1 then
                                     	    control.CustomCommand("QUEST_SOBJ_CHECK", questIES.ClassID, 6);
                                     	end
                            	        end
@@ -1203,7 +1192,6 @@ function SSN_TEST_ITEM_USE(self, sObj, msg, argObj, argStr, argNum)
 
 end
 
-
 function SSN_TEST_ITEM_CHANGECOUNT(self, sObj, msg, argObj, argStr, argNum)
     if sObj.HELP_SHOP == 0 then
         local hpItem = GetInvItemCount(self, 'Drug_HP1')
@@ -1215,5 +1203,3 @@ function SSN_TEST_ITEM_CHANGECOUNT(self, sObj, msg, argObj, argStr, argNum)
         end
     end
 end
-
-

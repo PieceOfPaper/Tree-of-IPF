@@ -566,17 +566,15 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 					occupyTextTooltip = ClMsg('ProgressColonyWar');
 				else -- 콜로니전 진행 중이 아닐 때
 					local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
-                    local cityMap = GetClassString('guild_colony', check_word..mapCls.ClassName, 'TaxApplyCity')
-                    if cityMap ~= "None" then
-                        local cityMapID = GetClassNumber('Map', cityMap, 'ClassID')
-                        local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapID)
-                        if taxRateInfo == nil then
+					local occupyInfo = session.colonywar.GetOccupationInfoByMapID(colonyMapCls.ClassID);        
+					if occupyInfo == nil then
                             colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
                             occupyTextTooltip = ClMsg('NotOccupiedSpot');
                         else
                             ctrlSet:RemoveChild('occupyText');
                             occupyText = nil;
-                            local guildID = taxRateInfo:GetGuildID()
+		
+						local guildID = occupyInfo:GetGuildID();
                             emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
                             emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
                         
@@ -590,8 +588,7 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                                 local worldID = session.party.GetMyWorldIDStr();    
                                 guild.ReqEmblemImage(guildID,worldID);
                             end                                
-                            occupyTextTooltip = taxRateInfo:GetGuildName();
-                        end
+						occupyTextTooltip = occupyInfo:GetGuildName();
                     end
 				end
 
@@ -1044,22 +1041,18 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 	end
 	
 	-- search npc
-	local npcStates = session.GetNPCStateMap();
-	local idx = npcStates:Head();
-	while idx ~= npcStates:InvalidIndex() do
-		local mapName = npcStates:KeyPtr(idx):c_str();
+	local npcStateMaps = GetNPCStateMaps();
+	for i = 1, #npcStateMaps do
+		local mapName = npcStateMaps[i];
 		local mapCls = GetClass("Map", mapName);
-		local npcList = npcStates:Element(idx);		
-		local npcIdx = npcList:Head();
-		while npcIdx ~= npcList:InvalidIndex() do
-			local type = npcList:Key(npcIdx);
+		if mapCls ~= nil then
+			local npcGenTypes = GetNPCStateGenTypes(mapName);
+			for j = 1, #npcGenTypes do
+				local genType = npcGenTypes[j];
 
-			local genCls = GetGenTypeClass(mapName, type);			
-			if nil == genCls then
-				break;
-			end;
-
-			if TryGetProp(genCls, 'ClassType') ~= 'Warp_arrow' then -- 워프 제외한 npc
+				local genCls = GetGenTypeClass(mapName, genType);			
+				if genCls ~= nil then
+					if TryGetProp(genCls, "ClassType") ~= "Warp_arrow" then -- 워프 제외한 npc
 						local name = GET_GENCLS_NAME(genCls);
 						local tempname = string.lower(dictionary.ReplaceDicIDInCompStr(name));		
 						local tempinputtext = string.lower(searchText);
@@ -1068,9 +1061,9 @@ function WORLDMAP_SEARCH_BY_NAME(frame, ctrl)
 							targetCnt = targetCnt + 1;
 						end
 					end
-			npcIdx = npcList:Next(npcIdx);
+				end;
+			end
 		end
-		idx = npcStates:Next(idx);
 	end
 
 	local showIdx = 0
@@ -1383,12 +1376,13 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 
 	local camp_warp_class = GetClass('camp_warp', argStr)
 
+
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
 
 	local warpcost = 0;
 	local targetMapName = 0;	
-	local type = warpFrame:GetUserValue("Type");
+	local type = frame:GetUserValue("Type");
 	if camp_warp_class ~= nil then
 		targetMapName = camp_warp_class.Zone;        
     	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);        
@@ -1415,7 +1409,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		end	
 	end
 	
-	if type == "Dievdirbys" or type == 'Normal' then
+	if type ~= "Dievdirbys" then
 		warpcost = 0
 	end
 	
@@ -1436,11 +1430,13 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 	end
 	local cheat = string.format("/intewarp %d %d", dest_mapClassID, argNum);
 	if warpitemname ~= 'NO' and warpitemname ~= 'None' then
-        local warp_item_ies_id = warpFrame:GetUserValue('SCROLL_WARP_IESID')		
-        cheat = string.format("/intewarpByItem %d %d %s", dest_mapClassID, argNum, warp_item_ies_id);
+		cheat = string.format("/intewarpByItem %d %d %s", dest_mapClassID, argNum, warpitemname);
 	end
+
 	movie.InteWarp(session.GetMyHandle(), cheat);
+
 	packet.ClientDirect("InteWarp");    
+    
     if warpFrame:IsVisible() == 1 then
 		ui.CloseFrame('worldmap')
 	end

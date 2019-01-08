@@ -112,6 +112,7 @@ function ABILITY_POINT_EXTRACTOR_UPDATE_MONEY(frame)
     consumePointText:SetTextByKey('value', consumePointStr);
     remainPointText:SetTextByKey('value', expectAbilityPointStr);
     consumeMoneyText:SetTextByKey('value', consumeMoneyStr);
+    consumeMoneyText:SetTextTooltip(consumeMoneyStr);
     expectMoneyText:SetTextByKey('value', expectMoneyStr);
 end
 

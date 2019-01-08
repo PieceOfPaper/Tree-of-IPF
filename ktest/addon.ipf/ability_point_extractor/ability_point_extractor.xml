@@ -34,7 +34,7 @@
 		<labelline name="labelline2" parent="extractScrollBox" rect="0 0 380 1" margin="0 0 0 0" layout_gravity="center bottom" skin="labelline_def_2"/>
 		<!-- consume money -->
 		<groupbox name="consumeMoneyBox" rect="0 0 400 30" margin="0 160 0 0" layout_gravity="center top" draw="false"/>
-		<groupbox name="consumeMoneyTextBox" parent="consumeMoneyBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search"/>
+		<groupbox name="consumeMoneyTextBox" parent="consumeMoneyBox" rect="0 0 140 25" margin="10 0 0 0" layout_gravity="left top" skin="jour_search" fixwidth="true" omitbywidth="true"/>
 		<richtext name="consumeMoneyInfoText" parent="consumeMoneyTextBox" rect="0 0 100 30" margin="0 0 0 0" layout_gravity="center center" caption="소비 실버" fontname="brown_16"/>
 		<richtext name="consumeMoneyText" parent="consumeMoneyBox" rect="0 0 100 30" margin="0 0 20 0" layout_gravity="right center" format="%s" fontname="brown_18" param1="value" param1_def="0"/>
 		<!-- expect value -->

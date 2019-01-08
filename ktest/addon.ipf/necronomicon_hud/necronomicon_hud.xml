@@ -15,6 +15,6 @@
 		<picture name="skillgaugeleft" rect="0 0 4 21" margin="38 21 0 0" layout_gravity="left top" image="skillgaugeleft" stretch="true" hittest="false"/>
 		<picture name="skillgaugeright" rect="0 0 4 21" margin="0 21 0 0" layout_gravity="right top" image="skillgaugeright" stretch="true" hittest="false"/>
 		<gauge name="necroGauge" rect="0 0 187 50" margin="42 6 0 0" layout_gravity="left top" skin="necronomicon_amount" drawlastpoint="true" ratewidth="true" text1="{s13}%v{/}" textalign1="center center" textfont1="quickiconfont" textoffset1="0 0" hittest="false"/>
-		<richtext name="infoText" rect="0 0 200 20" margin="44 0 0 0" layout_gravity="left top" caption="{@st42}네크로노미콘 파편의 개수{/}" hittest="false"/>
+		<richtext name="infoText" rect="0 0 200 20" margin="44 0 0 0" layout_gravity="left top" caption="{@st42}사체 파편 개수{/}" hittest="false"/>
 	</controls>
 </uiframe>

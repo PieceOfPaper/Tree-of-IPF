@@ -1562,6 +1562,7 @@
 		<image name="ability_Wizard_Chronomancer10" file="\icon\icon_ability_wizard06.tga" imgrect="640 128 128 128" CMM_Caption="스톱: 디버프 제거"/>
 		<image name="ability_Wizard_Chronomancer11" file="\icon\icon_ability_wizard06.tga" imgrect="768 128 128 128" CMM_Caption="슬로우: 마법 공격"/>
 		<image name="ability_Wizard_Chronomancer12" file="\icon\icon_ability_wizard06.tga" imgrect="896 128 128 128" CMM_Caption="환생: 리바이브"/>
+		<image name="ability_Wizard_Necromancer26" file="\icon\icon_ability_warrior04.tga" imgrect="128 256 128 128" CMM_Caption="해골 마법사 만들기: 넉다운 저항"/>
 		<image name="ability_Wizard_Chronomancer16" file="\icon\icon_ability_wizard06.tga" imgrect="0 256 128 128" CMM_Caption="환생: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
@@ -2292,6 +2293,7 @@
 		<image name="ability_cleric_Oracle20" file="\icon\icon_ability_cleric06.tga" imgrect="384 384 128 128" CMM_Caption="디바인 마이트: 횟수 증가"/>
 		<image name="ability_cleric_Oracle21" file="\icon\icon_ability_cleric06.tga" imgrect="512 384 128 128" CMM_Caption="트위스트 오브 페이트: 강화"/>
 		<image name="ability_cleric_Druid21" file="\icon\icon_ability_cleric06.tga" imgrect="640 384 128 128" CMM_Caption="스트레아 트로페: 강화"/>
+		<image name="ability_cleric_Druid22" file="\icon\icon_ability_cleric06.tga" imgrect="768 384 128 128" CMM_Caption="코르타스마타 : 식물화 해제"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>
@@ -2353,10 +2355,13 @@
 		<image name="ability_scout_Outlaw16" file="\icon\icon_ability_scout01.tga" imgrect="640 640 128 128" CMM_Caption="난동 부리기: 깽판"/>
 		<image name="ability_scout_Outlaw17" file="\icon\icon_ability_scout01.tga" imgrect="768 640 128 128" CMM_Caption="난동 부리기: 말리지마"/>
 		<image name="ability_scout_Outlaw18" file="\icon\icon_ability_scout01.tga" imgrect="896 640 128 128" CMM_Caption="난동 부리기: 분노조절 실패"/>
+		<image name="ability_scout_Linker3" file="\icon\icon_ability_scout01.tga" imgrect="0 768 128 128" CMM_Caption="일렉트릭 쇼크: 강화"/>
 		<image name="ability_scout_Enchanter10" file="\icon\icon_ability_scout01.tga" imgrect="128 768 128 128" CMM_Caption="어질리티: 강화"/>
 		<image name="ability_scout_Enchanter11" file="\icon\icon_ability_scout01.tga" imgrect="256 768 128 128" CMM_Caption="인챈트 라이트닝: 강화"/>
 		<image name="ability_scout_Enchanter12" file="\icon\icon_ability_scout01.tga" imgrect="384 768 128 128" CMM_Caption="인챈트 어스: 강화"/>
 		<image name="ability_scout_Enchanter13" file="\icon\icon_ability_scout01.tga" imgrect="512 768 128 128" CMM_Caption="라이트닝 핸즈: 강화"/>
+		<image name="ability_scout_Enchanter14" file="\icon\icon_ability_scout01.tga" imgrect="640 768 128 128" CMM_Caption="인챈트 글로브 : 치명적인 글로브"/>
+		<image name="ability_scout_Outlaw19" file="\icon\icon_ability_scout01.tga" imgrect="768 768 128 128" CMM_Caption="농락 : 근성"/>
 	</imagelist>
 	<imagelist category="abilityicon">
 		<image name="icon_abil_1_1" file="\icon\ability_icon.tga" imgrect="0 0 64 64" CMM_Caption="절단"/>

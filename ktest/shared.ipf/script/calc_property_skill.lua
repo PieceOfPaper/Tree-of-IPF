@@ -473,9 +473,10 @@ function SCR_GET_SKL_COOLDOWN_BUNSIN(skill)
 --          bunshinBuff = info.GetBuff(handle, 3049)
 --          bunsinCount = bunshinBuff.arg1
 --      end
-        local Bunshin = GetSkill(pc, 'Shinobi_Bunshin_no_jutsu')
-        
-        basicCoolDown = basicCoolDown + (Bunshin.Level * 2000 + (basicCoolDown * (Bunshin.Level * 0.1)))
+--        local Bunshin = GetSkill(pc, 'Shinobi_Bunshin_no_jutsu')
+        local bunsinCount = GET_BUNSIN_COUNT(pc);
+
+        basicCoolDown = basicCoolDown + (bunsinCount * 2000 + (basicCoolDown * (bunsinCount * 0.1)))
     end
     
     local ret = math.floor(basicCoolDown) / 1000
@@ -2807,7 +2808,7 @@ end
 
 function SCR_GET_EnchantEarth_Ratio(skill)
     local value = 5 + skill.Level * 2
-    
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value
 end
 
@@ -4769,7 +4770,8 @@ end
 function SCR_GET_EnchantLightning_Ratio(skill)
 --    local value = 100 * skill.Level
     local pc = GetSkillOwner(skill);
-    local value = 160 + ((skill.Level - 1) * 60) + ((skill.Level / 5) * (((pc.INT + pc.MNA) * 0.8) ^ 0.9))
+    local value = 160 + ((skill.Level - 1) * 60) + ((skill.Level / 5) * ((pc.DEX * 0.8) ^ 0.9))
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return math.floor(value)
 end
 
@@ -6575,20 +6577,23 @@ function SCR_GET_PsychicPressure_Ratio2(skill)
 end
 
 function SCR_GET_PsychicPressure_Ratio3(skill)
-    local pc = GetSkillOwner(skill)
-    local value = 30 + skill.Level * 1;
-    local abil_2 = GetAbility(pc, "Psychokino2")
-    local abil_10 = GetAbility(pc, "Psychokino10")
+    local pc = GetSkillOwner(skill);
+    local value = 42
+    local bylvCorrect = pc.Lv - 300
+    if bylvCorrect < 0 then
+        bylvCorrect = bylvCorrect * 2.75 / 1000
+    elseif bylvCorrect >= 0 then
+        bylvCorrect = bylvCorrect * 1.25 / 1000
+    end
     
-    if abil_2 ~= nil and abil_2.ActiveState == 1 then
+    value = value * (1 + bylvCorrect)
+    
+    local abil = GetAbility(pc, 'Psychokino10')
+    if abil ~= nil and abil.ActiveState == 1 then
         value = value * 1.2
     end
     
-    if abil_10 ~= nil and abil_10.ActiveState == 1 then
-        value = value * 1.2
-    end
-
-    return math.floor(value);
+    return math.floor(value)
 end
 
 function SCR_GET_GravityPole_Ratio(skill)
@@ -6602,13 +6607,22 @@ end
 
 function SCR_GET_GravityPole_Ratio3(skill)
     local pc = GetSkillOwner(skill);
-    local value = 40 + skill.Level * 1;
-    local abil = GetAbility(pc, "Psychokino20")
+    local value = 47
+    local bylvCorrect = pc.Lv - 300
+    if bylvCorrect < 0 then
+        bylvCorrect = bylvCorrect * 2.75 / 1000
+    elseif bylvCorrect >= 0 then
+        bylvCorrect = bylvCorrect * 1.25 / 1000
+    end
+    
+    value = value * (1 + bylvCorrect)
+    
+    local abil = GetAbility(pc, 'Psychokino20')
     if abil ~= nil and abil.ActiveState == 1 then
         value = value * 1.2
     end
     
-    return math.floor(value);
+    return math.floor(value)
 end
 
 
@@ -11053,6 +11067,12 @@ function SCR_GET_Hasisas_Ratio2(skill)
     return value;
 end
 
+function SCR_GET_Hasisas_Ratio3(skill)
+    local value = skill.Level * 2
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return value;
+end
+
 function SCR_GET_HallucinationSmoke_Ratio(skill)
     local value = 20
     value = math.floor(value * SCR_REINFORCEABILITY_TOOLTIP(skill))
@@ -11182,7 +11202,7 @@ end
 
 function SCR_GET_Agility_Ratio(skill)
     local value = skill.Level * 1
-    
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
     return value;
 end
 
@@ -11310,6 +11330,26 @@ function SCR_GET_SKL_COOLDOWN_Preparation(skill)
     local pc = GetSkillOwner(skill);
     local value = skill.BasicCoolDown;
     value = value - (skill.Level * 1000);
+    
+    return value
+end
+
+function SCR_GET_SKL_COOLDOWN_KnifeThrowing(skill)
+    local pc = GetSkillOwner(skill);
+    local value = skill.BasicCoolDown;
+    value = value - (skill.Level  * 1000);
+    
+    return value
+end
+
+function SCR_GET_Bully_Time(skill)
+    local value = 60
+    
+    local pc = GetSkillOwner(skill);
+    local Outlaw19_abil = GetAbility(pc, 'Outlaw19')
+    if Outlaw19_abil ~= nil and 1 == Outlaw19_abil.ActiveState then
+        value = 20
+    end
     
     return value
 end

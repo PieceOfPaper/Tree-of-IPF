@@ -5,6 +5,9 @@
 	<input maxwidth="1280" moveable="false" hittestframe="false"/>
 	<layer layerlevel="50"/>
 	<option visible="true" hideable="false" closebutton="false"/>
-	<userconfig FAR_MEMBER_FACE_COLORTONE="FF555533" NEAR_MEMBER_FACE_COLORTONE="FFFFFFFF" FAR_MEMBER_NAME_FONT_COLORTAG="{#555533}" NEAR_MEMBER_NAME_FONT_COLORTAG="{#FFFFFF}"/>
-	<controls/>
+	<userconfig FAR_MEMBER_FACE_COLORTONE="FF555533" NEAR_MEMBER_FACE_COLORTONE="FFFFFFFF" FAR_MEMBER_NAME_FONT_COLORTAG="{#555533}" NEAR_MEMBER_NAME_FONT_COLORTAG="{#FFFFFF}" CHANGE_FLAG="0"/>
+	<controls>
+		<button name="partyinfobutton" rect="0 0 25 25" margin="22 34 0 0" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" image="button_view_info" hittest="true" LBtnUpScp="PARTYINFO_TOGGLE"/>
+		<richtext name="buttontitle" rect="0 0 150 25" margin="55 36 0 0" fontname="brown_18_b" layout_gravity="left top" hittest="false" textalign="left top" format="{@st42}{#d0bda8}%s" param1="title" param1_def=""/>
+	</controls>
 </uitile>

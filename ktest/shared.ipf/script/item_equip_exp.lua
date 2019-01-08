@@ -76,6 +76,7 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_FALL_LEAF_BUFF4'); --ENTER_EVENT_1810_FALL_LEAF
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'EVENT_1810_GUILD_EXPUP'); --길드 있어 트오세 있다 시즌2
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_ThanksgivingDay'); --붉은 씨앗
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'BaseCamp_Buff'); --베이스 캠프
 	return sumExp; 
 end
 

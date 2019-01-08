@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="summonsinfo" x="0" y="0" width="450" height="500">
+	<frame layout_gravity="left top" margin="10 280 0 0" tooltipoverlap="true" keyboardselectframe="false"/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="50"/>
+	<option visible="true" hideable="false" closebutton="false"/>
+	<userconfig SUMMONINFO_CTRLSET_HEIGHTOFFSET="13" SUMMONINFO_CTRLSET_HEIGHT="10" SUMMONINFO_CTRLSET_WIDTH="450"/>
+	<controls>
+		<button name="summonsinfobutton" rect="0 0 25 25" margin="22 34 0 0" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" oversound="button_over" layout_gravity="left top" image="button_view_info" hittest="true" LBtnUpScp="PARTYINFO_TOGGLE"/>
+		<richtext name="buttontitle" rect="0 0 150 25" margin="55 36 0 0" spacey="0" fontname="brown_18_b" layout_gravity="left top" hittest="false" textalign="left center" format="{@st42}{#d0bda8}%s" param1="title" param1_def=""/>
+	</controls>
+</uitile>

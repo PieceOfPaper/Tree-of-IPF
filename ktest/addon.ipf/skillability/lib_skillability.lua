@@ -43,8 +43,17 @@ function SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName)--Ability_Peltasta
     return abilGroupName;
 end
 
-function SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)
+function SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)
     local retList = {}
+    local jobCls = GetClass("Job", jobClsName);
+    
+    if jobCls.DefHaveAbil ~= "None" then
+	    local sList = StringSplit(jobCls.DefHaveAbil, "#");
+        for i=1, #sList do
+            retList[#retList+1] = sList[i];
+        end
+    end
+
     local abilGroupName = SKILLABILITY_GET_ABILITY_GROUP_NAME(jobEngName);
     local list, cnt = GetClassList(abilGroupName);
     
@@ -62,6 +71,10 @@ function SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)
 end
 
 function GET_ABILITY_CONDITION_UNLOCK(abilIES, groupClass)
+    if groupClass == nil then
+        return nil;
+    end
+
 	local unlockFuncName = groupClass.UnlockScr;
 	if unlockFuncName ~= 'None' then
 		local scp = _G[unlockFuncName];
@@ -90,6 +103,10 @@ function SKILLABILITY_GET_ABILITY_CONDITION(abilIES, groupClass, isMax)
 end
 
 function IS_ABILITY_MAX(pc, groupClass, abilClass)
+    if groupClass == nil then
+        return nil;
+    end
+
 	local abilIES = GetAbilityIESObject(pc, abilClass.ClassName);
 	local curLv = 0;
 	if abilIES ~= nil then
@@ -422,7 +439,7 @@ end
 function CLEAR_SKILLABILITY_LEARN_COUNT_BY_JOB(ability_gb, jobClsName)
     local jobCls = GetClass("Job", jobClsName);
     local jobEngName = jobCls.EngName;
-    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)--Ability_Peltasta
+    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)--Ability_Peltasta
 
     for i=1, #list do
         local abilClass = GetClass("Ability", list[i]);
@@ -436,7 +453,7 @@ function GET_CHANGED_SKILLABILITY_ABILITY(ability_gb, abilGroupName, jobClsName)
     
     local jobCls = GetClass("Job", jobClsName);
     local jobEngName = jobCls.EngName;
-    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobEngName)--Ability_Peltasta
+    local list = SKILLABILITY_GET_ABILITY_NAME_LIST(jobClsName, jobEngName)--Ability_Peltasta
     
     for i=1, #list do
         local clsName = list[i];

@@ -1098,6 +1098,12 @@ function BEAUTYSHOP_CHECK_TWOHAND_WEAPON(itemObj)
 	end 
 
 	if eqpType == "SH" then -- 한손무기일 경우
+		-- 한손무기인데 창인경우엔 예외가 있다.
+		local DBLHand = TryGetProp(itemObj , "DBLHand");
+		if DBLHand ~= nil and DBLHand == 'YES' then
+			-- DBLHand가 YES일경우 양손무기임.
+			return true
+		end
 		return false
 	elseif eqpType == "DH" then -- 양손 무기일 경우
 		return true

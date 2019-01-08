@@ -984,16 +984,23 @@
 			<richtext name="memo_text" rect="20 80 300 30" caption="케릭터 메모" spacey="0" updateparent="true" layout_gravity="left top" hittest="false" textalign="center center"/>
 		</controls>
 	</controlset>
+	<controlset name="summonsinfo" toggle="false" hittest="true" width="450" height="25" skin="">
+		<controls>
+			<richtext name="summons_name" rect="0 0 150 25" margin="45 0 0 0" resizebytext="false" layout_gravity="left top" hittest="false" textalign="left center" format="{@st41b}{s15}%s{/}" param1="name" param1_def="" fontname="white_16_ol"/>
+			<richtext name="summons_count" rect="0 0 50 25" margin="0 0 230 0" resizebytext="false" layout_gravity="right top" hittest="false" textalign="right center" format="{@st41b}{s15}x%s{/}" param1="count" param1_def="" fontname="yellow_16_ol"/>
+			<picture name="index" rect="0 0 5 5" margin="35 0 0 0" hittest="false" layout_gravity="left center" image="white_dot" stretch="true"/>
+		</controls>
+	</controlset>
 	<controlset name="partyinfo" toggle="false" hittest="true" width="450" height="62" skin="">
 		<controls>
-			<gauge name="hp" rect="0 0 144 26" margin="62 30 0 0" ratewidth="true" skin="partyinfo_gauge_HP" text1="%v / %m" textoffset1="0 1" textfont1="white_12_ol" textalign1="center center" hittest="false" layout_gravity="left top" point="100"/>
+			<gauge name="hp" rect="0 0 124 26" margin="62 30 0 0" ratewidth="true" skin="partyinfo_gauge_HP" text1="%v / %m" textoffset1="0 1" textfont1="white_12_ol" textalign1="center center" hittest="false" layout_gravity="left top" point="100"/>
 			<gauge name="sp" rect="0 0 110 20" margin="5000 5000 0 0" ratewidth="true" skin="partyinfo_gauge_SP" text1="%v / %m" textoffset1="0 1" textfont1="white_12_ol" textalign1="center center" hittest="false" layout_gravity="left top" point="100"/>
 			<picture name="uparty_shadow" rect="0 0 70 70" hittest="false" margin="5000 5000 0 0" layout_gravity="left top" image="uparty_shadow"/>
 			<picture name="jobportrait_bg" rect="0 0 48 48" hittest="true" margin="5 10 0 0" layout_gravity="left top" stretch="false"/>
 			<picture name="jobportrait" parent="jobportrait_bg" rect="0 0 50 50" hittest="true" margin="-2 0 0 0" layout_gravity="left top" stretch="true"/>
 			<picture name="leader_img" rect="0 0 26 16" hittest="false" margin="15 5 0 0" layout_gravity="left top" image="party_leader_mark" stretch="true"/>
 			<picture name="hpleft" rect="0 0 12 26" hittest="true" margin="50 30 0 0" layout_gravity="left top" image="partygaugesleft" stretch="true"/>
-			<picture name="hpright" rect="0 0 12 26" hittest="true" margin="206 30 0 0" layout_gravity="left top" image="partygaugesright" stretch="true"/>
+			<picture name="hpright" rect="0 0 12 26" hittest="true" margin="186 30 0 0" layout_gravity="left top" image="partygaugesright" stretch="true"/>
 			<richtext name="name_text" rect="0 0 150 30" margin="93 10 0 0" spacey="0" fontname="white_16_ol" layout_gravity="left top" hittest="false" textalign="left center" caption="ASDSAASDADA" format="{@st42}%s" param1="name" param1_def="ZZZZZZZZZZZZZZ"/>
 			<slotset name="buffList" margin="190 0 0 0" rect="0 0 200 20" layout_gravity="left top" size="20 20" skin="slot_empty" enablepop="false" enabledrop="false" spc="2 2" image="slot" col="10" row="1"/>
 			<slotset name="debuffList" margin="190 21 0 0" rect="0 0 200 40" layout_gravity="left top" size="20 20" skin="slot_empty" enablepop="false" enabledrop="false" spc="2 2" image="slot" col="10" row="2"/>
@@ -4473,11 +4480,11 @@
 			<groupbox name="abilitybottom_gb" parent="ability_gb" rect="0 0 700 40" margin="0 0 0 0" layout_gravity="right bottom" draw="false" skin="bg2"/>
 			<button name="cancel_btn" parent="abilitybottom_gb" rect="0 0 150 40" margin="0 0 150 0" LBtnUpScp="ui.CloseFrame(&apos;skillability&apos;)" caption="{@st41d}취소" fontname="white_16_ol" skin="test_gray_button" layout_gravity="right top" clicksound="button_click_skill_down" oversound="button_over"/>
 			<button name="confirm_btn" parent="abilitybottom_gb" rect="0 0 150 40" margin="0 0 0 0" LBtnUpScp="ui.CloseFrame(&apos;skillability&apos;)" caption="{@st41d}저장" fontname="white_16_ol" skin="test_red_button" layout_gravity="right top" clicksound="button_click_skill_up_OK" oversound="button_over"/>
-			<groupbox name="abilitypoint_gb" parent="abilitytop_gb" rect="0 0 350 38" margin="0 0 0 0" layout_gravity="right top" draw="true" skin="test_weight_skin"/>
+			<groupbox name="abilitypoint_gb" parent="abilitytop_gb" rect="0 0 395 38" margin="0 0 0 0" layout_gravity="right top" draw="true" skin="test_weight_skin"/>
 			<richtext name="abilitypoint_label" parent="abilitypoint_gb" rect="0 0 50 30" margin="10 0 0 0" layout_gravity="left center" format="특성 포인트" param1="value" hittest="false" fontname="white_16_ol"/>
 			<richtext name="abilitypoint_text" parent="abilitypoint_gb" rect="0 0 220 30" margin="0 0 0 0" textalign="right center" layout_gravity="left center" fixwidth="true" format="%s" param1="value" param1_def="-" hittest="false" fontname="white_16_ol"/>
-			<button name="abilitypoint_extractor_btn" parent="abilitypoint_gb" rect="0 0 60 40" margin="0 0 55 0" LBtnUpScp="ABILITYSHOP_EXTRACTOR_BTN_CLICK" texttooltip="특성 포인트 추출" caption="{@st66}추출" skin="test_pvp_btn" layout_gravity="right center" stretch="true" clicksound="button_click_big" oversound="button_over"/>
-			<button name="abilitypoint_add_btn" parent="abilitypoint_gb" rect="0 0 60 40" margin="0 0 0 0" LBtnUpScp="ABILITYSHOP_BUY_BTN_CLICK" texttooltip="특성 포인트 구매" caption="{@st66}구매" skin="test_pvp_btn" layout_gravity="right center" stretch="true" clicksound="button_click_big" oversound="button_over"/>
+			<button name="abilitypoint_extractor_btn" parent="abilitypoint_gb" rect="0 0 85 40" margin="0 0 80 0" LBtnUpScp="ABILITYSHOP_EXTRACTOR_BTN_CLICK" fixwidth="true" omitbywidth="true" texttooltip="특성 포인트 추출" caption="{@st66}{s16}추출" skin="test_pvp_btn" layout_gravity="right center" stretch="false" clicksound="button_click_big" oversound="button_over"/>
+			<button name="abilitypoint_add_btn" parent="abilitypoint_gb" rect="0 0 85 40" margin="0 0 0 0" LBtnUpScp="ABILITYSHOP_BUY_BTN_CLICK" fixwidth="true" omitbywidth="true" texttooltip="특성 포인트 구매" caption="{@st66}{s16}구매" skin="test_pvp_btn" layout_gravity="right center" stretch="false" clicksound="button_click_big" oversound="button_over"/>
 		</controls>
 	</controlset>
 	<controlset name="skillability_ability" toggle="false" hittest="true" width="660" height="140" skin="test_skin_01_btn" stateskin="false">

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -5481,6 +5481,22 @@
 			<img name="barmiddle" imgrect="1 77 824 37"/>
 			<img name="barright" imgrect="847 1 1 37"/>
 		</skin>
+		<skin name="party_info_gauge_hp_R" texture="\skin\MCC_skin.tga">
+			<img name="bgleft" imgrect="316 61 1 17"/>
+			<img name="bgmiddle" imgrect="317 61 123 17"/>
+			<img name="bgright" imgrect="440 61 1 17"/>
+			<img name="barleft" imgrect="316 79 1 17"/>
+			<img name="barmiddle" imgrect="317 79 123 17"/>
+			<img name="barright" imgrect="440 79 1 17"/>
+		</skin>
+		<skin name="party_info_gauge_sp_R" texture="\skin\MCC_skin.tga">
+			<img name="bgleft" imgrect="316 61 1 17"/>
+			<img name="bgmiddle" imgrect="317 61 123 17"/>
+			<img name="bgright" imgrect="440 61 1 17"/>
+			<img name="barleft" imgrect="316 97 1 17"/>
+			<img name="barmiddle" imgrect="317 97 123 17"/>
+			<img name="barright" imgrect="440 97 1 17"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_5" texture="\skin\tooltip_skin_3.tga">
@@ -5840,6 +5856,7 @@
 		<image name="Map_Indun_abbey_raid" file="\skin\indunmap\Map_Indun_abbey_raid.png" imgrect="0 0 295 450" CMM_Caption="노바하 유니크 던전"/>
 		<image name="Map_Indun_StarTower_uniqe_raid" file="\skin\indunmap\Map_Indun_StarTower_uniqe_raid.png" imgrect="0 0 295 450" CMM_Caption="별의 탑 레이드"/>
 		<image name="Map_Klapeda" file="\skin\indunmap\Map_Klapeda.png" imgrect="0 0 295 450" CMM_Caption="클라페다"/>
+		<image name="Map_Orsha" file="\skin\indunmap\Map_Orsha.png" imgrect="0 0 295 450" CMM_Caption="오르샤"/>
 	</imagelist>
 	<imagelist category="jootest_image">
 		<image name="market_hairacc" file="\skin\market_skin.tga" imgrect="1927 447 60 60" CMM_Caption="마켓_헤어악세사리"/>
@@ -5990,6 +6007,9 @@
 		<image name="guineapig_white" file="\icon\companion.tga" imgrect="808 246 100 122" CMM_Caption="화이트 기니피그_탭버튼"/>
 		<image name="guineapig_white_cursoron" file="\icon\companion.tga" imgrect="909 246 100 122"/>
 		<image name="guineapig_white_clicked" file="\icon\companion.tga" imgrect="909 246 100 122"/>
+		<image name="test_companion_23" file="\icon\companion.tga" imgrect="808 369 100 122" CMM_Caption="황금돼지_탭버튼"/>
+		<image name="test_companion_23_cursoron" file="\icon\companion.tga" imgrect="909 369 100 122"/>
+		<image name="test_companion_23_clicked" file="\icon\companion.tga" imgrect="909 369 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -6422,6 +6442,7 @@
 		<image name="icon_arrow_left" file="\skin\tooltip_skin_3.tga" imgrect="1303 1936 39 106" CMM_Caption="화살표 왼쪽"/>
 		<image name="medal_lock_skin" file="\skin\tooltip_skin_3.tga" imgrect="1643 370 404 61" CMM_Caption="인장 툴팁 잠금스킨"/>
 		<image name="class_tree_arrow" file="\skin\class_tree.tga" imgrect="637 247 55 57" CMM_Caption="전직변경 UI 화살표"/>
+		<image name="white_dot" file="\skin\pip_test2.tga" imgrect="834 26 5 5" CMM_Caption="흰색도트_아웃라인"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -6722,6 +6743,9 @@
 		<image name="colony_scales_pic" file="\skin\pip_test2.tga" imgrect="375 255 25 20" CMM_Caption="콜로니 세율 저울"/>
 		<image name="colony_observation_pic" file="\skin\pip_test2.tga" imgrect="401 255 28 28" CMM_Caption="콜로니 지도 점"/>
 		<image name="colorspray_bg" file="\skin\colorspray_bg.tga" imgrect="0 0 630 320" CMM_Caption="장비 외형 초기화 bg"/>
+		<image name="memory_1" file="\skin\pip_test.tga" imgrect="1797 393 20 20" CMM_Caption="메모피 표시 레드"/>
+		<image name="memory_2" file="\skin\pip_test.tga" imgrect="1797 372 20 20" CMM_Caption="메모피 표시 옐로"/>
+		<image name="memory_3" file="\skin\pip_test.tga" imgrect="1797 351 20 20" CMM_Caption="메모피 표시 그린"/>
 	</imagelist>
 	<imagelist category="je_button">
 		<image name="menu_guild_info" file="\skin\guild_skin.tga" imgrect="165 298 45 45" CMM_Caption="길드 정보"/>
@@ -6856,6 +6880,9 @@
 		<image name="class_tree_job_reset_btn" file="\skin\class_tree.tga" imgrect="691 115 98 52"/>
 		<image name="class_tree_job_reset_btn_cursoron" file="\skin\class_tree.tga" imgrect="691 168 98 52"/>
 		<image name="class_tree_job_reset_btn_clicked" file="\skin\class_tree.tga" imgrect="691 168 98 52"/>
+		<image name="button_view_info" file="\skin\pip_test2.tga" imgrect="683 109 26 25"/>
+		<image name="button_view_info_cursoron" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
+		<image name="button_view_info_clicked" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
 	</imagelist>
 	<imagelist category="testmin_image">
 		<image name="clock_inven" file="\skin\pip_test.tga" imgrect="403 698 50 50" CMM_Caption="기간제 시계 아이콘 및 날짜 뒷배경"/>
