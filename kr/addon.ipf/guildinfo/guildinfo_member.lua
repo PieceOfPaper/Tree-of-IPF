@@ -470,6 +470,33 @@ function WARP_GUILD_MEMBER(aid)
 end
 
 function WARP_GUILD_MEMBER_EXEC(aid)
+    if session.colonywar.GetProgressState() == true then
+        local memberInfo = session.party.GetPartyMemberInfoByAID(PARTY_GUILD, aid);
+        if memberInfo == nil then
+            return;
+        end
+        local mapID = memberInfo:GetMapID()
+        if mapID == 9996 or mapID == 9997 or mapID == 9998 then
+            local aObj = GetMyAccountObj();
+            local lastGuildOutDay = TryGetProp(aObj, "LastGuildOutDay")
+            if lastGuildOutDay ~= "None" then
+                local lastTime = imcTime.GetSysTimeByStr(lastGuildOutDay)
+                local addTime = AFTER_GUILD_OUT_COLONY_WAR_PARTICIPATE_PERIOD_DELAY
+                local enterEnableTime = imcTime.AddSec(lastTime, (addTime*60));
+                local nowTime = session.GetDBSysTime();
+                local difSec = imcTime.GetDifSec(enterEnableTime, nowTime);
+                if difSec > 0 then
+                    local remainDay = math.floor((((difSec/60)/60)/24))
+                    local remainHour = math.floor(((difSec/60)/60)%24)
+                    local remainMin = math.floor((difSec/60)%60)
+                    local remainSec = math.floor(difSec%60)
+                    local remainTimeStr = ScpArgMsg("GUILD_COLONY_ENTER_REMAIN_TIME{day}{hour}{min}{sec}", "day", remainDay, "hour", remainHour, "min", remainMin, "sec", remainSec)
+                    addon.BroadMsg("NOTICE_Dm_scroll", ScpArgMsg("GUILD_COLONY_MSG_ENTER_FAIL5{day}{time}", "day", ((addTime/60)/24), "time", remainTimeStr), 5);
+                    return
+                end
+            end
+        end
+    end
     session.party.ClearSkillTargetList();
     session.party.AddSkillTarget(aid);
     local summonSkl = GetClass('Skill', 'Templer_WarpToGuildMember');
