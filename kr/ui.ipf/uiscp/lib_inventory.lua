@@ -756,42 +756,53 @@ function GET_INV_ITEM_BY_ITEM_OBJ(item)
 
 	local itemIdx = GetIESID(item);
 	if app.IsBarrackMode() == true then
-		return session.barrack.GetEquipItemByGuid(CUR_SELECT_GUID, itemIdx);
+		return session.barrack.GetEquipItemByGuid(CUR_SELECT_GUID, itemIdx), 'barrack';
 	end
 
 	local invitem = GET_PC_ITEM_BY_GUID(itemIdx);	
 	local dummy1, dummy2;
+	local where = 'inventory';
 	if invitem == nil then
 		invitem = session.GetEtcItemByGuid(IT_WAREHOUSE, itemIdx);
+		where = 'warehouse';
 	end
 	if invitem == nil then
 		invitem = session.GetEtcItemByGuid(IT_ACCOUNT_WAREHOUSE, itemIdx);
+		where = 'account_warehouse';
 	end
 	if invitem == nil then
 		invitem = session.GetEtcItemByGuid(IT_SOLD, itemIdx);		
+		where = 'sold';
 	end
 	if invitem == nil then
 		invItem = session.GetEtcItemByGuid(IT_GUILD_JOINT, itemIdx);
+		where = 'guild_joint';
 	end
 	if invitem == nil then
 		invitem = session.otherPC.GetItemByGuid(itemIdx);
+		where = 'compare';
 	end
 	if invitem == nil then
 		invitem = session.market.GetItemByItemID(itemIdx);
+		where = 'market';
 	end
 	if invitem == nil then		
 		invitem = session.market.GetCabinetItemByItemObjID(itemIdx);		
+		where = 'cabinet';
 	end
 	if invitem == nil then
 		invitem = exchange.GetExchangeItemInfoByGuid(itemIdx);
+		where = 'exchange';
 	end
 	if invitem == nil then
 		invitem = session.pet.GetPetEquipObjByGuid(itemIdx);
+		where = 'pet_equip';
 	end
 	if invitem == nil then
 		invitem = session.link.GetGCLinkObject(itemIdx);
+		where = 'link';
 	end
-	return invitem;
+	return invitem, where;
 end
 
 function FOR_EACH_INVENTORY(invItemList, func, desc, ...)

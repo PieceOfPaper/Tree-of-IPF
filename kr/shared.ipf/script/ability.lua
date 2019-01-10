@@ -1093,3 +1093,19 @@ function SCR_ABIL_MUSKETEER30_INACTIVE(self, ability)
     
     DelExProp(self, "add_Musketeer30_ATK")
 end
+
+function IS_ABILITY_KEYWORD(abilCls, keyword)
+    local keywordStr = TryGetProp(abilCls, "Keyword");
+    if keywordStr == nil or keywordStr == "None" then
+        return false;
+    end
+
+	local tokenList = StringSplit(keywordStr, ";");
+    for i = 1, #tokenList do
+        local token = tokenList[i];
+        if token == keyword then
+            return true;
+        end
+    end
+    return false;
+end

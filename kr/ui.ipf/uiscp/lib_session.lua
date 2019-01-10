@@ -2,14 +2,15 @@
 
 function GET_NPC_STATE_COUNT()
 	local cnt = 0;
-	local npcStates = session.GetNPCStateMap();
-	local idx = npcStates:Head();
-	while idx ~= npcStates:InvalidIndex() do
 
-		local mapName = npcStates:KeyPtr(idx);
-		local mapList = npcStates:Element(idx);
-		cnt = cnt + mapList:Count();
-		idx = npcStates:Next(idx);
+	local npcStateMaps = GetNPCStateMaps();
+	for i = 1, #npcStateMaps do
+		local mapName = npcStateMaps[i];
+		local mapCls = GetClass("Map", mapName);
+		if mapCls ~= nil then
+			local npcGenTypes = GetNPCStateGenTypes(mapName);
+			cnt = cnt + #npcGenTypes;
+		end
 	end
 
 	return cnt;

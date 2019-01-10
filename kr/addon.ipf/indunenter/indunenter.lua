@@ -50,6 +50,7 @@ function INDUNENTER_AUTOMATCH_CANCEL()
 end
 
 function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, enableEnterRight, enablePartyMatch)    
+    INDUNENTER_MULTI_CANCEL(ui.GetFrame('indunenter'))
     -- get data and check
     local indunCls = GetClassByType('Indun', indunType);
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");

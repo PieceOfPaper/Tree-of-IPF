@@ -117,18 +117,17 @@ function IS_SHOW_MONB_FRAME(frame, handle)
     end
 
     -- allwaysvisible 확인
-    if session.ui.IsAlwaysVisible(handle) == 1 then
+    if session.ui.IsAlwaysVisible(handle) == 1 then        
         return true
     end
    
     return false
 end
 
-function UPDATE_MONB(handle)
-   
+function UPDATE_MONB(handle)   
     local frame= ui.GetFrame("monb_"..handle);  
     if frame ~= nil then
-        local isShow = IS_SHOW_MONB_FRAME(frame, handle)
+        local isShow = IS_SHOW_MONB_FRAME(frame, handle)        
         if isShow == true then
             frame:ShowWindow(1);
             UPDATE_MONB_HP(frame, handle);
@@ -137,6 +136,7 @@ function UPDATE_MONB(handle)
             return;
         end
     end
+
     if #ZONENAME_LIST == 0 then
         local mapClassCount = GetClassCount('Map')
         for i = 0 , mapClassCount-1 do
@@ -149,6 +149,7 @@ function UPDATE_MONB(handle)
             end
         end
     end
+
     if #ZONENAME_LIST > 0 and handle ~= nil and world ~= nil and world.GetActor(handle) ~= nil then
         local npcName = world.GetActor(handle):GetName()
         local findTableIndex = table.find(ZONENAME_LIST, npcName)
@@ -254,20 +255,16 @@ function UPDATE_MONB_HP(frame, handle)
 
     -- 보스는 보스HP UI에서 따로 보여줌. 이거땜시 빨간hp, name 깜빡거림
     local targetInfo = info.GetTargetInfo(handle);
-    if targetInfo ~= nil and targetInfo.isBoss == true and targetInfo.isSummonedBoss ~= 1 then
+    if targetInfo ~= nil and targetInfo.isBoss == true and targetInfo.isSummoned ~= 1 then
         frame:ShowWindow(0);
         return;
     end
 
-
     local stat = info.GetStat(handle);
     local hpObject = frame:GetChild('hp');
     local hpGauge = tolua.cast(hpObject,"ui::CGauge");
-    
     if hpGauge:GetMaxPoint() ~= 0 then
-        
         hpGauge:SetPoint(stat.HP, stat.maxHP);
-        
         if stat.HP <= stat.maxHP/4 then
             hpGauge:SetBlink(20.0, 1.0, 0xffff3333);
             frame:SetDuration(20.0);
@@ -282,7 +279,8 @@ function UPDATE_MONB_HP(frame, handle)
         hpGauge:SetPoint(stat.HP, stat.maxHP);
     end
 
-    if targetInfo.isSummonedBoss == 1 then
+    if targetInfo.isSummoned == 1 then
+        hpGauge:SetBarColor(0xff00ff00);
         hpGauge:ShowWindow(1)
     end
 end

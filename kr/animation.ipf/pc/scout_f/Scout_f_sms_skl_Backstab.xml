@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
 	<Sound frame="0.00" soundFile="atk_cloth_s_l2"/>
 	<Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+	<BlendOn frame="5" R="70" G="80" B="90" A="100"/>
+	<BlendOn frame="6" R="60" G="70" B="80" A="100"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="60" duration="0.3" range="1000"/>
 	<Particle frame="5" attachNode="Dummy_emitter" particleName="E_warrior_backstep_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
 </ActionDesc>

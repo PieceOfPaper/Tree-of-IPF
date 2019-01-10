@@ -3,6 +3,8 @@ function QUESTITEMUSE_ON_INIT(addon, frame)
 	addon:RegisterMsg('QUESTITEM_EMPTY', 'QUESTITEMUSE_ON_MSG');
 
 	QUEST_CHECK_COUNT = 0;
+	local title = frame:GetChild('title');
+	title:SetText("{@st43}" .. hotKeyTable.GetHotKeyString("QuestItemUse") .. "{/}")
 end
 
 function QUESTITEMUSE_ON_MSG(frame, msg, argStr, argNum)

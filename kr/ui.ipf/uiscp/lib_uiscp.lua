@@ -319,7 +319,7 @@ function GET_NPC_ICON(i, statelist, questIESlist)
 	return GET_ICON_BY_STATE_MODE(state, questies), state, questID, iconState;
 end
 
-function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist)
+function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, npclist, statelist, questIESlist)
 
 	SET_PICTURE_BUTTON(picture);
 
@@ -378,17 +378,15 @@ function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcStat
 	picture:ShowWindow(1);
 	picture:SetValue2(iconState);
 
-	SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp);
+	SET_MONGEN_NPC_VISIBLE(picture, mapprop, MonProp);
 
 	return idx, Icon;
 
 end
 
-function SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp)
+function SET_MONGEN_NPC_VISIBLE(picture, mapprop, MonProp)
 	if mapprop.NotUseHide == 1 then
 		picture:ShowWindow(1);
-	elseif mapNpcState == nil then
-		picture:ShowWindow(0);
 	else
 		local dlg = MonProp:GetDialog();
 		local hidnpcCls = GetClass("HideNPC", dlg);
@@ -406,8 +404,8 @@ function SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp)
 		elseif MonProp.GenType == 0 then
 			picture:ShowWindow(1);
 		else
-			local curState = mapNpcState:FindAndGet(MonProp.GenType);
-			if curState > 0 and picture:GetUserIValue("IsHide") == 0 then
+			local curState = GetNPCState(mapprop:GetClassName(), MonProp.GenType);
+			if curState ~= nil and curState > 0 and picture:GetUserIValue("IsHide") == 0 then
 				picture:ShowWindow(1);
 			else
 				picture:ShowWindow(0);

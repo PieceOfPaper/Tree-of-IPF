@@ -82,24 +82,63 @@ function UPDATE_MEMORY_INFO(frame)
 	imcperf.UpdateMemoryInfo();
 	local availableVirtualMemory = imcperf.GetAvailableVirtualMemoryMB();
 	local availablePageFile = imcperf.GetAvailablePageFileMB();
-	local commitedMemoryMB = imcperf.GetCommitedMemoryMB();
 
 	-- 페이징 파일과 가상메모리중 작은걸 기준으로 한다.
 	local remainMemory = availableVirtualMemory;	
 	if remainMemory > availablePageFile then
 		remainMemory = availablePageFile;
 	end
+	
+	remainMemory = remainMemory - 200; -- 200mb 정도를 OS에서 사용하므로 제외함
+	if remainMemory < 0 then
+		remainMemory = 0;
+	end
+	
+	local imgRed = "{img memory_1 20 20}"
+	local imgYellow = "{img memory_2 20 20}"
+	local imgGreen = "{img memory_3 20 20}"
 
-	local font = "{#ff9900}{s16}{ol}"; -- 기본 주황
-	if remainMemory < 700 then  
-		font = "{#ff0000}{s16}{ol}" ;  --임계치 빨강
-	elseif remainMemory > 1400 then 
-	 	font = "{#00ff00}{s16}{ol}"; --여유 녹색
+	local imgList = {
+		first = imgYellow,
+		second = imgYellow,
+		third = imgYellow,
+	}
+
+	if remainMemory >= 1300 then
+		imgList.first = imgGreen;
+		imgList.second = imgGreen;
+		imgList.third = imgGreen;
+	elseif remainMemory >= 1100 then
+		imgList.first = imgYellow;
+		imgList.second = imgGreen;
+		imgList.third = imgGreen;
+	elseif remainMemory >= 750 then
+		imgList.first = imgYellow;
+		imgList.second = imgYellow;
+		imgList.third = imgGreen;
+	elseif remainMemory >= 550 then
+		imgList.first = imgYellow;
+		imgList.second = imgYellow;
+		imgList.third = imgYellow;
+	elseif remainMemory >= 350 then
+		imgList.first = imgRed;
+		imgList.second = imgYellow;
+		imgList.third = imgYellow;
+	elseif remainMemory >= 150 then
+		imgList.first = imgRed;
+		imgList.second = imgRed;
+		imgList.third = imgYellow;
+	else -- 150 미만
+		imgList.first = imgRed;
+		imgList.second = imgRed;
+		imgList.third = imgRed;
 	end
 
+	
 	local textObject = frame:GetChild('memoryText');
 	local memoryText = tolua.cast(textObject,"ui::CRichText");
-	local text = font .. 'Memory : ' .. commitedMemoryMB .. " MB";
+
+	local text = '{#ff9900}{s16}{ol}' .. 'Memory : ' .. imgList.first .. imgList.second .. imgList.third
 
 	memoryText:SetText(text);
 	memoryText:ShowWindow(1);

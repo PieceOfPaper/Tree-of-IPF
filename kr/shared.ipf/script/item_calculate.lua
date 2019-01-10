@@ -488,9 +488,8 @@ function SCR_REFRESH_WEAPON(item, enchantUpdate, ignoreReinfAndTranscend, reinfB
     APPLY_OPTION_SOCKET(item);
     APPLY_AWAKEN(item);
     APPLY_RANDOM_OPTION(item);
-    APPLY_RARE_RANDOM_OPTION(item);
-    
-    MakeItemOptionByOptionSocket(item);
+    APPLY_RARE_RANDOM_OPTION(item);    
+    MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);
 end
 
 function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
@@ -608,8 +607,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
     APPLY_AWAKEN(item);
     APPLY_RANDOM_OPTION(item);
     APPLY_RARE_RANDOM_OPTION(item);
-    MakeItemOptionByOptionSocket(item);
-
+    MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);
 end
 
 function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonusValue)
@@ -728,8 +726,7 @@ function SCR_REFRESH_ACC(item, enchantUpdate, ignoreReinfAndTranscend, reinfBonu
     end
     
     APPLY_AWAKEN(item);
-    MakeItemOptionByOptionSocket(item);
-    
+    MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item);    
 end
 
 function SCR_REFRESH_GEM(item)
@@ -2025,4 +2022,15 @@ function GET_CURRENT_AVAILABLE_SOCKET_COUNT(item, invItem)
         end
     end
     return count;
+end
+
+function MAKE_ITEM_OPTION_BY_OPTION_SOCKET(item)
+    if IsServerSection() == 1 then
+        MakeItemOptionByOptionSocket(item);
+    else
+        local invItem = GET_INV_ITEM_BY_ITEM_OBJ(item);
+        if invItem ~= nil then
+            invItem:ApplySocketOption();
+        end
+    end
 end

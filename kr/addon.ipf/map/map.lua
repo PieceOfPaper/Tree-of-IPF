@@ -395,7 +395,7 @@ function MAKE_MAP_NPC_ICONS(frame, mapname, mapWidth, mapHeight, offsetX, offset
 	if mapprop.mongens == nil then
 		return;
 	end
-	
+
 	local npclist, statelist, questIESlist, questPropList = GetQuestNpcNames(mapname);
 	MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, questPropList, mapWidth, mapHeight, offsetX, offsetY);
 	MAKE_TOP_QUEST_ICONS(frame);
@@ -411,7 +411,6 @@ end
 
 function UPDATE_NPC_STATE_COMMON(frame)
 	local mapprop = session.GetCurrentMapProp();
-	local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
 	local mongens = mapprop.mongens;
 	local cnt = mongens:Count();
 	
@@ -436,7 +435,7 @@ function UPDATE_NPC_STATE_COMMON(frame)
 				local picture = GET_CHILD_RECURSIVELY(frame, ctrlname, "ui::CPicture");
 
 				if picture ~= nil then
-					SET_MONGEN_NPC_VISIBLE(picture, mapprop, mapNpcState, MonProp);
+					SET_MONGEN_NPC_VISIBLE(picture, mapprop, MonProp);
 				end
 			end
 		end
@@ -505,7 +504,6 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 	DESTORY_MAP_PIC(frame);
 
 	local list_y = 10 + 18;
-	local mapNpcState = session.GetMapNPCState(mapprop:GetClassName());
 	local mongens = mapprop.mongens;
 	local cnt = mongens:Count();
 	local WorldPos;
@@ -540,7 +538,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 				local ctrlname = GET_GENNPC_NAME(frame, MonProp);
 				local PictureC = frame:CreateOrGetControl('picture', ctrlname, XC, YC, iconW, iconH);
 				tolua.cast(PictureC, "ui::CPicture");
-				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, mapNpcState, npclist, statelist, questIESlist);
+				local idx, Icon = SET_MAP_MONGEN_NPC_INFO(PictureC, mapprop, WorldPos, MonProp, npclist, statelist, questIESlist);
                 if isColonyMap == true then
                     if MonProp:GetClassName() == 'Warp_arrow' or MonProp:GetClassName() == 'dialog_warp_npc_1' then
                         PictureC:ShowWindow(1);
