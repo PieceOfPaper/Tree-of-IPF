@@ -1,4 +1,6 @@
 random_item = {}
+date_time = { }
+
 random_item.is_sealed_random_item = function(itemobj)    
     if IS_EQUIP(itemobj) == false then
         return false;
@@ -20,6 +22,93 @@ random_item.set_sealed_random_item_icon_color = function(icon)
         icon:SetColorTone("FFFF0000")
     end
 end
+
+-- str = yyyy-mm-dd hh:mm:ss
+date_time.get_date_time = function(str)
+    if str == nil then
+        return nil
+    end
+
+    local token = StringSplit(str, ' ')
+    if #token ~= 2 then
+        return nil
+    end
+
+    local date = token[1]
+    local time = token[2]
+
+    local date_token = StringSplit(date, '-')
+    local time_token = StringSplit(time, ':')
+    if #date_token ~= 3 or #time_token ~= 3 then
+        return nil
+    end
+
+    local year = tonumber(date_token[1])
+    local month = tonumber(date_token[2])
+    local day = tonumber(date_token[3])
+
+    local hour = tonumber(time_token[1])
+    local minute = tonumber(time_token[2])
+    local second = tonumber(time_token[3])
+
+    return year, month, day, hour, minute, second
+end
+
+date_time.get_lua_datetime = function(_year, _month, _day, _hour, _minute, _sencond)
+    if _year == nil or _month == nil or _day == nil or _hour == nil or _minute == nil or _sencond == nil then
+        return nil
+    end
+    return os.time { year = _year, month = _month, day = _day, hour = _hour, minute = _minute, second = _second }
+end
+
+date_time.get_lua_now_datetime = function()
+    local now_time = os.date('*t')
+    local year = now_time['year']
+    local month = now_time['month']
+    local day = now_time['day']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local sec = now_time['sec']
+    local now = date_time.get_lua_datetime(year, month, day, hour, min, sec)
+    return now
+end
+
+function is_balance_patch_care_period()
+    local eventCls = GetClass("time_check_for_balance_patch", 'time_check_for_balance_patch')
+    if eventCls ~= nil and eventCls.Activate == 'YES' then
+        local curTime = GetDBTime()
+        local cur = date_time.get_lua_datetime(curTime.wYear, curTime.wMonth, curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wDay)
+        local start = date_time.get_lua_datetime(date_time.get_date_time(eventCls.Start))
+        local endd = date_time.get_lua_datetime(date_time.get_date_time(eventCls.End))
+
+        if cur == nil or start == nil or endd == nil then
+            return false
+        end
+
+        if start <= cur and cur < endd then
+            return true
+        else
+            return false
+        end
+    else
+        return false
+    end
+end
+
+function get_balance_patch_care_ratio()
+    local eventCls = GetClass("time_check_for_balance_patch", 'time_check_for_balance_patch')
+    if eventCls ~= nil and eventCls.Activate == 'YES' then
+        local ratio = eventCls.Ratio
+        if ratio == nil then
+            return 1
+        else
+            return tonumber(ratio)
+        end
+    else
+        return 1
+    end
+end
+
 
 function SCR_QUEST_LINK_FIRST(pc,questname)
     return SCR_QUEST_LINK_FIRST_SUB(pc,{questname}, {}, {})
