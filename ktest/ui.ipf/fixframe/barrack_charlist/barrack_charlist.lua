@@ -962,7 +962,7 @@ function DRAW_SELECT_LAYER_BUTTON_ACTIVITY(frame, layer)
     current_layer = layer  
 end
 
-function SET_BARRACK_MODE(frame, argStr, layer)
+function SET_BARRACK_MODE(frame, argStr, layer)    
 	frame:SetUserValue("BarrackMode", argStr);
 	UPDATE_BARRACK_MODE(frame);
 	if argStr == "Preview" then
@@ -1015,20 +1015,35 @@ function START_GAME_SET_MAP(frame, slotID, mapID, channelID)
 		-- RequestMapState();
 	else	
 		channels:ClearItems();
-		
-		local cnt = zoneInsts:GetZoneInstCount();
-		for i = 0  , cnt - 1 do
-			local zoneInst = zoneInsts:GetZoneInstByIndex(i);
-			local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true);
-			channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString);
-		end
-		channels:SelectItemByKey(channelID);
+	    	
+        if mapCls ~= nil and mapCls.ClassName == 'pvp_Mine' then
+            local zoneInst = zoneInsts:GetZoneInstByIndex(channelID)
+            if zoneInst.channel < 10000 then
+                local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true)
+			    channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString)
+                channels:SelectItemByKey(0)
+            else
+                local cnt = zoneInsts:GetZoneInstCount();
+		        for i = 0  , cnt - 1 do
+			        local zoneInst = zoneInsts:GetZoneInstByIndex(i);
+			        local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true);
+			        channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString);
+		        end
+                channels:SelectItemByKey(channelID);
+            end            
+        else
+            local cnt = zoneInsts:GetZoneInstCount();
+		    for i = 0  , cnt - 1 do
+			    local zoneInst = zoneInsts:GetZoneInstByIndex(i);
+			    local str, gaugeString = GET_CHANNEL_STRING(zoneInst, true);
+			    channels:AddItem(zoneInst.channel, str, 0, nil, gaugeString);
+		    end
+            channels:SelectItemByKey(channelID);
+        end        
 	end
-
 end
 
 function SELECT_GAMESTART_CHANNEL(parent, ctrl)
-
 	local frame = parent:GetTopParentFrame();
 	local channels = GET_CHILD(frame, "channels", "ui::CDropList");
 
@@ -1036,7 +1051,7 @@ function SELECT_GAMESTART_CHANNEL(parent, ctrl)
 	local acc = session.barrack.GetMyAccount();
 	local pc = acc:GetBySlot(slotID);
 
-	local key = channels:GetSelItemKey();
+	local key = channels:GetSelItemKey();    
 	pc:GetApc():SetChannelID(key);
 
 end

@@ -22,22 +22,6 @@ function ABILITYLIST_CLOSE(frame)
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:Stop();
 end
---[[
-function REFRESH_ABILITY_ACTIVE_OLD(frame, msg, abilName, IsActiveState)
-
-	local grid = GET_CHILD(frame, 'ability', 'ui::CGrid');
-	local classCtrl = grid:CreateOrGetControlSet('ability_set', 'ABIL_'..abilName, 0, 0);
-	local activeImg = GET_CHILD(classCtrl, "activeImg", "ui::CPicture");
-	local activeText = GET_CHILD(classCtrl, "abilActive", "ui::CRichText");
-
-	if IsActiveState == 1 then
-		activeImg:SetImage("ability_on");
-
-	else
-		activeImg:SetImage("ability_off");
-	end
-end
-]]
 
 function REFRESH_ABILITY_LIST_OLD(frame)
 

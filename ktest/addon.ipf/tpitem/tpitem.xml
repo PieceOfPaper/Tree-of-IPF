@@ -115,13 +115,13 @@
 		<richtext name="returnuser_remainTP" parent="returnuser_basketgbox" rect="0 0 195 50" margin="130 210 0 0" layout_gravity="left top" caption="" fontname="black_16_b" resizebytext="false" textalign="right center"/>
 		<!--TP SHOP 왼쪽 그룹박스-->
 		<tab name="shopTab" parent="leftgbox" rect="0 0 965 50" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="inven_arrange" LBtnDownScp="TPSHOP_TAB_CHANGE" fixwidth="true" itemspc="0" oversound="button_cursor_over_2" skin="tab2" margin="20 40 0 0"/>
-		<tabitem name="Itembox2" parent="shopTab" caption="{@st66b}TP 구매{/}" width="160" layout_gravity="left top"/>
-		<tabitem name="Itembox1" parent="shopTab" caption="{@st66b}프리미엄{/}" width="160" layout_gravity="left top"/>
-		<tabitem name="Itembox3" parent="shopTab" caption="{@st66b}리사이클 상점{/}" width="160" layout_gravity="left top"/>
-		<tabitem name="Itembox5" parent="shopTab" caption="{@st66b}계열 코스튬 교환{/}" width="160" layout_gravity="left top"/>
-		<tabitem name="Itembox4" parent="shopTab" caption="{@st66b}꾸미기{/}" width="160" layout_gravity="left top"/>
-		<tabitem name="Itembox6" parent="shopTab" caption="{@st66b}신규유저 전용상점{/}" width="160" layout_gravity="left top"/>
-		<tabitem name="Itembox7" parent="shopTab" caption="{@st66b}복귀유저 전용상점{/}" width="160" layout_gravity="left top"/>
+		<tabitem name="Itembox2" parent="shopTab" caption="{@st66b}TP 구매{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox1" parent="shopTab" caption="{@st66b}프리미엄{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox3" parent="shopTab" caption="{@st66b}리사이클 상점{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox5" parent="shopTab" caption="{@st66b}계열 코스튬 교환{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox4" parent="shopTab" caption="{@st66b}꾸미기{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox6" parent="shopTab" caption="{@st66b}신규유저 전용상점{/}" width="150" layout_gravity="left top"/>
+		<tabitem name="Itembox7" parent="shopTab" caption="{@st66b}복귀유저 전용상점{/}" width="150" layout_gravity="left top"/>
 		<!--TP SHOP 왼쪽 그룹박스 탭1-->
 		<!--프리미엄 샵 카테고리 그룹박스-->
 		<groupbox name="categorygbox" parent="leftgbox" rect="0 0 340 440" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox1" skin="test_frame_midle_light"/>
@@ -133,9 +133,9 @@
 		<!--프리미엄 샵 카테고리 -->
 		<tree name="tpitemtree" parent="categorySubGbox" layout_gravity="center top" rect="0 0 340 550" margin="-20 0 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="TPITEM_TREE_CLICK"/>
 		<!--프리미엄 상점 샵 검색 -->
-		<groupbox name="editSkin" parent="alignmentgbox" margin="0 0 0 0" rect="0 0 260 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
-		<richtext name="editDiff" parent="editSkin" rect="0 0 210 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<edit name="input" parent="editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 210 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="TPSHOP_ITEMSEARCH_ENTER" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<groupbox name="editSkin" parent="alignmentgbox" margin="0 0 0 0" rect="0 0 320 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<richtext name="editDiff" parent="editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<edit name="input" parent="editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="TPSHOP_ITEMSEARCH_ENTER" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="btn_find" parent="editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="TPSHOP_ITEMSEARCH_ENTER" oversound="button_over" clicksound="button_click_big"/>
 		<!--리사이클샵 카테고리 그룹박스-->
 		<groupbox name="rcycle_categorygbox" parent="leftgbox" rect="0 0 340 840" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox3" skin="test_frame_midle_light"/>
@@ -152,9 +152,9 @@
 		<!-- 리사이클 샵 카테고리 -->
 		<tree name="recycleCateTree" parent="rcycle_categorySubGbox" layout_gravity="left top" rect="0 0 320 550" margin="18 70 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="RECYCLE_TREE_CLICK"/>
 		<!-- 리사이클 샵 검색 -->
-		<groupbox name="recycle_editSkin" parent="rcycle_alignmentgbox" margin="0 0 0 0" rect="0 0 260 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
-		<richtext name="recycle_editDiff" parent="recycle_editSkin" rect="0 0 210 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<edit name="recycle_input" parent="recycle_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 210 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="RECYCLE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<groupbox name="recycle_editSkin" parent="rcycle_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<richtext name="recycle_editDiff" parent="recycle_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<edit name="recycle_input" parent="recycle_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="RECYCLE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="recycle_btn_find" parent="recycle_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="RECYCLE_CREATE_BUY_LIST" oversound="button_over" clicksound="button_click_big"/>
 		<!-- 계열 코스튬 교환 샵 카테고리 그룹박스-->
 		<groupbox name="costume_exchange_categorygbox" parent="leftgbox" rect="0 0 340 840" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox5" skin="test_frame_midle_light"/>
@@ -168,9 +168,9 @@
 		<!-- 계열 코스튬 교환 샵 카테고리 -->
 		<tree name="costumeExchangeCateTree" parent="costume_exchange_categorySubGbox" layout_gravity="left top" rect="0 0 320 550" margin="18 70 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="COSTUME_EXCHANGE_TREE_CLICK"/>
 		<!-- 계열 코스튬 교환 샵 검색 -->
-		<groupbox name="costume_exchange_editSkin" parent="costume_exchange_alignmentgbox" margin="0 0 0 0" rect="0 0 260 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
-		<richtext name="costume_exchange_editDiff" parent="costume_exchange_editSkin" rect="0 0 210 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<edit name="costume_exchange_input" parent="costume_exchange_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 210 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="COSTUME_EXCHANGE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_COSTUME_EXCHANGE_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<groupbox name="costume_exchange_editSkin" parent="costume_exchange_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<richtext name="costume_exchange_editDiff" parent="costume_exchange_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<edit name="costume_exchange_input" parent="costume_exchange_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="COSTUME_EXCHANGE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_COSTUME_EXCHANGE_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="costume_exchange_btn_find" parent="costume_exchange_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="COSTUME_EXCHANGE_CREATE_BUY_LIST" oversound="button_over" clicksound="button_click_big"/>
 		<!-- 신규유저 전용상점 카테고리 그룹박스-->
 		<groupbox name="newbie_categorygbox" parent="leftgbox" rect="0 0 340 440" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox6" skin="test_frame_midle_light"/>
@@ -181,9 +181,9 @@
 		<!-- 신규유저 전용상점 카테고리 -->
 		<tree name="newbieCateTree" parent="newbie_categorySubGbox" layout_gravity="center top" rect="0 0 340 550" margin="-20 0 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="NEWBIE_TREE_CLICK"/>
 		<!-- 신규유저 전용상점 검색 -->
-		<groupbox name="newbie_editSkin" parent="newbie_alignmentgbox" margin="0 0 0 0" rect="0 0 260 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
-		<richtext name="newbie_editDiff" parent="newbie_editSkin" rect="0 0 210 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<edit name="newbie_input" parent="newbie_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 210 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="NEWBIE_CREATE_ITEM_LIST" LBtnDownScp="TPSHOP_NEWBIE_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<groupbox name="newbie_editSkin" parent="newbie_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<richtext name="newbie_editDiff" parent="newbie_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<edit name="newbie_input" parent="newbie_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="NEWBIE_CREATE_ITEM_LIST" LBtnDownScp="TPSHOP_NEWBIE_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="newbie_btn_find" parent="newbie_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="NEWBIE_CREATE_ITEM_LIST" oversound="button_over" clicksound="button_click_big"/>
 		<!-- 복귀유저 전용상점 카테고리 그룹박스-->
 		<groupbox name="returnuser_categorygbox" parent="leftgbox" rect="0 0 340 440" margin="20 90 0 0" layout_gravity="left top" draw="true" scrollbar="false" hittestbox="false" resizebyparent="false" tabname="Itembox7" skin="test_frame_midle_light"/>
@@ -194,21 +194,21 @@
 		<!-- 복귀유저 전용상점 카테고리 -->
 		<tree name="returnuserCateTree" parent="returnuser_categorySubGbox" layout_gravity="center top" rect="0 0 340 550" margin="-20 0 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="RETURNUSER_TREE_CLICK"/>
 		<!-- 복귀유저 전용상점 검색 -->
-		<groupbox name="returnuser_editSkin" parent="returnuser_alignmentgbox" margin="0 0 0 0" rect="0 0 260 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
-		<richtext name="returnuser_editDiff" parent="returnuser_editSkin" rect="0 0 210 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<edit name="returnuser_input" parent="returnuser_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 210 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="RETURNUSER_CREATE_ITEM_LIST" LBtnDownScp="TPSHOP_RETURNUSER_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
+		<groupbox name="returnuser_editSkin" parent="returnuser_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<richtext name="returnuser_editDiff" parent="returnuser_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<edit name="returnuser_input" parent="returnuser_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="RETURNUSER_CREATE_ITEM_LIST" LBtnDownScp="TPSHOP_RETURNUSER_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="returnuser_btn_find" parent="returnuser_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="RETURNUSER_CREATE_ITEM_LIST" oversound="button_over" clicksound="button_click_big"/>
 		<!--프리미엄 샵 아이템 목록 그룹박스-->
 		<groupbox name="maingbox" parent="leftgbox" rect="0 0 885 840" margin="365 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox1" skin="test_frame_midle_light" scrollbar="false"/>
 		<groupbox name="mainBanner" parent="maingbox" rect="0 0 885 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
-		<richtext name="mainText" parent="mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="new > costume" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="mainText" parent="mainBanner" rect="0 0 500 50" margin="10 0 0 0" layout_gravity="left center" caption="new > costume" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<!--<checkbox name="showOnlyAvailable" parent="mainBanner" rect="0 0 100 20" margin="0 0 5 0" layout_gravity="right center" LBtnDownScp="SHOW_ONLY_AVAILABLE_ITEM" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="사용 가능한 항목만 표시" clicksound="button_click_big" fontname="black_14" oversound="button_over"/>-->
 		<groupbox name="mainSubGbox" parent="maingbox" rect="0 0 880 800" margin="5 39 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
 		<!--리사이클 아이템 목록 그룹박스-->
 		<groupbox name="rcycle_maingbox" parent="leftgbox" rect="0 0 885 840" margin="365 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox3" skin="test_frame_midle_light" scrollbar="false"/>
 		<groupbox name="rcycle_mainBanner" parent="rcycle_maingbox" rect="0 0 885 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
-		<richtext name="rcycle_mainBuyText" parent="rcycle_mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
-		<richtext name="rcycle_mainSellText" parent="rcycle_mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="판매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="rcycle_mainBuyText" parent="rcycle_mainBanner" rect="0 0 300 50" margin="10 0 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="rcycle_mainSellText" parent="rcycle_mainBanner" rect="0 0 300 50" margin="10 0 0 0" layout_gravity="left center" caption="판매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<groupbox name="rcycle_mainSubGbox" parent="rcycle_maingbox" rect="0 0 880 800" margin="5 39 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
 		<!-- 계열 코스튬 교환 샵 아이템 목록 그룹박스 -->
 		<groupbox name="costume_exchange_maingbox" parent="leftgbox" rect="0 0 885 840" margin="365 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox5" skin="test_frame_midle_light" scrollbar="false"/>
@@ -218,12 +218,12 @@
 		<!-- 신규유저 전용상점 아이템 목록 그룹박스 -->
 		<groupbox name="newbie_maingbox" parent="leftgbox" rect="0 0 885 840" margin="365 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox6" skin="test_frame_midle_light" scrollbar="false"/>
 		<groupbox name="newbie_mainBanner" parent="newbie_maingbox" rect="0 0 885 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
-		<richtext name="newbie_mainBuyText" parent="newbie_mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="newbie_mainBuyText" parent="newbie_mainBanner" rect="0 0 300 50" margin="10 0 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<groupbox name="newbie_mainSubGbox" parent="newbie_maingbox" rect="0 0 880 800" margin="5 39 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
 		<!-- 복귀유저 전용상점 아이템 목록 그룹박스 -->
 		<groupbox name="returnuser_maingbox" parent="leftgbox" rect="0 0 885 840" margin="365 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox7" skin="test_frame_midle_light" scrollbar="false"/>
 		<groupbox name="returnuser_mainBanner" parent="returnuser_maingbox" rect="0 0 885 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
-		<richtext name="returnuser_mainBuyText" parent="returnuser_mainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="returnuser_mainBuyText" parent="returnuser_mainBanner" rect="0 0 300 50" margin="10 0 0 0" layout_gravity="left center" caption="구매가능 목록" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<groupbox name="returnuser_mainSubGbox" parent="returnuser_maingbox" rect="0 0 880 800" margin="5 39 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
 		<!-- Beauty Shop -->
 		<groupbox name="beautyShopBox" parent="leftgbox" rect="0 0 1238 843" margin="15 90 0 0" layout_gravity="left top" hittestbox="false" resizebyparent="false" tabname="Itembox4" scrollbar="false" tabchangescp="TPITEM_INIT_BEAUTY_SHOP_TAB" draw="false"/>
@@ -244,7 +244,7 @@
 		<groupbox name="tpMaingbox" parent="leftgbox" rect="0 0 1230 400" margin="20 90 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" tabname="Itembox2" skin="test_frame_midle_light" scrollbar="false"/>
 		<groupbox name="tpMainBanner" parent="tpMaingbox" rect="0 0 1230 40" margin="0 0 0 0" skin="market_listbase" layout_gravity="left top"/>
 		<groupbox name="tpSubgbox" parent="leftgbox" rect="0 0 1230 450" margin="20 0 0 20" layout_gravity="left bottom" draw="false" hittestbox="false" resizebyparent="false" tabname="Itembox2" skin="test_frame_midle_light" scrollbar="false"/>
-		<richtext name="mainText" parent="tpMainBanner" rect="0 0 300 50" margin="10 -2 0 0" layout_gravity="left center" caption=" TP 구매" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
+		<richtext name="mainText" parent="tpMainBanner" rect="0 0 300 50" margin="10 0 0 0" layout_gravity="left center" caption=" TP 구매" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<groupbox name="tpMainSubGbox" parent="tpMaingbox" rect="0 0 1230 350" margin="8 39 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" skin="test_frame_low"/>
 		<richtext name="specialGoodsTitle" parent="tpSubgbox" rect="0 0 300 50" margin="20 40 0 0" layout_gravity="left top" caption="{@st66d}{s18}특별판매{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left top"/>
 		<webpicture name="specialGoods" parent="tpSubgbox" image="market_default2" rect="0 0 1230 380" margin="0 80 0 0" check_pattern="false" stretch="true" resizebyresolution="false" layout_gravity="center bottom"/>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <idspace id="ClientMessage">
 	<Category Name="ErrorMsg">
 		<Class ClassID="1" Data="DirectX 9.0c 이상의 버전이 설치되어 있어야 합니다"/>
@@ -85,6 +85,9 @@
 		<Class ClassID="507" ClassName="CannotCountinueBuff_Equip{Name}" Data="[{Name}] 버프가 해제됩니다. 착용한 장비를 확인해주세요."/>
 		<Class ClassID="508" ClassName="CannotUseSkill" Data="임시로 사용이 제한된 스킬입니다."/>
 		<Class ClassID="509" ClassName="BuffSellCountLimit" Data="{COUNT}개 까지 판매 가능합니다."/>
+    <Class ClassID="510" ClassName="camp_and_warehouse" Data="베이스 캠프 / 개인창고"/>
+    <Class ClassID="511" ClassName="camp_buff_active" Data="베이스 캠프 버프 활성화"/>
+    <Class ClassID="512" ClassName="camp_decomposition" Data="장비 아이템 분해"/>
 	</Category>
 	<Category Name="SimpleWords">
 		<Class ClassID="1100" ClassName="ValidTime" Data="지속 시간"/>
@@ -297,6 +300,7 @@
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
 		<Class ClassID="2278" ClassName="CanExchangeOnlyOnce" Data="교환된 아이템은 다시 교환 할 수 없습니다."/>
+		<Class ClassID="2279" ClassName="CloseUI{NAME}" Data="{@st59}{NAME} UI를 닫습니다{/}"/>
 		<Class ClassID="2280" ClassName="IfUDoCannotExchangeWeaponType" Data="계열 변경이 가능한 아이템에 변경이 생기는 경우 {#ff0000}{ol}계열 변경의 기회는 사라집니다.{/}{/} {nl} {nl}{@st66d_y}(강화, 초월, 마켓 판매, 개인 거래, 소켓 추가, 각성, 아이커 장착 및 추출, 무기 외형 변환){/}{nl} {nl}계속 하시겠습니까?"/>
 		<Class ClassID="2281" ClassName="TranscendScrollWarning{Before}To{After}100Percent" Data="아이템 변경사항 안내{nl} {nl} - 아이템이 {Before}초월에서{#62100c}{After}초월{/}로 변경 {nl} - 초월 성공시{#62100c}1:1거래가 불가능{/} 합니다."/>
 		<Class ClassID="2282" ClassName="OverLength" Data="내용이 길어 등록할 수 없습니다."/>
@@ -1160,6 +1164,7 @@
 		<Class ClassID="10512" ClassName="AddBarrackCharacterSlotSuccess{count}" Data="[{count}]개의 슬롯이 성공적으로 추가 되었습니다."/>
 		<Class ClassID="10513" ClassName="CanAddMoreSlotBecauseFullSlot" Data="더 이상 캐릭터 슬롯을 추가할 수 없습니다."/>
 		<Class ClassID="10514" ClassName="CharacterLengthLimit" Data="{COUNT}자 이내로만 입력 가능합니다."/>
+		<Class ClassID="10515" ClassName="AskReallyDelete" Data="정말로 삭제하시겠습니까?"/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
@@ -1490,6 +1495,7 @@
 		<Class ClassID="21326" ClassName="UI_Hour" Data="시간"/>
 		<Class ClassID="21327" ClassName="UI_Min" Data="분"/>
 		<Class ClassID="21328" ClassName="UI_Sec" Data="초"/>
+		<Class ClassID="21329" ClassName="CanNotMoveCamp" Data="이동 불가"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -5082,6 +5088,9 @@
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
 		<Class ClassID="28265" ClassName="EVENT_1811_ABILITY_EXTRACTOR_MSG1" Data="[최초 1회 {COUNT}%할인]"/>
+		<Class ClassID="28270" ClassName="EVENT_1811_TESTSERVER_UNIQUE" Data="'별의 탑 폐쇄 구역'을 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
+		<Class ClassID="28271" ClassName="EVENT_1811_TESTSERVER_LEGEND" Data="'벨코퍼의 둥지'를 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
+		<Class ClassID="28272" ClassName="EVENT_1811_TESTSERVER_CHALLENGE" Data="챌린지 5단계를 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
 		<Class ClassID="28273" ClassName="EVENT_1811_TESTSERVER_MSG1" Data="현재 캐릭터 드래곤 보루타 퀘스트 상태 : "/>
 		<Class ClassID="28274" ClassName="EVENT_1811_TESTSERVER_MSG2" Data="미완료"/>
 		<Class ClassID="28275" ClassName="EVENT_1811_TESTSERVER_MSG3" Data="{nl}클래스 변경 : {COUNT1}회{nl}별의 탑 폐쇄 구역 완료 : {COUNT2}회{nl}벨코퍼의 둥지 완료 : {COUNT3}회{nl}챌린지 5단계 완료 : {COUNT3}회"/>
@@ -6968,6 +6977,20 @@
 		<Class ClassID="67291" ClassName="EVENT_1901_RANKRESET_MSG2" Data="[{NUM1}] 포인트를 이미 갖고 계셔서 {#0054FF}[{NUM2}]{/} 포인트가 추가됩니다.{nl}정말 사용하시겠습니까?"/>
 		<Class ClassID="67292" ClassName="EVENT_1901_RANKRESET_MSG3" Data="지급 받는다"/>
 		<Class ClassID="67293" ClassName="EVENT_1901_RANKRESET_MSG4" Data="지급 받지 않는다"/>
+		<Class ClassID="67300" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG1" Data="격리 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
+		<Class ClassID="67301" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG2" Data="격리 예정지"/>
+		<Class ClassID="67302" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG3" Data="확장 예정지로 향하는 포탈이 생성되었습니다.{nl}2분간 지속 됩니다."/>
+		<Class ClassID="67303" ClassName="FD_IRREDIAN113_WEST_COUNT_MSG4" Data="확장 예정지"/>
+		<Class ClassID="67304" ClassName="IRREDIAN1131_DLG_LANG_1" Data="이번주의 남은 이용 횟수 : {COUNT} 회 입니다.{nl}이용 횟수가 차감됩니다.{nl}입장하시겠습니까?"/>
+		<Class ClassID="67305" ClassName="IRREDIAN1131_DLG_LANG_1_YES" Data="입장한다"/>
+		<Class ClassID="67306" ClassName="SOLO_RAID_BACK_MSG_1" Data="곧 원래 장소로 돌아갑니다"/>
+		<Class ClassID="67307" ClassName="IRREDIAN1131_DLG_LANG_1_CANT" Data="입장 횟수가 부족합니다.{nl}이번주의 입장 횟수를 모두 사용했습니다."/>
+		<Class ClassID="67308" ClassName="IRREDIAN1131_DLG_NPC_1" Data="주인님이 돌아오셨다!"/>
+		<Class ClassID="67309" ClassName="IRREDIAN1131_DLG_NPC_2" Data="수호자들은 주인님을 맞이하라!"/>
+		<Class ClassID="67310" ClassName="IRREDIAN1131_DLG_NPC_3" Data="어서 이 게으른 녀석들아!"/>
+		<Class ClassID="67311" ClassName="IRREDIAN1131_BOSS_PORTAL_1" Data="마돈메이드"/>
+		<Class ClassID="67312" ClassName="IRREDIAN1131_BOSS_PORTAL_2" Data="어미스독"/>
+		<Class ClassID="67313" ClassName="IRREDIAN1131_BOSS_PORTAL_NOTICE" Data="수호자 대기실로 향하는 포탈이 생성되었습니다.{nl} 30분간 지속 됩니다."/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -8552,7 +8575,19 @@
 		<Class ClassID="102310" ClassName="NotExistChangeGuildNameItem" Data="길드명 변경권이 존재하지 않습니다."/>
 		<Class ClassID="102311" ClassName="SuccessChangeGuildName" Data="길드명이 성공적으로 변경되었습니다."/>
 		<Class ClassID="102312" ClassName="GuildEventCantStarted" Data="길드 퀘스트를 시작할 권한이 없습니다."/>
-		<Class ClassID="102400" ClassName="GuildJointInvError" Data="길드 공용 창고 사용 중 에러가 발생했습니다."/>
+		<Class ClassID="102313" ClassName="BeginGuildAgitRaid" Data="도와주겠다고 한다"/>
+		<Class ClassID="102314" ClassName="ReturnDialogEnd" Data="돌아간다"/>
+		<Class ClassID="102315" ClassName="ParticipateGuildAgitRaid" Data="참가하겠다고 한다"/>
+		<Class ClassID="102316" ClassName="AgreeParticipateGuildAgitRaid" Data="협력해주셔서 감사합니다. 부디 조심해주세요."/>
+		<Class ClassID="102317" ClassName="AFTER_A_LITTLE_THE_GUILD_AGIT_BOSS_IS_COMMING" Data="잠시 후 길드 아지트에 레이드 보스가 출현합니다."/>
+		<Class ClassID="102318" ClassName="THE_GUILD_AGIT_BOSS_IS_APPEARING_NOW" Data="길드 아지트에 레이드 보스가 출현했습니다."/>
+		<Class ClassID="102319" ClassName="NOW_YOUR_GUILD_AGIT_RAID_POINT_IS" Data="현재 당신의 길드 아지트 레이드 공헌도는"/>
+		<Class ClassID="102320" ClassName="AND_YOUR_GUILD_AGIT_RAID_RANK_IS" Data="이며, 공헌도 등급은"/>
+		<Class ClassID="102321" ClassName="THAT_YOUR_RANK" Data="등급입니다."/>
+		<Class ClassID="102322" ClassName="CheckMyGuildAgitRaidRate" Data="레이드 공헌도 등급을 확인한다"/>
+		<Class ClassID="102323" ClassName="GUILD_AGIT_RAID_DAY_RESET_MSG" Data="초기화 시간에 따라 현재 진행 중인 레이드가 강제 종료됐습니다."/>
+		<Class ClassID="102324" ClassName="YOUR_GUILD_IS_KILL_BOSS" Data="차원의 균열에서 나타난 보스를 물리쳤습니다!"/>		<Class ClassID="102400" ClassName="GuildJointInvError" Data="길드 공용 창고 사용 중 에러가 발생했습니다."/>
+		<Class ClassID="102325" ClassName="YOU_NOT_PARTICIPATE_IN_GUILD_AGIT_RAID" Data="당신은 길드 아지트에 참가한 적이 없거나, 보스에게 타격을 입힌 적이 없습니다."/>
 		<Class ClassID="102401" ClassName="GuildJointInvTryLater" Data="잠시 후 다시 시도해 주세요"/>
 		<Class ClassID="102402" ClassName="GuildJointInvDisabled" Data="길드 공용 창고를 사용할 수 없습니다."/>
 		<Class ClassID="102403" ClassName="GuildJointInvLackOfCount" Data="길드 공용 창고 사용 횟수가 부족합니다."/>
@@ -11907,9 +11942,12 @@
 		<Class ClassID="138395" ClassName="Auto_TMace" Data="양손 둔기류"/>
 		<Class ClassID="138400" ClassName="ChallengeModeReset_MSG1" Data="오늘 챌린지 모드 1회 완료 후에만 사용 가능합니다"/>
 		<Class ClassID="138401" ClassName="ChallengeModeReset_MSG2" Data="챌린지 모드 1회 추가 횟수를 받으셨습니다"/>
-		<Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 버리시겠습니까?"/>
-		<Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 버리시겠습니까?"/>
-		<Class ClassID="138406" ClassName="ChallengeMode_InvalidPos_CantCreateWarp" Data="공간이 협소하여 포탈을 생성할 수 없습니다."/>
+    <Class ClassID="138404" ClassName="ReallyDestroy{ITEM}{COUNT}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하시겠습니까?"/>
+    <Class ClassID="138405" ClassName="ReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하시겠습니까?"/>
+		<Class ClassID="138406" ClassName="ChallengeMode_InvalidPos_CantCreateWarp" Data="공간이 협소하여 포탈을 생성할 수 없습니다."/>    
+    <Class ClassID="138407" ClassName="miss_match_confirm_text" Data="확인 문자가 일치하지 않습니다."/>
+    <Class ClassID="138408" ClassName="HighItemGradeReallyDestroy{ITEM}{COUNT}" Data="{#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
+    <Class ClassID="138409" ClassName="HighItemGradeReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
@@ -11950,6 +11988,7 @@
 		<Class ClassID="200036" ClassName="PositionObstructed" Data="해당 위치에 물체가 있습니다."/>
 		<Class ClassID="200037" ClassName="Fanaticism_Martyrdom" Data="파나티시즘: 순교"/>
 		<Class ClassID="200038" ClassName="CannotWarpThisZone" Data="이동할 수 없는 지역입니다."/>
+		<Class ClassID="200039" ClassName="DontOpenThisAria" Data="해당 지역에서는 개설할 수 없습니다."/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="201001" ClassName="Minimap_-" Data="미니맵 -"/>
@@ -12539,6 +12578,9 @@
 		<Class ClassID="302002" ClassName="ArborDayOneHourReward" Data="봄볕 이벤트 1시간 게임 플레이 보상입니다."/>
 		<Class ClassID="302003" ClassName="ArborDayEventRewardGet" Data="봄볕 이벤트 보상을 받았습니다. 메시지함에서 확인해주세요."/>
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
+		<Class ClassID="302011" ClassName="Get_RedSeed" Data="씨앗 획득하기"/>
+		<Class ClassID="302012" ClassName="Get_RedSeed_Time" Data=" {nl}성장 완료 시간 : {TIME} 분{nl}{nl}성장이 완료되면 수확할 수 있습니다."/>
+		<Class ClassID="302020" ClassName="NotOwner" Data=" {nl}주인이 아니면 이용하실 수 없습니다"/>
 		<Class ClassID="302021" ClassName="Fortunecookie_Count" Data="포춘 쿠키 {COUNT}회 사용"/>
 		<Class ClassID="302022" ClassName="Prison_Select1" Data="아샤크 지하 감옥 입장"/>
 		<Class ClassID="302023" ClassName="Prison_Select2" Data="이벤트 던전 참여보상({COUNT}회 입장)"/>
@@ -12549,6 +12591,7 @@
 		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
 		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 		<Class ClassID="302035" ClassName="Leticia_Cube" Data="레티샤의 시크릿 큐브"/>
+		<Class ClassID="302036" ClassName="THANKSGIVINGDAY_SEED_PRE_MSG1" Data="주변에 다른 작물이 있어서 사용하실 수 없습니다"/>
 		<Class ClassID="302037" ClassName="UseTPShopEventUser" Data="신규/복귀 상점 이용"/>
 		<Class ClassID="302038" ClassName="UseTPShopEventUser_MoveToCity" Data="TP 상점을 이용하기 위해 클라페다 마을로 이동하시겠습니까?"/>
 	</Category>
@@ -12892,15 +12935,15 @@
 		<Class ClassID="801104" ClassName="Guild_Colony_End_WorldMessage_1" Data="안녕하세요. 트리 오브 세이비어입니다."/>
 		<Class ClassID="801105" ClassName="Guild_Colony_End_WorldMessage_2" Data="금일의 길드 콜로니전 Beta가 종료되었습니다."/>
 		<Class ClassID="801106" ClassName="Guild_Colony_End_WorldMessage_3" Data="스팟 지역을 점령한 길드는 다음과 같습니다."/>
-		<Class ClassID="801107" ClassName="Guild_Colony_End_WorldMessage_4" Data="A등급 게나르 평원 : [{partyName}]길드"/>
-		<Class ClassID="801108" ClassName="Guild_Colony_End_WorldMessage_5" Data="B등급 수로교 지역 : [{partyName}]길드"/>
-		<Class ClassID="801109" ClassName="Guild_Colony_End_WorldMessage_6" Data="B등급 아렐르노 남작령 : [{partyName}]길드"/>
+		<Class ClassID="801107" ClassName="Guild_Colony_End_WorldMessage_4" Data="게나르 평원 : [{partyName}]길드"/>
+		<Class ClassID="801108" ClassName="Guild_Colony_End_WorldMessage_5" Data="수로교 지역 : [{partyName}]길드"/>
+		<Class ClassID="801109" ClassName="Guild_Colony_End_WorldMessage_6" Data="아렐르노 남작령 : [{partyName}]길드"/>
 		<Class ClassID="801110" ClassName="Guild_Colony_End_WorldMessage_7" Data="길드 콜로니전 Beta는 내일도 같은 시간에 진행되오니, 많은 참여 부탁드립니다."/>
 		<Class ClassID="801111" ClassName="Guild_Colony_End_WorldMessage_8" Data="길드 콜로니전 Beta는 금일을 기점으로 종료되었으며, Beta에 참여해주신 모든 분들에게 감사의 인사를 드립니다."/>
 		<Class ClassID="801112" ClassName="Guild_Colony_End_WorldMessage_9" Data="길드 콜로니전은 정식 서비스를 통해 더 나은 모습으로 찾아뵙겠습니다. 감사합니다."/>
-		<Class ClassID="801113" ClassName="Guild_Colony_End_WorldMessage_10" Data="A등급 게나르 평원 : 미점령"/>
-		<Class ClassID="801114" ClassName="Guild_Colony_End_WorldMessage_11" Data="B등급 수로교 지역 : 미점령"/>
-		<Class ClassID="801115" ClassName="Guild_Colony_End_WorldMessage_12" Data="B등급 아렐르노 남작령 : 미점령"/>
+		<Class ClassID="801113" ClassName="Guild_Colony_End_WorldMessage_10" Data="게나르 평원 : 미점령"/>
+		<Class ClassID="801114" ClassName="Guild_Colony_End_WorldMessage_11" Data="수로교 지역 : 미점령"/>
+		<Class ClassID="801115" ClassName="Guild_Colony_End_WorldMessage_12" Data="아렐르노 남작령 : 미점령"/>
 		<Class ClassID="801116" ClassName="Guild_Colony_Enhancer_Summon_MSG" Data="30초 뒤에 콜로니 증폭기가 생성됩니다."/>
 		<Class ClassID="801117" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY_ADD_POINT" Data="길드 내 [{name}] 유저가 증폭기를 마지막으로 타격하는데 성공했습니다!{nl}보상으로 점령 포인트를 {point} 획득했습니다!"/>
 		<Class ClassID="801118" ClassName="GUILD_COLONY_MSG_ENHANCER_DESTROY_ADD_POINT_2" Data="길드 내 [{name}] 유저가 증폭기를 마지막으로 타격하는데 성공했습니다!{nl}(현재 해당 지역을 점령중이므로 파괴 보상을 받을 수 없습니다.)"/>
@@ -12922,6 +12965,8 @@
 		<Class ClassID="801136" ClassName="NoOccupyingGuildThisLocation" Data="현재 해당 지역을 점령중인 길드가 없습니다."/>
 		<Class ClassID="801137" ClassName="GUILD_COLONY_MSG_ENTER_FAIL5{day}{time}" Data="길드 탈퇴 후 {day}일 동안은 콜로니전에 참가할 수 없습니다.{nl}(참가 가능일 : {time} 이후)"/>
 		<Class ClassID="801138" ClassName="GUILD_COLONY_ENTER_REMAIN_TIME{day}{hour}{min}{sec}" Data="{day}일 {hour}시간 {min}분 {sec}초"/>
+		<Class ClassID="801139" ClassName="Guild_Colony_Live_End_WorldMessage_1" Data="금주의 길드 콜로니전이 종료되었으며, 최종 점령 길드는 다음과 같습니다."/>
+		<Class ClassID="801140" ClassName="Guild_Colony_Live_End_WorldMessage_2" Data="길드 콜로니전은 다음주에도 같은 시간에 진행되니 많은 참여 바랍니다."/>
 	</Category>
 	<Category Name="ColonyTax">
 		<Class ClassID="810000" ClassName="ColonyTaxRateDetail{Default}{Min}{Max}{ModifyDelay}{DisableModifyDelay1}{DisableModifyDelay2}" Data="- 스팟 지역을 점령한 길드는 각 도시의 세율을 조정할 수 있습니다.({Min}% ~ {Max}%) {nl}- 세율은 기본적으로 표준 세율({Default}%)이 적용되어 있습니다.{nl}- 세율 조정은 길드 마스터 또는 해당 권한을 가진 일원만 가능합니다.{nl}- 세율은 조정 후, {ModifyDelay}시간 뒤에 재조정이 가능합니다.{nl}- 콜로니전 시작 {DisableModifyDelay1}시간 전부터 종료 {DisableModifyDelay2}분 후까지 세율 조정이 제한됩니다.{nl}- 매 콜로니전 종료 후, 최종 점령 길드가 지난번 점령 길드와 다른 경우 세율은 표준 세율({Default}%)로 조정됩니다.{nl}- 점령 길드에 가입된 인원들은 해당 세율 적용 도시에 한해 최소 세율({Min}%)로 고정되어 적용됩니다.{nl}- 세금 징수 기간 동안 [세율 적용 항목]의 실버 소비 시, 적용된 세율에 따라 세금이 징수됩니다.{nl}   (세금 징수 기간 : 콜로니전 종료 5분 후 시각을 기점으로 다음 콜로니전 종료 시 까지){nl}- 세금 징수 기간이 끝나면 [세금 분배] 탭에서 징수된 세금을 길드원에게 분배할 수 있습니다."/>
@@ -12960,6 +13005,9 @@
 		<Class ClassID="810033" ClassName="ColonyTax_ColumnColonyCity" Data="세율 적용 도시{img tip_questionmark 20 20}"/>
 		<Class ClassID="810034" ClassName="ColonyTax_InfoMapGrade" Data="{#ff0000}ⓘ 현재 세율 시스템 기능이 중지되어 있습니다. 자세한 내용은 홈페이지를 참고 바랍니다."/>
 		<Class ClassID="810035" ClassName="ColonyTax_InfoColonyCity" Data="ⓘ 점령 길드는 점령 혜택 버튼을 통해 도시의 세율 조정 및 세금 징수가 가능합니다 {nl}ⓘ 점령 혜택의 자세한 내용은 홈페이지를 통해 확인 바랍니다."/>
+		<Class ClassID="810036" ClassName="ColonyTax_Guild_World_map" Data="점령 길드 : "/>
+		<Class ClassID="810037" ClassName="ColonyTax_City_World_map" Data="세율 적용 도시 : "/>
+		<Class ClassID="810038" ClassName="ColonyTax_Rate_World_map" Data="적용중인 세율 : "/>
 	</Category>
 	<Category Name="NXA">
 		<Class ClassID="900000" ClassName="NXABillingPurchaseSuccess" Data="?????????????"/>
@@ -13223,5 +13271,5 @@
 		<Class ClassID="516023" ClassName="WebDataExtraction_Abil_AlwaysActive_YES" Data="토글 불가"/>
 		<Class ClassID="516024" ClassName="WebDataExtraction_Abil_AlwaysActive_NO" Data="토글 가능"/>
 		<Class ClassID="516025" ClassName="WebDataExtraction_Abil_AlwaysActive_None" Data="없음"/>
-	</Category>
+		</Category>
 </idspace>

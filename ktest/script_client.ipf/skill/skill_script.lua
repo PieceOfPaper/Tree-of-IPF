@@ -67,6 +67,12 @@ function SCR_ITEMDUNGEON_SKL_UI(skillType)
         return 0;
     end
 
+	local zoneName = session.GetMapName();
+	if SCR_ZONE_KEYWORD_CHECK(zoneName, "NoShop") == "YES" then
+		ui.SysMsg(ClMsg('DontOpenThisAria'));
+		return;
+	end
+
 	local skill = session.GetSkill(skillType);
 	if skill == nil then
 		return 0;
@@ -105,6 +111,13 @@ function EQUIP_MENDING_SKL(skillType)
 	if skill == nil then
 		return 0;
 	end
+	
+	local zoneName = session.GetMapName();
+	if SCR_ZONE_KEYWORD_CHECK(zoneName, "NoShop") == "YES" then
+		ui.SysMsg(ClMsg('DontOpenThisAria'));
+		return;
+	end
+	
 		-- 방향은 정면과 대각정면까지만 허용. 상점을 뒤로 개설 할 필욘없음.
 	local myActor = GetMyActor();
 	local rotateAngle = fsmactor.GetAngle(myActor);

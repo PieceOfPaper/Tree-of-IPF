@@ -1,4 +1,6 @@
 random_item = {}
+date_time = { }
+
 random_item.is_sealed_random_item = function(itemobj)    
     if IS_EQUIP(itemobj) == false then
         return false;
@@ -20,6 +22,93 @@ random_item.set_sealed_random_item_icon_color = function(icon)
         icon:SetColorTone("FFFF0000")
     end
 end
+
+-- str = yyyy-mm-dd hh:mm:ss
+date_time.get_date_time = function(str)
+    if str == nil then
+        return nil
+    end
+
+    local token = StringSplit(str, ' ')
+    if #token ~= 2 then
+        return nil
+    end
+
+    local date = token[1]
+    local time = token[2]
+
+    local date_token = StringSplit(date, '-')
+    local time_token = StringSplit(time, ':')
+    if #date_token ~= 3 or #time_token ~= 3 then
+        return nil
+    end
+
+    local year = tonumber(date_token[1])
+    local month = tonumber(date_token[2])
+    local day = tonumber(date_token[3])
+
+    local hour = tonumber(time_token[1])
+    local minute = tonumber(time_token[2])
+    local second = tonumber(time_token[3])
+
+    return year, month, day, hour, minute, second
+end
+
+date_time.get_lua_datetime = function(_year, _month, _day, _hour, _minute, _sencond)
+    if _year == nil or _month == nil or _day == nil or _hour == nil or _minute == nil or _sencond == nil then
+        return nil
+    end
+    return os.time { year = _year, month = _month, day = _day, hour = _hour, minute = _minute, second = _second }
+end
+
+date_time.get_lua_now_datetime = function()
+    local now_time = os.date('*t')
+    local year = now_time['year']
+    local month = now_time['month']
+    local day = now_time['day']
+    local hour = now_time['hour']
+    local min = now_time['min']
+    local sec = now_time['sec']
+    local now = date_time.get_lua_datetime(year, month, day, hour, min, sec)
+    return now
+end
+
+function is_balance_patch_care_period()
+    local eventCls = GetClass("time_check_for_balance_patch", 'time_check_for_balance_patch')
+    if eventCls ~= nil and eventCls.Activate == 'YES' then
+        local curTime = GetDBTime()
+        local cur = date_time.get_lua_datetime(curTime.wYear, curTime.wMonth, curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wDay)
+        local start = date_time.get_lua_datetime(date_time.get_date_time(eventCls.Start))
+        local endd = date_time.get_lua_datetime(date_time.get_date_time(eventCls.End))
+
+        if cur == nil or start == nil or endd == nil then
+            return false
+        end
+
+        if start <= cur and cur < endd then
+            return true
+        else
+            return false
+        end
+    else
+        return false
+    end
+end
+
+function get_balance_patch_care_ratio()
+    local eventCls = GetClass("time_check_for_balance_patch", 'time_check_for_balance_patch')
+    if eventCls ~= nil and eventCls.Activate == 'YES' then
+        local ratio = eventCls.Ratio
+        if ratio == nil then
+            return 1
+        else
+            return tonumber(ratio)
+        end
+    else
+        return 1
+    end
+end
+
 
 function SCR_QUEST_LINK_FIRST(pc,questname)
     return SCR_QUEST_LINK_FIRST_SUB(pc,{questname}, {}, {})
@@ -1342,8 +1431,9 @@ function GET_MAP_ACHI_NAME(mapCls)
 
 end
 
--- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
+ -- 경험치 페널티 (인던 제외) --
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
+ -- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
     local pcLv = myLevel;
     local monLv = monLevel;
     local value = 1;
@@ -1364,6 +1454,36 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
 	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
 	    else
 	    	penaltyRatio = 0.02;	-- 저레벨 몬스터 사냥 시 페널티
+	    end
+	    
+	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
+        value = value * lvRatio;
+    end
+    
+    if value < 0 then
+        value = 0;
+    end
+    
+    return value;
+end
+
+ -- 인던 경험치 페널티 --
+function GET_EXP_RATIO_INDUN(myLevel, indunLevel, highLv)
+ -- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
+    local pcLv = myLevel;
+    local indunLv = indunLevel;
+	local value = 1;
+    
+    local standardLevel = 80;
+    local levelGap = math.abs(pcLv - indunLv);
+    
+    
+    if levelGap > standardLevel then
+    	local penaltyRatio = 0.0;
+    	if pcLv < indunLv then
+	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
+	    else
+	    	penaltyRatio = 0.05;	-- 저레벨 몬스터 사냥 시 페널티
 	    end
 	    
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
@@ -2548,7 +2668,7 @@ function SCR_ZONE_KEYWORD_CHECK(zoneName, keyword)
 	
 	local mapClass = GetClass("Map", zoneName);
 	local mapKeyWord = TryGetProp(mapClass, "Keyword", "None");
-	if mapKeyWord ~= "None" or mapKeyWord ~= "" then
+	if mapKeyWord == "None" or mapKeyWord == "" then
 		return "NO";
 	end
 	
@@ -2593,6 +2713,33 @@ function SCR_GET_MONSTER_KEYWORD(mon)
 	local keywordList = SCR_STRING_CUT(monKeyword, ";");
 	
 	return keywordList;
+end
+
+
+function SCR_DATE_HOUR_TO_YWEEK2_BASIC_2000(yy, mm, dd, hour, firstWday, firstHour, secondWday, secondHour)
+   local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
+   local accDay1 = yday2000
+   local accDay2 = yday2000
+
+   if hour < firstHour then
+       accDay1 = accDay1 - 1
+   end
+
+   if hour < secondHour then
+       accDay2 = accDay2 - 1
+   end
+
+   local result = 0
+   local result1 = math.floor((accDay1+6-firstWday)/7) + 1
+   local result2 = math.floor((accDay2+6-secondWday)/7) + 1
+
+   if result1 > result2 then
+       result = result2 * 2
+   elseif result1 == result2 then
+       result = result2 * 2 - 1
+   end
+
+   return result
 end
 
 

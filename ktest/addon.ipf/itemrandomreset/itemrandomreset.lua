@@ -295,11 +295,11 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 				material_count:SetTextByKey("curCount", itemCount);
 				
 				--EVENT_1811_WEEKEND
-				if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
-    			    material_count:SetTextByKey("needCount", materialItemCount..' '..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'))
-    			else
+--				if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
+--    			    material_count:SetTextByKey("needCount", materialItemCount..' '..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'))
+--    			else
     				material_count:SetTextByKey("needCount", materialItemCount)
-    			end
+--    			end
 					
 				session.AddItemID(materialCls.ClassID, materialItemCount);
 	

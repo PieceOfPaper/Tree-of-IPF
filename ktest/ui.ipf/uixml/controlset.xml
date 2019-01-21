@@ -1436,7 +1436,7 @@
 			<button name="titleLine_limited" margin="0 5 0 0" rect="0 0 275 48 " layout_gravity="left top" hittest="false" skin="premium_title_line"/>
 			<button name="noneBtnPreSlot_1" margin="0 5 0 0" rect="0 0 275 48" layout_gravity="left top" skin="premium_title_line" scrollbar="false" hittest="false"/>
 			<picture name="bg_limited" margin="0 -35 0 0" rect="0 0 200 200" hittest="false" layout_gravity="center center" stretch="true" image="LimitedPeriod_bg"/>
-			<richtext name="title" margin="0 20 0 0" rect="0 0 210 40" caption="ZZZZZZZZZZZ" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_18_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<richtext name="title" margin="0 20 0 0" rect="0 0 500 0" caption="ZZZZZZZZZZZ" textalign="center center" resizebytext="true" spacey="0" maxwidth="300" fontname="black_18_b" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" autofontsizebywidth="270"/>
 			<richtext name="subtitle" margin="0 43 0 0" rect="0 0 210 40" caption="WWWWWWWWWWWWW" textalign="left center" resizebytext="true" spacey="0" maxwidth="280" fontname="black_16_b" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 			<picture name="shawdow" margin="0 20 0 0" rect="0 0 110 40 " hittest="false" layout_gravity="center center" stretch="true" image="skill-name_bg"/>
 			<slot name="icon" margin="0 70 0 0" rect="0 0 135 135" layout_gravity="center top" enabledrop="false" enablepop="false" hittest="true"/>

@@ -224,7 +224,7 @@ function UPDATE_SKILL_DUMMY_TOOLTIP(frame, strarg, numarg1, numarg2, userData, o
 	local skill_desc = GET_CHILD(frame, "skill_desc");
 	SET_SKILL_TOOLTIP_ICON_AND_NAME(skill_desc, buffCls, false);	
 	SET_SKILL_TOOLTIP_CAPTION(skill_desc, captionList[1], captionList[1]);
-
+    
 	local icon = GET_CHILD(skill_desc, 'icon');
 	local y = icon:GetY() + icon:GetHeight() + 20;
 
@@ -262,7 +262,7 @@ function UPDATE_SKILL_DUMMY_TOOLTIP(frame, strarg, numarg1, numarg2, userData, o
 		-- caption
 		local function _MAKE_CAPTION_BY_DUMMY(skl, caption, captionTimeScp, captionRatioList)
 			local retStr = '';
-			local _caption = caption;
+			local _caption = dic.getTranslatedStr(caption)
 			while string.len(_caption) > 0 do
 				local tagIdx = string.find(_caption, '#{');
 				local tagEndIdx = string.find(_caption, '}#');

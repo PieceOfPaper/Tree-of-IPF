@@ -525,7 +525,7 @@
 												<layoutsection name="itemTransactionOptionSection" size="50">
 											<groupbox name="itemTransactionOptBox" draw="false">
 												<checkbox name="showOnlyDeposit" caption="{@st66b}입고만 보기" layout_gravity="left top" LBtnUpScp="FILTER_TRANSACTION_LOG" checked="true"/>
-												<checkbox name="showOnlyWithdraw" caption="{@st66b}출고만 보기" layout_gravity="left top" margin="150 0 0 0" LBtnUpScp="FILTER_TRANSACTION_LOG" checked="true"/>
+												<checkbox name="showOnlyWithdraw" caption="{@st66b}출고만 보기" layout_gravity="left top" margin="180 0 0 0" LBtnUpScp="FILTER_TRANSACTION_LOG" checked="true"/>
 												<droplist name="itemLogDate" rect="0 0 200 24" layout_gravity="right top" margin="0 0 50 0" skin="droplist_normal" visibleline="8" SelectScp="ON_LOG_TIME_SET">
 													<item key="3hour" caption="{@st41d}3시간       " value="10800"/>
 													<item key="10hour" caption="{@st41d}10시간       " value="36000"/>

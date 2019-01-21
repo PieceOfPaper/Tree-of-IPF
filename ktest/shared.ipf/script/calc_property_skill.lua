@@ -8071,15 +8071,19 @@ function SCR_GET_Aggressor_Bufftime(skill)
 end
 
 function SCR_GET_Frenzy_Buff_Ratio2(skill, pc)
-
     if nil ~= pc then
         local abil = GetAbility(pc, 'Barbarian22');
         if nil ~= abil and 1 == abil.ActiveState then
             return skill.Level
         end
     end
-      return skill.Level * 2
+    return skill.Level * 2
+end
 
+function SCR_GET_Frenzy_Buff_Ratio3(skill)
+    local value = 2
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    return value;
 end
 
 function SCR_GET_BackMasking_Ratio(skill, pc)
@@ -8291,6 +8295,12 @@ end
 function SCR_GET_Camp_Ratio(skill)
     return 1 + skill.Level * 0.5
 end
+
+function SCR_GET_Camp_Ratio2(skill)
+    return skill.Level * 5
+end
+
+
 
 
 function SCR_GET_SR_LV_TEST(skill)
@@ -11070,6 +11080,17 @@ end
 function SCR_GET_Hasisas_Ratio3(skill)
     local value = skill.Level * 2
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    
+    local pc = GetSkillOwner(skill)
+    local MHP = pc.MHP
+    if info == nil then
+        return 0
+    end
+    local stat = info.GetStat(session.GetMyHandle());
+    local HP = stat.HP
+    local HPRate = (1 - (HP / MHP)) * 100
+    value = value + HPRate
+    
     return value;
 end
 

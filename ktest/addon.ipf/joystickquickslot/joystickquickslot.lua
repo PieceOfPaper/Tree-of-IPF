@@ -265,7 +265,7 @@ function JOYSTICK_QUICKSLOT_EXECUTE(slotIndex)
 	end
 
 	if Set2:IsVisible() == 1 then
-		slotIndex = slotIndex + 20
+		slotIndex = slotIndex + 20;
 	end
 
 	if input_L1 == 1 and input_R1 == 1 then
@@ -297,7 +297,7 @@ function JOYSTICK_QUICKSLOT_EXECUTE(slotIndex)
 	end
 
 	local quickslotFrame = ui.GetFrame('joystickquickslot');
-	local slot = quickslotFrame:GetChildRecursively("slot"..slotIndex+1);
+	local slot = quickslotFrame:GetChildRecursively("slot"..slotIndex + 1);
 	QUICKSLOTNEXPBAR_SLOT_USE(quickSlotFrame, slot, 'None', 0);	
 end
 

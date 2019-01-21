@@ -1693,7 +1693,7 @@ function SCR_MON_ITEM_ARMOR_CALC(self, defType)
     if defType ~= nil then
         local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
         local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
-        local defRatio = TryGetProp(defClass, armorMaterial);
+        local defRatio = TryGetProp(defClass, armorMaterial, 1);
         if defRatio ~= nil then
             value = value * defRatio;
         end

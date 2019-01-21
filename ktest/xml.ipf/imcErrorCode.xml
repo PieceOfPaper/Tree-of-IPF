@@ -553,7 +553,9 @@
 	<Code Code="ERROR_MONGO" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="몽고 관련 에러"/>
 	<Code Code="FATAL_SQL_NULL_DATA" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="null 데이타가 Bind되었습니다. 해당 select 루프에서 초기화가 필수입니다. 또는 DB의 null 데이타를 없애주세요."/>
 	<Code Code="INFO_COLONY" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="콜로니전 정보 로그"/>
+	<Code Code="INFO_PVP_MINE" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="pvp_mine 정보 로그"/>
   <Code Code="INFO_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RVR 정보 로그"/>
+	<Code Code="INFO_SOLO_RAID" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="SOLO RAID 정보 로그"/>
 	<Code Code="ERROR_PCBANG_BENEFIT" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 혜택 에러"/>
 	<Code Code="INFO_PCBANG_BENEFIT" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 혜택 정보"/>
 	<Code Code="ERROR_PCBANG_POINTSHOP" Team="tos_team" Category="SYSTEM" SubCategory="PCBANG" Logger="root" Enabled="YES" CallStack="NO" Desc="PC방 포인트샵 에러"/>

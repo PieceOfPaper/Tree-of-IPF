@@ -270,7 +270,7 @@ end
 
 function DELETE_COMMUNITY_CARD(boardIdx)
     local yesScp = string.format("DeleteBoard(%s, %s)","'ON_DELETE_COMMUNITY_CARD'", boardIdx)
-    ui.MsgBox("정말로 삭제하시겠습니까?", yesScp, "None")
+    ui.MsgBox(ClMsg("AskReallyDelete"), yesScp, "None")
     
 end
 
@@ -297,7 +297,7 @@ function DELETE_ONELINE_COMMENT(frame, control)
     local boardIdx = frame:GetUserValue("board_idx")
     local commentIdx = frame:GetUserValue("comment_idx")
     local yesScp = string.format("DeleteComment(%s, %s, %s)","'ON_DELETE_COMMUNITY_COMMENT'", boardIdx, commentIdx)
-    ui.MsgBox("정말로 삭제하시겠습니까?", yesScp, "None")
+    ui.MsgBox(ClMsg("AskReallyDelete"), yesScp, "None")
 end
 
 function ON_DELETE_COMMUNITY_COMMENT(code, ret_json, board_idx, comment_idx)

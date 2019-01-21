@@ -107,6 +107,9 @@ function CLOSE_WORLDMAP(frame)
 	frame:SetUserValue('Type', 'None');
 	frame:SetUserValue('SCROLL_WARP', 'None');
 	UNREGISTERR_LASTUIOPEN_POS(frame);
+	mouse.ChangeCursorImg("BASIC", 0);
+	ui.EnableToolTip(1);
+	
 end
 
 function WORLDMAP_UPDATE_CLAMP_MINMAX(frame)
@@ -566,15 +569,17 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
 					occupyTextTooltip = ClMsg('ProgressColonyWar');
 				else -- 콜로니전 진행 중이 아닐 때
 					local COLONY_NOT_OCCUPIED_IMG = topFrame:GetUserConfig('COLONY_NOT_OCCUPIED_IMG');
-					local occupyInfo = session.colonywar.GetOccupationInfoByMapID(colonyMapCls.ClassID);        
-					if occupyInfo == nil then
+                    local cityMap = GetClassString('guild_colony', check_word..mapCls.ClassName, 'TaxApplyCity')
+                    if cityMap ~= "None" then
+                        local cityMapID = GetClassNumber('Map', cityMap, 'ClassID')
+                        local taxRateInfo = session.colonytax.GetColonyTaxRate(cityMapID)
+                        if taxRateInfo == nil then
                             colonyText = string.format('{img %s %d %d}', COLONY_NOT_OCCUPIED_IMG, COLONY_IMG_SIZE, COLONY_IMG_SIZE);
                             occupyTextTooltip = ClMsg('NotOccupiedSpot');
                         else
                             ctrlSet:RemoveChild('occupyText');
                             occupyText = nil;
-		
-						local guildID = occupyInfo:GetGuildID();
+                            local guildID = taxRateInfo:GetGuildID()
                             emblemSet = ctrlSet:CreateOrGetControlSet('guild_emblem_set', 'EMBLEM_'..guildID, 0, 0);
                             emblemSet:SetGravity(ui.CENTER_HORZ, ui.TOP);
                         
@@ -587,8 +592,13 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                             else            
                                 local worldID = session.party.GetMyWorldIDStr();    
                                 guild.ReqEmblemImage(guildID,worldID);
-                            end                                
-						occupyTextTooltip = occupyInfo:GetGuildName();
+                            end
+                        	local taxGuildName = taxRateInfo:GetGuildName()
+                        	local taxCityMapID = taxRateInfo:GetCityMapID();
+                            local taxCityName = TryGetProp(GetClassByType("Map", taxCityMapID), "Name")
+                            local taxRate = taxRateInfo:GetTaxRate();
+                            occupyTextTooltip = ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
+                        end
                     end
 				end
 
@@ -1376,13 +1386,12 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 
 	local camp_warp_class = GetClass('camp_warp', argStr)
 
-
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
 
 	local warpcost = 0;
 	local targetMapName = 0;	
-	local type = frame:GetUserValue("Type");
+	local type = warpFrame:GetUserValue("Type");
 	if camp_warp_class ~= nil then
 		targetMapName = camp_warp_class.Zone;        
     	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);        
@@ -1409,7 +1418,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 		end	
 	end
 	
-	if type ~= "Dievdirbys" then
+	if type == "Dievdirbys" or type == 'Normal' then
 		warpcost = 0
 	end
 	
@@ -1433,11 +1442,8 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
         local warp_item_ies_id = warpFrame:GetUserValue('SCROLL_WARP_IESID')		
         cheat = string.format("/intewarpByItem %d %d %s", dest_mapClassID, argNum, warp_item_ies_id);
 	end
-
 	movie.InteWarp(session.GetMyHandle(), cheat);
-
 	packet.ClientDirect("InteWarp");    
-    
     if warpFrame:IsVisible() == 1 then
 		ui.CloseFrame('worldmap')
 	end

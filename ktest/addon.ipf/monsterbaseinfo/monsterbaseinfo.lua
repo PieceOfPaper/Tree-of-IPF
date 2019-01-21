@@ -11,13 +11,10 @@ function MONSTERBASEINFO_ON_INIT(addon, frame)
     addon:RegisterMsg('SHOW_TARGET_UI', 'ON_SHOW_TARGET_UI');
     addon:RegisterMsg('MON_ENTER_SCENE', 'ON_MON_ENTER_SCENE');
     addon:RegisterMsg('TARGET_COLORSET', 'ON_TARGET_COLORSET'); 
-        
 end
 
 function SET_MONB_ALWAYS_VISIBLE(handle, enable)
-
     session.ui.SetAlwaysVisible(handle, enable);
-    
 end
 
 function DRAW_DEBUFF_UI_EFECT(handle, buffType)
@@ -90,7 +87,6 @@ function MONBASE_GAUGE_SET(frame, targetinfo)
 end
 
 function HIDE_MONBASE_INFO(frame)
-
     local nameRichText = GET_CHILD(frame, "name", "ui::CRichText");
     nameRichText:SetText("");
     local hpGauge = GET_CHILD(frame, "hp", "ui::CGauge");
@@ -178,13 +174,10 @@ function SHOW_MONB_TARGET(handle, duration)
 
     cFrame:SetDuration(1);
     return cFrame;
-
 end
 
 function ON_SHOW_TARGET_UI(frame, msg, argStr, handle)
-    
     SHOW_MONB_TARGET(handle, 10.0);
-    
 end
 
 function OPEN_MONB_FRAME(frame, handle) 
@@ -218,16 +211,13 @@ function OPEN_MONB_FRAME(frame, handle)
 end
 
 function ON_MONB_TARGET_SET(msgFrame, msg, argStr)
-
     local handle = session.GetTargetHandle();
     local frame= ui.GetFrame("monb_" .. handle);
     OPEN_MONB_FRAME(frame, handle); 
     UPDATE_MONB_HP(frame, handle);
-    
 end
 
 function ON_TARGET_CLEAR(msgFrame, msg, argStr, handle)
-    
     local frame= ui.GetFrame("monb_"..handle);
     if frame ~= nil and frame:GetDuration() == 0.0 then 
         local visible = session.ui.IsAlwaysVisible(handle);
@@ -263,6 +253,7 @@ function UPDATE_MONB_HP(frame, handle)
     local stat = info.GetStat(handle);
     local hpObject = frame:GetChild('hp');
     local hpGauge = tolua.cast(hpObject,"ui::CGauge");
+    
     if hpGauge:GetMaxPoint() ~= 0 then
         hpGauge:SetPoint(stat.HP, stat.maxHP);
         if stat.HP <= stat.maxHP/4 then
@@ -274,14 +265,17 @@ function UPDATE_MONB_HP(frame, handle)
                 frame:SetDuration(10.0);
             end
         end
-
     elseif hpGauge:GetMaxPoint() == 0 then
         hpGauge:SetPoint(stat.HP, stat.maxHP);
     end
 
     if targetInfo.isSummoned == 1 then
-        hpGauge:SetBarColor(0xff00ff00);
-        hpGauge:ShowWindow(1)
+        hpGauge:SetSkinName("hpgauge2");
+        hpGauge:SetColorTone("FF777777");
+        hpGauge:ShowWindow(1);
+    else
+        hpGauge:SetSkinName("hpgauge");
+        hpGauge:ShowWindow(1);
     end
 end
 
@@ -290,27 +284,23 @@ function ON_MONB_SPC_TARGET_UPDATE(msgFrame, msg, argStr, handle)
 end
 
 function ON_MONB_TARGET_UPDATE(msgFrame, msg, argStr, argNum)
-
     local handle = session.GetTargetHandle();
     UPDATE_MONB(handle);
 end
 
 function MONSTERBASEINFO_ON_MSG(baseFrame, msg, argStr, argNum)
-
     local frame = ui.GetFrame("monb_"..session.GetTargetHandle());
     if frame == nil then
         return;
     end
     
-     if msg == 'PC_PROPERTY_UPDATE' then
+    if msg == 'PC_PROPERTY_UPDATE' then
         MONSTERBASEINFO_CHECK_OPENCONDITION(frame);
-     end
+    end
 end
 
 function MONBASE_SHIELD_UPDATE(msgFrame, msg, str, targetHandle)
-
     local frame= ui.GetFrame("monb_"..targetHandle);
-    
     if frame ~= nil then
         local targetinfo = info.GetTargetInfo(targetHandle);
         MONBASE_GAUGE_SET(frame, targetinfo);
