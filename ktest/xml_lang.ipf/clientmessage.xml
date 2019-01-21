@@ -297,7 +297,6 @@
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>
 		<Class ClassID="2277" ClassName="RollbackIcorFirst" Data="아이커를 통해 옵션이 장착된 아이템입니다.{nl}아이커를 먼저 분리해주세요."/>
 		<Class ClassID="2278" ClassName="CanExchangeOnlyOnce" Data="교환된 아이템은 다시 교환 할 수 없습니다."/>
-		<Class ClassID="2279" ClassName="CloseUI{NAME}" Data="{@st59}{NAME} UI를 닫습니다{/}"/>
 		<Class ClassID="2280" ClassName="IfUDoCannotExchangeWeaponType" Data="계열 변경이 가능한 아이템에 변경이 생기는 경우 {#ff0000}{ol}계열 변경의 기회는 사라집니다.{/}{/} {nl} {nl}{@st66d_y}(강화, 초월, 마켓 판매, 개인 거래, 소켓 추가, 각성, 아이커 장착 및 추출, 무기 외형 변환){/}{nl} {nl}계속 하시겠습니까?"/>
 		<Class ClassID="2281" ClassName="TranscendScrollWarning{Before}To{After}100Percent" Data="아이템 변경사항 안내{nl} {nl} - 아이템이 {Before}초월에서{#62100c}{After}초월{/}로 변경 {nl} - 초월 성공시{#62100c}1:1거래가 불가능{/} 합니다."/>
 		<Class ClassID="2282" ClassName="OverLength" Data="내용이 길어 등록할 수 없습니다."/>
@@ -4841,7 +4840,7 @@
 		<Class ClassID="27836" ClassName="EVENT_1803_NEWCHARACTER_MSG2" Data="오늘은 이미 특성 포인트를 받으셨습니다"/>
 		<Class ClassID="27840" ClassName="QUEST_KILL_MON_UI_MSG2" Data=" {ZONE}지역 몬스터 소탕"/>
 		<Class ClassID="27850" ClassName="EVENT_1803_NEWCLASS_MSG1" Data="{CLASS}클래스로 전직 후에 사용 가능합니다"/>
-		<Class ClassID="27851" ClassName="USE_ITEM_RANKRESET_MSG1" Data="[{NUM1}] 포인트을 이미 갖고 계셔서 {#0054FF}[{NUM2}]{/} 포인트가 추가됩니다.{nl}사용하시겠습니까?"/>
+		<Class ClassID="27851" ClassName="USE_ITEM_RANKRESET_MSG1" Data="[{NUM1}] 포인트를 이미 갖고 계셔서 {#0054FF}[{NUM2}]{/} 포인트가 추가됩니다.{nl}사용하시겠습니까?"/>
 		<Class ClassID="27852" ClassName="USE_ITEM_RANKRESET_MSG2" Data="이미 최대 포인트를 갖고 계셔서 포인트를 추가할 수 없습니다"/>
 		<Class ClassID="27860" ClassName="EVENT_1804_ARBOR_MSG1" Data="사용할 {ITEM} 아이템이 부족합니다"/>
 		<Class ClassID="27861" ClassName="EVENT_1804_ARBOR_MSG2" Data="이번 주는 성장이 완료되었습니다{nl}다른 채널의 나무를 성장시켜주세요"/>
@@ -5063,6 +5062,8 @@
 		<Class ClassID="28227" ClassName="EVENT_1811_CTRLTYPE_RESET_MSG8" Data="계열 변경 대상 캐릭터가 아닙니다"/>
 		<Class ClassID="28228" ClassName="EVENT_1811_CTRLTYPE_RESET_MSG9" Data="계열 변경 기간이 종료된 캐릭터 입니다"/>
 		<Class ClassID="28235" ClassName="EVENT_1811_RANKRESET_MSG1" Data="{@st64}클래스 변경 포인트가 지급되었습니다{nl}하단 메뉴 '전직 정보 {img sysmenu_jobinfo}'버튼을 눌러 클래스 변경을 사용하실 수 있습니다"/>
+		<Class ClassID="28236" ClassName="EVENT_1811_RANKRESET_MSG2" Data="{@st64}스킬 초기화 포션, 특성 초기화 포션과{nl}클래스 변경 포인트가 지급되었습니다{nl}하단 메뉴 '전직 정보 {img sysmenu_jobinfo}'버튼을 눌러 클래스 변경을 사용하실 수 있습니다"/>
+		<Class ClassID="28237" ClassName="EVENT_1811_RANKRESET_MSG3" Data="{@st64}스킬 초기화 포션, 특성 초기화 포션이 지급되었습니다."/>
 		<Class ClassID="28240" ClassName="EVENT_1811_NEWCHARACTER_MSG1" Data="지원품을 받는다 [팀 기준 남은 횟수 : {COUNT}] 회"/>
 		<Class ClassID="28241" ClassName="EVENT_1811_NEWCHARACTER_MSG2" Data="우스카의 성장 지원 : 몬스터 처치 [{COUNT}] 달성!"/>
 		<Class ClassID="28242" ClassName="EVENT_1811_NEWCHARACTER_MSG3" Data="우스카의 성장 지원 : 레이드 클리어 [{COUNT}] 달성!"/>
@@ -5081,9 +5082,6 @@
 		<Class ClassID="28260" ClassName="IMCTEST_1811_NPC_MSG1" Data="보루타 레이드 지역으로 이동"/>
 		<Class ClassID="28261" ClassName="IMCTEST_1811_NPC_MSG2" Data="콜로니전 지역으로 이동"/>
 		<Class ClassID="28265" ClassName="EVENT_1811_ABILITY_EXTRACTOR_MSG1" Data="[최초 1회 {COUNT}%할인]"/>
-		<Class ClassID="28270" ClassName="EVENT_1811_TESTSERVER_UNIQUE" Data="'별의 탑 폐쇄 구역'을 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
-		<Class ClassID="28271" ClassName="EVENT_1811_TESTSERVER_LEGEND" Data="'벨코퍼의 둥지'를 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
-		<Class ClassID="28272" ClassName="EVENT_1811_TESTSERVER_CHALLENGE" Data="챌린지 5단계를 완료 하셨습니다!{nl}총 완료 횟수 : {COUNT}"/>
 		<Class ClassID="28273" ClassName="EVENT_1811_TESTSERVER_MSG1" Data="현재 캐릭터 드래곤 보루타 퀘스트 상태 : "/>
 		<Class ClassID="28274" ClassName="EVENT_1811_TESTSERVER_MSG2" Data="미완료"/>
 		<Class ClassID="28275" ClassName="EVENT_1811_TESTSERVER_MSG3" Data="{nl}클래스 변경 : {COUNT1}회{nl}별의 탑 폐쇄 구역 완료 : {COUNT2}회{nl}벨코퍼의 둥지 완료 : {COUNT3}회{nl}챌린지 5단계 완료 : {COUNT3}회"/>
@@ -5122,16 +5120,20 @@
 		<Class ClassID="28331" ClassName="EVENT_1901_GOLDPIG_MSG2" Data="황금돼지를 찾아라 : 일일 보상 누적 {COUNT}회"/>
 		<Class ClassID="28332" ClassName="EVENT_1901_GOLDPIG_MSG3" Data="누적 100초 동안 이동이 감지되지 않아 보상을 받을 수 없습니다!"/>
 		<Class ClassID="28333" ClassName="EVENT_1901_GOLDPIG_MSG4" Data="최고 수훈자 : {TEAM}{nl}축하드립니다!"/>
-		<Class ClassID="28345" ClassName="EVENT_1901_3DAY_TARGET_MSG1" Data="작심삼일에 참여 : 작심삼일 달성 {COUNT}회"/>
-		<Class ClassID="28346" ClassName="EVENT_1901_3DAY_TARGET_MSG2" Data="챌린지 5단계 이상 {COUNT}회 성공"/>
-		<Class ClassID="28347" ClassName="EVENT_1901_3DAY_TARGET_MSG3" Data="레벨 던전 {COUNT}회 성공"/>
-		<Class ClassID="28348" ClassName="EVENT_1901_3DAY_TARGET_MSG4" Data="유니크 레이드 {COUNT}회 성공"/>
-		<Class ClassID="28349" ClassName="EVENT_1901_3DAY_TARGET_MSG5" Data="살러스 수녀원 {COUNT}회 성공"/>
-		<Class ClassID="28350" ClassName="EVENT_1901_3DAY_TARGET_MSG6" Data="작심삼일 목표 누적 {COUNT}일 달성!"/>
-		<Class ClassID="28351" ClassName="EVENT_1901_3DAY_TARGET_MSG7" Data="최근 {YEAR}년 {MONTH}월 {DAY}일 도전기록 : "/>
+		<Class ClassID="28345" ClassName="EVENT_1901_3DAY_TARGET_MSG1" Data="작심삼일에 참여 : 목표 완료 누적 {COUNT} 회"/>
+		<Class ClassID="28346" ClassName="EVENT_1901_3DAY_TARGET_MSG2" Data="챌린지 5단계 이상 {#003399}{COUNT}회{/} 성공"/>
+		<Class ClassID="28347" ClassName="EVENT_1901_3DAY_TARGET_MSG3" Data="레벨 던전 {#003399}{COUNT}회{/} 성공"/>
+		<Class ClassID="28348" ClassName="EVENT_1901_3DAY_TARGET_MSG4" Data="유니크 레이드 {#003399}{COUNT}회{/} 성공"/>
+		<Class ClassID="28349" ClassName="EVENT_1901_3DAY_TARGET_MSG5" Data="살러스 수녀원 {#003399}{COUNT}회{/} 성공"/>
+		<Class ClassID="28350" ClassName="EVENT_1901_3DAY_TARGET_MSG6" Data="작심삼일 목표 누적 {COUNT}일을 달성!{nl}*{nl}"/>
+		<Class ClassID="28351" ClassName="EVENT_1901_3DAY_TARGET_MSG7" Data="{nl}*{nl}최근 도전기록 : {YEAR}년 {MONTH}월 {DAY}일 "/>
 		<Class ClassID="28352" ClassName="EVENT_1901_3DAY_TARGET_MSG8" Data="새로 시작하신 작심삼일 목표에 달성 기록이 없습니다."/>
 		<Class ClassID="28353" ClassName="EVENT_1901_3DAY_TARGET_MSG9" Data="작심삼일 이벤트 : "/>
-		<Class ClassID="28354" ClassName="EVENT_1901_3DAY_TARGET_MSG10" Data="을 선택하셨습니다.{nl}목표를 달성하시면 보상을 획득하실 수 있습니다.{nl}현재 "/>
+		<Class ClassID="28354" ClassName="EVENT_1901_3DAY_TARGET_MSG10" Data="을 선택하셨습니다.{nl}{#003399}선택한 목표를 3일간 달성 후{/} 저와 다시 대화하셔야 보상을 지급해드릴 수 있습니다.{nl}"/>
+		<Class ClassID="28355" ClassName="EVENT_1901_3DAY_TARGET_MSG11" Data="{#003399}선택한 목표를 3일간 달성 후{/}  저와 다시 대화하셔야 보상을 지급해드릴 수 있습니다."/>
+		<Class ClassID="28356" ClassName="EVENT_1901_3DAY_TARGET_MSG12" Data="을 선택하셨습니다.{nl}"/>
+		<Class ClassID="28357" ClassName="EVENT_1901_3DAY_TARGET_MSG13" Data="{#FF0000}금일 목표는 완료되었습니다.{/}{nl}내일 다시 도전해주세요!"/>
+		<Class ClassID="28358" ClassName="EVENT_1901_GOLDPIG_MSG5" Data="{nl}내가 찾은 황금 돼지 : {POINT} / "/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -6962,6 +6964,10 @@
 		<Class ClassID="67279" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE4_END_1" Data="동력 제어 장치의 충전이 끝났군!"/>
 		<Class ClassID="67280" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE4_END_2" Data="이제 이그나스와 우리 사이에 있던{nl}모든 결계가 사라졌네"/>
 		<Class ClassID="67281" ClassName="UNIQ_STARTTOWER_RAMUNASU_STAGE4_END_3" Data="이그나스가 뭔가 큰 일을 벌이기 전에{nl}그 자를 처리해주게!"/>
+		<Class ClassID="67290" ClassName="EVENT_1901_RANKRESET_MSG1" Data="클래스 변경 포인트를 수령한다"/>
+		<Class ClassID="67291" ClassName="EVENT_1901_RANKRESET_MSG2" Data="[{NUM1}] 포인트를 이미 갖고 계셔서 {#0054FF}[{NUM2}]{/} 포인트가 추가됩니다.{nl}정말 사용하시겠습니까?"/>
+		<Class ClassID="67292" ClassName="EVENT_1901_RANKRESET_MSG3" Data="지급 받는다"/>
+		<Class ClassID="67293" ClassName="EVENT_1901_RANKRESET_MSG4" Data="지급 받지 않는다"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -12533,9 +12539,6 @@
 		<Class ClassID="302002" ClassName="ArborDayOneHourReward" Data="봄볕 이벤트 1시간 게임 플레이 보상입니다."/>
 		<Class ClassID="302003" ClassName="ArborDayEventRewardGet" Data="봄볕 이벤트 보상을 받았습니다. 메시지함에서 확인해주세요."/>
 		<Class ClassID="302007" ClassName="JP_Event_Daily" Data="이벤트 보상을 받았습니다. 인벤토리를 확인해 주세요."/>
-		<Class ClassID="302011" ClassName="Get_RedSeed" Data="씨앗 획득하기"/>
-		<Class ClassID="302012" ClassName="Get_RedSeed_Time" Data=" {nl}성장 완료 시간 : {TIME} 분{nl}{nl}성장이 완료되면 수확할 수 있습니다."/>
-		<Class ClassID="302020" ClassName="NotOwner" Data=" {nl}주인이 아니면 이용하실 수 없습니다"/>
 		<Class ClassID="302021" ClassName="Fortunecookie_Count" Data="포춘 쿠키 {COUNT}회 사용"/>
 		<Class ClassID="302022" ClassName="Prison_Select1" Data="아샤크 지하 감옥 입장"/>
 		<Class ClassID="302023" ClassName="Prison_Select2" Data="이벤트 던전 참여보상({COUNT}회 입장)"/>
@@ -12546,7 +12549,6 @@
 		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
 		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 		<Class ClassID="302035" ClassName="Leticia_Cube" Data="레티샤의 시크릿 큐브"/>
-		<Class ClassID="302036" ClassName="THANKSGIVINGDAY_SEED_PRE_MSG1" Data="주변에 다른 작물이 있어서 사용하실 수 없습니다"/>
 		<Class ClassID="302037" ClassName="UseTPShopEventUser" Data="신규/복귀 상점 이용"/>
 		<Class ClassID="302038" ClassName="UseTPShopEventUser_MoveToCity" Data="TP 상점을 이용하기 위해 클라페다 마을로 이동하시겠습니까?"/>
 	</Category>

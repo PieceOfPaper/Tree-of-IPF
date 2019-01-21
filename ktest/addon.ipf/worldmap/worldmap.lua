@@ -1430,7 +1430,8 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 	end
 	local cheat = string.format("/intewarp %d %d", dest_mapClassID, argNum);
 	if warpitemname ~= 'NO' and warpitemname ~= 'None' then
-		cheat = string.format("/intewarpByItem %d %d %s", dest_mapClassID, argNum, warpitemname);
+        local warp_item_ies_id = warpFrame:GetUserValue('SCROLL_WARP_IESID')		
+        cheat = string.format("/intewarpByItem %d %d %s", dest_mapClassID, argNum, warp_item_ies_id);
 	end
 
 	movie.InteWarp(session.GetMyHandle(), cheat);

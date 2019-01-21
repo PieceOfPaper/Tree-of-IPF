@@ -27,7 +27,7 @@ function NECRONOMICON_HUD_CHECK_VISIBLE()
     return true;
 end
 
-function NECRONOMICON_HUD_UPDATE_AMOUNT(frame, msg, argStr, argNum)
+function NECRONOMICON_HUD_UPDATE_AMOUNT(frame, msg, argStr, argNum)    
     if NECRONOMICON_HUD_CHECK_VISIBLE() == false then
         return;
     end
@@ -38,18 +38,21 @@ function NECRONOMICON_HUD_UPDATE_AMOUNT(frame, msg, argStr, argNum)
     end
 
 	local deadPartsCnt = etc.Necro_DeadPartsCnt;
-	local totalCount = GET_NECRONOMICON_TOTAL_COUNT();	
-	local part_gauge = GET_CHILD_RECURSIVELY(frame, 'necroGauge');
+	local totalCount = GET_NECRONOMICON_TOTAL_COUNT(argStr);	
+	local part_gauge = GET_CHILD_RECURSIVELY(frame, 'necroGauge');    
 	part_gauge:SetPoint(deadPartsCnt, totalCount);
 end
 
-function GET_NECRONOMICON_TOTAL_COUNT()
+function GET_NECRONOMICON_TOTAL_COUNT(argStr)    
     local totalCount = 300;	
-	local abil = session.GetAbilityByName("Necromancer21")
+	local abil = session.GetAbilityByName("Necromancer21")    
 	if abil ~= nil then
-	    local abilObj = GetIES(abil:GetObject());
+	    local abilObj = GetIES(abil:GetObject());        
 	    totalCount = totalCount + abilObj.Level * 100
 	end
+    if argStr == 'RESET_ABILITY' then
+        totalCount = 300;	
+    end
     return totalCount;
 end
 

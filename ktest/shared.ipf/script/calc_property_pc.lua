@@ -1953,7 +1953,7 @@ function SCR_Get_KDArmorType(self)
         value = 1;
     end
     
-    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_Buff" };
+    local buffList = { "Safe", "PainBarrier_Buff", "Lycanthropy_Buff", "Marschierendeslied_Buff", "Methadone_Buff", "Fluting_Buff", "Slithering_Buff", "Algiz_Buff", "BullyPainBarrier_Buff" };
     for i = 1, #buffList do
         if IsBuffApplied(self, buffList[i]) == 'YES' then
             value = 99999;
@@ -2533,7 +2533,7 @@ function SCR_Get_Sta_Run(self)
     local value = (250 * consumptionSTA / 100);
     
     addRateConsumptionSTA = addRateConsumptionSTA + byRateBuff
-    addRateConsumptionSTA = addRateConsumptionSTA + isAgility
+    addRateConsumptionSTA = addRateConsumptionSTA - isAgility
     
     value = value + (value * addRateConsumptionSTA);
     

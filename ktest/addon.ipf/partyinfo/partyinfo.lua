@@ -5,23 +5,37 @@ function PARTYINFO_ON_INIT(addon, frame)
 	addon:RegisterMsg("PARTY_INST_UPDATE", "ON_PARTYINFO_INST_UPDATE");
 	addon:RegisterMsg("PARTY_OUT", "ON_PARTYINFO_DESTROY");
 	addon:RegisterMsg("PARTY_INVITE_CANCEL", "ON_PARTY_INVITE_CANCEL");
+	
+	addon:RegisterMsg("GAME_START", "PARTYINFO_CONTROL_INIT");
+end
 
+function PARTYINFO_CONTROL_INIT()
 	-- need summonUI check
-	local frame = ui.GetFrame('summonsinfo');
-	if frame == nil then
-		return; 
+	local frame = ui.GetFrame("partyinfo");
+	local summonsUI = ui.GetFrame("summonsinfo");
+	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
+	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+	if IS_NEED_SUMMON_UI() == 0 then
+		if title_gbox ~= nil and button ~= nil and buttonText ~= nil then
+			title_gbox:EnableDrawFrame(0);
+			button:SetVisible(0);
+			buttonText:SetVisible(0);
+		end
+	elseif IS_NEED_SUMMON_UI() == 1 and summonsUI ~= nil and summonsUI:IsVisible() then
+		if button ~= nil and buttonText ~= nil then
+			button:SetVisible(0);
+			buttonText:SetVisible(0);
+		end
 	end
 
-	-- toggle button
-	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
 	if button ~= nil then
 		button:SetTextTooltip("소환수 정보로 전환(`)");
 		button:EnableHitTest(1);
 	end
-
-	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	
 	if buttonText ~= nil then
-		buttonText:SetTextByKey("title", "소환수 정보로 전환");
+		buttonText:SetTextByKey("title", "파티 정보");
 	end
 end
 
@@ -31,9 +45,11 @@ function PARTYINFO_BUTTON_UI_CHECK(isVisible)
 		return; 
 	end
 
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
 	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
 	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
-	if button ~= nil and buttonText ~= nil then
+	if title_gbox ~= nil and button ~= nil and buttonText ~= nil then
+		title_gbox:EnableDrawFrame(isVisible);
 		button:SetVisible(isVisible);
 		buttonText:SetVisible(isVisible);
 	end
@@ -76,6 +92,7 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	if pcparty == nil then
 		DESTROY_CHILD_BYNAME(frame, 'PTINFO_');
 		frame:ShowWindow(0);
+
 		if summonsinfo ~= nil then
 			SUMMONSINFO_TOGGLE_BUTTON(summonsinfo, 0)
 		end
@@ -86,10 +103,9 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 			button:EnableHitTest(0);
 			button:SetTextTooltip("");
 		end
-		
 		return;
 	end
-	
+
 	frame:ShowWindow(1);
 	frame:SetVisible(1);
 	local partyInfo = pcparty.info;
@@ -142,14 +158,13 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 	-- invite party member visible check
 	if summonsinfo:IsVisible() == 1 then
 		frame:SetVisible(0);
-
 		local button = GET_CHILD_RECURSIVELY(summonsinfo, "summonsinfobutton");
 		if button ~= nil then
 			button:SetVisible(1);
-			button:EnableHitTest(1);
 			button:SetTextTooltip("파티 정보로 전환(`)");
-
-			CHANGE_BUTTON_TITLE(summonsinfo, "파티 정보로 전환");
+			button:EnableHitTest(1);
+			CHANGE_BUTTON_TITLE(summonsinfo, "소환수 정보");
+			summonsinfo:Invalidate();
 		end
 	end
 end
@@ -301,7 +316,6 @@ function BAN_PARTY_MEMBER(name)
 end
 
 function GIVE_PARTY_LEADER(name)
-	
 	if session.GetCurrentMapProp():GetUsePartyOut() == "NO" then
 		ui.SysMsg(ScpArgMsg("ThatMapCannotChangePartyLeader"));
 		return;
@@ -311,9 +325,7 @@ function GIVE_PARTY_LEADER(name)
 end
 
 function OPEN_PARTY_MEMBER_INFO(name)
-	
 	party.ReqMemberDetailInfo(name)	
-	
 end
 
 function CONTEXT_PARTY(frame, ctrl, aid)	
@@ -334,7 +346,6 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		local execScp = string.format("ui.Chat(\"/changePVPObserveTarget %d 0\")", memberInfo:GetHandle());
 		ui.AddContextMenuItem(context, ScpArgMsg("Observe{PC}", 'PC',memberInfo:GetName() ), execScp);
 		ui.OpenContextMenu(context);
-
 		return;
 	end
 	if aid == myAid then
@@ -376,7 +387,6 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 	
 	ui.AddContextMenuItem(context, ScpArgMsg("Cancel"), "None");
 	ui.OpenContextMenu(context);
-
 end
 
 function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
@@ -389,13 +399,11 @@ function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
 	spGauge:SetPoint(stat.sp, stat.maxsp);
 
 	local hpRatio = stat.hp / stat.maxhp;
-
 	if  hpRatio <= 0.3 and hpRatio > 0 then
 		hpGauge:SetBlink(0.0, 1.0, 0xffff3333); -- (duration, 주기, ?�상)
 	else
 		hpGauge:ReleaseBlink();
 	end
-
 end
 
 function PARTY_HP_UPDATE(actor, partyMemberInfo)
@@ -826,7 +834,7 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 		nowjobcls = nowJobName; 
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);        
-	end; 
+	end
 
 	local OTHERPCJOBS = {}	
 	for i = 0, otherpcinfo:GetJobCount()-1 do
@@ -835,17 +843,16 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)
 			OTHERPCJOBS[tempjobinfo.jobID] = 1;
 		end
 	end
+
 	local jobtext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
-
-if cls.Name == nowjobcls.Name then
+		if cls.Name == nowjobcls.Name then
 			jobtext = jobtext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
 			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
-		
 		jobtext = jobtext ..('{nl}');
 	end
 	uiChild:SetTextTooltip(jobtext);
@@ -859,6 +866,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		return 0;
 	end		 
 			 	
+
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 	local nowjobinfo, jobCount;	
     local gender;
@@ -872,14 +880,15 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
         nowjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(jobCount - 1);
         gender = info.GetGender(session.GetMyHandle());
     end
+
 	local clslist, cnt  = GetClassList("Job");
-	
 	local nowjobcls;
 	if nil == nowjobinfo then
 		nowjobcls = nowJobName; 
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
-	end; 
+	end
+
 	local OTHERPCJOBS = {}
 	for i = 0, jobCount - 1 do		
 		local tempjobinfo;
@@ -914,6 +923,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 			jobtext = jobtext .. ("{@st41}").. GET_JOB_NAME(cls, gender)..'{nl}{/}';
 		end
 	end
+
 	icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 	return 1;
@@ -924,6 +934,7 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	if nil == icon then 
 		return 0;
 	end		 	
+
    	local mySession = session.GetMySession();
 	local pcJobInfo = mySession.pcJobInfo;
 	local jobhistory = mySession.pcJobInfo;
@@ -949,7 +960,6 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	end
 
 	local jobtext = ("");
-
 	for jobid, grade in pairs(MYPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
@@ -962,6 +972,7 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 		
 		jobtext = jobtext ..('{nl}');
 	end
+	
 	icon:SetTextTooltip(jobtext);
 	icon:EnableHitTest(1);
 	return 1;
@@ -969,7 +980,7 @@ end
 
 -- grave hotkey down
 function PARTYINFO_TOGGLE()
-	local frame = ui.GetFrame("partyinfo");
+local frame = ui.GetFrame("partyinfo");
 	if frame == nil then
 		return;
 	end
@@ -982,32 +993,34 @@ end
 
 -- partyinfo update button input
 function PARTYINFO_UPDATE_BUTTON(frame)
-	local changeFlag = tonumber(frame:GetUserConfig("CHANGE_FLAG"));
 	local summonsinfo = ui.GetFrame("summonsinfo"); 
-	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
-	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
-
 	local isNeedSummonUI = IS_NEED_SUMMON_UI();
 	if isNeedSummonUI == 0 then
 		return;
 	end
 
-	if changeFlag == 0 then		-- summonsinfo	
+	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
+	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+
+	local changeFlag = tonumber(frame:GetUserConfig("CHANGE_FLAG"));
+	if changeFlag == 0 then -- summonsinfo	
 		PARTYINFO_REMOVE_CONTROLSET(frame);
+
 		frame:SetVisible(0);
 		frame:SetUserConfig("CHANGE_FLAG", "1");
-		SUMMONSINFO_TOGGLE_BUTTON(summonsinfo, changeFlag);
+		title_gbox:EnableDrawFrame(0);
 
 		if button ~= nil and buttonText ~= nil then
 			button:SetVisible(0);
 			buttonText:SetVisible(0);
 		end
-
 	elseif changeFlag == 1 then	-- partyinfo
 		ON_PARTYINFO_UPDATE(frame);
+
 		frame:SetVisible(1);
 		frame:SetUserConfig("CHANGE_FLAG", "0");
-		SUMMONSINFO_TOGGLE_BUTTON(summonsinfo, changeFlag);
+		title_gbox:EnableDrawFrame(1);
 
 		if button ~= nil and buttonText ~= nil then
 			-- button tooltip
@@ -1016,10 +1029,11 @@ function PARTYINFO_UPDATE_BUTTON(frame)
 			button:EnableHitTest(1);
 
 			buttonText:SetVisible(1);
-			buttonText:SetTextByKey("title", "소환수 정보로 전환");
+			buttonText:SetTextByKey("title", "파티 정보");
 		end
 	end
 
+	SUMMONSINFO_TOGGLE_BUTTON(summonsinfo, changeFlag);
 	PARTYINFO_CONTROLSET_AUTO_ALIGN(frame);
 end
 
@@ -1042,11 +1056,5 @@ end
 
 function PARTYINFO_CONTROLSET_AUTO_ALIGN(frame)
 	GBOX_AUTO_ALIGN(frame, 10, 0, 0, true, false);
-	
-	local button = GET_CHILD_RECURSIVELY(frame, "partyinfobutton");
-	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
-	if button ~= nil and buttonText ~= nil then
-		button:SetMargin(20, 30, 0, 0);
-		buttonText:SetMargin(55, 30, 0, 0);
-	end
+	frame:Invalidate();
 end

@@ -18,47 +18,41 @@ function SUMMONSINFO_INIT()
     
 	-- pcparty Check
     local pcparty = session.party.GetPartyInfo();
+	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
+	local count = list:Count();
     if pcparty == nil and isNeedCheck == 1 then
         ui.OpenFrame("summonsinfo");
         frame:SetVisible(1);
         
         local partyinfo = ui.GetFrame("partyinfo");
         partyinfo:SetUserConfig("CHANGE_FLAG", "1");
-    end
-	
-	-- partymember check
-	local list = session.party.GetPartyMemberList(PARTY_NORMAL);
-	local count = list:Count();
-	if pcparty ~= nil and count >= 1 and isNeedCheck == 1 then
+		PARTYINFO_BUTTON_UI_CHECK(0);
+	elseif pcparty ~= nil and count >= 1 and isNeedCheck == 1 then
 		ui.OpenFrame("summonsinfo");
-        frame:SetVisible(1);
+        frame:SetVisible(0);
         
         local partyinfo = ui.GetFrame("partyinfo");
-        partyinfo:SetUserConfig("CHANGE_FLAG", "1");
+        partyinfo:SetUserConfig("CHANGE_FLAG", "0");
+		PARTYINFO_BUTTON_UI_CHECK(1);
 	end
 
-	-- button tooltip
+	-- button & buttonText & tooltip
 	local button = GET_CHILD_RECURSIVELY(frame, "summonsinfobutton");
 	if button ~= nil then
+		if count >= 1 then
+			button:SetVisible(1);
+		elseif count < 1 then
+			button:SetVisible(0);
+		end
+
 		button:SetTextTooltip("파티 정보로 전환(`)");
 		button:EnableHitTest(1);
 	end
 
     local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
 	if buttonText ~= nil then
-		button:SetVisible(1);
-		buttonText:SetTextByKey("title", "파티 정보로 전환");
-
-		if pcparty == nil then
-			button:SetVisible(0);
-            buttonText:SetTextByKey("title", "내 소환수 정보");
-			PARTYINFO_BUTTON_UI_CHECK(0);
-        end
+		buttonText:SetTextByKey("title", "소환수 정보");
 	end
-
-    if frame:IsVisible() == 0 then
-        PARTYINFO_BUTTON_UI_CHECK(0);
-    end
 end
 
 -- button title change (only partyinfo & summonsinfo)
@@ -118,21 +112,24 @@ function SUMMONSINFO_UPDATE(frame)
 
     local button = GET_CHILD_RECURSIVELY(frame, "summonsinfobutton");
     local buttonTitle = GET_CHILD_RECURSIVELY(frame, "buttontitle");
+	local title_gbox = GET_CHILD_RECURSIVELY(frame, "titlegbox");
+
     if frame:IsVisible() == 0 then
         button:SetVisible(0);
         buttonTitle:SetVisible(0);
+		title_gbox:SetVisible(0);
     else
+		title_gbox:SetVisible(1);
+		buttonTitle:SetVisible(1);
+		
         local pcparty = session.party.GetPartyInfo();
         if pcparty == nil then
 			button:SetVisible(0);
-			buttonTitle:SetTextByKey("title", "내 소환수 정보");
+			buttonTitle:SetTextByKey("title", "소환수 정보");
         else
 			button:SetVisible(1);
-            buttonTitle:SetTextByKey("title", "파티 정보로 전환");
+	        buttonTitle:SetTextByKey("title", "소환수 정보");
         end
-
-        button:SetVisible(1);
-        buttonTitle:SetVisible(1);
     end
 	
     SUMMONSINFO_CONTROLSET_AUTO_ALIGN(frame);
@@ -203,11 +200,5 @@ end
 
 function SUMMONSINFO_CONTROLSET_AUTO_ALIGN(frame)
 	GBOX_AUTO_ALIGN(frame, 10, 0, 0, true, false);
-	
-	local button = GET_CHILD_RECURSIVELY(frame, "summonsinfobutton");
-	local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
-	button:SetMargin(20, 30, 0, 0);
-	buttonText:SetMargin(55, 30, 0, 0);
-
 	frame:Invalidate();
 end

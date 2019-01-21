@@ -40,6 +40,14 @@ function KEYCONFIG_UPDATE_KEY_TEXT(txt_key)
 
 	txt = txt .. key;
 	txt_key:SetTextByKey("value", txt);
+	local hotkeyID = txt_key:GetParent():GetUserValue("ID");
+	if hotkeyID == 'QuestItemUse' then
+		local questItemUse = ui.GetFrame('questitemuse')
+		if questItemUse ~= nil and questItemUse:IsVisible() == 1 then
+			local title = questItemUse:GetChild('title')
+			title:SetText('{@st43}' .. txt ..  '{/}')
+		end
+	end
 	
 end
 function KEYCONFIG_RESTORE_KEY_TEXT(txt_key)

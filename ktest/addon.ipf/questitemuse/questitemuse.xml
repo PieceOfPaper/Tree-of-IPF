@@ -10,7 +10,7 @@
     <option hideable="false" closebutton="false"/>
     <script fadeinScp="None" fadeoutScp="None"/>
     <controls>
-        <richtext name="title" rect="0 0 24 24" layout_gravity="right top" caption="{@st43}V{/}" fixwidth="true" resizebytext="false"/>
+        <richtext name="title" rect="0 0 24 24" layout_gravity="right top" caption="{@st43}V{/}" fixwidth="false" resizebytext="true"/>
         <groupbox name="itemgroup" rect="0 0 140 100" layout_gravity="left top" draw="false" scrollbar="false"/>
     </controls>
 </uiframe>
