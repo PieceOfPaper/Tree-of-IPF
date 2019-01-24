@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="60" R="150" G="140" B="110" A="100"/>
+	<BlendOn frame="61" R="130" G="120" B="80" A="100"/>
+	<BlendOff frame="63" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="60" type="2" intensity="8" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="21" attachNode="Dummy_emitter" particleName="F_burstup019_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="57" attachNode="Dummy_effect_atk" particleName="I_swordtrail033_white4_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="57" attachNode="Dummy_effect_atk_smoke001" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="58" attachNode="Dummy_effect_atk_smoke002" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="59" attachNode="Dummy_effect_atk_smoke003" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_effect_atk_smoke004" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="11" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="57" attachNode="Dummy_emitter" particleName="F_burstup019_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="2.07" soundFile="mon_succubus_turn_wing"/>
+	<Sound frame="11.00" soundFile="skl_eff_atk_move_l_7"/>
+	<Sound frame="50.00" soundFile="mon_voice_succubus_atk_1"/>
+	<Sound frame="51.00" soundFile="skl_eff_atk_move_l_3"/>
+	<Sound frame="56.00" soundFile="mon_succubus_turn_wing"/>
+</ActionDesc>

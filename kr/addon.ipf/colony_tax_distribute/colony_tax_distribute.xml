@@ -10,7 +10,7 @@
 	<script OpenScp="ON_OPEN_COLONY_TAX_DISTRIBUTE"/>
 	<userconfig ASC="▲" DESC="▼"/>
 	<controls>
-		<richtext name="title" rect="0 0 200 30" margin="0 10 0 0" layout_gravity="center top" caption="{@st42}{s20}세금 분배" fontname="brown_16_b" spacey="0"/>
+		<richtext name="title" rect="0 0 200 30" margin="0 10 0 0" layout_gravity="center top" caption="{@st42}{s20}적립금 분배" fontname="brown_16_b" spacey="0"/>
 		<groupbox name="amount_gb" rect="0 0 480 100" margin="0 40 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="false"/>
 		<groupbox name="cur_amount_bg" parent="amount_gb" rect="0 0 150 28" margin="0 0 0 0" layout_gravity="left top" skin="jour_search" draw="true" scrollbar="false"/>
 		<groupbox name="send_amount_bg" parent="amount_gb" rect="0 0 150 28" margin="0 32 0 0" layout_gravity="left top" skin="jour_search" draw="true" scrollbar="false"/>

@@ -6,6 +6,19 @@
     </Category>
     <Category ID="117">
         <Effect Name="MNQ_RANGDA_MINIG"/>
+        <Effect Name="F_pc_pose_music_wedding01"/>
+        <Effect Name="F_levitation041_music2"/>
+        <Effect Name="F_pc_pose_music_wedding02"/>
+        <Effect Name="F_buff_basic037"/>
+        <Effect Name="F_cleric_heal_loop_ground_cleric01_3"/>
+        <Effect Name="F_light078_holy_yellow_katadikazo"/>
+        <Effect Name="F_buff_basic044"/>
+        <Effect Name="F_ground109"/>
+        <Effect Name="F_ground109##7"/>
+        <Effect Name="F_ground109##3"/>
+        <Effect Name="F_light012_3_piedpiper"/>
+        <Effect Name="F_buff_basic034_blue"/>
+        <Effect Name="LEAN"/>
     </Category>
     <Category ID="125">
         <Effect Name="init"/>
@@ -57,6 +70,9 @@
         <Effect Name="Obb60"/>
         <Effect Name="master_Outlaw"/>
         <Effect Name="master_Assassin"/>
+        <Effect Name="IRREDIAN1131_MINI_BOSS_A"/>
+        <Effect Name="IRREDIAN1131_SRAID_A"/>
+        <Effect Name="IRREDIAN1131_SRAID_B"/>
     </Category>
     <Category ID="144">
         <Effect Name="F_pc_CardBook_ground_dark"/>
@@ -64,8 +80,8 @@
         <Effect Name="F_pc_welldone_ground_rabit"/>
         <Effect Name="F_pc_welldone_ground_inspector"/>
         <Effect Name="F_pc_welldone_pumpkin"/>
-               <Effect Name="I_pc_costume_thornbush_mesh"/>
-  </Category>
+        <Effect Name="I_pc_costume_thornbush_mesh"/>
+    </Category>
     <Category ID="207">
         <Effect Name="AGARIO_MINI"/>
         <Effect Name="F_hit_Halloween001_2"/>
@@ -95,6 +111,7 @@
         <Effect Name="F_lineup017_green_rize"/>
         <Effect Name="ID_D_CMINE_66_2"/>
         <Effect Name="ID_3CMLAKE_26_1"/>
+        <Effect Name="id_new_1"/>
     </Category>
     <Category ID="204">
         <Effect Name="MISSION_EVENT_BLUEORB"/>
@@ -332,6 +349,80 @@
         <Effect Name="I_skillrange_donut50##0.3"/>
         <Effect Name="F_boss_Prisoncutter_CriticalWound_Zone"/>
         <Effect Name="Boss_ProddedHorse2"/>
+        <Effect Name="I_force018_trail_water#Bip001 L Finger1"/>
+        <Effect Name="F_ground148_web_white_spread_out"/>
+        <Effect Name="I_bomb008_white"/>
+        <Effect Name="I_force015_white#Bone_body"/>
+        <Effect Name="SKL_PENETRATIONSHOT2"/>
+        <Effect Name="SKL_NEURO_TOXIN_SHOT"/>
+        <Effect Name="SKL_SNIPERSSERENITY_CAST"/>
+        <Effect Name="SKL_SNIPERSSERENITY_LOOP"/>
+        <Effect Name="SKL_BUTTSTROKE"/>
+        <Effect Name="SKL_STOP"/>
+        <Effect Name="SKL_DOUBLEATTACK"/>
+        <Effect Name="SKL_INCREASESPEED"/>
+        <Effect Name="SKL_AGGRESS"/>
+        <Effect Name="SKL_GEVURA"/>
+        <Effect Name="SKL_FIREBALL_SHOT"/>
+        <Effect Name="SKL_SAMSARA"/>
+        <Effect Name="SKL_STORMDUST"/>
+        <Effect Name="SKL_FIRECLAW"/>
+        <Effect Name="SKL_SPIKESHOOTER"/>
+        <Effect Name="SKL_FIREPILLAR"/>
+        <Effect Name="SKL_SNIPE_SHOT"/>
+        <Effect Name="SKL_HELLBREATH_SHOT_LOOP"/>
+        <Effect Name="SKL_COVERINGFIRE"/>
+        <Effect Name="SKL_HEADSHOT"/>
+        <Effect Name="SKL_EARTHQUAKE"/>
+        <Effect Name="SKL_MAGICMISSILE"/>
+        <Effect Name="SKL_FLAMEGROUND"/>
+        <Effect Name="SKL_BREAKBRICK"/>
+        <Effect Name="SKL_PUNJISTAKE_CAST"/>
+        <Effect Name="SKL_PUNJISTAKE_LOOP"/>
+        <Effect Name="SHOT"/>
+        <Effect Name="SKL_STAKESTOCKADES"/>
+        <Effect Name="SKL_BROOMTRAP"/>
+        <Effect Name="SKL_VOLLEYFIRE"/>
+        <Effect Name="SKL_METEOR_LOOP"/>
+        <Effect Name="SKL_METEOR_SHOT"/>
+        <Effect Name="SKL_NACHASH"/>
+        <Effect Name="SKL_PRIMEANDLOAD"/>
+        <Effect Name="SKL_ENERGYBOLT2_LOOP"/>
+        <Effect Name="SKL_TWISTOFFATE"/>
+        <Effect Name="ATK_MULTISHOT"/>
+        <Effect Name="SKL_LEGHOLDTRAP"/>
+        <Effect Name="SKL_TURRET"/>
+        <Effect Name="SKL_CLAYMORE_SHOT"/>
+        <Effect Name="SKL_SPRINKLESANDS"/>
+        <Effect Name="SKL_JINCANGU"/>
+        <Effect Name="SKL_WIDEMIASMA"/>
+        <Effect Name="staffAttack"/>
+        <Effect Name="SKL_ELEMENTALESSENCE"/>
+        <Effect Name="SKL_CHARGESHOT_CHARGE"/>
+        <Effect Name="SKL_RESIZING"/>
+        <Effect Name="SKL_BACKMASKING"/>
+        <Effect Name="SKL_FREESTEP"/>
+        <Effect Name="SKL_SPRINGTRAP_SHOT"/>
+        <Effect Name="SKL_CONCENTRATION"/>
+        <Effect Name="SKL_MANGLE"/>
+        <Effect Name="REST_IDLE"/>
+        <Effect Name="REST_READY"/>
+        <Effect Name="REST_RAISE"/>
+        <Effect Name="BUILD"/>
+        <Effect Name="SKL_SQUIRE_FOODTABLE_BORN"/>
+        <Effect Name="SKL_SQUIRE_REPAIR_BORN"/>
+        <Effect Name="SKL_SQUIRE_REPAIR_DEAD"/>
+        <Effect Name="SKL_EQUIPMENTTOUCHUP_BORN"/>
+        <Effect Name="SKL_ARMOR_MAINTAIN_HAMMERING_READY"/>
+        <Effect Name="HAMMERING"/>
+        <Effect Name="I_force015_white#Dummy_wep"/>
+        <Effect Name="F_wizard_GenbuArmor_ground_water"/>
+        <Effect Name="I_spin007"/>
+        <Effect Name="I_spin006##0.5"/>
+        <Effect Name="I_spin006##0.3"/>
+        <Effect Name="I_skillrange_donut50"/>
+        <Effect Name="I_skillrange_donut50##0.5"/>
+        <Effect Name="I_spin006##0.7"/>
     </Category>
     <Category ID="214">
         <Effect Name="warrior_f_rap_skl_Muleta_loop"/>
@@ -1093,6 +1184,14 @@
         <Effect Name="F_smoke171_busrtup"/>
         <Effect Name="I_force085_fire_green_dark"/>
         <Effect Name="F_wizard_FleshStrike_cast_hit"/>
+        <Effect Name="I_force018_trail_fire_blue"/>
+        <Effect Name="I_force018_trail_fire_puple_black"/>
+        <Effect Name="F_explosion128_3"/>
+        <Effect Name="F_explosion121"/>
+        <Effect Name="F_explosion121_2"/>
+        <Effect Name="I_smoke013_dark_glow"/>
+        <Effect Name="I_smoke013_dark_glow3"/>
+        <Effect Name="F_explosion007_puple"/>
     </Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
@@ -1202,8 +1301,6 @@
         <Effect Name="SKL_BAZOOCA_ATK"/>
         <Effect Name="SKL_ARMOR_MAINTAIN_HAMMERING"/>
         <Effect Name="SKL_ASSISTATTACK_DAGGER"/>
-    <Effect Name="SKL_SNOWROLLING_WLK"/>
-        <Effect Name="F_buff_JollyRoger_Buff"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -1460,6 +1557,23 @@
         <Effect Name="F_rize015_1_drop3##1.8"/>
         <Effect Name="F_rize015_1_drop2##1.8"/>
         <Effect Name="Templer_AdvancedOrders"/>
+        <Effect Name="I_spin006_2##0.5"/>
+        <Effect Name="I_spin006_3##0.3"/>
+        <Effect Name="F_spin011_white##0.5"/>
+        <Effect Name="F_spin011_white##0.3"/>
+        <Effect Name="F_spin011_white##0.3"/>
+        <Effect Name="F_spin011_white##0.5"/>
+        <Effect Name="I_boruta_skl2_force#Bone025"/>
+        <Effect Name="F_explosion007_blue"/>
+        <Effect Name="F_explosion007_blue"/>
+        <Effect Name="I_force018_trail_psychokinesis3#Bone_weapon_end"/>
+        <Effect Name="I_force018_trail_ice2#Bone_weapon_end"/>
+        <Effect Name="I_force018_trail_ice#Bone_weapon_end"/>
+        <Effect Name="I_force018_trail_violet#Bone_weapon_end"/>
+        <Effect Name="I_force018_trail_violet#Bone_weapon_end"/>
+        <Effect Name="F_ground139_light_violet"/>
+        <Effect Name="uniq_id_boss_Tantaliser_square"/>
+        <Effect Name="F_explosion026_rize_violet"/>
     </Category>
     <Category ID="197">
         <Effect Name="F_burstup030_fire1"/>
@@ -4126,6 +4240,22 @@
         <Effect Name="boss_uniq_igans_circlewave"/>
         <Effect Name="boss_uniq_ignas_cloud"/>
         <Effect Name="I_skillrange_donut50##0.8"/>
+        <Effect Name="F_sys_target_boss1##1"/>
+        <Effect Name="I_force080_green_blue5"/>
+        <Effect Name="I_spread_in001_dark_green"/>
+        <Effect Name="F_cleric_Hurling_ground"/>
+        <Effect Name="I_bat010_smoke"/>
+        <Effect Name="I_force003_green#None"/>
+        <Effect Name="I_force018_trail_poison#None"/>
+        <Effect Name="I_force018_trail_poison#Bone_weapon_end"/>
+        <Effect Name="I_force003_green#Moringponia_weapon"/>
+        <Effect Name="I_force003_green#Bip001 L Finger0"/>
+        <Effect Name="I_force003_green#Bone022"/>
+        <Effect Name="I_force003_green#Bone025"/>
+        <Effect Name="I_weapon_npc_mark#Bone025"/>
+        <Effect Name="I_boruta_skl2_force#Bone025"/>
+        <Effect Name="F_smoke168_pink"/>
+        <Effect Name="F_archer_musket_smoke_white2"/>
     </Category>
     <Category ID="45">
         <Effect Name="Cleric_Barrier"/>
@@ -5225,6 +5355,36 @@
         <Effect Name="F_spread_out047_circle_dark"/>
         <Effect Name="F_cleric_MagnusExorcismus_shot_explosion"/>
         <Effect Name="RuneCaster_Stan"/>
+        <Effect Name="F_wizard_GenbuArmor_ground_water"/>
+        <Effect Name="I_breath024_fire_ground"/>
+        <Effect Name="I_cleric_mackangdal_shot_ground"/>
+        <Effect Name="I_ground003_blue"/>
+        <Effect Name="I_stone013_ground_mash1"/>
+        <Effect Name="F_ground138_poison_bubble2"/>
+        <Effect Name="F_ground138_poison_bubble3"/>
+        <Effect Name="I_force015_blue2"/>
+        <Effect Name="I_force017_trail2"/>
+        <Effect Name="I_force017_trail3"/>
+        <Effect Name="I_force017_trail4"/>
+        <Effect Name="I_force017_trail4_addtive"/>
+        <Effect Name="I_force018_Halloween"/>
+        <Effect Name="F_spin011_white##0.3"/>
+        <Effect Name="F_spin011_white##0.5"/>
+        <Effect Name="I_force105_trail_orange_poison"/>
+        <Effect Name="I_force105_trail_orange_poison#Dummy_wep"/>
+        <Effect Name="I_force105_trail_orange_poison2#Dummy_wep"/>
+        <Effect Name="I_force019_mint#Bip001 R Finger0Nub"/>
+        <Effect Name="F_explosion007_mint#Bip001 L Finger0Nub"/>
+        <Effect Name="F_hit009_rize_orange2"/>
+        <Effect Name="F_ground034"/>
+        <Effect Name="F_burstup003_4"/>
+        <Effect Name="F_ground034_1"/>
+        <Effect Name="F_hit009_rize_orange"/>
+        <Effect Name="F_hit017_3"/>
+        <Effect Name="F_explosion98_rize_up_orange"/>
+        <Effect Name="F_drop_water006_dirty"/>
+        <Effect Name="F_drop_water006_dirty1##0.8"/>
+        <Effect Name="F_drop_water006_dirty1"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>
@@ -5725,6 +5885,9 @@
         <Effect Name="UNIQUE_RAID_STARTOWER"/>
         <Effect Name="F_ground156_ice##1.5"/>
         <Effect Name="SHOW_DMG_BLOCK"/>
+        <Effect Name="F_light116_pink_bubble_spin"/>
+        <Effect Name="SKL_MAGICAL"/>
+        <Effect Name="SITGROPE2_LOOP"/>
     </Category>
     <Category ID="23">
         <Effect Name="I_force004_pink#Bip01 R Finger0"/>

@@ -324,10 +324,10 @@ function GIVE_PARTY_LEADER(name)
 	ui.Chat("/partyleader " .. name);	
 end
 
-function OPEN_PARTY_MEMBER_INFO(name)
-	party.ReqMemberDetailInfo(name)	
+function OPEN_PARTY_MEMBER_INFO(handle)
+	
+	ui.PropertyCompare(handle, 1);
 end
-
 function CONTEXT_PARTY(frame, ctrl, aid)	
 	local myAid = session.loginInfo.GetAID();
 	
@@ -357,7 +357,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", memberInfo:GetName()));	
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
-		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
+		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(%d)", memberInfo:GetHandle()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("GiveLeaderPermission"), string.format("GIVE_PARTY_LEADER(\"%s\")", memberInfo:GetName()));	
 		ui.AddContextMenuItem(context, ScpArgMsg("Ban"), string.format("BAN_PARTY_MEMBER(\"%s\")", memberInfo:GetName()));	
 		
@@ -374,7 +374,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", memberInfo:GetName()));	
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
-		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(\"%s\")", memberInfo:GetName()));	
+		ui.AddContextMenuItem(context, ScpArgMsg("ShowInfomation"), string.format("OPEN_PARTY_MEMBER_INFO(%d)", memberInfo:GetHandle()));				
 		
 		if session.world.IsDungeon() and session.world.IsIntegrateIndunServer() == true then
 			local aid = memberInfo:GetAID();

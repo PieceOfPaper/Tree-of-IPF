@@ -51,6 +51,20 @@
                             </ToolScp>
                         </execList>
                     </Event>
+                    <Event execCount="1" eventName="Sec10">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="오직 소환한 몬스터만으로 보스 몬스터를 처치합니다.{nl}캐릭터는 기본 공격, 스킬 사용이 불가능합니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
                 </StageEvents>
             </Stage>
             <Stage Name="FailCheck">
@@ -195,6 +209,34 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Stage2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Msg1">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="특별한 푸른 구슬을 우클릭해서 몬스터를 소환하세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Msg10">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="소환할 보스 몬스터의 레벨을 파티원 1명이 선착순으로 {nl}마법진에 직접 입력할 수 있습니다."/>
+                                <Str Str="scroll"/>
+                                <Num Num="10"/>
                             </ToolScp>
                         </execList>
                     </Event>

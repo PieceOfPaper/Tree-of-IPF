@@ -412,17 +412,6 @@ function COMMIT_SKILLABILITY_SKILL(jobClsName)
     return isReq;
 end
 
-function GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT()
-    -- ability point
-    local pc = GetMyPCObject();
-    local abilityPoint = pc.AbilityPoint;
-    if abilityPoint == 'None' then
-        return 0;
-    end
-    
-    return tonumber(abilityPoint);
-end
-
 function GET_SKILLABILITY_LEARN_COUNT(ability_gb, abilClsName)
     local val = ability_gb:GetUserValue(abilClsName)
     if val == "None" then

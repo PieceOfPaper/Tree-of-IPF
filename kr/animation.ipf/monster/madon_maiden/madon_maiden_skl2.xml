@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="5" R="5" G="5" B="5" A="100"/>
+	<BlendOn frame="8" R="8" G="8" B="6" A="100"/>
+	<BlendOn frame="11" R="12" G="11" B="7" A="100"/>
+	<BlendOn frame="14" R="15" G="14" B="10" A="100"/>
+	<BlendOn frame="17" R="20" G="20" B="13" A="100"/>
+	<BlendOn frame="20" R="25" G="23" B="16" A="100"/>
+	<BlendOn frame="23" R="30" G="26" B="18" A="100"/>
+	<BlendOn frame="26" R="32" G="31" B="21" A="100"/>
+	<BlendOn frame="28" R="34" G="33" B="25" A="100"/>
+	<BlendOn frame="30" R="36" G="34" B="28" A="100"/>
+	<BlendOn frame="32" R="38" G="35" B="30" A="100"/>
+	<BlendOn frame="34" R="40" G="36" B="31" A="100"/>
+	<BlendOn frame="36" R="42" G="38" B="32" A="100"/>
+	<BlendOn frame="38" R="44" G="40" B="33" A="100"/>
+	<BlendOn frame="40" R="46" G="42" B="34" A="100"/>
+	<BlendOn frame="41" R="48" G="44" B="35" A="100"/>
+	<BlendOn frame="42" R="50" G="46" B="36" A="100"/>
+	<BlendOn frame="43" R="52" G="48" B="37" A="100"/>
+	<BlendOn frame="44" R="54" G="50" B="38" A="100"/>
+	<BlendOn frame="45" R="56" G="51" B="39" A="100"/>
+	<BlendOn frame="46" R="58" G="53" B="40" A="100"/>
+	<BlendOn frame="47" R="60" G="55" B="41" A="100"/>
+	<BlendOn frame="48" R="62" G="58" B="42" A="100"/>
+	<BlendOn frame="49" R="64" G="60" B="43" A="100"/>
+	<BlendOn frame="50" R="66" G="62" B="44" A="100"/>
+	<BlendOn frame="51" R="68" G="64" B="45" A="100"/>
+	<BlendOn frame="52" R="70" G="66" B="46" A="100"/>
+	<BlendOn frame="53" R="72" G="68" B="47" A="100"/>
+	<BlendOn frame="54" R="74" G="70" B="50" A="100"/>
+	<BlendOn frame="55" R="76" G="72" B="52" A="100"/>
+	<BlendOn frame="56" R="78" G="74" B="54" A="100"/>
+	<BlendOn frame="57" R="80" G="76" B="56" A="100"/>
+	<BlendOn frame="58" R="82" G="78" B="58" A="100"/>
+	<BlendOn frame="59" R="84" G="80" B="60" A="100"/>
+	<BlendOn frame="60" R="86" G="82" B="62" A="100"/>
+	<BlendOn frame="61" R="90" G="84" B="64" A="100"/>
+	<BlendOn frame="62" R="92" G="86" B="66" A="100"/>
+	<BlendOn frame="63" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="64" R="100" G="88" B="55" A="100"/>
+	<BlendOn frame="65" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="66" R="70" G="60" B="30" A="100"/>
+	<BlendOn frame="67" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="68" R="100" G="85" B="40" A="100"/>
+	<BlendOn frame="69" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="70" R="70" G="60" B="30" A="100"/>
+	<BlendOn frame="71" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="72" R="100" G="85" B="40" A="100"/>
+	<BlendOn frame="73" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="74" R="70" G="60" B="30" A="100"/>
+	<BlendOn frame="75" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="76" R="100" G="85" B="40" A="100"/>
+	<BlendOn frame="77" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="78" R="70" G="60" B="30" A="100"/>
+	<BlendOn frame="79" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="80" R="100" G="85" B="40" A="100"/>
+	<BlendOn frame="81" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="82" R="70" G="60" B="30" A="100"/>
+	<BlendOn frame="83" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="84" R="100" G="85" B="40" A="100"/>
+	<BlendOn frame="85" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="86" R="70" G="60" B="30" A="100"/>
+	<BlendOn frame="87" R="0" G="0" B="0" A="100"/>
+	<BlendOn frame="92" R="160" G="150" B="120" A="100"/>
+	<BlendOn frame="93" R="200" G="180" B="130" A="100"/>
+	<BlendOn frame="94" R="0" G="0" B="0" A="100"/>
+	<BlendOff frame="95" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="10" type="2" intensity="1" frequency="60" duration="2" range="1000"/>
+	<Shockwave frame="93" type="2" intensity="10" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="91" attachNode="Dummy_emitter1" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="91" attachNode="Dummy_effect_skl2" particleName="I_swordtrail033_white4_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="91" attachNode="Dummy_effect_skl2" particleName="I_swordtrail033_white4_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="4.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="25" attachNode="Dummy_emitter1" particleName="I_smoke013_dark3_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="70" attachNode="Dummy_emitter1" particleName="I_smoke013_dark3_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 L Finger22" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="Bip001 R Finger22" particleName="I_cleric_1inchpunch_cast_smoke_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.55" soundFile="mon_succubus_turn_wing"/>
+	<Sound frame="3.82" soundFile="skl_eff_undistance_circle"/>
+	<Sound frame="16.92" soundFile="mon_voice_succubus_atk_cast_1"/>
+	<Sound frame="35.00" soundFile="mon_move_lecifer_atk2"/>
+	<Sound frame="83.00" soundFile="skl_eff_shieldbash"/>
+	<Sound frame="85.00" soundFile="skl_eff_force_whoosh_1"/>
+	<Sound frame="85.13" soundFile="mon_voice_succubus_atk_1"/>
+	<Sound frame="89.50" soundFile="skl_eff_atk_move_s_8"/>
+	<Sound frame="100.00" soundFile="skl_eff_atk_move_l_1"/>
+	<Sound frame="115.00" soundFile="mon_succubus_turn_wing"/>
+</ActionDesc>

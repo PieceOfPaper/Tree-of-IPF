@@ -126,9 +126,9 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 --	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
 
     -- EVENT_1811_WEEKEND
-    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
-        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
-    end
+--    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
+--        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
+--    end
 end
 
 -- 아아템 초월시 여신의 축복석 Text 갱신 함수.
@@ -147,15 +147,15 @@ end
 
 --EVENT_1811_WEEKEND
 function SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, itemObj)
-    local transcendCount = TryGetProp(itemObj, "Transcend");
-    local gbox = GET_CHILD(frame, "gbox");
-    local gbox2 = GET_CHILD(gbox, "gbox2");
-    local reg = GET_CHILD(gbox2, "reg");
-	if transcendCount % 2 == 1 then
-	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend')..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'));
-	else
-	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'));
-	end
+--    local transcendCount = TryGetProp(itemObj, "Transcend");
+--    local gbox = GET_CHILD(frame, "gbox");
+--    local gbox2 = GET_CHILD(gbox, "gbox2");
+--    local reg = GET_CHILD(gbox2, "reg");
+--	if transcendCount % 2 == 1 then
+--	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend')..ScpArgMsg('EVENT_REINFORCE_DISCOUNT_MSG1'));
+--	else
+--	    reg:SetTextByKey("value", ScpArgMsg('ItemDecomposeWarningProp_Transcend'));
+--	end
 end
 
 
@@ -475,9 +475,9 @@ elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
 --	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
     
     -- EVENT_1811_WEEKEND
-    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
-        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
-    end
+--    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
+--        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
+--    end
 end
 
 -- 재료를 드레그 드롭했을 경우

@@ -14581,7 +14581,7 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="boss_Raid_Gimmick" CheckerType="0" Dist="4.9992652" Angle="2.3819699" Range="40" AllowOverlap="1">
+    <PadSkill Name="boss_Raid_Gimmick" CheckerType="0" Dist="4.9992652" Angle="2.3819699" Range="40" AllowOverlap="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000"/>
@@ -16888,7 +16888,7 @@ end"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="PlantGround_Debuff"/>
-                <Num Num="1" FuncTxt="return obj.Leve"/>
+                <Num Num="1"FuncTxt="return obj.Leve"/>
                 <Num Num="0"/>
                 <Num Num="5000"/>
                 <Num Num="1"/>

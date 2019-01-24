@@ -3847,7 +3847,7 @@ return self.RSP;"/>
 				</CondList>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
-						<Str Str="Elementalist_FreezingSphere"/>
+						<Str Str="RuneCaster_Isa"/>
 						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>
@@ -5204,6 +5204,86 @@ end"/>
 		</TriggerList>
 	</SpcItem>
 	<SpcItem Name="Seal_kaze_Scout">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_UNEQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Seal_iredian_u_Sword">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_UNEQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Seal_iredian_u_Wizard">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_UNEQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Seal_iredian_u_Cleric">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_UNEQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Seal_iredian_u_Archer">
+		<TriggerList Act="UnEquip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_UNEQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+		<TriggerList Act="Equip">
+			<Trigger>
+				<ExecList>
+					<ToolScp Scp="SPCI_SEAL_EQUIP_ADD_EXPROP_NUM" Client="NO" UseSleep="NO"/>
+				</ExecList>
+			</Trigger>
+		</TriggerList>
+	</SpcItem>
+	<SpcItem Name="Seal_iredian_u_Scout">
 		<TriggerList Act="UnEquip">
 			<Trigger>
 				<ExecList>

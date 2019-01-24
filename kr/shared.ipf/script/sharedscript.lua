@@ -1431,8 +1431,9 @@ function GET_MAP_ACHI_NAME(mapCls)
 
 end
 
--- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
+ -- 경험치 페널티 (인던 제외) --
 function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
+ -- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
     local pcLv = myLevel;
     local monLv = monLevel;
     local value = 1;
@@ -1453,6 +1454,36 @@ function GET_EXP_RATIO(myLevel, monLevel, highLv, monster)
 	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
 	    else
 	    	penaltyRatio = 0.02;	-- 저레벨 몬스터 사냥 시 페널티
+	    end
+	    
+	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
+        value = value * lvRatio;
+    end
+    
+    if value < 0 then
+        value = 0;
+    end
+    
+    return value;
+end
+
+ -- 인던 경험치 페널티 --
+function GET_EXP_RATIO_INDUN(myLevel, indunLevel, highLv)
+ -- hgihLv : 파티원중 가장 높은 레벨, 파티가 아니거나 1인 파티면 0임
+    local pcLv = myLevel;
+    local indunLv = indunLevel;
+	local value = 1;
+    
+    local standardLevel = 80;
+    local levelGap = math.abs(pcLv - indunLv);
+    
+    
+    if levelGap > standardLevel then
+    	local penaltyRatio = 0.0;
+    	if pcLv < indunLv then
+	        penaltyRatio = 0.05;	-- 고레벨 몬스터 사냥 시 페널티
+	    else
+	    	penaltyRatio = 0.05;	-- 저레벨 몬스터 사냥 시 페널티
 	    end
 	    
 	    local lvRatio = 1 - ((levelGap - standardLevel) * penaltyRatio);
@@ -2637,7 +2668,7 @@ function SCR_ZONE_KEYWORD_CHECK(zoneName, keyword)
 	
 	local mapClass = GetClass("Map", zoneName);
 	local mapKeyWord = TryGetProp(mapClass, "Keyword", "None");
-	if mapKeyWord ~= "None" or mapKeyWord ~= "" then
+	if mapKeyWord == "None" or mapKeyWord == "" then
 		return "NO";
 	end
 	
@@ -2682,6 +2713,33 @@ function SCR_GET_MONSTER_KEYWORD(mon)
 	local keywordList = SCR_STRING_CUT(monKeyword, ";");
 	
 	return keywordList;
+end
+
+
+function SCR_DATE_HOUR_TO_YWEEK2_BASIC_2000(yy, mm, dd, hour, firstWday, firstHour, secondWday, secondHour)
+   local yday2000 = SCR_DATE_TO_YDAY_BASIC_2000(yy, mm, dd)
+   local accDay1 = yday2000
+   local accDay2 = yday2000
+
+   if hour < firstHour then
+       accDay1 = accDay1 - 1
+   end
+
+   if hour < secondHour then
+       accDay2 = accDay2 - 1
+   end
+
+   local result = 0
+   local result1 = math.floor((accDay1+6-firstWday)/7) + 1
+   local result2 = math.floor((accDay2+6-secondWday)/7) + 1
+
+   if result1 > result2 then
+       result = result2 * 2
+   elseif result1 == result2 then
+       result = result2 * 2 - 1
+   end
+
+   return result
 end
 
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -2863,6 +2863,14 @@
 		<image name="icon_item_seal_boruta" file="\icon\acc\icon_item_seal_boruta.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_armband_goddess" file="\icon\acc\icon_item_armband_goddess.png" imgrect="0 0 256 256" CMM_Caption="3주년 암밴드"/>
 		<image name="icon_item_armband_guilty" file="\icon\acc\icon_item_armband_guilty.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Seal_QuestRune1" file="\icon\acc\icon_item_Seal_QuestRune1.png" imgrect="0 0 256 256" CMM_Caption="개인레이드 인장"/>
+		<image name="icon_item_Seal_QuestRune2" file="\icon\acc\icon_item_Seal_QuestRune2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Seal_QuestRune3" file="\icon\acc\icon_item_Seal_QuestRune3.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Seal_QuestRune4" file="\icon\acc\icon_item_Seal_QuestRune4.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Neck_aloneDungeon01" file="\icon\acc\icon_item_Neck_aloneDungeon01.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Neck_aloneDungeon02" file="\icon\acc\icon_item_Neck_aloneDungeon02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bracelet_aloneDungeon2" file="\icon\acc\icon_item_bracelet_aloneDungeon2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_bracelet_aloneDungeon1" file="\icon\acc\icon_item_bracelet_aloneDungeon1.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -3185,6 +3193,8 @@
 		<image name="icon_item_accessory_winter_foxEar" file="\icon\hairacc\icon_item_accessory_winter_foxEar.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_winter_giftBox" file="\icon\hairacc\icon_item_accessory_winter_giftBox.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_winter_star" file="\icon\hairacc\icon_item_accessory_winter_star.png" imgrect="0 0 256 256"/>
+		<image name="Hat_GrouchoGlasses" file="\icon\hairacc\Hat_GrouchoGlasses.png" imgrect="0 0 256 256"/>
+		<image name="Hat_GrandpaGrouchoGlasses" file="\icon\hairacc\Hat_GrandpaGrouchoGlasses.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5020,6 +5030,8 @@
 		<image name="icon_item_3yearBallon03" file="\icon\item\icon_item_3yearBallon03.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_3yearBallon04" file="\icon\item\icon_item_3yearBallon04.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_event_penguinbox" file="\icon\item\icon_item_event_penguinbox.png" imgrect="0 0 256 256" CMM_Caption="2018 크리스마스 핫타임 펭귄 선택 상자"/>
+		<image name="icon_item_iredian_misc01" file="\icon\item\icon_item_iredian_misc01.png" imgrect="0 0 128 128" CMM_Caption="개인 레이드 재료 아이템1"/>
+		<image name="icon_item_iredian_misc02" file="\icon\item\icon_item_iredian_misc02.png" imgrect="0 0 128 128" CMM_Caption="개인 레이드 재료 아이템2"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>

@@ -15,7 +15,7 @@ function TPITEM_ON_INIT(addon, frame)
 
 	addon:RegisterMsg("SHOP_USER_INFO", "ON_SHOP_USER_INFO"); 
 	
-	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
+	if (config.GetServiceNation() == "KOR") then
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_ITEM_LIST", "TPITEM_DRAW_NC_TP");
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_REMAIN_CASH", "TPSHOP_CHECK_REMAIN_NEXONCASH");
 	addon:RegisterMsg("UPDATE_INGAME_SHOP_CASHINVEN", "TPSHOP_SHOW_CASHINVEN_ITEMLIST");
@@ -182,7 +182,7 @@ function TPITEM_OPEN(frame)
 		INDUNENTER_SMALL(indunenter, nil, true);
 	end
 
-	if (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
+	if (config.GetServiceNation() == "KOR") then
 		if 0 == IsMyPcGM_FORNISMS() then
 			local btn1 = GET_CHILD_RECURSIVELY(frame,"ncReflashbtn")
 			local btn2 = GET_CHILD_RECURSIVELY(frame,"ncChargebtn")
@@ -245,7 +245,7 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 	banner:SetVisible(1); -- 배너는 기본적으로 활성화.
 	
 	-- 국가별 처리
-	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
+	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") then		
 		if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox2") then	-- TP 구매
 			TPITEM_DRAW_NC_TP();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
@@ -436,7 +436,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 	local shopTab = leftgbox:GetChild('shopTab');
 	local itembox_tab = tolua.cast(shopTab, "ui::CTabControl");
 
-	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then		
+	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") then		
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:SetImage("market_event_test");	--market_default
 		banner:SetUserValue("URL_BANNER", "");
@@ -763,7 +763,7 @@ function TPITEM_CLOSE(frame)
 	local tpSubgbox = GET_CHILD_RECURSIVELY(frame,"tpSubgbox");	
 	tpSubgbox:StopUpdateScript("_PROCESS_ROLLING_SPECIALGOODS");
 
-	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP") then
+	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") then
 		local banner = GET_CHILD_RECURSIVELY(frame,"banner");	
 		banner:SetUserValue("URL_BANNER", "");
 		banner:SetUserValue("NUM_BANNER", 0);
@@ -3133,7 +3133,7 @@ end
 
 function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 
-	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then
+	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") then
 		local listIndex = control:GetUserValue("LISTINDEX");
 		local iteminfo = session.ui.Get_NISMS_ItemInfo(listIndex)
 		if iteminfo == nil then
@@ -3168,7 +3168,7 @@ function TPSHOP_SELECTED_SPECIALGOODS_BANNER(tpSubgbox, control, strArg, numArg)
 end
 
 function TPSHOP_SELECTED_SPECIALPACKAGES_BANNER(tpSubgbox, control, strArg, numArg)
-	if (1 == IsMyPcGM_FORNISMS()) and ((config.GetServiceNation() == "KOR") or (config.GetServiceNation() == "JP")) then	
+	if (1 == IsMyPcGM_FORNISMS()) and (config.GetServiceNation() == "KOR") then	
 		local clsList, listcnt = GetClassList('item_package');	
 		if listcnt == 0 or clsList == nil then
 			return;

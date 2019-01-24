@@ -514,7 +514,7 @@ function SKILLABILITY_FILL_ABILITY_GB(skillability_job, ability_gb, jobClsName)
 
     --point
     local abilitypoint_text = GET_CHILD_RECURSIVELY(skillability_job, "abilitypoint_text");
-    local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
+    local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 end
 
@@ -956,7 +956,7 @@ end
 function ON_SKILLABILITY_BUY_ABILITY_POINT(frame, msg, argmsg, argnum)
     local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local abilitypoint_text = GET_CHILD_RECURSIVELY(gb, "abilitypoint_text");
-    local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
+    local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 
 end
@@ -1003,7 +1003,7 @@ end
 function ON_SKILLABILITY_UPDATE_ABILITY_POINT(frame, msg, argStr, argNum)
     local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local abilitypoint_text = GET_CHILD_RECURSIVELY(gb, "abilitypoint_text");
-    local pointAmount = GET_SKILLABILITY_ABILITY_POINT_REMAIN_AMOUNT();
+    local pointAmount = session.ability.GetAbilityPoint();
     abilitypoint_text:SetTextByKey("value", GetCommaedText(pointAmount));
 end
 

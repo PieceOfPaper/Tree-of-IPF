@@ -592,8 +592,12 @@ function CREATE_WORLDMAP_MAP_CONTROLS(parentGBox, makeWorldMapImage, changeDirec
                             else            
                                 local worldID = session.party.GetMyWorldIDStr();    
                                 guild.ReqEmblemImage(guildID,worldID);
-                            end                                
-                            occupyTextTooltip = taxRateInfo:GetGuildName();
+                            end
+                        	local taxGuildName = taxRateInfo:GetGuildName()
+                        	local taxCityMapID = taxRateInfo:GetCityMapID();
+                            local taxCityName = TryGetProp(GetClassByType("Map", taxCityMapID), "Name")
+                            local taxRate = taxRateInfo:GetTaxRate();
+                            occupyTextTooltip = ClMsg('ColonyTax_Guild_World_map')..taxGuildName.."{nl}"..ClMsg('ColonyTax_City_World_map')..taxCityName.."{nl}"..ClMsg('ColonyTax_Rate_World_map')..taxRate..ClMsg('PercentSymbol')
                         end
                     end
 				end
