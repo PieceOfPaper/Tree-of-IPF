@@ -39,7 +39,7 @@
                     <Event execCount="1" eventName="Succ">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
                                 <MGameObj List="Boss/0"/>
@@ -47,6 +47,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_SOLO_RAID_BOSS_COUNT_IRREDIAN1131"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Succ"/>
                             </ToolScp>
@@ -58,7 +61,7 @@
                     <Event execCount="1" eventName="Fail">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="5"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
                                 <Num Num="0"/>
@@ -78,7 +81,7 @@
                             <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
                                 <Str Str="마돈메이드가 등장했습니다"/>
                                 <Str Str="BossAppear"/>
-                                <Num Num="10"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -90,7 +93,7 @@
                     <Event execCount="1" eventName="Reward">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="5"/>
+                                <Num Num="1"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -98,9 +101,6 @@
                                 <Str Str="마돈메이드를 처치했습니다!"/>
                                 <Str Str="Clear"/>
                                 <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_SOLO_RAID_BOSS_COUNT_IRREDIAN1131"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="End"/>
@@ -143,7 +143,7 @@
                     <Event execCount="1" eventName="SetLayer">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
+                                <Num Num="4"/>
                             </ToolScp>
                         </condList>
                         <execList>
@@ -155,7 +155,7 @@
                     <Event execCount="1" eventName="EndMgame">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="12"/>
+                                <Num Num="8"/>
                             </ToolScp>
                         </condList>
                         <execList>
