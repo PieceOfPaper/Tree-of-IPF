@@ -166,6 +166,11 @@ function SCR_Get_SpendSP_Magic(skill)
     if IsBuffApplied(pc, 'ShadowPool_Buff') == 'YES' and skill.ClassName == "Shadowmancer_ShadowPool" then
         value = 0;
     end
+    
+    if skill.ClassName == "Oracle_TwistOfFate" and GetZoneName(pc) == "guild_agit_1" then
+        return 0
+    end
+    
     return math.floor(value);
 end
 
@@ -4531,7 +4536,7 @@ function SCR_Get_Modafinil_Ratio(skill)
 end
 
 function SCR_Get_Modafinil_Bufftime(skill)
-    local value = 40 + skill.Level * 8;
+    local value = 20 + skill.Level * 4;
     
     local pc = GetSkillOwner(skill)
     if IsPVPServer(pc) == 1 then

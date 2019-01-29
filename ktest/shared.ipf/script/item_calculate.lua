@@ -147,10 +147,18 @@ function GET_REINFORCE_ADD_VALUE_ATK(item, ignoreReinf, reinfBonusValue, basicTo
             lv = kupoleItemLv;
         end
     end
-    
+
     local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
+    end
+    
+    local itemstring = TryGetProp(item, 'StringArg','None')
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+        end
     end
     
     local value = 0;
@@ -214,10 +222,18 @@ function GET_REINFORCE_ADD_VALUE(prop, item, ignoreReinf, reinfBonusValue)
             lv = kupoleItemLv;
         end
     end
-    
+
     local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
+    end
+    
+    local itemstring = TryGetProp(item, 'StringArg','None')
+    if itemstring == 'Growth_Item' then
+        local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
+        if grothItem ~= nil then
+            lv = grothItem;
+        end
     end
     
     local classType = TryGetProp(item,"ClassType");
@@ -297,7 +313,6 @@ function GET_BASIC_ATK(item)
         local grothItem = CALC_GROWTH_ITEM_LEVEL(item);
         if grothItem ~= nil then
             lv = grothItem;
-
         end
     end
     
@@ -530,7 +545,7 @@ function SCR_REFRESH_ARMOR(item, enchantUpdate, ignoreReinfAndTranscend, reinfBo
             lv = kupoleItemLv;
         end
     end
-    
+
     local pcBangItemLevel = CALC_PCBANG_GROWTH_ITEM_LEVEL(item);
     if pcBangItemLevel ~= nil then
         lv = pcBangItemLevel;
@@ -1844,7 +1859,6 @@ function SRC_KUPOLE_GROWTH_ITEM(item, Reinforce)
     end
     
     local lv  = TryGetProp(item,"ItemLv");
-  
     if lv == nil then
         return 0;
     end
@@ -1983,19 +1997,21 @@ function CALC_GROWTH_ITEM_LEVEL(item)
     end
     
     local pcLv = TryGetProp(pc, 'Lv', 1);
-    
+
     local itemLvList = { 1, 40, 75, 120, 170, 220, 270, 315, 350, 380 };
     local value = itemLvList[#itemLvList];
     for i = 2, #itemLvList do
         if pcLv < itemLvList[i] then
             value = itemLvList[i - 1];
             break;
+        elseif pcLv > itemLvList[i] then
+            value = itemLvList[i]
         end
     end
     
     local growthItem = GetClass('item_growth', TryGetProp(item, 'ClassName', "None"));
     local maxLv = TryGetProp(growthItem , 'MaxLV', 1);
-    
+
     if value > maxLv then
         value = maxLv;
     end

@@ -66,6 +66,11 @@ function REQ_MASSIVE_CONTENTS_SHOP1_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_DAILY_REWARD_SHOP_1_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'DailyRewardShop');
+	ui.OpenFrame('earthtowershop');
+end
 
 function EARTH_TOWER_SHOP_OPEN(frame)
 	if frame == nil then
@@ -137,6 +142,9 @@ function EARTH_TOWER_INIT(frame, shopType)
 		local taltPropCls = GetClassByType('Anchor_c_Klaipe', 5187);
 		title:SetText('{@st43}'..taltPropCls.Name);
 		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', taltPropCls.Name));
+	elseif shopType == 'DailyRewardShop' then
+		title:SetText('{@st43}'..ScpArgMsg("DAILY_REWARD_SHOP_1"));
+		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("DAILY_REWARD_SHOP_1")));
 	end
 
 
@@ -157,7 +165,6 @@ function EARTH_TOWER_INIT(frame, shopType)
 	tree:SetFontName("brown_18_b");
 	tree:SetTabWidth(5);
 		
-	--��� ���� ������ ����.
 
 
 	local clslist = GetClassList("ItemTradeShop");
@@ -491,6 +498,8 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
 		item.DialogTransaction("PVP_MINE_SHOP", resultlist, cntText);
 	elseif shopType == 'MCShop1' then
 		item.DialogTransaction("MASSIVE_CONTENTS_SHOP_TREAD1", resultlist, cntText);
+	elseif shopType == 'DailyRewardShop' then
+		item.DialogTransaction("DAILY_REWARD_SHOP_1_TREAD1", resultlist, cntText);
 	end
 
 	frame:ShowWindow(0)

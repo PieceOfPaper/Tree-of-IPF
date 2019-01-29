@@ -152,7 +152,7 @@
 		<!-- 리사이클 샵 카테고리 -->
 		<tree name="recycleCateTree" parent="rcycle_categorySubGbox" layout_gravity="left top" rect="0 0 320 550" margin="18 70 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="RECYCLE_TREE_CLICK"/>
 		<!-- 리사이클 샵 검색 -->
-		<groupbox name="recycle_editSkin" parent="rcycle_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<groupbox name="recycle_editSkin" parent="rcycle_alignmentgbox" margin="0 0 0 0" rect="0 0 320 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<richtext name="recycle_editDiff" parent="recycle_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<edit name="recycle_input" parent="recycle_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="RECYCLE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="recycle_btn_find" parent="recycle_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="RECYCLE_CREATE_BUY_LIST" oversound="button_over" clicksound="button_click_big"/>
@@ -168,7 +168,7 @@
 		<!-- 계열 코스튬 교환 샵 카테고리 -->
 		<tree name="costumeExchangeCateTree" parent="costume_exchange_categorySubGbox" layout_gravity="left top" rect="0 0 320 550" margin="18 70 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="COSTUME_EXCHANGE_TREE_CLICK"/>
 		<!-- 계열 코스튬 교환 샵 검색 -->
-		<groupbox name="costume_exchange_editSkin" parent="costume_exchange_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<groupbox name="costume_exchange_editSkin" parent="costume_exchange_alignmentgbox" margin="0 0 0 0" rect="0 0 320 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<richtext name="costume_exchange_editDiff" parent="costume_exchange_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<edit name="costume_exchange_input" parent="costume_exchange_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="COSTUME_EXCHANGE_CREATE_BUY_LIST" LBtnDownScp="TPSHOP_COSTUME_EXCHANGE_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="costume_exchange_btn_find" parent="costume_exchange_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="COSTUME_EXCHANGE_CREATE_BUY_LIST" oversound="button_over" clicksound="button_click_big"/>
@@ -181,7 +181,7 @@
 		<!-- 신규유저 전용상점 카테고리 -->
 		<tree name="newbieCateTree" parent="newbie_categorySubGbox" layout_gravity="center top" rect="0 0 340 550" margin="-20 0 0 0" drawline="false" skin="none" selectioncolor="BBBB00" enableselectioncolor="true" LBtnDownScp="NEWBIE_TREE_CLICK"/>
 		<!-- 신규유저 전용상점 검색 -->
-		<groupbox name="newbie_editSkin" parent="newbie_alignmentgbox" margin="0 0 0 0" rect="0 0 310 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
+		<groupbox name="newbie_editSkin" parent="newbie_alignmentgbox" margin="0 0 0 0" rect="0 0 320 40" hittestbox="false" skin="test_weight_skin" layout_gravity="right top"/>
 		<richtext name="newbie_editDiff" parent="newbie_editSkin" rect="0 0 260 50" margin="0 0 0 0" layout_gravity="left center" caption="{@st55_b}  검색어를 입력하세요.{/}" drawbackground="false" fixwidth="true" fontname="black_16_b" resizebytext="true" textalign="left center"/>
 		<edit name="newbie_input" parent="newbie_editSkin" margin="10 0 0 0" skin="test_weight_skin" rect="0 0 240 32" fontname="white_18_ol" maxlen="32" EnterKeyScp="NEWBIE_CREATE_ITEM_LIST" LBtnDownScp="TPSHOP_NEWBIE_ITEMSEARCH_CLICK" numbermode="false" stretch="true" drawbackground="false" OffsetForDraw="0 -1" layout_gravity="left center" textalign="left center" typingsound="chat_typing"/>
 		<button name="newbie_btn_find" parent="newbie_editSkin" image="inven_s" margin="0 0 0 0" rect="0 0 50 40" layout_gravity="right center" LBtnUpScp="NEWBIE_CREATE_ITEM_LIST" oversound="button_over" clicksound="button_click_big"/>

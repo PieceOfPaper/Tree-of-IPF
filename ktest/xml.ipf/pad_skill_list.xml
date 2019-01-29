@@ -16854,7 +16854,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="plant_pad" CheckerType="0" Range="75" EnableSearch="0">
+    <PadSkill Name="plant_pad" CheckerType="0" Range="75">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="return 5000 + obj.Level * 600;"/>
@@ -16948,7 +16948,7 @@ end"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="plant_pad_born" CheckerType="0" UpdateTerm="100" EnableSearch="0">
+    <PadSkill Name="plant_pad_born" CheckerType="0" UpdateTerm="100">
         <createEvent>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
                 <Str_Arg Str="E_cleric_chortasmata_born" Arg="0.69999999"/>

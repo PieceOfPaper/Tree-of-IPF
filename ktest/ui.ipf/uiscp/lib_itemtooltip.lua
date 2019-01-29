@@ -561,6 +561,14 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		invitem = session.GetEtcItemByGuid(IT_GUILD_JOINT, guid);
 	elseif strarg == 'forgery' or strarg == 'link' then
 		invitem = session.link.GetGCLinkObject(guid);
+	elseif strarg == 'attendance' then
+		local itemObj = GetClassByType("Item", guid)
+		viewObj = CloneIES_UseCP(itemObj);
+		if guid == '699008' then
+			local temp_obj = GetClassByType("RewardAttendance", numarg1)
+			viewObj.Level = temp_obj.AppendPropertyStatus;			
+			return viewObj, 1;
+		end
 	else
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end

@@ -49,7 +49,7 @@ function INDUNENTER_AUTOMATCH_CANCEL()
     INDUNENTER_UPDATE_PC_COUNT(frame, nil, "None", 0);
 end
 
-function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, enableEnterRight, enablePartyMatch)    
+function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, enableEnterRight, enablePartyMatch)   
     INDUNENTER_MULTI_CANCEL(ui.GetFrame('indunenter'))
     -- get data and check
     local indunCls = GetClassByType('Indun', indunType);
@@ -68,7 +68,15 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     local etc = GetMyEtcObject();
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
     local addCount = math.floor(nowCount * admissionPlayAddItemCount);
-    local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
+    local nowAdmissionItemCount
+    
+
+    if  SCR_RAID_EVENT_20190102(nil, false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+        nowAdmissionItemCount = admissionItemCount - 1
+    else
+        nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
+    end
+        
     if indunCls == nil then
         return;
     end
@@ -639,6 +647,14 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         countText:SetText(ScpArgMsg("IndunAdmissionItemPossession"))
         countItemData:ShowWindow(1)
         countData:ShowWindow(0)
+
+        local cycleCtrlPic = GET_CHILD_RECURSIVELY(frame, 'cycleCtrlPic');
+        if SCR_RAID_EVENT_20190102(nil, false) then
+            cycleCtrlPic:ShowWindow(1);
+        else
+            cycleCtrlPic:ShowWindow(0);
+        end        
+
     end
 end
 
@@ -902,7 +918,7 @@ function INDUNENTER_ENTER(frame, ctrl)
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
     end
-
+    
     local textCount = topFrame:GetUserIValue("multipleCount");
     local yesScript = string.format("ReqMoveToIndun(%d,%d)", 1, textCount);
     ui.MsgBox(ScpArgMsg("EnterRightNow"), yesScript, "None");
@@ -1713,6 +1729,10 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
         local addCount = math.floor(nowCount * admissionPlayAddItemCount)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
+        
+        if SCR_RAID_EVENT_20190102(nil , false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+            nowAdmissionItemCount = admissionItemCount - 1;
+        end
         
         local cnt = GetInvItemCount(user, admissionItemName)
         local invItem = session.GetInvItemByName(indunCls.AdmissionItemName);

@@ -342,6 +342,8 @@ function IS_TRANSCEND_SCROLL_ITEM(scrollObj)
 
 	if scrollType == "transcend_Set" then
 		return 1;
+	elseif scrollType == "transcend_Set_380" then
+		return 1;
 	elseif scrollType == "transcend_Add" then
 		return 1;
 	end
@@ -353,7 +355,14 @@ function IS_TRANSCEND_SCROLL_ABLE_ITEM(itemObj, scrollType, scrollTranscend)
         if SCR_TARGET_TRANSCEND_CHECK(itemObj, scrollTranscend) == 1 and IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
             return 1;
         else
-            return 0;
+            return 0
+        end
+    elseif scrollType == "transcend_Set_380" then
+        if SCR_TARGET_TRANSCEND_CHECK(itemObj, scrollTranscend) == 1 and IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
+            if itemObj.UseLv <= 380 then -- Is item UseLv under 380 then
+                return 1;
+            end
+        return 0
         end
     elseif scrollType == "transcend_Add" then
         if IS_TRANSCEND_ABLE_ITEM(itemObj) == 1 then
@@ -381,7 +390,7 @@ function GET_ANTICIPATED_TRANSCEND_SCROLL_SUCCESS(itemObj, scrollObj)
         return;
     end
     
-    if scrollType == "transcend_Set" then
+    if scrollType == "transcend_Set" or scrollType == "transcend_Set_380" then
         return transcend, percent;
     elseif scrollType == "transcend_Add" then
         local curTranscend = 0;

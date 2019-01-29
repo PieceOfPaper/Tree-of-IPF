@@ -1,10 +1,11 @@
 function ATTENDANCE_ON_INIT(addon, frame)
    addon:RegisterMsg('GAME_START', 'ON_ATTENDANCE_RESULT');
    addon:RegisterMsg('UPDATE_ATTENDANCE_REWARD', 'ON_ATTENDANCE_RESULT');
+   addon:RegisterMsg('ATTENDANCE_REWARD_CHECK_UI_ON', 'ATTENDANCE_REWARD_CHECK_UI_ON');
 end
 
-function GET_ATTENDANCE_ID_NEED_TO_SHOW(argNum)		
-    local attendanceID = 0;
+function GET_ATTENDANCE_ID_NEED_TO_SHOW(argNum)	
+	local attendanceID = 0;
     if argNum > 0 then
     	attendanceID = argNum;
     else
@@ -22,11 +23,11 @@ function GET_ATTENDANCE_ID_NEED_TO_SHOW(argNum)
     return attendanceID;
 end
 
-function ON_ATTENDANCE_RESULT(frame, msg, argStr, argNum)	
+function ON_ATTENDANCE_RESULT(frame, msg, argStr, argNum)
 	local attendanceID = GET_ATTENDANCE_ID_NEED_TO_SHOW(argNum);
-    if attendanceID == 0 then
+	if attendanceID == 0 then
         return;
-    end
+	end
 
 	ATTENDANCE_INIT_COMMON_INFO(frame, attendanceID);
 	ATTENDANCE_INIT_REWARD(frame, attendanceID);
@@ -78,15 +79,16 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
 
 	local COL = 7;
 	local totalReward = attendanceCls.TotalNumberDays;
-	for i = 0, totalReward - 1 do
+	local rewardday = attendanceCls.TotalNumberDays;
+	for i = 0, totalReward - 1 do		
 		local attendanceClassData = session.attendance.GetAttendanceClassData(attendanceID, i);
-        local itemList, cntList = GetAttendanceRewardList(attendanceID, i);
+		local itemList, cntList = GetAttendanceRewardList(attendanceID, i);		
 		if attendanceClassData ~= nil and itemList ~= nil then
+			rewardday = i;
 			local colOffset = i % COL;
-			local rowOffset = math.floor(i / COL);
+			local rowOffset = math.floor(i / COL);		
 			local ctrlSet = rewardBox:CreateOrGetControlSet('attendance_reward', 'ITEM_'..i, 0, 0);			
 			ctrlSet:SetOffset(colOffset * (ctrlSet:GetWidth() + REWARD_MARGIN_HORZ), rowOffset * (ctrlSet:GetHeight() + REWARD_MARGIN_VERT));
-                        
 			local dayOffsetText = ctrlSet:GetChild('dayOffsetText');
 			dayOffsetText:SetText(i + 1);
 
@@ -104,10 +106,15 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             local itemPic = GET_CHILD(ctrlSet, 'itemPic');
             itemPic:SetImage(itemCls.Icon);
 
-            if itemName ~= MONEY_NAME then
-            	SET_ITEM_TOOLTIP_BY_NAME(itemPic, itemName);
-            	itemPic:SetTooltipOverlap(1);
-            end
+			if itemName ~= MONEY_NAME and itemName ~= 'Event_Unique_Enchant_Jewel' then
+				SET_ITEM_TOOLTIP_BY_NAME(itemPic, itemName);
+			else
+				local rewardClassName = attendanceClassData:GetRewardClassName();
+				if rewardClassName ~= nil then
+					SET_ITEM_TOOLTIP_BY_CLASSID(itemPic, itemName, 'RewardAttendance', rewardClassName);
+				end
+			end
+			itemPic:SetTooltipOverlap(1);
 
             local cntText = GET_CHILD(ctrlSet, 'cntText');
             cntText:SetTextByKey('cnt', cntList[1]);
@@ -116,7 +123,13 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             local getPic = GET_CHILD(ctrlSet, 'getPic');
             local receiptData = session.attendance.GetReceiptData(attendanceID, i);
             if receiptData == nil then
-            	getPic:ShowWindow(0);
+				getPic:ShowWindow(0);
+				
+				-- 해당 날짜 클릭 
+				bgPic:SetEventScript(ui.LBUTTONUP, "ATTENDANCE_REWARD_CLICK");
+				bgPic:SetEventScriptArgNumber(ui.LBUTTONUP, attendanceID);
+				itemPic:SetEventScript(ui.LBUTTONUP, "ATTENDANCE_REWARD_CLICK");
+				itemPic:SetEventScriptArgNumber(ui.LBUTTONUP, attendanceID);
 
             	if todayDayOffset > i and attendanceCls.AttendancePass == 'YES' then
             		cntText:SetColorTone('FF444444');
@@ -125,11 +138,23 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             else -- animation
             	local diffDays = imcTime.GetDifDaysFromNow(receiptData.registerTime);
                 if diffDays == 0 then                
-                    UI_PLAYFORCE(getPic, "sizeUpAndDown");
+					UI_PLAYFORCE(getPic, "sizeUpAndDown");
                 end
-            end
+			end
 		end
 	end
+
+	-- 출석 시스템의 날짜에 맞게 UI크기 조정
+	local offsetY = frame:GetUserConfig("REWARD_WEEK_SLOT_OFFSET_Y");
+	local HeightCnt = math.floor(rewardday / COL);
+	HeightCnt = HeightCnt -1;
+
+	local bgBox = GET_CHILD_RECURSIVELY(frame, 'bgBox');
+	bgBox:Resize(bgBox:GetOriginalWidth(), bgBox:GetOriginalHeight() + (offsetY * HeightCnt));
+
+	local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
+	rewardBox:Resize(rewardBox:GetOriginalWidth(), rewardBox:GetOriginalHeight() + (offsetY * HeightCnt));	
+
 end
 
 function ATTENDANCE_TOGGLE_VAKARINE_UI()
@@ -156,3 +181,53 @@ function ATTENDANCE_OPEN_CHECK()
 
 	return false;
 end
+
+function ATTENDANCE_LIST_TOGGLE_UI()
+	LISTSELECT_UI_CREATE("attendance")
+end
+
+-- 해당하는 출석 UI창 출력
+function ATTENDANCE_TOGGLE_UI(parent, btn, argStr, AttendanceID)
+	local frame = ui.GetFrame('attendance');
+	if frame ~= nil and frame:IsVisible() == 1 then
+		ui.CloseFrame('attendance');
+		return;
+	end
+
+	ON_ATTENDANCE_RESULT(frame, '', '', AttendanceID);
+end
+
+function ATTENDANCE_REWARD_CLICK(parent, btn, argStr, AttendanceID)
+	AttendanceRewardClick(AttendanceID);
+end
+
+-- 받아야 하는 보상이 있을 경우 호출
+function ATTENDANCE_REWARD_CHECK_UI_ON(frame, argStr, argNum, argNum2)
+	if argNum2 == 0 then
+		-- 마을이 아닐 경우 출석 보상 확인 안내 말풍선 UI 생성
+		local sysFrame = ui.GetFrame("sysmenu");
+		if sysFrame == nil then
+			return;
+		end
+		
+		local systemBtn = sysFrame:GetChild("system");
+		if systemBtn ~= nil then
+			local helpBalloon = MAKE_BALLOON_FRAME(ScpArgMsg('attendance'), 0, 0, nil, nil);
+			helpBalloon:ShowWindow(1);
+	        local margin = systemBtn:GetMargin();
+	        local x = margin.right;
+	        local y = margin.bottom;        
+			x = x + (systemBtn:GetWidth() / 2);
+			y = y + systemBtn:GetHeight() - 5;
+	        helpBalloon:SetGravity(ui.RIGHT, ui.BOTTOM);
+	        helpBalloon:SetMargin(0, 0, x, y);
+			helpBalloon:SetDuration(7);
+			helpBalloon:SetLayerLevel(105);
+		end
+
+	elseif argNum2 == 1 then
+		-- 마을일 경우 출석 보상 확인 list UI 출력
+		ATTENDANCE_LIST_TOGGLE_UI();
+	end
+end
+

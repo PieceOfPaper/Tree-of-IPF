@@ -10,7 +10,7 @@
 	<script OpenScp="ON_OPEN_COLONY_TAX_PAYMENT"/>
 	<controls>
 		<groupbox name="title_bg" rect="0 0 650 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
-		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}세금 수령" fontname="brown_16_b" spacey="0"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}적립금 수령" fontname="brown_16_b" spacey="0"/>
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;colony_tax_payment&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<groupbox name="bg" rect="0 0 630 290" margin="0 60 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
 		<groupbox name="column_bar" rect="0 0 630 40" margin="0 60 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>

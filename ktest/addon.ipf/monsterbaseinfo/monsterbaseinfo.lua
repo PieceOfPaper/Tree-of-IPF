@@ -275,7 +275,6 @@ function UPDATE_MONB_HP(frame, handle)
         hpGauge:ShowWindow(1);
     else
         hpGauge:SetSkinName("hpgauge");
-        hpGauge:ShowWindow(1);
     end
 end
 
@@ -319,7 +318,7 @@ function MONSTERBASEINFO_CHECK_CTRL_OPENCONDITION(frame, ctrlName, frameName)
         return;
     end
     
-	hpGauge:ShowWindow(targetInfoOpen);
+	hpGauge:ShowWindow(beforeVisible);
     frame:Invalidate();
 end
 

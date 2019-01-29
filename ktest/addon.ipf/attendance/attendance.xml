@@ -2,13 +2,13 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="attendance" x="0" y="0" width="1100" height="680" create="open">
 	<frame fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
-	<input moveable="true" hittestframe="true" moveintitlebar="false"/>
+	<input moveable="true" hittestframe="true" moveintitlebar="false" resize="true"/>
 	<draw drawframe="false" drawtitlebar="false"/>
 	<layer layerlevel="101"/>
 	<option closebutton="false"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-100 -100 0 0"/>
-	<userconfig NORMAL_BG="attendance_nomal_bg" SPECIAL_BG="attendance_special_bg" SPECIAL_DATE_FONTNAME="white_18" REWARD_MARGIN_HORZ="-7" REWARD_MARGIN_VERT="-7"/>
+	<userconfig NORMAL_BG="attendance_nomal_bg" SPECIAL_BG="attendance_special_bg" SPECIAL_DATE_FONTNAME="white_18" REWARD_MARGIN_HORZ="-7" REWARD_MARGIN_VERT="-7" REWARD_WEEK_SLOT_OFFSET_Y="108"/>
 	<controls>
 		<groupbox name="bgBox" rect="0 0 1100 475" margin="0 0 0 0" draw="true" layout_gravity="left top" skin="test_h_scroll_skin" hittest="false"/>
 		<groupbox name="titleBox" rect="0 0 495 75" parent="bgBox" margin="0 3 0 0" draw="true" layout_gravity="center top" skin="test_h_redribbon_skin" hittest="false"/>
