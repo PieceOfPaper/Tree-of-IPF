@@ -257,12 +257,9 @@ function TPSHOP_TAB_VIEW(frame, curtabIndex)
 		if curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox2") then		-- TP 구매
 			UPDATE_NEXON_AMERICA_SELLITEMLIST();
 			TPSHOP_SHOW_CASHINVEN_ITEMLIST();
-			ncChargebtn:SetVisible(0);
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox1") then	-- 프리미엄 샵
-			ncChargebtn:SetVisible(0);
-		elseif curtabIndex == TPSHOP_GET_INDEX_BY_TAB_NAME("Itembox3") then -- 리사이클 샵
-			ncChargebtn:SetVisible(0);
 		end
+		-- THI는 chargeBtn이 없어야 한다.
+		ncChargebtn:SetVisible(0);
 	else
 		-- 기본적으로 타 국가에서는 TP충전 버튼을 비활성화.
 		ncChargebtn:SetVisible(0);

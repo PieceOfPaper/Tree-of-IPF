@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Code Code="FATAL_ASSERT" Team="PROGRAM" Category="LOGIC" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="지정된 조건문은 항상 참이어야 합니다."/>
@@ -594,5 +594,6 @@
 	<Code Code="EMOTIONFX_DEBUG" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Debug Log"/>
 	<Code Code="EMOTIONFX_CUSTOM" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="EMotionFX Custom Log"/>
 	<Code Code="FATAL_FAIL_INIT_RVR" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="RvRWorldManager init fail."/>
-	<Code Code="info_error_code8" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="Error code 8 추적 로그."/>
+	<Code Code="info_error_code8" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="NO" CallStack="NO" Desc="Error code 8 추적 로그."/>
+	<Code Code="WARNING_EVENT_UESR_TYPE" Team="tos_team" Category="INFO" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="이벤트 유저 정보 경고."/>
 </imcErrorCode> 

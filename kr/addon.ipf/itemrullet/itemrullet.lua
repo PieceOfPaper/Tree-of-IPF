@@ -397,7 +397,7 @@ function REINFORCE_SEAL_EXECUTE(parent, ctrl)
 		clmsg = ClMsg('AdditionalItemCountIsNotMax');
 	end
 	if successRatio < 100 then
-		clmsg = clmsg..'{nl}'..ClMsg('DestroyReinforceItem');
+		clmsg = clmsg..'{nl}'..ClMsg('SealReinforceInfo');
 	end
 
 	clmsg = clmsg..'{nl}'..ClMsg('ReallyReinforceSeal');

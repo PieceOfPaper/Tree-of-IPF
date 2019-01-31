@@ -97,7 +97,7 @@ function SYSMENU_CHECK_HIDE_VAR_ICONS(frame)
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "grimoire", "grimoire")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "guild", "guild")
 	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "poisonpot", "poisonpot")    
-	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "pcbang_shop", "pcbang_shop")    
+	and false == VARICON_VISIBLE_STATE_CHANTED(frame, "pcbang_shop", "pcbang_shop")
 	then
 		return;
 	end
@@ -145,9 +145,9 @@ function SYSMENU_CREATE_VARICON(frame, status, ctrlName, frameName, imageName, r
 	end
 
 	btn:SetTextTooltip("{@st59}" .. tooltipString);
-    if hotkeyName ~= 'Guild' then
-	    btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName), true);
-    else
+	if hotkeyName ~= 'Guild' then
+		btn:SetEventScript(ui.LBUTTONUP, string.format("ui.ToggleFrame('%s')", frameName), true);
+	else
 		btn:SetEventScript(ui.LBUTTONUP, 'UI_TOGGLE_GUILD()', true);
 		local guildinfonotice = btn:CreateControl("groupbox", "guildinfonotice", 20, 20, ui.LEFT, ui.TOP, 0, 0, 0, 0)
 		guildinfonotice:SetSkinName("digitnotice_bg")

@@ -6,10 +6,8 @@ function CRAFTQUEUE_ON_INIT(addon, frame)
 end
 
 function ADD_CRAFT_QUEUE(frame, itemCls, recipeType, totalCount)
-	local index = frame:GetUserIValue("CTRL_INDEX");
 	local childName = string.format("CTRL_%s_%d_%d", itemCls.ClassName, recipeType, totalCount);
-	index = index + 1;
-	frame:SetUserValue("CTRL_INDEX", index);
+	frame:SetUserValue("CTRL_INDEX", totalCount);
 	
 	local bg = frame:GetChild("bg");
 	local slot = bg:CreateOrGetControl("slot", childName, 60, 60, ui.LEFT, ui.CENTER_VERT, 0, 0, 0, 0);

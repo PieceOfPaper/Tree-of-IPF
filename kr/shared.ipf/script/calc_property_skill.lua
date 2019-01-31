@@ -4507,7 +4507,7 @@ end
 function SCR_GET_BeakMask_Time(skill)
     local value = 60
     local pc = GetSkillOwner(skill)
-    if IsPVPServer(pc) == 1 then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value / 3
     end
     
@@ -4536,10 +4536,10 @@ function SCR_Get_Modafinil_Ratio(skill)
 end
 
 function SCR_Get_Modafinil_Bufftime(skill)
-    local value = 40 + skill.Level * 8;
+    local value = 20 + skill.Level * 4;
     
     local pc = GetSkillOwner(skill)
-    if IsPVPServer(pc) == 1 then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value / 3
     end
     

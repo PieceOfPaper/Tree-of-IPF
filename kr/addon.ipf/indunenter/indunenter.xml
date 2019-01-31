@@ -36,6 +36,7 @@
 		<picture name="indunPic" parent="bigmode" rect="0 0 295 450" margin="10 45 0 0" layout_gravity="left top" image="027_boss_Gaigalas" stretch="true" hittestbox="false"/>
 		<groupbox name="countBox" parent="noPicBox" rect="0 0 390 30" margin="5 10 0 0" layout_gravity="left top" draw="false" hittestbox="false"/>
 		<picture name="countPic" parent="countBox" rect="0 0 27 27" margin="0 0 0 0" layout_gravity="left top" image="indun_entrance"/>
+		<picture name="cycleCtrlPic" parent="countBox" rect="0 0 52 20" margin="0 0 80 0" layout_gravity="right center" image="indun_icon_event_l_eng"/>
 		<richtext name="countText" parent="countBox" rect="0 0 190 30" margin="30 0 0 0" layout_gravity="left center" fontname="brown_18_b" caption="던전 입장"/>
 		<richtext name="countData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s/%s회" param1="now" param2="max"/>
 		<richtext name="countItemData" parent="countBox" rect="0 0 190 30" margin="0 0 0 0" layout_gravity="right center" textalign="right center" fontname="brown_18_b" format="%s개" param1="ivnadmissionitem"/>

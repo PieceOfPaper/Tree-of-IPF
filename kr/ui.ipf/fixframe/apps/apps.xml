@@ -16,6 +16,6 @@
 		<button name="GO_BARRACKMODE" layout_gravity="center bottom" texttooltip="{@st59}캐릭터선택{/}" clicksound="button_click_big" oversound="button_over" image="barrack_button_normal" rect="0 0 44 44" margin="0 0 0 5" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="APPS_TRY_MOVE_BARRACK"/>
 		<button name="Config" layout_gravity="center bottom" texttooltip="{@st59}게임설정{/}" clicksound="button_click_big" oversound="button_over" image="config_button_normal" rect="0 0 44 44" margin="0 0 0 140" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="OPEN_CONFIG_FRAME"/>
 		<button name="helpBtn" layout_gravity="center bottom" texttooltip="{@st59}도움말{/}" clicksound="button_click_big" oversound="button_over" image="help_button_normal" rect="0 0 44 44" margin="0 0 0 95" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="ui.ToggleFrame(&apos;helplist&apos;)"/>
-		<button name="attendanceBtn" layout_gravity="center bottom" texttooltip="{@st59}출석 보상 확인{/}" clicksound="button_click_big" oversound="button_over" image="calendar_button_normal" rect="0 0 44 44" margin="0 0 0 185" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="ATTENDANCE_TOGGLE_VAKARINE_UI"/>
+		<button name="attendanceBtn" layout_gravity="center bottom" texttooltip="{@st59}출석 보상 확인{/}" clicksound="button_click_big" oversound="button_over" image="calendar_button_normal" rect="0 0 44 44" margin="0 0 0 185" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp= "ATTENDANCE_LIST_TOGGLE_UI"/>
 	</controls>
 </uiframe>

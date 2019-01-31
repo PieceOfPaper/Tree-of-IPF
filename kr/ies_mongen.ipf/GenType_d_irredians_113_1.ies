@@ -1,9 +1,9 @@
 ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
 1,1,1,40,1,1,1,2,0,0,0,0,0,"blank_npc_warp","스펠토움 타운","","","","","","VELNIAS_WARP_GATE_EFFECT","IRREDIANS1131_TO_NICO813","","","NO","YES","NO","Nuetral","","","",""
-2,2,0,40,150,0,60,0,0,0,0,0,0,"gazer","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
-3,3,0,40,150,0,30,0,0,0,0,0,0,"Greedyprisoner","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
-4,4,0,40,150,0,60,0,0,0,0,0,0,"PuppetM","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
-5,5,0,40,150,0,60,0,0,0,0,0,0,"Maskexecutor","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+2,2,0,40,20,0,85,0,0,0,1,0,0,"gazer","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+3,3,0,40,20,0,40,0,0,0,1,0,0,"Greedyprisoner","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+4,4,0,40,20,0,73,0,0,0,1,0,0,"PuppetM","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+5,5,0,40,20,0,85,0,0,0,1,0,0,"Maskexecutor","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
 6,6,1,100,-1,1,1,2,0,0,1,0,0,"statue_vakarine","여신 바카리네의 상","","","","STOUP_CAMP","","","WARP_D_IRREDIANS113_1","STOUP_CAMP","STOUP_CAMP","NO","YES","NO","Neutral","","","",""
 7,7,1,40,200,20000,30,0,0,0,1,0,0,"rootcrystal_03","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
 8,8,1,40,1,60000,1,1,0,0,0,0,0,"dialog_warp_npc_1","검문소 방향","","","","","","COMMON_PORTAL_NPC","IRREDIANS1131_ENTRANCE","","","NO","YES","NO","Neutral","","","",""

@@ -4655,7 +4655,17 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="EXORCIST_JOB_QUEEST_MON1" ActiveMessageMapInBattle="1"/>
+	<AI Name="EVENT_RANK_RESET_NPC_1902_AI" UpdateMS="10000" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="RANK_RESET_EVENT_NPC_GEN"/>
+            </ToolScp>
+        </List>
+        <StartList>
+            <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+        </StartList>
+    </AI>
+    <AI Name="EXORCIST_JOB_QUEEST_MON1" ActiveMessageMapInBattle="1"/>
 	<AI Name="EXORCIST_MSTEP321_ITEM1_AI" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
@@ -22306,6 +22316,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Bokor_Hexing"/>
                         <Num Num="1"/>
                         <Num Num="1"/>
+                        <Num Num="0"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22325,6 +22336,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Cryomancer_IciclePike"/>
                         <Num Num="1"/>
                         <Num Num="1"/>
+                        <Num Num="80"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22344,6 +22356,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Mergen_TrickShot"/>
                         <Num Num="1"/>
                         <Num Num="1"/>
+                        <Num Num="44"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22363,6 +22376,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Swordman_PainBarrier"/>
                         <Num Num="5"/>
                         <Num Num="1"/>
+                        <Num Num="100"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22466,6 +22480,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Pyromancer_FireBall"/>
                         <Num Num="1"/>
                         <Num Num="1"/>
+                        <Num Num="100"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22488,6 +22503,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="QuarrelShooter_ScatterCaltrop"/>
                         <Num Num="5"/>
                         <Num Num="1"/>
+                        <Num Num="75"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22507,6 +22523,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Ranger_CriticalShot"/>
                         <Num Num="1"/>
                         <Num Num="1"/>
+                        <Num Num="60"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>
@@ -22526,6 +22543,7 @@ return IMCRandom(300, 1000) * 0.001;"/>
                         <Str Str="Ranger_SpiralArrow"/>
                         <Num Num="1"/>
                         <Num Num="1"/>
+                        <Num Num="35"/>
                     </ToolScp>
                 </Exec>
             </ScpSet>

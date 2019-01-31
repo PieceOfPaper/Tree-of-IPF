@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<skinlist category="frames">
@@ -6399,12 +6399,16 @@
 		<image name="frame_classguide_r" file="\skin\mainframe_07.tga" imgrect="0 939 188 35" CMM_Caption="클래스 가이드 프레임 우"/>
 		<image name="indun_icon_week_l" file="\skin\indun_skin.tga" imgrect="699 573 41 20" CMM_Caption="던전 주간 표시 : 대"/>
 		<image name="indun_icon_day_l" file="\skin\indun_skin.tga" imgrect="699 552 41 20" CMM_Caption="던전 일간 표시 : 대"/>
+		<image name="indun_icon_event_l" file="\skin\indun_skin.tga" imgrect="769 552 52 20" CMM_Caption="던전 이벤트 표시 : 대"/>
 		<image name="indun_icon_week_s" file="\skin\indun_skin.tga" imgrect="741 573 27 20" CMM_Caption="던전 주간 표시 : 소"/>
 		<image name="indun_icon_day_s" file="\skin\indun_skin.tga" imgrect="741 552 27 20" CMM_Caption="던전 일간 표시 : 소"/>
+		<image name="indun_icon_event_s" file="\skin\indun_skin.tga" imgrect="822 552 31 20" CMM_Caption="던전 이벤트 표시 : 소"/>
 		<image name="indun_icon_week_l_eng" file="\skin\indun_skin.tga" imgrect="699 615 48 20" CMM_Caption="던전 주간 표시 : 대_영문"/>
 		<image name="indun_icon_day_l_eng" file="\skin\indun_skin.tga" imgrect="699 594 48 20" CMM_Caption="던전 일간 표시 : 대_영문"/>
+		<image name="indun_icon_event_l_eng" file="\skin\indun_skin.tga" imgrect="769 573 48 20" CMM_Caption="던전 이벤트 표시 : 대_영문"/>
 		<image name="indun_icon_week_s_eng" file="\skin\indun_skin.tga" imgrect="748 615 27 20" CMM_Caption="던전 주간 표시 : 소_영문"/>
 		<image name="indun_icon_day_s_eng" file="\skin\indun_skin.tga" imgrect="748 594 27 20" CMM_Caption="던전 일간 표시 : 소_영문"/>
+		<image name="indun_icon_event_s_eng" file="\skin\indun_skin.tga" imgrect="818 573 27 20" CMM_Caption="던전 이벤트 표시 : 소_영문"/>
 		<image name="re_appraisal_image2" file="\skin\Appraiser_skin.tga" imgrect="706 0 312 312" CMM_Caption="레어 인챈트 쥬얼 마법진"/>
 		<image name="re_appraisal_image2_1" file="\skin\Appraiser_skin.tga" imgrect="161 314 337 190" CMM_Caption="레어 인챈트 쥬얼 마법진_누운것"/>
 		<image name="Icon_seat_handle_1" file="\skin\PVP_skin.tga" imgrect="1829 216 28 28" CMM_Caption="공성탑 운전아이콘 _1"/>
@@ -9146,6 +9150,7 @@
 		<image name="icon_boruta_force_warp" file="\icon\buff_icon2.tga" imgrect="768 896 128 128"/>
 		<image name="icon_boruta_echo" file="\icon\buff_icon2.tga" imgrect="896 896 128 128"/>
 		<image name="icon_goldpig_have" file="\icon\buff_icon2.tga" imgrect="0 1024 128 128" CMM_Caption="황금돼지 컴페니언 버프"/>
+		<image name="icon_sweet_potato" file="\icon\buff_icon2.tga" imgrect="128 1024 128 128" CMM_Caption="군고구마 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

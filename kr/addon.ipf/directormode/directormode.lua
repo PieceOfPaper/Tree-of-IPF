@@ -6,12 +6,14 @@ function DIRECTORMODE_ON_INIT(addon, frame)
 end
 
 function DIRECTORMODE_SIZE_UPDATE(frame)
-	frame:MoveFrame(0, 0);
+    if frame == nil then return end
+    
+	frame:MoveFrame(0, 0);    
 	local width = option.GetClientWidth()
     if width < 1920 then width = 1920 end    
     local ratio = option.GetClientHeight() / option.GetClientWidth()
 	local height = width * ratio
-	frame:Resize(width, height)  
+	frame:Resize(width, height)      
 	local screenmask = frame:GetChild('screenmask')
 	if screenmask ~= nil then
 		screenmask:Resize(width, height)  

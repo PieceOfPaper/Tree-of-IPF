@@ -67,6 +67,7 @@ function GUILDINFO_OPEN_UI(frame)
     GUILD_APPLICANT_INIT()
 
     session.party.ReqGuildAsset();
+    session.party.ReqMemberLogoutTime();
 
     GetGuildNotice("GUILDNOTICE_GET")
     

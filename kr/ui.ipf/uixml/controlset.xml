@@ -2103,6 +2103,10 @@
 			<richtext name="itemName" margin="38 35 0 0" rect="0 0 335 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" omitbywidth="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="0 0  0 0" skin="labelline_def" rect="0 0 480 2" layout_gravity="center top"/>
 			<richtext name="exchangeCount" margin="0  0 0 0" rect="0 0 10 10" format="{#FF0000}%s{/}" param1="value" param1_def="?" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
+			<groupbox name="gbox" rect="0 0 200 50" margin="0 170 20 0" layout_gravity="right top" draw="true" hittestbox="true" skin="None"/>
+			<edit name="itemcount" parent="gbox" rect="0 0 100 30" margin="10 0 0 0" layout_gravity="center top" textalign="center center" fontname="white_18_ol" numbermode="true" skin="test_weight_skin" typingscp="UPDATE_EARTHTOWERSHOP_CHANGECOUNT" EnterKeyScp="None" param1="value" param1_def="0"/>
+			<button name="upBtn" parent="gbox" stretch="true" rect="0 0 60 60" margin="75 1 0 0" layout_gravity="center top" image="test_up_w_btn" oversound="button_over" LBtnUpScp="EARTHTOWERSHOP_UPBTN"/>
+			<button name="downBtn" parent="gbox" stretch="true" rect="0 0 60 60" margin="75 16 0 0" layout_gravity="center top" image="test_down_w_btn" oversound="button_over" LBtnUpScp="EARTHTOWERSHOP_DOWNBTN"/>
 		</controls>
 	</controlset>
 	<controlset name="craftRecipe_alchemist" hittest="true" width="470" height="60" skin="test_skin_01" hittestset="true" draw="true" stateskin="false">
@@ -4623,6 +4627,14 @@
 			<button name="closeBtn" rect="0 0 5 5" margin="0 5 5 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ON_INGAMEALERT_ELEM_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="nisms_close_btn" oversound="button_over" texttooltip="{@st59}메세지를 닫습니다.{/}"/>
 			<button name="yesBtn" rect="0 0 90 38" margin="0 0 100 8" layout_gravity="right bottom" skin="test_red_button" caption="{@st41b}{s16}예" hittest="true" LBtnUpScp="ON_INGAMEALERT_ELEM_YES" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
 			<button name="noBtn" rect="0 0 90 38" margin="0 0 10 8" layout_gravity="right bottom" skin="test_gray_button" caption="{@st41b}{s16}아니오" hittest="true" LBtnUpScp="ON_INGAMEALERT_ELEM_NO" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_3" oversound="button_cursor_over_2"/>
+		</controls>
+	</controlset>
+	<controlset name="listselect" hittest="true" width="430" height="55" skin="market_listbase" hittestset="false" draw="true">
+		<userconfig MARGIN_BOTTOM="8" OPEN_ANIM="dialog_start2" CLOSE_ANIM="dialog_end"/>
+		<controls>
+			<groupbox name="gb" rect="0 0 430 45" margin="0 0 0 0" layout_gravity="center center" draw="false" />
+			<richtext name="data_text" parent="gb" rect="0 0 200 20" margin="20 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="내용" fontname="white_14_ol"/>
+			<button name="select_btn"  parent="gb" rect="0 0 84 47" margin="170 0 0 0" layout_gravity="center center" hittest="true" format="%s" param1="value" param1_def="버튼" stretch="true" skin="test_pvp_btn" fontname="black_16_b"/>
 		</controls>
 	</controlset>
 </controlsetlist>

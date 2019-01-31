@@ -591,10 +591,10 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
     end
 
 	if someflag > 0 then
-		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);
+		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
 	else        
-		CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
+		CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)        
 	end
 end
 
@@ -709,7 +709,7 @@ local function CHECK_MATERIAL_COUNT(recipecls, totalCount)
     return true, 0 -- 조건 만족
 end
 
-function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)    
+function CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)    
 	control.DialogEscape();
 	local frame = ui.GetFrame(g_itemCraftFrameName);
 	local ctrl = GET_CHILD_RECURSIVELY(frame, "LABEL", "ui::CGroupBox");
@@ -760,7 +760,11 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 
     local flag, cnt = CHECK_MATERIAL_COUNT(recipecls, totalCount)
     if flag == false then
-        ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'));
+        ui.AddText("SystemMsgFrame", ClMsg('NotEnoughRecipe'))        
+        if upDown ~= nil then
+            upDown:SetNumberValue(cnt)
+            ITMCRAFT_BUTTON_UP(upDown)
+        end
 		return
     end
 
@@ -812,9 +816,10 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 		session.CopyTempItemID();
 		local queueFrame = ui.GetFrame("craftqueue");
 		CLEAR_CRAFT_QUEUE(queueFrame);
-		for i = 1, totalCount do            
-			ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, 1);
-		end
+		--for i = 1, totalCount do
+            --print(targetItem, recipecls.ClassID)
+		ADD_CRAFT_QUEUE(queueFrame, targetItem, recipecls.ClassID, totalCount);
+		--end
 		if frame:GetUserIValue("MANUFACTURING") == 1 then
 			return;
 	end
@@ -825,8 +830,8 @@ function CRAFT_START_CRAFT(idSpace, recipeName, totalCount)
 	end
 	
 	local resultlist = session.GetItemIDList();
-	local cntText = string.format("%s %s", recipecls.ClassID, 1);
-	frame:SetUserValue("IDSPACE", idSpace);    
+	local cntText = string.format("%s %s", recipecls.ClassID, totalCount);
+	frame:SetUserValue("IDSPACE", idSpace);
 	item.DialogTransaction("SCR_ITEM_MANUFACTURE_" .. idSpace, resultlist, cntText, nameList);    
 end
 
