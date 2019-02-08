@@ -1,7 +1,3 @@
-local local_parent = nil
-local local_control = nil
-local local_dragrecipeitem = nil
-
 function REQ_EARTH_TOWER_SHOP_OPEN()
 
 	local frame = ui.GetFrame("earthtowershop");
@@ -34,18 +30,6 @@ function REQ_EVENT_ITEM_SHOP3_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
-function REQ_EVENT_ITEM_SHOP4_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'EventShop4');
-    ui.OpenFrame('earthtowershop');
-end
-
-function REQ_EVENT_ITEM_SHOP5_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'EventShop5');
-    ui.OpenFrame('earthtowershop');
-end
-
 function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');
@@ -64,12 +48,6 @@ function HALLOWEEN_EVENT_ITEM_SHOP_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
-function REQ_EVENT_ITEM_SHOP7_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'EventShop7');
-    ui.OpenFrame('earthtowershop');
-end
-
 function REQ_EVENT_ITEM_SHOP8_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'EventShop8');
@@ -86,12 +64,6 @@ function REQ_MASSIVE_CONTENTS_SHOP1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'MCShop1');
 	ui.OpenFrame('earthtowershop');
-end
-
-function REQ_SoloDungeon_Bernice_SHOP_OPEN()
-    local frame = ui.GetFrame("earthtowershop");
-    frame:SetUserValue("SHOP_TYPE", 'Bernice');
-    ui.OpenFrame('earthtowershop');
 end
 
 function REQ_DAILY_REWARD_SHOP_1_OPEN()
@@ -173,9 +145,6 @@ function EARTH_TOWER_INIT(frame, shopType)
 	elseif shopType == 'DailyRewardShop' then
 		title:SetText('{@st43}'..ScpArgMsg("DAILY_REWARD_SHOP_1"));
 		close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("DAILY_REWARD_SHOP_1")));
-    elseif shopType == 'Bernice' then
-        title:SetText('{@st43}'..ScpArgMsg("pvp_mine_shop_name"));
-        close:SetTextTooltip(ScpArgMsg('CloseUI{NAME}', 'NAME', ScpArgMsg("pvp_mine_shop_name")));
 	end
 
 
@@ -185,10 +154,10 @@ function EARTH_TOWER_INIT(frame, shopType)
 
 	local tree_box = GET_CHILD(group, 'recipetree_Box','ui::CGroupBox')
 	local tree = GET_CHILD(tree_box, 'recipetree','ui::CTreeControl')
+
 	if nil == tree then
 		return;
 	end
-
 	tree:Clear();
 	tree:EnableDrawTreeLine(false)
 	tree:EnableDrawFrame(false)
@@ -196,6 +165,8 @@ function EARTH_TOWER_INIT(frame, shopType)
 	tree:SetFontName("brown_18_b");
 	tree:SetTabWidth(5);
 		
+
+
 	local clslist = GetClassList("ItemTradeShop");
 	if clslist == nil then return end
 
@@ -206,6 +177,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 	local checkHaveMaterial = showonlyhavemat:IsChecked();	
 	
 	while cls ~= nil do
+
 		if cls.ShopType == shopType then
 			local haveM = CRAFT_HAVE_MATERIAL(cls);		
 			if checkHaveMaterial == 1 then
@@ -222,6 +194,7 @@ function EARTH_TOWER_INIT(frame, shopType)
 	end
 
 	tree:OpenNodeAll();
+
 end
 
 
@@ -242,6 +215,7 @@ end
 
 
 function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
+	
 	local hGroup = tree:FindByValue(groupName);
 	if tree:IsExist(hGroup) == 0 then
 		hGroup = tree:Add(ScpArgMsg(groupName), groupName);
@@ -258,6 +232,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 			tree:SetNodeFont(hClassType,"brown_18_b")
 			
 		end
+
 		hParent = hClassType;
 	end
 	
@@ -266,6 +241,16 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 		pageCtrlName = pageCtrlName .. "_" .. classType;
 	end
 
+	--DESTROY_CHILD_BY_USERVALUE(tree, "EARTH_TOWER_CTRL", "YES");
+
+	--local page = tree:GetChild(pageCtrlName);
+	--if page == nil then
+	--page = tree:CreateOrGetControl('page', pageCtrlName, 0, 1000, tree:GetWidth()-35, 470);
+	--CreateOrGetControl('groupbox', "upbox", 0, 0, detailView:GetWidth(), 0);
+	--local groupbox = tree:CreateOrGetControlSet('groupbox_sub', tree:GetName(), 0, 0)
+	--local groupbox = CreateOrGetControl('groupbox', 'questreward', 10, 10, frame:GetWidth()-70, frame:GetHeight());
+	--print(tree:GetName())
+	
 	local page = tree:GetChild(pageCtrlName);
 	if page == nil then
 		page = tree:CreateOrGetControl('page', pageCtrlName, 0, 1000, tree:GetWidth()-35, 470);
@@ -302,11 +287,10 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 	local itemIcon = GET_CHILD(ctrlset, "itemIcon")
 	local minHeight = itemIcon:GetHeight() + startY + 10;
 
+
 	itemName:SetTextByKey("value", targetItem.Name .. " [" .. recipecls.TargetItemCnt .. ScpArgMsg("Piece") .. "]" );
-    
 	itemIcon:SetImage(targetItem.Icon);
 	itemIcon:SetEnableStretch(1);
-    
 	SET_ITEM_TOOLTIP_ALL_TYPE(itemIcon, nil, targetItem.ClassName, '', targetItem.ClassID, 0);
 
 	local itemCount = 0;
@@ -318,68 +302,50 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 					local itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i ..'_'.. j, x, y);
 					itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
 					CRAFT_DETAIL_CTRL_INIT(itemSet);
-
 					local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 					local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
 					needcountTxt:SetTextByKey("count", recipeItemCnt)
-
+					local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
 					SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
 					slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");
 					slot:SetEventScriptArgNumber(ui.DROP, dragRecipeItem.ClassID);
 					slot:SetEventScriptArgString(ui.DROP, 1)
 					slot:EnableDrag(0);
-                    slot:SetOverSound('button_cursor_over_2');
-                    slot:SetClickSound('button_click');
-
 					local icon 		= slot:GetIcon();
 					icon:SetColorTone('33333333')
-                    itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName);
-                    
-                    local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
 					itemtext:SetText(dragRecipeItem.Name);
+					y = y + itemHeight;
+					itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
 						
-                    y = y + itemHeight;
+					slot:SetOverSound('button_cursor_over_2');
+					slot:SetClickSound('button_click');
 					itemCount = itemCount + 1;				
 				end
 			else			
 				local itemSet = ctrlset:CreateOrGetControlSet('craftRecipe_detail_item', "EACHMATERIALITEM_" .. i, x, y);
 				itemSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
 				CRAFT_DETAIL_CTRL_INIT(itemSet);
-
 				local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 				local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
-                needcountTxt:SetTextByKey("count", recipeItemCnt);
-
+				needcountTxt:SetTextByKey("count",recipeItemCnt)--���ۿ� �ʿ��� ������ ī��Ʈ
+				local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
 				SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
 				slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");
 				slot:SetEventScriptArgNumber(ui.DROP, dragRecipeItem.ClassID);
 				slot:SetEventScriptArgString(ui.DROP, tostring(recipeItemCnt));
 				slot:EnableDrag(0);	
-                slot:SetOverSound('button_cursor_over_2');
-                slot:SetClickSound('button_click');
-
 				local icon 		= slot:GetIcon();
 				icon:SetColorTone('33333333')
+				itemtext:SetText(dragRecipeItem.Name);
+				y = y + itemHeight;
 				itemSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
 				
-                local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
-                itemtext:SetText(dragRecipeItem.Name);
-
-                y = y + itemHeight;
+				slot:SetOverSound('button_cursor_over_2');
+				slot:SetClickSound('button_click');
 				itemCount = itemCount + 1;
 			end
-
-            if dragRecipeItem ~= nil then
-                local_dragrecipeitem = dragRecipeItem;
-            end
 		end
 	end
-
--- edittext Reset
-    local edit_itemcount = GET_CHILD_RECURSIVELY(ctrlset, "itemcount");
-    if edit_itemcount ~= nil then
-        edit_itemcount:SetText(recipecls.TargetItemCnt);
-    end
 
 	local height = 0;	
 	if y < minHeight then
@@ -448,50 +414,16 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 end
 
 function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
-    local_parent = parent;
-    local_control = ctrl;
-
-    local parentcset = ctrl:GetParent();
-    local edit_itemcount = GET_CHILD_RECURSIVELY(parentcset, "itemcount");
-    if edit_itemcount == nil then 
-        return; 
-    end
-
-    local resultCount = tonumber(edit_itemcount:GetText());
-    local recipecls = GetClass('ItemTradeShop', parent:GetName());
-    local isExceptionFlag = false;
-    for index = 1, 5 do
-        local clsName = "Item_"..index.."_1";
-        local itemName = recipecls[clsName];
-        local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipecls, index);
-
-        if dragRecipeItem ~= nil then
-            local itemCount = GET_TOTAL_ITEM_CNT(dragRecipeItem.ClassID);
-            if itemCount < recipeItemCnt * resultCount then
-                ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughRecipe'));
-                isExceptionFlag = true;
-                break;
-            end
-        end
-    end
-
-    if isExceptionFlag == true then
-        isExceptionFlag = false;
+	local frame = parent:GetTopParentFrame();
+	if frame:GetName() == 'legend_craft' then
+		LEGEND_CRAFT_EXECUTE(parent, ctrl);
 		return;
 	end
 
-    AddLuaTimerFuncWithLimitCountEndFunc("EARTH_TOWER_SHOP_TRADE_ENTER", 100, resultCount - 1, "EARTH_TOWER_SHOP_TRADE_LEAVE");
-end
+	local parentcset = ctrl:GetParent()
 
-function EARTH_TOWER_SHOP_TRADE_ENTER()
-    local frame = local_parent:GetTopParentFrame();
-    if frame:GetName() == 'legend_craft' then
-        LEGEND_CRAFT_EXECUTE(local_parent, local_control);
-        return;
-    end
 	
-    local parentcset = local_control:GetParent()
-    local frame = local_control:GetTopParentFrame(); 
+	local frame = ctrl:GetTopParentFrame();	
 	local cnt = parentcset:GetChildCount();
 	for i = 0, cnt - 1 do
 		local eachcset = parentcset:GetChildByIndex(i);		
@@ -508,6 +440,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 	local someflag = 0
 	for i = 0, resultlist:Count() - 1 do
 		local tempitem = resultlist:PtrAt(i);
+
 		if IS_VALUEABLE_ITEM(tempitem.ItemID) == 1 then
 			someflag = 1
 		end
@@ -515,20 +448,12 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 
 	session.ResetItemList();
 
-        local recipeCls = GetClass("ItemTradeShop", parentcset:GetName())
-  	for index=1, 5 do
+	local recipeCls = GetClass("ItemTradeShop", parentcset:GetName())
+
+	for index=1, 5 do
 		local clsName = "Item_"..index.."_1";
 		local itemName = recipeCls[clsName];
-        local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist = GET_RECIPE_MATERIAL_INFO(recipeCls, index);
-
-        if dragRecipeItem ~= nil then
-            local itemCount = GET_TOTAL_ITEM_CNT(dragRecipeItem.ClassID);
-            if itemCount < recipeItemCnt then
-                ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughRecipe'));
-                break;
-            end
-        end
-
+		local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipeCls, clsName);
 		local invItem = session.GetInvItemByName(itemName);
 		if "None" ~= itemName then
 			if nil == invItem then
@@ -539,7 +464,6 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 					ui.SysMsg(ClMsg("MaterialItemIsLock"));
 					return;
 				end
-                
 				session.AddItemID(invItem:GetIESID(), recipeItemCnt);
 			end
 		end
@@ -548,6 +472,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 	local resultlist = session.GetItemIDList();
 	local cntText = string.format("%s %s", recipeCls.ClassID, 1);
 	
+
 	local shopType = frame:GetUserValue("SHOP_TYPE");
 	if shopType == 'EarthTower' then
 		item.DialogTransaction("EARTH_TOWER_SHOP_TREAD", resultlist, cntText);
@@ -567,8 +492,6 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD3", resultlist, cntText);	
 	elseif shopType == 'EventShop4' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD4", resultlist, cntText);
-    elseif shopType == 'EventShop7' then
-        item.DialogTransaction("EVENT_ITEM_SHOP_TREAD7", resultlist, cntText);
 	elseif shopType == 'EventShop8' then
 		item.DialogTransaction("EVENT_ITEM_SHOP_TREAD8", resultlist, cntText);
 	elseif shopType == 'PVPMine' then
@@ -577,186 +500,7 @@ function EARTH_TOWER_SHOP_TRADE_ENTER()
 		item.DialogTransaction("MASSIVE_CONTENTS_SHOP_TREAD1", resultlist, cntText);
 	elseif shopType == 'DailyRewardShop' then
 		item.DialogTransaction("DAILY_REWARD_SHOP_1_TREAD1", resultlist, cntText);
-    elseif shopType == 'Bernice' then
-        item.DialogTransaction("SoloDungeon_Bernice_SHOP", resultlist, cntText);
-    end
-end
-
-function EARTH_TOWER_SHOP_TRADE_LEAVE()
-    session.ResetItemList();
-
-    local ctrlSet = local_control:GetParent();
-    local recipecls = GetClass('ItemTradeShop', ctrlSet:GetName());
-    local targetItem = GetClass("Item", recipecls.TargetItem);
-
-    -- itemName Reset
-    local itemName = GET_CHILD_RECURSIVELY(ctrlSet, "itemName");
-    if itemName ~= nil then
-        itemName:SetTextByKey("value", targetItem.Name.."["..recipecls.TargetItemCnt..ScpArgMsg("Piece").."]");
-    end
-
-    for i = 1, 5 do
-        if recipecls["Item_"..i.."_1"] ~= "None" then
-            local recipeItemCnt, invItemCnt, dragRecipeItem, invItem, recipeItemLv, invItemlist  = GET_RECIPE_MATERIAL_INFO(recipecls, i);
-            if invItemlist == nil then
-               -- needCount Reset
-               local needCount = GET_CHILD_RECURSIVELY(ctrlSet, "needcount");
-               needCount:SetTextByKey("count", recipeItemCnt)
-
-               -- material icon Reset
-               ctrlSet:SetUserValue("MATERIAL_IS_SELECTED", 'nonselected');
-               CRAFT_DETAIL_CTRL_INIT(ctrlSet);
-
-               local slot = GET_CHILD_RECURSIVELY(ctrlSet, "slot");
-               if slot ~= nil then
-                   SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
-                   slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");
-                   slot:SetEventScriptArgNumber(ui.DROP, dragRecipeItem.ClassID);
-                   slot:SetEventScriptArgString(ui.DROP, tostring(recipeItemCnt));
-                   slot:EnableDrag(0); 
-                   slot:SetOverSound('button_cursor_over_2');
-                   slot:SetClickSound('button_click');
-
-                   local icon = slot:GetIcon();
-                   icon:SetColorTone('33333333')
-                   ctrlSet:SetUserValue("ClassName", dragRecipeItem.ClassName)
-               end
-
-               -- btn Reset
-               local btn = GET_CHILD_RECURSIVELY(ctrlSet, "btn");
-               if btn ~= nil then
-                    btn:ShowWindow(1);
-               end
-            end
-        end
-    end
-
-    -- edittext Reset
-    local edit_itemcount = GET_CHILD_RECURSIVELY(ctrlSet, "itemcount");
-    if edit_itemcount ~= nil then
-        edit_itemcount:SetText(recipecls.TargetItemCnt);
-    end
-    
-    INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-    RESET_INVENTORY_ICON();
-
-    ctrlSet:Invalidate();
-end
-
-function EARTHTOWERSHOP_UPBTN(frame, ctrl)
-    if ui.CheckHoldedUI() == true then
-		return;
 	end
 
-	if frame == nil then
-		return
-	end
-		
-	local topFrame = frame:GetTopParentFrame()
-	if topFrame == nil then
-		return
-	end
-
-    EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, 0);
-end
-
-function EARTHTOWERSHOP_DOWNBTN(frame, ctrl)
-    if ui.CheckHoldedUI() == true then
-		return;
-	end
-
-	if frame == nil then
-		return
-	end
-		
-	local topFrame = frame:GetTopParentFrame()
-	if topFrame == nil then
-		return
-	end
-
-    EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, 1);
-end
-
-function EARTHTOWERSHOP_CHANGECOUNT(frame, ctrl, flag)
-    if ctrl == nil then return; end
-
-    local gbox = ctrl:GetParent(); if gbox == nil then return; end
-    local parentCtrl = gbox:GetParent(); if parentCtrl == nil then return; end
-    local ctrlset = parentCtrl:GetParent(); if ctrlset == nil then return; end
-    local cnt = ctrlset:GetChildCount();
-
-    -- item couut increase
-    local edit_itemcount = GET_CHILD_RECURSIVELY(ctrlset, "itemcount");
-    local countText = tonumber(edit_itemcount:GetText());
-    if flag == 0 then
-        countText = countText + 1;
-    else
-        if countText > 1 then
-            countText = countText - 1;
-        end
-    end
-    edit_itemcount:SetText(countText);
-
-    if cnt ~= nil then
-        for i = 0, cnt - 1 do
-            local eachSet = ctrlset:GetChildByIndex(i);
-            if string.find(eachSet:GetName(), "EACHMATERIALITEM_") ~= nil then
-                local recipecls = GetClass('ItemTradeShop', ctrlset:GetName());
-                local targetItem = GetClass("Item", recipecls.TargetItem);
-                
-                -- item Name Setting
-                local targetItemName_text = GET_CHILD_RECURSIVELY(ctrlset, "itemName");
-                targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
-
-                for j = 1, 5 do
-                    if recipecls["Item_"..j.."_1"] ~= "None" then
-                       local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, "Item_"..j.."_1");
-
-                       -- needCnt Setting
-                       local needcountText = GET_CHILD_RECURSIVELY(eachSet, "needcount", "ui::CSlot");
-                       needcountText:SetTextByKey("count", countText * recipeItemCnt);
-                    end
-                end
-            end
-
-            eachSet:Invalidate();
-        end
-    end
-end
-
-function UPDATE_EARTHTOWERSHOP_CHANGECOUNT(parent, ctrl)
-    if ctrl == nil then return; end
-
-    local gbox = ctrl:GetParent(); if gbox == nil then return; end
-    local parentCtrl = gbox:GetParent(); if parentCtrl == nil then return; end
-    local ctrlset = parentCtrl:GetParent(); if ctrlset == nil then return; end
-    local cnt = ctrlset:GetChildCount();
-
-    local edit_itemcount = GET_CHILD_RECURSIVELY(ctrlset, "itemcount");
-    local countText = tonumber(edit_itemcount:GetText());
-    if cnt ~= nil and countText ~= nil then
-        for i = 0, cnt - 1 do
-            local eachSet = ctrlset:GetChildByIndex(i);
-            if string.find(eachSet:GetName(), "EACHMATERIALITEM_") ~= nil then
-                local recipecls = GetClass('ItemTradeShop', ctrlset:GetName());
-                local targetItem = GetClass("Item", recipecls.TargetItem);
-                
-                -- item Name Setting
-                local targetItemName_text = GET_CHILD_RECURSIVELY(ctrlset, "itemName");
-                targetItemName_text:SetTextByKey("value", targetItem.Name.."["..countText..ScpArgMsg("Piece").."]");
-
-                for j = 1, 5 do
-                    if recipecls["Item_"..j.."_1"] ~= "None" then
-                       local recipeItemCnt, recipeItemLv = GET_RECIPE_REQITEM_CNT(recipecls, "Item_"..j.."_1");
-
-                       -- needCnt Setting
-                       local needcountText = GET_CHILD_RECURSIVELY(eachSet, "needcount", "ui::CSlot");
-                       needcountText:SetTextByKey("count", countText * recipeItemCnt);
-                    end
-                end
-            end
-
-            eachSet:Invalidate();
-        end
-    end
+	frame:ShowWindow(0)
 end

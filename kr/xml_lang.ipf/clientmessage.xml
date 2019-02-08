@@ -1539,6 +1539,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
+		<Class ClassID="22524" ClassName="TemporarilyUnavailable" Data="일시적으로 사용 불가능한 기능입니다"/>
 	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
@@ -11962,7 +11963,7 @@
 		<Class ClassID="138407" ClassName="miss_match_confirm_text" Data="확인 문자가 일치하지 않습니다."/>
 		<Class ClassID="138408" ClassName="HighItemGradeReallyDestroy{ITEM}{COUNT}" Data="{#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 		<Class ClassID="138409" ClassName="HighItemGradeReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
-		</Category>
+	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
 		<Class ClassID="200002" ClassName="WithdrawToCamp" Data="님께서 꺼내가셨습니다."/>
