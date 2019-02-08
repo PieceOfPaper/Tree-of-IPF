@@ -70,8 +70,7 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     local addCount = math.floor(nowCount * admissionPlayAddItemCount);
     local nowAdmissionItemCount
     
-
-    if  SCR_RAID_EVENT_20190102(nil, false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+    if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
         nowAdmissionItemCount = admissionItemCount - 1
     else
         nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
@@ -651,7 +650,7 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         countData:ShowWindow(0)
 
         if indunCls.DungeonType == 'UniqueRaid' then
-            if SCR_RAID_EVENT_20190102(nil, false) == true and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+            if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
                 cycleCtrlPic:ShowWindow(1);
             end            
         end
@@ -1732,7 +1731,7 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         local addCount = math.floor(nowCount * admissionPlayAddItemCount)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         
-        if SCR_RAID_EVENT_20190102(nil , false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+        if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount - 1;
         end
         

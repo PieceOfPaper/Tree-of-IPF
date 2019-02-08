@@ -683,7 +683,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         --local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         local nowAdmissionItemCount = admissionItemCount
         
-        if SCR_RAID_EVENT_20190102(nil, false) == true and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+        if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
             nowAdmissionItemCount  = admissionItemCount - 1
         else
             nowAdmissionItemCount  = admissionItemCount + addCount
@@ -697,7 +697,7 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         cycleCtrlPic:ShowWindow(0);
 
         if indunCls.DungeonType == 'UniqueRaid' then
-            if SCR_RAID_EVENT_20190102(nil, false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
+            if SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == 'Dungeon_Key01' then -- 별의 탑 폐쇄 구역 제외 조건 걸어주기
                 cycleCtrlPic:ShowWindow(1);
             end
         

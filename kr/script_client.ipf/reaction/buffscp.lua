@@ -353,7 +353,8 @@ function Proliferation_ENTER(actor, obj, buff)
         return;
     end 
 
-    --[[actor:PushNodeScale("Proliferation1", "Bip01 L Hand", 1.0);
+    actor:SetTransfomedNodeScale(1);
+    actor:PushNodeScale("Proliferation1", "Bip01 L Hand", 1.0);
     actor:PushNodeScale("Proliferation2", "Dummy_L_HAND", 0.25);
     actor:PushNodeScale("ProliferationRH1", "Bip01 R Hand", 1.0)
     actor:PushNodeScale("ProliferationRH2", "Dummy_R_HAND", 0.25)
@@ -361,11 +362,11 @@ function Proliferation_ENTER(actor, obj, buff)
     actor:PushNodeScale("ProliferationRH4", "Dummy_R_allebell", 0.25)
     actor:PushNodeScale("ProliferationRH5", "Dummy_R_umbrella", 0.25)
     actor:PushNodeScale("ProliferationRH6", "Dummy_Shield", 0.25)
-    actor:SetTransfomedNodeScale(1);]]
 end
 
 function Proliferation_LEAVE(actor, obj, buff)
-	--[[actor:PopNodeScale("Proliferation1");
+    actor:SetTransfomedNodeScale(0);
+	actor:PopNodeScale("Proliferation1");
 	actor:PopNodeScale("Proliferation2");
 	actor:PopNodeScale("ProliferationRH1");
 	actor:PopNodeScale("ProliferationRH2");
@@ -373,7 +374,6 @@ function Proliferation_LEAVE(actor, obj, buff)
 	actor:PopNodeScale("ProliferationRH4");
 	actor:PopNodeScale("ProliferationRH5");
 	actor:PopNodeScale("ProliferationRH6");
-    actor:SetTransfomedNodeScale(0);]]
 end
 
 function ProliferationRH_ENTER(actor, obj, buff)
