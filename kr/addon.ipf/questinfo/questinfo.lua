@@ -9,7 +9,7 @@ function QUESTINFO_ON_INIT(addon, frame)
 end 
 
 function UPDATE_QUESTMARK(frame, msg, argStr, argNum)
-	DebounceScript("DEBOUNCE_QUESTUPDATE_MARK", 1.0);
+	DebounceScript("DEBOUNCE_QUESTUPDATE_MARK", 1.0, false);
 end
 
 function DEBOUNCE_QUESTUPDATE_MARK()
