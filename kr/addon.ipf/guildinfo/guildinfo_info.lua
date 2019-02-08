@@ -182,7 +182,7 @@ end
 
 function IS_EXIST_JOB_IN_HISTORY(jobID)
     local mySession = session.GetMySession();
-    local jobHistory = mySession.pcJobInfo;
+    local jobHistory = mySession:GetPCJobInfo();
     local jobHistoryCnt = jobHistory:GetJobCount();
     for i = 0, jobHistoryCnt - 1 do
 		local jobInfo = jobHistory:GetJobInfoByIndex(i);

@@ -5878,7 +5878,7 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Exorcist_Rubric" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Exorcist_Rubric" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="999999"/>
@@ -5900,6 +5900,9 @@ return count;"/>
             </ToolScp>
         </destroyEvent>
         <enterEvent>
+            <ToolScp Scp="PAD_DEACTIVATE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+            </ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
@@ -5915,7 +5918,7 @@ return count;"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Rubric_DeBuff"/>
@@ -5945,7 +5948,7 @@ return count;"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Exorcist_Rubric_abil" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" UpdateTerm="250" ApplyFlyMon="1" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
+    <PadSkill Name="Exorcist_Rubric_abil" CheckerType="1" Dist="172.91235" Angle="-2.8994689" Range="40" InnerRange="100" UpdateTerm="250" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="999999"/>
@@ -5967,6 +5970,9 @@ return count;"/>
             </ToolScp>
         </destroyEvent>
         <enterEvent>
+            <ToolScp Scp="PAD_DEACTIVATE" Client="NO" UseSleep="NO">
+                <Str Str="ENEMY"/>
+            </ToolScp>        
             <ToolScp Scp="PAD_TGT_BUFF" Client="NO" UseSleep="NO">
                 <Str Str="ENEMY"/>
                 <Num Num="0"/>
@@ -5990,7 +5996,7 @@ return count;"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Rubric_DeBuff"/>
@@ -6593,14 +6599,14 @@ return GET_ABIL_LEVEL(self, &quot;Fletcher6&quot;) * 10"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Friedenslied_Debuff"/>
                 <Num Num="1"/>
             </ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="PARTY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Friedenslied_Buff"/>
@@ -8414,13 +8420,13 @@ return 5000 + obj.Level *  1000"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Kagura_Debuff"/>
             </ToolScp>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="FRIEND"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="KaguraDance_Buff"/>
@@ -10398,7 +10404,7 @@ return lv;"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="PARTY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="Sanctuary_Buff"/>
@@ -13525,7 +13531,7 @@ return 3 + obj.Level * 0.5"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="PARTY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="TheTreeOfSepiroth_Buff"/>
@@ -14462,7 +14468,7 @@ return obj.Level"/>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
+                <Str Str="ALL"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
                 <Str Str="YinYangConsonance_Debuff"/>

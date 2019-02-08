@@ -201,11 +201,18 @@ function ATTENDANCE_GIVE_REWARD(AttendanceID)
 			if attendanceData == nil then
 				return;
 			end
-
-			local todayDayOffset = imcTime.GetDifDaysFromNow(attendanceData.startTime);
+			
+			local attendanceCls = GetClassByType('TPEventAttendance', AttendanceID);
+			local todayDayOffset;
+			if attendanceCls.AttendancePass == 'YES' then
+				todayDayOffset = imcTime.GetDifDaysFromNow(attendanceData.startTime);
+			else
+				todayDayOffset = LastRewardData.dayOffset + 1;
+			end
+			
 			local attendanceClassData = session.attendance.GetAttendanceClassData(AttendanceID, todayDayOffset);
-			if attendanceClassData ~= nil then				
-				AttendanceRewardClick(AttendanceID);
+			if attendanceClassData ~= nil then
+				AttendanceRewardClick(AttendanceID);	
 			end
 		end		
 	else	

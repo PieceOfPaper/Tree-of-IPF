@@ -327,7 +327,7 @@ function EXCHANGE_CREATE_TREE_PAGE(tree, slotHeight, groupName, classType, cls)
 				CRAFT_DETAIL_CTRL_INIT(itemSet);
 				local slot = GET_CHILD(itemSet, "slot", "ui::CSlot");
 				local needcountTxt = GET_CHILD(itemSet, "needcount", "ui::CSlot");
-				needcountTxt:SetTextByKey("count",recipeItemCnt)--���ۿ� �ʿ��� ������ ī��Ʈ
+				needcountTxt:SetTextByKey("count",recipeItemCnt)--占쏙옙占쌜울옙 占십울옙占쏙옙 占쏙옙占쏙옙占쏙옙 카占쏙옙트
 				local itemtext = GET_CHILD(itemSet, "item", "ui::CRichText");
 				SET_SLOT_ITEM_CLS(slot, dragRecipeItem);
 				slot:SetEventScript(ui.DROP, "ITEMCRAFT_ON_DROP");

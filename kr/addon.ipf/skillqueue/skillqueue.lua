@@ -50,9 +50,9 @@ function SKILL_QUEUE_UPDATE_ALL(frame, msg, argstr, argnum)
 
 	local mains = session.GetMainSession();
 	if msg == 'UPDATE_SKILL_QUEUE' and argstr == 'PC_ENTER' then
-		mains.skillQueues:ClearAllSkillQueue();
+		mains:GetSkillQueues():ClearAllSkillQueue();
 	else
-		mains.skillQueues:ClearOldSkillQueue();
+		mains:GetSkillQueues():ClearOldSkillQueue();
 	end
 	
 	local slots = GET_CHILD(frame, "slots", "ui::CSlotSet");
@@ -67,9 +67,9 @@ function SKILL_QUEUE_UPDATE_ALL(frame, msg, argstr, argnum)
 	local widlingCnt = 0;
 	local paramuneCnt = 0;
 
-	local cnt =  mains.skillQueues:GetSkillQueueCount();	
+	local cnt =  mains:GetSkillQueues():GetSkillQueueCount();	
 	for i = 0 , cnt - 1 do
-		local info = mains.skillQueues:GetSkillQueue(i);
+		local info = mains:GetSkillQueues():GetSkillQueue(i);
 		local monRaceType = info:GetMonRaceType();
 		if monRaceType == 'Forester' then
 			foresterCnt = foresterCnt + 1;

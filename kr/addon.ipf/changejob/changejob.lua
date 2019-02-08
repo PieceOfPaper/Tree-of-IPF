@@ -162,7 +162,7 @@ end
 local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 	local pc = GetMyPCObject();
 	local mainSession = session.GetMainSession();
-	local pcJobInfo = mainSession.pcJobInfo;
+	local pcJobInfo = mainSession:GetPCJobInfo();
 	local jobCount = pcJobInfo:GetJobCount();
 	local jobHistoryList = {};
 	for i = 0, jobCount - 1 do
@@ -571,7 +571,7 @@ function UPDATE_CHANGEJOB(frame)
 	groupbox_sub_newjob:Resize(groupbox_sub_newjob:GetWidth(), totalHeight + 30);
 
 	local mains = session.GetMainSession();
-	local jobhistorysession = mains.pcJobInfo;
+	local jobhistorysession = mains:GetPCJobInfo();
 	local jobhistory = jobhistorysession:GetJobInfoByIndex(totaljobgrade-1);
 
 	CJ_UPDATE_RIGHT_INFOMATION(frame, pcjobinfo.ClassID);

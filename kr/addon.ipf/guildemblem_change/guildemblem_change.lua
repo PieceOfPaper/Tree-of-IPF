@@ -54,6 +54,8 @@ function GUILDEMBLEM_CHANGE_LOAD_UPLOAD_LIST(frame)
                                     fileName = fileList:Element(index):c_str()};
 		sortListIndex = sortListIndex +1;
     end
+	filefind.DeleteFileList(fileList);
+
     table.sort(sortList, SORT_BY_NAME);
 
     -- 정렬된 리스트 중 비정상 파일 필터하고 10개 출력
