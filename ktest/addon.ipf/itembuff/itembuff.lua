@@ -242,7 +242,7 @@ end
 local function GET_PC_ABILITY_OBJECT_LIST()
     local abilObjList = {};
     local pcSession = session.GetMySession();
-	local abilList = pcSession.abilityList;
+	local abilList = pcSession:GetAbilityList();
 	local abilListCnt = 0;
 	if abilList ~= nil then
 		abilListCnt = abilList:Count();

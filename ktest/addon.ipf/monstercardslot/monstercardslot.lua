@@ -2,6 +2,8 @@
 function MONSTERCARDSLOT_ON_INIT(addon, frame)
 	addon:RegisterMsg("DO_OPEN_MONSTERCARDSLOT_UI", "MONSTERCARDSLOT_FRAME_OPEN");
 	addon:RegisterMsg("MSG_PLAY_LEGENDCARD_OPEN_EFFECT", "PLAY_LEGENDCARD_OPEN_EFFECT");
+
+	addon:RegisterMsg("CHANGE_RESOLUTION", "CARD_OPTION_OPEN");
 end
 
 function MONSTERCARDSLOT_FRAME_OPEN()
@@ -15,14 +17,13 @@ function MONSTERCARDSLOT_FRAME_OPEN()
 	optionGbox:ShowWindow(1)	
 
 	CARD_OPTION_OPEN(frame)
-		frame : SetUserValue("CARD_OPTION_OPENED", 0);
+	frame:SetUserValue("CARD_OPTION_OPENED", 0);
 
 	local pcEtc = GetMyEtcObject()
 	if pcEtc["IS_LEGEND_CARD_OPEN"] == 1 then
 		local LEGlockGbox = GET_CHILD_RECURSIVELY(frame, "LEGslot_lock_box")
 		LEGlockGbox:ShowWindow(0)
 	end
-
 end
 
 function MONSTERCARDSLOT_FRAME_CLOSE(frame)
@@ -58,7 +59,7 @@ function CARD_SLOT_CREATE(monsterCardSlotFrame, cardGroupName, slotIndex)
 	local card_labelset = GET_CHILD_RECURSIVELY(frame, cardGroupName .. "card_labelset");
 
 	if card_slotset ~= nil and card_labelset ~= nil then
-		for i = 0, MONSTER_CARD_SLOT_COUNT_PER_TYPE - 1 do				-- 슬롯은 왼쪽부터 순서대로 결정
+		for i = 0, MONSTER_CARD_SLOT_COUNT_PER_TYPE - 1 do -- 슬롯은 왼쪽부터 순서대로 결정
 			local slot_label = card_labelset:GetSlotByIndex(i);
 			if slot_label == nil then
 				return;
@@ -89,11 +90,9 @@ function CARD_OPTION_OPEN(monsterCardSlotFrame)
 	end
 
 	local isOpen = frame:GetUserIValue("CARD_OPTION_OPENED");	
-
 	if isOpen == nil then
 		return;
 	end
-
 	
 	local optionGbox = GET_CHILD_RECURSIVELY(frame, 'option_bg')
 	local optionBtn = frame:GetChild('optionBtn');
@@ -148,7 +147,6 @@ function CARD_OPTION_CREATE(monsterCardSlotFrame)
 	local duplicateCount = 0;
 	frame:SetUserValue("DUPLICATE_COUNT", 0)
 	local currentHeight = 0;
-	
 
 	local clientMessage = ""
 	
@@ -198,8 +196,8 @@ function CARD_OPTION_CREATE(monsterCardSlotFrame)
 		
 		local cardID, cardLv, cardExp = 0, 0, 0
 		local isEquipThisTypeCard = -1
-			frame:SetUserValue("IS_EQUIP_TYPE", isEquipThisTypeCard)
 
+		frame:SetUserValue("IS_EQUIP_TYPE", isEquipThisTypeCard)
 		frame:SetUserValue("DUPLICATE_OPTION_VALUE", 0)
 
 		for j = 0, cardSlotCount_type - 1 do
@@ -252,8 +250,9 @@ function CARD_OPTION_CREATE_BY_GROUP(monsterCardSlotFrame, i, clientMessage, car
 	local strInfo = ""
 	local optionValue = { }
 	optionValue[1] = frame:GetUserIValue("DUPLICATE_OPTION_VALUE1")
-	optionValue[2] = frame : GetUserIValue("DUPLICATE_OPTION_VALUE2")
-	optionValue[3] = frame : GetUserIValue("DUPLICATE_OPTION_VALUE3")
+	optionValue[2] = frame:GetUserIValue("DUPLICATE_OPTION_VALUE2")
+	optionValue[3] = frame:GetUserIValue("DUPLICATE_OPTION_VALUE3")
+
 	local optionValue_temp = { }
 	optionValue_temp[1] = 0
 	optionValue_temp[2] = 0
@@ -264,9 +263,10 @@ function CARD_OPTION_CREATE_BY_GROUP(monsterCardSlotFrame, i, clientMessage, car
 	if cardcls == nil then
 		return;
 	end
+
 	local optionImage = string.format("%s", ClMsg(clientMessage));
 	strInfo = strInfo .. optionImage
-				
+
 	local optionGbox = GET_CHILD_RECURSIVELY(frame, "option_bg")
 	local itemClsCtrl = nil
 				
@@ -339,7 +339,7 @@ function CARD_OPTION_CREATE_BY_GROUP(monsterCardSlotFrame, i, clientMessage, car
 
 	frame : SetUserValue("IS_EQUIP_TYPE", i)
 	frame : SetUserValue("CARD_OPTION_INDEX", optionIndex);
-	frame:SetUserValue("DUPLICATE_COUNT", duplicateCount)
+	frame : SetUserValue("DUPLICATE_COUNT", duplicateCount)
 	frame : SetUserValue("PREINDEX", i)
 end
 
@@ -493,7 +493,7 @@ function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 		downArrow:SetVisible(1);
 	end;
 
-	-- 카드 크기 변환. 
+	-- 카드 크기 변환.
 --	card_img:Resize(3 * multiValue, 4 * multiValue);
 
 	-- 제거되는 효과 표시하는 곳. 

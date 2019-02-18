@@ -65,13 +65,17 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     else
         isTokenState = 0
     end
-    local etc = GetMyEtcObject();
-    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
+
+    local etc = GetMyEtcObject()    
+    if indunCls.UnitPerReset == 'ACCOUNT' then
+        etc = GetMyAccountObj()        
+    end
+    
+    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)    
     local addCount = math.floor(nowCount * admissionPlayAddItemCount);
     local nowAdmissionItemCount
     
-
-    if  SCR_RAID_EVENT_20190102(nil, false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+    if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
         nowAdmissionItemCount = admissionItemCount - 1
     else
         nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
@@ -573,14 +577,21 @@ function INDUNENTER_MAKE_HEADER(frame)
 
 end
 
-function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
+function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)    
     local etc = GetMyEtcObject();
     if frame == nil or noPicBox == nil or indunCls == nil or etc == nil then
         return;
     end
+
+    if indunCls.UnitPerReset == 'ACCOUNT' then
+        ect = GetMyAccountObj()
+    end
+    
     local countData = GET_CHILD_RECURSIVELY(frame, 'countData');
     local countItemData = GET_CHILD_RECURSIVELY(frame, 'countItemData');
-    
+    local cycleCtrlPic = GET_CHILD_RECURSIVELY(frame, 'cycleCtrlPic');
+    cycleCtrlPic:ShowWindow(0);
+
     local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
     local admissionItemCls = GetClass('Item', admissionItemName);
     local admissionItemIcon = TryGetProp(admissionItemCls, "Icon");
@@ -588,21 +599,19 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
     local admissionPlayAddItemCount = TryGetProp(indunCls, "AdmissionPlayAddItemCount");
     local indunAdmissionItemImage = admissionItemIcon
     local WeeklyEnterableCount = TryGetProp(indunCls, "WeeklyEnterableCount");
-    
+
     if admissionItemCount == nil then
         admissionItemCount = 0;
     end
-    
     admissionItemCount = math.floor(admissionItemCount);
-    
+
     if admissionItemName == "None" or admissionItemName == nil then
         -- now play count
-        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)
-        
-        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
-            nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)
+        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)        
+        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then            
+            nowCount = GET_CURRENT_ENTERANCE_COUNT(TryGetProp(indunCls, "PlayPerResetType"))            
         end
-        
+
         local addCount = math.floor(nowCount * admissionPlayAddItemCount);
         countData:SetTextByKey("now", nowCount);
         -- max play count
@@ -611,7 +620,7 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
             maxCount = WeeklyEnterableCount
         end
-        
+
         if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
             local playPerResetToken = TryGetProp(indunCls, 'PlayPerReset_Token');
             if playPerResetToken ~= nil then
@@ -625,35 +634,42 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
             end
         end
         countData:SetTextByKey("max", maxCount);
-    
+
         -- set min/max multi count
         local minCount = frame:GetUserConfig('MULTI_MIN');
         frame:SetUserValue("MIN_MULTI_CNT", minCount);
         frame:SetUserValue("MAX_MULTI_CNT", maxCount - nowCount);
-        
+
         local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
         countData:ShowWindow(1)
         countItemData:ShowWindow(0)
+
+     -- if event is end then, change this script comment
+        if indunCls.DungeonType == 'DefenceMission' then  
+            if SCR_RAID_EVENT_20190221(nil, false) == true then
+                cycleCtrlPic:ShowWindow(1);
+            end
+        end
+        
     else
         local pc = GetMyPCObject();
         if pc == nil then
             return;
         end
-        
+
         local invAdmissionItemCount = GetInvItemCount(pc, admissionItemName)
         countItemData:SetTextByKey("ivnadmissionitem",  '  {img '..indunAdmissionItemImage..' 30 30}  '..invAdmissionItemCount ..'')
-        
+
         local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
         countText:SetText(ScpArgMsg("IndunAdmissionItemPossession"))
         countItemData:ShowWindow(1)
         countData:ShowWindow(0)
 
-        local cycleCtrlPic = GET_CHILD_RECURSIVELY(frame, 'cycleCtrlPic');
-        if SCR_RAID_EVENT_20190102(nil, false) then
-            cycleCtrlPic:ShowWindow(1);
-        else
-            cycleCtrlPic:ShowWindow(0);
-        end        
+        if indunCls.DungeonType == 'UniqueRaid' then
+            if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+                cycleCtrlPic:ShowWindow(1);
+            end
+        end
 
     end
 end
@@ -1730,7 +1746,7 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         local addCount = math.floor(nowCount * admissionPlayAddItemCount)
         local nowAdmissionItemCount = admissionItemCount + addCount - isTokenState
         
-        if SCR_RAID_EVENT_20190102(nil , false) and indunCls.ClassName ~= 'Indun_StarTower_uniqe_raid' then
+        if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount - 1;
         end
         

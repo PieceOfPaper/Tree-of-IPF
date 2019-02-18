@@ -876,8 +876,8 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
         nowjobinfo = otherpcinfo:GetJobInfoByIndex(jobCount - 1);
 	    gender = otherpcinfo:GetIconInfo().gender;
     else
-		jobCount = mySession.pcJobInfo:GetJobCount();
-        nowjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(jobCount - 1);
+		jobCount = mySession:GetPCJobInfo():GetJobCount();
+        nowjobinfo = mySession:GetPCJobInfo():GetJobInfoByIndex(jobCount - 1);
         gender = info.GetGender(session.GetMyHandle());
     end
 
@@ -895,7 +895,7 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		if otherpcinfo ~= nil then
 			tempjobinfo = otherpcinfo:GetJobInfoByIndex(i);
 		else
-			tempjobinfo = mySession.pcJobInfo:GetJobInfoByIndex(i);
+			tempjobinfo = mySession:GetPCJobInfo():GetJobInfoByIndex(i);
 		end
 
 		if OTHERPCJOBS[tempjobinfo.jobID] == nil then
@@ -936,13 +936,14 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	end		 	
 
    	local mySession = session.GetMySession();
-	local pcJobInfo = mySession.pcJobInfo;
-	local jobhistory = mySession.pcJobInfo;
+	local pcJobInfo = mySession:GetPCJobInfo();
+	local jobhistory = mySession:GetPCJobInfo();
     local gender = info.GetGender(session.GetMyHandle());
 	local clslist, cnt  = GetClassList("Job");
 	
 	local nowjobinfo = jobhistory:GetJobInfoByIndex(jobhistory:GetJobCount()-1);
 	local nowjobcls;
+	
 	if nil == nowjobinfo or (isChangeMainClass ~= nil and isChangeMainClass == 1) then
 		nowjobcls = nowJobName; 
 	else

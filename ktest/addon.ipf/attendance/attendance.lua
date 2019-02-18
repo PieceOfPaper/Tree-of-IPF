@@ -124,12 +124,6 @@ function ATTENDANCE_INIT_REWARD(frame, attendanceID)
             local receiptData = session.attendance.GetReceiptData(attendanceID, i);
             if receiptData == nil then
 				getPic:ShowWindow(0);
-				
-				-- 해당 날짜 클릭 
-				bgPic:SetEventScript(ui.LBUTTONUP, "ATTENDANCE_REWARD_CLICK");
-				bgPic:SetEventScriptArgNumber(ui.LBUTTONUP, attendanceID);
-				itemPic:SetEventScript(ui.LBUTTONUP, "ATTENDANCE_REWARD_CLICK");
-				itemPic:SetEventScriptArgNumber(ui.LBUTTONUP, attendanceID);
 
             	if todayDayOffset > i and attendanceCls.AttendancePass == 'YES' then
             		cntText:SetColorTone('FF444444');
@@ -194,11 +188,36 @@ function ATTENDANCE_TOGGLE_UI(parent, btn, argStr, AttendanceID)
 		return;
 	end
 
+	ATTENDANCE_GIVE_REWARD(AttendanceID);
 	ON_ATTENDANCE_RESULT(frame, '', '', AttendanceID);
 end
 
-function ATTENDANCE_REWARD_CLICK(parent, btn, argStr, AttendanceID)
-	AttendanceRewardClick(AttendanceID);
+function ATTENDANCE_GIVE_REWARD(AttendanceID)
+	local LastRewardData = session.attendance.GetLastRewardData(AttendanceID);
+	if LastRewardData ~= nil then
+		local diffDays = imcTime.GetDifDaysFromNow(LastRewardData.registerTime);
+		if diffDays ~= 0 then
+			local attendanceData = session.attendance.GetAttendanceData(AttendanceID);	
+			if attendanceData == nil then
+				return;
+			end
+			
+			local attendanceCls = GetClassByType('TPEventAttendance', AttendanceID);
+			local todayDayOffset;
+			if attendanceCls.AttendancePass == 'YES' then
+				todayDayOffset = imcTime.GetDifDaysFromNow(attendanceData.startTime);
+			else
+				todayDayOffset = LastRewardData.dayOffset + 1;
+			end
+			
+			local attendanceClassData = session.attendance.GetAttendanceClassData(AttendanceID, todayDayOffset);
+			if attendanceClassData ~= nil then
+				AttendanceRewardClick(AttendanceID);	
+			end
+		end		
+	else	
+		AttendanceRewardClick(AttendanceID);
+	end
 end
 
 -- 받아야 하는 보상이 있을 경우 호출

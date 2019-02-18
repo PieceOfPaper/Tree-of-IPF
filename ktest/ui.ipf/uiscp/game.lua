@@ -2106,18 +2106,16 @@ function SET_ITEM_TOOLTIP_BY_TYPE(ctrl, type)
 	ctrl:SetTooltipArg('inven', type, "");
 end
 
-function SET_ITEM_TOOLTIP_BY_ATTENDANCE(ctrl, orgtype, type)
+function SET_ITEM_TOOLTIP_BY_CLASSIDSPACE(ctrl, classidspace, orgtype, type)
 	SET_ITEM_TOOLTIP_TYPE(ctrl, type);
-	ctrl:SetTooltipArg('attendance', type, orgtype);
+	ctrl:SetTooltipArg(classidspace, type, orgtype);
 end
 
 function SET_ITEM_TOOLTIP_BY_CLASSID(ctrl, orgName, classidspace, className)
 	local cls = GetClass(classidspace, className);
 	local orgcls = GetClass("Item", orgName);
 	if cls ~= nil then
-		if classidspace == 'RewardAttendance' then
-			SET_ITEM_TOOLTIP_BY_ATTENDANCE(ctrl, orgcls.ClassID, cls.ClassID)
-		end		
+		SET_ITEM_TOOLTIP_BY_CLASSIDSPACE(ctrl, classidspace, orgcls.ClassID, cls.ClassID)
 	end
 end
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <uiframe name="attendance" x="0" y="0" width="1100" height="680" create="open">
 	<frame fasthide="true" layout_gravity="center center" margin="0 0 0 0"/>
 	<input moveable="true" hittestframe="true" moveintitlebar="false" resize="true"/>
@@ -19,6 +19,6 @@
 		<richtext name="dayText" rect="0 0 180 30" parent="dayBox" margin="0 8 0 0" layout_gravity="center top" caption="출석 체크 기간" fontname="white_16_b_ol" hittest="false"/>
 		<richtext name="periodText1" rect="0 0 180 30" parent="dayBox" margin="10 33 0 0" layout_gravity="left top" caption="yyyy.mm.dd" fontname="black_16_b"/>
 		<richtext name="periodText2" rect="0 0 180 30" parent="dayBox" margin="0 0 10 8" layout_gravity="right bottom" format="~%s" fontname="black_16_b" param1="date" param1_def="yyyy.mm.dd"/>
-		<richtext name="infoText" rect="0 0 590 80" parent="bgBox" fixwidth="true" margin="342 0 0 76" layout_gravity="left bottom" caption="* 출석 보상은 1일 1회, 당일 첫 접속한 캐릭터 인벤토리로 자동 지급됩니다.{nl}* 마법 부여 스크롤(14일)을 제외한 모든 아이템은 팀 창고로 이동할 수 있습니다.{nl}* 출석 체크 기간 동안에만 출석 보상을 받을 수 있으며, 기간 경과 시 더 이상 지급되지 않습니다.{nl}" fontname="black_16_b"/>
+		<richtext name="infoText" rect="0 0 590 80" parent="bgBox" fixwidth="true" margin="342 0 0 76" layout_gravity="left bottom" caption="* 출석 보상은 1일 1회, 당일 첫 접속한 캐릭터 인벤토리로 자동 지급됩니다.{nl}* 출석 체크 기간 동안에만 출석 보상을 받을 수 있으며, 기간 경과 시 더 이상 지급되지 않습니다.{nl}" fontname="black_16_b"/>
 	</controls>
 </uiframe>

@@ -43,9 +43,10 @@
 		<Class ClassID="39" ClassName="OutOfVideoMemory" Data="Direct3D 가 처리를 실시하는데 충분한 디스플레이 메모리가 없습니다."/>
 		<Class ClassID="40" ClassName="ServerListToolTip" Data="{@st59}접속을 원하는 서버를 선택하여 주세요."/>
 		<Class ClassID="41" ClassName="InsufficientMemory" Data="메모리가 부족합니다."/>
-		<Class ClassID="42" ClassName="SyncErrorPlzReLoadCommander" Data="데이터 응답을 받지 못했습니다. 해당 기능 이용을 위해서는 채널 이동 또는 캐릭터 선택이 필요합니다."/>
-	</Category>
+		<Class ClassID="42" ClassName="SyncErrorPlzReLoadCommander" Data="데이터 응답을 받지 못했습니다. 해당 기능 이용을 위해서는 채널 이동 또는 캐릭터 선택이 필요합니다."/>    
+  </Category>
 	<Category Name="ChatMsg">
+		<Class ClassID="300" ClassName="TemporarilyUnavailable_1" Data="일시적으로 중지된 기능입니다."/>
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
 		<Class ClassID="302" ClassName="ChatMsgLimitedBy{Max}Byte_EmoticonCanTakeLotsOfByte" Data="채팅은 {Max}바이트를 초과할 수 없습니다. 이모티콘 및 링크는 많은 바이트를 차지할 수 있기 때문에 개수 제한이 있습니다."/>
 		<Class ClassID="303" ClassName="GuildChatting" Data="길드 대화"/>
@@ -612,6 +613,7 @@
 		<Class ClassID="4226" ClassName="Use_Item_LegendCard_Slot_Open2" Data="{nl}{nl}레전드 카드 슬롯 봉인 해제를 진행하시겠습니까?"/>
 		<Class ClassID="4227" ClassName="YouHaveRankCardReallyLastCardUse?" Data="사용하지 않은 하위 랭크 카드가 있습니다.{nl}하위 랭크 카드를 사용하시고 다시 시도해주세요."/>
 		<Class ClassID="4228" ClassName="{itemName}OverStackItem" Data="[{itemName}]아이템이 너무 많습니다. 해당 아이템을 비워주세요"/>
+		<Class ClassID="4229" ClassName="Legend_Card_Open_Confirm" Data="여신의 힘으로 레전드 카드 슬롯 봉인이 해제되었습니다!"/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -1539,6 +1541,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
+		<Class ClassID="22524" ClassName="TemporarilyUnavailable" Data="일시적으로 사용 불가능한 기능입니다"/>
 	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
@@ -6660,7 +6663,17 @@
 		<Class ClassID="60375" ClassName="DCAPITAL107_SQ_9_MSG2" Data="안 돼! 그리시아. 그러지마!"/>
 		<Class ClassID="60376" ClassName="DCAPITAL107_SQ_9_MSG3" Data="그러지마 내게 주지마!"/>
 		<Class ClassID="60377" ClassName="PRISON_81_OBJ_2_MSG" Data="개별 작업장에 있는 수용실에 이동 마법을 이용해{nl}건너편의 다른 수용실로 넘어가세요."/>
-		<Class ClassID="66000" ClassName="MASSIVE_CONTENTS_SHOP_NAME" Data="왕국 보급품"/>
+		<Class ClassID="60378" ClassName="GT_ENTRACE_SELECT_R1" Data="대지의 탑 : 롤로팬서 구간"/>
+		<Class ClassID="60379" ClassName="GT_ENTRACE_SELECT_R2" Data="대지의 탑 : 솔미키 구간"/>
+		<Class ClassID="60380" ClassName="GT_ENTRACE_SELECT_R1_1" Data="롤로팬서 1 구간"/>
+		<Class ClassID="60381" ClassName="GT_ENTRACE_SELECT_R1_2" Data="롤로팬서 2 구간"/>
+		<Class ClassID="60382" ClassName="GT_ENTRACE_SELECT_R1_3" Data="롤로팬서 3 구간"/>
+		<Class ClassID="60383" ClassName="GT_ENTRACE_SELECT_R1_4" Data="롤로팬서 4 구간"/>
+		<Class ClassID="60384" ClassName="GT_ENTRACE_SELECT_R2_1" Data="솔미키 1 구간"/>
+		<Class ClassID="60385" ClassName="GT_ENTRACE_SELECT_R2_2" Data="솔미키 2 구간"/>
+		<Class ClassID="60386" ClassName="GT_ENTRACE_SELECT_R2_3" Data="솔미키 3 구간"/>
+		<Class ClassID="60387" ClassName="GT_ENTRACE_SELECT_R2_4" Data="솔미키 4 구간"/>
+		<Class ClassID="66004" ClassName="MASSIVE_CONTENTS_SHOP_NAME" Data="왕국 보급품"/>
 		<Class ClassID="67243" ClassName="GT_INCOUNT_COMPARE_1" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="67244" ClassName="GT_INCOUNT_COMPARE_2" Data="파티 구성원 중, 남은 입장 횟수가 0인 파티원이 있습니다{nl}롤로팬서 구간까지 도전할 수 있습니다"/>
 		<Class ClassID="66001" ClassName="RVR_BK_KAZE_NPC_SEL_EVENT" Data="[이벤트]우르바스 증표 사용"/>
@@ -7000,6 +7013,7 @@
 		<Class ClassID="67311" ClassName="IRREDIAN1131_BOSS_PORTAL_1" Data="마돈메이드"/>
 		<Class ClassID="67312" ClassName="IRREDIAN1131_BOSS_PORTAL_2" Data="어미스독"/>
 		<Class ClassID="67313" ClassName="IRREDIAN1131_BOSS_PORTAL_NOTICE" Data="수호자 대기실로 향하는 포탈이 생성되었습니다.{nl} 30분간 지속 됩니다."/>
+		<Class ClassID="67314" ClassName="EVENT1902_FISHINGBOX_GACHA" Data="{s24}축하드립니다!{nl}{PC} 님이 [이벤트]연못에 숨겨진 보물 상자에서{nl}{ITEMNAME} 를 획득하셨습니다!"/>
 		<Class ClassID="70001" ClassName="FARM49_2_MQ06_DRAW" Data="우물 물을 긷는 중"/>
 		<Class ClassID="70002" ClassName="FARM49_2_MQ06_SUCCESS" Data="우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
 		<Class ClassID="70003" ClassName="FARM49_2_MQ06_ALREADY" Data="이미 우물 물을 길었습니다.{nl}옆 물통에서 물을 뜨세요."/>
@@ -8155,6 +8169,7 @@
 		<Class ClassID="90184" ClassName="AGARIO_ACHIEVE" Data="이미 획득한 칭호입니다"/>
 		<Class ClassID="90186" ClassName="UPHILL_DEFFENSE_SELF_DESTRUCTION_ACTIVE" Data="몬스터가 옮긴 폭탄들이 횃불에 닿아 터졌습니다!{nl}횃불이 큰 피해를 입었습니다!"/>
 		<Class ClassID="90187" ClassName="ThereAreNoSkillsAvailable" Data="사용할 수 있는 스킬이 없습니다."/>
+		<Class ClassID="90188" ClassName="UPHILL_DEFENSE_CRYSTAL" Data="화염 결정"/>
 	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
@@ -9068,6 +9083,8 @@
 		<Class ClassID="112012" ClassName="Abandon" Data="포기"/>
 		<Class ClassID="112013" ClassName="WarpToCompleteArea" Data="완료지점으로 워프"/>
 		<Class ClassID="112014" ClassName="QuestDescBasicTxt" Data="목표 : "/>
+		<Class ClassID="112021" ClassName="NormalParticipateCount" Data="보통 - 선택 파티원 수"/>
+		<Class ClassID="112022" ClassName="HardParticipateCount" Data="어려움 - 선택 파티원 수"/>
 	</Category>
 	<Category Name="JobCategoryName">
 		<Class ClassID="113001" ClassName="Char1" Data="전사 계열"/>
@@ -11962,7 +11979,7 @@
 		<Class ClassID="138407" ClassName="miss_match_confirm_text" Data="확인 문자가 일치하지 않습니다."/>
 		<Class ClassID="138408" ClassName="HighItemGradeReallyDestroy{ITEM}{COUNT}" Data="{#fe7e00}[{ITEM}]{/}을/를 {#fe7e00}[{COUNT}]{/}개 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
 		<Class ClassID="138409" ClassName="HighItemGradeReallyDestroy{ITEM}" Data="정말 {#fe7e00}[{ITEM}]{/}을/를 파괴하실려면 숫자 [0000] 을 입력해주세요."/>
-		</Category>
+	</Category>
 	<Category Name="SkillMsg">
 		<Class ClassID="200001" ClassName="DontBuildCampThisAria" Data="해당 지역에서는 거점을 설치할 수 없습니다."/>
 		<Class ClassID="200002" ClassName="WithdrawToCamp" Data="님께서 꺼내가셨습니다."/>
@@ -12608,6 +12625,7 @@
 		<Class ClassID="302036" ClassName="THANKSGIVINGDAY_SEED_PRE_MSG1" Data="주변에 다른 작물이 있어서 사용하실 수 없습니다"/>
 		<Class ClassID="302037" ClassName="UseTPShopEventUser" Data="신규/복귀 상점 이용"/>
 		<Class ClassID="302038" ClassName="UseTPShopEventUser_MoveToCity" Data="TP 상점을 이용하기 위해 클라페다 마을로 이동하시겠습니까?"/>
+		<Class ClassID="302039" ClassName="RANKRESET_NPC" Data="초기화 포인트 지원 도우미"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
@@ -12981,6 +12999,20 @@
 		<Class ClassID="801138" ClassName="GUILD_COLONY_ENTER_REMAIN_TIME{day}{hour}{min}{sec}" Data="{day}일 {hour}시간 {min}분 {sec}초"/>
 		<Class ClassID="801139" ClassName="Guild_Colony_Live_End_WorldMessage_1" Data="금주의 길드 콜로니전이 종료되었으며, 최종 점령 길드는 다음과 같습니다."/>
 		<Class ClassID="801140" ClassName="Guild_Colony_Live_End_WorldMessage_2" Data="길드 콜로니전은 다음주에도 같은 시간에 진행되니 많은 참여 바랍니다."/>
+		<Class ClassID="801141" ClassName="Guild_Colony_Attendance_Reward_MSG1" Data="지금은 참여 보상을 받을 수 없습니다."/>
+		<Class ClassID="801142" ClassName="Guild_Colony_Attendance_Reward_MSG2" Data="참여 보상을 받을 수 있는 대상이 아닙니다."/>
+		<Class ClassID="801143" ClassName="Guild_Colony_Attendance_Reward_MSG3{point}" Data="이전 콜로니전에서 {point}점 이상의 점령 포인트를 기록하지 못했습니다."/>
+		<Class ClassID="801144" ClassName="Guild_Colony_Attendance_Reward_MSG4{cnt}{buffLevel}" Data="이전 콜로니전에 참가한 길드원은 {cnt}명 입니다.{nl}{buffLevel}단계 참여 보상을 받을 수 있습니다."/>
+		<Class ClassID="801145" ClassName="Guild_Colony_Attendance_Reward_MSG5" Data="경험치 버프 받기 (남은 횟수 "/>
+		<Class ClassID="801146" ClassName="Guild_Colony_Attendance_Reward_MSG6" Data="{remainCnt} 회)"/>
+		<Class ClassID="801147" ClassName="shop_Colony_Sutler_MSG3" Data="참여 보상 받기"/>
+		<Class ClassID="801148" ClassName="Guild_Colony_Attendance_Reward_MSG7" Data="{buffLevel}단계 경험치 버프를 받았습니다."/>
+		<Class ClassID="801149" ClassName="Guild_Colony_Attendance_Reward_MSG8" Data="해당 캐릭터는 이미 버프가 적용되어 있습니다."/>
+		<Class ClassID="801150" ClassName="Guild_Colony_Attendance_Reward_MSG9" Data="더이상 버프를 받을 수 없습니다."/>
+		<Class ClassID="801151" ClassName="Guild_Colony_Attendance_Reward_MSG10" Data="[콜로니전] 점령 포인트를 {needPoint}점 이상 기록했습니다.{nl}콜로니전 종료 후 종군 상인을 통해 참여 보상을 받을 수 있습니다."/>
+		<Class ClassID="801152" ClassName="Guild_Colony_Attendance_Reward_MSG11" Data="특성 포인트 받기"/>
+		<Class ClassID="801153" ClassName="Guild_Colony_Attendance_Reward_MSG12" Data="[{itemName}] {Cnt}개가 지급되었습니다."/>
+		<Class ClassID="801154" ClassName="Guild_Colony_Attendance_Reward_MSG13" Data="이미 특성 포인트를 받았습니다."/>
 	</Category>
 	<Category Name="ColonyTax">
 		<Class ClassID="810000" ClassName="ColonyTaxRateDetail{Default}{Min}{Max}{ModifyDelay}{DisableModifyDelay1}{DisableModifyDelay2}" Data="- 스팟 지역을 점령한 길드는 각 도시의 적립요율을 조정할 수 있습니다.({Min}% ~ {Max}%) {nl}- 도시 적립요율은 기본적으로 표준 요율({Default}%)이 적용되어 있습니다.{nl}- 도시 적립요율 조정은 길드 마스터 또는 해당 권한을 가진 일원만 가능합니다.{nl}- 도시 적립요율은 조정 후, {ModifyDelay}시간 뒤에 재조정이 가능합니다.{nl}- 콜로니전 시작 {DisableModifyDelay1}시간 전부터 종료 {DisableModifyDelay2}분 후까지 도시 적립요율 조정이 제한됩니다.{nl}- 매 콜로니전 종료 후, 최종 점령 길드가 지난번 점령 길드와 다른 경우 도시 적립요율은 표준 요율({Default}%)로 조정됩니다.{nl}- 점령 길드에 가입된 인원들은 해당 적립요율 적용 도시에 한해 최소 요율({Min}%)로 고정되어 적용됩니다.{nl}- 적립금 누적 기간 동안 [적립요율 적용 항목]의 실버 소비 시, 적용된 요율에 따라 적립금이 누적됩니다.{nl}   (적립금 누적 기간 : 콜로니전 종료 5분 후 시각을 기점으로 다음 콜로니전 종료 시 까지){nl}- 적립금 누적 기간이 끝나면 [적립금 분배] 탭에서 수령된 적립금을 길드원에게 분배할 수 있습니다."/>
@@ -13248,6 +13280,7 @@
 		<Class ClassID="513008" ClassName="SoloDungeonRewardError" Data="잠시 후 다시 시도해 주세요"/>
 		<Class ClassID="513009" ClassName="SoloDungeonRewardAlready" Data="이미 보상을 받았습니다"/>
 		<Class ClassID="513010" ClassName="SoloDungeonRewardNotYet" Data="아직 보상을 받을 수 없습니다"/>
+		<Class ClassID="513011" ClassName="SoloDungeonSelectMsg_5" Data="베르니케 파편 던전 포인트샵"/>
 	</Category>
 	<Category Name="JobSelectGuide">
 		<Class ClassID="515001" ClassName="JobSelectGuide_Result" Data="결과"/>

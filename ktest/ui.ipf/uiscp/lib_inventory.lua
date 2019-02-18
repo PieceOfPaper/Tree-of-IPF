@@ -775,7 +775,7 @@ function GET_INV_ITEM_BY_ITEM_OBJ(item)
 		where = 'sold';
 	end
 	if invitem == nil then
-		invItem = session.GetEtcItemByGuid(IT_GUILD_JOINT, itemIdx);
+		invitem = session.GetEtcItemByGuid(IT_GUILD_JOINT, itemIdx);
 		where = 'guild_joint';
 	end
 	if invitem == nil then

@@ -93,10 +93,17 @@ function ATTENDANCE_CTRLSET(list, classCtrl, AttendanceID, AttendanceName)
 				return;
 			end
 
-			local todayDayOffset = imcTime.GetDifDaysFromNow(attendanceData.startTime);
+			local attendanceCls = GetClassByType('TPEventAttendance', AttendanceID);
+			local todayDayOffset;
+			if attendanceCls.AttendancePass == 'YES' then
+				todayDayOffset = imcTime.GetDifDaysFromNow(attendanceData.startTime);
+			else
+				todayDayOffset = LastRewardData.dayOffset + 1;
+			end						
+			
 			local attendanceClassData = session.attendance.GetAttendanceClassData(AttendanceID, todayDayOffset);
 			if attendanceClassData ~= nil then			
-				addBtn:SetSkinName('test_red_button');	
+				addBtn:SetSkinName('test_red_button');
 			end
 
 		end		

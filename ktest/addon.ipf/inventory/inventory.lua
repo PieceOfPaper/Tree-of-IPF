@@ -2576,7 +2576,7 @@ function INVENTORY_THROW_ITEM_AWAY(frame, control, argStr, argNum)
 			if invItem ~= nil then
 				if toicon == nil then
 					local icon = CreateIcon(slot);
-					icon:Set(frominfo.imageName, 'THROWITEM', invItem.type, invItem.count, invItem:GetIESID(), invItem.count);
+					icon:Set(frominfo:GetImageName(), 'THROWITEM', invItem.type, invItem.count, invItem:GetIESID(), invItem.count);
 
 					slot:SetSlotIndex(invItem.type);
 					SET_ITEM_TOOLTIP_TYPE(icon, invItem.type);

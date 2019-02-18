@@ -62,8 +62,28 @@ function SCR_RAID_EVENT_20190102(pc, isServer)
     
     local month = sysTime.wMonth
     local day = sysTime.wDay
+   
+    if (month == 1 and day == 31 ) or (month == 2 and day <= 7) then
+        return true
+    else
+        return false
+    end
+end
+
+-- if event is end then, delete this function
+function SCR_RAID_EVENT_20190221(pc, isServer)
+    local sysTime
+
+    if isServer == true then
+        sysTime = GetDBTime()
+    else
+        sysTime = geTime.GetServerSystemTime();
+    end
     
-    if (month == 1 and day == 31 ) or (month == 2 and day <7) then
+    local month = sysTime.wMonth
+    local day = sysTime.wDay
+
+    if (month == 2 and day >= 21 ) or (month == 3 and day <= 7) then
         return true
     else
         return false

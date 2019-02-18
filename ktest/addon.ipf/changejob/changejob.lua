@@ -162,7 +162,7 @@ end
 local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 	local pc = GetMyPCObject();
 	local mainSession = session.GetMainSession();
-	local pcJobInfo = mainSession.pcJobInfo;
+	local pcJobInfo = mainSession:GetPCJobInfo();
 	local jobCount = pcJobInfo:GetJobCount();
 	local jobHistoryList = {};
 	for i = 0, jobCount - 1 do
@@ -192,6 +192,9 @@ local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 			else
 				jobNameText:SetTextByKey('style', JOB_NAME_STYLE);
 			end
+
+			jobNameText:AdjustFontSizeByWidth(jobNameText:GetWidth());
+			jobNameText:Invalidate();
 
 			local jobEmblemPic = GET_CHILD(jobCtrlset, 'jobEmblemPic');
 			jobEmblemPic:SetImage(jobCls.Icon);
@@ -251,6 +254,8 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid)
 
 	local jobclassname_richtext = GET_CHILD_RECURSIVELY(frame, "className");
 	jobclassname_richtext:SetTextByKey("param_name", GET_JOB_NAME(jobinfo, GETMYPCGENDER()));
+	jobclassname_richtext:AdjustFontSizeByWidth(jobclassname_richtext:GetWidth() - 55);
+	jobclassname_richtext:Invalidate();
 
 	local captionstr = 'Caption1';
 	local jobclasscaption_richtext = GET_CHILD_RECURSIVELY(frame, "classExplain");
@@ -562,6 +567,9 @@ function UPDATE_CHANGEJOB(frame)
 		-- name			
 		local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname");
 		jobnameCtrl:SetTextByKey("param_jobcname", GET_JOB_NAME(jobCls, GETMYPCGENDER()));
+
+		jobnameCtrl:AdjustFontSizeByWidth(jobnameCtrl:GetWidth());
+		jobnameCtrl:Invalidate();
 				
 		button:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_INFO')
 		button:SetEventScriptArgNumber(ui.LBUTTONDOWN, info.JobClassID);
@@ -571,7 +579,7 @@ function UPDATE_CHANGEJOB(frame)
 	groupbox_sub_newjob:Resize(groupbox_sub_newjob:GetWidth(), totalHeight + 30);
 
 	local mains = session.GetMainSession();
-	local jobhistorysession = mains.pcJobInfo;
+	local jobhistorysession = mains:GetPCJobInfo();
 	local jobhistory = jobhistorysession:GetJobInfoByIndex(totaljobgrade-1);
 
 	CJ_UPDATE_RIGHT_INFOMATION(frame, pcjobinfo.ClassID);

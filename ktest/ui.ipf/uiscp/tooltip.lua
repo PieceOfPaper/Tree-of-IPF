@@ -658,7 +658,7 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
 
     local jobEngNameList = {}
     local mySession = session.GetMySession();
-    local jobHistory = mySession.pcJobInfo;
+    local jobHistory = mySession:GetPCJobInfo();
     local jobHistoryCnt = jobHistory:GetJobCount();
     for i = 0, jobHistoryCnt - 1 do
 		local jobInfo = jobHistory:GetJobInfoByIndex(i);

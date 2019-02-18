@@ -109,7 +109,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
 		local y = object:GetGlobalY();
 
 		local imageItem = ui.CreateImageItem("IconOnEnableItem", x, y);
-		imageItem:SetImage(iconInfo.imageName);
+		imageItem:SetImage(iconInfo:GetImageName());
 		imageItem:SetScale(3.0, 3.0);
 
 		imageItem:SetLifeTime(1.0);
@@ -225,7 +225,7 @@ function ICON_USE(object, reAction)
 		local icon = tolua.cast(iconPt, 'ui::CIcon');
 		
 		local iconInfo = icon:GetInfo();
-		if iconInfo.category == 'Item' then
+		if iconInfo:GetCategory() == 'Item' then
 			local itemObj = GetClassByType('Item', iconInfo.type);
 			if IS_EQUIP(itemObj) == true then
 				ITEM_EQUIP_BY_ID(icon:GetTooltipIESID());
@@ -253,24 +253,24 @@ function ICON_USE(object, reAction)
 					end
 				end
 			end
-		elseif iconInfo.category == 'Skill' then
+		elseif iconInfo:GetCategory() == 'Skill' then
 			control.Skill(iconInfo.type);
-		elseif iconInfo.category == 'Ability' then
+		elseif iconInfo:GetCategory() == 'Ability' then
 			QUICKSLOT_TOGGLE_ABILITY(iconInfo.type)
-		elseif iconInfo.category == 'ACTION' then
+		elseif iconInfo:GetCategory() == 'ACTION' then
 			local script = GetClassString('Action', iconInfo.type, 'Script');
 			loadstring(script)();
-		elseif iconInfo.category == 'CHEAT' then
+		elseif iconInfo:GetCategory() == 'CHEAT' then
 			local script = GetClassString('Cheat', iconInfo.type, 'Scp');
 			if string.find(script,'//') ~= nil then
 				ui.Chat(script);
 			else
 				loadstring(script)();
 			end
-		elseif iconInfo.category == 'ITEMCREATE' then
+		elseif iconInfo:GetCategory() == 'ITEMCREATE' then
 			local msg = '//item ' .. iconInfo.type .. ' 1';
 			ui.Chat(msg);
-		elseif iconInfo.category == 'MONCREATE' then
+		elseif iconInfo:GetCategory() == 'MONCREATE' then
 			local msg = '//mon ' .. iconInfo.type .. ' 1';
 			ui.Chat(msg);	
 		end
@@ -331,7 +331,7 @@ function ITEM_DROP(object)
 	if iconPt  ~=  nil then
 		local icon = tolua.cast(iconPt, 'ui::CIcon');
 		local iconInfo = icon:GetInfo();
-		if iconInfo.category == 'Item' then
+		if iconInfo:GetCategory() == 'Item' then
 			item.Drop(iconInfo.type);
 		 end
 	 end

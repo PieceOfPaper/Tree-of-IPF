@@ -1,5 +1,5 @@
 -- quickslotnearbar_util.lua
--- ³» / ¿ÜºÎ¿¡¼­ »ç¿ëÇÏ´Â À¯Æ¿µé
+-- ï¿½ï¿½ / ï¿½ÜºÎ¿ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½Æ¿ï¿½ï¿½
 
 function GET_QUICKSLOT_BY_CLASSID(frame, category, classID)
 	for i = 0, MAX_QUICKSLOT_CNT - 1 do
@@ -8,7 +8,7 @@ function GET_QUICKSLOT_BY_CLASSID(frame, category, classID)
 		if iconPt  ~=  nil then
 			local icon = tolua.cast(iconPt, 'ui::CIcon');
 			local iconInfo = icon:GetInfo();
-			if iconInfo.category == category and iconInfo.type == classID then
+			if iconInfo:GetCategory() == category and iconInfo.type == classID then
 				return slot;
 			end
 		end
@@ -24,7 +24,7 @@ function GET_QUICKSLOT_ITEM_BY_FUNC(frame, func, ...)
 		if iconPt  ~=  nil then
 			local icon = tolua.cast(iconPt, 'ui::CIcon');
 			local iconInfo = icon:GetInfo();
-			if iconInfo.category == "Item" then
+			if iconInfo:GetCategory() == "Item" then
 				local cls = GetClassByType("Item", iconInfo.type);
 				if func(cls, ...) == true then
 					return slot;

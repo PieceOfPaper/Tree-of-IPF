@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="wizard_skillicon">
@@ -1564,6 +1564,11 @@
 		<image name="ability_Wizard_Chronomancer12" file="\icon\icon_ability_wizard06.tga" imgrect="896 128 128 128" CMM_Caption="환생: 리바이브"/>
 		<image name="ability_Wizard_Necromancer26" file="\icon\icon_ability_warrior04.tga" imgrect="128 256 128 128" CMM_Caption="해골 마법사 만들기: 넉다운 저항"/>
 		<image name="ability_Wizard_Chronomancer16" file="\icon\icon_ability_wizard06.tga" imgrect="0 256 128 128" CMM_Caption="환생: 강화"/>
+		<image name="ability_Wizard_Wizard28" file="\icon\icon_ability_wizard06.tga" imgrect="128 256 128 128" CMM_Caption="매직 실드: 파티 버프"/>
+		<image name="ability_Wizard_Featherfoot21" file="\icon\icon_ability_wizard06.tga" imgrect="256 256 128 128" CMM_Caption="블러드 커스: 강화"/>
+		<image name="ability_Wizard_Featherfoot22" file="\icon\icon_ability_wizard06.tga" imgrect="384 256 128 128" CMM_Caption="커다이챠: 강화"/>
+		<image name="ability_Wizard_Sage16" file="\icon\icon_ability_wizard06.tga" imgrect="512 256 128 128" CMM_Caption="디멘션 컴프레션: 충돌 후유증"/>
+		<image name="ability_Wizard_Sage17" file="\icon\icon_ability_wizard06.tga" imgrect="640 256 128 128" CMM_Caption="세이지: 공간연주자"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>
@@ -2294,6 +2299,10 @@
 		<image name="ability_cleric_Oracle21" file="\icon\icon_ability_cleric06.tga" imgrect="512 384 128 128" CMM_Caption="트위스트 오브 페이트: 강화"/>
 		<image name="ability_cleric_Druid21" file="\icon\icon_ability_cleric06.tga" imgrect="640 384 128 128" CMM_Caption="스트레아 트로페: 강화"/>
 		<image name="ability_cleric_Druid22" file="\icon\icon_ability_cleric06.tga" imgrect="768 384 128 128" CMM_Caption="코르타스마타 : 식물화 해제"/>
+		<image name="ability_cleric_Pardoner12" file="\icon\icon_ability_cleric06.tga" imgrect="896 384 128 128" CMM_Caption="축복 신성 추가타: 강화"/>
+		<image name="ability_cleric_Pardoner13" file="\icon\icon_ability_cleric06.tga" imgrect="0 512 128 128" CMM_Caption="축복 신성 추가 대미지: 강화"/>
+		<image name="ability_cleric_Pardoner14" file="\icon\icon_ability_cleric06.tga" imgrect="128 512 128 128" CMM_Caption="축복 마법 방어력 증가: 강화"/>
+		<image name="ability_cleric_Pardoner15" file="\icon\icon_ability_cleric06.tga" imgrect="256 512 128 128" CMM_Caption="축복 물리 방어력 증가: 강화"/>
 	</imagelist>
 	<imagelist category="abilityicon_common">
 		<image name="ability_common_DaggerMastery" file="\icon\icon_ability_common.tga" imgrect="0 0 128 128" CMM_Caption="단검 마스터리"/>

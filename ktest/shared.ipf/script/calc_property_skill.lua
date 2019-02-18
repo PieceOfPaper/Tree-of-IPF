@@ -4424,7 +4424,7 @@ end
 
 function SCR_GET_Kurdaitcha_Ratio(skill)
 
-  local value = 10
+  local value = 15
   return value;
   
 end
@@ -4435,7 +4435,7 @@ function SCR_GET_Kurdaitcha_Ratio2(skill)
     
     local abil = GetAbility(pc, 'Featherfoot14')
     if abil ~= nil and 1 == abil.ActiveState then
-        value = value * (1 + abil.Level * 0.01);
+        value = 5
     end
     
     return value;
@@ -4507,7 +4507,7 @@ end
 function SCR_GET_BeakMask_Time(skill)
     local value = 60
     local pc = GetSkillOwner(skill)
-    if IsPVPServer(pc) == 1 then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value / 3
     end
     
@@ -4539,7 +4539,7 @@ function SCR_Get_Modafinil_Bufftime(skill)
     local value = 20 + skill.Level * 4;
     
     local pc = GetSkillOwner(skill)
-    if IsPVPServer(pc) == 1 then
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
         value = value / 3
     end
     
@@ -4571,14 +4571,9 @@ function SCR_Get_SkillFactor_BonePointing2(skill)
 end
 
 function SCR_GET_BonePointing_Ratio(skill)
+    local value = 30 + skill.Level * 10
 
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Featherfoot5") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
+    return math.floor(value)
 end
 
 function SCR_GET_Ngadhundi_Ratio(skill)
@@ -5096,7 +5091,7 @@ function SCR_Get_BloodCurse_ratio(skill)
     
     local abil = GetAbility(pc, 'Featherfoot12')
     if abil ~= nil and 1 == abil.ActiveState then
-        value = 80
+        value = 40
     end
     
     return value;
@@ -7389,12 +7384,6 @@ function SCR_Get_IciclePike_SkillFactor(skill)
     return value;
 end
 
---function SCR_GET_Hexing_Ratio(skill)
---  
---  return 30 + 5 * skill.Level;
---  
---end
-
 function SCR_Get_Effigy_SkillFactor(skill)
 
     local value = 209 + skill.Level * 17;
@@ -7570,6 +7559,21 @@ function SCR_GET_SpellShop_Sacrament_Ratio(skill)
 	
     local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
     value = value * 0.3
+    
+    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    local abilAddRate = 1;
+    local reinforceAbil = GetAbility(pc, "Pardoner12")
+    if reinforceAbil ~= nil then
+        local abilLevel = TryGetProp(reinforceAbil, "Level")
+        local masterAddValue = 0
+        if abilLevel == 100 then
+            masterAddValue = 0.1
+        end
+        abilAddRate = abilAddRate + (abilLevel * 0.005 + masterAddValue);
+    end
+    
+    value = value * abilAddRate
+    
     return math.floor(value)
 end
 
@@ -7583,6 +7587,21 @@ function SCR_GET_SpellShop_Blessing_Ratio(skill)
 	
     local value = SCR_COMMON_MNA_FACTOR(180, 10, levelRate, mnaRate)
     value = value * 0.3
+    
+    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    local abilAddRate = 1;
+    local reinforceAbil = GetAbility(pc, "Pardoner13")
+    if reinforceAbil ~= nil then
+        local abilLevel = TryGetProp(reinforceAbil, "Level")
+        local masterAddValue = 0
+        if abilLevel == 100 then
+            masterAddValue = 0.1
+        end
+        abilAddRate = abilAddRate + (abilLevel * 0.005 + masterAddValue);
+    end
+    
+    value = value * abilAddRate
+    
     return math.floor(value)
 end
 
@@ -7597,6 +7616,20 @@ function SCR_GET_SpellShop_IncreaseMagicDEF_Ratio(skill)
     local value = SCR_COMMON_MNA_FACTOR(1.5, 10, levelRate, mnaRate)
     value = value * 0.3
     
+    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    local abilAddRate = 1;
+    local reinforceAbil = GetAbility(pc, "Pardoner14")
+    if reinforceAbil ~= nil then
+        local abilLevel = TryGetProp(reinforceAbil, "Level")
+        local masterAddValue = 0
+        if abilLevel == 100 then
+            masterAddValue = 0.1
+        end
+        abilAddRate = abilAddRate + (abilLevel * 0.005 + masterAddValue);
+    end
+    
+    value = value * abilAddRate
+    
     return value
 end
 
@@ -7610,6 +7643,20 @@ function SCR_GET_SpellShop_Aspersion_Ratio(skill)
 	
     local value = SCR_COMMON_MNA_FACTOR(1, 15, levelRate, mnaRate)
     value = value * 0.3
+    
+    -- 주문 판매상점 개설 강화 특성은 여러개라서 SCR_REINFORCEABILITY_TOOLTIP 함수는 사용 불가. 직접 적용 ----
+    local abilAddRate = 1;
+    local reinforceAbil = GetAbility(pc, "Pardoner15")
+    if reinforceAbil ~= nil then
+        local abilLevel = TryGetProp(reinforceAbil, "Level")
+        local masterAddValue = 0
+        if abilLevel == 100 then
+            masterAddValue = 0.1
+        end
+        abilAddRate = abilAddRate + (abilLevel * 0.005 + masterAddValue);
+    end
+    
+    value = value * abilAddRate
     
     return value
 end
@@ -8819,20 +8866,18 @@ function SCR_GET_Daino_Bufftime(skill)
 end
 
 function SCR_GET_Mackangdal_Bufftime(skill)
-
-    local value = 10 + skill.Level
+    local value = 4 + (skill.Level * 1)
     local pc = GetSkillOwner(skill);
-    if IsPVPServer(pc) == 1 then
-        value = value * 0.7
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+        value = value * 0.5
     end
     
     return math.floor(value);
-
 end
 
 function SCR_GET_Hexing_Bufftime(skill)
 
-    local value = skill.Level * 1 + 14;
+    local value = skill.Level * 1 + 6;
     return value;
 
 end
@@ -10390,7 +10435,7 @@ end
 function SCR_GET_Hexing_Ratio(skill)
     local pc = GetSkillOwner(skill);
 --    local value = 12.9 + (skill.Level - 1) * 3.2 + pc.MNA * 0.3
-    local value = 3 + (skill.Level * 0.5)
+    local value = 7.5 + (skill.Level * 0.5)
     
     return value;
 end
@@ -10463,7 +10508,7 @@ end
 
 function SCR_GET_Samdiveve_BuffTime(skill)
 
-    local value = 60 + skill.Level * 10
+    local value = 40 + skill.Level * 10
     return value
      
 end
@@ -10693,8 +10738,9 @@ function SCR_GET_GroovingMuzzle_BuffTime(skill)
 end
 
 function SCR_GET_Sabbath_Ratio(skill)
-    local value = TryGetProp(skill, "Level") * 10;
-    return value;
+    local value = 20
+    value = value + (TryGetProp(skill, "Level") * 4)
+    return value
 end
 
 function SCR_GET_SubweaponCancel_Ratio(skill)
@@ -11386,4 +11432,10 @@ function SCR_GET_LightningCharm_Ratio(skill)
 	value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
 	
 	return value
+end
+
+function SCR_Get_BloodCurse_ratio2(skill)
+    local value = (1 + skill.Level * 0.1)
+    
+    return value
 end

@@ -1174,7 +1174,7 @@ function SKILLTREE_MAKE_COMMON_TYPE_SKILL_EMBLEM(frame)
 	local grid = GET_CHILD_RECURSIVELY(frame, 'skill', 'ui::CGrid');
 	local cid = frame:GetUserValue("TARGET_CID");
 	local pcSession = session.GetSessionByCID(cid);
-	local pcJobInfo = pcSession.pcJobInfo;
+	local pcJobInfo = pcSession:GetPCJobInfo();
 	local jobCount = pcJobInfo:GetJobCount();
 	local childCount = grid:GetChildCount();
 	if jobCount + 1 > childCount then

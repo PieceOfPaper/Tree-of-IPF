@@ -66,8 +66,8 @@ end
 -- need summonui job search
 function IS_NEED_SUMMON_UI()
 	local mySession = session.GetMySession();
-	local pcJobInfo = mySession.pcJobInfo;
-	local jobhistory = mySession.pcJobInfo;
+	local pcJobInfo = mySession:GetPCJobInfo();
+	local jobhistory = mySession:GetPCJobInfo();
     local gender = info.GetGender(session.GetMyHandle());
 	local clslist, cnt  = GetClassList("Job");
 	local ret = 0;

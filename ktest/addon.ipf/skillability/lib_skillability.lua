@@ -1,7 +1,7 @@
 
 function SKILLABILITY_GET_JOB_ID_LIST()
     local mySession = session.GetMySession();
-    local jobhistory = mySession.pcJobInfo;
+    local jobhistory = mySession:GetPCJobInfo();
     local joblist = {}
     local hash = {}
     for i=0, jobhistory:GetJobCount()-1 do
@@ -153,7 +153,7 @@ end
 
 function GET_TREE_INFO_BY_CLSNAME(name)
     local mySession = session.GetMySession();
-	local skillList = mySession.skillList;
+	local skillList = mySession:GetSkillList();
     local cls = GetClass("SkillTree", name);
     if cls == nil then
         return;
@@ -182,7 +182,7 @@ function GET_TREE_INFO_VEC(jobName)
     local treelist = {};
     
     local mySession = session.GetMySession();
-	local skillList = mySession.skillList;
+	local skillList = mySession:GetSkillList();
 	
     local clslist, cnt  = GetClassList("SkillTree");
     local index = 1;

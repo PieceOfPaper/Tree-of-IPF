@@ -54,7 +54,7 @@ function MANU_SET_CLS(frame, recipeName)
 	gBox:Resize(gBox:GetWidth(), ypos);
 	ypos = ypos + gBox:GetY() + 20;
 
-	-- À§ ±×·ì¹Ú½º°¡ Å©±â°¡ º¯ÇØ¼­ ¾Æ·¡µµ Á¤·ÄÇØ ¸ÂÃçÁØ´Ù.
+	-- ï¿½ï¿½ ï¿½×·ï¿½Ú½ï¿½ï¿½ï¿½ Å©ï¿½â°¡ ï¿½ï¿½ï¿½Ø¼ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ø´ï¿½.
 	local bottomUIList = {};
 	bottomUIList[#bottomUIList + 1] = "slotlist";
 	bottomUIList[#bottomUIList + 1] = "prog_gauge";
@@ -424,7 +424,7 @@ function MANU_FORCE_COLLISION(slot)
 	frame:SetUserValue("FORCE_STARTED", 0);
 	local tgtItemSlot = GET_CHILD(frame, "tgtItemSlot", "ui::CSlot");
 	local x, y = GET_GLOBAL_XY(tgtItemSlot);
-	local imgName = tgtItemSlot:GetIcon():GetInfo().imageName;
+	local imgName = tgtItemSlot:GetIcon():GetInfo():GetImageName();
 	
 	local madeItemID = frame:GetUserValue("MADE_ITEM_ID");
 	INV_FORCE_NOTIFY(madeItemID, x, y, 0);

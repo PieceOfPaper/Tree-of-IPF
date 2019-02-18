@@ -105,6 +105,13 @@ function SOLODUNGEON_SCOREBOARD_FILL_RANK_LISTS()
         --cleric
         SOLODUNGEON_SCOREBOARD_FILL_RANK_LIST(rankGbox_scout, 5)
     end
+
+    -- tab item
+    local tab_joblist = GET_CHILD_RECURSIVELY(frame, "tab_joblist");
+    if tab_joblist ~= nil then
+        tab_joblist:SetItemsFixWidth(120);
+        tab_joblist:SetItemsAdjustFontSizeByWidth(120);
+    end
 end
 
 

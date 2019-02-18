@@ -2515,7 +2515,7 @@ end
 
 function STATUS_OPEN_CLASS_DROPLIST(parent, ctrl)
     local mainSession = session.GetMainSession();
-	local pcJobInfo = mainSession.pcJobInfo;
+	local pcJobInfo = mainSession:GetPCJobInfo();
 	local jobCount = pcJobInfo:GetJobCount();	
     local droplistframe = ui.MakeDropListFrame(ctrl, -330, 0, 400, 300, jobCount, ui.CENTER_HORZ, 'STATUS_SELET_REPRESENTATION_CLASS', nil, nil);
 	for i = 0, jobCount - 1 do

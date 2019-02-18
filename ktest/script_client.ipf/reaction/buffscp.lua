@@ -348,15 +348,12 @@ function CamouflageScp_LEAVE(actor, obj, buff)
 
 end
 
-
-
-
 function Proliferation_ENTER(actor, obj, buff)
-
     if pc.IsBuffApplied(actor, "Thurisaz_Buff") == 1 then
         return;
-    end
+    end 
 
+    actor:SetTransfomedNodeScale(1);
     actor:PushNodeScale("Proliferation1", "Bip01 L Hand", 1.0);
     actor:PushNodeScale("Proliferation2", "Dummy_L_HAND", 0.25);
     actor:PushNodeScale("ProliferationRH1", "Bip01 R Hand", 1.0)
@@ -368,6 +365,7 @@ function Proliferation_ENTER(actor, obj, buff)
 end
 
 function Proliferation_LEAVE(actor, obj, buff)
+    actor:SetTransfomedNodeScale(0);
 	actor:PopNodeScale("Proliferation1");
 	actor:PopNodeScale("Proliferation2");
 	actor:PopNodeScale("ProliferationRH1");
@@ -379,7 +377,6 @@ function Proliferation_LEAVE(actor, obj, buff)
 end
 
 function ProliferationRH_ENTER(actor, obj, buff)
-    --DumpCPP()
     if pc.IsBuffApplied(actor, "Thurisaz_Buff") == 1 then
         return;
     end

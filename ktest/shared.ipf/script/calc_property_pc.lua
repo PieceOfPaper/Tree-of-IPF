@@ -2128,6 +2128,11 @@ function SCR_Get_MSPD(self)
     	end
     end
     
+    if IsBuffApplied(self, 'Slithering_Buff') == 'YES' then
+    	isDashRun = 0
+    	return 19;
+    end
+    
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
         
