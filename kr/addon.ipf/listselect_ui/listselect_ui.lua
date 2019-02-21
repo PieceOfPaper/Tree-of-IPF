@@ -93,10 +93,6 @@ function ATTENDANCE_CTRLSET(list, classCtrl, AttendanceID, AttendanceName)
 				return;
 			end
 
-			if AttendanceID == 3 and session.shop.GetEventUserType() ~= 1 and session.shop.GetEventUserType() ~= 2 then
-				return;
-			end
-			
 			local attendanceCls = GetClassByType('TPEventAttendance', AttendanceID);
 			local todayDayOffset;
 			if attendanceCls.AttendancePass == 'YES' then
