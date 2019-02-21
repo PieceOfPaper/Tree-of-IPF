@@ -173,7 +173,7 @@ function JOYSTICK_QUICKSLOT_ON_MSG(frame, msg, argStr, argNum)
 				if fromInvIndex == 0 then
 					if iconInfo.type == invenItemInfo.type then
 						iconInfo.ext = toInvIndex;
-						quickslot.SetInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, iconInfo.ext);
+						quickslot.SetInfo(slot:GetSlotIndex(), iconInfo:GetCategory(), iconInfo.type, iconInfo.ext);
 					end
 				else
 					if iconInfo.ext == toInvIndex then
@@ -237,7 +237,7 @@ function JOYSTICK_QUICKSLOT_UPDATE_ALL_SLOT()
 
 		if true == updateslot and quickSlotInfo.category ~= 'NONE' then
 			local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
-			    SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, true, false)
+			    SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, true, true)
 		    end  
         else
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
@@ -313,7 +313,7 @@ function JOYSTICK_QUICKSLOT_ON_DROP(frame, control, argStr, argNum)
 	local iconType = 0;
 	local iconGUID = "";
 	if nil ~= liftIconiconInfo then
-		iconCategory = liftIconiconInfo.category;
+		iconCategory = liftIconiconInfo:GetCategory();
 		iconType = liftIconiconInfo.type;
 		iconGUID = liftIconiconInfo:GetIESID();
 
@@ -356,7 +356,7 @@ function JOYSTICK_QUICKSLOT_ON_DROP(frame, control, argStr, argNum)
 			local oldIcon = slot:GetIcon();
 			if oldIcon ~= nil then
 				local iconInfo = oldIcon:GetInfo();
-				if iconInfo.imageName == "None" then
+				if iconInfo:GetImageName() == "None" then
 					oldIcon = nil;
 				end
 			end
@@ -779,7 +779,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 			local icon = slot:GetIcon();
 			if icon ~= nil then
 				local iconInfo = icon:GetInfo();
-				slot:SetUserValue('ICON_CATEGORY', iconInfo.category);
+				slot:SetUserValue('ICON_CATEGORY', iconInfo:GetCategory());
 				slot:SetUserValue('ICON_TYPE', iconInfo.type);
 			end
 			CLEAR_SLOT_ITEM_INFO(slot);
@@ -804,7 +804,7 @@ function JOYSTICK_QUICKSLOT_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local icon = lastSlot:GetIcon();
 		if icon ~= nil then
 			local iconInfo = icon:GetInfo();
-			lastSlot:SetUserValue('ICON_CATEGORY', iconInfo.category);
+			lastSlot:SetUserValue('ICON_CATEGORY', iconInfo:GetCategory());
 			lastSlot:SetUserValue('ICON_TYPE', iconInfo.type);
 		end
 

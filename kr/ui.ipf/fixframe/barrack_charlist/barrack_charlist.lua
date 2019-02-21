@@ -147,12 +147,12 @@ function INIT_BARRACK_NAME(frame)
 	end
 	
 	local accountObj = GetMyAccountObj();
-	local richtext = frame:GetChild("free");
+	local richtext = GET_CHILD_RECURSIVELY(frame, "free");
 	if richtext ~= nil then
 		richtext:SetTextByKey("value", accountObj.Medal);
-		richtext = frame:GetChild("event");
+		richtext = GET_CHILD_RECURSIVELY(frame, "event");
 		richtext:SetTextByKey("value", accountObj.GiftMedal);
-		richtext = frame:GetChild("tp");
+		richtext = GET_CHILD_RECURSIVELY(frame, "tp");
 		richtext:SetTextByKey("value", accountObj.PremiumMedal);
 	end
 	CHAR_N_PET_LIST_LOCKMANGED(1);
@@ -176,15 +176,15 @@ function DRAW_BARRACK_MEDAL_COUNT(frame)
 		return;
 	end
 
-	local richtext = barrackName:GetChild("free");
+	local richtext = GET_CHILD_RECURSIVELY(barrackName, "free");
 	if richtext == nil then
 		return;
 	end
 
 	richtext:SetTextByKey("value", accountObj.Medal);
-	richtext = barrackName:GetChild("event");
+	richtext = GET_CHILD_RECURSIVELY(barrackName, "event");
 	richtext:SetTextByKey("value", accountObj.GiftMedal);
-	richtext = barrackName:GetChild("tp");
+	richtext = GET_CHILD_RECURSIVELY(barrackName, "tp");
 	richtext:SetTextByKey("value", accountObj.PremiumMedal);
 end
 
@@ -192,7 +192,7 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	local account = session.barrack.GetCurrentAccount();
 	local myaccount = session.barrack.GetMyAccount();
 	local barrackMode = frame:GetUserValue("BarrackMode");
-
+	
 	if "Visit" == barrackMode and account == myaccount then
 		local scrollBox = frame:GetChild("scrollBox");
 		scrollBox:RemoveAllChild();
@@ -221,12 +221,15 @@ function SELECTTEAM_NEW_CTRL(frame, actor)
 	layercount:SetTextByKey("maxcount", tostring(maxpcCount));
 
 	local accountObj = GetMyAccountObj();
-	local richtext = barrackName:GetChild("free");
-	richtext:SetTextByKey("value", accountObj.Medal);
-	richtext = barrackName:GetChild("event");
-	richtext:SetTextByKey("value", accountObj.GiftMedal);
-	richtext = barrackName:GetChild("tp");
-	richtext:SetTextByKey("value", accountObj.PremiumMedal);
+
+	if barrackMode ~= "Visit" then
+		local richtext = GET_CHILD_RECURSIVELY(barrackName, "free");
+		richtext:SetTextByKey("value", accountObj.Medal);
+		richtext = GET_CHILD_RECURSIVELY(barrackName, "event");
+		richtext:SetTextByKey("value", accountObj.GiftMedal);
+		richtext = GET_CHILD_RECURSIVELY(barrackName, "tp");
+		richtext:SetTextByKey("value", accountObj.PremiumMedal);
+	end
 
 	if actor ~= nil then
 		CREATE_SCROLL_CHAR_LIST(frame, actor);
@@ -758,8 +761,10 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		SELCOMPANIONINFO_ON_SELECT_CHAR(argStr);        
 	elseif msg == "BARRACK_NAME" then
 		local barrack_name_frame = ui.GetFrame('barrack_name')
+		local teamlevel = GET_CHILD(barrack_name_frame, "teamlevel");
 		local nameCtrl = GET_CHILD(barrack_name_frame, "barrackname");
 		nameCtrl:SetText("{@st43}{#ffcc33}"..argStr..ScpArgMsg("BarrackNameMsg").."{/}");
+		nameCtrl:SetPos(teamlevel:GetX() + teamlevel:GetWidth() + 20,nameCtrl:GetY());
 
 	elseif msg == "SET_BARRACK_MODE" then
 		SET_BARRACK_MODE(frame, argStr, argNum);
@@ -919,7 +924,13 @@ function UPDATE_BARRACK_MODE(frame)
 		SHOW_BTNS(frame, 0)
 
 		local barrack_nameUI = ui.GetFrame("barrack_name");
-		barrack_nameUI:ShowWindow(0);
+		local tp = barrack_nameUI:GetChild("gbox_tp_all");
+		tp:RemoveAllChild();
+		barrack_nameUI:RemoveChild("gbox_tp_all");
+		barrack_nameUI:RemoveChild("upgrade");
+		barrack_nameUI:RemoveChild("teaminfo");
+		barrack_nameUI:RemoveChild("teaminfo_1");
+		barrack_nameUI:RemoveChild("postbox_new");
 
 		local pccount = frame:GetChild("pccount");
 		pccount:ShowWindow(0);

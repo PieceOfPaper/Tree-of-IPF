@@ -135,8 +135,15 @@ function WARNINGMSGBOX_CREATE_TOOLTIP(frame)
 
 	tooltipFrame:SetTooltipStrArg('inven');
 	tooltipFrame:SetTooltipIESID(itemGuid);
-    tooltipFrame:RefreshTooltip();
-	tooltipFrame:SetOffset(warningboxFrame:GetX() + warningboxFrame:GetWidth(), warningboxFrame:GetY())
+	tooltipFrame:RefreshTooltip();
+
+	-- 툴팁 출력위치 조정
+	local OffsetRatioM = frame:GetUserConfig("TOOLTIP_OFFSET_M");
+	local OffsetRatioS = frame:GetUserConfig("TOOLTIP_OFFSET_S");
+	local OffsetX = warningboxFrame:GetX() + warningboxFrame:GetWidth() - ( tooltipFrame:GetWidth() / OffsetRatioM );
+	local OffsetY = warningboxFrame:GetY() - ( tooltipFrame:GetHeight() / OffsetRatioS );
+	tooltipFrame:SetOffset(OffsetX, OffsetY)
+
 	local isShowTooltip = config.GetXMLConfig("ShowTooltipInWarningBox")
 	if isShowTooltip == 1 then
 		tooltipFrame:ShowWindow(1)

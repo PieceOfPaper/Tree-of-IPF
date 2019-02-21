@@ -62,17 +62,17 @@ function UPDATE_PET_LIST(barrackMode)
 	bg:RemoveAllChild();	
 
 	local acc = session.barrack.GetMyAccount();
+	local petVec = acc:GetPetVec();
 	if barrackMode == "Visit" then
 		acc = session.barrack.GetCurrentAccount();
+		petVec = acc:GetPetVec();
+		if petVec:size() == 0 then
+			frame:ShowWindow(0);
+			return;
+		end
+		frame:ShowWindow(1);
 	end
-	local petVec = acc:GetPetVec();
-
-	if petVec:size() == 0 then
-		frame:ShowWindow(0);
-		return;
-	end
-
-	frame:ShowWindow(1);
+	
 	for i = 0 , petVec:size() -  1 do
 		local pet = petVec:at(i);
 		local pcID = tonumber(pet:GetPCID())

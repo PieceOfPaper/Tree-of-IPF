@@ -62,10 +62,10 @@ function SOCIAL_BUY_ITEM_SET(itemCtrlSet, dropIconInfo)
 	local buyCountNumUpDown = GET_CHILD(itemCtrlSet, "countEdit", "ui::CNumUpDown");
 	local icon 	= CreateIcon(buyItemSlot);
 
-	if dropIconInfo.category == "Item" then
+	if dropIconInfo:GetCategory() == "Item" then
 		local itemIES = GetClassByType('Item', dropIconInfo.type);
 		if itemIES ~= nil then
-			icon:Set(itemIES.Icon, dropIconInfo.category, dropIconInfo.type, dropIconInfo.ext);
+			icon:Set(itemIES.Icon, dropIconInfo:GetCategory(), dropIconInfo.type, dropIconInfo.ext);
 
 			buyItemName:SetText('{@st42b}' .. itemIES.Name);
 

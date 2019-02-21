@@ -193,6 +193,9 @@ local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 				jobNameText:SetTextByKey('style', JOB_NAME_STYLE);
 			end
 
+			jobNameText:AdjustFontSizeByWidth(jobNameText:GetWidth());
+			jobNameText:Invalidate();
+
 			local jobEmblemPic = GET_CHILD(jobCtrlset, 'jobEmblemPic');
 			jobEmblemPic:SetImage(jobCls.Icon);
 			_SET_PLAYTIME_TOOLTIP(jobEmblemPic, jobInfo.PlayTime, jobInfo.StartTime);
@@ -251,6 +254,8 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid)
 
 	local jobclassname_richtext = GET_CHILD_RECURSIVELY(frame, "className");
 	jobclassname_richtext:SetTextByKey("param_name", GET_JOB_NAME(jobinfo, GETMYPCGENDER()));
+	jobclassname_richtext:AdjustFontSizeByWidth(jobclassname_richtext:GetWidth() - 55);
+	jobclassname_richtext:Invalidate();
 
 	local captionstr = 'Caption1';
 	local jobclasscaption_richtext = GET_CHILD_RECURSIVELY(frame, "classExplain");
@@ -562,6 +567,9 @@ function UPDATE_CHANGEJOB(frame)
 		-- name			
 		local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname");
 		jobnameCtrl:SetTextByKey("param_jobcname", GET_JOB_NAME(jobCls, GETMYPCGENDER()));
+
+		jobnameCtrl:AdjustFontSizeByWidth(jobnameCtrl:GetWidth());
+		jobnameCtrl:Invalidate();
 				
 		button:SetEventScript(ui.LBUTTONDOWN, 'CJ_CLICK_INFO')
 		button:SetEventScriptArgNumber(ui.LBUTTONDOWN, info.JobClassID);

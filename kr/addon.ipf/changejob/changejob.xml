@@ -5,7 +5,7 @@
 	<skin frameskin="property_screenbg"/>
 	<draw drawtitlebar="false"/>
 	<layer layerlevel="100"/>
-	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="180" ControlHeight="100" MarginX="15" MarginY="80" BUTTON_IMG_HAVE_JOB="class_tree_job_sel_btn" BUTTON_IMG_NEW_JOB="class_tree_new_icon" BUTTON_IMG_HAD_HIDDEN_JOB="class_tree_job_hidden_sel_btn" BUTTON_IMG_HIDDEN_JOB="class_tree_job_hidden_btn" BUTTON_IMG_DEFAULT="class_tree_job_btn" FIRST_JOB_NAME_STYLE="{@sti7}{s24}{ds}" JOB_NAME_STYLE="{@st43}{s22}{ds}" CLASS_CTRLSET_MARGIN_X="40" CLASS_CTRLSET_MARGIN_Y="-20" CLASS_RESET_EXP_ON_IMG="class_tree_reset_icon_on" CLASS_RESET_EXP_OFF_IMG="class_tree_reset_icon_off"/>
+	<userconfig Font_Gray="{@st42_gray}" Font_MaxLevel="{@st42_yellow}" Font_Normal="{@st42_green}" IndSize="40" ControlX="50" ControlY="170" ControlWidth="180" ControlHeight="100" MarginX="15" MarginY="80" BUTTON_IMG_HAVE_JOB="class_tree_job_sel_btn" BUTTON_IMG_NEW_JOB="class_tree_new_icon" BUTTON_IMG_HAD_HIDDEN_JOB="class_tree_job_hidden_sel_btn" BUTTON_IMG_HIDDEN_JOB="class_tree_job_hidden_btn" BUTTON_IMG_DEFAULT="class_tree_job_btn" FIRST_JOB_NAME_STYLE="{@sti7}{s22}{ds}" JOB_NAME_STYLE="{@st43}{s20}{ds}" CLASS_CTRLSET_MARGIN_X="40" CLASS_CTRLSET_MARGIN_Y="-20" CLASS_RESET_EXP_ON_IMG="class_tree_reset_icon_on" CLASS_RESET_EXP_OFF_IMG="class_tree_reset_icon_off"/>
 	<script OpenScp="CHANGEJOB_OPEN" CloseScp="CHANGEJOB_CLOSE"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end2"/>
@@ -45,8 +45,8 @@
 		<button name="class_select" parent="mbg" rect="0 0 226 78" margin="0 0 230 0" layout_gravity="right bottom" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st43}전직하기" clicksound="button_click_skill_up" oversound="button_over" image="btn_lv3"/>
 		<groupbox name="charImgBox" parent="mbg" rect="0 0 300 470" margin="70 10 0 0" layout_gravity="left top" skin="blackbox_op_50"/>
 		<picture name="class_image" parent="charImgBox" rect="0 0 250 360" margin="-10 0 0 100" layout_gravity="center bottom" hittest="false" image="mainpc_crown" stretch="false"/>
-		<richtext name="className" parent="charImgBox" rect="0 0 200 30" margin="0 30 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" format="{@sti7}{s20}{ds}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
-		<picture name="jobEmblemPic" parent="charImgBox" rect="0 0 75 75" margin="10 10 0 0" layout_gravity="left top" image="c_wizard_pyromancer" stretch="true"/>
+		<richtext name="className" parent="charImgBox" rect="0 0 220 30" margin="45 25 0 0" layout_gravity="center top" autofontsizebywidth="true" drawbackground="false" fixwidth="true" format="{@sti7}{s20}{ds}%s{/}" maxwidth="0" param1="param_name" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+		<picture name="jobEmblemPic" parent="charImgBox" rect="0 0 75 75" margin="5 5 0 0" layout_gravity="left top" image="c_wizard_pyromancer" stretch="true"/>
 		<groupbox name="explainBox" parent="mbg" rect="0 0 600 400" margin="400 0 0 0" layout_gravity="left top" skin="none" hittestbox="false"/>
 		<richtext name="classExplain" parent="explainBox" rect="0 0 590 100" margin="10 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" format="{@st42b}%s{/}" maxwidth="0" param1="param_explain" param1_def="클래스에 대한 간단한 설명을 이곳에 표시합니다." resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
 		<groupbox name="statRatioBox" parent="mbg" rect="0 0 300 130" margin="75 0 0 15" layout_gravity="left bottom" draw="false"/>

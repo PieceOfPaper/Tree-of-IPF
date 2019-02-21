@@ -5497,6 +5497,22 @@
 			<img name="barmiddle" imgrect="317 108 123 6"/>
 			<img name="barright" imgrect="440 97 1 17"/>
 		</skin>
+		<skin name="party_info_gauge_hp_2" texture="\skin\MCC_skin.tga">
+			<img name="bgleft" imgrect="0 204 1 22"/>
+			<img name="bgmiddle" imgrect="1 205 132 21"/>
+			<img name="bgright" imgrect="133 204 1 22"/>
+			<img name="barleft" imgrect="0 204 1 22"/>
+			<img name="barmiddle" imgrect="1 227 132 22"/>
+			<img name="barright" imgrect="133 204 1 22"/>
+		</skin>
+		<skin name="party_info_gauge_sp_2" texture="\skin\MCC_skin.tga">
+			<img name="bgleft" imgrect="0 204 1 22"/>
+			<img name="bgmiddle" imgrect="1 241 132 8"/>
+			<img name="bgright" imgrect="133 204 1 22"/>
+			<img name="barleft" imgrect="0 204 1 22"/>
+			<img name="barmiddle" imgrect="134 241 132 8"/>
+			<img name="barright" imgrect="133 204 1 22"/>
+		</skin>
 	</skinlist>
 	<skinlist category="labellines">
 		<skin name="labelline_def_5" texture="\skin\tooltip_skin_3.tga">

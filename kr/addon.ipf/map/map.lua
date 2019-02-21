@@ -710,7 +710,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 									for j = 0 , GenCnt - 1 do
 										local WorldPos = GenList:Element(j);
 										local MapPos = mapprop:WorldPosToMinimapPos(WorldPos, mapWidth, mapHeight);
-										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
+										local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range, offsetX, offsetY, mapWidth, mapHeight);
 										MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 										
 										XC = offsetX + MapPos.x - iconW / 2;
@@ -729,7 +729,7 @@ function MAP_MAKE_NPC_LIST(frame, mapprop, npclist, statelist, questIESlist, que
 								range = tonumber(locationMapName);
 								local MapPos = mapprop:WorldPosToMinimapPos(x, z, mapWidth, mapHeight);
 
-								local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range);
+								local XC, YC, RangeX, RangeY = GET_MAP_POS_BY_SESSIONOBJ(MapPos, range, offsetX, offsetY, mapWidth, mapHeight);
 								MAKE_LOC_CLICK_ICON(frame, i, stateidx, 'group'..k, XC, YC, RangeX, RangeY, 30);
 
 								XC = offsetX + MapPos.x - iconW / 2;

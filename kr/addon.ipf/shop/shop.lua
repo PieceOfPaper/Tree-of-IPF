@@ -381,14 +381,13 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
-
 	local itemobj = GetIES(invitem:GetObject());
 	local itemProp = geItemTable.GetPropByName(itemobj.ClassName);
 	if itemProp:IsEnableShopTrade() == false then
 		ui.SysMsg(ClMsg("CannoTradeToNPC"));
 		return;
 	end
-
+	
 	imcSound.PlaySoundEvent('button_inven_click_item');
 	local slot = GET_USABLE_SLOTSET(frame, invitem);
 	slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
@@ -397,7 +396,7 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 	icon:Set(imageName, 'SELLITEMITEM', 0, 0, invitem:GetIESID());
 
 	SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, itemobj.ClassName,'buy', invitem.type, invitem:GetIESID());
-	
+
 	slot:SetEventScript(ui.RBUTTONDOWN, "CANCEL_SELL");
 
 	local curCnt = slot:GetUserIValue("SELL_CNT");
@@ -436,7 +435,6 @@ function SHOP_SELL(invitem, sellCount, frame, setTotalCount)
 	SHOP_UPDATE_BUY_PRICE(frame);
 
 	INVENTORY_UPDATE_ICON_BY_INVITEM(ui.GetFrame('inventory'), invitem);
-
 end
 
 function GET_SHOP_TOTAL_USED_POINT(frame, shopItem)
@@ -665,7 +663,7 @@ function CANCEL_SELL(frame, ctrl, argstr, argnum)
 	local invitem = session.GetInvItemByGuid(itemID);
 
 	SHOP_SELECT_ITEM_LIST[itemID] = nil
-	INVENTORY_UPDATE_ICONS(ui.GetFrame("inventory"));
+	INVENTORY_SLOT_UNCHECK(ui.GetFrame("inventory"), itemID);
 
 	CLEAR_SELL_SLOT(slot);
 	SHOP_UPDATE_BUY_PRICE(frame);

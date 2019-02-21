@@ -1,823 +1,823 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
-	<Game Name="M_GTOWER2_STAGE_21" minLv="0" maxLv="0" startWaitSec="15">
-		<StageList>
-			<Stage Name="SETTING">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="곧 대지의 탑 21층 임무가 시작됩니다"/>
-						<Str Str="stage_ready"/>
-						<Num Num="10"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_CAMERA_TO" Client="YES" UseSleep="NO">
-						<AbsPos X="5455.105" Y="360.13354" Z="-5771.5479" Random="20"/>
-						<Num Num="3"/>
-						<Num Num="2"/>
-						<Num Num="0.5"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="10"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="57272" Pos="5336.72#268.16#-3780.26" angle="-91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
-					<Obj Type="Monster" MonType="40001" Pos="5460.21#368.15#-5762.44" angle="90" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;대지의 탑 21층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_21&apos; &apos;Range&apos; &apos;50&apos; "/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="CNT"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="Setting">
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="MGT_STAGE_1"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="SUCCESS" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="대지의 탑 21층 임무 성공!{nl}다음 층으로 이동하세요"/>
-						<Str Str="move_to_point"/>
-						<Num Num="20"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="20"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-						<Str Str="Success"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="40001" Pos="5319.80#247.93#-3817.45" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 22층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_22&apos; &apos;Range&apos; &apos;50&apos; ">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<StartList>
-								<ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
-									<Num Num="100"/>
-									<Str Str="g_tower_door"/>
-									<Str Str="GT_GATE_OPEN_ANIM"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="57272" Pos="5184.57#267.36#-1697.74" angle="90" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="RunMgame">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="20"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EXEC_RUNMGAME" Client="NO" UseSleep="NO">
-								<Str Str="M_GTOWER2_STAGE_22"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="FAIL" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="30"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="대지의 탑 임무 실패!{nl}30초 후에 퇴장합니다"/>
-						<Str Str="raid_fail"/>
-						<Num Num="30"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-						<Str Str="Fail"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="Fail">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="30"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="EndStage">
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-								<Str Str="CNT"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="STAGE_1_PROG" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-						<Str Str="첫 번째 목표가 시작되었습니다{nl}제한 시간 내에 몬스터 150마리를 처치하세요"/>
-						<Str Str="stage_start"/>
-						<Num Num="20"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
-						<Str Str="Start"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList>
-					<Obj Type="Monster" MonType="100116" Pos="5181.39#240.41#-4289.89" range="200" genCount="1" genTime="20000" objectKey="0" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5138.78#240.41#-4281.73" range="200" genCount="1" genTime="20000" objectKey="1" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5120.82#240.41#-4255.08" range="200" genCount="1" genTime="20000" objectKey="2" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5134.15#240.41#-4193.20" range="200" genCount="1" genTime="20000" objectKey="3" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5187.62#240.41#-4218.75" range="200" genCount="1" genTime="20000" objectKey="4" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5210.11#240.41#-4269.03" range="200" genCount="1" genTime="20000" objectKey="5" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5211.45#240.41#-4308.65" range="200" genCount="1" genTime="20000" objectKey="6" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5178.56#240.41#-4329.21" range="200" genCount="1" genTime="20000" objectKey="7" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5159.89#240.41#-4244.51" range="200" genCount="1" genTime="20000" objectKey="8" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100116" Pos="5110.87#240.41#-4205.68" range="200" genCount="1" genTime="20000" objectKey="9" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100104" Pos="5167.70#240.41#-4005.71" range="200" genCount="1" genTime="20000" objectKey="10" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100104" Pos="5173.07#240.41#-4059.20" range="200" genCount="1" genTime="20000" objectKey="11" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100104" Pos="5227.58#240.41#-4032.08" range="200" genCount="1" genTime="20000" objectKey="12" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100104" Pos="5209.00#240.41#-3971.87" range="200" genCount="1" genTime="20000" objectKey="13" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100104" Pos="5149.18#240.41#-3935.27" range="200" genCount="1" genTime="20000" objectKey="14" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100103" Pos="5423.71#240.41#-4125.23" range="200" genCount="1" genTime="20000" objectKey="15" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100103" Pos="5427.77#240.41#-4184.35" range="200" genCount="1" genTime="20000" objectKey="16" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100103" Pos="5492.39#240.41#-4161.99" range="200" genCount="1" genTime="20000" objectKey="17" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100103" Pos="5481.55#240.41#-4069.32" range="200" genCount="1" genTime="20000" objectKey="18" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-					<Obj Type="Monster" MonType="100103" Pos="5441.64#240.41#-4024.51" range="200" genCount="1" genTime="20000" objectKey="19" tendency="1">
-						<SelfAI ActiveMessageMapInBattle="1">
-							<List>
-								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-									<Num Num="1000"/>
-								</ToolScp>
-							</List>
-							<DeadList>
-								<ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="150"/>
-									<Str Str="남은 몬스터"/>
-									<Str Str="scroll"/>
-									<Num Num="3"/>
-								</ToolScp>
-								<ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
-									<Str Str="M_GTOWER2_STAGE_21"/>
-									<Str Str="MGTSTAGE21"/>
-									<Num Num="1"/>
-								</ToolScp>
-							</DeadList>
-							<StartList>
-								<ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-									<Str Str="Attack"/>
-								</ToolScp>
-							</StartList>
-						</SelfAI>
-					</Obj>
-				</ObjList>
-				<StageEvents>
-					<Event execCount="1" eventName="END">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="MGTSTAGE21"/>
-								<Str Str="OVER"/>
-								<Num Num="150"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="SUCCESS"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="CNT"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event eventName="Act">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="10"/>
-							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-								<MGameObj List="STAGE_1_PROG/0/STAGE_1_PROG/1/STAGE_1_PROG/2/STAGE_1_PROG/3/STAGE_1_PROG/4/STAGE_1_PROG/5/STAGE_1_PROG/6/STAGE_1_PROG/7/STAGE_1_PROG/8/STAGE_1_PROG/9/STAGE_1_PROG/10/STAGE_1_PROG/11/STAGE_1_PROG/12/STAGE_1_PROG/13/STAGE_1_PROG/14/STAGE_1_PROG/15/STAGE_1_PROG/16/STAGE_1_PROG/17/STAGE_1_PROG/18/STAGE_1_PROG/19"/>
-								<Num Num="10"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-								<MGameObjIndex List="STAGE_1_PROG/0/STAGE_1_PROG/1/STAGE_1_PROG/2/STAGE_1_PROG/3/STAGE_1_PROG/4/STAGE_1_PROG/5/STAGE_1_PROG/6/STAGE_1_PROG/7/STAGE_1_PROG/8/STAGE_1_PROG/9/STAGE_1_PROG/10/STAGE_1_PROG/11/STAGE_1_PROG/12/STAGE_1_PROG/13/STAGE_1_PROG/14/STAGE_1_PROG/15/STAGE_1_PROG/16/STAGE_1_PROG/17/STAGE_1_PROG/18/STAGE_1_PROG/19"/>
-								<Num Num="1"/>
-								<Num Num="0"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-			<Stage Name="CNT" AutoStart="0">
-				<StartScpList>
-					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-						<Str Str="몬스터 150마리 처치"/>
-					</ToolScp>
-					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-						<Num Num="270"/>
-					</ToolScp>
-				</StartScpList>
-				<ObjList/>
-				<StageEvents>
-					<Event execCount="1" eventName="Fail_PCcnt">
-						<condList>
-							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-								<Num Num="0"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="FAIL"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="CNT"/>
-							</ToolScp>
-						</execList>
-					</Event>
-					<Event execCount="1" eventName="Fail_Timmer">
-						<condList>
-							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-								<Num Num="270"/>
-							</ToolScp>
-						</condList>
-						<execList>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-								<Str Str="FAIL"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-								<Str Str="CNT"/>
-							</ToolScp>
-							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-								<Str Str="STAGE_1_PROG"/>
-							</ToolScp>
-						</execList>
-					</Event>
-				</StageEvents>
-			</Stage>
-		</StageList>
-	</Game>
+    <Game Name="M_GTOWER2_STAGE_21" minLv="0" maxLv="0" mapName="mission_groundtower_2" playerCountCheckDestroy="1" startWaitSec="15">
+        <StageList>
+            <Stage Name="SETTING">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="곧 대지의 탑 21층 임무가 시작됩니다"/>
+                        <Str Str="stage_ready"/>
+                        <Num Num="10"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="10"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="57272" Pos="5320.45#268.16#-3759.12" angle="-91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="40001" Pos="5460.21#368.15#-5762.44" angle="90" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;대지의 탑 21층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_21&apos; &apos;Range&apos; &apos;50&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="CNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MGT_STAGE_1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SUCCESS" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="대지의 탑 21층 임무 성공!{nl}다음 층으로 이동하세요"/>
+                        <Str Str="move_to_point"/>
+                        <Num Num="20"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="20"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Success"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="40001" Pos="5319.80#247.93#-3817.45" angle="91" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Name&apos; &apos;대지의 탑 22층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_22&apos; &apos;Range&apos; &apos;50&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_SERCH_OBJ_PLAY" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                    <Str Str="g_tower_door"/>
+                                    <Str Str="GT_GATE_OPEN_ANIM"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57272" Pos="5181.98#267.36#-1692.24" angle="90" genCount="1" genTime="20000" objectKey="0" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="RunMgame">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="20"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_RUNMGAME" Client="NO" UseSleep="NO">
+                                <Str Str="M_GTOWER2_STAGE_22"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="FAIL" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="30"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="대지의 탑 임무 실패!{nl}30초 후에 퇴장합니다"/>
+                        <Str Str="raid_fail"/>
+                        <Num Num="30"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Fail"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Fail">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="EndStage">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="CNT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE_1_PROG" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
+                        <Str Str="첫 번째 목표가 시작되었습니다{nl}제한 시간 내에 몬스터 150마리를 처치하세요"/>
+                        <Str Str="stage_start"/>
+                        <Num Num="20"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_EARTH_TOWER_LOG" Client="NO" UseSleep="NO">
+                        <Str Str="Start"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="100116" Pos="5181.39#240.41#-4289.89" range="200" genCount="1" genTime="20000" objectKey="0" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5138.78#240.41#-4281.73" range="200" genCount="1" genTime="20000" objectKey="1" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5120.82#240.41#-4255.08" range="200" genCount="1" genTime="20000" objectKey="2" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5134.15#240.41#-4193.20" range="200" genCount="1" genTime="20000" objectKey="3" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5187.62#240.41#-4218.75" range="200" genCount="1" genTime="20000" objectKey="4" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5210.11#240.41#-4269.03" range="200" genCount="1" genTime="20000" objectKey="5" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5211.45#240.41#-4308.65" range="200" genCount="1" genTime="20000" objectKey="6" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5178.56#240.41#-4329.21" range="200" genCount="1" genTime="20000" objectKey="7" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5159.89#240.41#-4244.51" range="200" genCount="1" genTime="20000" objectKey="8" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100116" Pos="5110.87#240.41#-4205.68" range="200" genCount="1" genTime="20000" objectKey="9" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100104" Pos="5167.70#240.41#-4005.71" range="200" genCount="1" genTime="20000" objectKey="10" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100104" Pos="5173.07#240.41#-4059.20" range="200" genCount="1" genTime="20000" objectKey="11" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100104" Pos="5227.58#240.41#-4032.08" range="200" genCount="1" genTime="20000" objectKey="12" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100104" Pos="5209.00#240.41#-3971.87" range="200" genCount="1" genTime="20000" objectKey="13" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100104" Pos="5149.18#240.41#-3935.27" range="200" genCount="1" genTime="20000" objectKey="14" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100103" Pos="5423.71#240.41#-4125.23" range="200" genCount="1" genTime="20000" objectKey="15" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100103" Pos="5427.77#240.41#-4184.35" range="200" genCount="1" genTime="20000" objectKey="16" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100103" Pos="5492.39#240.41#-4161.99" range="200" genCount="1" genTime="20000" objectKey="17" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100103" Pos="5481.55#240.41#-4069.32" range="200" genCount="1" genTime="20000" objectKey="18" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="100103" Pos="5441.64#240.41#-4024.51" range="200" genCount="1" genTime="20000" objectKey="19" tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="1000"/>
+                                </ToolScp>
+                            </List>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_GTOWER_DM_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="150"/>
+                                    <Str Str="남은 몬스터"/>
+                                    <Str Str="scroll"/>
+                                    <Num Num="3"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_DEAD_ADD_MGAME_V_NAME" Client="NO" UseSleep="NO">
+                                    <Str Str="M_GTOWER2_STAGE_21"/>
+                                    <Str Str="MGTSTAGE21"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="MGTSTAGE21"/>
+                                <Str Str="OVER"/>
+                                <Num Num="150"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="CNT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Act">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="STAGE_1_PROG/0/STAGE_1_PROG/1/STAGE_1_PROG/2/STAGE_1_PROG/3/STAGE_1_PROG/4/STAGE_1_PROG/5/STAGE_1_PROG/6/STAGE_1_PROG/7/STAGE_1_PROG/8/STAGE_1_PROG/9/STAGE_1_PROG/10/STAGE_1_PROG/11/STAGE_1_PROG/12/STAGE_1_PROG/13/STAGE_1_PROG/14/STAGE_1_PROG/15/STAGE_1_PROG/16/STAGE_1_PROG/17/STAGE_1_PROG/18/STAGE_1_PROG/19"/>
+                                <Num Num="10"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="STAGE_1_PROG/0/STAGE_1_PROG/1/STAGE_1_PROG/2/STAGE_1_PROG/3/STAGE_1_PROG/4/STAGE_1_PROG/5/STAGE_1_PROG/6/STAGE_1_PROG/7/STAGE_1_PROG/8/STAGE_1_PROG/9/STAGE_1_PROG/10/STAGE_1_PROG/11/STAGE_1_PROG/12/STAGE_1_PROG/13/STAGE_1_PROG/14/STAGE_1_PROG/15/STAGE_1_PROG/16/STAGE_1_PROG/17/STAGE_1_PROG/18/STAGE_1_PROG/19"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="CNT" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+                        <Str Str="몬스터 150마리 처치"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="270"/>
+                    </ToolScp>
+                </StartScpList>
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Fail_PCcnt">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="CNT"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Fail_Timmer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="270"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="FAIL"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="CNT"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="STAGE_1_PROG"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="M_GTOWER_2_1"/>
+            </ToolScp>
+        </EnterList>
+    </Game>
 </GameList>

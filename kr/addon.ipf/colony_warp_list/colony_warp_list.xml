@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="colony_warp_list" x="0" y="0" width="580" height="360">
 	<frame fullheight="false" fasthide="true" layout_gravity="right center" margin="0 0 0 0" draw="true"/>
 	<skin frameskin="test_frame_low"/>
@@ -13,8 +13,8 @@
 		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;colony_warp_list&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
 		<groupbox name="bg" rect="0 0 560 285" margin="0 65 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
 		<groupbox name="column_bar" rect="0 0 560 40" parent="bg" margin="0 0 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>
-		<richtext name="location_text" parent="column_bar" rect="0 0 200 30" margin="110 0 0 0" layout_gravity="left center" caption="위치" fontname="black_18_b" spacey="0"/>
-		<richtext name="occupation_text" parent="column_bar" rect="0 0 200 30" margin="305 0 0 0" layout_gravity="left center" caption="점령 현황" fontname="black_18_b" spacey="0"/>
+		<richtext name="location_text" parent="column_bar" rect="0 0 200 30" margin="160 0 0 0" layout_gravity="left center" caption="위치" fontname="black_18_b" spacey="0"/>
+		<richtext name="occupation_text" parent="column_bar" rect="0 0 200 30" margin="305 0 0 0" layout_gravity="left center" caption="" fontname="black_18_b" spacey="0"/>
 		<groupbox name="list_gb" rect="0 0 563 246" margin="1 103 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="true"/>
 	</controls>
 </uiframe>

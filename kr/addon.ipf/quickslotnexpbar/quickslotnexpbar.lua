@@ -54,13 +54,13 @@ local function quickslot_item_amount_refresh(ies_id, class_id)
 		local quickSlotInfo = quickslot.GetInfoByIndex(i)
         if quickSlotInfo:GetIESID() == ies_id then
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
-            if slot ~= nil then
+			if slot ~= nil then
                 SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false, false)
             end
         elseif class_id ~= nil and quickSlotInfo:GetClassID() == tonumber(class_id) then
             quickSlotInfo:SetIESID(ies_id)
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
-            if slot ~= nil then
+			if slot ~= nil then
                 SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false, false)
             end
         end
@@ -71,13 +71,13 @@ local function quickslot_item_amount_refresh(ies_id, class_id)
 		local quickSlotInfo = quickslot.GetInfoByIndex(i)
         if quickSlotInfo:GetIESID() == ies_id then
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
-            if slot ~= nil then
+			if slot ~= nil then
                 SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false, false)
             end
         elseif class_id ~= nil and quickSlotInfo:GetClassID() == tonumber(class_id) then
             quickSlotInfo:SetIESID(ies_id)
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
-            if slot ~= nil then
+			if slot ~= nil then
                 SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, false, false)
             end
         end
@@ -470,8 +470,8 @@ function QUICKSLOTNEXTBAR_UPDATE_ALL_SLOT()
 			    end
 		    end	
 		    if true == updateslot and quickSlotInfo.category ~= 'NONE' then
-                local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")                
-			    SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, true, false);
+				local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot")
+			    SET_QUICK_SLOT(frame, slot, quickSlotInfo.category, quickSlotInfo.type, quickSlotInfo:GetIESID(), 0, true, true);
 		    end
         else
             local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i+1, "ui::CSlot");
@@ -713,7 +713,7 @@ function QUICKSLOTNEXPBAR_CHANGE_INVINDEX(quickslot, quickIndex, changeIndex)
 	if icon ~= nil then
 		local iconInfo = icon:GetInfo();
 		iconInfo.ext = changeIndex;
-		quickslot.SetInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, changeIndex);
+		quickslot.SetInfo(slot:GetSlotIndex(), iconInfo:GetCategory(), iconInfo.type, changeIndex);
 	end
 end
 
@@ -734,7 +734,7 @@ function QUICKSLOT_ON_CHANGE_INVINDEX(fromIndex, toIndex)
 				if fromInvIndex == 0 then
 					if iconInfo.type == invenItemInfo.type then
 						iconInfo.ext = toInvIndex;
-						quickslot.SetInfo(slot:GetSlotIndex(), iconInfo.category, iconInfo.type, iconInfo.ext);
+						quickslot.SetInfo(slot:GetSlotIndex(), iconInfo:GetCategory(), iconInfo.type, iconInfo.ext);
 					end
 				else
 
@@ -773,12 +773,12 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 
 	local iconInfo = icon:GetInfo();
 	local joystickquickslotRestFrame = ui.GetFrame("joystickrestquickslot");
-	if iconInfo.category == 'Skill' and joystickquickslotRestFrame:IsVisible() == 0 then
+	if iconInfo:GetCategory() == 'Skill' and joystickquickslotRestFrame:IsVisible() == 0 then
 		ICON_USE(icon);
 		return;
 	end
 
-	if iconInfo.category == 'Ability' and joystickquickslotRestFrame:IsVisible() == 0 then
+	if iconInfo:GetCategory() == 'Ability' and joystickquickslotRestFrame:IsVisible() == 0 then
 		ICON_USE(icon);
 		return;
 	end
@@ -795,7 +795,7 @@ function QUICKSLOTNEXPBAR_SLOT_USE(frame, slot, argStr, argNum)
 	end
 
 	if invenItemInfo == nil then
-		if iconInfo.category == 'Item' then
+		if iconInfo:GetCategory() == 'Item' then
 			icon:SetColorTone("FFFF0000");
 			icon:SetText('0', 'quickiconfont', ui.RIGHT, ui.BOTTOM, -2, 1);
 		end
@@ -840,7 +840,7 @@ function QUICKSLOTNEXPBAR_SLOT_RBTNDOWN(frame, control, argStr, argNum)
 	CLEAR_QUICKSLOT_SLOT(slot, 1, true);
 end
 
-function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
+function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)	
 	local liftIcon = ui.GetLiftIcon();
 	local liftIconiconInfo = liftIcon:GetInfo();
 	local iconParentFrame = liftIcon:GetTopParentFrame();
@@ -851,7 +851,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 	local iconGUID = "";
 
 	if nil ~= liftIconiconInfo then
-		iconCategory = liftIconiconInfo.category;
+		iconCategory = liftIconiconInfo:GetCategory();
 		iconType = liftIconiconInfo.type;
 		iconGUID = liftIconiconInfo:GetIESID();
 
@@ -893,7 +893,7 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 			local oldIcon = slot:GetIcon();
 			if oldIcon ~= nil then
 				local iconInfo = oldIcon:GetInfo();
-				if iconInfo.imageName == "None" then
+				if iconInfo:GetImageName() == "None" then
 					oldIcon = nil;
 				end
 			end
@@ -930,7 +930,7 @@ end
 function QUICKSLOTNEXPBAR_SETICON(slot, icon, makeLog, sendSavePacket)
 	if icon  ~=  nil then
 		local iconInfo = icon:GetInfo();
-		SET_QUICK_SLOT(nil, slot, iconInfo.category, iconInfo.type, iconInfo:GetIESID(), makeLog, sendSavePacket, false);
+		SET_QUICK_SLOT(nil, slot, iconInfo:GetCategory(), iconInfo.type, iconInfo:GetIESID(), makeLog, sendSavePacket, false);
 	else
 		CLEAR_QUICKSLOT_SLOT(slot, makeLog, sendSavePacket);
 	end
@@ -993,7 +993,7 @@ function QUICKSLOT_GET_EMPTY_SLOT(frame)
 		end
         
 		local iconInfo = icon:GetInfo();        
-		if iconInfo.category == "None" then
+		if iconInfo:GetCategory() == "None" then
 			return slot;
 		end
 	end
@@ -1130,7 +1130,7 @@ function QUICKSLOTNEXPBAR_ON_ENABLE(frame, control, argStr, argNum)
 		local y = object:GetGlobalY();
 
 		local imageItem = ui.CreateIImageItem("IconOnEnableItem", x, y);
-		imageItem:SetImage(iconInfo.imageName);
+		imageItem:SetImage(iconInfo:GetImageName());
 		imageItem:SetScale(3.0, 3.0);
 
 		imageItem:SetLifeTime(1.0);
@@ -1316,7 +1316,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 			local icon = slot:GetIcon();
 			if icon ~= nil then
 				local iconInfo = icon:GetInfo();
-				slot:SetUserValue('ICON_CATEGORY', iconInfo.category);
+				slot:SetUserValue('ICON_CATEGORY', iconInfo:GetCategory());
 				slot:SetUserValue('ICON_TYPE', iconInfo.type);
 			end
 			CLEAR_SLOT_ITEM_INFO(slot);
@@ -1346,7 +1346,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local icon = lastSlot:GetIcon();
 		if icon ~= nil then
 			local iconInfo = icon:GetInfo();
-			lastSlot:SetUserValue('ICON_CATEGORY', iconInfo.category);
+			lastSlot:SetUserValue('ICON_CATEGORY', iconInfo:GetCategory());
 			lastSlot:SetUserValue('ICON_TYPE', iconInfo.type);
 		end
 
@@ -1376,7 +1376,7 @@ function QUICKSLOTNEXPBAR_MY_MONSTER_SKILL(isOn, monName, buffType)
 		local text = hotKeyTable.GetHotKeyString(slotString);
 		slot:SetText('{s14}{#f0dcaa}{b}{ol}'..text, 'default', ui.LEFT, ui.TOP, 2, 1);
 		local cate = slot:GetUserValue('ICON_CATEGORY');
-		if 'None' ~= cate then        
+		if 'None' ~= cate then    
 			SET_QUICK_SLOT(frame, slot, cate, slot:GetUserIValue('ICON_TYPE'),  "", 0, 0, false);
 		end
 		slot:SetUserValue('ICON_CATEGORY', 'None');

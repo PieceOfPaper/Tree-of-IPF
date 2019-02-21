@@ -15,18 +15,21 @@ local function _CREATE_SEAL_OPTION(box, ypos, step, propName, propValue, drawLin
 	end
 
 	local infoTextStyle = '{@st41b}{s18}{#FFCC66}';
-	local valueTextStyle = '{@st41b}{s18}{#ffa800}';
+	local valueTextStyle = '{@st41b}{s16}{#ffa800}';
 	if style ~= nil then
 		infoTextStyle = style;
-		valueTextStyle = style;
+		valueTextStyle = "{@st41b}{s16}{#bfbfbf}";
 	end
+	
 	local infoText = box:CreateControl('richtext', 'infoText'..step, 10, ypos, box:GetWidth(), 30);
 	infoText:SetText(infoTextStyle..ScpArgMsg('QUEST_STEPREWARD_MSG2', 'STEP', step)..ClMsg('CollectionMagicText'));
 	ypos = ypos + infoText:GetHeight();
-
-	local valueText = box:CreateControl('richtext', 'valueText'..step, 30, ypos, box:GetWidth(), 30);
+	
+	local valueText = box:CreateControl('richtext', 'valueText'..step, 20, ypos, box:GetWidth(), 30);
 	valueText:SetText(valueTextStyle..GET_OPTION_VALUE_OR_PERCECNT_STRING(propName, propValue));
 	ypos = ypos + infoText:GetHeight();
+	AUTO_CAST(valueText);
+	valueText:AdjustFontSizeByWidth(box:GetWidth() - 20);
 
 	if drawLockImg == true then
 		local LOCK_IMG_SIZE = 35;
@@ -371,7 +374,7 @@ function DRAW_EQUIP_COMMON_TOOLTIP_SMALL_IMG(tooltipframe, invitem, mainframenam
 	end
 
 	local gradeName = GET_CHILD_RECURSIVELY(equipCommonCSet, "gradeName")
-	gradeName:SetText(gradeText)
+gradeName:SetText(gradeText)
 
 	-- 아이템 배경 이미지 : grade기준
 	local item_bg = GET_CHILD(equipCommonCSet, "item_bg", "ui::CPicture");

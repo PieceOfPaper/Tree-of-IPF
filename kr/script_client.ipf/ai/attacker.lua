@@ -274,7 +274,7 @@ function SELECT_QUEST_WARP()
 	OPEN_QUESTWARP_FRAME(frame);
 end
 
-function ENTER_INTE_WARP(actor)
+function ENTER_INTE_WARP(actor)    
 
 	local fsmActor = GetMyActor();
 	if fsmActor:IsDead() == 1 then
@@ -293,7 +293,7 @@ function ENTER_INTE_WARP(actor)
 	actor:SetFSMArg1(0);	
 end
 
-function UPDATE_INTE_WARP(actor, elapsedTime)	
+function UPDATE_INTE_WARP(actor, elapsedTime)	    
 	local fsmActor = GetMyActor();	
 	if fsmActor:IsHitState() == 1 or fsmActor:IsDead() == 1 then
 		actor:ActorMoveStop();
@@ -309,7 +309,7 @@ function UPDATE_INTE_WARP(actor, elapsedTime)
 	end	
 end
 
-function UPDATE_INTE_WARP_READY(actor)
+function UPDATE_INTE_WARP_READY(actor)    
 
 	local startPos = actor:GetArgPos(0);
 	local destPos = actor:GetMoveDestPos();
@@ -325,7 +325,7 @@ function UPDATE_INTE_WARP_READY(actor)
 		if s_warpEffect == 0 then
 			--movie.StopAnimToStd(actor:GetHandleVal());		
 			actor:GetEffect():PlayEffect("F_light029_blue", 0.2);
-			movie.ShowModel(actor:GetHandleVal(), 0);
+			--movie.ShowModel(actor:GetHandleVal(), 0);
 			s_warpEffect = 1;
 		end
 	end		
@@ -352,7 +352,7 @@ function UPDATE_INTE_WARP_READY(actor)
 	end
 end
  
-function UPDATE_INTE_WARP_PROC(actor)	
+function UPDATE_INTE_WARP_PROC(actor)
 	actor:SetJumpAniType(1);
 	movie.ShowModel(actor:GetHandleVal(), 0);
 	

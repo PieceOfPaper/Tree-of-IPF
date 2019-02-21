@@ -69,6 +69,7 @@ function ON_TIMELINE_UPDATE(code, ret_json)
         local regDateTxt = GET_CHILD_RECURSIVELY(ctrlSet, "date", "ui::CRichText");
         local replyCount = GET_CHILD_RECURSIVELY(ctrlSet, "replyCount", "ui::CRichText");
         local replyPic = GET_CHILD_RECURSIVELY(ctrlSet, "replyPic", "ui::CPicture"); 
+        local replyEdit = GET_CHILD_RECURSIVELY(ctrlSet, "editReply", "ui::CEdit"); 
         if HAS_CLAIM_CODE(207) == nil and AM_I_LEADER(PARTY_GUILD) == 0 then
             local deleteBtn = GET_CHILD_RECURSIVELY(ctrlSet, "card_deleteBtn", "ui::CButton"); 
             deleteBtn:SetEnable(0)
@@ -96,6 +97,8 @@ function ON_TIMELINE_UPDATE(code, ret_json)
 
         local replyArea = GET_CHILD_RECURSIVELY(ctrlSet, "replyArea", "ui::CGroupBox");
         replyArea:SetVisible(0);
+
+        replyEdit:SetEventScript(ui.ENTERKEY,"ON_REPLY_SEND")
     end
     if #list ~= 0 then
         lastBoardIndex = list[#list]["seq"]
@@ -110,7 +113,9 @@ end
 function ON_REPLY_SEND(parent, control)
  
     parent = parent:GetAboveControlset();
-    local message = GET_CHILD_RECURSIVELY(parent, "editReply", "ui::CEdit");
+    control = GET_CHILD_RECURSIVELY(parent, "sendReply", "ui::CButton")
+    
+    local message = GET_CHILD_RECURSIVELY(parent, "editReply", "ui::CEdit")
     if message:GetText() == "" then
         return;
     end

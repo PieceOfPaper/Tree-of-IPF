@@ -10,7 +10,7 @@
 	<Sound frame="0.00" soundFile="skl_eff_debuff_1"/>
 	<Sound frame="2.0" soundFile="skl_fgt_tackle_cast"/>
 	<Sound frame="8.0" soundFile="skl_fgt_tackle_shot"/>
-	<Particle frame="4" attachNode="Dummy_effect_buff_R" particleName="F_buff_basic029_red_line" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false"/>
-	<Particle frame="4" attachNode="Dummy_effect_buff_R" particleName="F_wizard_increasespeed_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false"/>
+	<Particle frame="4" attachNode="Dummy_helmet" particleName="F_buff_basic029_red_line" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false"/>
+	<Particle frame="4" attachNode="Dummy_helmet" particleName="F_wizard_increasespeed_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false"/>
 	<Particle frame="13" attachNode="Dummy_effect_hand_L" particleName="F_wizard_increasespeed_cast1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false"/>
 </ActionDesc>

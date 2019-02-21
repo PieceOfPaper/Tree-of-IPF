@@ -63,21 +63,18 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 	if maxSizeHeightWnd < (maxSizeHeightFrame + 50) then                 
 		local margin = maxSizeHeightWnd/2;
 		box:EnableScrollBar(1);
-		
+
 		box:Resize(box:GetOriginalWidth(), margin - useBtn:GetHeight() - 40);
 		box:SetScrollBar(0);
 		box:InvalidateScrollBar();
 		frame:Resize(frame:GetOriginalWidth(), margin + 100);
 	else
 		box:SetCurLine(0) -- scroll init
-		box:EnableScrollBar(0);
 		
 		box:Resize(box:GetOriginalWidth(), y);
 		frame:Resize(frame:GetOriginalWidth(), maxSizeHeightFrame);
 	end;
-	
-	frame:ShowWindow(1);
-
+	box:SetScrollPos(0);
 	
 	local selectExist = 0;
 	local cnt = box:GetChildCount();

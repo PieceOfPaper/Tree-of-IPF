@@ -79,8 +79,7 @@ function INDUNINFO_CHAR_UI_OPEN(frame, msg, argStr, argNum)
                 end
             end
             local silverLabel = charGroupBox:CreateOrGetControl("richtext", 'CHARACTER_SILVER_' .. pcName, 20, 10, ctrlWidth, 20)
-            silverLabel:SetText('{@st42b}실버:' .. GET_COMMAED_STRING(pcInfo:GetSilver()))
-
+            silverLabel:SetText(ClMsg('Auto__{@st42b}SilBeo') .. ':' .. GET_COMMAED_STRING(pcInfo:GetSilver()))
 
             local labelLine = charGroupBox:CreateOrGetControl('labelline', "CHARACTER_LINE_" .. pcName, 0, 0, ctrlWidth, 10)
             labelLine:SetSkinName("labelline2")

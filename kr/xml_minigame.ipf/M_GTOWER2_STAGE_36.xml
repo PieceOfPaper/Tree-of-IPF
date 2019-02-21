@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="M_GTOWER2_STAGE_36" minLv="0" maxLv="0" startWaitSec="15">
+    <Game Name="M_GTOWER2_STAGE_36" minLv="0" maxLv="0" mapName="mission_groundtower_2" playerCountCheckDestroy="1" startWaitSec="15">
         <StageList>
             <Stage Name="SETTING">
                 <StartScpList>
@@ -13,7 +13,10 @@
                         <Num Num="10"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="40001" Pos="5453.81#373.47#-5751.11" angle="83" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;대지의 탑 36층&apos; &apos;Enter&apos; &apos;G_TOWER_WARP_TO_36&apos; &apos;Range&apos; &apos;50&apos; "/>
+                    <Obj Type="Monster" MonType="57272" Pos="-2772.27#267.37#-4279.30" angle="90" genCount="1" genTime="20000" objectKey="1" autoDestroy="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; &apos;BTree&apos; &apos;None&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event execCount="1" eventName="END">
                         <condList>
@@ -664,5 +667,10 @@
                 </StageEvents>
             </Stage>
         </StageList>
-    </Game>
+<EnterList>
+            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+                <Str Str="M_GTOWER_2_4"/>
+            </ToolScp>
+        </EnterList>
+        </Game>
 </GameList>

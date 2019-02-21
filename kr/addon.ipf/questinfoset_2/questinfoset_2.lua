@@ -575,7 +575,7 @@ function ATTACH_QUEST_ITEM_INFO(ctrlset, QuestIES, result, titleWidth)
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	ICON_SET_ITEM_COOLDOWN(icon, invItem.type);
-	icon:Set(iconInfo.imageName, 'Item', invItem.type, invItem.invIndex, invItem:GetIESID(), invItem.count);
+	icon:Set(iconInfo:GetImageName(), 'Item', invItem.type, invItem.invIndex, invItem:GetIESID(), invItem.count);
 	slot:EnableDrag(0);
 	slot:EnableHitTest(1);
 	ctrlset:EnableHitTest(1);

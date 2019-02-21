@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="M_GTOWER2_STAGE_30" minLv="0" maxLv="0" startWaitSec="15">
+    <Game Name="M_GTOWER2_STAGE_30" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="15">
         <StageList>
             <Stage Name="SETTING">
                 <StartScpList>
@@ -195,7 +195,7 @@
                                 <Str Str="CNT"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="CHECK"/>
+                                <Str Str="OUT"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
                                 <Num Num="5"/>
@@ -552,8 +552,8 @@
             <Stage Name="OUT" AutoStart="0">
                 <StartScpList>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="파티 리더가 도전을 포기했습니다.{nl}보상을 받고 이스토라 유적지로 돌아갑니다"/>
-                        <Str Str="reward_box"/>
+                        <Str Str="솔미키 2 구간 성공{nl}곧 이스토라 유적지로 돌아갑니다"/>
+                        <Str Str="raid_clear"/>
                         <Num Num="60"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
@@ -576,12 +576,15 @@
                         </condList>
                         <execList>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="Reward">
                         <execList>
-                            <ToolScp Scp="REWARD_EARTH_TOWER" Client="NO" UseSleep="NO">
-                                <Str Str="GT_SELECT_STAGE_30"/>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP_MAIN" Client="NO" UseSleep="NO">
+                                <Str Str="TX_GT_REWARD_R2_2"/>
                             </ToolScp>
                         </execList>
                     </Event>

@@ -4,14 +4,13 @@
 <ActionDesc>
     <HitAni frame="0" Value="0" damratio="100"/>
     <Sound frame="0.00" soundFile="atk_rod"/>
-    <Particle frame="3" attachNode="Dummy_emitter" particleName="F_lineup022_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
-    <Sound frame="4.00" soundFile="skl_eff_shoggoth_cast"/>
-    <Sound frame="5.00" soundFile="atk_rod"/>
+    <Particle frame="0" attachNode="Dummy_effect_hand_L" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_gematria_buff_ground"/>
+    <Sound frame="1.00" soundFile="atk_cloth_m_l2"/>
+    <Particle frame="1.00" attachNode="Dummy_emitter" particleName="F_lineup022_dark_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false" sound="None"/>
+    <Particle frame="5" attachNode="Dummy_effect_hand_L" particleName="F_wizard_Invocation_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false" sound="skl_fgt_light_cast"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_levitation007_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <ReadyAniTime frame="10" Value="500"/>
     <PostFix frame="10" ID="_height"/>
-    <ReadyAniTime frame="10" Value="1000"/>
-    <Sound frame="10.00" soundFile="skl_eff_vashitasiddhi"/>
-    <Sound frame="11.00" soundFile="skl_eff_ogouveve"/>
-    <Shockwave frame="12" type="2" intensity="2" frequency="60" duration="0.8" range="1000"/>
-    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_lineup022_dark_blue2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="10" targetPos="false"/>
     <PostFix frame="20" ID="_height"/>
 </ActionDesc>

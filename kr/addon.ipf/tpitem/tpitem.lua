@@ -1,4 +1,4 @@
--- tpitem.lua : (tp shop)
+﻿-- tpitem.lua : (tp shop)
 
 local eventUserType = {
 	normalUser = 0,		-- 일반
@@ -440,6 +440,7 @@ function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
 		banner:SetUserValue("NUM_BANNER", 0);
 		banner:StopUpdateScript("_PROCESS_ROLLING_BANNER");	
 	elseif config.GetServiceNation() == "THI" then 
+		itembox_tab:SetItemsFixWidth(150);
 		local banner_offset_y = frame:GetUserConfig("banner_offset_y")
 		local balance_resize_width = frame:GetUserConfig("balance_resize_width")
 		local balance_offset_y = frame:GetUserConfig("balance_offset_y")

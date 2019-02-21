@@ -3167,9 +3167,6 @@ return math.floor(self.Lv/3);"/>
 	<SpcItem Name="STF03_102">
 		<TriggerList Act="AfterHitScript_Attack">
 			<Trigger>
-				<TgtCondList>
-					<ToolScp Scp="SPCI_COND_CHECK_ISNT_BOSS" Client="NO" UseSleep="NO"/>
-				</TgtCondList>
 				<TgtExecList>
 					<ToolScp Scp="SPCI_BUFF_ITEM" Client="NO" UseSleep="NO">
 						<Str Str="Fire"/>
@@ -3580,19 +3577,6 @@ return self.RSP;"/>
 				<ExecList>
 					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
 						<Str Str="Pyromancer_FireWall"/>
-						<Num Num="0.5"/>
-					</ToolScp>
-				</ExecList>
-			</Trigger>
-			<Trigger>
-				<CondList>
-					<ToolScp Scp="SPCI_CHECK_SKL_ATTRIBUTE" Client="NO" UseSleep="NO">
-						<Str Str="Fire"/>
-					</ToolScp>
-				</CondList>
-				<ExecList>
-					<ToolScp Scp="SPCI_HIT_SKILL_ADD" Client="NO" UseSleep="NO">
-						<Str Str="Pyromancer_Flare"/>
 						<Num Num="0.5"/>
 					</ToolScp>
 				</ExecList>

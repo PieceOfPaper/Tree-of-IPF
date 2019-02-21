@@ -72,7 +72,7 @@ function CHAT_EMOTICON_SELECT(frame, ctrl)
 		local slot = tolua.cast(ctrl, "ui::CSlot");
 		local icon = slot:GetIcon();
 		if icon ~= nil then
-		local imageName = icon:GetInfo().imageName;
+		local imageName = icon:GetInfo():GetImageName();
 			if imageName ~= "" then
 		CHAT_ADD_EMOTICON(imageName)
 	end
