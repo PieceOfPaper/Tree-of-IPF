@@ -1,19 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<AttachModel frame="0" XAC="cannonball" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="None"/>
-	<Sound frame="0.00" soundFile="cannon_cast"/>
 	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="8" R="80" G="70" B="60" A="70"/>
-	<BlendOn frame="9" R="60" G="50" B="20" A="50"/>
-	<BlendOn frame="11" R="40" G="30" B="20" A="30"/>
-	<BlendOn frame="13" R="30" G="20" B="10" A="30"/>
-	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
 	<Particle frame="1" attachNode="Dummy_effect_canon_tail" particleName="I_spread_out009_fire2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_effect_canon_tail" particleName="I_spread_out009_fire2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_canon_tail1" particleName="I_archer_CannonShot_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" targetPos="false"/>
 	<Particle frame="5" attachNode="Dummy_effect_canon_tail2" particleName="I_archer_CannonShot_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_canon_tail2" particleName="I_archer_CannonShot_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7.00" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Shockwave frame="8" type="2" intensity="5" frequency="70" duration="0.8" range="1000"/>
+	<BlendOn frame="8" R="80" G="70" B="60" A="70"/>
+	<Particle frame="8" attachNode="Dummy_effect_canon2" particleName="F_archer_CannonShot_explosion_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_effect_canon2" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
 	<Particle frame="8" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false" sound="cannon_shot_1"/>
 	<Particle frame="8" attachNode="Dummy_effect_canon" particleName="I_archer_pistol_ConcentratedFire2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="9" R="60" G="50" B="20" A="50"/>
 	<Particle frame="9" attachNode="Dummy_effect_canon_tail" particleName="I_archer_pistol_atk_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
 	<Particle frame="9" attachNode="Dummy_effect_canon2" particleName="F_smoke125_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_canon_tail" particleName="I_archer_pistol_atk_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_effect_canon2" particleName="F_smoke125_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="11" R="40" G="30" B="20" A="30"/>
 	<Particle frame="12" attachNode="Dummy_effect_canon2" particleName="I_archer_pistol_atk_smoke2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="13" R="30" G="20" B="10" A="30"/>
+	<BlendOff frame="14" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="cannon_cast"/>
 </ActionDesc>

@@ -56,6 +56,14 @@ function ATTENDANCE_INIT_COMMON_INFO(frame, attendanceID)
 	dateStr = string.format('%04d.%02d.%02d', attendanceData.endTime.wYear, attendanceData.endTime.wMonth, attendanceData.endTime.wDay);
 	periodText2:SetTextByKey('date', dateStr);
 
+	local infoText = GET_CHILD_RECURSIVELY(frame, 'infoText');
+	if attendanceID == 3 then
+		dateStr = ScpArgMsg("Attendance_infoText_1")..'{nl}'..ScpArgMsg("Attendance_infoText_2")..'{nl}'..ScpArgMsg("Attendance_infoText_3");		
+	else
+		dateStr = ScpArgMsg("Attendance_infoText_1")..'{nl}'..ScpArgMsg("Attendance_infoText_2");
+	end
+	infoText:SetText(dateStr);
+
 	local diffDays = imcTime.GetDifDaysFromNow(attendanceData.startTime);
 	frame:SetUserValue('TODAY_DAY_OFFSET', diffDays);
 end
