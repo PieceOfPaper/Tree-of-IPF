@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="guildhouse" minLv="0" maxLv="0" mapName="guild_agit_1" startWaitSec="0">
+    <Game Name="guildhouse" minLv="0" maxLv="0" mapName="guild_agit_1" playerCountCheckDestroy="1" startWaitSec="0">
         <StageList>
             <Stage Name="DefGroup">
                 <ObjList>
@@ -10,7 +10,7 @@
                     <Obj Type="Monster" MonType="156152" Pos="-134.02#0.23#72.53" genCount="1" genTime="20000" objectKey="3" propList="&apos;Dialog&apos; &apos;COLONY_SUTLER&apos; &apos;Faction&apos; &apos;Peaceful&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="150183" Pos="38.39#0.23#226.38" angle="-90" genCount="1" genTime="20000" objectKey="4" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;Name&apos; &apos;세이지 파견원&apos; &apos;Dialog&apos; &apos;GUILD_AGIT_SAGE_NPC&apos; "/>
+                    <Obj Type="Monster" MonType="150183" Pos="38.39#0.23#226.38" angle="-90" genCount="1" genTime="20000" objectKey="4" propList="&apos;Faction&apos; &apos;Peaceful&apos; &apos;Name&apos; &apos;세이지 파견원&apos; &apos;Dialog&apos; &apos;GUILD_AGIT_SAGE_NPC&apos; &apos;MaxDialog&apos; &apos;1&apos; "/>
                     <Obj Type="Monster" MonType="154114" Pos="-152.89#0.23#-115.04" angle="-2" genCount="1" genTime="20000" objectKey="5" propList="&apos;Name&apos; &apos;왕국 보급 장교{nl}만프래다스&apos; &apos;Dialog&apos; &apos;MC_AGIT_OFFICER_MANFREDAS&apos; "/>
                 </ObjList>
                 <StageEvents>

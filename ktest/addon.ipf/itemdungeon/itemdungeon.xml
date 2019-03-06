@@ -12,7 +12,7 @@
 		<groupbox name="historyBox" rect="0 0 450 1360" margin="0 30 0 0" layout_gravity="left top" skin="test_frame_low" tabname="historyTabItem" tabchangescp="ITEMDUNGEON_UPDATE_HISTORY"/>
 		<groupbox name="historyListBox" rect="0 0 430 800" margin="0 130 0 0" layout_gravity="center top" skin="test_frame_midle"/>
 		<!-- seller box -->
-		<groupbox name="mainBox" rect="0 0 450 1500" margin="0 0 0 0" layout_gravity="left top" draw="false" tabname="sellerTabItem"/>
+		<groupbox name="mainBox" rect="0 0 450 1500" margin="0 0 0 0" layout_gravity="left top" draw="false" tabname="sellerTabItem" tabchangescp="ITEMDUNGEON_UPDATE_SELLER"/>
 		<groupbox name="bg2" parent="mainBox" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_low"/>
 		<groupbox name="bg3" parent="mainBox" rect="0 0 430 480" margin="0 450 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" skin="test_frame_midle"/>
 		<groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_wizard"/>

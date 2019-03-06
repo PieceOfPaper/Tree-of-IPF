@@ -222,6 +222,13 @@ function EXEC_ITEM_DUNGEON(parent, ctrl)
 		return;
 	end
 
+	local pc = GetMyPCObject();
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
+
 	local priceInfo = session.autoSeller.CreateToGroup("Awakening");
 	priceInfo.classID = GetClass("Skill", 'Alchemist_ItemAwakening').ClassID;
 	priceInfo.price = price;
@@ -431,12 +438,27 @@ function ITEMDUNGEON_INIT_TAB(frame, sellerMode)
 		end
 	end
 end
+function ITEMDUNGEON_UPDATE_SELLER(parent, ctrl)
+	local frame = parent:GetTopParentFrame();
+	local buyBtn = GET_CHILD_RECURSIVELY(frame,'buyBtn')
+	buyBtn:ShowWindow(1)
+
+	local closeShopBtn = GET_CHILD_RECURSIVELY(frame,'closeShopBtn')
+	closeShopBtn:SetGravity(ui.RIGHT,ui.CENTER_VERT)
+end
 
 function ITEMDUNGEON_UPDATE_HISTORY(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local historyStrBox = GET_CHILD_RECURSIVELY(frame, 'historyListBox');
-    historyStrBox:RemoveAllChild();
-	
+	historyStrBox:RemoveAllChild();
+
+	if ctrl ~= nil then
+		local buyBtn = GET_CHILD_RECURSIVELY(frame,'buyBtn')
+		buyBtn:ShowWindow(0)
+		local closeShopBtn = GET_CHILD_RECURSIVELY(frame,'closeShopBtn')
+		closeShopBtn:SetGravity(ui.CENTER_HORZ,ui.CENTER_VERT)
+	end
+
 	local cnt = session.autoSeller.GetHistoryCount('Awakening');	
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex('Awakening', i);
@@ -452,7 +474,7 @@ function ITEMDUNGEON_UPDATE_HISTORY(parent, ctrl)
         local itemName = ctrlSet:GetChild('itemName');
         local price = ctrlSet:GetChild('price');
         itemName:ShowWindow(0);
-        price:ShowWindow(0);		
+		price:ShowWindow(0);	
 	end
 
 	GBOX_AUTO_ALIGN(historyStrBox, 20, 10, 10, true, false);

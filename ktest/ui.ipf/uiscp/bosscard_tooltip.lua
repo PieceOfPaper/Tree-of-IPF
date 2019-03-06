@@ -104,9 +104,14 @@ function DRAW_BOSSCARD_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	nameChild:SetText(fullname);
 
 	-- 종족 세팅
-	local bossCls = GetClassByType('Monster', invitem.NumberArg1);
+	local stringArg =''
+	if invitem.NumberArg1 ~= 0 then
+	    local bossCls = GetClassByType('Monster', invitem.NumberArg1);
+	    stringArg = ScpArgMsg(bossCls.RaceType)
+	end
+	
 	local typeRichtext = GET_CHILD(CSet, "type_text");
-	typeRichtext:SetText(ScpArgMsg(bossCls.RaceType));
+	typeRichtext:SetText(stringArg);
     
 	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- 맨 아랫쪽 여백
 	CSet:Resize(CSet:GetWidth(),typeRichtext:GetY() + typeRichtext:GetHeight() + BOTTOM_MARGIN);

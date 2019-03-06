@@ -91,6 +91,7 @@ end
 
 function GET_CHAR_INDUN_ENTRANCE_COUNT(cid, resetGroupID)
     local accountInfo = session.barrack.GetMyAccount();
+    local acc_obj = GetMyAccountObj()
 
     local indunClsList, cnt = GetClassList('Indun');
     local indunCls = nil;
@@ -102,9 +103,18 @@ function GET_CHAR_INDUN_ENTRANCE_COUNT(cid, resetGroupID)
     end
     
     if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
-        return accountInfo:GetBarrackCharEtcProp(cid,'IndunWeeklyEnteredCount_'..resetGroupID)   --매주 남은 횟수
+        if indunCls.UnitPerReset == 'PC' then
+            return accountInfo:GetBarrackCharEtcProp(cid,'IndunWeeklyEnteredCount_'..resetGroupID)  --매주 남은 횟수
+        else
+            return(acc_obj['IndunWeeklyEnteredCount_'..resetGroupID])                               --매주 남은 횟수
+        end
+        
     else
-        return accountInfo:GetBarrackCharEtcProp(cid, 'InDunCountType_'..resetGroupID);            --매일 남은 횟수
+        if indunCls.UnitPerReset == 'PC' then
+            return accountInfo:GetBarrackCharEtcProp(cid, 'InDunCountType_'..resetGroupID);         --매일 남은 횟수
+        else
+            return (acc_obj['InDunCountType_'..resetGroupID]);                                      --매일 남은 횟수
+        end 
     end
 end
 

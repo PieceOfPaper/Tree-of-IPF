@@ -694,7 +694,9 @@ function UPDATE_SKILL_TOOLTIP(frame, strarg, numarg1, numarg2, userData, obj)
     end
 
     if totalLevel > 0 and showAbilCnt > 0 then
-        ADD_SPEND_SKILL_LV_DESC_TOOLTIP(skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel)), pcAbilList, pcAbilCnt)
+        local captionFrame = skillFrame:GetChild('SKILL_CAPTION_'..tostring(totalLevel))
+        tolua.cast(captionFrame, "ui::CControlSet");
+        ADD_SPEND_SKILL_LV_DESC_TOOLTIP(captionFrame, pcAbilList, pcAbilCnt)
         abilFrame:Resize(frame:GetWidth(), ypos)
         frame:Resize(frame:GetWidth(), frame:GetHeight() + abilFrame:GetHeight());
         abilFrame:ShowWindow(1)

@@ -138,7 +138,7 @@ local function _REQUEST_SEAL_ADDITIONAL_RATIO(targetSeal, matSeal, additionalIte
 	session.AddItemID(targetSeal:GetIESID(), 1);
 	session.AddItemID(matSeal:GetIESID(), 1);
     local resultlist = session.GetItemIDList();
-	item.DialogTransaction('GET_SEAL_INFO', resultlist, '2 '..additionalItemCount);
+	item.DialogTransaction('GET_SEAL_INFO_ADDITIONAL', resultlist, '2 '..additionalItemCount);
 end
 
 local function _INIT_APPLY_OPTION_BOX(frame, itemObj)	

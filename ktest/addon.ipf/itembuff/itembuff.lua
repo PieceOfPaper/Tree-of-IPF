@@ -91,6 +91,14 @@ function ITEM_BUFF_CREATE_STORE(frame)
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end
+
+	local pc = GetMyPCObject();
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
+	
 	session.autoSeller.RequestRegister("ItemBuffStore", storeGroupName, edit:GetText(), sklName);
     packet.SendMoveStopMyCharacter()
 end

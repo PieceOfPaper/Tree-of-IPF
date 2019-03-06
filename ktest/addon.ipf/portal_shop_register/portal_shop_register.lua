@@ -169,6 +169,13 @@ function PORTAL_SHOP_REGISTER_EXECUTE(parent, ctrl)
 	if true == material.isLockState then
 		ui.MsgBox(ClMsg("MaterialItemIsLock"));
 		return;
+    end
+    
+    local pc = GetMyPCObject();
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
 	end
 
 	session.autoSeller.RequestRegister(sklName, 'Portal', titleInput:GetText(), sklName);    

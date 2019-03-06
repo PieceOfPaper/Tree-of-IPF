@@ -4346,13 +4346,6 @@ function SCR_GET_Ngadhundi_Ratio2(skill)
 
 end
 
-
-
-function SCR_GET_Invocation_Bufftime(skill)
-    local value = 40
-    return value
-end
-
 function SCR_Get_Pass_Bufftime(skill)
     local value = skill.Level * 5
   return value
@@ -5617,7 +5610,7 @@ function SCR_GET_StormCalling_Time(skill)
 end
 
 function SCR_GET_TriDisaster_Time(skill)
-    local value = 18 * skill.Level
+    local value = 12 * skill.Level
     return value;
 end
 
@@ -5630,7 +5623,7 @@ function SCR_GET_TriDisaster_Ratio(skill)
 end
 
 function SCR_GET_CreepingDeath_Ratio(skill)
-    local value = skill.Level * 4
+    local value = skill.Level * 3
     return value;
 end
 

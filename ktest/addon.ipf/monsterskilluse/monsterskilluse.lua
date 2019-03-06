@@ -41,12 +41,13 @@ function MON_PC_SKILL_BALLOON(title, handle, castTimeMS, isBoss, changeColor)
 		LINK_OBJ_TO_GAUGE(frame, animpic, gauge, 1);
 	end
 
+	frame:Resize(text:GetWidth()+80, frame:GetHeight())
 	frame:ShowWindow(1);
 	if castTimeSec <= 0 then
 		castTimeSec =1;
 	end
 
-	frame:SetDuration(castTimeSec);
+	frame:SetDuration(castTimeSec);	
 	FRAME_AUTO_POS_TO_OBJ(frame, handle, -frame:GetWidth() / 2, offsetY, 3, 1);
 
 end

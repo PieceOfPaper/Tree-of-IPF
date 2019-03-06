@@ -716,6 +716,8 @@
 		<image name="Icon_common_get_off" file="\icon\skill\common\Icon_common_get_off.png" imgrect="0 0 128 128" CMM_Caption="하차"/>
 		<image name="Icon_common_sand" file="\icon\skill\common\Icon_common_sand.png" imgrect="0 0 128 128" CMM_Caption="전문퀘_모래뿌리기"/>
 		<image name="Icon_common_potion" file="\icon\skill\common\Icon_common_potion.png" imgrect="0 0 128 128" CMM_Caption="전문퀘_포션마시기"/>
+		<image name="Icon_common_clear" file="\icon\skill\common\Icon_common_clear.png" imgrect="0 0 48 48" CMM_Caption="공통_스킬해제"/>
+		<image name="Icon_common_magical" file="\icon\skill\common\Icon_common_magical.png" imgrect="0 0 128 128" CMM_Caption="마법소녀코스튬 변신 스킬"/>
 	</imagelist>
 	<imagelist category="restquickslot_icon">
 		<image name="icon_rest_arrow" file="\icon\rest_mode_icon.tga" imgrect="0 0 128 128" CMM_Caption="화살제작"/>
@@ -1569,6 +1571,7 @@
 		<image name="ability_Wizard_Featherfoot22" file="\icon\icon_ability_wizard06.tga" imgrect="384 256 128 128" CMM_Caption="커다이챠: 강화"/>
 		<image name="ability_Wizard_Sage16" file="\icon\icon_ability_wizard06.tga" imgrect="512 256 128 128" CMM_Caption="디멘션 컴프레션: 충돌 후유증"/>
 		<image name="ability_Wizard_Sage17" file="\icon\icon_ability_wizard06.tga" imgrect="640 256 128 128" CMM_Caption="세이지: 공간연주자"/>
+		<image name="ability_Wizard_Wizard29" file="\icon\icon_ability_wizard06.tga" imgrect="768 256 128 128" CMM_Caption="레써지: 인챈트 레써지"/>
 	</imagelist>
 	<imagelist category="abilityicon_archer">
 		<image name="ability_archer_Mark" file="\icon\icon_ability_archer01.tga" imgrect="0 0 128 128" CMM_Caption="멀티샷_치명타"/>

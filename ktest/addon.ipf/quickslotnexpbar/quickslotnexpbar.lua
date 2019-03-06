@@ -38,6 +38,8 @@ function QUICKSLOTNEXPBAR_ON_INIT(addon, frame)
 	
 	addon:RegisterMsg('RESET_ABILITY_ACTIVE', 'QUICKSLOTNEXPBAR_ON_MSG');
     addon:RegisterMsg('RESET_ALL_SKILL', 'CLEAR_ALL_SKILL_QUICKSLOTBAR');
+
+	addon:RegisterMsg('DELETE_QUICK_SKILL', 'DELETE_SKILLICON_QUICKSLOTBAR');
 	
 	local timer = GET_CHILD(frame, "addontimer", "ui::CAddOnTimer");
 	timer:SetUpdateScript("UPDATE_QUICKSLOT_OVERHEAT");
@@ -170,7 +172,7 @@ function JUNGTAN_SLOT_ON_MSG(frame, msg, str, itemType)
 	elseif str == 'JUNGTANDEF_OFF' then
 
 		frame:SetUserValue("JUNGTANDEF_EFFECT", 0);
-		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
+		local timer = GET_CHILD(frame, "jungtandefti mer", "ui::CAddOnTimer");
 		timer:Stop();
 		imcSound.PlaySoundEvent('sys_booster_off');
 
@@ -983,18 +985,24 @@ function is_contain_skill_icon(frame, type)
 end
 
 function QUICKSLOT_GET_EMPTY_SLOT(frame)
-	for i = 0, MAX_QUICKSLOT_CNT-1 do
-		local slot = frame:GetChildRecursively("slot"..i+1);
+	if frame == nil or frame:IsVisible() == 0 then 
+		return; 
+	end
+
+	for i = 0, MAX_QUICKSLOT_CNT - 1 do
+		local slot = frame:GetChildRecursively("slot"..i + 1);
 		tolua.cast(slot, "ui::CSlot");
+
 		local icon = slot:GetIcon();
-        
 		if icon == nil then
 			return slot;
 		end
         
-		local iconInfo = icon:GetInfo();        
-		if iconInfo:GetCategory() == "None" then
-			return slot;
+		if icon ~= nil then
+			local iconInfo = icon:GetInfo();        
+			if iconInfo:GetCategory() == "None" then
+				return slot;
+			end
 		end
 	end
 
@@ -1020,8 +1028,8 @@ function GET_SLOT_BY_INDEX(frame, index)
 end
 
 function QUICKSLOT_REGISTER(frame, type, index, idSpace, isForceRegister)    
-    if is_contain_skill_icon(frame, type) == true and isForceRegister == false then        
-        return
+    if is_contain_skill_icon(frame, type) == true and isForceRegister == false then
+		return;
     end
 
 	local slot = nil;
@@ -1441,4 +1449,64 @@ end
 function QUICKSLOT_TOGGLE_ABILITY(type)
     local abilCls = GetClassByType("Ability", type)
     TOGGLE_ABILITY(abilCls.ClassName)
+end
+
+function DELETE_SKILLICON_QUICKSLOTBAR(frame, msg, argStr, argNum)
+	local frame = ui.GetFrame("quickslotnexpbar");
+	local joystick_frame = ui.GetFrame("joystickquickslot");
+	local isCheckQuickSlot = false; local isCheckJoyStickQuickSlot = false;
+	local id = tonumber(argStr);
+	if argNum == 1 then
+		return;
+	end
+	
+	for i = 0, MAX_QUICKSLOT_CNT - 1 do
+		if frame ~= nil then 
+			local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i + 1, "ui::CSlot");
+			if slot ~= nil then
+				local icon = slot:GetIcon();
+				if icon ~= nil then
+					tolua.cast(icon, "ui::CIcon");
+					local skill_id = icon:GetTooltipNumArg();
+					if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' and skill_id == id then
+						icon:SetTooltipNumArg(0);
+						slot:ClearIcon();
+						QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
+               			SET_QUICKSLOT_OVERHEAT(slot);
+						CLEAR_QUICKSLOT_SLOT(slot, 0, true);
+						isCheckQuickSlot = true;
+
+						slot:Invalidate();
+					end
+				end
+			end
+		end
+
+		if joystick_frame ~= nil then
+			local jslot = GET_CHILD_RECURSIVELY(joystick_frame, "slot"..i + 1, "ui::CSlot");
+			if jslot ~= nil then
+				local icon = jslot:GetIcon();
+				if icon ~= nil then
+					tolua.cast(icon, "ui::CIcon")
+					local skill_id = icon:GetTooltipNumArg()
+					if skill_id ~= 0 and GetClassString('Skill', skill_id, 'Icon') ~= 'None' and skill_id == id then
+						icon:SetTooltipNumArg(0)
+						jslot:ClearIcon();
+						QUICKSLOT_SET_GAUGE_VISIBLE(jslot, 0);
+						SET_QUICKSLOT_OVERHEAT(jslot);
+						CLEAR_QUICKSLOT_SLOT(jslot, 0, true);
+						isCheckJoyStickQuickSlot = true; 
+
+						jslot:Invalidate();       
+					end
+				end
+			end
+		end
+
+		if isCheckQuickSlot == true or isCheckJoyStickQuickSlot == true then
+			isCheckQuickSlot = false;
+			isCheckJoyStickQuickSlot = false;
+			break;
+		end
+	end
 end

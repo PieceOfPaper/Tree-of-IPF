@@ -107,7 +107,7 @@ function PET_INFO_SHOW(petGuid)
 	
 	local bg_Icon = frame:GetChild("bg_icon");
 	local icon = GET_CHILD(bg_Icon, "icon", "ui::CPicture");
-	icon:SetImage(obj.IconImage);
+	icon:SetImage(obj.Icon);
 	
 	local bg = frame:GetChild("bg");
 	local name = bg:GetChild("name");

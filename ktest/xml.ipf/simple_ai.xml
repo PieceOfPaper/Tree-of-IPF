@@ -1019,7 +1019,21 @@
 			</ToolScp>
 		</StartList>
 	</AI>
-	<AI Name="Alche_missile" UpdateMS="300" ActiveMessageMapInBattle="1">
+	<AI Name="AYAUTA_EP11_8_OBJ_1_AI" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="I_ground001_yellow_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_burstup004_dark_loop" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="Alche_missile" UpdateMS="300" ActiveMessageMapInBattle="1">
 		<List>
 			<ToolScp Scp="SAI_PARENT_POS" Client="NO" UseSleep="YES">
 				<Num Num="150"/>
@@ -13453,6 +13467,22 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str Str="BOT"/>
             </ToolScp>
         </StartList>
+    </AI>
+    <AI Name="PAJAUTA_EP11_SIGN_1" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_magic_prison_line_yellow" Arg="1"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+        </StartList>
+    </AI>
+    <AI Name="PAJAUTA_FOLLOWNPC_AI_RUN_1" ActiveMessageMapInBattle="1">
+        <List>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="PAJAUTA_FOLLOWNPC_AI_RUN_1_ACT"/>
+            </ToolScp>
+        </List>
     </AI>
     <AI Name="PARTY_010_MON_AI" ActiveMessageMapInBattle="1">
         <List>

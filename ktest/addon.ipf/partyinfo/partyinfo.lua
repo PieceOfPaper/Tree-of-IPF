@@ -30,12 +30,12 @@ function PARTYINFO_CONTROL_INIT()
 	end
 
 	if button ~= nil then
-		button:SetTextTooltip("소환수 정보로 전환(`)");
+		button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip"));
 		button:EnableHitTest(1);
 	end
 	
 	if buttonText ~= nil then
-		buttonText:SetTextByKey("title", "파티 정보");
+		buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
 	end
 end
 
@@ -161,9 +161,9 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 		local button = GET_CHILD_RECURSIVELY(summonsinfo, "summonsinfobutton");
 		if button ~= nil then
 			button:SetVisible(1);
-			button:SetTextTooltip("파티 정보로 전환(`)");
+			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip"));
 			button:EnableHitTest(1);
-			CHANGE_BUTTON_TITLE(summonsinfo, "소환수 정보");
+			CHANGE_BUTTON_TITLE(summonsinfo, ClMsg("SummonsInfo_SummonsInfo"));
 			summonsinfo:Invalidate();
 		end
 	end
@@ -1026,11 +1026,11 @@ function PARTYINFO_UPDATE_BUTTON(frame)
 		if button ~= nil and buttonText ~= nil then
 			-- button tooltip
 			button:SetVisible(1);
-			button:SetTextTooltip("소환수 정보로 전환(`)");
+			button:SetTextTooltip(ClMsg("SummonsInfo_ConvertSummonsInfo_ToolTip"));
 			button:EnableHitTest(1);
 
 			buttonText:SetVisible(1);
-			buttonText:SetTextByKey("title", "파티 정보");
+			buttonText:SetTextByKey("title", ClMsg("SummonsInfo_PartyInfo"));
 		end
 	end
 

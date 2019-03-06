@@ -1,9 +1,15 @@
-function UI_LIB_TAB_GET_ADD_TAB_INFO(tabItemName, groupBoxName, caption, tabKeyValue)
+function UI_LIB_TAB_GET_ADD_TAB_INFO(tabItemName, groupBoxName, caption, tabKeyValue, isIndexChangeValue)
     local info = {}
     info["TabItemName"] = tabItemName;
     info["GroupBoxName"] = groupBoxName;
     info["Caption"] = caption;
     info["TabItemKeyValue"] = tabKeyValue;
+
+    if isIndexChangeValue == nil then
+        isIndexChangeValue = true;
+    end
+    info["IsIndexChangeValue"] = isIndexChangeValue;
+
     return info;
 end
 
@@ -36,7 +42,7 @@ function UI_LIB_TAB_ADD_TAB_LIST(parent, tab, addTabInfoList, width, height, uiH
         local addTabInfo = addTabInfoList[i];
         local groupbox = GET_CHILD(parent, gbName)
         if groupbox == nil then
-            groupbox = UI_LIB_TAB_ADD_TAB(parent, tab, addTabInfo["TabItemName"], addTabInfo["GroupBoxName"], addTabInfo["Caption"], width, height, uiHorizontal, uiVertical, x, y, tabItemKeyName, addTabInfo["TabItemKeyValue"])
+            groupbox = UI_LIB_TAB_ADD_TAB(parent, tab, addTabInfo["TabItemName"], addTabInfo["GroupBoxName"], addTabInfo["Caption"], width, height, uiHorizontal, uiVertical, x, y, tabItemKeyName, addTabInfo["TabItemKeyValue"], addTabInfo["IsIndexChangeValue"])
             groupboxList[i] = groupbox;
         end
     end
@@ -49,7 +55,11 @@ function UI_LIB_TAB_ADD_TAB_LIST(parent, tab, addTabInfoList, width, height, uiH
 end
 
 -- desc : 탭 한개 생성
-function UI_LIB_TAB_ADD_TAB(parent, tab, tabItemName, gbName, caption, width, height, uiHorizontal, uiVertical, x, y, tabItemKeyName, tabItemKeyValue)
+function UI_LIB_TAB_ADD_TAB(parent, tab, tabItemName, gbName, caption, width, height, uiHorizontal, uiVertical, x, y, tabItemKeyName, tabItemKeyValue, isIndexChangeValue)
+    if isIndexChangeValue == nil then
+        isIndexChangeValue = true;
+    end
+    
     local index = tab:GetIndexByName(tabItemName);
     if index ~= -1 then
         return;
@@ -57,6 +67,7 @@ function UI_LIB_TAB_ADD_TAB(parent, tab, tabItemName, gbName, caption, width, he
     
     local tabitem = tab:AddItemWithName(caption, tabItemName);
     local groupbox = parent:CreateOrGetControl("groupbox", gbName, width, height, uiHorizontal, uiVertical, x, y, 0, 0);
+    tab:SetIsIndexChange(isIndexChangeValue);
     AUTO_CAST(groupbox);
     groupbox:SetTabName(tabItemName);
     groupbox:SetSkinName("none");

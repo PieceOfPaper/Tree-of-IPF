@@ -192,7 +192,14 @@ function ON_MARKET_ITEM_LIST(frame, msg, argStr, argNum)
 		elseif groupName == "Gem" then
 			MARKET_DRAW_CTRLSET_GEM(frame)
 		elseif groupName == "Card" then
-			MARKET_DRAW_CTRLSET_CARD(frame)
+			local subCategory = frame:GetUserValue('SELECTED_SUB_CATEGORY');
+			if subCategory == "ShowAll" then
+				MARKET_DRAW_CTRLSET_DEFAULT(frame)
+			elseif subCategory == "CardAddExp" or subCategory == "Summon" then
+				MARKET_DRAW_CTRLSET_DEFAULT(frame, false)
+			else
+				MARKET_DRAW_CTRLSET_CARD(frame)
+			end			
 		elseif groupName == "ExpOrb" then
 			MARKET_DRAW_CTRLSET_EXPORB(frame)
 		else
