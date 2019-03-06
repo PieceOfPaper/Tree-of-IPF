@@ -16,13 +16,13 @@
                     <Obj Type="Monster" MonType="57607" Pos="87.17#-24.45#444.05" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_3_S&apos; &apos;StrArg1&apos; &apos;UpHillMonster&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L3_NORMAL"/>
                     <Obj Type="Monster" MonType="57606" Pos="113.66#-24.45#418.93" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;UPHILL_ELITE&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_3_E&apos; &apos;StrArg1&apos; &apos;UpHillMonster&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_L3_NORMAL"/>
                     <Obj Type="Monster" MonType="41211" Pos="-462.81#-94.92#135.74" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_2_B&apos; &apos;StrArg1&apos; &apos;UpHillBoss&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="MISSION_UPHILL_DEFFENSE_BOSS"/>
-                    <Obj Type="Monster" MonType="105024" Pos="-426.56#-94.92#177.77" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_GIMMICK&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;MSPD_BM&apos; &apos;70&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L2_AI">
+                    <Obj Type="Monster" MonType="105024" Pos="-426.56#-94.92#177.77" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="10" UseAiOutOfPc="1" propList="&apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L2_AI">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="105024" Pos="-306.16#-40.50#-173.05" range="20" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;50&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_GIMMICK&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L1_AI">
+                    <Obj Type="Monster" MonType="105024" Pos="-306.16#-40.50#-173.05" range="20" genCount="1" genTime="20000" autoGen="0" objectKey="11" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;50&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L1_AI">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
-                    <Obj Type="Monster" MonType="105024" Pos="110.91#-24.45#434.01" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;50&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;BornScript&apos; &apos;@GET_UPHILL_MON_CHANGE_GIMMICK&apos; &apos;StatType&apos; &apos;InstanceDungeon&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L3_AI"/>
+                    <Obj Type="Monster" MonType="105024" Pos="110.91#-24.45#434.01" range="10" genCount="1" genTime="20000" autoGen="0" objectKey="12" UseAiOutOfPc="1" propList="&apos;MSPD_BM&apos; &apos;50&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; " SimpleAI="UPHILL_GIMMICK_MONSTER_L3_AI"/>
                     <Obj Type="Monster" MonType="47265" Pos="209.54#80.12#-152.99" angle="-100" genCount="1" genTime="20000" autoGen="0" objectKey="13" UseAiOutOfPc="1" propList="&apos;Faction&apos; &apos;FreeForAll&apos; &apos;MHP_BM&apos; &apos;@GET_UPHILL_MHP_DEFF1&apos; &apos;Level&apos; &apos;@GET_UPHILL_LV_NORMAL1&apos; &apos;Name&apos; &apos;신성의 횃불&apos; &apos;AlwaysShowHP&apos; &apos;YES&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1"/>
                     </Obj>
@@ -147,6 +147,9 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_SOUND_ALLPC" Client="NO" UseSleep="NO">
                                 <Str Str="mission_start_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
+                                <Str Str="SCR_UPHILL_DEFENSE_DIFFICULTY_RECORD_LOG"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -754,6 +757,9 @@
                                 <Num Num="6"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summonGimmickMon2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="nextStep"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
@@ -761,9 +767,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Step5"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="StepCheck1"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Step6"/>
@@ -938,7 +941,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execMS="20000" execCount="3" eventName="summonGimmickMon2" execWithStart="0">
+                    <Event execMS="5000" eventName="summonGimmickMon2" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="20"/>
@@ -1523,6 +1526,9 @@
                                 <Num Num="11"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summonGimmickMon2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="nextStep"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
@@ -1530,9 +1536,6 @@
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Step10"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="StepCheck2"/>
                             </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Step11"/>
@@ -1720,7 +1723,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="summonGimmickMon2" execWithStart="0">
+                    <Event execMS="5000" eventName="summonGimmickMon2" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="20"/>
@@ -2251,6 +2254,9 @@
                             <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
                                 <Str Str="nextStep"/>
                             </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summonGimmickMon2"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
                                 <Str Str="Step15"/>
                             </ToolScp>
@@ -2435,7 +2441,7 @@
                             </ToolScp>
                         </execList>
                     </Event>
-                    <Event execCount="1" eventName="summonGimmickMon2" execWithStart="0">
+                    <Event execMS="5000" eventName="summonGimmickMon2" execWithStart="0">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
                                 <Num Num="20"/>
@@ -2889,9 +2895,6 @@
                             <ToolScp Scp="MGAME_PVP_POINT_GIVE_UPHILL" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_UPHILL_END_GIVE_ACHIEVE"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_UPHILL_DEFENCE_REWARD_RECORD"/>
                             </ToolScp>
                             <ToolScp Scp="MGAME_EXEC_CUSTOMLOG_ALLPC" Client="NO" UseSleep="NO">
                                 <Str Str="UPHillDeffense"/>

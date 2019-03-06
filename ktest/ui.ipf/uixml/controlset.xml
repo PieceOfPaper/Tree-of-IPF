@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
 	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
 		<controls>
@@ -666,7 +666,7 @@
 			<picture name="material_questionmark" image="question_mark" layout_gravity="left top" rect="0 0 40 40" margin="10 10 0 0" stretch="true"/>
 			<richtext name="material_name" rect="0 0 80 30" margin="90 0 0 0" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="false" format="미정" param1="미정" param2="미정" param3="미정" caption="미정" fontname="brown_18"/>
 			<richtext name="material_count" rect="0 0 30 30" margin="0 0 30 0" layout_gravity="right center" textalign="right center" resizebytext="true" fixwidth="false" format="%s%s{/} / %s{/}" param1="color" param2="curCount" param3="needCount" fontname="brown_18"/>
-		<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
+			<labelline name="labelline" skin="labelline_def_2" margin="10 0 0 0" rect="0 0 390 1" layout_gravity="left bottom"/>
 		</controls>
 	</controlset>
 	<controlset name="eachmaterial_in_itemoptionextract" hittest="true" width="430" height="70" skin="None" hittestset="true" draw="true" stateskin="false">
@@ -1102,7 +1102,7 @@
 			<richtext name="attribute" rect="32 0 80 16" fixwidth="true"/>
 			<richtext name="data" rect="32 16 80 16" fixwidth="true"/>
 		</controls>
-		</controlset>
+	</controlset>
 	<controlset name="control_ListObj" toggle="false" hittest="true" width="112" height="32">
 		<controls>
 			<picture name="icon" rect="0 0 32 32"/>
@@ -1114,25 +1114,25 @@
 		<controls>
 			<richtext name="questCategory" rect="4 4 68 16" fixwidth="true"/>
 			<richtext name="questNum" rect="44 20 28 16" fixwidth="true"/>
-			</controls>
+		</controls>
 	</controlset>
 	<controlset name="quest_category" toggle="false" hittest="true" width="160" height="32" caption="퀘스트의 카테고리">
 		<controls>
 			<picture name="icon" rect="4 4 24 24"/>
 			<richtext name="questCategory" rect="32 4 96 24" fixwidth="true"/>
-			</controls>
+		</controls>
 	</controlset>
 	<controlset name="quest_listObj" toggle="false" hittest="true" width="160" height="32" caption="퀘스트의 리스트 오브젝트">
 		<controls>
 			<picture name="icon" rect="4 4 24 24"/>
 			<richtext name="questTitle" rect="32 4 96 24" fixwidth="true"/>
 			<richtext name="questStatus" rect="132 4 24 24" fixwidth="true"/>
-			</controls>
+		</controls>
 	</controlset>
 	<controlset name="CreateSet_Type01" toggle="false" hittest="true" width="68" height="68" caption="퀘스트의 리스트 오브젝트">
 		<controls>
 			<slot name="slot" rect="2 2 60 60" clicksound="slot_item_hair_face"/>
-			</controls>
+		</controls>
 	</controlset>
 	<controlset name="CreateSet_Type02" toggle="false" hittest="true" width="68" height="68" caption="퀘스트의 리스트 오브젝트-여기까지는 옛날꺼임">
 		<controls>
@@ -1315,7 +1315,7 @@
 	<controlset name="custom_quest_list" toggle="false" width="470" height="150" skin="earth_T_shop_skin" updateparent="true" stateskin="false" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff">
 		<controls>
 			<checkbox name="save" rect="0 0 30 30" layout_gravity="left top" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" margin="25 15 0 0"/>
-			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" stretch="true" margin="50 15 0 0" />
+			<picture name="questmark" rect="0 0 30 30" layout_gravity="left top" stretch="true" margin="50 15 0 0"/>
 			<richtext name="name" rect="0 0 335 18" layout_gravity="left top" margin="50 20 0 0" fixwidth="true" resizebytext="true" hittest="false" fontname="yellow_16_ol"/>
 			<button name="avandonquest_try" margin="0 0 103 15" rect="0 0 120 43" skin="test_pvp_btn" layout_gravity="right bottom" format="{@st66b}재시작{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_ABANDON_QUEST_TRY"/>
 			<button name="dialogReplay" margin="0 0 60 15" rect="0 0 46 46" image="quest_dialog_btn" layout_gravity="right bottom" format="{@st42b}{/}" oversound="button_over" clicksound="button_click" MouseOnAnim="btn_mouseover" MouseOffAnim="btn_mouseoff" LBtnUpScp="SCR_QUEST_DIALOG_REPLAY" texttooltip="{@st59}퀘스트 대사 보기{/}"/>
@@ -3337,7 +3337,7 @@
 			<groupbox name="gb_magic" layout_gravity="left top" rect="0 0 510 50" margin="0 40 0 0" draw="false" skin="test_skin_01_btn" resizebyparent="false" scrollbar="false"/>
 			<picture name="iconMagic" parent="gb_magic" layout_gravity="left top" rect="0 0 80 20" margin="50 0 0 0" stretch="true" image="collection_magic"/>
 			<richtext name="richMagic" parent="iconMagic" layout_gravity="left top" rect="0 0 80 20" margin="0 0 0 0" textalign="center center" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="white_16_b" format="%s" param1="value" param1_def="magic"/>
-			<richtext name="magicList" parent="gb_magic" layout_gravity="left top" rect="0 0 200 20" margin="135 0 0 0" textalign="left top" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="black_18" format="%s" param1="value" param1_def="magiclist"/>
+			<richtext name="magicList" parent="gb_magic" layout_gravity="left top" rect="0 0 380 20" margin="135 0 0 0" textalign="left top" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="black_18" format="%s" param1="value" param1_def="magiclist"/>
 			<groupbox name="gb_items" layout_gravity="left bottom" rect="0 0 500 70" margin="5 0 0 10" draw="true" resizebyparent="false" scrollbar="false" skin="ability_deck"/>
 			<groupbox name="gb_collection" layout_gravity="left top" rect="0 0 510 140" margin="0 0 0 0" draw="false" resizebyparent="false" scrollbar="false" skin="test_skin_01_btn" hittest="true" hittestbox="true" LBtnDownScp="OPEN_DECK_DETAIL"/>
 		</controls>
@@ -3367,7 +3367,7 @@
 			<groupbox name="compareBox" rect="0 0 450 50" margin="0 195 0 0" layout_gravity="center top" draw="true" skin="Appariser_Positive" scrollbar="false" fixheight="false"/>
 			<richtext name="compareResText" parent="compareBox" rect="0 0 100 20" margin="0 0 0 0" layout_gravity="center center" caption="감정사가 착용 중인 아이템이 없습니다" fontname="black_16"/>
 		</controls>
-		</controlset>
+	</controlset>
 	<controlset name="expireditem_ctrlset" hittest="false" width="380" height="70">
 		<controls>
 			<groupbox name="top_bg" rect="0 0 370 30" layout_gravity="left top" margin="0 0 0 0" skin="guild_base_skin" hittest="false" draw="true"/>
@@ -4236,7 +4236,7 @@
 	<controlset name="job_select_guide_job_tree" hittest="true" width="500" height="80" hittestset="false">
 		<controls>
 			<groupbox name="gb" margin="0 0 0 0" rect="0 0 500 80" draw="false" hittestbox="false" layout_gravity="center center" resizebyparent="false" scrollbar="false"/>
-		<richtext name="too_many_text" rect="0 0 200 80" margin="0 0 30 10" layout_gravity="right center" textalign="right center" caption="{@st43}...{/}" visible="false"/>
+			<richtext name="too_many_text" rect="0 0 200 80" margin="0 0 30 10" layout_gravity="right center" textalign="right center" caption="{@st43}...{/}" visible="false"/>
 		</controls>
 	</controlset>
 	<controlset name="job_select_guide_result" hittest="true" width="500" height="830" hittestset="false" draw="false" skin="None">
@@ -4318,7 +4318,7 @@
 		<controls>
 			<labelline name="labelline_1" rect="0 0 300 4" margin="0 0 0 0" layout_gravity="center top" skin="labelline_def_4"/>
 			<checkbox name="priceOrderCheck_0" rect="0 0 100 30" margin="15 8 0 0" layout_gravity="left top" caption="낮은 가격순" fontname="brown_16_b" LBtnUpScp="MARKET_UPDATE_PRICE_ORDER" checked="true"/>
-			<checkbox name="priceOrderCheck_1" rect="0 0 100 30" margin="160 8 0 0" layout_gravity="left top" caption="높은 가격순" fontname="brown_16_b" LBtnUpScp="MARKET_UPDATE_PRICE_ORDER" checked="false" />
+			<checkbox name="priceOrderCheck_1" rect="0 0 100 30" margin="160 8 0 0" layout_gravity="left top" caption="높은 가격순" fontname="brown_16_b" LBtnUpScp="MARKET_UPDATE_PRICE_ORDER" checked="false"/>
 			<richtext name="staticText" rect="0 0 100 30" margin="10 45 0 0" layout_gravity="left top" caption="아이템 검색" fontname="brown_16_b"/>
 			<groupbox name="cateListBox2" rect="0 0 285 32" margin="-5 70 0 0" layout_gravity="center top" skin="test_weight_skin"/>
 			<edit name="searchEdit" parent="cateListBox2" rect="0 0 205 32" margin="5 0 0 0" layout_gravity="left center" fontname="white_18_ol" skin="none" textalign="left center" EnterKeyScp="MARKET_REQ_LIST" maxlen="50"/>
@@ -4628,9 +4628,9 @@
 	<controlset name="listselect" hittest="true" width="430" height="55" skin="market_listbase" hittestset="false" draw="true">
 		<userconfig MARGIN_BOTTOM="8" OPEN_ANIM="dialog_start2" CLOSE_ANIM="dialog_end"/>
 		<controls>
-			<groupbox name="gb" rect="0 0 430 45" margin="0 0 0 0" layout_gravity="center center" draw="false" />
+			<groupbox name="gb" rect="0 0 430 45" margin="0 0 0 0" layout_gravity="center center" draw="false"/>
 			<richtext name="data_text" parent="gb" rect="0 0 200 20" margin="20 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="내용" fontname="white_14_ol"/>
-			<button name="select_btn"  parent="gb" rect="0 0 84 47" margin="170 0 0 0" layout_gravity="center center" hittest="true" format="%s" param1="value" param1_def="버튼" stretch="true" skin="test_pvp_btn" fontname="black_16_b"/>
+			<button name="select_btn" parent="gb" rect="0 0 84 47" margin="170 0 0 0" layout_gravity="center center" hittest="true" format="%s" param1="value" param1_def="버튼" stretch="true" skin="test_pvp_btn" fontname="black_16_b"/>
 		</controls>
 	</controlset>
 </controlsetlist>

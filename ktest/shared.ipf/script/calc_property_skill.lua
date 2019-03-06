@@ -10738,7 +10738,7 @@ function SCR_GET_GroovingMuzzle_BuffTime(skill)
 end
 
 function SCR_GET_Sabbath_Ratio(skill)
-    local value = 20
+    local value = 40
     value = value + (TryGetProp(skill, "Level") * 4)
     return value
 end

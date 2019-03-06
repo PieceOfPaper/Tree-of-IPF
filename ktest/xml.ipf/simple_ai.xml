@@ -20559,6 +20559,9 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Str_Arg Str="F_spread_in032_dark_loop" Arg="1"/>
                 <Str Str="BOT"/>
             </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GET_UPHILL_MON_CHANGE_GIMMICK"/>
+            </ToolScp>
         </StartList>
     </AI>
     <AI Name="UPHILL_GIMMICK_MONSTER_L3_AI" ActiveMessageMapInBattle="1">
@@ -20612,6 +20615,9 @@ if self.HP == 0 then return 1; else return 0; end;">
                 <Num Num="0"/>
                 <Str_Arg Str="F_spread_in032_dark_loop" Arg="1"/>
                 <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="GET_UPHILL_MON_CHANGE_GIMMICK"/>
             </ToolScp>
         </StartList>
     </AI>

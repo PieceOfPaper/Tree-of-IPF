@@ -13778,7 +13778,7 @@ return 3 + obj.Level * 0.5"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Warlock_PoleofAgony" CheckerType="0" Range="29.75" ApplyFlyMon="1">
+    <PadSkill Name="Warlock_PoleofAgony" CheckerType="0" Range="40.75" ApplyFlyMon="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="7000" UseFunc="1" FuncTxt="return 6600;"/>
