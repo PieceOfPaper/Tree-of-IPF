@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <controlsetlist>
-	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="150" height="150" skin="">
+	<controlset name="barrack_pet_mini" toggle="false" hittest="true" width="400" height="60" skin="">
 		<controls>
-			<groupbox name="mainBox" margin="0 15 0 0" rect="0 0 105 105" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false" scrollbar="false"/>
-			<picture name="char_icon" layout_gravity="left top" stretch="true" mask="party_cha_slot" hittest="true" rect="0 0 80 90" margin="10 0 0 0" parent="mainBox"/>
-			<button name="detach_btn" layout_gravity="left top" rect="0 0 50 50" margin="-2 0 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox"/>
-			<richtext name="level" rect="0 0 50 24" parent="mainBox" layout_gravity="center bottom" margin="-3 0 0 32" hittest="false" fontname="white_16" textalign="center center" format="{@st42}Lv.%s" param1="value" fixwidth="false" param1_def="13"/>
-			<richtext name="name" rect="0 0 100 24" parent="mainBox" layout_gravity="center bottom" margin="0 0 0 15" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
+			<groupbox name="mainBox" margin="0 0 0 0" rect="0 0 335 100" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false" image="none" scrollbar="false"/>
+			<groupbox name="mainBox1" margin="20 20 0 0" rect="0 0 262 34" draw="false" hittestbox="false" layout_gravity="center top" resizebyparent="false" parent="mainBox" image="barrack_pet_skin" scrollbar="false"/>
+			<picture name="char_icon_" margin="18 0 0 0" rect="0 0 60 60" draw="true" hittestbox="false" layout_gravity="left top" stretch="true" mask="barrack_pet_profile_skin" parent="mainBox"/>
+			<picture name="char_icon" margin="23 5 0 0" rect="0 0 49 49" draw="true" hittestbox="false" layout_gravity="left top" stretch="true" mask="barrack_pet_profile_skin" parent="mainBox"/>
+			<button name="detach_btn" layout_gravity="right top" rect="0 0 100 100" margin="0 14 1 0" clicksound="button_click_big" oversound="button_over" parent="mainBox"/>
+			<richtext name="level" rect="0 0 50 24" parent="mainBox1" layout_gravity="left top" margin="23 7 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}Lv.%s" param1="value" fixwidth="false" param1_def="13"/>
+			<richtext name="name" rect="0 0 135 24" parent="mainBox1" layout_gravity="center top" margin="15 7 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
 		</controls>
 	</controlset>
 	<controlset name="enchant_stor_option" toggle="false" hittest="true" hittestset="false" width="430" height="80" skin="test_skin_01">
@@ -39,7 +41,7 @@
 			<picture name="paramIcon" layout_gravity="right top" stretch="true" hittest="false" rect="0 0 40 40" margin="0 0 20 0"/>
 		</controls>
 	</controlset>
-	<controlset name="barrack_charlist" toggle="false" hittest="true" hittestset="false" width="800" height="550" skin="">
+	<controlset name="barrack_charlist" toggle="false" hittest="true" hittestset="false" width="900" height="550" skin="">
 		<controls>
 			<groupbox name="mainBox" margin="15 0 0 0" rect="0 0 390 220" scrollbar="false" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false"/>
 			<button name="btn" margin="0 0 0 0" rect="0 0 380 100" parent="mainBox" layout_gravity="left top" caption="" skin="button_newcharacter"/>
@@ -47,7 +49,8 @@
 			<richtext name="level" rect="0 0 90 24" parent="mainBox" layout_gravity="left top" margin="95 28 0 0 " hittest="false" fontname="white_16" textalign="center center" caption="asddsasad" fixwidth="true"/>
 			<richtext name="job" rect="0 0 150 24" parent="mainBox" layout_gravity="left top" margin="195 28 0 0" hittest="false" fontname="white_16" textalign="center center" caption="AAAAAA" fixwidth="true"/>
 			<richtext name="name" rect="0 0 280 24" parent="mainBox" layout_gravity="left top" margin="92 60 0 0" hittest="false" fontname="white_16" textalign="center center" caption="11" fixwidth="true"/>
-			<groupbox name="detailBox" margin="50 95 0 0" rect="0 0 330 330" hittestbox="false" skin="test_frame_low" layout_gravity="left top"/>
+			<button name="indunBtn" margin="0 18 0 0" rect="0 0 40 40" parent="mainBox" layout_gravity="right top" image="barrack_indun_info_btn"/>
+			<groupbox name="detailBox" margin="50 125 0 0" rect="0 0 330 330" hittestbox="false" skin="test_frame_low" layout_gravity="left top"/>
 			<!--1 line-->
 			<slot name="HAT" margin="-96 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬1{/}" layout_gravity="center top"/>
 			<slot name="HAT_T" margin="-48 47 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="hat" DropScp="None" texttooltip="{@st59}헤어 코스튬2{/}" layout_gravity="center top"/>
@@ -76,18 +79,7 @@
 			<slot name="DOLL" margin="120 273 0 0" rect="0 0 45 45" parent="detailBox" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="doll_slot" DropScp="None" texttooltip="{@st59}인형{/}" layout_gravity="center top"/>
 			<labelline name="labelline" margin="0 40 0 0" rect="0 0 300 4" skin="None" layout_gravity="center top" parent="detailBox"/>
 			<richtext name="mapName" margin="0 15 0 0" rect="0 0 120 30" caption="{@st42}텍스트{/}" textalign="center top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" parent="detailBox"/>
-		</controls>
-	</controlset>
-	<controlset name="barrack_pet" toggle="false" hittest="true" width="420" height="100" skin="">
-		<controls>
-			<groupbox name="mainBox" margin="30 15 0 0" rect="0 0 340 100" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false" scrollbar="false"/>
-			<button name="btn" margin="0 0 0 0" rect="0 0 330 160" parent="mainBox" layout_gravity="left top" caption="" skin="button_newcharacter"/>
-			<picture name="char_icon" layout_gravity="left top" stretch="true" mask="party_cha_slot" hittest="true" rect="0 0 45 45" margin="20 20 0 0" parent="mainBox"/>
-			<button name="detach_btn" layout_gravity="left top" rect="0 0 50 50" margin="290 20 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" texttooltip="{@st59}컴패니언 삭제"/>
-			<richtext name="level" rect="0 0 90 24" parent="mainBox" layout_gravity="left top" margin="80 15 0 0 " hittest="false" fontname="white_16" textalign="center center" format="{@st42b}Lv.%s" param1="value" fixwidth="true" param1_def="13"/>
-			<richtext name="job" rect="0 0 110 24" parent="mainBox" layout_gravity="left top" margin="190 15 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="AAA"/>
-			<richtext name="name" rect="0 0 180 24" parent="mainBox" layout_gravity="left top" margin="100 48 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st41b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
-			<button name="revive_btn" layout_gravity="left top" rect="0 0 50 50" margin="40 0 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" image="companion_did_btn"/>
+
 		</controls>
 	</controlset>
 	<controlset name="barrack_newchar" toggle="false" hittest="true" width="420" height="100" skin="" hittestset="false">
@@ -158,19 +150,16 @@
 			<richtext name="option_trade_text" layout_gravity="right top" textalign="center center" rect="0 0 130 24" margin="0 30 35 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="개인" fixwidth="true" fontname="brown_16"/>
 		</controls>
 	</controlset>
-	<controlset name="tooltip_hethran_tradability" hittest="true" width="410" height="50">
-		<userconfig STYLE_TRADE_ON="{s14}" STYLE_TRADE_OFF="{@st99gr16}" BOTTOM_MARGIN="15"/>
+	<controlset name="barrack_pet" toggle="false" hittest="true" width="420" height="100" skin="">
 		<controls>
-			<labelline name="labelline" margin="0 0 0 0" rect="0 0 390 3" skin="labelline_def_2" layout_gravity="center top"/>
-			<richtext name="label_text" caption="거래 옵션" rect="0 0 100 24" margin="20 12 0 0" fixwidth="true" hittest="false" fontname="brown_16" layout_gravity="left top"/>
-			<picture name="option_npc" layout_gravity="left top" rect="0 0 140 20" margin="110 7 0 0" stretch="true" image="tradecondition_off"/>
-			<picture name="option_market" layout_gravity="left top" rect="0 0 140 20" margin="249 7 0 0" stretch="true" image="tradecondition_off"/>
-			<picture name="option_teamware" layout_gravity="left top" rect="0 0 140 20" margin="110 26 0 0" stretch="true" image="tradecondition_off"/>
-			<picture name="option_trade" layout_gravity="left top" rect="0 0 140 20" margin="249 26 0 0" stretch="true" image="tradecondition_off"/>
-			<richtext name="option_npc_text" layout_gravity="left top" textalign="center center" rect="0 0 140 24" margin="110 8 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="상점" fixwidth="true" fontname="brown_16"/>
-			<richtext name="option_market_text" layout_gravity="left top" textalign="center center" rect="0 0 140 24" margin="249 8 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="마켓" fixwidth="true" fontname="brown_16"/>
-			<richtext name="option_teamware_text" layout_gravity="left top" textalign="center center" rect="0 0 140 24" margin="110 27 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="팀 창고" fixwidth="true" fontname="brown_16"/>
-			<richtext name="option_trade_text" layout_gravity="left top" textalign="center center" rect="0 0 140 24" margin="249 27 0 0" format="%s%s" param1="style" param1_def="{s14}" param2="text" param2_def="개인" fixwidth="true" fontname="brown_16"/>
+			<groupbox name="mainBox" margin="30 15 0 0" rect="0 0 340 100" draw="false" hittestbox="false" layout_gravity="left top" resizebyparent="false" scrollbar="false"/>
+			<button name="btn" margin="0 0 0 0" rect="0 0 330 160" parent="mainBox" layout_gravity="left top" caption="" skin="button_newcharacter"/>
+			<picture name="char_icon" layout_gravity="left top" stretch="true" mask="party_cha_slot" hittest="true" rect="0 0 45 45" margin="20 20 0 0" parent="mainBox"/>
+			<button name="detach_btn" layout_gravity="left top" rect="0 0 50 50" margin="290 20 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" texttooltip="{@st59}컴패니언 삭제"/>
+			<richtext name="level" rect="0 0 90 24" parent="mainBox" layout_gravity="left top" margin="80 15 0 0 " hittest="false" fontname="white_16" textalign="center center" format="{@st42b}Lv.%s" param1="value" fixwidth="true" param1_def="13"/>
+			<richtext name="job" rect="0 0 110 24" parent="mainBox" layout_gravity="left top" margin="190 15 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st42b}%s" param1="value" fixwidth="true" param1_def="AAA"/>
+			<richtext name="name" rect="0 0 180 24" parent="mainBox" layout_gravity="left top" margin="100 48 0 0" hittest="false" fontname="white_16" textalign="center center" format="{@st41b}%s" param1="value" fixwidth="true" param1_def="ASDASASD"/>
+			<button name="revive_btn" layout_gravity="left top" rect="0 0 50 50" margin="40 0 0 0" clicksound="button_click_big" oversound="button_over" parent="mainBox" image="companion_did_btn"/>
 		</controls>
 	</controlset>
 	<controlset name="tooltip_legendexppotion_tradability" hittest="true" width="330" height="70">
@@ -4629,7 +4618,7 @@
 		<userconfig MARGIN_BOTTOM="8" OPEN_ANIM="dialog_start2" CLOSE_ANIM="dialog_end"/>
 		<controls>
 			<groupbox name="gb" rect="0 0 430 45" margin="0 0 0 0" layout_gravity="center center" draw="false"/>
-			<richtext name="data_text" parent="gb" rect="0 0 200 20" margin="20 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="내용" fontname="white_14_ol"/>
+			<richtext name="data_text" parent="gb" rect="0 0 310 20" margin="20 0 0 0" layout_gravity="left center" resizebytext="false" textalign="left center" format="%s" param1="value" param1_def="내용" fontname="white_14_ol"/>
 			<button name="select_btn" parent="gb" rect="0 0 84 47" margin="170 0 0 0" layout_gravity="center center" hittest="true" format="%s" param1="value" param1_def="버튼" stretch="true" skin="test_pvp_btn" fontname="black_16_b"/>
 		</controls>
 	</controlset>

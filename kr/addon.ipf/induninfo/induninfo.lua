@@ -96,22 +96,8 @@ function INDUNINFO_CREATE_CATEGORY(frame)
                         cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
                     else
                         cyclePicImg:ShowWindow(0);
-                    end                    
-                end
-
-
-             -- if event is end then, change this script comment
-                if indunCls.DungeonType == 'DefenceMission' then
-                    if SCR_RAID_EVENT_20190221(nil, false) == true then
-                        cyclePicImg:SetImage('indun_icon_event_l_eng')
-                        local margin = cyclePicImg:GetOriginalMargin();
-                        cyclePicImg:SetMargin(margin.left, margin.top, margin.right + 20, margin.bottom);
-                        cyclePicImg:Resize(cyclePicImg:GetOriginalWidth() + 11, cyclePicImg:GetOriginalHeight());
-                    else                        
-                        cyclePicImg:ShowWindow(0);
                     end
                 end
-                
 
                 categoryCtrl:SetUserValue('RESET_GROUP_ID', resetGroupID);
                 if firstBtn == nil then -- 디폴트는 첫번째가 클릭되게 함
@@ -694,14 +680,6 @@ function INDUNINFO_MAKE_DETAIL_INFO_BOX(frame, indunClassID)
         cycleImage:ShowWindow(1);
         cycleCtrlPic:ShowWindow(0);
 
-     -- if event is end then, change this script comment
-        if indunCls.DungeonType == 'DefenceMission' then
-            if SCR_RAID_EVENT_20190221(nil, false) == true then
-                cycleCtrlPic:ShowWindow(1);
-            end
-        else
-            cycleImage:ShowWindow(0);
-        end
     else
         -- if isTokenState == true then
         --     isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")

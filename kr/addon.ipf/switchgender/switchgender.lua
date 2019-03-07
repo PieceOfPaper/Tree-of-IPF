@@ -356,6 +356,13 @@ function SWITCHGENDER_STORE_OPEN_EXCUTE(frame, ctrl)
 		return;
 	end
 
+	local pc = GetMyPCObject();
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
+
 	local dummyInfo = session.autoSeller.CreateToGroup(groupName);
 	dummyInfo.classID = GetClass("Skill", groupName).ClassID;
 	dummyInfo.price = price;

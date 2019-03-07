@@ -25,10 +25,10 @@ function BARRACK_CHARLIST_ON_INIT(addon, frame)
 	frame:SetUserValue("BarrackMode", "Barrack");
 
 
-	CHAR_LIST_CLOSE_HEIGHT = 105;
-	CHAR_LIST_OPEN_HEIGHT = 420;
+	CHAR_LIST_CLOSE_HEIGHT = 128;
+	CHAR_LIST_OPEN_HEIGHT = 450;
 	CUR_SELECT_GUID = 'None';
-    current_layer = 1    
+	current_layer = 1   
 end
 
 local swap_flag = false
@@ -421,6 +421,68 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
     AddLuaTimerFunc('enable_layer_btn', 5000, 0)
 end
 
+function BARRACK_GET_CHAR_INDUN_ENTRANCE_COUNT(cid, resetGroupID)
+    local accountInfo = session.barrack.GetMyAccount();
+	local acc_obj = GetMyAccountObj()
+
+    local indunClsList, cnt = GetClassList('Indun');
+    local indunCls = nil;
+    for i = 0, cnt - 1 do
+        indunCls = GetClassByIndexFromList(indunClsList, i);
+        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+            break;
+        end
+    end
+	if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+		if indunCls.UnitPerReset == 'PC' then
+			return accountInfo:GetBarrackCharEtcProp(cid,'IndunWeeklyEnteredCount_'..resetGroupID)  --매주 남은 횟수
+		else
+			return(acc_obj['IndunWeeklyEnteredCount_'..resetGroupID])   							--매주 남은 횟수
+		end
+        
+	else
+		if indunCls.UnitPerReset == 'PC' then
+			return accountInfo:GetBarrackCharEtcProp(cid, 'InDunCountType_'..resetGroupID);         --매일 남은 횟수
+		else
+			return (acc_obj['InDunCountType_'..resetGroupID]);            							--매일 남은 횟수
+		end        
+    end
+end
+
+function BARRACK_GET_INDUN_MAX_ENTERANCE_COUNT(resetGroupID)
+    local indunClsList, cnt = GetClassList('Indun');
+    local indunCls = nil;
+    for i = 0, cnt - 1 do
+        indunCls = GetClassByIndexFromList(indunClsList, i);
+        if indunCls ~= nil and indunCls.PlayPerResetType == resetGroupID and indunCls.Category ~= 'None' then
+            break;
+        end
+    end
+    
+    local infinity = TryGetProp(indunCls, 'EnableInfiniteEnter', 'NO')
+    if indunCls.AdmissionItemName ~= "None" or infinity == 'YES'  then
+        local a = "{img infinity_text 20 10}"
+        return a;
+    end
+    
+    local bonusCount = 0;
+    if indunCls.WeeklyEnterableCount ~= nil and indunCls.WeeklyEnterableCount ~= "None" and indunCls.WeeklyEnterableCount ~= 0 then
+        return indunCls.WeeklyEnterableCount + bonusCount;  --매주 max
+    else
+        return indunCls.PlayPerReset + bonusCount;          --매일 max
+    end
+end
+
+local function toint(n)
+    local s = tostring(n)
+    local i, j = s:find('%.')
+    if i then
+        return tonumber(s:sub(1, i-1))
+    else
+        return n
+    end
+end
+
 function CREATE_SCROLL_CHAR_LIST(frame, actor)   
     local barrackMode = frame:GetUserValue("BarrackMode");
 	local name = actor:GetName();    
@@ -433,16 +495,24 @@ function CREATE_SCROLL_CHAR_LIST(frame, actor)
 
 	local scrollBox = frame:GetChild("scrollBox");
 	local charCtrl = scrollBox:CreateOrGetControlSet('barrack_charlist', 'char_'..key, 10, 0);
+	charCtrl = AUTO_CAST(charCtrl)
 	charCtrl:SetUserValue("CID", key);
 	local mainBox = GET_CHILD(charCtrl,'mainBox','ui::CGroupBox');
 	local btn = mainBox:GetChild("btn");
 	btn:SetSkinName('character_off');
-
 	btn:SetSValue(name);
 	btn:SetOverSound('button_over');
 	btn:SetClickSound('button_click_2');
 	btn:SetEventScript(ui.LBUTTONUP, "SELECT_CHARBTN_LBTNUP");
 	btn:SetEventScriptArgString(ui.LBUTTONUP, key);
+
+	local indunBtn = mainBox:GetChild("indunBtn")
+	if session.barrack.GetMyAccount() == session.barrack.GetCurrentAccount() then
+		indunBtn:SetTooltipType("indunListTooltip")
+		indunBtn:SetTooltipArg(key, 0, 0, actor)
+	else
+		indunBtn:SetVisible(0)
+	end
 
 	if session.barrack.GetMyAccount():GetByStrCID(key) ~= nil and "Barrack" == barrackMode then
 		btn:SetEventScript(ui.LBUTTONDBLCLICK, "BARRACK_TO_GAME");
@@ -567,20 +637,22 @@ function UPDATE_SELECT_CHAR_SCROLL(frame)
 		local child = scrollBox:GetChildByIndex(i);
 		if string.find(child:GetName(), 'char_') ~= nil then		
 			local guid = child:GetUserValue("CID");
+			local detail = GET_CHILD(child,'detailBox','ui::CGroupBox');
+			local mainBox = GET_CHILD(child,'mainBox','ui::CGroupBox');
+			local btn = mainBox:GetChild("btn");
+
 			if CUR_SELECT_GUID == guid then
-				child:Resize(child:GetWidth(), CHAR_LIST_OPEN_HEIGHT);
-				local detail = GET_CHILD(child,'detailBox','ui::CGroupBox');
+				child:Resize(child:GetWidth(), CHAR_LIST_OPEN_HEIGHT);				
 				detail:ShowWindow(1);
-				local mainBox = GET_CHILD(child,'mainBox','ui::CGroupBox');
-				local btn = mainBox:GetChild("btn");
 				btn:SetSkinName('character_on');
 
 			elseif child:GetName() ~= 'char_add' then
-				child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT);
-				local detail = GET_CHILD(child,'detailBox','ui::CGroupBox');
+				if GET_CHILD_CNT_BYNAME(child, "attached_pet_") == 0 then
+					child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT-20);
+				else
+					child:Resize(child:GetWidth(), CHAR_LIST_CLOSE_HEIGHT);
+				end
 				detail:ShowWindow(0);
-				local mainBox = GET_CHILD(child,'mainBox','ui::CGroupBox');
-				local btn = mainBox:GetChild("btn");
 				btn:SetSkinName('character_off');
 
 			end
@@ -589,7 +661,7 @@ function UPDATE_SELECT_CHAR_SCROLL(frame)
 	GBOX_AUTO_ALIGN(scrollBox, 10, 10, 10, true, false);
 end
 
-function SELECT_CHARBTN_LBTNUP(parent, ctrl, cid, argNum)    
+function SELECT_CHARBTN_LBTNUP(parent, ctrl, cid, argNum)
 	local pcPCInfo = session.barrack.GetMyAccount():GetByStrCID(cid);
 	if pcPCInfo == nil then
 		return;
@@ -714,6 +786,10 @@ function SELECTTEAM_UPDATE_BTN_TITLE(frame)
 end
 
 function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
+
+	if g_barrackIndunCategoryList == nil then
+		g_barrackIndunCategoryList = {100, 10000, 400, 800, 200, 300, 500};
+	end
 	if msg == "BARRACK_ADDCHARACTER" then
 		SELECTTEAM_NEW_CTRL(frame, ud);
 
@@ -1124,9 +1200,9 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 			if charCtrl ~= nil then
 				
 				local bpcPetCount = charCtrl:GetUserValue("PET_COUNT");
-				local posX = 400 + bpcPetCount * offsetX;
+				
 				charCtrl:SetUserValue("PET_COUNT", bpcPetCount + 1);
-				local petCtrl = charCtrl:CreateOrGetControlSet('barrack_pet_mini', 'attached_pet_'..pet:GetStrGuid(), posX, 0);
+				local petCtrl = charCtrl:CreateOrGetControlSet('barrack_pet_mini', 'attached_pet_'..pet:GetStrGuid(), 50, 70);
 				UPDATE_PET_BTN(petCtrl, pet, true);
 			end
 		end
@@ -1134,6 +1210,7 @@ function UPDATE_BARRACK_PET_BTN_LIST()
 	--다른 유저의 숙소를 방문할 때 그 유저의 컴페니언을 찾기 위해 방문중임을 알려준다
 	local charlist = ui.GetFrame("barrack_charlist");
 	UPDATE_PET_LIST(charlist:GetUserValue('BarrackMode'))	
+	UPDATE_SELECT_CHAR_SCROLL(frame)
 end
 
 function UPDATE_PET_BTN_SELECTED()	
@@ -1163,16 +1240,16 @@ function UPDATE_PET_BTN(petCtrl, petInfo, useDetachBtn)
 	local mainBox = GET_CHILD(petCtrl,'mainBox','ui::CGroupBox');
 	
 	local obj = GetIES(petInfo:GetObject());
-	local name = mainBox:GetChild("name");
+	local name = GET_CHILD_RECURSIVELY(mainBox, "name")
 	name:SetTextByKey("value", petInfo:GetName());
-	local level = mainBox:GetChild("level");
+	local level = GET_CHILD_RECURSIVELY(mainBox, "level");
 	level:SetTextByKey("value", obj.Lv);
 	mainBox:SetUserValue("PET_ID", petInfo:GetStrGuid());
 	petCtrl:SetUserValue("PET_ID", petInfo:GetStrGuid());
 	
 	local char_icon = GET_CHILD(mainBox, "char_icon", "ui::CPicture");
 	--char_icon:SetImage(obj.Icon);
-
+	local char_icon_ = GET_CHILD(mainBox, "char_icon_", "ui::CPicture");
 
 	local revive_btn = GET_CHILD(mainBox, "revive_btn", "ui::CButton");
 	if revive_btn ~= nil then
@@ -1209,17 +1286,15 @@ function UPDATE_PET_BTN(petCtrl, petInfo, useDetachBtn)
 			
 	elseif useDetachBtn == true then
 
-
-		local moncls = GetClass("Monster", obj.ClassName);
-
+		
 		local iconName = 'test_companion_01';
 		
-		if moncls ~= nil then
-			iconName =	moncls.IconImage
+		if obj ~= nil then
+			iconName =	obj.Icon
 		end
 
 		char_icon:SetImage(iconName);
-		
+		char_icon_:SetImage("barrack_pet_profile_skin")
 		local detach_btn = GET_CHILD(mainBox, "detach_btn", "ui::CButton");
 		if account ~= myaccount then
 			detach_btn:ShowWindow(0);

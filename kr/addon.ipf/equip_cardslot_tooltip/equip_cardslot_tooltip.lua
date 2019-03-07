@@ -114,10 +114,14 @@ function EQUIP_CARDSLOT_DRAW_TOOLTIP(tooltipframe, cardID, cardLv)
 	local nameChild = GET_CHILD(CSet, "name");
 	nameChild:SetText(fullname);
 		
-	-- ���� ����
-	local bossCls = GetClassByType('Monster', cls.NumberArg1);
-	local typeRichtext = GET_CHILD(CSet, "type_text");
-	typeRichtext:SetText(ScpArgMsg(bossCls.RaceType));
+	local stringArg = ' '
+	if cls.NumberArg1 ~= 0 then
+    	local bossCls = GetClassByType('Monster', cls.NumberArg1);
+    	
+    	stringArg = ScpArgMsg(bossCls.RaceType)
+    end
+    local typeRichtext = GET_CHILD(CSet, "type_text");
+	typeRichtext:SetText(stringArg);
     
 	local BOTTOM_MARGIN = CSet:GetUserConfig("BOTTOM_MARGIN"); -- �� �Ʒ��� ����
 	CSet:Resize(CSet:GetWidth(), 0);

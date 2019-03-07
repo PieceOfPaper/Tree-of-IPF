@@ -144,6 +144,13 @@ function BUFFSELLER_REG_EXEC(frame)
 		end
 	end
 
+	local pc = GetMyPCObject();
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
+
 	if serverGroupName == 'Buff' then -- case: pardoner_spell shop		
 		local skl = session.GetSkillByName('Pardoner_SpellShop');
 		if skl == nil then

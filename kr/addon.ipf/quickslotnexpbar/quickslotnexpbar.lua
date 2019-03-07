@@ -1456,7 +1456,10 @@ function DELETE_SKILLICON_QUICKSLOTBAR(frame, msg, argStr, argNum)
 	local joystick_frame = ui.GetFrame("joystickquickslot");
 	local isCheckQuickSlot = false; local isCheckJoyStickQuickSlot = false;
 	local id = tonumber(argStr);
-
+	if argNum == 1 then
+		return;
+	end
+	
 	for i = 0, MAX_QUICKSLOT_CNT - 1 do
 		if frame ~= nil then 
 			local slot = GET_CHILD_RECURSIVELY(frame, "slot"..i + 1, "ui::CSlot");

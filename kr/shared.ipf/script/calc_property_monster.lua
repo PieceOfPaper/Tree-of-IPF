@@ -325,7 +325,13 @@ function SCR_Get_MON_DEF(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_ARMOR_DEF_CALC(self);
+    local byItem = 0;
+    local className = TryGetProp(self, "ClassName");
+    if className ~= nil and (className == "pcskill_skullsoldier" or className == "pcskill_skullarcher" or className == "pcskill_skullwizard") then
+        byItem = SCR_MON_OWNERITEM_ARMOR_CALC(self);
+    else
+        byItem = SCR_MON_ITEM_ARMOR_DEF_CALC(self);
+    end 
     
     local value = byLevel + byStat + byItem;
     
@@ -378,7 +384,13 @@ function SCR_Get_MON_MDEF(self)
     
     local byStat = (stat * 2) + (math.floor(stat / 10) * (byLevel * 0.05));
     
-    local byItem = SCR_MON_ITEM_ARMOR_MDEF_CALC(self);
+    local byItem = 0;
+    local className = TryGetProp(self, "ClassName");
+    if className ~= nil and (className == "pcskill_skullsoldier" or className == "pcskill_skullarcher" or className == "pcskill_skullwizard") then
+        byItem = SCR_MON_OWNERITEM_ARMOR_CALC(self);
+    else
+        byItem = SCR_MON_ITEM_ARMOR_MDEF_CALC(self);
+    end 
     
     local value = byLevel + byStat + byItem;
     
@@ -1687,9 +1699,8 @@ end
 function SCR_MON_ITEM_ARMOR_CALC(self, defType)
     local lv = TryGetProp(self, "Lv", 1);
     lv = math.max(1, lv - 30);
-    
+
     local value = (40 + (lv * 8));
-    
     if defType ~= nil then
         local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
         local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
@@ -1701,7 +1712,7 @@ function SCR_MON_ITEM_ARMOR_CALC(self, defType)
     
     local byReinforce = 0;
     local byTranscend = 0;
-    
+
     local statType = TryGetProp(self, "StatType", "None");
     if statType ~= nil then
         local statTypeClass = GetClass("Stat_Monster_Type", statType);
@@ -1728,20 +1739,21 @@ function SCR_MON_ITEM_GRADE_RATE(self, itemGrade)
     if itemGrade == nil then
         itemGrade = "Normal";
     end
-    
+
 --    if GetExProp(self, "EXPROP_SHADOW_INFERNAL") == 1 then
 --        monRank = GetExProp_Str(self, "SHADOW_INFERNAL_MONRANK");
 --    end
     
     local gradeList = { "Normal", "Magic", "Rare", "Unique", "Legend" };
     local gradeIndex = table.find(gradeList, itemGrade);
+
     if gradeIndex == 0 then
         gradeIndex = 1;
     end
-    
+
     local basicGradeRatio = SCR_GET_ITEM_GRADE_RATIO(gradeIndex, "BasicRatio");
     local reinforceGradeRatio = SCR_GET_ITEM_GRADE_RATIO(gradeIndex, "ReinforceRatio");
-    
+
     return basicGradeRatio, reinforceGradeRatio;
 end
 
@@ -1768,4 +1780,66 @@ function SCR_MON_ITEM_TRANSCEND_CALC(self, transcendValue)
     local value = transcendValue * 0.1;
     
     return value;
+end
+
+function SCR_MON_OWNERITEM_ARMOR_CALC(self, defType)
+    local lv = TryGetProp(self, "Lv", 1);
+    lv = math.max(1, lv - 30);
+    
+    local value = (40 + (lv * 8));
+    if defType ~= nil then
+        local defClass = GetClass("item_grade", "armorMaterial_" .. defType);
+        local armorMaterial = TryGetProp(self, "ArmorMaterial", "None");
+        local defRatio = TryGetProp(defClass, armorMaterial, 1);
+        if defRatio ~= nil then
+            value = value * defRatio;
+        end
+    end
+
+    local owner = GetOwner(self);
+    if owner == nil then 
+        return;
+    end
+
+    local itemSpotList = { "SHIRT", "PANTS", "GLOVES", "BOOTS" };
+    local listCnt = #itemSpotList;
+    local total_grade = 0;
+    local total_reinfroce = 0;
+    local total_transcend = 0;
+    
+    for i = 1, listCnt do
+        local item = GetEquipItem(owner, itemSpotList[i]);
+        if item == nil then return end;
+
+        local item_grade = TryGetProp(item, "ItemGrade", 1);
+        local item_reinforce = TryGetProp(item, "Reinforce_2", 0);
+        local item_transcend = TryGetProp(item, "Transcend", 0);
+
+        -- owner item grade
+        local byGrade = 0;
+        local gradeRatio = SCR_GET_ITEM_GRADE_RATIO(item_grade, "BasicRatio");
+        local reinforcegradeRatio = SCR_GET_ITEM_GRADE_RATIO(item_grade, "ReinforceRatio");
+        value = value * gradeRatio
+        byGrade = gradeRatio;
+        
+        -- owner item reinforce
+        local byReinforce = SCR_MON_ITEM_REINFORCE_ARMOR_CALC(owner, lv, item_reinforce, reinforcegradeRatio);
+
+        -- owner item transcend
+        local byTranscend = 0; 
+        local transcendValue = SCR_MON_ITEM_TRANSCEND_CALC(owner, item_transcend);
+        byTranscend = math.floor(value * transcendValue);
+
+        total_grade = total_grade + byGrade;
+        total_reinfroce = total_reinfroce + byReinforce;
+        total_transcend = total_transcend + byTranscend;
+    end
+
+    total_grade = total_grade / listCnt;
+    total_reinfroce = total_reinfroce / listCnt;
+    total_transcend = total_transcend / listCnt;
+
+    value = (value * total_grade) + total_reinfroce + total_transcend;
+    
+    return math.floor(value);
 end

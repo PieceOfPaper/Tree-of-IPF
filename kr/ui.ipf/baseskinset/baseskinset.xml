@@ -6461,6 +6461,8 @@
 		<image name="icon_arrow_down" file="\skin\tooltip_skin_3.tga" imgrect="920 1575 102 39" CMM_Caption="화살표 아래"/>
 		<image name="icon_arrow_left" file="\skin\tooltip_skin_3.tga" imgrect="1303 1936 39 106" CMM_Caption="화살표 왼쪽"/>
 		<image name="medal_lock_skin" file="\skin\tooltip_skin_3.tga" imgrect="1643 370 404 61" CMM_Caption="인장 툴팁 잠금스킨"/>
+		<image name="barrack_pet_skin" file="\skin\barrack.tga" imgrect="723 268 262 34" CMM_Caption="배럭 컴패니언 스킨"/>
+		<image name="barrack_pet_profile_skin" file="\skin\barrack.tga" imgrect="723 212 55 55" CMM_Caption=""/>
 		<image name="class_tree_arrow" file="\skin\class_tree.tga" imgrect="637 247 55 57" CMM_Caption="전직변경 UI 화살표"/>
 		<image name="white_dot" file="\skin\pip_test2.tga" imgrect="834 26 5 5" CMM_Caption="흰색도트_아웃라인"/>
 	</imagelist>
@@ -6900,6 +6902,9 @@
 		<image name="class_tree_job_reset_btn" file="\skin\class_tree.tga" imgrect="691 115 98 52"/>
 		<image name="class_tree_job_reset_btn_cursoron" file="\skin\class_tree.tga" imgrect="691 168 98 52"/>
 		<image name="class_tree_job_reset_btn_clicked" file="\skin\class_tree.tga" imgrect="691 168 98 52"/>
+		<image name="barrack_indun_info_btn" file="\skin\barrack.tga" imgrect="1026 303 33 37" CMM_Caption="배럭 인던정보 버튼"/>
+		<image name="barrack_indun_info_btn_cursoron" file="\skin\barrack.tga" imgrect="1026 341 33 37"/>
+		<image name="barrack_indun_info_btn_clicked" file="\skin\barrack.tga" imgrect="1026 341 33 37"/>
 		<image name="button_view_info" file="\skin\pip_test2.tga" imgrect="683 109 26 25"/>
 		<image name="button_view_info_cursoron" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
 		<image name="button_view_info_clicked" file="\skin\pip_test2.tga" imgrect="710 109 26 25"/>
@@ -8959,6 +8964,7 @@
 		<image name="Dlg_port_Jazz_Kellefinker" file="\npcimg\Jazz_Kellefinker.png" imgrect="0 0 850 1000" CMM_Caption="아웃로 마스터"/>
 		<image name="Dlg_port_Maea_Kellefinker" file="\npcimg\Maea_Kellefinker.png" imgrect="0 0 850 1000" CMM_Caption="아웃로 마스터"/>
 		<image name="Dlg_port_Rashid_Zabanya" file="\npcimg\Rashid_Zabanya.png" imgrect="0 0 850 1000" CMM_Caption="어쌔신 마스터"/>
+		<image name="Dlg_port_PAJAUTA" file="\npcimg\PAJAUTA.png" imgrect="0 0 900 950" CMM_Caption="파야우타"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -9167,6 +9173,7 @@
 		<image name="icon_boruta_echo" file="\icon\buff_icon2.tga" imgrect="896 896 128 128"/>
 		<image name="icon_goldpig_have" file="\icon\buff_icon2.tga" imgrect="0 1024 128 128" CMM_Caption="황금돼지 컴페니언 버프"/>
 		<image name="icon_sweet_potato" file="\icon\buff_icon2.tga" imgrect="128 1024 128 128" CMM_Caption="군고구마 버프"/>
+		<image name="icon_BK_Betrayer_1" file="\icon\buff_icon2.tga" imgrect="256 1024 128 128" CMM_Caption="길드탈퇴 패널티 디버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>
@@ -9349,6 +9356,9 @@
 		<image name="skill-charge_gauge_R" file="\skin\pip_test.tga" imgrect="403 594 45 30"/>
 		<image name="skill-name_bg" file="\skin\loading_gauge.tga" imgrect="1594 457 290 55"/>
 		<image name="full_charge_fontimg2" file="\skin\pip_test.tga" imgrect="1798 470 110 35"/>
+	</imagelist>
+	<imagelist category="npccard">
+		<image name="001_npc_payawoota" file="\skin\npccard\001_npc_payawoota.tga" imgrect="0 0 330 440"/>
 	</imagelist>
 	<imagelist category="bosscard2">
 		<image name="001_boss_poata" file="\skin\bosscard\001_boss_poata.tga" imgrect="0 0 330 440"/>

@@ -44,14 +44,14 @@ function SUMMONSINFO_INIT()
 		elseif count < 1 then
 			button:SetVisible(0);
 		end
-
-		button:SetTextTooltip("파티 정보로 전환(`)");
+		
+		button:SetTextTooltip(ClMsg("SummonsInfo_ConvertPartyInfo_ToolTip"));
 		button:EnableHitTest(1);
 	end
 
     local buttonText = GET_CHILD_RECURSIVELY(frame, "buttontitle");
 	if buttonText ~= nil then
-		buttonText:SetTextByKey("title", "소환수 정보");
+		buttonText:SetTextByKey("title", ClMsg("SummonsInfo_SummonsInfo"));
 	end
 end
 
@@ -125,10 +125,10 @@ function SUMMONSINFO_UPDATE(frame)
         local pcparty = session.party.GetPartyInfo();
         if pcparty == nil then
 			button:SetVisible(0);
-			buttonTitle:SetTextByKey("title", "소환수 정보");
+			buttonTitle:SetTextByKey("title", ClMsg("SummonsInfo_SummonsInfo"));
         else
 			button:SetVisible(1);
-	        buttonTitle:SetTextByKey("title", "소환수 정보");
+	        buttonTitle:SetTextByKey("title", ClMsg("SummonsInfo_SummonsInfo"));
         end
     end
 	

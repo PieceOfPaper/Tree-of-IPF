@@ -76,6 +76,13 @@ function ENCHANTARMOR_BUFF_EXCUTE_BTN(frame, ctrl)
 		return;
 	end
 
+	local pc = GetMyPCObject();
+	local x, y, z = GetPos(pc);
+	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
+		ui.SysMsg(ClMsg("TooNearFromNPC"));	
+		return 0;
+	end
+
 	session.autoSeller.RequestRegister(sklName, sklName, titleInput:GetText(), sklName);
 end
 

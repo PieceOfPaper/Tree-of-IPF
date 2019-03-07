@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <SpcItemList>
 	<SpcItem Name="Default">
 		<TriggerList Act="Equip">
@@ -3147,7 +3147,7 @@ return math.floor(self.Lv/3);"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Pyromancer"/>
+						<Str Str="FireMage"/>
 						<Num Num="-1"/>
 					</ToolScp>
 				</ExecList>
@@ -3157,7 +3157,7 @@ return math.floor(self.Lv/3);"/>
 			<Trigger>
 				<ExecList>
 					<ToolScp Scp="SPCI_JOB_ALL_SKILLUP" Client="NO" UseSleep="NO">
-						<Str Str="Pyromancer"/>
+						<Str Str="FireMage"/>
 						<Num Num="1"/>
 					</ToolScp>
 				</ExecList>

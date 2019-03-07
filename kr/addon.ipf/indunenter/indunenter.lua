@@ -665,13 +665,6 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
         countData:ShowWindow(1)
         countItemData:ShowWindow(0)
-
-     -- if event is end then, change this script comment
-        if indunCls.DungeonType == 'DefenceMission' then  
-            if SCR_RAID_EVENT_20190221(nil, false) == true then
-                cycleCtrlPic:ShowWindow(1);
-            end
-        end
         
     else
         local pc = GetMyPCObject();

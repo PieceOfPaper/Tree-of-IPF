@@ -746,7 +746,7 @@ function ITEMOPTIONADD_INV_RBTN(itemObj, slot)
 	if frame == nil then
 		return
 	end
-
+	
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
