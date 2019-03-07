@@ -6,6 +6,28 @@ function INDUNENTER_ON_INIT(addon, frame)
     PC_INFO_COUNT = 5;
 end
 
+function is_invalid_indun_multiple_item()
+    local name = 'Adventure_dungeoncount_01'
+    local invItemList = session.GetInvItemList()
+    local guidList = invItemList:GetGuidList();
+	local cnt = guidList:Count();    
+    local check_cnt = 0
+	for i = 0, cnt - 1 do
+		local guid = guidList:Get(i);
+		local invItem = invItemList:GetItemByGuid(guid);
+        if invItem ~= nil and invItem:GetObject() ~= nil then
+	        local itemObj = GetIES(invItem:GetObject());
+			if TryGetProp(itemObj, 'ClassName', 'None') == name then
+				check_cnt = check_cnt + 1
+                if check_cnt >= 2 then
+                    return true
+                end
+			end
+        end
+    end
+    return false
+end
+
 function INDUNENTER_ON_ESCAPE_PRESSED(frame, msg, argStr, argNum)
     if frame:GetUserValue('AUTOMATCH_MODE') == 'NO' then
         INDUNENTER_CLOSE(frame, msg, argStr, argNum);
@@ -1503,7 +1525,6 @@ function INDUNENTER_REWARD_CLICK_LEFT(parent, ctrl)
 end
 
 function INDUNENTER_MULTI_EXEC(frame, ctrl)    
-    
     local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
     for i = 1, #multipleItemList do
         local itemName = multipleItemList[i];
@@ -1527,6 +1548,13 @@ function INDUNENTER_MULTI_EXEC(frame, ctrl)
     if textCount >= INDUN_MULTIPLE_USE_MAX_COUNT then
         multiEdit:SetText(tostring(0));
         return;
+    end
+
+    if tonumber(textCount) > 1 then
+        if is_invalid_indun_multiple_item() == true then
+            ui.SysMsg(ClMsg("IndunMultipleItemError"))
+            return
+        end
     end
 
     local indunCls = GetClassByType('Indun', indunType);
