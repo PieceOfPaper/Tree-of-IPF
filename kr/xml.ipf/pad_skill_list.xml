@@ -4873,11 +4873,11 @@ return FreezeRating;
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Daoshi_CreepingDeath" CheckerType="0" Range="15" UpdateTerm="300" AutoDir="1" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
+    <PadSkill Name="Daoshi_CreepingDeath" CheckerType="0" Range="15" UpdateTerm="200" AutoDir="1" ApplyFlyMon="1" EnableSearch="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="50000" UseFunc="1" FuncTxt="return obj.Level * 5000;"/>
-                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level * 3"/>
+                <Num Num="0" UseFunc="1" FuncTxt="return obj.Level * 4"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_MONSTER" Client="YES" UseSleep="NO">
                 <Str Str="pcskill_Creeping_Death"/>

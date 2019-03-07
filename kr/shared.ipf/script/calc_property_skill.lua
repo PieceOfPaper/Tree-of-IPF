@@ -5623,7 +5623,7 @@ function SCR_GET_TriDisaster_Ratio(skill)
 end
 
 function SCR_GET_CreepingDeath_Ratio(skill)
-    local value = skill.Level * 3
+    local value = skill.Level * 4
     return value;
 end
 
