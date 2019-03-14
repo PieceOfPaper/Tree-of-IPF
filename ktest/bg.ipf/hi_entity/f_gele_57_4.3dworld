@@ -1,1 +1,43 @@
-855D707A5CB6BDD23D3DB332320406BD
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by yeonew (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_gele_57_4\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_gele_57_4\"/>
+	<AutoHeightMap Length="5000 5000 " Offset="125.494 548.724" Height="1200 -1500"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\gele\"/>
+	<SubTexDir IpfName="bg_texture" Path="\huevillage\"/>
+	<LightMap File="f_gele_57_4_lightmap.jpg" Length="5000 5000" Offset="125.494 548.724" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_gele_57_4\"/>
+	<Model File="f_gele_57_4_tp01.xac" Model="f_gele_57_4_tp01" ShadowMap="f_gele_57_4_tp01" pos="13.6069 55.0382 382.4646" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_water.xac" Model="f_gele_57_4_water" ShadowMap="f_gele_57_4_water" pos="-939.8016 -284.8794 -1238.2068" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_bl03.xac" Model="f_gele_57_4_bl03" ShadowMap="f_gele_57_4_bl03" pos="-322.0417 36.2094 -256.6849" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_ground.xac" Model="f_gele_57_4_ground" ShadowMap="f_gele_57_4_ground" pos="-616.1421 11.1249 116.9402" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_1area_model.xac" Model="f_gele_57_4_1area_model" ShadowMap="f_gele_57_4_1area_model" pos="-1809.4891 -40.1189 -83.8405" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_2area_model.xac" Model="f_gele_57_4_2area_model" ShadowMap="f_gele_57_4_2area_model" pos="-1145.8120 -100.8975 -153.6296" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_3area_model.xac" Model="f_gele_57_4_3area_model" ShadowMap="f_gele_57_4_3area_model" pos="-776.8755 -168.6650 1287.8420" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_4area_model.xac" Model="f_gele_57_4_4area_model" ShadowMap="f_gele_57_4_4area_model" pos="-66.3354 -39.6687 359.1425" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_5area_model.xac" Model="f_gele_57_4_5area_model" ShadowMap="f_gele_57_4_5area_model" pos="856.5482 16.4095 1225.5767" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_6area_model.xac" Model="f_gele_57_4_6area_model" ShadowMap="f_gele_57_4_6area_model" pos="1356.4495 59.5043 -862.6249" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anigrass01.xac" Model="f_gele_57_4_anigrass01" ShadowMap="f_gele_57_4_1area_model" pos="-1809.4893 -40.1189 -83.8405" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anigrass02.xac" Model="f_gele_57_4_anigrass02" ShadowMap="f_gele_57_4_2area_model" pos="-1145.8119 -100.8975 -153.6298" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anigrass03.xac" Model="f_gele_57_4_anigrass03" ShadowMap="f_gele_57_4_3area_model" pos="-776.8755 -168.6650 1287.8420" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anigrass04.xac" Model="f_gele_57_4_anigrass04" ShadowMap="f_gele_57_4_4area_model" pos="-66.3354 -39.6687 359.1425" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anigrass05.xac" Model="f_gele_57_4_anigrass05" ShadowMap="f_gele_57_4_5area_model" pos="856.5482 16.4095 1225.5767" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anigrass06.xac" Model="f_gele_57_4_anigrass06" ShadowMap="f_gele_57_4_6area_model" pos="1356.4495 59.5043 -862.6249" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_gr_a.xac" Model="f_gele_57_4_gr_a" ShadowMap="f_gele_57_4_gr_a" pos="-430.3711 22.7318 836.2693" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_anibmodel01.xac" Model="f_gele_57_4_anibmodel01" ShadowMap="f_gele_57_4_bmodel01" pos="-473.6499 -374.0262 99.5254" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_bmodel01.xac" Model="f_gele_57_4_bmodel01" ShadowMap="f_gele_57_4_bmodel01" pos="-473.6499 -374.0262 99.5254" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_bl01.xac" Model="f_gele_57_4_bl01" ShadowMap="f_gele_57_4_bl01" pos="-121.6140 13.3082 424.2514" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_bl02.xac" Model="f_gele_57_4_bl02" ShadowMap="f_gele_57_4_bl02" pos="-240.8067 12.5591 855.6319" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass03.xac" Model="f_gele_57_4_grass03" ShadowMap="f_gele_57_4_grass03" pos="-168.0161 57.5819 609.6401" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass06.xac" Model="f_gele_57_4_grass06" ShadowMap="f_gele_57_4_grass06" pos="-228.5256 -65.5696 1528.9170" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass05.xac" Model="f_gele_57_4_grass05" ShadowMap="f_gele_57_4_grass05" pos="-1676.4797 -66.8802 281.4447" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass02.xac" Model="f_gele_57_4_grass02" ShadowMap="f_gele_57_4_grass02" pos="1190.8014 92.7097 -949.3912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass07.xac" Model="f_gele_57_4_grass07" ShadowMap="f_gele_57_4_grass07" pos="560.0160 35.4708 1673.9292" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass01.xac" Model="f_gele_57_4_grass01" ShadowMap="f_gele_57_4_grass01" pos="6.8768 -55.2890 753.4565" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass04.xac" Model="f_gele_57_4_grass04" ShadowMap="f_gele_57_4_grass04" pos="-1676.4797 -66.8802 281.4447" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_gele_57_4_grass08.xac" Model="f_gele_57_4_grass08" ShadowMap="f_gele_57_4_grass08" pos="-1676.4797 -66.8802 281.4447" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" ShadowMap="" pos="-1809.4891 -40.1189 -83.8405" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

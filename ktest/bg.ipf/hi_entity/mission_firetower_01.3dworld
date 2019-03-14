@@ -1,1 +1,29 @@
-94F660AB8E134B96B35B4170389ED4E3
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\raid\mission_firetower_01\"/>
+	<TexDir IpfName="bg_texture" Path="\firetower\"/>
+	<LightMap File="mission_firetower_01_lightmap.jpg" Length="2800.0 2800.0" Offset="105.042 -1063.033" Size="1024 1024"/>
+	<AutoHeightMap Length="2800.0 2800.0" Offset="105.042 -1063.033" Height="600 -600"/>
+	<SubTexDir IpfName="bg_texture" Path="\barrack\"/>
+	<AnimationDir IpfName="bg_hi" Path="\raid\mission_firetower_01\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\mission_firetower_01\"/>
+	<Model File="mission_firetower_01_fog.xac" Model="mission_firetower_01_fog" pos="736.9252 615.0557 -283.4108" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_bloom.xac" Model="mission_firetower_01_bloom" pos="355.1064 694.3340 -227.8999" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_light.xac" Model="mission_firetower_01_light" pos="-252.4885 532.5281 -935.2605" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_light02.xac" Model="mission_firetower_01_light02" ShadowMap="mission_firetower_01_light02" pos="-252.4885 532.5281 -935.2605" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_1area_model.xac" Model="mission_firetower_01_1area_model" ShadowMap="mission_firetower_01_1area_model" pos="1085.0414 504.3228 -756.8594" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_ground.xac" Model="mission_firetower_01_ground" ShadowMap="mission_firetower_01_ground" pos="100.4580 556.9641 -1086.9792" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_b_model.xac" Model="mission_firetower_01_b_model" ShadowMap="mission_firetower_01_b_model" pos="102.8649 565.6327 -1100.8262" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_2area_model.xac" Model="mission_firetower_01_2area_model" ShadowMap="mission_firetower_01_2area_model" pos="472.5911 547.7622 -757.9415" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_3area_model.xac" Model="mission_firetower_01_3area_model" ShadowMap="mission_firetower_01_3area_model" pos="-249.3546 529.3401 -992.4874" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_5area_model.xac" Model="mission_firetower_01_5area_model" ShadowMap="mission_firetower_01_5area_model" pos="-567.7793 558.6867 -1959.9379" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_ani01.xac" AniFile="mission_firetower_01_ani01.xsm" Model="mission_firetower_01_ani01" ShadowMap="mission_firetower_01_ani01" pos="78.501 541.152 -1901.395" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_ani02.xac" AniFile="mission_firetower_01_ani02.xsm" Model="mission_firetower_01_ani02" ShadowMap="mission_firetower_01_ani02" pos="-1251.0662 729.4930 -2058.9282" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_ani03.xac" AniFile="mission_firetower_01_ani03.xsm" Model="mission_firetower_01_ani03" ShadowMap="mission_firetower_01_ani03" pos="750.2942 402.3101 -471.7844" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_ani04.xac" AniFile="mission_firetower_01_ani04.xsm" Model="mission_firetower_01_ani04" ShadowMap="mission_firetower_01_ani04" pos="-16.0946 399.2739 -937.1987" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_6area_model.xac" Model="mission_firetower_01_6area_model" ShadowMap="mission_firetower_01_6area_model" pos="889.6771 645.6852 -1891.6028" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="889.6771 645.6852 -1891.6028" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_firetower_01_tp.xac" Model="mission_firetower_01_tp" ShadowMap="mission_firetower_01_tp" pos="-567.779 558.687 -1959.938" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,1 +1,17 @@
-A4F59CEBE5C6DA24A0C40B41FF17A84F
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by yeonew (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture\" Path="\klaipeda\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\siauliai\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<LightMap File="c_voodoo_lightmap.jpg" Length="260 260" Offset="-11.349 -33.747" Size="512 512"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<Model File="c_voodoo_obj.xac" Model="c_voodoo_obj" ShadowMap="c_voodoo_obj" pos="-6.621155 49.576321 -16.523096" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="c_voodoo_gr.xac" Model="c_voodoo_gr" ShadowMap="c_voodoo_gr" pos="-26.024391 83.315521 -2.504700" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="c_voodoo_sha.xac" Model="c_voodoo_sha" pos="-7.599697 36.120975 -18.918304" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="c_voodoo_light.xac" Model="c_voodoo_light" pos="-17.164268 40.888298 6.415466" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="c_voodoo_bloom_cry.xac" Model="c_voodoo_bloom_cry" pos="-7.457689 28.041039 0.453110" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

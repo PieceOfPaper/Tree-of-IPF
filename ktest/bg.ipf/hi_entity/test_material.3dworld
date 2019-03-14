@@ -1,1 +1,25 @@
-8FB90EEFDA7BB065958C4624F41037ED
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\test_zone\"/>
+	<TexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="3800.0 3800.0" Offset="100 -116" Height="600 -600"/>
+	<SubTexDir IpfName="bg_texture" Path="\pilgrimroad\"/>
+	<SubTexDir IpfName="bg_texture" Path="\firetower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\3cmlake\"/>
+	<SubTexDir IpfName="bg_texture" Path="\prison\"/>
+	<SubTexDir IpfName="bg_texture" Path="\remains\"/>
+	<SubTexDir IpfName="bg_texture" Path="\rokas\"/>
+	<SubTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\tableland\"/>
+	<SubTexDir IpfName="bg_texture" Path="\barrack\"/>
+	<SubTexDir IpfName="bg_texture" Path="\whitetrees\"/>
+	<SubTexDir IpfName="bg_texture" Path="\gele\"/>
+	<Model File="test_ground.xac" Model="test_ground" pos="0.0000 0.0000 0.0000" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="test_water.xac" Model="test_water" pos="0.0000 0.0000 0.0000" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="test_light.xac" Model="test_light" pos="0.0000 0.0000 0.0000" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="test_grass.xac" Model="test_grass" pos="0.0000 0.0000 0.0000" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

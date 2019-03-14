@@ -1,1 +1,20 @@
-D94205F78673BD7FDF8A41001145754F
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by park (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\raid\raid_zone\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture\" Path="\common\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\raid_zone\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\raid\raid_zone\"/>
+	<Model File="raid_ground.xac" Model="raid_ground" ShadowMap="training_ground" pos="0.000000 0.000000 0.000000" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="training_column.xac" Model="training_column" ShadowMap="training_column" pos="13.608766 30.759489 -123.472214" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="training_passage.xac" Model="training_passage" ShadowMap="training_passage" pos="-120.056343 78.099945 -145.003540" rot="-0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="training_potset.xac" Model="training_potset" ShadowMap="training_potset" pos="154.029877 16.361900 99.334679" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="training_wall.xac" Model="training_wall" ShadowMap="training_wall" pos="-140.940674 17.614590 106.777908" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

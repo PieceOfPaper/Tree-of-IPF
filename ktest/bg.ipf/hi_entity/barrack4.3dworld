@@ -1,1 +1,19 @@
-1E7647A860D389988D583A9466E1A516
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\barrack3\"/>
+	<TexDir IpfName="bg_texture" Path="\barrack\"/>
+	<SubTexDir IpfName="bg_hi" Path="\barrack3\"/>
+	<AnimationDir IpfName="bg_hi" Path="\barrack3\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\barrack3\"/>
+	<WarFog Enable="1" SpotLightSize="347" FireSize="2" WarFogColor="0.00 0.00 1.00" WarFogAlpha="0.08"/>
+	<Model File="barrack4_ground.xac" Model="barrack4_ground" ShadowMap="barrack4_ground" pos="-3.8499 9.0577 -5.9600" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_model.xac" Model="barrack4_model" ShadowMap="barrack4_model" pos="2.0780 51.1002 -2.5499" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_light.xac" Model="barrack4_light" ShadowMap="barrack4_light" pos="6.8475 52.7666 -19.0018" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_sha.xac" Model="barrack4_sha" pos="14.1198 43.4496 -30.7494" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_ani01.xac" Model="barrack4_ani01" ShadowMap="barrack4_ani01" AniFile="barrack4_ani01.xsm" pos="-28.9367 98.6123 35.5144" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_ani02.xac" Model="barrack4_ani02" ShadowMap="barrack4_ani02" pos="-89.4882 86.2805 26.0221" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_ani03.xac" Model="barrack4_ani03" ShadowMap="barrack4_ani03" pos="56.7671 84.4903 110.1629" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_bloom.xac" Model="barrack4_bloom" ShadowMap="barrack4_bloom" pos="-122.4782 44.9706 22.5366" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

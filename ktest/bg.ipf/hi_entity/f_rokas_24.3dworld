@@ -1,1 +1,60 @@
-733121D3767C5A038F7CA1BCC8D676AD
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_rokas_24\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_rokas_24\"/>
+	<AutoHeightMap Length="6400.0 6400.0" Offset="-305.015 -625.371" Height="3000 -3000"/>
+	<LightMap File="f_rokas_24_lightmap.jpg" Length="6400.0 6400.0" Offset="-305.015 -625.371" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\rokas\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_rokas_24\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_rokas_24\"/>
+	<Model File="f_rokas24_ground.xac" Model="f_rokas24_ground" ShadowMap="f_rokas24_ground" pos="-644.5862 120.7095 -571.0047" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_water.xac" Model="f_rokas24_water" pos="85.6054 346.4235 -669.3125" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_fog.xac" Model="f_rokas24_fog" pos="1084.378 208.24 -3259.814" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_b_model.xac" Model="f_rokas24_b_model" ShadowMap="f_rokas24_b_model" pos="-2878.6782 1.8865 1218.8047" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_light.xac" Model="f_rokas24_light" pos="-1435.9966 584.3912 575.9219" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_1area_model.xac" Model="f_rokas24_1area_model" ShadowMap="f_rokas24_1area_model" pos="614.0579 145.4583 -2124.2710" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_2area_model.xac" Model="f_rokas24_2area_model" ShadowMap="f_rokas24_2area_model" pos="-419.2126 432.8546 -2663.7856" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_3area_model.xac" Model="f_rokas24_3area_model" ShadowMap="f_rokas24_3area_model" pos="-1369.8115 793.6044 -697.6758" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-1369.8115 793.6044 -697.6758" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_4area_model.xac" Model="f_rokas24_4area_model" ShadowMap="f_rokas24_4area_model" pos="-2077.2334 1218.3065 -105.6333" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_5area_model.xac" Model="f_rokas24_5area_model" ShadowMap="f_rokas24_5area_model" pos="992.6775 -225.4896 -208.7866" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_6area_model.xac" Model="f_rokas24_6area_model" ShadowMap="f_rokas24_6area_model" pos="419.8098 453.1690 782.2632" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_8area_model.xac" Model="f_rokas24_8area_model" ShadowMap="f_rokas24_8area_model" pos="-1571.7739 708.3876 1906.6848" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_7area_model.xac" Model="f_rokas24_7area_model" ShadowMap="f_rokas24_7area_model" pos="-442.6113 486.1313 1666.9109" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_2area_grass.xac" Model="f_rokas24_2area_grass" ShadowMap="f_rokas24_2area_grass" pos="-853.8934 772.8612 -2360.7563" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_3area_grass.xac" Model="f_rokas24_3area_grass" ShadowMap="f_rokas24_3area_grass" pos="-497.9672 1061.0720 -287.3429" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_4area_grass.xac" Model="f_rokas24_4area_grass" ShadowMap="f_rokas24_4area_grass" pos="-1236.799 872.877 -196.758" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_5area_grass.xac" Model="f_rokas24_5area_grass" ShadowMap="f_rokas24_5area_grass" pos="1112.6292 218.1362 136.0974" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_7area_grass.xac" Model="f_rokas24_7area_grass" ShadowMap="f_rokas24_7area_grass" pos="-492.6855 713.1920 1657.0874" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_1area_grass.xac" Model="f_rokas24_1area_grass" ShadowMap="f_rokas24_1area_grass" pos="606.7887 262.7872 -2271.0225" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_1area_gr_a.xac" Model="f_rokas24_1area_gr_a" ShadowMap="f_rokas24_1area_gr_a" pos="37.4390 452.4996 -2576.7783" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_1area_blend.xac" Model="f_rokas24_1area_blend" ShadowMap="f_rokas24_1area_blend" pos="629.7555 200.7924 -2357.0703" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_2area_blend.xac" Model="f_rokas24_2area_blend" ShadowMap="f_rokas24_2area_blend" pos="-837.0779 638.1538 -2279.7917" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_3area_blend.xac" Model="f_rokas24_3area_blend" ShadowMap="f_rokas24_3area_blend" pos="-1357.1926 1006.9213 -271.4941" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_4area_blend.xac" Model="f_rokas24_4area_blend" ShadowMap="f_rokas24_4area_blend" pos="688.4332 84.2511 190.8372" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_5area_blend.xac" Model="f_rokas24_5area_blend" ShadowMap="f_rokas24_5area_blend" pos="-707.7651 681.2996 1676.4160" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_tp06.xac" Model="f_rokas24_tp06" ShadowMap="f_rokas24_tp06" pos="-290.9966 764.3961 829.3197" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_2area_tree.xac" Model="f_rokas24_2area_tree" ShadowMap="f_rokas24_2area_tree" pos="-473.7046 721.5457 -2620.8926" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree02.xac" Model="f_rokas24_anitree02" ShadowMap="f_rokas24_2area_tree" pos="-731.679 809.896 -2585.515" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_3area_tree.xac" Model="f_rokas24_3area_tree" ShadowMap="f_rokas24_3area_tree" pos="-1034.7106 967.7601 -845.1862" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree03.xac" Model="f_rokas24_anitree03" ShadowMap="f_rokas24_3area_tree" pos="-1262.669 952.174 -1134.59" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_4area_tree.xac" Model="f_rokas24_4area_tree" ShadowMap="f_rokas24_4area_tree" pos="-2169.3721 1326.6599 -250.5854" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree04.xac" Model="f_rokas24_4area_tree" ShadowMap="f_rokas24_4area_tree" pos="-2103.926 1340.894 -258.991" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_5area_tree.xac" Model="f_rokas24_5area_tree" ShadowMap="f_rokas24_5area_tree" pos="872.9288 -69.8858 -552.3582" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree05.xac" Model="f_rokas24_anitree05" ShadowMap="f_rokas24_5area_tree" pos="1138.337 140.569 -377.505" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_6area_tree.xac" Model="f_rokas24_6area_tree" ShadowMap="f_rokas24_6area_tree" pos="825.9381 306.5739 704.9611" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_7area_tree.xac" Model="f_rokas24_7area_tree" ShadowMap="f_rokas24_7area_tree" pos="-95.4751 291.4087 982.2601" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree07.xac" Model="f_rokas24_anitree07" ShadowMap="f_rokas24_7area_tree" pos="-296.121 34.893 726.894" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_8area_tree.xac" Model="f_rokas24_8area_tree" ShadowMap="f_rokas24_8area_tree" pos="-1001.4005 706.4619 1909.4857" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree08.xac" Model="f_rokas24_anitree08" ShadowMap="f_rokas24_8area_tree" pos="-1327.696 891.998 1771.388" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_tp05.xac" Model="f_rokas24_tp05" ShadowMap="f_rokas24_tp05" pos="-739.5166 817.0422 -34.7358" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_tp01.xac" Model="f_rokas24_tp01" ShadowMap="f_rokas24_tp01" pos="-362.6738 805.2706 -701.5098" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_tp03.xac" Model="f_rokas24_tp03" ShadowMap="f_rokas24_tp03" pos="-237.5172 756.6270 -1468.5692" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_tp04.xac" Model="f_rokas24_tp04" ShadowMap="f_rokas24_tp04" pos="-475.4759 809.3839 900.1520" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_1area_blend2.xac" Model="f_rokas24_1area_blend2" ShadowMap="f_rokas24_1area_blend2" pos="-643.481 680.085 -565.042" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_1area_tree.xac" Model="f_rokas24_1area_tree" ShadowMap="f_rokas24_1area_tree" pos="633.08 386.41 -2276.192" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas24_anitree01.xac" Model="f_rokas24_anitree01" ShadowMap="f_rokas24_1area_tree" pos="813.184 173.862 -2440.66" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,1 +1,24 @@
-DA7A77E80D4E8BE8666AE7038FF10940
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\p_cathedral_2\"/>
+	<SubModelDir IpfName="bg_hi2" Path="\common\"/>
+	<AutoHeightMap Length="2000.0 2000.0" Offset="78.38 -187.343" Height="1000 -1000"/>
+	<LightMap File="p_cathedral_2_lightmap.jpg" Length="1850 1850" Offset="5.309 263.514" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\p_cathedral_2\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<Model File="p_cathedral_2_ground.xac" Model="p_cathedral_2_ground" ShadowMap="p_cathedral_2_ground" pos="20.6191 -0.0049 945.4310" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_grass.xac" Model="p_cathedral_2_grass" ShadowMap="p_cathedral_2_grass" pos="-198.1343 -10.6677 269.7787" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_bl01.xac" Model="p_cathedral_2_bl01" ShadowMap="p_cathedral_2_bl01" pos="42.1545 122.0170 -242.1026" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_4area_model.xac" Model="p_cathedral_2_4area_model" ShadowMap="p_cathedral_2_4area_model" pos="-734.7875 30.1609 -317.8742" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_3area_model.xac" Model="p_cathedral_2_3area_model" ShadowMap="p_cathedral_2_3area_model" pos="479.0220 147.6128 27.5800" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_5area_model.xac" Model="p_cathedral_2_5area_model" ShadowMap="p_cathedral_2_5area_model" pos="324.3035 -113.2068 134.9188" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_1area_model.xac" Model="p_cathedral_2_1area_model" ShadowMap="p_cathedral_2_1area_model" pos="205.6988 -15.6504 903.0107" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_2area_model.xac" Model="p_cathedral_2_2area_model" ShadowMap="p_cathedral_2_2area_model" pos="780.1619 116.9177 213.1819" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_bmodel01.xac" Model="p_cathedral_2_bmodel01" ShadowMap="p_cathedral_2_bmodel01" pos="15.9370 -24.2134 1146.5737" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_tp02.xac" Model="p_cathedral_2_tp02" ShadowMap="p_cathedral_2_tp02" pos="221.2180 177.7027 525.1302" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_tp03.xac" Model="p_cathedral_2_tp03" ShadowMap="p_cathedral_2_tp03" pos="40.0168 222.5409 -154.6724" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_cathedral_2_tp01.xac" Model="p_cathedral_2_tp01" ShadowMap="p_cathedral_2_tp01" pos="-62.7797 232.1480 368.0712" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

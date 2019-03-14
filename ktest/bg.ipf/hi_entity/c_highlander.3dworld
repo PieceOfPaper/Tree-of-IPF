@@ -1,1 +1,25 @@
-BCB7B0ACEADC2EE71C2AD0AC0C8126F7
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<LightMap File="c_highlander_lightmap.jpg" Length="370.0 370.0" Offset="54.824 67.442" Size="512 512"/>
+	<TexDir IpfName="bg_texture\" Path="\klaipeda\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\siauliai\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<Model File="c_highlander_building.xac" Model="c_highlander_building" ShadowMap="c_highlander_building" pos="167.5630 129.1453 168.9998" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_1tree.xac" Model="c_highlander_1tree" ShadowMap="c_highlander_1tree" pos="119.4484 11.9569 144.5355" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_ground.xac" Model="c_highlander_ground" ShadowMap="c_highlander_ground" pos="219.9712 -184.7455 31.3803" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_model.xac" Model="c_highlander_model" ShadowMap="c_highlander_model" pos="73.4200 27.4563 65.9997" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_b_model.xac" Model="c_highlander_b_model" ShadowMap="c_highlander_b_model" pos="-338.6585 68.8929 396.3723" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_light.xac" Model="c_highlander_light" pos="49.1215 31.7135 -30.5235" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_fog.xac" Model="c_highlander_fog" pos="-68.2355 109.4809 174.3620" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_blend4.xac" Model="c_highlander_blend4" pos="55.0227 1.0000 98.3731" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_blend3.xac" Model="c_highlander_blend3" ShadowMap="c_highlander_blend3" pos="97.0759 1.4000 80.0609" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_blend.xac" Model="c_highlander_blend" pos="-27.9887 -64.0099 -71.1328" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_blend2.xac" Model="c_highlander_blend2" ShadowMap="c_highlander_blend2" pos="77.0354 0.4000 43.3931" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_gr_a.xac" Model="c_highlander_gr_a" ShadowMap="c_highlander_gr_a" pos="42.1717 -106.7066 -55.6955" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_highlander_glass.xac" Model="c_highlander_glass" ShadowMap="c_highlander_glass" pos="111.3552 30.9926 -3.0052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

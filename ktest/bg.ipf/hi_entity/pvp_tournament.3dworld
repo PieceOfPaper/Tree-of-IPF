@@ -1,1 +1,83 @@
-E2C89969B1F41BCEED4D6A67947B6B35
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by JangYD (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<AutoHeightMap Length="2500 2500" Offset="0 0 " Height="600 -600"/>
+	<ModelDir IpfName="bg_hi" Path="\raid\pvp_tournament\"/>
+	<TexDir IpfName="bg_texture" Path="\pvp\"/>
+	<LightMap File="pvp_tournament_lightmap.jpg" Length="1197 1197" Offset="-3.991 -39.371" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\pvp_tournament\"/>
+	<AnimationDir IpfName="bg_hi" Path="\raid\pvp_tournament\"/>
+	<SubTexDir IpfName="bg_texture" Path="\klaipeda\"/>
+	<Model File="pvp_b_model.xac" Model="pvp_b_model" ShadowMap="pvp_b_model" pos="16.5570 46.2985 -30.0649" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_ground.xac" Model="pvp_ground" ShadowMap="pvp_ground" pos="13.9994 46.2985 -34.9513" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_blend.xac" Model="pvp_blend" ShadowMap="pvp_blend" pos="-8.6124 -30.8981 -39.3686" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_light03.xac" Model="pvp_light03" pos="-98.531 71.984-53.758" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_3area_model.xac" Model="pvp_3area_model" ShadowMap="pvp_3area_model" pos="-40.3277 132.9328 -24.0794" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_light02.xac" Model="pvp_light02" AniFile="pvp_light02.xsm" pos="-32.621 -31.437 42.295" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="tok.xac" Model="tok" pos="-40.3277 132.9328 -24.0794" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_2area_model.xac" Model="pvp_2area_model" ShadowMap="pvp_2area_model" pos="266.5785 42.2947 -327.2117" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_1area_model.xac" Model="pvp_1area_model" ShadowMap="pvp_1area_model" pos="242.0235 -84.4868 208.5877" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_fog.xac" Model="pvp_fog" pos="95.3774 366.8473 -117.7205" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_light.xac" Model="pvp_light" pos="-246.6597 125.8310 -69.9253" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_grass.xac" Model="pvp_grass" ShadowMap="pvp_grass" pos="143.0405 124.1572 -139.3461" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_blend2.xac" Model="pvp_blend2" ShadowMap="pvp_blend2" pos="106.8027 53.0891 -150.0898" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_tp01.xac" Model="pvp_tp01" ShadowMap="pvp_tp01" pos="30.9201 195.0092 -123.0735" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_tp02.xac" Model="pvp_tp02" ShadowMap="pvp_tp02" pos="-86.0320 192.3052 -103.2365" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_tp03.xac" Model="pvp_tp03" ShadowMap="pvp_tp03" pos="-172.3210 167.5032 -256.2654" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_tp04.xac" Model="pvp_tp04" ShadowMap="pvp_tp04" AniFile="" pos="114.1060 282.5892 -86.2692" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_tp05.xac" Model="pvp_tp05" ShadowMap="pvp_tp05" pos="77.5184 298.5122 0.9730" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_tp06.xac" Model="pvp_tp06" ShadowMap="pvp_tp06" pos="230.7513 190.4108 145.3890" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_blend3.xac" Model="pvp_blend3" ShadowMap="pvp_blend3" pos="160.9944 119.5726 -224.6758" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_blend4.xac" Model="pvp_blend4" ShadowMap="pvp_blend4" pos="97.091 0.0 -42.149" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_blue_flag01.xac" Model="pvp_A_blue_flag01" ShadowMap="pvp_A_blue_flag01" AniFile="pvp_A_blue_flag01_01.xsm" pos="-243.4105 70.0762 -255.5354" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_blue_flag01.xac" Model="pvp_A_blue_flag02" ShadowMap="pvp_A_blue_flag02" AniFile="pvp_A_blue_flag01_02.xsm" pos="-200.3061 70.0762 -305.1170" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_red_flag01.xac" Model="pvp_A_red_flag01" ShadowMap="pvp_A_red_flag01" AniFile="pvp_A_blue_flag01_03.xsm" pos="197.3595 69.8468 244.5597" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_red_flag01.xac" Model="pvp_A_red_flag02" ShadowMap="pvp_A_red_flag02" AniFile="pvp_A_blue_flag01_04.xsm" pos="250.5066 69.8468 203.9715" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag01" ShadowMap="pvp_A_white_flag01" AniFile="pvp_A_blue_flag01_05.xsm" pos="309.3904 48.3025 240.5288" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag02" ShadowMap="pvp_A_white_flag02" AniFile="pvp_A_blue_flag01_01.xsm" pos="336.6606 48.3025 184.2313" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag03" ShadowMap="pvp_A_white_flag03" AniFile="pvp_A_blue_flag01_02.xsm" pos="494.9449 138.5421 251.2369" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag04" ShadowMap="pvp_A_white_flag04" AniFile="pvp_A_blue_flag01_03.xsm" pos="446.9849 138.5421 344.9584" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag05" ShadowMap="pvp_A_white_flag05" AniFile="pvp_A_blue_flag01_04.xsm" pos="513.4469 138.5421 18.0314" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag06" ShadowMap="pvp_A_white_flag06" AniFile="pvp_A_blue_flag01_05.xsm" pos="495.6567 138.5421 -81.9129" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag07" ShadowMap="pvp_A_white_flag07" AniFile="pvp_A_blue_flag01_01.xsm" pos="325.2390 47.7670 -61.3697" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag08" ShadowMap="pvp_A_white_flag08" AniFile="pvp_A_blue_flag01_02.xsm" pos="343.7358 47.7670 24.6788" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag09" ShadowMap="pvp_A_white_flag09" AniFile="pvp_A_blue_flag01_03.xsm" pos="-66.0236 48.0557 308.0674" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag10" ShadowMap="pvp_A_white_flag10" AniFile="pvp_A_blue_flag01_04.xsm" pos="-129.8880 48.0557 274.2536" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag11" ShadowMap="pvp_A_white_flag11" AniFile="pvp_A_blue_flag01_05.xsm" pos="224.3833 47.3434 -229.3646" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag12" ShadowMap="pvp_A_white_flag12" AniFile="pvp_A_blue_flag01_01.xsm" pos="176.1225 47.3434 -274.0140" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag13" ShadowMap="pvp_A_white_flag13" AniFile="pvp_A_blue_flag01_02.xsm" pos="11.8643 49.1470 -367.1957" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag14" ShadowMap="pvp_A_white_flag14" AniFile="pvp_A_blue_flag01_03.xsm" pos="-71.9583 49.1470 -377.8373" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag15" ShadowMap="pvp_A_white_flag15" AniFile="pvp_A_blue_flag01_04.xsm" pos="-214.8151 48.7249 -353.5397" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag16" ShadowMap="pvp_A_white_flag16" AniFile="pvp_A_blue_flag01_05.xsm" pos="-265.6839 48.7249 -315.6654" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag17" ShadowMap="pvp_A_white_flag17" AniFile="pvp_A_blue_flag01_01.xsm" pos="-299.9910 137.9230 -512.6371" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag18" ShadowMap="pvp_A_white_flag18" AniFile="pvp_A_blue_flag01_02.xsm" pos="-380.8070 137.9230 -460.2379" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag19" ShadowMap="pvp_A_white_flag19" AniFile="pvp_A_blue_flag01_03.xsm" pos="-68.9596 137.9230 -543.6093" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag20" ShadowMap="pvp_A_white_flag20" AniFile="pvp_A_blue_flag01_04.xsm" pos="22.4255 137.9230 -525.0780" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag21" ShadowMap="pvp_A_white_flag21" AniFile="pvp_A_blue_flag01_05.xsm" pos="270.2339 137.9230 -408.9153" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag22" ShadowMap="pvp_A_white_flag22" AniFile="pvp_A_blue_flag01_01.xsm" pos="352.1295 137.9230 -323.5767" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag23" ShadowMap="pvp_A_white_flag23" AniFile="pvp_A_blue_flag01_02.xsm" pos="-306.0572 48.7249 54.7971" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag24" ShadowMap="pvp_A_white_flag24" AniFile="pvp_A_blue_flag01_03.xsm" pos="-273.5615 48.7249 132.6647" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag25" ShadowMap="pvp_A_white_flag25" AniFile="pvp_A_blue_flag01_04.xsm" pos="-196.5141 135.7692 412.8965" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag26" ShadowMap="pvp_A_white_flag26" AniFile="pvp_A_blue_flag01_05.xsm" pos="-118.5957 135.7692 454.2141" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag27" ShadowMap="pvp_A_white_flag27" AniFile="pvp_A_blue_flag01_01.xsm" pos="-414.3948 135.7692 193.0126" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_A_white_flag01.xac" Model="pvp_A_white_flag28" ShadowMap="pvp_A_white_flag28" AniFile="pvp_A_blue_flag01_02.xsm" pos="-456.9704 140.1909 105.8969" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_blue_flag01.xac" Model="pvp_B_blue_flag01" ShadowMap="pvp_B_blue_flag01" AniFile="pvp_B_red_flag01_01.xsm" pos="-325.4520 189.4624 21.4989" rot="-0.0000 0.3714 -0.0000 0.9285" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_blue_flag01.xac" Model="pvp_B_blue_flag02" ShadowMap="pvp_B_blue_flag02" AniFile="pvp_B_red_flag01_01.xsm" pos="-368.7139 196.3584 -30.3896" rot="-0.0000 0.3714 -0.0000 0.9285" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_blue_flag01.xac" Model="pvp_B_blue_flag03" ShadowMap="pvp_B_blue_flag03" AniFile="pvp_B_red_flag01_02.xsm" pos="-563.803 206.4992 -211.631" rot="-0.0000 -0.0337 -0.0000 0.9994" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_blue_flag01.xac" Model="pvp_B_blue_flag04" ShadowMap="pvp_B_blue_flag04" AniFile="pvp_B_red_flag01_02.xsm" pos="-553.677 206.4992 -274.547" rot="-0.0000 -0.1421 -0.0000 0.9899" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_red_flag01.xac" Model="pvp_B_red_flag01" ShadowMap="pvp_B_red_flag01" AniFile="pvp_B_red_flag01_01.xsm" pos="-30.2736 196.0637 320.6008" rot="-0.0000 0.3913 -0.0000 0.9202" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_red_flag01.xac" Model="pvp_B_red_flag02" ShadowMap="pvp_B_red_flag02" AniFile="pvp_B_red_flag01_01.xsm" pos="17.661 211.13 365.821" rot="-0.0000 0.3913 -0.0000 0.9202" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_red_flag01.xac" Model="pvp_B_red_flag03" ShadowMap="pvp_B_red_flag03" AniFile="pvp_B_red_flag01_02.xsm" pos="262.601 204.8237 524.642" rot="-0.0000 0.8149 -0.0000 0.5795" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_B_red_flag01.xac" Model="pvp_B_red_flag04" ShadowMap="pvp_B_red_flag04" AniFile="pvp_B_red_flag01_02.xsm" pos="199.77 204.3758 541.071" rot="-0.0000 0.7622 -0.0000 0.6473" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_big_flag01.xac" Model="pvp_big_flag01" ShadowMap="pvp_big_flag01" AniFile="pvp_big_flag01_01.xsm" pos="-192.0333 154.5023 165.5159" rot="-0.0000 0.3693 -0.0000 0.9293" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_big_flag01.xac" Model="pvp_big_flag02" ShadowMap="pvp_big_flag02" AniFile="pvp_big_flag01_02.xsm" pos="-223.5750 154.5023 133.7651" rot="-0.0000 0.3693 -0.0000 0.9293" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_big_flag01.xac" Model="pvp_big_flag03" ShadowMap="pvp_big_flag03" AniFile="pvp_big_flag01_02.xsm" pos="-156.6938 154.5023 200.5838" rot="-0.0000 0.3693 -0.0000 0.9293" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_C_blue_flag01.xac" Model="pvp_C_blue_flag01" ShadowMap="pvp_C_blue_flag01" AniFile="pvp_C_red_flag01_02.xsm" pos="-240.403 53.9911 -61.268" rot="-0.0000 0.0387 -0.0000 0.9993" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_C_blue_flag01.xac" Model="pvp_C_blue_flag02" ShadowMap="pvp_C_blue_flag02" AniFile="pvp_C_red_flag01_01.xsm" pos="-345.8906 187.9503 -5.5574" rot="-0.0000 0.3708 -0.0000 0.9287" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_C_blue_flag01.xac" Model="pvp_C_blue_flag03" ShadowMap="pvp_C_blue_flag03" AniFile="pvp_C_red_flag01_02.xsm" pos="-557.462 203.5207 -243.142" rot="-0.0000 -0.0283 -0.0000 0.9996" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_C_red_flag01.xac" Model="pvp_C_red_flag01" ShadowMap="pvp_C_red_flag01" AniFile="pvp_C_red_flag01_02.xsm" pos="27.281 56.3692 222.996" rot="-0.0000 0.6353 -0.0000 0.7723" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_C_red_flag01.xac" Model="pvp_C_red_flag02" ShadowMap="pvp_C_red_flag02" AniFile="pvp_C_red_flag01_01.xsm" pos="-6.2019 196.7403 343.3419" rot="-0.0000 0.3859 -0.0000 0.9225" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_blend5.xac" Model="pvp_blend5" ShadowMap="pvp_blend5" pos="81.284 -30.928 7.018" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="pvp_C_red_flag01.xac" Model="pvp_C_red_flag03" ShadowMap="pvp_C_red_flag03" AniFile="pvp_C_red_flag01_02.xsm" pos="230.412 200.5073 531.151" rot="-0.0000 0.7914 -0.0000 0.6113" scale="1.0000 1.0000 1.0000"/>
+</World>

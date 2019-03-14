@@ -1,1 +1,24 @@
-13707D6612A137B6F98D7B8307027583
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\p_catacomb_2\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\catacomb\"/>
+	<LightMap File="p_catacomb_2_lightmap.jpg" Length="2200.0 2200.0" Offset="-98.834 -1052.495" Size="512 512"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\p_catacomb_2\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\p_catacomb_2\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="p_catacomb_2_light.xac" Model="p_catacomb_2_light" pos="-50.5458 -19.3922 -1068.4525" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2_blend.xac" Model="p_catacomb_2_blend" ShadowMap="p_catacomb_2_blend" pos="-236.2012 -2.6718 -1068.1382" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2_sha.xac" Model="p_catacomb_2_sha" pos="-156.5543 46.8891 -1053.2094" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_3area_model.xac" Model="p_catacomb_3area_model" ShadowMap="p_catacomb_3area_model" pos="-578.7012 -20.1580 -1055.1079" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2_b_model.xac" Model="p_catacomb_2_b_model" ShadowMap="p_catacomb_2_b_model" pos="-181.8339 -151.7771 -961.8766" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2_fog.xac" Model="p_catacomb_2_fog" pos="-55.0967 139.6960 -1119.5662" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2_blend2.xac" Model="p_catacomb_2_blend2" ShadowMap="p_catacomb_2_blend2" pos="-206.1692 0.5666 -1085.2385" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2_ground.xac" Model="p_catacomb_2_ground" ShadowMap="p_catacomb_2_ground" pos="-142.8359 -90.9620 -931.3293" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_1area_model.xac" Model="p_catacomb_1area_model" ShadowMap="p_catacomb_1area_model" pos="-123.0737 5.7941 -1888.6323" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_4area_model.xac" Model="p_catacomb_4area_model" ShadowMap="p_catacomb_4area_model" pos="-126.6639 13.8342 -106.4601" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="p_catacomb_2area_model.xac" Model="p_catacomb_2area_model" ShadowMap="p_catacomb_2area_model" pos="100.5063 3.6944 -1102.9978" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

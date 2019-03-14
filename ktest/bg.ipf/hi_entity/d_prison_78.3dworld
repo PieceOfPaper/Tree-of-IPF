@@ -1,1 +1,61 @@
-52DFBD18EE97E94D423A64696DA23653
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_prison_78\"/>
+	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_prison\"/>
+	<LightMap File="d_prison_78_lightmap.jpg" Length="4600.0 4600.0" Offset="-361.393 391.176" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\prison\"/>
+	<SubTexDir IpfName="bg_texture" Path="\prison\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_prison_78\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_prison\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_prison_78\"/>
+	<Model File="d_prison78_2area_model.xac" Model="d_prison78_2area_model" ShadowMap="d_prison78_2area_model" pos="69.5446 512.5502 -1438.3983" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_8area_model.xac" Model="d_prison78_8area_model" ShadowMap="d_prison78_8area_model" pos="-1082.4971 695.2455 2452.2129" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_4area_model.xac" Model="d_prison78_4area_model" ShadowMap="d_prison78_4area_model" pos="-819.4637 647.9254 339.5885" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_ground.xac" Model="d_prison78_ground" ShadowMap="d_prison78_ground" pos="-265.1794 597.3576 507.2974" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_blend.xac" Model="d_prison78_blend" ShadowMap="d_prison78_blend" pos="-248.6337 591.0265 371.6072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_water.xac" Model="d_prison78_water" ShadowMap="d_prison78_water" pos="29.1327 466.7935 38.1230" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_3area_model.xac" Model="d_prison78_3area_model" ShadowMap="d_prison78_3area_model" pos="-1078.4958 441.0976 -881.7769" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_tp02.xac" Model="d_prison78_tp02" ShadowMap="d_prison78_tp02" pos="-264.4850 577.6284 439.6904" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_6area_model.xac" Model="d_prison78_6area_model" ShadowMap="d_prison78_6area_model" pos="58.6827 531.4606 1671.5514" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_7area_model.xac" Model="d_prison78_7area_model" ShadowMap="d_prison78_7area_model" pos="-393.3035 574.4473 2126.3203" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_1area_model.xac" Model="d_prison78_1area_model" ShadowMap="d_prison78_1area_model" pos="834.0109 620.4401 -800.6230" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_bloom.xac" Model="d_prison78_bloom" pos="-378.824 673.375 412.462" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_tp03.xac" Model="d_prison78_tp03" ShadowMap="d_prison78_tp03" pos="123.7693 701.5064 2082.8884" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_light.xac" Model="d_prison78_light" pos="-378.8241 673.3750 412.4622" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_tp01.xac" Model="d_prison78_tp01" ShadowMap="d_prison78_tp01" pos="34.1462 662.0491 663.2996" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_5area_model.xac" Model="d_prison78_5area_model" ShadowMap="d_prison78_5area_model" pos="508.9885 582.1300 428.0181" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="508.9885 582.1300 428.0181" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_blend2.xac" Model="d_prison78_blend2" ShadowMap="d_prison78_blend2" pos="-233.3727 465.9017 384.7400" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_blend3.xac" Model="d_prison78_blend3" ShadowMap="d_prison78_blend3" pos="-180.3476 442.0856 423.6282" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison78_gr_a.xac" Model="d_prison78_gr_a" ShadowMap="d_prison78_gr_a" pos="-241.7142 625.9348 354.5857" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="1059.0050 882.4006 -1202.0850" rot="-0.0000 -0.2588 -0.0000 0.9659" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj01" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="810.9677 808.8015 -1140.8314" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj02" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="1155.5563 949.9947 -515.4711" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj03" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="1250.6292 986.2147 -582.1068" rot="-0.0000 0.1736 -0.0000 0.9848" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj04" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="750.8105 653.2524 -226.1083" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj05" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="723.3414 653.2524 -145.0962" rot="-0.0000 -0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj06" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="648.2892 653.2524 -238.0988" rot="-0.0000 0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj07" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="565.6973 653.2524 -222.1695" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj08" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="207.0531 681.5897 1379.8705" rot="-0.0000 -0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj09" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="74.4599 658.9484 1419.3711" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj10" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="60.7853 691.7143 1495.0217" rot="-0.0000 0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj11" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="91.5548 660.2899 1556.0361" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj12" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-82.4372 660.2899 1610.3324" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj13" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1202.6885 777.8868 2091.5393" rot="-0.0000 -0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj14" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1292.0125 777.8868 2556.2205" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj15" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1178.9688 777.8868 2665.6357" rot="-0.0000 0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj16" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-725.4963 777.8868 2571.1130" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj17" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-867.4332 794.3018 -1107.9893" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj18" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1114.3621 851.4305 -1440.6819" rot="-0.0000 -0.1736 -0.0000 0.9848" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj19" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1198.4250 832.3092 -1436.7517" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj20" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1331.5720 832.3092 -1506.0577" rot="-0.0000 0.1305 -0.0000 0.9914" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj21" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1501.1323 832.3092 -1477.6344" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj22" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1715.6621 795.7080 -1497.1693" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj23" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1624.0887 833.5244 -1272.0959" rot="-0.0000 -0.1736 -0.0000 0.9848" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj24" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1494.8898 833.5244 -1229.0403" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison_01obj.xac" Model="d_prison_01gobj25" AniFile="d_prison_01obj.xsm" ShadowMap="d_prison_01gobj" pos="-1755.0886 800.9362 -1136.8135" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="2.4609 2.4609 2.4609"/>
+	<Model File="d_prison78_b_model.xac" Model="d_prison78_b_model" ShadowMap="d_prison78_b_model" pos="-221.8616 454.4513 367.0908" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

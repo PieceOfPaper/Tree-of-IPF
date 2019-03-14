@@ -1,1 +1,17 @@
-34B4F100875B9C4F40417AD82017F93E
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_abbey\"/>
+	<LightMap File="c_abbey_lightmap.jpg" Length="850.0 850.0" Offset="275.296 -106.373" Size="512 512"/>
+	<TexDir IpfName="bg_texture\" Path="\c_abbey\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\siauliai\"/>
+	<Model File="c_abbey_1area_model.xac" Model="c_abbey_1area_model" ShadowMap="c_abbey_1area_model" pos="103.2927 -4.0612 73.5408" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_abbey_1area_tree.xac" Model="c_abbey_1area_tree" ShadowMap="c_abbey_1area_tree" pos="218.1598 -71.7265 123.7021" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_abbey_grass.xac" Model="c_abbey_grass" ShadowMap="c_abbey_grass" pos="273.7167 -64.6290 -136.3639" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_abbey_blend.xac" Model="c_abbey_blend" ShadowMap="c_abbey_blend" pos="88.1132 -97.7471 14.8006" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_abbey_ground.xac" Model="c_abbey_ground" ShadowMap="c_abbey_ground" pos="66.1479 -69.6468 23.0439" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_abbey_3area_model.xac" Model="c_abbey_3area_model" ShadowMap="c_abbey_3area_model" pos="-431.8483 5.6511 -330.6255" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_abbey_2area_model.xac" Model="c_abbey_2area_model" ShadowMap="c_abbey_2area_model" pos="288.9905 -72.7364 -408.2041" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_abbey\"/>
+</World>
