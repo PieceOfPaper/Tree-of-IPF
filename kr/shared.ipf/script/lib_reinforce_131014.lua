@@ -19,7 +19,8 @@ function IS_MORU_FREE_PRICE(moruItem)
         or moruItem.ClassName == "Moru_Event160929_14d" 
         or moruItem.ClassName == "Moru_Potential" 
         or moruItem.ClassName == "Moru_Potential14d"
-        or moruItem.StringArg == 'SILVER' then
+        or moruItem.StringArg == 'SILVER'
+        or moruItem.ClassName == 'Moru_Silver_Team' then
         return true;
     end
 
