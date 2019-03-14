@@ -1,28 +1,26 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by k (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\dungeon\d_startower_88\"/>
-	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_startower_88\"/>
-	<LightMap File="d_startower_88_lightmap.jpg" Length="4500.0 4500.0" Offset="534.306 -1028.165" Size="1024 1024"/>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_startower_88\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="d_startower_88_lightmap.jpg" Length="4200.0 4200.0" Offset="1307.197 1312.205" Size="1024 1024"/>
 	<TexDir IpfName="bg_texture" Path="\startower\"/>
-	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
-	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_startower_88\"/>
-	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_startower_88\"/>
-	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_startower_88\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_startower_88\"/>
+	<AnimationDir IpfName="bg_hi2" Path="\dungeon\d_startower_88\"/>
 	<Model File="d_startower88_model04.xac" Model="d_startower88_model04" ShadowMap="d_startower88_model04" pos="-14.1277 245.5484 482.5424" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_startower88_light.xac" Model="d_startower88_light"  pos="420.2007 515.6315 1343.7749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower88_light.xac" Model="d_startower88_light" pos="420.2007 515.6315 1343.7749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_b_model.xac" Model="d_startower88_b_model" ShadowMap="d_startower88_b_model" pos="763.4150 129.5703 1277.4885" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_grass03.xac" Model="d_startower88_grass03" ShadowMap="d_startower88_grass03" pos="1321.8582 110.4035 588.7087" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_ground.xac" Model="d_startower88_ground" ShadowMap="d_startower88_ground" pos="1119.8418 269.1888 1297.7856" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_model17.xac" Model="d_startower88_model17" ShadowMap="d_startower88_model17" pos="1213.8003 384.9993 3085.3276" rot="0.0000 0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_model10.xac" Model="d_startower88_model10" ShadowMap="d_startower88_model10" pos="2471.0752 242.5624 1493.1699" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_gr_a.xac" Model="d_startower88_gr_a" ShadowMap="d_startower88_gr_a" pos="811.4617 170.0616 1077.0923" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_startower88_bl01.xac" Model="d_startower88_bl01"  pos="1101.4880 269.6138 1413.8038" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower88_bl01.xac" Model="d_startower88_bl01" pos="1101.4880 269.6138 1413.8038" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_grass01.xac" Model="d_startower88_grass01" ShadowMap="d_startower88_grass01" pos="1118.0161 270.6580 1418.1797" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_grass02.xac" Model="d_startower88_grass02" ShadowMap="d_startower88_grass02" pos="1351.1704 114.1624 515.4984" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_startower88_water.xac" Model="d_startower88_water"  pos="1008.5137 115.8464 609.1694" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_startower88_bl02.xac" Model="d_startower88_bl02"  pos="1069.5323 253.7993 1330.0127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower88_water.xac" Model="d_startower88_water" pos="1008.5137 115.8464 609.1694" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower88_bl02.xac" Model="d_startower88_bl02" pos="1069.5323 253.7993 1330.0127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_model01.xac" Model="d_startower88_model01" ShadowMap="d_startower88_model01" pos="121.1296 221.4007 -586.5583" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_model02.xac" Model="d_startower88_model02" ShadowMap="d_startower88_model02" pos="98.9708 428.6674 -232.6489" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_model03.xac" Model="d_startower88_model03" ShadowMap="d_startower88_model03" pos="151.2565 306.4662 108.2232" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -51,7 +49,7 @@
 	<Model File="d_startower88_model12.xac" Model="d_startower88_model12" ShadowMap="d_startower88_model12" pos="-162.0552 321.7230 2713.1113" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_tp12.xac" Model="d_startower88_tp12" ShadowMap="d_startower88_tp12" pos="-176.3169 334.6133 2639.7761" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_tp13.xac" Model="d_startower88_tp13" ShadowMap="d_startower88_tp13" pos="1065.7144 563.3099 3149.0789" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_startower88_sha.xac" Model="d_startower88_sha"  pos="653.7086 140.1814 2573.4072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower88_sha.xac" Model="d_startower88_sha" pos="653.7086 140.1814 2573.4072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_tp16.xac" Model="d_startower88_tp16" ShadowMap="d_startower88_tp16" pos="1434.3752 458.3200 2658.2737" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower88_model05.xac" Model="d_startower88_model05" ShadowMap="d_startower88_model05" pos="-13.0035 244.0988 1218.3245" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_startower_wheel01.xac" Model="d_startower_wheel01_00" ShadowMap="d_startower_wheel01" AniFile="d_startower_wheel01.xsm" pos="-268.4542 0.0000 919.0598" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>

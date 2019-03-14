@@ -1,8 +1,33 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_3cmlake_26_1\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_3cmlake_26_1_ground.xac" Model="f_3cmlake_26_1_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_3cmlake_26_1\"/>
+	<LightMap File="f_3cmlake_26_1_lightmap.jpg" Length="4800.0 4800.0" Offset="86.692 -178.036" Size="1024 1024"/>
+	<AutoHeightMap Length="5200 5200" Offset="150.133 -11.781" Height="5000 -5000"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\3cmlake\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_3cmlake_26_1\"/>
+	<Model File="f_3cmlake_26_1_ground.xac" Model="f_3cmlake_26_1_ground" ShadowMap="f_3cmlake_26_1_ground" pos="23.9019 -154.4044 -260.9227" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_b_model.xac" Model="f_3cmlake_26_1_b_model" ShadowMap="f_3cmlake_26_1_b_model" pos="-618.2333 -674.8662 837.3369" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_water.xac" Model="f_3cmlake_26_1_water" ShadowMap="f_3cmlake_26_1_water" pos="-42.9281 -83.2920 -203.3644" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_tree.xac" Model="f_3cmlake_26_1_tree" ShadowMap="f_3cmlake_26_1_tree" pos="153.5066 -119.5681 348.4521" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_grass.xac" Model="f_3cmlake_26_1_grass" ShadowMap="f_3cmlake_26_1_grass" pos="211.2507 -68.7967 -117.6033" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_fog.xac" Model="f_3cmlake_26_1_fog" pos="-306.8063 -581.2708 818.6804" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_tree_out.xac" Model="f_3cmlake_26_1_tree_out" ShadowMap="f_3cmlake_26_1_tree_out" pos="-99.8484 -33.9152 -240.0132" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_bloom.xac" Model="f_3cmlake_26_1_bloom" pos="2010.8098 -123.4088 782.1411" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_01.xac" Model="f_3cmlake_26_1_model_01" ShadowMap="f_3cmlake_26_1_model_01" pos="2010.8098 -123.4088 782.1411" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_light.xac" Model="f_3cmlake_26_1_light" pos="156.0559 -218.4073 185.0383" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_02.xac" Model="f_3cmlake_26_1_model_02" ShadowMap="f_3cmlake_26_1_model_02" pos="-2003.7822 -126.7150 872.1753" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_03.xac" Model="f_3cmlake_26_1_model_03" ShadowMap="f_3cmlake_26_1_model_03" pos="1797.3005 -118.4351 -1149.4646" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_05.xac" Model="f_3cmlake_26_1_model_05" ShadowMap="f_3cmlake_26_1_model_05" pos="74.1992 -149.9822 -2260.2178" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_04.xac" Model="f_3cmlake_26_1_model_04" ShadowMap="f_3cmlake_26_1_model_04" pos="-681.5596 -136.8204 -1222.0317" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_07.xac" Model="f_3cmlake_26_1_model_07" ShadowMap="f_3cmlake_26_1_model_07" pos="142.9451 -132.7624 -1556.3701" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_08.xac" Model="f_3cmlake_26_1_model_08" ShadowMap="f_3cmlake_26_1_model_08" pos="897.1575 -188.0524 557.5461" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_09.xac" Model="f_3cmlake_26_1_model_09" ShadowMap="f_3cmlake_26_1_model_09" pos="661.5479 -128.5989 -1163.7336" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_06.xac" Model="f_3cmlake_26_1_model_06" ShadowMap="f_3cmlake_26_1_model_06" pos="632.1560 -137.3549 -458.8589" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_10.xac" Model="f_3cmlake_26_1_model_10" ShadowMap="f_3cmlake_26_1_model_10" pos="777.1196 -280.4653 1672.9885" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_11.xac" Model="f_3cmlake_26_1_model_11" ShadowMap="f_3cmlake_26_1_model_11" pos="165.6118 -157.4816 839.8914" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_13.xac" Model="f_3cmlake_26_1_model_13" ShadowMap="f_3cmlake_26_1_model_13" pos="-350.8281 -145.8031 1798.3254" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_model_12.xac" Model="f_3cmlake_26_1_model_12" ShadowMap="f_3cmlake_26_1_model_12" pos="-736.9437 -118.5255 792.0183" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_26_1_water2.xac" Model="f_3cmlake_26_1_water2" ShadowMap="f_3cmlake_26_1_water2" pos="-86.6544 -97.8650 43.0337" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

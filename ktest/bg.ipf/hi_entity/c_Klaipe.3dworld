@@ -1,73 +1,85 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
 	<ModelDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
 	<SubModelDir IpfName="bg_hi" Path="\field\f_siaulei\"/>
-	<LightMap File="c_klaipe_lightmap.jpg" Length="2300.0 2300.0" Offset="-19.349 -162.744" Size="1024 1024"/>
+	<LightMap File="c_klaipe_lightmap.jpg" Length="2500.0 2500.0" Offset="-103.946 -48.612" Size="1024 1024"/>
 	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<AutoHeightMap Length="2300.0 2300.0" Offset="-19.349 -162.744" Height="3000 -3000"/>
 	<TexDir IpfName="bg_texture\" Path="\klaipeda\"/>
 	<SubTexDir IpfName="bg_texture\" Path="\siauliai\"/>
+	<AnimationDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
 	<ShaTexDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
-	<Model File="c_kla_6wood.xac" Model="c_kla_6wood" ShadowMap="c_kla_6wood" pos="-120.4233 134.3379 -92.4222" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_ground.xac" Model="c_kla_ground" ShadowMap="c_kla_ground" pos="-137.7623 70.3156 -72.7136" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_gr_a.xac" Model="c_kla_gr_a" ShadowMap="c_kla_gr_a" pos="-71.2802 73.9129 -92.9283" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_01" ShadowMap="f_siaul_03tree_01" pos="278.5370 207.8198 1030.7367" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_01" ShadowMap="f_siaul_05tree_01" pos="138.9227 203.0759 896.7579" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_06tree_01.xac" Model="f_siaul_06tree_01" ShadowMap="f_siaul_06tree_01" pos="-992.6672 288.3250 265.8324" rot="-0.0000 -0.4558 -0.0000 0.8901" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_02tree_01.xac" Model="f_siaul_02tree_01" ShadowMap="f_siaul_02tree_01" pos="349.8987 215.5541 1082.3689" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_01" ShadowMap="f_siaul_04tree_01" pos="371.4667 206.9287 990.3124" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_tp_06.xac" Model="f_siaul_tp_06" ShadowMap="f_siaul_tp_06" pos="-763.7850 53.6654 -509.3732" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_07tree_01.xac" Model="f_siaul_07tree_01" ShadowMap="f_siaul_07tree_01" pos="161.4091 134.1964 654.1213" rot="-0.0000 -0.1478 -0.0000 0.9890" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_02" ShadowMap="f_siaul_05tree_02" pos="-301.0690 53.2613 -1032.3779" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_02" ShadowMap="f_siaul_04tree_02" pos="-311.5596 56.4654 -1133.8782" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_02tree_01.xac" Model="f_siaul_02tree_02" ShadowMap="f_siaul_02tree_02" pos="-267.9754 47.5386 -1282.3464" rot="-0.0000 -0.1768 -0.0000 0.9842" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_1area_grass.xac" Model="c_kla_1area_grass" ShadowMap="c_kla_1area_grass" pos="-289.3131 108.7036 450.3485" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_tree_out.xac" Model="c_kla_tree_out" ShadowMap="c_kla_tree_out" pos="20.8788 68.6839 -166.2591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_blend.xac" Model="c_kla_blend" ShadowMap="c_kla_blend" pos="82.3273 0.2670 -408.9413" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_tree.xac" Model="c_kla_tree" ShadowMap="c_kla_tree" pos="129.4874 89.9208 -338.1090" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_tp_04.xac" Model="f_siaul_tp_08" ShadowMap="f_siaul_tp_08" pos="884.1322 72.7680 534.0333" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_tp_03.xac" Model="f_siaul_tp_09" ShadowMap="f_siaul_tp_09" pos="1010.8359 72.7680 454.0088" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_02" ShadowMap="f_siaul_03tree_02" pos="903.1044 50.2706 582.1002" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_02tree_01.xac" Model="f_siaul_02tree_03" ShadowMap="f_siaul_02tree_03" pos="816.1931 46.6973 519.3688" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_07tree_01.xac" Model="f_siaul_07tree_02" ShadowMap="f_siaul_07tree_02" pos="725.7047 50.3315 473.5277" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_light.xac" Model="c_kla_light" pos="-53.4463 104.6632 -131.6638" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_water.xac" Model="c_kla_water" ShadowMap="c_kla_water" pos="-53.4463 104.6632 -131.6638" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_05" ShadowMap="f_siaul_04tree_05" pos="-940.1495 56.8967 -416.9238" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_03" ShadowMap="f_siaul_05tree_03" pos="-1199.2823 53.1318 -690.7406" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_tp01.xac" Model="c_kla_tp01" ShadowMap="c_kla_tp01" pos="66.2440 144.9124 -287.3750" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_tp02.xac" Model="c_kla_tp02" ShadowMap="c_kla_tp02" pos="247.7559 117.3313 61.7277" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_12obj_01.xac" Model="f_siaul_12obj_01" ShadowMap="f_siaul_12obj_01" pos="758.3705 9.5809 -423.1888" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_01" ShadowMap="f_siaul_11obj_01" pos="37.0703 8.9400 -661.0452" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_02" ShadowMap="f_siaul_11obj_02" pos="142.8570 8.9400 -570.6818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_03" ShadowMap="f_siaul_11obj_03" pos="272.2180 8.9400 -500.9249" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_04" ShadowMap="f_siaul_11obj_04" pos="492.0123 8.9400 -243.8924" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_06" ShadowMap="f_siaul_04tree_06" pos="-865.8719 205.0465 -240.5065" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_05" ShadowMap="f_siaul_11obj_05" pos="-220.9991 159.2628 -126.7757" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_07" ShadowMap="f_siaul_04tree_07" pos="-391.7450 300.9713 849.3818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_06" ShadowMap="f_siaul_11obj_06" pos="344.8200 8.9400 -313.3004" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_1area_model.xac" Model="c_kla_1area_model" ShadowMap="c_kla_1area_model" pos="-355.8630 249.4367 303.9232" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_3area_model.xac" Model="c_kla_3area_model" ShadowMap="c_kla_3area_model" pos="471.4906 -61.9169 494.0710" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_4area_model.xac" Model="c_kla_4area_model" ShadowMap="c_kla_4area_model" pos="-489.5298 -147.4729 -729.9701" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_5area_model.xac" Model="c_kla_5area_model" ShadowMap="c_kla_5area_model" pos="475.5535 -89.8653 -578.9224" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_2area_grass.xac" Model="c_kla_2area_grass" ShadowMap="c_kla_2area_grass" pos="-30.5293 -11.3562 -318.4545" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_2area_light.xac" Model="c_kla_2area_light" pos="-227.0096 129.9067 -529.2407" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_b_model.xac" Model="c_kla_b_model" ShadowMap="c_kla_b_model" pos="-189.6830 18.9418 24.4683" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_blend2.xac" Model="c_kla_blend2" ShadowMap="c_kla_blend2" pos="-72.4415 120.7362 -155.1479" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_2area_house.xac" Model="c_kla_2area_house" ShadowMap="c_kla_2area_house" pos="-166.6806 281.3969 668.6527" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_1area_house.xac" Model="c_kla_1area_house" ShadowMap="c_kla_1area_house" pos="-435.0821 277.3773 326.1423" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_4area_house.xac" Model="c_kla_4area_house" ShadowMap="c_kla_4area_house" pos="233.1662 114.1300 229.6953" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_3area_house.xac" Model="c_kla_3area_house" ShadowMap="c_kla_3area_house" pos="-237.9138 165.6246 -330.0279" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_7area_house.xac" Model="c_kla_7area_house" ShadowMap="c_kla_7area_house" pos="-751.2206 17.8820 -591.1052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_6area_house.xac" Model="c_kla_6area_house" ShadowMap="c_kla_6area_house" pos="128.1363 40.2226 -691.1296" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_5area_house.xac" Model="c_kla_5area_house" ShadowMap="c_kla_5area_house" pos="91.5096 89.8775 -17.2810" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_ground02.xac" Model="c_kla_ground02" ShadowMap="c_kla_ground02" pos="-238.6216 119.5111 142.9327" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_klape_gr_a.xac" Model="c_klape_gr_a" ShadowMap="c_klape_gr_a" pos="-224.7413 120.6348 246.2159" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_8area_house.xac" Model="c_kla_8area_house" ShadowMap="c_kla_8area_house" pos="8.5369 82.9302 -117.6359" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="obbcol.xac" Model="obbcol" pos="8.5369 82.9302 -117.6359" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_klaipeda_fog.xac" Model="c_klaipeda_fog" pos="-210.8134 313.0060 -81.8352" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_tp11.xac" Model="c_kla_tp11" ShadowMap="c_kla_tp11" pos="355.003 80.312 -598.221" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_kla_tp10.xac" Model="c_kla_tp10" ShadowMap="c_kla_tp10" pos="451.004 80.312 -654.174" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_klaipeda_sha.xac" Model="c_klaipeda_sha" pos="23.8352 197.4113 -205.3488" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_streetlamp_KLA.xac" Model="c_klaipeda_streetlamp_KLA" ShadowMap="c_klaipeda_streetlamp_KLA" pos="-119.8243 112.7779 -24.9797" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_07_KLA.xac" Model="c_klaipeda_house_07_KLA" ShadowMap="c_klaipeda_house_07_KLA" pos="280.6051 114.1299 294.3809" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_04_KLA.xac" Model="c_klaipeda_house_04_KLA" ShadowMap="c_klaipeda_house_04_KLA" pos="-273.6425 165.6246 -378.5953" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_05_KLA.xac" Model="c_klaipeda_house_05_KLA" ShadowMap="c_klaipeda_house_05_KLA" pos="393.2803 32.7072 -646.0497" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_06_KLA.xac" Model="c_klaipeda_house_06_KLA" ShadowMap="c_klaipeda_house_06_KLA" pos="-31.3985 30.4841 -900.8595" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_08_KLA.xac" Model="c_klaipeda_house_08_KLA" ShadowMap="c_klaipeda_house_08_KLA" pos="744.5677 50.9869 -138.0272" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_03_KLA.xac" Model="c_klaipeda_house_03_KLA" ShadowMap="c_klaipeda_house_03_KLA" pos="-751.2206 17.8820 -591.1052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_01_KLA.xac" Model="c_klaipeda_house_01_KLA" ShadowMap="c_klaipeda_house_01_KLA" pos="-264.4247 261.0142 613.1403" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_02_KLA.xac" Model="c_klaipeda_house_02_KLA" ShadowMap="c_klaipeda_house_02_KLA" pos="-777.4683 282.1883 225.3120" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_wood_pot.xac" Model="c_klaipeda_wood_pot" ShadowMap="c_klaipeda_wood_pot" pos="77.4018 129.9035 -110.4176" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_01_SIA.xac" Model="c_klaipeda_model_01_SIA" ShadowMap="c_klaipeda_model_01_SIA" pos="-352.1713 46.4050 526.4711" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_light_SIA.xac" Model="c_klaipeda_light_SIA" pos="-53.4458 104.6632 -192.0481" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_sha_KLA.xac" Model="c_klaipeda_sha_KLA" pos="23.8352 197.4113 -119.6527" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_ground_01_KLA.xac" Model="c_klaipeda_ground_01_KLA" ShadowMap="c_klaipeda_ground_01_KLA" pos="-358.3041 119.5111 269.8625" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_01_SIA.xac" Model="c_klaipeda_model_01_SIA" ShadowMap="c_klaipeda_model_01_SIA" pos="-352.1713 46.4050 526.4711" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_grass_01_SIA.xac" Model="c_klaipeda_grass_01_SIA" ShadowMap="c_klaipeda_grass_01_SIA" pos="-410.6356 132.4976 415.1588" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_house_02_KLA.xac" Model="c_klaipeda_house_02_KLA" ShadowMap="c_klaipeda_house_02_KLA" pos="-777.4683 282.1883 225.3120" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_sha_KLA.xac" Model="c_klaipeda_sha_KLA" pos="23.8352 197.4113 -119.6527" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tree_01_SIA.xac" Model="c_klaipeda_tree_01_SIA" ShadowMap="c_klaipeda_tree_01_SIA" pos="-149.1971 225.1320 827.1157" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tree_02_SIA.xac" Model="c_klaipeda_tree_02_SIA" ShadowMap="c_klaipeda_tree_02_SIA" pos="-769.5209 218.8309 -334.3735" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_b_model_01_KLA.xac" Model="c_klaipeda_b_model_01_KLA" ShadowMap="c_klaipeda_lightmap" pos="-275.2963 18.9418 135.8138" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_model_01_KLA.xac" Model="c_klaipeda_new_model_01_KLA" ShadowMap="c_klaipeda_new_model_01_KLA" pos="-551.8007 269.5775 444.0779" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_beautyshop.xac" Model="c_klaipeda_beautyshop" ShadowMap="c_klaipeda_beautyshop" pos="-1081.3940 298.299 689.3704" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tree_03_SIA.xac" Model="c_klaipeda_tree_03_SIA" ShadowMap="c_klaipeda_lightmap" pos="131.4468 127.6019 -323.7663" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_ground_02_SIA.xac" Model="c_klaipeda_ground_02_SIA" ShadowMap="c_klaipeda_ground_02_SIA" pos="-137.7622 70.5178 72.0239" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_gr_a_01_SIA.xac" Model="c_klaipeda_gr_a_01_SIA" ShadowMap="c_klaipeda_gr_a_01_SIA" pos="-71.2800 73.9129 -92.9285" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tree_out_SIA.xac" Model="c_klaipeda_tree_out_SIA" ShadowMap="c_klaipeda_lightmap" pos="20.8788 68.6839 -28.4717" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_blend_01_SIA.xac" Model="c_klaipeda_blend_01_SIA" ShadowMap="c_klaipeda_lightmap" pos="82.3273 0.2670 -408.9413" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tp_01_SIA.xac" Model="c_klaipeda_tp_01_SIA" ShadowMap="c_klaipeda_lightmap" pos="172.5537 144.9124 -226.3419" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tp_02_SIA.xac" Model="c_klaipeda_tp_02_SIA" ShadowMap="c_klaipeda_lightmap" pos="63.6105 103.8621 18.1905" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_grass_02_SIA.xac" Model="c_klaipeda_grass_02_SIA" ShadowMap="c_klaipeda_lightmap" pos="-30.5293 -11.3562 -318.4545" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tp_03_KLA.xac" Model="c_klaipeda_tp_03_KLA" ShadowMap="c_klaipeda_lightmap" pos="451.0040 80.3119 -654.1736" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_tp_04_KLA.xac" Model="c_klaipeda_tp_04_KLA" ShadowMap="c_klaipeda_lightmap" pos="355.0025 80.3119 -598.2208" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_blend_02_KLA.xac" Model="c_klaipeda_blend_02_KLA" ShadowMap="c_klaipeda_lightmap" pos="-134.7675 120.7362 -77.0652" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_gr_a_02_KLA.xac" Model="c_klaipeda_gr_a_02_KLA" ShadowMap="c_klaipeda_lightmap" pos="-310.5780 119.9506 246.2159" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fog_KLA.xac" Model="c_klaipeda_fog_KLA" pos="-210.8135 313.0059 -33.7390" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_water_01_SIA.xac" Model="c_klaipeda_water_01_SIA" ShadowMap="c_klaipeda_lightmap" pos="-614.0181 314.7620 389.8130" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_07_KLA.xac" Model="c_klaipeda_model_07_KLA" ShadowMap="c_klaipeda_lightmap" pos="-522.4178 321.6245 362.4965" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_stone_03_KLA.xac" Model="c_klaipeda_stone_03_KLA" ShadowMap="c_klaipeda_lightmap" pos="8.7251 6.9863 -300.3291" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_TP_01_KLA.xac" Model="c_klaipeda_new_TP_01_KLA" ShadowMap="c_klaipeda_lightmap" pos="-463.5384 293.0088 380.6078" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_06_SIA.xac" Model="c_klaipeda_model_06_SIA" ShadowMap="c_klaipeda_lightmap" pos="-702.6028 -147.4728 -776.3586" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_05_SIA.xac" Model="c_klaipeda_model_05_SIA" ShadowMap="c_klaipeda_lightmap" pos="138.5020 -68.9854 -777.5450" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_04_SIA.xac" Model="c_klaipeda_model_04_SIA" ShadowMap="c_klaipeda_lightmap" pos="725.5179 -80.7571 -346.9270" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_03_SIA.xac" Model="c_klaipeda_model_03_SIA" ShadowMap="c_klaipeda_lightmap" pos="260.5168 14.4396 129.2382" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_model_02_SIA.xac" Model="c_klaipeda_model_02_SIA" ShadowMap="c_klaipeda_lightmap" pos="-223.0425 258.5971 485.4715" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_stone_01_KLA.xac" Model="c_klaipeda_stone_01_KLA" ShadowMap="c_klaipeda_lightmap" pos="-671.2028 353.0226 536.0073" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_grass_01_KLA.xac" Model="c_klaipeda_new_grass_01_KLA" ShadowMap="c_klaipeda_lightmap" pos="-521.8640 268.0610 443.9780" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_stone_02_KLA.xac" Model="c_klaipeda_stone_02_KLA" ShadowMap="c_klaipeda_lightmap" pos="-382.5240 128.3137 248.1830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_water_02_SIA.xac" Model="c_klaipeda_water_02_SIA" ShadowMap="c_klaipeda_lightmap" pos="-311.4331 154.5854 208.8389" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_gate_ani_01_KLA.xac" Model="c_klaipeda_gate_ani_01_KLA" pos="-533.4633 324.4725 309.8474" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_gate_ani_02_KLA.xac" Model="c_klaipeda_gate_ani_02_KLA" pos="-393.3611 322.8316 450.6470" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_001.xac" Model="c_klaipeda_fish_001" AniFile="c_klaipeda_fish_001.xsm" pos="-877.3614 226.0018 658.9006" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_002.xac" Model="c_klaipeda_fish_002" AniFile="c_klaipeda_fish_002.xsm" pos="-775.5283 226.0018 801.9410" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_003.xac" Model="c_klaipeda_fish_003" AniFile="c_klaipeda_fish_003.xsm" pos="-777.9044 225.1873 687.1321" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_004.xac" Model="c_klaipeda_fish_004" AniFile="c_klaipeda_fish_004.xsm" pos="-893.0303 226.0018 698.4026" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_005.xac" Model="c_klaipeda_fish_005" AniFile="c_klaipeda_fish_005.xsm" pos="-1049.7488 226.0018 197.4364" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_007.xac" Model="c_klaipeda_fish_007" AniFile="c_klaipeda_fish_007.xsm" pos="-1050.2767 226.0018 433.0153" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fish_008.xac" Model="c_klaipeda_fish_008" AniFile="c_klaipeda_fish_008.xsm" pos="-556.5883 226.2258 967.8224" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_ani_wheel_01_KLA.xac" Model="c_klaipeda_ani_wheel_01_KLA" AniFile="c_klaipeda_ani_wheel_01_KLA.xsm" pos="-499.3752 275.2795 1070.9064" rot="-0.0000 0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_ani_wheel_02_KLA.xac" Model="c_klaipeda_ani_wheel_02_KLA" AniFile="c_klaipeda_ani_wheel_02_KLA.xsm" pos="-1152.0034 273.8146 384.8089" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_05_KLA.xac" Model="c_klaipeda_new_ani_05_KLA" AniFile="c_klaipeda_new_ani_05_KLA.xsm" pos="533.5451 96.1785 161.2404" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_04_KLA.xac" Model="c_klaipeda_new_ani_04_KLA" AniFile="c_klaipeda_new_ani_04_KLA.xsm" pos="-652.3444 120.8703 -632.4678" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_obbcol.xac" Model="c_klaipeda_obbcol" pos="-382.5240 128.3137 248.1830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_02_KLA.xac" Model="c_klaipeda_new_ani_02_KLA" AniFile="c_klaipeda_new_ani_02_KLA.xsm" pos="-1023.9952 286.5224 721.0384" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_03_KLA.xac" Model="c_klaipeda_new_ani_03_KLA" AniFile="c_klaipeda_new_ani_03_KLA.xsm" pos="-392.8325 373.7558 1125.2329" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_01_KLA.xac" Model="c_klaipeda_new_ani_01_KLA" AniFile="c_klaipeda_new_ani_01_KLA.xsm" pos="-1190.4154 373.7558 540.4153" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_06_KLA.xac" Model="c_klaipeda_new_ani_06_KLA" AniFile="c_klaipeda_new_ani_06_KLA.xsm" pos="-927.6746 272.1350 -146.8560" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_09_KLA.xac" Model="c_klaipeda_new_ani_09_KLA" AniFile="c_klaipeda_new_ani_09_KLA.xsm" pos="28.3934 373.2687 1055.0729" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_10_KLA.xac" Model="c_klaipeda_new_ani_10_KLA" AniFile="c_klaipeda_new_ani_10_KLA.xsm" pos="371.5010 122.2975 -249.2874" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_11_KLA.xac" Model="c_klaipeda_new_ani_11_KLA" AniFile="c_klaipeda_new_ani_11_KLA.xsm" pos="-9.3435 96.1785 -630.1239" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_new_ani_12_KLA.xac" Model="c_klaipeda_new_ani_12_KLA" AniFile="c_klaipeda_new_ani_12_KLA.xsm" pos="-386.4048 119.0252 -595.3309" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

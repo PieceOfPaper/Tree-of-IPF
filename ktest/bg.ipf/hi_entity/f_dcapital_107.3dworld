@@ -1,8 +1,34 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_dcapital_107\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_dcapital_107_ground.xac" Model="f_dcapital_107_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_dcapital_107\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="3560.0 3560.0" Offset="7.867 -45.444" Height="8000 -8000"/>
+	<TexDir IpfName="bg_texture" Path="\desolated_capital\"/>
+	<SubTexDir IpfName="bg_texture" Path="\orsha\"/>
+	<LightMap File="f_dcapital_107_lightmap.jpg" Length="3900 3900" Offset="83.463 112.478" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_dcapital_107\"/>
+	<Model File="f_dcapital_107_obbcol.xac" Model="f_dcapital_107_obbcol" pos="-3.795 204.81 200.256" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_03.xac" Model="f_dcapital_107_model_03" ShadowMap="f_dcapital_107_model_03" pos="-379.9146 1.4928 -802.1813" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_tree_out.xac" Model="f_dcapital_107_tree_out" ShadowMap="f_dcapital_107_tree_out" pos="145.8643 226.6750 11.8292" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_ground.xac" Model="f_dcapital_107_ground" ShadowMap="f_dcapital_107_ground" pos="104.1833 296.5801 -214.1716" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_grass.xac" Model="f_dcapital_107_grass" ShadowMap="f_dcapital_107_grass" pos="58.7862 198.9716 -143.2482" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_b_model01.xac" Model="f_dcapital_107_b_model01" ShadowMap="f_dcapital_107_b_model01" pos="-623.2040 117.7553 1373.2135" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_blend_01.xac" Model="f_dcapital_107_blend_01" ShadowMap="f_dcapital_107_blend_01" pos="825.2355 103.1201 -116.6821" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_blend_02.xac" Model="f_dcapital_107_blend_02" ShadowMap="f_dcapital_107_blend_02" pos="-11.6282 106.0994 144.0371" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_07.xac" Model="f_dcapital_107_model_07" ShadowMap="f_dcapital_107_model_07" pos="531.5870 173.5201 1050.8573" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_06.xac" Model="f_dcapital_107_model_06" ShadowMap="f_dcapital_107_model_06" pos="-426.3171 72.0594 1296.0691" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_02.xac" Model="f_dcapital_107_model_02" ShadowMap="f_dcapital_107_model_02" pos="-795.2563 149.7866 -651.9160" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_04.xac" Model="f_dcapital_107_model_04" ShadowMap="f_dcapital_107_model_04" pos="-669.4645 233.4969 25.1534" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_05.xac" Model="f_dcapital_107_model_05" ShadowMap="f_dcapital_107_model_05" pos="-426.7547 129.6023 360.9468" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_09.xac" Model="f_dcapital_107_model_09" ShadowMap="f_dcapital_107_model_09" pos="605.2101 96.1743 -1528.5322" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_08.xac" Model="f_dcapital_107_model_08" ShadowMap="f_dcapital_107_model_08" pos="1350.7559 105.6352 -600.4904" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_010.xac" Model="f_dcapital_107_model_010" ShadowMap="f_dcapital_107_model_010" pos="314.3177 61.0981 -800.5084" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_011.xac" Model="f_dcapital_107_model_011" ShadowMap="f_dcapital_107_model_011" pos="1298.6602 169.7454 648.6947" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_model_012.xac" Model="f_dcapital_107_model_012" ShadowMap="f_dcapital_107_model_012" pos="841.5756 135.8822 -166.2452" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_tree_02.xac" Model="f_dcapital_107_tree_02" ShadowMap="f_dcapital_107_tree_02" pos="-886.2959 216.5989 341.9253" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_tree_01.xac" Model="f_dcapital_107_tree_01" ShadowMap="f_dcapital_107_tree_01" pos="1029.9104 146.6127 -27.9911" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_fog_grass.xac" Model="f_dcapital_107_fog_grass" ShadowMap="f_dcapital_107_fog_grass" pos="123.0339 157.4461 -115.8595" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_dcapital_107_light.xac" Model="f_dcapital_107_light" ShadowMap="f_dcapital_107_light" pos="-585.3674 166.3924 -23.3410" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

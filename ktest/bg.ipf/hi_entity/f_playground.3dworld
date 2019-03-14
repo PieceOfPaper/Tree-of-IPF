@@ -1,1 +1,19 @@
-42EE953FC20B5EBB7621C7B58A05695C
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_playground\"/>
+	<TexDir IpfName="bg_texture" Path="\playground\"/>
+	<LightMap File="f_playground.jpg" Length="1000.0 1000.0" Offset="2.296 -25.06" Size="512 512"/>
+	<SubTexDir IpfName="bg_texture" Path="\klaipeda\"/>
+	<SubTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_playground\"/>
+	<Model File="f_playground_ground.xac" Model="f_playground_ground" ShadowMap="f_playground_ground" pos="0.0000 0.0000 0.0000" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_tree_01.xac" Model="f_playground_tree_01" ShadowMap="f_playground_tree_01" pos="30.0659 56.8447 19.1414" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_grass_01.xac" Model="f_playground_grass_01" ShadowMap="f_playground_grass_01" pos="-69.6545 8.6113 128.1349" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_model_01.xac" Model="f_playground_model_01" ShadowMap="f_playground_model_01" pos="-8.4844 65.9039 73.5641" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_bl.xac" Model="f_playground_bl" ShadowMap="f_playground_bl" pos="-77.6078 0.3000 52.6002" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_light.xac" Model="f_playground_light" pos="-76.9358 121.8208 -497.1066" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_b_model.xac" Model="f_playground_b_model" ShadowMap="f_playground_b_model" pos="41.7817 90.9858 -6.7687" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_playground_obbcol.xac" Model="f_playground_obbcol" pos="-8.4844 65.9039 73.5641" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

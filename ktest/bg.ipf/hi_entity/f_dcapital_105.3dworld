@@ -1,8 +1,51 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 12 (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_dcapital_105\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_dcapital_105_ground.xac" Model="f_dcapital_105_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_dcapital_105\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="3560.0 3560.0" Offset="7.867 -45.444" Height="8000 -8000"/>
+	<TexDir IpfName="bg_texture" Path="\desolated_capital\"/>
+	<SubTexDir IpfName="bg_texture" Path="\orsha\"/>
+	<LightMap File="f_dcapital_105_lightmap.jpg" Length="4000 4000" Offset="-289.338 145.859" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_dcapital_105\"/>
+	<Model File="f_desolated_capital_105_model_02.xac" Model="f_desolated_capital_105_model_02" ShadowMap="f_desolated_capital_105_model_02" pos="-692.0525 99.6344 -500.0407" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_tree_out.xac" Model="f_desolated_capital_105_tree_out" ShadowMap="f_desolated_capital_105_tree_out" pos="-286.8893 109.1025 545.7733" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_bl01.xac" Model="f_desolated_capital_105_bl01" ShadowMap="f_desolated_capital_105_bl01" pos="-586.7853 186.2218 715.5780" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_tree04.xac" Model="f_desolated_capital_105_tree04" ShadowMap="f_desolated_capital_105_tree04" pos="-255.0667 147.2492 355.1853" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_grass02.xac" Model="f_desolated_capital_105_grass02" ShadowMap="f_desolated_capital_105_grass02" pos="-503.4880 233.5335 559.7230" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_bl02.xac" Model="f_desolated_capital_105_bl02" ShadowMap="f_desolated_capital_105_bl02" pos="-370.4758 145.4745 514.3495" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_grass01.xac" Model="f_desolated_capital_105_grass01" ShadowMap="f_desolated_capital_105_grass01" pos="-1032.7231 149.8281 623.7913" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_bl03.xac" Model="f_desolated_capital_105_bl03" ShadowMap="f_desolated_capital_105_bl03" pos="-613.3143 187.9728 657.8883" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_water01.xac" Model="f_desolated_capital_105_water01" ShadowMap="f_desolated_capital_105_water01" pos="30.0456 20.1829 -652.8693" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_b_model.xac" Model="f_desolated_capital_105_b_model" ShadowMap="f_desolated_capital_105_b_model" pos="-397.3412 55.8400 999.0247" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_ground.xac" Model="f_desolated_capital_105_ground" ShadowMap="f_desolated_capital_105_ground" pos="-125.2697 139.4682 155.8076" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_tree01.xac" Model="f_desolated_capital_105_tree01" ShadowMap="f_desolated_capital_105_tree01" pos="-394.6456 242.7738 619.9141" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_tree02.xac" Model="f_desolated_capital_105_tree02" ShadowMap="f_desolated_capital_105_tree02" pos="-6.3593 239.2085 471.2693" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_tree03.xac" Model="f_desolated_capital_105_tree03" ShadowMap="f_desolated_capital_105_tree03" pos="431.6168 184.3717 -244.3259" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_gra.xac" Model="f_desolated_capital_105_gra" ShadowMap="f_desolated_capital_105_gra" pos="144.3491 64.7246 -229.5770" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_08.xac" Model="f_desolated_capital_105_model_08" ShadowMap="f_desolated_capital_105_model_08" pos="422.2570 213.3629 328.6973" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_21.xac" Model="f_desolated_capital_105_model_21" ShadowMap="f_desolated_capital_105_model_21" pos="-2032.5059 140.6143 1253.7297" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_05.xac" Model="f_desolated_capital_105_model_05" ShadowMap="f_desolated_capital_105_model_05" pos="-672.5121 180.4968 -47.1666" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_03.xac" Model="f_desolated_capital_105_model_03" ShadowMap="f_desolated_capital_105_model_03" pos="-1558.7966 156.7051 -163.4355" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_06.xac" Model="f_desolated_capital_105_model_06" ShadowMap="f_desolated_capital_105_model_06" pos="-710.8770 247.0075 380.9586" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_13.xac" Model="f_desolated_capital_105_model_13" ShadowMap="f_desolated_capital_105_model_13" pos="1375.1091 66.7901 -1051.5444" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_10.xac" Model="f_desolated_capital_105_model_10" ShadowMap="f_desolated_capital_105_model_10" pos="51.5644 52.0660 -582.8029" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_14.xac" Model="f_desolated_capital_105_model_14" ShadowMap="f_desolated_capital_105_model_14" pos="1058.4324 175.0779 396.9335" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_09.xac" Model="f_desolated_capital_105_model_09" ShadowMap="f_desolated_capital_105_model_09" pos="867.9124 186.5323 -158.0099" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_07.xac" Model="f_desolated_capital_105_model_07" ShadowMap="f_desolated_capital_105_model_07" pos="99.5361 185.8893 -186.4149" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_11.xac" Model="f_desolated_capital_105_model_11" ShadowMap="f_desolated_capital_105_model_11" pos="760.5005 171.0273 -675.8214" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_12.xac" Model="f_desolated_capital_105_model_12" ShadowMap="f_desolated_capital_105_model_12" pos="1159.1498 142.6028 -557.0651" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_16.xac" Model="f_desolated_capital_105_model_16" ShadowMap="f_desolated_capital_105_model_16" pos="598.3447 311.0013 1334.8684" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_15.xac" Model="f_desolated_capital_105_model_15" ShadowMap="f_desolated_capital_105_model_15" pos="226.7100 243.6625 869.7585" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_17.xac" Model="f_desolated_capital_105_model_17" ShadowMap="f_desolated_capital_105_model_17" pos="-40.4348 265.5199 1826.4414" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_18.xac" Model="f_desolated_capital_105_model_18" ShadowMap="f_desolated_capital_105_model_18" pos="-810.8528 244.0078 1077.1511" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_20.xac" Model="f_desolated_capital_105_model_20" ShadowMap="f_desolated_capital_105_model_20" pos="-723.3706 312.1762 1902.9260" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_19.xac" Model="f_desolated_capital_105_model_19" ShadowMap="f_desolated_capital_105_model_19" pos="-1282.6052 94.6271 1774.4424" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_04.xac" Model="f_desolated_capital_105_model_04" ShadowMap="f_desolated_capital_105_model_04" pos="-1492.4998 136.4181 377.4053" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_01.xac" Model="f_desolated_capital_105_model_01" ShadowMap="f_desolated_capital_105_model_01" pos="-875.6124 19.5985 -1163.5981" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_model_22.xac" Model="f_desolated_capital_105_model_22" ShadowMap="f_desolated_capital_105_model_22" pos="581.087 187.486 451.969" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_tp.xac" Model="f_desolated_capital_105_tp" ShadowMap="f_desolated_capital_105_tp" pos="-956.606 136.003 -1251.289" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_desolated_capital_105_obbcol.xac" Model="f_desolated_capital_105_obbcol" ShadowMap="f_desolated_capital_105_obbcol" pos="37.859 66.991 -162.793" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" ShadowMap="obbcol" pos="261.746 237.473 623.627" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>
