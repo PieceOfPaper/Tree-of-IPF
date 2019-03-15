@@ -1,8 +1,36 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_coral_35_2\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_coral_35_2_ground.xac" Model="f_coral_35_2_ground" pos="0.0  0.0 0.0 " rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_coral_35_2\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\coral\"/>
+	<SubTexDir IpfName="bg_texture" Path="\flash\"/>
+	<SubTexDir IpfName="bg_texture" Path="\gele\"/>
+	<AutoHeightMap Length="4000.0 4000.0" Offset="219.79 -74.397" Height="10000 -10000"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_coral_35_2\"/>
+	<SubShaTexDir IpfName="bg_hi3" Path="\field\f_coral_35_2\"/>
+	<AnimationDir IpfName="bg_hi3" Path="\field\f_coral_35_2\"/>
+	<Model File="f_coral_35_2_blend03.xac" Model="f_coral_35_2_blend03" ShadowMap="f_coral_35_2_blend03" pos="1073.4478 170.8519 1481.2162" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_water02.xac" Model="f_coral_35_2_water02" pos="668.1626 227.9240 1126.7866" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_b_model.xac" Model="f_coral_35_2_b_model" ShadowMap="f_coral_35_2_b_model" pos="-279.969 -21.363 1107.579" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_9area_model.xac" Model="f_coral_35_2_9area_model" ShadowMap="f_coral_35_2_9area_model" pos="-280.2662 86.9093 421.3131" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_5area_model.xac" Model="f_coral_35_2_5area_model" ShadowMap="f_coral_35_2_5area_model" pos="1614.7368 299.5716 1191.1055" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_grass01.xac" Model="f_coral_35_2_grass01" ShadowMap="f_coral_35_2_grass01" pos="183.7428 210.4439 1169.4304" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_blend01.xac" Model="f_coral_35_2_blend01" ShadowMap="f_coral_35_2_blend01" pos="253.2529 152.7043 926.1063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_blend02.xac" Model="f_coral_35_2_blend02" ShadowMap="f_coral_35_2_blend02" pos="97.1331 125.1443 953.3591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_ground.xac" Model="f_coral_35_2_ground" ShadowMap="f_coral_35_2_ground" pos="160.2793 135.7335 569.7853" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_1area_model.xac" Model="f_coral_35_2_1area_model" ShadowMap="f_coral_35_2_1area_model" pos="-949.8291 56.9497 1234.685" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_2area_model.xac" Model="f_coral_35_2_2area_model" ShadowMap="f_coral_35_2_2area_model" pos="-488.6021 30.1509 2385.6626" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_3area_model.xac" Model="f_coral_35_2_3area_model" ShadowMap="f_coral_35_2_3area_model" pos="521.7589 134.3492 2125.2373" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_4area_model.xac" Model="f_coral_35_2_4area_model" ShadowMap="f_coral_35_2_4area_model" pos="344.4539 71.4975 1285.4745" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_6area_model.xac" Model="f_coral_35_2_6area_model" ShadowMap="f_coral_35_2_6area_model" pos="883.3273 257.4462 664.5670" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_7area_model.xac" Model="f_coral_35_2_7area_model" ShadowMap="f_coral_35_2_7area_model" pos="-35.5575 5.3461 -426.5498" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_8area_model.xac" Model="f_coral_35_2_8area_model" ShadowMap="f_coral_35_2_8area_model" pos="-497.851 125.092 -241.786" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2__gr_a.xac" Model="f_coral_35_2__gr_a" ShadowMap="f_coral_35_2__gr_a" pos="289.3183 216.2896 854.6912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_grass02.xac" Model="f_coral_35_2_grass02" ShadowMap="f_coral_35_2_grass02" pos="174.7792 200.0907 833.6519" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_water01.xac" Model="f_coral_35_2_water01" pos="-222.364 -78.218 691.43" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_10area_model.xac" Model="f_coral_35_2_10area_model" ShadowMap="f_coral_35_2_10area_model" pos="-1015.5874 -346.9704 2936.5063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_coral_35_2_11area_model.xac" Model="f_coral_35_2_11area_model" ShadowMap="f_coral_35_2_11area_model" pos="1600.4692 117.9834 1880.6726" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

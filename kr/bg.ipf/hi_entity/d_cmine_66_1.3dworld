@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ka (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
 <World>
 	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_cmine_66_1\"/>
@@ -8,6 +8,7 @@
 	<SubTexDir IpfName="bg_texture" Path="\common\"/>
 	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_cmine_66_1\"/>
 	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<LightMap File="d_cmine_66_1_lightmap.jpg" Length="4700 4700" Offset="-154.818 265.263" Size="1024 1024"/>
 	<AnimationDir IpfName="bg_hi2" Path="\dungeon\d_cmine_66_1\"/>
 	<Model File="d_cmine_66_1_ground.xac" Model="d_cmine_66_1_ground" ShadowMap="d_cmine_66_1_ground" pos="-104.3081 289.9172 166.9468" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model10.xac" Model="d_cmine_66_1_model10" ShadowMap="d_cmine_66_1_model10" pos="-1556.3103 -36.4005 1589.6563" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -23,9 +24,9 @@
 	<Model File="d_cmine_66_1_model27.xac" Model="d_cmine_66_1_model27" ShadowMap="d_cmine_66_1_model27" pos="-116.3484 393.9363 -1014.5012" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model03.xac" Model="d_cmine_66_1_model03" ShadowMap="d_cmine_66_1_model03" pos="536.9685 288.6384 1801.4476" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model23.xac" Model="d_cmine_66_1_model23" ShadowMap="d_cmine_66_1_model23" pos="1195.6638 463.0507 -1537.1490" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine_66_1_model22.xac" Model="d_cmine_66_1_model22" ShadowMap="d_cmine_66_1_model22" pos="-59.1917 161.9058 705.9161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine_66_1_model22.xac" Model="d_cmine_66_1_model22" ShadowMap="d_cmine_66_1_model22" pos="-59.1917 161.9058 705.9167" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_b_model01.xac" Model="d_cmine_66_1_b_model01" ShadowMap="d_cmine_66_1_b_model01" pos="-336.3018 111.9956 278.2361" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="d_cmine_66_1_model01.xac" Model="d_cmine_66_1_model01" ShadowMap="d_cmine_66_1_model01" pos="1139.5603 115.6246 1979.2830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine_66_1_model01.xac" Model="d_cmine_66_1_model01" ShadowMap="d_cmine_66_1_model01" pos="974.4376 115.6246 1979.2830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model02.xac" Model="d_cmine_66_1_model02" ShadowMap="d_cmine_66_1_model02" pos="842.7780 236.6544 1417.9832" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model04.xac" Model="d_cmine_66_1_model04" ShadowMap="d_cmine_66_1_model04" pos="618.8684 20.9014 2451.8406" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model09.xac" Model="d_cmine_66_1_model09" ShadowMap="d_cmine_66_1_model09" pos="-1391.5236 -148.4272 2316.9473" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -51,5 +52,8 @@
 	<Model File="d_cmine_66_1_model18.xac" Model="d_cmine_66_1_model18" ShadowMap="d_cmine_66_1_model18" pos="-119.5108 461.0639 -819.6790" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model16.xac" Model="d_cmine_66_1_model16" ShadowMap="d_cmine_66_1_model16" pos="187.3643 165.8832 589.3939" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_model14.xac" Model="d_cmine_66_1_model14" ShadowMap="d_cmine_66_1_model14" pos="-183.1958 495.9602 -445.8597" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine_66_1_3area_model.xac" Model="d_cmine_66_1_3area_model" ShadowMap="d_cmine_66_1_3area_model" pos="-254.9861 284.5442 1493.2759" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine_66_1_1area_model.xac" Model="d_cmine_66_1_1area_model" ShadowMap="d_cmine_66_1_1area_model" pos="764.9901 478.2153 -1020.0195" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine_66_1_2area_model.xac" Model="d_cmine_66_1_2area_model" ShadowMap="d_cmine_66_1_2area_model" pos="-901.5605 443.4756 -966.3387" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_1_obbcol.xac" Model="d_cmine_66_1_obbcol" pos="1195.6638 463.0507 -1537.1490" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

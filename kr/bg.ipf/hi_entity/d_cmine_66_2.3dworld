@@ -5,7 +5,7 @@
 	<ModelDir IpfName="bg_hi" Path="\dungeon\d_cmine_66_2\"/>
 	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_cmine\"/>
 	<TexDir IpfName="bg_texture" Path="\cmine\"/>
-	<LightMap File="d_cmine_66_2_lightmap.jpg" Length="6000 6000" Offset="519.014 -1266.931" Size="1024 1024"/>
+	<LightMap File="d_cmine_66_2_lightmap.jpg" Length="5500 5500" Offset="350.332 -1318.349" Size="1024 1024"/>
 	<SubTexDir IpfName="bg_texture" Path="\common\"/>
 	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_cmine_66_2\"/>
 	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
@@ -38,4 +38,5 @@
 	<Model File="d_cmine_66_2_6area_model02.xac" Model="d_cmine_66_2_6area_model02" ShadowMap="d_cmine_66_2_6area_model02" pos="-690.8223 500.3818 -1193.9795" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_2_8area_model02.xac" Model="d_cmine_66_2_8area_model02" ShadowMap="d_cmine_66_2_8area_model02" pos="829.2524 550.2481 -3193.7129" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="d_cmine_66_2_obbcol.xac" Model="d_cmine_66_2_obbcol" pos="548.261 550.672 -1288.595" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cmine_66_2_9area_model.xac" Model="d_cmine_66_2_9area_model" pos="265.167 543.722 -1096.173" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

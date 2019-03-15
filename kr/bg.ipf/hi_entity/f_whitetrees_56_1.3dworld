@@ -1,8 +1,39 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
-<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jang (IMCGames Co., Ltd) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_whitetrees_56_1\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_whitetrees_56_1_ground.xac" Model="f_whitetrees_56_1_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_whitetrees_56_1\"/>
+	<LightMap File="f_whitetrees_56_1_lightmap.jpg" Length="3400 3400" Offset="119.8 479" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\whitetrees\"/>
+	<SubTexDir IpfName="bg_texture" Path="\abbey\"/>
+	<SubTexDir IpfName="bg_texture" Path="\sky\"/>
+	<SubTexDir IpfName="bg_texture" Path="\farm\"/>
+	<SubTexDir IpfName="bg_texture" Path="\bracken\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_whitetrees_56_1\"/>
+	<Model File="f_whitetrees_56_1_obbcol.xac" Model="obbcol" pos="510.5695 48.4993 1088.6884" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_gr_a01.xac" Model="f_whitetrees_56_1_gr_a01" ShadowMap="f_whitetrees_56_1_gr_a01" pos="1004.892 39.89 706.282 " rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_gr_a02.xac" Model="f_whitetrees_56_1_gr_a02" ShadowMap="f_whitetrees_56_1_gr_a02" pos="-204.4885 50.7051 449.9905" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_gr_a03.xac" Model="f_whitetrees_56_1_gr_a03" ShadowMap="f_whitetrees_56_1_gr_a03" pos="30.8066 106.7505 219.6001" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_ground.xac" Model="f_whitetrees_56_1_ground" ShadowMap="f_whitetrees_56_1_ground" pos="67.3459 34.5278 656.8158" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_1area_model.xac" Model="f_whitetrees_56_1_1area_model" ShadowMap="f_whitetrees_56_1_1area_model" pos="-543.7151 55.9040 1153.9257" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_2area_model.xac" Model="f_whitetrees_56_1_2area_model" ShadowMap="f_whitetrees_56_1_2area_model" pos="-790.7745 58.4941 188.3477" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_3area_model.xac" Model="f_whitetrees_56_1_3area_model" ShadowMap="f_whitetrees_56_1_3area_model" pos="510.5695 48.4993 1088.6884" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_4area_model.xac" Model="f_whitetrees_56_1_4area_model" ShadowMap="f_whitetrees_56_1_4area_model" pos="1045.0264 79.6218 809.8682" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_5area_model.xac" Model="f_whitetrees_56_1_5area_model" ShadowMap="f_whitetrees_56_1_5area_model" pos="1165.6442 52.2938 -488.5134" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_6area_model.xac" Model="f_whitetrees_56_1_6area_model" ShadowMap="f_whitetrees_56_1_6area_model" pos="83.4937 73.5610 -121.0339" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_1area_b_model.xac" Model="f_whitetrees_56_1_1area_b_model" ShadowMap="f_whitetrees_56_1_1area_b_model" pos="-196.363 -47.317 721.395" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_2area_b_model.xac" Model="f_whitetrees_56_1_2area_b_model" ShadowMap="f_whitetrees_56_1_2area_b_model" pos="-193.4066 -82.2352 455.3099" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_1area_tree.xac" Model="f_whitetrees_56_1_1area_tree" ShadowMap="f_whitetrees_56_1_1area_tree" pos="-952.8926 125.7596 260.7682" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_2area_tree.xac" Model="f_whitetrees_56_1_2area_tree" ShadowMap="f_whitetrees_56_1_2area_tree" pos="62.3691 111.7973 651.2297" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_3area_tree.xac" Model="f_whitetrees_56_1_3area_tree" ShadowMap="f_whitetrees_56_1_3area_tree" pos="655.9426 84.8493 -540.8148" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_4area_tree.xac" Model="f_whitetrees_56_1_4area_tree" ShadowMap="f_whitetrees_56_1_4area_tree" pos="1144.1172 102.3753 168.3227" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_tree_out.xac" Model="f_whitetrees_56_1_tree_out" ShadowMap="f_whitetrees_56_1_tree_out" pos="393.4763 77.7809 304.8991" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_light.xac" Model="f_whitetrees_56_1_light" pos="47.2207 168.6296 454.2505" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_blend.xac" Model="f_whitetrees_56_1_blend" ShadowMap="f_whitetrees_56_1_blend" pos="128.8894 35.7975 654.7933" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_water.xac" Model="f_whitetrees_56_1_water" ShadowMap="f_whitetrees_56_1_water" pos="58.7471 -60.9881 -77.4984" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_shadow.xac" Model="f_whitetrees_56_1_shadow" pos="486.0474 53.9898 453.4035" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_grass.xac" Model="f_whitetrees_56_1_grass" ShadowMap="f_whitetrees_56_1_grass" pos="62.3171 14.7012 553.8286" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_tp01.xac" Model="f_whitetrees_56_1_tp01" ShadowMap="f_whitetrees_56_1_tp01" pos="335.0853 153.3727 336.4662" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_tp02.xac" Model="f_whitetrees_56_1_tp02" ShadowMap="f_whitetrees_56_1_tp02" pos="380.1476 165.7760 284.2787" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_whitetrees_56_1_tp03.xac" Model="f_whitetrees_56_1_tp03" ShadowMap="f_whitetrees_56_1_tp03" pos="902.0900 119.4586 146.3258" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>

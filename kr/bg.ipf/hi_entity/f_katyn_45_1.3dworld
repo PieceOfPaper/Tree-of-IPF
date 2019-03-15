@@ -2,13 +2,15 @@
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_katyn_45_1\"/>
-	<SubModelDir IpfName="bg_hi" Path="\field\f_katyn\"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_katyn_45_1\"/>
+	<SubModelDir IpfName="bg_hi3" Path="\field\f_katyn\"/>
 	<TexDir IpfName="bg_texture" Path="\katyn\"/>
 	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="f_katyn_45_1_lightmap.jpg" Length="4300.0 4300.0" Offset="-483.554 -187.74" Size="1024 1024"/>
+	<AutoHeightMap Length="4300.0 4300.0" Offset="-502.68 -165.992" Height="4000 -4000"/>
 	<SubTexDir IpfName="bg_texture" Path="\common\"/>
-	<ShaTexDir IpfName="bg_hi" Path="\field\f_katyn_45_1\"/>
-	<SubShaTexDir IpfName="bg_hi" Path="\field\f_katyn_45_1\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_katyn_45_1\"/>
+	<SubShaTexDir IpfName="bg_hi3" Path="\field\f_katyn_45_1\"/>
 	<Model File="f_katyn_45_1_blend.xac" Model="f_katyn_45_1_blend" ShadowMap="f_katyn_45_1_blend" pos="-326.9323 104.9416 144.2317" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_45_1_light.xac" Model="f_katyn_45_1_light" pos="-303.8125 157.5677 -95.4449" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_45_1_water.xac" Model="f_katyn_45_1_water" pos="-303.8125 157.5677 -95.4449" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>

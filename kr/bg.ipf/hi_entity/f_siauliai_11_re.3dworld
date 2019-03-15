@@ -6,16 +6,13 @@
 	<SubModelDir IpfName="bg_hi" Path="\field\f_siaulei\"/>
 	<LightMap File="f_siauliai_11_lightmap.jpg" Length="4700.0 4700.0" Offset="575.642 315.196" Size="1024 1024"/>
 	<AutoHeightMap Length="4700.0 4700.0" Offset="575.642 315.196" Height="3000 -3000"/>
-	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<SubTexDir IpfName="bg_texture\" Path="\remains\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
 	<TexDir IpfName="bg_texture" Path="\siauliai\"/>
-	<SubTexDir IpfName="bg_texture" Path="\common\"/>
 	<ShaTexDir IpfName="bg_hi" Path="\field\f_siauliai_11_re\"/>
 	<SubShaTexDir IpfName="bg_hi" Path="\field\f_siauliai_11_re\"/>
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_40" ShadowMap="f_siaul_03tree_23" pos="1040.5950 312.5877 -528.2716" rot="-0.0000 -0.0000 -0.0952 0.9955" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_41" ShadowMap="f_siaul_03tree_13" pos="1434.0977 292.1971 43.3640" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_42" ShadowMap="f_siaul_03tree_13" pos="-458.6291 171.2935 1206.4473" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul11_1area_blend2.xac" Model="f_siaul11_1area_blend2" ShadowMap="f_siaul11_1area_blend2" pos="737.5285 148.3434 289.6565" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_ground.xac" Model="f_siaul11_ground" ShadowMap="f_siaul11_ground" pos="547.0747 154.5291 210.3853" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_1area_light.xac" Model="f_siaul11_1area_light" pos="609.2069 247.2556 229.7239" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_1area_gr_a.xac" Model="f_siaul11_1area_gr_a" ShadowMap="f_siaul11_1area_gr_a" pos="2287.4438 191.0685 25.1790" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -38,7 +35,7 @@
 	<Model File="f_siaul11_6area_grass.xac" Model="f_siaul11_6area_grass" ShadowMap="f_siaul11_6area_grass" pos="-727.2898 166.9943 331.9838" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_1area_grass.xac" Model="f_siaul11_1area_grass" ShadowMap="f_siaul11_1area_grass" pos="2362.6160 246.0701 140.1519" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_2area_grass.xac" Model="f_siaul11_2area_grass" ShadowMap="f_siaul11_2area_grass" pos="932.4971 163.5329 -1258.2041" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul11_1area_model.xac" Model="f_siaul11_1area_model" ShadowMap="f_siaul11_1area_model" pos="933.0983 252.7970 286.9620" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul11_1area_model.xac" Model="f_siaul11_1area_model" ShadowMap="f_siaul11_1area_model" pos="2396.679 252.797 286.962" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_2area_model.xac" Model="f_siaul11_2area_model" ShadowMap="f_siaul11_2area_model" pos="1090.7123 161.6910 -1205.7400" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_3area_model.xac" Model="f_siaul11_3area_model" ShadowMap="f_siaul11_3area_model" pos="925.5285 260.2489 32.0599" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul11_4area_model.xac" Model="f_siaul11_4area_model" ShadowMap="f_siaul11_4area_model" pos="643.8752 251.9265 1666.2637" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -59,12 +56,17 @@
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_36" ShadowMap="f_siaul_03tree_36" pos="-963.4910 141.0520 1568.3621" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_tp_04.xac" Model="f_siaul_tp_72" ShadowMap="f_siaul_tp_72" pos="-913.3220 154.7950 1435.6960" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_16" ShadowMap="f_siaul_04tree_16" pos="-1265.9530 143.9970 1224.9709" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_21" ShadowMap="f_siaul_04tree_21" pos="-923.58 204.568 416.111" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_22" ShadowMap="f_siaul_04tree_22" pos="-1274.805 143.997 1309.228" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_23" ShadowMap="f_siaul_04tree_23" pos="1070.019 185.118 -1576.951" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_24" ShadowMap="f_siaul_04tree_24" pos="1139.654 365.748 188.84" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_35" ShadowMap="f_siaul_03tree_35" pos="-1274.9110 141.0520 1105.8719" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_15" ShadowMap="f_siaul_05tree_15" pos="-1413.7866 139.7690 967.5856" rot="-0.0000 0.0814 -0.0000 0.9967" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_tp_04.xac" Model="f_siaul_tp_73" ShadowMap="f_siaul_tp_73" pos="-1156.2590 154.7950 817.6930" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul11_1area_blend3.xac" Model="f_siaul11_1area_blend3" ShadowMap="f_siaul11_1area_blend3" pos="-758.82 113.123 -3617.603" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_06obj_01.xac" Model="f_siaul_06obj_05" ShadowMap="f_siaul_06obj_05" pos="-1233.6290 121.6450 1034.4840" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_14" ShadowMap="f_siaul_05tree_14" pos="-954.9040 139.7690 1082.5670" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_34" ShadowMap="f_siaul_03tree_34" pos="-814.5610 141.0520 866.5830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_34" ShadowMap="f_siaul_03tree_34" pos="-787.223 141.052 797.594" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_33" ShadowMap="f_siaul_03tree_33" pos="-747.4040 141.0520 469.2610" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_25" ShadowMap="f_siaul_03tree_25" pos="-514.0419 140.8540 217.2451" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_tp_06.xac" Model="f_siaul_tp_51" ShadowMap="f_siaul_tp_51" pos="-229.8229 144.6433 433.8494" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -164,7 +166,6 @@
 	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_15" ShadowMap="f_siaul_03tree_15" pos="2174.7500 266.2630 909.2935" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_06" ShadowMap="f_siaul_05tree_06" pos="2091.4829 263.8988 715.3990" rot="-0.0000 -0.1822 -0.0000 0.9833" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_06tree_01.xac" Model="f_siaul_06tree_07" ShadowMap="f_siaul_06tree_07" pos="2340.2092 258.0308 771.8903" rot="-0.0000 -0.0175 -0.0000 0.9998" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_17" ShadowMap="f_siaul_03tree_17" pos="2754.1160 266.2630 1026.9340" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_06tree_01.xac" Model="f_siaul_06tree_08" ShadowMap="f_siaul_06tree_08" pos="2934.9148 261.7480 920.0287" rot="-0.0000 -0.0610 -0.0000 0.9981" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_06obj_01.xac" Model="f_siaul_06obj_02" ShadowMap="f_siaul_06obj_02" pos="2482.5820 246.6720 737.2440" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_siaul_tp_04.xac" Model="f_siaul_tp_60" ShadowMap="f_siaul_tp_60" pos="2421.8181 279.8280 542.0430" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>

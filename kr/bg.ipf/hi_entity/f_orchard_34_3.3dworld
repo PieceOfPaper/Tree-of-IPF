@@ -1,8 +1,54 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ka (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_orchard_34_3\"/>
-	<TexDir IpfName="bg_texture" Path="\common\"/>
-	<Model File="f_orchard_34_3_ground.xac" Model="f_orchard_34_3_ground" pos="0.0 0.0 0.0" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_orchard_34_3\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_orchard_34_3\"/>
+	<LightMap File="f_orchard_34_3_lightmap.jpg" Length="4000 4000" Offset="0.899 -463.671" Size="1024 1024"/>
+	<AutoHeightMap Length="8000.0 8000.0" Offset="-52.799 -439.96" Height="5000 -5000"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\bracken\"/>
+	<TexDir IpfName="bg_texture" Path="\orchard\"/>
+	<Model File="f_orchard_34_3_ground_01.xac" Model="f_orchard_34_3_ground_01" ShadowMap="f_orchard_34_3_ground_01" pos="-239.8022 189.5516 -270.3130" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_bl_03.xac" Model="f_orchard_34_3_bl_03" ShadowMap="f_orchard_34_3_bl_03" pos="-15.9131 190.1759 -446.7080" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_ground_02.xac" Model="f_orchard_34_3_ground_02" ShadowMap="f_orchard_34_3_ground_02" pos="92.2012 36.6096 42.0579" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_bl_04.xac" Model="f_orchard_34_3_bl_04" ShadowMap="f_orchard_34_3_bl_04" pos="15.9760 190.1728 -415.9659" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_01.xac" Model="f_orchard_34_3_grass_01" ShadowMap="f_orchard_34_3_grass_01" pos="-1.9995 203.0088 -468.6741" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_gr_a_02.xac" Model="f_orchard_34_3_gr_a_02" ShadowMap="f_orchard_34_3_gr_a_02" pos="-323.3210 191.0554 379.5701" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_10.xac" Model="f_orchard_34_3_tree_10" ShadowMap="f_orchard_34_3_tree_10" pos="-1580.5359 179.5497 -956.5133" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_gr_a_01.xac" Model="f_orchard_34_3_gr_a_01" ShadowMap="f_orchard_34_3_gr_a_01" pos="-6.1416 204.8159 -316.6748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_b_model_01.xac" Model="f_orchard_34_3_b_model_01" ShadowMap="f_orchard_34_3_b_model_01" pos="-79.3169 188.9548 -566.2402" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_water.xac" Model="f_orchard_34_3_water" pos="-61.6597 35.8891 -120.1902" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_bl_01.xac" Model="f_orchard_34_3_bl_01" ShadowMap="f_orchard_34_3_bl_01" pos="-19.2468 237.2726 -81.8750" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_bl_02.xac" Model="f_orchard_34_3_bl_02" ShadowMap="f_orchard_34_3_bl_02" pos="23.7295 237.2207 -76.1749" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_09.xac" Model="f_orchard_34_3_model_09" ShadowMap="f_orchard_34_3_model_09" pos="-205.3789 128.6968 -920.5797" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_b_model_grass.xac" Model="f_orchard_34_3_b_model_grass" ShadowMap="f_orchard_34_3_b_model_grass" pos="-42.1124 255.8644 -425.7210" rot="-0.0000 0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_10.xac" Model="f_orchard_34_3_model_10" ShadowMap="f_orchard_34_3_model_10" pos="-430.7324 457.0547 -206.4983" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_01.xac" Model="f_orchard_34_3_model_01" ShadowMap="f_orchard_34_3_model_01" pos="-1379.4751 399.9152 715.6169" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_02.xac" Model="f_orchard_34_3_model_02" ShadowMap="f_orchard_34_3_model_02" pos="-573.1880 396.7891 1072.0410" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_03.xac" Model="f_orchard_34_3_model_03" ShadowMap="f_orchard_34_3_model_03" pos="308.1288 362.0291 1159.5753" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_04.xac" Model="f_orchard_34_3_model_04" ShadowMap="f_orchard_34_3_model_04" pos="1087.9048 381.2799 833.2153" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_05.xac" Model="f_orchard_34_3_model_05" ShadowMap="f_orchard_34_3_model_05" pos="1604.4817 193.1046 137.5833" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_06.xac" Model="f_orchard_34_3_model_06" ShadowMap="f_orchard_34_3_model_06" pos="906.4224 190.4878 -285.8159" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_07.xac" Model="f_orchard_34_3_model_07" ShadowMap="f_orchard_34_3_model_07" pos="-914.1295 219.6340 20.7393" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_08.xac" Model="f_orchard_34_3_model_08" ShadowMap="f_orchard_34_3_model_08" pos="-1543.6475 95.0222 -852.6577" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_01.xac" Model="f_orchard_34_3_tree_01" ShadowMap="f_orchard_34_3_tree_01" pos="-862.7478 444.1900 1053.8357" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_02.xac" Model="f_orchard_34_3_tree_02" ShadowMap="f_orchard_34_3_tree_02" pos="121.5941 390.0460 959.4541" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_03.xac" Model="f_orchard_34_3_tree_03" ShadowMap="f_orchard_34_3_tree_03" pos="919.1902 390.8740 948.3182" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_04.xac" Model="f_orchard_34_3_tree_04" ShadowMap="f_orchard_34_3_tree_04" pos="707.4549 296.6603 237.0874" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_06.xac" Model="f_orchard_34_3_tree_06" ShadowMap="f_orchard_34_3_tree_06" pos="477.9370 118.6422 -729.7776" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_07.xac" Model="f_orchard_34_3_tree_07" ShadowMap="f_orchard_34_3_tree_07" pos="-548.9305 298.6261 173.2553" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_08.xac" Model="f_orchard_34_3_tree_08" ShadowMap="f_orchard_34_3_tree_08" pos="-1469.6379 298.9821 -14.0308" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_09.xac" Model="f_orchard_34_3_tree_09" ShadowMap="f_orchard_34_3_tree_09" pos="-680.8047 173.2782 -841.5326" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_07.xac" Model="f_orchard_34_3_grass_07" ShadowMap="f_orchard_34_3_grass_07" pos="146.3118 155.9977 -75.7043" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_02.xac" Model="f_orchard_34_3_grass_02" ShadowMap="f_orchard_34_3_grass_02" pos="-990.8555 179.9872 -572.0913" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_03.xac" Model="f_orchard_34_3_grass_03" ShadowMap="f_orchard_34_3_grass_03" pos="-29.4001 398.2335 926.6470" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_04.xac" Model="f_orchard_34_3_grass_04" ShadowMap="f_orchard_34_3_grass_04" pos="1230.7744 375.2450 901.9093" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_05.xac" Model="f_orchard_34_3_grass_05" ShadowMap="f_orchard_34_3_grass_05" pos="1232.7650 222.7285 -236.5079" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_06.xac" Model="f_orchard_34_3_grass_06" ShadowMap="f_orchard_34_3_grass_06" pos="-645.6433 260.9435 312.6920" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_12.xac" Model="f_orchard_34_3_model_12" ShadowMap="f_orchard_34_3_model_12" pos="-897.7627 -1.9887 -2089.4797" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_11.xac" Model="f_orchard_34_3_tree_11" ShadowMap="f_orchard_34_3_tree_11" pos="-740.0627 54.6452 -2180.5186" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_model_11.xac" Model="f_orchard_34_3_model_11" ShadowMap="f_orchard_34_3_model_11" pos="139.8154 276.0256 -8.4532" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_grass_08.xac" Model="f_orchard_34_3_grass_08" ShadowMap="f_orchard_34_3_grass_08" pos="-299.4149 29.5750 -1644.3445" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_orchard_34_3_tree_05.xac" Model="f_orchard_34_3_tree_05" ShadowMap="f_orchard_34_3_tree_05" pos="1396.0189 143.4100 -556.6194" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 </World>
