@@ -1,12 +1,12 @@
-<?xml version="1.0" encoding="EUC-KR" ?>
+<?xml version="1.0" encoding="UTF-8"?>
 <Render>
-    <GEGlow Enable="1" Intensity="19" />
-    <SharpFilter Enable="0" Intensity="29" />
-    <ColorGrading Enable="0" GradingTexture="" />
-    <Bloom Enable="1" SmallScale="14" MediumScale="14" LargeScale="14" />
-    <LinearFog Enable="0" FogColor="0.15 0.31 0.32" FogStart="400" FogEnd="7000" />
-    <LinearSpriteFog Enable="0" FogColor="1.00 1.00 1.00" FogStart="1000" FogEnd="5000" />
-    <ShadowColor ShadowColor="0.08 0.08 0.11" />
-    <WarFog Enable="0" SpotLightSize="500" FireSize="0" WarFogColor="0.02 0.02 0.84" WarFogAlpha="0.04" />
-    <Vignette VignetteMinValue="0.00" VignetteMaxValue="3.00" VignetteCorrectValue="0.00" VignetteColor="0.25 0.13 0.18" />
+    <GEGlow Enable="1" Intensity="1"/>
+    <SharpFilter Enable="0" Intensity="29"/>
+    <ColorGrading Enable="0" GradingTexture=""/>
+    <Bloom Enable="1" SmallScale="14" MediumScale="14" LargeScale="14"/>
+    <LinearFog Enable="1" FogColor="0.87 0.72 0.91" FogStart="500" FogEnd="2196"/>
+    <LinearSpriteFog Enable="0" FogColor="1.00 1.00 1.00" FogStart="1000" FogEnd="5000"/>
+    <ShadowColor ShadowColor="0.08 0.08 0.11"/>
+    <WarFog Enable="0" SpotLightSize="500" FireSize="0" WarFogColor="0.02 0.02 0.84" WarFogAlpha="0.04"/>
+    <Vignette VignetteEnable="0" VignetteMinValue="0.00" VignetteMaxValue="3.00" VignetteCorrectValue="0.00" VignetteColor="0.25 0.13 0.18"/>
 </Render>
