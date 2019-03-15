@@ -1,1 +1,18 @@
-AB6C62320443509B5E43A2FC65BFDC31
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_request_1\"/>
+	<TexDir IpfName="bg_texture" Path="\barrack\"/>
+	<SubTexDir IpfName="bg_texture" Path="\klaipeda\"/>
+	<SubModelDir IpfName="bg_hi" Path="\barrack3\"/>
+	<LightMap File="c_request_1_lightmap.jpg" Length="500 500" Offset="81.601 2.59" Size="256 256"/>
+	<AnimationDir IpfName="bg_hi" Path="\barrack3\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_request_1\"/>
+	<Model File="c_request_1_ground.xac" Model="c_request_1_ground" ShadowMap="c_request_1_ground" pos="17.4382 -7.5176 -7.6923" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_request_1_model.xac" Model="c_request_1_model" ShadowMap="c_request_1_model" pos="75.4356 50.6285 -2.9760" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_request_1_light.xac" Model="c_request_1_light" pos="32.0679 56.5819 -4.8236" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_request_1_sha.xac" Model="c_request_1_sha" pos="22.6138 72.1930 -32.5239" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack4_ani01.xac" Model="barrack4_ani01" ShadowMap="barrack4_ani01" AniFile="barrack4_ani01.xsm" pos="-40.0938 116.3391 49.6681" rot="-0.0064 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_request_1_bloom.xac" Model="c_request_1_bloom" pos="23.9314 64.5449 -7.6859" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

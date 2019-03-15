@@ -1,1 +1,14 @@
-B9EF70AC8A3EE025A1EEB0C27B591AF1
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_castle\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\castle\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_castle\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_castle\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="d_castle_park01.xac" Model="d_castle_park01" pos="0.000000 0.000000 0.000000 " rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_castle_park02.xac" Model="d_castle_park02" pos="0.000000 0.000000 0.000000 " rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

@@ -1,1 +1,31 @@
-590009424DCC5E301C2F1F2E45066869
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\field\f_katyn\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\katyn\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\katyn\"/>
+	<AnimationDir IpfName="bg_hi" Path="\field\f_katyn\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="test_zone_gr.xac" Model="test_zone_gr" pos="47.698547 -206.576904 -24.696716" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_04wood_out.xac" Model="f_mitest_04wood_out" pos="-29.211121 -94.695908 289.058350" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01light.xac" Model="f_mitest_01light" pos="203.341675 36.156616 -27.928772" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01decal.xac" Model="f_mitest_01decal" pos="-40.712280 0.747616 58.835327" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01wood.xac" Model="f_mitest_01wood" pos="394.911865 25.145935 -722.176025" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_04wood.xac" Model="f_mitest_04wood" pos="-19.759506 25.516361 736.059814" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_02wood.xac" Model="f_mitest_02wood" pos="-415.308685 25.145920 -706.565247" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01ab.xac" Model="f_mitest_01ab" pos="-0.000061 0.247635 -0.000061" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_02a.xac" Model="f_mitest_02a" pos="-0.000061 -55.718246 0.000061" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01obj.xac" Model="f_mitest_01obj" pos="-24.433357 2.335873 1.953560" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01out_fog.xac" Model="f_mitest_01out_fog" pos="64.043945 136.735291 -18.932251" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_02plnat.xac" Model="f_mitest_02plnat" pos="7.230469 11.688969 851.675293" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_03wood.xac" Model="f_mitest_03wood" pos="392.264771 24.269432 721.351868" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01plnat.xac" Model="f_mitest_01plnat" pos="2.233917 23.895887 -868.497131" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="f_mitest_01sha.xac" Model="f_mitest_01sha" pos="-18.068970 -7.783733 45.625671" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

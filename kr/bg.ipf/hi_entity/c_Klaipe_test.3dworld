@@ -1,1 +1,17 @@
-FF89315139A07FDC647380D8A524B96D
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="0" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="153 204 255" Near="900" Far="90000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture\" Path="\klaipeda\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\common\"/>
+	<ShaTexDir IpfName="bg_texture\" Path="\klaipeda\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<AnimationDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<Model File="Klaipe_test_gr.xac" Model="Klaipe_test_gr" pos="0.000000 0.000000 0.000000" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

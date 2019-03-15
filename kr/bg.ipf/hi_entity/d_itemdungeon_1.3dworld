@@ -1,1 +1,17 @@
-A89885331752A6A16DB8F0FEA1AF478C
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\raid\d_itemdungeon\"/>
+	<SubTexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<AnimationDir IpfName="bg_hi" Path="\raid\d_itemdungeon\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\d_itemdungeon\"/>
+	<Model File="d_itemdungeon_1_ground.xac" Model="d_itemdungeon_1_ground" ShadowMap="d_itemdungeon_1_ground" pos="-0.0000 -0.0000 -0.0000 1.0000" rot="1.0000 1.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_itemdungeon_1_ani.xac" Model="d_itemdungeon_1_ani" AniFile="d_itemdungeon_1_ani.xsm" ShadowMap="d_itemdungeon_1_ground" pos="-0.0000 -0.0000 -0.0000 1.0000" rot="1.0000 1.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_itemdungeon_1_b_model.xac" Model="d_itemdungeon_1_b_model" pos="-0.0000 -0.0000 -0.0000 1.0000" rot="1.0000 1.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_itemdungeon_1_b_model02.xac" Model="d_itemdungeon_1_b_model02" ShadowMap="d_itemdungeon_1_b_model02" pos="-0.0000 -0.0000 -0.0000 1.0000" rot="1.0000 1.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_itemdungeon_1_water.xac" Model="d_itemdungeon_1_water" pos="-0.0000 -0.0000 -0.0000 1.0000" rot="1.0000 1.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_itemdungeon_1_light.xac" Model="d_itemdungeon_1_light" pos="-0.0000 -0.0000 -0.0000 1.0000" rot="1.0000 1.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

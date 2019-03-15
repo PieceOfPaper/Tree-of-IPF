@@ -1,1 +1,34 @@
-B4353BE85C62C4DDB3D6DFD6B28B6D03
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_thorn_39_3\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<LightMap File="d_thorn_39_3_lightmap.jpg" Length="6000.0 6000.0" Offset="3671.076 -181.64" Size="1024 1024"/>
+	<AutoHeightMap Length="6000.0 6000.0" Offset="3671.076 -181.64" Height="4000 -4000"/>
+	<TexDir IpfName="bg_texture" Path="\thorn\"/>
+	<SubTexDir IpfName="bg_texture" Path="\remains\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_thorn_39_3\"/>
+	<Model File="d_thorn39_3_fog.xac" Model="d_thorn39_3_fog" pos="475.8704 131.7134 -521.1776" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_tp01.xac" Model="d_thorn39_3_tp01" ShadowMap="d_thorn39_3_tp01" pos="-219.3525 95.8070 -210.0016" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_water.xac" Model="d_thorn39_3_water" ShadowMap="d_thorn39_3_water" pos="145.8250 -5.0031 -69.3418" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_1area_tree.xac" Model="d_thorn39_3_1area_tree" ShadowMap="d_thorn39_3_1area_tree" pos="-1762.5950 48.9370 771.2049" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_anitree01.xac" Model="d_thorn39_3_anitree01" ShadowMap="d_thorn39_3_1area_tree" pos="-1762.5950 48.9370 771.2049" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_ground.xac" Model="d_thorn39_3_ground" ShadowMap="d_thorn39_3_ground" pos="384.9104 29.9952 -546.2310" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_1area_gr_a.xac" Model="d_thorn39_3_1area_gr_a" ShadowMap="d_thorn39_3_1area_gr_a" pos="361.4678 94.6482 -480.2686" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_blend.xac" Model="d_thorn39_3_blend" ShadowMap="d_thorn39_3_blend" pos="312.1472 87.8919 -447.3108" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_2area_gr_a.xac" Model="d_thorn39_3_2area_gr_a" ShadowMap="d_thorn39_3_2area_gr_a" pos="339.3997 86.4520 -331.0592" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_1area_grass.xac" Model="d_thorn39_3_1area_grass" ShadowMap="d_thorn39_3_1area_grass" pos="496.3542 58.3420 -464.0455" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_2area_grass.xac" Model="d_thorn39_3_2area_grass" ShadowMap="d_thorn39_3_2area_grass" pos="-1039.9617 79.7390 610.1409" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_light.xac" Model="d_thorn39_3_light" pos="337.3213 160.7795 -321.2052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_b_model.xac" Model="d_thorn39_3_b_model" ShadowMap="d_thorn39_3_b_model" pos="2.8083 62.1467 27.7103" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_3area_grass.xac" Model="d_thorn39_3_3area_grass" ShadowMap="d_thorn39_3_3area_grass" pos="1643.2405 18.6700 -1016.7239" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_3area_model.xac" Model="d_thorn39_3_3area_model" ShadowMap="d_thorn39_3_3area_model" pos="1653.3660 -92.2340 -897.9408" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="1653.3660 -92.2340 -897.9408" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_1area_model.xac" Model="d_thorn39_3_1area_model" ShadowMap="d_thorn39_3_1area_model" pos="-1184.1902 -133.8581 575.6927" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_3area_tree.xac" Model="d_thorn39_3_3area_tree" ShadowMap="d_thorn39_3_3area_tree" pos="2120.5769 49.3748 -1055.6765" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_anitree03.xac" Model="d_thorn39_3_anitree03" ShadowMap="d_thorn39_3_3area_tree" pos="2120.5769 49.3748 -1055.6765" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_2area_tree.xac" Model="d_thorn39_3_2area_tree" ShadowMap="d_thorn39_3_2area_tree" pos="817.1116 -16.1596 -20.3668" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn39_3_anitree02.xac" Model="d_thorn39_3_anitree02" ShadowMap="d_thorn39_3_2area_tree" pos="817.1116 -16.1596 -20.3668" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>
