@@ -1,1 +1,12 @@
-4B582FC53A6E432DB8454629AF2D8022
+<?xml version="1.0" encoding="UTF-8"?>
+<Render>
+    <GEGlow Enable="1" Intensity="19"/>
+    <SharpFilter Enable="0" Intensity="29"/>
+    <ColorGrading Enable="0" GradingTexture=""/>
+    <Bloom Enable="1" SmallScale="14" MediumScale="19" LargeScale="52"/>
+    <LinearFog Enable="1" FogColor="0.63 0.75 1.00" FogStart="450" FogEnd="1708"/>
+    <LinearSpriteFog Enable="1" FogColor="0.11 0.05 0.49" FogStart="2" FogEnd="880"/>
+    <ShadowColor ShadowColor="0.00 0.00 0.00"/>
+    <WarFog Enable="1" SpotLightSize="554" FireSize="0" WarFogColor="0.53 0.14 0.48" WarFogAlpha="0.04"/>
+    <Vignette VignetteEnable="0" VignetteMinValue="0.89" VignetteMaxValue="1.82" VignetteCorrectValue="0.04" VignetteColor="0.34 0.34 1.00"/>
+</Render>
