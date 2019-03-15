@@ -1,5 +1,26 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <Prop>
-	<Model Path="f_dcapital_107_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_dcapital_107_b_model01.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_blend_01.xac" RenderType="RT_MUD_BLEND" NoCol="0" Type=""/>
+	<Model Path="f_dcapital_107_blend_02.xac" RenderType="RT_MUD_BLEND" NoCol="0" Type=""/>
+	<Model Path="f_dcapital_107_fog_grass.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_dcapital_107_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="100" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_dcapital_107_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type=""/>
+	<Model Path="f_dcapital_107_model_010.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_011.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_012.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_02.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_03.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_04.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_05.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_06.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_07.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_08.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_model_09.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_dcapital_107_tree_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_dcapital_107_tree_02.xac" RenderType="RT_MODEL" IsBloom="0" Type=""/>
+	<Model Path="f_dcapital_107_tree_out.xac" RenderType="RT_MODEL" IsBloom="0" Type=""/>
+	<Model Path="f_dcapital_107_obbcol.xac" RenderType="RT_MODEL" IsBloom="0" Type=""/>
 </Prop>

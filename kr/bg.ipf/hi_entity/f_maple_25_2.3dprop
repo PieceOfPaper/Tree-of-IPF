@@ -1,5 +1,29 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <Prop>
+	<Model Path="f_maple_25_2_sky.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.05" WaterSprayRange="100" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="f_maple_25_2_1area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_2area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_3area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_b_model.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="f_maple_25_2_blend_01.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_blend_02.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_blend_03.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_gr_a_01.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_gr_a_02.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_grass_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="200" GrassTime="2" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
+	<Model Path="f_maple_25_2_grass_02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" IsGrass="1" GrassWindPower="200" GrassTime="2" IsDynTree="1" GrassWindDir="1" NoCol="1"/>
 	<Model Path="f_maple_25_2_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_maple_25_2_light.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_tp.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_maple_25_2_tree_01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_tree_02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_tree_03.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_tree_04.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_tree_out.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_maple_25_2_water.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.05" WaterSprayRange="100" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="f_maple_25_2_4area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_5area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_6area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_maple_25_2_obbcol.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 </Prop>

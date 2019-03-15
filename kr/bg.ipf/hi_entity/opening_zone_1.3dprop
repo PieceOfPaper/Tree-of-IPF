@@ -1,1 +1,84 @@
-216F6E4EF6C085EFB46889551ADB0CD5
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="barrack_bloom.xac" RenderType="RT_MODEL" IsBloom="1" NoCol="0"/>
+	<Model Path="barrack_light.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="barrack_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="barrack_shadow.xac" RenderType="RT_PLANELIGHT" IsBloom="0" NoCol="0"/>
+	<Model Path="c_fedimian_1area_tp06.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="c_fedimian_4area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_5area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_6area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_7area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_8area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_9area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_blend.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_fedimian_blend2.xac" RenderType="RT_MUD_BLEND2" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_fedimian_blend4.xac" RenderType="RT_MUD_BLEND4" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_fedimian_fog.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_fedimian_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_fedimian_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_fedimian_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_fedimian_tp01.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="c_fedimian_tp03.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="c_fedimian_tp04.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="c_fedimian_tp05.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_orchard_34_2_1area_blend.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_orchard_34_2_1area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_orchard_34_2_1area_tree_out.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_orchard_34_2_2area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_orchard_34_2_4area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_34_2_5area_tree.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_34_2_6area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_34_2_8area_tree.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_34_2_9area_tree.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_34_2_b_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_34_2_b_model02.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_34_2_blend2.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_orchard_34_2_fog.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_orchard_34_2_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_34_2_water.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 0.0" WaterSwaySpeed="2" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.001" RefractionDir="-0.3 0.06" RefractionPower="0.01" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+	<Model Path="f_orchard_34_2_water02.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0.14 -0.1" WaterSwaySpeed="1" WaterSwayRange="0.1 0" waterSwayPower="0.05" RefractionNormalSize="0.003" RefractionDir="0.0 0.03" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="f_orchard_34_2_water04.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0.1 -0.06" WaterSwaySpeed="0.6" WaterSwayRange="0.1 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="3" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="mission_groundtower01_16area_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="mission_groundtower01_16area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="mission_groundtower01_b_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="mission_groundtower01_b_model17.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="mission_groundtower01_light.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="mission_groundtower01_tp.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="c_orsha_01area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_01area_tree.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="c_orsha_02area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_02area_tree.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="c_orsha_03area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_04area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_05area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_06area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_07area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_08area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_09area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_10area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_11area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_12area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_13area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_14area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_1area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_orsha_2area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_orsha_b_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_b_model02.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_blend.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_fog.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_05flag.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_04flag.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_03flag.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_02flag.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_01flag.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="c_orsha_tp01.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="c_orsha_tp02.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="c_orsha_tree_out.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="c_orsha_water01.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="0" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="c_orsha_water02.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 0.0" WaterSwaySpeed="2" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.001" RefractionDir="-0.3 0.06" RefractionPower="0.01" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+	<Model Path="mission_groundtower_ani30.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+</Prop>

@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jang (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_castle_20_1_1area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_1area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_2area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_2area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_3area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_3area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_4area_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_4area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_5area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_6area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_7area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_8area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_9area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_b_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="f_castle_20_1_blend.xac" RenderType="RT_MUD_BLEND" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_bloom.xac" RenderType="PLANLIGHT" IsBloom="1" NoCol="1"/>
+	<Model Path="f_castle_20_1_grass.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_ground.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="f_castle_20_1_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_tree.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="2" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_tree_out.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="2" IsBloom="0" NoCol="1"/>
+	<Model Path="f_castle_20_1_water.xac" RenderType="RT_WATER" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="4" WaterSpraycolor="0.1 0.3 0.4" IsBloom="0" NoCol="1"/>
+</Prop>

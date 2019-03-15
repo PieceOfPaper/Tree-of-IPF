@@ -1,13 +1,16 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
 <Prop>
+	<Model Path="f_katyn_07_2_blend_01.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_katyn_07_2_blend_02.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_katyn_07_2_blend_03.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_katyn_07_2_blend_04.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="f_katyn07_2_09area_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_09area_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn07_2_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn07_2_01area_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_01area_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_01area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn07_2_01area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn07_2_01area_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn07_2_04area_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_05area_model.xac" RenderType="RT_MODEL" NoCol="0"/>
@@ -22,23 +25,9 @@
 	<Model Path="f_katyn07_2_09area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_05area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_06area_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
-	<Model Path="f_katyn07_2_03area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
-	<Model Path="f_katyn07_2_04area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
-	<Model Path="f_katyn07_2_05area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
-	<Model Path="f_katyn07_2_06area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn07_2_02area_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_04area_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_02area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
-	<Model Path="f_katyn07_2_01area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
-	<Model Path="f_katyn07_2_02area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
-	<Model Path="f_katyn07_2_04area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
-	<Model Path="f_katyn07_2_05area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
-	<Model Path="f_katyn07_2_06area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
-	<Model Path="f_katyn07_2_01area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
-	<Model Path="f_katyn07_2_02area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
-	<Model Path="f_katyn07_2_04area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
-	<Model Path="f_katyn07_2_05area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
-	<Model Path="f_katyn07_2_06area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn07_2_05area_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_05area_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn07_2_05area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
@@ -63,7 +52,6 @@
 	<Model Path="f_katyn07_2_08area_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn07_2_07area_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt03_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt03_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt03_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
@@ -73,7 +61,6 @@
 	<Model Path="f_katyn_Rt03_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
-	<Model Path="f_katyn_Rt03_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt03_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
@@ -82,15 +69,12 @@
 	<Model Path="f_katyn_Rt03_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
-	<Model Path="f_katyn_Rt03_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt03_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt03_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn_Rt03_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt02_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
-	<Model Path="f_katyn_Rt02_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
 	<Model Path="f_katyn_Rt02_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt02_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn_Rt02_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
@@ -101,8 +85,6 @@
 	<Model Path="f_katyn_Rt02_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt02_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt02_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
-	<Model Path="f_katyn_Rt02_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
-	<Model Path="f_katyn_Rt02_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
 	<Model Path="f_katyn_Rt02_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt02_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt02_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
@@ -111,16 +93,13 @@
 	<Model Path="f_katyn_Rt02_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt05_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt05_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt05_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn_Rt05_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn_Rt05_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt05_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt05_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt05_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
 	<Model Path="f_katyn_Rt05_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt05_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt06_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt06_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt06_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt06_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt06_model.xac" RenderType="RT_MODEL" NoCol="0"/>
@@ -130,21 +109,15 @@
 	<Model Path="f_katyn_Rt01_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt01_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt01_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt01_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
-	<Model Path="f_katyn_Rt01_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
 	<Model Path="f_katyn_Rt01_model.xac" RenderType="RT_MODEL" NoCol="0"/>
-	<Model Path="f_katyn_Rt01_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt01_tree.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt01_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_a_gr.xac" RenderType="RT_MODEL" NoCol="1"/>
-	<Model Path="f_katyn_Rt01_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
@@ -155,11 +128,8 @@
 	<Model Path="f_katyn_Rt06_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
 	<Model Path="f_katyn_Rt06_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_Rt06_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
-	<Model Path="f_katyn_Rt06_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
 	<Model Path="f_katyn_Rt06_shaoff.xac" RenderType="RT_ON_SHABL" NoCol="1"/>
-	<Model Path="f_katyn_Rt06_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn_Rt06_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
-	<Model Path="f_katyn_Rt06_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
 	<Model Path="f_katyn_Rt01_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
 	<Model Path="f_katyn_tp_05.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
 	<Model Path="f_katyn_tp_01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
@@ -248,5 +218,4 @@
 	<Model Path="f_katyn_tp_04.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
 	<Model Path="f_katyn_tp_03.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
 	<Model Path="f_katyn_tp_01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
-	<Model Path="f_katyn07_2_blend4.xac" RenderType="RT_MUD_BLEND4" NoCol="1"/>
 </Prop>

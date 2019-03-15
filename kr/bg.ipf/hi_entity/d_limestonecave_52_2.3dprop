@@ -1,5 +1,22 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
 <Prop>
-	<Model Path="d_limestonecave_52_2_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_1area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_2area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_3area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_4area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_5area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_6area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_7area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_8area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_b_model01.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_b_model02.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_blend01.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_blend02.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_fog.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="0"/>
+	<Model Path="d_limestonecave_52_2_gr_a.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="d_limestonecave_52_2_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="d_limestonecave_52_2_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="1"/>
+	<Model Path="d_limestonecave_52_2_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="d_limestonecave_52_2_water.xac" RenderType="" IsBloom="1" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="-0.05 0.01" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.8" WaterSpraycolor="0.1 0.2 0.3" NoCol="0"/>
 </Prop>

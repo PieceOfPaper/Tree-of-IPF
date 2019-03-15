@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 1 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
 <Prop>
 	<Model Path="f_katyn_45_3_10area_tree.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="f_katyn_45_3_1area_grass.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
@@ -82,5 +82,6 @@
 	<Model Path="f_katyn_45_3_tp7.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
 	<Model Path="f_katyn_45_3_tp8.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
 	<Model Path="f_katyn_45_3_tp9.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
-	<Model Path="f_katyn_45_3_water.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
+	<Model Path="f_katyn_45_3_water.xac" RenderType="RT_WATER" IsBloom="0" Type="" IsWater="1" WaterDiffDir="0 -0.1" WaterSwaySpeed="1" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="-0.05 0.01" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+	<Model Path="f_katyn_45_3_10area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
 </Prop>
