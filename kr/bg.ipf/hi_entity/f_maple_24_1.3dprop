@@ -1,1 +1,28 @@
-5B532725173423CFC996411D09D68382
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_maple_24_1_1area_gr_a.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_maple_24_1_1area_grass.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="80" GrassTime="3" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_1area_model.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_maple_24_1_1area_tree.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="80" GrassTime="4" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_2area_gr_a.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_maple_24_1_2area_grass.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="80" GrassTime="3" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_2area_model.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_maple_24_1_2area_tree.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="80" GrassTime="4" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_3area_gr_a.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_maple_24_1_3area_grass.xac" RenderType="RT_MODEL" NoCol="1" Type=""/>
+	<Model Path="f_maple_24_1_3area_tree.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="80" GrassTime="4" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_4area_grass.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="80" GrassTime="3" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_5area_grass.xac" RenderType="RT_MUD" NoCol="1" Type="GROUND" IsGrass="1" GrassWindPower="80" GrassTime="3" IsDynTree="1" GrassWindDir="1"/>
+	<Model Path="f_maple_24_1_b_model.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_maple_24_1_blend.xac" RenderType="RT_FOG" NoCol="0" Type=""/>
+	<Model Path="f_maple_24_1_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="0" Type=""/>
+	<Model Path="f_maple_24_1_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="0" Type=""/>
+	<Model Path="f_maple_24_1_blend4.xac" RenderType="RT_MUD_BLEND4" NoCol="0" Type=""/>
+	<Model Path="f_maple_24_1_ground.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="f_maple_24_1_light.xac" RenderType="RT_PLANELIGHT" NoCol="1" Type=""/>
+	<Model Path="f_maple_24_1_tp01.xac" RenderType="BLENDING" NoCol="1" Type="BLENDING" IsGrass="1" GrassWindPower="80" GrassTime="4"/>
+	<Model Path="f_maple_24_1_tp02.xac" RenderType="BLENDING" NoCol="1" Type="BLENDING" IsGrass="1" GrassWindPower="80" GrassTime="4"/>
+	<Model Path="f_maple_24_1_tree_out.xac" RenderType="RT_MODEL" NoCol="1" Type="" IsGrass="1" GrassWindPower="30" GrassTime="4"/>
+	<Model Path="f_maple_24_1_water.xac" RenderType="RT_WATER" NoCol="1" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="-0.05 0.01" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.1" WaterSprayRange="0.8" WaterSpraycolor="0.1 0.2 0.3"/>
+</Prop>

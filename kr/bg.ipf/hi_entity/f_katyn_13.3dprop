@@ -1,1 +1,76 @@
-E5CFD4E2F9C3A962512272AB95B2E7FF
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_katyn_13_fog.xac" RenderType="RT_FOG" NoCol="1"/>
+	<Model Path="f_katyn_13_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_katyn_13_b_model.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_1area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
+	<Model Path="f_katyn_13_1area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
+	<Model Path="f_katyn_13_1area_blend4.xac" RenderType="RT_MUD_BLEND4" NoCol="1"/>
+	<Model Path="f_katyn_13_1area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn_13_1area_1model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn_13_1area_2model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn_13_1area_tree.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="0"/>
+	<Model Path="f_katyn_13_1area_gr_a.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_1area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_water.xac" RenderType="RT_WATER" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="-0.05 0.01" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_gr_a.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_1tree.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="0"/>
+	<Model Path="f_katyn_13_2area_2tree.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="0"/>
+	<Model Path="f_katyn_13_2area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_1model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn_13_2area_2model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn_13_2area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
+	<Model Path="f_katyn_13_2area_blend4.xac" RenderType="RT_MUD_BLEND4" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_gr_a.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn_13_3area_1tree.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="0"/>
+	<Model Path="f_katyn_13_3area_2tree.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="0"/>
+	<Model Path="f_katyn_13_3area_blend.xac" RenderType="RT_MUD_BLEND" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_blend3.xac" RenderType="RT_MUD_BLEND3" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_blend4.xac" RenderType="RT_MUD_BLEND4" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_water.xac" RenderType="RT_WATER" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="-0.05 0.01" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+	<Model Path="f_katyn_13_3area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn_tp_01.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_02.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_03.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_04.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_05.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_06.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_07.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_08.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_09.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_10.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_11.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_12.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_13.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_14.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_15.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_16.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_18.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_19.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_20.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_21.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_22.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_23.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_24.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_25.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_26.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_27.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_28.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_29.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_30.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_31.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_32.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_33.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_34.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" IsGrass="1" GrassWindPower="1000" GrassTime="3" GrassWindDir="0" NoCol="1"/>
+	<Model Path="f_katyn_tp_35.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_katyn_tp_36.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_katyn_tp_37.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_katyn_tp_38.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+</Prop>
