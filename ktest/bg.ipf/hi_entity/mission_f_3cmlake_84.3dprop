@@ -1,1 +1,13 @@
-24A7A10C8594393B3C78C1406BCFFFB1
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jang (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="mission_f_3cmlake_84_b_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0"/>
+	<Model Path="mission_f_3cmlake_84_blend.xac" RenderType="RT_MUD_BLEND" IsBloom="0"/>
+	<Model Path="mission_f_3cmlake_84_grass.xac" RenderType="RT_MODEL" IsBloom="0" IsGrass="1" GrassWindPower="400" GrassTime="3" IsDynTree="0" GrassWindDir="0" IsWater="400" WaterDiffDir="3" WaterSwaySpeed="0" WaterSwayRange="0"/>
+	<Model Path="mission_f_3cmlake_84_ground.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0"/>
+	<Model Path="mission_f_3cmlake_84_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0"/>
+	<Model Path="mission_f_3cmlake_84_model.xac" RenderType="RT_MUD" IsBloom="0"/>
+	<Model Path="mission_f_3cmlake_84_tree.xac" RenderType="RT_MODEL" IsBloom="0" IsGrass="1" GrassWindPower="200" GrassTime="3" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="mission_f_3cmlake_84_water.xac" RenderType="RT_WATER" IsBloom="0" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.03" WaterSprayRange="0.0" WaterSpraycolor="0.1 0.3 0.4"/>
+	<Model Path="mission_f_3cmlake_84_water_02.xac" RenderType="RT_PLANELIGHT" IsBloom="1"/>
+</Prop>

@@ -1,1 +1,29 @@
-20F58FD17257202E146E5BA20BCCC14C
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_orchard_32_4_1area_blend.xac" RenderType="RT_MUD_BLEND" Type="" NoCol="0"/>
+	<Model Path="f_orchard_32_4_1area_gr_a.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_orchard_32_4_1area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_32_4_1area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_2area_blend.xac" RenderType="RT_FOG" NoCol="1"/>
+	<Model Path="f_orchard_32_4_2area_gr_a.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_orchard_32_4_2area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_32_4_2area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_3area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_32_4_3area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_4area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_32_4_4area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_5area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_32_4_5area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_6area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_orchard_32_4_6area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_7area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsGrass="1" GrassWindPower="200" GrassTime="3" GrassWindDir="4"/>
+	<Model Path="f_orchard_32_4_b_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_32_4_fog.xac" RenderType="RT_FOG" NoCol="1"/>
+	<Model Path="f_orchard_32_4_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_32_4_tree_out.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_orchard_32_4_water_calm.xac" RenderType="RT_WATER" NoCol="1" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="4" WaterSpraycolor="0.1 0.3 0.4"/>
+	<Model Path="f_orchard_32_4_water_fall.xac" RenderType="RT_WATER" NoCol="1" IsWater="1" WaterDiffDir="0 -0.5" WaterSwaySpeed="2" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.001" RefractionDir="-0.3 0.06" RefractionPower="0.01" WaterSprayNormalSize="0.001" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.2 0.3"/>
+	<Model Path="f_orchard_32_4_water_flow.xac" RenderType="RT_WATER" NoCol="1" IsWater="1" WaterDiffDir="0.05 -0.05" WaterSwaySpeed="0.8" WaterSwayRange="0.1 0" waterSwayPower="0.05" RefractionNormalSize="0.003" RefractionDir="0.0 0.03" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.3 0.4"/>
+	<Model Path="f_orchard_32_4_water_slowflow.xac" RenderType="RT_WATER" NoCol="1" IsWater="1" WaterDiffDir="0.05 -0.05" WaterSwaySpeed="0.6" WaterSwayRange="0.1 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.01" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="3" WaterSpraycolor="0.1 0.3 0.4"/>
+</Prop>

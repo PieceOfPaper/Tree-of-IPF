@@ -1,1 +1,10 @@
-68EF76734C5DDFA9C15433E042C7C343
+<?xml version="1.xac0" standalone="yes"?>
+<!-- edited with XMLSpy v2006 U (http://www.xacaltova.xaccom) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="d_voodoo_obj.xac" RenderType="RT_MODEL" NoCol="0" ViewDist="0"/>
+	<Model Path="d_voodoo_gr.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" ViewDist="0"/>
+	<Model Path="d_voodoo_sha.xac" RenderType="RT_OFF_SHABL" NoCol="1" ViewDist="0"/>
+	<Model Path="d_voodoo_light.xac" RenderType="RT_PLANELIGHT" NoCol="1" ViewDist="0"/>
+	<Model Path="c_voodoo_bloom_cry.xac" IsBloom="1" NoCol="1" ViewDist="0"/>
+</Prop>
