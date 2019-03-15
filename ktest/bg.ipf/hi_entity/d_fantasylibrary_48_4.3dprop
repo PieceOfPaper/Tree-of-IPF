@@ -1,5 +1,48 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by EE (IMCGames Co., Ltd) -->
 <Prop>
-	<Model Path="d_fantasylibrary_48_4_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_4_10area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_11area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_12area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_1area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_2area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_3area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_4area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_5area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_6area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_7area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_8area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_9area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_ani01.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_ani02.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_ani03.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_ani04.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_ani05.xac" RenderType="RT_MUD" IsBloom="0" Type="0"/>
+	<Model Path="d_fantasylibrary_48_4_b_model01.xac" RenderType="RT_MUD" IsBloom="0" Type="0" NoCol=""/>
+	<Model Path="d_fantasylibrary_48_4_b_model02.xac" RenderType="RT_MUD" IsBloom="0" Type="0" NoCol=""/>
+	<Model Path="d_fantasylibrary_48_4_blend01.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="0" NoCol=""/>
+	<Model Path="d_fantasylibrary_48_4_blend02.xac" RenderType="RT_MUD_BLEND2" IsBloom="0" Type="0" NoCol=""/>
+	<Model Path="d_fantasylibrary_48_4_grass.xac" RenderType="RT_MUD" IsBloom="0" Type="0" NoCol=""/>
+	<Model Path="d_fantasylibrary_48_4_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="0" NoCol="GROUND"/>
+	<Model Path="d_fantasylibrary_48_4_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="0" NoCol=""/>
+	<Model Path="d_fantasylibrary_48_4_water.xac" RenderType="RT_WATER" IsBloom="0" Type="1" NoCol="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0" WaterSwayRange="0 01" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.03" WaterSprayNormalSize="0" WaterSprayDir="0" WaterSprayPower="0" WaterSprayRange="0" WaterSpraycolor="0.1 0.3 0.4"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_01.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_02.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_03.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_04.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_05.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_06.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_07.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_08.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_1area_ani_09.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_2area_ani_01.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_2area_ani_02.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_2area_ani_03.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_2area_ani_04.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_2area_ani_05.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_3area_ani_01.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_4area_ani_02.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_4area_ani_01.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_4area_ani_03.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
+	<Model Path="d_fantasylibrary_48_4_4area_ani_04.xac" RenderType="RT_MUD" IsBloom="0" Type="1"/>
 </Prop>

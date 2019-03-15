@@ -1,5 +1,30 @@
 <?xml version="1.0" standalone="yes"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
 <Prop>
-	<Model Path="d_fantasylibrary_48_2_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_grass.xac" RenderType="RT_MODEL" Type="" IsBloom="0" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_2_ground.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_10area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_12area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_11area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_1area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_1area_tree.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_2_2area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_2area_tree.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_2_3area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_b_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="1" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_fog.xac" RenderType="RT_FOG" Type="" IsBloom="0" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_2_water.xac" RenderType="RT_WATER" Type="" IsBloom="0" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0" WaterSwayRange="0 01" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.03" WaterSprayNormalSize="0" WaterSprayDir="0" WaterSprayPower="0" WaterSprayRange="0" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_2_4area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_5area_model.xac" RenderType="RT_MUD" Type="GROUND" IsBloom="0" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_6area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_7area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_8area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_9area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_fantasylibrary_ani01.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="d_fantasylibrary_48_2_blend.xac" RenderType="RT_MUD_BLEND" Type="" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_2_water02.xac" RenderType="RT_WATER" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.01" RefractionDir="0 0" RefractionPower="0.02" WaterSprayNormalSize="0.001" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.1" WaterSpraycolor="0.1 0.2 0.3" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_1_2area_ani_01.xac" RenderType="RT_MODEL" Type="" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_1_3area_ani_01.xac" RenderType="RT_MODEL" Type="" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_1_4area_ani_01.xac" RenderType="RT_MODEL" Type="" NoCol="1"/>
+	<Model Path="d_fantasylibrary_48_1_5area_ani_01.xac" RenderType="RT_MODEL" Type="" NoCol="1"/>
 </Prop>
