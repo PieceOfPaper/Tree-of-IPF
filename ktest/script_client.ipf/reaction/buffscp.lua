@@ -116,6 +116,24 @@ function PouncingClientScp_LEAVE(actor, obj, buff)
 
 end
 
+function TaglioClientScp_ENTER(actor, obj, buff)
+    actor:GetAnimation():SetSTDAnim("SKL_TAGLIO_STAND");
+    actor:GetAnimation():SetRUNAnim("SKL_TAGLIO");
+    actor:GetAnimation():SetWLKAnim("SKL_TAGLIO");
+    actor:GetAnimation():SetTURNAnim("None");
+    
+    actor:SetAlwaysBattleState(true);
+end
+
+function TaglioClientScp_LEAVE(actor, obj, buff)
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():ResetRUNAnim();
+    actor:GetAnimation():ResetWLKAnim();
+    actor:GetAnimation():ResetTURNAnim();
+    
+    actor:SetAlwaysBattleState(false);
+end
+
 function LimaconClientScp_ENTER(actor, obj, buff)
 --    actor:GetAnimation():SetSTDAnim("ASTD");
 --    actor:GetAnimation():SetTURNAnim("None");

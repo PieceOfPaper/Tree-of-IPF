@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_sheriff_fanning"/>
+    <Particle frame="2.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="3" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="3" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="3" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="3" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="4" R="0" G="0" B="0" A="0"/>
+    <Particle frame="5.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="6" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="6" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="6" attachNode="Dummy_helmet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="0"/>
+    <Particle frame="9.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="9" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="9" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="9" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="9" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+    <Particle frame="11.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="12" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="12" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="12" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="13" R="0" G="0" B="0" A="0"/>
+    <Particle frame="15.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="15" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="15" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="15" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="15" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="16" R="0" G="0" B="0" A="0"/>
+    <Particle frame="18.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="18" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="18" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="18" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="19" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="26" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="26" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="26" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="26" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="27.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="27" R="0" G="0" B="0" A="0"/>
+    <Particle frame="29.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="29" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="29" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="29" attachNode="Dummy_helmet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="29" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="30" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="32" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="32" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="32" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="32" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="33.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="33" R="0" G="0" B="0" A="0"/>
+    <Particle frame="35.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="35" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="35" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="35" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="36" R="0" G="0" B="0" A="0"/>
+    <Particle frame="38.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="38" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="38" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="38" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="38" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="39" R="0" G="0" B="0" A="0"/>
+    <Particle frame="43.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="43" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="43" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="43" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="43" attachNode="Dummy_helmet" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="43" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="44" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="46" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="46" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="46" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="47.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="47" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="49" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="49" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="49" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="49" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="49.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="50" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="52" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="52" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="52" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="52.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="53" R="0" G="0" B="0" A="0"/>
+    <BlendOn frame="55" R="70" G="50" B="30" A="100"/>
+    <Shockwave frame="55" type="2" intensity="0.5" frequency="70" duration="0.2" range="1000"/>
+    <Particle frame="55" attachNode="Dummy_helmet" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_helmet" particleName="F_ground187" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="56.00" attachNode="Dummy_effect_pistol_R2" particleName="I_archer_pistol_atk3" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="56" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

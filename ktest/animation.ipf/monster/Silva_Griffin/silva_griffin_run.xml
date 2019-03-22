@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="8.00" soundFile="mon_big_footstep_5"/>
-    <Sound frame="24.00" soundFile="mon_big_footstep_5"/>
+	<Shockwave frame="2" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="2" particleName="F_smoke109" attachNode="Bip01 R Toe0" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="2" particleName="F_stone005" attachNode="Bip01 R Toe0" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="18" particleName="F_smoke109" attachNode="Bip01 L Toe0" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="18" particleName="F_stone005" attachNode="Bip01 L Toe0" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="8.00" soundFile="mon_big_footstep_5"/>
+	<Sound frame="24.00" soundFile="mon_big_footstep_5"/>
 </ActionDesc>

@@ -1,4 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.99" soundFile="mon_zombieboss_wlk"/>
+	<Shockwave frame="3" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="7" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="23" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="29" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="3" particleName="F_smoke109" attachNode="Bip01 L Hand" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="3" particleName="F_stone005" attachNode="Bip01 L Hand" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_smoke109" attachNode="Bip01 R Toe0" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="7" particleName="F_stone005" attachNode="Bip01 R Toe0" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="23" particleName="F_smoke109" attachNode="Bip01 R Hand" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="23" particleName="F_stone005" attachNode="Bip01 R Hand" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="29" particleName="F_smoke109" attachNode="Bip01 L Toe0" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="29" particleName="F_stone005" attachNode="Bip01 L Toe0" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="0.99" soundFile="mon_zombieboss_wlk"/>
 </ActionDesc>

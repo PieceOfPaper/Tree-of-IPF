@@ -1,12 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
 	<Sound frame="0" soundFile="mon_zignuts_skl"/>
-	<Particle frame="8" attachNode="Dummy_effect_skl1" particleName="F_spin006" useAttach="false" hiddenObj="false" scale="0.8" pause="true"/>
-	<Particle frame="7" attachNode="Dummy_effect_skl1" particleName="F_drop_leaf003" useAttach="false" hiddenObj="false" scale="1.5" pause="true"/>
-	<Particle frame="9" attachNode="Dummy_effect_skl4" particleName="F_drop_leaf003" useAttach="false" hiddenObj="false" scale="2" pause="true"/>
-	<Particle frame="9" attachNode="Dummy_effect_skl4" particleName="F_drop_leaf003" useAttach="false" hiddenObj="false" scale="1.5" pause="true"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="1.2" pause="true"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="1.2" pause="true"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" scale="0.4" pause="true"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" scale="0.4" pause="true"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="0.5" pause="true"/>
+	<Particle frame="8" attachNode="Dummy_effect_skl1" particleName="F_spin006" useAttach="false" hiddenObj="false" scale="1.6" pause="true"/>
+	<Particle frame="7" attachNode="Dummy_effect_skl1" particleName="F_drop_leaf003_2" useAttach="false" hiddenObj="false" scale="1.5" pause="true"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl4" particleName="F_drop_leaf003_2" useAttach="false" hiddenObj="false" scale="2" pause="true"/>
+	<Particle frame="9" attachNode="Dummy_effect_skl4" particleName="F_drop_leaf003_2" useAttach="false" hiddenObj="false" scale="2" pause="true"/>
 	<Particle frame="9" attachNode="Dummy_effect_skl2" particleName="F_spin006" useAttach="false" hiddenObj="false" scale="1.2" pause="true"/>
-	<Particle frame="10" attachNode="Dummy_effect_skl3" particleName="F_spin006" useAttach="false" hiddenObj="false" scale="1.6" pause="true"/>
+	<Particle frame="10" attachNode="Dummy_effect_skl3" particleName="F_spin006" useAttach="false" hiddenObj="false" scale="2.5" pause="true"/>
 </ActionDesc>

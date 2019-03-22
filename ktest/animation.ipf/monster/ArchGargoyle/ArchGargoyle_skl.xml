@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="10" type="2" intensity="0.5" frequency="70" duration="0.5" range="1000"/>
+	<Shockwave frame="13" type="2" intensity="0.5" frequency="70" duration="0.5" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="0.5" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="8" attachNode="Dummy_eff_skl2" particleName="I_dash022_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_eff_skl2" particleName="I_dash022_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_eff_skl2" particleName="I_dash022_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_eff_skl2_2" particleName="I_smoke004_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="60" G="50" B="30" A="100"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

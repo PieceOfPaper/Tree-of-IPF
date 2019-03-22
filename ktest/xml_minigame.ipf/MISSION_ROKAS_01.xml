@@ -1,1190 +1,1195 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <GameList>
-    <Game Name="MISSION_ROKAS_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_rokas_01" playerCountCheckDestroy="1" checkSec="0" checkSecStart="2400" msgTxt="None" portrait="None">
-        <StageList>
-            <Stage Name="SETTING">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="30초 뒤 미션이 시작됩니다"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="pre_setting">
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_A_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_B_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_C_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_D_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_E_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_F_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_02"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_02"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_03"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="SUCCESS"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="START"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_CHASER_01"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="start">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="SETTING"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_a_01"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="sec20">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="20초 후에 시작됩니다"/>
-                                <Str Str="scroll"/>
-                                <Num Num="8"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="sec10">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="20"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="10초 후에 시작됩니다"/>
-                                <Str Str="scroll"/>
-                                <Num Num="8"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_a_01" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="모든 몬스터를 처치하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="41433" Pos="-562.67#181.94#-280.35" range="60" genCount="1" genTime="60000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41433" Pos="-728.66#181.94#-207.14" range="70" genCount="1" genTime="60000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-614.64#181.94#-287.59" genCount="1" maxStackCount="1" genTime="7000" objectKey="2" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-675.37#181.94#-344.67" genCount="1" maxStackCount="1" genTime="7000" objectKey="3" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41433" Pos="-666.71#181.94#-305.60" range="60" genCount="1" genTime="60000" objectKey="4" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41433" Pos="-827.32#181.94#-113.97" range="70" genCount="1" genTime="60000" objectKey="5" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-593.13#181.94#-226.86" genCount="1" maxStackCount="1" genTime="7000" objectKey="6" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-719.12#181.94#-246.01" genCount="1" maxStackCount="1" genTime="7000" objectKey="7" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41433" Pos="-611.57#181.94#-204.94" range="70" genCount="1" genTime="60000" objectKey="8" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-682.73#181.94#0.34" genCount="1" maxStackCount="1" genTime="7000" objectKey="9" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41433" Pos="-796.18#181.94#-20.42" range="60" genCount="1" genTime="60000" objectKey="10" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="41433" Pos="-677.02#181.94#-63.50" range="60" genCount="1" genTime="60000" objectKey="11" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-879.69#181.94#-94.30" genCount="1" maxStackCount="1" genTime="7000" objectKey="12" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                    <Obj Type="Monster" MonType="401121" Pos="-762.04#181.94#-23.73" genCount="1" maxStackCount="1" genTime="7000" objectKey="13" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="a_start">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_a_01/0/stage_a_01/1/stage_a_01/2/stage_a_01/3/stage_a_01/4/stage_a_01/5/stage_a_01/6/stage_a_01/7/stage_a_01/8/stage_a_01/9/stage_a_01/10/stage_a_01/11/stage_a_01/12/stage_a_01/13"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_a_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_a_02"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="stage_a_01"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_a_02" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="데드본을 처치하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="mrokas_ruina"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="47375" Pos="-656.13#181.94#-130.25" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="250"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="a_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_a_02/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_01"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_a_02"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_ruina"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="mrokas_gate_01">
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="mrokas_ruina"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="stage_b_01"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="147304" Pos="-530.67#181.94#-40.15" angle="-1" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;파괴된 부우크&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="CAMERA">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_GATE_01"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
-                                <MGameObjPtr List="mrokas_gate_01/0"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_01"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="mrokas_ruina" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Trigger" ObjType="3" triggerName="Trigger">
-                        <Area>
-                            <Pos Value="-56.450539 181.943298 120.185837"/>
-                            <Pos Value="56.115292 181.943298 83.268112"/>
-                            <Pos Value="70.689140 181.943298 120.688248"/>
-                            <Pos Value="-22.776669 181.943298 173.021072"/>
-                        </Area>
-                        <enterScpList>
-                            <ToolScp Scp="MGAME_TRG_EL_OBJ" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_MOVE"/>
-                            </ToolScp>
-                        </enterScpList>
-                    </Obj>
-                    <Obj Type="Monster" MonType="10033" Pos="97.59#181.94#-739.20" angle="116" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;루이나&apos; &apos;Faction&apos; &apos;Neutral&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <StartList>
-                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                                    <Str Str="SIT3"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="10033" Pos="97.33#181.94#-738.97" angle="126" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;루이나&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;WlkMSPD&apos; &apos;60&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="Chat" Client="NO" UseSleep="NO">
-                                    <Str Str="안전한 곳으로 갑시다!"/>
-                                    <Num Num="5"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-34.566998" Y="181.9433" Z="-360.80124" Random="20"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="-78.897736" Y="181.9433" Z="-111.45645" Random="30"/>
-                                </ToolScp>
-                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
-                                    <AbsPos X="11.928692" Y="181.9433" Z="125.43619" Random="10"/>
-                                </ToolScp>
-                                <ToolScp Scp="SAI_SET_MGAME_V" Client="NO" UseSleep="NO">
-                                    <Str Str="MROKAS_RUINA_01"/>
-                                    <Num Num="2"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="10033" Pos="12.01#181.94#124.93" angle="14" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;루이나&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_RUINA_01&apos; &apos;DialogRotate&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <StartList>
-                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                                    <Str Str="STD"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="change_ruina_01">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_01"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="mrokas_ruina/2"/>
-                                <Str Str="Kill"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="mrokas_ruina/3"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="change_ruina_01_01">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_01"/>
-                                <Str Str="=="/>
-                                <Num Num="2"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="mrokas_ruina/4"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
-                                <MGameObj List="mrokas_ruina/3"/>
-                                <Str Str="Kill"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
-                                <MGameObj List="mrokas_gate_02/0"/>
-                                <Str Str="Monster"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="루이나와 대화해 의뢰 내용을 확인하세요!"/>
-                                <Str Str="scroll"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="normalMonGen"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="change_ruina_4">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_BOMBFUSE"/>
-                                <Str Str="OVER"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_BOMBFLOWER"/>
-                                <Str Str="OVER"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_01"/>
-                                <Num Num="4"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="end_ruina">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_02"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_ruina"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1">
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="아래쪽에서 다급한 비명이 들립니다!"/>
-                                <Num Num="8"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_b_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_b_01" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="143.00949" Y="181.9433" Z="-600.01404" Random="30"/>
-                        <Str Str="stage_b"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="리버피드를 처치하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="47416" Pos="78.44#181.94#-504.31" angle="139" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="250"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="41435" Pos="190.73#181.94#-491.41" angle="142" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="179.06#181.94#-602.86" angle="141" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="51.44#181.94#-594.44" angle="140" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="b_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_b_01/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_RUINA_01"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_b_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="루이나를 안전한 곳까지 지켜주세요!"/>
-                                <Str Str="scroll"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="arrowRemove">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_b_01/0"/>
-                                <Num Num="99"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                                <Str Str="stage_b"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="mrokas_gate_02">
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="stage_c_01"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="1102.5049" Y="181.9433" Z="-342.49094" Random="30"/>
-                        <Str Str="stage_c"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="147304" Pos="387.50#181.94#-7.77" angle="-4" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;40&apos; &apos;Name&apos; &apos;파괴된 부우크&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="gate_2_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="mrokas_gate_02/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_02"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_c_01" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="1100.6117" Y="181.9433" Z="-312.29849" Random="20"/>
-                        <Str Str="stage_c"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="stage_c"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="47374" Pos="1087.06#181.94#-300.49" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="250"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="c_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_c_01/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_c_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_c_02"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_03"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="arrowRemove">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_c_01/0"/>
-                                <Num Num="99"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                                <Str Str="stage_c"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_c_02" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="stage_d_01"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="47202" Pos="985.05#181.94#-430.73" angle="26" range="50" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="47202" Pos="1177.90#181.94#-355.64" angle="26" range="50" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="47202" Pos="1102.99#181.94#-96.15" angle="26" range="60" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="47202" Pos="935.73#181.94#-190.69" angle="83" range="60" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1"/>
-                    </Obj>
-                    <Obj Type="Monster" MonType="41433" Pos="890.83#181.94#-264.81" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="900.81#181.94#-431.51" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="1018.09#181.94#-155.97" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="927.72#181.94#-368.30" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="1206.47#181.94#-420.29" angle="158" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="1228.77#181.94#-249.41" angle="-175" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event eventName="c_02_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_BOMBFLOWER"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="부식된 나뭇잎 채집하세요!"/>
-                                <Str Str="scroll"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="c_02_end_01">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_BOMBFLOWER"/>
-                                <Str Str="OVER"/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_c_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execMS="8000" execCount="5" eventName="monGen">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_c_02/6/stage_c_02/4/stage_c_02/5/stage_c_02/8/stage_c_02/7/stage_c_02/9"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_d_01" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="1047.8483" Y="181.9433" Z="508.31973" Random="20"/>
-                        <Str Str="stage_d"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="stage_d"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="stage_e_01"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="47373" Pos="1037.39#181.94#463.14" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="350"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="d_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_d_01/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_d_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="arrowRemove">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_d_01/0"/>
-                                <Num Num="99"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                                <Str Str="stage_d"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_d_02" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
-                        <AbsPos X="620.34796" Y="181.9433" Z="20.537373" Random="50"/>
-                        <Str Str="stage_e"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="stage_e_01"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="46212" Pos="1083.54#181.94#694.64" angle="90" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
-                    <Obj Type="Monster" MonType="46212" Pos="899.50#181.94#628.91" angle="90" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
-                    <Obj Type="Monster" MonType="46212" Pos="1062.05#181.94#703.56" angle="90" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
-                    <Obj Type="Monster" MonType="46212" Pos="904.44#181.94#646.44" angle="90" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="860.40#181.94#429.02" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="896.16#181.94#382.72" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="980.95#181.94#367.19" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="895.40#181.94#308.97" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1005.38#181.94#306.70" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="786.02#181.94#378.84" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event eventName="d_02_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_BOMBFUSE"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="기름묻은 도화선을 회수하세요!"/>
-                                <Str Str="scroll"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="d_02_end_01">
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_d_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execMS="8000" execCount="5" eventName="monGen">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="stage_d_02/4/stage_d_02/5/stage_d_02/6/stage_d_02/7/stage_d_02/8/stage_d_02/9"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="mrokas_gate_03" AutoStart="0">
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="stage_e"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_MVALUE" Client="NO" UseSleep="NO">
-                        <Str Str="MROKAS_ RUINA_02"/>
-                        <Num Num="1"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
-                        <Str Str="stage_f_02"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="40069" Pos="396.30#181.94#-16.24" angle="-96" genCount="1" genTime="20000" autoGen="0" objectKey="0">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <StartList>
-                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                                    <Num Num="0"/>
-                                    <Str_Arg Str="I_levitation001_dark" Arg="1"/>
-                                    <Str Str="BOT"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="41435" Pos="371.38#181.94#-33.06" angle="14" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; ">
-                        <SelfAI UpdateMS="10000" ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                                    <Str Str="astd"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="41435" Pos="372.40#181.94#9.25" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; ">
-                        <SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
-                                    <Str Str="astd"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Trigger" triggerName="Trigger">
-                        <Area>
-                            <Pos Value="279.770203 168.704910 9.410886"/>
-                            <Pos Value="285.244446 169.748596 -48.981415"/>
-                            <Pos Value="348.250031 179.441513 -50.818771"/>
-                            <Pos Value="344.029510 179.056915 21.635361"/>
-                        </Area>
-                        <enterScpList>
-                            <ToolScp Scp="MGAME_TRG_EL_OBJ" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_ENT_TRIGER"/>
-                            </ToolScp>
-                        </enterScpList>
-                    </Obj>
-                    <Obj Type="Monster" MonType="40001" Pos="313.90#175.09#-18.16" angle="15" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;이동&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="gate_03">
-                        <execList>
-                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
-                                <MGameObjIndex List="mrokas_gate_03/0/mrokas_gate_03/1/mrokas_gate_03/2"/>
-                                <Num Num="1"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_e_01" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="벨로차드를 처치하세요!"/>
-                    </ToolScp>
-                </StartScpList>
-                <CompleteScpList>
-                    <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                        <Str Str="stage_e"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_MVALUE" Client="NO" UseSleep="NO">
-                        <Str Str="MROKAS_STAGE_F_02"/>
-                        <Num Num="1"/>
-                    </ToolScp>
-                </CompleteScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="47372" Pos="559.14#181.94#-5.25" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
-                </ObjList>
-                <StageEvents>
-                    <Event eventName="e_end">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_e_01/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_e_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="stage_e_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_03"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="mrokas_gate_03"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="루이나에게 폭탄 재료를 전달하세요!"/>
-                                <Str Str="scroll"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="arrowRemove">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_e_01/0"/>
-                                <Num Num="99"/>
-                                <Str Str="UNDER"/>
-                                <Num Num="1"/>
-                                <Str Str="OVER"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
-                                <Str Str="stage_e"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_f_01">
-                <ObjList>
-                    <Obj Type="Monster" MonType="147500" Pos="10.02#262.80#772.15" angle="-24" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;게이트&apos; &apos;Dialog&apos; &apos;MROKAS_GATE&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <StartList>
-                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
-                                    <Num Num="0"/>
-                                    <Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal" Arg="1"/>
-                                    <Str Str="MID"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="f_start">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_STAGE_F_02"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event eventName="bossGen">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_f_01/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_02"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="stage_f_02" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="아이언바움을 처치하세요!"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-                        <Str Str="아이언바움을 처치하세요!"/>
-                        <Str Str="scroll"/>
-                        <Num Num="10"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList>
-                    <Obj Type="Monster" MonType="57147" Pos="-68.36#262.80#486.65" angle="56" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;Name&apos; &apos;아이언바움&apos; " tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="250"/>
-                                </ToolScp>
-                            </List>
-                        </SelfAI>
-                    </Obj>
-                    <Obj Type="Monster" MonType="41441" Pos="-105.51#262.80#558.54" genCount="1" genTime="20000" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41441" Pos="-31.39#262.80#529.81" genCount="1" genTime="20000" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="-191.40#258.84#492.01" genCount="1" genTime="20000" objectKey="3" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="-151.75#262.09#455.66" genCount="1" genTime="20000" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="-189.50#254.48#551.39" genCount="1" genTime="20000" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="-95.93#262.80#608.80" genCount="1" genTime="20000" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="-17.76#262.80#588.50" genCount="1" genTime="20000" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="28.87#262.80#505.98" genCount="1" genTime="20000" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                </ObjList>
-                <StageEvents>
-                    <Event execCount="1" eventName="f_end">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
-                                <MGameObj List="stage_f_02/0"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_03"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_02"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_01"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
-                                <Str Str="stage_f_03"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
-                                <Str Str="SUCCESS"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-                                <Str Str="MROKAS_CHASER_01"/>
-                                <Str Str="=="/>
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </condList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="SUCCESS" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-                        <Str Str="Request_Mission7"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
-                        <Num Num="60"/>
-                    </ToolScp>
-                    <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="60초 후에 원래 존으로 이동합니다."/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="message">
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
-                                <Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
-                                <Str Str="Clear"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="movezone">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="60"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="successItemGive">
-                        <execList>
-                            <ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
-                                <Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
-                                <Str Str="Gacha_M_Rokas_1/3"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Str Str="None"/>
-                                <Str Str="MISSION_ROKAS_01"/>
-                                <Str Str="None"/>
-                                <Num Num="0"/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
-                                <Num Num="15"/>
-                                <Str Str="SaalusMission: Request_Mission7"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="fail">
-                <ObjList/>
-                <StageEvents>
-                    <Event eventName="check">
-                        <condList>
-                            <ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
-                                <Num Num="0"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
-                                <Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
-                                <Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
-                            </ToolScp>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
-                                <Num Num="10"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
-                                <Str Str="fail"/>
-                            </ToolScp>
-                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="fail" isEnabled="0">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="30"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="TimeOver">
-                <ObjList/>
-                <StageEvents>
-                    <Event execCount="1" eventName="Warning1">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3000"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="10분 뒤 미션이 종료됩니다"/>
-                                <Num Num="8"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="Warning2">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3300"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                                <Str Str="5분 뒤 미션이 종료됩니다"/>
-                                <Num Num="8"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                    <Event execCount="1" eventName="TimeOver">
-                        <condList>
-                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
-                                <Num Num="3600"/>
-                            </ToolScp>
-                        </condList>
-                        <execList>
-                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
-                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
-                                <Num Num="1"/>
-                            </ToolScp>
-                        </execList>
-                    </Event>
-                </StageEvents>
-            </Stage>
-            <Stage Name="normalMonGen" AutoStart="0">
-                <ObjList>
-                    <Obj Type="Monster" MonType="41441" Pos="1165.60#181.94#-213.12" angle="-135" genCount="1" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41441" Pos="1161.04#181.94#-399.94" angle="-175" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41441" Pos="1040.38#181.94#-132.93" angle="-118" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos;  "/>
-                    <Obj Type="Monster" MonType="41441" Pos="927.91#181.94#-357.89" angle="160" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41441" Pos="690.22#181.94#-219.05" angle="132" genCount="1" genTime="20000" objectKey="4" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41441" Pos="602.68#181.94#140.13" angle="-129" genCount="1" genTime="20000" objectKey="5" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="730.33#181.94#-158.59" angle="141" genCount="1" genTime="20000" objectKey="6" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="724.04#181.94#-296.49" angle="129" genCount="1" genTime="20000" objectKey="7" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="848.06#181.94#-377.51" angle="142" genCount="1" genTime="20000" objectKey="8" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="1131.92#181.94#-323.11" angle="174" genCount="1" genTime="20000" objectKey="9" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="1064.88#181.94#-435.50" angle="152" genCount="1" genTime="20000" objectKey="10" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="999.02#181.94#-184.57" angle="-128" genCount="1" genTime="20000" objectKey="11" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="1128.47#181.94#-131.46" angle="-135" genCount="1" genTime="20000" objectKey="12" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="588.38#181.94#71.01" angle="-129" genCount="1" genTime="20000" objectKey="13" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41433" Pos="654.99#181.94#33.31" angle="-139" genCount="1" genTime="20000" objectKey="14" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="780.37#181.94#-267.48" angle="141" genCount="1" genTime="20000" objectKey="15" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="994.44#181.94#-389.27" angle="172" genCount="1" genTime="20000" objectKey="16" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="1070.04#181.94#-161.14" angle="-139" genCount="1" genTime="20000" objectKey="17" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="41435" Pos="1202.61#181.94#-346.03" angle="-175" genCount="1" genTime="20000" objectKey="18" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="974.00#181.94#449.58" angle="-135" genCount="1" genTime="20000" objectKey="19" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="943.29#181.94#571.99" angle="-126" genCount="1" genTime="20000" objectKey="20" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1046.71#181.94#342.02" angle="177" genCount="1" genTime="20000" objectKey="21" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="926.50#181.94#372.01" angle="-175" genCount="1" genTime="20000" objectKey="22" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1128.13#181.94#494.12" angle="-140" genCount="1" genTime="20000" objectKey="23" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1073.26#181.94#577.84" angle="-135" genCount="1" genTime="20000" objectKey="24" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1127.70#181.94#571.26" angle="-137" genCount="1" genTime="20000" objectKey="25" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1125.75#181.94#352.76" angle="168" genCount="1" genTime="20000" objectKey="26" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                    <Obj Type="Monster" MonType="401121" Pos="1064.59#181.94#483.31" angle="-142" genCount="1" genTime="20000" objectKey="27" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
-                </ObjList>
-            </Stage>
-        </StageList>
-        <EnterList>
-            <ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
-                <Str Str="Request_Mission7"/>
-            </ToolScp>
-        </EnterList>
-        <WorldInitList>
-            <ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
-                <AbsPos X="-888.2229" Y="181.9433" Z="-281.47919" Random="40"/>
-            </ToolScp>
-        </WorldInitList>
-    </Game>
+	<Game Name="MISSION_ROKAS_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_rokas_01" playerCountCheckDestroy="1" checkSec="0" checkSecStart="2400" msgTxt="None" portrait="None">
+		<StageList>
+			<Stage Name="SETTING">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="30초 뒤 미션이 시작됩니다"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="pre_setting">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_A_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_B_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_C_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_D_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_E_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_F_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_02"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_GATE_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_GATE_02"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_GATE_03"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="START"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_CHASER_01"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="SETTING"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_a_01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="sec20">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="20초 후에 시작됩니다"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="sec10">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="10초 후에 시작됩니다"/>
+								<Str Str="scroll"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_a_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="모든 몬스터를 처치하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="41433" Pos="-562.67#181.94#-280.35" range="60" genCount="1" genTime="60000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-728.66#181.94#-207.14" range="70" genCount="1" genTime="60000" objectKey="1" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-614.64#181.94#-287.59" genCount="1" maxStackCount="1" genTime="7000" objectKey="2" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-675.37#181.94#-344.67" genCount="1" maxStackCount="1" genTime="7000" objectKey="3" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-666.71#181.94#-305.60" range="60" genCount="1" genTime="60000" objectKey="4" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-827.32#181.94#-113.97" range="70" genCount="1" genTime="60000" objectKey="5" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-593.13#181.94#-226.86" genCount="1" maxStackCount="1" genTime="7000" objectKey="6" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-719.12#181.94#-246.01" genCount="1" maxStackCount="1" genTime="7000" objectKey="7" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-611.57#181.94#-204.94" range="70" genCount="1" genTime="60000" objectKey="8" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-682.73#181.94#0.34" genCount="1" maxStackCount="1" genTime="7000" objectKey="9" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-796.18#181.94#-20.42" range="60" genCount="1" genTime="60000" objectKey="10" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="41433" Pos="-677.02#181.94#-63.50" range="60" genCount="1" genTime="60000" objectKey="11" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Faction&apos; &apos;Monster_Chaos2&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-879.69#181.94#-94.30" genCount="1" maxStackCount="1" genTime="7000" objectKey="12" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+					<Obj Type="Monster" MonType="401121" Pos="-762.04#181.94#-23.73" genCount="1" maxStackCount="1" genTime="7000" objectKey="13" searchRange="1500" propList="&apos;Faction&apos; &apos;Monster_Chaos3&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; " tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="a_start">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_a_01/0/stage_a_01/1/stage_a_01/2/stage_a_01/3/stage_a_01/4/stage_a_01/5/stage_a_01/6/stage_a_01/7/stage_a_01/8/stage_a_01/9/stage_a_01/10/stage_a_01/11/stage_a_01/12/stage_a_01/13"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_a_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_a_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="stage_a_01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_a_02" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="데드본을 처치하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="mrokas_ruina"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47375" Pos="-656.13#181.94#-130.25" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="250"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="a_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_a_02/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_GATE_01"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_a_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_ruina"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="mrokas_gate_01">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="mrokas_ruina"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="stage_b_01"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="147304" Pos="-530.67#181.94#-40.15" angle="-1" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;파괴된 부우크&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="CAMERA">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_GATE_01"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="mrokas_gate_01/0"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_gate_01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="mrokas_ruina" AutoStart="0">
+				<ObjList>
+					<Obj Type="Trigger" ObjType="3" triggerName="Trigger">
+						<Area>
+							<Pos Value="-56.450539 181.943298 120.185837"/>
+							<Pos Value="56.115292 181.943298 83.268112"/>
+							<Pos Value="70.689140 181.943298 120.688248"/>
+							<Pos Value="-22.776669 181.943298 173.021072"/>
+						</Area>
+						<enterScpList>
+							<ToolScp Scp="MGAME_TRG_EL_OBJ" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_MOVE"/>
+							</ToolScp>
+						</enterScpList>
+					</Obj>
+					<Obj Type="Monster" MonType="10033" Pos="97.59#181.94#-739.20" angle="116" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;루이나&apos; &apos;Faction&apos; &apos;Neutral&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+									<Str Str="SIT3"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="10033" Pos="97.33#181.94#-738.97" angle="126" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Name&apos; &apos;루이나&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;WlkMSPD&apos; &apos;60&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="Chat" Client="NO" UseSleep="NO">
+									<Str Str="안전한 곳으로 갑시다!"/>
+									<Num Num="5"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-34.566998" Y="181.9433" Z="-360.80124" Random="20"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-78.897736" Y="181.9433" Z="-111.45645" Random="30"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="11.928692" Y="181.9433" Z="125.43619" Random="10"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_SET_MGAME_V" Client="NO" UseSleep="NO">
+									<Str Str="MROKAS_RUINA_01"/>
+									<Num Num="2"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="10033" Pos="12.01#181.94#124.93" angle="14" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Name&apos; &apos;루이나&apos; &apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_RUINA_01&apos; &apos;DialogRotate&apos; &apos;1&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+									<Str Str="STD"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="change_ruina_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_01"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="mrokas_ruina/2"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="mrokas_ruina/3"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="change_ruina_01_01">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_01"/>
+								<Str Str="=="/>
+								<Num Num="2"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="mrokas_ruina/4"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+								<MGameObj List="mrokas_ruina/3"/>
+								<Str Str="Kill"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+								<MGameObj List="mrokas_gate_02/0"/>
+								<Str Str="Monster"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="루이나와 대화해 의뢰 내용을 확인하세요!"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="normalMonGen"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="change_ruina_4">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_BOMBFUSE"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_BOMBFLOWER"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_01"/>
+								<Num Num="4"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="end_ruina">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_02"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_ruina"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1">
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="아래쪽에서 다급한 비명이 들립니다!"/>
+								<Num Num="8"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_b_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_b_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="143.00949" Y="181.9433" Z="-600.01404" Random="30"/>
+						<Str Str="stage_b"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="리버피드를 처치하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47416" Pos="78.44#181.94#-504.31" angle="139" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="250"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41435" Pos="190.73#181.94#-491.41" angle="142" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="179.06#181.94#-602.86" angle="141" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="51.44#181.94#-594.44" angle="140" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="b_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_b_01/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_RUINA_01"/>
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_b_01"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="루이나를 안전한 곳까지 지켜주세요!"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="arrowRemove">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_b_01/0"/>
+								<Num Num="99"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+								<Str Str="stage_b"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="mrokas_gate_02">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="stage_c_01"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="1102.5049" Y="181.9433" Z="-342.49094" Random="30"/>
+						<Str Str="stage_c"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="147304" Pos="387.50#181.94#-7.77" angle="-4" genCount="1" genTime="20000" objectKey="0" propList="&apos;HPCount&apos; &apos;40&apos; &apos;Name&apos; &apos;파괴된 부우크&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="gate_2_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="mrokas_gate_02/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_gate_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_gate_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_c_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="1100.6117" Y="181.9433" Z="-312.29849" Random="20"/>
+						<Str Str="stage_c"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="stage_c"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47374" Pos="1087.06#181.94#-300.49" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="250"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="c_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_c_01/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_c_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_c_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_gate_03"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="arrowRemove">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_c_01/0"/>
+								<Num Num="99"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+								<Str Str="stage_c"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_c_02" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="stage_d_01"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47202" Pos="985.05#181.94#-430.73" angle="26" range="50" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="47202" Pos="1177.90#181.94#-355.64" angle="26" range="50" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="47202" Pos="1102.99#181.94#-96.15" angle="26" range="60" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="47202" Pos="935.73#181.94#-190.69" angle="83" range="60" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;나뭇잎 더미&apos; &apos;Dialog&apos; &apos;MROKAS_BOMB_FLOWER&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="41433" Pos="890.83#181.94#-264.81" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="900.81#181.94#-431.51" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1018.09#181.94#-155.97" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="927.72#181.94#-368.30" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1206.47#181.94#-420.29" angle="158" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1228.77#181.94#-249.41" angle="-175" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="c_02_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_BOMBFLOWER"/>
+								<Str Str="UNDER"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="부식된 나뭇잎 채집하세요!"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="c_02_end_01">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_BOMBFLOWER"/>
+								<Str Str="OVER"/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_c_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="8000" execCount="5" eventName="monGen">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="stage_c_02/6/stage_c_02/4/stage_c_02/5/stage_c_02/8/stage_c_02/7/stage_c_02/9"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_d_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="1047.8483" Y="181.9433" Z="508.31973" Random="20"/>
+						<Str Str="stage_d"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="stage_d"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="stage_e_01"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47373" Pos="1037.39#181.94#463.14" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="350"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="d_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_d_01/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_d_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="arrowRemove">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_d_01/0"/>
+								<Num Num="99"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+								<Str Str="stage_d"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_d_02" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="몬스터를 처치하고 폭탄 재료를 수집하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_MAKE_GUIDE" Client="YES" UseSleep="NO">
+						<AbsPos X="620.34796" Y="181.9433" Z="20.537373" Random="50"/>
+						<Str Str="stage_e"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="stage_e_01"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="46212" Pos="1083.54#181.94#694.64" angle="90" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
+					<Obj Type="Monster" MonType="46212" Pos="899.50#181.94#628.91" angle="90" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
+					<Obj Type="Monster" MonType="46212" Pos="1062.05#181.94#703.56" angle="90" genCount="1" genTime="20000" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
+					<Obj Type="Monster" MonType="46212" Pos="904.44#181.94#646.44" angle="90" genCount="1" genTime="20000" objectKey="3" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Dialog&apos; &apos;MROKAS_FUSE&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="860.40#181.94#429.02" genCount="1" genTime="20000" autoGen="0" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="896.16#181.94#382.72" genCount="1" genTime="20000" autoGen="0" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="980.95#181.94#367.19" genCount="1" genTime="20000" autoGen="0" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="895.40#181.94#308.97" genCount="1" genTime="20000" autoGen="0" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1005.38#181.94#306.70" genCount="1" genTime="20000" autoGen="0" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="786.02#181.94#378.84" genCount="1" genTime="20000" autoGen="0" objectKey="9" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="d_02_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_ITEM_CNT" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_BOMBFUSE"/>
+								<Str Str="UNDER"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="기름묻은 도화선을 회수하세요!"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="d_02_end_01">
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_d_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execMS="8000" execCount="5" eventName="monGen">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="stage_d_02/4/stage_d_02/5/stage_d_02/6/stage_d_02/7/stage_d_02/8/stage_d_02/9"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="mrokas_gate_03" AutoStart="0">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="stage_e"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_MVALUE" Client="NO" UseSleep="NO">
+						<Str Str="MROKAS_ RUINA_02"/>
+						<Num Num="1"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="stage_f_02"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="40069" Pos="396.30#181.94#-16.24" angle="-96" genCount="1" genTime="20000" autoGen="0" objectKey="0">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="I_levitation001_dark" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41435" Pos="371.38#181.94#-33.06" angle="14" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; ">
+						<SelfAI UpdateMS="10000" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+									<Str Str="astd"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41435" Pos="372.40#181.94#9.25" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; ">
+						<SelfAI UpdateMS="5000" ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+									<Str Str="astd"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Trigger" triggerName="Trigger">
+						<Area>
+							<Pos Value="279.770203 168.704910 9.410886"/>
+							<Pos Value="285.244446 169.748596 -48.981415"/>
+							<Pos Value="348.250031 179.441513 -50.818771"/>
+							<Pos Value="344.029510 179.056915 21.635361"/>
+						</Area>
+						<enterScpList>
+							<ToolScp Scp="MGAME_TRG_EL_OBJ" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_ENT_TRIGER"/>
+							</ToolScp>
+						</enterScpList>
+					</Obj>
+					<Obj Type="Monster" MonType="40001" Pos="313.90#175.09#-18.16" angle="15" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;이동&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="gate_03">
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="mrokas_gate_03/0/mrokas_gate_03/1/mrokas_gate_03/2"/>
+								<Num Num="1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_e_01" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="벨로차드를 처치하세요!"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+						<Str Str="stage_e"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_MVALUE" Client="NO" UseSleep="NO">
+						<Str Str="MROKAS_STAGE_F_02"/>
+						<Num Num="1"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="47372" Pos="559.14#181.94#-5.25" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; " tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="e_end">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_e_01/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_e_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="stage_e_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_gate_03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="mrokas_gate_03"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="루이나에게 폭탄 재료를 전달하세요!"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="arrowRemove">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONHP" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_e_01/0"/>
+								<Num Num="99"/>
+								<Str Str="UNDER"/>
+								<Num Num="1"/>
+								<Str Str="OVER"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_REMOVE_GUIDE" Client="YES" UseSleep="NO">
+								<Str Str="stage_e"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_f_01">
+				<ObjList>
+					<Obj Type="Monster" MonType="147500" Pos="10.02#262.80#772.15" angle="-24" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;게이트&apos; &apos;Dialog&apos; &apos;MROKAS_GATE&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal" Arg="1"/>
+									<Str Str="MID"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="f_start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_STAGE_F_02"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="bossGen">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_f_01/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_02"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="stage_f_02" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="아이언바움을 처치하세요!"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="아이언바움을 처치하세요!"/>
+						<Str Str="scroll"/>
+						<Num Num="10"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="57147" Pos="-68.36#262.80#486.65" angle="56" genCount="1" genTime="20000" objectKey="0" searchRange="1500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_BOSS1&apos; &apos;Name&apos; &apos;아이언바움&apos; " tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="250"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="41441" Pos="-105.51#262.80#558.54" genCount="1" genTime="20000" objectKey="1" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="-31.39#262.80#529.81" genCount="1" genTime="20000" objectKey="2" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="-191.40#258.84#492.01" genCount="1" genTime="20000" objectKey="3" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="-151.75#262.09#455.66" genCount="1" genTime="20000" objectKey="4" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="-189.50#254.48#551.39" genCount="1" genTime="20000" objectKey="5" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="-95.93#262.80#608.80" genCount="1" genTime="20000" objectKey="6" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="-17.76#262.80#588.50" genCount="1" genTime="20000" objectKey="7" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="28.87#262.80#505.98" genCount="1" genTime="20000" objectKey="8" searchRange="1000" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="f_end">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="stage_f_02/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_02"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_01"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="stage_f_03"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+								<Str Str="MROKAS_CHASER_01"/>
+								<Str Str="=="/>
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="SUCCESS" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
+						<Str Str="Request_Mission7"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="60"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="156161" Pos="-31.23#262.80#655.74" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="message">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
+								<Str Str="Clear"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="movezone">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="SUCCESS"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="successItemGive">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_PRECHECK_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+								<Str Str="SCR_NUNNERY_CUBE_REWARD_CHECK"/>
+								<Str Str="Gacha_M_Rokas_1/3"/>
+								<Str Str="None"/>
+								<Str Str="None"/>
+								<Str Str="None"/>
+								<Str Str="MISSION_ROKAS_01"/>
+								<Str Str="None"/>
+								<Num Num="0"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
+								<Num Num="15"/>
+								<Str Str="SaalusMission: Request_Mission7"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="fail">
+				<ObjList/>
+				<StageEvents>
+					<Event eventName="check">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+								<Num Num="10"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="fail"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="fail" isEnabled="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="TimeOver">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="Warning1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10분 뒤 미션이 종료됩니다"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Warning2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="5분 뒤 미션이 종료됩니다"/>
+								<Num Num="8"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="TimeOver">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="normalMonGen" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="41441" Pos="1165.60#181.94#-213.12" angle="-135" genCount="1" genTime="20000" objectKey="0" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="1161.04#181.94#-399.94" angle="-175" genCount="1" genTime="20000" objectKey="1" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="1040.38#181.94#-132.93" angle="-118" genCount="1" genTime="20000" objectKey="2" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos;  "/>
+					<Obj Type="Monster" MonType="41441" Pos="927.91#181.94#-357.89" angle="160" genCount="1" genTime="20000" objectKey="3" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="690.22#181.94#-219.05" angle="132" genCount="1" genTime="20000" objectKey="4" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41441" Pos="602.68#181.94#140.13" angle="-129" genCount="1" genTime="20000" objectKey="5" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="730.33#181.94#-158.59" angle="141" genCount="1" genTime="20000" objectKey="6" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="724.04#181.94#-296.49" angle="129" genCount="1" genTime="20000" objectKey="7" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="848.06#181.94#-377.51" angle="142" genCount="1" genTime="20000" objectKey="8" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1131.92#181.94#-323.11" angle="174" genCount="1" genTime="20000" objectKey="9" searchRange="500" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1064.88#181.94#-435.50" angle="152" genCount="1" genTime="20000" objectKey="10" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="999.02#181.94#-184.57" angle="-128" genCount="1" genTime="20000" objectKey="11" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="1128.47#181.94#-131.46" angle="-135" genCount="1" genTime="20000" objectKey="12" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="588.38#181.94#71.01" angle="-129" genCount="1" genTime="20000" objectKey="13" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41433" Pos="654.99#181.94#33.31" angle="-139" genCount="1" genTime="20000" objectKey="14" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="780.37#181.94#-267.48" angle="141" genCount="1" genTime="20000" objectKey="15" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="994.44#181.94#-389.27" angle="172" genCount="1" genTime="20000" objectKey="16" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="1070.04#181.94#-161.14" angle="-139" genCount="1" genTime="20000" objectKey="17" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="41435" Pos="1202.61#181.94#-346.03" angle="-175" genCount="1" genTime="20000" objectKey="18" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="974.00#181.94#449.58" angle="-135" genCount="1" genTime="20000" objectKey="19" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="943.29#181.94#571.99" angle="-126" genCount="1" genTime="20000" objectKey="20" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1046.71#181.94#342.02" angle="177" genCount="1" genTime="20000" objectKey="21" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="926.50#181.94#372.01" angle="-175" genCount="1" genTime="20000" objectKey="22" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1128.13#181.94#494.12" angle="-140" genCount="1" genTime="20000" objectKey="23" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1073.26#181.94#577.84" angle="-135" genCount="1" genTime="20000" objectKey="24" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1127.70#181.94#571.26" angle="-137" genCount="1" genTime="20000" objectKey="25" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1125.75#181.94#352.76" angle="168" genCount="1" genTime="20000" objectKey="26" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+					<Obj Type="Monster" MonType="401121" Pos="1064.59#181.94#483.31" angle="-142" genCount="1" genTime="20000" objectKey="27" searchRange="500" propList="&apos;Lv&apos; &apos;@GET_MON_RANK_LV_NORMAL1&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Journal&apos; &apos;None&apos; "/>
+				</ObjList>
+			</Stage>
+		</StageList>
+		<EnterList>
+			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+				<Str Str="Request_Mission7"/>
+			</ToolScp>
+		</EnterList>
+		<WorldInitList>
+			<ToolScp Scp="MGAME_RECALL" Client="NO" UseSleep="NO">
+				<AbsPos X="-888.2229" Y="181.9433" Z="-281.47919" Random="40"/>
+			</ToolScp>
+		</WorldInitList>
+	</Game>
 </GameList>

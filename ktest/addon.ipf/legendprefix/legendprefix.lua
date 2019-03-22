@@ -6,11 +6,13 @@ end
 function OPEN_LEGENDPREFIX(frame)
 	ui.OpenFrame('inventory');
 	LEGENDPREFIX_RESET(frame);
-    lock_state_check.clear_lock_state()
+	LEGEND_PREFIX_DROPLIST_RESET(frame);
+    lock_state_check.clear_lock_state();
 end
 
 function CLOSE_LEGENDPREFIX(frame)    
 	ui.CloseFrame('inventory');
+	ui.CloseFrame("legendprefix_tooltip");
     lock_state_check.clear_lock_state()
 end
 
@@ -60,10 +62,11 @@ function LEGENDPREFIX_SET_TARGET(parent, ctrl)
 	end
 end
 
-function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid)    
+function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid, prefixName)    
 	if ui.CheckHoldedUI() == true then
 		return;
 	end
+
 	local invItem = session.GetInvItemByGuid(itemGuid);
 	if invItem == nil then
 		return;
@@ -96,9 +99,8 @@ function LEGENDPREFIX_SET_TARGET_ITEM(frame, itemGuid)
 
 	local targetText = GET_CHILD_RECURSIVELY(frame, 'targetText');
 	local obj = GetIES(invItem:GetObject());	
-	local nameText = GET_LEGEND_PREFIX_ITEM_NAME(obj);
+	local nameText = GET_LEGEND_PREFIX_ITEM_NAME(obj, prefixName);
 	targetText:SetTextByKey('name', nameText);
-
 	return invItem;
 end
 
@@ -108,8 +110,12 @@ function _LEGENDPREFIX_SET_TARGET(frame, itemGuid)
 	if targetItem ~= nil then
 		targetObject = GetIES(targetItem:GetObject());
 	end
+	
+	if targetObject == nil then
+		return;
+	end
 
-	local needItemClsName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
+	local needItemClsName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME(targetObject.LegendGroup);
 	local needItemCls = GetClass('Item', needItemClsName);
 	local matPic = GET_CHILD_RECURSIVELY(frame, 'matPic');	
 	local fullImage = GET_LEGENDEXPPOTION_ICON_IMAGE_FULL(needItemCls)
@@ -135,11 +141,26 @@ function _LEGENDPREFIX_SET_TARGET(frame, itemGuid)
 		matText:SetTextByKey('style', ENOUPH_STYLE);
 	end
 	matText:ShowWindow(1);
+
+	LEGEND_PREFIX_DROPLIST_INIT(frame, targetObject);	
 end
 
 function GET_VALID_LEGEND_PREFIX_MATERIAL_COUNT_C() -- 경험치 꽉 찬 아이템만 개수 세주는 함수
+	local frame = ui.GetFrame("legendprefix");
+	if frame == nil then return end
+	
+	local itemGuid = frame:GetUserValue("TARGET_ITEM_GUID");
+	local targetItem = nil;
+	if itemGuid ~= nil then
+		targetItem = session.GetInvItemByGuid(itemGuid);
+	end
+
+	local itemObj = GetIES(targetItem:GetObject());
+	if itemObj == nil then return end
+
+	local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME(itemObj.LegendGroup);
+	
     local count = 0;
-	local needItemName = GET_LEGEND_PREFIX_MATERIAL_ITEM_NAME();
 	local count = GET_INV_ITEM_COUNT_BY_PROPERTY({
         {Name = 'ClassName', Value = needItemName}
 	}, false, nil, function(item)
@@ -165,7 +186,7 @@ function LEGENDPREFIX_EXECUTE(parent, ctrl)
 	if itemGuid == "None" then
 		return;
 	end
-
+	
     local invItem = session.GetInvItemByGuid(itemGuid);
     if invItem == nil then
         return;
@@ -183,6 +204,13 @@ function LEGENDPREFIX_EXECUTE(parent, ctrl)
     	ui.SysMsg(ClMsg('NotEnoughRecipe'));
     	return;
     end
+
+	local prefixName = frame:GetUserConfig("PREFIXNAME");
+	if prefixName == "" then
+		ui.SysMsg(ClMsg("PleaseSelectSetOption"));
+		return;
+	end
+
 	ui.MsgBox(ClMsg('CannotProcessUIInputDuringPrefixing'), '_LEGENDPREFIX_EXECUTE', 'None');
 end
 
@@ -226,8 +254,13 @@ function _LEGENDPREFIX_EXECUTE()
 
 	session.ResetItemList();
     session.AddItemID(invItem:GetIESID(), 1);
+
+	local prefixName = frame:GetUserConfig("PREFIXNAME");
+	local stringList = NewStringList();
+	stringList:Add(prefixName);
+
     local resultlist = session.GetItemIDList();
-    item.DialogTransaction("EXECUTE_PREFIX_SET", resultlist);
+    item.DialogTransaction("EXECUTE_PREFIX_SET", resultlist, "", stringList);
     lock_state_check.disable_lock_state(itemGuid)
 end
 
@@ -239,6 +272,8 @@ function LEGENDPREFIX_APPLY_RESULT(argStr)
 	local resultframe = ui.GetFrame('legendprefix_result');		
 	resultframe:ShowWindow(1);
 	resultframe:SetDuration(3);
+	
+	frame:SetUserConfig("PREFIXNAME", "");
 end
 
 function LEGENDPREFIX_BG_ANIM_TICK(ctrl, str, tick)
@@ -248,6 +283,10 @@ function LEGENDPREFIX_BG_ANIM_TICK(ctrl, str, tick)
 		animpic_slot:ForcePlayAnimation();
 		
 		local itemGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+		if itemGuid == "None" then
+			return;
+		end
+		
 		local str = string.format('LEGENDPREFIX_APPLY_RESULT("%s")', itemGuid);
     	local linkButton = GET_CHILD_RECURSIVELY(frame, 'reg')
     	linkButton:EnableHitTest(1)
@@ -279,3 +318,60 @@ function ON_FAIL_LEGEND_PREFIX(frame, msg, argStr, argNum)
     lock_state_check.enable_lock_state(itemGuid)
 	ui.SetHoldUI(false);
 end
+
+function LEGEND_PREFIX_DROPLIST_RESET(frame)
+	local dropList = GET_CHILD_RECURSIVELY(frame, "legend_OptionSelect_DropList");
+	dropList:ClearItems();
+	dropList:Invalidate();
+end
+
+function LEGEND_PREFIX_DROPLIST_INIT(frame, targetObj)
+	local dropList = GET_CHILD_RECURSIVELY(frame, "legend_OptionSelect_DropList");
+	dropList:ClearItems();
+	dropList:AddItem('', '');
+    local legendGroup = TryGetProp(targetObj, 'LegendGroup' , 'None')
+    
+	local dropListIndex = 1;
+	local clsList, cnt = GetClassList("LegendSetItem");
+	if clsList ~= nil then
+		for i = 0, cnt - 1 do
+			local cls = GetClassByIndexFromList(clsList, i);
+			if cls.LegendGroup == legendGroup and targetObj.LegendPrefix ~= cls.ClassName then
+				local name = cls.Name;
+				dropList:AddItem(cls.ClassName, name, i);
+				dropListIndex = dropListIndex + 1;
+			end
+		end
+	end
+
+	dropList:SetVisibleLine(dropListIndex);
+	dropList:SetDropListDefaultOffset(false);
+	dropList:SelectItem(0);
+	dropList:Invalidate();
+	OPEN_LEGENDPREFIX_TOOLTIP();
+end
+
+function LEGEND_PREFIX_SELECT_DROPLIST(parent, ctrl)
+	local preFixName = ctrl:GetSelItemKey();
+	local frame = parent:GetTopParentFrame();
+	local itemGuid = frame:GetUserValue("TARGET_ITEM_GUID");
+	
+	local invItem = nil;
+	if itemGuid ~= nil then
+		invItem = session.GetInvItemByGuid(itemGuid);
+	end
+
+	local tooltipFrame = ui.GetFrame("legendprefix_tooltip");
+	if tooltipFrame ~= nil then
+		if preFixName == "" then
+			tooltipFrame:SetVisible(0);
+		elseif invItem ~= nil and preFixName ~= "" then
+		tooltipFrame:SetVisible(1);
+
+			LEGEND_PREFIX_SELECT_TOOLTIP_DRAW(tooltipFrame, invItem, 0, 0, preFixName);
+		end
+	end
+
+	frame:SetUserConfig("PREFIXNAME", preFixName);
+end
+

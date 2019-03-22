@@ -1,30 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="11" R="80" G="80" B="50" A="100"/>
-	<BlendOn frame="12" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="14" R="80" G="80" B="50" A="100"/>
-	<BlendOn frame="15" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="16" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="20" R="80" G="80" B="50" A="100"/>
-	<BlendOn frame="21" R="0" G="0" B="0" A="50"/>
-	<BlendOn frame="22" R="0" G="0" B="0" A="50"/>
-	<BlendOff frame="23" R="0" G="0" B="0" A="0"/>
-	<Shockwave frame="11" type="2" intensity="4" frequency="70" duration="0.2" range="1000"/>
-	<Shockwave frame="14" type="2" intensity="3" frequency="70" duration="0.2" range="1000"/>
-	<Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.5" range="1000"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_smoke109_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_dash013_white" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
-	<Particle frame="11" attachNode="Dummy_Force" particleName="F_hit003_light_mint" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="14" attachNode="Dummy_Force" particleName="F_hit003_light_mint" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="20" attachNode="Dummy_arrow_effect" particleName="F_hit003_light_mint" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="11" attachNode="Dummy_arrow_effect" particleName="F_hit002_light_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="14" attachNode="Dummy_arrow_effect" particleName="F_hit002_light_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="19" attachNode="Dummy_arrow_effect" particleName="F_hit002_light_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="7" attachNode="Dummy_effect_body" particleName="I_warrior_dash_run_line" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" soft2DValue="20"/>
-	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_archer_jumpshot_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20"/>
 	<AttachModel frame="0" XAC="archer_f_arrow_01" node="Dummy_arrow" isAttach="true" autoDetach="false" index="0" anim="None"/>
 	<Sound frame="0.00" soundFile="skl_eff_murmillo_jump"/>
 	<Sound frame="10.00" soundFile="arrow_shot_skl"/>

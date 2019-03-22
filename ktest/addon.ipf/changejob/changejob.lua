@@ -170,6 +170,7 @@ local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 		jobHistoryList[#jobHistoryList + 1] = {
 			JobClassID = jobHistory.jobID, JobSequence = jobHistory.index, PlayTime = jobHistory:GetPlaySecond(), 
 			StartTime = imcTime.ImcTimeToSysTime(jobHistory.startTime);
+			ChangeTime = imcTime.ImcTimeToSysTime(jobHistory.changeTime);
 		};
 	end
 	table.sort(jobHistoryList, function(lhs, rhs)
@@ -198,7 +199,11 @@ local function UPDATE_CURRENT_CLASSTREE_INFO(frame)
 
 			local jobEmblemPic = GET_CHILD(jobCtrlset, 'jobEmblemPic');
 			jobEmblemPic:SetImage(jobCls.Icon);
-			_SET_PLAYTIME_TOOLTIP(jobEmblemPic, jobInfo.PlayTime, jobInfo.StartTime);
+			if jobInfo.ChangeTime.wYear < jobInfo.StartTime.wYear then
+				_SET_PLAYTIME_TOOLTIP(jobEmblemPic, jobInfo.PlayTime, jobInfo.StartTime);
+			else
+				_SET_PLAYTIME_TOOLTIP(jobEmblemPic, jobInfo.PlayTime, jobInfo.ChangeTime);
+			end;
 
 			jobCtrlset:ShowWindow(1);
 		else
@@ -422,7 +427,7 @@ function EXEC_CHANGE_JOB()
 end
 
 local function IS_NEW_JOB(jobCls)
-	if jobCls.ClassName == 'Char5_2' or jobCls.ClassName == 'Char5_3' then
+	if jobCls.ClassName == 'Char3_18' or jobCls.ClassName == 'Char3_19' or jobCls.ClassName == 'Char5_13' or jobCls.ClassName == 'Char5_14' then
 		return true;
 	end
 	return false;

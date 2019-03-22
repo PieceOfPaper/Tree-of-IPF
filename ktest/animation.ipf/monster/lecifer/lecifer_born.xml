@@ -1,5 +1,7 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_voice_lecifer_born"/>
-    <Sound frame="0.00" soundFile="mon_move_lecifer_born"/>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke013_dark3_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice_lecifer_born"/>
+	<Sound frame="0.00" soundFile="mon_move_lecifer_born"/>
 </ActionDesc>

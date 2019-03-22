@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="3" R="10" G="20" B="40" A="100"/>
+	<BlendOn frame="15" R="70" G="90" B="120" A="100"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+	<Particle frame="3" attachNode="bip001" particleName="F_spread_in030_ice3" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_explosion128_mint" useAttach="true" hiddenObj="false" scale="8.5" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_big_footstep_5"/>
-    <Sound frame="10.00" soundFile="mon_big_footstep_5"/>
-    <Sound frame="19.00" soundFile="mon_big_footstep_3"/>
+	<Particle frame="3" attachNode="None" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="16" attachNode="None" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="16" attachNode="Bip01 R Finger0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="14" attachNode="Bip01 R Finger0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="Bip01 L Finger0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="9" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Bip01 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="22" attachNode="Bip01 R Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="2" attachNode="Bip01 R Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_big_footstep_5"/>
+	<Sound frame="10.00" soundFile="mon_big_footstep_5"/>
+	<Sound frame="19.00" soundFile="mon_big_footstep_3"/>
 </ActionDesc>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="8" R="150" G="50" B="50" A="50"/>
+	<BlendOn frame="9" R="200" G="100" B="100" A="50"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="8" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Cleave_swrodtrail" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Bip01 L Foot" particleName="I_smoke004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<HeadRotBip frame="0" BipName="Bip01"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_5"/>
+	<Sound frame="3.00" soundFile="skl_eff_atk_move_m_2"/>
+</ActionDesc>

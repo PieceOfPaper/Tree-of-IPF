@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="9.00" soundFile="skl_eff_stone_underground_1"/>
-    <Sound frame="10.00" soundFile="skl_eff_stoneunderground_2"/>
-    <Sound frame="25.00" soundFile="mon_voice_rootopus_hit"/>
+	<Particle frame="18" attachNode="Bip001 L Hand" particleName="F_smoke050" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="18" attachNode="Bip001 R Hand" particleName="F_smoke050" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="38" attachNode="Bip001 L Hand" particleName="F_smoke049" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="34" attachNode="Bip001 R Hand" particleName="F_smoke049" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Shockwave frame="18" type="2" intensity="1" frequency="45" duration="0.2" range="1000"/>
+	<Sound frame="9.00" soundFile="skl_eff_stone_underground_1"/>
+	<Sound frame="10.00" soundFile="skl_eff_stoneunderground_2"/>
+	<Sound frame="25.00" soundFile="mon_voice_rootopus_hit"/>
 </ActionDesc>

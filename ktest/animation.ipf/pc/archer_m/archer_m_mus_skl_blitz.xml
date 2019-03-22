@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+    <Particle frame="0" attachNode="dummy_emitter" particleName="F_smoke167_scatter_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_fgt_ultimatedash_shot"/>
+    <AfterImage frame="1" term="50" blendTime="150" r="160" g="100" b="100" a="110"/>
+    <Particle frame="1" attachNode="Dummy_effect_making" particleName="F_dash011_red_reverse" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="3" R="100" G="50" B="50" A="100"/>
+    <AfterImage frame="5" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+    <Sound frame="11.00" soundFile="skl_eff_tigerhunter_blitz"/>
+    <Particle frame="11" attachNode="dummy_emitter" particleName="E_archer_blitz" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Shockwave frame="12" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

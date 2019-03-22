@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_root" particleName="F_drop_stone001_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.55" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="3.00" soundFile="skl_eff_born_landing_s_2"/>
+    <Sound frame="3.00" soundFile="mon_voice_bug_7"/>
+    <Particle frame="8" attachNode="Dummy_root" particleName="F_smoke018_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="8" attachNode="Dummy_root" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

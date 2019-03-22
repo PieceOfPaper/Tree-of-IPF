@@ -1,4 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="3.00" soundFile="mon_durahan_wlk"/>
+	<Particle frame="9" attachNode="Bip001 R Finger0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1"/>
+	<Particle frame="9" attachNode="Bip001 R Finger0Nub" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Particle frame="27" attachNode="Bip001 L Finger0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1"/>
+	<Particle frame="27" attachNode="Bip001 L Finger0Nub" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Particle frame="17" attachNode="Bip001 L Toe0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1"/>
+	<Particle frame="17" attachNode="Bip001 L Toe0Nub" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Particle frame="0" attachNode="Bip001 R Toe0Nub" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1"/>
+	<Particle frame="0" attachNode="Bip001 R Toe0Nub" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Sound frame="3.00" soundFile="mon_durahan_wlk"/>
 </ActionDesc>

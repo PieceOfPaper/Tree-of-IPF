@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_MAPLE_24_3_MQ_09_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="1065353216">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="151154" Pos="94.15#0.70#1098.07" angle="-44" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="151154" Pos="105.09#0.70#990.64" angle="-42" genCount="1" genTime="20000" objectKey="1"/>
+                    <Obj Type="Monster" MonType="151154" Pos="196.39#0.70#1047.01" angle="-42" genCount="1" genTime="20000" objectKey="2"/>
+                    <Obj Type="Monster" MonType="154013" Pos="-43.45#0.70#1117.40" angle="-31" genCount="1" genTime="20000" objectKey="3" propList="&apos;Dialog&apos; &apos;F_MAPLE_243_MQ_09_MINI_NPC&apos; &apos;Name&apos; &apos;큐폴 아스트라&apos; "/>
+                    <Obj Type="Monster" MonType="147469" Pos="124.64#7.47#1059.26" genCount="1" genTime="20000" objectKey="4" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Dialog&apos; &apos;F_MAPLE_243_MQ_09_OBJ&apos; "/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_09_VALUE"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="clear">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_09_VALUE"/>
+                                <Str Str="EQ"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/4"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="151156" Pos="111.99#0.70#990.49" angle="-54" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_09_MINI_TREE_AI_RUN"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="151156" Pos="97.35#0.70#1097.84" angle="-45" genCount="1" genTime="20000" objectKey="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_09_MINI_TREE_AI_RUN"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="151156" Pos="200.54#0.70#1050.55" angle="-49" genCount="1" genTime="20000" objectKey="2">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_09_MINI_TREE_AI_RUN"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="2"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147469" Pos="125.22#7.47#1061.92" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Dialog&apos; &apos;F_MAPLE_243_MQ_09_MINI_OBJ&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_09_MINI_OBJ_AI_RUN"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event/>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

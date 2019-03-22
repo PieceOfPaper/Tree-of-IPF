@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="F_MAPLE_24_3_MQ_08_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="1065353216">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="156105" Pos="-876.00#0.43#-1023.00" angle="-46" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;마력이 응축된 마법석&apos; &apos;CreateAngle&apos; &apos;-45&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_08_MINI_OBJ_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_spread_in027_green_loop" Arg="2"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154013" Pos="-903.00#0.43#-1027.00" genCount="1" genTime="20000" objectKey="1" propList="&apos;Name&apos; &apos;큐폴 아스트라&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_08_MINI_NPC_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                                    <Str Str="event_loop"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_smoke053_mint_loop" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="59269" Pos="-556.00#32.78#-1232.00" genCount="1" genTime="20000" objectKey="2">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_F_MAPLE_243_MQ_08_MINI_MONSTER_RUN"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Attack"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_BUFF" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str Str="F_MAPLE_24_3_MQ_08_MON_BUFF"/>
+                                    <Num Num="1"/>
+                                    <Num Num="0"/>
+                                    <Num Num="0"/>
+                                    <Num Num="1"/>
+                                    <Num Num="100"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="147469" Pos="-745.00#27.03#-1150.00" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_sys_trigger_point_yellow_mash" Arg="20"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_08_VALUE"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="하얀 원 안쪽으로 탄타이저를 유인해 속박의 주문서를 사용하세요!"/>
+                                <Str Str="scroll"/>
+                                <Num Num="7"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_08_VALUE"/>
+                                <Str Str="OVER"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Str Str="SCR_F_MAPLE_243_MQ_08_MINI_MONSTER_CHECK"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Str Str="Neutral"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Str Str="stun"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="stage1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="clear" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="Start">
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="Clear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Clear" execWithStart="0" isEnabled="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="SSN_F_MAPLE_24_3_MQ_08"/>
+                                <Str Str="QuestInfoValue1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59269" Pos="-743.00#27.01#-1150.00" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;BornTime&apos; &apos;0&apos; ">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="DisableBornAni" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="SetFixAnim" Client="NO" UseSleep="NO">
+                                    <Str Str="stun"/>
+                                </ToolScp>
+                                <ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_burstup053" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_spread_in037_rize_loop" Arg="5"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="setting">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_08_VALUE"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="DefGroup/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_08_VALUE"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage1/0"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FIXANIM" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage1/0"/>
+                                <Str Str="stun"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Check">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="F_MAPLE_24_3_MQ_08_VALUE"/>
+                                <Str Str="OVER"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="clear"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<Sound frame="0" soundFile="atk_cloth_s_l1"/>
-	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false" use2DEffect="false"/>
-	<Particle frame="7" attachNode="Dummy_effect_thrust_gum_sms" particleName="I_warrior_aries_shot_dash3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" targetPos="false" use2DEffect="true"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke173" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_thrust_gum_sms" particleName="I_warrior_aries_shot_dash3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" targetPos="false" use2DEffect="true"/>
 	<Sound frame="0.00" Value="0" soundFile="move_block_1"/>
 	<Sound frame="0.00" Value="0" soundFile="skl_fgt_rg_provoke"/>
 	<Sound frame="3.00" Value="0" soundFile="atk_rod"/>

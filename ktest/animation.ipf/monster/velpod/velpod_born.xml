@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Bone_tail01" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="1" attachNode="Bone_tail01" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="2" attachNode="Bone_tail01" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="3" attachNode="Bone_tail01" particleName="F_leaf002_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_spread_out042_leaf2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke050_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_born_underground_1"/>
+	<Sound frame="7.00" soundFile="m_matsum_born_voice"/>
+</ActionDesc>

@@ -1251,7 +1251,7 @@ function MAKE_QUESTINFO_BY_IES(ctrlset, questIES, startx, y, s_obj, result, isQu
     	end
     	
         if SCR_QUESTINFOSETVIEW_CHECK(questIES.QuestInfosetView, 'PROGRESS')  == 'YES'  and isQuestDetail ~= 1 then
-            y = MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj);
+            y = MAKE_QUESTINFO_PROG_STORY(ctrlset, questIES, startx, y, s_obj, result);
         end
 
     	return y;

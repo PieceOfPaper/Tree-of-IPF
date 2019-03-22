@@ -333,7 +333,6 @@ function UPDATE_ABILITY_TOOLTIP(frame, strarg, numarg1, numarg2)
             lv = lv + 1;
         end
     end
-
     frame:Resize(frame:GetWidth(), ypos + 30);
  end
 
@@ -827,7 +826,16 @@ function SKILL_LV_DESC_TOOLTIP(frame, obj, totalLevel, lv, desc, ypos, dicidtext
         end
     end
 
-    local overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
+    local overHeat = 0;
+    local sklProp = geSkillTable.Get(obj.ClassName);
+    if sklProp ~= nil then
+        overHeat = sklProp:GetOverHeatCnt();
+    end
+
+    if overHeat == 0 then
+        overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
+    end
+  
     local sp = GET_SPENDSP_BY_LEVEL(obj, lv);
     local pc = GetMyPCObject();
 

@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
@@ -8,7 +8,7 @@
 	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Particle frame="4" particleName="monster_born" attachNode="Point002" scale="15" useAttach="true" pause="true" targetPos="false"/>
-	<Particle frame="5" particleName="F_smoke097" attachNode="Point002" scale="15" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_smoke006_1" attachNode="Point002" scale="7" useAttach="false" pause="true" targetPos="false"/>
 	<Sound frame="0.00" Value="0" soundFile="mon_voice_rootopus_move_1"/>
 	<Sound frame="0.00" Value="0" soundFile="skl_eff_atk_move_l_5"/>
 	<Sound frame="0.00" Value="0" soundFile="mon_voice_bug_10"/>

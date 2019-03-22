@@ -1,8 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_voice_bug_4"/>
-    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_1"/>
-    <Sound frame="2.00" soundFile="mon_voice_bug_5"/>
-    <Sound frame="4.00" soundFile="skl_eff_atk_move_m_5"/>
-    <Sound frame="4.00" soundFile="mon_voice_throneweaver_8"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="7" R="70" G="80" B="80" A=" "/>
+	<BlendOn frame="8" R="0" G="0" B="0" A="50"/>
+	<BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice_bug_4"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="2.00" soundFile="mon_voice_bug_5"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_m_5"/>
+	<Sound frame="4.00" soundFile="mon_voice_throneweaver_8"/>
 </ActionDesc>

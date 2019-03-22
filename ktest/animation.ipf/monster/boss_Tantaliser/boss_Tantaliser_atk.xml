@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="30" G="50" B="80" A="10"/>
+	<BlendOff frame="20" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="19" type="2" intensity="1" frequency="30" duration="0.2" range="1000"/>
+	<Particle frame="18" attachNode="bip001 spine1" particleName="I_light018_blue2" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Dummy_eff_atk" particleName="I_swordtrail011_mint2" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

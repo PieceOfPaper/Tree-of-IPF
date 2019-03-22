@@ -10,19 +10,19 @@ function is_invalid_indun_multiple_item()
     local name = 'Adventure_dungeoncount_01'
     local invItemList = session.GetInvItemList()
     local guidList = invItemList:GetGuidList();
-	local cnt = guidList:Count();    
+    local cnt = guidList:Count();    
     local check_cnt = 0
-	for i = 0, cnt - 1 do
-		local guid = guidList:Get(i);
-		local invItem = invItemList:GetItemByGuid(guid);
+    for i = 0, cnt - 1 do
+        local guid = guidList:Get(i);
+        local invItem = invItemList:GetItemByGuid(guid);
         if invItem ~= nil and invItem:GetObject() ~= nil then
-	        local itemObj = GetIES(invItem:GetObject());
-			if TryGetProp(itemObj, 'ClassName', 'None') == name then
-				check_cnt = check_cnt + 1
+            local itemObj = GetIES(invItem:GetObject());
+            if TryGetProp(itemObj, 'ClassName', 'None') == name then
+                check_cnt = check_cnt + 1
                 if check_cnt >= 2 then
                     return true
                 end
-			end
+            end
         end
     end
     return false
@@ -93,10 +93,15 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
         etc = GetMyAccountObj()        
     end
     
-    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)    
+    local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
+
+    if indunCls.WeeklyEnterableCount ~= 0 then
+        nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")),0)
+    end
+    
     local addCount = math.floor(nowCount * admissionPlayAddItemCount);
     local nowAdmissionItemCount
-    
+
     if  SCR_RAID_EVENT_20190102(nil, false) and admissionItemName == "Dungeon_Key01" then
         nowAdmissionItemCount = admissionItemCount - 1
     else
@@ -131,8 +136,19 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch, en
     
     if admissionItemName ~= "None" and admissionItemName ~= nil then
 --        if admissionItemCount  ~= 0 then
+        if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
+            if nowCount > indunCls.WeeklyEnterableCount then
+                nowAdmissionItemCount = 3 + (nowCount - (indunCls.WeeklyEnterableCount));
+                autoMatchText:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
+                enterBtn:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
+            else
+                autoMatchText:SetTextByKey("image", '')
+                enterBtn:SetTextByKey("image", '')
+            end
+        else
             autoMatchText:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
             enterBtn:SetTextByKey("image", '  {img '..indunAdmissionItemImage..' 24 24} - '..nowAdmissionItemCount..'')
+        end
 --        end
     else
         autoMatchText:SetTextByKey("image", '')
@@ -284,11 +300,13 @@ function INDUNENTER_MAKE_MONLIST(frame, indunCls)
     end
 end
 
+
+-- 큐브 재개봉 시스템 개편에 따른 변경사항으로 보상 아이템 목록 보여주는 부분 큐브 대신 구성품으로 풀어서 보여주도록 변경함(2019.2.27 변경)
 function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     local frame = ui.GetFrame('indunenter');
     local rewardBox = GET_CHILD_RECURSIVELY(frame, 'rewardBox');
     local controlName = control:GetName();
-    -- ?�기??부??
+    -- 여기서 부터
     local topFrame = frame:GetTopParentFrame();
     local indunType = topFrame:GetUserValue('INDUN_TYPE');
     local indunCls = GetClassByType('Indun', indunType);
@@ -296,8 +314,7 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     local indunClsName = TryGetProp(indunCls, 'ClassName')
     local rewardItem = GetClass('Indun_reward_item', indunClsName)
     local indunRewardItem = TryGetProp(rewardItem, 'Reward_Item')
-    local itemCls = GetClass('Item', indunRewardItem)
-    local itemStringArg = TryGetProp(itemCls, 'StringArg')
+    local groupList = SCR_STRING_CUT(indunRewardItem, '/')
     
     local indunRewardItemList = { };
     indunRewardItemList['weaponBtn'] = { };
@@ -305,71 +322,72 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
     indunRewardItemList['armourBtn'] = { };
     indunRewardItemList['accBtn'] = { };
     indunRewardItemList['materialBtn'] = { };
+
+    local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_freedungeon');
     if dungeonType == "Indun" or dungeonType == "UniqueRaid" or dungeonType == "Raid" then
-        local allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
-        for j = 0, allIndunRewardItemCount - 1  do
-            local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
-            if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
-                local item = GetClass('Item', indunRewardItemClass.ItemName);
-                if item ~= nil then   -- ?�다�??�이??--
-                    local itemType = TryGetProp(item, 'GroupName');
-                    local itemClassType = TryGetProp(item, 'ClassType');
-                    if itemType == 'Recipe' then
-                        local recipeItemCls = GetClass('Recipe', item.ClassName);
-                        local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
-                        if targetItem ~= nil then
-                            local targetItemCls = GetClass('Item', targetItem);
-                            if targetItemCls ~= nil then
-                                itemType = TryGetProp(targetItemCls, 'GroupName');
-                                itemClassType = TryGetProp(targetItemCls, 'ClassType');
+        allIndunRewardItemList, allIndunRewardItemCount = GetClassList('reward_indun');
+    end
+    
+    if groupList ~= nil then
+        for i = 1, #groupList do
+            local itemCls = GetClass('Item', groupList[i])
+            local itemStringArg = TryGetProp(itemCls, 'StringArg')
+
+            for j = 0, allIndunRewardItemCount - 1  do
+                local indunRewardItemClass = GetClassByIndexFromList(allIndunRewardItemList, j);
+                if indunRewardItemClass ~= nil and TryGetProp(indunRewardItemClass, 'Group') == itemStringArg then
+                    local item = GetClass('Item', indunRewardItemClass.ItemName);
+                    if item ~= nil then   -- 있다면 아이템 --
+                        local itemType = TryGetProp(item, 'GroupName');
+                        local itemClassType = TryGetProp(item, 'ClassType');
+                        if itemType == 'Recipe' then
+                            local recipeItemCls = GetClass('Recipe', item.ClassName);
+                            local targetItem = TryGetProp(recipeItemCls, 'TargetItem');
+                            if targetItem ~= nil then
+                                local targetItemCls = GetClass('Item', targetItem);
+                                if targetItemCls ~= nil then
+                                    itemType = TryGetProp(targetItemCls, 'GroupName');
+                                    itemClassType = TryGetProp(targetItemCls, 'ClassType');
+                                end
                             end
                         end
-                    end
-                    if itemType ~= nil then
-                        if itemType == 'Weapon' then
-                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
-                            end
-                        elseif itemType == 'SubWeapon' then
-                            if itemClassType == 'Armband' then
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
-                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                        if itemType ~= nil then
+                            if itemType == 'Weapon' then
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['weaponBtn'],item.ClassName) == false and IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                    indunRewardItemList['weaponBtn'][#indunRewardItemList['weaponBtn'] + 1] = item;
                                 end
-                            else 
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                            elseif itemType == 'SubWeapon' then
+                                if itemClassType == 'Armband' then
+                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                        indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                    end
+                                else 
+                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                        indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                    end
                                 end
-                            end
-                        elseif itemType == 'Armor' then
-                            if itemClassType == 'Neck' or itemClassType == 'Ring' then
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
-                                    indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
-                                end
-                            elseif itemClassType == 'Shield' then
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
-                                    indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                            elseif itemType == 'Armor' then
+                                if itemClassType == 'Neck' or itemClassType == 'Ring' then
+                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['accBtn'],item.ClassName) == false then
+                                        indunRewardItemList['accBtn'][#indunRewardItemList['accBtn'] + 1] = item;
+                                    end
+                                elseif itemClassType == 'Shield' then
+                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['subweaponBtn'],item.ClassName) == false then
+                                        indunRewardItemList['subweaponBtn'][#indunRewardItemList['subweaponBtn'] + 1] = item;
+                                    end
+                                else
+                                    if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['armourBtn'],item.ClassName) == false then
+                                        indunRewardItemList['armourBtn'][#indunRewardItemList['armourBtn'] + 1] = item;
+                                    end
                                 end
                             else
-                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['armourBtn'],item.ClassName) == false then
-                                    indunRewardItemList['armourBtn'][#indunRewardItemList['armourBtn'] + 1] = item;
+                                if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['materialBtn'],item.ClassName) == false then
+                                    indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = item;
                                 end
-                            end
-                        else
-                            if IS_EXIST_CLASSNAME_IN_LIST(indunRewardItemList['materialBtn'],item.ClassName) == false then
-                                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = item;
                             end
                         end
                     end
                 end
-            end
-        end
-    else
-        local rewardCube = TryGetProp(rewardItem, 'Reward_Item');
-        local cubeList = SCR_STRING_CUT(rewardCube, '/');
-        if cubeList ~= nil then
-            for e = 1, #cubeList do
-                local cubeCls = GetClass('Item', cubeList[e]);
-                indunRewardItemList['materialBtn'][#indunRewardItemList['materialBtn'] + 1] = cubeCls
             end
         end
     end
@@ -397,7 +415,7 @@ function INDUNENTER_DROPBOX_ITEM_LIST(parent, control)
         itemFrame = ui.GetNewToolTip("wholeitem_link", "wholeitem_link");
     end
     itemFrame:SetUserValue('MouseClickedCheck','NO')
-    -- ?�기까�?
+    -- 여기까지
 end 
 
 function INDUNENTER_MAKE_DROPBOX(parent, control)
@@ -599,14 +617,14 @@ function INDUNENTER_MAKE_HEADER(frame)
 
 end
 
-function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)    
+function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
     local etc = GetMyEtcObject();
     if frame == nil or noPicBox == nil or indunCls == nil or etc == nil then
         return;
     end
 
     if indunCls.UnitPerReset == 'ACCOUNT' then
-        ect = GetMyAccountObj()
+        etc = GetMyAccountObj()
     end
     
     local countData = GET_CHILD_RECURSIVELY(frame, 'countData');
@@ -634,10 +652,11 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
             nowCount = GET_CURRENT_ENTERANCE_COUNT(TryGetProp(indunCls, "PlayPerResetType"))            
         end
 
+        -- add count
         local addCount = math.floor(nowCount * admissionPlayAddItemCount);
         countData:SetTextByKey("now", nowCount);
-        -- max play count
 
+        -- max play count
         local maxCount = TryGetProp(indunCls, 'PlayPerReset');
         if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
             maxCount = WeeklyEnterableCount
@@ -665,27 +684,75 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
         local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
         countData:ShowWindow(1)
         countItemData:ShowWindow(0)
-        
     else
         local pc = GetMyPCObject();
         if pc == nil then
             return;
         end
 
-        local invAdmissionItemCount = GetInvItemCount(pc, admissionItemName)
-        countItemData:SetTextByKey("ivnadmissionitem",  '  {img '..indunAdmissionItemImage..' 30 30}  '..invAdmissionItemCount ..'')
-
-        local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
-        countText:SetText(ScpArgMsg("IndunAdmissionItemPossession"))
-        countItemData:ShowWindow(1)
-        countData:ShowWindow(0)
-
-        if indunCls.DungeonType == 'UniqueRaid' then
-            if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
-                cycleCtrlPic:ShowWindow(1);
-            end
+        -- now play count
+        local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")), 0)        
+        if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then            
+            nowCount = GET_CURRENT_ENTERANCE_COUNT(TryGetProp(indunCls, "PlayPerResetType"))            
         end
 
+        if indunCls.DungeonType == "Raid" or indunCls.DungeonType =="GTower" then
+            if nowCount >= WeeklyEnterableCount then
+                local invAdmissionItemCount = GetInvItemCount(pc, admissionItemName)
+                countItemData:SetTextByKey("ivnadmissionitem",  '  {img '..indunAdmissionItemImage..' 30 30}  '..invAdmissionItemCount ..'')
+    
+                local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
+                countText:SetText(ScpArgMsg("IndunAdmissionItemPossession"))
+                countItemData:ShowWindow(1)
+                countData:ShowWindow(0)
+    
+                if indunCls.DungeonType == 'UniqueRaid' then
+                    if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+                        cycleCtrlPic:ShowWindow(1);
+                    end
+                end
+            else
+                local addCount = math.floor(nowCount * admissionPlayAddItemCount);
+                countData:SetTextByKey("now", nowCount);
+                -- max play count
+            
+                local maxCount = TryGetProp(indunCls, 'PlayPerReset');
+                if WeeklyEnterableCount ~= nil and WeeklyEnterableCount ~= "None" and WeeklyEnterableCount ~= 0 then
+                    maxCount = WeeklyEnterableCount
+                end
+            
+                if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
+                    maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token')
+                end
+                if session.loginInfo.IsPremiumState(NEXON_PC) == true then
+                    maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC')
+                end
+                countData:SetTextByKey("max", maxCount);
+            
+                    -- set min/max multi count
+                local minCount = frame:GetUserConfig('MULTI_MIN');
+                frame:SetUserValue("MIN_MULTI_CNT", minCount);
+                frame:SetUserValue("MAX_MULTI_CNT", maxCount - nowCount);
+            
+                local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
+                countData:ShowWindow(1)
+                countItemData:ShowWindow(0)
+            end
+        else
+            local invAdmissionItemCount = GetInvItemCount(pc, admissionItemName)
+            countItemData:SetTextByKey("ivnadmissionitem",  '  {img '..indunAdmissionItemImage..' 30 30}  '..invAdmissionItemCount ..'')
+    
+            local countText = GET_CHILD_RECURSIVELY(frame, 'countText');
+            countText:SetText(ScpArgMsg("IndunAdmissionItemPossession"))
+            countItemData:ShowWindow(1)
+            countData:ShowWindow(0)
+    
+            if indunCls.DungeonType == 'UniqueRaid' then
+                if SCR_RAID_EVENT_20190102(nil, false) == true and admissionItemName == 'Dungeon_Key01' then
+                    cycleCtrlPic:ShowWindow(1);
+                end
+            end
+        end
     end
 end
 
@@ -932,11 +999,11 @@ function INDUNENTER_ENTER(frame, ctrl)
             return;
         end
     end
-    
+   
     if useCount > 0 then
         local multipleItemList = GET_INDUN_MULTIPLE_ITEM_LIST();
         for i = 1, #multipleItemList do
-            local itemName = multipleItemList[i];
+        local itemName = multipleItemList[i];
             local invItem = session.GetInvItemByName(itemName);
             if invItem ~= nil and invItem.isLockState then
                 ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -949,7 +1016,6 @@ function INDUNENTER_ENTER(frame, ctrl)
     if INDUNENTER_CHECK_ADMISSION_ITEM(topFrame) == false then
         return;
     end
-    
     local textCount = topFrame:GetUserIValue("multipleCount");
     local yesScript = string.format("ReqMoveToIndun(%d,%d)", 1, textCount);
     ui.MsgBox(ScpArgMsg("EnterRightNow"), yesScript, "None");
@@ -1035,17 +1101,17 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
     local textCount = topFrame:GetUserIValue("multipleCount");
     local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
     local understaffEnterAllowBtn = GET_CHILD_RECURSIVELY(topFrame, 'understaffEnterAllowBtn');
-	
-	local enableReenter = frame:GetUserIValue('ENABLE_REENTER');
+    
+    local enableReenter = frame:GetUserIValue('ENABLE_REENTER');
 
     if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
         ReqMoveToIndun(3, textCount);
         ctrl:SetTextTooltip(ClMsg("PartyMatchInfo_Go"));
-		if enableReenter == trhe then
-			understaffEnterAllowBtn:ShowWindow(1);
-		else
-			understaffEnterAllowBtn:ShowWindow(0);
-		end
+        if enableReenter == trhe then
+            understaffEnterAllowBtn:ShowWindow(1);
+        else
+            understaffEnterAllowBtn:ShowWindow(0);
+        end
         INDUNENTER_SET_ENABLE(0, 0, 1, 0);
     else
         ReqRegisterToIndun(topFrame:GetUserIValue('INDUN_TYPE'));
@@ -1751,6 +1817,11 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
     local indunType = frame:GetUserIValue('INDUN_TYPE');
     local indunCls = GetClassByType('Indun', indunType);
     local etc = GetMyEtcObject();
+    
+    if indunCls.UnitPerReset == 'ACCOUNT' then
+        etc = GetMyAccountObj()
+    end
+    
     local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
     if isTokenState == true then
         isTokenState = TryGetProp(indunCls, "PlayPerReset_Token")
@@ -1759,7 +1830,11 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
     end
     
     local nowCount = TryGetProp(etc, "InDunCountType_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
-    
+
+    if indunCls.WeeklyEnterableCount ~= 0 then
+        nowCount = TryGetProp(etc, "IndunWeeklyEnteredCount_"..tostring(TryGetProp(indunCls, "PlayPerResetType")));
+    end
+
     if indunCls ~= nil and indunCls.AdmissionItemName ~= 'None' then
         local admissionItemName = TryGetProp(indunCls, "AdmissionItemName");
         local admissionItemCount = TryGetProp(indunCls, "AdmissionItemCount");
@@ -1769,10 +1844,22 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         
         if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount - 1;
+        end 
+
+        -- cur > max count enterace
+        if nowCount > indunCls.WeeklyEnterableCount then
+            nowAdmissionItemCount = nowAdmissionItemCount + (nowCount - (indunCls.WeeklyEnterableCount));
         end
         
         local cnt = GetInvItemCount(user, admissionItemName)
         local invItem = session.GetInvItemByName(indunCls.AdmissionItemName);
+        
+        if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
+            if nowCount < indunCls.WeeklyEnterableCount then
+                return true;
+            end
+        end
+        
         if cnt == nil or cnt < nowAdmissionItemCount then
             ui.MsgBox_NonNested(ClMsg('CannotJoinIndunItemScarcity'), 0x00000000);
             return false;

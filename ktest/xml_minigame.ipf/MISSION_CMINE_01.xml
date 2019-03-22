@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="MISSION_CMINE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="onehour_cmine1" checkSec="600" checkSecStart="3600" checkScript="CHECK_MGAME_COMMON" msgTxt="None" portrait="None">
+    <Game Name="MISSION_CMINE_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="onehour_cmine1" playerCountCheckDestroy="1" checkSec="600" checkSecStart="3600" checkScript="CHECK_MGAME_COMMON" msgTxt="None" portrait="None">
         <StageList>
             <Stage Name="DefGroup">
                 <StartScpList>
@@ -655,13 +655,15 @@
                         <Str Str="Request_Mission4"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="60"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156161" Pos="34.72#-6.44#1207.99" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event eventName="message" execWithStart="0">
                         <execList>
@@ -679,6 +681,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="clear"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>

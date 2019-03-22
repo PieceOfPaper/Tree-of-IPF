@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CASTLE94_MAIN05_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="2">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="151050" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="0" autoDestroy="0" UseAiOutOfPc="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CASTLE94_MAIN05_GIMMICK_SET_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="153156" Pos="-1366.00#289.00#950.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="1" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;1&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_01&apos; "/>
+                    <Obj Type="Monster" MonType="153156" Pos="-1466.00#289.00#950.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="2" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;2&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_02&apos; "/>
+                    <Obj Type="Monster" MonType="153156" Pos="-1366.00#289.00#1050.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="3" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;3&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_03&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="153156" Pos="-1466.00#289.00#1050.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="4" autoDestroy="0" UseAiOutOfPc="1" propList="&apos;NumArg1&apos; &apos;4&apos; &apos;Dialog&apos; &apos;CASTLE94_PROTECT_DEVICE_04&apos; "/>
+                    <Obj Type="Monster" MonType="154067" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="5" autoDestroy="0" UseAiOutOfPc="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_sphere007_mash" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154067" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="6" autoDestroy="0" UseAiOutOfPc="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_sphere007_mash" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="154067" Pos="-1416.00#289.00#1000.00" genCount="1" maxStackCount="1" genTime="1000" autoGen="0" objectKey="7" autoDestroy="0" UseAiOutOfPc="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="I_sphere007_mash" Arg="3"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Create">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="DefGroup/0/DefGroup/1/DefGroup/2/DefGroup/3/DefGroup/4/DefGroup/5/DefGroup/6/DefGroup/7"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="delete1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="StageCheck"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="delete2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="StageCheck"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/6"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="delete3" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="StageCheck"/>
+                                <Str Str="=="/>
+                                <Num Num="4"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="DefGroup/7"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="SSN_CASTLE94_MAIN05"/>
+                                <Str Str="QuestInfoValue1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

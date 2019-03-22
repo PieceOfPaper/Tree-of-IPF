@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="24.00" soundFile="mon_voice_rootopus_skl_1"/>
+    <Sound frame="44.00" soundFile="m_kerberos_skl_1"/>
+    <Sound frame="72.00" soundFile="mon_golem_natk1_shot"/>
+    <Sound frame="76.00" soundFile="skl_eff_drapeliun_atk_hit_ground"/>
+    <Sound frame="80.00" soundFile="mon_minivern_kback"/>
+    <BlendOn frame="82" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="84" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="86" R="100" G="100" B="100" A="50"/>
+    <Shockwave frame="87" type="2" intensity="10" frequency="50" duration="0.3" range="1000"/>
+    <BlendOff frame="88" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

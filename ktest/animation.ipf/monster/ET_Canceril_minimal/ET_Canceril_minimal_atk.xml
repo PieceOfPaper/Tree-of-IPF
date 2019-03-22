@@ -1,13 +1,20 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="m_insect_move"/>
-    <Sound frame="3.00" soundFile="mon_voice_throneweaver_6"/>
-    <Sound frame="28.00" soundFile="mon_voice_throneweaver_6"/>
-    <Sound frame="28.00" soundFile="skl_eff_atk_move_s12"/>
-    <Sound frame="28.00" soundFile="skl_eff_hit_insect_3"/>
-    <Sound frame="35.00" soundFile="skl_eff_atk_move_s12"/>
-    <Sound frame="35.00" soundFile="skl_eff_hit_insect_3"/>
-    <Sound frame="57.00" soundFile="mon_voice_bug_10"/>
-    <Sound frame="61.00" soundFile="swd_blow_flesh1--"/>
-    <Sound frame="63.00" soundFile="skl_eff_atk_move_s_8"/>
+	<Particle frame="30" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="39" attachNode="Bip001 L Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="39" attachNode="Bip001 R Finger0Nub" particleName="F_spark011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="66" attachNode="Bip001 R Finger0Nub" particleName="I_light013_spark_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="66" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.8" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="m_insect_move"/>
+	<Sound frame="3.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="28.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="28.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="28.00" soundFile="skl_eff_hit_insect_3"/>
+	<Sound frame="35.00" soundFile="skl_eff_atk_move_s12"/>
+	<Sound frame="35.00" soundFile="skl_eff_hit_insect_3"/>
+	<Sound frame="57.00" soundFile="mon_voice_bug_10"/>
+	<Sound frame="61.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="63.00" soundFile="skl_eff_atk_move_s_8"/>
 </ActionDesc>

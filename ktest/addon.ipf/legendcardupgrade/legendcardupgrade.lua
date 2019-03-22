@@ -168,10 +168,15 @@ function MATERIAL_CARD_SLOT_RBTNUP_ITEM_INFO(frame, slot, argStr, argNum)
 	local resultGbox2 = GET_CHILD_RECURSIVELY(frame, "resultGbox2")
 	resultGbox2 : ShowWindow(0)
 
-	
+	-- 카드 탭
 	local invenSlot = INV_GET_SLOT_BY_ITEMGUID(invSlotInfo:GetIESID())
 	local invenIcon = invenSlot:GetIcon();
 	invenIcon:SetColorTone("FFFFFFFF");
+
+	-- 모두 보기 탭
+	local invenSlot_All = INV_GET_SLOT_BY_ITEMGUID(invSlotInfo:GetIESID(), nil, 1)
+	local invenIcon_All = invenSlot_All:GetIcon();
+	invenIcon_All:SetColorTone("FFFFFFFF");
 
 end
 
@@ -799,14 +804,20 @@ function LEGENDCARD_REINFORCE_INV_RBTN(invitem, slot)
 	end
 
 	if nowselectedcount < invitem.count then
+		-- 카드탭
 		local slot = INV_GET_SLOT_BY_ITEMGUID(invitem:GetIESID())
 		local icon = slot:GetIcon();
+
+		-- 모두 보기 탭
+		local slot_All = INV_GET_SLOT_BY_ITEMGUID(invitem:GetIESID(), nil, 1)
+		local icon_All = slot_All:GetIcon();
 
 		slot:SetUserValue("LEGENDCARD_REINFORCE_SELECTED", nowselectedcount + 1);
 		local nowselectedcount = slot:GetUserIValue("LEGENDCARD_REINFORCE_SELECTED")
 					
 		if icon ~= nil and nowselectedcount == invitem.count then
 			icon:SetColorTone("AA000000");
+			icon_All:SetColorTone("AA000000");
 		end
 	end
 end

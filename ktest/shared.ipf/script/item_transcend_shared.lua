@@ -182,14 +182,19 @@ function GET_TRANSCEND_MATERIAL_COUNT(targetItem, Arg1)
     end
     
     --EVENT_1811_WEEKEND
---    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
---        if transcendCount % 2 == 1 then
---            needMatCount = math.floor(needMatCount/2)
---            if needMatCount < 1 then
---                needMatCount = 1
---            end
---        end
---    end
+    local isServer = false
+    if IsServerSection(targetItem) == 1 then
+        isServer = true
+    end
+
+    if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', isServer) == 'YES' then
+        if transcendCount % 2 == 1 then
+            needMatCount = math.floor(needMatCount/2)
+            if needMatCount < 1 then
+                needMatCount = 1
+            end
+        end
+    end
     
 --    --EVENT_1804_TRANSCEND_DISCOUNT
 --    if transcendCount % 2 == 1 then

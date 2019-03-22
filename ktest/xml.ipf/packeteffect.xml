@@ -1,6 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <packeteffects>
+    <Category ID="146">
+        <Effect Name="beginner"/>
+        <Effect Name="Phase0"/>
+        <Effect Name="Phase1_Game"/>
+    </Category>
     <Category ID="135">
         <Effect Name="HaveToPutPetAtBarrack"/>
     </Category>
@@ -20,6 +25,9 @@
         <Effect Name="F_buff_basic034_blue"/>
         <Effect Name="LEAN"/>
         <Effect Name="F_ground180_boom"/>
+        <Effect Name="SIT_SICK"/>
+        <Effect Name="EVENT_IDLE_UP"/>
+        <Effect Name="I_SYS_missdigit"/>
     </Category>
     <Category ID="125">
         <Effect Name="init"/>
@@ -87,6 +95,15 @@
         <Effect Name="skl_1"/>
         <Effect Name="F_buff_basic031_green_line#0.01"/>
         <Effect Name="PAYAUTA_EP11_10_MINI"/>
+        <Effect Name="CASTLE96_MQ_2_MINI"/>
+        <Effect Name="CASTLE96_MQ_5_MINI"/>
+        <Effect Name="skl_chargeshot_shot"/>
+        <Effect Name="skl_seism"/>
+        <Effect Name="I_smoke061_blue_levitation"/>
+        <Effect Name="I_smoke061_blue_levitation"/>
+        <Effect Name="event_shockwave"/>
+        <Effect Name="flash02"/>
+        <Effect Name="point"/>
     </Category>
     <Category ID="144">
         <Effect Name="F_pc_CardBook_ground_dark"/>
@@ -597,6 +614,21 @@
         <Effect Name="F_burstup018_dark"/>
         <Effect Name="F_spread_in032_dark_loop"/>
         <Effect Name="F_archer_TimeBombArrow_debuff"/>
+        <Effect Name="I_force018_trail_smoke_800"/>
+        <Effect Name="CASTLE93_MAIN01_MINI"/>
+        <Effect Name="CASTLE93_MAIN07_MINI"/>
+        <Effect Name="CASTLE94_MAIN01_MINI"/>
+        <Effect Name="F_cleric_Foretell_ground_magic"/>
+        <Effect Name="F_burstup051_dark"/>
+        <Effect Name="CASTLE94_MAIN07_MINI"/>
+        <Effect Name="F_cleric_bless_loop_ground"/>
+        <Effect Name="I_spread_in009_violet2"/>
+        <Effect Name="CASTLE95_MAIN05_MINI"/>
+        <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
+        <Effect Name="CASTLE94_MAIN05_MINI"/>
+        <Effect Name="I_sphere007_mash_moto"/>
+        <Effect Name="F_bg_light001_green"/>
+        <Effect Name="I_pc_question_arrow_mash_ride"/>
     </Category>
     <Category ID="83">
         <Effect Name="SKL_ARIES"/>
@@ -1004,6 +1036,24 @@
         <Effect Name="F_MAPLE_24_3_MQ_07_MINI"/>
         <Effect Name="F_bg_butterfly003_white"/>
         <Effect Name="F_spread_in037_rize_loop"/>
+        <Effect Name="F_MAPLE_24_1_MQ_01_MINI"/>
+        <Effect Name="I_emo_exclamation#bone_R_body"/>
+        <Effect Name="F_MAPLE_24_1_MQ_04_2_MINI"/>
+        <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
+        <Effect Name="F_MAPLE_24_1_MQ_05_MINI"/>
+        <Effect Name="I_laser018_blue_violet"/>
+        <Effect Name="I_laser015_mint"/>
+        <Effect Name="laser018_blue_violet"/>
+        <Effect Name="F_light147"/>
+        <Effect Name="I_emo_exclamation#Dummy_eff_skl1"/>
+        <Effect Name="I_emo_exclamation#Bip001 Head"/>
+        <Effect Name="IF_ground12_red"/>
+        <Effect Name="F_MAPLE_24_2_MQ_04_MINI"/>
+        <Effect Name="event_sick_loop"/>
+        <Effect Name="F_MAPLE_24_2_MQ_10_MINI"/>
+        <Effect Name="F_buff_basic019_pink"/>
+        <Effect Name="F_buff_basic019_pink"/>
+        <Effect Name="I_light019_orange_spark2"/>
     </Category>
     <Category ID="201">
         <Effect Name="F_cleric_devinestigma_hit_smoke_LOW##0.5"/>
@@ -1251,6 +1301,7 @@
         <Effect Name="F_explosion98_fire3"/>
         <Effect Name="F_scout_Granata_explosion"/>
         <Effect Name="F_scout_Ritirarsi"/>
+        <Effect Name="E_scout_TreGranata#Dummy_R_HAND"/>
     </Category>
     <Category ID="124">
         <Effect Name="rope_pad_abil"/>
@@ -1742,6 +1793,7 @@
         <Effect Name="voice_wiz_f_stan_cast"/>
         <Effect Name="skl_eff_algiz_cast_loop"/>
         <Effect Name="F_buff_warrior_bear"/>
+        <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
     </Category>
     <Category ID="171">
         <Effect Name="MISSION_UPHILL_DEFFENSE_EVENT2"/>
@@ -1856,6 +1908,12 @@
         <Effect Name="I_archer_Lachrymator_force_mash#Dummy_R_HAND"/>
         <Effect Name="Arditi_TreGranata"/>
         <Effect Name="Arditi_Taglio"/>
+        <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
+        <Effect Name="skl_eff_sheriff_fanning"/>
+        <Effect Name="Sheriff_Fanning"/>
+        <Effect Name="SHOW_REMOVE_BUFF_{Auto_1}"/>
+        <Effect Name="SHOW_REMOVE_BUFF"/>
+        <Effect Name="Matross_CanisterShot_End"/>
     </Category>
     <Category ID="84">
         <Effect Name="M_PAST_FLIBRARY_1"/>
@@ -5488,6 +5546,7 @@
         <Effect Name="F_archer_Matross_CanisterShot_spread_in"/>
         <Effect Name="F_smoke141_darkblue_spread_out3"/>
         <Effect Name="F_smoke141_violet_dark_spread_out"/>
+        <Effect Name="LEGEND_RAID_SHADOWMANCER_MASTER"/>
     </Category>
     <Category ID="27">
         <Effect Name="SAPPER_TRAP_Sapper_BroomTrap"/>

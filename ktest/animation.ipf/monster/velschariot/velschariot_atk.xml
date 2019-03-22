@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="None" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Sound frame="8.00" soundFile="m_ironbaum_skl3_voice"/>
+    <Sound frame="45.00" soundFile="skl_eff_skyline_spread"/>
+    <Sound frame="47.00" soundFile="mon_bramble_hit"/>
+    <Sound frame="48.00" soundFile="skl_eff_dock"/>
+    <Shockwave frame="50" type="2" intensity="10" frequency="50" duration="0.3" range="1000"/>
+    <BlendOn frame="52" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="54" R="0" G="0" B="0" A="50"/>
+    <BlendOn frame="56" R="100" G="100" B="100" A="50"/>
+    <BlendOff frame="58" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

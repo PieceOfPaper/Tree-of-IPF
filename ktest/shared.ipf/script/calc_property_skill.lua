@@ -107,8 +107,7 @@ function SCR_Get_SpendSP(skill)
 
 --  value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
 --  value = basicsp + (lv - 1) * lvUpSpendSpRound;
-    
-    value = value + (value * abilAddSP);
+    value = math.floor(value) + math.floor(value * abilAddSP);
     
     local zeminaSP = GetExProp(pc, "ZEMINA_BUFF_SP");
     if zeminaSP ~= 0 then
@@ -118,6 +117,10 @@ function SCR_Get_SpendSP(skill)
     
     if value < 1 then
         value = 0
+    end
+    
+    if skill.ClassName == "Scout_Cloaking" and IsBattleState(pc) == 1 and (IsPVPServer(pc) == 1 or IsPVPField(pc) == 1) then
+        return 0
     end
     
     return math.floor(value);
@@ -169,6 +172,23 @@ function SCR_Get_SpendSP_Magic(skill)
     
     if skill.ClassName == "Oracle_TwistOfFate" and GetZoneName(pc) == "guild_agit_1" then
         return 0
+    end
+    
+    return math.floor(value);
+end
+
+function SCR_Get_SpendSP_Heal(skill)
+    local value = SCR_Get_SpendSP_Magic(skill)
+    
+    local pc = GetSkillOwner(skill);
+    if IsBuffApplied(pc, 'Heal_Overload_Buff') == 'YES' then
+        local over = GetBuffOver(pc, "Heal_Overload_Buff")
+        local addValue = math.floor(value * over * 0.2)
+        value = value + addValue
+    end
+    
+    if value < 1 then
+        value = 0
     end
     
     return math.floor(value);
@@ -609,7 +629,7 @@ function SCR_GET_SKL_CoolDown_Prevent(skill)
     local pc = GetSkillOwner(skill);
     local basicCoolDown = skill.BasicCoolDown;
     local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-    basicCoolDown = (basicCoolDown + abilAddCoolDown) - (skill.Level * 1000);
+    basicCoolDown = (basicCoolDown + abilAddCoolDown) - (skill.Level * 3000);
     
     if skill.ClassName == "Cleric_Heal" then
         if IsPVPServer(pc) == 1 then
@@ -4896,17 +4916,6 @@ function SCR_GET_Heal_Time(skill)
 
 end
 
-function SCR_GET_Cure_Ratio2(skill)
-
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Cleric11") 
-    local value = 0
-    if abil ~= nil then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
-
-end
-
 function SCR_GET_DivineMight_Ratio(skill)
     local value = skill.Level
     local pc = GetSkillOwner(skill)
@@ -5623,7 +5632,7 @@ function SCR_GET_TriDisaster_Ratio(skill)
 end
 
 function SCR_GET_CreepingDeath_Ratio(skill)
-    local value = skill.Level * 3
+    local value = skill.Level * 4
     return value;
 end
 
@@ -8328,7 +8337,12 @@ end
 
 function SCR_GET_PainBarrier_Bufftime(skill)
     local value = 5 + skill.Level * 5
-    return value
+    local pc = GetSkillOwner(skill)
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+        value = value / 2
+    end
+    
+    return math.floor(value)
 end
 
 function SCR_GET_Double_pay_earn_Ratio(skill)
@@ -8344,9 +8358,6 @@ end
 function SCR_GET_Camp_Ratio2(skill)
     return skill.Level * 5
 end
-
-
-
 
 function SCR_GET_SR_LV_TEST(skill)
 
@@ -8772,11 +8783,10 @@ function SCR_GET_Cure_Ratio3(skill)
 end
 
 function SCR_GET_Cure_Ratio(skill)
-
-    local pc = GetSkillOwner(skill);
-
-    return 8 + skill.Level * 2;
-
+    local value = skill.Level * 10
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    
+    return value 
 end
 
 
@@ -9702,7 +9712,7 @@ end
 
 function SCR_Get_Teleportation_Ratio(skill)
 
-    return 100 + skill.Level * 10;
+    return 100 + skill.Level * 20;
 
 end
 
@@ -10648,8 +10658,8 @@ function SCR_GET_TracerBullet_BuffTime(skill)
     return value;
 end
 
-function SCR_GET_JumpShot_Ratio(skill)
-    local value = 6 * skill.Level;
+function SCR_GET_Jump_Ratio(skill)
+    local value = 80 + (skill.Level * 10)
     return value;
 end
 
@@ -10661,6 +10671,17 @@ end
 
 function SCR_GET_DownFall_Ratio(skill)
     local value = 3 + skill.Level * 0.5;
+    return value;
+end
+
+function SCR_GET_DownFall_Ratio2(skill)
+    local value = 0.2
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, "Mergen14")
+    if abil ~= nil and TryGetProp(abil, "ActiveState") == 1 then
+        value = 0.3
+    end
+    
     return value;
 end
 
@@ -10864,6 +10885,19 @@ function SCR_GET_Kraujas_Ratio(skill)
     local value = pc.RHP;
     if pc ~= nil then
         value = pc.RHP * 10;
+    end
+    
+    return value;
+end
+
+function SCR_GET_Rykuma_Ratio(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 20
+    if pc ~= nil then
+        local isDragonPower = GetExProp(pc, 'ITEM_DRAGON_POWER')
+        if tonumber(isDragonPower) >= 1 then
+            value = 30
+        end  
     end
     
     return value;
@@ -11429,6 +11463,290 @@ end
 
 function SCR_Get_BloodCurse_ratio2(skill)
     local value = (1 + skill.Level * 0.1)
+    
+    return value
+end
+
+-- Matross_FireAndRun
+function SCR_GET_FireAndRun_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 90;
+    local abil = GetAbility(pc, "Matross2")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 45
+    end
+    
+    return value
+end
+
+-- Matross_Explosion
+function SCR_GET_Explosion_Ratio(skill)
+    local value = math.floor(3 + skill.Level * 0.375);
+    
+    if IsBuffApplied(self, "Bazooka_Buff") == "YES" then
+        value = value * 2
+    end
+    
+    return value
+end
+
+-- Matross_MenaceShot
+function SCR_GET_MenaceShot_Time(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 5;
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+        value = 2.5;
+    end
+    
+    return value;
+end
+
+function SCR_GET_MenaceShot_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 3 + skill.Level;
+    if IsPVPServer(pc) == 1 or IsPVPField(pc) == 1 then
+        value = 3;
+    end
+    
+    return value;
+end
+
+-- Matross_Roar
+function SCR_GET_Roar_Time(skill)
+    local value = 45
+    return value
+end
+
+function SCR_GET_Roar_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = skill.Level
+    
+    local abil = GetAbility(pc, "Matross10")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = math.floor(value / 2)
+    end
+    
+    if value < 1 then
+        value = 1
+    end
+    
+    return value
+end
+
+-- Matross_CanisterShot
+function SCR_GET_CanisterShot_Time(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 5;
+    local abil = GetAbility(pc, "Matross12")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + abil.Level
+    end
+    
+    return value
+end
+
+function SCR_GET_CanisterShot_Ratio(skill)
+    local value = 10
+    return value
+end
+
+-- TigerHunter_PierceShot
+function  SCR_GET_PierceShot_Ratio(skill)
+    local value = 50
+    return value
+end
+
+-- TigerHunter_Tracking
+function SCR_GET_Tracking_Time(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 5 + skill.Level
+    
+    local abil = GetAbility(pc, "TigerHunter2");
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + 10;
+    end
+    
+    return value;
+end
+
+function SCR_GET_Tracking_Ratio(skill)
+    local value = 50
+    return value
+end
+
+-- TigerHunter_RapidShot
+function SCR_GET_RapidShot_Ratio(skill)
+    local value = 30
+    return value
+end
+
+-- TigerHunter_EyeofBeast
+function SCR_GET_EyeofBeast_Time(skill)
+    local value = 10
+    return value
+end
+
+function SCR_GET_EyeofBeast_Ratio(skill)
+    local value = 5
+    return value
+end
+
+function SCR_GET_EyeofBeast_Ratio2(skill)
+    local value = 100 + (skill.Level * 5)
+    return value
+end
+
+-- TigerHunter_Blitz
+function SCR_GET_Blitz_Ratio(skill)
+    local value = skill.Level * 5
+    return value
+end
+
+-- TigerHunter_HideShot
+function SCR_GET_HideShot_Time(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 10
+    
+    return value;
+end
+
+function SCR_GET_HideShot_Ratio(skill)
+    local value = 50 - (skill.Level * 3)
+    return value
+end
+
+-- Arditi_TreGranata
+function SCR_GET_TreGranata_Time(skill)
+    local value = 8
+    return value
+end
+
+function SCR_GET_TreGranata_Ratio(skill)
+    local value = 3
+    return value
+end
+
+-- Arditi_Recupero
+function SCR_GET_Recupero_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = skill.Level * 595
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    
+    local mhp = TryGetProp(pc, "MHP", 0)
+    if value > mhp * 0.5 then
+        value =  math.floor(mhp * 0.5)
+    end    
+
+    return value
+end
+
+function SCR_GET_Recupero_Ratio3(skill)
+    local pc = GetSkillOwner(skill)
+    local addHP = skill.Level * 535
+    addHP = addHP * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    
+    local mhp = TryGetProp(pc, "MHP", 0)
+    
+    local value = addHP - math.floor(mhp * 0.5)
+    
+    if value < 0 then
+        value = 0;
+    end
+
+    return value
+end
+
+function SCR_GET_Recupero_Ratio2(skill)
+    local value = skill.Level
+    return value
+end
+
+-- Arditi_Taglio
+function SCR_GET_Taglio_Time(skill)
+    local value = 2
+    return value
+end
+
+function SCR_GET_Taglio_Ratio(skill)
+    local value = 10
+    return value
+end
+
+-- Sheriff_Westraid
+function SCR_GET_Westraid_Time(skill)
+    local value = 15
+    return value
+end
+
+function SCR_GET_Westraid_Ratio(skill)
+    local value = math.floor(3 + skill.Level * 0.4)
+    return value
+end
+
+-- Sheriff_Peacemaker
+function SCR_GET_Peacemaker_Time(skill)
+    local value = 3
+    return value
+end
+
+-- Sheriff_Redemption
+function SCR_GET_Redemption_Time(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 5
+    local abil = GetAbility(pc, 'Sheriff6')
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 2.5;
+    end
+    
+    return value
+end
+
+function SCR_GET_Redemption_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = skill.Level
+    local abil = GetAbility(pc, 'Sheriff6')
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value * 2;
+    end    
+    return value
+end
+
+-- Sheriff_AimingShot
+function SCR_GET_AimingShot_Ratio(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 3
+    local abil = GetAbility(pc, "Sheriff5")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 1
+    end
+
+    return value
+end
+
+function SCR_GET_AimingShot_Ratio2(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 50
+    local abil = GetAbility(pc, "Sheriff5")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 200
+    end
+
+    return value
+end
+
+function SCR_GET_Prevent_Bufftime(skill)
+    local pc = GetSkillOwner(skill)
+    local value = 2
+    local abil = GetAbility(pc, "Lancer14")
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + (abil.Level * 0.2)
+    end
+
+    return value
+end
+
+function SCR_GET_Prevent_Ratio(skill)
+    local value = skill.Level * 3
     
     return value
 end

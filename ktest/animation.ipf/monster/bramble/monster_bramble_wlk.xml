@@ -1,16 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
 	<Sound frame="0" soundFile="None"/>
 	<PostFix frame="3.00" ID="_height" duration="0.3" frequency="70" intensity="1" range="1000"/>
 	<Sound frame="5.00" soundFile="mon_bramble_wlk"/>
-	<Particle frame="6" attachNode="Dummy_wlk_eff_L" particleName="F_yonazolem_wlk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
-	<Particle frame="6" attachNode="Dummy_wlk_eff_L" particleName="F_yonazolem_wlk_stone" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="Dummy_wlk_eff_L" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="6" attachNode="Dummy_wlk_eff_L" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
 	<Shockwave frame="13.00" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
 	<PostFix frame="20" ID="_height"/>
 	<Sound frame="46.00" soundFile="mon_bramble_wlk"/>
-	<Particle frame="47" attachNode="Dummy_wlk_eff_R" particleName="F_yonazolem_wlk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
-	<Particle frame="47" attachNode="Dummy_wlk_eff_R" particleName="F_yonazolem_wlk_stone" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="47" attachNode="Dummy_wlk_eff_R" particleName="F_smoke109" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
+	<Particle frame="47" attachNode="Dummy_wlk_eff_R" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0"/>
 	<Shockwave frame="50.00" type="2" intensity="1" frequency="70" duration="0.3" range="1000"/>
 </ActionDesc>

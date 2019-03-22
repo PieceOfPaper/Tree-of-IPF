@@ -1,0 +1,309 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CASTLE93_MAIN07_MINI" minLv="0" maxLv="0" playerCountCheckDestroy="1" startWaitSec="-1">
+        <StageList>
+            <Stage Name="1ST">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59219" Pos="-235.91#291.67#-214.31" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-211.95#291.67#-346.38" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-221.15#291.67#-274.72" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-265.81#291.67#-244.13" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-246.69#291.67#-318.38" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-284.54#291.67#-305.59" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-291.45#291.67#-272.46" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="summon">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="1ST/0/1ST/1/1ST/2/1ST/3/1ST/4/1ST/5/1ST/6"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Next" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1ST/0/1ST/1/1ST/2/1ST/3/1ST/4/1ST/5/1ST/6"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="1ST"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="2ND" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59249" Pos="-255.39#291.67#-234.38" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-269.44#291.67#-335.76" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-210.52#291.67#-258.64" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-211.84#291.67#-313.48" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-215.48#291.67#-353.28" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-206.07#291.67#-210.67" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59219" Pos="-238.65#291.67#-282.81" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-276.96#291.67#-286.40" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-329.20#287.69#-291.22" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="summon" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7/2ND/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Next" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="2ND/0/2ND/1/2ND/2/2ND/3/2ND/4/2ND/5/2ND/6/2ND/7/2ND/8"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="2ND"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="3RD" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59249" Pos="-239.83#291.67#-351.62" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-218.33#291.67#-319.55" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-227.37#291.67#-261.23" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59249" Pos="-259.52#291.67#-234.13" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-204.74#291.67#-285.92" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-259.29#291.67#-324.53" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-276.03#291.67#-262.83" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-243.04#291.67#-291.24" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-302.40#291.67#-297.42" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="summon" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7/3RD/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Next" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="3RD/0/3RD/1/3RD/2/3RD/3/3RD/4/3RD/5/3RD/6/3RD/7/3RD/8"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="4TH"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="3RD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="4TH" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="59247" Pos="-229.41#291.67#-320.49" genTime="20000" autoGen="0" objectKey="0" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-200.97#291.67#-290.42" genTime="20000" autoGen="0" objectKey="1" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-169.50#291.67#-293.60" genTime="20000" autoGen="0" objectKey="2" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-194.74#291.67#-258.74" genTime="20000" autoGen="0" objectKey="3" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-229.94#291.67#-288.02" genTime="20000" autoGen="0" objectKey="4" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-201.11#291.67#-321.22" genTime="20000" autoGen="0" objectKey="5" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-223.34#291.67#-254.09" genTime="20000" autoGen="0" objectKey="6" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-172.29#291.67#-326.52" genTime="20000" autoGen="0" objectKey="7" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59247" Pos="-167.77#291.67#-258.32" genTime="20000" autoGen="0" objectKey="8" UseAiOutOfPc="1" propList="&apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="59266" Pos="-262.17#291.67#-285.97" genTime="20000" autoGen="0" objectKey="9" UseAiOutOfPc="1" propList="&apos;Lv&apos; &apos;393&apos; &apos;SimpleAI&apos; &apos;CASTLE93_MINIGAME_MONSTER&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="summon1" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon2" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="summon3" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Str Str="=="/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8/4TH/9"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="summon3-sub" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="10"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+                                <MGameObj List="4TH/9"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8"/>
+                                <Num Num="2"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="4TH/1/4TH/2/4TH/3/4TH/7/4TH/8"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="Clear" execWithStart="0">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="BOSS"/>
+                                <Str Str="=="/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="4TH/0/4TH/1/4TH/2/4TH/3/4TH/4/4TH/5/4TH/6/4TH/7/4TH/8/4TH/9"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="4TH"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="4TH"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summon3-sub"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summon3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summon2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="summon1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DIRECTION_EACH" Client="NO" UseSleep="NO">
+                                <Str Str="CASTLE93_MAIN07_AFTER_TRACK"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EXEC_SSN_ADD" Client="NO" UseSleep="NO">
+                                <Str Str="SSN_CASTLE93_MAIN07"/>
+                                <Str Str="QuestInfoValue1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

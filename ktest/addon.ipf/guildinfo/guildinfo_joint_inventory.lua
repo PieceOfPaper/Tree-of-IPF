@@ -15,6 +15,8 @@ function GUILDINFO_JOINT_INVENTORY_LOAD()
     curTime = imcTime.AddSec(curTime, -10800) -- 3시간
     local curSysTimeStr = string.format("%04d-%02d-%02d %02d:%02d:%02d", curTime.wYear, curTime.wMonth, curTime.wDay, curTime.wHour, curTime.wMinute, curTime.wSecond)
     GetGuildWareHouseLog("ON_GUILD_WAREHOUSE_GET", curSysTimeStr)
+    local itemDateText = GET_CHILD_RECURSIVELY(ui.GetFrame("guildinfo"), "itemDateText")
+    itemDateText:SetText(ClMsg('UI_Hour'))
 
     local slotCnt = JOINT_INVENTORY_SLOT_COUNT()
    

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="legendprefix_tooltip" x="0" y="0" width="300" height="500">
+	<frame layout_gravity="left top" margin="510 400 0 0" resizebyresolution="true"/>
+	<draw drawtitlebar="false"/>
+	<skin frameskin="test_frame_low"/>
+	<input moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<controls>
+		<groupbox name="gbox" rect="0 0 300 400" draw="true" hittestbox="false" margin="0 0 0 0" layout_gravity="left top" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="None"/>
+	</controls>
+</uiframe>

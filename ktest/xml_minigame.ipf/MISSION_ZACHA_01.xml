@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <GameList>
     <Game Name="MISSION_ZACHA_01" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="mission_zachariel_01" playerCountCheckDestroy="1" checkSec="0" checkSecStart="3600" msgTxt="None" portrait="None">
         <StageList>
@@ -1049,10 +1048,12 @@
                         <Num Num="60"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
-                        <Str Str="60초 후에 존으로 돌아갑니다."/>
+                        <Str Str="&quot;미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다&quot;"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156161" Pos="37.47#-20.13#-485.16" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event execCount="2">
                         <condList>
@@ -1061,6 +1062,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="SUCCESS"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                         </execList>
                     </Event>

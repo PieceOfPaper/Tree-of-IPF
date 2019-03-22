@@ -553,6 +553,10 @@
 		<image name="icon_item_ignas_boots" file="\icon\equip\icon_item_ignas_boots.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_ignas_glove" file="\icon\equip\icon_item_ignas_glove.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_ignas_pants" file="\icon\equip\icon_item_ignas_pants.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_arkishknight_gloves_black" file="\icon\equip\icon_item_arkishknight_gloves_black.png" imgrect="0 0 256 256" CMM_Caption="판금세트5_black"/>
+		<image name="icon_item_arkishknight_pants_black" file="\icon\equip\icon_item_arkishknight_pants_black.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_arkishknight_boots_black" file="\icon\equip\icon_item_arkishknight_boots_black.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_arkishknight_armor_black" file="\icon\equip\icon_item_arkishknight_armor_black.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_costume_icons">
 		<image name="icon_item_Alchemist_f" file="\icon\equip\Alchemist_f_icon.png" imgrect="0 0 256 256" CMM_Caption="알케미스트"/>
@@ -843,6 +847,48 @@
 		<image name="icon_item_helmet_assassin" file="\icon\equip\icon_item_helmet_assassin.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_templar02_f" file="\icon\equip\icon_item_warrior_templar02_f.png" imgrect="0 0 256 256" CMM_Caption="템플러 코스튬"/>
 		<image name="icon_item_warrior_templar02_m" file="\icon\equip\icon_item_warrior_templar02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_SpecialCostume_arditi_f" file="\icon\equip\icon_item_SpecialCostume_arditi.png" imgrect="0 0 256 256" CMM_Caption="아르디티 코스튬"/>
+		<image name="icon_item_SpecialCostume_arditi_m" file="\icon\equip\icon_item_SpecialCostume_arditi.png" imgrect="0 0 256 256" CMM_Caption="아르디티 코스튬"/>
+		<image name="icon_item_scoutCos_arditi01_f" file="\icon\equip\icon_item_scoutCos_arditi01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi01_m" file="\icon\equip\icon_item_scoutCos_arditi01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi02_f" file="\icon\equip\icon_item_scoutCos_arditi02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi02_m" file="\icon\equip\icon_item_scoutCos_arditi02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi03_f" file="\icon\equip\icon_item_scoutCos_arditi03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi03_m" file="\icon\equip\icon_item_scoutCos_arditi03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi04_f" file="\icon\equip\icon_item_scoutCos_arditi04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_arditi04_m" file="\icon\equip\icon_item_scoutCos_arditi04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_SpecialCostume_sheriff_f" file="\icon\equip\icon_item_SpecialCostume_sheriff.png" imgrect="0 0 256 256" CMM_Caption="셰리프 코스튬"/>
+		<image name="icon_item_SpecialCostume_sheriff_m" file="\icon\equip\icon_item_SpecialCostume_sheriff.png" imgrect="0 0 256 256" CMM_Caption="셰리프 코스튬"/>
+		<image name="icon_item_scoutCos_sheriff01_f" file="\icon\equip\icon_item_scoutCos_sheriff01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff01_m" file="\icon\equip\icon_item_scoutCos_sheriff01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff02_f" file="\icon\equip\icon_item_scoutCos_sheriff02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff02_m" file="\icon\equip\icon_item_scoutCos_sheriff02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff03_f" file="\icon\equip\icon_item_scoutCos_sheriff03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff03_m" file="\icon\equip\icon_item_scoutCos_sheriff03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff04_f" file="\icon\equip\icon_item_scoutCos_sheriff04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_scoutCos_sheriff04_m" file="\icon\equip\icon_item_scoutCos_sheriff04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_SpecialCostume_tigerhunter_f" file="\icon\equip\icon_item_SpecialCostume_tigerhunter.png" imgrect="0 0 256 256" CMM_Caption="산포 코스튬"/>
+		<image name="icon_item_SpecialCostume_tigerhunter_m" file="\icon\equip\icon_item_SpecialCostume_tigerhunter.png" imgrect="0 0 256 256" CMM_Caption="산포 코스튬"/>
+		<image name="icon_item_archerCos_tigerhunter01_f" file="\icon\equip\icon_item_archerCos_tigerhunter01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter01_m" file="\icon\equip\icon_item_archerCos_tigerhunter01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter02_f" file="\icon\equip\icon_item_archerCos_tigerhunter02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter02_m" file="\icon\equip\icon_item_archerCos_tigerhunter02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter03_f" file="\icon\equip\icon_item_archerCos_tigerhunter03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter03_m" file="\icon\equip\icon_item_archerCos_tigerhunter03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter04_f" file="\icon\equip\icon_item_archerCos_tigerhunter04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_tigerhunter04_m" file="\icon\equip\icon_item_archerCos_tigerhunter04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_SpecialCostume_matross_f" file="\icon\equip\icon_item_SpecialCostume_matross.png" imgrect="0 0 256 256" CMM_Caption="매트로스 코스튬"/>
+		<image name="icon_item_SpecialCostume_matross_m" file="\icon\equip\icon_item_SpecialCostume_matross.png" imgrect="0 0 256 256" CMM_Caption="매트로스 코스튬"/>
+		<image name="icon_item_archerCos_matross01_f" file="\icon\equip\icon_item_archerCos_matross01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross01_m" file="\icon\equip\icon_item_archerCos_matross01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross02_f" file="\icon\equip\icon_item_archerCos_matross02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross02_m" file="\icon\equip\icon_item_archerCos_matross02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross03_f" file="\icon\equip\icon_item_archerCos_matross03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross03_m" file="\icon\equip\icon_item_archerCos_matross03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross04_f" file="\icon\equip\icon_item_archerCos_matross04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_archerCos_matross04_m" file="\icon\equip\icon_item_archerCos_matross04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_tos_fes2019_f" file="\icon\equip\icon_item_tos_fes2019_f.png" imgrect="0 0 256 256" CMM_Caption="2019년 문구 티셔츠"/>
+		<image name="icon_item_tos_fes2019_m" file="\icon\equip\icon_item_tos_fes2019_m.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="256_weapone_icons">
 		<image name="icon_item_artefact_210011" file="\icon\weapon\icon_item_artefact_210011.png" imgrect="0 0 256 256" CMM_Caption="요령"/>
@@ -2875,6 +2921,7 @@
 		<image name="icon_item_Neck_aloneDungeon02" file="\icon\acc\icon_item_Neck_aloneDungeon02.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bracelet_aloneDungeon2" file="\icon\acc\icon_item_bracelet_aloneDungeon2.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_bracelet_aloneDungeon1" file="\icon\acc\icon_item_bracelet_aloneDungeon1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_armband_chick01" file="\icon\acc\icon_item_armband_chick01.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="hair_accesory">
 		<image name="hairacc_1_egg" file="\icon\hairacc\hairacc_1_egg.png" imgrect="0 0 256 256"/>
@@ -3202,6 +3249,8 @@
 		<image name="icon_item_colorful_Boeing_Sunglasses" file="\icon\hairacc\icon_item_colorful_Boeing_Sunglasses.png" imgrect="0 0 256 256" CMM_Caption="컬러풀 보잉 선글라스"/>
 		<image name="icon_item_magicalRib01" file="\icon\hairacc\icon_item_magicalRib01.png" imgrect="0 0 256 256" CMM_Caption="2019 03 헤어악세"/>
 		<image name="icon_item_magicalRib02" file="\icon\hairacc\icon_item_magicalRib02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_hair_chick" file="\icon\hairacc\icon_item_hair_chick.png" imgrect="0 0 256 256" CMM_Caption="2019 04 헤어악세"/>
+		<image name="icon_sprout_event01" file="\icon\hairacc\icon_sprout_event01.png" imgrect="0 0 256 256" CMM_Caption="2019 04 헤어악세 새싹"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -4254,7 +4303,7 @@
 		<image name="icon_item_JOB_2_SADHU4_ITEM" file="\icon\item\icon_item_JOB_2_SADHU4_ITEM.png" imgrect="0 0 128 128" CMM_Caption="사두마스터의기운"/>
 		<image name="icon_item_juice" file="\icon\item\icon_item_juice.png" imgrect="0 0 128 128" CMM_Caption="거대과일과즙"/>
 		<image name="icon_item_statue_of_piece" file="\icon\item\icon_item_statue_of_piece.png" imgrect="0 0 128 128" CMM_Caption="평화의조각상"/>
-		<image name="item_icon_sprout" file="\icon\item\icon_item_sprout.png" imgrect="0 0 128 128" CMM_Caption="씨앗"/>
+		<image name="item_icon_sprout" file="\icon\item\item_icon_sprout.png" imgrect="0 0 128 128" CMM_Caption="씨앗"/>
 		<image name="item_icon_witheredplants" file="\icon\item\icon_item_witheredplants.png" imgrect="0 0 128 128" CMM_Caption="시든식물"/>
 		<image name="icon_item_Geranium_farm" file="\icon\item\icon_item_Geranium_farm.png" imgrect="0 0 128 128" CMM_Caption="제라늄_농장식물"/>
 		<image name="icon_item_Rosemary_farm" file="\icon\item\icon_item_Rosemary_farm.png" imgrect="0 0 128 128" CMM_Caption="로즈마리_농장식물"/>
@@ -5014,7 +5063,6 @@
 		<image name="icon_item_woodenwall_trap3" file="\icon\item\icon_item_woodenwall_trap3.png" imgrect="0 0 256 256" CMM_Caption="목책"/>
 		<image name="icon_item_siege_tower" file="\icon\item\icon_item_siege_tower.png" imgrect="0 0 256 256" CMM_Caption="공성탑"/>
 		<image name="icon_item_divine_flag" file="\icon\item\icon_item_divine_flag.png" imgrect="0 0 256 256" CMM_Caption="신성한 깃발"/>
-		<image name="icon_item_ignas_stone" file="\icon\item\icon_item_ignas_stone.png" imgrect="0 0 256 256" CMM_Caption="이그나스 영혼석"/>
 		<image name="icon_item_ability_Point_Scroll_1000" file="\icon\item\icon_item_ability_Point_Scroll_1000.png" imgrect="0 0 128 128" CMM_Caption="특성포인트 스크롤 1000"/>
 		<image name="icon_item_classExp_rollback" file="\icon\item\icon_item_classExp_rollback.png" imgrect="0 0 256 256" CMM_Caption="클래스 초기화 카드"/>
 		<image name="icon_item_boruta_coin" file="\icon\item\icon_item_boruta_coin.png" imgrect="0 0 128 128" CMM_Caption="보루타 코인"/>
@@ -5044,8 +5092,43 @@
 		<image name="icon_item_bernice_coin" file="\icon\item\icon_item_bernice_coin.png" imgrect="0 0 128 128" CMM_Caption="베르니케 파편 주화"/>
 		<image name="icon_item_battle_potion_3" file="\icon\item\icon_item_battle_potion_3.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_battle_potion_4" file="\icon\item\icon_item_battle_potion_4.png" imgrect="0 0 128 128"/>
+		<image name="item_icon_froster_load_stone" file="\icon\item\item_icon_froster_load_stone.png" imgrect="0 0 256 256" CMM_Caption="프로스터 로드 정수"/>
 		<image name="item_icon_ignas_stone" file="\icon\item\item_icon_ignas_stone.png" imgrect="0 0 256 256" CMM_Caption="이그나스 정수"/>
 		<image name="icon_item_event1902_bait" file="\icon\item\icon_item_event1902_bait.png" imgrect="0 0 128 128" CMM_Caption="미꾸라지 미끼"/>
+		<image name="icon_item_weapon_misc6" file="\icon\item\icon_item_weapon_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_무기"/>
+		<image name="icon_item_bracelet_misc6" file="\icon\item\icon_item_bracelet_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_팔찌"/>
+		<image name="icon_item_necklace_misc6" file="\icon\item\icon_item_necklace_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_목걸이"/>
+		<image name="icon_item_recipe_misc6" file="\icon\item\icon_item_recipe_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_방패"/>
+		<image name="icon_item_boots_misc6" file="\icon\item\icon_item_boots_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_신발"/>
+		<image name="icon_item_gloves_misc6" file="\icon\item\icon_item_gloves_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_장갑"/>
+		<image name="icon_item_pants_misc6" file="\icon\item\icon_item_pants_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_하의"/>
+		<image name="icon_item_shirts_misc6" file="\icon\item\icon_item_shirts_misc6.png" imgrect="0 0 128 128" CMM_Caption="레전드 제작서_상의"/>
+		<image name="Icon_Item_first_aid_kit" file="\icon\item\Icon_Item_first_aid_kit.png" imgrect="0 0 128 128" CMM_Caption="구급상자"/>
+		<image name="icon_item_seed_of_divine_tree" file="\icon\item\icon_item_seed_of_divine_tree.png" imgrect="0 0 256 256" CMM_Caption="신수의 씨앗"/>
+		<image name="icon_item_Geranium_farm_White" file="\icon\item\icon_item_Geranium_farm_White.png" imgrect="0 0 128 128" CMM_Caption="하얀 꽃"/>
+		<image name="icon_item_branch_06Divine" file="\icon\item\icon_item_branch_06Divine.png" imgrect="0 0 128 128" CMM_Caption="신성한 나뭇가지"/>
+		<image name="icon_item_butterfly_maple_leaf_red" file="\icon\item\icon_item_butterfly_maple_leaf_red.png" imgrect="0 0 128 128" CMM_Caption="나비 모양의 붉은 나뭇잎"/>
+		<image name="icon_item_butterfly_maple_leaf_yellow" file="\icon\item\icon_item_butterfly_maple_leaf_yellow.png" imgrect="0 0 128 128" CMM_Caption="나비 모양의 노란 나뭇잎"/>
+		<image name="icon_item_butterfly_maple_leaf_white" file="\icon\item\icon_item_butterfly_maple_leaf_white.png" imgrect="0 0 128 128" CMM_Caption="나비 모양의 하얀 나뭇잎"/>
+		<image name="icon_item_misc_0534" file="\icon\item\icon_item_misc_0534.png" imgrect="0 0 128 128" CMM_Caption="문양1"/>
+		<image name="icon_item_misc_0535" file="\icon\item\icon_item_misc_0535.png" imgrect="0 0 128 128" CMM_Caption="문양2"/>
+		<image name="icon_item_misc_0536" file="\icon\item\icon_item_misc_0536.png" imgrect="0 0 128 128" CMM_Caption="문양3"/>
+		<image name="icon_item_misc_0530" file="\icon\item\icon_item_misc_0530.png" imgrect="0 0 128 128" CMM_Caption="빛나는 붉은 단풍잎"/>
+		<image name="icon_item_misc_0531" file="\icon\item\icon_item_misc_0531.png" imgrect="0 0 128 128" CMM_Caption="순백의 코스모스"/>
+		<image name="icon_item_misc_0532" file="\icon\item\icon_item_misc_0532.png" imgrect="0 0 128 128" CMM_Caption="보라색 라벤더"/>
+		<image name="icon_item_misc_0533" file="\icon\item\icon_item_misc_0533.png" imgrect="0 0 128 128" CMM_Caption="붉은 튤립"/>
+		<image name="icon_item_misc_white" file="\icon\item\icon_item_misc_white.png" imgrect="0 0 128 128" CMM_Caption="원소 결정 화이트"/>
+		<image name="icon_item_misc_black" file="\icon\item\icon_item_misc_black.png" imgrect="0 0 128 128" CMM_Caption="원소 결정 블랙"/>
+		<image name="icon_item_legend_misc01" file="\icon\item\icon_item_legend_misc01.png" imgrect="0 0 128 128" CMM_Caption="레전드 바디 재료"/>
+		<image name="icon_item_awakemisc01" file="\icon\item\icon_item_awakemisc01.png" imgrect="0 0 128 128" CMM_Caption="각성 연마제 파랑"/>
+		<image name="icon_item_awakemisc02" file="\icon\item\icon_item_awakemisc02.png" imgrect="0 0 128 128" CMM_Caption="각성 연마제 보라"/>
+		<image name="icon_item_awakemisc03" file="\icon\item\icon_item_awakemisc03.png" imgrect="0 0 128 128" CMM_Caption="각성 연마제 빨강"/>
+		<image name="icon_item_awakemisc04" file="\icon\item\icon_item_awakemisc04.png" imgrect="0 0 128 128" CMM_Caption="각성 연마제 노랑"/>
+		<image name="icon_item_dungeon_Raidportalstone" file="\icon\item\icon_item_dungeon_Raidportalstone.png" imgrect="0 0 128 128" CMM_Caption="레이드 포탈 스톤"/>
+		<image name="icon_item_full_partis2" file="\icon\item\icon_item_full_partis2.png" imgrect="0 0 256 256" CMM_Caption="파모카 시약병"/>
+		<image name="icon_item_kukery_soulstone" file="\icon\item\icon_item_kukery_soulstone.png" imgrect="0 0 128 128" CMM_Caption="영험한 쿠게리 발저맨서 정수"/>
+		<image name="icon_item_space_box" file="\icon\item\icon_item_space_box.png" imgrect="0 0 256 256" CMM_Caption="우주선 테마 큐브"/>
+		<image name="icon_item_Gacha_PC_Event_Costume01" file="\icon\item\icon_item_Gacha_PC_Event_Costume01.png" imgrect="0 0 256 256" CMM_Caption="우주선 테마 큐브_주황색"/>
 	</imagelist>
 	<imagelist category="payment">
 		<image name="icon_item_hpPotionPremium" file="\icon\payment\icon_item_hpPotionPremium.png" imgrect="0 0 256 256" CMM_Caption="HP포션"/>
@@ -5921,6 +6004,17 @@
 		<image name="icon_item_changegirl_red_f" file="\icon\payment\icon_item_changegirl_red_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_changeboy_red_m" file="\icon\payment\icon_item_changeboy_red_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_changeboy_yellow_m" file="\icon\payment\icon_item_changeboy_yellow_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Dirbtumas_kit" file="\icon\payment\icon_item_Dirbtumas_kit.png" imgrect="0 0 256 256" CMM_Caption="연성 키트 아이콘_초록"/>
+		<image name="icon_item_Dirbtumas_kit_silver" file="\icon\payment\icon_item_Dirbtumas_kit_silver.png" imgrect="0 0 256 256" CMM_Caption="연성 키트 아이콘_파랑"/>
+		<image name="icon_item_astronaut02_selelctbox" file="\icon\payment\icon_item_astronaut02_selelctbox.png" imgrect="0 0 256 256" CMM_Caption="[pc방]우주복 코스튬 박스"/>
+		<image name="icon_item_astronaut02_f" file="\icon\payment\icon_item_astronaut02.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_astronaut02_m" file="\icon\payment\icon_item_astronaut02.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_helmet_astronaut02" file="\icon\payment\icon_item_helmet_astronaut02.png" imgrect="0 0 256 256" CMM_Caption=""/>
+		<image name="icon_item_selectbox_astronaut" file="\icon\payment\icon_item_selectbox_astronaut.png" imgrect="0 0 256 256" CMM_Caption="스팀 3월테마 코스튬 박스"/>
+		<image name="icon_item_astronaut_f" file="\icon\payment\icon_item_astronaut.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_astronaut_m" file="\icon\payment\icon_item_astronaut.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_astronaut_helmet" file="\icon\payment\icon_item_astronaut_helmet.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_tos_fes2019_selectbox" file="\icon\payment\icon_item_tos_fes2019_selectbox.png" imgrect="0 0 256 256" CMM_Caption="2019 이벤트 코스튬 박스"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

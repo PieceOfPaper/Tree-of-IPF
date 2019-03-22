@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="E_warrior_Seism_swordtrail_ride" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="E_warrior_Seism_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter_pet" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="14" attachNode="Dummy_emitter_pet" particleName="F_smoke031" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="3.00" soundFile="skl_eff_murmillo_jump"/>
+	<Sound frame="13.00" soundFile="skl_fgt_skyline_costume"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="14" R="150" G="150" B="100" A="50"/>
+	<BlendOn frame="15" R="100" G="100" B="60" A="50"/>
+	<BlendOff frame="17" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

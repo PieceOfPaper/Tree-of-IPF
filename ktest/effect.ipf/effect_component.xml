@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
 	<Particle name="fire013_2" texture="fire013_2" width="5.00" height="5.00" pivot_x="0" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
 	<Particle name="fire013" texture="fire013" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="256"/>
@@ -591,6 +591,7 @@
 	<Sprite name="sprit013" texture="sprit013" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit012" texture="sprit012" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit011" texture="sprit011" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="8" pitch="4" ticktime="0.03"/>
+	<Sprite name="sprit008_alpha2" texture="sprit008_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.03"/>
 	<Sprite name="sprit008_alpha" texture="sprit008_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit008_green" texture="sprit008_green" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
 	<Sprite name="sprit016_alpha" texture="sprit016_alpha" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
@@ -652,6 +653,9 @@
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="Firebomb" model="Firebomb.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="Lachrymator002" model="Lachrymator002.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
+	<Model name="slash001_2" model="slash001_2.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="arditi_skill_firebomb" model="arditi_skill_firebomb.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="slash001" model="slash001.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="true" AlphaType="BLEND"/>
 	<Model name="fire_ball_spear2_white" model="fire_ball_spear2.xac" motion="None" texturepath="effect\high\modeltexture\white\" overlap="true" AlphaType="TEST"/>
@@ -764,6 +768,7 @@
 	<Model name="Hengestone_dead" model="Hengestone_dead.xac" motion="Hengestone_dead_ani.xsm" texturepath="char_texture\monster\Hengestone\" overlap="false" AlphaType="TEST"/>
 	<Model name="velcoffer_gimmick_prop_dead" model="velcoffer_gimmick_prop_dead.xac" motion="velcoffer_gimmick_prop_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Model name="maple_25_supplemants_event_dead" model="maple_25_supplemants_event_dead.xac" motion="maple_25_supplemants_event_dead_ani.xsm" texturepath="char_texture\npc\maple_25_supplemants\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_shadow_cage_dead" model="I_shadow_cage_dead.xac" motion="I_shadow_cage_dead_ani.xsm" texturepath="char_texture\npc\skill\" overlap="false" AlphaType="TEST"/>
 	<Model name="shadow_raid_stone_dead" model="shadow_raid_stone_dead.xac" motion="shadow_raid_stone_dead_ani.xsm" texturepath="char_texture\npc\shadow_raid_stone\" overlap="false" AlphaType="TEST"/>
 	<Model name="shadow_raid_device_dead" model="shadow_raid_device_dead.xac" motion="shadow_raid_device_dead_ani.xsm" texturepath="char_texture\npc\shadow_raid_device\" overlap="false" AlphaType="TEST"/>
 	<Model name="shadow_raid_orb_dead" model="shadow_raid_orb_dead.xac" motion="shadow_raid_orb_dead_ani.xsm" texturepath="char_texture\npc\shadow_raid_orb\" overlap="false" AlphaType="TEST"/>
@@ -1591,6 +1596,8 @@
 	<Model name="I_magictrap_core_red_dead" model="magictrap_core_red_dead.xac" motion="magictrap_core_red_dead_ani.xsm" texturepath="char_texture\npc\magictrap_core\red\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_Brick_dead" model="Brick_dead.xac" motion="Brick_dead_ani.xsm" texturepath="item_texture\" overlap="false" AlphaType="TEST"/>
 	<Model name="I_boss_boruta_dead" model="boss_boruta_dead.xac" motion="boss_boruta_dead_ani.xsm" texturepath="char_texture\monster\boruta\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_boss_VElclipse_sealed_dead" model="boss_VElclipse_sealed_dead.xac" motion="boss_VElclipse_sealed_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
+	<Model name="I_boss_VElclipse_dead" model="boss_VElclipse_dead.xac" motion="boss_VElclipse_dead_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false" AlphaType="TEST"/>
 	<Text name="Text_damage_self" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_decision" caption="" fontfilename="ORIGINAL" fontsize="20" bold="1" italic="0" outline="1" dropshadow="0" mindistance="50.00" maxdistance="150.00"/>
 	<Text name="Text_destination" caption="" fontfilename="ORIGINAL" fontsize="28" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>

@@ -1,12 +1,13 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 1 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_castle_96\"/>
-	<SubModelDir IpfName="bg_hi" Path="\field\f_castle_96\"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_castle_96\"/>
+	<SubModelDir IpfName="bg_hi3" Path="\field\f_castle_96\"/>
+	<LightMap File="f_castle_96_lightmap.jpg" Length="3500 3500" Offset="78.426 -267.185" Size="1024 1024"/>
 	<TexDir IpfName="bg_texture" Path="\castle\"/>
-	<ShaTexDir IpfName="bg_hi" Path="\field\f_castle_96\"/>
-	<SubShaTexDir IpfName="bg_hi" Path="\field\f_castle_96\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_castle_96\"/>
+	<SubShaTexDir IpfName="bg_hi3" Path="\field\f_castle_96\"/>
 	<Model File="f_castle96_b_model.xac" Model="f_castle96_b_model" ShadowMap="f_castle96_b_model" pos="513.7825 -13.964 437.5072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_castle96_ground.xac" Model="f_castle96_ground" ShadowMap="f_castle96_ground" pos="113.2244 117.1452 -265.1506" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_castle96_1area_tree.xac" Model="f_castle96_1area_tree" ShadowMap="f_castle96_1area_tree" pos="63.7278 -109.5058 -1654.3379" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>

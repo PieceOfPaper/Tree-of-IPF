@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="50" G="70" B="100" A="100"/>
+	<BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachNode="Dummy_skl2" particleName="F_dash011" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_smoke037" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

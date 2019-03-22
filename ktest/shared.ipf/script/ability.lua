@@ -1094,6 +1094,21 @@ function SCR_ABIL_MUSKETEER30_INACTIVE(self, ability)
     DelExProp(self, "add_Musketeer30_ATK")
 end
 
+function SCR_ABIL_TIGERHUNTER5_ACTIVE(self, ability)
+    local skl = GetSkill(self, "TigerHunter_Blitz")
+    if skl ~= nil then
+        skl.KnockDownHitType = 3
+    end
+    
+end
+
+function SCR_ABIL_TIGERHUNTER5_INACTIVE(self, ability)
+    local skl = GetSkill(self, "TigerHunter_Blitz")
+    if skl ~= nil then
+        skl.KnockDownHitType = 1
+    end
+end
+
 function IS_ABILITY_KEYWORD(abilCls, keyword)
     local keywordStr = TryGetProp(abilCls, "Keyword");
     if keywordStr == nil or keywordStr == "None" then
@@ -1108,4 +1123,18 @@ function IS_ABILITY_KEYWORD(abilCls, keyword)
         end
     end
     return false;
+end
+
+function SCR_ABIL_Psychokino24_ACTIVE(self, ability)
+    local skl = GetSkill(self, "Wizard_Teleportation")
+    if skl ~= nil then
+        SetSkillOverHeat(self, skl.ClassName, 2, 1)
+    end
+end
+
+function SCR_ABIL_Psychokino24_INACTIVE(self, ability)
+    local skl = GetSkill(self, "Wizard_Teleportation")
+    if skl ~= nil then
+        SetSkillOverHeat(self, skl.ClassName, 0, 1)
+    end
 end
