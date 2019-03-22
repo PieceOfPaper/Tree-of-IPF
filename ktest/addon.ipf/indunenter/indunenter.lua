@@ -722,10 +722,10 @@ function INDUNENTER_MAKE_COUNT_BOX(frame, noPicBox, indunCls)
                 end
             
                 if session.loginInfo.IsPremiumState(ITEM_TOKEN) == true then
-                    maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token')
+                    maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_Token', 0)
                 end
                 if session.loginInfo.IsPremiumState(NEXON_PC) == true then
-                    maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC')
+                    maxCount = maxCount + TryGetProp(indunCls, 'PlayPerReset_NexonPC', 0)
                 end
                 countData:SetTextByKey("max", maxCount);
             
