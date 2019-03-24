@@ -397,7 +397,7 @@ function SCR_ABIL_CLOTH_ACTIVE(self, ability)
     local value = 0;
     
     if count >= 4 then
-	    value = 100     -- 10%
+	    value = 150     -- 15%
 	end
     
     SetExProp(self, "CLOTH_ARMOR_ABIL_VALUE", value);
