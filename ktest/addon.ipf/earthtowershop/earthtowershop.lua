@@ -508,9 +508,13 @@ function EARTH_TOWER_SHOP_EXEC(parent, ctrl)
     local_control = ctrl;
 
     local parentcset = ctrl:GetParent()
-
-
     local frame = ctrl:GetTopParentFrame(); 
+    
+    if frame:GetName() == 'legend_craft' then
+       LEGEND_CRAFT_EXECUTE(local_parent, local_control);
+       return;
+   end
+    
     local cnt = parentcset:GetChildCount();
     for i = 0, cnt - 1 do
         local eachcset = parentcset:GetChildByIndex(i);     
