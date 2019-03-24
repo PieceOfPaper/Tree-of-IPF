@@ -33,6 +33,30 @@ function SCR_GET_SKL_CoolDown(skill)
 
 end
 
+function SCR_Get_SpendSP_Dargoon(skill)
+    local value = SCR_Get_SpendSP(skill)
+    local pc = GetSkillOwner(skill);
+    
+    if value < 1 then
+        value = 0
+    end
+    
+    local addValue = 1
+    local pcLevel = TryGetProp(pc, "Lv", 0)
+    local mnaRate = TryGetProp(pc, "MNA", 0)    
+    
+    if IsBuffApplied(pc, "DragoonHelmet_Buff") == "YES" then
+        addValue = 3
+    elseif IsBuffApplied(pc, "DragoonHelmet_Abil_Buff") == "YES" then
+        addValue = 2.5
+    end
+    
+    addValue = addValue - math.min(1, mnaRate / pcLevel)
+    value = math.floor(value * addValue)
+    
+    return math.floor(value);
+end
+
 function SCR_Get_SpendSP_BUNSIN(skill)
     local value = SCR_Get_SpendSP(skill)
 --    local basicsp = skill.BasicSP;
@@ -99,7 +123,7 @@ function SCR_Get_SpendSP(skill)
     end
 
     local value = basicSP * (1 + bylvCorrect)
-
+    
     local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
     abilAddSP = abilAddSP / 100;
     
@@ -127,7 +151,7 @@ function SCR_Get_SpendSP(skill)
 end
 
 function SCR_Get_SpendSP_Magic(skill)
-    local value = SCR_Get_SpendSP(skill)
+    local value = SCR_Get_SpendSP(skill)    
 --    local basicsp = skill.BasicSP;
 --    local lv = skill.Level;
 --    local lvUpSpendSp = skill.LvUpSpendSp;
@@ -172,23 +196,6 @@ function SCR_Get_SpendSP_Magic(skill)
     
     if skill.ClassName == "Oracle_TwistOfFate" and GetZoneName(pc) == "guild_agit_1" then
         return 0
-    end
-    
-    return math.floor(value);
-end
-
-function SCR_Get_SpendSP_Heal(skill)
-    local value = SCR_Get_SpendSP_Magic(skill)
-    
-    local pc = GetSkillOwner(skill);
-    if IsBuffApplied(pc, 'Heal_Overload_Buff') == 'YES' then
-        local over = GetBuffOver(pc, "Heal_Overload_Buff")
-        local addValue = math.floor(value * over * 0.2)
-        value = value + addValue
-    end
-    
-    if value < 1 then
-        value = 0
     end
     
     return math.floor(value);
@@ -1199,6 +1206,8 @@ function SCR_ABIL_ADD_SKILLFACTOR(abil, value)
     return value
 end
 
+-- skillshared.lua 의 function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill) 와 내용 동일함
+-- 같이 변경해야 함
 function SCR_REINFORCEABILITY_TOOLTIP(skill)
     local pc = GetSkillOwner(skill);
     local addAbilRate = 1;
@@ -2434,12 +2443,17 @@ function SCR_Get_DragoonHelmet_Ratio(skill)
 end
 
 function SCR_Get_DragoonHelmet_Ratio2(skill)
-    local value = 2
+    local value = 200
     local pc = GetSkillOwner(skill);
     local abil = GetAbility(pc, "Dragoon20")
     if abil ~= nil and abil.ActiveState == 1 then
-        value = value * 0.5
+        value = 150
     end
+    
+    local pcLevel = TryGetProp(pc, "Lv", 0)
+    local mnaRate = TryGetProp(pc, "MNA", 0)      
+    
+    value = value - math.min(100, (mnaRate / pcLevel) * 100)    
     
     return math.floor(value);
 end
@@ -8761,8 +8775,8 @@ function SCR_GET_Heal_Ratio(skill)
 end
 
 function SCR_GET_Heal_Ratio2(skill)
-    local value = 588 + (skill.Level - 1) * 103
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)
+    local value = 150 + (skill.Level - 1) * 103
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill)    
     return math.floor(value);
 end
 
@@ -11481,9 +11495,10 @@ end
 
 -- Matross_Explosion
 function SCR_GET_Explosion_Ratio(skill)
+    local pc = GetSkillOwner(skill)
     local value = math.floor(3 + skill.Level * 0.375);
     
-    if IsBuffApplied(self, "Bazooka_Buff") == "YES" then
+    if IsBuffApplied(pc, "Bazooka_Buff") == "YES" then
         value = value * 2
     end
     

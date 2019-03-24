@@ -5859,10 +5859,10 @@ return obj.Level"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" Dist="83.887184" Angle="-1.8468292" Range="50" UpdateTerm="400" AllowOverlap="1">
+    <PadSkill Name="Exorcist_AquaBenedicta" CheckerType="0" Dist="83.887184" Angle="-1.8468292" Range="50" UpdateTerm="1000" AllowOverlap="1">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="10000" UseFunc="1" FuncTxt="return 6000"/>
+                <Num Num="10000" UseFunc="1" FuncTxt="return 3000"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
@@ -12332,7 +12332,7 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Sheriff_Fanning" CheckerType="0" deadProcess="1" Range="1" UpdateTerm="67" AutoPos="1" ApplyFlyMon="1">
+    <PadSkill Name="Sheriff_Fanning" CheckerType="0" deadProcess="1" Range="50" UpdateTerm="65" AutoPos="1" ApplyFlyMon="1" EnableSearch="0" IsMagicType="0" IsMineType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="4000"/>
@@ -12340,37 +12340,30 @@ return 30000 + obj.Level * 5000"/>
             </ToolScp>
             <ToolScp Scp="PAD_USEABLE_RELATION_ENEMY" Client="NO" UseSleep="NO"/>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
+                <Num Num="2"/>
             </ToolScp>
         </createEvent>
         <enterEvent>
             <ToolScp Scp="PAD_ACTIVATE" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
+                <Str Str="ENEMY"/>
             </ToolScp>
         </enterEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_DEACTIVATE" Client="NO" UseSleep="NO">
-                <Str Str="ALL"/>
+                <Str Str="ENEMY"/>
             </ToolScp>
         </leaveEvent>
         <updateEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
-                <Num Num="-67"/>
+                <Num Num="-65"/>
                 <Num Num="0"/>
             </ToolScp>
             <ToolScp Scp="PAD_DAMAGE_ENEMY_SAMETIME_COUNT" Client="NO" UseSleep="NO">
-                <Num Num="1"/>
+                <Num Num="1" UseFunc="1" FuncTxt="return IMCRandom(1,2)"/>
                 <Num Num="1"/>
                 <Num Num="0"/>
-                <Num Num="-1"/>
+                <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>
-                <Num Num="0"/>
-                <Num Num="0"/>
-            </ToolScp>
-            <ToolScp Scp="PAD_MOVE_NEAR_ENEMY" Client="NO" UseSleep="NO">
-                <Str Str="ENEMY"/>
-                <Num Num="50"/>
-                <Num Num="100"/>
                 <Num Num="0"/>
                 <Num Num="0"/>
             </ToolScp>

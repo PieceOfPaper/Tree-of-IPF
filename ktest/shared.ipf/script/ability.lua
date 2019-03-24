@@ -396,8 +396,8 @@ function SCR_ABIL_CLOTH_ACTIVE(self, ability)
     
     local value = 0;
     
-    if count >= 4 and lowestGrade >= 1 then
-	    value = 25 * (1 + lowestGrade);	-- 2.5%
+    if count >= 4 then
+	    value = 100     -- 10%
 	end
     
     SetExProp(self, "CLOTH_ARMOR_ABIL_VALUE", value);
@@ -434,8 +434,8 @@ function SCR_ABIL_LEATHER_ACTIVE(self, ability)
 	
     local value = 0;
     
-    if count >= 4 and lowestGrade >= 1 then
-	    value = lowestGrade * 40;
+    if count >= 4 then
+	    value = 200;  -- 20%
 	end
     
     SetExProp(self, "LEATHER_ARMOR_ABIL_VALUE", value);
@@ -451,8 +451,8 @@ function SCR_ABIL_IRON_ACTIVE(self, ability)
     
     local value = 0;
     
-    if count >= 4 and lowestGrade >= 1 then
-	    value = 25 * (1 + lowestGrade);	-- 2.5%
+    if count >= 4 then
+	    value = 150     -- 15%
 	end
     
     SetExProp(self, "IRON_ARMOR_ABIL_VALUE", value);

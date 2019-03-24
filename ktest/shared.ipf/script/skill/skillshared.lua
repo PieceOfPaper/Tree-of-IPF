@@ -323,6 +323,8 @@ end
 
 
 -- 버프 강화 특성 증가 비율 계산-------
+-- calc_property_skill.lua 의 function SCR_REINFORCEABILITY_TOOLTIP(skill) 와 내용 동일함
+-- 같이 변경해야 함
 function SCR_REINFORCEABILITY_FOR_BUFFSKILL(self, skill)
     local addRate = 1;
     if self ~= nil and skill ~= nil then
