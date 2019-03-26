@@ -1523,6 +1523,7 @@
 		<Class ClassID="21330" ClassName="Attendance_infoText_1" Data="* 출석 보상은 1일 1회, 당일 첫 접속한 캐릭터 인벤토리로 자동 지급됩니다."/>
 		<Class ClassID="21331" ClassName="Attendance_infoText_2" Data="* 출석 체크 기간 동안에만 출석 보상을 받을 수 있으며, 기간 경과 시 더 이상 지급되지 않습니다"/>
 		<Class ClassID="21332" ClassName="Attendance_infoText_3" Data="* 신규/복귀 출석체크 시작 일자는 구원자님의 신규/복귀 일자에 따라 다를 수 있습니다."/>
+    <Class ClassID="21333" ClassName="TransferBarrackSkillReset" Data="{nl}스킬 초기화에 성공하면 숙소로 이동합니다."/>    
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -7626,7 +7627,7 @@
 		<Class ClassID="70472" ClassName="CASTLE94_MAIN05_PROTECT" Data="아직 주변의 마족을 모두 처치하지 않았습니다.{nl}처치 후 다시 시도해주세요."/>
 		<Class ClassID="70473" ClassName="CASTLE95_MAIN03_MSG01" Data="폭약통 안을 뒤지는 중"/>
 		<Class ClassID="70474" ClassName="CASTLE95_MAIN03_MSG02" Data="화약 상자를 발견했습니다!"/>
-		<Class ClassID="70475" ClassName="CASTLE95_MAIN03_MSG03" Data="투척용 폭탄을 발견했습니다!"/>
+		<Class ClassID="70475" ClassName="CASTLE95_MAIN03_MSG03" Data="투척용 폭탄을 발견했습니다!{nl}이제 적당한 위치에서 투척용 폭탄을 던져주세요."/>
 		<Class ClassID="70476" ClassName="CASTLE95_MAIN03_MSG04" Data="더는 물건을 들 수 없습니다."/>
 		<Class ClassID="70477" ClassName="CASTLE95_MAIN03_MSG05" Data="화약 상자를 배치하는 중"/>
 		<Class ClassID="70478" ClassName="CASTLE95_MAIN03_MSG06" Data="화약 상자를 배치했습니다!"/>
@@ -7648,6 +7649,7 @@
 		<Class ClassID="70494" ClassName="CASTLE95_NPC_03_1" Data="불안한 느낌이 드는군요."/>
 		<Class ClassID="70495" ClassName="CASTLE95_NPC_03_2" Data="이럴 땐 꼭 예상이 빗나가질 않네요.."/>
 		<Class ClassID="70496" ClassName="CASTLE95_MAIN05_TAKE_ITEM" Data="아이템을 배치했습니다. "/>
+		<Class ClassID="70497" ClassName="CASTLE95_MAIN03_MSG07" Data="화약 상자를 모두 배치했습니다!{nl}이제 화약 상자나 폭약통에서 투척용 폭탄을 찾으세요."/>
 		<Class ClassID="80001" ClassName="LIMESTONE_52_1_CRYSTAL_ING" Data="불안정한 마력핵 설치 중"/>
 		<Class ClassID="80002" ClassName="LIMESTONE_52_1_SQ_1_TAKE" Data="목걸이 빼앗는 중"/>
 		<Class ClassID="80003" ClassName="LIMESTONE_52_2_MQ_7_SUCC_MSG" Data="구속장치가 요동치기 시작합니다!"/>

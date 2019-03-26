@@ -47,7 +47,7 @@ end
 
 
 function SCR_CASTLE95_SETTING_POINT_01_PRE_DIALOG(pc, dialog, handle)
-    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE94_MAIN03")
+    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE95_MAIN03")
     if questCheck == "PROGRESS" then
         return "YES"
     end
@@ -56,7 +56,7 @@ end
 
 
 function SCR_CASTLE95_SETTING_POINT_02_PRE_DIALOG(pc, dialog, handle)
-    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE94_MAIN03")
+    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE95_MAIN03")
     if questCheck == "PROGRESS" then
         return "YES"
     end
@@ -65,7 +65,7 @@ end
 
 
 function SCR_CASTLE95_SETTING_POINT_03_PRE_DIALOG(pc, dialog, handle)
-    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE94_MAIN03")
+    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE95_MAIN03")
     if questCheck == "PROGRESS" then
         return "YES"
     end
@@ -94,7 +94,7 @@ end
 
 
 function SCR_CASTLE95_SETTING_POINT_04_PRE_DIALOG(pc, dialog, handle)
-    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE94_MAIN03")
+    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE95_MAIN03")
     if questCheck == "PROGRESS" then
         return "YES"
     end
@@ -103,7 +103,7 @@ end
 
 
 function SCR_CASTLE95_OBJECT_PRE_DIALOG(pc, dialog, handle)
-    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE94_MAIN03")
+    local questCheck = SCR_QUEST_CHECK(pc, "CASTLE95_MAIN03")
     if questCheck == "PROGRESS" then
         return "YES"
     end

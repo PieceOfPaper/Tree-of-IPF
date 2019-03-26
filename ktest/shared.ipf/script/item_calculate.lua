@@ -1518,6 +1518,169 @@ function SCR_GET_COLONY_POTION_TP_COOLDOWN(item)
     return 0
 end
 
+function SCR_GET_AWAKENING_PROP_LEVEL(star, grade)
+
+    local value = 0;
+    
+    if star == 1 then
+        value = 15;
+    elseif star == 2 then
+        value = 40;
+    elseif star == 3 then
+        value = 75;
+    elseif star == 4 then
+        value = 120;
+    else
+        value = (star - 4 ) * 50 + 120;
+    end
+    
+    value = value * (1 + (grade - 1) / 10);
+    
+    return value;
+end
+
+function SCR_GET_MAXPROP_DEF(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.1 * 0.4;
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end 
+
+function SCR_GET_MAXPROP_DEFATTRIBUTE(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.1 * 0.5;
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_ATK(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.12;
+    
+    if item.DBLHand == 'YES' then
+        value = value * 1.4;
+    end
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_STAT(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.1 * 0.5;
+    
+    if item.DBLHand == 'YES' then
+        value = value * 1.4;
+    end
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_MHP(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.08 * 34;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_MSP(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.08 * 6.7;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_RHP(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.2;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
+function SCR_GET_MAXPROP_RSP(item, awakestoneItem)
+    
+    local star = item.ItemStar;
+    local grade = item.ItemGrade;
+    local value = SCR_GET_AWAKENING_PROP_LEVEL(star, grade);
+    
+    value = value * 0.2;
+    
+    local result = IMCRandom(value * 0.5, value)
+    
+    if result < 1 then
+        result = 1;
+    end
+    
+    return math.floor(result);
+end
+
 function GET_KEYWORD_PROP_NAME(idx)
 
     if idx == 1 then

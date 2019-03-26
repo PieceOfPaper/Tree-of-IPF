@@ -42,17 +42,18 @@ function SCR_Get_SpendSP_Dargoon(skill)
     end
     
     local addValue = 1
-    local pcLevel = TryGetProp(pc, "Lv", 0)
-    local mnaRate = TryGetProp(pc, "MNA", 0)    
+    local pcLevel = TryGetProp(pc, "Lv", 1)
+    local mnaRate = TryGetProp(pc, "MNA", 1)    
     
     if IsBuffApplied(pc, "DragoonHelmet_Buff") == "YES" then
         addValue = 3
+        addValue = addValue - math.min(1, mnaRate / pcLevel)
+        value = math.floor(value * addValue)        
     elseif IsBuffApplied(pc, "DragoonHelmet_Abil_Buff") == "YES" then
         addValue = 2.5
+        addValue = addValue - math.min(1, mnaRate / pcLevel)
+        value = math.floor(value * addValue)
     end
-    
-    addValue = addValue - math.min(1, mnaRate / pcLevel)
-    value = math.floor(value * addValue)
     
     return math.floor(value);
 end
@@ -1749,6 +1750,11 @@ function SCR_GET_Impaler_Ratio2(skill)
     return value;
 end
 
+function SCR_GET_DoomSpike_Ratio(skill)
+    local value = 10 + TryGetProp(skill, "Level", 1) 
+    return value
+end
+
 function SCR_GET_Rush_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
@@ -1779,12 +1785,6 @@ function SCR_GET_EarthWave_Ratio(skill)
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
 
-end
-
-function SCR_GET_DoomSpike_Ratio(skill)
-    local value = 10 * skill.Level
-    
-    return value
 end
 
 function SCR_GET_SteedCharge_Ratio(skill)
@@ -5390,6 +5390,17 @@ function SCR_GET_Incineration_Ratio2(skill)
     return value
 end
 
+function SCR_GET_Incineration_Ratio3(skill)
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, "PlagueDoctor15") 
+    local value = 0.5
+    if abil ~= nil and TryGetProp(abil, "ActiveState", 0) == 1 then 
+        value = value - 0.2   
+    end
+
+    return value
+end
+
 function SCR_GET_Nachash_Ratio(skill)
 
     local pc = GetSkillOwner(skill);
@@ -6475,7 +6486,7 @@ function SCR_Get_Detoxify_Ratio(skill)
 end
 
 function SCR_GET_Daino_Ratio(skill)
-    local value = skill.Level * 5
+    local value = TryGetProp(skill, 'Level', 1) * 1.5
     
     return value;
 end
@@ -9061,7 +9072,7 @@ end
 
 
 
-function SCR_GET_Aukuras_Ratio(skill)
+function SCR_GET_Aukuras_Ratio(skill)    
     local value = 39 + (19 * (skill.Level - 1));
     
     local pc = GetSkillOwner(skill)
@@ -9080,8 +9091,16 @@ end
 
 function SCR_GET_Aukuras_Ratio2(skill)
     local pc = GetSkillOwner(skill)
+    local value = 0
     
-    local value = 100 + (skill.Level * 45)
+    if pc ~= nil then
+        -- 지능 + 정신 계수 합산
+        local casterINT = TryGetProp(pc, 'INT', 1);
+        local casterMNA = TryGetProp(pc, 'MNA', 1);        
+        value = 100 + (skill.Level * 90) + (casterINT + casterMNA)        
+    else
+        value = 100 + (skill.Level * 90)
+    end
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     
     return math.floor(value)
@@ -9141,15 +9160,19 @@ function SCR_Get_Melstis_Ratio2(skill)
 end
 
 function SCR_Get_Zalciai_Ratio(skill)
-    local value = skill.Level
-    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
-    
+    local value = TryGetProp(skill, 'Level', 1) * 2
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);    
     return value
 end
 
 function SCR_Get_Zalciai_Ratio2(skill)
-    local value = skill.Level
-    
+    local value = TryGetProp(skill, 'Level', 1) * 1
+    value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);    
+    return value
+end
+
+function SCR_Get_Zalciai_Ratio3(skill)
+    local value = skill.Level    
     return value
 end
 
@@ -9250,12 +9273,8 @@ function SCR_Get_OutofBody_Ratio2(skill)
 end
 
 function SCR_Get_OutofBody_Ratio3(skill)
-    local pc = GetSkillOwner(skill);
-    local abil = GetAbility(pc, "Sadhu14") 
-    local value = 0
-    if abil ~= nil and 1 == abil.ActiveState then 
-        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
-    end
+    local value = skill.Level * 2
+    return value
 end
 
 function SCR_Get_SkillFactor_OutofBodySkill(skill)
@@ -9289,7 +9308,7 @@ function SCR_GET_TransmitPrana_Ratio2(skill)
 end
 
 function SCR_GET_TransmitPrana_Ratio3(skill)
-    local value = 50 - (skill.Level * 5)
+    local value = TryGetProp(skill, 'Level', 1) * 3
     return value
 end
 
@@ -10706,7 +10725,7 @@ function SCR_GET_HakkaPalle_Ratio(skill)
 end
 
 function SCR_GET_HakkaPalle_Ratio2(skill)
-    local value = 10 + skill.Level * 2
+    local value = 5 + skill.Level
     
     return value
 end

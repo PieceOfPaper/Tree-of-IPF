@@ -10,6 +10,13 @@ function PLAY_BLACKSMITH_SUCCESS_EFFECT(targetItemClassName)
 		return
 	end
 
+	local clsList = GetClassList("legendrecipe");
+	local obj = GetClassByNameFromList(clsList, targetItemClassName);
+	local bgname = TryGetProp(obj, "RecipeBgImg");
+
+	local recipebg = GET_CHILD_RECURSIVELY(frame, "image");
+	recipebg:SetImage(bgname)
+
 	local itemIcon = GET_CHILD_RECURSIVELY(resultGbox, "itemIcon")
 	itemIcon:SetImage(itemCls.Icon)
 	local screenWidth = ui.GetSceneWidth();

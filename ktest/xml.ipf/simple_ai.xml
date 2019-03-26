@@ -1879,12 +1879,10 @@
 			<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
 				<Num Num="1000"/>
 			</ToolScp>
+            <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                <AbsPos X="223.84737" Y="291.66684" Z="-304.87448"/>
+            </ToolScp>
 		</List>
-		<StartList>
-			<ToolScp Scp="S_AI_MOVE_RALLY_SELF" Client="NO" UseSleep="YES" ExtraArg="1">
-				<Pos Angle="-1.5504497" Dist="305.44464"/>
-			</ToolScp>
-		</StartList>
 	</AI>
 	<AI Name="CASTLE94_GODDESS_AI" UpdateMS="1000" ActiveMessageMapInBattle="1">
 		<StartList>

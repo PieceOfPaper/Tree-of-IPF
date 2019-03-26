@@ -1,5 +1,5 @@
 function IS_ENABLE_EXTRACT_OPTION(item)
-    if TryGetProp(item,'Extractable', 'No') ~= 'Yes' then
+    if TryGetProp(item,'Extractable', 'No') ~= 'Yes' or TryGetProp(item,'LifeTime', 1) ~= 0 then
         return false;
     end
 
@@ -91,10 +91,6 @@ function GET_OPTION_EXTRACT_TARGET_ITEM_NAME(inheritanceItemName)
     return 'Weapon_icor';
 end
 
-function GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)
-    return math.max(targetItem.UseLv, 360);
-end
-
 function GET_OPTION_EQUIP_NEED_MATERIAL_COUNT(item)
     return 0;
 end
@@ -152,9 +148,9 @@ function SCR_VELLCOFFER_MATCOUNT(pc)
 end
 
 function SCR_SEVINOSE_MATCOUNT(pc)
-    local matCount = 5;
+    local matCount = 1;
     
-    for i = 1, 7 do
+    for i = 10, 12 do
         local rndCount = IMCRandom(1, i)
         if rndCount == 1 then
             matCount = matCount + 1

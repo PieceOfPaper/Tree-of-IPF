@@ -64,7 +64,7 @@ function REINFORCE_ABLE_131014(item)
         return 0;
     end
 
-    if item.Reinforce_Type ~= "Moru" then
+    if item.Reinforce_Type ~= "Moru" or item.LifeTime > 0 then
         return 0;
     end
     

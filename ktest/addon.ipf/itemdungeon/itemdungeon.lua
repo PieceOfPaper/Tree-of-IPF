@@ -48,14 +48,15 @@ end
 function ITEMDUNGEN_UI_CLOSE(frame)
 	ui.CloseFrame("itemdungeon");
 	ui.CloseFrame('inventory');
-
+	
+	ITEMDUNGEON_CLEARUI(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 end
 
 function ITEMDUNGEON_CLEARUI(frame)
 	ITEMDUNGEON_CLEAR_TARGET(frame);
 	ITEMDUNGEON_RESET_STONE(frame);
-	--ITEMDUNGEON_RESET_AEAKESTONE(frame);
+	--ITEMDUNGEON_RESET_ABRASIVE(frame);
 
 	ITEMDUNGEON_UPDATE_PRICE(frame);
 end
@@ -79,7 +80,7 @@ function ITEMDUNGEON_RESET_STONE(parent, ctrl)
 	stoneNameText:ShowWindow(0);
 end
 
-function ITEMDUNGEON_RESET_AEAKESTONE(parent, ctrl)
+function ITEMDUNGEON_RESET_ABRASIVE(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	
 	local abrasiveSlot = GET_CHILD_RECURSIVELY(frame, "abrasiveSlot");
@@ -359,7 +360,7 @@ function ITEMDUNGEON_INIT_FOR_BUYER(frame, isSeller)
 	ITEMDUNGEON_SET_TITLE(frame, false);
 	ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame);
 	ITEMDUNGEON_RESET_STONE(frame);
-	--ITEMDUNGEON_RESET_AEAKESTONE(frame);
+	--ITEMDUNGEON_RESET_ABRASIVE(frame);
 end
 
 function ITEMDUNGEON_SET_OFFSET_BUY_BTN(frame)
@@ -589,16 +590,19 @@ function ITEMDUNGEON_INV_RBTN(itemobj, invslot, invguid)
 		end
 	
 		local itemObj = GetIES(invItem:GetObject());	
-		local lifeTime = TryGetProp(itemObj, 'LifeTime', 0)
-
-		if lifeTime > 0 then
-			ui.SysMsg(ClMsg("WrongDropItem"));
+		if itemObj.ItemLifeTimeOver > 0 then
+			ui.SysMsg(ClMsg('LessThanItemLifeTime'));
 			return;
 		end
-
-		
+	
 		local targetSlot = GET_CHILD_RECURSIVELY(frame, "targetSlot");
 		if IS_EQUIP(itemObj) == true then
+			local lifeTime = TryGetProp(itemObj, 'LifeTime', 0)
+			if lifeTime > 0 then
+				ui.SysMsg(ClMsg("WrongDropItem"));
+				return;
+			end
+
 			-- 장비 등록
 			if IS_NEED_APPRAISED_ITEM(itemObj) == true or IS_NEED_RANDOM_OPTION_ITEM(itemObj) then 
 				ui.SysMsg(ClMsg("NeedAppraisd"));
@@ -607,11 +611,6 @@ function ITEMDUNGEON_INV_RBTN(itemobj, invslot, invguid)
 		
 			if itemObj.HiddenProp == "None" then
 				ui.SysMsg(ClMsg("ThisItemIsNotAbleToWakenUp"));
-				return;
-			end
-		
-			if itemObj.ItemLifeTimeOver > 0 then
-				ui.SysMsg(ClMsg('LessThanItemLifeTime'));
 				return;
 			end
 		
