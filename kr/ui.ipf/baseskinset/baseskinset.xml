@@ -4018,6 +4018,28 @@
 			<img name="bottomcore" imgrect="547 354 26 25"/>
 			<img name="bottomright" imgrect="574 354 25 25"/>
 		</skin>
+		<skin name="white_box_op10" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="840 109 12 12"/>
+			<img name="topcore" imgrect="853 109 20 12"/>
+			<img name="topright" imgrect="874 109 12 12"/>
+			<img name="bodyleft" imgrect="840 122 12 14"/>
+			<img name="bodycore" imgrect="853 122 20 14"/>
+			<img name="bodyright" imgrect="874 122 12 14"/>
+			<img name="bottomleft" imgrect="840 137 12 12"/>
+			<img name="bottomcore" imgrect="853 137 20 12"/>
+			<img name="bottomright" imgrect="874 137 12 12"/>
+		</skin>
+		<skin name="black_box_op20" texture="\skin\pip_test2.tga">
+			<img name="topleft" imgrect="737 109 20 20"/>
+			<img name="topcore" imgrect="758 109 60 20"/>
+			<img name="topright" imgrect="819 109 20 20"/>
+			<img name="bodyleft" imgrect="737 130 20 30"/>
+			<img name="bodycore" imgrect="758 130 60 30"/>
+			<img name="bodyright" imgrect="819 130 20 30"/>
+			<img name="bottomleft" imgrect="737 161 20 20"/>
+			<img name="bottomcore" imgrect="758 161 60 20"/>
+			<img name="bottomright" imgrect="819 161 20 20"/>
+		</skin>
 	</skinlist>
 	<skinlist category="buttons">
 		<skin name="button_companion" texture="\skin\barrack.tga">
@@ -6465,6 +6487,7 @@
 		<image name="barrack_pet_profile_skin" file="\skin\barrack.tga" imgrect="723 212 55 55" CMM_Caption=""/>
 		<image name="class_tree_arrow" file="\skin\class_tree.tga" imgrect="637 247 55 57" CMM_Caption="전직변경 UI 화살표"/>
 		<image name="white_dot" file="\skin\pip_test2.tga" imgrect="834 26 5 5" CMM_Caption="흰색도트_아웃라인"/>
+		<image name="questionmark_L" file="\skin\tooltip_skin_3.tga" imgrect="600 301 79 82" CMM_Caption="랜덤옵션 물음표 이미지"/>
 	</imagelist>
 	<imagelist category="testje_image">
 		<image name="test_betrum_scoreboardT_skin" file="\skin\keynbet.tga" imgrect="0 528 352 88" CMM_Caption="배틀럼블 스코어 페이지"/>
@@ -7134,6 +7157,7 @@
 		<image name="companion_guineapig_white" file="\icon\companion_Velhider.tga" imgrect="400 240 80 80"/>
 		<image name="companion_horse1" file="\icon\companion_Velhider.tga" imgrect="480 0 80 80"/>
 		<image name="companion_gold_pig" file="\icon\companion_Velhider.tga" imgrect="480 80 80 80"/>
+		<image name="companion_chick_crowtit" file="\icon\companion_Velhider.tga" imgrect="480 160 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -8964,7 +8988,11 @@
 		<image name="Dlg_port_Jazz_Kellefinker" file="\npcimg\Jazz_Kellefinker.png" imgrect="0 0 850 1000" CMM_Caption="아웃로 마스터"/>
 		<image name="Dlg_port_Maea_Kellefinker" file="\npcimg\Maea_Kellefinker.png" imgrect="0 0 850 1000" CMM_Caption="아웃로 마스터"/>
 		<image name="Dlg_port_Rashid_Zabanya" file="\npcimg\Rashid_Zabanya.png" imgrect="0 0 850 1000" CMM_Caption="어쌔신 마스터"/>
-		<image name="Dlg_port_PAJAUTA" file="\npcimg\PAJAUTA.png" imgrect="0 0 900 950" CMM_Caption="파야우타"/>
+		<image name="Dlg_port_medeina" file="\npcimg\medeina.png" imgrect="0 0 800 900" CMM_Caption="메데이나 여신"/>
+		<image name="Dlg_port_TIGERHUNTER_MASTER" file="\npcimg\TIGERHUNTER_MASTER.png" imgrect="0 0 800 950" CMM_Caption="산포 마스터"/>
+		<image name="Dlg_port_SHERIFF_MASTER" file="\npcimg\SHERIFF_MASTER.png" imgrect="0 0 700 1000" CMM_Caption="셰리프 마스터"/>
+		<image name="Dlg_port_ARDITI_MASTER" file="\npcimg\ARDITI_MASTER.png" imgrect="0 0 750 1000" CMM_Caption="아르디티 마스터"/>
+		<image name="Dlg_port_MATROSS_MASTER" file="\npcimg\MATROSS_MASTER.png" imgrect="0 0 900 950" CMM_Caption="매트로스 마스터"/>
 	</imagelist>
 	<imagelist category="bufficon">
 		<image name="icon_Str_up" file="\icon\buff_icon.tga" imgrect="256 384 128 128" CMM_Caption="힘+"/>
@@ -9174,6 +9202,9 @@
 		<image name="icon_goldpig_have" file="\icon\buff_icon2.tga" imgrect="0 1024 128 128" CMM_Caption="황금돼지 컴페니언 버프"/>
 		<image name="icon_sweet_potato" file="\icon\buff_icon2.tga" imgrect="128 1024 128 128" CMM_Caption="군고구마 버프"/>
 		<image name="icon_BK_Betrayer_1" file="\icon\buff_icon2.tga" imgrect="256 1024 128 128" CMM_Caption="길드탈퇴 패널티 디버프"/>
+		<image name="icon_Event_ep11_reinforce" file="\icon\buff_icon2.tga" imgrect="384 1024 128 128" CMM_Caption="자라나라 나무나무 장비 업글 버프"/>
+		<image name="icon_Event_ep11_Expup" file="\icon\buff_icon2.tga" imgrect="512 1024 128 128" CMM_Caption="자라나라 나무나무 경험치 버프"/>
+		<image name="icon_Event_ep11_flower" file="\icon\buff_icon2.tga" imgrect="640 1024 128 128" CMM_Caption="새싹과 함께한"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

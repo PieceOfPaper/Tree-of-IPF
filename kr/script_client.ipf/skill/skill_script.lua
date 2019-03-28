@@ -70,7 +70,7 @@ function SCR_ITEMDUNGEON_SKL_UI(skillType)
 	local pc = GetMyPCObject();
 	local x, y, z = GetPos(pc);
 	if 0 == IsFarFromNPC(pc, x, y, z, 50) then
-		ui.SysMsg(pc, "TooNearFromNPC");	
+		ui.SysMsg(ClMsg("TooNearFromNPC"));
 		return 0;
 	end
 

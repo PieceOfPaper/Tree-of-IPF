@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemoptionlegendextract" x="0" y="0" width="500" height="1160" create="open">
+	<draw drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<script OpenScp="ITEMOPTION_LEGEND_EXTRACT_OPEN" CloseScp="ITEMOPTION_LEGEND_EXTRACT_CLOSE"/>
+	<userconfig EXTRACT_RESULT_SOUND="sys_transcend_success" EXTRACT_RESULT_EFFECT="UI_item_parts2" EXTRACT_SUCCESS_SOUND="sys_transcend_success" LEGEND_EXTRACT_SUCCESS_EFFECT="UI_item_parts2_success" EXTRACT_FAIL_SOUND="sys_transcend_success" EXTRACT_FAIL_EFFECT="UI_item_parts2_fail" EXTRACT_DESTROY_SOUND="sys_transcend_success" EXTRACT_DESTROY_EFFECT="UI_item_parts2" EFFECT_SCALE="5" EFFECT_DURATION="3" SUCCESS_EFFECT_SCALE="7" SUCCESS_EFFECT_DURATION="2" FAIL_EFFECT_SCALE="7" FAIL_EFFECT_DURATION="2" ICOR_IMAGE_WEAPON="item_icon_weapon_linksoul1" ICOR_IMAGE_ARMOR="item_icon_weapon_linksoul2" EXTRACT_KIT_DEFAULT="연성 키트" MAX_TARGET_ITEM_COUNT="3"/>
+	<controls>
+		<groupbox name="bg"	rect="0 0 500 1030" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pic_bg" rect="0 0 470 480" margin="0 50 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<groupbox name="pipwin_top" rect="0 0 500 60" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 120 24" margin="0 18 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st43}%s" param1="value" param1_def="아이커 연성"/>
+		<button name="close" rect="0 0 44 44" margin="0 15 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ITEMOPTION_LEGEND_EXTRACT_CLOSE" oversound="button_over" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button"/>
+		<button name="do_extract" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="OPTION_LEGEND_EXTRACT_EXEC" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="연성" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>
+		<button name="send_ok" rect="0 0 180 50" margin="0 0  0 70" layout_gravity="center bottom" LBtnUpScp="CLEAR_ITEMOPTION_LEGEND_EXTRACT_UI" skin="test_red_button" format="{@st41b}{s18}%s" oversound="button_cursor_over_3" param1="value" param1_def="확인" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big"/>		
+		<!-- 연성 아이템 -->
+		<slot name="targetitemslot_1" parent="pic_bg" rect="0 0 140 140" margin="-150 30 0 0" movepop="false" DropArgNum='1' DropScp="ITEM_OPTION_LEGEND_EXTRACT_DROP" dropsound="icon_get_down" RBtnUpArgNum='1' RBtnUpScp="REMOVE_OPTION_LEGEND_EXTRACT_TARGET_ITEM" picksound="icon_pick_up" skin="invenslot2" layout_gravity="center top"/> 
+		<picture name="targetitemslot_1_bg" rect="0 0 140 140" margin="10 13 0 0" parent="targetitemslot_1" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<slot name="targetitemslot_2" parent="pic_bg" rect="0 0 140 140" margin="0 30 0 0" movepop="false"  DropArgNum='2' DropScp="ITEM_OPTION_LEGEND_EXTRACT_DROP" dropsound="icon_get_down" RBtnUpArgNum='2' RBtnUpScp="REMOVE_OPTION_LEGEND_EXTRACT_TARGET_ITEM" picksound="icon_pick_up" skin="invenslot2" layout_gravity="center top"/>
+		<picture name="targetitemslot_2_bg" rect="0 0 140 140" margin="10 13 0 0" parent="targetitemslot_2" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<slot name="targetitemslot_3" parent="pic_bg" rect="0 0 140 140" margin="150 30 0 0" movepop="false" DropArgNum='3' DropScp="ITEM_OPTION_LEGEND_EXTRACT_DROP" dropsound="icon_get_down" RBtnUpArgNum='3' RBtnUpScp="REMOVE_OPTION_LEGEND_EXTRACT_TARGET_ITEM" picksound="icon_pick_up" skin="invenslot2" layout_gravity="center top"/>
+		<picture name="targetitemslot_3_bg" rect="0 0 140 140" margin="10 13 0 0" parent="targetitemslot_3" layout_gravity="center center" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="false" image="socket_slot_bg" oversound="button_over"/>
+		<picture name="downArrowPic" parent="pic_bg" rect="0 0 106 39" margin="0 190 0 0" layout_gravity="center top" image="icon_arrow_down" stretch="true"/>
+		<groupbox name="putonitembg" parent="pic_bg" rect="0 0 400 60" margin="0 180 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" skin="monster_skill_bg"/>
+		<richtext name="text_putonitem" rect="0 0 400 50" margin="0 -3 0 0 " parent="putonitembg" layout_gravity="center center" format="{@st43b}{s18}아이템을 올려주세요" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" />
+		<!-- 아이커 -->
+		<slot name="slot_result" parent="pic_bg" rect="0 0 140 140" margin="0 240 0 0" movepop="false" dropsound="icon_get_down" hittest="false" picksound="icon_pick_up" skin="invenslot2" layout_gravity="center top"/>
+		<groupbox name="ratiobg" parent="pic_bg" rect="0 0 400 70" margin="0 400 0 0" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" resizebyresolution="false" skin="monster_skill_bg"/>
+		<richtext name="text_Ratio" rect="0 0 400 60" margin="0 -3 0 0 " parent="Ratiobg" layout_gravity="center center" format="{@st43b}{s18}연성 성공 확률 : %s%" param1="ratio" param1_def="100" hittestbox="false" textalign="center center " resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" />
+		<!-- 아이커 옵션 -->
+		<groupbox name="extractoptiongb" rect="0 0 430 220" margin="0 530 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_bgreentitle_skin"/>
+		<richtext name="text_extractoptiont"  rect="0 0 400 50" margin="5 5 0 0" parent="extractoptiongb" format="{@st43b}{s18}아이커 옵션" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<groupbox name="extractoptioncaptiongb" rect="0 0 430 200" margin="0 30 0 0" parent="extractoptiongb" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" stretch="false" skin="None"/>
+		<groupbox name="extractoptioncaption" rect="0 0 430 200" margin="0 0 0 0" parent="extractoptioncaptiongb" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="None"/>
+		<picture name="questionmark" rect="0 0 212 158" margin="0 10 0 0" parent="extractoptiongb" layout_gravity="center center" image="questionmark_L" draw="true" stretch="true"/>
+		<!-- 재료 -->
+		<groupbox name="materialgb" rect="0 0 450 200" margin="0 770 0 0"  layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<richtext name="text_material" rect="0 0 400 50" margin="10 0 0 0" parent="materialgb" format="{@st43b}{s18}재료" hittestbox="false" textalign="left center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+		<groupbox name="materialgb2" rect="0 0 450 200" margin="0 30 0 0"  parent="materialgb" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false"/>
+		<groupbox name="material_1" rect="0 0 430 143" margin="0 0 0 0" parent="materialgb2" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="material_2" rect="0 0 430 73" margin="0 69 0 0" parent="materialgb2" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_weight_skin"/>
+		<groupbox name="extractkitgb" rect="0 0 430 70" margin="0 0 0 0" parent="material_1" skin="" layout_gravity="center top" draw="true"/>
+		<slot name="extractKitSlot" rect="0 0 60 60" margin="10 7 0 0" parent="extractkitgb" layout_gravity="left top" skin="invenslot2" DropScp="OPTION_LEGEND_EXTRACT_EXTRACTKIT_DROP" RBtnUpScp="REMOVE_OPTION_LEGEND_EXTRACT_KIT_TARGET_ITEM" draw="true" stretch="true"/>
+		<richtext name="extractKitName" rect="0 0 300 30" margin="100 0 0 0" parent="extractkitgb" layout_gravity="left center" textalign="left center" resizebytext="true" fixwidth="true" format="%s" param1="value" param1_def="연성 키트" fontname="brown_18"/>
+		<groupbox name="material_2gb" rect="0 0 430 70" margin="0 0 0 0" parent="material_2" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_weight_skin"/>
+		<!-- 결과 - 실패 -->
+		<groupbox name="destroy_gb" parent="pic_bg" rect="0 0 470 362" margin="0 50 0 0" skin="None" hittest="false" layout_gravity="center bottom"/>
+		<groupbox name="yellow_skin_destroy" parent="destroy_gb" rect="0 0 400 180" margin="0 0 0 0" skin="mission_fail_name" hittest="false" layout_gravity="center top" draw="true" scrollbar="false"/>
+		<picture name="result_fail_effect_bg" parent="destroy_gb" rect="0 0 507 313"  margin="0 0 0 0" hittest="false" image="None" draw="false" oversound="button_cursor_over_3" stretch="true" layout_gravity="center top"/>
+		<picture name="text_destroy" parent="destroy_gb" rect="0 0 330 133" margin="0 0 0 0" hittest="false" image="card_reinforce_DESTROY" stretch="false" layout_gravity="center top"/>
+		<richtext name="destroy_text" parent="destroy_gb" rect="0 0 267 34" margin="0 120 0 0" layout_gravity="center top" format="{s22}아이템이 파괴되었습니다." textalign="center center" fontname="white_18_ol"/>
+		<!-- 결과 - 성공 -->
+		<groupbox name="result_gb" rect="0 0 470 362" margin="0 50 0 0" layout_gravity="center top" parent="bg" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
+		<picture name="result_effect_bg" parent="result_gb" rect="0 0 507 313"  margin="0 0 0 0" hittest="false" image="SUCCESS_gold_bg" oversound="button_cursor_over_3" stretch="true" layout_gravity="center top"/>
+		<picture name="yellow_skin_success" parent="result_gb" rect="0 0 401 150"  margin="0 240 0 0" hittest="false" image="BnYellow_skin" stretch="true" layout_gravity="center top"/>
+		<picture name="text_success" parent="result_gb" rect="0 0 330 133" margin="0 240 0 0" hittest="false" image="card_reinforce_SUCCESS" stretch="false" layout_gravity="center top"/>		
+		<picture name="result_item_img" parent="result_gb" rect="0 0 140 140" margin="0 120 0 0"  hittest="false" image="item_icon_weapon_linksoul1" stretch="true" layout_gravity="center top"/>
+	</controls>
+</uiframe>

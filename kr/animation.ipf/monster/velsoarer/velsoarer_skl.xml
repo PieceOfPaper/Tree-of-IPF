@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="30" G="40" B="60" A="100"/>
+	<BlendOn frame="10" R="30" G="50" B="100" A="200"/>
+	<BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+	<Particle frame="12" attachNode="Dummy_eff_skl2" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false" sound="atk_rodswing"/>
+</ActionDesc>

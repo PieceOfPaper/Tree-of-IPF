@@ -589,10 +589,23 @@ function CRAFT_BEFORE_START_CRAFT(ctrl, ctrlset, recipeName, artNum)
         ui.SysMsg(ClMsg('CannotUseLifeTimeOverItem'));
         return;
     end
+    
+    local recipeCls = GetClass('Recipe', recipeName)
+    local targetItemName = TryGetProp(recipeCls, 'TargetItem', 'None')
+    local targetItem = GetClass('Item', targetItemName,'None')
+    local targetItemGrade = TryGetProp(targetItem, 'ItemGrade', 0)
+    
 
-	if someflag > 0 then
+	if someflag > 0 and targetItemGrade ~= 4 then
 		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
 		ui.MsgBox(ScpArgMsg("IsValueAbleItem"), yesScp, "None");
+		
+	elseif someflag == 0 and targetItemGrade == 4 then
+	    local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
+		ui.MsgBox(ScpArgMsg("UniqueTranscendAllow").." "..ScpArgMsg("AllowManufacture"), yesScp, "None");
+	elseif someflag > 0 and targetItemGrade == 4 then
+		local yesScp = string.format("CRAFT_START_CRAFT(\'%s\', \'%s\', %d)",idSpace, recipeName, totalCount);        
+		ui.MsgBox(ScpArgMsg("UniqueTranscendAllow") .."{nl}"..ScpArgMsg("IsValueAbleItem"), yesScp, "None");
 	else   
 		CRAFT_START_CRAFT(idSpace, recipeName, totalCount, upDown)        
 	end

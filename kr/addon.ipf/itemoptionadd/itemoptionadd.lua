@@ -140,6 +140,10 @@ function ITEM_OPTIONADD_REG_MAIN_ITEM(frame, itemID)
 	
 	local item = GetIES(invItem:GetObject());
 	local itemCls = GetClassByType('Item', item.ClassID)
+	if TryGetProp(itemCls, 'NeedRandomOption', 0) == 1 then
+	    ui.SysMsg(ClMsg("NotAllowedItemOptionAdd"));
+        return;
+	end
 	local invitem = item
 
 	
@@ -745,6 +749,12 @@ function ITEMOPTIONADD_INV_RBTN(itemObj, slot)
 	local frame = ui.GetFrame("itemoptionadd");
 	if frame == nil then
 		return
+	end
+	
+	local itemCls = GetClass('Item', TryGetProp(itemObj, 'ClassName', 'None'))
+	if TryGetProp(itemCls, 'NeedRandomOption', 0) == 1 then
+	    ui.SysMsg(ClMsg("NotAllowedItemOptionAdd"));
+        return;
 	end
 	
 	local icon = slot:GetIcon();

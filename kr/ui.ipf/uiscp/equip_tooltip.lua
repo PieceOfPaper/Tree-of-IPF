@@ -1657,7 +1657,7 @@ function DRAW_CANNOT_REINFORCE(tooltipframe, invitem, yPos, mainframename)
 	end
 
 	local itemClass = GetClassByType("Item", invitem.ClassID);
-	if itemClass ~= nil and itemClass.Extractable == 'No' then
+	if (itemClass ~= nil and itemClass.Extractable == 'No') or IS_ENABLE_EXTRACT_OPTION(invitem) ~= true then
 		extract_flag = 1
 	end
 

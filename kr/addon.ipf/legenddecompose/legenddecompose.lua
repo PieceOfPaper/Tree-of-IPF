@@ -29,6 +29,10 @@ end
 function LEGENDDECOMPOSE_EXECUTE(parent, ctrl)
 	local frame = parent:GetTopParentFrame();
 	local targetGuid = frame:GetUserValue('TARGET_ITEM_GUID');
+	if targetGuid == "None" then
+		return;
+	end
+	
 	local targetItem = session.GetInvItemByGuid(targetGuid);
 	if targetItem == nil then
 		return;

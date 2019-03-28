@@ -1,8 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_1"/>
-    <Sound frame="1.00" soundFile="mon_voice_mineloader_9"/>
-    <Sound frame="2.00" soundFile="skl_eff_born_landing_s_3"/>
-    <Sound frame="15.00" soundFile="mon_voice_mineloader_14"/>
-    <Sound frame="15.00" soundFile="mon_voice_mineloader_12"/>
+	<Particle frame="3" attachNode="Dummy_root" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy_root" particleName="F_smoke050_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.65" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="1.00" soundFile="mon_voice_mineloader_9"/>
+	<Sound frame="2.00" soundFile="skl_eff_born_landing_s_3"/>
+	<Sound frame="15.00" soundFile="mon_voice_mineloader_14"/>
+	<Sound frame="15.00" soundFile="mon_voice_mineloader_12"/>
 </ActionDesc>

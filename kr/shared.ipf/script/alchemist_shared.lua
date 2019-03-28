@@ -101,7 +101,7 @@ function IS_VALID_BRIQUETTING_TARGET_ITEM(targetItem)
 		return false;
 	end
 	
-	if TryGetProp(targetItem, 'BriquetingAble') ~= 'Yes' then
+	if TryGetProp(targetItem, 'BriquetingAble') ~= 'Yes' or TryGetProp(targetItem, 'LifeTime', 1) ~= 0 then
         return false;
     end
 
@@ -136,7 +136,7 @@ function IS_VALID_LOOK_ITEM(lookItem)
     	end
     end
     
-    if TryGetProp(lookItem, 'BriquetingAble') ~= 'Yes' then
+    if TryGetProp(lookItem, 'BriquetingAble') ~= 'Yes' or TryGetProp(lookItem, 'LifeTime', 1) ~= 0 then
         return false;
     end
     
@@ -255,7 +255,7 @@ end
 
 function IS_ENABLE_GIVE_HIDDEN_PROP_ITEM(item)
 	local star = TryGetProp(item, 'ItemStar', -1);
-	if star < 0 then
+	if star < 0 or TryGetProp(item, 'LifeTime', 1) ~= 0 then
 		return false;		
 	end
 	

@@ -3,6 +3,10 @@
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
 <skinset name="Base">
 	<imagelist category="eventbanner">
+		<image name="event1903_newcharacter" file="\event_banner\event1903_newcharacter.jpg" imgrect="0 0 480 180"/>
+		<image name="event1903_Ep11NewStory" file="\event_banner\event1903_Ep11NewStory.jpg" imgrect="0 0 480 180"/>
+		<image name="event1903_SproutNewbieShop" file="\event_banner\event1903_SproutNewbieShop.jpg" imgrect="0 0 480 180"/>
+		<image name="event1904_VaivoraReward" file="\event_banner\event1904_VaivoraReward.jpg" imgrect="0 0 480 180"/>
 		<image name="event1903_Teliavelis" file="\event_banner\event1903_Teliavelis.jpg" imgrect="0 0 480 180"/>
 		<image name="event1903_PajautaQuest" file="\event_banner\event1903_PajautaQuest.jpg" imgrect="0 0 480 180"/>
 		<image name="event1903_VaivoraReward" file="\event_banner\event1903_VaivoraReward.jpg" imgrect="0 0 480 180"/>
@@ -79,6 +83,7 @@
 	<imagelist category="pcbang">
 		<image name="pcbang_test2" file="\event_banner\event1711vakarine.jpg" imgrect="0 0 480 180"/>
 		<image name="pcbang_test" file="\skin\pcbang_banner.tga" imgrect="0 0 348 596"/>
+		<image name="pcbang_banner1" file="\skin\pcbang_banner1.tga" imgrect="0 0 865 190"/>
 		<image name="pcbang_banner2" file="\skin\pcbang_banner2.tga" imgrect="0 0 865 190"/>
 	</imagelist>
 	<imagelist category="banner">

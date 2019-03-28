@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Bip001 R Hand" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3"/>
+	<Particle frame="0" attachNode="Bip001 R Hand" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Particle frame="46" attachNode="Bip001 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3"/>
+	<Particle frame="46" attachNode="Bip001 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Shockwave frame="0" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="30" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="46" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="0.2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="30" attachNode="Bip001 L Hand" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3"/>
+	<Particle frame="30" attachNode="Bip001 L Hand" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+	<Particle frame="16" attachNode="Bip001 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3"/>
+	<Particle frame="16" attachNode="Bip001 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5"/>
+</ActionDesc>

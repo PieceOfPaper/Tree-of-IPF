@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="body_01" particleName="I_smoke022_white2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="3" attachNode="body_01" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="0" attachNode="body_01" particleName="I_force102_trail_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Bone_thorn_R1" particleName="I_force101_trail_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="1" attachNode="Bone_thorn_L1" particleName="I_force101_trail_ice" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_eff_body_atk_43"/>
+	<Sound frame="0.00" soundFile="m_new_desmodus_born"/>
+	<Sound frame="8.00" soundFile="mon_haming_atk1_shot"/>
+</ActionDesc>

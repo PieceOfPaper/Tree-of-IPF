@@ -398,6 +398,11 @@ function ABIL_COMMON_PRICE_350LV(pc, abilName, abilLevel, maxLevel, factor1, fac
     return price, time;
 end
 
+function ABIL_COMMON_PRICE_400LV(pc, abilName, abilLevel, maxLevel, factor1, factor2)
+    local price, time = ABIL_COMMON_PRICE(pc, abilName, abilLevel, maxLevel, 240, 45)
+    return price, time;
+end
+
 function ABIL_SWAPWEAPON_PRICE(pc, abilName, abilLevel, maxLevel)
 
     local price = 3

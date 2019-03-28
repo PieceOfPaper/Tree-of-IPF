@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="0.00" soundFile="skl_wiz_soulactivation"/>
+    <BlendOn frame="1" R="0" G="0" B="0" A="0"/>
+    <Particle frame="5" attachNode="Dummy_emitter_pet" particleName="F_scout_redemption_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" targetPos="false"/>
+    <BlendOn frame="6" R="70" G="20" B="50" A="30"/>
+    <Sound frame="7.00" soundFile="skl_fgt_conviction"/>
+    <PostFix frame="10" ID="_height"/>
+    <BlendOn frame="10" R="50" G="5" B="30" A="30"/>
+    <BlendOn frame="13" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="16" R="0" G="0" B="0" A="0"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

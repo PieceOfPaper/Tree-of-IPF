@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="2.00" soundFile="skl_eff_stoneunderground_2"/>
-    <Sound frame="5.00" soundFile="mon_bramble_atk_ready"/>
-    <Sound frame="6.00" soundFile="mon_minivern_atk"/>
+	<Particle frame="6" particleName="F_ground079_smoke" attachNode="Dummy_emitter" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+	<Shockwave frame="6" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="2.00" soundFile="skl_eff_stoneunderground_2"/>
+	<Sound frame="5.00" soundFile="mon_bramble_atk_ready"/>
+	<Sound frame="6.00" soundFile="mon_minivern_atk"/>
 </ActionDesc>

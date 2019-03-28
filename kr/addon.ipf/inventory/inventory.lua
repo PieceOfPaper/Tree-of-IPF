@@ -30,6 +30,8 @@ local invenTitleName = nil
 local clickedLockItemSlot = nil
 
 g_invenTypeStrList = {"All", "Equip", "Consume", "Recipe", "Card", "Etc", "Gem", "Premium"};
+local _invenCatOpenOption = {}; -- key: CategoryName, value: IsToggle
+local _invenTreeOpenOption = {}; -- key: TreegroupName, value: IsToggle
 
 function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('ITEM_LOCK_FAIL', 'INV_ITEM_LOCK_SAVE_FAIL');
@@ -147,6 +149,7 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 	local slotsetnode = tree:FindByValue(treegroup, slotsetname);
 	if tree:IsExist(slotsetnode) == 0 then
 		MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
+		INVENTORY_CATEGORY_OPENOPTION_CHECK(tree:GetName(), baseidcls.ClassName);
 	end					
 	slotset = GET_CHILD_RECURSIVELY(tree,slotsetname,'ui::CSlotSet');
 	local slotCount = slotset:GetSlotCount();
@@ -1187,6 +1190,8 @@ function SET_INVENTORY_SLOTSET_OPEN(parent, ctrl, strarg, numarg)
 		local changeTitle = string.gsub(title, "btn_plus", "btn_minus")
 		ctrl:SetText(changeTitle)
 	end
+	
+	INVENTORY_CATEGORY_OPENOPTION_CHANGE(parent, '', strarg);
 end
 
 function CHECK_INVENTORY_OPTION_APPLIED(baseidcls)
@@ -1229,7 +1234,7 @@ function SET_SLOTSETTITLE_COUNT(tree, baseidcls, addCount)
 		className = baseidcls.MergedTreeTitle
 	end
 	
-	local titlestr = "ssettitle_" .. className;	
+	local titlestr = "ssettitle_" .. className;
 	local textcls = GET_CHILD_RECURSIVELY(tree, titlestr, 'ui::CRichText');
 	textcls:SetEventScript(ui.LBUTTONUP, "SET_INVENTORY_SLOTSET_OPEN")
 	textcls:SetEventScript(ui.DROP, "INVENTORY_ON_DROP")
@@ -1472,11 +1477,11 @@ local function CHECK_INVENTORY_OPTION_ETC(itemCls)
 
 	local itemCategory = itemCls.MarketCategory
 	local optionConfig = 0
-	if itemCategory == "Misc_Usual" then
+	if itemCategory == "Misc_Usual" or itemCategory == "Misc_MiscSkill" then
 		optionConfig = config.GetXMLConfig("InvOption_Etc_Usual")
 	elseif itemCategory == "Misc_Quest" then
 		optionConfig = config.GetXMLConfig("InvOption_Etc_Quest")
-	elseif itemCategory == "Misc_Special" then
+	elseif itemCategory == "Misc_Special" or itemCategory == "OPTMisc_IcorWeapon" or itemCategory == "OPTMisc_IcorArmor" then
 		optionConfig = config.GetXMLConfig("InvOption_Etc_Special")
 	elseif itemCategory == "Misc_Collect" then
 		optionConfig = config.GetXMLConfig("InvOption_Etc_Collect")
@@ -1819,8 +1824,9 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 		end
 
 		ADD_GROUP_BOTTOM_MARGIN(frame,tree)
-
 		tree:OpenNodeAll();
+		tree:SetEventScript(ui.LBUTTONDOWN, "INVENTORY_TREE_OPENOPTION_CHANGE");
+		INVENTORY_CATEGORY_OPENCHECK(frame, tree);
 
 		--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
 		for i = 1 , #SLOTSET_NAMELIST do
@@ -4336,4 +4342,101 @@ function INVENTORY_CLEAR_SELECT(frame)
 			end
 		end
 	end
+end
+
+
+function INVENTORY_CATEGORY_OPENCHECK(frame, tree)
+	for key, value in pairs(_invenCatOpenOption) do
+		local strFind = ":"
+		local strFindStart, strFindEnd = string.find(key, strFind)
+		local treename = string.sub(key, 0, strFindStart - 1) 
+
+		if treename == tree:GetName() then			
+			local strSub = string.sub(key, strFindStart + 1, string.len(key)) 
+			local groupName = 'sset_'..strSub;
+			local treegroup = tree:FindByName(groupName);
+			if treegroup == 0 then
+				return;
+			end
+	
+			if value == 0 then
+				local tab = GET_CHILD_RECURSIVELY(frame, treename)
+	
+				local sloatName = 'ssettitle_'..strSub;
+				local ctrl = GET_CHILD_RECURSIVELY(tab, sloatName);	
+				if ctrl == nil then
+					 return;
+				end
+	
+				local slotset = GET_CHILD_RECURSIVELY(tab, groupName)
+				if slotset == nil then
+					return
+				end
+		
+				local width = slotset:GetWidth();
+				local height = slotset:GetHeight();
+	
+				if width ~= 0 and height ~= 0 then		
+					slotset:SetUserValue("width", width)
+					slotset:SetUserValue("height", height)
+					slotset:Resize(0, 0)
+					local title = ctrl:GetText()
+					local changeTitle = string.gsub(title, "btn_minus", "btn_plus")
+					ctrl:SetText(changeTitle)
+				end
+			end
+		end
+
+	end
+
+	for i = 1, #GROUP_NAMELIST do
+		local treegroup = tree:FindByValue(GROUP_NAMELIST[i]);
+		if treegroup ~= nil then
+			local treenode = tree:GetNodeByTreeItem(treegroup)
+			
+			if treenode ~= nil then
+				local OptionName = tree:GetName()..":"..treenode:GetValue();
+
+				if _invenTreeOpenOption[OptionName] == false then
+					tree:OpenNode(treenode, false, true);
+				end
+			end
+		end
+	end	
+
+end
+
+function INVENTORY_CATEGORY_OPENOPTION_CHECK(treename, strarg)
+	local OptionName = treename..":"..strarg;
+
+	return _invenCatOpenOption[OptionName];
+end
+
+function INVENTORY_CATEGORY_OPENOPTION_CHANGE(parent, ctrl, strarg, numarg)
+	local OptionName = parent:GetName()..":"..strarg;
+	if _invenCatOpenOption[OptionName] == 1 or _invenCatOpenOption[OptionName] == nil then
+		_invenCatOpenOption[OptionName] = 0;
+	else
+		_invenCatOpenOption[OptionName] = 1;
+	end
+	
+end
+
+function INVENTORY_TREE_OPENOPTION_CHANGE(parent, ctrl, strarg, numarg)
+	for i = 1, #GROUP_NAMELIST do
+		local treegroup = ctrl:FindByValue(GROUP_NAMELIST[i]);
+		if treegroup == nil then
+			return;
+		end
+
+		local treenode = ctrl:GetNodeByTreeItem(treegroup)
+		if treenode ~= nil then
+			local openoption = treenode:GetIsOpen();
+
+			local OptionName = ctrl:GetName()..":"..treenode:GetValue();
+			_invenTreeOpenOption[OptionName] = openoption;
+		end
+		
+	end
+	
 end

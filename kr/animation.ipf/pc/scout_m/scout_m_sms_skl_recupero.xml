@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="4.00" soundFile="skl_eff_debuff_20"/>
+	<Sound frame="4.00" soundFile="skl_eff_body_atk_31"/>
+	<Sound frame="4.00" soundFile="skl_eff_bloodsucking_4"/>
+	<AttachModel frame="0" XAC="arditi_injector" node="Dummy_R_allebell" isAttach="true" autoDetach="true" index="1" anim="none"/>
+	<Particle frame="5" attachNode="Bip01 L Hand" particleName="F_scout_Recupero_shot_blooding" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

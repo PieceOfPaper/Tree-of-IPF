@@ -1,4 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="skl_eff_body_atk_43"/>
+	<Particle frame="5" attachNode="Dummy_effect_born" particleName="F_smoke047_ice" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="6" attachNode="None" particleName="F_smoke050" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.24" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="skl_eff_body_atk_43"/>
 </ActionDesc>

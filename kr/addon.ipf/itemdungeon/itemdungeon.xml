@@ -7,6 +7,7 @@
 	<layer layerlevel="80"/>
 	<sound opensound="skill_window_open" closesound="skill_window_close"/>
 	<effect open="skilltreeOpen" close="skilltreeClose"/>
+    <script OpenScp="" CloseScp="ITEMDUNGEN_UI_CLOSE"/>
 	<controls>
 		<!-- history -->
 		<groupbox name="historyBox" rect="0 0 450 1360" margin="0 30 0 0" layout_gravity="left top" skin="test_frame_low" tabname="historyTabItem" tabchangescp="ITEMDUNGEON_UPDATE_HISTORY"/>
@@ -21,7 +22,7 @@
 		<richtext name="titleText" rect="0 0 200 80" margin="0 13 0 0" layout_gravity="center top" format="{@st43}%s" param1="title" param1_def="각성 상점 개설"/>
 		<button name="close" rect="10 0 44 44" margin="0 12 23 0" layout_gravity="right top" LBtnUpScp="ITEMDUNGEN_UI_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59} UI를 닫습니다{/}"/>
 		<picture name="titlepicture" parent="mainBox" rect="0 0 440 240" margin="5 105 0 0" layout_gravity="center top" image="alch_item_dungeon"/>
-		<slot name="targetSlot" parent="mainBox" rect="0 0 200 200" margin="0 130 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}" RBtnUpScp="ITEMDUNGEON_CLEAR_TARGET"/>
+		<slot name="targetSlot" parent="mainBox" rect="0 0 200 200" margin="0 130 0 0" layout_gravity="center top" DropScp="ITEMDUNGEON_DROP_ITEM" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="skill_squaier_slot" texttooltip="{@st59}아이템을 올려주세요{/}" RBtnUpScp="ITEMDUNGEON_CLEARUI"/>
 		<!-- buyer -->
 		<groupbox name="goodsInfoBox" parent="mainBox" rect="0 0 450 1000" margin="0 0 0 0" layout_gravity="left top" draw="false" hittest="false"/>
 		<richtext name="nowPotentialStr" parent="" rect="0 0 343 48" margin="30 410 0 0" layout_gravity="left top" caption="{@st66b}현재 포텐셜" drawbackground="false" fixwidth="false" fontname="white_16_ol" resizebytext="true" slideshow="false" textalign="left top"/>
@@ -34,7 +35,6 @@
 		<richtext name="stoneInfoText" parent="buyerBox" rect="0 0 300 30" margin="110 65 0 0" layout_gravity="left top" caption="{@st66d_y}각성석을 추가해주세요.{/}"/>
 		<richtext name="stoneNameText" parent="buyerBox" rect="0 0 300 30" margin="110 65 0 0" layout_gravity="left top" format="{@st41b}%s" param1="name" param1_def="각성석 아이템 이름"/>
 		<richtext name="stoneCountText" parent="buyerBox" rect="0 0 300 30" margin="0 65 20 0" layout_gravity="right top" format="{@st41b}%s/1" param1="cur" param1_def="0"/>
-
 		<groupbox name="buyerBtnBox" rect="0 0 450 90" margin="0 0 0 50" layout_gravity="center bottom" draw="false"/>
 		<button name="closeShopBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="0 0 75 0" layout_gravity="right center" LBtnUpScp="ITEMDUNGEON_CLOSE_SHOP" caption="{@st42}폐 점" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
 		<button name="buyBtn" parent="buyerBtnBox" rect="0 0 140 50" margin="65 20 0 0" layout_gravity="left top" LBtnUpScp="ITEMDUNGEON_BUY_ITEM" caption="{@st42}각 성" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>

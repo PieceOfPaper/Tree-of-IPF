@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="2" attachNode="Bone_weapon_end" particleName="I_force104_trail_violet2" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="2" attachNode="Bone_wing2_1" particleName="I_light025_violet2" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="15" G="20" B="40" A="10"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

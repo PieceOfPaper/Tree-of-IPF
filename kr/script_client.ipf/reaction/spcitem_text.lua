@@ -37,6 +37,9 @@ function SHOW_DMG_BLOCK()
 	return ScpArgMsg("ADD_BLOCK");
 end
 
+function SHOW_REMOVE_BUFF(arg)
+	return ScpArgMsg("REMOVE_BUFF_{Auto_1}","Auto_1", arg);	
+end
 
 function SHOW_DMG_COUNTER()
 	return ScpArgMsg("ADD_COUNTER");

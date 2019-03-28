@@ -1,22 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="4.00" soundFile="mon_voice_throneweaver_6"/>
-    <Sound frame="26.00" soundFile="mon_voice_throneweaver_6"/>
-    <Sound frame="30.00" soundFile="mon_katyn_bug_skl_cast"/>
-    <Sound frame="59.00" soundFile="mon_katyn_bug_skl_shot"/>
-    <Sound frame="60.00" soundFile="mon_voice_throneweaver_2"/>
-    <Sound frame="73.00" soundFile="skl_eff_atk_move_l_14"/>
-    <Sound frame="73.00" soundFile="skl_eff_landing_m"/>
-    <Sound frame="73.00" soundFile="skl_eff_stone_born_l_1"/>
-    <Sound frame="73.00" soundFile="skl_eff_two_spin_3"/>
-    <Sound frame="75.00" soundFile="skl_eff_atk_move_m_2"/>
-    <Sound frame="75.00" soundFile="skl_eff_stone_underground_1"/>
-    <Sound frame="85.00" soundFile="skl_eff_spinner"/>
-    <Sound frame="85.00" soundFile="skl_eff_whirlwind_smoke"/>
-    <Sound frame="95.00" soundFile="skl_eff_atk_move_m_4"/>
-    <Sound frame="98.00" soundFile="skl_eff_spinner"/>
-    <Sound frame="100.00" soundFile="skl_eff_forcespinner_1"/>
-    <Sound frame="135.00" soundFile="mon_voice_throneweaver_5"/>
-    <Sound frame="142.00" soundFile="skl_eff_atk_move_m_3"/>
-    <Sound frame="143.00" soundFile="mon_voice_throneweaver_10"/>
+	<Particle frame="157" attachNode="Bip001 HeadNub" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="167" attachNode="Bip001 HeadNub" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="76" attachNode="Dummy_emitter" particleName="F_warrior_scullswing_shot_spin" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="157" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy_effect_lip" particleName="F_bubble003_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Bip001 Pelvis" particleName="F_wizard_BRIQUETTING_ADD3_smoke_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="20" attachNode="Bip001 Pelvis" particleName="F_wizard_BRIQUETTING_ADD3_smoke_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Bip001 Pelvis" particleName="F_wizard_BRIQUETTING_ADD3_smoke_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="50" attachNode="Bip001 Pelvis" particleName="F_wizard_BRIQUETTING_ADD3_smoke_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="65" attachNode="Bip001 Pelvis" particleName="F_wizard_BRIQUETTING_ADD3_smoke_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="75" attachNode="Bip001 Pelvis" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="76" attachNode="Dummy_emitter" particleName="I_ground007_water" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="76" attachNode="Dummy_emitter" particleName="I_ground009_water2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="76" attachNode="Bip001 Pelvis" particleName="I_ground009_water2" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Bip001 HeadNub" particleName="F_levitation041_music2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="4.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="26.00" soundFile="mon_voice_throneweaver_6"/>
+	<Sound frame="30.00" soundFile="mon_katyn_bug_skl_cast"/>
+	<Sound frame="59.00" soundFile="mon_katyn_bug_skl_shot"/>
+	<Sound frame="60.00" soundFile="mon_voice_throneweaver_2"/>
+	<Sound frame="73.00" soundFile="skl_eff_atk_move_l_14"/>
+	<Sound frame="73.00" soundFile="skl_eff_landing_m"/>
+	<Sound frame="73.00" soundFile="skl_eff_stone_born_l_1"/>
+	<Sound frame="73.00" soundFile="skl_eff_two_spin_3"/>
+	<Sound frame="75.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="75.00" soundFile="skl_eff_stone_underground_1"/>
+	<Sound frame="85.00" soundFile="skl_eff_spinner"/>
+	<Sound frame="85.00" soundFile="skl_eff_whirlwind_smoke"/>
+	<Sound frame="95.00" soundFile="skl_eff_atk_move_m_4"/>
+	<Sound frame="98.00" soundFile="skl_eff_spinner"/>
+	<Sound frame="100.00" soundFile="skl_eff_forcespinner_1"/>
+	<Sound frame="135.00" soundFile="mon_voice_throneweaver_5"/>
+	<Sound frame="142.00" soundFile="skl_eff_atk_move_m_3"/>
+	<Sound frame="143.00" soundFile="mon_voice_throneweaver_10"/>
 </ActionDesc>

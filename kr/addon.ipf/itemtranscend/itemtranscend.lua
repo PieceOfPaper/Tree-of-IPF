@@ -122,13 +122,13 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		--return;
 	--end
 		
---	--EVENT_1804_TRANSCEND_DISCOUNT
---	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
+	--EVENT_1804_TRANSCEND_DISCOUNT
+	--SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
 
-    -- EVENT_1811_WEEKEND
---    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
---        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
---    end
+    -- EVENT_1903_WEEKEND
+    if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', false) == 'YES' then
+        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, obj)
+    end
 end
 
 -- 아아템 초월시 여신의 축복석 Text 갱신 함수.
@@ -474,10 +474,10 @@ elseif keyboard.IsKeyPressed("LALT") == 1 or isMax == true then
 --	--EVENT_1804_TRANSCEND_DISCOUNT
 --	SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
     
-    -- EVENT_1811_WEEKEND
---    if SCR_EVENT_1811_WEEKEND_CHECK('TRANSCEND') == 'YES' then
---        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
---    end
+    -- EVENT_1903_WEEKEND
+    if SCR_EVENT_1903_WEEKEND_CHECK('TRANSCEND', false) == 'YES' then
+        SCR_EVENT_TRANSCEND_DISCOUNT_TEXT(frame, targetObj)
+    end
 end
 
 -- 재료를 드레그 드롭했을 경우

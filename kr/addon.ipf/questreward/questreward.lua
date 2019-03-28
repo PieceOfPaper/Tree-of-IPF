@@ -346,7 +346,7 @@ function MAKE_ITEM_TAG_TEXT_CTRL(y, box, ctrlNameHead, itemName, itemCount, inde
 	if cls == nil then
 		return y;
 	end
-	
+    
 	local icon = GET_ITEM_ICON_IMAGE(cls);
 	    
     y = y + 5
@@ -938,7 +938,9 @@ function CREATE_QUEST_REWARE_CTRL(box, y, index, ItemName, itemCnt, callFunc)
 	local itemCls = GetClass("Item", ItemName);
 	local slot = ctrlSet:GetChild("slot");
 	tolua.cast(slot, "ui::CSlot");
-	SET_SLOT_IMG(slot, itemCls.Icon);
+	
+	local icon = GET_ITEM_ICON_IMAGE(itemCls, GETMYPCGENDER())
+	SET_SLOT_IMG(slot, icon);
 
 	local ItemName = ctrlSet:GetChild("ItemName");
 	local itemText = string.format("{@st41b}%s x%d", itemCls.Name, itemCnt);

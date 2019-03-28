@@ -47,6 +47,7 @@ function BEFORE_APPLIED_SKILLSTAT_OPEN(invItem)
 
 	local endTxt2 = frame:GetChild("endTime2");
 	endTxt2:SetTextByKey("value", ClMsg("JustSkill").." "..ClMsg("POINT")); 
+    endTxt2:SetTextByKey("msg", ClMsg("TransferBarrackSkillReset")); 
 
     local prop = ctrlSet:GetChild("prop");
     prop:SetTextByKey("value", ClMsg("Premium_SkillResetLng")); 
@@ -134,6 +135,7 @@ function BEFORE_APPLIED_STATRESET_OPEN(invItem)
 
 	local endTxt2 = frame:GetChild("endTime2");
 	endTxt2:SetTextByKey("value", ClMsg("JustStat").." "..ClMsg("POINT")); 
+    endTxt2:SetTextByKey("msg", ""); 
 
     local prop = ctrlSet:GetChild("prop");
     prop:SetTextByKey("value", ClMsg("Premium_StatResetLng")); 

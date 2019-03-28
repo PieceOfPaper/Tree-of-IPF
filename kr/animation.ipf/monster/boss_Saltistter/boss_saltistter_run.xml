@@ -1,17 +1,17 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
 <ActionDesc>
-    <Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
-    <Particle frame="9" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_yonazolem_wlk_smoke" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false" />
-    <Particle frame="9" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_yonazolem_wlk_stone" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false" />
-    <Sound frame="9.00" soundFile="mon_big_footstep_4" />
-    <Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
-    <Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
-    <Sound frame="33.90" soundFile="mon_big_footstep_4" />
-    <Shockwave frame="34" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
-    <Particle frame="34" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_yonazolem_wlk_smoke" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false" />
-    <Particle frame="34" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_yonazolem_wlk_stone" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false" />
-    <Shockwave frame="35" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
-    <Shockwave frame="36" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="9" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="9" attachActor="None" attachNode="Bip001 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="9.00" soundFile="mon_big_footstep_4"/>
+	<Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="33.90" soundFile="mon_big_footstep_4"/>
+	<Shockwave frame="34" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="34" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="34" attachActor="None" attachNode="Bip001 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="35" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="36" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 </ActionDesc>

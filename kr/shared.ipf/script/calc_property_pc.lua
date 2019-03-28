@@ -2033,7 +2033,7 @@ function SCR_Get_MSPD(self)
         return fixMSPDBuff;
     end
     
-    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
+    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' or IsBuffApplied(self, 'HideShot_Buff') == 'YES' then
     	return 10;
     end
     
@@ -2123,7 +2123,7 @@ function SCR_Get_MSPD(self)
     local jobObj = GetJobObject(self);
     local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
     if jobCtrlType == "Archer" then
-    	if IsBattleState(self) == 1 then
+    	if IsBattleState(self) == 1 and IsBuffApplied(self, "Tracking_Buff") == "NO" then
     		isDashRun = 0
     	end
     end
@@ -2131,6 +2131,11 @@ function SCR_Get_MSPD(self)
     if IsBuffApplied(self, 'Slithering_Buff') == 'YES' then
     	isDashRun = 0
     	return 19;
+    end
+    
+    if IsBuffApplied(self, 'Taglio_Buff') == 'YES' then
+        isDashRun = 0
+        return value;
     end
     
     if isDashRun > 0 then    -- 대시 런 --
@@ -2141,7 +2146,7 @@ function SCR_Get_MSPD(self)
 	    end
 	    
 	    if jobCtrlType == "Archer" then
-	    	if IsBattleState(self) == 0 then
+	    	if IsBattleState(self) == 0 or IsBuffApplied(self, "Tracking_Buff") == "YES" then
 	    		dashRunAddValue = dashRunAddValue + 3
 	    	else
 	    		isDashRun = 0
@@ -2504,13 +2509,20 @@ function SCR_Get_Sta_Run(self)
     local jobObj = GetJobObject(self);
     local jobCtrlType = TryGetProp(jobObj, 'CtrlType')
     if jobCtrlType == "Archer" then
-    	if IsBattleState(self) == 1 then
+    	if IsBattleState(self) == 1 and IsBuffApplied(self, "Tracking_Buff") == "NO" then
     		isDashRun = 0
     	end
     end
     
     if isDashRun > 0 then
         local dashAmount = 500;
+
+	    if jobCtrlType == "Archer" then
+	    	if IsBuffApplied(self, "Tracking_Buff") == "YES" then
+	    		dashAmount = dashAmount * 1.5
+	    	end
+	    end        
+        
 	    if jobCtrlType == "Cleric" then
 			if IsBuffApplied(self, "Lycanthropy_Half_Buff") == "YES" then
 				dashAmount = dashAmount * 0.5

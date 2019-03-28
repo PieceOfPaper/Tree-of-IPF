@@ -8694,3 +8694,295 @@ function SCR_PRE_JOB_ASSASSIN_Q1_ITEM(self, argObj, argstring, arg1, arg2)
     end
     return 0;   
 end
+
+
+--CASTLE_93-CASTLE_95
+
+
+-- CASTLE93_MAIN05 (Take Item CASTLE93_MAIN04)
+function SCR_PRE_CASTLE93_MAIN04_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_castle_93' then
+        if GetLayer(self) == 0 then 
+            local result1 = SCR_QUEST_CHECK(self, 'CASTLE93_MAIN05')
+            if result1 == 'PROGRESS' then
+                if IsBuffApplied(self, 'CASTLE93_MAIN05_BUFF') == "NO" then
+                    return 1
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+-- CASTLE94_MAIN04
+function SCR_PRE_CASTLE94_MAIN04_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_castle_94' then
+        if GetLayer(self) == 0 then 
+            local result1 = SCR_QUEST_CHECK(self, 'CASTLE94_MAIN04')
+            if result1 == 'PROGRESS' then
+                local enemyList, enemyCount = SelectObject(self, 100, 'ENEMY')
+                for i = 1, enemyCount do
+                    if GetHpPercent(enemyList[i]) <= 0.5 then
+                        if enemyList[i].ClassName == 'gland' or enemyList[i].ClassName == 'grievous_wheel' or enemyList[i].ClassName == 'ghosnatus' then
+                            return GetHandle(enemyList[i])
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+
+--F_MAPLE_243_MQ_07_ITEM_01
+function SCR_PRE_F_MAPLE_243_MQ_07_ITEM_01(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_maple_24_3' then
+        if GetLayer(self) == 0 then
+            local quest = SCR_QUEST_CHECK(self, "F_MAPLE_24_3_MQ_07")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if obj_list[i].ClassName == "f_3cmlake_Consensus_stone" then
+                            if IsServerSection(self) == 1 then
+                                if obj_list[i].Enter == 'F_MAPLE_243_MQ_07_OBJ' then
+                                    return GetHandle(obj_list[i]);
+                                end
+                            else
+                                return GetHandle(obj_list[i]);
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;   
+end
+
+
+--F_MAPLE_243_MQ_07_ITEM_02
+function SCR_PRE_F_MAPLE_243_MQ_07_ITEM_02(self, argObj, argstring, arg1, arg2)
+    if GetZoneName(self) == 'f_maple_24_3' then
+        if GetLayer(self) ~= 0 then
+            local quest = SCR_QUEST_CHECK(self, "F_MAPLE_24_3_MQ_08")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 100, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if obj_list[i].ClassName == "boss_Tantaliser_Q1" then
+                            return GetHandle(obj_list[i]);
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;   
+end
+
+--F_MAPLE_241_MQ_01_ITEM
+function SCR_PRE_F_MAPLE_241_MQ_01_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_maple_24_1' then
+        if GetLayer(self) == 0 then
+            local quest = SCR_QUEST_CHECK(self, "F_MAPLE_24_1_MQ_01")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if obj_list[i].ClassName == "f_3cmlake_Consensus_stone" then
+                            if IsServerSection(self) == 1 then
+                                if obj_list[i].Enter == 'F_MAPLE_241_MQ_01_OBJ' then
+                                    return GetHandle(obj_list[i]);
+                                end
+                            else
+                                return GetHandle(obj_list[i]);
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;   
+end
+
+--F_MAPLE_242_MQ_03_ITEM
+function SCR_PRE_F_MAPLE_242_MQ_03_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_maple_24_2' then
+        if GetLayer(self) == 0 then
+            local quest = SCR_QUEST_CHECK(self, "F_MAPLE_24_2_MQ_03")
+            if quest == "PROGRESS" then
+                local sObj = GetSessionObject(self, 'SSN_F_MAPLE_24_2_MQ_03')
+                local x, y, z = GetPos(self)
+                local posList = { {338, 1, 288}, {192, 1, 252}, {50, 2, 351},
+                                    {-143, 2, 370}, {-255, 2, 479}, {-378, 42, 563},
+                                    {-561, 41, 654}, {-747, 41, 641}
+                                }
+                for i = 1, #posList do
+                    if sObj['Step'..i] == 0 and sObj.QuestInfoValue1 == i-1 then
+                        local list, cnt = SelectObject(self, 200, "ALL", 1)
+                        if cnt > 0 then
+                            for i = 1, cnt do
+                                if list[i].ClassName == "noshadow_npc" then
+--                                    local owner = GetExArgObject(list[i], 'F_MAPLE_242_MQ_03_HINT')
+--                                    if owner ~= nil then
+--                                        return 1
+--                                    end
+                                    if IsServerSection(self) == 1 then
+                                        if list[i].Dialog == "F_MAPLE_242_MQ_03_HINT" then
+                                            return 0
+                                        end
+                                    else
+                                        if GetDialogByObject(list[i]) == 'F_MAPLE_242_MQ_03_HINT' then
+                                            return 0
+                                        end
+                                    end
+                                end
+                            end
+                        end
+                        local pos_x = posList[i][1]
+                        local pos_y = posList[i][2]
+                        local pos_z = posList[i][3]
+                        if SCR_POINT_DISTANCE(x, z, pos_x, pos_z) < 180 then
+                            return 1
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;   
+end
+
+--F_MAPLE_242_MQ_08_ITEM
+function SCR_PRE_F_MAPLE_242_MQ_08_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_maple_24_2' then
+        if GetLayer(self) == 0 then
+            local quest = SCR_QUEST_CHECK(self, "F_MAPLE_24_2_MQ_08")
+            if quest == "PROGRESS" then
+                local obj_list, obj_cnt = SelectObject(self, 40, "ALL", 1)
+                if obj_cnt >= 1 then
+                    for i = 1, obj_cnt do
+                        if obj_list[i].ClassName == "f_3cmlake_Consensus_stone" then
+                            if IsServerSection(self) == 1 then
+                                if obj_list[i].Enter == 'F_MAPLE_242_MQ_08_OBJ' then
+                                    return GetHandle(obj_list[i]);
+                                end
+                            else
+                                return GetHandle(obj_list[i]);
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0; 
+end
+
+
+-- CASTLE98_MQ_CORE_ITEM
+function SCR_PRE_CASTLE98_MQ_CORE_ITEM(self, argstring, argnum1, argnum2)
+
+    if GetZoneName(self) == 'f_castle_98' then
+
+        if GetLayer(self) == 0 then
+
+            local result1 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_1')
+            local result2 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_2')
+            local result3 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_3')
+            local result4 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_4')
+            local result5 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_5')
+            local result6 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_6')
+            local result7 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_7')
+            local result8 = SCR_QUEST_CHECK(self, 'CASTLE98_MQ_8')
+            local x, y, z = GetPos(self)
+
+            local x1 = 0
+            local z1 = 0
+            local range = 100
+            local such_flag1 = 0
+            local obj_classname = 'None_Target'
+            local obj_faction = 'Monster'
+            if result1 == 'PROGRESS' then
+                x1 = 1531
+                z1 = -1353
+                range = 50
+            elseif result2 == 'PROGRESS' then
+                x1 = 1660
+                z1 = -253
+                range = 600
+                obj_classname = 'HiddenTrigger6'
+                such_flag1 = 1
+            elseif result3 == 'PROGRESS' then
+                x1 = 751
+                z1 = -830
+                range = 400
+                obj_classname = 'HiddenTrigger6'
+                such_flag1 = 1
+            elseif result4 == 'PROGRESS' then
+                x1 = -199
+                z1 = -925
+                range = 500
+                obj_classname = 'HiddenTrigger6'
+                such_flag1 = 1
+            elseif result5 == 'PROGRESS' then
+                x1 = 1658
+                z1 = 181
+                range = 400
+                obj_faction = 'Monster'
+                such_flag1 = 2
+            elseif result6 == 'PROGRESS' then
+                x1 = 2363
+                z1 = 249
+                range = 500
+                obj_faction = 'Monster'
+                such_flag1 = 2
+            elseif result7 == 'PROGRESS' then
+                x1 = 2371
+                z1 = 1155
+                range = 400
+                obj_faction = 'Monster'
+                such_flag1 = 2
+            elseif result8 == 'PROGRESS' then
+                x1 = 1531
+                z1 = -1353
+                range = 50
+            else
+                return 0
+            end
+            
+            local dist = SCR_POINT_DISTANCE(x, z, x1, z1)
+                    
+            if dist < range then
+                if such_flag1 == 1 then
+                    local list, cnt = SelectObject(self, 100, 'ALL')
+                    if cnt > 0 then
+                        for i = 1, cnt do
+                            if list[i].ClassName == obj_classname then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                elseif such_flag1 == 2 then
+                    
+                    local list, cnt = SelectObject(self, 50, 'ENEMY')
+                    if cnt > 0 then
+                        for i = 1, cnt do
+                            local monFaction = TryGetProp(list[i], 'Faction', 'None')
+                            if monFaction == obj_faction then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                else
+                    return 1
+                end
+            end
+        end
+    end
+    return 0
+end

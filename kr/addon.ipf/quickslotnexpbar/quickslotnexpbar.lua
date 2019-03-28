@@ -329,7 +329,17 @@ function _UPDATE_SLOT_OVERHEAT(slot, obj)
 	local sklType = obj.ClassID;
 	local skl = session.GetSkill(sklType);
 	skl = GetIES(skl:GetObject());
-	local overHeatCount = skl.SklUseOverHeat;
+	
+	local overHeatCount = 0;
+	local sklProp = geSkillTable.Get(obj.ClassName);
+    if sklProp ~= nil then
+        overHeatCount = sklProp:GetOverHeatCnt();
+    end
+	
+	if overHeatCount == 0 then
+		overHeatCount = skl.SklUseOverHeat;
+	end
+	
 	local curHeat = session.GetSklOverHeat(sklType);
 	local resetTime = session.GetSklOverHeatResetTime(sklType);
 	local gauge = slot:GetSlotGauge();

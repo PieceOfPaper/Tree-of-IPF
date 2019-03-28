@@ -99,6 +99,10 @@
                                 <MGameObj List="Initialize/0"/>
                                 <Str Str="BK_MGAME_MONGOLOG_CONTRIBUTE_GUILD"/>
                             </ToolScp>
+                        <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="Initialize/0"/>
+                                <Str Str="BK_MGAME_MONGOLOG_CONTRIBUTE_PC"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>

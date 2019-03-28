@@ -58,22 +58,22 @@ function IS_MORU_NOT_DESTROY_TARGET_ITEM(moruItem)
 
     return false;
 end
-    
+
 function REINFORCE_ABLE_131014(item)    
     if item.ItemType ~= 'Equip' then
         return 0;
     end
 
-    if item.Reinforce_Type ~= "Moru" then
+    if item.Reinforce_Type ~= "Moru" or item.LifeTime > 0 then
         return 0;
     end
     
-    local prop = TryGetProp(item,"BasicTooltipProp");
+    local prop = TryGetProp(item, "BasicTooltipProp");    
     if prop == nil then
         return 0;
     end
     
-    if prop ~= 'DEF' and prop ~= 'MDEF' and prop ~= 'ADD_FIRE' and prop ~= 'ADD_ICE' and prop ~= 'ADD_LIGHTNING' and prop ~= 'DEF;MDEF' and prop ~= 'ATK;MATK' and prop ~= 'MATK' and prop ~= 'ATK' then
+    if prop ~= 'DEF' and prop ~= 'MDEF' and prop ~= 'ADD_FIRE' and prop ~= 'ADD_ICE' and prop ~= 'ADD_LIGHTNING' and prop ~= 'DEF;MDEF' and prop ~= 'ATK;MATK' and prop ~= 'MATK' and prop ~= 'ATK' then    
         return 0;
     end
     
@@ -168,10 +168,10 @@ function GET_REINFORCE_PRICE(fromItem, moruItem, pc)
         value = value + (value_diamond * 2.1)
     end
     
-    -- EVENT_1811_WEEKEND
---    if SCR_EVENT_1811_WEEKEND_CHECK('REINFORCE') == 'YES' then
---        value = value/2
---    end
+    -- EVENT_1903_WEEKEND
+    if SCR_EVENT_1903_WEEKEND_CHECK('REINFORCE', IsServerSection() == 1) == 'YES' then
+        value = value/2
+    end
     
     return SyncFloor(value);
 

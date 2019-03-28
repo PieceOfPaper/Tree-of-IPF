@@ -7,18 +7,23 @@ function SCR_SIERA_MATERIAL(item)
 
 	local sieraCount =  math.floor((1 + (math.floor(itemLv/75) * math.floor(itemLv/75))* 5) * 0.5)
     
-    --EVENT_1811_WEEKEND
---	if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
---	    sieraCount = math.floor(sieraCount/2)
---	end
-	
+    --EVENT_1903_WEEKEND
+    local isServer = false
+    
+    if IsServerSection(item) == 1 then
+        isServer = true
+    end
+	if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', isServer) == 'YES' then
+	    sieraCount = math.floor(sieraCount/2)
+	end
+    	
 	return sieraCount
 end
 
 function SCR_NEWCLE_MATERIAL(item)
 
- 	local itemGradeRatio = {75, 50, 35, 20};
-    local itemMaxRatio = {1.4, 1.5, 1.8, 2};
+ 	local itemGradeRatio = {75, 50, 35, 20, 20};
+    local itemMaxRatio = {1.4, 1.5, 1.8, 2, 2};
 
 	local itemLv = TryGetProp(item, "UseLv")
 	if itemLv == nil then
@@ -31,10 +36,15 @@ function SCR_NEWCLE_MATERIAL(item)
 	
 	local newcleCount = math.floor(math.floor(1 + (itemLv/itemGradeRatio[itemGrade])) * itemMaxRatio[itemGrade] * 20)
     
-    --EVENT_1811_WEEKEND
---	if SCR_EVENT_1811_WEEKEND_CHECK('ITEMRANDOMRESET') == 'YES' then
---	    newcleCount = math.floor(newcleCount/2)
---	end
+	--EVENT_1903_WEEKEND
+	local isServer = false
+
+	if IsServerSection(item) == 1 then
+		isServer = true
+	end
+	if SCR_EVENT_1903_WEEKEND_CHECK('ITEMRANDOMRESET', isServer) == 'YES' then
+	    newcleCount = math.floor(newcleCount/2)
+	end
 	
 	return newcleCount
 end

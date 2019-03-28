@@ -258,12 +258,14 @@
 			<Stage Name="END" AutoStart="0">
 				<StartScpList>
 					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
-						<Str Str="60초 후 입구로 돌아갑니다"/>
-						<Str Str="!"/>
+						<Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}중앙에 큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
+						<Str Str="GetItem"/>
 						<Num Num="5"/>
 					</ToolScp>
 				</StartScpList>
-				<ObjList/>
+				<ObjList>
+					<Obj Type="Monster" MonType="156162" Pos="2544.58#188.75#18.11" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+				</ObjList>
 				<StageEvents>
 					<Event execCount="1" eventName="마을로 돌아가기">
 						<condList>
@@ -272,6 +274,9 @@
 							</ToolScp>
 						</condList>
 						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+								<Str Str="END"/>
+							</ToolScp>
 							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
 							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
 								<Num Num="1"/>

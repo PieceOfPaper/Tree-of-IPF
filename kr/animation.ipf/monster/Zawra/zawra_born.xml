@@ -1,9 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_moldyhorn_born"/>
-    <Sound frame="15.00" soundFile="skl_eff_crash_ground_l_4"/>
-    <Sound frame="47.00" soundFile="skl_eff_stone_born_l_1"/>
-    <Sound frame="47.00" soundFile="mon_big_footstep_6"/>
-    <Sound frame="48.00" soundFile="mon_voice5_l_dead_14"/>
-    <Sound frame="50.00" soundFile="m_ironbaum_skl1_voice"/>
+	<Particle frame="27" attachNode="Dummy_emitter" particleName="F_smoke018" useAttach="false" hiddenObj="false" changeEffect="None" scale="12" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Shockwave frame="27" type="2" intensity="1" frequency="45" duration="0.2" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_moldyhorn_born"/>
+	<Sound frame="15.00" soundFile="skl_eff_crash_ground_l_4"/>
+	<Sound frame="47.00" soundFile="skl_eff_stone_born_l_1"/>
+	<Sound frame="47.00" soundFile="mon_big_footstep_6"/>
+	<Sound frame="48.00" soundFile="mon_voice5_l_dead_14"/>
+	<Sound frame="50.00" soundFile="m_ironbaum_skl1_voice"/>
 </ActionDesc>

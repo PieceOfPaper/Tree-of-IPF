@@ -3713,7 +3713,7 @@ end
 
 
 function UPDATE_COMPANION_TITLE(frame, handle)
-
+	
 	frame = tolua.cast(frame, "ui::CObject");
 
 	local petguid  = session.pet.GetPetGuidByHandle(handle);
@@ -3724,9 +3724,7 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 	end
 		
 	local otherscompinfo = GET_CHILD_RECURSIVELY(frame, "otherscompinfo");
-
 	if petguid == 'None' then
-		
 		mycompinfoBox:ShowWindow(0)
 		otherscompinfo:ShowWindow(1)
 		
@@ -3739,8 +3737,13 @@ function UPDATE_COMPANION_TITLE(frame, handle)
 		othernameTxt:SetText(targetinfo.name)
 
 	else
-		mycompinfoBox:ShowWindow(1)
-		otherscompinfo:ShowWindow(0)
+		local myActor = GetMyPCObject();
+		if myActor ~= nil and IsBuffApplied(myActor, "RidingCompanion") == "YES" then 
+			mycompinfoBox:ShowWindow(0);			
+		else
+			mycompinfoBox:ShowWindow(1);
+		end
+		otherscompinfo:ShowWindow(0);
 
 		local mynameRtext = GET_CHILD_RECURSIVELY(frame, "myname");
 		local gauge_stamina = GET_CHILD_RECURSIVELY(frame, "StGauge");

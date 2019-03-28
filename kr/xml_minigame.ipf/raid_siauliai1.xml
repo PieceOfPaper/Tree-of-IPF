@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <GameList>
-    <Game Name="raid_siauliai1" rankScript="RAID_RANK_SCP" minLv="20" maxLv="29" mapName="raid_siauliai1" playerCnt="10" checkSec="3600" checkSecStart="600" checkScript="CHECK_MGAME_COMMON" msgTxt="{@st41b}도시 외곽 성곽에 몬스터들이 몰려들고 있습니다. 당신만이 문제를 해결할 수 있습니다." portrait="Dlg_port_KNIGHT_USKA">
+    <Game Name="raid_siauliai1" rankScript="RAID_RANK_SCP" minLv="20" maxLv="29" mapName="raid_siauliai1" playerCnt="10" playerCountCheckDestroy="1" checkSec="3600" checkSecStart="600" checkScript="CHECK_MGAME_COMMON" msgTxt="{@st41b}도시 외곽 성곽에 몬스터들이 몰려들고 있습니다. 당신만이 문제를 해결할 수 있습니다." portrait="Dlg_port_KNIGHT_USKA">
         <StageList>
             <Stage Name="st1" AutoStart="0">
                 <StartScpList>
@@ -597,10 +597,12 @@
                         <Num Num="60"/>
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
-                        <Str Str="미션 성공 : 약 1분 후 원래 존으로 돌아갑니다"/>
+                        <Str Str="미션 성공 : 60초 후 원래 존으로 돌아갑니다"/>
                     </ToolScp>
                 </StartScpList>
-                <ObjList/>
+                <ObjList>
+                    <Obj Type="Monster" MonType="156161" Pos="169.88#8.66#1015.69" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;NPC_DUNGEON_GACHA_CUBE&apos; "/>
+                </ObjList>
                 <StageEvents>
                     <Event eventName="setPosPC">
                         <execList>
@@ -627,6 +629,9 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="success"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="success"/>
@@ -655,6 +660,15 @@
                             <ToolScp Scp="MGAME_RANK_RESET_POINT_SETTING" Client="NO" UseSleep="NO">
                                 <Num Num="10"/>
                                 <Str Str="Mission: Request_Mission1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="successMsg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="미션 성공!!{np}60초 후 입구로 돌아갑니다{nl}큐브가 생성됩니다. 큐브와 대화 시,[한번 더 열기]가 가능합니다"/>
+                                <Str Str="Clear"/>
+                                <Num Num="10"/>
                             </ToolScp>
                         </execList>
                     </Event>

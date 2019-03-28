@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_tantaliser_skl2" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="35" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="40" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="45" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="56" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="2" frequency="70" duration="1" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="5" R="15" G="20" B="40" A="10"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

@@ -471,17 +471,24 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     if cls == nil then
         lv = 1
     end
-    
-    if obj ~= nil then
-        sp = GET_SPENDSP_BY_LEVEL(obj);
-        overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
-        coolDown = obj.CoolDown/1000;
-    else
-        local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
-        tempObj.Level = lv;
-        sp = GET_SPENDSP_BY_LEVEL(tempObj);
-        coolDown = tempObj.CoolDown/1000;
-        overHeat = GET_SKILL_OVERHEAT_COUNT(tempObj);
+
+    local sklProp = geSkillTable.Get(sklClsName);
+    if sklProp ~= nil then
+        overHeat = sklProp:GetOverHeatCnt();
+    end
+
+    if overHeat == 0 then
+        if obj ~= nil then
+            sp = GET_SPENDSP_BY_LEVEL(obj);
+            overHeat = GET_SKILL_OVERHEAT_COUNT(obj);
+            coolDown = obj.CoolDown / 1000;
+        else
+            local tempObj = CreateGCIESByID("Skill", sklCls.ClassID);
+            tempObj.Level = lv;
+            sp = GET_SPENDSP_BY_LEVEL(tempObj);
+            coolDown = tempObj.CoolDown / 1000;
+            overHeat = GET_SKILL_OVERHEAT_COUNT(tempObj);
+        end
     end
     
     lv = ScpArgMsg("level{value}", "value", lv);
@@ -521,7 +528,7 @@ function SKILLABILITY_FILL_SKILL_INFO(infoctrl, info)
     weapon_gb:RemoveAllChild();
     local skillCls = GetClass("Skill", sklClsName);
     local iconCount, companionIconCount = MAKE_STANCE_ICON(weapon_gb, skillCls.ReqStance, skillCls.EnableCompanion, 0, 0);
-    local weaponWidth = iconCount*20+companionIconCount*20;
+    local weaponWidth = iconCount * 20 + companionIconCount * 20;
     if iconCount == 0 then
         weaponWidth = weaponWidth + 28;
     end

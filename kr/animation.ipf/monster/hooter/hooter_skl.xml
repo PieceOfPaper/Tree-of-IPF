@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="8" type="2" intensity="1" frequency="60" duration="0.1" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="1" frequency="60" duration="0.1" range="1000"/>
+	<Particle frame="8" attachNode="Dummy_emitter001" particleName="F_warrior_upeerslash_shot_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="8" attachNode="Dummy_emitter001" particleName="F_ground071_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="8" attachNode="Dummy_emitter001" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_emitter001" particleName="F_warrior_upeerslash_shot_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_emitter001" particleName="F_ground071_smoke3" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="12" attachNode="Dummy_emitter001" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20"/>
+</ActionDesc>

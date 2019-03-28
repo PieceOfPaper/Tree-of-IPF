@@ -1,5 +1,5 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
 	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
@@ -8,7 +8,9 @@
 	<Shockwave frame="56" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Shockwave frame="57" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
 	<Particle frame="8" particleName="monster_born" attachNode="None" scale="3" useAttach="true"/>
-	<Particle frame="13" particleName="F_smoke097" attachNode="None" scale="3" useAttach="true"/>
+	<Particle frame="18" particleName="F_smoke097" attachNode="None" scale="3" useAttach="false"/>
+	<Particle frame="14" particleName="F_smoke008" attachNode="Bip001 R Hand" scale="3" useAttach="false"/>
+	<Particle frame="24" particleName="F_smoke008" attachNode="Bip001 L Hand" scale="3" useAttach="false"/>
 	<Particle frame="55" particleName="monster_born" attachNode="None" scale="3" useAttach="true"/>
 	<Sound frame="0.00" soundFile="npc_rootcrystal_born"/>
 	<Sound frame="15.00" soundFile="mon_voice5_l_2"/>

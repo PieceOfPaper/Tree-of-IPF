@@ -1215,16 +1215,31 @@ function UPDATE_SOLD_ITEM_LIST(frame)
 	CLEAR_SOLD_ITEM_LIST(slotSet);
 
 	local list = session.GetSoldItemList();
-	FOR_EACH_INVENTORY(list, function(invItemList, info, slotSet)		
+	local count = list:Count();
+	local guidList = list:GetGuidList();
+	local indexTable = {}
+	for i = 0, count - 1 do
+		local guid = guidList:Get(i);
+		local item = list:GetItemByGuid(guid)
+		local index = item.invIndex
+		if index~=nil then
+			table.insert(indexTable,index)
+		end
+	end
+	table.sort(indexTable, function(a,b) return (a>b) end)
+	for i = 1, #indexTable do
+		local index = indexTable[i]
 		local idx = imcSlot:GetEmptySlotIndex(slotSet);
 		local slot = slotSet:GetSlotByIndex(idx);
+		local itemInfo = list:GetByInvIndex(index)
 		if slot == nil then
-			return 'break';
+			break;
 		end
-		local obj = GetIES(info:GetObject());		
-		SOLD_SLOT_SET(slot, idx, info);
-	end, true, slotSet);
-
+		if itemInfo ~= nil then
+			local obj = GetIES(itemInfo:GetObject());
+			SOLD_SLOT_SET(slot, idx, itemInfo);
+		end
+	end
 	slotSet:Invalidate();
 	FINALPRICE = GET_TOTAL_MONEY_STR();
 

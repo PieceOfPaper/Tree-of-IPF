@@ -1,5 +1,5 @@
 function IS_ENABLE_EXTRACT_OPTION(item)
-    if TryGetProp(item,'Extractable', 'No') ~= 'Yes' then
+    if TryGetProp(item,'Extractable', 'No') ~= 'Yes' or TryGetProp(item,'LifeTime', 1) ~= 0 then
         return false;
     end
 
@@ -46,6 +46,37 @@ function IS_ENABLE_NOT_TAKE_MATERIAL_KIT(kitCls)
     return false;
 end
 
+-- 아이커 연성 재료 정보 관련 내용
+function GET_OPTION_LEGEND_EXTRACT_KIT_LIST()
+    return {'Dirbtumas_kit', 'Dirbtumas_kit_Sliver'};
+end
+
+function IS_VALID_OPTION_LEGEND_EXTRACT_KIT(itemCls)
+    local list = GET_OPTION_LEGEND_EXTRACT_KIT_LIST();
+    for i = 1, #list do
+        if list[i] == itemCls.StringArg and tonumber(TryGetProp(itemCls, "ItemLifeTimeOver", 0)) == 0 then
+            return true;
+        end
+    end
+    return false;
+end
+
+function GET_OPTION_LEGEND_EXTRACT_MATERIAL_NAME()
+    return 'misc_ore23'; 
+end
+
+function GET_OPTION_LEGEND_EXTRACT_NEED_MATERIAL_COUNT(item)
+    return math.floor(item.UseLv * (item.ItemGrade + 3) / (3 * (5 - item.ItemGrade)));
+end
+
+function IS_ENABLE_NOT_TAKE_MATERIAL_KIT_LEGEND_EXTRACT(kitCls)
+    if kitCls.StringArg == 'Dirbtumas_kit_Sliver' then 
+        return true;
+    end
+    return false;
+end
+--------------------------------
+
 function IS_ENABLE_NOT_TAKE_POTENTIAL_BY_EXTRACT_OPTION(kitCls)
     if kitCls.StringArg == 'Extract_kit_Gold' then 
         return true;
@@ -58,11 +89,6 @@ function GET_OPTION_EXTRACT_TARGET_ITEM_NAME(inheritanceItemName)
         return 'Armor_icor';
     end
     return 'Weapon_icor';
-end
-
-function GET_OPTION_EQUIP_LIMIT_LEVEL(targetItem)
-    local limitLevel = targetItem.UseLv - 40;    
-    return math.max(limitLevel, 360);
 end
 
 function GET_OPTION_EQUIP_NEED_MATERIAL_COUNT(item)
@@ -110,6 +136,21 @@ function SCR_VELLCOFFER_MATCOUNT(pc)
     local matCount = 2;
     
     for i = 5, 7 do
+        local rndCount = IMCRandom(1, i)
+        if rndCount == 1 then
+            matCount = matCount + 1
+        else
+            break;
+        end
+    end
+    
+    return matCount;
+end
+
+function SCR_SEVINOSE_MATCOUNT(pc)
+    local matCount = 1;
+    
+    for i = 10, 12 do
         local rndCount = IMCRandom(1, i)
         if rndCount == 1 then
             matCount = matCount + 1

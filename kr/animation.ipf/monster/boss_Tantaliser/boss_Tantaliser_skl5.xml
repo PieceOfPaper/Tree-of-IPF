@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="2" attachNode="Bone_wing1_1" particleName="I_light025_violet2" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="2" attachNode="Bone_wing2_1" particleName="I_light025_violet2" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="100" attachNode="Dummy_eff_skl5" particleName="I_swordtrail011_mint2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_eff_skl4" particleName="I_dash022_5" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_eff_skl4" particleName="I_dash022_4" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="60" attachNode="Dummy_eff_skl1" particleName="I_dash002_black_G_add2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="10" R="10" G="7" B="20" A="10"/>
+	<BlendOn frame="20" R="15" G="14" B="30" A="50"/>
+	<BlendOn frame="22" R="100" G="80" B="120" A="50"/>
+	<BlendOn frame="27" R="20" G="16" B="30" A="50"/>
+	<BlendOn frame="40" R="20" G="16" B="30" A="50"/>
+	<BlendOn frame="63" R="150" G="120" B="220" A="200"/>
+	<BlendOff frame="100" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="63" type="2" intensity="2" frequency="70" duration="1" range="1000"/>
+	<Shockwave frame="105" type="2" intensity="4" frequency="30" duration="0.2" range="1000"/>
+</ActionDesc>

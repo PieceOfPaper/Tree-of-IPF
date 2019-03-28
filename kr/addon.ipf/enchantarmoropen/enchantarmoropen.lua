@@ -81,12 +81,17 @@ function ENCHANTAROMOROPEN_UPDATE_STORINFO(frame, groupName)
 end
 
 function ENCHANTARMOROPEN_INIT_SPEND_ITEM(frame)
+	if frame:GetUserValue('GroupName') == "None" then
+		return;
+	end
+	
 	local materialGbox = GET_CHILD_RECURSIVELY(frame, 'materialGbox');
 	local reqitemNameStr = materialGbox:GetChild("reqitemNameStr");
 	local reqitemCount = materialGbox:GetChild("reqitemCount");
 	local reqitemImage = materialGbox:GetChild("reqitemImage");
 
 	local invItemList = session.GetInvItemList();
+
 	local checkFunc = _G["ITEMBUFF_STONECOUNT_" .. frame:GetUserValue('GroupName')];
 	local name, cnt = checkFunc(invItemList, frame);
 	local cls = GetClass("Item", name);

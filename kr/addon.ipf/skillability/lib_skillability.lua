@@ -555,8 +555,10 @@ function GET_SKILL_OVERHEAT_COUNT(sklObj)
     if sklObj ~= nil then
         overHeat = TryGetProp(sklObj, 'SklUseOverHeat', 0);
     end
+
     if overHeat == 0 then
         overHeat = 1
     end
+
     return overHeat;
 end

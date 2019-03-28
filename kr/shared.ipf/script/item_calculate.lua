@@ -1539,7 +1539,7 @@ function SCR_GET_AWAKENING_PROP_LEVEL(star, grade)
     return value;
 end
 
-function SCR_GET_MAXPROP_DEF(item)
+function SCR_GET_MAXPROP_DEF(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1555,7 +1555,7 @@ function SCR_GET_MAXPROP_DEF(item)
     return math.floor(result);
 end 
 
-function SCR_GET_MAXPROP_DEFATTRIBUTE(item)
+function SCR_GET_MAXPROP_DEFATTRIBUTE(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1571,7 +1571,7 @@ function SCR_GET_MAXPROP_DEFATTRIBUTE(item)
     return math.floor(result);
 end
 
-function SCR_GET_MAXPROP_ATK(item)
+function SCR_GET_MAXPROP_ATK(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1592,7 +1592,7 @@ function SCR_GET_MAXPROP_ATK(item)
     return math.floor(result);
 end
 
-function SCR_GET_MAXPROP_STAT(item)
+function SCR_GET_MAXPROP_STAT(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1613,7 +1613,7 @@ function SCR_GET_MAXPROP_STAT(item)
     return math.floor(result);
 end
 
-function SCR_GET_MAXPROP_MHP(item)
+function SCR_GET_MAXPROP_MHP(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1630,7 +1630,7 @@ function SCR_GET_MAXPROP_MHP(item)
     return math.floor(result);
 end
 
-function SCR_GET_MAXPROP_MSP(item)
+function SCR_GET_MAXPROP_MSP(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1647,7 +1647,7 @@ function SCR_GET_MAXPROP_MSP(item)
     return math.floor(result);
 end
 
-function SCR_GET_MAXPROP_RHP(item)
+function SCR_GET_MAXPROP_RHP(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
@@ -1664,7 +1664,7 @@ function SCR_GET_MAXPROP_RHP(item)
     return math.floor(result);
 end
 
-function SCR_GET_MAXPROP_RSP(item)
+function SCR_GET_MAXPROP_RSP(item, awakestoneItem)
     
     local star = item.ItemStar;
     local grade = item.ItemGrade;
