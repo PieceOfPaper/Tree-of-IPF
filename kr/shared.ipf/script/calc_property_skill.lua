@@ -7293,6 +7293,16 @@ function SCR_GET_ReflectShield_Ratio(skill)
     return value
 end
 
+function SCR_GET_ReflectShield_Ratio2(skill)
+    local value = 30;
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, 'Wizard28')
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 5
+    end 
+    return value;
+end
+
 function SCR_GET_Exchange_Bufftime(skill)
 
     return 10 + skill.Level;
@@ -11270,6 +11280,16 @@ function SCR_GET_Algiz_Ratio(skill)
     
     value = value * SCR_REINFORCEABILITY_TOOLTIP(skill);
     
+    return value;
+end
+
+function SCR_GET_Algiz_Ratio2(skill)
+    local value = 30;
+    local pc = GetSkillOwner(skill)
+    local abil = GetAbility(pc, 'RuneCaster11')
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = 5
+    end 
     return value;
 end
 
