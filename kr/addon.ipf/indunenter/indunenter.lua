@@ -1845,11 +1845,6 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         if SCR_RAID_EVENT_20190102(nil , false) and admissionItemName == "Dungeon_Key01" then
             nowAdmissionItemCount = admissionItemCount - 1;
         end 
-
-        -- cur > max count enterace
-        if nowCount > indunCls.WeeklyEnterableCount then
-            nowAdmissionItemCount = nowAdmissionItemCount + (nowCount - (indunCls.WeeklyEnterableCount));
-        end
         
         local cnt = GetInvItemCount(user, admissionItemName)
         local invItem = session.GetInvItemByName(indunCls.AdmissionItemName);
@@ -1857,9 +1852,11 @@ function INDUNENTER_CHECK_ADMISSION_ITEM(frame)
         if indunCls.DungeonType == "Raid" or indunCls.DungeonType == "GTower" then
             if nowCount < indunCls.WeeklyEnterableCount then
                 return true;
+            elseif nowCount > indunCls.WeeklyEnterableCount then
+                nowAdmissionItemCount = nowAdmissionItemCount + (nowCount - (indunCls.WeeklyEnterableCount));
             end
-        end
-        
+        end 
+
         if cnt == nil or cnt < nowAdmissionItemCount then
             ui.MsgBox_NonNested(ClMsg('CannotJoinIndunItemScarcity'), 0x00000000);
             return false;

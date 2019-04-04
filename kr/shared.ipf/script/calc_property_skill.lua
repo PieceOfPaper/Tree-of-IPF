@@ -11584,16 +11584,7 @@ end
 
 function SCR_GET_Roar_Ratio(skill)
     local pc = GetSkillOwner(skill)
-    local value = skill.Level
-    
-    local abil = GetAbility(pc, "Matross10")
-    if abil ~= nil and abil.ActiveState == 1 then
-        value = math.floor(value / 2)
-    end
-    
-    if value < 1 then
-        value = 1
-    end
+    local value = skill.Level * 6
     
     return value
 end
@@ -11624,7 +11615,7 @@ end
 -- TigerHunter_Tracking
 function SCR_GET_Tracking_Time(skill)
     local pc = GetSkillOwner(skill)
-    local value = 5 + skill.Level
+    local value = 11 + skill.Level * 0.6
     
     local abil = GetAbility(pc, "TigerHunter2");
     if abil ~= nil and abil.ActiveState == 1 then
@@ -11635,7 +11626,7 @@ function SCR_GET_Tracking_Time(skill)
 end
 
 function SCR_GET_Tracking_Ratio(skill)
-    local value = 50
+    local value = 50 - (skill.Level * 3)
     return value
 end
 
@@ -11657,7 +11648,7 @@ function SCR_GET_EyeofBeast_Ratio(skill)
 end
 
 function SCR_GET_EyeofBeast_Ratio2(skill)
-    local value = 100 + (skill.Level * 5)
+    local value = 50 + (skill.Level * 5)
     return value
 end
 
@@ -11739,7 +11730,7 @@ end
 
 -- Sheriff_Westraid
 function SCR_GET_Westraid_Time(skill)
-    local value = 15
+    local value = 30
     return value
 end
 
@@ -11751,6 +11742,11 @@ end
 -- Sheriff_Peacemaker
 function SCR_GET_Peacemaker_Time(skill)
     local value = 3
+    return value
+end
+
+function SCR_GET_Peacemaker_Time2(skill)
+    local value = 3 + (skill.Level - 1) * 0.5
     return value
 end
 

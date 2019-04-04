@@ -1524,6 +1524,7 @@
 		<Class ClassID="21331" ClassName="Attendance_infoText_2" Data="* 출석 체크 기간 동안에만 출석 보상을 받을 수 있으며, 기간 경과 시 더 이상 지급되지 않습니다"/>
 		<Class ClassID="21332" ClassName="Attendance_infoText_3" Data="* 신규/복귀 출석체크 시작 일자는 구원자님의 신규/복귀 일자에 따라 다를 수 있습니다."/>
     <Class ClassID="21333" ClassName="TransferBarrackSkillReset" Data="{nl}스킬 초기화에 성공하면 숙소로 이동합니다."/>    
+    <Class ClassID="21334" ClassName="UI_Hour_2" Data="시간"/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="22001" ClassName="Guard" Data="방어"/>
@@ -1560,7 +1561,9 @@
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다.{nl}잠시 후 다시 시도해주세요.{nl}문제가 지속되는 경우 에러코드를 문의 사서함에 접수해주시기 바랍니다.{nl}에러코드 : {Code}"/>
 		<Class ClassID="22524" ClassName="TemporarilyUnavailable" Data="일시적으로 사용 불가능한 기능입니다"/>
-		</Category>
+		<Class ClassID="22529" ClassName="{Inviter}InviteYouToGroupChat_DoYouAccept?" Data="{Inviter}님이 당신을 그룹 채팅방에 초대했습니다. 수락하시겠습니까?"/>
+		<Class ClassID="22530" ClassName="InviteRejected" Data="초대 요청이 거절되었습니다."/>
+	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>

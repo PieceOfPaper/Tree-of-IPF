@@ -8147,7 +8147,7 @@ return value"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Matross_CanisterShot" CheckerType="0" Range="80" Relation="6" AllowOverlap="1" IsMagicType="0">
+    <PadSkill Name="Matross_CanisterShot" CheckerType="0" Range="120" Relation="6" AllowOverlap="1" IsMagicType="0">
         <createEvent>
             <ToolScp Scp="PAD_ADD_LIFE" Client="NO" UseSleep="NO">
                 <Num Num="10000" UseFunc="1" FuncTxt="return  4500 + GET_ABIL_LEVEL(self, &apos;Matross12&apos;) * 1000"/>
@@ -8179,7 +8179,7 @@ return value"/>
             </ToolScp>
         </updateEvent>
     </PadSkill>
-    <PadSkill Name="Matross_CanisterShot_End" CheckerType="0" PadHeight="-10" Range="80" UpdateTerm="100" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0">
+    <PadSkill Name="Matross_CanisterShot_End" CheckerType="0" PadHeight="-10" Range="120" UpdateTerm="100" ApplyFlyMon="1" Relation="6" AllowOverlap="1" EnableSearch="0">
         <createEvent>
             <ToolScp Scp="PAD_CONCURRENT_USE_COUNT" Client="NO" UseSleep="NO">
                 <Num Num="10"/>
@@ -8189,7 +8189,7 @@ return value"/>
                 <Num Num="9999"/>
             </ToolScp>
             <ToolScp Scp="C_PAD_EFFECT_POS" Client="YES" UseSleep="NO">
-                <Str_Arg Str="F_archer_Matross_CanisterShot_explosion" Arg="1"/>
+                <Str_Arg Str="F_archer_Matross_CanisterShot_explosion" Arg="1.5"/>
                 <Pos Angle="0" Dist="0"/>
                 <Num Num="0"/>
                 <Str_Arg Str="None" Arg="1"/>

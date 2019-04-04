@@ -12,6 +12,7 @@ function SYSTEMOPTION_CREATE(frame)
 	INIT_LANGUAGE_CONFIG(frame);
 	INIT_GRAPHIC_CONFIG(frame);
 	INIT_CONTROL_CONFIG(frame);
+	INIT_GAMESYS_CONFIG(frame);
 	SET_SKL_CTRL_CONFIG(frame);
         SET_AUTO_CELL_SELECT_CONFIG(frame);
     	SET_DMG_FONT_SCALE_CONTROLLER(frame);
@@ -177,6 +178,15 @@ function INIT_GRAPHIC_CONFIG(frame)
 	if nil ~= otherPCDamage then
 		otherPCDamage:SetCheck(config.GetOtherPCDamageEffect());
 	end;
+end
+
+function INIT_GAMESYS_CONFIG(frame)
+	local skillGizmoTargetAim = GET_CHILD_RECURSIVELY(frame, "check_SkillGizmoTargetAim", "ui::CCheckBox");
+	if skillGizmoTargetAim ~= nil then
+		local value = config.GetXMLConfig("EnableSkillGizmoTargetAim");
+		skillGizmoTargetAim:SetCheck(tonumber(value));
+		config.EnableSkillGizmoTargetAim(tonumber(value));
+	end
 end
 
 function CONFIG_FIRST_OPEN(frame)
@@ -406,7 +416,7 @@ function CONFIG_FLUTINGVOL(frame, ctrl, str, num)
 end
 
 function UPDATE_OPERATOR_CONFIG(frame)
-
+	
 end
 
 function SET_CHECKBOX_BY_IES_PROP(checkBox, idSpc, className, propName)
@@ -527,6 +537,11 @@ function ENABLE_OTHER_FLUTING(parent, ctrl)
 
 	config.EnableOtherFluting(1-value);
 	config.SaveConfig();
+end
+
+function ENABLE_SKILLGIZMO_TARGETAIM(parent, ctrl)
+	if ctrl == nil then return end
+	config.ChangeXMLConfig("EnableSkillGizmoTargetAim", tostring(ctrl:IsChecked()));
 end
 
 function UPDATE_TITLE_OPTION(frame)

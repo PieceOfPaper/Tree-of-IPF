@@ -2033,8 +2033,12 @@ function SCR_Get_MSPD(self)
         return fixMSPDBuff;
     end
     
-    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' or IsBuffApplied(self, 'HideShot_Buff') == 'YES' then
+    if IsBuffApplied(self, 'SnipersSerenity_Buff') == 'YES' then
     	return 10;
+    end
+    
+    if IsBuffApplied(self, 'HideShot_Buff') == 'YES' then
+        return 25;
     end
     
     if IsBuffApplied(self, 'MissileHole_MSPD_Buff') == 'YES' then
@@ -2519,7 +2523,14 @@ function SCR_Get_Sta_Run(self)
 
 	    if jobCtrlType == "Archer" then
 	    	if IsBuffApplied(self, "Tracking_Buff") == "YES" then
-	    		dashAmount = dashAmount * 1.5
+	    	    local level = 0;
+	    	    local buff = GetBuffByName(self, "Tracking_Buff")
+	    	    if buff ~= nil then
+	    	        level = GetBuffArg(buff)
+	    	    end
+	    	    
+	    	    local addRate = 1 + (0.5 - 0.03 * level)
+	    		dashAmount = dashAmount * addRate
 	    	end
 	    end        
         

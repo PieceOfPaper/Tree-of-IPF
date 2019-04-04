@@ -3,8 +3,8 @@
 <uiframe name="plantwater" x="-28" y="-18" width="140" height="50" create="open">
     <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="left top" margin="600 600 0 0" fasthide="true"/>
     <draw drawframe="false" drawtitlebar="false"/>
-    <layer layerlevel="100"/>
-    <input moveable="true"/>
+    <layer layerlevel="1"/>
+    <input hittest="false"/>
     <option closebutton="false" hideable="false" useimageitem="true"/>
     <sound opensound="win_open" closesound="win_close"/>
     <controls>

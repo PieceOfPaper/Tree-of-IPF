@@ -13,6 +13,15 @@ function GET_MAT_SLOT_CERTIFICATE(frame)
 end
 
 function CLEAR_REINFORCE_BY_MIX_CERTIFICATE(frame)	
+	local slots = GET_MAT_SLOT_CERTIFICATE(frame);
+	local cnt = slots:GetSlotCount();
+	for i = 0 , cnt - 1 do
+		local slot = slots:GetSlotByIndex(i);
+		local icon = slot:GetIcon()
+		if icon ~= nil then
+			REINFORCE_BY_MIX_SLOT_RBTN_CERTIFICATE(frame,slot)
+		end
+	end
 	frame:StopUpdateScript("REINF_MIX_UPDATE_EXP_UP_CERTIFICATE");
 	local matslot = GET_MAT_SLOT_CERTIFICATE(frame);
 	matslot:ShowWindow(0);
@@ -319,10 +328,13 @@ function REINFORCE_MIX_UPDATE_EXP_CERTIFICATE(frame)
 
 end
 
-function GET_REINFORCE_MIX_ITEM_CERTIFICATE()	    
+function GET_REINFORCE_MIX_ITEM_CERTIFICATE()	
 	local frame = ui.GetFrame("reinforce_by_mix_certificate");
 	local guid = frame:GetUserValue("ITEM_GUID_CERTIFICATE");
 	local invItem = GET_ITEM_BY_GUID(guid);    
+	if invItem == nil then
+		return;
+	end
 	return GetIES(invItem:GetObject());
 end
 
@@ -373,7 +385,8 @@ function REINFORCE_MIX_INV_RDBTN_CERTIFICATE(itemObj, slot)
 end
 
 function REINFORCE_MIX_INV_RBTN_CERTIFICATE(itemObj, slot, selectall)    
-	local invitem = session.GetInvItemByGuid(GetIESID(itemObj))
+	local guid = GetIESID(itemObj)
+	local invitem = session.GetInvItemByGuid(guid)
 	if nil == invitem then
 		return;
 	end
@@ -398,17 +411,19 @@ function REINFORCE_MIX_INV_RBTN_CERTIFICATE(itemObj, slot, selectall)
 
 		if nowselectedcount < invitem.count then
 			local reinfFrame = ui.GetFrame("reinforce_by_mix_certificate");
-			local icon = slot:GetIcon();
 					
 			if 1 == REINFORCE_BY_MIX_ADD_MATERIAL_CERTIFICATE(reinfFrame, itemObj, nowselectedcount + 1)  then
-					
+									
 				imcSound.PlaySoundEvent("icon_get_down");
-
-				slot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", nowselectedcount + 1);
-				local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED_CERTIFICATE")
-						
-				if icon ~= nil and nowselectedcount == invitem.count then
-					icon:SetColorTone("AA000000");
+				for i = 0, 1 do
+					slot = INV_GET_SLOT_BY_ITEMGUID(guid,nil,i)
+					local icon = slot:GetIcon();
+					slot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", nowselectedcount + 1);
+					local nowselectedcount = slot:GetUserIValue("REINF_MIX_SELECTED_CERTIFICATE")
+							
+					if icon ~= nil and nowselectedcount == invitem.count then
+						icon:SetColorTone("AA000000");
+					end
 				end
 			end
 		end
@@ -453,12 +468,14 @@ function REINFORCE_BY_MIX_SLOT_RBTN_CERTIFICATE(parent, slot)
 
 	local invItem = GET_SLOT_ITEM(slot);
 	local guid = invItem:GetIESID();
-
-	local invSlot = GET_PC_SLOT_BY_ITEMID(guid);
-	local icon = invSlot:GetIcon();
-	icon:SetColorTone("FFFFFFFF");
+	for i = 0,1 do
+		local invSlot = INV_GET_SLOT_BY_ITEMGUID(guid,nil,i);
+		local icon = invSlot:GetIcon();
+		icon:SetColorTone("FFFFFFFF");
+		invSlot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", 0);
+	end
 	slot:ClearIcon();
-	invSlot:SetUserValue("REINF_MIX_SELECTED_CERTIFICATE", 0);
+	slot:SetEventScript(ui.RBUTTONDOWN, "None")
 	ui.UpdateVisibleToolTips();
 
 	REINFORCE_MIX_UPDATE_EXP_CERTIFICATE(frame);
@@ -499,7 +516,7 @@ function REINFORCE_BY_MIX_EXECUTE_CERTIFICATE(parent)
 	end
 end
 
-function _REINFORCE_BY_MIX_EXECUTE_CERTIFICATE()		
+function _REINFORCE_BY_MIX_EXECUTE_CERTIFICATE()	
 	local tgtItem = GET_REINFORCE_MIX_ITEM_CERTIFICATE();
 	
 	if tgtItem.GroupName == "Card" then

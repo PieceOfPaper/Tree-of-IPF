@@ -106,6 +106,15 @@ local function ADD_RARE_OPTION_CTRLSET(box, itemID)
 			local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
 			propertyList:SetOffset(30, propertyList:GetY());
 			propertyList:SetText(rareOptionText);
+			
+			local width = propertyList:GetWidth();
+			local frame = box:GetTopParentFrame();
+			local fixwidth = tonumber(frame:GetUserConfig('FIX_WIDTH'));
+
+			if fixwidth < width then
+				propertyList:SetTextFixWidth(1);
+				propertyList:SetTextMaxWidth(fixwidth);
+			end			
 		end
 	end
 end
