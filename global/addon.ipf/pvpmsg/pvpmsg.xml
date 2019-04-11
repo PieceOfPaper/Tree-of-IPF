@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="pvpmsg" x="0" y="0" width="800" height="100" create="open">
+    <frame title="" snapclient="true" snapframe="true" layout_gravity="center top" margin="0 235 0 0" fasthide="true" />
+    <option visible="false" useimageitem="true" hideable="false" closebutton="false"/>
+    <layer layerlevel="951"/>
+    <skin frameskin="map_aos_bg" layout_gravity="center center" draw="true" rect="0 0 640 540"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input hittestframe="false" hittesttitlebar="false"/>
+    <controls>
+        <richtext name="text" rect="0 0 800 100" margin="0 0 0 0" layout_gravity="left top" format="%s%s" hittest="false" param1="font" param1_def="{@st55_a}" param2="text" param2_def="Team 1 has won" textalign="center top" resizebytext="false" fixwidth="true"/>
+    </controls>
+</uiframe>

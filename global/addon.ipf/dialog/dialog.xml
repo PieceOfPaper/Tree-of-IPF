@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="dialog" x="250" y="-50" width="1000" height="240" barrackuse="true">
+    <frame title="엔피씨이름" layout_gravity="center bottom" margin="200 0 0 40" scale_align="center bottom"/>
+    <draw drawtitlebar="true" titlebarfixwidth="false" titlebarpos="30 30"/>
+    <input moveable="false"/>
+    <layer layerlevel="99"/>
+    <skin frameskin="wordframe" titlebarskin="dialogtitlebar" titlebarfont="yellow_login_text" titlepadding="10 0 10 0"/>
+    <option hideable="false" closebutton="false" useimageitem="true" autoopen="false"/>
+    <sound opensound="dialog_npc" closesound="dialog_npc_close"/>
+    <animation frameOpenAnim="dialog_start" frameCloseAnim="dialog_end"/>
+    <controls>
+        <flowtext name="textlist" rect="50 38 900 155" layout_gravity="left top" RBtnDownScp="EDIT_DLG_CONTEXT" fixwidth="true" rateheight="true" sildeshow="false" spacey="2" updateparent="true"/>
+        <animpicture name="space" rect="10 15 80 80" layout_gravity="right bottom" animcount="2" hittest="false" image="space_1" loop="true" spacex="1" spacey="0" stretch="true" texelheight="100" texelwidth="100" texelx="0" texely="0" ticktime="0.50"/>
+    </controls>
+</uiframe>

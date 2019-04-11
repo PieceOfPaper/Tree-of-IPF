@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UIEffectList>
+	<event name="questLocation">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Rotation>
+				<Property pausetime="0.0" endtime="1.0"/>
+				<Keyframe>
+					<velocity time="0" anglespeed="3"/>
+				</Keyframe>
+			</Rotation>
+			<Scale>
+				<Property pausetime="0.0" endtime="1.0"/>
+				<Keyframe>
+					<scale time="0" x="1.0" y="1.0"/>
+					<scale time="50" x="0.8" y="0.8"/>
+					<scale time="100" x="1.0" y="1.0"/>
+				</Keyframe>
+			</Scale>
+		</Layer>
+	</event>
+</UIEffectList>

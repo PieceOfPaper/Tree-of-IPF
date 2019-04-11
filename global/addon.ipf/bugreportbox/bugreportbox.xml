@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="bugreportbox" x="0" y="0" width="500" height="350" create="open">
+    <frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="-35 -130 0 0"/>
+    <option closebuttonpos="0 40" margin="-3 174 0 0"/>
+    <sound opensound="win_open" closesound="win_close" margin="-3 174 0 0"/>
+    <draw drawtitlebar="true" margin="-3 174 0 0"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-3 174 0 0"/>
+    <layer layerlevel="80" margin="-3 174 0 0"/>
+    <controls>
+        <richtext name="richtext_1" rect="0 0 400 100" margin="0 -50 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="버그를 제보하시면 현재까지 게임플레이 화면이 서버로 전송됩니다. 전송된 리플레이 파일은 버그 수정에 큰 도움이 됩니다. 전송하시겠습니까?" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_2" rect="0 0 120 24" margin="50 60 0 0" layout_gravity="left top" caption="{@st41b}버그 내용 :{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <groupbox name="editGbox" parent="bg" rect="0 0 400 50" margin="0 90 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="barrack_creat_win"/>
+        <edit name="inputtext" rect="0 0 380 36" margin="0 95 0 0" layout_gravity="center top" EnterKeyScp="None" OffsetForDraw="0 6" drawbackground="false" fontname="white_18_ol" maxlen="64" numbermode="false" skin="None" usetag="true"/>
+        <richtext name="richtext_3_1" rect="0 0 400 50" margin="0 180 0 0" layout_gravity="center top" caption="{@st41b}버그 내용은 필수 입력 사항이 아니지만 분석에 도움이 됩니다." drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <button name="button_1" rect="-85 -20 160 50" layout_gravity="center bottom" LBtnUpScp="EXEC_REPORT_REPLAY" caption="{@st41b}전송" skin="textbutton_nomal_joo"/>
+        <button name="button_1_1" rect="85 -20 160 50" layout_gravity="center bottom" LBtnUpScp="CLOSE_UI" caption="{@st41b}취소" skin="textbutton_nomal_joo"/>
+    </controls>
+</uiframe>

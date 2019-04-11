@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="cellselect" x="-28" y="-18" width="551" height="100" create="open">
+    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="center center" snapclient="true" snapframe="true" margin="-339 -221 0 0"/>
+    <draw drawframe="false" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <gauge name="timeGauge" rect="0 0 453 31" margin="55 47 0 0" layout_gravity="left top" inverse="false" point="0" skin="gauge_hp"/>
+        <richtext name="richtext_1" rect="0 0 510 70" margin="56 -5 0 0" layout_gravity="left center" caption="{@st64}방향키를 입력해 셀을 선택하세요!" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="cellText" rect="0 0 120 24" margin="471 -5 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st55_a}%s{/}" maxwidth="0" param1="remainCell" param1_def="5" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

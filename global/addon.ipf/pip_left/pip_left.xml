@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="pip_left" x="0" y="0" width="450" height="590" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="character_item_window_open" closesound="character_item_window_close"/>
+    <controls>
+        <button name="colse" rect="0 0 44 44" margin="0 6 6 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;pip_left&apos;)" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
+        <picture name="titlepicture" rect="0 0 44 44" margin="10 6 0 0" layout_gravity="left top" image="button_pip_left"/>
+    </controls>
+</uiframe>

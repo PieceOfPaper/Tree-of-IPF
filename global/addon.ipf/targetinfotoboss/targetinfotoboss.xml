@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="targetinfotoboss" x="0" y="0" width="524" height="160">
+    <frame title="대상" layout_gravity="center top" scale_align="center top"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input hittest="false" moveable="false"/>
+    <layer layerlevel="40"/>
+    <option hideable="false" closebutton="false"/>
+    <script fadeinScp="None" fadeoutScp="None"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>
+    <controls>
+        <gauge name="hp" rect="0 0 400 120" margin="30 25 0 0" layout_gravity="center top" hittest="false" skin="bosstarget_info_gauge" text1="{s20}%v{s22}/{s20}%m" textalign1="center center" textfont1="GD_digit_font" textoffset1="0 -1900"/>
+        <picture name="race" rect="0 0 40 40" margin="0 9200 0 0" layout_gravity="left top" image="button_inven"/>
+        <picture name="armor" rect="0 0 100 100" margin="-287 2600 0 0" layout_gravity="center top" image="Armor_cloth_B"/>
+        <picture name="bosstarget_info_gauge" rect="0 0 100 100" margin="-180 40 0 0" layout_gravity="center top" image="bosstarget_info_gauge_image"/>
+        <richtext name="level" rect="0 0 0 20" margin="-190 100 0 0" layout_gravity="center top" caption="{@st41}50" fixwidth="false" fontname="" hittest="false" resizebytext="true" sildeshow="false" textalign="center center" updateparent="true"/>
+        <richtext name="name" rect="0 0 0 60" margin="0 100 0 0" layout_gravity="center top" caption="type" fixwidth="false" hittest="false" resizebytext="true" textalign="center center" updateparent="false"/>
+        <richtext name="dist" rect="0 0 300 20" margin="0 6800 0 0" layout_gravity="center top" caption="{@st41}5.5m{/}" fixwidth="false" fontname="" hittest="false" resizebytext="true" sildeshow="false" textalign="center center" updateparent="true"/>
+        <picture name="attr" rect="0 0 100 100" margin="322 3400 0 0" layout_gravity="center top" image="attri_Fire"/>
+        <timer name="addontimer" rect="0 0 10 10"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<uiframe name="guildcreate" x="0" y="104" width="500" height="200" create="open">
+    <frame title="{@st44}길드생성{/}" titlepos="0 -6" layout_gravity="center center" margin="0 -7 0 0"/>
+    <draw drawtitlebar="true" drawframe="true" margin="0 -3 0 0"/>
+    <option closebutton="false" hideable="true" margin="0 -3 0 0"/>
+    <script OpenScp="CLEAR_GUILDCREATE_INPUT" margin="0 -3 0 0"/>
+    <controls>
+        <edit name="input" rect="0 0 427 34" layout_gravity="center top" fontname="black_18" skin="test_weight_skin" usetag="true" margin="1 38 0 0"/>
+        <button name="UseBtn" rect="0 0 160 60" layout_gravity="right bottom" LBtnUpScp="REQ_CREATE_GUILD" skin="test_red_button" caption="{@st41b}생성{/}" clicksound="button_click" oversound="button_over" margin="0 0 258 43"/>
+        <button name="CloseBtn" rect="0 0 160 60" layout_gravity="right bottom" LBtnUpScp="CLOSE_UI" skin="test_gray_button" clicksound="button_click" oversound="button_over" margin="0 0 80 43" format="{@st41b}%s{/}" param1="value" param1_def="닫기"/>
+        <richtext name="txt_currentcount" rect="0 0 430 43" margin="36 -12 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16" format="{s18}{#000000}%s{/}" maxwidth="0" param1="value" param1_def="YouConsume 1000 Silver ToMakeGuild" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+    </controls>
+</uiframe>

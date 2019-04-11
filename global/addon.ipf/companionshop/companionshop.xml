@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="companionshop" x="0" y="0" width="500" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<script OpenScp="UPDATE_COMPANION_SELL_LIST" CloseScp="CLOSE_COMPANION_SHOP"/>
+	<controls>
+		<groupbox name="bg2" rect="0 0 500 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bg" rect="0 0 480 880" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="bg2"/>
+		<groupbox name="pip4" rect="0 0 500 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 17 0 0" layout_gravity="center top" caption="{@st43}컴패니언 샵" textalign="left top"/>
+		<button name="close" rect="10 0 44 44" margin="18 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}컴패니언 상점을 닫습니다{/}"/>
+		<groupbox name="moneyGbox" parent="bg2" rect="0 0 420 38" margin="0 0 0 13" layout_gravity="center bottom" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<picture name="Zeny_Img" parent="moneyGbox" rect="0 0 24 24" margin="10 0 0 0" layout_gravity="left center" image="icon_item_silver" oversound="button_over" stretch="true"/>
+		<richtext name="invenzenytext" parent="moneyGbox" rect="0 0 60 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}소지금{/}" resizebytext="false"/>
+		<richtext name="invenZeny" parent="moneyGbox" rect="0 0 200 20" margin="0 0 10 0" layout_gravity="right center" caption="1i00,000" resizebytext="false" textalign="right center"/>
+	</controls>
+</uiframe>

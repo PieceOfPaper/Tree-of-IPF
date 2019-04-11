@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="worldpvp_ranking" x="0" y="0" width="500" height="1200" create="open">
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+    <skin frameskin=" "/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <controls>
+        <groupbox name="pip4" rect="0 0 500 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top"/>
+        <groupbox name="bg_ranking" rect="0 0 500 1200" margin="-1 89 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="pipwin_low"/>
+        <richtext name="title" rect="0 0 200 80" margin="0 27 0 0" layout_gravity="center top" caption="{@st43}팀 배틀 리그 랭킹" textalign="left top"/>
+        <button name="close" rect="10 0 44 44" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}팀 배틀 리그 랭킹을 닫습니다."/>
+        <pagecontroller name="control" parent="bg_ranking" rect="0 0 440 30" margin="0 0 0 141" layout_gravity="center bottom" hittest="true" image="{@st41b}{#444444} {@st41b}{b}" selectScp="JOURNALRANK_SELECT" slot="35 25" space="50 0 0 50" type="richtext">
+            <prev size="40 30" margin="0 0 0 0" layout_gravity="left top" caption="{img white_left_arrow 18 18}"/>
+            <next size="40 30" margin="0 0 0 0" layout_gravity="right top" caption="{img white_right_arrow 18 18}"/>
+        </pagecontroller>
+        <advlistbox name="advBox" parent="bg_ranking" rect="0 0 464 953" margin="24 68 0 0" layout_gravity="left top" SelectScp="None" bgcolor="#" drawCurItem="true" drawMouseOn="false" drawbgcolor="false" drawgrid="false" gridcolor="#" heightperrow="77" maxrowcol="400 3" resizebyresolution="true" rowtooltip="false" scroll="false" selectable="true" selectgroup="" widthpercol="400"/>
+        <advlistboxitem name="Type" parent="advBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="{@st43}{s22}랭킹" col="0" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="Caption" parent="advBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="{@st43}{s22}이름" col="1" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxitem name="ImgName" parent="advBox" rect="0 0 10 10" margin="0 0 0 0" layout_gravity="left top" caption="{@st43}{s22}점수" col="2" datatype="richtext" fontname="white_16" row="0"/>
+        <advlistboxsetting parent="advBox" layout_gravity="left top" col="0" colwidth="70" row="0" rowbgcolor="#99cc00" rowheight="70" startrow="1"/>
+        <advlistboxsetting parent="advBox" layout_gravity="left top" col="1" colwidth="280" row="0" rowbgcolor="#99cc00" rowheight="70" startrow="1"/>
+        <advlistboxsetting parent="advBox" layout_gravity="left top" col="2" colwidth="100" row="0" rowbgcolor="#99cc00" rowheight="70" startrow="1"/>
+        <labelline name="labelline1" parent="bg_ranking" rect="0 0 540 2" margin="11 71 0 0" layout_gravity="center top" skin="None"/>
+        <labelline name="labelline2" parent="bg_ranking" rect="0 0 540 2" margin="10 0 0 180" layout_gravity="center bottom" skin="None"/>
+        <button name="ranking" parent="charinfo" rect="0 0 205 45" margin="18 100 289 1043" layout_gravity="left top" LBtnUpScp="SHOW_WORLDPVP_PAGE" bg_ranking="" caption="{@st41}배틀 필드" skin="stat_up_btn"/>
+    </controls>
+</uiframe>

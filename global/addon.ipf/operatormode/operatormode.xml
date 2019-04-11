@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="operatormode" x="0" y="0" width="500" height="1200" create="open">
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 500 1200" margin="0 90 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
+        <groupbox name="pip4" rect="0 0 500 88" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top"/>
+        <richtext name="title" rect="0 0 200 80" margin="0 27 0 0" layout_gravity="center top" caption="{@st43}현재 존 유저 목록{/}" textalign="left top"/>
+        <button name="close" rect="10 0 44 44" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="OPERATORMODE_UI_CLOSE" image="btn_close" texttooltip="{@st59}운영자 UI리스트를 닫습니다{/}"/>
+    </controls>
+</uiframe>

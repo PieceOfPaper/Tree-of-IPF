@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<uiframe name="mapname" x="50" y="200" width="400" height="240">
+    <frame title="지도" snapclient="true" snapframe="true" layout_gravity="center top" hideprocess="true"/>
+    <option visible="false" closebutton="false" hideable="false" useimageitem="true"/>
+    <input hittestframe="false"/>
+    <layer layerlevel="30"/>
+    <script fadeinArgStr="mapname" fadeoutArgStr="mapname" CloseScp="CLOSE_MAPNAME"/>
+    <draw blend="100" drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <picture name="bg" rect="0 0 310 240" image="" stretch="true"/>
+        <richtext name="title" rect="0 0 400 50" layout_gravity="center center" caption="{@st55}지역 지도" fixwidth="false" format="{@st55}%s" param1="mapname" resizebytext="false" textalign="center center"/>
+    </controls>
+</uiframe>

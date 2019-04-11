@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="guildware_itemgive" x="0" y="0" width="450" height="600" create="open">
+    <frame titlepos="0 0" margin="2 -102 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <draw drawframe="true" drawtitlebar="true" />
+    <layer layerlevel="100" />
+    <input moveable="true" />
+    <option closebutton="false" hideable="true" useimageitem="true" />
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close" />
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end" />
+    <controls>
+        <button name="close" rect="0 0 44 44" margin="0 -70 10 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+        <richtext name="txt" rect="0 0 360 30" margin="50 -63 0 0" layout_gravity="left top" format="{@st43}{s18}%s{/}" param1="value" param1_def="select character" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <groupbox name="gbox_charlist" rect="0 0 398 512" margin="28 53 0 0" layout_gravity="left top" draw="false" hittestbox="false" skin="none"/>
+        <slot name="slot_item" margin="32 -14 0 0" rect="0 0 60 60" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="slot" DropScp="None" texttooltip="{@st59}링1{/}" layout_gravity="left top"/>
+        <richtext name="txt_itemname" margin="105 -12 0 0" rect="0 0 319 25" format="{#000000}%s{/}" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" textalign="left center" resizebytext="false" spacey="0" maxwidth="0" fontname="white_16" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+        <numupdown name="numupdown" rect="0 0 140 30" layout_gravity="left top" clicksound="button_click_big" oversound="button_over" minvalue="1" incrvalue="1" fontname="white_20_ol" keypad="false" margin="101 18 0 0" font="white_20_ol"/>
+    </controls>
+</uiframe>

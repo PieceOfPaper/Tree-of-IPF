@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Jung (IMCGames Co., Ltd) -->
+<uiframe name="partylist" x="0" y="0" width="450" height="609" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="pipwin"/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <script OpenScp="PARTYLIST_INIT_OPEN"/>
+    <effect open="partyOpen" close="partyClose"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <controls>
+        <picture name="titlepicture" rect="0 0 44 44" margin="5 6 0 0" layout_gravity="left top" image="button_party"/>
+    </controls>
+</uiframe>

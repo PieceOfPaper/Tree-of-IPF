@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="dialogillust" x="0" y="0" width="1900" height="1080" barrackuse="true">
+    <frame title="일러스트" layout_gravity="center bottom" scale_align="center bottom"/>
+    <draw drawframe="false" drawtitlebar="false" drawnotitlebar="false"/>
+    <layer layerlevel="98"/>
+    <input hittest="false"/>
+    <option hideable="false" closebutton="false" useimageitem="true" autoopen="false"/>
+    <sound opensound="dialog_npc" closesound="dialog_npc_close"/>
+    <animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+    <controls>
+        <picture name="dialogimage" rect="0 0 1000 1200" margin="-450 0 0 0" layout_gravity="center bottom" imagealign="right bottom"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="indunautomatch" x="0" y="0" width="452" height="250" create="open">
+    <frame titlepos="0 0" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 0 0"/>
+    <option margin="-3 174 0 0" closebutton="false" hideable="false"/>
+    <sound opensound="win_open" closesound="win_close" margin="-3 174 0 0"/>
+    <skin frameskin="false"/>
+    <draw drawtitlebar="false" margin="-3 174 0 0"/>
+    <animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end" margin="-3 174 0 0"/>
+    <layer layerlevel="80" margin="-3 174 0 0"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 450 250" margin="0 0 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin="test_win_pvp"/>
+        <richtext name="txt" rect="0 0 403 45" margin="0 50 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}{@st66b18}%s{/}" maxwidth="0" param1="value" param1_def="" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <groupbox name="gbox" rect="0 0 360 41" margin="0 133 0 0" layout_gravity="center top" hittestbox="false" scrollbar="false" skin=""/>
+        <button name="reject" rect="-4 0 150 50" margin="155 178 0 0" layout_gravity="left top" LBtnUpScp="INDUN_AUTO_CANCEL" skin="test_gray_button" format="{@st41b}%s" param1="value" param1_def="취소"/>
+        <richtext name="txt_findtime" rect="0 0 404 28" margin="0 105 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_18" format="{#000000}%s%s{/}" maxwidth="0" param1="value" param1_def="검색 시간 : " resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false" param2="time" param2_def="1:30"/>
+    </controls>
+</uiframe>

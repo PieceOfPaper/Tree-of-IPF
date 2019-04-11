@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<skinset name="itemguage">
+    <fontlist>
+        <font name="yellow_14_ol" filename="imcm_original.ttf" size="14" color="#FFD801" underline="no" bold="no" dropshadow="yes" italic="no" outline="no"/>
+        <font name="white_8_ol" filename="imcm_original.ttf" size="8" color="#ffffff" underline="no" bold="no" dropshadow="yes" italic="no" outline="no"/>
+        <font name="white_12_ol" filename="imcm_original.ttf" size="12" color="#ffffff" underline="no" bold="no" dropshadow="yes" italic="no" outline="no"/>
+        <font name="white_14_ol" filename="imcm_original.ttf" size="14" color="#ffffff" underline="no" bold="no" dropshadow="no" italic="no" outline="yes"/>
+    </fontlist>
+    <skinlist>
+        <skin name="hpgauge" texture="\skin\mainframe_A.tga">
+            <img name="bgleft" imgrect="0 764 3 10"/>
+            <img name="bgmiddle" imgrect="3 764 80 10"/>
+            <img name="bgright" imgrect="83 764 3 10"/>
+            <img name="barleft" imgrect="0 753 3 10"/>
+            <img name="barmiddle" imgrect="3 753 80 10"/>
+            <img name="barright" imgrect="83 753 3 10"/>
+        </skin>
+    </skinlist>
+</skinset>

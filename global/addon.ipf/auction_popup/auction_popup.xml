@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="auction_popup" x="0" y="0" width="400" height="600" create="open">
+    <frame title="{@st43}{s22}아이템 경매{/}" titlepos="0 0" margin="-280 0 0 0" layout_gravity="center center" snapclient="true" snapframe="true" scale_align="center top"/>
+    <draw drawframe="true" drawtitlebar="true"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebutton="false" hideable="true" useimageitem="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <controls>
+        <slot name="slot_1" rect="0 0 110 110" margin="0 -30 0 0" layout_gravity="center top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up"/>
+        <button name="close" rect="0 0 44 44" margin="0 -87 7 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;auction_popup&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}퀘스트 정보를 닫습니다{/}"/>
+        <richtext name="itemname" rect="0 0 200 50" margin="0 85 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@sti7}%s{/}" maxwidth="0" param1="value" param1_def="DefVal" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <richtext name="text_1" rect="0 0 80 25" margin="40 150 0 0" layout_gravity="left top" caption="{@st41b}남은 시간" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="remaintime" rect="0 0 120 25" margin="0 150 40 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="3시간 16분" resizebytext="false" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="richtext_2" rect="0 0 80 25" margin="40 180 0 0" layout_gravity="left top" caption="{@st41b}시작가" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="startprice" rect="0 0 120 25" margin="0 180 40 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st57}{img icon_item_silver 20 20} %s{/}" maxwidth="0" param1="value" param1_def="100,000" resizebytext="false" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="richtext_3" rect="0 0 80 25" margin="40 210 0 0" layout_gravity="left top" caption="{@st41b}입찰수" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="budcount" rect="0 0 120 25" margin="0 210 40 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}%s{/}" maxwidth="0" param1="value" param1_def="14" resizebytext="false" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="richtext_4" rect="0 0 80 25" margin="40 240 0 0" layout_gravity="left top" caption="{@st41b}현재가" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="curprice" rect="0 0 120 25" margin="0 240 40 0" layout_gravity="right top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st57}{img icon_item_silver 20 20} %s{/}" maxwidth="0" param1="value" param1_def="465,000" resizebytext="false" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="richtext_5" rect="0 0 80 25" margin="40 290 0 0" layout_gravity="left top" caption="{@st41b}입찰금" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="ablemoney" rect="0 0 320 100" margin="0 340 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st41b}최소 {@st57}%s {@st41b}실버부터 입찰가능{/}" maxwidth="0" param1="value" param1_def="14" resizebytext="false" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <groupbox name="searchSkin" rect="0 0 190 38" margin="70 285 0 10" layout_gravity="center top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
+        <edit name="inputmoney" rect="0 0 180 30" margin="70 287 0 0" layout_gravity="center top" EnterKeyScp="None" OffsetForDraw="0 -2" border="0 0 0 0" drawbackground="false" fontname="white_20_ol" maxlen="64" numbermode="true" textalign="right center" typingsound="chat_typing" usetag="true"/>
+        <labelbox name="boardLine 1" rect="0 0 360 4" margin="0 140 0 0" layout_gravity="center top" skin="label_3pxl" visible="true"/>
+        <labelbox name="boardLine 2" rect="0 0 360 4" margin="0 270 0 0" layout_gravity="center top" skin="label_3pxl" visible="true"/>
+        <labelbox name="boardLine 3" rect="0 0 360 4" margin="0 460 0 0" layout_gravity="center top" skin="label_3pxl" visible="true"/>
+        <button name="bid" rect="0 0 160 50" margin="0 0 0 150" layout_gravity="center bottom" LBtnUpScp="AUC_POP_BID" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st41b}입찰{/}" clicksound="quest_ui_alarm_2" oversound="button_over" skin="textbutton_nomal_joo"/>
+        <button name="buynow" rect="0 0 340 80" margin="0 0 0 40" layout_gravity="center bottom" LBtnUpScp="AUC_POP_BUY" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_stats" format="{@st43b}바로 구매!{nl}{img icon_item_silver 20 20}{@st57}%s{/}" oversound="button_over" param1="value" skin="textbutton_joo"/>
+    </controls>
+</uiframe>

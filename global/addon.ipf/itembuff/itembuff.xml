@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itembuff" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+	<skin frameskin=" "/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<layer layerlevel="80"/>
+	<sound opensound="skill_window_open" closesound="skill_window_close"/>
+	<effect open="skilltreeOpen" close="skilltreeClose"/>
+	<controls>
+		<groupbox name="pip4" rect="0 0 450 61" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="socket_gem_titlebar_baseskin"/>
+		<groupbox name="bodyGbox2" rect="0 0 450 1030" margin="0 0 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="bodyGbox3" rect="0 0 430 460" margin="10 475 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_midle"/>
+		<groupbox name="bodyGbox" rect="0 0 450 960" margin="0 60 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="reqitem_slot" parent="bodyGbox" rect="0 0 70 70" margin="35 460 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<picture name="pip_top_image" rect="0 0 453 70" margin="0 0 0 0" layout_gravity="center top" DropScp="MANAGEGEM_DROP" changecursor="false" hittest="true" image="test_socket_top" stretch="true"/>
+		<groupbox name="pip" rect="0 0 450 61" margin="0 45 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_socket_topskin"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 63 0 0" layout_gravity="center top" format="{@st43}%s 상점 개설{/}" param1="txt" textalign="left top"/>
+		<picture name="titlepicture" rect="0 0 44 44" margin="0 -100 8 0" layout_gravity="right top" image="button_property"/>
+		<button name="close" rect="10 0 44 44" margin="0 40 40 0" layout_gravity="right top" LBtnUpScp="ITEM_BUFF_CLOSE" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}상점을 닫습니다{/}"/>
+		<groupbox name="OptionBox" rect="0 0 439 400" margin="0 69 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<richtext name="needlisttxt" parent="OptionBox" rect="0 0 200 30" margin="20 50 0 0" layout_gravity="left top" resizebytext="false" caption="설정" fontname="brown_20_b" textalign="left center"/>
+		<richtext name="Title" parent="OptionBox" rect="0 0 140 30" margin="30 95 0 0" layout_gravity="left top" resizebytext="false" caption="간판 제목" fontname="brown_16_b" textalign="left center"/>
+		<richtext name="Money" parent="OptionBox" rect="0 0 140 30" margin="30 135 0 0" layout_gravity="left top" resizebytext="false" caption="개당 가격" fontname="brown_16_b" textalign="left center"/>
+		<groupbox name="TitleSkin" parent="OptionBox" rect="0 0 260 35" margin="0 90 10 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<edit name="TitleInput" parent="OptionBox" rect="0 0 250 26" margin="0 95 15 0" layout_gravity="right top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="brown_18_b" maxlen="40" oversound="button_over" textalign="left center" usetag="true"/>
+		<groupbox name="MoneySkin" parent="OptionBox" rect="0 0 260 35" margin="0 130 10 0" layout_gravity="right top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<picture name="sellermoney" parent="OptionBox" rect="0 0 20 20" margin="175 138 0 0" layout_gravity="left top" image="icon_item_silver" oversound="button_over" stretch="true"/>
+		<edit name="MoneyInput" parent="OptionBox" rect="0 0 225 26" margin="0 135 15 0" layout_gravity="right top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="brown_18_b" maxlen="40" oversound="button_over" textalign="left center" usetag="true"/>
+		<groupbox name="Material" rect="0 0 439 500" margin="0 475 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true" skin=""/>
+		<richtext name="Materialtext" parent="Material" rect="0 0 200 80" margin="15 10 0 0" layout_gravity="left top" caption="{@st41b}재료 목록" textalign="left top"/>
+		<richtext name="reqitemName" parent="Material" rect="0 0 343 48" margin="32 50 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="reqitemStr" parent="Material" rect="0 0 343 48" margin="130 55 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<richtext name="reqitemCount" parent="Material" rect="0 0 343 48" margin="130 80 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="%s" maxwidth="0" param1="txt" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<button name="btn_exec" rect="10 10 160 50" margin="80 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEM_BUFF_CLOSE" caption="{@st41b}취 소" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_gray_button"/>
+		<button name="btn_cancel" rect="10 10 160 50" margin="-90 0 0 90" layout_gravity="center bottom" LBtnUpScp="ITEM_BUFF_CREATE_STORE" caption="{@st41b}확 인" clicksound="button_click_3" oversound="button_cursor_over_2" skin="test_red_button"/>
+	</controls>
+</uiframe>

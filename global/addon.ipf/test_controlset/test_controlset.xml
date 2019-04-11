@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="test_controlset" x="0" y="0" width="346" height="106" create="open" layout_gravity="center center">
+    <skin frameskin="wiki_add"/>
+    <frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="center center" snapclient="true" snapframe="true" margin="0 0 174 222"/>
+    <draw drawframe="true" drawtitlebar="false"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebuttonpos="5 20" closebutton="false" hideable="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <slot name="slot_1" rect="0 0 88 87" margin="-107 10 0 0" layout_gravity="center top" DropScp="None" dropsound="icon_get_down" movepop="false" oversound="button_cursor_over_3" picksound="icon_pick_up" skin="slot" texttooltip="{@st59}링1{/}"/>
+        <richtext name="richtext_1" rect="0 0 120 24" margin="119 23 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}%s - %s{/}" maxwidth="0" param1="name" param1_def="DefVal" param2="price" param2_def="200" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <button name="button_1" rect="10 10 90 30" margin="233 30 0 24" layout_gravity="left bottom" caption="{@st41}선물"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="foodtable_ui" x="0" y="0" width="470" height="609" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin=" "/>
+	<frame title="" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-470 0 0 0"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="window_open" closesound="window_close"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 470 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="bg_mid" rect="0 0 450 900" margin="10 120 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_midle"/>
+		<groupbox name="pipwin_top" rect="0 0 470 117" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_top_warrior"/>
+		<groupbox name="gbox" rect="0 0 472 960" margin="0 60 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<tab name="itembox" parent="gbox" rect="0 0 430 40" margin="25 20 0 0 " layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="tab_make" parent="itembox" layout_gravity="left top" caption="{@st66b}조리" skinspace="20" width="140"/>
+		<tabitem name="tab_normal" parent="itembox" layout_gravity="left top" caption="{@st66b}음식" skinspace="20" width="140"/>
+		<tabitem name="tab_log" parent="itembox" layout_gravity="left top" caption="{@st66b}기록" skinspace="20" width="140"/>
+		<richtext name="richtext_1" rect="0 0 120 24" margin="10 18 0 0" layout_gravity="center top" caption="{@st43}배식 테이블" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+		<button name="close" rect="0 0 44 44" margin="0 10 10 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}배식테이블을 닫습니다{/}"/>
+		<groupbox name="gbox_table" parent="gbox" rect="0 0 444 870" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_normal" resizebyresolution="true"/>
+		<groupbox name="gbox_make" parent="gbox" rect="0 0 444 895" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_make" resizebyresolution="true"/>
+		<groupbox name="gbox_log" parent="gbox" rect="0 0 444 870" margin="16 63 0 0" layout_gravity="left top" hittestbox="false" skin="none" tabname="tab_log" resizebyresolution="true"/>
+		<groupbox name="log_gbox" parent="gbox_log" rect="0 0 444 800" margin="16 0 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="true"/>
+		<button name="button_1" parent="gbox_log" rect="0 0 160 50" margin="0 480 0 0" layout_gravity="center bottom" LBtnUpScp="REMOVE_FOOD_TABLE" caption="{@st41b}배식대 해체" skin="test_red_button"/>
+	</controls>
+</uiframe>

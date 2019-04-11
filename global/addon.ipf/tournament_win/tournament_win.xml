@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<uiframe name="tournament_win" x="0" y="0" width="1320" height="1236" create="open">
+    <frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
+    <skin frameskin="pipwin"/>
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <sound opensound="skill_window_open" closesound="skill_window_close"/>
+    <effect open="tournament_winOpen" close="tournament_winClose"/>
+    <controls>
+        <groupbox name="groupbox_1" rect="0 0 1273 1033" margin="16 12 0 0" layout_gravity="left top" hittestbox="false" skin="wiki_add"/>
+        <button name="colse" rect="0 0 44 44" margin="8 8 6 0" layout_gravity="left top" LBtnUpScp="CLOSE_UI" caption="" clicksound="button_click_big" image="btn_close" oversound="button_over" texttooltip="{@st59}캐릭터 정보를 닫습니다{/}"/>
+        <richtext name="richtext_1" rect="0 0 341 33" margin="-13 73 0 0" layout_gravity="center top" caption="{@st55_a}우승을 축하드립니다!" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="winner" rect="0 0 514 84" margin="-15 149 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="1200" param1="text" param1_def="AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <groupbox name="rankers" rect="0 0 1175 666" margin="70 336 0 0" layout_gravity="left top" hittestbox="false" skin="bg"/>
+        <queue name="queue" parent="rankers" rect="0 0 1175 666" margin="10 10 10 10" layout_gravity="left top" skin="None"/>
+    </controls>
+</uiframe>

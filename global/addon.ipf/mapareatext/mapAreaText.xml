@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="mapAreaText" x="0" y="0" width="300" height="24">
+    <frame layout_gravity="right top" margin="0 300 40 0"/>
+    <input maxwidth="200" moveable="false" hittestframe="false"/>
+    <layer layerlevel="30"/>
+    <option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <controls>
+        <richtext name="areaName" rect="0 0 300 24" layout_gravity="center center" fontname="white_16_ol" hittest="false" textalign="center center"/>
+    </controls>
+</uiframe>

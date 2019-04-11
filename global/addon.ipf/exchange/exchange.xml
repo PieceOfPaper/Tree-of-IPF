@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="exchange" x="0" y="0" width="450" height="590" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin="  "/>
+    <frame fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-450 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="99"/>
+    <option closebutton="true"/>
+    <script CloseScp="EXCHANGE_ON_CANCEL" OpenScp="EXCHANGE_ON_OPEN"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <groupbox name="bg" rect="0 0 460 980" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+        <groupbox name="pipwin_top_my" rect="0 0 460 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+        <button name="colse" rect="0 0 44 44" margin="0 20 23 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;exchange&apos;)" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}거래를취소합니다{/}"/>
+        <richtext name="title" rect="0 0 200 30" layout_gravity="center top" caption="{@st43}개인 거래{/}" textalign="center center" margin="0 17 0 0"/>
+        <groupbox name="mybgGbox" rect="0 0 450 485" margin="0 90 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" skin="pipwin_low"/>
+        <richtext name="myname" parent="mybgGbox" rect="0 0 250 30" margin="30 30 0 0" layout_gravity="left top" caption="내 거래 목록" fontname="brown_18_b" textalign="left top"/>
+        <slotset name="myslot" parent="mybgGbox" rect="0 0 210 110" margin="40 60 0 0" DropScp="EXCHANGE_ON_DROP" col="6" row="4" size="60 60" skin="invenslot2" layout_gravity="left top"/>
+        <richtext name="myVis" parent="mybgGbox" rect="0 0 300 35" margin="50 360 0 0 " layout_gravity="left top" fontname="brown_16_b" format="실버 : %s" param1="money" param1_def="-1" textalign="left top"/>
+        <groupbox name="editbox" parent="mybgGbox" rect="0 0 250 40" margin="40 310 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" skin="test_weight_skin"/>
+        <edit name="visEdit" parent="mybgGbox" rect="0 0 250 40" margin="50 313 0 0" layout_gravity="left top" OffsetForDraw="10 3" fontname="brown_18" maxlen="16" skin="" textalign="left top" usetag="true"/>
+        <button name="mysilver" parent="mybgGbox" rect="0 0 100 45" margin="305 307 0 0" layout_gravity="left top" LBtnUpScp="CHECK_VIS_INPUT" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="{@st66b}입력" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+        <button name="myagree" parent="mybgGbox" rect="0 0 150 50" margin="-80 0 0 107" layout_gravity="center bottom" LBtnUpScp="EXCHANGE_ON_AGREE" caption="{@st41}수락" clicksound="button_click" oversound="button_over" skin="test_red_button" textalign="center center"/>
+        <button name="myfinalagree" parent="mybgGbox" rect="0 0 150 50" margin="80 0 0 107" layout_gravity="center bottom" LBtnUpScp="EXCHANGE_ON_FINALAGREE" caption="{@st41}최종확인" clicksound="button_click" oversound="button_over" skin="test_red_button" textalign="center center"/>
+        <groupbox name="opbgGbox" rect="0 0 450 445" margin="0 575 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="pipwin_low"/>
+        <richtext name="opponentname" parent="opbgGbox" rect="0 0 250 30" margin="30 30 0 0" layout_gravity="left top" fontname="brown_18_b" format="상대방(%s) 거래 목록" param1="oppName" param1_def="상대방이름" textalign="left top"/>
+        <slotset name="opponentslot" parent="opbgGbox" rect="0 0 210 110" margin="40 60 0 0" col="6" row="4" size="60 60" skin="invenslot2" layout_gravity="left top"/>
+        <richtext name="opponentVis" parent="opbgGbox" rect="0 0 250 35" margin="50 315 0 0" layout_gravity="left top" fontname="brown_16_b" format="실버 : %s" param1="money" param1_def="-1" textalign="left top"/>
+        <button name="opponentagree" parent="opbgGbox" rect="0 0 150 50" margin="-80 329 0 30" layout_gravity="center top" caption="{@st41}수락" clicksound="button_click" hittest="false" oversound="button_over" skin="test_red_button" textalign="center center"/>
+        <button name="opponentfinalagree" parent="opbgGbox" rect="0 0 150 50" margin="80 329 0 30" layout_gravity="center top" caption="{@st41}최종확인" clicksound="button_click" hittest="false" oversound="button_over" skin="test_red_button" textalign="center center"/>
+    </controls>
+</uiframe>

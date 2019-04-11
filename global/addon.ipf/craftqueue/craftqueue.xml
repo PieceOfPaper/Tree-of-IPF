@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="craftqueue" x="0" y="0" width="100" height="120" create="open" layout_gravity="center top">
+	<skin frameskin="textballoon_npc"/>
+	<frame title="{@st43}{s22}name{/}" titlepos="0 -10" fasthide="true" layout_gravity="center bottom" margin="0 0 0 650"/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="95"/>
+	<option closebutton="false" hideable="true"/>
+	<draw drawtitlebar="false" drawframe="true"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<script/>
+	<controls>
+		<groupbox name="bg" rect="0 0 80 80" margin="0 10 0 0" layout_gravity="center top" draw="false" hittestbox="false" skin="test_weight_skin"/>
+		<richtext name="count" rect="0 0 120 24" margin="35 90 0 0" layout_gravity="left top" drawbackground="false" fixwidth="false" fontname="white_16_ol" format="{@st42}X %s{/}" maxwidth="0" param1="value" param1_def="10" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+	</controls>
+</uiframe>

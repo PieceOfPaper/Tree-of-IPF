@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="itemdivision" x="0" y="0" width="280" height="120" create="open">
+    <frame title="{@st43}{s22}아이템 나누기" titlepos="0 -12" layout_gravity="center center" margin="100 100 0 0" scale_align="center top"/>
+    <input hittest="true" movable="true"/>
+    <layer topmostlayer="true"/>
+    <sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+    <animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+    <option closebuttonpos="0 40" hideable="false"/>
+    <controls>
+        <edit name="itemcount" rect="0 0 180 40" layout_gravity="center top" OffsetForDraw="0 -2" fontname="white_20_ol" maxlen="13" textalign="center center" texttooltip="{@st59}개수를 입력하세요{/}" usetag="true"/>
+        <button name="OK" rect="0 0 100 30" margin="0 60 0 0" layout_gravity="center top" LBtnUpScp="ITEMDIVISITON_OKBTN" caption="{@st41b}확인{/}" clicksound="button_click_big" oversound="button_over" skin="textbutton" textalign="center center"/>
+    </controls>
+</uiframe>

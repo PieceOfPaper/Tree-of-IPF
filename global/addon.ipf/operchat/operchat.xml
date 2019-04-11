@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="operchat" x="0" y="0" width="500" height="36" bodycolor="#ffffff" bodyalpha="0">
+    <frame title="{@st44}채팅{/}" layout_gravity="center bottom" fasthide="true" scale_align="center bottom" margin="0 0 0 225"/>
+    <input moveable="true" minwidth="290" maxwidth="500" maxheight="1000" minheight="150" resize="false" hittestframe="true"/>
+    <layer layerlevel="99"/>
+    <option hideable="true" visible="false" closebutton="false" useimageitem="true"/>
+    <sound opensound="item_window_open" closesound="item_window_close"/>
+    <userconfig COLOR_MY="ffe86a" COLOR_TO="ffffff" COLOR_MY_ALL="ffe86a" COLOR_TO_ALL="ffffff" COLOR_MY_WHI="7cd8ff" COLOR_TO_WHI="b4ddef" COLOR_MY_PARTY="93c95a" COLOR_TO_PARTY="bceb89" COLOR_MY_SHOUT="ff7c0f" COLOR_TO_SHOUT="ffa800"/>
+    <controls>
+        <groupbox name="edit_bg" rect="0 0 490 36" margin="5 0 0 0" layout_gravity="left top" draw="true" frameOpenAnim="pip_simbol_ani_3" hittestbox="false" resizebyparent="false" scrollbar="false" skin="inventory_serch"/>
+        <edit name="mainchat" rect="0 0 490 30" margin="7 4 0 0" layout_gravity="left top" OffsetForDraw="5 0" border="0 0 0 0" drawbackground="false" fontname="white_20" maxlen="150" maxlenfunc="CHAT_MAXLEN_MSG" resizebytext="false" skin="None" tag_color="true" tag_img="true" tag_link="true" tag_size="true" tag_ul="true" typingsound="chat_typing" usetag="true"/>
+        <setfocus name="mainchat_1" layout_gravity="left top"/>
+    </controls>
+</uitile>

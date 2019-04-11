@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uitile name="alramnotice" x="0" y="0" width="120" height="60" bodycolor="#ffffff" bodyalpha="0">
+    <frame layout_gravity="center bottom" margin="-95 0 0 -100" keyboardselectframe="false"/>
+    <layer layerlevel="30"/>
+    <input moveable="false"/>
+    <option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
+    <draw drawframe="false"/>
+    <controls>
+        <picture name="guildquest" rect="0 0 48 48" layout_gravity="left center" LBtnDownScp="SCR_GUILEQUEST" clicksound="button_click_2" image="icon_item_quest_alarm_scroll" oversound="button_over" stretch="true" textalign="center center" texttooltip="{@st59}돌발이벤트가 있습니다{/}" visible="false"/>
+        <picture name="help" rect="60 0 48 48" layout_gravity="left center" LBtnDownScp="" clicksound="button_click_2" image="icon_item_Misc_00020" oversound="button_over" stretch="true" textalign="center center" texttooltip="{@st59}도움말이 있습니다{/}" visible="false"/>
+        <groupbox name="guildquestnotice" parent="guildquest" rect="0 0 22 22" layout_gravity="left top" hittest="false" skin="digitnotice_bg"/>
+        <richtext name="guildquestnoticetext" parent="guildquest" rect="0 0 19 19" layout_gravity="left top" caption="11" fixwidth="false" resizebytext="true" textalign="center center"/>
+    </controls>
+</uitile>

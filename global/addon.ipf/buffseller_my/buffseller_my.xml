@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="buffseller_my" x="0" y="0" width="450" height="1200" create="open">
+	<frame fullheight="true" fasthide="true" layout_gravity="left top" margin="0 0 -480 0" open="pip"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<skin frameskin="None"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="sys_popup_open_1" closesound="character_item_window_close"/>
+	<animation frameOpenAnim="popup_start" frameCloseAnim="popup_end"/>
+	<controls>
+		<groupbox name="bg" rect="0 0 450 1000" margin="0 30 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_frame_low"/>
+		<groupbox name="pipwin_top" rect="0 0 450 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<groupbox name="bodyGbox" rect="0 0 450 960" margin="0 61 0 0" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="gem_socket_bg"/>
+		<groupbox name="searchSkin" parent="bodyGbox" rect="0 0 340 38" margin="0 20 0 0" layout_gravity="center top" draw="false" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}주문 판매상점{/}" textalign="center center"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="CLOSE_UI" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}주문 판매상점을 닫습니다{/}"/>
+		<button name="cancel" parent="bodyGbox" rect="0 0 160 55" margin="0 0 0 15" layout_gravity="center bottom" LBtnUpScp="BUFFSELLER_MY_CLOSE" caption="{@st41b}마감하기" clicksound="button_click_big" oversound="button_over" skin="test_red_button"/>
+		<groupbox name="selllist" parent="bodyGbox" rect="0 0 430 450" margin="10 60 0 0" layout_gravity="left top" draw="false" hittestbox="false" scrollbar="true" skin="none"/>
+		<groupbox name="history" parent="bodyGbox" rect="0 0 430 320" margin="10 560 0 0" layout_gravity="left top" draw="true" resizebyresolution="true" hittestbox="false" scrollbar="true" skin="test_frame_midle"/>
+		<labelline name="labelline_1" margin="20 120 0 0" rect="0 0 410 4" skin="None" layout_gravity="left top"/>
+		<labelline name="labelline_2" margin="20 570 0 0" rect="0 0 410 4" skin="None" layout_gravity="left top"/>
+		<richtext name="shopname" parent="bodyGbox" rect="0 0 340 40" margin="3 20 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st66b}%s{/}" maxwidth="0" param1="value" param1_def="ZZZZZZZZZZZZZZZZZZZZ" resizebytext="false" slideshow="false" spacey="0" textalign="center center" updateparent="false"/>
+		<richtext name="richtext_1" parent="bodyGbox" rect="0 0 120 24" margin="35 530 0 0" layout_gravity="left top" caption="{@st41b}거래 기록" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+	</controls>
+</uiframe>

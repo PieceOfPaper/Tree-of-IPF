@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="cartmenu" x="0" y="-120" width="150" height="40" create="open">
+    <frame title="마차메뉴" layout_gravity="center bottom"/>
+    <option hideable="false" closebutton="false"/>
+    <draw drawtitlebar="false" drawframe="false"/>
+    <input moveable="false"/>
+    <controls>
+        <picture name="keypad" rect="0 0 44 44" layout_gravity="left top" image="SPACE" stretch="true"/>
+        <richtext name="action" rect="46 2 350 42" layout_gravity="left center" caption="{ol}{s22}내리기{/}" fixwidth="true" fontname="white_18" hittest="false"/>
+    </controls>
+</uiframe>

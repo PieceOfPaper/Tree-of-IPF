@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="friend" x="0" y="0" width="450" height="600" create="open">
+    <draw drawnotitlebar="false" drawtitlebar="false"/>
+    <skin frameskin=" "/>
+    <frame title="{@st43}1{/}" fullheight="true" fasthide="true" layout_gravity="left top" open="pip" margin="-570 0 0 0"/>
+    <input maxwidth="1280" moveable="false"/>
+    <layer layerlevel="80"/>
+    <option closebutton="false"/>
+    <script OpenScp="FRIEND_OPEN"/>
+    <sound opensound="window_open" closesound="window_close"/>
+    <controls>
+        <groupbox name="friendGbox" rect="0 0 450 990" margin="0 40 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="false" skin="test_frame_low"/>
+		<groupbox name="friendtree_normal_gbox" rect="0 0 430 870" margin="10 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="" tabname="tab_game"/>
+        <groupbox name="pipwin_top" rect="0 0 450 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+        <richtext name="title" rect="0 0 100 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}친구"/>
+        <button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpScp="CLOSE_UI" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}친구 목록를 닫습니다{/}"/>
+        <picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" hittest="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}친구{nl}{@st59s} - 친구 관계는 계정 사이에 생성{nl} - 목록 탭에서 친구들의 상태 확인/삭제 가능{nl} - 관리 탭에서 초대, 거절, 차단 등의 내용을 확인{/}"/>
+		<checkbox name="showOnlyOnlineFriend" parent="friendtree_normal_gbox" rect="0 0 120 24" margin="15 0 0 0" layout_gravity="left top" ConfigName="Friend_ShowOnlyOnline" LBtnUpScp="ENABLE_SHOW_ONLY_ONLINE_FRIEND" caption="{@st41b}접속한 친구만 보기{/}" clicksound="button_click_big" fontname="black_16_b" oversound="button_over"/>
+		<groupbox name="friendtree_request_gbox" rect="0 0 430 870" margin="10 140 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyresolution="true" scrollbar="true" skin="" tabname="tab_request"/>
+		<tree name="friendtree_normal" parent="friendtree_normal_gbox" rect="0 0 420 0" margin=" 0 30 0 0" layout_gravity="left top" drawline="true" selectioncolor="000000"/>
+		<tree name="friendtree_request" parent="friendtree_request_gbox" rect="0 0 420 0" margin=" 0 0 0 0" layout_gravity="left top" drawline="true" selectioncolor="000000"/>
+		<!--<groupbox name="facebook" rect="0 0 410 790" margin="20 160 0 0" hittestbox="false" layout_gravity="left top" skin=" " draw="true" scrollbar="true" tabname="tab_facebook" resizebyresolution="true"/>-->
+		<tab name="itembox" rect="0 0 400 40" margin="45 90 0 0 " layout_gravity="left top" clicksound="inven_arrange" imagetype="false" itemspc="0" oversound="button_cursor_over_2" skin="tab2"/>
+		<tabitem name="tab_game" parent="itembox" layout_gravity="left top" caption="{@st66b}목록" skinspace="20" width="180"/>
+		<tabitem name="tab_request" parent="itembox" layout_gravity="left top" caption="{@st66b}관리" skinspace="20" width="180"/>
+		<button name="friend_register" parent="friendtree_request_gbox" rect="0 0 160 50" margin="-90 0 0 10" layout_gravity="center bottom" LBtnUpScp="FRIEND_REGISTER" caption="{@st41b}친구 신청" clicksound="button_click" oversound="button_over" skin="test_red_button"/>
+		<button name="friend_block" parent="friendtree_request_gbox" rect="0 0 160 50" margin="90 0 0 10" layout_gravity="center bottom" LBtnUpScp="FRIEND_BLOCK" caption="{@st41b}차단" clicksound="button_click" oversound="button_over" skin="test_gray_button"/>
+        <!--labelline name="boardLine 1" margin="0 134 0 0" rect="0 0 440 2" layout_gravity="center top" visible="true" skin="None"/-->
+		<groupbox name="searchSkin" parent="friendtree_normal_gbox" rect="0 0 410 38" margin="10 0 0 10" layout_gravity="left bottom" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
+		<edit name="friendSearch" parent="friendtree_normal_gbox" rect="0 0 340 24" margin="15 0 0 17" layout_gravity="left bottom" OffsetForDraw="0 0" clicksound="button_click_big" drawbackground="false" fontname="white_18_ol" maxlen="40" oversound="button_over" skin="None" textalign="left top" typingscp="SEARCH_FRIEND" typingsound="chat_typing" usetag="true"/>
+		<button name="friend_serch_btn" parent="friendtree_normal_gbox" rect="0 0 60 38" margin="0 0 15 12" layout_gravity="right bottom" LBtnUpArgNum="" LBtnUpScp="SEARCH_FRIEND" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="inven_s" oversound="button_over" stretch="true" texttooltip="{@st59}검색{/}"/>
+    </controls>
+</uiframe>

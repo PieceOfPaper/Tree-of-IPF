@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="party_recommend" x="0" y="0" width="500" height="110" create="open">
+    <frame layout_gravity="left bottom" margin="0 0 0 300"/>
+    <draw drawtitlebar="false" drawframe="ture"/>
+    <skin frameskin="test_party_alarm"/>
+    <option hideable="false" closebutton="false"/>
+    <script OpenScp="PARTY_RECOMMEND_OPEN" CloseScp="PARTY_RECOMMEND_CLOSE" LBtnUpScp="POPUP_RECOMMEND_PARTY_UI"/>
+    <animation frameOpenAnim="" frameCloseAnim=""/>
+	<userconfig POPUP_DURATION="30"/>
+	<layer layerlevel="9"/>
+	<controls>
+		<picture name="justicon" rect="0 0 50 50" margin="10 10 0 0" layout_gravity="left top" hittest="false" image="link_party" stretch="ture"/>
+		<richtext name="mapch" rect="0 0 400 80" margin="0 15 10 0" layout_gravity="right top" format="%s (%s 채널)" param1="map" param1_def="defmapname" param2="ch" param2_def="defch" fixwidth="false" fontname="black_16" hittest="false" textalign="left top"/>
+		<richtext name="partyname" rect="0 0 400 80" margin="60 15 0 0" layout_gravity="left top" caption="DefPartyName" fixwidth="true" fontname="white_16_ol" hittest="false" textalign="left top"/>
+		<richtext name="description" rect="0 0 400 80" margin="60 35 0 0" layout_gravity="left top" caption="같은 퀘스트를 진행중인 플레이어가 가까이에 있습니다. 이 사람을 파티에 초대하세요!" fixwidth="true" fontname="white_16_ol" hittest="false" textalign="left top"/>
+		<richtext name="moreinfo" rect="0 0 300 20" margin="60 0 0 10" layout_gravity="left bottom" caption="&gt;&gt;파티 보기.." fontname="yellow_16_ol" hittest="false" textalign="left top"/>
+	</controls>
+</uiframe>

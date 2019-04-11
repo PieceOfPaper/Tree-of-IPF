@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="paramcontrol" x="0" y="0" width="400" height="1000" create="open">
+    <frame title="{@st43}운영자 설정{/}" titlepos="0 -12" layout_gravity="right bottom" snapclient="true" snapframe="true" margin="0 0 55 16"/>
+    <draw drawframe="true" drawtitlebar="true"/>
+    <layer layerlevel="100"/>
+    <input moveable="true"/>
+    <option closebuttonpos="5 20" autoopen="false" closebutton="true" hideable="true" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <script OpenScp="OPEN_PARAMCONTROL"/>
+    <controls>
+        <richtext name="JAEDDURY_GOLD_RATE_text" rect="0 0 120 24" margin="49 12 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_GOLD_RATE_edit" rect="0 0 120 24" margin="200 12 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_GOLD_RATE" rect="0 0 350 20" margin="49 37 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_DROP_ITEM_RATE_text" rect="0 0 120 24" margin="49 65 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_DROP_ITEM_RATE_edit" rect="0 0 120 24" margin="200 65 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_DROP_ITEM_RATE" rect="0 0 350 20" margin="49 90 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_ZONE_ITEM_RATE_text" rect="0 0 120 24" margin="52 123 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_ZONE_ITEM_RATE_edit" rect="0 0 120 24" margin="200 123 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_ZONE_ITEM_RATE" rect="0 0 350 20" margin="52 148 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_BOSSDROP_RATE_text" rect="0 0 120 24" margin="52 182 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_BOSSDROP_RATE_edit" rect="0 0 120 24" margin="200 182 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_BOSSDROP_RATE" rect="0 0 350 20" margin="52 207 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_MON_EXP_RATE_text" rect="0 0 120 24" margin="55 242 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_MON_EXP_RATE_edit" rect="0 0 120 24" margin="200 242 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_MON_EXP_RATE" rect="0 0 350 20" margin="55 267 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_NEXON_PC_EXP_RATE_text" rect="0 0 120 24" margin="55 533 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_NEXON_PC_EXP_RATE_edit" rect="0 0 120 24" margin="201 534 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_NEXON_PC_EXP_RATE" rect="0 0 350 20" margin="51 560 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_MON_MHP_RATE_text" rect="0 0 120 24" margin="51 299 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_MON_MHP_RATE_edit" rect="0 0 120 24" margin="200 299 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_MON_MHP_RATE" rect="0 0 350 20" margin="51 324 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_MON_ATK_RATE_text" rect="0 0 120 24" margin="53 360 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_MON_ATK_RATE_edit" rect="0 0 120 24" margin="200 360 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_MON_ATK_RATE" rect="0 0 350 20" margin="53 385 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_MON_DEF_RATE_text" rect="0 0 120 24" margin="53 420 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_MON_DEF_RATE_edit" rect="0 0 120 24" margin="200 420 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_MON_DEF_RATE" rect="0 0 350 20" margin="53 445 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+        <richtext name="JAEDDURY_DPK_text" rect="0 0 120 24" margin="53 480 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+        <edit name="JAEDDURY_DPK_edit" rect="0 0 120 24" margin="200 480 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+        <slidebar name="JAEDDURY_DPK" rect="0 0 350 20" margin="53 505 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SLIDE_RESET" SlideScp="PARAM_CONTROL_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+		<richtext name="TOKEN_MARKET_REG_LIMIT_PRICE_text" rect="0 0 120 24" margin="52 612 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+		<edit name="TOKEN_MARKET_REG_LIMIT_PRICE_edit" rect="0 0 120 24" margin="199 612 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+		<slidebar name="TOKEN_MARKET_REG_LIMIT_PRICE" rect="0 0 350 20" margin="52 637 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SILVER_RESET" SlideScp="PARAM_CONTROL_SILVER_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+		<richtext name="TOKEN_MARKET_REG_MAX_PRICE_text" rect="0 0 120 24" margin="55 671 0 0" layout_gravity="left top" format="{@st42}%s{/}" param1="title"/>
+		<edit name="TOKEN_MARKET_REG_MAX_PRICE_edit" rect="0 0 120 24" margin="202 671 0 0" layout_gravity="left top" EnterKeyScp="PARAM_CONTROL_EDIT" OffsetForDraw="20 0" fontname="white_18_ol" maxlen="100"/>
+		<slidebar name="TOKEN_MARKET_REG_MAX_PRICE" rect="0 0 350 20" margin="55 696 0 0" layout_gravity="left top" LBtnUpScp="PARAM_SLIDE_END" RBtnUpScp="PARAM_CONTROL_SILVER_RESET" SlideScp="PARAM_CONTROL_SILVER_SLIDE" maxlevel="255" minlevel="0" skin="slidebar"/>
+    </controls>
+</uiframe>

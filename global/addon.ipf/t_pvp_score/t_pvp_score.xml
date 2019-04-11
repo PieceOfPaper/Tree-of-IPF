@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="t_pvp_score" x="-50" y="0" width="589" height="94" create="open">
+    <frame title="{@st41}NewUI{/}" titlepos="0 -8" layout_gravity="left top" margin="183 8 0 0"/>
+    <draw drawtitlebar="false"/>
+    <skin frameskin="wiki_add"/>
+    <option hideable="false" closebutton="false" closebuttonpos="5 20" useimageitem="true"/>
+    <sound opensound="win_open" closesound="win_close"/>
+    <controls>
+        <richtext name="richtext_1" rect="0 0 121 24" margin="241 1 0 0" layout_gravity="left top" caption="{@st55_a}VS{/}" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+        <richtext name="richtext_2" rect="0 0 60 27" margin="13 45 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="@MGame@Team1_Score" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="left center" updateparent="false"/>
+        <richtext name="richtext_3" rect="0 0 64 26" margin="459 46 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="@MGame@Team2_Score" param1_def="0" resizebytext="false" slideshow="false" spacey="0" textalign="right center" updateparent="false"/>
+        <gauge name="g_team_1" rect="0 0 235 29" margin="11 11 0 0" layout_gravity="left top" inverse="true" maxpoint="1" point="1" skin="gauge_hp"/>
+        <gauge name="g_team_2" rect="0 0 235 33" margin="292 11 0 0" layout_gravity="left top" inverse="false" maxpoint="1" point="1" skin="gauge_sp"/>
+        <richtext name="t_time" rect="0 0 120 35" margin="-25 47 0 12" layout_gravity="center bottom" drawbackground="false" fixwidth="true" fontname="white_16_ol" format="{@st64}%s{/}" maxwidth="0" param1="value" param1_def="2:00324234234234" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false"/>
+        <picture name="changecam" rect="0 0 65 65" margin="519 8 0 0" layout_gravity="left top" LBtnUpScp="T_VIEW_MYPC" changecursor="true" hittest="true" image="notice_dm_directormode2" stretch="true" texttooltip="{@st42}카메라 전환"/>
+        <richtext name="icon_team_1" rect="0 0 77 25" margin="131 48 367 0" layout_gravity="right top" caption="{@st42}AAdadAAAAA" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="right top" updateparent="false"/>
+        <richtext name="icon_team_2" rect="0 0 120 24" margin="319 49 348 0" layout_gravity="left top" caption="{@st42}AAAAAAAdadAA" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false"/>
+    </controls>
+</uiframe>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="headsupdisplay" x="0" y="0" width="490" height="230">
+    <frame layout_gravity="left top" scale_align="center top" margin="10 30 0 0" keyboardselectframe="false"/>
+    <input maxwidth="1280" moveable="false" hittestframe="false"/>
+    <layer layerlevel="60"/>
+    <option visible="true" hideable="false" closebutton="false" alwaysVisible="true"/>
+    <draw drawnotitlebar="false" drawtitlebar="false" drawframe="false"/>
+    <animation frameOpenAnim="dialog_start2" frameCloseAnim="dialog_end"/>
+    <controls>
+        <picture name="myslot_bg" rect="0 0 140 110" margin="0 -2 0 0" layout_gravity="left top" hittest="true" image="party_cha_myslot" stretch="true"/>
+		<picture name="mypic" rect="0 0 60 60" margin="23 24 0 0" layout_gravity="left top" hittest="false" mask="mask_myinfo" stretch="true"/>
+		<picture name="Isleader" rect="0 0 30 20" margin="37 23 0 0" layout_gravity="left top" hittest="false" image="party_leader_mark" stretch="true"/>
+        <gauge name="hp" rect="0 0 284 35" margin="140 15 0 0" layout_gravity="left top" drawlastpoint="true" hittest="true" ratewidth="true" skin="gauge_HP2" text1="{s16}%v{s16}/%m{/}" text2="{@st42b} {/}" textalign1="center center" textalign2="left top" textfont1="GD_digit_font" textoffset1="0 3" textoffset2="37 0" texttooltip="{@st59}HP{/}" usepostooltip="250 -25"/>
+        <gauge name="sp" rect="0 0 284 35" margin="140 50 0 0" layout_gravity="left top" drawlastpoint="true" hittest="true" ratewidth="true" skin="gauge_SP2" text1="{s16}%v{s16}/%m{/}" text2="{@st42b} {/}" textalign1="center center" textalign2="left top" textfont1="GD_digit_font" textoffset1="0 -4" textoffset2="37 0" texttooltip="{@st59}SP{/}" usepostooltip="250 15"/>
+		<richtext name="level_text" rect="0 0 70 20" margin="100 82 0 0" layout_gravity="left top" caption="0" fixwidth="true" fontname="white_20_ol" hittest="false" spacey="0" textalign="left center"/>
+		<richtext name="name_text" rect="0 0 310 20" margin="175 82 0 0" layout_gravity="left top" caption="name" fixwidth="true" fontname="white_20_ol" hittest="false" spacey="0" textalign="left center"/>
+        <picture name="mygauge" rect="0 0 15 70" margin="424 15 0 0" layout_gravity="left top" hittest="false" image="mygauge" stretch="true"/>
+        <gauge name="sta" rect="0 0 40 55" margin="103 22 0 0" layout_gravity="left top" drawlastpoint="true" hittest="false" ratewidth="true" skin="gauge_sta2" texttooltip="{@st42b}100/100{/}" vertical="true"/>
+        <picture name="gauge_sta3" rect="0 0 40 55" margin="103 22 0 0" layout_gravity="left top" hittest="true" image="gauge_sta3" stretch="false" texttooltip="{@st59}STA{nl}{@st59s}스태미나가 부족하면 이동이 느려집니다{/}"/>
+        <richtext name="stamina_text" rect="0 0 40 40" margin="102 42 0 0" layout_gravity="left top" format="%s" param1="nowVal" param1_def="0" param2="maxVal" param2_def="1" fixwidth="true" fontname="white_14_ol" hittest="false" spacey="0" textalign="center center"/>
+    </controls>
+</uiframe>
