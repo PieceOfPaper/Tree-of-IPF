@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by WonSup (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MinstFaith (EMBRACE) -->
+<uiframe name="option" x="0" y="0" width="620" height="546">
+	<input hittestframe="true" moveintitlebar="false" resize="false"/>
+	<draw drawtitlebar="false" drawnotitlebar="false"/>
+	<frame title="옵션" layout_gravity="center center"/>
+	<script OpenScp="OPTION_UPDATEALL"/>
+	<controls name="시야거리">
+		<richtext name="Title_VisibleRange" target="" rect="20 136 150 20" caption="{s20}{#BBBBBB}시야 거리"/>
+		<richtext name="DescText_ViewRange" target="Title_VisibleRange" layout_gravity="bottom left" rect="5 10 150 20" caption="시야 거리 :"/>
+		<richtext name="VisibleRangeText" target="DescText_ViewRange" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="VisibleRange" target="DescText_ViewRange" layout_gravity="bottom left" rect="0 0 200 20" minlevel="1" maxlevel="5" SlideScp="OPTION_VIEWDISTANCE"/>
+		<richtext name="DescText_ObjectRange" target="VisibleRange" layout_gravity="bottom left" rect="0 15 150 20" caption="캐릭터 :"/>
+		<richtext name="ObjectVisibleRangeText" target="DescText_ObjectRange" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="ObjectVisibleRange" target="DescText_ObjectRange" layout_gravity="bottom left" rect="0 0 200 20" minlevel="100" maxlevel="1000" SlideScp="OPTION_VIEWDISTANCE_DYNAMIC_OBJECT"/>
+		<richtext name="DescText_StaticObjectRange" target="ObjectVisibleRange" layout_gravity="bottom left" rect="0 15 150 20" caption="배경 오브젝트 :"/>
+		<richtext name="StaticObjectVisibleRangeText" target="DescText_StaticObjectRange" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="StaticObjectVisibleRange" target="DescText_StaticObjectRange" layout_gravity="bottom left" rect="0 0 200 20" minlevel="100" maxlevel="3000" SlideScp="OPTION_VIEWDISTANCE_STATIC_OBJECT"/>
+		<richtext name="DescRangeText_TerrainGrass" target="StaticObjectVisibleRange" layout_gravity="bottom left" rect="0 15 150 20" caption="지형-풀(%) :"/>
+		<richtext name="RangeText_TerrainGrass" target="DescRangeText_TerrainGrass" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="Slider_TerrainGrass" target="DescRangeText_TerrainGrass" layout_gravity="bottom left" rect="0 0 200 20" minlevel="1" maxlevel="100" SlideScp="OPTION_VIEWDISTANCE_GRASS"/>
+		<richtext name="DescRangeText_TerrainTree" target="Slider_TerrainGrass" layout_gravity="bottom left" rect="0 15 150 20" caption="지형-트리 (%) :"/>
+		<richtext name="RangeText_TerrainTree" target="DescRangeText_TerrainTree" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="Slider_TerrainTree" target="DescRangeText_TerrainTree" layout_gravity="bottom left" rect="0 0 200 20" minlevel="1" maxlevel="100" SlideScp="OPTION_VIEWDISTANCE_TREE"/>
+		<richtext name="DescRangeText_TerrainObject" target="Slider_TerrainTree" layout_gravity="bottom left" rect="0 15 150 20" caption="지형-오브젝트(%) :"/>
+		<richtext name="RangeText_TerrainObject" target="DescRangeText_TerrainObject" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="Slider_TerrainObject" target="DescRangeText_TerrainObject" layout_gravity="bottom left" rect="0 0 200 20" minlevel="1" maxlevel="100" SlideScp="OPTION_VIEWDISTANCE_OBJECT"/>
+	</controls>
+	<controls name="섀도우">
+		<richtext name="Title_Shadow" rect="252 136 100 20" caption="{s20}{#BBBBBB}섀도우맵"/>
+		<checkbox name="Toggle_Shadow" target="Title_Shadow" layout_gravity="bottom left" rect="0 10 15 20" caption="섀도우맵 사용" LBtnDownScp="OPTION_CHECK_SHADOW"/>
+		<richtext name="DescShadowText_Quality" target="Toggle_Shadow" layout_gravity="bottom left" rect="0 10 150 20" caption="섀도우 품질 :"/>
+		<richtext name="ShadowText_Quality" target="DescShadowText_Quality" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="Slider_ShadowQuality" target="DescShadowText_Quality" layout_gravity="bottom left" rect="0 5 150 20" minlevel="1" maxlevel="2" SlideScp="OPTION_SHADOW_QUALITY"/>
+	</controls>
+	<controls name="SSAO">
+		<richtext name="Title_SSAO" rect="250 264 100 20" caption="{s20}{#BBBBBB}SSAO"/>
+		<checkbox name="Toggle_SSAO" target="Title_SSAO" layout_gravity="bottom left" rect="0 10 15 20" caption="SSAO 사용" LBtnDownScp="OPTION_CHECK_SSAO"/>
+		<richtext name="DescSSAO_Method" target="Toggle_SSAO" layout_gravity="bottom left" rect="0 10 150 20" caption="SSAO 방식 :"/>
+		<richtext name="SSAO_Method" target="DescSSAO_Method" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="Slider_SSAOMethod" target="DescSSAO_Method" layout_gravity="bottom left" rect="0 5 160 20" minlevel="1" maxlevel="2" SlideScp="OPTION_SSAO_METHOD"/>
+		<richtext name="DescSSAO_Resolution" target="Slider_SSAOMethod" layout_gravity="bottom left" rect="0 10 150 20" caption="SSAO 해상도 :"/>
+		<richtext name="SSAO_Resolution" target="DescSSAO_Resolution" layout_gravity="right center" rect="10 0 100 20" caption="Value"/>
+		<slidebar name="Slider_SSAOResolution" target="DescSSAO_Resolution" layout_gravity="bottom left" rect="0 5 160 20" minlevel="1" maxlevel="2" SlideScp="OPTION_SSAO_RESOLUTION"/>
+	</controls>
+	<controls name="물반사">
+		<richtext name="Title_WaterReflection" rect="250 430 100 20" caption="{s20}{#BBBBBB}물 반사"/>
+		<checkbox name="Toggle_ObjectReflection" target="Title_WaterReflection" layout_gravity="bottom left" rect="5 10 15 20" caption="캐릭터 물반사" LBtnDownScp="OPTION_CHECK_REFLECTION_OBJECT"/>
+		<checkbox name="Toggle_BackgroundReflection" target="Toggle_ObjectReflection" layout_gravity="bottom left" rect="0 5 15 20" caption="배경 물반사" LBtnDownScp="OPTION_CHECK_REFLECTION_BG"/>
+	</controls>
+	<controls name="Glow">
+		<richtext name="Title_Glow" rect="420 136 100 20" caption="{s20}{#BBBBBB}Glow 설정"/>
+		<checkbox name="Toggle_EnableGlow" target="Title_Glow" layout_gravity="bottom left" rect="5 10 15 20" caption="Glow 사용" LBtnDownScp="OPTION_CHECK_GLOW"/>
+	</controls>
+	<controls>
+		<button name="close" caption="닫기" layout_gravity="right bottom" clicksound="ui_click_button_4" rect="-12 -24 114 24" LBtnUpScp="ui.CloseFrame('option')"/>
+	</controls>
+</uiframe>

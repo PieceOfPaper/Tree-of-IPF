@@ -1,0 +1,35 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by LeeGY (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by MintPC (Mi) -->
+<chatframeset>
+	<chatframe name="chattest" x="0" y="0" marginy="10" minheight="100" fixwidth="true" width="200" height="160" moveable="false" frameskin="comparisonballoon_positive_left" blendtime="" UpdateScp="UPDATE_ITEM_CHANGEVALUE_TOOLTIP">
+		<controls>
+			<button name="name" rect="10 10 100 20" layout_gravity="left top" caption="이름" textalign="center top" LBtnUpScp="CHATTAGET_MENU"/>
+			<richtext name="text" rect="0 32 180 20" layout_gravity="left top" fixwidth="true"/>
+		</controls>
+	</chatframe>
+	<chatframe name="chat_normal" x="0" y="0" marginy="10" minheight="100" fixwidth="true" width="200" height="160" moveable="false" frameskin="textballoon" blendtime="" UpdateScp="UPDATE_ITEM_CHANGEVALUE_TOOLTIP">
+		<controls>
+			<button name="name" rect="10 10 100 20" layout_gravity="left top" caption="이름" textalign="center top" LBtnUpScp="CHATTAGET_MENU"/>
+			<richtext name="text" rect="0 32 180 20" layout_gravity="left top" fixwidth="true"/>
+		</controls>
+	</chatframe>
+	<chatframe name="chat_wisper" x="0" y="0" marginy="10" minheight="100" fixwidth="true" width="200" height="160" moveable="false" frameskin="textballoon_wisper" blendtime="" UpdateScp="UPDATE_ITEM_CHANGEVALUE_TOOLTIP">
+		<controls>
+			<button name="name" rect="10 10 100 20" layout_gravity="left top" caption="이름" textalign="center top" LBtnUpScp="CHATTAGET_MENU"/>
+			<richtext name="text" rect="0 32 200 20" layout_gravity="left top" fixwidth="true"/>
+		</controls>
+	</chatframe>
+	<chatframe name="chat_overall" x="260" y="10" marginy="10" minheight="70" fixwidth="true" width="250" height="70" moveable="false" frameskin="textballoon_overall" blendtime="" UpdateScp="UPDATE_ITEM_CHANGEVALUE_TOOLTIP">
+		<controls>
+			<button name="name" rect="10 10 100 20" layout_gravity="left top" caption="이름" textalign="center top" LBtnUpScp="CHATTAGET_MENU"/>
+			<richtext name="text" rect="0 32 230 20" layout_gravity="left top" fixwidth="true"/>
+		</controls>
+	</chatframe>
+	<chatframe name="chat_party" x="0" y="0" marginy="10" minheight="100" fixwidth="true" width="200" height="160" moveable="false" frameskin="textballoon_overall" blendtime="" UpdateScp="UPDATE_ITEM_CHANGEVALUE_TOOLTIP">
+		<controls>
+			<button name="name" rect="10 10 100 20" layout_gravity="left top" caption="이름" textalign="center top" LBtnUpScp="CHATTAGET_MENU"/>
+			<richtext name="text" rect="0 32 180 20" layout_gravity="left top" fixwidth="true"/>
+		</controls>
+	</chatframe>
+</chatframeset>

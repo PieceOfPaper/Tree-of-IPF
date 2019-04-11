@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<UIEffectList>
+	<event name="appsClose">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="1920 10" destmovetime="0.5" pausetime="0.0" movesound="UI_card_move"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+	<event name="appsOpen">
+		<Layer name="MoveAnimation" type="Object">
+			<Creation>
+				<Property loop="0"/>
+			</Creation>
+			<Moving>
+				<Property destpos="1580 10" destmovetime="0.5" pausetime="0.0" movesound="UI_card_move"/>
+				<Keyframe>
+				</Keyframe>
+			</Moving>
+		</Layer>
+	</event>
+</UIEffectList>

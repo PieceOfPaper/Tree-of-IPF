@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by Psw (IMCGames Co., Ltd) -->
+<uiframe name="hpinfo" x="-32" y="-11" width="64" height="22">
+	<frame title="Chat" layout_gravity="center center" fasthide="true"/>
+	<draw drawtitlebar="false" drawframe="false"/>
+	<input hittestframe="false" moveable="false" minwidth="64" minheight="22"  maxwidth="128" resize="true" reduce="true"/>
+	<option closebutton="false" hideable="false"/>
+	<controls>
+		<gauge name="hp" rect="0 0 64 22" skin="gauge_hp" hittest="false"/>
+	</controls>
+</uiframe>

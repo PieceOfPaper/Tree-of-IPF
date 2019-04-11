@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<uiframe name="textballoon" x="0" y="0" width="196" height="90">
+	<frame title="Chat" layout_gravity="left top"/>
+	<draw blend="100" drawtitlebar="false" drawframe="true"/>
+	<skin frameskin="textballoon_mid"/>	
+	<input hittestframe="false" moveable="false" minheight="55" minwidth="48" maxwidth="226" resize="true" reduce="true"/>
+	<layer layerlevel="20"/>
+	<option closebutton="false" hideable="false"/>
+	<script fadeinArgStr="textballoon" fadeoutArgStr="textballoon"/>
+	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_start"/>
+	<controls>
+		<richtext name="chat" layout_gravity="left top" margin="22 15" spacey="-2" fixwidth="true" maxwidth="250" updateparent="true" fontname="textballoon"/>
+	</controls>
+</uiframe>

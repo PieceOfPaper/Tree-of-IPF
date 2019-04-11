@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="pub_preview" x="0" y="0" width="300" height="160" layout_gravity="center center">
+	<draw drawtitlebar="false" drawframe="false"/>
+	<frame fullheight="false" layout_gravity="center center" margin="0 0 0 0" scale_align="left top" fasthide="true"/>
+	<input maxwidth="1280" moveable="false" hittestframe="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<sound opensound="character_mouseover" closesound="character_mouseover"/>
+	<!-- animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/ -->
+	<controls>
+		<groupbox name="maingroup" margin="0 0 0 0" rect="0 0 300 160" hittestbox="false" draw="false" skin="barrack_creat_win" layout_gravity="left top" frameOpenAnim="popup_start" frameCloseAnim="popup_end" scrollbar="false"/>
+		<picture name="classBg_wing" margin="0 20 0 0" rect="0 0 235 70" hittest="false" image="barrack_class_symbol" stretch="true" changecursor="false" layout_gravity="center top"/>
+		<picture name="classImage" margin="0 13 0 0" rect="0 0 90 90" hittest="false" image="barrack_class_Warrior" stretch="true" changecursor="false" layout_gravity="center top"/>
+		<richtext name="job_title" margin="0 106 0 0" rect="0 0 120 24" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top" format="{@st41b}%s{/}" param1="value" param1_def="AAAAAAAAAAAAA"/>
+	</controls>
+</uiframe>
