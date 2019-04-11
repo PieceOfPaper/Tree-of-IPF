@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ExpEffect>
+	<Exp Grade="1">
+		<Info Effect="I_light004_violet" FinishEffect="F_sys_exp_hit" FinishSound="getexp_1_se"/>
+		<Spread Range="10 50" Sound="None" Time="0.2"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.3"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Exp>
+	<OverKill Rate="25">
+		<Info Effect="I_light002_red" FinishEffect="F_explosion003" FinishSound="getexp_1_se"/>
+		<Spread Range="0 0" Sound="None" Time="0.01"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.4"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</OverKill>
+	<OverKill Rate="50">
+		<Info Effect="I_light003_red" FinishEffect="F_explosion003" FinishSound="getexp_1_se"/>
+		<Spread Range="0 0" Sound="None" Time="0.01"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.4"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</OverKill>
+	<OverKill Rate="75">
+		<Info Effect="I_light001" FinishEffect="F_explosion003" FinishSound="getexp_1_se"/>
+		<Spread Range="0 0" Sound="None" Time="0.01"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.4"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</OverKill>
+	<Stamina AddValue="1">
+		<Info Effect="I_spread_out001_light" EffectScale="2" FinishEffect="F_lineup003" FinishEffectScale="0.3" FinishSound="getexp_1_se"/>
+		<Spread Range="10 50" Sound="None" Time="0.5"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.3"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Stamina>
+	<Stamina AddValue="10">
+		<Info Effect="I_spread_out003_light" EffectScale="0.7" FinishEffect="F_staup_hit" FinishEffectScale="0.3" FinishSound="getexp_1_se"/>
+		<Spread Range="10 50" Sound="None" Time="0.5"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.3"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Stamina>
+	<Stamina AddValue="25">
+		<Info Effect="I_light002_red" EffectScale="1.0" FinishEffect="F_explosion003" FinishEffectScale="1.0" FinishSound="getexp_1_se"/>
+		<Spread Range="0 0" Sound="None" Time="0.01"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.4"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Stamina>
+	<Stamina AddValue="50">
+		<Info Effect="I_light003_red" EffectScale="1.0" FinishEffect="F_explosion003" FinishEffectScale="1.0" FinishSound="getexp_1_se"/>
+		<Spread Range="0 0" Sound="None" Time="0.01"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.4"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Stamina>
+	<Stamina AddValue="75">
+		<Info Effect="I_light001" EffectScale="5.0" FinishEffect="F_circle010" FinishEffectScale="1.0" FinishSound="getexp_1_se"/>
+		<Spread Range="10 50" Sound="None" Time="0.5"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.3"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Stamina>
+	<Skill SklType="1">
+		<Info Effect="I_light004_violet" FinishEffect="F_explosion003" FinishSound="getexp_1_se"/>
+		<Spread Range="10 50" Sound="None" Time="0.2"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.3"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Skill>
+	<Skill SklType="2">
+		<Info Effect="I_light003_red" FinishEffect="F_explosion003" FinishSound="getexp_1_se"/>
+		<Spread Range="0 0" Sound="None" Time="0.01"/>
+		<Delay Sound="None"/>
+		<Ready Height="15 25" Sound="None" Time="0.4"/>
+		<Force Height="20 40" Sound="getexp_shoot" Time="0.5"/>
+	</Skill>
+	<Skill SklType="3">
+		<Info Effect="I_light015" FinishEffect="F_cleric_bind_shot_light" FinishSound="getexp_1_se"/>
+		<Spread Range="10 50" Sound="None" Time="0.2"/>
+		<Delay Sound="None"/>
+		<Ready Height="0 0" Sound="None" Time="0.2"/>
+		<Force Height="0 0" Sound="getexp_shoot" Time="0.2"/>
+	</Skill>
+</ExpEffect>
