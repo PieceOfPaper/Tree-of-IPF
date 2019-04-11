@@ -4621,4 +4621,26 @@
 			<button name="select_btn" parent="gb" rect="0 0 84 47" margin="170 0 0 0" layout_gravity="center center" hittest="true" format="%s" param1="value" param1_def="버튼" stretch="true" skin="test_pvp_btn" fontname="black_16_b"/>
 		</controls>
 	</controlset>
+	<controlset name="pvp_mine_mvp_list" hittest="true" width="332" height="36" skin="None" hittestset="false" draw="true">
+		<controls>
+			<richtext name="rank" rect="0 0 45 30" margin="-130 0 0 0" layout_gravity="center center" resizebytext="false" textalign="center center" format="{@st43}{s16}%s{/}" param1="value" param1_def="0"/>
+			<richtext name="teamname" rect="0 0 140 30" margin="-5 0 0 0" layout_gravity="center center" resizebytext="false" textalign="left center" format="{@st43}{s16}%s{/}" param1="value" param1_def="팀명"/>
+			<richtext name="score" rect="0 0 60 30" margin="98 0 0 0" layout_gravity="center center" resizebytext="false" textalign="right center" format="{@st43}{s16}%s{/}" param1="value" param1_def="점수"/>
+		</controls>
+	</controlset>
+	<controlset name="pvp_mine_mvp_list_mine" hittest="true" width="332" height="36" skin="None" hittestset="false" draw="true">
+		<controls>
+			<groupbox name="gb" rect="0 0 320 40" margin="0 0 0 0" layout_gravity="center center" draw="true" skin="guildbattle_win_bg"/>
+			<richtext name="rank" rect="0 0 45 30" margin="-130 0 0 0" layout_gravity="center center" resizebytext="false" textalign="center center" format="{@st43}{s16}%s{/}" param1="value" param1_def="0"/>
+			<richtext name="teamname" rect="0 0 140 30" margin="-5 0 0 0" layout_gravity="center center" resizebytext="false" textalign="left center" format="{@st43}{s16}%s{/}" param1="value" param1_def="팀명"/>
+			<richtext name="score" rect="0 0 60 30" margin="98 0 0 0" layout_gravity="center center" resizebytext="false" textalign="right center" format="{@st43}{s16}%s{/}" param1="value" param1_def="점수"/>
+		</controls>
+	</controlset>
+	<controlset name="pvp_mine_mvp_pic_list" hittest="true" width="332" height="36" skin="None" hittestset="false" draw="true">
+		<controls>
+			<picture name="ranking_dot1" rect="0 0 5 21" margin="-130 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
+			<picture name="ranking_dot2" rect="0 0 5 21" margin="-55 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
+			<picture name="ranking_dot3" rect="0 0 5 21" margin="105 5 0 0" layout_gravity="center center" stretch="true" image="icon_ranking_dot" draw="true"/>
+		</controls>
+	</controlset>
 </controlsetlist>

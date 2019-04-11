@@ -64,6 +64,10 @@ function RESTART_ON_RESSURECT_MAINLAYER(frame)
 
 end
 
+function RESTART_ON_RESSURECT_BORUTA_RVRRAID(frame)
+	restart.SendRestartBorutaRaid();
+end
+
 function RESTART_ON_RESSURECT_ABANDON(frame)
 
 	restart.SendRestartRetry();
@@ -242,8 +246,16 @@ function RESTART_ON_MSG(frame, msg, argStr, argNum)
 			local btnName = "restart" .. i .. "btn";
 			local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
 			local isBit = BitGet(argNum, i);
-			
 			resButtonObj:ShowWindow(isBit);
+		end
+
+		-- 보루타 부활용
+		local returnCityBtn = GET_CHILD(frame, "restart9btn", "ui::CButton");
+		returnCityBtn:ShowWindow(0);
+		if BitGet(argNum, 16) == 1 then
+			frame:RunUpdateScript("BORUTA_RVRRAID_RESTART_UPDATE", 1, 0, 0, 1);
+			frame:SetUserValue("COUNT", 30);
+			returnCityBtn:ShowWindow(1);
 		end
 
 		--콜로니전 부활용
@@ -369,6 +381,16 @@ function COLONY_WAR_RESTART_UPDATE(frame)
 	resButtonObj:SetText(text);
 
 	COLONY_WAR_RESTART_BY_MYSTIC_UPDATE(frame);
+	return 1;
+end
+
+function BORUTA_RVRRAID_RESTART_UPDATE(frame)
+	local btnName = "restart9btn";
+	local resButtonObj	= GET_CHILD(frame, btnName, 'ui::CButton');
+	local sec = frame:GetUserIValue("COUNT")
+	frame:SetUserValue("COUNT",  sec - 1);
+	local text = "{@st66b}"..ScpArgMsg("TableLand_ReturnCity{SEC}", "SEC", sec).."{/}"
+	resButtonObj:SetText(text);
 	return 1;
 end
 
