@@ -1,0 +1,13 @@
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+1,1,1,40,-1,60000,1,2,0,0,0,0,0,"Warp_arrow","래스보이 호숫가","","","","MON_DUMMY","","","","PILGRIM41_5_PILGRIM41_3","","NO","YES","NO","Neutral","","","",""
+2,2,1,40,50,5000,16,0,0,0,1,0,0,"rootcrystal_05","","","","","MON_TORCH","","","","","","NO","YES","NO","RootCrystal","","","",""
+3,3,1,100,-1,60000,1,0,0,0,1,0,0,"HiddenTrigger_CantGen100","FieldCantGen","","","","","","","","","","NO","YES","NO","Neutral","","","",""
+4,4,1,40,1,60000,1,0,0,1,0,0,0,"HiddenTrigger6","","","","","","","MANA_WAR_GAME_AI","","","","NO","YES","NO","Neutral","Gimmick_mana_war_pilgrim41_5","","",""
+5,5,1,1300,1,60000,1,0,0,1,0,0,0,"star_lantern_01","UnVisibleName","","","","","","DELIVERY_CHARGES_GAME_AI","DELIVERY_CHARGES_GAME","","","NO","YES","NO","Neutral","Pilgrim41_5_delivery_charges","","",""
+6,6,1,40,-1,60000,1,0,0,1,0,0,0,"HiddenTrigger6","","","","","GIMMICK_DEFENSE_HIDE","","","","","","NO","YES","NO","Neutral","Pilgrim41_5_defense","","",""
+7,7,1,40,1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n25","",""
+8,8,1,40,1,60000,1,0,0,1,1,0,0,"HiddenTrigger6","","","","","NUMBER_NEXTNUMBER_HIDE","","","","","","NO","YES","NO","Neutral","Gimmick6","n33","",""
+100,100,0,40,25,30000,10,0,0,0,0,0,0,"Nuka_brown","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+101,101,0,40,25,30000,30,0,0,0,0,0,0,"lapasape_bow_brown","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+102,102,0,40,25,30000,10,0,0,0,0,0,0,"Elma_red","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+103,103,0,40,30,30000,30,0,0,0,0,0,0,"lapasape_bow_brown","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
