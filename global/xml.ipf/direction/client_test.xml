@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<R1Direction MapName="f_katyn_10" FPS="5" MaxFrame="35" CenterPos="861.31#201.09#-67.76">
+    <TimeLine>
+        <KeyFrame CMD="6" Frame="2" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_TARGET_CAM" Client="YES" UseSleep="NO" CondFunc="">
+                <Actor Line="0"/>
+                <Num Num="0"/>
+                <Num Num="0"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="6" Frame="7" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_CHANGE_CAM" Client="YES" UseSleep="NO" CondFunc="">
+                <Num Num="1"/>
+                <Pos Angle="0.42896193" Dist="736.23157"/>
+                <Num Num="3"/>
+                <Num Num="0.2"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="6" Frame="10" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_CHANGE_CAM" Client="YES" UseSleep="NO" RunCount="0" CondFunc="">
+                <Num Num="1"/>
+                <Pos Angle="-0.49873665" Dist="305.42648"/>
+                <Num Num="2"/>
+                <Num Num="0.80000001"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="6" Frame="17" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_CHANGE_CAM" Client="YES" UseSleep="NO" RunCount="0" CondFunc="">
+                <Num Num="1"/>
+                <Pos Angle="-0.71773165" Dist="302.99149"/>
+                <Num Num="2"/>
+                <Num Num="0.5"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="6" Frame="22" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_PLAYSOUND" Client="YES" UseSleep="NO">
+                <Str Str="mon_voice_hog_12"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="6" Frame="23" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_PLAYSOUND" Client="YES" UseSleep="NO">
+                <Str Str="skl_eff_spread_4"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="6" Frame="32" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="TRACK_SETTENDENCY" Client="NO" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+    </TimeLine>
+    <TimeLine/>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="0" Arg2="0" X="979.57867" Y="201.10229" Z="-221.45242" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="5" Arg1="57101" Arg2="211.24998" X="1176.998" Y="200.55859" Z="-160.44405" Script="&apos;Lv&apos; &apos;116&apos; " Memo=""/>
+        <KeyFrame CMD="6" Frame="5" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_PLAY_ANIM" Client="YES" UseSleep="NO" RunCount="0" UseTooltipScp="0">
+                <Str Str="event_run"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="2" Frame="5" Arg1="232.76381" Arg2="0" X="0" Y="0" Z="0" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="17" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_C_PLAY_ANIM" Client="YES" UseSleep="NO" CondFunc="">
+                <Str Str="angry_event"/>
+                <Num Num="1"/>
+                <Num Num="1"/>
+                <Num Num="0"/>
+            </Scp>
+        </KeyFrame>
+        <KeyFrame CMD="2" Frame="17" Arg1="0" Arg2="0" X="1156.1587" Y="201.10229" Z="-183.57576" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="400245" Arg2="49.411762" X="1334.2653" Y="201.10229" Z="112.17377" Script="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " Memo=""/>
+        <KeyFrame CMD="2" Frame="0" Arg1="0" Arg2="0" X="1241.3599" Y="201.10229" Z="-80.531448" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="15" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_DEAD" Client="BOTH" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+        <KeyFrame CMD="1" Frame="17" Arg1="0" Arg2="0" X="1252.9977" Y="201.10229" Z="-35.166321" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="400245" Arg2="62.35294" X="1391.501" Y="201.10229" Z="94.234581" Script="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " Memo=""/>
+        <KeyFrame CMD="2" Frame="0" Arg1="0" Arg2="0" X="1384.1934" Y="201.10229" Z="84.29705" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="15" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_DEAD" Client="BOTH" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+        <KeyFrame CMD="1" Frame="17" Arg1="0" Arg2="0" X="1253.6483" Y="201.10229" Z="-68.229134" Script="" Memo=""/>
+        <KeyFrame CMD="2" Frame="17" Arg1="0" Arg2="0" X="1249.5629" Y="201.10229" Z="-73.838966" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="400245" Arg2="83.529411" X="1369.5546" Y="201.10229" Z="162.23988" Script="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " Memo=""/>
+        <KeyFrame CMD="2" Frame="0" Arg1="0" Arg2="0" X="1300.4012" Y="201.10229" Z="29.909424" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="16" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_DEAD" Client="BOTH" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+        <KeyFrame CMD="1" Frame="17" Arg1="0" Arg2="0" X="1239.0305" Y="201.10229" Z="-91.062515" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="400245" Arg2="41.5625" X="1379.8519" Y="201.10229" Z="151.36798" Script="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " Memo=""/>
+        <KeyFrame CMD="2" Frame="0" Arg1="0" Arg2="0" X="1379.0851" Y="201.10229" Z="146.31586" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="13" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_DEAD" Client="BOTH" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+        <KeyFrame CMD="1" Frame="16" Arg1="0" Arg2="0" X="1312.1184" Y="201.10229" Z="36.083862" Script="" Memo=""/>
+        <KeyFrame CMD="2" Frame="16" Arg1="0" Arg2="0" X="1299.92" Y="201.10229" Z="1.881035" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="400245" Arg2="55.9375" X="1388.8378" Y="201.10229" Z="124.75365" Script="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " Memo=""/>
+        <KeyFrame CMD="2" Frame="0" Arg1="0" Arg2="0" X="1379.7477" Y="201.10229" Z="112.44196" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="15" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_DEAD" Client="BOTH" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+        <KeyFrame CMD="1" Frame="16" Arg1="0" Arg2="0" X="1302.5852" Y="201.10229" Z="-33.795906" Script="" Memo=""/>
+        <KeyFrame CMD="2" Frame="16" Arg1="0" Arg2="0" X="1293.2268" Y="201.10229" Z="-55.626492" Script="" Memo=""/>
+    </TimeLine>
+    <TimeLine>
+        <KeyFrame CMD="0" Frame="0" Arg1="400245" Arg2="63.823528" X="1355.0435" Y="201.10229" Z="93.784058" Script="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " Memo=""/>
+        <KeyFrame CMD="2" Frame="0" Arg1="0" Arg2="0" X="1306.0085" Y="201.10229" Z="45.132538" Script="" Memo=""/>
+        <KeyFrame CMD="6" Frame="15" Arg1="0" Arg2="0" X="0" Y="0" Z="0" Script="" Memo="">
+            <Scp Scp="DRT_DEAD" Client="BOTH" UseSleep="NO" CondFunc=""/>
+        </KeyFrame>
+        <KeyFrame CMD="1" Frame="17" Arg1="0" Arg2="0" X="1227.1305" Y="201.10229" Z="-83.040985" Script="" Memo=""/>
+        <KeyFrame CMD="2" Frame="17" Arg1="0" Arg2="0" X="1200.4849" Y="201.10229" Z="-85.937592" Script="" Memo=""/>
+    </TimeLine>
+</R1Direction>
