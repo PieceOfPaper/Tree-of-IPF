@@ -1,0 +1,17 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="d_velniasprison_51_5_1area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_2area_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_ani.xac" IsBloom="1" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_1area_b_model.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_velniasprison_51_5_2area_b_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_velniasprison_51_5_blend.xac" RenderType="RT_MODEL" IsBloom="0" Type="BLEND" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_bloom.xac" IsBloom="0" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_fog.xac" RenderType="RT_FOG" IsBloom="0" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_grass.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1" IsGrass="1" GrassWindPower="50" GrassTime="2" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="d_velniasprison_51_5_ground.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="d_velniasprison_51_5_light.xac" RenderType="RT_PLANLIGHT" IsBloom="0" NoCol="1"/>
+	<Model Path="d_velniasprison_51_5_tree.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1" IsGrass="1" GrassWindPower="10" GrassTime="2" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="d_velniasprison_51_5_anitree_01.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="1" IsGrass="1" GrassWindPower="60" GrassTime="2" IsDynTree="0" GrassWindDir="0"/>
+</Prop>

@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by yeonew (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="d_underfortress_30_1_1area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_2area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_3area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_4area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_5area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_6area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_7area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_8area_model.xac" RenderType="RT_PLANELIGHT" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_b_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_bl01.xac" RenderType="RT_MUD_BLEND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_bl02.xac" RenderType="RT_MUD_BLEND2" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_bl03.xac" RenderType="RT_MUD_BLEND3" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_bl04.xac" RenderType="RT_MUD_BLEND4" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_fog.xac" RenderType="RT_FOG" Type="" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_gr_a.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_grass01.xac" RenderType="RT_MODEL" Type="" IsGrass="1" GrassWindPower="200" GrassTime="2" GrassWindDir="0" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_grass02.xac" RenderType="RT_MODEL" Type="" IsGrass="1" GrassWindPower="200" GrassTime="2" GrassWindDir="0" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_grass03.xac" RenderType="RT_MODEL" Type="" IsGrass="1" GrassWindPower="200" GrassTime="1" GrassWindDir="0" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_grass04.xac" RenderType="RT_MODEL" Type="" IsGrass="1" GrassWindPower="200" GrassTime="2" GrassWindDir="0" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="d_underfortress_30_1_light.xac" RenderType="RT_PLANELIGHT" Type="" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_water02.xac" RenderType="RT_WATER" Type="" IsWater="1" WaterDiffDir="0 -0.2" WaterSwaySpeed="-1" WaterSwayRange="0.1 0.1" waterSwayPower="0.1" RefractionNormalSize="0" RefractionDir="0 0 " RefractionPower="0" WaterSprayNormalSize="0" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_tp01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_tp02.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_underfortress_30_1_water.xac" RenderType="RT_WATER" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.1" WaterSwayRange="0.01 0" waterSwayPower="0.01" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.03" WaterSprayRange="1" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+</Prop>

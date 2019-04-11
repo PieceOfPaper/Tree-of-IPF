@@ -1,0 +1,102 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by k (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_rokas_30\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_rokas_30\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\rokas\"/>
+	<LightMap File="f_rokas_30_lightmap.jpg" Length="3700.0 3700.0" Offset="-50.609 128.729" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_rokas_30\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_rokas_30\"/>
+	<Model File="f_rokas30_ground01.xac" Model="f_rokas30_ground01" ShadowMap="f_rokas30_ground01" pos="-22.1995 -119.3624 114.9502" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_ground02.xac" Model="f_rokas30_ground02" ShadowMap="f_rokas30_ground02" pos="-215.4634 305.8176 36.8477" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_water.xac" Model="f_rokas30_water" pos="1075.1338 -136.6078 -551.4383" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area5_model02.xac" Model="f_rokas30_area5_model02" ShadowMap="f_rokas30_area5_model02" pos="950.6525 92.5490 -761.1234" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_b_model01.xac" Model="f_rokas30_b_model01" ShadowMap="f_rokas30_b_model01" pos="-1098.5088 -836.7123 1418.5278" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area1_grass.xac" Model="f_rokas30_area1_grass" ShadowMap="f_rokas30_area1_grass" pos="-1415.1486 239.6819 -440.8216" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area1_tree01.xac" Model="f_rokas30_area1_tree01" ShadowMap="f_rokas30_area1_tree01" pos="-1276.6788 281.5162 -11.3643" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area1_tree02.xac" Model="f_rokas30_area1_tree02" ShadowMap="f_rokas30_area1_tree02" pos="-1359.4498 226.5455 -882.8852" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area1_model.xac" Model="f_rokas30_area1_model" ShadowMap="f_rokas30_area1_model" pos="-1380.9264 213.4214 -440.6613" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area2_model01.xac" Model="f_rokas30_area2_model01" ShadowMap="f_rokas30_area2_model01" pos="-603.9041 231.9550 -321.9081" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area2_model02.xac" Model="f_rokas30_area2_model02" ShadowMap="f_rokas30_area2_model02" pos="-108.9624 264.6559 -228.6567" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area2_tree01.xac" Model="f_rokas30_area2_tree01" ShadowMap="f_rokas30_area2_tree01" pos="-664.2130 243.9962 -28.0158" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area2_tree02.xac" Model="f_rokas30_area2_tree02" ShadowMap="f_rokas30_area2_tree02" pos="50.8386 281.5161 -163.7919" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area2_grass.xac" Model="f_rokas30_area2_grass" ShadowMap="f_rokas30_area2_grass" pos="-312.5165 273.7381 -209.0959" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area3_model02.xac" Model="f_rokas30_area3_model02" ShadowMap="f_rokas30_area3_model02" pos="627.8396 453.4278 1288.7588" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area3_tree02.xac" Model="f_rokas30_area3_tree02" ShadowMap="f_rokas30_area3_tree02" pos="619.7340 447.3940 1280.6934" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area3_tree01.xac" Model="f_rokas30_area3_tree01" ShadowMap="f_rokas30_area3_tree01" pos="-243.2926 424.4621 517.3594" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area3_grass.xac" Model="f_rokas30_area3_grass" ShadowMap="f_rokas30_area3_grass" pos="216.9231 440.2989 868.9443" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area4_model02.xac" Model="f_rokas30_area4_model02" ShadowMap="f_rokas30_area4_model02" pos="444.2073 379.1634 657.1719" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area4_model01.xac" Model="f_rokas30_area4_model01" ShadowMap="f_rokas30_area4_model01" pos="820.1105 351.1280 355.9880" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area4_grass.xac" Model="f_rokas30_area4_grass" ShadowMap="f_rokas30_area4_grass" pos="876.4620 357.5870 444.0197" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area4_tree.xac" Model="f_rokas30_area4_tree" ShadowMap="f_rokas30_area4_tree" pos="993.4863 361.1583 434.2113" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area5_model01.xac" Model="f_rokas30_area5_model01" ShadowMap="f_rokas30_area5_model01" pos="1409.2039 177.7002 -53.7162" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area5_tree01.xac" Model="f_rokas30_area5_tree01" ShadowMap="f_rokas30_area5_tree01" pos="1154.4387 215.2278 -345.4743" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area3_model01.xac" Model="f_rokas30_area3_model01" ShadowMap="f_rokas30_area3_model01" pos="-201.9054 380.3428 623.9733" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp.xac" Model="f_rokas30_tp" ShadowMap="f_rokas30_tp" pos="-1612.3136 261.1370 -395.2822" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp01.xac" Model="f_rokas30_tp01" ShadowMap="f_rokas30_tp01" pos="-1553.2037 271.8553 -61.2153" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp02.xac" Model="f_rokas30_tp02" ShadowMap="f_rokas30_tp02" pos="-1276.6235 289.8282 -64.4623" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp03.xac" Model="f_rokas30_tp03" ShadowMap="f_rokas30_tp03" pos="-1518.1375 247.9831 -277.6348" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp04.xac" Model="f_rokas30_tp04" ShadowMap="f_rokas30_tp04" pos="-1251.4220 277.7992 -497.9185" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp05.xac" Model="f_rokas30_tp05" ShadowMap="f_rokas30_tp05" pos="-1190.5310 248.3831 -402.0063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp06.xac" Model="f_rokas30_tp06" ShadowMap="f_rokas30_tp06" pos="-1052.5233 277.7991 -396.8723" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp07.xac" Model="f_rokas30_tp07" ShadowMap="f_rokas30_tp07" pos="-1178.9136 226.5456 -804.2617" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp08.xac" Model="f_rokas30_tp08" ShadowMap="f_rokas30_tp08" pos="-1151.7070 191.1030 -874.0560" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp09.xac" Model="f_rokas30_tp09" ShadowMap="f_rokas30_tp09" pos="-1210.5382 191.1070 -988.4352" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp10.xac" Model="f_rokas30_tp10" ShadowMap="f_rokas30_tp10" pos="-1339.1246 194.1672 -1060.6072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp11.xac" Model="f_rokas30_tp11" ShadowMap="f_rokas30_tp11" pos="-462.0270 289.8280 -97.6718" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp12.xac" Model="f_rokas30_tp12" ShadowMap="f_rokas30_tp12" pos="-399.6538 268.7162 -130.4724" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp13.xac" Model="f_rokas30_tp13" ShadowMap="f_rokas30_tp13" pos="-242.2483 268.7162 -133.3534" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp14.xac" Model="f_rokas30_tp14" ShadowMap="f_rokas30_tp14" pos="-400.5469 268.7162 -316.8594" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp15.xac" Model="f_rokas30_tp15" ShadowMap="f_rokas30_tp15" pos="-230.6650 268.7162 -303.9032" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp16.xac" Model="f_rokas30_tp16" ShadowMap="f_rokas30_tp16" pos="-685.1648 266.5680 -507.7480" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp17.xac" Model="f_rokas30_tp17" ShadowMap="f_rokas30_tp17" pos="-555.3302 257.2514 -556.4602" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp18.xac" Model="f_rokas30_tp18" ShadowMap="f_rokas30_tp18" pos="-328.8711 289.8281 -579.3301" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp19.xac" Model="f_rokas30_tp19" ShadowMap="f_rokas30_tp19" pos="-263.2692 248.3831 -532.6284" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp20.xac" Model="f_rokas30_tp20" ShadowMap="f_rokas30_tp20" pos="-99.2717 289.8280 -564.0654" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp21.xac" Model="f_rokas30_tp21" ShadowMap="f_rokas30_tp21" pos="-48.0013 248.3831 -425.8807" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp22.xac" Model="f_rokas30_tp22" ShadowMap="f_rokas30_tp22" pos="43.7816 281.5161 -399.6440" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp23.xac" Model="f_rokas30_tp23" ShadowMap="f_rokas30_tp23" pos="9.9144 281.5160 -256.2568" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp24.xac" Model="f_rokas30_tp24" ShadowMap="f_rokas30_tp24" pos="125.5509 281.9160 -248.1196" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp25.xac" Model="f_rokas30_tp25" ShadowMap="f_rokas30_tp25" pos="-72.8281 402.8711 695.1040" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp26.xac" Model="f_rokas30_tp26" ShadowMap="f_rokas30_tp26" pos="-208.8331 404.3347 669.6830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp27.xac" Model="f_rokas30_tp27" ShadowMap="f_rokas30_tp27" pos="-244.3737 402.8168 284.8951" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp28.xac" Model="f_rokas30_tp28" ShadowMap="f_rokas30_tp28" pos="-109.7092 383.2022 265.2150" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp29.xac" Model="f_rokas30_tp29" ShadowMap="f_rokas30_tp29" pos="-24.9362 398.2050 320.7114" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp30.xac" Model="f_rokas30_tp30" ShadowMap="f_rokas30_tp30" pos="255.1719 383.2582 341.4160" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp31.xac" Model="f_rokas30_tp31" ShadowMap="f_rokas30_tp31" pos="798.0562 465.5147 1263.1326" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp32.xac" Model="f_rokas30_tp32" ShadowMap="f_rokas30_tp32" pos="785.2460 453.9149 1140.9645" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp33.xac" Model="f_rokas30_tp33" ShadowMap="f_rokas30_tp33" pos="820.4043 449.7313 1081.6737" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp34.xac" Model="f_rokas30_tp34" ShadowMap="f_rokas30_tp34" pos="693.8311 435.7218 929.2864" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp35.xac" Model="f_rokas30_tp35" ShadowMap="f_rokas30_tp35" pos="678.1716 383.2582 640.4879" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp36.xac" Model="f_rokas30_tp36" ShadowMap="f_rokas30_tp36" pos="867.1036 383.3678 622.5762" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp37.xac" Model="f_rokas30_tp37" ShadowMap="f_rokas30_tp37" pos="803.6960 332.6158 649.8986" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp38.xac" Model="f_rokas30_tp38" ShadowMap="f_rokas30_tp38" pos="846.0707 362.5826 582.8308" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp39.xac" Model="f_rokas30_tp39" ShadowMap="f_rokas30_tp39" pos="837.1511 346.3834 537.6244" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp40.xac" Model="f_rokas30_tp40" ShadowMap="f_rokas30_tp40" pos="832.9055 369.3917 476.5152" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp41.xac" Model="f_rokas30_tp41" ShadowMap="f_rokas30_tp41" pos="756.6234 333.7617 341.9288" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp42.xac" Model="f_rokas30_tp42" ShadowMap="f_rokas30_tp42" pos="867.9068 388.2906 204.8101" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp43.xac" Model="f_rokas30_tp43" ShadowMap="f_rokas30_tp43" pos="752.1801 388.2906 91.8438" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp44.xac" Model="f_rokas30_tp44" ShadowMap="f_rokas30_tp44" pos="637.9440 388.2906 98.8874" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp45.xac" Model="f_rokas30_tp45" ShadowMap="f_rokas30_tp45" pos="445.3927 381.0418 170.7604" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp46.xac" Model="f_rokas30_tp46" ShadowMap="f_rokas30_tp46" pos="341.9513 350.6103 128.1223" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp47.xac" Model="f_rokas30_tp47" ShadowMap="f_rokas30_tp47" pos="308.7206 355.5280 84.7357" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp48.xac" Model="f_rokas30_tp48" ShadowMap="f_rokas30_tp48" pos="1559.2161 341.0099 450.3563" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp49.xac" Model="f_rokas30_tp49" ShadowMap="f_rokas30_tp49" pos="1207.1823 337.6185 209.5296" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp50.xac" Model="f_rokas30_tp50" ShadowMap="f_rokas30_tp50" pos="1580.2581 347.6011 243.8889" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp51.xac" Model="f_rokas30_tp51" ShadowMap="f_rokas30_tp51" pos="1367.9570 210.3631 -334.0506" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp52.xac" Model="f_rokas30_tp52" ShadowMap="f_rokas30_tp52" pos="903.1157 200.8250 -1206.6934" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_tp53.xac" Model="f_rokas30_tp53" ShadowMap="f_rokas30_tp53" pos="1104.8279 179.4262 -856.9296" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_gr_a.xac" Model="f_rokas30_gr_a" ShadowMap="f_rokas30_gr_a" pos="-53.3544 323.8290 205.9082" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_bl04.xac" Model="f_rokas30_bl04" ShadowMap="f_rokas30_bl04" pos="-201.1200 247.5073 -596.3676" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_bl05.xac" Model="f_rokas30_bl05" ShadowMap="f_rokas30_bl05" pos="-774.7200 214.7838 -278.8608" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_bl02.xac" Model="f_rokas30_bl02" ShadowMap="f_rokas30_bl02" pos="29.8795 274.7006 83.9563" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_b_model02.xac" Model="f_rokas30_b_model02" ShadowMap="f_rokas30_b_model02" pos="-63.3666 -167.9669 80.5869" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area5_grass.xac" Model="f_rokas30_area5_grass" ShadowMap="f_rokas30_area5_grass" pos="1095.1733 182.1572 -596.2061" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_area5_tree02.xac" Model="f_rokas30_area5_tree02" ShadowMap="f_rokas30_area5_tree02" pos="794.3374 214.3026 -1060.4214" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_bl01.xac" Model="f_rokas30_bl01" ShadowMap="f_rokas30_bl01" pos="34.2246 274.5006 176.9828" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_bl03.xac" Model="f_rokas30_bl03" ShadowMap="f_rokas30_bl03" pos="-177.6897 306.2696 -86.4225" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_rokas30_obbcol.xac" Model="f_rokas30_obbcol" pos="820.1105 351.1280 355.9880" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

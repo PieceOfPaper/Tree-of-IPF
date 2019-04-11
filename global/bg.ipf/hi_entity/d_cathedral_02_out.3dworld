@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_cathedral\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="d_cathedrald_02out_gr.xac" Model="d_cathedrald_02out_gr" pos="198.548019 -174.313522 -21.364960" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_2obj.xac" Model="d_cathedrald_02out_2obj" pos="-262.106140 95.315826 55.805130" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_rock.xac" Model="d_cathedrald_02out_rock" pos="650.568604 182.159012 282.963837" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_1obj.xac" Model="d_cathedrald_02out_1obj" pos="-275.703918 176.162872 258.317535" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_1wood.xac" Model="d_cathedrald_02out_1wood" pos="-464.674103 137.413208 51.217804" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_plant.xac" Model="d_cathedrald_02out_plant" pos="144.541840 73.530075 32.601799" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_1ab.xac" Model="d_cathedrald_02out_1ab" pos="349.960571 30.867054 -35.302933" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_4obj.xac" Model="d_cathedrald_02out_4obj" pos="1122.671021 174.874252 32.991219" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_2a.xac" Model="d_cathedrald_02out_2a" pos="193.618591 97.076340 31.264648" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_1sha.xac" Model="d_cathedrald_02out_1sha" pos="189.399109 92.501472 29.268311" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_2sha.xac" Model="d_cathedrald_02out_2sha" pos="210.754364 73.428207 34.665520" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_3obj.xac" Model="d_cathedrald_02out_3obj" pos="595.938965 46.395153 -35.892586" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_2wood.xac" Model="d_cathedrald_02out_2wood" pos="-44.312714 93.487968 8.675842" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_5obj.xac" Model="d_cathedrald_02out_5obj" pos="-101.477722 101.928673 42.971081" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_decal.xac" Model="d_cathedrald_02out_decal" pos="283.089325 82.301102 17.212914" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_3wood.xac" Model="d_cathedrald_02out_3wood" pos="759.793335 138.213257 -0.067444" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_backfog.xac" Model="d_cathedrald_02out_backfog" pos="213.612061 157.640320 -168.823364" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_cathedrald_02out_wooodout.xac" Model="d_cathedrald_02out_3wood" pos="-266.463959 -236.877655 -285.223999" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

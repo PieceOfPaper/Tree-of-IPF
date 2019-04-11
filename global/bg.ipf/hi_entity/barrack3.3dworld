@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\barrack3\"/>
+	<TexDir IpfName="bg_texture" Path="\barrack\"/>
+	<SubTexDir IpfName="bg_hi" Path="\barrack3\"/>
+	<AnimationDir IpfName="bg_hi" Path="\barrack3\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\barrack3\"/>
+	<LightMap File="barrack_lightmap.jpg" Length="230 230" Offset="2.859 10.544" Size="512 512"/>
+	<BarrackCharCreatePos character="-30 2 40" dir="0" camera="-40.000000 92.543503 -50.000000" at="-30 2 40"/>
+	<StandOnPos pos="47 11 25"/>
+	<BarrackCharPos>
+		<pos character="-35 2 90" camera="-50.000000 129.517944 -110.000000" at="-25 20 85"/>
+		<pos character="0 2 88" camera="-25.000000 129.517944 -110.000000" at="-5 20 85"/>
+		<pos character="-53 2 75" camera="-73.000000 129.517944 -120.000000" at="-53 20 75"/>
+		<pos character="15 2 55" camera="-5.000000 129.517944 -140.000000" at="15 20 55"/>
+		<pos character="-70 2 110" camera="-90.000000 129.517944 -85.000000" at="-70 20 110"/>
+		<pos character="25 2 100" camera="-7.000000 130.320419 -95.000000" at="25 20 100"/>
+		<pos character="-80 2 50" camera="-100.000000 129.517944 -145.000000" at="-80 20 50"/>
+		<pos character="40 2 65" camera="20.000000 129.517944 -130.000000" at="40 20 65"/>
+		<pos character="-105 2 85" camera="-125.000000 121.517944 -110.000000" at="-105 12 85"/>
+	</BarrackCharPos>
+	<BarrackCamera>
+		<Login eye="0 200 -350" at="0 10 100"/>
+		<Barrack eye="-40.000000 92.543503 -50.000000" at="0 10 100"/>
+	</BarrackCamera>
+	<Model File="barrack_light.xac" Model="barrack_light" pos="-2.8738 65.7927 12.7922" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_model.xac" Model="barrack_model" ShadowMap="barrack_model" pos="-19.6734 60.3280 22.2904" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_bloom.xac" Model="barrack_bloom" pos="-1.3789 52.8531 131.7592" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_shadow.xac" Model="barrack_shadow" pos="5.8419 75.0466 11.0619" rot="-0.0000 -0.0000 0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_01obj.xac" Model="barrack_01obj" ShadowMap="barrack_01obj" AniFile="barrack_01obj.xsm" pos="-82.2170 94.2194 -16.5804" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_02obj.xac" Model="barrack_02obj" ShadowMap="barrack_02obj" AniFile="barrack_02obj.xsm" pos="-81.7483 94.3432 -0.1907" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_03obj.xac" Model="barrack_03obj" ShadowMap="barrack_03obj" pos="-89.0806 99.9147 -68.5267" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_04obj.xac" Model="barrack_04obj" ShadowMap="barrack_04obj" pos="-87.8650 103.0448 -90.2420" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_light.xac" Model="barrack_light" pos="-2.8738 65.7927 12.7922" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_model.xac" Model="barrack_model" ShadowMap="barrack_model" pos="-19.6734 60.3280 22.2904" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_bloom.xac" Model="barrack_bloom" pos="-1.3789 52.8531 131.7592" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_shadow.xac" Model="barrack_shadow" pos="5.8419 75.0466 11.0619" rot="-0.0000 -0.0000 0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

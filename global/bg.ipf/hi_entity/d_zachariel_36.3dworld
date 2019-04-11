@@ -1,0 +1,55 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by k (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_zachariel_36\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<LightMap File="d_zachariel_36_lightmap.jpg" Length="7000.0 7000.0" Offset="-2478.456 -2511.837" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_zachariel_36\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_zachariel_36\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_zachariel_36\"/>
+	<Model File="d_zachariel36_b_model04.xac" Model="d_zachariel36_b_model04" ShadowMap="d_zachariel36_b_model04" pos="-2246.6006 360.7164 -276.7429" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_ground04.xac" Model="d_zachariel36_ground04" ShadowMap="d_zachariel36_ground04" pos="-1716.3823 92.5391 -2628.8831" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_b_model01.xac" Model="d_zachariel36_b_model01" ShadowMap="d_zachariel36_b_model01" pos="-2152.2480 347.5205 -2251.1206" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_b_model02.xac" Model="d_zachariel36_b_model02" ShadowMap="d_zachariel36_b_model02" pos="-2505.4373 389.4827 -1688.0223" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_water.xac" Model="d_zachariel36_water" pos="-2768.5408 293.6240 -2511.0039" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_b_model.xac" Model="d_zachariel36_b_model" ShadowMap="d_zachariel36_b_model" pos="-2833.4038 297.0069 -2356.3276" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area1_model03.xac" Model="d_zachariel36_area1_model03" ShadowMap="d_zachariel36_area1_model03" pos="-2492.8721 305.5315 -5273.5449" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_ground03.xac" Model="d_zachariel36_ground03" ShadowMap="d_zachariel36_ground03" pos="-2814.6563 332.3198 -2606.5439" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area4_model05.xac" Model="d_zachariel36_area4_model05" ShadowMap="d_zachariel36_area4_model05" pos="-2541.9617 383.0096 -1876.6646" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area6_model05.xac" Model="d_zachariel36_area6_model05" ShadowMap="d_zachariel36_area6_model05" pos="-2703.5239 532.1739 656.0431" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area2_model03.xac" Model="d_zachariel36_area2_model03" ShadowMap="d_zachariel36_area2_model03" pos="-2474.9644 336.1233 -4292.1807" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_ground02.xac" Model="d_zachariel36_ground02" ShadowMap="d_zachariel36_ground02" pos="-2555.8120 244.7066 -3597.9236" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_ground01.xac" Model="d_zachariel36_ground01" ShadowMap="d_zachariel36_ground01" pos="-2555.8120 303.0602 -5166.7598" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_ground05.xac" Model="d_zachariel36_ground05" ShadowMap="d_zachariel36_ground05" pos="-2507.0566 278.2501 -1446.0613" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_ground.xac" Model="d_zachariel36_ground" ShadowMap="d_zachariel36_ground" pos="-2677.0486 299.5525 130.1268" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area1_model.xac" Model="d_zachariel36_area1_model" ShadowMap="d_zachariel36_area1_model" pos="-2528.0505 328.7674 -5759.0322" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area1_model02.xac" Model="d_zachariel36_area1_model02" ShadowMap="d_zachariel36_area1_model02" pos="-2535.0222 376.6681 -5519.2563" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area2_model.xac" Model="d_zachariel36_area2_model" ShadowMap="d_zachariel36_area2_model" pos="-2863.4443 259.7352 -4924.3975" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area2_model02.xac" Model="d_zachariel36_area2_model02" ShadowMap="d_zachariel36_area2_model02" pos="-2655.2144 267.6125 -4559.7817" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area3_model.xac" Model="d_zachariel36_area3_model" ShadowMap="d_zachariel36_area3_model" pos="-2740.1758 252.1419 -3981.1548" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area3_model02.xac" Model="d_zachariel36_area3_model02" ShadowMap="d_zachariel36_area3_model02" pos="-2853.4570 267.6125 -3581.2993" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area3_model03.xac" Model="d_zachariel36_area3_model03" ShadowMap="d_zachariel36_area3_model03" pos="-2474.9644 336.1233 -3297.8013" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area4_model.xac" Model="d_zachariel36_area4_model" ShadowMap="d_zachariel36_area4_model" pos="-3578.1047 340.5162 -2618.0925" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area4_model02.xac" Model="d_zachariel36_area4_model02" ShadowMap="d_zachariel36_area4_model02" pos="-3398.8372 322.0123 -2614.0493" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area4_model03.xac" Model="d_zachariel36_area4_model03" ShadowMap="d_zachariel36_area4_model03" pos="-3197.7886 228.8923 -2544.0647" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area4_model04.xac" Model="d_zachariel36_area4_model04" ShadowMap="d_zachariel36_area4_model04" pos="-2932.0386 239.4147 -2607.9709" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area5_model.xac" Model="d_zachariel36_area5_model" ShadowMap="d_zachariel36_area5_model" pos="-1643.1016 290.9850 -2587.0708" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area4_model01.xac" Model="d_zachariel36_area4_model01" ShadowMap="d_zachariel36_area4_model01" pos="-2468.3491 332.3538 -2636.6279" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area5_model01.xac" Model="d_zachariel36_area5_model01" ShadowMap="d_zachariel36_area5_model01" pos="-2023.4072 293.3367 -1027.0154" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area5_model02.xac" Model="d_zachariel36_area5_model02" ShadowMap="d_zachariel36_area5_model02" pos="-2391.7295 366.2224 -1095.2617" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area5_model03.xac" Model="d_zachariel36_area5_model03" ShadowMap="d_zachariel36_area5_model03" pos="-2854.0254 450.4060 -1094.4675" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area5_model04.xac" Model="d_zachariel36_area5_model04" ShadowMap="d_zachariel36_area5_model04" pos="-2731.6348 366.5031 -397.2566" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area6_model.xac" Model="d_zachariel36_area6_model" ShadowMap="d_zachariel36_area6_model" pos="-2543.0210 409.9637 141.7460" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area6_model02.xac" Model="d_zachariel36_area6_model02" ShadowMap="d_zachariel36_area6_model02" pos="-2949.1470 505.7113 225.5618" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area6_model03.xac" Model="d_zachariel36_area6_model03" ShadowMap="d_zachariel36_area6_model03" pos="-2735.1401 456.4869 518.2491" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area6_model04.xac" Model="d_zachariel36_area6_model04" ShadowMap="d_zachariel36_area6_model04" pos="-2289.7949 424.6333 494.1049" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_area6_model06.xac" Model="d_zachariel36_area6_model06" ShadowMap="d_zachariel36_area6_model06" pos="-2616.8010 326.4829 437.6219" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_tp02.xac" Model="d_zachariel36_tp02" ShadowMap="d_zachariel36_tp02" pos="-2517.9580 430.2697 -1178.9717" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_tp01.xac" Model="d_zachariel36_tp01" ShadowMap="d_zachariel36_tp01" pos="-2482.9045 413.6412 -2800.6895" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_tp03.xac" Model="d_zachariel36_tp03" ShadowMap="d_zachariel36_tp03" pos="-2843.4634 414.6172 -2521.0430" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zachariel36_obbcol.xac" Model="d_zachariel36_obbcol" pos="-2949.1470 505.7113 220.5618" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

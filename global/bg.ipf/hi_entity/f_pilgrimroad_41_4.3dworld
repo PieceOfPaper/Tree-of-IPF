@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_pilgirmroad_41_4\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="f_pilgrimroad_41_4_lightmap.jpg" Length="3800.0 3800.0" Offset="525.954 -411.674" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\remains\"/>
+	<AutoHeightMap Length="3800.0 3800.0" Offset="525.954 -411.674" Height="600 -600"/>
+	<TexDir IpfName="bg_texture" Path="\pilgrimroad\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_pilgirmroad_41_4\"/>
+	<Model File="f_pilgrimroad_41_4_1area_grass.xac" Model="f_pilgrimroad_41_4_1area_grass" ShadowMap="f_pilgrimroad_41_4_1area_grass" pos="482.0825 -16.0249 -266.6025" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_1area_tree.xac" Model="f_pilgrimroad_41_4_1area_tree" ShadowMap="f_pilgrimroad_41_4_1area_tree" pos="1418.495 4.233 -335.525" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_anitree01.xac" Model="f_pilgrimroad_41_4_anitree01" ShadowMap="f_pilgrimroad_41_4_1area_tree" pos="1154.954 -34.181 -683.762" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_anitree02.xac" Model="f_pilgrimroad_41_4_anitree02" ShadowMap="f_pilgrimroad_41_4_1area_tree" pos="1501.37 104.546 -1018.491" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_ground.xac" Model="f_pilgrimroad_41_4_ground" ShadowMap="f_pilgrimroad_41_4_ground" pos="467.7516 -65.7000 -64.8210" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_water.xac" Model="f_pilgrimroad_41_4_water" ShadowMap="f_pilgrimroad_41_4_water" pos="473.6608 -117.4711 -365.4748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_3area_model.xac" Model="f_pilgrimroad_41_4_3area_model" ShadowMap="f_pilgrimroad_41_4_3area_model" pos="855.3398 -96.5572 939.5803" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="855.3398 -96.5572 939.5803" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_blend.xac" Model="f_pilgrimroad_41_4_blend" ShadowMap="f_pilgrimroad_41_4_blend" pos="500.4387 -130.0516 335.5767" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tree_out.xac" Model="f_pilgrimroad_41_4_tree_out" ShadowMap="f_pilgrimroad_41_4_tree_out" pos="475.3623 -122.1002 161.1531" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_b_model.xac" Model="f_pilgrimroad_41_4_b_model" ShadowMap="f_pilgrimroad_41_4_b_model" pos="264.1984 -229.6960 289.9151" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_gr_a.xac" Model="f_pilgrimroad_41_4_gr_a" ShadowMap="f_pilgrimroad_41_4_gr_a" pos="622.3313 -37.0013 54.3389" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_2area_grass.xac" Model="f_pilgrimroad_41_4_2area_grass" ShadowMap="f_pilgrimroad_41_4_2area_grass" pos="543.2866 -44.9378 -101.4097" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_4area_grass.xac" Model="f_pilgrimroad_41_4_4area_grass" ShadowMap="f_pilgrimroad_41_4_2area_grass" pos="543.2866 -44.9378 -101.4097" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_3area_grass.xac" Model="f_pilgrimroad_41_4_3area_grass" ShadowMap="f_pilgrimroad_41_4_2area_grass" pos="543.2866 -44.9378 -101.4097" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_2area_tree.xac" Model="f_pilgrimroad_41_4_2area_tree" ShadowMap="f_pilgrimroad_41_4_2area_tree" pos="375.128 46.287 899.455" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_anitree03.xac" Model="f_pilgrimroad_41_4_anitree03" ShadowMap="f_pilgrimroad_41_4_2area_tree" pos="-533.164 -23.586 -265.126" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_1area_model.xac" Model="f_pilgrimroad_41_4_1area_model" ShadowMap="f_pilgrimroad_41_4_1area_model" pos="1071.2549 -38.6105 -735.2937" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_2area_model.xac" Model="f_pilgrimroad_41_4_2area_model" ShadowMap="f_pilgrimroad_41_4_2area_model" pos="-341.5381 -82.3715 -831.8356" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tp01.xac" Model="f_pilgrimroad_41_4_tp01" ShadowMap="f_pilgrimroad_41_4_tp01" pos="1771.119 132.827 -1151.849" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tp03.xac" Model="f_pilgrimroad_41_4_tp03" ShadowMap="f_pilgrimroad_41_4_tp01" pos="121.549 -7.311 -965.615" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tp04.xac" Model="f_pilgrimroad_41_4_tp04" ShadowMap="f_pilgrimroad_41_4_tp01" pos="1106.352 64.638 354.492" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tp02.xac" Model="f_pilgrimroad_41_4_tp02" ShadowMap="f_pilgrimroad_41_4_tp02" pos="873.843 112.056 68.286" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tp05.xac" Model="f_pilgrimroad_41_4_tp05" ShadowMap="f_pilgrimroad_41_4_tp02" pos="258.811 -3.563 -1012.066" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_41_4_tp06.xac" Model="f_pilgrimroad_41_4_tp06" ShadowMap="f_pilgrimroad_41_4_tp02" pos="1657.602 53.592 -101.371" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,0 +1,74 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_velniasprison_51_1\"/>
+	<LightMap File="d_velniasprison_51_1.jpg" Length="5000.0 5000.0" Offset="-27.842 72.972" Size="1024 1024"/>
+	<AutoHeightMap Length="5000.0 5000.0" Offset="-27.842 72.972" Height="1000 -1000"/>
+	<TexDir IpfName="bg_texture" Path="\velniasprison\"/>
+	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_velniasprison_51_1\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_velniasprison_51_1\"/>
+	<Model File="d_velniasprison_51_1_b_model.xac" Model="d_velniasprison_51_1_b_model" pos="-518.5630 -162.3886 550.2935" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ground.xac" Model="d_velniasprison_51_1_ground" ShadowMap="d_velniasprison_51_1_ground" pos="1.5232 254.2680 17.0938" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_b_model02.xac" Model="d_velniasprison_51_1_b_model02" ShadowMap="d_velniasprison_51_1_b_model02" pos="373.2876 13.2720 -449.1179" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_blend.xac" Model="d_velniasprison_51_1_blend" ShadowMap="d_velniasprison_51_1_blend" pos="-95.7786 274.8322 21.9166" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_light.xac" Model="d_velniasprison_51_1_light" pos="-234.6448 138.1893 403.3179" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_1area_tree.xac" Model="d_velniasprison_51_1_1area_tree" ShadowMap="d_velniasprison_51_1_1area_tree" pos="691.7300 141.6363 -287.1262" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_bloom.xac" Model="d_velniasprison_51_1_bloom" pos="-237.815 137.666 402.82" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_fog.xac" Model="d_velniasprison_51_1_fog" pos="-263.3339 79.0074 425.6782" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_1area_model.xac" Model="d_velniasprison_51_1_1area_model" ShadowMap="d_velniasprison_51_1_1area_model" pos="575.3178 137.0234 -445.8877" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_anitree01.xac" Model="d_velniasprison_51_1_anitree01" ShadowMap="d_velniasprison_51_1_1area_model" pos="575.3178 137.0234 -445.8877" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_2area_tree.xac" Model="d_velniasprison_51_1_2area_tree" ShadowMap="d_velniasprison_51_1_2area_tree" pos="-967.5106 171.1018 889.8807" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_2area_model.xac" Model="d_velniasprison_51_1_2area_model" ShadowMap="d_velniasprison_51_1_2area_model" pos="-963.6108 129.4351 861.0740" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_anitree02.xac" Model="d_velniasprison_51_1_anitree02" ShadowMap="d_velniasprison_51_1_2area_model" pos="-963.6108 129.4351 861.0740" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_b_model03.xac" Model="d_velniasprison_51_1_b_model03" ShadowMap="d_velniasprison_51_1_b_model03" pos="-958.1272 10.6973 845.4566" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani" AniFile="d_velniasprison_51_1_ani.xsm" pos="692.447 460.267 -1833.45" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_b_model04.xac" Model="d_velniasprison_51_1_b_model04" ShadowMap="d_velniasprison_51_1_b_model04" pos="-316.618 87.505 518.793" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani01" AniFile="d_velniasprison_51_1_ani.xsm" pos="843.9327 410.1506 -1543.6802" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani02" AniFile="d_velniasprison_51_1_ani.xsm" pos="289.6710 397.2172 -1697.8148" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani03" AniFile="d_velniasprison_51_1_ani.xsm" pos="524.4230 397.2172 -1223.5737" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani04" AniFile="d_velniasprison_51_1_ani.xsm" pos="-41.8973 397.2172 -1841.4928" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani05" AniFile="d_velniasprison_51_1_ani.xsm" pos="-222.7369 404.8671 -1263.5729" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani06" AniFile="d_velniasprison_51_1_ani.xsm" pos="-408.8383 404.8671 -1082.9144" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani07" AniFile="d_velniasprison_51_1_ani.xsm" pos="-726.4186 411.4238 -1405.2413" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani08" AniFile="d_velniasprison_51_1_ani.xsm" pos="-629.4661 411.4238 -1735.1213" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani09" AniFile="d_velniasprison_51_1_ani.xsm" pos="-157.9745 311.2244 -782.6719" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani10" AniFile="d_velniasprison_51_1_ani.xsm" pos="275.3451 286.3047 -932.9098" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani11" AniFile="d_velniasprison_51_1_ani.xsm" pos="258.6116 237.0349 -448.4324" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani12" AniFile="d_velniasprison_51_1_ani.xsm" pos="242.7372 237.0349 -701.9418" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani13" AniFile="d_velniasprison_51_1_ani.xsm" pos="788.5054 372.4017 194.9250" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani14" AniFile="d_velniasprison_51_1_ani.xsm" pos="1400.1423 432.2758 -342.8224" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani15" AniFile="d_velniasprison_51_1_ani.xsm" pos="1604.1814 432.2758 -718.7054" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani16" AniFile="d_velniasprison_51_1_ani.xsm" pos="2057.0735 432.2758 -669.3912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani17" AniFile="d_velniasprison_51_1_ani.xsm" pos="2095.2708 432.2758 -338.3818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani18" AniFile="d_velniasprison_51_1_ani.xsm" pos="2406.9524 432.2758 -110.5615" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani19" AniFile="d_velniasprison_51_1_ani.xsm" pos="2331.7869 500.6416 63.9406" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani20" AniFile="d_velniasprison_51_1_ani.xsm" pos="2153.1277 459.2117 346.5439" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani21" AniFile="d_velniasprison_51_1_ani.xsm" pos="1804.7480 459.2117 633.3618" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani22" AniFile="d_velniasprison_51_1_ani.xsm" pos="1273.7852 374.6463 367.6868" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani23" AniFile="d_velniasprison_51_1_ani.xsm" pos="1332.6582 374.6463 646.1611" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani24" AniFile="d_velniasprison_51_1_ani.xsm" pos="-222.0140 351.4149 1054.3669" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani25" AniFile="d_velniasprison_51_1_ani.xsm" pos="311.1429 351.4149 984.6904" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani26" AniFile="d_velniasprison_51_1_ani.xsm" pos="210.6958 387.7967 1756.6167" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani27" AniFile="d_velniasprison_51_1_ani.xsm" pos="731.7958 387.7967 1776.8281" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani28" AniFile="d_velniasprison_51_1_ani.xsm" pos="604.0429 406.0603 1073.2280" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani29" AniFile="d_velniasprison_51_1_ani.xsm" pos="894.7980 417.4426 1348.1716" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani30" AniFile="d_velniasprison_51_1_ani.xsm" pos="-171.8416 387.7967 1684.5173" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani31" AniFile="d_velniasprison_51_1_ani.xsm" pos="-647.2909 475.6644 1763.7468" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani32" AniFile="d_velniasprison_51_1_ani.xsm" pos="-528.124 392.123 2154.384" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani33" AniFile="d_velniasprison_51_1_ani.xsm" pos="-655.0026 482.7982 1185.1963" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani34" AniFile="d_velniasprison_51_1_ani.xsm" pos="-776.0022 418.2928 -130.0525" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani35" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1184.3221 436.5759 -213.0623" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani36" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1158.6669 428.8423 268.6079" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani37" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1816.1088 436.5759 -132.8804" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani38" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1525.0160 436.5759 -694.3220" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani39" AniFile="d_velniasprison_51_1_ani.xsm" pos="-2056.9678 473.8731 -713.6537" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani40" AniFile="d_velniasprison_51_1_ani.xsm" pos="-2320.1748 390.7763 -474.5714" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani41" AniFile="d_velniasprison_51_1_ani.xsm" pos="-2150.2139 421.5753 -160.3450" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani42" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1977.0082 436.5759 438.3904" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani43" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1773.6288 436.5759 736.5972" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani44" AniFile="d_velniasprison_51_1_ani.xsm" pos="-2111.6274 315.5746 225.6760" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani45" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1346.1996 436.5759 480.1094" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_51_1_ani.xac" Model="d_velniasprison_51_1_ani46" AniFile="d_velniasprison_51_1_ani.xsm" pos="-1371.9379 436.5759 155.7097" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,0 +1,29 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_tableland70_1area_gr_a.xac" RenderType="RT_FOG" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_1area_grass.xac" RenderType="RT_MODEL" Type="" IsGrass="1" GrassWindPower="30" GrassTime="4" NoCol="1"/>
+	<Model Path="f_tableland70_1area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_tableland70_1area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_tableland70_2area_gr_a.xac" RenderType="RT_FOG" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_2area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_tableland70_2area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_tableland70_3area_gr_a.xac" RenderType="RT_FOG" NoCol="0"/>
+	<Model Path="f_tableland70_3area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_tableland70_3area_tree.xac" RenderType="RT_MUD" Type="GROUND" NoCol="1"/>
+	<Model Path="f_tableland70_4area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_tableland70_b_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_tableland70_anitree01.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="500" GrassTime="4" NoCol="0"/>
+	<Model Path="f_tableland70_anitree03.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="500" GrassTime="4" NoCol="0"/>
+	<Model Path="f_tableland70_anitree02.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="500" GrassTime="4" NoCol="0"/>
+	<Model Path="f_tableland70_blend.xac" RenderType="RT_FOG" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_blend2.xac" RenderType="RT_MUD_BLEND2" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_blend3.xac" RenderType="RT_MUD_BLEND3" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_blend4.xac" RenderType="RT_MUD_BLEND4" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_fog.xac" RenderType="RT_FOG" Type="" NoCol="1"/>
+	<Model Path="f_tableland70_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_tableland70_light.xac" RenderType="RT_PLANELIGHT" Type="" NoCol="1"/>
+	<Model Path="f_tableland70_snow.xac" RenderType="RT_PLANELIGHT" Type="" NoCol="0"/>
+	<Model Path="f_tableland70_tp01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_tableland70_tp02.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+</Prop>

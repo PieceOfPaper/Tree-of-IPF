@@ -1,0 +1,26 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="d_prison78_1area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_2area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_3area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_4area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_5area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_6area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_7area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_8area_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_b_model.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_blend.xac" RenderType="RT_MUD_BLEND" IsBloom="0" NoCol="1"/>
+	<Model Path="d_prison78_blend2.xac" RenderType="RT_MUD_BLEND2" IsBloom="0" NoCol="1"/>
+	<Model Path="d_prison78_blend3.xac" RenderType="RT_MUD_BLEND3" IsBloom="0" NoCol="1"/>
+	<Model Path="d_prison78_gr_a.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_ground.xac" RenderType="RT_MUD" IsBloom="0" Type="GROUND" NoCol="0"/>
+	<Model Path="d_prison78_light.xac" RenderType="RT_PLANELIGHT" IsBloom="0" NoCol="1"/>
+	<Model Path="d_prison78_tp01.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_prison78_tp02.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_prison78_tp03.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_prison78_water.xac" RenderType="RT_WATER" IsBloom="0" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0" WaterSwayRange="0.01 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="0.0 0.07" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0 0 0" NoCol="1"/>
+	<Model Path="d_prison_01obj.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_prison_01obj.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="1"/>
+	<Model Path="d_prison78_bloom.xac" IsBloom="1"/>
+</Prop>

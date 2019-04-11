@@ -1,0 +1,54 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_tableland_74\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_tableland_74\"/>
+	<LightMap File="f_tableland_74_lightmap.jpg" Length="4800 4800" Offset="-170.999 307.517" Size="1024 1024"/>
+	<AutoHeightMap Length="7200 7200" Offset="5.318 289.678" Height="5000 -5000"/>
+	<TexDir IpfName="bg_texture" Path="\tableland\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_tableland_74\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_tableland_74\"/>
+	<Model File="f_tableland74_ground.xac" Model="f_tableland74_ground" ShadowMap="f_tableland74_ground" pos="-163.5258 644.1588 374.5008" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_blend2.xac" Model="f_tableland74_blend2" ShadowMap="f_tableland74_blend2" pos="-165.3226 618.7781 328.3655" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_gr_a.xac" Model="f_tableland74_gr_a" ShadowMap="f_tableland74_gr_a" pos="507.5465 739.9218 566.5867" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74__blend1.xac" Model="f_tableland74__blend1" ShadowMap="f_tableland74__blend1" pos="-258.8176 628.9051 432.4948" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_blend3.xac" Model="f_tableland74_blend3" ShadowMap="f_tableland74_blend3" pos="-121.9066 617.6111 713.2064" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_blend6.xac" Model="f_tableland74_blend6" ShadowMap="f_tableland74_blend6" pos="-155.6576 645.3608 372.2513" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_5area_model.xac" Model="f_tableland74_5area_model" ShadowMap="f_tableland74_5area_model" pos="1288.8121 582.5296 2261.3777" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_blend4.xac" Model="f_tableland74_blend4" ShadowMap="f_tableland74_blend4" pos="-164.3969 619.2504 374.2254" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_grass.xac" Model="f_tableland74_grass" ShadowMap="f_tableland74_grass" pos="-299.6962 593.5669 462.2985" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_1area_model.xac" Model="f_tableland74_1area_model" ShadowMap="f_tableland74_1area_model" pos="-1854.3129 244.2076 -816.8469" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_2area_model.xac" Model="f_tableland74_2area_model" ShadowMap="f_tableland74_2area_model" pos="-368.3441 272.3246 -679.4413" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_3area_model.xac" Model="f_tableland74_3area_model" ShadowMap="f_tableland74_3area_model" pos="523.3141 365.5833 36.3582" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_obbcol.xac" Model="obbcol" pos="523.3141 365.5833 36.3582" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_4area_model.xac" Model="f_tableland74_4area_model" ShadowMap="f_tableland74_4area_model" pos="711.3190 469.9995 813.8699" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_1area_tree.xac" Model="f_tableland74_1area_tree" ShadowMap="f_tableland74_1area_tree" pos="-1960.4291 423.1656 -793.6428" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_2area_tree.xac" Model="f_tableland74_2area_tree" ShadowMap="f_tableland74_2area_tree" pos="-393.042 731.136 -698.769" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_3area_tree.xac" Model="f_tableland74_3area_tree" ShadowMap="f_tableland74_3area_tree" pos="506.8571 628.8137 -16.6066" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_4area_tree.xac" Model="f_tableland74_4area_tree" ShadowMap="f_tableland74_4area_tree" pos="809.2711 738.4966 763.3851" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_5area_tree.xac" Model="f_tableland74_5area_tree" ShadowMap="f_tableland74_5area_tree" pos="1318.5035 892.4788 2171.6868" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_blend5.xac" Model="f_tableland74_blend5" ShadowMap="f_tableland74_blend5" pos="-470.2338 598.3863 895.4783" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_tp01.xac" Model="f_tableland74_tp01" ShadowMap="f_tableland74_tp01" pos="2.6388 664.7087 -405.0739" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_tp02.xac" Model="f_tableland74_tp02" ShadowMap="f_tableland74_tp02" pos="468.8107 664.2697 -482.2543" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_tp03.xac" Model="f_tableland74_tp03" ShadowMap="f_tableland74_tp03" pos="518.5431 666.4215 -440.7123" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_tp04.xac" Model="f_tableland74_tp04" ShadowMap="f_tableland74_tp04" pos="558.2047 638.7484 -374.4991" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_b_model.xac" Model="f_tableland74_b_model" ShadowMap="f_tableland74_b_model" pos="-968.7771 -87.6763 -1660.3845" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_1area_tree01.xac" Model="f_tableland74_1area_tree01" ShadowMap="f_tableland74_1area_tree01" pos="-1960.4290 438.0718 -507.8614" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_2area_tree01.xac" Model="f_tableland74_2area_tree01" ShadowMap="f_tableland74_2area_tree01" pos="73.8939 775.8337 -1052.9155" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_3area_tree01.xac" Model="f_tableland74_3area_tree01" ShadowMap="f_tableland74_3area_tree01" pos="838.3857 573.4568 -76.3145" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_4area_tree01.xac" Model="f_tableland74_4area_tree01" ShadowMap="f_tableland74_4area_tree01" pos="809.2711 738.4966 763.3851" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_5area_tree01.xac" Model="f_tableland74_5area_tree01" ShadowMap="f_tableland74_5area_tree01" pos="1660.7469 892.4788 2507.4556" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_2area_tree02.xac" Model="f_tableland74_2area_tree02" ShadowMap="f_tableland74_2area_tree02" pos="50.0657 668.3607 -711.2249" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_tp05.xac" Model="f_tableland74_tp05" ShadowMap="f_tableland74_tp05" pos="303.6105 661.9526 269.3140" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_2area_tree03.xac" Model="f_tableland74_2area_tree03" ShadowMap="f_tableland74_2area_tree03" pos="-804.6459 675.8754 -636.0667" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_01.xac" Model="f_tableland74_anitree_01" ShadowMap="f_tableland74_1area_tree" pos="-2077.589 420.634 -1143.125" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_02.xac" Model="f_tableland74_anitree_02" ShadowMap="f_tableland74_1area_tree01" pos="-1896.803 438.072 -554.902cm" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_03.xac" Model="f_tableland74_anitree_03" ShadowMap="f_tableland74_2area_tree01" pos="-211.194 836.636 -884.008" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_04.xac" Model="f_tableland74_anitree_04" ShadowMap="f_tableland74_3area_tree" pos="114.566 723.988 40.803" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_05.xac" Model="f_tableland74_anitree_05" ShadowMap="f_tableland74_3area_tree01" pos="714.512 595.37 -76.315" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_06.xac" Model="f_tableland74_anitree_06" ShadowMap="f_tableland74_4area_tree" pos="1260.45 736.582 732.038" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_07.xac" Model="f_tableland74_anitree_07" ShadowMap="f_tableland74_5area_tree" pos="1032.268 886.885 1937.332" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_08.xac" Model="f_tableland74_anitree_08" ShadowMap="f_tableland74_5area_tree01" pos="1660.747 914.605 2514.422" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_tableland74_anitree_09.xac" Model="f_tableland74_anitree_09" ShadowMap="f_tableland74_2area_tree" pos="-1378.395 731.136 -554.427" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

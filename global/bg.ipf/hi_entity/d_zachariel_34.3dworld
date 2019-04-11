@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 1 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_zachariel_34\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="d_zachariel_34_lightmap.jpg" Length="8000.0 8000.0" Offset="297.093 49.69" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_zachariel_34\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_zachariel_34\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_zachariel_34\"/>
+	<Model File="d_zacharie34_b_model.xac" Model="d_zacharie34_b_model" ShadowMap="d_zacharie34_b_model" pos="349.1957 182.2833 36.4431" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_water.xac" Model="d_zacharie34_water" pos="136.678 210.827 -26.73" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_ground.xac" Model="d_zacharie34_ground" ShadowMap="d_zacharie34_ground" pos="166.1181 307.0739 54.8504" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_1area_model.xac" Model="d_zacharie34_1area_model" ShadowMap="d_zacharie34_1area_model" pos="2896.9653 426.5536 25.7361" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_2area_model.xac" Model="d_zacharie34_2area_model" ShadowMap="d_zacharie34_2area_model" pos="1698.7406 269.3587 -315.8049" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_3area_model.xac" Model="d_zacharie34_3area_model" ShadowMap="d_zacharie34_3area_model" pos="1685.798 325.226 268.476" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_4area_model.xac" Model="d_zacharie34_4area_model" ShadowMap="d_zacharie34_4area_model" pos="873.993 300.889 169.562" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_5area_model.xac" Model="d_zacharie34_5area_model" ShadowMap="d_zacharie34_5area_model" pos="-306.025 251.135 79.502" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_6area_model.xac" Model="d_zacharie34_6area_model" ShadowMap="d_zacharie34_6area_model" pos="-360.8732 279.4142 1176.2556" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_7area_model.xac" Model="d_zacharie34_7area_model" ShadowMap="d_zacharie34_7area_model" pos="-1352.4508 209.26 1106.461" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_8area_model.xac" Model="d_zacharie34_8area_model" ShadowMap="d_zacharie34_8area_model" pos="-1436.1227 228.825 513.322" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_9area_model.xac" Model="d_zacharie34_9area_model" ShadowMap="d_zacharie34_9area_model" pos="-1376.7584 254.8267 -445.9035" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_10area_model.xac" Model="d_zacharie34_10area_model" ShadowMap="d_zacharie34_10area_model" pos="-1713.3746 212.0283 -1108.0813" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_11area_model.xac" Model="d_zacharie34_11area_model" ShadowMap="d_zacharie34_11area_model" pos="-2206.5669 227.728 119.753" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_12area_model.xac" Model="d_zacharie34_12area_model" ShadowMap="d_zacharie34_12area_model" pos="-2950.8330 176.746 49.642" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_1area_tp.xac" Model="d_zacharie34_1area_tp" ShadowMap="d_zacharie34_1area_tp" pos="2853.4431 411.2137 -56.4719" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_4area_tp01.xac" Model="d_zacharie34_4area_tp01" ShadowMap="d_zacharie34_4area_tp01" pos="1273.2745 367.9507 285.2849" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_4area_tp02.xac" Model="d_zacharie34_4area_tp02" ShadowMap="d_zacharie34_4area_tp02" pos="645.0175 344.4279 285.2840" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_10area_tp01.xac" Model="d_zacharie34_10area_tp01" ShadowMap="d_zacharie34_10area_tp01" pos="-1112.8141 368.4581 -1059.4475" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_10area_tp02.xac" Model="d_zacharie34_10area_tp02" ShadowMap="d_zacharie34_10area_tp02" pos="-1749.1598 349.8823 -1103.4973" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_6area_tp01.xac" Model="d_zacharie34_6area_tp01" ShadowMap="d_zacharie34_6area_tp01" pos="46.4965 368.4581 1221.8904" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_6area_tp02.xac" Model="d_zacharie34_6area_tp02" ShadowMap="d_zacharie34_6area_tp02" pos="-589.8488 349.8823 1177.8416" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_zacharie34_7area_tp.xac" Model="d_zacharie34_7area_tp" ShadowMap="d_zacharie34_7area_tp" pos="-1458.3322 373.9020 1147.3572" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-281.699 297.894 37.354" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

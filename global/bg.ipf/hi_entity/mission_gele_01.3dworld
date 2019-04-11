@@ -1,0 +1,72 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ka (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\mission_gele_01\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\mission_gele_01\"/>
+	<AutoHeightMap Length="5000.0 3000.0" Offset="-200 200" Height="5000 -1000"/>
+	<TexDir IpfName="bg_texture" Path="\gele\"/>
+	<AnimationDir IpfName="bg_hi" Path="\field\mission_gele_01\"/>
+	<LightMap File="mission_gele_01_lightmap.jpg" Length="2500.0 2500.0" Offset="135.958 4.787" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\huevillage\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\mission_gele_01\"/>
+	<Model File="mission_gele_01_ground02.xac" Model="mission_gele_01_ground02" ShadowMap="mission_gele_01_ground02" pos="-209.2050 -33.2141 554.6002" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_bl03.xac" Model="mission_gele_01_bl03" ShadowMap="mission_gele_01_bl03" pos="33.9470 117.4102 95.8129" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_bl01.xac" Model="mission_gele_01_bl01" ShadowMap="mission_gele_01_bl01" pos="186.1718 237.0915 56.8687" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_b_model01.xac" Model="mission_gele_01_b_model01" ShadowMap="mission_gele_01_b_model01" pos="-277.9829 101.3906 231.7715" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_ground01.xac" Model="mission_gele_01_ground01" ShadowMap="mission_gele_01_ground01" pos="119.8645 236.2915 -18.4629" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_tp01.xac" Model="mission_gele_01_tp01" ShadowMap="mission_gele_01_tp01" pos="264.9211 305.9678 -169.8673" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_light.xac" Model="mission_gele_01_light" pos="-601.0638 364.3279 692.6590" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_bl02.xac" Model="mission_gele_01_bl02" ShadowMap="mission_gele_01_bl02" pos="142.0479 116.9366 258.5563" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_gr_a01.xac" Model="mission_gele_01_gr_a01" ShadowMap="mission_gele_01_gr_a01" pos="-375.2485 188.7554 524.0260" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_gr_a02.xac" Model="mission_gele_01_gr_a02" ShadowMap="mission_gele_01_gr_a02" pos="595.3229 167.8543 442.4242" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass02.xac" Model="mission_gele_01_grass02" ShadowMap="mission_gele_01_grass02" pos="310.3168 246.8540 123.9379" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass05.xac" Model="mission_gele_01_grass05" ShadowMap="mission_gele_01_grass05" pos="138.9155 244.4147 -19.5236" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass04.xac" Model="mission_gele_01_grass04" ShadowMap="mission_gele_01_grass04" pos="104.0574 240.9129 -30.2290" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass03.xac" Model="mission_gele_01_grass03" ShadowMap="mission_gele_01_grass03" pos="626.0787 174.4170 163.4822" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass01.xac" Model="mission_gele_01_grass01" ShadowMap="mission_gele_01_grass01" pos="-261.5164 241.9916 407.7873" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_b_model03.xac" Model="mission_gele_01_b_model03" ShadowMap="mission_gele_01_b_model03" pos="-541.5029 111.1198 633.0288" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass06.xac" Model="mission_gele_01_grass06" ShadowMap="mission_gele_01_grass06" pos="107.1653 261.0483 8.9929" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_tp02.xac" Model="mission_gele_01_tp02" ShadowMap="mission_gele_01_tp02" pos="-36.2996 363.8531 -6.0515" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_tp04.xac" Model="mission_gele_01_tp04" ShadowMap="mission_gele_01_tp04" pos="-355.0632 262.5007 107.4262" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_tp03.xac" Model="mission_gele_01_tp03" ShadowMap="mission_gele_01_tp03" pos="490.9614 336.6654 -551.7645" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_model02.xac" Model="mission_gele_01_model02" ShadowMap="mission_gele_01_model02" pos="-451.3586 129.2344 867.1778" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass07.xac" Model="mission_gele_01_grass07" ShadowMap="mission_gele_01_grass07" pos="485.3936 243.4685 -528.2689" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_b_model02.xac" Model="mission_gele_01_b_model02" ShadowMap="mission_gele_01_b_model02" pos="-45.8494 74.9055 130.1298" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_b_model04.xac" Model="mission_gele_01_b_model04" ShadowMap="mission_gele_01_b_model04" pos="476.4392 17.5781 214.8542" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass08.xac" Model="mission_gele_01_grass08" ShadowMap="mission_gele_01_grass08" pos="-451.8388 245.3896 236.9573" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass09.xac" Model="mission_gele_01_grass09" ShadowMap="mission_gele_01_grass09" pos="819.3827 228.2634 821.2687" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower02.xac" Model="mission_gele_01_flower02" ShadowMap="mission_gele_01_flower02" pos="846.2735 166.6692 -630.4020" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower01.xac" Model="mission_gele_01_flower01" ShadowMap="mission_gele_01_flower01" pos="1013.9014 157.2584 -978.7284" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower07.xac" Model="mission_gele_01_flower07" ShadowMap="mission_gele_01_flower07" pos="356.8849 159.0791 -598.4448" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower04.xac" Model="mission_gele_01_flower04" ShadowMap="mission_gele_01_flower04" pos="349.0078 159.0791 -1096.2178" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower03.xac" Model="mission_gele_01_flower03" ShadowMap="mission_gele_01_flower03" pos="468.9397 159.0791 -952.0134" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower05.xac" Model="mission_gele_01_flower05" ShadowMap="mission_gele_01_flower05" pos="-289.6587 167.6367 -900.5682" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower06.xac" Model="mission_gele_01_flower06" ShadowMap="mission_gele_01_flower06" pos="-140.3206 167.6367 -674.8598" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_grass10.xac" Model="mission_gele_01_grass10" ShadowMap="mission_gele_01_grass10" pos="-34.1033 241.6147 -51.7808" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower22.xac" Model="mission_gele_01_flower22" ShadowMap="mission_gele_01_flower22" pos="-150.1025 159.1753 208.1740" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower08.xac" Model="mission_gele_01_flower08" ShadowMap="mission_gele_01_flower08" pos="-143.4858 167.6367 403.1563" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower09.xac" Model="mission_gele_01_flower09" ShadowMap="mission_gele_01_flower09" pos="150.6120 167.6367 446.7759" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower10.xac" Model="mission_gele_01_flower10" ShadowMap="mission_gele_01_flower10" pos="377.3936 159.1473 42.8014" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower11.xac" Model="mission_gele_01_flower11" ShadowMap="mission_gele_01_flower11" pos="465.2167 159.1116 162.5824" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower12.xac" Model="mission_gele_01_flower12" ShadowMap="mission_gele_01_flower12" pos="1093.3190 188.9630 458.7107" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower25.xac" Model="mission_gele_01_flower25" ShadowMap="mission_gele_01_flower25" pos="1055.0005 158.6127 -34.4748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower13.xac" Model="mission_gele_01_flower13" ShadowMap="mission_gele_01_flower13" pos="950.8606 223.2548 1071.1411" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower14.xac" Model="mission_gele_01_flower14" ShadowMap="mission_gele_01_flower14" pos="159.6165 258.2582 639.2605" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower15.xac" Model="mission_gele_01_flower15" ShadowMap="mission_gele_01_flower15" pos="466.3127 240.1993 733.2073" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower24.xac" Model="mission_gele_01_flower24" ShadowMap="mission_gele_01_flower24" pos="-14.6360 268.6040 1081.8040" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower16.xac" Model="mission_gele_01_flower16" ShadowMap="mission_gele_01_flower16" pos="337.9724 262.2341 1032.2838" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower23.xac" Model="mission_gele_01_flower23" ShadowMap="mission_gele_01_flower23" pos="-208.6800 268.8261 1136.1211" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower17.xac" Model="mission_gele_01_flower17" ShadowMap="mission_gele_01_flower17" pos="-312.3881 214.0831 728.7986" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower18.xac" Model="mission_gele_01_flower18" ShadowMap="mission_gele_01_flower18" pos="-855.8013 363.9250 350.7369" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower19.xac" Model="mission_gele_01_flower19" ShadowMap="mission_gele_01_flower19" pos="-499.3441 362.7715 -617.6753" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower20.xac" Model="mission_gele_01_flower20" ShadowMap="mission_gele_01_flower20" pos="-967.2685 140.0697 -334.6658" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower21.xac" Model="mission_gele_01_flower21" ShadowMap="mission_gele_01_flower21" pos="-247.2710 362.7998 -311.2843" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_flower26.xac" Model="mission_gele_01_flower26" ShadowMap="mission_gele_01_flower26" pos="1391.7817 221.1031 789.5647" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_model_tree01.xac" Model="mission_gele_01_model_tree01" ShadowMap="mission_gele_01_model_tree01" pos="846.1359 197.6201 -249.8154" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_model_tree03.xac" Model="mission_gele_01_model_tree03" ShadowMap="mission_gele_01_model_tree03" pos="-674.1261 300.6212 -37.7571" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_model01.xac" Model="mission_gele_01_model01" ShadowMap="mission_gele_01_model01" pos="-32.0156 113.9536 -81.0183" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_model_tree02.xac" Model="mission_gele_01_model_tree02" ShadowMap="mission_gele_01_model_tree02" pos="46.4028 220.3977 456.2763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_model03.xac" Model="mission_gele_01_model03" ShadowMap="mission_gele_01_model03" pos="162.2430 32.6327 -368.7105" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_gele_01_obbcol.xac" Model="mission_gele_01_obbcol" pos="481.8735 83.1958 10.2891" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

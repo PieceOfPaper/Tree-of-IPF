@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by yeonew (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_underfortress_30_1\"/>
+	<AutoHeightMap Length="1000 -2000" Offset="0 0" Height="2500 -1800"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_underfortress_30_1\"/>
+	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_underfortress_30_1\"/>
+	<LightMap File="d_underfortress_30_1_lightmap.jpg" Length="3700 3700" Offset="34.726 320.697" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\underfortress\"/>
+	<Model File="d_underfortress_30_1_ground.xac" Model="d_underfortress_30_1_ground" ShadowMap="d_underfortress_30_1_ground" pos="-246.8633 331.6145 251.6313" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_fog.xac" Model="d_underfortress_30_1_fog" ShadowMap="d_underfortress_30_1_fog" pos="-1216.6663 251.9604 -124.8519" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_b_model.xac" Model="d_underfortress_30_1_b_model" ShadowMap="d_underfortress_30_1_b_model" pos="-214.6597 -16.3168 664.9468" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_water.xac" Model="d_underfortress_30_1_water" ShadowMap="d_underfortress_30_1_water" pos="-252.9133 -2.4569 337.8013" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_2area_model.xac" Model="d_underfortress_30_1_2area_model" ShadowMap="d_underfortress_30_1_2area_model" pos="-1383.1045 2.6991 -721.6948" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_4area_model.xac" Model="d_underfortress_30_1_4area_model" ShadowMap="d_underfortress_30_1_4area_model" pos="28.9136 -81.1920 11.6482" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_5area_model.xac" Model="d_underfortress_30_1_5area_model" ShadowMap="d_underfortress_30_1_5area_model" pos="905.3177 133.7190 -313.0178" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_6area_model.xac" Model="d_underfortress_30_1_6area_model" ShadowMap="d_underfortress_30_1_6area_model" pos="956.3723 -38.4802 850.6798" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_7area_model.xac" Model="d_underfortress_30_1_7area_model" ShadowMap="d_underfortress_30_1_7area_model" pos="-856.6984 -46.4493 1024.0482" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_grass04.xac" Model="d_underfortress_30_1_grass04" ShadowMap="d_underfortress_30_1_grass04" pos="-59.2587 132.9260 221.2336" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_grass01.xac" Model="d_underfortress_30_1_grass01" ShadowMap="d_underfortress_30_1_grass01" pos="-193.3400 93.4231 357.4370" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_grass02.xac" Model="d_underfortress_30_1_grass02" ShadowMap="d_underfortress_30_1_grass02" pos="-244.4908 152.5110 173.9590" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_water02.xac" Model="d_underfortress_30_1_water02" ShadowMap="d_underfortress_30_1_water02" pos="-154.9677 407.685 -156.7120" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_light.xac" Model="d_underfortress_30_1_light" ShadowMap="d_underfortress_30_1_light" pos="53.1474 142.0289 206.6141" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_8area_model.xac" Model="d_underfortress_30_1_8area_model" ShadowMap="d_underfortress_30_1_8area_model" pos="-360.9005 198.7947 499.1213" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_gr_a.xac" Model="d_underfortress_30_1_gr_a" ShadowMap="d_underfortress_30_1_gr_a" pos="-104.5596 71.2607 269.9382" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_1area_model.xac" Model="d_underfortress_30_1_1area_model" ShadowMap="d_underfortress_30_1_1area_model" pos="-157.4099 -131.6307 346.7363" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_3area_model.xac" Model="d_underfortress_30_1_3area_model" ShadowMap="d_underfortress_30_1_3area_model" pos="-575.8726 -61.6513 -496.5433" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_grass03.xac" Model="d_underfortress_30_1_grass03" ShadowMap="d_underfortress_30_1_grass03" pos="5.4497 152.7703 286.3115" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_bl01.xac" Model="d_underfortress_30_1_bl01" ShadowMap="d_underfortress_30_1_bl01" pos="-235.3044 71.4000 250.5222" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_bl02.xac" Model="d_underfortress_30_1_bl02" ShadowMap="d_underfortress_30_1_bl02" pos="-748.4636 98.9000 -40.5796" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_bl04.xac" Model="d_underfortress_30_1_bl04" ShadowMap="d_underfortress_30_1_bl04" pos="188.6478 71.5818 331.2112" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_tp01.xac" Model="d_underfortress_30_1_tp01" ShadowMap="d_underfortress_30_1_tp01" pos="171.3365 256.2128 94.3614" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_tp02.xac" Model="d_underfortress_30_1_tp02" ShadowMap="d_underfortress_30_1_tp02" pos="1564.3046 93.2064 737.5622" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_underfortress_30_1_bl03.xac" Model="d_underfortress_30_1_bl03" ShadowMap="d_underfortress_30_1_bl03" pos="-624.0530 70.6049 15.6738" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" ShadowMap="d_underfortress_30_1_2area_model" pos="-1383.1045 2.6991 -721.6948" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

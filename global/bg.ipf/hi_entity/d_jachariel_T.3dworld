@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_jachariel_T\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\jachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_jachariel\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_jachariel_T\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="d_jachariel_hallway_01_block01_01.xac" Model="d_jachariel_hallway_01_block01_01" pos="23.839371 111.949974 903.314087" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_01_deco01_01.xac" Model="d_jachariel_hallway_01_deco01_01" pos="-12.409409 171.784042 852.854431" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_01_gate01_01.xac" Model="d_jachariel_hallway_01_gate01_01" pos="-41.847153 208.806000 1126.480469" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_01_gate02_01.xac" Model="d_jachariel_hallway_01_gate02_01" pos="48.468887 208.806000 1127.129395" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_01_wall01_01.xac" Model="d_jachariel_hallway_01_wall01_01" pos="10.260513 161.053864 887.069519" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_02_block01_01.xac" Model="d_jachariel_hallway_02_block01_01" pos="-181.819885 111.949959 -850.114075" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_02_deco01_01.xac" Model="d_jachariel_hallway_02_deco01_01" pos="-188.267395 181.871613 -879.518616" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_02_gate01_01.xac" Model="d_jachariel_hallway_02_gate01_01" pos="-17.137390 208.805984 -634.664307" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_02_gate02_01.xac" Model="d_jachariel_hallway_02_gate02_01" pos="48.468689 208.805984 -634.015625" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_02_pit01_01.xac" Model="d_jachariel_hallway_02_pit01_01" pos="-340.428528 202.313751 -1010.708252" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_02_wall01_01.xac" Model="d_jachariel_hallway_02_wall01_01" pos="-174.737732 161.053848 -855.997498" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_03_block01_01.xac" Model="d_jachariel_hallway_03_block01_01" pos="-211.810165 120.411972 -172.374481" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_03_deco01_01.xac" Model="d_jachariel_hallway_03_deco01_01" pos="-197.440552 177.073975 -229.054291" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_03_gate01_01.xac" Model="d_jachariel_hallway_03_gate01_01" pos="-43.108509 208.805984 148.084473" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_03_gate02_01.xac" Model="d_jachariel_hallway_03_gate02_01" pos="48.468643 208.805984 132.100464" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_03_wall01_01.xac" Model="d_jachariel_hallway_03_wall01_01" pos="-174.405884 161.053864 -183.560760" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_05_blend01.xac" Model="d_jachariel_hallway_05_blend01" pos="54.060547 162.328033 415.310211" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_05_blend02.xac" Model="d_jachariel_hallway_05_blend02" pos="24.457397 161.617233 411.230042" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_05_block01_01.xac" Model="d_jachariel_hallway_05_block01_01" pos="24.615112 111.047577 414.345062" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_05_deco01_01.xac" Model="d_jachariel_hallway_05_deco01_01" pos="-12.337280 171.513077 414.596252" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_05_wall01_01.xac" Model="d_jachariel_hallway_05_wall01_01" pos="9.299377 161.053848 398.750031" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_1obj_ani.xac" Model="d_jachariel_hallway_1obj_ani" AniFile="d_jachariel_hallway_1obj_ani.xsm" pos="-177.944946 264.016693 -990.689819" rot="0.064830 0.000000 0.000000 0.997896" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_1obj_ani.xac" Model="d_jachariel_hallway_1obj_ani" AniFile="d_jachariel_hallway_1obj_ani.xsm" pos="-83.604538 264.016693 -990.689819" rot="0.064830 0.000000 0.000000 0.997896" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_1obj_ani.xac" Model="d_jachariel_hallway_1obj_ani" AniFile="d_jachariel_hallway_1obj_ani.xsm" pos="52.825268 264.016693 -862.665833" rot="0.045842 0.705619 -0.045842 0.705619" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_1obj_ani.xac" Model="d_jachariel_hallway_1obj_ani" AniFile="d_jachariel_hallway_1obj_ani.xsm" pos="52.825268 264.016693 -713.624939" rot="0.045842 0.705619 -0.045842 0.705619" scale="1.000000 1.000000 1.000000"/>
+</World>

@@ -1,0 +1,41 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_farm_47_2\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_farm_47_2\"/>
+	<LightMap File="f_farm_47_2_lightmap.jpg" Length="4500.0 4500.0" Offset="393.624 -45.543" Size="1024 1024"/>
+	<AutoHeightMap Length="4500.0 4500.0" Offset="393.624 -45.543" Height="1000 -1000"/>
+	<TexDir IpfName="bg_texture" Path="\farm\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\fedimian\"/>
+	<AnimationDir IpfName="bg_hi" Path="\field\f_farm_47_2\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_farm_47_2\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_farm_47_2\"/>
+	<Model File="f_farm_47_2_1area_model.xac" Model="f_farm_47_2_1area_model" ShadowMap="f_farm_47_2_1area_model" pos="1547.3542 59.8015 -893.4030" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_ground.xac" Model="f_farm_47_2_ground" ShadowMap="f_farm_47_2_ground" pos="250.3477 63.4201 -34.5066" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_blend2.xac" Model="f_farm_47_2_blend2" ShadowMap="f_farm_47_2_blend2" pos="287.7152 52.6467 313.2258" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_1area_gr_a.xac" Model="f_farm_47_2_1area_gr_a" ShadowMap="f_farm_47_2_1area_gr_a" pos="510.6492 50.5863 -88.1884" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_ani03.xac" Model="f_farm_47_2_ani03" ShadowMap="f_farm_47_2_ani03" AniFile="f_farm_47_2_ani03.xsm" pos="-505.5710 -45.8600 -928.8211" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_water01.xac" Model="f_farm_47_2_water01" ShadowMap="f_farm_47_2_water01" pos="-136.0820 -45.9685 360.1467" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_blend.xac" Model="f_farm_47_2_blend" ShadowMap="f_farm_47_2_blend" pos="877.1613 62.9792 -224.1414" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_b_model.xac" Model="f_farm_47_2_b_model" ShadowMap="f_farm_47_2_b_model" pos="270.5432 107.1952 209.9032" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_water02.xac" Model="f_farm_47_2_water02" ShadowMap="f_farm_47_2_water02" pos="665.5523 25.5617 87.9395" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_3area_grass.xac" Model="f_farm_47_2_3area_grass" ShadowMap="f_farm_47_2_3area_grass" pos="512.7490 81.3338 -1235.1427" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_water03.xac" Model="f_farm_47_2_water03" ShadowMap="f_farm_47_2_water03" pos="909.3510 62.2119 -255.0449" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_2area_gr_a.xac" Model="f_farm_47_2_2area_gr_a" ShadowMap="f_farm_47_2_2area_gr_a" pos="69.2037 0.3769 1220.9703" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_ani01.xac" Model="f_farm_47_2_ani01" ShadowMap="f_farm_47_2_ani01" AniFile="f_farm_47_2_ani01.xsm" pos="559.1229 194.8087 -1340.1899" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_1area_grass.xac" Model="f_farm_47_2_1area_grass" ShadowMap="f_farm_47_2_1area_grass" pos="501.9610 97.0420 -1079.0032" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_5area_grass.xac" Model="f_farm_47_2_5area_grass" ShadowMap="f_farm_47_2_5area_grass" pos="430.8602 111.0699 -1346.5791" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_2area_grass.xac" Model="f_farm_47_2_2area_grass" ShadowMap="f_farm_47_2_2area_grass" pos="83.5670 34.0343 1330.9722" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_4area_grass.xac" Model="f_farm_47_2_4area_grass" ShadowMap="f_farm_47_2_4area_grass" pos="111.9077 11.5692 1276.3323" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_6area_grass.xac" Model="f_farm_47_2_6area_grass" ShadowMap="f_farm_47_2_6area_grass" pos="-8.6122 -4.9272 997.7812" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_5area_model.xac" Model="f_farm_47_2_5area_model" ShadowMap="f_farm_47_2_5area_model" pos="619.7504 -50.6150 1898.0437" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_6area_model.xac" Model="f_farm_47_2_6area_model" ShadowMap="f_farm_47_2_6area_model" pos="-1113.1062 -47.1354 1497.8844" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_2area_model.xac" Model="f_farm_47_2_2area_model" ShadowMap="f_farm_47_2_2area_model" pos="-586.5808 29.4528 -1348.1783" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_4area_model.xac" Model="f_farm_47_2_4area_model" ShadowMap="f_farm_47_2_4area_model" pos="-154.0610 45.5904 345.7063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-154.0610 45.5904 345.7063" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_3area_model.xac" Model="f_farm_47_2_3area_model" ShadowMap="f_farm_47_2_3area_model" pos="1131.5867 -6.3674 696.3846" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_light.xac" Model="f_farm_47_2_light" pos="487.605 75.536 392.633" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_farm_47_2_ani01.xac" Model="f_farm_47_2_ani05" ShadowMap="f_farm_47_2_ani05" AniFile="f_farm_47_2_ani01.xsm" pos="78.2588 189.4839 -232.4778" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

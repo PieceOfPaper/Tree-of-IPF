@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\id_catacomb_33_2\"/>
+	<SubModelDir IpfName="bg_hi" Path="\dungeon\id_catacomb_04\"/>
+	<TexDir IpfName="bg_texture" Path="\catacomb\"/>
+	<LightMap File="id_catacomb_33_2_lightmap.jpg" Length="3500 3500" Offset="83.186 95.752" Size="1024 1024"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\id_catacomb_04\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\id_catacomb_33_2\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\id_catacomb_04\"/>
+	<Model File="id_catacomb_33_2_b_model.xac" Model="id_catacomb_33_2_b_model" ShadowMap="id_catacomb_33_2_b_model" pos="159.6403 -511.2495 825.6085" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_01area_model.xac" Model="id_catacomb_33_2_01area_model" ShadowMap="id_catacomb_33_2_01area_model" pos="1679.9935 -153.8751 2039.7830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_obbcol.xac" Model="id_catacomb_33_2_obbcol" pos="1679.9935 -153.8751 2039.7830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_blend.xac" Model="id_catacomb_33_2_blend" ShadowMap="id_catacomb_33_2_blend" pos="178.1083 -81.0541 324.4912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_fog.xac" Model="id_catacomb_33_2_fog" ShadowMap="id_catacomb_33_2_fog" pos="302.1393 -185.2536 285.3350" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_1area_light.xac" Model="id_catacomb_33_2_1area_light" ShadowMap="id_catacomb_33_2_light" pos="149.2200 -315.9860 901.6300" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_2area_light.xac" Model="id_catacomb_33_2_2area_light" ShadowMap="id_catacomb_33_2_light" pos="149.2200 -315.9860 901.6300" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_ground.xac" Model="id_catacomb_33_2_ground" ShadowMap="id_catacomb_33_2_ground" pos="75.8105 203.2967 119.3628" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_02area_model.xac" Model="id_catacomb_33_2_02area_model" ShadowMap="id_catacomb_33_2_02area_model" pos="-382.4980 -370.3459 -991.0167" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_03area_model.xac" Model="id_catacomb_33_2_03area_model" ShadowMap="id_catacomb_33_2_03area_model" pos="128.8247 -371.8503 -480.3337" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_04area_model.xac" Model="id_catacomb_33_2_04area_model" ShadowMap="id_catacomb_33_2_04area_model" pos="1137.9984 122.5940 -181.7458" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_05area_model.xac" Model="id_catacomb_33_2_05area_model" ShadowMap="id_catacomb_33_2_05area_model" pos="726.8954 -368.6740 1469.9902" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_06area_model.xac" Model="id_catacomb_33_2_06area_model" ShadowMap="id_catacomb_33_2_06area_model" pos="1095.9554 -383.5365 856.1560" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_07area_model.xac" Model="id_catacomb_33_2_07area_model" ShadowMap="id_catacomb_33_2_07area_model" pos="213.0010 -334.7376 1490.5696" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_08area_model.xac" Model="id_catacomb_33_2_08area_model" ShadowMap="id_catacomb_33_2_08area_model" pos="-361.5609 119.8881 674.4370" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_09area_model.xac" Model="id_catacomb_33_2_09area_model" ShadowMap="id_catacomb_33_2_09area_model" pos="-1012.8628 62.3633 436.5818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_10area_model.xac" Model="id_catacomb_33_2_10area_model" ShadowMap="id_catacomb_33_2_10area_model" pos="42.2756 177.0153 970.3245" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_11area_model.xac" Model="id_catacomb_33_2_11area_model" ShadowMap="id_catacomb_33_2_11area_model" pos="-912.2953 164.5701 1167.1377" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_tp03.xac" Model="id_catacomb_tp03.xac" AniFile="id_catacomb_tp03.xsm" pos="-915.6010 320.5368 1002.9167" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_tp03.xac" Model="id_catacomb_tp03.xac" AniFile="id_catacomb_tp03.xsm" pos="-648.1600 263.9910 725.8296" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_tp03.xac" Model="id_catacomb_tp03.xac" AniFile="id_catacomb_tp03.xsm" pos="-1447.1121 266.5639 725.8291" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_tp03.xac" Model="id_catacomb_tp03.xac" AniFile="id_catacomb_tp03.xsm" pos="-1179.6597 320.3872 1002.9170" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_tp02.xac" Model="id_catacomb_33_2_tp02" ShadowMap="id_catacomb_33_2_tp02" pos="-1096.8730 255.7592 483.0059" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_tp03.xac" Model="id_catacomb_33_2_tp03" ShadowMap="id_catacomb_33_2_tp03" pos="-1096.8730 255.7592 483.0059" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_tp04.xac" Model="id_catacomb_33_2_tp04" ShadowMap="id_catacomb_33_2_tp04" pos="-1096.8730 255.7592 483.0059" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_gr_a.xac" Model="id_catacomb_33_2_gr_a" ShadowMap="id_catacomb_33_2_gr_a" pos="178.1083 -81.0541 324.4912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_blend2.xac" Model="id_catacomb_33_2_blend2" ShadowMap="id_catacomb_33_2_blend2" pos="182.4748 -134.4990 324.4912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_blend3.xac" Model="id_catacomb_33_2_blend3" ShadowMap="id_catacomb_33_2_blend3" pos="39.0095 252.9771 144.8425" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_tp01.xac" Model="id_catacomb_33_2_tp01" ShadowMap="id_catacomb_33_2_tp01" pos="-1181.2858 255.7592 546.5347" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_gr_a.xac" Model="id_catacomb_33_2_gr_a" ShadowMap="id_catacomb_33_2_gr_a" pos="178.1083 -81.0541 324.4912" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="id_catacomb_33_2_tp05.xac" Model="id_catacomb_33_2_tp05" ShadowMap="id_catacomb_33_2_tp05" pos="155.0646 277.8154 -40.6256" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

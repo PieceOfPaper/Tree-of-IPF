@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<AutoHeightMap Length="3800 3800" Offset="-739.252 415.544" Height="3000 -3000"/>
+	<ModelDir IpfName="bg_hi" Path="\field\f_3cmlake_84\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_3cmlake_84\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="f_3cmlake_84_lightmap.jpg" Length="3800 3800" Offset="-235.238 95.871" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\3cmlake\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_3cmlake_84\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_3cmlake_84\"/>
+	<Model File="f_3cmlake_84_ground.xac" Model="f_3cmlake_84_ground" ShadowMap="f_3cmlake_84_ground" pos="-457.7486 171.5259 250.5823" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_b_model.xac" Model="f_3cmlake_84_b_model" ShadowMap="f_3cmlake_84_b_model" pos="-768.2384 158.5047 627.3316" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_blend.xac" Model="f_3cmlake_84_blend" pos="-522.3169 275.1281 306.5390" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_bloom.xac" Model="f_3cmlake_84_bloom" pos="-667.6823 504.5139 362.9048" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_light.xac" Model="f_3cmlake_84_light" pos="-667.6823 504.5139 362.9048" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_fog.xac" Model="f_3cmlake_84_fog" pos="-511.9883 408.6574 891.1184" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_1area_grass.xac" Model="f_3cmlake_84_1area_grass" ShadowMap="f_3cmlake_84_1area_grass" pos="-1639.5635 298.4292 -420.8264" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_01.xac" Model="f_3cmlake_84_anitree_01" ShadowMap="f_3cmlake_84_1area_grass" pos="-1639.5635 298.4292 -420.8264" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_1area_model.xac" Model="f_3cmlake_84_1area_model" ShadowMap="f_3cmlake_84_1area_model" pos="-1622.4163 250.8882 -399.9955" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_2area_grass.xac" Model="f_3cmlake_84_2area_grass" ShadowMap="f_3cmlake_84_2area_grass" pos="-314.6918 313.2997 -767.1052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_02.xac" Model="f_3cmlake_84_anitree_02" ShadowMap="f_3cmlake_84_anitree_02" pos="-314.6918 313.2997 -767.1052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_2area_model.xac" Model="f_3cmlake_84_2area_model" ShadowMap="f_3cmlake_84_2area_model" pos="-327.9720 234.9876 -658.0120" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_3area_grass.xac" Model="f_3cmlake_84_3area_grass" ShadowMap="f_3cmlake_84_3area_grass" pos="578.5834 280.7445 -591.4591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_03.xac" Model="f_3cmlake_84_anitree_03" ShadowMap="f_3cmlake_84_anitree_03" pos="578.5834 280.7445 -591.4591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_3area_model.xac" Model="f_3cmlake_84_3area_model" ShadowMap="f_3cmlake_84_3area_model" pos="525.9774 217.5333 -645.7646" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_4area_model.xac" Model="f_3cmlake_84_4area_model" ShadowMap="f_3cmlake_84_4area_model" pos="142.8791 237.1438 598.1054" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_5area_grass.xac" Model="f_3cmlake_84_5area_grass" ShadowMap="f_3cmlake_84_5area_grass" pos="32.3285 323.0016 1524.4180" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_05.xac" Model="f_3cmlake_84_anitree_05" ShadowMap="f_3cmlake_84_5area_grass" pos="32.3285 323.0016 1524.4180" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_5area_model.xac" Model="f_3cmlake_84_5area_model" ShadowMap="f_3cmlake_84_5area_model" pos="-125.5056 219.2329 1551.4197" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_6area_grass.xac" Model="f_3cmlake_84_6area_grass" ShadowMap="f_3cmlake_84_6area_grass" pos="-938.4569 322.0594 557.0667" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_06.xac" Model="f_3cmlake_84_anitree_06" ShadowMap="f_3cmlake_84_6area_grass" pos="-938.4569 322.0594 557.0667" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_6area_model.xac" Model="f_3cmlake_84_6area_model" ShadowMap="f_3cmlake_84_6area_model" pos="-644.8267 200.3171 710.1125" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_7area_grass.xac" Model="f_3cmlake_84_7area_grass" ShadowMap="f_3cmlake_84_7area_grass" pos="-1243.3833 323.0016 1574.7335" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_07.xac" Model="f_3cmlake_84_anitree_07" ShadowMap="f_3cmlake_84_7area_grass" pos="-1243.3833 323.0016 1574.7335" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_7area_model.xac" Model="f_3cmlake_84_7area_model" ShadowMap="f_3cmlake_84_7area_model" pos="-1257.7834 214.1290 1658.4487" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_4area_grass.xac" Model="f_3cmlake_84_4area_grass" ShadowMap="f_3cmlake_84_4area_grass" pos="204.1618 280.7444 582.3748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_anitree_04.xac" Model="f_3cmlake_84_anitree_04" ShadowMap="f_3cmlake_84_4area_grass" pos="204.1618 280.7444 582.3748" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_water_02.xac" Model="f_3cmlake_84_water_02" ShadowMap="f_3cmlake_84_water_02" pos="-692.2157 276.0306 257.5999" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_3cmlake_84_water.xac" Model="f_3cmlake_84_water" ShadowMap="f_3cmlake_84_water" pos="-685.0520 276.0310 208.1380" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

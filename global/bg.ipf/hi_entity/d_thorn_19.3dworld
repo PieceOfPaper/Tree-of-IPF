@@ -1,0 +1,83 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_thorn_19\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\thorn\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_thorn_19\"/>
+	<AutoHeightMap Length="8000.0 8000.0" Offset="352.503 -545.664" Height="4000 -4000"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="d_thorn_19_lightmap.jpg" Length="8000.0 8000.0" Offset="352.503 -545.664" Size="1024 1024"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_thorn_19\"/>
+	<Model File="d_thorn19_1area_ground.xac" Model="d_thorn19_1area_ground" ShadowMap="d_thorn19_1area_ground" pos="85.4465 639.1129 -2929.1643" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_ground.xac" Model="d_thorn19_2area_ground" ShadowMap="d_thorn19_2area_ground" pos="-276.7706 669.0222 -868.3960" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_ground.xac" Model="d_thorn19_3area_ground" ShadowMap="d_thorn19_3area_ground" pos="276.5284 667.3929 505.4760" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_ground.xac" Model="d_thorn19_4area_ground" ShadowMap="d_thorn19_4area_ground" pos="973.3448 558.8889 2077.1689" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_ground.xac" Model="d_thorn19_5area_ground" ShadowMap="d_thorn19_5area_ground" pos="2177.8877 537.6482 438.2508" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp02.xac" Model="d_thorn19_tp02" ShadowMap="d_thorn19_tp02" pos="2189.3633 793.9587 -334.2502" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp01.xac" Model="d_thorn19_tp01" ShadowMap="d_thorn19_tp01" pos="-1042.1294 570.3724 -3449.6025" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp03.xac" Model="d_thorn19_tp03" ShadowMap="d_thorn19_tp03" pos="-166.8949 629.9247 -2694.5127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp04.xac" Model="d_thorn19_tp04" ShadowMap="d_thorn19_tp04" pos="113.5205 673.8588 -1721.4897" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp05.xac" Model="d_thorn19_tp05" ShadowMap="d_thorn19_tp05" pos="253.0299 861.9657 -486.2933" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp06.xac" Model="d_thorn19_tp06" ShadowMap="d_thorn19_tp06" pos="288.0830 769.8400 1432.2042" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp07.xac" Model="d_thorn19_tp07" ShadowMap="d_thorn19_tp07" pos="1943.5760 662.0748 2239.6501" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp08.xac" Model="d_thorn19_tp08" ShadowMap="d_thorn19_tp08" pos="2178.7505 441.8365 1222.9072" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp09.xac" Model="d_thorn19_tp09" ShadowMap="d_thorn19_tp09" pos="2088.6758 723.7191 -724.3201" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp10.xac" Model="d_thorn19_tp10" ShadowMap="d_thorn19_tp10" pos="1077.9202 604.0450 765.9495" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_tree.xac" Model="d_thorn19_1area_tree" ShadowMap="d_thorn19_1area_tree" pos="-309.7579 384.0664 -3032.1797" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_tree.xac" Model="d_thorn19_2area_tree" ShadowMap="d_thorn19_2area_tree" pos="-630.8729 466.3412 -909.6459" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_tree.xac" Model="d_thorn19_3area_tree" ShadowMap="d_thorn19_3area_tree" pos="7.7755 651.1342 976.3369" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_tree.xac" Model="d_thorn19_4area_tree" ShadowMap="d_thorn19_4area_tree" pos="595.6761 451.7795 1836.8754" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_tree.xac" Model="d_thorn19_5area_tree" ShadowMap="d_thorn19_5area_tree" pos="2092.7625 477.8113 202.9470" rot="-0.0000 0.0000 0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_grass.xac" Model="d_thorn19_1area_grass" ShadowMap="d_thorn19_1area_grass" pos="-410.3841 401.1053 -2993.5894" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_grass.xac" Model="d_thorn19_2area_grass" ShadowMap="d_thorn19_2area_grass" pos="-541.739 455.691 -961.112" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_grass.xac" Model="d_thorn19_3area_grass" ShadowMap="d_thorn19_3area_grass" pos="401.248 587.167 550.607" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_grass.xac" Model="d_thorn19_4area_grass" ShadowMap="d_thorn19_4area_grass" pos="1025.35 528.9125 2202.357" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_grass.xac" Model="d_thorn19_5area_grass" ShadowMap="d_thorn19_5area_grass" pos="2144.0674 517.0474 485.3083" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_blend3.xac" Model="d_thorn19_5area_blend3" ShadowMap="d_thorn19_5area_blend3" pos="2200.2100 516.4128 -847.1809" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_blend3.xac" Model="d_thorn19_4area_blend3" ShadowMap="d_thorn19_4area_blend3" pos="1267.3848 509.0627 2407.4700" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_blend3.xac" Model="d_thorn19_1area_blend3" ShadowMap="d_thorn19_1area_blend3" pos="-819.4159 487.5529 -3022.3660" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_blend5.xac" Model="d_thorn19_5area_blend5" ShadowMap="d_thorn19_5area_blend5" pos="2185.3931 342.7123 378.7963" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_blend5.xac" Model="d_thorn19_4area_blend5" ShadowMap="d_thorn19_4area_blend5" pos="987.6173 369.0463 1925.0591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_blend5.xac" Model="d_thorn19_3area_blend5" ShadowMap="d_thorn19_3area_blend5" pos="332.1871 415.3297 530.9203" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_blend5.xac" Model="d_thorn19_2area_blend5" ShadowMap="d_thorn19_2area_blend5" pos="-288.5413 458.4587 -902.6862" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_blend5.xac" Model="d_thorn19_1area_blend5" ShadowMap="d_thorn19_1area_blend5" pos="-1118.0117 627.4364 -2510.4282" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_b_model.xac" Model="d_thorn19_b_model" ShadowMap="d_thorn19_b_model" pos="44.5125 391.7731 -257.6668" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_b_model.xac" Model="d_thorn19_1area_b_model" ShadowMap="d_thorn19_1area_b_model" pos="-144.1120 198.6855 -3214.5288" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_b_model.xac" Model="d_thorn19_2area_b_model" ShadowMap="d_thorn19_2area_b_model" pos="-2502.3730 18.7589 -1094.1985" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_model.xac" Model="d_thorn19_2area_model" ShadowMap="d_thorn19_2area_model" pos="-283.5063 597.9868 -901.5895" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_model.xac" Model="d_thorn19_3area_model" ShadowMap="d_thorn19_3area_model" pos="274.9518 473.3279 516.2854" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_model.xac" Model="d_thorn19_4area_model" ShadowMap="d_thorn19_4area_model" pos="509.8674 542.0873 1660.5228" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_model.xac" Model="d_thorn19_5area_model" ShadowMap="d_thorn19_5area_model" pos="2150.4583 492.4403 356.8597" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_b_model2.xac" Model="d_thorn19_b_model2" ShadowMap="d_thorn19_b_model2" pos="929.2827 575.8036 -297.3794" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_6area_model.xac" Model="d_thorn19_6area_model" ShadowMap="d_thorn19_6area_model" pos="89.9191 276.3426 -2933.2029" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_shaoff.xac" Model="d_thorn19_5area_shaoff" pos="2089.2732 568.0474 290.5544" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_light.xac" Model="d_thorn19_5area_light" pos="2168.7937 479.3657 467.0891" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_shaoff.xac" Model="d_thorn19_4area_shaoff" pos="938.8901 589.1975 2738.7864" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_light.xac" Model="d_thorn19_4area_light" pos="-104.3228 481.1415 2647.7612" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_shaoff.xac" Model="d_thorn19_3area_shaoff" pos="361.9117 685.8341 393.3323" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_light.xac" Model="d_thorn19_3area_light" pos="-725.8250 553.3053 852.2347" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_shaoff.xac" Model="d_thorn19_2area_shaoff" pos="-268.0620 673.8302 -1065.4996" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_light.xac" Model="d_thorn19_2area_light" pos="-845.0112 521.4772 -636.3174" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_shaoff.xac" Model="d_thorn19_1area_shaoff" pos="-215.1501 575.8964 -3039.4849" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_light.xac" Model="d_thorn19_1area_light" pos="-286.9419 577.0561 -2633.3203" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_water.xac" Model="d_thorn19_water" pos="511.4277 605.2378 -912.8248" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_blend4.xac" Model="d_thorn19_1area_blend4" ShadowMap="d_thorn19_1area_blend4" pos="-429.4711 486.5106 -3532.8472" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_blend4.xac" Model="d_thorn19_2area_blend4" ShadowMap="d_thorn19_2area_blend4" pos="-1233.2206 549.9581 -948.3929" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_blend4.xac" Model="d_thorn19_4area_blend4" ShadowMap="d_thorn19_4area_blend4" pos="608.3942 568.5863 2013.8400" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_blend.xac" Model="d_thorn19_1area_blend" ShadowMap="d_thorn19_1area_blend" pos="-140.6992 587.3225 -2706.9780" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_blend.xac" Model="d_thorn19_2area_blend" ShadowMap="d_thorn19_2area_blend" pos="-296.1300 673.8259 -1108.4458" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_blend.xac" Model="d_thorn19_3area_blend" ShadowMap="d_thorn19_3area_blend" pos="315.7214 682.6047 538.4548" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_blend.xac" Model="d_thorn19_4area_blend" ShadowMap="d_thorn19_4area_blend" pos="905.5440 558.1658 2247.2832" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_blend.xac" Model="d_thorn19_5area_blend" ShadowMap="d_thorn19_5area_blend" pos="2129.7183 542.8484 644.2467" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_5area_gr_a.xac" Model="d_thorn19_5area_gr_a" ShadowMap="d_thorn19_5area_gr_a" pos="2161.1860 542.5573 434.5154" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_4area_gr_a.xac" Model="d_thorn19_4area_gr_a" ShadowMap="d_thorn19_4area_gr_a" pos="986.513 564.7675 2200.151" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_3area_gr_a.xac" Model="d_thorn19_3area_gr_a" ShadowMap="d_thorn19_3area_gr_a" pos="295.0996 670.8597 517.3510" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_2area_gr_a.xac" Model="d_thorn19_2area_gr_a" ShadowMap="d_thorn19_2area_gr_a" pos="-292.6885 673.6107 -886.4019" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_1area_gr_a.xac" Model="d_thorn19_1area_gr_a" ShadowMap="d_thorn19_1area_gr_a" pos="69.1132 641.2079 -2932.9004" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_thorn19_tp11.xac" Model="d_thorn19_tp11" ShadowMap="d_thorn19_tp11" pos="1181.5803 668.7855 751.1309" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="430.581 627.669 209.659" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

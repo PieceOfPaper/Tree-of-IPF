@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR" ?>
+<Render>
+    <GEGlow Enable="1" Intensity="19" />
+    <SharpFilter Enable="0" Intensity="29" />
+    <ColorGrading Enable="0" GradingTexture="" />
+    <Bloom Enable="1" SmallScale="34" MediumScale="37" LargeScale="8" />
+    <LinearFog Enable="1" FogColor="0.93 0.83 0.85" FogStart="420" FogEnd="1300" />
+    <LinearSpriteFog Enable="0" FogColor="0.12 0.71 0.87" FogStart="1000" FogEnd="3000" />
+    <ShadowColor ShadowColor="0.08 0.11 0.13" />
+    <WarFog Enable="1" SpotLightSize="450" FireSize="0" WarFogColor="0.00 0.00 0.75" WarFogAlpha="0.04" />
+    <Vignette VignetteMinValue="0.60" VignetteMaxValue="1.64" VignetteCorrectValue="0.16" VignetteColor="1.00 0.80 0.80" />
+</Render>

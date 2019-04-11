@@ -1,0 +1,73 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_siaulei\"/>
+	<LightMap File="c_klaipe_lightmap.jpg" Length="2300.0 2300.0" Offset="-19.349 -162.744" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="2300.0 2300.0" Offset="-19.349 -162.744" Height="3000 -3000"/>
+	<TexDir IpfName="bg_texture\" Path="\klaipeda\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\siauliai\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_klaipe\"/>
+	<Model File="c_kla_6wood.xac" Model="c_kla_6wood" ShadowMap="c_kla_6wood" pos="-120.4233 134.3379 -92.4222" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_ground.xac" Model="c_kla_ground" ShadowMap="c_kla_ground" pos="-137.7623 70.3156 -72.7136" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_gr_a.xac" Model="c_kla_gr_a" ShadowMap="c_kla_gr_a" pos="-71.2802 73.9129 -92.9283" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_01" ShadowMap="f_siaul_03tree_01" pos="278.5370 207.8198 1030.7367" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_01" ShadowMap="f_siaul_05tree_01" pos="138.9227 203.0759 896.7579" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_06tree_01.xac" Model="f_siaul_06tree_01" ShadowMap="f_siaul_06tree_01" pos="-992.6672 288.3250 265.8324" rot="-0.0000 -0.4558 -0.0000 0.8901" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_02tree_01.xac" Model="f_siaul_02tree_01" ShadowMap="f_siaul_02tree_01" pos="349.8987 215.5541 1082.3689" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_01" ShadowMap="f_siaul_04tree_01" pos="371.4667 206.9287 990.3124" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_tp_06.xac" Model="f_siaul_tp_06" ShadowMap="f_siaul_tp_06" pos="-763.7850 53.6654 -509.3732" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_07tree_01.xac" Model="f_siaul_07tree_01" ShadowMap="f_siaul_07tree_01" pos="161.4091 134.1964 654.1213" rot="-0.0000 -0.1478 -0.0000 0.9890" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_02" ShadowMap="f_siaul_05tree_02" pos="-301.0690 53.2613 -1032.3779" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_02" ShadowMap="f_siaul_04tree_02" pos="-311.5596 56.4654 -1133.8782" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_02tree_01.xac" Model="f_siaul_02tree_02" ShadowMap="f_siaul_02tree_02" pos="-267.9754 47.5386 -1282.3464" rot="-0.0000 -0.1768 -0.0000 0.9842" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_1area_grass.xac" Model="c_kla_1area_grass" ShadowMap="c_kla_1area_grass" pos="-289.3131 108.7036 450.3485" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_tree_out.xac" Model="c_kla_tree_out" ShadowMap="c_kla_tree_out" pos="20.8788 68.6839 -166.2591" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_blend.xac" Model="c_kla_blend" ShadowMap="c_kla_blend" pos="82.3273 0.2670 -408.9413" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_tree.xac" Model="c_kla_tree" ShadowMap="c_kla_tree" pos="129.4874 89.9208 -338.1090" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_tp_04.xac" Model="f_siaul_tp_08" ShadowMap="f_siaul_tp_08" pos="884.1322 72.7680 534.0333" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_tp_03.xac" Model="f_siaul_tp_09" ShadowMap="f_siaul_tp_09" pos="1010.8359 72.7680 454.0088" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_03tree_01.xac" Model="f_siaul_03tree_02" ShadowMap="f_siaul_03tree_02" pos="903.1044 50.2706 582.1002" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_02tree_01.xac" Model="f_siaul_02tree_03" ShadowMap="f_siaul_02tree_03" pos="816.1931 46.6973 519.3688" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_07tree_01.xac" Model="f_siaul_07tree_02" ShadowMap="f_siaul_07tree_02" pos="725.7047 50.3315 473.5277" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_light.xac" Model="c_kla_light" pos="-53.4463 104.6632 -131.6638" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_water.xac" Model="c_kla_water" ShadowMap="c_kla_water" pos="-53.4463 104.6632 -131.6638" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_05" ShadowMap="f_siaul_04tree_05" pos="-940.1495 56.8967 -416.9238" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_05tree_01.xac" Model="f_siaul_05tree_03" ShadowMap="f_siaul_05tree_03" pos="-1199.2823 53.1318 -690.7406" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_tp01.xac" Model="c_kla_tp01" ShadowMap="c_kla_tp01" pos="66.2440 144.9124 -287.3750" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_tp02.xac" Model="c_kla_tp02" ShadowMap="c_kla_tp02" pos="247.7559 117.3313 61.7277" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_12obj_01.xac" Model="f_siaul_12obj_01" ShadowMap="f_siaul_12obj_01" pos="758.3705 9.5809 -423.1888" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_01" ShadowMap="f_siaul_11obj_01" pos="37.0703 8.9400 -661.0452" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_02" ShadowMap="f_siaul_11obj_02" pos="142.8570 8.9400 -570.6818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_03" ShadowMap="f_siaul_11obj_03" pos="272.2180 8.9400 -500.9249" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_04" ShadowMap="f_siaul_11obj_04" pos="492.0123 8.9400 -243.8924" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_06" ShadowMap="f_siaul_04tree_06" pos="-865.8719 205.0465 -240.5065" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_05" ShadowMap="f_siaul_11obj_05" pos="-220.9991 159.2628 -126.7757" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_04tree_01.xac" Model="f_siaul_04tree_07" ShadowMap="f_siaul_04tree_07" pos="-391.7450 300.9713 849.3818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_siaul_11obj_01.xac" Model="f_siaul_11obj_06" ShadowMap="f_siaul_11obj_06" pos="344.8200 8.9400 -313.3004" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_1area_model.xac" Model="c_kla_1area_model" ShadowMap="c_kla_1area_model" pos="-355.8630 249.4367 303.9232" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_3area_model.xac" Model="c_kla_3area_model" ShadowMap="c_kla_3area_model" pos="471.4906 -61.9169 494.0710" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_4area_model.xac" Model="c_kla_4area_model" ShadowMap="c_kla_4area_model" pos="-489.5298 -147.4729 -729.9701" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_5area_model.xac" Model="c_kla_5area_model" ShadowMap="c_kla_5area_model" pos="475.5535 -89.8653 -578.9224" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_2area_grass.xac" Model="c_kla_2area_grass" ShadowMap="c_kla_2area_grass" pos="-30.5293 -11.3562 -318.4545" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_2area_light.xac" Model="c_kla_2area_light" pos="-227.0096 129.9067 -529.2407" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_b_model.xac" Model="c_kla_b_model" ShadowMap="c_kla_b_model" pos="-189.6830 18.9418 24.4683" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_blend2.xac" Model="c_kla_blend2" ShadowMap="c_kla_blend2" pos="-72.4415 120.7362 -155.1479" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_2area_house.xac" Model="c_kla_2area_house" ShadowMap="c_kla_2area_house" pos="-166.6806 281.3969 668.6527" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_1area_house.xac" Model="c_kla_1area_house" ShadowMap="c_kla_1area_house" pos="-435.0821 277.3773 326.1423" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_4area_house.xac" Model="c_kla_4area_house" ShadowMap="c_kla_4area_house" pos="233.1662 114.1300 229.6953" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_3area_house.xac" Model="c_kla_3area_house" ShadowMap="c_kla_3area_house" pos="-237.9138 165.6246 -330.0279" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_7area_house.xac" Model="c_kla_7area_house" ShadowMap="c_kla_7area_house" pos="-751.2206 17.8820 -591.1052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_6area_house.xac" Model="c_kla_6area_house" ShadowMap="c_kla_6area_house" pos="128.1363 40.2226 -691.1296" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_5area_house.xac" Model="c_kla_5area_house" ShadowMap="c_kla_5area_house" pos="91.5096 89.8775 -17.2810" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_ground02.xac" Model="c_kla_ground02" ShadowMap="c_kla_ground02" pos="-238.6216 119.5111 142.9327" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klape_gr_a.xac" Model="c_klape_gr_a" ShadowMap="c_klape_gr_a" pos="-224.7413 120.6348 246.2159" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_8area_house.xac" Model="c_kla_8area_house" ShadowMap="c_kla_8area_house" pos="8.5369 82.9302 -117.6359" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="8.5369 82.9302 -117.6359" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_fog.xac" Model="c_klaipeda_fog" pos="-210.8134 313.0060 -81.8352" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_tp11.xac" Model="c_kla_tp11" ShadowMap="c_kla_tp11" pos="355.003 80.312 -598.221" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_kla_tp10.xac" Model="c_kla_tp10" ShadowMap="c_kla_tp10" pos="451.004 80.312 -654.174" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_klaipeda_sha.xac" Model="c_klaipeda_sha" pos="23.8352 197.4113 -205.3488" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

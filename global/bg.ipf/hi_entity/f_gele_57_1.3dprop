@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_gele_57_1_1area_gr_a.xac" RenderType="RT_MODEL" NoCol="0" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_1area_grass.xac" RenderType="RT_PLANELIGHT" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_1area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_1area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_2area_gr_a.xac" RenderType="RT_MODEL" NoCol="0" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_2area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="4" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="f_gele_57_1_2area_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_2area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsDynTree="1"/>
+	<Model Path="f_gele_57_1_3area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="200" GrassTime="4" IsDynTree="1" GrassWindDir="0"/>
+	<Model Path="f_gele_57_1_3area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_4area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_4area_tree.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_5area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="70" GrassTime="4" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_6area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="70" GrassTime="4" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_7area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="70" GrassTime="4" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_8area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="70" GrassTime="4" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_9area_grass.xac" RenderType="RT_MODEL" Type="" NoCol="1" IsGrass="1" GrassWindPower="70" GrassTime="4" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_ani.xac" RenderType="RT_MODEL" NoCol="0" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_b_model.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_blend.xac" RenderType="RT_MUD_BLEND" Type="" NoCol="1" IsDynTree="1"/>
+	<Model Path="f_gele_57_1_blend2.xac" RenderType="RT_MUD_BLEND2" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_blend3.xac" RenderType="RT_MUD_BLEND3" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_blend4.xac" RenderType="RT_MUD_BLEND4" Type="" NoCol="1" IsDynTree="0"/>
+	<Model Path="f_gele_57_1_fog.xac" RenderType="RT_FOG" Type="" NoCol="1"/>
+	<Model Path="f_gele_57_1_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_gele_57_1_light.xac" RenderType="RT_PLANELIGHT" Type="" NoCol="1"/>
+	<Model Path="f_gele_57_1_tp01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_gele_57_1_tree_out.xac" RenderType="RT_MODEL" Type="" NoCol="1"/>
+	<Model Path="f_gele_57_1_water.xac" RenderType="RT_WATER" Type="" NoCol="1" IsWater="1" WaterDiffDir="0 -0.1" WaterSwaySpeed="0" WaterSwayRange="0.00 0" waterSwayPower="0.005" RefractionNormalSize="0.01" RefractionDir="-0.05 0.01" RefractionPower="0.05" WaterSprayNormalSize="0.01" WaterSprayDir="-0.1 -0.01" WaterSprayPower="0.01" WaterSprayRange="0.2" WaterSpraycolor="0.1 0.2 0.3"/>
+</Prop>

@@ -1,0 +1,50 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\catacomb\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="cataboss_lightalpha.xac" Model="cataboss_lightalpha" pos="-259.792480 169.737030 173.738220" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ligani01.xac" Model="cataboss_ligani01" AniFile="cataboss_ligani01.xsm" pos="-286.567291 189.686615 224.846893" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ligani02.xac" Model="cataboss_ligani02" AniFile="cataboss_ligani02.xsm" pos="-265.984528 179.867706 234.548950" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ligani03.xac" Model="cataboss_ligani03" AniFile="cataboss_ligani03.xsm" pos="-323.287628 172.740204 218.683029" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_1obj.xac" Model="cataboss_1obj" pos="73.592987 -27.948807 3.927460" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_2obj.xac" Model="cataboss_2obj" pos="-69.805450 128.414352 -6.179413" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ground.xac" Model="cataboss_ground" pos="26.509750 -411.496155 79.892578" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ground_alpha.xac" Model="cataboss_ground_alpha" pos="96.910980 -86.785492 73.948776" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ground_bk.xac" Model="cataboss_ground_bk" pos="-140.378448 -614.092896 393.270844" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_alphawall.xac" Model="cataboss_alphawall" pos="-389.203156 -280.508026 406.500305" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ani01.xac" Model="cataboss_ani01" AniFile="cataboss_ani01.xsm" pos="-336.396393 245.488785 32.125443" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ani02.xac" Model="cataboss_ani02" AniFile="cataboss_ani02.xsm" pos="81.276703 175.820480 277.659119" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_ani03.xac" Model="cataboss_ani03" AniFile="cataboss_ani03.xsm" pos="195.724945 162.098190 335.841248" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani01.xac" Model="cataboss_chainani01" AniFile="cataboss_chainani01.xsm" pos="-274.340973 133.987732 84.633514" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani02.xac" Model="cataboss_chainani02" AniFile="cataboss_chainani02.xsm" pos="-155.844879 134.103577 200.346909" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani03.xac" Model="cataboss_chainani03" AniFile="cataboss_chainani03.xsm" pos="-263.897614 114.849426 57.233246" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani04.xac" Model="cataboss_chainani04" AniFile="cataboss_chainani04.xsm" pos="-28.257965 61.972652 167.294357" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani05.xac" Model="cataboss_chainani05" AniFile="cataboss_chainani05.xsm" pos="-235.668121 75.659332 -52.988190" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani06.xac" Model="cataboss_chainani06" AniFile="cataboss_chainani06.xsm" pos="-199.110504 69.995224 -183.205536" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani07.xac" Model="cataboss_chainani07" AniFile="cataboss_chainani07.xsm" pos="159.737640 92.381943 308.260254" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_chainani08.xac" Model="cataboss_chainani08" AniFile="cataboss_chainani08.xsm" pos="160.155365 85.201790 313.095886" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha01.xac" Model="cataboss_sha01" AniFile="cataboss_sha01.xsm" pos="-233.512741 149.842407 40.431564" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha02.xac" Model="cataboss_sha02" AniFile="cataboss_sha02.xsm" pos="-232.385422 145.859619 -51.739212" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha03.xac" Model="cataboss_sha03" AniFile="cataboss_sha03.xsm" pos="-174.478424 145.859619 -195.614944" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha04.xac" Model="cataboss_sha04" AniFile="cataboss_sha04.xsm" pos="-115.831047 144.731537 151.883194" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha05.xac" Model="cataboss_sha05" AniFile="cataboss_sha05.xsm" pos="-31.660805 148.479889 161.057953" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha06.xac" Model="cataboss_sha06" AniFile="cataboss_sha06.xsm" pos="171.883835 104.853271 289.034332" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha07.xac" Model="cataboss_sha07" AniFile="cataboss_sha07.xsm" pos="175.545944 104.853271 281.601227" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha08.xac" Model="cataboss_sha08" AniFile="cataboss_sha08.xsm" pos="-295.320709 80.794983 222.096741" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha09.xac" Model="cataboss_sha09" AniFile="cataboss_sha09.xsm" pos="-248.511017 251.128128 -40.135742" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha10.xac" Model="cataboss_sha10" AniFile="cataboss_sha10.xsm" pos="108.888641 142.202087 186.294556" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_sha11.xac" Model="cataboss_sha11" AniFile="cataboss_sha11.xsm" pos="260.684143 162.098175 323.669403" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_cloud_ani.xac" Model="cataboss_cloud_ani" AniFile="cataboss_cloud_ani.xsm" pos="102.604332 72.659966 96.052521" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="cataboss_cloud_ani01.xac" Model="cataboss_cloud_ani01" AniFile="cataboss_cloud_ani01.xsm" pos="102.604309 72.659966 96.052582" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

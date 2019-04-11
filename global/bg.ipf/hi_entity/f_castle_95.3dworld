@@ -1,0 +1,39 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_castle_95\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_castle_95\"/>
+	<LightMap File="f_castle_95_lightmap.jpg" Length="3600 3600" Offset="216.814 -351.052" Size="1024 1024"/>
+	<AutoHeightMap Length="3600 3600" Offset="216.814 -351.052" Height="1000 -1000"/>
+	<TexDir IpfName="bg_texture" Path="\castle\"/>
+	<AnimationDir IpfName="bg_hi" Path="\field\f_castle_95\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_castle_95\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_castle_95\"/>
+	<Model File="f_castle95_blend.xac" Model="f_castle95_blend" ShadowMap="f_castle95_blend" pos="-82.7870 165.3316 -415.1892" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_b_model.xac" Model="f_castle95_b_model" ShadowMap="f_castle95_b_model" pos="73.2640 20.1052 -217.3511" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_gr_a.xac" Model="f_castle95_gr_a" ShadowMap="f_castle95_gr_a" pos="-231.8432 21.2185 -2001.2898" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_1area_tree.xac" Model="f_castle95_1area_tree" ShadowMap="f_castle95_1area_tree" pos="1372.8831 80.0013 -1655.5381" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_anitree01.xac" Model="f_castle95_anitree01" ShadowMap="f_castle95_1area_tree" pos="-183.62 28.423 -1695.454" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_anitree02.xac" Model="f_castle95_anitree02" ShadowMap="f_castle95_1area_tree" pos="1620.66 65.77 -1664.222" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_8area_model.xac" Model="f_castle95_8area_model" ShadowMap="f_castle95_8area_model" pos="212.1157 98.5635 1341.3740" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_1area_grass.xac" Model="f_castle95_1area_grass" ShadowMap="f_castle95_1area_grass" pos="329.0886 54.5345 -1173.2954" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_fog.xac" Model="f_castle95_fog" pos="437.4575 -18.3643 -376.0819" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_light.xac" Model="f_castle95_light" pos="-217.9355 218.8676 -355.3607" rot="0.0000 0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_2area_tree.xac" Model="f_castle95_2area_tree" ShadowMap="f_castle95_2area_tree" pos="427.6327 181.3206 -5.9336" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_ground.xac" Model="f_castle95_ground" ShadowMap="f_castle95_ground" pos="73.2640 20.1052 -217.3511" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_1area_model.xac" Model="f_castle95_1area_model" ShadowMap="f_castle95_1area_model" pos="-1018.0830 -74.6439 -477.3998" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_2area_model.xac" Model="f_castle95_2area_model" ShadowMap="f_castle95_2area_model" pos="-212.392 -32.916 -1556.204" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_9area_model.xac" Model="f_castle95_9area_model" ShadowMap="f_castle95_9area_model" pos="-120.548 -24.79 -689.355" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-120.548 -24.79 -689.355" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_3area_model.xac" Model="f_castle95_3area_model" ShadowMap="f_castle95_3area_model" pos="1300.8827 -82.4907 -1562.2981" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_4area_model.xac" Model="f_castle95_4area_model" ShadowMap="f_castle95_4area_model" pos="1047.7930 -76.9806 -502.2571" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_bloom.xac" Model="f_castle95_bloom" pos="427.6327 181.3206 -5.9336" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_5area_model.xac" Model="f_castle95_5area_model" ShadowMap="f_castle95_5area_model" pos="-218.3097 40.0384 225.0747" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_6area_model.xac" Model="f_castle95_6area_model" ShadowMap="f_castle95_6area_model" pos="1288.7758 48.6846 337.2546" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_7area_model.xac" Model="f_castle95_7area_model" ShadowMap="f_castle95_7area_model" pos="1428.9780 83.4690 1173.1108" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_tp01.xac" Model="f_castle95_tp01" ShadowMap="f_castle95_tp01" pos="958.2177 346.7733 190.0566" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_2area_grass.xac" Model="f_castle95_2area_grass" ShadowMap="f_castle95_2area_grass" pos="592.2933 228.7063 659.4468" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_ani01.xac" Model="f_castle95_ani01" AniFile="f_castle95_ani01.xsm" ShadowMap="f_castle95_3area_model" pos="820.561 -230.921 -1766.511" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_castle95_ani02.xac" Model="f_castle95_ani02" AniFile="f_castle95_ani02.xsm" ShadowMap="f_castle95_2area_model" pos="-593.263 -122.543 -1796.864" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

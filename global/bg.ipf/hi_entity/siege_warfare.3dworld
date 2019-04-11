@@ -1,0 +1,27 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\raid\siege_warfare\"/>
+	<SubModelDir IpfName="bg_hi" Path="\raid\siege_warfare\"/>
+	<LightMap File="siege_warfare_lightmap.jpg" Length="1700.0 1700.0" Offset="-51.107 -119.408" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\remains\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\siege_warfare\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\raid\siege_warfare\"/>
+	<Model File="siege_warfare_water.xac" Model="siege_warfare_water" ShadowMap="siege_warfare_water" pos="34.9205 -549.0394 148.9854" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_model02.xac" Model="siege_warfare_model02" ShadowMap="siege_warfare_model02" pos="24.6068 -95.9029 456.9814" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_ground.xac" Model="siege_warfare_ground" ShadowMap="siege_warfare_ground" pos="-16.3536 6.7731 -115.9219" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_light.xac" Model="siege_warfare_light" pos="42.7279 82.6805 46.1343" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_blend1.xac" Model="siege_warfare_blend1" ShadowMap="siege_warfare_blend1" pos="-41.7153 4.3296 -118.3554" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_blend3.xac" Model="siege_warfare_blend3" ShadowMap="siege_warfare_blend3" pos="-68.7572 3.1299 -169.0781" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_blend2.xac" Model="siege_warfare_blend2" ShadowMap="siege_warfare_blend2" pos="-24.8148 2.9299 -137.3763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_gr_a.xac" Model="siege_warfare_gr_a" ShadowMap="siege_warfare_gr_a" pos="-303.6376 64.2883 427.3141" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_b_model01.xac" Model="siege_warfare_b_model01" ShadowMap="siege_warfare_b_model01" pos="-770.8290 -534.6836 -438.2024" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_b_model02.xac" Model="siege_warfare_b_model02" ShadowMap="siege_warfare_b_model02" pos="168.5802 -597.5800 288.5456" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_shaoff.xac" Model="siege_warfare_shaoff" pos="-13.4343 -184.6752 -52.8552" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_tree.xac" Model="siege_warfare_tree" ShadowMap="siege_warfare_tree" pos="-21.6772 -27.1009 -46.9347" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_grass.xac" Model="siege_warfare_grass" ShadowMap="siege_warfare_grass" pos="20.6892 -153.6846 34.4086" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_model01.xac" Model="siege_warfare_model01" ShadowMap="siege_warfare_model01" pos="13.7769 -511.0106 -167.5646" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_fog.xac" Model="siege_warfare_fog" pos="37.8175 -348.5569 -110.6885" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="siege_warfare_tp.xac" Model="siege_warfare_tp" ShadowMap="siege_warfare_tp" pos="150.3407 62.6553 634.1100" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

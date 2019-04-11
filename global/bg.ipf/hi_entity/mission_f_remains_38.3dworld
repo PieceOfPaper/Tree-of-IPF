@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\raid\mission_f_remains_38\"/>
+	<SubModelDir IpfName="bg_hi3" Path="\field\f_remains_38\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="4100.0 4100.0" Offset="-190.879 -214.409" Height="4000 -4000"/>
+	<LightMap File="mission_f_remains_38.jpg" Length="4100.0 4100.0" Offset="-190.879 -214.409" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\remains\"/>
+	<Model File="mission_f_remains_38_ground.xac" Model="mission_f_remains_38_ground" ShadowMap="mission_f_remains_38_ground" pos="-914.3384 361.0847 -520.4453" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_1area_grass.xac" Model="mission_f_remains_38_1area_grass" ShadowMap="mission_f_remains_38_1area_grass" pos="-1189.1182 256.7908 -1003.2847" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_b_model.xac" Model="mission_f_remains_38_b_model" ShadowMap="mission_f_remains_38_b_model" pos="-664.1688 264.5374 -224.4244" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_gr_a.xac" Model="mission_f_remains_38_gr_a" ShadowMap="mission_f_remains_38_gr_a" pos="-763.3713 358.1137 -215.0422" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_3area_tree.xac" Model="mission_f_remains_38_3area_tree" ShadowMap="mission_f_remains_38_3area_tree" pos="-203.0605 441.9252 516.8972" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_3area_model.xac" Model="mission_f_remains_38_3area_model" ShadowMap="mission_f_remains_38_3area_model" pos="-177.6383 359.6714 752.8945" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_1area_model.xac" Model="mission_f_remains_38_1area_model" ShadowMap="mission_f_remains_38_1area_model" pos="-1254.8364 205.3580 -1415.9885" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_tp02.xac" Model="mission_f_remains_38_tp02" ShadowMap="mission_f_remains_38_tp02" pos="-725.4296 440.7195 40.8807" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_tp01.xac" Model="mission_f_remains_38_tp01" ShadowMap="mission_f_remains_38_tp01" pos="-546.1752 442.5396 -67.7698" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-1466.2362 306.4864 -1415.9885" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_water.xac" Model="mission_f_remains_38_water" ShadowMap="mission_f_remains_38_water" pos="-630.4154 43.3142 29.0172" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_light.xac" Model="mission_f_remains_38_light" pos="-513.9977 309.3042 519.9078" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_2area_model.xac" Model="mission_f_remains_38_2area_model" ShadowMap="mission_f_remains_38_2area_model" pos="-1501.6995 134.9576 320.3021" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_fog.xac" Model="mission_f_remains_38_fog" pos="-1833.1304 628.6493 -725.8652" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_2area_grass.xac" Model="mission_f_remains_38_2area_grass" ShadowMap="mission_f_remains_38_2area_grass" pos="-952.2050 340.9987 952.8596" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_tree_out.xac" Model="mission_f_remains_38_tree_out" ShadowMap="mission_f_remains_38_tree_out" pos="-1097.4575 251.5508 -333.2288" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_1area_tree.xac" Model="mission_f_remains_38_1area_tree" ShadowMap="mission_f_remains_38_1area_tree" pos="-1594.8491 254.5119 -1378.8298" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_2area_tree.xac" Model="mission_f_remains_38_2area_tree" ShadowMap="mission_f_remains_38_2area_tree" pos="-1305.2134 314.5070 -199.5446" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_tp04.xac" Model="mission_f_remains_38_tp04" ShadowMap="mission_f_remains_38_tp04" pos="-687.3517 457.3984 -461.4189" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_f_remains_38_tp03.xac" Model="mission_f_remains_38_tp03" ShadowMap="mission_f_remains_38_tp03" pos="-1196.2850 432.9012 -804.9297" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\raid\mission_f_remains_38\"/>
+</World>

@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="d_thorn39_3_1area_gr_a.xac" RenderType="RT_MODEL" IsDynTree="0" NoCol="0"/>
+	<Model Path="d_thorn39_3_1area_grass.xac" RenderType="RT_MODEL" NoCol="1" Type=""/>
+	<Model Path="d_thorn39_3_1area_model.xac" RenderType="RT_MUD" IsDynTree="0" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_1area_tree.xac" RenderType="RT_MUD" IsDynTree="0" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_2area_gr_a.xac" RenderType="RT_MODEL" IsDynTree="0" NoCol="0"/>
+	<Model Path="d_thorn39_3_2area_grass.xac" RenderType="RT_MODEL" IsGrass="0" GrassWindPower="100" GrassTime="4" IsDynTree="1" GrassWindDir="0" NoCol="1" Type=""/>
+	<Model Path="d_thorn39_3_2area_tree.xac" RenderType="RT_MUD" IsDynTree="0" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_3area_grass.xac" RenderType="RT_MUD" IsGrass="0" GrassWindPower="100" GrassTime="4" IsDynTree="1" GrassWindDir="0" NoCol="1" Type="GROUND"/>
+	<Model Path="d_thorn39_3_3area_model.xac" RenderType="RT_MUD" IsDynTree="0" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_3area_tree.xac" RenderType="RT_MUD" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_b_model.xac" RenderType="RT_MUD" IsDynTree="0" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_blend.xac" RenderType="RT_MUD_BLEND" IsDynTree="0" NoCol="1" Type=""/>
+	<Model Path="d_thorn39_3_fog.xac" RenderType="RT_FOG" IsDynTree="0" NoCol="1" Type=""/>
+	<Model Path="d_thorn39_3_ground.xac" RenderType="RT_MUD" IsDynTree="0" NoCol="0" Type="GROUND"/>
+	<Model Path="d_thorn39_3_light.xac" RenderType="RT_PLANELIGHT" IsDynTree="0" NoCol="1" Type=""/>
+	<Model Path="d_thorn39_3_tp01.xac" RenderType="BLENDING" IsDynTree="0" NoCol="1" Type="BLENDING"/>
+	<Model Path="d_thorn39_3_water.xac" RenderType="RT_WATER" IsDynTree="0" NoCol="1" Type="" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.0001 0.0001" WaterSprayPower="0.01" WaterSprayRange="0" WaterSpraycolor="0.1 0.3 0.4"/>
+</Prop>

@@ -1,0 +1,65 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_remains_38\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_remains_38\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="4100.0 4100.0" Offset="-190.879 -214.409" Height="3000 -3000"/>
+	<LightMap File="f_remains_38_lightmap.jpg" Length="4100.0 4100.0" Offset="-190.879 -214.409" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\remains\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_remains_38\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_remains_38\"/>
+	<Model File="f_remains38_ground.xac" Model="f_remains38_ground" ShadowMap="f_remains38_ground" pos="-263.7854 319.8559 -187.0114" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_1area_grass.xac" Model="f_remains38_1area_grass" ShadowMap="f_remains38_1area_grass" pos="-1620.2778 331.6855 -1312.9573" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_water.xac" Model="f_remains38_water" ShadowMap="f_remains38_water" pos="-99.7547 43.3142 -243.4359" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_fog.xac" Model="f_remains38_fog" pos="-1965.788 516.602 -697.669" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_b_model.xac" Model="f_remains38_b_model" ShadowMap="f_remains38_b_model" pos="-179.4899 264.5374 -202.2104" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_3area_gr_a.xac" Model="f_remains38_3area_gr_a" ShadowMap="f_remains38_3area_gr_a" pos="-107.4685 366.6255 854.8256" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_2area_gr_a.xac" Model="f_remains38_2area_gr_a" ShadowMap="f_remains38_2area_gr_a" pos="-1323.6040 357.2172 420.8030" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_4area_gr_a.xac" Model="f_remains38_4area_gr_a" ShadowMap="f_remains38_4area_gr_a" pos="585.5972 283.5125 -557.6300" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_6area_gr_a.xac" Model="f_remains38_6area_gr_a" ShadowMap="f_remains38_6area_gr_a" pos="1252.2498 373.0384 1086.9568" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_1area_gr_a.xac" Model="f_remains38_1area_gr_a" ShadowMap="f_remains38_1area_gr_a" pos="-1423.2964 339.8908 -1524.5604" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_6area_grass.xac" Model="f_remains38_6area_grass" ShadowMap="f_remains38_6area_grass" pos="1398.5396 397.1638 977.6262" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_5area_grass.xac" Model="f_remains38_5area_grass" ShadowMap="f_remains38_5area_grass" pos="1057.5737 264.8965 -671.5879" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_3area_grass.xac" Model="f_remains38_3area_grass" ShadowMap="f_remains38_3area_grass" pos="-152.0100 505.1293 952.8597" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_2area_grass.xac" Model="f_remains38_2area_grass" ShadowMap="f_remains38_2area_grass" pos="-1482.7644 292.3391 366.4912" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_4area_grass.xac" Model="f_remains38_4area_grass" ShadowMap="f_remains38_4area_grass" pos="-360.4660 272.4587 -1001.5970" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_2area_tree.xac" Model="f_remains38_2area_tree" ShadowMap="f_remains38_2area_tree" pos="-1590.4032 367.8787 345.6038" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_anitree02.xac" Model="f_remains38_anitree02" ShadowMap="f_remains38_2area_tree" pos="-1320.814 451.508 345.604" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_6area_tree.xac" Model="f_remains38_6area_tree" ShadowMap="f_remains38_6area_tree" pos="1462.1505 394.4972 707.8236" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_anitree06.xac" Model="f_remains38_anitree06" ShadowMap="f_remains38_6area_tree" pos="1364.038 425.409 830.489" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_5area_tree.xac" Model="f_remains38_5area_tree" ShadowMap="f_remains38_5area_tree" pos="603.1855 281.8350 -898.7626" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_3area_tree.xac" Model="f_remains38_3area_tree" ShadowMap="f_remains38_3area_tree" pos="-51.8237 439.2247 679.4257" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_anitree03.xac" Model="f_remains38_anitree03" ShadowMap="f_remains38_3area_tree" pos="-203.061 496.388 679.426" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_1area_tree.xac" Model="f_remains38_1area_tree" ShadowMap="f_remains38_1area_tree" pos="-1576.3707 347.5163 -1242.0588" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_anitree01.xac" Model="f_remains38_anitree01" ShadowMap="f_remains38_1area_tree" pos="-1586.052 369.063 -1408.135" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_anitree04.xac" Model="f_remains38_anitree04" ShadowMap="f_remains38_4area_tree" pos="-702.832 353.967 -906.396" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_4area_tree.xac" Model="f_remains38_4area_tree" ShadowMap="f_remains38_4area_tree" pos="-531.5424 362.7543 -677.3820" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_6area_model.xac" Model="f_remains38_6area_model" ShadowMap="f_remains38_6area_model" pos="1259.1191 357.3202 1118.0979" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_4area_model.xac" Model="f_remains38_4area_model" ShadowMap="f_remains38_4area_model" pos="-24.7958 244.0751 -603.2350" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_5area_model.xac" Model="f_remains38_5area_model" ShadowMap="f_remains38_5area_model" pos="1104.4634 309.9841 -469.3967" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_3area_model.xac" Model="f_remains38_3area_model" ShadowMap="f_remains38_3area_model" pos="-172.8272 359.7130 987.0342" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_2area_model.xac" Model="f_remains38_2area_model" ShadowMap="f_remains38_2area_model" pos="-1501.6995 134.9576 353.6299" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_1area_model.xac" Model="f_remains38_1area_model" ShadowMap="f_remains38_1area_model" pos="-1466.2362 306.4864 -1415.9885" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-1466.2362 306.4864 -1415.9885" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp05.xac" Model="f_remains38_tp05" ShadowMap="f_remains38_tp05" pos="-521.2903 480.4057 168.4352" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp18.xac" Model="f_remains38_tp18" ShadowMap="f_remains38_tp18" pos="1503.5344 500.1885 1493.4646" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp17.xac" Model="f_remains38_tp17" ShadowMap="f_remains38_tp17" pos="1110.7852 424.9177 741.9052" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp16.xac" Model="f_remains38_tp16" ShadowMap="f_remains38_tp16" pos="1161.6689 427.2789 549.3484" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp15.xac" Model="f_remains38_tp15" ShadowMap="f_remains38_tp15" pos="1110.9706 413.3964 -717.8966" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp14.xac" Model="f_remains38_tp14" ShadowMap="f_remains38_tp14" pos="349.4966 359.7722 -549.4977" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp13.xac" Model="f_remains38_tp13" ShadowMap="f_remains38_tp13" pos="53.4210 535.8608 934.2644" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp12.xac" Model="f_remains38_tp12" ShadowMap="f_remains38_tp12" pos="402.1121 552.6211 656.5634" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp11.xac" Model="f_remains38_tp11" ShadowMap="f_remains38_tp11" pos="16.1539 477.5326 132.9711" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp10.xac" Model="f_remains38_tp10" ShadowMap="f_remains38_tp10" pos="-1574.1201 392.3818 696.8356" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp09.xac" Model="f_remains38_tp09" ShadowMap="f_remains38_tp09" pos="-1533.1199 391.9198 335.8639" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp08.xac" Model="f_remains38_tp08" ShadowMap="f_remains38_tp08" pos="-1167.4462 506.8717 -415.6503" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp07.xac" Model="f_remains38_tp07" ShadowMap="f_remains38_tp07" pos="-904.2201 480.3378 539.2554" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp06.xac" Model="f_remains38_tp06" ShadowMap="f_remains38_tp06" pos="-521.6599 482.0365 439.8216" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp04.xac" Model="f_remains38_tp04" ShadowMap="f_remains38_tp04" pos="-620.1229 480.8036 143.2888" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp03.xac" Model="f_remains38_tp03" ShadowMap="f_remains38_tp03" pos="-711.7875 482.5188 -595.4769" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp02.xac" Model="f_remains38_tp02" ShadowMap="f_remains38_tp02" pos="-1161.3379 350.3322 -821.2262" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_tp01.xac" Model="f_remains38_tp01" ShadowMap="f_remains38_tp01" pos="-1296.7231 362.7478 -871.1360" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_remains38_light.xac" Model="f_remains38_light" ShadowMap="" pos="-99.755 43.314 -243.436" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

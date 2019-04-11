@@ -1,0 +1,48 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by JangYD (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_startower_91\"/>
+	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_startower_91\"/>
+	<TexDir IpfName="bg_texture" Path="\startower\"/>
+	<LightMap File="d_startower_91_lightmap.jpg" Length="5300 5300" Offset="133.218 -6.916" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_startower_91\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_startower_91\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_startower_91\"/>
+	<Model File="d_startower91_ground.xac" Model="d_startower91_ground" ShadowMap="d_startower91_ground" pos="107.6991 1161.2255 -21.9193" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_12area_model01.xac" Model="d_startower91_12area_model01" ShadowMap="d_startower91_12area_model01" pos="-2092.2505 1125.1139 1570.5480" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_blend2.xac" Model="d_startower91_blend2" ShadowMap="d_startower91_blend2" pos="58.6869 1162.0206 -108.4086" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_light.xac" Model="d_startower91_light" pos="348.2675 1031.0121 -158.1095" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_bloom.xac" Model="d_startower91_bloom" pos="1426.7401 923.7206 -260.0292" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_blend1.xac" Model="d_startower91_blend1" ShadowMap="d_startower91_blend1" pos="1823.6615 1043.5800 -1067.1161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_grass.xac" Model="d_startower91_grass" ShadowMap="d_startower91_grass" pos="72.6889 1203.5958 -15.9991" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_1area_model02.xac" Model="d_startower91_1area_model02" ShadowMap="d_startower91_1area_model02" pos="2068.1689 644.7991 -1329.8536" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_1area_model01.xac" Model="d_startower91_1area_model01" ShadowMap="d_startower91_1area_model01" pos="2581.8208 707.2961 -1645.7728" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_2area_model01.xac" Model="d_startower91_2area_model01" ShadowMap="d_startower91_2area_model01" pos="1247.9081 669.5535 -2321.0830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_2area_model02.xac" Model="d_startower91_2area_model02" ShadowMap="d_startower91_2area_model02" pos="1529.5609 706.8807 -1620.4535" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_3area_model02.xac" Model="d_startower91_3area_model02" ShadowMap="d_startower91_3area_model02" pos="1636.0834 515.2833 -298.7348" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_3area_model01.xac" Model="d_startower91_3area_model01" ShadowMap="d_startower91_3area_model01" pos="1210.3114 473.4979 -626.5958" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_4area_model02.xac" Model="d_startower91_4area_model02" ShadowMap="d_startower91_4area_model02" pos="407.4213 537.5135 -1373.9750" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_4area_model01.xac" Model="d_startower91_4area_model01" ShadowMap="d_startower91_4area_model01" pos="239.7079 268.5240 -1907.8763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_5area_model02.xac" Model="d_startower91_5area_model02" ShadowMap="d_startower91_5area_model02" pos="-1342.3702 75.6478 -1445.8934" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_5area_model01.xac" Model="d_startower91_5area_model01" ShadowMap="d_startower91_5area_model01" pos="-299.6576 304.5358 -1136.6678" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_6area_model02.xac" Model="d_startower91_6area_model02" ShadowMap="d_startower91_6area_model02" pos="85.3124 483.3762 -494.0233" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_6area_model01.xac" Model="d_startower91_6area_model01" ShadowMap="d_startower91_6area_model01" pos="546.7025 -119.2207 -260.2963" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_7area_model01.xac" Model="d_startower91_7area_model01" ShadowMap="d_startower91_7area_model01" pos="-672.9188 53.9714 -394.1689" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_8area_model02.xac" Model="d_startower91_8area_model02" ShadowMap="d_startower91_8area_model02" pos="1138.5922 117.3268 1434.3082" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_8area_model01.xac" Model="d_startower91_8area_model01" ShadowMap="d_startower91_8area_model01" pos="871.9711 897.8938 741.3705" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_9area_model02.xac" Model="d_startower91_9area_model02" ShadowMap="d_startower91_9area_model02" pos="-182.8238 554.5813 828.5135" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_9area_model01.xac" Model="d_startower91_9area_model01" ShadowMap="d_startower91_9area_model01" pos="286.5873 235.2230 764.9635" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_10area_model02.xac" Model="d_startower91_10area_model02" ShadowMap="d_startower91_10area_model02" pos="-1533.4613 963.4604 1111.3085" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_10area_model01.xac" Model="d_startower91_10area_model01" ShadowMap="d_startower91_10area_model01" pos="-1216.4567 228.5580 401.2198" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_11area_model02.xac" Model="d_startower91_11area_model02" ShadowMap="d_startower91_11area_model02" pos="-1133.2394 1069.4950 1790.4899" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_blend3.xac" Model="d_startower91_blend3" pos="-220.7008 1034.6848 -405.0192" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_tp01.xac" Model="d_startower91_tp01" ShadowMap="d_startower91_tp01" pos="1729.5549 1092.0725 -881.6461" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower91_fog.xac" Model="d_startower91_fog" pos="2133.0522 0.0000 -833.5286" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower92_ani04.xac" Model="d_startower92_ani01" AniFile="d_startower92_ani04.xsm" pos="-849.1151 760.4718 -421.3020" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="0.6000 0.6000 0.6000"/>
+	<Model File="d_startower_wheel01.xac" Model="d_startower_wheel03" ShadowMap="d_startower_wheel01" AniFile="d_startower_wheel01.xsm" pos="1097.036 992.105 -2346.997" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="0.8300 0.8300 0.8300"/>
+	<Model File="d_startower_wheel01.xac" Model="d_startower_wheel02" AniFile="d_startower_wheel01.xsm" pos="1403.578 1010.531 -2193.885" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="0.8300 0.8300 0.8300"/>
+	<Model File="d_startower_wheel01.xac" Model="d_startower_wheel04" AniFile="d_startower_wheel01.xsm" pos="1327.953 1010.531 -2102.131" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="0.8300 0.8300 0.8300"/>
+	<Model File="d_startower91_11area_model01.xac" Model="d_startower91_11area_model01" ShadowMap="d_startower91_11area_model01" pos="-827.8890 -56.7064 1313.8732" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_flash_63\"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_flash_63\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<LightMap File="f_flash_63_lightmap.jpg" Length="4968.00 4968.00" Offset="0 0" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\flash\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_flash_63\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_flash_63\"/>
+	<Model File="f_flash63_gr_a.xac" Model="f_flash63_gr_a" ShadowMap="f_flash63_gr_a" pos="531.4032 168.1867 40.6281" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_b_model.xac" Model="f_flash63_b_model" ShadowMap="f_flash63_b_model" pos="378.5991 195.6751 232.1191" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_ground.xac" Model="f_flash63_ground" ShadowMap="f_flash63_ground" pos="479.8986 124.5110 -103.3818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_light.xac" Model="f_flash63_light" pos="405.2098 339.7007 215.2581" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_water.xac" Model="f_flash63_water" ShadowMap="f_flash63_water" pos="419.2949 29.3178 249.4060" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_blend2.xac" Model="f_flash63_blend2" ShadowMap="f_flash63_blend2" pos="486.6370 167.8823 -204.8052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_blend.xac" Model="f_flash63_blend" ShadowMap="f_flash63_blend" pos="473.0773 167.9071 -76.2194" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_1area_grass.xac" Model="f_flash63_1area_grass" ShadowMap="f_flash63_1area_grass" pos="309.6780 130.3345 -1600.8569" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_7area_model.xac" Model="f_flash63_7area_model" ShadowMap="f_flash63_7area_model" pos="-353.5040 151.9279 679.5028" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_4area_model.xac" Model="f_flash63_4area_model" ShadowMap="f_flash63_4area_model" pos="920.5497 183.7469 349.4348" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_1area_model.xac" Model="f_flash63_1area_model" ShadowMap="f_flash63_1area_model" pos="-179.1913 131.9876 -2067.5723" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-179.1913 131.9876 -2067.5723" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_3area_model.xac" Model="f_flash63_3area_model" ShadowMap="f_flash63_3area_model" pos="-102.0889 180.4031 -525.3013" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_2area_tree.xac" Model="f_flash63_2area_tree" ShadowMap="f_flash63_2area_tree" pos="-25.9145 184.0858 -444.0492" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_3area_tree.xac" Model="f_flash63_3area_tree" ShadowMap="f_flash63_3area_tree" pos="1234.7437 211.2258 376.7647" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_5area_tree.xac" Model="f_flash63_5area_tree" ShadowMap="f_flash63_5area_tree" pos="-200.4686 209.2787 976.5093" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_1area_tree.xac" Model="f_flash63_1area_tree" ShadowMap="f_flash63_1area_tree" pos="343.4451 132.7270 -1621.5385" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_2area_model.xac" Model="f_flash63_2area_model" ShadowMap="f_flash63_2area_model" pos="714.4442 19.9689 -1147.5297" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_tp01.xac" Model="f_flash63_tp01" ShadowMap="f_flash63_tp01" pos="357.8644 253.1709 -280.8277" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_tp02.xac" Model="f_flash63_tp02" ShadowMap="f_flash63_tp02" pos="234.9502 247.3623 -124.6277" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_5area_model.xac" Model="f_flash63_5area_model" ShadowMap="f_flash63_5area_model" pos="1132.6132 192.8471 1936.3978" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_6area_model.xac" Model="f_flash63_6area_model" ShadowMap="f_flash63_6area_model" pos="441.4007 157.1144 998.6230" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_4area_tree.xac" Model="f_flash63_4area_tree" ShadowMap="f_flash63_4area_tree" pos="1132.2312 148.4776 2012.7634" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_2area_grass.xac" Model="f_flash63_2area_grass" ShadowMap="f_flash63_2area_grass" pos="10.7714 196.8944 -376.7173" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_3area_grass.xac" Model="f_flash63_3area_grass" ShadowMap="f_flash63_3area_grass" pos="1092.4181 226.3183 1285.6365" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_flash63_4area_grass.xac" Model="f_flash63_4area_grass" ShadowMap="f_flash63_4area_grass" pos="-294.6872 225.4346 935.9769" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\test_zone\trackzone\"/>
+	<LightMap File="d_velniasprison_trackzone_lightmap.jpg" Length="5200.0 5200.0" Offset="110.577 10.729" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\velniasprison\"/>
+	<AutoHeightMap Length="5200.0 5200.0" Offset="110.577 10.729" Height="6000 -6000"/>
+	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\test_zone\trackzone\"/>
+	<Model File="d_velniasprison_trackzone_1area_b_model.xac" Model="d_velniasprison_trackzone_1area_b_model" ShadowMap="d_velniasprison_trackzone_1area_b_model" pos="-99.8163 255.522 -63.5488" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_3area_b_model.xac" Model="d_velniasprison_trackzone_3area_b_model" ShadowMap="d_velniasprison_trackzone_3area_b_model" pos="-99.8163 255.522 -63.5488" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_1area_model.xac" Model="d_velniasprison_trackzone_1area_model" ShadowMap="d_velniasprison_trackzone_1area_model" pos="1381.5933 16.0212 48.5897" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_grass.xac" Model="d_velniasprison_trackzone_grass" ShadowMap="d_velniasprison_trackzone_grass" pos="225.4680 -10.194 38.5232" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_ground.xac" Model="d_velniasprison_trackzone_ground" ShadowMap="d_velniasprison_trackzone_ground" pos="-65.0929 26.2849 58.322" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_blend.xac" Model="d_velniasprison_trackzone_blend" ShadowMap="d_velniasprison_trackzone_blend" pos="125.5145 -0.878 40.5840" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_anitree_01.xac" Model="d_velniasprison_trackzone_anitree_01" ShadowMap="d_velniasprison_trackzone_tree" pos="217.7255 -29.7612 -57.7064" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_light.xac" Model="d_velniasprison_trackzone_light" pos="143.2139 99.2236 -94.9107" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_ani.xac" Model="d_velniasprison_trackzone_ani" ShadowMap="d_velniasprison_trackzone_ani" pos="271.1479 -43.6697 -107.7037" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_bloom.xac" Model="d_velniasprison_trackzone_bloom" ShadowMap="d_velniasprison_trackzone_bloom" pos="126.2712 60.1729 -43.7705" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_trackzone_2area_model.xac" Model="d_velniasprison_trackzone_2area_model" ShadowMap="d_velniasprison_trackzone_2area_model" pos="-1111.4065 158.0150 41.0594" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

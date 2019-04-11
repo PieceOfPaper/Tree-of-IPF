@@ -1,0 +1,11 @@
+<?xml version="1.xac0" standalone="yes"?>
+<!-- edited with XMLSpy v2006 U (http://www.xacaltova.xaccom) by MyHome (EMBRACE) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by k (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="c_firemage_fog.xac" RenderType="RT_FOG" NoCol="1"/>
+	<Model Path="c_firemage_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="c_firemage_sha.xac" RenderType="RT_OFF_SHABL" NoCol="1"/>
+	<Model Path="c_firemage_obj.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="c_firemage_gr.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="c_firemage_wall.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+</Prop>

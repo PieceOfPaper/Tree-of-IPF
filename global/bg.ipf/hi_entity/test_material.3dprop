@@ -1,0 +1,8 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="test_light.xac" RenderType="RT_FOG" Type="" IsDynTree="0" NoCol="1"/>
+	<Model Path="test_ground.xac" RenderType="RT_MUD" Type="GROUND" IsDynTree="0" NoCol="0"/>
+	<Model Path="test_water.xac" RenderType="RT_WATER" Type="" IsDynTree="0" IsWater="1" WaterDiffDir="0 0" WaterSwaySpeed="0.1" WaterSwayRange="0.01 0" waterSwayPower="0.01" RefractionNormalSize="0.001" RefractionDir="0.0 0.01" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.03" WaterSprayRange="1" WaterSpraycolor="0.1 0.3 0.4" NoCol="1"/>
+	<Model Path="test_grass.xac" RenderType="RT_MODEL" IsGrass="1" GrassWindPower="200" GrassTime="4" IsDynTree="0"/>
+</Prop>

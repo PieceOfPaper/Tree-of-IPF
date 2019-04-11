@@ -1,0 +1,57 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 1 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_firetower_45\"/>
+	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_firetower_45\"/>
+	<LightMap File="d_firetower_45_lightmap.jpg" Length="5500 5500" Offset="-401.377 183.591" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\firetower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_firetower_45\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_firetower_45\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_firetower_45\"/>
+	<Model File="d_firetower45_ground.xac" Model="d_firetower45_ground" ShadowMap="d_firetower45_ground" pos="-335.2593 406.0354 174.0984" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_light.xac" Model="d_firetower45_light" pos="-214.392 330.9 206.577" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_4area_tree.xac" Model="d_firetower45_4area_tree" ShadowMap="d_firetower45_4area_tree" pos="500.2722 224.4398 2091.1697" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_4area_grass.xac" Model="d_firetower45_4area_grass" ShadowMap="d_firetower45_4area_grass" pos="409.4807 123.5142 1873.8760" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_b_model.xac" Model="d_firetower45_b_model" ShadowMap="d_firetower45_b_model" pos="-71.396 -260.408 392.46" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_6area_model.xac" Model="d_firetower45_6area_model" ShadowMap="d_firetower45_6area_model" pos="829.5146 49.781 2311.6594" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_8area_model.xac" Model="d_firetower45_8area_model" ShadowMap="d_firetower45_8area_model" pos="-1044.0011 14.5097 -1288.9941" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_2area_model.xac" Model="d_firetower45_2area_model" ShadowMap="d_firetower45_2area_model" pos="-999.6151 218.495 -550.4517" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_3area_model.xac" Model="d_firetower45_3area_model" ShadowMap="d_firetower45_3area_model" pos="-226.0246 203.8719 277.0979" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_4area_model.xac" Model="d_firetower45_4area_model" ShadowMap="d_firetower45_4area_model" pos="422.4188 37.5924 1019.2917" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_5area_model.xac" Model="d_firetower45_5area_model" ShadowMap="d_firetower45_5area_model" pos="606.5695 -141.1882 1653.7000" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_7area_model.xac" Model="d_firetower45_7area_model" ShadowMap="d_firetower45_7area_model" pos="790.5669 -52.4814 2447.0247" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_1area_blend2.xac" Model="d_firetower45_1area_blend2" pos="-1114.9871 301.8517 -1646.0248" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_2area_blend2.xac" Model="d_firetower45_2area_blend2" pos="-854.3911 492.4944 -364.7109" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_3area_blend2.xac" Model="d_firetower45_3area_blend2" pos="418.0447 198.2999 1239.4602" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_1area_grass.xac" Model="d_firetower45_1area_grass" ShadowMap="d_firetower45_1area_grass" pos="-1242.1260 149.1001 -1597.1270" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_2area_grass.xac" Model="d_firetower45_2area_grass" ShadowMap="d_firetower45_2area_grass" pos="-1200.5044 443.0664 -390.3376" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_3area_grass.xac" Model="d_firetower45_3area_grass" ShadowMap="d_firetower45_3area_grass" pos="45.0751 350.1496 432.5588" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_1area_tree.xac" Model="d_firetower45_1area_tree" ShadowMap="d_firetower45_1area_tree" pos="-1094.6425 354.6542 -1426.5287" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_2area_tree.xac" Model="d_firetower45_2area_tree" ShadowMap="d_firetower45_2area_tree" pos="-1206.6858 533.7917 -391.8740" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_3area_tree.xac" Model="d_firetower45_3area_tree" ShadowMap="d_firetower45_3area_tree" pos="445.9807 225.4528 1054.6111" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_1area_model.xac" Model="d_firetower45_1area_model" ShadowMap="d_firetower45_1area_model" pos="-1204.2485 82.4163 -1974.6563" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp01.xac" Model="d_firetower45_tp01" ShadowMap="d_firetower45_tp01" pos="-1138.0104 226.4117 -1928.8281" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp02.xac" Model="d_firetower45_tp02" ShadowMap="d_firetower45_tp02" pos="-1237.8468 55.7604 -1841.0592" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp04.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp04" pos="-1164.9474 373.5315 -1345.3538" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp05.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp05" pos="-1316.1001 373.5316 -1345.3538" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp03.xac" Model="d_firetower45_tp03" ShadowMap="d_firetower45_tp03" pos="-1167.5930 63.2904 -1782.5730" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp10.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp10" pos="-1160.0583 557.5794 -264.5414" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp07.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp07" pos="-1165.8748 553.3560 -738.3899" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp06.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp06" pos="-1079.9476 501.2697 -739.7594" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp09.xac" Model="d_firetower45_tp09" ShadowMap="d_firetower45_tp09" pos="-467.0369 508.7024 -541.3574" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp08.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp08" pos="-1167.6136 553.3561 -585.6042" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp11.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp11" pos="-1316.8293 557.5794 -264.5415" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp13.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp13" pos="653.0494 194.9179 799.7898" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp12.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp12" pos="-10.6730 286.2541 932.9189" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp14.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp14" pos="683.0459 194.9179 945.4119" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp15.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp15" pos="1024.4222 190.9260 713.7297" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp17.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp17" pos="739.4615 282.8737 1253.0232" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp19.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp19" pos="141.7898 190.4561 1385.4497" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp18.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp18" pos="766.2839 282.8735 1403.4458" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_tp16.xac" Model="d_firetower45_tp04" ShadowMap="d_firetower45_tp16" pos="1107.5564 242.8135 1171.1443" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_blend.xac" Model="d_firetower45_blend" pos="-335.2593 406.0354 174.0984" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_bloom.xac" Model="d_firetower45_bloom" pos="214.0231 40.9811 -158.0940" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_firetower45_bloom2.xac" Model="d_firetower45_bloom2" pos="-278.722 347.406 -33.316" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

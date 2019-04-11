@@ -1,0 +1,44 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_pilgrimroad_31_1\"/>
+	<AutoHeightMap Length="4600 4600" Offset="249.70 224.44" Height="4000 -4000"/>
+	<LightMap File="f_pilgrimroad_31_1_lightmap.jpg" Length="4600 4600" Offset="149.753 481.507" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<SubModelDir IpfName="bg_hi" Path="\field\f_pilgrimroad_31_1\"/>
+	<TexDir IpfName="bg_texture" Path="\pilgrimroad\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\field\f_pilgrimroad_31_1\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\field\f_pilgrimroad_31_1\"/>
+	<Model File="f_pilgrimroad_31_1_fog.xac" Model="f_pilgrimroad_31_1_fog" ShadowMap="f_pilgrimroad_31_1_fog" pos="140.8213 53.6796 379.1578" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_gr_a.xac" Model="f_pilgrimroad_31_1_gr_a" ShadowMap="f_pilgrimroad_31_1_gr_a" pos="35.2256 -2.0901 521.4849" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_b_model.xac" Model="f_pilgrimroad_31_1_b_model" ShadowMap="f_pilgrimroad_31_1_b_model" pos="61.9608 -25.5233 1035.8630" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_brend.xac" Model="f_pilgrimroad_31_1_brend" ShadowMap="f_pilgrimroad_31_1_brend" pos="140.8159 12.0444 225.0844" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_ground.xac" Model="f_pilgrimroad_31_1_ground" ShadowMap="f_pilgrimroad_31_1_ground" pos="259.9806 9.3855 219.1141" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_1area_model.xac" Model="f_pilgrimroad_31_1_1area_model" ShadowMap="f_pilgrimroad_31_1_1area_model" pos="-941.1436 -20.0294 -573.2493" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_2area_model.xac" Model="f_pilgrimroad_31_1_2area_model" ShadowMap="f_pilgrimroad_31_1_2area_model" pos="-332.7920 26.91 223.8198" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_4area_model.xac" Model="f_pilgrimroad_31_1_4area_model" ShadowMap="f_pilgrimroad_31_1_4area_model" pos="1100.7905 -83.0193 -610.3818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_5area_model.xac" Model="f_pilgrimroad_31_1_5area_model" ShadowMap="f_pilgrimroad_31_1_5area_model" pos="1416.9055 -88.7032 -241.7934" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_3area_model.xac" Model="f_pilgrimroad_31_1_3area_model" ShadowMap="f_pilgrimroad_31_1_3area_model" pos="233.6804 -40.6466 -561.6249" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_6area_model.xac" Model="f_pilgrimroad_31_1_6area_model" ShadowMap="f_pilgrimroad_31_1_6area_model" pos="837.3926 -101.9182 764.5515" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_7area_model.xac" Model="f_pilgrimroad_31_1_7area_model" ShadowMap="f_pilgrimroad_31_1_7area_model" pos="62.8167 -19.9132 1155.8582" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_8area_model.xac" Model="f_pilgrimroad_31_1_8area_model" ShadowMap="f_pilgrimroad_31_1_8area_model" pos="-1156.7832 -9.4323 1289.2314" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_1area_tree.xac" Model="f_pilgrimroad_31_1_1area_tree" ShadowMap="f_pilgrimroad_31_1_1area_tree" pos="-570.3811 -22.3875 -459.7883" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree01.xac"/>
+	<Model File="f_pilgrimroad_31_1_2area_tree.xac" Model="f_pilgrimroad_31_1_2area_tree" ShadowMap="f_pilgrimroad_31_1_2area_tree" pos="1086.4570 -5.1945 -621.4142" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree02.xac"/>
+	<Model File="f_pilgrimroad_31_1_3area_tree.xac" Model="f_pilgrimroad_31_1_3area_tree" ShadowMap="f_pilgrimroad_31_1_3area_tree" pos="862.7195 -4.6915 551.6123" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree03.xac"/>
+	<Model File="f_pilgrimroad_31_1_4area_tree.xac" Model="f_pilgrimroad_31_1_4area_tree" ShadowMap="f_pilgrimroad_31_1_4area_tree" pos="-426.9609 53.9467 1235.1647" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree04.xac"/>
+	<Model File="f_pilgrimroad_31_1_tp01.xac" Model="f_pilgrimroad_31_1_tp01" ShadowMap="f_pilgrimroad_31_1_tp01" pos="-175.0833 140.2083 993.4922" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree05.xac"/>
+	<Model File="f_pilgrimroad_31_1_tp02.xac" Model="f_pilgrimroad_31_1_tp02" ShadowMap="f_pilgrimroad_31_1_tp02" pos="219.5986 140.8020 1242.9963" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree06.xac"/>
+	<Model File="f_pilgrimroad_31_1_tp03.xac" Model="f_pilgrimroad_31_1_tp03" ShadowMap="f_pilgrimroad_31_1_tp03" pos="858.8442 11.0174 -567.6882" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree07.xac"/>
+	<Model File="f_pilgrimroad_31_1_tp04.xac" Model="f_pilgrimroad_31_1_tp04" ShadowMap="f_pilgrimroad_31_1_tp04" pos="558.4150 11.4604 358.2017" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_anitree08.xac"/>
+	<Model File="f_pilgrimroad_31_1_grass02.xac" Model="f_pilgrimroad_31_1_grass02" ShadowMap="f_pilgrimroad_31_1_grass02" pos="911.8547 -34.1697 16.7451" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_pilgrimroad_31_1_grass01.xac" Model="f_pilgrimroad_31_1_grass01" ShadowMap="f_pilgrimroad_31_1_grass01" pos="-289.7795 2.3080 228.3094" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

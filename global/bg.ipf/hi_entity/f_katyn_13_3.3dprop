@@ -1,0 +1,34 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<Prop>
+	<Model Path="f_katyn13_3_fog.xac" RenderType="RT_FOG" NoCol="1"/>
+	<Model Path="f_katyn13_3_ground.xac" RenderType="RT_MUD" Type="GROUND" NoCol="0"/>
+	<Model Path="f_katyn13_3_b_model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn13_3_2area_1blend2.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_2blend2.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_1blend3.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_2blend3.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_1blend4.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_2blend4.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_water.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_gr_a.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_1tree.xac" RenderType="RT_MODEL" NoCol="0" IsGrass="1" GrassWindPower="500" GrassTime="2" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="f_katyn13_3_2area_2tree.xac" RenderType="RT_MODEL" NoCol="0" IsGrass="1" GrassWindPower="500" GrassTime="2" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="f_katyn13_3_2area_1model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn13_3_2area_2model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn13_3_2area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn13_3_2area_shaoff.xac" RenderType="RT_OFF_SHABL" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_blend2.xac" RenderType="RT_MUD_BLEND2" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_blend4.xac" RenderType="RT_MUD_BLEND4" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_shaoff.xac" RenderType="RT_OFF_SHABL" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_gr_a.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_light.xac" RenderType="RT_PLANELIGHT" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_tree.xac" RenderType="RT_MODEL" NoCol="0" IsGrass="1" GrassWindPower="500" GrassTime="2" IsDynTree="0" GrassWindDir="0"/>
+	<Model Path="f_katyn13_3_1area_grass.xac" RenderType="RT_MODEL" NoCol="1"/>
+	<Model Path="f_katyn13_3_1area_model.xac" RenderType="RT_MODEL" NoCol="0"/>
+	<Model Path="f_katyn_tp_01.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_katyn_tp_02.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_katyn_tp_03.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+	<Model Path="f_katyn_tp_04.xac" RenderType="BLENDING" Type="BLENDING" NoCol="1"/>
+</Prop>

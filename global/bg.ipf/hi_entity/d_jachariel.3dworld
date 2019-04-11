@@ -1,0 +1,42 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_jachariel\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\jachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_jachariel\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_jachariel\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="d_jachariel_hallway_wall.xac" Model="d_jachariel_hallway_wall" pos="-274.050476 32.033875 273.108643" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_floor.xac" Model="d_jachariel_hallway_floor" pos="-303.900024 -46.617847 286.474365" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_1room_statue.xac" Model="d_jachariel_1room_statue" pos="-1460.433960 68.061172 -1428.204834" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_1room_shadow.xac" Model="d_jachariel_1room_shadow" pos="-1434.741943 68.732872 -1498.008545" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_1room_alpha.xac" Model="d_jachariel_1room_alpha" pos="-1529.699951 72.458946 -1434.495605" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_1room_floor.xac" Model="d_jachariel_1room_floor" pos="-1457.262695 84.826241 -1339.906250" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_2room_shadow.xac" Model="d_jachariel_2room_shadow" pos="-480.848053 24.066303 -1436.025024" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_2room_alpha.xac" Model="d_jachariel_2room_alpha" pos="-480.848053 24.066303 -1436.025024" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_2room_floor.xac" Model="d_jachariel_2room_floor" pos="-480.848053 24.066303 -1436.025024" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_2room_water.xac" Model="d_jachariel_2room_water" pos="-480.848053 24.066303 -1436.025024" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_2room_wall.xac" Model="d_jachariel_2room_wall" pos="-480.848053 24.066303 -1436.025024" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_3room_wall.xac" Model="d_jachariel_3room_wall" pos="460.942383 22.321201 -1436.025146" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_3room_floor.xac" Model="d_jachariel_3room_floor" pos="460.942383 22.321201 -1436.025146" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_3room_shadow.xac" Model="d_jachariel_3room_shadow" pos="460.942383 22.321201 -1436.025146" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_3room_alpha.xac" Model="d_jachariel_3room_alpha" pos="460.942383 22.321201 -1436.025146" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_3room_water.xac" Model="d_jachariel_3room_water" pos="460.942383 22.321201 -1436.025146" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_boss_water.xac" Model="d_jachariel_boss_water" pos="1718.195068 31.731918 -1231.305664" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_boss_obj.xac" Model="d_jachariel_boss_obj" pos="1718.195068 31.731918 -1231.305664" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_boss_door.xac" Model="d_jachariel_boss_door" pos="1718.195068 31.731918 -1231.305664" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_boss_alpha.xac" Model="d_jachariel_boss_alpha" pos="1718.195068 31.731918 -1231.305664" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_boss_wall.xac" Model="d_jachariel_boss_wall" pos="1718.195068 31.731918 -1231.305664" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_boss_floor.xac" Model="d_jachariel_boss_floor" pos="1718.195068 31.731918 -1231.305664" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_shadow01.xac" Model="d_jachariel_hallway_shadow01" pos="-303.899994 -46.618000 286.473999" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_alpha01.xac" Model="d_jachariel_hallway_alpha01" pos="-303.899994 -46.618000 286.473999" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_hallway_test.xac" Model="d_jachariel_hallway_floor" pos="271.748413 2.700409 1329.592285" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="d_jachariel_obj_g03.xac" Model="d_jachariel_obj_g03" pos="-303.899994 -46.618000 286.473999" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

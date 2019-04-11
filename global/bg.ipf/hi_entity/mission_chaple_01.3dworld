@@ -1,0 +1,38 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\raid\mission_chaple_01\"/>
+	<SubModelDir IpfName="bg_hi" Path="\dungeon\d_chapel_57_6\"/>
+	<TexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<LightMap File="mission_chaple_01_lightmap.jpg" Length="2400.0 2400.0" Offset="-91.991 225.748" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\mission_chaple_01\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\dungeon\d_chapel_57_6\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_chapel_57_6\"/>
+	<SubTexDir IpfName="bg_texture" Path="\pilgrimroad\"/>
+	<Model File="mission_chaple_01_light.xac" Model="mission_chaple_01_light" pos="-195.0055 140.8838 127.0233" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_1area_grass.xac" Model="mission_chaple_01_1area_grass" ShadowMap="mission_chaple_01_1area_grass" pos="-110.0748 91.9206 -481.8325" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani01" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 297.5099 485.6855" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_ground.xac" Model="mission_chaple_01_ground" ShadowMap="mission_chaple_01_ground" pos="-153.5221 34.5939 159.7265" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_tp03.xac" Model="mission_chaple_01_tp03" ShadowMap="mission_chaple_01_tp03" pos="-29.4645 114.4168 -186.9169" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_b_model.xac" Model="mission_chaple_01_b_model" ShadowMap="mission_chaple_01_b_model" pos="-282.1405 12.7229 438.7064" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_tp01.xac" Model="mission_chaple_01_tp01" ShadowMap="mission_chaple_01_tp01" pos="513.9510 146.4329 -225.0094" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani09" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 297.5099 196.2986" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani10" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 297.5099 -358.7868" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani11" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 294.3881 -639.3898" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_7area_model.xac" Model="mission_chaple_01_7area_model" ShadowMap="mission_chaple_01_7area_model" pos="-467.6962 154.6374 324.9306" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani12" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 297.5099 -79.6155" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_fog.xac" Model="mission_chaple_01_fog" pos="2.3063 183.6029 96.6530" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani13" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 393.8594 1028.3568" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_chapel_57_6_ani01.xac" Model="d_chapel_57_6_ani14" AniFile="d_chapel_57_6_ani01.xsm" ShadowMap="d_chapel_57_6_ani01" pos="-162.2845 393.8594 1208.9515" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_tp02.xac" Model="mission_chaple_01_tp02" ShadowMap="mission_chaple_01_tp02" pos="-87.7098 211.2542 123.3193" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_1area_model.xac" Model="mission_chaple_01_1area_model" ShadowMap="mission_chaple_01_1area_model" pos="-954.8093 97.6997 -428.8449" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_2area_model.xac" Model="mission_chaple_01_2area_model" ShadowMap="mission_chaple_01_2area_model" pos="577.2224 82.9534 -428.3763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_3area_model.xac" Model="mission_chaple_01_3area_model" ShadowMap="mission_chaple_01_3area_model" pos="-251.9438 150.0414 -678.9868" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_4area_model.xac" Model="mission_chaple_01_4area_model" ShadowMap="mission_chaple_01_4area_model" pos="-967.4915 143.7019 328.7532" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_5area_model.xac" Model="mission_chaple_01_5area_model" ShadowMap="mission_chaple_01_5area_model" pos="603.5558 130.8172 359.0226" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_8area_model.xac" Model="mission_chaple_01_8area_model" ShadowMap="mission_chaple_01_8area_model" pos="-147.3047 169.0002 1222.8256" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_6area_model.xac" Model="mission_chaple_01_6area_model" ShadowMap="mission_chaple_01_6area_model" pos="115.0182 144.9875 326.1057" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-954.8093 97.6997 -428.8449" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_chaple_01_2area_grass.xac" Model="mission_chaple_01_2area_grass" ShadowMap="mission_chaple_01_2area_grass" pos="-76.6510 130.2032 709.3228" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

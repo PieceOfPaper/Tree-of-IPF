@@ -1,0 +1,85 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\city\c_orsha\"/>
+	<TexDir IpfName="bg_texture\" Path="\orsha\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AnimationDir IpfName="bg_hi" Path="\city\c_orsha\"/>
+	<LightMap File="c_orsha_lightmap.jpg" Length="3000.0 3000.0" Offset="-7.316 -235.603" Size="1024 1024"/>
+	<SubTexDir IpfName="bg_texture\" Path="\siauliai\"/>
+	<SubTexDir IpfName="bg_texture\" Path="\remains\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\city\c_orsha\"/>
+	<Model File="c_orsha_1area_gr_a.xac" Model="c_orsha_1area_gr_a" ShadowMap="c_orsha_1area_gr_a" pos="102.4698 258.4651 446.4052" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_water01.xac" Model="c_orsha_water01" ShadowMap="c_orsha_water01" pos="146.9330 159.6853 36.5959" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_2area_gr_a.xac" Model="c_orsha_2area_gr_a" ShadowMap="c_orsha_2area_gr_a" pos="-129.0273 261.1377 -322.4011" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_blend.xac" Model="c_orsha_blend" ShadowMap="c_orsha_blend" pos="50.7979 256.5871 -486.8521" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01area_tree.xac" Model="c_orsha_01area_tree" ShadowMap="c_orsha_01area_tree" pos="-675.4987 273.8055 129.6259" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_water02.xac" Model="c_orsha_water02" ShadowMap="c_orsha_water02" pos="255.2518 -21.8904 -471.2134" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_grass.xac" Model="c_orsha_grass" ShadowMap="c_orsha_grass" pos="-160.2818 204.3102 -328.0378" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_b_model.xac" Model="c_orsha_b_model" ShadowMap="c_orsha_b_model" pos="-11.1350 94.2694 -20.9247" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_tree_out.xac" Model="c_orsha_tree_out" ShadowMap="c_orsha_tree_out" pos="-995.1511 139.1192 832.8013" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_fog.xac" Model="c_orsha_fog" pos="-170.2266 365.8986 -88.7150" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_ground.xac" Model="c_orsha_ground" ShadowMap="c_orsha_ground" pos="-250.4028 162.4689 -358.0596" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_b_model02.xac" Model="c_orsha_b_model02" ShadowMap="c_orsha_b_model02" pos="-993.6785 -112.6080 798.7467" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_tp01.xac" Model="c_orsha_tp01" ShadowMap="c_orsha_tp01" pos="833.8665 237.3714 107.4225" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_tp02.xac" Model="c_orsha_tp02" ShadowMap="c_orsha_tp02" pos="-242.5494 389.6633 -351.8539" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01area_model.xac" Model="c_orsha_01area_model" ShadowMap="c_orsha_01area_model" pos="1273.5957 92.4616 360.9655" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02area_model.xac" Model="c_orsha_02area_model" ShadowMap="c_orsha_02area_model" pos="836.0491 158.0490 -55.2979" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_03area_model.xac" Model="c_orsha_03area_model" ShadowMap="c_orsha_03area_model" pos="677.2811 282.3482 551.8185" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_04area_model.xac" Model="c_orsha_04area_model" ShadowMap="c_orsha_04area_model" pos="203.1181 380.3863 947.5620" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_05area_model.xac" Model="c_orsha_05area_model" ShadowMap="c_orsha_05area_model" pos="-348.7677 333.4370 941.3190" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_06area_model.xac" Model="c_orsha_06area_model" ShadowMap="c_orsha_06area_model" pos="-1142.4847 410.0295 354.8972" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_07area_model.xac" Model="c_orsha_07area_model" ShadowMap="c_orsha_07area_model" pos="-492.4543 401.0555 364.7526" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_08area_model.xac" Model="c_orsha_08area_model" ShadowMap="c_orsha_08area_model" pos="-1051.3982 373.2969 -273.5485" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_13area_model.xac" Model="c_orsha_13area_model" ShadowMap="c_orsha_13area_model" pos="1.1513 -7.1838 -881.8633" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_09area_model.xac" Model="c_orsha_09area_model" ShadowMap="c_orsha_09area_model" pos="-1189.5007 100.1541 -647.2094" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_10area_model.xac" Model="c_orsha_10area_model" ShadowMap="c_orsha_10area_model" pos="-429.7504 398.9776 -201.8517" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_11area_model.xac" Model="c_orsha_11area_model" ShadowMap="c_orsha_11area_model" pos="154.6100 239.6343 94.6462" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="154.6100 239.6343 94.6462" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_12area_model.xac" Model="c_orsha_12area_model" ShadowMap="c_orsha_12area_model" pos="75.7808 156.6896 -584.8867" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_14area_model.xac" Model="c_orsha_14area_model" ShadowMap="c_orsha_14area_model" pos="-17.7396 26.7041 -1292.7163" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag01" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag01" pos="-308.6938 300.7598 508.2444" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag01" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag01" pos="894.3435 174.0192 245.6862" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_03flag_set.xac" Model="c_orsha_03flag01" AniFile="c_orsha_03flag_ani.xsm" ShadowMap="c_orsha_03flag01" pos="-398.8004 290.8324 -776.0916" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_04flag_set.xac" Model="c_orsha_04flag01" AniFile="c_orsha_04flag_ani.xsm" ShadowMap="c_orsha_04flag01" pos="-263.3278 130.1050 -520.9127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_05flag_set.xac" Model="c_orsha_05flag01" AniFile="c_orsha_05flag_ani.xsm" ShadowMap="c_orsha_05flag01" pos="25.6707 237.9023 703.8456" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag02" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag02" pos="-286.4421 300.7598 694.2982" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag03" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag03" pos="-371.5775 489.2388 820.8224" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag04" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag04" pos="-674.7280 175.8015 1322.5581" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag05" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag05" pos="-77.2892 416.7440 872.7601" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag06" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag06" pos="393.9551 412.1525 870.0509" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag07" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag07" pos="549.0037 482.6213 853.7527" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag08" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag08" pos="828.7623 193.0781 402.5536" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag09" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag09" pos="838.6217 193.0781 246.3476" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag10" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag10" pos="1452.3901 143.2921 605.8502" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag11" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag11" pos="768.0995 271.9557 -394.4609" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag12" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag12" pos="-109.1892 242.6832 -869.3950" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag13" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag13" pos="107.8369 236.5357 -886.5473" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag14" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag14" pos="308.7753 244.1350 -873.4224" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag15" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag15" pos="-262.2192 243.2310 -716.7109" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag16" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag16" pos="-79.1567 243.2310 -708.4039" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag17" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag17" pos="-1097.6995 243.2310 -613.2840" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag18" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag18" pos="-993.6233 243.2310 -648.4524" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag19" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag19" pos="-1405.6912 239.5887 -782.2842" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag20" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag20" pos="-1517.2751 255.1651 -667.1626" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag21" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag21" pos="-1420.8217 256.9885 -561.2531" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_01flag_set.xac" Model="c_orsha_01flag23" AniFile="c_orsha_01flag_ani.xsm" ShadowMap="c_orsha_01flag23" pos="-1203.4325 246.9438 -738.8705" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag02" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag02" pos="947.5889 152.0198 236.6771" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag03" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag03" pos="886.3553 164.0987 440.3676" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag04" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag04" pos="938.1373 152.0198 464.5381" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag05" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag05" pos="1345.2882 141.6788 510.6376" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag06" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag06" pos="231.1146 409.2760 1003.9995" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag07" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag07" pos="234.7301 409.2760 889.2926" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag08" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag08" pos="378.6318 409.2760 1003.8830" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag09" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag09" pos="-239.5362 487.7610 809.1331" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag10" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag10" pos="-542.4524 176.4376 1309.5251" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag11" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag11" pos="-214.6516 264.9315 719.5477" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag12" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag12" pos="-125.8738 264.9315 351.1800" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02flag_set.xac" Model="c_orsha_02flag13" AniFile="c_orsha_02flag_ani.xsm" ShadowMap="c_orsha_02flag13" pos="-627.0264 560.9703 -216.8522" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_03flag_set.xac" Model="c_orsha_03flag02" AniFile="c_orsha_03flag_ani.xsm" ShadowMap="c_orsha_03flag02" pos="-767.9581 441.7531 -535.7341" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_04flag_set.xac" Model="c_orsha_04flag03" AniFile="c_orsha_04flag_ani.xsm" ShadowMap="c_orsha_04flag03" pos="-133.5247 130.1050 -520.9127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_04flag_set.xac" Model="c_orsha_04flag04" AniFile="c_orsha_04flag_ani.xsm" ShadowMap="c_orsha_04flag04" pos="-88.3773 130.1050 -520.9127" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_05flag_set.xac" Model="c_orsha_05flag02" AniFile="c_orsha_05flag_ani.xsm" ShadowMap="c_orsha_05flag02" pos="158.1622 237.9023 703.8456" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_orsha_02area_tree.xac" Model="c_orsha_02area_tree" ShadowMap="c_orsha_02area_tree" pos="585.2612 137.2673 -420.2234" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

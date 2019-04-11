@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_velniasprison_54_1\"/>
+	<TexDir IpfName="bg_texture" Path="\velniasprison\"/>
+	<SubTexDir IpfName="bg_texture" Path="\startower\"/>
+	<AutoHeightMap Length="3100.0 3100.0" Offset="-77.639 61.608" Height="1000 -1000"/>
+	<LightMap File="d_velniasprison_54_1.jpg" Length="3100.0 3100.0" Offset="-77.639 61.608" Size="1024 1024"/>
+	<AnimationDir IpfName="bg_hi2" Path="\dungeon\d_velniasprison_54_1\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_velniasprison_54_1\"/>
+	<Model File="d_velniasprison_54_1_b_model.xac" Model="d_velniasprison_54_1_b_model" ShadowMap="d_velniasprison_54_1_b_model" pos="-652.0337 -272.2731 522.0413" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_ground.xac" Model="d_velniasprison_54_1_ground" ShadowMap="d_velniasprison_54_1_ground" pos="-106.0621 -47.2021 51.6463" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_blend.xac" Model="d_velniasprison_54_1_blend" ShadowMap="d_velniasprison_54_1_blend" pos="-98.4772 60.6455 34.6379" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_1area_model.xac" Model="d_velniasprison_54_1_1area_model" ShadowMap="d_velniasprison_54_1_1area_model" pos="-725.2719 150.7393 95.1482" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_anitree01.xac" Model="d_velniasprison_54_1_anitree01" ShadowMap="d_velniasprison_54_1_1area_model" pos="-725.2719 150.7393 95.1482" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_gr_a.xac" Model="d_velniasprison_54_1_gr_a" ShadowMap="d_velniasprison_54_1_gr_a" pos="-135.3764 51.2343 38.8819" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_ani03.xac" Model="d_velniasprison_54_1_ani03" ShadowMap="d_velniasprison_54_1_ani03" AniFile="d_velniasprison_54_1_ani03.xsm" pos="-40.1933 88.1727 -9.3893" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_fog.xac" Model="d_velniasprison_54_1_fog" pos="-232.4336 11.7721 212.8271" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_b_model02.xac" Model="d_velniasprison_54_1_b_model02" ShadowMap="d_velniasprison_54_1_b_model02" pos="-992.5496 -104.9889 87.9495" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_ani01.xac" Model="d_velniasprison_54_1_ani01" ShadowMap="d_velniasprison_54_1_ani01" AniFile="d_velniasprison_54_1_ani01.xsm" pos="-421.5417 -171.3949 335.7654" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_b_model03.xac" Model="d_velniasprison_54_1_b_model03" ShadowMap="d_velniasprison_54_1_b_model03" pos="498.7478 -96.7820 20.8345" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_light.xac" Model="d_velniasprison_54_1_light" pos="-216.7726 -33.8288 43.5278" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_bloom.xac" Model="d_velniasprison_54_1_bloom" pos="-356.7041 82.7604 38.9738" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_1area_tree.xac" Model="d_velniasprison_54_1_1area_tree" ShadowMap="d_velniasprison_54_1_1area_tree" pos="-1142.6099 130.9102 -4.9727" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_anitree03.xac" Model="d_velniasprison_54_1_anitree03" ShadowMap="d_velniasprison_54_1_1area_tree" pos="-1142.6099 130.9102 -4.9727" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_2area_tree.xac" Model="d_velniasprison_54_1_2area_tree" ShadowMap="d_velniasprison_54_1_2area_tree" pos="560.2758 93.0978 33.0891" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_ani02.xac" Model="d_velniasprison_54_1_ani02" AniFile="d_velniasprison_54_1_ani02.xsm" pos="-124.9423 161.8656 -72.8993" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_2area_model.xac" Model="d_velniasprison_54_1_2area_model" ShadowMap="d_velniasprison_54_1_1area_model" pos="676.7090 224.5068 6.1763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_anitree03.xac" Model="d_velniasprison_54_1_anitree03" ShadowMap="d_velniasprison_54_1_1area_model" pos="676.7090 224.5068 6.1763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_velniasprison_54_1_anitree02.xac" Model="d_velniasprison_54_1_anitree02" ShadowMap="d_velniasprison_54_1_1area_model" pos="676.7090 224.5068 6.1763" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

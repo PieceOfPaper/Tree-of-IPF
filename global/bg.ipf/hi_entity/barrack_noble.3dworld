@@ -1,0 +1,21 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by k (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\barrack3\"/>
+	<TexDir IpfName="bg_texture" Path="\barrack\"/>
+	<SubTexDir IpfName="bg_hi" Path="\barrack3\"/>
+	<AnimationDir IpfName="bg_hi" Path="\barrack3\"/>
+	<LightMap File="barrack_noble_lightmap.jpg" Length="500.0 500.0" Offset="12.416 -1.778" Size="512 512"/>
+	<ShaTexDir IpfName="bg_hi" Path="\barrack3\"/>
+	<StandOnPos pos="47 11 25"/>
+	<Model File="barrack_noble_1area_model01.xac" Model="barrack_noble_1area_model01" ShadowMap="barrack_noble_1area_model01" pos="-38.6340 246.7044 42.0304" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_1area_model02.xac" Model="barrack_noble_1area_model02" ShadowMap="barrack_noble_1area_model02" pos="-26.0427 51.5982 -30.0142" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_1area_model03.xac" Model="barrack_noble_1area_model03" ShadowMap="barrack_noble_1area_model03" pos="37.4995 51.5140 66.0018" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_ground.xac" Model="barrack_noble_ground" ShadowMap="barrack_noble_ground" pos="-28.0888 96.0372 19.9416" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_bloom.xac" Model="barrack_noble_bloom" pos="-32.2258 133.3777 37.3699" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_light.xac" Model="barrack_noble_light" pos="-16.8907 125.4220 10.6103" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_tp.xac" Model="barrack_noble_tp" ShadowMap="barrack_noble_tp" pos="-170.9621 178.1849 157.3996" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_2area_model.xac" Model="barrack_noble_2area_model" ShadowMap="barrack_noble_2area_model" pos="-89.8897 -149.4002 88.0358" rot="-0.0000 -1.0000 -0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="barrack_noble_ground2.xac" Model="barrack_noble_ground2" ShadowMap="barrack_noble_ground2" pos="-28.0888 96.0372 19.9416" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

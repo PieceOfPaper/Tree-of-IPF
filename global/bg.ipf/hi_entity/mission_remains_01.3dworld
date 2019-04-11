@@ -1,0 +1,60 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by 11 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\raid\mission_remains_01\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="900.0 900.0" Offset="-200.00, 500.0" Height="800 -1000"/>
+	<TexDir IpfName="bg_texture" Path="\remains\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\raid\mission_remains_01\"/>
+	<LightMap File="mission_remains_01_lightmap.jpg" Length="4600 4600" Offset="-71.777 -14.2" Size="1024 1024"/>
+	<AnimationDir IpfName="bg_hi" Path="\raid\mission_remains_01\"/>
+	<Model File="mission_remains_01_tp07.xac" Model="mission_remains_01_tp07" ShadowMap="mission_remains_01_tp07" pos="275.0433 272.2003 -1041.7751" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_gr_a01.xac" Model="mission_remains_01_gr_a01" ShadowMap="mission_remains_01_gr_a01" pos="-64.1536 277.2188 -419.1611" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tree01.xac" Model="mission_remains_01_tree01" ShadowMap="mission_remains_01_tree01" pos="-486.7165 182.8062 247.3136" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_anitree06.xac" Model="mission_remains_01_anitree06" ShadowMap="mission_remains_01_tree01" pos="-486.7165 182.8062 247.3136" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_ground.xac" Model="mission_remains_01_ground" ShadowMap="mission_remains_01_ground" pos="-3.2800 269.4417 -181.4025" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_water.xac" Model="mission_remains_01_water" ShadowMap="mission_remains_01_water" pos="-350.3021 127.7366 54.7841" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp09.xac" Model="mission_remains_01_tp09" ShadowMap="mission_remains_01_tp09" pos="-713.6966 505.2638 284.3474" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp10.xac" Model="mission_remains_01_tp10" ShadowMap="mission_remains_01_tp10" pos="-603.1579 505.2638 298.9572" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp11.xac" Model="mission_remains_01_tp11" ShadowMap="mission_remains_01_tp11" pos="-790.4753 505.2638 229.7078" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp12.xac" Model="mission_remains_01_tp12" ShadowMap="mission_remains_01_tp12" pos="-444.1434 505.2638 -37.0263" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp13.xac" Model="mission_remains_01_tp13" ShadowMap="mission_remains_01_tp13" pos="-498.2744 505.2638 -86.8744" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp15.xac" Model="mission_remains_01_tp15" ShadowMap="mission_remains_01_tp15" pos="-603.8698 505.2638 -124.5317" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_b_model.xac" Model="mission_remains_01_b_model" ShadowMap="mission_remains_01_b_model" pos="-372.7337 225.4514 110.6189" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp01.xac" Model="mission_remains_01_tp01" ShadowMap="mission_remains_01_tp01" pos="-14.6747 325.8462 7.2860" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp02.xac" Model="mission_remains_01_tp02" ShadowMap="mission_remains_01_tp02" pos="218.1597 257.3867 125.0908" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp03.xac" Model="mission_remains_01_tp03" ShadowMap="mission_remains_01_tp03" pos="18.9262 306.8727 23.8929" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp04.xac" Model="mission_remains_01_tp04" ShadowMap="mission_remains_01_tp04" pos="-20.7522 333.7398 905.5975" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp05.xac" Model="mission_remains_01_tp05" ShadowMap="mission_remains_01_tp05" pos="35.0161 324.7363 731.3905" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp06.xac" Model="mission_remains_01_tp06" ShadowMap="mission_remains_01_tp06" pos="30.7770 386.1475 289.4961" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_anitree01.xac" Model="mission_remains_01_anitree01"/>
+	<Model File="mission_remains_01_model01.xac" Model="mission_remains_01_model01" ShadowMap="mission_remains_01_model01" pos="-783.2505 215.5714 -1171.2900" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_model02.xac" Model="mission_remains_01_model02" ShadowMap="mission_remains_01_model02" pos="133.1204 216.3507 -787.5946" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_model03.xac" Model="mission_remains_01_model03" ShadowMap="mission_remains_01_model03" pos="199.6465 156.6907 702.0169" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_model04.xac" Model="mission_remains_01_model04" ShadowMap="mission_remains_01_model04" pos="-238.4601 191.7171 1137.0818" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_model05.xac" Model="mission_remains_01_model05" ShadowMap="mission_remains_01_model05" pos="-748.4449 390.4801 223.2690" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_light.xac" Model="mission_remains_01_light" ShadowMap="mission_remains_01_light" pos="-27.1042 382.8251 -85.7396" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp16.xac" Model="mission_remains_01_tp16" ShadowMap="mission_remains_01_tp16" pos="599.8229 258.8346 1011.5607" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp17.xac" Model="mission_remains_01_tp17" ShadowMap="mission_remains_01_tp17" pos="-566.9808 513.2095 546.3661" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp18.xac" Model="mission_remains_01_tp18" ShadowMap="mission_remains_01_tp18" pos="-783.7773 513.2095 430.5897" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp19.xac" Model="mission_remains_01_tp19" ShadowMap="mission_remains_01_tp19" pos="-841.7084 508.0091 -68.4688" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp20.xac" Model="mission_remains_01_tp20" ShadowMap="mission_remains_01_tp20" pos="-707.7263 508.0091 -279.2093" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp08.xac" Model="mission_remains_01_tp08" ShadowMap="mission_remains_01_tp08" pos="-458.3234 528.0664 -475.4234" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp14.xac" Model="mission_remains_01_tp14" ShadowMap="mission_remains_01_tp14" pos="-574.4406 504.3775 -367.7461" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp23.xac" Model="mission_remains_01_tp23" ShadowMap="mission_remains_01_tp23" pos="-358.5563 259.6824 -773.1332" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_anitree02.xac" Model="mission_remains_01_anitree02"/>
+	<Model File="mission_remains_01_tp21.xac" Model="mission_remains_01_tp21" ShadowMap="mission_remains_01_tp21" pos="-617.7089 251.9379 -1009.6157" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp22.xac" Model="mission_remains_01_tp22" ShadowMap="mission_remains_01_tp22" pos="-424.7190 251.9379 -910.7567" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp24.xac" Model="mission_remains_01_tp24" ShadowMap="mission_remains_01_tp24" pos="617.3650 268.9545 153.0568" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_tp25.xac" Model="mission_remains_01_tp25" ShadowMap="mission_remains_01_tp25" pos="756.1703 279.7894 211.9623" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_anitree03.xac" Model="mission_remains_01_anitree03"/>
+	<Model File="mission_remains_01_tp26.xac" Model="mission_remains_01_tp26" ShadowMap="mission_remains_01_tp26" pos="346.9019 218.9669 -604.4907" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_anitree04.xac" Model="mission_remains_01_anitree04"/>
+	<Model File="mission_remains_01_tp27.xac" Model="mission_remains_01_tp27" ShadowMap="mission_remains_01_tp27" pos="552.4430 218.6807 -266.9001" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_anitree05.xac" Model="mission_remains_01_anitree05"/>
+	<Model File="mission_remains_01_grass03.xac" Model="mission_remains_01_grass03" ShadowMap="mission_remains_01_grass03" pos="-633.0692 274.2892 889.8967" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_grass01.xac" Model="mission_remains_01_grass01" ShadowMap="mission_remains_01_grass01" pos="-193.5511 281.8695 -1143.5342" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="mission_remains_01_grass02.xac" Model="mission_remains_01_grass02" ShadowMap="mission_remains_01_grass02" pos="275.8910 288.2303 304.9699" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-169.983 333.285 -512.992" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

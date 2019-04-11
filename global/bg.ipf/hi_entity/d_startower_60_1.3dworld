@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_startower_60_1\"/>
+	<LightMap File="d_startower_60_1_lightmap.jpg" Length="5300 5300" Offset="92.899 -92.623" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="6000 6000" Offset="40.364 -279 049" Height="400 -400"/>
+	<SubModelDir IpfName="bg_hi2" Path="\dungeon\d_startower_60_1\"/>
+	<TexDir IpfName="bg_texture" Path="\startower\"/>
+	<SubTexDir IpfName="bg_texture" Path="\3cmlake\"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_startower_60_1\"/>
+	<SubShaTexDir IpfName="bg_hi2" Path="\dungeon\d_startower_60_1\"/>
+	<Model File="d_startower_60_1_b_model.xac" Model="d_startower_60_1_b_model" ShadowMap="d_startower_60_1_b_model" pos="78.9495 192.7477 -209.5884" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_ground.xac" Model="d_startower_60_1_ground" ShadowMap="d_startower_60_1_ground" pos="4.2440 -83.0121 -12.9653" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_1area_water.xac" Model="d_startower_60_1_1area_water" ShadowMap="d_startower_60_1_water" pos="134.6727 -46.2419 -298.9131" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_2area_water.xac" Model="d_startower_60_1_2area_water" ShadowMap="d_startower_60_1_water" pos="134.6727 -46.2419 -298.9131" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_2area_blend.xac" Model="d_startower_60_1_2area_blend" ShadowMap="d_startower_60_1_2area_blend" pos="-3.4988 -65.8194 -451.8607" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_1area_grass.xac" Model="d_startower_60_1_1area_grass" ShadowMap="d_startower_60_1_1area_grass" pos="60.0452 -2.2555 -72.1870" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_2area_grass.xac" Model="d_startower_60_1_2area_grass" ShadowMap="d_startower_60_1_2area_grass" pos="-302.4271 -33.5728 337.6859" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_1area_blend.xac" Model="d_startower_60_1_1area_blend" ShadowMap="d_startower_60_1_1area_blend" pos="44.7314 -75.0457 -93.5969" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_light.xac" Model="d_startower_60_1_light" pos="-26.7004 47.7329 -189.7744" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_bloom.xac" Model="d_startower_60_1_bloom" ShadowMap="d_startower_60_1_bloom" pos="-26.7004 47.7329 -189.7744" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_1area_model.xac" Model="d_startower_60_1_1area_model" ShadowMap="d_startower_60_1_1area_model" pos="1684.8036 110.8289 -1899.5522" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_2area_model.xac" Model="d_startower_60_1_2area_model" ShadowMap="d_startower_60_1_2area_model" pos="1754.8374 100.2554 -1087.1838" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_3area_model.xac" Model="d_startower_60_1_3area_model" ShadowMap="d_startower_60_1_3area_model" pos="1888.8220 22.5990 1574.4736" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_4area_model.xac" Model="d_startower_60_1_4area_model" ShadowMap="d_startower_60_1_4area_model" pos="315.5949 68.8620 1143.6133" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_5area_model.xac" Model="d_startower_60_1_5area_model" ShadowMap="d_startower_60_1_5area_model" pos="-1181.4105 108.2001 862.1560" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_6area_model.xac" Model="d_startower_60_1_6area_model" ShadowMap="d_startower_60_1_6area_model" pos="242.2070 123.5986 -1190.2151" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_7area_model.xac" Model="d_startower_60_1_7area_model" ShadowMap="d_startower_60_1_7area_model" pos="-1697.8650 134.8555 -540.4409" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_8area_model.xac" Model="d_startower_60_1_8area_model" ShadowMap="d_startower_60_1_8area_model" pos="-386.0912 108.4137 -1173.2161" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_startower_60_1_3area_grass.xac" Model="d_startower_60_1_3area_grass" ShadowMap="d_startower_60_1_3area_grass" pos="1290.0928 -120.0632 -572.3713" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

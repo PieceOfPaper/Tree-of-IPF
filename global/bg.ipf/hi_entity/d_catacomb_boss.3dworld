@@ -1,0 +1,62 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<LoadingOption Use="1" UseCull="0"/>
+	<Camera Fov="20" Near="10" Far="100000" Lati="45" Long="0"/>
+	<Light Dir="0 -1 0" Ambient="255 238 210" Diffuse="255 255 255" Specular="128 128 128" SpecularExp="8"/>
+	<Fog Enable="1" Color="0 0 0" Near="100" Far="9000.0"/>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\catacomb\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_catacomb\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="catacomb_boss_objsha_1ab.xac" Model="catacomb_boss_objsha_1ab" pos="138.231979 -28.927582 2.786240" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_objsha_2ab.xac" Model="catacomb_boss_objsha_2ab" pos="138.231979 -28.927582 2.786240" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_floor.xac" Model="catacomb_boss_floor" pos="165.444214 -581.721985 27.338776" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_floor_bl.xac" Model="catacomb_boss_floor_bl" pos="117.002487 28.820496 45.787933" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_floor_decal.xac" Model="catacomb_boss_floor_decal" pos="105.629471 78.698730 -171.905243" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_distant01.xac" Model="catacomb_boss_distant01" pos="47.732849 -350.001343 763.624695" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_distant02.xac" Model="catacomb_boss_distant02" pos="-761.627563 -686.278442 -95.749649" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_distant_bl.xac" Model="catacomb_boss_distant_bl" pos="-2.999619 95.981995 -118.508911" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_fog_ab.xac" Model="catacomb_boss_fog_ab" pos="36.069107 326.566467 -352.389771" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_grating_a.xac" Model="catacomb_boss_grating_a" pos="191.439758 -360.063904 41.993683" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_light_ab.xac" Model="catacomb_boss_light_ab" pos="-257.539673 196.329468 158.232422" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_obj01.xac" Model="catacomb_boss_obj01" pos="405.946777 -26.004822 287.132996" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_obj02.xac" Model="catacomb_boss_obj02" pos="14.095703 45.294342 -133.109711" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_wall.xac" Model="catacomb_boss_wall" pos="-292.050781 -218.929886 208.350739" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_cloud_ani.xac" Model="catacomb_boss_cloud_ani" AniFile="catacomb_boss_cloud_ani.xsm" pos="13.559586 113.409058 -36.388458" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_ligani01.xac" Model="catacomb_boss_ligani01" AniFile="catacomb_boss_ligani01.xsm" pos="-294.222290 198.297729 208.429108" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_ligani02.xac" Model="catacomb_boss_ligani02" AniFile="catacomb_boss_ligani02.xsm" pos="-287.937134 193.362671 218.735748" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_ligani03.xac" Model="catacomb_boss_ligani03" AniFile="catacomb_boss_ligani03.xsm" pos="-321.174927 191.422485 203.814850" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_1obj_ani.xac" Model="catacomb_boss_1obj_ani" AniFile="catacomb_boss_1obj_ani.xsm" pos="215.292664 193.684647 409.482635" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_2obj_ani.xac" Model="catacomb_boss_2obj_ani" AniFile="catacomb_boss_2obj_ani.xsm" pos="299.202332 183.607132 452.483368" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_3obj_ani.xac" Model="catacomb_boss_3obj_ani" AniFile="catacomb_boss_3obj_ani.xsm" pos="272.840027 132.408524 432.142548" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_4obj_ani.xac" Model="catacomb_boss_4obj_ani" AniFile="catacomb_boss_4obj_ani.xsm" pos="273.135437 124.793900 435.695038" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_5obj_ani.xac" Model="catacomb_boss_5obj_ani" AniFile="catacomb_boss_5obj_ani.xsm" pos="-112.137009 110.076431 185.968002" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_6obj_ani.xac" Model="catacomb_boss_6obj_ani" AniFile="catacomb_boss_6obj_ani.xsm" pos="-7.395309 110.076431 204.769745" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_7obj_ani.xac" Model="catacomb_boss_7obj_ani" AniFile="catacomb_boss_7obj_ani.xsm" pos="-236.256638 115.968094 -295.776031" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_8obj_ani.xac" Model="catacomb_boss_8obj_ani" AniFile="catacomb_boss_8obj_ani.xsm" pos="-303.221924 115.968094 -188.061310" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_9obj_ani.xac" Model="catacomb_boss_9obj_ani" AniFile="catacomb_boss_9obj_ani.xsm" pos="-310.428955 120.127701 -91.266815" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_10obj_ani.xac" Model="catacomb_boss_10obj_ani" AniFile="catacomb_boss_10obj_ani.xsm" pos="-283.105713 120.127701 14.020752" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_11obj_ani.xac" Model="catacomb_boss_11obj_ani" AniFile="catacomb_boss_11obj_ani.xsm" pos="-332.653564 244.848038 70.017822" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_12obj_ani.xac" Model="catacomb_boss_12obj_ani" AniFile="catacomb_boss_12obj_ani.xsm" pos="-286.179932 162.963150 107.809799" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_13obj_ani.xac" Model="catacomb_boss_13obj_ani" AniFile="catacomb_boss_13obj_ani.xsm" pos="-279.471436 148.908340 88.629639" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_14obj_ani.xac" Model="catacomb_boss_14obj_ani" AniFile="catacomb_boss_14obj_ani.xsm" pos="-200.460754 163.048355 193.987534" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_1obj_ani_s.xac" Model="catacomb_boss_1obj_ani_s" AniFile="catacomb_boss_1obj_ani_s.xsm" pos="235.704773 168.995682 368.144714" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_2obj_ani_s.xac" Model="catacomb_boss_2obj_ani_s" AniFile="catacomb_boss_2obj_ani_s.xsm" pos="331.201904 183.607132 443.648163" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_3obj_ani_s.xac" Model="catacomb_boss_3obj_ani_s" AniFile="catacomb_boss_3obj_ani_s.xsm" pos="288.703796 134.193558 404.673767" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_4obj_ani_s.xac" Model="catacomb_boss_4obj_ani_s" AniFile="catacomb_boss_4obj_ani_s.xsm" pos="291.410828 134.193558 399.223816" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_5obj_ani_s.xac" Model="catacomb_boss_5obj_ani_s" AniFile="catacomb_boss_5obj_ani_s.xsm" pos="-113.348923 173.606094 180.892807" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_6obj_ani_s.xac" Model="catacomb_boss_6obj_ani_s" AniFile="catacomb_boss_6obj_ani_s.xsm" pos="-9.470016 173.606094 199.982162" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_7obj_ani_s.xac" Model="catacomb_boss_7obj_ani_s" AniFile="catacomb_boss_7obj_ani_s.xsm" pos="-218.137024 171.681778 -304.830841" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_8obj_ani_s.xac" Model="catacomb_boss_8obj_ani_s" AniFile="catacomb_boss_8obj_ani_s.xsm" pos="-286.949951 171.681778 -200.125275" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_9obj_ani_s.xac" Model="catacomb_boss_9obj_ani_s" AniFile="catacomb_boss_9obj_ani_s.xsm" pos="-307.896240 171.681778 -90.774628" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_10obj_ani_s.xac" Model="catacomb_boss_10obj_ani_s" AniFile="catacomb_boss_10obj_ani_s.xsm" pos="-280.557861 171.681778 13.616943" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_11obj_ani_s.xac" Model="catacomb_boss_11obj_ani_s" AniFile="catacomb_boss_11obj_ani_s.xsm" pos="-267.939209 244.848038 17.159424" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_12obj_ani_s.xac" Model="catacomb_boss_12obj_ani_s" AniFile="catacomb_boss_12obj_ani_s.xsm" pos="-257.116943 174.606705 76.362549" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_13obj_ani_s.xac" Model="catacomb_boss_13obj_ani_s" AniFile="catacomb_boss_13obj_ani_s.xsm" pos="-301.915283 123.899185 208.709198" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="catacomb_boss_14obj_ani_s.xac" Model="catacomb_boss_14obj_ani_s" AniFile="catacomb_boss_14obj_ani_s.xsm" pos="-170.959778 170.853287 158.491440" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

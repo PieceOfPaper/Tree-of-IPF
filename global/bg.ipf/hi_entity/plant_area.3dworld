@@ -1,0 +1,15 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\field\f_siaulei\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<ShaTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<SubShaTexDir IpfName="bg_hi" Path="\common\"/>
+	<Model File="plant_obj.xac" Model="plant_obj" pos="-79.044144 53.720085 127.389160" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="plant_01.xac" Model="plant_01" pos="-123.588196 9.460505 124.044579" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="plant_gr.xac" Model="plant_gr" pos="-44.416870 -6.817387 199.301666" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+	<Model File="plant_02.xac" Model="plant_02" pos="-150.906372 8.557926 90.668236" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000"/>
+</World>

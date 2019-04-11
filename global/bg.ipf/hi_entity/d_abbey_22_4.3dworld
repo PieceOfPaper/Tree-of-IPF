@@ -1,0 +1,32 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by .. (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_abbey_22_4\"/>
+	<LightMap File="d_abbey_22_4_lightmap.jpg" Length="3800 3800" Offset="3 466" Size="1024 1024"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="3800 3800" Offset="3 466" Height="3000 -3000"/>
+	<TexDir IpfName="bg_texture" Path="\abbey\"/>
+	<SubTexDir IpfName="bg_texture" Path="\zachariel\"/>
+	<SubTexDir IpfName="bg_texture" Path="\siauliai\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_abbey_22_4\"/>
+	<Model File="d_abbey_22_4_ground.xac" Model="d_abbey_22_4_ground" ShadowMap="d_abbey_22_4_ground" pos="72.8179 17.8235 -19.4795" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_tp01.xac" Model="d_abbey_22_4_tp01" ShadowMap="d_abbey_22_4_tp01" pos="-319.4082 89.4454 -1.5841" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_b_model.xac" Model="d_abbey_22_4_b_model" ShadowMap="d_abbey_22_4_b_model" pos="-55.0591 -9.3011 149.9381" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_tree.xac" Model="d_abbey_22_4_tree" ShadowMap="d_abbey_22_4_tree" pos="311.9439 58.5357 746.9201" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_water.xac" Model="d_abbey_22_4_water" pos="-214.3444 -133.7484 144.7109" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_fog.xac" Model="d_abbey_22_4_fog" pos="183.2607 140.3535 -42.4216" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_1area_grass.xac" Model="d_abbey_22_4_1area_grass" ShadowMap="d_abbey_22_4_1area_grass" pos="-73.0718 77.0541 1056.1615" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_anitree_01.xac" Model="d_abbey_22_4_anitree_01" ShadowMap="d_abbey_22_4_1area_grass" pos="-73.0718 77.0541 1056.1615" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_2area_grass.xac" Model="d_abbey_22_4_2area_grass" ShadowMap="d_abbey_22_4_2area_grass" pos="-354.0702 37.6627 -535.6868" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_light.xac" Model="d_abbey_22_4_light" pos="162.2607 56.6807 125.7776" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_bloom.xac" Model="d_abbey_22_4_bloom" pos="-337.7455 -3.5155 366.6919" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_5area_model.xac" Model="d_abbey_22_4_5area_model" ShadowMap="d_abbey_22_4_5area_model" pos="-868.3260 -12.3132 -369.4057" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_decal.xac" Model="d_abbey_22_4_decal" ShadowMap="d_abbey_22_4_decal" pos="-310.145 99.491 -0.097" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-868.3260 -12.3132 -369.4057" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_1area_model.xac" Model="d_abbey_22_4_1area_model" ShadowMap="d_abbey_22_4_1area_model" pos="1100.3558 108.9203 1193.0684" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_3area_model.xac" Model="d_abbey_22_4_3area_model" ShadowMap="d_abbey_22_4_3area_model" pos="426.3865 39.5363 442.2864" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_2area_model.xac" Model="d_abbey_22_4_2area_model" ShadowMap="d_abbey_22_4_2area_model" pos="-910.3889 60.7498 1211.1176" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_4area_model.xac" Model="d_abbey_22_4_4area_model" ShadowMap="d_abbey_22_4_4area_model" pos="-1068.0667 92.5731 578.9382" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_22_4_6area_model.xac" Model="d_abbey_22_4_6area_model" ShadowMap="d_abbey_22_4_6area_model" pos="-579.5813 -139.8387 -916.4825" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

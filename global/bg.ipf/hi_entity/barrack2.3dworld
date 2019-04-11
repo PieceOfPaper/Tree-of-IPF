@@ -1,0 +1,33 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by parkjkss (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_cathedral\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<TexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<SubTexDir IpfName="bg_texture" Path="\common\"/>
+	<BarrackCharCreatePos character="-5 0 95" dir="0" camera="-40 130 -50" at="0 10 100"/>
+	<BarrackCharPos>
+		<pos character="-30 0 95" camera="-50 120 -110" at="-30 20 95"/>
+		<pos character="-5 0 95" camera="-25 120 -110" at="-5 20 95"/>
+		<pos character="-53 0 85" camera="-73 120 -120" at="-53 20 85"/>
+		<pos character="15 0 65" camera="-5 120 -140" at="15 20 65"/>
+		<pos character="-70 0 120" camera="-90 120 -85" at="-70 20 120"/>
+		<pos character="25 0 110" camera="-7 120 -95" at="25 20 110"/>
+		<pos character="-80 0 60" camera="-100 120 -145" at="-80 20 60"/>
+		<pos character="40 0 75" camera="20 120 -130" at="40 20 75"/>
+		<pos character="-105 0 95" camera="-125 120 -110" at="-105 12 95"/>
+	</BarrackCharPos>
+	<BarrackCamera>
+		<Login eye="-250 130 -330" at="0 10 100"/>
+		<Barrack eye="-40 130 -50" at="0 10 100"/>
+	</BarrackCamera>
+	<Model File="d_cathe_01_6light_ab.xac" Model="d_cathe_01_6light_ab" pos="172.398544 116.650681 29.661076" rot="0.000000 0.707107 0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+	<Model File="d_cathe_01_5obj.xac" Model="d_cathe_01_5obj" pos="-47.763065 68.656830 72.970940" rot="0.000000 0.707107 0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+	<Model File="d_cathe_01_5light_ab.xac" Model="d_cathe_01_5light_ab" pos="-2.398651 117.466690 218.120544" rot="0.000000 0.707107 -0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+	<Model File="d_cathe_01_5glasslight_ab.xac" Model="d_cathe_01_5glasslight_ab" pos="111.504631 21.373154 35.928555" rot="0.000000 0.707107 0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+	<Model File="d_cathe_01_4sha_ab.xac" Model="d_cathe_01_4sha_ab" pos="-3.517828 66.644394 76.656189" rot="0.000000 0.707107 0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+	<Model File="d_cathe_01_1stair.xac" Model="d_cathe_01_1stair" pos="1.842840 38.170380 173.478256" rot="0.000000 0.707107 0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+	<Model File="d_cathe_01_barrack_gr.xac" Model="d_cathe_01_barrack_gr" pos="23.671753 -20.966583 -23.753819" rot="0.000000 0.000000 0.000000 1.000000" scale="1.000000 1.000000 1.000000 "/>
+	<Model File="d_cathe_01_7wall.xac" Model="d_cathe_01_7wall" pos="-5.826496 163.184372 90.011169" rot="0.000000 0.707107 0.000000 0.707107" scale="0.900000 0.900000 0.900000"/>
+</World>

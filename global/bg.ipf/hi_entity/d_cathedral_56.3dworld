@@ -1,0 +1,70 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by Administrator (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi" Path="\dungeon\d_cathedral_56\"/>
+	<SubModelDir IpfName="bg_hi" Path="\common\"/>
+	<LightMap File="d_cathedral_56_lightmap.jpg" Length="4700.0 4700.0" Offset="-51.753 -118.143" Size="1024 1024"/>
+	<TexDir IpfName="bg_texture" Path="\cathedral\"/>
+	<ShaTexDir IpfName="bg_hi" Path="\dungeon\d_cathedral_56\"/>
+	<AnimationDir IpfName="bg_hi" Path="\dungeon\d_cathedral_56\"/>
+	<SubTexDir IpfName="bg_texture" Path="\pilgrimroad\"/>
+	<Model File="d_cathe_03_gr_a.xac" Model="d_cathe_03_gr_a" ShadowMap="d_cathe_03_gr_a" pos="466.6196 0.0685 -55.9552" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_ground.xac" Model="d_cathe_03_ground" ShadowMap="d_cathe_03_ground" pos="-81.2088 108.3713 -287.0564" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_fog.xac" Model="d_cathe_03_fog" pos="44.4265 -147.6743 124.2364" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_b_model01.xac" Model="d_cathe_03_b_model01" ShadowMap="d_cathe_03_b_model01" pos="98.8669 -408.3555 -12.7763" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp11.xac" Model="d_cathe_03_tp11" ShadowMap="d_cathe_03_tp11" pos="65.7574 89.3803 -119.7117" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp23.xac" Model="d_cathe_03_tp23" ShadowMap="d_cathe_03_tp23" pos="-1914.9172 98.6748 -592.7404" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp08.xac" Model="d_cathe_03_tp08" ShadowMap="d_cathe_03_tp08" pos="529.6654 91.0706 340.0529" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp16.xac" Model="d_cathe_03_tp16" ShadowMap="d_cathe_03_tp16" pos="-84.4305 132.2226 -1117.0851" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp09.xac" Model="d_cathe_03_tp09" ShadowMap="d_cathe_03_tp09" pos="670.0727 140.3854 322.3356" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp12.xac" Model="d_cathe_03_tp12" ShadowMap="d_cathe_03_tp12" pos="85.6778 140.3853 -290.4666" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp17.xac" Model="d_cathe_03_tp17" ShadowMap="d_cathe_03_tp17" pos="-168.4716 55.4399 -1286.8048" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp15.xac" Model="d_cathe_03_tp15" ShadowMap="d_cathe_03_tp15" pos="-225.8241 84.5542 -1078.3663" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp25.xac" Model="d_cathe_03_tp25" ShadowMap="d_cathe_03_tp25" pos="-1392.5955 56.6195 641.9259" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp10.xac" Model="d_cathe_03_tp10" ShadowMap="d_cathe_03_tp10" pos="786.0007 179.3622 299.9213" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp13.xac" Model="d_cathe_03_tp13" ShadowMap="d_cathe_03_tp13" pos="122.6437 171.3275 -379.8279" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp03.xac" Model="d_cathe_03_tp03" ShadowMap="d_cathe_03_tp03" pos="2097.2842 57.9592 1.9908" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp14.xac" Model="d_cathe_03_tp14" ShadowMap="d_cathe_03_tp14" pos="-846.8553 48.7438 157.4773" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp01.xac" Model="d_cathe_03_tp01" ShadowMap="d_cathe_03_tp01" pos="2236.8918 99.6517 625.4084" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp02.xac" Model="d_cathe_03_tp02" ShadowMap="d_cathe_03_tp02" pos="2233.8069 60.5090 294.7340" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp04.xac" Model="d_cathe_03_tp04" ShadowMap="d_cathe_03_tp04" pos="2055.0425 62.4563 -214.0378" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp06.xac" Model="d_cathe_03_tp06" ShadowMap="d_cathe_03_tp06" pos="1939.6238 99.6516 -654.6121" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp19.xac" Model="d_cathe_03_tp19" ShadowMap="d_cathe_03_tp19" pos="-947.6105 60.5088 -698.9930" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp05.xac" Model="d_cathe_03_tp05" ShadowMap="d_cathe_03_tp05" pos="2231.9180 62.4563 -347.6294" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp20.xac" Model="d_cathe_03_tp20" ShadowMap="d_cathe_03_tp20" pos="-1291.4414 98.8153 -717.4107" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp18.xac" Model="d_cathe_03_tp18" ShadowMap="d_cathe_03_tp18" pos="-728.9617 99.6516 -852.6539" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp22.xac" Model="d_cathe_03_tp22" ShadowMap="d_cathe_03_tp22" pos="-1566.5123 60.5088 -811.1455" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_tp07.xac" Model="d_cathe_03_tp07" ShadowMap="d_cathe_03_tp07" pos="1605.6882 60.5088 -651.8957" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_3area_model.xac" Model="d_cathe_03_3area_model" ShadowMap="d_cathe_03_3area_model" pos="524.7325 -189.7149 -116.4085" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_2area_model.xac" Model="d_cathe_03_2area_model" ShadowMap="d_cathe_03_2area_model" pos="1125.9291 -77.3355 645.0736" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_4area_model.xac" Model="d_cathe_03_4area_model" ShadowMap="d_cathe_03_4area_model" pos="-647.4570 -33.7013 -127.1071" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_5area_model.xac" Model="d_cathe_03_5area_model" ShadowMap="d_cathe_03_5area_model" pos="-827.3257 -98.5402 -1016.2695" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_6area_model.xac" Model="d_cathe_03_6area_model" ShadowMap="d_cathe_03_6area_model" pos="-1773.8960 -51.6439 -362.8143" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_1area_model.xac" Model="d_cathe_03_1area_model" ShadowMap="d_cathe_03_1area_model" pos="1868.4680 -109.9143 22.9326" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="1868.4680 -109.9143 22.9326" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_7area_model.xac" Model="d_cathe_03_7area_model" ShadowMap="d_cathe_03_7area_model" pos="-1859.2603 -152.7752 554.2787" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_3area_light.xac" Model="d_cathe_03_3area_light" pos="28.3223 37.4761 -551.9318" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_1area_light.xac" Model="d_cathe_03_1area_light" pos="1936.8098 115.4671 -29.7653" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_4area_light.xac" Model="d_cathe_03_4area_light" pos="-1568.4675 107.3215 76.3393" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_2area_light.xac" Model="d_cathe_03_2area_light" pos="800.5286 -298.3056 1432.3635" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_4area_grass.xac" Model="d_cathe_03_4area_grass" ShadowMap="d_cathe_03_4area_grass" pos="-596.0964 41.2795 -511.1163" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_5area_grass.xac" Model="d_cathe_03_5area_grass" ShadowMap="d_cathe_03_5area_grass" pos="-1382.9900 -109.5010 78.7977" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_3area_grass.xac" Model="d_cathe_03_3area_grass" ShadowMap="d_cathe_03_3area_grass" pos="483.5728 -52.2761 -108.0501" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_2area_grass.xac" Model="d_cathe_03_2area_grass" ShadowMap="d_cathe_03_2area_grass" pos="957.9406 64.2993 678.8708" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_1area_grass.xac" Model="d_cathe_03_1area_grass" ShadowMap="d_cathe_03_1area_grass" pos="1809.7366 -93.7414 41.2177" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_4area_blend.xac" Model="d_cathe_03_4area_blend" pos="-1072.2539 65.5658 -133.1900" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_1area_blend.xac" Model="d_cathe_03_1area_blend" ShadowMap="d_cathe_03_1area_blend" pos="1181.2598 3.6983 161.8727" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_blend2.xac" Model="d_cathe_03_blend2" pos="-21.7516 0.4472 34.8963" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_blend3.xac" Model="d_cathe_03_blend3" pos="80.1218 0.3636 -134.7135" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_1area_shaoff.xac" Model="d_cathe_03_1area_shaoff" pos="1875.1947 -192.4491 -10.0817" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_5area_shaoff.xac" Model="d_cathe_03_5area_shaoff" pos="-1832.3519 162.3006 59.1765" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_4area_shaoff.xac" Model="d_cathe_03_4area_shaoff" pos="-711.0969 -150.8161 -565.0995" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_b_model02.xac" Model="d_cathe_03_blend2" pos="-2789.3945 -2457.8755 2787.1016" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_sa_ani03.xac" Model="d_cathe_03_sa_ani03" ShadowMap="d_cathe_03_sa_ani03" AniFile="d_cathe_03_sa_ani03.xsm" pos="162.3745 193.6506 -33.3684" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_sas_ani03.xac" Model="d_cathe_03_sas_ani03" AniFile="d_cathe_03_sas_ani03.xsm" pos="163.2666 193.6506 -33.9029" rot="0.0000 0.0000 0.0104" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_sas_ani01.xac" Model="d_cathe_03_sas_ani01" AniFile="d_cathe_03_sas_ani01.xsm" pos="330.2006 193.6506 176.4793" rot="0.0000 0.0000 0.0104" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_sa_ani01.xac" Model="d_cathe_03_sa_ani01" ShadowMap="d_cathe_03_sa_ani01" AniFile="d_cathe_03_sa_ani01.xsm" pos="329.3085 193.6506 177.0139" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_sas_ani02.xac" Model="d_cathe_03_sas_ani02" AniFile="d_cathe_03_sas_ani02.xsm" pos="689.5951 193.6506 219.8848" rot="0.0000 0.0000 0.0104" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_cathe_03_sa_ani02.xac" Model="d_cathe_03_sa_ani02" ShadowMap="d_cathe_03_sa_ani02" AniFile="d_cathe_03_sa_ani02.xsm" pos="688.7030 193.6506 220.4194" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
+</World>

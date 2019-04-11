@@ -1,0 +1,37 @@
+<?xml version="1.0" standalone="yes"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
+<World>
+	<ModelDir IpfName="bg_hi2" Path="\dungeon\d_abbey_64_3\"/>
+	<Water File="normal.png" Length="500 500" Size="1024 1024"/>
+	<AutoHeightMap Length="5700.0 5700.0" Offset="-954.028 -2.754" Height="3000 -3000"/>
+	<LightMap File="d_abbey_64_3_lightmap.jpg" Length="3500.0 3500.0" Offset="-154.994 -102.0" Size="1024 1024"/>
+	<ShaTexDir IpfName="bg_hi2" Path="\dungeon\d_abbey_64_3\"/>
+	<TexDir IpfName="bg_texture" Path="\abbey\"/>
+	<SubTexDir IpfName="bg_texture" Path="\bracken\"/>
+	<Model File="d_abbey_64_3_gr_a.xac" Model="d_abbey_64_3_gr_a" ShadowMap="d_abbey_64_3_gr_a" pos="-56.5251 307.9486 1.2156" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_light02.xac" Model="d_abbey_64_3_light02" ShadowMap="d_abbey_64_3_light02" pos="193.6216 296.6840 -237.1309" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_8area_model.xac" Model="d_abbey_64_3_8area_model" ShadowMap="d_abbey_64_3_8area_model" pos="-23.9922 98.6475 924.6219" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_ground.xac" Model="d_abbey_64_3_ground" ShadowMap="d_abbey_64_3_ground" pos="0.0683 300.1031 -20.1882" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_blend.xac" Model="d_abbey_64_3_blend" ShadowMap="d_abbey_64_3_blend" pos="-43.0073 239.3141 41.6345" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_1area_tree.xac" Model="d_abbey_64_3_1area_tree" ShadowMap="d_abbey_64_3_1area_tree" pos="-755.0433 286.1026 71.5750" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_water.xac" Model="d_abbey_64_3_water" ShadowMap="d_abbey_64_3_water" pos="-34.2730 212.0694 203.5729" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_b_model.xac" Model="d_abbey_64_3_b_model" ShadowMap="d_abbey_64_3_b_model" pos="-374.8793 268.8600 -47.0112" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_bend2.xac" Model="d_abbey_64_3_bend2" ShadowMap="d_abbey_64_3_bend2" pos="-112.3879 304.7360 -106.1945" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_grass.xac" Model="d_abbey_64_3_grass" ShadowMap="d_abbey_64_3_grass" pos="-93.5598 276.2998 13.3822" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_light.xac" Model="d_abbey_64_3_light" pos="-427.2145 427.5530 -79.0571" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_b_model02.xac" Model="d_abbey_64_3_b_model02" ShadowMap="d_abbey_64_3_b_model02" pos="-1260.9138 -101.4707 80.9385" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_1area_model.xac" Model="d_abbey_64_3_1area_model" ShadowMap="d_abbey_64_3_1area_model" pos="-517.8794 312.4872 -1399.0908" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_2area_model.xac" Model="d_abbey_64_3_2area_model" ShadowMap="d_abbey_64_3_2area_model" pos="-1525.2751 444.9169 -679.1477" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_3area_model.xac" Model="d_abbey_64_3_3area_model" ShadowMap="d_abbey_64_3_3area_model" pos="-1634.9696 461.4790 585.4814" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_5area_model.xac" Model="d_abbey_64_3_5area_model" ShadowMap="d_abbey_64_3_5area_model" pos="869.8864 327.3462 -676.5355" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_6area_model.xac" Model="d_abbey_64_3_6area_model" ShadowMap="d_abbey_64_3_6area_model" pos="860.2257 291.4242 128.7985" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_4area_model.xac" Model="d_abbey_64_3_4area_model" ShadowMap="d_abbey_64_3_4area_model" pos="-536.6710 220.0787 -206.9834" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_7area_model.xac" Model="d_abbey_64_3_7area_model" ShadowMap="d_abbey_64_3_7area_model" pos="-898.9949 142.9339 862.9758" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="obbcol.xac" Model="obbcol" pos="-898.9949 142.9339 862.9758" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_2area_tree.xac" Model="d_abbey_64_3_2area_tree" ShadowMap="d_abbey_64_3_2area_tree" pos="-2249.4893 -58.1866 352.7903" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_3area_tree.xac" Model="d_abbey_64_3_3area_tree" ShadowMap="d_abbey_64_3_3area_tree" pos="593.0698 323.0670 -671.8059" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_tp01.xac" Model="d_abbey_64_3_tp01" ShadowMap="d_abbey_64_3_tp01" pos="609.2649 469.0245 -595.6947" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_tp02.xac" Model="d_abbey_64_3_tp02" ShadowMap="d_abbey_64_3_tp02" pos="594.6479 459.0864 -908.5804" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="d_abbey_64_3_tree_out.xac" Model="d_abbey_64_3_tree_out" ShadowMap="d_abbey_64_3_tree_out" pos="-118.8745 509.6559 -225.8945" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+</World>
