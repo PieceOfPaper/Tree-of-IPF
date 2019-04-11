@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="10" soundFile="skl_eff_ground_blow_s"/>
+	<Particle frame="12" particleName="F_spark007_leaf" attachNode="Dummy_effect02" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_spark007_leaf" attachNode="Dummy_effect01" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_ground066_smoke" attachNode="Dummy_atk2_badak_R" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_ground066_smoke" attachNode="Dummy_atk2_badak_L" scale="3" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_burstup016_smoke" attachNode="Dummy_atk2_badak_R" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_burstup016_smoke" attachNode="Dummy_atk2_badak_L" scale="2.5" useAttach="true" pause="true" targetPos="false"/>
+	<Particle frame="12" particleName="F_smoke107" attachNode="Dummy_emitter" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="10" Value="0" soundFile="m_whip_vine_atk1_shot"/>
+	<Sound frame="10" Value="0" soundFile="mon_ridimed_born"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_mushroom_ent_atk1_shot"/>
+	<Sound frame="0.00" Value="0" soundFile="m_whip_vine_skl_ready"/>
+</ActionDesc>

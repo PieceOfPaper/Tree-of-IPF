@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice_action"/>
+	<Particle frame="6" attachNode="Dummy_eff_atk" particleName="I_sword011_black" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+	<Sound frame="7.00" Value="0" soundFile="mon_mushroom_ent_atk1_shot"/>
+	<Sound frame="7.00" Value="0" soundFile="skl_eff_atk_move_m_3"/>
+</ActionDesc>

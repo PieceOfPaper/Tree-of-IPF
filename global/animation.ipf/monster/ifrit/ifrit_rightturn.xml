@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_zombieboss_wlk" />
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_m_12" />
+    <Particle frame="4" particleName="F_smoke109" attachNode="Bip001 R Finger1" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="4" particleName="F_stone005" attachNode="Bip001 R Finger1" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="10" particleName="F_smoke109" attachNode="Bip001 R Toe1" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="10" particleName="F_stone005" attachNode="Bip001 R Toe1" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="10" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="12" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="13" particleName="F_smoke109" attachNode="Bip001 L Finger1" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_stone005" attachNode="Bip001 L Finger1" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="17" particleName="F_smoke109" attachNode="Bip001 L Toe1" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="17" particleName="F_stone005" attachNode="Bip001 L Toe1" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="17" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="19" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="20" particleName="F_smoke109" attachNode="Bip001 R Finger1" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="20" particleName="F_stone005" attachNode="Bip001 R Finger1" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="22" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="23" particleName="F_smoke109" attachNode="Bip001 R Toe1" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="23" particleName="F_stone005" attachNode="Bip001 R Toe1" scale="0.5" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="24" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

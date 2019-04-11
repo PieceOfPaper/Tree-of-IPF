@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="upper_01" particleName="F_circle022_rotate" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="body_3" particleName="I_force062_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="body_2" particleName="I_force062_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="upper_01" particleName="F_ground012_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_mineloader_10"/>
+    <Sound frame="0.00" soundFile="skl_eff_lightning_2"/>
+    <Particle frame="5" attachNode="effect_Dummy001" particleName="F_light003_green2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="effect_Dummy002" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="effect_Dummy003" particleName="F_light003_green2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="effect_Dummy004" particleName="F_light003_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="effect_Dummy005" particleName="F_light003_green2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="8.00" soundFile="skl_eff_stone_grind_short"/>
+    <BlendOn frame="10" R="50" G="100" B="150" A="100"/>
+    <BlendOn frame="13" R="100" G="150" B="200" A="200"/>
+    <BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

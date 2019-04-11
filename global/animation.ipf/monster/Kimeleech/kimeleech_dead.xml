@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="60" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_kirmeleech_dead" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="13" pause="true" targetPos="false"/>
+	<Particle frame="40" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="18" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="I_kirmeleech_dead_mash" useAttach="false" hiddenObj="false" scale="0.6" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion004_yellow" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion082" useAttach="false" hiddenObj="false" scale="6" pause="true" targetPos="false"/>
+	<Particle frame="60" attachActor="None" attachNode="Dummy_emitter" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="100" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="m_Kimeleech_dead"/>
+</ActionDesc>

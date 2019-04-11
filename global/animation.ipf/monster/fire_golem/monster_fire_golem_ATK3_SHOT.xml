@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_atk1" particleName="I_golem_atk001_mash" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Sound frame="0.00" soundFile="mon_golem_natk1_shot" />
+    <Shockwave frame="6" type="2" intensity="10" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_hand" particleName="F_ground090" scale="1.0" />
+    <Particle frame="6" attachActor="None" attachNode="Dummy_effect_atk2_hand" particleName="F_golem_atk2_hand" scale="1.0" />
+    <Shockwave frame="7" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="8" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="9" type="2" intensity="5" frequency="70" duration="0.3" range="1000" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Shockwave frame="52" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="53" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="54" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

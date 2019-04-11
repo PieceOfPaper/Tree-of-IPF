@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <AfterImage frame="0" term="10" blendTime="400" r="160" g="160" b="160" a="160"/>
+    <Particle frame="3" particleName="F_burstup022_smoke" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false" sound="skl_eff_jumplanding_1"/>
+    <Particle frame="3" particleName="F_ground071_smoke" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="4" type="2" intensity="5" frequency="80" duration="1" range="1000"/>
+    <AfterImage frame="5" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Sound frame="11.63" soundFile="mon_voice_screech_1"/>
+    <Sound frame="15.00" soundFile="mon_voice_onion_the_great_4"/>
+    <Sound frame="16.53" soundFile="mon_voice_meduoliai_5"/>
+</ActionDesc>

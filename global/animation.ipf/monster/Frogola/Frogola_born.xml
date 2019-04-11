@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="18.00" soundFile="skl_eff_hit_ground_poison_bubble"/>
+    <AfterImage frame="20" term="20" blendTime="400" r="160" g="160" b="160" a="160"/>
+    <Particle frame="21" attachNode="Dummy_effect001" particleName="F_ground127_water" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+    <Shockwave frame="23" type="2" intensity="5" frequency="80" duration="1.5" range="1000"/>
+    <Sound frame="30.00" soundFile="skl_eff_atk_move_m_10"/>
+    <Shockwave frame="40" type="2" intensity="3" frequency="80" duration="1" range="1000"/>
+    <AfterImage frame="52" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

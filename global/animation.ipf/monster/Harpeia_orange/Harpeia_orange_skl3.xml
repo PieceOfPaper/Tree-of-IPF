@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_harpeia_skl_4"/>
+	<Particle frame="0" attachNode="Dummy_effect_wing_R" particleName="I_force078_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_wing_L" particleName="I_force078_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="60" attachNode="Dummy_effect_wing_R" particleName="I_force078_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="60" attachNode="Dummy_effect_wing_L" particleName="I_force078_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="150" attachNode="Dummy_effect_wing_R" particleName="I_force078_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="150" attachNode="Dummy_effect_wing_L" particleName="I_force078_orange2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="4" attachNode="Dummy_effect_wing_R" particleName="I_force078_orange_feather2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="4" attachNode="Dummy_effect_wing_L" particleName="I_force078_orange_feather2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="70" attachNode="Dummy_effect_wing_R" particleName="I_force078_orange_feather" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+	<Particle frame="70" attachNode="Dummy_effect_wing_L" particleName="I_force078_orange_feather" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true"/>
+	<Particle frame="150" attachNode="Dummy_effect_wing_R" particleName="I_force078_orange_feather2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="150" attachNode="Dummy_effect_wing_L" particleName="I_force078_orange_feather2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="25" attachNode="Dummy_emitter" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_smoke061" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="71" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="142" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

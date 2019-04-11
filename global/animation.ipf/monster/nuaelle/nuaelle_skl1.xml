@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="63" R="75" G="70" B="70" A="50"/>
+	<BlendOn frame="64" R="65" G="60" B="60" A="50"/>
+	<BlendOff frame="66" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Bip001 Pelvis" particleName="F_levitation038" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="62" attachNode="Bip001 Pelvis" particleName="F_spread_out032" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_dash_center" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
+	<Sound frame="0.00" soundFile="skl_eff_summon_smoke"/>
+	<Sound frame="15.00" soundFile="mon_voice_screech_11"/>
+	<Sound frame="20.00" soundFile="skl_fgt_light_cast"/>
+	<Sound frame="60.00" soundFile="skl_eff_gyulge_shot"/>
+	<Sound frame="60.00" soundFile="mon_voice_screech_7"/>
+	<Sound frame="60.00" soundFile="mon_voice_helgasercle_7"/>
+	<Sound frame="60.00" soundFile="skl_eff_lightning"/>
+	<Sound frame="62.00" soundFile="mon_voice_bird_12"/>
+</ActionDesc>

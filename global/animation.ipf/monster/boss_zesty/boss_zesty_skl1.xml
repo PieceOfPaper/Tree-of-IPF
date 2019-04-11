@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_gesti_skl1"/>
+    <Sound frame="0.00" soundFile="skl_eff_chargingattack_cast1"/>
+    <Particle frame="10" attachNode="Dummy_effect_L_hand" particleName="I_force032_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="33.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="34.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

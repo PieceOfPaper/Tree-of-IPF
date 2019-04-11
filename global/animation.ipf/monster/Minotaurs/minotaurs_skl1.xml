@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="6.00" soundFile="mon_minotaurs_skl_1"/>
+    <Shockwave frame="24" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="24.00" soundFile="mon_big_footstep_4"/>
+    <Particle frame="24.00" particleName="F_ground079_smoke" attachNode="None" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="24.60" soundFile="mon_big_footstep_2"/>
+    <Shockwave frame="25" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="26" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="45" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="45.00" soundFile="mon_big_footstep_4"/>
+    <Particle frame="45.00" particleName="F_ground079_smoke" attachNode="None" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="45.60" soundFile="mon_big_footstep_2"/>
+    <Shockwave frame="46" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="47" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="62.00" particleName="F_ground079_smoke" attachNode="None" scale="1.0" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="62" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="63" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="63.00" soundFile="mon_big_footstep_4"/>
+    <Sound frame="63.60" soundFile="mon_big_footstep_2"/>
+    <Shockwave frame="64" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_burstup001_dark" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_ground040" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_R_HAND" particleName="I_cleric_ShapeShifting_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_R_HAND" particleName="I_cleric_ShapeShifting_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="10" attachNode="Dummy_R_HAND" particleName="I_cleric_ShapeShifting_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Dummy_effect_dash_center" particleName="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="1.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="8.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

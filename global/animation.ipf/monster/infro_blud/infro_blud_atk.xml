@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice6_action_1"/>
+    <Sound frame="11.67" soundFile="mon_voice6_action_2"/>
+    <Particle frame="12" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="12" attachNode="Hair_04" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="12" attachNode="Hair_02" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="12.62" soundFile="m_shardstatue_random_voice"/>
+    <Sound frame="12.62" soundFile="mon_voice_rooto_6"/>
+    <Sound frame="12.62" soundFile="skl_eff_bite_s_1"/>
+</ActionDesc>

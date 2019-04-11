@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="44" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="46" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="48" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="50" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="52" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="54" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="56" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="58" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="62" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_achat_skl" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_body_02" particleName="F_light005_green" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="44" attachNode="Dummy_body_02" particleName="F_light004_green" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="45" attachNode="Dummy_body_02" particleName="I_smoke043" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="45" attachNode="Dummy_body_02" particleName="I_laser011_green" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_wood_spirit_skl_shot"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_molich_skl_ready"/>
+</ActionDesc>

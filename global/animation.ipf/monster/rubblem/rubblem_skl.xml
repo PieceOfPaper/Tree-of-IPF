@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="1" attachNode="Bip001 R Hand" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Dummy_hand_R_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Bip001 L Hand" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Dummy_hand_L_effect" particleName="I_spread_out006_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true"/>
+	<Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false"/>
+	<Particle frame="7" attachNode="Dummy_skl_effect" particleName="F_ground059_fire" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="mon_voice6_action_2"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_1"/>
+	<Sound frame="6.00" soundFile="skl_eff_atk_move_s_8"/>
+	<Sound frame="7.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="7.00" soundFile="mon_voice_action"/>
+</ActionDesc>

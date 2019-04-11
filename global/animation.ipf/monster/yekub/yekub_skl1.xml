@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_m_11"/>
+	<Particle frame="10" attachActor="None" attachNode="Dummy_effect_badak" particleName="E_yekub_skl1" hiddenObj="false" useAttach="true" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="26.40" soundFile="mon_voice_throneweaver_6"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail R1 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail R2 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail R3 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail B1 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail L3 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail L2 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="30" attachActor="None" attachNode="B_tail L1 01" particleName="I_force022" hiddenObj="false" useAttach="true" scale="1.5" pause="true" targetPos="false"/>
+	<Sound frame="30.00" soundFile="skl_eff_gas_1"/>
+	<Sound frame="39.60" soundFile="mon_voice_bug_5"/>
+	<Sound frame="54.00" soundFile="mon_katyn_bug_skl_shot"/>
+	<Sound frame="55.50" soundFile="mon_voice_throneweaver_2"/>
+	<Sound frame="57.00" soundFile="skl_eff_stoneunderground_2"/>
+	<Particle frame="59" attachActor="None" attachNode="B_feelers F1 03" particleName="F_burstup012_blue" hiddenObj="false" useAttach="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="59" attachActor="None" attachNode="B_feelers F1 03" particleName="F_smoke037" hiddenObj="false" useAttach="false" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

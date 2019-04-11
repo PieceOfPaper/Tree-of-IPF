@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="31" term="50" blendTime="300" r="160" g="160" b="255" a="200"/>
+	<AfterImage frame="39" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="0" attachNode="Dummy_effect_eye_L" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.2" pause="true" use2DEffect="false"/>
+	<Particle frame="50" attachNode="Dummy_effect_tail" particleName="I_ground005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="45" attachNode="Dummy_effect_tail" particleName="I_ground005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="40" attachNode="Dummy_effect_tail" particleName="I_ground005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_tail" particleName="I_ground005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false"/>
+	<Particle frame="32" attachNode="Top001" particleName="F_spread_out026_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="mon_voice11_cast"/>
+	<Sound frame="10.00" soundFile="mon_voice_action"/>
+	<Sound frame="20.00" soundFile="mon_voice_onion_the_great_3"/>
+	<Sound frame="22.00" soundFile="skl_eff_atk_move_l_6"/>
+</ActionDesc>

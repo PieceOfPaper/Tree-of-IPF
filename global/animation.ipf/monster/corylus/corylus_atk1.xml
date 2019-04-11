@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_wendigo_atk_cast"/>
+    <Particle frame="6" particleName="F_explosion017_red" attachNode="head_01" scale="0.6" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="6.22" soundFile="skl_eff_body_atk_12"/>
+    <Sound frame="6.22" soundFile="mon_voice6_action_1"/>
+    <Sound frame="10.00" soundFile="skl_eff_body_atk_11"/>
+    <Particle frame="13" particleName="F_smoke031" attachNode="Dummy_emitter" scale="5" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

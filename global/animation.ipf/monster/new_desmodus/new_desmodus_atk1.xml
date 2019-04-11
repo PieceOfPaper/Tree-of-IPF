@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_new_desmodus_atk1_ready"/>
+	<Particle frame="4" particleName="F_monster_desmodus_atk1" attachNode="Dummy_atk1" scale="1.2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_emitter2" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="4" soundFile="m_new_desmodus_atk1_shot"/>
+	<Particle frame="4" particleName="F_monster_desmodus_atk1" attachNode="Dummy_atk1" scale="1.2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="4" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_emitter2" scale="1.0" useAttach="false" pause="true" targetPos="false"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

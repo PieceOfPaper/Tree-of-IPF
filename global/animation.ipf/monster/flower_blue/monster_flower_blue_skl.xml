@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="12" soundFile="mon_flower_blue_skl_shot" />
+    <Particle frame="12" attachNode="Dummy_skl" particleName="I_breath011_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" />
+    <Particle frame="12" attachNode="Dummy_skl" particleName="I_smoke020_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" />
+    <Particle frame="12" attachNode="Dummy_emitter" particleName="F_smoke075_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="12" attachNode="Bone021" particleName="F_levitation018" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="12" attachNode="Bone015" particleName="F_levitation018" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="12" attachNode="Bone018" particleName="F_levitation018" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="12" attachNode="Bone023" particleName="F_levitation018" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <HitAni frame="39" Value="1300;1400" />
+    <Particle frame="16" attachNode="Dummy_atk1_L" particleName="F_drop_water002" useAttach="false" hiddenObj="false" scale="1.0" />
+    <Particle frame="16" attachNode="Dummy_atk1_R" particleName="F_drop_water002" useAttach="false" hiddenObj="false" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Sound frame="0" soundFile="mon_flower_blue_skl_cast" />
+</ActionDesc>

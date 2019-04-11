@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_mouse" particleName="I_smoke013_dark1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice_rootopus_move_4"/>
+    <Sound frame="0.00" soundFile="mon_voice_rooto_7"/>
+    <Sound frame="0.00" soundFile="mon_voice3_s_19"/>
+    <Sound frame="4.00" soundFile="mon_voice_s_dead_1"/>
+    <Particle frame="5" attachNode="Dummy_effect_ground" particleName="F_smoke008" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_skl" particleName="F_explosion017_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="I_shogogoth_skl1_breath_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_chortasmata_ground"/>
+    <Particle frame="7" attachNode="Dummy_effect_mouse" particleName="I_breath005_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="8" R="20" G="40" B="60" A="50"/>
+    <BlendOn frame="9" R="10" G="30" B="40" A="50"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="I_shogogoth_skl1_breath_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

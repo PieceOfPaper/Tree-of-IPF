@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice5_l_3"/>
+    <Sound frame="0.00" soundFile="skl_eff_cast_smoke"/>
+    <Particle frame="12" attachNode="Dummy_effect_lip2" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="13.00" soundFile="mon_voice_roar"/>
+    <Particle frame="15" attachNode="Dummy_effect_lip2" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="15.00" soundFile="mon_voice5_l_2"/>
+    <Particle frame="20" attachNode="Dummy_effect_skl3_R_hand1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="20" attachNode="Dummy_effect_skl3_R_hand1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="33" attachNode="Dummy_effect_skl3_L_hand1" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="33" attachNode="Dummy_effect_skl3_L_hand1" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="39" attachNode="Dummy_effect_eye_r_down" particleName="I_force086_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="39" attachNode="Dummy_effect_eye_r_up" particleName="I_force086_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="39" attachNode="Dummy_effect_eye_l_up" particleName="I_force086_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="39" attachNode="Dummy_effect_eye_l_down" particleName="I_force086_trail" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="39.00" soundFile="mon_voice_werewolf_3"/>
+    <Sound frame="39.00" soundFile="mon_voice_hog_12"/>
+    <Sound frame="48.00" soundFile="skl_eff_stone_blow_m"/>
+    <Sound frame="48.00" soundFile="skl_eff_stone_born_l_1"/>
+    <Sound frame="48.00" soundFile="skl_archer_landmine_boom"/>
+    <Particle frame="59" attachNode="Dummy_effect_skl3_ground" particleName="F_ground077_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="skl_eff_stoneunderground_2"/>
+    <Particle frame="59" attachNode="Dummy_effect_skl3_ground" particleName="F_ground068_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="59" attachNode="Dummy_effect_skl3_ground" particleName="F_ground139_light_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_bufficon" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="95" attachNode="Dummy_bufficon" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="102" attachNode="Dummy_effect_lip2" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="106" attachNode="Dummy_effect_lip2" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="107" attachNode="Bip01 L Finger0" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="110" attachNode="Bip01 L Finger0" particleName="I_ground005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="115" attachNode="Bip01 R Finger0" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="118" attachNode="Bip01 R Finger0" particleName="I_ground005_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+</ActionDesc>

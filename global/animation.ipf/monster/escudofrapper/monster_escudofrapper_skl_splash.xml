@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="40" attachActor="None" attachNode="" particleName="mon_escudofrapper_skill"/>
+	<Particle frame="40" attachActor="None" attachNode="" particleName="I_swordtrail022_blue"/>
+	<Particle frame="40" attachActor="None" attachNode="Bip01 Prop2" particleName="I_smoke036_dark"/>
+	<Emitter frame="39" attachNode="None" emitterName="monster_escudofrapper_skl_splash"/>
+	<Sound frame="18" soundFile="m_escudofrapper_atk1"/>
+	<Sound frame="42" soundFile="m_escudofrapper_atk4"/>
+</ActionDesc>

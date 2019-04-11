@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="4" attachNode="Dummy_shot_effect001" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false"/>
+	<Particle frame="6" attachNode="Dummy_shot_effect002" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.85" pause="true" use2DEffect="false"/>
+	<Particle frame="8" attachNode="Dummy_shot_effect003" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_buff_explosion_burst" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Dummy_effect_R" particleName="F_fire037" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false"/>
+	<Particle frame="1" attachNode="Dummy_effect_L" particleName="F_fire037" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_C" particleName="F_fire037" useAttach="false" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false"/>
+	<Particle frame="2" attachNode="Dummy_effect_C" particleName="F_levitation005_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.1" pause="true" use2DEffect="true"/>
+	<Particle frame="3" attachNode="Dummy_effect_L" particleName="F_levitation005_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.05" pause="true" use2DEffect="true"/>
+	<Particle frame="3" attachNode="Dummy_effect_R" particleName="F_levitation005_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.05" pause="true" use2DEffect="true"/>
+</ActionDesc>

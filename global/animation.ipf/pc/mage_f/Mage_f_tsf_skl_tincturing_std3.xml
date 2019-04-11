@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<CreateMonsterAnim frame="0" Key="tincturing" Anim="std3" Freeze="0"/>
+	<Particle frame="0" attachNode="Dummy_bufficon" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

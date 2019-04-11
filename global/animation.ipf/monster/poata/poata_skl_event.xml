@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_smoke" particleName="F_spread_out014_smoke" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="55" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out023_circle" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false" sound="skl_eff_spread_2"/>
+	<Particle frame="55" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out014_smoke" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="4266" soundFile="mon_voice5_l_dead_2"/>
+	<Sound frame="24.00" Value="0" soundFile="skl_ice_cast"/>
+	<Sound frame="53.00" Value="4266" soundFile="mon_voice5_l_4"/>
+	<Sound frame="84.00" Value="4266" soundFile="skl_fgt_endure"/>
+	<Shockwave frame="55" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="57" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="60" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="63" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="69" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="75" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="81" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="84" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="87" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="90" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="93" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="96" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="99" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="102" type="2" intensity="6" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

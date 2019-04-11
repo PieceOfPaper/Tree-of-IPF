@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AttachModel frame="0" XAC="artefact_monstrance_set" node="Dummy_R_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="0.00" soundFile="skl_eff_yuche_cast"/>
+	<Sound frame="5.00" soundFile="skl_fgt_tackle_shot"/>
+	<Particle frame="11" attachNode="Dummy_effect_monstrance" particleName="F_cleric_monstrance_shot_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Dummy_effect_monstrance" particleName="F_cleric_monstrance_shot_light2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

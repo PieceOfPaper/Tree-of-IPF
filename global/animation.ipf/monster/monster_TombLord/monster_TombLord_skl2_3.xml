@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_15"/>
+	<Sound frame="3.00" soundFile="mon_tomblord_skl_3"/>
+	<Particle frame="0" attachNode="Dummy_hand_R" particleName="I_force024_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_hand_L" particleName="I_force024_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke120_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_hand_R" particleName="I_spread_out011_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_hand_L" particleName="I_spread_out011_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_emitter" particleName="F_lineup018_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

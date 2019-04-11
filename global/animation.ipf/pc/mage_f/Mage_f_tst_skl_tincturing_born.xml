@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_TINCTURING_BORN" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<CreateMonster frame="0" MonName="alchemist_tincturing" Key="tincturing" Angle="0" ist="0" MonAngle="0"/>
+	<CreateMonsterAnim frame="0" Key="tincturing" Anim="born" Freeze="0"/>
+	<Sound frame="16.00" soundFile="skl_eff_alchemist_tincturing_born"/>
+</ActionDesc>

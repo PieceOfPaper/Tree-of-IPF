@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="76" R="40" G="50" B="40" A="100"/>
+	<BlendOn frame="77" R="60" G="70" B="60" A="100"/>
+	<BlendOn frame="78" R="80" G="90" B="80" A="100"/>
+	<BlendOn frame="79" R="100" G="110" B="100" A="100"/>
+	<BlendOn frame="80" R="100" G="100" B="90" A="100"/>
+	<BlendOn frame="82" R="80" G="90" B="80" A="100"/>
+	<BlendOn frame="84" R="70" G="80" B="70" A="100"/>
+	<BlendOn frame="86" R="60" G="70" B="60" A="100"/>
+	<BlendOn frame="88" R="50" G="60" B="50" A="100"/>
+	<BlendOn frame="90" R="40" G="50" B="40" A="100"/>
+	<BlendOn frame="92" R="30" G="40" B="30" A="100"/>
+	<BlendOn frame="94" R="20" G="30" B="20" A="100"/>
+	<BlendOff frame="95" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="30" type="1" intensity="1" frequency="0.7" duration="2" range="1000"/>
+	<Shockwave frame="89" type="1" intensity="2" frequency="0.6" duration="0.5" range="1000"/>
+	<Particle frame="102" attachNode="Dummy_effect_skl2_head" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Bone043" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="86" attachNode="None" particleName="F_spread_out013_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="89" attachNode="None" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="89" attachNode="None" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="89" attachNode="Bone019" particleName="F_drop_leaf001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="25.00" soundFile="mon_golem_skl_2"/>
+	<Sound frame="65.00" soundFile="mon_golem_natk1_shot"/>
+</ActionDesc>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_eff_1inchpunch_cast"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="6.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="7.00" soundFile="skl_eff_1inchpunch_shot"/>
+	<BlendOn frame="0" R="45" G="40" B="80" A="50"/>
+	<BlendOn frame="2" R="35" G="30" B="60" A="50"/>
+	<BlendOn frame="2" R="20" G="20" B="40" A="40"/>
+	<BlendOn frame="9" R="160" G="150" B="200" A="100"/>
+	<BlendOn frame="14" R="150" G="140" B="200" A="100"/>
+	<BlendOn frame="15" R="60" G="50" B="100" A="50"/>
+	<BlendOn frame="16" R="45" G="40" B="80" A="50"/>
+	<BlendOn frame="17" R="35" G="30" B="60" A="50"/>
+	<BlendOn frame="18" R="17" G="15" B="30" A="30"/>
+	<BlendOn frame="19" R="7" G="5" B="10" A="20"/>
+	<BlendOff frame="21" R="0" G="0" B="0" A="0"/>
+	<Particle frame="6" attachNode="Bip01 R Finger21" particleName="I_cleric_1inchpunch_shot_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Bip01 R Toe0" particleName="I_cleric_1inchpunch_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Bip01 L Toe0" particleName="I_cleric_1inchpunch_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Bip01 Pelvis" particleName="I_cleric_1inchpunch_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_cleric_1inchpunch_cast_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="E_cleric_1inchpunch_shot_hit" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="12" attachNode="Dummy_emitter" particleName="E_cleric_1inchpunch_shot_hit_circle" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+</ActionDesc>

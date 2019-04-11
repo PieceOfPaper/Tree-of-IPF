@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<Sound frame="1" soundFile="m_vordoi_atk3"/>
+	<Sound frame="16" soundFile="blunt_attack1"/>
+	<Particle frame="21" attachActor="None" attachNode="Bip01 Prop1" particleName="I_smoke036_dark"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip01 Prop2" particleName="I_smoke036_dark"/>
+	<Sound frame="30" soundFile="blunt_attack1"/>
+	<Particle frame="23" attachNode="" particleName="I_bomb006_dark" useAttach="true"/>
+	<Particle frame="42" attachNode="" particleName="I_bomb006_dark" useAttach="true"/>
+	<Sound frame="24" soundFile="axe_blow_ground"/>
+	<Sound frame="43" soundFile="axe_blow_ground"/>
+</ActionDesc>

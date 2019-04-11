@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="10" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="20" frequency="50" duration="0.5" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<AfterImage frame="50" term="50" blendTime="400" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="140" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="12" attachNode="None" particleName="F_burstup029_smoke_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="12" attachNode="None" particleName="F_smoke025_blue" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="3.00" soundFile="mon_move_marionette_born"/>
+	<Sound frame="90.00" soundFile="mon_voice_marionette_born"/>
+</ActionDesc>

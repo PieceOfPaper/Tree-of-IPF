@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<ActionDesc>
+  <Particle frame="43" attachNode="" particleName="mon_zealot_dead_smoke" useAttach="true" />
+  <Particle frame="87" attachNode="" particleName="mon_zealot_dead_smoke" useAttach="true" />
+  <Particle frame="80" attachNode="" particleName="mon_kingdomougu_dead" useAttach="true" />
+  <Particle frame="70" attachNode="Bip01 R Hand" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Particle frame="90" attachNode="Bip01 L Hand" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Particle frame="95" attachNode="Bip01 Head" particleName="mon_kingdomougu_dead_s" useAttach="true" />
+  <Sound frame="1" soundFile="m_kingdomougu_dead" />
+  <Sound frame="45" soundFile="m_pyosaza_dying_n" />
+  <Sound frame="73" soundFile="m_bulgui_elite_dead3_body" />
+  <Sound frame="80" soundFile="dead_effect_1" />
+  <Sound frame="82" soundFile="dead_effect_4" />
+  <Sound frame="45" soundFile="m_dying_n2" />
+  <Sound frame="73" soundFile="m_dying_n3" />
+</ActionDesc>

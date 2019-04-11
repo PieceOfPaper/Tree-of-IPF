@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <AfterImage frame="0" term="30" blendTime="400" r="160" g="160" b="160" a="160"/>
+    <Sound frame="0.00" soundFile="mon_clymen_born"/>
+    <Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+    <Shockwave frame="3" type="2" intensity="3" frequency="80" duration="1" range="1000"/>
+    <Particle frame="3" particleName="F_burstup022_smoke" attachNode="Dummy_effect_L" scale="0.7" useAttach="true" pause="true" targetPos="false" sound="m_fallen_statue_born_event"/>
+    <Particle frame="5" particleName="F_burstup022_smoke" attachNode="Dummy_effect_R" scale="0.7" useAttach="true" pause="true" targetPos="false" sound="skl_eff_born_1"/>
+    <Sound frame="5.00" soundFile="mon_voice5_l_cast_4"/>
+    <Shockwave frame="7" type="2" intensity="3" frequency="80" duration="1" range="1000"/>
+    <Particle frame="8" particleName="F_ground071_smoke" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <AfterImage frame="25" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

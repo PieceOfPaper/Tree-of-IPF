@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_chupacabra_run"/>
+    <Particle frame="6" attachNode="Dummy_effect_skl1" particleName="F_smoke061" useAttach="false" hiddenObj="false" scale="0.6" pause="true" targetPos="false"/>
+    <Sound frame="6.00" soundFile="mon_tama_hit_base"/>
+    <Sound frame="7.00" soundFile="skl_eff_body_atk_12"/>
+    <Particle frame="7" attachNode="Dummy_effect_skl2" particleName="F_burstup014_circle" useAttach="false" hiddenObj="false" scale="1.3" pause="true" targetPos="false" sound="skl_eff_hit_base_3"/>
+    <Sound frame="8.00" soundFile="mon_voice9_s_random"/>
+</ActionDesc>

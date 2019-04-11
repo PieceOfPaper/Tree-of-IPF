@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_eff_rifle_atk_move_s"/>
+    <Sound frame="4.00" soundFile="skl_eff_rifle_atk_move_m"/>
+    <Particle frame="5" attachNode="Dummy_effect_mus" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_mus_smoke2" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_mus_smoke" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="50" targetPos="false"/>
+    <Particle frame="5" attachNode="Dummy_effect_mus2" particleName="F_archer_pistol_hit2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="5" R="100" G="90" B="80" A="100"/>
+    <BlendOn frame="6" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="7" R="60" G="40" B="30" A="70"/>
+    <BlendOn frame="8" R="30" G="20" B="10" A="40"/>
+    <BlendOn frame="9" R="0" G="0" B="0" A="50"/>
+    <Particle frame="11" attachNode="Dummy_effect_mus" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="11" attachNode="Dummy_effect_mus2" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="11" R="100" G="90" B="80" A="100"/>
+    <BlendOn frame="12" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="13" R="60" G="40" B="30" A="70"/>
+    <BlendOn frame="14" R="30" G="20" B="10" A="40"/>
+    <BlendOn frame="15" R="0" G="0" B="0" A="50"/>
+    <Particle frame="17" attachNode="Dummy_effect_mus" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_mus_smoke2" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_mus_smoke" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="50" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_effect_mus2" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="17" R="100" G="90" B="80" A="100"/>
+    <BlendOn frame="18" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="19" R="60" G="40" B="30" A="70"/>
+    <BlendOn frame="20" R="30" G="20" B="10" A="40"/>
+    <BlendOn frame="21" R="0" G="0" B="0" A="50"/>
+    <Particle frame="23" attachNode="Dummy_effect_mus" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="23" attachNode="Dummy_effect_mus2" particleName="F_archer_pistol_hit2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="23" R="100" G="90" B="80" A="100"/>
+    <BlendOn frame="24" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="25" R="60" G="40" B="30" A="70"/>
+    <BlendOn frame="26" R="30" G="20" B="10" A="40"/>
+    <BlendOn frame="27" R="0" G="0" B="0" A="50"/>
+    <Particle frame="29" attachNode="Dummy_effect_mus" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="29" attachNode="Dummy_effect_mus_smoke2" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="29" attachNode="Dummy_effect_mus_smoke" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="50" targetPos="false"/>
+    <Particle frame="29" attachNode="Dummy_effect_mus2" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="29" R="100" G="90" B="80" A="100"/>
+    <BlendOn frame="30" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="31" R="60" G="40" B="30" A="70"/>
+    <BlendOn frame="32" R="30" G="20" B="10" A="40"/>
+    <BlendOn frame="33" R="0" G="0" B="0" A="50"/>
+    <Particle frame="35" attachNode="Dummy_effect_mus" particleName="I_light013_spark_orange" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_effect_mus_smoke2" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_effect_mus_smoke" particleName="F_archer_musket_smoke_white2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="50" targetPos="false"/>
+    <Particle frame="35" attachNode="Dummy_effect_mus2" particleName="F_archer_pistol_hit2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+    <BlendOn frame="35" R="100" G="90" B="80" A="100"/>
+    <BlendOn frame="36" R="90" G="80" B="70" A="100"/>
+    <BlendOn frame="37" R="60" G="40" B="30" A="70"/>
+    <Sound frame="37.00" soundFile="skl_eff_rifle_atk_move_end"/>
+    <BlendOn frame="38" R="30" G="20" B="10" A="40"/>
+    <BlendOff frame="39" R="0" G="0" B="0" A="0"/>
+    <Particle frame="42" attachNode="Dummy_effect_mus" particleName="I_archer_pistol_atk_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

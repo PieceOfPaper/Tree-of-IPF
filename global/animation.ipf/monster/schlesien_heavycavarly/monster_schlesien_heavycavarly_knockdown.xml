@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="mon_goblinwarrior_hit" />
+    <Sound frame="0.00" soundFile="barricade_thorn_hit" />
+    <Particle frame="1" particleName="3D_pc_run" attachNode="Bip01 R Toe0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="2" particleName="3D_pc_run" attachNode="Bip01 R Toe0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="2" particleName="3D_pc_run" attachNode="Bip01 L Toe0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="3" particleName="3D_pc_run" attachNode="Bip01 L Toe0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="3" particleName="3D_pc_run" attachNode="Bip01 R Finger0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="4" particleName="3D_pc_run" attachNode="Bip01 R Finger0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="4" particleName="3D_pc_run" attachNode="Bip01 L Finger0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="5" particleName="3D_pc_run" attachNode="Bip01 L Finger0" scale="1.3" useAttach="true" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

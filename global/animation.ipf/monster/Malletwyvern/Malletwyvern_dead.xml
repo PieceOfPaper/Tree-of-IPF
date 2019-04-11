@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0" soundFile="m_malletwyvern_dead"/>
+	<Shockwave frame="57" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="59" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="61" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="63" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="65" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="67" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="69" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="71" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="73" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="75" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="50" G="10" B="50" A="30"/>
+	<BlendOn frame="10" R="150" G="100" B="150" A="150"/>
+	<BlendOn frame="30" R="200" G="150" B="200" A="200"/>
+	<BlendOff frame="65" R="0" G="0" B="0" A="0"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip01 Spine" particleName="F_light001_violet" useAttach="true" hiddenObj="false" scale="25" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="15" attachActor="None" attachNode="Bip01 Spine" particleName="F_light001_violet" useAttach="true" hiddenObj="false" scale="30" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="37" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_smoke059" useAttach="false" hiddenObj="false" scale="10" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_dead_effect" particleName="I_malletwyvern_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion004_violet" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_circle021_violet" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false" use2DEffect="false"/>
+	<Particle frame="57" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion082_violet" useAttach="false" hiddenObj="false" scale="7" pause="true" targetPos="false" use2DEffect="false"/>
+</ActionDesc>

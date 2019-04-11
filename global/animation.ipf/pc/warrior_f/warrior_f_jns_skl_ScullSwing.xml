@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast_2"/>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_scullswing_shot_spin" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOn frame="6" R="70" G="100" B="100" A="50"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="E_warrior_scullswing_swordtrail" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke050" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_smoke062_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <BlendOn frame="9" R="70" G="70" B="70" A="50"/>
+    <BlendOn frame="10" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

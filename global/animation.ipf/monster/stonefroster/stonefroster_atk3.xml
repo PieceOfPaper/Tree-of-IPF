@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_golem_natk1_cast"/>
+    <Particle frame="25" attachActor="None" attachNode="Bip01 R Finger2" particleName="F_yonazolem_skl2_ready" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+    <Sound frame="70.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Shockwave frame="81" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="81" soundFile="mon_golem_natk1_shot"/>
+    <Particle frame="81" attachActor="None" attachNode="Dummy_atk3_hand" particleName="F_burstup022_smoke" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Particle frame="81" attachActor="None" attachNode="Dummy_atk3_hand" particleName="F_smoke090" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+    <Shockwave frame="83" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="85" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="87" type="2" intensity="10" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

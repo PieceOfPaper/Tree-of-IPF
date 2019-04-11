@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_BRIQUETTING_STEP1_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_emitter" particleName="E_warrior_Dragontooth_dash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="1" R="150" G="150" B="130" A="100"/>
+	<BlendOn frame="2" R="120" G="120" B="100" A="100"/>
+	<BlendOn frame="3" R="90" G="80" B="60" A="100"/>
+	<BlendOn frame="4" R="60" G="50" B="30" A="100"/>
+	<BlendOn frame="5" R="40" G="30" B="20" A="100"/>
+	<BlendOn frame="6" R="20" G="10" B="5" A="100"/>
+	<BlendOff frame="7" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_special_hit_2"/>
+	<Sound frame="1.00" soundFile="skl_eff_special_shot_5"/>
+	<Sound frame="4.00" soundFile="skl_eff_special_shot_2"/>
+</ActionDesc>

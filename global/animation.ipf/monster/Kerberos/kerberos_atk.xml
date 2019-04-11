@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_effect_lip_02" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_lip_01" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_effect_lip_03" particleName="I_spread_out009_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Sound frame="0.00" soundFile="m_kerberos_atk"/>
+	<Sound frame="27.00" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="30.00" soundFile="skl_eff_atk_move_m_6"/>
+	<Particle frame="15" attachNode="Dummy_effect_r_hand_smoke01" particleName="F_smoke126" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="24" attachNode="Dummy_effect_l_hand_smoke01" particleName="F_smoke126" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true"/>
+	<Particle frame="42" attachNode="Dummy_effect_r_hand_smoke02" particleName="F_smoke091_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true"/>
+	<Particle frame="51" attachNode="Dummy_effect_l_hand_smoke02" particleName="F_smoke091_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="26" attachNode="Dummy_effect_l_hand_smoke01" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true"/>
+	<Particle frame="28" attachNode="Dummy_effect_atk_smoke01" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="29" attachNode="Dummy_effect_atk_smoke02" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_effect_atk_smoke03" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+	<Particle frame="32" attachNode="Dummy_effwect_atk_smoke04" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_ground005" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_explosion89_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true"/>
+</ActionDesc>

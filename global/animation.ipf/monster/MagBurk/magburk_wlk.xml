@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" particleName="F_smoke109" attachNode="Bip001 L Finger0" scale="2" useAttach="true"/>
+	<Particle frame="0" particleName="F_stone005" attachNode="Bip001 L Finger0" scale="0.5" useAttach="true"/>
+	<Particle frame="20" particleName="F_smoke109" attachNode="Bip001 R Finger0" scale="2" useAttach="true"/>
+	<Particle frame="20" particleName="F_stone005" attachNode="Bip001 R Finger0" scale="0.5" useAttach="true"/>
+	<Particle frame="0" particleName="F_smoke109" attachNode="Bip001 R Toe0" scale="2" useAttach="true"/>
+	<Particle frame="0" particleName="F_stone005" attachNode="Bip001 R Toe0" scale="0.5" useAttach="true"/>
+	<Particle frame="20" particleName="F_smoke109" attachNode="Bip001 L Toe0" scale="2" useAttach="true"/>
+	<Particle frame="20" particleName="F_stone005" attachNode="Bip001 L Toe0" scale="0.5" useAttach="true"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="22" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_big_footstep_3"/>
+	<Sound frame="6.00" soundFile="mon_big_footstep_5"/>
+	<Sound frame="20.10" soundFile="mon_big_footstep_3"/>
+	<Sound frame="26.10" soundFile="mon_big_footstep_5"/>
+</ActionDesc>

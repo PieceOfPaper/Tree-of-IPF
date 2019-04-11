@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="mon_goblin_warrior_run_vo" />
+    <Particle frame="1" attachNode="Dummy_emitter" particleName="monster_born" useAttach="true" hiddenObj="false" scale="1.7" pause="true" targetPos="false" />
+    <Sound frame="1.29" soundFile="hand_blow_stone" />
+    <Sound frame="1.29" Value="0" soundFile="skl_eff_bodyfall_s_1" />
+    <Sound frame="3.33" soundFile="skl_eff_ground_blow_s" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip001 Head" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 Head" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Bip001 Head" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_emitter" particleName="I_cactusvel_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion004_yellow" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="62" attachActor="None" attachNode="Dummy_emitter" particleName="F_explosion082" useAttach="false" hiddenObj="false" scale="3.5" pause="true" targetPos="false"/>
+	<BlendOff frame="85" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="62" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="64" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="66" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="mon_voice_ravinelerva_11"/>
+	<Sound frame="30.00" soundFile="mon_voice_ravinelerva_6"/>
+	<Sound frame="39.00" soundFile="mon_voice_ravinelerva_7"/>
+	<Sound frame="42.00" soundFile="mon_voice5_l_dead_11"/>
+</ActionDesc>

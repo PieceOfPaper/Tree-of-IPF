@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="I_fisherman_atk003_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_katynforest_zombie03_atk1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Sound frame="0.00" soundFile="mon_katynforest_zombie_03_atk1_shot" />
+    <HitAni frame="1.93" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

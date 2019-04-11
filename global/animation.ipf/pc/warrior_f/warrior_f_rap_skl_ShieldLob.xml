@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="11" R="50" G="60" B="50" A="60"/>
+	<BlendOn frame="12" R="40" G="50" B="40" A="50"/>
+	<BlendOff frame="13" R="0" G="0" B="0" A="0"/>
+	<Particle frame="0" attachNode="Bip01 L Foot" particleName="I_smoke004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Bip01 R Foot" particleName="I_smoke004_2" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="E_warrior_shieldlob_spin2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_r_hand" particleName="I_force044_yellow" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_eff_whirlwind_smoke"/>
+	<Sound frame="1.00" soundFile="skl_eff_atk_move_l_6"/>
+</ActionDesc>

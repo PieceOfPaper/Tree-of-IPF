@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Particle frame="6" attachNode="Dummy_back_R_foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="6.00" soundFile="mon_big_footstep_2"/>
+    <Particle frame="12" attachNode="Dummy_front_L_foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="17" attachNode="Dummy_back_L_foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+    <Sound frame="17.00" soundFile="mon_big_footstep_5"/>
+    <Shockwave frame="20" type="2" intensity="1" frequency="50" duration="1.5" range="1000"/>
+    <Sound frame="20.00" soundFile="mon_big_footstep_2"/>
+    <Particle frame="27" attachNode="Dummy_front_R_foot" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

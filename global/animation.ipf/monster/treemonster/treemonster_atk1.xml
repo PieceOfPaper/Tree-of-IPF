@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="1370" soundFile="m_treemonster_atk1" />
+    <Shockwave frame="7" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="7" particleName="I_stone011_mash" attachNode="Dummy_atk1_badak" scale="0.7" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="7" particleName="F_smoke106" attachNode="Dummy_atk1_badak" scale="2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="7" particleName="F_smoke090" attachNode="Dummy_atk1_badak" scale="3" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="7" particleName="F_spark008_leaf" attachNode="Bip001 Ponytail1" scale="1.2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="7" particleName="F_ground108_smoke" attachNode="Dummy_atk1_badak" scale="3.5" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="7" soundFile="skl_eff_ground_blow_m" />
+    <HitAni frame="8" Value="280" damratio="100" />
+    <Shockwave frame="8" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="9" type="2" intensity="1.2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="10" type="2" intensity="1.2" frequency="70" duration="0.3" range="1000" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

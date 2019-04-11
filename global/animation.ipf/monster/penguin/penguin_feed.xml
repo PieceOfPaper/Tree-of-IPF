@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonster frame="0" MonName="sardina" Key="sardina" Angle="0" Dist="0" MonAngle="0"/>
+	<CreateMonsterAnim frame="0" Key="sardina" Anim="feed" Freeze="0"/>
+	<DeleteMonster frame="23" Key="sardina"/>
+	<Sound frame="0.00" soundFile="mon_voice7_s_2"/>
+	<Sound frame="0.00" soundFile="mon_move_s"/>
+</ActionDesc>

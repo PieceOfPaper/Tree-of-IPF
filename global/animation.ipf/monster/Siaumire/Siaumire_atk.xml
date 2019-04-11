@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice6_action_2"/>
+    <Particle frame="5" attachNode="Dummy_atk_effect" particleName="I_swordtrail018_white_1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false" sound="atk_rod"/>
+    <Sound frame="6.33" soundFile="mon_katynforest_zombie_02_skl_shot"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="7" attachNode="B_leaf 6" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="7" attachNode="B_leaf 7" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="7" attachNode="B_leaf 3" particleName="F_spark006_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

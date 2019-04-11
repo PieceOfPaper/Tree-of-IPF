@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="E_bug_atk1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <HitAni frame="6" Value="933" />
+    <Sound frame="0" soundFile="mon_katyn_bug_atk_cast" />
+    <Sound frame="7" soundFile="mon_katyn_bug_atk1" />
+</ActionDesc>

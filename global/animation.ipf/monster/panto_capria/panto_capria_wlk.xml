@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="mon_big_footstep_5"/>
+    <Shockwave frame="5" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="5" attachNode="Bip001 R Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="5" attachNode="Bip001 R Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="7" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="31.00" soundFile="mon_big_footstep_5"/>
+    <Shockwave frame="33" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="33" attachNode="Bip001 L Toe0" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="33" attachNode="Bip001 L Toe0" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="35" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

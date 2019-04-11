@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke001" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_emitter" particleName="F_blood007_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="4" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke001" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="4" attachActor="None" attachNode="Dummy_emitter" particleName="F_blood007_violet" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="m_slime_dark_born"/>
+</ActionDesc>

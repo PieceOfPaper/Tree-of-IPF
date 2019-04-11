@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HitAni frame="3" damratio="100" Value="250"/>
+	<ReadyAniTime frame="0" Value="133"/>
+	<Sound frame="0.00" soundFile="mon_voice_vesper_s"/>
+	<Sound frame="5.00" soundFile="mon_voice_vesper_s"/>
+	<Sound frame="28.00" soundFile="skl_eff_body_atk_3"/>
+	<Sound frame="29.00" soundFile="mon_voice_vesper_s"/>
+	<Particle frame="21" particleName="I_explosion003_pink_s" attachNode="Dummy_effect" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

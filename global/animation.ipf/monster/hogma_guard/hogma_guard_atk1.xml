@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_voice_onion_the_great_6"/>
+	<Sound frame="3.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="5.00" soundFile="atk_hammerswing"/>
+	<Particle frame="5" particleName="I_swordtrail018_white" attachNode="Dummy_atk_effect" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="5" particleName="F_smoke089" attachNode="Dummy_emitter" scale="7" useAttach="false" pause="true" targetPos="false"/>
+	<Sound frame="6.00" soundFile="skl_fgt_tackle_shot"/>
+</ActionDesc>

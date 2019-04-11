@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_flower_blue_atk1_cast" />
+    <Sound frame="7.00" soundFile="skl_eff_poison_2" />
+    <Sound frame="7.00" soundFile="mon_rafflesia_skl" />
+    <Particle frame="8" attachActor="F_bagworm_atk_badak" useAttach="false" attachNode="NDummy_head" particleName="F_spark010_green" scale="10" pause="true" targetPos="false" />
+    <Particle frame="8" attachActor="F_bagworm_atk_badak" useAttach="false" attachNode="NDummy_head" particleName="F_spark010_green" scale="5" pause="true" targetPos="false" />
+    <Particle frame="8" attachActor="F_bagworm_atk_badak" useAttach="false" attachNode="NDummy_head" particleName="F_spark010_green" scale="10" pause="true" targetPos="false" />
+    <Particle frame="8" attachActor="F_bagworm_atk_badak" useAttach="false" attachNode="NDummy_head" particleName="F_spark010_green" scale="5" pause="true" targetPos="false" />
+    <HitAni frame="8" Value="1333" damratio="100" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

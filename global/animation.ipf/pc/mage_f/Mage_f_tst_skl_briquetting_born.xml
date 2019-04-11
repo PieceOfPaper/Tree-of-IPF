@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <CreateMonster frame="0.0" MonName="alchemist_briquetting" Key="briquetting" Angle="0" ist="0" MonAngle="0"/>
+    <CreateMonsterAnim frame="0" Key="briquetting" Anim="BORN"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_wizard_BRIQUETTING_BORN" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_wizard_BRIQUETTING_BORN2" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_alchemist_briquetting_born"/>
+</ActionDesc>

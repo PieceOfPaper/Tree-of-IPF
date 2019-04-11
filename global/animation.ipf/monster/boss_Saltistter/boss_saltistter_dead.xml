@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="82" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="86" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="88" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="90" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="92" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="10" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
+	<Particle frame="25" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="30" pause="true" targetPos="false"/>
+	<Particle frame="74" attachActor="None" attachNode="Dummy_effect" particleName="I_Saltistter_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="74" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="74" attachActor="None" attachNode="Bip001 Spine1" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<Particle frame="74" attachActor="None" attachNode="Bip01 Spine1" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" Value="3300" soundFile="mon_voice_saltistter_9"/>
+	<Sound frame="60.00" Value="3300" soundFile="skl_eff_atk_move_l_8"/>
+	<Sound frame="63.00" Value="0" soundFile="skl_eff_bodyfall_l_2"/>
+</ActionDesc>

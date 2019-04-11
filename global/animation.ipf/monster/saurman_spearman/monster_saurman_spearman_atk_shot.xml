@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0.00" particleName="F_dash004" attachNode="Dummy_atk1_weapon" scale="1" useAttach="true" />
+    <Sound frame="0.00" soundFile="mon_saurman_axeman_atk_shot" />
+    <HitAni frame="0.00" />
+    <Sound frame="1.00" soundFile="spear_whoosh" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

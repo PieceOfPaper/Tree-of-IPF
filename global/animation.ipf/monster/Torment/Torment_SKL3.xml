@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_molich_dead"/>
+    <Sound frame="0.00" soundFile="mon_voice_bird_4"/>
+    <Sound frame="20.00" soundFile="skl_eff_thsword_whoosh"/>
+    <AfterImage frame="24" term="60" blendTime="200" r="160" g="160" b="160" a="160"/>
+    <Shockwave frame="27" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="27" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="27" attachNode="Dummy_SKL3_Effect002" particleName="I_swordtrail015_blue_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="29" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="32.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Particle frame="38" attachNode="Dummy_SKL3_Effect003" particleName="I_swordtrail015_blue_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="39" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="39" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="40.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Shockwave frame="41" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="48" attachNode="Dummy_SKL3_Effect004" particleName="I_swordtrail015_blue_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="49" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="49" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="51" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="58.00" soundFile="skl_eff_atk_sperad"/>
+    <Sound frame="60.00" soundFile="skl_eff_thsword_whoosh"/>
+    <Particle frame="66" attachNode="Dummy_SKL3_Effect005" particleName="I_swordtrail015_blue_1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="67" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="67" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="67" attachNode="Dummy_SKL3_Effect001" particleName="F_burstup029_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="67" attachNode="Dummy_SKL3_Effect001" particleName="F_ground042_light" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <AfterImage frame="68" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <Shockwave frame="69" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="70" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Shockwave frame="71" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="73" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

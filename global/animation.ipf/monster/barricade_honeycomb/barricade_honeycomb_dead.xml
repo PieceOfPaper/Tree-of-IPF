@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by leedoyoung (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="0" type="0" intensity="0" frequency="0" duration="0" range="0"/>
+	<Particle frame="0" attachNode="Dummy_eff_dead_01" particleName="I_barricade_honeycomb_dead_mash" useAttach="true" hiddenObj="true" scale="1.0"/>
+	<Particle frame="0.00" attachNode="Dummy_eff_dead_02" particleName="F_explosion001_orange" useAttach="true" hiddenObj="true" scale="2"/>
+	<Particle frame="0" attachNode="eff_honey_dead" particleName="" scale="1.0"/>
+	<Particle frame="0" attachNode="" particleName="" scale="1.0"/>
+	<Particle frame="0" attachNode="" particleName="" scale="1.0"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_sparnicht_4"/>
+    <Particle frame="3" attachNode="B_mouth" particleName="F_fire001" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_firepillar_loop_2"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_body_effect" particleName="F_fire009" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="10.00" soundFile="m_tontulia_idl"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_body_effect" particleName="F_fire009" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="15" R="170" G="120" B="100" A="150"/>
+	<BlendOn frame="40" R="200" G="150" B="130" A="200"/>
+	<Sound frame="0.00" soundFile="skl_eff_chapparition_dead_cast_eff"/>
+	<Sound frame="6.00" soundFile="mon_voice_ghost_1"/>
+	<Sound frame="9.72" soundFile="skl_eff_aukuras_fire"/>
+	<Sound frame="40.49" soundFile="npc_stone_dead"/>
+	<Sound frame="43.73" soundFile="skl_eff_stone_born_l_1"/>
+	<Sound frame="66.81" soundFile="skl_eff_dead_boom_l_1"/>
+	<Particle frame="10" attachNode="Eye_1" particleName="F_fire005" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="10" attachNode="Stone_2" particleName="F_fire005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Stone_9" particleName="F_fire005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="14" attachNode="foot_R" particleName="F_fire005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="15" attachNode="foot_L" particleName="F_fire005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="66" attachNode="Dummy_emitter" particleName="F_explosion050_fire" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="66" attachNode="Dummy_emitter" particleName="F_ifrit_skl5_badak" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="66" attachNode="Dummy_emitter" particleName="I_gazing_golem_dead_mash" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="80" attachNode="Dummy_emitter" particleName="F_fire011" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false"/>
+	<Shockwave frame="66" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="15" frequency="70" duration="0.3" range="1000"/>
+	<BlendOff frame="80" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

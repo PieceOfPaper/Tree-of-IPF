@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="65" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="81" type="2" intensity="5" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="65" R="150" G="100" B="130" A="200"/>
+	<BlendOn frame="67" R="100" G="50" B="80" A="200"/>
+	<BlendOn frame="68" R="50" G="25" B="40" A="200"/>
+	<BlendOn frame="70" R="30" G="10" B="20" A="200"/>
+	<BlendOn frame="72" R="10" G="5" B="7" A="200"/>
+	<BlendOn frame="79" R="150" G="100" B="130" A="200"/>
+	<BlendOn frame="80" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="81" R="100" G="50" B="80" A="200"/>
+	<BlendOn frame="83" R="50" G="25" B="40" A="200"/>
+	<BlendOn frame="84" R="30" G="10" B="20" A="200"/>
+	<BlendOn frame="85" R="10" G="5" B="7" A="200"/>
+	<BlendOff frame="86" R="0" G="0" B="0" A="0"/>
+	<Particle frame="81" attachNode="Dummy_effect_skl1_hit" particleName="F_explosion103_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl1_hit" particleName="F_explosion103_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 L Finger2" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 R Finger2" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 L Finger2" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 R Finger2" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 L Finger2" particleName="I_force080_violet2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 R Finger2" particleName="I_force080_violet2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Pelvis" particleName="F_spread_out035_ground_circle_rainbow" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 Pelvis" particleName="F_spread_out035_ground_circle_rainbow" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="0.00" soundFile="skl_eff_yuche_poison"/>
+	<Sound frame="3.00" soundFile="m_bumegoblin_archer_born"/>
+	<Sound frame="13.00" soundFile="mon_voice_meduoliai_4"/>
+	<Sound frame="55.00" soundFile="mon_hori_warrior_atk"/>
+	<Sound frame="60.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="60.00" soundFile="swd_blow_leather1"/>
+	<Sound frame="73.00" soundFile="skl_eff_blowgun_shot"/>
+</ActionDesc>

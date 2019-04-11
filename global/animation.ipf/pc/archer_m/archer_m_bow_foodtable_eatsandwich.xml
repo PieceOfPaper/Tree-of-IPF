@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <AttachModel frame="0" XAC="artefact_sandwich_bread_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="1" anim="none"/>
+    <AttachModel frame="0" XAC="artefact_sandwich_meat_set" node="Dummy_sandwich_meat" isAttach="true" autoDetach="true" index="2" anim="none"/>
+    <AttachModel frame="0" XAC="artefact_sandwich_cheese_set" node="Dummy_sandwich_cheese" isAttach="true" autoDetach="true" index="3" anim="none"/>
+    <AttachModel frame="0" XAC="artefact_sandwich_salad_set" node="Dummy_sandwich_salad" isAttach="true" autoDetach="true" index="4" anim="none"/>
+    <AttachModel frame="0" XAC="artefact_sandwich_bread_set" node="Dummy_sandwich_bread" isAttach="true" autoDetach="true" index="5" anim="none"/>
+    <Sound frame="0.00" soundFile="skl_eff_squire_sandwich_eat"/>
+    <Sound frame="11.00" soundFile="skl_eff_squire_sandwich_eat"/>
+</ActionDesc>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="3.00" Value="4100" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="6.00" Value="4100" soundFile="skl_eff_atk_move_l_6"/>
+	<Sound frame="9.00" Value="3522" soundFile="mon_voice_mushcaria_9"/>
+	<Sound frame="30.00" Value="3493" soundFile="skl_eff_crash_ground_l_2"/>
+	<Particle frame="45" attachActor="None" attachNode="Dummy_head_effect" particleName="F_explosion043" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Sound frame="45.00" soundFile="skl_eff_dead_boom_3"/>
+	<Particle frame="55" attachActor="None" attachNode="Dummy_emitter" particleName="F_ground039" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+	<Sound frame="66.00" Value="4100" soundFile="skl_eff_atk_move_m_5"/>
+	<Sound frame="67.50" Value="4100" soundFile="skl_eff_atk_move_l_8"/>
+	<Sound frame="78.00" Value="4100" soundFile="mon_voice_mushcaria_8"/>
+	<Sound frame="93.00" Value="4100" soundFile="skl_eff_crash_ground_l_2"/>
+	<Sound frame="108.00" soundFile="skl_eff_dead_boom_3"/>
+	<Particle frame="110" attachActor="None" attachNode="Dummy_head_effect" particleName="F_explosion043" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+	<Particle frame="115" attachActor="None" attachNode="Dummy_emitter" particleName="F_ground039" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false"/>
+</ActionDesc>

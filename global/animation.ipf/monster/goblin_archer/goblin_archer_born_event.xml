@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="3.00" soundFile="skl_eff_bodyfall_s_1" />
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="F_burstup016_smoke" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Sound frame="5" soundFile="m_bumegoblin_archer_born" />
+    <Particle frame="5" attachNode="Dummy_emitter" particleName="monster_born" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false" />
+    <Sound frame="5" soundFile="pc_war_jump_2" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

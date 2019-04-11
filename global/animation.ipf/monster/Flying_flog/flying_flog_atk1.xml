@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice3_s_2"/>
+	<Sound frame="8.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="9.00" Value="0" soundFile="move_dash_2"/>
+	<Particle frame="8" particleName="F_smoke006" attachNode="Bip01 HeadNub" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="8" particleName="F_explosion001_dark" attachNode="Bip01 HeadNub" scale="2" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_rooto_5"/>
+    <Particle frame="3" attachNode="Dummy_effect_lip" particleName="F_ground118_yellow_attach" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Sound frame="23.94" soundFile="mon_voice_rooto_7"/>
+    <Sound frame="27.42" soundFile="mon_voice_throneweaver_10"/>
+    <Sound frame="31.61" soundFile="skl_eff_body_atk_1"/>
+    <Particle frame="32" attachNode="Dummy_emitter" particleName="F_ground071_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <Particle frame="33" attachNode="Dummy_effect_atk" particleName="F_hit001_light_yellow" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false" sound="hit_rip_1"/>
+    <BlendOn frame="35" R="90" G="80" B="30" A="100"/>
+    <Particle frame="36" attachNode="Dummy_effect_lip" particleName="F_ground118_yellow2" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+    <BlendOn frame="36" R="80" G="70" B="30" A="100"/>
+    <BlendOff frame="37" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

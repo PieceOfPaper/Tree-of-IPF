@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy001" particleName="F_spark009_violet" useAttach="false" hiddenObj="false" scale="1" pause="true"/>
+	<Particle frame="9" attachNode="Dummy002" particleName="F_spark009_violet" useAttach="false" hiddenObj="false" scale="1" pause="true"/>
+	<Particle frame="0" attachNode="Bip001 L Toe0" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="0.7" pause="true"/>
+	<Particle frame="9" attachNode="Bip001 R Toe0" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="0.7" pause="true"/>
+	<Sound frame="0.00" soundFile="mon_goblinwarrior_wlk_step_2"/>
+	<Sound frame="9.00" soundFile="mon_goblinwarrior_wlk_step_1"/>
+</ActionDesc>

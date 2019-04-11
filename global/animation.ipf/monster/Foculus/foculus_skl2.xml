@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="67" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="68" R="100" G="100" B="50" A="100"/>
+	<BlendOn frame="69" R="80" G="80" B="40" A="100"/>
+	<BlendOn frame="70" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="71" R="30" G="30" B="15" A="100"/>
+	<BlendOn frame="72" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="95" R="150" G="150" B="100" A="100"/>
+	<BlendOn frame="96" R="100" G="100" B="50" A="100"/>
+	<BlendOn frame="97" R="80" G="80" B="40" A="100"/>
+	<BlendOn frame="98" R="60" G="60" B="30" A="100"/>
+	<BlendOn frame="99" R="30" G="30" B="15" A="100"/>
+	<BlendOff frame="100" R="0" G="0" B="0" A="0"/>
+	<AfterImage frame="62" term="200" blendTime="150" r="200" g="200" b="200" a="200"/>
+	<AfterImage frame="71" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<AfterImage frame="91" term="200" blendTime="150" r="200" g="200" b="200" a="200"/>
+	<AfterImage frame="99" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="65" attachNode="Dummy_effect_skl2_hit001" particleName="F_explosion028_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="91" attachNode="Dummy_effect_skl2_hit002" particleName="F_explosion028_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bone017" particleName="F_light093_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bone027" particleName="F_light093_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bone014" particleName="F_light093_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bone022" particleName="F_light093_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bone017" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bone027" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bone014" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bone022" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bone017" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bone027" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bone014" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bone022" particleName="I_force034_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="65" attachNode="Dummy_emitter" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="65" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Dummy_emitter2" particleName="F_stone005" useAttach="true" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="0.00" soundFile="mon_grinender_turn"/>
+	<Sound frame="23.00" soundFile="mon_grinender_skl_1"/>
+	<Sound frame="55.00" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="60.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="78.00" soundFile="mon_voice_onion_the_great_4"/>
+	<Sound frame="85.00" soundFile="skl_eff_atk_move_l_4"/>
+	<Sound frame="90.00" soundFile="arw_blow_flesh1"/>
+</ActionDesc>

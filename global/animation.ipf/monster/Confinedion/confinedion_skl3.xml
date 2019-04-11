@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 R Finger0" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 R Finger11" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 R Finger01" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 L Finger0" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 L Finger11" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 L Finger01" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="B_tail 10" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="B_tail 11" particleName="F_explosion067_green" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Dummy_emitter" particleName="F_ground004_green" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="43" attachActor="None" attachNode="Bip001 R Finger0" particleName="F_drop_water002_green" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="43" attachActor="None" attachNode="Bip001 L Finger0" particleName="F_drop_water002_green" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="43" attachActor="None" attachNode="B_tail 10" particleName="F_drop_water002_green" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="9.00" soundFile="skl_eff_atk_move_l_22"/>
+	<Sound frame="30.00" soundFile="mon_confinedion_skl_cast"/>
+	<Sound frame="48.00" soundFile="skl_eff_atk_move_l_18"/>
+	<Sound frame="51.00" soundFile="mon_confinedion_hit"/>
+</ActionDesc>

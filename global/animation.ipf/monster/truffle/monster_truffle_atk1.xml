@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="mon_truffle_atk2_cast"/>
+    <Sound frame="9.00" soundFile="mon_voice2_s_random"/>
+    <Sound frame="9.00" Value="0" soundFile="mon_truffle_skl_shot"/>
+    <Particle frame="15" attachNode="Dummy_emiitter" particleName="F_ground078_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="4" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="22" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="24" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="26" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="4" attachNode="Bip01 R Hand" particleName="F_smoke109" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="4" attachNode="Bip01 R Hand" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 L Toe0" particleName="F_smoke109" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 L Toe0" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip01 L Hand" particleName="F_smoke109" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip01 L Hand" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="24" attachNode="Bip01 R Toe0" particleName="F_smoke109" useAttach="true" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="24" attachNode="Bip01 R Toe0" particleName="F_stone005" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_zombieboss_wlk"/>
+</ActionDesc>

@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_lantern_mushroom_atk2_shot" />
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_smoke076" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_circle017" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="0" attachNode="Dummy_headlight" particleName="F_light032_green" useAttach="true" hiddenObj="false" scale="1.0" />
+    <Particle frame="0" attachNode="Dummy_headlight" particleName="F_explosion066_blue1" useAttach="true" hiddenObj="false" scale="1.0" />
+    <HitAni frame="0.00" />
+    <Particle frame="1" attachNode="Dummy_headlight" particleName="F_explosion066_green" useAttach="true" hiddenObj="false" scale="1.0" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

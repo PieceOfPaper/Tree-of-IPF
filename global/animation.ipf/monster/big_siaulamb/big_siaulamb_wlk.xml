@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="1" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="3" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="7" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="9" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="1" attachNode="Dummy_wlk_BR" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Dummy_wlk_BR" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="6" attachNode="Dummy_wlk_FR" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="6" attachNode="Dummy_wlk_FR" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_wlk_FL" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="7" attachNode="Dummy_wlk_FL" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="14" attachNode="Dummy_wlk_BL" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="14" attachNode="Dummy_wlk_BL" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+</ActionDesc>

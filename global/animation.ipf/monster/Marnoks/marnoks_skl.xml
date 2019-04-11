@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="87" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="99" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="87" R="150" G="100" B="100" A="50"/>
+	<BlendOn frame="88" R="150" G="50" B="30" A="200"/>
+	<BlendOn frame="89" R="110" G="40" B="25" A="200"/>
+	<BlendOn frame="90" R="80" G="30" B="20" A="200"/>
+	<BlendOn frame="91" R="50" G="20" B="15" A="200"/>
+	<BlendOn frame="92" R="30" G="15" B="10" A="200"/>
+	<BlendOn frame="93" R="0" G="0" B="0" A="200"/>
+	<BlendOn frame="98" R="150" G="100" B="100" A="50"/>
+	<BlendOn frame="99" R="150" G="50" B="30" A="200"/>
+	<BlendOn frame="100" R="110" G="40" B="25" A="200"/>
+	<BlendOn frame="101" R="80" G="30" B="20" A="200"/>
+	<BlendOn frame="102" R="50" G="20" B="15" A="200"/>
+	<BlendOn frame="103" R="30" G="15" B="10" A="200"/>
+	<BlendOn frame="104" R="0" G="0" B="0" A="200"/>
+	<BlendOff frame="105" R="0" G="0" B="0" A="0"/>
+	<Particle frame="40" attachNode="Bip001 R HorseLink" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 L HorseLink" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 L Finger21" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 R Finger21" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bone002" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bone001" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="9" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 Spine" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Bip001 Spine" particleName="I_smoke_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Bip001 Spine" particleName="I_smoke_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="40" attachNode="Dummy_effect_chest" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="98" attachNode="Dummy_effect_skl1_L" particleName="I_dash25_red_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="99" attachNode="Dummy_effect_skl1_L2" particleName="I_dash25_red_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="87" attachNode="Dummy_effect_skl1_R" particleName="I_dash25_red_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="88" attachNode="Dummy_effect_skl1_R2" particleName="I_dash25_red_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="4.00" soundFile="mon_voice_saltistter_6"/>
+	<Sound frame="40.00" soundFile="mon_minivern_skl"/>
+	<Sound frame="48.00" soundFile="mon_minivern_atk"/>
+	<Sound frame="75.00" soundFile="skl_eff_atk_sperad"/>
+	<Sound frame="75.00" soundFile="swd_blow_flesh1--"/>
+	<Sound frame="90.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

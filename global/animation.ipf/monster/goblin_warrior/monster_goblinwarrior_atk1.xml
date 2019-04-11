@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_goblinwarrior_atk1_cast"/>
+    <HitAni frame="7" damratio="100"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+    <Particle frame="35" attachNode="Dummy_effect04" particleName="I_goblinwarrior_atk001_mash" useAttach="false" hiddenObj="false" scale="1.0" pause="true" targetPos="false"/>
+    <Sound frame="35.00" soundFile="mon_goblinwarrior_atk1_shot"/>
+    <Particle frame="40" attachNode="Dummy_effect05" particleName="I_swordtrail021_white" useAttach="false" hiddenObj="false" scale="1.0" pause="true" targetPos="false"/>
+    <Shockwave frame="42" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="44" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="46" type="2" intensity="4" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

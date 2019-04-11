@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="86" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="88" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="90" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="92" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="94" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="96" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="98" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="100" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="102" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="95" R="0" G="0" B="0" A="0"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip001 Spine1" particleName="F_light001_yellow" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="I_moldyhorn_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion004_yellow" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="84" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion082" useAttach="false" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_moldyhorn_dead"/>
+	<Sound frame="72.14" soundFile="skl_eff_bodyfall_l_1"/>
+</ActionDesc>

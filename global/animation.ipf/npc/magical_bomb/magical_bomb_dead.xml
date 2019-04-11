@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_explosion100_blue" useAttach="true" hiddenObj="false" changeEffect="F_light101_blue" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="F_explosion066_blue" useAttach="true" hiddenObj="false" changeEffect="F_light101_blue" scale="0.8" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="I_explosion008_violet" useAttach="true" hiddenObj="false" changeEffect="F_light101_blue" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="15" attachNode="Dummy_emitter" particleName="I_explosion008_violet" useAttach="true" hiddenObj="false" changeEffect="F_light101_blue" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0" sound="skl_eff_ninja_shot_light"/>
+</ActionDesc>

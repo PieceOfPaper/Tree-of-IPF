@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_katynforest_zombie_01_skl_ready"/>
+    <Sound frame="0.00" soundFile="mon_zombie_hoplite_atk"/>
+    <AfterImage frame="9" term="50" blendTime="300" r="160" g="160" b="160" a="160"/>
+    <Sound frame="11.17" soundFile="mon_katynforest_zombie_03_atk2_shot"/>
+    <Sound frame="16.00" soundFile="mon_katynforest_zombie_02_skl_shot_eff"/>
+    <BlendOn frame="20" R="100" G="100" B="100" A="50"/>
+    <BlendOn frame="21" R="80" G="70" B="50" A="50"/>
+    <AfterImage frame="21" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+    <BlendOff frame="22" R="0" G="0" B="0" A="0"/>
+    <BlendOff frame="26" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

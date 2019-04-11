@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="1.00" soundFile="skl_eff_body_atk_2"/>
+	<Sound frame="5.00" soundFile="skl_eff_atk_move_s_3"/>
+	<Sound frame="5.00" soundFile="skl_eff_atk_move_s_4"/>
+	<BlendOn frame="7" R="100" G="100" B="100" A="100"/>
+	<Particle frame="7" attachNode="Dummy_emitter" particleName="F_wizard_backmasking_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_blessing_shot_2"/>
+	<Particle frame="7" attachNode="Bip01 Spine" particleName="F_wizard_backmasking_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 R Forearm" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 L Forearm" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 R UpperArm" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 L UpperArm" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_R07" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_R02" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_F02" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_L02" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_L07" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_L12" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_B02" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bone_skirt_R12" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 R Foot" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="7" attachNode="Bip01 L Foot" particleName="F_explosion088_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_wizard_backmasking_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="I_wizard_backmasking_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOff frame="10" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

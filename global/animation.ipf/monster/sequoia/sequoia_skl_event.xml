@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mabin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" Value="3233" soundFile="mon_voice5_l_9"/>
+	<Sound frame="0" soundFile="skl_eff_firealterego"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_ready1" particleName="F_fire017" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_ready2" particleName="F_fire017" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_ready3" particleName="F_fire017" scale="0.4" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_skl_shot" particleName="F_fire017" scale="0.5" useAttach="false" pause="true" targetPos="false"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+	<Sound frame="13" Value="3233" soundFile="mon_voice5_l_3"/>
+	<Particle frame="13" attachActor="None" attachNode="B_tree1_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="B_tree2_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="Bip001 L Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="Bip001 R Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="Bip001 Tail1" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="Dummy_skl_shot" particleName="F_explosion051_fire" scale="3.5" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="Dummy_emitter" particleName="E_sequoia_skl_event" scale="1" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="13" attachActor="None" attachNode="Dummy_emitter2" particleName="E_sequoia_skl_event" scale="1.5" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

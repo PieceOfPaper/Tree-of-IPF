@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_body_atk_23"/>
+    <Particle frame="1" attachNode="None" particleName="F_spark004_leaf" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+    <Sound frame="5.25" soundFile="skl_eff_atk_move_s_12"/>
+    <Sound frame="9.00" soundFile="mon_voice2_s_18"/>
+    <Sound frame="9.00" soundFile="skl_eff_atk_move_m_2"/>
+    <Particle frame="15.00" attachNode="None" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.3" pause="true" targetPos="false" sound="None"/>
+    <Sound frame="15.00" soundFile="skl_eff_landing_s"/>
+</ActionDesc>

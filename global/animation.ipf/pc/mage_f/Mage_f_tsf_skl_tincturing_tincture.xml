@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HeadRotBip frame="0" BipName="Dummy_head"/>
+	<AttachModel frame="0" XAC="artefact_lamp_set" node="Dummy_L_HAND" isAttach="true" autoDetach="true" index="0" anim="none"/>
+	<CreateMonsterAnim frame="0" Key="tincturing" Anim="tincture" Freeze="0"/>
+	<Sound frame="5.00" soundFile="skl_eff_alchemist_tincturing_machine_drip"/>
+</ActionDesc>

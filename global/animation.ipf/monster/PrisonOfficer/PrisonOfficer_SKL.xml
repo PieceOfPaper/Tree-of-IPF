@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<AfterImage frame="9" term="30" blendTime="400" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="22" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="22" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+	<Shockwave frame="24" type="2" intensity="5" frequency="70" duration="0.1" range="1000"/>
+	<Particle frame="22" attachNode="None" particleName="F_smoke037" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="22" attachNode="Dummy_SKL_Effect001" particleName="I_dash007_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

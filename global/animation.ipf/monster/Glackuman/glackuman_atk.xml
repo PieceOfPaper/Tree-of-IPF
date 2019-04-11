@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Sound frame="2.00" soundFile="mon_voice_netherbovine_3"/>
+	<Sound frame="4.00" soundFile="mon_voice_hogma_skl_cast"/>
+	<Sound frame="4.00" soundFile="mon_voice5_l_dead_9"/>
+	<Sound frame="24.00" soundFile="atk_rod"/>
+	<Sound frame="24.00" soundFile="mon_voice5_l_dead_10"/>
+	<Sound frame="24.00" soundFile="mon_voice_hogma_skl_shot"/>
+	<Sound frame="26.00" soundFile="skl_eff_atk_move_m_4"/>
+	<Sound frame="26.00" soundFile="skl_eff_atk_move_m_2"/>
+	<Sound frame="28.00" soundFile="hand_blow_stone"/>
+	<Sound frame="28.00" soundFile="blunt_blow_stone"/>
+	<Particle frame="31" attachNode="Dummy_emitter" particleName="I_glackuman_atk_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false"/>
+	<Particle frame="32" attachNode="Dummy_effect_atk_hit" particleName="F_explosion094_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="32" attachNode="Dummy_effect_atk_hit" particleName="F_explosion033_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

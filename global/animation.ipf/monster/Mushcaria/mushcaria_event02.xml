@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_mushcaria_8" />
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_14" />
+    <Particle frame="2" attachActor="None" attachNode="Dummy002" particleName="F_smoke106" useAttach="false" hiddenObj="false" scale="15" pause="true" targetPos="false" />
+    <Sound frame="24.00" soundFile="skl_eff_atk_move_l_14" />
+    <Particle frame="26" attachActor="None" attachNode="Dummy002" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Sound frame="27.00" soundFile="skl_eff_dead_boom_3" />
+    <Particle frame="29" attachActor="None" attachNode="Dummy002" particleName="F_smoke106" useAttach="false" hiddenObj="false" scale="15" pause="true" targetPos="false" />
+    <Sound frame="30.00" soundFile="mon_voice_mushcaria_7" />
+    <Particle frame="54" attachActor="None" attachNode="Dummy002" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Sound frame="54.00" soundFile="skl_eff_atk_move_l_14" />
+    <Sound frame="55.50" soundFile="skl_eff_dead_boom_3" />
+    <Particle frame="57" attachActor="None" attachNode="Dummy002" particleName="F_smoke106" useAttach="false" hiddenObj="false" scale="15" pause="true" targetPos="false" />
+    <Sound frame="58.50" soundFile="mon_voice_mushcaria_3" />
+    <Sound frame="75.00" soundFile="skl_eff_spread_4" />
+    <Particle frame="82" attachActor="None" attachNode="Dummy002" particleName="F_burstup007_smoke1" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Particle frame="85" attachActor="None" attachNode="Dummy002" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" scale="2.5" pause="true" targetPos="false" />
+    <Particle frame="85" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_explosion042_smoke" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+    <Particle frame="85" attachActor="None" attachNode="Dummy_gubook_badak" particleName="I_smoke016_spread_out" useAttach="true" hiddenObj="false" scale="5" pause="true" targetPos="false" />
+    <Particle frame="85" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_ground039" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false" />
+    <Particle frame="85" attachActor="None" attachNode="Dummy_R_hand_effect" particleName="I_smoke041" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false" />
+    <Particle frame="85" attachActor="None" attachNode="Dummy_L_hand_effect" particleName="I_smoke041" useAttach="true" hiddenObj="false" scale="3.5" pause="true" targetPos="false" />
+    <Sound frame="90.00" soundFile="skl_eff_dead_boom_3" />
+</ActionDesc>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice3_s_19"/>
+    <Sound frame="3.00" soundFile="mon_voice_rooto_6"/>
+    <Particle frame="5" attachNode="Dummy_effect_ground" particleName="F_smoke008" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_effect_skl3_R" particleName="I_dash014_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_body_atk_6"/>
+    <Particle frame="6" attachNode="Dummy_effect_skl3_L" particleName="I_dash014_orange2" useAttach="false" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_atk_move_s_7"/>
+    <BlendOn frame="7" R="0" G="0" B="0" A="50"/>
+    <Sound frame="7.65" soundFile="skl_eff_body_atk_3"/>
+    <BlendOn frame="8" R="100" G="70" B="30" A="100"/>
+    <BlendOn frame="9" R="80" G="65" B="15" A="100"/>
+    <BlendOff frame="11" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

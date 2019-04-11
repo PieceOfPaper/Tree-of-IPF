@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="4" term="50" blendTime="300" r="255" g="160" b="140" a="150"/>
+	<AfterImage frame="9" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="6" attachNode="Dummy_effect_wepon" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice5_l_8"/>
+	<Sound frame="4.00" Value="0" soundFile="skl_eff_atk_move_s_9"/>
+	<Sound frame="4.00" Value="0" soundFile="skl_eff_atk_move_m_2"/>
+</ActionDesc>

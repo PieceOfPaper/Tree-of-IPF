@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<AfterImage frame="0" term="50" blendTime="400" r="160" g="160" b="160" a="160"/>
+	<AfterImage frame="30" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Shockwave frame="0" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="12" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="14" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Particle frame="0" particleName="F_smoke131_dark_green2" attachNode="None" scale="2" useAttach="true" pause="true" targetPos="false"/>
+	<Sound frame="3.00" Value="1333" soundFile="mon_dionia_atk_cast"/>
+	<Sound frame="9.00" Value="1333" soundFile="mon_sakmoli_knockback"/>
+</ActionDesc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="m_schlesien_darkmage_atk"/>
+    <Particle frame="2" particleName="I_spread_in002_orange" attachNode="Dummy_SKL_Effect001" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="2" particleName="F_light055_orange2" attachNode="Dummy_SKL_Effect001" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="3.00" soundFile="mon_lantern_mushroom_dead"/>
+    <Sound frame="5.00" soundFile="m_schlesien_claw_skl"/>
+    <Particle frame="6" particleName="I_spread_in002_orange" attachNode="Dummy_SKL_Effect001" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="6" particleName="F_light055_orange2" attachNode="Dummy_SKL_Effect001" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="9" particleName="F_explosion026_rize_red2" attachNode="Dummy_SKL_Effect001" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="10" particleName="F_smoke037" attachNode="None" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="11" particleName="F_smoke109" attachNode="Dummy_WLK_Effect002" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_stone005" attachNode="Dummy_WLK_Effect002" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_smoke109" attachNode="Dummy_WLK_Effect004" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_stone005" attachNode="Dummy_WLK_Effect004" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_smoke109" attachNode="Dummy_WLK_Effect001" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_stone005" attachNode="Dummy_WLK_Effect001" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_smoke109" attachNode="Dummy_WLK_Effect003" scale="3" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="11" particleName="F_stone005" attachNode="Dummy_WLK_Effect003" scale="0.7" useAttach="true" pause="true" targetPos="false"/>
+</ActionDesc>

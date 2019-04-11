@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_stone_born_l_1"/>
+    <Sound frame="0.00" soundFile="hand_blow_stone"/>
+    <Sound frame="0.00" soundFile="skl_eff_bodyfall_s_4"/>
+    <Sound frame="0.00" soundFile="skl_eff_born_wood_s"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Shockwave frame="5" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="7" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="10.00" soundFile="mon_big_siaulamb_born"/>
+</ActionDesc>

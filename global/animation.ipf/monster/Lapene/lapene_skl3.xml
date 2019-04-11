@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="3" attachNode="Bip001 R Hand" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="3" attachNode="Bip001 L Hand" particleName="I_smoke013_dark4_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="3" attachNode="Bip001 R Finger21" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="3" attachNode="Bip001 L Finger21" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="Bip001 R Finger21" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="90" attachNode="Bip001 R Finger21" particleName="I_smoke_red4" useAttach="true" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="17" attachNode="Dummy_effect_skl2_hand_R" particleName="I_spread_in001_dark2" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="45" attachNode="Dummy_effect_skl2_hand_R" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Dummy_effect_skl2_hand_R" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="45" attachNode="Dummy_effect_skl2_hand_R" particleName="I_smoke045_spread_in_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="93" attachNode="Finger2Nub" particleName="F_hit001_light_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="93" attachNode="Finger2Nub" particleName="F_cleric_Gematria_shot_light_red" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy_effect_eye_R" particleName="F_light049_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="5" attachNode="Dummy_effect_eye_L" particleName="F_light049_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.4" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="74" attachNode="Bip001 L Foot" particleName="I_smoke011_red_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Sound frame="8.00" soundFile="mon_voice_lapene_skl3_cast"/>
+	<Sound frame="40.00" soundFile="mon_voice_lapene_skl3_shot"/>
+	<Sound frame="53.00" soundFile="mon_voice_lapene_atk"/>
+	<Sound frame="65.00" soundFile="skl_eff_atk_move_l_13"/>
+	<Sound frame="85.00" soundFile="swd_blow_flesh1--"/>
+</ActionDesc>

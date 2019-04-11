@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_R_hand2" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_R_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="R_02" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="R_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_L_hand2" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_L_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="L_02" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="0" attachNode="L_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="0.00" soundFile="mon_voice6_dead"/>
+    <Sound frame="0.00" soundFile="skl_eff_cast_smoke_1"/>
+    <Sound frame="0.00" soundFile="skl_eff_drapeliun_skl2_force"/>
+    <Particle frame="10" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="10" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="20.00" soundFile="skl_eff_cast_force"/>
+    <Particle frame="30" attachNode="Dummy_effect_R_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_R_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="R_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="R_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_L_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_L_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="L_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="30" attachNode="L_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="40" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="40.00" soundFile="mon_clymen_skl3_voice"/>
+    <Particle frame="45" attachNode="Dummy_effect_eye_R" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="45" attachNode="Dummy_effect_eye_L" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="48.33" soundFile="mon_spector_dead_boom"/>
+    <Particle frame="50" attachNode="Dummy_effect_center" particleName="F_light099_violet_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="50" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="52.84" soundFile="skl_eff_rlareshot_boom"/>
+    <Particle frame="55" attachNode="Dummy_effect_eye_R" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="55" attachNode="Dummy_effect_eye_L" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect_center" particleName="F_light099_violet_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_eye_R" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="65" attachNode="Dummy_effect_eye_L" particleName="I_force087_trail_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="70" attachNode="Dummy_effect_center" particleName="F_light099_violet_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Sound frame="75.39" soundFile="skl_eff_rlareshot_boom"/>
+    <Particle frame="80" attachNode="Dummy_effect_center" particleName="F_light099_violet_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="80" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_R_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_R_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="R_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="R_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_L_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_L_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="L_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="90" attachNode="L_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="110" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="110" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_effect_R_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_effect_R_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="R_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="R_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_effect_L_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="Dummy_effect_L_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="L_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="120" attachNode="L_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="140" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="140" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="Dummy_effect_R_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="Dummy_effect_R_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="R_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="R_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="Dummy_effect_L_hand2" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="Dummy_effect_L_hand1" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="L_02" particleName="I_smoke054_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="150" attachNode="L_01" particleName="I_smoke054_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="170" attachNode="Dummy_effect_eye_R" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+    <Particle frame="170" attachNode="Dummy_effect_eye_L" particleName="F_light098_violet" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" soft2DValue="20" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="4" particleName="F_leaf001_green" attachNode="B_head 01" scale="1.3" useAttach="false"/>
+	<Particle frame="7" particleName="F_leaf001_green" attachNode="B_head 01" scale="1.3" useAttach="false"/>
+	<Particle frame="10" particleName="F_leaf001_green" attachNode="B_head 01" scale="1.3" useAttach="false"/>
+	<Particle frame="12" particleName="F_leaf001_green" attachNode="B_head 01" scale="1.3" useAttach="false"/>
+	<Particle frame="3" particleName="F_smoke063" attachNode="None" scale="0.2" useAttach="false"/>
+	<Particle frame="5" particleName="F_smoke063" attachNode="None" scale="0.3" useAttach="false"/>
+	<Particle frame="12" particleName="F_stone005" attachNode="Dummy_emiitter" scale="2" useAttach="true"/>
+	<Particle frame="12" particleName="F_smoke109" attachNode="Dummy_emiitter" scale="3" useAttach="true"/>
+	<Particle frame="20" particleName="F_ground078_smoke" attachNode="Eff_skl_badak" scale="3" useAttach="true"/>
+	<Sound frame="0.00" soundFile="mon_tama_skl"/>
+	<Sound frame="0.00" soundFile="barricade_butterfly_hit"/>
+	<Sound frame="12.00" soundFile="skl_eff_body_atk_12"/>
+</ActionDesc>

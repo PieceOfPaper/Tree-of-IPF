@@ -1,0 +1,22 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="0" particleName="F_smoke109" attachNode="Bip001 L Calf" scale="2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="0" particleName="F_stone005" attachNode="Bip001 L Calf" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="0.00" soundFile="mon_big_footstep_5" />
+    <Shockwave frame="1" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="8" particleName="F_smoke109" attachNode="Bip001 R Forearm" scale="2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="8" particleName="F_stone005" attachNode="Bip001 R Forearm" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="8.10" soundFile="mon_big_footstep_5" />
+    <Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="11" particleName="F_smoke109" attachNode="Bip001 L Forearm" scale="2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="11" particleName="F_stone005" attachNode="Bip001 L Forearm" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="12" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="13" particleName="F_smoke109" attachNode="Bip001 R Calf" scale="2" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="13" particleName="F_stone005" attachNode="Bip001 R Calf" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000" />
+</ActionDesc>

@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Shockwave frame="9" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="11" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="24" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="26" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="9" particleName="F_smoke109" attachNode="Bip01 L Toe0" scale="1.5" useAttach="true"/>
+	<Particle frame="9" particleName="F_stone005" attachNode="Bip01 L Toe0" scale="0.7" useAttach="true"/>
+	<Particle frame="24" particleName="F_smoke109" attachNode="Bip01 R Toe0" scale="1.5" useAttach="true"/>
+	<Particle frame="24" particleName="F_stone005" attachNode="Bip01 R Toe0" scale="0.7" useAttach="true"/>
+	<Sound frame="9" Value="0" soundFile="mon_golem_run_2"/>
+	<Sound frame="24" Value="0" soundFile="mon_golem_run_1"/>
+</ActionDesc>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_nepenthes_skl2"/>
+	<Particle frame="23" attachNode="Dummy_head_effect" particleName="F_explosion001" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="27" attachNode="Dummy_skl2_effect" particleName="F_smoke128_green1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="30" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_poison_5"/>
+	<Particle frame="35" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="40" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="45" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="50" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="55" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="65" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="70" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="73" attachNode="Dummy_skl2_effect" particleName="F_blood005_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="73" attachNode="Dummy_skl2_effect" particleName="F_blood004_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="73" attachNode="Dummy_skl2_effect" particleName="F_explosion001" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_dead_boom_3"/>
+	<Particle frame="73" attachNode="Dummy_skl2_effect" particleName="F_smoke048_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="73" attachNode="Dummy_emitter" particleName="F_smoke059" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

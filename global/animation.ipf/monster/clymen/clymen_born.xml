@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_clymen_born" />
+    <Shockwave frame="3" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="3" attachActor="None" attachNode="Dummy_born_effect01" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="0.5" pause="true" targetPos="false" />
+    <Particle frame="3" attachActor="None" attachNode="Dummy_born_effect03" particleName="F_smoke097" useAttach="true" hiddenObj="false" scale="2" pause="true" targetPos="false" />
+    <Shockwave frame="8" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="13" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="18" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="19" attachActor="None" attachNode="Dummy_born_effect03" particleName="F_smoke097" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false" />
+    <Particle frame="19" attachActor="None" attachNode="Dummy_born_effect02" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false" />
+    <Shockwave frame="23" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="28" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="33" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="38" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="40" attachActor="None" attachNode="Dummy_born_effect03" particleName="F_ground078_smoke" useAttach="true" hiddenObj="false" scale="1.5" pause="true" targetPos="false" />
+    <Shockwave frame="43" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="48" type="2" intensity="3" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="67.37" soundFile="skl_eff_atk_move_l_5" />
+</ActionDesc>

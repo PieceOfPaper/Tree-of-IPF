@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_lantern_mushroom_dead" />
+    <Particle frame="0" attachNode="Dummy_headlight" particleName="F_light031_green" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <Particle frame="1" attachNode="Dummy_headlight" particleName="F_explosion066_green1" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <Sound frame="6.00" soundFile="skl_eff_bodyfall_s_1" />
+    <Particle frame="8" attachNode="Dummy_headlight" particleName="F_levitation019_green" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <Particle frame="9" attachNode="Dummy_dead" particleName="F_mon_katynforest_zombie01_knockdown1" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <Particle frame="9" attachNode="Dummy_headlight" particleName="F_light031_green" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

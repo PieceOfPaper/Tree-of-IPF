@@ -1,0 +1,21 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_bushspider_atk2_ready"/>
+    <Sound frame="5.00" soundFile="skl_eff_body_atk_8"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_mon_katynforest_zombie01_knockdown1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter" particleName="F_circle017" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Bip001 L Hand" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Bip001 R Hand" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Bip001 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Dummy_emitter001" particleName="E_monster_bushspider_atk1" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Bip001 R Clavicle" particleName="F_spark009_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="6" attachNode="Bip001 L Clavicle" particleName="F_spark009_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Sound frame="6" soundFile="mon_bushspider_atk2_shot"/>
+    <HitAni frame="6" damratio="100"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

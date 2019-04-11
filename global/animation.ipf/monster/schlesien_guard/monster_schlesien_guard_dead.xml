@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="skl_eff_dead_boom_wood_s" />
+    <Sound frame="1.00" Value="0" soundFile="mon_katynforest_zombie_01_dead" />
+    <Shockwave frame="6" type="2" intensity="0.5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="6" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_dead" scale="1" useAttach="true" pause="true" targetPos="false" />
+    <Shockwave frame="7" type="2" intensity="0.3" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="8" type="2" intensity="0.1" frequency="70" duration="0.3" range="1000" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

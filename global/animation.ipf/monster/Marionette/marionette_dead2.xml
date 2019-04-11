@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<BlendOn frame="0" R="10" G="10" B="50" A="30"/>
+	<BlendOn frame="10" R="100" G="100" B="150" A="150"/>
+	<BlendOn frame="30" R="150" G="150" B="200" A="200"/>
+	<BlendOff frame="125" R="0" G="0" B="0" A="0"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip01 Spine1" particleName="F_light002_blue" useAttach="true" hiddenObj="false" scale="10" pause="true" targetPos="false"/>
+	<Particle frame="20" attachActor="None" attachNode="Bip01 Spine1" particleName="F_light002_blue" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
+	<Particle frame="40" attachActor="None" attachNode="Bip01 Spine1" particleName="F_light002_blue" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+	<Particle frame="109" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="119" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_explosion004_blue" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="119" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_spread_out025_blue" useAttach="false" hiddenObj="false" scale="8" pause="true" targetPos="false"/>
+	<Particle frame="119" attachActor="None" attachNode="Dummy_dead_effect" particleName="I_harpeia_dead_mash" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="119" attachActor="None" attachNode="Dummy_dead_effect" particleName="F_circle003_blue" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Shockwave frame="119" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="121" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="123" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="125" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="127" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="129" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="131" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="133" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="135" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="137" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="0.00" soundFile="m_harpeia_dead"/>
+</ActionDesc>

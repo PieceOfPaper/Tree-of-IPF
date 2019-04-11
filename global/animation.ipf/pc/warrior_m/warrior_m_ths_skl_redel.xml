@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="39" attachNode="Bip01 Spine1" particleName="F_archer_fluflu_shot_light" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="8" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="18" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="24" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="33" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="38" attachNode="Bip01 Spine1" particleName="I_light013_spark_orange_2" useAttach="false" hiddenObj="false" changeEffect="None" scale="7" pause="true" use2DEffect="false" soft2DValue="0" targetPos="false"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="E_warrior_Redel_hit" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="100" targetPos="false"/>
+	<Particle frame="1" attachNode="Dummy_L_HAND" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="2" attachNode="Dummy_effect_wepon_spear002_1" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="3" attachNode="Dummy_effect_wepon_spear001_1" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="4" attachNode="Dummy_effect_wepon_spear00" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_effect_wepon_spear01" particleName="I_rize009_3_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="10" targetPos="false"/>
+	<Particle frame="8" attachNode="Dummy_trail" particleName="WeaponTrail_Redel" useAttach="anim" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true" soft2DValue="0" targetPos="false"/>
+	<Sound frame="0.00" soundFile="skl_fgt_tackle_cast"/>
+	<Sound frame="1.00" soundFile="skl_fgt_light_cast_2"/>
+	<Sound frame="4.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="8.00" soundFile="skl_eff_atk_move_s_4"/>
+	<Sound frame="10.00" soundFile="skl_eff_special_hit_1"/>
+	<Sound frame="14.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="17.00" soundFile="skl_eff_special_hit_1"/>
+	<Sound frame="21.00" soundFile="skl_eff_atk_move_s_5"/>
+	<Sound frame="23.00" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="23.00" soundFile="skl_eff_special_hit_1"/>
+	<Sound frame="24.00" soundFile="skl_eff_special_hit_1"/>
+	<Sound frame="25.00" soundFile="skl_eff_special_hit_2"/>
+	<Sound frame="29.00" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="33.00" soundFile="skl_eff_special_hit_1"/>
+	<Sound frame="36.00" soundFile="skl_eff_atk_move_s_5"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="8" R="40" G="80" B="150" A="100"/>
+	<BlendOn frame="9" R="30" G="60" B="100" A="200"/>
+	<BlendOn frame="10" R="20" G="40" B="70" A="200"/>
+	<BlendOn frame="11" R="10" G="20" B="30" A="200"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="18" R="40" G="80" B="150" A="100"/>
+	<BlendOn frame="19" R="30" G="60" B="100" A="200"/>
+	<BlendOn frame="20" R="20" G="40" B="70" A="200"/>
+	<BlendOn frame="21" R="10" G="20" B="30" A="200"/>
+	<BlendOn frame="22" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="24" R="40" G="80" B="150" A="100"/>
+	<BlendOn frame="25" R="30" G="60" B="100" A="200"/>
+	<BlendOn frame="26" R="20" G="40" B="70" A="200"/>
+	<BlendOn frame="27" R="10" G="20" B="30" A="200"/>
+	<BlendOn frame="28" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="33" R="40" G="80" B="150" A="100"/>
+	<BlendOn frame="34" R="30" G="60" B="100" A="200"/>
+	<BlendOn frame="35" R="20" G="40" B="70" A="200"/>
+	<BlendOn frame="36" R="10" G="20" B="30" A="200"/>
+	<BlendOn frame="37" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="38" R="45" G="90" B="180" A="100"/>
+	<BlendOn frame="39" R="40" G="70" B="130" A="100"/>
+	<BlendOn frame="40" R="35" G="60" B="100" A="100"/>
+	<BlendOn frame="41" R="25" G="40" B="80" A="100"/>
+	<BlendOn frame="42" R="25" G="35" B="60" A="100"/>
+	<BlendOn frame="43" R="20" G="30" B="50" A="50"/>
+	<BlendOn frame="44" R="20" G="25" B="40" A="50"/>
+	<BlendOn frame="45" R="15" G="20" B="30" A="50"/>
+	<BlendOn frame="46" R="10" G="13" B="20" A="50"/>
+	<BlendOff frame="47" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

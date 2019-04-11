@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ldy (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_chupaluka_atk_cast" />
+    <Particle frame="5" particleName="I_swordtrail005_green" attachNode="Eff_atk_01" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="5" particleName="I_swordtrail005_green" attachNode="Eff_atk_02" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Particle frame="5" particleName="I_swordtrail005_green" attachNode="Eff_atk_03" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <Sound frame="6.00" soundFile="mon_voice4_s_7" />
+    <Sound frame="6.00" soundFile="skl_eff_atk_move_s_10" />
+    <Sound frame="7.00" soundFile="skl_eff_atk_move_s_6" />
+</ActionDesc>

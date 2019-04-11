@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_head01" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_head02" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_hand01" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_hand02" particleName="F_fire039" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice3_s_18"/>
+	<Sound frame="6.00" Value="0" soundFile="skl_fire_cast"/>
+	<Particle frame="10.00" particleName="I_swordtrail013_orange" attachNode="Dummy_atk2_2" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="10.00" particleName="I_swordtrail013_orange" attachNode="Dummy_atk2_3" scale="2" useAttach="false" pause="true" targetPos="false"/>
+	<Particle frame="10.00" particleName="F_monster_Salamander_atk1" attachNode="Dummy_atk2" scale="4.5" useAttach="false" pause="true" targetPos="false"/>
+	<HitAni frame="11.00" damratio="100"/>
+</ActionDesc>

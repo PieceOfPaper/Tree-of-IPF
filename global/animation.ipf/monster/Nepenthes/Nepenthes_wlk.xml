@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="None"/>
+	<Sound frame="0.00" soundFile="mon_big_footstep_4"/>
+	<Sound frame="16.00" soundFile="mon_big_footstep_4"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="16" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="18" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="20" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" particleName="F_smoke109" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_BL" scale="6" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="0" particleName="F_stone005" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_BL" scale="1.5" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="4" particleName="F_smoke109" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_FR" scale="6" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="4" particleName="F_stone005" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_FR" scale="1.5" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="16" particleName="F_smoke109" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_BR" scale="6" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="16" particleName="F_stone005" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_BR" scale="1.5" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" particleName="F_smoke109" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_FL" scale="6" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" particleName="F_stone005" hiddenObj="false" changeEffect="None" attachNode="Dummy_foot_FL" scale="1.5" useAttach="true" pause="true" use2DEffect="false" targetPos="false"/>
+</ActionDesc>

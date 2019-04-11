@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="64" attachNode="Dummy_effect_lip" particleName="I_breath008_circle_3" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Dummy_effect_lip" particleName="I_breath008_circle_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="75" attachNode="Dummy_effect_lip" particleName="I_breath008_circle_3" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="80" attachNode="Dummy_effect_lip" particleName="I_breath008_circle_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="64" attachNode="Dummy_effect_lip" particleName="I_breath014_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="70" attachNode="Dummy_effect_lip" particleName="I_breath014_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="60" attachNode="None" particleName="F_spread_out023_circle_alpha" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="21" R="3" G="1" B="8" A="50"/>
+	<BlendOn frame="24" R="5" G="3" B="11" A="50"/>
+	<BlendOn frame="27" R="7" G="5" B="15" A="50"/>
+	<BlendOn frame="30" R="9" G="7" B="18" A="50"/>
+	<BlendOn frame="33" R="11" G="9" B="21" A="50"/>
+	<BlendOn frame="36" R="14" G="10" B="24" A="50"/>
+	<BlendOn frame="39" R="17" G="11" B="27" A="50"/>
+	<BlendOn frame="42" R="20" G="12" B="30" A="50"/>
+	<BlendOn frame="45" R="25" G="13" B="35" A="50"/>
+	<BlendOn frame="48" R="30" G="14" B="40" A="50"/>
+	<BlendOn frame="51" R="35" G="15" B="45" A="50"/>
+	<BlendOn frame="54" R="40" G="20" B="50" A="50"/>
+	<BlendOn frame="57" R="45" G="25" B="55" A="50"/>
+	<BlendOn frame="60" R="50" G="30" B="60" A="50"/>
+	<BlendOn frame="65" R="55" G="32" B="65" A="50"/>
+	<BlendOn frame="70" R="60" G="40" B="70" A="50"/>
+	<BlendOn frame="75" R="3" G="1" B="8" A="50"/>
+	<BlendOn frame="80" R="80" G="50" B="90" A="50"/>
+	<BlendOn frame="85" R="3" G="1" B="8" A="50"/>
+	<BlendOn frame="90" R="80" G="50" B="90" A="50"/>
+	<BlendOn frame="95" R="3" G="1" B="8" A="50"/>
+	<BlendOn frame="100" R="55" G="30" B="75" A="50"/>
+	<BlendOn frame="105" R="40" G="20" B="60" A="50"/>
+	<BlendOn frame="110" R="3" G="1" B="8" A="50"/>
+	<BlendOff frame="112" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="mon_voice11_cast"/>
+	<Sound frame="7.00" soundFile="mon_grinender_skl_2"/>
+	<Sound frame="60.00" soundFile="mon_voice_onion_the_great_4"/>
+</ActionDesc>

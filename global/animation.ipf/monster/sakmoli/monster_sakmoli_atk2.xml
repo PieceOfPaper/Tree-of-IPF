@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="mon_sakmoli_atk_cast"/>
+	<Sound frame="5" soundFile="mon_popolion_atk2_shot2"/>
+	<Sound frame="6" soundFile="mon_sakmoli_atk_shot"/>
+	<Particle frame="9" attachNode="Dummy_atk_circle" particleName="I_spin001" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_atk2" particleName="F_sakmoli_atk_light" useAttach="false" hiddenObj="false" scale="13" pause="true" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_atk2" particleName="F_explosion070_orange" useAttach="false" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="9" attachNode="Dummy_emitter" particleName="F_ifrit_atk1_smoke" useAttach="false" hiddenObj="false" scale="5" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_voice_meduoliai_4"/>
+    <Particle frame="4" attachNode="B_mouth" particleName="F_fire001" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_fire_cast"/>
+    <Sound frame="5.00" soundFile="skl_eff_atk_move_s_12"/>
+    <BlendOn frame="5" R="50" G="0" B="0" A="30"/>
+    <BlendOn frame="10" R="80" G="0" B="0" A="30"/>
+    <BlendOn frame="15" R="100" G="0" B="0" A="30"/>
+    <Particle frame="21" attachNode="Dummy_emitter" particleName="F_smoke008" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="21.00" soundFile="skl_eff_atk_move_m_8"/>
+    <Particle frame="22" attachNode="B_mouth" particleName="F_explosion001_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_dead_wood_s"/>
+    <BlendOff frame="24" R="0" G="0" B="0" A="0"/>
+    <Sound frame="24.00" soundFile="skl_eff_atk_move_m_5"/>
+    <Particle frame="31" attachNode="Dummy_emitter" particleName="F_smoke018" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_born_wood_s"/>
+</ActionDesc>

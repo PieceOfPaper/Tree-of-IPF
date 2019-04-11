@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="None"/>
+    <Sound frame="0.00" soundFile="mon_bushspider_atk2_ready"/>
+    <Sound frame="2.00" soundFile="mon_kiyak_bounce"/>
+    <Particle frame="4" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" targetPos="false"/>
+    <Sound frame="7.00" soundFile="mon_kiyak_bounce"/>
+    <Particle frame="10" attachNode="Dummy_emitter" particleName="F_smoke089" useAttach="false" hiddenObj="false" changeEffect="None" scale="10" pause="true" targetPos="false"/>
+    <Sound frame="11.00" soundFile="skl_eff_body_atk_12"/>
+    <Sound frame="11.00" soundFile="skl_eff_body_atk_8"/>
+    <Sound frame="11.00" soundFile="mon_bushspider_atk1_shot"/>
+    <Particle frame="12" attachNode="Bip001 R Clavicle" particleName="F_spark009_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Particle frame="12" attachNode="Bip001 L Clavicle" particleName="F_spark009_green" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+</ActionDesc>

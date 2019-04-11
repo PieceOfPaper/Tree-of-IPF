@@ -1,0 +1,10 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="6" attachActor="None" attachNode="Dummy_head_effect" particleName="F_spark002_green" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="6" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="true" hiddenObj="false" scale="2.5" pause="true" targetPos="false"/>
+	<Particle frame="7" attachActor="None" attachNode="Dummy_atk2_badak_effect" particleName="F_ground010_green" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Sound frame="0.00" Value="0" soundFile="mon_voice_hog_3"/>
+	<Sound frame="3.00" Value="0" soundFile="skl_eff_atk_move_s_8"/>
+</ActionDesc>

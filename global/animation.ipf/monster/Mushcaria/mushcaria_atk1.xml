@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_L_hand_effect" particleName="I_smoke041" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="0" attachActor="None" attachNode="Dummy_R_hand_effect" particleName="I_smoke041" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Sound frame="12.00" Value="1000" soundFile="mon_voice_mushcaria_1"/>
+	<Sound frame="13.50" Value="1000" soundFile="skl_eff_atk_move_l_4"/>
+	<Particle frame="18" attachActor="None" attachNode="Dummy_gubook_badak" particleName="F_smoke037" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Sound frame="18.38" soundFile="skl_eff_acidburn"/>
+	<Particle frame="22" attachActor="None" attachNode="Dummy_atk_effect" particleName="F_explosion045" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+</ActionDesc>

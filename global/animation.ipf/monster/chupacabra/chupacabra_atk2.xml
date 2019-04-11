@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="mon_chupacabra_atk2_cast"/>
+    <Particle frame="0" attachNode="None" particleName="None" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <ReadyAniTime frame="1" Value="133"/>
+    <Sound frame="6.67" soundFile="mon_chupacabra_atk2_shot"/>
+    <Particle frame="8" particleName="F_ground094_circle" attachNode="Dummy_atk2_badak" scale="4" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="8" particleName="F_ground065_smoke" attachNode="Dummy_atk2_badak" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="8" particleName="F_stone005" attachNode="Dummy_atk2_badak" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <Particle frame="8" particleName="F_smoke107" attachNode="Dummy_atk2_badak" scale="1.5" useAttach="true" pause="true" targetPos="false"/>
+    <HitAni frame="9" Value="300" damratio="100"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

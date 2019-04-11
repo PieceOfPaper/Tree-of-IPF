@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="atk_swordswing_1"/>
+    <Particle frame="0" attachNode="Dummy_emitter" particleName="E_wizard_summondemon_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="skl_eff_book_PaperRustle"/>
+    <Sound frame="0.00" soundFile="skl_eff_acidburn"/>
+    <Sound frame="7.00" soundFile="swd_attack1"/>
+    <Sound frame="11.00" soundFile="swd_attack1"/>
+    <Sound frame="12.00" soundFile="skl_wiz_icebarrier"/>
+    <Sound frame="14.00" soundFile="skl_eff_arm_up"/>
+    <Sound frame="14.00" soundFile="skl_wiz_telekinesis_spell_1"/>
+    <Sound frame="14.00" soundFile="skl_eff_book_hit"/>
+</ActionDesc>

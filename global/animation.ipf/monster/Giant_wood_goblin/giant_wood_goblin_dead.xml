@@ -1,0 +1,32 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="66" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="68" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="70" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="72" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="74" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="76" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="78" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="80" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="82" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="84" type="2" intensity="20" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="15" attachActor="None" attachNode="Bone001" particleName="F_light002_yellow" useAttach="true" hiddenObj="false" scale="20" pause="true" targetPos="false"/>
+	<Particle frame="35" attachActor="None" attachNode="Bone001" particleName="F_light001_yellow1" useAttach="true" hiddenObj="false" scale="15" pause="true" targetPos="false"/>
+	<Particle frame="66" attachActor="None" attachNode="Dummy_effect" particleName="Giant_Redwood_dead" useAttach="true" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="66" attachActor="None" attachNode="Bone001" particleName="F_explosion004_yellow" useAttach="true" hiddenObj="false" scale="3" pause="true" targetPos="false"/>
+	<Particle frame="66" attachActor="None" attachNode="Bip01 Spine1" particleName="F_circle021_yellow" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="66" attachActor="None" attachNode="Bone001" particleName="F_explosion082" useAttach="true" hiddenObj="false" scale="7" pause="true" targetPos="false"/>
+	<BlendOn frame="0" R="50" G="50" B="10" A="30"/>
+	<BlendOn frame="10" R="150" G="150" B="100" A="150"/>
+	<BlendOn frame="30" R="200" G="200" B="150" A="200"/>
+	<BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" Value="2200" soundFile="hand_blow_wood"/>
+	<Sound frame="3.00" Value="2200" soundFile="mon_voice5_l_6"/>
+	<Sound frame="3.00" Value="2200" soundFile="skl_eff_atk_move_l_2"/>
+	<Sound frame="9.00" Value="2200" soundFile="mon_voice5_l_3"/>
+	<Sound frame="52.50" Value="2200" soundFile="skl_eff_dead_wood_s"/>
+	<Sound frame="52.84" soundFile="skl_eff_bodyfall_l_2"/>
+	<Sound frame="69.00" soundFile="skl_eff_dead_boom_l_1"/>
+	<Sound frame="72.00" soundFile="mon_voice_netherbovine_5"/>
+</ActionDesc>

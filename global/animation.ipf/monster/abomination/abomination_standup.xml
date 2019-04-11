@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="9" attachNode="Dummy_effect_skl1_shot_1_1" particleName="None" useAttach="true" hiddenObj="false" scale="1.0" pause="true" targetPos="false" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Sound frame="21.00" Value="2800" soundFile="skl_eff_atk_move_l_4" />
+    <Shockwave frame="30" type="2" intensity="2.5" frequency="70" duration="0.3" range="1000" />
+    <Particle frame="30" attachActor="None" attachNode="Dummy_effect_standup" particleName="F_golem_atk2_hand" scale="1.0" pause="true" targetPos="false" />
+    <Sound frame="30.00" Value="2446" soundFile="skl_eff_stone_blow_m" />
+    <Shockwave frame="31" type="2" intensity="1.5" frequency="70" duration="0.3" range="1000" />
+    <Shockwave frame="32" type="2" intensity="1" frequency="70" duration="0.3" range="1000" />
+    <Sound frame="42.00" Value="2800" soundFile="skl_eff_atk_move_l_1" />
+</ActionDesc>

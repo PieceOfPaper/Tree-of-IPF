@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Sound frame="0.00" soundFile="mon_voice_bug_3"/>
+    <Sound frame="0.00" soundFile="skl_eff_cast_force"/>
+    <Sound frame="0.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="2.00" soundFile="mon_voice2_s_6"/>
+    <AfterImage frame="6" term="50" blendTime="350" r="150" g="140" b="110" a="255"/>
+    <BlendOn frame="7" R="80" G="70" B="35" A="60"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_m_5"/>
+    <BlendOn frame="8" R="70" G="60" B="25" A="50"/>
+    <Sound frame="8.00" soundFile="skl_eff_atk_move_s_10"/>
+    <Sound frame="8.00" soundFile="m_matsum_born_voice"/>
+    <BlendOff frame="9" R="0" G="0" B="0" A="0"/>
+    <AfterImage frame="9" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

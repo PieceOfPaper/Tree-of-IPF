@@ -1,0 +1,17 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0.00" Value="0" soundFile="mon_voice3_s_18"/>
+    <Sound frame="1.00" Value="0" soundFile="skl_eff_atk_move_s_6"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+    <Particle frame="7" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+    <Sound frame="8.00" Value="0" soundFile="skl_eff_bite_s_1"/>
+    <Sound frame="8.00" Value="0" soundFile="skl_eff_atk_move_s_10"/>
+    <Sound frame="12.00" Value="0" soundFile="skl_eff_bite_s_2"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+    <Particle frame="13" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+    <Sound frame="17.00" Value="0" soundFile="skl_eff_bite_s_1"/>
+    <Particle frame="18" attachNode="Dummy_emitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="0.5" pause="true" targetPos="false"/>
+    <Particle frame="18" attachNode="Dummy_emitter" particleName="F_smoke033" useAttach="false" hiddenObj="false" scale="0.8" pause="true" targetPos="false"/>
+</ActionDesc>

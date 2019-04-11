@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <AfterImage frame="0" term="30" blendTime="400" r="160" g="160" b="160" a="160"/>
+    <Particle frame="0" particleName="F_burstup022_smoke" attachNode="Dummy_effect_born" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Shockwave frame="1" type="2" intensity="4" frequency="60" duration="1" range="1000"/>
+    <Sound frame="7.44" soundFile="mon_voice_netherbovine_6"/>
+    <Sound frame="8.00" soundFile="skl_eff_stone_blow_m"/>
+    <Sound frame="8.00" soundFile="skl_eff_stone_born_l_1"/>
+    <Particle frame="15" particleName="F_ground071_smoke" attachNode="None" scale="1" useAttach="true" pause="true" targetPos="false"/>
+    <Sound frame="15.00" soundFile="mon_voice_roar"/>
+    <Shockwave frame="16" type="2" intensity="5" frequency="80" duration="1" range="1000"/>
+    <Sound frame="20.00" soundFile="mon_voice_rooto_7"/>
+    <AfterImage frame="25" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+</ActionDesc>

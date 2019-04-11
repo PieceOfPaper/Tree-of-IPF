@@ -1,0 +1,13 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="None" particleName="None" useAttach="true" hiddenObj="false" scale="1" pause="true"/>
+	<Sound frame="0.00" soundFile="mon_chupacabra_hit"/>
+	<Sound frame="1.00" soundFile="mon_chupacabra_wlk"/>
+	<Particle frame="2.00" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="None" scale="0.9" useAttach="true" pause="true"/>
+	<Particle frame="4" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="None" scale="0.9" useAttach="true" pause="true"/>
+	<Particle frame="5" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="None" scale="0.9" useAttach="true" pause="true"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

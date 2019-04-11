@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="1" soundFile="mon_spector_m_skl1_shot" />
+    <Force frame="4" forceName="None" attachNode="Dummy_effect_atk_force" HSpeed="100" VSpeed="100" CtrlPt="100" />
+    <Particle frame="5.00" attachNode="Dummy_effect_atk_force" particleName="I_explosion012_dark" useAttach="true" hiddenObj="false" scale="1" />
+    <Particle frame="5.00" attachActor="None" useAttach="true" attachNode="eff_skl_01" particleName="F_ground086_violet" scale="5" />
+    <HitAni frame="5.00" HitAni="" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

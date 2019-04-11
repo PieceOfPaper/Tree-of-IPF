@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="33" type="2" intensity="2" frequency="70" duration="0.5" range="1000"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_smoke044" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_effect_smoke002" particleName="F_smoke044" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="31" attachNode="Dummy_effect_smoke002" particleName="F_smoke044" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="33" attachNode="Dummy_emitter" particleName="F_ground037_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="35" attachNode="Dummy_effect_smoke002" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="46" attachNode="Dummy_effect_smoke002" particleName="F_smoke046" useAttach="false" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="20" R="10" G="15" B="10" A="20"/>
+	<BlendOn frame="22" R="60" G="80" B="60" A="50"/>
+	<BlendOn frame="24" R="10" G="15" B="10" A="20"/>
+	<BlendOn frame="26" R="5" G="7" B="5" A="20"/>
+	<BlendOff frame="27" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

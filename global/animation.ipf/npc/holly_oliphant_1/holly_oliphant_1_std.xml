@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_eff_patronsaint_buff_loop"/>
+    <Sound frame="0.00" soundFile="skl_eff_buff_loop_3"/>
+    <Particle frame="25" attachNode="Dummy_effect1" particleName="F_circle006" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="60" attachNode="Dummy_effect1" particleName="F_circle006" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

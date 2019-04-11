@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+    <Particle frame="0" attachNode="Bone005(mirrored)" particleName="I_light014_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bone005" particleName="I_light014_red2" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bone005(mirrored)" particleName="I_force059_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Bone005" particleName="I_force059_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="0" attachNode="Dummy_effect_lip" particleName="I_spread_in003_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="0.00" soundFile="m_manticen_skl_3"/>
+    <Sound frame="0.00" soundFile="skl_eff_fireball_cast_loop"/>
+    <Sound frame="0.00" soundFile="skl_eff_cast_force"/>
+    <Shockwave frame="10" type="2" intensity="1" frequency="50" duration="2" range="1000"/>
+    <BlendOn frame="15" R="10" G="7" B="3" A="10"/>
+    <BlendOn frame="30" R="25" G="15" B="5" A="20"/>
+    <BlendOn frame="50" R="50" G="35" B="20" A="30"/>
+    <BlendOn frame="63" R="150" G="130" B="100" A="50"/>
+    <Sound frame="63.00" soundFile="skl_wiz_firepillar_shot"/>
+    <Sound frame="65.00" soundFile="skl_eff_hit_insect_4"/>
+    <Shockwave frame="65" type="2" intensity="10" frequency="60" duration="0.5" range="1000"/>
+    <Particle frame="65" attachNode="Dummy_effect_lip" particleName="F_explosion070_orange" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <BlendOff frame="70" R="0" G="0" B="0" A="0"/>
+</ActionDesc>

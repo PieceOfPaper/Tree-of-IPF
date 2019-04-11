@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by d (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="0" soundFile="mon_saurman_priest_atk_cast" />
+    <Sound frame="7.00" soundFile="atk_rod" />
+    <Particle frame="7" particleName="F_swordtrail001_red" attachNode="Dummy_atk1_weapon" scale="1.0" useAttach="true" pause="true" targetPos="false" />
+    <HitAni frame="7" damratio="100" />
+    <Sound frame="7" soundFile="mon_saurman_priest_atk_shot" />
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+</ActionDesc>

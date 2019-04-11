@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HitAni frame="0" Value="0" damratio="100"/>
+	<ReadyAniTime frame="0" Value="500"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_teleportation_cast" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="13" attachNode="Dummy_emitter" particleName="F_wizard_teleportation_shot" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Sound frame="0.00" soundFile="skl_wiz_soulactivation"/>
+	<Sound frame="10.00" soundFile="skl_wiz_manasphere_spell_1"/>
+</ActionDesc>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Sound frame="0.00" soundFile="m_bumegoblin_spear_atk2_ready"/>
+	<Sound frame="0.00" soundFile="vo_mon_a_2"/>
+	<Particle frame="4" attachNode="Dummy_atk2_weapon" particleName="I_dash008_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" targetPos="false"/>
+    <Sound frame="4" soundFile="m_bumegoblin_spear_atk2_shot"/>
+	<Sound frame="4" soundFile="spear_thrust"/>
+</ActionDesc>

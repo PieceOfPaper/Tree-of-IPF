@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="Dummy_skl1_badak" particleName="F_ground064_fire" useAttach="true" hiddenObj="false" changeEffect="None" scale="1"/>
+	<Sound frame="0" soundFile="mon_saurman_priest_skl_shot"/>
+	<HitAni frame="1"/>
+	<Sound frame="4.00" soundFile="skl_wiz_explosion"/>
+	<PostFix frame="10" ID="_height"/>
+	<PostFix frame="20" ID="_height"/>
+</ActionDesc>

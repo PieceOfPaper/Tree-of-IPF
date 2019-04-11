@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="3" attachNode="Bip001 L Hand" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="3" attachNode="Bip001 R Hand" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.9" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="3" attachNode="Bip001 L Hand" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="3" attachNode="Bip001 R Hand" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="1" attachNode="Bip001 L Foot" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="1" attachNode="Bip001 R Foot" particleName="F_stone007" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="1" attachNode="Bip001 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="1" attachNode="Bip001 R Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice9_s_random"/>
+	<Sound frame="1.00" soundFile="move_step"/>
+	<Sound frame="1.00" soundFile="m_insect_move"/>
+</ActionDesc>

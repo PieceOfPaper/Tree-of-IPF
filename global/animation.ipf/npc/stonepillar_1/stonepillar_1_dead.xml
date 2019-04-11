@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Shockwave frame="0" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="2" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="4" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="10" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="I_stonepillar_1_dead_mash" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_burstup007_smoke1" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.6" pause="true" use2DEffect="true"/>
+	<Particle frame="1" attachNode="Dummy_emitter" particleName="F_smoke003" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" pause="true" use2DEffect="true"/>
+</ActionDesc>

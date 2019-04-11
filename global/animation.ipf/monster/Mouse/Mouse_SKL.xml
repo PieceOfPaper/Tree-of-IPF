@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Sound frame="4.00" soundFile="mon_voice_mouse_skl"/>
+    <Particle frame="6" attachNode="Bip001 R Toe0" particleName="F_smoke050" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="6" attachNode="Bip001 L Toe0" particleName="F_smoke050" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.3" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Sound frame="7.00" soundFile="skl_eff_body_atk_6"/>
+    <Sound frame="14.00" soundFile="skl_eff_atk_move_s_6"/>
+    <Particle frame="15" attachNode="None" particleName="F_smoke031" useAttach="true" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="15" attachNode="None" particleName="F_stone003" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+    <Particle frame="15" attachNode="Jaw" particleName="F_explosion099_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="true" targetPos="false" soft2DValue="0"/>
+</ActionDesc>

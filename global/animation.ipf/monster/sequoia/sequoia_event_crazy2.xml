@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ppiac (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Sound frame="10.00" soundFile="mon_voice5_l_4"/>
+    <Shockwave frame="30" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="30" soundFile="skl_eff_jumplanding_1"/>
+    <Particle frame="30" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke090" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="30" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out016_circle" scale="0.8" useAttach="false" pause="true" targetPos="false"/>
+    <Shockwave frame="31" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="31" attachActor="None" attachNode="B_tree1_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="31" attachActor="None" attachNode="B_tree2_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="31" attachActor="None" attachNode="Bip001 L Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="31" attachActor="None" attachNode="Bip001 R Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="31" attachActor="None" attachNode="Bip001 Tail1" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Shockwave frame="32" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="46" attachActor="None" attachNode="Dummy_emitter" particleName="F_smoke090" scale="2" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="46" attachActor="None" attachNode="Dummy_emitter" particleName="F_spread_out016_circle" scale="0.8" useAttach="false" pause="true" targetPos="false"/>
+    <Sound frame="47" soundFile="skl_eff_jumplanding_1"/>
+    <Shockwave frame="47" type="2" intensity="3" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="47" attachActor="None" attachNode="B_tree1_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="47" attachActor="None" attachNode="B_tree2_01" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="47" attachActor="None" attachNode="Bip001 L Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="47" attachActor="None" attachNode="Bip001 R Thigh" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+    <Particle frame="47" attachActor="None" attachNode="Bip001 Tail1" particleName="F_explosion055_leaf" scale="0.7" useAttach="false" pause="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Sound frame="3.00" soundFile="skl_fgt_berserk"/>
+	<Sound frame="5.00" Value="0" soundFile="skl_fgt_umboblow"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="6" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="7" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="8" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_rimblow_shot_circle" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="F_warrior_rimblow_shot_spread_out" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_umboblow_effect" particleName="I_warrior_rimblow_shot_mash1" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="5" attachNode="Dummy_emitter" particleName="I_warrior_rimblow_shot_mash" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

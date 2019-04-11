@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="0.00" soundFile="skl_fgt_tackle_shot"/>
+    <Sound frame="0.00" soundFile="skl_fgt_crescentwing"/>
+    <Sound frame="0.00" soundFile="skl_fgt_earthtremor"/>
+    <Sound frame="7.00" soundFile="voice_war_atk_long_shot"/>
+    <Particle frame="8" attachNode="Dummy_charging_gum" particleName="I_warrior_chargingattack_shot_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

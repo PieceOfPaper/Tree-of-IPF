@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<HeadRotBip frame="0" BipName="None"/>
+	<HeadRotBip frame="35" BipName="Bip001"/>
+	<HeadRotBip frame="90" BipName="None"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_2"/>
+	<Sound frame="0.00" soundFile="mon_voice_succubus_atk_cast_1"/>
+	<Sound frame="56.00" soundFile="mon_voice_succubus_atk_3"/>
+	<Sound frame="58.00" soundFile="skl_eff_whirlwind_smoke"/>
+	<Sound frame="58.00" soundFile="skl_wiz_mackangdal_shot"/>
+	<Sound frame="64.00" soundFile="skl_eff_two_spin_3"/>
+	<Sound frame="84.00" soundFile="skl_eff_chain_shot"/>
+	<Particle frame="0" attachNode="Dummy_effect" particleName="F_burstup024_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false"/>
+	<Particle frame="20" attachNode="Dummy_effect" particleName="F_burstup024_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="8" pause="true" use2DEffect="false"/>
+	<Particle frame="0" attachNode="Dummy_effect_atk_mash" particleName="F_levitation007_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="5" attachNode="Bip001 Neck" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="70" attachNode="Bip001 Spine1" particleName="F_spread_out031_fether_black" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="40" attachNode="Bip001 Neck" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false"/>
+	<Particle frame="20" attachNode="Bone_Chain_2" particleName="None" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="70" attachNode="Bip001 Neck" particleName="I_smoke044_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="70" attachNode="Bone_Chain_5" particleName="I_smoke013_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+	<Particle frame="70" attachNode="Bip001 Spine1" particleName="F_light003_violet" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false"/>
+</ActionDesc>

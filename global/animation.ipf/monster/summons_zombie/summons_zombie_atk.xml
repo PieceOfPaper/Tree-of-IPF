@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="EUC-KR"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="2.00" soundFile="mon_zombie_m_atk_shot"/>
+    <Particle frame="6" attachNode="Dummy_effect_atk" particleName="F_explosion094_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false" sound="skl_eff_bone_hit_blood"/>
+    <Particle frame="8" attachNode="Dummy_effect_atk" particleName="F_explosion094_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="12" attachNode="Dummy_effect_atk2" particleName="F_explosion095_dark" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Sound frame="0.00" soundFile="skl_eff_crash_ground_l_2"/>
+    <Shockwave frame="2" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Particle frame="7" attachActor="None" attachNode="Dummy_emiitter" particleName="F_smoke063" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+    <Particle frame="9" attachActor="None" attachNode="Dummy_emiitter" particleName="F_smoke076" useAttach="false" hiddenObj="false" scale="1.5" pause="true" targetPos="false"/>
+    <Shockwave frame="18" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+    <Shockwave frame="20" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+</ActionDesc>

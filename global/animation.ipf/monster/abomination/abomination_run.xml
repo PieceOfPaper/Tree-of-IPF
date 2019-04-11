@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Shindongjin (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 R Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="38" attachActor="None" attachNode="Bip001 R Foot" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip001 L Foot" particleName="F_smoke109" useAttach="false" hiddenObj="false" scale="4" pause="true" targetPos="false"/>
+	<Particle frame="3" attachActor="None" attachNode="Bip001 L Foot" particleName="F_stone005" useAttach="false" hiddenObj="false" scale="1" pause="true" targetPos="false"/>
+	<Shockwave frame="3" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="5" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="38" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Shockwave frame="40" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
+	<Sound frame="5.10" soundFile="mon_big_footstep_4"/>
+	<Sound frame="39.90" soundFile="mon_big_footstep_4"/>
+</ActionDesc>

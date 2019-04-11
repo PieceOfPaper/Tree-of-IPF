@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Shockwave frame="20" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="24" type="2" intensity="20" frequency="50" duration="0.5" range="1000"/>
+	<Shockwave frame="28" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<Shockwave frame="32" type="2" intensity="20" frequency="50" duration="0.3" range="1000"/>
+	<AfterImage frame="0" term="20" blendTime="500" r="160" g="160" b="160" a="200"/>
+	<AfterImage frame="45" term="0" blendTime="0" r="0" g="0" b="0" a="0"/>
+	<Particle frame="24" attachNode="Point001" particleName="F_smoke072_sviolet" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="25" attachNode="Point001" particleName="F_rize012_green_water" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Sound frame="0.00" soundFile="mon_voice_genmagnus_atk"/>
+	<Sound frame="0.00" soundFile="mon_voice_saltistter_4"/>
+	<Sound frame="0.00" soundFile="skl_eff_resizing_boom"/>
+	<Sound frame="0.00" soundFile="skl_eff_cast_smoke_1"/>
+</ActionDesc>

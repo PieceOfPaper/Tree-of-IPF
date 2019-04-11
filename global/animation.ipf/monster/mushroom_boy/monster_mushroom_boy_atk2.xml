@@ -1,0 +1,12 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by dd (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <PostFix frame="10" ID="_height" />
+    <PostFix frame="20" ID="_height" />
+    <Particle frame="5" attachNode="Dummy_boy_atk2_01" particleName="F_swordtrail003" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Particle frame="9" attachNode="Dummy_boy_atk2_002" particleName="F_swordtrail003" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.0" />
+    <Sound frame="0" soundFile="mon_mushroom_boy_atk2_cast" />
+    <Sound frame="5" soundFile="mon_mushroom_boy_atk2_shot" />
+    <HitAni frame="5" Value="1200" />
+</ActionDesc>

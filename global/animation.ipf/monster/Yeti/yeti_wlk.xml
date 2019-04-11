@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mayo (IMCGames Co., Ltd) -->
+<ActionDesc>
+	<Particle frame="39" attachNode="None" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="39" attachNode="None" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="13" attachNode="None" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="13" attachNode="None" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="23" attachNode="Dummy_effect_lip" particleName="I_smoke022_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Dummy_effefct_walk_R_ground" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="35" attachNode="Dummy_effefct_walk_R_ground" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Dummy_effefct_walk_L_ground" particleName="F_smoke064_grey" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="10" attachNode="Dummy_effefct_walk_L_ground" particleName="F_stone005" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="0" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Particle frame="25" attachNode="Bip001 Spine" particleName="I_smoke052_white" useAttach="true" hiddenObj="false" changeEffect="None" scale="3.5" pause="true" use2DEffect="false" targetPos="false" soft2DValue="0"/>
+	<Sound frame="2.00" soundFile="mon_big_footstep_2"/>
+	<Sound frame="25.00" soundFile="mon_big_footstep_2"/>
+</ActionDesc>

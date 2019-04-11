@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by might (IMCGames Co., Ltd) -->
+<ActionDesc>
+    <Particle frame="0.00" particleName="I_spread_out009_fire" attachNode="Dummy_head01" scale="1.1" useAttach="true" pause="true" targetPos="false" />
+    <Particle frame="0.00" particleName="I_spread_out009_fire" attachNode="Dummy_head02" scale="1.1" useAttach="true" pause="true" targetPos="false" />
+    <Sound frame="0.00" Value="0" soundFile="mon_voice3_s_15" />
+    <Sound frame="17.00" Value="0" soundFile="skl_fgt_ultimatedash_cast" />
+    <Sound frame="19.00" Value="0" soundFile="skl_eff_body_atk_2" />
+    <Particle frame="26.00" particleName="F_monster_Salamander_skl" attachNode="Dummy_skl" scale="0.7" useAttach="false" pause="true" targetPos="false" />
+    <HitAni frame="28.00" damratio="100" />
+</ActionDesc>

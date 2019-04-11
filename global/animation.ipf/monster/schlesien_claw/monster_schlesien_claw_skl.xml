@@ -1,0 +1,25 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSpy v2008 sp1 (http://www.altova.com) by tachyon (EMBRACE) -->
+<ActionDesc>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 R Foot" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 L Foot" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 R Thigh" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 L Thigh" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 Spine1" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 Neck" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 R Forearm" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 L Forearm" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 R Finger1" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 L Finger1" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="0" particleName="F_smoke068_dark" attachNode="Bip01 Head" scale="0.7" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Sound frame="3.00" Value="0" soundFile="m_schlesien_claw_skl"/>
+    <Sound frame="8.00" soundFile="spear_thrust"/>
+    <Sound frame="8.00" soundFile="mon_fantomrustning_atk"/>
+    <Sound frame="9.00" soundFile="swd_attack2"/>
+    <Particle frame="9" particleName="F_mon_katynforest_zombie01_knockdown" attachNode="Dummy_skl1_badak" scale="1" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="9" particleName="F_mon_katynforest_zombie01_knockdown1" attachNode="Dummy_skl1_badak" scale="1" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <Particle frame="9" particleName="F_circle017" attachNode="Dummy_skl1_badak" scale="1" useAttach="true" hiddenObj="false" changeEffect="None" pause="true" targetPos="false"/>
+    <PostFix frame="10" ID="_height"/>
+    <PostFix frame="20" ID="_height"/>
+</ActionDesc>

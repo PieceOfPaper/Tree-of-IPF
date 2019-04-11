@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+    <Sound frame="6.00" soundFile="mon_voice_hog_12"/>
+    <Sound frame="20.00" soundFile="mon_voice_hog_7"/>
+    <Sound frame="26.00" soundFile="skl_eff_chapparition_skl2_eff"/>
+    <Particle frame="27" attachNode="Dummy_emitter" particleName="I_smoke013_dark1" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="27" attachNode="Dummy_emitter" particleName="F_smoke046" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_r_eye" particleName="F_light051_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="30" attachNode="Dummy_effect_l_eye" particleName="F_light051_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Sound frame="78.00" soundFile="mon_voice_hog_10"/>
+    <Sound frame="78.00" soundFile="skl_eff_atk_move_l_6"/>
+    <Sound frame="78.00" soundFile="mon_voice_saltistter_9"/>
+    <Sound frame="80.00" soundFile="skl_eff_gust_spread_1"/>
+    <Particle frame="90" attachNode="Dummy_effect_r_eye" particleName="F_light051_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_l_eye" particleName="F_light051_red" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_effect_skl1_lip" particleName="F_breath003_dark_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="90" attachNode="Dummy_emitter" particleName="F_spread_out002" useAttach="true" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" targetPos="false"/>
+    <Particle frame="110" attachNode="Dummy_emitter" particleName="F_spread_out002" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" targetPos="false"/>
+</ActionDesc>

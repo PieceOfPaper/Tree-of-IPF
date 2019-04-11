@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<CreateMonster frame="0" MonName="pcskill_rune_stone" Key="Hagalaz" Angle="0" Dist="0" MonAngle="0" AttachNode="Dummy_R_HAND"/>
+	<CreateMonsterAnim frame="0" Key="Hagalaz" Anim="Hagalaz_cast" Freeze="0"/>
+	<CreateMonsterAlphaBlend frame="0" Key="Hagalaz" Alpha="0" BlendTime="0"/>
+	<CreateMonsterAlphaBlend frame="12" Key="Hagalaz" Alpha="255" BlendTime="0.5"/>
+	<Particle frame="42" attachNode="Dummy_effect_hand_R" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="35" attachNode="Dummy_effect_hand_R" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="28" attachNode="Dummy_effect_hand_R" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="21" attachNode="Dummy_effect_hand_R" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="14" attachNode="Dummy_effect_hand_R" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="7" attachNode="Dummy_effect_hand_R" particleName="I_bomb008_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="5"/>
+	<Particle frame="0" attachNode="Dummy_emitter" particleName="F_wizard_Hagalaz_cast_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="15" attachNode="Dummy_emitter" particleName="F_wizard_Hagalaz_cast_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+	<Particle frame="30" attachNode="Dummy_emitter" particleName="F_wizard_Hagalaz_cast_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" soft2DValue="0"/>
+</ActionDesc>
