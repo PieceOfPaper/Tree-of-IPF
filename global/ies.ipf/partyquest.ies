@@ -1,0 +1,3 @@
+ClassID,PlayerCnt,Level_Limit,WaitTimePerPC,TicketLifeTime,Year,Month,DayOfWeek,Day,Hour,Minute,ClassName,Name,ZoneName,Desc,Type,UseTimeBroadcast,SCP,ViewProp,Terms
+1,5,-1,1,120,-1,-1,-1,-1,-1,0,"FieldBossRaid","보스 사냥 미션",""," 파티장이 보스 사냥 미션을 수락하면 파티 맴버들과 함께 수행 지역으로 이동하여 보스 사냥을 시작합니다.","Field","NO","SCR_PARTYBOSS_PROP_CHANGE","FieldBossSummon",""
+4,5,1,1,120,-1,-1,-1,-1,-1,0,"BattleField","팀 배틀 리그",""," 파티장이 팀 배틀 리그를 수락하면 파티 맴버들과 팀을 꾸려 다른 파티와 대전할 수 있습니다. 수락 후 상대팀이 선정될 때까지 잠시 기다려주세요.","Quest","NO","SCR_PARTY_BATTLEFIELD_MATCHING","",""

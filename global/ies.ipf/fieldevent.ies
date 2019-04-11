@@ -1,0 +1,8 @@
+ClassID,MinLevel,MaxLevel,Player,GameTime,RaiseMin,OpenSec,LockMin,ClassName,Name,Type,SameZone,Script,XMLName,PhaseName,EnterScript,TimeOutScript,Map,CheckProp
+1,10,-1,5,1200,0,10,700,"KillBube","부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_1","","","SCR_START_FIELDEVENT_1","SCR_TIMEOUT_FE_1","mission_test",""
+2,10,-1,5,1200,30,10,700,"KillBube_2","부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_1","","","SCR_START_FIELDEVENT_1","SCR_TIMEOUT_FE_1","mission_test",""
+3,1,-1,5,1200,30,10,700,"KillBube3","부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_2","","","SCR_START_FIELDEVENT_2","SCR_TIMEOUT_FE_1","mission_test",""
+4,6,-1,5,1200,30,10,700,"killbube_new_1","부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_2","","","SCR_START_FIELDEVENT_2","SCR_TIMEOUT_FE_1","mission_test",""
+5,6,-1,3,1200,30,10,700,"killbube_renew_1","부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_RENEW","NEWFe","","SCR_START_FE_RENEW","SCR_TIMEOUT_FE_1","mission_test",""
+6,6,-1,3,1200,30,10,700,"killbube_renew_2","부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_RENEW","NEWFe","","SCR_START_FE_RENEW","SCR_TIMEOUT_FE_1","mission_test",""
+8,1,-1,2,600,30,10,700,"killbube_renew_3","테스트 부베족을 물리쳐라!","LAYER","YES","SCR_FIELDEVENT_RENEW","NEWFe2","","SCR_START_FE_RENEW","SCR_TIMEOUT_FE_1","mission_test",""
