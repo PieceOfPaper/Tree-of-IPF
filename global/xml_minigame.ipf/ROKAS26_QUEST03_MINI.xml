@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ROKAS26_QUEST03_MINI" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="rokas_npc1">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="rokas_npc2"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47107" Pos="-1306.00#2015.32#390.95" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;돌기둥&apos; &apos;FixedLife&apos; &apos;100&apos; &apos;Lv&apos; &apos;64&apos; &apos;FixedDefence&apos; &apos;99999&apos; &apos;HPCount&apos; &apos;30&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_fireball_hit_full_explosion" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_enchantfire_shot_ground" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47327" Pos="-1316.89#2015.32#360.00" angle="-35" genCount="1" genTime="20000" objectKey="1" searchRange="100" propList="&apos;BTree&apos; &apos;TrackWaitMonster&apos; " SimpleAI="ROKAS26_QUEST03_zinu" tendency="1">
+                        <SelfAI/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47327" Pos="-1279.51#2015.32#398.43" angle="-46" genTime="20000" genReadyTime="10000" objectKey="2" searchRange="100" SimpleAI="ROKAS26_QUEST03_zinu" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="rokas_npc1/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="rokas_npc1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="rokas_npc2">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="rokas_npc3"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47107" Pos="-1126.38#2015.32#296.14" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;돌기둥&apos; &apos;FixedLife&apos; &apos;100&apos; &apos;HPCount&apos; &apos;30&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_fireball_hit_full_explosion" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_enchantfire_shot_ground" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47327" Pos="-1108.64#2015.72#350.57" angle="-12" genCount="1" genTime="20000" objectKey="1" SimpleAI="ROKAS26_QUEST03_zinu" tendency="1"/>
+                    <Obj Type="Monster" MonType="47327" Pos="-1067.19#2015.32#284.13" angle="-9" genTime="10000" genReadyTime="10000" objectKey="2" SimpleAI="ROKAS26_QUEST03_zinu" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="rokas_npc2/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="rokas_npc2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="rokas_npc3">
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_CLEAR_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="rokas_npc2"/>
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="47107" Pos="-1234.34#2015.32#126.85" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Monster&apos; &apos;Name&apos; &apos;돌기둥&apos; &apos;FixedLife&apos; &apos;100&apos; &apos;HPCount&apos; &apos;30&apos; ">
+                        <SelfAI>
+                            <DeadList>
+                                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_fireball_hit_full_explosion" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </DeadList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_enchantfire_shot_ground" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="47327" Pos="-1283.97#2015.32#134.72" angle="37" genCount="1" genTime="20000" objectKey="1" SimpleAI="ROKAS26_QUEST03_zinu" tendency="1"/>
+                    <Obj Type="Monster" MonType="47327" Pos="-1255.96#2015.32#138.62" angle="52" genTime="20000" genReadyTime="10000" objectKey="2" SimpleAI="ROKAS26_QUEST03_zinu" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event>
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="rokas_npc3/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="rokas_npc3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

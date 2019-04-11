@@ -1,0 +1,441 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="PARTY_Q_060_MINI" rankScript="RAID_RANK_SCP" minLv="1" maxLv="0" mapName="f_huevillage_58_4" startWaitSec="15">
+        <StageList>
+            <Stage Name="STAGE01" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57029" Pos="1181.97#-23.27#769.46" angle="172" genCount="4" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57029" Pos="1214.93#-23.27#814.04" angle="-173" genCount="4" genTime="20000" objectKey="1" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57029" Pos="1201.23#-23.27#704.74" angle="-158" genCount="4" genTime="20000" objectKey="2" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57606" Pos="1249.76#-23.27#721.54" angle="-176" genCount="4" genTime="20000" objectKey="3" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="ST01_EV_ING">
+                        <condList>
+              <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                <Num Num="10"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                <Str Str="DEF_STAGE"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="ST01_EV_END">
+                        <condList>
+              <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                <Num Num="85"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                <Str Str="STAGE01"/>
+              </ToolScp>
+              <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                <Str Str="STAGE02"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="DEF_STAGE" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57025" Pos="654.73#-7.12#773.57" genCount="10" genTime="30000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57606" Pos="710.2402#-17.19#806.29" genCount="10" genTime="30000" objectKey="1" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57606" Pos="714.29#-16.73#747.26" genCount="10" genTime="30000" objectKey="2" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="STAGE02" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400721" Pos="982.9302#-16.23#1050.15" angle="-72" genCount="3" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400721" Pos="984.04#-16.23#1083.97" angle="-86" genCount="3" genTime="20000" objectKey="1" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57033" Pos="990.6602#-16.23#1116.67" angle="-75" genCount="3" genTime="20000" objectKey="2" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57033" Pos="1007.67#-22.47#1142.42" angle="-91" genCount="3" genTime="20000" objectKey="3" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="ST02_EV_END">
+                        <condList>
+              <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                <Num Num="65"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                <Str Str="STAGE03"/>
+              </ToolScp>
+              <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                <Str Str="STAGE02"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="STAGE03" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="57033" Pos="977.6201#-16.23#1082.49" angle="-102" genCount="4" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57033" Pos="1014.94#-22.47#1142.63" angle="-70" genCount="4" genTime="20000" objectKey="1" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57033" Pos="1001.68#-16.23#1059.73" angle="-83" genCount="4" genTime="20000" objectKey="2" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57607" Pos="1186.85#-23.27#800.82" angle="177" genCount="4" genTime="20000" objectKey="3" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57607" Pos="1182.32#-23.27#737.49" angle="-158" genCount="4" genTime="20000" objectKey="4" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57024" Pos="1131.84#-23.27#761.36" angle="151" genCount="4" genTime="20000" objectKey="5" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="57024" Pos="1136.03#-23.27#811.63" angle="169" genCount="4" genTime="20000" objectKey="6" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <List>
+                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                  <Num Num="500"/>
+                </ToolScp>
+              </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="ROOT_STAGE">
+                <ObjList>
+                    <Obj Type="Monster" MonType="153058" Pos="892#-23#748" genCount="1" genTime="20000" objectKey="0" propList="'Lv' '@GET_MON_RANK_LV_NORMAL1' 'Name' '가시 덩굴' 'Faction' 'Monster' 'HPCount' '15' 'SimpleAI' 'THORN_AI' 'BTree' 'TrackWaitMonster' "/>
+                    <Obj Type="Monster" MonType="153039" Pos="1012#-23#925" genCount="1" genTime="20000" objectKey="1" propList="'HPCount' '45' 'Lv' '@GET_MON_RANK_LV_NORMAL1' 'Name' '가시 덩굴' 'Faction' 'Monster' 'SimpleAI' 'THORN_AI' 'BTree' 'TrackWaitMonster' "/>
+                    <Obj Type="Monster" MonType="153011" Pos="991#-23#813" genCount="1" genTime="20000" objectKey="2" propList="'SimpleAI' 'THORN_AI' 'Name' '가시 덩굴' 'BTree' 'TrackWaitMonster' 'HPCount' '60' 'Faction' 'Monster' 'Lv' '@GET_MON_RANK_LV_NORMAL1' "/>
+                    <Obj Type="Monster" MonType="153039" Pos="1062#-23#721" genCount="1" genTime="20000" objectKey="3" propList="'SimpleAI' 'THORN_AI' 'Name' '가시 덩굴' 'HPCount' '50' 'BTree' 'TrackWaitMonster' 'Faction' 'Monster' 'Lv' '@GET_MON_RANK_LV_NORMAL1' "/>
+                    <Obj Type="Monster" MonType="20026" Pos="892#-23#748" genCount="1" genTime="20000" objectKey="4">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <DeadList>
+                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
+                  <Num Num="0.5"/>
+                </ToolScp>
+              </DeadList>
+              <StartList>
+                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="20"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="1012#-23#925" genCount="1" genTime="20000" objectKey="5">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <DeadList>
+                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
+                  <Num Num="0.5"/>
+                </ToolScp>
+              </DeadList>
+              <StartList>
+                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="20"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="1062#-23#721" genCount="1" genTime="20000" objectKey="6">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <DeadList>
+                <ToolScp Scp="S_AI_DEAD_EFFECT" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </DeadList>
+              <StartList>
+                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="20"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20026" Pos="991#-23#813" genCount="1" genTime="20000" objectKey="7">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <DeadList>
+                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
+                  <Num Num="0.5"/>
+                </ToolScp>
+              </DeadList>
+              <StartList>
+                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="20"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="153058" Pos="1104#-23#846" genCount="1" genTime="20000" objectKey="8" propList="'SimpleAI' 'THORN_AI' 'Name' '가시 덩굴' 'Faction' 'Monster' 'HPCount' '15' 'Lv' '@GET_MON_RANK_LV_NORMAL1' "/>
+                    <Obj Type="Monster" MonType="20026" Pos="1104#-23#846" genCount="1" genTime="20000" objectKey="9">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <DeadList>
+                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
+                  <Num Num="0.5"/>
+                </ToolScp>
+              </DeadList>
+              <StartList>
+                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="20"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="153039" Pos="891#-23#868" genCount="1" genTime="20000" objectKey="10" propList="'Name' '가시 덩굴' 'Faction' 'Monster' 'SimpleAI' 'THORN_AI' 'HPCount' '45' 'Lv' '@GET_MON_RANK_LV_NORMAL1' "/>
+                    <Obj Type="Monster" MonType="20026" Pos="891#-23#868" genCount="1" genTime="20000" objectKey="11">
+                        <SelfAI ActiveMessageMapInBattle="1">
+              <DeadList>
+                <ToolScp Scp="S_AI_EFFECT_DEATCH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="1"/>
+                  <Num Num="0.5"/>
+                </ToolScp>
+              </DeadList>
+              <StartList>
+                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                  <Num Num="0"/>
+                  <Str_Arg Str="F_ground132_dark_green2_loop" Arg="20"/>
+                  <Str Str="BOT"/>
+                </ToolScp>
+              </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="START">
+                        <condList>
+              <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                <Num Num="3"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                <Str Str="STAGE01"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DEAD01">
+                        <condList>
+              <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                <MGameObj List="ROOT_STAGE/0"/>
+                <Num Num="0"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                <MGameObjPtr List="ROOT_STAGE/4"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DEAD02">
+                        <condList>
+              <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                <MGameObj List="ROOT_STAGE/1"/>
+                <Num Num="0"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                <MGameObjPtr List="ROOT_STAGE/5"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DEAD03">
+                        <condList>
+              <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                <MGameObj List="ROOT_STAGE/3"/>
+                <Num Num="0"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                <MGameObjPtr List="ROOT_STAGE/6"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DEAD04">
+                        <condList>
+              <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                <MGameObj List="ROOT_STAGE/2"/>
+                <Num Num="0"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                <MGameObjPtr List="ROOT_STAGE/7"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DEAD05">
+                        <condList>
+              <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                <MGameObj List="ROOT_STAGE/8"/>
+                <Num Num="0"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                <MGameObjPtr List="ROOT_STAGE/9"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="DEAD06">
+                        <condList>
+              <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                <MGameObj List="ROOT_STAGE/10"/>
+                <Num Num="0"/>
+              </ToolScp>
+                        </condList>
+                        <execList>
+              <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                <MGameObjPtr List="ROOT_STAGE/11"/>
+              </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

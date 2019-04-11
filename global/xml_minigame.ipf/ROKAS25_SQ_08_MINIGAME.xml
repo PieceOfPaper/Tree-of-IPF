@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ROKAS25_SQ_08_MINIGAME" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="rokas25_sq_08_st1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401181" Pos="-49.53#267.94#502.43" genCount="1" genTime="20000" autoGen="0" genReadyTime="300" objectKey="0" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-60.78#267.94#562.31" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="401181" Pos="-11.67#267.94#530.97" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="st1_zen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="rokas25_sq_08_st1/0/rokas25_sq_08_st1/1/rokas25_sq_08_st1/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="rokas25_sq_08_st1/0/rokas25_sq_08_st1/1/rokas25_sq_08_st1/2"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="st1_next_st3">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="st1_zen"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="rokas25_sq_08_st3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="rokas25_sq_08_st3/0/rokas25_sq_08_st3/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="rokas25_sq_08_st2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401401" Pos="172.99#267.94#432.95" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="163.44#267.94#474.50" genCount="1" genTime="20000" autoGen="0" objectKey="2" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="401401" Pos="124.04#267.94#413.41" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="st2_zen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="rokas25_sq_08_st2/0/rokas25_sq_08_st2/2/rokas25_sq_08_st2/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="st2_end">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="st2_zen"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="rokas25_sq_08_st3" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401101" Pos="67.10#267.94#592.76" genCount="1" genTime="20000" autoGen="0" objectKey="0" searchRange="300" tendency="1"/>
+                    <Obj Type="Monster" MonType="401101" Pos="1.10#267.94#618.90" genCount="1" genTime="20000" autoGen="0" objectKey="1" searchRange="300" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="st3_zen">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="15"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="rokas25_sq_08_st3/0/rokas25_sq_08_st3/1"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="st3_end">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="115"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_EVT_OFF_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="st3_zen"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="success">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="return_layer">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="118"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="rokas25_sq_08_st1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="rokas25_sq_08_st2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="rokas25_sq_08_st3"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

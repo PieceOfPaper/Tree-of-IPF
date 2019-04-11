@@ -1,0 +1,297 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="godnessdefence" minLv="0" maxLv="0" mapName="mission_firetower_01" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList/>
+            </Stage>
+            <Stage Name="GameStart" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="startMsg">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="게임이 시작되었습니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_Team_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Stage_Team_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="GameStarted"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="CheckAndGiveItemToWinner"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage_Team_1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154046" Pos="-295.59#559.07#-524.61" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Law&apos; &apos;$Team&apos; &apos;1&apos; &apos;Name&apos; &apos;수호석&apos; &apos;HitProof&apos; &apos;NO&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;HPCount&apos; &apos;5&apos; " AfterGenScript="INIT_DEFENCE_STATUE"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Defence_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round_1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Stage_Team_2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="154046" Pos="100.06#578.92#-1937.18" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Law&apos; &apos;$Team&apos; &apos;2&apos; &apos;Name&apos; &apos;수호석&apos; &apos;HPCount&apos; &apos;5&apos; &apos;Hittable&apos; &apos;YES&apos; &apos;HitProof&apos; &apos;NO&apos; " AfterGenScript="INIT_DEFENCE_STATUE"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Defence_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round_2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Defence_1" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-10.51#562.03#-377.95" angle="-175" range="60" genTime="20000" autoGen="0" objectKey="7" AfterGenScript="POST_GEN_DEFENCEMON"/>
+                    <Obj Type="Monster" MonType="11120" Pos="-588.92#562.03#-404.38" angle="-175" range="90" genTime="20000" autoGen="0" objectKey="0" AfterGenScript="POST_GEN_DEFENCEMON"/>
+                    <Obj Type="Monster" MonType="11120" Pos="-267.86#562.03#-844.65" angle="-175" range="70" genTime="20000" autoGen="0" objectKey="1" AfterGenScript="POST_GEN_DEFENCEMON"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="120000" eventName="run_event_gen">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="MonsterGen_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" isOr="1" eventName="check_game_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Team_1/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_PROPERTY" Client="NO" UseSleep="NO">
+                                <Str Str="Team_Mission"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="MonsterGen_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SCRIPT_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="DEFENCE_FAIL_MSG"/>
+                                <Str Str="1"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Team1_End"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Defence_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="Defence_2" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-179.75#587.45#-1922.06" angle="21" range="90" genTime="20000" autoGen="0" objectKey="0" AfterGenScript="POST_GEN_DEFENCEMON"/>
+                    <Obj Type="Monster" MonType="11120" Pos="221.00#587.45#-1684.00" angle="21" range="80" genTime="20000" autoGen="0" objectKey="1" AfterGenScript="POST_GEN_DEFENCEMON"/>
+                    <Obj Type="Monster" MonType="11120" Pos="307.72#587.45#-2118.22" angle="21" range="60" genTime="20000" autoGen="0" objectKey="2" AfterGenScript="POST_GEN_DEFENCEMON"/>
+                </ObjList>
+                <StageEvents>
+                    <Event execMS="120000" eventName="run_event_gen">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="MonsterGen_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" isOr="1" eventName="check_game_end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="Stage_Team_2/0"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_COND_PCCNT_PROPERTY" Client="NO" UseSleep="NO">
+                                <Str Str="Team_Mission"/>
+                                <Num Num="2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+                                <Str Str="MonsterGen_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_SCRIPT_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="DEFENCE_FAIL_MSG"/>
+                                <Str Str="2"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Team2_End"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
+                                <Str Str="Defence_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MonsterGen_1" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="20000" execCount="3" eventName="genmonster">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_BY_SCRIPT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Defence_1/7/Defence_1/0/Defence_1/1"/>
+                                <Str Str="GET_DEFENCE_MON_COUNT_1"/>
+                                <Str Str="DEFENCE_MON_INIT_1"/>
+                                <Str Str="GET_DEFENCE_MON_TYPE_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="checkMonsterGenEnd">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round_1"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="MonsterGen_1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MonsterGen_2" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="20000" execCount="3" eventName="genmonster">
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_BY_SCRIPT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="Defence_2/1/Defence_2/2/Defence_2/0"/>
+                                <Str Str="GET_DEFENCE_MON_COUNT_2"/>
+                                <Str Str="DEFENCE_MON_INIT_2"/>
+                                <Str Str="GET_DEFENCE_MON_TYPE_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="10000" eventName="checkMonsterGenEnd">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_STAGE_TIME_CHECK" Client="NO" UseSleep="NO">
+                                <Num Num="70"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Round_2"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_RESTART" Client="NO" UseSleep="NO">
+                                <Str Str="MonsterGen_2"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="CheckAndGiveItemToWinner" AutoStart="0">
+                <ObjList/>
+                <StageEvents>
+                    <Event execMS="5000" eventName="CheckWinner">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Team1_End"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="Team2_End"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+                                <Str Str="DEFENCE_GAME_END"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="ReturnPlayers"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+                                <Str Str="ReturnMsg"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                    <Event execMS="60000" execCount="1" eventName="ReturnPlayers" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execMS="5000" execCount="1" eventName="ReturnMsg" execWithStart="0" isEnabled="0">
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="1분 후 존으로 돌아갑니다."/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+        <EnterList>
+            <ToolScp Scp="MGAME_C_SET_CONFIG" Client="YES" UseSleep="NO">
+                <Str Str="partycompetitiontype"/>
+                <Num Num="1"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_C_OPEN_UI" Client="YES" UseSleep="NO">
+                <Str Str="defenceui"/>
+                <Num Num="1"/>
+            </ToolScp>
+        </EnterList>
+        <WorldInitList>
+            <ToolScp Scp="MGAME_VALUE_SEND" Client="NO" UseSleep="NO">
+                <Str Str="Round_1"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_VALUE_SEND" Client="NO" UseSleep="NO">
+                <Str Str="Round_2"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_VALUE_SEND" Client="NO" UseSleep="NO">
+                <Str Str="GameStarted"/>
+            </ToolScp>
+            <ToolScp Scp="MGAME_ENABLE_PCCOUNT_TO_USERVALUE" Client="NO" UseSleep="NO"/>
+        </WorldInitList>
+    </Game>
+</GameList>

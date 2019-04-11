@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="BUG_TEST" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList>
+                    <Obj Type="Monster" MonType="10033" Pos="-25.45#0.00#185.79" genCount="1" genTime="20000" objectKey="0" propList="&apos;Faction&apos; &apos;Neutral&apos; ">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_wizard_stop_shot_loop" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

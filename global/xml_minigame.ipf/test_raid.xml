@@ -1,0 +1,83 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<GameList>
+    <Game Name="test_raid">
+        <StageList>
+            <Stage Name="DefGroup">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+                        <Num Num="600.000000" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_QUEST_MON" Client="NO" UseSleep="NO">
+                        <Str Str="Onion" />
+                        <Num Num="1.000000" />
+                    </ToolScp>
+                </StartScpList>
+                <CompleteScpList>
+                    <ToolScp Scp="MGAME_DISABLE" Client="NO" UseSleep="NO">
+                        <Str Str="DefGroup" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
+                        <Str Str="DefGroup" />
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO" CondFunc="">
+                        <Str Str="nextStage" />
+                    </ToolScp>
+                </CompleteScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="41174" Pos="-78.38#0.00#-1204.08" angle="-78" genCount="1" genTime="20000" objectKey="0" />
+                    <Obj Type="Monster" MonType="41174" Pos="68.55#0.00#-1205.11" angle="-78" genCount="1" genTime="20000" objectKey="1" />
+                    <Obj Type="Monster" MonType="400001" Pos="24.54#0.00#-1415.66" genCount="1" genTime="20000" objectKey="2" />
+                    <Obj Type="Monster" MonType="400001" Pos="119.58#0.00#-1406.44" genCount="1" genTime="20000" objectKey="3" />
+                    <Obj Type="Trigger">
+                        <Area>
+                            <Pos Value="-148.353271 0.000000 -640.236755" />
+                            <Pos Value="-97.072655 0.000000 -837.431702" />
+                            <Pos Value="91.890297 0.000000 -842.774963" />
+                            <Pos Value="75.120743 0.000000 -620.819702" />
+                        </Area>
+                    </Obj>
+                    <Obj Type="Trigger">
+                        <Area>
+                            <Pos Value="-326.379150 0.000000 -1324.588257" />
+                            <Pos Value="-234.621124 0.000000 -1454.590820" />
+                            <Pos Value="-120.267281 0.000000 -1430.109985" />
+                            <Pos Value="-195.185852 0.000000 -1301.434448" />
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_START_STAGE" Client="NO" UseSleep="NO">
+                                <Str Str="nextStage" />
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="nextStage" AutoStart="0">
+                <StartScpList>
+                    <ToolScp Scp="MGAME_QUEST_MON" Client="NO" UseSleep="NO">
+                        <Str Str="Goblin_Spear" />
+                        <Num Num="3.000000" />
+                    </ToolScp>
+                </StartScpList>
+                <ObjList>
+                    <Obj Type="Monster" MonType="11120" Pos="-73.33#0.00#-785.39" genCount="1" genTime="20000" objectKey="0" />
+                    <Obj Type="Monster" MonType="11120" Pos="5.72#0.00#-798.58" genCount="1" genTime="20000" objectKey="1" />
+                    <Obj Type="Monster" MonType="11120" Pos="-19.01#0.00#-723.04" genCount="1" genTime="20000" objectKey="2" />
+                    <Obj Type="Monster" MonType="11120" Pos="-13.11#0.00#-873.28" genCount="1" genTime="20000" objectKey="3" />
+                    <Obj Type="Monster" MonType="11120" Pos="-13.09#0.00#-1379.93" genCount="1" genTime="20000" objectKey="4" />
+                </ObjList>
+            </Stage>
+        </StageList>
+        <ScheduleList>
+            <Schedule minLv="10" maxLv="20" />
+            <Schedule hour="1" minLv="10" maxLv="20" />
+            <Schedule hour="2" minLv="10" maxLv="20" />
+            <Schedule hour="3" minLv="10" maxLv="20" />
+            <Schedule hour="4" minLv="10" maxLv="20" />
+            <Schedule hour="5" minLv="10" maxLv="20" />
+            <Schedule hour="6" minLv="10" maxLv="20" />
+            <Schedule hour="7" minLv="10" maxLv="20" />
+            <Schedule hour="8" minLv="10" maxLv="20" />
+            <Schedule hour="9" minLv="10" maxLv="20" />
+        </ScheduleList>
+    </Game>
+</GameList>

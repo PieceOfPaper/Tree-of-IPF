@@ -1,0 +1,387 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="CMINE66_2_MINI_02" minLv="0" maxLv="0" startWaitSec="15">
+        <StageList>
+            <Stage Name="SACRIFICE">
+                <ObjList>
+                    <Obj Type="Monster" MonType="20026" Pos="-1003.00#511.00#-2433.00" genCount="1" genTime="20000" objectKey="0">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_burstup036_fire" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CMINE66_2_MINI02_MON_AI"/>
+                                </ToolScp>
+                            </List>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20041" Pos="-979.72#511.44#-2664.72" genCount="1" genTime="20000" objectKey="1">
+                        <SelfAI UpdateMS="250" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CMINE66_2_MINI02_CARPET_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_ground053_lineup" Arg="8"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="20041" Pos="-1014.94#511.44#-2224.31" genCount="1" genTime="20000" objectKey="2">
+                        <SelfAI UpdateMS="250" ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CMINE66_2_MINI02_CARPET_AI"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_ground053_lineup" Arg="8"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="Setting">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CMINE662_2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="몬스터를 마법진으로 유인해 정화하고 몬스터 소굴로 가는 포탈을 여세요"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event eventName="Clear">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="CMINE662_2"/>
+                                <Str Str="=="/>
+                                <Num Num="12"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="MONSTER"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="END"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+                                <MGameObjPtr List="SACRIFICE/0/MONSTER/0/MONSTER/1/MONSTER/2/MONSTER/3/MONSTER/4/MONSTER/5/MONSTER/6/MONSTER/7"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="CLEAR"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="MONSTER">
+                <ObjList>
+                    <Obj Type="Monster" MonType="58150" Pos="-1216.07#511.44#-2257.35" maxStackCount="2" genTime="8000" genReadyTime="500" objectKey="0" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1005.5323" Y="511.43616" Z="-2430.5764"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="9999"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58150" Pos="-1220.00#511.00#-2647.00" maxStackCount="2" genTime="8000" genReadyTime="500" objectKey="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1005.5323" Y="511.43616" Z="-2430.5764"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="9999"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58150" Pos="-799.70#511.44#-2639.04" maxStackCount="2" genTime="10000" genReadyTime="500" objectKey="2" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1005.5323" Y="511.43616" Z="-2430.5764"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="9999"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="58150" Pos="-797.89#511.44#-2260.09" maxStackCount="2" genTime="10000" genReadyTime="500" objectKey="3" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1005.5323" Y="511.43616" Z="-2430.5764"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_DAMAGE_ADDHATE" Client="NO" UseSleep="NO">
+                                    <Num Num="9999"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="103009" Pos="-1216.00#511.00#-2257.00" maxStackCount="1" genTime="25000" genReadyTime="1000" objectKey="4" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1007.5573" Y="511.43616" Z="-2425.3198"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="103009" Pos="-1220.82#511.44#-2647.77" maxStackCount="1" genTime="18000" genReadyTime="1000" objectKey="5" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1007.5573" Y="511.43616" Z="-2425.3198"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="103009" Pos="-799.00#511.00#-2639.00" maxStackCount="1" genTime="20000" genReadyTime="1000" objectKey="6" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1007.5573" Y="511.43616" Z="-2425.3198"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="103009" Pos="-797.00#511.00#-2260.00" maxStackCount="1" genTime="24000" genReadyTime="1000" objectKey="7" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; " tendency="1">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <List>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="100"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+                                    <AbsPos X="-1007.5573" Y="511.43616" Z="-2425.3198"/>
+                                </ToolScp>
+                            </List>
+                            <HitList>
+                                <ToolScp Scp="S_AI_RUN_SIMPLEAI_DAMAGE" Client="NO" UseSleep="NO">
+                                    <Str Str="ATK_COMMON"/>
+                                    <Num Num="1"/>
+                                </ToolScp>
+                            </HitList>
+                            <StartList>
+                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
+                                    <Str Str="Normal"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_lineup003" Arg="1"/>
+                                    <Str Str="BOT"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+            </Stage>
+            <Stage Name="END">
+                <ObjList/>
+                <StageEvents>
+                    <Event execCount="1" eventName="TimeOver">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+                                <Str Str="시험은 실패하였습니다"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="CLEAR" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="40095" Pos="-771.23#511.44#-2465.36" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;CMINE66_2_ENTRANCELAIR&apos; ">
+                        <SelfAI ActiveMessageMapInBattle="1">
+                            <StartList>
+                                <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="SCR_CMINE66_2_ENTRANCELAIR_BORN"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                                    <Num Num="0"/>
+                                    <Str_Arg Str="F_circle25_red" Arg="1000"/>
+                                    <Str Str="MID"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1" eventName="TimeOver">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="120"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="MGAME_EVT_SCP_TO_MON" Client="NO" UseSleep="NO">
+                                <MGameObj List="CLEAR/0"/>
+                                <Str Str="SCR_CMINE66_2_ENTRANCELAIR_DEAD"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="SIAULIAI_50_SQ13_MINI" minLv="0" maxLv="0" startWaitSec="617183048">
+        <StageList>
+            <Stage Name="ST01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400543" Pos="1902.81#22.22#672.76" angle="-37" range="100" genCount="1" genTime="20000" objectKey="0" tendency="0">
+                        <SelfAI ActiveMessageMapInBattle="1"/>
+                    </Obj>
+                    <Obj Type="Monster" MonType="400543" Pos="2017.45#22.22#448.65" angle="42" range="80" genCount="1" genTime="20000" objectKey="1" tendency="1"/>
+                    <Obj Type="Monster" MonType="400543" Pos="1994.40#22.22#563.46" range="30" genCount="1" genTime="20000" objectKey="2" tendency="0"/>
+                    <Obj Type="Monster" MonType="400543" Pos="2189.70#22.22#473.57" angle="-123" range="90" genCount="1" genTime="20000" objectKey="3" tendency="0"/>
+                    <Obj Type="Monster" MonType="400543" Pos="2110.03#22.22#648.67" angle="-101" range="100" genCount="1" genTime="20000" objectKey="4" tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="end">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="ST01/0/ST01/1/ST01/2/ST01/3/ST01/4"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO"/>
+                            <ToolScp Scp="GAME_ST_EVT_ADD_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SIAULIAI50_MINI_SET01"/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="SETTING">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="SETTING">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="SIAULIAI50_MINI_SET01"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

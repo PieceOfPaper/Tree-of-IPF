@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="FTOWER45_MQ_05_MINI_BOSS" minLv="0" maxLv="0">
+        <StageList>
+            <Stage Name="1st">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41390" Pos="762.75#254.17#2317.66" genCount="1" genTime="20000" objectKey="0" propList="" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="HELGAl_CERCLE_OTHER_AI"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="110"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                                    <Str Str="skl1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41390" Pos="864.21#254.17#2232.89" genCount="1" genTime="20000" objectKey="1" propList="" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="HELGAl_CERCLE_OTHER_AI"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="110"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                                    <Str Str="skl1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                    <Obj Type="Monster" MonType="41390" Pos="887.39#254.17#2366.01" genCount="1" genTime="20000" objectKey="2" propList="" tendency="1">
+                        <SelfAI>
+                            <List>
+                                <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
+                                    <Str Str="HELGAl_CERCLE_OTHER_AI"/>
+                                </ToolScp>
+                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+                                    <Num Num="110"/>
+                                </ToolScp>
+                            </List>
+                            <StartList>
+                                <ToolScp Scp="S_AI_PLAYANI" Client="NO" UseSleep="NO">
+                                    <Str Str="skl1"/>
+                                </ToolScp>
+                            </StartList>
+                        </SelfAI>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event execCount="1">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="1st/0/1st/1/1st/2"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="2nd"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                        <Pos Value="805.009521 254.166595 2288.541504"/>
+                        <Pos Value="792.309753 254.166595 2286.383789"/>
+                        <Pos Value="789.692566 254.166595 2291.310547"/>
+                        <Pos Value="777.879944 254.166595 2295.837646"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+            <Stage Name="2nd" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="41228" Pos="798.82#254.17#2274.01" genCount="1" genTime="20000" objectKey="0" propList="" tendency="1"/>
+                </ObjList>
+                <ScrLockList>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                        <Pos Value="805.009521 254.166595 2288.541504"/>
+                        <Pos Value="792.309753 254.166595 2286.383789"/>
+                        <Pos Value="789.692566 254.166595 2291.310547"/>
+                        <Pos Value="777.879944 254.166595 2295.837646"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                        <Pos Value="805.009521 254.166595 2288.541504"/>
+                        <Pos Value="792.309753 254.166595 2286.383789"/>
+                        <Pos Value="789.692566 254.166595 2291.310547"/>
+                        <Pos Value="777.879944 254.166595 2295.837646"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                        <Pos Value="805.009521 254.166595 2288.541504"/>
+                        <Pos Value="792.309753 254.166595 2286.383789"/>
+                        <Pos Value="789.692566 254.166595 2291.310547"/>
+                        <Pos Value="777.879944 254.166595 2295.837646"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                        <Pos Value="805.009521 254.166595 2288.541504"/>
+                        <Pos Value="792.309753 254.166595 2286.383789"/>
+                        <Pos Value="789.692566 254.166595 2291.310547"/>
+                        <Pos Value="777.879944 254.166595 2295.837646"/>
+                    </Area>
+                    <Area>
+                        <Pos Value="805.152954 254.166580 2314.972412"/>
+                        <Pos Value="800.975525 254.166626 2254.574219"/>
+                        <Pos Value="820.683472 254.166595 2272.609131"/>
+                        <Pos Value="794.081665 254.166626 2254.023682"/>
+                        <Pos Value="804.246948 254.166595 2263.060547"/>
+                        <Pos Value="800.001709 254.166595 2270.331543"/>
+                        <Pos Value="827.255615 254.166595 2273.901123"/>
+                        <Pos Value="805.009521 254.166595 2288.541504"/>
+                        <Pos Value="792.309753 254.166595 2286.383789"/>
+                        <Pos Value="789.692566 254.166595 2291.310547"/>
+                        <Pos Value="777.879944 254.166595 2295.837646"/>
+                    </Area>
+                </ScrLockList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

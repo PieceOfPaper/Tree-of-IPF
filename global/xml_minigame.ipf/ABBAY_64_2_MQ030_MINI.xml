@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="ABBAY_64_2_MQ030_MINI" minLv="0" maxLv="0" startWaitSec="0">
+        <StageList>
+            <Stage Name="ST01">
+                <ObjList>
+                    <Obj Type="Monster" MonType="103026" Pos="-18.48#981.50#-1040.95" angle="-98" genCount="3" genTime="15000" objectKey="0" searchRange="400" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+                    </ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="103026" Pos="49.33#981.50#-1017.27" angle="-94" genCount="3" genTime="15000" objectKey="1" searchRange="400" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+                    </ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					</ObjList>
+                <StageEvents>
+                    <Event eventName="ST_EV01">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="30"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="ST02"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="ST02" AutoStart="0">
+                <ObjList>
+                    <Obj Type="Monster" MonType="103026" Pos="-12.14#981.50#-1044.64" angle="-110" genCount="2" genTime="20000" objectKey="0" searchRange="400" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+                    </ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57674" Pos="22.04#981.50#-967.85" angle="-85" genCount="2" genTime="20000" objectKey="2" searchRange="400" tendency="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="400"/>
+                    </ToolScp>
+								<ToolScp Scp="S_AI_MOVE_RALLY" Client="NO" UseSleep="YES" ExtraArg="1">
+									<AbsPos X="-16.350609" Y="982.53711" Z="-1241.1725"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					</ObjList>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>

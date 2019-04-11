@@ -1,0 +1,130 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+    <Game Name="THORN19_MQ10_MINIGAEM" minLv="0" maxLv="0" startWaitSec="112719848">
+        <StageList>
+            <Stage Name="DefGroup">
+                <ObjList/>
+                <StageEvents>
+                    <Event eventName="SETPOS">
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="THORN19_MQ10_MINI"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_1">
+                <ObjList>
+                    <Obj Type="Monster" MonType="46232" Pos="436.33#601.43#1582.13" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="427.00#605.00#1539.00" genCount="1" genTime="20000" objectKey="1" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="473.19#596.95#1671.33" angle="-66" genCount="1" genTime="20000" objectKey="3" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="517.85#599.06#1654.08" angle="28" genCount="1" genTime="20000" objectKey="4" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="524.51#602.44#1594.91" genCount="1" genTime="20000" objectKey="5" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="622.09#605.38#1613.94" genCount="1" genTime="20000" objectKey="6" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="575.06#600.21#1695.38" angle="-59" genCount="1" genTime="20000" objectKey="7" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="651.61#605.15#1630.25" angle="-143" genCount="1" genTime="20000" objectKey="8" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="667.59#606.26#1595.09" angle="179" genCount="1" genTime="20000" objectKey="9" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="740.17#607.62#1568.50" angle="-64" genCount="1" genTime="20000" objectKey="10" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="763.12#606.89#1609.86" genCount="1" genTime="20000" objectKey="11" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="807.83#609.29#1529.29" angle="-164" genCount="1" genTime="20000" objectKey="12" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="753.57#607.37#1669.61" angle="19" genCount="1" genTime="20000" objectKey="13" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="637.29#602.85#1708.98" angle="-100" genCount="1" genTime="20000" objectKey="14" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="701.75#606.73#1735.50" angle="-124" genCount="1" genTime="20000" objectKey="15" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="746.79#606.93#1802.82" angle="-90" genCount="1" genTime="20000" objectKey="16" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="792.37#609.00#1809.35" angle="-96" genCount="1" genTime="20000" objectKey="18" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="706.24#604.63#1811.94" angle="30" genCount="1" genTime="20000" objectKey="19" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="733.03#603.17#1890.86" angle="36" genCount="1" genTime="20000" objectKey="21" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="766.91#605.52#1873.20" angle="-88" genCount="1" genTime="20000" objectKey="22" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="655.61#602.18#1738.37" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="46232" Pos="715.96#604.53#1672.46" angle="-14" genCount="1" genTime="20000" objectKey="17" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_2">
+                <ObjList>
+                    <Obj Type="Monster" MonType="401222" Pos="432.05#597.95#1635.40" genCount="1" genTime="20000" objectKey="0" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401222" Pos="612.34#599.36#1799.32" genCount="1" genTime="20000" objectKey="1" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401222" Pos="671.84#599.90#1900.04" genCount="1" genTime="20000" objectKey="2" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401222" Pos="526.05#597.67#1684.70" genCount="1" genTime="20000" objectKey="3" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="401222" Pos="577.23#596.60#1765.06" genCount="1" genTime="20000" objectKey="4" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                </ObjList>
+            </Stage>
+            <Stage Name="stage_3">
+                <ObjList>
+                    <Obj Type="Monster" MonType="400721" Pos="837.39#605.16#2032.46" genCount="1" genTime="20000" autoGen="0" objectKey="0" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="700.79#600.39#2094.74" genCount="1" genTime="20000" autoGen="0" objectKey="1" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="669.47#598.36#1958.68" genCount="1" genTime="20000" autoGen="0" objectKey="2" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="819.93#604.47#1988.92" genCount="1" genTime="20000" autoGen="0" objectKey="3" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="728.96#601.55#2010.59" genCount="1" genTime="20000" autoGen="0" objectKey="4" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                    <Obj Type="Monster" MonType="400721" Pos="756.87#602.62#2061.28" genCount="1" genTime="20000" autoGen="0" objectKey="5" propList="&apos;Lv&apos; &apos;50&apos; " tendency="1"/>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="gen">
+                        <condList>
+                            <ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+                                <MGameObj List="stage_3/0/stage_3/1/stage_3/2/stage_3/4/stage_3/5"/>
+                                <Num Num="3"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT" Client="NO" UseSleep="NO">
+                                <MGameObjIndex List="stage_3/0/stage_3/1/stage_3/2/stage_3/3/stage_3/4/stage_3/5"/>
+                                <Num Num="1"/>
+                                <Num Num="0"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+            <Stage Name="stage_4">
+                <ObjList>
+                    <Obj Type="Trigger">
+                        <Area>
+                            <Pos Value="633.859924 597.545959 2216.936279"/>
+                            <Pos Value="823.728088 605.393555 2271.021729"/>
+                            <Pos Value="834.873047 605.958313 2153.697998"/>
+                            <Pos Value="638.608582 595.765381 2184.531494"/>
+                            <Pos Value="633.577271 597.253296 2212.470459"/>
+                        </Area>
+                        <enterScpList>
+                            <ToolScp Scp="MGAME_TRG_CK_MGAME_DIRECT" Client="NO" UseSleep="NO">
+                                <Str Str="THORN19_MQ10_MINI"/>
+                                <Num Num="0"/>
+                                <Str Str="THORN19_MQ_10_TRIGGER"/>
+                            </ToolScp>
+                        </enterScpList>
+                    </Obj>
+                </ObjList>
+                <StageEvents>
+                    <Event eventName="END">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
+                                <Str Str="THORN19_MQ10_MINI"/>
+                                <Str Str="=="/>
+                                <Num Num="1"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="DefGroup"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_1"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_2"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_3"/>
+                            </ToolScp>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+                                <Str Str="stage_4"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                </StageEvents>
+            </Stage>
+        </StageList>
+    </Game>
+</GameList>
