@@ -1,0 +1,7 @@
+ClassID,SpriteBlendTime,ClassName,CondAtkType,CondAttributeType,CondActorBuff,UseSprite,SpriteFolder,ShaderOption,SpriteBlendStartColor,SpriteBlendEndColor,SpriteBlendLoop,SpriteBlendMode,SpriteBlendInterpolate,AttachEffect
+1,0,"Normal","","","","Yes","","","255,255,255,255","255,255,255,255","No","MULTI","Yes",""
+2,50,"Freeze","","","Freeze","Yes","_Freeze","","70,100,200,255","100,120,160,255","No","ADD","Yes","I_ice_mash"
+3,1.200000,"Fire","","Fire","","Yes","","","200,0,0,255","0,0,0,255","No","MULTI","Yes","I_archer_caracole_cast_fire"
+4,0,"Poison","","Poison","","No","","","255,255,255,255","255,255,255,255","No","MULTI","Yes",""
+5,0,"Slash","Slash","","","No","","","255,255,255,255","255,255,255,255","No","MULTI","Yes",""
+6,0.200000,"electric","","Lightning","","No","","","0,0,0,0","255,255,255,255","Yes","ADD","No",""
