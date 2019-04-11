@@ -1,0 +1,14 @@
+﻿<?xml version="1.0" encoding="UTF-8" ?>
+<DeadSlice>
+    <Option TYPE="KEYFRAME" />
+    <Event Index="0.000000" Name="reaction_lunge" Type="IMC" LifeTime="0.000000" X="0.000000" Y="0.000000" Z="0.000000" Scale="1.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" />
+    <Layer Name="left">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Clock" Type="Normal" />
+        <LayerOption TYPE="None" />
+        <Event Index="0.000000" Name="reaction_lunge" Type="IMC" LifeTime="0.000000" X="0.000000" Y="15.000000" Z="0.000000" Scale="15.000000" Attach="0" SizeToSprite="0" ForceDestroy="1" />
+    </Layer>
+    <Layer Name="right">
+        <DeadBounce MinStartDelay="0.000000" MaxStartDelay="0.000000" Time="2.000000" Distance="40.000000" MinRadius="15.000000" MaxRadius="30.000000" OverKillAddDist="25.000000" OverKillMinRadius="50.000000" MaxBounceCount="3" MinVerticalSpd="100.000000" MaxVerticalSpd="150.000000" Gravity="1.000000" RotMinValue="0.100000" RotMaxValue="0.100000" OverKillAddRotValue="0.100000" EffectScale="1.000000" Rotation="Clock" Type="Normal" />
+        <LayerOption TYPE="None" />
+    </Layer>
+</DeadSlice>
