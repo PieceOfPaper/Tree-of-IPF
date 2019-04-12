@@ -44,7 +44,7 @@ function SCR_USE_SPECIAL_BLUEORB(pc)
     local ymin = (yday * 24 * 60) + hour * 60 + min
     local aObj = GetAccountObj(pc)
     
-    if aObj.EVENT_VALUE_AOBJ03 < ymin then
+    if aObj.EVENT_VALUE_AOBJ03 > ymin then
         return;
     end
     
@@ -327,7 +327,15 @@ function SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
         if aObj.BLUEORB_MISSION_COUNT >= induncount then
             ShowOkDlg(pc, 'EVENT_SELECT_BOSSLV_07', 1)
         else
-            AUTOMATCH_INDUN_DIALOG(pc, nil, 'c_firemage_event')
+            local pcetc = GetETCObject(pc);
+
+            local tx = TxBegin(pc)
+            TxSetIESProp(tx, pcetc, 'InDunCountType_1100', aObj.BLUEORB_MISSION_COUNT);
+            local ret = TxCommit(tx)
+
+            if ret == 'SUCCESS' then
+                AUTOMATCH_INDUN_DIALOG(pc, nil, 'c_firemage_event')
+            end
         end
     elseif select == 3 then
         

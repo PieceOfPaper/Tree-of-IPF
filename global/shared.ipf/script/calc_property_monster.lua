@@ -267,6 +267,11 @@ function SCR_GET_MON_EXP(self)
     
     local multipleValue = 0;
     
+    -- blueorb event
+    if level > 350 then
+        level = 350
+    end
+
     local cls = GetClassByType("Stat_Monster", level);
     local value = cls.EXP_BASE;    
     
@@ -290,6 +295,11 @@ function SCR_GET_MON_JOBEXP(self)
     
     local level = self.Lv;
     local multipleValue = 0;    
+    
+    -- blueorb event
+    if level > 350 then
+        level = 350
+    end
     
     local cls = GetClassByType("Stat_Monster", level);
     local value = cls.JEXP_BASE;
