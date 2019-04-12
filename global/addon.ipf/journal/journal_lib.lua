@@ -267,6 +267,12 @@ function SET_CATEGORY_BY_PROP(tree, idSpace, groupName, classType, clMsgHeader, 
 					else
 						propName = typeList[j];
 					end
+					
+					if "Monster" == idSpace then
+						if ("Item" == propName) or ("Cloth" == propName) then
+							propName = 'None';
+						end;	
+					end;
 
 					if propName ~= 'None' then
 						tree:Add(htreeitem, "{ol}"..ClMsg(propName), data.."#"..propName, "{#FFCC33}{ds}");

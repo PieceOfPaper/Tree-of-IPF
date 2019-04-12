@@ -159,21 +159,6 @@ function HEADSUPDISPLAY_ON_MSG(frame, msg, argStr, argNum)
 	end
 end
 
-function REQUESTED_HEADSUPDISPLAY_UPDATE()	
-	local frame = ui.GetFrame("headsupdisplay");
-	if nil == frame then
-		return 0;
-	end;
-
-	local hpGauge = GET_CHILD(frame, "hp", "ui::CGauge");
-	local stat = info.GetStat(session.GetMyHandle());
-	UI_PLAYFORCE(hpGauge, "gauge_damage");	
-	hpGauge:SetPoint(stat.maxHP, stat.maxHP);		
-	hpGauge:Invalidate();
-	hpGauge:ReleaseBlink();
-	return 1;
-end;
-
 function STAMINA_UPDATE(frame, msg, argStr, argNum)
 
 	session.UpdateMaxStamina();
