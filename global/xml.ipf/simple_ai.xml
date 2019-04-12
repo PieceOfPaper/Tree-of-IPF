@@ -1682,6 +1682,18 @@
             </ToolScp>
         </List>
     </AI>
+    <AI Name="EVENT_CURSED_COAST_POTAL" ActiveMessageMapInBattle="1">
+        <StartList>
+            <ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+                <Num Num="0"/>
+                <Str_Arg Str="F_bg_water014_green" Arg="1.5"/>
+                <Str Str="BOT"/>
+            </ToolScp>
+            <ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+                <Str Str="CURSED_COAST_POTA_30"/>
+            </ToolScp>
+        </StartList>
+    </AI>
     <AI Name="FEDIMIAN_RAID_WAY2_1" ActiveMessageMapInBattle="1">
         <List>
             <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">

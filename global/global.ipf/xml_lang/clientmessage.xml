@@ -124,6 +124,10 @@
 		<Class ClassID="501170" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL15" Data="인스타그램 광고"/>
 		<Class ClassID="501171" OverrideType="ADD" ClassName="NPC_EVENT_USER_ROUTE_SEL16" Data="기타"/>
 		<Class ClassID="501174" OverrideType="ADD" ClassName="EVENT_VIVID_TIME_CHECK_SEL1" Data="클리어 시간 : {MIN}분 {SEC}초 입니다."/>
+		<Class ClassID="501181" OverrideType="ADD" ClassName="EVENT_CURSED_COAST_NPC_SEL1" Data="저주받은 혼을 보여준다."/>
+		<Class ClassID="501182" OverrideType="ADD" ClassName="EVENT_CURSED_COAST_NPC_SEL2" Data="{Name}님이 저주받은 석화 고래를 깨웠습니다."/>
+		<Class ClassID="501183" OverrideType="ADD" ClassName="EVENT_STEAM_SOCCER_NPC_SEL1" Data="응원 도구 받기"/>
+		<Class ClassID="501184" OverrideType="ADD" ClassName="EVENT_STEAM_SOCCER_NPC_SEL2" Data="트로피 받기"/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="300174" OverrideType="ADD" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>

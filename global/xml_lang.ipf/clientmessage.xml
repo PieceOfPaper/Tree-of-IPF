@@ -4600,6 +4600,17 @@
 		<Class ClassID="27900" ClassName="MISSION_SURVIVAL_EVENT2_MSG1" Data="상자를 열어본다"/>
 		<Class ClassID="27901" ClassName="MISSION_SURVIVAL_EVENT2_MSG2" Data="미션을 나간다"/>
 		<Class ClassID="27902" ClassName="MISSION_SURVIVAL_EVENT2_MSG3" Data="컴패니언과 같이 입장하실 수 없습니다"/>
+		<Class ClassID="28000" ClassName="EVENT_1806_WEEKEND_MSG1" Data="[이벤트 +100%]"/>
+		<Class ClassID="28006" ClassName="EVENT_1806_NUMBER_GAMES_MSG2" Data="헤트트릭 숫자 퀴즈"/>
+		<Class ClassID="28007" ClassName="EVENT_1806_NUMBER_GAMES_MSG3" Data="'헤트트릭의 실마리'가 4개 이상 필요합니다"/>
+		<Class ClassID="28008" ClassName="EVENT_1806_NUMBER_GAMES_MSG4" Data="1~100 사이 숫자를 입력하세요."/>
+		<Class ClassID="28009" ClassName="EVENT_1806_NUMBER_GAMES_MSG5" Data="숫자 입력"/>
+		<Class ClassID="28010" ClassName="EVENT_1806_NUMBER_GAMES_MSG6" Data="누적완료 보상"/>
+		<Class ClassID="28011" ClassName="EVENT_1806_NUMBER_GAMES_MSG7" Data="누적완료 횟수 : {ACC}{nl}{TARGET}회 누적완료 보상 : {ITEM}"/>
+		<Class ClassID="28012" ClassName="EVENT_1806_NUMBER_GAMES_MSG8" Data="{nl}해당 아이템은 {#003399}팀창고 이동이 불가능{/}합니다."/>
+		<Class ClassID="28013" ClassName="EVENT_1806_NUMBER_GAMES_MSG9" Data="보상을 받는다"/>
+		<Class ClassID="28014" ClassName="EVENT_1806_NUMBER_GAMES_MSG10" Data="바로 헤트트릭 숫자를 맞춰보시겠어요?{nl}누적완료 횟수에 따라 추가 보상도 드리고 있어요."/>
+		<Class ClassID="28015" ClassName="EVENT_1806_NUMBER_GAMES_MSG11" Data="{NUM} 정답입니다!"/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
@@ -11178,6 +11189,8 @@
 		<Class ClassID="501154" ClassName="EVENT_STEAM_COLONY_FIRST_VICTORY_MSG" Data="길드 콜로니전 첫 승리 보상 받기"/>
 		<Class ClassID="501155" ClassName="NPC_EVENT_VIVID_CITY_SEL1" Data="비비드 시티 이벤트"/>
 		<Class ClassID="501174" ClassName="EVENT_VIVID_TIME_CHECK_SEL1" Data="클리어 시간 : {MIN}분 {SEC}초 입니다."/>
+		<Class ClassID="501183" ClassName="EVENT_STEAM_SOCCER_NPC_SEL1" Data="응원 도구 받기"/>
+		<Class ClassID="501184" ClassName="EVENT_STEAM_SOCCER_NPC_SEL2" Data="트로피 받기"/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>

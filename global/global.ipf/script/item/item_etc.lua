@@ -1469,3 +1469,9 @@ function SCR_USE_ABILITY_POINT_BOX1_BOX_GIVE_ITEM(pc, string1, arg1, arg2)
     TxGiveItem(tx, arg1, arg2, 'ABILITY_POINT_BOX1_BOX_S_GIVE_COUNT'..arg2);
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Creative_TPP_Player(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Creative_TPP_Player', 1)
+    local ret = TxCommit(tx);
+end

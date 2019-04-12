@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
 <!-- edited with XMLSpy v2008 sp1 http://www.altova.com by MintPC Mi -->
 <skinset name="Base">
 	<imagelist category="item_tooltip_icon">
@@ -733,8 +733,8 @@
 		<image name="icon_item_warrior_matador02_m" file="\icon\equip\icon_item_warrior_matador02_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_matador03_f" file="\icon\equip\icon_item_warrior_matador03_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_warrior_matador03_m" file="\icon\equip\icon_item_warrior_matador03_m.png" imgrect="0 0 256 256"/>
-		<image name="icon_item_warrior_matador04_f" file="\icon\equip\icon_item_warrior_matador04_f.png" imgrect="0 0 256 256" CMM_Caption="마타도르 초레어"/>
 		<image name="icon_item_warrior_matador04_m" file="\icon\equip\icon_item_warrior_matador04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_warrior_matador04_f" file="\icon\equip\icon_item_warrior_matador04_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_matador_f" file="\icon\equip\icon_item_SpecialCostume_matador_f.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_SpecialCostume_matador_m" file="\icon\equip\icon_item_SpecialCostume_matador_m.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_mage_shadowmancer_f" file="\icon\equip\icon_item_mage_shadowmancer_f.png" imgrect="0 0 256 256" CMM_Caption="섀도우맨서 코스튬"/>
@@ -2526,6 +2526,12 @@
 		<image name="icon_item_aretfact_wedding02" file="\icon\weapon\icon_item_aretfact_wedding02.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 장난감01"/>
 		<image name="icon_item_aretfact_wedding03" file="\icon\weapon\icon_item_aretfact_wedding03.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 장난감01"/>
 		<image name="icon_item_aretfact_wedding04" file="\icon\weapon\icon_item_aretfact_wedding04.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 장난감01"/>
+		<image name="icon_item_aretfact_red_card" file="\icon\weapon\icon_item_aretfact_red_card.png" imgrect="0 0 256 256" CMM_Caption="2018 축구 장난감"/>
+		<image name="icon_item_aretfact_yellow_card" file="\icon\weapon\icon_item_aretfact_yellow_card.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_aretfact_soccer_ball" file="\icon\weapon\icon_item_aretfact_soccer_ball.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_aretfact_trophy_soccer" file="\icon\weapon\icon_item_aretfact_trophy_soccer.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_aretfact_victory_purple" file="\icon\weapon\icon_item_aretfact_victory_purple.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_aretfact_victory_red" file="\icon\weapon\icon_item_aretfact_victory_red.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -4550,13 +4556,13 @@
 		<image name="icon_1710_thanksgiving_coin" file="\icon\item\icon_1710_thanksgiving_coin.png" imgrect="0 0 256 256" CMM_Caption="추석 동전 투호 "/>
 		<image name="icon_1710_thanksgiving_target" file="\icon\item\icon_1710_thanksgiving_target.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_GM_KOKOA_BOX" file="\icon\item\icon_item_GM_KOKOA_BOX.png" imgrect="0 0 256 256" CMM_Caption="GM 코코아 박스"/>
-		<image name="icon_item_cloth_misc01" file="\icon\item\icon_item_cloth_misc01.png" imgrect="0 0 128 128" CMM_Caption="제작 재료"/>
-		<image name="icon_item_weapon_misc01" file="\icon\item\icon_item_weapon_misc01.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_leather_misc01" file="\icon\item\icon_item_leather_misc01.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_iron_misc01" file="\icon\item\icon_item_iron_misc01.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_Geranium_farm_Yellow" file="\icon\item\icon_item_Geranium_farm_Yellow.png" imgrect="0 0 128 128" CMM_Caption="인던 기믹"/>
 		<image name="icon_item_Valerijonas_Red" file="\icon\item\icon_item_Valerijonas_Red.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_maple_25_grassflute_Blue" file="\icon\item\icon_item_maple_25_grassflute_Blue.png" imgrect="0 0 128 128"/>
+		<image name="icon_item_cloth_misc01" file="\icon\item\icon_item_cloth_misc01.png" imgrect="0 0 128 128" CMM_Caption="제작 재료"/>
+		<image name="icon_item_weapon_misc01" file="\icon\item\icon_item_weapon_misc01.png" imgrect="0 0 128 128"/>
 		<image name="icon_item_looting_potion_01" file="\icon\item\icon_item_looting_potion_01.png" imgrect="0 0 80 80" CMM_Caption="루팅찬스 포션"/>
 		<image name="icon_item_misc_0508" file="\icon\item\icon_item_misc_0508.png" imgrect="0 0 128 128" CMM_Caption="9랭크 재료"/>
 		<image name="icon_item_misc_0509" file="\icon\item\icon_item_misc_0509.png" imgrect="0 0 128 128"/>
@@ -5302,8 +5308,27 @@
 		<image name="icon_item_wedding2018_B" file="\icon\payment\icon_item_wedding2018_B.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 코스튬 상자03"/>
 		<image name="icon_item_2018wedding_cube" file="\icon\payment\icon_item_2018wedding_cube.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 코스튬 큐브"/>
 		<image name="icon_item_2018wedding_cube2" file="\icon\payment\icon_item_2018wedding_cube2.png" imgrect="0 0 256 256" CMM_Caption="2018 5월 테마 코스튬 큐브2"/>
+		<image name="icon_item_Unlock_NakMuay" file="\icon\payment\icon_item_Unlock_NakMuay.png" imgrect="0 0 256 256" CMM_Caption="낙무아이 해금권"/>
 		<image name="icon_item_egg_WeddingBird" file="\icon\payment\icon_item_egg_WeddingBird.png" imgrect="0 0 256 256" CMM_Caption="웨딩 홍관조 알"/>
 		<image name="icon_item_soccer_popupbook" file="\icon\payment\icon_item_soccer_popupbook.png" imgrect="0 0 256 256" CMM_Caption="2018 축구 팝업북 "/>
+		<image name="icon_item_footballuniform01_f" file="\icon\payment\icon_item_footballuniform01_f.png" imgrect="0 0 256 256" CMM_Caption="2018 축구 코스튬"/>
+		<image name="icon_item_footballuniform01_m" file="\icon\payment\icon_item_footballuniform01_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform02_f" file="\icon\payment\icon_item_footballuniform02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform02_m" file="\icon\payment\icon_item_footballuniform02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform03_f" file="\icon\payment\icon_item_footballuniform03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform03_m" file="\icon\payment\icon_item_footballuniform03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform04_m" file="\icon\payment\icon_item_footballuniform04_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform05_m" file="\icon\payment\icon_item_footballuniform05_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform04_f" file="\icon\payment\icon_item_footballuniform04_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_footballuniform05_f" file="\icon\payment\icon_item_footballuniform05_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_kickOffPackage_box" file="\icon\payment\icon_item_kickOffPackage_box.png" imgrect="0 0 256 256" CMM_Caption="2018 축구 패키지"/>
+		<image name="icon_item_kickOff_box" file="\icon\payment\icon_item_kickOff_box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cafri_box" file="\icon\payment\icon_item_cafri_box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lion_box" file="\icon\payment\icon_item_lion_box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_whistle_box" file="\icon\payment\icon_item_whistle_box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_lionSupporter_box" file="\icon\payment\icon_item_lionSupporter_box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_cafriSupporter_box" file="\icon\payment\icon_item_cafriSupporter_box.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_tpBox_500" file="\icon\payment\icon_item_tpBox_500.png" imgrect="0 0 128 128" CMM_Caption="500TP 패키지"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>

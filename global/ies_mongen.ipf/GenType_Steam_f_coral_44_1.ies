@@ -1,0 +1,13 @@
+ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,AnchorCount,UP_ReturnRange,P_MaxDialog,ClassType,Name,UniqueName,QuestName,Tag,Tactics,BTree,SimpleAI,Dialog,Enter,Leave,Save,OnlyPCCheck,SmartGen,Faction,ArgStr1,ArgStr2,ArgStr3,Tendency
+1,1,0,40,1,0,99,0,0,0,1,0,0,"steam_event_anchor_purple","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+2,2,0,40,1,0,99,0,0,0,1,0,0,"steam_event_tombstone_turtle","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+3,3,0,40,1,0,99,0,0,0,1,0,0,"steam_event_VarleHelmsman","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+4,4,0,40,1,0,99,0,0,0,1,0,0,"steam_event_VarleAnchor","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+5,5,0,40,1,0,99,0,0,0,1,0,0,"steam_event_afisher","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+6,6,0,40,1,0,99,0,0,0,1,0,0,"steam_event_VarleHenchman","","","","","","","","","","","NO","YES","NO","Monster","SmartGen","","",""
+7,7,0,40,1,600000,99,0,0,0,1,0,0,"steam_event_boss_Confinedion","","","","","","","","","","","NO","YES","NO","Monster","","","",""
+10,10,1,40,1,60000,1,1,0,0,0,0,0,"Ghost_Soldier","저주받은 병사","","","","STEAM_CURSED_COAST_COLOR","","","EVENT_CURSED_COAST","","","NO","YES","NO","Neutral","","","",""
+11,11,1,40,1,60000,1,1,0,0,0,0,0,"Ghost_Soldier","저주받은 병사","","","","STEAM_CURSED_COAST_COLOR","","","EVENT_CURSED_COAST2","","","NO","YES","NO","Neutral","","","",""
+12,12,1,40,1,60000,1,1,0,0,0,0,1,"alter_sacrifice","저주받은 제단","","","","","","","CREATE_CURSED_WHALE","","","NO","YES","NO","Neutral","","","",""
+13,13,1,40,1,60000,1,0,0,0,0,0,0,"hidden_monster","음산한 폭포","","","","","","EVENT_CURSED_COAST_POTAL","","","","NO","YES","NO","Neutral","","","",""
+14,14,1,40,1,60000,1,1,0,0,0,0,0,"hidden_monster","음산한 폭포","","","","","","","EVENT_CURSED_COAST_WARP2","","","NO","YES","NO","Neutral","","","",""

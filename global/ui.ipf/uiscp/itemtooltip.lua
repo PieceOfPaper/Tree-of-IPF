@@ -342,9 +342,9 @@ function DRAW_SELL_PRICE(tooltipframe, invitem, yPos, mainframename)
 
 	local sellprice_text = GET_CHILD(tooltip_sellinfo_CSet,'sellprice','ui::CRichText')
 	sellprice_text:SetTextByKey("silver", geItemTable.GetSellPrice(itemProp) );
-
+	
 	local BOTTOM_MARGIN = tooltipframe:GetUserConfig("BOTTOM_MARGIN"); -- ë§??„ëž«ìª??¬ë°±
-	tooltip_sellinfo_CSet:Resize(tooltip_sellinfo_CSet:GetWidth(),tooltip_sellinfo_CSet:GetHeight() + BOTTOM_MARGIN);
+	tooltip_sellinfo_CSet:Resize(gBox:GetWidth(), tooltip_sellinfo_CSet:GetHeight() + BOTTOM_MARGIN);
 
 	local height = gBox:GetHeight() + tooltip_sellinfo_CSet:GetHeight();
 	gBox:Resize(gBox:GetWidth(), height);
