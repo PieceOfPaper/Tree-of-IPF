@@ -86,7 +86,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		local cashValue = GetCashValue(marketItem.premuimState, "marketSellCom") * 0.01;
 		local stralue = GetCashValue(marketItem.premuimState, "marketSellCom");
-		if itemObj.ClassID == 490000 then
+		if itemObj.ClassID == 490000 or itemObj.ClassName:find('PremiumToken') then
 			 cashValue = 0;
 			 stralue = 0;
 		end
@@ -453,7 +453,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			-- Àåºñ±×·ì¸¸ buffValue°¡ ÀÖ´Ù.
+			-- ï¿½ï¿½ï¿½×·ì¸¸ buffValueï¿½ï¿½ ï¿½Ö´ï¿½.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
 			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			
@@ -494,5 +494,4 @@ function MARKET_SELL_SELECT(pageControl, numCtrl)
 --local frame = pageControl:GetTopParentFrame();
 --market.ReqMySellList(page);
 end
-
 

@@ -14,6 +14,14 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Largehoney_Songpyeon'); -- 대왕꿀송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161110_candy'); -- 대왕꿀송편
+	
+	if IsBuffApplied(pc, 'Premium_Fortunecookie') == 'YES' then
+	    local buff = GetBuffByName(from, 'Premium_Fortunecookie');
+	    print(buff)
+	    local buffOver = GetOver(buff)
+	    sumExp = sumExp + (IsBuffAppliedEXP(pc, 'Premium_Fortunecookie') * buffOver)
+	end
+	
 	return sumExp; 
 end
 

@@ -279,7 +279,7 @@ function INDUNENTER_MAKE_PARTY_CONTROLSET(pcCount, memberTable)
 		memberCnt = 0;
 	end
 
-	if memberCnt> 1 then 
+	if memberCnt > 1 then 
 		partyLine:Resize(58 * (memberCnt - 1), 15);
 		partyLine:ShowWindow(1);
 	else

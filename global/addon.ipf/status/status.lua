@@ -669,13 +669,13 @@ function SETEXP_SLOT(gbox)
 	end
 	
 		--[[
-	--일반 파티 경험치 계산
+	--?�반 ?�티 경험�?계산
 	local retParty = false;
 	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
 	SWITCH(math.floor(partyMember)) {				
 		[0] = function() end,
 		[1] = function() end,	
-		[4] = function() -- 4인 260 -> 280
+		[4] = function() -- 4??260 -> 280
 			local addValue2 = 0;
 			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FOUR");
 			local val = cls.Value;	
@@ -684,7 +684,7 @@ function SETEXP_SLOT(gbox)
 			end	
 			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
 		end,
-		[5] = function() -- 5인 300 -> 350
+		[5] = function() -- 5??300 -> 350
 			local addValue2 = 0;
 			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FIVE");
 			local val = cls.Value;	
@@ -693,7 +693,7 @@ function SETEXP_SLOT(gbox)
 			end	
 			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
 		end,
-		default = function() --		1인 100. 2인 180, 3인 220
+		default = function() --		1??100. 2??180, 3??220
 			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue1, index, percSum);
 		end,
 		}	
@@ -1743,7 +1743,7 @@ function STATUS_ACHIEVE_INIT(frame)
 				local eachColor = imcIES.GetString(eachcls, 'Color') 
 				eachColorE = string.lower(eachColorE)
 
-				-- 업적 받으면 헤어 컬러 사라지는 현상이 있다고 해서 HairColor 프로퍼티 값으로도 확인
+				-- ?�적 받으�??�어 컬러 ?�라지???�상???�다�??�서 HairColor ?�로?�티 값으로도 ?�인
 				if string.find(nowAllowedColor, eachColorE) ~= nil or TryGetProp(etc, "HairColor_"..eachColorE) == 1 then
 				
 					local eachhairimg = customizingGBox:CreateOrGetControl('picture', 'hairColor_'..eachColorE, 30 + 35 * haircount, 55, 35, 35);
@@ -1902,8 +1902,7 @@ function STATUS_JOB_CHANGE(frame)
 end
 
 
---캐릭터 이름 변경
-function CHANGE_MYPC_NAME_BY_ITEM(invItem)
+--캐릭???�름 변�?function CHANGE_MYPC_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
 	if invItem.isLockState then
@@ -1919,8 +1918,7 @@ function CHANGE_MYPC_NAME_BY_ITEM(invItem)
 	INPUT_STRING_BOX(ClMsg("InputNameForChange"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
---팀 이름 변경
-function CHANGE_TEAM_NAME_BY_ITEM(invItem)
+--?� ?�름 변�?function CHANGE_TEAM_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
 	if invItem.isLockState then
@@ -1936,8 +1934,7 @@ function CHANGE_TEAM_NAME_BY_ITEM(invItem)
 	INPUT_STRING_BOX(ClMsg("ChangeFamilyName"), "EXEC_CHANGE_NAME_BY_ITEM", charName, 0, 16);
 end
 
---길드 이름 변경
-function CHANGE_GUILD_NAME_BY_ITEM(invItem)
+--길드 ?�름 변�?function CHANGE_GUILD_NAME_BY_ITEM(invItem)
 	local newframe = ui.GetFrame("inputstring");
 
 	if invItem.isLockState then
