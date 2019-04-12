@@ -1445,3 +1445,22 @@ function SCR_USE_2YEARS_BOX(pc)
     TxGiveItem(tx, 'Hat_628315', 1, '2YEARS_PACKAGE');
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_CS_IndunReset_GTower_1(self)
+    if IS_BASIC_FIELD_DUNGEON(self) == 'YES' or GetClassString('Map', GetZoneName(self), 'MapType') == 'City' then
+    local pcetc = GetETCObject(self)
+        if pcetc ~= nil then
+            local tx = TxBegin(self);
+                if pcetc.InDunCountType_400 > 0 then	
+                    TxSetIESProp(tx, pcetc, 'InDunCountType_400', pcetc.InDunCountType_400 - 1);
+                end
+                if pcetc.IndunWeeklyEnteredCount_400 > 0 then
+                    TxSetIESProp(tx, pcetc, 'IndunWeeklyEnteredCount_400', pcetc.IndunWeeklyEnteredCount_400 - 1);
+                end
+            local ret = TxCommit(tx);	
+            if ret == 'SUCCESS' then
+            SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("CS_IndunReset_GTower_1_MSG1"), 10)
+            end
+        end
+    end
+end

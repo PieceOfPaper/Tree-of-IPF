@@ -194,3 +194,12 @@ end
 function SCR_BUFF_LEAVE_Event_Steam_Base_Buff(self, buff, arg1, arg2, over)
     self.MSPD_BM = self.MSPD_BM - 2;
 end
+
+function SCR_BUFF_ENTER_GOOD_STAMP_EFFECT(self, buff, arg1, arg2, over)
+    OverrideSurfaceType(self, 'good_stamp')
+    PlayEffect(self, "F_pc_welldone_ground_A", 1.5, 1.5, 'BOT')
+end
+
+function SCR_BUFF_LEAVE_GOOD_STAMP_EFFECT(self, buff, arg1, arg2, over)
+    OverrideSurfaceType(self, 'None')
+end

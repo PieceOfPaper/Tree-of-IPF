@@ -34,13 +34,13 @@ function ERROR_INFO_INIT(errorCode, summary, infoMsg, handleMsg, url, argNum, cl
 
 	local urlBox = frame:GetChild('urlBox');
 	ypos = handleBox:GetY() + handleBox:GetHeight() + 10;
---	urlBox:SetOffset(urlBox:GetX(), ypos);
+	urlBox:SetOffset(urlBox:GetX(), ypos);
 	if url ~= '' then
---		local urlText = GET_CHILD_RECURSIVELY(frame, 'urlText');
---		urlText:SetTextByKey('url', url);
---		urlBox:Resize(urlBox:GetWidth(), urlText:GetY() + urlText:GetHeight() + 10);
---		ypos = ypos + urlBox:GetHeight();
---		urlBox:ShowWindow(1);
+		local urlText = GET_CHILD_RECURSIVELY(frame, 'urlText');
+		urlText:SetTextByKey('url', url);
+		urlBox:Resize(urlBox:GetWidth(), urlText:GetY() + urlText:GetHeight() + 10);
+		ypos = ypos + urlBox:GetHeight();
+		urlBox:ShowWindow(1);
 	else
 		urlBox:ShowWindow(0);
 	end

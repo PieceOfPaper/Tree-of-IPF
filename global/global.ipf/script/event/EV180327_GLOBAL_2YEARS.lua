@@ -48,7 +48,7 @@ function SCR_STEAM_EVENT_2YEARS_DIALOG(self, pc)
                 ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG5', 1)
             end 
         else
-            ShowOkDlg(pc, 'NPC_EVENT_OneYear_2', 1) 
+            ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG5', 1) 
         end
     else
         ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG4', 1)     
@@ -73,7 +73,10 @@ function SCR_STEAM_EVENT_2YEARS_MASTER_ALL(self, pc)
         {50, 'Premium_SkillReset_14d', 1},
         {55, 'Premium_StatReset14', 1}
     }
-
+    if aObj.STEAM_2YEARS_MASTER_DLC_CHECK ~= 1 then
+        ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG7', 1)     
+        return
+    end
     if aObj.STEAM_2YEARS_MASTER_YDAY == yday then
         ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG1', 1) 
         return
