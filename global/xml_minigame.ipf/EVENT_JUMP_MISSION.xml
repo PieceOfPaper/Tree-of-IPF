@@ -1,0 +1,1973 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<GameList>
+	<Game Name="EVENT_JUMP_MISSION" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="E_f_tableland_11_1" playerCountCheckDestroy="1" startWaitSec="-973078529">
+		<StageList>
+			<Stage Name="Ready">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="30초 뒤 미션이 시작됩니다"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="154004" Pos="83.17#94.43#1528.34" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_30"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="142.09#94.43#1541.08" genCount="1" genTime="20000" objectKey="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_60"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="83.91#94.43#1572.66" genCount="1" genTime="20000" objectKey="2">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_90"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="142.29#94.43#1583.21" genCount="1" genTime="20000" objectKey="3">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_120"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="87.67#94.43#1623.15" genCount="1" genTime="20000" objectKey="4">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="152.63#94.43#1626.65" genCount="1" genTime="20000" objectKey="5">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="79.48#94.43#1668.09" genCount="1" genTime="20000" objectKey="6">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="144.20#94.43#1683.98" genCount="1" genTime="20000" objectKey="7">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="103.54#94.43#1715.64" genCount="1" genTime="20000" objectKey="8">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="125.59#94.54#1423.88" angle="90" genCount="1" genTime="20000" objectKey="9"/>
+					<Obj Type="Monster" MonType="12082" Pos="98.91#94.54#1434.84" genCount="1" genTime="20000" objectKey="10">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="I_laser003_loop" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-16.63#94.43#1955.70" genCount="1" genTime="20000" objectKey="11" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP4&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="20s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="20초 뒤 미션이 시작됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="10s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="10초 뒤 미션이 시작됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="5s">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="25"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG" Client="YES" UseSleep="NO">
+								<Str Str="5초 뒤 미션이 시작됩니다"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="1st"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="TimeOver"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Ready"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="1st" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="600"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="154004" Pos="581.23#-163.65#-1477.82" genCount="1" genTime="20000" objectKey="0" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_30"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="504.91#-163.65#-1447.46" genCount="1" genTime="20000" objectKey="1">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_YELLOW_HIDE"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_60"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="417.91#-163.65#-1400.33" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1">
+						<SelfAI UpdateMS="700" ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_60"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="351.43#-163.65#-1439.56" genCount="1" genTime="20000" objectKey="3">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_90"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="269.65#-163.65#-1427.18" genCount="1" genTime="20000" objectKey="4">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_90"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="192.79#-163.65#-1425.43" genCount="1" genTime="20000" objectKey="5">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_90"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="114.66#-163.65#-1389.82" genCount="1" genTime="20000" objectKey="6">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_120"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="60.72#-163.65#-1368.32" genCount="1" genTime="20000" objectKey="7">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_120"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="4.56#-163.51#-1348.33" genCount="1" genTime="20000" objectKey="8">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_120"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-52.27#-163.06#-1324.19" genCount="1" genTime="20000" objectKey="9">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_120"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-118.84#-162.01#-1302.80" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_UPDOWN"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-191.01#-146.10#-1313.45" genCount="1" genTime="20000" objectKey="11">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-261.32#-129.89#-1310.19" genCount="1" genTime="20000" objectKey="12">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-333.44#143.85#1815.48" genCount="1" genTime="20000" objectKey="14"/>
+					<Obj Type="Monster" MonType="154004" Pos="-336.79#-110.01#-1302.76" genCount="1" genTime="20000" objectKey="15">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_BLUE_HIDE"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-367.77#-101.44#-1235.44" genCount="1" genTime="20000" objectKey="17">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-420.35#-91.58#-1164.74" genCount="1" genTime="20000" objectKey="18">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-491.69#-91.58#-1226.50" genCount="1" genTime="20000" objectKey="19">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-551.64#-91.58#-1204.75" genCount="1" genTime="20000" objectKey="20">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-611.67#-91.58#-1182.26" genCount="1" genTime="20000" objectKey="21">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-669.98#-91.58#-1153.38" genCount="1" genTime="20000" objectKey="22">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-728.97#-91.58#-1117.97" genCount="1" genTime="20000" objectKey="23">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-785.61#-91.58#-1058.36" genCount="1" genTime="20000" objectKey="24">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-844.45#-91.58#-1000.63" genCount="1" genTime="20000" objectKey="25">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-894.45#-91.58#-945.32" genCount="1" genTime="20000" objectKey="26">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-901.38#-91.58#-846.75" genCount="1" genTime="20000" objectKey="27">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_GREEN_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-899.37#-62.62#-771.18" genCount="1" genTime="20000" objectKey="28">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-910.67#-34.13#-720.33" genCount="1" genTime="20000" objectKey="29">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-887.74#0.11#-632.99" genCount="1" genTime="20000" objectKey="30">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-896.95#0.11#-538.57" genCount="1" genTime="20000" objectKey="31">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-894.15#0.11#-445.22" genCount="1" genTime="20000" objectKey="32">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_BLUE_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-329.30#140.94#1886.64" genCount="1" genTime="20000" objectKey="33"/>
+					<Obj Type="Monster" MonType="154079" Pos="-328.32#140.82#1973.33" genCount="1" genTime="20000" objectKey="35"/>
+					<Obj Type="Monster" MonType="154004" Pos="-996.71#0.11#-462.79" genCount="1" genTime="20000" objectKey="36">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-964.56#0.11#-363.19" genCount="1" genTime="20000" objectKey="37">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-879.94#0.11#-327.19" genCount="1" genTime="20000" objectKey="38">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-791.86#0.11#-300.60" genCount="1" genTime="20000" objectKey="40">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-708.88#0.11#-305.77" genCount="1" genTime="20000" objectKey="41">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-618.07#0.11#-280.14" genCount="1" genTime="20000" objectKey="42">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-520.76#25.60#-126.10" genCount="1" genTime="20000" objectKey="43">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-431.26#44.05#-148.41" genCount="1" genTime="20000" objectKey="44" UseAiOutOfPc="1" propList="&apos;UseAiOutOfPC&apos; &apos;1&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_UPDOWN"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-396.85#56.16#-67.24" genCount="1" genTime="20000" objectKey="45">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_150"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="146.53#-163.65#-1381.90" genCount="1" genTime="20000" objectKey="47" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-28.20#-161.92#-1165.78" genCount="1" genTime="20000" objectKey="46">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-19.12#-162.81#-1265.35" genCount="1" genTime="20000" objectKey="48">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-22.91#-163.65#-1383.49" genCount="1" genTime="20000" objectKey="49">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="12082" Pos="-30.68#-162.85#-1292.16" angle="90" genCount="1" genTime="20000" objectKey="50">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="I_laser003_loop" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-747.75#0.11#-269.39" genCount="1" genTime="20000" objectKey="52" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP2&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-903.37#-1.85#-92.39" angle="90" genCount="1" genTime="20000" objectKey="53">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="-488.49#26.82#-166.31" angle="30" genCount="1" genTime="20000" objectKey="54">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="12082" Pos="-479.80#29.74#-162.01" angle="120" genCount="1" genTime="20000" objectKey="56">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="I_laser003_loop" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-912.98#-91.58#-978.29" genCount="1" genTime="20000" objectKey="57" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP2&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-932.31#0.11#-632.42" genCount="1" genTime="20000" objectKey="58" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP2&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-415.05#56.16#-35.07" genCount="1" genTime="20000" objectKey="59" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP3&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-328.03#56.16#-24.68" genCount="1" genTime="20000" objectKey="60">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-159.67#56.16#-56.09" genCount="1" genTime="20000" objectKey="62">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-109.36#56.16#-22.00" genCount="1" genTime="20000" objectKey="63">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-57.43#56.16#12.03" genCount="1" genTime="20000" objectKey="64">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-43.90#56.16#107.53" genCount="1" genTime="20000" objectKey="65">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_BLUE_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-78.46#56.16#188.26" genCount="1" genTime="20000" objectKey="66">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-99.11#56.16#265.26" genCount="1" genTime="20000" objectKey="67">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-139.27#56.16#311.17" genCount="1" genTime="20000" objectKey="68">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-107.71#56.16#361.44" genCount="1" genTime="20000" objectKey="69">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-155.45#56.16#412.31" genCount="1" genTime="20000" objectKey="70">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-108.00#56.16#455.71" genCount="1" genTime="20000" objectKey="71">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-125.44#56.16#534.15" genCount="1" genTime="20000" objectKey="72">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_UPDOWN3"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-147.88#56.16#496.01" genCount="1" genTime="20000" objectKey="73" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP3&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-139.20#56.16#634.81" genCount="1" genTime="20000" objectKey="74">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-139.20#56.12#733.64" genCount="1" genTime="20000" objectKey="75">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-141.24#68.15#822.82" genCount="1" genTime="20000" objectKey="76">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-109.07#92.87#909.13" genCount="1" genTime="20000" objectKey="77">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-156.22#94.54#1001.76" genCount="1" genTime="20000" objectKey="79">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_BLUE_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-223.62#94.54#1093.18" genCount="1" genTime="20000" objectKey="80">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-217.97#94.54#1179.66" genCount="1" genTime="20000" objectKey="81">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_UPDOWN3"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-124.37#94.54#1293.70" genCount="1" genTime="20000" objectKey="82">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-42.47#94.54#1261.88" genCount="1" genTime="20000" objectKey="85" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP3&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-26.45#94.54#1300.43" genCount="1" genTime="20000" objectKey="84">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_RED_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="58.09#94.54#1254.83" genCount="1" genTime="20000" objectKey="86">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="65.72#94.54#1159.97" genCount="1" genTime="20000" objectKey="87">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="79.37#94.54#1064.44" genCount="1" genTime="20000" objectKey="88">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="174.91#94.54#1066.54" genCount="1" genTime="20000" objectKey="89">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="156.09#94.54#1197.86" genCount="1" genTime="20000" objectKey="90" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP3&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="221.98#94.54#1146.02" genCount="1" genTime="20000" objectKey="91">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_GREEN_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="245.86#94.54#1237.96" genCount="1" genTime="20000" objectKey="92">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="241.86#94.54#1327.74" genCount="1" genTime="20000" objectKey="93">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="406.99#56.16#33.28" angle="30" genCount="1" genTime="20000" objectKey="94">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154079" Pos="348.16#112.18#935.00" angle="120" genCount="1" genTime="20000" objectKey="78">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="170.75#94.54#1380.09" genCount="1" genTime="20000" objectKey="95">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="121.87#94.51#1452.52" genCount="1" genTime="20000" objectKey="96">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_UPDOWN2"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="113.89#94.43#1769.48" genCount="1" genTime="20000" objectKey="100">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="53.86#94.43#1797.34" genCount="1" genTime="20000" objectKey="101">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="48.24#94.43#1851.31" genCount="1" genTime="20000" objectKey="102">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_240"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="40.28#94.43#1912.91" genCount="1" genTime="20000" objectKey="103">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_RED_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="53.03#94.43#1969.76" genCount="1" genTime="20000" objectKey="104">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-997.37#0.11#-374.64" genCount="1" genTime="20000" objectKey="97" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP2&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-115.10#56.16#113.90" genCount="1" genTime="20000" objectKey="98" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP3&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="153156" Pos="-166.10#94.54#1043.95" genCount="1" genTime="20000" objectKey="99" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP3&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-38.92#94.43#1991.49" genCount="1" genTime="20000" objectKey="105">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-138.49#94.43#1985.28" genCount="1" genTime="20000" objectKey="106">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-208.61#109.79#1909.26" genCount="1" genTime="20000" objectKey="107">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-282.63#129.70#1898.95" genCount="1" genTime="20000" objectKey="108">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-360.27#152.32#1907.71" genCount="1" genTime="20000" objectKey="109">
+						<SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_red" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="12082" Pos="-332.78#142.86#1904.63" angle="90" genCount="1" genTime="20000" objectKey="110">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="I_laser003_loop" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="147395" Pos="-2324.79#801.67#2092.33" angle="-48" genCount="1" genTime="20000" objectKey="111" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_BOX&apos; &apos;Name&apos; &apos;Gift Box&apos; "/>
+					<Obj Type="Monster" MonType="12082" Pos="-485.07#271.70#1899.56" angle="90" genCount="1" genTime="20000" objectKey="13" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_POTAL&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="E_HUEVILLAGE_58_4_MQ11_potal" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="40001" Pos="-1633.58#581.91#1878.26" angle="-176" genCount="1" genTime="20000" objectKey="34" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-1789.97#619.07#1879.33" angle="177" genCount="1" genTime="20000" objectKey="39" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-2121.44#788.44#1882.94" angle="-176" genCount="1" genTime="20000" objectKey="55" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-1953.27#726.66#1878.16" angle="173" genCount="1" genTime="20000" objectKey="112" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-2267.06#788.79#1883.43" angle="112" genCount="1" genTime="20000" objectKey="113" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="153156" Pos="-493.32#-91.58#-1316.40" genCount="1" genTime="20000" objectKey="114" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_WARP2&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="40001" Pos="547.72#-163.65#-1401.17" angle="-175" genCount="1" genTime="20000" objectKey="16" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-217.67#-140.55#-1278.91" angle="178" genCount="1" genTime="20000" objectKey="117" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-299.53#-119.66#-1285.74" angle="177" genCount="1" genTime="20000" objectKey="118" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-477.09#35.41#-132.06" angle="33" genCount="1" genTime="20000" objectKey="119" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-398.46#56.16#-93.72" angle="26" genCount="1" genTime="20000" objectKey="120" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="-309.29#56.16#-45.05" angle="10" genCount="1" genTime="20000" objectKey="121" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="154.04#94.43#1507.05" angle="168" genCount="1" genTime="20000" objectKey="122" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="596.42#-163.65#-1545.01" angle="93" genCount="1" genTime="20000" objectKey="115" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="419.87#-163.65#-1470.29" angle="-175" genCount="1" genTime="20000" objectKey="51" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="40001" Pos="259.45#-163.65#-1454.92" angle="171" genCount="1" genTime="20000" objectKey="127" propList="&apos;Name&apos; &apos;UnvisibleName&apos; "/>
+					<Obj Type="Monster" MonType="154004" Pos="-580.80#1.57#-187.26" genCount="1" genTime="20000" objectKey="116">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_210"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-245.44#56.16#-21.69" genCount="1" genTime="20000" objectKey="123">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_green" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-1037.31#-109.81#343.53" genCount="1" genTime="20000" objectKey="124">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_yellow" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_180"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="154004" Pos="-210.98#94.54#1262.68" genCount="1" genTime="20000" objectKey="61">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_BLUE_HIDE"/>
+								</ToolScp>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_wizard_Isa_buff" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</List>
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_ground008_blue" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+								<ToolScp Scp="SAI_FUNC2_DIRECT" Client="NO" UseSleep="NO">
+									<Str Str="JUMP_MISSION_270"/>
+								</ToolScp>
+								<ToolScp Scp="EnableAIOutOfPC" Client="NO" UseSleep="NO"/>
+							</StartList>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="msg1">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="밤이 되기 전에 선물 상자를 찾으세요."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="partyWarp">
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+								<AbsPosRange X="606.53882" Y="-163.64774" Z="-1530.4219"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="allWinner">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1st/111"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+								<AbsPosRange X="-756.32904" Y="-109.80612" Z="441.79449"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="allwinner"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="1st"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="TimeOver" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="47223" Pos="-798.11#-109.81#402.36" genCount="1" genTime="20000" objectKey="3" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_smoke014_firesteam" Arg="3"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="46011" Pos="-768.63#-109.81#481.39" genCount="1" genTime="20000" objectKey="0" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Faction&apos; &apos;Neutral&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<StartList>
+								<ToolScp Scp="S_AI_EFFECT_ATTACH" Client="NO" UseSleep="NO">
+									<Num Num="0"/>
+									<Str_Arg Str="F_smoke014_firesteam" Arg="1"/>
+									<Str Str="BOT"/>
+								</ToolScp>
+							</StartList>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="57457" Pos="-842.47#-109.81#414.53" angle="-162" genCount="1" genTime="20000" objectKey="1" propList="&apos;Faction&apos; &apos;Neutral&apos; &apos;Name&apos; &apos;UnvisibleName&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1"/>
+					</Obj>
+					<Obj Type="Monster" MonType="57446" Pos="-833.15#-109.81#449.37" angle="112" genCount="1" genTime="20000" objectKey="2" propList="&apos;Name&apos; &apos;UnvisibleName&apos; &apos;Faction&apos; &apos;Neutral&apos; "/>
+					<Obj Type="Monster" MonType="153111" Pos="-730.88#-109.81#465.75" angle="-90" genCount="1" genTime="20000" objectKey="4" propList="&apos;Dialog&apos; &apos;EVENT_JUMP_NPC&apos; &apos;Name&apos; &apos;캠프 주인&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event execCount="1" eventName="check1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="날이 저물어 갑니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="check2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="420"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="해가 지고 있습니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="check3">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="540"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_JUMP_BUFF_CHECK"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="달이 떠오르고 있습니다."/>
+								<Str Str="!"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="check4">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+								<AbsPosRange X="-767.40002" Y="-109.80612" Z="445.67169"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="캠프 주인이 준비한 선물을 받으세요"/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="check5">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="630"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="ckeck6">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="620"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="10초 뒤 미션이 종료됩니다"/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="time_check">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="180"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
+								<Str Str="SCR_JUMP_TIME_CHECK"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_NO_CONNECTED_PC" Client="NO" UseSleep="NO"/>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="allwinner" AutoStart="0">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="check">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="캠프 주인이 준비한 선물을 받으세요"/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="check2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="check1">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="10초 뒤 미션이 종료됩니다"/>
+								<Str Str="Clear"/>
+								<Num Num="5"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<EnterList>
+			<ToolScp Scp="MGAME_ZONEENTER_SCRIPT" Client="NO" UseSleep="NO">
+				<Num Num="2"/>
+				<Str Str="INIT_EVNET_JUMP_STAT"/>
+			</ToolScp>
+			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+				<Str Str="E_f_tableland_11_1"/>
+			</ToolScp>
+		</EnterList>
+	</Game>
+</GameList>

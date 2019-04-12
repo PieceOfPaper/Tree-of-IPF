@@ -1123,18 +1123,6 @@ end
 
 function HALOWEEN_2017_ACHIEVE1(pc)
     local tx = TxBegin(pc);
-    TxAddAchievePoint(tx, '2017_Halloween2_AP', 1)
-    local ret = TxCommit(tx);
-end
-
-function HALOWEEN_2017_ACHIEVE2(pc)
-    local tx = TxBegin(pc);
-    TxAddAchievePoint(tx, '2017_Halloween1_AP', 1)
-    local ret = TxCommit(tx);
-end
-
-function HALOWEEN_2017_ACHIEVE1(pc)
-    local tx = TxBegin(pc);
     TxEnableInIntegrate(tx)
     TxAddAchievePoint(tx, '2017_Halloween2_AP', 1)
     local ret = TxCommit(tx);

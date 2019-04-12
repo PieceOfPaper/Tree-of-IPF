@@ -3,14 +3,16 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
     local year, month, day, hour, min = GetAccountCreateTime(pc)
     local aObj = GetAccountObj(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Steam_VerUP_Select01"), ScpArgMsg("EVENT_SELECT_BOSSLV_SEL5"), ScpArgMsg("EVENT_STEAM_BEGINNER_SEL1"), ScpArgMsg("EVENT_STEAM_RETURN_SEL1"), ScpArgMsg("EVENT_STEAM_SETTLE_SEL1"), ScpArgMsg("Cancel")) 
-    local TeamLevel = GetTeamLevel(pc);
 
-    if TeamLevel == 1 then
+    if sObj.CHRISTMAS_ARTEFACT_30D == 0 then
         local tx = TxBegin(pc)
-    	TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_JOIN_CHECK', 1);
+    	TxSetIESProp(tx, sObj, 'CHRISTMAS_ARTEFACT_30D', 1);
+    	TxGiveItem(tx, 'Artefact_630020_30d', 1, "EVNET_CHRISTMAS_Artefact30d");
+    	TxGiveItem(tx, 'Artefact_630021_30d', 1, "EVNET_CHRISTMAS_Artefact30d");
     	local ret = TxCommit(tx)
     end
+
+    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("Steam_VerUP_Select01"), ScpArgMsg("EVENT_JUMP_MISSION_1"), ScpArgMsg("EVENT_STEAM_CHRISTMAS_SEL1"), ScpArgMsg("EVENT_STEAM_BEGINNER_SEL1"), ScpArgMsg("EVENT_STEAM_RETURN_SEL1"), ScpArgMsg("EVENT_STEAM_SETTLE_SEL1"), ScpArgMsg("Cancel")) 
     
     if select == 1 then
         if aObj.EVENT_WHITE_R1 ~= 171212 then -- reset
@@ -31,7 +33,7 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
         	end
             ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG1', 1)
             local tx = TxBegin(pc)
-            TxAddIESProp(tx, sObj, 'EVENT_VALUE_SOBJ03', 171212);
+            TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ03', 171212);
             TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ02', 0)
             TxSetIESProp(tx, sObj, 'EVENT_VALUE_SOBJ01', nextLv)
             TxGiveItem(tx, 'LevelUp_Reward_EV', 10, 'Event_VerUP_Box');
@@ -47,12 +49,14 @@ function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
             SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("ICantLikeMe"), 5)
         end
     elseif select == 2 then
-        SCR_BLUEORB_MONLVUP_DIALOG(self,pc)
+        SCR_EVENT_JUMP_MISSION_DIALOG(self, pc)
     elseif select == 3 then
-        SCR_STEAM_BEGINNER_EVENT_DIALOG(self,pc)
+        SCR_EVENT_STEAM_CHRISTMAS_DIALOG(self, pc)
     elseif select == 4 then
-        SCR_STEAM_RETURN_EVENT_DIALOG(self,pc)
+        SCR_STEAM_BEGINNER_EVENT_DIALOG(self,pc)
     elseif select == 5 then
+        SCR_STEAM_RETURN_EVENT_DIALOG(self,pc)
+    elseif select == 6 then
         SCR_STEAM_SETTLE_EVENT_DIALOG(self,pc)
     end
 end

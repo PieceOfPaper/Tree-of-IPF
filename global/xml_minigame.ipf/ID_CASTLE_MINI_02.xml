@@ -359,13 +359,7 @@
                 </StageEvents>
             </Stage>
             <Stage Name="End" AutoStart="0">
-                <StartScpList>
-                    <ToolScp Scp="MGAME_GIVE_ADVENTURE_BOOK_CLEAR_POINT" Client="NO" UseSleep="NO">
-                        <Str Str="Indun_Castle2"/>
-                    </ToolScp>
-                </StartScpList>
-                <ObjList/>
-                <StageEvents>
+   <ObjList/>                             <StageEvents>
                     <Event execCount="1" eventName="존으로 돌아가기">
                         <condList>
                             <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
