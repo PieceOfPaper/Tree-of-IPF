@@ -40,7 +40,7 @@
 	</Category>
 	<Category Name="ChatMsg">
 		<Class ClassID="301" ClassName="CantWhisperToSelf" Data="자기자신에겐 귓속말을 할 수 없습니다."/>
-		<Class ClassID="302" ClassName="ChatMsgLimitedBy{Max}Byte_EmoticonCanTakeLotsOfByte" Data="채팅은 {Max}바이트를 초과할 수 없습니다. 이모티콘은 많은 바이트를 차지할 수 있기 때문에 개수 제한이 있습니다."/>
+		<Class ClassID="302" ClassName="ChatMsgLimitedBy{Max}Byte_EmoticonCanTakeLotsOfByte" Data="채팅은 {Max}바이트를 초과할 수 없습니다. 이모티콘 및 링크는 많은 바이트를 차지할 수 있기 때문에 개수 제한이 있습니다."/>
 		<Class ClassID="303" ClassName="GuildChatting" Data="길드 대화"/>
 		<Class ClassID="304" ClassName="GroupList" Data="대화 목록"/>
 	</Category>
@@ -852,6 +852,8 @@
 		<Class ClassID="20158" ClassName="ITEM_IsEquiped" Data="착용중"/>
 		<Class ClassID="20159" ClassName="ITEM_IsPurchased" Data="구매함"/>
 		<Class ClassID="20160" ClassName="NeedMoreLevel" Data="{Level}이상이어야 사용 가능합니다."/>
+		<Class ClassID="20161" ClassName="AbleAfterTime" Data="{Time} 이후로 사용 가능한 기능입니다."/>
+		<Class ClassID="20162" ClassName="CantTradePC" Data="상대방이 거래 가능한 상태가 아닙니다."/>
 	</Category>
 	<Category Name="ChatText">
 		<Class ClassID="20501" ClassName="Guard" Data="방어"/>
