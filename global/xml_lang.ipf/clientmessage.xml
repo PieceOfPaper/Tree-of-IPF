@@ -295,6 +295,10 @@
 		<Class ClassID="4123" ClassName="AppraisalPrice" Data="감정 비용 : {Price}{nl}감정하시겠습니까?"/>
 		<Class ClassID="4124" ClassName="AppraisalItem" Data="미감정 아이템입니다"/>
 		<Class ClassID="4125" ClassName="RankResetStart" Data="랭크초기화를 시작하였습니다. 처리시간이 걸릴 수 있습니다."/>
+		<Class ClassID="4126" ClassName="DON_T_HAVE_ITEM_TO_APPRAISAL" Data="감정할 아이템을 선택해 주세요."/>
+		<Class ClassID="4127" ClassName="CantUseRank" Data="{Rank}랭크 에서만 사용하실 수 있습니다."/>
+		<Class ClassID="4128" ClassName="CantUseRankRest1Rank" Data="1랭크에서는 사용하실 수 없습니다."/>
+		<Class ClassID="4129" ClassName="VoiceVariationExist" Data="이미 가지고 있는 음성 팩 입니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -8707,6 +8711,7 @@
 		<Class ClassID="300141" ClassName="PremiumToken_5d_Steam" Data="토큰:5일[증정용]"/>
 		<Class ClassID="300142" ClassName="PremiumToken_7d_Steam" Data="토큰:7일[증정용]"/>
 		<Class ClassID="300143" ClassName="PremiumToken_15d_Steam" Data="토큰:15일[증정용]"/>
+		<Class ClassID="300145" ClassName="Premium_boostToken02_1d" Data="x4 경험의 서 (1일)"/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -8740,6 +8745,13 @@
 		<Class ClassID="302009" ClassName="Steam_Event_SongPyeon" Data="송편 제작하기"/>
 		<Class ClassID="302011" ClassName="Get_RedSeed" Data="씨앗 획득하기"/>
 		<Class ClassID="302012" ClassName="Get_RedSeed_Time" Data=" {nl}성장 완료 시간 : {TIME} 분{nl}{nl}성장이 완료되면 수확할 수 있습니다."/>
+		<Class ClassID="302013" ClassName="GivingTree_title" Data="선물 주는 나무"/>
+		<Class ClassID="302014" ClassName="GivingTree_Reward1" Data="인스턴스 던전 1회 입장권 (14일)"/>
+		<Class ClassID="302015" ClassName="GivingTree_Reward2" Data="고급 젬 연마제(14일)"/>
+		<Class ClassID="302016" ClassName="GivingTree_Reward3" Data="3 TP"/>
+		<Class ClassID="302017" ClassName="GivingTree_Reward4" Data="마법 부여 스크롤(14일)"/>
+		<Class ClassID="302018" ClassName="GivingTree_Reward5" Data="경험의 서(14일)"/>
+		<Class ClassID="302019" ClassName="GivingTree_Reward6" Data="대왕 송편(14일)"/>
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>

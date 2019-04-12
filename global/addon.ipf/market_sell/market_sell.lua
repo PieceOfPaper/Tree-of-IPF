@@ -308,7 +308,15 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		min:SetTextByKey("value", minStr);
 		max:SetTextByKey("value", maxStr);
 		edit_price:SetText(avg);
-		edit_price:SetMaxNumber(maxAllow);
+		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
+			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
+				edit_price:SetMaxNumber(maxAllow);
+			else
+				edit_price:SetMaxNumber(2147483647);
+			end
+		else
+			edit_price:SetMaxNumber(maxAllow);
+		end
 		return;
 	end
 
@@ -392,9 +400,18 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local downValue = down:GetTextByKey("value");
 	local idownValue = tonumber(downValue);
 	local iPrice = tonumber(price);
+	if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
+		if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 	if 0 ~= idownValue and  iPrice < idownValue then
 		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
 		return;
+	end
+		end
+	else
+		if 0 ~= idownValue and  iPrice < idownValue then
+			ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
+			return;
+		end
 	end
 
 	if obj.ClassName == "PremiumToken" and iPrice < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
@@ -448,7 +465,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			-- Àåºñ±×·ì¸¸ buffValue°¡ ÀÖ´Ù.
+			-- ï¿½ï¿½ï¿½×·ì¸¸ buffValueï¿½ï¿½ ï¿½Ö´ï¿½.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
 			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			
