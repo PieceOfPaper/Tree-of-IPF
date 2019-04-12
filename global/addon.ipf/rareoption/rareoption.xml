@@ -13,7 +13,7 @@
 	<userconfig RESET_SUCCESS_SOUND="sys_transcend_success" RESET_SUCCESS_EFFECT="UI_item_Enchant" EFFECT_SCALE="5" EFFECT_DURATION="3"/>
 	<controls>
 		<groupbox name="bg" rect="0 0 400 730" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="test_Item_tooltip_equip"/>
-		<richtext name="richtext_1" rect="0 0 120 24" margin="0 10 0 0" layout_gravity="center top" drawbackground="false" fixwidth="false" fontname="white_16_ol" maxwidth="0" resizebytext="true" slideshow="false" spacey="0" textalign="left top" updateparent="false" format="{@st41b}{s20}%s" param1="value" param1_def="인챈트 쥬얼"/>
+		<richtext name="richtext_1" rect="0 0 320 30" margin="0 10 0 0" layout_gravity="center top" drawbackground="false" fixwidth="true" fontname="white_16_ol" maxwidth="0" resizebytext="false" slideshow="false" spacey="0" textalign="center top" updateparent="false" format="{@st41b}{s20}%s" param1="value" param1_def="인챈트 쥬얼"  autofontsizebywidth="320"/>
 		<groupbox name="gbox" rect="0 0 400 630" margin="0 40 0 0" parent="bg" layout_gravity="center top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="gem_socket_bg"/>
 		<groupbox name="pic_bg" rect="0 0 400 312" margin="0 0 0 0" layout_gravity="center top" parent="gbox" draw="false" hittestbox="false" resizebyparent="false" changecursor="false" scrollbar="false" hittest="true" skin="test_socket_topskin"/>
 		<picture name="pic" parent="pic_bg" rect="0 0 312 312" margin="0 0 0 0" layout_gravity="center center" changecursor="false" hittest="true" image="re_appraisal_image2" stretch="false"/>

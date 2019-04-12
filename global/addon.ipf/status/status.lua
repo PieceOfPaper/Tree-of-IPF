@@ -313,7 +313,7 @@ function STAT_RESET(frame, update)
 end
 
 function ACHIEVE_RESET(frame)
-    STATUS_ACHIEVE_INIT(frame);
+	DebounceScript("STATUS_ACHIEVE_INIT", 0.5, 0);
 end
 
 function SET_STAT_TEXT(frame, ctrlname, pc, propname, pointprop, addprop, consumed, vpc, xpos, ypos, totalValue, argValue)
@@ -1971,8 +1971,8 @@ function SET_HAIR_COLOR_LIST(gbox, row_top_margin, col_left_margin, select_margi
     end
 end
 
-function STATUS_ACHIEVE_INIT(frame)
-
+function STATUS_ACHIEVE_INIT()
+	local frame = ui.GetFrame("status");
     local achieveGbox = frame:GetChild('achieveGbox');
     local internalBox = achieveGbox:GetChild("internalBox");
 
@@ -1982,7 +1982,7 @@ function STATUS_ACHIEVE_INIT(frame)
     local y = 10;
 
     local equipAchieveName = pc.GetEquipAchieveName();
-
+	
     for i = 0, clscnt - 1 do
 
         local cls = GetClassByIndexFromList(clslist, i);
@@ -2102,7 +2102,7 @@ function STATUS_ACHIEVE_INIT(frame)
     local x = 40;
     local y = 145;
     
-
+	
 	local useableTitleList = GET_CHILD_RECURSIVELY(frame, "useableTitleList", "ui::CDropList");
 	useableTitleList:SelectItemByKey(config.GetXMLConfig("SelectAchieveKey"))
 	if equipAchieveName == nil or equipAchieveName == 'None' then
@@ -2115,11 +2115,11 @@ function STATUS_ACHIEVE_INIT(frame)
 	frame:SetUserValue("ShowNextStatReward", 0)
 	local showNextStatRewardCheckBox = GET_CHILD_RECURSIVELY(frame, 'showNextStatReward')
 	showNextStatRewardCheckBox:SetCheck(0)
-
+	
 	local defaultTitleText = frame:GetUserConfig("DEFAULT_TITLE_TEXT")
 
 	useableTitleList:AddItem(0, defaultTitleText)
-
+	
     for i = 0, clscnt - 1 do
 
         local cls = GetClassByIndexFromList(clslist, i);
@@ -2143,7 +2143,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			end
         end
     end
-				
+
 	local nextAchieveCount = 0
 	local list, cnt = GetClassList("AchieveStatReward");
 
@@ -2164,7 +2164,7 @@ function STATUS_ACHIEVE_INIT(frame)
 			nextAchieveCls = cls
 		end		
 	end
-
+	
 	local titleListStatic = GET_CHILD_RECURSIVELY(frame, "titleListStatic")
 	titleListStatic:SetTextByKey("value1", myAchieveCount)
 
@@ -2183,7 +2183,7 @@ function STATUS_ACHIEVE_INIT(frame)
 					
 	frame : SetUserValue("currentAchieveClassID", currentAchieveCls.ClassID)
 	frame : SetUserValue("nextAchieveClassID", nextAchieveCls.ClassID)
-
+	
 	CHANGE_STAT_FONT(frame, 'STR', currentAchieveCls.STR_BM, 1)
 	CHANGE_STAT_FONT(frame, 'CON', currentAchieveCls.CON_BM, 1)
 	CHANGE_STAT_FONT(frame, 'INT', currentAchieveCls.INT_BM, 1)
@@ -2194,7 +2194,7 @@ function STATUS_ACHIEVE_INIT(frame)
 	CHANGE_STAT_FONT(frame, 'DEF', currentAchieveCls.DEF_BM, 1)
 	CHANGE_STAT_FONT(frame, 'MDEF', currentAchieveCls.MDEF_BM, 1)
 	CHANGE_STAT_FONT(frame, 'MSP', currentAchieveCls.MSP_BM, 1)
-				
+
 	frame:Invalidate();
 end
 

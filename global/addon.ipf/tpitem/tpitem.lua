@@ -2429,7 +2429,7 @@ function CHECK_LIMIT_PAYMENT_STATE_C()
 	return false;
 end
 
-function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
+function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice, ClickFuncName, CancelFuncName)
 	local frame = ui.GetFrame("tpitem");
 	frame:SetUserValue("LIMIT_PAYMENT_MSG", clientMsg);
 	frame:SetUserValue("PARENT_NAME", parentName);
@@ -2443,9 +2443,15 @@ function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
 		local nowUsePaymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - spentPaymentValue;
 		local paymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - (spentPaymentValue + allPrice);
 		if paymentValue >= 0 then
-			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CLICK")
+			if ClickFuncName == nil then
+				ClickFuncName = "POPUP_POPUP_LIMIT_PAYMENT_CLICK"
+			end
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), ClickFuncName)
 		else
-			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
+			if CancelFuncName == nil then
+				CancelFuncName ="POPUP_POPUP_LIMIT_PAYMENT_CANCEL"
+			end
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), CancelFuncName)
 		end
 	end
 end

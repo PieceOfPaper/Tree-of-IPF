@@ -10,12 +10,15 @@ function SKILLABILITY_ON_INIT(addon, frame)
     addon:RegisterOpenOnlyMsg('RESET_SKL_UP', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('JOB_CHANGE', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('UPDATE_SKILLMAP', 'SKILLABILITY_ON_FULL_UPDATE');
-	addon:RegisterOpenOnlyMsg('SKILL_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
+	--addon:RegisterOpenOnlyMsg('SKILL_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
     addon:RegisterOpenOnlyMsg('SKILL_LIST_GET_RESET_SKILL', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('RESET_ABILITY_UP', 'SKILLABILITY_ON_FULL_UPDATE');
 	addon:RegisterOpenOnlyMsg('UPDATE_COMMON_SKILL_LIST', 'ON_UPDATE_COMMON_SKILL_LIST');
 	addon:RegisterOpenOnlyMsg('POPULAR_SKILL_INFO', 'ON_POPULAR_SKILL_INFO');
+
+    addon:RegisterMsg('SKILL_LIST_GET', 'SKILLABILITY_ON_FULL_UPDATE');
+    addon:RegisterMsg('DELETE_QUICK_SKILL', 'SKILLABILITY_ON_FULL_UPDATE');
 end
 
 function UPDATE_SKILL_BY_SKILLMAKECOSTUME_MAGICAL(resStr)
@@ -33,14 +36,11 @@ function UPDATE_SKILL_BY_SKILLMAKECOSTUME_MAGICAL(resStr)
                 ctrlSet:SetVisible(0);
                 frame:RemoveChild(ctrlSet:GetName());
                 
+                local commonSkillCount = session.skill.GetCommonSkillCount();
                 local job_tab = GET_CHILD_RECURSIVELY(frame, "job_tab");
-                if job_tab ~= nil then
+                if job_tab ~= nil and commonSkillCount <= 0 then
                     local tabIndex = job_tab:GetIndexByName("tab_"..0);
                     job_tab:DeleteTab(tabIndex);
-                end
-
-                if skillID ~= nil then
-                    DELETE_SKILLICON_QUICKSLOTBAR(nil, msg, skillID, 0);
                 end
             end
         end
@@ -50,7 +50,52 @@ function UPDATE_SKILL_BY_SKILLMAKECOSTUME_MAGICAL(resStr)
     end
 end
 
-function SKILLABILITY_ON_FULL_UPDATE(frame)
+function SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum)
+    local skillability_job = GET_CHILD_RECURSIVELY(frame, "skillability_job_Common");
+    if skillability_job == nil then return end
+    
+    local skilltree_gb = GET_CHILD_RECURSIVELY(skillability_job, "skilltree_gb");
+    if skilltree_gb == nil then return end
+
+    if msg == "DELETE_QUICK_SKILL" and argNum == 1 then
+        local gb_ChildCnt = skilltree_gb:GetChildCount();
+        if gb_ChildCnt <= 0 then return end
+
+        for i = 0, gb_ChildCnt - 1 do
+            local gb_Child = skilltree_gb:GetChildByIndex(i);
+            if gb_Child == nil then break end
+
+            if string.find(gb_Child:GetName(), "SKILL_") ~= nil and string.find(gb_Child:GetName(), "MagicalGirl") == nil then
+                 local ctrlSet = GET_CHILD_RECURSIVELY(skilltree_gb, gb_Child:GetName());
+                   
+                 local skillInfo = session.GetSkill(skillID);
+                 if skillInfo == nil then
+                    ctrlSet:SetVisible(0);
+                    frame:RemoveChild(ctrlSet:GetName());
+                 end
+            end
+        end
+    end
+
+    if msg == "SKILL_LIST_GET" then
+        local skillInfo = session.GetSkill(skillID);
+        if skillInfo == nil then return end
+        
+        local sklObj = GetIES(skillInfo:GetObject());
+        if sklObj == nil then return end
+
+        local visibleSkillName = "SKILL_"..sklObj.ClassName;
+        local ctrlSet = GET_CHILD_RECURSIVELY(skilltree_gb, visibleSkillName);
+        if ctrlSet ~= nil then
+            ctrlSet:SetVisible(1);
+        end
+    end
+
+    session.skill.ReqCommonSkillList();
+    skillability_job:Invalidate();
+end
+
+function SKILLABILITY_ON_FULL_UPDATE(frame, msg, skillID, argNum)
     local oldgb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local jobClsName = nil;
     if oldgb ~= nil then
@@ -67,6 +112,9 @@ function SKILLABILITY_ON_FULL_UPDATE(frame)
         local tabIndex = job_tab:GetIndexByName("tab_"..0);
         job_tab:SelectTab(tabIndex);
     end
+
+    SKILLABILITY_COMMON_LEGENDITEMSKILL_UPDATE(frame, msg, skillID, argNum);
+    frame:Invalidate();
 end
 
 function SKILLABILITY_MAKE_JOB_TAB(frame)
@@ -82,7 +130,7 @@ function SKILLABILITY_MAKE_JOB_TAB(frame)
     local gblist = UI_LIB_TAB_ADD_TAB_LIST(frame, job_tab, addTabInfoList, job_tab_width, job_tab_height, ui.CENTER_HORZ, ui.TOP, job_tab_x, job_tab_y, "job_tab_box", "true", tab_width, "JobClsName");
 
     for i=1, #gblist do
-        local gb = gblist[i];
+    local gb = gblist[i];
         gb:SetTabChangeScp("SKILLABILITY_ON_CHANGE_TAB");
     end
     SKILLABILITY_ON_CHANGE_TAB(frame);
@@ -101,7 +149,6 @@ end
 function SKILLABILITY_ON_CHANGE_TAB(frame)
     local gb = SKILLABILITY_GET_SELECTED_TAB_GROUPBOX(frame);
     local jobClsName = gb:GetUserValue("JobClsName");
-    
     CLEAR_SKILLABILITY_POINT(jobClsName)
     
     local skillability_job = gb:CreateOrGetControlSet("skillability_job", "skillability_job_"..jobClsName, 0, 0);
@@ -109,7 +156,6 @@ function SKILLABILITY_ON_CHANGE_TAB(frame)
 end
 
 function SKILLABILITY_FILL_JOB_GB(skillability_job, jobClsName)
-
     local skill_gb = GET_CHILD(skillability_job, "skill_gb");
     local ability_gb = GET_CHILD(skillability_job, "ability_gb");
     local skilltree_gb = GET_CHILD_RECURSIVELY(skill_gb, "skilltree_gb");
@@ -1259,7 +1305,7 @@ function SKILLABILITY_DEPLOY_COMMON_SKILL_CONTROLSET(skilltree_gb, jobClsName, s
     local ctrlset = skilltree_gb:CreateOrGetControlSet("skillability_skillset", "SKILL_"..sklClsName, x, y);
     local info = GET_COMMON_SKILL_INFO_BY_CLSNAME(sklClsName);
     AUTO_CAST(ctrlset);
-    SKILLABILITY_FILL_SKILL_CTRLSET(ctrlset, info, jobClsName)
+    SKILLABILITY_FILL_SKILL_CTRLSET(ctrlset, info, jobClsName);
 end
 
 function SKILLABILITY_DEPLOY_JOB_SKILL(skilltree_gb, jobClsName, unlockLvHash, SKILL_COL_COUNT, SKILL_LINE_BREAK_COUNT, SKILL_LV_HEIGHT, SKILL_LV_MARGIN, SKILL_LV_DIST)

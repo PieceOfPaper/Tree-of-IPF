@@ -1,4 +1,11 @@
 -- tpshop_server.lua
+
+local eventUserType = {
+	normalUser = 0,		-- 일반
+	returnUser = 1, -- 복귀유저
+	newbie  = 2,	-- 신규
+};
+
 function SCR_TX_TP_SHOP(pc, argList)
 	if #argList < 1 then
 		IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
@@ -62,7 +69,7 @@ function SCR_TX_TP_SHOP(pc, argList)
 			end
 		end
 	end
-	
+
 	local isLimitPaymentState = nil;
 	local isGlobalServer = GetServerNation() == 'GLOBAL';
 
@@ -81,12 +88,22 @@ function SCR_TX_TP_SHOP(pc, argList)
 		end
 	end
 
+	
 	local itemListPrice = 0;
+	--구매 불가능한 목록이 포함되어 있는지 검사한다.
 	for i = 1, #argList do 
 		local tpitem = GetClassByType("TPitem",argList[i])
 		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
 			return
 		end
+
+		  --- TxBegin 들어가기전에 구매제한 걸린건 막는다.
+		  if IS_ENABLE_BUY_TPITEM(pc, tpitem, 1) == false then
+			SendSysMsg(pc, "IncludeCanNotBuyItem");
+			return
+		 end
+
 		itemListPrice = itemListPrice + tpitem.Price;
 	end
 
@@ -102,15 +119,18 @@ function SCR_TX_TP_SHOP(pc, argList)
 	for i = 1, #argList do
 		local tpitem = GetClassByType("TPitem",argList[i])
 		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
 			return
 		end
 
 		if 0 > GetPCTotalTPCount(pc) - tpitem.Price then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: lack of tp- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], totalTP['..GetPCTotalTPCount(pc)..'], price['..tpitem.Price..']');
 			return
 		end
 
 		local itemcls = GetClass("Item",tpitem.ItemClassName)
 		if itemcls == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: item class is nil- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], item['..tpitem.ItemClassName..']');
 			return
 		end
 		
@@ -122,6 +142,7 @@ function SCR_TX_TP_SHOP(pc, argList)
 		
 		local tx = TxBegin(pc);
 		if tx == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: tx is nil- aid['..GetPcAIDStr(pc)..']');
 			return
 		end
 		
@@ -154,44 +175,397 @@ function SCR_TX_TP_SHOP(pc, argList)
 		logType = logType ..tostring(itemID);
 		TxAddIESProp(tx, aobj, "Medal", -tpitem.Price, "NpcShop:"..itemcls.ClassID..":"..itemID, cmdIdx);
         
-        local limitcountcheck = TryGetProp(tpitem,"AccountLimitCount")
-        
-		if limitcountcheck  ~= nil and limitcountcheck > 0  then
-			local limitResult = TxAddBuyLimitCount(tx, 0, tpitem.ClassID, 1, tpitem.AccountLimitCount);
+		local limit, limitCount = GET_LIMITATION_TO_BUY(tpitem.ClassID);        
+		if limit ~= 'NO' then
+			TxAddBuyLimitCount(tx, 0, tpitem.ClassID, 1, limitCount);
 		end
 		
 		--스팀 카드 도용관련 프로퍼티 증가
 		if isLimitPaymentState == true then
 			TX_LIMIT_PAYMENT_STATE(pc, tx, tpitem.Price, freeMedal)
 		end
-		-- --if ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY == 1 then
 
-		-- 	local premiumDiff = 0; -- steam event --
-		-- 	local currentFreeMedal = aobj.GiftMedal + aobj.Medal
-		-- 	if tpitem.Price > currentFreeMedal then
-		-- 		premiumDiff = tpitem.Price - currentFreeMedal
-		-- 	end
-		-- 	TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); -- steam event --
-		-- --end
+		local premiumDiff = 0; -- steam event --
+		if EVENT_STEAM_POPOSHOP_PRECHECK() == 'YES' then 
+			local currentFreeMedal = aobj.GiftMedal + aobj.Medal
+			if tpitem.Price > currentFreeMedal then
+				premiumDiff = tpitem.Price - currentFreeMedal
+			end
+			TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); 
+		end -- steam event --
+		
 		local ret = TxCommit(tx);
 		if ret == "SUCCESS" then
-			-- --if ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY == 1 then
-			-- 	if premiumDiff > 0 then 
-			-- 		local premiumDiff_Popo = premiumDiff * 2 -- steam event --
-			-- 		CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
-			-- 		local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
-			-- 		local point_Type = "fail"
-			-- 		if pointResult == 1 then
-			-- 			point_Type = 'SUCCESS'
-			-- 		end
-			-- 		CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo) -- steam event --
-			-- 	end
-			-- --end
+			if EVENT_STEAM_POPOSHOP_PRECHECK() == 'YES' then -- steam event --
+				if premiumDiff > 0 then 
+					local premiumDiff_Popo = premiumDiff * 2
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
+					local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
+					local point_Type = "fail"
+					if pointResult == 1 then
+						point_Type = 'SUCCESS'
+					end
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo)
+				end
+			end -- steam event --
 			CustomMongoLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			CustomMongoCashLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);
 		else
 			IMC_LOG('ERROR_LOGIC', 'SCR_TX_TP_SHOP: Tx Fail- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..']');
+		end
+	end
+end
+
+
+-- 신규유저 TP 샵
+function SCR_TX_NEWBIE_TP_SHOP(pc, argList)
+    if IsDummyPC(pc) == 1 then
+        return
+    end
+
+	 --신규 유저 확인.
+	 local userType, startDate, retCount = GetEventUserType(pc, 1);
+	 if userType ~= eventUserType.newbie then
+		return;
+	 end
+
+	 if #argList < 1 then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
+		return
+	end
+
+	local aobj = GetAccountObj(pc);
+	local etcObj = GetETCObject(pc);
+	if aobj == nil or etcObj == nil then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: account or etc object is nil- aid['..GetPcAIDStr(pc)..']');
+		return
+	end
+
+	local isLimitPaymentState = nil;
+	local isGlobalServer = GetServerNation() == 'GLOBAL';
+
+	--스팀 카드 도용 방지를 위한 월 결제 한도가 걸려있는지 확인하는 함수
+	if isGlobalServer == true then
+		isLimitPaymentState = CHECK_LIMIT_PAYMENT_STATE(pc);
+		if isLimitPaymentState == nil then
+			isLimitPaymentState = false;
+		end
+	end
+
+	if isLimitPaymentState == true then
+		local isOver = CHECK_SPENT_PAYMENT_VALUE_OVER(pc, nil);
+		if isOver == true then
+			return;
+		end
+	end
+
+	local itemListPrice = 0;
+
+	--구매 불가능한 목록이 포함되어 있는지 검사한다.
+	for i = 1, #argList do
+		local tpitem = GetClassByType("TPitem_User_New",argList[i])
+		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
+			return
+		end
+
+        --- TxBegin 들어가기전에 구매제한 걸린건 막는다.
+		if IS_ENABLE_BUY_TPITEM_WITH_SHOPTYPE(pc, tpitem, 1, userType) == false then
+		   SendSysMsg(pc, "IncludeCanNotBuyItem");
+		   return
+		end
+
+		itemListPrice = itemListPrice + tpitem.Price;
+	 end
+
+	 if isLimitPaymentState == true then
+		local isOver = CHECK_SPENT_PAYMENT_VALUE_OVER(pc, itemListPrice);
+		if isOver == true then
+			return;
+		end
+	end
+
+	local freeMedal = aobj.GiftMedal + aobj.Medal
+	
+	for i = 1, #argList do		
+		local tpitem = GetClassByType("TPitem_User_New", argList[i]);		
+		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
+			return
+		end
+
+		if 0 > GetPCTotalTPCount(pc) - tpitem.Price then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: lack of tp- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], totalTP['..GetPCTotalTPCount(pc)..'], price['..tpitem.Price..']');
+			return
+		end
+
+		local itemcls = GetClass("Item",tpitem.ItemClassName)
+		if itemcls == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: item class is nil- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], item['..tpitem.ItemClassName..']');
+			return
+		end
+
+		if isLimitPaymentState == true then
+			if false == PRECHECK_TX_LIMIT_PAYMENT_OVER(pc, tpitem.Price, freeMedal) then
+				return;
+			end
+		end
+		
+		local tx = TxBegin(pc);
+		if tx == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: tx is nil- aid['..GetPcAIDStr(pc)..']');
+			return
+		end
+
+		if itemcls.ClassName == "PremiumToken" and pc.Lv < 150 then
+
+			local curDBTime = GetDBTime()
+			local nextBuyableTime = imcTime.AddSec(curDBTime, 60 * 60 * 24);
+
+			local curDBTimeStr = string.format("%04d%02d%02d%02d%02d%02d", curDBTime.wYear, curDBTime.wMonth, curDBTime.wDay, curDBTime.wHour, curDBTime.wMinute, curDBTime.wSecond)
+			local nextBuyableTimeStr = string.format("%04d%02d%02d%02d%02d%02d", nextBuyableTime.wYear, nextBuyableTime.wMonth, nextBuyableTime.wDay, nextBuyableTime.wHour, nextBuyableTime.wMinute, nextBuyableTime.wSecond)
+
+			local buyableTime = aobj.NextBuyTokenTime;
+			if buyableTime == "None" or buyableTime == nil or buyableTime == "" then
+				TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextBuyableTimeStr);
+			else
+				if buyableTime < curDBTimeStr then
+					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextBuyableTimeStr);
+				else					
+					SendSysMsg(pc, "NextTokenBuyableTime", 0, "Year", string.sub(buyableTime, 1, 4), "Month", string.sub(buyableTime, 5, 6), "Day", string.sub(buyableTime, 7, 8), "Hour", string.sub(buyableTime, 9, 10), "Minute", string.sub(buyableTime, 11, 12));
+					TxRollBack(tx);
+					return;
+				end
+			end	
+		end
+
+		local cmdIdx = TxGiveItem(tx, itemcls.ClassName, 1, "Newbie_Shop"); -- PremiumItemGet 컬렉션 Reason : Newbie_Shop
+		itemID = TxGetGiveItemID(tx, cmdIdx);
+		TxAddIESProp(tx, aobj, "Medal", -tpitem.Price, "Newbie_Shop:"..itemcls.ClassID..":"..itemID, cmdIdx); -- TP 사용로그
+        
+        local limit, limitCount = GET_LIMITATION_TO_BUY_WITH_SHOPTYPE(tpitem.ClassID, userType);        
+		if limit ~= 'NO' then
+			TxAddBuyLimitCount(tx, userType, tpitem.ClassID, 1, limitCount);
+		end
+
+		--스팀 카드 도용관련 프로퍼티 증가
+		if isLimitPaymentState == true then
+			TX_LIMIT_PAYMENT_STATE(pc, tx, tpitem.Price, freeMedal)
+		end
+
+		local premiumDiff = 0; -- steam event --
+		if EVENT_STEAM_POPOSHOP_PRECHECK() == 'YES' then 
+			local currentFreeMedal = aobj.GiftMedal + aobj.Medal
+			if tpitem.Price > currentFreeMedal then
+				premiumDiff = tpitem.Price - currentFreeMedal
+			end
+			TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); 
+		end -- steam event --
+
+		local ret = TxCommit(tx);
+		if ret == "SUCCESS" then
+			-- 완료 후 현재 구매한 카운트.
+			local currentBuyCount = GetBuyLimitCount(pc, userType, tpitem.ClassID); -- 잔여 구매 가능 횟수.
+			-- 잔여 구매
+			local remainBuyCnt = 0;
+			if limit ~= 'NO' then
+				remainBuyCnt = limitCount - currentBuyCount
+			end
+
+			if EVENT_STEAM_POPOSHOP_PRECHECK() == 'YES' then -- steam event --
+				if premiumDiff > 0 then 
+					local premiumDiff_Popo = premiumDiff * 2 
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
+					local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
+					local point_Type = "fail"
+					if pointResult == 1 then
+						point_Type = 'SUCCESS'
+					end
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo)
+				end
+			end -- steam event --
+
+			-- 전용 상점 로그.
+			CustomMongoCashLog(pc,"Newbie_Shop", "ItemIDX", itemID, "ClassID", itemcls.ClassID, "ClassName", itemcls.ClassName, "Cnt", 1, "Price", tpitem.Price, "RemainBuyCnt", remainBuyCnt); -- 아이템 구매 로그
+			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);
+		else
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_NEWBIE_TP_SHOP: Tx Fail- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..']');
+		end
+	end
+end
+
+-- 복귀 유저 TP 샵
+function SCR_TX_RETURNUSER_TP_SHOP(pc, argList)
+	if IsDummyPC(pc) == 1 then
+        return
+    end
+
+	-- 복귀 유저 확인.
+	local userType, startDate, retCount = GetEventUserType(pc, 1);
+	if userType ~= eventUserType.returnUser then
+		return;
+	 end
+
+	 if #argList < 1 then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: argError- aid['..GetPcAIDStr(pc)..']');
+		return
+	end
+
+	local aobj = GetAccountObj(pc);
+	local etcObj = GetETCObject(pc);
+	if aobj == nil or etcObj == nil then
+		IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: account or etc object is nil- aid['..GetPcAIDStr(pc)..']');
+		return
+	end
+	local isLimitPaymentState = nil;
+	local isGlobalServer = GetServerNation() == 'GLOBAL';
+
+	--스팀 카드 도용 방지를 위한 월 결제 한도가 걸려있는지 확인하는 함수
+	if isGlobalServer == true then
+		isLimitPaymentState = CHECK_LIMIT_PAYMENT_STATE(pc);
+		if isLimitPaymentState == nil then
+			isLimitPaymentState = false;
+		end
+	end
+
+	if isLimitPaymentState == true then
+		local isOver = CHECK_SPENT_PAYMENT_VALUE_OVER(pc, nil);
+		if isOver == true then
+			return;
+		end
+	end
+
+	local itemListPrice = 0;
+	--구매 불가능한 목록이 포함되어 있는지 검사한다.
+	for i = 1, #argList do
+		local tpitem = GetClassByType("TPitem_Return_User",argList[i])
+		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
+			return
+		end
+		
+        --- TxBegin 들어가기전에 구매제한 걸린건 막는다.
+		if IS_ENABLE_BUY_TPITEM_WITH_SHOPTYPE(pc, tpitem, 1, userType) == false then
+		   SendSysMsg(pc, "IncludeCanNotBuyItem");
+		   return
+		end
+		itemListPrice = itemListPrice + tpitem.Price;
+	 end
+	 
+	 if isLimitPaymentState == true then
+		local isOver = CHECK_SPENT_PAYMENT_VALUE_OVER(pc, itemListPrice);
+		if isOver == true then
+			return;
+		end
+	end
+
+	local freeMedal = aobj.GiftMedal + aobj.Medal
+
+	for i = 1, #argList do		
+		local tpitem = GetClassByType("TPitem_Return_User", argList[i]);		
+		if tpitem == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: tpitem is nil- aid['..GetPcAIDStr(pc)..'], itemID['..argList[i]..']');
+			return
+		end
+
+		if 0 > GetPCTotalTPCount(pc) - tpitem.Price then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: lack of tp- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], totalTP['..GetPCTotalTPCount(pc)..'], price['..tpitem.Price..']');
+			return
+		end
+
+		local itemcls = GetClass("Item",tpitem.ItemClassName)
+		if itemcls == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: item class is nil- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..'], item['..tpitem.ItemClassName..']');
+			return
+		end
+
+		if isLimitPaymentState == true then
+			if false == PRECHECK_TX_LIMIT_PAYMENT_OVER(pc, tpitem.Price, freeMedal) then
+				return;
+			end
+		end
+		
+		local tx = TxBegin(pc);
+		if tx == nil then
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: tx is nil- aid['..GetPcAIDStr(pc)..']');
+			return
+		end
+
+		if itemcls.ClassName == "PremiumToken" and pc.Lv < 150 then
+
+			local curDBTime = GetDBTime()
+			local nextBuyableTime = imcTime.AddSec(curDBTime, 60 * 60 * 24);
+
+			local curDBTimeStr = string.format("%04d%02d%02d%02d%02d%02d", curDBTime.wYear, curDBTime.wMonth, curDBTime.wDay, curDBTime.wHour, curDBTime.wMinute, curDBTime.wSecond)
+			local nextBuyableTimeStr = string.format("%04d%02d%02d%02d%02d%02d", nextBuyableTime.wYear, nextBuyableTime.wMonth, nextBuyableTime.wDay, nextBuyableTime.wHour, nextBuyableTime.wMinute, nextBuyableTime.wSecond)
+
+			local buyableTime = aobj.NextBuyTokenTime;
+			if buyableTime == "None" or buyableTime == nil or buyableTime == "" then
+				TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextBuyableTimeStr);
+			else
+				if buyableTime < curDBTimeStr then
+					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextBuyableTimeStr);
+				else					
+					SendSysMsg(pc, "NextTokenBuyableTime", 0, "Year", string.sub(buyableTime, 1, 4), "Month", string.sub(buyableTime, 5, 6), "Day", string.sub(buyableTime, 7, 8), "Hour", string.sub(buyableTime, 9, 10), "Minute", string.sub(buyableTime, 11, 12));
+					TxRollBack(tx);
+					return;
+				end
+			end	
+		end
+
+
+		local cmdIdx = TxGiveItem(tx, itemcls.ClassName, 1, "ReturnUser_Shop"); -- PremiumItemGet 컬렉션 Reason : Newbie_Shop
+		itemID = TxGetGiveItemID(tx, cmdIdx);
+		TxAddIESProp(tx, aobj, "Medal", -tpitem.Price, "ReturnUser_Shop:"..itemcls.ClassID..":"..itemID, cmdIdx); -- TP 사용로그
+        
+        local limit, limitCount = GET_LIMITATION_TO_BUY_WITH_SHOPTYPE(tpitem.ClassID, userType);        
+		if limit ~= 'NO' then
+			TxAddBuyLimitCount(tx, userType, tpitem.ClassID, 1, limitCount);
+		end
+
+		--스팀 카드 도용관련 프로퍼티 증가
+		if isLimitPaymentState == true then
+			TX_LIMIT_PAYMENT_STATE(pc, tx, tpitem.Price, freeMedal)
+		end
+
+		local premiumDiff = 0; -- steam event --
+		if EVENT_STEAM_POPOSHOP_PRECHECK() == 'YES' then 
+			local currentFreeMedal = aobj.GiftMedal + aobj.Medal
+			if tpitem.Price > currentFreeMedal then
+				premiumDiff = tpitem.Price - currentFreeMedal
+			end
+			TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); 
+		end -- steam event --
+
+		local ret = TxCommit(tx);
+		if ret == "SUCCESS" then
+			-- 완료 후 현재 구매한 카운트.
+			local currentBuyCount = GetBuyLimitCount(pc, userType, tpitem.ClassID); -- 잔여 구매 가능 횟수.
+			-- 잔여 구매
+			local remainBuyCnt = 0;
+			if limit ~= 'NO' then
+				remainBuyCnt = limitCount - currentBuyCount
+			end
+			
+			if EVENT_STEAM_POPOSHOP_PRECHECK() == 'YES' then -- steam event --
+				if premiumDiff > 0 then 
+					local premiumDiff_Popo = premiumDiff * 2 
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
+					local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
+					local point_Type = "fail"
+					if pointResult == 1 then
+						point_Type = 'SUCCESS'
+					end
+					CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo)
+				end
+			end -- steam event --
+
+			-- 전용 상점 로그.
+			CustomMongoCashLog(pc,"ReturnUser_Shop", "ItemIDX", itemID, "ClassID", itemcls.ClassID, "ClassName", itemcls.ClassName, "Cnt", 1, "Price", tpitem.Price, "RemainBuyCnt", remainBuyCnt, "ReturnCnt", retCount); -- 아이템 구매 로그
+			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);
+		else
+			IMC_LOG('ERROR_LOGIC', 'SCR_TX_RETURN_USER_TP_SHOP: Tx Fail- aid['..GetPcAIDStr(pc)..'], tpitem['..tpitem.ClassName..']');
 		end
 	end
 end

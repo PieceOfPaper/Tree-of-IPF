@@ -217,13 +217,12 @@ end
 
 	
 function TEST_AYASE()
-    print("friend ui test");    
-    session.friends.TestAddManyFriend(FRIEND_LIST_COMPLETE, 200);
-    session.friends.TestAddManyFriend(FRIEND_LIST_BLOCKED, 100);
-end
+	--debug.TestMannequin();
+	--camera.CustomZoom(75);
 
-function JOB_COMMAND()
-		TEST_PARTY();
+	local actor = GetMyActor();
+	local pos = actor:GetPos();
+	effect.AddActorEffect(actor, "I_wizard_hellBreath_shot", 3.6, pos.x, pos.y, pos.z, -1);
 end
 
 function TEST_DIALOG_CALLBACK(frame, ack)

@@ -2131,6 +2131,11 @@ function SCR_Get_MSPD(self)
     if isDashRun > 0 then    -- 대시 런 --
         local dashRunAddValue = 10
         
+        if IsBuffApplied(self, 'GIMMICK_TRANSFORM_BUFF') == 'YES' then
+		    value = 15;
+		    SendAddOnMsg(self, "NOTICE_Dm_!", ScpArgMsg("EVENT_STEAM_TS_MS01"), 3)
+		    return math.floor(value);
+	    end   
 	    if jobCtrlType == "Wizard" then
 	    	dashRunAddValue = dashRunAddValue - 4
 	    end

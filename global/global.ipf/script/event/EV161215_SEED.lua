@@ -180,6 +180,7 @@ function SCR_161215EVENT_SEED_TS_BORN_UPDATE(self)
                         PlayEffect(objList[i], 'I_light013_spark_blue_2', 1,1,'TOP')
                         SendAddOnMsg(objList[i], "NOTICE_Dm_GetItem", ScpArgMsg("EV161215_SEED_MSG6","STEP",step), 10);
                     end
+                    RunScript("SCR_EVENT_STEAM_TS_CALL", objList[i])
                 end
             end
         end
