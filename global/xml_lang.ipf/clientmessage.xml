@@ -312,7 +312,7 @@
 		<Class ClassID="4131" ClassName="Right" Data="오른쪽"/>
 		<Class ClassID="4132" ClassName="Left" Data="왼쪽"/>
 		<Class ClassID="4133" ClassName="CannotReinforceAndTranscendBy{BUFFNAME}" Data="{BUFFNAME} 적용 중에는 강화 또는 초월할 수 없습니다."/>
-		</Category>
+	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
 		<Class ClassID="5002" ClassName="WhenEquipToWeapon" Data="무기 장착 시 효과"/>
@@ -814,7 +814,7 @@
 		<Class ClassID="10457" ClassName="OnlyTokenUserAbilCount" Data="토큰 이용자만 특성 레벨을 한번에 올릴 수 있습니다."/>
 		<Class ClassID="10458" ClassName="ShopNameMustLongerThen{ENG_LEN}{KOR_LEN}" Data="상점 이름은 최대 한글 {KOR_LEN}자,{nl}영문 {ENG_LEN}자 이내 이어야 합니다."/>
 		<Class ClassID="10459" ClassName="ApprisePriceMustLowerThan{PRICE}" Data="감정 비용은 {PRICE} 실버 이하 이어야 합니다."/>
-	<Class ClassID="10460" ClassName="TeamWarehouseEnable" Data="팀 창고 이용 가능"/>
+		<Class ClassID="10460" ClassName="TeamWarehouseEnable" Data="팀 창고 이용 가능"/>
 		<Class ClassID="10461" ClassName="CantLogoutWhileMatching" Data="매칭 요청 중에는 로그아웃 할 수 없습니다."/>
 		<Class ClassID="10462" ClassName="ExceedMaxAbilityPoint" Data="특성 포인트 보유 한도를 초과합니다."/>
 		<Class ClassID="10463" ClassName="NotEnoughAbilityPoint" Data="특성 포인트가 부족합니다."/>
@@ -1066,11 +1066,11 @@
 		<Class ClassID="21240" ClassName="YouCanChargeOnWeb" Data="넥슨캐시 충전은 홈페이지에서 가능합니다."/>
 		<Class ClassID="21241" ClassName="NotLearnedYet" Data="미습득"/>
 		<Class ClassID="21242" ClassName="TargetNameGiant" Data="자이언트"/>
-    <Class ClassID="21243" ClassName="LimitMaxChatRoomCnt" Data="더 이상 새로운 채팅방을 생성할 수 없습니다."/>
-    <Class ClassID="21244" ClassName="LimitMaxChatRoomCntTo" Data="더 이상 상대방이 새로운 채팅방을 생성할 수 없습니다."/>
+		<Class ClassID="21243" ClassName="LimitMaxChatRoomCnt" Data="더 이상 새로운 채팅방을 생성할 수 없습니다."/>
+		<Class ClassID="21244" ClassName="LimitMaxChatRoomCntTo" Data="더 이상 상대방이 새로운 채팅방을 생성할 수 없습니다."/>
 		<Class ClassID="21245" ClassName="ParenthesesPlus{Add}" Data="(+{Add})"/>
-    <Class ClassID="21246" ClassName="ChatType_8" Data="공지"/>
-    <Class ClassID="21247" ClassName="ChatType_6_ToolTip" Data="그룹 채팅"/>
+		<Class ClassID="21246" ClassName="ChatType_8" Data="공지"/>
+		<Class ClassID="21247" ClassName="ChatType_6_ToolTip" Data="그룹 채팅"/>
 		<Class ClassID="21248" ClassName="StatusTooltipDesc" Data="기본: 기초 스테이터스에 추가 보너스, 전직 보{nl}          너스 스테이터스가 더해진 스테이터스{nl}투자: 순수 투자한 스테이터스{nl}기타: 장비 장착을 비롯한 기타 추가 스테이터스"/>
 		<Class ClassID="21249" ClassName="TimeExpired" Data="기간만료"/>
 		<Class ClassID="21250" ClassName="SuccessRemoveTimeExpiredItems" Data="기간 만료 아이템이 일괄 삭제 되었습니다."/>
@@ -1088,21 +1088,21 @@
 		<Class ClassID="22005" ClassName="Retreat!" Data="후퇴!"/>
 		<Class ClassID="22006" ClassName="Withdrawal!" Data="철수!"/>
 	</Category>
-  <Category Name="Ayase">
-    <Class ClassID="22499" ClassName="NotConnectedToChatServer_TryAfterAgain" Data="채팅 서버와의 연결이 원할하지 않습니다. 잠시 후 다시 시도해주세요."/>
-    <Class ClassID="22500" ClassName="NewTab" Data="탭{Count}"/>
-    <Class ClassID="22501" ClassName="TotalTabName" Data="전체"/>
-    <Class ClassID="22502" ClassName="SetScrollBarBottom" Data="새 메시지 도착 시 스크롤바 하단 이동"/>
-    <Class ClassID="22503" ClassName="NewChatRoom" Data="새 채팅"/>
-    <Class ClassID="22504" ClassName="LimitGroupChatMaxUserCnt" Data="방의 최대 인원이 가득 찼습니다."/>
-    <Class ClassID="22505" ClassName="ChatWith{Name}" Data="{Name}님과의 대화"/>
-    <Class ClassID="22506" ClassName="DiscardedTicket" Data="유효하지 않은 초대장입니다."/>
-    <Class ClassID="22507" ClassName="AlreadyEnteredRoom" Data="이미 접속중인 채팅방입니다."/>
-    <Class ClassID="22508" ClassName="{Name}ofGroupChat" Data="{Name}님의 그룹채팅"/>
-    <Class ClassID="22509" ClassName="GroupChatTitleWithMemCnt" Data="{Text} [{Cnt}명]"/>
-    <Class ClassID="22510" ClassName="NewRoomHasBeenCreated" Data="새로운 방이 생성되었습니다."/>
-    <Class ClassID="22511" ClassName="{Name}EnterRoom" Data="{Name}님이 입장하셨습니다."/>
-    <Class ClassID="22512" ClassName="{Name}OutRoom" Data="{Name}님이 퇴장하셨습니다."/>
+	<Category Name="Ayase">
+		<Class ClassID="22499" ClassName="NotConnectedToChatServer_TryAfterAgain" Data="채팅 서버와의 연결이 원할하지 않습니다. 잠시 후 다시 시도해주세요."/>
+		<Class ClassID="22500" ClassName="NewTab" Data="탭{Count}"/>
+		<Class ClassID="22501" ClassName="TotalTabName" Data="전체"/>
+		<Class ClassID="22502" ClassName="SetScrollBarBottom" Data="새 메시지 도착 시 스크롤바 하단 이동"/>
+		<Class ClassID="22503" ClassName="NewChatRoom" Data="새 채팅"/>
+		<Class ClassID="22504" ClassName="LimitGroupChatMaxUserCnt" Data="방의 최대 인원이 가득 찼습니다."/>
+		<Class ClassID="22505" ClassName="ChatWith{Name}" Data="{Name}님과의 대화"/>
+		<Class ClassID="22506" ClassName="DiscardedTicket" Data="유효하지 않은 초대장입니다."/>
+		<Class ClassID="22507" ClassName="AlreadyEnteredRoom" Data="이미 접속중인 채팅방입니다."/>
+		<Class ClassID="22508" ClassName="{Name}ofGroupChat" Data="{Name}님의 그룹채팅"/>
+		<Class ClassID="22509" ClassName="GroupChatTitleWithMemCnt" Data="{Text} [{Cnt}명]"/>
+		<Class ClassID="22510" ClassName="NewRoomHasBeenCreated" Data="새로운 방이 생성되었습니다."/>
+		<Class ClassID="22511" ClassName="{Name}EnterRoom" Data="{Name}님이 입장하셨습니다."/>
+		<Class ClassID="22512" ClassName="{Name}OutRoom" Data="{Name}님이 퇴장하셨습니다."/>
 		<Class ClassID="22513" ClassName="BlockedFriend" Data="차단된 대상입니다."/>
 		<Class ClassID="22514" ClassName="LoadingTPItemList" Data="구매 목록을 불러오는 중입니다."/>
 		<Class ClassID="22515" ClassName="LoadedTPItemList" Data="조회 완료"/>
@@ -1114,7 +1114,7 @@
 		<Class ClassID="22521" ClassName="SteamAIDIsReplaced" Data="스팀 인벤토리 조회를 위한 AID가 {AID}으로 대체되었습니다."/>
 		<Class ClassID="22522" ClassName="StillProcessingTryLater" Data="이전 지급 요청이 진행중입니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="22523" ClassName="TPItemProcessFail" Data="TP 지급 작업이 실패하였습니다. 에러코드 : {Code}"/>
-  </Category>
+	</Category>
 	<Category Name="CardBattle">
 		<Class ClassID="23001" ClassName="PutOnlyCardItem" Data="카드아이템만 놓을 수 있습니다."/>
 		<Class ClassID="23002" ClassName="CardNotRegistered" Data="카드를 등록하지 않았습니다."/>
@@ -5400,7 +5400,7 @@
 		<Class ClassID="90060" ClassName="LOWLV_BOASTER_SQ_30_MSG1" Data="낙엽을 채취하는 중"/>
 		<Class ClassID="90061" ClassName="LOWLV_BOASTER_SQ_30_MSG2" Data="마른 낙엽을 얻었습니다"/>
 		<Class ClassID="90062" ClassName="CATACOMB_33_1_SQ_BOX_FAIL2" Data="상자가 잠겨있습니다"/>
-		</Category>
+	</Category>
 	<Category Name="BattleText">
 		<Class ClassID="100001" ClassName="ADD_DAMAGE_{Auto_1}!" Data="추가 데미지 {Auto_1}!"/>
 		<Class ClassID="100002" ClassName="ADD_BUFF_{Auto_1}!" Data="{Auto_1}!"/>
@@ -9540,7 +9540,7 @@
 		<Class ClassID="302027" ClassName="Valen_Select3" Data="대화 종료"/>
 		<Class ClassID="302028" ClassName="Valentine2017_Select1" Data="이벤트 보상 받기"/>
 		<Class ClassID="302029" ClassName="Valentine2017_Select2" Data="숨겨진 보상 받기"/>
-                <Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용."/>
+		<Class ClassID="302030" ClassName="Goddess_Statue1" Data="여신의 축복 적용."/>
 		<Class ClassID="302031" ClassName="Goddess_Statue2" Data="더 이상 여신의 축복을 받을 수 없습니다."/>
 		<Class ClassID="302032" ClassName="Goddess_Statue3" Data="여신의 조각상은 5분간 유지 됩니다."/>
 	</Category>
@@ -9548,7 +9548,7 @@
 		<Class ClassID="303001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
 		<Class ClassID="303002" ClassName="AccountUse2MoreRank" Data="실버 입금 및 출금은 2랭크 이상 가능합니다."/>
 		<Class ClassID="303003" ClassName="YouHaveWrongJob" Data="등록되지 않은 직업을 가지고 있습니다. 운영팀에 문의해주세요."/>
-		</Category>
+	</Category>
 	<Category Name="Notice">
 		<Class ClassID="304001" ClassName="NoticeFrameName" Data="공지사항"/>
 	</Category>
@@ -9610,5 +9610,8 @@
 		<Class ClassID="501027" ClassName="WhiteTree_Core_Desc03" Data="검은 수정 : {COUNT} / 20개"/>
 		<Class ClassID="501028" ClassName="WhiteTree_Core_Desc04" Data="이벤트 던전 참가"/>
 		<Class ClassID="501036" ClassName="steam_Premium_StatReset_1" Data="스탯 초기화 포션"/>
+		<Class ClassID="501037" ClassName="steam_KindDonnes_1" Data="도네스의 증표 건네주기"/>
+		<Class ClassID="501038" ClassName="steam_KindDonnes_2" Data="건네준 도네스의 증표 개수 확인"/>
+		<Class ClassID="501039" ClassName="steam_KindDonnes_3" Data="{DONNESCOUNT}회 완료하셨습니다."/>
 	</Category>
 </idspace>

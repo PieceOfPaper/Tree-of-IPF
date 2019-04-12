@@ -187,3 +187,66 @@ function DLC_BOX9(pc)
     TxGiveItem(tx, 'steam_Premium_StatReset_1', 1, 'DLC_BOX9');
     local ret = TxCommit(tx);
 end
+
+-- 3
+function SCR_BUFF_ENTER_Premium_Fortunecookie_3(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM + 3;
+end
+
+function SCR_BUFF_UPDATE_Premium_Fortunecookie_3(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 1800000 then
+        SetBuffRemainTime(self, buff.ClassName, 1800000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Premium_Fortunecookie_3(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM - 3;
+end
+
+-- 4
+function SCR_BUFF_ENTER_Premium_Fortunecookie_4(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM + 4;
+end
+
+function SCR_BUFF_UPDATE_Premium_Fortunecookie_4(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 1800000 then
+        SetBuffRemainTime(self, buff.ClassName, 1800000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Premium_Fortunecookie_4(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM - 4;
+end
+
+-- 5
+function SCR_BUFF_ENTER_Premium_Fortunecookie_5(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM + 5;
+end
+
+function SCR_BUFF_UPDATE_Premium_Fortunecookie_5(self, buff, arg1, arg2, RemainTime, ret, over)
+    if RemainTime > 1800000 then
+        SetBuffRemainTime(self, buff.ClassName, 1800000)
+    end
+    return 1
+end
+
+function SCR_BUFF_LEAVE_Premium_Fortunecookie_5(self, buff, arg1, arg2, over)
+	self.MSPD_BM = self.MSPD_BM - 5;
+end
+
+function DLC_BOX10(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'PremiumToken_7d_Steam', 1, 'DLC_BOX4');
+    TxGiveItem(tx, 'Premium_Enchantchip14', 10, 'DLC_BOX10');
+    TxGiveItem(tx, 'steam_emoticonItem_24_46', 1, 'DLC_BOX10');
+    TxGiveItem(tx, 'Event_ArborDay_Costume_Box', 1, 'DLC_BOX10');
+    TxGiveItem(tx, 'E_Artefact_630005', 1, 'DLC_BOX10');
+    TxGiveItem(tx, 'Hat_629501', 1, 'DLC_BOX10');
+    TxGiveItem(tx, 'Premium_hairColor_05', 1, 'DLC_BOX10');
+    TxGiveItem(tx, 'LENS01_003', 1, 'DLC_BOX10');
+    TxGiveItem(tx, 'Event_drug_steam_1h', 10, 'DLC_BOX10');
+    TxGiveItem(tx, 'GIMMICK_Drug_HPSP2', 20, 'DLC_BOX10');
+    local ret = TxCommit(tx);
+end
