@@ -9568,6 +9568,8 @@
 		<Class ClassID="300158" ClassName="Event_1704_Premium_indunReset" Data="[레벨업 이벤트] 인스턴스 던전 입장 횟수 초기화권"/>
 		<Class ClassID="300160" ClassName="Premium_StatReset_Trade" Data="빛나는 스탯 초기화 포션"/>
 		<Class ClassID="300161" ClassName="Premium_SkillReset_Trade" Data="빛나는 스킬 초기화 포션"/>
+	<Class ClassID="300163" ClassName="LimitPaymentGuidMsg" Data="이번 달 {Value} 만큼의 TP를 더 소모할 수 있습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
+		<Class ClassID="300164" ClassName="LimitPaymentExcessMsg" Data="이번 달 {Value} 만큼 초과 하였습니다. {/}한도액 증가 및 문의 사항이 있는 경우 티켓을 보내 주세요."/>
 	</Category>
 	<Category Name="TPHistory">
 		<Class ClassID="301001" ClassName="RemainLogoutPC" Data="로그아웃 PC 만들기"/>
@@ -9588,6 +9590,7 @@
 		<Class ClassID="301016" ClassName="IndunCount" Data="인던입장"/>
 		<Class ClassID="301017" ClassName="Change FamilyName" Data="팀명 변경"/>
 		<Class ClassID="301018" ClassName="Change GuildName" Data="길드명 변경"/>
+		<Class ClassID="301019" ClassName="ExistCannotEquipItem" Data="착용할 수 없는 아이템이 있습니다."/>
 	</Category>
 	<Category Name="Event">
 		<Class ClassID="302001" ClassName="ArborDayEvent" Data="봄볕 이벤트"/>

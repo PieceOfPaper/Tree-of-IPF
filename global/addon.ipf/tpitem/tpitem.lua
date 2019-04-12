@@ -1,4 +1,4 @@
-﻿
+
 -- tpitem.lua : (tp shop)
 
 function TPITEM_ON_INIT(addon, frame)
@@ -148,7 +148,7 @@ end
 end
 
 function TP_SHOP_DO_OPEN(frame, msg, shopName, argNum)
-	
+    
 	ui.CloseAllOpenedUI();
 	ui.OpenIngameShopUI();	-- Tpshop을 열었을때에 Tpitem에 대한 정보와 NexonCash 정보 등을 서버에 요청한다.
 
@@ -652,31 +652,31 @@ function TPITEM_DRAW_ITEM_WITH_CATEGORY(frame, category, subcategory, initdraw, 
 				isFounded = true;					
 			end
 		end
-		
+
 		
 		if (allFlag == nil) then	
-			if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
-				if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-					index = index + 1
-					x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-					y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-					local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-					TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+				if ( ((obj.Category == category) and ((obj.SubCategory == subcategory) or (bPass == true))) or ((filter ~= nil) and (isFounded == true)) ) then			
+					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						index = index + 1
+						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					end
 				end
-			end
 		
 		else
 			if (obj.Category == category) then
-				if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
-					index = index + 1
-					x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
-					y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
-					local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
-					TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					if (TPSHOP_TPITEMLIST_TYPEDROPLIST(alignmentgbox,obj.ClassID) == true) then			
+						index = index + 1
+						x = ( (index-1) % 3) * ui.GetControlSetAttribute("tpshop_item", 'width')
+						y = (math.ceil( (index / 3) ) - 1) * (ui.GetControlSetAttribute("tpshop_item", 'height') * 1)
+						local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_item', 'eachitem_'..index, x, y);
+						TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset);
+					end
 				end
 			end
 		end
-	end
 	--mainSubGbox:Resize(mainSubGbox:GetOriginalWidth(), y + ui.GetControlSetAttribute("tpshop_item", 'height'))
 	
 	--모든 아이템을 출력할때에 컨트롤셋 인덱스를 기억해냄.
@@ -786,25 +786,21 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 		return;
 	end
 
-	local isBuyPossible = 1;
 	local isPreviewPossible = 0;
 
 	if session.GetEquipItemByType(itemclsID) ~= nil then		-- 사용하여 혜택을 받고 있거나, 장비하고 있을때
 		SWITCH(subCategory)
 		{
 			['TP_Useable'] = function()
-				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-				isBuyPossible = 0;
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));				
 			end,
 
 			['TP_Consume'] = function()
-				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-				isBuyPossible = 0;
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));				
 			end,
 
 			['TP_Petitem'] = function()
-				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));
-				isBuyPossible = 0;
+				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsUsed"));				
 			end,
 
 			default = function()
@@ -813,8 +809,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 						if (subCategory == 'TP_Costume_Lens') then
 							isPreviewPossible = 1;
 						end
-						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsEquiped"));	
-						isBuyPossible = 0;	
+						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsEquiped"));							
 					end
 				end
 			end,
@@ -832,20 +827,8 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 				SWITCH(subCategory)
 				{
 					['TP_Costume_Color'] = function() 	
-						local etc = GetMyEtcObject();
-						if nil ~= etc then
-							local nowAllowedColor = etc['AllowedHairColor']
-							if (string.find(nowAllowedColor, itemobj.StringArg) ~= nil) or TryGetProp(etc, "HairColor_"..itemobj.StringArg) == 1 then
-								isBuyPossible = 0;
-							else
-								isBuyPossible = 1;
-							end
-							if session.GetInvItemByType(itemclsID) ~= nil then	
-								isBuyPossible = 0;
-							end
-							isPreviewPossible = 1;	--미리보기 버그 수정 보류
-							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-						end	
+						isPreviewPossible = 1;	--미리보기 버그 수정 보류
+						sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
  					end,
 
 					['TP_Costume_Hairacc'] = function()
@@ -853,8 +836,7 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
  					end,
 
 					['TP_Costume_Lens'] = function()
-						if session.GetInvItemByType(itemclsID) ~= nil then	
-							isBuyPossible = 0;
+						if session.GetInvItemByType(itemclsID) ~= nil then
 							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased1"));
 						end
 						isPreviewPossible = 1;
@@ -863,14 +845,10 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 					default = function()	-- / TP_Hair_M / TP_Hair_F / TP_Hair_M_Premium / TP_Hair_F_Premium
 						if session.GetInvItemByType(itemclsID) ~= nil then
 							isPreviewPossible = IS_ITEM_WILL_CHANGE_APC(itemclsID);
-							isBuyPossible = 0;
 							sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
 						else
 							if result == "OK" then
-								isBuyPossible = isPreviewPossible;
 								sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased"..isPreviewPossible));
-							elseif session.GetInvItemByType(itemclsID) ~= nil then
-								isBuyPossible = 0;	
 							end
 						end
 					end,
@@ -878,20 +856,10 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 			end,
 
 			['TP_Costume_F'] = function()
-				if session.GetInvItemByType(itemclsID) ~= nil then
-					isBuyPossible = 0;
-				else
-					isBuyPossible = isPreviewPossible;
-				end
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
 			end,
 
 			['TP_Costume_M'] = function()
-				if session.GetInvItemByType(itemclsID) ~= nil then
-					isBuyPossible = 0;
-				else
-					isBuyPossible = isPreviewPossible;
-				end
 				sucValue = string.format("{@st41b}{s18}%s{/}", ScpArgMsg("ITEM_IsPurchased".. isPreviewPossible));	
 			end,
 
@@ -909,18 +877,10 @@ function TPITEM_DRAW_ITEM_DETAIL(obj, itemobj, itemcset)
 			end,
 			]]--
 		}
-	end	
-
-	if isBuyPossible == 0 then
-		buyBtn:SetSkinName("test_gray_button");	
-		buyBtn:EnableHitTest(0);
-		if string.len(sucValue) > 0 then
-			buyBtn:SetText(sucValue);
-		end
-	else
-		buyBtn:SetSkinName("test_red_button");	
-		buyBtn:EnableHitTest(1);
 	end
+
+	buyBtn:SetSkinName("test_red_button");	
+	buyBtn:EnableHitTest(1);
 
 	previewbtn:ShowWindow(isPreviewPossible);
 end
@@ -1116,7 +1076,7 @@ function _TPSHOP_TPITEM_SET_SPECIAL()
 		local isEvent_mark = GET_CHILD_RECURSIVELY(itemcset,"isEvent_mark");
 		local isHot_mark = GET_CHILD_RECURSIVELY(itemcset,"isHot_mark");
 		local isNew_mark = GET_CHILD_RECURSIVELY(itemcset,"isNew_mark");
-		
+
 		TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID);
 	end	
 	
@@ -1132,7 +1092,7 @@ function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
 	if TPSHOP_ISNEW_CHECK(classID) == true then
 		bisNew = 1;
 	end
-
+  
 	if founded_info ~= nil then	
 		if founded_info.nIsHot > 0 then
 			bisHot = 1;
@@ -1144,7 +1104,7 @@ function TPITEM_SET_SPECIALMARK(isNew_mark, isHot_mark, isEvent_mark, classID)
 
 	isNew_mark:SetVisible(bisNew);
 	isHot_mark:SetVisible(bisHot);		
-	isEvent_mark:SetVisible(bisEvent);	
+	isEvent_mark:SetVisible(bisEvent);
 end
 
 function TPSHOP_CREATE_TOP5_CTRLSET()
@@ -1295,9 +1255,8 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
 	if subCategory == nil then
 		return;
 	end
-	
 	SWITCH (category)
-	{				
+	{
 		['TP_Character'] = function() 
 			SWITCH (subCategory)
 			{
@@ -1328,7 +1287,6 @@ function TPSHOP_ITEM_PREVIEW_PREPROCESSOR(parent, control, tpitemname, tpitem_cl
 			}
 			--TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 2, tpitemname, itemobj);	-- 컴페니언	(보류시 주석처리할 곳)
 		end,
-
 		default = function() 
 			TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);	-- 옷
 		end,
@@ -1613,9 +1571,144 @@ end
 --///////////////////////////////////////////////////////////////////////////////////////////장바구니 Code start	
 -- 장바구니 관련 Code들 모두 TP상점 개선 이후 한번 손 봐야함.
 function TPSHOP_ITEM_BASKET_BUY(parent, control)
+    local topFrame = parent:GetTopParentFrame();
+    local slotset = GET_CHILD_RECURSIVELY(topFrame, 'basketslotset');
+    local slotCount = slotset:GetSlotCount();
+    local cannotEquip = {};
+	local allPrice = 0;
+	for i = 0, slotCount - 1 do
+		local slotIcon	= slotset:GetIconByIndex(i);
+		if slotIcon ~= nil then
+			local slot  = slotset:GetSlotByIndex(i);			
+            local tpItemName = slot:GetUserValue('TPITEMNAME');
+            local itemClassName = slot:GetUserValue('CLASSNAME');
+			local item = GetClass("Item", itemClassName);  
+            local tpitem = GetClass('TPitem', tpItemName);
 
-	ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+			allPrice = allPrice + tpitem.Price
+
+            if IS_EQUIP(item) == true then
+		        local lv = GETMYPCLEVEL();
+		        local job = GETMYPCJOB();
+		        local gender = GETMYPCGENDER();
+                local itemCls = GetClass('Item', itemClassName);
+                local classid = itemCls.ClassID;
+		        local prop = geItemTable.GetProp(classid);
+		        local result = prop:CheckEquip(lv, job, gender);
+
+		        if result ~= "OK" then
+                    cannotEquip[#cannotEquip + 1] = itemCls;
+                else
+		            local pc = GetMyPCObject();
+		            if pc == nil then
+			            return;
+		            end
+
+		            local needJobClassName = TryGetProp(tpitem, "Job");
+		            local needJobGrade = TryGetProp(tpitem, "JobGrade");
+		            if IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade) == false then
+			            cannotEquip[#cannotEquip + 1] = itemCls;
+                    else
+		                local useGender = TryGetProp(item,'UseGender');
+		                if useGender =="Male" and pc.Gender ~= 1 then
+			                cannotEquip[#cannotEquip + 1] = itemCls;
+                        else
+		                    if useGender =="Female" and pc.Gender ~= 2 then
+			                    cannotEquip[#cannotEquip + 1] = itemCls;
+		                    end
+		                end
+		            end
+		        end	
+	        end
+        end
+    end
+
+    if #cannotEquip > 0 then
+        local clMsg = ClMsg('ExistCannotEquipItem')..'{nl}';
+        for i = 1, #cannotEquip do
+            local item = cannotEquip[i];
+            clMsg = clMsg..'{@st66d}{s18}'..item.Name..'{/}{/}{nl}';
+        end
+        clMsg = clMsg..ScpArgMsg("ReallyBuy?");
+		if config.GetServiceNation() == "GLOBAL" then
+			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
+        ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+    else
+				POPUP_LIMIT_PAYMENT(clMsg, parent:GetName(), allPrice)
+			end
+		else
+			ui.MsgBox_NonNested_Ex(clMsg, 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");
+		end
+    else
+		if config.GetServiceNation() == "GLOBAL" then
+			
+			if CHECK_LIMIT_PAYMENT_STATE_C() == true then
+        ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+			else
+				POPUP_LIMIT_PAYMENT(ScpArgMsg("ReallyBuy?"), parent:GetName(), allPrice)
+			end			
+		else
+			ui.MsgBox_NonNested_Ex(ScpArgMsg("ReallyBuy?"), 0x00000004, parent:GetName(), "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+		end
+    end
 	control:SetEnable(0);
+end
+
+function CHECK_LIMIT_PAYMENT_STATE_C()
+	local aObj = GetMyAccountObj();
+	if aObj ~= nil then
+		local limitPaymentStateBySteam = TryGetProp(aObj, "LimitPaymentStateBySteam");
+		local limitPaymentStateByGM = TryGetProp(aObj, "LimitPaymentStateByGM")
+
+		if limitPaymentStateBySteam ~= nil and limitPaymentStateByGM ~= nil then
+			if limitPaymentStateBySteam == "Trusted" or limitPaymentStateByGM == "Trusted" then
+				return true;
+			else
+				return false;
+			end
+		end
+	end
+	return false;
+end
+
+function POPUP_LIMIT_PAYMENT(clientMsg, parentName, allPrice)
+	local frame = ui.GetFrame("tpitem");
+	frame:SetUserValue("LIMIT_PAYMENT_MSG", clientMsg);
+	frame:SetUserValue("PARENT_NAME", parentName);
+
+
+	local accountObj = GetMyAccountObj();
+	local spentPaymentValue = 0;
+
+	if accountObj ~= nil then
+		spentPaymentValue = TryGetProp(accountObj, "SpentPaymentValue")
+		local nowUsePaymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - spentPaymentValue;
+		local paymentValue = tonumber(VALVE_PURCHASESTATUS_ACTIVE_MONTHLY_PREMIUM_TP_SPENDLIMIT) - (spentPaymentValue + allPrice);
+		if paymentValue >= 0 then
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentGuidMsg","Value", nowUsePaymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CLICK")
+		else
+			ui.MsgBox_OneBtnScp(ScpArgMsg("LimitPaymentExcessMsg","Value", paymentValue), "POPUP_POPUP_LIMIT_PAYMENT_CANCEL")
+		end
+	end
+end
+
+function POPUP_POPUP_LIMIT_PAYMENT_CLICK()
+	local frame = ui.GetFrame("tpitem");
+	local msg = frame:GetUserValue("LIMIT_PAYMENT_MSG");
+	local parentName = frame:GetUserValue("PARENT_NAME");
+	
+	ui.MsgBox_NonNested_Ex(msg, 0x00000004, parentName, "EXEC_BUY_MARKET_ITEM", "TPSHOP_ITEM_BASKET_BUY_CANCEL");	
+
+
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
+	btn:SetEnable(1);
+end
+
+function POPUP_POPUP_LIMIT_PAYMENT_CANCEL()
+	local frame = ui.GetFrame("tpitem")
+	local btn = GET_CHILD_RECURSIVELY(frame,"basketBuyBtn");
+	btn:SetEnable(1);	
 end
 
 function TPSHOP_ITEM_BASKET_BUY_CANCEL()
@@ -1647,8 +1740,7 @@ function TPSHOP_ITEM_TO_BASKET_PREPROCESSOR(parent, control, tpitemname, tpitem_
 	end
 
 	if ui.IsMyDefaultHairItem(classid) == true then
-		ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
-		return;
+        isHave = true;
 	end
 
 	local allowDup = TryGetProp(item,'AllowDuplicate')
@@ -1710,50 +1802,11 @@ function TPSHOP_ITEM_TO_BASKET(tpitemname, classid)
 			ui.MsgBox(ScpArgMsg("AlearyEquipColor"))
 			return;
 		end
-
-		if session.GetInvItemByType(classid) ~= nil then
-			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
-			return;
-		end
-		if session.GetWarehouseItemByType(classid) ~= nil then
-			ui.MsgBox(ScpArgMsg("CanNotBuyDuplicateItem"))
-			return;
-		end
-	end
-
-	if IS_EQUIP(item) == true then
-		local lv = GETMYPCLEVEL();
-		local job = GETMYPCJOB();
-		local gender = GETMYPCGENDER();
-		local prop = geItemTable.GetProp(classid);
-		local result = prop:CheckEquip(lv, job, gender);
-
-		if result ~= "OK" then
-			ui.MsgBox(ScpArgMsg("CanNotEquip"))
-			return;
-		end	
-		local pc = GetMyPCObject();
-		if pc == nil then
-			return;
-		end
-
-		local needJobClassName = TryGetProp(tpitem, "Job");
-		local needJobGrade = TryGetProp(tpitem, "JobGrade");		
-		if IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade) == false then
-			return;
-		end
-		
-		local useGender = TryGetProp(item,'UseGender')
-
-		if useGender =="Male" and pc.Gender ~= 1 then
-			ui.MsgBox(ScpArgMsg("CanNotEquip"))
-			return;
-		end
-
-		if useGender =="Female" and pc.Gender ~= 2 then
-			ui.MsgBox(ScpArgMsg("CanNotEquip"))
-			return;
-		end
+           
+        if session.GetInvItemByType(item.ClassID) ~= nil then
+            ui.MsgBox(ClMsg('CanNotBuyDuplicateItem'));
+            return;
+        end
 	end
 
 	local frame = parent:GetTopParentFrame()
@@ -1912,7 +1965,7 @@ function EXEC_BUY_MARKET_ITEM()
 			local slot  = slotset:GetSlotByIndex(i);
 			local tpitemname = slot:GetUserValue("TPITEMNAME");
 			local tpitem = GetClass("TPitem",tpitemname)
-
+				
 			if tpitem ~= nil then
 							
 				allprice = allprice + tpitem.Price
@@ -1948,10 +2001,10 @@ function EXEC_BUY_MARKET_ITEM()
 		btn:SetEnable(1);
 		return;
 	end
-
+	
 	pc.ReqExecuteTx_NumArgs("SCR_TX_TP_SHOP", itemListStr);	
 	btn:SetEnable(1);
-	
+		
 	local frame = ui.GetFrame("tpitem");
 	frame:ShowWindow(0);
 	TPITEM_CLOSE(frame);
@@ -2007,119 +2060,119 @@ function TPITEM_DRAW_NC_TP()
 		itemClsID = iteminfo.tpItemClsId;
 		
 		if (categoryNo == 2348) or (categoryNo == 805) then
-							index = index - 1
-							x = ( (index-1) % 4) * ui.GetControlSetAttribute("tpshop_itemtp", 'width')
-							y = (math.ceil( (index / 4) ) - 1) * (ui.GetControlSetAttribute("tpshop_itemtp", 'height') * 1)
+		    index = index - 1
+		    x = ( (index-1) % 4) * ui.GetControlSetAttribute("tpshop_itemtp", 'width')
+		    y = (math.ceil( (index / 4) ) - 1) * (ui.GetControlSetAttribute("tpshop_itemtp", 'height') * 1)
 	
-							local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_itemtp', 'eachitem_'..index, x, y);
+		    local itemcset = mainSubGbox:CreateOrGetControlSet('tpshop_itemtp', 'eachitem_'..index, x, y);
 
-							local title = GET_CHILD_RECURSIVELY(itemcset,"title");
-							local staticTPbox = GET_CHILD_RECURSIVELY(itemcset,"staticTPbox")
-							local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
-										
-							local cls = GetClassByType("Item", itemClsID);
-							if cls == nil  then
-								return;
-							end
-							SET_SLOT_IMG(slot, cls.Icon);
-							
-							staticTPbox:SetText("{img Nexon_cash_mark 30 30}{/}{@st43}{s18}".. itemPrice .."{/}");
-							title:SetText(ItemClassName);
+		    local title = GET_CHILD_RECURSIVELY(itemcset,"title");
+		    local staticTPbox = GET_CHILD_RECURSIVELY(itemcset,"staticTPbox")
+		    local slot = GET_CHILD_RECURSIVELY(itemcset, "icon");
+		    			
+		    local cls = GetClassByType("Item", itemClsID);
+		    if cls == nil  then
+		    	return;
+		    end
+		    SET_SLOT_IMG(slot, cls.Icon);
+		    
+		    staticTPbox:SetText("{img Nexon_cash_mark 30 30}{/}{@st43}{s18}".. itemPrice .."{/}");
+		    title:SetText(ItemClassName);
 
-							local icon = slot:GetIcon();
+		    local icon = slot:GetIcon();
 
-							buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
-							buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
-							buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-							buyBtn:SetUserValue("LISTINDEX", i);
+		    buyBtn = GET_CHILD_RECURSIVELY(itemcset, "buyBtn");	
+		    buyBtn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
+		    buyBtn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
+		    buyBtn:SetUserValue("LISTINDEX", i);
 		elseif (categoryNo == 806) or (categoryNo == 2349)  then				
-							local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
-							if imgURL ~= nil then	
-								local imgAddress = string.format("%s", imgURL);
-								if string.len(imgAddress) > 0 then
-									if listcnt == 0 or clsList == nil then
-										return;
-									end	
+		    local specialGoods = GET_CHILD(tpSubgbox,"specialGoods");	
+		    if imgURL ~= nil then	
+		    	local imgAddress = string.format("%s", imgURL);
+		    	if string.len(imgAddress) > 0 then
+		    		if listcnt == 0 or clsList == nil then
+		    			return;
+		    		end	
 
-									local retNum = -1;
-									local jobCountMax = 0;
-									for j = 0, listcnt - 1 do
-										local obj = GetClassByIndexFromList(clsList, j);	
-										retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
-										if retNum > 0 then
-											ItemClassName = obj.Name;	
-											item_package = obj;
-											packageClsID = obj.ClassID;
-											jobCountMax = obj.jobCount;
-											packageJobCount = packageJobCount + 1;
-											break;
-										end
-									end	
-									
-									local package_Btn = nil;														
-									local bisCaption = false; 
-									if retNum > 0 then				
-										if packageJobCount == 1 then
-											specialGoodCount = specialGoodCount + 1;
-											bisCaption = true;											
-											limitOnce = 0;
-											itemPrice = 0;
-											productNo = 0;		
-											package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);		
-											
-											tolua.cast(package_Btn, "ui::CButton");
-											package_Btn:SetImage("market_number_btn");											
-											package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
+		    		local retNum = -1;
+		    		local jobCountMax = 0;
+		    		for j = 0, listcnt - 1 do
+		    			local obj = GetClassByIndexFromList(clsList, j);	
+		    			retNum = CHECK_APPLY_PACKAGE_CLSID(itemClsID, obj);	
+		    			if retNum > 0 then
+		    				ItemClassName = obj.Name;	
+		    				item_package = obj;
+		    				packageClsID = obj.ClassID;
+		    				jobCountMax = obj.jobCount;
+		    				packageJobCount = packageJobCount + 1;
+		    				break;
+		    			end
+		    		end	
+		    		
+		    		local package_Btn = nil;														
+		    		local bisCaption = false; 
+		    		if retNum > 0 then				
+		    			if packageJobCount == 1 then
+		    				specialGoodCount = specialGoodCount + 1;
+		    				bisCaption = true;											
+		    				limitOnce = 0;
+		    				itemPrice = 0;
+		    				productNo = 0;		
+		    				package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);		
+		    				
+		    				tolua.cast(package_Btn, "ui::CButton");
+		    				package_Btn:SetImage("market_number_btn");											
+		    				package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
 
-											-- 직업과 성별에 따라 디폴트 패키지 를 선정하여 먼저 띄우기
-											itemClsID = packageClsID;	
-											local packageCls = GetClassByType("item_package", packageClsID);
-											local clsID = GET_PACKAGE_CLSID_BYTYPE(jobNum, packageCls);
-											if clsID == nil then
-												package_Btn:SetUserValue("DEFAULT_CLSID", iteminfo.tpItemClsId);	
-											else
-												package_Btn:SetUserValue("DEFAULT_CLSID", clsID);	
-											end
-											package_Btn:SetUserValue("jobCountMax", jobCountMax);					
-										else
-											package_Btn = tpSubgbox:GetControlSet('button', 'specialProduct_'..specialGoodCount);
-										end
-																				
-										if package_Btn == nil then
-											break;
-										end				
-										package_Btn:SetUserValue("LISTINDEX_"..retNum, i);	
-									else
-										bisCaption = true;
-										packageClsID = 0;
-										packageJobCount = 0;
-										specialGoodCount = specialGoodCount + 1;
-									end		
+		    				-- 직업과 성별에 따라 디폴트 패키지 를 선정하여 먼저 띄우기
+		    				itemClsID = packageClsID;	
+		    				local packageCls = GetClassByType("item_package", packageClsID);
+		    				local clsID = GET_PACKAGE_CLSID_BYTYPE(jobNum, packageCls);
+		    				if clsID == nil then
+		    					package_Btn:SetUserValue("DEFAULT_CLSID", iteminfo.tpItemClsId);	
+		    				else
+		    					package_Btn:SetUserValue("DEFAULT_CLSID", clsID);	
+		    				end
+		    				package_Btn:SetUserValue("jobCountMax", jobCountMax);					
+		    			else
+		    				package_Btn = tpSubgbox:GetControlSet('button', 'specialProduct_'..specialGoodCount);
+		    			end
+		    													
+		    			if package_Btn == nil then
+		    				break;
+		    			end				
+		    			package_Btn:SetUserValue("LISTINDEX_"..retNum, i);	
+		    		else
+		    			bisCaption = true;
+		    			packageClsID = 0;
+		    			packageJobCount = 0;
+		    			specialGoodCount = specialGoodCount + 1;
+		    		end		
 
-									if bisCaption == true then												
-										package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);
-										
-										tolua.cast(package_Btn, "ui::CButton");
-										package_Btn:SetImage("market_number_btn");
-										package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
-										package_Btn:EnableHitTest(1);
-										package_Btn:SetEventScript(ui.LBUTTONUP, '_TPSHOP_SELECTED_SPECIALGOODS');
-										package_Btn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
-										package_Btn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
-										
-										package_Btn:SetUserValue("LISTINDEX", i);
-										package_Btn:SetUserValue("jobCountMax", jobCountMax);
-																			
-									end
-									
-									lastControlset = package_Btn;
-									if packageJobCount >= jobCountMax then
-										packageJobCount = 0;
-										packageClsID = 0;	
-									end
-									
-								end
-							end
+		    		if bisCaption == true then												
+		    			package_Btn = tpSubgbox:CreateOrGetControl('button', 'specialProduct_'..specialGoodCount, 0, 0, ui.RIGHT, ui.TOP, 0, 40, 0, 0);
+		    			
+		    			tolua.cast(package_Btn, "ui::CButton");
+		    			package_Btn:SetImage("market_number_btn");
+		    			package_Btn:SetText(string.format("{@st66d}{s20}%d{/}", specialGoodCount));
+		    			package_Btn:EnableHitTest(1);
+		    			package_Btn:SetEventScript(ui.LBUTTONUP, '_TPSHOP_SELECTED_SPECIALGOODS');
+		    			package_Btn:SetEventScriptArgNumber(ui.LBUTTONUP, productNo);
+		    			package_Btn:SetEventScriptArgString(ui.LBUTTONUP, string.format("%d", itemClsID));
+		    			
+		    			package_Btn:SetUserValue("LISTINDEX", i);
+		    			package_Btn:SetUserValue("jobCountMax", jobCountMax);
+		    												
+		    		end
+		    		
+		    		lastControlset = package_Btn;
+		    		if packageJobCount >= jobCountMax then
+		    			packageJobCount = 0;
+		    			packageClsID = 0;	
+		    		end
+		    		
+		    	end
+		    end
 		else
 							return; 
 		end
@@ -2728,8 +2781,6 @@ function IS_ENABLE_EQUIP_CLASS(pc, needJobClassName, needJobGrade)
 	end
 
 	if jobGrade < needJobGrade then
-		local jobinfoclass = GetClass('Job', needJobClassName);
-		ui.MsgBox(ScpArgMsg("CanNotEquipLow{Job}{Grade}", "Job", GET_JOB_NAME(jobinfoclass), "Grade", needJobGrade));
 		return false;
 	end
 
