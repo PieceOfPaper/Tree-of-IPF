@@ -14,8 +14,10 @@
 			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="recommend_mark2" changecursor="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
-	<controlset name="guild_warinfo">
-		<button OverrideType="REMOVE" name="guildwarehouse"/>
+	<controlset name="guild_warinfo" hittest="true" width="590" height="900" hittestset="false" draw="false" skin="none">
+		<controls>
+			<button name="guildwarehouse" parent="gBox" rect="0 0 0 0" margin="0 0 0 0" layout_gravity="right top" LBtnUpScp="OPEN_GUILDBATTLE_RANKING_TAB" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" format="{@st66b}%s{/}" param1="value" param1_def="길드 배틀 랭킹" clicksound="button_click" oversound="button_over" skin="test_pvp_btn" textalign="center center"/>
+			</controls>
 	</controlset>
 	<controlset name="guildbattle_ranking_page" hittest="true" width="520" height="800" hittestset="false" draw="false" skin="none">
 		<controls>
