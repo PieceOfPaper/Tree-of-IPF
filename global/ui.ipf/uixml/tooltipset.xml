@@ -264,6 +264,7 @@
       <richtext name="token_staup" margin="10 170 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
       <richtext name="token_buffCountUp" margin="10 195 0 0" rect="0 0 120 24" format="최대 버프 적용 개수 증가" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
       <richtext name="token_tradecount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+      <richtext name="token_moremission" OverrideType="ADD" margin="10 195 0 0" rect="0 0 120 24" fontname="brown_16" format="인던,미션 1회 추가입장"/>
     </controls>
   </tooltip>
 </tooltipset>
