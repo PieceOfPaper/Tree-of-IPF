@@ -1137,6 +1137,9 @@ return 10000"/>
                 <Str Str="newbless"/>
                 <Num Num="0.5"/>
             </ToolScp>
+        <ToolScp Scp="PAD_DESTROY_EFFECT_BLENDTIME" Client="NO" UseSleep="NO">
+                <Num Num="0.5"/>
+            </ToolScp>
         </destroyEvent>
         <leaveEvent>
             <ToolScp Scp="PAD_TGT_BUFF_REMOVE" Client="NO" UseSleep="NO">

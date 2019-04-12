@@ -398,8 +398,15 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 			icon:SetTooltipNumArg(type);
 			icon:SetTooltipIESID(iesID);		
 		end
-
+		
+        -- 락상태를 체크해서 락이었다면 disableDrag해야한다.
+		local quickSlotList = session.GetQuickSlotList();
+		local isLockState = quickSlotList:GetQuickSlotLockState();	
+		if isLockState == 1 then
+			slot:EnableDrag(0);
+		else
 		slot:EnableDrag(1);
+		end
 
 		INIT_QUICKSLOT_SLOT(slot, icon);
 		local sendPacket = 1;
