@@ -4527,7 +4527,7 @@
 	<controlset name="market_save_option" hittest="true" width="410" height="30" hittestset="true" draw="false" skin="none">
 		<controls>
 			<groupbox name="skinBox" rect="0 0 410 30" margin="4 0 0 0" layout_gravity="left center" skin="None" hittest="false"/>
-			<richtext name="nameText" rect="0 0 300 30" margin="15 5 0 0" layout_gravity="left top" fontname="white_16_b_ol" caption="설정 저장 이름"/>
+			<richtext name="nameText" rect="0 0 370 30" margin="15 5 0 0" layout_gravity="left top" fontname="white_16_b_ol" caption="설정 저장 이름" fixwidth="true" omitbywidth="true"/>
 			<richtext name="deleteText" rect="0 0 30 30" margin="0 5 8 0" layout_gravity="right top" caption="x" fontname="brown_18_b" texttooltip="설정 삭제" LBtnUpScp="MARKET_DELETE_SAVED_OPTION"/>
 		</controls>
 	</controlset>

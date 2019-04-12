@@ -165,22 +165,24 @@ function SCR_TX_TP_SHOP(pc, argList)
 			TX_LIMIT_PAYMENT_STATE(pc, tx, tpitem.Price, freeMedal)
 		end
 
-		local premiumDiff = 0; -- steam event --
-		local currentFreeMedal = aobj.GiftMedal + aobj.Medal
-		if tpitem.Price > currentFreeMedal then
-			premiumDiff = tpitem.Price - currentFreeMedal
-		end
-		TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); -- steam event --
+		-- local premiumDiff = 0; -- steam event --
+		-- local currentFreeMedal = aobj.GiftMedal + aobj.Medal
+		-- if tpitem.Price > currentFreeMedal then
+		-- 	premiumDiff = tpitem.Price - currentFreeMedal
+		-- end
+		-- TxAddIESProp(tx, aobj, "EVENT_STEAM_TPSHOP_BUY_PRICE", premiumDiff, "PoPo_Shop_Prop"); -- steam event --
 		local ret = TxCommit(tx);
 		if ret == "SUCCESS" then
-			local premiumDiff_Popo = premiumDiff * 2 -- steam event --
-			CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
-			local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
-			local point_Type = "fail"
-			if pointResult == 1 then
-				point_Type = 'SUCCESS'
-			end
-			CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo) -- steam event --
+			-- if premiumDiff > 0 then 
+			-- 	local premiumDiff_Popo = premiumDiff * 2 -- steam event --
+			-- 	CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", "Try", "ex_point", premiumDiff_Popo)
+			-- 	local pointResult = GivePCBangPointShopPoint(pc, premiumDiff_Popo, "PoPo_Shop")
+			-- 	local point_Type = "fail"
+			-- 	if pointResult == 1 then
+			-- 		point_Type = 'SUCCESS'
+			-- 	end
+			-- 	CustomMongoLog(pc, "GivePCBangPointShopPoint", "Type", point_Type, "point", premiumDiff_Popo) -- steam event --
+			-- end
 			CustomMongoLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			CustomMongoCashLog(pc,"TpshopBuyList","AllPrice",tostring(allprice),"Items", itemcls.ClassName)
 			SendAddOnMsg(pc, "TPSHOP_BUY_SUCCESS", "", 0);

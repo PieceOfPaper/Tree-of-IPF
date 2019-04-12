@@ -260,6 +260,7 @@
 		<Class ClassID="2273" ClassName="PutLifeTimeItemInWareHouse" Data="기간제 아이템을 창고에 넣어도 기간은 동작하며, 창고 안에서 기간이 만료될 수 있습니다.{nl}계속하시겠습니까?{nl}{@st66d_y}[주의] '배수 토큰' 아이템은 창고 안에서 기간이 만료되었을 경우 수령시 사라지게 됩니다.{/}"/>
 		<Class ClassID="2274" ClassName="SafeAuthInfo" Data="OTP 또는 플레이 패스 사용"/>
 		<Class ClassID="2275" ClassName="BlockDungeonCountByShutdown" Data="지금은 배수 토큰을 사용할 수 없습니다."/>	</Category>
+		<Class ClassID="2282" ClassName="OverLength" Data="내용이 길어 등록할 수 없습니다."/>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
 		<Class ClassID="3002" ClassName="RecipeResult" Data="{@st42)제작 시"/>
@@ -1077,6 +1078,7 @@
 		<Class ClassID="10508" ClassName="LackOfUnrevertRandomMaterial" Data="신비한 돋보기가 부족합니다."/>
 		<Class ClassID="10509" ClassName="LackOfRevertRandomMaterial" Data="장인의 돋보기가 부족합니다."/>
 		<Class ClassID="10510" ClassName="{Name}Item{MaxStack}CountOver" Data="[{Name}] 아이템은 {MaxStack}개 이상 소유할 수 없습니다."/>
+		<Class ClassID="10514" ClassName="CharacterLengthLimit" Data="{COUNT}자 이내로만 입력 가능합니다."/>
 	</Category>
 	<Category Name="FoodTable">
 		<Class ClassID="20001" ClassName="IncreaseHP{Value}For{Time}Minute" Data="{Time}분 동안 HP가 {Value}% 증가합니다."/>
