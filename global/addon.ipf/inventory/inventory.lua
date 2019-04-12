@@ -43,7 +43,6 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterMsg('UPDATE_TRUST_POINT', 'ON_UPDATE_TRUST_POINT');
 
 	SLOTSET_NAMELIST = {};
-    CHECK_SLOTSET_NAMELIST = {}
 	GROUP_NAMELIST = {};
 	
 	SHOP_SELECT_ITEM_LIST = {};
@@ -93,7 +92,7 @@ function HIDE_EMPTY_SLOT(slotset)
 end
 
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-	INIT_INVEN_SLOT(slot);    
+	INIT_INVEN_SLOT(slot);
 	--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
 	if ui.GetFrame('shop'):IsVisible() == 1 or ui.GetFrame('exchange'):IsVisible() == 1 or ui.GetFrame("oblation_sell"):IsVisible() == 1 then
 		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
@@ -167,7 +166,7 @@ function MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls)
 	slotNode:SetUserValue("IS_ITEM_SLOTSET", 1);
 end
 
-function MAKE_INVEN_SLOTSET(tree, name)	
+function MAKE_INVEN_SLOTSET(tree, name)
 	local frame = ui.GetFrame('inventory');
 	local slotsize = frame:GetUserConfig("TREE_SLOT_SIZE");
 	local colcount = frame:GetUserConfig("TREE_COL_COUNT");
@@ -185,12 +184,7 @@ function MAKE_INVEN_SLOTSET(tree, name)
 	newslotset:SetSkinName('invenslot')
 	newslotset:EnableSelection(0)
 	newslotset:CreateSlots()
-
-    if CHECK_SLOTSET_NAMELIST[name] == nil then
-        SLOTSET_NAMELIST[#SLOTSET_NAMELIST + 1] = name
-        CHECK_SLOTSET_NAMELIST[name] = 1        
-    end
-    
+	SLOTSET_NAMELIST[#SLOTSET_NAMELIST + 1] = name
 	return newslotset;
 end
 
@@ -840,7 +834,7 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	end
 end
 
-function INV_SLOT_UPDATE(frame, invItem, itemSlot)    
+function INV_SLOT_UPDATE(frame, invItem, itemSlot)
 	local customFunc = nil;
 	local scriptName = frame:GetUserValue("CUSTOM_ICON_SCP");
 	local scriptArg = nil;
@@ -848,12 +842,12 @@ function INV_SLOT_UPDATE(frame, invItem, itemSlot)
 		customFunc = _G[scriptName];
 		local getArgFunc = _G[frame:GetUserValue("CUSTOM_ICON_ARG_SCP")];
 		if getArgFunc ~= nil then
-			scriptArg = getArgFunc();            
+			scriptArg = getArgFunc();
 		end
 	end
-    
-	local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);    
-	INV_ICON_SETINFO(frame, itemSlot, invItem, customFunc, scriptArg, remainInvItemCount);	    
+
+	local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
+	INV_ICON_SETINFO(frame, itemSlot, invItem, customFunc, scriptArg, remainInvItemCount);	
 end
 
 function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
@@ -973,25 +967,25 @@ end
 
 function SLOTSET_UPDATE_ICONS_BY_NAME(frame, slotSetName)
 	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
-	for typeNo = 1, #g_invenTypeStrList do        
+	for typeNo = 1, #g_invenTypeStrList do
 		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-	    local slotSet = nil;
-	    for i = 1 , #SLOTSET_NAMELIST do
-		    if string.find(SLOTSET_NAMELIST[i], slotSetName) ~= nil then
-		        slotSet = GET_CHILD_RECURSIVELY(tree , SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-			    break;
-		    end
-	    end
+	local slotSet = nil;
+	for i = 1 , #SLOTSET_NAMELIST do
+		if string.find(SLOTSET_NAMELIST[i], slotSetName) ~= nil then
+				slotSet = GET_CHILD_RECURSIVELY(tree , SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			break;
+		end
+	end
 	end
 	
-	if slotSet ~= nil then        
+	if slotSet ~= nil then
 		SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 	end
 end
 
-function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)    
+function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 	if slotSet == nil then
 		return;
 	end
@@ -999,9 +993,9 @@ function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 	for j = 0 , slotSet:GetChildCount() - 1 do
 		local slot = slotSet:GetChildByIndex(j)
 		local invItem = GET_SLOT_ITEM(slot)        
-		if invItem ~= nil then            
+		if invItem ~= nil then
 			local itemCls = GetIES(invItem:GetObject())            
-			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)            
+			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
 			INV_SLOT_UPDATE(frame, invItem, slot)
 		end
 	end
@@ -1013,10 +1007,8 @@ function INVENTORY_UPDATE_ICONS(frame)
 		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
 		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 		for i = 1 , #SLOTSET_NAMELIST do
-			local slotSet = GET_CHILD_RECURSIVELY(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')
-            if slotSet ~= nil then                
-			    SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)                
-            end
+			local slotSet = GET_CHILD_RECURSIVELY(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 		end
 	end
 end
@@ -1339,7 +1331,7 @@ function INVENTORY_SLOT_UNCHECK(frame, itemID)
 					end
 				end
 				
-				if slotItem ~= nil then                    
+				if slotItem ~= nil then
 					INV_SLOT_UPDATE(frame, slotItem, slot);
 				end
 			end
@@ -1809,7 +1801,7 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)
 								if customFunc ~= nil then
 									local slot = slotSet:GetSlotByIndex(i);
 									if slot ~= nil then
-										customFunc(slot, scriptArg, invItem, nil);                                        
+										customFunc(slot, scriptArg, invItem, nil);
 									end
 								end
 							end
@@ -2705,7 +2697,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)	
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
@@ -2733,8 +2725,8 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 			icon:SetColorTone("FFFF0000");		
 		end
 			
-		if IS_NEED_APPRAISED_ITEM(itemobj) or IS_NEED_RANDOM_OPTION_ITEM(itemobj) then            
-			icon:SetColorTone("FFFF0000");            
+		if IS_NEED_APPRAISED_ITEM(itemobj) or IS_NEED_RANDOM_OPTION_ITEM(itemobj) then
+			icon:SetColorTone("FFFF0000");		
 		end
 	end	
 
@@ -2767,7 +2759,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	slot:EnableDrag(1)
 	slot:EnableDrop(1)
 
-	if customFunc ~= nil then        
+	if customFunc ~= nil then
 		customFunc(slot, scriptArg, invItem, itemobj);
 	end
 
@@ -2794,7 +2786,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetHeaderImage('equip_inven');
 	else
 		slot:SetHeaderImage('None');
-	end    
+	end
 end
 
 function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)

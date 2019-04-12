@@ -66,7 +66,8 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 	local fullname = GET_FULL_NAME(invitem, true);
 	local nameChild = GET_CHILD(CSet, "name", "ui::CRichText");
 	nameChild:SetText(fullname);
-
+	nameChild:AdjustFontSizeByWidth(nameChild:GetWidth());
+	nameChild:SetTextAlign("center","center");
     
     -- 쿨타임 등 세팅 옮김
 	local invDesc = GET_ITEM_DESC_BY_TOOLTIP_VALUE(invitem);

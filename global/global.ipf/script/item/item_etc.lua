@@ -1499,3 +1499,9 @@ function Achieve_Event_Horror_Night(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Horror_Night', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Weapon_Designer(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Weapon_Designer', 1)
+    local ret = TxCommit(tx);
+end

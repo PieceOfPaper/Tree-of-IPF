@@ -118,7 +118,7 @@
 			<picture name="item_bg" image="nomalitem_tooltip_bg" layout_gravity="left top" stretch="true" rect="0 0 80 80" margin="10 45 0 0"/>
 			<picture name="itempic" layout_gravity="left top" stretch="true" rect="0 0 60 60" margin="21 55 0 0"/>
 			<picture name="questMark" image="quest_indi_icon" layout_gravity="left top" stretch="true" rect="0 0 43 43" margin="15 48 0 0"/>
-			<richtext name="name" format="{s22}{#FFFFFF}{b}%s{/}" param1="itemname" param1_def="기본 아이템 이름" layout_gravity="center top" rect="0 0 385 30" margin="0 13 0 0" fixwidth="false" hittest="false" resizebytext="true" updateparent="true" fontname="white_20_ol"/>
+			<richtext name="name" format="{s22}{#FFFFFF}{b}%s{/}" param1="itemname" param1_def="기본 아이템 이름" layout_gravity="center top" rect="0 0 385 30" margin="0 13 0 0" fixwidth="false" hittest="false" resizebytext="false" updateparent="true" fontname="white_20_ol"/>
 			<richtext name="type_text" format="%s" param1="type" param1_def="DefVal" layout_gravity="left top" textalign="left center" rect="0 0 140 24" margin="100 50 0 0" fixwidth="true" hittest="false" fontname="brown_18_b"/>
 			<richtext name="weight_text" format="무게 : %s" param1="weight" param1_def="999" layout_gravity="right top" textalign="right center" rect="0 0 140 24" margin="0 50 15 0" fixwidth="true" hittest="false" fontname="brown_18"/>
 			<richtext name="grade" layout_gravity="left top" textalign="center center" rect="0 0 80 30" margin="10 107 0 0" fixwidth="true" hittest="false" resizebytext="true" updateparent="true" fontname="brown_18"/>
@@ -2186,7 +2186,7 @@
 			<picture name="text_bg" margin="24 22 0 0" rect="0 0 454 50" hittest="false" image="test_com_namebg" stretch="true" changecursor="false" layout_gravity="left top"/>
 			<button name="tradeBtn" margin="370 23 0 0" rect="0 0 134 50" layout_gravity="left top" format="{@st41}%s" skin="test_red_button" LBtnUpScp="EARTH_TOWER_SHOP_EXEC" param1="text" param1_def="교환"/>
 			<picture name="itemIcon" margin="55 85 0 0" rect="5 5 128 128" hittest="true" image="icon_item_helm_misc4" stretch="true" changecursor="false" layout_gravity="left top"/>
-			<richtext name="itemName" margin="41 33 0 0" rect="0 0 150 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
+			<richtext name="itemName" margin="38 35 0 0" rect="0 0 335 24" format="{@st41b}%s{/}" param1="value" param1_def="행복한 나라로 오세요" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_18_ol" omitbywidth="true" fixwidth="true" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<labelline name="labelline_1" margin="0 0  0 0" skin="labelline_def" rect="0 0 480 2" layout_gravity="center top"/>
 			<richtext name="exchangeCount" margin="0  0 0 0" rect="0 0 10 10" format="{#FF0000}%s{/}" param1="value" param1_def="?" textalign="center center" resizebytext="true" spacey="0" maxwidth="0" fontname="white_20_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="center top"/>
 		</controls>

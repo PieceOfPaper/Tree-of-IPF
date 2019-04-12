@@ -5,11 +5,14 @@ random_item.is_sealed_random_item = function(itemobj)
     end
 
     local isRandomOption = TryGetProp(itemobj,'NeedRandomOption')
+    local isAppraisal = TryGetProp(itemobj,'NeedAppraisal')
 
-    if isRandomOption ~= 1 then
-        return false;
+    if isRandomOption == 1 then
+        return true;    
+    elseif isAppraisal == 1 then
+        return true;
     end
-    return true;    
+    return false;    
 end
 
 random_item.set_sealed_random_item_icon_color = function(icon)
