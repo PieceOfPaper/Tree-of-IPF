@@ -867,6 +867,7 @@
 		<Class ClassID="10349" ClassName="AutoSeller_Buff" Data="버프 상점"/>
 		<Class ClassID="10350" ClassName="AutoSeller_Squire" Data="스콰이어 상점"/>
 		<Class ClassID="10351" ClassName="AutoSeller_GemRoasting" Data="젬 로스팅 상점"/>
+		<Class ClassID="10352" ClassName="TextShouldBeUnder{Len}" Data="{Len}바이트 이하의 문자열을 입력해주세요."/>
 		<Class ClassID="10360" ClassName="AutoSeller_Oblation" Data="봉헌함"/>
 		<Class ClassID="10361" ClassName="YouCanSellOblationItemOnlyInCity" Data="봉헌아이템은 마을에서만 팔 수 있습니다."/>
 		<Class ClassID="10362" ClassName="AutoSeller_Oblation_Not_Install" Data="봉헌함을 설치 할 수 없는 지역입니다."/>
@@ -6016,6 +6017,7 @@
 		<Class ClassID="50945" ClassName="GM_WHITETREES_NPC_STATE2" Data="상자 더미의 내구도가 충분합니다"/>
 		<Class ClassID="50946" ClassName="GM_WHITETREES_NPC_NOTITME" Data="자루더미가 없어 수리를 할 수 없습니다{nl}미쉐칸 숲을 돌아다녀 자루더미를 얻고 수리하세요"/>
 		<Class ClassID="50955" ClassName="GM_WHITETREES_ITEM1_MSG3" Data="자루더미 1개를 사용해{nl}회심의 일발을 장전시킬 수 있습니다"/>
+		<Class ClassID="50965" ClassName="CHATHEDRAL56_MQ03_ITEM_COMPANION_NOT" Data="컴패니언 탑승 중에는 아이템을 사용할 수 없습니다"/>
 		<Class ClassID="60001" ClassName="GTOWER32_NPC_CHAT_1" Data="여러분 덕에 여기까지 올 수 있었습니다"/>
 		<Class ClassID="60002" ClassName="GTOWER32_NPC_CHAT_2" Data="이 봉인은 제가 풀겠습니다"/>
 		<Class ClassID="60003" ClassName="GTOWER23_DEAD_MSG_1" Data="포자를 뒤집어 썼습니다{nl}정체불명의 거대알을 공격하세요"/>

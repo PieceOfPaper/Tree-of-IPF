@@ -2792,7 +2792,7 @@
 			<checkbox name="check_party" rect="0 0 120 24" margin="0 0 0 0" layout_gravity="left top" LBtnUpScp="FOODTABLE_CHECK_BOX" caption="{@st66b}파티원 외 음식 제공{/}" clicksound="button_click_big" oversound="button_over"/>
 			<groupbox name="gBox" rect="0 0 475 70" margin="0 0 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false"/>
 			<groupbox name="TitleSkin" parent="gBox" rect="0 0 440 37" margin="0 29 0 0" layout_gravity="left top" draw="true" hittestbox="true" resizebyparent="false" scrollbar="false" skin="test_weight_skin"/>
-			<edit name="TitleInput" parent="gBox" rect="0 0 440 35" margin="5 29 0 0" layout_gravity="left top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="white_16_b" maxlen="40" oversound="button_over" textalign="left center"/>
+			<edit name="TitleInput" parent="gBox" rect="0 0 440 35" margin="5 29 0 0" layout_gravity="left top" OffsetForDraw="0 -1" clicksound="button_click_big" drawbackground="false" fontname="white_16_b" maxlen="42" oversound="button_over" textalign="left center"/>
 		</controls>
 	</controlset>
 	<controlset name="camp_food_item" hittest="true" width="420" height="150" hittestset="false" draw="true" skin="test_skin_01">
