@@ -34,7 +34,14 @@ function SCR_PETSHOP_KLAIPE_DIALOG(self,pc)
     if ret == 'YES' then
         eventSelect = ScpArgMsg('EVENT_1705_SCHWARZEREITER_MSG1')
     end
-    local select = ShowSelDlg(pc, 0, 'PETSHOP_KLAIPE_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), eventSelect , ScpArgMsg('Auto_DaeHwa_JongLyo'));
+    
+    local jobClassName, companionClassName = SCR_FREE_COMPANION_CHECK(self, pc)
+    local jobFreeCompanionMsg = {}
+    for i = 1, #jobClassName do
+        jobFreeCompanionMsg[#jobFreeCompanionMsg + 1] = ScpArgMsg('FREE_COMPANION_MSG1','JOB', GetClassString('Job',jobClassName[i], 'Name'),'COMPANION',GetClassString('Monster',companionClassName[i], 'Name'))
+    end
+    
+    local select = ShowSelDlg(pc, 0, 'PETSHOP_KLAIPE_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), jobFreeCompanionMsg[1], jobFreeCompanionMsg[2], eventSelect, ScpArgMsg('Auto_DaeHwa_JongLyo'));
 --    local select = ShowSelDlg(pc, 0, 'PETSHOP_KLAIPE_basic1', vel, hawk, hoglan, ScpArgMsg('shop_companion'), ScpArgMsg('shop_companion_learnabil'), ScpArgMsg('shop_companion_info'), ScpArgMsg('Auto_DaeHwa_JongLyo'));
     if select == 1 or select == 2 or select == 3 then
 		local scp = string.format("TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(%d)", select);
@@ -47,6 +54,10 @@ function SCR_PETSHOP_KLAIPE_DIALOG(self,pc)
     elseif select == 6 then -- 좋은 점에 대하여
         ShowOkDlg(pc, 'PETSHOP_KLAIPE_basic2', 1)
     elseif select == 7 then
+        SCR_FREE_COMPANION_CREATE(pc, companionClassName[1])
+    elseif select == 8 then
+        SCR_FREE_COMPANION_CREATE(pc, companionClassName[2])
+    elseif select == 9 then
         EVENT_1705_SCHWARZEREITER_NPC(self,pc)
     end
     

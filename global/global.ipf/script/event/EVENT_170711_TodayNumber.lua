@@ -40,7 +40,7 @@ function SCR_EVENT_TODAY_NUMBER_DIALOG(self, pc)
     {23, 'Event_drug_steam_1h',2 , 'CS_IndunReset_GTower_14d', 1},{24, 'Event_drug_steam_1h', 2, 'Drug_Fortunecookie', 5},
     {25, 'Moru_Silver', 1, 'Moru_Gold_14d', 1, 'Moru_Diamond_14d', 1},{26, 'Event_drug_steam_1h', 2, 'GIMMICK_Drug_HPSP2', 20},
     {27, 'Event_drug_steam_1h', 2, 'CS_IndunReset_GTower_14d', 1},{28, 'Event_drug_steam_1h', 2, 'Event_Goddess_Statue', 2},
-    {29, 'Event_drug_steam_1h', 2, 'CS_IndunReset_GTower_14d', 1},{30, 'Premium_StatReset14', 1},
+    {29, 'Event_drug_steam_1h', 2, 'misc_gemExpStone_randomQuest4_14d', 1},{30, 'Premium_StatReset14', 1},
     }
     local select = ShowSelDlg(pc, 0, 'NPC_EVENT_TODAY_NUMBER_8', ScpArgMsg("Event_Today_Number_2"), ScpArgMsg("Event_Today_Number_3"), ScpArgMsg("Cancel")) 
     if select == 1 then 
