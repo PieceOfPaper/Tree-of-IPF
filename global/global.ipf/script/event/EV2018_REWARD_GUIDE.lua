@@ -5,14 +5,14 @@ function SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc) --초보, 복귀 이벤트 --
     local teamName = GetTeamName(pc)
     if teamlv == 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then --팀 레벨이 1이고, 가이드 상자를 받지 않았으면 들어와라 --
         local tx = TxBegin(pc);
-        TxGiveItem(tx, 'Event_Nru2_Box_1', 1, "EV_GuideBox_Give");
+        TxGiveItem(tx, 'Event_Nru2_Box_1_re', 1, "EV_GuideBox_Give");
         TxSetIESProp(tx, aObj, 'EV2018_STEAM_GUIDE_CHECK', aObj.EV2018_STEAM_GUIDE_CHECK + 1); -- 상자 받았으면 +1 --
         IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_GUIDE  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
         local ret = TxCommit(tx);
         ShowOkDlg(pc, 'NPC_EVENT_2018GUIDE_DLG3', 1) --트리 오브 세이비어에 오신 것을 환영합니다. --
     elseif aObj.EV2018_STEAM_RETURN_CHECK == 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then --복귀를 인증 했고, 가이드 상자를 받지 않았으면 들어와라  --
         local tx = TxBegin(pc);
-        TxGiveItem(tx, 'Event_Nru2_Box_1', 1, "EV_GuideBox_Give_RETURN");
+        TxGiveItem(tx, 'Event_Nru2_Box_1_re', 1, "EV_GuideBox_Give_RETURN");
         TxSetIESProp(tx, aObj, 'EV2018_STEAM_RETURN_CHECK', 0); -- 복귀유저가 상자 받았으면 0 (복귀 상자 사용하면 다시 1)--
         TxSetIESProp(tx, aObj, 'EV2018_STEAM_GUIDE_CHECK', 1);
         IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_GUIDE  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
@@ -76,17 +76,354 @@ end
 
 
 function SCR_USE_EVENT_NRU2_BOX_1(pc) -- Base BOX --
-    local tx = TxBegin(pc)
-    TxGiveItem(tx, 'Event_Nru2_Box_2', 1, 'EV_GuideBox_Give');
-    TxGiveItem(tx, 'Event_Nru2_Box_3', 1, 'EV_GuideBox_Give');
-    TxGiveItem(tx, 'Event_Nru2_Box_4', 1, 'EV_GuideBox_Give');
-    TxGiveItem(tx, 'Event_Nru2_Box_5', 1, 'EV_GuideBox_Give');
-    TxGiveItem(tx, 'Event_Nru2_Box_6', 1, 'EV_GuideBox_Give');
-    TxGiveItem(tx, 'Event_Nru2_Box_7', 1, 'EV_GuideBox_Give');
-    local ret = TxCommit(tx)
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+      if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken02_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_drug_steam_1h', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken02_event01', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'NECK99_107', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'JOB_VELHIDER_COUPON', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Klaipe', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_SWD04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TSW04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_MAC04_108', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TSF04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_STF04_107', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_SPR04_103', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TSP04_107', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_BOW04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TBW04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_SHD04_102', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_drug_steam_1h', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_103', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_104', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'PremiumToken_3d_event', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Event_Nru2_Box_2_re', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Event_Nru2_Box_3_re', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Event_Nru2_Box_4_re', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Event_Nru2_Box_5_re', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Event_Nru2_Box_6_re', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Event_Nru2_Box_7_re', 1, 'EV_GuideBox_Give');
+        local ret = TxCommit(tx)
+    end
 end
 
 function SCR_USE_EVENT_NRU2_BOX_2(pc) -- Lv1 BOX --
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+    if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken02_event01', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'NECK99_107', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'JOB_VELHIDER_COUPON', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Klaipe', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_SWD04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TSW04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_MAC04_108', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TSF04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_STF04_107', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_SPR04_103', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TSP04_107', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_BOW04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_TBW04_106', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_SHD04_102', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_drug_steam_1h', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_103', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_104', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'PremiumToken_3d_event', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'NECK99_107', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'JOB_VELHIDER_COUPON', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Event_drug_steam_1h', 10, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'BRC99_103', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'BRC99_104', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_boostToken_14d', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Mic', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'RestartCristal', 3, 'EV_GuideBox_Give');
+        local ret = TxCommit(tx)
+    end
+end
+
+function SCR_USE_EVENT_NRU2_BOX_3(pc) -- Lv50 BOX --
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+    if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_drug_steam_1h', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_103', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_104', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'PremiumToken_3d_event', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_boostToken_14d', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Mic', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'RestartCristal', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_WarpScroll_14d', 2, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_SWD04_106', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_TSW04_106', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_MAC04_108', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_TSF04_106', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_STF04_107', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_SPR04_103', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_TSP04_107', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_BOW04_106', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_TBW04_106', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_SHD04_102', 1, 'EV_GuideBox_Give');
+        local ret = TxCommit(tx)
+    end
+end
+
+function SCR_USE_EVENT_NRU2_BOX_4(pc) -- Lv170 BOX --
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+    if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_103', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'BRC99_104', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'PremiumToken_3d_event', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'E_BRC04_101', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_boostToken02_event01', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Mic', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'RestartCristal', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_WarpScroll_14d', 2, 'EV_GuideBox_Give');
+        local ret = TxCommit(tx)
+    end
+end
+
+function SCR_USE_EVENT_NRU2_BOX_5(pc) -- Lv220 BOX --
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+    if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'PremiumToken_3d_event', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'E_BRC03_108', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'E_BRC04_103', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_boostToken02_event01', 1, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Mic', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'RestartCristal', 3, 'EV_GuideBox_Give');
+        TxGiveItem(tx, 'Premium_WarpScroll_14d', 2, 'EV_GuideBox_Give');
+        local ret = TxCommit(tx)
+    end
+end
+
+function SCR_USE_EVENT_NRU2_BOX_6(pc) -- Team Lv 2 BOX --
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+    if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_WarpScroll', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local teamlv = GetTeamLevel(pc)
+        if teamlv >= 2 then
+            local tx = TxBegin(pc)
+            TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Premium_WarpScroll_14d', 2, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Premium_indunReset_14d', 2, 'EV_GuideBox_Give');
+            local ret = TxCommit(tx)
+        else
+            ShowOkDlg(pc, 'EVENT_REWARD_5DAY_FAIL', 1) -- 팀레벨이 부족합니다 --
+        end
+    end
+end
+
+function SCR_USE_EVENT_NRU2_BOX_7(pc) -- Team Lv 3 BOX --
+    local sObj = GetSessionObject(pc, 'ssn_klapeda')
+    local aObj = GetAccountObj(pc);
+    if sObj.EV180109_STEAM_BEGINNER_SESSION_CHECK >= 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then
+        local tx = TxBegin(pc)
+        TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'RestartCristal', 5, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Mic', 10, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Scroll_Warp_Fedimian', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Warp_Dungeon_Lv100_2', 1, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Premium_dungeoncount_Event', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV170711_NRU2');
+        TxGiveItem(tx, 'Event_Nru2_Box_8', 1, 'EV170711_NRU2');
+        local ret = TxCommit(tx)
+    else
+        local teamlv = GetTeamLevel(pc)
+        if teamlv >= 3 then
+            local tx = TxBegin(pc)
+            TxGiveItem(tx, 'Premium_boostToken03_event01', 1, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Premium_StatReset14', 1, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Premium_SkillReset_14d', 1, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 2, 'EV_GuideBox_Give');
+            TxGiveItem(tx, 'Event_Nru_Buff_Item', 2, 'EV_GuideBox_Give');
+            local ret = TxCommit(tx)
+        else
+            ShowOkDlg(pc, 'EVENT_REWARD_5DAY_FAIL', 1) -- 팀레벨이 부족합니다 --
+        end
+    end
+end
+
+function SCR_USE_EVENT_NRU2_BOX_1_RE(pc) -- Base BOX --
+    local tx = TxBegin(pc)
+    TxGiveItem(tx, 'Event_Nru2_Box_2_re', 1, 'EV_GuideBox_Give');
+    TxGiveItem(tx, 'Event_Nru2_Box_3_re', 1, 'EV_GuideBox_Give');
+    TxGiveItem(tx, 'Event_Nru2_Box_4_re', 1, 'EV_GuideBox_Give');
+    TxGiveItem(tx, 'Event_Nru2_Box_5_re', 1, 'EV_GuideBox_Give');
+    TxGiveItem(tx, 'Event_Nru2_Box_6_re', 1, 'EV_GuideBox_Give');
+    TxGiveItem(tx, 'Event_Nru2_Box_7_re', 1, 'EV_GuideBox_Give');
+    local ret = TxCommit(tx)
+end
+
+function SCR_USE_EVENT_NRU2_BOX_2_RE(pc) -- Lv1 BOX --
     local tx = TxBegin(pc)
     TxGiveItem(tx, 'NECK99_107', 1, 'EV_GuideBox_Give');
     TxGiveItem(tx, 'JOB_VELHIDER_COUPON', 1, 'EV_GuideBox_Give');
@@ -99,7 +436,7 @@ function SCR_USE_EVENT_NRU2_BOX_2(pc) -- Lv1 BOX --
     local ret = TxCommit(tx)
 end
 
-function SCR_USE_EVENT_NRU2_BOX_3(pc) -- Lv50 BOX --
+function SCR_USE_EVENT_NRU2_BOX_3_RE(pc) -- Lv50 BOX --
     local tx = TxBegin(pc)
     TxGiveItem(tx, 'E_FOOT04_101', 1, 'EV_GuideBox_Give');
     TxGiveItem(tx, 'GIMMICK_Drug_HPSP1', 20, 'EV_GuideBox_Give');
@@ -120,7 +457,7 @@ function SCR_USE_EVENT_NRU2_BOX_3(pc) -- Lv50 BOX --
     local ret = TxCommit(tx)
 end
 
-function SCR_USE_EVENT_NRU2_BOX_4(pc) -- Lv170 BOX --
+function SCR_USE_EVENT_NRU2_BOX_4_RE(pc) -- Lv170 BOX --
     local tx = TxBegin(pc)
     TxGiveItem(tx, 'E_BRC04_101', 1, 'EV_GuideBox_Give');
     TxGiveItem(tx, 'Premium_boostToken02_event01', 1, 'EV_GuideBox_Give');
@@ -130,7 +467,7 @@ function SCR_USE_EVENT_NRU2_BOX_4(pc) -- Lv170 BOX --
     local ret = TxCommit(tx)
 end
 
-function SCR_USE_EVENT_NRU2_BOX_5(pc) -- Lv220 BOX --
+function SCR_USE_EVENT_NRU2_BOX_5_RE(pc) -- Lv220 BOX --
     local tx = TxBegin(pc)
     TxGiveItem(tx, 'E_BRC03_108', 1, 'EV_GuideBox_Give');
     TxGiveItem(tx, 'E_BRC04_103', 1, 'EV_GuideBox_Give');
@@ -141,7 +478,7 @@ function SCR_USE_EVENT_NRU2_BOX_5(pc) -- Lv220 BOX --
     local ret = TxCommit(tx)
 end
 
-function SCR_USE_EVENT_NRU2_BOX_6(pc) -- Team Lv 2 BOX --
+function SCR_USE_EVENT_NRU2_BOX_6_RE(pc) -- Team Lv 2 BOX --
     local teamlv = GetTeamLevel(pc)
     if teamlv >= 2 then
         local tx = TxBegin(pc)
@@ -155,7 +492,7 @@ function SCR_USE_EVENT_NRU2_BOX_6(pc) -- Team Lv 2 BOX --
     end
 end
 
-function SCR_USE_EVENT_NRU2_BOX_7(pc) -- Team Lv 3 BOX --
+function SCR_USE_EVENT_NRU2_BOX_7_RE(pc) -- Team Lv 3 BOX --
     local teamlv = GetTeamLevel(pc)
     if teamlv >= 3 then
         local tx = TxBegin(pc)
