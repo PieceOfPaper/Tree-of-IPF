@@ -6,6 +6,12 @@ function ACCOUNTWAREHOUSE_ON_INIT(addon, frame)
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_REMOVE", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_CHANGE_COUNT", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
 	addon:RegisterMsg("ACCOUNT_WAREHOUSE_ITEM_IN", "ON_ACCOUNT_WAREHOUSE_ITEM_LIST");
+	
+	frame = ui.GetFrame("accountwarehouse");
+	local gbox = frame:GetChild("gbox");
+	local moneyInput = gbox:GetChild('moneyInput');
+	AUTO_CAST(moneyInput);
+	moneyInput:SetNumberMode(1);
 
 
 end
@@ -141,21 +147,62 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 		end
 
 	AUTO_CAST(slotset);
+	slotset:ClearIconAll();
+
 	local aObj = GetMyAccountObj();
-	local slotCount = slotset:GetSlotCount();
-	slotset:SetSlotCount(aObj.MaxAccountWarehouseCount + aObj.AccountWareHouseExtend);
-	slotset:AutoAdjustRow();
-	slotset:ShowWindow(1);
+	local slotCount = aObj.MaxAccountWarehouseCount + aObj.AccountWareHouseExtend;
+	for i = 0, slotCount-1 do
+		local slot = slotset:GetSlotByIndex(i)
+		if nil ~= slot then
+			slot:SetSkinName('invenslot2')
+		end
+	end
 	
-	UPDATE_ETC_ITEM_SLOTSET(slotset, IT_ACCOUNT_WAREHOUSE, "accountwarehouse");
-	
+	local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);
+	local index = itemList:Head();
+	local itemCnt = itemList:Count();
+	local saveMoney = gbox:GetChild("saveMoney");
+	saveMoney:SetTextByKey('value',0)
+	local slotIndx = 0;
+	while itemList:InvalidIndex() ~= index do
+		local invItem = itemList:Element(index);
+		local obj = GetIES(invItem:GetObject());
+		if obj.ClassName == MONEY_NAME then
+			saveMoney:SetTextByKey('value',GetCommaedText(invItem.count))
+			itemCnt = itemCnt - 1;
+		else
+			local slot = slotset:GetSlotByIndex(slotIndx);
+			if slot == nil then
+				slot = GET_EMPTY_SLOT(slotset);
+			end
+
+			local itemCls = GetIES(invItem:GetObject());
+			local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
+			
+			SET_SLOT_IMG(slot, iconImg)
+			SET_SLOT_COUNT(slot, invItem.count)
+			SET_SLOT_COUNT_TEXT(slot, invItem.count);
+			SET_SLOT_IESID(slot, invItem:GetIESID())
+			slot:SetMaxSelectCount(invItem.count);
+			local icon = slot:GetIcon();
+			icon:SetTooltipArg("accountwarehouse", invItem.type, invItem:GetIESID());
+			SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, "accountwarehouse");	
+			slotIndx = slotIndx + 1;
+		end
+		index = itemList:Next(index);
+	end
+
+
+	local itemcnt = gbox:GetChild("itemcnt");
+	itemcnt:SetTextByKey('cnt',itemCnt)
+	itemcnt:SetTextByKey('slotmax',slotCount)
+
 	if gbox_warehouse ~= nil then
 		gbox_warehouse:UpdateData();
 		gbox_warehouse:SetCurLine(0);	
 		gbox_warehouse:InvalidateScrollBar();
 		frame:Invalidate();
 	end
-
 end
 
 function ACCOUNT_WAREHOUSE_RECEIVE_ITEM(parent, slot)
@@ -183,7 +230,8 @@ function ACCOUNT_WAREHOUSE_RECEIVE_ITEM(parent, slot)
 		ui.MsgBox(ScpArgMsg("SelectItemByMouseLeftButton"));
 		return;
 	end
-	
+
+	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","receiveitem")
 	local str = ScpArgMsg("TradeCountWillBeConsumedBy{Value}_Continue?", "Value", "1");
 	ui.MsgBox(str, "_EXEC_ACCOUNT_WAREHOUSE_RECEIVE_ITEM", "None");
 
@@ -193,6 +241,80 @@ function _EXEC_ACCOUNT_WAREHOUSE_RECEIVE_ITEM()
 
 	local frame = ui.GetFrame("accountwarehouse");
 	item.TakeItemFromWarehouse_List(IT_ACCOUNT_WAREHOUSE, session.GetItemIDList(), frame:GetUserIValue("HANDLE"));
+end
+
+function ACCOUNT_WAREHOUSE_WITHDRAW(frame, slot)
+	frame = frame:GetTopParentFrame();
+	local gbox = frame:GetChild("gbox");
+	local moneyInput = gbox:GetChild('moneyInput');
+	local price = moneyInput:GetNumber();
+	AUTO_CAST(moneyInput);
+	if price <= 0 then
+		moneyInput:SetText('0');
+		ui.MsgBox(ClMsg("InputPriceMoreThanOne"));
+		return;
+	end
+
+	local visItem = nil;
+
+	local itemList = session.GetEtcItemList(IT_ACCOUNT_WAREHOUSE);
+	local index = itemList:Head();
+	while itemList:InvalidIndex() ~= index do
+		local invItem = itemList:Element(index);
+		local obj = GetIES(invItem:GetObject());
+		if obj.ClassName == MONEY_NAME then
+			visItem = invItem
+			break;
+		end
+		index = itemList:Next(index);
+	end
+
+	if visItem == nil then
+		moneyInput:SetText('0');
+		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
+		return;
+	end
+
+	if visItem.count < price then
+		moneyInput:SetText('0');
+		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
+		return;
+	end
+	session.ResetItemList();
+	session.AddItemID(visItem:GetIESID(), price);
+	item.TakeItemFromWarehouse_List(IT_ACCOUNT_WAREHOUSE, session.GetItemIDList(), frame:GetUserIValue("HANDLE"));
+	moneyInput:SetText('0');
+	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","Withdraw")
+end
+
+function ACCOUNT_WAREHOUSE_DEPOSIT(frame, slot)
+	frame = frame:GetTopParentFrame();
+	local gbox = frame:GetChild("gbox");
+	local moneyInput = gbox:GetChild('moneyInput');
+	local price = moneyInput:GetNumber();
+	AUTO_CAST(moneyInput);
+	if price <= 0 then
+		moneyInput:SetText('0');
+		ui.MsgBox(ClMsg("InputPriceMoreThanOne"));
+		return;
+	end
+
+	local visItem = session.GetInvItemByName(MONEY_NAME)
+	if visItem == nil then
+		moneyInput:SetText('0');
+		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
+		return;
+	end
+
+	if visItem.count < price then
+		moneyInput:SetTempText('0');
+		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
+		return;
+	end
+
+	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, visItem:GetIESID(), price, frame:GetUserIValue("HANDLE"));
+	moneyInput:SetText('0');
+	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","Deposit")
 end
 
 function ACCOUNT_WAREHOUSE_EXTEND(frame, slot)

@@ -209,7 +209,7 @@ function ON_INTE_WARP(frame, changeDirection)
 					local nameRechText = GET_CHILD(set, "areaname", "ui::CRichText");
 					nameRechText:SetTextByKey("mapname","{#ffff00}"..ScpArgMsg('Auto_(woPeuJuMunSeo)'));
 					set:SetEventScript(ui.LBUTTONUP, 'WARP_TO_AREA')
-					if warpInfo ~= nil then --¿©½Å»ó ÀÖ´Â Áö¿ªÀÎ °æ¿ì.
+					if warpInfo ~= nil then --ï¿½ï¿½ï¿½Å»ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 						set:SetEventScriptArgString(ui.LBUTTONUP, warpInfo.ClassName);
 					else
 						set:SetEventScriptArgString(ui.LBUTTONUP, mapCls.ClassName);
@@ -221,7 +221,7 @@ function ON_INTE_WARP(frame, changeDirection)
 					warpcost = 0
 
 					set:SetTooltipType('warpminimap');
-					if warpInfo ~= nil then  --¿©½Å»ó ÀÖ´Â Áö¿ªÀÎ °æ¿ì.
+					if warpInfo ~= nil then  --ï¿½ï¿½ï¿½Å»ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 						set:SetTooltipStrArg(warpInfo.ClassName);
 					else
 						set:SetTooltipStrArg(mapCls.ClassName);
@@ -243,11 +243,14 @@ function ON_INTE_WARP(frame, changeDirection)
 	end
 
 	local result = GET_INTE_WARP_LIST();
+	local mapList, mapCnt = GetClassList('Map')
 	if result ~= nil then
 		for index = 1, #result do
 			local info = result[index];
 			local mapCls = GetClass("Map", info.Zone);
-			local warpcost = geMapTable.CalcWarpCostBind(nowZoneName,info.Zone);
+
+			local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
+
 			if nowZoneName == 'infinite_map' then
 				warpcost = 0;
 			end
@@ -358,7 +361,7 @@ function CREATE_WARP_CTRL(gbox, setName, info, warpcost)
 end
 
 function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
-
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¥ï¿½Ã¾ï¿½ï¿½ï¿½.
 	local warpFrame = ui.GetFrame('inte_warp');
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');
 	local costRichText = GET_CHILD(tooltipframe, "richtext_cost", "ui::CRichText");
@@ -370,7 +373,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 
 	local camp_warp_class = GetClass('camp_warp', strarg)
-	--¿©½Å»ó ÀÖ´Â Áö¿ªÀÎ °æ¿ì.
+	--ï¿½ï¿½ï¿½Å»ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½.
 	if camp_warp_class ~= nil then
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
@@ -424,7 +427,7 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	end
 	
 	camp_warp_class = GetClass("Map", strarg)
-	-- ¿©½Å»ó ¾ø´Â Áö¿ª.
+	-- ï¿½ï¿½ï¿½Å»ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	if camp_warp_class ~= nil then 
 		local nameRichText = GET_CHILD(tooltipframe, "richtext_mapname", "ui::CRichText");
 		nameRichText:SetTextByKey("mapname",camp_warp_class.Name);
@@ -475,18 +478,23 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 --	end
 	local camp_warp_class = GetClass('camp_warp', argStr)
 
+
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
+
 	local myMoney = GET_TOTAL_MONEY();
 	local warpcost
 	local targetMapName;
 	if camp_warp_class ~= nil then
 		targetMapName = camp_warp_class.Zone;
-    	warpcost = geMapTable.CalcWarpCostBind(nowZoneName, camp_warp_class.Zone);
+    	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);
     elseif argStr ~= nil then
-        warpcost = geMapTable.CalcWarpCostBind(nowZoneName, argStr);
+        warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), argStr);
 		targetMapName = argStr;
     end
+
+	print('warp cost: ', warpcost)
+
 
 	if targetMapName == nowZoneName then
 		ui.SysMsg(ScpArgMsg("ThatCurrentPosition"));
@@ -550,4 +558,30 @@ function INTEWARP_SHOW_DIRECTION(frame, ctrl, str, num)
 
 end
 
+function AMMEND_NOW_ZONE_NAME(nowZoneName)
+
+	-- pcï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½ï¿½ï¿½ PhysicalLink = "None"ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ú½ï¿½Æ® ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.(ï¿½ï¿½ï¿½ ï¿½Î´ï¿½ï¿½ï¿½ Æ¯ï¿½ï¿½)
+	-- ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ç¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½ï¿½)ï¿½ï¿½ nowZoneï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	local nowMapCls = GetClass('Map', nowZoneName)
+	local mapList, mapCnt = GetClassList('Map')
+	local etc = GetMyEtcObject()
+
+	if nowMapCls ~= nil and TryGetProp(nowMapCls, 'PhysicalLinkZone') ~= nil then
+		if nowMapCls.PhysicalLinkZone == 'None' then
+						
+			print('before map id: ', etc.LobbyMapID)			
+					
+			for i = 0, mapCnt - 1 do
+				local cls = GetClassByIndexFromList(mapList, i)
+				if cls.ClassID == etc.LobbyMapID then 
+							
+					print("after map name:", cls.ClassName)
+					return cls.ClassName
+
+				end
+			end
+		end
+	end
+	return nowZoneName
+end
 

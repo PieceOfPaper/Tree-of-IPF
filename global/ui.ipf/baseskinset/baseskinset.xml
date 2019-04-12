@@ -3215,6 +3215,12 @@
 			<img name="cooltime" imgrect="403 210 50 50"/>
 			<img name="selected" imgrect="403 210 50 50"/>
 		</skin>
+		<skin name="accountwarehouse_slot" texture="\skin\pip_test.tga">
+			<img name="slot" imgrect="403 656 40 40"/>
+			<img name="mouseon" imgrect="403 210 50 50"/>
+			<img name="cooltime" imgrect="403 210 50 50"/>
+			<img name="selected" imgrect="403 210 50 50"/>
+		</skin>
 		<skin name="durnotify_slot" texture="\skin\pip_test.tga">
 			<img name="slot" imgrect="403 522 40 40"/>
 			<img name="mouseon" imgrect="403 210 50 50"/>
@@ -4344,11 +4350,13 @@
 		<image name="Cube_skin" file="\skin\cube_skin.tga" imgrect="0 0 455 509" CMM_Caption="큐브스킨"/>
 		<image name="tiket_icon" file="\skin\pip_test.tga" imgrect="1797 937 34 21" CMM_Caption="티켓스킨"/>
 		<image name="premium_img" file="\skin\pip_test_item.tga" imgrect="947 684 85 25" CMM_Caption="프리미엄_폰트"/>
-		<image name="guildbattle_ranking_bg" file="\skin\guildbattle_ranking_bg.tga" imgrect="0 0 366 626" CMM_Caption="길드배틀1등표시배경"/>
+		<image name="guildbattle_ranking_bg" file="\skin\guildbattle_ranking_bg.tga" imgrect="0 0 366 495" CMM_Caption="길드배틀1등표시배경"/>
 		<image name="guildbattle_kill_count" file="\skin\pvp_skin.tga" imgrect="251 204 30 30" CMM_Caption="길드배틀킬카운트"/>
 		<image name="guildbattle_death_count" file="\skin\pvp_skin.tga" imgrect="251 173 30 30" CMM_Caption="길드배틀데쓰카운트"/>
+		<image name="dlcinfo" file="\skin\dlcinfo.png" imgrect="0 0 1276 691" CMM_Caption="DLC정보안내"/>
 		<image name="market_view_bg" file="\skin\market_view_bg.tga" imgrect="0 0 380 330" CMM_Caption="마켓뷰배경"/>
-<image name="dlcinfo" file="\skin\dlcinfo.png" imgrect="0 0 1276 691" CMM_Caption="DLC정보안내"/>
+    	<image name="in_arrow" file="\skin\pip_test.tga" imgrect="439 625 14 14" CMM_Caption="입금화살표"/>
+		<image name="chul_arrow" file="\skin\pip_test.tga" imgrect="439 640 14 14" CMM_Caption="출금화살표"/>
 	</imagelist>
 	<imagelist category="tutorial_img">
 		<image name="tutr_img_btn_left" file="\skin\mainframe_04.tga" imgrect="371 448 44 44"/>
@@ -4414,6 +4422,7 @@
 		<image name="loading_bube" file="\skin\loading_gauge.tga" imgrect="7 183 790 80"/>
 		<image name="cube_ani" file="\skin\cube_ani.tga" imgrect="0 0 3608 400"/>
 		<image name="glimoire_ani" file="\skin\glimoire_ani.tga" imgrect="0 0 2887 360"/>
+		<image name="poisonpo_ani" file="\skin\poisonpot_ani.tga" imgrect="0 0 2813 150"/>
 		<image name="notice_pos" file="\skin\notice_pos.tga" imgrect="0 0 2800 200"/>
 		<image name="collection_new" file="\skin\HUD.tga" imgrect="559 521 55 55"/>
 		<image name="collection_com" file="\skin\HUD.tga" imgrect="503 521 55 55"/>

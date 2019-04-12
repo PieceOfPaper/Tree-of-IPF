@@ -559,6 +559,7 @@
 		<Class ClassID="10800" ClassName="Money{MAX}Over" Data="최대 {MAX} 소지금을 초과하여 습득 할 수 없습니다."/>
 		<Class ClassID="10832" ClassName="NoHaveZombiefySkill" Data="좀비만들기 스킬이 없어 좀비를 생성할 수 없습니다."/>
 		<Class ClassID="10833" ClassName="IsMaxCountZombie" Data="좀비 최대 생성수에 도달하여 좀비를 생성할 수 없습니다."/>
+		<Class ClassID="10834" ClassName="Money{MAX}OverAtAcc" Data="최대 {MAX} 소지금을 초과하여 저장 할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="10801" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기 시간 : {Sec}초"/>
@@ -7188,5 +7189,6 @@ ClassID="33547" ClassName="CantUseThisInIntegrateServer" Data="통합 서버에�
 	</Category>
 	<Category Name="Account">
 		<Class ClassID="620001" ClassName="MaxAccountWarehouseCount" Data="팀 창고"/>
+		<Class ClassID="620002" ClassName="AccountUse2MoreRank" Data="실버 입금 및 출금은 2랭크 이상 가능합니다."/>
 	</Category>
 </idspace>

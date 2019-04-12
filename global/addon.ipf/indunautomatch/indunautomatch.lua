@@ -7,10 +7,13 @@ function INDUN_AUTOMATCH_TYPE(indunType)
 		frame:ShowWindow(0);
 	else
 		frame:ShowWindow(1);
+		local indunCls = GetClassByType("Indun", indunType)
+		local indunName = indunCls.Name
+
 		local txt = frame:GetChild("txt");
 		txt:SetTextByKey("value", ScpArgMsg("FindingParty_IfPartyFinded_AutoMaticallyStartGame"));
 		INDUN_AUTOMATCH_TIMER_START(frame);
-		INDUN_AUTOMATCH_SET_READY_COUNT(frame, 0);
+		--INDUN_AUTOMATCH_SET_READY_COUNT(frame, 0);
 	end
 
 end
@@ -20,7 +23,7 @@ function INDUN_AUTOMATCH_FINDED()
 	local frame = ui.GetFrame("indunautomatch");
 	local txt = frame:GetChild("txt");
 	txt:SetTextByKey("value", ScpArgMsg("PartyFinded_GameWillBeStartedSoonAfter"));
-	INDUN_AUTOMATCH_SET_READY_COUNT(frame, 5);
+	--INDUN_AUTOMATCH_SET_READY_COUNT(frame, 5);
 
 end
 
@@ -79,5 +82,8 @@ function INDUN_AUTO_CANCEL()
 
 end
 
-
-
+function INDUN_SET_WAIT_PC_COUNT(pcCount)
+	local frame = ui.GetFrame("indunautomatch");
+	local txt = frame:GetChild("txt_waitPcCount");
+	txt:SetTextByKey("value2", pcCount);
+end
