@@ -10,14 +10,6 @@ function SCR_EV2018_REWARD_GUIDE_DIALOG(self, pc) --초보, 복귀 이벤트 --
         IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_GUIDE  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
         local ret = TxCommit(tx);
         ShowOkDlg(pc, 'NPC_EVENT_2018GUIDE_DLG3', 1) --트리 오브 세이비어에 오신 것을 환영합니다. --
-    elseif aObj.EV2018_STEAM_RETURN_CHECK == 1 and aObj.EV2018_STEAM_GUIDE_CHECK == 0 then --복귀를 인증 했고, 가이드 상자를 받지 않았으면 들어와라  --
-        local tx = TxBegin(pc);
-        TxGiveItem(tx, 'Event_Nru2_Box_1_re', 1, "EV_GuideBox_Give_RETURN");
-        TxSetIESProp(tx, aObj, 'EV2018_STEAM_RETURN_CHECK', 0); -- 복귀유저가 상자 받았으면 0 (복귀 상자 사용하면 다시 1)--
-        TxSetIESProp(tx, aObj, 'EV2018_STEAM_GUIDE_CHECK', 1);
-        IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_GUIDE  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
-        local ret = TxCommit(tx);
-        ShowOkDlg(pc, 'NPC_EVENT_2018GUIDE_DLG2', 1) --트리 오브 세이비어 복귀를 환영합니다 -- 
     else   
         ShowOkDlg(pc, 'NPC_EVENT_2018GUIDE_DLG1', 1)    --팀 레벨이 1이 아니거나, 이미 가이드 상자를 받으셨습니다. --       
     end
@@ -420,6 +412,7 @@ function SCR_USE_EVENT_NRU2_BOX_1_RE(pc) -- Base BOX --
     TxGiveItem(tx, 'Event_Nru2_Box_5_re', 1, 'EV_GuideBox_Give');
     TxGiveItem(tx, 'Event_Nru2_Box_6_re', 1, 'EV_GuideBox_Give');
     TxGiveItem(tx, 'Event_Nru2_Box_7_re', 1, 'EV_GuideBox_Give');
+    TxGiveItem(tx, 'Steam_Event_Weapon_Select_Box_14day', 1, 'EV_GuideBox_Give');
     local ret = TxCommit(tx)
 end
 
@@ -518,8 +511,7 @@ function SCR_USE_EVENT_RETURN_BOX(pc) --복귀 유저 상자 --
     TxGiveItem(tx, 'Ability_Point_Stone_500_14d', 1, "EVENT_RETURN")
     TxGiveItem(tx, 'Premium_SkillReset_14d', 1, "EVENT_RETURN")
     TxGiveItem(tx, 'Premium_StatReset14', 1, "EVENT_RETURN")
-    TxSetIESProp(tx, aObj, 'EV2018_STEAM_RETURN_CHECK', 1); -- 복귀 상자 사용하면 +1 --
-    TxSetIESProp(tx, aObj, 'EV2018_STEAM_GUIDE_CHECK', 0); -- 복귀 상자 사용하면 가이드 상자 다시 받을 수 있습니다 --
+    TxGiveItem(tx, 'Event_Nru2_Box_1_re', 1, "EVENT_RETURN")
     IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_RETRUN  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
     local ret = TxCommit(tx)
     ShowOkDlg(pc, 'NPC_EVENT_2018GUIDE_DLG4', 1) --복귀 유저가 증명되었습니다. --
