@@ -32,7 +32,7 @@ function EVENT_LVUP_13094(self,pc)
     end
     
     if select == 2 then
-        if sObj.EVENT_VALUE_SOBJ03 == 0 then
+        if sObj.EVENT_VALUE_SOBJ03 == 0 and pc.Lv < 330 then
             local nextLv = 0
 	        local nextlv_group = {280, 235, 185, 135, 85, 45, 1}
 	        for i = 1, table.getn(nextlv_group) do
@@ -67,6 +67,13 @@ function EVENT_LVUP_13094(self,pc)
             ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG5', 1)    
         end
     elseif select == 4 then
-        SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("LevelUp_Event_Desc02", "NEXTLV", sObj.EVENT_VALUE_SOBJ01), 5)
+        local sObj = GetSessionObject(pc, 'ssn_klapeda')
+        if sObj.EVENT_VALUE_SOBJ02 < 10 then
+            if pc.Lv >= 330 then
+                ShowOkDlg(pc,'NPC_EVENT_VERUP_DLG8', 1)
+            else
+                SendAddOnMsg(pc, 'NOTICE_Dm_!', ScpArgMsg("LevelUp_Event_Desc02", "NEXTLV", sObj.EVENT_VALUE_SOBJ01), 5)
+            end
+        end
     end
 end

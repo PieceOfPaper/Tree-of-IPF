@@ -19,15 +19,15 @@ function ON_INGAMESHOP_STATE_MSG(frame, msg, argStr, argNum)
             argNum = 0
         end
 
-        ui.MsgBox(ScpArgMsg("LoadFailTPItemList","Code",argNum))
+        ui.MsgBox_NonNested(ScpArgMsg("LoadFailTPItemList","Code",argNum),0x00000000)
 
     elseif argStr == "DontHaveAnyItems" then
 
-        ui.MsgBox(ScpArgMsg("DontHaveAnyItems"))
+        ui.MsgBox_NonNested(ScpArgMsg("DontHaveAnyItems"),0x00000000)
 
     elseif argStr == "NotOwnedItem" then
 
-        ui.MsgBox(ScpArgMsg("NotOwnedItem"))
+        ui.MsgBox_NonNested(ScpArgMsg("NotOwnedItem"),0x00000000)
 
     elseif argStr == "BuyTPItemFailPlzRetry" then
 
@@ -37,22 +37,30 @@ function ON_INGAMESHOP_STATE_MSG(frame, msg, argStr, argNum)
             argNum = 0
         end
 
-        ui.MsgBox(ScpArgMsg("BuyTPItemFailPlzRetry","Code",argNum))
+        ui.MsgBox_NonNested(ScpArgMsg("BuyTPItemFailPlzRetry","Code",argNum),0x00000000)
 
     elseif argStr == "BuyTPItemFailPlzWait" then
         
-        ui.MsgBox(ScpArgMsg("BuyTPItemFailPlzWait"))
+        ui.MsgBox_NonNested(ScpArgMsg("BuyTPItemFailPlzWait"),0x00000000)
 
     elseif argStr == "TpChargeFail" then
         
-        ui.MsgBox(ScpArgMsg("TpChargeFail"))
+        ui.MsgBox_NonNested(ScpArgMsg("TpChargeFail"),0x00000000)
 
     elseif argStr == "TpChargeSuccess" then
         
-        ui.MsgBox(ScpArgMsg("TpChargeSuccess"))
+        ui.MsgBox_NonNested(ScpArgMsg("TpChargeSuccess"),0x00000000)
+
+    elseif argStr == "StillProcessingTryLater" then
+
+        ui.MsgBox_NonNested(ScpArgMsg("StillProcessingTryLater"),0x00000000)
+
+    elseif argStr == "TPItemProcessFail" then
+
+        ui.MsgBox_NonNested(ScpArgMsg("TPItemProcessFail","Code",argNum),0x00000000)
 
     else
-        ui.MsgBox(argStr)
+        ui.MsgBox_NonNested(argStr,0x00000000)
 
     end
 
