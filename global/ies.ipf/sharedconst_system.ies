@@ -269,6 +269,8 @@ ClassID,Value,Value2,ClassName,Desc,UseInScript
 290001,1,0,"USE_REPORT_BOT_TO_CLASSIFIER","1일 경우 분류기를 통한 봇 검출 기능 사용","NO"
 300000,1,0,"COLONY_WAR_OPEN","콜로니전 열꺼면 1 아니면 0","NO"
 300001,100,0,"COLONY_CHANGE_STATE_INTERVAL_MS","콜로니전 상태전이 간격(ms)","NO"
+300002,1,0,"COLONY_ENABLE_MARKET_FEE_PAYMENT","콜로니 점령 마켓 수수료 보상 지급 가능 여부. 1일 경우 가능.","YES"
+300003,60,0,"COLONY_MARKET_FEE_PAYMENT_DELAY_MIN","콜로니 점령 마켓 수수료 보상 지급 대기 시간.(minute) 점령시 기록됨.","NO"
 500000,360,0,"GUILD_INFO_UPDATE_DELAY_MINUTE","제공하는 길드 정보의 업데이트 딜레이(6시간)","YES"
 500001,140,0,"LIMIT_ONELINE_MESSAGE_LENGTH","한줄 게시판 최대 길이","YES"
 500002,720,0,"TEAMNAME_UPDATE_DELAY_MINUTE","제공하는 팀이름 정보의 업데이트 딜레이(12시간)","NO"

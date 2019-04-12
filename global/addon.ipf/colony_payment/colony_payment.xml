@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe name="colony_payment" x="0" y="0" width="650" height="630">
+	<frame fullheight="false" fasthide="true" layout_gravity="center center" margin="0 0 0 0" draw="true"/>
+	<skin frameskin="test_frame_low"/>
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<option visible="false" hideable="true" closebutton="false" moveable="true" alwaysVisible="false"/>
+	<layer layerlevel="101"/>
+	<script OpenScp="ON_OPEN_COLONY_PAYMENT"/>
+	<controls>
+		<groupbox name="title_bg" rect="0 0 650 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
+		<richtext name="title" parent="title_bg" rect="0 0 200 30" margin="0 20 0 0" layout_gravity="center top" caption="{@st42}{s20}점령 보상" fontname="brown_16_b" spacey="0"/>
+		<button name="close" rect="0 0 44 44" margin="0 20 28 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;colony_payment&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+		<groupbox name="bg" rect="0 0 630 470" margin="0 80 0 0" layout_gravity="center top" skin="test_frame_midle" draw="true" scrollbar="false"/>
+		<groupbox name="column_bar" rect="0 0 630 40" margin="0 80 0 0" layout_gravity="center top" skin="market_listbase" draw="true" scrollbar="false"/>
+		<richtext name="date_text" parent="column_bar" rect="0 0 200 30" margin="40 0 0 0" layout_gravity="left center" caption="점령일" fontname="black_18_b" spacey="0"/>
+		<richtext name="map_text" parent="column_bar" rect="0 0 200 30" margin="160 0 0 0" layout_gravity="left center" caption="점령 지역" fontname="black_18_b" spacey="0"/>
+		<richtext name="reward_text" parent="column_bar" rect="0 0 200 30" margin="385 0 0 0" layout_gravity="left center" caption="점령 보상" fontname="black_18_b" spacey="0"/>
+		<groupbox name="list_gb" rect="0 0 630 428" margin="0 120 0 0" layout_gravity="center top" skin="bg2" draw="false" scrollbar="true"/>
+		<richtext name="guidance" rect="0 0 600 100" margin="0 0 0 20" layout_gravity="center bottom" textalign="left center" caption="ⓘ 점령 보상 목록은 콜로니전 종료 후 1시간 뒤에 갱신됩니다.{nl}ⓘ 보상 수령은 길드마스터만 가능하며, 수령된 아이템은 길드 보관함으로 이동됩니다." fontname="black_16_b" spacey="0" fixwidth="true"/>
+	</controls>
+</uiframe>

@@ -555,4 +555,6 @@
 	<Code Code="INFO_DISCONNECT" Team="tos_team" Category="DEBUG" SubCategory="DISCONNECT" Logger="root" Enabled="YES" CallStack="NO" Desc="특정 유저 접속 불가현상관련 로그"/>
 	<Code Code="INFO_webservice" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="웹서버 정보 로그"/>
 	<Code Code="INFO_invalid_ipf" Team="tos_team" Category="SYSTEM" SubCategory="" Logger="root" Enabled="YES" CallStack="NO" Desc="IPF 검증 관련"/>
+	<Code Code="ERROR_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
+	<Code Code="INFO_COLONY_FEE" Team="PROGRAM" Category="LOGIC" SubCategory="COLONY" Logger="root" Enabled="YES" CallStack="NO" Desc=""/>
 </imcErrorCode>

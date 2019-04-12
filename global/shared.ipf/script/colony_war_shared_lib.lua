@@ -10,8 +10,8 @@ function GET_COLONY_MAP_GRADE_AND_PERCENTAGE(mapLevel)
 end
 
 function GET_COLONY_WAR_DAY_OF_WEEK()
-    local guild_colony_rule = GetClass('guild_colony_rule', 'GuildColony_Rule_Default');
-    local dayOfWeek = TryGetProp(guild_colony_rule, 'ColonyStartDayOfWeek');    
+    local dayOfWeek = 0
+    dayOfWeek = GetColonyDayOfWeek();    
     if dayOfWeek ~= nil then
         if dayOfWeek ~= -1 then
             dayOfWeek = dayOfWeek - 1

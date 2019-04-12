@@ -1475,3 +1475,9 @@ function Achieve_Event_Creative_TPP_Player(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_Creative_TPP_Player', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Loving_Summer(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Loving_Summer', 1)
+    local ret = TxCommit(tx);
+end

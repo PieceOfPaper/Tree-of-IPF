@@ -408,7 +408,14 @@
 											</layout>
 										</layoutsection>
 										<layoutsection name="colonyInfoSection" size="105">
-											<richtext name="colonyInfoText" caption="ⓘ 스팟 점령 길드는 참가로 고정됩니다.{nl}ⓘ 참가 여부 옵션을 '참가'로 변경 시, 길드 마스터 위임이 불가능합니다.{nl}ⓘ 참가 여부 옵션은 템플러 클래스를 가진 길드 마스터만 변경할 수 있습니다.{nl}ⓘ 참가 여부 옵션은 길드 콜로니전 시작 5분 전 부터 종료 1분 후까지 변경할 수 없습니다.{nl}ⓘ 참가 여부 옵션은 길드 타워의 설치 유무와 상관없이 변경할 수 있습니다." margin="5 5 0 0 " fixwidth="true" fontname="black_16"/>
+											<layout name="colonyInfoLayout">
+												<layoutsection name="colonyInfoTextLayout">
+													<richtext name="colonyInfoText" caption="ⓘ 스팟 점령 길드는 참가로 고정됩니다.{nl}ⓘ 참가 여부 옵션을 '참가'로 변경 시, 길드 마스터 위임이 불가능합니다.{nl}ⓘ 참가 여부 옵션은 템플러 클래스를 가진 길드 마스터만 변경할 수 있습니다.{nl}ⓘ 참가 여부 옵션은 길드 콜로니전 시작 5분 전 부터 종료 1분 후까지 변경할 수 없습니다.{nl}ⓘ 참가 여부 옵션은 길드 타워의 설치 유무와 상관없이 변경할 수 있습니다." margin="5 5 0 0 " fixwidth="true" fontname="black_16"/>
+												</layoutsection>
+												<layoutsection name="colonyRewardBtnSection" size="15%">
+													<button name="colonyRewardBtn" margin="0 50 0 50" caption="{@st41b}{s16}점령 보상" skin="test_red_button" LBtnUpScp="ui.OpenFrame(&apos;colony_payment&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" clicksound="button_click_big" image="testclose_button" oversound="button_over"/>
+												</layoutsection>
+											</layout>
 										</layoutsection>
 										<layoutsection name="colonizedAreaSection" size="200">
 											<overlap name="colonizedAreaOverlap">
