@@ -7,7 +7,7 @@
 	<Model Path="c_klaipeda_b_model_01_KLA.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="c_klaipeda_blend_01_SIA.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="c_klaipeda_blend_02_KLA.xac" RenderType="RT_MUD_BLEND" IsBloom="0" Type="" NoCol="1"/>
-	<Model Path="c_klaipeda_fishing_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_klaipeda_flag_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fog_KLA.xac" RenderType="RT_FOG" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="c_klaipeda_gr_a_01_SIA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_gr_a_02_KLA.xac" RenderType="RT_MUD_BLEND2" IsBloom="0" NoCol="0"/>
@@ -24,7 +24,6 @@
 	<Model Path="c_klaipeda_house_07_KLA.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="c_klaipeda_house_08_KLA.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="0"/>
 	<Model Path="c_klaipeda_light_SIA.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
-	<Model Path="c_klaipeda_light_URATE_SIA.xac" RenderType="RT_PLANELIGHT" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="c_klaipeda_model_01_SIA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_model_02_SIA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_model_03_SIA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
@@ -47,9 +46,6 @@
 	<Model Path="c_klaipeda_tree_02_SIA.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="c_klaipeda_tree_03_SIA.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
 	<Model Path="c_klaipeda_tree_out_SIA.xac" RenderType="RT_MODEL" IsBloom="0" Type="" NoCol="1"/>
-	<Model Path="c_klaipeda_urate_01_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
-	<Model Path="c_klaipeda_urate_01_TP_KLA.xac" RenderType="BLENDING" IsBloom="0" Type="BLENDING" NoCol="0"/>
-	<Model Path="c_klaipeda_urate_gr_a_KLA.xac" RenderType="RT_MUD_BLEND3" IsBloom="0"/>
 	<Model Path="c_klaipeda_new_ani_01_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_new_ani_02_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_new_ani_03_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
@@ -60,12 +56,16 @@
 	<Model Path="c_klaipeda_new_ani_12_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_new_ani_04_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_new_ani_05_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_klaipeda_gate_ani_01_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_klaipeda_gate_ani_02_KLA.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_001.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_002.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_003.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_004.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_005.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_fish_006.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_klaipeda_fish_007.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
+	<Model Path="c_klaipeda_fish_008.xac" RenderType="RT_MODEL" IsBloom="0" NoCol="0"/>
 	<Model Path="c_klaipeda_water_02_SIA.xac" RenderType="RT_PLANELIGHT" IsBloom="" Type="" NoCol="0"/>
 	<Model Path="c_klaipeda_water_01_SIA.xac" RenderType="RT_WATER" IsBloom="0" Type="0" IsWater="1" WaterDiffDir="-0.15" WaterSwaySpeed="0.6" WaterSwayRange="0.03 0" waterSwayPower="0.05" RefractionNormalSize="0.01" RefractionDir="-0.15" RefractionPower="0.04" WaterSprayNormalSize="0.001" WaterSprayDir="0.01 0.01" WaterSprayPower="0.01" WaterSprayRange="1" WaterSpraycolor="0.1 0.3 0.4" NoCol="0"/>
 </Prop>
