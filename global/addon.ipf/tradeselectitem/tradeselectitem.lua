@@ -28,11 +28,12 @@ function OPEN_TRADE_SELECT_ITEM(invItem)
 		local itemName = TryGetProp(cls, "SelectItemName_"..i);
 		local itemCount = TryGetProp(cls, "SelectItemCount_"..i);
 		if itemName ~= 'None' and itemName ~= nil and itemCount ~= 0 and itemCount ~= nil then
-
 			y = CREATE_QUEST_REWARE_CTRL(box, y, i, itemName, itemCount, nil);	
 			y = y + 5
 		end
 	end
+	
+	frame:SetUserValue("TradeSelectItem", itemobj.ClassName);
 
 	local cancelBtn = frame:GetChild('CancelBtn');
 	local useBtn = frame:GetChild('UseBtn');
@@ -97,11 +98,26 @@ function REQUEST_TRADE_ITEM(frame, ctrl, argStr, argNum)
 	if selectExist == 1 then
 		local itemGuid = frame:GetUserValue("UseItemGuid");
 		local argStr = string.format("%s#%d", itemGuid, selected);
-		pc.ReqExecuteTx("SCR_TX_TRADE_SELECT_ITEM", argStr);
+		
+        local tradeSelectItem = frame:GetUserValue("TradeSelectItem");
+        local cls = GetClass("TradeSelectItem", tradeSelectItem)
+        local warningYesNoMsg = TryGetProp(cls, 'WarningYesNoMsg')
+        if warningYesNoMsg ~= nil and warningYesNoMsg ~= '' and warningYesNoMsg ~= 'None' then
+            local selectItemName = GetClass('Item', TryGetProp(cls, 'SelectItemName_'..selected)).Name
+            
+            local yesScp = string.format("REQUEST_TRADE_ITEM_WARNINGYES(\"%s\")",argStr);
+        	ui.MsgBox(ScpArgMsg(warningYesNoMsg,'ITEM', selectItemName) , yesScp, 'None');
+        else
+    		pc.ReqExecuteTx("SCR_TX_TRADE_SELECT_ITEM", argStr);
+    	end
 	end
 
 	frame = frame:GetTopParentFrame();
 	frame:ShowWindow(0);
+end
+
+function REQUEST_TRADE_ITEM_WARNINGYES(argStr)
+    pc.ReqExecuteTx("SCR_TX_TRADE_SELECT_ITEM", argStr);
 end
 
 function CANCEL_TRADE_ITEM(frame, ctrl, argStr, argNum)

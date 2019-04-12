@@ -1,7 +1,6 @@
 function SCR_STEAM_TREASURE_EVENT_DIALOG(self,pc)
     local year, month, day, hour, min = GetAccountCreateTime(pc)
     local sObj = GetSessionObject(pc, 'ssn_klapeda')
-   SCR_EV170816_YOUR_CHOICE(self, pc)
 --    local select = ShowSelDlg(pc, 0, 'EV_DAILYBOX_SEL', ScpArgMsg("steam_Event_Select_1"), ScpArgMsg("steam_Event_Select_2"), ScpArgMsg("Cancel"))
 --    if select == 1 then
 --        SCR_KIND_DONNES_DIALOG(self,pc)

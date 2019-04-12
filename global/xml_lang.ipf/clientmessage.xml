@@ -322,6 +322,8 @@
 		<Class ClassID="4139" ClassName="{Item}UnlockSuccess" Data="{Item} 아이템의 잠금이 해제되었습니다."/>
 		<Class ClassID="4140" ClassName="YouDontHaveEquipAbility" Data="착용할 수 있는 특성이 없습니다."/>
 		<Class ClassID="4141" ClassName="ThisIsEndedEvent" Data="종료 기한이 지난 이벤트입니다."/>
+	<Class ClassID="4143" ClassName="Event_Select_Acc_Box_Title" Data="슈페리어 브레이슬릿(15일) 상자"/>
+		<Class ClassID="4145" ClassName="SelectCostume{ITEM}" Data="{@st66d_y}{s20}{ITEM}{/}{/} {nl}코스튬을 정말 선택하시겠습니까?{nl} {nl}선택 후에는 다른 코스튬으로{nl}교환할 수 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
 		<Class ClassID="5001" ClassName="CoolDown : {Sec} Sec" Data="재사용 대기시간 : {Sec}초"/>
@@ -4296,6 +4298,24 @@
 		<Class ClassID="27504" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG5" Data="'{RANK}랭크' 달성 시 '{JOBNAME}' 클래스 선택가능!"/>
 		<Class ClassID="27505" ClassName="HIDDEN_JOB_UNLOCK_VIEW_MSG6" Data="해금권을 사용해 {JOBNAME} 클래스를 해금하시겠습니까?"/>
 		<Class ClassID="27510" ClassName="EVENT_REINFORCE_DISCOUNT_MSG1" Data="(할인 50%)"/>
+		<Class ClassID="27520" ClassName="EVENT_1707_COMPASS_MSG1" Data="칼날서약 용병단 조사원에게 조사 내용을 보고하시고 보상을 받으세요!"/>
+		<Class ClassID="27521" ClassName="EVENT_1707_COMPASS_MSG2" Data="보상을 받는다"/>
+		<Class ClassID="27522" ClassName="EVENT_1707_COMPASS_MSG3" Data="보상을 받지 않는다"/>
+		<Class ClassID="27523" ClassName="EVENT_1707_COMPASS_MSG4" Data="보상 : {ITEM}{nl}팀 창고 이동이 불가능한 아이템이 있습니다."/>
+		<Class ClassID="27524" ClassName="EVENT_1707_COMPASS_MSG5" Data="보상 : {ITEM}{nl}팀 창고 이동이 가능한 아이템 입니다."/>
+		<Class ClassID="27525" ClassName="EVENT_1707_COMPASS_MSG6" Data="보상 : 칭호 {ITEM}"/>
+		<Class ClassID="27526" ClassName="EVENT_1707_COMPASS_MSG7" Data="보상 : 용병 수련복 코스튬{nl} 남성용/여성용을 선택하세요."/>
+		<Class ClassID="27527" ClassName="EVENT_1707_COMPASS_MSG8" Data="칼날서약 용병단 문양과 알 수 없는 표식을 발견했습니다"/>
+		<Class ClassID="27528" ClassName="EVENT_1707_COMPASS_MSG9" Data="흔적 옮겨 적기"/>
+		<Class ClassID="27529" ClassName="EVENT_1707_COMPASS_MSG10" Data="쓰러진 나무들 사이에서 전투 흔적과 특이한 화살촉을 찾았습니다"/>
+		<Class ClassID="27530" ClassName="EVENT_1707_COMPASS_MSG11" Data="이벤트를 모두 완료하셨습니다"/>
+		<Class ClassID="27531" ClassName="EVENT_1707_COMPASS_MSG12" Data="보상 : {COUNT}회{nl}일일 이벤트를 완료하셨습니다."/>
+		<Class ClassID="27532" ClassName="EVENT_1707_COMPASS_MSG13" Data="보상 : {COUNT}회{nl}마지막 참여일 : {MM}월 {DD}일{nl}클라페다 '칼날서약 용병단 조사원'에게 보상을 받으세요"/>
+		<Class ClassID="27533" ClassName="EVENT_1707_COMPASS_MSG14" Data="보상 : {COUNT}회{nl}{NOW}회차 목표 : {ZONE} 존으로 이동하세요"/>
+		<Class ClassID="27534" ClassName="EVENT_1707_COMPASS_MSG15" Data="확인해본다"/>
+		<Class ClassID="27535" ClassName="EVENT_1707_COMPASS_MSG16" Data="클라페다 조사원에게 돌아가 조사내용을 전하고 보상을 받으세요"/>
+		<Class ClassID="27540" ClassName="EVENT_1707_USERWEDDING_MSG1" Data="받는다"/>
+		<Class ClassID="27565" ClassName="TradSelectItemMsg1" Data="{#FF0000}{ITEM}{/} 코스튬을 정말 선택하시겠습니까?{nl}선택 후에는 다른 코스튬으로 교환할 수 없습니다."/>
 		<Class ClassID="30001" ClassName="CASTLE_20_3_OBJ_3_MSG1" Data="은은한 붉은 빛이 도는 액체가 담긴 병이 가득 있습니다"/>
 		<Class ClassID="30002" ClassName="CASTLE_20_3_OBJ_4_MSG1" Data="별다른 것은 없는 것 같습니다"/>
 		<Class ClassID="30003" ClassName="CASTLE_20_3_SQ_3_MSG1" Data="살펴보는 중"/>
