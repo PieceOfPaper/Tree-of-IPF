@@ -115,9 +115,6 @@ function REINF_131014_RESULT(pc, guid, result, monster, ret, moruName, moruType,
 			elseif moruName == "Moru_Potential" or moruName == "Moru_Potential14d" then
     			TxAddIESProp(tx, invItem, "Reinforce_2", 0);
 			else
-			    if invItem.ClassID == 635122 then--EVENT_MoruKing_START
-				    AddBuff(self, pc, 'Event_Moru_King', 1, 0, 3600000, 1);
-				end -------------------------------EVENT_MoruKing_END
 				TxTakeItemByObject(tx, invItem, 1, 'Reinforce_2_Fail');
 				isBreakItem = 1;
 			end

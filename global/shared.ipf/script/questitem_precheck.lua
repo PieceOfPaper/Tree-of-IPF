@@ -2383,13 +2383,13 @@ function SCR_PRE_CATACOMB_02_SQ_03_ITEM(self, argstring, argnum1, argnum2)
         	            if IsServerSection(self) == 1 then
             	            if list[i].ClassName ~= 'PC' then
                 	            if list[i].Dialog == 'CATACOMB_02_OBJ_04' or list[i].Dialog == 'CATACOMB_02_OBJ_05_1' or list[i].Dialog == 'CATACOMB_02_OBJ_05_2' or list[i].Dialog == 'CATACOMB_02_OBJ_05_3' then
-                	                return 1;
+                	                return GetHandle(list[i]);
                 	            end
                 	        end
         	            else
             	            if list[i].ClassName ~= 'PC' then
                 	            if GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_04' or GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_05_1' or GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_05_2' or GetDialogByObject(list[i]) == 'CATACOMB_02_OBJ_05_3' then
-                	                return 1;
+                	                return GetHandle(list[i]);
                 	            end
                 	        end
             	        end
@@ -4617,7 +4617,7 @@ function SCR_PRE_ORCHARD_323_SQ_CARVE(self, argstring, argnum1, argnum2)
                 local i 
                 if fndCnt > 0 then
                     for i = 1, fndCnt do
-                        if fndList[i].ClassName == 'ferret_patter' or fndList[i].ClassName == 'ferret_searcher' or ndList[i].ClassName == 'ferret_slinger' then
+                        if fndList[i].ClassName == 'ferret_patter' or fndList[i].ClassName == 'ferret_searcher' or fndList[i].ClassName == 'ferret_slinger' then
                             return GetHandle(fndList[i])
                         elseif fndList[i].ClassName == 'skill_romuva_D' then
                             return 0

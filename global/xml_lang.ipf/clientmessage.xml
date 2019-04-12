@@ -316,6 +316,8 @@
 		<Class ClassID="4135" ClassName="YouHaveRankCardReallyRankReset?" Data="사용하지 않은 랭크 카드가 있습니다.{nl}랭크 카드 및 클래스 경험치 복구 카드를 사용한 후에 랭크 초기화를 할 수 있습니다."/>
 		<Class ClassID="4136" ClassName="NotEnoughStoredMoney" Data="보관 중인 금액이 부족합니다."/>
 		<Class ClassID="4137" ClassName="DeleteCardBecauseYourRankTooHigh" Data="이미 사용할 수 있는 랭크를 초과하였습니다.{nl}확인을 누르면 카드가 삭제됩니다."/>
+		<Class ClassID="4138" ClassName="{Item}LockSuccess" Data="{Item} 아이템의 잠금이 설정되었습니다."/>
+		<Class ClassID="4139" ClassName="{Item}UnlockSuccess" Data="{Item} 아이템의 잠금이 해제되었습니다."/>
 		<Class ClassID="4140" ClassName="YouDontHaveEquipAbility" Data="착용할 수 있는 특성이 없습니다."/>
 	</Category>
 	<Category Name="ItemTooltip">
@@ -9703,8 +9705,6 @@
 	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
 		<Class ClassID="510201" ClassName="NPC_SHOP_ARMOR_NORMAL_270_315" Data="방어구"/>
-		<Class ClassID="501046" ClassName="steam_Nru_Always_1" Data="신규 유저 가이드 상자 받기"/>
-		<Class ClassID="501047" ClassName="steam_Nru_Always_2" Data="앞으로 {NRUCOUNT}개의 캐릭터 보상이 남았습니다."/>
 	</Category>
 	<Category Name="Skill_Misc_Shop">
 		<Class ClassID="510100" ClassName="Skill_Misc_Shop_Sel_Warrior" Data="전사 계열"/>
