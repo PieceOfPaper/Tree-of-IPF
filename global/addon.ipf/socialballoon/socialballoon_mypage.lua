@@ -45,7 +45,7 @@ function SOCIAL_MYPAGE_MODE_DETAIL(frame, handle)
 	
 	local myPageVisitBtn = GET_CHILD(myPageGbox_detail, "myPageVisitBtn", "ui::CButton");
 	local strscp = string.format("MYPAGE_TARGET_INIT(%d)", handle);
-	myPageVisitBtn:SetEventScript(ui.LBUTTONDOWN, strscp);	
+	myPageVisitBtn:SetEventScript(ui.LBUTTONDOWN, strscp, true);	
 end
 
 function MYPAGE_COMMENT_SMALL_CTRL_SETTING(commentGbox, commentStruct, yPos, handle)

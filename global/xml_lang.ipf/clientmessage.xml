@@ -6569,9 +6569,9 @@
 		<Class ClassID="122054" ClassName="DoYouReportAuto{Name}?" Data="{Name}님을 오토 유저로 신고하시겠습니까?"/>
 		<Class ClassID="122055" ClassName="ThxReportAuto{Name}" Data="{Name}님에 대한 오토신고가 접수되었습니다. 감사합니다."/>
 		<Class ClassID="122056" ClassName="AlreadyRequestFriend" Data="이미 친구 신청을 보냈습니다."/>
-    <Class ClassID="122057" ClassName="Report_GuildEmblem" Data="부적절 길드 엠블럼 신고하기"/>
-    <Class ClassID="122058" ClassName="DoYouReportGuildEmblem{Name}?" Data="{Name}님을 부적절 길드 엠블럼 사용 유저로 신고하시겠습니까?"/>
-    <Class ClassID="122059" ClassName="ThxReportGuildEmblem{Name}" Data="{Name}님에 대한 부적절 길드 엠블럼 사용 신고가 접수되었습니다. 감사합니다."/>
+		<Class ClassID="122057" ClassName="Report_GuildEmblem" Data="부적절 길드 엠블럼 신고하기"/>
+		<Class ClassID="122058" ClassName="DoYouReportGuildEmblem{Name}?" Data="{Name}님을 부적절 길드 엠블럼 사용 유저로 신고하시겠습니까?"/>
+		<Class ClassID="122059" ClassName="ThxReportGuildEmblem{Name}" Data="{Name}님에 대한 부적절 길드 엠블럼 사용 신고가 접수되었습니다. 감사합니다."/>
 	</Category>
 	<Category Name="BlackMarket">
 		<Class ClassID="123001" ClassName="Deposit" Data="계약금"/>
@@ -9940,6 +9940,13 @@
 		<Class ClassID="501087" ClassName="Event_Together_Master_1" Data="오늘은 마스터의 증표를 모두 받으셨습니다"/>
 		<Class ClassID="501088" ClassName="Event_Together_Master_2" Data="마스터의 증표를 획득하셨습니다"/>
 		<Class ClassID="501089" ClassName="Event_Steam_Together_Master_3" Data="마스터와 함께"/>
+		<Class ClassID="501091" ClassName="EVENT_SELECT_BOSSLV_SEL1" Data="육성하기"/>
+		<Class ClassID="501092" ClassName="EVENT_SELECT_BOSSLV_SEL2" Data="몬스터명 : {NAME}"/>
+		<Class ClassID="501093" ClassName="EVENT_SELECT_BOSSLV_SEL3" Data=" {nl}몬스터명 : {NAME}{nl}현재레벨 : {LV}{nl}{nl}레벨을 올리기 위해서는 '몬스터의 기운' 아이템이 필요합니다."/>
+		<Class ClassID="501094" ClassName="EVENT_SELECT_BOSSLV_SEL4" Data="방생하기"/>
+		<Class ClassID="501096" ClassName="EVENT_SELECT_BOSSLV_SEL5" Data="특별한 블루 오브 이벤트"/>
+		<Class ClassID="501097" ClassName="EVENT_SELECT_BOSSLV_SEL6" Data=" {nl}몬스터 정보{nl}Lv {LV1} {NAME1}{nl}Lv {LV2} {NAME2}{nl}Lv {LV3} {NAME3}"/>
+		<Class ClassID="501098" ClassName="EVENT_SELECT_BOSSLV_SEL7" Data=" {nl}이벤트 미션 정보{nl}최대 클리어 단계 : {MAX}"/>
 	</Category>
 	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
@@ -9991,12 +9998,12 @@
 		<Class ClassID="600001" ClassName="CyouDelibarationMsg2" Data="您累计在线时间已满2小时"/>
 		<Class ClassID="600002" ClassName="CyouDelibarationMsg3" Data="您累计在线时间已满3小时，请您下线休息，做适当身体活动"/>
 		<Class ClassID="600003" ClassName="CyouDelibarationMsg4" Data="您已经进入疲劳游戏时间，您的游戏收益将降为正常值的50%，为了您的健康，请尽快下线休息，做适当身体活动，合理安排学习生活"/>
-    <Class ClassID="600004" ClassName="CyouDelibarationMsg5" Data="您已进入不健康游戏时间，为了您的健康，请您立即下线休息。如不下线，您的身体将受到损害，您的收益已降为零，直到您的累计下线时间满5小时后，才能恢复正常"/>
+		<Class ClassID="600004" ClassName="CyouDelibarationMsg5" Data="您已进入不健康游戏时间，为了您的健康，请您立即下线休息。如不下线，您的身体将受到损害，您的收益已降为零，直到您的累计下线时间满5小时后，才能恢复正常"/>
 		<Class ClassID="600005" ClassName="CyouPointLookupFailMessage" Data="서버가 혼잡하여 Cyou Point 조회에 실패했습니다. 잠시 후 다시 시도해 주세요."/>
 		<Class ClassID="600006" ClassName="CyouAuthenticationFailed" Data="창유] 계정인증에 실패하였습니다.."/>
 		<Class ClassID="600007" ClassName="CyouServerAuthenticationFailed" Data="Cyou] Server Authentication has failed. Please restart the login launcher to re-attempt the login process."/>
-    <Class ClassID="600008" ClassName="CyouDoubleLoginKick" Data="一个未成年身份证两个账号同时在线，将玩家踢下线 。"/>
-    <Class ClassID="600009" ClassName="CyouCantCompleteQuest" Data="疲劳状态下无法完成任务，请您下线休息满5小时解除疲劳状态再进行游戏"/>
+		<Class ClassID="600008" ClassName="CyouDoubleLoginKick" Data="一个未成年身份证两个账号同时在线，将玩家踢下线 。"/>
+		<Class ClassID="600009" ClassName="CyouCantCompleteQuest" Data="疲劳状态下无法完成任务，请您下线休息满5小时解除疲劳状态再进行游戏"/>
 	</Category>
 	<Category Name="AdventureBook">
 		<Class ClassID="700000" ClassName="Complete" Data="완성"/>
@@ -10017,7 +10024,8 @@
 		<Class ClassID="700015" ClassName="TopRanking" Data="상위 랭킹"/>
 		<Class ClassID="700016" ClassName="{CtrlType}Type{RankNum}Rank" Data="{CtrlType} {RankNum}랭크"/>
 		<Class ClassID="700017" ClassName="Score" Data="점수"/>
-	</Category>	<Category Name="LegendTrade">
+	</Category>
+	<Category Name="LegendTrade">
 		<Class ClassID="510400" ClassName="GT2_RELICSHOP_NPC_SEL_4" Data="다른 장비로 교환 가능한지 물어본다."/>
 	</Category>
 	<Category Name="ColonyWar">

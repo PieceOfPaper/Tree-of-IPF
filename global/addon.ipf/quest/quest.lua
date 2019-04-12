@@ -900,6 +900,10 @@ function QUEST_CTRL_UPDATE_PARTYINFO(ctrlSet, questIES)
 	if pcparty == nil then
 		return;
 	end
+	
+	if questIES == nil then
+	    return
+	end
 
 	local partyObj = GetIES(pcparty:GetObject());
 	if partyObj.IsQuestShare == 0 then

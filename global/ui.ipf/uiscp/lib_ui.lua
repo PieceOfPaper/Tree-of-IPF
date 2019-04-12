@@ -419,7 +419,8 @@ function GET_LOCAL_MOUSE_POS(ctrl)
 end
 
 function SET_EVENT_SCRIPT_RECURSIVELY(frame, type, funcName)
-	frame:SetEventScript(type, funcName);
+    local byFullString = string.find(funcName, '%(') ~= nil;
+	frame:SetEventScript(type, funcName, byFullString);
 	local cnt = frame:GetChildCount();
 	for i = 0, cnt - 1 do
 		local child = frame:GetChildByIndex(i);

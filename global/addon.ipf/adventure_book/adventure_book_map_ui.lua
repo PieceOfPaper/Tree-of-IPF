@@ -255,10 +255,8 @@ function ADVENTURE_BOOK_MAP.DRAW_MINIMAP(selectedMapID)
 	ctrlSet:GetChild("monlv"):SetVisible(0)
 
     -- map fog
-    MAKE_MAP_FOG_PICTURE(drawMapName, pic, true);
-    if UPDATE_MAP_FOG_RATE ~= nil then
-	    UPDATE_MAP_FOG_RATE(ctrlSet, drawMapName);
-    end
+    MAKE_MAP_FOG_PICTURE(drawMapName, pic, true);    
+    UPDATE_MAP_FOG_RATE(ctrlSet, drawMapName);
 end
 
 function ADVENTURE_BOOK_MAP_SET_POINT()

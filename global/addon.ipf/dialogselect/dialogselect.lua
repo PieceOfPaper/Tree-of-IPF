@@ -89,7 +89,7 @@ function DIALOGSELECT_ITEM_ADD(frame, msg, argStr, argNum)
         frame:SetOffset(frame:GetX(),  locationUI);
     end
 
-    ItemBtnCtrl:SetEventScript(ui.LBUTTONUP, 'control.DialogSelect(' .. argNum .. ')');
+    ItemBtnCtrl:SetEventScript(ui.LBUTTONUP, 'control.DialogSelect(' .. argNum .. ')', true);
     ItemBtnCtrl:ShowWindow(1);
     ItemBtnCtrl:SetText('{s18}{b}{#2f1803}'..argStr);
     frame:Update();

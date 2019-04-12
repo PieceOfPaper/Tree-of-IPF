@@ -127,7 +127,7 @@ function MIC_PUSH(frame, mic)
 	local ctrl = frame:CreateControl("richtext", ctrlName, startX, 0, 10, 20);
 	
 	local rBtnHandler = string.format("SHOW_PC_CONTEXT_MENU_BY_NAME('%s')", mic:GetName())
-	ctrl:SetEventScript(ui.RBUTTONDOWN, rBtnHandler)
+	ctrl:SetEventScript(ui.RBUTTONDOWN, rBtnHandler, true);
 	ctrl:SetEventScript(ui.MOUSEMOVE, "MIC_MOUSE_OVER")
 
 	ctrl:ShowWindow(1);

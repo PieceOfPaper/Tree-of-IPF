@@ -380,6 +380,12 @@ function ADVENTURE_BOOK_CRAFT_CONTENT.SEARCH_PROP_BY_TARGET_ITEM_FUNC(craftPair,
 	if prop == nil then
 		return false;
 	end
+
+	if propName == "Name" then
+		if config.GetServiceNation() ~= "KOR" then
+			prop = dic.getTranslatedStr(prop);				
+		end
+	end
     
 	prop = string.lower(prop);
 	searchText = string.lower(searchText);

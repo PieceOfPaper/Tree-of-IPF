@@ -57,6 +57,7 @@ function INPUT_STRING_BOX(titleName, strscp, defaultText, numArg, maxLen, titleN
 	
 	newframe:SetUserValue("FROM_FR", "None");
 	
+	local byFullString = string.find(strscp, '%(') ~= nil;
 	if titleName2 == nil then
 		newframe:Resize(500, 220);
 	else
@@ -71,7 +72,7 @@ function INPUT_STRING_BOX(titleName, strscp, defaultText, numArg, maxLen, titleN
 			edit2:SetText(defaultText2);
 		end
 
-		edit2:SetEventScript(ui.ENTERKEY, strscp);
+		edit2:SetEventScript(ui.ENTERKEY, strscp, byFullString);
 	end
 
 	local edit = GET_CHILD(newframe, 'input', "ui::CEditControl");
@@ -112,8 +113,8 @@ function INPUT_STRING_BOX(titleName, strscp, defaultText, numArg, maxLen, titleN
 	ui.SetTopMostFrame(newframe);
 
 	local confirm = newframe:GetChild("confirm");
-	confirm:SetEventScript(ui.LBUTTONUP, strscp);
-	edit:SetEventScript(ui.ENTERKEY, strscp);
+	confirm:SetEventScript(ui.LBUTTONUP, strscp, byFullString);
+	edit:SetEventScript(ui.ENTERKEY, strscp, byFullString);
 
 	edit:AcquireFocus();
 	return newframe;

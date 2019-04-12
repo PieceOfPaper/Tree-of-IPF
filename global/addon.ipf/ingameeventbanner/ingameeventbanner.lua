@@ -147,7 +147,7 @@ function UPDATE_EVENTBANNER_UI(frame)
                         
     --                    local curquest = session.GetUserConfig("CUR_QUEST", 0);
     --                    local StrScript = string.format("EXEC_ABANDON_QUEST(%d)", curquest);
-                        imgBtn:SetEventScript(ui.LBUTTONUP, string.format("EVENT_BANNER_USERCOMMAND_BTN(%d)", banner.ClassID + i2));
+                        imgBtn:SetEventScript(ui.LBUTTONUP, string.format("EVENT_BANNER_USERCOMMAND_BTN(%d)", banner.ClassID + i2), true);
                     	imgBtn:SetOverSound('button_over');
                     	imgBtn:SetClickSound('button_click_big');
                     end

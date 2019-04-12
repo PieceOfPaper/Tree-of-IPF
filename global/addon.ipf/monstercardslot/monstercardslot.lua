@@ -442,7 +442,7 @@ function EQUIP_CARDSLOT_BTN_REMOVE(frame, ctrl)
 	local inven = ui.GetFrame("monstercardslot");
 	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
 
-	argStr = argStr .. " 1" -- 0: 카드 레벨 떨어지면서 제거
+	argStr = argStr .. " 0" -- 0: 카드 레벨 떨어지면서 제거
 	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
 end;
 

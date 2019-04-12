@@ -33,7 +33,7 @@ function SYSMENU_CUSTOM_UPDATE(frame) -- 게임 접속, 잡 체인징 시 돌아야 할 듯.
 			
 			btn:SetImage(cls.ImageName)
 			btn:SetTextTooltip(cls.TextTooltip)
-			btn:SetEventScript(ui.LBUTTONUP, "ui.ToggleFrame('".. cls.ClassName .."')");	
+			btn:SetEventScript(ui.LBUTTONUP, "ui.ToggleFrame('".. cls.ClassName .."')", true);	
 			frame:SetLayerLevel(96);
 
 			SYSMENU_CUSTOM_LIST[#SYSMENU_CUSTOM_LIST + 1] = cls.ClassName
