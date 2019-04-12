@@ -10800,6 +10800,7 @@
 		<Class ClassID="501104" ClassName="EVENT_STEAM_CHRISTMAS_SEL4" Data="거짓말을 할 수 없어"/>
 		<Class ClassID="501105" ClassName="EVENT_STEAM_CHRISTMAS_SEL5" Data="오늘의 착한 일 한 어린이 위치"/>
 		<Class ClassID="501106" ClassName="EVENT_STEAM_CHRISTMAS_SEL6" Data="오늘의 착한 일 한 어린이는{nl}{MAP}{nl}지역에 있습니다."/>
+		<Class ClassID="501148" ClassName="EVENT_COOPERATION_DLG4" Data="길드 출석 및 보상 받기"/>
 	</Category>
 	<Category Name="Npc_Equip_Shop_270_315">
 		<Class ClassID="510200" ClassName="NPC_SHOP_WEAPON_NORMAL_270_315" Data="무기"/>
@@ -10832,6 +10833,8 @@
 		<Class ClassID="501136" ClassName="EVENT_7DAY_EXP_SEL2" Data="경험치 버프 받기"/>
 		<Class ClassID="501137" ClassName="EVENT_STEAM_TITLE_1" Data="주말 경험치"/>
 		<Class ClassID="501138" ClassName="EVENT_STEAM_TITLE_2" Data="출석 경험치"/>
+		<Class ClassID="501149" ClassName="EVENT_WITH_GUILD_DLG1" Data="{GUILD} 길드{nl} {nl}어제 출석인원 수 : {COUNT1}{nl}오늘 출석인원 수 : {COUNT2}"/>
+		<Class ClassID="501150" ClassName="EVENT_WITH_GUILD_DLG2" Data="길드 출석 체크 및 보상이 지급되었습니다."/>
 	</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>

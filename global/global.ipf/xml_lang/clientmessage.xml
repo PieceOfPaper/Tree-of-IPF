@@ -93,6 +93,9 @@
 		<Class ClassID="501141" OverrideType="ADD" ClassName="EVENT_COOPERATION_DLG1" Data=" {nl}{@st66d_y}{s18}{TEAM}{/}{/} 에 배정되었습니다.{nl}몬스터 처치시 {@st66d_y}{s18}{ITEM}{/}{/}을 획득할 수 있습니다."/>
 		<Class ClassID="501142" OverrideType="ADD" ClassName="EVENT_COOPERATION_DLG2" Data="아이템 교환"/>
 		<Class ClassID="501144" OverrideType="ADD" ClassName="EVENT_COOPERATION_DLG3" Data="마을 축제"/>
+		<Class ClassID="501148" OverrideType="ADD" ClassName="EVENT_COOPERATION_DLG4" Data="길드 출석 및 보상 받기"/>
+		<Class ClassID="501149" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG1" Data="{GUILD} 길드{nl} {nl}어제 출석인원 수 : {COUNT1}{nl}오늘 출석인원 수 : {COUNT2}"/>
+		<Class ClassID="501150" OverrideType="ADD" ClassName="EVENT_WITH_GUILD_DLG2" Data="길드 출석 체크 및 보상이 지급되었습니다."/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="660001" OverrideType="ADD" ClassName="steam_PremiumToken_30day" Data="토큰:30일"/>

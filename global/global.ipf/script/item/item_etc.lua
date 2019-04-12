@@ -1292,3 +1292,48 @@ function ACHIEVE_HAPPY2YEAR_STEAM(pc)
     TxAddAchievePoint(tx, 'Event_Happy2Year_Steam', 1)
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_PENGUINPACK_2018(pc, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'egg_011', 1, 'PENGUINPACK_2018');
+    TxGiveItem(tx, 'food_penguin', 50, 'PENGUINPACK_2018');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_CROW_2018(pc, argObj, StringArg, Numarg1, Numarg2)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'egg_021', 1, 'PENGUINPACK_2018');
+    TxGiveItem(tx, 'food_cereal', 50, 'PENGUINPACK_2018');
+    local ret = TxCommit(tx);
+end
+
+function DLC_BOX_2YEARS(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'ABAND01_130', 1, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'egg_012', 1, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Event_Reinforce_100000coupon', 10, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Ability_Point_Stone', 1, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Event_Steam_2Years_Master_DLC', 1, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Drug_Premium_HP1', 20, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Drug_Premium_SP1', 20, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Event_drug_steam_1h_DLC', 10, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Event_Fire_Songpyeon', 5, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Event_Goddess_Statue_DLC', 5, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'Drug_Haste1_event', 5, 'DLC_BOX_2YEARS');
+    TxGiveItem(tx, 'PremiumToken_15d_Steam', 1, 'DLC_BOX_2YEARS');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_EVENT_STEAM_2YEARS_WARP(pc)
+    local aObj = GetAccountObj(pc);
+    local select = ShowSelDlg(pc, 0, 'NPC_EVENT_2YEARS_DLG6',  ScpArgMsg("Cancel"), ScpArgMsg("Yes")) 
+
+    if select == 2 then
+        local tx = TxBegin(pc)
+        TxSetIESProp(tx, aObj, 'STEAM_2YEARS_MASTER_DLC_CHECK', 1);
+        local ret = TxCommit(tx)
+        if ret =="SUCCESS" then
+            MoveZone(pc, 'c_Klaipe', 71.70, 149.21, 321.89);
+        end
+    end
+end
