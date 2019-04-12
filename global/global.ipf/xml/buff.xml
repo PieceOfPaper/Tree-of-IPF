@@ -6,6 +6,11 @@
 		<Class ClassID="7017" ClassName="Premium_Fortunecookie_3" ToolTip="몬스터 처치 시 획득 경험치 +90%{nl}이동 속도 +3" BuffExpUP="0.9"/>
 		<Class ClassID="7018" ClassName="Premium_Fortunecookie_4" ToolTip="몬스터 처치 시 획득 경험치 +120%{nl}이동 속도 +4" BuffExpUP="1.2"/>
 		<Class ClassID="7019" ClassName="Premium_Fortunecookie_5" ToolTip="몬스터 처치 시 획득 경험치 +150%{nl}이동 속도 +5" BuffExpUP="1.5"/>
+		<Class ClassID="7057" ClassName="Event_Umbrella_1" Name="가문의 영광 1단계" ToolTip="몬스터 처치 시 획득 경험치 +20%" BuffExpUP="0.2"/>
+		<Class ClassID="7058" ClassName="Event_Umbrella_2" Name="가문의 영광 2단계" ToolTip="몬스터 처치 시 획득 경험치 +40%" BuffExpUP="0.4"/>
+		<Class ClassID="7059" ClassName="Event_Umbrella_3" Name="가문의 영광 3단계" ToolTip="몬스터 처치 시 획득 경험치 +60%" BuffExpUP="0.6"/>
+		<Class ClassID="7060" ClassName="Event_Umbrella_4" Name="가문의 영광 4단계" ToolTip="몬스터 처치 시 획득 경험치 +80%" BuffExpUP="0.8"/>
+		<Class ClassID="7061" ClassName="Event_Umbrella_5" Name="가문의 영광 5단계" ToolTip="몬스터 처치 시 획득 경험치 +100%" BuffExpUP="1.0"/>
 	</Category>
 	<Category Name="Buff">
 		<Class ClassID="134" ClassName="Impaler_Debuff" BuffExpUP="0" Animation="IMPALER_STUN"/>

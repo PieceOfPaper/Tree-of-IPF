@@ -36,6 +36,12 @@ function GET_MORE_EVENT_EXP(pc)
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Nru_Buff_Item'); --해외 신규 유저 이벤트
     sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Monster_EXP_UP'); --해외 페이스북 컴패니언 이벤트
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Steam_Happy_New_Year'); --해외 신년 이벤트
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_1'); --비 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_2'); --비 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_3'); --비 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_4'); --비 이벤트
+    sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Umbrella_5'); --비 이벤트
+
 	return sumExp; 
 end
 

@@ -15,7 +15,7 @@ GET_EQUIP_ITEM_GRADE1 = 1
 GET_EQUIP_ITEM_GRADE1 = 1
 
 --ADVENTURE_BOOK monster score
-function GET_ADVENTURE_BOOK_MONSTER_POINT(pc, isInitSectionInfo)
+function GET_ADVENTURE_BOOK_MONSTER_POINT(pc)
     local adv_mon_point = 0
     local boss_point = 0
     local basic_point = 0
@@ -33,11 +33,9 @@ function GET_ADVENTURE_BOOK_MONSTER_POINT(pc, isInitSectionInfo)
             if monCls.MonRank == "Boss" then
         		local boss_point, maxPoint, section = _GET_ADVENTURE_BOOK_MONSTER_POINT(true, monKillCount);
         		adv_mon_point = adv_mon_point+ boss_point
-                UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'MonKill', monIDList[i], isInitSectionInfo, section, boss_point);
         	else
         		local basic_point, maxPoint, section = _GET_ADVENTURE_BOOK_MONSTER_POINT(false, monKillCount);
         	    adv_mon_point = adv_mon_point+ basic_point
-                UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'MonKill', monIDList[i], isInitSectionInfo, section, basic_point);
         	end
 --            print("-- 몬스터 이름: ", monCls.ClassName);
 --            print("-- 킬카운트: ", monKillCount);
@@ -84,7 +82,7 @@ function _GET_ADVENTURE_BOOK_MONSTER_POINT(isBoss, monKillCount)
 end
 
 --ADVENTURE_BOOK item score
-function GET_ADVENTURE_BOOK_ITEM_POINT(pc, isInitSectionInfo)
+function GET_ADVENTURE_BOOK_ITEM_POINT(pc)
     local adv_item_point = 0
     
     local idList = GetAdventureBookItemCountableList(pc);
@@ -99,11 +97,9 @@ function GET_ADVENTURE_BOOK_ITEM_POINT(pc, isInitSectionInfo)
             if cls.ItemType == "Equip" then
         		local equip_item_point, maxPoint, section = _GET_ADVENTURE_BOOK_POINT_ITEM(true, itemObtainCount);
         		adv_item_point = adv_item_point + equip_item_point
-                UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'ItemGet', idList[i], isInitSectionInfo, section, equip_item_point);
         	else
         	    local basic_point, maxPoint, section = _GET_ADVENTURE_BOOK_POINT_ITEM(false, itemObtainCount);        		
         		adv_item_point = adv_item_point + basic_point
-                UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'ItemGet', idList[i], isInitSectionInfo, section, basic_point);
         	end
 --            print("-- 아이템 이름: ", cls.Name.." "..cls.ClassName);
 --            print("-- 획득 횟수: ", itemObtainCount);
@@ -141,7 +137,7 @@ function _GET_ADVENTURE_BOOK_POINT_ITEM(isEquip, itemObtainCount)
 end
 
 --ADVENTURE_BOOK ITEM CONSUME score
-function GET_ITEM_CONSUME_POINT(pc, isInitSectionInfo)
+function GET_ITEM_CONSUME_POINT(pc)
     local consume_Cnt = 0
     
     local idList = GetAdventureBookItemCountableList(pc);
@@ -163,14 +159,11 @@ function GET_ITEM_CONSUME_POINT(pc, isInitSectionInfo)
         end
     end
     --print("아이템 소비 점수 : "..consume_Cnt)
-    if isInitSectionInfo ~= nil then
-        AdventureBookItemConsumeMongoLog(pc, consume_Cnt);
-    end
     return consume_Cnt
 end
 
 --ADVENTURE_BOOK RECIPE score
-function GET_ADVENTURE_BOOK_RECIPE_POINT(pc, isInitSectionInfo)
+function GET_ADVENTURE_BOOK_RECIPE_POINT(pc)
     local adv_recipe_point = 0
     local a = 0
     
@@ -185,7 +178,6 @@ function GET_ADVENTURE_BOOK_RECIPE_POINT(pc, isInitSectionInfo)
         local creft_point = 0
         if cls ~= nil then
             creft_point, maxPoint, section = _GET_ADVENTURE_BOOK_CRAFT_POINT(craftCount);
-            UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'Craft', idList[i], isInitSectionInfo, section, creft_point);
             --print("-- 아이템 이름: ", cls.ClassName.." "..cls.Name);
             --print("-- 제작 횟수: ", craftCount);
         end
@@ -207,7 +199,7 @@ function _GET_ADVENTURE_BOOK_CRAFT_POINT(craftCount)
 end
 
 --ADVENTURE_BOOK SHOP score
-function GET_ADVENTURE_BOOK_SHOP_POINT(pc, isInitSectionInfo)
+function GET_ADVENTURE_BOOK_SHOP_POINT(pc)
     local adv_vis_point = 0
     local earnig_Money = 0
     
@@ -277,12 +269,11 @@ function GET_ADVENTURE_BOOK_SHOP_POINT(pc, isInitSectionInfo)
     end
     
     --print("개인상점에서 벌어들인 돈 점수: ", adv_vis_point);
-    UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'AutoSeller', 0, isInitSectionInfo, section, math.floor(adv_vis_point));
     return math.floor(adv_vis_point)
 end
 
 --ADVENTURE_BOOK FISHING score
-function GET_ADVENTURE_BOOK_FISHING_POINT(pc, isInitSectionInfo)
+function GET_ADVENTURE_BOOK_FISHING_POINT(pc)
     local adv_fishing_point = 0
     local fishing_cnt = 0
     local infoCount = 0
@@ -327,12 +318,11 @@ function GET_ADVENTURE_BOOK_FISHING_POINT(pc, isInitSectionInfo)
         section = 6;
     end
 --    print("낚시 점수: ", adv_fishing_point);
-    UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'Fishing', 0, isInitSectionInfo, section, adv_fishing_point);
     return  math.ceil(adv_fishing_point)
 end
 
 --ADVENTURE_BOOK INDUN score
-function GET_ADVENTURE_BOOK_INDUN_POINT(pc, isInitSectionInfo)
+function GET_ADVENTURE_BOOK_INDUN_POINT(pc)
     local adv_indun_Point = 0
     local point = 0 
     
@@ -355,7 +345,6 @@ function GET_ADVENTURE_BOOK_INDUN_POINT(pc, isInitSectionInfo)
                     indun_Count = infoCount
                     section = 1;
                 end
-                UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, 'Indun', idList[i], isInitSectionInfo, section, indun_Count);
             --end
         end
         point = point + indun_Count
@@ -801,12 +790,6 @@ function GET_ADVENTURE_BOOK_ITEM_OBTAIN_COUNT_INFO(isEquip, curObtainCount)
     end    
     local calcedCount = math.min(curObtainCount, curMaxCount); -- clamping    
     return curLv, calcedCount, curMaxCount;
-end
-
-function UPDATE_ADVENTURE_BOOK_SECTION_INFO(pc, logType, id, isInit, sectionLevel, point)
-    if isInit ~= nil then
-        UpdateAdventureBookSectionInfo(pc, logType, id, isInit, sectionLevel, point);
-    end
 end
 
 function GET_ADVENTURE_BOOK_MAP_COUNT()

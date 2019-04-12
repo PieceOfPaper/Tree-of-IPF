@@ -250,7 +250,7 @@ function HIDDEN_STONE_KATYN451_PREDLG(pc, _Step)
     local quest_ssn = GetSessionObject(pc, 'SSN_BULLETMARKER_UNLOCK')
     local itemCnt = GetInvItemCount(pc, "HIDDEN_BULLET_MSTEP3_3_1ITEM1") 
     if quest_ssn ~= nil then
-        if itemCnt <= 20 then
+        if itemCnt < 2 then
             if IsBuffApplied(pc, "CHAR318_MSETP3_3_EFFECT_BUFF1") == "YES" then
                 if quest_ssn[_Step] >= 1 then
                     return 'YES'

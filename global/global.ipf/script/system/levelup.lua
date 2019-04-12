@@ -141,19 +141,4 @@ function FIRSTPLAY(pc)
 		--??????? ?????
 		LogSessionObject(pc, sObj, "ChangeProp", "StartLineSet", "QSTARTZONETYPE", startzonevalue);
 	end
-	
-	local TeamLevel = GetTeamLevel(pc);
-	local aObj = GetAccountObj(pc);
-	local now_time = os.date('*t')
-    local year = now_time['year']
-    local month = now_time['month']
-    local day = now_time['day']
-    local nowDay = year..'/'..month..'/'..day
-	
-	if TeamLevel == 1 then
-    	local tx = TxBegin(pc)
-    	TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_DAY_CHECK', nowDay);
-    	TxSetIESProp(tx, aObj, 'EV171114_STEAM_NRU_JOIN_CHECK', 1);
-    	local ret = TxCommit(tx)
-	end
 end

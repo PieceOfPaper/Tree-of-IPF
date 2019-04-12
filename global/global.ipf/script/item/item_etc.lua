@@ -1199,3 +1199,42 @@ function ACHIEVE_NEWCLASSARTIST(pc)
     TxAddAchievePoint(tx, 'NewClassArtist_Steam', 1)
     local ret = TxCommit(tx);
 end
+
+function SCR_USE_Adventurebook_HighRank_Reward_1d(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Companion_Exchange_Ticket', 12, 'Adventurebook_HighRank_Reward');
+    TxGiveItem(tx, 'Vis', 500000, 'Adventurebook_HighRank_Reward');
+    TxGiveItem(tx, 'Premium_boostToken02', 3, 'Adventurebook_HighRank_Reward');
+    TxGiveItem(tx, 'Adventure_dungeoncount_01', 3, 'Adventurebook_HighRank_Reward');
+    TxGiveItem(tx, 'Adventure_Point_Stone', 2, 'Adventurebook_HighRank_Reward');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_Adventurebook_ThirdRank_Reward_1d(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Companion_Exchange_Ticket', 7, 'Adventurebook_ThirdRank_Reward');
+    TxGiveItem(tx, 'Vis', 300000, 'Adventurebook_ThirdRank_Reward');
+    TxGiveItem(tx, 'Premium_boostToken02', 3, 'Adventurebook_ThirdRank_Reward');
+    TxGiveItem(tx, 'Adventure_dungeoncount_01', 3, 'Adventurebook_ThirdRank_Reward');
+    TxGiveItem(tx, 'Adventure_Point_Stone', 1, 'Adventurebook_ThirdRank_Reward');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_Adventurebook_FourthRank_Reward_1d(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Companion_Exchange_Ticket', 5, 'Adventurebook_FourthRank_Reward');
+    TxGiveItem(tx, 'Vis', 200000, 'Adventurebook_FourthRank_Reward');
+    TxGiveItem(tx, 'Premium_boostToken02', 2, 'Adventurebook_FourthRank_Reward');
+    TxGiveItem(tx, 'Adventure_dungeoncount_01', 2, 'Adventurebook_FourthRank_Reward');
+    TxGiveItem(tx, 'Adventure_Point_Stone3', 1, 'Adventurebook_FourthRank_Reward');
+    local ret = TxCommit(tx);
+end
+
+function SCR_USE_Adventurebook_FifthRank_Reward_1d(pc)
+    local tx = TxBegin(pc);
+    TxGiveItem(tx, 'Companion_Exchange_Ticket', 4, 'Adventurebook_FifthRank_Reward');
+    TxGiveItem(tx, 'Premium_boostToken02', 1, 'Adventurebook_FifthRank_Reward');
+    TxGiveItem(tx, 'Adventure_Point_Stone2', 3, 'Adventurebook_FifthRank_Reward');
+    TxGiveItem(tx, 'Vis', 100000, 'Adventurebook_FifthRank_Reward');
+    local ret = TxCommit(tx);
+end

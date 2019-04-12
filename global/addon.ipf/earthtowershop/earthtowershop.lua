@@ -30,6 +30,12 @@ function REQ_EVENT_ITEM_SHOP4_OPEN()
 	ui.OpenFrame('earthtowershop');
 end
 
+function REQ_EVENT_ITEM_SHOP5_OPEN()
+	local frame = ui.GetFrame("earthtowershop");
+	frame:SetUserValue("SHOP_TYPE", 'EventShop5');
+	ui.OpenFrame('earthtowershop');
+end
+
 function REQ_KEY_QUEST_TRADE_HETHRAN_LV1_OPEN()
 	local frame = ui.GetFrame("earthtowershop");
 	frame:SetUserValue("SHOP_TYPE", 'KeyQuestShop1');

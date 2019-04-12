@@ -5375,6 +5375,9 @@
 		<image name="test_companion_15" file="\icon\companion.tga" imgrect="606 0 100 122 " CMM_Caption="크리스마스 썰매_탭버튼"/>
 		<image name="test_companion_15_cursoron" file="\icon\companion.tga" imgrect="707 0 100 122"/>
 		<image name="test_companion_15_clicked" file="\icon\companion.tga" imgrect="707 0 100 122"/>
+		<image name="test_companion_17" file="\icon\companion.tga" imgrect="606 246 100 122" CMM_Caption="슈트고로_탭버튼"/>
+		<image name="test_companion_17_cursoron" file="\icon\companion.tga" imgrect="707 246 100 122"/>
+		<image name="test_companion_17_clicked" file="\icon\companion.tga" imgrect="707 246 100 122"/>
 		<image name="test_com_ability" file="\skin\pip_test.tga" imgrect="1832 851 54 35" CMM_Caption="컴패니언_특성플러스"/>
 		<image name="test_com_ability_cursoron" file="\skin\pip_test.tga" imgrect="1832 887 54 35"/>
 		<image name="test_com_ability_clicked" file="\skin\pip_test.tga" imgrect="1832 923 54 35"/>
@@ -6087,6 +6090,7 @@
 		<image name="companion_penguin_green" file="\icon\companion_Velhider.tga" imgrect="0 240 80 80"/>
 		<image name="companion_penguin_blue" file="\icon\companion_Velhider.tga" imgrect="80 240 80 80"/>
 		<image name="companion_sled" file="\icon\companion_Velhider.tga" imgrect="240 240 80 80"/>
+		<image name="companion_goro_suit" file="\icon\companion_Velhider.tga" imgrect="320 80 80 80"/>
 		<image name="bg_w" file="\skin\button.tga" imgrect="252 974 50 50"/>
 		<image name="barrack_signboard" file="\skin\barrack.tga" imgrect="356 0 257 192"/>
 		<image name="barrack_attack_icon" file="\skin\barrack.tga" imgrect="59 720 55 61"/>
@@ -8043,6 +8047,7 @@
 		<image name="icon_forest2" file="\icon\buff_icon.tga" imgrect="256 1920 128 128"/>
 		<image name="icon_forest3" file="\icon\buff_icon.tga" imgrect="384 1920 128 128"/>
 		<image name="icon_forest4" file="\icon\buff_icon.tga" imgrect="512 1920 128 128"/>
+		<image name="icon_goro_have" file="\icon\buff_icon.tga" imgrect="896 1920 128 128" CMM_Caption="슈트 고로 버프"/>
 	</imagelist>
 	<imagelist category="for frame"/>
 	<imagelist category="roadmap"/>

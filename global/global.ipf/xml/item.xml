@@ -58,6 +58,9 @@
 		<Category Name="Misc">
 			<Class OverrideType="ADD" ClassID="645927" ClassName="Mic_14d" CT_Name="확성기:14일" CT_ItemType="Consume" CT_Weight="0" Journal="FALSE" CT_GroupName="Premium" CT_EquipXpGroup="None" CT_MergeTable1="None" CT_MergeClass1="None" CT_MergeTable2="None" CT_MergeClass2="None" CT_MergeTable3="Item_Common" CT_MergeClass3="Item_Common" CT_ToolTipScp="ETC" CT_ItemGrade="None" CT_ItemStar="0" CT_TooltipImage="icon_item_Mike" CT_Icon="icon_item_Mike" CT_UseLv="1" CT_MaterialPrice="0" CT_Price="0" CT_PriceRatio="100" CT_SellPrice="0" CT_RepairPriceRatio="100" CT_MaxStack="1" CT_ReqToolTip="확성기" CT_TooltipValue="None" CT_Desc="목소리를 크게 키워줍니다.{nl}[/y 채팅내용] 으로 모든 지역에 채팅 내용을 보여줄 수 있습니다. 획득 후부터 14일동안 사용 가능합니다." CT_Scale="0.1" CT_DropSound="item_drop_stone_1" CT_DropSoundTime="0" CT_EquipSound="None" CT_InOutScp="None" CT_Script="None" CT_Destroyable="NO" CT_TeamTrade="NO" CT_ShopTrade="NO" CT_MarketTrade="NO" CT_UserTrade="NO" DeadBreakRatio="0" CT_RefreshScp="None" CT_DropStyle="Normal" CT_StringArg="None" CT_NumberArg1="0" CT_NumberArg2="0" CT_Usable="NO" CT_PreCheckScp="None" CT_Consumable="NO" CT_UseAnim="None" CT_ClientScp="None" CT_ParticleName="None" CT_UseTx="NO" CP_CoolDown_NT="None" CT_ItemCoolDown="0" CT_CoolDownGroup="None" AllowDuplicate="YES" CT_NotExist="NO" CT_LogoutSave="No" BelongingCount_NT="0" CT_LifeTime="1209600" ItemLifeTime_NT="None" ItemLifeTimeOver_NT="0"/>
 		</Category>
+		<Category Name="Companion">
+			<Class ClassID="649618" ClassName="egg_018" CT_Name="고로 상자" CT_TooltipImage="icon_item_premium_repair_A" CT_Icon="icon_item_premium_repair_A"/>
+		</Category>
 	</Category>
 	<Category Name="Event">
 		<Category Name="Evnet_Item">

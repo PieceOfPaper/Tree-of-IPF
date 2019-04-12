@@ -342,7 +342,7 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="155162" Pos="-224.93#136.64#-4.75" angle="90" genCount="1" genTime="20000" objectKey="28" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
+                    <Obj Type="Monster" MonType="155162" Pos="-237.45#136.64#-45.97" angle="90" genCount="1" genTime="20000" objectKey="28" propList="&apos;Name&apos; &apos;UnvisibleName&apos; ">
                         <SelfAI ActiveMessageMapInBattle="1">
                             <StartList>
                                 <ToolScp Scp="S_AI_CHANGE_COLOR" Client="NO" UseSleep="NO">
@@ -583,7 +583,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="280.45#136.64#-178.19" genCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -602,7 +602,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="-16.60#136.64#-167.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -621,7 +621,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="32.48#136.64#186.03" genCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -640,7 +640,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="-136.96#136.64#8.79" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -859,7 +859,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="280.45#136.64#-178.19" genCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -878,7 +878,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="-16.60#136.64#-167.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -897,7 +897,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="32.48#136.64#186.03" genCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -916,7 +916,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="-136.96#136.64#8.79" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -1171,7 +1171,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="280.45#136.64#-178.19" genCount="1" genTime="20000" autoGen="0" objectKey="8" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -1190,7 +1190,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="-16.60#136.64#-167.51" genCount="1" genTime="20000" autoGen="0" objectKey="9" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -1209,7 +1209,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="32.48#136.64#186.03" genCount="1" genTime="20000" autoGen="0" objectKey="10" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
@@ -1228,7 +1228,7 @@
                         </SelfAI>
                     </Obj>
                     <Obj Type="Monster" MonType="155161" Pos="-136.96#136.64#8.79" genCount="1" genTime="20000" autoGen="0" objectKey="11" propList="&apos;Enter&apos; &apos;JOB_SHADOW_Q1_CUBE&apos; &apos;FIXMSPD_BM&apos; &apos;50&apos; &apos;MSPD_BM&apos; &apos;50&apos; &apos;WlkMSPD&apos; &apos;50&apos; &apos;RunMSPD&apos; &apos;50&apos; &apos;BTree&apos; &apos;TrackWaitMonster&apos; &apos;Range&apos; &apos;1&apos; ">
-                        <SelfAI ActiveMessageMapInBattle="1">
+                        <SelfAI UpdateMS="1000" ActiveMessageMapInBattle="1">
                             <List>
                                 <ToolScp Scp="SAI_FUNC_DIRECT" Client="NO" UseSleep="NO">
                                     <Str Str="SCR_JOB_SHADOWMANCER_Q1_CUBE_AI"/>
