@@ -74,7 +74,7 @@ function SCR_STEAM_EVENT_2YEARS_MASTER_ALL(self, pc)
         {55, 'Premium_StatReset14', 1}
     }
     if aObj.STEAM_2YEARS_MASTER_DLC_CHECK ~= 1 then
-        ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG7', 1)     
+        ShowOkDlg(pc, 'NPC_EVENT_2YEARS_DLG4', 1)     
         return
     end
     if aObj.STEAM_2YEARS_MASTER_YDAY == yday then
