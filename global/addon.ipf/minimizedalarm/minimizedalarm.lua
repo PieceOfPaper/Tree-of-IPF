@@ -102,7 +102,7 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 	local worldpvp =  ui.GetFrame("worldpvp");
 	worldpvp:ShowWindow(0);
 
-	OPEN_GUILDBATTLE_RANKING_TAB();
+--	OPEN_GUILDBATTLE_RANKING_TAB();
 	
 	ui.OpenFrame("guildbattle_league");	
 	local pvpFrame = ui.GetFrame("guildbattle_league");

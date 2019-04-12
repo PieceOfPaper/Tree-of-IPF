@@ -16,15 +16,17 @@ function MARKET_SELL_OPEN(frame)
 	local droplist = GET_CHILD(groupbox, "sellTimeList", "ui::CDropList");	
 	droplist:ClearItems();
 
+	local defaultTime = 0;
 	local cnt = GetMarketTimeCount();
 	for i = 0 , cnt - 1 do
 		local time, free = GetMarketTimeAndTP(i);
 		local day = 0;
 		local listType = ScpArgMsg("MarketTime{Time}{FREE}","Time", time, "FREE", free);
 		droplist:AddItem(time, "{s16}{b}{ol}"..listType);
+		defaultTime = time; -- 7일을 기본으로 해달래여
 	end
-	droplist:SelectItem(0);
-	droplist:SelectItemByKey(1);
+	droplist:SelectItem(cnt - 1);
+	droplist:SelectItemByKey(defaultTime);
 
 	MARKET_SELL_ITEM_POP_BY_SLOT(frame, nil);
 end
@@ -403,10 +405,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local iPrice = tonumber(price);
 	if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
 		if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-	if 0 ~= idownValue and  iPrice < idownValue then
-		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
-		return;
-	end
+			if 0 ~= idownValue and  iPrice < idownValue then
+				ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
+				return;
+			end
 		end
 	else
 		if 0 ~= idownValue and  iPrice < idownValue then
@@ -470,7 +472,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			-- ���׷츸 buffValue�� �ִ�.
+			-- 장비그룹만 buffValue가 있다.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
 			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			

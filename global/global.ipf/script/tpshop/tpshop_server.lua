@@ -51,13 +51,13 @@ function SCR_TX_TP_SHOP(pc, argList)
 			if buyabletime == "None" then
 				TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
 			else
-				if buyabletime < nowtime then 
+				--if buyabletime < nowtime then 
 					TxSetIESProp(tx, aobj, 'NextBuyTokenTime', nextbuyabletime);
-				else
-					SendSysMsg(pc, "NextTokenBuyableTime", 0, "Time", buyabletime);
-					TxRollBack(tx);
-					return;
-				end
+				--else
+					--SendSysMsg(pc, "NextTokenBuyableTime", 0, "Time", buyabletime);
+					--TxRollBack(tx);
+					--return;
+				--end
 			end
 
 		end

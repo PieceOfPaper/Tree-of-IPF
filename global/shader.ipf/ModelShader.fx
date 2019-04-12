@@ -1,7 +1,7 @@
 #ifndef __MODELSHADER_FX__
 #define __MODELSHADER_FX__
 
-// ShaderRenderer.h ¿¡ ÀÖ´Â MAX_INSTANCE_COUNT °ª°ú µ¿ÀÏÇÏ°Ô À¯ÁöÇØ¾ßÇÔ
+// ShaderRenderer.h ì— ìˆëŠ” MAX_INSTANCE_COUNT ê°’ê³¼ ë™ì¼í•˜ê²Œ ìœ ì§€í•´ì•¼í•¨
 #define MAX_INSTANCE_COUNT 10
 
 float4x4 	g_ViewTM;
@@ -33,12 +33,12 @@ float4x4	g_InstanceTMArray[MAX_INSTANCE_COUNT * 3]				: INSTANCE_TMARRAY;
 // 2 : g_BlendColorAdd
 // 3 : g_auraColor
 // 4 : g_auraValues (x : factor, y : auraTime)
-	#ifdef ENABLE_FACE
-	// 5 : g_faceXYMulAdd
-		float4		g_InstanceVecArray[MAX_INSTANCE_COUNT * 6];
-	#else
-		float4		g_InstanceVecArray[MAX_INSTANCE_COUNT * 5];
-	#endif
+#ifdef ENABLE_FACE
+// 5 : g_faceXYMulAdd
+float4		g_InstanceVecArray[MAX_INSTANCE_COUNT * 6];
+#else
+float4		g_InstanceVecArray[MAX_INSTANCE_COUNT * 5];
+#endif
 #else
 float4x4 	g_WorldTM      		: 	WORLD_TM;
 float4x4 	g_WorldViewTM		: 	WORLDVIEW_TM;
@@ -50,20 +50,19 @@ float4		g_auraColor = float4(0.0f, 0.0f, 0.0f, 0.0f);
 // x : factor, y : auraTime
 float4		g_auraValues = float4(0.0f, 0.0f, 0.0f, 0.0f);
 
-// 3dÄ³¸¯ÅÍ 2d·Î ±×¸®´Â°Å
+// 3dìºë¦­í„° 2dë¡œ ê·¸ë¦¬ëŠ”ê±°
 float4x4 	g_billboardTM		: BILLBOARD_TM;
-float4x4 	g_charProjTM		: CHARPROJ_TM;
-float4x4	g_charViewTM		: CHARVIEW_TM;
+float4x4 	g_charViewProjTM	: CHARVIEWPROJ_TM;
 float3		g_pivotPoint;
 
-	// Ç¥Á¤ °ü·Ã Á¤º¸
-	#ifdef ENABLE_FACE
-	float4 g_faceXYMulAdd = 0.0f;
-	#endif
+// 3dìºë¦­í„° 2dë¡œ ê·¸ë¦¬ëŠ”ê±°
+#ifdef ENABLE_FACE
+float4 g_faceXYMulAdd = 0.0f;
+#endif
 #endif
 
 #ifdef ENABLE_CHARACTER_RENDER
-float4x4	g_TestMatrix;		// Å¸´Â ¹®Á¦ ¶§¹®¿¡ Ãß°¡µÈ ¸ÅÆ®¸¯½º
+float4x4	g_TestMatrix;		// íƒ€ëŠ” ë¬¸ì œ ë•Œë¬¸ì— ì¶”ê°€ëœ ë§¤íŠ¸ë¦­ìŠ¤
 float4x4	g_AngleMatrix;
 
 float3 		g_MidPos = float3(2000.0f, 2000.0f, 2000.0f);
@@ -83,8 +82,8 @@ float4 		g_outLineValue = float4(-12.0f, -30.0f, 0.0f, -40.0f);
 float2 encodeToRG(float v)
 {
 	float2 enc = float2(1.0f, 255.0f) * v;
-	enc = frac(enc);
-	enc.y -= (1.0f/255.0f);
+		enc = frac(enc);
+	enc.y -= (1.0f / 255.0f);
 	return enc;
 }
 
@@ -92,7 +91,7 @@ float2 encodeToRG(float v)
 int g_boneTexID : BONE_TEX_ID;
 
 texture VTF_Tex : SKIN_VTF_TEX;
-sampler vtf_skin  = sampler_state {
+sampler vtf_skin = sampler_state {
 	Texture = (VTF_Tex);
 	AddressU = CLAMP;
 	AddressV = CLAMP;
@@ -101,14 +100,14 @@ sampler vtf_skin  = sampler_state {
 
 float4x4 GetSkinMatrix(int idx)
 {
-	const float TEX_WIDTH  = 512.0f;
+	const float TEX_WIDTH = 512.0f;
 	const float TEX_HEIGTH = 512.0f;
 	float4 uvCol = float4(((float)((idx % 128) * 4) + 0.5f) / TEX_WIDTH, ((float)((idx / 128)) + 0.5f) / TEX_HEIGTH, 0.0f, 0);
-	float4x4 mat;
+		float4x4 mat;
 	mat._11_21_31_41 = tex2Dlod(vtf_skin, uvCol),
-	mat._12_22_32_42 = tex2Dlod(vtf_skin, uvCol + float4(1.0f / TEX_WIDTH, 0.0f, 0.0f, 0)),
-	mat._13_23_33_43 = tex2Dlod(vtf_skin, uvCol + float4(2.0f / TEX_WIDTH, 0.0f, 0.0f, 0)),
-	mat._14_24_34_44 = float4(0.0f, 0.0f, 0.0f, 1.0f);
+		mat._12_22_32_42 = tex2Dlod(vtf_skin, uvCol + float4(1.0f / TEX_WIDTH, 0.0f, 0.0f, 0)),
+		mat._13_23_33_43 = tex2Dlod(vtf_skin, uvCol + float4(2.0f / TEX_WIDTH, 0.0f, 0.0f, 0)),
+		mat._14_24_34_44 = float4(0.0f, 0.0f, 0.0f, 1.0f);
 	return mat;
 }
 #endif
@@ -123,7 +122,7 @@ float4	g_FogDist	: FOG_DIST;
 //x = fog Start
 //y = fog End
 //z = End - Start
-//w = »ç¿ëÇÏÁö ¾ÊÀ½.
+//w = ì‚¬ìš©í•˜ì§€ ì•ŠìŒ.
 float Fog_CalcFogValue(in float viewRange)
 {
 	return (g_FogDist.y - viewRange) / (g_FogDist.z);
@@ -139,10 +138,10 @@ struct OUT_COLOR
 float4 CalcDepth(in float depth, in float worldPosY, in float4 posWV)
 {
 	float4 Out = 0;
-	Out.r = depth * 0.0002;
+		Out.r = depth * 0.0002;
 	Out.g = length(posWV.xyz) * 0.0002f;
-	Out.b  = (worldPosY + 300) * 0.001;
-	Out.a   = 1.0f;
+	Out.b = (worldPosY + 300) * 0.001;
+	Out.a = 1.0f;
 	return Out;
 }
 #endif
@@ -294,129 +293,127 @@ float4 CalcWVP(float4 Pos, float4x4 worldTM, float4x4 worldViewProjTM, int tmInd
 {
 	Pos.w = 1.0f;
 
-	// Ä³¸¯ÅÍ 2D ·»´õ¸µ
-	#ifdef ENABLE_2D
-		float4 WorldPos = mul(Pos, worldTM);
+	// ìºë¦­í„° 2D ë Œë”ë§
+#ifdef ENABLE_2D
+	float4 WorldPos = mul(Pos, worldTM);
 		Pos = mul(WorldPos, g_InstanceTMArray[g_InstanceCount * 2 + tmIndex]);
-		Pos /= Pos.w;
-		Pos.z = 0.0f;	// ºôº¸µå·Î ¸¸µê
-		Pos.y += 0.4f;  // Ä³¸¯ÅÍ ¹ß À§Ä¡¸¦ ¸ÂÃß±â À§ÇÑ »ó¼ö
-		Pos = mul(Pos, g_InstanceTMArray[g_InstanceCount * 1 + tmIndex]);
-		PosWV = mul(Pos, g_ViewTM);
-		Pos = mul(Pos, g_ViewProjTM);
-		// (Local Z - Ä«¸Ş¶ó °Å¸® : Z°ªÀ» 0 ¾ÕµÚ·Î ¸ÂÃß±â À§ÇÔ) * Àû´çÈ÷ ³³ÀÛÇÏ°Ô ¸¸µé±â À§ÇÑ »ó¼ö - ±íÀÌ º¸Á¤°ª
+	Pos /= Pos.w;
+	Pos.z = 0.0f;	// ë¹Œë³´ë“œë¡œ ë§Œë“¦
+	Pos.y += 0.4f;  // ìºë¦­í„° ë°œ ìœ„ì¹˜ë¥¼ ë§ì¶”ê¸° ìœ„í•œ ìƒìˆ˜
+	Pos = mul(Pos, g_InstanceTMArray[g_InstanceCount * 1 + tmIndex]);
+	PosWV = mul(Pos, g_ViewTM);
+	Pos = mul(Pos, g_ViewProjTM);
+	// (Local Z - ì¹´ë©”ë¼ ê±°ë¦¬ : Zê°’ì„ 0 ì•ë’¤ë¡œ ë§ì¶”ê¸° ìœ„í•¨) * ì ë‹¹íˆ ë‚©ì‘í•˜ê²Œ ë§Œë“¤ê¸° ìœ„í•œ ìƒìˆ˜ - ê¹Šì´ ë³´ì •ê°’
 
-		float uprate = 1.1;
-		float pivotOffset = 100;
-		float4 pivotPoint = g_InstanceVecArray[tmIndex];
+	float uprate = 1.1;
+	float pivotOffset = 100;
+	float4 pivotPoint = g_InstanceVecArray[tmIndex];
 		float4 pivotMul = mul(float4(pivotPoint.x, (WorldPos.y - pivotPoint.y + pivotOffset) * uprate + pivotPoint.y - pivotOffset, pivotPoint.z, 1), g_ViewProjTM);
 		float defz = pivotMul.z / pivotMul.w;
-		Pos.z = defz * Pos.w;
+	Pos.z = defz * Pos.w;
 
-		return Pos;
-	#else
+	return Pos;
+#else
 	PosWV = mul(Pos, worldTM);
 	PosWV = mul(PosWV, g_ViewTM);
-		return mul(Pos, worldViewProjTM);
-	#endif
+	return mul(Pos, worldViewProjTM);
+#endif
 }
 #else
 float4 CalcWVP(float4 Pos, out float4 PosWV)
 {
 	Pos.w = 1.0f;
 
-	// Ä³¸¯ÅÍ 2D ·»´õ¸µ
-	#ifdef ENABLE_2D
-		// View TM, Proj TM Àº ÇÕÃÄµµ ¹«¹æ
-		float4 WorldPos = mul(Pos, g_WorldTM);
-		Pos = mul(WorldPos, g_charViewTM);
-		Pos = mul(Pos, g_charProjTM);
-		Pos /= Pos.w;
-		Pos.z = 0.0f;	// ºôº¸µå·Î ¸¸µê
-		Pos.y += 0.4f;  // Ä³¸¯ÅÍ ¹ß À§Ä¡¤©¸£ ¸ÂÃß±â À§ÇÑ »ó¼ö
-		Pos = mul(Pos, g_billboardTM);
-		PosWV = mul(Pos, g_ViewTM);
-		Pos = mul(Pos, g_ViewProjTM);
-		// (Local Z - Ä«¸Ş¶ó °Å¸® : Z°ªÀ» 0 ¾ÕµÚ·Î ¸ÂÃß±â À§ÇÔ) * Àû´çÈ÷ ³³ÀÛÇÏ°Ô ¸¸µé±â À§ÇÑ »ó¼ö - ±íÀÌ º¸Á¤°ª
+	// ìºë¦­í„° 2D ë Œë”ë§
+#ifdef ENABLE_2D
+	// View TM, Proj TM ì€ í•©ì³ë„ ë¬´ë°©
+	float4 WorldPos = mul(Pos, g_WorldTM);
+		Pos = mul(WorldPos, g_charViewProjTM);
+	Pos /= Pos.w;
+	Pos.z = 0.0f;	// ë¹Œë³´ë“œë¡œ ë§Œë“¦
+	Pos.y += 0.4f;  // ìºë¦­í„° ë°œ ìœ„ì¹˜ã„¹ë¥´ ë§ì¶”ê¸° ìœ„í•œ ìƒìˆ˜
+	Pos = mul(Pos, g_billboardTM);
+	PosWV = mul(Pos, g_ViewTM);
+	Pos = mul(Pos, g_ViewProjTM);
+	// (Local Z - ì¹´ë©”ë¼ ê±°ë¦¬ : Zê°’ì„ 0 ì•ë’¤ë¡œ ë§ì¶”ê¸° ìœ„í•¨) * ì ë‹¹íˆ ë‚©ì‘í•˜ê²Œ ë§Œë“¤ê¸° ìœ„í•œ ìƒìˆ˜ - ê¹Šì´ ë³´ì •ê°’
 
-		float uprate = 1.1;
-		float pivotOffset = 100;
-		float4 pivotMul = mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM);
+	float uprate = 1.1;
+	float pivotOffset = 100;
+	float4 pivotMul = mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM);
 		float defz = pivotMul.z / pivotMul.w;
-		Pos.z = defz * Pos.w;
+	Pos.z = defz * Pos.w;
 
-		return Pos;
-	#else
+	return Pos;
+#else
 	PosWV = mul(Pos, g_WorldTM);
 	PosWV = mul(PosWV, g_ViewTM);
-		return mul(Pos, g_WorldViewProjTM);
-	#endif
+	return mul(Pos, g_WorldViewProjTM);
+#endif
 }
 #endif
 
 #ifdef ENABLE_INSTANCING
 float4 CalcWVPSilhouette(float3 Pos, int tmIndex)
 {
-	// ¾Æ·¡ÀÇ ·ÎÁ÷ ¶§¹®¿¡ ÄÄÆä´Ï¾ğ Å¾½Â½Ã ÄÄÆä´Ï¾ğÀÇ ½Ç·ç¿§ÀÌ À§¾Æ·¡·Î ³³ÀÛÇÏ°Ô ´­·Á¹ö¸®´Â ¹®Á¦°¡ ¹ß»ıÇÑ´Ù.
-	// ¾ø¾îµµ ½Ç·ç¿§À» ±×¸®´Âµ¥ ¹®Á¦°¡ ¾øÁö¸¸, ¹ÌÃÄ ¿¹»óÇÏÁö ¸øÇÑ ºÎºĞ¿¡¼­ ¹®Á¦°¡ ¹ß»ıÇÒ¼öµµ,
+	// ì•„ë˜ì˜ ë¡œì§ ë•Œë¬¸ì— ì»´í˜ë‹ˆì–¸ íƒ‘ìŠ¹ì‹œ ì»´í˜ë‹ˆì–¸ì˜ ì‹¤ë£¨ì—£ì´ ìœ„ì•„ë˜ë¡œ ë‚©ì‘í•˜ê²Œ ëˆŒë ¤ë²„ë¦¬ëŠ” ë¬¸ì œê°€ ë°œìƒí•œë‹¤.
+	// ì—†ì–´ë„ ì‹¤ë£¨ì—£ì„ ê·¸ë¦¬ëŠ”ë° ë¬¸ì œê°€ ì—†ì§€ë§Œ, ë¯¸ì³ ì˜ˆìƒí•˜ì§€ ëª»í•œ ë¶€ë¶„ì—ì„œ ë¬¸ì œê°€ ë°œìƒí• ìˆ˜ë„,
 	float4 pivotPoint = g_InstanceVecArray[tmIndex];
-	//float stepChk = step(Pos.y, pivotPoint.y);
-	//float y = Pos.y;
-	//Pos.y += (pivotPoint.y - Pos.y) * stepChk;
+		//float stepChk = step(Pos.y, pivotPoint.y);
+		//float y = Pos.y;
+		//Pos.y += (pivotPoint.y - Pos.y) * stepChk;
 
-	float4 WorldPos = float4(Pos, 1);
+		float4 WorldPos = float4(Pos, 1);
 
-	float4 Out = 0;
+		float4 Out = 0;
 
-	#ifdef ENABLE_2D
+#ifdef ENABLE_2D
 		Out = mul(WorldPos, g_InstanceTMArray[g_InstanceCount * 2 + tmIndex]);
-		Out /= Out.w;
-		Out.z = 0.0f;	// ºôº¸µå·Î ¸¸µë
-		Out.y += 0.4f;  // Ä³¸¯ÅÍ ¹ß À§Ä¡ ¸ÂÃâ¶§ »ç¿ëÇÏ´Â »ó¼öÀÔ´Ï´Ù	
-		Out = mul(Out, g_InstanceTMArray[g_InstanceCount * 1 + tmIndex]);
-		Out = mul(Out, g_ViewProjTM);
-		// (localz-Ä«¸Ş¶ó°Å¸®:z°ªÀ»0¾ÕµÚ·Î¸ÂÃß·Á°í) * Àû´çÈ÷ ³³ÀÛÇÏ°Ô ÇÏ±â À§ÇÑ »ó¼ö - µª½º¹ÙÀÌ¾î½º;
+	Out /= Out.w;
+	Out.z = 0.0f;	// ë¹Œë³´ë“œë¡œ ë§Œë“¬
+	Out.y += 0.4f;  // ìºë¦­í„° ë°œ ìœ„ì¹˜ ë§ì¶œë•Œ ì‚¬ìš©í•˜ëŠ” ìƒìˆ˜ì…ë‹ˆë‹¤	
+	Out = mul(Out, g_InstanceTMArray[g_InstanceCount * 1 + tmIndex]);
+	Out = mul(Out, g_ViewProjTM);
+	// (localz-ì¹´ë©”ë¼ê±°ë¦¬:zê°’ì„0ì•ë’¤ë¡œë§ì¶”ë ¤ê³ ) * ì ë‹¹íˆ ë‚©ì‘í•˜ê²Œ í•˜ê¸° ìœ„í•œ ìƒìˆ˜ - ëìŠ¤ë°”ì´ì–´ìŠ¤;
 
-		float uprate = 1.1;
-		float pivotOffset = 100;
-		float4 pivotMul = mul(float4(pivotPoint.x, (WorldPos.y - pivotPoint.y + pivotOffset) * uprate + pivotPoint.y - pivotOffset, pivotPoint.z, 1), g_ViewProjTM);
+	float uprate = 1.1;
+	float pivotOffset = 100;
+	float4 pivotMul = mul(float4(pivotPoint.x, (WorldPos.y - pivotPoint.y + pivotOffset) * uprate + pivotPoint.y - pivotOffset, pivotPoint.z, 1), g_ViewProjTM);
 		float defz = pivotMul.z / pivotMul.w;
-		Out.z = defz * Out.w;
-	#else
+	Out.z = defz * Out.w;
+#else
 		Out = mul(WorldPos, g_ViewProjTM);
-	#endif
+#endif
 	return Out;
 }
 #else
 float4 CalcWVPSilhouette(float3 Pos)
 {
-	// ¾Æ·¡ÀÇ ·ÎÁ÷ ¶§¹®¿¡ ÄÄÆä´Ï¾ğ Å¾½Â½Ã ÄÄÆä´Ï¾ğÀÇ ½Ç·ç¿§ÀÌ À§¾Æ·¡·Î ³³ÀÛÇÏ°Ô ´­·Á¹ö¸®´Â ¹®Á¦°¡ ¹ß»ıÇÑ´Ù.
-	// ¾ø¾îµµ ½Ç·ç¿§À» ±×¸®´Âµ¥ ¹®Á¦°¡ ¾øÁö¸¸, ¹ÌÃÄ ¿¹»óÇÏÁö ¸øÇÑ ºÎºĞ¿¡¼­ ¹®Á¦°¡ ¹ß»ıÇÒ¼öµµ,
+	// ì•„ë˜ì˜ ë¡œì§ ë•Œë¬¸ì— ì»´í˜ë‹ˆì–¸ íƒ‘ìŠ¹ì‹œ ì»´í˜ë‹ˆì–¸ì˜ ì‹¤ë£¨ì—£ì´ ìœ„ì•„ë˜ë¡œ ë‚©ì‘í•˜ê²Œ ëˆŒë ¤ë²„ë¦¬ëŠ” ë¬¸ì œê°€ ë°œìƒí•œë‹¤.
+	// ì—†ì–´ë„ ì‹¤ë£¨ì—£ì„ ê·¸ë¦¬ëŠ”ë° ë¬¸ì œê°€ ì—†ì§€ë§Œ, ë¯¸ì³ ì˜ˆìƒí•˜ì§€ ëª»í•œ ë¶€ë¶„ì—ì„œ ë¬¸ì œê°€ ë°œìƒí• ìˆ˜ë„,
 	//float stepChk = step(Pos.y, g_pivotPoint.y);
 	//float y = Pos.y;
 	//Pos.y += (g_pivotPoint.y - Pos.y) * stepChk;
 
 	float4 WorldPos = float4(Pos, 1.f);
 
-	float4 Out = 0;
-	#ifdef ENABLE_2D
-		Out = mul(WorldPos, g_charViewTM);
-		Out = mul(Out, g_charProjTM);
-		Out /= Out.w;
-		Out.z = 0.0f; // ºôº¸µå·Î ¸¸µë
-		Out.y += 0.4f;  // Ä³¸¯ÅÍ ¹ß À§Ä¡ ¸ÂÃâ¶§ »ç¿ëÇÏ´Â »ó¼öÀÔ´Ï´Ù	
-		Out = mul(Out, g_billboardTM);
-		Out = mul(Out, g_ViewProjTM);
-		// (localz-Ä«¸Ş¶ó°Å¸®:z°ªÀ»0¾ÕµÚ·Î¸ÂÃß·Á°í) * Àû´çÈ÷ ³³ÀÛÇÏ°Ô ÇÏ±â À§ÇÑ »ó¼ö - µª½º¹ÙÀÌ¾î½º;
+		float4 Out = 0;
+#ifdef ENABLE_2D
+		Out = mul(WorldPos, g_charViewProjTM);
+	Out /= Out.w;
+	Out.z = 0.0f; // ë¹Œë³´ë“œë¡œ ë§Œë“¬
+	Out.y += 0.4f;  // ìºë¦­í„° ë°œ ìœ„ì¹˜ ë§ì¶œë•Œ ì‚¬ìš©í•˜ëŠ” ìƒìˆ˜ì…ë‹ˆë‹¤	
+	Out = mul(Out, g_billboardTM);
+	Out = mul(Out, g_ViewProjTM);
+	// (localz-ì¹´ë©”ë¼ê±°ë¦¬:zê°’ì„0ì•ë’¤ë¡œë§ì¶”ë ¤ê³ ) * ì ë‹¹íˆ ë‚©ì‘í•˜ê²Œ í•˜ê¸° ìœ„í•œ ìƒìˆ˜ - ëìŠ¤ë°”ì´ì–´ìŠ¤;
 
-		float uprate = 1.1;
-		float pivotOffset = 100;
-		float4 pivotMul = mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM);
+	float uprate = 1.1;
+	float pivotOffset = 100;
+	float4 pivotMul = mul(float4(g_pivotPoint.x, (WorldPos.y - g_pivotPoint.y + pivotOffset) * uprate + g_pivotPoint.y - pivotOffset, g_pivotPoint.z, 1), g_ViewProjTM);
 		float defz = pivotMul.z / pivotMul.w;
-		Out.z = defz * Out.w;
-	#else
+	Out.z = defz * Out.w;
+#else
 		Out = mul(WorldPos, g_ViewProjTM);
-	#endif
+#endif
 	return Out;
 }
 #endif
@@ -451,7 +448,7 @@ float4 freeze(float4 outcolor, float2 uv, float falloff)
 	outcolor.rgb *= g_materialShaderColor.rgb;
 	outcolor.rgb += (1 - falloff) * g_fallOffMultiplyValue * 1.3;
 	outcolor.rgb = pow(abs(outcolor.rgb), g_materialShaderPowValue);
-	
+
 	// freeze	
 	worldpos.y /= 20;
 	worldpos.y = 1 - worldpos.y;
@@ -459,9 +456,8 @@ float4 freeze(float4 outcolor, float2 uv, float falloff)
 	worldpos.z /= 20;
 
 #ifdef ENABLE_SKINNING
-	float2 fuv = float2(worldpos.x + worldpos.z, worldpos.y);
-	float4 freeze = tex2D(freezeTex, fuv);
-	outcolor.rgb = outcolor.rgb * (1 - freeze.a) + freeze.rgb * (freeze.a);
+	float4 freeze = tex2D(freezeTex, uv);
+		outcolor.rgb = outcolor.rgb * (1 - freeze.a) + freeze.rgb * (freeze.a);
 #endif
 
 	return outcolor;
@@ -472,7 +468,7 @@ void CalcDiffuseTexCoord(in float2 texCoord, out float2 outTexCoord)
 {
 #ifdef ENABLE_DIFFUSETEX_ANIMATION
 	float4 TransTex = float4(texCoord.xy, 1.0f, 1.0f);
-	outTexCoord = mul(TransTex, g_DiffuseAnimationTM).xy;
+		outTexCoord = mul(TransTex, g_DiffuseAnimationTM).xy;
 #else
 	outTexCoord = texCoord;
 #endif
@@ -492,48 +488,48 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(tmID + 1e-5f);
+		int tmIndex = (int)(tmID + 1e-5f);
 	o.worldz_tmIndex_fog.y = tmID;
 	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
-	WorldTM._24 = 0.0f;
+		WorldTM._24 = 0.0f;
 	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
-	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+		float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
 #else
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+		float4x4 WorldTM = g_WorldTM;
+		float4x4 WorldViewTM = g_WorldViewTM;
+		float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
-	#ifdef ENABLE_INSTANCING
-		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
-	#endif
+		int boneIDIndex = g_boneTexID;
+#ifdef ENABLE_INSTANCING
+	boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+#endif
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
-		localPos.xyz += mul(InPos, boneTM) * weights[i];
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
 		localNml.xyz += mul(InNml, (float3x3)boneTM) * weights[i];
 	}
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #else
-	localPos = InPos;
+		localPos = InPos;
 	localNml = InNml;
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #endif
 
 	float3 worldPos = 0;
-	float3 worldNml = 0;
+		float3 worldNml = 0;
 
-	worldPos = mul(localPos, WorldTM);
+		worldPos = mul(localPos, WorldTM);
 	worldNml = mul(localNml, (float3x3)WorldTM);
 
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+	// ìºë¦­í„° 2Dë¡œ ì°ê¸°
 #ifdef ENABLE_INSTANCING
 	o.Pos = CalcWVP(localPos, WorldTM, WorldViewProjTM, tmIndex, o.posWV);
 #else	
@@ -546,19 +542,19 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	float depth = o.Pos.z;
 
 #ifdef ENABLE_CHARACTER_RENDER
-	#ifdef ENABLE_INSTANCING
-		float4x4 worldAngleTM = mul(WorldTM, g_AngleMatrix);
+#ifdef ENABLE_INSTANCING
+	float4x4 worldAngleTM = mul(WorldTM, g_AngleMatrix);
 		o.worldz_tmIndex_fog.x = mul(localPos + float3(0, -25.5, 0), worldAngleTM).z * 0.1f;
-	#else
-		o.worldz_tmIndex_fog.x = mul(localPos + float3(0, -25.5, 0), g_TestMatrix).z * 0.1f;
-	#endif
+#else
+	o.worldz_tmIndex_fog.x = mul(localPos + float3(0, -25.5, 0), g_TestMatrix).z * 0.1f;
+#endif
 #endif
 
 	o.worldPos.xyz = worldPos;
 
 #ifdef ENABLE_FREEZE
 	float4 zeroPos = float4(0, 0, 0, 1);
-	zeroPos = mul(zeroPos, WorldTM);
+		zeroPos = mul(zeroPos, WorldTM);
 
 	o.worldPos.xyz = worldPos - zeroPos;
 #endif
@@ -571,9 +567,9 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 #ifdef ENABLE_GRASS
 	float3 viewPos = mul(localPos, WorldViewTM);
 
-	float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
+		float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
 	float2 texPos = worldPos.xz;
-	texPos.x += mapOffsetX;
+		texPos.x += mapOffsetX;
 	texPos.y += mapOffsetY;
 	texPos.xy /= mapSize;
 	texPos.y *= -1;
@@ -582,11 +578,11 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	float bgDepth = tex2Dlod(heightTex, float4(texPos, 0.0f, 1.0f)).y;
 
 	float delta = (bgDepth - worldY) / 10;
-	// 0.0005f ´Â ¼öÄ¡¸¦ ¹Ù²ã°¡¸é¼­ Ã£Àº delta ÃÖ´ëÄ¡ÀÇ ¸ÅÁ÷³Ñ¹ö
-	// 0.001f ÀÌ»óºÎÅÍ ¸ğµ¨ÀÌ Èçµé¸®´Â Á¤µµ°¡ ½ÉÇØÁö±â ½ÃÀÛÇÔ
-	if (delta > 0.0005f)
+	// 0.0001f ëŠ” ìˆ˜ì¹˜ë¥¼ ë°”ê¿”ê°€ë©´ì„œ ì°¾ì€ delta ìµœëŒ€ì¹˜ì˜ ë§¤ì§ë„˜ë²„
+	// 0.0005f ì´ìƒë¶€í„° ëª¨ë¸ì´ í”ë“¤ë¦¬ëŠ” ì •ë„ê°€ ì‹¬í•´ì§€ê¸° ì‹œì‘í•¨
+	if (delta > 0.0001f)
 	{
-		delta = 0.0005f;
+		delta = 0.0001f;
 	}
 	o.worldPos.w = 0;
 
@@ -620,8 +616,8 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	//Env
 #ifdef ENABLE_ENVTEX
 	float4 worldViewPos = mul(float4(localPos.xyz, 1.0f), WorldViewTM);
-	float4 worldViewNml = mul(float4(localNml.xyz, 0.0f), WorldViewTM);
-	worldViewPos = normalize(worldViewPos);
+		float4 worldViewNml = mul(float4(localNml.xyz, 0.0f), WorldViewTM);
+		worldViewPos = normalize(worldViewPos);
 	worldViewNml = normalize(worldViewNml);
 	o.envTexCoord.xy = reflect(worldViewPos, worldViewNml);
 #endif
@@ -642,18 +638,18 @@ VS_OUT VS_HeadOutlineModelShader_Common(in float4 InPos : POSITION, in float4 In
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
 	o.worldNml.xyz = worldNml;
 
-	#ifdef ENABLE_DIFFUSETEX
-		// ¾ó±¼ ±×¸®´Â ºÎºĞ
-		#ifdef ENABLE_FACE
-			#ifdef ENABLE_INSTANCING
-				float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
-			#else 
-				float4 faceXYMulAdd = g_faceXYMulAdd;
-			#endif
-			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
-			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
-		#endif
-	#endif
+#ifdef ENABLE_DIFFUSETEX
+	// ì–¼êµ´ ê·¸ë¦¬ëŠ” ë¶€ë¶„
+#ifdef ENABLE_FACE
+#ifdef ENABLE_INSTANCING
+	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+#else 
+	float4 faceXYMulAdd = g_faceXYMulAdd;
+#endif
+		o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+	o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
+#endif
+#endif
 #endif
 
 #if defined(ENABLE_DEPTH_RENDER) || defined(ENABLE_DEPTH_MRT)
@@ -679,17 +675,17 @@ VS_OUT VS_HeadOutlineModelShader1(in float4 InPos : POSITION, in float4 InNml : 
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, -0.8f, 0.0f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, -0.8f, 0.0f);
-	#endif
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, -0.8f, 0.0f);
 #else
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, -0.8f, 0.0f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, -0.8f, 0.0f);
-	#endif
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, -0.8f, 0.0f);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, -0.8f, 0.0f);
+#else
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, -0.8f, 0.0f);
+#endif
 #endif
 }
 
@@ -704,17 +700,17 @@ VS_OUT VS_HeadOutlineModelShader2(in float4 InPos : POSITION, in float4 InNml : 
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.8f, 0.0f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.8f, 0.0f);
-	#endif
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.8f, 0.0f);
 #else
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.8f, 0.0f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.8f, 0.0f);
-	#endif
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.8f, 0.0f);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.8f, 0.0f);
+#else
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.8f, 0.0f);
+#endif
 #endif
 }
 
@@ -729,17 +725,17 @@ VS_OUT VS_HeadOutlineModelShader3(in float4 InPos : POSITION, in float4 InNml : 
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, -0.8f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.0f, -0.8f);
-	#endif
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, -0.8f);
 #else
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.0f, -0.8f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, -0.8f);
-	#endif	
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.0f, -0.8f);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.0f, -0.8f);
+#else
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, -0.8f);
+#endif	
 #endif
 }
 
@@ -754,21 +750,19 @@ VS_OUT VS_HeadOutlineModelShader4(in float4 InPos : POSITION, in float4 InNml : 
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, 0.8f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.0f, 0.8f);
-	#endif
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, tmID, 0.0f, 0.8f);
 #else
-	#ifdef ENABLE_INSTANCING
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.0f, 0.8f);
-	#else
-		return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, 0.8f);
-	#endif
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, weights, indices, 0.0f, 0.8f);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, tmID, 0.0f, 0.8f);
+#else
+	return VS_HeadOutlineModelShader_Common(InPos, InNml, Tex, Tex1, 0.0f, 0.8f);
+#endif
 #endif
 }
-
-#define TIME_STEP 2.f
 
 VS_OUT_AURA VS_ModelAuraShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in float4 Tex : TEXCOORD0, in float4 Tex1 : TEXCOORD1
 #ifdef ENABLE_SKINNING
@@ -783,28 +777,28 @@ VS_OUT_AURA VS_ModelAuraShader(in float4 InPos : POSITION, in float4 InNml : NOR
 
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 
-	float4 localPrevPos = 0;
+		float4 localPrevPos = 0;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(tmID + 1e-5f);
+		int tmIndex = (int)(tmID + 1e-5f);
 	o.tmIndex = tmID;
 	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
-	WorldTM._24 = 0.f;
+		WorldTM._24 = 0.f;
 	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
-	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+		float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
 #else
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+		float4x4 WorldTM = g_WorldTM;
+		float4x4 WorldViewTM = g_WorldViewTM;
+		float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
-	#ifdef ENABLE_INSTANCING
-		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
-	#endif
+		int boneIDIndex = g_boneTexID;
+#ifdef ENABLE_INSTANCING
+	boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+#endif
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
@@ -814,28 +808,28 @@ VS_OUT_AURA VS_ModelAuraShader(in float4 InPos : POSITION, in float4 InNml : NOR
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #else
-	localPos = InPos;
+		localPos = InPos;
 	localNml = InNml;
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #endif
 
 	float3 worldPos = 0;
-	float3 worldNml = 0;
+		float3 worldNml = 0;
 
-	float3 prevWorldPos = 0.f;
+		float3 prevWorldPos = 0.f;
 
-	worldPos = mul(localPos, WorldTM);
+		worldPos = mul(localPos, WorldTM);
 	worldNml = mul(localNml, (float3x3)WorldTM);
 
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+	// ìºë¦­í„° 2Dë¡œ ì°ê¸°
 	float4 posWV;
 #ifdef ENABLE_INSTANCING
 	o.Pos = CalcWVP(localPos, WorldTM, WorldViewProjTM, tmIndex, posWV);
 #else
 	o.Pos = CalcWVP(localPos, posWV);
 #endif
-	
+
 #ifdef ENABLE_INSTANCING
 	float fTime = g_InstanceVecArray[g_InstanceCount * 4 + tmIndex].y;
 	float fAuraFactor = g_InstanceVecArray[g_InstanceCount * 4 + tmIndex].x;
@@ -845,11 +839,11 @@ VS_OUT_AURA VS_ModelAuraShader(in float4 InPos : POSITION, in float4 InNml : NOR
 #endif
 
 	float3 vpNml = mul(localNml, (float3x3)g_ViewProjTM);
-	o.Pos.x += fTime * vpNml.x * fAuraFactor + sin(fTime * 3.14f) * 0.5f;
+		o.Pos.x += fTime * vpNml.x * fAuraFactor + sin(fTime * 3.14f) * 0.5f;
 	float y = o.Pos.y;
 	o.Pos.y += fTime * vpNml.y * fAuraFactor * 1.5f;
 	o.Pos.y = max(o.Pos.y, y + sin(fTime));
-			
+
 	return o;
 }
 
@@ -866,48 +860,48 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(tmID + 1e-5f);
+		int tmIndex = (int)(tmID + 1e-5f);
 	o.worldz_tmIndex_fog.y = tmID;
 	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
-	WorldTM._24 = 0.0f;
+		WorldTM._24 = 0.0f;
 	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
-	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+		float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
 #else
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+		float4x4 WorldTM = g_WorldTM;
+		float4x4 WorldViewTM = g_WorldViewTM;
+		float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
-	#ifdef ENABLE_INSTANCING
-		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
-	#endif
+		int boneIDIndex = g_boneTexID;
+#ifdef ENABLE_INSTANCING
+	boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+#endif
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
-		localPos.xyz += mul(InPos, boneTM) * weights[i];
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
 		localNml.xyz += mul(InNml, (float3x3)boneTM) * weights[i];
 	}
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #else
-	localPos = InPos;
+		localPos = InPos;
 	localNml = InNml;
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #endif
-	
-	float3 worldPos = 0;
-	float3 worldNml = 0;
 
-	worldPos = mul(localPos, WorldTM);
+	float3 worldPos = 0;
+		float3 worldNml = 0;
+
+		worldPos = mul(localPos, WorldTM);
 	worldNml = mul(localNml, (float3x3)WorldTM);
 
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+	// ìºë¦­í„° 2Dë¡œ ì°ê¸°
 #ifdef ENABLE_INSTANCING
 	o.Pos = CalcWVP(localPos, WorldTM, WorldViewProjTM, tmIndex, o.posWV);
 #else	
@@ -917,19 +911,19 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	float depth = o.Pos.z;
 
 #ifdef ENABLE_CHARACTER_RENDER
-	#ifdef ENABLE_INSTANCING
-		float4x4 worldAngleTM = mul(WorldTM, g_AngleMatrix);
+#ifdef ENABLE_INSTANCING
+	float4x4 worldAngleTM = mul(WorldTM, g_AngleMatrix);
 		o.worldz_tmIndex_fog.x = mul(localPos + float3(0, -25.5, 0), worldAngleTM).z * 0.1f;
-	#else
-		o.worldz_tmIndex_fog.x = mul(localPos + float3(0, -25.5, 0), g_TestMatrix).z * 0.1f;
-	#endif
+#else
+	o.worldz_tmIndex_fog.x = mul(localPos + float3(0, -25.5, 0), g_TestMatrix).z * 0.1f;
+#endif
 #endif
 
 	o.worldPos.xyz = worldPos;
-	
+
 #ifdef ENABLE_FREEZE
 	float4 zeroPos = float4(0, 0, 0, 1);
-	zeroPos = mul(zeroPos, WorldTM);
+		zeroPos = mul(zeroPos, WorldTM);
 
 	o.worldPos.xyz = worldPos - zeroPos;
 #endif 
@@ -941,9 +935,9 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 #ifdef ENABLE_GRASS
 	float3 viewPos = mul(localPos, WorldViewTM);
 
-	float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
+		float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
 	float2 texPos = worldPos.xz;
-	texPos.x += mapOffsetX;
+		texPos.x += mapOffsetX;
 	texPos.y += mapOffsetY;
 	texPos.xy /= mapSize;
 	texPos.y *= -1;
@@ -952,11 +946,11 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	float bgDepth = tex2Dlod(heightTex, float4(texPos, 0.0f, 1.0f)).y;
 
 	float delta = (bgDepth - worldY) / 10;
-	// 0.0005f ´Â ¼öÄ¡¸¦ ¹Ù²ã°¡¸é¼­ Ã£Àº delta ÃÖ´ëÄ¡ÀÇ ¸ÅÁ÷³Ñ¹ö
-	// 0.001f ÀÌ»óºÎÅÍ ¸ğµ¨ÀÌ Èçµé¸®´Â Á¤µµ°¡ ½ÉÇØÁö±â ½ÃÀÛÇÔ
-	if (delta > 0.0005f)
+	// 0.0001f ëŠ” ìˆ˜ì¹˜ë¥¼ ë°”ê¿”ê°€ë©´ì„œ ì°¾ì€ delta ìµœëŒ€ì¹˜ì˜ ë§¤ì§ë„˜ë²„
+	// 0.0005f ì´ìƒë¶€í„° ëª¨ë¸ì´ í”ë“¤ë¦¬ëŠ” ì •ë„ê°€ ì‹¬í•´ì§€ê¸° ì‹œì‘í•¨
+	if (delta > 0.0001f)
 	{
-		delta = 0.0005f;
+		delta = 0.0001f;
 	}
 	o.worldPos.w = 0;
 
@@ -978,7 +972,7 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	calcGrassTime = 7 * stepChk + calcGrassTime * (1 - stepChk);
 	calcWindPower = 600 * stepChk + calcWindPower * (1 - stepChk);
 	o.worldPos.w = stepChk;
-	
+
 	delta = saturate(delta) * calcWindPower * 10;
 	delta = sin((g_timeStamp + tFactor) * calcGrassTime + grassTimeoffset + worldPos.x * 0.1 - worldPos.z * 0.1) * delta + windDir * delta;
 
@@ -989,8 +983,8 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 	//Env
 #ifdef ENABLE_ENVTEX
 	float4 worldViewPos = mul(float4(localPos.xyz, 1.0f), WorldViewTM);
-	float4 worldViewNml = mul(float4(localNml.xyz, 0.0f), WorldViewTM);
-	worldViewPos = normalize(worldViewPos);
+		float4 worldViewNml = mul(float4(localNml.xyz, 0.0f), WorldViewTM);
+		worldViewPos = normalize(worldViewPos);
 	worldViewNml = normalize(worldViewNml);
 	o.envTexCoord.xy = reflect(worldViewPos, worldViewNml);
 #endif
@@ -1010,18 +1004,18 @@ VS_OUT VS_ModelShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in f
 
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
 	o.worldNml.xyz = worldNml;
-	#ifdef ENABLE_DIFFUSETEX
-		// ¾ó±¼ ±×¸®´Â ºÎºĞ
-		#ifdef ENABLE_FACE
-			#ifdef ENABLE_INSTANCING
-				float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
-			#else
-				float4 faceXYMulAdd = g_faceXYMulAdd;
-			#endif
-			o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
-			o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
-		#endif
-	#endif
+#ifdef ENABLE_DIFFUSETEX
+	// ì–¼êµ´ ê·¸ë¦¬ëŠ” ë¶€ë¶„
+#ifdef ENABLE_FACE
+#ifdef ENABLE_INSTANCING
+	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+#else
+	float4 faceXYMulAdd = g_faceXYMulAdd;
+#endif
+		o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+	o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
+#endif
+#endif
 #endif
 
 #if defined(ENABLE_DEPTH_RENDER) || defined(ENABLE_DEPTH_MRT)
@@ -1049,36 +1043,36 @@ VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(tmID + 1e-5f);
+		int tmIndex = (int)(tmID + 1e-5f);
 	o.worldz_tmIndex_fog.y = tmID;
 	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
-	WorldTM._24 = 0.0f;
+		WorldTM._24 = 0.0f;
 	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
-	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+		float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
 #else
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+		float4x4 WorldTM = g_WorldTM;
+		float4x4 WorldViewTM = g_WorldViewTM;
+		float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
-	#ifdef ENABLE_INSTANCING
-		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
-	#endif
+		int boneIDIndex = g_boneTexID;
+#ifdef ENABLE_INSTANCING
+	boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+#endif
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
-		localPos.xyz += mul(InPos, boneTM) * weights[i];
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
 		localNml.xyz += mul(InNml, (float3x3)boneTM) * weights[i];
 	}
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #else
-	localPos = InPos;
+		localPos = InPos;
 	localNml = InNml;
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
@@ -1087,11 +1081,11 @@ VS_OUT VS_OutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	localPos += normalize(localNml) * 0.3;
 
 	float3 worldPos = 0;
-	float3 worldNml = 0;
-	worldPos = mul(localPos, WorldTM);
+		float3 worldNml = 0;
+		worldPos = mul(localPos, WorldTM);
 	worldNml = mul(localNml, (float3x3)WorldTM);
 
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+	// ìºë¦­í„° 2Dë¡œ ì°ê¸°
 #ifdef ENABLE_INSTANCING
 	o.Pos = CalcWVP(localPos, WorldTM, WorldViewProjTM, tmIndex, o.posWV);
 #else	
@@ -1131,36 +1125,36 @@ VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMA
 
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(tmID + 1e-5f);
+		int tmIndex = (int)(tmID + 1e-5f);
 	o.worldz_tmIndex_fog.y = tmID;
 	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
-	WorldTM._24 = 0.0f;
+		WorldTM._24 = 0.0f;
 	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
-	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+		float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
 #else
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+		float4x4 WorldTM = g_WorldTM;
+		float4x4 WorldViewTM = g_WorldViewTM;
+		float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
-	#ifdef ENABLE_INSTANCING
-		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
-	#endif
+		int boneIDIndex = g_boneTexID;
+#ifdef ENABLE_INSTANCING
+	boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+#endif
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
-		localPos.xyz += mul(InPos, boneTM) * weights[i];
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
 		localNml.xyz += mul(InNml, (float3x3)boneTM) * weights[i];
 	}
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #else
-	localPos = InPos;
+		localPos = InPos;
 	localNml = InNml;
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
@@ -1169,11 +1163,11 @@ VS_OUT VS_ColorOutlineShader(in float4 InPos : POSITION, in float4 InNml : NORMA
 	localPos += normalize(localNml) * 1.0f;
 
 	float3 worldPos = 0;
-	float3 worldNml = 0;
-	worldPos = mul(localPos, WorldTM);
+		float3 worldNml = 0;
+		worldPos = mul(localPos, WorldTM);
 	worldNml = mul(localNml, (float3x3)WorldTM);
 
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+	// ìºë¦­í„° 2Dë¡œ ì°ê¸°
 #ifdef ENABLE_INSTANCING
 	o.Pos = CalcWVP(localPos, WorldTM, WorldViewProjTM, tmIndex, o.posWV);
 #else	
@@ -1214,49 +1208,49 @@ VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in fl
 
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 
 #ifdef ENABLE_INSTANCING
-	int tmIndex = (int)(tmID + 1e-5f);
+		int tmIndex = (int)(tmID + 1e-5f);
 	o.worldz_tmIndex_fog.y = tmID;
 	float4x4 WorldTM = g_InstanceTMArray[tmIndex];
-	WorldTM._24 = 0.0f;
+		WorldTM._24 = 0.0f;
 	float4x4 WorldViewTM = mul(WorldTM, g_ViewTM);
-	float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
+		float4x4 WorldViewProjTM = mul(WorldViewTM, g_ProjTM);
 #else
-	float4x4 WorldTM = g_WorldTM;
-	float4x4 WorldViewTM = g_WorldViewTM;
-	float4x4 WorldViewProjTM = g_WorldViewProjTM;
+		float4x4 WorldTM = g_WorldTM;
+		float4x4 WorldViewTM = g_WorldViewTM;
+		float4x4 WorldViewProjTM = g_WorldViewProjTM;
 #endif
 
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
-	#ifdef ENABLE_INSTANCING
-		boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
-	#endif
+		int boneIDIndex = g_boneTexID;
+#ifdef ENABLE_INSTANCING
+	boneIDIndex = (int)g_InstanceTMArray[tmIndex]._24;
+#endif
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
-		localPos.xyz += mul(InPos, boneTM) * weights[i];
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
 		localNml.xyz += mul(InNml, (float3x3)boneTM) * weights[i];
 	}
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #else
-	localPos = InPos;
+		localPos = InPos;
 	localNml = InNml;
 	localPos.w = 1.0f;
 	localNml.w = 0.0f;
 #endif
 
 	float3 worldPos = mul(localPos, WorldTM);
-	float3 worldNml = mul(localNml, (float3x3)WorldTM);
+		float3 worldNml = mul(localNml, (float3x3)WorldTM);
 
-	// Ä³¸¯ÅÍ 2D·Î Âï±â
+		// ìºë¦­í„° 2Dë¡œ ì°ê¸°
 #ifdef ENABLE_INSTANCING
-	o.Pos = CalcWVPSilhouette(worldPos, tmIndex);
+		o.Pos = CalcWVPSilhouette(worldPos, tmIndex);
 #else
-	o.Pos = CalcWVPSilhouette(worldPos);
+		o.Pos = CalcWVPSilhouette(worldPos);
 #endif
 
 	float depth = o.Pos.z;
@@ -1275,18 +1269,18 @@ VS_OUT VS_Silhouette(in float4 InPos : POSITION, in float4 InNml : NORMAL, in fl
 	o.viewVec = g_InvViewTM[3].xyz - worldPos;
 	o.worldNml.xyz = worldNml;
 
-	// ¾ó±¼ ±×¸®´Â ºÎºĞ
-	#ifdef ENABLE_FACE
-		#ifdef ENABLE_INSTANCING
-			float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
-		#else
-			float4 faceXYMulAdd = g_faceXYMulAdd;
-		#endif
-		o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
-		o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
-	#endif
+	// ì–¼êµ´ ê·¸ë¦¬ëŠ” ë¶€ë¶„
+#ifdef ENABLE_FACE
+#ifdef ENABLE_INSTANCING
+	float4 faceXYMulAdd = g_InstanceVecArray[g_InstanceCount * 5 + tmIndex];
+#else
+	float4 faceXYMulAdd = g_faceXYMulAdd;
 #endif
-	o.outDepth = o.Pos/o.Pos.w;
+		o.diffuseTexCoord.x = faceXYMulAdd.x * o.diffuseTexCoord.x + faceXYMulAdd.z;
+	o.diffuseTexCoord.y = faceXYMulAdd.y * o.diffuseTexCoord.y + faceXYMulAdd.w;
+#endif
+#endif
+	o.outDepth = o.Pos / o.Pos.w;
 	return o;
 }
 
@@ -1295,13 +1289,13 @@ float4 float4lineShader(VS_OUT In) : COLOR
 	float4 diffTexColor = 1;
 	float  alpha = 0;
 	float3 farColor = 1;
-	float3 nearColor = 1;
-	float3 nearTopColor = 1;
-	float3 nearBottomColor = 1;
-	float3 outlineColor = 1;
-	float3 specularcolor = 1;
-	float3 envtex = float3(1, 0, 0);
-	float specularpower = 0;
+		float3 nearColor = 1;
+		float3 nearTopColor = 1;
+		float3 nearBottomColor = 1;
+		float3 outlineColor = 1;
+		float3 specularcolor = 1;
+		float3 envtex = float3(1, 0, 0);
+		float specularpower = 0;
 	float specularmask = 0;
 	float glossiness = 0;
 #ifdef ENABLE_DIFFUSETEX
@@ -1314,12 +1308,12 @@ float4 float4lineShader(VS_OUT In) : COLOR
 #endif
 
 	float4 OutColor = 1;
-	float falloff = 0.0f;
+		float falloff = 0.0f;
 	float distValue = 0.0f;
 #ifdef ENABLE_CHARACTER_RENDER
 	float3 normalizeNormal = normalize(In.worldNml.xyz);
 
-	distValue = In.outDepth.r - In.outDepth.g;
+		distValue = In.outDepth.r - In.outDepth.g;
 
 	specularmask = envtex.r;
 	specularpower = 1 + (envtex.g * g_envValue);
@@ -1343,7 +1337,7 @@ float4 float4lineShader(VS_OUT In) : COLOR
 #else
 	float4 blendColor = g_BlendColor;
 #endif
-	OutColor.rgb *= blendColor.rgb * 2.0f;
+		OutColor.rgb *= blendColor.rgb * 2.0f;
 	OutColor = saturate(OutColor);
 	OutColor *= 0.5f;
 	OutColor.a = alpha;
@@ -1366,13 +1360,13 @@ float4 PS_OutLineColorHeadShader(VS_OUT In) : COLOR
 	float4 diffTexColor = 1;
 	float  alpha = 0;
 	float3 farColor = 1;
-	float3 nearColor = 1;
-	float3 nearTopColor = 1;
-	float3 nearBottomColor = 1;
-	float3 outlineColor = 1;
-	float3 specularcolor = 1;
-	float3 envtex = float3(1, 0, 0);
-	float specularpower = 0;
+		float3 nearColor = 1;
+		float3 nearTopColor = 1;
+		float3 nearBottomColor = 1;
+		float3 outlineColor = 1;
+		float3 specularcolor = 1;
+		float3 envtex = float3(1, 0, 0);
+		float specularpower = 0;
 	float specularmask = 0;
 	float glossiness = 0;
 #ifdef ENABLE_DIFFUSETEX
@@ -1385,12 +1379,12 @@ float4 PS_OutLineColorHeadShader(VS_OUT In) : COLOR
 #endif
 
 	float4 OutColor = 1;
-	float falloff = 0.0f;
+		float falloff = 0.0f;
 	float distValue = 0.0f;
 #ifdef ENABLE_CHARACTER_RENDER
 	float3 normalizeNormal = normalize(In.worldNml.xyz);
 
-	distValue = In.outDepth.r - In.outDepth.g;
+		distValue = In.outDepth.r - In.outDepth.g;
 
 	specularmask = envtex.r;
 	specularpower = 1 + (envtex.g*g_envValue);
@@ -1415,7 +1409,7 @@ float4 PS_OutLineColorHeadShader(VS_OUT In) : COLOR
 #else
 	float4 blendColor = g_BlendColor;
 #endif
-	OutColor.rgb *= blendColor.rgb * 2.0f;
+		OutColor.rgb *= blendColor.rgb * 2.0f;
 	OutColor = saturate(OutColor);
 	OutColor *= 0.5f;
 	OutColor.a = alpha;
@@ -1430,7 +1424,7 @@ float4 PS_OutLineColorHeadShader(VS_OUT In) : COLOR
 	OutColor.b *= 0.8f;
 #endif
 	OutColor.rgb = g_outLineColor.rgb;
-	
+
 	return OutColor;
 }
 
@@ -1451,13 +1445,13 @@ float4 PS_DepthRender(VS_OUT In) : COLOR
 	float alpha = 0.0f;
 #ifdef ENABLE_DIFFUSETEX
 	float4 diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
-	alpha = diffTexColor.a;
+		alpha = diffTexColor.a;
 #endif
 
 	Out.a = alpha;
 	Out.r = (In.outDepth.w) * 0.0002;
 	Out.g = length(In.posWV.xyz) * 0.0002;
-	Out.b  = (In.worldPos.y + 300) * 0.001;
+	Out.b = (In.worldPos.y + 300) * 0.001;
 	return Out;
 }
 
@@ -1472,37 +1466,37 @@ float4 PS_WaterRender(VS_OUT In) : COLOR
 	scrTexOut.x = (In.outDepth.x + 1.0f) * 0.5f;
 	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) * 0.5f;
 
-	// ½ºÅ©¸° ¿ÀÇÁ¼Â (¸ÅÁ÷³Ñ¹ö)
+	// ìŠ¤í¬ë¦° ì˜¤í”„ì…‹ (ë§¤ì§ë„˜ë²„)
 	scrTexOut.x += 0.0005f;
 	scrTexOut.y += 0.0006f;
 
 	Out.rgba = 0.0f;
 #ifdef ENABLE_WATER
-	#ifdef ENABLE_DIFFUSETEX	
-		// sway
-		float dt = sin(g_timeStamp* waterSwaySpeed + In.worldPos.xz * waterSwayRange.xy)* waterSwayPower;
-		In.diffuseTexCoord.xy += normalize(waterSwayRange) * dt;
+#ifdef ENABLE_DIFFUSETEX	
+	// sway
+	float dt = sin(g_timeStamp* waterSwaySpeed + In.worldPos.xz * waterSwayRange.xy)* waterSwayPower;
+	In.diffuseTexCoord.xy += normalize(waterSwayRange) * dt;
 
-		// speed
-		In.diffuseTexCoord.xy += g_timeStamp * waterDiffDir;
-		float4 oriTexColor = tex2D(diffuseTex, In.diffuseTexCoord.xy);
+	// speed
+	In.diffuseTexCoord.xy += g_timeStamp * waterDiffDir;
+	float4 oriTexColor = tex2D(diffuseTex, In.diffuseTexCoord.xy);
 		Out.rgba = oriTexColor.rgba;
-	#endif
+#endif
 
-	#ifdef ENABLE_STATICSHADOWTEX
-		float4 shadowColor = tex2D(staticShadowTex, In.shadowCoord);
+#ifdef ENABLE_STATICSHADOWTEX
+	float4 shadowColor = tex2D(staticShadowTex, In.shadowCoord);
 		Out.rgb *= shadowColor.rgba * 2;
-	#endif
+#endif
 
-	#ifdef ENABLE_ENVTEX
-		float4 envColor = tex2D(envTex, In.envTexCoord);
-	#endif
-	// refraction
-	float2 uv = In.worldPos.xz*refractionNormalSize;
-	uv += g_timeStamp*refractionDir;
+#ifdef ENABLE_ENVTEX
+	float4 envColor = tex2D(envTex, In.envTexCoord);
+#endif
+		// refraction
+		float2 uv = In.worldPos.xz*refractionNormalSize;
+		uv += g_timeStamp*refractionDir;
 	float4 normal = tex2D(normalTex, uv) - 0.5;
 
-	Out.rgb = tex2D(screenTex, scrTexOut.xy + normal.xy * refractionPower) * (1 - Out.a) + Out.rgb * Out.a;
+		Out.rgb = tex2D(screenTex, scrTexOut.xy + normal.xy * refractionPower) * (1 - Out.a) + Out.rgb * Out.a;
 	Out.a = 1.0f;
 
 	// spary
@@ -1530,7 +1524,7 @@ float4 PS_WaterRender(VS_OUT In) : COLOR
 float3 RGBToHSL(float3 RGB)
 {
 	float3 HSL = 0;
-	float U, V;
+		float U, V;
 	U = -min(RGB.r, min(RGB.g, RGB.b));
 	V = max(RGB.r, max(RGB.g, RGB.b));
 	HSL.z = (V - U) * 0.5;
@@ -1538,7 +1532,7 @@ float3 RGBToHSL(float3 RGB)
 	if (C != 0)
 	{
 		float3 Delta = (V - RGB) / C;
-		Delta.rgb -= Delta.brg;
+			Delta.rgb -= Delta.brg;
 		Delta.rgb += float3(2, 4, 6);
 		Delta.brg = step(V, RGB) * Delta.brg;
 		HSL.x = max(Delta.r, max(Delta.g, Delta.b));
@@ -1559,7 +1553,7 @@ float3 Hue(float H)
 float3 HSLToRGB(float3 HSL)
 {
 	float3 RGB = Hue(HSL.x);
-	float C = (1 - abs(2 * HSL.z - 1)) * HSL.y;
+		float C = (1 - abs(2 * HSL.z - 1)) * HSL.y;
 	return (RGB - 0.5) * C + HSL.z;
 }
 
@@ -1568,11 +1562,11 @@ float3 hueadj(float3 color, float hue)
 	hue /= 100;
 
 	float3 rethsl = RGBToHSL(color); //convert to HSL
-	rethsl.x -= hue*(1 - color); //Shift Hue
+		rethsl.x -= hue*(1 - color); //Shift Hue
 	rethsl.y += hue*(1 - color); //increase saturation
 	rethsl.z -= hue*(1 - color); //decrease lightness, not too sure if this is all correct, with the multiplication following this...
 	float3 result = HSLToRGB(rethsl);
-	return result;
+		return result;
 }
 
 float3 saturationAdj(float3 diffuse, float saturation)
@@ -1586,7 +1580,7 @@ float3 saturationAdj(float3 diffuse, float saturation)
 	float UIConst_7513 = 1.0;
 	float DivideByOne = (((diffuse.x * R) + (diffuse.y * G)) + (diffuse.z * B)) / UIConst_7513;
 	float3 OutGrey = float3(DivideByOne, DivideByOne, DivideByOne);
-	Out = float3(lerp(OutGrey, diffuse.xyz, saturation));
+		Out = float3(lerp(OutGrey, diffuse.xyz, saturation));
 	return Out;
 }
 
@@ -1600,7 +1594,7 @@ float3 brightcontrast(float3 diffuse, float bright, float contrast)
 	if (contrast != 1 || bright != 0)
 	{
 		float3 result = (diffuse - 0.5) * contrast + 0.5 + bright;
-		return result;
+			return result;
 	}
 	return diffuse;
 }
@@ -1608,7 +1602,7 @@ float3 brightcontrast(float3 diffuse, float bright, float contrast)
 float3 adjust(float3 diffuse, float4 colorValue)
 {
 	float3 result = diffuse;
-	result = hueadj(result, colorValue.z);
+		result = hueadj(result, colorValue.z);
 	result = saturationAdj(result, colorValue.w);
 	result = brightcontrast(result, colorValue.x, colorValue.y);
 	return result;
@@ -1625,13 +1619,13 @@ float4 PS_Silhouette(VS_OUT In) : COLOR
 	float2 scrTexOut;
 	scrTexOut.x = (In.outDepth.x + 1.0f) * 0.5f;
 	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) * 0.5f;
-	// ½ºÅ©¸° ¿ÀÇÁ¼Â (¸ÅÁ÷³Ñ¹ö)
+	// ìŠ¤í¬ë¦° ì˜¤í”„ì…‹ (ë§¤ì§ë„˜ë²„)
 	scrTexOut.x += 0.0005f;
 	scrTexOut.y += 0.0006f;
 	float3 screenTexColor = tex2D(screenTex, scrTexOut.xy).rgb;
 
-	float4 color = float4(0.0f, 0.0f, 0.0f, 1.0f);
-	color.rgb = 1.0f - GetLuminance(screenTexColor);
+		float4 color = float4(0.0f, 0.0f, 0.0f, 1.0f);
+		color.rgb = 1.0f - GetLuminance(screenTexColor);
 	return color;
 }
 
@@ -1645,13 +1639,13 @@ float4 PS_SilhouetteHead(VS_OUT In) : COLOR
 	float2 scrTexOut;
 	scrTexOut.x = (In.outDepth.x + 1.0f) * 0.5f;
 	scrTexOut.y = (2.0f - (In.outDepth.y + 1.0f)) * 0.5f;
-	// ½ºÅ©¸° ¿ÀÇÁ¼Â (¸ÅÁ÷³Ñ¹ö)
+	// ìŠ¤í¬ë¦° ì˜¤í”„ì…‹ (ë§¤ì§ë„˜ë²„)
 	scrTexOut.x += 0.0005f;
 	scrTexOut.y += 0.0006f;
 	float3 screenTexColor = tex2D(screenTex, scrTexOut.xy).rgb;
 
-	float4 color = float4(0.0f, 0.0f, 0.0f, 1.0f);
-	color.rgb = 1.0f - GetLuminance(screenTexColor);
+		float4 color = float4(0.0f, 0.0f, 0.0f, 1.0f);
+		color.rgb = 1.0f - GetLuminance(screenTexColor);
 	color.a = alpha;
 	return color;
 }
@@ -1689,11 +1683,11 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 	float4 diffTexColor = 1;
 	float  alpha = 0;
 	float3 farColor = 1;
-	float3 nearColor = 1;
-	float3 outlineColor = 1;
-	float3 envtex = float3(1, 0, 0);
+		float3 nearColor = 1;
+		float3 outlineColor = 1;
+		float3 envtex = float3(1, 0, 0);
 #ifdef ENABLE_DIFFUSETEX
-	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
+		diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
 	alpha = diffTexColor.a;
 #endif
 
@@ -1702,22 +1696,22 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 #endif
 
 	float4 OutColor = 1;
-	float falloff = 0.0f;
+		float falloff = 0.0f;
 	float distValue = 0.0f;
 
 #ifdef ENABLE_INSTANCING
 	int tmIndex = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
 	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
-	float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
+		float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
 #else
 	float4 blendColor = g_BlendColor;
-	float4 blendColorAdd = g_BlendColorAdd;
+		float4 blendColorAdd = g_BlendColorAdd;
 #endif
 
 #ifdef ENABLE_CHARACTER_RENDER
-	float3 normalizeNormal = normalize(In.worldNml.xyz);
+		float3 normalizeNormal = normalize(In.worldNml.xyz);
 
-	distValue = In.outDepth.r - In.outDepth.g;
+		distValue = In.outDepth.r - In.outDepth.g;
 	falloff = fall_off(normalizeNormal, In.viewVec);
 	float outlinevalue = smoothstep(0.0f, 0.38f, falloff);
 	farColor = adjust(diffTexColor.rgb, g_farValue);
@@ -1727,12 +1721,12 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 	outlineColor = adjust(OutColor.rgb, g_outLineValue);
 	OutColor.rgb = lerp(outlineColor, OutColor.rgb, outlinevalue);
 	OutColor.rgb = saturate(OutColor.rgb);
-	
+
 	OutColor.a = alpha;
 #endif
 	float4 Out = (float4)0;
 
-	Out.rgb = OutColor.xyz;
+		Out.rgb = OutColor.xyz;
 	Out.a = alpha;
 
 	Out.rgb *= blendColor.rgb * 2.0f;
@@ -1747,11 +1741,11 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 	Out = freeze(Out, In.worldPos.xyz, falloff);
 #endif
 	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) * 0.3f));
-	
+
 #ifdef ENABLE_DEPTH_MRT
 	OUT_COLOR color = (OUT_COLOR)0;
 	color.albedo = Out;
-	color.depth  = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
+	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
 	color.depth.a = alpha;
 	return color;
 #else
@@ -1759,7 +1753,12 @@ float4 PS_CharacterShader(VS_OUT In) : COLOR
 #endif	
 }
 
+
+#ifdef ENABLE_DEPTH_MRT
+OUT_COLOR PS_BillBoardHead(VS_OUT In)
+#else
 float4 PS_BillBoardHead(VS_OUT In) : COLOR
+#endif
 {
 	float4 diffTexColor = 0;
 	float alpha = 0.0f;
@@ -1767,19 +1766,18 @@ float4 PS_BillBoardHead(VS_OUT In) : COLOR
 	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
 	alpha = diffTexColor.a;
 #endif
-	diffTexColor.a = alpha;
 
 	float4 Out = diffTexColor;
 #ifdef ENABLE_CHARACTER_RENDER
-	#ifdef ENABLE_INSTANCING
+#ifdef ENABLE_INSTANCING
 		int tmIndex = (int)(In.worldz_tmIndex_fog.y + 1e-5f);
-		float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
+	float4 blendColor = g_InstanceVecArray[g_InstanceCount + tmIndex];
 		float4 blendColorAdd = g_InstanceVecArray[g_InstanceCount * 2 + tmIndex];
-	#else
+#else
 		float4 blendColor = g_BlendColor;
 		float4 blendColorAdd = g_BlendColorAdd;
-	#endif
-	Out.a *= blendColor.a;
+#endif
+		Out.a *= blendColor.a;
 	Out.rgb *= blendColor.rgb * 2.0f;
 	Out.rgb += blendColorAdd.rgb;
 	Out = saturate(Out);
@@ -1791,7 +1789,15 @@ float4 PS_BillBoardHead(VS_OUT In) : COLOR
 
 	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, 1 - ((1 - In.worldz_tmIndex_fog.z) *0.3f));
 
+#ifdef ENABLE_DEPTH_MRT
+	OUT_COLOR color = (OUT_COLOR)0;
+	color.albedo = Out;
+	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
+	color.depth.a = alpha;
+	return color;
+#else
 	return Out;
+#endif
 }
 
 VS_OUT HeightShaderCommon(in float4 InPos
@@ -1806,14 +1812,14 @@ VS_OUT HeightShaderCommon(in float4 InPos
 	VS_OUT o = (VS_OUT)0;
 	//Position
 	float4 localPos = 0;
-	float4 localNml = 0;
+		float4 localNml = 0;
 #ifdef ENABLE_SKINNING
-	int boneIDIndex = g_boneTexID;
+		int boneIDIndex = g_boneTexID;
 	float4 indices2 = D3DCOLORtoUBYTE4(indices);
 
 	for (int i = 0; i < 4; ++i) {
 		float4x4 boneTM = GetSkinMatrix(indices2[i] + boneIDIndex);
-		localPos.xyz += mul(InPos, boneTM) * weights[i];
+			localPos.xyz += mul(InPos, boneTM) * weights[i];
 	}
 	localPos.w = 1.0f;
 
@@ -1833,8 +1839,8 @@ VS_OUT HeightShaderCommon(in float4 InPos
 	float4x4 WorldTM = g_WorldTM;
 #endif
 
-	float3 worldPos = 0;
-	worldPos = mul(localPos, WorldTM);
+		float3 worldPos = 0;
+		worldPos = mul(localPos, WorldTM);
 
 	float worldY = -(worldPos.y + mapBottom) / (mapTop - mapBottom);
 	o.Pos = float4(worldPos, 1);
@@ -1859,17 +1865,17 @@ VS_OUT VS_HeightShader0(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
-	#endif
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
 #else
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos);
-	#endif
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, tmID);
+#else
+	VS_OUT o = HeightShaderCommon(InPos);
+#endif
 #endif
 
 	o.Pos.x -= 0.02f;
@@ -1886,17 +1892,17 @@ VS_OUT VS_HeightShader1(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
-	#endif
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
 #else
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos);
-	#endif
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, tmID);
+#else
+	VS_OUT o = HeightShaderCommon(InPos);
+#endif
 #endif
 
 	o.Pos.x += 0.02f;
@@ -1913,17 +1919,17 @@ VS_OUT VS_HeightShader2(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
-	#endif
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
 #else
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos);
-	#endif
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, tmID);
+#else
+	VS_OUT o = HeightShaderCommon(InPos);
+#endif
 #endif
 
 	o.Pos.y -= 0.02f;
@@ -1940,17 +1946,17 @@ VS_OUT VS_HeightShader3(in float4 InPos : POSITION, in float4 InNml : NORMAL, in
 	)
 {
 #ifdef ENABLE_SKINNING
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos, weights, indices);
-	#endif
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices, tmID);
 #else
-	#ifdef ENABLE_INSTANCING
-		VS_OUT o = HeightShaderCommon(InPos, tmID);
-	#else
-		VS_OUT o = HeightShaderCommon(InPos);
-	#endif
+	VS_OUT o = HeightShaderCommon(InPos, weights, indices);
+#endif
+#else
+#ifdef ENABLE_INSTANCING
+	VS_OUT o = HeightShaderCommon(InPos, tmID);
+#else
+	VS_OUT o = HeightShaderCommon(InPos);
+#endif
 #endif
 
 	o.Pos.y += 0.02f;
@@ -1982,364 +1988,364 @@ float4 PS_TEST(VS_OUT In) : COLOR
 	Out.rgba = 0.0f;
 	float4 diffTexColor = 0;
 #ifdef ENABLE_DIFFUSETEX
-	diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
+		diffTexColor = tex2D(diffuseTex, In.diffuseTexCoord);
 #endif
 	Out = diffTexColor;
 
 #ifdef ENABLE_STATICSHADOWTEX
 	float4 shadowColor = tex2D(staticShadowTex, In.shadowCoord);
-	Out.rgb *= shadowColor.rgba * 2;
+		Out.rgb *= shadowColor.rgba * 2;
 #endif
 
 #ifdef ENABLE_ENVTEX
 	float4 envColor = tex2D(envTex, In.envTexCoord);
 #endif
 
-	Out.rgb = lerp(g_FogColor.rgb, Out.rgb, In.worldz_tmIndex_fog.z);
+		Out.rgb = lerp(g_FogColor.rgb, Out.rgb, In.worldz_tmIndex_fog.z);
 
-	float chk = step(1.0f, In.worldPos.w);	
+	float chk = step(1.0f, In.worldPos.w);
 	Out.r += (sin(g_timeStamp * 10) / 5 + 0.1f) * chk;
 	Out.g += (sin(g_timeStamp * 10 + 1.04) / 5 + 0.1f) * chk;
-	Out.b += (sin(g_timeStamp * 10 + 2.08) / 5 + 0.1f) * chk;	
+	Out.b += (sin(g_timeStamp * 10 + 2.08) / 5 + 0.1f) * chk;
 
 	Out.a *= g_AlphaBlending;
-	
+
 #ifdef ENABLE_DEPTH_MRT
 	OUT_COLOR color = (OUT_COLOR)0;
 	color.albedo = Out;
-	color.depth  = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
+	color.depth = CalcDepth(In.outDepth.w, In.worldPos.y, In.posWV);
 	return color;
 #else
 	return Out;
 #endif	
-	
+
 }
 
 #ifdef ENABLE_DEPTH_RENDER
-	technique DepthRenderTq
-	{
-		pass P0 {
-			CullMode = none;
-			AlphaTestEnable = true;
-			AlphaRef = 0x10;
-			AlphaBlendEnable = false;
-			VertexShader = compile vs_3_0 VS_ModelShader();
-			PixelShader = compile ps_3_0 PS_DepthRender();
-		}
+technique DepthRenderTq
+{
+	pass P0 {
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x10;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_DepthRender();
 	}
+}
 #else
-	technique DefaultVertexTq
-	{
-		pass P0 {
-			CullMode = ccw;
+technique DefaultVertexTq
+{
+	pass P0 {
+		CullMode = ccw;
 
-			VertexShader = compile vs_3_0 VS_ModelShader();
-			PixelShader = compile ps_3_0 PS_TEST();
-		}
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_TEST();
 	}
+}
 
-	#ifdef ENABLE_CHARACTER_RENDER
-		technique BehindCharacterShadingTq
-		{	
-			pass P0 {
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				CullMode = none;
-				ZEnable = true;
-				ZFunc = Greater;
-				ZWriteEnable = false;
-				AlphaBlendEnable = false;
-				VertexShader = compile vs_3_0 VS_Silhouette();
-				PixelShader = compile ps_3_0 PS_Silhouette();
-			}
-		}
+#ifdef ENABLE_CHARACTER_RENDER
+technique BehindCharacterShadingTq
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = none;
+		ZEnable = true;
+		ZFunc = Greater;
+		ZWriteEnable = false;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_Silhouette();
+		PixelShader = compile ps_3_0 PS_Silhouette();
+	}
+}
 
-		technique BehindBillboardHeadShadingTq
-		{	
-			pass P0 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZFunc = Greater;
-				ZWriteEnable = false;
-				AlphaBlendEnable = false;
-				VertexShader = compile vs_3_0 VS_Silhouette();
-				PixelShader = compile ps_3_0 PS_SilhouetteHead();
-			}
-		}
+technique BehindBillboardHeadShadingTq
+{
+	pass P0 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZFunc = Greater;
+		ZWriteEnable = false;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_Silhouette();
+		PixelShader = compile ps_3_0 PS_SilhouetteHead();
+	}
+}
 
-		technique CharacterShadingTq
-		{
-			pass P0 {
-				AlphaTestEnable = true;
-				AlphaRef = 0xfd;
-				AlphaFunc = Greater;
-				CullMode = ccw;
-				AlphaBlendEnable = false;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_CharacterShader();
-			}
-			pass P1 {
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				CullMode = ccw;
-				AlphaBlendEnable = true;
-				ZFunc = LessEqual;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_CharacterShader();
-			}
-			pass P2 {
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				CullMode = cw;
-				AlphaBlendEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = false;
-				VertexShader = compile vs_3_0 VS_OutlineShader();
-				PixelShader = compile ps_3_0 float4lineShader();
-			}
-		}
+technique CharacterShadingTq
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = false;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+	pass P1 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = true;
+		ZFunc = LessEqual;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+	pass P2 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = cw;
+		AlphaBlendEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = false;
+		VertexShader = compile vs_3_0 VS_OutlineShader();
+		PixelShader = compile ps_3_0 float4lineShader();
+	}
+}
 
-		technique CharacterAuraShadingTq
-		{
-			pass P0 {
-				CullMode = cw;
-				AlphaBlendEnable = true;
-				ZWriteEnable = false;
-				VertexShader = compile vs_3_0 VS_ModelAuraShader();
-				PixelShader = compile ps_3_0 PS_CharacterAuraShader();
-			}
-		}
+technique CharacterAuraShadingTq
+{
+	pass P0 {
+		CullMode = cw;
+		AlphaBlendEnable = true;
+		ZWriteEnable = false;
+		VertexShader = compile vs_3_0 VS_ModelAuraShader();
+		PixelShader = compile ps_3_0 PS_CharacterAuraShader();
+	}
+}
 
-		technique CharacterOutlineShadingTq
-		{
-			pass P0 {
-				AlphaTestEnable = true;
-				AlphaRef = 0xfd;
-				AlphaFunc = Greater;
-				CullMode = ccw;
-				AlphaBlendEnable = false;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_CharacterShader();
-			}
-			pass P1 {
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				CullMode = ccw;
-				AlphaBlendEnable = true;
-				ZFunc = LessEqual;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_CharacterShader();
-			}
-			pass P2 {
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				CullMode = cw;
-				AlphaBlendEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = false;
-				VertexShader = compile vs_3_0 VS_ColorOutlineShader();
-				PixelShader = compile ps_3_0 PS_OutLineColorShader();
-			}
-		}
+technique CharacterOutlineShadingTq
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = false;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+	pass P1 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = true;
+		ZFunc = LessEqual;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+	pass P2 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = cw;
+		AlphaBlendEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = false;
+		VertexShader = compile vs_3_0 VS_ColorOutlineShader();
+		PixelShader = compile ps_3_0 PS_OutLineColorShader();
+	}
+}
 
-		technique CharacterShadingTq_LowQuality
-		{
-			pass P0 {
-				AlphaTestEnable = true;
-				AlphaRef = 0xfd;
-				AlphaFunc = Greater;
-				CullMode = ccw;
-				AlphaBlendEnable = false;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_CharacterShader();
-			}
-		}
+technique CharacterShadingTq_LowQuality
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = false;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+}
 
-		technique CharacterOutlineShadingTq_LowQuality
-		{
-			pass P0 {
-				AlphaTestEnable = true;
-				AlphaRef = 0xfd;
-				AlphaFunc = Greater;
-				CullMode = ccw;
-				AlphaBlendEnable = false;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_CharacterShader();
-			}
-			pass P2 {
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				CullMode = cw;
-				AlphaBlendEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = false;
-				VertexShader = compile vs_3_0 VS_ColorOutlineShader();
-				PixelShader = compile ps_3_0 PS_OutLineColorShader();
-			}
-		}
+technique CharacterOutlineShadingTq_LowQuality
+{
+	pass P0 {
+		AlphaTestEnable = true;
+		AlphaRef = 0xfd;
+		AlphaFunc = Greater;
+		CullMode = ccw;
+		AlphaBlendEnable = false;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_CharacterShader();
+	}
+	pass P2 {
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		CullMode = cw;
+		AlphaBlendEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = false;
+		VertexShader = compile vs_3_0 VS_ColorOutlineShader();
+		PixelShader = compile ps_3_0 PS_OutLineColorShader();
+	}
+}
 
-		technique BillboardHeadTq
-		{
-			pass P0 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_BillBoardHead();
-			}
-		}
+technique BillboardHeadTq
+{
+	pass P0 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_BillBoardHead();
+	}
+}
 
-		technique BillboardHeadSnapShotTq
-		{
-			pass P0 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0xb4;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_BillBoardHead();
-			}
-		}
+technique BillboardHeadSnapShotTq
+{
+	pass P0 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0xb4;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_BillBoardHead();
+	}
+}
 
-		technique BillboardHeadOutlineTq
-		{
-			pass P0 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_HeadOutlineModelShader1();
-				PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
-			}
-			pass P1 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_HeadOutlineModelShader2();
-				PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
-			}
-			pass P2 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_HeadOutlineModelShader3();
-				PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
-			}
-			pass P3 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_HeadOutlineModelShader4();
-				PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
-			}
-		}
+technique BillboardHeadOutlineTq
+{
+	pass P0 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_HeadOutlineModelShader1();
+		PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
+	}
+	pass P1 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_HeadOutlineModelShader2();
+		PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
+	}
+	pass P2 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_HeadOutlineModelShader3();
+		PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
+	}
+	pass P3 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_HeadOutlineModelShader4();
+		PixelShader = compile ps_3_0 PS_OutLineColorHeadShader();
+	}
+}
 
-		technique BillboardHeadAddTq
-		{
-			pass P0 {
-				SRGBWRITEENABLE = FALSE;
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x30;
-				AlphaFunc = Greater;
-				ZEnable = true;
-				ZFunc = LessEqual;
-				ZWriteEnable = true;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_BillBoardHead();
-			}
-		}
-	#else
-		technique WaterRenderTq
-		{
-			pass P0 {
-				Zenable = TRUE;
-				VertexShader = compile vs_3_0 VS_ModelShader();
-				PixelShader = compile ps_3_0 PS_WaterRender();
-			}
-		}
+technique BillboardHeadAddTq
+{
+	pass P0 {
+		SRGBWRITEENABLE = FALSE;
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x30;
+		AlphaFunc = Greater;
+		ZEnable = true;
+		ZFunc = LessEqual;
+		ZWriteEnable = true;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_BillBoardHead();
+	}
+}
+#else
+technique WaterRenderTq
+{
+	pass P0 {
+		Zenable = TRUE;
+		VertexShader = compile vs_3_0 VS_ModelShader();
+		PixelShader = compile ps_3_0 PS_WaterRender();
+	}
+}
 
-		technique HeightRenderTq
-		{
-			pass P0 {
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x10;
-				AlphaBlendEnable = false;
-				VertexShader = compile vs_3_0 VS_HeightShader0();
-				PixelShader = compile ps_3_0 PS_HeightRender();
-			}
-			pass P1 {
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x10;
-				AlphaBlendEnable = false;
-				VertexShader = compile vs_3_0 VS_HeightShader1();
-				PixelShader = compile ps_3_0 PS_HeightRender();
-			}
-			pass P2 {
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x10;
-				AlphaBlendEnable = false;
-				VertexShader = compile vs_3_0 VS_HeightShader2();
-				PixelShader = compile ps_3_0 PS_HeightRender();
-			}
-			pass P3 {
-				CullMode = none;
-				AlphaTestEnable = true;
-				AlphaRef = 0x10;
-				AlphaBlendEnable = false;
-				VertexShader = compile vs_3_0 VS_HeightShader3();
-				PixelShader = compile ps_3_0 PS_HeightRender();
-			}
-		}
-	#endif
+technique HeightRenderTq
+{
+	pass P0 {
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x10;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_HeightShader0();
+		PixelShader = compile ps_3_0 PS_HeightRender();
+	}
+	pass P1 {
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x10;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_HeightShader1();
+		PixelShader = compile ps_3_0 PS_HeightRender();
+	}
+	pass P2 {
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x10;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_HeightShader2();
+		PixelShader = compile ps_3_0 PS_HeightRender();
+	}
+	pass P3 {
+		CullMode = none;
+		AlphaTestEnable = true;
+		AlphaRef = 0x10;
+		AlphaBlendEnable = false;
+		VertexShader = compile vs_3_0 VS_HeightShader3();
+		PixelShader = compile ps_3_0 PS_HeightRender();
+	}
+}
+#endif
 #endif
 
 #endif //__MODELSHADER_FX__
