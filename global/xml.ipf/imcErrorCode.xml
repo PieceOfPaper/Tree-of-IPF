@@ -94,7 +94,7 @@
 		<Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
 		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
 		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
-    <Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
+		<Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -196,7 +196,7 @@
 		<Code Code="ERRCODE_SCRIPT_NONE_UPDATE_SCRIPT" CallStack="NO" Desc="업데이트 스크립트가 None입니다."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_USE_TX_IN_MAIN_THREAD" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_FIND_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
-    <Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
+		<Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
 	</Type>
 	<Type Type="NETWORK">
 		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
@@ -254,6 +254,7 @@
 		<Code Code="ERRCODE_DB_MONGO_FAILOVER_FILE" CallStack="NO" Desc="MongoLog Failover파일에 로그기록을 실패했습니다."/>
 		<Code Code="ERRCODE_DB_DISCONNECTED_MONGO" CallStack="NO" Desc="Mongo DB의 연결이 끊어져 있습니다. 해당 쿼리문을 가져올 수 없습니다."/>
 		<Code Code="ERRCODE_DB_CONNECT" CallStack="NO" Desc="DB 연결 실패"/>
+		<Code Code="ERRCODE_DB_CONNECT_CRASH" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
 	</Type>
 	<Type Type="SYSTEM">
 		<Code Code="ERRCODE_SYSTEM_INVALIED_CMDLINE_PARAM" CallStack="NO" Desc="커맨드 라인 패러미터가 잘못되었습니다. 프로그램 실행 배치 파일 내용을 확인하세요."/>
