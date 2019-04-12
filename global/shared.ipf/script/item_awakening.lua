@@ -9,7 +9,7 @@ end
 function IS_ITEM_AWAKENING_STONE(obj)
 	if obj.ClassName == "misc_awakeningStone1" then
 		return true;
-	elseif obj.ClassName == "Premium_awakeningStone" or obj.ClassName == "Premium_awakeningStone14" then
+	elseif obj.ClassName == "Premium_awakeningStone" or obj.ClassName == "Premium_awakeningStone14" or obj.ClassName == "Premium_awakeningStone_TA" then
 		return true;
 	end
 

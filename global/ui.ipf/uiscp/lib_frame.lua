@@ -54,12 +54,12 @@ end
 
 
 function _FRAME_AUTOPOS(frame)
-
+	
 	local handle = frame:GetUserIValue("_AT_OFFSET_HANDLE");
 	local offsetX = frame:GetUserIValue("_AT_OFFSET_X");
 	local offsetY = frame:GetUserIValue("_AT_OFFSET_Y");
 	local offsetType = frame:GetUserIValue("_AT_OFFSET_TYPE");
-	local pos = info.GetPositionInUI(	handle , offsetType);
+	local pos = info.GetPositionInUI(handle , offsetType);
 		
 	if nil == world.GetActor(handle) then	
 		local autoDestroy = frame:GetUserIValue("_AT_AUTODESTROY");

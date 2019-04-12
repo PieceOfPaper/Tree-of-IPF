@@ -1285,6 +1285,23 @@ function IS_EQUIP(item)
 	return item.ItemType == "Equip";
 end
 
+function IS_NEED_APPRAISED_ITEM(item)
+	if IS_EQUIP(item) == false then
+		return false;
+	end
+
+	local isAppraised = TryGetProp(item,'NeedAppraisal')
+	if isAppraised == nil then
+		return false;
+	end
+
+	if isAppraised == 1 then
+		return true;
+	end
+
+	return false;
+end
+
 function INCR_PROP(self, obj, propName, propValue)
 
 	self[propName] = self[propName] + propValue;
@@ -1505,4 +1522,16 @@ function SCR_GET_ZONE_FACTION_OBJECT(zoneClassName, factionList, monRankList, re
     end
     
     return monList
+end
+
+function GET_COMMAED_STRING(num) -- 백억정도까진 가능합니다
+	num = math.floor(num);
+
+	local retStr = "";
+	while num > 999 do
+		retStr = ','..string.format("%03d", num % 1000)..retStr;
+		num = num / 1000;
+	end
+	retStr = string.format("%d", num)..retStr;
+	return retStr;
 end

@@ -61,8 +61,8 @@ function DRAW_ETC_COMMON_TOOLTIP(tooltipframe, invitem, mainframename)
 		questMark:ShowWindow(0);
 	end
 
-	-- 별 그리기 : 요청에 의해 일반템 별 삭제
-	--SET_GRADE_TOOLTIP(CSet, invitem, GRADE_FONT_SIZE);
+	-- 별 그리기
+	SET_GRADE_TOOLTIP(CSet, invitem, GRADE_FONT_SIZE);
 
 	-- 아이템 이름 세팅
 	local fullname = GET_FULL_NAME(invitem, true);
@@ -217,6 +217,7 @@ function DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframe
 			local recipeItemCnt, invItemCnt, dragRecipeItem = GET_RECIPE_MATERIAL_INFO(recipecls, i);
 
 			local itemSet = gbox_items:CreateOrGetControlSet("tooltip_recipe_eachitem", "ITEM_" .. i, 0, inner_yPos);
+			itemSet = tolua.cast(itemSet, 'ui::CControlSet');
 			
 			local image = GET_CHILD(itemSet, "image", "ui::CPicture");
 			local text = GET_CHILD(itemSet, "text", "ui::CRichText");
@@ -230,6 +231,9 @@ function DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframe
 			else
 				text:SetFontName(UNAVAIABLE_MAKE_FONT)
 			end
+
+			local GRADE_FONT_SIZE = itemSet:GetUserConfig("GRADE_FONT_SIZE"); -- 등급 나타내는 별 크기
+			SET_GRADE_TOOLTIP(itemSet,dragRecipeItem,GRADE_FONT_SIZE)
 			
 			inner_yPos = inner_yPos + itemSet:GetHeight();
 		end

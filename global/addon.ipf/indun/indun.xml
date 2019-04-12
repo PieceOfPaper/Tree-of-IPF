@@ -1,5 +1,4 @@
-﻿<?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<?xml version="1.0" encoding="UTF-8"?>
 <uiframe name="indun" x="0" y="0" width="800" height="1200" create="open">
 	<frame fullheight="true" fasthide="true" layout_gravity="right top" margin="0 0 -680 0" open="pip"/>
 	<skin frameskin=" "/>
@@ -14,14 +13,14 @@
 		<richtext name="title" rect="0 0 200 80" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}인스턴스 던전" textalign="left top"/>
 		<button name="close" rect="0 0 44 44" margin="28 20 0 0" layout_gravity="left top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;indun&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}인스턴스 던전을 닫습니다{/}"/>
 		<richtext name="indunText" margin="20 106 0 0" rect="0 0 120 50" format="{@st66d_y}%s{/}" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		<richtext name="resetTime" margin="20 80 0 0" rect="0 0 120 24" caption="{@st41}입장 횟수 초기화 : 매일 6시{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" />
+		<richtext name="resetTime" margin="20 80 0 0" rect="0 0 120 24" caption="{@st41}입장 횟수 초기화 : 매일 6시{/}" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="white_16_ol" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 		<groupbox name="listgBox" rect="0 0 470 860" margin="316 120 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle" parent="bg3"/>
-		<groupbox name="listTile" rect="0 0 465 40" margin="2 1 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top"parent="listgBox"/>
+		<groupbox name="listTile" rect="0 0 465 40" margin="2 1 0 0" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="listgBox"/>
 		<richtext name="richtext_2" margin="10 10 0 0" rect="0 0 120 24" caption="이름/위치" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="listTile"/>
 		<richtext name="richtext_2_1" margin="0 10 10 0" rect="0 0 120 24" caption="입장레벨" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="right top" parent="listTile"/>
 		<checkbox name="levelUp" margin="0 80 17 0" rect="0 0 100 20" caption="레벨 오름차순{/}" LBtnDownScp="INDUN_SORT_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
 		<checkbox name="levelDown" margin="0 106 17 0" rect="0 0 100 24" caption="레벨 내림차순{/}" LBtnDownScp="INDUN_SORT_OPTIN_CHECK" fontname="black_16_b" clicksound="button_click_big" oversound="button_over" layout_gravity="right top"/>
-	<groupbox name="categBox" rect="0 0 300 860" margin="12 119 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle" parent="bg3"/>
+		<groupbox name="categBox" rect="0 0 300 860" margin="12 119 0 0" layout_gravity="left top" hittestbox="false" resizebyresolution="false" scrollbar="false" skin="test_frame_midle" parent="bg3"/>
 		<groupbox name="listTile_1" margin="2 3 0 0" rect="0 0 295 40" hittestbox="false" skin="market_listbase" layout_gravity="left top" parent="categBox"/>
 		<richtext name="richtext_2_2" margin="10 10 0 0" rect="0 0 120 24" caption="카테고리" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="listTile_1"/>
 		<richtext name="richtext_2_2_1" margin="210 10 0 0" rect="0 0 120 24" caption="입장 횟수" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="black_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top" parent="listTile_1"/>

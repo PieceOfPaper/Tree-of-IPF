@@ -15,7 +15,6 @@
 		<groupbox name="pip4" rect="0 0 470 130" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 100 30" margin="0 16 0 0" layout_gravity="center top" caption="{@st43}포이즌 팟{/}" fontname="default" spacey="0"/>
 		<button name="close" rect="-10 0 44 44" margin="0 20 17 0" layout_gravity="right top" LBtnUpArgNum="" LBtnUpScp="ui.CloseFrame(&apos;poisonpot&apos;)" MouseOffAnim="btn_mouseoff" MouseOnAnim="btn_mouseover" caption="" clicksound="button_click_big" image="testclose_button" oversound="button_over" texttooltip="{@st59}포이즌 팟 UI를 닫습니다{/}"/>
-		<picture name="question" rect="0 0 44 44" margin="27 20 0" layout_gravity="left top" hittest="true" image="testquesten_button" texttooltip="{@st59}작성 필요{/}"/>
 		<groupbox name="mainGbox" rect="0 0 470 460" margin="0 50 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" resizebyresolution="true" scrollbar="true" skin="pipwin_low"/>
 		<picture name="bgimage" parent="mainGbox" rect="0 0 280 270" margin="30 50 0 0" layout_gravity="left top" image="Magic_poison" stretch="true"/>
 		<picture name="subboss_bg" parent="mainGbox" rect="0 0 168 214" margin="0 150 30 0" layout_gravity="right top" image="bosscard_big_on" stretch="true"/>

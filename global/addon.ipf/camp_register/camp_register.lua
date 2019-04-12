@@ -35,7 +35,7 @@ function CAMP_REG_INIT(frame, skillName, sklLevel)
 	local campTime = CAMP_TIME(skillName, sklLevel);
 	time_text:SetTextByKey("value", GET_TIME_TXT(campTime));
 
-	local buffTime = CAMP_BUFF_TIME(skillName, sklLevel);
+	local buffTime = CAMP_BUFF_TIME(sklLevel);
 	local effectTxt = ClMsg("BuffMaintainTime") .. " + " ..buffTime .. "%";
 	local effect_text = GET_CHILD(gbox, "effect_text");		
 	effect_text:SetTextByKey("value", effectTxt);

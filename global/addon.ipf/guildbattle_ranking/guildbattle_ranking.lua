@@ -1,7 +1,10 @@
 
 
 function GUILDBATTLE_RANKING_ON_INIT(addon, frame)
-	
+
+	addon:RegisterMsg("PREV_GUILD_RANK_INFO", "ON_UPDATE_PREV_GUILD_RANK_INFO");
+	addon:RegisterMsg("ALL_SEASON_TOP_RANK_INFO", "ON_UPDATE_ALL_SEASON_TOP_RANK_INFO");
+
 end
 
 function ON_UPDATE_PREV_GUILD_RANK_INFO(frame)
@@ -76,14 +79,6 @@ function UPDATE_PREV_RANKING_GUILD(frame)
 
 			first_guild_award:SetTextByKey("value", "");
 
-			local rewardClass = GetClassByType("GuildBattleReward", 1);
-			if rewardClass ~= nil then
-				local reward = TryGetProp(rewardClass, "TPCount");
-			
-				if reward ~= nil then
-					first_guild_award:SetTextByKey("value", reward.."TP");
-				end
-			end
 		end	
 		for i = 1, cnt - 1 do
 			local info = session.worldPVP.GetPrevRankInfoByIndex(i);
@@ -112,31 +107,13 @@ function UPDATE_PREV_RANKING_CTRL(ctrlSet, info)
 
 end
 
-function UPDATE_GET_REWARD_BUTTON(frame)
+function UPDATE_GET_REWARD_BUTTON(frame)	
 	
 	local btn = frame:GetChild("btn_get_reward");
 	btn:ShowWindow(0);
-	local prevSeason = session.worldPVP.GetCurrentSeason() - 1;
-	local prevSeasonMyRank = session.worldPVP.GetPrevSeasonMyGuildRank();
 
-	if prevSeasonMyRank > 0 then
-		local isLeader = AM_I_LEADER(PARTY_GUILD);
-		if isLeader == 1 then
-			local pcparty = session.party.GetPartyInfo(PARTY_GUILD);
-			if pcparty ~= nil then
-				local partyObj = GetIES(pcparty:GetObject());
-				local lastPVPRewardSeason = partyObj.LastPVPRewardSeason;
-				
-				if lastPVPRewardSeason ~= prevSeason then
-					btn:ShowWindow(1);				
-				end
-			end	
+end	
 			
-		end
-	end
-
-end
-
 function REQ_GET_GUILD_BATTLE_REWARD(frame, ctrl)
 
 	local type = session.worldPVP.GetRankProp("Type");
@@ -168,21 +145,37 @@ function GUILDBATTLE_RANKING_REQUEST_ALL_SEASON_TOP_RANKER(frame, page)
 	local input_findname = rankingpage:GetChild("input_findname");
 	gbox_ctrls:RemoveAllChild();
 
-	local pvpType = 200 --frame:GetUserIValue("PVP_TYPE");
+	local pvpType = 210 --frame:GetUserIValue("PVP_TYPE");
 
 	worldPVP.RequestAllSeasonTopPVPRanking(pvpType, page, input_findname:GetText());
 
 end
 
 function OPEN_GUILDBATTLE_RANKING_FRAME(openPage)
+	if openPage == nil then
+		openPage = 0;
+	end
+
+		local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
+		guildbattle_ranking:ShowWindow(1);
+		if 1 ~= openPage then
+			local tab = GET_CHILD_RECURSIVELY(guildbattle_ranking, "tab", "ui::CTabControl");
+			local nTabIdx = tab:GetSelectItemIndex();
 		
+			if nTabIdx == 0 then
+				GUILDBATTLE_RANKING_UPDATE(guildbattle_ranking);
+			elseif nTabIdx == 1 then
+				UPDATE_ALL_SEASON_TOP_RANKING_GUILD(guildbattle_ranking);
+			end
+		end
+		UPDATE_PREV_RANKING_GUILD(guildbattle_ranking);
 end
 
 function OPEN_GUILDBATTLE_RANKING(frame)
 
 	local type = session.worldPVP.GetRankProp("Type");
 	worldPVP.RequestGuildBattlePrevSeasonRanking(type);
-	--UPDATE_PREV_RANKING_GUILD(frame);
+	UPDATE_PREV_RANKING_GUILD(frame);
 	UPDATE_GET_REWARD_BUTTON(frame);
 	UPDATE_GUILDBATTLE_RANK_MYRANK(frame);
 end
@@ -268,21 +261,19 @@ function GUILDBATTLE_RANKING_REQUEST_RANK(frame, page, findMyRanking)
 	local input_findname = rankingpage:GetChild("input_findname");
 	gbox_ctrls:RemoveAllChild();
 
-	local pvpType = 200 --frame:GetUserIValue("PVP_TYPE");
+	local pvpType = 210 --frame:GetUserIValue("PVP_TYPE");
 	worldPVP.RequestPVPRanking(pvpType, 0, -1, page, findMyRanking, input_findname:GetText());
 
 end
 
 function GUILDBATTLE_RANK_REMAINTIME_UPDATE(frame)
+	local startDay = session.worldPVP.GetGuildPVPStartDay();
+	local endDay = session.worldPVP.GetGuildPVPEndDay();
+	local msgString = ScpArgMsg("GuildPVPStart{sYear}{sMonth}{sDay}GuildPVPEnd{eYear}{eMonth}{eDay}", "sYear", startDay.year, "sMonth", startDay.month, "sDay", startDay.day, "eYear", endDay.year, "eMonth", endDay.month, "eDay", endDay.day);
 
-	local remainSec = session.worldPVP.GetRemainSecondToNextSeason();
-
-	local timeText = GET_TIME_TXT_DHM(remainSec);
-	local msgString = ScpArgMsg("{Time}WeeklyRankingRefresh", "Time", timeText);
-	
 	local txt_nextseason = frame:GetChild("txt_nextseason");
 	txt_nextseason:SetTextByKey("value", msgString);
-	
+
 	return 1;
 end
 
@@ -308,7 +299,8 @@ function UPDATE_GUILDBATTLE_RANK_MYRANK(frame)
 			txt_myrank:ShowWindow(1);
 			txt_myrank:SetTextByKey("value", rank);
 		end
-	end	
+	end
+	
 end
 
 function GUILDBATTLE_RANKING_UPDATE(frame)
@@ -316,7 +308,7 @@ function GUILDBATTLE_RANKING_UPDATE(frame)
 	GUILDBATTLE_RANK_REMAINTIME_UPDATE(frame);
 
 	local type = session.worldPVP.GetRankProp("Type");
-	frame:SetUserValue("PVP_TYPE", 200);
+	frame:SetUserValue("PVP_TYPE", 210);
 	local league = session.worldPVP.GetRankProp("League");
 	local page = session.worldPVP.GetRankProp("Page");
 	local totalCount = session.worldPVP.GetRankProp("TotalCount");
@@ -402,3 +394,4 @@ function UPDATE_GUILDBATTLE_RANKING_CONTROL(ctrlSet, info, showUpDown)
 		imgUpDown:SetVisible(0);
 	end
 end
+

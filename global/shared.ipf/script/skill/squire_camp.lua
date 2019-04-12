@@ -18,7 +18,7 @@ function CAMP_TIME(skillName, sklLevel)
 	return 60 * 60 + 60 * 30 * sklLevel;
 end
 
-function CAMP_BUFF_TIME(skillName, sklLevel)
+function CAMP_BUFF_TIME(sklLevel)
 	return sklLevel * 20;
 end
 

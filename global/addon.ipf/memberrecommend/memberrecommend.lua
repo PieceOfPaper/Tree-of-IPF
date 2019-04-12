@@ -59,10 +59,9 @@ function SHOW_MEMBER_RECOMMEND(cid, recommendType)
 
 	local jobhistory = otherpcinfo.jobHistory;
 	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
-	local clslist, cnt  = GetClassList("Job");
-	local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 	local jobRank		= nowjobinfo.grade
-	local jobName		= nowjobcls.Name
+	local jobCls		= GetClassByType("Job", nowjobinfo.jobID);
+	local jobName		= GET_JOB_NAME(jobCls, otherpcinfo:GetAppearance():GetGender());
 	local jobtext = GET_CHILD_RECURSIVELY(popupframe,"job")
 	jobtext:SetTextByKey("jobname",jobName);
 	jobtext:SetTextByKey("jobrank",jobRank);

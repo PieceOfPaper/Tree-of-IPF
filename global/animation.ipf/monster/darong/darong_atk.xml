@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_voice10_s_8"/>
-    <Sound frame="4.31" soundFile="mon_voice_ferret_m_skl_shot"/>
-    <Sound frame="4.57" soundFile="skl_eff_atk_move_s_10"/>
-    <Sound frame="7.32" soundFile="skl_eff_atk_move_s_1"/>
-    <Sound frame="10.20" soundFile="skl_eff_atk_move_s_11"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="E_darong_atk" useAttach="ture" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice10_s_8"/>
+	<Sound frame="4.31" soundFile="mon_voice_ferret_m_skl_shot"/>
+	<Sound frame="4.57" soundFile="skl_eff_atk_move_s_10"/>
+	<Sound frame="7.32" soundFile="skl_eff_atk_move_s_1"/>
+	<Sound frame="10.20" soundFile="skl_eff_atk_move_s_11"/>
 </ActionDesc>

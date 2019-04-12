@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="LOWLV_GREEN_SQ_30_MINI" minLv="0" maxLv="0" startWaitSec="736279584">
+		<StageList>
+			<Stage Name="1">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="2"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="58687" Pos="-1667.74#-37.54#106.49" genCount="1" maxStackCount="1" objectKey="0" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-1465.15#-37.54#61.35" genCount="1" maxStackCount="1" objectKey="1" searchRange="400" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="1" execWithStart="0">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="1/0/1/1"/>
+								<Num Num="2"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event isOr="1" eventName="2" execWithStart="0" isEnabled="0">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1/0/1/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="2" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58687" Pos="-1576.71#-37.54#42.15" genCount="1" maxStackCount="1" objectKey="0" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-1697.88#-37.54#248.02" genCount="1" maxStackCount="1" objectKey="1" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-1491.37#-37.54#248.43" genCount="1" maxStackCount="1" objectKey="2" searchRange="400" tendency="1"/>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

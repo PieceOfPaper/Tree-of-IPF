@@ -1033,6 +1033,7 @@ function PVP_DESC_TOOLTIP(frame, ypos)
 
 	return pvpCtrlSet:GetY() + pvpCtrlSet:GetHeight() + 10
 end
+
 function UPDATE_MON_SIMPLE_TOOLTIP(frame, monName)
 	local monCls = GetClass("Monster", monName);
 	local image = GET_CHILD(frame, "image");

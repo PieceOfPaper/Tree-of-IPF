@@ -1,10 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
 <controlsetlist>
 	<controlset name="tokenDetail">
 		<controls>
 			<richtext name="prop" margin="0 0 0 0"/>
 			<richtext name="value" margin="-10 0 0 0"/>
+		</controls>
+	</controlset>
+	<controlset name="tpshop_item" hittest="true" width="286" height="350" hittestset="true" draw="true" skin="test_skin_01_btn" stateskin="false">
+		<controls>
+			<picture name="isNew_mark" margin="0 60 0 0" rect="0 0 72 34" hittest="false" image="new_mark2" changecursor="false" layout_gravity="left top"/>
+			<picture name="isHot_mark" margin="0 94 0 0" rect="0 0 72 34" hittest="false" image="hot_mark2" changecursor="false" layout_gravity="left top"/>
+			<picture name="isEvent_mark" margin="0 128 0 0" rect="0 0 72 34" hittest="false" image="recommend_mark2" changecursor="false" layout_gravity="left top"/>
 		</controls>
 	</controlset>
 </controlsetlist>

@@ -1220,11 +1220,21 @@ function ITEMCRAFT_ON_DROP(cset, control, materialItemCnt, materialItemClassID)
 
 end
 
+function REMOVE_TAG(str)
+	local pattern = "\{[^\}]*\}";
+	local clean = str:gsub(pattern, "");
+	return clean
+end
+
 function RECIPE_TYPING_NAME(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());	
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_NAME", ctrl:GetText());
 end
 
 function RECIPE_TYPING_MEMO(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());	
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_MEMO", ctrl:GetText());
 end
 
@@ -1276,6 +1286,9 @@ function INV_CRAFT_CHECK()
 end
 
 function SORT_PURE_INVITEMLIST(a,b)
+
+	-- 같은 ClassID를 가진 템일 경우 쓸모 없는 템부터 합성 하도록 정렬하는 함수. 
+	-- 정렬순위 : 매직어뮬렛 > 총 젬 경험치 > 뚫린 소켓 수 > 현재 강화 횟수 > 남은 포텐셜 > 젬 레벨
 
 	local itemobj_a = GetIES(a:GetObject());
 	local itemobj_b = GetIES(b:GetObject());

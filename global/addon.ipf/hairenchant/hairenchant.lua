@@ -15,12 +15,24 @@ end
 
 function HAIRENCHANT_SUCEECD(itemIES)
 	HAIRENCHANT_UPDATE_ITEM_OPTION(itemIES);
+		
+	local invItem = session.GetInvItemByGuid(itemIES);
+	if invItem == nil then
+		return;
+	end
+
+	local itemCls = GetClassByType("Item", invItem.type);
+	local typeStr = "Item"	
+	if itemCls.ItemType == "Equip" then
+		typeStr = itemCls.ItemType; 
+	end	
+
 	imcSound.PlaySoundEvent("premium_enchantchip");
 	
 	local invframe = ui.GetFrame("inventory");
 	local inventoryGbox = invframe:GetChild("inventoryGbox");
-	local treeGbox = inventoryGbox:GetChild("treeGbox");
-	local tree = GET_CHILD(treeGbox,"inventree");
+	local treeGbox = inventoryGbox:GetChild("treeGbox_" .. typeStr);
+	local tree = GET_CHILD(treeGbox,"inventree_" .. typeStr);
 	tree:CloseNodeAll();
 
 	local treegroup = tree:FindByValue("Premium");

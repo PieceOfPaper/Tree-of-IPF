@@ -86,7 +86,7 @@ function GACHA_START(type)
 
 		hairbg:SetVisible(1)
 		rboxbg:SetVisible(0)
-		
+
 		local hairbtn = GET_CHILD_RECURSIVELY(frame,"button_hair")
 		local rboxbtn = GET_CHILD_RECURSIVELY(frame,"button_rbox")
 		local rbox100btn = GET_CHILD_RECURSIVELY(frame,"button_rbox_100")
@@ -95,6 +95,7 @@ function GACHA_START(type)
 		rbox100btn:SetVisible(0)
 		hairbtn:SetVisible(1)
 		hairbtn:SetTextByKey("value", cnt)
+	
 	elseif type == "rbox1" or type == "rbox11" then
 
 		local hairbg = GET_CHILD_RECURSIVELY(frame,"bg_hair")
@@ -132,7 +133,7 @@ function GACHA_START(type)
 		return
 
 	end
-	
+
 	frame:ShowWindow(1)
 	
 	

@@ -24,6 +24,12 @@ function GET_ITEM_PROPERT_STR(item)
 			return ClMsg("ADD_DR"), "";
 		elseif  item.BasicTooltipProp == "MHR" then
 			return ClMsg("MHR"), "";
+		elseif  item.BasicTooltipProp == "ADD_FIRE" then
+			return ClMsg("ADD_FIRE"), "";
+		elseif  item.BasicTooltipProp == "ADD_ICE" then
+			return ClMsg("ADD_ICE"), "";
+		elseif  item.BasicTooltipProp == "ADD_LIGHTNING" then
+			return ClMsg("ADD_LIGHTNING"), "";
 		else
 		return "";
 		end

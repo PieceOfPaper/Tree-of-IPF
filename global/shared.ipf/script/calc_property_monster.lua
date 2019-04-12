@@ -661,6 +661,13 @@ function SCR_Get_MON_ADD_LIGHTNING(self)
 	return math.floor(value);
 end
 
+function SCR_Get_MON_ADD_SOUL(self)
+
+	local value = 0;
+	value = value + self.ADD_SOUL_BM;
+	return math.floor(value);
+end
+
 function SCR_Get_MON_ADD_EARTH(self)
 
 	local value = 0;
@@ -869,6 +876,12 @@ function SCR_GET_MON_LIGHTNING_DEF(self)
 	return value;
 end
 
+function SCR_GET_MON_SOUL_DEF(self)
+    local value = 0;
+    value = self.Soul_Def_BM;
+	return value;
+end
+
 function SCR_GET_MON_EARTH_DEF(self)
     local value = 0;
     value = self.Earth_Def_BM;
@@ -933,5 +946,59 @@ function SCR_GET_MON_SKILLFACTORRATE(self)
 		end
 	end
 	
+	return value;
+end
+
+function SCR_Get_MON_Slash_Res(self)
+	local value = 0;
+	value = value + self.Slash_Res + self.Slash_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Aries_Res(self)
+	local value = 0;
+	value = value + self.Aries_Res + self.Aries_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Strike_Res(self)
+	local value = 0;
+	value = value + self.Strike_Res + self.Strike_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Magic_Res(self)
+	local value = 0;
+	
+	local magicRes = TryGetProp(self, "Magic_Res")
+	if magicRes == nil then
+		magicRes = 0;
+	end
+
+	local magicDefBM = TryGetProp(self, "Magic_Def_BM")
+	if magicDefBM == nil then
+		magicDefBM = 0;
+	end
+
+	value = value + magicRes + magicDefBM;
+
+	return value;
+end
+
+function SCR_Get_MON_Arrow_Res(self)
+	local value = 0;
+	value = value + self.Arrow_Res + self.Arrow_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Gun_Res(self)
+	local value = 0;
+	value = value + self.Gun_Res + self.Gun_Def_BM;
+	return value;
+end
+
+function SCR_Get_MON_Cannon_Res(self)
+	local value = 0;
+	value = value + self.Cannon_Res + self.Cannon_Def_BM;
 	return value;
 end

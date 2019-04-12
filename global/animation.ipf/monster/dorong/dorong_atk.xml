@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_voice3_s_7"/>
-    <Sound frame="4.00" soundFile="skl_eff_atk_move_s_8"/>
-    <Sound frame="4.00" soundFile="mon_voice4_s_random"/>
+	<Particle frame="4" attachNode="Dummy_emitter" particleName="I_dash001_yellow3" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.7" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice3_s_7"/>
+	<Sound frame="4.00" soundFile="skl_eff_atk_move_s_8"/>
+	<Sound frame="4.00" soundFile="mon_voice4_s_random"/>
 </ActionDesc>

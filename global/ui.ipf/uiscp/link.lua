@@ -168,7 +168,13 @@ end
 function SLP(partyID)
 	local pcparty = session.party.GetPartyInfo();
 	if pcparty ~= nil then
-		ui.SysMsg( ClMsg("HadMyParty") );
+		if pcparty.info ~= nil then 
+			if pcparty.info:GetPartyID() == partyID then
+				ui.SysMsg(ClMsg("HadMyPartySame"));
+			else
+				ui.SysMsg(ClMsg("HadMyPartyOther"));
+			end
+		end
 		return;
 	end
 

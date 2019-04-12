@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+﻿<?xml version="1.0" encoding="UTF-8"?>
 <!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <imcErrorCode>
 	<Type Type="LOGIC">
@@ -50,7 +50,7 @@
 		<Code Code="ERRCODE_LOGIC_CLIENT_MGR_INSERT_FAIL" CallStack="NO" Desc="클라이언트 매니저를 생성하는데 실패하였습니다. 해당 ip와의 연결을 종료합니다."/>
 		<Code Code="ERRCODE_LOGIC_INVALID_CONNECTION_TYPE" CallStack="NO" Desc="잘못된 타입의 커넥션 연결이 시도되었습니다."/>
 		<Code Code="ERRCODE_LOGIC_GEMSCOOL_LOGIN_FAIL" CallStack="NO" Desc="젬스쿨 로그인 서버와의 통신이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_GEMSCOOL_PREMIUM_FAIL" CallStack="NO" Desc="젬스쿨 프리미엄 PC 인증이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
+    <Code Code="ERRCODE_LOGIC_GEMSCOOL_PREMIUM_FAIL" CallStack="NO" Desc="젬스쿨 프리미엄 PC 인증이 실패하였습니다. 다음 에러 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_NEXON_NOT_IMPLEMENTED_SYNC_TYPE" CallStack="NO" Desc="세션 정보와 넥슨 세션 서버와의 동기화가 실패하였습니다. 알 수 없는 싱크 타입입니다."/>
 		<Code Code="ERRCODE_LOGIC_GETPOS_NEAR_FROM_TARGET" CallStack="NO" Desc="MaxLoopCount내에 유효좌표를 얻지 못했습니다."/>
 		<Code Code="ERRCODE_LOGIN_TOO_MANY_DB_RESULT" CallStack="NO" Desc="DB의 결과값이 너무 많습니다."/>
@@ -90,19 +90,19 @@
 		<Code Code="ERRCODE_LOGIC_ALREADY_DESTROYED" CallStack="NO" Desc="이미 소멸된 자원입니다."/>
 		<Code Code="ERRCODE_LOGIC_INCORRECT_CALL_SEQUENCE" CallStack="NO" Desc="호출 순서가 잘못됐습니다. 다음 정보를 참조하세요."/>
 		<Code Code="ERRCODE_LOGIC_OBJ_POOL" CallStack="NO" Desc="오브젝트 풀에서 에러가 발생했습니다. 다음 정보를 참조하세요."/>
-		<Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
-		<Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
-		<Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
+    <Code Code="ERRCODE_LOGIC_UPDATE_AUTHCODE" CallStack="NO" Desc="인증코드에러로 강제 로그아웃됩니다."/>
+    <Code Code="ERRCODE_LOGIC_MONSTER_CREATE_FAILED" CallStack="NO" Desc="랜덤 좌표를 받지 못하고 몬스터 생성에 실패했습니다."/>
+    <Code Code="ERRCODE_LOGIC_TOO_MANY_CHAT_ROOM" CallStack="NO" Desc="채팅 방 개수가 비정상 적으로 많습니다."/>
+
+    <Code Code="ERRCODE_LOGIC_CHAT_ROOM" CallStack="NO" Desc="채팅 방 오류"/>
+
+
 		<Code Code="ERRCODE_LOGIC" CallStack="NO" Desc="로직 오류"/>
-		<Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
-		<Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
-		<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
+    <Code Code="ERRCODE_PRINT_CALL_STACK" CallStack="YES" Desc=" : "/>
+    <Code Code="ERRCODE_LOGIC_STEAM_INVEN" CallStack="NO" Desc="스팀 인벤토리 로직 오류. 프로그래머에게 문의하세요."/>
+<Code Code="ERRCODE_LOGIC_INVALID_CHAR_SLOT_COUNT" CallStack="NO" Desc="슬롯갯수보다 캐릭터 갯수가 많음에도 클라이언트에서 게임시작 요청이 들어왔거나 갯수를 가져오는데 실패했습니다"/>
+
 		<Code Code="ERRCODE_LOGIC_INVALID_ACCOUNT_ID" CallStack="NO" Desc="Account ID의 값이 비정상입니다."/>
-		<Code Code="ERRCODE_LOGIC_CHN_COMMANDLINE_PARSING_FAIL" CallStack="NO" Desc="런처 커맨드라인으로 온 정보의 파싱이 실패했습니다."/>
-		<Code Code="ERRCODE_LOGIC_CHN_MACHINECODE_GAIN_FAIL" CallStack="NO" Desc="머신코드 획득 실패."/>
-		<Code Code="ERRCODE_LOGIC_CYOU_LOGIN_FAIL" CallStack="NO" Desc="AID 획득 실패."/>
-		<Code Code="ERRCODE_LOGIC_AUTOMATCH" CallStack="NO" Desc="매칭 관련 에러 발생"/>
 	</Type>
 	<Type Type="DATA">
 		<Code Code="ERRCODE_DATA_INIT_TABLE" CallStack="NO" Desc="테이블 초기화에 실패하였습니다. 다음 정보를 참조하세요."/>
@@ -189,16 +189,15 @@
 		<Code Code="ERRCODE_DATA_REMOVE_FAIL" CallStack="NO" Desc="해당 데이터의 삭제를 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_COMPRESS_FAIL" CallStack="NO" Desc="해당 데이터의 압축에 실패했습니다."/>
 		<Code Code="ERRCODE_DATA_DOSENT_MATCH_SIZE" CallStack="NO" Desc="해당 데이터가 지정된 사이즈와 맞지 않습니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
-		<Code Code="ERRCODE_DATA_STEAM_INVALID_REGION" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
-		<Code Code="ERRCODE_DATA_ABILITY_MAX_LEVEL_GREATER_ZERO" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
+    <Code Code="ERRCODE_DATA_INVALID_TRANSLATED_DATA" CallStack="NO" Desc="잘못된 번역 데이터입니다."/>
+    <Code Code="ERRCODE_DATA_INVALID_TRANSLATED_ENCODING" CallStack="NO" Desc=".tsv 파일의 인코딩은 반드시 UTF-8 whitout BOM 이어야 합니다."/>
+    <Code Code="ERRCODE_DATA_STEAM_INVALID_REGION" CallStack="NO" Desc="해당 지역에서 수행 불가능한 요청입니다."/>
+	<Code Code="ERRCODE_DATA_ABILITY_MAX_LEVEL_GREATER_ZERO" CallStack="NO" Desc="어빌리티의 최대 레벨은 0보다 커야합니다."/>
 		<Code Code="ERRCODE_EQUIP_CARD_SYSTEM_DATA" CallStack="NO" Desc="카드 데이터에 문제가 있습니다. 확인해주세요."/>
-		<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
-		<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
+	<Code Code="ERRCODE_FIND_NOT_MONSTER" CallStack="NO" Desc="해당 몬스터를 찾지 못하였습니다. 확인해주세요."/>
+<Code Code="ERRCODE_DATA_INVLID_INDEX" CallStack="NO" Desc="잘못된 인덱스 입니다."/>
 		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_MAP" CallStack="NO" Desc="잘못된 상품 목록 DataMap 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_ITEM" CallStack="NO" Desc="잘못된 상품 정보 Data 입니다."/>
-		<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_PRODUCTS" CallStack="NO" Desc="NISMS에 등록된 상품의 클래스 또는 이름이 무효합니다. 해당 계정의 캐시 인벤에 표시가 안되고 있으며, NISMS에 잘못 등록된 아이템을 구입한 계정 입니다."/>
+		<Code Code="ERRCODE_DATA_INVALID_NISMS_GOODS_ITEM" CallStack="NO" Desc="잘못된 상품 정보 Data 입니다."/>	<Code Code="ERRCODE_DATA_INVALID_CLASS_IN_PRODUCTS" CallStack="NO" Desc="NISMS에 등록된 상품의 클래스 또는 이름이 무효합니다. 해당 계정의 캐시 인벤에 표시가 안되고 있으며, NISMS에 잘못 등록된 아이템을 구입한 계정 입니다."/>
 	</Type>
 	<Type Type="SCRIPT">
 		<Code Code="ERRCODE_SCRIPT_IES_CANT_SUSPEND_MAIN_THREAD" CallStack="NO" Desc="메인 쓰레드는 sleep, tx등으로 중단시킬 수 없습니다. 해당 함수 내용을 확인하세요."/>
@@ -212,7 +211,7 @@
 		<Code Code="ERRCODE_SCRIPT_NONE_UPDATE_SCRIPT" CallStack="NO" Desc="업데이트 스크립트가 None입니다."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_USE_TX_IN_MAIN_THREAD" CallStack="NO" Desc="Main thread 에서는 tx를 사용할 수 없습니다. 커스텀 tx를 사용하세요."/>
 		<Code Code="ERRCODE_SCRIPT_CANT_FIND_LUA_SCRIPT" CallStack="NO" Desc="루아 스크립트 파일을 찾을 수 없습니다."/>
-		<Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
+    <Code Code="ERRCODE_SCRIPT_INVALID_ARG_NUMBER" CallStack="NO" Desc="인자 갯수가 잘못되었습니다. 해당 함수를 올바르게 호출 하였는지 확인하세요."/>
 	</Type>
 	<Type Type="NETWORK">
 		<Code Code="ERRCODE_NETWORK_ERROR_MONGODB" CallStack="NO" Desc="몽고 DB에 연결하는데 실패하였습니다."/>
@@ -247,14 +246,14 @@
 		<Code Code="ERRCODE_NETWORK_READ_FAIL_SERVERLIST" CallStack="NO" Desc="월드 테이블에서 서버리스트를 읽어 올 수 없습니다. 또는 서버리스트가 비어있을 수 있습니다. daemon.xml을 확인하세요."/>
 		<Code Code="ERRCODE_NETWORK_RECEIVE_FAIL_FOR_REQUEST" CallStack="NO" Desc="요청에 대한 응답을 실패했습니다."/>
 		<Code Code="ERRCODE_NETWORK_IP_CONNECT_ERROR" CallStack="NO" Desc="해당 IP로의 연결에 실패했습니다."/>
-		<Code Code="ERRCODE_NETWORK_STEAM_VAC_BANNED" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
+	  <Code Code="ERRCODE_NETWORK_STEAM_VAC_BANNED" CallStack="NO" Desc="스팀 VAC에서 밴 되어있는 유저입니다."/>
 		<Code Code="ERRCODE_NETWORK_FAIL_ONPACKET_FALSE" CallStack="NO" Desc="해당 패킷을 처리하는 로직이 없습니다."/>
-		<Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
-		<Code Code="ERRCODE_NETWORK_HTTP_SOAP_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+    <Code Code="ERRCODE_NETWORK_CANT_GET_EXTERN_IP" CallStack="NO" Desc="외부 IP를 얻는데 실패하였습니다."/>
+    <Code Code="ERRCODE_NETWORK_HTTP_JSON_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
+	<Code Code="ERRCODE_NETWORK_HTTP_SOAP_PARSE_FALSE" CallStack="NO" Desc="HTTP 통신 데이터를 읽는데 실패하였습니다."/>
 		<Code Code="ERRCODE_NETWORK_EMBEDDED_BROWSER_ERROE" CallStack="YES" Desc="Embedded_Browser에 문제가 발생하였습니다."/>
-		<Code Code="ERRCODE_NISMS_LOADFAIL" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
-		<Code Code="ERRCODE_NISMS_INVALIED_WORLDID" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
+	<Code Code="ERRCODE_NISMS_LOADFAIL" CallStack="NO" Desc="NISMS 상품 목록을 얻어오는데에 실패했습니다. 강제종료 시킵니다. 만약 넥슨 인게임샵 기능을 사용하지 않는다면, serverconfig.xml의 UseNISMS를 NO로 설정하세요. "/>
+	<Code Code="ERRCODE_NISMS_INVALIED_WORLDID" CallStack="NO" Desc="NISMS를 위한 월드의 domainType 값을 잘못 얻어왔습니다."/>
 	</Type>
 	<Type Type="DB">
 		<Code Code="ERRCODE_DB_WORLDTABLE" CallStack="NO" Desc="월드 테이블 세팅에 실패하였습니다. WorldTable DB 테이블 및 ODBC 세팅을 확인하세요."/>
@@ -277,8 +276,8 @@
 		<Code Code="ERRCODE_DB_NEXON_SN_NOT_MATCH" CallStack="NO" Desc="넥슨 세션 서버 초기화에 실패하였습니다. 넥슨에서 전달받은 SN과 월드테이블의 SN값이 서로 다릅니다."/>
 		<Code Code="ERRCODE_DB_MONGO_FAILOVER_FILE" CallStack="NO" Desc="MongoLog Failover파일에 로그기록을 실패했습니다."/>
 		<Code Code="ERRCODE_DB_DISCONNECTED_MONGO" CallStack="NO" Desc="Mongo DB의 연결이 끊어져 있습니다. 해당 쿼리문을 가져올 수 없습니다."/>
-		<Code Code="ERRCODE_DB_CONNECT" CallStack="NO" Desc="DB 연결 실패"/>
-		<Code Code="ERRCODE_DB_CONNECT_CRASH" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
+    <Code Code="ERRCODE_DB_CONNECT" CallStack="NO" Desc="DB 연결 실패"/>
+    <Code Code="ERRCODE_DB_CONNECT_CRASH" CallStack="NO" Desc="DB 연결에 실패하였습니다. 서버를 강제로 종료합니다. ODBC설정 또는 연결 상태를 확인하세요."/>
 	</Type>
 	<Type Type="SYSTEM">
 		<Code Code="ERRCODE_SYSTEM_INVALIED_CMDLINE_PARAM" CallStack="NO" Desc="커맨드 라인 패러미터가 잘못되었습니다. 프로그램 실행 배치 파일 내용을 확인하세요."/>
@@ -330,7 +329,8 @@
 		<Code Code="ERRCODE_INFO_OBB_TIMETEST" CallStack="NO" Desc="OBB TEST용 클릭 후 반응 시간"/>
 		<Code Code="ERRCODE_INFO_TIMEOUT" CallStack="NO" Desc="처리 시간 초과 로그"/>
 		<Code Code="ERRCODE_INFO_OLDMSG" CallStack="NO" Desc="다국어화 어순 이슈로 clientmessage.xml에서 %s 를 이용한 포맷은 쓰지 않기로 했습니다. "/>
-		<Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
-		<Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
+    <Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
+    <Code Code="ERRCODE_INFO_DB_CONNECT" CallStack="NO" Desc=" : "/>
+  <Code Code="ERRCODE_INFO_FAIL_GUILD_AGIT_ENTER" CallStack="NO" Desc="길드 아지트 입장 불가 로그"/>
 	</Type>
 </imcErrorCode>

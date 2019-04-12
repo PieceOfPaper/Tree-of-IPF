@@ -77,9 +77,22 @@ function DRAW_BOSSCARD_ADDSTAT_TOOLTIP(tooltipframe, invitem, yPos, mainframenam
 		
 	--스텟
 	local desc_text = GET_CHILD(CSet,'desc_text')
+	if invitem.GroupName == "Card" then
+		local tempText1 = invitem.Desc;
+		local tempText2 = invitem.Desc_Sub;
+		if invitem.Desc == "None" then
+			tempText1 = "";
+		end
+		if invitem.Desc_Sub == "None" then
+			tempText2 = "";
+		end
+		local textDesc = string.format("%s{nl}%s{/}", tempText1, tempText2)	
+		desc_text:SetTextByKey("text", textDesc);
+		CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
+	else
 	desc_text:SetTextByKey("text", invitem.Desc);
 	CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
-	
+	end
 	
 	gBox:Resize(gBox:GetWidth(),gBox:GetHeight() + CSet:GetHeight() + 10)
 	return CSet:GetHeight() + CSet:GetY() + 10;

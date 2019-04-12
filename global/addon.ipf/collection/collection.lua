@@ -91,7 +91,7 @@ function SET_COLLECTION_PIC(frame, pic, itemCls, coll, drawitemset)
 			showedcount = drawitemset[itemCls.ClassID]
 		end
 
-		-- 1. ³»°¡ ÀÌ¹Ì ¸ðÀº °Íµé
+		-- 1. ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¹ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Íµï¿½
 		if collecount > showedcount then
 			
 			if drawitemset[itemCls.ClassID] == nil then
@@ -103,7 +103,7 @@ function SET_COLLECTION_PIC(frame, pic, itemCls, coll, drawitemset)
 			return "Can Take", drawitemset[itemCls.ClassID]
 		end
 
-		-- 2. ²ÅÀ¸¸é µÇ´Â °Íµé
+		-- 2. ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ç´ï¿½ ï¿½Íµï¿½
 
 		if invcount + collecount > showedcount then
 			if drawitemset[itemCls.ClassID] == nil then
@@ -314,6 +314,17 @@ function ATTACH_TEXT_TO_OBJECT(ctrl, objName, text, x, y, width, height, alignX,
 	end
 
 	title:SetText(text);
+	
+	if enableFixWIdth ~= nil then
+		if (ctrl:GetWidth() < title:GetTextWidth()) then		
+			title:SetTextFixWidth(1);
+			title:SetTextMaxWidth(title:GetTextWidth() - 40);
+
+			ctrl:Resize(ctrl:GetWidth(), title:GetLineCount() * 34);
+			return (y + ctrl:GetHeight()), title;
+		end
+	end
+
 	return (y + title:GetHeight()), title;
 end
 
@@ -382,7 +393,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 
 	local isread = etcObj['CollectionRead_' .. type]
 
-	if isread ~= 1 then -- ÇÑ¹øÀÌ¶óµµ ÀÐÀº ÄÝ·º¼ÇÀº new Ç¥½Ã ¾È»ý±âµµ·Ï.
+	if isread ~= 1 then -- ï¿½Ñ¹ï¿½ï¿½Ì¶ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ý·ï¿½ï¿½ï¿½ï¿½ï¿½ new Ç¥ï¿½ï¿½ ï¿½È»ï¿½ï¿½âµµï¿½ï¿½.
 		local scpString = string.format("/readcollection %d", type);
 		ui.Chat(scpString);
 	end
@@ -397,7 +408,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	end
 	detailMainGbox:EnableHitTest(0);
 
-	-- ¸Ç À§¿¡ RichText»ý¼º --
+	-- ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ RichTextï¿½ï¿½ï¿½ï¿½ --
 	local nextY = 10;
 	local testobj
 	local curCount, maxCount = GET_COLLECTION_COUNT(type, coll);
@@ -405,7 +416,7 @@ function DETAIL_UPDATE(frame, detailView, type, playEffect)
 	nextY, titleCtrl = ATTACH_TEXT_TO_OBJECT(detailMainGbox, "title", titleText, 10, nextY, detailMainGbox:GetWidth(), 50, ui.CENTER_HORZ, ui.TOP);
 
 
-	--- 9Ä­¿¡ °ÉÃÄ¼­ ¾ÆÀÌÄÜ°ú ÀÌ¸§ »ý¼º
+	--- 9Ä­ï¿½ï¿½ ï¿½ï¿½ï¿½Ä¼ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ü°ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local itemBoxWidth = detailMainGbox:GetWidth();
 	local marginX = 10;
 	local space = 30;
@@ -462,8 +473,8 @@ icon:EnableHitTest(1);
 			end
 		end
 		
-		-- ¼¼¼Ç ÄÝ·º¼Ç¿¡ ¿ÀºêÁ§Æ® Á¤º¸°¡ Á¸ÀçÇÏ°í ÀÌ¸¦ ¹ÙÅÁÀ¸·Î ÇÏ¸é item¿ÀºêÁ§Æ®ÀÇ ¿É¼ÇÀ» »ì¸° ÅøÆÁµµ »ý¼º °¡´ÉÇÏ´Ù. °¡·É ¹Ú¾Æ³ÖÀº ÁªÀÇ °æÇèÄ¡¶ó´ø°¡.
-		-- Çã³ª Áö±Ý ½½·Ô ÁöÁ¤ÇÏ¿© ²¨³»´Â ±â´ÉÀÌ ¾ø±â ¶§¹®¿¡ ¹«ÀÇ¹Ì. Á¤È®ÇÑ ÅøÆÁÀ» ³ÖÀ¸·Á¸é COLLECTION_TAKE¸¦ typeÀÌ ¾Æ´Ï¶ó guid ±â¹ÝÀ¸·Î ¹Ù²ã¾ßÇÔ
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½Ý·ï¿½ï¿½Ç¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ® ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¸ï¿½ itemï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½É¼ï¿½ï¿½ï¿½ ï¿½ì¸° ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½. ï¿½ï¿½ï¿½ï¿½ ï¿½Ú¾Æ³ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ä¡ï¿½ï¿½ï¿½ï¿½ï¿½.
+		-- ï¿½ã³ª ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ç¹ï¿½. ï¿½ï¿½È®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ COLLECTION_TAKEï¿½ï¿½ typeï¿½ï¿½ ï¿½Æ´Ï¶ï¿½ guid ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²ï¿½ï¿½ï¿½ï¿½
 		SET_ITEM_TOOLTIP_ALL_TYPE(icon, itemData, itemCls.ClassName, 'collection', type, itemGuid); 
 		
 		if cantake ~= nil then
@@ -500,7 +511,7 @@ icon:EnableHitTest(1);
 
 	local abilTextObj;
 	local newboxy = 13
-	newboxy, abilTextObj = ATTACH_TEXT_TO_OBJECT(detailAbilGbox, "abil", abilText, 10, newboxy, detailMainGbox:GetWidth(), 20, ui.LEFT, ui.TOP);
+	newboxy, abilTextObj = ATTACH_TEXT_TO_OBJECT(detailAbilGbox, "abil", abilText, 10, newboxy, detailMainGbox:GetWidth(), 20, ui.LEFT, ui.TOP, 1);
 	nextY = nextY + 65;
 
 	if curCount >= maxCount and playEffect == 1 then

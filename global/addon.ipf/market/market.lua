@@ -120,9 +120,9 @@ function MARGET_FIND_PAGE(frame, page)
 			ui.SysMsg(ClMsg("InvalidFindItemQueryMin"));
 		elseif findItemStrLength > maxLength then
 			ui.SysMsg(ClMsg("InvalidFindItemQueryMax"));
-		else
-	market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
-end
+	        else 
+	        market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
+        end
 	else  -- 검색어가 없으면 바로 검색...
 		market.ReqMarketList(page, find_name:GetText(), groupName, classType, lv_min, lv_max, rein_min, rein_max, sortype);
 	end	

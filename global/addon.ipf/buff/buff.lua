@@ -64,12 +64,13 @@ function GET_BUFF_TIME_TXT(time, istooltip)
 
 	sec = sec - day * 86400;
 
-	local hour = math.floor(sec / 3600);
-	if hour < 0 then
-		hour = 0;
-	end
+	-- 버프를 분단위로 표시하기위해 주석
+--	local hour = math.floor(sec / 3600);
+--	if hour < 0 then
+--		hour = 0;
+--	end
 
-	sec = sec - hour * 3600;
+--	sec = sec - hour * 3600;
 
 	local min = math.floor(sec / 60);
 	if min < 0 then
@@ -88,13 +89,16 @@ function GET_BUFF_TIME_TXT(time, istooltip)
 		end
 	end
 
-	if hour > 0 then
-		if istooltip == 1 then
-			txt = txt .. hour .. ScpArgMsg("Auto_SiKan");
-		else
-			return "{#FFFF00}{ol}{s12}" .. hour + 1 .. ScpArgMsg("Auto_SiKan");
-		end
-	end
+	-- 버프를 분단위로 표시하기 위해 주석
+--	if hour > 0 then
+--		if istooltip == 1 then
+--			print("hour return no");
+--			txt = txt .. hour .. ScpArgMsg("Auto_SiKan");
+--		else
+--			print("hour return");
+--			return "{#FFFF00}{ol}{s12}" .. hour + 1 .. ScpArgMsg("Auto_SiKan");
+--		end
+--	end
 
 	if min > 0 then
 		if istooltip == 1 then
@@ -126,7 +130,6 @@ end
 
 function SET_BUFF_SLOT(slot, capt, class, buffType, handle, slotlist, buffIndex)	
 	local icon 				= slot:GetIcon();
-	
 	local imageName 		= 'icon_' .. class.Icon;
 
 	icon:Set(imageName, 'BUFF', buffType, 0);
@@ -239,7 +242,7 @@ function COMMON_BUFF_MSG(frame, msg, buffType, handle, buff_ui, buffIndex)
 		buffIndex = 0;
 	end
 
-	local class 				= GetClassByType('Buff', buffType);
+	local class = GetClassByType('Buff', buffType);
 	if class.ShowIcon == "FALSE" then
 		return;
 	end

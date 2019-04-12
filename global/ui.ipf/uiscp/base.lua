@@ -119,7 +119,7 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  end
  
   function SCR_DISPEL_DEBUFF_TOGGLE(invItem)
-	-- debuff dispel on/off ?��?
+	-- debuff dispel on/off 토글
 	if invItem ~= nil then
 		local itemobj = GetIES(invItem:GetObject());
 		item.ToggleDispelDebuff(itemobj.ClassID);
@@ -127,10 +127,11 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  end
 
  function SCR_JUNGTAN_TOGGLE(invItem)
-	-- 공격?�탄 on/off ?��?
+	-- 공격정탄 on/off 토글
 	if invItem ~= nil then		
 		local itemobj = GetIES(invItem:GetObject());
-		item.ToggleJungtan(itemobj.ClassID, itemobj.NumberArg1, itemobj.NumberArg2);
+
+		item.ToggleJungtan(itemobj.ClassID, itemobj.NumberArg1, itemobj.NumberArg2, invItem:GetIESID());
 		
 		local frame = ui.GetFrame('status');		
 		STATUS_INFO(frame);
@@ -138,10 +139,10 @@ function ICON_ON_ENABLE(frame, object, argStr, argNum)
  end
 
   function SCR_JUNGTAN_DEFENCE_TOGGLE(invItem)
-	-- 방어?�탄 on/off ?��?
+	-- 방어정탄 on/off 토글
 	if invItem ~= nil then		
 		local itemobj = GetIES(invItem:GetObject());
-		item.ToggleJungtanDef(itemobj.ClassID, itemobj.NumberArg1, itemobj.NumberArg2);
+		item.ToggleJungtanDef(itemobj.ClassID, itemobj.NumberArg1, itemobj.NumberArg2, invItem:GetIESID());
 		
 		local frame = ui.GetFrame('status');		
 		STATUS_INFO(frame);
@@ -306,10 +307,10 @@ function CURRENCY(count)
 			arrange[i]	=	string.sub(count, x, y);
 		 end
 
-		--?�겨�?변?�의 ?�치�?구한??
+		--담겨진 변수의 수치를 구한다
 		GetCount	= table.getn(arrange);
 
-		--?�치??
+		--합치자
 		for  j = 1, GetCount do
 			local ex = GetCount - (j - 1);
 			if  value == nil  then
@@ -494,13 +495,13 @@ end
 function RETURN_DATATABLE(data, IESName, searchData)
 	local datatable = {};
 
-	-- 만약 data??값이 ?�다�?값을 리턴?�다
+	-- 만약 data의 값이 없다면 값을 리턴한다
 	if data == nil then
 		return datatable;
 	end
 
-	-- ?�이?��? 구성
-	-- 1. 카테고리�?구성?�다.
+	-- 데이터를 구성
+	-- 1. 카테고리를 구성한다.
 	datatable['Category']			= {};
 	datatable['CategoryName'] 		= {}
 	datatable['searchData']			= 'Find'
@@ -510,36 +511,36 @@ function RETURN_DATATABLE(data, IESName, searchData)
 
 	local tablecount					= table.getn(data)
 
-	-- ?�이???�이�?개수만큼 For문을 ?�린??
+	-- 데이터 테이블 개수만큼 For문을 돌린다.
 	for i = 1, tablecount do
 
-			-- i ??Category �?CategoryName 컬럼??값을 ?�?�하?�록 ?�다.
+			-- i 의 Category 및 CategoryName 컬럼의 값을 저장하도록 한다.
 			local Category				= GetClassString(IESName, data[i], 'Category');
 			local CategoryName		= GetClassString(IESName, data[i], 'CategoryName');
 
-			-- 첫번�?기록?�소??값이 ?�을 ??먼�? ?�행?�도�??�다.
+			-- 첫번째 기록장소에 값이 없을 때 먼저 실행하도록 한다.
 			if datatable['Category'][1] == nil then
 				if SearchCheck == 'Not Data Exist' then
-					datatable['Category'][count]					= Category;					-- ?�문 ?�렬??카테고리??카운?�로 ?�?�한??
-					datatable['CategoryName'][Category]	= CategoryName;			-- ??��조용 카테고리???�문 카테고리???�름?�로??값을 ?�?�하?�록 ?�다.
+					datatable['Category'][count]					= Category;					-- 영문 정렬용 카테고리는 카운트로 저장한다.
+					datatable['CategoryName'][Category]	= CategoryName;			-- 역참조용 카테고리는 영문 카테고리의 이름으로서 값을 저장하도록 한다.
 					count = count + 1
 				else
-					local search		= DATA_SEARCH(data[i], IESName, searchData)		-- 찾기??값을 찾았???�에??TRUE�?반환?�도�??�다.
+					local search		= DATA_SEARCH(data[i], IESName, searchData)		-- 찾기용 값을 찾았을 때에는 TRUE를 반환하도록 한다.
 
 					if search == 'TRUE' then
-						datatable['Category'][count]					= Category;					-- ?�문 ?�렬??카테고리??카운?�로 ?�?�한??
-						datatable['CategoryName'][Category]	= CategoryName;			-- ??��조용 카테고리???�문 카테고리???�름?�로??값을 ?�?�하?�록 ?�다.
+						datatable['Category'][count]					= Category;					-- 영문 정렬용 카테고리는 카운트로 저장한다.
+						datatable['CategoryName'][Category]	= CategoryName;			-- 역참조용 카테고리는 영문 카테고리의 이름으로서 값을 저장하도록 한다.
 						count = count + 1
 					end
 				end
 			end
 
-			-- 첫번�?기록?�소??값이 ?�어 ?�으므�? ?�음�?부?�는 ?�차?�으�?검???�에 ?�이?��? ?�력?�도�??�다.
+			-- 첫번째 기록장소에 값이 들어 왔으므로, 다음줄 부터는 순차적으로 검사 후에 데이터를 입력하도록 한다.
 			local CategoryCount = table.getn(datatable['Category']);
 
 			if CategoryCount > 0 then
 				for j = 1, CategoryCount do
-					-- ?�일??값이 ?�는지 검?�하?�록 ?�다.
+					-- 동일한 값이 있는지 검사하도록 한다.
 					if Category == datatable['Category'][j] then
 						NewCategory = 'NO';
 						break;
@@ -549,24 +550,24 @@ function RETURN_DATATABLE(data, IESName, searchData)
 				end
 			end
 
-			-- 만약 ?�로??카테고리??값이 검?�되?�다�?추�?
+			-- 만약 새로운 카테고리의 값이 검색되었다면 추가
 			if NewCategory == 'YES' then
 				if SearchCheck == 'Not Data Exist' then
-					datatable['Category'][count]					= Category;					-- ?�문 ?�렬??카테고리??카운?�로 ?�?�한??
-					datatable['CategoryName'][Category]	= CategoryName;			-- ??��조용 카테고리???�문 카테고리???�름?�로??값을 ?�?�하?�록 ?�다.
+					datatable['Category'][count]					= Category;					-- 영문 정렬용 카테고리는 카운트로 저장한다.
+					datatable['CategoryName'][Category]	= CategoryName;			-- 역참조용 카테고리는 영문 카테고리의 이름으로서 값을 저장하도록 한다.
 					count = count + 1
 				else
-					local search		= DATA_SEARCH(data[i], IESName, searchData)		-- 찾기??값을 찾았???�에??TRUE�?반환?�도�??�다.
+					local search		= DATA_SEARCH(data[i], IESName, searchData)		-- 찾기용 값을 찾았을 때에는 TRUE를 반환하도록 한다.
 
 					if search == 'TRUE' then
-						datatable['Category'][count]					= Category;					-- ?�문 ?�렬??카테고리??카운?�로 ?�?�한??
-						datatable['CategoryName'][Category]	= CategoryName;			-- ??��조용 카테고리???�문 카테고리???�름?�로??값을 ?�?�하?�록 ?�다.
+						datatable['Category'][count]					= Category;					-- 영문 정렬용 카테고리는 카운트로 저장한다.
+						datatable['CategoryName'][Category]	= CategoryName;			-- 역참조용 카테고리는 영문 카테고리의 이름으로서 값을 저장하도록 한다.
 						count = count + 1
 					end
 				end
 			end
 
-		-- 만약 찾는 값이 ?��? ?�을 경우?�는? 값이 ?�다??것을 리턴 ?�다
+		-- 만약 찾는 값이 전혀 없을 경우에는? 값이 없다는 것을 리턴 한다
 		if i == tablecount then
 			local CategoryCount = table.getn(datatable['Category'])
 			if CategoryCount == nil or CategoryCount == 0 then
@@ -578,7 +579,7 @@ function RETURN_DATATABLE(data, IESName, searchData)
 
 	table.sort(datatable['Category']);
 
-	-- 2. Data�?구성?�도�??�자
+	-- 2. Data를 구성하도록 하자
 	datatable['DataTable'] = {}
 
 	for i = 1, table.getn(datatable['Category']) do
@@ -586,24 +587,24 @@ function RETURN_DATATABLE(data, IESName, searchData)
 		local count = 1;
 		datatable['DataTable'][DataColumn] = {}
 
-		-- ?�이?�의 개수만큼 루프문을 ?�고, 카테고리???�름??같다�? ?�?�한??
+		-- 아이템의 개수만큼 루프문을 돌고, 카테고리의 이름이 같다면, 대입한다.
 		for j = 1, table.getn(data) do
 			local Category		= GetClassString(IESName, data[j], 'Category');
 
 
-			-- OnCheat가 'YES' ?�때�??�이?��? 추�??�다
+			-- OnCheat가 'YES' 일때만 데이터를 추가한다
 			local OnCheatCheck		= GetClassString(IESName, data[j], 'OnCheat');
 
 			if OnCheatCheck == 'YES' then
 
 				if DataColumn == Category then
 					if SearchCheck == 'Not Data Exist' then
-						-- 같�? 카테고리?�면?
+						-- 같은 카테고리라면?
 						datatable['DataTable'][DataColumn][count] = GetClassString(IESName, data[j], 'ClassName');
 						count = count + 1;
 					else
-						-- 같�? 카테고리?�며, 검?�어가 맞음
-						local search		= DATA_SEARCH(data[j], IESName, searchData)		-- 찾기??값을 찾았???�에??TRUE�?반환?�도�??�다.
+						-- 같은 카테고리이며, 검색어가 맞음
+						local search		= DATA_SEARCH(data[j], IESName, searchData)		-- 찾기용 값을 찾았을 때에는 TRUE를 반환하도록 한다.
 
 						if search == 'TRUE' then
 							datatable['DataTable'][DataColumn][count] = GetClassString(IESName, data[j], 'ClassName');
@@ -626,8 +627,8 @@ function DATA_SEARCH(data, IESName, searchData)
 	local SearchColumnCount		= table.getn(searchData['searchColumn'])
 
 	for i = 1, SearchColumnCount do
-		-- ?�기??검?�용 ?�을 만든??
-		-- 컬럼 종류가 몇�?지 ?�는가???�라 ?�르??
+		-- 여기에 검사용 식을 만든다
+		-- 컬럼 종류가 몇가지 있는가에 따라 다르다
 		local ColumnName			= searchData['searchColumn'][i];
 		local CheckColumn 			= GetClassString(IESName, data, ColumnName);
 		local CheckData				= string.find(CheckColumn, searchData['searchText'])
@@ -642,22 +643,22 @@ function DATA_SEARCH(data, IESName, searchData)
 end
 
 function HASIES_RETURN_COUNT(IESName, Sub1Class, Sub2Class)
-	-- ?�차??배열??카운?��? 가지�??�다
+	-- 다차원 배열의 카운트를 가지고 온다
 	local IESData					= imcIES.GetClassList(IESName);
 	local returnValue
 	if Sub1Class ~= nil then
-		local Select1Class			= IESData:GetClass(Sub1Class);							-- ClassID??1�??�이?��? 가지�??�다
-		local Sub1ClassList			= Select1Class:GetSubClassList();							-- ?�위 SubClass�?가지�??�다
+		local Select1Class			= IESData:GetClass(Sub1Class);							-- ClassID의 1번 데이터를 가지고 온다
+		local Sub1ClassList			= Select1Class:GetSubClassList();							-- 하위 SubClass를 가지고 온다
 		local Sub1ClassConut		= Sub1ClassList:Count();
 		if Sub2Class ~= nil then
-			-- ?�번�??�이?��? ?�다
+			-- 두번째 데이터가 있다
 			local ChangeSubClass		= Sub1ClassList:GetByIndex(Sub2Class - 1)
 			local Sub2ClassList			= ChangeSubClass:GetSubClassList();
 			local Sub2ClassCount		= Sub2ClassList:Count();
 
 			returnValue = Sub2ClassCount;
 		else
-			-- ?�번�??�래?�의 값이 nil ?�라�?  마�?�?마운?��? 리턴?�다
+			-- 두번째 클래스의 값이 nil 이라면,  마지막 마운트를 리턴한다
 			returnValue = Sub1ClassConut
 		end
 	end
@@ -665,16 +666,16 @@ function HASIES_RETURN_COUNT(IESName, Sub1Class, Sub2Class)
 end
 
 function HASIES_RETURN_VALUE(IESName, Sub1Class, Sub2Class, Count, ColumnName)
-	-- ?�차??배열???�이?�의 값을 반환?�다
+	-- 다차원 배열의 데이터의 값을 반환한다
 	local IESData				= imcIES.GetClassList(IESName);
 	local returnValue, class
 
 	if Sub1Class ~= nil then
-		local Select1Class			= IESData:GetClass(Sub1Class);					-- ClassID??1�??�이?��? 가지�??�다
-		local Sub1ClassList			= Select1Class:GetSubClassList();					-- ?�위 SubClass�?가지�??�다
+		local Select1Class			= IESData:GetClass(Sub1Class);					-- ClassID의 1번 데이터를 가지고 온다
+		local Sub1ClassList			= Select1Class:GetSubClassList();					-- 하위 SubClass를 가지고 온다
 		if Sub2Class ~= nil then
-			-- ?�번�??�이?��? ?�다
-			-- ?�직 ?�번�??�이?�는 만들지 ?�았?��?�? 차후 추�??�는 것으�???
+			-- 두번째 데이터가 있다
+			-- 아직 두번째 데이터는 만들지 않았으므로, 차후 추가하는 것으로 함
 		else
 			class			= Sub1ClassList:GetByIndex(Count - 1);
 		end
@@ -703,18 +704,18 @@ end
 	local JoinCheck			= nil;
 
 	if DataTable['MultiValue'] == 'YES' then
-		local tempMulti		= ClassName;		-- ?�단 값을 가지�??�다
-		-- ?�속??string 값을 가지�??�다. (?�수문자 ?�외)
+		local tempMulti		= ClassName;		-- 일단 값을 가지고 온다
+		-- 연속된 string 값을 가지고 온다. (특수문자 제외)
 		for w in string.gmatch(tempMulti, '%a+') do
 			MultiValue[#MultiValue + 1] = w;
 		end
 
-		-- 조인??and??or?�냐 ?�인 nil = or
+		-- 조인이 and냐 or이냐 확인 nil = or
 		JoinCheck			= string.match(tempMulti, '%;');
 
-		-- ?�속???�자만큼 값을 구해, ?�한??
+		-- 연속된 숫자만큼 값을 구해, 더한다
 		for i = 1, #(MultiValue) do
-			-- ClassID�?가지�??�다.
+			-- ClassID를 가지고 온다.
 			local ClassIDSource		= "local ClassID = GetClassNumber('[IES]', '[ClassName]', 'ClassID' ); return ClassID;";
 			ClassIDSource			= string.gsub(ClassIDSource,'%[IES%]', IES);
 			ClassIDSource			= string.gsub(ClassIDSource,'%[ClassName%]', MultiValue[i]);
@@ -727,39 +728,39 @@ end
 			Subsource				= string.gsub(Subsource, '%[Column%]', DataTable['SubColumn']);
 			local ClassByType		= assert(loadstring(Subsource));
 
-			-- 값을 ??�� ?�운??
+			-- 값을 덮어 씌운다.
 			if DataTable['preFix'] ~= 'None' then
-				-- ?�두??
+				-- 접두사
 				ReturnValue			= ReturnValue .. DataTable['preFix']
 			end
 
-			-- 값을 ?�는??
+			-- 값을 넣는다.
 			ReturnValue				= ReturnValue .. ClassByType();
 
 			if DataTable['sufFix'] ~= 'None' then
-				-- ?��???
+				-- 접미사
 				ReturnValue			= ReturnValue .. DataTable['sufFix']
 			end
 
 			if i ~= #(MultiValue) then
-				-- 값이 모두 종료?��? ?��? ?�태?�면
+				-- 값이 모두 종료되지 않은 상태라면
 				if DataTable['joinFix'] ~= 'None' then
 					ReturnValue			= ReturnValue .. DataTable['joinFix'];
 				end
 			else
 				if DataTable['joinOr'] ~= 'None' or DataTable['joinAnd'] ~= 'None' then
 					if JoinCheck == nil then
-						-- JoinCheck??값이 nil????or ?�태)
+						-- JoinCheck의 값이 nil일 때(or 상태)
 						ReturnValue			= ReturnValue .. DataTable['joinOr'];
 					else
-						-- JoinCheck??값이 nil???�닐??and ?�태)
+						-- JoinCheck의 값이 nil이 아닐때(and 상태)
 						ReturnValue			= ReturnValue .. DataTable['joinAnd'];
 					end
 				end
 			end
 		end
 	else
-		-- ClassID�?가지�??�다.
+		-- ClassID를 가지고 온다.
 		local ClassIDSource		= "local ClassID = GetClassNumber('[IES]', '[ClassName]', 'ClassID' ); return ClassID;";
 		ClassIDSource			= string.gsub(ClassIDSource,'%[IES%]', IES);
 		ClassIDSource			= string.gsub(ClassIDSource,'%[ClassName%]', ClassName);
@@ -772,16 +773,16 @@ end
 		Subsource				= string.gsub(Subsource, '%[Column%]', DataTable['SubColumn']);
 		local ClassByType		= assert(loadstring(Subsource));
 
-		-- 값을 ??�� ?�운??
+		-- 값을 덮어 씌운다.
 		if DataTable['preFix'] ~= 'None' then
-			-- ?�두??
+			-- 접두사
 			ReturnValue			= ReturnValue .. DataTable[preFix]
 		end
 
 		ReturnValue				= ReturnValue .. ClassByType();
 
 		if DataTable['sufFix'] ~= 'None' then
-			-- ?��???
+			-- 접미사
 			ReturnValue			= ReturnValue .. DataTable['sufFix']
 		end
 	end
@@ -791,7 +792,7 @@ end
 
 
  function GET_DESC_ARGUMENT(Type, IESName, DataTable)
-	-- IES???�이?��? 분석 ?�거???�다.
+	-- IES의 데이터를 분석 하거나 한다.
  	local argDataCount	= #(DataTable);
 	local argData		= {};
 	local IES			= nil;
@@ -802,7 +803,7 @@ end
 		local ColumnName	= DataTable[k]['Column'];
 		local tempIESName	= DataTable[k]['IES'];
 
-		-- 기본 IES???�이?��? 불러 ?�인??
+		-- 기본 IES의 데이터를 불러 들인다
 		IES			= IESName;
 		source		= string.gsub(source, '%[IES%]', IES);
 		source		= string.gsub(source, '%[ClassID%]', Type);
@@ -813,7 +814,7 @@ end
 				local runLoadString		= assert(loadstring(source));
 				local tempClass			= runLoadString();
 
-				-- 만약 MultiValue??값이 YES??경우.
+				-- 만약 MultiValue의 값이 YES일 경우.
 				if DataTable[k]['MultiValue']	== 'YES' then
 					local MultiValue		= GET_MULTIVALUE(tempClass)
 					local SumValue			= 0;
@@ -824,33 +825,33 @@ end
 				end
 
 			elseif DataTable[k]['IES']	== 'MyHandle' then
-				-- MyHandle ?�경??처리�??�자
+				-- MyHandle 일경우 처리를 하자
 				local MyHandleSource 		= "local MySession = session.GetMyHandle(); local CharProperty	= GetProperty(MySession); return CharProperty.[ColumnName]"
 				MyHandleSource				= string.gsub(MyHandleSource, '%[ColumnName%]', ColumnName);
 				local LoadMyHandleSourece	= assert(loadstring(MyHandleSource));
 				local runLoadMyHandle		= LoadMyHandleSourece();
 				argData[k]					= runLoadMyHandle;
 			else
-				-- IES??IES Name가 ?�을 경우. (MultiValue�??�용?????�다)
+				-- IES에 IES Name가 있을 경우. (MultiValue를 사용할 수 있다)
 				local runLoadString		= assert(loadstring(source));
 				local ClassName			= runLoadString();
 				if ClassName ~='None' then
 					argData[k]				= GET_IESTYPE_DATA(tempIESName, DataTable[k], ClassName);
 				else
-					-- ?�이??값이 None�??�어 ?�다
+					-- 데이터 값이 None로 되어 있다
 					argData[k]				= ClassName;
 				end
 			end
 		else
-			-- ?�수 ?�이?��? None값이??
+			-- 필수 데이터가 None값이다
 			argData[k]	= 'NoData';
 		end
 
-		-- ?�기???��??�이?��? ?�도�??�자
+		-- 여기에 대체 데이터를 넣도록 하자
 		if DataTable[k]['replace'] == 'YES' and DataTable[k]['MultiValue'] == 'NO' and argData[k] ~= nil then
 			local replaceCount		= #(DataTable[k]['If'])
 			for c = 1, replaceCount do
-				-- ReturnComment ???�??Font �?pre,suf Fix ?�기?�에, replace 값을 검?�한??
+				-- ReturnComment 에 대한 Font 및 pre,suf Fix 하기전에, replace 값을 검사한다
 				local replaceSource		= "if [Compare] then  return 'TRUE'; else return 'FALSE'; end";
 				replaceSource			= string.gsub(replaceSource, '%[Compare%]', DataTable[k]['If'][c]['Compare']);
 				replaceSource			= string.gsub(replaceSource, '%[Arg%]', argData[k]);
@@ -870,7 +871,7 @@ end
 					break;
 				else
 					if DataTable[k]['If'][c]['else'] ~= 'None' then
-						-- 만약 else??값이 None가 ?�닌경우
+						-- 만약 else의 값이 None가 아닌경우
 						local elseValue			= DataTable[k]['If'][c]['else']
 						elseValue				= string.gsub(elseValue, '%[Arg%]', argData[k]);
 						local elseSource		= 'return ' .. elseValue;
@@ -881,7 +882,7 @@ end
 				end
 			end
 		elseif DataTable[k]['replace'] == 'YES' and DataTable[k]['MultiValue'] == 'YES' and argData[k] ~= nil then
-			-- 멀??값이 ?�을 경우
+			-- 멀티 값이 있을 경우
 			argData[k]	= #(argData[k])
 		end
 	end
@@ -891,7 +892,7 @@ end
 
 
  function RETURN_FIXDATA(DataTable)
-	-- ?�이??변??묶음
+	-- 데이터 변환 묶음
 	local returnValue		= {}
 	if DataTable.ValueFont ~= 'None' then
 		returnValue[1]			= DataTable.ValueFont
@@ -920,18 +921,18 @@ end
 	local TooltipCount			= #(ToolTipTable);
 	local TitleValue			= {};
 
-	-- DESC�?구성?�다
+	-- DESC를 구성한다
 	local Comment				= '';
 
 	for i = 1, TooltipCount do
 		if ToolTipTable[i].ToolTipType == 'CaseByType' then
 			local WriteValue, Value, CheckCase		= RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, i)
 
-			-- 계산??�?�?null 값이 ?�는지 ?�인?�보??
+			-- 계산된 값 중 null 값이 있는지 확인해보자
 			local nullCheck					= 'None'
 			local nullCount					= 0;
 
-			-- Node2??Value 값들??비교 ?�는 것으로서, 모든 값이 null ?�라�?리턴 처리?�다.
+			-- Node2의 Value 값들을 비교 하는 것으로서, 모든 값이 null 이라면 리턴 처리한다.
 			for k = 1, #WriteValue do
 				--[[
 				print(k .. ' - #WriteValue : ' .. #WriteValue);
@@ -951,9 +952,9 @@ end
 
 
 			if nullCheck ~= 'CheckOK' then
-				-- 추�? ?�이?��? ?�어 보자
+				-- 추가 데이터를 넣어 보자
 				local Node1Data = RETURN_FIXDATA(ToolTipTable[i]);
-				-- CheckCase??값이 TRUE??값을 먼�? 배치?�다.
+				-- CheckCase의 값이 TRUE인 값을 먼저 배치한다.
 				local ReturnComment		= '';
 
 				for j = 1, #WriteValue do
@@ -970,7 +971,7 @@ end
 				TitleValue[#(TitleValue)+1]	= Caption;
 
 				if ToolTipTable[i].TitleArg ~= 'YES' then
-					-- 최종 �?
+					-- 최종 값
 					Comment = Comment .. Caption;
 
 					if ToolTipTable[i].NextLine == 'YES' then
@@ -984,7 +985,7 @@ end
 		elseif ToolTipTable[i].ToolTipType == 'multiValue' then
 			local WriteValue, Value, CheckCase		= RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, i)
 
-			-- 계산??�?�?null 값이 ?�는지 ?�인?�보??
+			-- 계산된 값 중 null 값이 있는지 확인해보자
 			local nullCheck					= 'None'
 
 			for k = 1, #WriteValue do
@@ -1002,9 +1003,9 @@ end
 			end
 
 			if nullCheck ~= 'CheckOK' then
-				-- 추�? ?�이?��? ?�어 보자
+				-- 추가 데이터를 넣어 보자
 				local Node1Data = RETURN_FIXDATA(ToolTipTable[i]);
-				-- ??집합??결합 ?�보??
+				-- 두 집합을 결합 해보자
 				local WriteValueCount	= #WriteValue
 				local Caption			= ToolTipTable[i].NameFont .. ToolTipTable[i].Caption;
 
@@ -1032,7 +1033,7 @@ end
 
 
 
-	-- Name�?구성?�다
+	-- Name를 구성한다
 	local ToolTipName			= '';
 
 	local nameValue				= {}
@@ -1053,10 +1054,10 @@ end
 		local ObjSource				= "local Value = [Object].[Column]; return Value;"
 		local SelSource				= nil;
 
-		-- arg1 ~ 4???�??값을 리턴 받는??
+		-- arg1 ~ 4에 대한 값을 리턴 받는다.
 		local checkArg			= ToolTipTable['Arg' .. i];
 		if checkArg ~= 'None' then
-			-- [Object] ?�그가 ?�는지 ?�인?�다
+			-- [Object] 태그가 있는지 확인한다
 			local ObjText		= string.match(checkArg, '%[Object%]');
 			SelSource			= string.gsub(RootSource, '%[IES%]', IESName);
 			SelSource			= string.gsub(SelSource, '%[ClassID%]', Type);
@@ -1077,43 +1078,43 @@ end
 		end
 	end
 
-	-- Value 값을 가지�??�다
+	-- Value 값을 가지고 온다
 	ToolTipName					= ToolTipTable.Value;
 
-	-- Value?� Arg�??�친??
+	-- Value와 Arg를 합친다
 	for o = 1, 4 do
 		ToolTipName				= string.gsub(ToolTipName, '%[arg' .. o .. '%]', nameValue[o + 2]);
 	end
 
 
-	-- 값이 ?�별???�류가 ?�다�?무사 ?�과(Value 값이 None?�라 ?�여???�과 ??
+	-- 값이 특별히 오류가 없다면 무사 통과(Value 값이 None이라 하여도 통과 됨)
 	local TempText	= assert(loadstring('local Value = ' .. ToolTipName .. ';' .. 'if Value ~= tostring(Value) then if Value == nil then return ' .. "'" .. ToolTipName .. "'" .. 'else return Value; end end'));
 	local TempText2	= TempText()
 
 	if TempText2 == nil then
-		-- ?�류가 발생
+		-- 오류가 발생
 		TempText2 = '{#ff0000}Value Error'
 	end
 
-	-- Value 값에 Font?�보�??�는??
+	-- Value 값에 Font정보를 넣는다.
 	TempText2 = nameValue[2] .. TempText2 .. nameValue[1];
 
-	-- WriteValue??값이 None가 ?�닐 경우 본래 ?�던 ?�스?�로부??[Value]�?찾아 ?�이?��? ???�는??
+	-- WriteValue의 값이 None가 아닐 경우 본래 있던 텍스트로부터 [Value]를 찾아 데이터를 써 넣는다
 	if ToolTipTable.WriteValue ~= 'None' then
 		ToolTipName			= string.gsub(ToolTipTable.WriteValue, '%[Value%]', TempText2);
 	else
 		ToolTipName			= TempText2;
 	end
 
-	-- SubValue?� text값을 ?�친??
+	-- SubValue와 text값을 합친다.
 	for o = 1, #(TitleValue) do
 		ToolTipName				= string.gsub(ToolTipName, '%[TitleValue' .. o .. '%]', TitleValue[o]);
 	end
 
-	-- Font ?�보?� ?�친??
+	-- Font 정보와 합친다
 	ToolTipName				= nameValue[1] .. ToolTipName
 
-	-- Node2.Value & Arg1 ~ 4??값을 WriteValue???�을 ???�도�??�다
+	-- Node2.Value & Arg1 ~ 4의 값을 WriteValue에 넣을 수 있도록 한다
 	for o = 1, 4 do
 		ToolTipName		= string.gsub(ToolTipName, '%[arg' .. o .. '%]', (nameValue[2] .. nameValue[o + 2] .. nameValue[1]));
 	end
@@ -1121,17 +1122,17 @@ end
 	return ToolTipName, Comment;
 end
 
--- if 값이 참인지 거짓?��? 반환 ?�는 ?�수
+-- if 값이 참인지 거짓인지 반환 하는 함수
 function RETURN_TRUEORFALSE(ifData, arg)
 
 	local CheckArg	= ifData;
 
 	for i = 1, #(arg) do
 		if arg[i] ~= 'null' and arg[i] ~= nil then
-			-- 값이 null???�닐 ?�에�??�행 ?�도�??�다.
+			-- 값이 null이 아닐 때에만 실행 하도록 한다.
 			CheckArg	= string.gsub(CheckArg, '%[arg' .. i .. '%]', arg[i])
 		else
-			-- 만약 값이 null ?�라�?null??리턴?�다.
+			-- 만약 값이 null 이라면 null을 리턴한다.
 			return 'null'
 		end
 	end
@@ -1153,11 +1154,11 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 
 	for j = 1, SubDataCount do
 		local Node2Value 			= RETURN_FIXDATA(ToolTipTable[count][j]);
-		-- ?�기가 Node3 ?�이?��? ?�어 ?�는 �?
+		-- 여기가 Node3 데이터를 읽어 오는 곳
 		Node2Value['arg']			= GET_DESC_ARGUMENT(Type, IESName, ToolTipTable[count][j]['arg'])
 		local nullCheck				= 'None'
 
-		-- 만약 Node3value 로�????�어 ??값이 ?�나?�도 null ?�면 null 처리
+		-- 만약 Node3value 로부터 넘어 온 값이 하나라도 null 이면 null 처리
 		for l =1, #(Node2Value['arg']) do
 			if Node2Value['arg'][l] == 'null' then
 				nullCheck = 'CheckOK';
@@ -1165,7 +1166,7 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 			end
 		end
 
-		-- 개별??null 체크 ?�여; 만약 값이 TRUE?�면 null 처리;
+		-- 개별적 null 체크 하여; 만약 값이 TRUE이면 null 처리;
 		if ToolTipTable[count][j].nullCheck ~= 'None' then
 			local nullCheckIf	= RETURN_TRUEORFALSE(ToolTipTable[count][j].nullCheck, Node2Value['arg']);
 			if nullCheckIf == 'TRUE' or nullCheckIf == 'null' then
@@ -1186,7 +1187,7 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 			end
 
 			if ToolTipTable[count][j].Value ~= 'None' then
-				-- Value?� Arg�??�친??
+				-- Value와 Arg를 합친다
 				local tempValue 				= ToolTipTable[count][j].Value;
 				for o = 1, #(Node2Value['arg']) do
 					tempValue			= string.gsub(tempValue, '%[arg' .. o .. '%]', Node2Value['arg'][o]);
@@ -1206,7 +1207,7 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 				local TempText2				= RunSource()
 
 				if TempText2 == nil then
-					-- ?�류가 발생
+					-- 오류가 발생
 					TempText2 = '{#ff0000}Value Error'
 				end
 
@@ -1215,22 +1216,22 @@ function RETURN_TOOLTIPCOMMENT(ToolTipTable, Type, IESName, count)
 				Value[j]	= 'None'
 			end
 
-			-- Node2.WriteValue??값이 None가 ?�닐 경우 본래 ?�던 ?�스?�로부??[Value]�?찾아 ?�이?��? ???�는??
+			-- Node2.WriteValue의 값이 None가 아닐 경우 본래 있던 텍스트로부터 [Value]를 찾아 데이터를 써 넣는다
 			if ToolTipTable[count][j].WriteValue ~= 'None' and ToolTipTable[count][j].Value ~= 'None' then
 				WriteValue[j]			= string.gsub(ToolTipTable[count][j].WriteValue, '%[Value%]', Value[j]);
 			elseif ToolTipTable[count][j].WriteValue ~= 'None' and ToolTipTable[count][j].Value == 'None' then
 				WriteValue[j]			= ToolTipTable[count][j].WriteValue;
 			end
 
-			-- Font ?�보?� ?�친??
+			-- Font 정보와 합친다
 			WriteValue[j]			= Node2Value[1] .. Node2Value[2] .. WriteValue[j] .. Node2Value[3]
 
-			-- Node2.Value & Arg1 ~ 4??값을 WriteValue???�을 ???�도�??�다
+			-- Node2.Value & Arg1 ~ 4의 값을 WriteValue에 넣을 수 있도록 한다
 			for o = 1, #(Node2Value['arg']) do
 				WriteValue[j]		= string.gsub(WriteValue[j], '%[arg' .. o .. '%]', Node2Value['arg'][o])
 			end
 		else
-			-- nullCheck == 'CheckOK' ?�다
+			-- nullCheck == 'CheckOK' 이다
 			CheckCase[j]			= 'FALSE';
 			WriteValue[j]			= 'null'
 		end
@@ -1242,23 +1243,23 @@ end
 
 function HASIES_TOOLTIP_TABLE(IESName, ClassID)
 
-	-- ?�차??배열??가�?IES ?�이?��? 가지�??�다
+	-- 다차원 배열을 가진 IES 데이터를 가지고 온다
 	local IESData					= imcIES.GetClassList(IESName);
 
-	-- 초기 ?�래?��? 가지�??�다
+	-- 초기 클래스를 가지고 온다
 	local Selectclass				= IESData:GetClass(ClassID);
-	local Sub1ClassList				= Selectclass:GetSubClassList();				-- ?�위 SubClass�?가지�??�다
-	-- Node1??몇개??Class�?가지�??�는가
+	local Sub1ClassList				= Selectclass:GetSubClassList();				-- 하위 SubClass를 가지고 온다
+	-- Node1에 몇개의 Class를 가지고 있는가
 	local Sub1ClassCount			= Sub1ClassList:Count();
 
-	-- Class??�?개수??몇개 ?��?
-	local IESCount					= IESData:Count();								-- 1??리턴?�다
-	local NodeName					= imcIES.GetString(Selectclass, 'ClassName');	-- SkillToolTip �?가지�???것이??
+	-- Class의 총 개수는 몇개 인가
+	local IESCount					= IESData:Count();								-- 1을 리턴한다
+	local NodeName					= imcIES.GetString(Selectclass, 'ClassName');	-- SkillToolTip 를 가지고 올 것이다
 
-	-- 배열??만들??보자
+	-- 배열을 만들어 보자
 	local returnTable	= {}
 
-	-- 기본 ?�보(Name 출력???�용??
+	-- 기본 정보(Name 출력에 사용됨)
 	returnTable['NameFont']		= imcIES.GetString(Selectclass, 'NameFont');
 	returnTable['ValueFont']	= imcIES.GetString(Selectclass, 'ValueFont');
 	returnTable['Value']		= imcIES.GetString(Selectclass, 'Value');
@@ -1271,9 +1272,9 @@ function HASIES_TOOLTIP_TABLE(IESName, ClassID)
 	for i = 1, Sub1ClassCount do
 		local Sub1Class					= Sub1ClassList:GetByIndex(i - 1);
 
-		-- ?�위 리스??구조�??�어 ?�인??(Node2)
-		local Sub2ClassList					= Sub1Class:GetSubClassList();		-- Node2�??�어 ?�다
-		local Sub2ClassCount				= Sub2ClassList:Count();			-- Node2?�는 몇개�?가지�??�는가
+		-- 하위 리스트 구조를 읽어 들인다.(Node2)
+		local Sub2ClassList					= Sub1Class:GetSubClassList();		-- Node2를 읽어 온다
+		local Sub2ClassCount				= Sub2ClassList:Count();			-- Node2에는 몇개를 가지고 있는가
 
 		returnTable[i]							= {}
 		returnTable[i]['ClassName']				= imcIES.GetString(Sub1Class, 'ClassName');
@@ -1300,10 +1301,10 @@ function HASIES_TOOLTIP_TABLE(IESName, ClassID)
 			returnTable[i][j]['nullCheck']			= imcIES.GetString(Sub2Class, 'nullCheck');
 
 
-			-- Node3???�??arg 값들??처리?�다
-			-- ?�위 리스??구조�??�어 ?�인??(Node3)
-			local Sub3ClassList					= Sub2Class:GetSubClassList();		-- Node2�??�어 ?�다
-			local Sub3ClassCount				= Sub3ClassList:Count();			-- Node2?�는 몇개�?가지�??�는가
+			-- Node3에 대한 arg 값들을 처리한다
+			-- 하위 리스트 구조를 읽어 들인다.(Node3)
+			local Sub3ClassList					= Sub2Class:GetSubClassList();		-- Node2를 읽어 온다
+			local Sub3ClassCount				= Sub3ClassList:Count();			-- Node2에는 몇개를 가지고 있는가
 			returnTable[i][j]['arg']			= {}
 
 			for n = 1, Sub3ClassCount do
@@ -1321,9 +1322,9 @@ function HASIES_TOOLTIP_TABLE(IESName, ClassID)
 				returnTable[i][j]['arg'][n]['replace']		= imcIES.GetString(Sub3Class, 'replace');
 
 				if returnTable[i][j]['arg'][n]['replace'] == 'YES' then
-					-- Node4???�??arg 값들??처리?�다
-					local Sub4ClassList					= Sub3Class:GetSubClassList();			-- Node2�??�어 ?�다
-					local Sub4ClassCount				= Sub4ClassList:Count();				-- Node2?�는 몇개�?가지�??�는가
+					-- Node4에 대한 arg 값들을 처리한다
+					local Sub4ClassList					= Sub3Class:GetSubClassList();			-- Node2를 읽어 온다
+					local Sub4ClassCount				= Sub4ClassList:Count();				-- Node2에는 몇개를 가지고 있는가
 					returnTable[i][j]['arg'][n]['If']			= {}
 					for w = 1, Sub4ClassCount do
 						local Sub4Class							= Sub4ClassList:GetByIndex(w - 1);

@@ -641,10 +641,14 @@ function MAKE_DETAIL_REQITEMS(ctrlset)
 end
 
 function RECIPE_TYPING_NAME(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_NAME", ctrl:GetText());
 end
 
 function RECIPE_TYPING_MEMO(frame, ctrl)
+	local removedTag = REMOVE_TAG(ctrl:GetText());
+	ctrl:SetText(removedTag);
 	frame:GetTopParentFrame():SetUserValue("EQP_MEMO", ctrl:GetText());
 end
 

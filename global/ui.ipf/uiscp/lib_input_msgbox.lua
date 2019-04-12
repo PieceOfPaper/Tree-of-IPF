@@ -7,7 +7,7 @@ function INPUT_NUMBER_BOX(cbframe, titleName, strscp, defNumber, minNumber, maxN
 	edit:SetNumberMode(1);
 	edit:SetMaxNumber(maxNumber);
 	edit:SetMinNumber(minNumber);
-
+	edit:AcquireFocus();
 end
 
 function INPUT_STRING_BOX_CB(fromFrame, titleName, strscp, defText, numarg, strarg, maxLen, isNumber)
@@ -117,9 +117,8 @@ end
 function GET_INPUT_STRING_TXT(frame)
 
 	local edit = frame:GetChild('input');
-	tolua.cast(edit, "ui::CEditControl");
+	tolua.cast(edit, "ui::CEditControl");	
 	return edit:GetText();
-
 end
 
 function GET_INPUT2_STRING_TXT(frame)

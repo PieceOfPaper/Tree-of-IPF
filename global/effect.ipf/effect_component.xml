@@ -1,11 +1,19 @@
-<?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ComponentList>
-	<Particle name="halfcircle010" texture="halfcircle010" width="5" height="5" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
-	<Particle name="blood002_alpha" texture="blood002_alpha" width="0.8" height="0.8" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
+	<Particle name="circle040_distort" texture="circle040_distort" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="ice004" texture="ice004" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="256"/>
+	<Particle name="circle041_orange" texture="circle041_orange" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="circle041_red" texture="circle041_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="circle041_puple" texture="circle041_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="circle041_green" texture="circle041_green" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="circle041_bule" texture="circle041_bule" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="circle040_distort" texture="circle040_distort" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="halfcircle010" texture="halfcircle010" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
+	<Particle name="blood002_alpha" texture="blood002_alpha" width="0.80" height="0.80" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
 	<Particle name="leaf001_green" texture="leaf001_green" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="32" texel_height="32"/>
 	<Particle name="particle001_yellow" texture="particle001_yellow" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
-	<Particle name="fire009" texture="fire009" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.4" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
+	<Particle name="fire009" texture="fire009" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.40" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern024_5" texture="pattern024_5" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern024_4" texture="pattern024_4" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern024_3" texture="pattern024_3" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -49,7 +57,7 @@
 	<Particle name="ripple005_reverse" texture="ripple005_reverse" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
 	<Particle name="ripple005" texture="ripple005" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
 	<Particle name="rize002_violet" texture="rize002_violet" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
-	<Particle name="dash005_pivot" texture="dash005_alpha" width="2.00" height="2.00" pivot_x="0.5" pivot_y="1" texel_x="0" texel_y="0" texel_width="64" texel_height="128"/>
+	<Particle name="dash005_pivot" texture="dash005_alpha" width="2.00" height="2.00" pivot_x="0.50" pivot_y="1.00" texel_x="0" texel_y="0" texel_width="64" texel_height="128"/>
 	<Particle name="square003" texture="square003" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="192" texel_height="128"/>
 	<Particle name="dash002_alpha" texture="dash002_alpha" width="6.00" height="6.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="pattern012" texture="pattern012" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
@@ -69,6 +77,7 @@
 	<Particle name="circle034_mint" texture="circle034_mint" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="circle033_mint" texture="circle033_mint" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="halfcircle003_yellow" texture="halfcircle003_yellow" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Particle name="pattern011_alpha" texture="pattern011_alpha" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="pattern011" texture="pattern011" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="light014" texture="light014" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Particle name="circle_pa_1" texture="circle_pa_1" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -311,6 +320,8 @@
 	<Particle name="circle018" texture="circle018" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Particle name="circle017" texture="circle017" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="160" texel_height="160"/>
 	<Particle name="line001" texture="line001" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_circle011" texture="circle011" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Texture name="texture_circle040_distort" texture="circle040_distort" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Texture name="texture_rize005_yellow" texture="rize005_yellow" width="1.50" height="1.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Texture name="texture_rize006" texture="rize006" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
 	<Texture name="texture_circle025" texture="circle025" width="1.50" height="1.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128"/>
@@ -334,6 +345,10 @@
 	<Texture name="texture_fire001" texture="fire001" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_test_1" texture="fire004" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Texture name="texture_test_2" texture="fire004" width="2.00" height="2.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
+	<Sprite name="sprite002_lightning_blue" texture="sprite002_lightning_blue" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.05"/>
+	<Sprite name="sprite002_lightning_puple" texture="sprite002_lightning_puple" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.05"/>
+	<Sprite name="sprite002_lightning_red" texture="sprite002_lightning_red" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="true" count="4" pitch="4" ticktime="0.05"/>
+	<Sprite name="sprite001_lightning" texture="sprite001_lightning" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="true" count="16" pitch="4" ticktime="0.05"/>
 	<Sprite name="sprite021_alpha" texture="sprite021_alpha" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="11" pitch="4" ticktime="0.05"/>
 	<Sprite name="sprite021" texture="sprite021" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="11" pitch="4" ticktime="0.05"/>
 	<Sprite name="sprite020" texture="sprite020" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="7" pitch="4" ticktime="0.03"/>
@@ -341,7 +356,7 @@
 	<Sprite name="sprit019" texture="sprite019" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="96" texel_height="192" loop="false" count="8" pitch="4" ticktime="0.03"/>
 	<Sprite name="sprit018" texture="sprit018" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="8" pitch="4" ticktime="0.05"/>
 	<Sprite name="emo_statuscharge" texture="noticeeffect2" width="10.00" height="9.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="100" texel_width="100" texel_height="100" loop="true" count="5" pitch="5" ticktime="0.50"/>
-	<Sprite name="sprit017" texture="sprit017" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="8" pitch="4" ticktime="0.025"/>
+	<Sprite name="sprit017" texture="sprit017" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="8" pitch="4" ticktime="0.03"/>
 	<Sprite name="sprit015" texture="sprit015" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="16" pitch="4" ticktime="0.05"/>
 	<Sprite name="sprite014" texture="sprite014" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="192" texel_height="64" loop="false" count="11" pitch="2" ticktime="0.05"/>
 	<Sprite name="swordtrail_4_blue" texture="trail_4_blue" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="4" pitch="2" ticktime="0.05"/>
@@ -364,9 +379,9 @@
 	<Sprite name="ripple004_alpha" texture="ripple004_alpha" width="1.00" height="1.00" pivot_x="0.00" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
 	<Sprite name="ripple004_orange" texture="ripple004_orange" width="1.00" height="1.00" pivot_x="0.00" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
 	<Sprite name="ripple004_green" texture="ripple004_green" width="1.00" height="1.00" pivot_x="0.00" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
-	<Sprite name="rize003_violet" texture="rize003" width="1.00" height="1.00" pivot_x="0.5" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
-	<Sprite name="rize004_violet" texture="rize004" width="1.00" height="1.00" pivot_x="0.5" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="64" loop="true" count="2" pitch="2" ticktime="0.08"/>
-	<Sprite name="ripple004_blue1" texture="ripple004_blue" width="1.00" height="1.00" pivot_x="0.5" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
+	<Sprite name="rize003_violet" texture="rize003" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
+	<Sprite name="rize004_violet" texture="rize004" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="256" texel_height="64" loop="true" count="2" pitch="2" ticktime="0.08"/>
+	<Sprite name="ripple004_blue1" texture="ripple004_blue" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
 	<Sprite name="ripple004_blue" texture="ripple004_blue" width="1.00" height="1.00" pivot_x="0.00" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="32" loop="true" count="2" pitch="2" ticktime="0.08"/>
 	<Sprite name="sprit004_1" texture="sprit004" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="8" pitch="4" ticktime="0.08"/>
 	<Sprite name="sprit004" texture="sprit004" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="128" texel_height="128" loop="false" count="8" pitch="4" ticktime="0.01"/>
@@ -386,12 +401,22 @@
 	<Ray name="rize004" texture="rize004" height="3.00" texel_x="0" texel_y="0" texel_width="128" texel_height="32" texel_speed="0.00" loopingwidth="0.00" loop="true" count="4" pitch="4" ticktime="0.10"/>
 	<Ray name="rize003_1" texture="rize003_1" height="5.00" texel_x="0" texel_y="0" texel_width="128" texel_height="32" texel_speed="0.00" loopingwidth="0.00" loop="true" count="4" pitch="4" ticktime="0.10"/>
 	<Ray name="rize003" texture="rize003" height="5.00" texel_x="0" texel_y="0" texel_width="128" texel_height="32" texel_speed="0.00" loopingwidth="0.00" loop="true" count="4" pitch="4" ticktime="0.10"/>
+	<Trail name="trail004" texture="trail004" height="4.00" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Trail name="trail003" texture="trail003" height="4.00" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Trail name="trail002" texture="trail002" height="4.00" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Trail name="trail001" texture="trail001" height="4.00" texel_x="0" texel_y="0" texel_width="256" texel_height="128"/>
+	<Trail name="trail_test" texture="trail_test" height="4.00" texel_x="0" texel_y="0" texel_width="512" texel_height="512"/>
+	<Trail name="ripple004_blue" texture="ripple004_blue" height="4.00" texel_x="0" texel_y="0" texel_width="512" texel_height="64"/>
 	<Trail name="dash009_trail" texture="dash009" height="4.00" texel_x="0" texel_y="0" texel_width="128" texel_height="64"/>
 	<Trail name="background002" texture="background002" height="2.00" texel_x="0" texel_y="0" texel_width="64" texel_height="64"/>
 	<Trail name="dash004" texture="dash004" height="4.00" texel_x="128" texel_y="128" texel_width="64" texel_height="64"/>
 	<Trail name="dash001_pink" texture="dash001_pink" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="dash001" texture="dash001" height="5.00" texel_x="0" texel_y="0" texel_width="32" texel_height="16"/>
 	<Trail name="smoke002" texture="smoke002" height="10.00" texel_x="512" texel_y="512" texel_width="64" texel_height="64"/>
+	<Model name="I_stone001_mesh" model="I_stone001_mesh.xac" motion="I_stone001_mesh.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="I_stone003_mesh" model="I_stone003_mesh.xac" motion="I_stone003_mesh_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="I_stone002_mesh" model="I_stone002_mesh.xac" motion="None" texturepath="effect\high\modeltexture\" overlap="false"/>
+	<Model name="toothrikon_tooth" model="Toothrikon_tooth.xac" motion="Toothrikon_tooth_ani.xsm" texturepath="char_texture\monster\Toothrikon\" overlap="false"/>
 	<Model name="artefact_gacha_box_dead" model="artefact_gacha_box_dead.xac" motion="artefact_gacha_box_dead_ani.xsm" texturepath="item_texture\" overlap="false"/>
 	<Model name="escarot_dead" model="escarot_dead.xac" motion="escarot_dead_ani.xsm" texturepath="char_texture\monster\escarot\" overlap="false"/>
 	<Model name="kucarry_balzermancer_dead" model="kucarry_balzermancer_dead.xac" motion="kucarry_balzermancer_dead_ani.xsm" texturepath="char_texture\monster\kucarry_balzermancer\" overlap="false"/>
@@ -834,7 +859,7 @@
 	<Model name="ifirit_dead" model="ifirit_dead.xac" motion="ifirit_dead_ani.xsm" texturepath="char_texture\monster\ifrit\" overlap="false"/>
 	<Model name="Strongholder_dead" model="Strongholder_dead.xac" motion="Strongholder_dead_ani.xsm" texturepath="char_texture\monster\Strongholder\" overlap="false"/>
 	<Model name="poata_dead" model="poata_dead.xac" motion="poata_dead_ani.xsm" texturepath="char_texture\monster\poata\" overlap="false"/>
-	<Model name="kunai" model="kunai.xac" motion="None" texturepath="char_texture\monster\Repusbunny_bow\kunai.dds\" overlap="false"/>
+	<Model name="kunai" model="kunai.xac" motion="None" texturepath="char_texture\monster\Repusbunny_bow\" overlap="false"/>
 	<Model name="warrior_skl_umboblow" model="warrior_skl_umboblow.xac" motion="warrior_skl_umboblow_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="warrior_skl_shieldblow" model="warrior_skl_shieldblow.xac" motion="warrior_skl_shieldblow_ani.xsm" texturepath="effect\high\modeltexture\" overlap="false"/>
 	<Model name="cleric_m_arun_effect" model="cleric_m_arun_effect.xac" motion="cleric_m_arun_effect_ani.xsm" texturepath="None" overlap="true"/>
@@ -1175,6 +1200,7 @@
 	<Model name="stake_stockades_01_dead" model="stake_stockades_01_dead.xac" motion="stake_stockades_01_dead_ani.xsm" texturepath="char_texture\monster\stake_stockades\" overlap="false"/>
 	<Model name="pet_egg_dead" model="pet_egg_dead.xac" motion="pet_egg_dead_ani.xsm" texturepath="char_texture\monster\Egg\" overlap="false"/>
 	<Model name="pet_box_dead" model="pet_box_dead.xac" motion="pet_box_dead_ani.xsm" texturepath="char_texture\monster\pet_box\" overlap="false"/>
+	<Model name="pet_box_rocksodon_dead" model="pet_box_rocksodon_dead.xac" motion="pet_box_dead_ani.xsm" texturepath="char_texture\monster\pet_box_rocksodon\" overlap="false"/>
 	<Model name="I_fantasylibrary_brickfloor_dead" model="fantasylibrary_brickfloor_dead.xac" motion="fantasylibrary_brickfloor_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_brickfloor\" overlap="false"/>
 	<Model name="I_fantasylibrary_arch_dead" model="fantasylibrary_arch_dead.xac" motion="fantasylibrary_arch_dead_ani.xsm" texturepath="char_texture\npc\fantasylibrary_arch\" overlap="false"/>
 	<Model name="boss_torelodeer_dead" model="boss_torelodeer_dead.xac" motion="boss_torelodeer_dead_ani.xsm" texturepath="char_texture\monster\torelodeer\" overlap="false"/>
@@ -1188,9 +1214,9 @@
 	<Text name="Text_Block" caption=" " fontfilename="ORIGINAL" fontsize="48" bold="0" italic="0" outline="1" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_damage_critical" caption="" fontfilename="ORIGINAL" fontsize="48" bold="0" italic="1" outline="1" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
 	<Text name="Text_atkindex" caption="" fontfilename="ORIGINAL" fontsize="24" bold="0" italic="0" outline="0" dropshadow="0" mindistance="100.00" maxdistance="300.00"/>
-	<Digit name="OverKillDigit" texture="digit_damage" overkilltexture="overkill" width="2.00" height="3.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100" texel_height="128" randomangle="false"/>
-	<Digit name="Digitdamage_heal" texture="digit_damage" overkilltexture="" width="2" height="3" pivot_x="0" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
-	<Digit name="Digitdamage" texture="digit_damage" overkilltexture="" width="3.00" height="4.00" pivot_x="0" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
+	<Digit name="OverKillDigit" texture="digit_damage" overkilltexture="overkill" width="2.00" height="3.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
+	<Digit name="Digitdamage_heal" texture="digit_damage" overkilltexture="" width="2.00" height="3.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
+	<Digit name="Digitdamage" texture="digit_damage" overkilltexture="" width="3.00" height="4.00" pivot_x="0.00" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="100.00" texel_height="128.00" randomangle="false"/>
 	<Digit name="DigitExpup" texture="digit_expup" overkilltexture="" width="3.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0.00" texel_y="0.00" texel_width="48.00" texel_height="60.00" randomangle="false"/>
 	<Screen name="UI_light006" texture="light006" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="UI_circle005" texture="circle005" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
@@ -1233,7 +1259,7 @@
 	<Screen name="UI_light011" texture="light011" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="UI_light003_alpha_1" texture="light003_alpha" width="1.00" height="1.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="UI_light003_alpha" texture="light003_alpha" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
-	<Screen name="UI_light005_big" texture="light005" width="10" height="10" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
+	<Screen name="UI_light005_big" texture="light005" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="UI_light005_2" texture="light005" width="4.00" height="4.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="UI_light005" texture="light005" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="UI_light001" texture="light001" width="5.50" height="5.50" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
@@ -1266,6 +1292,6 @@
 	<Screen name="Screen_reaction_bash1_1" texture="reaction_bash1_1" width="10.00" height="10.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="320" texel_height="320" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="Screen_reaction_bash1" texture="reaction_bash1" width="180.00" height="50.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="567" texel_height="160" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="hit_main_10" texture="hit_main_10" width="80.00" height="80.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="340" texel_height="128" loop="false" count="0" pitch="1" ticktime="0.00"/>
-	<Screen name="UI_circle007" texture="circle007" width="5" height="5" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
+	<Screen name="UI_circle007" texture="circle007" width="5.00" height="5.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="64" texel_height="64" loop="false" count="0" pitch="1" ticktime="0.00"/>
 	<Screen name="hit_main_10_blue" texture="hit_main_10_blue" width="80.00" height="80.00" pivot_x="0.50" pivot_y="0.50" texel_x="0" texel_y="0" texel_width="340" texel_height="128" loop="false" count="0" pitch="1" ticktime="0.00"/>
 </ComponentList>

@@ -20,7 +20,7 @@ function ON_PARTYINFO_INST_UPDATE(frame, msg, argStr, argNum)
 	local count = list:Count();
 
 	local myAid = session.loginInfo.GetAID();
-	-- ������ ��Ƽ��
+	-- 접속중 파티원
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
 		if partyMemberInfo:GetMapID() > 0 then
@@ -54,16 +54,16 @@ function ON_PARTYINFO_UPDATE(frame, msg, argStr, argNum)
 		local partyMemberInfo = list:Element(i);	
 		if partyMemberInfo:GetAID() ~= myAid then
 			local ret = nil;		
-			-- ������ ��Ƽ��
+			-- 접속중 파티원
 			if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
 				ret = SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType, false);
-			else-- ���Ӿ��� ��Ƽ��
+			else-- 접속안한 파티원
 				ret = SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, false, partyInfo:GetLeaderAID(), pcparty.isCorsairType);
 			end
-		else -- ��������
+		else -- 내정본데
 			local headsup = ui.GetFrame("headsupdisplay");
 			local leaderMark = GET_CHILD(headsup, "Isleader", "ui::CPicture");
-			if partyInfo:GetLeaderAID() ~= myAid then-- ���� ���� �ƴϸ�
+			if partyInfo:GetLeaderAID() ~= myAid then-- 만약 내가 아니면
 				leaderMark:SetImage('None_Mark');
 			else
 				leaderMark:SetImage('party_leader_mark');
@@ -107,7 +107,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 
 	local myInfo = session.party.GetMyPartyObj();
 
-	-- ������ ��Ƽ�� ��������Ʈ
+	-- 접속중 파티원 버프리스트
 	for i = 0 , count - 1 do
 		local partyMemberInfo = list:Element(i);
 		if geMapTable.GetMapName(partyMemberInfo:GetMapID()) ~= 'None' then
@@ -119,7 +119,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 				local buffListSlotSet = GET_CHILD(partyInfoCtrlSet, "buffList", "ui::CSlotSet");
 				local debuffListSlotSet = GET_CHILD(partyInfoCtrlSet, "debuffList", "ui::CSlotSet");
 				
-				-- �ʱ�ȭ
+				-- 초기화
 				for j=0, buffListSlotSet:GetSlotCount() - 1 do
 					local slot = buffListSlotSet:GetSlotByIndex(j);
 					slot:SetKeyboardSelectable(false);
@@ -137,7 +137,7 @@ function ON_PARTYINFO_BUFFLIST_UPDATE(frame)
 					slot:ShowWindow(0);				
 				end
 
-				-- ������ ����
+				-- 아이콘 셋팅
 				if buffCount > 0 then
 					local buffIndex = 0;
 					local debuffIndex = 0;
@@ -263,11 +263,11 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 		return;
 	end
 	if aid == myAid then
-		-- 1. ������ �ڱ� �ڽ�.
+		-- 1. 누구든 자기 자신.
 		ui.AddContextMenuItem(context, ScpArgMsg("WithdrawParty"), "OUT_PARTY()");			
 	elseif iamLeader == true then
-		-- 2. ��Ƽ���� ��Ƽ�� ��Ŭ��
-		-- ��ȭ�ϱ�. ������������. ��Ƽ�� ����. �߹�.
+		-- 2. 파티장이 파티원 우클릭
+		-- 대화하기. 세부정보보기. 파티장 위임. 추방.
 		ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", memberInfo:GetName()));	
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
@@ -278,8 +278,8 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 			ui.AddContextMenuItem(context, ScpArgMsg("RequestItemDungeon"), string.format("Alchemist.RequestItemDungeon('%s')", memberInfo:GetName()));	
 		end
 	else
-		-- 3. ��Ƽ���� ��Ƽ�� ��Ŭ��
-		-- ��ȭ�ϱ�. ���� ���� ����.
+		-- 3. 파티원이 파티원 우클릭
+		-- 대화하기. 세부 정보 보기.
 		ui.AddContextMenuItem(context, ScpArgMsg("WHISPER"), string.format("ui.WhisperTo('%s')", memberInfo:GetName()));	
 		local strRequestAddFriendScp = string.format("friends.RequestRegister('%s')", memberInfo:GetName());
 		ui.AddContextMenuItem(context, ScpArgMsg("ReqAddFriend"), strRequestAddFriendScp);
@@ -295,7 +295,7 @@ function CONTEXT_PARTY(frame, ctrl, aid)
 end
 
 function UPDATE_PARTYINFO_HP(partyInfoCtrlSet, partyMemberInfo)
--- ��Ƽ�� hp / sp ǥ�� --
+-- 파티원 hp / sp 표시 --
 	local hpGauge = GET_CHILD(partyInfoCtrlSet, "hp", "ui::CGauge");
 	local spGauge = GET_CHILD(partyInfoCtrlSet, "sp", "ui::CGauge");
 	
@@ -362,7 +362,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	leaderMark:SetImage('None_Mark');
 	leaderMark:ShowWindow(0)
 	
-	-- �Ӹ�
+	-- 머리
 	local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 	local nameObj = partyInfoCtrlSet:GetChild('name_text');
 	local nameRichText = tolua.cast(nameObj, "ui::CRichText");	
@@ -379,8 +379,9 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 			
 			
 		local tooltipID = jobIcon:GetTooltipIESID();		
-		if nil == tooltipID then		
-			jobIcon:SetTextTooltip(jobCls.name);
+		if nil == tooltipID then	
+			jobName = GET_JOB_NAME(jobCls, iconinfo.gender);	
+			jobIcon:SetTextTooltip(jobName);
 		end
 
 		local stat = partyMemberInfo:GetInst();
@@ -443,7 +444,7 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 		spGauge:SetStatFont(0, 'white_12_ol');
 	end
 			
-	-- ��Ƽ�� ���� ǥ�� -- 
+	-- 파티원 레벨 표시 -- 
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
 	local levelRichText = tolua.cast(levelObj, "ui::CRichText");
@@ -478,7 +479,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	-- able ban logout pc;
 	--partyInfoCtrlSet:EnableHitTestSet(0);
 		
-	-- ��Ƽ�� hp / sp ǥ�� --
+	-- 파티원 hp / sp 표시 --
 	local hpObject 				= partyInfoCtrlSet:GetChild('hp');
 	local hpGauge 				= tolua.cast(hpObject, "ui::CGauge");
 	local spObject 				= partyInfoCtrlSet:GetChild('sp');
@@ -505,7 +506,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 		end	
 	end
 				
-	-- �Ӹ�
+	-- 머리
 	local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 	if jobportraitImg ~= nil then
 		jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
@@ -516,7 +517,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 		end
 	end
 		
-	-- ��Ƽ�� ���� ǥ�� -- 
+	-- 파티원 레벨 표시 -- 
 	local lvbox = partyInfoCtrlSet:GetChild('lvbox');
 	local levelObj = partyInfoCtrlSet:GetChild('lvbox');
 	local levelRichText = tolua.cast(levelObj, "ui::CRichText");
@@ -608,7 +609,7 @@ function RECEIVE_PARTY_INVITE(partyType, inviterAid, familyName)
 	else
 		msg = "{Inviter}InviteYouToGuild_DoYouAccept?";
 	end
-
+	
 	local str = ScpArgMsg(msg, "Inviter", familyName);
 	local yesScp = string.format("party.AcceptInvite(%d, \"%s\", \"%s\", 0)", partyType, inviterAid, familyName);
 	local noScp = string.format("party.CancelInvite(%d, \"%s\", 0)", partyType, familyName);
@@ -629,7 +630,7 @@ end
 
 function ON_PARTY_INVITE_CANCEL(frame, msg, familyName, arg2)
 
-	ui.SysMsg('['..familyName..'] '.. ClMsg("PartyInviteCancelMsg"));
+	ui.SysMsg(familyName .. ClMsg("PartyInviteCancelMsg"));
 end
 
 function SET_PARTY_JOB_TOOLTIP(cid)	
@@ -681,6 +682,7 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	local otherpcinfo = session.otherPC.GetByStrCID(cid);
 
 	local jobhistory = otherpcinfo.jobHistory;
+	local gender = otherpcinfo:GetIconInfo().gender;
 	local clslist, cnt  = GetClassList("Job");
 	
 	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
@@ -703,19 +705,19 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 			end
 		end
 	end
-	
+
 	local startext = ("");
 	for jobid, grade in pairs(OTHERPCJOBS) do
-		-- Ŭ���� �̸�{@st41}
+		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
 
 		if cls.Name == nowjobcls.Name then
-			startext = startext .. ("{@st41_yellow}").. cls.Name;		
+			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
-			startext = startext .. ("{@st41}").. cls.Name;				
+			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- Ŭ���� ���� (�ڷ� ǥ��)				
+		-- 클래스 레벨 (★로 표시)				
 		for i = 1 , 3 do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
@@ -767,28 +769,22 @@ function PARTY_JOB_TOOLTIP_BY_AID(aid, icon, nowJobName)
 	for jobid, grade in pairs(OTHERPCJOBS) do
 		-- 클래스 이름{@st41}
 		local cls = GetClassByTypeFromList(clslist, jobid);
-		local jName = GET_JOB_NAME(cls, gender)
+
 		if cls.Name == nowjobcls.Name then
-			if jName ~= nil then
-				startext = startext .. ("{@st41_yellow}") .. tostring(jName);
-			end
+			startext = startext .. ("{@st41_yellow}").. GET_JOB_NAME(cls, gender);
 		else
-			if jName ~= nil then
-				startext = startext .. ("{@st41}") .. tostring(jName);
-			end
+			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- 클래스 레벨 (★로 표시)
-		if startext ~= "" then
-			for i = 1 , 3 do
-				if i <= grade then
-					startext = startext ..('{img star_in_arrow 20 20}');
-				else
-					startext = startext ..('{img star_out_arrow 20 20}');
-				end
+		-- 클래스 레벨 (★로 표시)				
+		for i = 1 , 3 do
+			if i <= grade then
+				startext = startext ..('{img star_in_arrow 20 20}');
+			else
+				startext = startext ..('{img star_out_arrow 20 20}');
 			end
-			startext = startext ..('{nl}');
 		end
+		startext = startext ..('{nl}');
 	end
 	icon:SetTextTooltip(startext);
 	icon:EnableHitTest(1);

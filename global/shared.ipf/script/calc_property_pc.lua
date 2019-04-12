@@ -1,4 +1,4 @@
-﻿function SCR_GET_JOB_STR(pc)
+function SCR_GET_JOB_STR(pc)
 	
 	local jobObj = GetJobObject(pc);
 	if jobObj ~= nil then
@@ -473,6 +473,12 @@ function SCR_Get_DEF(self)
     
     local value = byItem + byBuff + byLevel + addDef + self.MAXDEF_Bonus - throwItemDef;
     
+    local rank = GetTotalJobCount(self)
+    local normaldef = byItem + byLevel + addDef
+    local rankbonus = math.floor(normaldef * ((rank - 1) * 0.1))
+    local value = normaldef + rankbonus + byBuff + self.MAXDEF_Bonus - throwItemDef;
+
+      
 	if value < 1 then
 	    value = 0;
 	end
@@ -601,7 +607,11 @@ function SCR_Get_MDEF(self)
     	addDef = self.Lv / 4;
 	end
 	
-	local value = byLevel + byItem + byItem2 + addDef + byStat;
+	local rank = GetTotalJobCount(self)
+  local normalmdef = byLevel + byItem + byItem2 + addDef + byStat
+  local rankbonus = math.floor(normalmdef * ((rank - 1) * 0.1))
+	
+	local value = normalmdef + rankbonus
 	value = value + self.MDEF_BM;
 	
 	local enchantcnt = CountEnchantItemEquip(self, 'ENCHANTARMOR_PROTECTIVE');
@@ -921,8 +931,11 @@ function SCR_Get_MSPD(self)
 		
 	end
 	
-	if self.DashRun == 1 then
+	if self.DashRun > 0 then -- 대시 런
 		value = value + 10;
+		if self.DashRun == 2 then -- 인보 특성이 있으면 추가 속도 1
+			value = value + 1;
+		end
 	end
 	
 	if value > 60 then
@@ -1125,8 +1138,12 @@ end
 function SCR_Get_Sta_Run(self)
 	local value = 50;
 	
-	if self.DashRun == 1 then
-		value = value + 500;
+	if self.DashRun > 0 then
+		local dashAmount = 500;
+		if self.DashRun == 2 then
+			dashAmount = dashAmount * 0.9; -- 인보 특성 있는 중에는 추가량 10% 감소
+		end
+		value = value + dashAmount;
 	end
 	
 	return 250 * value / 100;
@@ -1389,6 +1406,15 @@ function SCR_GET_LIGHTNING_ATK(pc)
 	return math.floor(value);
 end
 
+function SCR_GET_SOUL_ATK(pc)
+    local byItem = GetSumOfEquipItem(pc, "ADD_SOUL");
+    local byBuff = pc.Soul_Atk_BM;
+    local byAbil;
+    
+    local value = byItem + byBuff;
+	return math.floor(value);
+end
+
 function SCR_GET_EARTH_ATK(pc)
     local byItem = GetSumOfEquipItem(pc, "ADD_EARTH");
     local byBuff = pc.Earth_Atk_BM;
@@ -1592,6 +1618,15 @@ function SCR_GET_RES_LIGHTNING(pc)
 	return math.floor(value);
 end
 
+function SCR_GET_RES_SOUL(pc)
+    local byItem = GetSumOfEquipItem(pc, "RES_SOUL");
+    local byBuff = pc.ResSoul_BM;
+    
+    local value = byItem + byBuff;
+    
+	return math.floor(value);
+end
+
 function SCR_GET_RES_EARTH(pc)
     local byItem = GetSumOfEquipItem(pc, "RES_EARTH");
     local byBuff = pc.ResEarth_BM;
@@ -1613,6 +1648,15 @@ end
 function SCR_GET_RES_DARK(pc)
     local byItem = GetSumOfEquipItem(pc, "RES_DARK");
     local byBuff = pc.ResDark_BM;
+    
+    local value = byItem + byBuff;
+    
+	return math.floor(value);
+end
+
+function SCR_GET_RES_SOUL(pc)
+    local byItem = GetSumOfEquipItem(pc, "RES_SOUL");
+    local byBuff = pc.ResSoul_BM;
     
     local value = byItem + byBuff;
     
@@ -1732,6 +1776,10 @@ function SCR_GET_LIGHTNING_ATKFACTOR_PC(self)
     return self.LightningAtkFactor_PC_BM;
 end
 
+function SCR_GET_SOUL_ATKFACTOR_PC(self)
+    return self.SoulAtkFactor_PC_BM;
+end
+
 function SCR_GET_POISON_ATKFACTOR_PC(self)
     return self.PoisonAtkFactor_PC_BM;
 end
@@ -1774,6 +1822,10 @@ end
 
 function SCR_GET_LIGHTNING_DEFFACTOR_PC(self)
     return self.LightningDefFactor_PC_BM;
+end
+
+function SCR_GET_SOUL_DEFFACTOR_PC(self)
+    return self.SoulDefFactor_PC_BM;
 end
 
 function SCR_GET_POISON_DEFFACTOR_PC(self)

@@ -23,7 +23,7 @@ function OPEN_GUILDEVENTPOPUP(frame)
 end
 
 function UPDATE_GUILD_EVENT_POPUP()
-	--¿©·¯ Âü¿©/°ÅÀı ¸Ş¼¼Áö°¡ µ¿½Ã¿¡ ¿Ã °æ¿ì¿¡ Debouce »ç¿ëÇÏ¸é °»½ÅÀÌ ³Ê¹« ´Ê¾îÁú ¼ö ÀÖÀ¸¹Ç·Î Throttle Ã³¸®
+	--ì—¬ëŸ¬ ì°¸ì—¬/ê±°ì ˆ ë©”ì„¸ì§€ê°€ ë™ì‹œì— ì˜¬ ê²½ìš°ì— Debouce ì‚¬ìš©í•˜ë©´ ê°±ì‹ ì´ ë„ˆë¬´ ëŠ¦ì–´ì§ˆ ìˆ˜ ìˆìœ¼ë¯€ë¡œ Throttle ì²˜ë¦¬
 	ThrottleScript("ON_UPDATE_GUILDEVENT_POPUP", 0.1);
 end
 
@@ -91,7 +91,7 @@ function ON_UPDATE_GUILDEVENT_POPUP()
 		end
 		
 		local accObj = GetMyAccountObj();
-		--ÀÌº¥Æ® °ÅÀı
+		--ï¿½Ìºï¿½Æ® ï¿½ï¿½ï¿½ï¿½
 		if IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq ~= partyObj.GuildEventSeq then
 			frame:ShowWindow(0);
 		else
@@ -129,7 +129,7 @@ function ON_UPDATE_GUILDEVENT_POPUP()
 		local posZ = tonumber(sList[4]);
 
 		local accObj = GetMyAccountObj();
-		--ÀÌº¥Æ® °ÅÀı
+		--ì´ë²¤íŠ¸ ê±°ì ˆ
 		if IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq ~= partyObj.GuildEventSeq then
 			frame:ShowWindow(0);
 			return;
@@ -155,7 +155,8 @@ function ON_UPDATE_GUILDEVENT_POPUP()
 		local btn_join = GET_CHILD(frame, "btn_join");
 		local btn_close = GET_CHILD(frame, "btn_close");
 		
-		local isLeader = AM_I_LEADER(PARTY_GUILD);
+		local isLeader = AM_I_LEADER(PARTY_GUILD);		
+		--ì´ë¯¸ ì„ íƒí•¨.
 		if (IsLaterOrSameStrByStr(accObj.GuildEventSelectTime, partyObj.GuildEventBroadCastTime) == 1 and accObj.GuildEventSeq == partyObj.GuildEventSeq)
 			or isLeader == 1 then
 			btn_join:ShowWindow(0);	
@@ -314,14 +315,14 @@ function GUILDEVENTPOPUP_SET_UICONTROLSET(partyObj, propName, MEMBER_FACE_COLORT
 			local jobCls  = GetClassByType("Job", iconinfo.job);
 			if nil ~= jobCls then						
 				jobIcon:SetImage(jobCls.Icon);
-				jobIcon:SetTextTooltip(jobCls.Name);
+				jobIcon:SetTextTooltip(GET_JOB_NAME(jobCls, iconinfo.gender));
 			end											
 			jobIcon:SetColorTone(MEMBER_FACE_COLORTONE)
 			local nameText = string.format("%s%s", MEMBER_NAME_FONT_TAG, partyMemberName);
 			partyMemberName = nameText;
 			nameObj:SetTextByKey("name", partyMemberName);		
 				
-			-- ÆÄÆ¼¿ø ·¹º§ Ç¥½Ã -- 
+			-- íŒŒí‹°ì› ë ˆë²¨ í‘œì‹œ -- 
 			local levelRichText = ctrlSet:GetChild('level_text');
 			local level = memberInfo:GetLevel();	
 			local lvText = string.format("%s%s %d",MEMBER_NAME_FONT_TAG, ScpArgMsg("Level"), level); 

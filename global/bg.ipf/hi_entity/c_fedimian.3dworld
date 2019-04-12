@@ -1,5 +1,5 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by ka (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
 	<ModelDir IpfName="bg_hi" Path="\city\c_fedimian\"/>
@@ -10,7 +10,7 @@
 	<SubTexDir IpfName="bg_texture\" Path="\fedimian\"/>
 	<ShaTexDir IpfName="bg_hi" Path="\city\c_fedimian\"/>
 	<Model File="c_fedimian_ground.xac" Model="c_fedimian_ground" ShadowMap="c_fedimian_ground" pos="-191.8076 430.4800 361.3338" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="c_fedimian_light.xac" Model="c_fedimian_light" pos="-17.5234 733.9769 513.3453" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="c_fedimian_light.xac" Model="c_fedimian_light" pos="-11.4028 733.9769 509.4344" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="c_fedimian_blend2.xac" Model="c_fedimian_blend2" ShadowMap="c_fedimian_blend2" pos="-77.1553 489.6988 300.1436" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="c_fedimian_fog.xac" Model="c_fedimian_fog" pos="-28.3632 649.5608 287.8673" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="c_fedimian_2area_model.xac" Model="c_fedimian_2area_model" ShadowMap="c_fedimian_2area_model" pos="-498.7219 266.9842 -456.5166" rot="0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
@@ -34,53 +34,53 @@
 	<Model File="c_fedimian_tp05.xac" Model="c_fedimian_tp05" ShadowMap="c_fedimian_tp05" pos="235.9197 579.2194 590.4886" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="c_fedimian_blend3.xac" Model="c_fedimian_blend3" ShadowMap="c_fedimian_blend3" pos="-189.0348 326.1547 335.7972" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="c_fedimian_obbcol.xac" Model="c_fedimian_obbcol" pos="-196.0305 426.5153 161.5977" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-113.49 232.125 -378.1475" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani02" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-157.585 251.183 -292.523" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani04" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-292.464 256.656 -296.498" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani06" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-266.982 231.742 -411.142" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani08" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-350.677 188.29 -336.221" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani10" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-533.723 247.183 -352.069" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani01" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-260.5365 225.2039 -440.3190" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani02" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-247.3029 221.4872 -487.0327" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani03" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-354.2004 203.5063 -436.5352" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani04" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-351.9299 183.7284 -286.5393" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani05" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-352.4950 185.4405 -221.9246" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani06" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-512.4205 222.1113 -434.5873" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani07" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-563.7874 295.9222 -231.3692" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani08" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="284.5716 225.9296 -309.2582" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani09" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="249.8849 278.0986 -160.8199" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani10" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="232.1882 316.2725 -91.1088" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani11" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="533.0012 252.2232 -45.5871" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani12" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="562.3345 229.0592 -156.8532" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani13" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="734.9451 334.9539 211.9290" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani14" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="836.9965 325.2982 156.8419" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani15" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="872.5681 341.8130 222.3332" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani16" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="645.1566 349.1562 262.4694" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani17" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="186.6306 543.9068 301.8206" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani18" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="104.3332 515.5582 242.1234" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani19" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="91.0990 565.3022 317.7382" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani20" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="78.8043 611.9791 394.9651" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani21" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="144.6710 657.8185 484.7043" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani22" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="117.4985 742.4055 603.9795" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani23" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="52.6161 718.8978 556.9583" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani24" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="40.7684 773.5447 629.5958" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani25" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="77.4826 893.4670 775.0394" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani26" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="14.8787 915.1786 787.3684" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani27" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-212.1121 538.8612 301.1938" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani28" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-267.3932 575.5909 300.7536" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani29" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-614.2250 496.3776 63.7681" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani02.xac" Model="c_fedimian_2ani30" ShadowMap="c_fedimian_grass" AniFile="ani02.xsm" pos="-904.7866 481.2452 25.5604" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani14" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="270.5540 243.6934 -252.7442" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani16" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="258.5742 263.4670 -194.2424" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani18" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="549.0640 239.4287 -109.4125" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani20" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="575.2136 226.9425 -205.1823" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani22" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="765.5928 334.1447 193.7533" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani24" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="193.2914 531.8310 278.4425" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani26" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="129.0456 708.8875 554.9255" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani28" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="45.0438 755.5599 603.1348" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani30" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-606.2173 508.1022 82.8625" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani32" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-907.1299 488.0707 48.7123" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani34" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-324.9168 318.6217 -160.0994" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani36" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-327.4025 331.7301 -137.2661" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
-	<Model File="ani.xac" Model="ani11" ShadowMap="c_fedimian_grass" AniFile="ani.xsm" pos="-178.16 265.604 -252.826" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-113.49 232.125 -378.1475" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani02" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-157.585 251.183 -292.523" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani04" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-292.464 256.656 -296.498" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani06" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-266.982 231.742 -411.142" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani08" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-350.677 188.29 -336.221" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani10" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-533.723 247.183 -352.069" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani01" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-260.5365 225.2039 -440.3190" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani02" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-247.3029 221.4872 -487.0327" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani03" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-354.2004 203.5063 -436.5352" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani04" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-351.9299 183.7284 -286.5393" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani05" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-352.4950 185.4405 -221.9246" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani06" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-512.4205 222.1113 -434.5873" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani07" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-563.7874 295.9222 -231.3692" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani08" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="284.5716 225.9296 -309.2582" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani09" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="249.8849 278.0986 -160.8199" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani10" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="232.1882 316.2725 -91.1088" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani11" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="533.0012 252.2232 -45.5871" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani12" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="562.3345 229.0592 -156.8532" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani13" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="734.9451 334.9539 211.9290" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani14" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="836.9965 325.2982 156.8419" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani15" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="872.5681 341.8130 222.3332" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani16" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="645.1566 349.1562 262.4694" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani17" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="186.6306 543.9068 301.8206" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani18" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="104.3332 515.5582 242.1234" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani19" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="91.0990 565.3022 317.7382" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani20" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="78.8043 611.9791 394.9651" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani21" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="144.6710 657.8185 484.7043" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani22" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="117.4985 742.4055 603.9795" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani23" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="52.6161 718.8978 556.9583" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani24" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="40.7684 773.5447 629.5958" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani25" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="77.4826 893.4670 775.0394" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani26" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="14.8787 915.1786 787.3684" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani27" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-212.1121 538.8612 301.1938" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani28" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-267.3932 575.5909 300.7536" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani29" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-614.2250 496.3776 63.7681" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani02.xac" Model="c_fedimian_2ani30" ShadowMap="c_fedimian_ani" AniFile="ani02.xsm" pos="-904.7866 481.2452 25.5604" rot="-0.0000 -0.3222 -0.0000 0.9467" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani14" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="270.5540 243.6934 -252.7442" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani16" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="258.5742 263.4670 -194.2424" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani18" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="549.0640 239.4287 -109.4125" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani20" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="575.2136 226.9425 -205.1823" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani22" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="765.5928 334.1447 193.7533" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani24" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="193.2914 531.8310 278.4425" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani26" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="129.0456 708.8875 554.9255" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani28" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="45.0438 755.5599 603.1348" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani30" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-606.2173 508.1022 82.8625" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani32" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-907.1299 488.0707 48.7123" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani34" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-324.9168 318.6217 -160.0994" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani36" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-327.4025 331.7301 -137.2661" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
+	<Model File="ani.xac" Model="ani11" ShadowMap="c_fedimian_ani" AniFile="ani.xsm" pos="-178.16 265.604 -252.826" rot="-0.0000 -0.2517 -0.0000 0.9678" scale="1.0000 1.0000 1.0000"/>
 </World>

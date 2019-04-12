@@ -2,7 +2,7 @@
 
 function INDUN_ON_INIT(addon, frame)
 	addon:RegisterMsg('CHAT_INDUN_UI_OPEN', 'ON_CHAT_INDUN_UI_OPEN');
-	addon:RegisterMsg('INDUN_COUNT_RESET', 'ON_INDUN_COUNT_RESET');
+	addon:RegisterMsg('INDUN_COUNT_RESET', 'ON_INDUN_COUNT_RESET');	
 end
 
 function ON_INDUN_COUNT_RESET(frame)
@@ -23,23 +23,17 @@ end
 
 function INDUN_DRAW_CATEGORY(frame)
 	frame:SetUserValue('SELECT', 'None');
-	
+
 	local categBox = GET_CHILD_RECURSIVELY(frame, "categBox", "ui::CGroupBox");
 	local cateList = GET_CHILD_RECURSIVELY(categBox, "cateList", "ui::CGroupBox");
 	cateList:RemoveAllChild();
-
+	 
 	local etcObj = GetMyEtcObject();
 	if nil == etcObj then
 		return;
 	end
 
 	local isPremiumState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
-	if true == isPremiumState then
-		local indunText = GET_CHILD(frame, "indunText");
-		local msg = ScpArgMsg("IndunMore{COUNT}ForTOKEN", "COUNT", 1); -- 지금은 한번으로 고정인데 달라지면 우쩌지?
-		indunText:SetTextByKey("value", msg);
-	end
-
 	local clslist, cnt = GetClassList("Indun");
 	for i = 0 , cnt - 1 do
 		local cls = GetClassByIndexFromList(clslist, i);
@@ -51,14 +45,15 @@ function INDUN_DRAW_CATEGORY(frame)
 
 			local cnt = ctrlSet:GetChild("cnt");
 			local etcType = "InDunCountType_"..tostring(cls.PlayPerResetType);
-			cnt:SetTextByKey("cnt", etcObj[etcType]);
+			cnt:SetTextByKey("cnt", TryGetProp(etcObj, etcType));
 			local maxPlayCnt = cls.PlayPerReset;
 			if true == isPremiumState then 
 				maxPlayCnt = maxPlayCnt + cls.PlayPerReset_Token;
 				if cls.PlayPerReset_Token > 0 then
 					ctrlSet:SetUserValue("SHOW_INDUN_TEXT", "YES");
+					ctrlSet:SetUserValue('TOKEN_BONUS', cls.PlayPerReset_Token);
 				end
-	end
+			end
 
 			cnt:SetTextByKey("max", maxPlayCnt);
 			ctrlSet:SetUserValue('RESET_TYPE', cls.PlayPerResetType)
@@ -70,7 +65,7 @@ function INDUN_DRAW_CATEGORY(frame)
 		end
 	end
 	GBOX_AUTO_ALIGN(cateList, 0, -6, 0, true, false);
-	end
+end
 
 function INDUN_CATE_LBTN_CILK(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
@@ -84,18 +79,19 @@ function INDUN_CATE_LBTN_CILK(frame, ctrl)
 	local nowType = frame:GetUserValue('RESET_TYPE');
 	topFrame:SetUserValue('SELECT', nowType);
 	ctrl:SetSkinName("baseyellow_btn");
-		
+
 	-- 추가 입장 관련된 애 눌렀을 때만 안내 메세지 나올 수 있도록
 	local indunText = topFrame:GetChild('indunText');
 	local cateCtrl = ctrl:GetParent();
 	if cateCtrl:GetUserValue("SHOW_INDUN_TEXT") == "YES" then
+		local msg = ScpArgMsg("IndunMore{COUNT}ForTOKEN", "COUNT", cateCtrl:GetUserValue('TOKEN_BONUS'));
+		indunText:SetTextByKey("value", msg);
 		indunText:ShowWindow(1);
 	else
 		indunText:ShowWindow(0);
 	end
-
 	INDUN_SHOW_INDUN_LIST(topFrame, tonumber(nowType))
-	end
+end
 
 function INDUN_SHOW_INDUN_LIST(frame, indunType)
 	local lvUpCheckBox = GET_CHILD(frame, "levelUp", "ui::CCheckBox");
@@ -105,7 +101,7 @@ function INDUN_SHOW_INDUN_LIST(frame, indunType)
 		lvUpCheckBox:SetCheck(1) -- default option
 	end
 
-	local clslist, cnt  = GetClassList("Indun");
+	local clslist, cnt = GetClassList("Indun");
 	local indunTable = {};
 	-- sort by level
 	local indunTable = {}
@@ -134,7 +130,7 @@ function INDUN_SHOW_INDUN_LIST(frame, indunType)
 
 			local lv = ctrlSet:GetChild("lv");
 			lv:SetTextByKey("value", cls.Level);
-			
+
 			local map = ctrlSet:GetChild("map");
 			local sList = StringSplit(cls.StartMap, "/");
 			if nil ~= sList then
@@ -183,7 +179,7 @@ function INDUN_SHOW_INDUN_LIST(frame, indunType)
 		end
 	end
 	GBOX_AUTO_ALIGN(indunList, 0, -6, 0, false, false);
-		end
+end
 
 function INDUN_CANNOT_YET(msg)
 	ui.SysMsg(ScpArgMsg(msg));
@@ -253,7 +249,7 @@ function MAKE_INDUN_ICON(frame, mapName, indunCls, mapWidth, mapHeight, offsetX,
 	-- param check
 	if frame == nil or mapName == nil or indunCls == nil then
 		return
-end
+	end	
 	DESTORY_MAP_PIC(frame)
 
 	-- get indun gate map property
@@ -290,7 +286,7 @@ function UPDATE_INDUN_TOOLTIP(frame, argStr, argNum)
 	local argList = StringSplit(argStr, '/')
 	if #argList < 1 then -- argStr must be "startmap1/startmap2/.../startmapN' (N >= 1)
 		return
-end
+	end
 
 	local drawList = {};
 	for i = 1, #argList do
@@ -301,12 +297,12 @@ end
 
 		local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
 		drawList[#drawList + 1] = mapCls;
-end
+	end
 
 	local indunCls = GetClassByType('Indun', argNum)
 	if #drawList < 1 or indunCls == nil then -- some param error
 		return
-end
+	end
 
 	------------- draw tooltip ----------------
 	frame:RemoveAllChild();
@@ -319,7 +315,7 @@ end
 		local ratestr = ""
 		if 0 ~= MAP_USE_FOG(drawCls.ClassName) and session.GetMapFogRevealRate(drawCls.ClassName) >= 100 then
 			ratestr = " {img minimap_complete 24 24}"
-end
+		end
 
 		local mapnameCtrl = ctrlSet:GetChild("mapname");
 		mapnameCtrl:SetTextByKey("text", mapNameFont..drawCls.Name..ratestr);
@@ -329,7 +325,7 @@ end
 		local mapimage = ui.GetImage(drawMapName .. "_fog");
 		if mapimage == nil then
 			world.PreloadMinimap(drawMapName);
-	end
+		end
 		pic:SetImage(drawMapName .. "_fog");
 		
 		local worldMapWidth = ui.GetFrame("worldmap"):GetWidth()
@@ -356,23 +352,16 @@ end
 			
 			child:Move( -1*worldMapWidth*(23/100), 0);
 			child:Move( 0, -1*mapHeight*(40/100));
-end
-
+		end
+		
 		for i = 0, nameGroup:GetChildCount()-1 do
 			local child = nameGroup:GetChildByIndex(i);	
 			
 			child:Move( -1*worldMapWidth*(23/100), 0);
 			child:Move( 0, -1*mapHeight*(40/100));
-end
+		end
 
-		local questlv = drawCls.QuestLevel
-		local maptype = drawCls.MapType
-		if questlv > 0 and (maptype == 'Field' or maptype == 'Dungeon') then
-			ctrlSet:GetChild("monlv"):SetVisible(1)
-			ctrlSet:GetChild("monlv"):SetTextByKey("text",tostring(questlv))
-	else
-			ctrlSet:GetChild("monlv"):SetVisible(0)
-		end	
+		ctrlSet:GetChild("monlv"):SetVisible(0)
 	end
 	GBOX_AUTO_ALIGN_HORZ(frame, 10, 5, 0, true, true, 512, true);	
 end

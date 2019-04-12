@@ -3512,6 +3512,115 @@ end
 
 
 
+--WTREES_21_2_SQ_1_ITEM
+function SCR_PRE_WTREES_21_2_SQ_1_ITEM(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_whitetrees_21_2' then
+            local result1 = SCR_QUEST_CHECK(self, 'WTREES_21_2_SQ_1')
+            if result1 == 'PROGRESS' then
+                return 1;
+            end
+        end
+    end
+    return 0;
+end
+
+
+
+--WTREES_21_2_SQ_3_ITEM
+function SCR_PRE_WTREES_21_2_SQ_3_ITEM(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_whitetrees_21_2' then
+            local result1 = SCR_QUEST_CHECK(self, 'WTREES_21_2_SQ_3')
+            if result1 == 'PROGRESS' then
+                local list, cnt = SelectObject(self, 50, 'ALL', 1)
+                if cnt >= 1 then
+                    local _hidelist = { 'WTREES_21_2_OBJ_2_1', 'WTREES_21_2_OBJ_2_2', 'WTREES_21_2_OBJ_2_3' }
+                    for i = 1, cnt do
+                        for j = 1, 3 do
+--                            if IsServerSection(self) == 1 then
+--                                if list[i].Dialog == 'WTREES_21_2_OBJ_2_1_DUMMY'
+--                                or list[i].Dialog == 'WTREES_21_2_OBJ_2_2_DUMMY'
+--                                or list[i].Dialog == 'WTREES_21_2_OBJ_2_3_DUMMY' then
+--                                    return GetHandle(list[i]);
+--                                end
+--                            else
+--                                if GetDialogByObject(list[i]) == 'WTREES_21_2_OBJ_2_1_DUMMY'
+--                                or GetDialogByObject(list[i]) == 'WTREES_21_2_OBJ_2_2_DUMMY'
+--                                or GetDialogByObject(list[i]) == 'WTREES_21_2_OBJ_2_3_DUMMY' then
+--                                    return 1;
+--                                end
+--                            end
+                            
+                            if IsServerSection(self) == 1 then
+                                if list[i].Dialog == _hidelist[j]..'_DUMMY' then
+                                    if isHideNPC(self, _hidelist[j]) == 'YES' then
+                                        return GetHandle(list[i]);
+                                    end
+                                end
+                            else
+                                if GetDialogByObject(list[i]) == _hidelist[j]..'_DUMMY' then
+                                    if isHideNPC(self, _hidelist[j]) == 'YES' then
+                                        return 1;
+                                    end
+                                end
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0;
+end
+
+
+
+--WTREES_21_2_SQ_6_ITEM_1
+function SCR_PRE_WTREES_21_2_SQ_6_ITEM_1(self, argstring, argnum1, argnum2)
+    if GetLayer(self) == 0  then
+	    if GetZoneName(self) == 'f_whitetrees_21_2' then
+            local result1 = SCR_QUEST_CHECK(self, 'WTREES_21_2_SQ_7')
+            if result1 == 'PROGRESS' then
+    	        local list, cnt = SelectObject(self, 100, 'ENEMY')
+    	        if cnt >= 1 then
+        	        for i = 1, cnt do
+        	            if list[i].ClassName == 'kucarry_symbani'
+        	            or list[i].ClassName == 'kucarry_balzer'
+        	            or list[i].ClassName == 'kucarry_Zeffi' then
+            	            if IsServerSection(self) == 1 then
+                                local buff1 = GetBuffByName(list[i], 'WTREES_21_2_SQ_7_BUFF')
+                                if buff1 == nil then
+                	                return GetHandle(list[i]);
+                	            end
+            	            else
+            	                return 1;
+                	        end
+            	        end
+        	        end
+        	    end
+        	    
+                if IsServerSection(self) == 1 then
+                    SendAddOnMsg(self, "NOTICE_Dm_scroll", ScpArgMsg("WTREES_21_2_SQ_6_ITEM_1_MSG2"), 5);
+        	    end
+            end
+        end
+    end
+    return 0;
+end
+
+
+
+--WTREES_21_1_SQ_1_ITEM
+function SCR_PRE_WTREES_21_1_SQ_1_ITEM(self, argstring, argnum1, argnum2)
+    if GetZoneName(self) == 'f_whitetrees_21_1' then
+        return 1;
+    end
+    return 0;
+end
+
+
+
 
 
 
@@ -4396,12 +4505,17 @@ function SCR_PRE_PILGRIM_48_SQ_030_ITEM_1(self, argObj, argstring, arg1, arg2)
     local result = SCR_QUEST_CHECK(self, 'PILGRIM_48_SQ_030')
     if result == 'PROGRESS' then
         if GetZoneName(self) == 'f_siauliai_west' or GetZoneName(self) == 'f_siauliai_2' or GetZoneName(self) == 'f_siauliai_out' 
-         or GetZoneName(self) == 'f_siauliai_16' or GetZoneName(self) == 'f_siauliai_15_re' or GetZoneName(self) == 'f_siauliai_11_re' then
+         or GetZoneName(self) == 'd_cmine_01' or GetZoneName(self) == 'd_cmine_02' or GetZoneName(self) == 'd_cmine_6'
+          or GetZoneName(self) == 'f_siauliai_16' or GetZoneName(self) == 'f_siauliai_15_re' or GetZoneName(self) == 'f_siauliai_11_re' 
+           or GetZoneName(self) == 'd_prison_62_1' or GetZoneName(self) == 'd_prison_62_2' or GetZoneName(self) == 'd_prison_62_3'  
+            
+            then
+            
             local pc_list, pc_cnt = SelectObject(self, 100, 'ALL', 1)
             local i
             for i = 1, pc_cnt do
                 if pc_list[i].ClassName == 'PC' then
-                    if pc_list[i].Lv >= 1 and  pc_list[i].Lv <= 10 then
+                    if pc_list[i].Lv >= 1 and  pc_list[i].Lv <= 25 then
 
 --                        local pc_sObj = GetSessionObject(pc_list[i], "ssn_klapeda")
 --                        if pc_sObj.PILGRIM_48_SQ_030_BUFF ~= 300 then
@@ -6683,4 +6797,182 @@ function SCR_PRE_DCAPITAL103_SQ09_ITEM1(self, argstring, argnum1, argnum2)
         end
     end
     return 0
+end
+
+--SCR_PRE_UNDER67_HIDDENQ1_ITEM1
+function SCR_PRE_UNDER67_HIDDENQ1_ITEM1(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'UNDERFORTRESS67_HQ1')
+    local sObj = GetSessionObject(self, "SSN_UNDERFORTRESS67_HQ1")
+    if result == "PROGRESS" then
+        if GetLayer(self) == 0 then
+            local list, cnt = SelectObject(self, 160, 'ALL', 1)
+            for i = 1, cnt do
+                if list[i].ClassName == 'Hiddennpc_move' then
+                    if list[i].Faction == "Neutral" then
+                        if GetZoneName(self) == 'd_underfortress_65' then
+                            if sObj.QuestInfoValue1 < sObj.QuestInfoMaxCount1 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_66' then
+                            if sObj.QuestInfoValue2 < sObj.QuestInfoMaxCount2 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_67' then
+                            if sObj.QuestInfoValue3 < sObj.QuestInfoMaxCount3 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_68' then
+                            if sObj.QuestInfoValue4 < sObj.QuestInfoMaxCount4 then
+                                return GetHandle(list[i])
+                            end
+                        elseif GetZoneName(self) == 'd_underfortress_69' then
+                            if sObj.QuestInfoValue5 < sObj.QuestInfoMaxCount5 then
+                                return GetHandle(list[i])
+                            end
+                        end
+                    end
+                end
+            end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_SIAULIAI16_HIDDENQ1_ITEM2
+function SCR_PRE_SIAULIAI16_HIDDENQ1_ITEM2(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'SIAULIAI16_HQ2')
+    local highlander_Item1 = GetInvItemCount(self, 'SIAULIAI16_HIDDENQ1_ITEM3')
+    if result == 'PROGRESS' then
+        if highlander_Item1 >= 13 then
+            if GetLayer(self) == 0  then
+        	    return 1
+        	end
+        end
+    end
+    return 0
+end
+
+--SCR_PRE_ORSHA_HIDDENQ2_ITEM1
+function SCR_PRE_ORSHA_HIDDENQ2_ITEM1(self, argstring, argnum1, argnum2)
+    local result = SCR_QUEST_CHECK(self, 'ORSHA_HQ2')
+    local Item1 = GetInvItemCount(self, 'ORSHA_HIDDENQ2_ITEM2')
+    local Item2 = GetInvItemCount(self, 'ORSHA_HIDDENQ2_ITEM3')
+    if result == "PROGRESS" then
+        if Item1 >= 5 and Item2 >= 3 then
+            if GetLayer(self) == 0 then
+                return 1
+            end
+        end
+    end
+    return 0
+end
+
+
+--SCR_PRE_ORSHA_HIDDENQ3_ITEM1
+function SCR_PRE_ORSHA_HIDDENQ3_ITEM1(self, strArg, num1, num2, itemType)
+    local result = SCR_QUEST_CHECK(self, 'ORSHA_HQ3')
+    if result == "PROGRESS" then
+        if GetLayer(self) == 0 then
+        	if 1 == IsGuildHouseWorld(self) then
+        		return 1;
+        	end
+        
+        	local pcPetList = GetSummonedPetList(self)
+        	if #pcPetList == 0 then
+        		return 0;
+        	end
+        
+--        	local itemCls = GetClassByType("Item_Quest", itemType );
+--        	if itemCls == nil then
+--        	print("22222222222222222222")
+--        		return 0;
+--        	end
+        	
+        	local pcPet = nil;
+        	for i=1, #pcPetList do
+        		local petObj = pcPetList[i];
+        		if petObj.Lv >= 300 then
+            		local petCls = GetClassByStrProp("Companion", "ClassName", petObj.ClassName)
+            		local foodGroup = 0;
+            
+            		if petCls ~= nil and petCls.FoodGroup ~= "None" then
+            			foodGroup = tonumber(petCls.FoodGroup);
+            		end
+                    --print(petCls, foodGroup)
+            		if petCls ~= nil then
+            			pcPet = petObj;
+            		end
+        		end
+        	end	
+        	
+        	if pcPet == nil then
+        		SendSysMsg(self, "ThisCompanionDoesNotEatThisFood");
+        	    return 0;
+        	end
+        	
+        	
+        	local ret = IsNodeMonsterAttached(self, "None");
+        	if ret == 0 then
+        		return 1;
+        	end
+    	end
+    end
+	return 0;
+end
+
+function SCR_PRE_TABLE281_HIDDENQ1_ITEM5(self, argObj, argstring, arg1, arg2)
+    local result = SCR_QUEST_CHECK(self, 'TABLELAND28_1_HQ1')
+    local sObj = GetSessionObject(self, "SSN_TABLELAND28_1_HQ1")
+    if result == "PROGRESS" then
+        if GetLayer(self) == 0 then
+        	if GetZoneName(self) == "f_orchard_32_3" then
+        	    if isHideNPC(self, "ORCHARD323_HIDDEN_OBJ2") == "NO" then
+        	        if IsBuffApplied(self, "TABLE281_HIDDENQ1_BUFF1") == "YES" then
+        	            return 1
+        	        end
+        	    end
+        	elseif GetZoneName(self) == "f_pilgrimroad_51" then
+        	    if isHideNPC(self, "PILGRIM51_HIDDEN_OBJ3") == "NO" then
+        	        if IsBuffApplied(self, "TABLE281_HIDDENQ1_BUFF2") == "YES" then
+        	            return 1
+        	        end
+        	    end
+        	elseif GetZoneName(self) == "f_flash_58" then
+        	    if isHideNPC(self, "FLASH58_HIDDEN_OBJ4") == "NO" then
+        	        if IsBuffApplied(self, "TABLE281_HIDDENQ1_BUFF3") == "YES" then
+        	            return 1
+        	        end
+        	    end
+        	end
+        end
+    end
+    return 0
+end
+
+--LOWLV_BOASTER_SQ_20_ITEM
+function SCR_PRE_LOWLV_BOASTER_SQ_20_ITEM(self, argObj, argstring, arg1, arg2)
+    local result1 = SCR_QUEST_CHECK(self, 'LOWLV_BOASTER_SQ_20')
+    if result1 == 'PROGRESS' then
+        if GetZoneName(self) == 'f_siauliai_16' then
+            if GetLayer(self) == 0 then
+                local x, y, z = GetPos(self)
+                if SCR_POINT_DISTANCE(x,z,-389,-435) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,-396,201) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,654,1145) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,1434,125) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,979,-721) <= 70 then
+                    return 1; 
+                elseif SCR_POINT_DISTANCE(x,z,54,-945) <= 70 then
+                    return 1; 
+                else
+                    return 0
+                end
+            end
+        end
+    end
+    return 0; 
 end

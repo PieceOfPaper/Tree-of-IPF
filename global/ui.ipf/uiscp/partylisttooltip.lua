@@ -110,7 +110,8 @@ function TOOLTIP_NORMAL_PROCESS_TOOLTIP(tooltipframe, eachpartyinfo, eachpartyme
 			meminfotext:SetTextByKey('lv',eachpartymember:GetLevel())
 
 			local jobclass = GetClassByType("Job",eachpartymember:GetIconInfo().job)
-			meminfotext:SetTextByKey('job',jobclass.Name)
+			local gender = eachpartymember:GetIconInfo().gender;
+			meminfotext:SetTextByKey('job',GET_JOB_NAME(jobclass, gender))
 
 			-- 색으로 차별화.
 			if eachpartyinfo.info:GetLeaderAID() == eachpartymember:GetAID() then

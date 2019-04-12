@@ -94,17 +94,7 @@ function MAP_MON_MINIMAP(frame, msg, argStr, argNum, info)
 		monPic:ShowWindow(1);
 
 	else
-		if monCls.MonRank == "Boss" then
-			--필드보스 위치 알려주는거 주석
-			--SET_PICTURE_QUESTMAP(monPic, 30);
-			--ctrlName = "_MONPOS_T_" .. info.handle;
-			--local textC = frame:CreateOrGetControl('richtext', ctrlName, 0, 0, width, height);
-			--tolua.cast(textC, "ui::CRichText");
-			--textC:SetTextAlign("center", "bottom");
-			--textC:SetText("{@st42_yellow}" .. ClMsg("FieldBossAppeared!") .. "{nl}{@st42}" .. monCls.Name);
-			--textC:ShowWindow(1);
-			--textC:SetUserValue("EXTERN", "YES");
-		else
+		if monCls.MonRank ~= "Boss" then
 			local myTeam = GET_MY_TEAMID();
 			if info.useIcon == true then
 				monPic:SetImage(monCls.Icon);

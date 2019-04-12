@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="LOWLV_GREEN_SQ_50_MINI" minLv="0" maxLv="0" startWaitSec="0">
+		<StageList>
+			<Stage Name="1">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="2"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="58687" Pos="-1007.79#-0.25#1509.09" genCount="1" maxStackCount="1" objectKey="0" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-823.15#-0.25#1334.16" genCount="1" maxStackCount="1" objectKey="1" searchRange="400" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="1/0/1/1"/>
+								<Num Num="2"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event isOr="1" eventName="2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="1/0/1/1"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="1"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="2" AutoStart="0">
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_START_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="3"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="58687" Pos="-983.59#-0.25#1514.25" genCount="1" maxStackCount="1" objectKey="0" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-965.38#-0.25#1393.06" genCount="1" maxStackCount="1" objectKey="1" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-803.88#-0.25#1346.67" genCount="1" maxStackCount="1" objectKey="2" searchRange="400" tendency="1"/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+								<MGameObj List="2/0/2/1/2/2"/>
+								<Num Num="3"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_EVT_ON_BYNAME" Client="NO" UseSleep="NO">
+								<Str Str="2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+					<Event isOr="1" eventName="2">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="120"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="2/0/2/1/2/2"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="2"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="3" AutoStart="0">
+				<ObjList>
+					<Obj Type="Monster" MonType="58687" Pos="-951.80#-0.25#1499.73" genCount="1" maxStackCount="1" objectKey="0" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-937.68#-0.25#1430.58" genCount="1" maxStackCount="1" objectKey="1" searchRange="400" tendency="1"/>
+					<Obj Type="Monster" MonType="58687" Pos="-814.77#-0.25#1339.28" genCount="1" maxStackCount="1" objectKey="2" searchRange="400" tendency="1"/>
+				</ObjList>
+			</Stage>
+		</StageList>
+	</Game>
+</GameList>

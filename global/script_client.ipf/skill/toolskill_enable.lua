@@ -45,6 +45,16 @@ function SKL_CHECK_BUFF_STATE_C(actor, skl, buffName)
 	return 0;
 end
 
+function SKL_CHECK_BUFF_NO_STATE_C(actor, skl, buffName)
+	local myHandle = session.GetMyHandle();
+	local buff = info.GetBuffByName(myHandle, buffName);
+	if nil ~= buff then
+		return 0;
+	end
+	
+    return 1;
+end
+
 function SKL_CHECK_BRING_COMPANION_C(self, skl, jobID)
 	local hawk = session.pet.GetSummonedPet(jobID);
 	if hawk == nil then
@@ -286,5 +296,47 @@ function SKL_CHK_CLAYMORE(self, skill)
 		return 0;
 	end
 		
+	return 1;
+end
+
+
+function SKL_CHECK_BY_SCRIPT_C(self, skill, funcName)
+	local func = _G[funcName];
+	return func(self, skill);
+
+end
+
+
+
+function HAWK_SKILL_PRE_CHECK_C(self, skill)
+    
+    local job_id = 3014;
+	local hawk = session.pet.GetSummonedPet(job_id);
+    
+	if hawk == nil then
+		return 0;
+	end
+--
+--    local hawk = control.GetMyCompanionActor();
+--    
+--    if nil == hawk then
+--        return 0
+--    end
+
+--	local hawk = GetSummonedPet(self, PET_HAWK_JOBID);
+--	if hawk == nil then
+--		return 0;
+--	end
+
+--	local flyingAway = GetExProp(hawk, "FLYING_AWAY");
+--	if flyingAway == 1 then
+--		return 0;
+--	end
+--	
+--	local _hide = IsHide(hawk);
+--	if _hide == 1 then
+--	    return 0;
+--	end
+
 	return 1;
 end

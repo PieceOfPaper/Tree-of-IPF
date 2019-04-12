@@ -4,6 +4,7 @@ function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
+	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 end
 
 function MARKET_SELL_OPEN(frame)
@@ -156,7 +157,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		return;
 	end
 
-	if obj.GroupName == "Premium" then
+	if obj.ClassName == "PremiumToken" then
 		edit_count:SetText("1");
 		edit_count:SetMaxNumber(1);
 		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
@@ -185,7 +186,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and TryGetProp(obj, "ClassType") ~= "Outer") then
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -308,15 +309,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 		min:SetTextByKey("value", minStr);
 		max:SetTextByKey("value", maxStr);
 		edit_price:SetText(avg);
-		if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
-			if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-				edit_price:SetMaxNumber(maxAllow);
-			else
-				edit_price:SetMaxNumber(2147483647);
-			end
-		else
-			edit_price:SetMaxNumber(maxAllow);
-		end
+		edit_price:SetMaxNumber(maxAllow);
 		return;
 	end
 
@@ -400,22 +393,17 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local downValue = down:GetTextByKey("value");
 	local idownValue = tonumber(downValue);
 	local iPrice = tonumber(price);
-	if IGNORE_ITEM_AVG_TABLE_FOR_TOKEN == 1 then
-		if false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
 	if 0 ~= idownValue and  iPrice < idownValue then
 		ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
 		return;
 	end
-		end
-	else
-		if 0 ~= idownValue and  iPrice < idownValue then
-			ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", downValue));	
-			return;
-		end
-	end
 
 	if obj.ClassName == "PremiumToken" and iPrice < tonumber(TOKEN_MARKET_REG_LIMIT_PRICE) then
     	ui.SysMsg(ScpArgMsg("PremiumRegMinPrice{Price}","Price", TOKEN_MARKET_REG_LIMIT_PRICE));
+    	return;
+	end
+	if obj.ClassName == "PremiumToken" and iPrice > tonumber(TOKEN_MARKET_REG_MAX_PRICE) then
+    	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_TOKEN_MARKET_REG_MAX_PRICELIMIT_PRICE));
     	return;
 	end
 
@@ -451,7 +439,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		end
 	end
 
-	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and TryGetProp(obj, "ClassType") ~= "Outer") then
+	if itemProp:IsExchangeable() == false or itemProp:IsMoney() == true or ((pr ~= nil and pr < 1) and itemProp:NeedCheckPotential() == true) then
 		ui.AlarmMsg("ItemIsNotTradable");
 		return false;
 	end
@@ -465,7 +453,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	end
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
-			-- ï¿½ï¿½ï¿½×·ì¸¸ buffValueï¿½ï¿½ ï¿½Ö´ï¿½.
+			-- Àåºñ±×·ì¸¸ buffValue°¡ ÀÖ´Ù.
 			ui.MsgBox(ScpArgMsg("BuffDestroy{Price}","Price", tostring(commission)), yesScp, "None");
 		else
 			ui.MsgBox(ScpArgMsg("CommissionRegMarketItem{Price}","Price", tostring(commission)), yesScp, "None");			

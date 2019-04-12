@@ -449,29 +449,28 @@ end
 
 function WORLDMAP_MOUSEWHEEL(parent, ctrl, s, n)
 	
-	--[[
-	local dx = 0;
-	local dy = n;
-	local cx = config.GetConfigInt("WORLDMAP_X");
-	local cy = config.GetConfigInt("WORLDMAP_Y");
-	cx = cx + dx;
-	cy = cy + dy;
-
-	cx, cy = CLAMP_WORLDMAP_POS(ctrl:GetTopParentFrame(), cx, cy);
-
-	config.SetConfig("WORLDMAP_X", cx);	
-	config.SetConfig("WORLDMAP_Y", cy);
-	WORLDMAP_SETOFFSET(ctrl:GetTopParentFrame(), cx, cy);
-	]]
-
-
-	local frame = parent:GetTopParentFrame();
-	if n > 0 then
-		WORLDMAP_CHANGESIZE(frame, nil, nil, 1);
+	if keyboard.IsPressed(KEY_CTRL) == 1 then
+		local frame = parent:GetTopParentFrame();
+		if n > 0 then
+			WORLDMAP_CHANGESIZE(frame, nil, nil, 1);
+		else
+			WORLDMAP_CHANGESIZE(frame, nil, nil, -1);
+		end
 	else
-		WORLDMAP_CHANGESIZE(frame, nil, nil, -1);
-	end
+		local dx = 0;
+		local dy = n;
+		local cx = config.GetConfigInt("WORLDMAP_X");
+		local cy = config.GetConfigInt("WORLDMAP_Y");
+		cx = cx + dx;
+		cy = cy + dy;
 
+		cx, cy = CLAMP_WORLDMAP_POS(ctrl:GetTopParentFrame(), cx, cy);
+
+		config.SetConfig("WORLDMAP_X", cx);	
+		config.SetConfig("WORLDMAP_Y", cy);
+		WORLDMAP_SETOFFSET(ctrl:GetTopParentFrame(), cx, cy);
+	
+	end
 end
 
 function WORLDMAP_LBTNDOWN(parent, ctrl)

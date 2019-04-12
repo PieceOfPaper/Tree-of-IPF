@@ -249,8 +249,8 @@ end
 
 function ON_JOURNAL_WORLDPVP_RANK_PAGE(frame)
 	local rank_type = session.worldPVP.GetRankProp("Type");
-	if rank_type == 200 then
-		OPEN_GUILDBATTLE_RANKING_FRAME();
+	if rank_type == 210 then
+		OPEN_GUILDBATTLE_RANKING_FRAME(0);
 		return;
 	end
 

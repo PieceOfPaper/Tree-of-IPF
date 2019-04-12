@@ -5,7 +5,7 @@ ABANDON_TEXT = ScpArgMsg("Auto_{@st45tw}PoKiHaKi");
 GUILD_QUEST_FONT = "{@st42b}";
 ABANDON_BTN_SKIN_NAME = "button_abandon";
 SUCCESS_QUEST_INFO = {};
-IES_CTRL_OFFSET = 20;
+IES_CTRL_OFFSET = 25;
 
 function QUESTINFOSET_2_ON_INIT(addon, frame)
 
@@ -1413,8 +1413,9 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
         				imcSound.PlaySoundEvent('quest_count');
         				ctrlset:GetParent():SetUserValue('QuestCntAlarmSound', itemcount);
         			end
-        
-        			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - IES_CTRL_OFFSET, 10);
+					
+					local contentOffsetX = startx + ctrlset:GetX();
+        			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, contentOffsetX, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET, 10);
         			tolua.cast(content, "ui::CRichText");
         			content:EnableSplitBySpace(0);
         			content:EnableHitTest(0);
@@ -1460,7 +1461,8 @@ function MAKE_QUESTINFO_ITEM_BY_IES(ctrlset, questIES, startx, s_obj, y)
             				ctrlset:GetParent():SetUserValue('QuestCntAlarmSound', itemcount);
             			end
             
-            			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, startx, y, ctrlset:GetWidth() - IES_CTRL_OFFSET, 10);
+						local contentOffsetX = startx + ctrlset:GetX();
+            			local content = ctrlset:CreateOrGetControl('richtext', "ITEM_" .. i, contentOffsetX, y, ctrlset:GetWidth() - contentOffsetX - IES_CTRL_OFFSET, 10);
             			tolua.cast(content, "ui::CRichText");
             			content:EnableSplitBySpace(0);
             			content:EnableHitTest(0);
@@ -1613,8 +1615,7 @@ function MAKE_QUESTINFO_MONSTER_BY_IES(ctrlset, questIES, startx, y, s_obj, ssni
     			end
                 
                 monUIIndex = i
-				local contentOffsetX = startx + ctrlset:GetX()
-    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, contentOffsetX, y, ctrlset:GetWidth() - contentOffsetX - 25 , 10);
+    			local content = ctrlset:CreateOrGetControl('richtext', "MON_" .. i, startx, y, ctrlset:GetWidth() - startx - IES_CTRL_OFFSET, 10);
     			content:EnableHitTest(0);
     			content:SetTextFixWidth(1);
     			content:SetText('{s16}{ol}{#ffcc33}'..itemtxt);

@@ -1,4 +1,4 @@
-function INDUNENTER_ON_INIT(addon, frame)
+﻿function INDUNENTER_ON_INIT(addon, frame)
 	addon:RegisterMsg('MOVE_ZONE', 'INDUNENTER_CLOSE');
 	addon:RegisterMsg('UPDATE_PC_COUNT', 'INDUNENTER_UPDATE_PC_COUNT');
 	addon:RegisterMsg('ESCAPE_PRESSED', 'INDUNENTER_ON_ESCAPE_PRESSED');
@@ -39,6 +39,10 @@ function SHOW_INDUNENTER_DIALOG(indunType, isAlreadyPlaying, enableAutoMatch)
 	local smallBtn = GET_CHILD_RECURSIVELY(frame, 'smallBtn');
 	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
 	local withBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');
+
+	if frame:IsVisible() == 1 then
+		return;
+	end
 	
 	if frame:IsVisible() == 1 then
 		return;
@@ -196,7 +200,7 @@ function INDUNENTER_MAKE_REWARDLIST(frame, indunCls)
 		if itemTable[i] == "Random" then
 			itemIcon = frame:GetUserConfig('RANDOM_ICON');
 		else
-		local itemCls = GetClass('Item', itemTable[i]);
+			local itemCls = GetClass('Item', itemTable[i]);
 			itemIcon = TryGetProp(itemCls, 'Icon');
 		end
 
@@ -359,14 +363,14 @@ end
 
 function INDUNENTER_ENTER(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 1
+	local textCount = 0
 	local yesScript = string.format("ReqMoveToIndun(%d,%d)", 1, textCount);
 	ui.MsgBox(ScpArgMsg("EnterRightNow"), yesScript, "None");
 end
 
 function INDUNENTER_AUTOMATCH(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 1
+	local textCount = 0
 	if topFrame:GetUserValue('AUTOMATCH_MODE') == 'NO' then
 		ReqMoveToIndun(2, textCount);
 	else
@@ -381,7 +385,7 @@ function INDUNENTER_PARTYMATCH(frame, ctrl)
 	end
 
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 1
+	local textCount = 0
 	local partyAskText = GET_CHILD_RECURSIVELY(topFrame, "partyAskText");
 
 	if topFrame:GetUserValue('WITHMATCH_MODE') == 'NO' then
@@ -506,7 +510,7 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 	local withTime = GET_CHILD_RECURSIVELY(frame, 'withTime');
 	local memberCntBox = GET_CHILD_RECURSIVELY(frame, 'memberCntBox');
 	local partyAskText = GET_CHILD_RECURSIVELY(frame, 'partyAskText');
-
+	
 	if numWaiting == 0 then -- party match cancel
 		frame:SetUserValue('WITHMATCH_MODE', 'NO');
 		withText:ShowWindow(1);
@@ -517,20 +521,34 @@ function INDUNENTER_AUTOMATCH_PARTY(numWaiting, level, limit, indunLv, indunName
 		local upperBound = level + limit;
 		if lowerBound < indunLv then
 			lowerBound = indunLv;
-	end
+		end
 		if upperBound > PC_MAX_LEVEL then
 			uppderBound = PC_MAX_LEVEL;
-end
+		end	
 		partyAskText:SetTextByKey("value", ScpArgMsg("MatchWithParty").."(Lv."..tostring(lowerBound)..'~'..tostring(upperBound)..")");	
 
 		-- frame info
 		frame:SetUserValue('WITHMATCH_MODE', 'YES');
 		withText:ShowWindow(0);
-	withTime:ShowWindow(1);
+		withTime:ShowWindow(1);
 		INDUNENTER_SET_ENABLE(0, 0, 1, 0);
-end
+	end
+		partyAskText:SetTextByKey("value", ScpArgMsg("MatchWithParty").."(Lv."..tostring(lowerBound)..'~'..tostring(upperBound)..")");	
 
 	INDUNENTER_SET_MEMBERCNTBOX();
+end
+
+function INDUNENTER_SET_ENABLE_MULTI(enable)
+	local frame = ui.GetFrame('indunenter');
+	local multiBtn = GET_CHILD_RECURSIVELY(frame, 'multiBtn');
+	local multiCancelBtn = GET_CHILD_RECURSIVELY(frame, 'multiCancelBtn');
+	local upBtn = GET_CHILD_RECURSIVELY(frame, 'upBtn');
+	local downBtn = GET_CHILD_RECURSIVELY(frame, 'downBtn');
+	
+	multiBtn:SetEnable(enable);
+	multiCancelBtn:SetEnable(enable);
+	upBtn:SetEnable(enable);
+	downBtn:SetEnable(enable);
 end
 
 function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
@@ -539,7 +557,7 @@ function INDUNENTER_SET_ENABLE(enter, autoMatch, withParty, multi)
 	local autoMatchBtn = GET_CHILD_RECURSIVELY(frame, 'autoMatchBtn');
 	local withPartyBtn = GET_CHILD_RECURSIVELY(frame, 'withBtn');	
 	local reEnterBtn = GET_CHILD_RECURSIVELY(frame, 'reEnterBtn');
-
+	
 	enterBtn:SetEnable(enter);
 	autoMatchBtn:SetEnable(autoMatch);
 	withPartyBtn:SetEnable(withParty);	
@@ -656,7 +674,7 @@ end
 
 function INDUNENTER_REENTER(frame, ctrl)
 	local topFrame = frame:GetTopParentFrame();
-	local textCount = 1
+	local textCount = 0
 	ReqMoveToIndun(4, textCount);
 end
 

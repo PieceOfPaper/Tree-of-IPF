@@ -28,7 +28,7 @@ function ON_PVP_PLAYING_UPDATE(frame)
 	local playGuildBattle = false;
 	for i = 0, cnt -1 do
 		local type = session.worldPVP.GetPlayTypeByIndex(i);
-		if type == 200 then
+		if type == 210 then
 			playGuildBattle = true;
 			break;
 		end
@@ -48,7 +48,7 @@ function ON_PVP_PLAYING_UPDATE(frame)
 		else
 			if 0 == session.worldPVP.GetRemainSecondToNextSeason() then
 				worldPVP.RequestPVPInfo();
-				worldPVP.RequestGuildBattlePrevSeasonRanking(200);
+				worldPVP.RequestGuildBattlePrevSeasonRanking(210);
 			end
 			pic:SetEventScript(ui.LBUTTONUP, "OPEN_GUILDBATTLE_FRAME");
 			pic:SetImage('journal_guild_icon');
@@ -75,6 +75,7 @@ function WORLDPVP_START_ICON_NOTICE()
 	local frame = ui.GetFrame("minimizedalarm");
 	local gbox = frame:GetChild("gbox");
 	local pic = gbox:GetChild("pic");
+	frame:ShowWindow(1);
 	UI_PLAYFORCE(pic, "emphasize_pvp", 0, 0);
 end
 
@@ -98,22 +99,26 @@ function OPEN_GUILDBATTLE_FRAME(frame)
 	frame = frame:GetTopParentFrame();
 	frame:ShowWindow(0);
 	
-	OPEN_GUILDBATTLE_RANKING_TAB();
-end
-
-function OPEN_GUILDBATTLE_RANKING_TAB()
-	ui.OpenFrame("guildbattle_league");	
 	local worldpvp =  ui.GetFrame("worldpvp");
 	worldpvp:ShowWindow(0);
 
-	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");
-	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
-
+	OPEN_GUILDBATTLE_RANKING_TAB();
+	
+	ui.OpenFrame("guildbattle_league");	
 	local pvpFrame = ui.GetFrame("guildbattle_league");
 	local tab = GET_CHILD(pvpFrame, "tab");
 	if tab ~= nil then
 		tab:SelectTab(0);
 	end
+	
+end
+
+function OPEN_GUILDBATTLE_RANKING_TAB()
+	ui.OpenFrame("guildbattle_ranking");
+	
+	worldPVP.RequestPVPInfo();
+	local guildbattle_ranking = ui.GetFrame("guildbattle_ranking");	
+	GUILDBATTLE_RANKING_TAB_CHANGE(guildbattle_ranking);
 end
 
 

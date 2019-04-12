@@ -301,13 +301,6 @@ function C_SKL_SPIN_OBJ(actor, obj, delay, spinCount, spinSec)
 	actor:Spin(delay, spinCount, spinSec, 0);
 end
 
-function C_SKL_BLINK(actor, obj, x, y, z, angle)	
-	-- 클라 연출용
-	actor:SetPos(x, y, z);
-	actor:SetRotate(angle);
-end
-
-
 function C_COLORBLEND_ACTOR(self, obj, actorType, isUse, color_R, color_G, color_B, colar_A, blendOption)
 
 	local target = self;

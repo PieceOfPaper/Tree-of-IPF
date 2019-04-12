@@ -143,11 +143,15 @@ function INV_APPLY_TO_ALL_SLOT(func, ...)
 
 		local frame = ui.GetFrame("inventory");
 		local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-		local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+		
+
+		for typeNo = 1, #g_invenTypeStrList do
+			local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+			local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 
 		APPLY_TO_ALL_ITEM_SLOT(slotSet, func, ...);
+		end;
 
 		frame:Invalidate();
 	end
@@ -310,9 +314,21 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 		frame = ui.GetFrame("inventory");
 	end
 
+	local invItem = session.GetInvItemByGuid(itemGUID);
+	if invItem == nil then
+		return;
+	end
+
+	local itemCls = GetClassByType("Item", invItem.type);
+	local typeStr = "Item"	
+	if itemCls.ItemType == "Equip" then
+		typeStr = itemCls.ItemType; 
+	end	
+
+
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+	local tree_box = GET_CHILD(group, "treeGbox_" .. typeStr,'ui::CGroupBox')
+	local tree = GET_CHILD(tree_box, "inventree_" .. typeStr,'ui::CTreeControl')
 	local slotsetname = INV_GET_SLOTSET_NAME_BY_ITEMGUID(itemGUID)
 	if slotsetname == nil then
 		return nil;
@@ -329,10 +345,21 @@ end
 
 function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
 
+	local invItem = session.GetInvItemByGuid(itemGUID);
+	if invItem == nil then
+		return;
+	end
+
+	local itemCls = GetClassByType("Item", invItem.type);
+	local typeStr = "Item"	
+	if itemCls.ItemType == "Equip" then
+		typeStr = itemCls.ItemType; 
+	end	
+
 	local frame = ui.GetFrame("inventory");
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-	local tree_box = GET_CHILD(group, 'treeGbox','ui::CGroupBox')
-	local tree = GET_CHILD(tree_box, 'inventree','ui::CTreeControl')
+	local tree_box = GET_CHILD(group, "treeGbox_" .. typeStr,'ui::CGroupBox')
+	local tree = GET_CHILD(tree_box, "inventree_" .. typeStr,'ui::CTreeControl')
 	local slotsetname = INV_GET_SLOTSET_NAME_BY_ITEMGUID(itemGUID)
 	local slotSet	= GET_CHILD(tree, slotsetname, "ui::CSlotSet");
 	return slotSet
@@ -342,10 +369,21 @@ end
 
 function INV_GET_SLOTSET_BY_INVINDEX(index)
 
+	local invItem = session.GetInvItemByGuid(itemGUID);
+	if invItem == nil then
+		return;
+	end
+
+	local itemCls = GetClassByType("Item", invItem.type);
+	local typeStr = "Item"	
+	if itemCls.ItemType == "Equip" then
+		typeStr = itemCls.ItemType; 
+	end	
+
 	local invFrame     	= ui.GetFrame("inventory");
 	local invGbox		= invFrame:GetChild('inventoryGbox');
-	local treeGbox		= invGbox:GetChild('treeGbox');
-	local tree		    = treeGbox:GetChild('inventree');
+	local treeGbox		= invGbox:GetChild("treeGbox_" .. typeStr);
+	local tree		    = treeGbox:GetChild("inventree_" .. typeStr);
 	local slotsetname	= GET_SLOTSET_NAME(index)
 	local slotSet		= GET_CHILD(tree,slotsetname,"ui::CSlotSet")
 
@@ -503,7 +541,7 @@ function GET_ITEM_ICON_IMAGE(itemCls, gender)
 
 		if tempiconname ~= "_m" and tempiconname ~= "_f" then
 			if gender == nil then
-				gender = GetMyPCObject().Gender;
+				gender = GETMYPCGENDER();
 			end
 
     		if gender == 1 then

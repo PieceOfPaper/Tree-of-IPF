@@ -18,8 +18,8 @@
 		<groupbox name="pipwin_top" rect="0 0 600 126" margin="0 0 0 0" layout_gravity="center top" draw="true" hittestbox="false" resizebyparent="false" resizebyresolution="false" scrollbar="false" skin="test_frame_top"/>
 		<richtext name="title" rect="0 0 400 30" margin="0 18 0 0" layout_gravity="center top" caption="{@st43}모험일지{/}"/>
 		<picture name="question" rect="0 0 44 44" margin="27 20 0 0" layout_gravity="left top" hittesr="true" image="testquesten_button" oversound="button_over" texttooltip="{@st59b}모험일지{nl}{@st59s} - 자신의 진행한 정보가 모험일지에 기록{nl} - 아이템 습득, 몬스터 사냥, 제작, 맵탐험, 콘텐츠 진행으로 모험지수 획득{nl}    모험지수 : 다른 모든 지수의 총 합{nl}    성장 : 레벨 및 직업 레벨당 5점{nl}    아이템 : 장비 : 등급 X 10점, 책 : 10점, 기타 : 1점{nl}    몬스터 : 몬스터당 10점 (보스 : 50점){nl}    지역탐색 : 10%당 1점{nl}    퀘스트 : 퀘스트당 1점{nl}    업적 : 업적별로 다름{nl}    제작법 : 개당 10점{nl}    콜렉션 : 덱 5점 , 완성 45점{nl} - 획득한 모험지수에 따라 마을 NPC에게서 보상 획득{/}"/>
-		<picture name="newgaugepicbg" parent="bg" rect="0 0 44 716" margin="0 195 0 0" layout_gravity="center top" hittest="true" image="jour_gauge_bg" oversound="button_over" stretch="true"/>
-		<picture name="newgaugepic" parent="bg" rect="0 0 40 712" margin="0 197 0 0" layout_gravity="center top" hittest="true" image="jour_gauge" oversound="button_over" stretch="true"/>
+		<picture name="newgaugepicbg" parent="bg" rect="0 0 44 830" margin="0 195 0 0" layout_gravity="center top" hittest="true" image="jour_gauge_bg" oversound="button_over" stretch="true"/>
+		<picture name="newgaugepic" parent="bg" rect="0 0 40 826" margin="0 197 0 0" layout_gravity="center top" hittest="true" image="jour_gauge" oversound="button_over" stretch="true"/>
 		<picture name="top10cutpic" parent="bg" rect="0 0 52 6" margin="0 275 0 0" layout_gravity="center top" hittest="true" image="jour_cut" oversound="button_over" stretch="true"/>
 		<picture name="top50cutpic" parent="bg" rect="0 0 52 6" margin="0 559 0 0" layout_gravity="center top" hittest="true" image="jour_cut" oversound="button_over" stretch="true"/>
 		<richtext name="gauge_desc" parent="bg" rect="0 0 200 90" margin="20 115 0 0" layout_gravity="center top" caption="{@sti7}{s22}{ds}모험지수 달성도{/}" fixwidth="false" oversound="button_over" resizebytext="false" textalign="left center"/>
@@ -31,7 +31,7 @@
 		<richtext name="serverTop" parent="toprankbg" rect="0 0 160 20" margin="10 10 0 0" layout_gravity="left top" fixwidth="false" fontname="yellow_18_ol" format="1위 / %s점" oversound="button_over" param1="score" param1_def="0" resizebytext="false" textalign="left top"/>
 		<picture name="serverTopPic" parent="toprankbg" rect="0 0 48 48" margin="0 5 5 0" layout_gravity="right top" hittest="false" image="fullblack" oversound="button_over" stretch="true"/>
 		<richtext name="serverName" parent="toprankbg" rect="0 0 150 20" margin="10 35 0 0" layout_gravity="left top" fixwidth="false" format="{@sti8}{s16}%s" param1="name" param1_def="0" resizebytext="false" textalign="left top"/>
-		<groupbox name="myinfobg" parent="bg" rect="0 0 245 715" margin="20 195 0 0" layout_gravity="left top" draw="true" resizebyresolution="false" scrollbar="true" skin="bg2"/>
+		<groupbox name="myinfobg" parent="bg" rect="0 0 245 830" margin="20 195 0 0" layout_gravity="left top" draw="true" resizebyresolution="false" scrollbar="true" skin="bg2"/>
 		<picture name="pic" parent="myinfobg" rect="0 0 60 60" margin="10 10 0 0" layout_gravity="left top" image="skillpower_icon" oversound="button_over" stretch="true"/>
 		<richtext name="nowMyRank" parent="myinfobg" rect="0 0 64 64" margin="0 10 10 0" layout_gravity="right top" fontname="yellow_18_ol" format="%s위" param1="nowrank" param1_def="0"/>
 		<richtext name="nowMyScore" parent="myinfobg" rect="0 0 64 64" margin="0 30 10 0" layout_gravity="right top" fontname="yellow_18_ol" format="%s점" param1="nowscore" param1_def="0"/>

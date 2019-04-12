@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<uiframe name="guild_authority_popup" x="0" y="0" width="600" height="590" create="open">
+	<draw drawnotitlebar="false" drawtitlebar="false"/>
+	<skin frameskin="test_frame_low" layout_gravity="center center" rect="0 0 320 330"/>
+	<frame fasthide="true" layout_gravity="left top"/>
+	<input maxwidth="1280" moveable="false"/>
+	<layer layerlevel="80"/>
+	<option closebutton="false"/>
+	<script OpenScp="GUILD_AUTHO_POPUP_DO_OPEN"/>
+	<sound opensound="inven_win_open" closesound="inven_win_close"/>
+	<controls>
+		<groupbox name="bg_box" rect="0 0 540 500" margin="0 0 0 0" layout_gravity="center center" draw="true" hittestbox="false" skin="test_frame_midle" resizebyresolution="true" scrollbar="false"/>
+		<groupbox name="bg_title_key" rect="0 0 530 40" margin="3 3 0 0" layout_gravity="left top" draw="true" hittestbox="false" resizebyparent="false" scrollbar="false" skin="market_listbase" parent="bg_box"/>
+		<groupbox name="bg_checkgroup" rect="0 0 530 40" margin="3 3 0 0" layout_gravity="left top" draw="false" hittestbox="false" resizebyparent="false" scrollbar="false" parent="bg_box"/>
+	</controls>
+</uiframe>

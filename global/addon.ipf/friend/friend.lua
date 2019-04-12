@@ -471,9 +471,10 @@ function UPDATE_FRIEND_CONTROLSET_BY_PCINFO(ctrlSet, mapID, channel, info, drawN
 		end
 
 		if job_text ~= nil then
-			local jobid = info:GetIconInfo().job
+			local jobid = info:GetIconInfo().job;
+			local gender = info:GetIconInfo().gender;
 			local jobCls = GetClassByType("Job", jobid);
-			job_text:SetText(jobCls.Name);
+			job_text:SetText(GET_JOB_NAME(jobCls, gender));
 			job_text:ShowWindow(1);
 		end
 

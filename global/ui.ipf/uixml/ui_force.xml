@@ -742,15 +742,15 @@
 			</EventFrameList>
 		</Line>
 	</File>
-	<File FileName="popup_start_up" TotalSec="0.30">
-		<Line ImageName="{@st42}aaaaaaa" isText="1">
-			<KeyFrameList>
-				<KeyFrame Time="0" Easing="1" x="0" y="70" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0" colorTone="00000000"/>
-				<KeyFrame Time="0.03" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0.3" colorTone="00000000"/>
-				<KeyFrame Time="0.30" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
-			</KeyFrameList>
-		</Line>
-	</File>
+  <File FileName="popup_start_up" TotalSec="0.30">
+    <Line ImageName="{@st42}aaaaaaa" isText="1">
+      <KeyFrameList>
+        <KeyFrame Time="0" Easing="1" x="0" y="70" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0" colorTone="00000000"/>
+        <KeyFrame Time="0.03" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="0.3" colorTone="00000000"/>
+        <KeyFrame Time="0.30" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1" sy="1" angle="0" alpha="1" colorTone="00000000"/>
+      </KeyFrameList>
+    </Line>
+  </File>
 	<File FileName="popup_start3" TotalSec="0.30">
 		<Line ImageName="{@st42}aaaaaaa" isText="1">
 			<KeyFrameList>
@@ -860,16 +860,16 @@
 			</KeyFrameList>
 		</Line>
 	</File>
-	<File FileName="hair_gacha" TotalSec="3.0">
-		<Line ImageName="blue_orb_32" isText="0">
-			<KeyFrameList>
-				<KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
-				<KeyFrame Time="0.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
-				<KeyFrame Time="2.5" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
-				<KeyFrame Time="3.0" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
-			</KeyFrameList>
-		</Line>
-	</File>
+  <File FileName="hair_gacha" TotalSec="3.0">
+    <Line ImageName="blue_orb_32" isText="0">
+      <KeyFrameList>
+        <KeyFrame Time="0" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
+        <KeyFrame Time="0.5" Easing="1" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="2.5" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="1" colorTone="00000000"/>
+        <KeyFrame Time="3.0" Easing="2" x="0" y="0" posRandomMin="0" posRandomMax="0" sx="1.2" sy="1.2" angle="0" alpha="0" colorTone="00000000"/>
+      </KeyFrameList>
+    </Line>
+  </File>
 	<File FileName="party_ticket" TotalSec="0.69999999">
 		<Line ImageName="{@st42}aaaaaaa" isText="1">
 			<KeyFrameList>

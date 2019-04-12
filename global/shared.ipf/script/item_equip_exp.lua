@@ -13,6 +13,7 @@ function GET_MORE_EVENT_EXP(pc)
 	local sumExp = 0.0;
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_LargeSongPyeon');	-- 대왕송편
 	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_Largehoney_Songpyeon'); -- 대왕꿀송편
+	sumExp = sumExp + IsBuffAppliedEXP(pc, 'Event_161110_candy'); -- 대왕꿀송편
 	return sumExp; 
 end
 

@@ -45,3 +45,11 @@ function SCR_BRACKEN432_SUBQ3_MON_B_PRE_DIALOG(pc, dialog)
     end
     return 'NO'
 end
+
+function SCR_BRACKEN432_SUBQ8_NPC_PRE_DIALOG(pc, dialog)
+    local result = SCR_QUEST_CHECK(pc, 'BRACKEN43_2_SQ8')
+    if result == 'PROGRESS' then
+        return 'YES'
+    end
+    return 'NO'
+end

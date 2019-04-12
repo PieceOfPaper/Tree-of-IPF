@@ -5,7 +5,7 @@ PET_ACTIVATE_COOLDOWN = 5;
 function GET_PET_STAT(self, lv, statStr)
     local statRatio = TryGetProp(self , statStr.."_Rate");
 	local stat = statRatio + statRatio / 25 * (lv * 1.5 + self.Level);
-    return math.floor(stat);
+	return math.floor(stat);
 end
 
 function PET_STR(self)
@@ -72,6 +72,16 @@ function PET_GET_MHP(self)
 	return math.floor(ret);
 end
 
+function PET_GET_MHP_C(self, addAbil)
+	if addAbil == nil then
+		addAbil = 0;
+	end
+	local lv = self.Lv;
+	local addLv = self.Level;
+	local ret = (addLv + lv) * 17 + self.CON * 34 + GetSumOfPetEquip_C(self, "MHP") + PET_MHP_BY_ABIL(self.Stat_MHP + addAbil);
+	return math.floor(ret);
+end
+
 function PET_GET_RHP(self)
 	local baseMHP = self.MHP;
 	local lv = self.Lv;
@@ -99,22 +109,40 @@ end
 function PET_ATK(self)
     local addLv = self.Level;
     local atk = self.Lv + self.STR + addLv + PET_ATK_BY_ABIL(self.Stat_ATK) + self.Stat_ATK_BM;
-    return math.floor(atk);
+
+	local average = GetSumOfPetEquip(self, "MINATK") + GetSumOfPetEquip(self, "MAXATK");
+	if average ~= 0 then
+		average = average / 2;
+		average = average + GetSumOfPetEquip(self, "PATK");
+	end
+
+	return math.floor(atk + average);
+end
+
+function PET_ATK_C(self, addAbil)
+    local addLv = self.Level;
+    local atk = self.Lv + self.STR + addLv + PET_ATK_BY_ABIL(self.Stat_ATK + addAbil) + self.Stat_ATK_BM;
+
+	local average = GetSumOfPetEquip_C(self, "MINATK") + GetSumOfPetEquip_C(self, "MAXATK");
+	if average ~= 0 then
+		average = average / 2;
+		average = average + GetSumOfPetEquip_C(self, "PATK");
+	end
+
+	return math.floor(atk + average);
 end
 
 function PET_MINPATK(self)
 	local byStat = self.ATK;
-	local byItem = GetSumOfPetEquip(self, "PATK") + GetSumOfPetEquip(self, "MINATK");
 	local byBuff = self.PATK_BM
-	local value = byStat + byItem + byBuff;
+	local value = byStat + byBuff;
 	return math.floor(value);
 end
 
 function PET_MAXPATK(self)
 	local byStat = self.ATK;
-	local byItem = GetSumOfPetEquip(self, "PATK") + GetSumOfPetEquip(self, "MAXATK");
 	local byBuff = self.PATK_BM
-	local value = byStat + byItem + byBuff;
+	local value = byStat + byBuff;
 	return math.floor(value);
 end
 
@@ -189,6 +217,13 @@ function PET_CRTHR(self)
 	return math.floor(value);
 end
 
+function PET_CRTHR_C(self, addAbil)
+    local byStat = self.DEX;
+    local byItem = GetSumOfPetEquip_C(self, "CRTHR");
+    local value = byStat + byItem + PET_CRTHR_BY_ABIL(self.Stat_CRTHR + addAbil) + self.CRTHR_BM + self.Stat_CRTHR_BM;
+	return math.floor(value);
+end
+
 function PET_CRTDR(self)
     local byStat = self.CON;
 	local byItem = GetSumOfPetEquip(self, 'CRTDR');
@@ -208,6 +243,14 @@ function PET_DEF(self)
 	return math.floor(ret);
 end
 
+function PET_DEF_C(self, addAbil)
+    local byLv = self.Lv;
+    local addLv = self.Level;
+    local byItem = GetSumOfPetEquip_C(self, 'DEF');
+	local ret = (byLv + addLv) / 2 + byItem + PET_DEF_BY_ABIL(self.Stat_DEF + addAbil);
+	return math.floor(ret);
+end
+
 function PET_MDEF_BY_ABIL(statValue)
 	return statValue;
 end
@@ -215,8 +258,16 @@ end
 function PET_MDEF(self)
     local byLv = self.Lv;
     local addLv = self.Level;
-    local byItem = GetSumOfPetEquip(self, 'MDEF');
+    local byItem = GetSumOfPetEquip(self, 'MDEF') + GetSumOfPetEquip(self, 'ADD_MDEF');
 	local ret = (byLv + addLv) / 2 + byItem + PET_MDEF_BY_ABIL(self.Stat_MDEF);
+	return math.floor(ret);
+end
+
+function PET_MDEF_C(self, addAbil)
+    local byLv = self.Lv;
+    local addLv = self.Level;
+    local byItem = GetSumOfPetEquip_C(self, 'MDEF') + GetSumOfPetEquip_C(self, 'ADD_MDEF');
+	local ret = (byLv + addLv) / 2 + byItem + PET_MDEF_BY_ABIL(self.Stat_MDEF + addAbil);
 	return math.floor(ret);
 end
 
@@ -249,6 +300,14 @@ function PET_DR(self)
 	return math.floor(ret);
 end
 
+function PET_DR_C(self, addAbil)
+    local byLv = self.Lv;
+    local addLv = self.Level;
+    local byItem = GetSumOfPetEquip_C(self, "DR")
+	local ret = byLv + addLv + byItem + self.DEX + PET_DR_BY_ABIL(self.Stat_DR + addAbil);
+	return math.floor(ret);
+end
+
 function PET_HR_BY_ABIL(statValue)
 	return statValue;
 end
@@ -261,15 +320,24 @@ function PET_HR(self)
 	return math.floor(ret);
 end
 
-function GET_PET_STAT_PRICE(pc, pet, statName)
+function PET_HR_C(self, addAbil)
+    local byLv = self.Lv;
+    local addLv = self.Level;
+    local byItem = GetSumOfPetEquip_C(self, "HR")
+	local ret = byLv + addLv + byItem + self.DEX + PET_HR_BY_ABIL(self.Stat_HR + addAbil) + self.Stat_HR_BM;
+	return math.floor(ret);
+end
+
+function GET_PET_STAT_PRICE(pc, pet, statName, val)
     local defPrice = 300;
 	if statName  == "DEF" then
 		defPrice = 600;
 	end
 
-	local val = pet["Stat_" .. statName];
+	if val == nil then
+		val = pet["Stat_" .. statName];
+	end 
 	return math.floor(defPrice * math.pow(1.08, val - 1));
-
 end
 
 function PET_ADD_FIRE(self)

@@ -138,7 +138,7 @@ function EXCHANGE_INV_RBTN(itemobj, slot)
 	local icon = slot:GetIcon();
 	local iconInfo = icon:GetInfo();
 	local item = session.GetInvItem(iconInfo.ext);
-	if nil ~= item then
+	if nil == item then
 		return;
 	end
 
@@ -224,7 +224,7 @@ function EXCHANGE_ADD_FROM_INV(obj, item, tradeCnt)
 		end
 		
 		if tradeCount >= 1 then
-			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_INPUT_EXCHANGE_CNT", tradeCnt, 1, tradeCnt, nil, tostring(item:GetIESID()));
+			INPUT_NUMBER_BOX(nil, ScpArgMsg("InputCount"), "EXEC_INPUT_EXCHANGE_CNT", tradeCnt, 1, tradeCnt, nil, tostring(item:GetIESID()));
 			return;
 		else
 			ui.AlarmMsg("ItemOverCount"); -- 등록수가 소비개수보다 큼

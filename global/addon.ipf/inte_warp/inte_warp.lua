@@ -60,7 +60,7 @@ function INTE_WARP_OPEN_BY_NPC()
 	frame:Invalidate();
 
 	RUN_CHECK_LASTUIOPEN_POS(frame)
-
+	
 
 end
 
@@ -300,49 +300,51 @@ function ON_INTE_WARP(frame, changeDirection)
 				end
 			end
 		else
-		for index = 1, #result do
-			local info = result[index];
-			local mapCls = GetClass("Map", info.Zone);
+			for index = 1, #result do
+				local info = result[index];
+				local mapCls = GetClass("Map", info.Zone);
 
-			local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
-
-			if nowZoneName == 'infinite_map' then
-				warpcost = 0;
-			end
-			if mapCls.WorldMap ~= "None" then
-				local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+				local warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName),info.Zone);
 				
-				if currentDirection == dir then
-					local picX = startX + x * spaceX * sizeRatio;
-					local picY = startY - y * spaceY * sizeRatio;
-					local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
-					local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
+                warpcost = 0      --EV161110
+                
+				if nowZoneName == 'infinite_map' then
+					warpcost = 0;
+				end
+				if mapCls.WorldMap ~= "None" then
+					local x, y, dir, index = GET_WORLDMAP_POSITION(mapCls.WorldMap);
+				
+					if currentDirection == dir then
+						local picX = startX + x * spaceX * sizeRatio;
+						local picY = startY - y * spaceY * sizeRatio;
+						local searchRate = session.GetMapFogSearchRate(mapCls.ClassName);
+						local gBoxName = "ZONE_GBOX_" .. x .. "_" .. y;
 
-					if (warpcost < 1000000) then
-						local calcOnlyPosition = false;
-						if changeDirection ~= true then
-							gbox = pic:GetChild(gBoxName);
-							if gbox ~= nil then
-								gbox:SetOffset(picX, picY);
-								calcOnlyPosition = true;
-							end
-						end						
-						local brushX = startX + x * spaceX;
-						local brushY = pictureStartY - y * spaceY;
-						if pic:GetChild(gBoxName) == nil then 
-							local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
-							gbox:SetSkinName("downbox");
-							gbox:ShowWindow(1);
+						if (warpcost < 1000000) then
+							local calcOnlyPosition = false;
+							if changeDirection ~= true then
+								gbox = pic:GetChild(gBoxName);
+								if gbox ~= nil then
+									gbox:SetOffset(picX, picY);
+									calcOnlyPosition = true;
+								end
+							end						
+							local brushX = startX + x * spaceX;
+							local brushY = pictureStartY - y * spaceY;
+							if pic:GetChild(gBoxName) == nil then 
+								local gbox = pic:CreateOrGetControl("groupbox", gBoxName, picX, picY, 130, 24)
+								gbox:SetSkinName("downbox");
+								gbox:ShowWindow(1);
 							end
 
 							ON_INTE_WARP_SUB(frame, pic, index, gBoxName, nowZoneName, warpcost, calcOnlyPosition, makeWorldMapImage, mapCls, info, picX, picY, brushX, brushY, 1)
-											
-						local gbox = pic:GetChild(gBoxName)
-						GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
-					end				
+
+							local gbox = pic:GetChild(gBoxName)
+							GBOX_AUTO_ALIGN(gbox, 0, 0, 0, true, true);
+						end				
+					end
 				end
 			end
-		end
 		end
 
 		if makeWorldMapImage == true then
@@ -523,10 +525,10 @@ function UPDATE_WARP_MINIMAP_TOOLTIP(tooltipframe, strarg, strnum)
 	
 	tooltipframe:Invalidate()
 end
-
+	
 function WARP_TO_AREA(frame, cset, argStr, argNum)
 	local warpFrame = ui.GetFrame('inte_warp');
-	
+	local test = frame:GetTopParentFrame();
 	local x, y = GET_MOUSE_POS();
 
 	if first_click_x ~= nil and first_click_y ~= nil then	-- 클릭 좌표점이 존재한다면 마우스를 클릭하고 드래그 했다가, 워프 지점으로 도달했다는 경우다.
@@ -535,7 +537,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 			fifst_click_y = nil
 			return;
 		end
-	end
+end
 
 	first_click_x = nil	-- 정상적으로 클릭해서 워프를 해도 좌표를 리셋
 	first_click_y = nil
@@ -556,10 +558,10 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 	if camp_warp_class ~= nil then
 		targetMapName = camp_warp_class.Zone;
     	warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), camp_warp_class.Zone);
-    elseif argStr ~= nil then
-        warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), argStr);
+	elseif argStr ~= nil then
+		warpcost = geMapTable.CalcWarpCostBind(AMMEND_NOW_ZONE_NAME(nowZoneName), argStr);
 		targetMapName = argStr;
-    end
+	end
 	
 	if targetMapName == nowZoneName then
 		ui.SysMsg(ScpArgMsg("ThatCurrentPosition"));
@@ -578,7 +580,7 @@ function WARP_TO_AREA(frame, cset, argStr, argNum)
 			warpcost = 0
 		end	
 	end
-
+	
 	if type ~= "Dievdirbys" then
 		warpcost = 0
 	end

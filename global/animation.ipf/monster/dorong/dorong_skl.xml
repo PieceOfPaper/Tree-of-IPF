@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_voice2_s_5"/>
-    <Sound frame="5.00" soundFile="skl_eff_body_atk_8"/>
-    <Sound frame="5.00" soundFile="mon_voice2_s_14"/>
+	<Particle frame="6" attachNode="Point001" particleName="F_spread_out041" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_voice2_s_5"/>
+	<Sound frame="5.00" soundFile="skl_eff_body_atk_8"/>
+	<Sound frame="5.00" soundFile="mon_voice2_s_14"/>
 </ActionDesc>

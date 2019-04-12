@@ -859,25 +859,6 @@
                             </StartList>
                         </SelfAI>
                     </Obj>
-                    <Obj Type="Monster" MonType="750000" Pos="1319.06#200.96#615.07" genCount="1" genTime="20000" objectKey="40" tendency="1">
-                        <SelfAI ActiveMessageMapInBattle="1">
-                            <List>
-                                <ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
-                                    <Num Num="100"/>
-                                </ToolScp>
-                            </List>
-                            <DeadList>
-                                <ToolScp Scp="SAI_DEAD_FUNC2_DIRECT" Client="NO" UseSleep="NO">
-                                    <Str Str="GR_KATYN_1_S1_MON_DEAD"/>
-                                </ToolScp>
-                            </DeadList>
-                            <StartList>
-                                <ToolScp Scp="S_AI_SET_TENDENCY" Client="NO" UseSleep="NO">
-                                    <Str Str="Attack"/>
-                                </ToolScp>
-                            </StartList>
-                        </SelfAI>
-                    </Obj>
                 </ObjList>
                 <StageEvents>
                     <Event eventName="INI"/>

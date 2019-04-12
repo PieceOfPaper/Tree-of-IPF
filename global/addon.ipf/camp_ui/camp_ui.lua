@@ -61,7 +61,7 @@ function ON_OPEN_CAMP_UI(frame, msg, str, forceOpenUI, isOwner)
 	frame:SetUserValue("TOTAL_TIME", campTime);
 
 	local gbox = GET_CHILD(frame, "gbox");	
-	local buffTime = CAMP_BUFF_TIME(skillName, sklLevel);
+	local buffTime = CAMP_BUFF_TIME(sklLevel);
 	local effectTxt = ClMsg("BuffMaintainTime") .. " + " ..buffTime .. "%";
 	local effect_text = GET_CHILD(gbox, "effect_text");		
 	effect_text:SetTextByKey("value", effectTxt);

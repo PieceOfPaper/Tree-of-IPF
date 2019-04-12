@@ -1,4 +1,4 @@
-
+-- journal_monster.lua
 
 function CREATE_JOURNAL_ARTICLE_MONSTER(frame, grid, key, text, iconImage, callback)
 
@@ -46,12 +46,13 @@ function JOURNAL_PAGE_CHANGE_MONSTER(ctrl, ctrlset)
 end
 
 function GET_MON_ILLUST(monCls)
+
 	if monCls == nil then
 		return "unknown_monster";
 	end
 
-	local name = monCls.Journal;		
-	if ui.IsImageExist(name) == 1 then	
+	local name = monCls.Journal;
+	if ui.IsImageExist(name) == 1 then
 		return name;
 	end
 	
@@ -61,10 +62,11 @@ function GET_MON_ILLUST(monCls)
 	end
 
 	--아이콘은 이제 쓰지 않을꺼라고 해서 일단 주석을 합시다.
-	--name = monCls.Icon;
-	--if ui.IsImageExist(name) == 1 then
-	--	return name;
-	--end
+	--주연씨께서 중복으로 아이콘 등록해야 해서 살려드림 16.10.10
+	name = monCls.Icon;
+	if ui.IsImageExist(name) == 1 then
+		return name;
+	end
 	
 	return "unknown_monster";
 end

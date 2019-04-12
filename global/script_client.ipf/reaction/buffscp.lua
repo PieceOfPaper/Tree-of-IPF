@@ -247,7 +247,7 @@ function EpeeGarde_ENTER(actor, obj, buff)
 	end
 
 	local lhObj = GetIES(lhItem:GetObject());
-	if nil == lhObj or lhObj.DEF <= 0 then
+	if nil == lhObj then
 		return;
 	end
 
@@ -500,6 +500,13 @@ function SuperDrop_Client_LEAVE(actor, obj, buff)
 		actor:GetEffect():SetColorBlink(0,0,0,0,1,1,1,1, 0 , 1);
 	end
 	
+end
+
+function EliteMonster_ENTER(actor, obj, buff)
+	actor:SetAuraInfo("EliteBuff");
+end
+
+function EliteMonster_LEAVE(actor, obj, buff)
 end
 
 --??|?? ????: ??? ????o?? ??|????? ??? ?뵵
@@ -867,6 +874,23 @@ function Levitation_LEAVE(actor, obj, buff)
 	actor:GetAnimation():ResetRUNAnim();
 	actor:GetAnimation():ResetWLKAnim();
 
+end
+
+function HoukiBroom_ENTER(actor, obj, buff)
+    actor:SetAlwaysBattleState(true);
+    actor:GetAnimation():SetTURNAnim("SKL_HOUKIBROOM_LOOP");
+    actor:GetAnimation():SetSTDAnim("SKL_HOUKIBROOM_LOOP");
+    actor:GetAnimation():SetRUNAnim("SKL_HOUKIBROOM_WLK");
+    actor:GetAnimation():SetWLKAnim("SKL_HOUKIBROOM_WLK");
+end
+
+function HoukiBroom_LEAVE(actor, obj, buff)
+    actor:SetAlwaysBattleState(false);
+    actor:GetAnimation():ResetTURNAnim();
+    actor:GetAnimation():ResetSTDAnim();
+    actor:GetAnimation():ResetRUNAnim();
+	actor:GetAnimation():ResetWLKAnim();
+	actor:GetAnimation():PlayFixAnim("ASTD", 1.0, 0);
 end
 
 

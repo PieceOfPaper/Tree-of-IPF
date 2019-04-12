@@ -274,6 +274,37 @@ function ITEM_TOOLTIP_ARMOR_CHANGEVALUE(tooltipframe, invitem, equipItem, strarg
 	end
 end
 
+function DRAW_APPRAISAL_PICTURE(tooltipframe)
+	local GroupCtrl   = tooltipframe:GetChild('appraisal');
+	local cnt 			 = GroupCtrl:GetChildCount();
+	local ControlSetObj	 = GroupCtrl:CreateControlSet('appralsal', "EX" .. cnt , 0, 0);
+	local ControlSetCtrl = tolua.cast(ControlSetObj, 'ui::CControlSet');
+
+	local X_MARGIN_OF_TITLE = ControlSetCtrl:GetUserConfig("X_MARGIN_OF_TITLE")
+	local Y_MARGIN_OF_TITLE = ControlSetCtrl:GetUserConfig("Y_MARGIN_OF_TITLE")
+	local MARGIN_BETWEEN_VALUE_N_VALUE = ControlSetCtrl:GetUserConfig("MARGIN_BETWEEN_VALUE_N_VALUE")
+
+	ControlSetCtrl:SetOffset(X_MARGIN_OF_TITLE, cnt * MARGIN_BETWEEN_VALUE_N_VALUE + Y_MARGIN_OF_TITLE)
+
+	local pic	 = GET_CHILD(ControlSetCtrl, "pic", "ui::CPicture");
+	pic:SetImage("USsentiment_top");
+	local equipchange = tolua.cast(GroupCtrl, 'ui::CGroupBox');
+	local cnt = equipchange:GetChildCount();
+	local width = equipchange:GetWidth();
+	if cnt > 0 then
+		width = -1;
+		for i = 0 , cnt - 1 do
+			local obj = equipchange:GetChildByIndex(i);
+			width = math.max(width, obj:GetWidth() + 50);
+		end
+	end
+
+	local lastChild = equipchange:GetChild("EX" .. cnt-1)
+	local lastHeight = lastChild:GetY() + lastChild:GetHeight();
+	equipchange:Resize(width, lastHeight + 60)
+	tooltipframe:Resize(width, lastHeight + 0);
+end
+
 function DRAW_EQUIP_CHANGE_WEAPON_TOOLTIP(tooltipframe, invitem, equipItem, ypos, ispickitem)
 	local GroupCtrl   = tooltipframe:GetChild('changevalue');
 	local equipchange = tolua.cast(GroupCtrl, 'ui::CGroupBox');

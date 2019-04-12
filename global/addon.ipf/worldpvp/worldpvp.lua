@@ -14,14 +14,30 @@ end
 g_enablePVPExp = 1;
 
 function ON_PLAY_COUNT_MAX(frame, msg)	
-	ui.SysMsg(ScpArgMsg("MAXPVPEnterCount{TIME}",'TIME',RANK_RESET_HOUR));
+
+	local resetTime = RANK_RESET_HOUR % 12;
+	local isPM = RANK_RESET_HOUR / 2;
+
+	if resetTime == 0 then
+		resetTime = 12;
+	end
+
+	local ampm;
+	if isPM == 1 then
+		ampm = ScpArgMsg("PM");
+	else
+		ampm = ScpArgMsg("AM");
+	end
+	
+	ui.SysMsg(ScpArgMsg("MAXPVPEnterCount{AMPM}{TIME}",'AMPM', ampm, 'TIME', resetTime));
+
 	local playGuildBattle = false;
 	
 	frame = ui.GetFrame("worldpvp");
 	local cnt = session.worldPVP.GetPlayTypeCount();
 	for i = 0, cnt -1 do
 		local type = session.worldPVP.GetPlayTypeByIndex(i);
-		if type == 200 then
+		if type == 210 then
 			frame = ui.GetFrame("guildbattle_league");
 		end
 	end
@@ -191,9 +207,12 @@ function UPDATE_WORLDPVP(frame)
 	local todayGetShopPointName = GetPVPPointPropName(clsName, "TodayGetShopPoint");
 	local shopPointName = GetPVPPointPropName(clsName, "ShopPoint");
 
+	local gbox_playcnt = GET_CHILD(charinfo, "gbox_playcnt");
+	gbox_playcnt:ShowWindow(0);
+
 	local gbox_pointshop = GET_CHILD(charinfo, "gbox_pointshop");
+	gbox_pointshop:ShowWindow(0);
 	if shopPointName ~= "None" then
-	
 		local todayGetShopPoint = 0;
 		if curDateString == pvpObj:GetPropValue(lastPointGetDateName) then
 			todayGetShopPoint = pvpObj:GetPropValue(todayGetShopPointName);
@@ -206,8 +225,6 @@ function UPDATE_WORLDPVP(frame)
 		txt_curshoppoint:SetTextByKey("value", pvpObj:GetPropValue(shopPointName));
 
 		gbox_pointshop:ShowWindow(1);
-	else
-		gbox_pointshop:ShowWindow(0);
 	end
 
 	local joinBtn = charinfo:GetChild("join");
@@ -232,6 +249,11 @@ function UPDATE_WORLDPVP(frame)
 				joinBtn:SetEnable(1);
 			end
 		end
+		gbox_playcnt:ShowWindow(1);
+		SET_PVP_TYPE_PROP(gbox_playcnt, pvpObj, clsName, "todaycnt", "Cnt", 0);
+		GUILDBATTLE_LEAGUE_SET_GUILDPVP_TYPE_PROP(gbox_playcnt, "guildCnt", "Guild", "GuildBattleWeeklyJoinCnt");
+		GUILDBATTLE_LEAGUE_SET_GUILDPVP_TYPE_PROP(gbox_playcnt, "myCnt", "Account", "GuildBattleWeeklyPlayCnt");
+
 	end
 
 end
@@ -276,9 +298,12 @@ function JOIN_WORLDPVP(parent, ctrl)
 	
 	local state = session.worldPVP.GetState();
 	if state == PVP_STATE_PLAYING then
-		ui.MsgBox(ScpArgMsg("ExistsPlayingPVP"), yesScp, "None");
-	else
+		ui.MsgBox(ScpArgMsg("ExistsPlayingPVP"), yesScp, "None");	
+	elseif state == PVP_STATE_NONE then
 		local msg = ScpArgMsg("PVPEnter{COUNT}{MAX}",'COUNT',myCnt, 'MAX',cls.MaxPlayCount )
+		ui.MsgBox(msg, yesScp, "None");
+	elseif state == PVP_STATE_FINDING then
+		local msg = ScpArgMsg("AskPVPEnterCancel")
 		ui.MsgBox(msg, yesScp, "None");
 	end
 end
@@ -357,7 +382,7 @@ function JOIN_WORLDPVP_BY_TYPE(frame, pvpType)
 		worldPVP.ReqJoinPVP(pvpType, PVP_STATE_NONE);
 		join:SetEnable(0);
 	elseif state == PVP_STATE_PLAYING then
-	
+
 		if cls.MatchType == "Guild" then
 			local pvpGuid = frame:GetUserIValue("GUILD_PVP_GUID_" .. pvpType);
 			if pvpGuid > 0 then
@@ -630,7 +655,7 @@ function ON_WORLDPVP_RANK_PAGE(frame)
 	gbox_ctrls:RemoveAllChild();
 
 	if cls.MatchType == "Guild" then
-		OPEN_GUILDBATTLE_RANKING_FRAME(1);
+		OPEN_GUILDBATTLE_RANKING_FRAME(0);
 		return;
 	end
 
@@ -851,7 +876,7 @@ function WORLDPVP_OBSERVER_GET_TEAM_STR(teamName, jobID)
 		return teamName;
 	end
 
-	return string.format("%s (%s)", teamName, jobCls.Name);
+	return string.format("%s (%s)", teamName, GET_JOB_NAME(jobCls));
 end
 
 function WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox, teamVec, teamID)
@@ -861,7 +886,7 @@ function WORLDPVP_PUBLIC_GAME_SET_PCTEAM(frame, gbox, teamVec, teamID)
 	for i = 0 , count - 1 do
 
 		local pcInfo = teamVec:GetByIndex(i);
-		guildName = pcInfo:GetGuildName();		
+		guildName = pcInfo:GetGuildName();	
 
 		local pcSet = gbox:CreateOrGetControlSet("pvp_observe_ctrlset_pc_" .. teamID, "PC_" .. i, 0, 0);
 		local lv = pcSet:GetChild("lv");

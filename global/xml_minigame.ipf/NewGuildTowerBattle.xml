@@ -64,7 +64,7 @@
 							</ToolScp>
 						</execList>
 					</Event>
-					<Event execCount="1" eventName="setui2" execWithStart="0" isEnabled="0">
+					<Event execMS="1000" execCount="1" eventName="StartArm">
 						<execList>
 							<ToolScp Scp="MGAME_MSG_SIMPLE" Client="YES" UseSleep="NO">
 								<Str Str="{@st55_a}"/>
@@ -115,7 +115,7 @@
 							</ToolScp>
 						</execList>
 					</Event>
-          <Event execMS="180000" execCount="1" eventName="Check_TimeOut" execWithStart="0">
+          <Event execMS="300000" execCount="1" eventName="createObj" execWithStart="0">
             <execList>
               <ToolScp Scp="MGAME_EVT_SCRIPT" Client="NO" UseSleep="NO">
                 <Str Str="MGAME_GUILDBATTLE_OBJ_CRESET"/>

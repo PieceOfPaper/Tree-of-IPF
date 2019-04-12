@@ -107,7 +107,16 @@ function EQUIP_CARDSLOT_DRAW_ADDSTAT_TOOLTIP(tooltipframe, yPos, cardID)
 	local desc_text = GET_CHILD(CSet,'desc_text')
 	local cls = GetClassByType("Item", cardID);
 	if cls ~= nil then
-		desc_text:SetTextByKey("text", cls.Desc);
+		local tempText1 = cls.Desc;
+		local tempText2 = cls.Desc_Sub;
+		if tempText1 == "None" then
+			tempText1 = "";
+		end
+		if tempText2 == "None" then
+			tempText2 = "";
+		end
+		local textDesc = string.format("%s{nl}%s{/}", tempText1, tempText2);	
+		desc_text:SetTextByKey("text", textDesc);
 		CSet:Resize(CSet:GetWidth(), desc_text:GetHeight() + desc_text:GetOffsetY());
 	end
 	

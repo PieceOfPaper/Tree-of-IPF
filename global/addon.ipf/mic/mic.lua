@@ -63,7 +63,7 @@ function SHOW_PC_CONTEXT_MENU_BY_NAME(familyName)
 		ui.AddContextMenuItem(context, ClMsg("PARTY_INVITE"), strScp);
 
 		-- invite guild
-		if AM_I_LEADER(PARTY_GUILD) == 1 then
+		if AM_I_LEADER(PARTY_GUILD) == 1 or IS_GUILD_AUTHORITY(1) == 1 then
 			strScp = string.format("GUILD_INVITE(\"%s\")", familyName);
 			ui.AddContextMenuItem(context, ClMsg("GUILD_INVITE"), strScp);
 		end
@@ -106,6 +106,10 @@ function CHANGE_LINKTEXT_COLOR(micText, changeColor)
 end
 
 function MIC_PUSH(frame, mic)
+	if config.GetXMLConfig("ShowMicFrame") == 0 then
+		frame:RemoveAllChild();
+		return;
+	end
 
 	local lastCtrl = nil;
 	for i = 0 , frame:GetChildCount() - 1 do
@@ -163,13 +167,13 @@ end
 function PROCESS_MIC(frame, totalTime)
 
 	if ui.IsStopFlowText() == 1 then
-		return 1
+		return 1;
 	end
 	
 	local showMicFrameValue = config.GetXMLConfig("ShowMicFrame")
-	
 	if showMicFrameValue == 0 then
 		frame:ShowWindow(0);
+		return 1;
 	else
 		if frame:GetChildCount() > 0 then
 			frame:ShowWindow(1);
@@ -210,7 +214,7 @@ function PROCESS_MIC(frame, totalTime)
 
 	local mic = session.ui.GetMic();
 	if mic ~= nil then
-		if MIC_PUSH(frame, mic) == 1 then
+		if mic.showMicFrame == 0 or MIC_PUSH(frame, mic) == 1 then
 			session.ui.RemoveMicHead();
 		end
 	else

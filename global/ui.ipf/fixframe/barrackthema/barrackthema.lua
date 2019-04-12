@@ -149,12 +149,7 @@ end
 function BARRACK_BUY(buyMap)
 	local cls = GetClass("BarrackMap", buyMap);
 
-	local msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("iCoin");
-	if config.GetServiceNation() == "KOR" then
-		msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("NXP");
-	elseif config.GetServiceNation() == "JP" then
-		msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("JNxp");
-	end
+	local msgBoxStr = ClMsg("ReallyBuy?") .. "{nl}" .. cls.Price .. " " .. ScpArgMsg("NXP");
 
 	local yesScp = string.format("EXEC_BUY_BARRACK(\"%s\")", buyMap);
 	if GET_CASH_TOTAL_POINT_C() < cls.Price then

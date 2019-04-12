@@ -625,7 +625,7 @@
 					<Event execCount="1" eventName="END">
 						<condList>
 							<ToolScp Scp="GAME_ST_EVT_COND_VALUE" Client="NO" UseSleep="NO">
-								<Str Str="MGTSTAGE16"/>
+								<Str Str="MGTSTAGE36"/>
 								<Str Str="OVER"/>
 								<Num Num="195"/>
 							</ToolScp>
@@ -668,9 +668,9 @@
 							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
 								<Num Num="45"/>
 							</ToolScp>
-							<ToolScp Scp="MGAME_EVT_COND_MONCNT_OVER" Client="NO" UseSleep="NO">
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
 								<MGameObj List="STAGE_1_PROG/20"/>
-								<Num Num="1"/>
+								<Num Num="0"/>
 							</ToolScp>
 						</condList>
 						<execList>

@@ -96,15 +96,25 @@ function REINFORCE_131014_MSGBOX(frame)
     if moruObj.ClassName ~= "Moru_Potential" and moruObj.ClassName ~= "Moru_Potential14d" then
     if fromItemObj.GroupName == 'Weapon' then
     	if curReinforce >= 5 then
+               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then
+                    ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
+                   	return;
+               	else
     		ui.MsgBox(ScpArgMsg("WeaponWarningMSG", "Auto_1", 5), "REINFORCE_131014_EXEC", "None");
     		return;
     	end
+        	end
     else
         if curReinforce >= 3 then
+               	if moruObj.ClassName == "Moru_Premium" or moruObj.ClassName == "Moru_Gold" or moruObj.ClassName == "Moru_Gold_14d" or moruObj.ClassName == "Moru_Gold_TA" then
+                    ui.MsgBox(ScpArgMsg("GOLDMORUdontbrokenitemProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
+                   	return;
+               	else
     		ui.MsgBox(ScpArgMsg("Over_+{Auto_1}_ReinforceItemCanBeBroken_ProcessReinforce?", "Auto_1", 3), "REINFORCE_131014_EXEC", "None");
     		return;
     	end
     end
+	end
 	end
 	
 	REINFORCE_131014_EXEC();

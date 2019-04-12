@@ -88,8 +88,8 @@ function SCR_Get_SpendSP(skill)
 	end
 	
 	local abilAddSP = GetAbilityAddSpendValue(pc, skill.ClassName, "SP");
-	-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
-	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
+	-- lvUpSpendSP??루아?�서??float ?��??��? ?�정?�기?�해 ?�수 5?�리?�서 반올림한??
+	-- ?�렇�?계산?�줘???�라?�언?��? 계산 값이 맞다. ?�마???�수?�의 10?�리쯤이 ?�리�? ?�을�?.
 	local lvUpSpendSpRound = math.floor((lvUpSpendSp * 10000) + 0.5)/10000;
 	
 	value = basicsp + (lv - 1) * lvUpSpendSpRound + abilAddSP;
@@ -316,9 +316,8 @@ function SCR_GET_SKL_COOLDOWN(skill)
 	local pc = GetSkillOwner(skill);
 	local basicCoolDown = skill.BasicCoolDown;
 	local abilAddCoolDown = GetAbilityAddSpendValue(pc, skill.ClassName, "CoolDown");
-	
 	basicCoolDown = basicCoolDown + abilAddCoolDown;
-		
+	
 	if IsBuffApplied(pc, 'CarveLaima_Buff') == 'YES' then
 		basicCoolDown = basicCoolDown * 0.8;
 	elseif IsBuffApplied(pc, 'CarveLaima_Debuff') == 'YES' then
@@ -334,8 +333,9 @@ function SCR_GET_SKL_COOLDOWN(skill)
 			basicCoolDown =	basicCoolDown * 0.5;
 		end
 	end
-
-	return math.floor(basicCoolDown);
+	local ret = math.floor(basicCoolDown) / 1000
+	ret = math.floor(ret) * 1000;	
+	return math.floor(ret);
 
 end
 
@@ -1127,8 +1127,12 @@ function SCR_GET_CartarStroke_Ratio(skill)
 end
 
 function SCR_GET_CartarStroke_Ratio2(skill)
-
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, 'Highlander33')
     local value = 0.2 * skill.Level;
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value / 2
+    end
     return value
 
 end
@@ -2698,8 +2702,7 @@ end
 
 function SCR_GET_BattleOrders_Ratio2(skill)
 
-	local value = 30 + 5 * skill.Level
-
+	local value = 60
   return value
 
 end
@@ -2734,7 +2737,7 @@ end
 
 function SCR_GET_ShareBuff_Ratio(skill)
 
-    local value = 5 + skill.Level
+    local value = 5 + (skill.Level * 2)
     return value
 
 end
@@ -2811,6 +2814,32 @@ function SCR_GET_Kunai_Ratio(skill)
     end
 
 end
+
+function SCR_GET_DeadlyCombo_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Squire11") 
+	local value = 0
+	if abil ~= nil then 
+        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    end
+    
+end
+
+function SCR_Get_SkillFactor_DeadlyCombo(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Squire11")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
 
 function SCR_Get_SkillFactor_Dragontooth(skill)
 
@@ -4052,11 +4081,25 @@ function SCR_GET_BroomTrap_Ratio(skill)
 
 end
 
+function SCR_GET_BroomTrap_Ratio2(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = SCR_Get_SklAtkAdd_BroomTrap(skill)
+
+	local abil = GetAbility(pc, "Sapper34")      -- Skill Damage add 2
+        if abil ~= nil and abil.ActiveState == 1 then
+        return math.floor(value + value * 1.0);
+    end
+
+    return math.floor(value);
+
+end
+
 function SCR_Get_SklAtkAdd_Claymore(skill)
 
 	local pc = GetSkillOwner(skill);
 	local value = skill.SklAtkAdd + (skill.Level - 1) * skill.SklAtkAddByLevel;
-
+    
     return math.floor(value);
     
 end
@@ -4095,6 +4138,20 @@ function SCR_Get_SkillFactor_Claymore(skill)
     end
 
     return math.floor(value)
+
+end
+
+function SCR_GET_Claymore_Ratio3(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = SCR_Get_SklAtkAdd_Claymore(skill)
+    
+    local abil = GetAbility(pc, "Sapper33")      -- Skill Damage add
+    if abil ~= nil and abil.ActiveState == 1 then
+        return math.floor(value + value * 2.5);
+    end
+    
+    return math.floor(value);
 
 end
 
@@ -4233,6 +4290,20 @@ function SCR_GET_SpikeShooter_Ratio3(skill)
 	if abil ~= nil then 
         return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
     end
+
+end
+
+function SCR_GET_SpikeShooter_Ratio4(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = SCR_Get_SklAtkAdd_SpikeShooter(skill)
+
+	local abil = GetAbility(pc, "Sapper35")      -- Skill Damage add
+    if abil ~= nil and abil.ActiveState == 1 then
+        return math.floor(value + value * 1.5);
+    end
+
+    return math.floor(value);
 
 end
 
@@ -4976,7 +5047,7 @@ function SCR_GET_Limacon_Ratio(skill)
 end
 
 function SCR_GET_Limacon_BuffTime(skill)
-    local value = 15 + skill.Level * 2
+    local value = 13 + skill.Level * 2
     return value
 end
 
@@ -8087,6 +8158,11 @@ function SCR_GET_Possession_Ratio(skill)
 
 end
 
+function SCR_GET_Possession_Ratio2(skill)
+    local value = skill.Level * 1 + 4;
+    return math.floor(value)
+end
+
 function SCR_Get_SklAtkAdd_EctoplasmAttack(skill)
 
     local pc = GetSkillOwner(skill);
@@ -9095,6 +9171,89 @@ function SCR_GET_Lycanthropy_Bufftime(skill)
     return value
 end
 
+function SCR_Get_SkillFactor_Gohei(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Miko1")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Gohei_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Miko1") 
+	local value = 0
+	if abil ~= nil then 
+        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    end
+
+end
+function SCR_Get_SkillFactor_Hamaya(skill)
+
+	local pc = GetSkillOwner(skill);
+	local value = skill.SklFactor
+
+	local abil = GetAbility(pc, "Miko3")      -- Skill Damage add
+    if abil ~= nil then
+        value = SCR_ABIL_ADD_SKILLFACTOR(abil, value);
+    end
+
+    return math.floor(value)
+
+end
+
+function SCR_GET_Hamaya_Ratio(skill)
+
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, "Miko3")
+	local value = 0
+	if abil ~= nil then 
+        return SCR_ABIL_ADD_SKILLFACTOR_TOOLTIP(abil);
+    end
+
+end
+
+function SCR_GET_Hamaya_Ratio2(skill)
+
+	local value = 5 + skill.Level * 3
+        return value
+        
+
+end
+
+function SCR_GET_HoukiBroom_Time(skill)
+	local value = 5
+    return math.floor(value)
+end
+
+function SCR_GET_HoukiBroom_Ratio(skill)
+	local value = 5 + skill.Level
+    return math.floor(value)
+end
+
+function SCR_GET_KaguraDance_Time(skill)
+	local value = 5 + 5 * skill.Level;
+    return math.floor(value)
+end
+
+function SCR_GET_KaguraDance_Ratio(skill)
+	local value = 3
+    return math.floor(value)
+end
+
+
+function SCR_GET_KaguraDance_Ratio2(skill)
+	local value = 10 * skill.Level
+    return math.floor(value)
+end
+
 
 --[BodkinPoint]]--
 
@@ -9109,6 +9268,12 @@ function SCR_GET_SR_LV_BodkinPoint(skill)
 	local pc = GetSkillOwner(skill);
     return math.floor(1 + pc.SR + (skill.Level * 0.2))
 
+end
+
+function SCR_GET_Kasiwade_Ratio(skill)
+
+	local value = skill.Level * 5
+	return value;
 end
 
 
@@ -10424,6 +10589,16 @@ function SCR_GET_SubzeroShield_BuffTime(skill)
 
 end
 
+function SCR_GET_IceWall_Time(skill)
+    local pc = GetSkillOwner(skill);
+    local value = 15
+    local abil = GetAbility(pc, 'Cryomancer22')
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + 10
+    end
+    return value
+
+end
 
 function SCR_GET_SR_LV_Gust(skill)
 
@@ -11242,7 +11417,6 @@ function SCR_GET_Repair_Ratio(skill)
     return skill.Level;
 end
 
-
 function SCR_GET_UnlockChest_Ratio(skill)
     
     return skill.Level;
@@ -11318,7 +11492,13 @@ function SCR_GET_DeedsOfValor_Ratio2(skill)
 end
 
 function SCR_GET_PainBarrier_Bufftime(skill)
-    return 14 + skill.Level * 1
+    local pc = GetSkillOwner(skill);
+    local abil = GetAbility(pc, 'Swordman29')
+    local value = 14 + skill.Level * 1
+    if abil ~= nil and abil.ActiveState == 1 then
+        value = value + 5
+    end
+    return value
 end
 
 function SCR_GET_Double_pay_earn_Ratio(skill)
@@ -11587,7 +11767,7 @@ function SCR_GET_Aiming_Bufftime(skill)
 end
 
 function SCR_GET_FirstStrike_Bufftime(skill)
-    local value = skill.Level;
+    local value = 20 + (skill.Level - 1) * 10;
     return value;
 end
 
@@ -12569,7 +12749,7 @@ end
 function SCR_Get_SwellLeftArm_Ratio(skill)
 
 	local pc = GetSkillOwner(skill);
-	local value = 34.4 + (skill.Level -1) * 8.6
+	local value = 34.4 + (skill.Level -1) * 12.4 + pc.INT * 0.15;
 
     local Thaumaturge12_abil = GetAbility(pc, "Thaumaturge12")  -- 2rank Skill Damage multiple
     local Thaumaturge13_abil = GetAbility(pc, "Thaumaturge13")  -- 3rank Skill Damage multiple
@@ -12590,8 +12770,8 @@ end
 
 function SCR_Get_SwellRightArm_Ratio(skill)
 
-	local value = 40 + (skill.Level -1) * 9
 	local pc = GetSkillOwner(skill);
+	local value = 40 + (skill.Level -1) * 14.6 + pc.INT * 0.13;
 	
 	local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil and 1 == Thaumaturge14_abil.ActiveState then
@@ -12603,8 +12783,8 @@ function SCR_Get_SwellRightArm_Ratio(skill)
 end
 
 function SCR_Get_SwellRightArm_Ratio2(skill)
-	local value = 34.4 + (skill.Level - 1) * 8.6;
 	local pc = GetSkillOwner(skill);
+	local value = 34.4 + (skill.Level - 1) * 12.4 + pc.INT * 0.13;
 	
 	local Thaumaturge14_abil = GetAbility(pc, "Thaumaturge14")
     if Thaumaturge14_abil ~= nil then
@@ -12758,21 +12938,21 @@ end
 
 
 function SCR_GET_KDOWNPOWER_CartarStroke(skill) 
-    
-    local pc = GetSkillOwner(skill);
-    
-    local abil = GetAbility(pc, "Highlander28")
-    if abil ~= nil and 1 == abil.ActiveState then
-        return 0;
-    end
-    
-    local abil = GetAbility(pc, "Highlander3")
-    if abil ~= nil and 1 == abil.ActiveState then
-        return skill.KDownValue + (abil.Level * 50);
-    else
-        return skill.KDownValue;
-    end
-    
+--    
+--    local pc = GetSkillOwner(skill);
+--    
+--    local abil = GetAbility(pc, "Highlander28")
+--    if abil ~= nil and 1 == abil.ActiveState then
+--        return 0;
+--    end
+--    
+--    local abil = GetAbility(pc, "Highlander3")
+--    if abil ~= nil and 1 == abil.ActiveState then
+--        return skill.KDownValue + (abil.Level * 50);
+--    else
+--        return skill.KDownValue;
+--    end
+--    
 end
 
 --function SCR_GET_KDOWNPOWER_UmboBlow(skill)
@@ -12933,7 +13113,7 @@ function SCR_GET_USEOVERHEAT(skill)
 	local pc = GetSkillOwner(skill);
 	--local reduce_OH_value = SCR_GET_ADDOVERHEAT(pc, skill);
 	--skill.	
-	local skillScale = 0.4; -- ?�시 -- skill.xml?�서 ?�력	
+	local skillScale = 0.4; -- ?�시 -- skill.xml?�서 ?�력	
 --	local byStat = math.pow(math.log(pc.MNA + 2.718282), skillScale);
 
 	local value = skill.SklUseOverHeat;	
@@ -12997,19 +13177,8 @@ function SCR_GET_SKILLLV_WITH_BM(skill)
 
     local value = skill.LevelByDB + skill.Level_BM;
 	if skill.GemLevel_BM > 0 then
-		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
+		value = value + 1;	-- 몬스?�젬 ?�킬보너?�는 중첩?�켜??무조�?+1�??�킨?�고??
 	end
-
-	if skill.HitType == 'Pad' then
-		local owner = GetSkillOwner(skill);
-			local jobObj = GetJobObject(owner);
-			if jobObj ~= nil and jobObj.CtrlType == 'Cleric' then
-				local isHengeStone = GetExProp(owner, 'HENGE_STONE_SATE');
-				if isHengeStone > 0 then
-					value = value + 1;
-				end
-			end
-		end
 
     if skill.LevelByDB == 0 then
         return 0;
@@ -13037,6 +13206,48 @@ end
 function SCR_GET_SPENDITEM_COUNT(skill)
 	return skill.SpendItemBaseCount;
 end
+
+
+function SCR_GET_SPENDITEM_COUNT_BroomTrap(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper34')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count + 1;
+	end
+    return count;
+end
+
+function SCR_GET_SPENDITEM_COUNT_PunjiStake(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper32')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count - 1;
+	end
+    return count;
+end
+
+function SCR_GET_SPENDITEM_COUNT_SpikeShooter(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper35')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count + 1;
+	end
+    return count;
+end
+
+function SCR_GET_SPENDITEM_COUNT_Claymore(skill)
+	local count = skill.SpendItemBaseCount;
+	local pc = GetSkillOwner(skill);
+	local abil = GetAbility(pc, 'Sapper33')
+	if abil ~= nil and 1 == abil.ActiveState then
+		count = count + 1;
+	end
+    return count;
+end
+
 
 function SCR_GET_Dekatos_Ratio(skill)
 	return 1500

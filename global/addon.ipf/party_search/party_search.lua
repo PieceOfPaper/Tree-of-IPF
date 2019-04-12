@@ -238,7 +238,8 @@ function UPDATE_RECOMMEND_MEMBER_LIST(frame, ctrl, argStr, argNum)
 			local clslist, cnt  = GetClassList("Job");
 			local nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 			local jobRank		= nowjobinfo.grade
-			local jobName		= nowjobcls.Name
+			local gender		= otherpcinfo:GetAppearance():GetGender();
+			local jobName		= GET_JOB_NAME(nowjobcls, gender)
 			local jobtext = GET_CHILD_RECURSIVELY(set,"job")
 			jobtext:SetTextByKey("jobname",jobName);
 			jobtext:SetTextByKey("jobrank",jobRank);

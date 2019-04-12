@@ -1,5 +1,10 @@
 
-function RECYCLE_SHOW_TO_MEDAL()
+function RECYCLE_SHOW_TO_MEDAL(parent, ctrl, str, num)
+	if ctrl ~= nil then
+	ctrl:SetSkinName("baseyellow_btn");
+	local rcycle_group2 = GET_CHILD_RECURSIVELY(parent,"rcycle_group2");	
+	rcycle_group2:SetSkinName("base_btn");
+	end
 
 	local frame = ui.GetFrame('tpitem')
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset");
@@ -18,10 +23,15 @@ function RECYCLE_SHOW_TO_MEDAL()
 	rcycle_mainSellText:ShowWindow(1)
 
 	UPDATE_RECYCLE_BASKET_MONEY(frame,"sell")
-	RECYCLE_CREATE_SELL_LIST()
+	RECYCLE_CREATE_SELL_LIST();
 end
 
-function RECYCLE_SHOW_TO_ITEM()
+function RECYCLE_SHOW_TO_ITEM(parent, ctrl, str, num)
+	if ctrl ~= nil then
+	ctrl:SetSkinName("baseyellow_btn");
+	local rcycle_group1 = GET_CHILD_RECURSIVELY(parent,"rcycle_group1");	
+	rcycle_group1:SetSkinName("base_btn");
+	end
 
 	local frame = ui.GetFrame('tpitem')
 	local rcycle_basketbuyslotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset");
@@ -211,14 +221,46 @@ function RECYCLE_DRAW_ITEM_DETAIL(obj, itemobj, itemcset, type, itemguid)
 		buyBtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
 		buyBtn:ShowWindow(1)
 		sellBtn:ShowWindow(0)
-		local clstype = TryGetProp(itemobj, "ClassType");	
-		if clstype == "Hat" then
-			previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);		
-			previewbtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
-			previewbtn:ShowWindow(1);
-		else
-			previewbtn:ShowWindow(0);
+		previewbtn:ShowWindow(0);
+
+		local previewable = false
+		if IS_EQUIP(itemobj) == true then
+			previewable = true
+
+			local lv = GETMYPCLEVEL();
+			local job = GETMYPCJOB();
+			local gender = GETMYPCGENDER();
+			local prop = geItemTable.GetProp(itemclsID);
+			local result = prop:CheckEquip(lv, job, gender);
+
+			if result ~= "OK" then
+				previewable = false
+			end	
+			local pc = GetMyPCObject();
+			if pc == nil then
+				return;
+			end
+		
+			local useGender = TryGetProp(itemobj,'UseGender')
+
+			if useGender =="Male" and pc.Gender ~= 1 then
+				previewable = false
+			end
+
+			if useGender =="Female" and pc.Gender ~= 2 then
+				previewable = false
+			end
 		end
+		if previewable == true then
+
+			local clstype = TryGetProp(itemobj, "ClassType");	
+			if clstype == "Hat" or clstype == "Outer" then
+				previewbtn:SetEventScriptArgNumber(ui.LBUTTONUP, tpitem_clsID);		
+				previewbtn:SetEventScriptArgString(ui.LBUTTONUP, tpitem_clsName);
+				previewbtn:ShowWindow(1);
+			end
+		end
+		
 	else
 		buyBtn:ShowWindow(0)
 		sellBtn:ShowWindow(1)
@@ -309,6 +351,10 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)
 		return;
 	end
 
+	if addcnt > invItem.count then
+		addcnt = invItem.count;
+	end
+
 	local itemobj = GetClassByType("Item", invItem.type)
 
 	if itemobj == nil then
@@ -364,11 +410,11 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)
 					return;
 				end
 			else
-			if alreadyguid == itemguid then
-				ui.MsgBox(ScpArgMsg("CanNotSellDuplicateItem"))
-				return;
+				if alreadyguid == itemguid then
+					ui.MsgBox(ScpArgMsg("CanNotSellDuplicateItem"))
+					return;
+				end
 			end
-		end
 
 			
 		end
@@ -387,6 +433,9 @@ function TPSHOP_ITEM_TO_RECYCLE_SELL_BASKET(itemguid, addcnt)
 			slot:SetUserValue("TPITEMNAME", obj.ClassName);
 			slot:SetUserValue("SELLITEMGUID", itemguid);
 			slot:SetUserValue("COUNT", tostring(addcnt));
+			if addcnt > 1 then
+				slot:SetText("{s20}{b}{ol}"..tostring(addcnt), 'count', 'right', 'bottom', -2, 1);
+			end
 
 			SET_SLOT_IMG(slot, GET_ITEM_ICON_IMAGE(itemobj));
 			local icon = slot:GetIcon();
@@ -422,7 +471,7 @@ function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET_PREPROCESSOR(parent, control, tpitemn
 	end
 
 	local allowDup = TryGetProp(item,'AllowDuplicate')
-	
+
 	local isHave = false;
 				
 	if allowDup == "NO" then
@@ -438,7 +487,7 @@ function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET_PREPROCESSOR(parent, control, tpitemn
 	end
 	
 	if isHave == true then
-		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_RECYCLE_BASKET('%s', %d)", tpitemname, classid), "None");
+		ui.MsgBox(ClMsg("AlearyHaveItemReallyBuy?"), string.format("TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET('%s', %d)", tpitemname, classid), "None");
 	else
 		TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET(tpitemname, classid)
 	end
@@ -491,6 +540,8 @@ function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET(tpitemname, classid)
 	local slotset = GET_CHILD_RECURSIVELY(frame,"rcycle_basketbuyslotset")
 	local slotCount = slotset:GetSlotCount();
 
+	-- 기획 변경되어서 중복 구매 가능토록 한다 -by 김창운, 161025.
+	--[[
 	local nodupliItems = {}
 	nodupliItems[tpitemname] = true;
 
@@ -522,7 +573,7 @@ function TPSHOP_ITEM_TO_RECYCLE_BUY_BASKET(tpitemname, classid)
 
 		end
 	end
-
+	]]
 
 	for i = 0, slotCount - 1 do
 		local slotIcon	= slotset:GetIconByIndex(i);
@@ -597,7 +648,7 @@ function UPDATE_RECYCLE_BASKET_MONEY(frame, type) -- buy? sell?
 			local slot  = slotset:GetSlotByIndex(i);
 			local classname = slot:GetUserValue("TPITEMNAME");
 			local alreadyItem = GetClass("recycle_shop",classname)
-
+			
 			if alreadyItem ~= nil then
 
 				if type == "buy" then
@@ -660,8 +711,12 @@ function TPSHOP_ITEM_RECYCLE_PREVIEW_PREPROCESSOR(parent, control, tpitemname, t
 		return;
 	end
 	
-	-- 무조�??�어 ?�세?�고 가??
-	TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);
+	-- 급한대로 코스튬과 헤어악세만 지원 중. 미리보기 여부를 TpItem에 의존하는 구조를 바꿔야 함
+	if itemobj.ClassType == "Outer" then
+		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset0"), 1, tpitemname, itemobj);
+	elseif itemobj.ClassType == "Hat" then
+		TPSHOP_PREVIEWSLOT_EQUIP(frame, GET_CHILD_RECURSIVELY(frame,"previewslotset1"), 0, tpitemname, itemobj);
+	end
 end
 
 function TPSHOP_RECYCLE_ITEM_BASKET_BUY(parent, control)
@@ -816,3 +871,4 @@ function EXEC_SELL_RECYCLE_ITEM()
 	frame:ShowWindow(0);
 	TPITEM_CLOSE(frame);
 end
+

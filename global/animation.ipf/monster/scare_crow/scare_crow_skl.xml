@@ -1,6 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_katynforest_zombie_02_knockdown"/>
-    <Sound frame="5.00" soundFile="mon_katynforest_zombie_01_atk1_shot"/>
-    <Sound frame="6.00" soundFile="mon_katynforest_zombie_03_atk2_shot"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="I_swordtrail017_yellow" useAttach="ture" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="I_swordtrail017_yellow" useAttach="ture" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="5" attachNode="Dummy001" particleName="I_swordtrail017_yellow" useAttach="ture" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy002" particleName="I_swordtrail015_orange_3" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Particle frame="10" attachNode="Dummy002" particleName="I_swordtrail015_orange_3" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1.1" pause="true" use2DEffect="false" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_katynforest_zombie_02_knockdown"/>
+	<Sound frame="5.00" soundFile="mon_katynforest_zombie_01_atk1_shot"/>
+	<Sound frame="6.00" soundFile="mon_katynforest_zombie_03_atk2_shot"/>
 </ActionDesc>

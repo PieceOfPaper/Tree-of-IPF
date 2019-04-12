@@ -81,6 +81,17 @@ float4 PS_GEGlow(in float2 Tex : TEXCOORD0) : COLOR
 	return float4(srcColor, 1.0f);
 }
 
+float4 PS_Glow(in float2 Tex : TEXCOORD0) : COLOR
+{
+	float4 srcColor = tex2D(targetTex, Tex.xy);
+
+#ifdef ENABLE_GE_GLOW
+	srcColor.xyz += tex2D(blurTex, Tex.xy) * 2.f;
+#endif
+
+	return srcColor;
+}
+
 technique GEGlowTq
 {
     pass P0
@@ -88,6 +99,16 @@ technique GEGlowTq
 		SRGBWRITEENABLE = TRUE;
         PixelShader = compile ps_3_0 PS_GEGlow();
     }
+}
+
+technique GlowTq
+{
+	pass P0
+	{
+		AlphaBlendEnable = true;
+		SRGBWRITEENABLE = TRUE;
+		PixelShader = compile ps_3_0 PS_Glow();
+	}
 }
 
 #endif //__IMCGEGLOW_FX__

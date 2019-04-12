@@ -4,10 +4,10 @@ function EQUIP_CARDSLOT_INFO_INIT(addon, frame)
 	frame:SetUserValue("REMOVE_CARD_IESID", 0);
 end
 
--- Ã¼Å©¹Ú½ºÃ³·³¿­·ÁÀÖ´Ù¸é ´Ý°í ´Ý¾ÆÀÖ´Ù¸é ¿­¸®°Ô. 
+-- Ã¼Å©ï¿½Ú½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½Ý°ï¿½ ï¿½Ý¾ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½. 
 function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 
-	-- ¹öÆ°ÀÌ ¾Æ´Ñ ÅØ½ºÆ®¸¦ ´©¸¦¶§°¡ ÀÖÀ½À¸·Î »óÀ§ ÇÁ·¹ÀÓÀÎ ÀÎº¥À» ±âÁØÀ¸·Î ÇÔ.
+	-- ï¿½ï¿½Æ°ï¿½ï¿½ ï¿½Æ´ï¿½ ï¿½Ø½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½.
 	local frame	= ctrl:GetTopParentFrame();
 	local isOpen = frame:GetUserIValue("MONCARDLIST_OPENED");	
 
@@ -22,7 +22,8 @@ function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 	local monCardBtn_text = monCardBtn:GetChild('moncard_btn_text');
 	
 	local invGbox = frame:GetChild('inventoryGbox');
-	local tree_box = GET_CHILD_RECURSIVELY(invGbox, 'treeGbox');
+	local tree_box = GET_CHILD_RECURSIVELY(invGbox, 'treeGbox_Item');
+	local tree_box_E = GET_CHILD_RECURSIVELY(invGbox, 'treeGbox_Equip');
 
 	local offsetY = moncardGbox:GetHeight();
 	local invGboxOriX = invGbox:GetOriginalX();
@@ -31,26 +32,37 @@ function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 	local invGboxH = invGbox:GetHeight();
 	local tree_boxW = tree_box:GetWidth();
 	local tree_boxH = tree_box:GetHeight();
+	local tree_boxW_E = tree_box_E:GetWidth();
+	local tree_boxH_E = tree_box_E:GetHeight();
 	
+	local searchGbox = invGbox:GetChild('searchGbox');	
+
 	if isOpen == 0 then					
-	-- Ä«µå½½·ÔÀÌ ´ÝÇôÀÖ´Ù¸é ¿­¸®°Ô ÇÑ´Ù. ÀÎº¥ ±×·ì ¹Ú½º´Â ¾Æ·¡·Î ³»¸®°í ÀÛ°Ô.
+	-- Ä«ï¿½å½½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½. ï¿½Îºï¿½ ï¿½×·ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Æ·ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Û°ï¿½.
 		invGbox:Resize(invGboxOriX, invGboxOriY + offsetY, invGboxW, invGboxH - offsetY);
+		tree_box_E:Resize(tree_boxW_E, tree_boxH_E - offsetY);
+		tree_box_E:SetScrollBar(tree_boxH_E - offsetY);
 		tree_box:Resize(tree_boxW, tree_boxH - offsetY);
 		tree_box:SetScrollBar(tree_boxH - offsetY);
-		monCardBtn:SetPos(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY() + offsetY);
-		
-		-- Ä«µå½½·ÔÀ» °¹¼ö¿¡ ¸ÂÃç ¸¸µé¾î ÁØ´Ù.
+		monCardBtn:SetOffset(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY() + offsetY);
+		searchGbox:Invalidate();
+		invGbox:Invalidate();
+		-- Ä«ï¿½å½½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ø´ï¿½.
 		CARD_SLOT_CREATE(moncardGbox); 
 
 		isOpen = 1;
 		moncardGbox:ShowWindow(isOpen);
 		arrowImgText = "moncard_inven_down";
 	else								
-	-- Ä«µå½½·ÔÀÌ ¿­·ÁÀÖ´Ù¸é ´ÝÈ÷°Ô ÇÑ´Ù. ÀÎº¥ ±×·ì ¹Ú½º´Â ¿ø·¡ Å©±â·Î µÇµ¹¸®±â.
+	-- Ä«ï¿½å½½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ö´Ù¸ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ñ´ï¿½. ï¿½Îºï¿½ ï¿½×·ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Å©ï¿½ï¿½ï¿½ ï¿½Çµï¿½ï¿½ï¿½ï¿½ï¿½.
 		invGbox:Resize(invGboxOriX, invGboxOriY, invGboxW, invGboxH + offsetY);
+		tree_box_E:Resize(tree_boxW_E, tree_boxH_E + offsetY);
+		tree_box_E:SetScrollBar(tree_boxH_E + offsetY);
 		tree_box:Resize(tree_boxW, tree_boxH + offsetY);
 		tree_box:SetScrollBar(tree_boxH + offsetY);
-		monCardBtn:SetPos(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY());
+		monCardBtn:SetOffset(monCardBtn:GetOriginalX(), monCardBtn:GetOriginalY());
+		searchGbox:Invalidate();
+		invGbox:Invalidate();
 		
 		isOpen = 0;
 		moncardGbox:ShowWindow(isOpen);
@@ -62,27 +74,27 @@ function CHECK_BTN_OPNE_CARDINVEN(ctrl)
 
 end;
 
--- ÀÎº¥Åä¸®ÀÇ Ä«µå ½½·Ô »ý¼º ºÎºÐ
+-- ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Îºï¿½
 function CARD_SLOT_CREATE(frame)
 	local card_slotset = GET_CHILD(frame, "card_slotset");
 	if card_slotset ~= nil then
 		local gradeRank = session.GetPcTotalJobGrade();
-		-- Ä«µå ½½·Ô Á¦ÇÑ 7·©Å©·Î µÒ. È®Àå½Ã ÀÌ¸¦ ¹Ù²ãÁÖ¸é ‰Î.
+		-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 7ï¿½ï¿½Å©ï¿½ï¿½ ï¿½ï¿½. È®ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½Ù²ï¿½ï¿½Ö¸ï¿½ ï¿½ï¿½.
 		if gradeRank >= JOB_CHANGE_MAX_RANK then
 			gradeRank = JOB_CHANGE_MAX_RANK;
 		end
-		card_slotset:RemoveAllChild();			-- ¸¸µé±â Àü¿¡ Àü¿¡ ÀÖ´ø°Å´Â »èÁ¦.
-		card_slotset:SetColRow(gradeRank, 1);	-- Á÷¾÷ ·©Å© ÇÕ¿¡ µû¶ó Ä«µå ½½·Ô ¼ö °áÁ¤
+		card_slotset:RemoveAllChild();			-- ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ö´ï¿½ï¿½Å´ï¿½ ï¿½ï¿½ï¿½ï¿½.
+		card_slotset:SetColRow(gradeRank, 1);	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å© ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		card_slotset:CreateSlots();
 
-		for i = 0, gradeRank - 1 do				-- ½½·ÔÀº ¿ÞÂÊºÎÅÍ ¼ø¼­´ë·Î °áÁ¤		
+		for i = 0, gradeRank - 1 do				-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Êºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½		
 			local cardID, cardLv, cardExp = GETMYCARD_INFO(i);			
 			CARD_SLOT_SET(card_slotset, i, cardID, cardLv, cardExp);
 		end;
 	end;
 end;
 
--- Ä«µå¸¦ Ä«µå ½½·Ô¿¡ ¼³Á¤½ÃÅ°´Â ÇÔ¼ö
+-- Ä«ï¿½å¸¦ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½Ô¼ï¿½
 function CARD_SLOT_SET(ctrlSet, slotIndex, itemClsId, itemLv, itemExp)
 	local cls = nil ;
 	local cardID = tonumber(itemClsId);
@@ -106,7 +118,7 @@ function CARD_SLOT_SET(ctrlSet, slotIndex, itemClsId, itemLv, itemExp)
 	
 	local icon = slot:GetIcon();				
 	if icon == nil then		
-		-- iconÀÌ ¾ø´Ù´Â °Ç ¾ÆÁ÷ ÀåÂøµÇÁö ¾Ê¾Ò´Ù´Â ¸».
+		-- iconï¿½ï¿½ ï¿½ï¿½ï¿½Ù´ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ê¾Ò´Ù´ï¿½ ï¿½ï¿½.
 		icon = CreateIcon(slot);
 	end;	
 	if cls ~= nil then		
@@ -117,13 +129,13 @@ function CARD_SLOT_SET(ctrlSet, slotIndex, itemClsId, itemLv, itemExp)
 		end;
 	end;
 	
-	-- ÅøÆÁ »ý¼º (Ä«µå ¾ÆÀÌÅÛÀº IES°¡ »ç¶óÁö±â ¶§¹®¿¡ ¶È°°ÀÌ »ý±ä ÅøÆÁÀ» µû·Î ¸¸µé¾î¼­ Àû¿ë)
+	-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ (Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ IESï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½È°ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½î¼­ ï¿½ï¿½ï¿½ï¿½)
 	slot:SetEventScript(ui.MOUSEMOVE, "EQUIP_CARDSLOT_INFO_TOOLTIP_OPEN");
 	slot:SetEventScriptArgNumber(ui.MOUSEMOVE, slotIndex);		
 	slot:SetEventScript(ui.LOST_FOCUS, "EQUIP_CARDSLOT_INFO_TOOLTIP_CLOSE");
 end;
 
--- ÀÎº¥Åä¸®ÀÇ Ä«µå ½½·Ô ¿À¸¥ÂÊ Å¬¸¯½Ã Á¤º¸Ã¢¿ÀÇÂ °úÁ¤½ÃÀÛ ½ºÅ©¸³Æ®
+-- ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Å¬ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Å©ï¿½ï¿½Æ®
 function CARD_SLOT_RBTNUP_ITEM_INFO(frame, slot, argStr, argNum)
 	local icon = slot:GetIcon();		
 	if icon == nil then		
@@ -133,7 +145,7 @@ function CARD_SLOT_RBTNUP_ITEM_INFO(frame, slot, argStr, argNum)
 	EQUIP_CARDSLOT_INFO_OPEN(slot:GetSlotIndex());
 end
 
--- Ä«µå ½½·Ô Á¤º¸Ã¢ ¿­±â
+-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½ï¿½ï¿½
 function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 	local frame = ui.GetFrame('equip_cardslot_info');
 	
@@ -147,21 +159,21 @@ function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 		return;
 	end
 	
-	-- Ä«µå ½½·Ô Á¦°ÅÇÏ±â À§ÇÔ
+	-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½
 	frame:SetUserValue("REMOVE_CARD_SLOTINDEX", slotIndex);
 
 	local inven = ui.GetFrame("inventory");
 	local cls = GetClassByType("Item", cardID);
 
-	-- ¾È³»¸Þ¼¼Áö¿¡ ÀÌ¸§ Àû¿ë
+	-- ï¿½È³ï¿½ï¿½Þ¼ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ì¸ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local infoMsg = GET_CHILD(frame, "infoMsg");
 	infoMsg:SetTextByKey("Name", cls.Name);
 
-	-- Ä«µå ÀÌ¹ÌÁö Àû¿ë
+	-- Ä«ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local card_img = GET_CHILD(frame, "card_img");
 	card_img:SetImage(cls.TooltipImage);	
 		
-	local multiValue = 64;	-- ²Ë Âù Ä«µå ÀÌ¹ÌÁö¸¦ ÇÏ°í ½Í´Ù¸é 90 À¸·Î. (´Ü, Ä«µå·¹º§ ÇÏ¶ô Á¤º¸°¡ Àß ¾Èº¸ÀÏ ¼ö ÀÖÀ½.)
+	local multiValue = 64;	-- ï¿½ï¿½ ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½Ì¹ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ï°ï¿½ ï¿½Í´Ù¸ï¿½ 90 ï¿½ï¿½ï¿½ï¿½. (ï¿½ï¿½, Ä«ï¿½å·¹ï¿½ï¿½ ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½Èºï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.)
 	local star_bg = GET_CHILD(frame, "star_bg");
 	local cardStar_Before = GET_CHILD(star_bg, "cardStar_Before");
 	local cardStar_After = GET_CHILD(star_bg, "cardStar_After");
@@ -174,39 +186,36 @@ function EQUIP_CARDSLOT_INFO_OPEN(slotIndex)
 		downArrow:SetVisible(0);
 	else
 		cardStar_Before:SetTextByKey("value", GET_STAR_TXT(imgSize, cardLv, obj));
-		cardStar_After:SetTextByKey("value", GET_STAR_TXT(imgSize, cardLv - 1, obj));	-- Ä«µå Á¦°Å½Ã º° ÇÏ³ª ÁÙ¾îµé°Ô ¼³Á¤.
+		cardStar_After:SetTextByKey("value", GET_STAR_TXT(imgSize, cardLv - 1, obj));	-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Å½ï¿½ ï¿½ï¿½ ï¿½Ï³ï¿½ ï¿½Ù¾ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 		cardStar_Before:SetVisible(1);
 		downArrow:SetVisible(1);
 	end;
 
-	-- Ä«µå Å©±â º¯È¯. 
+	-- Ä«ï¿½ï¿½ Å©ï¿½ï¿½ ï¿½ï¿½È¯. 
 	card_img:Resize(3 * multiValue, 4 * multiValue);
 
-	-- Á¦°ÅµÇ´Â È¿°ú Ç¥½ÃÇÏ´Â °÷. 
-	local removedEffect =  string.format("%s",cls.Desc);	
-	removedEffect = string.gsub(removedEffect, "%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}.+", "%1");
-	removedEffect = string.gsub(removedEffect, "%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}.+", "%1");
-	removedEffect = string.gsub(removedEffect, "%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}.+", "%1");
-	removedEffect = string.gsub(removedEffect, "%[..+%]%s(..+){nl}%[..+%]%s(..+){nl}.+", "%1");
-	removedEffect = string.gsub(removedEffect, "%[..+%]%s(..+){nl}.+", "%1");
-	removedEffect = string.gsub(removedEffect, "%[..+%]%s(..+)", "%1");
+	-- ï¿½ï¿½ï¿½ÅµÇ´ï¿½ È¿ï¿½ï¿½ Ç¥ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½ï¿½. 
+	local removedEffect =  string.format("%s{/}", cls.Desc);	
+	if cls.Desc == "None" then
+		removedEffect = "{/}";
+	end
 	local bg = GET_CHILD(frame, "bg");
 	local effect_info = GET_CHILD(bg, "effect_info");
 	effect_info:SetTextByKey("RemovedEffect", removedEffect);
 	
-	-- Á¤º¸Ã¢ À§Ä¡¸¦ ÀÎº¥ ¿·À¸·Î ºÙÈû.
+	-- ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½ï¿½Ä¡ï¿½ï¿½ ï¿½Îºï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½.
 	frame:SetOffset(inven:GetX() - frame:GetWidth(), frame:GetY());
 
 	frame:ShowWindow(1);	
 end
 
--- Ä«µå ½½·Ô Á¤º¸Ã¢ ´Ý±â
+-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¢ ï¿½Ý±ï¿½
 function EQUIP_CARDSLOT_BTN_CANCLE()
 	local frame = ui.GetFrame('equip_cardslot_info');	
 	frame:ShowWindow(0);
 end
 
--- ¸ó½ºÅÍ Ä«µå¸¦ ÀÎº¥Åä¸®ÀÇ Ä«µå ½½·Ô¿¡ µå·¹±×µå·ÓÀ¸·Î ÀåÂøÇÏ·Á ÇÒ °æ¿ì.
+-- ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½å·¹ï¿½×µï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½.
 function CARD_SLOT_DROP(frame, slot, argStr, argNum)
 	local liftIcon 				= ui.GetLiftIcon();
 	local FromFrame 			= liftIcon:GetTopParentFrame();
@@ -221,7 +230,7 @@ function CARD_SLOT_DROP(frame, slot, argStr, argNum)
 	end
 end;
 
--- ¸ó½ºÅÍ Ä«µå¸¦ ÀÎº¥Åä¸®ÀÇ Ä«µå ½½·Ô¿¡ ÀåÂø ¿äÃ»ÇÏ±â Àü¿¡ ¸Þ¼¼Áö ¹Ú½º·Î ÇÑ¹ø ´õ È®ÀÎ
+-- ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»ï¿½Ï±ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Þ¼ï¿½ï¿½ï¿½ ï¿½Ú½ï¿½ï¿½ï¿½ ï¿½Ñ¹ï¿½ ï¿½ï¿½ È®ï¿½ï¿½
 function CARD_SLOT_EQUIP(slot, item)
 	local obj = GetIES(item:GetObject());
 	if obj.GroupName == "Card" then			
@@ -237,7 +246,7 @@ function CARD_SLOT_EQUIP(slot, item)
 	return 0;
 end
 
--- ¸ó½ºÅÍ Ä«µå ÀåÂø ¿äÃ»
+-- ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 function REQUEST_EQUIP_CARD_TX()
 	local invFrame = ui.GetFrame("inventory");	
 	local itemGuid = invFrame:GetUserValue("EQUIP_CARD_GUID");
@@ -248,14 +257,14 @@ function REQUEST_EQUIP_CARD_TX()
 	invFrame:SetUserValue("EQUIP_CARD_SLOTINDEX", "");	
 end
 
--- ¸ó½ºÅÍ Ä«µå ÀåÂø ¿äÃ» »çÀüÃë¼Ò
+-- ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 function REQUEST_EQUIP_CARD_CANCLE()
 	local invFrame = ui.GetFrame("inventory");	
 	invFrame:SetUserValue("EQUIP_CARD_GUID", "");
 	invFrame:SetUserValue("EQUIP_CARD_SLOTINDEX", "");	
 end
 
--- ¸ó½ºÅÍ Ä«µå¸¦ ÀÎº¥Åä¸®ÀÇ Ä«µå ½½·Ô¿¡ ÀåÂø µ¿ÀÛ
+-- ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½å¸¦ ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½Ô¿ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 function _CARD_SLOT_EQUIP(slotIndex, itemClsId, itemLv, itemExp)
 	local invFrame    = ui.GetFrame("inventory");	
 	local moncardGbox = invFrame:GetChild('moncardGbox');
@@ -270,16 +279,16 @@ function _CARD_SLOT_EQUIP(slotIndex, itemClsId, itemLv, itemExp)
 	invFrame:SetUserValue("EQUIP_CARD_SLOTINDEX", "");	
 end;
 
--- Ä«µå ½½·ÔÀÇ Ä«µå Á¦°Å ¿äÃ»
+-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½Ã»
 function EQUIP_CARDSLOT_BTN_REMOVE(frame, ctrl)
 	local inven = ui.GetFrame("inventory");
 	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
 
-	argStr = argStr .. " 0" -- 0: Ä«µå ·¹º§ ¶³¾îÁö¸é¼­ Á¦°Å
+	argStr = argStr .. " 0" -- 0: Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é¼­ ï¿½ï¿½ï¿½ï¿½
 	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
 end;
 
--- ÀÎº¥Åä¸®ÀÇ Ä«µå ½½·Ô Á¦°Å µ¿ÀÛ
+-- ï¿½Îºï¿½ï¿½ä¸®ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 function _CARD_SLOT_REMOVE(slotIndex)
 	local frame = ui.GetFrame('inventory');
 	local gBox = GET_CHILD(frame, "moncardGbox");	
@@ -295,7 +304,7 @@ function _CARD_SLOT_REMOVE(slotIndex)
 	cardFrame:ShowWindow(0);
 end;
 
--- Ä«µå Á¤º¸ ¾ò´Â ÇÔ¼ö
+-- Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Ô¼ï¿½
 function GETMYCARD_INFO(slotIndex)	
 	local myPCetc = GetMyEtcObject();
 	local cardID = myPCetc[string.format("EquipCardID_Slot%d", slotIndex + 1)];
@@ -304,11 +313,11 @@ function GETMYCARD_INFO(slotIndex)
 	return cardID, cardLv, cardExp;
 end
 
--- ´Ü°è º¸È£ÇÏ°í, Ä«µå ½½·ÔÀÇ Ä«µå Á¦°Å
+-- ï¿½Ü°ï¿½ ï¿½ï¿½È£ï¿½Ï°ï¿½, Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 function EQUIP_CARDSLOT_BTN_REMOVE_WITHOUT_EFFECT(frame, ctrl)
 	local inven = ui.GetFrame("inventory");
 	local argStr = string.format("%d", frame:GetUserIValue("REMOVE_CARD_SLOTINDEX"));
 
-	argStr = argStr .. " 1" -- 1À» arg list·Î ³Ñ±â¸é 5tp ¼Ò¸ðÈÄ Ä«µå ·¹º§ ÇÏ¶ô ¾ÈÇÔ
+	argStr = argStr .. " 1" -- 1ï¿½ï¿½ arg listï¿½ï¿½ ï¿½Ñ±ï¿½ï¿½ 5tp ï¿½Ò¸ï¿½ï¿½ï¿½ Ä«ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½Ï¶ï¿½ ï¿½ï¿½ï¿½ï¿½
 	pc.ReqExecuteTx_NumArgs("SCR_TX_UNEQUIP_CARD_SLOT", argStr);
 end;

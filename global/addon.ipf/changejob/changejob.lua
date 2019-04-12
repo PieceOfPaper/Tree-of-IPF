@@ -194,7 +194,7 @@ function CJ_UPDATE_RIGHT_INFOMATION(frame, jobid, infotype, nowcircle)
 
 	local jobclassname_richtext = GET_CHILD(groupbox_infotext, "className", "ui::CRichText");
 	--jobclassname_richtext:SetText(jobinfo.Name);
-	jobclassname_richtext:SetTextByKey("param_name", jobinfo.Name);
+	jobclassname_richtext:SetTextByKey("param_name", GET_JOB_NAME(jobinfo));
 
 
 	local jobclasscircle_richtext = GET_CHILD(groupbox_infotext, "classCircle", "ui::CRichText");
@@ -704,7 +704,7 @@ function UPDATE_CHANGEJOB(frame)
 
 			
 			local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname", "ui::CRichText");
-			local jobName = jobinfoclass.Name
+			local jobName = GET_JOB_NAME(jobinfoclass);
 
 			jobnameCtrl:SetTextByKey("param_jobcname", jobName);
 
@@ -760,7 +760,7 @@ function UPDATE_CHANGEJOB(frame)
 			local button = GET_CHILD(subClassCtrl, "button", "ui::CButton");
 
 			local jobnameCtrl = GET_CHILD(subClassCtrl, "jobname", "ui::CRichText");
-			local jobName = jobinfoclass.Name
+			local jobName = GET_JOB_NAME(jobinfoclass);
 
 			jobnameCtrl:SetTextByKey("param_jobcname", jobName);
 

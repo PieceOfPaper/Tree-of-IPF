@@ -13,7 +13,7 @@ function TARGETSPACE_ON_MSG(frame, msg, argStr, argNum)
 	end
 end
 
-function TARGETSPACE_SET(frame, type)		
+function TARGETSPACE_SET(frame, type)
 	if type == nil then
 		type = 0;
 	end
@@ -24,7 +24,7 @@ function TARGETSPACE_SET(frame, type)
 		return;
 	end
 
-	if TARGETSPACE_PRECHECK(handle) == 0 and (COMPANION_SPACE_PRECHECK(handle, targetinfo.companionName) == 0 or targetinfo.isMyCompanion == false) then 
+	if TARGETSPACE_PRECHECK(handle) == 0 then
 		frame:ShowWindow(0);
 		return;
 	end
@@ -57,7 +57,7 @@ function TARGETSPACE_SET(frame, type)
 			spaceObj:ShowWindow(0);
 			LbtnObj:ShowWindow(1);
 			joyBbtn:ShowWindow(0);
-		elseif type == 0 then -- ÏûêÎèôÎ™®Îìú
+		elseif type == 0 then -- ¿⁄µø∏µÂ
 			if IsJoyStickMode() == 1 then
 				spaceObj:ShowWindow(0);
 				LbtnObj:ShowWindow(0);
@@ -82,7 +82,7 @@ function TARGETSPACE_CLEAR(frame)
 	end
 end
 
-function COMPANION_SPACE_PRECHECK(handle, className)	
+function COMPANION_SPACE_PRECHECK(handle, className)
 	local cls = GetClass("Companion", className);
 	if nil == cls then
 		return 0;
@@ -99,7 +99,7 @@ function COMPANION_SPACE_PRECHECK(handle, className)
 	return 0;
 end
 
-function TARGETSPACE_PRECHECK(handle)	
+function TARGETSPACE_PRECHECK(handle)
 	local pc = GetMyPCObject();
 	local dlgInfo = info.GetDialogInfo(handle)
 	local dialog = dlgInfo:GetDialog()

@@ -642,9 +642,23 @@ function SETEXP_SLOT(gbox)
 	local index = 0;
 	local percSum = 0;
 	
+	--[[
+	if IS_SEASON_SERVER(nil) == "YES" then
+		local cls1 = GetClass("SharedConst","JAEDDURY_MON_EXP_RATE");
+		local val1 = cls1.Value;
+	if val1 ~= nil then
+	if val1 > 0.0 then
+		local class  = GetClassByType('Buff', 4540);	
+		percSum = SETSLOTCTRL_EXP(class, class.Icon, expupBuffBox, index, percSum, val1 * 100);
+		index = index + 1;
+		end
+	end
+	end
+	]]--
+
 	if 1 == session.loginInfo.GetPremiumState() then	
-	local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
-local val2 = cls2.Value;	
+		local cls2 = GetClass("SharedConst","JAEDDURY_NEXON_PC_EXP_RATE");
+		local val2 = cls2.Value;	
 		if val2 ~= nil then
 	if val2 > 0.0 then
 		local class  = GetClassByType('Buff', 4541);	
@@ -653,7 +667,40 @@ local val2 = cls2.Value;
 			end
 	end
 	end
-
+	
+		--[[
+	--일반 파티 경험치 계산
+	local retParty = false;
+	local partyMember, addValue1 =	GET_ONLINE_PARTY_MEMBER_N_ADDEXP();	
+	SWITCH(math.floor(partyMember)) {				
+		[0] = function() end,
+		[1] = function() end,	
+		[4] = function() -- 4인 260 -> 280
+			local addValue2 = 0;
+			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FOUR");
+			local val = cls.Value;	
+			if val ~= nil then
+				addValue2 = val;
+			end	
+			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
+		end,
+		[5] = function() -- 5인 300 -> 350
+			local addValue2 = 0;
+			local cls = GetClass("SharedConst","PARTY_EXP_BONUS_MEMBER_COUNT_FIVE");
+			local val = cls.Value;	
+			if val ~= nil then
+				addValue2 = val;
+			end	
+			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue2 + addValue1, index, percSum);
+		end,
+		default = function() --		1인 100. 2인 180, 3인 220
+			retParty, percSum = SETEXP_SLOT_PARTY(expupBuffBox, addValue1, index, percSum);
+		end,
+		}	
+	if retParty == true then
+		index = index + 1;
+	end
+	]]--
 	if slotcount ~= nil and slotcount >= 0 then
     	for i = 0, slotcount - 1 do
     		local slot		= slotlist[i];
@@ -668,9 +715,6 @@ local val2 = cls2.Value;
 						exp = 0;
 					else
 						exp = tonumber(exp);
-						if config.GetServiceNation() == 'GLOBAL' and class.ClassName == 'Premium_Token' then 
-							exp = exp + 0.1;
-						end;						
 					end
 
 					if exp > 0.0 then
@@ -689,6 +733,18 @@ local val2 = cls2.Value;
 									end
 								end	
 						end,
+						--[[
+						['PartyIndunExpBuff'] = function() 
+										local cls = GetClass("SharedConst","INDUN_AUTO_FIND_EXP_BONUS");
+										local val = cls.Value;
+										if val > 0.0 then
+											if partyMember > 1 then
+												percSum = SETSLOTCTRL_EXP(class, "cler_daino", expupBuffBox, index, percSum, val * 100);
+										index = index + 1;
+											end
+										end
+						end,
+						]]--
 						default = function() end,
 						}	
 					end
@@ -765,7 +821,10 @@ function STATUS_INFO()
 
     local lv = info.GetLevel(session.GetMyHandle());
     local job = info.GetJob(session.GetMyHandle());
-	local jName = GetClassString('Job', job, 'Name');
+    local gender = info.GetGender(session.GetMyHandle());
+    local jobCls = GetClassByType("Job", job);
+	local jName = GET_JOB_NAME(jobCls, gender);	
+	
 	local lvText = jName;
 
 	NameObj:SetText('{@st53}'..CharName)
@@ -884,6 +943,10 @@ function STATUS_INFO()
 	if returnY ~= y then
 		y = returnY + 3;
 	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Soul_Atk", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "Earth_Atk", y);
 	if returnY ~= y then
 		y = returnY + 3;
@@ -911,7 +974,15 @@ function STATUS_INFO()
 	if returnY ~= y then
 		y = returnY + 3;
 	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResSoul", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
 	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResEarth", y);
+	if returnY ~= y then
+		y = returnY + 3;
+	end
+	returnY = STATUS_ATTRIBUTE_VALUE_NEW(pc, opc, frame, gboxctrl, "ResSoul", y);
 	if returnY ~= y then
 		y = returnY + 3;
 	end
@@ -1007,6 +1078,7 @@ function STATUS_INFO()
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResFire");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResIce");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResLightning");
+	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResSoul");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResPoison");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResHoly");
 	STATUS_ATTRIBUTE_VALUE(pc, opc, frame, gboxctrl, "ResDark");
@@ -1780,6 +1852,10 @@ function GET_HAIRCOLOR_IMGNAME_BY_ENGNAME(engname)
 	
 	if engname == 'purple' then
 		return "purple_color"
+	end
+	
+	if engname == 'orange' then
+		return "orange_color"
 	end
 	return "basic_color"
 

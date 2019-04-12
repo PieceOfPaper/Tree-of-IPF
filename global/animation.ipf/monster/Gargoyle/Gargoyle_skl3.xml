@@ -1,6 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by mondu (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by IMCGames Co., Ltd (IMCGames Co., Ltd) -->
 <ActionDesc>
+	<Particle frame="0" attachNode="Bip001 Spine1" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="20" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="40" attachNode="Bip001 Spine1" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="60" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="80" attachNode="Bip001 Spine1" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="69" attachNode="Bip001 Spine1" particleName="F_spread_out026_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_special_cast_3"/>
+	<Particle frame="100" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="100" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="120" attachNode="Bip001 Spine1" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="138" attachNode="Bip001 Spine1" particleName="F_spread_out026_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_special_cast_3"/>
+	<Particle frame="140" attachNode="Bip001 R Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="140" attachNode="Bip001 L Finger2" particleName="I_cleric_hexing_cast_dark" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="211" attachNode="Bip001 Spine1" particleName="F_spread_out026_blue" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false" sound="skl_eff_special_cast_3"/>
+	<Particle frame="160" attachNode="Bip001 Spine1" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="180" attachNode="Bip001 Spine1" particleName="I_smoke013_dark5_green" useAttach="true" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="false" targetPos="false"/>
 	<Sound frame="0.00" soundFile="skl_eff_atk_move_l_12"/>
 	<Sound frame="15.00" soundFile="mon_voice5_l_cast_4"/>
 	<Sound frame="15.00" soundFile="skl_eff_atk_move_l_3"/>

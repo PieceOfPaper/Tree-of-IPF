@@ -1,6 +1,9 @@
 -- lib_slotlist.lua --
 
 function APPLY_TO_ALL_ITEM_SLOT(slotSet, func, ...)
+	if slotSet == nil then
+		return;
+	end
 	
 	for i = 0 , slotSet:GetSlotCount() - 1 do
 		local slot = slotSet:GetSlotByIndex(i );

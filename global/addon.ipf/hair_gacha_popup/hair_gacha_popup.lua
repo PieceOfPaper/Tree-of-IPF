@@ -13,11 +13,35 @@ function HAIR_GACHA_POPUP_ON_INIT(addon, frame)
 
 end
 
+function GET_GACHA_GRADE_BY_ITEMNAME(itemname)
+
+	local grade = 0;
+	local rewardlist, rewardlistcnt =  GetClassList("reward_tp")
+	for j = 0 , rewardlistcnt - 1 do
+		local rewardcls = GetClassByIndexFromList(rewardlist, j);
+			
+		if rewardcls.ItemName == itemname then
+
+			if rewardcls.Rank == "A" then
+				grade = 1
+			elseif rewardcls.Rank == "B" then
+				grade = 2
+			elseif rewardcls.Rank == "C" then
+				grade = 3
+			end
+
+			break;
+		end
+	end
+
+	return grade;
+
+end
+
 function INIT_HAIR_GACHA_RET_TABLE(itemliststr)
-	
+
 	local itemnametable = {}
 	local itemcnttable = {}
-	local itemranktable = {}
 
 	local myTable = itemliststr:split("&")
 		
@@ -25,12 +49,7 @@ function INIT_HAIR_GACHA_RET_TABLE(itemliststr)
 		if i % 2 ~= 0 then
 			table.insert(itemnametable, myTable[i])
 		else
-			local substr = myTable[i]
-			local grade = math.floor(tonumber(substr) / 1000)
-			local cnt = tonumber(substr) % 1000
-
-			table.insert(itemcnttable, cnt )
-			table.insert(itemranktable, grade )
+			table.insert(itemcnttable, tonumber(myTable[i]) )
 		end 
 	end
 	if #itemcnttable ~= 11 then
@@ -50,7 +69,7 @@ function INIT_HAIR_GACHA_RET_TABLE(itemliststr)
 		g_hairgacharresult[i]["name"] = itemnametable[i]
 		g_hairgacharresult[i]["cnt"] = itemcnttable[i]
 		g_hairgacharresult[i]["poptime"] = defsmallpoptime
-		g_hairgacharresult[i]["grade"] = itemranktable[i]
+		g_hairgacharresult[i]["grade"] = GET_GACHA_GRADE_BY_ITEMNAME(itemnametable[i])
 		defsmallpoptime = defsmallpoptime + 0.1
 	end
 
@@ -109,13 +128,10 @@ function GACHA_POPUP_MSG(frame, msg, itemname, itemcnt)
 			g_hairgacharresult[i] = nil 
 		end
 
-		local grade = math.floor(itemcnt / 1000)
-		local cnt = itemcnt % 1000
-
 		g_hairgacharresult[11] = {}
 		g_hairgacharresult[11]["name"] = itemname
-		g_hairgacharresult[11]["grade"] = grade
-		g_hairgacharresult[11]["cnt"] = cnt
+		g_hairgacharresult[11]["grade"] = GET_GACHA_GRADE_BY_ITEMNAME(itemname)
+		g_hairgacharresult[11]["cnt"] = itemcnt
 
 		DARK_FRAME_DO_OPEN()
 		HAIR_GACHA_POP_BIG_FRAME(11, type, true)
@@ -324,15 +340,10 @@ function string:split( inSplitPattern, outResults )
   end
   local theStart = 1
   local theSplitStart, theSplitEnd = string.find( self, inSplitPattern, theStart )
-  local cnt = 0
   while theSplitStart do
     table.insert( outResults, string.sub( self, theStart, theSplitStart-1 ) )
     theStart = theSplitEnd + 1
     theSplitStart, theSplitEnd = string.find( self, inSplitPattern, theStart )
-	cnt = cnt + 1
-	if cnt > 1000 then
-		break
-	end
   end
   table.insert( outResults, string.sub( self, theStart ) )
   return outResults

@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="0.00" soundFile="mon_raffly_atk"/>
-    <Sound frame="0.00" soundFile="mon_voice_bug2_1"/>
-    <Sound frame="10.00" soundFile="skl_eff_body_atk_8"/>
-    <Sound frame="10.00" soundFile="barricade_butterfly_hit"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="50"/>
+	<BlendOn frame="11" R="100" G="100" B="80" A="100"/>
+	<BlendOff frame="12" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachNode="Rakon_body" particleName="I_spray001_leaf" useAttach="ture" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="0.00" soundFile="mon_raffly_atk"/>
+	<Sound frame="0.00" soundFile="mon_voice_bug2_1"/>
+	<Sound frame="10.00" soundFile="skl_eff_body_atk_8"/>
+	<Sound frame="10.00" soundFile="barricade_butterfly_hit"/>
 </ActionDesc>

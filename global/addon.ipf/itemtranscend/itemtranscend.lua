@@ -78,6 +78,11 @@ function ITEM_TRANSCEND_REG_TARGETITEM(frame, itemID)
 		return;
 	end
 
+	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+		ui.SysMsg(ClMsg("NeedAppraisd"));
+		return;
+	end
+
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -198,12 +203,9 @@ function REMOVE_TRANSCEND_MTRL_ITEM(frame, slot)
 	if materialItem == nil then
 		return;
 	end
-	local count = slot:GetUserIValue("MTRL_COUNT");		
-	if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		count = count - 5;
-	elseif keyboard.IsPressed(KEY_ALT) == 1 then
-		count = 0;
-	else
+	local count = slot:GetUserIValue("MTRL_COUNT");			if keyboard.IsPressed(KEY_SHIFT) == 1 then
+		count = count - 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then
+		count = 0;	else
 		count = count - 1;
 	end
 	
@@ -347,19 +349,20 @@ function ITEM_TRANSCEND_REG_MATERIAL(frame, itemID)
 		end;
 		ui.MsgBox_NonNested(ScpArgMsg("ITEMTRANSCEND_TOO_MANY"), frame:GetName(), nil, nil);		
 		return;
-	end;
-
+	end;
 	local invframe = ui.GetFrame("inventory");
 	if true == invItem.isLockState or true == IS_TEMP_LOCK(invframe, invItem) then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
 		return;
 	end		
 
+	if IS_NEED_APPRAISED_ITEM(obj) == true then 
+		ui.SysMsg(ClMsg("NeedAppraisd"));
+		return;
+	end
+
 	if keyboard.IsPressed(KEY_SHIFT) == 1 then
-		count = count + 5;
-	elseif keyboard.IsPressed(KEY_ALT) == 1 then
-		count = maxItemCount;
-	else
+		count = count + 5;	elseif keyboard.IsPressed(KEY_ALT) == 1 then		count = maxItemCount;	else
 		count = count + 1;
 	end
 	
@@ -454,9 +457,20 @@ function ITEMTRANSCEND_EXEC(frame)
 		imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OVER_SOUND"));
 		return;
 	end
-	
+
+	local itemObj = GetIES(invItem:GetObject());
+	local potential = TryGetProp(itemObj, "PR");
+	if potential == nil then
+		return;
+	end
+
+	local clmsg = ScpArgMsg("ReallyExecTranscend_PR_ZERO");
+	if potential ~= nil and potential > 0  then
+		clmsg = ScpArgMsg("ReallyExecTranscend");
+	end
+
 	imcSound.PlaySoundEvent(frame:GetUserConfig("TRANS_BTN_OK_SOUND"));
-	ui.MsgBox_NonNested(ScpArgMsg("ReallyExecTranscend_PR_ZERO"), frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
+	ui.MsgBox_NonNested(clmsg, frame:GetName(), "_ITEMTRANSCEND_EXEC", "_ITEMTRANSCEND_CANCEL");			
 end
 
 function _ITEMTRANSCEND_CANCEL()
@@ -565,19 +579,13 @@ function UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 		animpic_bg:ShowWindow(1);
 		animpic_bg:ForcePlayAnimation();
 	else
-		_UPDATE_TRANSCEND_RESULT(frame, 0);	
+		_UPDATE_TRANSCEND_RESULT(frame, 0);
 	end;
 end
 
 -- 서버의 성공여부에 따른 UI이펙트와 결과 업데이트 
 function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)			
 	local slot = GET_CHILD(frame, "slot");
-
-	local invItem = GET_SLOT_ITEM(slot);
-	if invItem == nil then
-		ui.SetHoldUI(false);
-		return;
-	end
 	
 	local timesecond = 0;
 	if isSuccess == 1 then
@@ -599,8 +607,17 @@ function _UPDATE_TRANSCEND_RESULT(frame, isSuccess)
 	
 	local gbox = frame:GetChild("gbox");
 	local reg = GET_CHILD(gbox, "reg");
-	reg:ShowWindow(0);
+	reg:ShowWindow(0);	
 	
+	local invItem = GET_SLOT_ITEM(slot);
+	if invItem == nil then
+		if isSuccess == 0 then
+			ui.SysMsg(ClMsg('ItemDeleted'));
+		end
+		ui.SetHoldUI(false);
+		slot:ClearIcon();
+		return;
+	end
 	local obj = GetIES(invItem:GetObject());
 	local transcend = obj.Transcend;
 	local tempValue = transcend;

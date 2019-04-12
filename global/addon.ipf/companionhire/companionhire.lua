@@ -34,7 +34,7 @@ function OPEN_COMPANION_HIRE(clsName)
 
 end
 
-function TRY_COMPANION_HIRE()
+function TRY_COMPANION_HIRE(byShop)
 	local accountInfo = session.barrack.GetMyAccount();
 	local petCnt = session.pet.GetPetTotalCount();
 	local myCharCont = accountInfo:GetPCCount() + petCnt;
@@ -53,6 +53,9 @@ function TRY_COMPANION_HIRE()
 	end
 	-- 슬롯 산다는거
 	local frame = ui.GetFrame("companionhire");
+	if byShop == true then
+		frame = ui.GetFrame('companionshop');
+	end
 	local eggGuid = frame:GetUserValue("EGG_GUID");
 
 	if "None" ~= eggGuid  then
@@ -70,6 +73,9 @@ function TRY_COMPANION_HIRE()
 	end
 
 	local cls = GetClass("Companion", clsName);
+	if cls == nil then
+		return;
+	end
 	local sellPrice = cls.SellPrice;
 	if sellPrice == "None" then
 		return;
@@ -78,19 +84,32 @@ function TRY_COMPANION_HIRE()
 	sellPrice = _G[sellPrice];
 	sellPrice = sellPrice(cls, pc);
 
-	local name = frame:GetChild("input");
-	if string.find(name:GetText(), ' ') ~= nil then
+	local name = nil;
+	local nameText = nil;
+	if byShop == true then
+		name = GET_CHILD_RECURSIVELY(frame, 'compaNameEdit');
+		nameText = name:GetText();
+	else
+		name = frame:GetChild("input");
+		nameText = name:GetText();
+	end
+
+	if name == nil or nameText == nil then -- companionhire 또는 companionshop을 통하지 않은 경우
+		return;
+	end
+
+	if string.find(nameText, ' ') ~= nil then
 		ui.SysMsg(ClMsg("NameCannotIncludeSpace"));
 		return;
 	end
 
-	if ui.IsValidCharacterName(name:GetText()) == false then
+	if ui.IsValidCharacterName(nameText) == false then
 		return;
 	end
 	if GET_TOTAL_MONEY() < sellPrice then
 		ui.SysMsg(ClMsg('NotEnoughMoney'));
 	else
-		local scpString = string.format("EXEC_BUY_COMPANION(\"%s\", \"%s\")", clsName, name:GetText());
+		local scpString = string.format("EXEC_BUY_COMPANION(\"%s\", \"%s\")", clsName, nameText);
 		ui.MsgBox(ScpArgMsg("ReallyBuyCompanion?"), scpString, "None");
 	end
 end
@@ -98,7 +117,7 @@ end
 function TRY_CECK_BARRACK_SLOT_BY_COMPANION_EXCHANGE(select)
 	local accountInfo = session.barrack.GetMyAccount();
 	local petCnt = session.pet.GetPetTotalCount();
-	local myCharCont = accountInfo:GetPCCount() + petCnt;
+	local myCharCont = accountInfo:GetTotalSlotCount();
 	local buySlot = session.loginInfo.GetBuySlotCount();
 	local barrackCls = GetClass("BarrackMap", accountInfo:GetThemaName());
 	
@@ -155,7 +174,7 @@ function EXEC_CANCLE_BUY_SLOT()
 	frame:SetUserValue("EGG_GUID", 'None');
 end
 
-function TRY_CHECK_BARRACK_SLOT(handle, isAgit)
+function TRY_CHECK_BARRACK_SLOT(handle, isAgit, byShop)
 	local accountInfo = session.barrack.GetMyAccount();
 	local myCharCont = accountInfo:GetTotalSlotCount();
 	local buySlot = session.loginInfo.GetBuySlotCount();
@@ -180,7 +199,7 @@ function TRY_CHECK_BARRACK_SLOT(handle, isAgit)
 				end
 				frame:SetUserValue("EGG_GUID", handle:GetIESID());
 			end
-			TRY_COMPANION_HIRE();
+			TRY_COMPANION_HIRE(byShop);
 			return 1;
 		else
 			GUILD_SEND_CLICK_TRIGGER(handle);

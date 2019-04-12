@@ -9,7 +9,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 8,8,1,40,-1,60000,1,0,0,0,0,0,0,"npc_sapper","계시자 미하일","","","","","","","CASTLE653_MQ_03","","","NO","YES","NO","Neutral","","","",""
 9,9,1,40,-1,60000,1,0,0,0,0,0,0,"npc_rokas_7","UnVisibleName","","","","","","","","","","NO","YES","NO","Neutral","","","",""
 10,10,1,40,-1,60000,1,1,0,0,0,0,0,"npc_sadhu","계시자 야네","","","","","","","CASTLE653_MQ_04_1","","","NO","YES","NO","Neutral","","","",""
-11,11,1,40,-1,60000,1,1,0,0,0,0,0,"npc_sapper","계시자 미하일","","","","","","","CASTLE653_MQ_04_2","","","NO","YES","NO","Neutral","","","",""
+11,11,1,80,-1,60000,1,1,0,0,0,0,0,"npc_sapper","계시자 미하일","","","","","","","CASTLE653_MQ_04_2","CASTLE653_HIDDENQ1_TRIGGER","","NO","YES","NO","Neutral","","","",""
 12,12,1,40,-1,60000,1,1,0,0,0,0,0,"npc_highlander_2","계시자 코너","","","","MON_DUMMY","","","CASTLE653_MQ_04_3","","","NO","YES","NO","Neutral","AttachAnimLocal/0:std/5:event_loop","NPCStateLocal/0:CASTLE65_3_MQ08:SUCCESS:COMPLETE/5:CASTLE65_3_MQ08:IMPOSSIBLE:POSSIBLE:PROGRESS","",""
 13,13,1,40,-1,60000,1,0,0,0,0,0,0,"alter_sacrifice","UnVisibleName","","","","MON_DUMMY","","","","","","NO","YES","NO","Neutral","AttachEffect/F_light081_ground_orange_loop2/1.5/BOT","","",""
 14,14,1,40,-1,60000,1,1,0,0,0,0,0,"castle_wizard","마법사 멜히오라스","","","","","","","","CASTLE653_MQ_04_5","","NO","YES","NO","Neutral","Anim/down","","",""

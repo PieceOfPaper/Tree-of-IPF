@@ -5,6 +5,7 @@ function PET_EQUIP(invItem)
 end
 
 function REQ_PET_EQUIP(invItem)
+
 	local type = invItem.type;
 	local petInfo = session.pet.GetSummonedPet();
 	local itemObj = GetIES(invItem:GetObject());
@@ -26,7 +27,7 @@ function REQ_PET_EQUIP(invItem)
 		return;
 	end
 	
-	geClientPet.RequestEquipPet( petInfo:GetStrGuid(), invItem:GetIESID(), itemEnum );
+	geClientPet.RequestEquipPet( petInfo:GetStrGuid(), invItem:GetIESID(), itemEnum, -1 );
 	
 end
 

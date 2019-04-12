@@ -37,6 +37,9 @@ function MON_PC_SKILL_BALLOON(title, handle, castTimeMS, isBoss, changeColor)
 		AUTO_CAST(gauge);
 		gauge:SetPoint(0, 100);
 		gauge:SetPointWithTime(100, castTimeSec);
+		local animpic = GET_CHILD_RECURSIVELY(frame, "animpic");
+		animpic:SetUserValue("LINKED_GAUGE", 0);
+		LINK_OBJ_TO_GAUGE(frame, animpic, gauge, 1);
 	end
 
 	frame:ShowWindow(1);

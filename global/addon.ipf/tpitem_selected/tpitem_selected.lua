@@ -77,7 +77,7 @@ function TPITEM_SELECTED_REFUND(parent, control, orderNo, productNo)
 	local frame = ui.GetFrame("tpitem");
 	local screenbgTemp = frame:GetChild('screenbgTemp');	
 	screenbgTemp:ShowWindow(1);	
-
+	
 	local strMsg = "";
 	local frame = ui.GetFrame("tpitem");
 	strMsg = string.format("{@st43d}{s18}%s{/}{nl}{s8}{/} {/}{nl}{@st45d}{s20}%s{/}", ScpArgMsg("NISMS_REFUND_GUIDE1"), ScpArgMsg("NISMS_REFUND_GUIDE2"));

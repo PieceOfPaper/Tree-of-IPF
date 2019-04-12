@@ -1,8 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by gameds (IMCGames Co., Ltd) -->
 <ActionDesc>
-    <Sound frame="3.00" soundFile="m_velorchard_skl_2"/>
-    <Sound frame="15.00" soundFile="mon_lantern_mushroom_skl_cast"/>
-    <Sound frame="65.00" soundFile="mon_flower_blue_atk2_shot"/>
-    <Sound frame="74.00" soundFile="skl_eff_mud_boom"/>
-    <Sound frame="80.00" soundFile="skl_eff_mud_shot"/>
+	<Shockwave frame="25" type="2" intensity="2" frequency="100" duration="1" range="1000"/>
+	<Shockwave frame="90" type="2" intensity="10" frequency="70" duration="0.5" range="1000"/>
+	<BlendOn frame="0" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="20" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="35" R="50" G="30" B="30" A="10"/>
+	<BlendOn frame="50" R="70" G="30" B="30" A="50"/>
+	<BlendOn frame="80" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="90" R="150" G="80" B="80" A="50"/>
+	<BlendOn frame="92" R="70" G="30" B="30" A="50"/>
+	<BlendOn frame="93" R="100" G="60" B="60" A="50"/>
+	<BlendOff frame="95" R="0" G="0" B="0" A="0"/>
+	<Particle frame="10" attachNode="Dummy_emitter" particleName="I_spread_in006" useAttach="ture" hiddenObj="false" changeEffect="None" scale="6" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="75" attachNode="Bip002 Head" particleName="F_spread_out042_leaf" useAttach="false" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="91" attachNode="Dummy_emitter" particleName="F_spread_out043" useAttach="ture" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="90" attachNode="Dummy_emitter" particleName="F_spread_out043" useAttach="ture" hiddenObj="false" changeEffect="None" scale="4.5" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Particle frame="72" attachNode="Dummy_leaf" particleName="I_spray001_leaf" useAttach="ture" hiddenObj="false" changeEffect="None" scale="4" pause="true" use2DEffect="true" soft2DValue="20"/>
+	<Sound frame="3.00" soundFile="m_velorchard_skl_2"/>
+	<Sound frame="15.00" soundFile="mon_lantern_mushroom_skl_cast"/>
+	<Sound frame="65.00" soundFile="mon_flower_blue_atk2_shot"/>
+	<Sound frame="74.00" soundFile="skl_eff_mud_boom"/>
+	<Sound frame="80.00" soundFile="skl_eff_mud_shot"/>
 </ActionDesc>

@@ -11,7 +11,9 @@ function MYPAGE_SETUP(frame)
 	myAccountIDCtrl:SetText("{@st43}".. GETMYFAMILYNAME());
 
 	local job 		= info.GetJob(handle);
-	local jName 	= GetClassString('Job', job, 'Name');
+	local gender 	= info.GetGender(handle);
+	local jCls		= GetClassByType('Job', job);
+	local jName 	= GET_JOB_NAME(jCls, gender);
 	local CharName	= info.GetName(handle);
 	local level 	= info.GetLevel(handle);
 	local myInfoCtrl = GET_CHILD(myInfoCtrlSet, "myInfo", "ui::CRichText");

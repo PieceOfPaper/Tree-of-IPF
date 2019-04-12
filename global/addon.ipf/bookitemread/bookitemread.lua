@@ -34,7 +34,7 @@ end
 function BOOKITEM_UI_CLOSE()
 	BOOKITEM_UI_INIT();
 
-	control.ResetControl();
+	control.EnableControl(1, 0);	
 end
 
 function ON_READ_BOOK_ITEM(frame, msg, argStr, argNum)
