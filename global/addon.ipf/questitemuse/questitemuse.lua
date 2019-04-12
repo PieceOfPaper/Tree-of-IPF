@@ -73,15 +73,20 @@ end
 
 function QUESTITEMUSE_EXECUTE()
 
-	local frame = ui.GetFrame('questitemuse');
-
-	if frame ~= nil and frame:IsVisible() == 1 then
-		local itemGroup = frame:GetChild('itemgroup');
-		imcSound.PlaySoundEvent("button_v_click");
-		for i=0, itemGroup:GetChildCount()-1 do
-			local childCtrl = itemGroup:GetChildByIndex(i);
-			local invItem	= session.GetInvItemByType(childCtrl:GetValue());
-			INV_ICON_USE(invItem);
+	local tempItemFrame = ui.GetFrame("tempitemuse")
+	--임사사용템, 퀘스트템 중 우선순위 정해야함
+	if tempItemFrame ~= nil and tempItemFrame:IsVisible() == 1 then
+		TEMPITEMUSE_EXECUTE()
+	else
+		local frame = ui.GetFrame('questitemuse');
+		if frame ~= nil and frame:IsVisible() == 1 then
+			local itemGroup = frame:GetChild('itemgroup');
+			imcSound.PlaySoundEvent("button_v_click");
+			for i=0, itemGroup:GetChildCount()-1 do
+				local childCtrl = itemGroup:GetChildByIndex(i);
+				local invItem	= session.GetInvItemByType(childCtrl:GetValue());
+				INV_ICON_USE(invItem);
+			end
 		end
 	end
 end

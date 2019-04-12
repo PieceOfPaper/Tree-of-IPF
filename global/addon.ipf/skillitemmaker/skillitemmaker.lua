@@ -260,3 +260,10 @@ function UPDATE_SKILLITEMMAKE_PRICE(frame, sklObj, levelSkill)
 	local gauge = GET_CHILD(frame, "gauge", "ui::CGauge");
     gauge:SetPoint(0, 100);
 end
+
+function IS_SKILL_SCROLL_ITEM(item)
+	if TryGetProp(item, 'ClassName') == 'Scroll_SkillItem' then
+		return true;
+	end
+	return false;
+end

@@ -249,6 +249,11 @@ function PACKAGELIST_INIT_ITEMLIST(frame, itemCls, packageName)
 			ctrlset:SetUserValue("ITEM_NAME", packageList[i].ItemName)
 			ctrlset:SetUserValue("EQUIP_TYPE", packageList[i].EquipType)
 			ctrlset:SetUserValue("PACKAGE_NAME", itemCls.ClassName)
+			
+			if packageList[i].EquipType == "None" then
+				local previewBtn = GET_CHILD(ctrlset, 'previewBtn');
+				previewBtn:ShowWindow(0);
+			end
 		end
 	end
 	GBOX_AUTO_ALIGN(itemListBox, 0, -5, 0, true, false, false);
@@ -269,9 +274,9 @@ function PACKAGELIST_ITEM_PREVIEW_CLICK(parent, ctrl)
 	local itemName = parent:GetUserValue("ITEM_NAME")
 	local packageName = parent:GetUserValue("PACKAGE_NAME")
 	local equipType = parent:GetUserValue("EQUIP_TYPE")
-	local slotName = BEAUTYSHOP_GET_PREIVEW_SLOT_NAME(equipType)
+	local slotName = BEAUTYSHOP_GET_PREIVEW_SLOT_NAME(equipType, itemName)
 	local itemobj = GetClass("Item", itemName)
-	if itemobj ~= nil then
+	if slotName ~= nil and itemobj ~= nil then
 		local slot = GET_CHILD(gbPreview, slotName);
 		slot:SetUserValue("TYPE", equipType)
 		slot:SetUserValue("PACKAGE_NAME", packageName)

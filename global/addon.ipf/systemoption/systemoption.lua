@@ -117,6 +117,24 @@ function INIT_SOUND_CONFIG(frame)
 	if nil ~= checkSoundReverb then
 		checkSoundReverb:SetCheck(isSoundReverbEnable);
 	end
+
+	if FLUTING_ENABLED ~= 1 then
+		local flutingVol = GET_CHILD_RECURSIVELY(frame, "flutingVol");
+		local flutingVol_text = GET_CHILD_RECURSIVELY(frame, "flutingVol_text");
+		flutingVol:SetVisible(0);
+		flutingVol_text:SetVisible(0);
+		if chkOtherFlutingEnable ~= nil then
+			chkOtherFlutingEnable:SetVisible(0);
+		end
+
+		local totalVol = GET_CHILD_RECURSIVELY(frame, "totalVol");
+		local totalVol_text = GET_CHILD_RECURSIVELY(frame, "totalVol_text");
+		totalVol:SetOffset(totalVol:GetOriginalX(), flutingVol:GetOriginalY());
+		totalVol_text:SetOffset(totalVol_text:GetOriginalX(), flutingVol_text:GetOriginalY());
+
+		local check_soundReverb = GET_CHILD_RECURSIVELY(frame, "check_soundReverb");
+		check_soundReverb:SetOffset(totalVol_text:GetOriginalX(), totalVol_text:GetOriginalY());
+	end
 end
 
 function INIT_GRAPHIC_CONFIG(frame)

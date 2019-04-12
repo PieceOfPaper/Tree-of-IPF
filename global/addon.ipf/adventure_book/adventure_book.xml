@@ -306,7 +306,7 @@
 		<picture name="collectionNameBox" parent="collectionDetailBox" rect="0 0 500 40" margin="10 40 0 0" layout_gravity="center top"/>
 		<richtext name="collectionNameText" parent="collectionNameBox" rect="0 0 300 30" margin="0 0 0 0" layout_gravity="center center" format="%s" param1="name" param1_def="수정 콜렉션" fontname="white_18_ol"/>
 		<richtext name="collectionCountText" parent="collectionDetailBox" rect="0 0 300 30" margin="0 90 45 0" layout_gravity="right top" format="(%s/%s)" param1="current" param1_def="1" param2="total" param2_def="3" fontname="brown_18"/>
-		<groupbox name="collectionItemBox" parent="collectionDetailBox" rect="0 0 450 420" margin="0 0 0 30" layout_gravity="center bottom" draw="false" fixheight="true" scrollbar="true"/>
+		<groupbox name="collectionItemBox" parent="collectionDetailBox" rect="0 0 450 410" margin="0 0 0 20" layout_gravity="center bottom" draw="false" fixheight="true" scrollbar="true"/>
 		<richtext name="collectionInfoText" parent="collectionRightBox" rect="0 0 300 30" margin="70 560 0 0" caption="콜렉션 효과" fontname="brown_16_b"/>
 		<richtext name="collectionEffectText" parent="collectionRightBox" rect="0 0 300 30" margin="0 560 40 0" layout_gravity="right top" format="%s" param1="effect" param1_def="정신 +6" fontname="brown_16_b"/>
 		<!-- 모험일지 랭킹 -->

@@ -203,8 +203,6 @@ end
 function PCBANG_SHOP_CHECK_OPEN()
     if session.loginInfo.IsPremiumState(NEXON_PC) == true then
         return 1;
-    elseif ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY == 1 then
-        return 1;
     else
         return 0;
     end

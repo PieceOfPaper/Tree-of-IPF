@@ -70,7 +70,7 @@ function REFRESH_ABILITYSHOP(frame, msg)
 	--grid:Resize(grid:GetOriginalWidth(),posY + 80)
 
 	local invenZeny = GET_CHILD_RECURSIVELY(frame, 'invenZeny', 'ui::CRichText');
-	invenZeny:SetText("{@st41b}".. GET_TOTAL_MONEY())
+	invenZeny:SetText("{@st41b}".. GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()));
 
 	local abilityshopGBox = GET_CHILD_RECURSIVELY(frame, 'abilityshopGBox');
 	abilityshopGBox:UpdateData();

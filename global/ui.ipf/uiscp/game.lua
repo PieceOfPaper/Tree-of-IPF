@@ -1328,7 +1328,7 @@ function GET_FULL_GRADE_NAME(itemCls, gradeSize)
 	return GET_FULL_NAME(itemCls) .. "{nl}" .. gradeTxt;
 end
 
-function GET_FULL_NAME(item, useNewLine, isEquiped)
+function GET_FULL_NAME(item, useNewLine, isEquiped)	
 	if isEquiped == nil then
 		isEquiped = 0;
 	end
@@ -1371,6 +1371,15 @@ function GET_FULL_NAME(item, useNewLine, isEquiped)
 		--		return string.format("%s{nl}{ol}{#FFFFFF}Lv  %d / %d", ownName, lv, maxLv);
 		--	end
 		end
+	end
+
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then
+		return GET_EXTRACT_ITEM_NAME(item);
+	end
+
+	if IS_SKILL_SCROLL_ITEM ~= nil and IS_SKILL_SCROLL_ITEM(item) == true then
+		local skillCls = GetClassByType('Skill', item.SkillType);
+		return ownName..string.format('[Lv. %d %s]', item.SkillLevel, skillCls.Name);
 	end
 
 	return ownName;
@@ -1866,16 +1875,14 @@ function SCR_EXEC_MONWANGGA(guid, x, y, z)
 
 end
 
-function GET_TOTAL_MONEY()
-	local Cron = 0;
+ function GET_TOTAL_MONEY_STR() -- int로 잘리지 않고 싶으면 이걸 쓰도록하되, 밖에서 계산할 때는 tonumber하거나 BigNumber 전용 함수들 사용 권장
+	local silver = '0';
 	local invItem = session.GetInvItemByName('Vis');
 	if invItem ~= nil then
-		Cron = invItem.count;
+		silver = invItem:GetAmountStr();
 	end
-
-	return Cron;
+	return silver;
  end
-
 
 function TRADE_DIALOG_CLOSE()
 	control.DialogOk();
@@ -2043,14 +2050,15 @@ function CHECK_EQUIPABLE(type)
 		else
 			return 'ABIL'
 		end
+    elseif ret == 'NOEQUIP' then
+        return ret
 	else
 		if ret == 'LV' or ret == 'GENDER' then
 			return ret;
-		elseif 0 ~= haveAbil then
+		elseif 0 ~= haveAbil then            
 			return 'OK'
 		end
 	end
-
 	return ret;
 end
 
@@ -2058,44 +2066,47 @@ function ITEM_EQUIP_EXCEPTION(item)
 	if item == nil then
 		return 0
 	end
-
+	
 	local hairFrame = ui.GetFrame('beauty_hair');
 	if hairFrame ~= nil and hairFrame:IsVisible() == 1 then
 		ui.SysMsg(ScpArgMsg("Auto_MiyongSil_iyongJungeNeun_aiTemeul_JangChag_Hal_Su_eopSeupNiDa."));
 		return 0
 	end
-
+			
 	local result = CHECK_EQUIPABLE(item.type);
 	if result ~= "OK" then
 		ui.MsgBox(ITEM_REASON_MSG(result));
 		return 0
 	end
 
-	local obj = GetIES(item:GetObject());
-	if obj.IsPrivate == "YES" and obj.Equiped == 0 then
+	local obj = GetIES(item:GetObject())
+    local is_private = TryGetProp(obj, 'IsPrivate')
+    local equiped = TryGetProp(obj, 'Equiped')
+    
+	if is_private == "YES" and equiped == 0 then
 		ui.EnableToolTip(0);
 		ui.MsgBox(ScpArgMsg("Auto_HaeDang_aiTemeun_ChagyongSi_KwiSogDoeeo_KeoLaeHal_Su_eopSeupNiDa._ChagyongHaSiKessSeupNiKka?"), strscp, "None");
 		return 0;
 	end
-	
+		
 	return 1;
 end
 
-function ITEM_EQUIP_MSG(item, slotName)
-
+function ITEM_EQUIP_MSG(item, slotName)	
 	if 1 ~= ITEM_EQUIP_EXCEPTION(item) then
 		return;
 	end
-	
+		
 	if true == BEING_TRADING_STATE() then
 		return;
 	end
 	
 	local itemCls = GetIES(item:GetObject());
-	if itemCls.EqpType == "HELMET" and slotName == "HAIR" then
+    local eqp_type = TryGetProp(itemCls, 'EqpType')    
+	if eqp_type == "HELMET" and slotName == "HAIR" then
 		slotName = "HELMET";
 	end
-
+	
 	local strscp = string.format("item.Equip(%d)", item.invIndex);
 	if slotName ~= nil then
 		strscp = string.format("item.Equip(\"%s\", %d)", slotName, item.invIndex);
@@ -2461,7 +2472,7 @@ function APPLY_MSGBOX_EDIT_PROP(inputframe, ctrl)
 	local item = advBox:GetObjectByKey(propName, 1);
 	item:SetText(txt);
 
-	dtool.ChangeIESEntry(idSpace, clsID, propName, txt);
+	dtool.ChangeIESEntity(idSpace, clsID, propName, txt);
 	inputframe:ShowWindow(0);
 
 	FIXWIDTH_ADVBOX_ITEM(advBox, 1, item);
@@ -2942,7 +2953,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 
 
 	elseif itemobj.GroupName == "Gem" then
-
+							
 		local invItemList = session.GetInvItemList();
 		local index = invItemList:Head();
 		local itemCount = session.GetInvItemList():Count();
@@ -2950,33 +2961,37 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 		local cnt = 0;
 		for i = 0, itemCount - 1 do
 			local invItem = invItemList:Element(index);
-			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) then
-			
+			local invitem = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
+			if invItem ~= nil and false == geItemTable.IsMoney(invItem.type) and invitem.ItemType == "Equip" then
+				local tab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+				tolua.cast(tab, "ui::CTabControl");
+				tab:SelectTab(1);
+
 				local slot = INV_GET_SLOT_BY_ITEMGUID(invItem:GetIESID())
 				tolua.cast(slot, "ui::CSlot");
-				local icon = slot:GetIcon();
-				if icon ~= nil then
-					local class     = GetClassByType('Item', invItem.type);
-					local invitem  = GET_TOOLTIP_ITEM_OBJECT('inven', invItem:GetIESID());
-					local socketCnt = GET_SOCKET_CNT(invitem);
+				if slot ~= nil then
+					local icon = slot:GetIcon();
+					if icon ~= nil then
+						local class     = GetClassByType('Item', invItem.type);
+						
+						local socketCnt = GET_SOCKET_CNT(invitem);
 
-					if invitem.ItemType == 'Equip' then
-						for i=0, socketCnt do
-							local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
-							if temp == 0 then
-								socketNum = i;
-								break;
+							for i=0, socketCnt do
+								local temp = GetIESProp(invitem, 'Socket_Equip_'..i);
+								if temp == 0 then
+									socketNum = i;
+									break;
+								end
 							end
-						end
 
-						if socketCnt > socketNum then
-							slot:Select(1);
-						else
-							slot:Select(0);
-						end
+							if socketCnt > socketNum then
+								slot:Select(1);
+							else
+								slot:Select(0);
+							end
 					end
+					cnt = cnt + 1;
 				end
-				cnt = cnt + 1;
 			end
 
 			index = invItemList:Next(index);
@@ -2997,7 +3012,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 
 				if  slot  ~=  nil  then
 
-				slot:SetSelectedImage('socket_slot_check')
+		--		slot:SetSelectedImage('socket_slot_check')
 
 					if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
 						local equipItemObj = GetIES(equipItem:GetObject());
@@ -3010,7 +3025,7 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 								break;
 							end
 						end
-
+						
 						if socketCnt > socketNum then
 							slot:Select(1);
 						else
@@ -3024,10 +3039,15 @@ function USE_ITEMTARGET_ICON(frame, itemobj, argNum)
 
 	if itemobj.GroupName == "Gem" then
 		local yesscp = string.format("USE_ITEMTARGET_ICON_GEM(%d)", argNum);
-		ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "None");
+		ui.MsgBox(ClMsg("GemHasPenaltyLater"), yesscp, "RELEASE_ITEMTARGET_ICON_GEM()");
 		return;
 	end
 	item.SelectTargetItem(argNum);
+end
+
+function RELEASE_ITEMTARGET_ICON_GEM()
+	SCR_ITEM_USE_TARGET_RELEASE();
+	INVENTORY_CLEAR_SELECT();
 end
 
 function USE_ITEMTARGET_ICON_GEM(argNum)
@@ -3035,20 +3055,21 @@ function USE_ITEMTARGET_ICON_GEM(argNum)
 	local invGbox		= invFrame:GetChild('inventoryGbox');
 	local tab = invGbox:GetChild("inventype_Tab");
 	tolua.cast(tab, "ui::CTabControl");
-	tab:SelectTab(0);
+	tab:SelectTab(1);
 	item.SelectTargetItem(argNum)
 end
 
 function SCR_ITEM_USE_TARGET_RELEASE()
-	local frame				= ui.GetFrame('inventory');	
+	local frame = ui.GetFrame('inventory');	
 	INVENTORY_UPDATE_ICONS(frame);
+	STATUS_EQUIP_SLOT_SET(frame)
 
-	local frame 			= ui.GetFrame('status');
+	local frame = ui.GetFrame('status');
 	STATUS_ON_MSG(frame, 'EQUIP_ITEM_LIST_GET', 'None', 0);
 end
 
 function SCR_GEM_ITEM_SELECT(argNum, luminItem, frameName)
-
+	
 	-- get inventory item
 	local invitem = nil;
 	if frameName == 'inventory' then
@@ -3754,7 +3775,6 @@ function ON_RIDING_VEHICLE(onoff)
         return;
     end
 	
-	
 	local isRidingOnly = 'NO';
     local summonedCompanion = session.pet.GetSummonedPet(0);	-- Riding Companion Only / Not Hawk --
     if summonedCompanion ~= nil then
@@ -3767,7 +3787,10 @@ function ON_RIDING_VEHICLE(onoff)
 		end
 	end
 	
-	if control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES' then
+    local cartHandle = control.GetNearSitableCart();
+    --js: 현재 메르카바만 하드코딩 형태로 예외처리되어있다 위에 함수명만 봐도 알수있음, 해당 예외처리 추후 하기로 정수씨와 이야기함 (2.0끝나고)--
+
+	if (control.HaveNearCompanionToRide() == true or isRidingOnly == 'YES') and cartHandle == 0 then
 		local fsmActor = GetMyActor();
 
 		local subAction = fsmActor:GetSubActionState();
@@ -3792,7 +3815,6 @@ function ON_RIDING_VEHICLE(onoff)
 		end
 	else
 		if onoff == 1 then
-			local cartHandle = control.GetNearSitableCart();
 			if cartHandle ~= 0 then
 				local index = control.GetNearSitableCartIndex();
 				control.ReqRideCart(cartHandle, index);

@@ -44,6 +44,7 @@ function CREATE_ITEM_OTP_TABLE()
     "Socket_7",
     "Socket_8",
     "Socket_9",
+    "RandomOptionRareValue"
     }
 end
 

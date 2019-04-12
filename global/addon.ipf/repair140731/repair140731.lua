@@ -10,7 +10,6 @@ end
 
 
 function REPAIR140731_ON_MSG(frame, msg, argStr, argNum)
-
 	if  msg == 'DIALOG_CLOSE'  then
 		frame:OpenFrame(0);
     elseif msg == 'OPEN_DLG_REPAIR' then
@@ -118,7 +117,7 @@ function UPDATE_REPAIR140731_LIST(frame)
 
 	local invFrame = ui.GetFrame("inventory")
 	if invFrame ~= nil then
-		INVENTORY_ON_MSG(invFrame, "UPDATE_ITEM_REPAIR")
+		INVENTORY_ON_MSG(invFrame, "UPDATE_ITEM_REPAIR", "Equip")
 	end
 
 	UPDATE_REPAIR140731_MONEY(frame)
@@ -153,7 +152,7 @@ function UPDATE_REPAIR140731_MONEY(frame)
 	-- 스콰이어 수리 버프 시전시 UPDATE_REPAIR140731_LIST를 가져다써요
 	-- 그럼 이 money 함수가 호출이 되는데 이 변수가 없어 경고가 떠서 예외처리 해줬습니다.
 	if nil ~= calcprice then
-		calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice)));
+		calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -1 * totalprice)));
 	end
 
 end
@@ -223,7 +222,7 @@ function EXECUTE_REPAIR140731(frame)
 		return;
 	end
 	
-	if GET_TOTAL_MONEY() < totalprice then
+	if IsGreaterThanForBigNumber(totalprice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end
@@ -266,7 +265,7 @@ function SCP_LBTDOWN_REPAIR140731(frame, ctrl)
 	repairprice:SetText(GET_COMMAED_STRING(totalprice));
 
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(ctrl, "remainInvenZeny", "ui::CRichText")
-	calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice)));
+	calcprice:SetText(GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -1 * totalprice)));
 
 
 end

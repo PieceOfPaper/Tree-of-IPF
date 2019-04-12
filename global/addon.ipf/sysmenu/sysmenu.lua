@@ -14,7 +14,6 @@ function SYSMENU_ON_INIT(addon, frame)
 	addon:RegisterMsg('SERV_UI_EMPHASIZE', 'ON_UI_EMPHASIZE');
 	addon:RegisterMsg("UPDATE_READ_COLLECTION_COUNT", "SYSMENU_ON_MSG");
 	addon:RegisterMsg("PREMIUM_NEXON_PC", "SYSMENU_ON_MSG");
-	addon:RegisterMsg("ENABLE_PCBANG_SHOP", "SYSMENU_ON_MSG");
     	
 	frame:EnableHideProcess(1);
 
@@ -41,13 +40,11 @@ function SYSMENU_ON_MSG(frame, msg, argStr, argNum)
 		SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 	end
 
-	if msg == "PREMIUM_NEXON_PC" or msg == "ENABLE_PCBANG_SHOP" then
+	if msg == "PREMIUM_NEXON_PC" then
 		if argNum == 1 then
 			SYSMENU_CHECK_HIDE_VAR_ICONS(frame);
 			if IS_PCBANG_POINT_TIMER_CHECKED() == 1 then
 				ui.OpenFrame("pcbang_point_timer");
-				local timerFrame = ui.GetFrame("pcbang_point_timer");
-				PCBANG_POINT_TIMER_SET_MARGIN(timerFrame);
 			end
 		end
 	end

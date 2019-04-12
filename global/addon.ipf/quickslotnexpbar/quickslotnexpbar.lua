@@ -269,7 +269,7 @@ function SET_QUICKSLOT_OVERHEAT(slot)
 		QUICKSLOT_SET_GAUGE_VISIBLE(slot, 0);
 		return;
 	end
-
+	
 	QUICKSLOT_SET_GAUGE_VISIBLE(slot, 1);
 	UPDATE_SLOT_OVERHEAT(slot);
 
@@ -277,7 +277,7 @@ end
 
 function UPDATE_SLOT_OVERHEAT(slot)
 	local obj = GET_SLOT_SKILL_OBJ(slot);
-
+	
 	local icon = slot:GetIcon()
 	local isScroll = nil
 	if icon ~= nil then
@@ -393,7 +393,7 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 					if itemIES.MaxStack > 1 then -- 개수는 스택형 아이템만 표시해주자
 						icon:SetText(invenItemInfo.count, 'quickiconfont', 'right', 'bottom', -2, 1);
 					else
-					  icon:SetText(nil, 'quickiconfont', 'right', 'bottom', -2, 1);
+					  	icon:SetText(nil, 'quickiconfont', 'right', 'bottom', -2, 1);
 					end
 					icon:SetColorTone("FFFFFFFF");
 				end
@@ -407,7 +407,6 @@ function SET_QUICK_SLOT(slot, category, type, iesID, makeLog, sendSavePacket)
 				else
 					icon:SetUserValue("IS_SCROLL","NO")
 				end
-
 			else
 				imageName = GET_ITEM_ICON_IMAGE(itemIES);
 				icon:SetColorTone("FFFF0000");
@@ -729,6 +728,7 @@ function QUICKSLOTNEXPBAR_SLOT_RBTNDOWN(frame, control, argStr, argNum)
 end
 
 function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
+	
 	local liftIcon = ui.GetLiftIcon();
 	local liftIconiconInfo = liftIcon:GetInfo();
 	local iconParentFrame = liftIcon:GetTopParentFrame();
@@ -741,25 +741,27 @@ function QUICKSLOTNEXPBAR_ON_DROP(frame, control, argStr, argNum)
 		iconCategory = liftIconiconInfo.category;
 		iconType = liftIconiconInfo.type;
 		iconGUID = liftIconiconInfo:GetIESID();
-	
-		local invItem = GET_PC_ITEM_BY_GUID(iconGUID);
-		if invItem ~= nil then
-			local obj = GetIES(invItem:GetObject());
-			if obj ~= nil then
-				local usable = TryGetProp(obj, "Usable")				
-				local groupName = TryGetProp(obj, "GroupName");
 
-				if usable ~= nil and groupName ~= "Premium" and groupName ~= "Material" and groupName ~= "PasteBait" then
-					if usable == "NO" then
-						local itemType = TryGetProp(obj, "ItemType");
-						local classType = TryGetProp(obj, "ClassType");
-
-						if itemType ~= nil and classType ~= nil then
-							if itemType ~= "Equip" or (itemType == "Equip" and (classType == "Outer" or classType == "SpecialCostume")) then
+		if iconGUID ~= '0' then		
+			local invItem = GET_PC_ITEM_BY_GUID(iconGUID);			
+			if invItem ~= nil then
+				local obj = GetIES(invItem:GetObject());
+				if obj ~= nil then
+					local usable = TryGetProp(obj, "Usable")				
+					local groupName = TryGetProp(obj, "GroupName");
+					
+					if usable ~= nil and groupName ~= "Premium" and groupName ~= "Material" and groupName ~= "PasteBait" then
+						if usable == "NO" then
+							local itemType = TryGetProp(obj, "ItemType");
+							local classType = TryGetProp(obj, "ClassType");
+						
+							if itemType ~= nil and classType ~= nil then
+								if itemType ~= "Equip" or (itemType == "Equip" and (classType == "Outer" or classType == "SpecialCostume")) then
+									return;
+								end
+							else
 								return;
 							end
-						else
-							return;
 						end
 					end
 				end
@@ -920,9 +922,9 @@ function QUICKSLOTNEXPBAR_EXECUTE(slotIndex)
 
 	local chatFrame = ui.GetFrame("chat");
 	if chatFrame ~= nil then
-	if chatFrame:IsVisible() == 1 then
-		return;
-	end
+		if chatFrame:IsVisible() == 1 then
+			return;
+		end
 	end
 
 	local flutingFrame = ui.GetFrame('fluting_keyboard')

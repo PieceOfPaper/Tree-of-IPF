@@ -1,18 +1,23 @@
-﻿
-function MARKET_SELL_ON_INIT(addon, frame)
+﻿function MARKET_SELL_ON_INIT(addon, frame)
 	addon:RegisterMsg("MARKET_REGISTER", "ON_MARKET_REGISTER");
 	addon:RegisterMsg("MARKET_SELL_LIST", "ON_MARKET_SELL_LIST");
 	
 	addon:RegisterMsg("MARKET_MINMAX_INFO", "ON_MARKET_MINMAX_INFO");
 	addon:RegisterMsg("MARKET_ITEM_LIST", "ON_MARKET_SELL_LIST");
 	addon:RegisterMsg('RESPONSE_MIN_PRICE', 'ON_RESPONSE_MIN_PRICE');
+	addon:RegisterMsg('WEB_RELOAD_SELL_LIST', 'ON_WEB_RELOAD_SELL_LIST');
+	addon:RegisterMsg('UPDATE_MARKET_TRADE_LIMIT', 'ON_UPDATE_MARKET_TRADE_LIMIT');
+end
+
+function ON_WEB_RELOAD_SELL_LIST(frame, msg, argStr, argNum)	
+	RequestMarketSellList();
 end
 
 function MARKET_SELL_OPEN(frame)
 	MARKET_SELL_UPDATE_SLOT_ITEM(frame);
-	market.ReqMySellList(0);
+	RequestMarketSellList();
 	packet.RequestItemList(IT_WAREHOUSE);
-
+	session.inventory.ReqMarketTradeLimitAmount();
 
 	local groupbox = frame:GetChild("groupbox");
 
@@ -105,7 +110,7 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 		nameCtrl:SetTextByKey("value", GET_FULL_NAME(itemObj));
 
 		local totalPriceCtrl = ctrlSet:GetChild("totalPrice");
-		local totalPriceValue = math.mul_int_for_lua(marketItem.sellPrice, marketItem.count);
+		local totalPriceValue = math.mul_int_for_lua(marketItem:GetSellPrice(), marketItem.count);
 		local totalPrice = GET_COMMAED_STRING(totalPriceValue);
 		totalPriceCtrl:SetTextByKey("value", totalPrice);
 
@@ -115,11 +120,10 @@ function ON_MARKET_SELL_LIST(frame, msg, argStr, argNum)
 
 		-- 시간 표기하는 부분
 		local remainTimeCtrl = ctrlSet:GetChild("remainTime");
-		local endImcTime = session.market.GetEndTime(marketItem);
-		if endImcTime == nil then
+		if marketItem:IsWatingForRegister() == true then
 			remainTimeCtrl:SetTextByKey("value", ClMsg("PleaseWaiting"));
 		else
-			local endSYSTime = imcTime.ImcTimeToSysTime(endImcTime);
+			local endSYSTime = marketItem:GetEndTime();
 			local difSec = imcTime.GetDifSec(endSYSTime, sysTime);			
 			remainTimeCtrl:SetUserValue("REMAINSEC", difSec);
 			remainTimeCtrl:SetUserValue("STARTSEC", imcTime.GetAppTime());
@@ -230,7 +234,7 @@ function MARKET_SELL_UPDATE_REG_SLOT_ITEM(frame, invItem, slot)
 		edit_price:SetMaxNumber(TOKEN_MARKET_REG_MAX_PRICE * invItem.count);
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 	else
-		edit_price:SetMaxNumber(2147483647);
+		edit_price:ClearMaxNumber();
 		edit_price:SetMaxLen(edit_price:GetMaxLen() + 3); -- 3: , 텍스트로 변환		
 	end
 
@@ -266,7 +270,7 @@ function MARKET_SELL_RBUTTON_ITEM_CLICK(frame, invItem)
 		priceText:SetTextByKey("priceText", GetMonetaryString(edit_price_value))
 		UPDATE_FEE_INFO(frame, feeSelected, edit_count_value, edit_price_value)
 
-		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID());
+		MARKET_SELL_REQUEST_PRICE_INFO(frame, invItem:GetIESID(), invItem.type);
 	end
 end
 
@@ -319,7 +323,7 @@ function MARKET_SELL_ITEM_DROP_BY_SLOT(parent, slot)
 	if invItem ~= nil then
 		local ret = MARKET_SELL_UPDATE_REG_SLOT_ITEM(parent:GetTopParentFrame(), invItem, slot);
 		if ret == true then			
-			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID);
+			MARKET_SELL_REQUEST_PRICE_INFO(frame, itemID, invItem.type);
 		end
 		return;
 	end
@@ -341,7 +345,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 
 	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price", "ui::CEditControl");
 	edit_price:SetText("0");
-	edit_price:SetMaxNumber(2147483647);
+	edit_price:ClearMaxNumber();
 	edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 
 	if argNum == 1 then	
@@ -359,7 +363,7 @@ function ON_MARKET_MINMAX_INFO(frame, msg, argStr, argNum)
 				edit_price:SetMaxNumber(maxAllow);
 				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			else
-				edit_price:SetMaxNumber(2147483647);
+				edit_price:ClearMaxNumber();
 				edit_price:SetMaxLen(edit_price:GetMaxLen() + 3);
 			end
 		else
@@ -406,7 +410,7 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local edit_count = GET_CHILD_RECURSIVELY(groupbox, "edit_count");
 	local edit_price = GET_CHILD_RECURSIVELY(groupbox, "edit_price");
 
-	local invitem = GET_SLOT_ITEM(slot_item);
+	local invitem = GET_SLOT_ITEM(slot_item);	
 	if invitem == nil then
 		return;
 	end
@@ -417,24 +421,29 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		ui.SysMsg(ClMsg("SellPriceMustOverThen100Silver"));		
 		return;
 	end
-	local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
-	if price * count > limitMoney then
-		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
+
+	local limitMoneyStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
+	if limitMoneyStr == nil then
+		ui.SysMsg(ClMsg('LoadingTradeLimitAmount'));
 		return;
 	end
 
-	local strprice = string.format("%d", price);
+	if IsGreaterThanForBigNumber(math.mul_int_for_lua(price, count), limitMoneyStr) == 1 then
+		ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoneyStr)));
+		return;
+	end
 
+	local strprice = tostring(price);
 	if string.len(strprice) < 3 then
 		return
 	end
 
-	local floorprice = strprice.sub(strprice,0,2)
+	local floorprice = strprice.sub(strprice, 0, 2);
 	for i = 0 , string.len(strprice) - 3 do
 		floorprice = floorprice .. "0"
 	end
 	
-	if strprice ~= floorprice then
+	if strprice ~= floorprice then		
 		edit_price:SetText(GET_COMMAED_STRING(floorprice));
 		ui.SysMsg(ScpArgMsg("AutoAdjustToMinPrice"));		
 		price = tonumber(floorprice);
@@ -462,9 +471,8 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
 	local commission = registerFeeValueCtrl:GetTextByKey("value")
 	commission = string.gsub(commission, ",", "")
-	commission = tonumber(commission)
-	local vis = session.GetInvItemByName("Vis");
-	if vis == nil or 0 > vis.count - commission then
+	commission = math.max(tonumber(commission), 1);
+	if IsGreaterThanForBigNumber(commission, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg("Auto_SilBeoKa_BuJogHapNiDa."));
 		return;
 	end
@@ -500,7 +508,6 @@ function MARKET_SELL_REGISTER(parent, ctrl)
     	ui.SysMsg(ScpArgMsg("PremiumRegMaxPrice{Price}","Price", TOKEN_MARKET_REG_MAX_PRICE));
     	return;
 	end
-
 
 	if true == invitem.isLockState then
 		ui.SysMsg(ClMsg("MaterialItemIsLock"));
@@ -538,13 +545,10 @@ function MARKET_SELL_REGISTER(parent, ctrl)
 		return false;
 	end
 
-
-	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %d, %d, 1, %d)", itemGuid, price, count, needTime);
-
-	commission = math.floor(commission);
-	if commission <= 0 then
-		commission = 1;
-	end
+	local yesScp = string.format("market.ReqRegisterItem(\'%s\', %s, %d, 1, %d)", itemGuid, floorprice, count, needTime);
+	commission = registerFeeValueCtrl:GetTextByKey("value");	
+	commission = string.gsub(commission, ",", "");
+	commission = math.max(tonumber(commission), 1);
 	if nil~= obj and obj.ItemType =='Equip' then
 		if 0 < obj.BuffValue then
 			-- 장비그룹만 buffValue가 있다.
@@ -560,9 +564,7 @@ end
 function UPDATE_COUNT_STRING(parent, ctrl)
     local frame = parent:GetTopParentFrame();
 	local edit_price = GET_CHILD_RECURSIVELY(frame, "edit_price");
-	local registerFeeValueCtrl = GET_CHILD_RECURSIVELY(frame, "registerFeeValue");
 	
-	local limitMoney = MARKET_REGISTER_SILVER_LIMIT
 	local itemPrice = edit_price:GetText()
     itemPrice = string.gsub(itemPrice, ',', '')
     itemPrice = tonumber(itemPrice)
@@ -573,10 +575,12 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 		if count == nil or countTxt == "" then
 			count = 0;
 		end
-
-		if count * tonumber(itemPrice) > limitMoney then
-			count = math.floor(limitMoney / itemPrice)
-			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
+		
+		local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();		
+		if limitTradeStr ~= nil then
+			if IsGreaterThanForBigNumber(tonumber(itemPrice) * count, limitTradeStr) == 1 then				
+				ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));				
+			end		
 		end
 		ctrl:SetText(count)
 		UPDATE_FEE_INFO(frame, nil, count, nil)
@@ -584,20 +588,24 @@ function UPDATE_COUNT_STRING(parent, ctrl)
 end
 
 function UPDATE_MONEY_COMMAED_STRING(parent, ctrl)	
-    local moneyText = ctrl:GetText();    
+    local moneyText = ctrl:GetText();
     if moneyText == "" then
         moneyText = 0;
     end
 
     local frame = parent:GetTopParentFrame();
-    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
+    local limitMoney = REGISTER_SILVER_LIMIT;
     if frame:GetName() == 'accountwarehouse' then
-    	limitMoney = ACCOUNT_WAREHOUSE_MAX_STORE_SILVER;
+		limitMoney = session.inventory.GetAccountWareHouseLimitAmount();
+		if limitMoney == nil then
+			ui.SysMsg(ClMsg('LoadingTradeLimitAmount'));
+			limitMoney = 0;			
+		end
+		limitMoney = tonumber(limitMoney);
     end
 
     if tonumber(moneyText) > limitMoney then
         moneyText = tostring(limitMoney);
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
     end
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 end
@@ -608,16 +616,18 @@ function UPDATE_MARKET_MONEY_STRING(parent, ctrl)
         moneyText = 0;
     end
 
-    local frame = parent:GetTopParentFrame();
-    local limitMoney = MARKET_REGISTER_SILVER_LIMIT;
-    
+    local frame = parent:GetTopParentFrame();    
 	local edit_count = GET_CHILD_RECURSIVELY(frame, "edit_count")
 	local itemCount = edit_count:GetText()
 
-    if tonumber(moneyText) * itemCount > limitMoney then
-        moneyText = tostring(math.floor(limitMoney / itemCount));
-        ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitMoney)));
-    end
+	local limitTradeStr = GET_REMAIN_MARKET_TRADE_AMOUNT_STR();
+	if limitTradeStr ~= nil then
+		if IsGreaterThanForBigNumber(math.mul_int_for_lua(moneyText, itemCount), limitTradeStr) == 1 then			
+			ui.SysMsg(ScpArgMsg('MarketMaxSilverLimit{LIMIT}Over', 'LIMIT', GET_COMMAED_STRING(limitTradeStr)));			
+			moneyText = limitTradeStr;
+		end		
+	end
+    
     ctrl:SetText(GET_COMMAED_STRING(moneyText));
 
 	local feeGBoxFrame = GET_CHILD_RECURSIVELY(frame, "feeGbox");
@@ -669,7 +679,7 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	
 	--소수점 단위 버림
 	local totalPrice = math.mul_int_for_lua(price, count);
-	local registerFeeValue = math.floor(tonumber(math.mul_int_for_lua(math.mul_int_for_lua(totalPrice, free), 0.01)));	
+	local registerFeeValue = math.max(math.floor(tonumber(math.mul_int_for_lua(math.mul_int_for_lua(totalPrice, free), 0.01))), 1);	
 	local feeValue = 0;
 	local isTokenState = session.loginInfo.IsPremiumState(ITEM_TOKEN);
 	local isPremiumStateNexonPC = session.loginInfo.IsPremiumState(NEXON_PC);
@@ -687,9 +697,8 @@ function UPDATE_FEE_INFO(frame, free, count, price)
 	if feeValue > 0 then
 		feeValue = tonumber(math.mul_int_for_lua(feeValue, -1));
 	end
-	feeValue = math.floor(feeValue)
-	local finalValue = tonumber(math.add_for_lua(totalPrice, feeValue));
-
+	feeValue = math.floor(feeValue)	
+	local finalValue =SumForBigNumberInt64(totalPrice, feeValue);
 	registerFeeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(registerFeeValue));
 	totalSellPriceValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(totalPrice));
 	feeValueCtrl:SetTextByKey("value", GET_COMMAED_STRING(feeValue));
@@ -726,12 +735,19 @@ function CLEAR_SELL_INFO(frame)
 	priceText:SetTextByKey("priceText", "0")
 end
 
-function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid)
+function MARKET_SELL_REQUEST_PRICE_INFO(frame, itemGuid, itemClassID)
 	market.ReqSellMinMaxInfo(itemGuid);
+	RequestMarketMinPrice(itemClassID);
 	frame:SetUserValue('REQ_ITEMID', itemGuid)
 end
 
 function ON_RESPONSE_MIN_PRICE(frame, msg, minPrice, argNum)	
 	local curMinPrice = GET_CHILD_RECURSIVELY(frame, 'curMinPrice');
 	curMinPrice:SetTextByKey('value', GetMonetaryString(minPrice));
+end
+
+function ON_UPDATE_MARKET_TRADE_LIMIT(frame, msg, argStr, argNum)	
+	local limitAmountText = GET_CHILD_RECURSIVELY(frame, 'limitAmountText');
+	limitAmountText:SetTextByKey('cur', GET_COMMAED_STRING(session.inventory.GetCurMarketTradeAmount()));
+	limitAmountText:SetTextByKey('max', GET_COMMAED_STRING(session.inventory.GetMarketLimitAmount()));
 end

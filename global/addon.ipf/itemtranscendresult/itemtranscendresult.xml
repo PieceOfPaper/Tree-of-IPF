@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <uiframe name="itemtranscendresult" x="-28" y="-18" width="500" height="100" create="open">
 	<frame title="{@st43}게임설정{/}" titlepos="0 -12" layout_gravity="left top" snapclient="true" snapframe="true" margin="7 330 10 10"/>
 	<draw drawframe="false" drawtitlebar="false"/>
 	<layer layerlevel="100"/>
 	<input moveable="true"/>
-	<option closebuttonpos="5 20" closebutton="false" hideable="false" useimageitem="true"/>
+	<option closebutton="false" hideable="false" useimageitem="true"/>
 	<sound opensound="win_open" closesound="win_close"/>
 	<script CloseScp="ITEMTRANSCEND_RESULT_CLOSE"/>
 	<animation frameOpenAnim="chat_balloon_start" frameCloseAnim="chat_balloon_end"/>

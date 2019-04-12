@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <tooltipset>
 	<tooltip name="partyinfotooltipNormal" x="0" y="0" fixwidth="false" width="412" height="370" moveable="true" frameskin="partylist_tooltip_skin" blendtime="" UpdateScp="PARTY_INFO_UPDATE_TOOLTIP_NORMAL">
 		<controls>
@@ -89,7 +89,7 @@
 			<groupbox name="legendexppotion" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="appraisal" margin="940 -58 0 0" rect="0 0 160 54" skin="" hittest="false" draw="true" updateparent="false" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="extract_option" margin="820 0 0 0" rect="0 0 410 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
-			</controls>
+		</controls>
 	</tooltip>
 	<tooltip name="wholeitem_link" x="0" y="0" fixwidth="false" width="1640" height="0" moveable="true" frameskin="None" draw="false" blendtime="" UpdateScp="UPDATE_ITEM_TOOLTIP" CustomUpdate="UPDATE_NEW_TIP">
 		<userconfig BOTTOM_MARGIN="10"/>
@@ -237,7 +237,7 @@
 			<richtext name="token_tradecount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="challengeCount" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
 			<richtext name="pcbangItemRental" margin="10 220 0 0" rect="0 0 120 24" format="%s" param1="value" textalign="left top" resizebytext="true" spacey="0" maxwidth="0" fontname="brown_16" fixwidth="false" updateparent="false" drawbackground="false" slideshow="false" layout_gravity="left top"/>
-		</controls>
+			</controls>
 	</tooltip>
 	<tooltip name="reinforceitem" x="0" y="0" fixwidth="false" width="1640" height="0" moveable="false" frameskin="None" draw="false" blendtime="" UpdateScp="UPDATE_REINFORCE_ITEM_TOOLTIP">
 		<userconfig BOTTOM_MARGIN="10"/>
@@ -252,7 +252,7 @@
 			<groupbox name="bosscard" margin="820 0 0 0" rect="0 0 370 0" skin="testbosscard_tooltip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="gem" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
 			<groupbox name="legendexppotion" margin="820 0 0 0" rect="0 0 330 0" skin="test_Item_tooltip_equip" hittest="false" draw="true" updateparent="true" scrollbar="false" layout_gravity="left top"/>
-			</controls>
+		</controls>
 	</tooltip>
 	<tooltip name="status_detail" x="0" y="0" fixwidth="false" width="300" height="155" moveable="false" frameskin="test_tooltipskin_tj" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_STATUS_DETAIL_TOOLTIP">
 		<controls>
@@ -280,9 +280,35 @@
 			<richtext name="desc_text" rect="0 0 390 100" margin="30 130 0 0" layout_gravity="left top" drawbackground="false" fixwidth="true" fontname="black_14" format="%s" maxwidth="0" param1="value" param1_def="Description"/>
 		</controls>
 	</tooltip>
+	<tooltip name="job_select_guide_tree_tooltip" x="0" y="0" fixwidth="false" width="220" height="25" draw="true" moveable="false" frameskin="tooltip1" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_JOB_SELECT_GUIDE_TREE_TOOLTIP">
+		<controls>
+			<richtext name="jobname_text" rect="0 0 200 200" margin="10 0 0 0" layout_gravity="left center" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="value" spacey="0"/>
+			<richtext name="star_text" rect="0 0 200 200" margin="0 0 10 0" layout_gravity="right center" drawbackground="false" fixwidth="false" fontname="black_16_b" format="%s" maxwidth="0" param1="value" spacey="3"/>
+		</controls>
+	</tooltip>
 	<tooltip name="imagePreview" x="0" y="0" fixwidth="true" width="450" height="300" moveable="false" frameskin="adventure_paper2" lifetime="90000" blendtime="1500" UpdateScp="SET_PREVIEW_IMAGE">
 		<controls>
 			<picture name="selectedImage" rect="0 0 450 300" image="partylist_line" layout_gravity="center center"/>
+		</controls>
+	</tooltip>	<tooltip name="trust_point" x="0" y="0" fixwidth="true" width="308" height="180" moveable="false" frameskin="test_tooltipskin_tj" lifetime="90000" blendtime="1500" UpdateScp="UPDATE_TRUST_POINT_TOOLTIP">
+		<userconfig STAR_IMG="star_in_arrow" STAR_SIZE="20"/>
+		<controls>
+			<richtext name="staticText" rect="0 0 300 30" margin="10 8 0 0" layout_gravity="left top" format="거래 등급 안내" fontname="white_18_b_ds_ol"/>
+			<button name="starTextBox1" rect="0 0 48 24" margin="10 38 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value" useclickimg="false"/>
+			<button name="paramTextBox1" rect="0 0 212 24" margin="60 38 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<checkbox name="check1" rect="0 0 30 30" margin="0 35 3 0" layout_gravity="right top" hittest="fasle"/>
+			<button name="starTextBox2" rect="0 0 48 24" margin="10 64 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
+			<button name="paramTextBox2" rect="0 0 212 24" margin="60 64 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="캐릭터 레벨 %s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<checkbox name="check2" rect="0 0 30 30" margin="0 61 3 0" layout_gravity="right top" hittest="fasle"/>
+			<button name="starTextBox3" rect="0 0 48 24" margin="10 90 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
+			<button name="paramTextBox3" rect="0 0 212 24" margin="60 90 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="팀 생성 %s일 이상" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<checkbox name="check3" rect="0 0 30 30" margin="0 87 3 0" layout_gravity="right top" hittest="fasle"/>
+			<button name="starTextBox4" rect="0 0 48 24" margin="10 116 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
+			<button name="paramTextBox4" rect="0 0 212 24" margin="60 116 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="%s" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<checkbox name="check4" rect="0 0 30 30" margin="0 113 3 0" layout_gravity="right top" hittest="fasle"/>
+			<button name="starTextBox5" rect="0 0 48 24" margin="10 142 0 0" layout_gravity="left top" image="brownbox_op_100" draw="false" format="%s" param1="value"  useclickimg="false"/>
+			<button name="paramTextBox5" rect="0 0 212 24" margin="60 142 0 0" layout_gravity="left top" skin="lightbrownbox_op_100" format="계시 %s개 획득" param1="value" param1_def="0" textalign="left center" textoffset="10 0" fontname="white_16_b_ol"  useclickimg="false"/>
+			<checkbox name="check5" rect="0 0 30 30" margin="0 139 3 0" layout_gravity="right top" hittest="fasle"/>
 		</controls>
 	</tooltip>
 </tooltipset>

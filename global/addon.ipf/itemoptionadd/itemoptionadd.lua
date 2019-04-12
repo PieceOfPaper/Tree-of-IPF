@@ -13,8 +13,8 @@ function ON_OPEN_DLG_ITEMOPTIONADD(frame)
 	frame:ShowWindow(1);	
 end
 
-function ITEMOPTIONADD_OPEN(frame)
-	
+function ITEMOPTIONADD_OPEN(frame)	
+	ui.CloseFrame('rareoption');
 	SET_OPTIONADD_RESET(frame);
 	CLEAR_ITEMOPTIONADD_UI()
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ITEMOPTIONADD_INV_RBTN")	
@@ -418,11 +418,6 @@ function ITEM_OPTIONADD_REG_ADD_ITEM(frame, itemID)
 		end
 	end
 
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(invitem);
-	if rareOptionText ~= nil then
-		inner_yPos = ADD_ITEM_PROPERTY_TEXT(property_gbox, rareOptionText, 0, inner_yPos);
-	end
-
 	for i = 1 , #list2 do
 		local propName = list2[i];
 		local propValue = targetItem[propName];
@@ -670,15 +665,6 @@ ui.SetHoldUI(false);
 		end
 	end
     
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
-	end
-
 	local resultItemImg = GET_CHILD_RECURSIVELY(frame, "result_item_img")
 	resultItemImg:ShowWindow(1)
 	resultItemImg:SetImage(item.Icon)

@@ -315,7 +315,8 @@ function SOLODUNGEON_RANKINGPAGE_FILL_RANK_CTRL(rankGbox, ctrlType, rank, week)
         startext = startext .. ("{@st41}").. jobName
         
         -- 클래스 레벨 (★로 표시)               
-        for i = 1 , 3 do
+        local maxCircle = GET_JOB_MAX_CIRCLE(jobCls);
+        for i = 1 , maxCircle do
             if i <= grade then
                 startext = startext ..('{img star_in_arrow 20 20}');
             else

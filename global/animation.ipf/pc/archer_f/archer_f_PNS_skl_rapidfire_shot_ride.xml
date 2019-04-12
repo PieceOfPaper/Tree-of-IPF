@@ -1,2 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ActionDesc/>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
+<ActionDesc>
+	<Particle frame="0" attachNode="None" particleName="E_rapidfire" useAttach="false" hiddenObj="false" changeEffect="None" scale="0.4" pause="true" use2DEffect="false"/>
+	<BlendOn frame="0" R="100" G="100" B="100" A="10"/>
+	<BlendOff frame="2" R="0" G="0" B="0" A="0"/>
+	<Shockwave frame="0" type="2" intensity="2" frequency="70" duration="0.2" range="1000"/>
+	<Sound frame="0.00" soundFile="crossbow_shot"/>
+</ActionDesc>

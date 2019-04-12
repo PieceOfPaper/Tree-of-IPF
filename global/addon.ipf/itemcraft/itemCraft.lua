@@ -1255,7 +1255,7 @@ function ITEMCRAFT_INV_RBTN(itemObj, slot)
                 end
 				if invItemObj~= nil and IsValidRecipeMaterial(eachcset:GetUserValue('ClassName'), invItemObj) and iconInfo.count >= needcount  then                    
 					if true == tempinvitem.isLockState then
-						ui.SysMsg(ClMsg("MaterialItemIsLock"));
+						ui.SysMsg(ClMsg("MaterialItemIsLock"));                        
 						return;
 					end
 					session.AddItemID(iconInfo:GetIESID(), needcount);
@@ -1732,12 +1732,12 @@ function CRAFT_ITEM_ALL(itemSet, btn)
 		for j = 0, resultlist:Count() - 1 do
 			local tempitem = resultlist:PtrAt(j);
 
-			if tempitem.ItemID == tempinvItem:GetIESID() then
+			if tempitem.ItemID == tempinvItem:GetIESID() then                
 				isAlreadyAdd = 1
 			end
 		end
 
-		if isAlreadyAdd == 0 then
+		if isAlreadyAdd == 0 and tempinvItem.isLockState == false then
 			invItemadd = tempinvItem
 			break
 		end

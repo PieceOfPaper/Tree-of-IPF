@@ -228,15 +228,6 @@ function ITEM_REVERT_RANDOM_REG_TARGETITEM(frame, itemID, reReg)
 		end
 	end
 
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
-	end
-
 	local isAbleExchange = 1;
 	if obj.MaxDur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET or obj.Dur <= MAXDUR_DECREASE_POINT_PER_RANDOM_RESET then
 		isAbleExchange = -2;
@@ -419,15 +410,6 @@ ui.SetHoldUI(false);
 		end
 	end
     
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
-	end
-
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
 end
 
@@ -766,37 +748,9 @@ function _SHOW_REVERT_ITEM_RESULT(itemGuid)
 		end
 	end
 
-    local rareOptionName, rareOptionValue = GET_RARE_OPTION_INFO_IN_PROPLIST(propNameList, propValueList);
-    if rareOptionName ~= nil and rareOptionValue ~= nil then
-        local rareClMsg = _GET_RANDOM_OPTION_RARE_CLIENT_TEXT(rareOptionName, rareOptionValue);
-        if rareClMsg ~= nil then
-            local itemClsCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-			itemClsCtrl = AUTO_CAST(itemClsCtrl);
-			itemClsCtrl:Move(0, ypos)
-			local propertyList = GET_CHILD_RECURSIVELY(itemClsCtrl, "property_name", "ui::CRichText");
-			propertyList:SetText(rareClMsg);
-        end
-    end
-
 	UPDATE_REMAIN_MASTER_GLASS_COUNT(frame)
 	local do_revertrandom = GET_CHILD_RECURSIVELY(frame, "do_revertrandom")
 	do_revertrandom:ShowWindow(0);
-end
-
-function GET_RARE_OPTION_INFO_IN_PROPLIST(_propNameList, _propValueList)
-    local rareOptionName, rareOptionValue;
-    for i = 1, #_propNameList do
-        if _propNameList[i] == 'RandomOptionRare' then
-            rareOptionName = _propValueList[i];
-        elseif _propNameList[i] == 'RandomOptionRareValue' then
-            rareOptionValue = _propValueList[i];
-        end
-
-        if rareOptionName ~= nil and rareOptionValue ~= nil then
-            break;
-        end
-    end
-    return rareOptionName, rareOptionValue;
 end
 
 function ITEMREVERTRANDOM_SEND_ANSWER(parent, ctrl, argStr, argNum)

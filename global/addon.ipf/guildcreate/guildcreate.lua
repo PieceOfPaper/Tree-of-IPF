@@ -58,8 +58,7 @@ end
 function CREATE_GUILD(frame)
 
 	local curVis = GET_GUILD_MAKE_PRICE();
-	local myMaxMoney = GET_TOTAL_MONEY();
-	if curVis > myMaxMoney then
+	if IsGreaterThanForBigNumber(curVis, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg("NotEnoughMoney"));
 		return;
 	end

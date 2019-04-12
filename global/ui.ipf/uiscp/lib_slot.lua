@@ -13,6 +13,8 @@ function SET_SLOT_ITEM_CLS(slot, itemCls)
 	SET_ITEM_TOOLTIP_BY_TYPE(slot:GetIcon(), itemCls.ClassID);
 end
 
+
+
 function SET_SLOT_ITEM_INFO(slot, itemCls, count, style)
 	local icon = CreateIcon(slot);
 	icon:EnableHitTest(0);
@@ -235,7 +237,7 @@ function SET_SLOT_COUNT_TEXT(slot, cnt, font, hor, ver, stateX, stateY)
 		slot:SetText(font..cnt, 'count', hor, ver, stateX, stateY);
 end
 
-function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAppraisal_Flag, itemReinforce_Flag)
+function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAppraisal_Flag, itemReinforce_Flag, isInventory)
 	if slot == nil then
 		return
 	end
@@ -245,11 +247,19 @@ function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAp
 	end
 
 	if itemGrade_Flag == nil or itemGrade_Flag == 1 then
-		SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade)
+		if isInventory ~= nil and isInventory == 1 and config.GetXMLConfig("ViewGradeStyle") == 0 then
+			
+		else
+			SET_SLOT_BG_BY_ITEMGRADE(slot, itemCls.ItemGrade)
+		end
 	end
 
 	if itemLevel_Flag == nil or itemLevel_Flag == 1 then
-		SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(itemCls, 'Transcend'))
+		if isInventory ~= nil and isInventory == 1 and config.GetXMLConfig("ViewTranscendStyle") == 0 then
+		
+		else
+			SET_SLOT_TRANSCEND_LEVEL(slot, TryGetProp(itemCls, 'Transcend'))
+		end
 	end
 
 	local needAppraisal = nil
@@ -264,7 +274,15 @@ function SET_SLOT_STYLESET(slot, itemCls, itemGrade_Flag, itemLevel_Flag, itemAp
 	end
 
 	if itemReinforce_Flag == nil or itemReinforce_Flag == 1 then
-		SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+		if isInventory ~= nil and isInventory == 1 and config.GetXMLConfig("ViewReinforceStyle") == 0 then
+
+		else
+			SET_SLOT_REINFORCE_LEVEL(slot, TryGetProp(itemCls, 'Reinforce_2'))
+		end
+	end
+
+	if TryGetProp(itemCls, "Dur") ~= nil then
+		SET_SLOT_DURATION(slot, itemCls)
 	end
 end
 
@@ -374,6 +392,17 @@ function SET_SLOT_REINFORCE_LEVEL(slot, reinforceLv)
 	levelText:SetTextByKey("level", reinforceLv)
 end
 
+function SET_SLOT_DURATION(slot, itemCls)
+	if itemCls.Dur == 0 then
+		local icon = slot:GetIcon()
+		if icon == nil then
+			return
+		end
+
+		icon : SetColorTone("FFFF0000")
+	end
+end
+
 function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	if obj.MaxStack > 1 then
 		SET_SLOT_COUNT_TEXT(slot, invItem.count);
@@ -381,14 +410,14 @@ function SET_SLOT_ITEM_TEXT(slot, invItem, obj)
 	end
 
 	local lv = TryGetProp(obj, "Level");
-	if lv ~= nil and lv > 1 then
+	if lv ~= nil and lv > 1 then		
 		slot:SetFrontImage('enchantlevel_indi_icon');
 		slot:SetText('{s20}{ol}{#FFFFFF}{b}'..lv, 'count', 'left', 'top', 8, 2);
 		return;
 	end
 end
 
-function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count)
+function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count, font)
 
 	local refreshScp = TryGetProp(obj,'RefreshScp')
 
@@ -399,9 +428,9 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count)
 
 	if obj.MaxStack > 1 then
 		if count ~= nil then
-			SET_SLOT_COUNT_TEXT(slot, count);
+			SET_SLOT_COUNT_TEXT(slot, count, font);
 		else
-			SET_SLOT_COUNT_TEXT(slot, invItem.count);
+			SET_SLOT_COUNT_TEXT(slot, invItem.count, font);
 		end
 		return;
 	end
@@ -409,7 +438,11 @@ function SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, count)
 	local lv = TryGetProp(obj, "Level");
 	if lv ~= nil and lv > 1 then
 		--slot:SetFrontImage('enchantlevel_indi_icon');
-		slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
+		if IS_ENCHANT_JEWELL_ITEM(obj) == true then
+			slot:SetText('{s15}{ol}{#FFFFFF}{b}LV.'..lv, 'count', 'left', 'bottom', 3, 2);
+		else
+			slot:SetText('{s17}{ol}{#FFFFFF}{b}LV. '..lv, 'count', 'left', 'top', 3, 2);
+		end
 		return;
 	end
 end

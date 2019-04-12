@@ -36,18 +36,16 @@ end
 
 
 function GUILDINFO_OPEN_UI(frame)
-
-    
     local myActor = GetMyActor();
     if myActor == nil or myActor:IsGuildExist() == false then
         return;
     end
 
     local frame = ui.GetFrame("guildinfo");
-    
+ 
     GetClaimList("ON_CLAIM_GET")
     if firstOpen == true then
-        
+
         --todo여기에 처음 로드할때만 요청할 바인드함수 추가
         GUILDINFO_OPTION_INIT(frame, frame);
         local mainTab = GET_CHILD_RECURSIVELY(frame, 'mainTab');
@@ -58,7 +56,7 @@ function GUILDINFO_OPEN_UI(frame)
     GUILDINFO_COLONY_INIT(frame, frame)
     INIT_UI_BY_CLAIM();
 
-   GUILDINFO_INIT_PROFILE(frame); 
+    GUILDINFO_INIT_PROFILE(frame); 
     GUILDINFO_OPTION_INIT_SETTING_CLAIM_TAB();
     
 	GetGuildInfo("GUILDINFO_GET");
@@ -66,8 +64,10 @@ function GUILDINFO_OPEN_UI(frame)
     local guild = GET_MY_GUILD_INFO();
 	local leaderAID = guild.info:GetLeaderAID()
     local myAID = session.loginInfo.GetAID()
-        GUILD_APPLICANT_INIT()
-    end
+    GUILD_APPLICANT_INIT()
+
+    session.party.ReqGuildAsset();
+end
 
 function GUILDINFO_INIT_PROFILE(frame)
     local guild = session.party.GetPartyInfo(PARTY_GUILD);
@@ -117,15 +117,10 @@ function GUILDINFO_INIT_PROFILE(frame)
     GUILDINFO_PROFILE_INIT_EMBLEM(frame);
 end
 
-function GUILDINFO_PROFILE_INIT_ASSET(frame)
-
+function GUILDINFO_PROFILE_INIT_ASSET(frame)    
     local moneyText = GET_CHILD_RECURSIVELY(frame, 'guildFund');
-    local guildObj = GET_MY_GUILD_OBJECT();
-    local guildAsset = guildObj.GuildAsset;    
-    if guildAsset == nil or guildAsset == 'None' then
-        guildAsset = 0;
-    end
-    moneyText:SetText("{@st66b}" .. GET_COMMAED_STRING(guildAsset) .. "{/}");
+    local guild = session.party.GetPartyInfo(PARTY_GUILD);    
+    moneyText:SetText("{@st66b}" .. GET_COMMAED_STRING(guild.info:GetAssetAmount()) .. "{/}");
 end
 
 function GET_MY_GUILD_INFO()
@@ -195,13 +190,11 @@ function GUILDINFO_UPDATE_PROPERTY(frame, msg, argStr, argNum)
     elseif argStr == 'GuildOnlyAgit' then
         GUILDINFO_OPTION_INIT(frame, frame);
         return;
-    elseif argStr == 'GuildAsset' then
-        ON_UPDATE_GUILD_ASSET(frame, msg, argStr, argNum);
     end
 end
 
 function GUILDINFO_PROFILE_INIT_EMBLEM(frame)
-    local guildInfo = GET_MY_GUILD_INFO();    
+    local guildInfo = GET_MY_GUILD_INFO();
     local worldID = session.party.GetMyWorldIDStr();    
     local emblemImgName = guild.GetEmblemImageName(guildInfo.info:GetPartyID(),worldID);  
     local isRegisteredEmblem = session.party.IsRegisteredEmblem();
@@ -257,7 +250,7 @@ end
 function UI_TOGGLE_GUILD()
     if app.IsBarrackMode() == true then
 		return;
-	end
+    end
     if session.world.IsIntegrateServer() == true then
         ui.SysMsg(ScpArgMsg("CantUseThisInIntegrateServer"));
         return;

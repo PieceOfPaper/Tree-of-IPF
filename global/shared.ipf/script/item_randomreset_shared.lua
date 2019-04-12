@@ -39,6 +39,73 @@ function IS_EXIST_RANDOM_OPTION(item)
 	return false;
 end
 
+function IS_ENCHANT_JEWELL_ITEM(item)
+	if TryGetProp(item, 'StringArg', 'None') == 'EnchantJewell' then
+		return true;
+	end
+	return false;
+end
+
+function CHECK_JEWELL_COMMON_CONSTRAINT(item)
+	if item == nil then
+		return false;
+	end
+	
+    local classType = TryGetProp(item, 'ClassType');
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield'};
+	for i = 1, #enableClassType do
+		if enableClassType[i] == classType then
+			return true;
+		end
+	end
+	return false;
+end
+
+function IS_ENABLE_EXTRACT_JEWELL(item)
+    if item == nil then
+		return false;
+	end
+	
+	local classType = TryGetProp(item, 'ClassType');
+	local enableClassType = {'Sword', 'THSword', 'Staff', 'THBow', 'Bow', 'Mace', 'THMace', 'Spear', 'THSpear', 'Dagger', 'THStaff', 'Pistol', 'Rapier', 'Cannon', 'Musket', 'Shirt', 'Pants', 'Boots', 'Gloves', 'Shield', 'Neck','Ring'};
+	for i = 1, #enableClassType do
+		if enableClassType[i] == classType then
+			return true;
+		end
+	end
+	return false;
+end
+
+function IS_ENABLE_APPLY_JEWELL(jewell, targetItem)
+	if jewell == nil or targetItem == nil then		
+		return false, 'Type'; -- return false with clmsg
+	end
+
+	if CHECK_JEWELL_COMMON_CONSTRAINT(targetItem) == false then		
+		return false, 'Type';
+	end
+
+	if jewell.Level < targetItem.UseLv then
+		return false, 'LEVEL';
+	end
+
+	if targetItem.ItemLifeTimeOver > 0 or tonumber(targetItem.LifeTime) > 0 then
+		return false, 'LimitTime';
+	end
+
+	if IS_NEED_APPRAISED_ITEM(targetItem) == true or IS_NEED_RANDOM_OPTION_ITEM(targetItem) == true then 
+		return false, 'NeedRandomOption';
+	end
+	
+	local woodCarvingCheck = TryGetProp(targetItem , 'StringArg')
+	
+	if woodCarvingCheck == 'WoodCarving' then
+	    return false, 'WoodCarving';
+	end
+
+	return true;
+end
+
 function CHECK_NEED_RANDOM_OPTION(item)
 	if item == nil then
 		return false;

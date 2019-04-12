@@ -432,7 +432,7 @@ function SCR_QUEST_CHECK(pc,questname,npcquestcount_list)
                     Succ_req_Quest = SCR_QUEST_SUCC_CHECK_MODULE_QUEST(pc, questIES, sObj)
                 end
                 
-                
+                local shortfall
                 Succ_req_MonKill, shortfall, ssnMonCheck = SCR_QUEST_SUCC_CHECK_MODULE_MONKILL(pc, questIES)
                 
                 

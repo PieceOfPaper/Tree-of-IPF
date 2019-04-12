@@ -84,8 +84,8 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		return;
 	end
 	
-	if itemCls.LifeTime > 0 then
-		ui.MsgBox(ScpArgMsg("IsItemLifeTime"));
+	if tonumber(itemCls.LifeTime) > 0 and obj.ItemLifeTimeOver > 0 then
+		ui.MsgBox(ScpArgMsg("WrongDropItem"));
 		return;
 	end
     	
@@ -96,7 +96,7 @@ function PUT_ITEM_TO_WAREHOUSE(parent, slot)
 		if invItem.count > 1 then
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()));
 		else
-			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue("HANDLE"));
 		end
 	else        
 		local iconSlot = liftIcon:GetParent();
@@ -110,7 +110,7 @@ end
 function EXEC_PUT_ITEM_TO_WAREHOUSE(frame, count, inputframe)
 	inputframe:ShowWindow(0);
 	local iesid = inputframe:GetUserValue("ArgString");
-	item.PutItemToWarehouse(IT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+	item.PutItemToWarehouse(IT_WAREHOUSE, iesid, tostring(count), frame:GetUserIValue("HANDLE"));
 end
 
 function ON_WAREHOUSE_ITEM_LIST(frame)    
@@ -168,8 +168,8 @@ function WAREHOUSE_INV_RBTN(itemObj, slot)
 		return;
 	end
 	
-	if tonumber(itemCls.LifeTime) > 0 then
-		ui.MsgBox(ScpArgMsg("IsItemLifeTime"));
+	if tonumber(itemCls.LifeTime) > 0 and obj.ItemLifeTimeOver > 0 then
+		ui.MsgBox(ScpArgMsg("WrongDropItem"));
 		return;
 	end
     	
@@ -180,7 +180,13 @@ function WAREHOUSE_INV_RBTN(itemObj, slot)
 		if invItem.count > 1 then
 			INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_WAREHOUSE", invItem.count, 1, invItem.count, nil, tostring(invItem:GetIESID()));
 		else
-			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+			if invItem.hasLifeTime == true then
+				local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", %d, %d)', IT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+				ui.MsgBox(ClMsg('PutLifeTimeItemInWareHouse'), yesscp, 'None');
+				return;
+			end
+
+			item.PutItemToWarehouse(IT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue("HANDLE"));
 		end
 	end
 end

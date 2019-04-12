@@ -128,8 +128,9 @@ end
 
 function LimaconClientScp_LEAVE(actor, obj, buff)
     actor:GetAnimation():ResetSTDAnim();
-    actor:GetAnimation():ResetTURNAnim();
-    actor:SetMovingShotAnimation("");
+    actor:GetAnimation():ResetTURNAnim();    
+    actor:SetMovingShot_MainWAnimation("");
+    actor:SetMovingShot_SubWAnimation("");
     actor:SetAlwaysBattleState(false);
     ScpChangeMovingShotAnimationSet(actor, obj, buff);
 end
@@ -1014,7 +1015,7 @@ function DoubleGunStance_ENTER(actor, obj, buff)
 --    actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
 --    actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
 --    actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
-    ScpChangeMovingShotAnimationSet(actor, obj, buff);
+    ScpChangeMovingShotAnimationSet(actor, obj, buff);    
 end
 
 function DoubleGunStance_LEAVE(actor, obj, buff)
@@ -1101,7 +1102,7 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
         end
         
         -- DoubleGunStance_Buff
-        if buffDoubleGunStance ~= nil then
+        if buffDoubleGunStance ~= nil then            
             actor:ChangeEquipNode(EmAttach.eRHand, "Dummy_B_crossBow");
             actor:CopyAttachedModel(EmAttach.eLHand, "Dummy_L_HAND");
             actor:SetAlwaysBattleState(true);
@@ -1112,16 +1113,18 @@ function ScpChangeMovingShotAnimationSet(actor, obj, buff)
             actor:GetAnimation():SetLANDAnim("SKL_DOUBLEGUN_LAND")
             actor:GetAnimation():SetRAISEAnim("SKL_DOUBLEGUN_RAISE")
 --            actor:GetAnimation():SetOnAIRAnim("SKL_DOUBLEGUN_ONAIR")
-            actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")
+            actor:GetAnimation():SetFALLAnim("SKL_DOUBLEGUN_FALL")            
         end
     end
     
     -- Limacon_Buff
     if buffLimacon ~= nil then
-        actor:GetAnimation():SetSTDAnim("ASTD");
-        actor:GetAnimation():SetTURNAnim("None");
-        actor:SetMovingShotAnimation("SKL_LIMACON");
-        actor:SetAlwaysBattleState(true);
+         --actor:SetMovingShotAnimation("SKL_LIMACON");
+         actor:GetAnimation():SetSTDAnim("ASTD");
+         actor:GetAnimation():SetTURNAnim("None");
+         actor:SetMovingShot_MainWAnimation("ATKMOVE");
+         actor:SetMovingShot_SubWAnimation("SKL_LIMACON");
+         actor:SetAlwaysBattleState(true);
     end
     
     -- RetreatShot --

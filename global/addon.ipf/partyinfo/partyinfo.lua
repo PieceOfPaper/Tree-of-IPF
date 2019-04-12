@@ -384,7 +384,6 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	local leaderMark = GET_CHILD(partyInfoCtrlSet, "leader_img", "ui::CPicture");
 	leaderMark:SetImage('None_Mark');
 	leaderMark:ShowWindow(0)
-	
 	-- 머리
 	local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 	local nameObj = partyInfoCtrlSet:GetChild('name_text');
@@ -395,18 +394,32 @@ function SET_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogoutPC, le
 	if jobportraitImg ~= nil then
 		local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
 		local iconinfo = partyMemberInfo:GetIconInfo();
-		local jobCls  = GetClassByType("Job", iconinfo.job);
+		local jobCls  = GetClassByType("Job", iconinfo.repre_job)
 		if nil ~= jobCls then
 			jobIcon:SetImage(jobCls.Icon);
 		end
 			
-			
+		local partyMemberCID = partyInfoCtrlSet:GetUserValue("partyMemberCID")
+		if partyMemberCID ~= nil and partyMemberCID ~= 0 and partyMemberCID ~= "None" then
+			local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
+			if jobportraitImg ~= nil then
+				local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
+				local partyinfoFrame = ui.GetFrame("partyinfo");	
+				PARTY_JOB_TOOLTIP(partyinfoFrame, partyMemberCID, jobIcon, jobCls, 1);  
+					
+				local partyFrame = ui.GetFrame('party');
+				local gbox = partyFrame:GetChild("gbox");
+				local memberlist = gbox:GetChild("memberlist");					
+				PARTY_JOB_TOOLTIP(memberlist, partyMemberCID, jobIcon, jobCls, 1);            
+			end;
+		end
+
 		local tooltipID = jobIcon:GetTooltipIESID();		
 		if nil == tooltipID then	
 			jobName = GET_JOB_NAME(jobCls, iconinfo.gender);	
 			jobIcon:SetTextTooltip(jobName);
 		end
-
+		
 		local stat = partyMemberInfo:GetInst();
 		local pos = stat:GetPos();
 
@@ -537,7 +550,7 @@ function SET_LOGOUT_PARTYINFO_ITEM(frame, msg, partyMemberInfo, count, makeLogou
 	if jobportraitImg ~= nil then
 		jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
 		local iconinfo = partyMemberInfo:GetIconInfo();
-		local jobCls  = GetClassByType("Job", iconinfo.job);
+		local jobCls  = GetClassByType("Job", iconinfo.repre_job);
 		if nil ~= jobCls then
 			jobIcon:SetImage(jobCls.Icon);
 		end
@@ -679,7 +692,6 @@ function SET_PARTY_JOB_TOOLTIP(cid)
 	if info == nil then
 		return ret;
 	end;
-
 	local frame = ui.GetFrame("partyinfo");	
 	ret = PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info);
 
@@ -696,19 +708,22 @@ function PARTY_JOB_TOOLTIP_CTRLSET(frame, cid, info)
 	if frame == nil then
 		return ret;
 	end;
+	
 	local partyInfoCtrlSet = frame:GetChild('PTINFO_'.. info:GetAID());
 	if partyInfoCtrlSet ~= nil then	
+		partyInfoCtrlSet:SetUserValue("partyMemberCID", cid)
 		local jobportraitImg = GET_CHILD(partyInfoCtrlSet, "jobportrait_bg", "ui::CPicture");
 		if jobportraitImg ~= nil then
 			local jobIcon = GET_CHILD(jobportraitImg, "jobportrait", "ui::CPicture");
-			ret = PARTY_JOB_TOOLTIP(frame, cid, jobIcon, info.JobName);
+			local jobCls  = GetClassByType("Job", info:GetRepreJob())
+			ret = PARTY_JOB_TOOLTIP(frame, cid, jobIcon, jobCls);            
 		end;
 	end;
 	return ret;
 end;
 
 
-function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
+function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName, isChangeMainClass)   
 	if (nil == session.otherPC.GetByStrCID(cid)) or (nil == uiChild) then 
 		return 0;
 	end		 
@@ -721,10 +736,11 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 	
 	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
 	local nowjobcls;
-	if nil == nowjobinfo then
+
+	if nil == nowjobinfo or (nowJobName ~= nil and 	GetClassByTypeFromList(clslist, nowjobinfo.jobID) ~= nowJobName) then
 		nowjobcls = nowJobName; 
 	else
-		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
+		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);        
 	end; 
 
 	local OTHERPCJOBS = {}
@@ -752,7 +768,8 @@ function PARTY_JOB_TOOLTIP(frame, cid, uiChild, nowJobName)
 		end
 		
 		-- 클래스 레벨 (★로 표시)				
-		for i = 1 , 3 do
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
 			else
@@ -785,7 +802,6 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
 	end; 
-
 	local OTHERPCJOBS = {}
 	for i = 0, jobhistory:GetJobHistoryCount()-1 do
 		
@@ -812,7 +828,8 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 		end
 		
 		-- 클래스 레벨 (★로 표시)				
-		for i = 1 , 3 do
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
 			else
@@ -827,11 +844,10 @@ function PARTY_JOB_TOOLTIP_BY_CID(cid, icon, nowJobName)
 end
 
 
-function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName)
+function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName, isChangeMainClass)
 	if nil == icon then 
 		return 0;
 	end		 	
-
    	local mySession = session.GetMySession();
 	local pcJobInfo = mySession.pcJobInfo;
     local classLv = pcJobInfo:GetJobGrade(jobClassID);
@@ -842,7 +858,7 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName)
 	
 	local nowjobinfo = jobhistory:GetJobHistory(jobhistory:GetJobHistoryCount()-1);
 	local nowjobcls;
-	if nil == nowjobinfo then
+	if nil == nowjobinfo or (isChangeMainClass ~= nil and isChangeMainClass == 1) then
 		nowjobcls = nowJobName; 
 	else
 		nowjobcls = GetClassByTypeFromList(clslist, nowjobinfo.jobID);
@@ -873,8 +889,9 @@ function UPDATE_MY_JOB_TOOLTIP(jobClassID, icon, nowJobName)
 			startext = startext .. ("{@st41}").. GET_JOB_NAME(cls, gender);
 		end
 		
-		-- 클래스 레벨 (★로 표시)				
-		for i = 1 , 3 do
+		-- 클래스 레벨 (★로 표시)	
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)			
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}');
 			else

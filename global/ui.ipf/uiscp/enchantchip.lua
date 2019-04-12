@@ -38,20 +38,14 @@ function CLIENT_ENCHANTCHIP(invItem)
 	
 	ui.SetEscapeScp("CANCEL_ENCHANTCHIP()");
 
-	SET_SLOT_APPLY_FUNC(invframe, "CHECK_ENCHANTCHIP_TARGET_ITEM");
+	SET_SLOT_APPLY_FUNC(invframe, "CHECK_ENCHANTCHIP_TARGET_ITEM", nil, "Equip");
+	local tab = GET_CHILD_RECURSIVELY(invframe, "inventype_Tab");
+	tolua.cast(tab, "ui::CTabControl");
+	tab:SelectTab(1);
+
 	SET_INV_LBTN_FUNC(invframe, "ENCHANTCHIP_LBTN_CLICK");
 	ui.GuideMsg("SelectItem");
 	CHANGE_MOUSE_CURSOR("MORU", "MORU_UP", "CURSOR_CHECK_ENCHANTCHIP");
-
-	local inventoryGbox = invframe:GetChild("inventoryGbox");
-	local treeGbox = inventoryGbox:GetChild("treeGbox");
-	local tree = GET_CHILD(treeGbox,"inventree");
-	tree:CloseNodeAll();
-
-	local treegroup = tree:FindByValue("Premium");
-	tree:ShowTreeNode(treegroup, 1);
-	treegroup = tree:FindByValue("EquipGroup");
-	tree:ShowTreeNode(treegroup, 1);
 end
 
 

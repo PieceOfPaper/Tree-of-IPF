@@ -1,17 +1,16 @@
-﻿<?xml version="1.0" encoding="UTF-8" ?>
-<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by IMC (IMCGames Co., Ltd) -->
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
-    <BlendOn frame="0" R="0" G="0" B="0" A="50"/>
-    <BlendOn frame="0" R="10" G="30" B="50" A="100"/>
-    <Sound frame="0.00" soundFile="voice_war_atk_long_shot"/>
-    <Sound frame="0.00" soundFile="skl_eff_leapattack_jump"/>
-    <Particle frame="1" attachNode="Dummy_emitter" particleName="I_warrior_leapattack_cast_smoke" useAttach="true" hiddenObj="false" changeEffect="None" scale="2" pause="true" use2DEffect="false" targetPos="false"/>
-    <Sound frame="4.44" soundFile="skl_eff_body_atk_1"/>
-    <Sound frame="8.75" soundFile="skl_fgt_tackle_shot"/>
-    <Sound frame="11.00" soundFile="skl_fgt_execution"/>
-    <Sound frame="11.67" soundFile="skl_eff_hammer_badak"/>
-    <Sound frame="11.83" soundFile="blow_ground"/>
-    <BlendOn frame="12" R="20" G="80" B="150" A="10"/>
-    <BlendOn frame="13" R="255" G="255" B="255" A="0"/>
-    <BlendOff frame="15" R="0" G="0" B="0" A="0"/>
+	<Sound frame="0.00" soundFile="voice_war_atk_long_shot"/>
+	<Sound frame="0.00" soundFile="skl_eff_leapattack_jump"/>
+	<Particle frame="0" attachNode="Dummy_effect_shieldpush_root" particleName="I_force018_trail_smoke_800" useAttach="true" hiddenObj="false" changeEffect="None" scale="3" pause="false" use2DEffect="false" targetPos="false"/>
+	<Sound frame="4.44" soundFile="skl_eff_body_atk_1"/>
+	<Sound frame="8.75" soundFile="skl_fgt_tackle_shot"/>
+	<Sound frame="11.00" soundFile="skl_fgt_execution"/>
+	<Sound frame="11.67" soundFile="skl_eff_hammer_badak"/>
+	<Sound frame="11.83" soundFile="blow_ground"/>
+	<BlendOn frame="10" R="100" G="100" B="120" A="50"/>
+	<BlendOn frame="12" R="0" G="0" B="0" A="0"/>
+	<BlendOn frame="14" R="100" G="100" B="120" A="50"/>
+	<BlendOff frame="16" R="0" G="0" B="0" A="0"/>
 </ActionDesc>

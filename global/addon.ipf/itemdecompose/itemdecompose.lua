@@ -170,11 +170,11 @@ function ITEM_DECOMPOSE_UPDATE_MONEY(frame)
     
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "remainSilver", "ui::CRichText")
 	if totalprice <= 0 then
-		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY()))
+		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()))
 		return;
 	end
     
-	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice));
+	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -1 * totalprice));
 	calcprice:SetText(mymoney)
     
 	frame:SetUserValue('TOTAL_MONEY', totalprice);
@@ -246,6 +246,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	itemCheckProp['Awaken'] = 0;
 	itemCheckProp['Socket_Equip'] = 0;
 	itemCheckProp['Socket_Add'] = 0;
+	itemCheckProp['EnchantOption'] = 0;
 	
 	for i = 0, slotSet:GetSelectedSlotCount() -1 do
 		local slot = slotSet:GetSelectedSlot(i)
@@ -274,6 +275,12 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 			itemCheckProp['Awaken'] = itemCheckProp['Awaken'] + 1;
 		end
 		
+		local itemRareOption = TryGetProp(itemobj, 'RandomOptionRare');
+		local itemRareOptionValue = TryGetProp(itemobj, 'RandomOptionRareValue');
+		if itemRareOption ~= nil and itemRareOption ~= 'None' and itemRareOptionValue > 0 then
+		    itemCheckProp['EnchantOption'] = itemCheckProp['EnchantOption'] + 1
+		end
+		
 		for j = 0, 9 do
     		local itemSocketEquip = TryGetProp(itemobj, 'Socket_Equip_' .. j);
     		if itemSocketEquip ~= nil and itemSocketEquip > 0 then
@@ -294,7 +301,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		return;
 	end
 	
-	if GET_TOTAL_MONEY() < totalprice then
+	if IsGreaterThanForBigNumber(totalprice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end
@@ -302,7 +309,7 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 	local txtPrice = GET_COMMAED_STRING(totalprice)
 	local msg = ScpArgMsg('ItemDecomposePrice',"Price", txtPrice)
 	
-	local checkPropList = { 'Reinforce', 'Transcend', 'Awaken', 'Socket_Equip', 'Socket_Add' };
+	local checkPropList = { 'Reinforce', 'Transcend', 'Awaken', 'Socket_Equip', 'Socket_Add', 'EnchantOption' };
 	local warningPropList = { };
 	for j = 1, #checkPropList do
 		local checkProp = checkPropList[j];
@@ -316,25 +323,20 @@ function ITEM_DECOMPOSE_EXECUTE(frame)
 		msg = ScpArgMsg('ItemDecomposeWarningPropMessage', 'WARNINGPROP', warningProp, 'DEFAULTMSG', msg);
 	end
 	
---local msgBox = ui.MsgBox(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None");
 	local msgBox = WARNINGMSGBOX_FRAME_OPEN(msg, "ITEM_DECOMPOSE_EXECUTE_COMMIT", "None")
 	local msgBoxFrame = ui.GetFrame("warningmsgbox")
 	if msgBoxFrame == nil then
-		return
+		return;
 	end
 	
 	local yesBtn = GET_CHILD_RECURSIVELY(msgBoxFrame, "yes")
-	yesBtn:SetClickSound("button_click_repair")
-
---	msgBox:SetYesButtonSound("button_click_repair");
+	yesBtn:SetClickSound("button_click_repair");
 end
 
 function ITEM_DECOMPOSE_EXECUTE_COMMIT()
 	local resultlist = session.GetItemIDList()
 	item.DialogTransaction("ITEM_DECOMPOSE_TX", resultlist);
 end
-
-
 
 function ITEM_DECOMPOSE_COMPLETE(...)
     local frame = ui.GetFrame("itemdecompose");
@@ -362,9 +364,9 @@ function ITEM_DECOMPOSE_COMPLETE(...)
         for i = 1, #itemList do
             local item = SCR_STRING_CUT(itemList[i]);
             local itemName = item[1];
-            local itemCount = item[2];
-            
-            if itemCount > 0 then
+			local itemCount = item[2];
+			local itemCls = GetClass('Item', itemName);            
+            if itemCount > 0 and IS_ENCHANT_JEWELL_ITEM(itemCls) == false then
         		local miscSlot = miscSlotSet:GetSlotByIndex(miscSlotCnt)
         		if miscSlot == nil then
         			break;
@@ -384,4 +386,3 @@ function ITEM_DECOMPOSE_COMPLETE(...)
         end
     end
 end
-

@@ -52,7 +52,7 @@ function FOODTABLE_REG_EXEC(parent, ctrl)
 	local sklLevel = frame:GetUserIValue("SKILL_LEVEL");
 	local pc = GetMyPCObject();
 	local silver, itemList = FOODTABLE_NEED_PRICE(skillName, sklLevel);
-	if GET_TOTAL_MONEY() < silver then
+	if IsGreaterThanForBigNumber(silver, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg('NotEnoughMoney'));
 		return;
 	end

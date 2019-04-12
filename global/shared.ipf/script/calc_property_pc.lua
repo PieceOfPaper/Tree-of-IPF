@@ -193,11 +193,12 @@ end
 
 function SCR_GET_DEX(self)
     local statString = "DEX";
-    
-    local byJob = TryGetProp(self, statString.."_JOB");
-    if byJob == nil then
-        byJob = 0;
-    end
+        
+ -- 2.0에서 어차피 개선되기로 되어 있지만 2.0 들어가기 전에 서버 다운 막아야 해서 커밋합니다 ㅠㅠ --
+ -- 만약 이부분에서 충돌이 난다면 2.0 코드로 덮어씌워도 괜찮을 거 같아요. --
+ -- CP가 CP를 계속 호출하는 구조는 서버를 죽일 수가 있어요 --
+ -- CP가 바인드 함수들을 호출해서 걔 하나로 끝나는게 바람직합니다. CP가 CT 호출은 갠춘 --
+    local byJob = SCR_GET_JOB_DEX(self);
     
     local byStat = TryGetProp(self, statString.."_STAT");
     if byStat == nil then
@@ -1252,7 +1253,7 @@ function SCR_Get_BLK(self)
     
     local value = byLevel + byStat + byItem + byBlockRate;
     
-    local byItemRareOption = TryGetProp(self, 'ITEM_BlockRate');
+    local byItemRareOption = TryGetProp(self, 'EnchantBlockRate');
     if byItemRareOption == nil then
         byItemRareOption = 0;
     end
@@ -1306,7 +1307,7 @@ function SCR_Get_BLK_BREAK(self)
     
     local value = byLevel + byStat + byItem;
     
-    local byItemRareOption = TryGetProp(self, 'ITEM_BlockBreakRate');
+    local byItemRareOption = TryGetProp(self, 'EnchantBlockBreakRate');
     if byItemRareOption == nil then
         byItemRareOption = 0;
     end
@@ -1356,7 +1357,7 @@ function SCR_Get_HR(self)
     
     local value = byLevel + byStat + byItem;
     
-    local byItemRareOption = TryGetProp(self, 'ITEM_HitRate');
+    local byItemRareOption = TryGetProp(self, 'EnchantHitRate');
     if byItemRareOption == nil then
         byItemRareOption = 0;
     end
@@ -1405,7 +1406,7 @@ function SCR_Get_DR(self)
     
     local value = byLevel + byStat + byItem;
     
-    local byItemRareOption = TryGetProp(self, 'ITEM_DodgeRate');
+    local byItemRareOption = TryGetProp(self, 'EnchantDodgeRate');
     if byItemRareOption == nil then
         byItemRareOption = 0;
     end
@@ -1459,7 +1460,7 @@ function SCR_Get_CRTHR(self)
     
     local value = byLevel + byItem;
     
-    local byItemRareOption = TryGetProp(self, 'ITEM_CriticalHitRate');
+    local byItemRareOption = TryGetProp(self, 'EnchantCriticalHitRate');
     if byItemRareOption == nil then
         byItemRareOption = 0;
     end
@@ -1491,7 +1492,7 @@ function SCR_Get_CRTDR(self)
     
     local value = byLevel + byItem;
     
-    local byItemRareOption = TryGetProp(self, 'ITEM_CriticalDodgeRate');
+    local byItemRareOption = TryGetProp(self, 'EnchantCriticalDodgeRate');
     if byItemRareOption == nil then
         byItemRareOption = 0;
     end
@@ -1946,6 +1947,11 @@ function SCR_Get_MSPD(self)
             byItem = 0;
         end
         
+		local byItemRareOption = TryGetProp(self, 'EnchantMSPD');
+		if byItemRareOption == nil then
+		    byItemRareOption = 0;
+		end
+        
         local byBuff = TryGetProp(self, "MSPD_BM");
         if byBuff == nil then
             byBuff = 0;
@@ -1955,7 +1961,7 @@ function SCR_Get_MSPD(self)
             byBuff = byBuff * 0.5
         end
         
-        value = value + byItem + byBuff;
+        value = value + byItem + byItemRareOption + byBuff;
         
         local byBuffRate = TryGetProp(self, "SPD_BM");
         if byBuffRate == nil then
@@ -2097,6 +2103,11 @@ function SCR_Get_SR(self)
         byItem = 0;
     end
     
+	local byItemRareOption = TryGetProp(self, 'EnchantSR');
+	if byItemRareOption == nil then
+	    byItemRareOption = 0;
+	end
+    
     local byBuff = TryGetProp(self, "SR_BM")
     if byBuff == nil then
         byBuff = 0;
@@ -2113,7 +2124,7 @@ function SCR_Get_SR(self)
         byAbil = byAbil + abilProp;
     end
     
-    local value = defaultSR + byItem + byBuff + byAbil;
+    local value = defaultSR + byItem + byItemRareOption + byBuff + byAbil;
     
     return math.floor(value);
 end
@@ -3785,107 +3796,121 @@ end
 
 -- PC ITEM PROP LIST --
 
-function SCR_GET_ITEM_MAIN_WEAPON_DAMAGE_RATE(self)
+function SCR_GET_ENCHANT_MAIN_WEAPON_DAMAGE_RATE(self)
 	local propName = "RareOption_MainWeaponDamageRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_SUB_WEAPON_DAMAGE_RATE(self)
+function SCR_GET_ENCHANT_SUB_WEAPON_DAMAGE_RATE(self)
 	local propName = "RareOption_SubWeaponDamageRate";
 
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_BOSS_DAMAGE_RATE(self)
+function SCR_GET_ENCHANT_BOSS_DAMAGE_RATE(self)
 	local propName = "RareOption_BossDamageRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_MELEE_REDUCED_RATE(self)
+function SCR_GET_ENCHANT_MELEE_REDUCED_RATE(self)
 	local propName = "RareOption_MeleeReducedRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_MAGIC_REDUCED_RATE(self)
+function SCR_GET_ENCHANT_MAGIC_REDUCED_RATE(self)
 	local propName = "RareOption_MagicReducedRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_PVP_DAMAGE_RATE(self)
+function SCR_GET_ENCHANT_PVP_DAMAGE_RATE(self)
 	local propName = "RareOption_PVPDamageRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_PVP_REDUCED_RATE(self)
+function SCR_GET_ENCHANT_PVP_REDUCED_RATE(self)
 	local propName = "RareOption_PVPReducedRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_CRITICAL_DAMAGE_RATE(self)
+function SCR_GET_ENCHANT_CRITICAL_DAMAGE_RATE(self)
 	local propName = "RareOption_CriticalDamage_Rate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_CRITICAL_HIT_RATE(self)
+function SCR_GET_ENCHANT_CRITICAL_HIT_RATE(self)
 	local propName = "RareOption_CriticalHitRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_CRITICAL_DODGE_RATE(self)
+function SCR_GET_ENCHANT_CRITICAL_DODGE_RATE(self)
 	local propName = "RareOption_CriticalDodgeRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_HIT_RATE(self)
+function SCR_GET_ENCHANT_HIT_RATE(self)
 	local propName = "RareOption_HitRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_DODGE_RATE(self)
+function SCR_GET_ENCHANT_DODGE_RATE(self)
 	local propName = "RareOption_DodgeRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_BLOCKBREAK_RATE(self)
+function SCR_GET_ENCHANT_BLOCKBREAK_RATE(self)
 	local propName = "RareOption_BlockBreakRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
-function SCR_GET_ITEM_BLOCK_RATE(self)
+function SCR_GET_ENCHANT_BLOCK_RATE(self)
 	local propName = "RareOption_BlockRate";
-	local optionValue = SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName);
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ENCHANT_MSPD(self)
+	local propName = "RareOption_MSPD";
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
+	
+	return optionValue;
+end
+
+function SCR_GET_ENCHANT_SR(self)
+	local propName = "RareOption_SR";
+	local optionValue = SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName);
 	
 	return optionValue;
 end
 
 -- PC ITEM PROP COMMON CHECK --
-function SCR_GET_ITEM_RARE_RANDOM_OPTION_VALUE(self, propName)
+function SCR_GET_PC_ENCHANT_OPTION_VALUE(self, propName)
 	local optionValue = GetTopRandomOptionRare(self, propName);
 	if optionValue == nil then
 		optionValue = 0;

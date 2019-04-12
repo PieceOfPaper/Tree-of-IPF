@@ -615,6 +615,10 @@ function CARD_SLOT_EQUIP(slot, item, groupNameStr)
 			end
 		end
 
+		if item.isLockState == true then
+			ui.SysMsg(ClMsg("MaterialItemIsLock"));
+			return
+		end
 				
 		local itemGuid = item:GetIESID();
 		local invFrame    = ui.GetFrame("inventory");	

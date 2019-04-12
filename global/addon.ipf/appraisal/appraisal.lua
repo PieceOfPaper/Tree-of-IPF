@@ -21,6 +21,26 @@ end
 function APPRAISAL_UI_CLOSE(frame, ctrl)
 	ui.EnableSlotMultiSelect(0);
 	frame:ShowWindow(0)
+
+	local selectAllBtn = GET_CHILD_RECURSIVELY(frame, "selectAllBtn")
+
+	local isselected = selectAllBtn:GetUserValue("SELECTED")
+	
+
+	local slotSet =  GET_CHILD_RECURSIVELY_AT_TOP(selectAllBtn, "slotlist", "ui::CSlotSet")
+	local slotCount = slotSet:GetSlotCount();
+
+	for i = 0, slotCount - 1 do
+		local slot = slotSet:GetSlotByIndex(i);
+		if slot:GetIcon() ~= nil then
+			if isselected == "selected" then
+				slot:Select(0)
+			end
+		end
+	end
+	if isselected == "selected" then
+		selectAllBtn:SetUserValue("SELECTED", "notselected");
+	end
 	TRADE_DIALOG_CLOSE();
 end
 
@@ -58,7 +78,7 @@ function APPRAISAL_UPDATE_ITEM_LIST(frame)
 
 				local icon = CreateIcon(slot);
 				icon:Set(obj.Icon, 'Item', invItem.type, slotcnt, invItem:GetIESID());
-				local class 			= GetClassByType('Item', invItem.type);
+				local class = GetClassByType('Item', invItem.type);
 				ICON_SET_INVENTORY_TOOLTIP(icon, invItem, "appraisal", class);
 
 				slotcnt = slotcnt + 1
@@ -106,11 +126,11 @@ function APPRAISAL_UPDATE_MONEY(frame)
 	local calcprice = GET_CHILD_RECURSIVELY_AT_TOP(frame, "remainInvenZeny", "ui::CRichText")
     
 	if totalprice <= 0 then        
-		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY()))
+		calcprice:SetText(GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()))
 		return;
 	end
     
-	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY(), -1 * totalprice));    
+	local mymoney = GET_COMMAED_STRING(SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), -1 * totalprice));    
 	calcprice:SetText(mymoney)
 
 	frame:SetUserValue('TOTAL_MONEY', totalprice);
@@ -183,7 +203,7 @@ function APPRAISAL_EXECUTE(frame)
 		return;
 	end
 	
-	if GET_TOTAL_MONEY() < totalprice then
+	if IsGreaterThanForBigNumber(totalprice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.MsgBox(ScpArgMsg("NOT_ENOUGH_MONEY"))
 		return;
 	end

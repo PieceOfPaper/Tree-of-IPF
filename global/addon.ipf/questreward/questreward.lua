@@ -515,6 +515,7 @@ function BOX_CREATE_RICH_CONTROLSET(box, name, y, height, text, index)
 	local newSet = box:CreateControlSet("richtxt", name, x + 10, y);
 	local title = newSet:GetChild("text");
 	title:SetText(text);
+	newSet:Resize(newSet:GetOriginalWidth(), title:GetHeight());
 
 	return y + height, newSet;
 end

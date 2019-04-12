@@ -107,7 +107,7 @@ function TRY_COMPANION_HIRE(byShop)
 		SysMsg(self, 'Instant', ScpArgMsg('CompanionNameIsInvalid'))
 		return;
 	end
-	if GET_TOTAL_MONEY() < sellPrice then
+	if IsGreaterThanForBigNumber(sellPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ClMsg('NotEnoughMoney'));
 	else
 		local scpString = string.format("EXEC_BUY_COMPANION(\"%s\", \"%s\")", clsName, nameText);

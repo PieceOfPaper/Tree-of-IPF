@@ -194,14 +194,15 @@ function SHOW_PC_COMPARE(cid)
 
 		-- 클래스 이름
 		local nameCtrl = GET_CHILD(classCtrl, "name", "ui::CRichText");
-		nameCtrl:SetText("{@st41}".. cls.Name);
+		nameCtrl:SetText("{@st41}".. GET_JOB_NAME(cls, gender));
 
 		-- 클래스 레벨 (★로 표시)
 		local levelCtrl = GET_CHILD(classCtrl, "level", "ui::CRichText");
 		local levelFont = frame:GetUserConfig("Font_Normal");
 		
 		local startext = ""
-		for i = 1 , 3 do
+		local maxCircle = GET_JOB_MAX_CIRCLE(cls)
+		for i = 1 , maxCircle do
 			if i <= grade then
 				startext = startext ..('{img star_in_arrow 20 20}')
 			else

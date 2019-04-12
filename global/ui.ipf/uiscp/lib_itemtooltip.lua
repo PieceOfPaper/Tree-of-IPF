@@ -2,7 +2,7 @@
 
 function GET_EQUIP_ITEM_IMAGE_NAME(invitem, imageType, gender)
     if TryGetProp(invitem, 'ClassType', 'None') == 'Outer' then
-        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬        
+        imageType = 'Icon'; -- 브리케팅 할 일이 없는 코스튬      
     end
     
 	if 'TooltipImage' == imageType then
@@ -249,7 +249,6 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 	local NEGATIVE_COLOR = ControlSetObj:GetUserConfig("NEGATIVE_COLOR")
 	local POSITIVE_COLOR = ControlSetObj:GetUserConfig("POSITIVE_COLOR")
 --	local STAR_SIZE = ControlSetObj:GetUserConfig("STAR_SIZE")
-
 	if gem == 0 then
 		local socketCls = GetClassByType("Socket", socket);
 		socketicon = socketCls.SlotIcon
@@ -270,11 +269,10 @@ function ADD_ITEM_SOCKET_PROP(GroupCtrl, invitem, socket, gem, gemExp, gemLv, yP
 			socket_image_name = 'test_tooltltip_green'
 		elseif gemclass.ClassName == 'gem_star_1' then
 			socket_image_name = 'test_tooltltip_yellow'
-		elseif gemclass.ClassName == 'thengem_White_1' then
+		elseif gemclass.ClassName == 'gem_White_1' then
 			socket_image_name = 'test_tooltltip_white'
 		end
 
-		
 		socket_image:SetImage(socket_image_name)		
 		local lv = GET_ITEM_LEVEL_EXP(gemclass, gemExp);
 		
@@ -393,7 +391,7 @@ function SET_CARD_EDGE_TOOLTIP(parent, invitem)
 	local cardEdge = GET_CHILD(parent, "card_edge", "ui::CPicture");
 	if cardEdge ~= nil and invitem.CardGroupName ~= 'None' then
 		local cardGroupName = invitem.CardGroupName
-			
+		
 		if cardGroupName == 'ATK' then
 			cardEdge:SetImage('moncard_red')
 		elseif cardGroupName == 'DEF' then
@@ -602,7 +600,6 @@ function IS_DRAW_ETC_ITEM_DAMAGE(invitem)
 end
 
 function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
-
 	local invitem = nil;
 	if strarg == 'select' then
 		invitem = session.GetSelectItemByIndex(guid);
@@ -631,22 +628,6 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 			return GetIES(obj);
 		end
 	elseif strarg == "collection" then
-		--[[
-		local colls = session.GetMySession():GetCollection();
-		local coll = colls:Get(numarg1);
-		if coll ~= nil then
-			local collItem = coll:GetByItemID(guid);
-			if collItem == nil then
-				local item = GetClassByType("Item", guid);
-				return item;
-			end
-
-			if collItem ~= nil then
-				return GetIES(collItem:GetObject());
-			end
-		end
-		]]--
-		-- collection parameter(guid) is classID.
 		local item = GetClassByType("Item", guid);
 		return item;
 	elseif strarg == "market" then
@@ -684,8 +665,11 @@ function GET_TOOLTIP_ITEM_OBJECT(strarg, guid, numarg1)
 		invitem = GET_ITEM_BY_GUID(guid, 0);
 	end
 
-	if invitem ~= nil then
-		return GetIES(invitem:GetObject()), 0;
+	if invitem ~= nil and invitem:GetObject() ~= nil then
+		local itemObj = GetIES(invitem:GetObject());
+		if itemObj.ClassName ~= MONEY_NAME then
+			return itemObj, 0;
+		end
 	end
 
 	local itemObj = GetClassByType("Item", numarg1)
@@ -1144,7 +1128,7 @@ function ABILITY_DESC_PLUS_OLD(desc, basic, cur, color)
 	end
 end
 
-function ABILITY_DESC_PLUS(desc, cur)
+function ABILITY_DESC_PLUS(desc, cur)    
 
     if cur < 0 then
         return string.format(" - %s "..ScpArgMsg("PropDown").."%d", desc, math.abs(cur));
@@ -1357,4 +1341,16 @@ function GET_ENABLE_TRADE_MSG(itemProp)
 	else
 		return ScpArgMsg("UserTradeUnable")
 	end
+end
+
+function GET_ITEM_NAME_WITH_LEVEL(item, itemLv)
+	if item == nil then
+		return nil;
+	end
+
+	if IS_ENCHANT_JEWELL_ITEM(item) == true then
+		return '['..string.format('LV. %d', itemLv)..'] '..item.Name;
+	end
+
+	return item.Name;
 end

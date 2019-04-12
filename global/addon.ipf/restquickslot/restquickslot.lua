@@ -102,6 +102,9 @@ function QSLOT_ENABLE_OMAMORI_CRAFT()
 end
 
 function QSLOT_ENABLE_FLUTING_KEYBOARD()
+	if FLUTING_ENABLED ~= 1 then
+		return 0;
+	end
 	if IS_EXIST_JOB_IN_HISTORY(3012) == true then
 		return 1;
 	end
@@ -195,6 +198,9 @@ function REST_SLOT_USE(frame, slotIndex)
 	end
 
 	local slot = GET_CHILD(frame, "slot"..slotIndex+1, "ui::CSlot");	
+	if slot == nil then
+		return;
+	end
 	local type = slot:GetUserValue("REST_TYPE");
 	local cls = GetClassByType("restquickslotinfo", type);	
 	
@@ -296,7 +302,11 @@ function OPEN_FLUTING_KEYBOARD()
     if GetCraftState() == 1 then
         ui.SysMsg(ClMsg('CHATHEDRAL53_MQ03_ITEM02'));
         return;
-    end
+	end
+	
+	if FLUTING_ENABLED ~= 1 then
+		return;
+	end
 
 	if IS_EXIST_JOB_IN_HISTORY(3012) ~= true then
 		return;
@@ -385,6 +395,9 @@ function QSLOT_VISIBLE_DISPELLER_CRAFT()
 end
 
 function QSLOT_VISIBLE_FLUTING_KEYBOARD()
+	if FLUTING_ENABLED ~= 1 then
+		return 0;
+	end
 	if IS_EXIST_JOB_IN_HISTORY(3012) == true then
 		return 1;
 	end

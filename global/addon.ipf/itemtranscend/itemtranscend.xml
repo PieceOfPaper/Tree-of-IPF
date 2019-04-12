@@ -33,7 +33,7 @@
 		<slot name="slot_material" margin="200 590 0 0" rect="0 0 90 90" movepop="false" oversound="button_cursor_over_3" dropsound="icon_get_down" picksound="icon_pick_up" skin="none" DropScp="DROP_TRANSCEND_MATERIAL" RBtnUpScp="REMOVE_TRANSCEND_MTRL_ITEM" layout_gravity="left top">
 			<uieffect effect="I_sys_item_slot_loop" scale="4" overlab="No" sound="None" offset="-1 0" playtime="0.1" duration="1" conditon="active" event="TRANSCEND_RESULT_1"/>
 		</slot>
-		<edit name="textEdit" parent="gbox2" rect="0 0 100 31" margin="-55 1 0 0" layout_gravity="center top" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="2" numbermode="true" skin="test_weight_skin" caption="1" EnterKeyScp="None"/>
+		<edit name="textEdit" parent="gbox2" rect="0 0 100 31" margin="-55 1 0 0" layout_gravity="center top" textalign="center center" fontname="white_18_ol" minnumber="0" maxnumber="2" numbermode="true" skin="test_weight_skin" caption="1" EnterKeyScp="None" format="{@st41}{s18}%s{/}" param1="value" param1_def=""/>
 		<button name="upBtn" parent="gbox2" stretch="true" rect="0 0 60 60" margin="8 1 0 0" layout_gravity="center top" image="test_up_w_btn" oversound="button_over" LBtnUpScp="ITEMTRANSCEND_UPBTN"/>
 		<button name="downBtn" parent="gbox2" stretch="true" rect="0 0 60 60" margin="8 16 0 0" layout_gravity="center top" image="test_down_w_btn" oversound="button_over" LBtnUpScp="ITEMTRANSCEND_DOWNBTN"/>
 		<button name="maxBtn" parent="gbox2" stretch="true" rect="0 0 60 36" margin="56 -1 0 0" layout_gravity="center top" skin="test_white_h_btn" format="{@st66}{s16}%s" param1="value" param1_def="최대" oversound="button_over" LBtnUpScp="ITEMTRANSCEND_MAXBTN"/>

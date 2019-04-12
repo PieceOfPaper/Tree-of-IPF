@@ -56,6 +56,38 @@ local function disable_char_btn(frame)
     char_del:SetAlpha(70)
 end
 
+function enable_layer_btn()    
+    local frame = ui.GetFrame('barrack_charlist')
+    if frame == nil then return end
+
+    local layerCtrl_1 = GET_CHILD(frame, "changeLayer1", "ui::CButton");
+	local layerCtrl_2 = GET_CHILD(frame, "changeLayer2", "ui::CButton");
+	local layerCtrl_3 = GET_CHILD(frame, "changeLayer3", "ui::CButton");
+    
+    layerCtrl_1:EnableHitTest(1)
+    layerCtrl_1:SetAlpha(100)
+    layerCtrl_2:EnableHitTest(1)
+    layerCtrl_2:SetAlpha(100)
+    layerCtrl_3:EnableHitTest(1)
+    layerCtrl_3:SetAlpha(100)
+end
+
+function disable_layer_btn(frame)
+    local frame = ui.GetFrame('barrack_charlist')
+    if frame == nil then return end
+
+    local layerCtrl_1 = GET_CHILD(frame, "changeLayer1", "ui::CButton");
+	local layerCtrl_2 = GET_CHILD(frame, "changeLayer2", "ui::CButton");
+	local layerCtrl_3 = GET_CHILD(frame, "changeLayer3", "ui::CButton");
+    
+    layerCtrl_1:EnableHitTest(0)
+    layerCtrl_1:SetAlpha(70)
+    layerCtrl_2:EnableHitTest(0)
+    layerCtrl_2:SetAlpha(70)
+    layerCtrl_3:EnableHitTest(0)
+    layerCtrl_3:SetAlpha(70)
+end
+
 function enable_char_btn(f)
     local frame = ui.GetFrame('barrack_charlist')
     if frame == nil then return end
@@ -323,7 +355,6 @@ function SELECT_CHARINFO_CHANGE_TARGET_LAYER_COMPANION(frame, target, inputframe
         return
     end
 
-    print('SELECT_CHARINFO_CHANGE_TARGET_LAYER_COMPANION', current_layer)
 	barrack.ChangeBarrackTargetLayer(cid, target);
 	local frame = ui.GetFrame("barrack_charlist");
 	local scrollBox = frame:GetChild("scrollBox");
@@ -341,7 +372,7 @@ function SELECTCHARINFO_CHANGELAYER_CHARACTER(cid)
 	imcSound.PlaySoundEvent('button_click_big_2');
 end
 
-function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)    
+function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	local before = frame:GetUserValue("SelectBarrackLayer");
 	local isMoving = frame:GetUserValue("MovingBarrackLayer");
 	if tostring(before) == tostring(layer) then
@@ -359,7 +390,7 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	end
 	
 	frame:SetUserValue("MovingBarrackLayer", 1);
-
+    
 	local pccount = GET_CHILD(frame, "pccount", "ui::CRichText");
 	local layerCtrl_1 = GET_CHILD(frame, "changeLayer1", "ui::CButton");
 	local layerCtrl_2 = GET_CHILD(frame, "changeLayer2", "ui::CButton");
@@ -387,6 +418,8 @@ function SELECT_BARRACK_LAYER(frame, ctrl, arg, layer)
 	local scrollBox = frame:GetChild("scrollBox");
 	scrollBox:RemoveAllChild();
     disable_char_btn(frame)
+    disable_layer_btn(frame)
+    AddLuaTimerFunc('enable_layer_btn', 5000, 0)
 end
 
 function CREATE_SCROLL_CHAR_LIST(frame, actor)   
@@ -677,7 +710,7 @@ function SELECTTEAM_UPDATE_BTN_TITLE(frame)
 	
 end
 
-function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)          
+function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 	if msg == "BARRACK_ADDCHARACTER" then
 		SELECTTEAM_NEW_CTRL(frame, ud);
 
@@ -717,32 +750,31 @@ function SELECTTEAM_ON_MSG(frame, msg, argStr, argNum, ud)
 		local nameCtrl = GET_CHILD(barrack_name_frame, "barrackname");
 		nameCtrl:SetText("{@st43}{#ffcc33}"..argStr..ScpArgMsg("BarrackNameMsg").."{/}");
 
-	elseif msg == "SET_BARRACK_MODE" then        
-		SET_BARRACK_MODE(frame, argStr);
-
+	elseif msg == "SET_BARRACK_MODE" then
+		SET_BARRACK_MODE(frame, argStr, argNum);
 	elseif msg == "UPDATE_SELECT_BTN_TITLE" then
 		INIT_BARRACK_NAME(frame);
 		SELECTTEAM_UPDATE_BTN_TITLE(frame);	
 		UPDATE_BARRACK_PET_BTN_LIST()
-	elseif msg == "BARRACK_NAME_CHANGE_RESULT" then
-		
+	elseif msg == "BARRACK_NAME_CHANGE_RESULT" then		
 		-- tp표시갱신
 		SELECTTEAM_NEW_CTRL(frame, ud);
 		BARRACK_THEMA_UPDATE(ui.GetFrame("barrackthema"))
 	elseif msg == "BARRACK_ACCOUNT_PROP_UPDATE" then
 		DRAW_BARRACK_MEDAL_COUNT(frame);
 	end
-
 	SELECTCHAR_RE_ALIGN(frame);
-	--frame:Invalidate();
-	
+	--frame:Invalidate();	
 end
 
 function BARRACK_GO_CREATE()
-	barrack.GoCreate();	
-
-	ui.CloseFrame("inputstring");
-	ui.CloseFrame("barrackthema");
+    if IS_FULL_SLOT_CURRENT_LAYER() == true then
+        ui.SysMsg(ScpArgMsg("{layer}LayerFull", 'layer', current_layer))
+        return
+    end
+	barrack.GoCreate()
+	ui.CloseFrame("inputstring")
+	ui.CloseFrame("barrackthema")
 end
 
 function BARRACK_GO_CREATE_RETRY()	
@@ -893,7 +925,33 @@ function UPDATE_BARRACK_MODE(frame)
 	end
 end
 
-function SET_BARRACK_MODE(frame, argStr)
+function DRAW_SELECT_LAYER_BUTTON_ACTIVITY(frame, layer)
+    local pccount = GET_CHILD(frame, "pccount", "ui::CRichText");
+	local layerCtrl_1 = GET_CHILD(frame, "changeLayer1", "ui::CButton");
+	local layerCtrl_2 = GET_CHILD(frame, "changeLayer2", "ui::CButton");
+	local layerCtrl_3 = GET_CHILD(frame, "changeLayer3", "ui::CButton");
+	if tostring(layer) == '1' then
+		layerCtrl_1:SetImage('barrack_on_one_btn');
+		layerCtrl_2:SetImage('barrack_off_two_btn');
+		layerCtrl_3:SetImage('barrack_off_three_btn');
+		pccount:SetTextByKey("value", '1');        
+	elseif tostring(layer) == '2' then
+		layerCtrl_1:SetImage('barrack_off_one_btn');
+		layerCtrl_2:SetImage('barrack_on_two_btn');
+		layerCtrl_3:SetImage('barrack_off_three_btn');
+		pccount:SetTextByKey("value", '2');        
+	else
+		layerCtrl_1:SetImage('barrack_off_one_btn');
+		layerCtrl_2:SetImage('barrack_off_two_btn');
+		layerCtrl_3:SetImage('barrack_on_three_btn');
+		pccount:SetTextByKey("value", '3');        
+	end
+
+	frame:SetUserValue("SelectBarrackLayer", layer);
+    current_layer = layer  
+end
+
+function SET_BARRACK_MODE(frame, argStr, layer)
 	frame:SetUserValue("BarrackMode", argStr);
 	UPDATE_BARRACK_MODE(frame);
 	if argStr == "Preview" then
@@ -929,7 +987,7 @@ function SET_BARRACK_MODE(frame, argStr)
 		zone:ShowWindow(0);
 		channels:ShowWindow(0);
 	end
-	
+	DRAW_SELECT_LAYER_BUTTON_ACTIVITY(frame, layer)
 	frame:SetUserValue("MovingBarrackLayer", 0);
 end
 

@@ -277,11 +277,6 @@ end
 function GEMROASTING_CENCEL_CHECK(frame)
 	frame = frame:GetTopParentFrame();
 	local handle = frame:GetUserIValue("HANDLE");
-	if handle == session.GetMyHandle() then
-		GEMROASTING_CENCEL();
-		return;
-	end
-
 	session.autoSeller.BuyerClose(AUTO_SELL_GEM_ROASTING, handle);
 end
 
@@ -295,11 +290,11 @@ function GEMROASTING_UPDATE_HISTORY(frame)
 
 	for i = cnt -1 , 0, -1 do
 		local info = session.autoSeller.GetHistoryByIndex(groupName, i);
-		local ctrlSet = log_gbox:CreateControlSet("alchemist_roasting_history", "CTRLSET_" .. i,  ui.CENTER_HORZ, ui.TOP, 0, 0, 0, 0);
+		local ctrlSet = log_gbox:CreateControlSet("alchemist_roasting_history", "CTRLSET_" .. i,  ui.LEFT, ui.TOP, 20, 0, 0, 0);
 		local sList = StringSplit(info:GetHistoryStr(), "#");
 
 		local txt = ctrlSet:GetChild("txt");
-		txt:SetTextByKey("text", sList[1]);
+		txt:SetTextByKey("text", sList[1]);		
 		local itemClsID = sList[2];
 		local itemCls = GetClassByType("Item", itemClsID);
 

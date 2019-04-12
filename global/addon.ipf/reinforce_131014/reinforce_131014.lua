@@ -21,7 +21,7 @@ function REINFORCE_131014_ITEM_LOCK(guid)
 
 	local invframe = ui.GetFrame("inventory");
 	invframe:SetUserValue("ITEM_GUID_IN_MORU", guid);
-	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR');
+	INVENTORY_ON_MSG(invframe, 'UPDATE_ITEM_REPAIR', "Equip");
 
 	local rankresetFrame = ui.GetFrame("rankreset");
 	if 1 == rankresetFrame:IsVisible() then
@@ -31,12 +31,12 @@ end
 
 function REINFORCE_131014_OPEN(frame)
 	local invframe = ui.GetFrame("inventory");
-	SET_SLOT_APPLY_FUNC(invframe, "_CHECK_REINFORCE_ITEM");
+	--SET_SLOT_APPLY_FUNC(invframe, "_CHECK_REINFORCE_ITEM");
 end
 
 function REINFORCE_131014_CLOSE(frame)
 	local invframe = ui.GetFrame("inventory");
-	SET_SLOT_APPLY_FUNC(invframe, "None");
+	--SET_SLOT_APPLY_FUNC(invframe, "None");
 end
 
 function REINFORCE_131014_GET_ITEM(frame)
@@ -110,10 +110,9 @@ function REINFORCE_131014_MSGBOX(frame)
 	local curReinforce = fromItemObj.Reinforce_2;
 	local moruObj = GetIES(fromMoru:GetObject());
 	local pc = GetMyPCObject();
-	local price = GET_REINFORCE_PRICE(fromItemObj, moruObj, pc)
-	local hadmoney = GET_TOTAL_MONEY();
+	local price = GET_REINFORCE_PRICE(fromItemObj, moruObj, pc)	
 	local retPrice, retCouponList = SCR_REINFORCE_COUPON_PRECHECK(pc, price)	
-	if hadmoney < retPrice then
+	if IsGreaterThanForBigNumber(retPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ScpArgMsg('NotEnoughMoney'));
 		return;
 	end

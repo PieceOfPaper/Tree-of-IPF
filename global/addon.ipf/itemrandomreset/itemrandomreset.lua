@@ -210,15 +210,6 @@ function ITEM_RANDOMRESET_REG_TARGETITEM(frame, itemID)
 		end
 	end
 
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
-	end
-
 	local itemRandomResetMaterial = nil;
 
 	local list, cnt = GetClassList("item_random_reset_material")
@@ -516,15 +507,6 @@ ui.SetHoldUI(false);
 			propertyList:SetText(strInfo);
             ypos = i * pos_y + propertyList:GetHeight();
 		end
-	end
-
-	local rareOptionText = GET_RANDOM_OPTION_RARE_CLIENT_TEXT(obj);
-	if rareOptionText ~= nil then
-		local rareOptionCtrl = gBox:CreateOrGetControlSet('eachproperty_in_itemrandomreset', 'PROPERTY_CSET_RARE', 0, 0);
-		rareOptionCtrl = AUTO_CAST(rareOptionCtrl);	
-		rareOptionCtrl:Move(0, ypos);
-		local propertyList = GET_CHILD_RECURSIVELY(rareOptionCtrl, "property_name", "ui::CRichText");
-		propertyList:SetText(rareOptionText);
 	end
 
 	return;

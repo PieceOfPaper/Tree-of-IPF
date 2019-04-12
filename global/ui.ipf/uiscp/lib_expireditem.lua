@@ -163,14 +163,22 @@ end
 -- slot
 
 -- ICON_SET_ITEM_COOLDOWN ī��
-function ICON_SET_ITEM_REMAIN_LIFETIME(icon)	
+function ICON_SET_ITEM_REMAIN_LIFETIME(icon, invType)
     if icon == nil then
 		return;
 	end
-	
-	local iconInfo = icon:GetInfo();
-	local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
-	if invItem == nil then
+    
+    local iconInfo = icon:GetInfo();
+    local invItem = nil;
+    if invType ~= nil then
+        invItem = session.GetEtcItemByGuid(invType, iconInfo:GetIESID());
+        icon:SetUserValue('INV_TYPE', invType);
+    else
+        invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
+        icon:SetUserValue('INV_TYPE', IT_INVENTORY);
+    end
+    
+    if invItem == nil then
         return;
     end
 
@@ -179,7 +187,7 @@ function ICON_SET_ITEM_REMAIN_LIFETIME(icon)
         return;
     end
     
-    local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);
+    local remainTimeSec = GET_ITEM_REMAIN_LIFETIME_BY_SEC(obj);    
     if remainTimeSec ~= "None" then
         icon:SetDrawLifeTimeText(1)
 	    icon:SetOnLifeTimeUpdateScp('ICON_UPDATE_ITEM_REMAIN_LIFETIME');
@@ -191,8 +199,15 @@ function ICON_UPDATE_ITEM_REMAIN_LIFETIME(icon)
 		return 0;
 	end
 	
-	local iconInfo = icon:GetInfo();
-	local invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
+    local iconInfo = icon:GetInfo();
+    local invType = icon:GetUserIValue('INV_TYPE');
+    local invItem = nil;
+    if invType ~= IT_INVENTORY then
+        invItem = session.GetEtcItemByGuid(invType, iconInfo:GetIESID());
+    else
+        invItem = session.GetInvItemByGuid(iconInfo:GetIESID());
+    end
+    
 	if invItem == nil then
         return 0;
     end
@@ -249,4 +264,9 @@ function GET_LATEST_ITEM_LIFE_TIME_OVERED()
 
     latestSysTimeStr = imcTime.GetStringSysTime(latestSysTime);
     return latestSysTimeStr;
+end
+
+function CLEAR_ICON_REMAIN_LIFETIME(slot, icon)    
+    icon:SetDrawLifeTimeText(0);
+    slot:SetFrontImage('None');
 end

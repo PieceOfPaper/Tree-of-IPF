@@ -21,25 +21,39 @@ function INIT_MAP_PICTURE_UI(pic, mapName, hitTest)
 
 end
 
-function DISABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
+function DISABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename, childname, buttonname, sec)
+	if sec == nil then
+		sec = 5;
+	end
 
 	local frame = ui.GetFrame(framename)
-	local child = GET_CHILD_RECURSIVELY(frame,childname)
+	local child = GET_CHILD_RECURSIVELY(frame, childname)
+	if child == nil then
+		return;
+	end
+
 	local btn = GET_CHILD_RECURSIVELY(child,buttonname)
+	if btn == nil then
+		return;
+	end
 
 	local strScp = string.format("ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(\"%s\",\"%s\", \"%s\")", framename, childname, buttonname);
 
-	ReserveScript(strScp, 5);
+	ReserveScript(strScp, sec);
 	btn:SetEnable(0)
 end
 
 function ENABLE_BUTTON_DOUBLECLICK_WITH_CHILD(framename,childname,buttonname)
-
 	local frame = ui.GetFrame(framename)
-	local child = GET_CHILD_RECURSIVELY(frame,childname)
-	local btn = GET_CHILD_RECURSIVELY(child,buttonname)
+	local child = GET_CHILD_RECURSIVELY(frame, childname);
+	if child == nil then
+		return;
+	end
+	local btn = GET_CHILD_RECURSIVELY(child, buttonname);
+	if btn == nil then
+		return;
+	end
 	btn:SetEnable(1)
-
 end
 
 function DISABLE_BUTTON_DOUBLECLICK(framename,buttonname, sec)
@@ -346,8 +360,8 @@ function SET_MAP_MONGEN_NPC_INFO(picture, mapprop, WorldPos, MonProp, mapNpcStat
 	local questclsIdStr = '';
 	local cnt = #npclist;
 	for i = 1 , cnt do
-		local name = npclist[i];        
-		if  MonProp:IsHaveDialog(name) then
+		local name = npclist[i];
+		if name ~= 'None' and MonProp:IsHaveDialog(name) then
 			local questIES = questIESlist[i];
 			local result = SCR_QUEST_CHECK_C(pc, questIES.ClassName);
 			if questclsIdStr == '' then
@@ -585,3 +599,17 @@ function SET_SPINE_TOOLTIP_IMAGE(picture, itemCls)
 		picture:SetImage(TryGetProp(itemCls, "TooltipImage"));
 	end
 end
+
+function FIND_CLASSNAME_LIST_BY_PROP(idspace, propName, propVal)
+	if idspace == nil or propName == nil or propVal == nil then
+		return nil;
+	end
+    local cnt = FindClassesByProp(idspace, propName, propVal, "None", false);
+    local list = {}
+    for i = 0 , cnt - 1 do
+        local foundName = GetFindedClass(i);
+        list[#list + 1] = foundName;
+    end
+    return list;
+end
+

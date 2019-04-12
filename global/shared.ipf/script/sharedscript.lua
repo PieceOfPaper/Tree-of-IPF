@@ -1,3 +1,23 @@
+random_item = {}
+random_item.is_sealed_random_item = function(itemobj)    
+    if IS_EQUIP(itemobj) == false then
+        return false;
+    end
+
+    local isRandomOption = TryGetProp(itemobj,'NeedRandomOption')
+
+    if isRandomOption ~= 1 then
+        return false;
+    end
+    return true;    
+end
+
+random_item.set_sealed_random_item_icon_color = function(icon)
+    if icon ~= nil then
+        icon:SetColorTone("FFFF0000")
+    end
+end
+
 function SCR_QUEST_LINK_FIRST(pc,questname)
     return SCR_QUEST_LINK_FIRST_SUB(pc,{questname}, {}, {})
 end
@@ -1816,7 +1836,7 @@ function SCR_POSSIBLE_UI_OPEN_CHECK(pc, questIES, subQuestZoneList, chType)
     elseif (chType == 'ZoneMap' or chType == 'NPCMark') and abandonCheck == 'ABANDON/LIST' then
         ret = "OPEN"
         return ret, subQuestZoneList
-    elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and result == 'POSSIBLE' and subQuestFlag == 0 then
+    elseif questIES.QuestMode ~= "MAIN" and questIES.QuestMode ~= "KEYITEM" and result == 'POSSIBLE' and (subQuestFlag == 0 or subQuestFlag == 1) then
         ret = "OPEN"
         subQuestZoneList[#subQuestZoneList + 1] = subQuestNowZone
         return ret, subQuestZoneList
@@ -2362,4 +2382,26 @@ function GET_DATE_BY_DATE_STRING(dateString) -- yyyy-mm-dd hh:mm:ss
     local second = tonumber(string.sub(hourStr, secondColonIndex + 1));
 
     return year, month, day, hour, minute, second;
+end
+
+function GET_INTERSECT_TABLE_BY_VALUE(table1, table2)
+    local hash2 = {};
+    for k2, v2 in pairs(table2) do
+        hash2[v2] = 1;
+    end
+    
+    local ret = {};
+    for k1, v1 in pairs(table1) do
+        if hash2[v1] == 1 then
+            ret[#ret + 1] = v1;
+            hash2[v1] = nil;
+        end
+    end
+    return ret;
+end
+
+function CALC_CENTER_ALIGN_POSITION(index, count, len, dist, bgLen)
+    local bgOffset = bgLen/2;
+    local firstOffset = (len*count/2) + math.floor(count/2)*dist;
+    return bgOffset - firstOffset + (len + dist)*(index-1);
 end

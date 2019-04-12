@@ -132,6 +132,8 @@
 		<Class ClassID="501187" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL2" Data="{#003399}{team}{/}팀 내에 50레벨 이상인 캐릭터가 없습니다."/>
 		<Class ClassID="501188" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL3" Data="{#003399}{team}{/}의 성장 지원 받기"/>
 		<Class ClassID="501189" OverrideType="ADD" ClassName="EVENT_STEAM_EVENT_INVITE_FRIEND_SEL4" Data="{#003399}{team}{/}님이 접속 중입니다.{nl}버프가 부여됩니다."/>
+		<Class ClassID="501190" OverrideType="ADD" ClassName="EV161124_DAYCHECK_SEL1_STEAM" Data="스킬 초기화 포션 (14일), 거품 토끼"/>
+		<Class ClassID="501191" OverrideType="ADD" ClassName="EV161124_DAYCHECK_SEL2_STEAM" Data="스킬 초기화 포션 (14일), 거품 고양이"/>
 	</Category>
 	<Category Name="Premium">
 		<Class ClassID="300174" OverrideType="ADD" ClassName="Ability_Point_Stone" Data="특성 포인트 1,000"/>

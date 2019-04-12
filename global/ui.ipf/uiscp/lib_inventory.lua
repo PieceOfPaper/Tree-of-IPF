@@ -304,6 +304,9 @@ function INV_GET_SLOTSET_NAME_BY_ITEMGUID(itemGUID)
 	end
 
 	local slotsetname = 'sset_'..baseidcls.ClassName
+	if baseidcls.MergedTreeTitle ~= "NO" then
+		slotsetname = 'sset_'..baseidcls.MergedTreeTitle
+	end
 	return slotsetname
 
 end
@@ -317,7 +320,7 @@ function INV_GET_SLOT_BY_TYPE(type, frame, isAll)
 	return slot;
 end
 
-function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
+function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame, isAll)
 
 	if frame == nil then
 		frame = ui.GetFrame("inventory");
@@ -325,16 +328,27 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 
 	local invItem = session.GetInvItemByGuid(itemGUID);
 	if invItem == nil then
-		return;
+		return nil;
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
 
+	local invIndex = invItem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	
+	if baseidcls == nil then
+		return nil
+	end
 
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	if typeStr == nil then
+		return nil;
+	end
+
+	if isAll ~= nil and isAll == 1 then
+		typeStr = "All"
+	end
+	
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
 	local tree_box = GET_CHILD(group, "treeGbox_" .. typeStr,'ui::CGroupBox')
 	local tree = GET_CHILD(tree_box, "inventree_" .. typeStr,'ui::CTreeControl')
@@ -347,12 +361,11 @@ function INV_GET_SLOT_BY_ITEMGUID(itemGUID, frame)
 	if slotSet == nil then
 		return nil;
 	end
-	
 	return GET_SLOT_BY_ITEMID(slotSet, itemGUID);
 
 end
 
-function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
+function INV_GET_SLOTSET_BY_ITEMID(itemGUID, isAll)
 
 	local invItem = session.GetInvItemByGuid(itemGUID);
 	if invItem == nil then
@@ -360,10 +373,14 @@ function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
+
+	local invIndex = invItem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	if isAll ~= nil and isAll == 1 then
+		typeStr = "All"
+	end
 
 	local frame = ui.GetFrame("inventory");
 	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
@@ -376,18 +393,21 @@ function INV_GET_SLOTSET_BY_ITEMID(itemGUID)
 end
 
 
-function INV_GET_SLOTSET_BY_INVINDEX(index)
-
+function INV_GET_SLOTSET_BY_INVINDEX(index, isAll)
 	local invItem = session.GetInvItemByGuid(itemGUID);
 	if invItem == nil then
 		return;
 	end
 
 	local itemCls = GetClassByType("Item", invItem.type);
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
+
+	local invIndex = invItem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	if isAll ~= nil and isAll == 1 then
+		typeStr = "All"
+	end
 
 	local invFrame = ui.GetFrame("inventory");
 	local invGbox = invFrame:GetChild('inventoryGbox');
@@ -492,11 +512,23 @@ end
 function INVSLOT_CLEAR_CUSTOM(slot)
 	local icon = slot:GetIcon();
 	if icon ~= nil then
-		icon:SetColorTone("FFFFFFFF");
+        local iconInfo = icon:GetInfo()
+		local guid = iconInfo:GetIESID()
+		local invItem = GET_ITEM_BY_GUID(guid)
+        if invItem ~= nil then
+            local itemobj = GetIES(invItem:GetObject())
+            if itemobj ~= nil then
+                if random_item.is_sealed_random_item(itemobj) then
+                    random_item.set_sealed_random_item_icon_color(icon) -- sharedscript.lua 참고        
+                else
+                    icon:SetColorTone("FFFFFFFF")     
+                end
+            end
+        end
 	end
 end
 
-function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)
+function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)      
 	local frame = ui.GetFrame("inventory");
 	local curValue = frame:GetUserValue("CUSTOM_ICON_SCP");
 	if curValue == scriptName then
@@ -506,11 +538,10 @@ function INVENTORY_SET_ICON_SCRIPT(scriptName, getArgScript)
 	frame:SetUserValue("CUSTOM_ICON_SCP", scriptName);
 	frame:SetUserValue("CUSTOM_ICON_ARG_SCP", getArgScript);
 	if scriptName == "None" then
-		INV_APPLY_TO_ALL_SLOT(INVSLOT_CLEAR_CUSTOM);
+	    INV_APPLY_TO_ALL_SLOT(INVSLOT_CLEAR_CUSTOM);        
 		return;
-	end
-
-	INVENTORY_UPDATE_ICONS(frame);
+	end    
+	INVENTORY_UPDATE_ICONS(frame);    
 end
 
 function INVENTORY_SET_CUSTOM_RBTNDOWN(scriptName)
@@ -631,7 +662,14 @@ function UPDATE_ETC_ITEM_SLOTSET(slotset, etcType, tooltipType)
 		slot:SetMaxSelectCount(invItem.count);
 		
 		icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
-		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
+		SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);
+
+		if invItem.hasLifeTime == true then
+			ICON_SET_ITEM_REMAIN_LIFETIME(icon, etcType);
+			slot:SetFrontImage('clock_inven');
+		else
+			CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
+		end
 
 		index = itemList:Next(index);
 	end
@@ -647,7 +685,7 @@ function GET_DRAG_INVITEM_INFO()
 	return invenItemInfo;
 end
 
-function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)    
+function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
     local itemCls = GetIES(invItem:GetObject());
 	local iconImg = GET_ITEM_ICON_IMAGE(itemCls);
     SET_SLOT_IMG(slot, iconImg)
@@ -673,4 +711,49 @@ function SET_SLOT_INFO_FOR_WAREHOUSE(slot, invItem, tooltipType)
 	
 	icon:SetTooltipArg(tooltipType, invItem.type, invItem:GetIESID());
 	SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, tooltipType);		
+
+	if invItem.hasLifeTime == true then
+		ICON_SET_ITEM_REMAIN_LIFETIME(icon, IT_WAREHOUSE);
+		slot:SetFrontImage('clock_inven');
+	else
+		CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
+	end
+end
+
+function GET_INVENTORY_TREEGROUP(baseidcls)
+	local invenTabName = "All"
+	invenTabName = baseidcls.InvenTabName
+	return invenTabName
+end
+
+function GET_INV_ITEM_COUNT_BY_PROPERTY(propCondList)	
+    local itemList = session.GetInvItemList();
+    local index = itemList:Head();
+    local count = 0;
+    local matchedList = {};
+    while itemList:InvalidIndex() ~= index do
+        local invItem = itemList:Element(index);
+        if invItem ~= nil and invItem:GetObject() ~= nil then
+	        local itemObj = GetIES(invItem:GetObject());
+            local matched = true;
+            for i = 1, #propCondList do
+                local cond = propCondList[i];
+	            if TryGetProp(itemObj, cond.Name) ~= cond.Value then
+                    matched = false;
+                    break;
+                end
+            end
+
+            if matched == true then
+                if itemObj.MaxStack > 1 then
+	                count = count + invItem.count;
+	            else -- 비스?�형 ?�이??
+		            count = count + 1;
+		        end
+	            matchedList[#matchedList + 1] = invItem;
+            end
+	    end
+        index = itemList:Next(index);
+    end
+    return count, matchedList;
 end

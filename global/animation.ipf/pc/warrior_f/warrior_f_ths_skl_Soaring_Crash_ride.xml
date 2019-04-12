@@ -1,19 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by youngt616 (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
 <ActionDesc>
+	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="F_warrior_upperslash_cast_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="2.5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Particle frame="11" attachNode="Dummy_upperswing_effect" particleName="I_warrior_bash_swordtrail3" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
+	<Particle frame="12" attachNode="Dummy_emitter_pet" particleName="F_warrior_upeerslash_shot_ground2" useAttach="false" hiddenObj="false" changeEffect="None" scale="5" pause="true" use2DEffect="false" targetPos="false"/>
+	<Shockwave frame="11" type="2" intensity="5" frequency="70" duration="0.2" range="1000"/>
 	<Sound frame="0.00" soundFile="skl_fgt_soaring"/>
 	<Sound frame="1" soundFile="atk_swordswing_1"/>
 	<Sound frame="10.00" soundFile="voice_atk_long_war_f"/>
 	<Sound frame="10.00" soundFile="skl_fgt_horizontalcrasher_shot"/>
 	<Sound frame="13" soundFile="atk_swordswing"/>
 	<Sound frame="14.00" soundFile="skl_eff_big_dust_1"/>
-	<Shockwave frame="12" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="14" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="15" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
-	<Shockwave frame="13" type="2" intensity="2" frequency="70" duration="0.3" range="1000"/>
-	<Particle frame="0" attachNode="Dummy_emitter_pet" particleName="F_warrior_upperslash_cast_ground" useAttach="true" hiddenObj="false" changeEffect="None" scale="0.8" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_warrior_upperslash_shot_ring" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="12" attachNode="Dummy_upperswing_effect_pet" particleName="I_warrior_bash_swordtrail" useAttach="true" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="true" targetPos="false"/>
-	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_warrior_upperslash_shot_smoke" useAttach="false" hiddenObj="false" changeEffect="None" scale="1.2" pause="true" use2DEffect="false" targetPos="false"/>
-	<Particle frame="12" attachNode="Dummy_emitter" particleName="F_warrior_upeerslash_shot_ground" useAttach="false" hiddenObj="false" changeEffect="None" scale="1" pause="true" use2DEffect="false" targetPos="false"/>
 </ActionDesc>

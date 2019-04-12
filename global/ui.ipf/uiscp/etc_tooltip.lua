@@ -225,3 +225,40 @@ function DRAW_ETC_RECIPE_NEEDITEM_TOOLTIP(tooltipframe, invitem, ypos, mainframe
 
 	return CSet:GetHeight() + CSet:GetY();
 end
+
+function UPDATE_TRUST_POINT_TOOLTIP(tooltipframe, tree)
+	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 1, 'TeamLevel');
+	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 2, 'CharLevel');
+	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 3, 'CreateTime');
+	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 4, 'SafeAuth');
+	SET_TRUST_POINT_PARAM_INFO(tooltipframe, 5, 'Quest');
+end
+
+function SET_TRUST_POINT_PARAM_INFO(tooltipframe, index, paramType)
+	-- point
+	local starTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'starTextBox'..index);
+	local point = session.inventory.GetTrustPointByParam(paramType);
+	local STAR_IMG = 'star_in_arrow';
+	local STAR_SIZE = 19;
+	local starText = '';
+	for i = 1, point do
+		starText = starText..string.format('{img %s %s %s}', STAR_IMG, STAR_SIZE, STAR_SIZE);
+	end
+	starTextBox:SetTextByKey('value', starText);
+
+	-- info
+	local paramTextBox = GET_CHILD_RECURSIVELY(tooltipframe, 'paramTextBox'..index);
+	if paramType == 'SafeAuth' then
+		paramTextBox:SetTextByKey('value', ClMsg('SafeAuthInfo'));
+	else		
+		paramTextBox:SetTextByKey('value', session.inventory.GetTrustInfoCriteria(paramType));
+	end
+
+	-- check
+	local check = GET_CHILD_RECURSIVELY(tooltipframe, 'check'..index);
+	if session.inventory.IsSatisfyTrustParam(paramType) == true then
+		check:SetCheck(1);
+	else
+		check:SetCheck(0);
+	end
+end

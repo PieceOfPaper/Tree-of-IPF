@@ -1,5 +1,5 @@
 
--- ÀÌÂÊ UI¾È¾´´Ù.
+-- ï¿½ï¿½ï¿½ï¿½ UIï¿½È¾ï¿½ï¿½ï¿½.
 
 function INTE_WARP_DETAIL_ON_INIT(addon, frame)
 
@@ -7,10 +7,7 @@ function INTE_WARP_DETAIL_ON_INIT(addon, frame)
 end
 
 function INTE_WARP_DETAIL_INFO(cost, infoString, xPos)
-
-	local myMoney = GET_TOTAL_MONEY();
-
-	if myMoney < cost then
+	if IsGreaterThanForBigNumber(cost, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end
@@ -53,7 +50,7 @@ function INTE_WARP_DETAIL_INFO(cost, infoString, xPos)
 		
 	else
 	
-		-- ÀÌÀü ¾ÆÀÌÅÛÆ÷Å» À§Ä¡
+		-- ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å» ï¿½ï¿½Ä¡
 		local mapClass = GetClass('Map', infoString)
 		local box = frame:GetChild('box');
 		tolua.cast(box, "ui::CGroupBox");

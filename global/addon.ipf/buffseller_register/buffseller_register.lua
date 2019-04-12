@@ -136,14 +136,6 @@ function BUFFSELLER_REG_EXEC(frame)
 		end
 	end
 
-	if serverGroupName == "PersonalShop" then
-		local myMoney = GET_TOTAL_MONEY();
-		if myMoney < totalPrice then
-			ui.SysMsg(ClMsg('NotEnoughMoney'));
-			return;
-		end
-	end
-
 	local gbox = frame:GetChild("gbox");
 	local inputname = gbox:GetChild("inputname");
 	if string.len( inputname:GetText() ) == 0 then

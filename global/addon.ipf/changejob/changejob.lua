@@ -568,9 +568,14 @@ function UPDATE_CHANGEJOB(frame)
 		hotCount = 0;
 	end
 
+	local job_select_guide_start = groupbox_main:CreateOrGetControlSet("job_select_guide_start", "job_select_guide_start", 0, 0);
+	AUTO_CAST(job_select_guide_start)
+	local job_pic = GET_CHILD(job_select_guide_start, "job_pic");
+	local jobSelectGuideImg = job_select_guide_start:GetUserConfig("Icon_"..pcCtrlType);
+	job_pic:SetImage(jobSelectGuideImg);
 	local totaljobgrade = session.GetPcTotalJobGrade()
 
-	
+	local jobguide_height = job_select_guide_start:GetHeight();
 	local jobsPerALine = 3
 	local jobbox_width = 280
 	local jobbox_height = 134
@@ -589,7 +594,7 @@ function UPDATE_CHANGEJOB(frame)
 
 	local howmanyline = math.ceil(drawnewjobcnt / jobsPerALine);	
 	
-	local groupbox_sub_newjob = groupbox_main:CreateOrGetControlSet('groupbox_sub', 'groupbox_sub_newjob', 0, 0);
+	local groupbox_sub_newjob = groupbox_main:CreateOrGetControlSet('groupbox_sub', 'groupbox_sub_newjob', 0, jobguide_height);
 	local cjobGbox = GET_CHILD(groupbox_sub_newjob, 'changeJobGbox');
 	if totaljobgrade < JOB_CHANGE_MAX_RANK then
 		groupbox_sub_newjob:Resize(groupbox_sub_newjob:GetWidth(), (howmanyline * (jobbox_height + margin_y_per_eachpic )) + sum_margin_y);
@@ -681,7 +686,7 @@ function UPDATE_CHANGEJOB(frame)
 		local jobhistorysession = mains.jobHistory
 		local jobhistorycount = jobhistorysession:GetJobHistoryCount()
 
-		local groupbox_sub_oldjob = groupbox_main:CreateOrGetControlSet('groupbox_sub', 'groupbox_sub_oldjob'..index, 0, (10 + groupbox_sub_newjob:GetHeight() + 10) + (i * (jobbox_height + 60)) )
+		local groupbox_sub_oldjob = groupbox_main:CreateOrGetControlSet('groupbox_sub', 'groupbox_sub_oldjob'..index, 0, (10 + groupbox_sub_newjob:GetHeight() + 10 + jobguide_height + 10) + (i * (jobbox_height + 60)) )
 		groupbox_sub_oldjob:Resize(groupbox_sub_oldjob:GetWidth(), jobbox_height + margin_y_per_eachpic + sum_margin_y)
 
 		local rankRollBackBtn = GET_CHILD(groupbox_sub_oldjob, 'rankRollBackBtn');
@@ -875,4 +880,9 @@ function CHANGEJOB_SHOW_RANKROLLBACK()
 		rankRollBackBtn:SetTextTooltip(ScpArgMsg('CannotBecause{LAST_INDEX}', 'LAST_INDEX', pc.LastRankRollbackIndex));
 		rankRollBackBtn:SetUserValue('ENABLE_RANKROLLBACK', 'NO');
 	end
+end
+
+function ON_CHANGE_JOB_SELECT_GUIDE_START(frame, btn)
+	ui.CloseFrame("changejob")
+	ui.OpenFrame("job_select_guide");
 end

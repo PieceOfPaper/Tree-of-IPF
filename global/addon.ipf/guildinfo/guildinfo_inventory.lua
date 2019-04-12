@@ -1,9 +1,8 @@
 function GUILDINFO_INVENTORY_DEPOSIT_CLICK(parent, ctrl)
     local topFrame = parent:GetTopParentFrame();
     local balanceEdit = GET_CHILD_RECURSIVELY(topFrame, 'balanceEdit');
-    local depositMoney = GET_NOT_COMMAED_NUMBER(balanceEdit:GetText());
-    local myMoney = GET_TOTAL_MONEY();
-    if depositMoney > myMoney or myMoney < 1 then
+    local depositMoney = GET_NOT_COMMAED_NUMBER(balanceEdit:GetText());    
+    if IsGreaterThanForBigNumber(depositMoney, GET_TOTAL_MONEY_STR()) == 1 then
         ui.SysMsg(ClMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
         return;
     end
@@ -13,14 +12,7 @@ function GUILDINFO_INVENTORY_DEPOSIT_CLICK(parent, ctrl)
 		return;
 	end
 
-	local guildObj = GET_MY_GUILD_OBJECT();
-	local nowGuildAsset = TryGetProp(guildObj, "GuildAsset");
-	if nowGuildAsset == nil then
-		return;
-	end
-    if nowGuildAsset == 'None' then
-        nowGuildAsset = 0;
-    end
+	local nowGuildAsset = guild.info:GetAssetAmount();
     local sumStr = SumForBigNumber(depositMoney, nowGuildAsset);
 	if IsGreaterThanForBigNumber(sumStr, MAX_GUILD_ASSET_DEPOSIT_AMOUNT) == 1 then
 		ui.SysMsg(ScpArgMsg("Money{MAX}OverAtAcc", "MAX", GET_COMMAED_STRING(MAX_GUILD_ASSET_DEPOSIT_AMOUNT)));

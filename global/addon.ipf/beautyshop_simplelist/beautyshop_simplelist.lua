@@ -44,12 +44,32 @@ function BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE(parent, control, argStr, argNum)
   
   local previewSlotName = "slotPreview_"..argStr
 
-  -- Small Mode의 실롯에 내용을 정리한다.
-  BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(control)
-
   -- 뷰티샵 미리보기 슬롯을 정리한다.
-	local slot = GET_CHILD_RECURSIVELY(beautyshop_frame, previewSlotName);
-	BEAUTYSHOP_CLEAR_SLOT(slot);
+  local slot = GET_CHILD_RECURSIVELY(beautyshop_frame, previewSlotName);
+  local itemClassName = slot:GetUserValue("CLASSNAME");
+  local itemCls = GetClass("Item", itemClassName);
+  local checkTwoHandWeapon = false;
+	if itemCls ~= nil then
+		checkTwoHandWeapon = BEAUTYSHOP_CHECK_TWOHAND_WEAPON(itemCls)
+		if checkTwoHandWeapon == true then
+			BEAUTYSHOP_RESET_TWOHAND_WEAPON_SLOT(slot)
+		end
+	end
+  BEAUTYSHOP_CLEAR_SLOT(slot);
+  
+  -- Small Mode의 슬롯에 내용을 정리한다.
+  BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(control)
+  if checkTwoHandWeapon == true then
+     -- 양손 무기라면 반대쪽 slot도 해제.
+     local simplelistOtherSlotName = "slotPreview_lh";
+     if argStr == "lh" then
+      simplelistOtherSlotName = "slotPreview_rh";
+     end
+    local otherSlot = GET_CHILD_RECURSIVELY(parent, simplelistOtherSlotName);
+    if otherSlot ~= nil then
+      BEAUTYSHOP_SIMPLELIST_SMALLMODE_CLEAR_SLOT(otherSlot)
+    end
+  end
 	
   -- 뷰티샵에서 입어볼 목록이 없으면 이 프레임을 종료하고 뷰티샵 UI를 연다.
   local isEmpty = BEAUTYSHOP_IS_PREIVEW_EMPTY(beautyshop_frame)
@@ -85,7 +105,9 @@ function BEAUTYSHOP_SIMPLELIST_UPDATE_SMALLMODE(frame, list)
         if icon == nil then
             icon = CreateIcon(slot);
         end
-        icon:SetImage(itemCls.Icon);
+        local UseGender = TryGetProp(itemCls, 'UseGender');
+        local iconName = BEAUTYSHOP_SIMPLELIST_ICONNAME_CHECK(itemCls.Icon, UseGender);
+        icon:SetImage(iconName);
 
         -- 제거를 위한 우클릭 등록
        slot:SetEventScript(ui.RBUTTONDOWN, 'BEAUTYSHOP_SIMPLELIST_SMALLMODE_REMOVE');
@@ -222,66 +244,103 @@ function BEAUTYSHOP_SIMPLELIST_UPDATE_PURCHASE_PRICE(frame)
    rtPayTP:SetTextByKey('value', PayTP);
 end
 
-function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
-    local idSpace = info['IDSpace'];
-    local className = info['ClassName'];
-    local beautyShopCls = GetClass(idSpace, className);
-    local icon = GET_CHILD(ctrlset, 'icon');
-    local _icon = CreateIcon(icon);
-    _icon:SetImage(itemCls.Icon);    
+function BEAUTYSHOP_SIMPLELIST_ICONNAME_CHECK(iconName, UseGender)
+ -- UseGender가 Both인데 icon이름의 끝에 _f or _m이 없고 iconName의 아이템이 등록되어 있지 않다면 자신의 성별에 맞게 붙여줌.
+ if UseGender==nil or  UseGender ~= "Both" then
+    return iconName;
+  end
 
-    local rtTitle = GET_CHILD(ctrlSet, 'rtTitle');
-    local colorName = info['ColorName'];
-    rtTitle:SetText(BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName, info.Gender));
-  
-    local pc = GetMyPCObject();
-    local rtNxp = GET_CHILD(ctrlSet, 'rtNxp');
-    local priceInfo = {
-      IDSpace = info['IDSpace'],
-      ClassName = info['ClassName'],
-      ColorClassName = info['ColorClassName'],
-      ColorEngName = colorName,
-    };
-    if priceInfo.ColorClassName ~= 'None' then
-      priceInfo.IDSpace = 'Beauty_Shop_Hair';
-      priceInfo.ClassName = itemCls.ClassName;
+  local exist = ui.IsExistBaseSkinImage(iconName)
+  if exist == true then
+    return iconName;
+  end
+
+  local lastStr = string.sub(iconName,-2);
+  if lastStr ~= '_f' and lastStr ~= '_m' then
+    local actor = GetMyActor();
+    local apc = actor:GetPCApc();
+    local gender = apc:GetGender();
+    if gender == 1 then
+      return iconName..'_m';
+    else
+      return iconName..'_f';
     end
-    local price, hairPrice, dyePrice = GET_BEAUTYSHOP_ITEM_PRICE(pc, priceInfo, nil, nil);
-    local totalPrice = 0;
-    if hairPrice ~= nil then
-      rtNxp:SetText(hairPrice..' + '..dyePrice..' TP');
-      totalPrice = hairPrice + dyePrice;
+  end
 
-      local frame = ctrlSet:GetTopParentFrame();
-      frame:SetUserValue('PRICE_INFO_IDSPACE', priceInfo.IDSpace);
-      frame:SetUserValue('PRICE_INFO_CLASSNAME', priceInfo.ClassName);
-      frame:SetUserValue('PRICE_INFO_COLORCLASSNAME', priceInfo.ColorClassName);
-      frame:SetUserValue('PRICE_INFO_COLORENGNAME', priceInfo.ColorEngName);
+  return iconName;
+end
+
+function BEAUTYSHOP_SIMPLELIST_DRAW_ITEM_DETAIL(ctrlset, itemCls, info)
+  local idSpace = info['IDSpace'];
+  local className = info['ClassName'];
+  local beautyShopCls = GetClass(idSpace, className);
+  local icon = GET_CHILD(ctrlset, 'icon');
+  local _icon = CreateIcon(icon);
+  local UseGender = TryGetProp(itemCls, 'UseGender');
+  local iconName  =BEAUTYSHOP_SIMPLELIST_ICONNAME_CHECK(itemCls.Icon, UseGender);
+  _icon:SetImage(iconName);    
+
+  local rtTitle = GET_CHILD(ctrlSet, 'rtTitle');
+  local colorName = info['ColorName'];
+  rtTitle:SetText(BEAUTYSHOP_GET_HAIR_FULLNAME(itemCls.Name, itemCls.ClassName, colorName, info.Gender));
+
+  local pc = GetMyPCObject();
+  local rtNxp = GET_CHILD(ctrlSet, 'rtNxp');
+  local priceInfo = {
+    IDSpace = info['IDSpace'],
+    ClassName = info['ClassName'],
+    ColorClassName = info['ColorClassName'],
+    ColorEngName = colorName,
+  };
+  if priceInfo.ColorClassName ~= 'None' then
+    priceInfo.IDSpace = 'Beauty_Shop_Hair';
+    priceInfo.ClassName = itemCls.ClassName;
+  end
+  local price, hairPrice, dyePrice = GET_BEAUTYSHOP_ITEM_PRICE(pc, priceInfo, nil, nil);
+  local totalPrice = 0;
+  local isNoPurchaseItem = false;
+  if hairPrice ~= nil then
+    rtNxp:SetText(hairPrice..' + '..dyePrice..' TP');
+    totalPrice = hairPrice + dyePrice;
+
+    local frame = ctrlSet:GetTopParentFrame();
+    frame:SetUserValue('PRICE_INFO_IDSPACE', priceInfo.IDSpace);
+    frame:SetUserValue('PRICE_INFO_CLASSNAME', priceInfo.ClassName);
+    frame:SetUserValue('PRICE_INFO_COLORCLASSNAME', priceInfo.ColorClassName);
+    frame:SetUserValue('PRICE_INFO_COLORENGNAME', priceInfo.ColorEngName);
+  else
+    if price == -1 then
+      isNoPurchaseItem = true;
+      rtNxp:SetText('');
     else
       rtNxp:SetText(price..' TP');
       totalPrice = price;
     end
+  end
 
-    local dupText = GET_CHILD(ctrlSet, 'dupText');
-    if GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemCls.ClassName) == '' then
-      dupText:ShowWindow(0);
-    end
+  local dupText = GET_CHILD(ctrlSet, 'dupText');
+  if isNoPurchaseItem == true then
+    dupText:SetText(ClMsg('ItemsThatCanNotBePurchased'));
+    dupText:ShowWindow(1);
+  elseif GET_ALLOW_DUPLICATE_ITEM_CLIENT_MSG(itemCls.ClassName) == '' then
+    dupText:ShowWindow(0);
+  end
 
-    ctrlset:SetUserValue('TOTAL_PRICE', totalPrice);
-    ctrlset:SetUserValue('HAIR_PRICE', hairPrice);
-    ctrlset:SetUserValue('DYE_PRICE', dyePrice);
+  ctrlset:SetUserValue('TOTAL_PRICE', totalPrice);
+  ctrlset:SetUserValue('HAIR_PRICE', hairPrice);
+  ctrlset:SetUserValue('DYE_PRICE', dyePrice);
 
-    -- 구매를 위한 정보 세팅
-    local hairClassName = info['HairClassName'];
-    if hairClassName ~= 'None' then
-        idSpace = 'Beauty_Shop_Hair';
-        className = hairClassName;
-    end
-    ctrlset:SetUserValue('IDSPACE', idSpace);
-    ctrlset:SetUserValue('CLASS_NAME', className);
-    ctrlset:SetUserValue('COLOR_CLASS_NAME', info['ColorClassName']);
+  -- 구매를 위한 정보 세팅
+  local hairClassName = info['HairClassName'];
+  if hairClassName ~= 'None' then
+      idSpace = 'Beauty_Shop_Hair';
+      className = hairClassName;
+  end
+  ctrlset:SetUserValue('IDSPACE', idSpace);
+  ctrlset:SetUserValue('CLASS_NAME', className);
+  ctrlset:SetUserValue('COLOR_CLASS_NAME', info['ColorClassName']);
 
-    return hairPrice, dyePrice;
+  return hairPrice, dyePrice;
 end
 
 function BEAUTYSHOP_SIMPLELIST_GET_PURCHASE_TP(frame)

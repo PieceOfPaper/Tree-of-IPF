@@ -121,8 +121,8 @@ function ON_CABINET_ITEM_LIST(frame)
 
         -- time
         local timeBox = GET_CHILD_RECURSIVELY(ctrlSet, 'timeBox');
-        local endTime = timeBox:GetChild("endTime");
-        if etcShow == true and difSec <= 0 then
+        local endTime = timeBox:GetChild("endTime");        
+        if (etcShow == true and difSec <= 0) or whereFrom ~= 'market_sell' then
         	timeBox:ShowWindow(0);
         else
         	endTime:SetTextByKey("value", timeString);
@@ -166,7 +166,7 @@ function ON_CABINET_ITEM_LIST(frame)
 		btn:SetEventScript(ui.LBUTTONUP, "CABINET_ITEM_BUY");
 		btn:SetEventScriptArgString(ui.LBUTTONUP,cabinetItem:GetItemID());
 
-		if 0 >= difSec then
+		if 0 >= difSec or whereFrom ~= 'market_sell' then
 			btn:SetEnable(1);
 		else
 			btn:SetEnable(0);
@@ -228,7 +228,7 @@ function CABINET_GET_ALL_LIST(frame, control, strarg, now)
             --return;
         --end
 
-        if 0 >= difSec then
+        if cabinetItem:GetWhereFrom() ~= 'market_sell' or 0 >= difSec then
 	        market.ReqGetCabinetItem(cabinetItem:GetItemID());
         end
     end

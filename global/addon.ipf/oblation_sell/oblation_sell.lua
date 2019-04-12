@@ -33,7 +33,9 @@ end
 function OBLATION_SELL_CLOSE(frame)
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
 	INVENTORY_SET_CUSTOM_RDBTNDOWN("NOne");
+	OBLATION_SELL_CLEAR(frame);
 	ui.CloseFrame("inventory");
+	INVENTORY_CLEAR_SELECT();
 end
 
 function OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, addCount, iesID, countSet)
@@ -92,6 +94,8 @@ function INV_RBTN_DBLDOWN_OBLATION_SELL(itemObj, slot)
 	local titleText = ScpArgMsg("INPUT_CNT_D_D", "Auto_1", 1, "Auto_2", invItem.count);
 	INPUT_NUMBER_BOX(frame, titleText, "SET_OBLATION_SELL_COUNT", 1, 1, invItem.count, nil, GetIESID(itemObj));
 	
+	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, invItem.count);
+	OBLATION_SELL_CALCULATE_PRICE(frame);
 end
 
 function SET_OBLATION_SELL_COUNT(frame, count, inputFrame)
@@ -109,9 +113,8 @@ function INV_RBTN_DOWN_OBLATION_SELL(itemObj, slot, iesID)
 	end
 
 	local frame = ui.GetFrame("oblation_sell");
-	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, 1, iesID);
+	OBLATION_SELL_ADD_SELL_ITEM(frame, invItem, invItem.count, iesID);
 	OBLATION_SELL_CALCULATE_PRICE(frame);
-
 end
 
 
@@ -123,9 +126,13 @@ function OBLATION_SELL_SLOT_RBTN(parent, slot)
 		return;
 	end
 
+	--Select item UnCheck
+	local itemID = invItem:GetIESID();
+	SHOP_SELECT_ITEM_LIST[itemID] = nil;
+
+	INVENTORY_SLOT_UNCHECK(ui.GetFrame("inventory"), itemID);
 	CLEAR_SLOT_ITEM_INFO(slot);
 	OBLATION_SELL_CALCULATE_PRICE(frame);	
-
 end
 
 function GET_SLOT_OBLATION_SELL_PRICE(slot)
@@ -142,12 +149,15 @@ function GET_SLOT_OBLATION_SELL_PRICE(slot)
 	else
 		slotCount = 1;	
 	end
-	local itemCls = GetIES(invItem:GetObject());
+
 	local itemProp = geItemTable.GetPropByName(itemCls.ClassName);
-	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());
-	if 0 >= price then
-		price = 1;
-	end
+	local price = math.floor(geItemTable.GetSellPrice(itemProp) * GET_OBLATION_PRICE_PERCENT());    
+    if geItemTable.GetSellPrice(itemProp) <= 0 then
+        price = 0
+    elseif geItemTable.GetSellPrice(itemProp) <= 1 then
+        price = 1        
+    end
+	
 	return price* slotCount;
 
 end
@@ -155,6 +165,13 @@ end
 function OBLATION_SELL_CLEAR(parent)
 	local frame = ui.GetFrame("oblation_sell");
 	local slotset = OBLATION_SELL_GET_SLOTSET(frame);
+
+	--inventory check icon clear
+	for iesid, sellcount in pairs(SHOP_SELECT_ITEM_LIST) do
+		SHOP_SELECT_ITEM_LIST[iesid] = nil;
+	end
+	INVENTORY_UPDATE_ICONS(ui.GetFrame("inventory"));
+
 	CLEAR_SLOTSET(slotset);
 	OBLATION_SELL_CALCULATE_PRICE(frame)
 end
@@ -167,8 +184,7 @@ function OBLATION_SELL_CALCULATE_PRICE(frame)
 	local gbox = frame:GetChild("gbox");
 	local expectsilver = gbox:GetChild("expectsilver");
 	expectsilver:SetTextByKey("value", expectedSellPrice);
-	local myMoney = GET_TOTAL_MONEY();
-	myMoney = myMoney + expectedSellPrice;
+	local myMoney = SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), expectedSellPrice);
 	local mysilver = gbox:GetChild("mysilver");
 	mysilver:SetTextByKey("value", myMoney);
 

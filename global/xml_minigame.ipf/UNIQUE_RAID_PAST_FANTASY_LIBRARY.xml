@@ -43,6 +43,10 @@
                                 <Str Str="!"/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="AllPCDead"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="NOT_IN_PC">
@@ -52,6 +56,73 @@
                         <execList>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
                                 <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="AllPCExist"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="TIMEOUT">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3600"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+                                <Str Str="Fail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="제한 시간 60분을 전부 소모했습니다.{nl}60초 후 이동했던 곳으로 이동합니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="TimeOut"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_30MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="1800"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="제한 시간 30분 남았습니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_15MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="2700"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="제한 시간 15분 남았습니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
+                            </ToolScp>
+                        </execList>
+                    </Event>
+                    <Event execCount="1" eventName="REMAIN_5MIN">
+                        <condList>
+                            <ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+                                <Num Num="3300"/>
+                            </ToolScp>
+                        </condList>
+                        <execList>
+                            <ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+                                <Str Str="제한 시간 5분 남았습니다."/>
+                                <Str Str="!"/>
+                                <Num Num="5"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -72,6 +143,10 @@
                             </ToolScp>
                         </condList>
                         <execList>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="MinigameFailure"/>
+                            </ToolScp>
                             <ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
                                 <Num Num="1"/>
                             </ToolScp>
@@ -1075,15 +1150,14 @@
             </Stage>
             <Stage Name="Intro">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO" CondFunc="">
-                        <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Intro"/>
-                        <Str Str="Start"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="아가일라 플러리를 기다리는 중 입니다"/>
                         <Str Str="stage_ready"/>
                         <Num Num="10"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
+                        <Str Str="PastFantasyLibrary"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -1300,6 +1374,10 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
                                 <Str Str="Intro"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                 </StageEvents>
@@ -1346,15 +1424,14 @@
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="마족들을 처치하세요!"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage1"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="붉은 경계석을 파괴하는 마족들을 처치하세요!"/>
                         <Str Str="stage_start"/>
                         <Num Num="10"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
+                        <Str Str="PastFantasyLibrary"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -1501,6 +1578,10 @@
                                 <MGameObj List="OBJECT/1"/>
                                 <Str Str="Neutral"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL">
@@ -1532,6 +1613,14 @@
                                 <Str Str="붉은 경계석이 파괴되어 길티네에게 발각됐습니다.{nl}60초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="DefenseFail"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1640,10 +1729,9 @@
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="600"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
                         <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage2"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -1754,6 +1842,10 @@
                             <ToolScp Scp="MGAME_EXEC_ACTORSCP" Client="NO" UseSleep="NO">
                                 <Str Str="SCR_STAGE3_BOOKMARK_WITHDRAW"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL">
@@ -1783,6 +1875,14 @@
                                 <Str Str="현혹의 스펙터를 시간 내에 물리치지 못해 길티네의 계획을 저지하지 못했습니다.{nl}60초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -1843,10 +1943,9 @@
                         <Str Str="stage_ready"/>
                         <Num Num="10"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
                         <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage3"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -1947,6 +2046,10 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL">
@@ -1995,6 +2098,14 @@
                                 <Str Str="시간 내에 암호를 풀지 못해 길티네의 계획을 저지하지 못했습니다.{nl}60초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2105,10 +2216,9 @@
                         <Str Str="stage_ready"/>
                         <Num Num="10"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
                         <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage4"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -2341,6 +2451,10 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="OBJECT/55"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL">
@@ -2372,6 +2486,14 @@
                                 <Str Str="아가일라 플러리가 쓰러져 계획을 더 이상 진행할 수 없게 됐습니다.{nl}60초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="DefenseFail"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2452,10 +2574,9 @@
                         <Str Str="stage_ready"/>
                         <Num Num="10"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
                         <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage5"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -2815,6 +2936,10 @@
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL">
@@ -2847,6 +2972,14 @@
                                 <Str Str="하우벅의 마력이 소실되어 계획을 더 이상 진행할 수 없습니다{nl}60초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -2882,11 +3015,6 @@
             </Stage>
             <Stage Name="6TH" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage6"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_RAID_ICON" Client="NO" UseSleep="NO">
                         <Str Str="하우벅이 결계를 없애기 위해선 많은 마력이 필요하다고 합니다{nl}주변의 마족들을 처치하여 하우벅에게 마력을 주입해주세요!"/>
                         <Str Str="stage_start"/>
@@ -2897,6 +3025,10 @@
                     </ToolScp>
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="180"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
+                        <Str Str="PastFantasyLibrary"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -3348,6 +3480,10 @@
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="OBJECT/56"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL" execWithStart="0">
@@ -3381,6 +3517,14 @@
                                 <Str Str="시간 내에 마력을 모으지 못해 계획이 실패했습니다{nl}60초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="!"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="TimeOut"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -3447,10 +3591,9 @@
                     <ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
                         <Num Num="600"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
                         <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage7"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -3521,6 +3664,10 @@
                                 <Num Num="1"/>
                                 <Num Num="0"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="FAIL">
@@ -3555,6 +3702,14 @@
                                 <Str Str="!"/>
                                 <Num Num="5"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="TimeOut"/>
+                            </ToolScp>
                         </execList>
                     </Event>
                     <Event execCount="1" eventName="BOSS_SUMMON">
@@ -3585,10 +3740,9 @@
                         <Str Str="stage_start"/>
                         <Num Num="10"/>
                     </ToolScp>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
                         <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage8"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <ObjList>
@@ -3780,6 +3934,10 @@
                             <ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DESTROY" Client="NO" UseSleep="NO">
                                 <Str Str="8TH"/>
                             </ToolScp>
+                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
+                                <MGameObj List="OBJECT/39"/>
+                                <Str Str="Neutral"/>
+                            </ToolScp>
                             <ToolScp Scp="GAME_ST_EVT_EXEC_VALUE" Client="NO" UseSleep="NO">
                                 <Str Str="8TH_CLEAR"/>
                                 <Num Num="2"/>
@@ -3789,9 +3947,9 @@
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
                             </ToolScp>
-                            <ToolScp Scp="MGAME_EVT_SCP_FACTION" Client="NO" UseSleep="NO">
-                                <MGameObj List="OBJECT/39"/>
-                                <Str Str="Neutral"/>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -3827,6 +3985,14 @@
                             </ToolScp>
                             <ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
                                 <MGameObjPtr List="OBJECT/40/OBJECT/41"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageFail"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_FAIL_CHECK_LOG" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="DefenseFail"/>
                             </ToolScp>
                         </execList>
                     </Event>
@@ -3915,13 +4081,12 @@
             </Stage>
             <Stage Name="9TH" AutoStart="0">
                 <StartScpList>
-                    <ToolScp Scp="MGAME_CUSTOM_LOG" Client="NO" UseSleep="NO">
-                        <Str Str="PastFantasyLibrary"/>
-                        <Str Str="Play"/>
-                        <Str Str="Stage9"/>
-                    </ToolScp>
                     <ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
                         <Str Str="마군주 프로스터 로드를 처치하세요!"/>
+                    </ToolScp>
+                    <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGESTART" Client="NO" UseSleep="NO">
+                        <Str Str="PastFantasyLibrary"/>
+                        <Str Str="StageStart"/>
                     </ToolScp>
                 </StartScpList>
                 <CompleteScpList>
@@ -3955,6 +4120,14 @@
                                 <Str Str="마군주 프로스터 로드를 쓰러뜨렸습니다!{nl}아가일라 플러리의 계획을 성공적으로 마쳤습니다!{nl}20초 뒤 입장했던 곳으로 이동합니다."/>
                                 <Str Str="Clear"/>
                                 <Num Num="5"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="StageClear"/>
+                            </ToolScp>
+                            <ToolScp Scp="MGAME_STAGE_CHECK_LOG_STAGEPROGRESS" Client="NO" UseSleep="NO">
+                                <Str Str="PastFantasyLibrary"/>
+                                <Str Str="MinigameSuccess"/>
                             </ToolScp>
                         </execList>
                     </Event>

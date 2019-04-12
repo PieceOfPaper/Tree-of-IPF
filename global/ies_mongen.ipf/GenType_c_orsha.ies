@@ -57,5 +57,7 @@ ClassID,GenType,Lv,Range,GenRange,RespawnTime,MaxPop,Minimap,Hide,UseAIOufOfPC,A
 1002,1002,1,40,1,60000,1,1,0,0,0,0,0,"HiddenTrigger","","","","","","","LETICIA_CUBE_AI","","","","NO","YES","NO","Neutral","","","",""
 1004,1004,1,40,1,60000,1,0,0,0,0,0,0,"Board1","마타도르 게시판","","","","","","","ORSHA_CHAR119_MSTEP1","","","NO","YES","NO","Neutral","","","",""
 5171,5171,1,40,1,60000,1,1,0,0,0,0,0,"HiddenTrigger6","[케도라 상단원]{nl}게랄다손","","","","","","JUNK_SHOP_CREATE_AI","","","","NO","YES","NO","Neutral","","","",""
-5209,5209,1,1,1,1,1,2,0,0,0,0,0,"NPC_GM2","한가위출석 이벤트 도우미","","","","MON_DUMMY","","","EVENT_1809_CHUSEOK_DAY","","","No","YES","NO","Neutral","","","",""
+5207,5207,1,20,1,1,1,2,0,0,0,0,0,"mon_kupole_5_Event","큐폴 다이나","","","","MON_DUMMY","","","EVENT_1809_DAYCHECK","","","No","YES","NO","Neutral","","","",""
+5500,5500,1,1,-1,60000,1,2,0,0,0,100,0,"NPC_GM","밸런스 초기화 지원 도우미","","","","","","","EVENT_1809_RANKRESET_NPC","","","NO","YES","NO","Neutral","","","",""
+5212,5212,1,1,1,1,1,2,0,0,0,0,0,"NPC_GM2","와글와글 할로윈 이벤트 도우미","","","","MON_DUMMY","","","EVENT_1810_HALLOWEEN_NPC","","","No","YES","NO","Neutral","","","",""
 10001,50001,1,40,1,60000,1,2,0,0,0,0,0,"Board3","이벤트 알림판","","","","","","","STEAM_TREASURE_EVENT","","","NO","YES","NO","Neutral","","","",""

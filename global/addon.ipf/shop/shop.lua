@@ -10,7 +10,7 @@ function SHOP_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('NOTICE_Dm_invenfull', 'INVENTORY_DM_INVENFULL');
 	addon:RegisterMsg('COMMON_SHOP_ITEM_LIST_GET', 'SHOP_ON_MSG');
 
-	FINALPRICE = GET_TOTAL_MONEY();
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 	NOWPAGENUM = 1;
 	TOTALPAGENUM = 1;
 	BUYSLOTCOUNT = {};
@@ -24,13 +24,13 @@ function SHOP_UI_OPEN(frame)
 	--HIDE_OR_SHOW_REPAIR_BUTTON(frame)
 	OPEN_SHOPUI_COMMON();
 	ui.EnableSlotMultiSelect(1);
-	FINALPRICE = GET_TOTAL_MONEY();
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 
 	return 1;
 end
 
 function INVENTORY_DM_INVENFULL(frame, msg, argStr, argNum)
-	FINALPRICE = GET_TOTAL_MONEY();
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 	SHOP_UPDATE_BUY_PRICE(frame);
 end
 
@@ -78,6 +78,7 @@ function SHOP_UI_CLOSE(frame, obj, argStr, argNum)
 
 	local invenFrame = ui.GetFrame('inventory');
 	INVENTORY_UPDATE_ICONS(invenFrame);
+	INVENTORY_CLEAR_SELECT(invenFrame);
 	if invenFrame:IsVisible() == 1 then
 		invenFrame:ShowWindow(0);
 	end
@@ -90,10 +91,10 @@ function SHOP_SLOT_RBTNDOWN_2(frame, slotList, argStr, argNum)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local ConSetBySlot 	= slotList:GetChild('slot');
-	local slot			= tolua.cast(ConSetBySlot, "ui::CSlot");
+	local ConSetBySlot = slotList:GetChild('slot');
+	local slot = tolua.cast(ConSetBySlot, "ui::CSlot");
 
-	SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
+	SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum);
 end
 
 function SHOP_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
@@ -137,9 +138,9 @@ function ON_FAIL_SHOP_BUY(frame)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local MyMoney = GET_TOTAL_MONEY();
+
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
-	FINALPRICE = MyMoney + TotalPrice;
+	FINALPRICE = SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), TotalPrice);
 	SHOP_UPDATE_BUY_PRICE(frame);
 end
 
@@ -166,9 +167,9 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local MyMoney = GET_TOTAL_MONEY();
+	
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
-	if -TotalPrice > MyMoney then
+	if IsGreaterThanForBigNumber(-TotalPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end
@@ -183,7 +184,7 @@ function SHOP_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 	elseif isSellSound == true then
 		imcSound.PlaySoundEvent("market_sell");
 	end
-	FINALPRICE = SumForBigNumber(MyMoney, TotalPrice);
+	FINALPRICE = SumForBigNumber(GET_TOTAL_MONEY_STR(), TotalPrice);
 	SHOP_UPDATE_BUY_PRICE(frame);
 
 	SHOP_SELECT_ITEM_LIST = {}
@@ -334,20 +335,23 @@ function SHOP_SELL_DROP(frame, ctrl)
 	if frame == nil then
 		frame = ui.GetFrame('shop');
 	end
-	local liftIcon 				= ui.GetLiftIcon();
-	local FromFrame 			= liftIcon:GetTopParentFrame();
-	local toFrame				= frame:GetTopParentFrame();
+	local liftIcon = ui.GetLiftIcon();
+	local FromFrame = liftIcon:GetTopParentFrame();
+	local toFrame = frame:GetTopParentFrame();
 	if toFrame:GetName() == 'companionshop' then
 		toFrame = toFrame:GetChild('foodBox');
 	end
+
 	if ctrl:GetClassName() ~= "slot" then
 		return;
 	end
 
 	local iconInfo = liftIcon:GetInfo();
 	local iesID = liftIcon:GetTooltipIESID();
-
 	local invItem = session.GetInvItemByGuid(iesID);
+	if invItem == nil then
+		return;
+	end
 
 	SHOP_SELL(invItem, invItem.count, toFrame);
 
@@ -506,7 +510,6 @@ function SHOP_BUY(clsID, buyCnt, frame)
 		frame = ui.GetFrame('shop');
 	end
 
-	local MyMoney = GET_TOTAL_MONEY();
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
 	if clsID == nil then
 		return;
@@ -522,7 +525,7 @@ function SHOP_BUY(clsID, buyCnt, frame)
 		end
 	end
 
-	if shopItem.price > MyMoney + TotalPrice then
+	if IsGreaterThanForBigNumber(shopItem.price + (-1 * TotalPrice), GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end
@@ -714,7 +717,7 @@ function SHOP_UPDATE_BUY_PRICE(frame)
 		frame = ui.GetFrame('shop');
 	end
 	local price = GET_TOTAL_BUY_PRICE(frame);
-	local txt = frame:GetChild("pricetxt");
+	local txt = frame:GetChild("pricetxt");	
 	if price >= 0 then
 		txt:SetTextByKey("text", price);
 	else
@@ -722,8 +725,8 @@ function SHOP_UPDATE_BUY_PRICE(frame)
 	end
 
 	local invenZeny = FINALPRICE;
-	local totaltext = frame:GetChild("finalprice");
-	local totalprice = SumForBigNumber(invenZeny, price);
+	local totaltext = frame:GetChild("finalprice");	
+	local totalprice = SumForBigNumberInt64(invenZeny, price);	
 	totaltext:SetTextByKey("text", totalprice);
 	frame:SetUserValue("EXPECTED_REMAIN_ZENY", totalprice);
 
@@ -1193,13 +1196,9 @@ function UPDATE_SOLD_ITEM_LIST(frame)
 
 	slotSet:Invalidate();
 
-
-	local MyMoney = GET_TOTAL_MONEY();
-	FINALPRICE = MyMoney;
+	FINALPRICE = GET_TOTAL_MONEY_STR();
 
 	SHOP_UPDATE_BUY_PRICE(frame);
-
-
 end
 
 function SOLD_SLOT_SET(slot, index, info)
@@ -1276,9 +1275,7 @@ function SHOP_REQ_CANCEL_SELL(index, frameName)
 	end
 	
 	local price = slot:GetUserIValue('SOLDITEMPRICE');
-	local MyMoney = GET_TOTAL_MONEY();
-
-	if price > MyMoney then
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end

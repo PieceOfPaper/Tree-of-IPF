@@ -1,7 +1,9 @@
 	-- inventory.lua
+local invenTitleName = nil
+local clickedLockItemSlot = nil
 
+g_invenTypeStrList = {"All", "Equip", "Consume", "Recipe", "Card", "Etc", "Gem", "Premium"};
 
-g_invenTypeStrList = {"Equip", "Item"};
 
 function INVENTORY_ON_INIT(addon, frame)
 
@@ -27,6 +29,7 @@ function INVENTORY_ON_INIT(addon, frame)
 	addon:RegisterOpenOnlyMsg('WEIGHT_UPDATE', 'INVENTORY_WEIGHT_UPDATE');
 	
 	addon:RegisterMsg('UPDATE_ITEM_REPAIR', 'INVENTORY_ON_MSG');
+	addon:RegisterMsg('UPDATE_ITEM_APPRAISAL', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('SWITCH_GENDER_SUCCEED', 'INVENTORY_ON_MSG');
     addon:RegisterMsg('RESET_ABILITY_UP', 'INVENTORY_ON_MSG');
 	addon:RegisterMsg('APPRAISER_FORGERY', 'INVENTORY_ON_APPRAISER_FORGERY');
@@ -37,12 +40,15 @@ function INVENTORY_ON_INIT(addon, frame)
 
 	addon:RegisterOpenOnlyMsg('ABILITY_LIST_GET', 'MAKE_WEAPON_SWAP_BUTTON');
 	addon:RegisterMsg('UPDATE_LOCK_STATE', 'ON_UPDATE_LOCK_STATE');
+	addon:RegisterMsg('UPDATE_TRUST_POINT', 'ON_UPDATE_TRUST_POINT');
 
 	SLOTSET_NAMELIST = {};
+    CHECK_SLOTSET_NAMELIST = {}
 	GROUP_NAMELIST = {};
 	
 	SHOP_SELECT_ITEM_LIST = {};
 	INVENTORY_TOGGLE_ITEM_LIST = {};
+
 
 	--검색 용 변수
 	searchEnterCount = 1
@@ -78,8 +84,8 @@ function HIDE_EMPTY_SLOT(slotset)
 	end
 	local slotCount = slotset:GetSlotCount();
 	for i = 0, slotCount - 1 do
-		local slot		= slotset:GetSlotByIndex(i );
-		local icon = slot:GetIcon()
+		local slot = slotset:GetSlotByIndex(i );
+		local icon = slot:GetIcon();
 		if icon == nil then
 			slot:ShowWindow(0)
 		end
@@ -87,15 +93,16 @@ function HIDE_EMPTY_SLOT(slotset)
 end
 
 function UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-	INIT_INVEN_SLOT(slot);
-
+	INIT_INVEN_SLOT(slot);    
 	--거래목록 또는 상점 판매목록에서 올려놓은 아이템(슬롯) 표시 기능
-	local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
-	if remainInvItemCount ~= invItem.count then
-		slot:Select(1);
-	else
-		slot:Select(0);
-	end		
+	if ui.GetFrame('shop'):IsVisible() == 1 or ui.GetFrame('exchange'):IsVisible() == 1 or ui.GetFrame("oblation_sell"):IsVisible() == 1 then
+		local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
+		if remainInvItemCount ~= invItem.count then
+			slot:Select(1);
+		else
+			slot:Select(0);			
+		end
+	end
 end
 
 function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
@@ -109,13 +116,14 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 		GROUP_NAMELIST[#GROUP_NAMELIST + 1] = treegroupname
 	end
 	
+
 	--슬롯셋 없으면 만들기
 	local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
 	local slotsetnode = tree:FindByValue(treegroup, slotsetname);
 	if tree:IsExist(slotsetnode) == 0 then
 		MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls);
 	end					
-	slotset = GET_CHILD(tree,slotsetname,'ui::CSlotSet');
+	slotset = GET_CHILD_RECURSIVELY(tree,slotsetname,'ui::CSlotSet');
 	local slotCount = slotset:GetSlotCount();
 	local slotindex = invItem.invIndex - GET_BASE_SLOT_INDEX(invItem.invIndex) - 1;
 
@@ -124,7 +132,7 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 	if cap == "" then
 		slot = slotset:GetSlotByIndex(slotindex);
 	else
-		local cnt = GET_SLOTSET_COUNT(tree, baseidcls.ClassName);
+		local cnt = GET_SLOTSET_COUNT(tree, baseidcls);
 		-- 저장된 템의 최대 인덱스에 따라 자동으로 늘어나도록. 예를들어 해당 셋이 10000부터 시작하는데 10500 이 오면 500칸은 늘려야됨
 		while slotCount <= cnt  do 
 			slotset:ExpandRow()
@@ -135,18 +143,22 @@ function INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls)
 		cnt = cnt + 1;
 		slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
 	end
-							
-	slot:ShowWindow(1);
+
+	slot:ShowWindow(1);	
 	UPDATE_INVENTORY_SLOT(slot, invItem, itemCls);
-							
+
 	INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, remainInvItemCount);
 	SET_SLOTSETTITLE_COUNT(tree, baseidcls, 1)
-											
+
 	slotset:MakeSelectionList();
 end
 
 function MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls)
 	local slotsettitle = 'ssettitle_'..baseidcls.ClassName;
+	if baseidcls.MergedTreeTitle ~= "NO" then
+		slotsettitle = 'ssettitle_'..baseidcls.MergedTreeTitle
+	end
+
 	local newSlotsname = MAKE_INVEN_SLOTSET_NAME(tree, slotsettitle, baseidcls.TreeSSetTitle)
 	local newSlots = MAKE_INVEN_SLOTSET(tree, slotsetname)
 	tree:Add(treegroup, newSlotsname, slotsettitle);
@@ -155,8 +167,7 @@ function MAKE_INVEN_SLOTSET_AND_TITLE(tree, treegroup, slotsetname, baseidcls)
 	slotNode:SetUserValue("IS_ITEM_SLOTSET", 1);
 end
 
-function MAKE_INVEN_SLOTSET(tree, name)
-	
+function MAKE_INVEN_SLOTSET(tree, name)	
 	local frame = ui.GetFrame('inventory');
 	local slotsize = frame:GetUserConfig("TREE_SLOT_SIZE");
 	local colcount = frame:GetUserConfig("TREE_COL_COUNT");
@@ -174,7 +185,12 @@ function MAKE_INVEN_SLOTSET(tree, name)
 	newslotset:SetSkinName('invenslot')
 	newslotset:EnableSelection(0)
 	newslotset:CreateSlots()
-	SLOTSET_NAMELIST[#SLOTSET_NAMELIST + 1] = name
+
+    if CHECK_SLOTSET_NAMELIST[name] == nil then
+        SLOTSET_NAMELIST[#SLOTSET_NAMELIST + 1] = name
+        CHECK_SLOTSET_NAMELIST[name] = 1        
+    end
+    
 	return newslotset;
 end
 
@@ -204,8 +220,8 @@ end
 
 function UPDATE_SHIHOUETTE_IMAGE(frame)
 
-	local equipgroup = GET_CHILD(frame, 'equip', 'ui::CGroupBox')
-	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
+	local equipgroup = GET_CHILD_RECURSIVELY(frame, 'equip', 'ui::CGroupBox')
+	local shihouette = GET_CHILD_RECURSIVELY(equipgroup, 'shihouette', "ui::CPicture");
 	local shihouette_imgname = ui.CaptureMyFullStdImage();
 	shihouette:SetImage(shihouette_imgname);
 	frame:Invalidate()
@@ -221,13 +237,14 @@ function INVENTORY_OPEN(frame)
 	frame:SetUserValue("MONCARDLIST_OPENED", 0);
 
 	ui.Chat("/requpdateequip"); -- 내구도 회복 유료템 때문에 정확한 값을 지금 알아야 함.
+	session.inventory.ReqTrustPoint();
 
 	local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");		
 	if savedPos == 'None' then
 		savedPos = '0'
 	end
 				
-	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_Equip')
+	local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_All')
 	tree_box:SetScrollPos( tonumber(savedPos) );
 
 	session.CheckOpenInvCnt();
@@ -238,11 +255,13 @@ function INVENTORY_OPEN(frame)
 		questInfoSetFrame:ShowWindow(0);
 	end
 
+	INV_HAT_VISIBLE_STATE(frame);
+	INV_HAIR_WIG_VISIBLE_STATE(frame);
+
 	local minimapFrame = ui.GetFrame('minimap');
 	minimapFrame:ShowWindow(0);
 
-	INV_HAT_VISIBLE_STATE(frame);
-	INV_HAIR_WIG_VISIBLE_STATE(frame);
+
 end
 
 function INVENTORY_CLOSE()
@@ -263,19 +282,21 @@ function INVENTORY_CLOSE()
 
 	item.RemoveTargetItem();
 	ui.CloseFrame("inventory");
+
+	ui.CloseFrame("inventoryoption")
 end
 
 function INVENTORY_FRONT_IMAGE_CLEAR(frame)
 
 	for j = 1 , #SLOTSET_NAMELIST do
 
-		local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
+		local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
 		
 		for typeNo = 1, #g_invenTypeStrList do
-			local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-			local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+			local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+			local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-			local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
+			local slotSet = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
 			
 			if slotSet ~= nil then
 		local slotCount = slotSet:GetSlotCount();
@@ -300,29 +321,38 @@ function SET_INV_LBTN_FUNC(frame, funcName)
 	frame:SetUserValue("LBTN_SCP", funcName);
 end
 
-function SET_SLOT_APPLY_FUNC(frame, funcName, slotSetName)
+function SET_SLOT_APPLY_FUNC(frame, funcName, slotSetName, invenTypeStr)
 	frame:SetUserValue("SLOT_APPLY_FUNC", funcName);
 	if funcName == "None" then
 		INV_APPLY_TO_ALL_SLOT(_SLOT_RESET_GRAY_BLINK);
 	end
 
-	UPDATE_INV_LIST(frame, slotSetName);
+	if invenTypeStr == nil then
+		local tab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+		if tab ~= nil then
+			local tabIndex = tab:GetSelectItemIndex()
+			UPDATE_INV_LIST(frame, slotSetName, g_invenTypeStrList[tabIndex + 1]);
+		end
+	else
+		UPDATE_INV_LIST(frame, slotSetName, invenTypeStr);
+	end
 end
 
-function UPDATE_INV_LIST(frame, slotSetName)
-	INVENTORY_LIST_GET(frame, nil, slotSetName);
+function UPDATE_INV_LIST(frame, slotSetName, invenTypeStr)
+	INVENTORY_LIST_GET(frame, nil, slotSetName, invenTypeStr);
 end
 
 function INVENTORY_WEIGHT_UPDATE(frame)
-	local bottomgroup = GET_CHILD(frame, 'bottomGbox', 'ui::CGroupBox')
-	local weightPicture = GET_CHILD(bottomgroup, 'inventory_weight','ui::CPicture')
+	local bottomgroup = GET_CHILD_RECURSIVELY(frame, 'bottomGbox', 'ui::CGroupBox')
+	local weightPicture = GET_CHILD_RECURSIVELY(bottomgroup, 'inventory_weight','ui::CPicture')
 	local pc = GetMyPCObject();
-	local newwidth = 0;
-	local rate = 0;
+	local newwidth = 0;			
+	local rate = 0;				
 	if pc.MaxWeight ~= 0 then
 		newwidth =  math.floor( pc.NowWeight * weightPicture:GetOriginalWidth() / pc.MaxWeight )
 		rate = math.floor(pc.NowWeight * 100 / pc.MaxWeight)
 	end
+	weightPicture:Resize(weightPicture:GetOriginalWidth(), weightPicture:GetOriginalHeight())
 		
 	local weightscptext = ScpArgMsg("Weight{All}{Max}", "All", string.format("%.1f", pc.NowWeight), "Max", string.format("%.1f", pc.MaxWeight))
 	local weightratetext = ScpArgMsg("Weight{Rate}", "Rate", tostring(rate))
@@ -331,28 +361,47 @@ function INVENTORY_WEIGHT_UPDATE(frame)
 		newwidth = weightPicture:GetOriginalWidth();
 	end
 
-	weightPicture:Resize(newwidth,weightPicture:GetOriginalHeight())
-	
-	local weightGbox = GET_CHILD(bottomgroup, 'weightGbox','ui::CGroupBox')
+	local weightGbox = GET_CHILD_RECURSIVELY(bottomgroup, 'weightGbox','ui::CGroupBox')
 	weightGbox:SetTextTooltip(weightscptext)
 
-	local arrowPicture = GET_CHILD(bottomgroup, 'inventory_arrow','ui::CPicture')
-	arrowPicture:SetOffset(newwidth + weightPicture:GetX() - 7 ,arrowPicture:GetOriginalY() )
-
-	local weighttext = GET_CHILD(bottomgroup, 'invenweight','ui::CRichText')
+	local weighttext = GET_CHILD_RECURSIVELY(bottomgroup, 'invenweight','ui::CRichText')
 	weighttext:SetText(weightratetext)	
+
+	--Ruler Resize
+	local arrowPicture = GET_CHILD_RECURSIVELY(bottomgroup, 'inventory_arrow','ui::CPicture')
+	
+	local rulerTextureWidth = frame:GetUserConfig("WEIGHT_PIC_WIDTH");	--Texture Widht
+	local rulerWidth = arrowPicture:GetOriginalWidth();					--Origin Width
+	local rulerRate = rulerTextureWidth / rulerWidth;					--rate
+	local arrowPictureWidth = rulerTextureWidth - 124;		
+	local arrowPictureRate = arrowPictureWidth / rulerWidth;
+
+	arrowPicture:Resize(arrowPicture:GetOriginalWidth() * rulerRate, arrowPicture:GetOriginalHeight())
+
+	if rate > 100 then	
+		arrowPicture:SetOffset(-489, arrowPicture:GetOriginalY())
+		return;
+	end
+
+	--SetOffset : rate에 맞춘 offset 움직임 값
+	local arrowPictureOffSetX = rate * arrowPicture:GetOriginalWidth() * 3.65 * 0.01;	
+	arrowPicture:SetOffset((arrowPictureOffSetX) * -1, arrowPicture:GetOriginalY())
 end
 
 
 function INVITEM_INVINDEX_CHANGE(itemGuid)
 
 	local frame = ui.GetFrame("inventory");
+
 	local invSlot = INVENTORY_GET_SLOT_BY_IESID(frame, itemGuid)
-	if invSlot == nil then
+	local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(frame, itemGuid, 1)
+
+	if invSlot == nil or invSlot_All == nil then
 		return;
 	end
 
 	ONUPDATE_SLOT_INVINDEX(invSlot);
+	ONUPDATE_SLOT_INVINDEX(invSlot_All);
 
 end
 
@@ -390,16 +439,13 @@ function TEMP_INV_ADD(frame,invIndex)
 	local beforeSlotSetCount = #SLOTSET_NAMELIST;
 	local beforeGroupCount = #GROUP_NAMELIST;
 
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end
-	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_' .. typeStr);
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_' .. typeStr);	
 	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
-		
+	
 	--아이템 없는 빈 슬롯은 숨겨라
 	for i = 1 , #SLOTSET_NAMELIST do
-		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+		local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		HIDE_EMPTY_SLOT(slotset)
 	end
 	
@@ -418,11 +464,10 @@ function TEMP_INV_ADD(frame,invIndex)
 
 	local treeNode = tree:GetNodeByTreeItem(treegroup);
 	tree:OpenNode(treeNode, true, true);
-
+	
 	--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
 	for i = 1 , #SLOTSET_NAMELIST do
-		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
-
+		slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
 		local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
 		if setpos == 'setpos' then
 
@@ -438,6 +483,54 @@ function TEMP_INV_ADD(frame,invIndex)
 		
 	end
 
+	
+------------------------------
+	typeStr = "All"	
+
+	tree = GET_CHILD_RECURSIVELY(frame, 'inventree_' .. typeStr);	
+	INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
+	
+	--아이템 없는 빈 슬롯은 숨겨라
+	for i = 1 , #SLOTSET_NAMELIST do
+		local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+		HIDE_EMPTY_SLOT(slotset)
+	end
+	
+	ADD_GROUP_BOTTOM_MARGIN(frame,tree)
+
+	treegroupname = baseidcls.TreeGroup;
+	treegroup = tree:FindByValue(treegroupname);
+
+	if beforeSlotSetCount ~= #SLOTSET_NAMELIST then
+		tree:SortTreeChildByFunc(treegroup, "GET_SLOTSET_SORT_SCORE");
+	end
+
+	if beforeGroupCount ~= #GROUP_NAMELIST then
+		tree:SortTreeChildByFunc(tree:GetRootItem(), "GET_GROUP_SORT_SCORE");
+	end
+
+	treeNode = tree:GetNodeByTreeItem(treegroup);
+	tree:OpenNode(treeNode, true, true);
+	
+	--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
+	for i = 1 , #SLOTSET_NAMELIST do
+		slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+		local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
+		if setpos == 'setpos' then
+
+			local savedPos = frame:GetUserValue("INVENTORY_CUR_SCROLL_POS");
+		
+			if savedPos == 'None' then
+				savedPos = 0
+			end
+				
+			local tree_box = GET_CHILD_RECURSIVELY(frame, 'treeGbox_'.. typeStr)
+			tree_box:SetScrollPos( tonumber(savedPos) )
+		end
+		
+	end
+
+-----------------------------
 	frame:Invalidate()
 end
 
@@ -454,6 +547,7 @@ function GET_SLOTSET_SORT_SCORE(value)
 
 	local baseClassName;
 	local baseScore = 0;
+
 	if string.find(value, "ssettitle_") ~= nil then
 		baseScore = 10;
 		local stringLen = string.len("ssettitle_");
@@ -469,8 +563,20 @@ function GET_SLOTSET_SORT_SCORE(value)
 
 	local baseCls = GetClass("inven_baseid", baseClassName);
 	if baseCls == nil then
-		IMC_LOG("INFO_NORMAL", "Baseclass does not exist" .. baseClassName);
-		return 1;
+		local baseClsList, cnt = GetClassList("inven_baseid")
+		for i = 0, cnt - 1 do
+			if baseCls == nil then
+				local tempCls = GetClassByIndexFromList(baseClsList, i)
+				if tempCls.MergedTreeTitle == baseClassName then
+					baseCls = tempCls
+				end
+			end
+		end
+
+		if baseCls == nil then
+			IMC_LOG("INFO_NORMAL", "Baseclass does not exist" .. baseClassName);
+			return 1;
+		end
 	end
 
 	return baseScore + (100 - baseCls.ClassID) * 100;
@@ -496,10 +602,9 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 
 	local treegroupname = baseidcls.TreeGroup;
 
-	local typeStr = "Item"	
-	if itemCls.ItemType == "Equip" then
-		typeStr = itemCls.ItemType; 
-	end	
+	
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+
 	local tree = GET_CHILD_RECURSIVELY(frame, 'inventree_'..typeStr)
 	local treegroup = tree:FindByValue(treegroupname);
 	if tree:IsExist(treegroup) == 0 then
@@ -509,7 +614,7 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	local treeNode = tree:GetNodeByTreeItem(treegroup);
 	local slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
 	local slotsetnode = tree:FindByValue(treegroup, slotsetname);
-	local slotset = GET_CHILD(tree,slotsetname,'ui::CSlotSet')	
+	local slotset = GET_CHILD_RECURSIVELY(tree,slotsetname,'ui::CSlotSet')	
 
 	local slot = GET_SLOT_FROMSLOTSET_BY_IESID(slotset, itemGuid);
 	if slot == nil then
@@ -518,14 +623,14 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
 	local slotIndex = slot:GetSlotIndex();
 	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
-	
-	local cnt = GET_SLOTSET_COUNT(tree, baseidcls.ClassName);
+
+	local cnt = GET_SLOTSET_COUNT(tree, baseidcls);
 	cnt = cnt - 1;
 	slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
 
 	-- 아이템 없는 빈 슬롯은 숨겨라
 	for i = 1 , #SLOTSET_NAMELIST do
-		local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+		local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 		if slotset ~= nil then
 			HIDE_EMPTY_SLOT(slotset)
 		end
@@ -535,6 +640,9 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 
 	if cnt == 0 then
 		local titleName = "ssettitle_" .. baseidcls.ClassName;
+		if baseidcls.MergedTreeTitle ~= "NO" then
+			titleName = 'ssettitle_'..baseidcls.MergedTreeTitle
+		end
 		local hTitle = tree:FindByValue(titleName);
 
 		REMOVE_FROM_SLOTSET(slotsetname);
@@ -549,6 +657,63 @@ function TEMP_INV_REMOVE(frame, itemGuid)
 			
 		end
 	end
+
+	---------------------------
+	typeStr = "All"
+
+	tree = GET_CHILD_RECURSIVELY(frame, 'inventree_'..typeStr)
+	treegroup = tree:FindByValue(treegroupname);
+	if tree:IsExist(treegroup) == 0 then
+		return;
+	end
+
+	treeNode = tree:GetNodeByTreeItem(treegroup);
+	slotsetname = GET_SLOTSET_NAME(invItem.invIndex)
+	slotsetnode = tree:FindByValue(treegroup, slotsetname);
+	slotset = GET_CHILD_RECURSIVELY(tree,slotsetname,'ui::CSlotSet')	
+
+	slot = GET_SLOT_FROMSLOTSET_BY_IESID(slotset, itemGuid);
+	if slot == nil then
+		return;
+	end
+	slot:SetText('{s18}{ol}{b}', 'count', 'right', 'bottom', -2, 1);
+	slotIndex = slot:GetSlotIndex();
+	slotset:ClearSlotAndPullNextSlots(slotIndex, "ONUPDATE_SLOT_INVINDEX");
+
+	cnt = GET_SLOTSET_COUNT(tree, baseidcls);
+	cnt = cnt - 1;
+	slotset:SetUserValue("SLOT_ITEM_COUNT", cnt)
+
+	-- 아이템 없는 빈 슬롯은 숨겨라
+	for i = 1 , #SLOTSET_NAMELIST do
+		local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+		if slotset ~= nil then
+			HIDE_EMPTY_SLOT(slotset)
+		end
+	end
+
+	SET_SLOTSETTITLE_COUNT(tree, baseidcls, -1);	
+
+	if cnt == 0 then
+		local titleName = "ssettitle_" .. baseidcls.ClassName;
+		if baseidcls.MergedTreeTitle ~= "NO" then
+			titleName = 'ssettitle_'..baseidcls.MergedTreeTitle
+		end
+		local hTitle = tree:FindByValue(titleName);
+
+		REMOVE_FROM_SLOTSET(slotsetname);
+
+		tree:Delete(hTitle);
+		tree:Delete(slotsetnode);
+
+		if treeNode:GetChildNodeCount() == 1 then
+			tree:Delete(treegroup);
+
+			REMOVE_FROM_TREEGROUP(treegroupname);
+			
+		end
+	end
+	--------------------------------
 		
 end
 
@@ -577,14 +742,19 @@ function REMOVE_FROM_TREEGROUP(treegroupname)
 end
 
 function GET_SLOT_FROMSLOTSET_BY_IESID(slotset, itemGuid)
+	if slotset == nil then
+		return nil
+	end
 
 	local count = slotset:GetChildCount();
 	for i = 0 , count - 1 do
 		local slot = slotset:GetChildByIndex(i);
 		AUTO_CAST(slot);
-		local tooltipIESID = slot:GetIcon():GetInfo():GetIESID();
-		if tooltipIESID == itemGuid then
-			return slot;
+		if slot ~= nil and slot:GetIcon() ~= nil and slot:GetIcon():GetInfo() ~= nil then
+			local tooltipIESID = slot:GetIcon():GetInfo():GetIESID();
+			if tooltipIESID ~= nil and tooltipIESID == itemGuid then
+				return slot;
+			end
 		end
 	end
 
@@ -593,10 +763,15 @@ function GET_SLOT_FROMSLOTSET_BY_IESID(slotset, itemGuid)
 end
 
 function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
-    if msg == 'INV_ITEM_LIST_GET' or msg == 'UPDATE_ITEM_REPAIR' or msg == 'RESET_ABILITY_UP' then
+    if msg == 'INV_ITEM_LIST_GET' or msg == 'RESET_ABILITY_UP' then
         INVENTORY_LIST_GET(frame)
 		STATUS_EQUIP_SLOT_SET(frame);
     end
+
+    if msg == 'UPDATE_ITEM_REPAIR' or msg == 'UPDATE_ITEM_APPRAISAL' then
+    	INVENTORY_LIST_GET(frame, nil, nil, argStr)
+		STATUS_EQUIP_SLOT_SET(frame);
+	end
 	
     if msg == 'INV_ITEM_ADD' then
         TEMP_INV_ADD(frame, argNum)
@@ -604,6 +779,7 @@ function INVENTORY_ON_MSG(frame, msg, argStr, argNum)
 	if  msg == 'EQUIP_ITEM_LIST_GET' then	
 		STATUS_EQUIP_SLOT_SET_ANIM(frame);
 		STATUS_EQUIP_SLOT_SET(frame);
+		SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame);	--염색버튼 숨기기/보이기
 	end
 	if  msg == 'EQUIP_ITEM_LIST_UPDATE' then		
 		STATUS_EQUIP_SLOT_SET(frame);
@@ -642,7 +818,13 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	local itemSlot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
 	if itemSlot ~= nil then
 		local invItem = GET_PC_ITEM_BY_GUID(itemGuid);
-		INV_SLOT_UPDATE(frame, invItem, itemSlot); 
+		INV_SLOT_UPDATE(frame, invItem, itemSlot)
+		local itemSlot_All = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
+		if itemSlot_All ~= nil then
+			local invItem_All = GET_PC_ITEM_BY_GUID(itemGuid)
+			INV_SLOT_UPDATE(frame, invItem_All, itemSlot_All)
+		end
+
 		frame:Invalidate();
 		return;
 	end
@@ -658,7 +840,7 @@ function INVENTORY_ITEM_PROP_UPDATE(frame, msg, itemGuid)
 	end
 end
 
-function INV_SLOT_UPDATE(frame, invItem, itemSlot)
+function INV_SLOT_UPDATE(frame, invItem, itemSlot)    
 	local customFunc = nil;
 	local scriptName = frame:GetUserValue("CUSTOM_ICON_SCP");
 	local scriptArg = nil;
@@ -666,12 +848,12 @@ function INV_SLOT_UPDATE(frame, invItem, itemSlot)
 		customFunc = _G[scriptName];
 		local getArgFunc = _G[frame:GetUserValue("CUSTOM_ICON_ARG_SCP")];
 		if getArgFunc ~= nil then
-			scriptArg = getArgFunc();
+			scriptArg = getArgFunc();            
 		end
 	end
-
-	local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);
-	INV_ICON_SETINFO(frame, itemSlot, invItem, customFunc, scriptArg, remainInvItemCount);	
+    
+	local remainInvItemCount = GET_REMAIN_INVITEM_COUNT(invItem);    
+	INV_ICON_SETINFO(frame, itemSlot, invItem, customFunc, scriptArg, remainInvItemCount);	    
 end
 
 function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
@@ -691,6 +873,10 @@ function INVENTORY_UPDATE_ITEM_BY_GUID(frame, itemGuid)
 	local itemSlot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, frame)
 	if itemSlot ~= nil then
 		INV_SLOT_UPDATE(frame, invItem, itemSlot);
+		local itemSlot_All = INV_GET_SLOT_BY_ITEMGUID(itemGuid, frame, 1)
+		if itemSlot_All ~= nil then
+			INV_SLOT_UPDATE(frame, invItem, itemSlot_All)
+		end
 	end
 	
 	
@@ -725,27 +911,41 @@ function SET_INVENTORY_MODE(frame, modeName)
 	end
 end
 
-function INVENTORY_GET_SLOT_BY_IESID(frame, itemGuid)
-
+function INVENTORY_GET_SLOT_BY_IESID(frame, itemGuid, isAll)
 	local invItem = session.GetInvItemByGuid(itemGuid);
 	if invItem == nil then
 		return nil;
 	end
 
-	return INVENTORY_GET_SLOT_BY_INVITEM(frame, invItem);
-
+	return INVENTORY_GET_SLOT_BY_INVITEM(frame, invItem, isAll);
 end
 
-function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem)
-
-	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-
-	for typeNo = 1, #g_invenTypeStrList do
-		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem, isAll)
+	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
+	if isAll ~= nil and isAll == 1 then
+		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_All','ui::CGroupBox')
+		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_All','ui::CTreeControl')
 
 		for i = 1 , #SLOTSET_NAMELIST do
-		local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			local slotSet = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			if slotSet ~= nil then
+				for j = 0 , slotSet:GetChildCount() - 1 do
+					local slot = slotSet:GetChildByIndex(j);
+					local invItem = GET_SLOT_ITEM(slot); 
+					if invItem == changeTargetItem then
+						return slot;
+					end
+				end
+			end
+		end
+	end
+
+	for typeNo = 2, #g_invenTypeStrList do
+		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+
+		for i = 1 , #SLOTSET_NAMELIST do
+			local slotSet = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 			if slotSet ~= nil then
 				for j = 0 , slotSet:GetChildCount() - 1 do
 					local slot = slotSet:GetChildByIndex(j);
@@ -762,98 +962,121 @@ function INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem)
 end
 
 function INVENTORY_UPDATE_ICON_BY_INVITEM(frame, changeTargetItem)
-
 	local slot = INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem);
-	if slot ~= nil then
-		local itemCls = GetIES(changeTargetItem:GetObject());
+	local slot_All = INVENTORY_GET_SLOT_BY_INVITEM(frame, changeTargetItem, 1);
+	if slot ~= nil and slot_All ~= nil then
+		local itemCls = GetIES(changeTargetItem:GetObject());		
 		UPDATE_INVENTORY_SLOT(slot, changeTargetItem, itemCls)
+		UPDATE_INVENTORY_SLOT(slot_All, changeTargetItem, itemCls)
 	end
-
 end
 
 function SLOTSET_UPDATE_ICONS_BY_NAME(frame, slotSetName)
-	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
+	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
+	for typeNo = 1, #g_invenTypeStrList do        
+		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-	
-	for typeNo = 1, #g_invenTypeStrList do
-		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
-
-	local slotSet = nil;
-	for i = 1 , #SLOTSET_NAMELIST do
-		if string.find(SLOTSET_NAMELIST[i], slotSetName) ~= nil then
-				slotSet = GET_CHILD(tree , SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-			break;
-		end
-	end
+	    local slotSet = nil;
+	    for i = 1 , #SLOTSET_NAMELIST do
+		    if string.find(SLOTSET_NAMELIST[i], slotSetName) ~= nil then
+		        slotSet = GET_CHILD_RECURSIVELY(tree , SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			    break;
+		    end
+	    end
 	end
 	
-	if slotSet ~= nil then
+	if slotSet ~= nil then        
 		SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
 	end
 end
 
-function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+function SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)    
 	if slotSet == nil then
 		return;
 	end
 
 	for j = 0 , slotSet:GetChildCount() - 1 do
-		local slot = slotSet:GetChildByIndex(j);
-		local invItem = GET_SLOT_ITEM(slot); 
-		if invItem ~= nil then
-			local itemCls = GetIES(invItem:GetObject());
-			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)
-			INV_SLOT_UPDATE(frame, invItem, slot);
+		local slot = slotSet:GetChildByIndex(j)
+		local invItem = GET_SLOT_ITEM(slot)        
+		if invItem ~= nil then            
+			local itemCls = GetIES(invItem:GetObject())            
+			UPDATE_INVENTORY_SLOT(slot, invItem, itemCls)            
+			INV_SLOT_UPDATE(frame, invItem, slot)
 		end
 	end
 end
 
 function INVENTORY_UPDATE_ICONS(frame)
-	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-
+	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
 	for typeNo = 1, #g_invenTypeStrList do
-		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
-
+		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 		for i = 1 , #SLOTSET_NAMELIST do
-			local slotSet = GET_CHILD(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')	
-			SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)
+			local slotSet = GET_CHILD_RECURSIVELY(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet')
+            if slotSet ~= nil then                
+			    SLOTSET_UPDATE_ICONS_BY_SLOTSET(frame, slotSet)                
+            end
 		end
 	end
 end
 
 --특정 경우에서 모든 아이템 리스트를 돌 필요는 없기 떄문에
 --특정 슬롯셋의 리스트만 가져올 때, slotSetName 값을 넣는다.
-function INVENTORY_LIST_GET(frame, setpos, slotSetName)
+function INVENTORY_LIST_GET(frame, setpos, slotSetName, invenTypeStr)
 	SET_INVENTORY_MODE(frame, "Normal");
 	
 	--이미 인벤토리의 리스트는 만들어져 있는데, slotSetName 이부분 갱신해주고 싶어서
 	--모든 리스트를 다 불러올 필요는 없다.
 
 	if slotSetName == nil then
-		INVENTORY_TOTAL_LIST_GET(frame, setpos);
+		INVENTORY_TOTAL_LIST_GET(frame, setpos, nil, invenTypeStr);
 	end
 	
 	DRAW_TOTAL_VIS(frame, 'invenZeny');
-
 	local funcStr = frame:GetUserValue("SLOT_APPLY_FUNC");
 	if funcStr ~= "None" then
 		for i = 1 , #SLOTSET_NAMELIST do
-			local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
-			for typeNo = 1, #g_invenTypeStrList do
-				local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-				local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
-				local slotSet = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
-				if slotSet ~= nil then
+			local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
+
+			if invenTypeStr == nil then
+				for typeNo = 1, #g_invenTypeStrList do
+					local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+					local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+					local slotSet = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
+				
+					if slotSet ~= nil then
+						if slotSetName ~= nil then
+							if string.find(slotSet:GetName(), slotSetName) then
+								local func = _G[funcStr];
+								APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+							end
+						else
+							local func = _G[funcStr];
+							APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+						end
+					end
+				end
+			else
+				local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. invenTypeStr,'ui::CGroupBox')
+				local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. invenTypeStr,'ui::CTreeControl')
+				local slotSet = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
+
+				local tree_box_all = GET_CHILD_RECURSIVELY(group, 'treeGbox_All','ui::CGroupBox')
+				local tree_all = GET_CHILD_RECURSIVELY(tree_box_all, 'inventree_All','ui::CTreeControl')
+				local slotSet_all = GET_CHILD_RECURSIVELY(tree_all,SLOTSET_NAMELIST[i],'ui::CSlotSet');			
+				
+				if slotSet ~= nil and slotSet_all ~= nil then
 					if slotSetName ~= nil then
 						if string.find(slotSet:GetName(), slotSetName) then
 							local func = _G[funcStr];
 							APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+							APPLY_TO_ALL_ITEM_SLOT(slotSet_all, func);
 						end
 					else
 						local func = _G[funcStr];
 						APPLY_TO_ALL_ITEM_SLOT(slotSet, func);
+						APPLY_TO_ALL_ITEM_SLOT(slotSet_all, func);
 					end
 				end
 			end
@@ -865,10 +1088,10 @@ end
 function INVENTORY_SLOTSET_INIT(frame, slotSet, slotCount)	
 
 	for i = 0, slotCount-1 do
-		
+
 		local slot		= slotSet:GetSlotByIndex(i);
 		INIT_INVEN_SLOT(slot)
-		slot:SetText('', 'count', 'right', 'bottom', -2, 1);
+		slot:SetText(' ', 'count', 'right', 'bottom', -2, 1);
 		slot:SetOverSound('button_cursor_over_3');
 		slot:ClearIcon()
 		DESTROY_CHILD_BYNAME(slot, "styleset_")
@@ -893,138 +1116,149 @@ end
 
 function GET_SLOTSET_NAME(invIndex)
 
-	local clslist, cnt  = GetClassList("inven_baseid");
-
-	for i = 0 , cnt - 1 do
-
-		local cls = GetClassByIndexFromList(clslist, i);
-
-		if i ~= cnt - 1 then
-			
-			local nextcls = GetClassByIndexFromList(clslist, i+1);
-
-			if cls.BaseID <= invIndex and invIndex < nextcls.BaseID then
-				return 'sset_'..cls.ClassName
-			end
-
-		else
-			
-			if cls.BaseID <= invIndex then
-				return 'sset_'..cls.ClassName
-			end
+	local cls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	if cls == nil then
+		return 'error'
+	else
+		local className = cls.ClassName
+		if cls.MergedTreeTitle ~= "NO" then
+			className = cls.MergedTreeTitle
 		end
+
+		return 'sset_'..className
 	end
-
-	print('error')
-	return 'error'
-
 end
 
 function GET_BASEID_CLS_BY_INVINDEX(invIndex)
 
 	local clslist, cnt  = GetClassList("inven_baseid");
 
-	for i = 0 , cnt - 1 do
-
-		local cls = GetClassByIndexFromList(clslist, i);
-
-		if i ~= cnt - 1 then
-			
-			local nextcls = GetClassByIndexFromList(clslist, i+1);
-
-			if cls.BaseID <= invIndex and invIndex < nextcls.BaseID then
-				return cls
-			end
-
-		else
-			
-			if cls.BaseID <= invIndex then
-				return cls
-			end
-		end
+	local classID = math.floor((invIndex - 1 ) / 5000)
+	if classID > cnt then
+		return nil
 	end
-
-	print('error')
-	return 'error'
-
+	
+	return GetClassByIndexFromList(clslist, classID - 1)
 end
 
 function GET_INVTREE_GROUP_NAME(invIndex)
 
-	local clslist, cnt  = GetClassList("inven_baseid");
-
-	for i = 0 , cnt - 1 do
-
-		local cls = GetClassByIndexFromList(clslist, i);
-
-		if i ~= cnt - 1 then
-			
-			local nextcls = GetClassByIndexFromList(clslist, i+1);
-
-			if cls.BaseID <= invIndex and invIndex < nextcls.BaseID then
-				return cls.TreeGroup
-			end
-
-		else
-			
-			if cls.BaseID <= invIndex then
-				return cls.TreeGroup
-			end
-		end
+	local cls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	if cls == nil then
+		return 'error'
+	else
+		return cls.TreeGroup
 	end
-
-	print('error')
-	return 'error'
-
 end
 
-function GET_SLOTSET_COUNT(tree, baseIDClsName)
-	local titlestr = "ssettitle_" .. baseIDClsName;
-	local textcls = GET_CHILD(tree, titlestr, 'ui::CRichText');
+function GET_SLOTSET_COUNT(tree, baseIDCls)
+	local titlestr = "ssettitle_" .. baseIDCls.ClassName;
+	if baseIDCls.MergedTreeTitle ~= "NO" then
+		titlestr = 'ssettitle_'..baseIDCls.MergedTreeTitle
+	end
+	local textcls = GET_CHILD_RECURSIVELY(tree, titlestr, 'ui::CRichText');
 	local curCount = textcls:GetUserIValue("TOTAL_COUNT");
 
 	return curCount;
 end
 
-function SET_SLOTSETTITLE_COUNT(tree, basdidcls, addCount)
+function SET_INVENTORY_SLOTSET_OPEN(parent, ctrl, strarg, numarg)
+	if ctrl == nil then
+		return
+	end
+
+	local slotset = GET_CHILD_RECURSIVELY(parent, "sset_" .. strarg)
+	if slotset == nil then
+		return
+	end
+
+	local width = slotset:GetWidth();
+	local height = slotset:GetHeight();
+	if height ~= 0 then
+		slotset:SetUserValue("width", width)
+		slotset:SetUserValue("height", height)
+		slotset:Resize(0, 0)
+		local title = ctrl:GetText()
+		local changeTitle = string.gsub(title, "btn_minus", "btn_plus")
+		ctrl:SetText(changeTitle)
+	else
+		local originWidth = slotset:GetUserIValue("width")
+		local originHeight = slotset:GetUserIValue("height")
+		slotset:Resize(originWidth, originHeight)
+		local title = ctrl:GetText()
+		local changeTitle = string.gsub(title, "btn_plus", "btn_minus")
+		ctrl:SetText(changeTitle)
+	end
+end
+
+function CHECK_INVENTORY_OPTION_APPLIED(baseidcls)
+	if baseidcls == nil then
+		return 0
+	end
+
+	local configName = ""
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+
+	local viewOptionCheck = 1
+	if typeStr == "Equip" then
+		viewOptionCheck = config.GetXMLConfig("InvOption_Equip_All")
+		if viewOptionCheck == 1 then
+			if config.GetXMLConfig("InvOption_Equip_Upgrade") == 1 or config.GetXMLConfig("InvOption_Equip_Random") == 1 then
+				viewOptionCheck = 0
+			end
+		end
+	elseif typeStr == "Card" then
+		viewOptionCheck = config.GetXMLConfig("InvOption_Card_All")
+	elseif typeStr == "Etc" then
+		viewOptionCheck = config.GetXMLConfig("InvOption_Etc_All")					
+	elseif typeStr == "Gem" then
+		viewOptionCheck = config.GetXMLConfig("InvOption_Gem_All")
+	end		
+
+	if viewOptionCheck == 1 then
+		return 0
+	else
+		return 1
+	end
+
+end
+
+function SET_SLOTSETTITLE_COUNT(tree, baseidcls, addCount)
 
 	local clslist, cnt  = GetClassList("inven_baseid");
-	local titlestr = "ssettitle_" .. basdidcls.ClassName;
-
-	local textcls = GET_CHILD(tree, titlestr, 'ui::CRichText');
+	local className = baseidcls.ClassName
+	if baseidcls.MergedTreeTitle ~= "NO" then
+		className = baseidcls.MergedTreeTitle
+	end
+	
+	local titlestr = "ssettitle_" .. className;	
+	local textcls = GET_CHILD_RECURSIVELY(tree, titlestr, 'ui::CRichText');
+	textcls:SetEventScript(ui.LBUTTONUP, "SET_INVENTORY_SLOTSET_OPEN")
+	textcls:SetEventScript(ui.DROP, "INVENTORY_ON_DROP")
+	textcls:SetEventScriptArgString(ui.LBUTTONUP, className)
 	local curCount = textcls:GetUserIValue("TOTAL_COUNT");
 	curCount = curCount + addCount;
 	textcls:SetUserValue("TOTAL_COUNT", curCount);
-	textcls:SetText(basdidcls.TreeSSetTitle..' (' .. curCount .. ')' )
-	
-	local hGroup = tree:FindByValue(basdidcls.TreeGroup);
+	textcls:SetText('{img btn_minus 20 20} ' .. baseidcls.TreeSSetTitle..' (' .. curCount .. ')' )
+
+	local hGroup = tree:FindByValue(baseidcls.TreeGroup);
 	if hGroup ~= nil then
 		local treeNode = tree:GetNodeByTreeItem(hGroup);
-
-		--[[
-		-- 아래꺼 버그있으면 이거로 대체하자
-		local totalItemCount = 0;
-		for j = 0 , treeNode:GetChildNodeCount() - 1 do
-			local childNode = treeNode:GetChildNodeByIndex(j);
-			if childNode:GetUserIValue("IS_ITEM_SLOTSET") == 1 then
-				local ctrlSet = childNode:GetObject();
-				totalItemCount = totalItemCount + ctrlSet:GetChildCount();
-			end
-			-- INVEN_SLOTSET
-		end
-		]]		
-
 		local newCaption = treeNode:GetUserValue("BASE_CAPTION");
 		local totalCount = treeNode:GetUserIValue("TOTAL_ITEM_COUNT");
 		totalCount = totalCount + addCount;		
 		treeNode:SetUserValue("TOTAL_ITEM_COUNT", totalCount);
 
-		tree:SetItemCaption(hGroup,newCaption..' ('..totalCount..')')
+
+		local isOptionApplied = CHECK_INVENTORY_OPTION_APPLIED(baseidcls)
+		local isOptionAppliedText = ""
+		if isOptionApplied == 1 then
+			isOptionAppliedText = ClMsg("ApplyOption")
+		end
+
+		tree:SetItemCaption(hGroup,newCaption..' ('..totalCount..') '.. isOptionAppliedText)
 
 	end
-	
-		
-
 end
 
 function ADD_GROUP_BOTTOM_MARGIN(frame, tree)
@@ -1032,7 +1266,6 @@ function ADD_GROUP_BOTTOM_MARGIN(frame, tree)
 	local bottommargin = frame:GetUserConfig("TREE_GROUP_BOTTOM_MARGIN");
 
 	for i = 1, #GROUP_NAMELIST do
-
 		local treegroup = tree:FindByValue(GROUP_NAMELIST[i]);
 		if tree:IsExist(treegroup) == 1 then
 
@@ -1080,6 +1313,40 @@ function INIT_INVEN_SLOT(slot)
 	slot:SetEventScript(ui.POP, popscp);
 end
 
+function INVENTORY_SLOT_UNCHECK(frame, itemID)
+	--Inventory Slot Uncheck Setting
+	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox');
+	local oblationSell = ui.GetFrame("oblation_sell");
+	local shopframe = ui.GetFrame("shop");
+	local exchangeframe  = ui.GetFrame("exchange");
+
+	for typeNo = 1, #g_invenTypeStrList do
+		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox');
+		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl');
+
+		for i = 1 , #SLOTSET_NAMELIST do
+			local slotSet = GET_CHILD_RECURSIVELY(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet');
+			if slotSet == nil then
+				return;
+			end
+
+			for j = 0, slotSet:GetChildCount() - 1 do
+				local slot = slotSet:GetChildByIndex(j);
+				local slotItem = GET_SLOT_ITEM(slot);
+				if slotItem ~= nil and (oblationSell:IsVisible() == 1 or shopframe:IsVisible() == 1 or exchangeframe:IsVisible() == 1) then
+					if slotItem:GetIESID() == itemID then
+						slot:Select(0);				
+					end
+				end
+				
+				if slotItem ~= nil then                    
+					INV_SLOT_UPDATE(frame, slotItem, slot);
+				end
+			end
+		end
+	end
+end
+
 function SEARCH_ITEM_INVENTORY_KEY()
 	local frame = ui.GetFrame('inventory')
 	frame:CancelReserveScript("SEARCH_ITEM_INVENTORY");
@@ -1097,10 +1364,10 @@ end
 
 function SEARCH_ITEM_INVENTORY(a,b,c)
 	local frame = ui.GetFrame('inventory')
-	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
+	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
 	local searchGbox = group:GetChild('searchGbox');
-	local searchSkin = GET_CHILD(searchGbox, "searchSkin",'ui::CGroupBox');
-	local edit = GET_CHILD(searchSkin, "ItemSearch", "ui::CEditControl")
+	local searchSkin = GET_CHILD_RECURSIVELY(searchGbox, "searchSkin",'ui::CGroupBox');
+	local edit = GET_CHILD_RECURSIVELY(searchSkin, "ItemSearch", "ui::CEditControl")
 
 	local nowkeyword = edit:GetText();
 	
@@ -1121,14 +1388,232 @@ function GET_REMAIN_INVITEM_COUNT(invItem)
 	remainInvItemCount = CHECK_EXCHANGE_ITEM_LIST(invItem, remainInvItemCount);	 
 	for iesid, selllistcount in pairs(SHOP_SELECT_ITEM_LIST) do
 		local item = GetObjectByGuid(iesid);
+		if item ~= nil then
 			if item.ClassID == invItem.type then
 				remainInvItemCount = remainInvItemCount - selllistcount
 			end
+		end
 	end
 	return remainInvItemCount;
 end
 
-function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
+
+local function CHECK_INVENTORY_OPTION_EQUIP(itemCls)
+	if itemCls == nil then
+		return 0
+	end
+
+	local itemGrade = itemCls.ItemGrade
+	local optionConfig = 1
+	if itemGrade == 1 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Normal")
+	elseif itemGrade == 2 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Magic")
+	elseif itemGrade == 3 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Rare")
+	elseif itemGrade == 4 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Unique")
+	elseif itemGrade == 5 then
+		optionConfig = config.GetXMLConfig("InvOption_Equip_Legend")
+	end
+
+	if config.GetXMLConfig("InvOption_Equip_All") == 1 then
+		optionConfig = 1
+	end
+
+	if optionConfig == 0 then
+		return
+	end
+
+	local itemTranscend = TryGetProp(itemCls, "Transcend")
+	local itemReinforce = TryGetProp(itemCls, "Reinforce_2")
+	local itemAppraisal = TryGetProp(itemCls, "NeedAppraisal")
+	local itemRandomOption = TryGetProp(itemCls, "NeedRandomOption")
+
+	if config.GetXMLConfig("InvOption_Equip_Upgrade") == 1 then
+		if itemTranscend ~= nil and itemTranscend == 0 and itemReinforce ~= nil and itemReinforce == 0 then
+			optionConfig = 0
+		end
+	end
+
+	if config.GetXMLConfig("InvOption_Equip_Random") == 1 then
+		if itemAppraisal ~= nil and itemAppraisal == 0 and itemRandomOption ~= nil and itemRandomOption == 0 then
+			optionConfig = 0
+		end
+	end
+
+	return optionConfig
+end
+
+local function CHECK_INVENTORY_OPTION_CARD(itemCls)
+	if config.GetXMLConfig("InvOption_Card_All") == 1 then
+		return 1
+	end
+
+	if itemCls == nil then
+		return 0
+	end
+
+	local cardGroup = itemCls.MarketCategory
+	local optionConfig = 1
+	if cardGroup == "Card_CardRed" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Red")
+	elseif cardGroup == "Card_CardBlue" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Blue")
+	elseif cardGroup == "Card_CardGreen" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Green")
+	elseif cardGroup == "Card_CardPurple" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Purple")
+	elseif cardGroup == "Card_CardLeg" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Legend")
+	elseif cardGroup == "Card_CardAddExp" then
+		optionConfig = config.GetXMLConfig("InvOption_Card_Etc")
+	end
+	
+
+	return optionConfig
+end
+
+local function CHECK_INVENTORY_OPTION_ETC(itemCls)
+	if config.GetXMLConfig("InvOption_Etc_All") == 1 then
+		return 1
+	end
+
+	if itemCls == nil then
+		return 0
+	end
+
+	local itemCategory = itemCls.MarketCategory
+	local optionConfig = 1
+	if itemCategory == "Misc_Usual" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Usual")
+	elseif itemCategory == "Misc_Quest" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Quest")
+	elseif itemCategory == "Misc_Special" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Special")
+	elseif itemCategory == "Misc_Collect" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Collect")
+	elseif itemCategory == "Misc_Etc" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Etc")
+	elseif itemCategory == "Misc_Mineral" then
+		optionConfig = config.GetXMLConfig("InvOption_Etc_Mineral")
+	end
+
+	return optionConfig
+end
+
+local function CHECK_INVENTORY_OPTION_GEM(itemCls)
+	if config.GetXMLConfig("InvOption_Gem_All") == 1 then
+		return 1
+	end
+
+	if itemCls == nil then
+		return 0
+	end
+
+	local cardGroup = itemCls.MarketCategory
+	local optionConfig = 1
+	if cardGroup == "Gem_GemRed" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Red")
+	elseif cardGroup == "Gem_GemBlue" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Blue")
+	elseif cardGroup == "Gem_GemGreen" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Green")
+	elseif cardGroup == "Gem_GemYellow" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Yellow")
+	elseif cardGroup == "Gem_GemLegend" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Legend")
+	elseif cardGroup == "Gem_GemSkill" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_Skill")
+	elseif cardGroup == "Gem_GemWhite" then
+		optionConfig = config.GetXMLConfig("InvOption_Gem_White")
+	end
+	
+	return optionConfig
+end
+
+function INVENTORY_SORT_BY_GRADE(a, b)
+
+	local itemCls_a = GetIES(a:GetObject());
+	local itemCls_b = GetIES(b:GetObject());
+
+	local a_grade = 0
+	local b_grade = 0
+
+	if itemCls_a.ItemType == "Equip" then
+		a_grade = itemCls_a.ItemGrade
+	end
+	if itemCls_b.ItemType == "Equip" then
+		b_grade = itemCls_b.ItemGrade
+	end
+
+	if itemCls_a.GroupName == "Recipe" then
+		local recipe_a = GetClass("Recipe", itemCls_a.ClassName)
+		if recipe_a ~= nil then
+			local targetItem_a = GetClass("Item", recipe_a.TargetItem)
+			a_grade = targetItem_a.ItemGrade
+		end
+	end
+
+	if itemCls_b.GroupName == "Recipe" then
+		local recipe_b = GetClass("Recipe", itemCls_b.ClassName)
+		if recipe_b ~= nil then
+			local targetItem_b = GetClass("Item", recipe_b.TargetItem)
+			b_grade = targetItem_b.ItemGrade
+		end
+	end
+
+	if itemCls_a.GroupName == "Card" then
+		a_grade = TryGetProp(itemCls_a, "ItemExp", 0);
+	end
+
+	if itemCls_b.GroupName == "Card" then
+		b_grade = TryGetProp(itemCls_b, "ItemExp", 0);
+	end
+
+	if itemCls_a.GroupName == "Gem" then
+		if a.GemLevel ~= nil then
+			a_grade = a.GemLevel
+		end
+	end
+
+	if itemCls_b.GroupName == "Gem" then
+		if b.GemLevel ~= nil then
+			b_grade = b.GemLevel
+		end
+	end
+	
+	return a_grade > b_grade
+end
+
+function INVENTORY_SORT_BY_WEIGHT(a, b)
+	local itemCls_a = GetIES(a:GetObject());
+	local itemCls_b = GetIES(b:GetObject());
+
+    return itemCls_a.Weight * a.count > itemCls_b.Weight * b.count;
+end
+
+
+function INVENTORY_SORT_BY_NAME(a, b)
+	local itemCls_a = GetIES(a:GetObject());
+	local itemCls_b = GetIES(b:GetObject());
+	local itemName_a = dic.getTranslatedStr(itemCls_a.Name);
+	local itemName_b = dic.getTranslatedStr(itemCls_b.Name);
+
+    return itemName_a < itemName_b;
+end
+
+
+function INVENTORY_SORT_BY_COUNT(a, b)
+
+--	local itemCls_a = GetIES(a:GetObject());
+--	local itemCls_b = GetIES(b:GetObject());
+	return a.count > b.count
+end
+
+
+function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon, invenTypeStr)	
+	local frame = ui.GetFrame("inventory")
 
 	local liftIcon 				= ui.GetLiftIcon();
 	if nil == isIgnorelifticon then
@@ -1139,106 +1624,194 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 		return
 	end
 
+	local sortType = frame:GetUserIValue("SORT_TYPE")
+	session.BuildInvItemSortedList();
+	local sortedList = session.GetInvItemSortedList();
+	local invItemCount = sortedList:size();
+
+	if sortType == nil then
+		sortType = 1
+	end
+
 	local blinkcolor = frame:GetUserConfig("TREE_SEARCH_BLINK_COLOR");
 
-	local group = GET_CHILD(frame, 'inventoryGbox', 'ui::CGroupBox')
+	local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')
 	for typeNo = 1, #g_invenTypeStrList do
-		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+		if invenTypeStr == nil or invenTypeStr == g_invenTypeStrList[typeNo] or typeNo == 1 then
+			local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+			local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 
-		local groupfontname = frame:GetUserConfig("TREE_GROUP_FONT");
-		local tabwidth = frame:GetUserConfig("TREE_TAB_WIDTH");
+			local groupfontname = frame:GetUserConfig("TREE_GROUP_FONT");
+			local tabwidth = frame:GetUserConfig("TREE_TAB_WIDTH");
 
-		tree:Clear();
-		tree:EnableDrawFrame(false)
-		tree:SetFitToChild(true,60)
-		tree:SetFontName(groupfontname);
-		tree:SetTabWidth(tabwidth);
+			tree:Clear();
+			tree:EnableDrawFrame(false)
+			tree:SetFitToChild(true,60)
+			tree:SetFontName(groupfontname);
+			tree:SetTabWidth(tabwidth);
 
-		for i = 1 , #SLOTSET_NAMELIST do
-			SLOTSET_NAMELIST[i] = nil
-		end
+			for i = 1 , #SLOTSET_NAMELIST do
+				SLOTSET_NAMELIST[i] = nil
+			end
 
-		for i = 1 , #GROUP_NAMELIST do
-			GROUP_NAMELIST[i] = nil
-		end
+			for i = 1 , #GROUP_NAMELIST do
+				GROUP_NAMELIST[i] = nil
+			end
 
-		local customFunc = nil;
-		local scriptName = frame:GetUserValue("CUSTOM_ICON_SCP");
-		local scriptArg = nil;
-		if scriptName ~= nil then
-			customFunc = _G[scriptName];
-			local getArgFunc = _G[frame:GetUserValue("CUSTOM_ICON_ARG_SCP")];
-			if getArgFunc ~= nil then
-				scriptArg = getArgFunc();
+			local customFunc = nil;
+			local scriptName = frame:GetUserValue("CUSTOM_ICON_SCP");
+			local scriptArg = nil;
+			if scriptName ~= nil then
+				customFunc = _G[scriptName];
+				local getArgFunc = _G[frame:GetUserValue("CUSTOM_ICON_ARG_SCP")];
+				if getArgFunc ~= nil then
+					scriptArg = getArgFunc();
+				end
 			end
 		end
 	end
 
+	
 	local baseidclslist, baseidcnt  = GetClassList("inven_baseid");
-	session.BuildInvItemSortedList();
-	local sortedList = session.GetInvItemSortedList();
+	
 
-				
+
 	local searchGbox = group:GetChild('searchGbox');
-	local searchSkin = GET_CHILD(searchGbox, "searchSkin",'ui::CGroupBox');
-	local edit = GET_CHILD(searchSkin, "ItemSearch", "ui::CEditControl");
+	local searchSkin = GET_CHILD_RECURSIVELY(searchGbox, "searchSkin",'ui::CGroupBox');
+	local edit = GET_CHILD_RECURSIVELY(searchSkin, "ItemSearch", "ui::CEditControl");
 	local cap = edit:GetText();
 	if cap ~= "" then
 		for i = 1 , #SLOTSET_NAMELIST do
-			local slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
+			local slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')	
 			slotset:RemoveAllChild();
 			slotset:SetUserValue("SLOT_ITEM_COUNT", 0);
 		end
 	end
 
-	for h= 0 , baseidcnt - 1 do
-		local outerbaseidcls = GetClassByIndexFromList(baseidclslist, h);
-		local invItemCount = sortedList:size();
-		for j = 0 , invItemCount - 1 do
-			local invItem			= sortedList:at(j);
+
+	local invItemList = {}
+	local index_count = 1
+	for i = 0, invItemCount - 1 do
+		local invItem = sortedList:at(i);
+		if invItem ~= nil then
+			invItemList[index_count] = invItem
+			index_count = index_count + 1
+		end
+	end
+
+
+--1 등급순
+--2 무게순
+--3 이름순
+--4 소지량순
+
+	
+
+	if sortType == 1 then
+		table.sort(invItemList, INVENTORY_SORT_BY_GRADE)
+	elseif sortType == 2 then
+		table.sort(invItemList, INVENTORY_SORT_BY_WEIGHT)
+	elseif sortType == 3 then
+		table.sort(invItemList, INVENTORY_SORT_BY_NAME)
+	elseif sortType == 4 then
+		table.sort(invItemList, INVENTORY_SORT_BY_COUNT)
+	else
+		table.sort(invItemList, INVENTORY_SORT_BY_NAME)
+	end
+	
+	if invenTitleName == nil then
+		invenTitleName = {}	
+		for i = 1, baseidcnt do
+			local baseidcls = GetClassByIndexFromList(baseidclslist, i-1)
+			local tempTitle = baseidcls.ClassName
+			if baseidcls.MergedTreeTitle ~= "NO" then
+				tempTitle = baseidcls.MergedTreeTitle
+			end
+
+			if table.find(invenTitleName, tempTitle) == 0 then
+				invenTitleName[#invenTitleName + 1] = tempTitle
+			end
+		end
+	end
+
+
+
+	local cls_inv_index = {}		
+	local i_cnt = 0	
+	for i = 1, #invenTitleName do
+		local category = invenTitleName[i]
+		for j = 1 , #invItemList do			
+			local invItem = invItemList[j];
 			if invItem ~= nil then
-				local itemCls = GetIES(invItem:GetObject());	
-				local typeStr = "Item"	
-				if itemCls.ItemType == "Equip" then
-					typeStr = itemCls.ItemType; 
-				end
-
-				if itemCls ~= nil then
-					local makeSlot = true;
-					if cap ~= "" then
-						--인벤토리 안에 있는 아이템을 찾기 위한 로직
-						local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));
-						--접두어도 포함시켜 검색해야되기 때문에, 접두를 찾아서 있으면 붙여주는 작업
-						local prefixClassName = TryGetProp(itemCls, "LegendPrefix")
-						if prefixClassName ~= nil and prefixClassName ~= "None" then
-							local prefixCls = GetClass('LegendSetItem', prefixClassName)
-							local prefixName = string.lower(dictionary.ReplaceDicIDInCompStr(prefixCls.Name));
-							itemname = prefixName .. " " .. itemname;
-						end
-
-						local tempcap = string.lower(cap);
-						local a = string.find(itemname, tempcap);
-						if a == nil then
-							makeSlot = false;
-						end			
-					end				
-
-					if makeSlot == true then
-						local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invItem.invIndex)
-				
-						if invItem.count > 0 and baseidcls.ClassName ~= 'Unused' then -- Unused로 설정된 것은 안보임
-							if outerbaseidcls.ClassName == baseidcls.ClassName then
-								local tree_box = GET_CHILD(group, 'treeGbox_'.. typeStr,'ui::CGroupBox')
-								local tree = GET_CHILD(tree_box, 'inventree_'.. typeStr,'ui::CTreeControl')
-								INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
-							end
-						end
+				local itemCls = GetIES(invItem:GetObject())
+				if itemCls.MarketCategory ~= "None" then
+					local baseidcls = nil
+					if cls_inv_index[invItem.invIndex] == nil then
+						baseidcls = GET_BASEID_CLS_BY_INVINDEX(invItem.invIndex)						
+						cls_inv_index[invItem.invIndex] = baseidcls						
 					else
-						if customFunc ~= nil then
-							local slot 			    = slotSet:GetSlotByIndex(i);
-							if slot ~= nil then
-								customFunc(slot, scriptArg, invItem, nil);
+						baseidcls = cls_inv_index[invItem.invIndex]						
+					end
+					
+					local titleName = baseidcls.ClassName
+					if baseidcls.MergedTreeTitle ~= "NO" then
+						titleName = baseidcls.MergedTreeTitle
+					end
+
+					if category == titleName then
+						local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)						
+						if itemCls ~= nil then
+							local makeSlot = true;
+							if cap ~= "" then
+								--인벤토리 안에 있는 아이템을 찾기 위한 로직
+								local itemname = string.lower(dictionary.ReplaceDicIDInCompStr(itemCls.Name));
+								--접두어도 포함시켜 검색해야되기 때문에, 접두를 찾아서 있으면 붙여주는 작업
+								local prefixClassName = TryGetProp(itemCls, "LegendPrefix")
+								if prefixClassName ~= nil and prefixClassName ~= "None" then
+									local prefixCls = GetClass('LegendSetItem', prefixClassName)
+									local prefixName = string.lower(dictionary.ReplaceDicIDInCompStr(prefixCls.Name));
+									itemname = prefixName .. " " .. itemname;
+								end
+
+								local tempcap = string.lower(cap);
+								local a = string.find(itemname, tempcap);
+								if a == nil then
+									makeSlot = false;
+								end			
+							end				
+
+							local viewOptionCheck = 1
+							if typeStr == "Equip" then
+								viewOptionCheck = CHECK_INVENTORY_OPTION_EQUIP(itemCls)
+							elseif typeStr == "Card" then
+								viewOptionCheck = CHECK_INVENTORY_OPTION_CARD(itemCls)
+							elseif typeStr == "Etc" then
+								viewOptionCheck = CHECK_INVENTORY_OPTION_ETC(itemCls)					
+							elseif typeStr == "Gem" then
+								viewOptionCheck = CHECK_INVENTORY_OPTION_GEM(itemCls)
+							end						
+
+							if makeSlot == true and viewOptionCheck == 1 then
+								
+						
+								if invItem.count > 0 and baseidcls.ClassName ~= 'Unused' then -- Unused로 설정된 것은 안보임
+									if invenTypeStr == nil or invenTypeStr == typeStr then
+										local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. typeStr,'ui::CGroupBox')
+										local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. typeStr,'ui::CTreeControl')								
+										INSERT_ITEM_TO_TREE(frame, tree, invItem, itemCls, baseidcls);
+									end
+
+									local tree_box_all = GET_CHILD_RECURSIVELY(group, 'treeGbox_All','ui::CGroupBox')
+									local tree_all = GET_CHILD_RECURSIVELY(tree_box_all, 'inventree_All','ui::CTreeControl')	
+									INSERT_ITEM_TO_TREE(frame, tree_all, invItem, itemCls, baseidcls);
+								end
+							else
+								if customFunc ~= nil then
+									local slot = slotSet:GetSlotByIndex(i);
+									if slot ~= nil then
+										customFunc(slot, scriptArg, invItem, nil);                                        
+									end
+								end
 							end
 						end
 					end
@@ -1248,11 +1821,11 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 	end
 
 	for typeNo = 1, #g_invenTypeStrList do
-		local tree_box = GET_CHILD(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
-		local tree = GET_CHILD(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+		local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+		local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
 	--아이템 없는 빈 슬롯은 숨겨라
 		for i = 1 , #SLOTSET_NAMELIST do
-			slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
+			slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet');
 			if slotset ~= nil then
 				HIDE_EMPTY_SLOT(slotset);
 			end			
@@ -1260,11 +1833,11 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 
 		ADD_GROUP_BOTTOM_MARGIN(frame,tree)
 
-	tree:OpenNodeAll();
+		tree:OpenNodeAll();
 
 		--검색결과 스크롤 세팅은 여기서 하자. 트리 업데이트 후에 위치가 고정된 다음에.
 		for i = 1 , #SLOTSET_NAMELIST do
-		slotset = GET_CHILD(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
+			slotset = GET_CHILD_RECURSIVELY(tree,SLOTSET_NAMELIST[i],'ui::CSlotSet')
 
 			local slotsetnode = tree:FindByValue(SLOTSET_NAMELIST[i]);
 			if setpos == 'setpos' then
@@ -1279,9 +1852,9 @@ function INVENTORY_TOTAL_LIST_GET(frame, setpos, isIgnorelifticon)
 			end
 		end		
 	end
+
+
 end
-
-
 
 
 function CHECK_INV_LBTN(frame, object, argStr, argNum)
@@ -1378,7 +1951,13 @@ function TRY_TO_USE_WARP_ITEM(invitem, itemobj)
 	-- 워프 주문서 예외처리. 실제 워프가 이루어질때 아이템이 소비되도록.
 	local warpscrolllistcls = GetClass("warpscrolllist", itemobj.ClassName);
 	if warpscrolllistcls ~= nil then
-		if itemobj.LifeTime > 0 and itemobj.ItemLifeTimeOver > 0 then
+--		local ZoneClassName = GetZoneName(pc) -- event V I V I D CICY --
+--		if ZoneClassName == 'VIVID_c_Klaipe' or ZoneClassName == 'VIVID_c_orsha' or ZoneClassName == 'VIVID_c_fedimian' then
+--			ui.SysMsg(ScpArgMsg("CannotUseThieInThisMap"));
+--			return 0;
+--		end -- event V I V I D CICY --
+		
+		if tonumber(itemobj.LifeTime) > 0 and tonumber(itemobj.ItemLifeTimeOver) > 0 then
 			ui.SysMsg(ScpArgMsg("LessThanItemLifeTime"));
 			return 1;
 		end
@@ -1416,6 +1995,7 @@ end
 
 --아이템의 사용
 function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
+
 	local invitem = GET_SLOT_ITEM(object);
     if invitem == nil then
 		return;
@@ -1429,6 +2009,41 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 
 	local itemobj = GetIES(invitem:GetObject());
 
+	-- oblation
+	local oblation = ui.GetFrame("oblation");
+	if oblation:IsVisible() == 0 then
+		local invFrame = ui.GetFrame("inventory");
+		local invGbox = invFrame:GetChild('inventoryGbox');
+		if true == IS_TEMP_LOCK(invFrame, invitem) then
+			return;
+		end
+
+		local Itemclass = GetClassByType("Item", invitem.type);
+		--local ItemType = Itemclass.ItemType;
+
+		local invIndex = invitem.invIndex;
+		local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+
+		local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
+		local tree_box = invGbox:GetChild('treeGbox_'.. typeStr);
+		local tree = tree_box:GetChild('inventree_'.. typeStr);
+		local slotsetname = GET_SLOTSET_NAME(argNum)
+		local slotSet = GET_CHILD_RECURSIVELY(tree, slotsetname, "ui::CSlotSet")
+		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
+
+		local slot = INVENTORY_GET_SLOT_BY_INVITEM(invFrame, invitem);
+		
+		--lib_slot.lua 에서 확인중(해당 함수)
+		--if slot ~= nil then
+			--slot:SetUserValue("SLOT_ITEM_ID", invitem:GetIESID());
+			--local icon = CreateIcon(slot);
+			--local imageName = GET_EQUIP_ITEM_IMAGE_NAME(itemobj, 'Icon')
+			--icon:Set(imageName, 'SELLITEMITEM', 0, 0, invitem:GetIESID());
+
+			--SET_ITEM_TOOLTIP_ALL_TYPE(icon, invitem, itemobj.ClassName,'buy', invitem.type, invitem:GetIESID());
+		--end
+	end
+	
     -- custom
 	local customRBtnScp = frame:GetTopParentFrame():GetUserValue("CUSTOM_RBTN_SCP");	
 	if customRBtnScp == "None" then
@@ -1464,6 +2079,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 	if companionshop:IsVisible() == 1 then
 		frame = companionshop:GetChild('foodBox');
 	end	
+
 	if frame:IsVisible() == 1 then
 		local groupName = itemobj.GroupName;
 		if groupName == 'Money' then
@@ -1475,18 +2091,18 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 		if true == IS_TEMP_LOCK(invFrame, invitem) then
 			return;
 		end
+
 		local Itemclass = GetClassByType("Item", invitem.type);
 		local ItemType = Itemclass.ItemType;
-		local typeStr = "Item"	
-		if Itemclass.ItemType == "Equip" then
-			typeStr = Itemclass.ItemType; 
-		end		
+
+		local invIndex = invitem.invIndex;
+		local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+		local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 	
 		local tree_box = invGbox:GetChild('treeGbox_'.. typeStr);
 		local tree = tree_box:GetChild('inventree_'.. typeStr);
 		local slotsetname = GET_SLOTSET_NAME(argNum)
-		local slotSet = GET_CHILD(tree,slotsetname,"ui::CSlotSet")
-
+		local slotSet = GET_CHILD_RECURSIVELY(tree,slotsetname,"ui::CSlotSet")
 		local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
 		if itemProp:IsEnableShopTrade() == true then
 			if IS_SHOP_SELL(invitem, Itemclass.MaxStack, frame) == 1 then
@@ -1560,7 +2176,7 @@ function INVENTORY_RBDC_ITEMUSE(frame, object, argStr, argNum)
 				if itemType == 'Consume' and gachaCubeFrame ~= nil and gachaCubeFrame:IsVisible() == 1 and invItemAllowReopen == 'YES' then
 					return
 				end
-
+				
 				INV_ICON_USE(invItem);
 			end
 		elseif itemType == 'Gem' then
@@ -1759,16 +2375,15 @@ function INVENTORY_RBDOUBLE_ITEMUSE(frame, object, argStr, argNum)
 	local Itemclass = GetClassByType("Item", invitem.type);
 	local ItemType = Itemclass.ItemType;
 	
-	local typeStr = "Item"	
-	if Itemclass.ItemType == "Equip" then
-		typeStr = Itemclass.ItemType; 
-	end
+	local invIndex = invitem.invIndex;
+	local baseidcls = GET_BASEID_CLS_BY_INVINDEX(invIndex)
+	local typeStr = GET_INVENTORY_TREEGROUP(baseidcls)
 
 	local invGbox = invFrame:GetChild('inventoryGbox');
 	local tree_box = invGbox:GetChild('treeGbox_'..typeStr);
 	local tree = tree_box:GetChild('inventree_'..typeStr);
 	local slotsetname = GET_SLOTSET_NAME(argNum)
-	local slotSet = GET_CHILD(tree,slotsetname,"ui::CSlotSet")
+	local slotSet = GET_CHILD_RECURSIVELY(tree,slotsetname,"ui::CSlotSet")
 	local slot = slotSet:GetSlotByIndex(argNum-1);
 	
 	local itemProp = geItemTable.GetPropByName(Itemclass.ClassName);
@@ -1796,28 +2411,26 @@ function EXEC_SHOP_SELL(frame, cnt)
 
 end
 
---크론에 대한 텍스트 출력하도록 한다
 function DRAW_TOTAL_VIS(frame, childname, remove)
-
-	local Cron = GET_TOTAL_MONEY();
+	local silverAmountStr = GET_TOTAL_MONEY_STR();
 	if remove == 1 then
-		Cron = 0;
+		silverAmountStr = '0';
 	end
-	
+
 	local bottomGbox = frame:GetChild('bottomGbox');
 	local moneyGbox = bottomGbox:GetChild('moneyGbox');
-	local INVENTORY_CronCheck = GET_CHILD(moneyGbox, childname, 'ui::CRichText');
-    INVENTORY_CronCheck:SetText('{@st41b}'.. GetCommaedText(Cron))
+	local INVENTORY_CronCheck = GET_CHILD_RECURSIVELY(moneyGbox, childname, 'ui::CRichText');
+    INVENTORY_CronCheck:SetText('{@st41b}'..GET_COMMAED_STRING(silverAmountStr))
 
 end
 
 function DRAW_MEDAL_COUNT(frame)
 	local bottomGbox = frame:GetChild('bottomGbox');
 	local medalGbox = bottomGbox:GetChild('medalGbox');
-	local medalText = GET_CHILD(medalGbox, 'medalText', 'ui::CRichText');
-	local medalFreeTime = GET_CHILD(medalGbox, 'medalFreeTime', 'ui::CRichText');
+	local medalText = GET_CHILD_RECURSIVELY(medalGbox, 'medalText', 'ui::CRichText');
+	local medalFreeTime = GET_CHILD_RECURSIVELY(medalGbox, 'medalFreeTime', 'ui::CRichText');
 	local medalGbox_2 = bottomGbox:GetChild('medalGbox_2');
-	local premiumTP = GET_CHILD(medalGbox_2, 'premiumTP', 'ui::CRichText');
+	local premiumTP = GET_CHILD_RECURSIVELY(medalGbox_2, 'premiumTP', 'ui::CRichText');
 	
 	local accountObj = GetMyAccountObj();
     medalText:SetTextByKey("medal", tostring(accountObj.Medal));
@@ -1858,12 +2471,8 @@ function SHOW_REMAIN_NEXT_TP_GET_TIME(ctrl)
 end
 
 function DRAW_TOTAL_VIS_OTHER_FRAME(frame, childname)
-
-	local Cron = GET_TOTAL_MONEY();
-	
-	local INVENTORY_CronCheck	= GET_CHILD(frame, childname, 'ui::CRichText');
-
-    INVENTORY_CronCheck:SetText('{@st43}'.. GetCommaedText(Cron))
+	local INVENTORY_CronCheck	= GET_CHILD_RECURSIVELY(frame, childname, 'ui::CRichText');
+    INVENTORY_CronCheck:SetText('{@st43}'.. GET_COMMAED_STRING(GET_TOTAL_MONEY_STR()));
 
 end
 
@@ -1903,7 +2512,6 @@ function GET_SLOT_INDEX_BY_INVINDEX(parentSlotSet, invIndex)
 end
 
 function INVENTORY_ON_DROP(frame, control, argStr, argNum)
-
 	local liftIcon 				= ui.GetLiftIcon();
 	if liftIcon == nil then
 		return;
@@ -1911,7 +2519,7 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 
 	local FromFrame 			= liftIcon:GetTopParentFrame();
 	local toFrame				= frame:GetTopParentFrame();
-	
+
 	toFrame:SetValue(1);
 	if	FromFrame == toFrame then
 		local parentSlot = liftIcon:GetParent();
@@ -1924,7 +2532,6 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 		if IS_SLOTSET_NAME(parentSlotSet:GetName()) == 1 then
 			if parentSlotSet:GetName() == toParentSlotSet:GetName() then
 
-	
 				local toicon = slot:GetIcon();
 
 				local fromInvIndex = frominfo.ext;
@@ -1941,7 +2548,6 @@ function INVENTORY_ON_DROP(frame, control, argStr, argNum)
 				
 				item.SwapSlotIndex(IT_INVENTORY, fromInvIndex, toInvIndex);
 				ON_CHANGE_INVINDEX(toFrame, nil, fromInvIndex, toInvIndex);
-				
 				
 				parentSlotSet:SwapSlot(fromSlotIndex, toSlotIndex, "ONUPDATE_SLOT_INVINDEX");
 				QUICKSLOT_ON_CHANGE_INVINDEX(fromInvIndex, toInvIndex);
@@ -2000,9 +2606,9 @@ function INVENTORY_THROW_ITEM_AWAY(frame, control, argStr, argNum)
 
 	if FromFrame == toFrame then
 		local invGbox 			= toFrame:GetChild('inventoryGbox');
-		local itembox_tab 		= GET_CHILD(invGbox, 'itembox', "ui::CTabControl");
+		local itembox_tab 		= GET_CHILD_RECURSIVELY(invGbox, 'itembox', "ui::CTabControl");
 		local curtabIndex	    = itembox_tab:GetSelectItemIndex();
-		local slotSet			= GET_CHILD(invGbox, 'throwawayslotlist', 'ui::CSlotSet');
+		local slotSet			= GET_CHILD_RECURSIVELY(invGbox, 'throwawayslotlist', 'ui::CSlotSet');
 
 		if curtabIndex == 0 then
 			local frominfo			= liftIcon:GetInfo();
@@ -2054,7 +2660,7 @@ end
 
 function INVENTORY_DELETE_ITEM_LIST(frame, invItem)
 	local invGbox			= frame:GetChild('inventoryGbox');
-	local slotSet			= GET_CHILD(invGbox, 'throwawayslotlist', 'ui::CSlotSet');
+	local slotSet			= GET_CHILD_RECURSIVELY(invGbox, 'throwawayslotlist', 'ui::CSlotSet');
 	local slotCount 		= 0;	--slotSet:GetSlotCount();	-- 휴지통 제거되었음. 슬롯 생성 안하도록 0셋팅
 
 	for i = 0, slotCount - 1 do
@@ -2099,7 +2705,7 @@ function INVENTORY_OP_POP(frame, slot, str, num)
 
 end
 
-function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)	
+function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	local icon = CreateIcon(slot);
 	local class = GetClassByType('Item', invItem.type);
 	if class == nil then		
@@ -2127,13 +2733,19 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 			icon:SetColorTone("FFFF0000");		
 		end
 			
-		if IS_NEED_APPRAISED_ITEM(itemobj) or IS_NEED_RANDOM_OPTION_ITEM(itemobj) then
-			icon:SetColorTone("FFFF0000");		
+		if IS_NEED_APPRAISED_ITEM(itemobj) or IS_NEED_RANDOM_OPTION_ITEM(itemobj) then            
+			icon:SetColorTone("FFFF0000");            
 		end
 	end	
 
-	SET_SLOT_STYLESET(slot, itemobj)
-	SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count);
+	SET_SLOT_STYLESET(slot, itemobj, nil, nil, nil, nil, 1)
+	local slotFont = frame:GetUserConfig("TREE_SLOT_TEXT_FONT")
+
+	if ui.GetFrame("oblation_sell"):IsVisible() == 1 then
+		SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, invItem.count, slotFont);
+	else
+		SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, itemobj, count, slotFont);
+	end
 	
 	--아이템이 선택되었을 때의 스크립트를 선택한다
 	slot:SetEventScript(ui.RBUTTONDOWN, 'INVENTORY_RBDC_ITEMUSE');
@@ -2155,7 +2767,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 	slot:EnableDrag(1)
 	slot:EnableDrop(1)
 
-	if customFunc ~= nil then
+	if customFunc ~= nil then        
 		customFunc(slot, scriptArg, invItem, itemobj);
 	end
 
@@ -2182,7 +2794,7 @@ function INV_ICON_SETINFO(frame, slot, invItem, customFunc, scriptArg, count)
 		slot:SetHeaderImage('equip_inven');
 	else
 		slot:SetHeaderImage('None');
-	end
+	end    
 end
 
 function IS_EQUIPPED_WEAPON_SWAP_SLOT(invItem)
@@ -2210,7 +2822,7 @@ function STATUS_SLOT_DROP(frame, icon, argStr, argNum)
 end
 
 --머리 보이기/안보이기 아이콘에 의한 염색 버튼 보이기/안보이기
-function SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, IsVisible)
+function SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, IsVisible)	
 	local hairColorBtn = GET_CHILD_RECURSIVELY(frame:GetTopParentFrame(), "HAIR_COLOR");
 	if hairColorBtn == nil then
 		return;
@@ -2242,9 +2854,9 @@ function SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, IsVisible)
 				local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 				if invIteminfo ~= nil then
 					local itemObj = GetIES(invIteminfo:GetObject())
-					if itemObj.Category == "Look_Helmet" then
+					if itemObj.MarketCategory == "Look_Helmet" then
 						hairColorBtn:ShowWindow(0);
-					elseif itemObj.Category == "Look_Wig" then
+					elseif itemObj.MarketCategory == "Look_Wig" then
 						hairColorBtn:ShowWindow(1);
 					end
 				end
@@ -2288,9 +2900,9 @@ function SET_VISIBLE_DYE_BTN_BY_ITEM_EQUIP(frame)
 		local invIteminfo = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
 		if invIteminfo ~= nil then
 			local itemObj = GetIES(invIteminfo:GetObject());
-			if itemObj.Category == "Look_Helmet" then
+			if itemObj.MarketCategory == "Look_Helmet" then
 				hairColorBtn:ShowWindow(0);
-			elseif itemObj.Category == "Look_Wig" then
+			elseif itemObj.MarketCategory == "Look_Wig" then
 				hairColorBtn:ShowWindow(1);
 			end
 			SET_VISIBLE_DYE_BTN_BY_VISIBLE(hairFrame, etc.HAIR_WIG_Visible);
@@ -2334,7 +2946,7 @@ function CHANGE_HAIR_COLOR(frame)
 				end
 			end
 		end
-	end
+	end	
 	SORT_HAIR_COLORLIST(hairColorBtn, haveHairColorList, haveHairColorEList)
 	CREATE_HAIR_DYE_DROPLIST(hairColorBtn, haveHairColorList, haveHairColorEList);
 end
@@ -2400,7 +3012,7 @@ function _INV_EQUIP_LIST_SET_ICON(slot, icon, equipItem)
 
 		slot:SetEventScript(ui.RBUTTONDOWN, 'STATUS_SLOT_RBTNDOWN');
 		slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, equipItem.equipSpot);
-		slot:Select(0);
+		slot:Select(0);		
 	end
 
 	slot:SetOverSound('button_over');
@@ -2425,17 +3037,20 @@ function SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
 	local slotSkinName = ""
 	local slot_bg_name = slot:GetName() .. "_bg"
 	local slot_bg = GET_CHILD_RECURSIVELY(frame, slot_bg_name)
+	local topParent = frame:GetTopParentFrame();
+	if topParent:GetName() == "compare" then
+		topParent = frame
+	end
 	local itemgrade = obj.ItemGrade
-	
 	if itemgrade ~= nil and itemgrade ~= 0 and itemgrade ~= 1 and itemgrade ~= "None" then
 		if itemgrade == 2 then
-			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_MAGIC")
+			slotSkinName = topParent:GetUserConfig("EQUIPSLOT_PIC_MAGIC")
 		elseif itemgrade == 3 then
-			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_RARE")
+			slotSkinName = topParent:GetUserConfig("EQUIPSLOT_PIC_RARE")
 		elseif itemgrade == 4 then
-			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_UNIQUE")
+			slotSkinName = topParent:GetUserConfig("EQUIPSLOT_PIC_UNIQUE")
 		elseif itemgrade == 5 then
-			slotSkinName = frame:GetUserConfig("EQUIPSLOT_PIC_LEGEND")
+			slotSkinName = topParent:GetUserConfig("EQUIPSLOT_PIC_LEGEND")
 		end
 		slot_bg:ShowWindow(1)
 		slot:SetSkinName(slotSkinName)
@@ -2452,31 +3067,34 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		return;
 	end
 	
+	local isPutOnHelmet = 0
 	if spotName == "HELMET" then
 		if equipItem.type ~= item.GetNoneItem(equipItem.equipSpot) then
 			spotName = "HAIR";
+			isPutOnHelmet = 1
+			--helmet slot duplicated process 
 		end
 	end
 
-	local child = frame:GetChild(spotName);			
+	local child = GET_CHILD_RECURSIVELY(frame, spotName);			
 	if  child  ==  nil  then
 		return;
 	end
 
 	local gender = tonumber(frame:GetTopParentFrame():GetUserIValue('COMPARE_PC_GENDER'));
 	local slot = tolua.cast(child, 'ui::CSlot');
+	if isPutOnHelmet ~= 0 then
+		slot:SetUserValue("IS_PUTON_HELMET", 1)
+	end
 	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
 	controlset:SetGravity(ui.RIGHT, ui.TOP)
-	controlset:ShowWindow(0);
-	
 	if  equipItem.type  ~=  item.GetNoneItem(equipItem.equipSpot)  then
-		
 		local obj = GetIES(equipItem:GetObject());
 
 		SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
 			
 		local icon = CreateIcon(slot);
-		SET_SLOT_STYLESET(slot, obj, 0)	
+		SET_SLOT_STYLESET(slot, obj, 0, nil, nil, nil, 1)	
 		
 		local imageName = ""
 
@@ -2497,8 +3115,13 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		
 		icon:Set(imageName, 'Item', equipItem.type, equipItem.equipSpot, equipItem:GetIESID());
 		iconFunc(slot, icon, equipItem, ...);
-		
+		controlset:ShowWindow(0);
+	else
+		local flag = slot:GetUserIValue("IS_PUTON_HELMET")
+		if spotName == "HAIR" and flag == 1 then
+			slot:SetUserValue("IS_PUTON_HELMET", 0)
 		else
+			slot:SetUserValue("IS_PUTON_HELMET", 0)
 			slot:ClearIcon();
 			slot:SetEventScript(ui.RBUTTONDOWN, 'None');
 			slot:SetOverSound('button_cursor_over_3');
@@ -2510,12 +3133,14 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 				slot:SetSkinName(slot_bg:GetSkinName())
 				slot_bg:ShowWindow(0)
 			end
+			controlset:ShowWindow(0);
+		end
 	end
 		
 	-- LH아이콘은 RH에 양손무기가 장착중인지 확인후 아이콘 셋팅
     local alreadyProcessedTH = false;
 	if spotName == 'LH' then		
-		local checkRH = frame:GetChild('RH');
+		local checkRH = GET_CHILD_RECURSIVELY(frame, 'RH');
 		if checkRH ~= nil then
 			local slotNum = item.GetEquipSpotNum("RH");	
 
@@ -2533,7 +3158,7 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 				end
 
 				SET_EQUIP_SLOT_ITEMGRADE_BG(frame, slot, obj)
-				SET_SLOT_STYLESET(slot, obj, 0)	
+				SET_SLOT_STYLESET(slot, obj, 0, nil, nil, nil, 1)	
 
                 local iconImage = GET_EQUIP_ITEM_IMAGE_NAME(obj, 'Icon');
 				icon:Set(iconImage, 'Item', rhItem.type, rhItem.equipSpot, rhItem:GetIESID());
@@ -2599,7 +3224,6 @@ function SET_EQUIP_SLOT_BY_SPOT(frame, equipItem, eqpItemList, iconFunc, ...)
 		end
 	end
 	
-
 	if equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_MORU') then
 		slot:SetFrontImage('item_Lock');
 	elseif equipItem:GetIESID() == frame:GetUserValue('ITEM_GUID_IN_TRANSCEND') then
@@ -2633,9 +3257,24 @@ function SET_EQUIP_LIST_ANIM(frame, equipItemList, iconFunc, ...)
 		if equipItem.isChangeItem == true then
 
 			if  spotName  ~=  nil  then
-				local child = frame:GetChild(spotName.."ANIM");			
+			
+				if spotName == "HELMET" then
+					spotName = "HAIR"
+				end
+
+				local child = GET_CHILD_RECURSIVELY(frame, spotName.."ANIM");	
+
 				if  child  ~=  nil  then	
 					local slot = tolua.cast(child, 'ui::CAnimPicture');
+					local slotGbox = slot:GetParent()
+					local tabIndex = 0
+					if slotGbox:GetName() == "gbox_Dressed" then
+						tabIndex = 1
+					end
+
+					local equipTab = GET_CHILD_RECURSIVELY(frame, "equiptype_Tab")
+					equipTab:SelectTab(tabIndex)
+
 					slot:PlayAnimation();
 				end
 			end		
@@ -2650,6 +3289,7 @@ function SET_EQUIP_LIST(frame, equipItemList, iconFunc, ...)
 		
 		local spotName = item.GetEquipSpotName(equipItem.equipSpot);
 		if  spotName  ~=  nil  then
+		
 			if SET_EQUIP_ICON_FORGERY(frame, spotName) == false then
 				SET_EQUIP_SLOT(frame, i, equipItemList, _INV_EQUIP_LIST_SET_ICON);
 			end
@@ -2670,9 +3310,9 @@ function STATUS_EQUIP_SLOT_SET_ANIM(frame)
 	SET_EQUIP_LIST_ANIM(frame, session.GetEquipItemList(), _INV_EQUIP_LIST_SET_ICON);
 end
 
-function GET_SLOT_BY_ITEMID(slotSet, itemID)
+function GET_SLOT_BY_ITEMID(slotSet, itemID, isAll)
 	if slotSet == nil then
-		slotSet = INV_GET_SLOTSET_BY_ITEMID(itemID);		
+		slotSet = INV_GET_SLOTSET_BY_ITEMID(itemID, isAll);
 	end
 
 	if slotSet == nil then
@@ -2694,7 +3334,6 @@ function _GET_SLOT_BY_ITEMID(slotSet, itemID)
 			end
 		end
 	end
-
 	return nil;
 end
 
@@ -2791,7 +3430,7 @@ function EXEC_DELETE_ITEMDROP()
 end
 
 function EXP_ORB_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)	
-	local timer = GET_CHILD(frame, "exporbtimer", "ui::CAddOnTimer");
+	local timer = GET_CHILD_RECURSIVELY(frame, "exporbtimer", "ui::CAddOnTimer");
 	if msg == "EXP_ORB_ITEM_OFF" then
 		frame:SetUserValue("EXP_ORB_EFFECT", 0);
 		timer:Stop();
@@ -2815,7 +3454,7 @@ function TOGGLE_ITEM_SLOT_INVEN_ON_MSG(frame, msg, argstr, argnum)
 	local cnt = 0;
 	for k, v in pairs(INVENTORY_TOGGLE_ITEM_LIST) do
 		cnt = cnt + 1;
-end
+	end
 
 	if cnt > 0 then
 		frame:RunUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM", 1.0);
@@ -2823,7 +3462,7 @@ end
 		frame:StopUpdateScript("UPDATE_INVENTORY_TOGGLE_ITEM");
 	end
 end
-	
+
 --업데이트.
 function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
 	if frame:IsVisible() == 0 then
@@ -2833,7 +3472,7 @@ function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
 	if invenTab == nil then
 		return;
 	end
-	
+
 	local tabIndex = invenTab:GetSelectItemIndex()
 	for type, v in pairs(INVENTORY_TOGGLE_ITEM_LIST) do
 		local slot = INV_GET_SLOT_BY_TYPE(type);
@@ -2841,11 +3480,11 @@ function UPDATE_INVENTORY_TOGGLE_ITEM(frame)
 			slot = INV_GET_SLOT_BY_TYPE(type, nil, 1)
 		end	
 		if slot ~= nil and slot:IsVisible() == 1 then
-	if slot:IsVisibleRecursively() == true then
-		local size = frame:GetUserConfig("TOGGLE_ITEM_EFFECT_SIZE");	
-		slot:PlayOnceUIEffect('I_sys_item_slot', size);
-		slot:Invalidate();
-	end
+			if slot:IsVisibleRecursively() == true then
+				local size = frame:GetUserConfig("TOGGLE_ITEM_EFFECT_SIZE");	
+				slot:PlayOnceUIEffect('I_sys_item_slot', size);
+				slot:Invalidate();
+			end
 		end
 	end
 	return 1;
@@ -2855,7 +3494,7 @@ function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 	if str == 'JUNGTAN_OFF' then
 
 		frame:SetUserValue("JUNGTAN_EFFECT", 0);
-		local timer = GET_CHILD(frame, "jungtantimer", "ui::CAddOnTimer");
+		local timer = GET_CHILD_RECURSIVELY(frame, "jungtantimer", "ui::CAddOnTimer");
 		timer:Stop();		
 
 	elseif str == 'JUNGTAN_ON' then
@@ -2864,20 +3503,20 @@ function JUNGTAN_SLOT_INVEN_ON_MSG(frame, msg, str, itemType)
 			return;
 		end
 		frame:SetUserValue("JUNGTAN_EFFECT", invItem:GetIESID());
-		local timer = GET_CHILD(frame, "jungtantimer", "ui::CAddOnTimer");
+		local timer = GET_CHILD_RECURSIVELY(frame, "jungtantimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_INVENTORY_JUNGTAN");
 		timer:Start(1);		
 
 	elseif str == 'JUNGTANDEF_OFF' then
 
 		frame:SetUserValue("JUNGTANDEF_EFFECT", 0);
-		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
+		local timer = GET_CHILD_RECURSIVELY(frame, "jungtandeftimer", "ui::CAddOnTimer");
 		timer:Stop();		
 
 	elseif str == 'JUNGTANDEF_ON' then
 
 		frame:SetUserValue("JUNGTANDEF_EFFECT", itemType);
-		local timer = GET_CHILD(frame, "jungtandeftimer", "ui::CAddOnTimer");
+		local timer = GET_CHILD_RECURSIVELY(frame, "jungtandeftimer", "ui::CAddOnTimer");
 		timer:SetUpdateScript("UPDATE_INVENTORY_JUNGTANDEF");
 		timer:Start(1);		
 		
@@ -2935,7 +3574,16 @@ function UPDATE_INVENTORY_EXP_ORB(frame, ctrl, num, str, time)
 		return;
 	end
 	
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
 	local slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid);
+	if tabIndex == 0 then
+		slot = INV_GET_SLOT_BY_ITEMGUID(itemGuid, nil, 1)
+	end	
 	if slot == nil then
 		return;
 	end
@@ -2953,7 +3601,16 @@ function UPDATE_INVENTORY_JUNGTAN(frame, ctrl, num, str, time)
 	if jungtanID == 0 then
 		return;
 	end
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
 	local slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID)
+	if tabIndex == 0 then
+		slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID, 1)
+	end	
 
 	local slot = GET_SLOT_BY_ITEMTYPE(slotSet, jungtanID);
 	if slot == nil then
@@ -2973,7 +3630,17 @@ function UPDATE_INVENTORY_JUNGTANDEF(frame, ctrl, num, str, time)
 		return;
 	end
 
+	local invenTab = GET_CHILD_RECURSIVELY(frame, "inventype_Tab")
+	if invenTab == nil then
+		return
+	end
+
+	local tabIndex = invenTab:GetSelectItemIndex()
 	local slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID)
+	if tabIndex == 0 then
+		slotSet = INV_GET_SLOTSET_BY_ITEMID(jungtanID, 1)
+	end	
+
 	local slot = GET_SLOT_BY_ITEMTYPE(slotSet, jungtanID);
 	if(slot == nil ) then
 		return;
@@ -2981,7 +3648,6 @@ function UPDATE_INVENTORY_JUNGTANDEF(frame, ctrl, num, str, time)
 	local posX, posY = GET_SCREEN_XY(slot);
 
 	movie.PlayUIEffect('I_sys_item_slot', posX, posY, 1.2);
-
 end
 
 -- slotanim
@@ -2989,11 +3655,11 @@ function INVENTORY_SLOTANIM_CHANGEIMG(frame, key, str, cnt)
 	if cnt < 4 then
 		return;
 	end
-	
+
 	local subStr = string.sub(str, 0, string.len(str) - 4);
 	local spot = item.GetEquipSpotNum(subStr);
 		
-	local child = frame:GetChild(str);
+	local child = GET_CHILD_RECURSIVELY(frame, str);
 	if  child  ~=  nil  then			
 		local slot = tolua.cast(child, 'ui::CAnimPicture');
 		slot:ForcePlayAnimationReverse();		
@@ -3032,8 +3698,33 @@ end
 function SORT_ITEM_INVENTORY()
 	local context = ui.CreateContextMenu("CONTEXT_INV_SORT", "", 0, 0, 170, 100);
 	local scpScp = "";
-	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_LEVEL);
-	ui.AddContextMenuItem(context, ScpArgMsg("SortByLevel"), scpScp);	
+
+	local invFrame = ui.GetFrame("inventory")
+	if invFrame == nil then
+		return
+	end
+
+	local invTab = GET_CHILD_RECURSIVELY(invFrame, "inventype_Tab")
+	if invTab == nil then
+		return
+	end
+
+	if invTab:GetSelectItemName() == "tab_Equip" then
+		scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_LEVEL);
+		ui.AddContextMenuItem(context, ScpArgMsg("SortByGrade"), scpScp);	
+	elseif invTab:GetSelectItemName() == "tab_Recipe" then
+		scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_LEVEL);
+		ui.AddContextMenuItem(context, ScpArgMsg("SortByGrade"), scpScp);	
+	elseif invTab:GetSelectItemName() == "tab_Card" then
+		scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_LEVEL);
+		ui.AddContextMenuItem(context, ScpArgMsg("SortByLevel"), scpScp);	
+	elseif invTab:GetSelectItemName() == "tab_Gem" then
+		scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_LEVEL);
+		ui.AddContextMenuItem(context, ScpArgMsg("SortByLevel"), scpScp);	
+	elseif invTab:GetSelectItemName() == "tab_Etc" or invTab:GetSelectItemName() == "tab_All" or invTab:GetSelectItemName() == "tab_Consume" then
+		scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_COUNT);
+		ui.AddContextMenuItem(context, ScpArgMsg("SortByCount"), scpScp);			
+	end
 	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_WEIGHT);
 	ui.AddContextMenuItem(context, ScpArgMsg("SortByWeight"), scpScp);	
 	scpScp = string.format("REQ_INV_SORT(%d, %d)",IT_INVENTORY, BY_NAME);
@@ -3042,6 +3733,9 @@ function SORT_ITEM_INVENTORY()
 end
 
 function REQ_INV_SORT(invType, sortType)
+	local invFrame = ui.GetFrame("inventory")
+	invFrame:SetUserValue("SORT_TYPE", sortType +1)
+
 	item.SortInvIndex(invType, sortType);
 end
 
@@ -3111,6 +3805,7 @@ function CURSOR_CHECK_IN_LOCK(slot)
 end
 
 function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)    
+	clickedLockItemSlot = nil
     local briquetting = ui.GetFrame('briquetting');
     if briquetting:IsVisible() == 1 then
         ui.SysMsg(ScpArgMsg('CannotLock{UI}VisibleState', 'UI', ClMsg('Briquetting')));
@@ -3145,6 +3840,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
         return;
     end
 
+    if IS_TEMP_LOCK(invframe, selectItem) == true then
+    	ui.SysMsg(ClMsg('CannotUseInReinforceState'));    	
+    	return;
+    end
+
 	local state = 1;
 	local slot = tolua.cast(object, "ui::CSlot");
     local parent = slot:GetParent();
@@ -3156,15 +3856,11 @@ function INV_ITEM_LOCK_LBTN_CLICK(frame, selectItem, object)
 
     invframe:SetUserValue('LOCK_SLOT_PARENT_NAME', parent:GetName());
     invframe:SetUserValue('LOCK_SLOT_NAME', slot:GetName());
-	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
-	controlset:SetGravity(ui.RIGHT, ui.TOP)
 	if true == selectItem.isLockState then
 		state = 0;
-		controlset:ShowWindow(0);
-	else
-		controlset:ShowWindow(1);
 	end
-
+	
+	clickedLockItemSlot = slot
 	session.inventory.SendLockItem(selectItem:GetIESID(), state);
 end
 
@@ -3200,6 +3896,16 @@ function INV_ITEM_LOCK_SAVE_FAIL(frame, msg, argStr, agrNum)
         ui.SysMsg(ClMsg("ItemLockSaveFail"));
     end
 end
+
+function INV_INVENTORY_OPTION_OPEN(frame, msg, argStr, argNum)
+	local frame = ui.GetFrame("inventory")
+	if frame == nil then
+		return
+	end
+
+	ui.OpenFrame("inventoryoption")
+end
+
 
 function INV_HAT_VISIBLE_STATE(frame)
 
@@ -3243,8 +3949,8 @@ function INV_HAT_VISIBLE_STATE(frame)
 		hat_l:SetTextTooltip(ScpArgMsg('HAT_OFF'))
 	end
 
-	local equipgroup = GET_CHILD(frame, 'equip', 'ui::CGroupBox')
-	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
+	local equipgroup = GET_CHILD_RECURSIVELY(frame, 'equip', 'ui::CGroupBox')
+	local shihouette = GET_CHILD_RECURSIVELY(equipgroup, 'shihouette', "ui::CPicture");
 	local shihouette_imgname = ui.CaptureMyFullStdImage();
 	shihouette:SetImage(shihouette_imgname);
 
@@ -3300,6 +4006,7 @@ function INV_HAIR_WIG_VISIBLE_STATE(frame)
 	if frame == nil then
 		frame = ui.GetFrame("inventory");
 	end
+	local hairSlot = GET_CHILD_RECURSIVELY(frame, 'HAIR');
 	
 	local myPCetc = GetMyEtcObject();
 
@@ -3307,15 +4014,17 @@ function INV_HAIR_WIG_VISIBLE_STATE(frame)
 	local hairWig = GET_CHILD_RECURSIVELY(frame, 'HAIR_WIG_Visible')
 
 	if hairWig_Visible == 1 then
+		SET_VISIBLE_DYE_BTN_BY_VISIBLE(hairSlot, 1)
 		hairWig:SetImage("inven_hat_layer_on");
 		hairWig:SetTextTooltip(ScpArgMsg('HAT_ON'))
 	else
+		SET_VISIBLE_DYE_BTN_BY_VISIBLE(hairSlot, 0)
 		hairWig:SetImage("inventory_hat_layer_off");
 		hairWig:SetTextTooltip(ScpArgMsg('HAT_OFF'))
 	end
 
-	local equipgroup = GET_CHILD(frame, 'equip', 'ui::CGroupBox')
-	local shihouette = GET_CHILD(equipgroup, 'shihouette', "ui::CPicture");
+	local equipgroup = GET_CHILD_RECURSIVELY(frame, 'equip', 'ui::CGroupBox')
+	local shihouette = GET_CHILD_RECURSIVELY(equipgroup, 'shihouette', "ui::CPicture");
 	local shihouette_imgname = ui.CaptureMyFullStdImage();
 	shihouette:SetImage(shihouette_imgname);
 
@@ -3344,9 +4053,11 @@ function INV_HAIR_WIG_VISIBLE_STATE_SET(frame)
 	local visibleBtnInfo = GET_CHILD_RECURSIVELY(frame, "HAIR_WIG_Visible")
 
 	if visibleState == 1 then
+		SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, 0);	--염색 버튼 보이기/숨기기
 		visibleBtnInfo:SetImage("inven_hat_layer_on");
 		ui.ChangeTooltipText(ScpArgMsg('HAT_OFF'))
 	else
+		SET_VISIBLE_DYE_BTN_BY_VISIBLE(frame, 1);	--염색 버튼 보이기/숨기기
 		visibleBtnInfo:SetImage("inventory_hat_layer_off");
 		ui.ChangeTooltipText(ScpArgMsg('HAT_ON'))
 	end
@@ -3487,9 +4198,7 @@ end
 
 --index = 1 일때 1번창으로 스왑하는 함수. 2일때 2번창으로 스왑하는 함수
 function DO_WEAPON_SWAP(frame, index)
-	if frame == nil then
-		frame = ui.GetFrame("inventory");
-	end
+	local frame = ui.GetFrame("inventory");
 
 	if index == nil then
 		index = 1
@@ -3502,7 +4211,6 @@ function DO_WEAPON_SWAP(frame, index)
 	
 	local weaponSwap1 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_1")
 	local weaponSwap2 = GET_CHILD_RECURSIVELY(frame, "weapon_swap_2")
-
 	local WEAPONSWAP_UP_IMAGE = frame:GetUserConfig('WEAPONSWAP_UP_IMAGE')
 	local WEAPONSWAP_DOWN_IMAGE = frame:GetUserConfig('WEAPONSWAP_DOWN_IMAGE')
 
@@ -3567,11 +4275,14 @@ function ON_LOCK_FAIL(frame, msg, argStr, argNum)
 
 	if grandParentName ~= "None" then
 		grandParent = GET_CHILD_RECURSIVELY(frame, grandParentName);
-		parent = GET_CHILD(grandParent, slotParentName);
-		slot = GET_CHILD(parent, slotName);
+		parent = GET_CHILD_RECURSIVELY(grandParent, slotParentName);
+		if parent == nil then
+			parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
+		end
+		slot = GET_CHILD_RECURSIVELY(parent, slotName);
 	else
 		parent = GET_CHILD_RECURSIVELY(frame, slotParentName);
-		slot = GET_CHILD(parent, slotName);
+		slot = GET_CHILD_RECURSIVELY(parent, slotName);
 	end
 
     if slot ~= nil then        
@@ -3616,20 +4327,80 @@ end
 g_lockItemGuid = '0';
 function ON_UPDATE_LOCK_STATE(frame, msg, itemGuid, lockState)
 	g_lockItemGuid = itemGuid;	
-	SET_SLOT_APPLY_FUNC(frame, '_UPDATE_LOCK_STATE');
+
+	local invItem = session.GetInvItemByGuid(itemGuid)
+	if invItem ~= nil then
+		if clickedLockItemSlot ~= nil then
+			_UPDATE_LOCK_STATE(clickedLockItemSlot)
+		end
+	end			
 end
 
 function _UPDATE_LOCK_STATE(slot)
+	local frame = ui.GetFrame("inventory")
 	local item = GET_SLOT_ITEM(slot);
 	if item == nil or item:GetIESID() ~= g_lockItemGuid then
 		return;
 	end
 
-	local controlset = slot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	local invSlot = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid)
+	local invSlot_All = INVENTORY_GET_SLOT_BY_IESID(frame, g_lockItemGuid, 1)
+
+	if invSlot == nil or invSlot_All == nil then
+		return;
+	end
+
+	local controlset = invSlot:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
+	local controlset_All = invSlot_All:CreateOrGetControlSet('inv_itemlock', "itemlock", 0, 0);
 	controlset:SetGravity(ui.RIGHT, ui.TOP)
+	controlset_All:SetGravity(ui.RIGHT, ui.TOP)
 	if true == item.isLockState then		
 		controlset:ShowWindow(1);
+		controlset_All:ShowWindow(1);
 	else
 		controlset:ShowWindow(0);
+		controlset_All:ShowWindow(0);
+	end
+end
+
+function ON_UPDATE_TRUST_POINT(frame, msg, argStr, trustPoint)
+	local frame = ui.GetFrame("inventory")
+	if frame == nil then
+		return
+	end
+
+	local trustPointGbox = GET_CHILD_RECURSIVELY(frame, 'trustPointGbox');
+	local trustPointImg = GET_CHILD_RECURSIVELY(trustPointGbox, "trustPointImg");
+	local trustPointText = GET_CHILD_RECURSIVELY(trustPointGbox, "trustPointText");
+	if trustPointImg == nil or trustPointText == nil then
+		return
+	end
+
+	trustPoint = math.min(trustPoint + 1, 6);
+	trustPointImg:SetImage("icon_credit_grade_" .. trustPoint);
+	trustPointText:SetTextByKey("trustPoint", trustPoint - 1);
+	trustPointGbox:SetTooltipType('trust_point');
+	trustPointGbox:SetTooltipOverlap(1);
+end
+
+function SELECT_INVENTORY_TAB(frame, tabIndex)
+	local inventype_Tab = GET_CHILD_RECURSIVELY(frame, 'inventype_Tab');
+	inventype_Tab:SelectTab(tabIndex);
+end
+
+function INVENTORY_CLEAR_SELECT(frame)
+	if frame == nil then
+		frame = ui.GetFrame('inventory');
+	end
+	for i = 1 , #SLOTSET_NAMELIST do
+		local group = GET_CHILD_RECURSIVELY(frame, 'inventoryGbox', 'ui::CGroupBox')		
+		for typeNo = 1, #g_invenTypeStrList do
+			local tree_box = GET_CHILD_RECURSIVELY(group, 'treeGbox_'.. g_invenTypeStrList[typeNo],'ui::CGroupBox')
+			local tree = GET_CHILD_RECURSIVELY(tree_box, 'inventree_'.. g_invenTypeStrList[typeNo],'ui::CTreeControl')
+			local slotSet = GET_CHILD_RECURSIVELY(tree, SLOTSET_NAMELIST[i],'ui::CSlotSet');						
+			if slotSet ~= nil then
+				slotSet:ClearSelectedSlot();				
+			end
+		end
 	end
 end

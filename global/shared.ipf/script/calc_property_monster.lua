@@ -158,6 +158,11 @@ function SCR_Get_MON_MHP(self)
         end
     end
     
+    local fixedMHP = TryGetProp(self, "FIXMHP_BM");
+    if fixedMHP ~= nil and fixedMHP > 0 then
+        return math.floor(fixedMHP);
+    end
+    
     local lv = TryGetProp(self, "Lv");
     if lv == nil then
         lv = 1;

@@ -297,12 +297,11 @@ function ROLLBACK_STAT(frame)
 end
 
 function STATUS_UPDATE(frame)
-
     if g_reserve_reset == 1 then
         STAT_RESET(frame, 1);
         g_reserve_reset = 0;
     else
-        DebounceScript("STATUS_INFO", 0.2);
+        DebounceScript("STATUS_INFO", 0.2, 0);
     end
 end
 
@@ -1131,22 +1130,22 @@ function STATUS_INFO()
 	
 	
 	
---	returnY = STATUS_ATTRIBUTE_BOX_TITLE(pc, opc, frame, gboxctrl, ScpArgMsg("ItemRareOption"), y);
---    if returnY ~= y then
---        y = returnY + 5;
---    end
---	
---	local itemRareOptionList = { 'ITEM_MainWeaponDamageRate', 'ITEM_SubWeaponDamageRate', 'ITEM_BossDamageRate', 'ITEM_MeleeReducedRate', 'ITEM_MagicReducedRate', 'ITEM_PVPDamageRate', 'ITEM_PVPReducedRate', 'ITEM_CriticalDamage_Rate', 'ITEM_CriticalHitRate', 'ITEM_CriticalDodgeRate', 'ITEM_HitRate', 'ITEM_DodgeRate', 'ITEM_BlockBreakRate', 'ITEM_BlockRate' };
---	
---	for i = 1, #itemRareOptionList do
---		local itemRareOption = itemRareOptionList[i];
---	    returnY = STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, itemRareOption, y);
---	    if returnY ~= y then
---	        y = returnY + 3;
---	    end
---	end
---    
---	y = y + 10;
+	returnY = STATUS_ATTRIBUTE_BOX_TITLE(pc, opc, frame, gboxctrl, ScpArgMsg("ItemEnchantOption"), y);
+    if returnY ~= y then
+        y = returnY + 5;
+    end
+	
+	local itemRareOptionList = { 'EnchantMainWeaponDamageRate', 'EnchantSubWeaponDamageRate', 'EnchantBossDamageRate', 'EnchantMeleeReducedRate', 'EnchantMagicReducedRate', 'EnchantPVPDamageRate', 'EnchantPVPReducedRate', 'EnchantCriticalDamage_Rate', 'EnchantCriticalHitRate', 'EnchantCriticalDodgeRate', 'EnchantHitRate', 'EnchantDodgeRate', 'EnchantBlockBreakRate', 'EnchantBlockRate', 'EnchantMSPD', 'EnchantSR' };
+	
+	for i = 1, #itemRareOptionList do
+		local itemRareOption = itemRareOptionList[i];
+	    returnY = STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, itemRareOption, y);
+	    if returnY ~= y then
+	        y = returnY + 3;
+	    end
+	end
+    
+	y = y + 10;
 	
     frame:Invalidate();
 
@@ -1172,6 +1171,7 @@ function STATUS_TEXT_SET(textStr)
 end
 
 function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
+    frame = frame:GetTopParentFrame()
     if true == BEING_TRADING_STATE() then
         return;
     end
@@ -1197,7 +1197,7 @@ function STATUS_SLOT_RBTNDOWN(frame, slot, argStr, equipSpot)
 end
 
 function CHECK_EQP_LBTN(frame, slot, argStr, argNum)
-
+    frame = frame:GetTopParentFrame()
     local targetItem = item.HaveTargetItem();
 
     if targetItem == 1 then
@@ -1491,19 +1491,27 @@ function STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, attibuteName, y
         return y + controlSet:GetHeight();
     end
     
+    -- 상수 값 예외 처리 --
+    local isRatioValue = 1;
+    if attibuteName == 'EnchantMSPD' or attibuteName == 'EnchantSR' then
+        isRatioValue = 0;
+    end
+    
     -- value 값 String 및 소수점 처리 시작 --
     local stringValue = tostring(math.abs(value));
-    if value ~= 0 and math.abs(value) < 10 then
-    	stringValue = "0." .. stringValue;
-    else
-    	stringValue = string.sub(stringValue, 1, -2) .. "." .. string.sub(stringValue, -1, -1);
+    if isRatioValue == 1 then
+        if value ~= 0 and math.abs(value) < 10 then
+        	stringValue = "0." .. stringValue;
+        else
+        	stringValue = string.sub(stringValue, 1, -2) .. "." .. string.sub(stringValue, -1, -1);
+        end
     end
     
     if value < 0 then
     	stringValue = ScpArgMsg("MinusSymbol") .. stringValue;
     end
 	-- value 값 String 및 소수점 처리 끝 --
-	
+	local statText = nil;
     if opc ~= nil and opc[attibuteName] ~= value then
         local colBefore = frame:GetUserConfig("BEFORE_STAT_COLOR");
         local colStr = frame:GetUserConfig("ADD_STAT_COLOR")
@@ -1511,12 +1519,20 @@ function STATUS_ITEM_RARE_OPTION_VALUE(pc, opc, frame, gboxctrl, attibuteName, y
         local beforeGray, beforeValue = SET_VALUE_ZERO(opc[attibuteName]);
 		
         if beforeValue ~= value then
-            stat:SetText(colBefore .. beforeValue .. ScpArgMsg("Auto_{/}__{/}") .. colStr .. stringValue .. ScpArgMsg("PercentSymbol"));
+            statText = colBefore .. beforeValue .. ScpArgMsg("Auto_{/}__{/}") .. colStr .. stringValue;
         else
-            stat:SetText(stringValue .. ScpArgMsg("PercentSymbol"));
+            statText = stringValue;
         end
     else
-        stat:SetText(stringValue .. ScpArgMsg("PercentSymbol"));
+        statText = stringValue;
+    end
+
+    if statText ~= nil then
+        if isRatioValue == 1 then
+            statText = statText .. ScpArgMsg("PercentSymbol");
+        end
+        
+        stat:SetText(statText);
     end
 
     controlSet:Resize(controlSet:GetWidth(), stat:GetHeight());
@@ -1768,7 +1784,7 @@ end
 
 function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
 
-    if gbox == nil then
+ --[[   if gbox == nil then
         return
     end
 
@@ -1859,7 +1875,7 @@ function STATUS_ACHIEVE_INIT_HAIR_COLOR(gbox)
         --코카트리스 헤드같은 경우 염색 리스트가 바뀌는 버그가 있어 재정렬하고 하고 아이콘을 생성해줘야한다
 	    SORT_HAIR_COLORLIST(hairColorBtn, haveHairColorList, haveHairColorEList)
         SET_HAIR_COLOR_LIST(customizingGBox, row_top_margin, col_left_margin, select_margin, max_width, width, height, nowPCHairColor, haveHairColorList, haveHairColorEList)
-    end
+    end ]]--
 end
 
 function SET_HAIR_COLOR_LIST(gbox, row_top_margin, col_left_margin, select_margin, max_width, width, height, nowPCHairColor, haveHairColorList, haveHairColorEList)
@@ -2393,11 +2409,6 @@ function STATUS_UPDATE_EXP_UP_BOX(frame, msg, argStr, argNum)
 end
 
 function ON_HAIR_COLOR_CHANGE(frame, msg, argStr, argNum)
-    frame:ShowWindow(1);
-    local statusTab = GET_CHILD_RECURSIVELY(frame, 'statusTab');
-    STATUS_ACHIEVE_INIT(frame);
-    statusTab:SelectTab(2);
-    STATUS_TAB_CHANGE(frame);
 
     local colorItemCls = GetClass('Item', argStr);
     local hairCls = GET_HAIR_CLASS_C(colorItemCls.StringArg);

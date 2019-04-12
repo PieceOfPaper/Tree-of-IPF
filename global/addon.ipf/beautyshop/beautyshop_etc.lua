@@ -113,7 +113,7 @@ function ETCSHOP_POST_SELECT_ITEM(frame, ctrl)
 		return 
 	end
 
-	local slot = BEAUTYSHOP_GET_PREIVEW_SLOT(equipType)
+	local slot = BEAUTYSHOP_GET_PREIVEW_SLOT(equipType, itemClassName)
 	if slot == nil then
 		return
 	end

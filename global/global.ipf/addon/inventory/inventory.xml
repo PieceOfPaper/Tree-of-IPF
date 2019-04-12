@@ -1,16 +1,3 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by imc (imc) -->
-<uiframe name="inventory" x="0" y="0" width="490" height="649">
-	<frame fullheight="true" fasthide="true" layout_gravity="right top" open="pip" margin="0 0 -480 0" keyboardselectframe="true"/>
-	<draw drawnotitlebar="false" drawtitlebar="false"/>
-	<skin frameskin="none"/>
-	<input moveable="false" maxwidth="1280"/>
-	<layer layerlevel="95"/>
-	<userconfig TREE_GROUP_FONT="white_20_ol" TREE_TAB_WIDTH="30" TREE_GROUP_BOTTOM_MARGIN="20" TREE_SLOT_SIZE="58" TREE_COL_COUNT="7" TREE_SLOTSETTEXT_WIDTH="400" TREE_SLOTSETTEXT_HEIGHT="30" TREE_SLOTSETTEXT_FONT="white_18_ol" TREE_SLOT_PICKSOUND="icon_pick_up" TREE_SLOT_DROPSOUND="icon_get_down" TREE_SLOT_DROPSCRIPT="INVENTORY_ON_DROP" TREE_SLOT_POPSCRIPT="INVENTORY_OP_POP" TREE_SEARCH_BLINK_COLOR="FF003300" SHIHOUETTE_IMGNAME_MALE="inventory_M" SHIHOUETTE_IMGNAME_FEMALE="inventory_F"/>
-	<option closebutton="false"/>
-	<sound opensound="inven_win_open" closesound="inven_win_close"/>
-	<script OpenScp="INVENTORY_OPEN" CloseScp="INVENTORY_CLOSE"/>
-	<controls>
-		    <richtext name="medalt_GLOBAL" parent="medalGbox" rect="0 0 100 20" margin="40 0 0 0" layout_gravity="left center" caption="{@st41b}TP{/}" serviceNation="GLOBAL"/>
-	</controls>
-</uiframe>
+<!-- edited with XMLSPY v2004 rel. 2 U (http://www.xmlspy.com) by imc (imc) -->
+<uiframe/>

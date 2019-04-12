@@ -1,14 +1,18 @@
 <?xml version="1.0" standalone="yes"?>
-<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by jsm (IMCGames Co., Ltd) -->
+<!-- edited with XMLSPY v2004 rel. 3 U (http://www.xmlspy.com) by Bo-yeon Kang (IMCGames Co., Ltd) -->
 <!-- edited with XMLSpy v2006 U (http://www.altova.com) by MyHome (EMBRACE) -->
 <World>
-	<ModelDir IpfName="bg_hi" Path="\field\f_katyn07_2\"/>
-	<SubModelDir IpfName="bg_hi" Path="\field\f_katyn\"/>
+	<ModelDir IpfName="bg_hi3" Path="\field\f_katyn07_2\"/>
+	<SubModelDir IpfName="bg_hi3" Path="\field\f_katyn\"/>
 	<TexDir IpfName="bg_texture" Path="\katyn\"/>
 	<LightMap File="f_katyn_07_2_lightmap.jpg" Length="8000.0 8000.0" Offset="1906.649 -982.722" Size="1024 1024"/>
 	<SubTexDir IpfName="bg_texture" Path="\common\"/>
-	<ShaTexDir IpfName="bg_hi" Path="\field\f_katyn07_2\"/>
-	<SubShaTexDir IpfName="bg_hi" Path="\field\f_katyn07_2\"/>
+	<ShaTexDir IpfName="bg_hi3" Path="\field\f_katyn07_2\"/>
+	<SubShaTexDir IpfName="bg_hi3" Path="\field\f_katyn07_2\"/>
+	<Model File="f_katyn_07_2_blend_01.xac" Model="f_katyn_07_2_blend_01" ShadowMap="f_katyn_07_2_blend_01" pos="1851.1074 360.1384 -1036.7922" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_katyn_07_2_blend_02.xac" Model="f_katyn_07_2_blend_02" ShadowMap="f_katyn_07_2_blend_02" pos="2015.2305 317.9590 -995.4453" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_katyn_07_2_blend_03.xac" Model="f_katyn_07_2_blend_03" ShadowMap="f_katyn_07_2_blend_03" pos="1899.3843 316.3800 -901.6431" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
+	<Model File="f_katyn_07_2_blend_04.xac" Model="f_katyn_07_2_blend_04" ShadowMap="f_katyn_07_2_blend_04" pos="1984.0154 316.3113 -922.7197" rot="-0.0000 -0.0000 -0.0000 1.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_09area_tree.xac" Model="f_katyn07_2_09area_tree" ShadowMap="f_katyn07_2_09area_tree" pos="3139.2922 310.7168 -434.8868" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_09area_shaoff.xac" Model="f_katyn07_2_09area_shaoff" pos="3143.4546 310.0586 -542.5261" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_ground.xac" Model="f_katyn07_2_ground" ShadowMap="f_katyn07_2_ground" pos="1886.4973 256.1447 -971.9190" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -16,7 +20,6 @@
 	<Model File="f_katyn07_2_01area_a_gr.xac" Model="f_katyn07_2_01area_a_gr" ShadowMap="f_katyn07_2_01area_a_gr" pos="842.5671 262.4532 -3568.5486" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_01area_tree.xac" Model="f_katyn07_2_01area_tree" ShadowMap="f_katyn07_2_01area_tree" pos="824.7202 403.6187 -3844.4526" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_01area_grass.xac" Model="f_katyn07_2_01area_grass" ShadowMap="f_katyn07_2_01area_grass" pos="984.6488 317.3466 -3727.7344" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_01area_blend.xac" Model="f_katyn07_2_01area_blend" ShadowMap="f_katyn07_2_01area_blend" pos="892.1680 290.5313 -3783.9277" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_01area_model.xac" Model="f_katyn07_2_01area_model" ShadowMap="f_katyn07_2_01area_model" pos="401.8083 292.4657 -3752.0627" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_04area_tree.xac" Model="f_katyn07_2_04area_tree" ShadowMap="f_katyn07_2_04area_tree" pos="1550.4268 451.6908 -546.9473" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_05area_model.xac" Model="f_katyn07_2_05area_model" ShadowMap="f_katyn07_2_05area_model" pos="2269.2866 282.9875 466.3837" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -31,18 +34,9 @@
 	<Model File="f_katyn07_2_09area_grass.xac" Model="f_katyn07_2_09area_grass" ShadowMap="f_katyn07_2_09area_grass" pos="3144.7051 247.7565 -610.8312" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_05area_grass.xac" Model="f_katyn07_2_05area_grass" ShadowMap="f_katyn07_2_05area_grass" pos="2224.0603 326.0609 476.8682" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_06area_shaoff.xac" Model="f_katyn07_2_06area_shaoff" pos="1826.1118 383.3082 1863.2476" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_03area_blend.xac" Model="f_katyn07_2_03area_blend" ShadowMap="f_katyn07_2_03area_blend" pos="945.0625 296.6655 -2573.0432" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_04area_blend.xac" Model="f_katyn07_2_04area_blend" ShadowMap="f_katyn07_2_04area_blend" pos="1590.9429 296.2410 -907.2243" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_05area_blend.xac" Model="f_katyn07_2_05area_blend" ShadowMap="f_katyn07_2_05area_blend" pos="2242.3562 295.2856 307.8032" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_06area_blend.xac" Model="f_katyn07_2_06area_blend" ShadowMap="f_katyn07_2_06area_blend" pos="1975.3887 297.4855 2148.5779" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_02area_a_gr.xac" Model="f_katyn07_2_02area_a_gr" ShadowMap="f_katyn07_2_02area_a_gr" pos="1023.9685 273.0613 -2079.6348" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_04area_a_gr.xac" Model="f_katyn07_2_04area_a_gr" ShadowMap="f_katyn07_2_04area_a_gr" pos="1603.1326 345.8833 -902.4174" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_02area_light.xac" Model="f_katyn07_2_02area_light" pos="2391.7222 281.4337 -3893.0667" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_01area_blend3.xac" Model="f_katyn07_2_01area_blend3" ShadowMap="f_katyn07_2_01area_blend3" pos="595.8864 296.3845 -3717.4502" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_02area_blend3.xac" Model="f_katyn07_2_02area_blend3" ShadowMap="f_katyn07_2_02area_blend3" pos="841.3551 296.1719 -2592.0200" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_04area_blend3.xac" Model="f_katyn07_2_04area_blend3" ShadowMap="f_katyn07_2_04area_blend3" pos="1539.3595 319.5717 -641.5612" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_05area_blend3.xac" Model="f_katyn07_2_05area_blend3" ShadowMap="f_katyn07_2_05area_blend3" pos="2323.5090 295.2997 895.3353" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_06area_blend3.xac" Model="f_katyn07_2_06area_blend3" ShadowMap="f_katyn07_2_06area_blend3" pos="1801.1067 297.9982 2024.8125" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_05area_a_gr.xac" Model="f_katyn07_2_05area_a_gr" ShadowMap="f_katyn07_2_05area_a_gr" pos="2248.8484 270.7475 434.1940" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_05area_shaoff.xac" Model="f_katyn07_2_05area_shaoff" pos="2268.9585 374.5286 519.3373" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn07_2_05area_light.xac" Model="f_katyn07_2_05area_light" pos="2181.7021 350.5230 429.4742" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -90,7 +84,6 @@
 	<Model File="f_katyn_Rt03_model.xac" Model="f_katyn_Rt03_model02" ShadowMap="f_katyn_Rt03_model02" pos="3537.6230 191.3557 -4461.7544" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt03_shaoff.xac" Model="f_katyn_Rt03_shaoff02" pos="3538.1689 271.1390 -4443.9409" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt03_tree.xac" Model="f_katyn_Rt03_tree02" ShadowMap="f_katyn_Rt03_tree02" pos="3580.4932 288.6057 -4486.5122" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt02_blend3.xac" Model="f_katyn_Rt02_blend3" pos="3810.3989 228.7823 -400.6382" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_tree.xac" Model="f_katyn_Rt02_tree" ShadowMap="f_katyn_Rt02_tree" pos="3795.9604 337.1418 -497.5862" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_shaoff.xac" Model="f_katyn_Rt02_shaoff" pos="3751.1021 316.1827 -491.1904" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_b_model.xac" Model="f_katyn_Rt02_b_model" ShadowMap="f_katyn_Rt02_b_model" pos="3848.7139 249.6185 -480.1272" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -101,7 +94,6 @@
 	<Model File="f_katyn_Rt02_model.xac" Model="f_katyn_Rt02_model" ShadowMap="f_katyn_Rt02_model" pos="3809.1191 236.3993 -495.3929" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_a_gr.xac" Model="f_katyn_Rt02_a_gr01" ShadowMap="f_katyn_Rt02_a_gr01" pos="3507.6074 158.0392 -3347.8259" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_b_model.xac" Model="f_katyn_Rt02_b_model01" ShadowMap="f_katyn_Rt02_b_model01" pos="3634.4395 203.8022 -3323.8152" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt02_blend3.xac" Model="f_katyn_Rt02_blend05" pos="3596.1245 182.9661 -3244.3264" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_grass.xac" Model="f_katyn_Rt02_grass01" ShadowMap="f_katyn_Rt02_grass01" pos="3625.7646 210.0708 -3343.9636" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_ground.xac" Model="f_katyn_Rt02_ground01" ShadowMap="f_katyn_Rt02_ground01" pos="3537.5029 142.0274 -3323.8757" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt02_light.xac" Model="f_katyn_Rt02_light01" pos="3699.4478 241.7113 -3380.6316" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -110,7 +102,6 @@
 	<Model File="f_katyn_Rt02_tree.xac" Model="f_katyn_Rt02_tree01" ShadowMap="f_katyn_Rt02_tree01" pos="3581.6860 291.3255 -3341.2742" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt05_ground.xac" Model="f_katyn_Rt05_ground" ShadowMap="f_katyn_Rt05_ground" pos="2591.3174 255.6957 -553.4216" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt05_tree.xac" Model="f_katyn_Rt05_tree" ShadowMap="f_katyn_Rt05_tree" pos="2581.8301 358.4125 -508.0613" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt05_blend.xac" Model="f_katyn_Rt05_blend" ShadowMap="f_katyn_Rt05_blend" pos="2688.6895 251.2197 -644.9968" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt05_shaoff.xac" Model="f_katyn_Rt05_shaoff" pos="2520.3809 313.7125 -477.5388" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt05_a_gr.xac" Model="f_katyn_Rt05_a_gr" ShadowMap="f_katyn_Rt05_a_gr" pos="2584.8105 296.3634 -512.5491" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt05_grass.xac" Model="f_katyn_Rt05_grass" ShadowMap="f_katyn_Rt05_grass" pos="2541.2021 330.6152 -571.2781" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -128,18 +119,14 @@
 	<Model File="f_katyn_Rt01_tree.xac" Model="f_katyn_Rt01_tree" ShadowMap="f_katyn_Rt01_tree" pos="808.2910 534.1784 1901.0461" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_grass.xac" Model="f_katyn_Rt01_grass" ShadowMap="f_katyn_Rt01_grass" pos="798.7212 411.5177 1899.2678" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_a_gr.xac" Model="f_katyn_Rt01_a_gr" ShadowMap="f_katyn_Rt01_a_gr" pos="790.5220 383.2266 1888.2651" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt01_blend3.xac" Model="f_katyn_Rt01_blend3" pos="768.0576 417.8408 1928.1206" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt01_blend.xac" Model="f_katyn_Rt01_blend" ShadowMap="f_katyn_Rt01_blend" pos="786.1558 417.1699 1997.0376" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_light.xac" Model="f_katyn_Rt01_light" pos="733.0596 408.2535 1888.8770" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_shaoff.xac" Model="f_katyn_Rt01_shaoff" pos="799.8101 508.3439 1939.7104" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_b_model.xac" Model="f_katyn_Rt01_b_model" ShadowMap="f_katyn_Rt01_b_model" pos="743.6357 412.5533 1913.8538" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_model.xac" Model="f_katyn_Rt01_model" ShadowMap="f_katyn_Rt01_model" pos="748.1660 386.9790 1900.2693" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt01_blend.xac" Model="f_katyn_Rt01_blend04" ShadowMap="f_katyn_Rt01_blend04" pos="356.2983 423.3818 -595.9100" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_ground.xac" Model="f_katyn_Rt01_ground01" ShadowMap="f_katyn_Rt01_ground01" pos="371.7505 421.7769 -722.6029" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_tree.xac" Model="f_katyn_Rt01_tree01" ShadowMap="f_katyn_Rt01_tree01" pos="378.4336 540.3903 -691.9014" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_grass.xac" Model="f_katyn_Rt01_grass01" ShadowMap="f_katyn_Rt01_grass01" pos="368.8638 417.7296 -693.6797" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_a_gr.xac" Model="f_katyn_Rt01_a_gr01" ShadowMap="f_katyn_Rt01_a_gr01" pos="360.6646 389.4385 -704.6825" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt01_blend3.xac" Model="f_katyn_Rt01_blend06" pos="338.2000 424.0527 -664.8270" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_light.xac" Model="f_katyn_Rt01_light01" pos="303.2021 414.4655 -704.0707" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_shaoff.xac" Model="f_katyn_Rt01_shaoff01" pos="369.9526 514.5558 -653.2372" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt01_b_model.xac" Model="f_katyn_Rt01_b_model01" ShadowMap="f_katyn_Rt01_b_model01" pos="313.7783 418.7652 -679.0939" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
@@ -151,26 +138,8 @@
 	<Model File="f_katyn_Rt06_ground.xac" Model="f_katyn_Rt06_ground01" ShadowMap="f_katyn_Rt06_ground01" pos="2287.7014 219.9212 -2842.7749" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt06_light.xac" Model="f_katyn_Rt06_light01" pos="2373.0125 268.1077 -2890.4331" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt06_shaoff.xac" Model="f_katyn_Rt06_shaoff01" pos="2250.1604 342.2332 -2814.7542" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt06_blend.xac" Model="f_katyn_Rt06_blend" ShadowMap="f_katyn_Rt06_blend" pos="3400.7163 270.8300 1107.7419" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt06_b_model.xac" Model="f_katyn_Rt06_b_model" ShadowMap="f_katyn_Rt06_b_model" pos="3381.0518 281.4854 1095.0942" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_Rt06_b_model.xac" Model="f_katyn_Rt06_b_model01" ShadowMap="f_katyn_Rt06_b_model01" pos="2237.2988 270.4224 -2808.2856" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt06_blend.xac" Model="f_katyn_Rt06_blend05" ShadowMap="f_katyn_Rt06_blend05" pos="2249.8457 259.7670 -2800.2517" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_01area_blend2.xac" Model="f_katyn07_2_01area_blend2" pos="855.6887 290.4288 -3794.5654" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_02area_blend2.xac" Model="f_katyn07_2_02area_blend2" pos="1050.3040 313.8851 -2655.5264" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_04area_blend2.xac" Model="f_katyn07_2_04area_blend2" pos="1526.3765 319.7767 -861.0824" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_05area_blend2.xac" Model="f_katyn07_2_05area_blend2" pos="2252.0586 295.5856 469.1672" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_06area_blend2.xac" Model="f_katyn07_2_06area_blend2" pos="1763.6073 345.8369 2024.0791" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn07_2_blend4.xac" Model="f_katyn07_2_blend4" ShadowMap="f_katyn07_2_blend4" pos="1984.0154 316.3114 -922.7195" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt06_blend2.xac" Model="f_katyn_Rt06_blend04" ShadowMap="f_katyn_Rt06_blend04" pos="2292.5730 257.3616 -2961.8052" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt01_blend2.xac" Model="f_katyn_Rt01_blend05" ShadowMap="f_katyn_Rt01_blend05" pos="377.9517 467.9992 -700.5396" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt06_blend2.xac" Model="f_katyn_Rt06_blend2" ShadowMap="f_katyn_Rt06_blend2" pos="3439.6909 270.8427 944.1367" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt01_blend2.xac" Model="f_katyn_Rt01_blend2" ShadowMap="f_katyn_Rt01_blend2" pos="807.8091 461.7873 1892.4077" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt02_blend2.xac" Model="f_katyn_Rt02_blend2" ShadowMap="f_katyn_Rt02_blend2" pos="3760.3242 228.6385 -575.0059" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt03_blend2.xac" Model="f_katyn_Rt03_blend04" ShadowMap="f_katyn_Rt03_blend04" pos="3518.4404 183.9864 -4481.8218" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt03_blend2.xac" Model="f_katyn_Rt03_blend03" ShadowMap="f_katyn_Rt03_blend03" pos="-53.6875 257.7040 -2249.2568" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt05_blend2.xac" Model="f_katyn_Rt05_blend2" ShadowMap="f_katyn_Rt05_blend2" pos="2423.5732 367.7981 -555.5973" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt03_blend2.xac" Model="f_katyn_Rt03_blend2" ShadowMap="f_katyn_Rt03_blend2" pos="2697.8252 298.3028 2408.2380" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
-	<Model File="f_katyn_Rt02_blend2.xac" Model="f_katyn_Rt02_blend04" ShadowMap="f_katyn_Rt02_blend04" pos="3546.0498 182.8222 -3418.6941" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_tp_01.xac" Model="f_katyn_tp_92" ShadowMap="f_katyn_tp_92" pos="4134.9951 302.0836 -532.0056" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_tp_03.xac" Model="f_katyn_tp_91" ShadowMap="f_katyn_tp_91" pos="2104.5396 389.0462 2194.0522" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>
 	<Model File="f_katyn_tp_04.xac" Model="f_katyn_tp_90" ShadowMap="f_katyn_tp_90" pos="2033.1143 360.5930 2227.2808" rot="0.0000 0.0000 0.0000" scale="1.0000 1.0000 1.0000"/>

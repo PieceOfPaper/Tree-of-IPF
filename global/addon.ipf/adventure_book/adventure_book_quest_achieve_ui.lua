@@ -389,6 +389,10 @@ function IS_QUEST_NEED_TO_SHOW(frame, questCls, mapName, searchText)
     if questMode == 'KEYITEM' or questMode == 'PARTY' then
         return false;
     end
+    
+    if IS_ADVENTURE_BOOK_EXCEPT_QUEST(questCls.ClassName) == 'YES' then
+        return false;
+    end
 
     local questCateDrop = GET_CHILD_RECURSIVELY(frame, 'questCateDrop');
     local cateIndex = questCateDrop:GetSelItemIndex();
@@ -457,13 +461,6 @@ function ADVENTURE_BOOK_QEUST_SEARCH(questSearchBg, ctrl)
     ADVENTURE_BOOK_QUEST_SEARCH_SHOW(questSearchBg:GetTopParentFrame(), searchText);
 end
 
-	if propName == "Name" then
-		if config.GetServiceNation() ~= "KOR" then
-			prop = dic.getTranslatedStr(prop);				
-		end
-	end
-
-
 function ADVENTURE_BOOK_QUEST_SEARCH_SHOW(frame, searchText)
     local quest_list = GET_CHILD_RECURSIVELY(frame, 'quest_list');
     quest_list:RemoveAllChild();
@@ -530,4 +527,15 @@ function ADVENTURE_BOOK_QUEST_SEARCH_SHOW(frame, searchText)
             y = y + mapNameCtrl:GetHeight();
         end
     end
+end
+
+function IS_ADVENTURE_BOOK_EXCEPT_QUEST(questName)
+    if questName == nil then
+        return 'NO'
+    end
+    
+    if string.sub(questName,1,3) == 'EV_' then
+        return 'YES'
+    end
+    return 'NO'
 end

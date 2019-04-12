@@ -223,29 +223,10 @@ function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
 			local itemName = GET_CHILD_RECURSIVELY(soldItemCtrl, "ItemName")
 			local itemObj = GetIES(cabinetItem:GetObject());
 
-			if itemObj.MaxStack <= 1 then
-				local itemReinforce_Level = TryGetProp(itemObj, "Reinforce_2", 0);
-				if itemReinforce_Level > 0 then
-					local levelStr = string.format("+%s ", itemReinforce_Level);
-					itemName:SetTextByKey("value1", levelStr)
-				end
-			end
-
-			itemName:SetTextByKey("value2", itemObj.Name)
+			itemName:SetTextByKey("value2", GET_FULL_NAME(itemObj));
 			itemName:SetTextByKey("value3", cabinetItem.sellItemAmount)		
 			itemName:SetTextByKey("value4", GET_COMMAED_STRING(cabinetItem.count))
-
-			--수수료 계산 / 추후 작업
-			--local fees, fessPercent;
-			--if true == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-				--fees = cabinetItem.count * 0.1
-				--fessPercent = 10;
-			--elseif false == session.loginInfo.IsPremiumState(ITEM_TOKEN) then
-				--fees = cabinetItem.count * 0.3   	
-				--fessPercent = 30;		
-			--end
-
-		elseif whereFrom ~= 'market_sell' and (difSec <= 0 or difSec == nil)  then 
+		elseif whereFrom ~= 'market_sell'  then 
 			--Draw ControlSet
 			local buyItemCtrl = gBox:CreateControlSet('market_cabinet_item_etc', 'Item_GetAll_Ctrl_'..i, 0, inner_yPos)
 			inner_yPos = inner_yPos + buyItemCtrl:GetHeight()
@@ -254,15 +235,7 @@ function INPUT_GETALL_MSG_BOX(frame, ctrl, now, flag, moneyItem)
 			local itemName = GET_CHILD_RECURSIVELY(buyItemCtrl, "ItemName")
 			local itemObj = GetIES(cabinetItem:GetObject());
 			
-			if itemObj.MaxStack <= 1 then
-				local itemReinforce_Level = TryGetProp(itemObj, "Reinforce_2", 0);
-				if itemReinforce_Level > 0 then
-					local levelStr = string.format("+%s ", itemReinforce_Level);
-					itemName:SetTextByKey("value1", levelStr)
-				end
-			end
-
-			itemName:SetTextByKey("value2", itemObj.Name)
+			itemName:SetTextByKey("value2", GET_FULL_NAME(itemObj));
 			itemName:SetTextByKey("value3", cabinetItem.count)		
 		end
 	end
@@ -402,4 +375,9 @@ function INPUT_TEXTMSG_BOX_EXEC(frame)
 	execScp(frame, resultString, frame);
 	
 	ui.CloseFrame("market_cabinet_popup")
+end
+
+function SET_MODAL_MSGBOX(msgBox)
+	msgBox = tolua.cast(msgBox, 'ui::CMessageBoxFrame');
+	msgBox:SetModal();
 end

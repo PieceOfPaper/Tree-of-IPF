@@ -68,10 +68,14 @@ function NEW_QUEST_ADD(frame, msg, argStr, argNum)
 	--퀘스트 중 대화만 끝나면 바로 success인 퀘스트가 있다. 이런 퀘스트도 수락시 지령창에 표시함
 	if ret == 'NOTABANDON' or questState == 'SUCCESS' then
         local isNew = 1        
-        if quest.IsCheckQuest(argNum) == false then isNew = 0 end
-        if questState == 'SUCCESS' or (questIES.QuestMode ~= nil and questIES.QuestMode == 'MAIN') then
+        if quest.IsCheckQuest(argNum) == false then
+			isNew = 0
+		end
+
+        if questState == 'SUCCESS' or (questIES.QuestMode ~= nil and (questIES.QuestMode == 'MAIN' or questIES.QuestMode == "SUB" or questIES.QuestMode == "REPEAT")) then
             isNew = 1
         end
+
 		UPDATE_ALLQUEST(frame, nil, isNew, argNum, 1);
 	elseif ret == 'ABANDON/LIST' then
 		UPDATE_ALLQUEST_ABANDONLIST(frame);
@@ -460,7 +464,7 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 
 	local updated = false;
 	local i = 0;
-	while 1 do	
+	while 1 do
 		if i >= quest.GetCheckQuestCount() then
 			break;
 		end
@@ -468,7 +472,7 @@ function UPDATE_QUEST_DETAIL(frame, questID)
 		local questID = quest.GetCheckQuest(i);
 		if questID == -1 then
 			local qctrl = frame:GetChild("gquest");
-			if qctrl == nil then                
+			if qctrl == nil then
 				quest.RemoveCheckQuestByIndex(i);
 			else
 				local checkBox = qctrl:GetChild("save");
@@ -565,7 +569,7 @@ function ABANDON_QUEST(frame, ctrl, argStr, argNum)
 
 end
 
-function EXEC_ABANDON_QUEST(questID)    
+function EXEC_ABANDON_QUEST(questID)
 	local frame = ui.GetFrame('quest');
 	local Quest_Ctrl = frame:GetChild("_Q_" .. questID);
 	if Quest_Ctrl ~= nil then
@@ -578,6 +582,7 @@ function EXEC_ABANDON_QUEST(questID)
 	UPDATE_QUESTINFOSET_2(questinfoset2Frame, 'ABANDON_QUEST', 0, questID);
 
 	quest.RemoveAllQuestMonsterList(questID);
+	quest.RemoveCheckQuest(questID);
 	frame:ShowWindow(0);
 end
 

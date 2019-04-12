@@ -75,7 +75,7 @@ function SHOPCOMMON_ITEM_LIST(frame)
 		slot:SetEventScriptArgString(ui.RBUTTONDOWN, imageName);
 		slot:SetEventScriptArgNumber(ui.RBUTTONDOWN, i);
 	
-		-- ¹­À½¾ÆÀÌÅÛ ¼ö·® Ç¥½Ã
+		-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ Ç¥ï¿½ï¿½
 		if shopItem.count > 1 then
 			slot:SetText(shopItem.count);
 		end
@@ -127,9 +127,8 @@ function SHOPCOMMON_UPDATE_BUY_PRICE(frame)
 		txt:SetText("{@st58}" ..COLOR_RED .. price);
 	end
 
-	local invenZeny = GET_TOTAL_MONEY();
 	local totaltext = frame:GetChild("finalprice");
-	local totalprice = invenZeny + price;
+	local totalprice = SumForBigNumberInt64(GET_TOTAL_MONEY_STR(), price);
 
 	totaltext:SetText("{@st43}"..COLOR_YELLOW .. totalprice);
 
@@ -142,8 +141,7 @@ function SHOPCOMMON_SLOT_RBTNDOWN(frame, slot, argStr, argNum)
 	SHOPCOMMON_UPDATE_BUY_PRICE(frame);
 end
 
-function SHOPCOMMON_BUY(frame, imageName, itemIndex)
-	local MyMoney = GET_TOTAL_MONEY();
+function SHOPCOMMON_BUY(frame, imageName, itemIndex)	
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
 	local shopItemList = session.GetShopItemList();
 	local shopItem	= shopItemList:PtrAt(itemIndex);
@@ -157,7 +155,7 @@ function SHOPCOMMON_BUY(frame, imageName, itemIndex)
 		end
 	end
 
-	if shopItem.price > MyMoney + TotalPrice then
+	if IsGreaterThanForBigNumber(shopItem.price + (-1 * TotalPrice), GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end
@@ -219,10 +217,9 @@ function SHOPCOMMON_BUY(frame, imageName, itemIndex)
 	end
 end
 
-function SHOPCOMMON_BUTTON_BUYSELL(frame, slot, argStr, argNum)
-	local MyMoney = GET_TOTAL_MONEY();
+function SHOPCOMMON_BUTTON_BUYSELL(frame, slot, argStr, argNum)	
 	local TotalPrice = GET_TOTAL_BUY_PRICE(frame);
-	if -TotalPrice > MyMoney then
+	if IsGreaterThanForBigNumber(-TotalPrice, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.AddText("SystemMsgFrame", ClMsg('NotEnoughMoney'));
 		return;
 	end	
@@ -236,7 +233,7 @@ function SHOPCOMMON_BUTTON_BUYSELL(frame, slot, argStr, argNum)
 end
 
 function SHOPCOMMON_BUTTON_BUY(frame, slot, argStr, argNum)
-	-- ¾ÆÀÌÅÛ ±¸ÀÔ
+	-- ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	local frame     = ui.GetFrame("shopcommon");	
 	local buyslotSet= GET_CHILD(frame, "buyitemslot", "ui::CSlotSet");
 	local slotCount = buyslotSet:GetSlotCount();

@@ -35,12 +35,13 @@ function ON_OPEN_ACCOUNTWAREHOUSE(frame)
 	ui.OpenFrame("accountwarehouse");
 end
 
-function ACCOUNTWAREHOUSE_OPEN(frame)
+function ACCOUNTWAREHOUSE_OPEN(frame)	
 	ui.OpenFrame("inventory");
 	packet.RequestItemList(IT_ACCOUNT_WAREHOUSE);
 	ui.EnableSlotMultiSelect(1);
 	INVENTORY_SET_CUSTOM_RBTNDOWN("ACCOUNT_WAREHOUSE_INV_RBTN")	
 	packet.RequestAccountWareVisLog();
+	session.inventory.ReqAccountWareHouseLimitAmount();
     new_add_item = {}
     new_stack_add_item = {}
 end
@@ -49,7 +50,7 @@ function ACCOUNTWAREHOUSE_CLOSE(frame)
 	ui.EnableSlotMultiSelect(0);
 	ui.CloseFrame("inventory");
 	INVENTORY_SET_CUSTOM_RBTNDOWN("None");
-	TRADE_DIALOG_CLOSE();
+	TRADE_DIALOG_CLOSE();    
     new_add_item = {}
     new_stack_add_item = {}
 end
@@ -97,7 +98,14 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 				ui.SysMsg(ClMsg("ItemIsNotTradable"));	
 				return;
 			end
-			item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue("HANDLE"));
+
+			if invItem.hasLifeTime == true then
+				local yesscp = string.format('item.PutItemToWarehouse(%d, "%s", %d, %d)', IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), invItem.count, frame:GetUserIValue('HANDLE'));
+				ui.MsgBox(ClMsg('PutLifeTimeItemInWareHouse'), yesscp, 'None');
+				return;
+			end
+
+			item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, invItem:GetIESID(), tostring(invItem.count), frame:GetUserIValue("HANDLE"));            
             new_add_item[#new_add_item + 1] = invItem:GetIESID()
             
             if geItemTable.IsStack(obj.ClassID) == 1 then
@@ -114,24 +122,19 @@ function PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFram
 			ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame);
 		end
 	end
-
 end
 
 function PUT_ACCOUNT_ITEM_TO_WAREHOUSE(parent, slot)
-
 	local frame = parent:GetTopParentFrame();
-
-	local liftIcon 			= ui.GetLiftIcon();
-	local iconInfo			= liftIcon:GetInfo();
+	local liftIcon = ui.GetLiftIcon();
+	local iconInfo = liftIcon:GetInfo();
 	local invItem = GET_PC_ITEM_BY_GUID(iconInfo:GetIESID());
-
 	if invItem == nil then
 		return;
 	end
 
 	local fromFrame = liftIcon:GetTopParentFrame();
 	PUT_ACCOUNT_ITEM_TO_WAREHOUSE_BY_INVITEM(frame, invItem, slot, fromFrame);
-
 end
 
 function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
@@ -143,16 +146,16 @@ function MSG_PUTITEM_ACCOUNT_WAREHOUSE(iesID, count, handle)
 	if count > 1 then
 		INPUT_NUMBER_BOX(frame, ScpArgMsg("InputCount"), "EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE", count, 1, count, nil, iesID);
 	else
-		item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, count, handle);
+		item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, tostring(count), handle);
         new_add_item[#new_add_item + 1] = iesID
 	end
 end
 
-function EXEC_PUT_TO_ACCOUNT_WAREHOUSE(iesID, count, handle)
+function EXEC_PUT_TO_ACCOUNT_WAREHOUSE(iesID, count, handle)    
     if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT() == false then
         return;
     end
-	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, count, handle);
+	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesID, tostring(count), handle);
     new_add_item[#new_add_item + 1] = iesID
 end
 
@@ -163,19 +166,19 @@ function EXEC_PUT_ITEM_TO_ACCOUNT_WAREHOUSE(frame, count, inputframe)
     if CHECK_ACCOUNT_WAREHOUSE_SLOT_COUNT_TO_PUT(insertItem) == false then
         return;
     end
-	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tonumber(count), frame:GetUserIValue("HANDLE"));
+	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, iesid, tostring(count), frame:GetUserIValue("HANDLE"));
     new_add_item[#new_add_item + 1] = iesid
     if geItemTable.IsStack(insertItem.ClassID) == 1 then
         new_stack_add_item[#new_stack_add_item + 1] = insertItem.ClassID
     end
 end
 
-function ACCOUNT_WAREHOUSE_SLOT_RESET(frame, slot)
+function ACCOUNT_WAREHOUSE_SLOT_RESET(frame, slot)    
 	slot:SelectBySlotset(false);
 end
 
-function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
-	if frame:IsVisible() == 0 then
+function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)    
+	if frame:IsVisible() == 0 then        
         new_add_item = {}
         new_stack_add_item = {}
 		return;
@@ -197,10 +200,10 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 	saveMoney:SetTextByKey('value', 0)
 	local slotIndx = 0;
 	while itemList:InvalidIndex() ~= index do
-		local invItem = itemList:Element(index);
+		local invItem = itemList:Element(index);        
 		local obj = GetIES(invItem:GetObject());
 		if obj.ClassName == MONEY_NAME then
-			saveMoney:SetTextByKey('value',GetCommaedText(invItem.count))
+			saveMoney:SetTextByKey('value', GetCommaedText(invItem.count))
 			itemCnt = itemCnt - 1;
 		else
 			local slot = slotset:GetSlotByIndex(slotIndx)            
@@ -220,8 +223,8 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
             end
 
 			SET_SLOT_IMG(slot, iconImg)
-				SET_SLOT_COUNT(slot, invItem.count)
-
+			SET_SLOT_COUNT(slot, invItem.count)
+			
 			SET_SLOT_STYLESET(slot, itemCls)
 			SET_SLOT_IESID(slot, invItem:GetIESID())
             SET_SLOT_ITEM_TEXT_USE_INVCOUNT(slot, invItem, obj, nil)
@@ -229,12 +232,20 @@ function ON_ACCOUNT_WAREHOUSE_ITEM_LIST(frame)
 			local icon = slot:GetIcon();
 			icon:SetTooltipArg("accountwarehouse", invItem.type, invItem:GetIESID());
 			SET_ITEM_TOOLTIP_TYPE(icon, itemCls.ClassID, itemCls, "accountwarehouse");	
+
+			if invItem.hasLifeTime == true then
+				ICON_SET_ITEM_REMAIN_LIFETIME(icon, IT_ACCOUNT_WAREHOUSE);
+				slot:SetFrontImage('clock_inven');
+			else
+				CLEAR_ICON_REMAIN_LIFETIME(slot, icon);
+			end
+
 			slotIndx = slotIndx + 1;
 		end
 		index = itemList:Next(index);
 	end
 
-    -- ?�이?�이 ?�어???�용가?�한 ?�롯?�면 ?�킨 변�?
+    -- 아이템이 없어도 사용가능한 슬롯이면 스킨 변경
     local account = session.barrack.GetMyAccount();
 	local slotCount = account:GetAccountWarehouseSlotCount();
     local availableTakeCount = math.max(slotCount, slotIndx);
@@ -364,13 +375,13 @@ function ACCOUNT_WAREHOUSE_WITHDRAW(frame, slot)
 		return;
 	end
 
-	if visItem.count < price then
+	if IsGreaterThanForBigNumber(price, visItem:GetAmountStr()) == 1 then
 		moneyInput:SetText('0');
 		ui.MsgBox(ClMsg("NotEnoughStoredMoney"));
 		return;
 	end
 	session.ResetItemList();
-	session.AddItemID(visItem:GetIESID(), price);
+	session.AddItemIDWithAmount(visItem:GetIESID(), tostring(price));
 	item.TakeItemFromWarehouse_List(IT_ACCOUNT_WAREHOUSE, session.GetItemIDList(), frame:GetUserIValue("HANDLE"));
 	moneyInput:SetText('0');
 	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","Withdraw")
@@ -389,18 +400,18 @@ function ACCOUNT_WAREHOUSE_DEPOSIT(frame, slot)
 
 	local visItem = session.GetInvItemByName(MONEY_NAME)
 	if visItem == nil then
-		moneyInput:SetText('0');
+		moneyInput:SetText('0');		
 		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
 		return;
 	end
 
-	if visItem.count < price then
-		moneyInput:SetTempText('0');
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then		
+		moneyInput:SetTempText('0');		
 		ui.MsgBox(ClMsg("NOT_ENOUGH_MONEY"));
 		return;
 	end
 
-	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, visItem:GetIESID(), price, frame:GetUserIValue("HANDLE"));
+	item.PutItemToWarehouse(IT_ACCOUNT_WAREHOUSE, visItem:GetIESID(), tostring(price), frame:GetUserIValue("HANDLE"));
 	moneyInput:SetText('0');
 	DISABLE_BUTTON_DOUBLECLICK("accountwarehouse","Deposit")
 end
@@ -436,7 +447,7 @@ function ACCOUNT_WAREHOUSE_EXTEND(frame, slot)
 end
 
 function CHECK_USER_MEDAL_FOR_EXTEND_ACCOUNT_WAREHOUSE(price)
-	if 0 > GET_TOTAL_MONEY() - price then
+	if IsGreaterThanForBigNumber(price, GET_TOTAL_MONEY_STR()) == 1 then
 		ui.SysMsg(ScpArgMsg("NotEnoughMoney"))
 		return;
 	end

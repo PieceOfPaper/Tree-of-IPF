@@ -7,10 +7,6 @@ end
 
 function PCBANG_POINT_TIMER_SET_MARGIN(timerFrame)
     local sysFrame = ui.GetFrame("sysmenu");
-    if sysFrame == nil then
-        return;
-    end
-
     local timerRect = timerFrame:GetMargin();
     local pcbang_shop = GET_CHILD_RECURSIVELY(sysFrame, "pcbang_shop");
     if pcbang_shop ~= nil then
@@ -21,7 +17,7 @@ function PCBANG_POINT_TIMER_SET_MARGIN(timerFrame)
 end
 
 function ON_PCBANG_POINT_TIMER_OPEN(timerFrame)
-    if session.loginInfo.IsPremiumState(NEXON_PC) ~= true and ENABLE_USE_PCBANG_POINT_SHOP_EVERYBODY ~= 1 then
+    if session.loginInfo.IsPremiumState(NEXON_PC) ~= true then
         ui.CloseFrame('pcbang_point_timer');
         return;
     end
