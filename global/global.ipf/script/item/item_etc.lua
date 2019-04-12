@@ -1487,3 +1487,9 @@ function Achieve_Event_With_Friend(pc)
     TxAddAchievePoint(tx, 'Achieve_Event_With_Friend', 1)
     local ret = TxCommit(tx);
 end
+
+function Achieve_Event_Game_Guide_Creator(pc)
+    local tx = TxBegin(pc);
+    TxAddAchievePoint(tx, 'Achieve_Event_Game_Guide_Creator', 1)
+    local ret = TxCommit(tx);
+end

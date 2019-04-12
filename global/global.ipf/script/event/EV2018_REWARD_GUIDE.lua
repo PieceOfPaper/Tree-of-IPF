@@ -514,5 +514,4 @@ function SCR_USE_EVENT_RETURN_BOX(pc) --복귀 유저 상자 --
     TxGiveItem(tx, 'Event_Nru2_Box_1_re', 1, "EVENT_RETURN")
     IMCLOG_CONTENT('ENTER_EV_GUIDE', 'ENTER_EV_RETRUN  '..'..PC_LV : '..pc.Lv..'  '..'TEAM_LV : '..teamlv..'  '..'TEAM_NAME : '..teamName) -- Log --
     local ret = TxCommit(tx)
-    ShowOkDlg(pc, 'NPC_EVENT_2018GUIDE_DLG4', 1) --복귀 유저가 증명되었습니다. --
 end

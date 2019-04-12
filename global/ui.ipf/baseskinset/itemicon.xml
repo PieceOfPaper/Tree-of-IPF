@@ -2545,6 +2545,24 @@
 		<image name="icon_item_bubble_pipeb" file="\icon\weapon\icon_item_bubble_pipeb.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_scope_marin" file="\icon\weapon\icon_item_scope_marin.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_lighthouse_stick" file="\icon\weapon\icon_item_lighthouse_stick.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_bow1" file="\icon\weapon\icon_item_chess_bow1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_bow2" file="\icon\weapon\icon_item_chess_bow2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_staff1" file="\icon\weapon\icon_item_chess_staff1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_staff2" file="\icon\weapon\icon_item_chess_staff2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_thmace1" file="\icon\weapon\icon_item_chess_thmace1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_thmace2" file="\icon\weapon\icon_item_chess_thmace2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_sword1" file="\icon\weapon\icon_item_chess_sword1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_sword2" file="\icon\weapon\icon_item_chess_sword2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_rapier1" file="\icon\weapon\icon_item_chess_rapier1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_rapier2" file="\icon\weapon\icon_item_chess_rapier2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_rod1" file="\icon\weapon\icon_item_chess_rod1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_rod2" file="\icon\weapon\icon_item_chess_rod2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_mace1" file="\icon\weapon\icon_item_chess_mace1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_mace2" file="\icon\weapon\icon_item_chess_mace2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_thsword1" file="\icon\weapon\icon_item_chess_thsword1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_thsword2" file="\icon\weapon\icon_item_chess_thsword2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_shield" file="\icon\weapon\icon_item_chess_shield.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_timer" file="\icon\weapon\icon_item_chess_timer.png" imgrect="0 0 256 256" CMM_Caption="2018 08 장난감"/>
 	</imagelist>
 	<imagelist category="acc_item">
 		<image name="item_necklace_01" file="\icon\acc\item_necklace_1.png" imgrect="0 0 256 256" CMM_Caption="목걸이"/>
@@ -2986,6 +3004,13 @@
 		<image name="icon_item_accessory_papermarincap" file="\icon\hairacc\icon_item_accessory_papermarincap.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_BigRedRibbon" file="\icon\hairacc\icon_item_accessory_BigRedRibbon.png" imgrect="0 0 256 256"/>
 		<image name="icon_item_accessory_RedRibbon" file="\icon\hairacc\icon_item_accessory_RedRibbon.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chessKing" file="\icon\hairacc\icon_item_accessory_chessKing.png" imgrect="0 0 256 256" CMM_Caption="2018 08 헤어악세"/>
+		<image name="icon_item_accessory_chessQueen" file="\icon\hairacc\icon_item_accessory_chessQueen.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chessBishop" file="\icon\hairacc\icon_item_accessory_chessBishop.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chessKnight1" file="\icon\hairacc\icon_item_accessory_chessKnight1.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chessKnight2" file="\icon\hairacc\icon_item_accessory_chessKnight2.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chessBoard" file="\icon\hairacc\icon_item_accessory_chessBoard.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_accessory_chessRook" file="\icon\hairacc\icon_item_accessory_chessRook.png" imgrect="0 0 256 256"/>
 	</imagelist>
 	<imagelist category="collection_item">
 		<image name="icon_collitem_collection" file="\icon\colletion\icon_item_collection.tga" imgrect="0 0 673 419" CMM_Caption="월계수"/>
@@ -5422,6 +5447,24 @@
 		<image name="icon_item_god_box" file="\icon\payment\icon_item_god_box.png" imgrect="0 0 256 256" CMM_Caption="2018 07 레티샤 상자"/>
 		<image name="icon_item_Event_tpBox_500" file="\icon\payment\icon_item_Event_tpBox_500.png" imgrect="0 0 256 256" CMM_Caption="이벤트 TP550"/>
 		<image name="icon_item_acc_hair_box1" file="\icon\payment\icon_item_acc_hair_box1.png" imgrect="0 0 256 256" CMM_Caption="헤어악세 상자"/>
+		<image name="icon_item_abilitypoint4" file="\icon\payment\icon_item_abilitypoint4.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 1만"/>
+		<image name="icon_item_abilitypoint5" file="\icon\payment\icon_item_abilitypoint5.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 3만"/>
+		<image name="icon_item_abilitypoint6" file="\icon\payment\icon_item_abilitypoint6.png" imgrect="0 0 256 256" CMM_Caption="특성포인트 10만"/>
+		<image name="icon_item_chessUniform01_m" file="\icon\payment\icon_item_chessUniform01_m.png" imgrect="0 0 256 256" CMM_Caption="8월 테마 체스 코스튬"/>
+		<image name="icon_item_chessUniform01_f" file="\icon\payment\icon_item_chessUniform01_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chessUniform02_m" file="\icon\payment\icon_item_chessUniform02_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chessUniform02_f" file="\icon\payment\icon_item_chessUniform02_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chessUniform03_m" file="\icon\payment\icon_item_chessUniform03_m.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chessUniform03_f" file="\icon\payment\icon_item_chessUniform03_f.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_chess_popupbook" file="\icon\payment\icon_item_chess_popupbook.png" imgrect="0 0 256 256" CMM_Caption="8월 테마 체스 팝업북"/>
+		<image name="icon_item_Chess_box01" file="\icon\payment\icon_item_Chess_box01.png" imgrect="0 0 256 256" CMM_Caption="2018 8월 코스튬 박스"/>
+		<image name="icon_item_Chess_box02" file="\icon\payment\icon_item_Chess_box02.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_Chess_box03" file="\icon\payment\icon_item_Chess_box03.png" imgrect="0 0 256 256"/>
+		<image name="icon_item_giftBox_5" file="\icon\payment\icon_item_giftBox_5.png" imgrect="0 0 256 256" CMM_Caption="선물상자5"/>
+		<image name="icon_item_lens_blueDrop" file="\icon\payment\icon_item_lens_blueDrop.png" imgrect="0 0 256 256" CMM_Caption="블루 드롭 렌즈"/>
+		<image name="icon_item_lens_twinklePurple" file="\icon\payment\icon_item_lens_twinklePurple.png" imgrect="0 0 256 256" CMM_Caption="트윙클 퍼플 렌즈"/>
+		<image name="icon_item_lens_twinkleForest" file="\icon\payment\icon_item_lens_twinkleForest.png" imgrect="0 0 256 256" CMM_Caption="트윙클 포레스트 렌즈"/>
+		<image name="icon_item_lens_XCross" file="\icon\payment\icon_item_lens_XCross.png" imgrect="0 0 256 256" CMM_Caption="엠버 크로스 렌즈"/>
 	</imagelist>
 	<imagelist category="seal">
 		<image name="icon_seal_yellow_cc_A1" file="\icon\seal\seal_yellow_cc_A1.tga" imgrect="0 0 80 80"/>
