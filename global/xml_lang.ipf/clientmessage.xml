@@ -82,9 +82,12 @@
 		<Class ClassID="1108" ClassName="OpenAwakeningShop" Data="각성 상점 개설"/>
 		<Class ClassID="1109" ClassName="TeamName" Data="팀명"/>
 		<Class ClassID="1110" ClassName="CharacterName" Data="캐릭터명"/>
+		<Class ClassID="1111" ClassName="Transcend" Data="초월"/>
 		<Class ClassID="1112" ClassName="PercentSymbol" Data="%"/>
 		<Class ClassID="1113" ClassName="PlusSymbol" Data="+"/>
 		<Class ClassID="1114" ClassName="MinusSymbol" Data="-"/>
+		<Class ClassID="1122" ClassName="Market" Data="마켓"/>
+		<Class ClassID="1123" ClassName="Trade" Data="개인 거래"/>
 	</Category>
 	<Category Name="Reinforce">
 		<Class ClassID="2001" ClassName="NotEnoughReinforcePotential" Data="강화에 필요한 포텐셜이 부족합니다"/>
@@ -111,7 +114,7 @@
 		<Class ClassID="2022" ClassName="GemReinforce" Data="젬 강화"/>
 		<Class ClassID="2023" ClassName="NOT_HAVE_MAGIC_AMULET_SOCKET_SPACE" Data="더 이상 장착할 수 없습니다."/>
 		<Class ClassID="2024" ClassName="YouDeadSoSomeItemHasBeenBreak{ITEM}{COUNT}" Data="사망 페널티로 [{ITEM}] 아이템이 [{COUNT}개] 소실되었습니다."/>
-		<Class ClassID="2025" ClassName="Reinforce" Data="강화"/>
+		<Class ClassID="2025" ClassName="Reinforce_2" Data="강화"/>
 		<Class ClassID="2026" ClassName="WeaponWarningMSG" Data="+{Auto_1} 이상의 무기 아이템 강화 실패 시 포텐셜이 소모되며 포텐셜이 0일 때는 아이템이 소멸 됩니다. 강화를 진행하시겠습니까?"/>
 		<Class ClassID="2027" ClassName="GemNotEquip" Data="선택하신 장비에는 해당 젬을 사용할 수 없습니다. "/>
 		<Class ClassID="2028" ClassName="ThisGemCantReinforce" Data="강화 할 수 없는 아이템입니다."/>
@@ -237,7 +240,7 @@
 		<Class ClassID="2256" ClassName="PleaseRegisterBriquettingLook" Data="외형 추출할 무기를 올려주세요."/>
 		<Class ClassID="2257" ClassName="CannotLock{UI}VisibleState" Data="{UI} UI가 열려 있는 상태에서는 잠금을 시도할 수 없습니다."/>
 		<Class ClassID="2258" ClassName="EnchantedItemForBriquetting" Data="{@st66d_y}강화{/} 및 {@st66d_y}초월{/}된 아이템입니다.{nl}정말 무기 외형 변환을 위해 사용하시겠습니까?"/>
-		<Class ClassID="2259" ClassName="ItemSellFailPlzReconnect" Data="아이템 판매에 실패했습니다. 다시 시도하려면 재접속해주세요."/>
+	<Class ClassID="2259" ClassName="ItemSellFailPlzReconnect" Data="아이템 판매에 실패했습니다. 다시 시도하려면 재접속해주세요."/>
 	</Category>
 	<Category Name="Manufacture">
 		<Class ClassID="3001" ClassName="CONTINUE_MIXING_USING_S" Data="{Auto_1} 아이템을 사용하여 제작을 시작합니다. 계속하시겠습니까?"/>
@@ -1337,7 +1340,7 @@
 		<Class ClassID="21296" ClassName="FlutingKeyboardClose" Data="피리연주를 닫습니다."/>
 		<Class ClassID="21297" ClassName="NotForSale" Data="구매할 수 없는 아이템입니다."/>
 		<Class ClassID="21298" ClassName="PCBangPointShopPurchaseFailed" Data="PC방 아이템 구매에 실패했습니다. 다시 시도해 주세요."/>
-		<Class ClassID="21299" ClassName="PCBangDailyReward" Data="매일 접속 보상"/>
+	<Class ClassID="21299" ClassName="PCBangDailyReward" Data="매일 접속 보상"/>
 		<Class ClassID="21300" ClassName="PCBangMonthlyReward" Data="매달 접속 보상"/>
 		<Class ClassID="21301" ClassName="PCBangTotalReward{Hour}" Data="누적 {Hour}시간 보상"/>
 		<Class ClassID="21302" ClassName="PCBangLackOfPoint" Data="PC방 포인트가 부족합니다."/>
@@ -8267,7 +8270,7 @@
 		<Class ClassID="106053" ClassName="BuySuccess" Data="구매 완료"/>
 		<Class ClassID="106054" ClassName="SellSuccess" Data="판매 완료"/>
 		<Class ClassID="106055" ClassName="SellCancel" Data="판매 취소"/>
-		<Class ClassID="106056" ClassName="InvalidMaterialSearchFormat{MSG}" Data="잘못된 재료목록 형식입니다 : {MSG}"/>
+	<Class ClassID="106056" ClassName="InvalidMaterialSearchFormat{MSG}" Data="잘못된 재료목록 형식입니다 : {MSG}"/>
 		<Class ClassID="106057" ClassName="VeryRapidRequest" Data="너무 빠른 요청입니다. 잠시 후 다시 시도해주세요."/>
 		<Class ClassID="106058" ClassName="PleaseWaiting" Data="현재 대기중입니다"/>
 	</Category>
@@ -8833,7 +8836,7 @@
 		<Class ClassID="124046" ClassName="FailToTakeCostume" Data="코스튬 수거에 실패했습니다."/>
 		<Class ClassID="124047" ClassName="FailSlashCommand" Data="해당 명령이 없거나 실패하였습니다."/>
 		<Class ClassID="124048" ClassName="CantOpenBookDuringSkillCharge" Data="스킬 사용 중에는 책을 읽을 수 없습니다."/>
-		<Class ClassID="124049" ClassName="ResetKeyConfig" Data="기본값으로 복원되었습니다."/>
+	<Class ClassID="124049" ClassName="ResetKeyConfig" Data="기본값으로 복원되었습니다."/>
 		<Class ClassID="124050" ClassName="CantRideInCurrentPos" Data="해당 위치에서는 탑승할 수 없습니다."/>
 	</Category>
 	<Category Name="Quest">
@@ -11472,7 +11475,7 @@
 		<Class ClassID="200033" ClassName="DontChangeMonsterThisArea" Data="해당 지역에서는 체인지 스킬이 적용되지 않습니다."/>
 		<Class ClassID="200034" ClassName="MuletaCoolDownReset" Data="파소 도블레 재사용 대기시간 초기화!"/>
 		<Class ClassID="200035" ClassName="OverReinforce" Data="오버 리인포스"/>
-		<Class ClassID="200037" ClassName="Fanaticism_Martyrdom" Data="파나티시즘: 순교"/>
+	<Class ClassID="200037" ClassName="Fanaticism_Martyrdom" Data="파나티시즘: 순교"/>
 	</Category>
 	<Category Name="HotKey">
 		<Class ClassID="201001" ClassName="Minimap_-" Data="미니맵 -"/>
@@ -12025,7 +12028,7 @@
 		<Class ClassID="300175" ClassName="Beauty_Coupon_Box" Data="뷰티샵: 바버샵 쿠폰 선물 봉투"/>
 		<Class ClassID="300176" ClassName="Premium_StatReset_30d" Data="스탯 초기화 포션 (30일)"/>
 		<Class ClassID="300177" ClassName="FAILED_PURCHASED_1001000" Data="구매 실패했습니다.{nl}해당 아이템 구매 시{nl}넥슨캐시 월 구매(사용) 한도를 초과합니다."/>
-		<Class ClassID="300178" ClassName="PC_Premium_SkillReset" Data="[PC방] 스킬 초기화 포션"/>
+	<Class ClassID="300178" ClassName="PC_Premium_SkillReset" Data="[PC방] 스킬 초기화 포션"/>
 		<Class ClassID="300179" ClassName="PC_Premium_StatReset" Data="[PC방] 스탯 초기화 포션"/>
 		<Class ClassID="300180" ClassName="Hair_Acc_Box" Data="헤어 액세서리 상자"/>
 		<Class ClassID="300181" ClassName="PcbangChallengeCount{COUNT}" Data="챌린지 모드 입장 +{COUNT}회 증가"/>
@@ -12163,7 +12166,7 @@
 		<Class ClassID="501178" ClassName="EVENT_1806_PENALTY_MSG6" Data="승부의 신"/>
 		<Class ClassID="501179" ClassName="EVENT_1806_PENALTY_MSG7" Data="승부의 신 종료"/>
 		<Class ClassID="501180" ClassName="EVENT_1806_PENALTY_MSG8" Data="승부의 신 랭킹"/>
-	</Category>
+		</Category>
 	<Category Name="GEM_GACHA">
 		<Class ClassID="510001" ClassName="GEM_GACHA_SEL1" Data="젬 1회 뽑기"/>
 		<Class ClassID="510002" ClassName="GEM_GACHA_SEL2" Data="뽑기를 하지 않는다."/>
@@ -12366,7 +12369,7 @@
 		<Class ClassID="801058" ClassName="COLONY_ROOTCRYSTAL_NAME_2" Data="나무뿌리 수정(재생)"/>
 		<Class ClassID="801059" ClassName="COLONY_ROOTCRYSTAL_NAME_3" Data="나무뿌리 수정(공격)"/>
 		<Class ClassID="801060" ClassName="COLONY_ROOTCRYSTAL_NAME_4" Data="나무뿌리 수정(방어)"/>
-		<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
+	<Class ClassID="801066" ClassName="ColonyPaymentBtnOnlyGuildMaster" Data="길드마스터만 점령 보상을 수령할 수 있습니다."/>
 		<Class ClassID="801067" ClassName="ColonyPaymentItemTooManyInGuildWare" Data="길드보관함에 점령 보상 아이템이 너무 많습니다. {nl}길드 보관함을 정리해주세요."/>
 		<Class ClassID="801068" ClassName="ColonyPaymentItemCountIsZero" Data="지급될 점령 보상 아이템이 없습니다."/>
 	</Category>
