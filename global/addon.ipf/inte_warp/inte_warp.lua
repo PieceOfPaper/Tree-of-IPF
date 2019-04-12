@@ -64,6 +64,17 @@ function INTE_WARP_OPEN_BY_NPC()
 
 end
 
+function INTE_WARP_OPEN_NORMAL()
+
+   	local frame = ui.GetFrame('inte_warp');
+	
+	frame:SetUserValue("Type", "Normal");
+
+	frame:ShowWindow(1);
+	frame:Invalidate();
+	
+end
+
 function INTE_WARP_OPEN_DIB()
 
    	local frame = ui.GetFrame('inte_warp');
@@ -83,10 +94,12 @@ function INTE_WARP_OPEN_FOR_QUICK_SLOT()
 end
 
 function INTE_WARP_CLOSE(frame)
+
 	frame:SetUserValue('SCROLL_WARP', 'NO')
-    frame:SetUserValue('SCROLL_WARP_IESID', '0')
 	UNREGISTERR_LASTUIOPEN_POS(frame)
-	SetKeyboardSelectMode(0)	
+
+	SetKeyboardSelectMode(0)
+	
 end
 
 function GET_INTE_WARP_LIST()
@@ -122,7 +135,9 @@ function WARP_INFO_ZONE(zoneName)
 end
 
 function ON_INTE_WARP(frame, changeDirection)
+
 	local type = frame:GetUserValue("Type");
+
 	frame:SetUserValue("Mode", "InteWarp");
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
@@ -139,7 +154,7 @@ function ON_INTE_WARP(frame, changeDirection)
 	local currentDirection = config.GetConfig("INTEWARP_DIRECTION", "s");
 	currentDirection = "s";
 
-	if changeDirection == true or ui.IsImageExist("worldmap_" .. currentDirection .. "_current") == false then
+	if changeDirection == true or ui.GetImage("worldmap_" .. currentDirection .. "_current") == nil then
 		makeWorldMapImage = true;
 	end
 
@@ -536,6 +551,7 @@ end
 	local pc = GetMyPCObject();
 	local nowZoneName = GetZoneName(pc);
 
+	local myMoney = GET_TOTAL_MONEY();
 	local warpcost = 0;
 	local targetMapName = 0;
 	local type = frame:GetUserValue("Type");
@@ -570,7 +586,7 @@ end
 	end
 	
 	local warpitemname = warpFrame:GetUserValue('SCROLL_WARP');	
-	if (warpitemname == 'NO' or warpitemname == 'None') and IsGreaterThanForBigNumber(warpcost, GET_TOTAL_MONEY_STR()) == 1 then
+	if (warpitemname == 'NO' or warpitemname == 'None') and myMoney < warpcost then
 		ui.SysMsg(ScpArgMsg('Auto_SilBeoKa_BuJogHapNiDa.'));
 		return;
 	end
