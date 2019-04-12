@@ -1,0 +1,411 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<GameList>
+	<Game Name="MISSION_WHITETREES" rankScript="RAID_RANK_SCP" minLv="0" maxLv="0" mapName="f_whitetrees_56_1_event" startWaitSec="5177402">
+		<StageList>
+			<Stage Name="DefGroup">
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="sec30">
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="30초 후에 시작됩니다"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="sec10">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="20"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="10초 후에 시작됩니다"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="start">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="미션이 시작됩니다!"/>
+								<Str Str="scroll"/>
+								<Num Num="5"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="DefGroup"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EXEC_GIVE_TAKE_SOBJ_ACHIEVE_TX" Client="NO" UseSleep="NO">
+								<Str Str="None"/>
+								<Str Str="None"/>
+								<Str Str="None"/>
+								<Str Str="account/EVENT_VALUE_AOBJ01/1"/>
+								<Str Str="EVENT_VALUE_AOBJ01"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="FailCheck">
+				<ObjList/>
+				<StageEvents>
+					<Event eventName="pcDieCheck">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT" Client="NO" UseSleep="NO">
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="FailCheck"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Fail"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_FAIL" Client="NO" UseSleep="NO">
+								<Str Str="모든 플레이어가 전투 불능 상태가 되었습니다."/>
+								<Str Str="확인을 누르시면 입장했던 곳으로 이동합니다."/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="min10Check">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3000"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="10분 뒤 미션이 종료됩니다"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="min5Check">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3300"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="5분 뒤 미션이 종료됩니다"/>
+								<Str Str="scroll"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="min60Check">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="3600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="FailCheck"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Fail" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="미션 실패 : 30초 후 원래 존으로 돌아갑니다"/>
+						<Str Str="scroll"/>
+						<Num Num="10"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="failsec30">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="30"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Success" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_DM_ICON" Client="NO" UseSleep="NO">
+						<Str Str="미션 성공!{nl}60초 후에 돌아갑니다"/>
+						<Str Str="Clear"/>
+						<Num Num="10"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="60"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList/>
+				<StageEvents>
+					<Event execCount="1" eventName="successsec60">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="60"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_END" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_RETURN" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage1" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_QUEST_NAME" Client="NO" UseSleep="NO">
+						<Str Str="검은 수정을 수집하세요{nl}제한시간:10분"/>
+					</ToolScp>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="600"/>
+					</ToolScp>
+				</StartScpList>
+				<CompleteScpList>
+					<ToolScp Scp="MGAME_DESTROY_STAGE" Client="NO" UseSleep="NO">
+						<Str Str="Stage1"/>
+					</ToolScp>
+				</CompleteScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="153019" Pos="-45.16#24.08#393.93" genCount="1" genTime="20000" objectKey="0" propList="&apos;Dialog&apos; &apos;WHITETREE_ALTAL&apos; "/>
+					<Obj Type="Monster" MonType="20026" Pos="-863.76#64.40#-649.08" range="150" genCount="1" genTime="20000" objectKey="1" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-379.84#39.64#-181.67" range="200" genCount="1" genTime="20000" objectKey="2" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-41.16#64.65#-540.31" range="100" genCount="1" genTime="20000" objectKey="3" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="893.41#45.84#-618.99" range="150" genCount="1" genTime="20000" objectKey="4" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="1312.46#-35.44#-357.11" range="100" genCount="1" genTime="20000" objectKey="5" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="745.04#17.71#1076.55" range="100" genCount="1" genTime="20000" objectKey="7" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-626.52#21.90#916.25" range="200" genCount="1" genTime="20000" objectKey="8" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-1054.82#55.40#413.54" range="150" genCount="1" genTime="20000" objectKey="9" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-1401.88#61.47#1267.37" range="100" genCount="1" genTime="20000" objectKey="10" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="137.98#63.64#1425.96" range="100" genCount="1" genTime="20000" objectKey="11" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="570.89#45.84#-554.45" range="200" genCount="1" genTime="20000" objectKey="13" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="173.84#64.65#-589.59" range="100" genCount="1" genTime="20000" objectKey="14" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="851.39#17.71#832.88" range="100" genCount="1" genTime="20000" objectKey="15" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="855.13#34.71#337.83" range="100" genCount="1" genTime="20000" objectKey="16" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="866.75#34.71#72.19" range="150" genCount="1" genTime="20000" objectKey="6" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="1391.08#-35.44#-552.22" range="100" genCount="1" genTime="20000" objectKey="17" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-1246.95#61.47#1110.01" range="100" genCount="1" genTime="20000" objectKey="18" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="197.36#63.64#1153.15" range="100" genCount="1" genTime="20000" objectKey="19" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="-17.78#24.07#556.12" range="150" genCount="1" genTime="90000" objectKey="20" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="20026" Pos="240.08#1.00#10.47" range="150" genCount="1" genTime="90000" objectKey="21" UseAiOutOfPc="1" AfterGenScript="CREATE_WHITECORE"/>
+					<Obj Type="Monster" MonType="41362" Pos="-418.07#39.64#-185.80" range="150" genCount="1" genTime="1000" objectKey="22" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="779.77#45.84#-394.19" range="150" genCount="1" genTime="1000" objectKey="25" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="843.27#45.84#-668.21" range="150" genCount="1" genTime="1000" objectKey="26" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="728.77#34.71#183.57" range="150" genCount="1" genTime="1000" objectKey="27" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="952.05#34.71#199.32" range="150" genCount="1" genTime="1000" objectKey="28" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="1350.07#-35.44#-511.18" range="150" genCount="1" genTime="1000" objectKey="29" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="282.04#1.00#-41.47" range="150" genCount="1" genTime="1000" objectKey="30" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="850.59#17.71#960.71" range="150" genCount="1" genTime="1000" objectKey="12" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="173.76#63.64#1279.11" range="150" genCount="1" genTime="1000" objectKey="31" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="79.92#63.64#1196.57" range="150" genCount="1" genTime="1000" objectKey="32" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="-666.14#21.90#902.74" range="150" genCount="1" genTime="1000" objectKey="33" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="-1024.48#55.40#401.58" range="150" genCount="1" genTime="1000" objectKey="34" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="-1192.36#61.47#1158.39" range="150" genCount="1" genTime="1000" objectKey="35" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="-1385.98#61.47#1236.97" angle="51" range="150" genCount="1" genTime="1000" objectKey="36" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="-881.28#64.40#-623.56" range="150" genCount="1" genTime="1000" objectKey="23" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="41362" Pos="65.57#64.65#-532.14" range="150" genCount="1" genTime="1000" objectKey="24" propList="&apos;StatType&apos; &apos;13&apos; &apos;DropItemList&apos; &apos;None&apos; &apos;Lv&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;EXP_Rate&apos; &apos;100&apos; "/>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="NextStage">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage1/0"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EXEC_SETPOS" Client="NO" UseSleep="NO">
+								<AbsPosRange X="1449.5078" Y="68.069534" Z="272.39734"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Msg">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="5"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="검은 수정을 찾아서 제단으로 가져오세요"/>
+								<Str Str="!"/>
+								<Num Num="10"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="TimeOut">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage1"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event execCount="1" eventName="Gen1">
+						<condList>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_EXEC_CREMON_PCCOUNT_2" Client="NO" UseSleep="NO">
+								<MGameObjIndex List="Stage1/12/Stage1/22/Stage1/23/Stage1/24/Stage1/25/Stage1/26/Stage1/27/Stage1/28/Stage1/29/Stage1/30/Stage1/31/Stage1/32/Stage1/33/Stage1/34/Stage1/35/Stage1/36"/>
+								<Num Num="1"/>
+								<Num Num="2"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+			<Stage Name="Stage2" AutoStart="0">
+				<StartScpList>
+					<ToolScp Scp="MGAME_SET_TIMEOUT" Client="NO" UseSleep="NO">
+						<Num Num="600"/>
+					</ToolScp>
+				</StartScpList>
+				<ObjList>
+					<Obj Type="Monster" MonType="11120" Pos="1553.87#68.07#351.67" range="150" genCount="2" maxStackCount="10" genTime="10000" objectKey="3" UseAiOutOfPc="1" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;StatType&apos; &apos;13&apos; &apos;EXP_Rate&apos; &apos;100&apos; &apos;JEXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="11160" Pos="1613.50#68.07#266.48" range="150" genCount="2" maxStackCount="10" genTime="10000" objectKey="6" UseAiOutOfPc="1" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;StatType&apos; &apos;13&apos; &apos;EXP_Rate&apos; &apos;100&apos; &apos;JEXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="11125" Pos="1582.58#68.07#362.17" range="150" genCount="5" maxStackCount="10" genTime="20000" objectKey="7" propList="&apos;DropItemList&apos; &apos;None&apos; &apos;Level&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;StatType&apos; &apos;13&apos; &apos;EXP_Rate&apos; &apos;100&apos; &apos;JEXP_Rate&apos; &apos;100&apos; "/>
+					<Obj Type="Monster" MonType="47241" Pos="1462.70#106.72#886.36" genCount="1" genTime="20000" objectKey="1"/>
+					<Obj Type="Monster" MonType="47241" Pos="1459.54#68.07#689.89" genCount="1" genTime="20000" objectKey="2"/>
+					<Obj Type="Monster" MonType="400203" Pos="1708.16#68.07#295.87" angle="180" genCount="1" genTime="20000" objectKey="0" propList="&apos;DropItemList&apos; &apos;boss_whitetree_event&apos; &apos;Level&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;StatType&apos; &apos;20&apos; &apos;EXP_Rate&apos; &apos;300&apos; &apos;JEXP_Rate&apos; &apos;300&apos; &apos;Name&apos; &apos;부베 투사 형&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+					<Obj Type="Monster" MonType="400201" Pos="1666.35#68.07#174.15" angle="125" genCount="1" genTime="20000" objectKey="9" propList="&apos;DropItemList&apos; &apos;boss_whitetree_event&apos; &apos;Level&apos; &apos;@GET_MON_RANK_LV_1&apos; &apos;StatType&apos; &apos;20&apos; &apos;EXP_Rate&apos; &apos;300&apos; &apos;JEXP_Rate&apos; &apos;300&apos; &apos;Name&apos; &apos;부베 투사 동생&apos; ">
+						<SelfAI ActiveMessageMapInBattle="1">
+							<List>
+								<ToolScp Scp="S_AI_ATTACK_NEAR" Client="NO" UseSleep="NO">
+									<Num Num="200"/>
+								</ToolScp>
+							</List>
+						</SelfAI>
+					</Obj>
+				</ObjList>
+				<StageEvents>
+					<Event eventName="Clear">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_PCCNT_OVER" Client="NO" UseSleep="NO">
+								<Num Num="1"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_COND_MONCNT" Client="NO" UseSleep="NO">
+								<MGameObj List="Stage2/0/Stage2/8/Stage2/9"/>
+								<Num Num="0"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_EVT_GIVE_ITEM" Client="NO" UseSleep="NO">
+								<Str Str="Event_SakuraCube_170405/1"/>
+								<Str Str="WhiteTree"/>
+							</ToolScp>
+							<ToolScp Scp="MGAME_EVT_EXEC_DELMON" Client="NO" UseSleep="NO">
+								<MGameObjPtr List="Stage2/3/Stage2/6/Stage2/7"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_CLEAR" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Success"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="TimeOut">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="600"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_DISABLE" Client="NO" UseSleep="NO">
+								<Str Str="Stage2"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_ST_EVT_EXEC_STAGE_START" Client="NO" UseSleep="NO">
+								<Str Str="Fail"/>
+							</ToolScp>
+						</execList>
+					</Event>
+					<Event eventName="Msg">
+						<condList>
+							<ToolScp Scp="GAME_ST_EVT_COND_TIMECHECK" Client="NO" UseSleep="NO">
+								<Num Num="10"/>
+							</ToolScp>
+						</condList>
+						<execList>
+							<ToolScp Scp="MGAME_MSG_ICON" Client="YES" UseSleep="NO">
+								<Str Str="부베 형제를 처치하세요"/>
+								<Str Str="!"/>
+								<Num Num="10"/>
+							</ToolScp>
+							<ToolScp Scp="GAME_EVT_OFF" Client="NO" UseSleep="NO"/>
+						</execList>
+					</Event>
+				</StageEvents>
+			</Stage>
+		</StageList>
+		<EnterList>
+			<ToolScp Scp="MGAME_CHECK_INDUN" Client="NO" UseSleep="YES">
+				<Str Str="WhiteTreesMission"/>
+			</ToolScp>
+		</EnterList>
+	</Game>
+</GameList>
